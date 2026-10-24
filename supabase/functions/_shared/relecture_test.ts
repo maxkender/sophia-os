@@ -8,6 +8,7 @@ import {
   choisirPositions,
   controlesPost,
   couleursCompatibles,
+  estSansCreditApify,
   familleCouleur,
   idMusique,
   jugerPaire,
@@ -508,4 +509,13 @@ Deno.test("écart fort : un paragraphe un peu plus large reste une info, la tail
   // ×1,5 de largeur : écart fort, la largeur part (et la taille, même geste, s'efface).
   const c = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.75, h: 0.18 })]);
   assertEquals(agreger([jugerPaire(2, a, c), jugerPaire(3, a, c)]).map((d) => [d.code, d.niveau]), [["largeur", "remarque"]]);
+});
+
+Deno.test("estSansCreditApify : le 402 de la limite mensuelle, pas un autre échec", () => {
+  const credit = 'Apify 402: {\n  "error": {\n    "type": "not-enough-usage-to-run-paid-actor",\n    "message": "Your remaining usage of $0.048644 this billing cycle isn\'t enough"';
+  assert(estSansCreditApify(credit));
+  assert(estSansCreditApify("lancement Apify : Apify 402: payment required"));
+  assert(!estSansCreditApify("Apify 500: internal error"));
+  assert(!estSansCreditApify("Apify 404: run not found"));
+  assert(!estSansCreditApify("run Apify abc : FAILED"));
 });

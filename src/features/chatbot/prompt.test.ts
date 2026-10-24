@@ -8,8 +8,13 @@ import {
   formaterSnapshotAdmin,
   formaterSnapshotHm,
   formaterSnapshotPoster,
+  ATTENTE_CHAT,
   htmlVersTexte,
+  LANGUES_CHAT,
   langueDepuisProfil,
+  langueDuCompte,
+  PLACEHOLDER_CHAT,
+  SALUTATION_CHAT,
 } from "./prompt";
 
 describe("htmlVersTexte", () => {
@@ -23,6 +28,28 @@ describe("htmlVersTexte", () => {
 
   it("décode les entités courantes", () => {
     expect(htmlVersTexte("A&nbsp;&amp;&nbsp;B")).toBe("A & B");
+  });
+});
+
+describe("langueDuCompte", () => {
+  it("prend la langue du compte, variantes régionales comprises", () => {
+    expect(langueDuCompte("tr")).toBe("tr");
+    expect(langueDuCompte("es-419")).toBe("es");
+    expect(langueDuCompte("pt-BR")).toBe("pt");
+    expect(langueDuCompte("hr")).toBe("hr");
+  });
+
+  it("retombe sur l'anglais, jamais sur le français par défaut du profil", () => {
+    expect(langueDuCompte(null)).toBe("en");
+    expect(langueDuCompte("xx")).toBe("en");
+  });
+
+  it("chaque langue de la bulle a son accueil, son champ et son attente", () => {
+    for (const l of LANGUES_CHAT) {
+      expect(SALUTATION_CHAT[l], l).toBeTruthy();
+      expect(PLACEHOLDER_CHAT[l], l).toBeTruthy();
+      expect(ATTENTE_CHAT[l], l).toBeTruthy();
+    }
   });
 });
 

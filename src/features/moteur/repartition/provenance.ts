@@ -60,13 +60,17 @@ export interface RecruesMarche {
 }
 
 /**
- * En dessous de ce nombre de recrues, un marché ne dit rien de fiable.
+ * En dessous de ce nombre de recrues (sur la fenêtre, 30 jours), un marché ne
+ * dit rien de fiable : c'est un « petit pays », il prend la part de la flotte.
  *
  * 1 sur 1 ferait « 100 % hors moteur » et verrouillerait tout le marché dans
- * la projection, sur la foi d'un seul compte. On retombe alors sur la part de
- * la flotte entière, et la page affiche d'où vient le chiffre.
+ * la projection, sur la foi d'un seul compte. Le seuil était à 5 ; le 24/10,
+ * l'Espagne (3 recrues du site sur 11) projetait 5 recrues du site sur les 20
+ * suivantes, ce qu'Adrien jugeait très au-dessus de la réalité. Décision : les
+ * petits pays prennent le taux de la flotte, et un pays n'est « grand » qu'à
+ * 20 recrues sur 30 jours. La page affiche d'où vient le chiffre.
  */
-export const RECRUES_MINIMUM_MARCHE = 5;
+export const RECRUES_MINIMUM_MARCHE = 20;
 
 export interface PartSite {
   /** Part des recrues que le moteur ne place pas, entre 0 et 1. */

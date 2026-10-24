@@ -188,12 +188,13 @@ export function aspectRatioProche(w: number, h: number): Exclude<FalAspectRatio,
 }
 
 /** Edit Nano Banana Pro — 1..N images de référence (`image_urls`).
- *  Défaut `auto` : même ratio que l’image d’entrée (Figure 1). */
+ *  Défaut `auto` : même ratio que l’image d’entrée (Figure 1).
+ *  `resolution` : 1K par défaut ; 2K pour les mises en scène (texte d'écran net). */
 export async function editerNanoBananaPro(
   imageUrlOrUrls: string | string[],
   prompt: string,
   onProgress?: FalNanoProgress,
-  opts?: { aspectRatio?: string },
+  opts?: { aspectRatio?: string; resolution?: "1K" | "2K" | "4K"; budgetMs?: number },
 ): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const key = falKey();
   if (!key) throw new Error("FAL_KEY manquant");
@@ -218,7 +219,7 @@ export async function editerNanoBananaPro(
       num_images: 1,
       aspect_ratio,
       output_format: "png",
-      resolution: "1K",
+      resolution: opts?.resolution ?? "1K",
       safety_tolerance: "6",
     }),
   });
@@ -228,5 +229,5 @@ export async function editerNanoBananaPro(
     );
   }
   const queued = await submit.json();
-  return attendreResultat(key, QUEUE_EDIT, queued, onProgress);
+  return attendreResultat(key, QUEUE_EDIT, queued, onProgress, opts?.budgetMs);
 }

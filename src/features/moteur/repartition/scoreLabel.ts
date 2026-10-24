@@ -32,7 +32,7 @@ export interface StatLabel {
   passages_restants: number;
   /** Passages consommés par jour par les comptes du label. */
   demande_jour: number;
-  /** Posts publiés sur 28 j avec des vues. */
+  /** Posts publiés sur 15 j avec des vues (0353). */
   passages: number;
   /** Médiane des vues, rapportée à la médiane de sa langue. */
   perf_label: number | null;
@@ -42,6 +42,24 @@ export interface StatLabel {
   recence_langue: number;
   recents_pays: number;
   recence_pays: number;
+  /**
+   * Label 100 % pod (0352) : tous ses contenus validés sont livrés par un pod.
+   * Son stock suit les comptes (le pod produit pour eux) : la réserve ne le
+   * juge pas, il se remplit langue par langue.
+   */
+  pod_seul?: boolean;
+  /** Le pod sert la langue du compte (vrai sans langue). */
+  livre_langue?: boolean;
+  /**
+   * Comptes du label dans sa langue la moins remplie, parmi les AUTRES langues
+   * servies où l'application recrute ; `null` s'il n'y en a aucune.
+   */
+  niveau_pod?: number | null;
+  /**
+   * Comptes du label qui servent l'application affichée (page seulement : le
+   * moteur compte toutes les applications, `comptes_total`).
+   */
+  comptes_app?: number;
 }
 
 export interface FermetureAuto {
@@ -62,9 +80,15 @@ export interface ReglagesChoixLabel {
   reserveCibleJours: number;
   postsParJourNouveau: number;
   partMax: number;
+  /** Part des comptes d'un PAYS au-delà de laquelle un label n'en reçoit plus (0354). */
+  partMaxPays: number;
   rafaleRecents: number;
   /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
+  /** Label 100 % pod en test : comptes au plus, toutes langues confondues (0353). */
+  testPodComptes: number;
+  /** Posts mesurés qu'il lui faut pour sortir du test (à `fermeturePerf` au moins). */
+  testPodPosts: number;
   /** Labels jamais fermés (réouverture manuelle), toutes applications. */
   ouverts: string[];
   /** Labels toujours fermés (fermeture manuelle), toutes applications. */
@@ -82,18 +106,21 @@ export interface ReglagesChoixLabel {
   fermesAuto: Record<string, FermetureAuto>;
 }
 export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.freeze({
-  perfExposant: 2,
+  perfExposant: 3,
   perfLissage: 30,
   perfMin: 0.25,
   perfMax: 4,
   fermeturePerf: 0.75,
   fermetureMinPosts: 150,
-  reserveMinJours: 7,
+  reserveMinJours: 5,
   reserveCibleJours: 14,
   postsParJourNouveau: 2,
   partMax: 0.5,
+  partMaxPays: 0.5,
   rafaleRecents: 2,
   relabelsMaxParNuit: 20,
+  testPodComptes: 3,
+  testPodPosts: 30,
   ouverts: [],
   fermes: [],
   fermesApp: [],
@@ -161,8 +188,11 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     reserveCibleJours: positif(v.reserve_cible_jours, d.reserveCibleJours),
     postsParJourNouveau: positif(v.posts_par_jour_nouveau, d.postsParJourNouveau),
     partMax: Math.min(1, positif(v.part_max, d.partMax)),
+    partMaxPays: Math.min(1, positif(v.part_max_pays, d.partMaxPays)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
+    testPodComptes: Math.max(1, Math.round(positif(v.test_pod_comptes, d.testPodComptes))),
+    testPodPosts: Math.max(1, Math.round(positif(v.test_pod_posts, d.testPodPosts))),
     ouverts: listeIds(v.labels_ouverts),
     fermes: listeIds(v.labels_fermes),
     fermesApp: listeIds(v.labels_fermes_app),
@@ -247,18 +277,87 @@ export function joursApresCompte(
   return s.passages_restants / (s.demande_jour + r.postsParJourNouveau);
 }
 
+/** Label 100 % pod (0352) : la réserve ne le juge pas, il se remplit langue par langue. */
+export function estPodSeul(s: StatLabel): boolean {
+  return s.pod_seul === true;
+}
+
+/**
+ * Label 100 % pod déjà plus présent dans cette langue que dans sa langue la
+ * moins remplie : il attend que les autres rattrapent (1 compte par langue,
+ * puis 2…). Un post livré sert toutes les langues : la charge du pod suit les
+ * comptes PAR LANGUE, remplir en largeur la garde égale.
+ */
+export function enAvanceRemplissage(s: StatLabel): boolean {
+  return estPodSeul(s) && s.niveau_pod !== null && s.niveau_pod !== undefined && s.comptes_langue > s.niveau_pod;
+}
+
+/**
+ * Label 100 % pod encore EN TEST (0353) : il n'a pas `testPodPosts` posts
+ * mesurés, ou sa performance reste sous `fermeturePerf`. Un label tenu
+ * « Ouvert » à la main (pour l'application ou partout) sort du test.
+ *
+ * Au-delà de `testPodComptes` comptes (toutes applications), le test est
+ * passé une fois pour toutes : il n'a pu en avoir plus qu'en sortant du test
+ * (ou par la File, une décision humaine). Le nombre de comptes sert de
+ * mémoire : sans lui, un label validé replongerait « en test », donc bloqué,
+ * dès que ses posts sur 15 jours faiblissent ; et un label servi par deux
+ * applications, validé sur l'une, resterait bloqué sur l'autre où il n'a
+ * aucun post à mesurer.
+ */
+export function enTestPod(s: StatLabel, r: ReglagesChoixLabel, applicationId: string): boolean {
+  if (!estPodSeul(s)) return false;
+  if (s.comptes_total > r.testPodComptes) return false;
+  if (r.ouvertsApp.includes(cleFermeture(applicationId, s.label_id)) || r.ouverts.includes(s.label_id)) return false;
+  const rel = perfRelative(s);
+  return !(s.passages >= r.testPodPosts && rel !== null && rel >= r.fermeturePerf);
+}
+
+/**
+ * Label en test qui a déjà ses `testPodComptes` comptes : il n'en reçoit pas
+ * d'autre tant que le test n'est pas fini. Ce n'est PAS une fermeture : la nuit
+ * ne le retire à personne, il attend ses chiffres.
+ */
+export function testPodPlein(s: StatLabel, r: ReglagesChoixLabel, applicationId: string): boolean {
+  return enTestPod(s, r, applicationId) && s.comptes_total >= r.testPodComptes;
+}
+
+/** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabel,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): number {
+  if (estPodSeul(s)) return 1;
   return Math.min(1, Math.max(CAPACITE_MIN, joursApresCompte(s, r) / r.reserveCibleJours));
 }
 
+/** Passe après les autres : réserve basse, ou, pour un label 100 % pod, en avance de remplissage. */
 export function estSuspendu(
   s: StatLabel,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): boolean {
+  if (estPodSeul(s)) return enAvanceRemplissage(s);
   return joursApresCompte(s, r) < r.reserveMinJours;
+}
+
+/**
+ * Le label tient déjà plus de `partMaxPays` des comptes du PAYS (parmi les
+ * labels candidats) : les mêmes posts tourneraient sur trop de comptes d'un
+ * même marché. Exemple : 4 comptes alpha_male sur 5 en Pologne, le 6e va à un
+ * autre label, même si alpha_male a une bonne réserve et une bonne perf.
+ * Sans pays connu (`nPays` nul), la règle ne joue pas.
+ */
+export function estSaturePays({ comptes_pays }: StatLabel, nPays: number, r: ReglagesChoixLabel): boolean {
+  return nPays > 0 && comptes_pays > r.partMaxPays * nPays + EPS;
+}
+
+/** Passe après TOUS : à sec, ou, pour un label 100 % pod, langue que son pod ne sert pas (compte muet). */
+export function estASec(
+  s: StatLabel,
+  r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
+): boolean {
+  if (estPodSeul(s)) return s.livre_langue === false;
+  return joursApresCompte(s, r) < JOURS_A_SEC;
 }
 
 export function poidsLabel(
@@ -307,6 +406,8 @@ export interface LabelClasse {
   recence: number;
   rafaleLangue: boolean;
   rafalePays: boolean;
+  /** Déjà plus de `partMaxPays` des comptes du pays (0354). */
+  saturePays: boolean;
   suspendu: boolean;
   aSec: boolean;
   /** Jours de contenu restants avec ce compte en plus. */
@@ -328,7 +429,9 @@ function prepare(
   const uniques = new Map<string, StatLabel>();
   for (const s of stats) if (s.label_id && !uniques.has(s.label_id)) uniques.set(s.label_id, s);
   const liste = [...uniques.values()].filter(
-    (s) => opts.ignorerFermeture || !estFerme(s.label_id, opts.applicationId, r, s),
+    (s) =>
+      opts.ignorerFermeture ||
+      (!estFerme(s.label_id, opts.applicationId, r, s) && !testPodPlein(s, r, opts.applicationId)),
   );
   if (liste.length === 0) return [];
 
@@ -349,8 +452,9 @@ function prepare(
     recence: Math.max(s.recence_langue, s.recence_pays),
     rafaleLangue: s.recents_langue >= r.rafaleRecents,
     rafalePays: s.recents_pays >= r.rafaleRecents,
+    saturePays: estSaturePays(s, nPays, r),
     suspendu: estSuspendu(s, r),
-    aSec: joursApresCompte(s, r) < JOURS_A_SEC,
+    aSec: estASec(s, r),
     jours: joursApresCompte(s, r),
     perf: perfRelative(s),
   }));
@@ -372,6 +476,11 @@ export function classerLabels(
   const regles: Array<(c: LabelClasse) => boolean> = [
     (c) => c.aSec,
     (c) => c.rafaleLangue,
+    // L'ÉLÉMENT CENTRAL (0354) : un label qui tient déjà plus de la moitié d'un
+    // pays n'y reçoit plus de compte, quels que soient sa réserve et sa perf.
+    // Seuls « à sec » et l'anti-rafale de la langue (2 des 3 derniers comptes,
+    // la répétition la plus fraîche) passent avant.
+    (c) => c.saturePays,
     (c) => c.rafalePays,
     (c) => c.suspendu,
   ];

@@ -7,10 +7,20 @@
   "accroche": "5 Ways To Be Unrecognisable In 6 Months"
  },
  "titre": {
-  "en": "5 Ways To Be Unrecognisable In 6 Months"
+  "en": "5 Ways To Be Unrecognisable In 6 Months",
+  "es": "5 formas de ser irreconocible en 6 meses",
+  "de": "5 Wege, in 6 Monaten nicht wiederzuerkennen",
+  "it": "5 modi per essere irriconoscibile in 6 mesi",
+  "pt": "5 formas de ficar irreconhecível em 6 meses",
+  "fr": "5 façons d'être méconnaissable dans 6 mois"
  },
  "legendes": {
-  "en": "5 Ways To Be Unrecognisable In 6 Months #selfimprovement #learnontiktok #selfmastery"
+  "en": "5 Ways To Be Unrecognisable In 6 Months #selfimprovement #learnontiktok #selfmastery",
+  "es": "5 formas de ser irreconocible en 6 meses #desarrollopersonal #aprendeentiktok #superacionpersonal",
+  "de": "5 Wege, in 6 Monaten nicht wiederzuerkennen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "5 modi per essere irriconoscibile in 6 mesi #crescitapersonale #imparacontiktok #miglioramentopersonale",
+  "pt": "5 formas de ficar irreconhecível em 6 meses #desenvolvimentopessoal #aprendanotiktok #autoconhecimento",
+  "fr": "5 façons d'être méconnaissable dans 6 mois #developpementpersonnel #apprendresurtiktok #culturegenerale"
  },
  "musique": {
   "titre": "lol",
@@ -40,6 +50,106 @@
      ],
      "IN 6 MONTHS"
     ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE SER"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONOCIBLE",
+       "bronze": true
+      }
+     ],
+     "EN 6 MESES"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE, IN"
+      }
+     ],
+     "6 MONATEN",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "MODI PER ESSERE"
+      }
+     ],
+     [
+      {
+       "t": "IRRICONOSCIBILE",
+       "bronze": true
+      }
+     ],
+     "IN 6 MESI"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 6 MESES"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FAÇONS D'ÊTRE"
+      }
+     ],
+     [
+      {
+       "t": "MÉCONNAISSABLE",
+       "bronze": true
+      }
+     ],
+     "DANS 6 MOIS"
+    ]
    }
   },
   {
@@ -55,6 +165,71 @@
      "texte": [
       "keep Instagram, lose the Reels.",
       "no need to delete anything."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "DEJA LOS",
+     "VÍDEOS CORTOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "quédate con Instagram, sin los Reels.",
+      "sin borrar nada."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "HÖR AUF MIT",
+     "KURZVIDEOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "behalte Instagram, ohne die Reels.",
+      "du musst nichts löschen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SMETTI CON I",
+     "VIDEO BREVI"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "tieni Instagram, senza i Reels.",
+      "non serve cancellare niente."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "LARGUE OS",
+     "VÍDEOS CURTOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "fique com o Instagram, sem os Reels.",
+      "sem precisar apagar nada."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "ARRÊTE LES",
+     "VIDÉOS COURTES"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "garde Instagram, perds les Reels.",
+      "pas besoin de supprimer quoi que ce soit."
      ]
     }
    }
@@ -75,6 +250,81 @@
      "duree": "10:50",
      "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "LEE TODOS",
+     "LOS DÍAS"
+    ],
+    "video": {
+     "id": "vQ3O8vzsXeg",
+     "titre": "Cómo crear el hábito de la lectura? Utiliza el poder de los libros",
+     "chaine": "Adrià Solà Pastor",
+     "vues": "310 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "15:12",
+     "avatar": "https://yt3.ggpht.com/teuevM7HuT6ap1FW50v80NmmwmuNJhyKiWhznSEmFleIqPES39v7MksSKi4sLDPTn2C0u87D_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES JEDEN",
+     "TAG"
+    ],
+    "video": {
+     "id": "EfS78hMoMPs",
+     "titre": "So kannst du MEHR BÜCHER lesen | 8 Tipps für eine Leseroutine im Alltag",
+     "chaine": "Julezreads",
+     "vues": "28.835 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/i6Y81344WPIIaMXwxOTqeMsX7fGXoK8lZiCRd4V9tbA55hx47j8rK_wzeDaXrjrRLxqK6gUsGA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LEGGI OGNI",
+     "GIORNO"
+    ],
+    "video": {
+     "id": "1h4-zejTsho",
+     "titre": "12 Consigli per leggere di più e iniziare a farlo",
+     "chaine": "Abbozzo",
+     "vues": "93K visualizzazioni",
+     "date": "9 mesi fa",
+     "duree": "29:51",
+     "avatar": "https://yt3.ggpht.com/7jo4PSHKPM-pUUOZgUanEPZKdxt4ULFAkQHAjlLacYKo5U_BsmO68WIdzRzoCW6GkUU15Gquew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LEIA TODOS",
+     "OS DIAS"
+    ],
+    "video": {
+     "id": "HWXv4kpq2iA",
+     "titre": "3 Métodos Comprovados Para Conseguir LER UM LIVRO POR SEMANA | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "94 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LIS TOUS",
+     "LES JOURS"
+    ],
+    "video": {
+     "id": "TvQ9AbWVuTU",
+     "titre": "LA LECTURE TRANSFORME VOTRE CERVEAU",
+     "chaine": "Charlie Haid",
+     "vues": "1,5 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "12:30",
+     "avatar": "https://yt3.ggpht.com/pLqbD1B1VFBfarRFjXGmlZ0VlgM41NtuDNGzHn-pE_AdjygM-4_7R6VmKSYEz94igVhw3Kv96I8=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -90,6 +340,71 @@
      "texte": [
       "learn something new every day,",
       "in 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "TEMAS NUEVOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE NEUE",
+     "THEMEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "COSE NUOVE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDA",
+     "TEMAS NOVOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS DE",
+     "NOUVEAUX SUJETS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
      ]
     }
    }
@@ -110,6 +425,81 @@
      "duree": "6:30",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "EMPIEZA",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "gImHug3sGKI",
+     "titre": "CÓMO EMPEZAR a CORRER sin cansarte | 7 consejos para principiantes",
+     "chaine": "The Saiyan Kiwi",
+     "vues": "1,9 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "17:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU LAUFEN"
+    ],
+    "video": {
+     "id": "nADPAWIm6iw",
+     "titre": "Joggen: 12 gängige (und vermeidbare) Anfängerfehler beim Laufen 🏃🏽‍♂️",
+     "chaine": "FIT FOR FUN",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4JktUjD11B_nLVNKGdsHPqAxmJjCpAd3ZSR4CAX41MA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "INIZIA",
+     "A CORRERE"
+    ],
+    "video": {
+     "id": "LLL8Q_izTP8",
+     "titre": "Come INIZIARE A CORRERE - Tutto quello che devi sapere",
+     "chaine": "Your Personal Best",
+     "vues": "89K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/fIGTMynqyV9apkB6Hgq6tLgYe5UOLYZbZqZMK46dw7FAEDEAyVlrEdpRLnzTmjLqiTsKskPG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMECE",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "rRK6yk6vO5A",
+     "titre": "CORRIDA para INICIANTES! Como começar a correr do zero?",
+     "chaine": "Raquel Castanharo",
+     "vues": "628 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/t8V2iniXXtl4uZbw3KxKW5KvHUtfk4B9aoXWsMPZgSazxM8nx4H8HlqP-VB16npi2gMDCylBo70=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENCE",
+     "À COURIR"
+    ],
+    "video": {
+     "id": "Xu36I2rEcQw",
+     "titre": "Comment débuter la course à pied : 5 conseils pour commencer à courir et aimer ça !",
+     "chaine": "Running Addict",
+     "vues": "525 k vues",
+     "date": "il y a 8 ans",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/zxJqY61mhOVZk3Mcs4T-hHPbO0KZm3GaOsH4sIAn0TVIYJa35a_pV-Oj1rX1DK_NPzonnvq70Q=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -127,6 +517,81 @@
      "date": "3 years ago",
      "duree": "4:38",
      "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ARREGLA TU",
+     "SUEÑO"
+    ],
+    "video": {
+     "id": "riUvX9CqEf4",
+     "titre": "Tips para cambiar el reloj biológico: Cómo pasar de nocturno a diurno - A las Tres",
+     "chaine": "NMás",
+     "vues": "57 K visualizaciones",
+     "date": "hace 7 años",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/kA_x-j3dIDq8_JLXM9-J3KCVNPe55QdriYeSDqI1chZ_4uoafOzRk1oImfbf90svo6ID8P0Xsg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "REPARIER",
+     "DEINEN SCHLAF"
+    ],
+    "video": {
+     "id": "jF8ZmYem42o",
+     "titre": "Kaputten Schlafrhythmus schnell anpassen | 2 Lösungen 2024",
+     "chaine": "Schlafonaut",
+     "vues": "44.850 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLOKvpKC8oYRzzQabB3Ag4975s-CgojmRBjNfwdf4b4A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SVEGLIATI",
+     "PRESTO"
+    ],
+    "video": {
+     "id": "b0Ws2iZfNEI",
+     "titre": "Come alzarsi presto la mattina?",
+     "chaine": "Marco Montemagno",
+     "vues": "395K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ARRUME O",
+     "SEU SONO"
+    ],
+    "video": {
+     "id": "Lh31PConNDw",
+     "titre": "AJEITE SEU CICLO DO SONO DE UMA VEZ POR TODAS",
+     "chaine": "Eurekka",
+     "vues": "149 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/-OGsuHW-7cVvYgKV_QrtCCi4P9ChZDldJxt4yxjhypdeQ8yGfdv1OAn8eAPAae_6IMFYZl9TEes=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RÉPARE TON",
+     "SOMMEIL"
+    ],
+    "video": {
+     "id": "0Vhj-cfgFSw",
+     "titre": "Comment avoir un BON sommeil ? Faut que je t'explique avec @drjimmymohamed | Lumni",
+     "chaine": "Lumni",
+     "vues": "41 k vues",
+     "date": "il y a 2 ans",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/lc0DuveB7cxz3dOeBHx9XCJXq5osqhGEZMy1IxC7kN9TD5YB9JRPlAhazyH25jL3k5iCmROW=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

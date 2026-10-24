@@ -43,6 +43,7 @@ Les podz :
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; UnSwipe en carte dans les decks) |
+| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo et UnSwipe, pas Sophia ; anglais, l'OS place l'appli) |
 
 ## Règles absolues
 
@@ -80,9 +81,15 @@ Les podz :
       tout seul (`pods/ROUTINE.md`). Vérifie qu'elles sont en route : une
       livraison dont les `notes` disent « variante de … ». Sinon, envoie la
       demande à la session du podz (voir plus bas).
-   2. **Un podz qui marche** : au moins 1 passage mûr sur 7 à 10 k vues ou
-      plus, sur 20 passages mûrs au moins → **une livraison de plus par jour**
-      dans `pods/rythme.json` (3 au plus). Dis-le dans le point.
+   2. **Le stock de chaque compte** : aucun compte ne doit reposter un post
+      qu'il a déjà fait faute de neuf (les relances voulues par les tiers,
+      `est_rappel`, ne comptent pas). Pour chaque label nourri par un podz,
+      regarde le compte le plus juste : combien de posts du label, dans sa
+      langue, il n'a jamais publiés, et dans combien de jours il tombe à
+      court à son rythme de publication. Sous 7 jours → **une livraison de
+      plus par jour** dans `pods/rythme.json` pour le podz qui nourrit ce
+      label. Les labels nourris uniquement par les podz passent en premier.
+      Dis-le dans le point, avec le compte et ses jours de stock.
    3. **Un podz qui ne perce pas** : aucun passage à 10 k vues ou plus en
       14 jours, avec 20 passages mûrs au moins → **signale-le** dans le point.
       Tu ne le mets en pause que si Adrien ou Max te le demandent par écrit.
@@ -90,8 +97,15 @@ Les podz :
       marcher chez un autre, ou un format repéré par une veille → **envoie-la
       à la session du podz** qui la ferait, pour son prochain essai (la
       livraison dont le numéro finit par 0 ou 5). Dis-le dans le point.
-   5. **Runway sous 3 jours** pour un podz qui marche : signale-le. Sous
-      7 jours, une livraison de plus par jour (règle 2, même plafond).
+   5. **Le rythme ne baisse jamais.** `par_jour` ne descend pas, même quand
+      le stock est large ou qu'un podz ne perce pas. Seule une pause demandée
+      par écrit par Adrien ou Max l'arrête. Plafond : 3 livraisons par jour,
+      sauf exception décidée par Adrien et notée dans `pods/rythme.json`
+      (champ `motif`). Un label au plafond dont un compte tombe quand même à
+      court : signale-le dans le point.
+   6. **Un podz qui marche** : au moins 1 passage mûr sur 7 à 10 k vues ou
+      plus, sur 20 passages mûrs au moins → une livraison de plus par jour,
+      même si son stock est large (même plafond). Dis-le dans le point.
 3. **Poste le point** dans #podz, au format ci-dessous. Un point par jour,
    même calme.
 
@@ -101,12 +115,24 @@ Les podz :
 • En attente : <n> livraisons, validées toutes seules vers <heure> → https://sophia-marketing-orga.vercel.app/admin/pods (rejetez celles dont vous ne voulez pas).
 • Ce qui perce : « <accroche> » (<podz>), <vues> vues → 3 variantes en route.
 • Par podz : <nom> · <vues médianes> · <% ≥ 10 k> · runway <j> j (une ligne par podz actif, 8 au plus).
+• Stock : <podz> · compte le plus juste <compte> (<langue>), <j> j de posts neufs (une ligne par label sous 7 jours).
+• Reposts faute de neuf hier : <n> (<podz> : <comptes>). Objectif : 0.
+• Boucle : <x> % des livraisons des 7 derniers jours sont des variantes ; <n> schémas jamais faits livrés sur la semaine (<podz> : <n>, …).
+• CTA : <podz> · cta A <vues médianes> · cta B <vues médianes> (sur passages mûrs, dès 10 par version).
 • Rythme : <podz> passe à <n> livraisons par jour (<raison chiffrée>).
 • Essai envoyé : <idée> → <podz>.
 • À surveiller : <podz> ne perce pas depuis 14 jours (répondez « pause » dans ce fil pour l'arrêter).
 ```
 
-Moins de 15 lignes. Une ligne sans objet ce jour-là : ne l'écris pas.
+Moins de 18 lignes. Une ligne sans objet ce jour-là : ne l'écris pas.
+
+Pour la ligne « Boucle » : une variante est une livraison dont les `notes`
+disent « variante de … » (ou un `source_id` en `var-…`) ; un schéma jamais
+fait est une accroche dont le début ne ressemble à aucune livraison
+précédente du podz. Pour la ligne « CTA » : compare les vues médianes des
+passages mûrs par version (`cta A`, `cta B`…) notée dans la livraison. Une
+version nettement sous les autres sur 20 passages mûrs → dis-le au podz
+(`send_message`) pour qu'il la remplace.
 
 ## Le passage de l'après-midi
 

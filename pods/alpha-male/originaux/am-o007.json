@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o007",
+ "schema_id": "man-to-man",
+ "titre": "Man to man, this is how you move on properly (part 2) #men #breakup #selfimprovement #discipline #mindset",
+ "musique_titre": "Why I do em Like that (feat. Billie Essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "7f1ed494-8b7c-4f74-ad06-2e7fbfd11f2b",
+  "a3f52054-09b8-4715-9822-76dd588f7660"
+ ],
+ "notes": "Schéma man-to-man (r 10,21 sur 4 passages, 7f1ed494 ; r 2,87, a3f52054). Accroches écrites : « Man to Man / This is how you move on / properly (Part 2) » (retenue : l'accroche exacte du gagnant, « part 2 » donne la suite), « Man to man: your first 30 days after a breakup » (écartée : plus loin des gagnants), « Man to man: how to let her go » (écartée : centrée sur elle, pas sur lui). Format de 7f1ed494 : une étape en titre, puis des lignes courtes, ferme mais bienveillant. Six étapes neuves (vérifié dans donnees/label.json) ; écartées car déjà dans les sources : couper le contact, ne pas relire, se mettre au sport, être seul, la routine, ne pas chercher de réponse, et « bouger les meubles » (déjà dans le label). Garde-fous : aucun conseil médical, juste « one friend you trust » ; jamais de mépris envers l'ex. Sophia sur la dernière étape (un apprentissage à soi). Images : la banque du label, sans visage reconnaissable (écartée : l'image du bain avec deux visages et le filigrane SELFSCULPT) ; slide Sophia sur un salon sans personne. reference_url toutes vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "817acfd5",
+   "texte_overlay": "Man to Man\nThis is how you move on\nproperly (Part 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4d66745c",
+   "texte_overlay": "1. Tell one person the truth\nNot the whole group chat.\nOne friend you trust.\nSaying it out loud\ntakes some of its weight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a937509",
+   "texte_overlay": "2. Return what's theirs, once\nOne box. One handoff.\nNo \"I still have your hoodie\"\nexcuses to see them again.\nClean endings make\nclean starts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "be416914",
+   "texte_overlay": "3. Take back your evenings\nThe hours you used to\nspend together are the hardest.\nFill them on purpose:\na class, the gym, a friend.\nEmpty evenings are where\nold thoughts live.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b3cfa9cb",
+   "texte_overlay": "4. Don't trash them\nNot online.\nNot to mutual friends.\nHow you end something\nshows who you really are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5244f8d1",
+   "texte_overlay": "5. Say yes to plans\nThe dinner you'd normally skip.\nThe trip with the boys.\nLife shows up when\nyou leave the house.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "021a527d",
+   "texte_overlay": "6. Start something\nthat's only yours\nA new skill. A new subject.\nLearn one new thing every day.\nGrow something that has\nnothing to do with the past.",
+   "texte_sophia": "6. Start something\nthat's only yours\nA new skill. A new subject.\nLearn something new every day\nwith a micro-learning app\nlike the Sophia app.\n5 minutes, just for you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/5.jpg"
+  }
+ ]
+}

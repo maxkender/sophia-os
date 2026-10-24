@@ -1,6 +1,6 @@
 // Usage :
 //   npm run youtube -- "how to start running" [--langue en] [--n 12]
-//   npm run youtube -- --id kVnyY17VS9Y [--langue en]
+//   npm run youtube -- --id kVnyY17VS9Y [--langue en] [--recherche "titre de la vidéo"]
 //
 // Les VRAIES vidéos d'une étape : la recherche liste les résultats de YouTube
 // (vues, date, durée, chaîne) ; `--id` relève les chiffres exacts d'une vidéo
@@ -16,7 +16,7 @@ const langue = opt("--langue") ?? "en";
 const id = opt("--id");
 
 if (id) {
-  const v = await details(id, langue);
+  const v = await details(id, langue, opt("--recherche"));
   console.log(`${v.titre} · ${v.chaine} · ${v.vues_exactes?.toLocaleString("fr-FR") ?? "?"} vues exactes · ${v.date} · ${v.duree}`);
   console.log(`miniature : https://i.ytimg.com/vi/${id}/maxresdefault.jpg`);
   const { vues_exactes: _v, ...video } = v;

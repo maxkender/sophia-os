@@ -65,6 +65,13 @@ describe("copie Deno", () => {
     ["facteurPerformance", "export function facteurPerformance("],
     ["joursApresCompte", "export function joursApresCompte("],
     ["capacite", "export function capacite("],
+    ["estPodSeul", "export function estPodSeul("],
+    ["enAvanceRemplissage", "export function enAvanceRemplissage("],
+    ["estSuspendu", "export function estSuspendu("],
+    ["estASec", "export function estASec("],
+    ["estSaturePays", "export function estSaturePays("],
+    ["enTestPod", "export function enTestPod("],
+    ["testPodPlein", "export function testPodPlein("],
     ["poidsLabel", "export function poidsLabel("],
     ["perfRelative", "export function perfRelative("],
     ["doitFermer", "export function doitFermer("],
@@ -95,7 +102,7 @@ describe("copie Deno", () => {
 describe("lecture du réglage", () => {
   it("une valeur absente retombe sur le défaut", () => {
     expect(lireReglagesChoixLabel(null)).toEqual(REGLAGES_CHOIX_LABEL_DEFAUT);
-    expect(lireReglagesChoixLabel({ perf_exposant: 0 }).perfExposant).toBe(2);
+    expect(lireReglagesChoixLabel({ perf_exposant: 0 }).perfExposant).toBe(3);
   });
 
   it("une fermeture automatique est lue avec sa date et ses chiffres", () => {
@@ -273,5 +280,32 @@ describe("règle proposée", () => {
       opts,
     )[0].score;
     expect(apres).toBeLessThan(avant / 2);
+  });
+});
+
+describe("label 100 % pod (0352)", () => {
+  const pleins = [
+    stat({ label_id: "alpha_male", comptes_langue: 3, passages_restants: 1535, demande_jour: 44, perf_label: 0.89 }),
+    stat({ label_id: "smart_girl", comptes_langue: 5, passages_restants: 944, demande_jour: 102 }),
+  ];
+  const pod = { label_id: "fathomly", passages_restants: 8, demande_jour: 0, passages: 0, perf_label: null, pod_seul: true, livre_langue: true, niveau_pod: 0 };
+
+  it("sans compte dans la langue, il sort malgré 8 passages de stock", () => {
+    expect(capacite(stat(pod))).toBe(1);
+    expect(classerLabels([...pleins, stat(pod)], REGLAGES_CHOIX_LABEL_DEFAUT, { applicationId: APP })[0].label_id).toBe("fathomly");
+  });
+
+  it("en test avec ses 3 comptes, il n'en reçoit plus ; « Ouvert » le libère", () => {
+    const plein = stat({ ...pod, comptes_total: 3 });
+    expect(classerLabels([...pleins, plein], REGLAGES_CHOIX_LABEL_DEFAUT, { applicationId: APP }).map((c) => c.label_id)).not.toContain("fathomly");
+    const ouvert = { ...REGLAGES_CHOIX_LABEL_DEFAUT, ouvertsApp: [`${APP}:fathomly`] };
+    expect(classerLabels([...pleins, plein], ouvert, { applicationId: APP })[0].label_id).toBe("fathomly");
+  });
+
+  it("en avance dans la langue, il attend ; langue non servie, il passe en dernier", () => {
+    const enAvance = classerLabels([...pleins, stat({ ...pod, comptes_langue: 1 })], REGLAGES_CHOIX_LABEL_DEFAUT, { applicationId: APP });
+    expect(enAvance.at(-1)).toMatchObject({ label_id: "fathomly", suspendu: true });
+    const muet = classerLabels([...pleins, stat({ ...pod, livre_langue: false })], REGLAGES_CHOIX_LABEL_DEFAUT, { applicationId: APP });
+    expect(muet.at(-1)).toMatchObject({ label_id: "fathomly", aSec: true });
   });
 });

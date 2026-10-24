@@ -8,10 +8,22 @@
   "titre": "the perfect AFTER SCHOOL ROUTINE for a peaceful life"
  },
  "titre": {
-  "fr": "la parfaite routine après les cours pour une vie sereine"
+  "fr": "la parfaite routine après les cours pour une vie sereine",
+  "de": "die perfekte After-School-Routine für ein entspanntes Leben",
+  "tr": "huzurlu bir hayat için mükemmel okul sonrası rutini",
+  "en": "the perfect after school routine for a peaceful life",
+  "es": "la rutina perfecta después de clase para una vida tranquila",
+  "it": "la routine perfetta dopo la scuola per una vita serena",
+  "pt": "a rotina perfeita depois da escola para uma vida tranquila"
  },
  "legendes": {
-  "fr": "ma routine du soir, sans stress 🌙 #routine #apreslescours #studytok #thatgirl #revisions"
+  "fr": "ma routine du soir, sans stress 🌙 #routine #apreslescours #studytok #thatgirl #revisions",
+  "de": "meine Routine nach der Schule, ohne Stress 🌙 #routine #nachderschule #studytok #thatgirl #lernen",
+  "tr": "stressiz okul sonrası rutinim 🌙 #rutin #okulsonrası #studytok #thatgirl #ders",
+  "en": "my after school routine, no stress 🌙 #routine #afterschool #studytok #thatgirl #studying",
+  "es": "mi rutina después de clase, sin estrés 🌙 #rutina #despuesdeclase #studytok #thatgirl #estudiar",
+  "it": "la mia routine dopo la scuola, senza stress 🌙 #routine #dopolascuola #studytok #thatgirl #studiare",
+  "pt": "minha rotina depois da escola, sem estresse 🌙 #rotina #depoisdaescola #studytok #thatgirl #estudos"
  },
  "musique": {
   "titre": "original sound",
@@ -42,6 +54,96 @@
      "y": 757,
      "texte_bas": "pour une vie sereine🌙"
     }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "die perfekte",
+     "lignes": [
+      "ROUTINE",
+      "NACH DER",
+      "SCHULE"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "für ein entspanntes Leben🌙"
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mükemmel",
+     "lignes": [
+      "OKUL",
+      "SONRASI",
+      "RUTİNİ"
+     ],
+     "taille": 170,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "huzurlu bir hayat için🌙"
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "the perfect",
+     "lignes": [
+      "AFTER",
+      "SCHOOL",
+      "ROUTINE"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "for a peaceful life🌙"
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la rutina perfecta",
+     "lignes": [
+      "DESPUÉS",
+      "DE",
+      "CLASE"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "para una vida tranquila🌙"
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la routine perfetta",
+     "lignes": [
+      "DOPO",
+      "LA",
+      "SCUOLA"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "per una vita serena🌙"
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a rotina perfeita",
+     "lignes": [
+      "DEPOIS",
+      "DA",
+      "ESCOLA"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "para uma vida tranquila🌙"
+    }
    }
   },
   {
@@ -58,6 +160,72 @@
     "legende": {
      "lignes": [
       "prends un goûter🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach dir einen Snack🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bir şeyler atıştır🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "make a snack🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "merienda🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "fai merenda🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "faça um lanchinho🍫"
      ],
      "x": 430,
      "y": 437,
@@ -86,6 +254,72 @@
      "taille": 52,
      "couleur": "brun"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "und ein warmes Getränk☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bir de sıcak bir içecek☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "and a warm drink☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "y una bebida caliente☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "e una bevanda calda☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "e uma bebida quente☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -108,78 +342,306 @@
      "taille": 46,
      "couleur": "brun"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "zieh was Gemütliches an🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "rahat bir şeyler giy🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "change into comfy clothes🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ponte ropa cómoda🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "mettiti comoda🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "coloque uma roupa confortável🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
    }
   },
   {
    "type": "photo",
    "app": true,
    "photo": {
-    "media_id": "3e21a801-8213-4f4b-a478-4fc3d314666a",
-    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/61457f9e-f332-4b16-9778-cec7e1868d14/4.jpg?v=1790607875766",
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
     "cadrage": {
-     "x": 0.3,
-     "y": 1.0,
-     "zoom": 1.5
-    },
-    "ecrans": [
-     {
-      "coins": [
-       [
-        305,
-        1290
-       ],
-       [
-        959,
-        1276
-       ],
-       [
-        961,
-        1691
-       ],
-       [
-        313,
-        1715
-       ]
-      ],
-      "capture": "assets/micabo/fr/site.jpg",
-      "gabarit": "plein",
-      "lumiere": 0.95,
-      "devant": 256
-     },
-     {
-      "coins": [
-       [
-        227,
-        2134
-       ],
-       [
-        985,
-        2080
-       ],
-       [
-        1117,
-        2477
-       ],
-       [
-        128,
-        2565
-       ]
-      ],
-      "capture": "assets/micabo/fr/parcours.jpg",
-      "gabarit": "ipad-paysage",
-      "lumiere": 0.97
-     }
-    ]
+     "x": 0.45,
+     "y": 0.5
+    }
    },
    "fr": {
     "legende": {
      "lignes": [
-      "temps d’étude, 2 h par jour📚"
+      "temps d’étude📚"
+     ],
+     "sous": [
+      "vise 2 h par jour⏰"
      ],
      "x": 540,
-     "y": 1840,
-     "taille": 56,
+     "y": 190,
+     "taille": 60,
      "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Lernzeit📚"
+     ],
+     "sous": [
+      "mindestens 2 Std. am Tag⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "ders saati📚"
+     ],
+     "sous": [
+      "günde en az 2 saat⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "study time📚"
+     ],
+     "sous": [
+      "aim for 2 hours a day⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "hora de estudiar📚"
+     ],
+     "sous": [
+      "apunta a 2 h al día⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "ora di studio📚"
+     ],
+     "sous": [
+      "punta a 2 ore al giorno⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "hora de estudar📚"
+     ],
+     "sous": [
+      "tente 2 horas por dia⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
     }
    }
   },
@@ -197,6 +659,72 @@
     "legende": {
      "lignes": [
       "range vite ta chambre et ton bureau🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "räum kurz Zimmer und Schreibtisch auf🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "odanı ve masanı hızlıca topla🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "quickly tidy your room and desk🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "recoge tu cuarto y tu escritorio🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "sistema camera e scrivania🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "arrume o quarto e a mesa🖥️"
      ],
      "x": 470,
      "y": 554,
@@ -226,6 +754,72 @@
      "taille": 56,
      "couleur": "brun"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Abendessen🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "akşam yemeği🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "dinner🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "cena🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "cena🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "jantar🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -242,6 +836,72 @@
     "legende": {
      "lignes": [
       "détends-toi🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "entspann dich🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "rahatla🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "unwind🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "relájate🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "rilassati🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "relaxe🍵"
      ],
      "x": 640,
      "y": 1059,
@@ -270,6 +930,72 @@
      "taille": 54,
      "couleur": "jaune"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Dusche und Skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "duş ve cilt bakımı🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "shower and skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ducha y skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "doccia e skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "banho e skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
    }
   },
   {
@@ -286,6 +1012,72 @@
     "legende": {
      "lignes": [
       "prépare ta journée de demain📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "plan schon den nächsten Tag📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yarını şimdiden planla📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "plan tomorrow📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "prepara el día de mañana📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "prepara la giornata di domani📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "prepare o dia de amanhã📝"
      ],
      "x": 560,
      "y": 1180,
@@ -314,6 +1106,72 @@
      "taille": 52,
      "couleur": "jaune"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lies vor dem Schlafen📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "uyumadan önce kitap oku📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "read before bed📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lee antes de dormir📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "leggi prima di dormire📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "leia antes de dormir📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
    }
   },
   {
@@ -322,7 +1180,7 @@
     "media_id": "1262dd30-9b6e-4427-9f22-c62bdd757b57",
     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8f9fe944-f80f-49f5-ad03-8f5450c1eae8/7.jpg?v=1790678721667",
     "cadrage": {
-     "x": 1.0,
+     "x": 1,
      "y": 0.5,
      "zoom": 1.18
     }
@@ -337,8 +1195,83 @@
      "taille": 58,
      "couleur": "jaune"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "gute Nacht!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "iyi geceler!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "good night!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "¡buenas noches!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "buonanotte!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "boa noite!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
    }
   }
  ],
- "notes": "slide « study time » : le site micabo.app sur le Mac et le parcours sur l'iPad (demande d'Adrien, 23/10). Skincare regroupée avec la douche (aucune photo de soins sans marque), slide 10 : préparer sa journée."
+ "notes": "slide « temps d'étude » : la mise en scène validée a83da81b de l'OS (iPhone en main, parcours micabo), 24/10. Skincare regroupée avec la douche, slide 10 : préparer sa journée.",
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0"
+ ]
 }

@@ -1,0 +1,27 @@
+{
+  "name": "pod-clean-study",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pod 12 — originaux clean_study : slideshows originaux en anglais (la fille qui étudie bien : méthodes, année scolaire, motivation, focus), écrits seulement à partir de ce qui a marché chez nous (preuve exigée par l'OS), traduits par l'OS, avec micabo ou UnSwipe placé à l'assignation selon le compte.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "suivi": "NODE_USE_ENV_PROXY=1 node atelier/cli-suivi.ts",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "preuve": "NODE_USE_ENV_PROXY=1 node atelier/cli-preuve.ts",
+    "playbook": "NODE_USE_ENV_PROXY=1 node atelier/cli-playbook.ts",
+    "label": "NODE_USE_ENV_PROXY=1 node atelier/cli-label.ts",
+    "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
+    "top-posts": "NODE_USE_ENV_PROXY=1 node atelier/cli-top-posts.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",
+    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts"
+  }
+}

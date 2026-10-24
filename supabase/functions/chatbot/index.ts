@@ -63,6 +63,17 @@ const LANGUES_CHAT = [
   "ro",
   "sv",
   "tr",
+  "hr",
+  "sl",
+  "sr",
+  "bg",
+  "ru",
+  "sk",
+  "et",
+  "no",
+  "fi",
+  "ar",
+  "he",
 ] as const;
 
 const NOM_LANGUE: Record<string, string> = {
@@ -80,6 +91,17 @@ const NOM_LANGUE: Record<string, string> = {
   ro: "română",
   sv: "svenska",
   tr: "Türkçe",
+  hr: "hrvatski",
+  sl: "slovenščina",
+  sr: "srpski",
+  bg: "български",
+  ru: "русский",
+  sk: "slovenčina",
+  et: "eesti",
+  no: "norsk",
+  fi: "suomi",
+  ar: "العربية",
+  he: "עברית",
 };
 
 interface DocumentLigne {
@@ -131,6 +153,12 @@ function langueDepuisProfil(langues: string[] | null | undefined, repli = "fr"):
   if (trouve) return trouve;
   const r = repli.toLowerCase().slice(0, 2);
   return (LANGUES_CHAT as readonly string[]).includes(r) ? r : "fr";
+}
+
+/** Poster : la langue de son compte (voir `langueDuCompte` côté front), sinon l'anglais. */
+function langueDuCompte(langue: string | null | undefined): string {
+  const code = (langue ?? "").toLowerCase().slice(0, 2);
+  return (LANGUES_CHAT as readonly string[]).includes(code) ? code : "en";
 }
 
 function jourParis(offset = 0): string {
@@ -447,6 +475,11 @@ async function snapshotPoster(
     .from("comptes")
     .select("id, handle_tiktok, persona_nom, langue, posts_par_jour, warmup_started_at, warmup_ends_at")
     .eq("poster_id", userId)
+    // Un poster peut avoir deux comptes : sans limite, maybeSingle échouait et
+    // la bulle ne savait plus rien de lui (ni sa situation, ni sa langue).
+    .order("is_active", { ascending: false })
+    .order("created_at", { ascending: true })
+    .limit(1)
     .maybeSingle();
 
   const nom = [profil?.prenom, profil?.nom].filter(Boolean).join(" ") || profil?.email || "créateur";
@@ -690,7 +723,8 @@ Deno.serve(async (request) => {
       compteLangue = snap.compteLangue;
     }
 
-    const locale = langueDepuisProfil(langues, repliUi);
+    // Un poster : la langue de son compte. Son profil dit « fr » par défaut.
+    const locale = role === "poster" ? langueDuCompte(compteLangue) : langueDepuisProfil(langues, repliUi);
     const userId = acces.userId === "cron" ? null : acces.userId;
 
     // FAQ automatique (docs/faq-automatique.md). En actif, le cerveau répond et

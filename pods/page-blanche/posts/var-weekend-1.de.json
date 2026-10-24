@@ -1,0 +1,249 @@
+{
+ "post_id": "var-weekend-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "top 5 wege, jeden einzelnen morgen zu ruinieren"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(harte wahrheit) aus erfahrung"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "drück [[6-mal hintereinander]] snooze"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[noch 5 minuten]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "der wecker klingelt um 7, dann 7:09, 7:18, 7:27. jedes nickerchen ist zu kurz zum erholen und lang genug, um dich [[fertigzumachen]]"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "jetzt bist du zu spät UND noch müder als um 7 uhr. [[perfekt!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "NO social media for the first",
+      "hour"
+     ],
+     "fr": "ZÉRO réseau social la première heure",
+     "texte": "handy checken, [[augen noch ganz zu]]"
+    },
+    "T2": {
+     "en": [
+      "no scrolling, no youtube,",
+      "no tiktok for the first hour"
+     ],
+     "fr": "pas de scroll, ni youtube, ni tiktok dès le réveil",
+     "texte": "47 benachrichtigungen, bevor dein fuß den boden berührt"
+    },
+    "T3": {
+     "en": [
+      "short-form content gives",
+      "your brain rapid reward",
+      "after reward, frying your",
+      "dopamine receptors and",
+      "making slower tasks feel",
+      "painfully dull"
+     ],
+     "fr": "les vidéos courtes bombardent ton cerveau de récompenses, ça [[te grille les récepteurs à dopamine]] et tout ce qui est plus lent te paraît d'un ennui mortel",
+     "texte": "dein gehirn ist kaum wach und ertrinkt schon in [[gruppenchats]], einer arbeitsmail und dem frühstücksvideo einer fremden person. toller start"
+    },
+    "T4": {
+     "en": [
+      "to win your day, win your",
+      "morning"
+     ],
+     "fr": "[[gagne ta matinée, t'as gagné ta journée]]",
+     "texte": "[[gestresst]] vor dem zähneputzen"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "starte den tag [[ohne neue idee]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "zum frühstück gibt's für dein hirn nur reels"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "morgens ist dein kopf am frischesten, also [[verschwende das]] an videos, die um 9 weg sind"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "du hängst im bett doch sowieso am handy, oder?"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "also [[öffne bloß nicht die Sophia-App]] für 5 minuten geschichte oder kunst"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "lass das frühstück [[jeden tag]] aus"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "ein schwarzer kaffee auf leeren magen zählt doch als mahlzeit, oder?"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "um 10:30 bist du [[zittrig und hast riesenhunger]], also plünderst du den automaten"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "und mittags [[fährst du leute an]], die dir nichts getan haben. klassiker"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "verlass das haus [[10 minuten zu spät]]"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "schlüssel, handy, ein schuh an, toast noch im mund"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "renn zur bahn, verpass sie trotzdem und komm [[verschwitzt und außer atem]] an"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "dann,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "erzähl allen, dass du [[einfach kein morgenmensch]] bist, und mach's morgen wieder!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

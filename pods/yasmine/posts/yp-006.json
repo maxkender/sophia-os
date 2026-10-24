@@ -1,0 +1,927 @@
+{
+ "id": "yp-006",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "titre": {
+  "fr": "je note des astuces de révision : ça vaut le coup ou pas ?",
+  "es": "puntúo trucos de estudio: ¿valen la pena o no?",
+  "de": "ich bewerte Lern-Hacks: lohnt es sich oder nicht?",
+  "tr": "ders çalışma taktiklerini puanlıyorum: değer mi, değmez mi?",
+  "en": "rating study hacks: worth it or not worth it?",
+  "it": "do un voto ai trucchi di studio: ne vale la pena o no?",
+  "pt": "avaliando truques de estudo: vale a pena ou não?"
+ },
+ "legendes": {
+  "fr": "mes notes sur 10, sans filtre 📚 #revisions #studytok #astuces #methodedetravail #thatgirl",
+  "es": "mis notas del 0 al 10, sin filtro 📚 #estudiar #studytok #trucosdeestudio #tecnicasdeestudio #thatgirl",
+  "de": "meine Noten von 0 bis 10, ganz ehrlich 📚 #lernen #studytok #lerntipps #abitur #thatgirl",
+  "tr": "0'dan 10'a puanlarım, filtresiz 📚 #ders #studytok #dersçalışma #yks #thatgirl",
+  "en": "my honest ratings out of 10 📚 #studytips #studytok #studyhacks #studying #thatgirl",
+  "it": "i miei voti da 0 a 10, senza filtri 📚 #studiare #studytok #metododistudio #consigli #thatgirl",
+  "pt": "minhas notas de 0 a 10, sem filtro 📚 #estudos #studytok #dicasdeestudo #enem #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7177490894231931654"
+ },
+ "fond": {
+  "media_id": "c4c9dc5d-0484-4f60-a831-e58d3b2fd990",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d26ffef8-70f6-46ef-bc56-8567fb5f7558/4-upscale.jpg?v=1785989253793",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "JE NOTE",
+      "DES HACKS",
+      "D’ÉTUDE"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ça vaut le coup",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "ou pas ?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PUNTÚO",
+      "TRUCOS DE",
+      "ESTUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "¿valen la pena",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ICH BEWERTE",
+      "LERN-HACKS"
+     ],
+     "taille": 140,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "lohnt es sich",
+       "x": 230,
+       "y": 900
+      },
+      {
+       "texte": "oder nicht?",
+       "x": 430,
+       "y": 1000
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS",
+      "TAKTİKLERİNİ",
+      "PUANLIYORUM"
+     ],
+     "taille": 120,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "0’dan 10’a",
+       "x": 300,
+       "y": 1000
+      },
+      {
+       "texte": "puanlar",
+       "x": 470,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RATING",
+      "STUDY",
+      "HACKS"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "worth it or not",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "worth it?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "VOTO I",
+      "TRUCCHI DI",
+      "STUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ne vale la pena",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AVALIANDO",
+      "TRUQUES DE",
+      "ESTUDO"
+     ],
+     "taille": 150,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "vale a pena",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "ou não?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3653f12f-90f3-46b3-9d35-9a5c560382ee",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5c5cfd06-00b1-4dfe-bc08-1d199aaeb589/3.jpg?v=1791726382157",
+    "cadrage": {
+     "x": 0.75,
+     "y": 0.15,
+     "zoom": 1.4
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les nuits blanches🌙",
+      "texte": "0/10\nabsolument pas. le sommeil est essentiel pour mémoriser. tu oublies même le peu que tu savais si tu ne dors pas.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pasar la noche en vela🌙",
+      "texte": "0/10\npara nada. dormir es clave para memorizar. si no duermes, olvidas hasta lo poco que sabías.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Nächte durchmachen🌙",
+      "texte": "0/10\nauf keinen Fall. Schlaf ist wichtig, damit du dir Dinge merkst. Ohne Schlaf vergisst du sogar das Wenige, das du wusstest.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "sabahlamak🌙",
+      "texte": "0/10\nkesinlikle hayır. uyku, öğrendiklerini hatırlaman için çok önemli. uyumazsan bildiğin azıcık şeyi de unutursun.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pulling all-nighters🌙",
+      "texte": "0/10\nabsolutely not. sleep is key for remembering things. you’ll forget even the little you knew if you don’t sleep.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "fare le nottate🌙",
+      "texte": "0/10\nassolutamente no. il sonno è fondamentale per memorizzare. se non dormi, dimentichi anche quel poco che sapevi.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "virar a noite🌙",
+      "texte": "0/10\nde jeito nenhum. o sono é essencial para memorizar. sem dormir, você esquece até o pouco que sabia.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "236346f1-4b9e-4045-86fe-36b6ac634ab8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55692dc5-f02c-4a63-bc50-773e8a88bd99/3.jpg?v=1791726975376",
+    "cadrage": {
+     "x": 0.15,
+     "y": 0.75,
+     "zoom": 1.2
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "supprimer les réseaux📱",
+      "texte": "10/10\nla vie est tellement plus paisible. si tu sais, tu sais.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "borrar las redes📱",
+      "texte": "10/10\nla vida es mucho más tranquila. quien sabe, sabe.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Social Media löschen📱",
+      "texte": "10/10\ndas Leben ist so viel entspannter. Wer weiß, der weiß.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "sosyal medyayı silmek📱",
+      "texte": "10/10\nhayat çok daha huzurlu. bilen bilir.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "deleting social media📱",
+      "texte": "10/10\nlife is so much more peaceful. if you know, you know.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "cancellare i social📱",
+      "texte": "10/10\nla vita è molto più tranquilla. chi sa, sa.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "apagar as redes sociais📱",
+      "texte": "10/10\na vida fica muito mais tranquila. quem sabe, sabe.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "af37feb3-a805-4ce1-8b35-6b18c46d9d38",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/00879a21-a7c2-4b32-a41f-5c2de6f6801d/4.jpg",
+    "cadrage": {
+     "x": 1.0,
+     "y": 0.6,
+     "zoom": 1.35
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "s’expliquer les cours à deux🧑‍🏫",
+      "texte": "9/10\nparfait pour toutes les matières : expliquer à voix haute, c’est le meilleur moyen de voir ce que tu n’as pas compris.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "explicarse los temas en pareja🧑‍🏫",
+      "texte": "9/10\nperfecto para cualquier asignatura: explicar en voz alta es la mejor forma de ver lo que no has entendido.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "sich den Stoff gegenseitig erklären🧑‍🏫",
+      "texte": "9/10\nperfekt für jedes Fach: Wenn du laut erklärst, merkst du sofort, was du noch nicht verstanden hast.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "konuları birbirine anlatmak🧑‍🏫",
+      "texte": "9/10\nher ders için mükemmel: sesli anlatmak, neyi anlamadığını görmenin en iyi yolu.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "explaining it to each other🧑‍🏫",
+      "texte": "9/10\ngreat for any subject: explaining out loud is the best way to see what you haven’t understood.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "spiegarsi gli argomenti a vicenda🧑‍🏫",
+      "texte": "9/10\nperfetto per ogni materia: spiegare ad alta voce è il modo migliore per capire cosa non hai capito.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "explicar a matéria um para o outro🧑‍🏫",
+      "texte": "9/10\nótimo para qualquer matéria: explicar em voz alta é o melhor jeito de ver o que você não entendeu.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "10806652-a6ae-420e-8f2a-3798afed29d5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee43f06-d3c0-41cd-be10-d5ed8a4e6fa8/3.jpg?v=1791726524655",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "recopier ses notes✍️",
+      "texte": "2/10\nnon. teste-toi plutôt : moi, je mets mes cours dans micabo et je fais ses quiz. je vois direct ce que je n’ai pas retenu.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "app": true,
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pasar los apuntes a limpio✍️",
+      "texte": "2/10\nno. mejor ponte a prueba: yo subo mis apuntes a micabo y hago sus tests. veo al momento lo que no me he quedado.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Notizen abschreiben✍️",
+      "texte": "2/10\nnein. Frag dich lieber selbst ab: Ich lade meine Unterlagen in micabo hoch und mache die Quiz. So sehe ich sofort, was ich noch nicht kann.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "notları temize çekmek✍️",
+      "texte": "2/10\nhayır. onun yerine kendini test et: ben ders notlarımı micabo’ya yüklüyorum ve testlerini çözüyorum. neyi aklımda tutamadığımı hemen görüyorum.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "rewriting notes✍️",
+      "texte": "2/10\nno. test yourself instead: i put my notes in micabo and do its quizzes. i see right away what didn’t stick.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ricopiare gli appunti✍️",
+      "texte": "2/10\nno. mettiti alla prova: io carico i miei appunti su micabo e faccio i suoi quiz. vedo subito cosa non mi è rimasto.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "passar as anotações a limpo✍️",
+      "texte": "2/10\nnão. se teste: eu coloco minhas anotações no micabo e faço os quizzes dele. vejo na hora o que não ficou.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "202542a2-1544-4b5f-8b76-ae98073d1d28",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d5aad6be-6479-4c16-a1c9-b7ee20df6e3c/1.jpg?v=1791725408940",
+    "cadrage": {
+     "x": 0.3,
+     "y": 0.3,
+     "zoom": 1.12
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "changer d’endroit☕",
+      "texte": "10/10\nça marche à tous les coups. c’est trop gênant de sortir ton ordi au café ou à la bibliothèque pour scroller sur ton téléphone.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "cambiar de sitio☕",
+      "texte": "10/10\nfunciona siempre. da muchísima vergüenza sacar el portátil en una cafetería o en la biblioteca para ponerte a hacer scroll en el móvil.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "den Ort wechseln☕",
+      "texte": "10/10\nklappt jedes Mal. Es ist so peinlich, im Café oder in der Bibliothek den Laptop aufzuklappen und dann am Handy zu scrollen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "yer değiştirmek☕",
+      "texte": "10/10\nher seferinde işe yarıyor. kafede ya da kütüphanede bilgisayarını açıp telefonda kaydırmak çok utanç verici.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "changing locations☕",
+      "texte": "10/10\nworks every single time. it’s so embarrassing to get your laptop out at a café or library and then scroll on your phone.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "cambiare posto☕",
+      "texte": "10/10\nfunziona ogni volta. è troppo imbarazzante tirare fuori il computer al bar o in biblioteca e poi scrollare sul telefono.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "mudar de lugar☕",
+      "texte": "10/10\nfunciona sempre. é constrangedor demais abrir o notebook no café ou na biblioteca e ficar rolando o celular.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "172292c1-2f55-4f9c-9081-0e4a3ee20d39",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee43f06-d3c0-41cd-be10-d5ed8a4e6fa8/1.jpg?v=1791726283377",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "se lever tôt pour réviser📖",
+      "texte": "9/10\noui, même le week-end. c’est dur, mais ça paie. pas besoin de te lever à 4 h, 6 h suffit.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "madrugar para estudiar📖",
+      "texte": "9/10\nsí, incluso el fin de semana. cuesta, pero merece la pena. no hace falta levantarte a las 4, con las 6 basta.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "früh aufstehen zum Lernen📖",
+      "texte": "9/10\nja, auch am Wochenende. Es ist hart, aber es lohnt sich. Du musst nicht um 4 Uhr aufstehen, 6 Uhr reicht.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ders için erken kalkmak📖",
+      "texte": "9/10\nevet, hafta sonları bile. zor ama karşılığını veriyor. saat 4’te kalkmana gerek yok, 6 yeterli.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "waking up early to study📖",
+      "texte": "9/10\nyes, even on weekends. it’s hard but it pays off. no need for 4am, 6am is fine.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "svegliarsi presto per studiare📖",
+      "texte": "9/10\nsì, anche nel weekend. è dura, ma ripaga. non serve alzarsi alle 4, le 6 bastano.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "acordar cedo para estudar📖",
+      "texte": "9/10\nsim, até no fim de semana. é difícil, mas compensa. não precisa acordar às 4, às 6 já basta.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  }
+ ]
+}

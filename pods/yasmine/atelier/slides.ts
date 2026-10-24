@@ -28,11 +28,14 @@ export type ContenuSlide = {
   page?: Page;
   /** iPhone : la capture d'écran de l'appli, chemin depuis le dossier du pod. */
   capture?: string;
+  /** Slide photo : la photo de cette langue (la version traduite d'une mise en scène de l'OS), à la place de celle de la slide. */
+  photo?: Photo;
   /** Slide photo : la petite légende posée sur la photo, et une seconde (sous l'iPhone). */
   legende?: LegendePhoto;
   legende_bas?: LegendePhoto;
-  /** Note de l'app Notes posée sur la photo (« things i do to SMASH EVERY EXAM »). */
+  /** Note de l'app Notes posée sur la photo (« things i do to SMASH EVERY EXAM »), ou plusieurs (« school tips »). */
   note?: NoteIos;
+  notes?: NoteIos[];
   /** Carte d'appli dans l'iPad blanc (« my favorite productivity apps »). */
   carte?: Carte;
   /** Slide photo avec l'iPhone : où le poser (centre, haut, largeur de l'écran). */
@@ -40,7 +43,14 @@ export type ContenuSlide = {
 };
 
 /** Une photo de la banque de l'OS et son cadrage ; `ecrans` y incruste des captures de micabo. */
-export type Photo = { media_id: string; url: string; cadrage?: Cadrage; ecrans?: EcranPhoto[] };
+export type Photo = {
+  media_id: string;
+  url: string;
+  cadrage?: Cadrage;
+  ecrans?: EcranPhoto[];
+  /** Une mise en scène validée de l'OS (fonction `mises-en-scene`) : son id, signalé à l'OS (`utiliser`) quand le post est déposé. */
+  mise_en_scene?: string;
+};
 
 export type Slide = {
   /** photo : une photo pleine par slide, petite légende (« after school routine »). */
@@ -69,6 +79,8 @@ export type Post = {
   fond: Photo;
   slides: Slide[];
   notes?: string;
+  /** Les mises en scène de l'OS dont l'usage est déjà signalé pour ce post (écrit par `npm run livrer`). */
+  mises_en_scene_notees?: string[];
 };
 
 export const RACINE = join(import.meta.dirname, "..");
@@ -134,10 +146,11 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
     titreCouverture(ctx, c.couverture);
   } else if (s.type === "photo") {
     // Une photo pleine, sans assombrir, comme les siennes ; la légende par-dessus.
-    if (!s.photo) throw new Error("slide photo sans photo");
-    if (!c.legende && !c.note) throw new Error("slide photo sans légende ni note");
-    fond(ctx, await photoSlide(s.photo), s.photo.cadrage);
-    if (c.note) noteIos(ctx, c.note);
+    const photoLangue = c.photo ?? s.photo;
+    if (!photoLangue) throw new Error("slide photo sans photo");
+    if (!c.legende && !c.note && !c.notes?.length) throw new Error("slide photo sans légende ni note");
+    fond(ctx, await photoSlide(photoLangue), photoLangue.cadrage);
+    for (const n of [...(c.note ? [c.note] : []), ...(c.notes ?? [])]) noteIos(ctx, n);
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
     if (c.legende) legendePhoto(ctx, c.legende);
     if (c.legende_bas) legendePhoto(ctx, c.legende_bas);

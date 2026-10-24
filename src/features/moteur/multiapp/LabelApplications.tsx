@@ -9,6 +9,7 @@ import {
   type LienLabelApplicationRow,
   type ReserveLabelApplication,
 } from "@/features/moteur/apiMultiApp";
+import { LogoApplication } from "@/components/brand/LogoApplication";
 import { nomApplication } from "@/features/moteur/applications";
 import { applicationsDuLabel, ID_SOPHIA } from "@/features/moteur/multiApp";
 import { cn } from "@/lib/utils";
@@ -98,14 +99,15 @@ export function LabelApplications({
               title={app.actif ? undefined : t("multiApp.labels.applicationInactive")}
               onClick={() => basculer(app.id)}
               className={cn(
-                "rounded-full border px-2 py-0.5 text-[10px] transition-colors disabled:opacity-50",
+                "inline-flex items-center gap-1 rounded-full border py-0.5 pr-2 pl-0.5 text-[11px] transition-colors disabled:opacity-50",
                 sert
                   ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background text-muted-foreground hover:bg-muted",
+                  : "border-border bg-background text-muted-foreground opacity-70 hover:bg-muted hover:opacity-100",
                 selectionnee && "font-semibold",
                 !app.actif && "italic",
               )}
             >
+              <LogoApplication slug={app.slug} taille="xs" decoratif className="rounded-full" />
               {nomApplication(app)}
             </button>
           );

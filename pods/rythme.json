@@ -1,14 +1,15 @@
 {
  "_doc": "Livraisons par jour de chaque podz : par_jour (1 par défaut, 3 au plus), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md.",
- "page-blanche": { "par_jour": 2 },
+ "page-blanche": { "par_jour": 3 },
  "originaux": { "par_jour": 3 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
- "alpha-yellow": { "par_jour": 2 },
- "rh": { "par_jour": 2 },
- "mentalapp": { "par_jour": 2 },
- "beau-smart-girl": { "par_jour": 2 },
- "smart-girl": { "par_jour": 2 },
- "alpha-male": { "par_jour": 2 },
+ "alpha-yellow": { "par_jour": 4, "motif": "au-dessus du plafond de 3, décidé par Adrien le 24/10" },
+ "rh": { "par_jour": 3 },
+ "mentalapp": { "par_jour": 3 },
+ "beau-smart-girl": { "par_jour": 3 },
+ "smart-girl": { "par_jour": 3 },
+ "alpha-male": { "par_jour": 3 },
  "yasmine": { "par_jour": 1 },
- "fathom": { "par_jour": 1 }
+ "fathom": { "par_jour": 1 },
+ "clean-study": { "par_jour": 3 }
 }

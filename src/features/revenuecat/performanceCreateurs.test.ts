@@ -41,6 +41,15 @@ describe("compterCreateursParLangue", () => {
       ]),
     ).toEqual({ tr: 2 });
   });
+
+  it("range pt-br sous pt-BR, la clé des trials du Brésil", () => {
+    expect(
+      compterCreateursParLangue([
+        { id: "c1", poster_id: "p1", langue: "pt-br", application_slug: "sophia" },
+        { id: "c2", poster_id: "p2", langue: "pt-BR", application_slug: "sophia" },
+      ]),
+    ).toEqual({ "pt-BR": 2 });
+  });
 });
 
 describe("moyenneTrialsParJourParLangue", () => {

@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o003",
+  "schema_id": "methods-per-subject",
+  "titre": "if you understand it in class but forget it by the test, read this #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "Schéma methods-per-subject (@studyy.hackz : 587 k vues le 06/10, 277 k le 30/09, preuve valable jusqu'au 5/11). Autre plainte que cs-o001 (« I study the same way for every subject ») : « “I understand it in class but forget it by the test” » (retenue : la plainte entre guillemets du gagnant, très partagée), « “I never know how to study for maths” » (écartée : une seule matière), « “rereading my notes doesn't work anymore” » (écartée : trop proche de l'active recall de cs-o001). Six méthodes, aucune déjà dans cs-o001 (practice problems, active recall, spaced repetition, teach out loud, 25 min no phone) ni recopiée de b7cf2471 (Feynman, mnemonics, mind mapping) : refaire les exemples corrigés, la frise chronologique, les cartes-questions (place micabo, slide 5), parler la langue à voix haute, le carnet d'erreurs, le bloc sans notifications (place UnSwipe, slide 8). Images sans visage reconnaissable ; slides 5 et 8 sans personne. Écartées à l'aperçu : 21187bc3 (formules lisibles au tableau), b0c94f5a (écran de téléphone), 2c8d464c (marque de correcteur lisible).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5b9161d3",
+      "texte_overlay": "“I understand it in class\nbut forget it by the test”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "15a18af3",
+      "texte_overlay": "same. it's not your memory, it's your method.\nhere's what to use for each subject...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "480859fc",
+      "texte_overlay": "Redo the examples ✏️\nBest for: Maths, Physics, Accounting\ncover the solution of an example from class and solve it yourself. then compare step by step.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3a6dfc7e",
+      "texte_overlay": "Timelines 🗓️\nBest for: History, Literature\ndraw one line across the page with the dates. causes above the line, consequences below.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3347a655",
+      "texte_overlay": "Question cards 🃏\nBest for: Biology, Languages, Law\nwrite a question on one side, the answer on the other. say the answer out loud BEFORE you flip.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "38abcfc3",
+      "texte_overlay": "Look away and say it 🗣️\nBest for: Languages\nread a sentence, look away, say it again from memory. if you can't say it, you don't know it yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "23466833",
+      "texte_overlay": "Mistake log 📒\nBest for: Maths, Chemistry, Grammar\nkeep one page with every mistake you made and why. reread it the night before the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "2d411e2f",
+      "texte_overlay": "Silent study block 🔕\nBest for: Essays, long readings\nnotifications off, social media closed for the whole block. every \"quick check\" resets your focus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

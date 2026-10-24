@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o004",
+  "schema_id": "study-hacks-earlier",
+  "titre": "study hacks i wish i knew earlier pt. 2 #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound - ⌖",
+  "musique_url": "https://www.tiktok.com/music/original-sound-⌖-7667011973359635218",
+  "inspirations": [
+    "55376335-ad2b-47dc-8aa1-03b3d6241fce",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "3ᵉ livraison du 24/10, demandée par Adrien (stock des 9 comptes à zéro). Schéma study-hacks-earlier (@katy._.studies : 1,1 M vues le 28/09, relue le 24/10, valable jusqu'au 28/10). Suite de cs-o002, sans aucune astuce en commun. Accroches écrites : « study hacks i wish i knew earlier pt. 2 » (retenue : la forme du gagnant, et la suite donne envie de chercher la part 1), « study hacks that feel illegal to know » (écartée : sonne comme une astuce douteuse), « things my top student friend does differently » (écartée : autre schéma, pas prouvé). Six astuces vraies, absentes de donnees/label.json : des notes en questions (place micabo, slide 2), se demander pourquoi (elaborative interrogation), relier à sa vie (self-reference), l'écran du téléphone en gris (place UnSwipe, slide 5 ; on dit seulement que c'est moins tentant), dessiner (drawing effect), relire sa rédaction à voix haute. Aucun chiffre ni « studies show ». Images sans visage ; slides 2 et 5 sans personne. Écartées : les photos d'actrices ajoutées à la banque (visages de personnes réelles), 2f1abeb4 (texte « HARVARD » lisible), 3a448ea1 (texte d'étiquette). Écartée à l'aperçu : 2f3e62e6 (logo de marque sur un gobelet).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3202809d",
+      "texte_overlay": "study hacks i wish\ni knew earlier pt. 2",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "23b38f8b",
+      "texte_overlay": "write your notes as questions, not sentences.\n\"what caused the war?\" instead of \"the war was caused by...\". later you cover the answers and quiz yourself.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "33831aaa",
+      "texte_overlay": "don't just learn the answer, ask WHY it's true.\nif you can explain why, you'll remember it way longer than the answer alone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "35b7484d",
+      "texte_overlay": "connect every definition to something from your own life.\nyour brain holds on to what feels personal.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "28cb54ba",
+      "texte_overlay": "turn your phone screen grey while you study.\nno colors = way less tempting to open it and scroll.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "34ee82c6",
+      "texte_overlay": "draw it. a quick sketch of a process, a cell or a map\nsticks better than reading the same paragraph again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "25baaa23",
+      "texte_overlay": "read your essay out loud before you hand it in.\nyour ears catch the mistakes your eyes skip.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "2d411e2f",
+      "texte_overlay": "try these now and thank me later",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

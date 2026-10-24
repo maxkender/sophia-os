@@ -7,10 +7,20 @@
   "accroche": "10/10 Skills You Can Learn In A Day!"
  },
  "titre": {
-  "en": "10/10 Skills You Can Learn In A Day!"
+  "en": "10/10 Skills You Can Learn In A Day!",
+  "es": "¡10/10 habilidades que puedes aprender en un día!",
+  "de": "10/10 Skills, die du an einem Tag lernen kannst!",
+  "it": "10/10 abilità che puoi imparare in un giorno!",
+  "pt": "10/10 habilidades que você aprende em um dia!",
+  "fr": "10/10 compétences à apprendre en un jour !"
  },
  "legendes": {
-  "en": "10/10 Skills You Can Learn In A Day! #selfimprovement #learnontiktok #selfmastery"
+  "en": "10/10 Skills You Can Learn In A Day! #selfimprovement #learnontiktok #selfmastery",
+  "es": "¡10/10 habilidades que puedes aprender en un día! #desarrollopersonal #aprendeentiktok #superacionpersonal",
+  "de": "10/10 Skills, die du an einem Tag lernen kannst! #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 abilità che puoi imparare in un giorno! #crescitapersonale #imparacontiktok #miglioramentopersonale",
+  "pt": "10/10 habilidades que você aprende em um dia! #desenvolvimentopessoal #aprendanotiktok #autoconhecimento",
+  "fr": "10/10 compétences à apprendre en un jour ! #developpementpersonnel #apprendresurtiktok #culturegenerale"
  },
  "musique": {
   "titre": "sonido original",
@@ -31,6 +41,66 @@
      ],
      "SKILLS YOU CAN",
      "LEARN IN A DAY"
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     "APRENDER EN UN DÍA"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS, DIE DU AN",
+     "EINEM TAG LERNST"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ DA",
+     "IMPARARE IN UN GIORNO"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     "APRENDER EM UM DIA"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES À",
+     "APPRENDRE EN UN JOUR"
     ]
    }
   },
@@ -64,6 +134,151 @@
     "sous": [
      "1–2 hours to learn."
     ]
+   },
+   "es": {
+    "titre": [
+     "RECONOCER",
+     [
+      {
+       "t": "CADA NUBE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "CON SOLO MIRAR EL CIELO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "fFlsbaBtVPo",
+     "titre": "Clasificación de las Nubes: Aprende a leer el cielo en 3 minutos",
+     "chaine": "Nacho Bergara",
+     "vues": "116 K visualizaciones",
+     "date": "hace 9 meses",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/SxEYLfbBvsXPr7-QoQD4Roi8ItgjiWVvhdkf33hBmTOw77IzeO7HUEPiQswgIj39OieVEL3YVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 horas para aprender."
+    ]
+   },
+   "de": {
+    "titre": [
+     "JEDE",
+     [
+      {
+       "t": "WOLKENART",
+       "couleur": "#0231c5"
+      }
+     ],
+     "AUF EINEN BLICK ERKENNEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "WIvzLNrZbvM",
+     "titre": "So heißen Wolken - 10 Wolkennamen erklärt (mit Malvorlage)",
+     "chaine": "Wetterschule",
+     "vues": "85.745 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "4:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kQvkAt5-JgPqAW6zsSEowj5lDUQ3ofregivbOI_qTJhg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 Stunden zum Lernen."
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "OGNI NUVOLA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "ALZANDO LO SGUARDO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "na8Uz18tuzQ",
+     "titre": "Nuvole: classificazione e differenze [Lez.12]",
+     "chaine": "Oneira",
+     "vues": "54K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "17:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lf1USTPK8PhcPTHny6Qy0HVOBkKdEmHdblLZInN33DOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 ore per imparare."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "RECONHECER",
+     [
+      {
+       "t": "CADA NUVEM",
+       "couleur": "#0231c5"
+      }
+     ],
+     "SÓ DE OLHAR PARA O CÉU"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "sM52W25-IyY",
+     "titre": "Explicando o Tempo - Conheça os 10 tipos de nuvens!",
+     "chaine": "Climatempo",
+     "vues": "412 mil visualizações",
+     "date": "há 12 anos",
+     "duree": "4:04",
+     "avatar": "https://yt3.ggpht.com/gTCOW5AN0x8aynnmFEvMkAsBLs2xgPF2-DV1-TSYxifANp1Y95hIbmTjY7SVdWFEQLIBGj7jYQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 horas para aprender."
+    ]
+   },
+   "fr": {
+    "titre": [
+     "RECONNAÎTRE",
+     [
+      {
+       "t": "CHAQUE NUAGE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "D'UN SIMPLE COUP D'ŒIL"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "jk8MdFC-ytc",
+     "titre": "Quels sont les différents types de nuages ? - C'est Pas Sorcier",
+     "chaine": "C'est pas sorcier",
+     "vues": "184 k vues",
+     "date": "il y a 10 ans",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mM6iBpwKwzyyA6sGUzXdRgJbsEY_9RzW5m8GCkbqwgoHM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 heures pour apprendre."
+    ]
    }
   },
   {
@@ -96,6 +311,151 @@
     "sous": [
      "2–3 hours to learn."
     ]
+   },
+   "es": {
+    "titre": [
+     "SABER EL",
+     [
+      {
+       "t": "DÍA DE LA SEMANA",
+       "couleur": "#e3161d"
+      }
+     ],
+     "DE CUALQUIER FECHA"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "7ne6cEeHc04",
+     "titre": "💎TRUCO para saber en QUÉ DÍA CAE *CUALQUIER* FECHA📅 | IMPRESIONA A TUS AMIGOS",
+     "chaine": "Profe Nicolos - Especialista en admisiones",
+     "vues": "209 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/4zcjS0Yf9gsZUTIrO3MvAtglvRnEr1IdvhpCA9wQbds9yLUCBmq5geVk1MdK1AiM4X1okCjN9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 horas para aprender."
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN",
+     [
+      {
+       "t": "WOCHENTAG",
+       "couleur": "#e3161d"
+      }
+     ],
+     "JEDES DATUMS BERECHNEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "-EiX7a2SBeA",
+     "titre": "Wochentag für jedes Datum im Kopf berechnen",
+     "chaine": "BYTEthinks",
+     "vues": "191.191 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "5:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l3Db90DiqYKYpQDw2hB4Nx0F4qKG8fmcREcuRpmiL94-c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 Stunden zum Lernen."
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE IL",
+     [
+      {
+       "t": "CODICE MORSE",
+       "couleur": "#e3161d"
+      }
+     ],
+     "A MEMORIA"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "DCTkw4l21no",
+     "titre": "IMPARA IL CODICE MORSE IN 15 MINUTI - TUTORIAL",
+     "chaine": "Mind Skills",
+     "vues": "78K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "14:55",
+     "avatar": "https://yt3.ggpht.com/vQx6clkUz0Q26P_FP8DjkxTwBHT77YQei1N-eVxf1tMLzHGVIPhbVt7rWrgi2-iQG4rfcoT3GQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–4 ore per imparare."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "SABER O",
+     [
+      {
+       "t": "DIA DA SEMANA",
+       "couleur": "#e3161d"
+      }
+     ],
+     "DE QUALQUER DATA"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "J4CC-cOrGV8",
+     "titre": "Truque fantástico para saber em que dia da semana cai qualquer data",
+     "chaine": "Choque De Conhecimento",
+     "vues": "22 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/TC1AokAtEq70D75yme3AL0czlAeXg8rOc-YH9yld9UUvQ1DevF__fV8cVYhXgsEIfWffBig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 horas para aprender."
+    ]
+   },
+   "fr": {
+    "titre": [
+     "TROUVER LE",
+     [
+      {
+       "t": "JOUR DE LA SEMAINE",
+       "couleur": "#e3161d"
+      }
+     ],
+     "DE N'IMPORTE QUELLE DATE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "5XGueUcIW6c",
+     "titre": "🧠 Comment TROUVER le jour de la semaine de N'IMPORTE QUELLE date 🗓?",
+     "chaine": "Hugo Dumoulin",
+     "vues": "10 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nmGnTt6eFZtnFo3a--s8kwJxnsC21WYuv8_-5NrWDgn3M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 heures pour apprendre."
+    ]
    }
   },
   {
@@ -122,6 +482,126 @@
      "texte": [
       "learn something new every day,",
       "in 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "RESPONDER",
+     [
+      {
+       "t": "PREGUNTAS",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE CULTURA GENERAL"
+    ],
+    "tailles": [
+     180,
+     206,
+     160
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FRAGEN ZUM",
+     [
+      {
+       "t": "ALLGEMEINWISSEN",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "BEANTWORTEN"
+    ],
+    "tailles": [
+     180,
+     206,
+     160
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "RISPONDERE A",
+     [
+      {
+       "t": "DOMANDE",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DI CULTURA GENERALE"
+    ],
+    "tailles": [
+     180,
+     206,
+     160
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "RESPONDER",
+     [
+      {
+       "t": "PERGUNTAS",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE CONHECIMENTOS GERAIS"
+    ],
+    "tailles": [
+     180,
+     206,
+     160
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "RÉPONDRE AUX",
+     [
+      {
+       "t": "QUESTIONS",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE CULTURE GÉ"
+    ],
+    "tailles": [
+     180,
+     206,
+     160
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
      ]
     }
    }
@@ -156,6 +636,151 @@
     "sous": [
      "3–5 hours to learn."
     ]
+   },
+   "es": {
+    "titre": [
+     "RESOLVER EL",
+     [
+      {
+       "t": "CUBO",
+       "couleur": "#4913cd"
+      }
+     ],
+     "DE RUBIK"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "GVzR06EEG9M",
+     "titre": "Como armar un cubo Rubik | PRINCIPIANTES | Parte 1 de 3  @MatematicasprofeAlex",
+     "chaine": "Matemáticas profe Alex",
+     "vues": "21 M de visualizaciones",
+     "date": "hace 8 años",
+     "duree": "16:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxQQ-huxPMZTBA2C4WjSH2xPYHxHGWT0TShBq5hZaA-S0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 horas para aprender."
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN",
+     [
+      {
+       "t": "ZAUBERWÜRFEL",
+       "couleur": "#4913cd"
+      }
+     ],
+     "LÖSEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 Stunden zum Lernen."
+    ]
+   },
+   "it": {
+    "titre": [
+     "RISOLVERE IL",
+     [
+      {
+       "t": "CUBO",
+       "couleur": "#4913cd"
+      }
+     ],
+     "DI RUBIK"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "2VL5Sd4uYAA",
+     "titre": "COME RISOLVERE IL CUBO DI RUBIK (Tutorial per principianti)",
+     "chaine": "Hyde",
+     "vues": "1,7 Mln visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "22:37",
+     "avatar": "https://yt3.ggpht.com/MLvaKadLY7DCVqOg_J_TgzESuYCWudKCfMkD0Up_kLqIQ-bUDbiP95rcNVCY8CLoxdWE-c8ItQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 ore per imparare."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "RESOLVER O",
+     [
+      {
+       "t": "CUBO",
+       "couleur": "#4913cd"
+      }
+     ],
+     "MÁGICO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "ZwbFLyesbOU",
+     "titre": "Como RESOLVER o Cubo Mágico EM 10 MINUTOS!",
+     "chaine": "Ercs",
+     "vues": "2,1 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:59",
+     "avatar": "https://yt3.ggpht.com/6OxdXZjA_wTTZE0QmGPTAToR02Nn0gCeuQvNAI0B8Bi8c7dHXfh5dRtk4h8PjjHFCasBM-wB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 horas para aprender."
+    ]
+   },
+   "fr": {
+    "titre": [
+     "RÉSOUDRE UN",
+     [
+      {
+       "t": "RUBIK'S",
+       "couleur": "#4913cd"
+      }
+     ],
+     "CUBE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "uORbJS9bp54",
+     "titre": "Comment résoudre un Rubik's Cube (méthode facile et rapide)",
+     "chaine": "Delnart",
+     "vues": "5,6 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/iJE1jTrWOv2-oFTsmZwq1eYWf63RfDb6pKX7U1187EZubJ-VaKY4dXV4pCYix9xDEML27naa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 heures pour apprendre."
+    ]
    }
   },
   {
@@ -187,6 +812,151 @@
     },
     "sous": [
      "2–3 hours to learn."
+    ]
+   },
+   "es": {
+    "titre": [
+     "DIBUJAR EN",
+     [
+      {
+       "t": "PERSPECTIVA",
+       "couleur": "#3256a0"
+      }
+     ],
+     "CON SOLO UN LÁPIZ"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "s_wD-wX1xBE",
+     "titre": "Cómo dibujar una ciudad con un punto de fuga",
+     "chaine": "Guada Santa Cruz Arte",
+     "vues": "364 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/1tT3RBCA6I6BX4PFRKZ28xJYCBX6jWAP2yPyjQmmgUP0JANflTCM6NkuwIuaMtqZZ8T6V-ilISI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 horas para aprender."
+    ]
+   },
+   "de": {
+    "titre": [
+     "MIT BLEISTIFT IN",
+     [
+      {
+       "t": "PERSPEKTIVE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "ZEICHNEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "4ouw_Ksfcpw",
+     "titre": "Innenraum mit Möbeln in der Zentralperspektive zeichnen",
+     "chaine": "Die Kunstlehrerin",
+     "vues": "132.255 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/h61-OGLrgdkw2VP_jPpkehfiCdpGbabcJOgJ3u0pn6XNzqXjGb-EOPeFpM38k0aWhfvq4q-k4lY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 Stunden zum Lernen."
+    ]
+   },
+   "it": {
+    "titre": [
+     "DISEGNARE IN",
+     [
+      {
+       "t": "PROSPETTIVA",
+       "couleur": "#3256a0"
+      }
+     ],
+     "CON UNA SEMPLICE MATITA"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "WrJFRNs4H5Y",
+     "titre": "PROSPETTIVA CENTRALE Tutorial |DisegnART|",
+     "chaine": "DisegnART",
+     "vues": "103K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "13:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lSrdbGFU35Olj5CoIiasZUy6uI1mQf19y15fMtZWzkZQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 ore per imparare."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "DESENHAR EM",
+     [
+      {
+       "t": "PERSPECTIVA",
+       "couleur": "#3256a0"
+      }
+     ],
+     "SÓ COM UM LÁPIS"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "d45HEXdhuOo",
+     "titre": "COMO DESENHAR Arquitetura  - Perspectiva com 1 Ponto de fuga",
+     "chaine": "Guilherme Toledo - Sketch Urbano",
+     "vues": "46 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "14:25",
+     "avatar": "https://yt3.ggpht.com/KoiQILWE0bXaOM4MEOTZxHiGefWrU2f-UCZTE1j9IKW76Lk4H3E7gz9hxZvg8wPifJ4k6Z2S1A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 horas para aprender."
+    ]
+   },
+   "fr": {
+    "titre": [
+     "DESSINER EN",
+     [
+      {
+       "t": "PERSPECTIVE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "AVEC UN SIMPLE CRAYON"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "0oF9bpR93CM",
+     "titre": "Dessiner une ville en perspective à 1 point de fuite | Tutoriel simple au crayon",
+     "chaine": "Dessiner & Peindre - Tristan Saint-Michel",
+     "vues": "21 k vues",
+     "date": "il y a 10 mois",
+     "duree": "10:17",
+     "avatar": "https://yt3.ggpht.com/bHPD3tAhEr3fxsvrFdv_P7hT2pPUB5kaRV1_Y40V7ghoVGJQVT9zzTEEZb6oOhgBS_n5kUEtGQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 heures pour apprendre."
     ]
    }
   }

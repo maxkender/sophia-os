@@ -11,6 +11,7 @@ import {
   classerLabels,
   cleFermeture,
   doitFermer,
+  enTestPod,
   estFerme,
   estSuspendu,
   facteurPerformance,
@@ -23,6 +24,7 @@ import {
   REGLAGES_CHOIX_LABEL_DEFAUT,
   type ReglagesChoixLabel,
   type StatLabelCreation,
+  testPodPlein,
 } from "./choix_label_equilibre.ts";
 
 const R = REGLAGES_CHOIX_LABEL_DEFAUT;
@@ -195,10 +197,11 @@ Deno.test("poids : la performance pèse plus que le stock", () => {
   // RH (1,45, 8 jours) contre alpha_male (0,90, 46 jours) : RH plus lourd.
   const [rh, am] = [poolProd()[1], poolProd()[2]];
   assert(poidsLabel(rh) > poidsLabel(am), `RH ${poidsLabel(rh)} / alpha_male ${poidsLabel(am)}`);
-  // À stock égal et confortable, le poids suit le carré de la performance.
+  // À stock égal et confortable, le poids suit le CUBE de la performance
+  // (exposant 3 depuis le 24/10) : deux fois meilleur = huit fois plus lourd.
   const a = stat({ label_id: "a", passages: 100_000, perf_label: 1.2 });
   const b = stat({ label_id: "b", passages: 100_000, perf_label: 0.6 });
-  assertAlmostEquals(poidsLabel(a) / poidsLabel(b), 4, 0.01);
+  assertAlmostEquals(poidsLabel(a) / poidsLabel(b), 8, 0.02);
 });
 
 Deno.test("fermeture : sous 0,75 de la flotte sur 150 posts au moins, jamais sur peu de posts", () => {
@@ -292,9 +295,11 @@ Deno.test("pool de prod du 15/10 : RH et weird_alpha devant, yellow, beau_smart_
   const part = (id: string) => classes.find((c) => c.label_id === id)?.part ?? 0;
   assert(part("weird_alpha") > part("alpha_male"));
   assert(part("RH") > part("alpha_male"), `RH ${part("RH")} / alpha_male ${part("alpha_male")}`);
-  for (const id of ["alpha_male_yellow", "beau_smart_girl", "white_bg"]) {
+  for (const id of ["alpha_male_yellow", "white_bg"]) {
     assert(classes.find((c) => c.label_id === id)?.suspendu, `${id} devrait attendre du stock`);
   }
+  // Seuil de réserve à 5 jours depuis le 24/10 : beau_smart_girl (5,1 j) n'attend plus.
+  assertEquals(classes.find((c) => c.label_id === "beau_smart_girl")?.suspendu, false);
   // 20 comptes allemands : les labels suspendus n'en reçoivent aucun, RH plus qu'alpha_male.
   const n = compter(simuler(poolProd(), enLangue(20)).map((c) => c.label));
   assertEquals(n.get("alpha_male_yellow") ?? 0, 0);
@@ -481,8 +486,133 @@ Deno.test("rien à choisir : null ; doublons ignorés ; lignes RPC normalisées"
       recence_langue: 3,
       recents_pays: 1,
       recence_pays: 2,
+      pod_seul: false,
+      livre_langue: true,
+      niveau_pod: null,
     },
   );
   const vide = normaliserStatLabel({ label_id: "x" });
   assertEquals([vide.recents_pays, vide.passages_restants, vide.perf_label], [0, 0, null]);
+});
+
+// ── Label 100 % pod (0352) : remplissage langue par langue, sans réserve ──
+
+/** Les chiffres FR du 24/10 (Sophia) : alpha_male gagnait parce que les autres manquaient de stock. */
+const FR_24_10: StatLabelCreation[] = [
+  stat({ label_id: "alpha_male", comptes_langue: 3, comptes_pays: 3, comptes_total: 42, passages_restants: 1535, demande_jour: 44, passages: 925, perf_label: 0.891, recents_langue: 1, recence_langue: 2, recents_pays: 1, recence_pays: 2 }),
+  stat({ label_id: "beau_smart_girl", comptes_langue: 2, comptes_pays: 2, comptes_total: 45, passages_restants: 687, demande_jour: 31, passages: 625, perf_label: 0.884 }),
+  stat({ label_id: "smart_girl", comptes_langue: 5, comptes_pays: 5, comptes_total: 69, passages_restants: 944, demande_jour: 102, passages: 2348, perf_label: 0.997 }),
+  stat({ label_id: "rh", comptes_langue: 3, comptes_pays: 3, comptes_total: 19, passages_restants: 165, demande_jour: 32, passages: 321, perf_label: 1.405 }),
+];
+const FATHOMLY = { label_id: "fathomly", passages_restants: 8, pod_seul: true, livre_langue: true, niveau_pod: 0 };
+
+Deno.test("100 % pod : la réserve ne le juge plus, il sort dans une langue où il n'a aucun compte", () => {
+  const avant = stat({ ...FATHOMLY, pod_seul: false });
+  assert(estSuspendu(avant, R));
+  assert(choisirLabel([...FR_24_10, avant], R) !== "fathomly");
+
+  const pod = stat(FATHOMLY);
+  assertEquals(capacite(pod, R), 1);
+  assertEquals(estSuspendu(pod, R), false);
+  assertEquals(choisirLabel([...FR_24_10, pod], R), "fathomly");
+});
+
+Deno.test("100 % pod : en avance dans cette langue, il attend que les autres langues rattrapent", () => {
+  // 1 compte en FR, 0 dans sa langue la moins remplie : il passe après les autres.
+  const enAvance = stat({ ...FATHOMLY, comptes_langue: 1, comptes_pays: 1, comptes_total: 1 });
+  assert(estSuspendu(enAvance, R));
+  assert(choisirLabel([...FR_24_10, enAvance], R) !== "fathomly");
+  // Toutes les langues à 1 : il repart pour le 2e tour.
+  const auNiveau = stat({ ...FATHOMLY, comptes_langue: 1, comptes_pays: 1, comptes_total: 8, niveau_pod: 1 });
+  assertEquals(estSuspendu(auNiveau, R), false);
+  // Aucune autre langue qui recrute : rien ne le retient.
+  assertEquals(estSuspendu(stat({ ...FATHOMLY, comptes_langue: 4, niveau_pod: null }), R), false);
+});
+
+Deno.test("100 % pod : jamais dans une langue que son pod ne sert pas, même sans autre choix réservé", () => {
+  const muet = stat({ ...FATHOMLY, livre_langue: false });
+  const classes = classerLabels([...FR_24_10, muet], R);
+  assertEquals(classes.at(-1)?.label_id, "fathomly");
+  assert(classes.at(-1)?.aSec);
+});
+
+Deno.test("100 % pod : les colonnes de la RPC sont lues", () => {
+  const s = normaliserStatLabel({ label_id: "x", pod_seul: true, livre_langue: false, niveau_pod: "2" });
+  assertEquals([s.pod_seul, s.livre_langue, s.niveau_pod], [true, false, 2]);
+});
+
+// ── Test d'un label 100 % pod (0353) : 3 comptes au plus avant d'être jugé ──
+
+Deno.test("test pod : 3 comptes au plus tant que le test n'est pas fini", () => {
+  const app = APP;
+  // 2 comptes : il peut encore en recevoir un (dans une langue où il n'est pas).
+  const deux = stat({ ...FATHOMLY, comptes_total: 2 });
+  assert(enTestPod(deux, R, app));
+  assertEquals(testPodPlein(deux, R, app), false);
+  assertEquals(choisirLabel([...FR_24_10, deux], R), "fathomly");
+  // 3 comptes : plein, écarté comme un label fermé, même à zéro compte dans la langue.
+  const trois = stat({ ...FATHOMLY, comptes_total: 3 });
+  assert(testPodPlein(trois, R, app));
+  assertEquals(classerLabels([...FR_24_10, trois], R).some((c) => c.label_id === "fathomly"), false);
+  // Ce n'est pas une fermeture : la nuit ne le retire à personne.
+  assertEquals(estFerme("fathomly", app, R, trois), false);
+  // Dernier recours d'une création sans label ouvert : il revient.
+  assertEquals(choisirLabel([trois], R, { jamaisSansLabel: true }), "fathomly");
+});
+
+Deno.test("test pod : fini à 30 posts mesurés et une perf d'au moins ×0,75", () => {
+  const app = APP;
+  const base = { ...FATHOMLY, comptes_total: 3 };
+  assert(enTestPod(stat({ ...base, passages: 29, perf_label: 1.4 }), R, app));
+  assertEquals(enTestPod(stat({ ...base, passages: 30, perf_label: 0.8 }), R, app), false);
+  // Mesuré mais faible : il reste à 3 comptes ; la fermeture le juge à 150 posts.
+  assert(testPodPlein(stat({ ...base, passages: 60, perf_label: 0.6 }), R, app));
+  // Un label ordinaire n'est jamais en test.
+  assertEquals(enTestPod(stat({ label_id: "alpha_male", comptes_total: 42 }), R, app), false);
+});
+
+Deno.test("test pod : « Ouvert » à la main le sort du test ; le réglage se lit", () => {
+  const app = APP;
+  const trois = stat({ ...FATHOMLY, comptes_total: 3 });
+  assertEquals(testPodPlein(trois, reglages({ ouvertsApp: [cleFermeture(app, "fathomly")] }), app), false);
+  assertEquals(testPodPlein(trois, reglages({ ouverts: ["fathomly"] }), app), false);
+  const lu = lireReglagesChoixLabel({ test_pod_comptes: 2, test_pod_posts: 50 });
+  assertEquals([lu.testPodComptes, lu.testPodPosts], [2, 50]);
+  assertEquals(testPodPlein(stat({ ...FATHOMLY, comptes_total: 2 }), lu, app), true);
+  // Valeurs absurdes : retour aux défauts, jamais un test à zéro compte.
+  const absurde = lireReglagesChoixLabel({ test_pod_comptes: 0, test_pod_posts: -5 });
+  assertEquals([absurde.testPodComptes, absurde.testPodPosts], [3, 30]);
+});
+
+Deno.test("test pod : au-delà de 3 comptes, le test est passé pour de bon (toutes applis)", () => {
+  // Validé puis monté à 9 comptes : ses posts sur 28 j faiblissent, il ne replonge pas.
+  const valide = stat({ ...FATHOMLY, comptes_total: 9, passages: 12, perf_label: 0.6 });
+  assertEquals(enTestPod(valide, R, APP), false);
+  assertEquals(testPodPlein(valide, R, APP), false);
+  // Servi par une 2e application où il n'a aucun post : pas bloqué non plus.
+  const autreApp = stat({ ...FATHOMLY, comptes_total: 4, passages: 0, perf_label: null });
+  assertEquals(testPodPlein(autreApp, R, "00000000-0000-4000-8000-000000000003"), false);
+});
+
+// ── Pays saturé (0354) : l'élément central contre la sur-utilisation d'un marché ──
+
+Deno.test("pays saturé : 4 alpha_male sur 5 en Pologne, le 6e va ailleurs même avec réserve et perf", () => {
+  const pologne = (o: Partial<StatLabelCreation> & { label_id: string }) => stat({ comptes_langue: 0, comptes_pays: 0, ...o });
+  // Les autres labels sont SOUS le seuil de réserve : avant 0354, alpha_male gagnait.
+  const pool = [
+    pologne({ label_id: "alpha_male", comptes_langue: 4, comptes_pays: 4, passages_restants: 1535, demande_jour: 44, passages: 500, perf_label: 1.3 }),
+    pologne({ label_id: "smart_girl", comptes_langue: 1, comptes_pays: 1, passages_restants: 300, demande_jour: 102, passages: 1200, perf_label: 1.0 }),
+    pologne({ label_id: "rh", passages_restants: 100, demande_jour: 32, passages: 262, perf_label: 1.31 }),
+  ];
+  assert(classerLabels(pool, R).every((c) => c.label_id === "alpha_male" || c.suspendu), "les autres sont en réserve basse");
+  const classes = classerLabels(pool, R);
+  assertEquals(classes.at(-1)?.label_id, "alpha_male");
+  assert(classes.at(-1)?.saturePays);
+  assert(choisirLabel(pool, R) !== "alpha_male");
+  // Moitié pile (2 sur 4) : pas saturé, la règle ne joue pas encore.
+  assertEquals(classerLabels([{ ...pool[0], comptes_pays: 2 }, { ...pool[1], comptes_pays: 2 }], R)[0].saturePays, false);
+  // Seul label possible : il est donné quand même (une règle ne bloque jamais tout).
+  assertEquals(choisirLabel([pool[0]], R), "alpha_male");
+  // Le seuil se règle.
+  assertEquals(lireReglagesChoixLabel({ part_max_pays: 0.4 }).partMaxPays, 0.4);
 });

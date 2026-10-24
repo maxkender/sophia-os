@@ -19,7 +19,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Elle s'y prête quand l'étape parle de scroll, de vidéos courtes, de temps d'écran, d'attention ou de réseaux (« DELETE SOCIAL MEDIA », « Instead Of Scrolling », « ScreenTime »).
 	- Jamais plaquée : une liste de compétences ou de vidéos à regarder n'a pas d'étape UnSwipe.
 - **Le label** : `Fathomly`, qui sert **Sophia seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes Sophia anglais.
-- **En anglais d'abord** (décision du 23/10). Une autre langue demandera des vidéos YouTube dans cette langue.
+- **En six langues** : l'anglais d'abord, puis fr, es, de, it et pt (`LANGUES` dans `atelier/api.ts`). Chaque langue a ses propres vidéos YouTube, cherchées dans cette langue (`npm run youtube -- "…" --langue fr`), avec un titre natif : si YouTube renvoie le titre traduit d'une chaîne, passe `--recherche "<titre natif>"` ou change de vidéo.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake
@@ -52,6 +52,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Couverture** : chaque ligne du titre remplit la largeur (Anton, capitales), le chiffre et les mots forts en bronze (`{ "t": "5 ", "bronze": true }`). Le titre commence à y 250 (sous les onglets de TikTok), la statue s'arrête à y 1 750 (au-dessus de la légende).
 - **Étapes** : le titre géant (la ligne la plus longue bord à bord, capitale de 346 px au plus), puis la carte YouTube de l'appli iOS, ou la carte d'appli. `sous` ajoute la ligne en dessous (« 2–3 hours to learn. »).
 - **Étapes en affiche** (ses « 10/10 Skills ») : `tailles` donne la capitale maximale de chaque ligne, chaque ligne remplit seule 920 px, le mot-clé dans sa couleur (`{ "t": "CLOUD TYPE", "couleur": "#0231c5" }`). `sous` en Inter SemiBold 54 px.
+- **Étapes en bandeau** (ses « 10/10 Skills To Learn Before You Are 25 ») : `"bandeau": true`, une ligne en Inter Black (capitale 59 px, y 410), la carte à y 585. Un titre traduit trop long se resserre puis rapetisse : raccourcis-le plutôt.
 - **Carte d'appli** : icône 380 px, nom en Anton à la couleur de l'appli, une ou deux lignes en Inter Medium.
 - **Carte Sophia** : la même carte d'appli qu'UnSwipe (icône 380 px, « SOPHIA » en rose). L'ancienne slide de fin (`type: "app"`) reste dans l'atelier mais ne sert plus.
 - **Pas encore dans l'atelier** : ses cartes YouTube sans titre (« S Tier YouTube Videos »), ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.

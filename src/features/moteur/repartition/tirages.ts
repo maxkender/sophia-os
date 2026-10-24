@@ -5,15 +5,22 @@
  * compte. Mis bout à bout ils ne disent pas la composition : un label peut
  * gagner le premier tirage et ne plus jamais revenir, un autre peut sortir
  * quatre fois. Ce module déroule donc la suite réelle, compte après compte, en
- * mettant à jour la présence à chaque fois — exactement ce que fera le moteur
- * — et rend la composition obtenue, en pourcentage.
+ * mettant à jour les comptes de chaque label à chaque fois — exactement ce que
+ * fera le moteur, dont elle déroule le classement, `classerLabels` — et rend la
+ * composition obtenue, en pourcentage.
  *
- * C'est une PROJECTION, pas une prédiction : elle suppose que le stock, la
- * performance et la cible ne bougent pas pendant les vingt embauches. En
+ * C'est une PROJECTION, pas une prédiction : elle suppose que le stock livré,
+ * la performance et la cible ne bougent pas pendant les vingt embauches. La
+ * consommation, elle, suit : chaque compte projeté ajoute ses posts du jour à
+ * la demande de son label (un compte compte dès son assignation, 0354), donc
+ * un label se vide au fil des tirages comme il le fera vraiment. En
  * pratique le stock se recharge et la performance dérive. Elle répond à « vers
  * quoi penche le système aujourd'hui », ce qui est la question qu'on se pose
  * en regardant une langue.
  */
+import type { ReglagesFileLabels } from "../types";
+import { avecTirage, fenetreVide, rafale } from "./fenetreRafale";
+import { fileAUneEntree, tirerDeLaFile } from "./fileApplication";
 import { estTirageSite, prochaineAppSite } from "./provenance";
 import {
   applicationsEligibles,
@@ -23,7 +30,9 @@ import {
   type MarcheApplications,
 } from "./scoreApplication";
 import {
+  classerLabels,
   classerPropose,
+  estFerme,
   REGLAGES_CHOIX_LABEL_DEFAUT,
   type ReglagesChoixLabel,
   type StatLabel,
@@ -46,6 +55,13 @@ export interface Tirage {
 /** Nombre de tirages projetés par défaut : deux semaines d'embauches. */
 export const TIRAGES_DEFAUT = 20;
 
+/**
+ * Fenêtre anti-rafale. Le moteur passe `RECENTS_CHOIX_LABEL` = 3 à
+ * `stats_choix_label` à la création, et `simulation_repartition` (0305) passe
+ * la même chose : les chiffres d'entrée sont donc comparables tels quels.
+ */
+export const FENETRE_RECENTS = 3;
+
 export interface OptionsTirages {
   /**
    * Part des prochaines recrues qui viennent du site, entre 0 et 1. Leur
@@ -58,6 +74,39 @@ export interface OptionsTirages {
    * Vide, il n'y a pas de tirage du site, quelle que soit la part.
    */
   siteParApp?: Readonly<Record<string, number>>;
+  /**
+   * Quel classement de label dérouler.
+   *
+   * `moteur` est le défaut, et c'est le seul qui dit la vérité : la carte
+   * promet « exactement comme le fera le moteur », et le moteur appelle
+   * `classerLabels` (`choisirLabel`, `_shared/choix_label_equilibre.ts`).
+   * La projection a longtemps déroulé `classerPropose`, la règle d'une page
+   * Notion du 18/10 que personne n'a branchée côté serveur : elle annonçait
+   * donc une composition que la prod ne produit pas.
+   *
+   * `propose` reste joignable pour comparer les deux règles sur vingt
+   * embauches, comme la carte « Les prochaines recrues » les compare sur une.
+   */
+  regle?: "moteur" | "propose";
+  /**
+   * La File des créateurs (`reglages.file_labels_comptes`), telle qu'elle est
+   * en base.
+   *
+   * ELLE PASSE AVANT TOUT, des deux côtés. À la création, `popLabelFile`
+   * (manage-users) tire le label de la File de l'application avant de classer,
+   * et `choisirApplicationPourCompte` descend son classement pour prendre le
+   * premier candidat qui a une entrée utilisable : la File détourne donc
+   * l'APPLICATION autant que le label. Sans elle, la projection annonçait la
+   * mauvaise paire sur tout un marché.
+   *
+   * Absente, la projection se comporte comme si la File était vide.
+   */
+  file?: ReglagesFileLabels;
+  /**
+   * Taille de la fenêtre anti-rafale, celle passée à `stats_choix_label`.
+   * `simulation_repartition` (0305) passe 3, comme le moteur à la création.
+   */
+  fenetreRecents?: number;
 }
 
 function cle(applicationId: string, labelId: string): string {
@@ -102,7 +151,19 @@ export function simulerTirages(
   options: OptionsTirages = {},
 ): Tirage[] {
   const comptesApp = new Map(marche.parts.map((p) => [p.slug, p.comptes]));
+  // Indexé sur le LABEL SEUL, pas sur application:label. Le CTE `liens` de
+  // `stats_choix_label` (0287) compte les liens compte ↔ label sans regarder
+  // l'application : un label servi par deux applications voit sa présence
+  // monter quelle que soit celle qui vient de le prendre. L'ancienne clé
+  // laissait `beau_smart_girl` repartir à zéro en changeant d'application.
   const ajoutLabel = new Map<string, number>();
+  // La CONSOMMATION, elle, est par application (`demande_jour` de
+  // `label_application_reserve`) : un compte compte dès son assignation
+  // (0354), donc chaque compte projeté ajoute ses posts du jour à la demande
+  // de son label DANS SON application. Sans ça, la projection donnait 8 comptes
+  // sur 20 à RH en Turquie, réserve intacte, alors que le moteur l'aurait
+  // relégué (réserve basse) au bout de deux ou trois.
+  const ajoutDemande = new Map<string, number>();
   const obtenus = new Map<string, Tirage>();
   const parApp = options.siteParApp ?? {};
   // Bornée ici et pas seulement chez l'appelant : un NaN qui passerait ferait
@@ -126,15 +187,38 @@ export function simulerTirages(
   const peutSite = part > 0;
   const peutRecrutement = part < 1;
 
-  const avecAjouts = (applicationId: string, stats: StatLabel[]): StatLabel[] =>
+  // Le classement du moteur, sauf demande explicite de dérouler la proposition.
+  const classer = options.regle === "propose" ? classerPropose : classerLabels;
+
+  // La File se VIDE au fil des tirages : une entrée sert un compte et
+  // disparaît. La garder entière la ferait resservir vingt fois.
+  let file: ReglagesFileLabels | null = options.file ?? null;
+  let fenetre = fenetreVide(options.fenetreRecents ?? FENETRE_RECENTS);
+
+  /** Les labels que la File a le droit de poser pour cette application. */
+  const eligiblesFile = (applicationId: string): string[] =>
+    (statsParApp[applicationId] ?? [])
+      .map((s) => s.label_id)
+      .filter((id) => !estFerme(id, applicationId, reglages));
+
+  const avecAjouts = (stats: StatLabel[], applicationId: string): StatLabel[] =>
     stats.map((s) => {
-      const plus = ajoutLabel.get(cle(applicationId, s.label_id)) ?? 0;
-      if (plus === 0) return s;
+      const plus = ajoutLabel.get(s.label_id) ?? 0;
+      const demande = (ajoutDemande.get(`${applicationId}:${s.label_id}`) ?? 0) * reglages.postsParJourNouveau;
+      const r = rafale(fenetre, s.label_id, s.recents_langue, s.recence_langue);
+      const rp = marche.pays
+        ? rafale(fenetre, s.label_id, s.recents_pays, s.recence_pays)
+        : { recents: 0, recence: 0 };
       return {
         ...s,
         comptes_pays: s.comptes_pays + plus,
         comptes_langue: s.comptes_langue + plus,
         comptes_total: s.comptes_total + plus,
+        demande_jour: s.demande_jour + demande,
+        recents_langue: r.recents,
+        recence_langue: r.recence,
+        recents_pays: rp.recents,
+        recence_pays: rp.recence,
       };
     });
 
@@ -155,63 +239,100 @@ export function simulerTirages(
       })),
     };
 
-    // Une recrue du site va là où le site l'envoie, et ça ne dépend pas de la
-    // cible. On garde les autres applications qu'il sert derrière, au cas où
-    // la première n'ait aucun label ouvert. Une recrue placée par le moteur,
-    // elle, descend le classement habituel.
+    // L'APPLICATION. Une recrue du site va là où le site l'envoie, et ça ne
+    // dépend pas de la cible. Une recrue placée par le moteur prend la tête du
+    // classement — SAUF si une application plus bas a une entrée utilisable
+    // dans sa File : le moteur descend son classement pour la trouver
+    // (`choisirApplicationPourCompte`, manage-users). C'est ce qui permet
+    // d'amorcer un label neuf sur une application qui n'aurait rien reçu.
     const voulu = duSite ? prochaineAppSite(attribuesSite, parApp) : null;
-    const candidats: Candidat[] = duSite
-      ? applicationsEligibles(marche.langue, applications)
-          .filter((a) => (parApp[a.slug] ?? 0) > 0)
-          .sort(
-            (x, y) =>
-              (y.slug === voulu ? 1 : 0) - (x.slug === voulu ? 1 : 0) ||
-              (parApp[y.slug] ?? 0) - (parApp[x.slug] ?? 0) ||
-              x.slug.localeCompare(y.slug),
-          )
-          .map((a) => ({ application_id: a.id, slug: a.slug }))
-      : classerApplications(marcheCourant, cible, applications).map((a) => ({
-          application_id: a.application_id,
-          slug: a.slug,
-        }));
-
-    // On descend les candidats jusqu'à en trouver un qui a vraiment un label
-    // à donner.
-    let place = false;
-    for (const app of candidats) {
-      const stats = statsParApp[app.application_id];
-      if (!stats || stats.length === 0) continue;
-      const labels = classerPropose(avecAjouts(app.application_id, stats), reglages, {
-        applicationId: app.application_id,
-      });
-      if (labels.length === 0) continue;
-
-      const gagnant = labels[0];
-      const k = cle(app.application_id, gagnant.label_id);
-      ajoutLabel.set(k, (ajoutLabel.get(k) ?? 0) + 1);
-      comptesApp.set(app.slug, (comptesApp.get(app.slug) ?? 0) + 1);
-
-      if (duSite) attribuesSite[app.slug] = (attribuesSite[app.slug] ?? 0) + 1;
-
-      const deja = obtenus.get(k);
-      if (deja) {
-        deja.comptes += 1;
-        if (duSite) deja.comptesSite += 1;
-      } else {
-        obtenus.set(k, {
-          application_id: app.application_id,
-          app: app.slug,
-          label_id: gagnant.label_id,
-          label_nom: gagnant.label_nom,
-          comptes: 1,
-          comptesSite: duSite ? 1 : 0,
-          part: 0,
-        });
-      }
-      place = true;
-      break;
+    let app: Candidat | null = null;
+    if (duSite) {
+      const servies = applicationsEligibles(marche.langue, applications).filter(
+        (a) => (parApp[a.slug] ?? 0) > 0,
+      );
+      const choisie = servies.find((a) => a.slug === voulu) ?? servies[0];
+      app = choisie ? { application_id: choisie.id, slug: choisie.slug } : null;
+    } else {
+      const classement = classerApplications(marcheCourant, cible, applications);
+      const gagnant =
+        (file
+          ? classement.find((c) =>
+              fileAUneEntree(file!, c.slug, marche.langue, eligiblesFile(c.application_id)),
+            )
+          : undefined) ?? classement[0];
+      app = gagnant ? { application_id: gagnant.application_id, slug: gagnant.slug } : null;
     }
-    if (!place) epuise[genre] = true;
+
+    // UNE SEULE APPLICATION, PAS DE REPLI. Le moteur fige son gagnant : si
+    // elle n'a aucun label à donner, il répond NO_LABELS et la création
+    // échoue. La projection descendait le classement, ce qui lui faisait
+    // afficher des comptes sur une application qui n'en recevra jamais.
+    if (!app) {
+      epuise[genre] = true;
+      continue;
+    }
+
+    // LE LABEL. La File de l'application d'abord — langue puis file générale —
+    // et seulement ensuite le classement. L'entrée tirée est consommée, elle
+    // ne servira pas deux fois. Vaut aussi pour une recrue du site : le site
+    // choisit l'application, pas le label.
+    let labelId: string | null = null;
+    let labelNom: string | null = null;
+    if (file) {
+      const tire = tirerDeLaFile(file, app.slug, marche.langue, eligiblesFile(app.application_id));
+      file = tire.file;
+      labelId = tire.item?.label_id ?? null;
+    }
+
+    const stats = statsParApp[app.application_id];
+    if (!labelId) {
+      if (!stats || stats.length === 0) {
+        epuise[genre] = true;
+        continue;
+      }
+      const prets = avecAjouts(stats, app.application_id);
+      const opts = { applicationId: app.application_id };
+      // `jamaisSansLabel` : quand tous les labels de l'application sont
+      // fermés, le moteur en redonne un quand même plutôt que de refuser le
+      // compte. Sauter l'application, comme avant, faisait disparaître de la
+      // projection une part qui sera bel et bien attribuée.
+      const labels = classer(prets, reglages, opts);
+      const gagnant = labels[0] ?? classer(prets, reglages, { ...opts, ignorerFermeture: true })[0];
+      if (!gagnant) {
+        epuise[genre] = true;
+        continue;
+      }
+      labelId = gagnant.label_id;
+      labelNom = gagnant.label_nom;
+    }
+    if (labelNom === null) {
+      labelNom = (stats ?? []).find((x) => x.label_id === labelId)?.label_nom ?? labelId;
+    }
+
+    ajoutLabel.set(labelId, (ajoutLabel.get(labelId) ?? 0) + 1);
+    const cleDemande = `${app.application_id}:${labelId}`;
+    ajoutDemande.set(cleDemande, (ajoutDemande.get(cleDemande) ?? 0) + 1);
+    fenetre = avecTirage(fenetre, labelId);
+    comptesApp.set(app.slug, (comptesApp.get(app.slug) ?? 0) + 1);
+    if (duSite) attribuesSite[app.slug] = (attribuesSite[app.slug] ?? 0) + 1;
+
+    const k = cle(app.application_id, labelId);
+    const deja = obtenus.get(k);
+    if (deja) {
+      deja.comptes += 1;
+      if (duSite) deja.comptesSite += 1;
+    } else {
+      obtenus.set(k, {
+        application_id: app.application_id,
+        app: app.slug,
+        label_id: labelId,
+        label_nom: labelNom,
+        comptes: 1,
+        comptesSite: duSite ? 1 : 0,
+        part: 0,
+      });
+    }
   }
 
   const total = [...obtenus.values()].reduce((a, t) => a + t.comptes, 0);

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o010",
+ "schema_id": "vocabulary-words",
+ "titre": "6 everyday words with surprising origins #vocabulary #etymology #wordoftheday #englishwords #smartgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "367627d1-175c-4fe0-8fff-45c923d6906d",
+  "46118b58-708c-4012-b3d2-143b20410565"
+ ],
+ "notes": "essai (sg-o010, une livraison sur cinq). Format neuf chez nous : l'origine cachée de mots courants, un mot par slide avec sa prononciation, comme le gabarit vocabulaire de @gilmoreobssesed. Aucun contenu du label ne fait l'étymologie de mots du quotidien (vérifié dans donnees/label.json ; « 12 emotions that don't exist in English », e52cf2a5, existe déjà, donc écarté). Schéma vocabulary-words (367627d1 r 2,99 sur 9 ; 95348884 r 9,96 ; 46118b58 r 4,39 ; a7697985 r 4,44) ; notre sg-o001 sur ce schéma est le meilleur de nos originaux (r 1,3 et 2,45). Accroches écrites : « 6 everyday words with surprising origins » (retenue : le gabarit « N words » avec une promesse de curiosité), « words you use every day without knowing what they really mean » (écartée : trop longue), « the secret history hiding in 6 ordinary words » (écartée : plus loin du gabarit). Étymologies établies (dictionnaires étymologiques) : disaster (italien disastro, mauvaise étoile), muscle (latin musculus, petite souris), nice (latin nescius, ignorant ; sens « sot » en moyen anglais), clue (clew, pelote de fil, Thésée et le labyrinthe), companion (com + panis, partager le pain), curfew (ancien français cuevrefeu, couvre le feu). Pas de légende contestée (salary écarté). Sophia sur curfew (philosophy écarté : « sophia » dans le texte de base fait refuser le dépôt), avec la formule « a micro-learning app like the Sophia app ». Images : captures de la série (style @gilmoreobssesed) pour l'accroche, les mots et la fin, autres que celles des originaux précédents ; slide Sophia sur un carnet, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1b49ae5d",
+   "texte_overlay": "6 everyday words with\nsurprising origins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2da67384",
+   "texte_overlay": "Disaster\n(dih-ZAS-ter)\n\nFrom Italian \"disastro\":\nan ill-starred event.\nPeople once blamed bad\nluck on the stars.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "89c2e34c",
+   "texte_overlay": "Muscle\n(MUHS-uhl)\n\nFrom Latin \"musculus\":\na little mouse.\nA moving muscle looked like\na mouse under the skin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8c60fe27",
+   "texte_overlay": "Nice\n(NAHYS)\n\nFrom Latin \"nescius\":\nnot knowing.\nFor centuries it meant\nfoolish, not kind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "93b47dad",
+   "texte_overlay": "Clue\n(KLOO)\n\nFrom \"clew\":\na ball of thread.\nIn the Greek myth, Theseus\nfollowed one out of\nthe labyrinth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "afd33eca",
+   "texte_overlay": "Companion\n(kuhm-PAN-yuhn)\n\nFrom Latin \"com\" + \"panis\":\nwith bread.\nA companion is someone\nyou share bread with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eff38aa6",
+   "texte_overlay": "Curfew\n(KUR-fyoo)\n\nFrom Old French \"cuevrefeu\":\ncover the fire.\nA bell told towns to put out\ntheir fires for the night.\nCollect one story like\nthis every day.",
+   "texte_sophia": "Curfew\n(KUR-fyoo)\n\nFrom Old French \"cuevrefeu\":\ncover the fire.\nI collect stories like this\n5 minutes a day with a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fdfe3fc2",
+   "texte_overlay": "follow for more word stories\nwhich one surprised you most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/7.jpg"
+  }
+ ]
+}

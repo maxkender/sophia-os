@@ -8,7 +8,7 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { COULEUR, type Ctx, H, icone, L, type LigneTitre, lignesCentrees, mesurerTitre, titreAffiche, titreGeant } from "./dessin.ts";
+import { COULEUR, type Ctx, ecartAccents, H, icone, L, type LigneTitre, lignesCentrees, mesurerTitre, titreAffiche, titreGeant } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { POLICE } from "./polices.ts";
 import { carteYoutube, hauteurCarte, type Video } from "./youtube.ts";
@@ -34,6 +34,12 @@ export type ContenuEtape = {
    * ligne ; une petite valeur fait la ligne d'appoint, « HOW TO »).
    */
   tailles?: number[];
+  /**
+   * Titre en bandeau, comme ses « 10/10 Skills To Learn Before You Are 25 » :
+   * une seule ligne en haut (Inter Black, capitale de 59 px), la carte dessous
+   * à hauteur fixe.
+   */
+  bandeau?: boolean;
   /** La vraie vidéo YouTube (`npm run youtube`)… */
   video?: Video;
   /** … ou la carte de l'appli de l'étape (`app` de la slide). */
@@ -129,15 +135,59 @@ const hauteurCarteAppli = (c: CarteAppli) => 380 + 64 + 118 + 50 + c.texte.lengt
  */
 function titreParLignes(ctx: Ctx, c: ContenuEtape, y: number, dessiner: boolean): number {
   let haut = y;
+  let tailleAvant = 0;
   c.titre.forEach((ligne, i) => {
     const o = { largeur: 920, capMax: c.tailles![i] ?? 180 };
-    const cap = dessiner ? titreGeant(ctx, [ligne], { ...o, y: haut }).cap : mesurerTitre(ctx, [ligne], o).cap;
-    haut += cap + 20;
+    const m = mesurerTitre(ctx, [ligne], o);
+    if (i > 0) haut += ecartAccents(ctx, c.titre, i, m.taille, tailleAvant);
+    if (dessiner) titreGeant(ctx, [ligne], { ...o, y: haut });
+    tailleAvant = m.taille;
+    haut += m.cap + 20;
   });
   return haut - 20;
 }
 
+/**
+ * Le bandeau (relevé sur ses slides du 07/09) : capitales de 59 px de y 410 à
+ * 469, 961 px de large au plus (resserré au-delà), la carte à y 585.
+ */
+const BANDEAU = { haut: 410, cap: 59, largeur: 961, carte: 585 };
+
+function titreBandeau(ctx: Ctx, texte: string) {
+  ctx.save();
+  ctx.font = `100px "${POLICE.bandeau}"`;
+  const capRef = ctx.measureText("H").actualBoundingBoxAscent;
+  const taille = (100 * BANDEAU.cap) / capRef;
+  ctx.font = `${taille}px "${POLICE.bandeau}"`;
+  const t = texte.toUpperCase();
+  const l = ctx.measureText(t).width;
+  // Sa police est plus étroite qu'Inter Black : 88 % en largeur donne ses
+  // proportions. Trop long : on resserre jusqu'à 78 %, puis on réduit la taille.
+  const serre = Math.max(0.78, Math.min(0.88, BANDEAU.largeur / l));
+  const reduit = Math.min(1, BANDEAU.largeur / (l * serre));
+  ctx.translate(L / 2, BANDEAU.haut + BANDEAU.cap * reduit);
+  ctx.scale(serre * reduit, reduit);
+  ctx.fillStyle = COULEUR.noir;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText(t, 0, 0);
+  ctx.restore();
+}
+
 async function etape(ctx: Ctx, s: Slide, c: ContenuEtape) {
+  if (c.bandeau) {
+    titreBandeau(ctx, c.titre.map((ligne) => (typeof ligne === "string" ? ligne : ligne.map((m) => m.t).join(""))).join(" "));
+    if (c.video) {
+      await carteYoutube(ctx, c.video, BANDEAU.carte);
+      return;
+    }
+    if (!c.carte || !s.app) throw new Error("une étape montre une vidéo YouTube ou la carte de son appli (`app`)");
+    const appli = APPLIS[s.app];
+    icone(ctx, await loadImage(join(RACINE, appli.icone)), (L - 380) / 2, BANDEAU.carte + 40, 380);
+    const n = titreGeant(ctx, [[{ t: c.carte.nom, couleur: appli.couleur }]], { y: BANDEAU.carte + 40 + 380 + 64, largeur: 900, capMax: 118 });
+    lignesCentrees(ctx, c.carte.texte, { y: n.bas + 50 + 54, police: POLICE.texte, taille: 54, pas: 72, couleur: COULEUR.texte, largeurMax: 980 });
+    return;
+  }
   const optTitre = { largeur: 1040, capMax: 346 };
   const affiche = !!c.tailles?.length;
   const hTitre = affiche ? titreParLignes(ctx, c, 0, false) : mesurerTitre(ctx, c.titre, optTitre).hauteur;

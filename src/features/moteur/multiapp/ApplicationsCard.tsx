@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
+import { EtiquetteApplication } from "@/components/brand/LogoApplication";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,6 +36,7 @@ import {
   promptsManquants,
 } from "./logique";
 import { optionsRequeteApplications } from "./requetesApplications";
+import { cn } from "@/lib/utils";
 
 /**
  * Le rattrapage avance par lots côté serveur : relire son état toutes les 10 s
@@ -143,6 +146,31 @@ function DerniereRequalif({
   );
 }
 
+/** Les langues ciblées en codes courts ; le nom complet au survol. */
+function ResumeLangues({ application }: { application: ApplicationMulti }) {
+  const { t } = useTranslation();
+  if (application.id === ID_SOPHIA || application.langues === null) {
+    return <Badge variant="secondary">{t("multiApp.applications.toutesLangues")}</Badge>;
+  }
+  if (application.langues.length === 0) {
+    return (
+      <span className="text-xs text-amber-700 dark:text-amber-400">{t("multiApp.applications.aucuneLangueAide")}</span>
+    );
+  }
+  return (
+    <span
+      className="font-mono text-xs uppercase tracking-wide"
+      title={application.langues.map((l) => nomLangue(l)).join(", ")}
+    >
+      {application.langues.join(" · ")}
+    </span>
+  );
+}
+
+/** Mêmes classes que le tableau de la page Allocation. */
+const TH = "pb-2 pr-4 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground last:pr-0";
+const TD = "py-2.5 pr-4 align-top last:pr-0";
+
 function LigneApplication({
   application,
   run,
@@ -154,6 +182,7 @@ function LigneApplication({
   const qc = useQueryClient();
   const sophia = application.id === ID_SOPHIA;
   const [blocage, setBlocage] = React.useState<string | null>(null);
+  const [ouvert, setOuvert] = React.useState(false);
 
   const rafraichir = () => qc.invalidateQueries({ queryKey: ["applications"] });
 
@@ -211,91 +240,100 @@ function LigneApplication({
 
   const enCours = maj.isPending || activer.isPending;
   const erreur = maj.error ?? activer.error;
+  const Chevron = ouvert ? ChevronDown : ChevronRight;
 
   return (
-    <div className="space-y-2.5 rounded-md border p-3">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="min-w-0">
-          <p className="text-sm font-medium">
-            {nomApplication(application)}
-            <span className="ml-1.5 font-mono text-[11px] text-muted-foreground">{application.slug}</span>
-          </p>
-          {sophia && (
-            <p className="text-[11px] text-muted-foreground">{t("multiApp.applications.sophiaVerrouillee")}</p>
-          )}
-        </div>
-        <label className="flex items-center gap-2 text-xs">
-          <Switch
-            checked={application.actif}
-            disabled={sophia || enCours}
-            onCheckedChange={(v) => basculerActif(v === true)}
-            aria-label={t("multiApp.applications.actif")}
-          />
-          {application.actif ? t("multiApp.applications.actif") : t("multiApp.applications.inactif")}
-        </label>
-      </div>
-
-      <div className="space-y-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="text-xs font-medium">{t("multiApp.applications.langues")}</p>
-          {sophia ? (
-            <Badge variant="secondary">{t("multiApp.applications.toutesLangues")}</Badge>
-          ) : (
-            <>
-              <button
-                type="button"
-                className="text-[11px] text-primary underline-offset-2 hover:underline disabled:opacity-50"
-                disabled={enCours || application.langues === null}
-                onClick={() => maj.mutate({ langues: null })}
-              >
-                {t("multiApp.applications.toutes")}
-              </button>
-              <button
-                type="button"
-                className="text-[11px] text-primary underline-offset-2 hover:underline disabled:opacity-50"
-                disabled={enCours || (application.langues?.length ?? -1) === 0}
-                onClick={() => maj.mutate({ langues: [] })}
-              >
-                {t("multiApp.applications.aucune")}
-              </button>
-              {application.langues?.length === 0 && (
-                <span className="text-[11px] text-amber-700 dark:text-amber-400">
-                  {t("multiApp.applications.aucuneLangueAide")}
-                </span>
-              )}
-            </>
-          )}
-        </div>
-        {!sophia && (
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1 sm:grid-cols-4 lg:grid-cols-6">
-            {LANGUES_CIBLES.map((l) => (
-              <label key={l} className="flex items-center gap-1.5 text-[11px]">
-                <input
-                  type="checkbox"
-                  className="size-3.5"
-                  checked={langueCiblee(application.langues, l)}
-                  disabled={enCours}
-                  onChange={() =>
-                    maj.mutate({ langues: languesApresBascule(application.langues, l, LANGUES_CIBLES) })
-                  }
-                />
-                {nomLangue(l)}
-              </label>
-            ))}
-          </div>
+    <>
+      <tr
+        className={cn(
+          "border-b border-border/40",
+          !sophia && "cursor-pointer hover:bg-muted/50",
+          ouvert && "bg-muted/40",
         )}
-      </div>
-
-      {!sophia && <BackfillPertinence application={application} />}
-      {!sophia && <DerniereRequalif application={application} run={run} />}
-
-      {blocage && <p className="text-xs text-destructive">{blocage}</p>}
-      {erreur && (
-        <p className="text-xs text-destructive">
-          {estErreurSchemaAbsent(erreur) ? t("multiApp.schemaAbsent") : messageErreur(erreur)}
-        </p>
+        onClick={sophia ? undefined : () => setOuvert(!ouvert)}
+      >
+        <td className={TD}>
+          <span className="flex items-center gap-1.5">
+            {sophia ? (
+              <span className="inline-block size-3.5" aria-hidden />
+            ) : (
+              <Chevron className="size-3.5 shrink-0 text-muted-foreground" aria-hidden />
+            )}
+            <EtiquetteApplication slug={application.slug} className="font-medium" />
+          </span>
+          {sophia && (
+            <p className="mt-0.5 max-w-xs pl-5 text-[11px] text-muted-foreground">
+              {t("multiApp.applications.sophiaVerrouillee")}
+            </p>
+          )}
+        </td>
+        <td className={TD}>
+          <ResumeLangues application={application} />
+          {!sophia && <DerniereRequalif application={application} run={run} />}
+        </td>
+        <td className={cn(TD, "text-right")} onClick={(e) => e.stopPropagation()}>
+          <label className="inline-flex items-center gap-2 text-xs">
+            <Switch
+              checked={application.actif}
+              disabled={sophia || enCours}
+              onCheckedChange={(v) => basculerActif(v === true)}
+              aria-label={t("multiApp.applications.actif")}
+            />
+            {application.actif ? t("multiApp.applications.actif") : t("multiApp.applications.inactif")}
+          </label>
+          {blocage && <p className="ml-auto mt-1 max-w-64 text-left text-xs text-destructive">{blocage}</p>}
+          {erreur && (
+            <p className="ml-auto mt-1 max-w-64 text-left text-xs text-destructive">
+              {estErreurSchemaAbsent(erreur) ? t("multiApp.schemaAbsent") : messageErreur(erreur)}
+            </p>
+          )}
+        </td>
+      </tr>
+      {ouvert && !sophia && (
+        <tr>
+          <td colSpan={3} className="pb-3">
+            <div className="space-y-3 rounded-md bg-muted/30 p-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-xs font-medium">{t("multiApp.applications.langues")}</p>
+                <button
+                  type="button"
+                  className="text-[11px] text-primary underline-offset-2 hover:underline disabled:opacity-50"
+                  disabled={enCours || application.langues === null}
+                  onClick={() => maj.mutate({ langues: null })}
+                >
+                  {t("multiApp.applications.toutes")}
+                </button>
+                <button
+                  type="button"
+                  className="text-[11px] text-primary underline-offset-2 hover:underline disabled:opacity-50"
+                  disabled={enCours || (application.langues?.length ?? -1) === 0}
+                  onClick={() => maj.mutate({ langues: [] })}
+                >
+                  {t("multiApp.applications.aucune")}
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1 sm:grid-cols-4 lg:grid-cols-6">
+                {LANGUES_CIBLES.map((l) => (
+                  <label key={l} className="flex items-center gap-1.5 text-[11px]">
+                    <input
+                      type="checkbox"
+                      className="size-3.5"
+                      checked={langueCiblee(application.langues, l)}
+                      disabled={enCours}
+                      onChange={() =>
+                        maj.mutate({ langues: languesApresBascule(application.langues, l, LANGUES_CIBLES) })
+                      }
+                    />
+                    {nomLangue(l)}
+                  </label>
+                ))}
+              </div>
+              <BackfillPertinence application={application} />
+            </div>
+          </td>
+        </tr>
       )}
-    </div>
+    </>
   );
 }
 
@@ -321,14 +359,30 @@ export function ApplicationsCard() {
     <Card>
       <CardHeader>
         <CardTitle>{t("multiApp.applications.titre")}</CardTitle>
-        <CardDescription>{t("multiApp.applications.desc")}</CardDescription>
+        <CardDescription>{t("multiApp.applications.descCourte")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         {apps.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
         {apps.isError && <p className="text-sm text-destructive">{messageErreur(apps.error)}</p>}
-        {(apps.data ?? []).map((a) => (
-          <LigneApplication key={a.id} application={a} run={run.data} />
-        ))}
+        {apps.data && (
+          <div className="relative overflow-x-auto">
+            {/* relative : les textes sr-only (en position absolue) restent dans la zone qui défile. */}
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th scope="col" className={TH}>{t("multiApp.applications.colApp")}</th>
+                  <th scope="col" className={TH}>{t("multiApp.applications.langues")}</th>
+                  <th scope="col" className={cn(TH, "text-right")}>{t("multiApp.applications.colEtat")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {apps.data.map((a) => (
+                  <LigneApplication key={a.id} application={a} run={run.data} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
         <p className="text-[11px] text-muted-foreground">{t("multiApp.applications.creationParMigration")}</p>
       </CardContent>
     </Card>

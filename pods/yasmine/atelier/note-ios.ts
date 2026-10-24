@@ -10,21 +10,32 @@ export type NoteIos = {
   /** Le bord gauche de la carte (108 ou 308 chez elle) et son haut. */
   x: number;
   y: number;
-  /** Le titre, emoji collé (« study early🌸 »). */
-  titre: string;
-  /** Le paragraphe, coupé tout seul à la largeur de la note. */
-  texte: string;
+  /** Le titre, emoji collé (« study early🌸 ») ; absent : la note n'a qu'un paragraphe. */
+  titre?: string;
+  /** Le paragraphe, coupé tout seul à la largeur de la note ; absent : la note n'a qu'un titre (« or mindmaps💭 »). */
+  texte?: string;
+  /** Réglages fins du texte zoomé (« rating study hacks » : 41 px, 52 px entre les lignes, première ligne à 223 px du haut). */
+  taille?: number;
+  pas?: number;
+  base?: number;
+  /** false : pas de bouton « annuler » dans la barre (« rating study hacks »). */
+  annuler?: boolean;
+  /** Texte plus gros et plus gras (« school tips » : 44 px, une ligne tous les 56 px), comme une note zoomée. */
+  grand?: boolean;
 };
 
 const LARGEUR = 664;
 const ENCRE = "#333334";
 /** Le titre et le paragraphe : 41 et 37 px, une ligne tous les 47 px (mesuré). */
-const TAILLE_TITRE = 41;
-const TAILLE = 37;
-const PAS = 47;
+const TAILLE_TITRE_NORMAL = 41;
+const TAILLE_TEXTE = 37;
+const PAS_NORMAL = 47;
 const MARGE = 46;
 
+/** Coupe le texte à la largeur ; un saut de ligne ouvre un nouveau paragraphe, après une ligne vide. */
 function lignes(ctx: Ctx, texte: string, largeur: number): string[] {
+  const paragraphes = texte.split("\n").filter((p) => p.trim());
+  if (paragraphes.length > 1) return paragraphes.flatMap((p, i) => [...(i ? [""] : []), ...lignes(ctx, p, largeur)]);
   const sortie: string[] = [];
   let ligne = "";
   // Coupé aux seules espaces : une espace insécable (« 10 h ») ne se coupe pas.
@@ -112,10 +123,10 @@ function barreEtat(ctx: Ctx, x: number, y: number) {
   ctx.restore();
 }
 
-function barreOutils(ctx: Ctx, x: number, y: number) {
+function barreOutils(ctx: Ctx, x: number, y: number, annuler: boolean) {
   const cy = y + 115;
   bouton(ctx, x + 25, cy - 40, 80, 80);
-  bouton(ctx, x + 370, cy - 40, 80, 80);
+  if (annuler) bouton(ctx, x + 370, cy - 40, 80, 80);
   bouton(ctx, x + 466, cy - 40, 176, 80);
   ctx.save();
   ctx.strokeStyle = "#1c1c1e";
@@ -123,6 +134,7 @@ function barreOutils(ctx: Ctx, x: number, y: number) {
   // Retour.
   trait(ctx, [[x + 71, cy - 16], [x + 55, cy], [x + 71, cy + 16]], 4.2);
   // Annuler : flèche courbe.
+  if (annuler) {
   ctx.beginPath();
   ctx.moveTo(x + 400, cy - 6);
   ctx.lineTo(x + 418, cy - 6);
@@ -132,6 +144,7 @@ function barreOutils(ctx: Ctx, x: number, y: number) {
   ctx.lineCap = "round";
   ctx.stroke();
   trait(ctx, [[x + 408, cy - 15], [x + 399, cy - 6], [x + 408, cy + 3]], 3.6);
+  }
   // Partager : boîte ouverte et flèche vers le haut.
   trait(ctx, [[x + 502, cy - 6], [x + 495, cy - 6], [x + 495, cy + 17], [x + 521, cy + 17], [x + 521, cy - 6], [x + 514, cy - 6]], 3.4);
   trait(ctx, [[x + 508, cy + 4], [x + 508, cy - 20]], 3.4);
@@ -147,17 +160,23 @@ function barreOutils(ctx: Ctx, x: number, y: number) {
 
 /** Dessine la note ; rend sa boîte. */
 export function noteIos(ctx: Ctx, n: NoteIos) {
-  if (!EMOJIS && /\p{Extended_Pictographic}/u.test(n.titre + n.texte)) {
+  if (!EMOJIS && /\p{Extended_Pictographic}/u.test(`${n.titre ?? ""}${n.texte ?? ""}`)) {
     throw new Error("police d'emojis introuvable (Noto Color Emoji) : les emojis ne se dessineraient pas");
   }
+  const police = n.grand ? POLICE.tiktok : POLICE.modele;
+  const TAILLE = n.taille ?? (n.grand ? 44 : TAILLE_TEXTE);
+  const TAILLE_TITRE = n.taille ?? (n.grand ? 44 : TAILLE_TITRE_NORMAL);
+  const PAS = n.pas ?? (n.grand ? 56 : PAS_NORMAL);
   ctx.save();
-  ctx.font = `${TAILLE}px "${POLICE.modele}", "${POLICE.emoji}"`;
-  const corps = lignes(ctx, n.texte, LARGEUR - 2 * MARGE + 6);
-  ctx.font = `${TAILLE_TITRE}px "${POLICE.modele}", "${POLICE.emoji}"`;
-  const titre = lignes(ctx, n.titre, LARGEUR - 2 * MARGE + 6);
-  const base0 = n.y + 207;
-  const premiere = base0 + (titre.length - 1) * PAS + 2 * PAS;
-  const derniere = premiere + (corps.length - 1) * PAS;
+  ctx.font = `${TAILLE}px "${police}", "${POLICE.emoji}"`;
+  const corps = n.texte ? lignes(ctx, n.texte, LARGEUR - 2 * MARGE + 6) : [];
+  ctx.font = `${TAILLE_TITRE}px "${police}", "${POLICE.emoji}"`;
+  const titre = n.titre ? lignes(ctx, n.titre, LARGEUR - 2 * MARGE + 6) : [];
+  if (!titre.length && !corps.length) throw new Error("note sans titre ni texte");
+  const base0 = n.y + (n.base ?? (n.grand ? 215 : 207));
+  // Un blanc d'une ligne entre le titre et le paragraphe, comme dans l'app Notes.
+  const premiere = titre.length ? base0 + (titre.length + 1) * PAS : base0;
+  const derniere = corps.length ? premiere + (corps.length - 1) * PAS : base0 + (titre.length - 1) * PAS;
   const h = derniere + 59 - n.y;
   if (n.x < 0 || n.x + LARGEUR > 1080 || n.y + h > 1880) throw new Error(`note « ${n.titre} » : sort de la slide`);
   // La carte.
@@ -169,13 +188,13 @@ export function noteIos(ctx: Ctx, n: NoteIos) {
   ctx.fill();
   sansOmbre(ctx);
   barreEtat(ctx, n.x, n.y);
-  barreOutils(ctx, n.x, n.y);
+  barreOutils(ctx, n.x, n.y, n.annuler ?? true);
   ctx.fillStyle = ENCRE;
   ctx.textBaseline = "alphabetic";
-  ctx.letterSpacing = `${-TAILLE * 0.01}px`;
-  ctx.font = `${TAILLE_TITRE}px "${POLICE.modele}", "${POLICE.emoji}"`;
+  ctx.letterSpacing = `${-TAILLE * (n.grand ? 0.02 : 0.01)}px`;
+  ctx.font = `${TAILLE_TITRE}px "${police}", "${POLICE.emoji}"`;
   titre.forEach((l, i) => ctx.fillText(l, n.x + MARGE, base0 + i * PAS));
-  ctx.font = `${TAILLE}px "${POLICE.modele}", "${POLICE.emoji}"`;
+  ctx.font = `${TAILLE}px "${police}", "${POLICE.emoji}"`;
   corps.forEach((l, i) => ctx.fillText(l, n.x + MARGE, premiere + i * PAS));
   ctx.restore();
   return { x: n.x, y: n.y, l: LARGEUR, h };

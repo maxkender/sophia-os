@@ -1,14 +1,22 @@
 /**
- * Lectures de la page Répartition (playground).
+ * Lectures et écritures de la page Allocation.
  *
- * Tout est en LECTURE SEULE : cette page montre où partiraient les prochaines
- * recrues, elle ne change aucun réglage et ne crée aucun compte.
+ * ELLE N'EST PLUS EN LECTURE SEULE. Elle pose la cible entre applications,
+ * l'interrupteur du choix automatique, la File, les réglages du choix de
+ * label et l'ouverture ou la fermeture d'un label. Ce qu'elle ne fait
+ * toujours pas : créer un compte, ou déplacer un compte existant.
  *
  * Les chiffres viennent de `simulation_repartition` (migration 0305), qui rend
  * pour chaque marché (langue × pays) les mêmes entrées que le moteur reçoit à
  * la création d'un compte. La fonction est réservée à l'admin : un rôle sans
  * droit reçoit une erreur `42501`, que la page affiche telle quelle plutôt que
  * de montrer un tableau vide qui aurait l'air normal.
+ *
+ * TOUTE ÉCRITURE DANS `choix_labels` FUSIONNE. La nuit écrit dans la même clé
+ * (`dernier_run`, `fermes_auto`, via `fusionnerReglages` côté serveur) : poser
+ * l'objet entier depuis un instantané de page effacerait sa mémoire des
+ * fermetures, et des labels fermés hier rouvriraient sans que personne l'ait
+ * demandé.
  */
 import { supabase } from "@/lib/supabase/client";
 
@@ -20,6 +28,13 @@ import {
   type CibleApplications,
   type MarcheApplications,
 } from "./scoreApplication";
+import {
+  CLES_BASE_REGLAGE_LABEL,
+  poserEtatManuelLabel,
+  versCleBase,
+  type EtatManuelLabel,
+  type ValeursReglageLabel,
+} from "./reglagesLabel";
 import {
   lireReglagesChoixLabel,
   type ReglagesChoixLabel,
@@ -52,6 +67,10 @@ interface LigneSimulation {
   recence_langue: number;
   recents_pays: number;
   recence_pays: number;
+  pod_seul?: boolean | null;
+  livre_langue?: boolean | null;
+  niveau_pod?: number | string | null;
+  comptes_app?: number | string | null;
 }
 
 function nombre(v: number | string | null | undefined): number {
@@ -104,6 +123,11 @@ export async function lireMarchesRepartition(
       recence_langue: nombre(l.recence_langue),
       recents_pays: nombre(l.recents_pays),
       recence_pays: nombre(l.recence_pays),
+      pod_seul: l.pod_seul === true,
+      livre_langue: l.livre_langue !== false,
+      niveau_pod: nombreOuNull(l.niveau_pod),
+      // Absent avant 0352 : on retombe sur le total, l'affichage d'avant.
+      comptes_app: l.comptes_app === undefined || l.comptes_app === null ? nombre(l.comptes_total) : nombre(l.comptes_app),
     });
   }
 
@@ -265,9 +289,9 @@ export async function lireReglagesRepartition(): Promise<ReglagesChoixLabel> {
  * Pose la cible de répartition entre applications.
  *
  * Écrit des pourcentages entiers par slug dans `reglages.repartition_applications`.
- * C'est la SEULE écriture de la page : elle ne touche ni les comptes, ni les
- * labels, ni le moteur. Tant que personne ne lit cette clé côté moteur (c'est
- * le cas aujourd'hui), la poser ne change que ce que la page projette.
+ * Depuis que le choix automatique est allumé, le moteur LIT cette clé à chaque
+ * création : la poser ne change plus seulement ce que la page projette, elle
+ * change où part la prochaine recrue.
  */
 export async function ecrireCibleRepartitionApps(
   parts: Readonly<Record<string, number>>,
@@ -278,4 +302,105 @@ export async function ecrireCibleRepartitionApps(
     if (slug && Number.isFinite(n) && n > 0) propre[slug] = n;
   }
   await ecrireReglage("repartition_applications", propre);
+}
+
+/** `reglages.choix_labels` : les réglages du choix de label, et les fermetures. */
+export const CLE_CHOIX_LABELS = "choix_labels";
+
+/**
+ * Relit la clé, applique la mutation, réécrit. Jamais un `set` sec.
+ *
+ * Deux écrivains se partagent `choix_labels` : cette page, et l'assignation de
+ * nuit qui y pose `dernier_run` et `fermes_auto` (`fermeture_labels.ts`).
+ * Écrire l'objet entier depuis ce que la page avait chargé effacerait la
+ * mémoire des fermetures automatiques, et tous les labels fermés
+ * rouvriraient d'un coup. La relecture juste avant l'écriture laisse une
+ * fenêtre de quelques millisecondes, qu'on accepte : la nuit tourne à 22:00
+ * UTC et personne n'édite ces réglages à ce moment-là.
+ */
+async function fusionnerChoixLabels(
+  muter: (valeur: Record<string, unknown>) => Record<string, unknown>,
+): Promise<void> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", CLE_CHOIX_LABELS)
+    .maybeSingle();
+  if (error) throw error;
+  const brut = data?.valeur;
+  const actuel =
+    brut && typeof brut === "object" && !Array.isArray(brut)
+      ? { ...(brut as Record<string, unknown>) }
+      : {};
+  await ecrireReglage(CLE_CHOIX_LABELS, muter(actuel));
+}
+
+/**
+ * Pose les douze réglages du choix de label.
+ *
+ * Ils ne s'éditaient qu'en SQL, donc en pratique jamais : la clé ne portait
+ * que la trace des runs de nuit et le moteur tournait sur les valeurs par
+ * défaut du code. Les écrire les fige en base, ce qui est le but — mais c'est
+ * aussi pour ça que `remettreReglagesChoixLabelDefaut` existe : retirer les
+ * clés rend la main au code, alors que réécrire les mêmes nombres gèlerait des
+ * défauts qui pourraient changer.
+ */
+export async function ecrireReglagesChoixLabel(valeurs: ValeursReglageLabel): Promise<void> {
+  const champs = versCleBase(valeurs);
+  await fusionnerChoixLabels((v) => ({ ...v, ...champs }));
+}
+
+/** Retire les douze clés : le moteur reprend ses valeurs par défaut. */
+export async function remettreReglagesChoixLabelDefaut(): Promise<void> {
+  await fusionnerChoixLabels((v) => {
+    for (const cle of CLES_BASE_REGLAGE_LABEL) delete v[cle];
+    return v;
+  });
+}
+
+/**
+ * Ouvre, ferme ou rend à l'automatique un label, POUR UNE APPLICATION.
+ *
+ * Les listes par application gagnent sur les listes globales et sur la
+ * mémoire de la nuit (`estFerme` les lit en premier), donc ce geste est
+ * toujours effectif — y compris sur un label que la nuit avait fermé. Il ne
+ * déplace aucun compte : un label fermé ici cesse d'être choisi à la création,
+ * et c'est la nuit qui sortira les comptes qui le portent.
+ */
+export async function ecrireEtatManuelLabel(args: {
+  applicationId: string;
+  labelId: string;
+  etat: EtatManuelLabel;
+}): Promise<void> {
+  await fusionnerChoixLabels((v) => {
+    const r = lireReglagesChoixLabel(v);
+    const { ouvertsApp, fermesApp } = poserEtatManuelLabel(
+      r,
+      args.applicationId,
+      args.labelId,
+      args.etat,
+    );
+    return { ...v, labels_ouverts_app: ouvertsApp, labels_fermes_app: fermesApp };
+  });
+}
+
+/**
+ * Les douze réglages sont-ils POSÉS en base, ou le moteur tourne-t-il sur les
+ * valeurs par défaut du code ?
+ *
+ * `lireReglagesRepartition` ne peut pas répondre : elle rend des valeurs
+ * complètes dans les deux cas, c'est tout son intérêt. Or l'écran doit le
+ * dire, sinon « Réglages en vigueur » laisse croire que quelqu'un a choisi ces
+ * nombres alors que personne n'y a jamais touché.
+ */
+export async function lireReglagesChoixLabelPoses(): Promise<boolean> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", CLE_CHOIX_LABELS)
+    .maybeSingle();
+  if (error) throw error;
+  const v = data?.valeur;
+  if (!v || typeof v !== "object" || Array.isArray(v)) return false;
+  return CLES_BASE_REGLAGE_LABEL.some((cle) => (v as Record<string, unknown>)[cle] !== undefined);
 }

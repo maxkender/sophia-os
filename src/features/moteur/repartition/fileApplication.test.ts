@@ -12,6 +12,7 @@ import {
   fileDeLApplication,
   itemsDeLaFile,
   labelsAjoutables,
+  tirerDeLaFile,
   ugcPossible,
 } from "./fileApplication";
 
@@ -99,5 +100,18 @@ describe("labels proposés et entrées signalées", () => {
   it("UGC : Sophia seulement", () => {
     expect(ugcPossible("sophia")).toBe(true);
     expect(ugcPossible("unswipe")).toBe(false);
+  });
+});
+
+describe("tirage par langue", () => {
+  it("un compte pt-br tire la file pt-BR", () => {
+    const file: ReglagesFileLabels = {
+      items: [],
+      par_langue: { "pt-BR": [{ label_id: SMART.id, ugc: false }] },
+      par_application: {},
+    };
+    const r = tirerDeLaFile(file, "sophia", "pt-br", [SMART.id]);
+    expect(r.item).toEqual({ label_id: SMART.id, ugc: false });
+    expect(itemsDeLaFile(fileDeLApplication(r.file, "sophia"), "pt-BR")).toEqual([]);
   });
 });

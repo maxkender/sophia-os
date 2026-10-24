@@ -28,7 +28,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
 
 ## 3. Mesurer
 
-- Podz à preuve (4, 5, 7, 8, 9) : `npm run playbook -- --mesurer`.
+- Podz à preuve (4, 5, 7, 8, 9, 12) : `npm run playbook -- --mesurer`.
 - Tous : `npm run etat`, puis `npm run suivi` si ton podz l'a et qu'un passage
   a 3 jours.
 - **Le lundi**, avant de livrer : la veille de ton `AGENT.md` (`npm run
@@ -42,10 +42,13 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    compte dans tes livraisons du jour.
 2. **Un de tes posts a passé 30 k vues** et n'a pas encore ses variantes :
    écris **3 variantes** (même schéma, autre angle, autres items). Note
-   `variante de <source_id>` dans `notes`. Les 3 variantes remplacent les
-   livraisons du jour.
+   `variante de <source_id>` dans `notes`. Les 3 variantes **s'ajoutent** à
+   tes livraisons du jour, elles ne les remplacent pas : ce jour-là, tu livres
+   tes `par_jour` livraisons normales (point 3) **plus** les 3 variantes. Si
+   les 40 minutes ne suffisent pas, livre d'abord tes livraisons normales,
+   puis les variantes, et finis celles qui manquent à la routine suivante.
 3. **Sinon, ta livraison normale** (voir ton `AGENT.md`) :
-   - podz d'originaux (2, 4, 5, 7, 8, 9) : un original sur un schéma qui marche ;
+   - podz d'originaux (2, 4, 5, 7, 8, 9, 12) : un original sur un schéma qui marche ;
    - podz 1 : un post neuf de la source repris, sinon un post existant traduit
      dans une langue du label qui en manque ;
    - podz 6 : le post suivant de la liste, sinon un original ;
@@ -61,6 +64,14 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    `essai` dans `notes`.
    - Podz 1 : un post d'un autre compte au même format.
    - Podz 6, 10 et 11 : pas d'essai tant que la liste n'est pas finie.
+
+5. **Tester les CTA.** Si tu écris toi-même la slide de l'appli, tiens 2 ou
+   3 versions de cette slide (`cta A`, `cta B`, `cta C` : autre phrase
+   d'appel, autre capture ou autre place dans le deck) et alterne-les d'une
+   livraison à l'autre. Note la version dans `notes` (`cta A`…), et garde la
+   même version sur toutes les langues d'une livraison. Une version qui fait
+   nettement moins bien sur 20 passages mûrs, le chef te le dira : remplace-la
+   par une nouvelle. Podz dont l'OS place l'appli (12) : pas concerné.
 
 ## 5. Livrer
 

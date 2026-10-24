@@ -1,0 +1,256 @@
+{
+ "post_id": "original-010",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "green flags de alguien listo de verdad"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(la inteligencia discreta)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "siempre te hacen [[una segunda pregunta]]"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "no solo esperan su turno"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "quieren saber cómo acaba tu historia, qué querías decir, por qué piensas eso. o sea, [[te estaban escuchando]]"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "la mayoría asiente y sigue. quien pregunta otra vez tiene [[curiosidad por ti]], no ganas de lucirse"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "saben [[estar en silencio]] contigo"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "sin música, sin podcast, sin móvil en cuanto hay una pausa"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "un viaje en coche sin hablar no les incomoda, [[ahí es donde piensan]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "un silencio cómodo con alguien es rarísimo, y [[extrañamente atractivo]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "su móvil es [[bastante aburrido]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "sin Reels en su instagram, sin tiktok, solo mensajes y fotos"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "así su cabeza no está frita a las 9 de la noche y [[se acuerdan de las cosas]]"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "por eso pueden centrarse en un libro, una peli o [[en ti]], sin mirar nada más"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "lo más fácil para llegar ahí: quitar los Reels y bloquear tiktok con [[la app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "dicen [[«ni idea»]] sin problema"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "y luego lo buscan, en vez de [[inventarse una respuesta cualquiera]]"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "prefieren parecer inseguros 5 segundos que [[equivocarse con seguridad]] 5 años"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "reconocer lo que no sabes es [[la forma más rápida de aprenderlo]]"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "la seguridad falsa sobra, la curiosidad honesta escasea (y atrae muchísimo)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "apprends à [[bien communiquer]]",
+     "texte": "explican lo difícil [[con sencillez]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]",
+     "texte": "sin jerga, sin querer sonar listos, solo palabras que [[entendería un niño de 12 años]]"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]",
+     "texte": "con ellos, preguntar algo [[nunca te da vergüenza]]"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans",
+     "texte": "solo puedes explicar fácil lo que [[entiendes de verdad]], y ese es el verdadero flex"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

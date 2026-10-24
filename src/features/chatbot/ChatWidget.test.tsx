@@ -7,11 +7,14 @@ import { ChatWidget } from "./ChatWidget";
 
 vi.mock("./api", () => ({
   poserQuestionChatbot: vi.fn(async () => "Poste depuis le calendrier."),
+  lireLangueDeMonCompte: vi.fn(async () => "de"),
 }));
 
+// Le profil d'un poster dit « fr » par défaut : c'est la langue de son compte
+// (ici l'allemand) qui compte.
 vi.mock("@/features/auth/AuthContext", () => ({
   useAuth: () => ({
-    profil: { langues: ["de"] },
+    profil: { langues: ["fr"] },
     role: "poster",
   }),
 }));
@@ -32,7 +35,9 @@ describe("ChatWidget", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /aide|help/i }));
     expect(screen.getByLabelText(/assistant/i)).toBeInTheDocument();
-    expect(screen.getByText(/Stell deine Frage/)).toBeInTheDocument();
+    expect(await screen.findByText(/Stell deine Frage/)).toBeInTheDocument();
+    // Mico salue à l'ouverture.
+    expect(screen.getByTestId("mico-bulle")).toHaveAttribute("data-humeur", "wave");
 
     fireEvent.change(screen.getByPlaceholderText("Deine Frage…"), {
       target: { value: "Comment je poste ?" },
@@ -43,5 +48,7 @@ describe("ChatWidget", () => {
       expect(screen.getByText("Poste depuis le calendrier.")).toBeInTheDocument();
     });
     expect(poserQuestionChatbot).toHaveBeenCalledWith("Comment je poste ?", "de", []);
+    // La réponse est là : Mico est content.
+    expect(screen.getByTestId("mico-bulle")).toHaveAttribute("data-humeur", "happy");
   });
 });

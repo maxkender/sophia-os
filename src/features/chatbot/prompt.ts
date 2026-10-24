@@ -34,6 +34,17 @@ export const LANGUES_CHAT = [
   "ro",
   "sv",
   "tr",
+  "hr",
+  "sl",
+  "sr",
+  "bg",
+  "ru",
+  "sk",
+  "et",
+  "no",
+  "fi",
+  "ar",
+  "he",
 ] as const;
 
 const NOM_LANGUE_CHAT: Record<string, string> = {
@@ -51,6 +62,17 @@ const NOM_LANGUE_CHAT: Record<string, string> = {
   ro: "română",
   sv: "svenska",
   tr: "Türkçe",
+  hr: "hrvatski",
+  sl: "slovenščina",
+  sr: "srpski",
+  bg: "български",
+  ru: "русский",
+  sk: "slovenčina",
+  et: "eesti",
+  no: "norsk",
+  fi: "suomi",
+  ar: "العربية",
+  he: "עברית",
 };
 
 export const SALUTATION_CHAT: Record<string, string> = {
@@ -68,6 +90,17 @@ export const SALUTATION_CHAT: Record<string, string> = {
   ro: "Pune întrebarea. Folosesc documentele și ce se întâmplă pe Sophia, în perimetrul tău.",
   sv: "Ställ din fråga. Jag utgår från docs och det som händer på Sophia, inom ditt område.",
   tr: "Sorunu sor. Dokümanlara ve Sophia'da senin kapsamındaki duruma dayanıyorum.",
+  hr: "Postavi pitanje. Oslanjam se na dokumente i na ono što se događa na Sophiji, u tvom opsegu.",
+  sl: "Postavi vprašanje. Opiram se na dokumente in na to, kar se dogaja na Sophii, v tvojem obsegu.",
+  sr: "Postavi pitanje. Oslanjam se na dokumente i na ono što se dešava na Sophiji, u tvom delokrugu.",
+  bg: "Задай въпроса си. Опирам се на документите и на това, което се случва в Sophia, в твоя обхват.",
+  ru: "Задай вопрос. Я опираюсь на документы и на то, что происходит в Sophia, в твоей зоне.",
+  sk: "Polož otázku. Vychádzam z dokumentov a z toho, čo sa deje na Sophii v tvojom rozsahu.",
+  et: "Esita oma küsimus. Toetun dokumentidele ja sellele, mis Sophias sinu ulatuses toimub.",
+  no: "Still spørsmålet ditt. Jeg bruker dokumentene og det som skjer på Sophia, innenfor ditt område.",
+  fi: "Kysy kysymyksesi. Käytän dokumentteja ja sitä, mitä Sophiassa tapahtuu sinun alueellasi.",
+  ar: "اطرح سؤالك. أعتمد على المستندات وعلى ما يحدث في Sophia ضمن نطاقك.",
+  he: "כתבו את השאלה שלכם. התשובות מבוססות על המסמכים ועל מה שקורה ב-Sophia, בתחום שלכם.",
 };
 
 export const PLACEHOLDER_CHAT: Record<string, string> = {
@@ -85,6 +118,17 @@ export const PLACEHOLDER_CHAT: Record<string, string> = {
   ro: "Întrebarea ta…",
   sv: "Din fråga…",
   tr: "Sorun…",
+  hr: "Tvoje pitanje…",
+  sl: "Tvoje vprašanje…",
+  sr: "Tvoje pitanje…",
+  bg: "Твоят въпрос…",
+  ru: "Твой вопрос…",
+  sk: "Tvoja otázka…",
+  et: "Sinu küsimus…",
+  no: "Spørsmålet ditt…",
+  fi: "Kysymyksesi…",
+  ar: "سؤالك…",
+  he: "השאלה שלכם…",
 };
 
 export const ATTENTE_CHAT: Record<string, string> = {
@@ -102,6 +146,17 @@ export const ATTENTE_CHAT: Record<string, string> = {
   ro: "Caut…",
   sv: "Söker…",
   tr: "Bakıyorum…",
+  hr: "Tražim…",
+  sl: "Iščem…",
+  sr: "Tražim…",
+  bg: "Търся…",
+  ru: "Ищу…",
+  sk: "Hľadám…",
+  et: "Otsin…",
+  no: "Leter…",
+  fi: "Etsin…",
+  ar: "أبحث…",
+  he: "מחפש…",
 };
 
 export interface DocumentContexte {
@@ -156,6 +211,17 @@ export function langueDepuisProfil(
   if (trouve) return trouve;
   const r = repli.toLowerCase().slice(0, 2);
   return (LANGUES_CHAT as readonly string[]).includes(r) ? r : "fr";
+}
+
+/**
+ * Langue de la bulle pour un poster : celle de son compte TikTok (sa langue de
+ * publication). `profiles.langues` vaut « fr » par défaut pour tout le monde et
+ * ne dit rien de lui. Une langue qu'on n'a pas, ou pas encore de compte :
+ * l'anglais, la langue de l'équipe.
+ */
+export function langueDuCompte(langue: string | null | undefined): string {
+  const code = (langue ?? "").toLowerCase().slice(0, 2);
+  return (LANGUES_CHAT as readonly string[]).includes(code) ? code : "en";
 }
 
 export function nomLangueChat(code: string): string {

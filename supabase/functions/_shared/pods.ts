@@ -36,6 +36,28 @@ export function deckLivrePret(slides: Partial<SlideLivree>[] | null | undefined)
 }
 
 /**
+ * Les langues de deck qui peuvent servir un compte, de la plus exacte à la
+ * plus large. Une variante régionale (`pt-BR`, `es-419`) se replie sur sa
+ * langue de base (`pt`, `es`) : un contenu livré n'est jamais traduit, et le
+ * choix est entre servir le deck portugais à un compte brésilien ou ne rien
+ * lui poster du tout. Jamais l'inverse : un deck `pt-BR` ne couvre pas un
+ * compte `pt`.
+ *
+ * SEULEMENT pour les contenus livrés. Le contenu ordinaire est traduit dans la
+ * langue exacte du compte : un repli y dégraderait la traduction.
+ *
+ * Le filtrage du pool et la lecture du deck passent TOUS DEUX par ici. Si l'un
+ * se repliait sans l'autre, un compte brésilien choisirait un contenu puis
+ * échouerait à le servir. La vue SQL `label_application_reserve_livre` (0350)
+ * applique la même règle à la réserve du choix de label.
+ */
+export function languesDeckLivre(langue: string): string[] {
+  const exacte = String(langue ?? "").trim();
+  const base = exacte.split("-")[0];
+  return base && base !== exacte ? [exacte, base] : [exacte];
+}
+
+/**
  * Le contenu est-il livré par un pod ? Lecture séparée et tolérante : si la
  * colonne n'existe pas encore (0259 non appliquée), c'est « non » et
  * l'assignation suit le chemin d'avant, à l'identique.
@@ -60,7 +82,7 @@ export async function contenusLivresHorsLangue(supabase: Supabase, langue: strin
   const { data: decks, error: e2 } = await supabase
     .from("contenu_langues")
     .select("contenu_id, slides")
-    .eq("langue", langue)
+    .in("langue", languesDeckLivre(langue))
     .in("contenu_id", ids);
   if (e2) return new Set();
   const servables = new Set(
@@ -71,27 +93,40 @@ export async function contenusLivresHorsLangue(supabase: Supabase, langue: strin
   return new Set(ids.filter((id) => !servables.has(id)));
 }
 
-/** Deck livré d'une langue, tel quel. Échec franc si la langue n'est pas livrée. */
-export async function deckLivre(
-  supabase: Supabase,
-  contenuId: string,
-  langue: string,
-): Promise<{ slides: SlideLivree[]; hashtags: string }> {
-  const { data: cl, error } = await supabase
-    .from("contenu_langues")
-    .select("slides, hashtags")
-    .eq("contenu_id", contenuId)
-    .eq("langue", langue)
-    .maybeSingle();
-  if (error) throw new Error(`Deck livré ${langue} illisible : ${error.message ?? error}`);
-  const slides = ((cl?.slides ?? []) as SlideLivree[]).map((s) => ({
+function slidesLivrees(brutes: unknown): SlideLivree[] {
+  return ((brutes ?? []) as Partial<SlideLivree>[]).map((s) => ({
     position: Number(s.position),
     media_id: s.media_id ?? null,
     texte_overlay: s.texte_overlay ?? "",
     position_sophia: Boolean(s.position_sophia),
   }));
-  if (!deckLivrePret(slides)) throw new Error(`Contenu livré : pas de deck en ${langue}`);
-  return { slides, hashtags: ((cl?.hashtags as string | null) ?? "").trim() };
+}
+
+/**
+ * Deck livré d'une langue, tel quel, ou celui de sa langue de base pour une
+ * variante régionale (`languesDeckLivre`). La légende vient de la MÊME ligne
+ * que les images : un deck portugais garde ses hashtags portugais. Échec franc
+ * si aucune des deux n'est livrée.
+ */
+export async function deckLivre(
+  supabase: Supabase,
+  contenuId: string,
+  langue: string,
+): Promise<{ slides: SlideLivree[]; hashtags: string }> {
+  const langues = languesDeckLivre(langue);
+  const { data, error } = await supabase
+    .from("contenu_langues")
+    .select("langue, slides, hashtags")
+    .eq("contenu_id", contenuId)
+    .in("langue", langues);
+  if (error) throw new Error(`Deck livré ${langue} illisible : ${error.message ?? error}`);
+  const lignes = (data ?? []) as Array<{ langue: string; slides: unknown; hashtags: string | null }>;
+  for (const lg of langues) {
+    const cl = lignes.find((l) => l.langue === lg);
+    const slides = slidesLivrees(cl?.slides);
+    if (deckLivrePret(slides)) return { slides, hashtags: (cl?.hashtags ?? "").trim() };
+  }
+  throw new Error(`Contenu livré : pas de deck en ${langue}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -121,30 +156,38 @@ export async function deckLivreApplication(
   langue: string,
   app: ApplicationDeck,
 ): Promise<DeckLivreApplicationResultat> {
-  const { data: deck, error } = await supabase
+  const langues = languesDeckLivre(langue);
+  const { data, error } = await supabase
     .from("contenu_langue_decks")
-    .select("statut, slides")
+    .select("langue, statut, slides")
     .eq("contenu_id", contenuId)
-    .eq("langue", langue)
-    .eq("variante", app.slug)
-    .maybeSingle();
+    .in("langue", langues)
+    .eq("variante", app.slug);
   if (error) throw new Error(`Deck livré ${app.slug} ${langue} illisible : ${error.message ?? error}`);
-  const slides = ((deck?.slides ?? []) as Partial<SlideLivree>[]).map((s) => ({
-    position: Number(s.position),
-    media_id: s.media_id ?? null,
-    texte_overlay: s.texte_overlay ?? "",
-    position_sophia: Boolean(s.position_sophia),
-  }));
-  if (deck?.statut !== "pret" || !deckLivrePret(slides)) {
+  const decks = (data ?? []) as Array<{ langue: string; statut: string; slides: unknown }>;
+  // La langue la plus exacte qui a un deck prêt ; la légende sera lue dans
+  // CETTE langue-là, pas dans celle du compte.
+  let slides: SlideLivree[] | null = null;
+  let servie = langue;
+  for (const lg of langues) {
+    const deck = decks.find((d) => d.langue === lg);
+    const candidates = slidesLivrees(deck?.slides);
+    if (deck?.statut === "pret" && deckLivrePret(candidates)) {
+      slides = candidates;
+      servie = lg;
+      break;
+    }
+  }
+  if (!slides) {
     return { statut: "ineligible", raison: `contenu livré : pas de deck ${app.slug} en ${langue}` };
   }
   const { data: cl, error: e2 } = await supabase
     .from("contenu_langues")
     .select("hashtags")
     .eq("contenu_id", contenuId)
-    .eq("langue", langue)
+    .eq("langue", servie)
     .maybeSingle();
-  if (e2) throw new Error(`Légende ${langue} illisible : ${e2.message ?? e2}`);
+  if (e2) throw new Error(`Légende ${servie} illisible : ${e2.message ?? e2}`);
   const hashtags = ((cl?.hashtags as string | null) ?? "").trim();
   return { statut: "pret", slides, hashtags: hashtags || null, cuit: false };
 }
@@ -166,7 +209,7 @@ export async function contenusLivresHorsApplication(
     .from("contenu_langue_decks")
     .select("contenu_id, statut, slides")
     .eq("variante", app.slug)
-    .eq("langue", langue)
+    .in("langue", languesDeckLivre(langue))
     .in("contenu_id", ids);
   if (e2) return new Set();
   const servables = new Set(
@@ -569,6 +612,8 @@ export interface SlideOriginale {
    * Sur UNE slide : la version de ce texte qui intègre l'appli Sophia, écrite
    * par le pod dans la langue source. Servie telle quelle aux comptes de cette
    * langue ; les autres langues reçoivent le placement de l'OS sur la base.
+   * Jamais pour un label qui ne sert pas Sophia (pod 12, micabo et UnSwipe) :
+   * l'OS y place l'appli de chaque compte, dans toutes les langues.
    */
   texte_sophia?: string | null;
   /**
@@ -584,12 +629,21 @@ export const TIER_ORIGINAL = "B";
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
 const MOT_SOPHIA = /\bsophia\b/i;
-const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|unswipe|micabo)\b/i;
+// Les applis d'étude de la niche du pod 12 (Penman, Quizlet, Anki, Knowt, StudyFetch) comptent aussi.
+const AUTRE_APPLI =
+  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|unswipe|micabo|penman|quizlet|anki|knowt|study[\s-]?fetch)\b/i;
 /** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
 export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 
-/** Contrôles d'un original AVANT tout accès base. */
-export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | undefined): string[] {
+/**
+ * Contrôles d'un original AVANT tout accès base. `sophia` : le label du pod
+ * sert-il Sophia (vrai par défaut) ? Oui : UNE slide Sophia. Non (pod 12) :
+ * aucune, l'OS place l'appli de chaque compte à l'assignation.
+ */
+export function verifierOriginal(
+  slides: Partial<SlideOriginale>[] | null | undefined,
+  { sophia: labelSophia = true }: { sophia?: boolean } = {},
+): string[] {
   const deck = slides ?? [];
   const erreurs: string[] = [];
   if (deck.length < 4 || deck.length > 10) erreurs.push(`${deck.length} slides (4 à 10 attendues)`);
@@ -599,7 +653,10 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
   if (medias.some((m) => !/^[0-9a-f-]{36}$/i.test(m))) erreurs.push("media_id manquant ou invalide");
   if (new Set(medias).size !== medias.length) erreurs.push("même image utilisée deux fois");
   const sophia = deck.filter((s) => String(s.texte_sophia ?? "").trim());
-  if (sophia.length !== 1) erreurs.push(`${sophia.length} slide(s) Sophia (une seule attendue)`);
+  if (labelSophia && sophia.length !== 1) erreurs.push(`${sophia.length} slide(s) Sophia (une seule attendue)`);
+  if (!labelSophia && sophia.length) {
+    erreurs.push(`${sophia.length} slide(s) Sophia : le label ne sert pas Sophia, l'OS place l'appli de chaque compte (aucune attendue)`);
+  }
   for (const s of deck) {
     const t = String(s.texte_overlay ?? "").trim();
     const max = Number(s.position) === 1 ? LONGUEUR_MAX_ACCROCHE : LONGUEUR_MAX_SLIDE;
@@ -627,7 +684,7 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
 /**
  * Pods dont chaque original doit arriver avec la PREUVE que son schéma
  * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4, même
- * règle pour les pods 5, 7, 8 et 9).
+ * règle pour les pods 5, 7, 8, 9 et 12).
  */
 export const PODS_AVEC_PREUVE = new Set([
   "originaux_alpha_yellow",
@@ -635,6 +692,7 @@ export const PODS_AVEC_PREUVE = new Set([
   "originaux_beau_smart_girl",
   "originaux_smart_girl",
   "originaux_alpha_male",
+  "originaux_clean_study",
 ]);
 export const PREUVE_VUES_MIN = 200_000;
 export const PREUVE_JOURS_MAX = 30;

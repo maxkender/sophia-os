@@ -916,6 +916,19 @@ Draft:
 export const RAISON_DEJA_TRAITE = "post déjà reviewé ou passé dans la file";
 export const RAISON_UN_PAR_CREATEUR = "un retour par créateur et par nuit : un autre de ses posts est parti";
 export const RAISON_SANS_CREATEUR = "compte sans créateur";
+
+/**
+ * Apify refuse le run faute de crédit (limite mensuelle atteinte : 402
+ * « not-enough-usage-to-run-paid-actor », nuit du 23 au 24/10). Le post n'y est
+ * pour rien : il reste en file sans compter de tentative, et la relecture
+ * reprend seule quand le crédit revient.
+ */
+export function estSansCreditApify(message: string): boolean {
+  return /\bApify 402\b/.test(message) || /not-enough-usage|usage limit|monthly usage/i.test(message);
+}
+export const ERREUR_SANS_CREDIT = "Apify sans crédit (limite mensuelle atteinte) : en attente, sans tentative comptée";
+/** Un envoi à la main ne vise que les relectures récentes : un vieux retour n'a plus de sens. */
+export const ENVOI_MANUEL_JOURS_MAX = 3;
 /**
  * Au plus un retour tous les DELAI_ENTRE_RETOURS_JOURS jours par créateur :
  * reçu un jour J (heure de Paris), le suivant part au plus tôt à J + 3. Sans

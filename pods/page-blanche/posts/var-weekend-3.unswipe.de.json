@@ -1,0 +1,227 @@
+{
+ "post_id": "var-weekend-3",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "top 5 wege, deine abende zu ruinieren"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(nach der arbeit, harte wahrheit)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "1. couch um [[18:01 uhr]]"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "schuhe noch an, tasche noch auf der schulter, [[gesicht tief ins kissen]]"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "nur 10 minuten ausruhen. jetzt sind es 3 stunden"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "abendessen? [[eine tüte chips]]"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "der abend hatte 5 stunden und du hast ihn damit verbracht, [[dich vom tag zu erholen]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "fr": "5. commence par [[le plus dur]]",
+     "texte": "2. jeden abend [[lieferdienst]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "fr": "ton [[cortex préfrontal]] gère l'organisation, le focus et la volonté",
+     "texte": "kochen dauert 20 minuten, die lieferung 45. lohnt sich trotzdem"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "fr": "[[gâche pas]] ta tête fraîche pour des mails et des bricoles",
+     "texte": "[[die gleichen drei läden]] im wechsel, die gleichen labbrigen pommes"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "fr": "passe [[les 60-90 premières minutes]] sur ce que t'aurais envie d'esquiver",
+     "texte": "und wenn die bank [[400 € für lieferessen]] diesen monat zeigt? das war wer anders"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "3. scrollen von 19 bis 24 uhr"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "4 stunden reels und du kannst [[kein einziges]] nennen. und lösch bloß nie die Reels aus instagram mit der UnSwipe-App"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "4. [[„nur noch eine folge“]]"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "um 23 uhr und um 1 uhr"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "autoplay macht den rest, der wecker klingelt um 7 und morgen bist du wieder [[ein zombie]]. hat sich gelohnt"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "5. freunde [[nur am wochenende]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "„wir müssen uns diese woche treffen“ steht [[seit märz im gruppenchat]]. keiner schlägt je einen tag vor"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "und dann wunderst du dich, warum [[jeder tag gleich aussieht]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

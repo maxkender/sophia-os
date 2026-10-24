@@ -210,6 +210,14 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getByText("Accès OS + Slack · En cours")).toBeInTheDocument();
   });
 
+  it("ouvre le Brésil, quelle que soit la casse de l'URL", () => {
+    for (const code of ["pt-BR", "pt-br"]) {
+      const { unmount } = renderPays(code);
+      expect(screen.queryByText("hub")).not.toBeInTheDocument();
+      unmount();
+    }
+  });
+
   it("redirige un pays inconnu", () => {
     renderPays("xx");
     expect(screen.getByText("hub")).toBeInTheDocument();

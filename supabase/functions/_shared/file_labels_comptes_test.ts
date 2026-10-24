@@ -157,3 +157,13 @@ Deno.test("remettre en tête : dans la file d'origine de la BONNE tranche", () =
   assertEquals(sophia.par_langue.da, [SMART, SMART]);
   assertEquals(sliceFileLabels(sophia, "unswipe").items, [CLEAN]);
 });
+
+Deno.test("clé de langue canonique : pt-br rejoint pt-BR, à la suite", () => {
+  const file = normaliserFileLabelsValeur({
+    items: [],
+    par_langue: { "pt-BR": [SMART], "pt-br": [CLASSIC], "ES-419": [CLEAN] },
+    par_application: { unswipe: { items: [], par_langue: { "pt-br": [CLEAN] } } },
+  });
+  assertEquals(sliceFileLabels(file, "sophia").par_langue, { "pt-BR": [SMART, CLASSIC], "es-419": [CLEAN] });
+  assertEquals(sliceFileLabels(file, "unswipe").par_langue, { "pt-BR": [CLEAN] });
+});

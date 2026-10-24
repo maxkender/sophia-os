@@ -243,3 +243,61 @@ export function couplesManquants(
   }
   return sortie;
 }
+
+// ---------------------------------------------------------------------------
+// Métadonnées : rien qui dise « IA » dans le fichier
+// ---------------------------------------------------------------------------
+
+/** Morceaux PNG gardés : l'image et sa couleur, rien d'autre (ni texte, ni XMP, ni EXIF, ni C2PA). */
+const PNG_GARDES = new Set(["IHDR", "PLTE", "IDAT", "IEND", "tRNS", "gAMA", "cHRM", "sRGB", "iCCP", "sBIT", "pHYs"]);
+
+/**
+ * Retire toutes les métadonnées d'un PNG ou d'un JPEG, sans toucher aux pixels.
+ * Nano Banana Pro laisse, en plus du C2PA, un XMP qui dit
+ * `DigitalSourceType = trainedAlgorithmicMedia` et « Made with Google AI » :
+ * le retrait C2PA seul ne l'enlève pas.
+ * PNG : seuls les morceaux de PNG_GARDES restent. JPEG : seuls les segments
+ * APP0 (JFIF) et APP2 (profil ICC) restent parmi les APPn et COM.
+ */
+export function sansMetadonnees(b: Uint8Array): Uint8Array {
+  if (extensionImage(b) === "png") {
+    const dv = new DataView(b.buffer, b.byteOffset, b.byteLength);
+    const parts: Uint8Array[] = [b.subarray(0, 8)];
+    let i = 8;
+    while (i + 12 <= b.length) {
+      const fin = i + 12 + dv.getUint32(i);
+      if (fin > b.length) break;
+      const type = String.fromCharCode(b[i + 4], b[i + 5], b[i + 6], b[i + 7]);
+      if (PNG_GARDES.has(type)) parts.push(b.subarray(i, fin));
+      i = fin;
+    }
+    return concat(parts);
+  }
+  if (extensionImage(b) === "jpg") {
+    const parts: Uint8Array[] = [b.subarray(0, 2)];
+    let i = 2;
+    while (i + 4 <= b.length && b[i] === 0xff) {
+      const marqueur = b[i + 1];
+      // Début des données d'image (SOS) : tout le reste est gardé tel quel.
+      if (marqueur === 0xda) break;
+      const fin = i + 2 + ((b[i + 2] << 8) | b[i + 3]);
+      const app = marqueur >= 0xe0 && marqueur <= 0xef;
+      const jete = (app && marqueur !== 0xe0 && marqueur !== 0xe2) || marqueur === 0xfe;
+      if (!jete) parts.push(b.subarray(i, fin));
+      i = fin;
+    }
+    parts.push(b.subarray(i));
+    return concat(parts);
+  }
+  return b;
+}
+
+function concat(parts: Uint8Array[]): Uint8Array {
+  const sortie = new Uint8Array(parts.reduce((s, p) => s + p.length, 0));
+  let k = 0;
+  for (const p of parts) {
+    sortie.set(p, k);
+    k += p.length;
+  }
+  return sortie;
+}

@@ -34,7 +34,9 @@ Une mise en scène, c'est une photo × un écran. Les langues en sont des **vers
 la même photo, la même main, la même lumière, seul l'écran change.
 
 - Dans l'onglet Mises en scène, il y a **une carte par image**. Ses langues sont des pastilles (`fr ✓`, `es …`, `de ✗`) : un clic montre la version de cette langue. Chaque langue a son propre statut.
-- « Ajouter une langue » sur une image validée se fait en deux temps :
+- **Traduire un écran** : dans Captures, « Traduire en… » sur une originale validée. La capture traduite (à plat) arrive à relire ligne par ligne, puis à valider.
+- **Générer les versions d'une langue** : dans Mises en scène, « Versions en… ». La fonction compte les images prêtes (capture traduite validée), les écrans à traduire et les captures à relire, puis génère les versions prêtes une par une.
+- « Ajouter une langue » sur une carte validée fait la même chose pour une seule image, en deux temps :
 	1. la capture est traduite **à plat** par Nano Banana Pro. Un humain la relit ligne par ligne et la valide dans Captures ;
 	2. on relance : Nano Banana Pro reprend l'image d'origine validée et n'y remplace que l'écran par la capture traduite.
 - La capture traduite sert ensuite à toutes les images de cet écran.
@@ -57,6 +59,8 @@ la même photo, la même main, la même lumière, seul l'écran change.
 	- Chaque appel est noté dans `depenses_fal`.
 	- Au-delà du plafond, la fonction refuse et le lot s'arrête. Seul un admin peut passer outre (`hors_budget`).
 	- La clé Fal ne sort jamais du serveur.
+- **Aucune métadonnée dans les fichiers** (`sansMetadonnees`). Nano Banana Pro laisse, en plus du C2PA, un XMP qui dit `DigitalSourceType = trainedAlgorithmicMedia` et « Made with Google AI ». Le retrait C2PA commun de l'OS ne l'enlève pas. Ici, PNG et JPEG sortent sans texte, ni XMP, ni EXIF, ni C2PA, avec les mêmes pixels. L'action `renettoyer` reprend les fichiers déjà rangés.
+	- Ce retrait ne touche pas au filigrane invisible SynthID que Google met dans les pixels.
 - **Stockage** : `medias/captures/<app>/<langue>/…` et `medias/mises-en-scene/<app>/<langue>/…`.
 
 ## Pour un podz : trouver et utiliser une mise en scène validée

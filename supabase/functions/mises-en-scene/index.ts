@@ -50,8 +50,17 @@
  *       Version `langue` de la mise en scène `id` (originale validée), en deux
  *       temps : sans capture traduite, la traduit à plat (à valider) et
  *       s'arrête là ; avec la capture traduite validée, remplace l'écran.
+ *   { action: "versions_manquantes", application, langue, support? }
+ *       Pour un lot de versions `langue` : les mises en scène d'origine
+ *       validées prêtes (capture traduite validée, pas encore de version), et
+ *       les écrans dont la capture reste à traduire ou à valider.
+ *   { action: "renettoyer" }   — reprend les images déjà stockées : plus
+ *       aucune métadonnée (XMP « IA », EXIF, C2PA), pixels inchangés.
  *   { action: "decider", objet: "capture"|"integrateur"|"mise_en_scene", id,
  *     statut: "validee"|"rejetee", motif? }   — admin seulement.
+ *
+ * Toute image rangée sort sans métadonnées (`sansMetadonnees`) : Nano Banana
+ * laisse, en plus du C2PA, un XMP « trainedAlgorithmicMedia / Google AI ».
  *
  * Chaque appel Fal passe par le budget de la semaine (reglages.mises_en_scene,
  * journal `depenses_fal`). Au-delà : refus, sauf `hors_budget: true` d'un admin.
@@ -73,6 +82,7 @@ import {
   promptIncrustation,
   promptTraduction,
   relancePermise,
+  sansMetadonnees,
   supportValide,
   tailleImage,
 } from "../_shared/mises_en_scene.ts";
@@ -153,6 +163,10 @@ Deno.serve(async (request) => {
         return await mettreEnScene(supabase, body, par, horsBudget);
       case "traduire_mise_en_scene":
         return await traduireMiseEnScene(supabase, body, par, horsBudget);
+      case "versions_manquantes":
+        return await versionsManquantes(supabase, body);
+      case "renettoyer":
+        return await renettoyer(supabase);
       case "decider":
         if (appelant.role !== "admin") return json({ ok: false, error: "seul un humain valide ou rejette" }, 403);
         return await decider(supabase, body, appelant.userId);
@@ -160,7 +174,7 @@ Deno.serve(async (request) => {
     return json({
       ok: false,
       error:
-        "action inconnue (captures | integrateurs | mises_en_scene | couples_manquants | utiliser | budget | importer_capture | traduire_capture | ajouter_integrateur | mettre_en_scene | traduire_mise_en_scene | decider)",
+        "action inconnue (captures | integrateurs | mises_en_scene | couples_manquants | utiliser | budget | importer_capture | traduire_capture | ajouter_integrateur | mettre_en_scene | traduire_mise_en_scene | versions_manquantes | renettoyer | decider)",
     }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -390,7 +404,7 @@ async function importerCapture(supabase: Supabase, body: Record<string, unknown>
   const bytes0 = decoderBase64(String(body.image_base64 ?? ""));
   const ext = extensionImage(bytes0);
   if (!ext) return json({ ok: false, error: "image_base64 : PNG ou JPEG" }, 400);
-  const { bytes } = await retirerContentCredentialsBytes(bytes0);
+  const bytes = sansMetadonnees((await retirerContentCredentialsBytes(bytes0)).bytes);
   const taille = tailleImage(bytes);
 
   let remplaceId: string | null = null;
@@ -454,7 +468,9 @@ async function creerCaptureTraduite(supabase: Supabase, orig: any, langue: strin
   const res = await editerNanoBananaPro(orig.url, prompt, undefined, { aspectRatio: "auto", resolution: "2K", budgetMs: 130_000 });
   const id = crypto.randomUUID();
   await noterDepense(supabase, "traduire_capture", id, prix, par);
-  const { bytes, mime } = await retirerContentCredentialsBytes(res.bytes);
+  const nettoye = await retirerContentCredentialsBytes(res.bytes);
+  const bytes = sansMetadonnees(nettoye.bytes);
+  const mime = nettoye.mime;
   const ext = extensionImage(bytes) ?? "png";
   const taille = tailleImage(bytes);
   const chemin = cheminCapture(app?.slug ?? "app", langue, orig.ecran, orig.support, id, ext);
@@ -594,6 +610,79 @@ async function traduireMiseEnScene(supabase: Supabase, body: Record<string, unkn
   return json({ ok: true, etape: "version", mise_en_scene: data, budget: await budget(supabase) });
 }
 
+/** De quoi lancer un lot de versions `langue` (aucun appel Fal ici). */
+async function versionsManquantes(supabase: Supabase, body: Record<string, unknown>) {
+  const app = (await applications(supabase)).find((a) => a.slug === body.application);
+  if (!app) return json({ ok: false, error: "application : sophia | micabo | unswipe" }, 400);
+  const langue = body.langue;
+  if (!langueValide(langue)) return json({ ok: false, error: "langue inconnue" }, 400);
+  let q = supabase.from("mises_en_scene").select("id, capture_id, langue").eq("application_id", app.id)
+    .is("version_de", null).eq("statut", "validee").neq("langue", langue);
+  if (body.support) q = q.eq("support", String(body.support));
+  const { data: origines, error } = await q.order("created_at");
+  if (error) throw error;
+  const refaire = await capturesARefaire(supabase, (origines ?? []).map((o: { capture_id: string }) => o.capture_id));
+  const vivantes = (origines ?? []).filter((o: { capture_id: string }) => !refaire.has(o.capture_id));
+  const ids = vivantes.map((o: { id: string }) => o.id);
+  const capIds = [...new Set(vivantes.map((o: { capture_id: string }) => o.capture_id))];
+  const [{ data: versions, error: e1 }, { data: traduites, error: e2 }] = await Promise.all([
+    ids.length
+      ? supabase.from("mises_en_scene").select("version_de").in("version_de", ids).eq("langue", langue).neq("statut", "rejetee")
+      : { data: [], error: null },
+    capIds.length
+      ? supabase.from("captures_app").select("originale_id, statut").in("originale_id", capIds).eq("langue", langue)
+        .neq("statut", "rejetee").is("remplacee_par", null)
+      : { data: [], error: null },
+  ]);
+  if (e1) throw e1;
+  if (e2) throw e2;
+  const faites = new Set((versions ?? []).map((v: { version_de: string }) => v.version_de));
+  const statutCapture = new Map((traduites ?? []).map((c: { originale_id: string; statut: string }) => [c.originale_id, c.statut]));
+  const pretes: string[] = [];
+  const captures_a_traduire = new Set<string>();
+  const captures_a_valider = new Set<string>();
+  for (const o of vivantes as { id: string; capture_id: string }[]) {
+    if (faites.has(o.id)) continue;
+    const st = statutCapture.get(o.capture_id);
+    if (st === "validee") pretes.push(o.id);
+    else if (st) captures_a_valider.add(o.capture_id);
+    else captures_a_traduire.add(o.capture_id);
+  }
+  return json({
+    ok: true,
+    pretes,
+    captures_a_traduire: [...captures_a_traduire],
+    captures_a_valider: [...captures_a_valider],
+    budget: await budget(supabase),
+  });
+}
+
+/** Reprend les fichiers déjà rangés : mêmes pixels, plus aucune métadonnée. */
+async function renettoyer(supabase: Supabase) {
+  const lignes: { table: string; id: string; storage_path: string; url: string }[] = [];
+  for (const table of ["mises_en_scene", "captures_app"]) {
+    const { data, error } = await supabase.from(table).select("id, storage_path, url");
+    if (error) throw error;
+    for (const l of data ?? []) lignes.push({ table, ...l });
+  }
+  let repris = 0;
+  for (const l of lignes) {
+    const r = await fetch(l.url);
+    if (!r.ok) throw new Error(`téléchargement ${l.storage_path} : ${r.status}`);
+    const avant = new Uint8Array(await r.arrayBuffer());
+    const apres = sansMetadonnees((await retirerContentCredentialsBytes(avant)).bytes);
+    if (apres.length === avant.length) continue;
+    const { error } = await supabase.storage.from(BUCKET).upload(l.storage_path, apres, {
+      contentType: extensionImage(apres) === "png" ? "image/png" : "image/jpeg",
+      upsert: true,
+      cacheControl: "31536000",
+    });
+    if (error) throw new Error(`stockage ${l.storage_path} : ${messageErreur(error)}`);
+    repris += 1;
+  }
+  return json({ ok: true, fichiers: lignes.length, repris });
+}
+
 /** Essai 1, ou relance (une seule) d'un essai raté qui vérifie `memeObjet`. */
 async function essaiSuivant(
   supabase: Supabase,
@@ -634,7 +723,9 @@ async function produire(
   });
   const id = crypto.randomUUID();
   await noterDepense(supabase, p.versionDe ? "traduire_mise_en_scene" : "mettre_en_scene", id, prix, par);
-  const { bytes, mime } = await retirerContentCredentialsBytes(res.bytes);
+  const nettoye = await retirerContentCredentialsBytes(res.bytes);
+  const bytes = sansMetadonnees(nettoye.bytes);
+  const mime = nettoye.mime;
   const ext = extensionImage(bytes) ?? "png";
   const taille = tailleImage(bytes);
   const c = p.capture;

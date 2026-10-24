@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
+import { EtiquetteApplication } from "@/components/brand/LogoApplication";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { listerReplisApplications } from "@/features/moteur/apiMultiApp";
-import { nomApplication } from "@/features/moteur/applications";
+import { Tableau } from "@/features/moteur/repartition/Tableau";
 
 import { estErreurSchemaAbsent, grouperReplis, jourParisIlYa } from "./logique";
 import { localeDate } from "@/locales/localeDate";
@@ -44,12 +45,12 @@ export function ReplisCard() {
   }
   if (groupes.length === 0) return null;
 
-  const nomApp = (id: string) => {
-    const app = applications.find((a) => a.id === id);
-    return app ? nomApplication(app) : id.slice(0, 8);
-  };
+  const appDe = (id: string) => applications.find((a) => a.id === id);
   const fmtJour = (jour: string) =>
     new Date(`${jour}T12:00:00`).toLocaleDateString(localeDate(i18n.language), { day: "numeric", month: "short" });
+  // Une ligne par compte et par motif, les comptes les plus touchés d'abord
+  // (l'ordre de `grouperReplis`).
+  const lignes = groupes.flatMap((g) => g.motifs.map((m, i) => ({ g, m, premier: i === 0 })));
 
   return (
     <Card>
@@ -57,37 +58,51 @@ export function ReplisCard() {
         <CardTitle>{t("multiApp.replis.titre")}</CardTitle>
         <CardDescription>{t("multiApp.replis.desc", { jours: JOURS_REPLIS })}</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-1.5">
-        {groupes.map((g) => (
-          <div key={g.compte_id} className="rounded-md border px-2.5 py-2 text-sm">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <Link to={`/admin/createurs/${g.compte_id}`} className="truncate font-medium hover:underline">
-                {g.handle ? `@${g.handle}` : (g.persona ?? g.compte_id.slice(0, 8))}
-                {g.langue ? <span className="ml-1.5 text-xs text-muted-foreground">{g.langue}</span> : null}
-              </Link>
-              <span className="text-xs tabular-nums text-muted-foreground">
-                {t("multiApp.replis.total", { n: g.total })}
-              </span>
-            </div>
-            <ul className="mt-1 space-y-0.5">
-              {g.motifs.map((m) => (
-                <li
-                  key={`${m.application_visee_id}:${m.motif ?? ""}`}
-                  className="flex flex-wrap gap-x-2 text-xs text-muted-foreground"
-                >
-                  <span className="text-foreground">{nomApp(m.application_visee_id)}</span>
-                  <span>
-                    {m.motif
-                      ? t(`multiApp.replis.motifs.${m.motif}`, { defaultValue: m.motif })
-                      : t("multiApp.replis.sansMotif")}
-                  </span>
-                  <span className="tabular-nums">×{m.n}</span>
-                  {m.dernier && <span>{t("multiApp.replis.dernier", { jour: fmtJour(m.dernier) })}</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <CardContent className="overflow-x-auto">
+        <Tableau
+          lignes={lignes}
+          cleLigne={({ g, m }) => `${g.compte_id}:${m.application_visee_id}:${m.motif ?? ""}`}
+          colonnes={[
+            {
+              cle: "compte",
+              titre: t("multiApp.replis.colCompte"),
+              rendu: ({ g, premier }) =>
+                premier ? (
+                  <Link to={`/admin/createurs/${g.compte_id}`} className="font-medium hover:underline">
+                    {g.handle ? `@${g.handle}` : (g.persona ?? g.compte_id.slice(0, 8))}
+                    {g.langue ? <span className="ml-1.5 font-mono text-xs text-muted-foreground">{g.langue}</span> : null}
+                  </Link>
+                ) : null,
+            },
+            {
+              cle: "visee",
+              titre: t("multiApp.replis.colVisee"),
+              rendu: ({ m }) => {
+                const app = appDe(m.application_visee_id);
+                return app ? (
+                  <EtiquetteApplication slug={app.slug} />
+                ) : (
+                  <span className="font-mono text-xs">{m.application_visee_id.slice(0, 8)}</span>
+                );
+              },
+            },
+            {
+              cle: "motif",
+              titre: t("multiApp.replis.colMotif"),
+              classe: "text-muted-foreground",
+              rendu: ({ m }) =>
+                m.motif ? t(`multiApp.replis.motifs.${m.motif}`, { defaultValue: m.motif }) : t("multiApp.replis.sansMotif"),
+            },
+            { cle: "n", titre: t("multiApp.replis.colFois"), align: "droite", rendu: ({ m }) => m.n },
+            {
+              cle: "dernier",
+              titre: t("multiApp.replis.colDernier"),
+              align: "droite",
+              classe: "whitespace-nowrap text-muted-foreground",
+              rendu: ({ m }) => (m.dernier ? fmtJour(m.dernier) : "—"),
+            },
+          ]}
+        />
       </CardContent>
     </Card>
   );

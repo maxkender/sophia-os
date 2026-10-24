@@ -1,0 +1,610 @@
+{
+ "id": "fa-004",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7682785966410485014",
+  "vues": 589000,
+  "publie_le": "2026-09-07",
+  "accroche": "10/10 Skills To Learn Before You Are 25"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn Before You Are 25",
+  "fr": "10/10 compétences à apprendre avant 25 ans",
+  "es": "10/10 habilidades que aprender antes de los 25",
+  "de": "10/10 Skills, die du vor 25 lernen solltest",
+  "it": "10/10 abilità da imparare prima dei 25 anni",
+  "pt": "10/10 habilidades para aprender antes dos 25"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn Before You Are 25 #selfimprovement #learnontiktok #selfmastery",
+  "fr": "10/10 compétences à apprendre avant 25 ans #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "es": "10/10 habilidades que aprender antes de los 25 #desarrollopersonal #aprendeentiktok #superacionpersonal",
+  "de": "10/10 Skills, die du vor 25 lernen solltest #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 abilità da imparare prima dei 25 anni #crescitapersonale #imparacontiktok #miglioramentopersonale",
+  "pt": "10/10 habilidades para aprender antes dos 25 #desenvolvimentopessoal #aprendanotiktok #autoconhecimento"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7478486760792673025"
+ },
+ "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "BEFORE YOU ARE "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES À APPRENDRE",
+     [
+      {
+       "t": "AVANT "
+      },
+      {
+       "t": "25 ANS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE APRENDER",
+     [
+      {
+       "t": "ANTES DE LOS "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS, DIE DU VOR",
+     [
+      {
+       "t": "25 ",
+       "bronze": true
+      },
+      {
+       "t": "LERNEN SOLLTEST"
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ DA IMPARARE",
+     [
+      {
+       "t": "PRIMA DEI "
+      },
+      {
+       "t": "25 ANNI",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA APRENDER",
+     [
+      {
+       "t": "ANTES DOS "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN HOW MONEY WORKS"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "A9Xq3FGjpZA",
+     "titre": "Explaining Basic Financial Concepts YOU Should Understand",
+     "chaine": "EverythingProfessor",
+     "vues": "2.5M views",
+     "date": "1 year ago",
+     "duree": "12:14",
+     "avatar": "https://yt3.ggpht.com/PVwMkne1VXtCkmz8p-yHAxfLWi1TPu9lXeInYatfa6sr_nN5Q4gnIQSteRjMn4VrrSMalZcF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMPRENDRE L'ARGENT"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "GEA5C_Ti37k",
+     "titre": "13 Leçons sur l'Argent - La Psychologie de l'Argent",
+     "chaine": "Un Peu Mieux",
+     "vues": "1,1 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "22:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPZYNGrRuK_2Anh-lpgVSPFFxHMPpbuQ7q7PJa2TgCFg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ENTENDER EL DINERO"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "X38MGyuc0ds",
+     "titre": "Educación Financiera para Principiantes - Cómo funcionan las Finanzas",
+     "chaine": "Aprendiz Financiero",
+     "vues": "871 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "4:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ny2pn05vLtbz7imN2Y6ywAkLHoTvRRVIL142eDcQtnJao=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GELD VERSTEHEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "dYDO0Pe-OG8",
+     "titre": "Was jeder über Finanzen wissen sollte, in nur 25 Min. (!)",
+     "chaine": "Finanzfluss",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "24:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CAPIRE I SOLDI"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "QfukwyZYYOQ",
+     "titre": "Come, dove e quanto INVESTIRE i miei soldi? Impariamo le basi di FINANZA PERSONALE",
+     "chaine": "Will Media",
+     "vues": "283K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/ksdC5be1kdmy04UMTPQnfWxlmoRGgRUGHeBv0SmBMTGX25eVAxpLgLXeusybx6x1gnczN1g0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ENTENDER O DINHEIRO"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "CB5zuxQl5ro",
+     "titre": "O Que É Educação Financeira? Como Usar o Dinheiro? | Educação Financeira Ilustrada (1/10)",
+     "chaine": "Manual da Evolução",
+     "vues": "323 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "9:13",
+     "avatar": "https://yt3.ggpht.com/2EifavcuONZwFGZvB_jzkUVAKqFyP7QEEdmdDIh-stkr-T2ntwP1Ryx3jmHLfQ37a9BnUa6GOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO TALK TO ANYONE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "F4Zu5ZZAG7I",
+     "titre": "7 Ways to Make a Conversation With Anyone | Malavika Varadan | TEDxBITSPilaniDubai",
+     "chaine": "TEDx Talks",
+     "vues": "28M views",
+     "date": "10 years ago",
+     "duree": "15:23",
+     "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "PARLER À N'IMPORTE QUI"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "Fn17-ShhG60",
+     "titre": "Comment parler à n'importe qui, d'après un ancien timide.",
+     "chaine": "Charlie Haid",
+     "vues": "637 k vues",
+     "date": "il y a 2 ans",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/pLqbD1B1VFBfarRFjXGmlZ0VlgM41NtuDNGzHn-pE_AdjygM-4_7R6VmKSYEz94igVhw3Kv96I8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HABLAR CON CUALQUIERA"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "NNsZH59kP3k",
+     "titre": "Cómo Iniciar una Conversación con Cualquier Persona",
+     "chaine": "La Píldora Mágica",
+     "vues": "613 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/mbvY1PpASlEGdtBb6rCSXf5WnBQ4DOUG-vdyEKKVvB6zyNbvY0Br9NNpcdbTe0Z9aS0Rx9hg1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MIT JEDEM REDEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "tRSYtflUENg",
+     "titre": "3 Smalltalk-Tricks für Leute, die Smalltalk hassen",
+     "chaine": "Sebastian",
+     "vues": "45.901 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/fqm2NW8YsXAvncRZWLR2CaHMZDZqAsSpYN2BUj6KnWotP4Ca_eFbCiPT5ZFZa40Po3Wznlj3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PARLARE CON CHIUNQUE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "JY6ugOKzFBs",
+     "titre": "Come PARLARE BENE con le persone: 10+ REGOLE PRATICHE per parlare con CHIUNQUE",
+     "chaine": "Elena Tee",
+     "vues": "443K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "9:46",
+     "avatar": "https://yt3.ggpht.com/dNuWRJg5y19kBrUFxjwo2TFHkjsagBNRB-7x020iXlDanZH7zOhSW6TCccdhvhEuJEBaYNL-mA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FALAR COM QUALQUER UM"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "F1hCIqduWRM",
+     "titre": "COMO SEMPRE TER ASSUNTO COM QUALQUER PESSOA",
+     "chaine": "Academia do Carisma",
+     "vues": "311 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "8:23",
+     "avatar": "https://yt3.ggpht.com/Z1MEhLTcH_KQnq6gcFJM2ROqR1NUIybbdI7eu7xx5MbrtlLnDy06Tsc6qVauNEJYC_Wy8Js8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A BIT OF EVERYTHING"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDRE UN PEU DE TOUT"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDER UN POCO DE TODO"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM ETWAS LERNEN"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARARE UN PO' DI TUTTO"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDER UM POUCO DE TUDO"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN BASIC FIRST AID"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "BQNNOh8c8ks",
+     "titre": "How to do CPR on an Adult - First Aid Training - St John Ambulance",
+     "chaine": "St John Ambulance",
+     "vues": "1.5M views",
+     "date": "10 years ago",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/3_EKVZ4cYtPnl5RtfXgOGkN4w3KpDelNVlEs1qjcyfyxDLDIt8km0jA5Iq6J7FxewSsN1LVVtA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LES GESTES QUI SAUVENT"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "lKta6hI3lx8",
+     "titre": "Savez-vous faire un massage cardiaque ?",
+     "chaine": "Doctissimo",
+     "vues": "1,4 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/kwtE8Vn8ftjY9h_X-MOFnAfn_Y9_LJh3Z4XgDfZNYi0olO-T97DGnj4zHgiyd-myRauzOQQwXpY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "PRIMEROS AUXILIOS"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "FEayzgNGGBQ",
+     "titre": "2. Primeros Auxilios: RCP (Reanimación cardiopulmonar) en adultos",
+     "chaine": "Cruz Roja en Euskadi - Gurutze Gorria Euskadin",
+     "vues": "1,4 M de visualizaciones",
+     "date": "hace 10 años",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/c8gFOAAPHqPvkYaUVYDGo5NtqYEmdvigbyj-7ZAlVXRGSwU_M_7WaieLULGL1zgRzUcnIUIPAQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ERSTE HILFE LEISTEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "rLuo_XqkFmY",
+     "titre": "Erste Hilfe: Wiederbelebung",
+     "chaine": "AOK - Der Gesundheitskanal",
+     "vues": "264.482 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/1KJj46cSlEvqgWy1uGX7wollCZPtXWjlG54h7sAuVMpkRTofPHp_T-wGncl3rjT73v0BgaX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IL PRIMO SOCCORSO"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "dWgPDS6fr7o",
+     "titre": "Video tutorial BLS-D (Basic Life Support and Defibrillation) - Croce Rossa Italiana",
+     "chaine": "Croce Rossa Italiana",
+     "vues": "208K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/nL4nyq_YVBdO2Jp0BgbklxD7AmU4QRPwSou6QtoyWkpQmnIWPhtHM-nX4dEm0u3uHSI0qIHH=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PRIMEIROS SOCORROS"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "LquiiQVKqKE",
+     "titre": "Como fazer massagem cardíaca em crianças e adultos | Primeiros Socorros",
+     "chaine": "Einstein Hospital Israelita",
+     "vues": "181 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:57",
+     "avatar": "https://yt3.ggpht.com/EMv__pRqzJOLGZT7CtGn45GegIgQsAlqe7UqSKqt4BjWvbS_ZMXkNVdQtVr_FiCes-GXRfTomg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO COOK"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "ZJy1ajvMU1k",
+     "titre": "How To Master 5 Basic Cooking Skills | Gordon Ramsay",
+     "chaine": "Gordon Ramsay",
+     "vues": "39M views",
+     "date": "10 years ago",
+     "duree": "7:40",
+     "avatar": "https://yt3.ggpht.com/iu8M-gugkNvz-lHxC1sMEfAlL7ONWbP91c5SM9bb98oCJAcYUl0HIAMZFFR2Dd-soGag1Y1y8A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDRE À CUISINER"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "AaphxoKIGwk",
+     "titre": "✅ Les 5 choses à faire avant de cuisiner",
+     "chaine": "Philippe Etchebest",
+     "vues": "225 k vues",
+     "date": "il y a 1 an",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/TETeWVwZ0hc-qP_wWMN74dFRRcZOipEhGJ4MegZgjgKoo47wv-9igEfwLlf2lVZx2LPCIAOO=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDER A COCINAR"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "FXZkvjSf05Y",
+     "titre": "TE VOY A ENSEÑAR 7 TÉCNICAS CULINARIAS QUE TODO COCINERO DEBE SABER | GIACOMO BOCCHIO",
+     "chaine": "Giacomo Bocchio",
+     "vues": "1 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "19:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOlzK8_ggl74eBiJL_ZZUxczkHM0FgGaxCh0ZpQFSshg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KOCHEN LERNEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "BPrjXWyc1_U",
+     "titre": "5 Basic Kochskills die du beherrschen musst! ⭐️",
+     "chaine": "Nelson Müller",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "16:16",
+     "avatar": "https://yt3.ggpht.com/18LnuCG9CVriAcno6BRBzRqKQqeXUEzlHwu7BmE_c3KFTshMTJVzrw3311FD7jOFkEaBKkNp=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARARE A CUCINARE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "z5RfnQzpJ2w",
+     "titre": "9 TRUCCHI IN CUCINA CHE AVREI VOLUTO CONOSCERE PRIMA - essenziali per iniziare",
+     "chaine": "Cooker Girl",
+     "vues": "151K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/ISWvTBs5wnoiUGHaSMebyYk-Y3CM0bvUy5DEgMlEi50wdxElQJasyYke00tpxnlmDuvQjSBUF-s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDER A COZINHAR"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "ZfHQ6SpUqB8",
+     "titre": "Aprenda a cozinhar melhor com esses truques!",
+     "chaine": "Paola Carosella",
+     "vues": "1,5 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "41:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -9,8 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
+import { lireReglages } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
+import type { ReglagesFileLabels } from "@/features/moteur/types";
 import { nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import {
@@ -118,6 +120,10 @@ export function AdminRepartitionPage() {
     queryFn: lireReglagesRepartition,
     retry: false,
   });
+  // La File, pour la projection. Même clé que `CarteFileLabels`, donc une
+  // seule requête pour les deux, et la projection se remet à jour dès qu'on
+  // touche à la File juste au-dessus.
+  const reglagesOs = useQuery({ queryKey: ["reglages"], queryFn: lireReglages, retry: false });
   const marchesApps = useQuery({
     queryKey: ["repartition-apps"],
     queryFn: lireMarchesApplications,
@@ -288,6 +294,7 @@ export function AdminRepartitionPage() {
             applications={actifs}
             reglages={reglages.data!}
             partParMarche={partParMarche}
+            file={reglagesOs.data?.file_labels_comptes}
           />
         </>
       )}
@@ -959,6 +966,7 @@ function CarteTirages({
   applications,
   reglages,
   partParMarche,
+  file,
 }: {
   marches: MarcheApplications[];
   statsParAppEtMarche: Record<string, Record<string, StatLabel[]>>;
@@ -966,6 +974,7 @@ function CarteTirages({
   applications: ApplicationCandidate[];
   reglages: ReglagesChoixLabel;
   partParMarche: Map<string, PartSite>;
+  file: ReglagesFileLabels | undefined;
 }) {
   const { t } = useTranslation();
   const lignes = marches
@@ -976,6 +985,12 @@ function CarteTirages({
       // placées par le moteur vers leur application. Lui passer une cible
       // déjà corrigée la corrigerait deux fois.
       const provenance = partParMarche.get(cle);
+      // SEULEMENT une part MESURÉE SUR CE MARCHÉ. Quand l'échantillon local
+      // est trop mince, `partSite` emprunte celle de la flotte : utile pour
+      // afficher un ordre de grandeur dans la carte Provenance, faux ici, où
+      // elle réserverait jusqu'à neuf tirages sur vingt à un guichet qui n'a
+      // peut-être jamais envoyé personne sur ce marché.
+      const mesuree = provenance?.base === "marche" ? provenance : undefined;
       const tirages = simulerTirages(
         m,
         statsParAppEtMarche[cle] ?? {},
@@ -983,7 +998,17 @@ function CarteTirages({
         applications,
         reglages,
         TIRAGES_DEFAUT,
-        { partSite: provenance?.part ?? 0, siteParApp: provenance?.parApp ?? {} },
+        {
+          partSite: mesuree?.part ?? 0,
+          siteParApp: mesuree?.parApp ?? {},
+          // La File passe avant le classement, et détourne l'application.
+          // Chaque ligne est une projection CONDITIONNELLE — « si les vingt
+          // prochaines recrues étaient turques » — donc chacune consomme la
+          // File depuis le même état : une entrée ne sert qu'un compte dans
+          // la ligne, mais la même entrée apparaît sur les marchés qui se la
+          // partagent, parce que chacun d'eux la prendrait s'il recrutait.
+          file,
+        },
       );
       const places = tirages.reduce((a, x) => a + x.comptes, 0);
       return {

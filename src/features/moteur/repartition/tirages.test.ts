@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { cibleHorsSite } from "./provenance";
 import { lireCibleApplications, type MarcheApplications } from "./scoreApplication";
+import type { ReglagesFileLabels } from "../types";
 import { REGLAGES_CHOIX_LABEL_DEFAUT, type StatLabel } from "./scoreLabel";
 import { simulerTirages } from "./tirages";
 
@@ -83,29 +84,71 @@ describe("projection des prochains tirages", () => {
     expect(sophia[1].comptes).toBe(3);
   });
 
-  it("un label déjà installé passe derrière celui qui est libre", () => {
+  it("un label déjà installé passe derrière celui qui est libre, sans tout rafler", () => {
     const charge = {
       "id-sophia": [stat("a", { comptes_pays: 10, comptes_langue: 10 }), stat("b")],
     };
     const seule = lireCibleApplications(null, ["sophia"]);
-    // Sur 6 tirages, « a » (20 de présence) ne repasse jamais devant « b »,
-    // qui part de 0 et plafonne à 12 de présence au dernier tour.
+    // « b » part de zéro et prend la main, mais il ne rafle pas les six : au
+    // bout de deux tirages il remplit la fenêtre anti-rafale du moteur
+    // (`rafaleRecents` = 2 sur les 3 derniers comptes de la langue) et passe
+    // derrière « a » le temps d'un tour. C'est la barrière que la projection
+    // ne jouait jamais, faute de remettre `recents_langue` à jour.
     const six = simulerTirages(marche("pl"), charge, seule, [SOPHIA], R, 6);
-    expect(six.map((x) => x.label_nom)).toEqual(["b"]);
+    expect(six.map((x) => `${x.label_nom}:${x.comptes}`)).toEqual(["b:4", "a:2"]);
 
-    // Il revient quand « b » s'est assez rempli pour le rattraper.
+    // Sur la durée, « b » garde l'avantage de son retard mais les deux
+    // convergent : c'est le comportement du moteur, pas une alternance.
     const trente = simulerTirages(marche("pl"), charge, seule, [SOPHIA], R, 30);
-    const a = trente.find((x) => x.label_nom === "a");
+    const a = trente.find((x) => x.label_nom === "a")!;
     const b = trente.find((x) => x.label_nom === "b")!;
-    expect(a, "« a » finit par revenir").toBeDefined();
-    expect(b.comptes).toBeGreaterThan(a!.comptes);
+    expect(b.comptes).toBeGreaterThan(a.comptes);
+    expect(a.comptes + b.comptes).toBe(30);
   });
 
-  it("une application sans label utilisable est sautée, pas de compte perdu", () => {
+  it("deux labels à égalité alternent, au lieu d'en laisser un tout prendre", () => {
+    // Sans fenêtre anti-rafale, le premier label gagnait les dix tirages : à
+    // chaque tour son poids était recalculé mais rien ne disait au classement
+    // qu'il venait de servir.
+    const deux = { "id-sophia": [stat("x"), stat("y")] };
+    const t = simulerTirages(
+      marche("pl"),
+      deux,
+      lireCibleApplications(null, ["sophia"]),
+      [SOPHIA],
+      R,
+      10,
+    );
+    expect(t.map((x) => `${x.label_nom}:${x.comptes}`).sort()).toEqual(["x:5", "y:5"]);
+  });
+
+  it("une application sans label ne passe pas la main : le tirage est perdu", () => {
+    // Le moteur fige son gagnant (`choisirApplicationPourCompte`) : si elle
+    // n'a aucun label, il répond NO_LABELS et la création échoue. La
+    // projection descendait le classement, ce qui lui faisait afficher des
+    // comptes sur une application qui n'en recevra jamais.
     const sansLabels = { "id-sophia": [stat("a")], "id-unswipe": [] };
     const t = simulerTirages(marche("fr"), sansLabels, cible, APPS, R, 8);
-    expect(t.reduce((a, x) => a + x.comptes, 0)).toBe(8);
     expect(t.every((x) => x.app === "sophia")).toBe(true);
+    // Le premier tirage va à Sophia, le deuxième vise Unswipe et se perd.
+    expect(t.reduce((a, x) => a + x.comptes, 0)).toBe(1);
+  });
+
+  it("tous les labels d'une application fermés : elle reçoit quand même sa part", () => {
+    // `choisirLabel` est appelé avec `jamaisSansLabel: true` : plutôt que de
+    // refuser le compte, le moteur reclasse la MÊME application en ignorant
+    // les fermetures et donne un label fermé. Sauter l'application faisait
+    // disparaître de la projection une part qui sera bel et bien attribuée.
+    const ferme = { ...R, fermes: ["a"] };
+    const t = simulerTirages(
+      marche("pl"),
+      { "id-sophia": [stat("a")] },
+      lireCibleApplications(null, ["sophia"]),
+      [SOPHIA],
+      ferme,
+      4,
+    );
+    expect(t.map((x) => `${x.label_nom}:${x.comptes}`)).toEqual(["a:4"]);
   });
 
   it("aucune donnée du tout : projection vide, pas de boucle infinie", () => {
@@ -269,18 +312,19 @@ describe("recrues du site dans la projection", () => {
   });
 
   it("Sophia sans label ouvert : le site cale, le recrutement continue", () => {
-    // Avant, un seul échec sortait de TOUTE la boucle et tronquait aussi les
-    // tirages que le moteur pouvait encore placer.
+    // Un seul échec ne doit pas sortir de TOUTE la boucle : l'autre genre de
+    // recrue peut très bien continuer. La cible envoie ici le moteur sur
+    // Unswipe, pendant que le site s'obstine sur Sophia, qui n'a rien.
     const t = simulerTirages(
       marche("fr"),
       { "id-sophia": [], "id-unswipe": [stat("c")] },
-      lireCibleApplications({ sophia: 50, unswipe: 50 }, ["sophia", "unswipe"]),
+      lireCibleApplications({ sophia: 10, unswipe: 90 }, ["sophia", "unswipe"]),
       APPS,
       R,
       10,
       { partSite: 0.5, siteParApp: SOPHIA_SEUL },
     );
-    expect(parApp(t)).toEqual({ unswipe: 5 });
+    expect(parApp(t)).toEqual({ unswipe: 4 });
     expect(t.reduce((a, x) => a + x.comptesSite, 0)).toBe(0);
   });
 
@@ -378,5 +422,152 @@ describe("robustesse de l'option site", () => {
 
   it("sans donnée du tout, la boucle sort tout de suite même avec des recrues du site", () => {
     expect(simulerTirages(marche("fr"), {}, cible, APPS, R, 20, { partSite: 0.5, siteParApp: SOPHIA_SEUL })).toEqual([]);
+  });
+});
+
+describe("la File des créateurs dans la projection", () => {
+  const seule = lireCibleApplications(null, ["sophia"]);
+  const deuxApps = lireCibleApplications({ sophia: 70, unswipe: 30 }, ["sophia", "unswipe"]);
+
+  /** Une File vide, à laquelle on ajoute une tranche. */
+  function file(
+    par_application: Record<string, { items?: string[]; par_langue?: Record<string, string[]> }>,
+  ): ReglagesFileLabels {
+    const item = (id: string) => ({ label_id: id, ugc: false });
+    return {
+      items: [],
+      par_langue: {},
+      par_application: Object.fromEntries(
+        Object.entries(par_application).map(([slug, t]) => [
+          slug,
+          {
+            items: (t.items ?? []).map(item),
+            par_langue: Object.fromEntries(
+              Object.entries(t.par_langue ?? {}).map(([lg, ids]) => [lg, ids.map(item)]),
+            ),
+          },
+        ]),
+      ),
+    };
+  }
+
+  it("le label de la File passe avant le classement", () => {
+    // `popLabelFile` tire la file de la langue, puis la file générale, et
+    // n'appelle le classement que si les deux sont vides.
+    // « boude » est écrasé de comptes : le classement ne le prendra jamais de
+    // lui-même, ce qui est exactement la raison d'être de la File.
+    const stats = {
+      "id-sophia": [
+        stat("choisi"),
+        stat("boude", { comptes_langue: 500, comptes_pays: 500, comptes_total: 500 }),
+      ],
+    };
+    const sansFile = simulerTirages(marche("pl"), stats, seule, [SOPHIA], R, 1);
+    expect(sansFile[0].label_id).toBe("choisi");
+
+    const avecFile = simulerTirages(marche("pl"), stats, seule, [SOPHIA], R, 1, {
+      file: file({ sophia: { par_langue: { pl: ["boude"] } } }),
+    });
+    expect(avecFile[0].label_id).toBe("boude");
+  });
+
+  it("une entrée sert UN compte, pas les vingt", () => {
+    // La File est un stock qui se vide : `popLabelFile` réécrit la tranche
+    // sans l'entrée tirée. La garder entière la ferait resservir à chaque tour.
+    const t = simulerTirages(
+      marche("pl"),
+      {
+        "id-sophia": [
+          stat("choisi"),
+          stat("boude", { comptes_langue: 500, comptes_pays: 500, comptes_total: 500 }),
+        ],
+      },
+      seule,
+      [SOPHIA],
+      R,
+      2,
+      { file: file({ sophia: { par_langue: { pl: ["boude"] } } }) },
+    );
+    // Le premier compte prend l'entrée, le second retombe sur le classement,
+    // qui ne voulait pas de « boude ».
+    expect(t.find((x) => x.label_id === "boude")!.comptes).toBe(1);
+    expect(t.find((x) => x.label_id === "choisi")!.comptes).toBe(1);
+  });
+
+  it("la File détourne l'APPLICATION, pas seulement le label", () => {
+    // Le cas qui a motivé la règle : amorcer un label sur une application que
+    // le classement n'aurait jamais choisie. `choisirApplicationPourCompte`
+    // descend son classement et prend le premier candidat qui a une entrée.
+    const stats = {
+      "id-sophia": [stat("s1")],
+      "id-unswipe": [stat("u1")],
+    };
+    const sansFile = simulerTirages(marche("fr"), stats, deuxApps, APPS, R, 1);
+    expect(sansFile[0].app).toBe("sophia");
+
+    const avecFile = simulerTirages(marche("fr"), stats, deuxApps, APPS, R, 1, {
+      file: file({ unswipe: { par_langue: { fr: ["u1"] } } }),
+    });
+    expect(avecFile[0].app).toBe("unswipe");
+    expect(avecFile[0].label_id).toBe("u1");
+  });
+
+  it("une entrée qui vise un label fermé est jetée, pas servie", () => {
+    // Même règle que `popLabelFile` : sinon la nuit reprendrait le label au
+    // compte dès le lendemain.
+    const t = simulerTirages(
+      marche("pl"),
+      { "id-sophia": [stat("ouvert"), stat("ferme")] },
+      seule,
+      [SOPHIA],
+      { ...R, fermes: ["ferme"] },
+      2,
+      { file: file({ sophia: { par_langue: { pl: ["ferme"] } } }) },
+    );
+    expect(t.map((x) => x.label_nom)).toEqual(["ouvert"]);
+    expect(t[0].comptes).toBe(2);
+  });
+
+  it("une recrue du site prend aussi son label dans la File", () => {
+    // Le site choisit l'APPLICATION, jamais le label : `preparerFileEtPersona`
+    // est appelé pour elle comme pour les autres.
+    const t = simulerTirages(
+      marche("pl"),
+      {
+        "id-sophia": [
+          stat("choisi"),
+          stat("boude", { comptes_langue: 500, comptes_pays: 500, comptes_total: 500 }),
+        ],
+      },
+      seule,
+      [SOPHIA],
+      R,
+      1,
+      {
+        partSite: 1,
+        siteParApp: SOPHIA_SEUL,
+        file: file({ sophia: { par_langue: { pl: ["boude"] } } }),
+      },
+    );
+    expect(t[0].label_id).toBe("boude");
+    expect(t[0].comptesSite).toBe(1);
+  });
+
+  it("la file générale sert quand celle de la langue est vide", () => {
+    const t = simulerTirages(
+      marche("pl"),
+      {
+        "id-sophia": [
+          stat("choisi"),
+          stat("boude", { comptes_langue: 500, comptes_pays: 500, comptes_total: 500 }),
+        ],
+      },
+      seule,
+      [SOPHIA],
+      R,
+      1,
+      { file: file({ sophia: { items: ["boude"] } }) },
+    );
+    expect(t[0].label_id).toBe("boude");
   });
 });

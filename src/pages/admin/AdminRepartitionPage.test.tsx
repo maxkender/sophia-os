@@ -38,6 +38,26 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   ecrireEtatManuelLabel: (a: unknown) => ecrireEtatManuelLabel(a),
 }));
 
+const lireReglages = vi.fn();
+vi.mock("@/features/moteur/api", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/features/moteur/api")>()),
+  lireReglages: () => lireReglages(),
+}));
+
+/** La projection, espionnée : on vérifie ce que la page lui passe. */
+const simulerTirages = vi.fn();
+vi.mock("@/features/moteur/repartition/tirages", async (importOriginal) => {
+  const vrai = await importOriginal<typeof import("@/features/moteur/repartition/tirages")>();
+  return {
+    ...vrai,
+    simulerTirages: (...args: unknown[]) => {
+      simulerTirages(...args);
+      // @ts-expect-error — on relaie les arguments tels quels à la vraie.
+      return vrai.simulerTirages(...args);
+    },
+  };
+});
+
 const APPS = [
   { id: "id-sophia", slug: "sophia", langues: null, actif: true },
   { id: "id-unswipe", slug: "unswipe", langues: ["fr", "en", "de", "es"], actif: true },
@@ -532,5 +552,51 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     ).toBe("true");
     // Et l'état calculé suit : la colonne de gauche dit pourquoi.
     expect(ligne.textContent).toMatch(/Fermé pour cette app|Closed for this app/);
+  });
+});
+
+describe("AdminRepartitionPage — ce que la projection reçoit", () => {
+  const FILE = {
+    items: [],
+    par_langue: {},
+    par_application: { unswipe: { items: [], par_langue: { fr: [{ label_id: "study", ugc: false }] } } },
+  };
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
+    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
+    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
+    lireRecruesSite.mockResolvedValue(PROVENANCE);
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 60, unswipe: 25, micabo: 15 },
+    });
+    lireChoixApplicationAuto.mockResolvedValue(false);
+    lireReglagesChoixLabelPoses.mockResolvedValue(false);
+    lireReglages.mockResolvedValue({ file_labels_comptes: FILE });
+  });
+
+  it("la File arrive jusqu'à la projection", async () => {
+    // Elle passe avant le classement ET détourne l'application : une
+    // projection qui ne la reçoit pas annonce la mauvaise paire.
+    renderPage();
+    await waitFor(() => expect(simulerTirages).toHaveBeenCalled());
+    const options = simulerTirages.mock.calls.at(-1)![6];
+    expect(options.file).toEqual(FILE);
+  });
+
+  it("une part du site empruntée à la flotte ne réserve aucun tirage", async () => {
+    // L'espagnol n'a que 2 recrues : sa part vient de la flotte. La réserver
+    // ici donnerait des tirages à un guichet qui n'a peut-être jamais envoyé
+    // personne sur ce marché.
+    renderPage();
+    await waitFor(() => expect(simulerTirages).toHaveBeenCalled());
+    const parMarche = new Map(
+      simulerTirages.mock.calls.map((c) => [`${c[0].langue}|${c[0].pays ?? ""}`, c[6]]),
+    );
+    expect(parMarche.get("es|ES").partSite).toBe(0);
+    // Le français, lui, est mesuré sur son propre marché : 5 recrues sur 11.
+    expect(parMarche.get("fr|FR").partSite).toBeCloseTo(5 / 11);
   });
 });

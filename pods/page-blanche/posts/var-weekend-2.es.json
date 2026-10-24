@@ -1,0 +1,225 @@
+{
+ "post_id": "var-weekend-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "top 5 formas de desperdiciar tus vacaciones"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(la dura verdad)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "mira tus [[correos del curro]]"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "solo un vistazo rápido junto a la piscina. [[por si se incendia algo]]"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "diez minutos se vuelven dos horas y un correo a tu jefe a las 23 h"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "tu cuerpo está en la playa, tu cabeza sigue en la oficina. [[¡gran inversión!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "make decisions before you feel ready"
+     ],
+     "fr": "décide [[avant de te sentir prête]]",
+     "texte": "graba todo [[en vez de mirar de verdad]]"
+    },
+    "T2": {
+     "en": [
+      "there will never be a",
+      "perfect moment, you will",
+      "never feel ready"
+     ],
+     "fr": "[[le moment parfait n'existe pas]], tu te sentiras jamais prête",
+     "texte": "el atardecer, las vistas, la cena. vívelo todo a través de una pantalla"
+    },
+    "T3": {
+     "en": [
+      "take that risk you've",
+      "been thinking about, you",
+      "have nothing to lose"
+     ],
+     "fr": "prends ce risque auquel tu penses depuis longtemps, [[t'as rien à perdre]]",
+     "texte": "nunca vas a volver a ver esos 400 vídeos, pero [[están a salvo en la nube]]"
+    },
+    "T4": {
+     "en": [
+      "procrastination is making you lose trust in yourself"
+     ],
+     "fr": "procrastiner te fait [[perdre confiance en toi]]",
+     "texte": "estuviste allí. técnicamente. [[tu móvil vio más que tú]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "[[scrollea]] en el hotel"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration",
+     "texte": "ciudad nueva, calles nuevas, música bajo tu ventana. ignóralo todo y scrollea en la cama [[hasta las 2 de la mañana]]"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "ya estás con el móvil, así que [[ni se te ocurra abrir la app Sophia]] para una lección de 5 min sobre la ciudad donde estás"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "deviens pas inculte !!",
+     "texte": "[[¿recuerdos? ¡para qué!!]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "procrastiner [[toute la journée]]",
+     "texte": "no planees [[nada de nada]]"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
+     "texte": "sin ideas, sin reservas, sin lista. ya [[lo irás viendo cuando llegues]]"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
+     "texte": "día 5: sigues buscando en google [[«qué hacer cerca de mí»]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+     "texte": "no te quites los cascos [[en todo el viaje]]"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+     "texte": "¿las olas, la música en la calle, la gente hablando un idioma que no entiendes? pasa de todo, [[tu podcast]] suena"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+     "texte": "2.000 km de vuelo para escuchar [[la misma playlist que en casa]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+     "texte": "y en el vuelo de vuelta te preguntas por qué [[pareció una semana cualquiera!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

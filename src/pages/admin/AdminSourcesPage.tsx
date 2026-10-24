@@ -2,15 +2,19 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { RefreshCw, Trash2 } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, ExternalLink, Plus, RefreshCw, Search, Trash2 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { MICRO_LABEL } from "@/components/ui/micro-label";
+import { Segments } from "@/components/ui/segments";
+import { StatGroup, StatTile } from "@/components/ui/stat";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -30,18 +34,31 @@ import {
   stockParSource,
   supprimerSource,
   type LigneJournalOubli,
+  lireMajSourcesRun,
 } from "@/features/moteur/api";
+import {
+  etatStock,
+  filtrerGroupes,
+  groupesSources,
+  resumeSources,
+  SEUIL_STOCK_SOURCE,
+  type GroupeSource,
+} from "@/features/moteur/groupesSources";
 import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
 import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
 import { MajSourcesPanel } from "@/features/moteur/MajSourcesPanel";
-import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
+/** Les tableaux de la page Allocation : en-têtes en petites capitales, lignes fines. */
+const TH = "pb-2 pr-4 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground last:pr-0";
+const TD = "py-2 pr-4 align-top last:pr-0";
 
 function LangueSelect({
   id,
@@ -125,7 +142,7 @@ function VoixSource({ source }: { source: CompteReference }) {
   });
 
   return (
-    <div className="space-y-2 border-t pt-3">
+    <div className="space-y-2">
       <Label htmlFor={`voix-${source.id}`} className="text-xs">
         {t("sources.voix")}
       </Label>
@@ -161,7 +178,7 @@ function BoutonExtraire({
   const [resultat, setResultat] = React.useState<string | null>(null);
 
   return (
-    <div className="flex flex-col items-end gap-1">
+    <div className="flex flex-col items-start gap-1">
       <Button
         size="sm"
         variant="outline"
@@ -201,7 +218,7 @@ function BoutonUpdateSource({
   if (!dejaImportee) return null;
 
   return (
-    <div className="flex flex-col items-end gap-1">
+    <div className="flex flex-col items-start gap-1">
       <Button
         size="sm"
         title={t("sources.updateAide")}
@@ -228,9 +245,12 @@ function BoutonUpdateSource({
 function ImportLienSource({
   sourceId,
   langueSource,
+  className,
 }: {
   sourceId: string;
   langueSource: string;
+  /** Appliquée au formulaire ouvert (pas au bouton) : il prend toute la ligne. */
+  className?: string;
 }) {
   const { t } = useTranslation();
   const [url, setUrl] = React.useState("");
@@ -278,7 +298,7 @@ function ImportLienSource({
   }
 
   return (
-    <div className="space-y-2 rounded-md border border-dashed p-2.5">
+    <div className={cn("space-y-2 rounded-md border border-dashed bg-background p-2.5", className)}>
       <p className="text-xs font-medium">{t("sources.importLien")}</p>
       <p className="text-[11px] text-muted-foreground">{t("sources.importLienAide")}</p>
       <form
@@ -294,7 +314,7 @@ function ImportLienSource({
           placeholder="https://www.tiktok.com/@…/photo/…"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="min-w-[16rem] flex-1 text-xs"
+          className="min-w-0 flex-1 basis-64 text-xs"
         />
         <div className="w-40 space-y-1">
           <Label htmlFor={`langue-lien-${sourceId}`} className="text-[11px]">
@@ -384,9 +404,12 @@ type BilanOubli = {
 function OublierSource({
   source,
   onFini,
+  className,
 }: {
   source: CompteReference;
   onFini: (bilan: BilanOubli) => void;
+  /** Appliquée au panneau ouvert (pas au bouton) : il prend toute la ligne. */
+  className?: string;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -454,7 +477,7 @@ function OublierSource({
   const a = apercu.data?.apercu;
 
   return (
-    <div className="space-y-2 rounded-md border border-destructive/50 bg-destructive/5 p-2.5">
+    <div className={cn("space-y-2 rounded-md border border-destructive/50 bg-destructive/5 p-2.5", className)}>
       <p className="text-xs font-medium text-destructive">
         {t("sources.oublierTitre", { handle: source.handle_tiktok })}
       </p>
@@ -531,9 +554,12 @@ function OublierSource({
   );
 }
 
-/** Une ligne source (principal OU conjoint). Le conjoint est compact : pas de
- *  toggle genre (hérité du principal) ni de prompt de voix. */
-function LigneSource({
+/**
+ * Les réglages d'une source (principal OU conjoint), dépliés sous sa ligne.
+ * Le conjoint est compact : pas de genre (hérité du principal) ni de prompt de
+ * voix.
+ */
+function ReglagesSource({
   source,
   estConjoint = false,
   onOubli,
@@ -565,111 +591,94 @@ function LigneSource({
   const lien = `https://www.tiktok.com/@${source.handle_tiktok.replace(/^@/, "")}`;
 
   return (
-    <div className="space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
-            <a href={lien} target="_blank" rel="noreferrer" className="font-medium underline underline-offset-2">
-              @{source.handle_tiktok} ↗
-            </a>
-            <button
-              type="button"
-              onClick={() => navigator.clipboard?.writeText(lien)}
-              className="text-xs text-muted-foreground underline underline-offset-2"
-            >
-              {t("sources.copierLien")}
-            </button>
-            {estConjoint && <Badge variant="outline">{t("sources.conjoint")}</Badge>}
-            {!source.is_active && <Badge variant="secondary">{t("sources.inactive")}</Badge>}
-            {source.langue && (
-              <Badge variant="outline">{nomLangue(source.langue)}</Badge>
-            )}
-          </div>
-          <p className="text-xs text-muted-foreground">
-            {[
-              source.niche,
-              source.dernier_scrape_at
-                ? t("sources.extraitLe", {
-                    date: new Date(source.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language)),
-                  })
-                : t("sources.jamais"),
-            ]
-              .filter(Boolean)
-              .join(" · ")}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3 pt-2">
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">{t("sources.langueOrigine")}</span>
-              <div className="w-36">
-                <LangueSelect
-                  id={`langue-source-${source.id}`}
-                  value={source.langue || ""}
-                  disabled={changerLangue.isPending}
-                  onChange={(l) => changerLangue.mutate(l)}
-                />
-              </div>
-            </div>
-            {!estConjoint && (
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-muted-foreground">{t("sources.genre")}</span>
-                <div className="inline-flex overflow-hidden rounded-md border">
-                  {(["femme", "homme"] as const).map((g) => (
-                    <button
-                      key={g}
-                      type="button"
-                      disabled={changerGenre.isPending}
-                      onClick={() => changerGenre.mutate(g)}
-                      className={
-                        source.genre === g
-                          ? "bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
-                          : "bg-background px-2.5 py-1 text-xs text-muted-foreground hover:bg-muted"
-                      }
-                    >
-                      {g === "femme" ? t("sources.genreFemme") : t("sources.genreHomme")}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+    <div className="space-y-4">
+      {estConjoint && (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <a href={lien} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium underline-offset-2 hover:underline">
+            @{source.handle_tiktok}
+            <ExternalLink className="size-3 text-muted-foreground" aria-hidden />
+          </a>
+          <span className="rounded-full border px-1.5 py-px text-[10px] text-muted-foreground">{t("sources.conjoint")}</span>
+          {!source.is_active && <span className="text-xs font-medium text-muted-foreground">{t("sources.inactive")}</span>}
+          <span className="text-xs text-muted-foreground">
+            {source.dernier_scrape_at
+              ? t("sources.extraitLe", {
+                  date: new Date(source.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language)),
+                })
+              : t("sources.jamais")}
+          </span>
         </div>
+      )}
 
-        <div className="flex items-start gap-2">
+      <div className="space-y-1.5">
+        {!estConjoint && <p className={MICRO_LABEL}>{t("sources.parties.actions")}</p>}
+        <div className="flex flex-wrap items-start gap-2">
           <BoutonUpdateSource
             sourceId={source.id}
             handle={source.handle_tiktok}
             langue={source.langue}
             dejaImportee={Boolean(source.dernier_scrape_at)}
           />
-          <BoutonExtraire
-            sourceId={source.id}
-            handle={source.handle_tiktok}
-            langue={source.langue}
-          />
-          <Button size="sm" variant="outline" onClick={() => basculer.mutate()}>
+          <BoutonExtraire sourceId={source.id} handle={source.handle_tiktok} langue={source.langue} />
+          <ImportLienSource sourceId={source.id} langueSource={source.langue} className="basis-full" />
+          <Button size="sm" variant="outline" disabled={basculer.isPending} onClick={() => basculer.mutate()}>
             {source.is_active ? t("sources.deactivate") : t("sources.activate")}
           </Button>
-          <Button
-            size="sm"
-            variant="ghost"
-            className="text-destructive hover:text-destructive"
-            onClick={() => {
-              if (window.confirm(t("sources.confirmDelete"))) retirer.mutate();
-            }}
+          <button
+            type="button"
+            onClick={() => navigator.clipboard?.writeText(lien)}
+            className="h-8 px-1 text-xs text-muted-foreground underline-offset-2 hover:underline sm:h-7"
           >
-            {t("common.delete")}
-          </Button>
+            {t("sources.copierLien")}
+          </button>
+          <span className="ml-auto flex flex-wrap gap-2">
+            <Button
+              size="sm"
+              variant="ghost"
+              className="text-destructive hover:text-destructive"
+              onClick={() => {
+                if (window.confirm(t("sources.confirmDelete"))) retirer.mutate();
+              }}
+            >
+              {t("common.delete")}
+            </Button>
+            <OublierSource source={source} onFini={onOubli} className="basis-full" />
+          </span>
         </div>
       </div>
 
-      <ImportLienSource
-        sourceId={source.id}
-        langueSource={source.langue}
-      />
-      <OublierSource source={source} onFini={onOubli} />
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-1.5">
+          <label htmlFor={`langue-source-${source.id}`} className={cn(MICRO_LABEL, "block")}>
+            {t("sources.langueOrigine")}
+          </label>
+          <div className="max-w-56">
+            <LangueSelect
+              id={`langue-source-${source.id}`}
+              value={source.langue || ""}
+              disabled={changerLangue.isPending}
+              onChange={(l) => changerLangue.mutate(l)}
+            />
+          </div>
+        </div>
+        {!estConjoint && (
+          <div className="space-y-1.5">
+            <p className={MICRO_LABEL}>{t("sources.genre").replace(/\s*:$/, "")}</p>
+            <Segments
+              libelle={t("sources.genre")}
+              actif={source.genre}
+              disabled={changerGenre.isPending}
+              onChange={(g) => changerGenre.mutate(g)}
+              options={[
+                { cle: "femme", contenu: t("sources.genreFemme") },
+                { cle: "homme", contenu: t("sources.genreHomme") },
+              ]}
+            />
+          </div>
+        )}
+      </div>
 
-      <div className="border-t pt-3">
+      <div className="space-y-1.5">
         <LabelEditor
           queryKey={["source-labels", source.id]}
           load={() => labelsDeLaSource(source.id)}
@@ -678,28 +687,15 @@ function LigneSource({
             await setLabelsSource(source.id, ids);
           }}
         />
-        <p className="mt-1 text-[11px] text-muted-foreground">{t("labels.retroactif")}</p>
+        <p className="text-[11px] text-muted-foreground">{t("labels.retroactif")}</p>
       </div>
       {!estConjoint && <VoixSource source={source} />}
     </div>
   );
 }
 
-const SEUIL_STOCK = 10;
-
-function GroupeSource({
-  primary,
-  conjoints,
-  stock,
-  niches,
-  onOubli,
-}: {
-  primary: CompteReference;
-  conjoints: CompteReference[];
-  stock: number;
-  niches: NicheLabel[];
-  onOubli: (bilan: BilanOubli) => void;
-}) {
+/** Ajoute un compte conjoint sous un principal : même langue et même genre, ses labels par défaut. */
+function AjoutConjoint({ principal, niches }: { principal: CompteReference; niches: NicheLabel[] }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [ouvert, setOuvert] = React.useState(false);
@@ -711,14 +707,12 @@ function GroupeSource({
       const niche = niches.find((n) => n.id === nicheId);
       const cree = await creerSource({
         handle,
-        niche: niche?.nom ?? primary.niche ?? "",
-        langue: primary.langue,
-        genre: primary.genre,
-        parent_id: primary.id,
+        niche: niche?.nom ?? principal.niche ?? "",
+        langue: principal.langue,
+        genre: principal.genre,
+        parent_id: principal.id,
       });
-      const labels = nicheId
-        ? [nicheId]
-        : await labelsDeLaSource(primary.id);
+      const labels = nicheId ? [nicheId] : await labelsDeLaSource(principal.id);
       if (labels.length > 0) await setLabelsSource(cree.id, labels);
       return cree;
     },
@@ -730,74 +724,343 @@ function GroupeSource({
     },
   });
 
-  const epuise = stock === 0;
-  const faible = stock < SEUIL_STOCK;
-
+  if (!ouvert) {
+    return (
+      <Button size="sm" variant="outline" onClick={() => setOuvert(true)}>
+        <Plus />
+        {t("sources.ajouterConjoint")}
+      </Button>
+    );
+  }
   return (
-    <div className="space-y-3 rounded-lg border p-3">
-      <div className="flex flex-wrap items-center gap-2">
-        <Badge variant={epuise ? "destructive" : faible ? "warning" : "success"}>
-          {t("sources.stock", { count: stock })}
-        </Badge>
-        {faible && (
-          <span className={epuise ? "text-xs text-destructive" : "text-xs text-warning"}>
-            {epuise ? t("sources.epuise") : t("sources.stockFaible")}
-          </span>
-        )}
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (handle.trim()) ajouter.mutate();
+      }}
+      className="flex flex-wrap items-end gap-2"
+    >
+      <Input
+        placeholder="@compte_conjoint"
+        aria-label={t("sources.handle")}
+        value={handle}
+        onChange={(e) => setHandle(e.target.value)}
+        className="w-48"
+        required
+      />
+      <div className="w-48">
+        <NicheSelect id={`niche-conjoint-${principal.id}`} niches={niches} value={nicheId} onChange={setNicheId} allowEmpty />
       </div>
+      <Button type="submit" size="sm" disabled={ajouter.isPending}>
+        {ajouter.isPending ? t("common.saving") : t("sources.ajouterConjoint")}
+      </Button>
+      <Button type="button" size="sm" variant="ghost" onClick={() => setOuvert(false)}>
+        {t("common.cancel")}
+      </Button>
+      {ajouter.error && <p className="basis-full text-xs text-destructive">{(ajouter.error as Error).message}</p>}
+    </form>
+  );
+}
 
-      <LigneSource source={primary} onOubli={onOubli} />
-
-      {conjoints.length > 0 && (
-        <div className="space-y-3 border-l-2 border-muted pl-3">
-          {conjoints.map((c) => (
-            <LigneSource key={c.id} source={c} estConjoint onOubli={onOubli} />
-          ))}
-        </div>
-      )}
-
-      {ouvert ? (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (handle.trim()) ajouter.mutate();
-          }}
-          className="flex flex-wrap items-end gap-2 border-l-2 border-dashed border-muted pl-3"
-        >
-          <Input
-            placeholder="@compte_conjoint"
-            value={handle}
-            onChange={(e) => setHandle(e.target.value)}
-            className="w-48"
-            required
-          />
-          <div className="w-48">
-            <NicheSelect
-              id={`niche-conjoint-${primary.id}`}
-              niches={niches}
-              value={nicheId}
-              onChange={setNicheId}
-              allowEmpty
-            />
-          </div>
-          <Button type="submit" size="sm" disabled={ajouter.isPending}>
-            {ajouter.isPending ? t("common.saving") : t("sources.ajouterConjoint")}
-          </Button>
-          <Button type="button" size="sm" variant="ghost" onClick={() => setOuvert(false)}>
-            {t("common.cancel")}
-          </Button>
-        </form>
-      ) : (
-        <Button size="sm" variant="outline" onClick={() => setOuvert(true)}>
-          + {t("sources.ajouterConjoint")}
-        </Button>
-      )}
+/** Le stock d'un groupe sur une échelle fixe : la barre s'arrête à 50, un trait marque le seuil de 10. */
+function BarreStock({ stock }: { stock: number }) {
+  const max = 50;
+  const etat = etatStock(stock);
+  return (
+    <div className="relative h-2 w-full min-w-20 rounded-[3px] bg-muted" aria-hidden>
+      <div
+        className={cn("h-full rounded-r-[4px]", etat === "ok" ? "bg-foreground/70" : "bg-warning")}
+        style={{ width: `${(100 * Math.min(stock, max)) / max}%` }}
+      />
+      <div className="absolute -top-1 h-[calc(100%+0.5rem)] w-px bg-foreground/40" style={{ left: `${(100 * SEUIL_STOCK_SOURCE) / max}%` }} />
     </div>
   );
 }
 
+/** Une ligne du tableau (le compte principal et ses conjoints), qui se déplie sur leurs réglages. */
+function LigneGroupe({
+  groupe,
+  niches,
+  ouvert,
+  onBasculer,
+  onOubli,
+}: {
+  groupe: GroupeSource;
+  niches: NicheLabel[];
+  ouvert: boolean;
+  onBasculer: () => void;
+  onOubli: (bilan: BilanOubli) => void;
+}) {
+  const { t, i18n } = useTranslation();
+  const { principal, conjoints, stock } = groupe;
+  const etat = etatStock(stock);
+  const lien = `https://www.tiktok.com/@${principal.handle_tiktok.replace(/^@/, "")}`;
+  const Chevron = ouvert ? ChevronDown : ChevronRight;
+  return (
+    <>
+      <tr
+        className={cn(
+          "cursor-pointer border-b border-border/40 hover:bg-muted/50",
+          ouvert && "bg-muted/40",
+          !principal.is_active && "text-muted-foreground",
+        )}
+        onClick={onBasculer}
+      >
+        <td className="w-6 py-2 align-top">
+          <button
+            type="button"
+            aria-expanded={ouvert}
+            aria-label={t("sources.tableau.details", { handle: principal.handle_tiktok })}
+            onClick={(e) => {
+              e.stopPropagation();
+              onBasculer();
+            }}
+            className="mt-0.5 rounded text-muted-foreground hover:text-foreground"
+          >
+            <Chevron className="size-4" />
+          </button>
+        </td>
+        <td className={TD}>
+          <span className="inline-flex flex-wrap items-center gap-x-2">
+            <a
+              href={lien}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1 font-medium underline-offset-2 hover:underline"
+            >
+              @{principal.handle_tiktok}
+              <ExternalLink className="size-3 text-muted-foreground" aria-hidden />
+            </a>
+            {!principal.is_active && <span className="text-xs font-medium">{t("sources.inactive")}</span>}
+          </span>
+          {conjoints.length > 0 && (
+            <div className="text-xs text-muted-foreground">
+              {t("sources.tableau.conjoints", { liste: conjoints.map((c) => `@${c.handle_tiktok}`).join(", ") })}
+            </div>
+          )}
+          {/* Sur téléphone, les colonnes langue et niche passent ici. */}
+          <div className="text-xs text-muted-foreground sm:hidden">
+            {[principal.langue ? drapeauLangue(principal.langue) : null, principal.niche].filter(Boolean).join(" · ")}
+          </div>
+        </td>
+        <td className={cn(TD, "hidden whitespace-nowrap sm:table-cell")}>
+          {principal.langue ? `${drapeauLangue(principal.langue)} ${nomLangue(principal.langue)}` : "—"}
+        </td>
+        <td className={cn(TD, "hidden font-mono text-xs sm:table-cell")}>{principal.niche ?? "—"}</td>
+        <td
+          className={cn(
+            TD,
+            "whitespace-nowrap text-right tabular-nums",
+            principal.is_active && etat === "epuise" && "font-semibold text-destructive",
+            principal.is_active && etat === "faible" && "font-semibold text-warning-foreground",
+          )}
+        >
+          {stock}
+        </td>
+        <td className={cn(TD, "hidden w-32 pt-3 sm:table-cell")}>
+          <BarreStock stock={stock} />
+        </td>
+        <td className={cn(TD, "hidden whitespace-nowrap text-xs text-muted-foreground md:table-cell")}>
+          {principal.dernier_scrape_at
+            ? new Date(principal.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" })
+            : t("sources.jamais")}
+        </td>
+      </tr>
+      {ouvert && (
+        <tr className="border-b border-border/40">
+          <td colSpan={7} className="pb-4 pt-1">
+            <div className="space-y-5 rounded-lg bg-muted/30 p-4">
+              {principal.is_active && etat !== "ok" && (
+                <p className={cn("text-xs font-medium", etat === "epuise" ? "text-destructive" : "text-warning-foreground")}>
+                  {etat === "epuise" ? t("sources.epuise") : t("sources.stockFaible")}
+                </p>
+              )}
+              <ReglagesSource source={principal} onOubli={onOubli} />
+              <div className="space-y-3 border-t pt-4">
+                <p className={MICRO_LABEL}>{t("sources.parties.conjoints")}</p>
+                {conjoints.map((c) => (
+                  <div key={c.id} className="rounded-lg border bg-background p-3">
+                    <ReglagesSource source={c} estConjoint onOubli={onOubli} />
+                  </div>
+                ))}
+                <AjoutConjoint principal={principal} niches={niches} />
+              </div>
+            </div>
+          </td>
+        </tr>
+      )}
+    </>
+  );
+}
+
+function ChiffresSources({ groupes }: { groupes: GroupeSource[] }) {
+  const { t, i18n } = useTranslation();
+  const r = resumeSources(groupes);
+  return (
+    <StatGroup>
+      <StatTile
+        label={t("sources.chiffres.actives")}
+        value={r.actives}
+        unit={`/ ${r.total}`}
+        detail={r.conjoints > 0 ? t("sources.chiffres.activesDetail", { n: r.conjoints }) : undefined}
+      />
+      <StatTile label={t("sources.chiffres.stock")} value={r.stock.toLocaleString()} detail={t("sources.chiffres.stockDetail")} />
+      <StatTile
+        label={t("sources.chiffres.epuisees")}
+        value={r.epuisees}
+        tone={r.epuisees > 0 ? "alerte" : "neutre"}
+        detail={
+          r.faibles > 0
+            ? t("sources.chiffres.faibles", { n: r.faibles, seuil: SEUIL_STOCK_SOURCE })
+            : t("sources.chiffres.aucuneFaible", { seuil: SEUIL_STOCK_SOURCE })
+        }
+      />
+      <StatTile
+        label={t("sources.chiffres.derniere")}
+        value={
+          r.derniereExtraction
+            ? new Date(r.derniereExtraction).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" })
+            : "—"
+        }
+        detail={r.jamaisExtraites > 0 ? t("sources.chiffres.jamais", { n: r.jamaisExtraites }) : undefined}
+      />
+    </StatGroup>
+  );
+}
+
+export function AdminSourcesPage() {
+  const { t } = useTranslation();
+  const [bilanOubli, setBilanOubli] = React.useState<BilanOubli | null>(null);
+  const [ajout, setAjout] = React.useState(false);
+  const [majOuverte, setMajOuverte] = React.useState(false);
+  const [recherche, setRecherche] = React.useState("");
+  const [ouverte, setOuverte] = React.useState<string | null>(null);
+  // Toutes les sources : un post importé sert toutes les applications de ses
+  // labels, le sélecteur d'application ne cloisonne plus les sources.
+  const sources = useQuery({
+    queryKey: ["sources"],
+    queryFn: () => listerSources(),
+  });
+  const stock = useQuery({ queryKey: ["stock-sources"], queryFn: stockParSource });
+  const niches = useQuery({
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
+  });
+
+  const toutes = sources.data ?? [];
+  const groupes = groupesSources(toutes, stock.data ?? {});
+  const visibles = filtrerGroupes(groupes, recherche);
+  // Même requête que le panneau (cache partagé) : une mise à jour en cours
+  // garde le panneau ouvert, pour suivre la séquence.
+  const run = useQuery({ queryKey: ["maj-sources-run"], queryFn: lireMajSourcesRun, refetchInterval: 4_000 });
+  const majVisible = majOuverte || run.data?.statut === "running";
+
+  return (
+    <div className="space-y-6">
+      <PageHeader
+        title={t("sources.title")}
+        description={t("sources.subtitle")}
+        actions={
+          <>
+            <Button variant="outline" onClick={() => setMajOuverte((v) => !v)} aria-expanded={majVisible}>
+              <RefreshCw className="size-3.5" />
+              {t("sources.majTitre")}
+            </Button>
+            <Button onClick={() => setAjout((v) => !v)} aria-expanded={ajout}>
+              <Plus />
+              {t("sources.ajouterSource")}
+            </Button>
+          </>
+        }
+      />
+
+      {ajout && <FormAjoutSource niches={niches.data ?? []} onFermer={() => setAjout(false)} />}
+
+      {majVisible && <MajSourcesPanel sources={toutes} />}
+
+      <ImportJobsPanel />
+
+      {bilanOubli && (
+        <div className="space-y-2 rounded-lg border bg-card p-4">
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <p className="flex min-w-0 items-start gap-2 text-sm font-medium">
+              <Check className="mt-0.5 size-4 shrink-0 text-success-foreground" aria-hidden />
+              {bilanOubli.message}
+            </p>
+            <Button size="sm" variant="ghost" onClick={() => setBilanOubli(null)}>
+              {t("common.close")}
+            </Button>
+          </div>
+          <p className={MICRO_LABEL}>{t("sources.oublierJournal")}</p>
+          <JournalOubli lignes={bilanOubli.journal} vide={t("sources.oublierJournalVide")} />
+        </div>
+      )}
+
+      {groupes.length > 0 && <ChiffresSources groupes={groupes} />}
+
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("sources.tableau.titre")}</CardTitle>
+          <CardDescription>{t("sources.tableau.description")}</CardDescription>
+        </CardHeader>
+        <CardContent className="relative space-y-3 overflow-x-auto">
+          {groupes.length > 0 && (
+            <div className="relative w-full max-w-xs">
+              <Search className="pointer-events-none absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" aria-hidden />
+              <Input
+                className="h-8 pl-8 text-sm"
+                value={recherche}
+                onChange={(e) => setRecherche(e.target.value)}
+                placeholder={t("sources.tableau.rechercheCourt")}
+                aria-label={t("sources.tableau.recherche")}
+              />
+            </div>
+          )}
+          {sources.isPending ? (
+            <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+          ) : groupes.length === 0 ? (
+            <EmptyState title={t("sources.empty")} />
+          ) : visibles.length === 0 ? (
+            <p className="py-2 text-sm text-muted-foreground">{t("sources.tableau.aucune")}</p>
+          ) : (
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="w-6 pb-2" aria-hidden />
+                  <th className={TH}>{t("sources.tableau.source")}</th>
+                  <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.langue")}</th>
+                  <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.niche")}</th>
+                  <th className={cn(TH, "text-right")}>{t("sources.tableau.stock")}</th>
+                  <th className={cn(TH, "hidden sm:table-cell")}>
+                    <span className="sr-only">{t("sources.tableau.stock")}</span>
+                  </th>
+                  <th className={cn(TH, "hidden md:table-cell")}>{t("sources.tableau.extraction")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {visibles.map((g) => (
+                  <LigneGroupe
+                    key={g.principal.id}
+                    groupe={g}
+                    niches={niches.data ?? []}
+                    ouvert={ouverte === g.principal.id}
+                    onBasculer={() => setOuverte((o) => (o === g.principal.id ? null : g.principal.id))}
+                    onOubli={setBilanOubli}
+                  />
+                ))}
+              </tbody>
+            </table>
+          )}
+        </CardContent>
+      </Card>
+
+      <ImportHistoriquePanel />
+    </div>
+  );
+}
 /** Formulaire d'ajout : soit un compte TikTok, soit un lien TikTok isolé. */
-function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
+function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer: () => void }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [mode, setMode] = React.useState<"compte" | "lien">("compte");
@@ -858,33 +1121,29 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
   });
 
   return (
-    <div className="space-y-3 rounded-lg border p-3">
-      <div className="inline-flex overflow-hidden rounded-md border">
-        {([
-          ["compte", t("sources.modeCompte")],
-          ["lien", t("sources.modeLien")],
-        ] as const).map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => {
-              setMode(id);
-              setMessage(null);
-            }}
-            className={cn(
-              "px-3 py-1.5 text-xs font-medium",
-              mode === id
-                ? "bg-primary text-primary-foreground"
-                : "bg-background text-muted-foreground hover:bg-muted",
-            )}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-      <p className="text-xs text-muted-foreground">
-        {mode === "compte" ? t("sources.modeCompteAide") : t("sources.modeLienAide")}
-      </p>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base">{t("sources.ajouterSource")}</CardTitle>
+        <CardDescription>{mode === "compte" ? t("sources.modeCompteAide") : t("sources.modeLienAide")}</CardDescription>
+        <CardAction>
+          <Button size="sm" variant="ghost" onClick={onFermer}>
+            {t("common.close")}
+          </Button>
+        </CardAction>
+      </CardHeader>
+      <CardContent className="space-y-4">
+      <Segments
+        libelle={t("sources.ajouterSource")}
+        actif={mode}
+        onChange={(id) => {
+          setMode(id);
+          setMessage(null);
+        }}
+        options={[
+          { cle: "compte", contenu: t("sources.modeCompte") },
+          { cle: "lien", contenu: t("sources.modeLien") },
+        ]}
+      />
 
       {niches.length === 0 ? (
         <p className="text-sm text-warning">
@@ -976,85 +1235,8 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
           {message}
         </p>
       )}
-    </div>
-  );
-}
-
-export function AdminSourcesPage() {
-  const { t } = useTranslation();
-  const [bilanOubli, setBilanOubli] = React.useState<BilanOubli | null>(null);
-  // Toutes les sources : un post importé sert toutes les applications de ses
-  // labels, le sélecteur d'application ne cloisonne plus les sources.
-  const sources = useQuery({
-    queryKey: ["sources"],
-    queryFn: () => listerSources(),
-  });
-  const stock = useQuery({ queryKey: ["stock-sources"], queryFn: stockParSource });
-  const niches = useQuery({
-    queryKey: ["labels"],
-    queryFn: () => listerLabels(),
-  });
-
-  const toutes = sources.data ?? [];
-  const principaux = toutes.filter((s) => !s.parent_id);
-  const conjointsDe = (id: string) => toutes.filter((s) => s.parent_id === id);
-  const stockGroupe = (p: CompteReference) => {
-    const st = stock.data ?? {};
-    return (st[p.id] ?? 0) + conjointsDe(p.id).reduce((n, c) => n + (st[c.id] ?? 0), 0);
-  };
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{t("sources.title")}</CardTitle>
-        <CardDescription>{t("sources.subtitle")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        <FormAjoutSource niches={niches.data ?? []} />
-        <MajSourcesPanel sources={toutes} />
-        <ImportJobsPanel />
-        <ImportHistoriquePanel />
-
-        {bilanOubli && (
-          <div className="space-y-2 rounded-lg border border-emerald-500/40 bg-emerald-500/5 p-3">
-            <div className="flex flex-wrap items-start justify-between gap-2">
-              <div className="min-w-0 space-y-1">
-                <p className="text-sm font-medium text-emerald-700 dark:text-emerald-400">
-                  {bilanOubli.message}
-                </p>
-                <p className="text-[11px] text-muted-foreground">{t("sources.oublierJournal")}</p>
-              </div>
-              <Button size="sm" variant="ghost" onClick={() => setBilanOubli(null)}>
-                {t("common.close")}
-              </Button>
-            </div>
-            <JournalOubli
-              lignes={bilanOubli.journal}
-              vide={t("sources.oublierJournalVide")}
-            />
-          </div>
-        )}
-
-        <div className="space-y-3">
-          {sources.isPending && (
-            <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-          )}
-          {!sources.isPending && principaux.length === 0 && (
-            <EmptyState title={t("sources.empty")} />
-          )}
-
-          {principaux.map((p) => (
-            <GroupeSource
-              key={p.id}
-              primary={p}
-              conjoints={conjointsDe(p.id)}
-              stock={stockGroupe(p)}
-              niches={niches.data ?? []}
-              onOubli={setBilanOubli}
-            />
-          ))}
-        </div>
       </CardContent>
     </Card>
   );
 }
+

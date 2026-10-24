@@ -129,7 +129,7 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
   const detailOuvert = enCours || (ouvert ?? recente);
 
   return (
-    <section className="space-y-3 rounded-lg border border-primary/30 bg-primary/5 p-3" data-testid="maj-sources">
+    <section className="space-y-3 rounded-xl border bg-card p-4" data-testid="maj-sources">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 space-y-1">
           <h3 className="text-sm font-medium">{t("sources.majTitre")}</h3>

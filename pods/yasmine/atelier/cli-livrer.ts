@@ -52,7 +52,7 @@ const textes = [
   ...post.slides.slice(1).map((s) => {
     const c = contenu(s, LANGUE_SOURCE);
     const photo = [c.legende, c.legende_bas].flatMap((l) => (l ? [...l.lignes, ...(l.sous ?? [])] : []));
-    const note = c.note ? [c.note.titre, c.note.texte] : [];
+    const note = [...(c.note ? [c.note] : []), ...(c.notes ?? [])].flatMap((n) => [n.titre ?? "", n.texte ?? ""]).filter(Boolean);
     const carteTexte = c.carte ? [c.carte.nom, ...c.carte.lignes.filter(Boolean)] : [];
     return [...(c.haut ?? []), ...photo, ...note, ...carteTexte, ...(c.bas ?? [])].join(" ");
   }),

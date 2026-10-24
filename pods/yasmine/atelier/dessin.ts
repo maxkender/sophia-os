@@ -131,6 +131,8 @@ export type Couverture = {
   texte_bas_taille?: number;
   /** L'interligne du titre, en fraction de la taille (0,82 pour « productivity apps », en minuscules). */
   interligne?: number;
+  /** Des lignes d'écriture fine posées librement (« from a highschool / graduate ») : ligne de base et bord gauche. */
+  script_lignes?: { texte: string; x: number; y: number }[];
   /** Remonte l'écriture fine du haut (px), quand la première ligne porte un accent (« RÉUSSIR »). */
   script_monte?: number;
   /** Centré : l'écriture fine au-dessus, centrée (par défaut) ou calée sur le bord gauche du titre. */
@@ -184,6 +186,7 @@ export function titreCouverture(ctx: Ctx, c: Couverture) {
     else if (centre) script(c.script_haut, L / 2 + tailleScript * 0.12, y0 - taille * 1.02 - (c.script_monte ?? 0), "center");
     else script(c.script_haut, decalages[0] + 8, y0 - taille * 0.98, "left");
   }
+  for (const l of c.script_lignes ?? []) script(l.texte, l.x, l.y, "left");
   if (c.script_bas) script(c.script_bas, droite + 20, y0 + (c.lignes.length - 1) * interligne + taille * 0.68, "right");
   if (c.texte_bas) {
     const tb = c.texte_bas_taille ?? Math.round(taille * 0.24);

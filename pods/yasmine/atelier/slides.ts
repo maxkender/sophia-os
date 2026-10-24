@@ -31,8 +31,9 @@ export type ContenuSlide = {
   /** Slide photo : la petite légende posée sur la photo, et une seconde (sous l'iPhone). */
   legende?: LegendePhoto;
   legende_bas?: LegendePhoto;
-  /** Note de l'app Notes posée sur la photo (« things i do to SMASH EVERY EXAM »). */
+  /** Note de l'app Notes posée sur la photo (« things i do to SMASH EVERY EXAM »), ou plusieurs (« school tips »). */
   note?: NoteIos;
+  notes?: NoteIos[];
   /** Carte d'appli dans l'iPad blanc (« my favorite productivity apps »). */
   carte?: Carte;
   /** Slide photo avec l'iPhone : où le poser (centre, haut, largeur de l'écran). */
@@ -135,9 +136,9 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
   } else if (s.type === "photo") {
     // Une photo pleine, sans assombrir, comme les siennes ; la légende par-dessus.
     if (!s.photo) throw new Error("slide photo sans photo");
-    if (!c.legende && !c.note) throw new Error("slide photo sans légende ni note");
+    if (!c.legende && !c.note && !c.notes?.length) throw new Error("slide photo sans légende ni note");
     fond(ctx, await photoSlide(s.photo), s.photo.cadrage);
-    if (c.note) noteIos(ctx, c.note);
+    for (const n of [...(c.note ? [c.note] : []), ...(c.notes ?? [])]) noteIos(ctx, n);
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
     if (c.legende) legendePhoto(ctx, c.legende);
     if (c.legende_bas) legendePhoto(ctx, c.legende_bas);

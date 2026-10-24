@@ -69,6 +69,7 @@ Deno.test("angles en test : le lecteur de la nuit ne demande que l'actif, celui 
   // La définition + un appel « actif » + un appel « test ».
   assertEquals(appels.filter((a) => a.endsWith('"test"')).length, 1, appels.join(" | "));
   assertEquals(appels.filter((a) => a.endsWith('"actif"')).length, 1, appels.join(" | "));
-  assert(corps("chargerAnglePlacement").includes('"actif")') && !corps("chargerAnglePlacement").includes('"test"'));
+  assert(corps("chargerAngleActif").includes('"actif")') && !corps("chargerAngleActif").includes('"test"'));
+  assert(!corps("chargerAnglePlacement").includes('"test"'));
   assert(corps("chargerAnglesTest").includes('"test")'));
 });

@@ -209,7 +209,7 @@ function NouvelAngle({
   );
 }
 
-/** Un label pour l'application du sélecteur : son angle actif, ses angles en test, l'ajout. */
+/** Un label pour l'application du sélecteur : ses angles actifs, ses angles en test, l'ajout. */
 export function CarteAnglesLabel({
   groupe,
   applicationId,
@@ -220,8 +220,8 @@ export function CarteAnglesLabel({
   nomApplication: string;
 }) {
   const { t } = useTranslation();
-  const angles = groupe.actif ? [groupe.actif, ...groupe.tests] : groupe.tests;
-  const { compares, nonCompares } = anglesTestCompares(groupe.actif, groupe.tests);
+  const angles = [...groupe.actifs, ...groupe.tests];
+  const { compares, nonCompares } = anglesTestCompares(groupe.actifs, groupe.tests);
   const textes = new Set(angles.map((a) => normaliserAngle(a.texte)));
   const autresTextes = (a: AnglePlacement) =>
     new Set(angles.filter((b) => b.id !== a.id).map((b) => normaliserAngle(b.texte)));
@@ -233,7 +233,9 @@ export function CarteAnglesLabel({
           {!groupe.sert && <Badge variant="outline">{t("angles.neSertPlus", { nom: nomApplication })}</Badge>}
         </CardTitle>
         <p className="text-xs text-muted-foreground">
-          {groupe.actif ? t("angles.resumeActif") : t("angles.resumeSansActif")}
+          {groupe.actifs.length > 0
+            ? t("angles.resumeActifs", { count: groupe.actifs.length })
+            : t("angles.resumeSansActif")}
           {" · "}
           {t("angles.resumeTests", { count: compares.length })}
         </p>

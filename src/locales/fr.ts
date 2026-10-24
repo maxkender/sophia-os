@@ -457,6 +457,9 @@ export const fr = {
       etapePlacement: "2. Placement {{app}} ({{langue}})",
       etapePlacementSeul: "Placement {{app}} ({{langue}})",
       anglesReferenceActif: "Pour ce label, référence : l'angle actif « {{angle}} » (ce que fera la nuit).",
+      anglesReferenceActifs_one: "Pour ce label, référence : l'angle actif que reçoit chaque slideshow (ce que fera la nuit).",
+      anglesReferenceActifs_other:
+        "Pour ce label, référence : celui des {{count}} angles actifs que reçoit chaque slideshow (ce que fera la nuit).",
       anglesReferenceSans: "Pour ce label, référence : sans angle (aucun angle actif).",
       anglesEnTest_one: "{{count}} angle en test : chaque slideshow est aussi placé avec lui, pour comparer.",
       anglesEnTest_other: "{{count}} angles en test : chaque slideshow est aussi placé avec chacun, pour comparer.",
@@ -2972,7 +2975,7 @@ export const fr = {
       description:
         "Une consigne par label, ajoutée au prompt de placement de {{nom}} pour les slideshows de ce label (placement seulement, pas la pertinence). Change d'application avec le sélecteur de la barre latérale.",
       regleActif:
-        "Actif : utilisé partout, tout le temps (préparation des decks, nuit, assignation). Au plus un par label : en activer un autre renvoie le précédent en test.",
+        "Actif : utilisé partout, tout le temps (préparation des decks, nuit, assignation). Un label peut en avoir plusieurs : chaque slideshow en reçoit UN, toujours le même dans toutes les langues, et les slideshows se répartissent à parts égales entre eux. Le deck garde la trace de l'angle utilisé.",
       regleTest:
         "En test : utilisé SEULEMENT par le test à blanc « contenus » de la page Tests, jamais par le vrai placement. Chaque slideshow testé y est placé une fois par angle en test (au plus {{max}}), à côté de la référence, pour comparer.",
       lienTests: "Ouvrir les tests",
@@ -2999,12 +3002,13 @@ export const fr = {
       ajouterTest: "Ajouter en test",
       ajouterActif: "Ajouter actif",
       neSertPlus: "ne sert plus {{nom}} : angles gardés, inutilisés",
-      resumeActif: "Angle actif : utilisé partout",
+      resumeActifs_one: "1 angle actif : utilisé partout",
+      resumeActifs_other: "{{count}} angles actifs : un par slideshow, à parts égales",
       resumeSansActif: "Aucun angle actif : placement seul",
       resumeTests_one: "{{count}} angle en test",
       resumeTests_other: "{{count}} angles en test",
       tropDeTests: "Plus de {{max}} angles en test : le test à blanc ne compare que les {{max}} plus anciens.",
-      nonCompareIdentique: "identique à l'actif : pas comparé",
+      nonCompareIdentique: "identique à un actif : pas comparé",
       nonCompareDoublon: "doublon : pas comparé",
       nonCompareAuDela: "au-delà de {{max}} : pas comparé",
       existeDeja: "Cet angle existe déjà pour ce label.",

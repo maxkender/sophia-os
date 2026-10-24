@@ -2861,6 +2861,7 @@ export const fr = {
       testPodAide: "Un label 100 % podz est testé sur {{max}} comptes au plus. Il sort du test à {{postsMax}} posts mesurés si sa perf atteint ×{{seuil}} de la flotte, ou si tu le passes en Ouvert.",
       labelPod: "100 % podz : se remplit langue par langue, sans règle de réserve",
       remplissagePod: "{{min}} à {{max}} comptes par langue",
+      testComplet: "Test complet",
       labelsVide: "Aucun label ne sert cette appli.",
       colReserve: "Réserve",
       nJours: "{{n}} j",

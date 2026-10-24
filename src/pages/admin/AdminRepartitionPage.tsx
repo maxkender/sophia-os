@@ -6,6 +6,7 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   CheckCircle2,
+  Clock,
   ChevronDown,
   ChevronRight,
   Globe,
@@ -79,6 +80,7 @@ import {
 import {
   enTestPod,
   motifFermeture,
+  testPodPlein,
   type MotifFermeture,
   type ReglagesChoixLabel,
   type StatLabel,
@@ -134,8 +136,17 @@ function CelluleMarche({ langue, pays }: { langue: string; pays: string | null }
   );
 }
 
-function EtatLabel({ motif }: { motif: MotifFermeture | null }) {
+function EtatLabel({ motif, testPlein = false }: { motif: MotifFermeture | null; testPlein?: boolean }) {
   const { t } = useTranslation();
+  // Ouvert, mais le moteur ne lui donne plus de compte tant que son test dure.
+  if (motif === null && testPlein) {
+    return (
+      <Badge variant="outline" className="gap-1">
+        <Clock className="size-3 text-amber-600" aria-hidden />
+        {t("repartition.testComplet")}
+      </Badge>
+    );
+  }
   if (motif === null) {
     return (
       <Badge variant="outline" className="gap-1">
@@ -1181,6 +1192,11 @@ function VerdictSite({ verdict, cible }: { verdict: VerdictMarche; cible: CibleA
 // 4. Les labels d'une application
 // ---------------------------------------------------------------------------
 
+function bornesRemplissage(r: { min: number; max: number; niveau: number | null } | undefined) {
+  if (!r) return { min: 0, max: 0 };
+  return { min: r.niveau ?? r.min, max: Math.max(r.max, r.niveau ?? 0) };
+}
+
 function CarteLabels({
   applications,
   applicationParDefaut,
@@ -1221,8 +1237,13 @@ function CarteLabels({
       }
     }
     // Remplissage d'un label 100 % podz : ses comptes par langue servie, du
-    // moins rempli au plus rempli (le moteur le remplit en largeur).
-    const remplissage = new Map<string, { min: number; max: number }>();
+    // moins rempli au plus rempli (le moteur le remplit en largeur). Le bas se
+    // lit dans `niveau_pod`, que le moteur calcule sur les seules langues où
+    // l'application recrute : une langue servie sans recrue ne le tire pas à 0.
+    // `niveau_pod` d'un marché = le moins rempli des AUTRES langues qui
+    // recrutent ; sur tous les marchés, ça couvre toutes ces langues. Sans
+    // aucun niveau (une seule langue recrute), le bas des marchés servis.
+    const remplissage = new Map<string, { min: number; max: number; niveau: number | null }>();
     for (const m of marches) {
       for (const s of m.stats) {
         if (!s.pod_seul || s.livre_langue === false) continue;
@@ -1230,6 +1251,10 @@ function CarteLabels({
         remplissage.set(s.label_id, {
           min: Math.min(r?.min ?? Infinity, s.comptes_langue),
           max: Math.max(r?.max ?? 0, s.comptes_langue),
+          niveau:
+            s.niveau_pod === null || s.niveau_pod === undefined
+              ? (r?.niveau ?? null)
+              : Math.min(r?.niveau ?? Infinity, s.niveau_pod),
         });
       }
     }
@@ -1247,8 +1272,9 @@ function CarteLabels({
         comptes: comptesApp(stat),
         part: totalApp > 0 ? (100 * comptesApp(stat)) / totalApp : 0,
         absents: [...new Set(absents)],
-        remplissage: stat.pod_seul ? (remplissage.get(stat.label_id) ?? { min: 0, max: 0 }) : null,
+        remplissage: stat.pod_seul ? bornesRemplissage(remplissage.get(stat.label_id)) : null,
         enTest: enTestPod(stat, reglages, appId),
+        testPlein: testPodPlein(stat, reglages, appId),
       }))
       // Les 100 % podz en dernier : leur réserve ne les juge pas.
       .sort((a, b) => Number(a.remplissage !== null) - Number(b.remplissage !== null) || a.jours - b.jours);
@@ -1349,7 +1375,7 @@ function CarteLabels({
                     )}
                     {/* Sous md, la colonne État est masquée : le badge passe ici. */}
                     <span className="mt-1 block md:hidden">
-                      <EtatLabel motif={e.motif} />
+                      <EtatLabel motif={e.motif} testPlein={e.testPlein} />
                     </span>
                   </td>
                   <td className="py-2 pr-4">
@@ -1415,7 +1441,7 @@ function CarteLabels({
                     )}
                   </td>
                   <td className="hidden py-2 pr-4 md:table-cell">
-                    <EtatLabel motif={e.motif} />
+                    <EtatLabel motif={e.motif} testPlein={e.testPlein} />
                   </td>
                   <td className="py-2">
                     <DecisionLabel applicationId={appId!} labelId={e.stat.label_id} etat={e.decision} />

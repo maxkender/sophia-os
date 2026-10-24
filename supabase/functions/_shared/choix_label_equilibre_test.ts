@@ -580,3 +580,13 @@ Deno.test("test pod : « Ouvert » à la main le sort du test ; le réglage se l
   const absurde = lireReglagesChoixLabel({ test_pod_comptes: 0, test_pod_posts: -5 });
   assertEquals([absurde.testPodComptes, absurde.testPodPosts], [3, 30]);
 });
+
+Deno.test("test pod : au-delà de 3 comptes, le test est passé pour de bon (toutes applis)", () => {
+  // Validé puis monté à 9 comptes : ses posts sur 28 j faiblissent, il ne replonge pas.
+  const valide = stat({ ...FATHOMLY, comptes_total: 9, passages: 12, perf_label: 0.6 });
+  assertEquals(enTestPod(valide, R, APP), false);
+  assertEquals(testPodPlein(valide, R, APP), false);
+  // Servi par une 2e application où il n'a aucun post : pas bloqué non plus.
+  const autreApp = stat({ ...FATHOMLY, comptes_total: 4, passages: 0, perf_label: null });
+  assertEquals(testPodPlein(autreApp, R, "00000000-0000-4000-8000-000000000003"), false);
+});

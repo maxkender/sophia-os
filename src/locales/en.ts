@@ -2857,6 +2857,7 @@ export const en = {
       testPodAide: "A 100% pod label is tested on {{max}} accounts at most. It leaves the test after {{postsMax}} measured posts if its performance reaches ×{{seuil}} of the fleet, or when you set it to Open.",
       labelPod: "100% pods: fills language by language, no reserve rule",
       remplissagePod: "{{min}} to {{max}} accounts per language",
+      testComplet: "Test full",
       labelsVide: "No label serves this app.",
       colReserve: "Content left",
       nJours: "{{n}} d",

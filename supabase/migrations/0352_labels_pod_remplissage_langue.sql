@@ -33,7 +33,14 @@
 -- Le type de retour change : les deux fonctions sont supprimées puis recréées,
 -- avec leurs droits d'avant (0287, 0348).
 --
--- Retour arrière : réappliquer les deux fonctions de 0348 (après drop).
+-- LIMITE CONNUE : `es` et `es-419` (de même `pt` et `pt-BR`) comptent comme
+-- deux langues à remplir alors qu'un compte `es-419` reçoit le deck `es`
+-- (0350). Au pire un compte de plus sur le même deck ; à revoir si gênant.
+--
+-- Retour arrière : réappliquer les deux fonctions de 0348 (après drop), PUIS
+-- rejouer les droits de 0287 pour stats_choix_label (revoke public, anon et
+-- authenticated ; grant service_role) : la section de 0348 n'en pose pas, et
+-- après un drop les droits par défaut du schéma la rouvriraient.
 
 drop function if exists public.stats_choix_label(uuid[], uuid, text, text, integer);
 drop function if exists public.simulation_repartition(uuid);

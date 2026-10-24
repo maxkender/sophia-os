@@ -364,9 +364,18 @@ export function enAvanceRemplissage(s: StatLabelCreation): boolean {
  * Label 100 % pod encore EN TEST (0353) : il n'a pas `testPodPosts` posts
  * mesurés, ou sa performance reste sous `fermeturePerf`. Un label tenu
  * « Ouvert » à la main (pour l'application ou partout) sort du test.
+ *
+ * Au-delà de `testPodComptes` comptes (toutes applications), le test est
+ * passé une fois pour toutes : il n'a pu en avoir plus qu'en sortant du test
+ * (ou par la File, une décision humaine). Le nombre de comptes sert de
+ * mémoire : sans lui, un label validé replongerait « en test », donc bloqué,
+ * dès que ses posts sur 28 jours faiblissent ; et un label servi par deux
+ * applications, validé sur l'une, resterait bloqué sur l'autre où il n'a
+ * aucun post à mesurer.
  */
 export function enTestPod(s: StatLabelCreation, r: ReglagesChoixLabel, applicationId: string): boolean {
   if (!estPodSeul(s)) return false;
+  if (s.comptes_total > r.testPodComptes) return false;
   if (r.ouvertsApp.includes(cleFermeture(applicationId, s.label_id)) || r.ouverts.includes(s.label_id)) return false;
   const rel = perfRelative(s);
   return !(s.passages >= r.testPodPosts && rel !== null && rel >= r.fermeturePerf);

@@ -699,6 +699,26 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     expect(within(ligne).getByTestId("test-pod").textContent).toMatch(/1\/3 .*10\/30/);
   });
 
+  it("un label 100 % podz en test qui a ses 3 comptes dit « Test complet », pas « Ouvert »", async () => {
+    lireMarchesRepartition.mockResolvedValue(
+      MARCHES_APPS.map((m) => ({
+        langue: m.langue,
+        pays: m.pays,
+        comptes: 10,
+        stats: [
+          stat("study"),
+          { ...stat("fathomly"), comptes_total: 3, passages: 10, pod_seul: true, livre_langue: true, niveau_pod: 0 },
+        ],
+      })),
+    );
+    renderPage();
+    const ligne = await ligneLabel("fathomly");
+    expect(within(ligne).getAllByText(/Test complet|Test full/).length).toBeGreaterThan(0);
+    // Reste le seul bouton de décision « Ouvert » ; aucun badge « Ouvert ».
+    const ouverts = (l: HTMLElement) => within(l).getAllByText(/^(Ouvert|Open)$/).length;
+    expect(ouverts(ligne)).toBe(ouverts(await ligneLabel("study")) - 2);
+  });
+
   it("la colonne comptes compte l'application affichée, le total toutes applis à côté", async () => {
     lireMarchesRepartition.mockResolvedValue(
       MARCHES_APPS.map((m) => ({

@@ -675,9 +675,11 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     renderPage();
     const ligne = await ligneLabel("fathomly");
     expect(within(ligne).getAllByText(/100 % podz|100% pods/).length).toBeGreaterThan(0);
-    expect(within(ligne).getByTestId("remplissage-pod").textContent).toMatch(/0 (à|to) 2/);
+    // Pas de réserve ni d'alerte de langue dans le tableau : tout est dans la carte 100 % podz.
+    expect(within(ligne).getByTestId("remplissage-pod").textContent).toMatch(/100 % podz|100% pod labels/);
     expect(ligne.textContent).not.toMatch(/\d (j|d)\b/);
-    expect(ligne.textContent).toMatch(/absent dans 1 langue|missing in 1 language/);
+    expect(ligne.textContent).not.toMatch(/absent dans|missing in/);
+    expect(within(screen.getByTestId("pod-fathomly")).getByText(/Pas livré en : DE|Not delivered in: DE/)).toBeTruthy();
     // Le label ordinaire, lui, n'a pas la marque.
     expect(within(await ligneLabel("study")).queryByText(/100 % podz|100% pods/)).toBeNull();
   });
@@ -697,6 +699,36 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     renderPage();
     const ligne = await ligneLabel("fathomly");
     expect(within(ligne).getByTestId("test-pod").textContent).toMatch(/1\/3 .*10\/30/);
+  });
+
+  it("la carte 100 % podz montre où on en est langue par langue", async () => {
+    lireMarchesRepartition.mockResolvedValue(
+      MARCHES_APPS.map((m) => ({
+        langue: m.langue,
+        pays: m.pays,
+        comptes: 10,
+        stats: [
+          stat("study"),
+          {
+            ...stat("white_bg"),
+            comptes_langue: m.langue === "fr" ? 3 : 0,
+            comptes_total: 9,
+            pod_seul: true,
+            livre_langue: m.langue !== "de",
+            niveau_pod: m.langue === "fr" ? 0 : 3,
+          },
+        ],
+      })),
+    );
+    renderPage();
+    const carte = await screen.findByTestId("carte-podz");
+    const pod = within(carte).getByTestId("pod-white_bg");
+    expect(within(pod).getByTestId("pod-langue-fr").getAttribute("data-prete")).toBe("non");
+    expect(within(pod).getByTestId("pod-langue-es").getAttribute("data-prete")).toBe("oui");
+    expect(within(pod).queryByTestId("pod-langue-de")).toBeNull();
+    expect(pod.textContent).toMatch(/DE/);
+    // Le label ordinaire n'y figure pas.
+    expect(within(carte).queryByTestId("pod-study")).toBeNull();
   });
 
   it("un label 100 % podz en test qui a ses 3 comptes dit « Test complet », pas « Ouvert »", async () => {

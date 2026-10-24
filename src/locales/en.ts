@@ -3691,7 +3691,7 @@ export const en = {
       fileTitre: "Next accounts queue (label + UGC)",
       fileApp: "{{app}} creators queue — a new {{app}} account gets the next label at creation.",
       fileDesc:
-        "On creating a {{app}} account: that language’s queue first (priority), else the general queue, else a balanced pick among the labels serving {{app}} (each language follows each label’s share by stock and last-28-day views, never the same label 3 times in 4 accounts). FIFO: the first entry sets the label (and, for Sophia, whether the account is UGC). UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
+        "On creating a {{app}} account: that language’s queue first (priority), else the general queue, else a balanced pick among the labels serving {{app}} (each language follows each label’s share by stock and last-15-day views, never the same label 3 times in 4 accounts). FIFO: the first entry sets the label (and, for Sophia, whether the account is UGC). UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
       fileApplication: "App",
       fileApplicationAide:
         "Each app has its own queue. The new account takes the queue of the app chosen at its creation (Sophia by default).",

@@ -197,10 +197,11 @@ Deno.test("poids : la performance pèse plus que le stock", () => {
   // RH (1,45, 8 jours) contre alpha_male (0,90, 46 jours) : RH plus lourd.
   const [rh, am] = [poolProd()[1], poolProd()[2]];
   assert(poidsLabel(rh) > poidsLabel(am), `RH ${poidsLabel(rh)} / alpha_male ${poidsLabel(am)}`);
-  // À stock égal et confortable, le poids suit le carré de la performance.
+  // À stock égal et confortable, le poids suit le CUBE de la performance
+  // (exposant 3 depuis le 24/10) : deux fois meilleur = huit fois plus lourd.
   const a = stat({ label_id: "a", passages: 100_000, perf_label: 1.2 });
   const b = stat({ label_id: "b", passages: 100_000, perf_label: 0.6 });
-  assertAlmostEquals(poidsLabel(a) / poidsLabel(b), 4, 0.01);
+  assertAlmostEquals(poidsLabel(a) / poidsLabel(b), 8, 0.02);
 });
 
 Deno.test("fermeture : sous 0,75 de la flotte sur 150 posts au moins, jamais sur peu de posts", () => {

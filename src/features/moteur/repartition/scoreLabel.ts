@@ -32,7 +32,7 @@ export interface StatLabel {
   passages_restants: number;
   /** Passages consommés par jour par les comptes du label. */
   demande_jour: number;
-  /** Posts publiés sur 28 j avec des vues. */
+  /** Posts publiés sur 15 j avec des vues (0353). */
   passages: number;
   /** Médiane des vues, rapportée à la médiane de sa langue. */
   perf_label: number | null;
@@ -104,7 +104,7 @@ export interface ReglagesChoixLabel {
   fermesAuto: Record<string, FermetureAuto>;
 }
 export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.freeze({
-  perfExposant: 2,
+  perfExposant: 3,
   perfLissage: 30,
   perfMin: 0.25,
   perfMax: 4,
@@ -297,7 +297,7 @@ export function enAvanceRemplissage(s: StatLabel): boolean {
  * passé une fois pour toutes : il n'a pu en avoir plus qu'en sortant du test
  * (ou par la File, une décision humaine). Le nombre de comptes sert de
  * mémoire : sans lui, un label validé replongerait « en test », donc bloqué,
- * dès que ses posts sur 28 jours faiblissent ; et un label servi par deux
+ * dès que ses posts sur 15 jours faiblissent ; et un label servi par deux
  * applications, validé sur l'une, resterait bloqué sur l'autre où il n'a
  * aucun post à mesurer.
  */

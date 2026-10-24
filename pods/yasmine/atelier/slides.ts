@@ -77,6 +77,8 @@ export type Post = {
   fond: Photo;
   slides: Slide[];
   notes?: string;
+  /** Les mises en scène de l'OS dont l'usage est déjà signalé pour ce post (écrit par `npm run livrer`). */
+  mises_en_scene_notees?: string[];
 };
 
 export const RACINE = join(import.meta.dirname, "..");

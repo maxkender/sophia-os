@@ -187,8 +187,10 @@ describe("projection des prochains tirages", () => {
     // minimale, le label passe après les autres même s'il est moins présent.
     const maigre = {
       "id-sophia": [
-        stat("a", { passages_restants: 30 }),
-        stat("b", { comptes_langue: 8, comptes_pays: 8, comptes_total: 8 }),
+        // Un compte chacun dans le pays (aucun n'y est saturé) ; b plus présent
+        // dans la langue, donc la règle proposée, aveugle à la réserve, prend a.
+        stat("a", { passages_restants: 30, comptes_langue: 1, comptes_pays: 1, comptes_total: 1 }),
+        stat("b", { comptes_langue: 20, comptes_pays: 1, comptes_total: 20 }),
       ],
     };
     const seule = lireCibleApplications(null, ["sophia"]);
@@ -199,6 +201,19 @@ describe("projection des prochains tirages", () => {
       simulerTirages(marche("pl"), maigre, seule, [SOPHIA], R, 1, { regle: "propose" }).map(
         (x) => x.label_nom,
       ),
+    ).toEqual(["a"]);
+  });
+
+  it("un pays saturé passe avant la réserve basse : 8 comptes sur 8, le suivant change (0354)", () => {
+    const sature = {
+      "id-sophia": [
+        stat("a", { passages_restants: 30 }),
+        stat("b", { comptes_langue: 8, comptes_pays: 8, comptes_total: 8 }),
+      ],
+    };
+    const seule = lireCibleApplications(null, ["sophia"]);
+    expect(
+      simulerTirages(marche("pl"), sature, seule, [SOPHIA], R, 1).map((x) => x.label_nom),
     ).toEqual(["a"]);
   });
 

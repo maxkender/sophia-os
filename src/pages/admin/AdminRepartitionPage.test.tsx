@@ -126,12 +126,13 @@ const MARCHES_LABELS = MARCHES_APPS.map((m) => ({
   stats: [stat("study"), stat("gym")],
 }));
 
-// Les chiffres de la prod au 18/10 : en français, 5 recrues sur 11 viennent
+// Les proportions de la prod au 18/10, doublées pour rester au-dessus du
+// seuil des petits pays (20 recrues) : en français, 10 recrues sur 22 viennent
 // de la cohorte. En allemand, aucune. En espagnol, l'échantillon est trop
 // mince pour parler du marché.
 const PROVENANCE = [
-  { langue: "fr", pays: "FR", recrues: 11, recruesSite: 5, siteParApp: { sophia: 5 } },
-  { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
+  { langue: "fr", pays: "FR", recrues: 22, recruesSite: 10, siteParApp: { sophia: 10 } },
+  { langue: "de", pays: "DE", recrues: 30, recruesSite: 0, siteParApp: {} },
   { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
 ];
 
@@ -190,16 +191,16 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
 
   it("le résumé donne les effectifs de la flotte, pas qu'un pourcentage", async () => {
     renderPage();
-    // 11 + 15 + 2 = 28 recrues, dont 5 venues du site.
+    // 22 + 30 + 2 = 54 recrues, dont 10 venues du site.
     const bloc = await blocSite();
-    expect(bloc.textContent).toMatch(/5 recrues sur 28 en 30 jours|5 of 28 recruits in 30 days/);
+    expect(bloc.textContent).toMatch(/10 recrues sur 54 en 30 jours|10 of 54 recruits in 30 days/);
   });
 
-  it("le français montre ses 5 recrues sur 11 et sa part hors moteur", async () => {
+  it("le français montre ses 10 recrues sur 22 et sa part hors moteur", async () => {
     renderPage();
     const detail = await detailMarche("fr|FR");
     expect(detail.textContent).toMatch(
-      /5 recrues sur 11 venues du site \(45 %\)|5 of 11 recruits came from the website \(45 %\)/,
+      /10 recrues sur 22 venues du site \(45 %\)|10 of 22 recruits came from the website \(45 %\)/,
     );
   });
 
@@ -208,7 +209,7 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     const es = await detailMarche("es|ES");
     expect(es.textContent).toMatch(/la flotte \(échantillon trop mince\)|the fleet \(sample too thin\)/);
     // Les effectifs affichés sont ceux de l'Espagne (2), pas ceux de la flotte (28).
-    expect(es.textContent).toMatch(/Seulement 2 recrues ici|Only 2 recruits here/);
+    expect(es.textContent).toMatch(/Petit pays : 2 recrues en 30 jours \(moins de 20\)|Small country: 2 recruits in 30 days \(under 20\)/);
     expect(es.textContent).not.toMatch(/sur 28|of 28/);
     expect((await detailMarche("fr|FR")).textContent).toMatch(/ce marché|this market/);
   });
@@ -272,14 +273,14 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
   it("la page dit où le site a envoyé ses recrues", async () => {
     renderPage();
     const bloc = await blocSite();
-    expect(bloc.textContent).toMatch(/(envoyées vers|sent to)\s*Sophia\s*5/);
+    expect(bloc.textContent).toMatch(/(envoyées vers|sent to)\s*Sophia\s*10/);
   });
 
   it("le site envoie sur Unswipe : la page suit, sans rien d'écrit en dur", async () => {
     // C'est le site qui décide, candidat par candidat. Le jour où il envoie
     // ailleurs, le plancher change d'application tout seul.
     lireRecruesSite.mockResolvedValue([
-      { langue: "fr", pays: "FR", recrues: 11, recruesSite: 5, siteParApp: { unswipe: 5 } },
+      { langue: "fr", pays: "FR", recrues: 22, recruesSite: 10, siteParApp: { unswipe: 10 } },
       { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
       { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
     ]);
@@ -444,10 +445,11 @@ describe("AdminRepartitionPage — la cible et le réel", () => {
   it("des marchés trop minces pour juger ne font pas dire « atteignable partout »", async () => {
     lireRecruesSite.mockResolvedValue([
       { langue: "fr", pays: "FR", recrues: 3, recruesSite: 3, siteParApp: { sophia: 3 } },
-      { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
+      { langue: "de", pays: "DE", recrues: 30, recruesSite: 0, siteParApp: {} },
       { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
     ]);
-    lireCibleRepartitionApps.mockResolvedValue({ source: "reglage", parts: { sophia: 10, unswipe: 60, micabo: 30 } });
+    // Flotte : 3 recrues du site sur 35 (8,6 %), au-dessus d'une cible Sophia à 5 %.
+    lireCibleRepartitionApps.mockResolvedValue({ source: "reglage", parts: { sophia: 5, unswipe: 65, micabo: 30 } });
     renderPage();
     const bloc = await blocSite();
     await waitFor(() =>
@@ -493,7 +495,7 @@ describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
     expect(envoye.perfExposant).toBe(3);
     // Les autres partent inchangés : on écrit les douze d'un bloc.
     expect(envoye.partMax).toBe(REGLAGES_CHOIX_LABEL_DEFAUT.partMax);
-    expect(Object.keys(envoye)).toHaveLength(14);
+    expect(Object.keys(envoye)).toHaveLength(15);
   });
 
   it("une valeur que le moteur aurait réécrite bloque l'enregistrement", async () => {
@@ -804,7 +806,7 @@ describe("AdminRepartitionPage — ce que la projection reçoit", () => {
         .map((c) => [`${c[0].langue}|${c[0].pays ?? ""}`, c[6]]),
     );
     expect(parMarche.get("es|ES").partSite).toBe(0);
-    // Le français, lui, est mesuré sur son propre marché : 5 recrues sur 11.
-    expect(parMarche.get("fr|FR").partSite).toBeCloseTo(5 / 11);
+    // Le français, lui, est mesuré sur son propre marché : 10 recrues sur 22.
+    expect(parMarche.get("fr|FR").partSite).toBeCloseTo(10 / 22);
   });
 });

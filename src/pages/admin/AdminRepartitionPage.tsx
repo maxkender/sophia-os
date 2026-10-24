@@ -59,6 +59,7 @@ import {
   partSite,
   type PartSite,
   type RecruesMarche,
+  RECRUES_MINIMUM_MARCHE,
 } from "@/features/moteur/repartition/provenance";
 import {
   brouillonDepuisReglages,
@@ -1129,6 +1130,7 @@ function DetailMarche({
               {p.base === "flotte"
                 ? t("repartition.detailSiteMince", {
                     recrues: verdict?.recrues ?? 0,
+                    seuil: RECRUES_MINIMUM_MARCHE,
                     part: pourcent(100 * p.part),
                   })
                 : t("repartition.detailSite", {

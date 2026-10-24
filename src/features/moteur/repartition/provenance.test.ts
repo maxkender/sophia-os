@@ -21,10 +21,11 @@ function rec(
   return { langue, pays: langue.toUpperCase(), recrues, recruesSite, siteParApp };
 }
 
-// Les chiffres de la prod au 18/10, fenêtre de 30 jours : c'est le cas qui a
+// Les chiffres de la prod au 18/10, fenêtre de 30 jours (le français doublé
+// pour passer le seuil des petits pays, 20 recrues) : c'est le cas qui a
 // motivé tout le module, il mérite d'être figé dans un test.
 const FLOTTE: RecruesMarche[] = [
-  rec("fr", 11, 5),
+  rec("fr", 22, 10),
   rec("it", 9, 1),
   rec("es", 7, 1),
   rec("de", 15, 0),
@@ -33,21 +34,22 @@ const FLOTTE: RecruesMarche[] = [
 
 describe("part des recrues hors moteur", () => {
   it("un marché assez fourni parle pour lui-même", () => {
-    const p = partSite(rec("fr", 11, 5), FLOTTE);
+    const p = partSite(rec("fr", 22, 10), FLOTTE);
     expect(p.base).toBe("marche");
-    expect(p.part).toBeCloseTo(5 / 11);
-    expect(p.recrues).toBe(11);
-    expect(p.recruesSite).toBe(5);
+    expect(p.part).toBeCloseTo(10 / 22);
+    expect(p.recrues).toBe(22);
+    expect(p.recruesSite).toBe(10);
     expect(p.parApp).toEqual({ sophia: 1 });
   });
 
-  it("un marché trop mince retombe sur la flotte, et le dit", () => {
+  it("un petit pays (moins de 20 recrues) retombe sur la flotte, et le dit", () => {
     const p = partSite(rec("pl", 1, 1), FLOTTE);
     // Sans ce garde-fou, une seule recrue ferait « 100 % hors moteur » et
     // verrouillerait tout le marché polonais dans la projection.
     expect(p.base).toBe("flotte");
-    expect(p.part).toBeCloseTo(7 / 51);
-    expect(p.recrues).toBe(51);
+    // Flotte : 22 + 9 + 7 + 15 + 9 = 62 recrues, dont 10 + 1 + 1 = 12 du site.
+    expect(p.part).toBeCloseTo(12 / 62);
+    expect(p.recrues).toBe(62);
   });
 
   it("le seuil est celui annoncé, pas un de plus", () => {
@@ -72,7 +74,7 @@ describe("part des recrues hors moteur", () => {
   it("la destination est MESURÉE, pas supposée : le site peut envoyer ailleurs", () => {
     // C'est tout l'intérêt du modèle. Rien n'impose Sophia, et le jour où le
     // site partage, la page le voit sans qu'on touche à une ligne.
-    const partage = partSite(rec("fr", 10, 4, { sophia: 3, unswipe: 1 }), FLOTTE);
+    const partage = partSite(rec("fr", 20, 4, { sophia: 3, unswipe: 1 }), FLOTTE);
     expect(partage.parApp.sophia).toBeCloseTo(0.75);
     expect(partage.parApp.unswipe).toBeCloseTo(0.25);
   });
@@ -87,7 +89,7 @@ describe("part des recrues hors moteur", () => {
   });
 
   it("une répartition vide annule la part : on n'invente pas de destination", () => {
-    const p = partSite(rec("fr", 10, 4, {}), FLOTTE);
+    const p = partSite(rec("fr", 20, 4, {}), FLOTTE);
     expect(p.parApp).toEqual({});
     expect(cibleHorsSite(lireCibleApplications(null, SLUGS), p.part, p.parApp).partHorsMoteur).toBe(0);
   });

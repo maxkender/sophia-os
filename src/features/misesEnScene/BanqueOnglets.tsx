@@ -21,6 +21,7 @@ import {
   chercherScenes,
   couplesManquants,
   deciderBanque,
+  ecranDepuisNom,
   grouperVersions,
   ECRANS_CONNUS,
   importerCapture,
@@ -219,85 +220,192 @@ function Decision({
 // Captures
 // ---------------------------------------------------------------------------
 
+interface FichierAImporter {
+  fichier: File;
+  ecran: string;
+}
+
+const ECRAN_VALIDE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+/**
+ * Import des originales : glisser-déposer (ou choisir) une ou plusieurs
+ * captures. L'écran de chacune vient de son nom de fichier (« a-retenir.jpg »)
+ * et se corrige avant l'envoi ; application, support et langue valent pour tout le lot.
+ */
 function ImporterCapture({ captures }: { captures: CaptureApp[] }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [application, setApplication] = React.useState<string>("micabo");
-  const [ecran, setEcran] = React.useState("parcours");
   const [support, setSupport] = React.useState<Support>("iphone");
   const [langue, setLangue] = React.useState("fr");
-  const [fichier, setFichier] = React.useState<File | null>(null);
+  const [fichiers, setFichiers] = React.useState<FichierAImporter[]>([]);
   const [remplace, setRemplace] = React.useState("");
-  const remplacables = captures.filter(
-    (c) =>
-      c.nature === "originale" && !c.remplacee_par && c.statut !== "rejetee" && c.application === application &&
-      c.ecran === ecran && c.support === support && c.langue === langue,
-  );
-  const importer = useMutation({
-    mutationFn: () =>
-      importerCapture({ application, ecran, support, langue, fichier: fichier as File, remplace_id: remplace || null }),
-    onSuccess: () => {
-      setFichier(null);
-      setRemplace("");
-      invaliderBanque(queryClient);
-    },
-  });
+  const [survol, setSurvol] = React.useState(false);
+  const [lot, setLot] = React.useState<{ fait: number; total: number } | null>(null);
+  const [erreurs, setErreurs] = React.useState<string[]>([]);
+  const champ = React.useRef<HTMLInputElement>(null);
+
+  // « Remplace » n'a de sens que pour une seule capture.
+  const seul = fichiers.length === 1 ? fichiers[0] : null;
+  const remplacables = seul
+    ? captures.filter(
+      (c) =>
+        c.nature === "originale" && !c.remplacee_par && c.statut !== "rejetee" && c.application === application &&
+        c.ecran === seul.ecran && c.support === support && c.langue === langue,
+    )
+    : [];
+
+  function ajouter(liste: FileList | File[]) {
+    const images = [...liste].filter((f) => f.type === "image/png" || f.type === "image/jpeg");
+    setErreurs([]);
+    setFichiers((avant) => [...avant, ...images.map((fichier) => ({ fichier, ecran: ecranDepuisNom(fichier.name) }))]);
+  }
+
+  async function importer() {
+    const aEnvoyer = fichiers;
+    setErreurs([]);
+    setLot({ fait: 0, total: aEnvoyer.length });
+    const ratees: FichierAImporter[] = [];
+    const messages: string[] = [];
+    for (const [i, f] of aEnvoyer.entries()) {
+      try {
+        await importerCapture({
+          application,
+          ecran: f.ecran,
+          support,
+          langue,
+          fichier: f.fichier,
+          remplace_id: aEnvoyer.length === 1 ? remplace || null : null,
+        });
+      } catch (e) {
+        ratees.push(f);
+        messages.push(`${f.fichier.name} : ${(e as Error).message}`);
+      }
+      setLot({ fait: i + 1, total: aEnvoyer.length });
+    }
+    // Les fichiers ratés restent dans la liste, pour corriger et relancer.
+    setFichiers(ratees);
+    setErreurs(messages);
+    setRemplace("");
+    setLot(null);
+    invaliderBanque(queryClient);
+  }
+
+  const invalides = fichiers.some((f) => !ECRAN_VALIDE.test(f.ecran));
   return (
-    <form
-      className="flex flex-wrap items-end gap-2 rounded-md border border-dashed p-3"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (fichier) importer.mutate();
-      }}
-    >
-      <select aria-label={t("misesEnScene.application")} className={selectClass} value={application} onChange={(e) => setApplication(e.target.value)}>
-        {APPLICATIONS_BANQUE.map((a) => (
-          <option key={a} value={a}>{a}</option>
-        ))}
-      </select>
-      <input
-        aria-label={t("misesEnScene.ecran")}
-        list="ecrans-connus"
-        className="h-8 w-32 rounded-md border border-input bg-background px-2 text-xs"
-        value={ecran}
-        onChange={(e) => setEcran(e.target.value.toLowerCase())}
-      />
+    <div className="space-y-2 rounded-md border border-dashed p-3">
+      <div className="flex flex-wrap items-end gap-2">
+        <select aria-label={t("misesEnScene.application")} className={selectClass} value={application} onChange={(e) => setApplication(e.target.value)}>
+          {APPLICATIONS_BANQUE.map((a) => (
+            <option key={a} value={a}>{a}</option>
+          ))}
+        </select>
+        <select aria-label={t("misesEnScene.support")} className={selectClass} value={support} onChange={(e) => setSupport(e.target.value as Support)}>
+          {SUPPORTS.map((x) => (
+            <option key={x} value={x}>{t(`misesEnScene.supports.${x}`)}</option>
+          ))}
+        </select>
+        <select aria-label={t("misesEnScene.langue")} className={selectClass} value={langue} onChange={(e) => setLangue(e.target.value)}>
+          {LANGUES_CIBLES.map((l) => (
+            <option key={l} value={l}>{nomLangue(l)}</option>
+          ))}
+        </select>
+      </div>
+      <div
+        role="button"
+        tabIndex={0}
+        aria-label={t("misesEnScene.deposer")}
+        onClick={() => champ.current?.click()}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") champ.current?.click();
+        }}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setSurvol(true);
+        }}
+        onDragLeave={() => setSurvol(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setSurvol(false);
+          ajouter(e.dataTransfer.files);
+        }}
+        className={cn(
+          "flex cursor-pointer flex-col items-center justify-center gap-1 rounded-md border-2 border-dashed px-4 py-6 text-center text-xs text-muted-foreground transition",
+          survol ? "border-primary bg-primary/5 text-foreground" : "border-input",
+        )}
+      >
+        <Upload className="size-5" />
+        <span>{t("misesEnScene.deposer")}</span>
+        <span>{t("misesEnScene.deposerAide")}</span>
+        <input
+          ref={champ}
+          aria-label={t("misesEnScene.fichier")}
+          type="file"
+          multiple
+          accept="image/png,image/jpeg"
+          className="hidden"
+          onChange={(e) => {
+            if (e.target.files) ajouter(e.target.files);
+            e.target.value = "";
+          }}
+        />
+      </div>
+      {fichiers.length > 0 && (
+        <ul className="space-y-1">
+          {fichiers.map((f, i) => (
+            <li key={`${f.fichier.name}-${i}`} className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="min-w-0 max-w-56 truncate text-muted-foreground" title={f.fichier.name}>{f.fichier.name}</span>
+              <span aria-hidden>→</span>
+              <input
+                aria-label={t("misesEnScene.ecranDe", { nom: f.fichier.name })}
+                list="ecrans-connus"
+                className={cn(
+                  "h-7 w-36 rounded-md border bg-background px-2 text-xs",
+                  ECRAN_VALIDE.test(f.ecran) ? "border-input" : "border-destructive",
+                )}
+                value={f.ecran}
+                onChange={(e) => {
+                  const ecran = e.target.value.toLowerCase();
+                  setFichiers((liste) => liste.map((x, k) => (k === i ? { ...x, ecran } : x)));
+                }}
+              />
+              <Button
+                size="sm"
+                variant="ghost"
+                aria-label={t("misesEnScene.retirerFichier", { nom: f.fichier.name })}
+                onClick={() => setFichiers((liste) => liste.filter((_, k) => k !== i))}
+              >
+                <X className="size-3.5" />
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
       <datalist id="ecrans-connus">
         {ECRANS_CONNUS.map((e) => (
           <option key={e} value={e} />
         ))}
       </datalist>
-      <select aria-label={t("misesEnScene.support")} className={selectClass} value={support} onChange={(e) => setSupport(e.target.value as Support)}>
-        {SUPPORTS.map((x) => (
-          <option key={x} value={x}>{t(`misesEnScene.supports.${x}`)}</option>
-        ))}
-      </select>
-      <select aria-label={t("misesEnScene.langue")} className={selectClass} value={langue} onChange={(e) => setLangue(e.target.value)}>
-        {LANGUES_CIBLES.map((l) => (
-          <option key={l} value={l}>{nomLangue(l)}</option>
-        ))}
-      </select>
-      {remplacables.length > 0 && (
-        <select aria-label={t("misesEnScene.remplace")} className={selectClass} value={remplace} onChange={(e) => setRemplace(e.target.value)}>
-          <option value="">{t("misesEnScene.remplaceAucune")}</option>
-          {remplacables.map((c) => (
-            <option key={c.id} value={c.id}>{t("misesEnScene.remplaceCapture", { id: c.id.slice(0, 8) })}</option>
-          ))}
-        </select>
-      )}
-      <input
-        aria-label={t("misesEnScene.fichier")}
-        type="file"
-        accept="image/png,image/jpeg"
-        className="text-xs"
-        onChange={(e) => setFichier(e.target.files?.[0] ?? null)}
-      />
-      <Button size="sm" type="submit" disabled={!fichier || importer.isPending}>
-        <Upload className="size-3.5" />
-        {importer.isPending ? t("misesEnScene.envoi") : t("misesEnScene.importer")}
-      </Button>
-      {importer.error && <p className="w-full text-xs text-destructive">{(importer.error as Error).message}</p>}
-    </form>
+      <div className="flex flex-wrap items-center gap-2">
+        {remplacables.length > 0 && (
+          <select aria-label={t("misesEnScene.remplace")} className={selectClass} value={remplace} onChange={(e) => setRemplace(e.target.value)}>
+            <option value="">{t("misesEnScene.remplaceAucune")}</option>
+            {remplacables.map((c) => (
+              <option key={c.id} value={c.id}>{t("misesEnScene.remplaceCapture", { id: c.id.slice(0, 8) })}</option>
+            ))}
+          </select>
+        )}
+        <Button size="sm" disabled={!fichiers.length || invalides || lot !== null} onClick={() => void importer()}>
+          <Upload className="size-3.5" />
+          {lot
+            ? t("misesEnScene.envoiLot", { fait: lot.fait, total: lot.total })
+            : t("misesEnScene.importerLot", { count: fichiers.length })}
+        </Button>
+      </div>
+      {erreurs.map((m) => (
+        <p key={m} className="text-xs text-destructive">{m}</p>
+      ))}
+    </div>
   );
 }
 

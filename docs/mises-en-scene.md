@@ -14,6 +14,7 @@ accord.
 Les supports sont `iphone`, `tablette` et `ordinateur`.
 
 1. **Captures** (`captures_app`) : les vrais écrans de nos applis, par application et par support.
+	- Import : glisser-déposer une ou plusieurs captures dans l'onglet Captures. L'écran vient du nom du fichier (`a-retenir.jpg` → `a-retenir`) et se corrige avant l'envoi.
 	- Une capture a un écran (`parcours`, `notes`, `a-retenir`, `lecons`, `site`…) et une langue.
 	- Elle est `originale` (le vrai écran) ou `traduite` (plus tard, liée à son originale).
 2. **Intégrateurs** (`integrateurs`) : des photos de la bibliothèque (`media_library`), choisies pour recevoir l'écran d'un support.

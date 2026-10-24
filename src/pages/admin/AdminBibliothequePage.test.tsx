@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
-import type { CaptureApp, MiseEnScene } from "@/features/misesEnScene/api";
+import { ecranDepuisNom, type CaptureApp, type MiseEnScene } from "@/features/misesEnScene/api";
 
 const listerCaptures = vi.fn();
 const listerMisesEnScene = vi.fn();
@@ -15,6 +15,7 @@ const mettreEnScene = vi.fn();
 const traduireMiseEnScene = vi.fn();
 const traduireCapture = vi.fn();
 const versionsManquantes = vi.fn();
+const importerCapture = vi.fn();
 
 vi.mock("@/features/misesEnScene/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/misesEnScene/api")>()),
@@ -28,6 +29,7 @@ vi.mock("@/features/misesEnScene/api", async (importOriginal) => ({
   traduireMiseEnScene: (...a: unknown[]) => traduireMiseEnScene(...a),
   traduireCapture: (...a: unknown[]) => traduireCapture(...a),
   versionsManquantes: (...a: unknown[]) => versionsManquantes(...a),
+  importerCapture: (...a: unknown[]) => importerCapture(...a),
   chercherScenes: async () => [],
 }));
 
@@ -103,6 +105,7 @@ describe("Bibliothèque — captures et mises en scène", () => {
     mettreEnScene.mockReset().mockResolvedValue({});
     traduireMiseEnScene.mockReset().mockResolvedValue("capture_traduite");
     traduireCapture.mockReset().mockResolvedValue({});
+    importerCapture.mockReset().mockResolvedValue({});
     versionsManquantes.mockReset().mockResolvedValue({ pretes: [], captures_a_traduire: [], captures_a_valider: [] });
   });
 
@@ -231,5 +234,31 @@ describe("Bibliothèque — captures et mises en scène", () => {
     fireEvent.click(screen.getByRole("button", { name: "Générer 2 versions" }));
     await waitFor(() => expect(traduireMiseEnScene).toHaveBeenCalledTimes(2));
     expect(traduireMiseEnScene.mock.calls).toEqual([["fr1", "es"], ["fr2", "es"]]);
+  });
+
+  it("écran déduit du nom de fichier", () => {
+    expect(ecranDepuisNom("À retenir.PNG")).toBe("a-retenir");
+    expect(ecranDepuisNom("parcours.jpg")).toBe("parcours");
+    expect(ecranDepuisNom("IMG_1234 (1).jpeg")).toBe("img-1234-1");
+  });
+
+  it("onglet Captures : glisser-déposer plusieurs captures, écran tiré du nom, un import par fichier", async () => {
+    listerCaptures.mockResolvedValue([]);
+    rendre("/admin/bibliotheque?onglet=captures");
+    const zone = await screen.findByRole("button", { name: /Glisse tes captures ici/ });
+    const parcours = new File(["x"], "parcours.jpg", { type: "image/jpeg" });
+    const retenir = new File(["y"], "À retenir.png", { type: "image/png" });
+    const texte = new File(["z"], "notes.txt", { type: "text/plain" });
+    fireEvent.drop(zone, { dataTransfer: { files: [parcours, retenir, texte] } });
+    expect((screen.getByRole("combobox", { name: "Écran de À retenir.png" }) as HTMLInputElement).value).toBe("a-retenir");
+    expect(screen.queryByText("notes.txt")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Importer 2 originales" }));
+    await waitFor(() => expect(importerCapture).toHaveBeenCalledTimes(2));
+    expect(importerCapture.mock.calls.map((c) => (c[0] as { ecran: string; support: string }).ecran)).toEqual(["parcours", "a-retenir"]);
+    expect((importerCapture.mock.calls[0][0] as { application: string; support: string; langue: string })).toMatchObject({
+      application: "micabo",
+      support: "iphone",
+      langue: "fr",
+    });
   });
 });

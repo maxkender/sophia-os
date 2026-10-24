@@ -141,6 +141,11 @@ verify_jwt = false
 # Dépôt par l'agent d'un pod (en-tête x-pod-jeton) ou décision d'un admin (JWT revérifié).
 verify_jwt = false
 
+[functions.mises-en-scene]
+# Banque des captures et mises en scène (0344) : admin (JWT revérifié), agent
+# (x-agent-jeton) ou podz (x-pod-jeton), contrôlés dans la fonction.
+verify_jwt = false
+
 [functions.pod-labo]
 # Pod 3 : animation Kling des réactions, jeton du pod reactions_ugc (en-tête x-pod-jeton).
 verify_jwt = false

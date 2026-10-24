@@ -227,9 +227,7 @@ async function listerIntegrateurs(supabase: Supabase, appelant: Appelant, body: 
 
 async function listerMisesEnScene(supabase: Supabase, appelant: Appelant, body: Record<string, unknown>) {
   const apps = await applications(supabase);
-  let q = supabase.from("mises_en_scene").select(
-    `${COLONNES_MES}, capture:captures_app!mises_en_scene_capture_id_fkey (remplacee_par, originale:captures_app!captures_app_originale_id_fkey (remplacee_par))`,
-  );
+  let q = supabase.from("mises_en_scene").select(COLONNES_MES);
   if (body.application) {
     const app = apps.find((a) => a.slug === body.application);
     if (!app) return json({ ok: false, error: "application inconnue" }, 400);
@@ -247,10 +245,12 @@ async function listerMisesEnScene(supabase: Supabase, appelant: Appelant, body: 
   if (error) throw error;
   const slugDe = new Map(apps.map((a) => [a.id, a.slug]));
   // deno-lint-ignore no-explicit-any
-  let lignes = (data ?? []).map(({ capture, ...m }: any) => ({
+  const refaire = await capturesARefaire(supabase, (data ?? []).map((m: any) => m.capture_id));
+  // deno-lint-ignore no-explicit-any
+  let lignes = (data ?? []).map((m: any) => ({
     ...m,
     application: slugDe.get(m.application_id) ?? null,
-    a_refaire: aRefaire(capture ?? { remplacee_par: null }, capture?.originale ?? null),
+    a_refaire: refaire.has(m.capture_id),
   }));
   // deno-lint-ignore no-explicit-any
   if (appelant.role === "pod") lignes = lignes.filter((m: any) => !m.a_refaire);
@@ -281,6 +281,32 @@ async function listerCouplesManquants(supabase: Supabase, body: Record<string, u
   if (e3) throw e3;
   const couples = couplesManquants(captures ?? [], integrateurs ?? [], existants ?? []);
   return json({ ok: true, couples, budget: await budget(supabase) });
+}
+
+/**
+ * Captures (parmi `ids`) remplacées, ou traductions d'une originale remplacée.
+ * Deux lectures simples : PostgREST ne sait pas imbriquer la relation de
+ * captures_app vers elle-même (originale_id) par le nom de la clé.
+ */
+async function capturesARefaire(supabase: Supabase, ids: string[]): Promise<Set<string>> {
+  const uniques = [...new Set(ids)];
+  if (!uniques.length) return new Set();
+  const { data: captures, error } = await supabase.from("captures_app").select("id, originale_id, remplacee_par")
+    .in("id", uniques);
+  if (error) throw error;
+  const origIds = [...new Set((captures ?? []).map((c: { originale_id: string | null }) => c.originale_id).filter(Boolean))];
+  const { data: originales, error: e2 } = origIds.length
+    ? await supabase.from("captures_app").select("id, remplacee_par").in("id", origIds)
+    : { data: [], error: null };
+  if (e2) throw e2;
+  const originaleDe = new Map((originales ?? []).map((o: { id: string; remplacee_par: string | null }) => [o.id, o]));
+  return new Set(
+    (captures ?? [])
+      .filter((c: { originale_id: string | null; remplacee_par: string | null }) =>
+        aRefaire(c, c.originale_id ? originaleDe.get(c.originale_id) as { remplacee_par: string | null } : null)
+      )
+      .map((c: { id: string }) => c.id),
+  );
 }
 
 async function utiliser(supabase: Supabase, id: string) {
@@ -454,11 +480,10 @@ async function ajouterIntegrateur(supabase: Supabase, body: Record<string, unkno
 }
 
 async function mettreEnScene(supabase: Supabase, body: Record<string, unknown>, par: string, horsBudget: boolean) {
-  const { data: capture } = await supabase.from("captures_app")
-    .select("*, originale:captures_app!captures_app_originale_id_fkey (remplacee_par)")
+  const { data: capture } = await supabase.from("captures_app").select("*")
     .eq("id", String(body.capture_id ?? "")).maybeSingle();
   if (!capture) return json({ ok: false, error: "capture introuvable" }, 404);
-  if (capture.statut !== "validee" || aRefaire(capture, capture.originale)) {
+  if (capture.statut !== "validee" || (await capturesARefaire(supabase, [capture.id])).size) {
     return json({ ok: false, error: "seule une capture validée et à jour se met en scène" }, 400);
   }
   const { data: integrateur } = await supabase.from("integrateurs").select("id, support, statut, media:media_library (id, url)")

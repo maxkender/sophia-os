@@ -66,6 +66,8 @@ export interface MiseEnScene {
   motif_rejet: string | null;
   essai: number;
   relance_de: string | null;
+  /** Version traduite : la mise en scène d'origine (même photo, même écran). */
+  version_de: string | null;
   used_count: number;
   a_refaire: boolean;
   created_at: string;
@@ -180,6 +182,46 @@ export async function mettreEnScene(p: {
 }): Promise<MiseEnScene> {
   const r = await invoke<{ mise_en_scene: MiseEnScene }>(FONCTION, { action: "mettre_en_scene", ...p });
   return r.mise_en_scene;
+}
+
+export type EtapeTraduction = "capture_traduite" | "capture_a_valider" | "version";
+
+/**
+ * Version `langue` d'une mise en scène d'origine validée, en deux temps : la
+ * capture est d'abord traduite à plat (à relire et valider dans Captures),
+ * puis l'écran de la même image est remplacé par la capture traduite.
+ */
+export async function traduireMiseEnScene(id: string, langue: string, relance_de?: string): Promise<EtapeTraduction> {
+  const r = await invoke<{ etape: EtapeTraduction }>(FONCTION, {
+    action: "traduire_mise_en_scene",
+    id,
+    langue,
+    ...(relance_de ? { relance_de } : {}),
+  });
+  return r.etape;
+}
+
+export interface CarteVersions {
+  origine: MiseEnScene;
+  /** Par langue, la version vivante (ou la dernière rejetée). Contient la langue d'origine. */
+  versions: Record<string, MiseEnScene>;
+}
+
+/** Une carte par mise en scène d'origine ; ses versions traduites rangées par langue. */
+export function grouperVersions(mises: MiseEnScene[]): CarteVersions[] {
+  const cartes = new Map<string, CarteVersions>();
+  for (const m of mises) {
+    if (!m.version_de) cartes.set(m.id, { origine: m, versions: { [m.langue]: m } });
+  }
+  const recentes = [...mises].sort((a, b) => a.created_at.localeCompare(b.created_at));
+  for (const v of recentes) {
+    const carte = v.version_de ? cartes.get(v.version_de) : undefined;
+    if (!carte) continue;
+    const deja = carte.versions[v.langue];
+    // Une version vivante l'emporte sur une rejetée ; sinon la plus récente.
+    if (!deja || deja.statut === "rejetee" || v.statut !== "rejetee") carte.versions[v.langue] = v;
+  }
+  return [...cartes.values()];
 }
 
 export async function deciderBanque(

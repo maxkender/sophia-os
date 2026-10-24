@@ -6,9 +6,8 @@ les podz. Migration 0344, fonction Edge `mises-en-scene`. On la voit dans
 Admin → Bibliothèque, onglets **Captures**, **Intégrateurs** et **Mises en scène**.
 
 **Phase test (décision d'Adrien, 23/10)** : en français seulement. On cherche
-d'abord ce qui est le plus beau, par support. Les traductions viendront après :
-la fonction sait déjà les faire (`traduire_capture`), mais l'interface ne les
-propose pas encore.
+d'abord ce qui est le plus beau, par support. Rien n'est traduit sans son
+accord.
 
 ## Trois étages, rangés par support
 
@@ -28,6 +27,20 @@ Les supports sont `iphone`, `tablette` et `ordinateur`.
 	- Chaque mise en scène garde le lien vers sa capture, son intégrateur et sa photo, et compte ses usages.
 
 Les captures et les mises en scène sont **hors de `media_library`**. Une mise en scène porte du texte d'appli : elle ne doit jamais sortir dans les tirages de photos des labels.
+
+## Les langues : des versions de la même image (0346)
+
+Une mise en scène, c'est une photo × un écran. Les langues en sont des **versions** :
+la même photo, la même main, la même lumière, seul l'écran change.
+
+- Dans l'onglet Mises en scène, il y a **une carte par image**. Ses langues sont des pastilles (`fr ✓`, `es …`, `de ✗`) : un clic montre la version de cette langue. Chaque langue a son propre statut.
+- « Ajouter une langue » sur une image validée se fait en deux temps :
+	1. la capture est traduite **à plat** par Nano Banana Pro. Un humain la relit ligne par ligne et la valide dans Captures ;
+	2. on relance : Nano Banana Pro reprend l'image d'origine validée et n'y remplace que l'écran par la capture traduite.
+- La capture traduite sert ensuite à toutes les images de cet écran.
+- Une version a droit à une seule relance, comme l'origine.
+- Si la capture d'origine est remplacée, toutes les versions de la carte passent « à refaire ».
+- Côté podz, rien ne change : `langue: "es"` donne les versions espagnoles validées.
 
 ## Les règles
 
@@ -77,6 +90,7 @@ Ils sont éditables dans la table `prompts`. Sans prompt en base, c'est le défa
 	- Le contenu de l'écran est remplacé par la capture, en entier, en suivant la perspective.
 	- On garde la main devant l'écran, les reflets et la lumière, et on ne change rien d'autre.
 	- La sortie est au format de la photo, en 2K.
-- `mise_en_scene_traduction` (`{langue}`, `{app}`), pour plus tard : tout le texte de l'interface est traduit comme l'appli le ferait elle-même.
+- `mise_en_scene_version` (`{appareil}`) : l'image 1 est la mise en scène d'origine, l'image 2 la capture traduite. Seul l'écran est remplacé ; tout le reste de l'image reste identique.
+- `mise_en_scene_traduction` (`{langue}`, `{app}`) : tout le texte de l'interface est traduit comme l'appli le ferait elle-même.
 	- La mise en page, les polices, les couleurs, les icônes et la taille restent les mêmes.
 	- Rien n'est ajouté.

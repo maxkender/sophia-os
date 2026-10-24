@@ -2010,7 +2010,7 @@ export const fr = {
       integrateursVide: "Aucun intégrateur.",
       misesTitre: "Mises en scène",
       misesAide:
-        "Chaque capture validée posée dans chaque intégrateur validé du même support. Seules les mises en scène validées servent aux podz.",
+        "Chaque capture validée posée dans chaque intégrateur validé du même support. Les langues sont des versions de la même image. Seules les versions validées servent aux podz.",
       misesVide: "Aucune mise en scène.",
       nbARefaire_one: "{{count}} à refaire (capture remplacée)",
       nbARefaire_other: "{{count}} à refaire (capture remplacée)",
@@ -2051,6 +2051,13 @@ export const fr = {
       genererAide:
         "Captures validées × intégrateurs validés du même support, dans un ordre qui varie. Une image Fal par mise en scène ; le lot s'arrête au budget.",
       lotEnCours: "Nano Banana… {{fait}}/{{total}}",
+      ajouterLangue: "Ajouter une langue…",
+      traduire: "Traduire",
+      etapes: {
+        capture_traduite: "Capture traduite : relis-la et valide-la dans Captures, puis relance la traduction.",
+        capture_a_valider: "La capture traduite attend ta validation dans Captures.",
+        version: "Version créée : à valider.",
+      },
       relancer: "Relancer (une fois)",
       relance: "Relance",
       aRefaire: "À refaire",

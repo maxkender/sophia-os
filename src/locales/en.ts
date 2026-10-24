@@ -2007,7 +2007,7 @@ export const en = {
       integrateursVide: "No scenes.",
       misesTitre: "Mockups",
       misesAide:
-        "Every approved screenshot placed in every approved scene of the same device. Only approved mockups are served to the pods.",
+        "Every approved screenshot placed in every approved scene of the same device. Languages are versions of the same image. Only approved versions are served to the pods.",
       misesVide: "No mockups.",
       nbARefaire_one: "{{count}} to redo (screenshot replaced)",
       nbARefaire_other: "{{count}} to redo (screenshot replaced)",
@@ -2048,6 +2048,13 @@ export const en = {
       genererAide:
         "Approved screenshots × approved scenes of the same device, in a varied order. One Fal image per mockup; the batch stops at the budget.",
       lotEnCours: "Nano Banana… {{fait}}/{{total}}",
+      ajouterLangue: "Add a language…",
+      traduire: "Translate",
+      etapes: {
+        capture_traduite: "Screenshot translated: proofread and approve it in Screenshots, then translate again.",
+        capture_a_valider: "The translated screenshot is waiting for your approval in Screenshots.",
+        version: "Version created: to review.",
+      },
       relancer: "Retry (once)",
       relance: "Retry",
       aRefaire: "To redo",

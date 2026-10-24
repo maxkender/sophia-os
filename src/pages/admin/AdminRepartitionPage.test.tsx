@@ -348,9 +348,20 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
   });
 });
 
-/** La carte ou le tableau qui porte ce titre. */
+/**
+ * La carte qui porte ce titre.
+ *
+ * On filtre sur l'ancêtre « carte » : le texte d'introduction de la page cite
+ * les noms de deux cartes, donc une recherche par texte seul tombait dessus et
+ * rendait un élément sans carte autour.
+ */
 function carte(titre: RegExp): HTMLElement {
-  return screen.getByText(titre).closest("div[class*='rounded']") as HTMLElement;
+  const trouve = screen
+    .getAllByText(titre)
+    .map((e) => e.closest("div[class*='rounded']"))
+    .find((e): e is HTMLElement => e !== null);
+  if (!trouve) throw new Error(`aucune carte ne porte le titre ${titre}`);
+  return trouve;
 }
 
 describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
@@ -474,7 +485,10 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
 
   /** La ligne du tableau « État des labels » qui porte ce label. */
   async function ligneLabel(nom: string): Promise<HTMLElement> {
-    await screen.findByText(/État des labels|Label status/);
+    // On attend LA CARTE, pas son nom : le texte d'introduction de la page
+    // cite les deux cartes qui suivent le sélecteur, donc attendre un texte
+    // rendait la main avant que les données soient là.
+    await waitFor(() => carte(/État des labels|Label status/));
     // Le nom du label ouvre la ligne, collé au premier chiffre : `\b` ne
     // tient pas entre « study » et « 1,00 », les deux sont des caractères de
     // mot. On ancre au début.

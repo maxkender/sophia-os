@@ -103,6 +103,7 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	Ils sont concrets et **neufs** : jamais un item de la source recopié. Vérifie dans `donnees/label.json` que l'idée n'y est pas déjà.
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : bureaux, cahiers, ordinateurs, cafés, bibliothèques, filles de dos.
+	- Pas une image déjà prise par un autre original : les mêmes comptes publient tous les posts du label. Regarde `used_count` dans `donnees/images.json` et les `media_id` de `originaux/`.
 	- **Jamais un visage reconnaissable** : on ne prête pas un conseil, ni une appli, à une personne réelle.
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.

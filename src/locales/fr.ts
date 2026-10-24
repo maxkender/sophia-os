@@ -1696,7 +1696,7 @@ export const fr = {
       majFile_other: "{{count}} éléments dans la file d'import",
       majEnvoyes_one: "Terminé : {{count}} slideshow envoyé à l'import",
       majEnvoyes_other: "Terminé : {{count}} slideshows envoyés à l'import",
-      majRien: "Terminé : rien à rattraper, tout était déjà importé",
+      majRien: "Terminé : rien à rattraper, tout était déjà dans l'OS",
       majEchec: "Échec sur cette source, la mise à jour a continué",
       majImport_one: "Import en cours : {{count}} slideshow, {{restant}} élément(s) encore dans la file",
       majImport_other: "Import en cours : {{count}} slideshows, {{restant}} élément(s) encore dans la file",
@@ -1704,7 +1704,7 @@ export const fr = {
       majStatut_attente: "En attente de son tour",
       majStatut_annule: "Pas faite : mise à jour arrêtée avant",
       majStatut_bloquee: "Stoppée : la file d'import ne se vidait plus",
-      majDetail: "{{profil}} au profil · {{stock}} déjà importés · {{manquants}} manquants",
+      majDetail: "{{profil}} au profil · {{stock}} déjà dans l'OS (toutes sources) · {{manquants}} manquants",
       majVoirImports: "Chaque slideshow passe ensuite par l'import classique : son détail apparaît dans « Imports » juste en dessous.",
       importLien: "Importer un TikTok",
       importLienAide:

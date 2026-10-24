@@ -1695,7 +1695,7 @@ export const en = {
       majFile_other: "{{count}} items in the import queue",
       majEnvoyes_one: "Done: {{count}} slideshow sent to import",
       majEnvoyes_other: "Done: {{count}} slideshows sent to import",
-      majRien: "Done: nothing to catch up, everything was already imported",
+      majRien: "Done: nothing to catch up, everything was already in the OS",
       majEchec: "Failed on this source, the update carried on",
       majImport_one: "Importing: {{count}} slideshow, {{restant}} item(s) still in the queue",
       majImport_other: "Importing: {{count}} slideshows, {{restant}} item(s) still in the queue",
@@ -1703,7 +1703,7 @@ export const en = {
       majStatut_attente: "Waiting for its turn",
       majStatut_annule: "Not done: the update was stopped before",
       majStatut_bloquee: "Halted: the import queue stopped draining",
-      majDetail: "{{profil}} on the profile · {{stock}} already imported · {{manquants}} missing",
+      majDetail: "{{profil}} on the profile · {{stock}} already in the OS (all sources) · {{manquants}} missing",
       majVoirImports: "Each slideshow then goes through the regular import: its details show up in “Imports” just below.",
       importLien: "Import a TikTok",
       importLienAide:

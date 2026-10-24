@@ -73,6 +73,11 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
   }, [avancement, queryClient]);
 
   const enCours = run.data?.statut === "running";
+  // Une nouvelle séquence (lancée d'ici, d'un autre onglet ou par le serveur)
+  // repart sans le choix ouvert/fermé fait sur la précédente.
+  React.useEffect(() => {
+    if (enCours) setOuvert(null);
+  }, [enCours]);
   const suivi = React.useMemo(() => suiviParSource(run.data ?? null), [run.data]);
 
   const rafraichir = async (etat: Parameters<typeof syncMajJobDepuisRun>[0]) => {
@@ -118,7 +123,9 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
 
   const passees = suivi.filter((s) => s.statut === "fait").length;
   const fin = finDuRun(run.data ?? null);
-  const recente = fin !== null && Date.now() - Date.parse(fin) < RECENTE_MS;
+  // Calculé quand la séquence bouge, pas à chaque rendu : un clic sans rapport
+  // ne doit pas replier le détail parce que l'heure vient de passer.
+  const recente = React.useMemo(() => fin !== null && Date.now() - Date.parse(fin) < RECENTE_MS, [fin]);
   const detailOuvert = enCours || (ouvert ?? recente);
 
   return (

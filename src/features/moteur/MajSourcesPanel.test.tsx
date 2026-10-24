@@ -114,7 +114,7 @@ describe("MajSourcesPanel", () => {
     const premiere = within(suivi).getByTestId("maj-suivi-vieille");
     expect(premiere.dataset.statut).toBe("file");
     expect(premiere.textContent).toMatch(/Import en cours : 9 slideshows, 7 élément\(s\) encore dans la file/);
-    expect(premiere.textContent).toMatch(/20 au profil · 11 déjà importés · 9 manquants/);
+    expect(premiere.textContent).toMatch(/20 au profil · 11 déjà dans l'OS \(toutes sources\) · 9 manquants/);
     expect(within(suivi).getByTestId("maj-suivi-moyenne").textContent).toMatch(/En attente de son tour/);
   });
 
@@ -149,7 +149,27 @@ describe("MajSourcesPanel", () => {
 
     fireEvent.click(within(suivi).getByRole("button", { name: /Voir le détail \(1 source\)/ }));
     expect(within(suivi).getByTestId("maj-suivi-vieille").textContent).toMatch(
-      /rien à rattraper, tout était déjà importé.*53 au profil · 53 déjà importés · 0 manquants/,
+      /rien à rattraper, tout était déjà dans l'OS.*53 au profil · 53 déjà dans l'OS \(toutes sources\) · 0 manquants/,
     );
+  });
+
+  it("une séquence finie il y a moins d'une heure garde son détail ouvert", async () => {
+    lireMajSourcesRun.mockResolvedValue({
+      statut: "done",
+      comptes: [{ id: "vieille", handle: "vieille", langue: "en" }],
+      index: 1,
+      faits: 1,
+      handle: "vieille",
+      phase: "import",
+      restant: 0,
+      minRestant: null,
+      maxFaits: null,
+      dernierProgresAt: null,
+      journal: [{ at: new Date(Date.now() - 10 * 60_000).toISOString(), niveau: "ok", message: "[1/1] @vieille — 2 slideshow(s) enfilé(s)" }],
+    } satisfies MajSourcesRun);
+    rendre();
+    const suivi = await screen.findByTestId("maj-suivi");
+    expect(within(suivi).getByTestId("maj-suivi-vieille").textContent).toMatch(/Terminé : 2 slideshows envoyés à l'import/);
+    expect(within(suivi).getByRole("button", { name: "Masquer le détail" })).toBeTruthy();
   });
 });

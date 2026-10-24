@@ -892,7 +892,7 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
       {niches.length === 0 ? (
         <p className="text-sm text-warning">
           {t("sources.nicheAucune")}{" "}
-          <Link to="/admin" className="underline underline-offset-2">
+          <Link to="/admin/labels" className="underline underline-offset-2">
             {t("sources.creerNiche")}
           </Link>
         </p>

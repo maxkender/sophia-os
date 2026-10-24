@@ -25,11 +25,13 @@ import {
   Boxes,
   Scale,
   Settings,
+  Tags,
   ShieldAlert,
   Users,
   UserPlus,
 } from "lucide-react";
 
+import { LogoApplication } from "@/components/brand/LogoApplication";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestationsAVerifier } from "@/features/moteur/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
@@ -90,11 +92,18 @@ export function AdminLayout() {
             <p className="px-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-sidebar-foreground/70">
               {t("applications.switcher")}
             </p>
-            <SelectApplication
-              applications={applications}
-              value={slug}
-              onChange={setSlug}
-            />
+            <div className="flex items-center gap-2">
+              {application && (
+                <LogoApplication slug={application.slug} taille="md" />
+              )}
+              <div className="min-w-0 flex-1">
+                <SelectApplication
+                  applications={applications}
+                  value={slug}
+                  onChange={setSlug}
+                />
+              </div>
+            </div>
             {application && (
               <p className="px-1 text-[10px] text-sidebar-foreground">
                 {t("applications.contexte", { nom: nomApplication(application) })}
@@ -241,6 +250,12 @@ export function AdminLayout() {
         {
           title: t("navSection.config"),
           items: [
+            {
+              to: "/admin/labels",
+              label: t("nav.labelsApplications"),
+              icon: Tags,
+              description: t("navDesc.labelsApplications"),
+            },
             {
               to: "/admin/reglages",
               label: t("nav.reglages"),

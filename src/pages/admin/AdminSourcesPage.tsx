@@ -977,7 +977,7 @@ export function AdminSourcesPage() {
 
       {ajout && <FormAjoutSource niches={niches.data ?? []} onFermer={() => setAjout(false)} />}
 
-      {majVisible && <MajSourcesPanel sources={toutes} stock={stock.data ?? {}} />}
+      {majVisible && <MajSourcesPanel sources={toutes} />}
 
       <ImportJobsPanel />
 

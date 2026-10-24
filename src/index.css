@@ -41,6 +41,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-app-sophia: var(--app-sophia);
+  --color-app-micabo: var(--app-micabo);
+  --color-app-unswipe: var(--app-unswipe);
+  --color-app-autre: var(--app-autre);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -124,6 +128,14 @@
   --sidebar-accent-foreground: var(--color-neutral-800);
   --sidebar-border: --alpha(var(--color-black) / 6%);
   --sidebar-ring: var(--color-neutral-400);
+  /* Couleur de chaque application dans les graphes. Choisies dans la teinte
+     de leur icône, puis validées comme palette (daltonisme protan et deutan,
+     écart en vision normale, contraste sur la carte) : ne pas les retoucher
+     à l'œil. Une application sans couleur prend le gris « autre ». */
+  --app-sophia: #df539f;
+  --app-micabo: #3093ec;
+  --app-unswipe: #6130b1;
+  --app-autre: #898781;
 }
 
 .dark {
@@ -160,6 +172,11 @@
   --sidebar-accent-foreground: var(--color-neutral-100);
   --sidebar-border: --alpha(var(--color-white) / 5%);
   --sidebar-ring: var(--color-neutral-400);
+  /* Mêmes teintes, pas de lumière refaits pour le fond sombre et revalidés. */
+  --app-sophia: #c22d6d;
+  --app-micabo: #1f6cb0;
+  --app-unswipe: #9d74f8;
+  --app-autre: #6b6a66;
 }
 
 @layer base {

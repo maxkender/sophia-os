@@ -35,6 +35,23 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
   return data as T;
 }
 
+/** La langue du compte TikTok du poster connecté (le compte actif d'abord). */
+export async function lireLangueDeMonCompte(): Promise<string | null> {
+  const { data: auth } = await supabase.auth.getUser();
+  const moi = auth.user?.id;
+  if (!moi) return null;
+  const { data, error } = await supabase
+    .from("comptes")
+    .select("langue")
+    .eq("poster_id", moi)
+    .order("is_active", { ascending: false })
+    .order("created_at", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+  if (error) throw error;
+  return (data?.langue as string | null | undefined) ?? null;
+}
+
 export async function poserQuestionChatbot(
   question: string,
   locale: ChatLocale,

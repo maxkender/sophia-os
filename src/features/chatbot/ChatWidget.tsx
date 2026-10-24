@@ -1,17 +1,19 @@
 import * as React from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { MessageCircle, Send, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/features/auth/AuthContext";
+import { Mico, type EtatMico } from "@/features/onboarding/Mico";
 import { cn } from "@/lib/utils";
 
-import { poserQuestionChatbot } from "./api";
+import { lireLangueDeMonCompte, poserQuestionChatbot } from "./api";
 import {
   QUESTION_MAX,
   attenteChat,
   langueDepuisProfil,
+  langueDuCompte,
   placeholderChat,
   salutationChat,
   type TourChat,
@@ -29,9 +31,20 @@ function nouveauId(): string {
 
 export function ChatWidget() {
   const { t, i18n } = useTranslation();
-  const { profil } = useAuth();
-  const langue = langueDepuisProfil(profil?.langues, i18n.resolvedLanguage ?? "fr");
+  const { profil, role } = useAuth();
+  // Un poster : la langue de son compte TikTok. Son profil dit « fr » par
+  // défaut, d'où une bulle en français pour un poster turc ou allemand.
+  const compte = useQuery({
+    queryKey: ["chatbot", "langue-compte"],
+    queryFn: lireLangueDeMonCompte,
+    enabled: role === "poster",
+    staleTime: 10 * 60_000,
+  });
+  const langue = role === "poster"
+    ? langueDuCompte(compte.data)
+    : langueDepuisProfil(profil?.langues, i18n.resolvedLanguage ?? "fr");
   const [ouvert, setOuvert] = React.useState(false);
+  const [content, setContent] = React.useState(false);
   const [texte, setTexte] = React.useState("");
   const [messages, setMessages] = React.useState<Message[]>([]);
   const listeRef = React.useRef<HTMLDivElement>(null);
@@ -52,8 +65,26 @@ export function ChatWidget() {
     },
     onSuccess: (reponse) => {
       setMessages((prev) => [...prev, { id: nouveauId(), role: "assistant", content: reponse }]);
+      setContent(true);
     },
   });
+
+  // Mico, la mascotte : il salue à l'ouverture, réfléchit pendant la réponse,
+  // saute de joie quand elle arrive, puis se repose.
+  React.useEffect(() => {
+    if (!content) return;
+    const minuteur = window.setTimeout(() => setContent(false), 2_500);
+    return () => window.clearTimeout(minuteur);
+  }, [content]);
+  const humeur: EtatMico = envoyer.isPending
+    ? "think"
+    : envoyer.isError
+    ? "sad"
+    : content
+    ? "happy"
+    : messages.length === 0
+    ? "wave"
+    : "idle";
 
   function soumettre(event?: React.FormEvent) {
     event?.preventDefault();
@@ -79,8 +110,11 @@ export function ChatWidget() {
           aria-label={t("chatbot.widgetTitle")}
           className="pointer-events-auto flex h-[min(70vh,32rem)] w-[min(calc(100vw-2rem),24rem)] flex-col overflow-hidden rounded-2xl border bg-card shadow-lifted"
         >
-          <header className="flex items-center justify-between gap-2 border-b bg-muted/40 px-3 py-2.5">
-            <div className="min-w-0">
+          <header className="flex items-center justify-between gap-2 border-b bg-gradient-to-br from-primary/10 via-primary/5 to-transparent px-3 py-2">
+            <div key={humeur} className="w-10 shrink-0 animate-in zoom-in-50 duration-500" data-testid="mico-bulle" data-humeur={humeur}>
+              <Mico etat={humeur} />
+            </div>
+            <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-semibold">{t("chatbot.widgetTitle")}</p>
               <p className="truncate text-[11px] text-muted-foreground">{t("chatbot.widgetSous")}</p>
             </div>
@@ -157,6 +191,7 @@ export function ChatWidget() {
 function Bulle({ role, children }: { role: "user" | "assistant"; children: React.ReactNode }) {
   return (
     <div
+      dir="auto"
       className={cn(
         "max-w-[90%] whitespace-pre-wrap rounded-lg px-3 py-2 text-sm leading-relaxed",
         role === "user"

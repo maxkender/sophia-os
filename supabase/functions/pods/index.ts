@@ -29,7 +29,10 @@
  *       (reference_url). Validé, il devient un contenu CLASSIQUE au rang
  *       TIER_ORIGINAL : images sans texte, texte à part, traduit et placé à
  *       l'assignation pour les autres langues.
- *       Pods de PODS_AVEC_PREUVE (pods 4, 5, 7, 8 et 9) : `preuve` obligatoire,
+ *       Label qui ne sert PAS Sophia (pod 12, micabo et UnSwipe) : aucune
+ *       slide Sophia ; rang Sophia D / 0, le rang de l'original va aux
+ *       applications du label, placées par l'OS dans chaque langue.
+ *       Pods de PODS_AVEC_PREUVE (pods 4, 5, 7, 8, 9 et 12) : `preuve` obligatoire,
  *         { schema, references: [{ type: "tiktok", url, vues, publie_le },
  *                                { type: "os", contenu_id }] }
  *       Il faut un post de la niche à 200 k vues ou plus publié dans les
@@ -225,6 +228,21 @@ async function applicationHorsSophiaDuPod(
   const { data: app, error: aErr } = await supabase.from("applications").select("id, slug").eq("id", horsSophia[0]).single();
   if (aErr || !app) throw new Error(`application ${horsSophia[0]} : ${messageErreur(aErr)}`);
   return app as { id: string; slug: string };
+}
+
+/**
+ * Le label d'un pod d'originaux sert-il Sophia (aussi sans application
+ * cochée, comme avant) ? Non (pod 12, micabo et UnSwipe) : l'original part
+ * sans slide d'appli, et l'OS place celle de chaque compte à l'assignation,
+ * depuis la base traduite, quel que soit le nombre d'applications du label.
+ */
+async function labelSertSophia(supabase: Supabase, labelId: string): Promise<boolean> {
+  const { data: liens, error } = await supabase
+    .from("label_applications")
+    .select("label_id, application_id")
+    .eq("label_id", labelId);
+  if (error) throw new Error(`label_applications : ${messageErreur(error)}`);
+  return applicationsHorsSophia(applicationsDuLabel(labelId, liens ?? []), ID_SOPHIA) === null;
 }
 
 /** Pod authentifié par son jeton, ou null. */
@@ -895,20 +913,14 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   if (!pod.actif) return json({ ok: false, error: "pod en pause" }, 409);
   if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
-  // Un original traduisible porte une slide Sophia : sans objet pour un label
-  // qui ne sert pas Sophia (ses originaux se déposent en images finies).
-  const appLabel = await applicationHorsSophiaDuPod(supabase, pod.label_id);
-  if (appLabel) {
-    return json({
-      ok: false,
-      error: `label hors Sophia (${appLabel.slug}) : dépose l'original en images finies (deposer sans type ni source_url)`,
-    }, 400);
-  }
+  // Label qui sert Sophia : une slide Sophia, servie telle quelle dans la
+  // langue source. Sinon (pod 12) : aucune, l'OS place l'appli de chaque compte.
+  const sophia = await labelSertSophia(supabase, pod.label_id);
 
   const sourceId = String(body.source_id ?? "");
   if (!/^[a-z0-9][a-z0-9_-]{2,60}$/i.test(sourceId)) return json({ ok: false, error: "source_id requis (a-z0-9_-)" }, 400);
   const slides = (Array.isArray(body.slides) ? body.slides : []) as SlideOriginale[];
-  const erreurs = verifierOriginal(slides);
+  const erreurs = verifierOriginal(slides, { sophia });
   if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
   let preuve: Record<string, unknown> | null = null;
@@ -1052,10 +1064,14 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
   const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
   if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
   const deck = (l.decks?.[l.langue_source]?.slides ?? []) as SlideOriginale[];
-  const erreurs = verifierOriginal(deck);
+  const sophia = await labelSertSophia(supabase, pod.label_id);
+  const erreurs = verifierOriginal(deck, { sophia });
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 409);
 
   const tier = TIER_ORIGINAL;
+  // Label hors Sophia (pod 12) : aucun rang Sophia (D / 0, comme le pod 6) ;
+  // le rang de l'original va aux applications du label (plus bas).
+  const tierSophia = sophia ? tier : "D";
   const maintenant = new Date().toISOString();
   const legende = String(l.transcription?.legende ?? l.titre ?? "").trim();
   const { data: contenu, error: cErr } = await supabase
@@ -1080,15 +1096,16 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
         // Slide TikTok d'inspiration : le modèle de mise en page du poster.
         reference_url: s.reference_url,
       })),
-      tier,
-      passages_prevus: passagesPourTier(tier),
+      tier: tierSophia,
+      passages_prevus: sophia ? passagesPourTier(tier) : 0,
       tier_cycle: 0,
       tier_maj_at: maintenant,
       tier_rapport: {
         origine: "pod_original",
         pod: l.pod,
-        tier,
-        passages: passagesPourTier(tier),
+        tier: tierSophia,
+        passages: sophia ? passagesPourTier(tier) : 0,
+        ...(sophia ? {} : { tier_applications: tier }),
         inspirations: l.transcription?.inspirations ?? [],
       },
       livre: false,
@@ -1103,6 +1120,8 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
     if (lErr) throw lErr;
     // Langue source : le deck Sophia écrit par le pod (servi tel quel), et la
     // base SANS appli, d'où l'OS traduit et place Sophia pour les autres langues.
+    // Label hors Sophia : pas de slide Sophia, les deux sont la base ; l'OS en
+    // tire le deck de l'application de chaque compte, langue source comprise.
     const base = deck.map((s) => ({ position: s.position, texte_overlay: s.texte_overlay, position_sophia: false }));
     const avecSophia = deck.map((s) => {
       const sophia = String(s.texte_sophia ?? "").trim();
@@ -1132,6 +1151,8 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
 
   // UnSwipe, Micabo… : l'original entre aussi dans la réserve des autres
   // applications de son label. Jamais bloquant : le contenu Sophia est validé.
+  // Label hors Sophia : c'est sa seule réserve ; un échec reste dans la
+  // réponse et se rattrape par `ouvrir_applications_originaux`.
   let applications: Awaited<ReturnType<typeof ouvrirApplicationsOriginal>> = [];
   let applicationsErreur: string | null = null;
   try {

@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o001",
+  "schema_id": "methods-per-subject",
+  "titre": "the study method each subject actually needs #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "Pilote du podz 12. Schéma methods-per-subject (@studyy.hackz : 587 k vues le 06/10, 277 k le 30/09). Accroches écrites : « “I study the same way for every subject” » (retenue : la plainte entre guillemets du gagnant, mais la cause plutôt que la question), « “my study method works for history but not for maths” » (écartée : plus longue), « “I study for hours and still blank on the test” » (écartée : trop proche de « if you study for HOURS and still forget everything » de @renaraise, déjà dans le label). Cinq méthodes avec leurs matières, formulées à neuf : les méthodes de @studyy.hackz (blurting, SQ3R, Feynman) ne sont pas reprises, et celles de b7cf2471 sont réécrites avec un autre angle (la matière). Aucune appli dans le texte : l'OS place micabo (se tester sur ses cours, slides 4 et 5) ou UnSwipe (le téléphone, slide 7) selon le compte. Images : la banque du label, sans visage reconnaissable (dos, mains, bureaux) ; écartées : les photos où le visage se voit (250d1958, 5a6af8ae, 67f7c237).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c16f8c98",
+      "texte_overlay": "“I study the same way\nfor every subject”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1138ada9",
+      "texte_overlay": "that's exactly why it's not working.\nhere's the method each subject\nactually needs...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f34855ee",
+      "texte_overlay": "Practice problems ✏️\nBest for: Maths, Physics, Chemistry\ndo the exercises before you reread the lesson. your mistakes show you exactly what to review.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c169736c",
+      "texte_overlay": "Active recall 🧠\nBest for: Biology, History, Geography\nclose the book, write down everything you remember, then check what you missed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "710ba2cd",
+      "texte_overlay": "Spaced repetition 📅\nBest for: Vocabulary, Dates, Formulas\nreview it after 1 day, 3 days, then 1 week. it sticks way longer than one long session.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d7e108a5",
+      "texte_overlay": "Teach it out loud 🗣️\nBest for: Philosophy, Economics, Literature\nexplain it to an empty chair. the moment you get stuck is the part you don't understand yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a93ac413",
+      "texte_overlay": "25 minutes, no phone 📵\nBest for: every single subject\n25 minutes of real focus beats 3 hours of studying next to your notifications.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/7.jpg"
+    }
+  ]
+}

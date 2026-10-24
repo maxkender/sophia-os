@@ -168,11 +168,34 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
 });
 
-Deno.test("PODS_AVEC_PREUVE : pods 4, 5, 7, 8 et 9 seulement", () => {
+Deno.test("verifierOriginal : un label sans Sophia (pod 12) n'a aucune slide d'appli, le reste ne change pas", () => {
+  const id = (n: number) => `00000000-0000-4000-8000-00000000000${n}`;
+  const ref = (n: number) => `https://abc.supabase.co/storage/v1/object/public/medias/brut/7667/${n}.jpg`;
+  const base = [1, 2, 3, 4, 5, 6].map((p) => ({ position: p, media_id: id(p), texte_overlay: `slide ${p}`, reference_url: ref(p) }));
+  const sansSophia = { sophia: false };
+  assertEquals(verifierOriginal(base, sansSophia), []);
+  assertEquals(verifierOriginal(base), ["0 slide(s) Sophia (une seule attendue)"]);
+  assertEquals(verifierOriginal(base, { sophia: true }), ["0 slide(s) Sophia (une seule attendue)"]);
+  const avecSophia = base.map((s) => (s.position === 6 ? { ...s, texte_sophia: "a micro-learning app like the Sophia app" } : s));
+  assertEquals(verifierOriginal(avecSophia), []);
+  assertEquals(verifierOriginal(avecSophia, sansSophia), [
+    "1 slide(s) Sophia : le label ne sert pas Sophia, l'OS place l'appli de chaque compte (aucune attendue)",
+  ]);
+  // Le texte de base ne cite toujours aucune appli : micabo et UnSwipe sont placés par l'OS.
+  const avec = (champ: Record<string, unknown>) => base.map((s) => (s.position === 4 ? { ...s, ...champ } : s));
+  assertEquals(verifierOriginal(avec({ texte_overlay: "i put my notes in micabo" }), sansSophia), ["#4 : mention d'appli interdite"]);
+  assertEquals(verifierOriginal(avec({ texte_overlay: "unswipe blocks my reels" }), sansSophia), ["#4 : mention d'appli interdite"]);
+  assertEquals(verifierOriginal(avec({ texte_overlay: "i make my flashcards on Quizlet" }), sansSophia), ["#4 : mention d'appli interdite"]);
+  assertEquals(verifierOriginal(avec({ texte_overlay: "Penman... best app out there" }), sansSophia), ["#4 : mention d'appli interdite"]);
+  assertEquals(verifierOriginal(base.slice(0, 3), sansSophia), ["3 slides (4 à 10 attendues)"]);
+});
+
+Deno.test("PODS_AVEC_PREUVE : pods 4, 5, 7, 8, 9 et 12 seulement", () => {
   assertEquals([...PODS_AVEC_PREUVE].sort(), [
     "originaux_alpha_male",
     "originaux_alpha_yellow",
     "originaux_beau_smart_girl",
+    "originaux_clean_study",
     "originaux_rh",
     "originaux_smart_girl",
   ]);

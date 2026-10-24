@@ -668,6 +668,14 @@ async function valider(
 
   const decks = l.decks as Record<string, { hashtags: string; slides: { position: number; media_id: string; position_sophia: boolean }[] }>;
   const deckSource = decks[l.langue_source];
+  // Une légende par langue, toutes en même temps : à la suite, 7 langues
+  // dépassaient le temps d'une fonction (« Failed to send a request »).
+  // Avant de créer le contenu : une fonction coupée ne laisse pas de contenu sans decks.
+  const hashtags: Record<string, string> = Object.fromEntries(
+    await Promise.all(
+      Object.entries(decks).map(async ([langue, d]) => [langue, await legendeLocale(textes, l.titre, langue, d.hashtags ?? "")] as const),
+    ),
+  );
   const { data: contenu, error: cErr } = await supabase
     .from("contenus")
     .insert({
@@ -713,10 +721,6 @@ async function valider(
     .single();
   if (cErr || !contenu) throw new Error(`contenu : ${messageErreur(cErr)}`);
 
-  const hashtags: Record<string, string> = {};
-  for (const [langue, d] of Object.entries(decks)) {
-    hashtags[langue] = await legendeLocale(textes, l.titre, langue, d.hashtags ?? "");
-  }
   try {
     const { error: lErr } = await supabase.from("contenu_labels").insert({ contenu_id: contenu.id, label_id: pod.label_id });
     if (lErr) throw lErr;
@@ -791,10 +795,13 @@ async function validerLangues(supabase: Supabase, l: any, userId: string | null)
   if (!l.contenu_id) return json({ ok: false, error: "contenu d'origine introuvable" }, 409);
   const decks = l.decks as Record<string, { hashtags: string; slides: { position: number; media_id: string; position_sophia: boolean }[] }>;
   const textes: string[] = l.transcription?.textes ?? [];
-  const hashtags: Record<string, string> = {};
-  for (const [langue, d] of Object.entries(decks)) {
-    hashtags[langue] = await legendeLocale(textes, l.titre, langue, d.hashtags ?? "");
-  }
+  // Une légende par langue, toutes en même temps : à la suite, 7 langues
+  // dépassaient le temps d'une fonction (« Failed to send a request »).
+  const hashtags: Record<string, string> = Object.fromEntries(
+    await Promise.all(
+      Object.entries(decks).map(async ([langue, d]) => [langue, await legendeLocale(textes, l.titre, langue, d.hashtags ?? "")] as const),
+    ),
+  );
   const lignes = Object.entries(decks).map(([langue, d]) => ({
     contenu_id: l.contenu_id,
     langue,

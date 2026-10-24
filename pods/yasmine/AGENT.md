@@ -15,7 +15,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- `ANALYSE.md` donne le détail, `sources/manifeste.json` la liste de ses posts et l'ordre de travail.
 - **L'appli** : **micabo**, une appli de révision. On y dépose ses cours ou ses notes, elle en fait des quiz et des flashcards, 10 minutes par jour jusqu'à l'examen. Écris toujours « micabo » en minuscules.
 - **Le label** : `that_girl_study`, qui sert **micabo seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes.
-- **Langues** : le français d'abord, puis l'espagnol, l'allemand et le turc, les langues de micabo (décision du 23/10, yp-003). Un deck traduit n'a que du texte écrit par nous : une capture de micabo reste en français tant qu'elle n'est pas traduite, donc pas de traduction pour un post à capture.
+- **Langues** : chaque post dans les grandes langues : fr, en, es, de, it, pt, tr (décision d'Adrien du 24/10, tous les posts, même déjà validés). Une slide avec une capture de micabo prend la version traduite de la mise en scène (`photo` dans la langue) ; tant qu'elle n'est pas servie et juste à l'écran, la langue attend. Dépose par lots de 2 ou 3 langues (`--langues es,de`) : au-delà, la fonction tombe en WORKER_LIMIT (HTTP 546).
 	- La police d'écriture fine (Nothing You Could Do) n'a pas ğ, ı, ş, İ : en turc, choisis un mot sans ces lettres pour elle.
 - **Parfait ou rien** (décision du 23/10). Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 

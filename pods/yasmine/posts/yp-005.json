@@ -8,10 +8,22 @@
   "titre": "SCHOOL TIPS from a highschool graduate"
  },
  "titre": {
-  "fr": "conseils de lycée d’une jeune bachelière"
+  "fr": "conseils de lycée d’une jeune bachelière",
+  "en": "school tips from a high school graduate",
+  "es": "consejos de instituto de una recién graduada",
+  "de": "Schultipps von einer frischen Abiturientin",
+  "it": "consigli per il liceo da una neodiplomata",
+  "pt": "dicas de escola de uma recém-formada",
+  "tr": "yeni bir mezundan okul tavsiyeleri"
  },
  "legendes": {
-  "fr": "ce que j’aurais aimé savoir avant 📚 #conseils #studytok #lycee #revisions #thatgirl"
+  "fr": "ce que j’aurais aimé savoir avant 📚 #conseils #studytok #lycee #revisions #thatgirl",
+  "en": "what i wish i knew earlier 📚 #studytips #studytok #highschool #school #thatgirl",
+  "es": "lo que me habría gustado saber antes 📚 #consejos #studytok #instituto #estudiar #thatgirl",
+  "de": "was ich gern früher gewusst hätte 📚 #lerntipps #studytok #schule #abitur #thatgirl",
+  "it": "quello che avrei voluto sapere prima 📚 #consigli #studytok #liceo #studiare #thatgirl",
+  "pt": "o que eu queria ter sabido antes 📚 #dicas #studytok #ensinomedio #estudos #thatgirl",
+  "tr": "keşke daha önce bilseydim dediklerim 📚 #dersçalışma #studytok #lise #yks #thatgirl"
  },
  "musique": {
   "titre": "young folks nightcore",
@@ -52,6 +64,156 @@
       }
      ]
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHOOL",
+      "TIPS"
+     ],
+     "taille": 190,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "from a highschool",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "graduate",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE INSTI"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de una recién",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "graduada",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHUL-",
+      "TIPPS"
+     ],
+     "taille": 190,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "von einer frischen",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "Abiturientin",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "PER IL LICEO"
+     ],
+     "taille": 150,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "da una",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "neodiplomata",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DICAS",
+      "DE ESCOLA"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de uma",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "recém-formada",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OKUL",
+      "TAVSİYELERİ"
+     ],
+     "taille": 140,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "yeni bir",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "mezundan",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
    }
   },
   {
@@ -71,6 +233,66 @@
       "y": 264,
       "texte": "pas besoin d’une trousse énorme.\n2 stylos, 2 crayons et 2 surligneurs, c’est tout ce qu’il te faut.",
       "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "grand": true,
+      "texte": "i don’t own a huge pencil case.\n2 pens, 2 pencils and 2 highlighters is all you need."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "grand": true,
+      "texte": "no hace falta un estuche enorme.\n2 bolis, 2 lápices y 2 subrayadores, es todo lo que necesitas."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "grand": true,
+      "texte": "du brauchst kein riesiges Federmäppchen.\n2 Stifte, 2 Bleistifte und 2 Textmarker sind alles, was du brauchst."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "grand": true,
+      "texte": "non serve un astuccio enorme.\n2 penne, 2 matite e 2 evidenziatori, è tutto quello che ti serve."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "grand": true,
+      "texte": "não precisa de um estojo enorme.\n2 canetas, 2 lápis e 2 marca-textos, é tudo o que você precisa."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "grand": true,
+      "texte": "kocaman bir kalem kutusuna gerek yok.\n2 tükenmez, 2 kurşun kalem ve 2 fosforlu kalem, ihtiyacın olan bu kadar."
      }
     ]
    }
@@ -95,6 +317,66 @@
       "grand": true
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "grand": true,
+      "texte": "keep a spare pen, pencil and highlighter in your bag in case you lose the first ones."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "grand": true,
+      "texte": "lleva un boli, un lápiz y un subrayador de repuesto en la mochila, por si pierdes los primeros."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "grand": true,
+      "texte": "hab einen Ersatzstift, einen Bleistift und einen Textmarker in der Tasche, falls du die ersten verlierst."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "grand": true,
+      "texte": "tieni una penna, una matita e un evidenziatore di scorta nello zaino, nel caso perdessi i primi."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "grand": true,
+      "texte": "deixe uma caneta, um lápis e um marca-texto reserva na mochila, caso você perca os primeiros."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "grand": true,
+      "texte": "ilkini kaybedersen diye çantanda yedek bir tükenmez, kurşun kalem ve fosforlu kalem bulundur."
+     }
+    ]
    }
   },
   {
@@ -117,6 +399,72 @@
       "grand": true
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "grand": true,
+      "titre": "aesthetic notes? useless📝",
+      "texte": "you waste time and miss information if you try to make pretty notes in class."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "grand": true,
+      "titre": "¿apuntes bonitos? no sirven📝",
+      "texte": "pierdes tiempo y te saltas información si intentas hacer apuntes bonitos en clase."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "grand": true,
+      "titre": "schöne Notizen? bringen nichts📝",
+      "texte": "du verlierst Zeit und verpasst Infos, wenn du im Unterricht schöne Notizen machen willst."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "grand": true,
+      "titre": "appunti belli? inutili📝",
+      "texte": "perdi tempo e ti sfuggono informazioni se cerchi di fare appunti belli in classe."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "grand": true,
+      "titre": "anotações bonitas? inúteis📝",
+      "texte": "você perde tempo e informação se tenta fazer anotações bonitas na aula."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "grand": true,
+      "titre": "güzel notlar mı? gereksiz📝",
+      "texte": "derste güzel not tutmaya çalışırsan zaman kaybedersin ve bilgi kaçırırsın."
+     }
+    ]
    }
   },
   {
@@ -137,6 +485,72 @@
       "titre": "mes notes, un bon jour😅",
       "texte": "tu notes les infos importantes et tu écoutes ton prof. c’est ça, le but.",
       "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "grand": true,
+      "titre": "my notes on a good day😅",
+      "texte": "you write down the important info and listen to your teacher. that’s the whole point."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "grand": true,
+      "titre": "mis apuntes, en un buen día😅",
+      "texte": "apuntas lo importante y escuchas a tu profe. de eso se trata."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "grand": true,
+      "titre": "meine Notizen an einem guten Tag😅",
+      "texte": "du schreibst das Wichtige auf und hörst deiner Lehrkraft zu. darum geht es."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "grand": true,
+      "titre": "i miei appunti, in una giornata buona😅",
+      "texte": "scrivi le cose importanti e ascolti il prof. è questo il punto."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "grand": true,
+      "titre": "minhas anotações, num dia bom😅",
+      "texte": "você anota o que é importante e ouve o professor. esse é o objetivo."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "grand": true,
+      "titre": "iyi bir günümde notlarım😅",
+      "texte": "önemli bilgileri yazıyorsun ve öğretmenini dinliyorsun. amaç bu."
      }
     ]
    }
@@ -162,7 +576,67 @@
      }
     ]
    },
-   "app": true
+   "app": true,
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "grand": true,
+      "texte": "don’t rewrite your notes, UNLESS you need them for an end-of-year exam.\nturn them into flashcards: i put my notes in micabo and it makes flashcards for me."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "grand": true,
+      "texte": "no pases los apuntes a limpio, SALVO que los necesites para un examen de final de curso.\nconviértelos en flashcards: yo subo mis apuntes a micabo y me hace las flashcards."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "grand": true,
+      "texte": "schreib deine Notizen nicht ab, AUSSER du brauchst sie für eine Prüfung am Schuljahresende.\nmach Karteikarten daraus: ich lade meine Unterlagen in micabo hoch und es macht mir Karteikarten."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "grand": true,
+      "texte": "non ricopiare gli appunti, A MENO CHE non ti servano per un esame di fine anno.\ntrasformali in flashcard: io carico i miei appunti su micabo e lui mi fa le flashcard."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "grand": true,
+      "texte": "não passe as anotações a limpo, A MENOS QUE precise delas para uma prova de fim de ano.\ntransforme em flashcards: eu coloco minhas anotações no micabo e ele faz os flashcards para mim."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "grand": true,
+      "texte": "notlarını temize çekme, yıl sonu sınavı için gerekmedikçe.\nonları bilgi kartlarına çevir: ben ders notlarımı micabo’ya yüklüyorum, bana bilgi kartları hazırlıyor."
+     }
+    ]
+   }
   },
   {
    "type": "photo",
@@ -181,6 +655,66 @@
       "y": 311,
       "titre": "ou en cartes mentales💭",
       "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "or into mind maps💭"
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "o en mapas mentales💭"
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "oder Mindmaps💭"
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "o in mappe mentali💭"
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "ou em mapas mentais💭"
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "ya da zihin haritaları💭"
      }
     ]
    }
@@ -202,6 +736,66 @@
       "y": 311,
       "titre": "ou en fiches de synthèse comme celles-ci ! fais-les quand tu as une vue d’ensemble.",
       "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "or into summary sheets like these! make them once you have the big picture."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "o en resúmenes como estos. hazlos cuando ya tengas una visión de conjunto."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "oder Zusammenfassungen wie diese! mach sie, wenn du den Überblick hast."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "o in schemi riassuntivi come questi! falli quando hai una visione d’insieme."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "ou em resumos como estes! faça quando já tiver uma visão geral."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "ya da bunlar gibi özet notlar! genel resmi gördüğünde hazırla."
      }
     ]
    }
@@ -226,6 +820,66 @@
       "grand": true
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "grand": true,
+      "texte": "keep your flashcards, mind maps or summary sheets in binders so you don’t lose them.📂"
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "grand": true,
+      "texte": "guarda tus flashcards, mapas mentales o resúmenes en carpetas para no perderlos.📂"
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "grand": true,
+      "texte": "heb deine Karteikarten, Mindmaps oder Zusammenfassungen in Ordnern auf, damit du sie nicht verlierst.📂"
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "grand": true,
+      "texte": "metti flashcard, mappe mentali o schemi in dei raccoglitori per non perderli.📂"
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "grand": true,
+      "texte": "guarde seus flashcards, mapas mentais ou resumos em fichários para não perder.📂"
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "grand": true,
+      "texte": "bilgi kartlarını, zihin haritalarını ya da özetlerini kaybetmemek için klasörlerde sakla.📂"
+     }
+    ]
    }
   },
   {
@@ -247,6 +901,72 @@
       "titre": "mention spéciale :",
       "texte": "tu peux te faire un agenda avec n’importe quel carnet ! de préférence à pages blanches ou quadrillées.",
       "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "honorable mention:",
+      "texte": "you can make a planner out of any notebook! ideally a blank or grid one."
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "mención especial:",
+      "texte": "puedes hacerte una agenda con cualquier libreta. mejor si es de hojas lisas o cuadriculadas."
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "besondere Erwähnung:",
+      "texte": "du kannst aus jedem Notizbuch einen Planer machen! am besten blanko oder kariert."
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "menzione speciale:",
+      "texte": "puoi farti un’agenda con qualsiasi quaderno! meglio se a pagine bianche o a quadretti."
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "menção honrosa:",
+      "texte": "você pode fazer uma agenda com qualquer caderno! de preferência sem pauta ou quadriculado."
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "grand": true,
+      "titre": "özel bir not:",
+      "texte": "herhangi bir defterden ajanda yapabilirsin! tercihen düz ya da kareli sayfalı."
      }
     ]
    }

@@ -11,13 +11,19 @@
   "fr": "je note des astuces de révision : ça vaut le coup ou pas ?",
   "es": "puntúo trucos de estudio: ¿valen la pena o no?",
   "de": "ich bewerte Lern-Hacks: lohnt es sich oder nicht?",
-  "tr": "ders çalışma taktiklerini puanlıyorum: değer mi, değmez mi?"
+  "tr": "ders çalışma taktiklerini puanlıyorum: değer mi, değmez mi?",
+  "en": "rating study hacks: worth it or not worth it?",
+  "it": "do un voto ai trucchi di studio: ne vale la pena o no?",
+  "pt": "avaliando truques de estudo: vale a pena ou não?"
  },
  "legendes": {
   "fr": "mes notes sur 10, sans filtre 📚 #revisions #studytok #astuces #methodedetravail #thatgirl",
   "es": "mis notas del 0 al 10, sin filtro 📚 #estudiar #studytok #trucosdeestudio #tecnicasdeestudio #thatgirl",
   "de": "meine Noten von 0 bis 10, ganz ehrlich 📚 #lernen #studytok #lerntipps #abitur #thatgirl",
-  "tr": "0'dan 10'a puanlarım, filtresiz 📚 #ders #studytok #dersçalışma #yks #thatgirl"
+  "tr": "0'dan 10'a puanlarım, filtresiz 📚 #ders #studytok #dersçalışma #yks #thatgirl",
+  "en": "my honest ratings out of 10 📚 #studytips #studytok #studyhacks #studying #thatgirl",
+  "it": "i miei voti da 0 a 10, senza filtri 📚 #studiare #studytok #metododistudio #consigli #thatgirl",
+  "pt": "minhas notas de 0 a 10, sem filtro 📚 #estudos #studytok #dicasdeestudo #enem #thatgirl"
  },
  "musique": {
   "titre": "original sound",
@@ -136,6 +142,84 @@
       }
      ]
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RATING",
+      "STUDY",
+      "HACKS"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "worth it or not",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "worth it?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "VOTO I",
+      "TRUCCHI DI",
+      "STUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ne vale la pena",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AVALIANDO",
+      "TRUQUES DE",
+      "ESTUDO"
+     ],
+     "taille": 150,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "vale a pena",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "ou não?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
    }
   },
   {
@@ -201,6 +285,51 @@
       "y": 242,
       "titre": "sabahlamak🌙",
       "texte": "0/10\nkesinlikle hayır. uyku, öğrendiklerini hatırlaman için çok önemli. uyumazsan bildiğin azıcık şeyi de unutursun.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pulling all-nighters🌙",
+      "texte": "0/10\nabsolutely not. sleep is key for remembering things. you’ll forget even the little you knew if you don’t sleep.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "fare le nottate🌙",
+      "texte": "0/10\nassolutamente no. il sonno è fondamentale per memorizzare. se non dormi, dimentichi anche quel poco che sapevi.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "virar a noite🌙",
+      "texte": "0/10\nde jeito nenhum. o sono é essencial para memorizar. sem dormir, você esquece até o pouco que sabia.",
       "grand": true,
       "taille": 41,
       "pas": 52,
@@ -280,6 +409,51 @@
       "annuler": false
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "deleting social media📱",
+      "texte": "10/10\nlife is so much more peaceful. if you know, you know.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "cancellare i social📱",
+      "texte": "10/10\nla vita è molto più tranquilla. chi sa, sa.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "apagar as redes sociais📱",
+      "texte": "10/10\na vida fica muito mais tranquila. quem sabe, sabe.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
    }
   },
   {
@@ -345,6 +519,51 @@
       "y": 242,
       "titre": "konuları birbirine anlatmak🧑‍🏫",
       "texte": "9/10\nher ders için mükemmel: sesli anlatmak, neyi anlamadığını görmenin en iyi yolu.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "explaining it to each other🧑‍🏫",
+      "texte": "9/10\ngreat for any subject: explaining out loud is the best way to see what you haven’t understood.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "spiegarsi gli argomenti a vicenda🧑‍🏫",
+      "texte": "9/10\nperfetto per ogni materia: spiegare ad alta voce è il modo migliore per capire cosa non hai capito.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "explicar a matéria um para o outro🧑‍🏫",
+      "texte": "9/10\nótimo para qualquer matéria: explicar em voz alta é o melhor jeito de ver o que você não entendeu.",
       "grand": true,
       "taille": 41,
       "pas": 52,
@@ -424,6 +643,51 @@
       "annuler": false
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "rewriting notes✍️",
+      "texte": "2/10\nno. test yourself instead: i put my notes in micabo and do its quizzes. i see right away what didn’t stick.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ricopiare gli appunti✍️",
+      "texte": "2/10\nno. mettiti alla prova: io carico i miei appunti su micabo e faccio i suoi quiz. vedo subito cosa non mi è rimasto.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "passar as anotações a limpo✍️",
+      "texte": "2/10\nnão. se teste: eu coloco minhas anotações no micabo e faço os quizzes dele. vejo na hora o que não ficou.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
    }
   },
   {
@@ -496,6 +760,51 @@
       "annuler": false
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "changing locations☕",
+      "texte": "10/10\nworks every single time. it’s so embarrassing to get your laptop out at a café or library and then scroll on your phone.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "cambiare posto☕",
+      "texte": "10/10\nfunziona ogni volta. è troppo imbarazzante tirare fuori il computer al bar o in biblioteca e poi scrollare sul telefono.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "mudar de lugar☕",
+      "texte": "10/10\nfunciona sempre. é constrangedor demais abrir o notebook no café ou na biblioteca e ficar rolando o celular.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
    }
   },
   {
@@ -560,6 +869,51 @@
       "y": 242,
       "titre": "ders için erken kalkmak📖",
       "texte": "9/10\nevet, hafta sonları bile. zor ama karşılığını veriyor. saat 4’te kalkmana gerek yok, 6 yeterli.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "waking up early to study📖",
+      "texte": "9/10\nyes, even on weekends. it’s hard but it pays off. no need for 4am, 6am is fine.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "svegliarsi presto per studiare📖",
+      "texte": "9/10\nsì, anche nel weekend. è dura, ma ripaga. non serve alzarsi alle 4, le 6 bastano.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "acordar cedo para estudar📖",
+      "texte": "9/10\nsim, até no fim de semana. é difícil, mas compensa. não precisa acordar às 4, às 6 já basta.",
       "grand": true,
       "taille": 41,
       "pas": 52,

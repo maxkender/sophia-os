@@ -10,12 +10,14 @@
  "titre": {
   "fr": "la parfaite routine après les cours pour une vie sereine",
   "de": "die perfekte After-School-Routine für ein entspanntes Leben",
-  "tr": "huzurlu bir hayat için mükemmel okul sonrası rutini"
+  "tr": "huzurlu bir hayat için mükemmel okul sonrası rutini",
+  "en": "the perfect after school routine for a peaceful life"
  },
  "legendes": {
   "fr": "ma routine du soir, sans stress 🌙 #routine #apreslescours #studytok #thatgirl #revisions",
   "de": "meine Routine nach der Schule, ohne Stress 🌙 #routine #nachderschule #studytok #thatgirl #lernen",
-  "tr": "stressiz okul sonrası rutinim 🌙 #rutin #okulsonrası #studytok #thatgirl #ders"
+  "tr": "stressiz okul sonrası rutinim 🌙 #rutin #okulsonrası #studytok #thatgirl #ders",
+  "en": "my after school routine, no stress 🌙 #routine #afterschool #studytok #thatgirl #studying"
  },
  "musique": {
   "titre": "original sound",
@@ -76,6 +78,21 @@
      "y": 757,
      "texte_bas": "huzurlu bir hayat için🌙"
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "the perfect",
+     "lignes": [
+      "AFTER",
+      "SCHOOL",
+      "ROUTINE"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "for a peaceful life🌙"
+    }
    }
   },
   {
@@ -114,6 +131,17 @@
     "legende": {
      "lignes": [
       "bir şeyler atıştır🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "make a snack🍫"
      ],
      "x": 430,
      "y": 437,
@@ -164,6 +192,17 @@
      "taille": 52,
      "couleur": "brun"
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "and a warm drink☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -202,6 +241,17 @@
     "legende": {
      "lignes": [
       "rahat bir şeyler giy🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "change into comfy clothes🧦"
      ],
      "x": 420,
      "y": 443,
@@ -311,6 +361,39 @@
       "y": 0.5
      }
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "study time📚"
+     ],
+     "sous": [
+      "aim for 2 hours a day⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
    }
   },
   {
@@ -349,6 +432,17 @@
     "legende": {
      "lignes": [
       "odanı ve masanı hızlıca topla🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "quickly tidy your room and desk🖥️"
      ],
      "x": 470,
      "y": 554,
@@ -400,6 +494,17 @@
      "taille": 56,
      "couleur": "brun"
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "dinner🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -438,6 +543,17 @@
     "legende": {
      "lignes": [
       "rahatla🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "unwind🍵"
      ],
      "x": 640,
      "y": 1059,
@@ -488,6 +604,17 @@
      "taille": 54,
      "couleur": "jaune"
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "shower and skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
    }
   },
   {
@@ -532,6 +659,17 @@
      "taille": 48,
      "couleur": "jaune"
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "plan tomorrow📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
    }
   },
   {
@@ -570,6 +708,17 @@
     "legende": {
      "lignes": [
       "uyumadan önce kitap oku📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "read before bed📖"
      ],
      "x": 540,
      "y": 479,
@@ -621,6 +770,17 @@
      "taille": 58,
      "couleur": "jaune"
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "good night!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
    }
   }
  ],
@@ -628,6 +788,7 @@
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627"
  ]
 }

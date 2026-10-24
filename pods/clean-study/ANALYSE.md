@@ -4,7 +4,7 @@ Sources des données :
 - la base de prod (`mbikecieskoobeizixig`), en lecture seule ;
 - les pages publiques des posts TikTok de la niche (vues, enregistrements, date), lues sans Apify.
 
-Pas de relevé Apify : le compte a atteint sa limite de 400 $ pour le mois (cycle du 6/10 au 5/11).
+Pas de relevé Apify pour cette analyse : le compte avait atteint sa limite de 400 $ pour le mois. Elle est passée à 1 000 $ le 24/10 : la veille reprend.
 
 Les ids de contenu sont abrégés à 8 caractères.
 
@@ -98,7 +98,7 @@ Méthode : celle de l'analyste (`analyse/AGENT.md`).
 	- un item où l'on se teste sur ses cours ou revoit ses notes, pour micabo ;
 	- un item sur le téléphone, le scroll ou la concentration, pour UnSwipe.
 4. **Les images** : la banque du label, sans visage reconnaissable. Des bureaux, des cahiers, des filles de dos.
-5. **Sans Apify jusqu'au 6/11** :
-	- pas de veille en direct ;
-	- `npm run preuve` relit les posts connus sans frais ;
-	- les preuves de la niche tiennent jusqu'au 5/11, puis nos propres r prennent le relais s'ils passent 2.
+5. **Apify est débloqué depuis le 24/10** (limite à 1 000 $) :
+	- reprendre `npm run veille` et `--decouvrir` (#studytok #studytips #studymethod), dans le budget de 1 $ par semaine ;
+	- priorité : de nouveaux posts de la niche à 200 k vues ou plus, car `study-hacks-earlier` expire le 28/10 et `methods-per-subject` le 5/11 ;
+	- `npm run preuve` reste l'outil gratuit pour relire une preuve.

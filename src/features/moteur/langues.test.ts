@@ -1,6 +1,9 @@
+import { readFileSync } from "node:fs";
+
 import { describe, expect, it } from "vitest";
 
 import {
+  canoniserLangue,
   LANGUES_CIBLES,
   LANGUES_RTL,
   classeDirectionTexte,
@@ -91,5 +94,27 @@ describe("RTL contenu", () => {
     expect(directionTexte("fr", "")).toBe("ltr");
     expect(classeDirectionTexte("he", "שלום")).toBe("text-right");
     expect(classeDirectionTexte("ar", "hello")).toBe("text-left");
+  });
+});
+
+describe("canoniserLangue", () => {
+  it("rend le code canonique quelle que soit la casse", () => {
+    expect(canoniserLangue("pt-br")).toBe("pt-BR");
+    expect(canoniserLangue(" PT-BR ")).toBe("pt-BR");
+    expect(canoniserLangue("ES-419")).toBe("es-419");
+    expect(canoniserLangue("FR")).toBe("fr");
+    expect(canoniserLangue("pt")).toBe("pt");
+  });
+
+  it("inconnu en minuscules, vide reste vide", () => {
+    expect(canoniserLangue("XX")).toBe("xx");
+    expect(canoniserLangue("")).toBe("");
+    expect(canoniserLangue(null)).toBe("");
+  });
+
+  it("la copie Deno a la même liste", () => {
+    const deno = readFileSync("supabase/functions/_shared/langues_cibles.ts", "utf8");
+    const liste = deno.slice(deno.indexOf("LANGUES_CIBLES = ["), deno.indexOf("] as const"));
+    expect([...liste.matchAll(/"([^"]+)"/g)].map((m) => m[1])).toEqual([...LANGUES_CIBLES]);
   });
 });

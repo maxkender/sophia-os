@@ -17,6 +17,7 @@ import {
   type ZoneTexteIncruste,
 } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
+import { canoniserLangue } from "../_shared/langues_cibles.ts";
 import {
   assertAuthorised,
   chargerPrompt,
@@ -50,7 +51,7 @@ Deno.serve(async (request) => {
     // vide
   }
   const contenuId = String(corps.contenuId ?? "").trim();
-  const langue = String(corps.langue ?? "").trim().toLowerCase();
+  const langue = canoniserLangue(corps.langue);
   if (!contenuId) return json({ error: "contenuId requis" }, 400);
   if (!langue) return json({ error: "langue requise" }, 400);
 

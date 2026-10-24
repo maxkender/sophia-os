@@ -67,6 +67,9 @@ interface LigneSimulation {
   recence_langue: number;
   recents_pays: number;
   recence_pays: number;
+  pod_seul?: boolean | null;
+  livre_langue?: boolean | null;
+  niveau_pod?: number | string | null;
 }
 
 function nombre(v: number | string | null | undefined): number {
@@ -119,6 +122,9 @@ export async function lireMarchesRepartition(
       recence_langue: nombre(l.recence_langue),
       recents_pays: nombre(l.recents_pays),
       recence_pays: nombre(l.recence_pays),
+      pod_seul: l.pod_seul === true,
+      livre_langue: l.livre_langue !== false,
+      niveau_pod: nombreOuNull(l.niveau_pod),
     });
   }
 

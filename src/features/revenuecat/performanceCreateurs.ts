@@ -1,4 +1,5 @@
 import { estSlugSophia } from "@/features/moteur/applications";
+import { canoniserLangue } from "@/features/moteur/langues";
 
 import { mesurePrincipale } from "./normaliser";
 import { langueDepuisPays } from "./paysLangue";
@@ -27,7 +28,7 @@ export function compterCreateursParLangue(comptes: ComptePourPerf[]): Record<str
   for (const compte of comptes) {
     if (compte.is_active === false) continue;
     if (!estSlugSophia(compte.application_slug)) continue;
-    const langue = (compte.langue ?? "").trim().toLowerCase();
+    const langue = canoniserLangue(compte.langue);
     if (!langue) continue;
     const identifiant = compte.poster_id || compte.id;
     if (!identifiant) continue;

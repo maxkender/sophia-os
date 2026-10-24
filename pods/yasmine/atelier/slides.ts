@@ -41,7 +41,14 @@ export type ContenuSlide = {
 };
 
 /** Une photo de la banque de l'OS et son cadrage ; `ecrans` y incruste des captures de micabo. */
-export type Photo = { media_id: string; url: string; cadrage?: Cadrage; ecrans?: EcranPhoto[] };
+export type Photo = {
+  media_id: string;
+  url: string;
+  cadrage?: Cadrage;
+  ecrans?: EcranPhoto[];
+  /** Une mise en scène validée de l'OS (fonction `mises-en-scene`) : son id, signalé à l'OS (`utiliser`) quand le post est déposé. */
+  mise_en_scene?: string;
+};
 
 export type Slide = {
   /** photo : une photo pleine par slide, petite légende (« after school routine »). */

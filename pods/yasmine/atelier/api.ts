@@ -12,10 +12,10 @@ export const LANGUE_SOURCE = "fr";
 
 const URL_DEFAUT = "https://mbikecieskoobeizixig.supabase.co";
 
-export async function appelPod<T = Record<string, unknown>>(corps: Record<string, unknown>): Promise<T & { ok: boolean; error?: string }> {
+export async function appelPod<T = Record<string, unknown>>(corps: Record<string, unknown>, fonction = "pods"): Promise<T & { ok: boolean; error?: string }> {
   const jeton = process.env.POD_JETON;
   if (!jeton) throw new Error("POD_JETON manquant");
-  const r = await fetch(`${process.env.SUPABASE_URL ?? URL_DEFAUT}/functions/v1/pods`, {
+  const r = await fetch(`${process.env.SUPABASE_URL ?? URL_DEFAUT}/functions/v1/${fonction}`, {
     method: "POST",
     headers: { "content-type": "application/json", "x-pod-jeton": jeton },
     body: JSON.stringify({ pod: POD, ...corps }),

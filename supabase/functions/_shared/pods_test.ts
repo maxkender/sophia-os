@@ -785,3 +785,27 @@ Deno.test("contenusLivresHorsApplication : le deck de base de CETTE application 
   assertEquals([...(await contenusLivresHorsApplication(sb, "es-419", UNSWIPE_APP))], []);
   assertEquals([...(await contenusLivresHorsApplication(sb, "pt-BR", UNSWIPE_APP))], ["a"]);
 });
+
+Deno.test("deckLivreApplication : la variante exacte prime sur la base, et un refus nomme la langue DEMANDÉE", async () => {
+  const sb = fauxEtat({
+    contenu_langue_decks: [
+      { contenu_id: "c1", langue: "es", variante: "unswipe", statut: "pret", slides: ok("m-es") },
+      { contenu_id: "c1", langue: "es-419", variante: "unswipe", statut: "pret", slides: ok("m-latam") },
+    ],
+    contenu_langues: [
+      { contenu_id: "c1", langue: "es", hashtags: "#es" },
+      { contenu_id: "c1", langue: "es-419", hashtags: "#latam" },
+    ],
+  }, []);
+  assertEquals(await deckLivreApplication(sb, "c1", "es-419", UNSWIPE_APP), {
+    statut: "pret",
+    slides: ok("m-latam"),
+    hashtags: "#latam",
+    cuit: false,
+  });
+  // Ni pt-BR ni pt : le refus parle de la langue du compte, pas de la dernière essayée.
+  assertEquals(await deckLivreApplication(sb, "c1", "pt-BR", UNSWIPE_APP), {
+    statut: "ineligible",
+    raison: "contenu livré : pas de deck unswipe en pt-BR",
+  });
+});

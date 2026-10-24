@@ -30,7 +30,7 @@ rejette est validée toute seule 12 h après son dépôt.
 		- Jamais l'accroche ni la slide micabo. Note l'adaptation dans `notes` du post.
 - **Une seule slide micabo**, jamais la couverture, marquée `"app": true`.
 	- **micabo prend seulement la place d'une appli que son post montre déjà** : une carte d'appli (« productivity apps », à la place de Goodnotes), un écran d'accueil (« organise my phone »).
-	- **Jamais un iPhone avec une capture plaqué sur un post qui ne montre pas d'appli** : ni à la fin (« et pour réviser… »), ni sur une étape de routine. Adrien le juge « pas fluide du tout » (23/10, yp-001 et yp-002). Sur un post « routine », micabo entre par un écran de la photo (`photo.ecrans`, yp-002).
+	- **Jamais un iPhone avec une capture plaqué sur un post qui ne montre pas d'appli** : ni à la fin (« et pour réviser… »), ni sur une étape de routine. Adrien le juge « pas fluide du tout » (23/10, yp-001 et yp-002). Sur un post « routine », micabo entre par une **mise en scène validée de l'OS** posée comme photo de la slide (`photo.mise_en_scene` : son id ; `npm run livrer` signale l'usage), avec sa petite légende (yp-002, 24/10).
 	- Une capture, quand le post en montre une : une **vraie capture** de micabo, `assets/micabo/fr/` (parcours, notes, a-retenir, lecons).
 	- Jamais une capture avec une notification ou une donnée perso.
 	- La phrase est naturelle, d'élève à élève. Jamais d'appel à télécharger, jamais « lien en bio ».

@@ -80,4 +80,9 @@ if (essai) {
   const r = await appelPod<{ id?: string; langues?: string[]; applications?: Record<string, string[]> }>(corps);
   if (!r.ok) throw new Error(`${id} : dépôt refusé : ${r.error}`);
   console.log(`${id} : déposé (livraison ${r.id}) · langues ${r.langues?.join(", ")} · applications ${JSON.stringify(r.applications)}`);
+  // Les mises en scène de l'OS utilisées dans ce post : leur compteur d'usage monte d'un cran.
+  for (const m of new Set(post.slides.flatMap((s) => (s.photo?.mise_en_scene ? [s.photo.mise_en_scene] : [])))) {
+    const u = await appelPod({ action: "utiliser", id: m }, "mises-en-scene");
+    console.log(`  mise en scène ${m.slice(0, 8)} : ${u.ok ? "usage noté" : `usage non noté (${u.error})`}`);
+  }
 }

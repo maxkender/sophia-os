@@ -114,71 +114,25 @@
    "type": "photo",
    "app": true,
    "photo": {
-    "media_id": "3e21a801-8213-4f4b-a478-4fc3d314666a",
-    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/61457f9e-f332-4b16-9778-cec7e1868d14/4.jpg?v=1790607875766",
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
     "cadrage": {
-     "x": 0.3,
-     "y": 1.0,
-     "zoom": 1.5
-    },
-    "ecrans": [
-     {
-      "coins": [
-       [
-        305,
-        1290
-       ],
-       [
-        959,
-        1276
-       ],
-       [
-        961,
-        1691
-       ],
-       [
-        313,
-        1715
-       ]
-      ],
-      "capture": "assets/micabo/fr/site.jpg",
-      "gabarit": "plein",
-      "lumiere": 0.95,
-      "devant": 256
-     },
-     {
-      "coins": [
-       [
-        227,
-        2134
-       ],
-       [
-        985,
-        2080
-       ],
-       [
-        1117,
-        2477
-       ],
-       [
-        128,
-        2565
-       ]
-      ],
-      "capture": "assets/micabo/fr/parcours.jpg",
-      "gabarit": "ipad-paysage",
-      "lumiere": 0.97
-     }
-    ]
+     "x": 0.45,
+     "y": 0.5
+    }
    },
    "fr": {
     "legende": {
      "lignes": [
-      "temps d’étude, 2 h par jour📚"
+      "temps d’étude📚"
+     ],
+     "sous": [
+      "vise 2 h par jour⏰"
      ],
      "x": 540,
-     "y": 1840,
-     "taille": 56,
+     "y": 190,
+     "taille": 60,
      "couleur": "brun"
     }
    }
@@ -340,5 +294,5 @@
    }
   }
  ],
- "notes": "slide « study time » : le site micabo.app sur le Mac et le parcours sur l'iPad (demande d'Adrien, 23/10). Skincare regroupée avec la douche (aucune photo de soins sans marque), slide 10 : préparer sa journée."
+ "notes": "slide « temps d'étude » : la mise en scène validée a83da81b de l'OS (iPhone en main, parcours micabo), 24/10. Skincare regroupée avec la douche, slide 10 : préparer sa journée."
 }

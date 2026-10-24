@@ -80,6 +80,8 @@ export interface ReglagesChoixLabel {
   reserveCibleJours: number;
   postsParJourNouveau: number;
   partMax: number;
+  /** Part des comptes d'un PAYS au-delà de laquelle un label n'en reçoit plus (0354). */
+  partMaxPays: number;
   rafaleRecents: number;
   /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
@@ -110,10 +112,11 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   perfMax: 4,
   fermeturePerf: 0.75,
   fermetureMinPosts: 150,
-  reserveMinJours: 7,
+  reserveMinJours: 5,
   reserveCibleJours: 14,
   postsParJourNouveau: 2,
   partMax: 0.5,
+  partMaxPays: 0.5,
   rafaleRecents: 2,
   relabelsMaxParNuit: 20,
   testPodComptes: 3,
@@ -185,6 +188,7 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     reserveCibleJours: positif(v.reserve_cible_jours, d.reserveCibleJours),
     postsParJourNouveau: positif(v.posts_par_jour_nouveau, d.postsParJourNouveau),
     partMax: Math.min(1, positif(v.part_max, d.partMax)),
+    partMaxPays: Math.min(1, positif(v.part_max_pays, d.partMaxPays)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
     testPodComptes: Math.max(1, Math.round(positif(v.test_pod_comptes, d.testPodComptes))),
@@ -336,6 +340,17 @@ export function estSuspendu(
   return joursApresCompte(s, r) < r.reserveMinJours;
 }
 
+/**
+ * Le label tient déjà plus de `partMaxPays` des comptes du PAYS (parmi les
+ * labels candidats) : les mêmes posts tourneraient sur trop de comptes d'un
+ * même marché. Exemple : 4 comptes alpha_male sur 5 en Pologne, le 6e va à un
+ * autre label, même si alpha_male a une bonne réserve et une bonne perf.
+ * Sans pays connu (`nPays` nul), la règle ne joue pas.
+ */
+export function estSaturePays({ comptes_pays }: StatLabel, nPays: number, r: ReglagesChoixLabel): boolean {
+  return nPays > 0 && comptes_pays > r.partMaxPays * nPays + EPS;
+}
+
 /** Passe après TOUS : à sec, ou, pour un label 100 % pod, langue que son pod ne sert pas (compte muet). */
 export function estASec(
   s: StatLabel,
@@ -391,6 +406,8 @@ export interface LabelClasse {
   recence: number;
   rafaleLangue: boolean;
   rafalePays: boolean;
+  /** Déjà plus de `partMaxPays` des comptes du pays (0354). */
+  saturePays: boolean;
   suspendu: boolean;
   aSec: boolean;
   /** Jours de contenu restants avec ce compte en plus. */
@@ -435,6 +452,7 @@ function prepare(
     recence: Math.max(s.recence_langue, s.recence_pays),
     rafaleLangue: s.recents_langue >= r.rafaleRecents,
     rafalePays: s.recents_pays >= r.rafaleRecents,
+    saturePays: estSaturePays(s, nPays, r),
     suspendu: estSuspendu(s, r),
     aSec: estASec(s, r),
     jours: joursApresCompte(s, r),
@@ -458,6 +476,11 @@ export function classerLabels(
   const regles: Array<(c: LabelClasse) => boolean> = [
     (c) => c.aSec,
     (c) => c.rafaleLangue,
+    // L'ÉLÉMENT CENTRAL (0354) : un label qui tient déjà plus de la moitié d'un
+    // pays n'y reçoit plus de compte, quels que soient sa réserve et sa perf.
+    // Seuls « à sec » et l'anti-rafale de la langue (2 des 3 derniers comptes,
+    // la répétition la plus fraîche) passent avant.
+    (c) => c.saturePays,
     (c) => c.rafalePays,
     (c) => c.suspendu,
   ];

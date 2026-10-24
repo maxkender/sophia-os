@@ -2741,7 +2741,7 @@ export const en = {
       decisionFerme: "Closed",
       reglagesTitre: "Advanced settings",
       reglagesAide:
-        "The fourteen numbers that decide which label the next account gets, and which labels close on their own. They live in reglages.choix_labels and apply to ALL applications. The screen refuses a value the engine would have silently rewritten, so that what is displayed is what runs.",
+        "The fifteen numbers that decide which label the next account gets, and which labels close on their own. They live in reglages.choix_labels and apply to ALL applications. The screen refuses a value the engine would have silently rewritten, so that what is displayed is what runs.",
       reglagesSourceDefaut:
         "No value is stored: the engine runs on the code defaults, shown here. Saving freezes them.",
       reglagesSourcePosee: "Values stored in the database. They win over the code defaults.",
@@ -2803,6 +2803,7 @@ export const en = {
       rPartMax: "Maximum share of a label",
       rRafale: "Anti-burst (recent accounts)",
       rRelabels: "Accounts moved per night at most",
+      rPartMaxPays: "Max share of a label in a country",
       rTestPodComptes: "Test accounts for a 100% pod label",
       rTestPodPosts: "Posts to finish its test",
       colMesure: "Measured on",
@@ -2832,7 +2833,7 @@ export const en = {
       etapeAppTitre: "Otherwise: the app",
       etapeAppRegle: "The one furthest behind its target in the account's market.",
       etapeLabelTitre: "Then: the label",
-      etapeLabelRegle: "The one furthest behind in the account's language and country. Never a closed label, never one out of content. A 100% pod label is first tested on a few accounts, then fills language by language.",
+      etapeLabelRegle: "Never a label that already holds more than half of the country. Then the one furthest behind in the account's language and country. Never a closed label, never one out of content. A 100% pod label is first tested on a few accounts, then fills language by language.",
       cible: "Target",
       reel: "Actual",
       cibleDe: "Target for {{app}}",

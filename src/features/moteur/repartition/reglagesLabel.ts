@@ -33,6 +33,7 @@ export type CleReglageLabel =
   | "partMax"
   | "rafaleRecents"
   | "relabelsMaxParNuit"
+  | "partMaxPays"
   | "testPodComptes"
   | "testPodPosts";
 
@@ -69,6 +70,7 @@ export const CHAMPS_REGLAGE_LABEL: readonly ChampReglageLabel[] = Object.freeze(
   { cle: "reserveCibleJours", cleBase: "reserve_cible_jours", cleI18n: "rReserveCible", min: 0, strict: true, pas: 1 },
   { cle: "postsParJourNouveau", cleBase: "posts_par_jour_nouveau", cleI18n: "rPostsNouveau", min: 0, strict: true, pas: 1 },
   { cle: "partMax", cleBase: "part_max", cleI18n: "rPartMax", min: 0, strict: true, max: 1, pas: 0.05 },
+  { cle: "partMaxPays", cleBase: "part_max_pays", cleI18n: "rPartMaxPays", min: 0, strict: true, max: 1, pas: 0.05 },
   { cle: "rafaleRecents", cleBase: "rafale_recents", cleI18n: "rRafale", min: 0, strict: true, entier: true, pas: 1 },
   { cle: "relabelsMaxParNuit", cleBase: "relabels_max_par_nuit", cleI18n: "rRelabels", min: 0, strict: false, entier: true, pas: 1 },
   { cle: "testPodComptes", cleBase: "test_pod_comptes", cleI18n: "rTestPodComptes", min: 0, strict: true, entier: true, pas: 1 },
@@ -127,14 +129,14 @@ export function validerReglagesLabel(b: BrouillonReglageLabel): VerdictReglagesL
   return { valeurs: bon ? valeurs : null, erreurs, bornesCroisees };
 }
 
-/** Les quatorze réglages en clés `snake_case`, celles que le moteur lit. */
+/** Les quinze réglages en clés `snake_case`, celles que le moteur lit. */
 export function versCleBase(v: ValeursReglageLabel): Record<string, number> {
   const out: Record<string, number> = {};
   for (const c of CHAMPS_REGLAGE_LABEL) out[c.cleBase] = v[c.cle];
   return out;
 }
 
-/** Les quatorze clés, pour les retirer quand on revient aux valeurs par défaut. */
+/** Les quinze clés, pour les retirer quand on revient aux valeurs par défaut. */
 export const CLES_BASE_REGLAGE_LABEL: readonly string[] = Object.freeze(
   CHAMPS_REGLAGE_LABEL.map((c) => c.cleBase),
 );

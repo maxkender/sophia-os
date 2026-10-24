@@ -495,7 +495,7 @@ describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
     expect(envoye.perfExposant).toBe(3);
     // Les autres partent inchangés : on écrit les douze d'un bloc.
     expect(envoye.partMax).toBe(REGLAGES_CHOIX_LABEL_DEFAUT.partMax);
-    expect(Object.keys(envoye)).toHaveLength(14);
+    expect(Object.keys(envoye)).toHaveLength(15);
   });
 
   it("une valeur que le moteur aurait réécrite bloque l'enregistrement", async () => {

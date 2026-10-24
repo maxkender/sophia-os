@@ -1,4 +1,4 @@
--- 0351 : plusieurs angles ACTIFS par label × application.
+-- 0353 : plusieurs angles ACTIFS par label × application.
 --
 -- 0285 n'en permettait qu'un (index unique partiel), et activer un angle
 -- repassait le précédent en test. Désormais une paire peut en avoir
@@ -58,6 +58,6 @@ end;
 $$;
 
 comment on table public.angles_placement is
-  'Angles de placement par label × application. actif (plusieurs par paire depuis 0351) = un par contenu, choisi de façon stable, ajouté au prompt de placement partout ; test = lu seulement par le test à blanc « contenus », une variante par angle. Voir supabase/functions/_shared/angle_placement.ts.';
+  'Angles de placement par label × application. actif (plusieurs par paire depuis 0353) = un par contenu, choisi de façon stable, ajouté au prompt de placement partout ; test = lu seulement par le test à blanc « contenus », une variante par angle. Voir supabase/functions/_shared/angle_placement.ts.';
 
 reset lock_timeout;

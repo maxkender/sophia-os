@@ -1,6 +1,6 @@
 /**
  * Angles de placement (`angles_placement`, migration 0285) : plusieurs par
- * label × application, chacun ACTIF (plusieurs par paire depuis 0351 : chaque
+ * label × application, chacun ACTIF (plusieurs par paire depuis 0353 : chaque
  * slideshow en reçoit un, ajouté à son prompt de placement) ou en TEST (lu seulement par le test à blanc
  * « contenus », une variante par angle pour comparer). Écriture admin (RLS).
  */

@@ -447,7 +447,7 @@ async function cuire(
   // imposé n'est accepté qu'avec `ignorerCache`, l'option du seul test à blanc
   // (angle_test_seulement_test.ts vérifie qu'aucun autre appelant ne les
   // passe). Sinon, seul l'angle ACTIF est lu.
-  // Plusieurs actifs (0348) : un seul sert, toujours le même pour ce contenu ;
+  // Plusieurs actifs (0353) : un seul sert, toujours le même pour ce contenu ;
   // son id est tracé avec son texte, pour comparer les vues par angle.
   const brouillon = opts.angleBrouillon !== undefined && opts.ignorerCache === true;
   const actif = brouillon ? null : await chargerAngleActif(supabase, contenu.id, app.id);

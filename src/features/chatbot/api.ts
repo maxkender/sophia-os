@@ -213,12 +213,15 @@ export async function listerFaqATraiter(): Promise<QuestionFaq[]> {
  * décision du cerveau quand il a tourné, et celles d'avant lui (ancien
  * assistant, `etat` null).
  */
+/** Combien de questions le journal remonte au plus : au-delà, ses chiffres sont tronqués. */
+export const PLAFOND_JOURNAL = 300;
+
 export async function listerFaqJournal(): Promise<QuestionFaq[]> {
   const { data, error } = await supabase
     .from("chatbot_questions")
     .select(COLONNES_FAQ)
     .order("created_at", { ascending: false })
-    .limit(300);
+    .limit(PLAFOND_JOURNAL);
   if (error) throw error;
   return avecProfil(data ?? []);
 }

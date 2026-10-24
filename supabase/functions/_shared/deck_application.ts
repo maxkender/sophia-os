@@ -40,7 +40,7 @@ import {
 } from "./import_contenu.ts";
 import { normaliserAngle } from "./angle_placement.ts";
 import { type ApplicationMoteur, ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
-import { chargerAnglePlacement, schemaMultiAppPret } from "./applications_moteur.ts";
+import { chargerAngleActif, schemaMultiAppPret } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
@@ -113,6 +113,8 @@ type Placement = {
    * en avait pas : le placement d'un deck sans angle s'écrit comme avant.
    */
   angle?: string;
+  /** Id de l'angle actif servi (`angles_placement`) ; absent en test à blanc. */
+  angle_id?: string;
 };
 
 type Cuisson =
@@ -445,10 +447,12 @@ async function cuire(
   // imposé n'est accepté qu'avec `ignorerCache`, l'option du seul test à blanc
   // (angle_test_seulement_test.ts vérifie qu'aucun autre appelant ne les
   // passe). Sinon, seul l'angle ACTIF est lu.
-  const angle = opts.angleBrouillon !== undefined && opts.ignorerCache === true
-    ? normaliserAngle(opts.angleBrouillon)
-    : await chargerAnglePlacement(supabase, contenu.id, app.id);
-  const traceAngle = angle ? { angle } : {};
+  // Plusieurs actifs (0348) : un seul sert, toujours le même pour ce contenu ;
+  // son id est tracé avec son texte, pour comparer les vues par angle.
+  const brouillon = opts.angleBrouillon !== undefined && opts.ignorerCache === true;
+  const actif = brouillon ? null : await chargerAngleActif(supabase, contenu.id, app.id);
+  const angle = brouillon ? normaliserAngle(opts.angleBrouillon) : actif?.texte ?? "";
+  const traceAngle = angle ? { angle, ...(actif ? { angle_id: actif.id } : {}) } : {};
   const placement = await integrerApplication({
     masterPrompt,
     slides: baseCible.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),

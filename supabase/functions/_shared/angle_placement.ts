@@ -8,10 +8,13 @@
  * slide pub (ce qu'elle met en avant), jamais sa forme.
  *
  * Depuis 0285 (2026-10-14), les angles vivent dans `angles_placement` : une
- * paire peut en porter plusieurs, chacun ACTIF (au plus un par paire : ajouté
- * au prompt partout) ou en TEST (lu seulement par le test à blanc « contenus »,
- * une variante par angle pour comparer). Le moteur de la nuit ne lit que
- * l'angle actif ; `label_applications.angle` n'est plus lue. Seuls comptent
+ * paire peut en porter plusieurs, chacun ACTIF (ajouté au prompt partout) ou
+ * en TEST (lu seulement par le test à blanc « contenus », une variante par
+ * angle pour comparer). Depuis 0348 (2026-10-24), une paire peut avoir
+ * plusieurs actifs : chaque contenu en reçoit UN (`choisirAngleActif`), le
+ * même dans toutes ses langues, et les contenus se répartissent entre eux.
+ * Le moteur de la nuit ne lit que les actifs ; `label_applications.angle`
+ * n'est plus lue. Seuls comptent
  * les angles des labels qui SERVENT l'application (décocher l'application
  * d'un label garde ses angles, inutilisés).
  *
@@ -45,13 +48,6 @@ export const MOTS_COPIE_ANGLE = 6;
  */
 export const MAX_ANGLES_TEST = 4;
 
-/** Une paire label × application avec un angle (forme commune aux lectures). */
-export interface LienAngle {
-  label_id: string;
-  application_id: string;
-  angle?: string | null;
-}
-
 export type StatutAngle = "test" | "actif";
 
 /** Ligne de `angles_placement` (0285). */
@@ -61,13 +57,6 @@ export interface AnglePlacementLigne {
   application_id: string;
   texte: string;
   statut: StatutAngle | string;
-}
-
-/** Les angles ACTIFS, sous la forme lue par `anglesPourApplication`. */
-export function liensActifs(angles: readonly AnglePlacementLigne[]): LienAngle[] {
-  return angles
-    .filter((a) => a.statut === "actif")
-    .map((a) => ({ label_id: a.label_id, application_id: a.application_id, angle: a.texte }));
 }
 
 /**
@@ -99,40 +88,53 @@ export function normaliserAngle(angle: string | null | undefined): string {
 }
 
 /**
- * Angles des labels d'un contenu pour une application : non vides,
- * dédoublonnés, dans l'ordre des labels, labels système exclus. Vide tant
- * qu'aucun angle n'est saisi.
+ * Angles ACTIFS des labels d'un contenu pour une application (0348 : une paire
+ * peut en avoir plusieurs) : non vides, dédoublonnés par texte (le plus ancien
+ * reçu reste), labels système exclus, rangés par id pour que le choix de
+ * `choisirAngleActif` ne dépende pas de l'ordre de lecture.
  */
-export function anglesPourApplication(
+export function anglesActifsPourApplication(
   labels: readonly LabelRef[],
-  liens: readonly LienAngle[],
+  angles: readonly AnglePlacementLigne[],
   applicationId: string,
-): string[] {
+): Array<{ id: string; texte: string }> {
+  const ids = new Set(labels.filter((l) => !estLabelSystemeSlug(l.slug)).map((l) => l.id));
   const vus = new Set<string>();
-  const out: string[] = [];
-  for (const label of labels) {
-    if (estLabelSystemeSlug(label.slug)) continue;
-    for (const lien of liens) {
-      if (lien.label_id !== label.id || lien.application_id !== applicationId) continue;
-      const angle = normaliserAngle(lien.angle);
-      if (!angle || vus.has(angle)) continue;
-      vus.add(angle);
-      out.push(angle);
-    }
+  const out: Array<{ id: string; texte: string }> = [];
+  for (const a of angles) {
+    if (a.statut !== "actif" || a.application_id !== applicationId || !ids.has(a.label_id)) continue;
+    const texte = normaliserAngle(a.texte);
+    if (!texte || vus.has(texte)) continue;
+    vus.add(texte);
+    out.push({ id: a.id, texte });
   }
-  return out;
+  return out.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+}
+
+/** Empreinte FNV-1a 32 bits d'un texte (répartition, pas sécurité). */
+function empreinte(texte: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < texte.length; i += 1) {
+    h ^= texte.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h;
 }
 
 /**
- * L'angle d'un contenu en un seul texte : tel quel s'il n'y en a qu'un (cas de
- * tous les contenus aujourd'hui : un seul label chacun), en liste à puces s'il
- * y en a plusieurs. Chaîne vide s'il n'y en a aucun.
+ * L'angle servi à un contenu : UN seul parmi les actifs de ses labels (choix
+ * du 2026-10-24), tiré par l'empreinte de son id. Il est donc le même dans
+ * toutes les langues et pour toutes les préparations du contenu (les decks
+ * sont par contenu × langue × application), et les contenus se répartissent à
+ * parts égales entre les angles actifs. Ajouter ou retirer un angle actif
+ * rebat la répartition des PROCHAINS decks seulement. null : aucun actif.
  */
-export function texteAngle(angles: readonly string[]): string {
-  const propres = [...new Set(angles.map(normaliserAngle).filter(Boolean))];
-  if (propres.length === 0) return "";
-  if (propres.length === 1) return propres[0];
-  return propres.map((a) => `- ${a}`).join("\n");
+export function choisirAngleActif(
+  contenuId: string,
+  actifs: ReadonlyArray<{ id: string; texte: string }>,
+): { id: string; texte: string } | null {
+  if (actifs.length === 0) return null;
+  return actifs[empreinte(contenuId) % actifs.length];
 }
 
 /**

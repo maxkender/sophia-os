@@ -10,10 +10,9 @@
  */
 import {
   type AnglePlacementLigne,
-  anglesPourApplication,
+  anglesActifsPourApplication,
   anglesTestPourApplication,
-  liensActifs,
-  texteAngle,
+  choisirAngleActif,
 } from "./angle_placement.ts";
 import { lireParLots } from "./lots.ts";
 import {
@@ -273,27 +272,37 @@ const avertirAngle = (contenuId: string, applicationId: string, quoi: string, er
   );
 
 /**
- * Angle de placement ACTIF d'un contenu pour une application : celui de son
- * label (`angles_placement`, statut actif, voir angle_placement.ts). Chaîne
- * vide s'il n'y en a pas — le prompt de placement reste alors celui d'avant.
- * Les angles en test ne sont JAMAIS lus ici (seul le test à blanc les lit).
+ * Angle de placement ACTIF servi à un contenu pour une application : UN des
+ * actifs de ses labels (`angles_placement`, 0348 : plusieurs par paire),
+ * toujours le même pour ce contenu (`choisirAngleActif`). null s'il n'y en a
+ * pas — le prompt de placement reste alors celui d'avant. Les angles en test
+ * ne sont JAMAIS lus ici (seul le test à blanc les lit).
  *
  * Ne lève jamais : l'angle affine une pub, il ne doit pas faire tomber une
  * préparation de deck. Une lecture en panne est journalisée et vaut « pas
  * d'angle ».
  */
+export async function chargerAngleActif(
+  supabase: Supabase,
+  contenuId: string,
+  applicationId: string,
+): Promise<{ id: string; texte: string } | null> {
+  try {
+    const { labels, angles } = await lireAnglesDuContenu(supabase, contenuId, applicationId, "actif");
+    return choisirAngleActif(contenuId, anglesActifsPourApplication(labels, angles, applicationId));
+  } catch (error) {
+    avertirAngle(contenuId, applicationId, "angle actif", error);
+    return null;
+  }
+}
+
+/** Texte de `chargerAngleActif`, chaîne vide sans angle. */
 export async function chargerAnglePlacement(
   supabase: Supabase,
   contenuId: string,
   applicationId: string,
 ): Promise<string> {
-  try {
-    const { labels, angles } = await lireAnglesDuContenu(supabase, contenuId, applicationId, "actif");
-    return texteAngle(anglesPourApplication(labels, liensActifs(angles), applicationId));
-  } catch (error) {
-    avertirAngle(contenuId, applicationId, "angle actif", error);
-    return "";
-  }
+  return (await chargerAngleActif(supabase, contenuId, applicationId))?.texte ?? "";
 }
 
 /**

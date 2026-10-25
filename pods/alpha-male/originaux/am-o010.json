@@ -1,0 +1,56 @@
+{
+ "source_id": "am-o010",
+ "schema_id": "situational-rules",
+ "titre": "6 protector habits every man should have #men #respect #discipline #selfimprovement #protector",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "a776694b-f434-4371-b4ba-14ce13361bcd"
+ ],
+ "notes": "essai (am-o010, une livraison sur cinq). cta B. cta A : Sophia sur le dernier item, « history, science or art in 5 minutes ». cta B : dernier item, angle « stop wasting your screen time ». cta C : Sophia au milieu du deck. Veille du 25/10 : « 5 military level habits that make you manlier » de @millyjhino fait 504 k vues (3 % d'enregistrements) ; sa planche montre des règles de situation sur l'instinct protecteur (« If You're the Last One Awake... Check the Front Door »). Mon essai am-o005 avait gardé l'accroche mais pas ce format. Ici je teste l'angle jamais fait chez nous : le protecteur bienveillant, sans violence ni peur, au format « If... : », avec la preuve TikTok du schéma situational-rules. Accroches écrites : « 6 protector habits every man should have » (retenue : la forme « N [adjectif] habits » du gagnant, angle protecteur), « 5 protector rules that make you manlier » (écartée : trop près du gagnant), « things a real protector does without being asked » (écartée : plus loin de la forme gagnante). Situations neuves (vérifié dans donnees/label.json : rien sur raccompagner, attendre qu'on soit rentré, le voisin âgé, l'exemple devant les enfants), et aucun item recopié du gagnant (porte, appel de minuit, être suivi, réveil à 2 h, coupure de courant). Images : la banque du label, sans visage reconnaissable ; slide Sophia sur une fenêtre de montagne sans personne. reference_url prises sur a776694b (même compte, même mise en page), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9c5131c4",
+   "texte_overlay": "6 protector habits\nevery man should have",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b53d35f3",
+   "texte_overlay": "1. If You're the Last One\nLeaving... Make Sure\nEveryone Has a Ride Home:\n\nCount heads.\nCall the cab yourself if needed.\nNobody remembers the drinks.\nThey remember who\ngot them home.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0934fe49",
+   "texte_overlay": "2. If You Drop Someone\nOff at Night... Wait Until\nThey're Inside:\n\nLights on.\nDoor closed.\nThen drive.\nTen seconds of waiting says\nmore than any goodbye.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b26ed317",
+   "texte_overlay": "3. If Someone Goes Quiet\nat Dinner... Sit Next to Them:\n\nDon't make it a scene.\nAsk how their week really was.\nSome people only talk\nwhen someone makes room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "465b4f7d",
+   "texte_overlay": "4. If a Storm Is Coming...\nCheck on the Older Neighbor:\n\nKnock once.\nAsk if they need anything.\nLeave your number.\nStrength matters most when it\nreaches past your own door.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8e744fc1",
+   "texte_overlay": "5. If the Kids Are\nWatching... Do It Right:\n\nKeep your temper.\nSay thank you.\nPut the phone away.\nThey copy what you do,\nnot what you say.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a6c0063f",
+   "texte_overlay": "6. If You Have Five\nFree Minutes... Feed\nYour Mind:\n\nNot another scroll.\nOne fact. One idea.\nA protector keeps\nhis mind sharp too.",
+   "texte_sophia": "6. If You Have Five\nFree Minutes... Feed\nYour Mind:\n\nStop wasting your screen time.\nUse a micro-learning app\nlike the Sophia app to learn\nsomething valuable every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

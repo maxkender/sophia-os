@@ -35,6 +35,7 @@ import {
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import { nomCompletDe, separerNomComplet } from "@/features/moteur/nomComplet";
 import {
   CONTACT_POSTER_VIDE,
   valeursContactDe,
@@ -81,6 +82,7 @@ import {
   majRecruteur,
   emailPersoValide,
   majContactPoster,
+  renommerPoster,
   majZoneRecruteur,
   setLabelsCompte,
   supprimerPoster,
@@ -266,6 +268,47 @@ function ModalFiche({
         </div>
         <div className="space-y-4">{children}</div>
       </div>
+    </div>
+  );
+}
+
+/** Le nom complet du poster, modifiable après sa création (l'email de connexion ne change pas). */
+function EditeurNomComplet({
+  poster,
+  enCours,
+  erreur,
+  onSave,
+}: {
+  poster: PosterProfil;
+  enCours: boolean;
+  erreur: string | null;
+  onSave: (nomComplet: string) => void;
+}) {
+  const { t } = useTranslation();
+  const initial = nomCompletDe(poster);
+  const [valeur, setValeur] = React.useState(initial);
+  React.useEffect(() => setValeur(initial), [initial]);
+  const propre = valeur.trim().replace(/\s+/g, " ");
+  const modifie = Boolean(propre) && propre !== initial;
+  return (
+    <div className="space-y-1">
+      <Label htmlFor={`fiche-${poster.id}-nom`} className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("posters.nomComplet")}
+      </Label>
+      <div className="flex gap-2">
+        <Input
+          id={`fiche-${poster.id}-nom`}
+          value={valeur}
+          onChange={(e) => setValeur(e.target.value)}
+          className="h-8 max-w-sm text-sm"
+        />
+        {modifie && (
+          <Button size="sm" className="h-8" disabled={enCours} onClick={() => onSave(propre)}>
+            {enCours ? t("common.saving") : t("common.save")}
+          </Button>
+        )}
+      </div>
+      {erreur && <p className="text-xs text-destructive">{erreur}</p>}
     </div>
   );
 }
@@ -809,8 +852,8 @@ export function AdminPostersPage() {
 
   const [ajout, setAjout] = React.useState<"ferme" | "poster" | "recruteur">("ferme");
 
-  const [prenom, setPrenom] = React.useState("");
-  const [nom, setNom] = React.useState("");
+  // Un seul champ « Full name » : premier mot = prénom, le reste = nom.
+  const [nomComplet, setNomComplet] = React.useState("");
   const [contact, setContact] = React.useState<ValeursContactPoster>(CONTACT_POSTER_VIDE);
   const [langue, setLangue] = React.useState("");
   React.useEffect(() => {
@@ -848,6 +891,7 @@ export function AdminPostersPage() {
 
   const creer = useMutation({
     mutationFn: async () => {
+      const { prenom, nom } = separerNomComplet(nomComplet);
       if (ugcVideo) {
         const r = await creerPoster({ prenom, nom, password, type_compte: "aucun", contact });
         await creerCompteUgcVideo({
@@ -880,8 +924,7 @@ export function AdminPostersPage() {
     onSuccess: (r) => {
       setCree({ email: r.email, password, type: ugcVideo ? "ugc_video" : premierCompte });
       choixAppsPoster.reinitialiser();
-      setPrenom("");
-      setNom("");
+      setNomComplet("");
       setContact(CONTACT_POSTER_VIDE);
       setHandleTiktok("");
       setHandleInstagram("");
@@ -978,6 +1021,10 @@ export function AdminPostersPage() {
       rafraichir();
     },
   });
+  const renommer = useMutation({
+    mutationFn: (input: { id: string; nomComplet: string }) => renommerPoster(input.id, input.nomComplet),
+    onSuccess: rafraichir,
+  });
   const enregistrerContact = useMutation({
     mutationFn: (input: { id: string; valeurs: ValeursContactPoster }) =>
       majContactPoster(input.id, input.valeurs),
@@ -1012,18 +1059,15 @@ export function AdminPostersPage() {
           }}
           className="grid gap-4 sm:grid-cols-2"
         >
-          <div className="space-y-2">
-            <Label htmlFor="prenom">{t("posters.prenom")}</Label>
+          <div className="space-y-2 sm:col-span-2">
+            <Label htmlFor="nom-complet">{t("posters.nomComplet")}</Label>
             <Input
-              id="prenom"
+              id="nom-complet"
               required
-              value={prenom}
-              onChange={(e) => setPrenom(e.target.value)}
+              value={nomComplet}
+              placeholder={t("posters.nomCompletExemple")}
+              onChange={(e) => setNomComplet(e.target.value)}
             />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="nom">{t("posters.nom")}</Label>
-            <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
           </div>
           <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
           <label className="flex items-start gap-2 text-sm sm:col-span-2">
@@ -2006,6 +2050,15 @@ export function AdminPostersPage() {
           onClose={() => setFicheId(null)}
         >
           <p className="text-sm text-muted-foreground">{fiche.email}</p>
+          {fiche.role === "poster" && (
+            <EditeurNomComplet
+              key={fiche.id}
+              poster={fiche}
+              enCours={renommer.isPending}
+              erreur={renommer.error ? messageErreur(renommer.error) : null}
+              onSave={(nomComplet) => renommer.mutate({ id: fiche.id, nomComplet })}
+            />
+          )}
 
           {estRoleManager(fiche.role) && (
             <>

@@ -30,6 +30,7 @@ import {
 import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import { separerNomComplet } from "@/features/moteur/nomComplet";
 import {
   CONTACT_POSTER_VIDE,
   type ValeursContactPoster,
@@ -286,8 +287,8 @@ export function HiringPosterPage() {
     [posters.data],
   );
 
-  const [prenom, setPrenom] = React.useState("");
-  const [nom, setNom] = React.useState("");
+  // Un seul champ « Full name » : premier mot = prénom, le reste = nom.
+  const [nomComplet, setNomComplet] = React.useState("");
   const [contact, setContact] = React.useState<ValeursContactPoster>(CONTACT_POSTER_VIDE);
   const [langue, setLangue] = React.useState("");
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
@@ -327,8 +328,7 @@ export function HiringPosterPage() {
   const creer = useMutation({
     mutationFn: () =>
       creerPoster({
-        prenom,
-        nom,
+        ...separerNomComplet(nomComplet),
         password: MOT_DE_PASSE,
         contact,
         langue,
@@ -346,9 +346,8 @@ export function HiringPosterPage() {
         persona: Boolean(r.compte?.persona),
         type: premierCompte,
       });
-      setPrenom("");
+      setNomComplet("");
       setPaysCompte("");
-      setNom("");
       setContact(CONTACT_POSTER_VIDE);
       setPostsParJour(2);
       setHandleTiktok("");
@@ -385,13 +384,15 @@ export function HiringPosterPage() {
             }}
             className="grid gap-4 sm:grid-cols-2"
           >
-            <div className="space-y-2">
-              <Label htmlFor="prenom">{t("posters.prenom")}</Label>
-              <Input id="prenom" required value={prenom} onChange={(e) => setPrenom(e.target.value)} />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="nom">{t("posters.nom")}</Label>
-              <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
+            <div className="space-y-2 sm:col-span-2">
+              <Label htmlFor="nom-complet">{t("posters.nomComplet")}</Label>
+              <Input
+                id="nom-complet"
+                required
+                value={nomComplet}
+                placeholder={t("posters.nomCompletExemple")}
+                onChange={(e) => setNomComplet(e.target.value)}
+              />
             </div>
             <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
             <ChampsPremierCompte

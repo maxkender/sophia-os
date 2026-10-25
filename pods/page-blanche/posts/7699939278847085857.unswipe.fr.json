@@ -1,0 +1,235 @@
+{
+ "post_id": "7699939278847085857",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 habitudes pour avoir une discipline de malade"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(la science est d'accord)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "[[lâche youtube]] pendant les repas"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "arrête de zapper les slides [[par flemme]]"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens font défiler ce genre de slides sans [[jamais lire le texte]]",
+     "texte": "la plupart des gens font défiler ce genre de slides sans [[jamais lire le texte]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
+     "texte": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[t'as plus de concentration que la plupart des gens]]",
+     "texte": "si tu lis encore ça, [[t'as plus de concentration que la plupart des gens]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone first thing",
+      "in the morning"
+     ],
+     "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "arrête de checker ton tel [[dès que t'ouvres les yeux]]"
+    },
+    "T2": {
+     "en": [
+      "the first thing you see sets the tone, and right",
+      "now it’s notifications and other people’s lives"
+     ],
+     "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
+     "texte": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]"
+    },
+    "T3": {
+     "en": [
+      "give yourself the",
+      "first 30 minutes",
+      "without your phone"
+     ],
+     "fr": "passe [[les 30 premières minutes]] sans ton tel",
+     "texte": "passe [[les 30 premières minutes]] sans ton tel"
+    },
+    "T4": {
+     "en": [
+      "you start the day doing what you chose, instead of",
+      "reacting to whatever your phone throws at you"
+     ],
+     "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
+     "texte": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "lis des livres [[au lieu de scroller]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "les vidéos courtes [[te grillent la concentration]]"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "sans les reels, [[tu récupères des heures pour lire]]. tu peux les virer d'insta avec [[l'appli UnSwipe]]",
+     "texte": "sans les reels, [[tu récupères des heures pour lire]]. tu peux les virer d'insta avec [[l'appli UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "meditate for 10 minutes"
+     ],
+     "fr": "[[médite]] 10 minutes",
+     "texte": "[[médite]] 10 minutes"
+    },
+    "T2": {
+     "en": [
+      "most people can’t sit alone with their thoughts for",
+      "a few minutes without grabbing their phone"
+     ],
+     "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
+     "texte": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel"
+    },
+    "T3": {
+     "en": [
+      "meditation is proven to",
+      "strengthen your",
+      "prefrontal cortex"
+     ],
+     "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
+     "texte": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]"
+    },
+    "T4": {
+     "en": [
+      "the part of your brain",
+      "behind focus and",
+      "self-control"
+     ],
+     "fr": "celle qui gère [[ta concentration et ton self-control]]",
+     "texte": "celle qui gère [[ta concentration et ton self-control]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,265 @@
+{
+ "post_id": "7695416366886604064",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te bousillent la concentration",
+     "texte": "10/10 cosas que te destrozan la atención"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(edición nicho)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "consommer [[pendant tout ce que tu fais]]",
+     "texte": "consumir [[mientras haces todo]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "[[manger devant youtube]], marcher avec un podcast, bosser en [[musique]], scroller devant netflix",
+     "texte": "[[comer con youtube]], caminar con podcasts, trabajar con [[música]], scrollear mientras ves netflix"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "tu habitues ton cerveau à recevoir [[plusieurs flux d'infos]] à la fois",
+     "texte": "entrenas a tu cerebro para esperar [[varios estímulos a la vez]]"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "à force, faire une seule chose te paraît [[atrocement vide]]",
+     "texte": "al final hacer una sola cosa se siente [[dolorosamente vacío]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never finishing a thought"
+     ],
+     "fr": "[[lâcher une idée en route]]",
+     "texte": "[[nunca terminar una idea]]"
+    },
+    "T2": {
+     "en": [
+      "you get an idea, hit one difficult point, then",
+      "instantly google it, ask AI, or open another tab"
+     ],
+     "fr": "t'as une idée, tu bloques sur un point, [[direct tu googles ou tu demandes à l'IA]], ou un autre onglet",
+     "texte": "tienes una idea, te trabas y [[enseguida googleas o le preguntas a la IA]], o abres otra pestaña"
+    },
+    "T3": {
+     "en": [
+      "your brain never",
+      "gets practice",
+      "staying with",
+      "confusion long",
+      "enough to work",
+      "something out"
+     ],
+     "fr": "ton cerveau s'entraîne jamais à rester dans le flou assez longtemps pour trouver tout seul",
+     "texte": "tu cerebro nunca practica quedarse con la duda el tiempo suficiente para resolverla solo"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T5": {
+     "en": [
+      "attention gets stronger when you stop escaping the",
+      "hard part"
+     ],
+     "fr": "ton attention se muscle quand t'arrêtes de fuir ce qui est dur",
+     "texte": "la atención se fortalece cuando dejas de huir de la parte difícil"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder",
+    "I4": "garder",
+    "I5": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "scroller [[des reels]] H24",
+     "texte": "scrollear [[reels]] todo el día"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu regardes surtout des vidéos de 15 secondes, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "si casi todo lo que ves son clips de 15 segundos, tu cerebro rara vez tiene que [[concentrarse mucho rato]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[lâcher les vidéos courtes]] rend sa patience à ton cerveau, et une vidéo de 20 minutes ou un chapitre redevient facile",
+     "texte": "[[dejar los videos cortos]] le devuelve la paciencia a tu cerebro, y un video de 20 min o un capítulo vuelve a ser fácil"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll jusqu'à ce que je vire les reels d'insta, ça se fait avec [[l'appli UnSwipe]]",
+     "texte": "no podía dejar de scrollear hasta que quité los reels de instagram, se puede hacer con [[la app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "skipping every boring part"
+     ],
+     "fr": "zapper chaque passage chiant",
+     "texte": "saltarte cada parte aburrida"
+    },
+    "T2": {
+     "en": [
+      "you skip intros, speed up videos, skim paragraphs,",
+      "jump between chapters"
+     ],
+     "fr": "tu zappes les intros, [[tu mets en x2]], tu survoles, tu sautes des chapitres",
+     "texte": "te saltas intros, [[aceleras videos]], lees en diagonal, saltas capítulos"
+    },
+    "T3": {
+     "en": [
+      "you’re teaching yourself that",
+      "anything slightly slow",
+      "deserves to be escaped"
+     ],
+     "fr": "t'apprends à ton cerveau que dès que c'est un peu lent, faut fuir",
+     "texte": "te estás enseñando que todo lo que es un poco lento merece ser evitado"
+    },
+    "T4": {
+     "en": [
+      "then real work feels",
+      "unbearable because there’s",
+      "no “skip 10 seconds” button"
+     ],
+     "fr": "alors bosser devient insupportable, y'a [[pas de bouton « avancer de 10 s »]]",
+     "texte": "luego trabajar se hace insoportable porque [[no hay botón de «+10 segundos»]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "keeping stimulation within reach"
+     ],
+     "fr": "avoir des distractions [[sous la main]]",
+     "texte": "tener estímulos [[al alcance de la mano]]"
+    },
+    "T2": {
+     "en": [
+      "your phone is on the desk,",
+      "youtube is one tab away,",
+      "and every distracting app",
+      "is already logged in"
+     ],
+     "fr": "ton tel est sur le bureau, youtube est à un onglet, et toutes tes applis à distraction sont déjà connectées",
+     "texte": "tu móvil está en la mesa, youtube a una pestaña, y cada app que te distrae ya tiene la sesión iniciada"
+    },
+    "T3": {
+     "en": [
+      "you’re forcing yourself to",
+      "resist temptation hundreds",
+      "of times a day"
+     ],
+     "fr": "tu t'obliges à résister à la tentation [[des centaines de fois par jour]]",
+     "texte": "te obligas a resistir la tentación [[cientos de veces al día]]"
+    },
+    "T4": {
+     "en": [
+      "make distraction inconvenient before trying to become",
+      "more disciplined"
+     ],
+     "fr": "complique-toi l'accès aux distractions avant de chercher plus de discipline",
+     "texte": "haz que distraerte sea incómodo antes de intentar tener más disciplina"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -65,13 +65,26 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    - Podz 1 : un post d'un autre compte au même format.
    - Podz 6, 10 et 11 : pas d'essai tant que la liste n'est pas finie.
 
-5. **Tester les CTA.** Si tu écris toi-même la slide de l'appli, tiens 2 ou
-   3 versions de cette slide (`cta A`, `cta B`, `cta C` : autre phrase
-   d'appel, autre capture ou autre place dans le deck) et alterne-les d'une
-   livraison à l'autre. Note la version dans `notes` (`cta A`…), et garde la
-   même version sur toutes les langues d'une livraison. Une version qui fait
-   nettement moins bien sur 20 passages mûrs, le chef te le dira : remplace-la
-   par une nouvelle. Podz dont l'OS place l'appli (12) : pas concerné.
+5. **Tester les CTA, toujours.** Si tu écris toi-même la slide de l'appli,
+   tiens **3 versions vraiment différentes** de cette slide (`cta A`, `cta B`,
+   `cta C`) et alterne-les d'une livraison à l'autre. Elles diffèrent par :
+   - la phrase d'appel (pas toutes « a micro-learning app like… ») ;
+   - la forme : capture d'écran de l'appli, avant/après, conseil à la
+     1re personne, liste où l'appli est un item parmi d'autres… ;
+   - la position dans le deck (pas toujours la même slide).
+   Note la version dans `notes` (`cta A`…), garde la même version sur toutes
+   les langues d'une livraison. **Chaque lundi, remplace la moins bonne
+   version par une nouvelle idée**, même si toutes marchent : il y a toujours
+   un CTA à tester. Le chef te dit aussi quand une version est nettement sous
+   les autres sur 20 passages mûrs. Podz dont l'OS place l'appli (12) : pas
+   concerné.
+6. **Ne t'enferme pas dans ce qui marche.** Sur tes livraisons normales du
+   jour, **au plus 1** reprend une famille d'accroche que tu as déjà livrée 3
+   fois ou plus sur les 7 derniers jours. Les autres partent sur des angles ou
+   des accroches jamais faits chez toi (veille, playbook, idées d'autres
+   podz). Les variantes des percées (point 2) restent en plus et ne comptent
+   pas dans cette limite. Un schéma qui marche finit par s'user : on en
+   cherche toujours le suivant.
 
 ## 5. Livrer
 

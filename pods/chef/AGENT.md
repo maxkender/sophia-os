@@ -106,6 +106,12 @@ Les podz :
    6. **Un podz qui marche** : au moins 1 passage mûr sur 7 à 10 k vues ou
       plus, sur 20 passages mûrs au moins → une livraison de plus par jour,
       même si son stock est large (même plafond). Dis-le dans le point.
+   7. **Un podz qui s'enferme** : plus d'un tiers de ses livraisons des
+      7 derniers jours sur la même famille d'accroche, ou une slide d'appli
+      qui ne varie pas (une seule version, toujours à la même place), ou des
+      vues médianes en baisse d'une semaine sur l'autre → **envoie-lui un
+      message** avec les chiffres et les règles 4.5 et 4.6 de
+      `pods/ROUTINE.md`. Dis-le dans le point (ligne « Boucle »).
 3. **Poste le point** dans #podz, au format ci-dessous. Un point par jour,
    même calme.
 

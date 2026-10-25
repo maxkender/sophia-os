@@ -43,6 +43,7 @@ regarde-la avec l'outil Read. Ne déclare jamais un post prêt sans l'avoir rega
   calibrer la police : ne jamais les modifier.
 - `STYLE_FR.md` : la voix française (obligatoire pour toute écriture en français).
 - `CONSIGNES.md` : format, soulignés `[[ ]]`, zones, scissions, `garder`.
+- `CTA.md` : les 3 versions de la phrase d'appli, à alterner.
 - `UNSWIPE.md` : la slide UnSwipe des variantes `<id>.unswipe.<langue>.json` (à lire avant d'en écrire une).
 
 **Versions** : avant de réécrire un fichier qui existe déjà, commite l'état
@@ -103,6 +104,14 @@ Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
 (combien livrer, dans quel ordre). Ta livraison normale : un post neuf de
 @amayareading repris (« Reprends les nouveaux posts »), sinon un post existant
 traduit dans une langue du label `white_bg` qui en manque (`npm run etat`).
+
+Deux règles de `pods/ROUTINE.md` (§4.5 et §4.6) :
+- **Accroches** : sur les livraisons normales du jour, au plus 1 dans une
+  famille déjà livrée 3 fois ou plus sur 7 jours. Aujourd'hui ce sont
+  « top 5 pour gâcher / foirer… (ça pique) » et « 10/10 trucs / habitudes… ».
+  Les autres : posts neufs d'amaya sur un schéma jamais fait, sinon un autre
+  compte au même format. Les variantes des percées sont en plus.
+- **CTA** : alterne les 3 versions de `posts/CTA.md` et note `cta A/B/C`.
 
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file (pas de SQL

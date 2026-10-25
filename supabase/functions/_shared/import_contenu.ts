@@ -85,6 +85,7 @@ import {
 } from "./tierlist.ts";
 import { sonderSchemaTiersApplication } from "./tiers_application.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
+import { couperTexte, texteBienFormeOuNull } from "./texte_sur.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
 
@@ -547,13 +548,13 @@ async function reouvrirContenuPourReimport(
   const { error } = await supabase
     .from("contenus")
     .update({
-      titre: post.text.slice(0, 160) || "Sans titre",
+      titre: couperTexte(post.text, 160) || "Sans titre",
       structure_slides: slides,
       compte_reference_id: compteReferenceId,
       source_url: post.webVideoUrl,
       langue_source: langueSource,
       musique_url: post.musicUrl,
-      musique_titre: post.musicTitle,
+      musique_titre: texteBienFormeOuNull(post.musicTitle),
       vues_source: post.stats?.vues ?? null,
       pertinence_score: null,
       pertinence_raison: null,
@@ -616,13 +617,13 @@ export async function creerContenuDepuisPost(
   const { data: contenu, error } = await supabase
     .from("contenus")
     .insert({
-      titre: post.text.slice(0, 160) || "Sans titre",
+      titre: couperTexte(post.text, 160) || "Sans titre",
       structure_slides: slides,
       compte_reference_id: compteReferenceId,
       source_url: post.webVideoUrl,
       langue_source: langueSource,
       musique_url: post.musicUrl,
-      musique_titre: post.musicTitle,
+      musique_titre: texteBienFormeOuNull(post.musicTitle),
       vues_source: post.stats?.vues ?? null,
       statut: tropCourt ? "rejete" : "brouillon",
       import_statut: tropCourt ? "done" : "pending",

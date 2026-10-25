@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o050",
+ "titre": "hobbies to protect your brain from aging #brainhealth #selfimprovement #learning #mindset #hobbies",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "37bc8e02-6459-4487-b347-26f81beef334"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 37bc8e02). essai : nouvelle accroche (label : r 1,55, jamais faite par le pod), sans « in the age of ai ». cta C (slide Sophia en position 4). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "47ba48ef-8124-4a12-98dd-57bed1e80545",
+   "texte_overlay": "hobbies to protect your brain\nfrom aging",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668426475393109261/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "425dd9ec-8bf1-4826-a678-7a21ce0e2dc4",
+   "texte_overlay": "learning an instrument\n\nspend 15 minutes a day learning an instrument, even badly. music works memory, coordination and attention at once, and few habits challenge the brain so completely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668426475393109261/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "91d6cb13-f861-405a-b33e-7207bf2c7e48",
+   "texte_overlay": "long walks outside\n\nwalk for 30 minutes outside every day, ideally somewhere green. movement and fresh air are two of the simplest things you can do for a brain you want to keep sharp.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668426475393109261/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "81b5ca16-3f57-4e04-a591-f6f6718dec91",
+   "texte_overlay": "daily lessons\n\nspend 5 minutes a day learning something completely new: a moment in history, a scientific idea, a famous artwork. a brain that keeps learning is a brain that keeps building new connections.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668426475393109261/3.jpg",
+   "texte_sophia": "daily lessons\n\nspend 5 minutes a day learning something completely new: a moment in history, a scientific idea. a micro-learning app like the Sophia app makes it easy, and a learning brain keeps building connections."
+  },
+  {
+   "position": 5,
+   "media_id": "baeaedac-63dc-43b6-a576-386f8c711d73",
+   "texte_overlay": "dinner with friends\n\nhave one long dinner a week with people you love, phones away. real conversation is one of the most complex things your brain does, and loneliness is one of the worst things for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668426475393109261/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "75328636-0f3d-4082-8bb2-618ba26723c8",
+   "texte_overlay": "a new route home\n\ntake a different route home once a week and find your way without the map. figuring out where you are gives the memory parts of your brain a workout most of us skip.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668426475393109261/6.jpg"
+  }
+ ]
+}

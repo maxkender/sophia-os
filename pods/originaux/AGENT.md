@@ -76,6 +76,12 @@ ou de déposer.
   (16 du top 20). Variantes testées : `disgustingly intelligent`,
   `habits that will make you unreasonably confident`. Pas de dating, pas d'ironie,
   pas de « in the age of ai », rien de vulgaire.
+- **Varier les accroches (consigne du chef, 25/10)** : le gabarit s'use. Sur
+  les 3 livraisons normales du jour, **au plus 1** en « dangerously confident /
+  disgustingly intelligent ». Les 2 autres sur une accroche du label jamais
+  faite chez nous (`npm run label -- --top 400`, classée par r), par exemple
+  « magnetic », « articulate », « protect your brain from aging ». Jamais deux
+  fois la même accroche dans un lot. Les variantes des percées restent en plus.
 - **Item** : `titre (2 à 4 mots)\n\n` puis 2 phrases, **150 à 200 caractères** :
   une consigne concrète et chiffrée (durée, fréquence), puis une chute
   introspective (« most people… », « the avoidance costs more than… »).
@@ -86,6 +92,13 @@ ou de déposer.
   minutes » (art, histoire, sciences). Base sans appli dans `texte_overlay`, et
   sa version avec « the Sophia app » dans `texte_sophia`. C'est exactement le
   format de nos posts à plus de 300k vues (`npm run top-posts`).
+- **Test CTA (`pods/ROUTINE.md` §4.5)** : 3 versions vraiment différentes de
+  la slide Sophia, alternées d'une livraison à l'autre, notées `cta A/B/C`
+  dans `notes` :
+  - `cta A` : slide 5, « a micro-learning app like the Sophia app makes it easy ».
+  - `cta B` : slide 5, « the Sophia app turns it into one short lesson a day ».
+  - `cta C` : slide 4, autre phrase : « i do it with the Sophia app, one lesson
+    a day, five minutes ».
 - **Pas de tiret long (—)** ni de point-virgule : la traduction les interdit.
 - **Images et inspiration** : les images ET les slides d'inspiration d'un même
   post du top (position par position). Un post d'inspiration différent pour

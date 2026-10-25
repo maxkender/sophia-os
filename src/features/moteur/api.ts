@@ -668,7 +668,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, upwork_contrat_url, email_perso, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -1497,6 +1497,41 @@ export async function majUpwork(userId: string, url: string): Promise<void> {
   if (error) throw error;
 }
 
+/** Liens Upwork et email perso d'un poster (0358), saisis à sa création ou dans sa fiche. */
+export interface ContactPoster {
+  upwork_url: string | null;
+  upwork_contrat_url: string | null;
+  email_perso: string | null;
+}
+
+/** Même contrôle que le serveur (`contact_poster.ts`) et la contrainte `profiles_email_perso_format`. */
+export function emailPersoValide(email: string): boolean {
+  const e = email.trim();
+  return !e || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+}
+
+/** Enregistre les liens Upwork et l'email perso d'un poster (fiche admin). Vide = effacé. */
+export async function majContactPoster(userId: string, contact: Partial<ContactPoster>): Promise<void> {
+  const patch: Partial<ContactPoster> = {};
+  for (const [cle, valeur] of Object.entries(contact) as Array<[keyof ContactPoster, string | null]>) {
+    const v = (valeur ?? "").trim();
+    patch[cle] = v ? (cle === "email_perso" ? v.toLowerCase() : v) : null;
+  }
+  if (!Object.keys(patch).length) return;
+  const { error } = await supabase.from("profiles").update(patch).eq("id", userId);
+  if (error) throw error;
+}
+
+/** Les champs de contact remplis, pour le corps de `manage-users` (create). */
+export function corpsContactPoster(contact: Partial<ContactPoster>): Partial<ContactPoster> {
+  const corps: Partial<ContactPoster> = {};
+  for (const [cle, valeur] of Object.entries(contact) as Array<[keyof ContactPoster, string | null]>) {
+    const v = (valeur ?? "").trim();
+    if (v) corps[cle] = v;
+  }
+  return corps;
+}
+
 /**
  * Rattache un créateur à un recruteur (admin, Head of Ops ; RLS `is_admin`).
  * `null` = sans recruteur. Ses comptes, posts et stats suivent : tout se lit
@@ -1837,6 +1872,8 @@ export function creerPoster(input: {
   tiktok_2fa_note?: string;
   /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
   pays?: string;
+  /** Liens Upwork et email perso (0358) : envoyés seulement s'ils sont remplis. */
+  contact?: Partial<ContactPoster>;
 } & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
@@ -1866,6 +1903,7 @@ export function creerPoster(input: {
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     ...(input.pays ? { pays: input.pays } : {}),
+    ...corpsContactPoster(input.contact ?? {}),
     ...corpsApplicationsCompte(input),
   });
 }

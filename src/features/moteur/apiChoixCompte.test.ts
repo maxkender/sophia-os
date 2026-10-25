@@ -17,6 +17,7 @@ import {
   assurerComptePoster,
   corpsApplicationsCompte,
   creerPoster,
+  emailPersoValide,
 } from "./api";
 
 const corpsEnvoye = () => (invoke.mock.calls[0]![1] as { body: Record<string, unknown> }).body;
@@ -80,6 +81,27 @@ describe("choix label + répartition dans les corps manage-users", () => {
       langue: "fr",
       parts_applications: { sophia: 70, unswipe: 30 },
     });
+  });
+
+  it("creerPoster : liens Upwork et email perso envoyés seulement s'ils sont remplis", async () => {
+    await creerPoster({
+      prenom: "Ana",
+      nom: "B",
+      password: "12345678",
+      type_compte: "aucun",
+      contact: { upwork_url: " https://www.upwork.com/freelancers/~01 ", upwork_contrat_url: "", email_perso: "ana@gmail.com" },
+    });
+    const corps = corpsEnvoye();
+    expect(corps.upwork_url).toBe("https://www.upwork.com/freelancers/~01");
+    expect(corps.email_perso).toBe("ana@gmail.com");
+    expect("upwork_contrat_url" in corps).toBe(false);
+  });
+
+  it("emailPersoValide : vide accepté, format vérifié", () => {
+    expect(emailPersoValide("")).toBe(true);
+    expect(emailPersoValide(" ana@gmail.com ")).toBe(true);
+    expect(emailPersoValide("ana.gmail.com")).toBe(false);
+    expect(emailPersoValide("ana @gmail.com")).toBe(false);
   });
 
   it("ajouterCompte : label seul → label_id, pas de parts_applications", async () => {

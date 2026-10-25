@@ -21,6 +21,7 @@ import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
 import {
   activerPoster,
   creerPoster,
+  emailPersoValide,
   listerLanguesReference,
   listerPosters,
   majCompte,
@@ -28,6 +29,11 @@ import {
 } from "@/features/moteur/api";
 import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
+import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import {
+  CONTACT_POSTER_VIDE,
+  type ValeursContactPoster,
+} from "@/features/moteur/contactPoster";
 import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
@@ -282,6 +288,7 @@ export function HiringPosterPage() {
 
   const [prenom, setPrenom] = React.useState("");
   const [nom, setNom] = React.useState("");
+  const [contact, setContact] = React.useState<ValeursContactPoster>(CONTACT_POSTER_VIDE);
   const [langue, setLangue] = React.useState("");
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
   const [paysCompte, setPaysCompte] = React.useState("");
@@ -323,6 +330,7 @@ export function HiringPosterPage() {
         prenom,
         nom,
         password: MOT_DE_PASSE,
+        contact,
         langue,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
@@ -341,6 +349,7 @@ export function HiringPosterPage() {
       setPrenom("");
       setPaysCompte("");
       setNom("");
+      setContact(CONTACT_POSTER_VIDE);
       setPostsParJour(2);
       setHandleTiktok("");
       choixApps.reinitialiser();
@@ -370,6 +379,7 @@ export function HiringPosterPage() {
               e.preventDefault();
               // Application du compte non choisie : le bloc le dit, rien ne part.
               if (!choixApps.verifier()) return;
+              if (!emailPersoValide(contact.email_perso)) return;
               setCree(null);
               creer.mutate();
             }}
@@ -383,6 +393,7 @@ export function HiringPosterPage() {
               <Label htmlFor="nom">{t("posters.nom")}</Label>
               <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
             </div>
+            <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
             <ChampsPremierCompte
               typeCompte={premierCompte}
               onType={setPremierCompte}

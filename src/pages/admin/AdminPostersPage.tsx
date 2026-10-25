@@ -34,6 +34,12 @@ import {
   type GroupeZone,
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
+import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import {
+  CONTACT_POSTER_VIDE,
+  valeursContactDe,
+  type ValeursContactPoster,
+} from "@/features/moteur/contactPoster";
 import { estCompteCm } from "@/features/moteur/comptesCm";
 import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
@@ -73,7 +79,8 @@ import {
   premiersJoursComptes,
   majLanguesRecruteur,
   majRecruteur,
-  majUpwork,
+  emailPersoValide,
+  majContactPoster,
   majZoneRecruteur,
   setLabelsCompte,
   supprimerPoster,
@@ -263,54 +270,29 @@ function ModalFiche({
   );
 }
 
-/** Upwork seulement (plus de compte référence / publications). */
-function CreateurUpwork({
+/** Liens Upwork (profil, contrat) et email perso du poster (0358). */
+function CreateurContact({
   poster,
   onSave,
 }: {
   poster: PosterProfil;
-  onSave: (url: string) => void;
+  onSave: (valeurs: ValeursContactPoster) => void;
 }) {
   const { t } = useTranslation();
   const [edit, setEdit] = React.useState(false);
-  const [url, setUrl] = React.useState(poster.upwork_url ?? "");
-  return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-      {!edit && poster.upwork_url && (
-        <a
-          href={poster.upwork_url}
-          target="_blank"
-          rel="noreferrer"
-          className="underline underline-offset-2"
-        >
-          Upwork ↗
-        </a>
-      )}
-      {!edit && (
-        <button
-          type="button"
-          onClick={() => {
-            setUrl(poster.upwork_url ?? "");
-            setEdit(true);
-          }}
-          className="text-muted-foreground underline underline-offset-2"
-        >
-          {poster.upwork_url ? t("posters.upworkModifier") : t("posters.upworkAjouter")}
-        </button>
-      )}
-      {edit && (
-        <span className="inline-flex items-center gap-1">
-          <Input
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://www.upwork.com/…"
-            className="h-7 w-56 text-xs"
-          />
+  const [valeurs, setValeurs] = React.useState(() => valeursContactDe(poster));
+  const rempli = Boolean(poster.upwork_url || poster.upwork_contrat_url || poster.email_perso);
+  if (edit) {
+    return (
+      <div className="space-y-2 rounded-md border p-3">
+        <ChampsContactPoster valeurs={valeurs} onChange={setValeurs} idPrefixe={`fiche-${poster.id}`} />
+        <div className="flex gap-2">
           <Button
             size="sm"
             className="h-7"
+            disabled={!emailPersoValide(valeurs.email_perso)}
             onClick={() => {
-              onSave(url);
+              onSave(valeurs);
               setEdit(false);
             }}
           >
@@ -319,8 +301,38 @@ function CreateurUpwork({
           <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
             {t("common.cancel")}
           </Button>
-        </span>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+      {poster.upwork_url && (
+        <a href={poster.upwork_url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+          {t("posters.contact.lienProfil")}
+        </a>
       )}
+      {poster.upwork_contrat_url && (
+        <a
+          href={poster.upwork_contrat_url}
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-2"
+        >
+          {t("posters.contact.lienContrat")}
+        </a>
+      )}
+      {poster.email_perso && <span className="select-all">{poster.email_perso}</span>}
+      <button
+        type="button"
+        onClick={() => {
+          setValeurs(valeursContactDe(poster));
+          setEdit(true);
+        }}
+        className="text-muted-foreground underline underline-offset-2"
+      >
+        {rempli ? t("posters.upworkModifier") : t("posters.upworkAjouter")}
+      </button>
     </div>
   );
 }
@@ -799,6 +811,7 @@ export function AdminPostersPage() {
 
   const [prenom, setPrenom] = React.useState("");
   const [nom, setNom] = React.useState("");
+  const [contact, setContact] = React.useState<ValeursContactPoster>(CONTACT_POSTER_VIDE);
   const [langue, setLangue] = React.useState("");
   React.useEffect(() => {
     const liste = langues.data ?? [];
@@ -836,7 +849,7 @@ export function AdminPostersPage() {
   const creer = useMutation({
     mutationFn: async () => {
       if (ugcVideo) {
-        const r = await creerPoster({ prenom, nom, password, type_compte: "aucun" });
+        const r = await creerPoster({ prenom, nom, password, type_compte: "aucun", contact });
         await creerCompteUgcVideo({
           posterId: r.userId,
           langue,
@@ -853,6 +866,7 @@ export function AdminPostersPage() {
         prenom,
         nom,
         password,
+        contact,
         langue: premierCompte === "aucun" ? undefined : langue || undefined,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
@@ -868,6 +882,7 @@ export function AdminPostersPage() {
       choixAppsPoster.reinitialiser();
       setPrenom("");
       setNom("");
+      setContact(CONTACT_POSTER_VIDE);
       setHandleTiktok("");
       setHandleInstagram("");
       setPaysCompte("");
@@ -963,8 +978,9 @@ export function AdminPostersPage() {
       rafraichir();
     },
   });
-  const enregistrerUpwork = useMutation({
-    mutationFn: (input: { id: string; url: string }) => majUpwork(input.id, input.url),
+  const enregistrerContact = useMutation({
+    mutationFn: (input: { id: string; valeurs: ValeursContactPoster }) =>
+      majContactPoster(input.id, input.valeurs),
     onSuccess: rafraichir,
   });
 
@@ -990,6 +1006,7 @@ export function AdminPostersPage() {
             e.preventDefault();
             // Application du compte non choisie : le bloc le dit, rien ne part.
             if (!choixAppsPoster.verifier()) return;
+            if (!emailPersoValide(contact.email_perso)) return;
             setCree(null);
             creer.mutate();
           }}
@@ -1008,6 +1025,7 @@ export function AdminPostersPage() {
             <Label htmlFor="nom">{t("posters.nom")}</Label>
             <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
           </div>
+          <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
           <label className="flex items-start gap-2 text-sm sm:col-span-2">
             <input
               type="checkbox"
@@ -2205,9 +2223,10 @@ export function AdminPostersPage() {
                 <ChoixRecruteur poster={fiche} recruteurs={recruteursPossibles} />
               )}
 
-              <CreateurUpwork
+              <CreateurContact
+                key={fiche.id}
                 poster={fiche}
-                onSave={(url) => enregistrerUpwork.mutate({ id: fiche.id, url })}
+                onSave={(valeurs) => enregistrerContact.mutate({ id: fiche.id, valeurs })}
               />
 
               <div className="space-y-2">

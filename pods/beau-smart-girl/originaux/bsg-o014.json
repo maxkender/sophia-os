@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o014",
+ "schema_id": "je-note-tout",
+ "titre": "je note TOUS les trucs bizarres que j'ai essayés pour avoir toujours une histoire à raconter #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "cta B. CTA du pod (règle du 25/10) : cta A = Sophia sur le dernier item, « avec l'appli Sophia » ; cta B = Sophia au milieu du deck, noté comme un truc testé ; cta C = Sophia en premier item, juste après l'accroche. Routine du 25/10, livraison 2 sur 3. Schéma je-note-tout (r 7,45 sur 9 passages, d61696f9 ; r 4,51, f0cfb4f0), sur un nouveau but : avoir de la conversation. Accroches écrites : « je note TOUS les trucs bizarres que j'ai essayés pour avoir toujours une histoire à raconter » (retenue : le gabarit exact du gagnant, avec l'angle Sophia du label), « je note TOUTES les astuces chelous que j'ai testées pour être moins ennuyeuse en soirée » (écartée : « ennuyeuse » dévalorise), « j'ai testé 6 trucs pour avoir de la conversation : mes notes » (écartée : sans le TOUS crié). Notes sur 10 en « je », items neufs : une blague par semaine 2/10, une anecdote d'histoire ou d'art chaque matin 9/10 (la place de Sophia, au milieu pour la cta B), les infos d'un autre pays 5/10, noter les questions qu'on me pose 7/10, faire raconter leur jeunesse à mes grands-parents 10/10. Rien de repris des sources ni de bsg-o003 et bsg-o010. Aucun fait à vérifier, aucune personne nommée. Images de la banque, sans célébrité ni texte : la fille qui lit sous la lampe (accroche), les cheveux dans le noir, le collage du soir, la feuille dorée, le pull et le livre, le velours vert, la feuille rouge (images sombres pour que le texte blanc se lise). Inspirations : slides 1, 3, 4 de d61696f9 (sa 2 montre un écran), 1, 2, 3, 4, 6 de f0cfb4f0 (sa 5 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35038c20",
+   "texte_overlay": "je note TOUS les trucs bizarres\nque j'ai essayés pour avoir\ntoujours une histoire à raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11d6140a",
+   "texte_overlay": "1. apprendre une blague par cœur chaque semaine\n\n2/10\nje les racontais toutes mal. personne n'a ri, même pas moi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2004f076",
+   "texte_overlay": "2. lire une anecdote d'histoire ou d'art chaque matin\n\n9/10\n5 minutes avec mon café. le soir même, je la ressors à quelqu'un. ça marche à chaque fois.",
+   "texte_sophia": "2. l'appli Sophia chaque matin\n\n9/10\n5 minutes d'histoire ou d'art avec mon café. le soir même, je ressors l'anecdote à quelqu'un. ça marche à chaque fois.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c6ad32b9",
+   "texte_overlay": "3. regarder les infos d'un autre pays\n\n5/10\nintéressant, mais souvent déprimant. je garde juste la rubrique culture.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "34d218ad",
+   "texte_overlay": "4. noter les questions que les gens me posent\n\n7/10\nça m'a montré ce qui intéresse vraiment les autres. et ce que je savais pas expliquer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "10f52e2c",
+   "texte_overlay": "5. demander à mes grands-parents de raconter leur jeunesse\n\n10/10\nles meilleures histoires que je connais viennent d'eux. et elles sont gratuites.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "aa3681f6",
+   "texte_overlay": "et toi, c'est quoi ton truc pour avoir de la conversation ?\nje le teste et je le note.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

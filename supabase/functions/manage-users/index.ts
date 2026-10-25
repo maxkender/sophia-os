@@ -11,6 +11,7 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import { lireContactPoster } from "../_shared/contact_poster.ts";
 import {
   applicationsRequises,
   type ChoixCompte,
@@ -283,6 +284,9 @@ async function gererRequete(request: Request): Promise<Response> {
     if (!prenom || password.length < 8) {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
     }
+    // Liens Upwork et email perso (0358), vérifiés avant de créer le login.
+    const lectureContact = lireContactPoster(body);
+    if (!lectureContact.ok) return json({ error: lectureContact.erreur }, 400);
 
     // Label / répartition imposés par le recruteur. `null` = chemin historique.
     const lecture = lireChoixCompte(body, acces.role);
@@ -384,7 +388,13 @@ async function gererRequete(request: Request): Promise<Response> {
     if (data.user) {
       await supabase
         .from("profiles")
-        .update({ prenom, nom: nom || null, is_active: true, must_change_password: false })
+        .update({
+          prenom,
+          nom: nom || null,
+          is_active: true,
+          must_change_password: false,
+          ...lectureContact.contact,
+        })
         .eq("id", data.user.id);
 
       if (roleVoulu === "hiring_manager") {

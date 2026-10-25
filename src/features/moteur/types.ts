@@ -274,6 +274,10 @@ export interface PosterProfil {
   langues: string[];
   nationalite: string | null;
   upwork_url: string | null;
+  /** Lien du contrat Upwork (0358). */
+  upwork_contrat_url?: string | null;
+  /** Email personnel, celui de Slack (0358). */
+  email_perso?: string | null;
   cout_mensuel: number | null;
   compte_id: string | null;
   handle_tiktok: string | null;

@@ -1,0 +1,813 @@
+{
+ "id": "yp-007",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "titre": {
+  "fr": "petit guide du ménage numérique",
+  "en": "a guide to a digital declutter",
+  "es": "guía para un detox digital",
+  "de": "Anleitung für einen digitalen Detox",
+  "it": "guida a un detox digitale",
+  "pt": "guia para um detox digital",
+  "tr": "dijital detoks rehberi"
+ },
+ "legendes": {
+  "fr": "le grand ménage de mes appareils 📱 #menagenumerique #studytok #organisation #productivite #thatgirl",
+  "en": "decluttering all my devices 📱 #digitaldeclutter #studytok #organization #productivity #thatgirl",
+  "es": "el gran orden de mis dispositivos 📱 #detoxdigital #studytok #organizacion #productividad #thatgirl",
+  "de": "großes Aufräumen auf all meinen Geräten 📱 #digitaldetox #studytok #organisation #produktivität #thatgirl",
+  "it": "il grande riordino dei miei dispositivi 📱 #detoxdigitale #studytok #organizzazione #produttività #thatgirl",
+  "pt": "a grande faxina dos meus aparelhos 📱 #detoxdigital #studytok #organizacao #produtividade #thatgirl",
+  "tr": "tüm cihazlarımda büyük temizlik 📱 #dijitaldetoks #studytok #düzen #verimlilik #thatgirl"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "61496c45-9d88-4428-a411-7c5f1949dcca",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b193c51a-1924-4fef-a918-e62b096a73d6/2.jpg?v=1792591438830",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "cta B : la mise en scène iPhone micabo (a83da81b) en photo d'une étape, micabo dans le texte de la note",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "petit guide du",
+     "lignes": [
+      "MÉNAGE",
+      "NUMÉRIQUE"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a guide to a",
+     "lignes": [
+      "DIGITAL",
+      "DECLUTTER"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guía para un",
+     "lignes": [
+      "DETOX",
+      "DIGITAL"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "Anleitung für einen",
+     "lignes": [
+      "DIGITALEN",
+      "DETOX"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guida a un",
+     "lignes": [
+      "DETOX",
+      "DIGITALE"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guia para um",
+     "lignes": [
+      "DETOX",
+      "DIGITAL"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "küçük bir",
+     "lignes": [
+      "DİJİTAL",
+      "DETOKS"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 800,
+     "taille_script": 84
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "89eff8b9-0dd3-4f74-8964-48c2a0308d64",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e3b0c9b6-76ef-43f8-9366-5ec469213072/6.jpg?v=1787159421938",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "titre": "nettoie tes appareils.",
+     "texte": "N’UTILISE PAS D’ALCOOL SUR LES ÉCRANS !! ça peut abîmer le traitement antireflet. juste un chiffon avec un peu d’eau, ou une microfibre sèche.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "texte": "DO NOT USE ALCOHOL ON THE SCREENS!! it can damage the anti-glare coating. just use a cloth with a little water, or a dry microfibre cloth.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "clean your devices."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "texte": "¡¡NO USES ALCOHOL EN LAS PANTALLAS!! puede dañar la capa antirreflejos. usa solo un paño con un poco de agua, o una microfibra seca.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "limpia tus dispositivos."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "texte": "KEIN ALKOHOL AUF DEN BILDSCHIRMEN!! das kann die Entspiegelung kaputt machen. nimm einfach ein Tuch mit etwas Wasser oder ein trockenes Mikrofasertuch.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "putz deine Geräte."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "texte": "NON USARE ALCOL SUGLI SCHERMI!! può rovinare il trattamento antiriflesso. usa solo un panno con un po’ d’acqua, o una microfibra asciutta.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "pulisci i tuoi dispositivi."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "texte": "NÃO USE ÁLCOOL NAS TELAS!! pode estragar a camada antirreflexo. use só um pano com um pouco de água, ou uma microfibra seca.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "limpe seus aparelhos."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 428,
+     "texte": "EKRANLARDA ALKOL KULLANMA!! yansıma önleyici kaplamaya zarar verebilir. biraz suyla nemlendirilmiş bir bez ya da kuru bir mikrofiber yeterli.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "cihazlarını temizle."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "trie tes TikTok en favoris.",
+     "texte": "garde juste l’essentiel. moi, les astuces de cours, je les mets direct dans micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "app": true,
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "texte": "only keep what matters. me, i put study tips straight into micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "sort your favorited TikToks."
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "texte": "quédate solo con lo importante. yo los trucos de estudio los meto directamente en micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "ordena tus TikToks guardados."
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "texte": "behalte nur das Wichtige. Lerntipps packe ich direkt in micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "sortier deine TikTok-Favoriten."
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "texte": "tieni solo l’essenziale. io i trucchi di studio li metto subito su micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "riordina i TikTok salvati."
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "texte": "fique só com o essencial. eu coloco as dicas de estudo direto no micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "organize seus TikToks salvos."
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "texte": "sadece önemli olanları tut. ben ders taktiklerini direkt micabo’ya kaydediyorum.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "favori TikTok’larını düzenle."
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "04b6c542-df00-44ed-9456-a7ea9dbd4e06",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fa81a15f-51a4-4e1c-9a8d-a0866f7b0302/4.jpg?v=1790606927155",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "titre": "vide le cache des applis.",
+     "texte": "pour safari : réglages → apps → safari → effacer historique et données.\npour la plupart des autres applis : supprime-les et réinstalle-les.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "for safari: settings → apps → safari → clear history and website data.\nfor most other apps: delete and redownload them.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "clear your app cache."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "para safari: ajustes → apps → safari → borrar historial y datos.\npara casi todas las demás apps: bórralas y vuelve a instalarlas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "borra la caché de las apps."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "für Safari: Einstellungen → Apps → Safari → Verlauf und Websitedaten löschen.\nfür die meisten anderen Apps: löschen und neu laden.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "leer den App-Cache."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "per safari: impostazioni → app → safari → cancella cronologia e dati.\nper quasi tutte le altre app: eliminale e reinstallale.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "svuota la cache delle app."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "no safari: ajustes → apps → safari → limpar histórico e dados.\nna maioria dos outros apps: apague e instale de novo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "limpe o cache dos apps."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "safari için: ayarlar → uygulamalar → safari → geçmişi ve verileri temizle.\ndiğer uygulamaların çoğu için: silip yeniden yükle.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "uygulama önbelleğini temizle."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "00f0a7a2-94dc-4991-b877-f79488ae94a7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/21c0f4d1-e636-4f89-836d-65b9810359df/4.jpg?v=1791726911773",
+    "cadrage": {
+     "x": 1,
+     "y": 1,
+     "zoom": 1.7
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "refais ton écran d’accueil à zéro.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "start your home screen design from scratch.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "rehaz tu pantalla de inicio desde cero.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "gestalte deinen Homescreen komplett neu.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "rifai la tua schermata home da zero.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "refaça sua tela de início do zero.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 280,
+     "texte": "ana ekranını sıfırdan tasarla.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0363af98-a33e-4b09-8a57-c5eeb1e1ff6f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1f2a12ee-4cd1-4732-a680-873b79c3a657/6.jpg?v=1791725576364",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "titre": "va dans ton appli mail.",
+     "texte": "désabonne-toi de toutes les newsletters qui ne t’intéressent pas. supprime les mails inutiles (c’est la plupart). crois-moi, j’avais plus de 9 000 notifications de mails.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "unsubscribe from any newsletter you don’t care about. delete emails you don’t need (that’s most of them). believe me, i had 9,000+ mail notifications.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "go to your email app."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "date de baja de todas las newsletters que no te interesan. borra los correos que no necesitas (casi todos). créeme, tenía más de 9000 notificaciones de correo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "entra en tu app de correo."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "melde dich von allen Newslettern ab, die dich nicht interessieren. lösch die Mails, die du nicht brauchst (also fast alle). glaub mir, ich hatte über 9.000 Mail-Benachrichtigungen.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "geh in deine Mail-App."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "disiscriviti da tutte le newsletter che non ti interessano. elimina le mail che non ti servono (quasi tutte). credimi, avevo più di 9.000 notifiche di mail.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "apri la tua app di posta."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "cancele a inscrição de todas as newsletters que não te interessam. apague os e-mails que você não precisa (quase todos). acredite, eu tinha mais de 9 mil notificações de e-mail.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "abra seu app de e-mail."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "ilgilenmediğin tüm bültenlerden çık. ihtiyacın olmayan e-postaları sil (çoğu öyle). inan bana, 9.000’den fazla e-posta bildirimim vardı.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false,
+     "titre": "e-posta uygulamana gir."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2ac44bad-9aea-4a84-9740-fcba973588b4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/375ec54a-c305-4083-bf9c-2a47f0957e40/8.jpg?v=1790680634894",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "supprime les captures d’écran, les fichiers et les applis qui ne te servent plus, et les vieilles notes de ton appli notes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "delete any unnecessary screenshots, files and apps you don’t use anymore, and old notes in the notes app.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "borra las capturas, los archivos y las apps que ya no usas, y las notas viejas de tu app de notas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "lösch unnötige Screenshots, Dateien und Apps, die du nicht mehr nutzt, und alte Notizen in der Notizen-App.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "elimina screenshot, file e app che non usi più, e le vecchie note nell’app note.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "apague prints, arquivos e apps que você não usa mais, e as notas antigas do app de notas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 344,
+     "texte": "gereksiz ekran görüntülerini, dosyaları, artık kullanmadığın uygulamaları ve notlar uygulamasındaki eski notları sil.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

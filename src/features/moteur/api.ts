@@ -315,11 +315,11 @@ export async function contenusParSource(): Promise<Record<string, { importes: nu
   return m;
 }
 
-/** Le r médian de chaque source sur 30 jours (0356). */
+/** Le r médian de chaque source sur 30 jours, et rapporté à son label (0356, 0357). */
 export async function performanceSources(): Promise<Record<string, PerfSource>> {
   const { data, error } = await supabase
     .from("source_performance")
-    .select("compte_reference_id, posts, r_mediane, vues_mediane");
+    .select("compte_reference_id, posts, r_mediane, vues_mediane, label_nom, r_label, posts_label, r_vs_label");
   if (error) throw error;
   const m: Record<string, PerfSource> = {};
   for (const l of data ?? []) {
@@ -327,6 +327,10 @@ export async function performanceSources(): Promise<Record<string, PerfSource>> 
       posts: Number(l.posts),
       r: l.r_mediane === null ? null : Number(l.r_mediane),
       vuesMediane: l.vues_mediane === null ? null : Number(l.vues_mediane),
+      labelNom: (l.label_nom as string | null) ?? null,
+      rLabel: l.r_label === null ? null : Number(l.r_label),
+      postsLabel: Number(l.posts_label ?? 0),
+      rVsLabel: l.r_vs_label === null ? null : Number(l.r_vs_label),
     };
   }
   return m;

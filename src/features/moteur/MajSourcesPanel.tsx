@@ -13,7 +13,7 @@ import {
   performanceSources,
 } from "@/features/moteur/api";
 import { sourcePerformante } from "@/features/moteur/perfSource";
-import { RSource } from "@/features/moteur/RSource";
+import { RSource, RVsLabel } from "@/features/moteur/RSource";
 import { syncMajJobDepuisRun } from "@/features/moteur/importJobs";
 import { nomLangue } from "@/features/moteur/langues";
 import {
@@ -244,6 +244,9 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
                         <span className="text-xs text-muted-foreground">{nomLangue(s.langue)}</span>
                         <span data-testid={`maj-r-${s.handle_tiktok}`}>
                           <RSource perf={perf.data?.[s.id]} compact />
+                        </span>
+                        <span data-testid={`maj-vs-label-${s.handle_tiktok}`}>
+                          <RVsLabel perf={perf.data?.[s.id]} compact />
                         </span>
                         <span
                           className={cn(

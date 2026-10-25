@@ -1891,6 +1891,16 @@ export const fr = {
       perfAucun: "Aucun post de cette source publié il y a 3 à 30 jours",
       perfAucunCourt: "pas de post",
       perfTri: "Trier par r (le meilleur en haut)",
+      vsLabelAide:
+        "La source face aux autres slideshows de son label : r de la source ÷ r de tous les slideshows du label (toutes sources et podz, même fenêtre de 30 jours). ×1,20 = la source fait 20 % mieux que son label ; ×0,80 = 20 % moins bien. Vert dès ×1,10, orange sous ×0,90, gris sous 10 posts de la source.",
+      vsLabelBulle_one:
+        "{{rapport}} : r {{r}} de la source contre r {{rLabel}} pour le label {{label}} ({{count}} post)",
+      vsLabelBulle_other:
+        "{{rapport}} : r {{r}} de la source contre r {{rLabel}} pour le label {{label}} ({{count}} posts)",
+      vsLabelAucun: "Pas de chiffre : pas de post récent de la source, ou pas de label",
+      vsLabelSous: "{{label}} · r {{r}}",
+      vsLabelCourt: "{{rapport}} label",
+      vsLabelTri: "Trier par rapport au label (le meilleur en haut)",
       majPerformantes: "r ≥ 1",
       majPerformantesAide: "Coche les sources dont le r est d'au moins 1 sur 10 posts ou plus",
       majImportes_one: "{{count}} importé",
@@ -1975,6 +1985,7 @@ export const fr = {
         langue: "Langue",
         niche: "Niche",
         perf: "r · 30 j",
+        vsLabel: "vs label",
         extraction: "Dernière extraction",
         recherche: "Chercher un @compte, une niche ou une langue",
         rechercheCourt: "@compte, niche, langue",

@@ -3087,6 +3087,7 @@ export const fr = {
       eloSeuil: "Seuil ELO import (langues)",
       eloPoidsVues: "Poids des vues dans l'ELO (0–1)",
       eloVuesPlafond: "Plafond vues (= score 100)",
+      eloVuesForce: "Vues pour forcer l'import (0 = jamais)",
       eloRegularisation: "Régularisation ELO k (import)",
       eloVuesAide:
         "Défaut : 90 % vues / 10 % pertinence, plafond 80k, k ELO = 1 (log^1.3). Un post à 1k vues et un à 20k doivent clairement diverger — baisse k si tout se ressemble encore.",

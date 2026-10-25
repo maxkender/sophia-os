@@ -622,9 +622,13 @@ export type PertinencesRapport = Record<string, { score: number; note: number | 
  * porte, avec SON score) et son éligibilité, puis rend le résumé pour
  * `import_elo_rapport.pertinences`.
  *
- * Seules les lignes sans note sont (ré)écrites : l'étape 4 repasse à chaque
- * pas du pipeline, et une ligne forcée par `forcerImportElo` ne doit pas être
- * recalculée. À n'appeler que si `schemaMultiAppPret`.
+ * Les lignes sans note sont calculées ; une ligne déjà notée n'est jamais
+ * recalculée depuis son score (l'étape 4 repasse à chaque pas du pipeline).
+ * Import FORCÉ (« Forcer », ou vues au-delà du réglage) : une ligne déjà notée
+ * sans forçage est planchée depuis SA note, comme dans `forcerImportElo`, et
+ * son éligibilité refaite (le plancher de pertinence de ses labels tient
+ * toujours). Idempotent : une ligne déjà planchée n'est pas réécrite.
+ * À n'appeler que si `schemaMultiAppPret`.
  */
 export async function majNotesPertinences(
   supabase: Supabase,
@@ -643,22 +647,29 @@ export async function majNotesPertinences(
 
   const rapport: PertinencesRapport = {};
   for (const l of lignes) {
-    let { note, eligible } = l;
-    if (note === null) {
-      note = noteStockee(opts.noteDe(l.score), l.application_id, opts.seuil, opts.force);
+    let note: number;
+    let eligible = l.eligible;
+    if (l.note === null || opts.force) {
+      note = noteStockee(l.note === null ? opts.noteDe(l.score) : l.note, l.application_id, opts.seuil, opts.force);
       eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force, {
         applicationId: l.application_id,
         score: l.score,
         minimum: minimums.get(l.application_id),
       });
-      const { error } = await supabase
-        .from("contenu_pertinences")
-        .update({ note, eligible, updated_at: new Date().toISOString() })
-        .eq("contenu_id", contenuId)
-        .eq("application_id", l.application_id);
-      if (error) {
-        throw new Error(`Éligibilité ${slugDe(l.application_id)} : ${messageErreur(error)}`);
+      // Déjà planchée et même éligibilité : rien à réécrire.
+      const inchangee = l.note !== null && note === l.note && eligible === l.eligible;
+      if (!inchangee) {
+        const { error } = await supabase
+          .from("contenu_pertinences")
+          .update({ note, eligible, updated_at: new Date().toISOString() })
+          .eq("contenu_id", contenuId)
+          .eq("application_id", l.application_id);
+        if (error) {
+          throw new Error(`Éligibilité ${slugDe(l.application_id)} : ${messageErreur(error)}`);
+        }
       }
+    } else {
+      note = l.note;
     }
     rapport[slugDe(l.application_id)] = {
       score: l.score,

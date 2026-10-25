@@ -4239,6 +4239,7 @@ export async function lireReglages(): Promise<Reglages> {
       elo_poids_vues: 0.7,
       elo_vues_plafond: 80_000,
       elo_regularisation_k: 1,
+      elo_vues_force_import: 40_000,
       ...((map.get("scoring") as Partial<Reglages["scoring"]> | undefined) ?? {}),
     },
     tierlist: {

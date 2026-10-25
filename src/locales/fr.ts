@@ -2127,6 +2127,8 @@ export const fr = {
       disabled: "Désactivé",
       you: "Toi",
       confirmDelete: "Supprimer définitivement ce poster et ses données ?",
+      nomComplet: "Nom complet",
+      nomCompletExemple: "ex. Ana Silva",
       upworkAjouter: "+ Liens Upwork et email perso",
       upworkModifier: "Modifier Upwork et email perso",
       contact: {

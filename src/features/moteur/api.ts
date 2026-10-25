@@ -1497,6 +1497,15 @@ export async function majUpwork(userId: string, url: string): Promise<void> {
   if (error) throw error;
 }
 
+/** Change le nom complet d'un poster (premier mot = prénom, le reste = nom). L'email de connexion ne change pas. */
+export function renommerPoster(userId: string, nomComplet: string) {
+  return invoke<{ ok: boolean; prenom: string; nom: string }>("manage-users", {
+    action: "renommer",
+    userId,
+    nom_complet: nomComplet,
+  });
+}
+
 /** Liens Upwork et email perso d'un poster (0358), saisis à sa création ou dans sa fiche. */
 export interface ContactPoster {
   upwork_url: string | null;

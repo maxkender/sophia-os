@@ -12,6 +12,7 @@ import {
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { lireContactPoster } from "../_shared/contact_poster.ts";
+import { separerNomComplet } from "../_shared/nom_complet.ts";
 import {
   applicationsRequises,
   type ChoixCompte,
@@ -741,6 +742,28 @@ async function gererRequete(request: Request): Promise<Response> {
       .eq("poster_id", body.userId);
     if (errComptes) return json({ error: errComptes.message }, 400);
     return json({ ok: true });
+  }
+
+  if (body.action === "renommer") {
+    // Le nom complet d'un poster, modifiable après sa création : le premier
+    // mot va dans `prenom`, le reste dans `nom`. L'email de connexion ne
+    // change pas. Mêmes droits que « activer ».
+    const { prenom, nom } = separerNomComplet(body.nom_complet);
+    if (!body.userId || !prenom) return json({ error: "userId et nom_complet requis" }, 400);
+    if (acces.role !== "admin" && acces.role !== "head_of_ops") {
+      const { data: cible } = await supabase
+        .from("profiles")
+        .select("manager_id")
+        .eq("id", body.userId)
+        .single();
+      if (!cible || cible.manager_id !== acces.userId) return json({ error: "forbidden" }, 403);
+    }
+    const { error } = await supabase
+      .from("profiles")
+      .update({ prenom, nom: nom || null })
+      .eq("id", body.userId);
+    if (error) return json({ error: error.message }, 400);
+    return json({ ok: true, prenom, nom });
   }
 
   if (body.action === "delete") {

@@ -1,0 +1,551 @@
+{
+ "id": "mm-o009",
+ "titre": "tier list of Study habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "study habits, ranked #studytok #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes pour étudier, classées #etudes #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Lerngewohnheiten im Ranking #lernen #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hábitos de estudio, en ranking #estudiar #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "abitudini di studio, in classifica #studio #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "ders çalışma alışkanlıkları #dersçalış #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Study",
+   "fr": "habitudes",
+   "de": "Lern-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "ders"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "pour étudier",
+   "de": "gewohnheiten",
+   "es": "de estudio",
+   "it": "di studio",
+   "tr": "alışkanlıkları"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what got you through exams?",
+  "fr": "qu’est-ce qui t’a sauvé aux exams ?",
+  "de": "was hat dich durch die Prüfungen gebracht?",
+  "es": "¿qué te salvó en los exámenes?",
+  "it": "cosa ti ha salvato agli esami?",
+  "tr": "sınavlarda seni ne kurtardı?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "top grades",
+    "fr": "notes au top",
+    "de": "Top-Noten",
+    "es": "notas top",
+    "it": "voti top",
+    "tr": "en iyi notlar"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "deep work|blocks",
+      "fr": "blocs de|travail profond",
+      "de": "Deep-Work-|Blöcke",
+      "es": "bloques de|trabajo profundo",
+      "it": "blocchi di|deep work",
+      "tr": "derin çalışma|blokları"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|another room",
+      "fr": "téléphone dans|une autre pièce",
+      "de": "Handy im|anderen Raum",
+      "es": "móvil en|otra habitación",
+      "it": "telefono in|un’altra stanza",
+      "tr": "telefon|başka odada"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "fr": "8h de sommeil",
+      "de": "8h Schlaf",
+      "es": "8h de sueño",
+      "it": "8 ore di sonno",
+      "tr": "8 saat uyku"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      805,
+      241,
+      99,
+      94
+     ],
+     "t": {
+      "en": "teaching|it back",
+      "fr": "réexpliquer|le cours",
+      "de": "es jemandem|erklären",
+      "es": "explicarlo|a otro",
+      "it": "rispiegarlo|a qualcuno",
+      "tr": "birine|anlatmak"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "active recall",
+      "fr": "se tester",
+      "de": "aktives Abrufen",
+      "es": "recuerdo activo",
+      "it": "ripasso attivo",
+      "tr": "aktif hatırlama"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "one goal|per session",
+      "fr": "un objectif|par séance",
+      "de": "ein Ziel|pro Session",
+      "es": "una meta|por sesión",
+      "it": "un obiettivo|a sessione",
+      "tr": "oturum başına|bir hedef"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "walk|between blocks",
+      "fr": "marcher|entre deux blocs",
+      "de": "Gehen|zwischen Blöcken",
+      "es": "caminar|entre bloques",
+      "it": "camminare|tra i blocchi",
+      "tr": "bloklar arası|yürüyüş"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "pomodoro",
+      "fr": "pomodoro",
+      "de": "Pomodoro",
+      "es": "pomodoro",
+      "it": "pomodoro",
+      "tr": "pomodoro"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      742,
+      739,
+      230,
+      94
+     ],
+     "t": {
+      "en": "focus mode",
+      "fr": "mode focus",
+      "de": "Fokus-Modus",
+      "es": "modo concentración",
+      "it": "modalità focus",
+      "tr": "odak modu"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "water",
+      "fr": "boire de l’eau",
+      "de": "Wasser trinken",
+      "es": "beber agua",
+      "it": "bere acqua",
+      "tr": "su içmek"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess breaks",
+      "fr": "pauses échecs",
+      "de": "Schach-Pausen",
+      "es": "pausas de ajedrez",
+      "it": "pause scacchi",
+      "tr": "satranç molası"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee / tea",
+      "fr": "café / thé",
+      "de": "Kaffee / Tee",
+      "es": "café / té",
+      "it": "caffè / tè",
+      "tr": "kahve / çay"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "lofi",
+      "fr": "lofi",
+      "de": "Lofi",
+      "es": "lofi",
+      "it": "lofi",
+      "tr": "lofi"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "power nap",
+      "fr": "micro-sieste",
+      "de": "Powernap",
+      "es": "siesta corta",
+      "it": "pisolino",
+      "tr": "kısa şekerleme"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "brain food",
+      "fr": "bouffe pour le cerveau",
+      "de": "Brainfood",
+      "es": "comida para el cerebro",
+      "it": "cibo per il cervello",
+      "tr": "beyin besini"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake studying",
+    "fr": "faux travail",
+    "de": "Fake-Lernen",
+    "es": "falso estudio",
+    "it": "finto studio",
+    "tr": "sahte çalışma"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "study-with-me|videos",
+      "fr": "vidéos|study with me",
+      "de": "Study-with-me-|Videos",
+      "es": "vídeos|study with me",
+      "it": "video|study with me",
+      "tr": "study with me|videoları"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "buying|new pens",
+      "fr": "acheter|des stylos",
+      "de": "neue Stifte|kaufen",
+      "es": "comprar|bolis nuevos",
+      "it": "comprare|penne nuove",
+      "tr": "yeni kalem|almak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "posting|your notes",
+      "fr": "poster|tes fiches",
+      "de": "Notizen|posten",
+      "es": "postear|tus apuntes",
+      "it": "postare|gli appunti",
+      "tr": "notlarını|paylaşmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "rewatching|lectures",
+      "fr": "revoir|les cours",
+      "de": "Vorlesungen|nochmal schauen",
+      "es": "volver a ver|las clases",
+      "it": "rivedere|le lezioni",
+      "tr": "dersleri|tekrar izlemek"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "wastes the night",
+   "fr": "gâche la soirée",
+   "de": "verschwendet den Abend",
+   "es": "tira la noche",
+   "it": "spreca la serata",
+   "tr": "geceyi harcar"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "all-nighter|scrolling",
+     "fr": "nuit blanche|à scroller",
+     "de": "Durchmachen|mit Scrollen",
+     "es": "noche en vela|scrolleando",
+     "it": "notte in bianco|a scrollare",
+     "tr": "sabaha kadar|scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 25/10 : original sur le schéma tier list 2 slides, sujet études. cta A : élément UnSwipe en première case du S+. Couverture : le guerrier qui lit de la banque."
+}

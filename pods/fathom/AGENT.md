@@ -36,7 +36,9 @@ rejette est validée toute seule 12 h après son dépôt.
 - **La slide Sophia** : une seule par deck, **une étape native au milieu de la liste**, en carte d'appli comme UnSwipe (`"type": "etape", "app": "sophia"`, avec `carte`, que l'OS marque `position_sophia`). Décision du 23/10 : plus de slide d'appli à la fin.
 	- Le titre est une vraie étape de la liste, dans son style : « LEARN NEW TOPICS » (une liste « 5 Ways »), « ANSWER RANDOM QUESTIONS » (une liste de compétences).
 	- Elle remplace une étape : on garde son nombre d'étapes (« 5 Ways » = 5 étapes, Sophia et UnSwipe comprises), donc une slide de moins que lui quand il avait une slide d'appli.
-	- La carte : « SOPHIA » et la phrase de son positionnement (« learn something new every day, », « in 5 minutes. »).
+	- La carte : « SOPHIA » et une phrase de son positionnement, en versions qu'on alterne d'une livraison à l'autre (ROUTINE.md § 4.5), notées dans `notes` et identiques sur toutes les langues :
+		- `cta A` : « learn something new every day, » / « in 5 minutes. » (fa-001 à fa-004) ;
+		- `cta B` : « 5 minutes a day » / « to know a bit about everything. » (fa-005).
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».
 - **La carte UnSwipe** (`"type": "etape", "app": "unswipe"`, avec `carte`) : « UNSWIPE » et une ou deux lignes.
 	- Ce qu'elle fait vraiment : Instagram sans les Reels (on garde les messages, les stories et les posts des amis), les autres applis sans les vidéos courtes ni le scroll infini, une appli comme TikTok bloquée en entier. « no need to delete anything ».

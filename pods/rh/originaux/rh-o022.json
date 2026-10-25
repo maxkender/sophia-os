@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o022",
+ "schema_id": "insider-rh",
+ "titre": "ce que je regardais en PREMIER sur ton cv quand j'étais rh (et c'était pas l'expérience) #cv #rechercheemploi #emploi #entretien #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »). Routine du 25/10. Schéma insider-rh (r 2,9 sur 7 passages, d3d9cd2f). Accroches écrites : « ce que je regardais en PREMIER sur ton cv quand j'étais rh (et c'était pas l'expérience) » (retenue : confession + promesse de surprise), « les 6 détails de ton cv qui comptaient plus que tes diplômes quand j'étais rh » (écartée : longue), « ton cv vu par une rh, ligne par ligne » (écartée : sans tension). Six points neufs, aucune reprise des sources (tri en 6 secondes, logiciel, photo, mots-clés) ni de rh-o005, rh-o010 ou rh-o018. On ne pousse jamais à embellir : l'intitulé doit être vrai, les verbes décrivent ce que t'as vraiment fait, les mois manquants s'expliquent honnêtement. CTA de fin jamais utilisé : ouvrir son cv tout de suite. Sophia en 5 sur la ligne centres d'intérêt. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "011d5f64",
+   "texte_overlay": "ce que je regardais en PREMIER\nsur ton cv quand j'étais rh\n(et c'était pas l'expérience)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3fab71b2",
+   "texte_overlay": "1. l'intitulé tout en haut\ns'il collait pas au poste, je lisais pas la suite.\nmets l'intitulé du poste visé, si c'est vraiment ce que tu fais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "40bf3754",
+   "texte_overlay": "2. les dates\ndes mois manquants, je cherchais l'explication.\nune ligne honnête vaut mieux qu'un trou qu'on devine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "42aec155",
+   "texte_overlay": "3. la longueur\n3 pages pour 2 ans d'expérience, ça me disait que tu savais pas trier.\nune page, et chaque ligne mérite sa place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "433bc898",
+   "texte_overlay": "4. la ligne centres d'intérêt\non la lisait vraiment, pour lancer la conversation.\n« lecture, voyages », c'est rien. un intérêt précis, c'est 5 minutes de discussion",
+   "texte_sophia": "4. la ligne centres d'intérêt\n« lecture, voyages », c'est rien. mets un intérêt précis et vrai.\nt'en as pas ? utilise l'appli Sophia 5 minutes par jour, et en un mois t'en as un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "43ae7125",
+   "texte_overlay": "5. les verbes\n« participé à » ou « mené ». je voyais la différence.\ndis ce que t'as fait toi, pas toute l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "43e0bd8d",
+   "texte_overlay": "6. l'adresse mail\nun vieux pseudo de collège, et le sérieux du cv s'effondrait.\nprénom.nom, c'est tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4412f862",
+   "texte_overlay": "ouvre ton cv maintenant\nt'as 2 minutes ?\nvérifie ces 6 points avant ta prochaine candidature",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

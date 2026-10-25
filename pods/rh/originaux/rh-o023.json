@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o023",
+ "schema_id": "copie-habitudes",
+ "titre": "j'ai copié 5 habitudes de la personne la plus calme de mon équipe pendant un mois (et mon stress a fondu) #travail #stress #santementale #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta C (défi : « teste 5 minutes sur l'appli Sophia… »). Routine du 25/10. Schéma copie-habitudes (r 3,82 sur 4 passages, 63ffa170). Accroches écrites : « j'ai copié 5 habitudes de la personne la plus calme de mon équipe pendant un mois (et mon stress a fondu) » (retenue : nouvelle cible, le calme, et un bénéfice concret), « elle ne stressait jamais au travail, j'ai fini par lui demander pourquoi » (écartée : trop proche de 48eff43a), « 5 habitudes anti-stress volées à ma collègue » (écartée : plus plate). Cinq habitudes neuves, aucune reprise de rh-o011, rh-o015 ni des sources. Rien de médical : on parle de stress du quotidien, pas de soin. CTA de fin jamais utilisé : se situer en un mot (« calme » ou « stressée »). Sophia en 5 avant une réunion. Inspirations : sans les slides 5 des deux sources (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "094883cb",
+   "texte_overlay": "j'ai copié 5 habitudes de la personne\nla plus calme de mon équipe pendant un mois\n(et mon stress a fondu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "434a3a18",
+   "texte_overlay": "elle commençait par la tâche la plus dure\navant d'ouvrir ses mails.\nle reste de la journée paraissait léger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "439b6163",
+   "texte_overlay": "elle fermait son ordi pour réfléchir\npapier, crayon, 10 minutes.\nmoi je réfléchissais avec 14 onglets ouverts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "43c6f847",
+   "texte_overlay": "elle marchait 10 minutes après le déjeuner\nqu'il pleuve ou pas, même autour du bâtiment.\nson après-midi commençait à zéro, pas à 100",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43ef347a",
+   "texte_overlay": "elle lisait un truc sans rapport avant chaque grosse réunion\n5 minutes, rien à voir avec le boulot.\nelle arrivait la tête vide, au bon sens du terme",
+   "texte_sophia": "elle lisait un truc sans rapport avant chaque grosse réunion\nteste 5 minutes sur l'appli Sophia avant ta prochaine réunion stressante : une anecdote d'histoire, et ta tête redescend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "467df7e7",
+   "texte_overlay": "face à une crise, elle posait une question\n« qu'est-ce qui est vraiment urgent là-dedans ? »\nla moitié de la panique disparaissait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4712953a",
+   "texte_overlay": "et toi au boulot en ce moment ?\nréponds « calme » ou « stressée »\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

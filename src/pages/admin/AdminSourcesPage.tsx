@@ -31,17 +31,14 @@ import {
   majSource,
   oublierSource,
   setLabelsSource,
-  stockParSource,
   supprimerSource,
   type LigneJournalOubli,
   lireMajSourcesRun,
 } from "@/features/moteur/api";
 import {
-  etatStock,
   filtrerGroupes,
   groupesSources,
   resumeSources,
-  SEUIL_STOCK_SOURCE,
   type GroupeSource,
 } from "@/features/moteur/groupesSources";
 import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
@@ -448,7 +445,6 @@ function OublierSource({
       });
       for (const key of [
         ["sources"],
-        ["stock-sources"],
         ["slideshows"],
         ["contenus"],
         ["historique-imports"],
@@ -762,21 +758,6 @@ function AjoutConjoint({ principal, niches }: { principal: CompteReference; nich
   );
 }
 
-/** Le stock d'un groupe sur une échelle fixe : la barre s'arrête à 50, un trait marque le seuil de 10. */
-function BarreStock({ stock }: { stock: number }) {
-  const max = 50;
-  const etat = etatStock(stock);
-  return (
-    <div className="relative h-2 w-full min-w-20 rounded-[3px] bg-muted" aria-hidden>
-      <div
-        className={cn("h-full rounded-r-[4px]", etat === "ok" ? "bg-foreground/70" : "bg-warning")}
-        style={{ width: `${(100 * Math.min(stock, max)) / max}%` }}
-      />
-      <div className="absolute -top-1 h-[calc(100%+0.5rem)] w-px bg-foreground/40" style={{ left: `${(100 * SEUIL_STOCK_SOURCE) / max}%` }} />
-    </div>
-  );
-}
-
 /** Une ligne du tableau (le compte principal et ses conjoints), qui se déplie sur leurs réglages. */
 function LigneGroupe({
   groupe,
@@ -792,8 +773,7 @@ function LigneGroupe({
   onOubli: (bilan: BilanOubli) => void;
 }) {
   const { t, i18n } = useTranslation();
-  const { principal, conjoints, stock } = groupe;
-  const etat = etatStock(stock);
+  const { principal, conjoints } = groupe;
   const lien = `https://www.tiktok.com/@${principal.handle_tiktok.replace(/^@/, "")}`;
   const Chevron = ouvert ? ChevronDown : ChevronRight;
   return (
@@ -848,20 +828,7 @@ function LigneGroupe({
           {principal.langue ? `${drapeauLangue(principal.langue)} ${nomLangue(principal.langue)}` : "—"}
         </td>
         <td className={cn(TD, "hidden font-mono text-xs sm:table-cell")}>{principal.niche ?? "—"}</td>
-        <td
-          className={cn(
-            TD,
-            "whitespace-nowrap text-right tabular-nums",
-            principal.is_active && etat === "epuise" && "font-semibold text-destructive",
-            principal.is_active && etat === "faible" && "font-semibold text-warning-foreground",
-          )}
-        >
-          {stock}
-        </td>
-        <td className={cn(TD, "hidden w-32 pt-3 sm:table-cell")}>
-          <BarreStock stock={stock} />
-        </td>
-        <td className={cn(TD, "hidden whitespace-nowrap text-xs text-muted-foreground md:table-cell")}>
+        <td className={cn(TD, "whitespace-nowrap text-xs text-muted-foreground")}>
           {principal.dernier_scrape_at
             ? new Date(principal.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" })
             : t("sources.jamais")}
@@ -869,13 +836,8 @@ function LigneGroupe({
       </tr>
       {ouvert && (
         <tr className="border-b border-border/40">
-          <td colSpan={7} className="pb-4 pt-1">
+          <td colSpan={5} className="pb-4 pt-1">
             <div className="space-y-5 rounded-lg bg-muted/30 p-4">
-              {principal.is_active && etat !== "ok" && (
-                <p className={cn("text-xs font-medium", etat === "epuise" ? "text-destructive" : "text-warning-foreground")}>
-                  {etat === "epuise" ? t("sources.epuise") : t("sources.stockFaible")}
-                </p>
-              )}
               <ReglagesSource source={principal} onOubli={onOubli} />
               <div className="space-y-3 border-t pt-4">
                 <p className={MICRO_LABEL}>{t("sources.parties.conjoints")}</p>
@@ -905,17 +867,6 @@ function ChiffresSources({ groupes }: { groupes: GroupeSource[] }) {
         unit={`/ ${r.total}`}
         detail={r.conjoints > 0 ? t("sources.chiffres.activesDetail", { n: r.conjoints }) : undefined}
       />
-      <StatTile label={t("sources.chiffres.stock")} value={r.stock.toLocaleString()} detail={t("sources.chiffres.stockDetail")} />
-      <StatTile
-        label={t("sources.chiffres.epuisees")}
-        value={r.epuisees}
-        tone={r.epuisees > 0 ? "alerte" : "neutre"}
-        detail={
-          r.faibles > 0
-            ? t("sources.chiffres.faibles", { n: r.faibles, seuil: SEUIL_STOCK_SOURCE })
-            : t("sources.chiffres.aucuneFaible", { seuil: SEUIL_STOCK_SOURCE })
-        }
-      />
       <StatTile
         label={t("sources.chiffres.derniere")}
         value={
@@ -942,14 +893,13 @@ export function AdminSourcesPage() {
     queryKey: ["sources"],
     queryFn: () => listerSources(),
   });
-  const stock = useQuery({ queryKey: ["stock-sources"], queryFn: stockParSource });
   const niches = useQuery({
     queryKey: ["labels"],
     queryFn: () => listerLabels(),
   });
 
   const toutes = sources.data ?? [];
-  const groupes = groupesSources(toutes, stock.data ?? {});
+  const groupes = groupesSources(toutes);
   const visibles = filtrerGroupes(groupes, recherche);
   // Même requête que le panneau (cache partagé) : une mise à jour en cours
   // garde le panneau ouvert, pour suivre la séquence.
@@ -1031,11 +981,7 @@ export function AdminSourcesPage() {
                   <th className={TH}>{t("sources.tableau.source")}</th>
                   <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.langue")}</th>
                   <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.niche")}</th>
-                  <th className={cn(TH, "text-right")}>{t("sources.tableau.stock")}</th>
-                  <th className={cn(TH, "hidden sm:table-cell")}>
-                    <span className="sr-only">{t("sources.tableau.stock")}</span>
-                  </th>
-                  <th className={cn(TH, "hidden md:table-cell")}>{t("sources.tableau.extraction")}</th>
+                  <th className={TH}>{t("sources.tableau.extraction")}</th>
                 </tr>
               </thead>
               <tbody>

@@ -314,23 +314,6 @@ export async function contenusParSource(): Promise<Record<string, { importes: nu
   return m;
 }
 
-/** Stock de slideshows reproductibles PAR source (compte de référence). Le front
- *  agrège par groupe (principal + conjoints) pour flaguer un groupe épuisé. */
-export async function stockParSource(): Promise<Record<string, number>> {
-  const { data, error } = await supabase
-    .from("sujets")
-    .select("compte_reference_id")
-    .eq("preparation_statut", "done")
-    .in("statut", ["retenu", "utilise"]);
-  if (error) throw error;
-  const m: Record<string, number> = {};
-  for (const s of data ?? []) {
-    const k = s.compte_reference_id as string | null;
-    if (k) m[k] = (m[k] ?? 0) + 1;
-  }
-  return m;
-}
-
 export async function majSource(id: string, patch: Partial<CompteReference>): Promise<void> {
   const { error } = await supabase.from("comptes_reference").update(patch).eq("id", id);
   if (error) throw error;

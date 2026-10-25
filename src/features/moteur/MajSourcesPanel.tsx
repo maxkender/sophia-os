@@ -10,7 +10,10 @@ import {
   contenusParSource,
   demarrerMajSourcesServeur,
   lireMajSourcesRun,
+  performanceSources,
 } from "@/features/moteur/api";
+import { sourcePerformante } from "@/features/moteur/perfSource";
+import { RSource } from "@/features/moteur/RSource";
 import { syncMajJobDepuisRun } from "@/features/moteur/importJobs";
 import { nomLangue } from "@/features/moteur/langues";
 import {
@@ -57,6 +60,7 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
   const mettables = React.useMemo(() => sourcesMettables(sources), [sources]);
   const run = useQuery({ queryKey: ["maj-sources-run"], queryFn: lireMajSourcesRun, refetchInterval: 4_000 });
   const importes = useQuery({ queryKey: ["contenus-par-source"], queryFn: contenusParSource });
+  const perf = useQuery({ queryKey: ["performance-sources"], queryFn: performanceSources });
   React.useEffect(() => {
     syncMajJobDepuisRun(run.data ?? null);
   }, [run.data]);
@@ -210,6 +214,14 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
                 >
                   {t("sources.majAnciennes", { jours: JOURS_ANCIENNE })}
                 </Button>
+                <Button
+                  size="xs"
+                  variant="outline"
+                  title={t("sources.majPerformantesAide")}
+                  onClick={() => setChoix(new Set(mettables.filter((s) => sourcePerformante(perf.data?.[s.id])).map((s) => s.id)))}
+                >
+                  {t("sources.majPerformantes")}
+                </Button>
                 <Button size="xs" variant="ghost" onClick={() => setChoix(new Set())}>
                   {t("sources.majAucune")}
                 </Button>
@@ -230,6 +242,9 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
                         />
                         <span className="font-mono text-sm">@{s.handle_tiktok}</span>
                         <span className="text-xs text-muted-foreground">{nomLangue(s.langue)}</span>
+                        <span data-testid={`maj-r-${s.handle_tiktok}`}>
+                          <RSource perf={perf.data?.[s.id]} compact />
+                        </span>
                         <span
                           className={cn(
                             "ml-auto text-xs tabular-nums",

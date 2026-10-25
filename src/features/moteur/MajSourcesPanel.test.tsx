@@ -10,12 +10,14 @@ import type { CompteReference } from "./types";
 
 const lireMajSourcesRun = vi.fn();
 const contenusParSource = vi.fn();
+const performanceSources = vi.fn();
 const demarrerMajSourcesServeur = vi.fn();
 const annulerMajSourcesServeur = vi.fn();
 
 vi.mock("@/features/moteur/api", () => ({
   lireMajSourcesRun: () => lireMajSourcesRun(),
   contenusParSource: () => contenusParSource(),
+  performanceSources: () => performanceSources(),
   demarrerMajSourcesServeur: (c: unknown) => demarrerMajSourcesServeur(c),
   annulerMajSourcesServeur: () => annulerMajSourcesServeur(),
 }));
@@ -45,6 +47,11 @@ describe("MajSourcesPanel", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
     lireMajSourcesRun.mockResolvedValue(null);
+    performanceSources.mockResolvedValue({
+      vieille: { posts: 126, r: 1.15, vuesMediane: 1531 },
+      moyenne: { posts: 4, r: 1.94, vuesMediane: 3670 },
+      recente: { posts: 300, r: 0.85, vuesMediane: 1387 },
+    });
     contenusParSource.mockResolvedValue({ recente: { importes: 40, valides: 35 }, vieille: { importes: 53, valides: 45 } });
     await i18n.changeLanguage("fr");
   });
@@ -171,5 +178,16 @@ describe("MajSourcesPanel", () => {
     const suivi = await screen.findByTestId("maj-suivi");
     expect(within(suivi).getByTestId("maj-suivi-vieille").textContent).toMatch(/Terminé : 2 slideshows envoyés à l'import/);
     expect(within(suivi).getByRole("button", { name: "Masquer le détail" })).toBeTruthy();
+  });
+
+  it("montre le r de chaque source et « r ≥ 1 » ne coche que les sources qui marchent sur assez de posts", async () => {
+    rendre();
+    await waitFor(() => expect(screen.getByTestId("maj-r-vieille").textContent).toBe("r 1,15"));
+    expect(screen.getByTestId("maj-r-recente").textContent).toBe("r 0,85");
+    fireEvent.click(screen.getByRole("button", { name: "r ≥ 1" }));
+    // moyenne : r 1,94 mais sur 4 posts seulement, pas cochée.
+    expect((screen.getByRole("checkbox", { name: "@vieille" }) as HTMLInputElement).checked).toBe(true);
+    expect((screen.getByRole("checkbox", { name: "@moyenne" }) as HTMLInputElement).checked).toBe(false);
+    expect((screen.getByRole("checkbox", { name: "@recente" }) as HTMLInputElement).checked).toBe(false);
   });
 });

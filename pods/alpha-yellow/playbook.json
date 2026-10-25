@@ -1,5 +1,5 @@
 {
-  "maj_le": "2026-10-24",
+  "maj_le": "2026-10-25",
   "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Une accroche ne s'écrit que sur un schéma actif.",
   "schemas": [
     {
@@ -32,16 +32,16 @@
         {
           "type": "os",
           "contenu_id": "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
-          "r_median": 2.38,
-          "publies": 19,
-          "releve_le": "2026-10-24"
+          "r_median": 2.12,
+          "publies": 20,
+          "releve_le": "2026-10-25"
         },
         {
           "type": "os",
           "contenu_id": "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708",
-          "r_median": 2.25,
-          "publies": 11,
-          "releve_le": "2026-10-24"
+          "r_median": 1.66,
+          "publies": 13,
+          "releve_le": "2026-10-25"
         }
       ]
     },
@@ -100,9 +100,9 @@
         {
           "type": "os",
           "contenu_id": "ee79c00a-c7d9-4754-87bd-4c21798a3161",
-          "r_median": 2.09,
+          "r_median": 2.13,
           "publies": 12,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         }
       ]
     },
@@ -200,23 +200,23 @@
         {
           "type": "os",
           "contenu_id": "51759eba-2baa-40c2-90dc-2ab9d65273db",
-          "r_median": 5.42,
-          "publies": 13,
-          "releve_le": "2026-10-24"
+          "r_median": 5.45,
+          "publies": 15,
+          "releve_le": "2026-10-25"
         },
         {
           "type": "os",
           "contenu_id": "114f61ce-f972-4879-b886-01694a747522",
-          "r_median": 5.65,
+          "r_median": 5.66,
           "publies": 14,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         },
         {
           "type": "os",
           "contenu_id": "409a91e1-6766-4163-afbd-e39949f78261",
-          "r_median": 2.48,
+          "r_median": 2.5,
           "publies": 14,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         }
       ]
     },
@@ -239,30 +239,30 @@
         {
           "type": "os",
           "contenu_id": "7ecc8796-4f49-4b3e-abbc-3a111dee2030",
-          "r_median": 1.53,
+          "r_median": 1.54,
           "publies": 13,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         },
         {
           "type": "os",
           "contenu_id": "5d42b2c3-cb27-427a-b7fa-0397ca7f68c9",
-          "r_median": 1.49,
+          "r_median": 1.47,
           "publies": 13,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         },
         {
           "type": "os",
           "contenu_id": "4b1c178e-a684-4cde-878a-208022731b43",
-          "r_median": 3.08,
+          "r_median": 3.11,
           "publies": 16,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         },
         {
           "type": "os",
           "contenu_id": "35ee3b67-4a34-44e5-bd97-bc66a82764dd",
-          "r_median": 3.04,
+          "r_median": 2.96,
           "publies": 13,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         }
       ]
     },
@@ -281,9 +281,9 @@
         {
           "type": "os",
           "contenu_id": "5490f976-0b6e-404f-b6f1-ae7d41b7901e",
-          "r_median": 3.11,
+          "r_median": 3.09,
           "publies": 17,
-          "releve_le": "2026-10-24"
+          "releve_le": "2026-10-25"
         }
       ]
     },
@@ -320,28 +320,28 @@
           "type": "os",
           "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
           "r_median": 0.28,
-          "releve_le": "2026-10-24",
+          "releve_le": "2026-10-25",
           "publies": 5
         },
         {
           "type": "os",
           "contenu_id": "a186bf8f-9a90-4438-b3ee-e1a5e2b81c14",
           "r_median": 0.35,
-          "releve_le": "2026-10-24",
+          "releve_le": "2026-10-25",
           "publies": 10
         },
         {
           "type": "os",
           "contenu_id": "3e9988c3-bd5e-48d8-95d9-c1948b920d59",
           "r_median": 0.59,
-          "releve_le": "2026-10-24",
+          "releve_le": "2026-10-25",
           "publies": 6
         },
         {
           "type": "os",
           "contenu_id": "63d2a455-b017-452e-912c-1fc7c7548942",
-          "r_median": 0.47,
-          "releve_le": "2026-10-24",
+          "r_median": 0.46,
+          "releve_le": "2026-10-25",
           "publies": 12
         }
       ]
@@ -376,7 +376,7 @@
           "type": "os",
           "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
           "r_median": 0.28,
-          "releve_le": "2026-10-24",
+          "releve_le": "2026-10-25",
           "publies": 5
         }
       ]

@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o005",
+  "schema_id": "methods-per-subject",
+  "titre": "every type of test needs its own prep #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "essai. Veille du 25/10 (0,45 $ cette semaine) : aucun format neuf utilisable à 200 k ou plus (@saeshaspamsy 784 k : vantardise de notes et de diplômes avec visage ; @emmajanelow 581 k : cliché ethnique ; @aaiimmiiee 521 k : « believe in yourself », esthétique vague, à éviter). L'essai teste donc un format jamais fait chez nous dans un schéma prouvé : methods-per-subject (@studyy.hackz 384 k le 10/10, 615 k le 06/10), mais une méthode par TYPE D'ÉPREUVE (QCM, rédaction, exercices, vocabulaire, oral, veille de l'épreuve) au lieu d'une par matière. Accroches écrites : « “I have 4 tests next week and no idea how to prep” » (retenue : la plainte entre guillemets, concrète), « “I study the same way for a quiz and an essay” » (écartée : trop proche de cs-o001), « “multiple choice tests always trick me” » (écartée : un seul type d'épreuve). Place micabo : slide 6 (vocabulaire, se tester dans les deux sens) ; place UnSwipe : slide 8 (la veille, pas de scroll au lit). Faits vrais, sans chiffre. Images jamais prises par nos originaux, sans visage ; slides 6 et 8 sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1dc11cff",
+      "texte_overlay": "“I have 4 tests next week\nand no idea how to prep”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a6bccee",
+      "texte_overlay": "I did too. but every type of test\nneeds its own prep. here's how...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "04507433",
+      "texte_overlay": "Multiple choice ✅\nBest for: quizzes, Biology, History\nfor every practice question, explain why each wrong option is wrong. not just why the right one is right.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1ef07dc8",
+      "texte_overlay": "Essay exam ✍️\nBest for: History, Literature, Philosophy\nlist the 4 or 5 questions most likely to come up, outline each one, then write one full answer with a timer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0d01e06b",
+      "texte_overlay": "Problem-solving test 🧮\nBest for: Maths, Physics, Chemistry\nsolve with the answers closed and a timer on. you check the answer key only at the end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1801f7ea",
+      "texte_overlay": "Vocabulary & definitions 🔤\nBest for: Languages, Biology terms\ntest yourself both ways: word → meaning, then meaning → word.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1800ca84",
+      "texte_overlay": "Oral exam 🎤\nBest for: Languages, presentations\nsay your answers out loud, or record yourself once and listen back. thinking it is not the same as saying it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3712c895",
+      "texte_overlay": "The night before 🌙\nBest for: every single test\nno new chapters and no scrolling in bed. one quick review, then sleep.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682427006855679264/7.jpg"
+    }
+  ]
+}

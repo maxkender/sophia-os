@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o007",
+  "schema_id": "methods-per-subject",
+  "titre": "the note-taking method each subject actually needs #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "Schéma methods-per-subject (@studyy.hackz : 384 k le 10/10, 615 k le 06/10, valable jusqu'au 9/11). Autre plainte que cs-o001, cs-o003 et cs-o005 : « “my notes are useless when it's time to study” » (retenue : la plainte entre guillemets, et un angle neuf, la prise de notes par matière), « “I take notes but never look at them again” » (écartée : moins précise), « “I copy the whole slide and learn nothing” » (écartée : pas une plainte de toutes les élèves). Six méthodes de prise de notes, aucune déjà prise : Cornell (méthode reconnue), le cahier exemple / essai pour les maths, deux colonnes pour le vocabulaire (place micabo, slide 5), le schéma de processus, la banque de citations, le téléphone dans le sac pendant le cours (place UnSwipe, slide 8). Images jamais prises par nos originaux, sans visage ; slides 5 et 8 sans personne. Écartée à l'aperçu : 11b6d69f (marque possible sur la trousse).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "29b26086",
+      "texte_overlay": "“my notes are useless\nwhen it's time to study”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1d8e4dee",
+      "texte_overlay": "same, until I changed HOW I take them.\nhere's the method for each subject...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "020a378f",
+      "texte_overlay": "Cornell notes 📝\nBest for: History, Biology, Economics\nnotes on the right, key questions on the left, a 2-line summary at the bottom. later you cover the right side and answer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "17c10459",
+      "texte_overlay": "Example / your turn ➗\nBest for: Maths, Physics, Chemistry\nleft page: the example from class. right page: a similar problem you solve yourself.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1ae57e29",
+      "texte_overlay": "Two columns 🔤\nBest for: Languages, definitions\nword on the left, meaning on the right. fold the page and test yourself on one side.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0d58104a",
+      "texte_overlay": "Process diagrams 🔁\nBest for: Biology, Chemistry, Geography\nturn every process into arrows and boxes: each step, what causes the next one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1f42762e",
+      "texte_overlay": "Quote bank 📚\nBest for: Literature, Philosophy\none page per theme with 4 or 5 short quotes you can use in any essay.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "37ca0afe",
+      "texte_overlay": "Phone in your bag 📵\nBest for: every class\nyou can't take good notes while checking notifications. it stays in your bag until the bell.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

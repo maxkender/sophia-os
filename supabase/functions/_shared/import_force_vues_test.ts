@@ -19,7 +19,7 @@ function rapport(pertinence: number, vues: number) {
   });
 }
 
-Deno.test("motifForceImport : à la main d'abord, puis les vues au-delà du plancher", () => {
+Deno.test("motifForceImport : les vues au-delà du plancher, sinon le forçage à la main", () => {
   assertEquals(motifForceImport({ import_elo_force_seuil: true, vues_source: 10 }, 40_000), "manuel");
   assertEquals(motifForceImport({ import_elo_force_seuil: false, vues_source: 40_000 }, 40_000), "vues");
   assertEquals(motifForceImport({ import_elo_force_seuil: false, vues_source: 333_700 }, 40_000), "vues");
@@ -28,6 +28,8 @@ Deno.test("motifForceImport : à la main d'abord, puis les vues au-delà du plan
   // 0 coupe la règle des vues, pas le forçage manuel.
   assertEquals(motifForceImport({ import_elo_force_seuil: false, vues_source: 1_000_000 }, 0), null);
   assertEquals(motifForceImport({ import_elo_force_seuil: true, vues_source: 1_000_000 }, 0), "manuel");
+  // Forcé par les vues puis mémorisé dans le drapeau : il reste « vues » aux pas suivants.
+  assertEquals(motifForceImport({ import_elo_force_seuil: true, vues_source: 333_700 }, 40_000), "vues");
 });
 
 Deno.test("plancherRapportElo : la note remonte au seuil et le contenu entre (C au moins)", () => {

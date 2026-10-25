@@ -205,16 +205,20 @@ export async function lireScoring(supabase: Supabase) {
 }
 
 /**
- * Pourquoi l'import passe outre la note : forcé à la main (« Forcer »,
- * `import_elo_force_seuil`), ou vues TikTok au moins égales au plancher de
- * `vuesForceImport`. `null` : la note décide seule. Pure.
+ * Pourquoi l'import passe outre la note : vues TikTok au moins égales au
+ * plancher de `vuesForceImport`, ou forcé à la main (« Forcer »,
+ * `import_elo_force_seuil`). `null` : la note décide seule. Pure.
+ *
+ * Les vues d'abord : un forçage par les vues est mémorisé dans le même
+ * drapeau qu'un forçage manuel, et l'étape 4 repasse à chaque pas ; testé
+ * dans l'autre ordre, il se relirait « manuel » dès le pas suivant.
  */
 export function motifForceImport(
   contenu: { import_elo_force_seuil?: boolean | null; vues_source?: number | null },
   vuesForceImport: number,
 ): "manuel" | "vues" | null {
-  if (contenu.import_elo_force_seuil) return "manuel";
   if (vuesForceImport > 0 && (contenu.vues_source ?? 0) >= vuesForceImport) return "vues";
+  if (contenu.import_elo_force_seuil) return "manuel";
   return null;
 }
 
@@ -1555,10 +1559,22 @@ async function executerPasImport(
         scoring,
         pisteSource,
       });
-      if (resumeSophia && motifForce && resumeSophia.mode === "partage" && (resumeSophia.elo ?? 0) < scoring.eloSeuil) {
-        // Même plancher que `assurerTierImport` forcé, pour que le rapport dise vrai.
-        resumeSophia.elo = scoring.eloSeuil;
-        resumeSophia.tier = tierImport(scoring.eloSeuil, scoring.eloSeuil) ?? "C";
+      // Même plancher que `assurerTierImport` forcé, pour que le rapport dise
+      // vrai — seulement quand ce pas pose le rang (`placement` lu) : relu
+      // d'un `tier_rapport` existant, le rang n'est pas réécrit et le
+      // rapport doit rester celui qui est en base. Même test, sur la note non
+      // arrondie, que dans `assurerTierImport`.
+      if (resumeSophia && motifForce && placement?.mode === "partage") {
+        const brut = tierSophiaPartage(placement.scoreSophia, {
+          vues: contenu.vues_source ?? null,
+          langueSource,
+          scoring,
+          pisteSource,
+        });
+        if (brut.elo < scoring.eloSeuil) {
+          resumeSophia.elo = scoring.eloSeuil;
+          resumeSophia.tier = tierImport(scoring.eloSeuil, scoring.eloSeuil) ?? "C";
+        }
       }
       if (resumeSophia && elo.tier) {
         elo.placement_sophia = resumeSophia;

@@ -34,7 +34,11 @@ import {
   supprimerSource,
   type LigneJournalOubli,
   lireMajSourcesRun,
+  performanceSources,
 } from "@/features/moteur/api";
+import type { PerfSource } from "@/features/moteur/perfSource";
+import { RSource } from "@/features/moteur/RSource";
+import { Aide } from "@/features/moteur/repartition/graphes";
 import {
   filtrerGroupes,
   groupesSources,
@@ -761,12 +765,14 @@ function AjoutConjoint({ principal, niches }: { principal: CompteReference; nich
 /** Une ligne du tableau (le compte principal et ses conjoints), qui se déplie sur leurs réglages. */
 function LigneGroupe({
   groupe,
+  perf,
   niches,
   ouvert,
   onBasculer,
   onOubli,
 }: {
   groupe: GroupeSource;
+  perf: PerfSource | undefined;
   niches: NicheLabel[];
   ouvert: boolean;
   onBasculer: () => void;
@@ -828,6 +834,9 @@ function LigneGroupe({
           {principal.langue ? `${drapeauLangue(principal.langue)} ${nomLangue(principal.langue)}` : "—"}
         </td>
         <td className={cn(TD, "hidden font-mono text-xs sm:table-cell")}>{principal.niche ?? "—"}</td>
+        <td className={cn(TD, "whitespace-nowrap text-right")} data-testid={`r-${principal.handle_tiktok}`}>
+          <RSource perf={perf} />
+        </td>
         <td className={cn(TD, "whitespace-nowrap text-xs text-muted-foreground")}>
           {principal.dernier_scrape_at
             ? new Date(principal.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" })
@@ -836,7 +845,7 @@ function LigneGroupe({
       </tr>
       {ouvert && (
         <tr className="border-b border-border/40">
-          <td colSpan={5} className="pb-4 pt-1">
+          <td colSpan={6} className="pb-4 pt-1">
             <div className="space-y-5 rounded-lg bg-muted/30 p-4">
               <ReglagesSource source={principal} onOubli={onOubli} />
               <div className="space-y-3 border-t pt-4">
@@ -897,10 +906,20 @@ export function AdminSourcesPage() {
     queryKey: ["labels"],
     queryFn: () => listerLabels(),
   });
+  const perf = useQuery({ queryKey: ["performance-sources"], queryFn: performanceSources });
+  const [triR, setTriR] = React.useState(false);
 
   const toutes = sources.data ?? [];
   const groupes = groupesSources(toutes);
-  const visibles = filtrerGroupes(groupes, recherche);
+  const filtres = filtrerGroupes(groupes, recherche);
+  // Tri par r : les actives d'abord, puis le meilleur r ; sans r, en bas.
+  const visibles = triR
+    ? [...filtres].sort(
+        (a, b) =>
+          Number(b.principal.is_active) - Number(a.principal.is_active) ||
+          (perf.data?.[b.principal.id]?.r ?? -1) - (perf.data?.[a.principal.id]?.r ?? -1),
+      )
+    : filtres;
   // Même requête que le panneau (cache partagé) : une mise à jour en cours
   // garde le panneau ouvert, pour suivre la séquence.
   const run = useQuery({ queryKey: ["maj-sources-run"], queryFn: lireMajSourcesRun, refetchInterval: 4_000 });
@@ -981,6 +1000,20 @@ export function AdminSourcesPage() {
                   <th className={TH}>{t("sources.tableau.source")}</th>
                   <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.langue")}</th>
                   <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.niche")}</th>
+                  <th className={cn(TH, "text-right normal-case")} aria-sort={triR ? "descending" : "none"}>
+                    <span className="inline-flex items-center gap-1">
+                      <button
+                        type="button"
+                        className={cn("uppercase tracking-wide hover:text-foreground", triR && "text-foreground")}
+                        onClick={() => setTriR((v) => !v)}
+                        title={t("sources.perfTri")}
+                      >
+                        {t("sources.tableau.perf")}
+                        {triR ? " ↓" : ""}
+                      </button>
+                      <Aide libelle={t("sources.tableau.perf")}>{t("sources.perfAide")}</Aide>
+                    </span>
+                  </th>
                   <th className={TH}>{t("sources.tableau.extraction")}</th>
                 </tr>
               </thead>
@@ -989,6 +1022,7 @@ export function AdminSourcesPage() {
                   <LigneGroupe
                     key={g.principal.id}
                     groupe={g}
+                    perf={perf.data?.[g.principal.id]}
                     niches={niches.data ?? []}
                     ouvert={ouverte === g.principal.id}
                     onBasculer={() => setOuverte((o) => (o === g.principal.id ? null : g.principal.id))}

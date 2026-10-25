@@ -23,6 +23,7 @@ import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
+import type { PerfSource } from "@/features/moteur/perfSource";
 import type { ContexteAccueil } from "@/features/onboarding/contenu";
 import type {
   Compte,
@@ -310,6 +311,23 @@ export async function contenusParSource(): Promise<Record<string, { importes: nu
   const m: Record<string, { importes: number; valides: number }> = {};
   for (const r of data ?? []) {
     m[r.compte_reference_id as string] = { importes: Number(r.importes), valides: Number(r.valides) };
+  }
+  return m;
+}
+
+/** Le r médian de chaque source sur 30 jours (0356). */
+export async function performanceSources(): Promise<Record<string, PerfSource>> {
+  const { data, error } = await supabase
+    .from("source_performance")
+    .select("compte_reference_id, posts, r_mediane, vues_mediane");
+  if (error) throw error;
+  const m: Record<string, PerfSource> = {};
+  for (const l of data ?? []) {
+    m[l.compte_reference_id as string] = {
+      posts: Number(l.posts),
+      r: l.r_mediane === null ? null : Number(l.r_mediane),
+      vuesMediane: l.vues_mediane === null ? null : Number(l.vues_mediane),
+    };
   }
   return m;
 }

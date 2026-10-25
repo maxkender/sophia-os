@@ -425,6 +425,11 @@ export interface ReglagesScoring {
    * Faible = l'écart 1k vs 20k vues reste visible. Défaut 1.
    */
   elo_regularisation_k: number;
+  /**
+   * Vues TikTok à partir desquelles le slideshow entre même sous le seuil
+   * (note planchée au seuil, comme « Forcer »). 0 = jamais. Défaut 40000.
+   */
+  elo_vues_force_import: number;
 }
 
 export interface ReglagesPaiement {

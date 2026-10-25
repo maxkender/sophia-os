@@ -326,6 +326,14 @@ export function AdminReglagesPage() {
                 onChange={(n) => majScoring({ elo_vues_plafond: n })}
               />
               <ChampNombre
+                id="eloForce"
+                label={t("reglages.eloVuesForce")}
+                min={0}
+                step={10_000}
+                valeur={reglages.scoring.elo_vues_force_import}
+                onChange={(n) => majScoring({ elo_vues_force_import: Math.max(0, n) })}
+              />
+              <ChampNombre
                 id="eloK"
                 label={t("reglages.eloRegularisation")}
                 min={0.1}

@@ -3073,6 +3073,7 @@ export const en = {
       eloSeuil: "Import ELO threshold (languages)",
       eloPoidsVues: "Views weight in ELO (0–1)",
       eloVuesPlafond: "Views ceiling (= score 100)",
+      eloVuesForce: "Views that force the import (0 = never)",
       eloRegularisation: "ELO regularization k (import)",
       eloVuesAide:
         "Default: 90% views / 10% relevance, ceiling 80k, ELO k = 1 (log^1.3). A 1k-view post and a 20k one should clearly diverge — lower k if scores still look alike.",

@@ -193,6 +193,50 @@ export async function lireScoring(supabase: Supabase) {
      * l'admin peut annuler sans déploiement.
      */
     poidsSource: v.elo_poids_source ?? 0,
+    /**
+     * Au-delà de ces vues sur TikTok, le slideshow entre même sous le seuil,
+     * note planchée au seuil comme avec « Forcer » (décision d'Adrien du
+     * 25/10 : 40 000). 0 coupe la règle. Elle passe outre les vues et la
+     * piste, pas le sujet : une application dont la pertinence est sous le
+     * plancher de ses labels reste hors de son pool, comme au forçage manuel.
+     */
+    vuesForceImport: v.elo_vues_force_import ?? 40_000,
+  };
+}
+
+/**
+ * Pourquoi l'import passe outre la note : forcé à la main (« Forcer »,
+ * `import_elo_force_seuil`), ou vues TikTok au moins égales au plancher de
+ * `vuesForceImport`. `null` : la note décide seule. Pure.
+ */
+export function motifForceImport(
+  contenu: { import_elo_force_seuil?: boolean | null; vues_source?: number | null },
+  vuesForceImport: number,
+): "manuel" | "vues" | null {
+  if (contenu.import_elo_force_seuil) return "manuel";
+  if (vuesForceImport > 0 && (contenu.vues_source ?? 0) >= vuesForceImport) return "vues";
+  return null;
+}
+
+/**
+ * Le rapport d'import d'un contenu forcé : note planchée au seuil, tier
+ * d'entrée recalculé (C au moins), chaque ligne retenue. `entete` ouvre le
+ * texte (la raison du forçage). Pure : rend un nouveau rapport.
+ */
+export function plancherRapportElo<R extends EloRapport>(rapport: R, seuil: number, entete: string): R {
+  const note = Math.max(rapport.elo, seuil);
+  const tier = tierImport(note, seuil) ?? "C";
+  return {
+    ...rapport,
+    elo: note,
+    tier,
+    lignes: rapport.lignes.map((l) => ({ ...l, elo: Math.max(l.elo, seuil), retenue: true })),
+    texte: [
+      entete,
+      rapport.texte,
+      `note ${rapport.elo.toFixed(2)} → ${note.toFixed(2)} (forcée ≥ seuil)`,
+      `→ premier placement : ${tier} (${passagesPourTier(tier)} passage(s))`,
+    ].join("\n"),
   };
 }
 
@@ -695,9 +739,16 @@ export async function assurerTierImport(
    * rendue (tier de la PORTE) ne changent dans aucun mode.
    */
   placement: PlacementSophia = { mode: "historique" },
+  /**
+   * Import forcé (« Forcer », ou vues au-delà de `vuesForceImport`) : la note
+   * de la porte et le rang Sophia sont planchés au seuil, comme
+   * `forcerImportElo`. Sans ça, un contenu forcé repassait la porte à l'étape
+   * 4 et retombait en « sous le seuil » (vu le 25/10 sur six forçages).
+   */
+  forceSeuil = false,
 ): Promise<Tier | null> {
   const scoring = await lireScoring(supabase);
-  const elo = eloParLangue({
+  const eloBrut = eloParLangue({
     pertinence,
     vues: vuesSource,
     langue: langueSource,
@@ -709,6 +760,7 @@ export async function assurerTierImport(
     pisteSource,
     poidsSource: scoring.poidsSource,
   });
+  const elo = forceSeuil ? Math.max(eloBrut, scoring.eloSeuil) : eloBrut;
   const tier = tierImport(elo, scoring.eloSeuil);
   if (!tier) return null;
 
@@ -747,7 +799,7 @@ export async function assurerTierImport(
         tier_cycle: 0,
         tier_maj_at: new Date().toISOString(),
         tier_rapport: {
-          origine: "import",
+          origine: forceSeuil ? "import_force" : "import",
           elo: Math.round(elo * 100) / 100,
           seuil: scoring.eloSeuil,
           tier,
@@ -761,12 +813,16 @@ export async function assurerTierImport(
     // formule et les mêmes paramètres (piste comprise). Quand Sophia est le
     // max, c'est le tier d'avant ; sous le seuil, D / 0 (la ligne Sophia est
     // alors de toute façon non éligible).
-    const sophia = tierSophiaPartage(placement.scoreSophia, {
+    const brut = tierSophiaPartage(placement.scoreSophia, {
       vues: vuesSource,
       langueSource,
       scoring,
       pisteSource,
     });
+    // Forcé : même plancher que `forcerImportElo` sur le rang Sophia.
+    const sophia = forceSeuil && brut.elo < scoring.eloSeuil
+      ? { elo: scoring.eloSeuil, tier: tierImport(scoring.eloSeuil, scoring.eloSeuil) ?? "C" }
+      : brut;
     const { error: errT } = await supabase
       .from("contenus")
       .update({
@@ -775,7 +831,7 @@ export async function assurerTierImport(
         tier_cycle: 0,
         tier_maj_at: new Date().toISOString(),
         tier_rapport: {
-          origine: "import",
+          origine: forceSeuil ? "import_force" : "import",
           elo: Math.round(sophia.elo * 100) / 100,
           seuil: scoring.eloSeuil,
           tier: sophia.tier,
@@ -1434,6 +1490,22 @@ async function executerPasImport(
         poidsSource: scoring.poidsSource,
         seuil: scoring.eloSeuil,
       });
+      // Forcé (à la main, ou vues TikTok au-delà de `vuesForceImport`) : la
+      // note est planchée au seuil ici, comme dans `forcerImportElo`, pour que
+      // la porte, le placement et le rapport disent la même chose.
+      const motifForce = motifForceImport(contenu, scoring.vuesForceImport);
+      if (motifForce && elo.elo < scoring.eloSeuil) {
+        Object.assign(
+          elo,
+          plancherRapportElo(
+            elo,
+            scoring.eloSeuil,
+            motifForce === "vues"
+              ? `FORCÉ : ${contenu.vues_source} vues sur TikTok (≥ ${scoring.vuesForceImport}) → note plancher = seuil (${scoring.eloSeuil})`
+              : `FORCÉ manuellement → note plancher = seuil (${scoring.eloSeuil})`,
+          ),
+        );
+      }
       // Multi-app : même note, calculée avec le score de CHAQUE application,
       // décide de son éligibilité (pool de l'application). La porte et le
       // tier ci-dessous restent sur `pertinence_score` (le max), inchangés.
@@ -1457,7 +1529,7 @@ async function executerPasImport(
               poidsSource: scoring.poidsSource,
             }),
           seuil: scoring.eloSeuil,
-          force: Boolean(contenu.import_elo_force_seuil),
+          force: motifForce !== null,
         }).catch((e) => {
           console.warn(`[import pertinences] contenu=${contenu.id} ${messageErreur(e)}`);
           return null;
@@ -1483,12 +1555,22 @@ async function executerPasImport(
         scoring,
         pisteSource,
       });
+      if (resumeSophia && motifForce && resumeSophia.mode === "partage" && (resumeSophia.elo ?? 0) < scoring.eloSeuil) {
+        // Même plancher que `assurerTierImport` forcé, pour que le rapport dise vrai.
+        resumeSophia.elo = scoring.eloSeuil;
+        resumeSophia.tier = tierImport(scoring.eloSeuil, scoring.eloSeuil) ?? "C";
+      }
       if (resumeSophia && elo.tier) {
         elo.placement_sophia = resumeSophia;
         elo.texte = `${elo.texte}\n${lignePlacementSophia(resumeSophia, scoring.eloSeuil)}`;
       }
-      // Toujours persister le détail (historique + logs UI).
-      await marquer(supabase, contenu.id, { import_elo_rapport: elo });
+      // Toujours persister le détail (historique + logs UI). Un forçage par
+      // les vues est mémorisé comme un forçage manuel : les étapes suivantes
+      // (deck, pertinences, à blanc) lisent `import_elo_force_seuil`.
+      await marquer(supabase, contenu.id, {
+        import_elo_rapport: elo,
+        ...(motifForce === "vues" && !contenu.import_elo_force_seuil ? { import_elo_force_seuil: true } : {}),
+      });
 
       // Contenu hors Sophia dont AUCUNE application ne veut (pertinence sous
       // le seuil de ses labels partout, 50 au moins) : la porte (le max) le laisserait
@@ -1520,6 +1602,7 @@ async function executerPasImport(
         Number(contenu.pertinence_score ?? 0),
         pisteSource,
         placement ?? { mode: "historique" },
+        motifForce !== null,
       );
       if (!tier) {
         await marquer(supabase, contenu.id, {
@@ -2792,25 +2875,13 @@ export async function forcerImportElo(
     seuil: scoring.eloSeuil,
   });
 
-  const noteForcee = Math.max(eloBase.elo, scoring.eloSeuil);
-  const tierForce = tierImport(noteForcee, scoring.eloSeuil) ?? "C";
-  const lignesForcees = eloBase.lignes.map((l) => ({
-    ...l,
-    elo: Math.max(l.elo, scoring.eloSeuil),
-    retenue: true,
-  }));
-  const elo: EloRapport & { pertinences?: PertinencesRapport } = {
-    ...eloBase,
-    elo: noteForcee,
-    tier: tierForce,
-    lignes: lignesForcees,
-    texte: [
-      `FORCÉ manuellement → note plancher = seuil (${scoring.eloSeuil})`,
-      eloBase.texte,
-      `note ${eloBase.elo.toFixed(2)} → ${noteForcee.toFixed(2)} (forcée ≥ seuil)`,
-      `→ premier placement : ${tierForce} (${passagesPourTier(tierForce)} passage(s))`,
-    ].join("\n"),
-  };
+  const elo: EloRapport & { pertinences?: PertinencesRapport } = plancherRapportElo(
+    eloBase,
+    scoring.eloSeuil,
+    `FORCÉ manuellement → note plancher = seuil (${scoring.eloSeuil})`,
+  );
+  const noteForcee = elo.elo;
+  const tierForce = elo.tier ?? "C";
 
   // Remplace les lignes langues éventuelles (souvent absentes si rejet).
   await supabase.from("contenu_langues").delete().eq("contenu_id", contenuId);

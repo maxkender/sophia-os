@@ -48,7 +48,7 @@ describe("MajSourcesPanel", () => {
     vi.clearAllMocks();
     lireMajSourcesRun.mockResolvedValue(null);
     performanceSources.mockResolvedValue({
-      vieille: { posts: 126, r: 1.15, vuesMediane: 1531 },
+      vieille: { posts: 126, r: 1.15, vuesMediane: 1531, labelNom: "smart_girl", rLabel: 0.96, postsLabel: 2234, rVsLabel: 1.19 },
       moyenne: { posts: 4, r: 1.94, vuesMediane: 3670 },
       recente: { posts: 300, r: 0.85, vuesMediane: 1387 },
     });
@@ -184,6 +184,8 @@ describe("MajSourcesPanel", () => {
     rendre();
     await waitFor(() => expect(screen.getByTestId("maj-r-vieille").textContent).toBe("r 1,15"));
     expect(screen.getByTestId("maj-r-recente").textContent).toBe("r 0,85");
+    expect(screen.getByTestId("maj-vs-label-vieille").textContent).toBe("×1,19 label");
+    expect(screen.getByTestId("maj-vs-label-recente").textContent).toBe("");
     fireEvent.click(screen.getByRole("button", { name: "r ≥ 1" }));
     // moyenne : r 1,94 mais sur 4 posts seulement, pas cochée.
     expect((screen.getByRole("checkbox", { name: "@vieille" }) as HTMLInputElement).checked).toBe(true);

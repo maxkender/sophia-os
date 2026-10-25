@@ -10,6 +10,12 @@ export interface PerfSource {
   posts: number;
   r: number | null;
   vuesMediane: number | null;
+  /** Le label de la source et le r de tous ses slideshows (0357). */
+  labelNom?: string | null;
+  rLabel?: number | null;
+  postsLabel?: number;
+  /** r de la source ÷ r de son label : 1,10 = 10 % mieux que son label. */
+  rVsLabel?: number | null;
 }
 
 /** Sous ce nombre de posts, le r est indicatif. */
@@ -23,6 +29,15 @@ export function tonPerf(perf: PerfSource | undefined): TonPerf {
   if (perf.posts < POSTS_MIN_R) return "incertain";
   if (perf.r >= 1.1) return "bon";
   if (perf.r < 0.9) return "faible";
+  return "moyen";
+}
+
+/** Même échelle que le r, sur le rapport au label. */
+export function tonVsLabel(perf: PerfSource | undefined): TonPerf {
+  if (!perf || perf.rVsLabel == null || perf.posts === 0) return "aucun";
+  if (perf.posts < POSTS_MIN_R) return "incertain";
+  if (perf.rVsLabel >= 1.1) return "bon";
+  if (perf.rVsLabel < 0.9) return "faible";
   return "moyen";
 }
 

@@ -37,7 +37,7 @@ import {
   performanceSources,
 } from "@/features/moteur/api";
 import type { PerfSource } from "@/features/moteur/perfSource";
-import { RSource } from "@/features/moteur/RSource";
+import { RSource, RVsLabel } from "@/features/moteur/RSource";
 import { Aide } from "@/features/moteur/repartition/graphes";
 import {
   filtrerGroupes,
@@ -837,6 +837,9 @@ function LigneGroupe({
         <td className={cn(TD, "whitespace-nowrap text-right")} data-testid={`r-${principal.handle_tiktok}`}>
           <RSource perf={perf} />
         </td>
+        <td className={cn(TD, "whitespace-nowrap text-right")} data-testid={`vs-label-${principal.handle_tiktok}`}>
+          <RVsLabel perf={perf} />
+        </td>
         <td className={cn(TD, "whitespace-nowrap text-xs text-muted-foreground")}>
           {principal.dernier_scrape_at
             ? new Date(principal.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" })
@@ -845,7 +848,7 @@ function LigneGroupe({
       </tr>
       {ouvert && (
         <tr className="border-b border-border/40">
-          <td colSpan={6} className="pb-4 pt-1">
+          <td colSpan={7} className="pb-4 pt-1">
             <div className="space-y-5 rounded-lg bg-muted/30 p-4">
               <ReglagesSource source={principal} onOubli={onOubli} />
               <div className="space-y-3 border-t pt-4">
@@ -907,19 +910,24 @@ export function AdminSourcesPage() {
     queryFn: () => listerLabels(),
   });
   const perf = useQuery({ queryKey: ["performance-sources"], queryFn: performanceSources });
-  const [triR, setTriR] = React.useState(false);
+  const [tri, setTri] = React.useState<"nom" | "r" | "label">("nom");
+  const basculerTri = (cle: "r" | "label") => setTri((v) => (v === cle ? "nom" : cle));
+  const valeurTri = (g: GroupeSource) => {
+    const p = perf.data?.[g.principal.id];
+    return (tri === "r" ? p?.r : p?.rVsLabel) ?? -1;
+  };
 
   const toutes = sources.data ?? [];
   const groupes = groupesSources(toutes);
   const filtres = filtrerGroupes(groupes, recherche);
-  // Tri par r : les actives d'abord, puis le meilleur r ; sans r, en bas.
-  const visibles = triR
-    ? [...filtres].sort(
-        (a, b) =>
-          Number(b.principal.is_active) - Number(a.principal.is_active) ||
-          (perf.data?.[b.principal.id]?.r ?? -1) - (perf.data?.[a.principal.id]?.r ?? -1),
-      )
-    : filtres;
+  // Tri par r ou par rapport au label : les actives d'abord, puis le
+  // meilleur ; sans chiffre, en bas.
+  const visibles =
+    tri === "nom"
+      ? filtres
+      : [...filtres].sort(
+          (a, b) => Number(b.principal.is_active) - Number(a.principal.is_active) || valeurTri(b) - valeurTri(a),
+        );
   // Même requête que le panneau (cache partagé) : une mise à jour en cours
   // garde le panneau ouvert, pour suivre la séquence.
   const run = useQuery({ queryKey: ["maj-sources-run"], queryFn: lireMajSourcesRun, refetchInterval: 4_000 });
@@ -1000,18 +1008,32 @@ export function AdminSourcesPage() {
                   <th className={TH}>{t("sources.tableau.source")}</th>
                   <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.langue")}</th>
                   <th className={cn(TH, "hidden sm:table-cell")}>{t("sources.tableau.niche")}</th>
-                  <th className={cn(TH, "text-right normal-case")} aria-sort={triR ? "descending" : "none"}>
+                  <th className={cn(TH, "text-right normal-case")} aria-sort={tri === "r" ? "descending" : "none"}>
                     <span className="inline-flex items-center gap-1">
                       <button
                         type="button"
-                        className={cn("uppercase tracking-wide hover:text-foreground", triR && "text-foreground")}
-                        onClick={() => setTriR((v) => !v)}
+                        className={cn("uppercase tracking-wide hover:text-foreground", tri === "r" && "text-foreground")}
+                        onClick={() => basculerTri("r")}
                         title={t("sources.perfTri")}
                       >
                         {t("sources.tableau.perf")}
-                        {triR ? " ↓" : ""}
+                        {tri === "r" ? " ↓" : ""}
                       </button>
                       <Aide libelle={t("sources.tableau.perf")}>{t("sources.perfAide")}</Aide>
+                    </span>
+                  </th>
+                  <th className={cn(TH, "text-right normal-case")} aria-sort={tri === "label" ? "descending" : "none"}>
+                    <span className="inline-flex items-center gap-1">
+                      <button
+                        type="button"
+                        className={cn("uppercase tracking-wide hover:text-foreground", tri === "label" && "text-foreground")}
+                        onClick={() => basculerTri("label")}
+                        title={t("sources.vsLabelTri")}
+                      >
+                        {t("sources.tableau.vsLabel")}
+                        {tri === "label" ? " ↓" : ""}
+                      </button>
+                      <Aide libelle={t("sources.tableau.vsLabel")}>{t("sources.vsLabelAide")}</Aide>
                     </span>
                   </th>
                   <th className={TH}>{t("sources.tableau.extraction")}</th>

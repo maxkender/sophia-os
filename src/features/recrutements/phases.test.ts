@@ -159,6 +159,18 @@ describe("phases HM", () => {
     ).toBe(true);
   });
 
+  it("ne prend pas « ja » (oui en allemand) pour un job japonais", () => {
+    const allemand = hm({
+      pays: ["ja", "de"],
+      job_post_at: "2026-10-26T00:00:00Z",
+      job_post_titre: "TikTok Poster gesucht, ja wirklich",
+    });
+    expect(jobPostConcernePays(allemand, "ja")).toBe(false);
+    expect(
+      jobPostConcernePays({ ...allemand, job_post_titre: "TikTok slideshow poster (Japan)" }, "ja"),
+    ).toBe(true);
+  });
+
   it("passe en phase 1 dès un créateur, même sans job_post_at", () => {
     expect(phasesHmPourPays(hm(), [cre()], "fr")).toEqual([1]);
   });

@@ -123,6 +123,9 @@ export const PAYS_PAR_DEFAUT_LANGUE: Readonly<Record<string, string>> = Object.f
   fi: "FI",
   et: "EE",
   bg: "BG",
+  lt: "LT",
+  lv: "LV",
+  ja: "JP",
 });
 
 export function paysParDefaut(langue: string | null | undefined): string | null {

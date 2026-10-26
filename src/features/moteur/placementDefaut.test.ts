@@ -32,6 +32,12 @@ describe("placementParDefaut — couverture", () => {
     // Doctrine `traduction_sr` : latinica obligatoire, cyrillique bannie.
     expect(placementParDefaut("sr")).not.toMatch(/[Ѐ-ӿ]/);
   });
+
+  it("le japonais est en kana/kanji, le lituanien et le letton gardent leurs signes", () => {
+    expect(placementParDefaut("ja")).toMatch(/[぀-ヿ]/);
+    expect(placementParDefaut("lt")).toMatch(/[ąčęėįšųūž]/);
+    expect(placementParDefaut("lv")).toMatch(/[āčēģīķļņšūž]/);
+  });
 });
 
 describe("placementParDefaut — forme", () => {

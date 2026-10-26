@@ -11,6 +11,7 @@ import { HiringRecruteursPage } from "@/pages/hiring/HiringRecruteursPage";
 import { AdminLayout } from "@/components/layout/AdminLayout";
 import { PosterLayout } from "@/components/layout/PosterLayout";
 import { HiringLayout } from "@/components/layout/HiringLayout";
+import { HiringAccueilPage } from "@/pages/hiring/HiringAccueilPage";
 import { HiringCalendrierPage } from "@/pages/hiring/HiringCalendrierPage";
 import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
@@ -58,7 +59,7 @@ function Accueil() {
   // Avant estRoleManager : le Head of Ops est un manager, mais il atterrit dans sa
   // coquille admin, pas dans l'espace recrutement qu'il garde par ailleurs.
   if (role === "head_of_ops") return <Navigate to={ACCUEIL_HO} replace />;
-  if (estRoleManager(role)) return <Navigate to="/embauche" replace />;
+  if (estRoleManager(role)) return <Navigate to="/manager/accueil" replace />;
   if (role === "poster") return <Navigate to="/calendrier" replace />;
   return <Navigate to="/login" replace />;
 }
@@ -141,6 +142,7 @@ export function AppRouter() {
 
         <Route element={<RoleGate allow={["hiring_manager", "directing_manager", "head_of_ops"]} />}>
           <Route element={<HiringLayout />}>
+            <Route path="/manager/accueil" element={<HiringAccueilPage />} />
             <Route path="/embauche" element={<HiringPosterPage />} />
             <Route path="/manager/calendrier" element={<HiringCalendrierPage />} />
             <Route path="/manager/recruteurs" element={<HiringRecruteursPage />} />

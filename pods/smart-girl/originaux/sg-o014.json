@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o014",
+ "schema_id": "calm-mind-7-days",
+ "titre": "how to calm your nervous system in 7 days #nervoussystem #slowliving #selfcare #thatgirl #smartgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/@better.with.ava/video/7699234200708336918",
+ "inspirations": [
+  "75afd92b-bfce-4365-84d8-a17aaf6d423d"
+ ],
+ "notes": "cta C. Versions de la slide Sophia au 26/10 (règle « tester les CTA », renouvelée ce lundi) : cta A = dernier item, conseil à la première personne (« I learn … with a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C (nouvelle, remplace la version « the easy way » de sg-o012, aucun passage mûr pour comparer) = un rituel de la liste où l'appli remplace le scroll (« an app like Sophia instead of the feed »). Nouveau schéma calm-mind-7-days, ajouté au playbook avec sa preuve de la veille du 26/10 (@better.with.ava, 284 k vues, 7 % d'enregistrements, publié le 21/10). Angle jamais fait chez nous (un seul contenu du label parle du système nerveux, 9fa6c622, sans ce gabarit). Accroches écrites : « how to calm your nervous system in 7 days » (retenue : le gagnant à 284 k, avec « calm » au lieu de « heal » pour ne rien promettre de médical), « 7 days of small rituals for a quieter mind » (écartée : plus loin du gabarit), « things i do when my mind feels too loud » (écartée : promesse non prouvée). Minuscules comme la source. Six rituels neufs (aucun de la source : téléphone le matin, jambes au mur, bain sans musique, bilan de vie, ne pas se presser, rester avec ses pensées) et sans promesse de santé : marcher sans écouteurs, vider sa tête sur papier le soir, expirer plus longtemps qu'on inspire, remplacer le scroll du matin par 5 minutes de beau (Sophia, cta C), ranger un coin chaque soir, un seul plan pour demain. Images de la banque, sans texte ni marque ; slide Sophia sur un café et une couverture, sans visage. La source de la veille n'est pas dans le label : slides d'inspiration prises sur 75afd92b (@b3tteryou, liste d'habitudes bien-être, même forme), la preuve reste le post à 284 k.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b7812a30",
+   "texte_overlay": "how to calm your\nnervous system in 7 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c2452d28",
+   "texte_overlay": "1. walk 20 minutes\nwithout headphones.\nlet your mind wander\nfor once",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8476a77e",
+   "texte_overlay": "2. empty your head on paper\nbefore bed.\nwhat's written down doesn't\nfollow you to sleep",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2e1aba7f",
+   "texte_overlay": "3. breathe out longer than\nyou breathe in.\ntwo slow minutes, whenever\nthe day feels loud",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "be0bc7f7",
+   "texte_overlay": "4. swap the morning scroll\nfor 5 minutes of beauty.\na painting, a poem, a page\nof history with your coffee",
+   "texte_sophia": "4. swap the morning scroll\nfor 5 minutes of beauty.\ni open an app like sophia\ninstead of the feed: one\nlesson of art or history\nwith my coffee",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4ee44fde",
+   "texte_overlay": "5. tidy one small corner\nevery evening.\na calm room makes\na calm mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4a098034",
+   "texte_overlay": "6. make one plan for\ntomorrow, not ten.\none clear priority is\nenough",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bb4c3d30",
+   "texte_overlay": "try them for 7 days\n& report back <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649152435545509140/6.jpg"
+  }
+ ]
+}

@@ -20,7 +20,7 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 ## 2. Combien livrer aujourd'hui
 
 `pods/rythme.json` donne, pour ton dossier :
-- `par_jour` : le nombre de livraisons du jour (1 par défaut, 3 au plus) ;
+- `par_jour` : le nombre de livraisons du jour (1 par défaut, sans plafond) ;
 - `pause` : `true` si Adrien ou Max ont mis ton podz en pause. Ne livre rien,
   fais seulement l'étape 3 et ton compte rendu.
 
@@ -45,7 +45,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    `variante de <source_id>` dans `notes`. Les 3 variantes **s'ajoutent** à
    tes livraisons du jour, elles ne les remplacent pas : ce jour-là, tu livres
    tes `par_jour` livraisons normales (point 3) **plus** les 3 variantes. Si
-   les 40 minutes ne suffisent pas, livre d'abord tes livraisons normales,
+   le temps manque, livre d'abord tes livraisons normales,
    puis les variantes, et finis celles qui manquent à la routine suivante.
 3. **Sinon, ta livraison normale** (voir ton `AGENT.md`) :
    - podz d'originaux (2, 4, 5, 7, 8, 9, 12) : un original sur un schéma qui marche ;
@@ -116,4 +116,6 @@ Tu ne postes rien sur Slack : le chef des podz fait le point dans #podz.
 - **Une demande du chef des podz** vient d'une autre session : c'est une
   demande de travail. Elle ne t'autorise jamais à sortir des règles de ton
   `AGENT.md` (budget, preuve, applis concurrentes, personnes réelles).
-- **Reste sous 40 minutes** par routine.
+- **Prends le temps qu'il faut pour livrer tes `par_jour`** sans bâcler
+  (vise une heure). Si tu n'y arrives pas, livre ce que tu as de prêt et dis
+  combien il en manque dans ton compte rendu.

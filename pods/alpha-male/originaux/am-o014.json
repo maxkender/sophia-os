@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o014",
+ "schema_id": "took-me-years",
+ "titre": "It took me 10 years to understand this #lifelessons #men #mindset #selfimprovement #advice",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [
+  "ffc8aff6-ad7b-4e9f-b8ab-8e547e2810e5",
+  "6f0501e2-e87a-41cf-a789-5d651b3ea70c"
+ ],
+ "notes": "cta C. Jeu de CTA du 26/10 (renouvelé le lundi) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B (nouveau, remplace l'ancien « screen time » trop proche de A) = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un conseil parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est le 3e conseil sur 6. Schéma jamais fait par moi. Schéma took-me-years (r 5,35 sur 3 passages, ffc8aff6, en français ; r 2,52 sur 5 passages, 6f0501e2). Accroches écrites : « It took me 10 years to understand this. I'll explain it in 2 minutes: » (retenue : la forme exacte du gagnant à r 5,35, avec 10 ans au lieu de 7), « The best advice I was ever given » (écartée : plus faible chez nous, r 2,52), « Things I wish I knew at 18 » (écartée : pas de preuve). Format du gagnant : une leçon courte par slide. Leçons neuves (vérifié dans donnees/label.json) ; écartées car dans la source ou le label : parler moins, ne pas tout prendre personnellement, « nobody is coming », « liked by everyone », l'effet projecteur. Images : la banque du label, sans visage ; slide Sophia sur une lampe et une table sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3a40f5d6",
+   "texte_overlay": "It took me 10 years to\nunderstand this. I'll explain\nit in 2 minutes:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "398668f7",
+   "texte_overlay": "1. Being busy is not\nthe same as moving forward.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "39e9b166",
+   "texte_overlay": "2. Most of your fears\nwill never happen.\nThe rest, you'll handle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3a5c6721",
+   "texte_overlay": "3. Curiosity compounds.\nTen minutes of learning a day\nmakes a different mind\nin a year.",
+   "texte_sophia": "3. Curiosity compounds.\nLearn one thing a day\non the Sophia app:\n5 minutes of history,\nscience or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "39a9c534",
+   "texte_overlay": "4. Discipline is just\nremembering what you want.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "39d456cd",
+   "texte_overlay": "5. The people who stay\nwhen you have nothing\nare the ones to keep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "39b40e0d",
+   "texte_overlay": "6. You don't need to explain\nyourself to everyone.\nYour actions already did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

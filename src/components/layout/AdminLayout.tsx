@@ -29,6 +29,7 @@ import {
   ShieldAlert,
   Users,
   UserPlus,
+  Wallet,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
@@ -199,6 +200,7 @@ export function AdminLayout() {
               icon: Gavel,
               description: t("navDesc.checkKillDouble"),
             },
+            { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
             // Toujours visible : le recrutement relève de l'identité des
             // comptes, qui reste Sophia quelle que soit l'application choisie.
             {

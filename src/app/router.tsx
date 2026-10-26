@@ -44,6 +44,7 @@ import { AdminMinuitPage } from "@/pages/admin/AdminMinuitPage";
 import { AdminSlideshowsPage } from "@/pages/admin/AdminSlideshowsPage";
 import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
 import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
+import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
@@ -114,6 +115,7 @@ export function AppRouter() {
               <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
+              <Route path="/admin/paie" element={<AdminPaiePage />} />
               <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
               <Route path="/admin/reglages" element={<AdminReglagesPage />} />

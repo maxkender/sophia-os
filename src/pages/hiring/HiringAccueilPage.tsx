@@ -15,7 +15,10 @@ import {
   type Raison,
 } from "@/features/ckd/cohorte/dashboardHm";
 import { libelleCohorte, minuitParis, paireDuJour, resteAvant } from "@/features/ckd/cohorte/logique";
-import { aujourdhuiParis } from "@/features/moteur/cohortes";
+import { aujourdhuiParis, semaineIso } from "@/features/moteur/cohortes";
+import { SectionPaieHm } from "@/features/paie/SectionPaieHm";
+import { usePaieHm } from "@/features/paie/usePaieHm";
+import { dollars, totaux } from "@/features/paie/logique";
 import { supabase } from "@/lib/supabase/client";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
@@ -73,7 +76,7 @@ function Tableau({ entetes, children }: { entetes: string[]; children: React.Rea
  * Kill or Double → Cohort tracking, limitées à ses posteurs (0361).
  */
 export function HiringAccueilPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const aujourdhui = aujourdhuiParis();
   const { poste, warmup } = paireDuJour(aujourdhui);
@@ -91,6 +94,10 @@ export function HiringAccueilPage() {
       return { poste: p, warmup: w, noms };
     },
   });
+
+  const { semaine: semainePaie, paie } = usePaieHm(user?.id);
+  const paieAFaire = totaux(paie.data ?? []);
+  const langue = i18n.resolvedLanguage ?? "fr";
 
   const nom = (c: CompteCohorte) => donnees.data?.noms.get(c.poster_id) ?? "—";
   const reste = resteAvant(minuitParis(warmup));
@@ -113,9 +120,21 @@ export function HiringAccueilPage() {
               <CardDescription>{t("accueilHm.aFaireDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
+              {paieAFaire.aPayer > 0 && (
+                <p className="mb-3 rounded-md border border-warning/40 bg-warning/8 px-3 py-2 text-sm font-medium">
+                  {t("accueilHm.paieAFaire", {
+                    semaine: semaineIso(semainePaie),
+                    n: paieAFaire.aPayer,
+                    montant: dollars(paieAFaire.resteAPayer, langue),
+                  })}
+                </p>
+              )}
               {(() => {
                 const lignes = aFaireAujourdhui(donnees.data.poste, donnees.data.warmup, aujourdhui);
-                if (lignes.length === 0) return <p className="text-sm text-muted-foreground">{t("accueilHm.rienAFaire")}</p>;
+                if (lignes.length === 0)
+                  return paieAFaire.aPayer > 0 ? null : (
+                    <p className="text-sm text-muted-foreground">{t("accueilHm.rienAFaire")}</p>
+                  );
                 return (
                   <Tableau entetes={[t("accueilHm.posteur"), t("accueilHm.compte"), t("accueilHm.raison")]}>
                     {lignes.map((l) => (
@@ -132,6 +151,8 @@ export function HiringAccueilPage() {
               })()}
             </CardContent>
           </Card>
+
+          <SectionPaieHm hmId={user?.id} />
 
           <Card>
             <CardHeader>

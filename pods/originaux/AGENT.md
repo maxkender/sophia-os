@@ -95,7 +95,10 @@ ou de déposer.
 - **Test CTA (`pods/ROUTINE.md` §4.5)** : 3 versions vraiment différentes de
   la slide Sophia, alternées d'une livraison à l'autre, notées `cta A/B/C`
   dans `notes` :
-  - `cta A` : slide 5, « a micro-learning app like the Sophia app makes it easy ».
+  - `cta A` (depuis le 26/10, remplace « a micro-learning app like the Sophia app
+    makes it easy », trop usée) : slide 5, avant/après à la 1re personne,
+    « i used to scroll for an hour every night. now i spend 5 minutes on one
+    lesson in the Sophia app instead… ».
   - `cta B` : slide 5, « the Sophia app turns it into one short lesson a day ».
   - `cta C` : slide 4, autre phrase : « i do it with the Sophia app, one lesson
     a day, five minutes ».

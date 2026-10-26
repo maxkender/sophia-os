@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o012",
+ "schema_id": "uncomfortable-alone",
+ "titre": "uncomfortable things to do alone to become unshakeable #men #confidence #selfimprovement #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7626992013648448277",
+ "inspirations": [
+  "3ec6e577-14dc-41e4-b512-88a4ef8f0bef",
+  "cdb23bdd-87af-42f5-bd91-61986616039f"
+ ],
+ "notes": "cta A. Jeu de CTA du 26/10 (renouvelé le lundi) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B (nouveau, remplace l'ancien « screen time » trop proche de A) = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un conseil parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Schéma jamais fait par moi (règle « ne t'enferme pas »). Schéma uncomfortable-alone (r 4,01, 3ec6e577 ; r 3,63, cdb23bdd). Accroches écrites : « uncomfortable things to do alone to become unshakeable » (retenue : forme exacte de @motiondreambig, fin « unshakeable » proposée par l'AGENT), « uncomfortable things to do alone to build real confidence » (écartée : déjà proche d'un contenu du label), « things to do alone that make you proud of yourself » (écartée : plus loin). Minuscules comme la source. Défis neufs (vérifié dans donnees/label.json) ; écartés car dans la source ou le label : marcher sans plan, téléphone rangé, restaurant ou film seul, demander son chemin, manger seul. Sophia sur le dernier défi, comme la source (« spend five minutes learning something completely new »). Images : la banque du label, sans visage ; slide Sophia sur une chambre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "39d2b6ae",
+   "texte_overlay": "uncomfortable things\nto do alone to become\nunshakeable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3a342f1d",
+   "texte_overlay": "go to a museum alone\nand stay an hour\n\nno headphones. no rushing.\nyou'll leave with thoughts\nthat are actually yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3984aa10",
+   "texte_overlay": "train at the busiest hour\n\neveryone is focused\non their own set.\nthe fear was always louder\nthan the room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "39a22ef7",
+   "texte_overlay": "sit in the front row\n\nat a talk, a class, a meeting.\nit feels exposed for\nfive minutes.\nthen you hear everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3a0a7e55",
+   "texte_overlay": "send back food that's wrong,\npolitely\n\nyou're not being difficult.\nyou're being clear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "39a4eb7f",
+   "texte_overlay": "spend one full evening\nwith no screen\n\nboredom comes first.\nthen your own thoughts\ncome back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "39ae5607",
+   "texte_overlay": "spend five minutes learning\nsomething completely new\n\nnot for work. not for anyone.\njust to know more today\nthan you did yesterday.",
+   "texte_sophia": "spend five minutes learning\nsomething completely new\n\nuse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  }
+ ]
+}

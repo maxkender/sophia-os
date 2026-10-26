@@ -9,10 +9,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState }
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import type { ActionCkd, ControleCkd, PersonneCkd, PropositionCkd, TypeControle } from "@/features/ckd/api";
 import { boutonDeLaDecision } from "@/features/ckd/logique";
+import { aujourdhuiParis } from "@/features/moteur/cohortes";
+import { EtapeBadge } from "@/features/moteur/EtapeBadge";
 import { drapeauPays } from "@/features/moteur/pays";
 import { BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 
+import { etatCohorte } from "./etapeCohorte";
 import type { CompteCohorte } from "./api";
 import { useFormats, vuesCourtes } from "./formats";
 import { BarresPubliees } from "./graphes";
@@ -517,9 +520,7 @@ function CelluleCompte({ compte: c, poster, hm }: { compte: CompteCohorte; poste
           {drapeauPays(c.pays)} @{c.handle}
         </Link>
         {c.application && <LogoApplication slug={c.application} taille="xs" />}
-        {!c.is_active && (
-          <span className="rounded-full border px-1.5 text-[10px] text-muted-foreground">{t("ckd.cohorte.arrete")}</span>
-        )}
+        <EtapeBadge etat={etatCohorte(c, aujourdhuiParis())} />
       </span>
       <span className="truncate text-xs text-muted-foreground">
         {[nomPersonne(poster), hm ? t("ckd.cohorte.hm", { nom: nomPersonne(hm) }) : t("ckd.sansHm")].filter(Boolean).join(" · ")}

@@ -11,9 +11,12 @@ import { MICRO_LABEL } from "@/components/ui/micro-label";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import type { PersonneCkd } from "@/features/ckd/api";
 import { lienTiktok } from "@/features/ckd/logique";
+import { aujourdhuiParis } from "@/features/moteur/cohortes";
+import { EtapeBadge } from "@/features/moteur/EtapeBadge";
 import { drapeauPays } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
 
+import { etatCohorte } from "./etapeCohorte";
 import type { CompteCohorte, ResultatReleve } from "./api";
 import { useFormats } from "./formats";
 import { BLEUS, CourbesCumul } from "./graphes";
@@ -374,6 +377,7 @@ function LigneWarmup({ compte: c, etat: e, poster }: { compte: CompteCohorte; et
               {drapeauPays(c.pays)} @{c.handle}
             </Link>
             {c.application && <LogoApplication slug={c.application} taille="xs" />}
+            <EtapeBadge etat={etatCohorte(c, aujourdhuiParis())} />
             {tiktok && (
               <a
                 href={tiktok}

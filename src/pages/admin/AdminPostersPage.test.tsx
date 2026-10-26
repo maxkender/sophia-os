@@ -319,9 +319,9 @@ describe("AdminPostersPage — par zone", () => {
     const section = sectionZone("Turkey + Israel");
     // Amanda : Beyza en direct + Marta via Kris (HM, autre zone).
     expect(within(section).getByText("1 HM · 2 creator(s) · 2 not created · 0 warmup · 0 active")).toBeTruthy();
-    expect(
-      within(section).getByText("Creators hired by the DM · 1 creator(s) · 1 not created · 0 warmup · 0 active"),
-    ).toBeTruthy();
+    // Ses créateurs directs : un compteur cliquable par étape.
+    expect(within(section).getByText(/Creators hired by the DM/)).toBeTruthy();
+    expect(within(section).getAllByRole("button", { name: "1 not created" }).length).toBeGreaterThan(0);
 
     fireEvent.click(within(section).getByRole("button", { name: "Amanda" }));
     const fiche = (await screen.findByRole("heading", { level: 2, name: "Amanda" })).parentElement!.parentElement!;
@@ -333,15 +333,29 @@ describe("AdminPostersPage — par zone", () => {
     listerPosters.mockResolvedValue([...PROFILS, hmOff, profil({ id: "c6", role: "poster", prenom: "Cesar", manager_id: "otto" })]);
     renderPage();
     await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
-    fireEvent.change(screen.getByLabelText("Phase"), { target: { value: "actif" } });
+    fireEvent.change(screen.getByLabelText("Phase"), { target: { value: "posting" } });
 
     const espagne = sectionZone("Spain + Portugal");
-    expect(within(espagne).getByText("1 creator(s) · 1 not created · 0 warmup · 0 active")).toBeTruthy();
+    // Les compteurs d'étapes restent ceux de toute l'équipe.
+    expect(within(espagne).getByRole("button", { name: "1 not created" })).toBeTruthy();
     expect(within(espagne).getByText("0 shown with these filters")).toBeTruthy();
     expect(within(espagne).getByText("No creator matches the filters (1 in total).")).toBeTruthy();
     // Désactivé avec un créateur : reste dans sa zone, pas replié « sans créateur ».
     expect(within(sectionZone("France")).getByRole("button", { name: "Otto" })).toBeTruthy();
     expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
+  });
+
+  it("compteur d'étape cliquable : ne montre que cette étape, reclic pour tout revoir", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    const espagne = sectionZone("Spain + Portugal");
+    const puce = within(espagne).getByRole("button", { name: "1 not created" });
+    expect(puce.getAttribute("aria-pressed")).toBe("false");
+    fireEvent.click(puce);
+    expect(puce.getAttribute("aria-pressed")).toBe("true");
+    expect(within(espagne).queryByText("No creator matches the filters (1 in total).")).toBeNull();
+    fireEvent.click(puce);
+    expect(puce.getAttribute("aria-pressed")).toBe("false");
   });
 
   it("recherche par l'email d'un recruteur : ses créateurs restent affichés", async () => {

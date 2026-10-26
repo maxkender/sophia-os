@@ -1,0 +1,123 @@
+{
+ "id": "fa-006",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683561775752645910",
+  "vues": 266900,
+  "accroche": "S Tier YouTube Videos You Need To Watch"
+ },
+ "titre": {
+  "en": "S Tier YouTube Videos You Need To Watch"
+ },
+ "legendes": {
+  "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta C (« what I open / instead of scrolling. », conseil à la 1re personne, en 2e position). Sophia en carte d'appli à l'étape 2 « IF YOU ONLY HAVE 5 MINUTES ». Pas d'UnSwipe. Ses cartes YouTube sous un titre géant ; ses miniatures à visages réels (Brad Pitt, Anthony Hopkins, Anthony Bourdain) remplacées par des vidéos à miniature sans visage.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE VIDEOS",
+     "YOU NEED TO WATCH"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "ARE YOU WILLING",
+     "TO PAY THE PRICE?"
+    ],
+    "video": {
+     "id": "o7TcCr3uRkg",
+     "titre": "Are You Willing to Pay the Price of Greatness?",
+     "chaine": "bridges",
+     "vues": "1.1M views",
+     "date": "2 years ago",
+     "duree": "10:55",
+     "avatar": "https://yt3.ggpht.com/y7wwThXjLfpLuazUIBSyi515FcoH9s64xtvwiFHAFSQ97PK4FzLdDXOuIGEOdgXCOaxAZgkb7Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "IF YOU ONLY",
+     "HAVE 5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "OPTIMISTIC NIHILISM"
+    ],
+    "video": {
+     "id": "MBRqu0YOH14",
+     "titre": "Optimistic Nihilism",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "18M views",
+     "date": "9 years ago",
+     "duree": "7:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE UNKILLABLE VIKING"
+    ],
+    "video": {
+     "id": "h9NGFpo4Z4A",
+     "titre": "The Unkillable Viking",
+     "chaine": "Horses",
+     "vues": "1.1M views",
+     "date": "3 years ago",
+     "duree": "12:12",
+     "avatar": "https://yt3.ggpht.com/b_H1babbckWhqlhhRRxZhKRaH6_v2hGhGigU075LZR7NNqwpwob-0qsf5DSnTZB4WXh_1Xm3L3s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TIRED OF DOOMSCROLLING?"
+    ],
+    "video": {
+     "id": "c1nYtX-NUsc",
+     "titre": "Tired of Doomscrolling?",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "6.7M views",
+     "date": "2 years ago",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o018",
+ "schema_id": "habitudes-chelous",
+ "titre": "les habitudes niches qui changeront complètement ta vie en 2 semaines #pourtoi #habitudes #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7638500399523056397",
+ "inspirations": [
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "cta C (le défi d'une amie, en premier item ; voir CTA.md). Routine du 26/10, livraison 3 sur 3. Angle jamais fait chez nous, vu dans la veille du 26/10 : « les habitudes niches qui changeront complètement ta vie en 2 semaines » (@studyavec_lea, 24 k vues le 13/10, https://www.tiktok.com/@studyavec_lea/video/7696194204615183648 ; ce post cite UnSwipe sur sa slide 3, donc rien n'en est repris). La preuve reste celle du schéma habitudes-chelous (r 3,01, 5a0fa56c). Accroches écrites : « les habitudes niches qui changeront complètement ta vie en 2 semaines » (retenue : la forme exacte du post de la veille, de la même famille que le gagnant), « mes habitudes niches que personne ne fait (et qui marchent) » (écartée : sans délai), « les petites habitudes bizarres que je garde depuis 2 semaines » (écartée : moins de promesse). Règles en « je », chacune avec son défi, items neufs (rien de repris des sources ni de bsg-o006) : le défi Sophia de 7 jours en premier, un repas par semaine avec un livre, trois lignes sur sa journée à la main, un autre chemin pour rentrer, ranger son bureau avant de dormir. Aucun fait à vérifier. Images de la banque, sans célébrité ni texte : la fille qui écrit dehors (accroche), la fille à la tasse jaune, la fille de profil, le collage de lecture, le chat, la pièce sombre au bureau, les écouteurs sur le pull (images sombres pour que le texte blanc se lise). Inspirations : slides 1, 2, 4, 6, 7 de 5a0fa56c (sa 3 montre une capture d'appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8d62929f",
+   "texte_overlay": "les habitudes niches\nqui changeront complètement\nta vie en 2 semaines",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "57f5a7d8",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8c4397ee",
+   "texte_overlay": "je mange un repas par semaine avec un livre.\n\nseule, sans téléphone, juste moi et vingt pages.\nessaie-le ce week-end.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8dd1a770",
+   "texte_overlay": "j'écris trois lignes sur ma journée, à la main.\n\npas un journal intime, juste trois lignes.\ndans un an, t'as un petit livre sur toi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c191773a",
+   "texte_overlay": "je change de chemin pour rentrer, une fois par semaine.\n\nune autre rue, une autre vitrine, une plaque que t'avais jamais lue.\nta ville devient plus grande.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c1d714d5",
+   "texte_overlay": "je range mon bureau avant de dormir.\n\ncinq minutes, pas plus.\nle matin, je m'assois et je commence direct.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0db8fddc",
+   "texte_overlay": "vole-moi une habitude ;)\nenregistre pour la tester.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

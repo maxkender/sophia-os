@@ -12,6 +12,7 @@ import {
   blocsZoneSamedi,
   consigneNudge,
   type DecisionSlack,
+  lignesDiagnosticSlack,
   maintenantParis,
   semaineDesDecisions,
   semaineIso,
@@ -178,4 +179,46 @@ Deno.test("consigne d'un nudge : par défaut, ou le message modifié sur la page
   assert(!absentModifie.includes("Posted 3/10"));
   // Vide : la consigne par défaut.
   assert(texteDecision({ ...absent, texteHm: "   " }, 44).includes("Posted 3/10 this week."));
+});
+
+Deno.test("diagnostic Slack : 3 lignes en mots simples, badge en tête (0362)", () => {
+  const d = {
+    badge: "shadowban" as const,
+    attendus: 10,
+    publies: 4,
+    liens_manquants: ["2026-10-17", "2026-10-18", "2026-10-20", "2026-10-21"],
+    mediane: 0,
+    mediane_ref: 1353,
+    morts: 4,
+    seuil_mort: 50,
+    shadowban: true,
+  };
+  assertEquals(lignesDiagnosticSlack(d), [
+    ":red_circle: Shadowban · Posts: 4 published out of 10 expected, 6 links missing (17, 18, 20, 21 Oct)",
+    "Views: median 0 (country: 1,353), 4 dead posts (< 50 views)",
+    "Verdict: probable shadowban → new account",
+  ]);
+  const ok = lignesDiagnosticSlack({ ...d, badge: "ok", publies: 10, liens_manquants: [], mediane: 1500, morts: 0, shadowban: false });
+  assertEquals(ok[0], ":large_green_circle: OK · Posts: 10 published out of 10 expected");
+  assertEquals(ok[1], "Views: median 1,500 (country: 1,353)");
+});
+
+Deno.test("diagnostic Slack : juste sous le titre, avant la consigne ; absent sans diagnostic", () => {
+  const diagnostic = {
+    badge: "posts_manquants" as const,
+    attendus: 6,
+    publies: 4,
+    liens_manquants: ["2026-10-20", "2026-10-21"],
+    mediane: 800,
+    mediane_ref: 1000,
+    morts: 0,
+    seuil_mort: 50,
+    shadowban: false,
+  };
+  const avec = texteSuiviJeudi(decision({ regle: "jeudi", decision: "nudge", motifs: ["discipline"], diagnostic })).split("\n");
+  assert(avec[0].includes("*Follow up*"));
+  assert(avec[1].startsWith("> :large_orange_circle: Missing posts"));
+  assert(avec[3].startsWith("> Verdict: missing posts"));
+  const sans = texteSuiviJeudi(decision({ regle: "jeudi", decision: "nudge", motifs: ["discipline"] })).split("\n");
+  assert(!sans[1].startsWith(">"));
 });

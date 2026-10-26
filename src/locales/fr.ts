@@ -1020,6 +1020,40 @@ export const fr = {
       },
     },
     ckd: {
+      shadowban: {
+        intro: "Recalculée chaque matin à 6 h.",
+        calcule: "Dernier calcul : {{quand}}.",
+        recalculer: "Recalculer maintenant",
+        hm: "HM",
+        depuis: "depuis le {{date}}",
+        derniers: "Vues des 6 derniers posts",
+        medianePays: "Médiane du pays",
+        nouveauCompte: "Nouveau compte",
+        creationEnCours: "Création en cours…",
+        nouveauCree: "Nouveau compte créé : l'ancien s'arrête au prochain arrêt prévu.",
+        ignorer: "Ignorer 7 jours",
+        vide: "Aucun compte.",
+        types: { shadowban: "Shadowban probable", vues_basses: "Vues anormalement basses" },
+        typesDesc: {
+          shadowban: "Le posteur publie, mais ses 4 derniers posts mesurés (48 h ou plus) sont tous sous le seuil des posts morts.",
+          vues_basses: "La médiane des 7 derniers jours est sous 20 % de la médiane du pays.",
+        },
+      },
+      diagnostic: {
+        posts: "Posts : {{publies}} publiés sur {{attendus}} attendus",
+        liensManquants_one: ", {{count}} lien manquant{{jours}}",
+        liensManquants_other: ", {{count}} liens manquants{{jours}}",
+        vues: "Vues : médiane {{mediane}} (pays : {{ref}})",
+        morts_one: ", {{count}} post mort (< {{seuil}} vues)",
+        morts_other: ", {{count}} posts morts (< {{seuil}} vues)",
+        verdicts: {
+          ok: "Verdict : OK",
+          posts_manquants: "Verdict : posts manquants → relancer le posteur",
+          vues_basses: "Verdict : vues très basses pour le pays → revoir ses posts avec lui",
+          shadowban: "Verdict : shadowban probable → nouveau compte",
+        },
+        badges: { ok: "OK", posts_manquants: "Posts manquants", vues_basses: "Vues basses", shadowban: "Shadowban" },
+      },
       titre: "Check, Kill or Double",
       description:
         "Chaque semaine, l'OS propose les comptes à tuer (recréer le compte, ou ne pas renouveler le posteur) et les posteurs à doubler. Un admin décide, compte par compte.",
@@ -1341,7 +1375,7 @@ export const fr = {
       colonnesExceptions: { label: "Label", pays: "Pays", reglage: "Réglage", valeur: "Valeur" },
       sections: { seuils: "Seuils", slack: "Slack et textes" },
       cohorte: {
-        vues: { aria: "Vue de la page", cohorte: "Suivi cohorte", global: "Suivi global" },
+        vues: { aria: "Vue de la page", cohorte: "Suivi cohorte", global: "Suivi global", shadowban: "Shadowban" },
         paire: {
           aria: "Paire de cohortes",
           semaine: "Semaine du {{du}} au {{au}}",

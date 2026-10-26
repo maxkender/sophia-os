@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, ChevronRight, ExternalLink, List, RefreshCw, Send, Users } from "lucide-react";
+import { Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Send, Users } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -85,6 +85,8 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
+import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
+import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
@@ -158,13 +160,14 @@ interface FiltreCohorte {
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
-  const vue = params.get("vue") === "global" ? "global" : "cohorte";
-  const choisirVue = (v: "cohorte" | "global") =>
+  const brut = params.get("vue");
+  const vue: Vue = brut === "global" || brut === "shadowban" ? brut : "cohorte";
+  const choisirVue = (v: Vue) =>
     setParams(
       (p) => {
         const n = new URLSearchParams(p);
-        if (v === "global") n.set("vue", "global");
-        else n.delete("vue");
+        if (v === "cohorte") n.delete("vue");
+        else n.set("vue", v);
         return n;
       },
       { replace: true },
@@ -191,7 +194,9 @@ export function AdminCheckKillDoublePage() {
         actions={<ChoixVue vue={vue} onChange={choisirVue} />}
       />
 
-      {vue === "cohorte" ? (
+      {vue === "shadowban" ? (
+        <VueShadowban />
+      ) : vue === "cohorte" ? (
         <VueCohorte
           ouvrirGlobal={() => choisirVue("global")}
           rendreControle={(type, jour, comptes) => (
@@ -219,8 +224,10 @@ export function AdminCheckKillDoublePage() {
   );
 }
 
-/** Suivi cohorte ou suivi global : deux boutons collés, celui de la vue affichée en avant. */
-function ChoixVue({ vue, onChange }: { vue: "cohorte" | "global"; onChange: (v: "cohorte" | "global") => void }) {
+type Vue = "cohorte" | "global" | "shadowban";
+
+/** Suivi cohorte, suivi global ou Shadowban : des boutons collés, celui de la vue affichée en avant. */
+function ChoixVue({ vue, onChange }: { vue: Vue; onChange: (v: Vue) => void }) {
   const { t } = useTranslation();
   return (
     <div role="group" aria-label={t("ckd.cohorte.vues.aria")} className="inline-flex rounded-lg border bg-muted/40 p-1">
@@ -228,6 +235,7 @@ function ChoixVue({ vue, onChange }: { vue: "cohorte" | "global"; onChange: (v: 
         [
           { v: "cohorte", icone: <Users className="size-4" aria-hidden /> },
           { v: "global", icone: <List className="size-4" aria-hidden /> },
+          { v: "shadowban", icone: <EyeOff className="size-4" aria-hidden /> },
         ] as const
       ).map(({ v, icone }) => (
         <button
@@ -856,6 +864,8 @@ function LigneProposition({
           <span className="text-xs tabular-nums text-muted-foreground">{t("ckd.abonnes", { n: d.abonnes.toLocaleString() })}</span>
         )}
       </div>
+
+      <DiagnosticCompte diagnostic={p.diagnostic} />
 
       <p className="text-sm">
         {t(`ckd.regles.${p.regle}`)}

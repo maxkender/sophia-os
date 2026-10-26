@@ -7,7 +7,9 @@ import { Badge } from "@/components/ui/badge";
 import { BarreChargement } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
+import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
+import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import {
   aFaireAujourdhui,
   ligneSemaine,
@@ -95,6 +97,15 @@ export function HiringAccueilPage() {
     },
   });
 
+  // Comptes signalés par Check, Kill or Double → Shadowban (0362), les siens.
+  const signales = useQuery({
+    queryKey: ["accueil-hm", "shadowban", user?.id],
+    enabled: Boolean(user?.id),
+    queryFn: async () => {
+      const lignes = (await listerShadowban()).filter((l) => l.hm_id === user!.id);
+      return { lignes, noms: await nomsPosteurs([...new Set(lignes.map((l) => l.poster_id))]) };
+    },
+  });
   const { semaine: semainePaie, paie } = usePaieHm(user?.id);
   const paieAFaire = totaux(paie.data ?? []);
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -129,10 +140,37 @@ export function HiringAccueilPage() {
                   })}
                 </p>
               )}
+              {(signales.data?.lignes.length ?? 0) > 0 && (
+                <div className="mb-3 space-y-3" data-testid="accueil-shadowban">
+                  {signales.data!.lignes.map((l) => (
+                    <div key={l.compte_id} className="space-y-1">
+                      <p className="text-sm">
+                        <span className="font-medium">{signales.data!.noms.get(l.poster_id) ?? "—"}</span>
+                        {l.handle && (
+                          <>
+                            {" · "}
+                            <a
+                              href={`https://www.tiktok.com/@${l.handle}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-primary underline-offset-2 hover:underline"
+                            >
+                              @{l.handle}
+                            </a>
+                          </>
+                        )}
+                        {" · "}
+                        {t(`ckd.shadowban.types.${l.type}`)}
+                      </p>
+                      <DiagnosticCompte diagnostic={l.diagnostic} />
+                    </div>
+                  ))}
+                </div>
+              )}
               {(() => {
                 const lignes = aFaireAujourdhui(donnees.data.poste, donnees.data.warmup, aujourdhui);
                 if (lignes.length === 0)
-                  return paieAFaire.aPayer > 0 ? null : (
+                  return paieAFaire.aPayer > 0 || (signales.data?.lignes.length ?? 0) > 0 ? null : (
                     <p className="text-sm text-muted-foreground">{t("accueilHm.rienAFaire")}</p>
                   );
                 return (

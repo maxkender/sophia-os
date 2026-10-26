@@ -54,6 +54,10 @@ Deno.test("chaque zone de la master list est entièrement comprise", () => {
   assertEquals(codesDeZone("Australia + NZ + Ireland").codes, ["AU", "NZ", "IE"]);
   assertEquals(codesDeZone("Estonia + Finland + Russian-speaking").codes, ["EE", "FI", "RU", "BY", "KZ"]);
   assertEquals(codesDeZone("Turkey + Israel").codes, ["TR", "IL"]);
+  const latam = codesDeZone("Spain + Romania + Kazakhstan + Latin America + Portugal");
+  assertEquals(latam.inconnus, []);
+  assertEquals(latam.codes.length, 22);
+  assert(latam.codes.includes("MX") && latam.codes.includes("AR") && !latam.codes.includes("BR"));
 });
 
 Deno.test("un morceau inconnu est rendu, pas avalé", () => {

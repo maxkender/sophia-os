@@ -13,6 +13,13 @@
  * puces de zone, qui servent de légende.
  */
 
+/** Amérique latine hispanophone, noms du fond de carte (Natural Earth 110m). */
+const AMERIQUE_LATINE = [
+  "Mexico", "Guatemala", "Honduras", "El Salvador", "Nicaragua", "Costa Rica", "Panama", "Cuba",
+  "Dominican Rep.", "Colombia", "Venezuela", "Ecuador", "Peru", "Bolivia", "Paraguay", "Chile",
+  "Argentina", "Uruguay",
+] as const;
+
 /** Pays → noms du fond de carte. Clés normalisées par `normaliserMorceau`. */
 const ALIAS: Record<string, readonly string[]> = {
   // Abréviations et noms de la master list (anglais), puis variantes françaises.
@@ -71,6 +78,11 @@ const ALIAS: Record<string, readonly string[]> = {
   "russian speaking": ["Kazakhstan", "Ukraine", "Belarus"],
   russophone: ["Kazakhstan", "Ukraine", "Belarus"],
   russophones: ["Kazakhstan", "Ukraine", "Belarus"],
+  // L'Amérique latine hispanophone (marché es-419), sans le Brésil
+  // (pt-BR). Zone de Kris depuis le 26/10.
+  "latin america": AMERIQUE_LATINE,
+  "amerique latine": AMERIQUE_LATINE,
+  latam: AMERIQUE_LATINE,
 };
 
 /** Minuscules, sans accents ni ponctuation : « Russian-speaking » → « russian speaking ». */

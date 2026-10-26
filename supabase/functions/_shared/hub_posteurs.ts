@@ -26,6 +26,10 @@ const CODES_ISO =
  * `ALIAS` de src/features/hiring/carteZones.ts (la carte des zones), qui
  * travaille en noms du fond de carte : un pays qui s'ajoute là s'ajoute ici.
  */
+const AMERIQUE_LATINE = [
+  "MX", "GT", "HN", "SV", "NI", "CR", "PA", "CU", "DO", "CO", "VE", "EC", "PE", "BO", "PY", "CL", "AR", "UY",
+] as const;
+
 const ALIAS_ISO: Record<string, readonly string[]> = {
   us: ["US"],
   usa: ["US"],
@@ -50,6 +54,11 @@ const ALIAS_ISO: Record<string, readonly string[]> = {
   "russian speaking": ["RU", "BY", "KZ"],
   russophone: ["RU", "BY", "KZ"],
   russophones: ["RU", "BY", "KZ"],
+  // L'Amérique latine hispanophone (es-419), sans le Brésil : même liste que
+  // la carte.
+  "latin america": AMERIQUE_LATINE,
+  "amerique latine": AMERIQUE_LATINE,
+  latam: AMERIQUE_LATINE,
 };
 
 /**

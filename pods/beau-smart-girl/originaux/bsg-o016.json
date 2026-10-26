@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o016",
+ "schema_id": "jolie-et-interessante",
+ "titre": "les comportements qui te rendent 10x plus attirante (et ça n'a rien à voir avec ton visage) #pourtoi #culture #confiance #education",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "cta A (avant / après à la 1re personne, sur le dernier item ; voir CTA.md). Routine du 26/10, livraison 1 sur 3. Angle jamais fait chez nous, vu dans la veille du 26/10 : « les comportements qui te rendent 10x plus attirante » (@studyavec_lea, 41 k vues le 12/10, https://www.tiktok.com/@studyavec_lea/video/7695783896658562337 ; ce post cite UnSwipe sur sa slide 5, donc rien n'en est repris). La preuve reste celle du schéma jolie-et-interessante (r 5,04, 675447a8 ; chez nous, bsg-o002 à r 1,55 et 3,15). Accroches écrites : « les comportements qui te rendent 10x plus attirante (et ça n'a rien à voir avec ton visage) » (retenue : la forme du post à 41 k, et la parenthèse ramène au label, où jolie veut dire prendre soin de soi, jamais une norme physique), « les petits comportements qui rendent une fille fascinante » (écartée : sans le chiffre), « comment être jolie ET intéressante : les comportements, pas le maquillage » (écartée : trop proche de bsg-o002). Comportements en « tu », items neufs : finir ses phrases, poser une deuxième question, parler de ce qu'on lit, avoir un avis sur une œuvre. Aucun item sur le corps, la posture ou le physique. Aucun fait à vérifier. Images de la banque, sans célébrité ni texte : le chignon de dos en noir et blanc (accroche), la main sur la joue, la lectrice à la lampe, les cheveux dans l'ombre, le bureau chaud, le pull gris, la fille au chat. Inspirations : slides de 375ec54a et 675447a8 sans appli.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8e1cb018",
+   "texte_overlay": "les comportements qui te rendent\n10x plus attirante\n(et ça n'a rien à voir\navec ton visage)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8cc4cd64",
+   "texte_overlay": "1. tu finis tes phrases.\n\npas de\n« enfin bref, je sais pas ».\nune idée dite jusqu'au bout, calmement, ça marque plus qu'un beau sourire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c20a7abd",
+   "texte_overlay": "2. tu poses une deuxième question.\n\non te parle d'un voyage ? demande ce qui l'a surpris là-bas.\nles gens se souviennent de qui les écoute vraiment.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8e188cb7",
+   "texte_overlay": "3. tu parles de ce que tu lis, pas de ce que tu scrolles.\n\n« je lis un livre sur… »\nouvre plus de conversations que\n« t'as vu cette vidéo ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8dfc69fe",
+   "texte_overlay": "4. tu as un avis sur une œuvre.\n\nun tableau, un film, un album. pas juste « j'ai aimé » : pourquoi.\nune fille qui sait dire pourquoi, on l'écoute.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6d031092",
+   "texte_overlay": "5. tu as toujours quelque chose à raconter.\n\navant, quand on parlait d'histoire ou d'art, je hochais la tête.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "texte_sophia": "5. tu as toujours quelque chose à raconter.\n\navant, quand on parlait d'histoire ou d'art, je hochais la tête.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f5a06aac",
+   "texte_overlay": "lequel tu fais déjà ?\nlequel tu testes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

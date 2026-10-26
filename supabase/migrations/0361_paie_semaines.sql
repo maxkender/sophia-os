@@ -25,9 +25,10 @@
 -- d'après la zone du pays du compte du posteur (A 14 $, B 10 $, C 7 $), à la
 -- demande de Max. Rien d'autre n'est modifié.
 --
--- Additive : deux tables, une colonne, six fonctions, un cron.
+-- Additive : trois tables, une colonne, des fonctions, un trigger, un cron.
 -- Retour arrière : `select cron.unschedule('paie-lundi')`, supprimer les
--- fonctions, `paie_semaines`, `zones_paie` et la colonne `tarif_hebdo`.
+-- fonctions, le trigger `paie_garde_tarif`, `paie_semaines`, `zones_paie_pays`,
+-- `zones_paie` et la colonne `tarif_hebdo`.
 
 -- ---------------------------------------------------------------------------
 -- Zones de paie (jumeau : src/features/documents/posterGuide.ts)
@@ -102,6 +103,28 @@ alter table public.profiles add column if not exists tarif_hebdo numeric
 
 comment on column public.profiles.tarif_hebdo is
   'Paie : tarif par compte et par semaine, en $. Prérempli par la zone du pays (0361), modifiable par l''admin.';
+
+-- La RLS laisse un posteur modifier sa propre ligne (`profiles_update`) : le
+-- tarif, lui, ne change que par l'admin (`paie_modifier_tarif`) ou le serveur.
+create or replace function public.paie_garde_tarif()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  if new.tarif_hebdo is distinct from old.tarif_hebdo
+     and coalesce(auth.role(), '') in ('anon', 'authenticated')
+     and not public.is_admin_strict() then
+    raise exception 'paie : tarif modifiable par l''admin seulement';
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists paie_garde_tarif on public.profiles;
+create trigger paie_garde_tarif
+  before update of tarif_hebdo on public.profiles
+  for each row execute function public.paie_garde_tarif();
 
 update public.profiles pr
    set tarif_hebdo = public.paie_tarif_zone(pr.id)
@@ -408,10 +431,19 @@ begin
 end;
 $$;
 
-revoke execute on function public.paie_calculer(date) from public, anon;
+-- Supabase donne l'exécution à anon et authenticated par défaut : le calcul
+-- (tous les posteurs) et les aides internes restent au serveur.
+revoke execute on function public.paie_calculer(date) from public, anon, authenticated;
+revoke execute on function public.paie_pays_posteur(uuid) from public, anon, authenticated;
+revoke execute on function public.paie_tarif_zone(uuid) from public, anon, authenticated;
 revoke execute on function public.paie_generer(date) from public, anon;
 revoke execute on function public.paie_generer_lundi() from public, anon, authenticated;
+revoke execute on function public.paie_marquer_payee(uuid, boolean) from public, anon;
+revoke execute on function public.paie_enregistrer_contrat(uuid, text) from public, anon;
+revoke execute on function public.paie_modifier_tarif(uuid, numeric) from public, anon;
 grant execute on function public.paie_calculer(date) to service_role;
+grant execute on function public.paie_pays_posteur(uuid) to service_role;
+grant execute on function public.paie_tarif_zone(uuid) to service_role;
 grant execute on function public.paie_generer(date) to authenticated, service_role;
 grant execute on function public.paie_generer_lundi() to service_role;
 grant execute on function public.paie_marquer_payee(uuid, boolean) to authenticated;

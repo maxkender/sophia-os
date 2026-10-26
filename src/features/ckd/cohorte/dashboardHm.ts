@@ -1,6 +1,6 @@
 /**
  * Dashboard de cohorte de la HM (sa page d'accueil) : les données du Cohort
- * tracking de Check, Kill or Double, limitées à ses posteurs (0361), dites en
+ * tracking de Check, Kill or Double, limitées à ses posteurs (0360), dites en
  * mots simples. Rien ici ne touche la base.
  */
 import { ajouterJours } from "@/features/onboarding/datesRuul";

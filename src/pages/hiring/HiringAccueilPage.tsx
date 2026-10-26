@@ -70,7 +70,7 @@ function Tableau({ entetes, children }: { entetes: string[]; children: React.Rea
 
 /**
  * Page d'accueil de la HM : sa cohorte, en 3 blocs. Mêmes données que Check,
- * Kill or Double → Cohort tracking, limitées à ses posteurs (0361).
+ * Kill or Double → Cohort tracking, limitées à ses posteurs (0360).
  */
 export function HiringAccueilPage() {
   const { t } = useTranslation();

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, FilePenLine, Gauge, UserPlus, Users } from "lucide-react";
+import { CalendarDays, FilePenLine, Gauge, LayoutDashboard, UserPlus, Users } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
 import { BoutonGuideNotion, GUIDE_NOTION_HM } from "@/features/documents/BoutonGuideNotion";
@@ -24,6 +24,12 @@ export function HiringLayout() {
       groups={[
         {
           items: [
+            {
+              to: "/manager/accueil",
+              label: t("accueilHm.nav"),
+              icon: LayoutDashboard,
+              description: t("accueilHm.navDesc"),
+            },
             {
               to: "/embauche",
               label: t("nav.embauche"),

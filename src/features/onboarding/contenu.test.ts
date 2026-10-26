@@ -27,7 +27,7 @@ describe("ecransPour", () => {
     expect(paie).toContain("ana@example.com");
     expect(paie).not.toMatch(/hiring manager|upwork/i);
     expect(paie).toContain("https://app.ruul.io/register");
-    expect(texte(ecrans, "slack")).toContain("#ruul-cohort");
+    expect(texte(ecrans, "slack")).toContain("#ruul-questions");
     expect(texte(ecrans, "slack")).toContain("#welcome");
   });
 

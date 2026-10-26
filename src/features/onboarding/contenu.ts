@@ -36,10 +36,10 @@ export const LIEN_GUIDE =
 
 /** Invitation Slack de l'espace de travail. */
 export const LIEN_SLACK =
-  "https://join.slack.com/t/sophia-system/shared_invite/zt-4dusa2eyo-6_CjWI3ylCGdlAqA8737Ew";
+  "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA";
 
 /** Le salon des posters venus du site, qui n'ont pas de HM. */
-export const SALON_COHORTE_RUUL = "#ruul-cohort";
+export const SALON_COHORTE_RUUL = "#ruul-questions";
 
 /** Le salon d'accueil, que les posters venus du site rejoignent aussi. */
 export const SALON_BIENVENUE = "#welcome";

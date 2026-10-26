@@ -1,4 +1,4 @@
--- 0361 : le dashboard de cohorte de la HM (sa page d'accueil, /manager/accueil).
+-- 0360 : le dashboard de cohorte de la HM (sa page d'accueil, /manager/accueil).
 --
 -- `ckd_cohorte` (0356) était réservée à l'admin. La HM lit maintenant les mêmes
 -- données, limitées à SES posteurs (profiles.manager_id = elle). Admin et Head

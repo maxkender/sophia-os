@@ -30,17 +30,16 @@ import {
 } from "../multiApp";
 
 /**
- * Rôles qui choisissent l'application à la création : tous ceux qui créent des
- * comptes de créateurs (manage-users refuse les autres). C'est le créateur qui
- * est associé à une application, pas son recruteur.
+ * Rôles qui peuvent choisir l'application à la création : l'admin et le Head
+ * of Ops seulement (et encore, le bloc se cache quand le choix automatique est
+ * allumé). Les HM et les DM ne choisissent jamais (ticket de Max du 26/10) :
+ * leur formulaire n'envoie aucune application et manage-users la tire de la
+ * répartition (`choix_application_auto`), comme quand rien n'est choisi. Ils
+ * ne restent donc plus bloqués par « choisis l'application » quand la lecture
+ * de l'interrupteur tarde ou échoue.
  */
 export function peutChoisirApplicationsCompte(role: string | null | undefined): boolean {
-  return (
-    role === "admin" ||
-    role === "head_of_ops" ||
-    role === "directing_manager" ||
-    role === "hiring_manager"
-  );
+  return role === "admin" || role === "head_of_ops";
 }
 
 export interface ChoixCreation {

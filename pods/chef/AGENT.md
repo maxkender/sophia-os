@@ -99,13 +99,17 @@ Les podz :
       livraison dont le numéro finit par 0 ou 5). Dis-le dans le point.
    5. **Le rythme ne baisse jamais.** `par_jour` ne descend pas, même quand
       le stock est large ou qu'un podz ne perce pas. Seule une pause demandée
-      par écrit par Adrien ou Max l'arrête. Plafond : 3 livraisons par jour,
-      sauf exception décidée par Adrien et notée dans `pods/rythme.json`
-      (champ `motif`). Un label au plafond dont un compte tombe quand même à
-      court : signale-le dans le point.
+      par écrit par Adrien ou Max l'arrête. Il n'y a pas de plafond : on
+      monte autant que l'objectif le demande, tant que le podz livre
+      vraiment son `par_jour` (sinon, dis-le dans le point).
    6. **Un podz qui marche** : au moins 1 passage mûr sur 7 à 10 k vues ou
       plus, sur 20 passages mûrs au moins → une livraison de plus par jour,
-      même si son stock est large (même plafond). Dis-le dans le point.
+      même si son stock est large. Dis-le dans le point.
+   8. **L'objectif : 30 % des posts venant des podz.** Tant que la part de la
+      veille est sous 30 %, monte le rythme des podz qui marchent (règle 6)
+      et de ceux qui livrent bien leur compte, en priorité ceux dont les
+      contenus sortent le plus (vues médianes, tiers). Les variantes des
+      percées s'ajoutent toujours, les originaux et les essais continuent.
    7. **Un podz qui s'enferme** : plus d'un tiers de ses livraisons des
       7 derniers jours sur la même famille d'accroche, ou une slide d'appli
       qui ne varie pas (une seule version, toujours à la même place), ou des
@@ -117,7 +121,7 @@ Les podz :
 
 ```
 🤖 *Podz — point du <jour> <date>*
-• Hier : <x> % des posts venaient des podz (<n> sur <total>). Objectif : 15 %, puis 20 %. Sur 7 jours : <y> %.
+• Hier : <x> % des posts venaient des podz (<n> sur <total>). Objectif : 30 %. Sur 7 jours : <y> %.
 • En attente : <n> livraisons, validées toutes seules vers <heure> → https://sophia-marketing-orga.vercel.app/admin/pods (rejetez celles dont vous ne voulez pas).
 • Ce qui perce : « <accroche> » (<podz>), <vues> vues → 3 variantes en route.
 • Par podz : <nom> · <vues médianes> · <% ≥ 10 k> · runway <j> j (une ligne par podz actif, 8 au plus).

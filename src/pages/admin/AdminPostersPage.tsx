@@ -35,6 +35,7 @@ import {
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import { TarifPoster } from "@/features/paie/TarifPoster";
 import { nomCompletDe, separerNomComplet } from "@/features/moteur/nomComplet";
 import {
   CONTACT_POSTER_VIDE,
@@ -2281,6 +2282,8 @@ export function AdminPostersPage() {
                 poster={fiche}
                 onSave={(valeurs) => enregistrerContact.mutate({ id: fiche.id, valeurs })}
               />
+
+              {fiche.role === "poster" && role === "admin" && <TarifPoster key={`tarif-${fiche.id}`} posterId={fiche.id} />}
 
               <div className="space-y-2">
                 <div className="flex items-baseline justify-between gap-2">

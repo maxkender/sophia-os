@@ -1,5 +1,5 @@
 {
-  "maj_le": "2026-10-25",
+  "maj_le": "2026-10-26",
   "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Le label est jeune (premiers posts le 12/10) : aucun de ses contenus n'est encore à r ≥ 2, les schémas actifs le sont par des posts de la niche. Un schéma « en attente » a des contenus du label pas encore mesurés ; « pas prouvé » : mesurés sous r 2. `npm run playbook -- --mesurer` chaque jour, `npm run preuve -- --maj` pour relire les vues des preuves TikTok.",
   "schemas": [
     {
@@ -24,33 +24,33 @@
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@studyy.hackz/photo/7695135912182746389",
-          "vues": 384100,
+          "vues": 393200,
           "publie_le": "2026-10-10",
-          "enregistrements": 11149,
-          "releve_le": "2026-10-25"
+          "enregistrements": 11391,
+          "releve_le": "2026-10-26"
         },
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@studyy.hackz/photo/7693566248134774037",
-          "vues": 615200,
+          "vues": 651600,
           "publie_le": "2026-10-06",
-          "enregistrements": 13824,
-          "releve_le": "2026-10-25"
+          "enregistrements": 14583,
+          "releve_le": "2026-10-26"
         },
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@studyy.hackz/photo/7691328069914676500",
-          "vues": 280300,
+          "vues": 284000,
           "publie_le": "2026-09-30",
-          "enregistrements": 6298,
-          "releve_le": "2026-10-25"
+          "enregistrements": 6349,
+          "releve_le": "2026-10-26"
         },
         {
           "type": "os",
           "contenu_id": "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
           "r_median": 0.66,
           "publies": 7,
-          "releve_le": "2026-10-25"
+          "releve_le": "2026-10-26"
         }
       ]
     },
@@ -77,8 +77,36 @@
           "url": "https://www.tiktok.com/@katy._.studies/photo/7690671753332378898",
           "vues": 1100000,
           "publie_le": "2026-09-28",
-          "enregistrements": 73417,
-          "releve_le": "2026-10-25"
+          "enregistrements": 74299,
+          "releve_le": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "id": "relatable-struggle-fix",
+      "schema": "une galère d'élève en une phrase, en minuscules (« waiting for weekends just to spend them half studying… »), puis comment on l'a réglée : une solution concrète par slide",
+      "exemples": [
+        "waiting for weekends just to spend them half studying half regretting not studying enough (@sofiya.yussupova, 291 k vues et 5,7 k partages le 21/10, une seule slide)"
+      ],
+      "pourquoi": "Une phrase où chaque élève se reconnaît, beaucoup partagée. Le gagnant s'arrête là ; nous ajoutons la solution, une slide par geste, pour qu'on enregistre et pour laisser une place à micabo (se tester) et à UnSwipe (le téléphone, le scroll).",
+      "inspiration_contenus": [
+        "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+        "52f784f6-90e4-410f-a2d7-e2de72c461af"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7460550495862573866"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@sofiya.yussupova/photo/7699154511213923604",
+          "vues": 290900,
+          "publie_le": "2026-10-21",
+          "enregistrements": 5424,
+          "releve_le": "2026-10-26"
         }
       ]
     },
@@ -108,21 +136,21 @@
           "contenu_id": "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
           "r_median": 0.96,
           "publies": 7,
-          "releve_le": "2026-10-25"
+          "releve_le": "2026-10-26"
         },
         {
           "type": "os",
           "contenu_id": "55376335-ad2b-47dc-8aa1-03b3d6241fce",
-          "r_median": 0.83,
+          "r_median": 0.84,
           "publies": 8,
-          "releve_le": "2026-10-25"
+          "releve_le": "2026-10-26"
         },
         {
           "type": "os",
           "contenu_id": "52f784f6-90e4-410f-a2d7-e2de72c461af",
           "r_median": 0.94,
           "publies": 4,
-          "releve_le": "2026-10-25"
+          "releve_le": "2026-10-26"
         }
       ]
     },
@@ -150,8 +178,8 @@
           "type": "os",
           "contenu_id": "bb2eeefa-d48f-4aab-9e65-405885ce9658",
           "r_median": null,
-          "publies": 1,
-          "releve_le": "2026-10-25"
+          "publies": 2,
+          "releve_le": "2026-10-26"
         }
       ]
     },
@@ -179,8 +207,8 @@
           "type": "os",
           "contenu_id": "741e7669-a63d-4fcc-af3d-7d065404d6aa",
           "r_median": null,
-          "publies": 1,
-          "releve_le": "2026-10-25"
+          "publies": 2,
+          "releve_le": "2026-10-26"
         }
       ]
     }
@@ -195,7 +223,7 @@
           "contenu_id": "2b3c468e-6fa8-4a4f-985c-1271c55cd2b0",
           "r_median": 1.47,
           "publies": 4,
-          "releve_le": "2026-10-25"
+          "releve_le": "2026-10-26"
         }
       ]
     },
@@ -206,9 +234,9 @@
         {
           "type": "os",
           "contenu_id": "da4b4215-0fa1-4f63-aa6d-72f412d05755",
-          "r_median": 0.43,
-          "publies": 4,
-          "releve_le": "2026-10-25"
+          "r_median": 0.45,
+          "publies": 5,
+          "releve_le": "2026-10-26"
         }
       ]
     }

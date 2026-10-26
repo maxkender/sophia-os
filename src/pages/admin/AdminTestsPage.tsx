@@ -22,6 +22,7 @@ import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCa
 import { TestBrulerTexteCard } from "@/features/moteur/TestBrulerTexteCard";
 import { TestCompletCard } from "@/features/moteur/TestCompletCard";
 import { TestStickersCard } from "@/features/moteur/TestStickersCard";
+import { VueHmCard } from "@/features/vueHm/VueHmCard";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -371,6 +372,7 @@ const TESTS = [
     descKey: "tests.retourDesc",
     render: () => <SimulerRetourCard />,
   },
+  { value: "vue-hm", titreKey: "vueHm.titre", descKey: "vueHm.desc", render: () => <VueHmCard /> },
 ] as const;
 
 export function AdminTestsPage() {

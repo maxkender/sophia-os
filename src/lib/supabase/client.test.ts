@@ -43,6 +43,15 @@ describe("fetch du client Supabase", () => {
     expect(appels[0].entetes.get("apikey")).toBe("k");
   });
 
+  it("vue HM : x-vue-hm sur PostgREST seulement (jamais vers les Edge Functions)", async () => {
+    await fetchSupabase(REST, undefined, true);
+    await fetchSupabase(FONCTION, { method: "POST" }, true);
+    await fetchSupabase(REST);
+    expect(appels[0].entetes.get("x-vue-hm")).toBe("1");
+    expect(appels[1].entetes.has("x-vue-hm")).toBe(false);
+    expect(appels[2].entetes.has("x-vue-hm")).toBe(false);
+  });
+
   it("laisse le storage intact", async () => {
     await fetchSupabase("https://projet.supabase.co/storage/v1/object/medias/x");
     expect(appels[0].entetes.has("cache-control")).toBe(false);

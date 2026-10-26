@@ -220,3 +220,8 @@ verify_jwt = false
 
 [functions.variations]
 verify_jwt = false
+
+# Admin → Tests « Voir la vue HM » (0360) : contrôle interne (assertRole admin
+# pour ouvrir ; le jeton de la vue pour fermer).
+[functions.vue-hm]
+verify_jwt = false

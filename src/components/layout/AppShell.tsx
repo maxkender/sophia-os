@@ -17,6 +17,7 @@ import { signOut } from "@/features/auth/api";
 import { ACCUEIL_HO } from "@/features/auth/pagesHeadOfOps";
 import { SUPPORTED_LANGUAGES } from "@/locales";
 import { ChatWidget } from "@/features/chatbot/ChatWidget";
+import { BandeauVueHm } from "@/features/vueHm/BandeauVueHm";
 import { MobileDrawer, Sidebar, type NavGroup } from "./Sidebar";
 
 interface ProfilAffiche {
@@ -71,7 +72,7 @@ export function AppShell({
   sidebarExtra?: React.ReactNode;
 }) {
   const { t, i18n } = useTranslation();
-  const { roleReel, apercuHo, basculerApercuHo } = useAuth();
+  const { roleReel, apercuHo, basculerApercuHo, vueHm } = useAuth();
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -157,6 +158,7 @@ export function AppShell({
               </Button>
             </div>
           </div>
+          {vueHm && <BandeauVueHm vue={vueHm} />}
           {apercuHo && (
             <div className="flex flex-wrap items-center justify-between gap-2 border-t border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900 lg:px-8">
               <span>{t("headOfOps.apercu")}</span>
@@ -168,7 +170,12 @@ export function AppShell({
         </header>
 
         <main className="flex-1 animate-fade-in px-4 py-6 lg:px-8 lg:py-8">
-          <div className="mx-auto w-full max-w-6xl space-y-6">{children}</div>
+          {/* Vue HM : un fieldset désactivé grise d'un coup tous les boutons,
+              champs et listes de la page ; les liens restent cliquables. La
+              base refuse de toute façon toute écriture (migration 0360). */}
+          <fieldset disabled={Boolean(vueHm)} className="m-0 min-w-0 border-0 p-0">
+            <div className="mx-auto w-full max-w-6xl space-y-6">{children}</div>
+          </fieldset>
         </main>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import type { Session, User } from "@supabase/supabase-js";
 
 import { supabase } from "@/lib/supabase/client";
+import { lireVueHm, type VueHm } from "@/features/vueHm/session";
 import { roleAffiche, type Role } from "./roles";
 
 export type { Role };
@@ -34,6 +35,9 @@ interface AuthState {
   /** Admin seulement : l'appli s'affiche comme pour un Head of Ops. */
   apercuHo: boolean;
   basculerApercuHo: (actif: boolean) => void;
+  /** Admin → Tests « Voir la vue HM » : l'onglet tourne sur la session de la
+   *  HM, en lecture seule (null hors de la vue). */
+  vueHm: VueHm | null;
 }
 
 /** Clé de l'aperçu Head of Ops : par onglet, il ne survit pas à sa fermeture. */
@@ -55,6 +59,9 @@ function ecrireApercuHo(actif: boolean) {
     // Stockage indisponible : l'aperçu tient jusqu'au rechargement.
   }
 }
+
+/** Lue une fois : entrer ou sortir de la vue recharge l'onglet. */
+const VUE_HM = lireVueHm();
 
 const AuthContext = React.createContext<AuthState | undefined>(undefined);
 
@@ -92,7 +99,7 @@ async function chargerProfil(userId: string): Promise<Profil | null> {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = React.useState<
-    Omit<AuthState, "refresh" | "roleReel" | "apercuHo" | "basculerApercuHo">
+    Omit<AuthState, "refresh" | "roleReel" | "apercuHo" | "basculerApercuHo" | "vueHm">
   >({
     session: null,
     user: null,
@@ -173,6 +180,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       apercuHo: state.role === "admin" && apercuHo,
       basculerApercuHo,
       refresh,
+      vueHm: VUE_HM,
     }),
     [state, apercuHo, basculerApercuHo, refresh],
   );

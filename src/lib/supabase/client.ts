@@ -1,5 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
+import { CLE_SESSION_VUE, lireVueHm } from "@/features/vueHm/session";
+
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
@@ -44,21 +46,44 @@ function urlDe(entree: RequestInfo | URL): string {
   return entree.url;
 }
 
-/** `fetch` du client : `no-store` sur PostgREST, rien de plus ailleurs. */
+/**
+ * `fetch` du client : `no-store` sur PostgREST, rien de plus ailleurs.
+ *
+ * En vue HM, `x-vue-hm: 1` en plus, sur PostgREST seulement (même raison que
+ * le `no-store` : le préflight des Edge Functions le refuserait). La base
+ * refuse toute requête de la vue qui ne le porte pas (migration 0360) : une
+ * Edge function qui tenterait d'authentifier le jeton de la vue échoue.
+ */
 export function fetchSupabase(
   entree: RequestInfo | URL,
   init?: RequestInit,
+  vueHm = false,
 ): Promise<Response> {
   if (!viseRest(urlDe(entree))) return fetch(entree, init);
   const entetes = new Headers(
     init?.headers ?? (entree instanceof Request ? entree.headers : undefined),
   );
   entetes.set("Cache-Control", "no-store");
+  if (vueHm) entetes.set("x-vue-hm", "1");
   return fetch(entree, { ...init, headers: entetes });
 }
+
+/** Vue HM : session de la HM dans le sessionStorage de l'onglet, sans
+ *  rafraîchissement (elle meurt avec son jeton, au bout d'1 h). */
+const vueHm = lireVueHm() !== null;
 
 export const supabase = createClient(
   supabaseUrl || "https://placeholder.supabase.co",
   supabaseAnonKey || "placeholder-anon-key",
-  { global: { fetch: fetchSupabase } },
+  vueHm
+    ? {
+        global: { fetch: (entree, init) => fetchSupabase(entree, init, true) },
+        auth: {
+          storage: window.sessionStorage,
+          storageKey: CLE_SESSION_VUE,
+          autoRefreshToken: false,
+          detectSessionInUrl: false,
+        },
+      }
+    : { global: { fetch: fetchSupabase } },
 );

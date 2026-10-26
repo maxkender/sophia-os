@@ -2284,6 +2284,15 @@ export const en = {
       lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
       sansLien: "{{count}} without link",
     },
+    vueHm: {
+      titre: "See the HM view",
+      desc: "Opens the OS exactly as an HM sees it (her creators, her pages), in this tab. Read-only: no button works and the database refuses any write. The view closes by itself after 1 hour.",
+      choisir: "— Choose an HM —",
+      ouvrir: "Open her view",
+      bandeau: "{{prenom}}'s view – read-only",
+      reste: "({{minutes}} min left)",
+      quitter: "Quit",
+    },
     headOfOps: {
       badge: "Head of Ops",
       autreEspace: "Other space",

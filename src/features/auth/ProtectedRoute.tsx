@@ -27,7 +27,7 @@ function EnAttente() {
 }
 
 export function ProtectedRoute() {
-  const { user, profil, role, loading } = useAuth();
+  const { user, profil, role, loading, vueHm } = useAuth();
 
   if (loading) return <FullPageLoader />;
   if (!user) return <Navigate to="/login" replace />;
@@ -39,7 +39,8 @@ export function ProtectedRoute() {
   // Le mot de passe reste celui donné par l'admin, le même pour tous : la
   // création de compte ne lève donc jamais ce drapeau. Le passage est conservé
   // pour qu'un admin puisse forcer un changement sur un compte précis.
-  if (profil?.must_change_password) return <ChangePasswordPage />;
+  // Pas en vue HM : on regarde son OS, on ne change pas son mot de passe.
+  if (profil?.must_change_password && !vueHm) return <ChangePasswordPage />;
 
   return <Outlet />;
 }

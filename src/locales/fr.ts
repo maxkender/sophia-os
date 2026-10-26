@@ -2288,6 +2288,15 @@ export const fr = {
       lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
       sansLien: "{{count}} sans lien",
     },
+    vueHm: {
+      titre: "Voir la vue HM",
+      desc: "Ouvre l'OS exactement comme une HM le voit (ses créateurs, ses pages), dans cet onglet. Lecture seule : aucun bouton ne marche et la base refuse toute écriture. La vue se ferme seule au bout d'1 h.",
+      choisir: "— Choisir une HM —",
+      ouvrir: "Ouvrir sa vue",
+      bandeau: "Vue de {{prenom}} – lecture seule",
+      reste: "(encore {{minutes}} min)",
+      quitter: "Quitter",
+    },
     headOfOps: {
       badge: "Head of Ops",
       autreEspace: "Autre espace",

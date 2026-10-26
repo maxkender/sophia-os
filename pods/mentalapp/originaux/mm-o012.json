@@ -1,0 +1,219 @@
+{
+ "id": "mm-o012",
+ "format": "carrousel",
+ "titre": "Deep work tier list",
+ "legendes": {
+  "en": "deep work tier list, what actually helps you lock in #deepwork #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "tier list du travail profond, ce qui t’aide vraiment à te concentrer #productivite #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Deep Work Tierlist, was dir wirklich beim Fokus hilft #deepwork #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "tier list del trabajo profundo, lo que de verdad te ayuda a concentrarte #productividad #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "tier list del deep work, cosa ti aiuta davvero a concentrarti #produttivita #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "derin çalışma tier list, gerçekten odaklanmana yardım edenler #derinçalışma #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7699644186470976786/1",
+   "boite": [
+    198,
+    378,
+    684,
+    738
+   ]
+  },
+  "theme": {
+   "en": "Deep work",
+   "fr": "Travail profond",
+   "de": "Deep Work",
+   "es": "Trabajo profundo",
+   "it": "Deep work",
+   "tr": "Derin çalışma"
+  },
+  "sous": {
+   "en": "tier list",
+   "fr": "tier list",
+   "de": "Tierlist",
+   "es": "tier list",
+   "it": "tier list",
+   "tr": "tier list"
+  }
+ },
+ "items": [
+  {
+   "rang": "S+",
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Single-tasking",
+    "fr": "Une tâche à la fois",
+    "de": "Single-Tasking",
+    "es": "Una tarea a la vez",
+    "it": "Una cosa alla volta",
+    "tr": "Tek iş"
+   },
+   "texte": {
+    "en": "One task, one tab, one hour. You finish more in that hour than in a whole afternoon of switching.",
+    "fr": "Une tâche, un onglet, une heure. Tu finis plus en une heure qu’en tout un après-midi à papillonner.",
+    "de": "Eine Aufgabe, ein Tab, eine Stunde. Du schaffst in der Stunde mehr als an einem ganzen Nachmittag voller Wechsel.",
+    "es": "Una tarea, una pestaña, una hora. Terminas más en esa hora que en una tarde entera saltando de cosa en cosa.",
+    "it": "Un compito, una scheda, un’ora. Finisci più in quell’ora che in un pomeriggio intero a saltare da una cosa all’altra.",
+    "tr": "Tek iş, tek sekme, tek saat. O bir saatte, işten işe atlayarak geçen koca bir öğleden sonradan fazlasını bitirirsin."
+   }
+  },
+  {
+   "rang": "D",
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "Multitasking",
+    "fr": "Faire tout à la fois",
+    "de": "Multitasking",
+    "es": "Multitarea",
+    "it": "Multitasking",
+    "tr": "Çoklu görev"
+   },
+   "texte": {
+    "en": "It feels busy, not productive. Every switch costs a few minutes of focus you never get back.",
+    "fr": "Ça donne l’air occupé, pas productif. Chaque changement te coûte quelques minutes de focus perdues.",
+    "de": "Es fühlt sich beschäftigt an, nicht produktiv. Jeder Wechsel kostet dich ein paar Minuten Fokus.",
+    "es": "Parece que haces mucho, pero no avanzas. Cada cambio te cuesta unos minutos de foco que no recuperas.",
+    "it": "Sembri impegnato, non produttivo. Ogni cambio ti costa qualche minuto di concentrazione che non torna.",
+    "tr": "Meşgul hissettirir, verimli değil. Her geçiş sana geri gelmeyen birkaç dakikalık odak kaybettirir."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Plan the night before",
+    "fr": "Planifier la veille",
+    "de": "Am Vorabend planen",
+    "es": "Planear la noche antes",
+    "it": "Pianificare la sera prima",
+    "tr": "Akşamdan planla"
+   },
+   "texte": {
+    "en": "Write tomorrow’s three tasks before bed. You wake up and start, no time lost deciding.",
+    "fr": "Écris les trois tâches de demain avant de dormir. Tu te lèves et tu attaques, sans perdre de temps à choisir.",
+    "de": "Schreib vor dem Schlafen die drei Aufgaben für morgen auf. Du stehst auf und legst los, ohne Zeit zu verlieren.",
+    "es": "Escribe las tres tareas de mañana antes de dormir. Te levantas y empiezas, sin perder tiempo decidiendo.",
+    "it": "Scrivi i tre compiti di domani prima di dormire. Ti svegli e parti, senza perdere tempo a decidere.",
+    "tr": "Yatmadan önce yarının üç işini yaz. Kalkınca karar vermekle vakit kaybetmeden başlarsın."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Music without lyrics",
+    "fr": "Musique sans paroles",
+    "de": "Musik ohne Text",
+    "es": "Música sin letra",
+    "it": "Musica senza testo",
+    "tr": "Sözsüz müzik"
+   },
+   "texte": {
+    "en": "Instrumental music covers background noise without pulling your attention to the words.",
+    "fr": "La musique instrumentale couvre le bruit ambiant sans attirer ton attention sur les paroles.",
+    "de": "Instrumentalmusik überdeckt Hintergrundlärm, ohne deine Aufmerksamkeit auf Worte zu ziehen.",
+    "es": "La música instrumental tapa el ruido de fondo sin llevarse tu atención a la letra.",
+    "it": "La musica strumentale copre i rumori di fondo senza portarti l’attenzione sulle parole.",
+    "tr": "Enstrümantal müzik arka plan gürültüsünü bastırır, dikkatini sözlere çekmez."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "My focus came back the week I deleted short videos with UnSwipe. Now one hour of work is actually one hour.",
+    "fr": "Mon focus est revenu la semaine où j’ai supprimé les vidéos courtes avec UnSwipe. Maintenant, une heure de travail, c’est vraiment une heure.",
+    "de": "Mein Fokus kam in der Woche zurück, in der ich Kurzvideos mit UnSwipe gelöscht habe. Jetzt ist eine Stunde Arbeit wirklich eine Stunde.",
+    "es": "Mi foco volvió la semana en que borré los vídeos cortos con UnSwipe. Ahora una hora de trabajo es de verdad una hora.",
+    "it": "La concentrazione è tornata la settimana in cui ho eliminato i video brevi con UnSwipe. Ora un’ora di lavoro è davvero un’ora.",
+    "tr": "Kısa videoları UnSwipe ile sildiğim hafta odağım geri geldi. Artık bir saatlik çalışma gerçekten bir saat."
+   }
+  },
+  {
+   "rang": "F",
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "Phone on the desk",
+    "fr": "Téléphone sur le bureau",
+    "de": "Handy auf dem Tisch",
+    "es": "Móvil en la mesa",
+    "it": "Telefono sulla scrivania",
+    "tr": "Masada telefon"
+   },
+   "texte": {
+    "en": "Even face down, part of your brain keeps waiting for it to light up. Put it in another room.",
+    "fr": "Même retourné, une partie de ton cerveau attend qu’il s’allume. Mets-le dans une autre pièce.",
+    "de": "Selbst umgedreht wartet ein Teil deines Gehirns darauf, dass es aufleuchtet. Leg es in einen anderen Raum.",
+    "es": "Incluso boca abajo, una parte de tu cerebro espera que se encienda. Déjalo en otra habitación.",
+    "it": "Anche a faccia in giù, una parte del cervello aspetta che si illumini. Mettilo in un’altra stanza.",
+    "tr": "Ters çevrili olsa bile beyninin bir kısmı ekranın yanmasını bekler. Başka bir odaya koy."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Reading before work",
+    "fr": "Lire avant de bosser",
+    "de": "Lesen vor der Arbeit",
+    "es": "Leer antes de trabajar",
+    "it": "Leggere prima di lavorare",
+    "tr": "İşten önce okumak"
+   },
+   "texte": {
+    "en": "Twenty pages warm up your attention. Your brain gets used to one thing for a long time.",
+    "fr": "Vingt pages échauffent ton attention. Ton cerveau s’habitue à rester longtemps sur une seule chose.",
+    "de": "Zwanzig Seiten wärmen deine Aufmerksamkeit auf. Dein Gehirn gewöhnt sich daran, lange bei einer Sache zu bleiben.",
+    "es": "Veinte páginas calientan tu atención. Tu cerebro se acostumbra a quedarse mucho tiempo en una sola cosa.",
+    "it": "Venti pagine scaldano l’attenzione. Il cervello si abitua a restare a lungo su una cosa sola.",
+    "tr": "Yirmi sayfa dikkatini ısıtır. Beynin uzun süre tek bir şeyde kalmaya alışır."
+   }
+  }
+ ],
+ "notes": "routine du 26/10 : original au format carrousel, sujet deep work. cta C : élément UnSwipe en item à lui seul (5e item), conseil à la 1re personne. Images : slides des posts @mentalapp du 18 au 22/10 (exclus pour pub Journey, utilisés comme banque)."
+}

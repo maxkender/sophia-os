@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 
 import { lireTarif, modifierTarif } from "./api";
 
-/** Fiche posteur (admin) : le tarif hebdo de la paie, par compte (0362). */
+/** Fiche posteur (admin) : le tarif hebdo de la paie, par compte (0361). */
 export function TarifPoster({ posterId }: { posterId: string }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();

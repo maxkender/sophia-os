@@ -15,7 +15,7 @@ import { TableauPaie } from "@/features/paie/TableauPaie";
 const selectClass =
   "h-9 rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
-/** Admin → Paie : toutes les HMs, filtre par HM, total par HM et total général (0362). */
+/** Admin → Paie : toutes les HMs, filtre par HM, total par HM et total général (0361). */
 export function AdminPaiePage() {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";

@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 
-/** Une ligne de `paie_semaines` (0362), avec le posteur. */
+/** Une ligne de `paie_semaines` (0361), avec le posteur. */
 export interface LignePaie {
   id: string;
   poster_id: string;

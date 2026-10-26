@@ -1,4 +1,4 @@
--- 0362 : la paie du lundi (dashboard HM et page admin « Paie »).
+-- 0361 : la paie du lundi (dashboard HM et page admin « Paie »).
 --
 -- Chaque lundi à 6 h (Paris), une ligne par posteur pour la semaine qui vient
 -- de finir (`paie_semaines`). La HM paie ses posteurs sur Upwork (milestone
@@ -101,7 +101,7 @@ alter table public.profiles add column if not exists tarif_hebdo numeric
   check (tarif_hebdo is null or tarif_hebdo >= 0);
 
 comment on column public.profiles.tarif_hebdo is
-  'Paie : tarif par compte et par semaine, en $. Prérempli par la zone du pays (0362), modifiable par l''admin.';
+  'Paie : tarif par compte et par semaine, en $. Prérempli par la zone du pays (0361), modifiable par l''admin.';
 
 update public.profiles pr
    set tarif_hebdo = public.paie_tarif_zone(pr.id)

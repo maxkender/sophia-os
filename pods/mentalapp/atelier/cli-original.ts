@@ -15,7 +15,8 @@ import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { appelPod, LANGUE_SOURCE, LANGUES, lireManifeste, POD, type Langue } from "./api.ts";
 import { CHEMIN_ICONE } from "./app.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
-import { estOriginal, lireOriginal, rendreOriginal, textesOriginal } from "./original.ts";
+import { rendreCarrousel, textesCarrousel, type Carrousel } from "./carrousel.ts";
+import { estOriginal, lireOriginal, rendreOriginal, textesOriginal, type Original } from "./original.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
@@ -25,12 +26,17 @@ const langues = (opt("--langues")?.split(",") ?? [...LANGUES]) as Langue[];
 const essai = opt("--essai");
 const deposer = args.includes("--deposer");
 
-const o = lireOriginal(id);
+// Deux formats : la tier list (couverture + tableau) et le carrousel (un item par slide).
+const o = lireOriginal(id) as Original | Carrousel;
+const carrousel = "format" in o && o.format === "carrousel";
+/** Slide de l'élément UnSwipe : la 2e pour une tier list, celle de son item pour un carrousel. */
+const positionApp = carrousel ? (o as Carrousel).items.findIndex((it) => "app" in it) + 2 : (o as Original).position_app;
+if (positionApp < 2) throw new Error(`${id} : pas d'élément UnSwipe (jamais sur la couverture)`);
 const icone = await loadImage(CHEMIN_ICONE);
 const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_app?: true }[] }> = {};
 const rendus: Record<string, Buffer[]> = {};
 for (const langue of langues) {
-  const jpegs = await rendreOriginal(o, langue, icone);
+  const jpegs = carrousel ? await rendreCarrousel(o as Carrousel, langue, icone) : await rendreOriginal(o as Original, langue, icone);
   const dossier = `sortie/originaux/${id}/${langue}`;
   mkdirSync(dossier, { recursive: true });
   jpegs.forEach((j, i) => {
@@ -41,12 +47,13 @@ for (const langue of langues) {
   rendus[langue] = jpegs;
   decks[langue] = {
     hashtags: o.legendes[langue],
-    slides: jpegs.map((j, i) => ({ position: i + 1, jpeg_base64: j.toString("base64"), ...(i + 1 === o.position_app ? { position_app: true as const } : {}) })),
+    slides: jpegs.map((j, i) => ({ position: i + 1, jpeg_base64: j.toString("base64"), ...(i + 1 === positionApp ? { position_app: true as const } : {}) })),
   };
 }
 
-// Planche : une rangée par langue (couverture, tableau).
-const planche = createCanvas(2 * 432, langues.length * 540);
+// Planche : une rangée par langue, toutes les slides.
+const parRangee = Math.max(...langues.map((l) => rendus[l].length));
+const planche = createCanvas(parRangee * 432, langues.length * 540);
 const px = planche.getContext("2d");
 for (const [i, langue] of langues.entries()) {
   for (const [n, j] of rendus[langue].entries()) px.drawImage(await loadImage(j), n * 432, i * 540, 432, 540);
@@ -66,7 +73,7 @@ if (essai || deposer) {
     langue_source: LANGUE_SOURCE,
     musique_url: top?.musique.url ?? null,
     musique_titre: top?.musique.titre ?? null,
-    textes: textesOriginal(o),
+    textes: carrousel ? textesCarrousel(o as Carrousel) : textesOriginal(o as Original),
     decks,
   };
   if (essai) {

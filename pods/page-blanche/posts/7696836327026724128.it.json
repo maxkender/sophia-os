@@ -1,0 +1,327 @@
+{
+ "post_id": "7696836327026724128",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 abitudini per riaccendere il cervello"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(lo dice la neuroscienza)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "cammina [[in silenzio]]"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "se metti la musica [[ogni volta che esci a camminare]], non lasci mai al cervello [[il tempo di pensare da solo]]"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "continui a coprire [[i tuoi pensieri]] con la voce di qualcun altro,"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "senza spazio per elaborare [[le tue emozioni]], riflettere sulla [[tua vita]] o avere nuove idee"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "annoiati un po'. [[la mente ha bisogno di spazio per pensare]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think before using ai"
+     ],
+     "fr": "réfléchis avant [[l'IA]]",
+     "texte": "pensa prima di usare [[l'IA]]"
+    },
+    "T2": {
+     "en": [
+      "an MIT study found that people who used ChatGPT to write",
+      "essays showed lower brain connectivity"
+     ],
+     "fr": "une étude du MIT montre que ceux qui rédigent avec ChatGPT ont [[un cerveau moins connecté]]",
+     "texte": "uno studio del MIT ha visto che chi scriveva saggi con ChatGPT aveva [[meno connettività cerebrale]]"
+    },
+    "T3": {
+     "en": [
+      "they also",
+      "struggled more to",
+      "remember what",
+      "they had written"
+     ],
+     "fr": "et ils avaient du mal à [[se rappeler ce qu'ils avaient écrit]]",
+     "texte": "e faceva più fatica a [[ricordare cosa aveva scritto]]"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T7": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T8": {
+     "en": [
+      "don't reach for AI the moment you struggle. that",
+      "struggle is where your brain does the work"
+     ],
+     "fr": "sors pas l'IA dès que tu galères. c'est en galérant que [[ton cerveau bosse vraiment]]",
+     "texte": "non correre dall'IA appena fai fatica. è in quella fatica che [[il cervello lavora davvero]]"
+    },
+    "T9": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder",
+    "I4": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "leggi libri [[invece di scrollare]]"
+    },
+    "T2": {
+     "en": [
+      "endless scrolling is conditioning your brain to crave",
+      "instant gratification"
+     ],
+     "fr": "le scroll sans fin habitue ton cerveau à vouloir [[tout, tout de suite]]",
+     "texte": "lo scroll infinito abitua il cervello a volere [[gratificazione immediata]]"
+    },
+    "T3": {
+     "en": [
+      "we are entering a literary",
+      "crisis, scrolling tiktok is",
+      "rotting your brain and books",
+      "are being tossed aside"
+     ],
+     "fr": "on entre dans une [[crise de la lecture]], tiktok [[te grille le cerveau]] et les livres finissent au placard",
+     "texte": "stiamo entrando in una [[crisi della lettura]], tiktok [[ti cuoce il cervello]] e i libri finiscono in un angolo"
+    },
+    "T4": {
+     "en": [
+      "my tip: i always said i",
+      "wanted to read but would",
+      "just scroll tiktok, i found this",
+      "thing that blocks apps until i",
+      "read and it changed my life"
+     ],
+     "fr": "mon astuce ? aujourd'hui, mes 5 min sur [[l'appli Sophia]], c'était [[pourquoi Camus imagine Sisyphe heureux]]. mieux qu'une heure de tiktok",
+     "texte": "il mio trucco: oggi in 5 minuti con [[l'app Sophia]] ho scoperto [[perché la porpora è il colore dei re]]. meglio di un'ora di tiktok"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop sacrificing sleep"
+     ],
+     "fr": "sacrifie plus [[ton sommeil]]",
+     "texte": "smetti di sacrificare [[il sonno]]"
+    },
+    "T2": {
+     "en": [
+      "your brain strengthens",
+      "memories and clears",
+      "out metabolic waste",
+      "while you sleep"
+     ],
+     "fr": "ton cerveau [[consolide tes souvenirs]] et fait le ménage pendant que tu dors",
+     "texte": "il cervello [[rafforza i ricordi]] e smaltisce le scorie mentre dormi"
+    },
+    "T3": {
+     "en": [
+      "consistently getting",
+      "too little makes it",
+      "harder to focus, learn,",
+      "and make decisions"
+     ],
+     "fr": "en manque de sommeil, t'as plus de mal à te concentrer, à apprendre et à décider",
+     "texte": "dormire sempre troppo poco rende più difficile concentrarsi, imparare e decidere"
+    },
+    "T4": {
+     "en": [
+      "if you want to think sharper, stop treating sleep like",
+      "optional downtime"
+     ],
+     "fr": "pour avoir l'esprit vif, arrête de traiter le sommeil comme [[une option]]",
+     "texte": "per una mente lucida, smetti di vedere il sonno come [[un optional]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "move your body every day"
+     ],
+     "fr": "bouge [[tous les jours]]",
+     "texte": "muovi il corpo [[ogni giorno]]"
+    },
+    "T2": {
+     "en": [
+      "exercise does more than improve your physical health"
+     ],
+     "fr": "le sport fait bien plus que te garder en forme",
+     "texte": "l'esercizio fa molto più che migliorare la salute fisica"
+    },
+    "T3": {
+     "en": [
+      "regular movement",
+      "supports brain health,",
+      "memory, and the",
+      "ability to learn"
+     ],
+     "fr": "bouger souvent booste [[ton cerveau, ta mémoire et ta capacité d'apprendre]]",
+     "texte": "muoversi spesso aiuta [[cervello, memoria e capacità di imparare]]"
+    },
+    "T4": {
+     "en": [
+      "walk briskly, lift",
+      "weights, or cycle.",
+      "you don't need a",
+      "perfect routine. you",
+      "need one you can",
+      "actually maintain"
+     ],
+     "fr": "marche vite, fais de la muscu ou du vélo. pas besoin d'une routine parfaite, juste d'une que [[tu tiens vraiment]]",
+     "texte": "cammina veloce, solleva pesi o vai in bici. non serve una routine perfetta, ne basta una che [[riesci davvero a mantenere]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

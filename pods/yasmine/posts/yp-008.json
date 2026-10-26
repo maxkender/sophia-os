@@ -1,0 +1,1617 @@
+{
+ "id": "yp-008",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7669329047675030806",
+  "vues": 54100,
+  "enregistrements": 1594,
+  "publie_le": "2026-08-02",
+  "titre": "guide to a student's sunday reset"
+ },
+ "titre": {
+  "fr": "le dimanche reset d’une étudiante",
+  "en": "a student's sunday reset",
+  "es": "el sunday reset de una estudiante",
+  "de": "der Sunday Reset einer Studentin",
+  "it": "il sunday reset di una studentessa",
+  "pt": "o sunday reset de uma estudante",
+  "tr": "bir öğrencinin pazar sıfırlaması"
+ },
+ "legendes": {
+  "fr": "mon dimanche pour bien commencer la semaine 🌅 #sundayreset #studytok #routine #revisions #thatgirl",
+  "en": "my sunday to start the week right 🌅 #sundayreset #studytok #routine #studying #thatgirl",
+  "es": "mi domingo para empezar bien la semana 🌅 #sundayreset #studytok #rutina #estudiar #thatgirl",
+  "de": "mein Sonntag für einen guten Wochenstart 🌅 #sundayreset #studytok #routine #lernen #thatgirl",
+  "it": "la mia domenica per iniziare bene la settimana 🌅 #sundayreset #studytok #routine #studiare #thatgirl",
+  "pt": "meu domingo para começar bem a semana 🌅 #sundayreset #studytok #rotina #estudos #thatgirl",
+  "tr": "haftaya iyi başlamak için pazar günüm 🌅 #sundayreset #studytok #rutin #ders #thatgirl"
+ },
+ "musique": {
+  "titre": "Life Will Be",
+  "url": "https://www.tiktok.com/music/life-will-be-7288041310028302338"
+ },
+ "fond": {
+  "media_id": "97855d2b-1997-4aa2-a77d-24cad2524852",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0aad980a-2a09-4d7b-8c32-ef34edd08e94/4.jpg?v=1792597546725",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "cta A : conseil à la 1re personne dans la sous-légende de « révisions du matin » (micabo), sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "le dimanche d’une étudiante",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guide to a student’s",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mi domingo",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mein Sonntag",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la mia domenica",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "meu domingo",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "pazar",
+     "lignes": [
+      "sunday",
+      "reset"
+     ],
+     "taille": 170,
+     "interligne": 0.82,
+     "taille_script": 70,
+     "y": 600
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "f1c5a808-2360-4366-a5a1-41666ed09877",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/025ef888-5516-4c3b-9c83-c8bd9cd08324/2.jpg?v=1790611932789",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "bonjour☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "je me lève à la même heure tous les jours"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "good morning☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "i wake up at the same time every day"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "buenos días☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "me levanto a la misma hora todos los días"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "guten Morgen☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "ich stehe jeden Tag zur gleichen Zeit auf"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "buongiorno☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "mi sveglio alla stessa ora ogni giorno"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "bom dia☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "acordo no mesmo horário todos os dias"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "günaydın☀️"
+     ],
+     "x": 360,
+     "y": 300,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "her gün aynı saatte kalkıyorum"
+     ],
+     "taille_sous": 26
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4cfa46c6-7fdd-41cd-b5b7-d968e7f06ac8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48cb2118-89c2-4510-b04e-8f80e77403aa/3.jpg?v=1789055539959",
+    "cadrage": {
+     "x": 0.75,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "dents et skincare🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "brush teeth & skincare🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "dientes y skincare🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Zähne & Skincare🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "denti e skincare🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "dentes e skincare🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "diş ve cilt bakımı🫧"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2c68848a-6425-41d1-84ab-dcd1f9a05d94",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/26b19584-46cc-4229-a08e-f08683abe1c4/5.jpg?v=1791725513691",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "révisions du matin💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "je fais 1 h de quiz sur micabo le matin,",
+      "comme ça c’est fait pour la journée"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "app": true,
+   "en": {
+    "legende": {
+     "lignes": [
+      "morning study session💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "i do 1 hour of micabo quizzes in the morning,",
+      "so it’s done for the day"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "estudio por la mañana💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "hago 1 h de tests en micabo por la mañana,",
+      "así ya está hecho para todo el día"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Lernen am Morgen💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "ich mache morgens 1 Std. Quiz in micabo,",
+      "dann ist es für den Tag erledigt"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "studio del mattino💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "faccio 1 ora di quiz su micabo la mattina,",
+      "così è fatto per tutta la giornata"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "estudo da manhã💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "faço 1 hora de quiz no micabo de manhã,",
+      "assim já fica feito para o dia todo"
+     ],
+     "taille_sous": 26
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sabah çalışması💻"
+     ],
+     "x": 660,
+     "y": 260,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "sabahları micabo’da 1 saat test çözüyorum,",
+      "böylece gün için bitmiş oluyor"
+     ],
+     "taille_sous": 26
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2ce3c5b8-5aa1-4e7e-9200-12d8824cadc4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/7.jpg?v=1790606894713",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "range ton bureau quand tu as fini"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "tidy up your desk when you’re done"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ordena tu escritorio al terminar"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "räum danach deinen Schreibtisch auf"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "riordina la scrivania quando hai finito"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "arrume a mesa quando terminar"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bitince masanı topla"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 34,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "8476a77e-9656-4ffb-9bc4-f412e6732e61",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/43f14645-73dc-4a07-bcea-c71b7dcfdb81/4-upscale.jpg?v=1785795671233",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "change tes draps"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "change your bedding"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "cambia las sábanas"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "bezieh dein Bett neu"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "cambia le lenzuola"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "troque a roupa de cama"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "çarşafları değiştir"
+     ],
+     "x": 420,
+     "y": 520,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1150c4ad-7662-4af6-9659-ec953bf55f69",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b1796999-ac7a-426c-95db-cc2800b17c54/4.jpg?v=1789048598723",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "un petit-déj sain et complet🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a healthy & filling breakfast🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "un desayuno sano y completo🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "ein gesundes, sättigendes Frühstück🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "una colazione sana e completa🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "um café da manhã saudável e completo🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sağlıklı ve doyurucu bir kahvaltı🫐"
+     ],
+     "x": 540,
+     "y": 200,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a0ccd97f-e1fb-4cb1-8256-d58baca9e85a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a7081430-d2ec-4e30-9fe3-36d409f6f45d/1.jpg?v=1790678475207",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "détends-toi🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "unwind🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "relájate🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "entspann dich🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "rilassati🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "relaxe🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "rahatla🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "057a2a14-f14b-41ee-884f-eb6706e1d789",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a6464591-1e49-465a-bef1-2047471a7c50/4.jpg?v=1790606976020",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "prépare ton sac pour la semaine🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "pack your bag for the week🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "prepara la mochila para la semana🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "pack deine Tasche für die Woche🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "prepara lo zaino per la settimana🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "arrume a mochila para a semana🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hafta için çantanı hazırla🎒"
+     ],
+     "x": 540,
+     "y": 1290,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1aa97bb2-4892-44de-bf07-841a42613efb",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a7081430-d2ec-4e30-9fe3-36d409f6f45d/2.jpg?v=1790678515777",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fais le ménage chez toi🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "clean your room🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "limpia tu cuarto🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "putz dein Zimmer🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "pulisci la tua camera🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "limpe o quarto🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "odanı temizle🧹"
+     ],
+     "x": 540,
+     "y": 560,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "18369f4e-d21a-4aa3-9b26-7cd584e2dad1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3ef0457a-db0b-4764-a6fc-15251c88ece0/3.jpg?v=1790612069381",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "étirements🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "stretching🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "estiramientos🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Dehnen🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "stretching🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "alongamento🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "esneme🧘‍♀️"
+     ],
+     "x": 360,
+     "y": 420,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "aad9cecd-34e6-434b-9487-0fb197e12d60",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/254078fb-d6ac-4bfd-b0bb-4812ba2055b3/2.jpg?v=1789047845315",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "douche et shampoing🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "shower & wash hair🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ducha y lavar el pelo🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Duschen & Haare waschen🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "doccia e shampoo🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "banho e lavar o cabelo🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "duş ve saç yıkama🫧"
+     ],
+     "x": 380,
+     "y": 457,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0370f8ba-1507-453b-86fb-019516adaa3d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e4029a4a-af73-4b74-b3bf-9c3989506bfc/3.jpg?v=1790680725391",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "aère ta chambre🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "air out your room🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ventila tu cuarto🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lüfte dein Zimmer🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "arieggia la camera🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "areje o quarto🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "odanı havalandır🌿"
+     ],
+     "x": 540,
+     "y": 1240,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "13158b9b-a2b2-4ebd-873e-1e18debdb936",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6ee269ac-d54b-4503-905e-e77d084f883e/6.jpg?v=1791729105895",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "nettoie la salle de bain🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "clean the bathroom🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "limpia el baño🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "putz das Bad🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "pulisci il bagno🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "limpe o banheiro🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "banyoyu temizle🧽"
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 36,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c3bd93dd-81cb-4d78-a524-30b53c988169",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/05f1213a-943b-4694-b6ba-667e39ac9650/4.jpg?v=1789055315445",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5,
+     "zoom": 1.33
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "déjeuner sain🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "healthy lunch🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "comida sana🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "gesundes Mittagessen🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "pranzo sano🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "almoço saudável🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sağlıklı öğle yemeği🥗"
+     ],
+     "x": 540,
+     "y": 215,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "098497fd-fc3a-4a24-a904-c9e7ef04d154",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2e6a8f59-1f58-4cbe-a750-75658bfc5093/6.jpg?v=1792601565928",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "lis📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "read📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lee📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lesen📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "leggi📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "leia📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "oku📖"
+     ],
+     "x": 500,
+     "y": 479,
+     "taille": 40,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2b10e71d-e198-4584-be00-098822d23277",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0b1fb13a-c891-4b67-97b3-dc97d80dfef3/7.jpg?v=1790608994388",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fin d’après-midi et soirée libres🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "late afternoon & evening free🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "tarde y noche libres🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "später Nachmittag & Abend frei🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "pomeriggio e sera liberi🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "fim de tarde e noite livres🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "öğleden sonra ve akşam serbest🌅"
+     ],
+     "x": 540,
+     "y": 1150,
+     "taille": 34,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ]
+}

@@ -38,7 +38,8 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Elle remplace une étape : on garde son nombre d'étapes (« 5 Ways » = 5 étapes, Sophia et UnSwipe comprises), donc une slide de moins que lui quand il avait une slide d'appli.
 	- La carte : « SOPHIA » et une phrase de son positionnement, en versions qu'on alterne d'une livraison à l'autre (ROUTINE.md § 4.5), notées dans `notes` et identiques sur toutes les langues :
 		- `cta A` : « learn something new every day, » / « in 5 minutes. » (fa-001 à fa-004) ;
-		- `cta B` : « 5 minutes a day » / « to know a bit about everything. » (fa-005).
+		- `cta B` : « 5 minutes a day » / « to know a bit about everything. » (fa-005) ;
+		- `cta C` : « what I open » / « instead of scrolling. », conseil à la 1re personne, en 2e position (fa-006). Chaque lundi, la moins bonne des trois cède sa place à une nouvelle idée (ROUTINE.md § 4.5).
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».
 - **La carte UnSwipe** (`"type": "etape", "app": "unswipe"`, avec `carte`) : « UNSWIPE » et une ou deux lignes.
 	- Ce qu'elle fait vraiment : Instagram sans les Reels (on garde les messages, les stories et les posts des amis), les autres applis sans les vidéos courtes ni le scroll infini, une appli comme TikTok bloquée en entier. « no need to delete anything ».
@@ -57,7 +58,8 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Étapes en bandeau** (ses « 10/10 Skills To Learn Before You Are 25 ») : `"bandeau": true`, une ligne en Inter Black (capitale 59 px, y 410), la carte à y 585. Un titre traduit trop long se resserre puis rapetisse : raccourcis-le plutôt.
 - **Carte d'appli** : icône 380 px, nom en Anton à la couleur de l'appli, une ou deux lignes en Inter Medium.
 - **Carte Sophia** : la même carte d'appli qu'UnSwipe (icône 380 px, « SOPHIA » en rose). L'ancienne slide de fin (`type: "app"`) reste dans l'atelier mais ne sert plus.
-- **Pas encore dans l'atelier** : ses cartes YouTube sans titre (« S Tier YouTube Videos »), ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.
+- **Ses « S Tier YouTube Videos »** : l'étape normale, sans numéro (le titre de la vidéo en titre géant, sa carte 17 px dessous). Mesuré sur ses slides le 26/10 (fa-006).
+- **Pas encore dans l'atelier** : ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.
 
 ## Tes outils (dans `pods/fathom/`)
 

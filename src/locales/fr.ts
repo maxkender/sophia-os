@@ -36,6 +36,9 @@ export const fr = {
       fi: "Finnois",
       et: "Estonien",
       bg: "Bulgare",
+      lt: "Lituanien",
+      lv: "Letton",
+      ja: "Japonais",
     },
     pays: {
       fr: "France",
@@ -66,6 +69,9 @@ export const fr = {
       fi: "Finlande",
       et: "Estonie",
       bg: "Bulgarie",
+      lt: "Lituanie",
+      lv: "Lettonie",
+      ja: "Japon",
     },
     applications: {
       switcher: "Application",
@@ -4460,6 +4466,9 @@ export const fr = {
         fi: "Finlande",
         et: "Estonie",
         bg: "Bulgarie",
+        lt: "Lituanie",
+        lv: "Lettonie",
+        ja: "Japon",
       },
       err: {
         prenom: "Le prénom est obligatoire.",

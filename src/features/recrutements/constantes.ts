@@ -120,4 +120,7 @@ export const PASTEL_PAYS: Record<string, string> = {
   fi: "bg-blue-50/80 hover:bg-blue-50",
   et: "bg-indigo-50/80 hover:bg-indigo-50",
   bg: "bg-teal-50/70 hover:bg-teal-50",
+  lt: "bg-yellow-50/80 hover:bg-yellow-50",
+  lv: "bg-rose-50/70 hover:bg-rose-50",
+  ja: "bg-red-50/90 hover:bg-red-50",
 };

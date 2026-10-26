@@ -348,6 +348,9 @@ export const LANGUES: Record<string, string> = {
   fi: "finnois",
   et: "estonien",
   bg: "bulgare",
+  lt: "lituanien",
+  lv: "letton",
+  ja: "japonais",
 };
 
 export type TraductionSlideshow = {

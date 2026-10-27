@@ -125,9 +125,6 @@ export function AppShell({
             </div>
 
             <div className="flex items-center gap-2">
-              {/* Dans la barre plutôt qu'en bulle flottante : la bulle cachait
-                  le bord droit des pages. */}
-              <ChatWidget />
               {SUPPORTED_LANGUAGES.length > 1 && (
                 <Select
                   value={langue}
@@ -171,6 +168,10 @@ export function AppShell({
           <div className="mx-auto w-full max-w-6xl space-y-6">{children}</div>
         </main>
       </div>
+      {/* Hors de la barre du haut : son flou d'arrière-plan (backdrop-filter)
+          fait d'elle le repère des éléments « fixed », et le panneau de la
+          bulle s'y ouvrait hors de l'écran. */}
+      <ChatWidget />
     </div>
   );
 }

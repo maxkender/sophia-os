@@ -117,7 +117,7 @@ export const fr = {
     nav: {
       cmSuivi: "Comment Masters · suivi",
       checkKillDouble: "Check, Kill or Double",
-      commentMasters: "Comment masters",
+      commentMasters: "Comment Masters",
       admin: "Admin",
       poster: "Poster",
       pilotage: "Pilotage",
@@ -203,7 +203,7 @@ export const fr = {
     navDesc: {
       cmSuivi: "Done par Comment Master, synchro Slack, total pour le bonus",
       checkKillDouble: "Nudges du jeudi ; kill, recréer ou doubler le samedi",
-      commentMasters: "Régions, comment masters, seuils par pays et bonus",
+      commentMasters: "Suivi des Done et réglages (régions, comment masters, seuils, bonus)",
       pilotage: "Vue d'ensemble et lancement du pipeline",
       calendrier: "Posts prévus du jour, par créateur",
       minuit: "Passages du jour (labels ∩ score), et les trous",
@@ -1161,6 +1161,7 @@ export const fr = {
       },
     },
     commentMasters: {
+      onglets: { suivi: "Suivi", reglages: "Réglages" },
       titre: "Comment masters",
       description:
         "Une région = une langue, un comment master (un poster de l'OS) et un canal Slack privé. Chaque post d'un pays de la région qui passe le seuil de ce pays dans la fenêtre part sur Slack avec un commentaire prêt à poster. Tout se règle ici et s'applique au relevé suivant, sans redéploiement.",

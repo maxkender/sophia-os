@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o013",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "the study plan that lasts exactly one day #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "Schéma relatable-struggle-fix (@sofiya.yussupova : 313 k vues le 21/10). Accroches écrites : « making the most beautiful study plan and following it for exactly one day » (retenue : galère universelle, en une phrase, en minuscules, un peu drôle comme le gagnant), « color-coding my whole planner and doing none of it » (écartée : plus étroit), « every sunday: new plan. every tuesday: no plan » (écartée : moins lisible traduite). Cinq gestes, absents de nos originaux et du label : 3 tâches par jour au plus, une heure pour chacune, un jour raté ne recommence pas le plan, 10 minutes chaque jour à se tester sur les cours du jour (place micabo, slide 6), le scroll après la dernière tâche, pas entre deux (place UnSwipe, slide 7). Images jamais prises, sans visage ; slides 6 et 7 sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ad8efffc",
+      "texte_overlay": "making the most beautiful study plan and following it for exactly one day",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a2bf52d5",
+      "texte_overlay": "so i changed the way i plan:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9989d870",
+      "texte_overlay": "3 tasks a day. that's it.\nfinishing 3 feels better than failing 10.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9d871bb3",
+      "texte_overlay": "each task gets a time: \"maths exercises, 5pm\".\nwithout a time, it slides to tomorrow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "92fd2b5a",
+      "texte_overlay": "missed a day? i don't redo the whole plan.\ni just do today's 3 tasks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ac9b5835",
+      "texte_overlay": "one thing never moves: 10 minutes testing myself on today's classes.\neven on the bad days.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a2ac9e7e",
+      "texte_overlay": "scrolling happens after the last task, not between two.\n\"5 minutes\" between tasks is how the plan died before.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "a0fa7ad3",
+      "texte_overlay": "now my plan actually survives the week",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

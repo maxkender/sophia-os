@@ -1019,6 +1019,15 @@ export const en = {
       },
     },
     ckd: {
+      exigences: {
+        colonne: "At least 5 follows and 2 reposts",
+        ok: "OK",
+        follows: "{{n}}/{{min}} follows",
+        followsInconnus: "follows not read yet",
+        reposts: "reposts not ticked",
+        caseReposts: "I made 2 reposts",
+        caseRepostsAide: "During the warm-up: at least 5 follows and 2 reposts. Your HM checks the Reposts tab of your TikTok profile.",
+      },
       decisionsHm: {
         titre: "Saturday decisions",
         aFaire: "{{n}} to do",

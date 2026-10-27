@@ -135,6 +135,8 @@ export const fr = {
       reglages: "Réglages",
       prompts: "Prompts",
       angles: "Angles de placement",
+      relectureNative: "Relecture native",
+      relectureNativePoster: "Relecture native",
       labelsApplications: "Labels & applications",
       calendrier: "Planning",
       minuit: "Assignation de minuit",
@@ -224,6 +226,7 @@ export const fr = {
       reglages: "Actions moteur — cleaning, ELO, assignation",
       prompts: "Éditer les prompts de l'IA (traduction, Sophia…)",
       angles: "Une consigne de placement par label et par application, en test ou active",
+      relectureNative: "Relecteurs natifs, fiches des applis, questionnaire",
       labelsApplications: "Créer les labels, leur style, et les applications qu'ils servent",
       reviews: "Retours aux créateurs (pop-up à leur connexion)",
       retoursContestes: "Les retours que des créateurs disent faux : vérifier et leur répondre",
@@ -710,6 +713,110 @@ export const fr = {
       verdictNonFondee: "Le retour était juste",
       changer: "Changer la décision",
       suivant: "Suivant à vérifier",
+    },
+    relectureNative: {
+      titre: "Relecture native",
+      description:
+        "Étape 1 de la réécriture native : choisis les relecteurs natifs, écris les fiches des applis, et lis leurs réponses au questionnaire. Rien ici ne touche la production.",
+      onglets: {
+        relecteurs: "Relecteurs",
+        fiches: "Fiches appli",
+        reponses: "Réponses au questionnaire",
+      },
+      interrupteurs: {
+        titre: "Interrupteurs",
+        description: "Le système reste éteint tant que tu ne l’allumes pas.",
+        espace: "Espace relecteur",
+        espaceFerme:
+          "Fermé : les relecteurs désignés ne voient pas l’onglet « Native review » et ne peuvent rien écrire.",
+        espaceOuvert:
+          "Ouvert : les relecteurs invités ou actifs voient l’onglet « Native review » et remplissent leur questionnaire.",
+        production: "Production",
+        productionAide:
+          "Aucune fonction du moteur ne lit encore ce système. Elle s’allumera à l’étape 4, langue par langue, sur ton feu vert.",
+        coupee: "Coupée",
+      },
+      statuts: {
+        invite: "Invité",
+        actif: "Actif",
+        pause: "En pause",
+        retire: "Retiré",
+      },
+      relecteurs: {
+        ajouterTitre: "Ajouter un relecteur",
+        ajouterAide:
+          "Choisis un posteur et la langue qu’il relira (sa langue maternelle). Il arrive en « Invité » : dès que l’espace est ouvert, il voit l’onglet et son questionnaire.",
+        poster: "Posteur",
+        choisirPoster: "Choisir un posteur…",
+        langue: "Langue",
+        choisirLangue: "Choisir une langue…",
+        ajouter: "Ajouter",
+        vide: "Aucun relecteur pour l’instant.",
+        relecteur: "Relecteur",
+        statut: "Statut",
+        questionnaire: "Questionnaire",
+        progression: "{{repondues}} / {{total}} réponses",
+        termine: "Terminé",
+        voirReponses: "Voir les réponses",
+        retirer: "Supprimer",
+        confirmerRetrait:
+          "Supprimer {{nom}} et toutes ses réponses ? Pour l’écarter sans rien perdre, passe plutôt son statut à « Retiré ».",
+      },
+      fiches: {
+        aide:
+          "Une fiche par application. La fiche complète est la vérité produit : les agents de langue la liront pour chaque deck de cette appli. Chaque enregistrement garde une version en base.",
+        titre: "Fiche {{nom}}",
+        vide: "À écrire",
+        jamais: "Jamais enregistrée.",
+        majLe: "Enregistrée le {{date}} · {{versions}} version(s)",
+        contenu: "Fiche complète (Markdown)",
+        contenuAide:
+          "Ce que fait l’appli, ce qu’on a le droit d’affirmer ou non, ses fonctionnalités, son nom par langue, ses concurrents.",
+        partirDuModele: "Partir du modèle",
+        presentation: "Présentation pour les relecteurs",
+        presentationAide:
+          "Quelques lignes en anglais, montrées aux relecteurs quand ils écrivent la slide de l’appli (« What is {{nom}}? »).",
+        enregistrer: "Enregistrer",
+        nonEnregistre: "Modifications non enregistrées",
+        enregistre: "Enregistré",
+      },
+      reponses: {
+        relecteur: "Relecteur",
+        aide: "Les réponses sont dans la langue du relecteur. La traduction à côté arrivera avec l’étape 2.",
+        motsAide: "Pour chaque mot : on le dit en anglais, on a notre mot (écrit à droite), ou personne ne le dit.",
+        pasDeReponse: "Pas encore de réponse.",
+      },
+      choixMot: {
+        anglais: "On le dit en anglais",
+        notre_mot: "On a notre mot",
+        personne: "Personne ne le dit",
+      },
+      poster: {
+        pasOuvert: "Cet espace n’est pas encore ouvert.",
+        bienvenueTitre: "Bienvenue dans la relecture native 👋",
+        bienvenue:
+          "Nos slideshows partent dans plein de langues. Ton rôle : qu’ils sonnent comme si un vrai créateur de ton pays les avait écrits.",
+        regleOr: "La règle d’or : écris chaque slide comme TU la posterais sur TikTok. Pas une traduction. Ta version.",
+        etape1: "Ton pays, partie par partie · environ 25 min, une seule fois",
+        etape2: "Le kit de départ · 15 slideshows à écrire depuis l’anglais",
+        etape3: "Chaque jour · environ 10 slideshows à vérifier et corriger, environ 30 min",
+        maintenant: "Maintenant",
+        bientot: "Bientôt",
+        paye: "Ce travail est payé en plus de tes posts.",
+        langue: "Langue",
+        questionnaireTitre: "Ton pays, partie par partie",
+        questionnaireAide:
+          "Les questions sont en anglais. Tes réponses s’enregistrent toutes seules quand tu passes à la suivante. Tu peux t’arrêter et revenir plus tard.",
+        progression: "{{repondues}} / {{total}} réponses",
+        motsAide:
+          "Pour chaque mot : les gens de ton âge le disent-ils en anglais, avez-vous votre propre mot (écris-le), ou personne ne le dit ?",
+        notreMot: "Votre mot pour « {{mot}} »",
+        enregistrement: "Enregistrement…",
+        enregistre: "Enregistré",
+        jaiFini: "J’ai fini",
+        fini: "Merci ! Tu peux encore modifier tes réponses.",
+        finiLe: "Envoyé le {{date}}. Tu peux encore modifier tes réponses.",
+      },
     },
     mesRetours: {
       titre: "Mes retours",

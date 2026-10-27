@@ -48,11 +48,13 @@ import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
 import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
+import { AdminRelectureNativePage } from "@/pages/admin/AdminRelectureNativePage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
 import { PosterPaiementsPage } from "@/pages/poster/PosterPaiementsPage";
 import { PosterRetoursPage } from "@/pages/poster/PosterRetoursPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
+import { PosterRelecturePage } from "@/pages/poster/PosterRelecturePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
 function Accueil() {
@@ -124,6 +126,7 @@ export function AppRouter() {
               <Route path="/admin/repartition" element={<AdminRepartitionPage />} />
               <Route path="/admin/prompts" element={<AdminPromptsPage />} />
               <Route path="/admin/angles" element={<AdminAnglesPage />} />
+              <Route path="/admin/relecture-native" element={<AdminRelectureNativePage />} />
               <Route path="/admin/labels" element={<AdminLabelsPage />} />
               {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
               <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />
@@ -138,6 +141,7 @@ export function AppRouter() {
             <Route path="/createur/parrainage" element={<PosterReferralPage />} />
             <Route path="/createur/paiements" element={<PosterPaiementsPage />} />
             <Route path="/createur/retours" element={<PosterRetoursPage />} />
+            <Route path="/createur/relecture" element={<PosterRelecturePage />} />
             <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
             <Route path="/createur/guide" element={<DocumentView cle="guide_poster" />} />
             <Route path="/createur/faq" element={<DocumentView cle="faq_poster" />} />

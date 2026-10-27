@@ -16,6 +16,7 @@ import {
   ListChecks,
   Gift,
   Images,
+  Languages,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
@@ -288,6 +289,12 @@ export function AdminLayout() {
               label: t("nav.angles"),
               icon: Crosshair,
               description: t("navDesc.angles"),
+            },
+            {
+              to: "/admin/relecture-native",
+              label: t("nav.relectureNative"),
+              icon: Languages,
+              description: t("navDesc.relectureNative"),
             },
             {
               to: "/admin/documents",

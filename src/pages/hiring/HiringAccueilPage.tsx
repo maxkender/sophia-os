@@ -10,6 +10,7 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
+import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
 import { etatCohorte } from "@/features/ckd/cohorte/etapeCohorte";
 import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
 import { qualiteAffichee } from "@/features/moteur/etapes";
@@ -195,6 +196,8 @@ export function HiringAccueilPage() {
               })()}
             </CardContent>
           </Card>
+
+          <SectionsSamediHm />
 
           <SectionPaieHm hmId={user?.id} />
 

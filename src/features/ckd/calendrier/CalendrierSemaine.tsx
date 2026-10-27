@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check, ExternalLink, X } from "lucide-react";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogDescription,
@@ -153,7 +153,6 @@ export function CalendrierSemaine({ hm = "" }: { hm?: string }) {
           {lundi === semaines[0] ? t("accueilHm.calendrier.cetteSemaine") : t("accueilHm.calendrier.semaineDerniere")} ·{" "}
           {libelleCohorte(lundi)}
         </CardTitle>
-        <CardDescription>{t("accueilHm.cetteSemaineDesc")}</CardDescription>
         {donnees.data && nbVus > 0 && (
           <div className="flex flex-wrap gap-1.5 pt-1 text-xs tabular-nums">
             <span className="rounded-full border px-2.5 py-0.5 text-muted-foreground">

@@ -5,10 +5,10 @@ import { AlertCircle, Check, Circle, Copy } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarreChargement } from "@/components/ui/progress";
 import { ActionsPosteur } from "@/features/ckd/cohorte/ActionsPosteur";
-import { libelleCohorte, minuitParis, paireDuJour, resteAvant } from "@/features/ckd/cohorte/logique";
+import { libelleCohorte, paireDuJour } from "@/features/ckd/cohorte/logique";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { nomsHms } from "@/features/paie/api";
 import { localeDate } from "@/locales/localeDate";
@@ -117,7 +117,6 @@ export function SemaineProchaine({ hm = "" }: { hm?: string }) {
   const { t } = useTranslation();
   const aujourdhui = aujourdhuiParis();
   const lundi = paireDuJour(aujourdhui).warmup;
-  const reste = resteAvant(minuitParis(lundi));
 
   const donnees = useQuery({
     queryKey: ["accueil-hm", "semaine-prochaine", lundi],
@@ -147,10 +146,6 @@ export function SemaineProchaine({ hm = "" }: { hm?: string }) {
         <CardTitle>
           {t("accueilHm.semaineProchaine")} · {libelleCohorte(lundi)}
         </CardTitle>
-        <CardDescription>
-          {t("accueilHm.dateLimite")}
-          {reste && ` ${t("accueilHm.reste", { jours: reste.jours, heures: reste.heures })}`}
-        </CardDescription>
         {lignes.length > 0 && (
           <div className="flex flex-wrap gap-1.5 pt-1 text-xs tabular-nums">
             <span className="rounded-full border px-2.5 py-0.5 text-muted-foreground">

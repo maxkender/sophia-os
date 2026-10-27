@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarreChargement } from "@/components/ui/progress";
 import { COULEUR } from "@/features/ckd/calendrier/couleurs";
 import { ActionsPosteur } from "@/features/ckd/cohorte/ActionsPosteur";
@@ -84,7 +84,6 @@ export function AnciensPosteurs({ hm = "" }: { hm?: string }) {
     <Card data-testid="anciens-posteurs">
       <CardHeader>
         <CardTitle>{t("accueilHm.anciens.titre")}</CardTitle>
-        <CardDescription>{t("accueilHm.anciens.desc")}</CardDescription>
         {lignes.length > 0 && (
           <div className="flex flex-wrap items-center gap-1.5 pt-1 text-xs tabular-nums">
             <span className="rounded-full border px-2.5 py-0.5 text-muted-foreground">

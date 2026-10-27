@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useAuth } from "@/features/auth/AuthContext";
 import { BonusAVenir } from "@/features/bonus/BonusAVenir";
 import { SectionBonus } from "@/features/bonus/SectionBonus";
+import { BoutonExport } from "@/features/export/BoutonExport";
 import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
 import { AnciensPosteurs } from "@/features/ckd/anciens/AnciensPosteurs";
 import { SemaineProchaine } from "@/features/ckd/semaineProchaine/SemaineProchaine";
@@ -150,9 +151,12 @@ export function HiringAccueilPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-lg font-semibold tracking-tight">{t("accueilHm.titre")}</h1>
-        <p className="text-sm text-muted-foreground">{t("accueilHm.sous")}</p>
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div>
+          <h1 className="text-lg font-semibold tracking-tight">{t("accueilHm.titre")}</h1>
+          <p className="text-sm text-muted-foreground">{t("accueilHm.sous")}</p>
+        </div>
+        <BoutonExport hm={hm} />
       </div>
       {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
 

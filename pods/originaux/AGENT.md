@@ -125,6 +125,11 @@ marche, abandonner ce qui ne marche pas.
 
 ## La routine du matin
 
+**Percées** : `npm run etat` peut afficher « 0 publié » pour un original qui
+tourne (wa-o031 : 37 700 vues en pl, invisible dans `etat` le 26/10). Vérifie
+les vues max par original dans la table `passages` (via `pod_livraisons`) avant
+de conclure qu'aucun post n'a passé 30 k.
+
 Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
 (combien livrer, dans quel ordre, un essai une fois sur cinq). Ta livraison
 normale : un original, comme « Écris N originaux » avec N = 1.

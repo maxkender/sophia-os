@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o064",
+ "titre": "hobbies that will make you deeply informed #history #selfimprovement #learning #knowledge #hobbies",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "fc73b896-4f6d-4311-8d1a-1c67b904c670"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, fc73b896). variante de wa-o031 (39 900 vues en pl) : même schéma « hobbies qui rendent cultivé », accroche changée (pas de dangerously/disgustingly), angle « l'histoire ». cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1ac6dca0-187c-4bac-8b28-203d6d83148b",
+   "texte_overlay": "hobbies that will make you\ndeeply informed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656551684486843661/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "26cd6e7e-f24c-4e6d-af2a-5a7eebe497f2",
+   "texte_overlay": "history on your walk\n\nlisten to one history podcast episode on your way to work. after a month you'll know the stories behind wars, empires and inventions most people only know by name.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656551684486843661/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7fdc09d3-2de6-42f4-9669-2e5478e935a7",
+   "texte_overlay": "historical novels\n\nread one historical novel a month set in a time you know nothing about. a good story makes a whole era stick in your head far better than any list of dates ever did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656551684486843661/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "66efbc25-0f68-43d1-b140-314e4e3dc7f9",
+   "texte_overlay": "your town's past\n\nonce a month, visit one historic place near where you live and learn its story. your own town is full of history that almost nobody around you knows anymore.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656551684486843661/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "edfbfcae-b723-4b21-879a-4f38813564ca",
+   "texte_overlay": "this day in history\n\nspend 5 minutes a day learning what happened on this day in history. one small story a day builds a timeline in your head that makes the news much easier to understand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656551684486843661/5.jpg",
+   "texte_sophia": "this day in history\n\nspend 5 minutes a day learning what happened on this day in history. the Sophia app turns it into one short lesson a day, and the news gets much easier to understand."
+  },
+  {
+   "position": 6,
+   "media_id": "d135856a-8bb7-4d83-8ea8-716edaf8b532",
+   "texte_overlay": "old maps\n\nlook at an old map of your city or country once a week and compare it to today. borders, streets and names all change, and watching it happen makes history feel real.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656551684486843661/6.jpg"
+  }
+ ]
+}

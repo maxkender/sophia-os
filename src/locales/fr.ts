@@ -2671,6 +2671,30 @@ export const fr = {
         NO_LABELS_APPLICATION: "Aucun label ne sert l’application choisie : impossible de lui en choisir un. Coche-la sur au moins un label (Pilotage → Labels).",
       },
     },
+    slackRelier: {
+      nav: "Slack à relier",
+      navDesc: "Les posteurs dont on ne connaît pas encore le compte Slack",
+      titre: "Slack à relier",
+      description:
+        "Les posteurs actifs sans compte Slack connu. L'OS les relie tout seul (email perso, puis nom complet unique) chaque nuit et à leur arrivée dans Slack ; ceux qui restent ici se relient à la main.",
+      simuler: "Simuler",
+      synchroniser: "Synchroniser Slack",
+      relies_one: "{{count}} relié",
+      relies_other: "{{count}} reliés",
+      aRelier_one: "{{count}} à relier",
+      aRelier_other: "{{count}} à relier",
+      derniere: "Dernière synchro : {{date}} · {{n}} liens posés",
+      resultat:
+        "Synchro faite : {{email}} reliés par email, {{nom}} par nom ({{deja}} l'étaient déjà). {{ambigus}} ambigus, {{restants}} restent à relier. {{membres}} membres Slack lus.",
+      resultatSimulation:
+        "Simulation, rien n'est écrit : {{email}} seraient reliés par email, {{nom}} par nom ({{deja}} le sont déjà). {{ambigus}} ambigus, {{restants}} resteraient à relier. {{membres}} membres Slack lus.",
+      hm: "HM : {{hm}}",
+      peutEtre: "Peut-être :",
+      chercher: "Chercher un membre Slack (nom, pseudo) ou coller son ID",
+      relierId: "Relier l'ID {{id}}",
+      aucun: "Aucun membre Slack libre ne correspond.",
+      vide: "Tous les posteurs actifs sont reliés à Slack.",
+    },
     paie: {
       liste: {
         titre: "Paie · semaine {{numero}} ({{debut}} → {{fin}})",

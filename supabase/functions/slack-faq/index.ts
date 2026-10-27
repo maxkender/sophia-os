@@ -27,6 +27,7 @@ import {
   posterSlack,
   secretSignatureFaq,
 } from "../_shared/faq_moteur.ts";
+import { relierNouveau } from "../_shared/slack_relier.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -43,6 +44,9 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *
  * Mode test (`reglages.faq_automatique.mode_slack`) : le cerveau tranche et
  * tout s'écrit dans `chatbot_questions`, mais rien ne part sur Slack.
+ *
+ * Événement `team_join` (à cocher dans l'appli, scope `users:read`) : le
+ * nouveau membre est relié à son posteur s'il est sûr (0381, slack_relier.ts).
  */
 Deno.serve(async (request) => {
   const signature = request.headers.get("x-slack-signature");
@@ -77,6 +81,18 @@ Deno.serve(async (request) => {
     return new Response(payload.challenge ?? "", { status: 200, headers: { "content-type": "text/plain" } });
   }
   if (payload.type !== "event_callback" || !payload.event) return new Response("", { status: 200 });
+
+  // Un membre arrive dans le workspace : on le relie à son posteur (0381).
+  if (payload.event.type === "team_join") {
+    const user = (payload.event as unknown as { user?: unknown }).user;
+    const lien = relierNouveau(serviceClient(), user).catch((erreur) =>
+      console.error("[slack-faq] team_join", messageErreur(erreur))
+    );
+    const edgeJoin = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+    if (edgeJoin) edgeJoin.waitUntil(lien);
+    else await lien;
+    return new Response("", { status: 200 });
+  }
 
   const travail = traiter(payload.event, payload.authorizations?.[0]?.user_id ?? null).catch((erreur) =>
     console.error("[slack-faq]", messageErreur(erreur))
@@ -230,6 +246,14 @@ async function suivreFil(
 
 /** Les posters arrivés par le site sont les seuls dont l'OS connaît l'ID Slack. */
 async function profilDuPoster(db: Db, slackUserId: string): Promise<string | null> {
+  // L'ID Slack du posteur (0381), puis la cohorte Ruul.
+  const { data: profil } = await db
+    .from("profiles")
+    .select("id")
+    .eq("slack_user_id", slackUserId)
+    .limit(1)
+    .maybeSingle();
+  if (profil?.id) return profil.id as string;
   const { data } = await db
     .from("hub_posteurs")
     .select("profile_id")

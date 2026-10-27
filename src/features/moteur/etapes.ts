@@ -87,6 +87,9 @@ export function etapeCompte(e: EntreeEtape, aujourdhui: string, maintenant: Date
   if (new Date(e.warmupEndsAt).getTime() > maintenant.getTime()) {
     return { etape: "warming_up", ...rien, warmupFin: e.warmupEndsAt };
   }
+  // Warm-up fini mais le compte TikTok introuvable au dernier relevé, et aucun
+  // post publié (un post publié prouve qu'il existe) : pas encore créé.
+  if (e.tiktokExiste === false && !e.dernierPublie) return { etape: "not_created", ...rien };
   if (!e.premierJour || e.premierJour > aujourdhui) return { etape: "ready", ...rien };
 
   const semaine = Math.floor(jours(lundiDe(e.premierJour), aujourdhui) / 7) + 1;

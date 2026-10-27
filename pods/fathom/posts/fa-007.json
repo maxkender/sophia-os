@@ -1,0 +1,128 @@
+{
+ "id": "fa-007",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7684191394503609633",
+  "vues": 261700,
+  "accroche": "5 Ways To Be Unrecognisable In 3 Months"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 3 Months"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 3 Months #selfimprovement #learnontiktok #selfmastery"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta A (« learn something new every day, / in 5 minutes. »). Double intégration : UnSwipe à l'étape 1 « LEARN TO BE BORED » (Instagram sans les Reels), Sophia en carte d'appli à l'étape 3 « FEED YOUR MIND » (leur slide Fathomly de fin disparaît). Variante de fa-001 par ses étapes à lui (matins, voix, force), autres vidéos ; son « CHANGE YOUR STYLE » tombe.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 3 MONTHS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "LEARN TO BE BORED"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MASTER YOUR MORNINGS"
+    ],
+    "video": {
+     "id": "LQ8JOsc3-wU",
+     "titre": "Anatomy of a Perfect Morning Routine",
+     "chaine": "Med School Insiders",
+     "vues": "3.9M views",
+     "date": "6 years ago",
+     "duree": "9:40",
+     "avatar": "https://yt3.ggpht.com/u-HzltuKtE_y3KqRS_ea2ThRDENTgFzDuRFQHPBVoZcmnriMBWc5u-1xHLh1QA9peeMs8HIS=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "FEED YOUR MIND"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TRAIN YOUR VOICE"
+    ],
+    "video": {
+     "id": "HT9_VxN8iSE",
+     "titre": "My Daily Routine For A Deeper, Richer, Stronger Voice (Only 9 Mins/Day!)",
+     "chaine": "Vinh Giang",
+     "vues": "984K views",
+     "date": "1 year ago",
+     "duree": "9:44",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "GET STRONG"
+    ],
+    "video": {
+     "id": "UhF7uQWQWXc",
+     "titre": "So You Want Actual Strength.",
+     "chaine": "RandomAdviceDude",
+     "vues": "42K views",
+     "date": "1 year ago",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/WjYTJFTzkvFbDwaqv4FCainKS-Hc38uSt_-mD2fDluiO3DQZlF_wPfad9q9jykbR560eA9vdpw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

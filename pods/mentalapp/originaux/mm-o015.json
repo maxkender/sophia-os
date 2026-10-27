@@ -1,0 +1,219 @@
+{
+ "id": "mm-o015",
+ "format": "carrousel",
+ "titre": "Instead of scrolling tier list",
+ "legendes": {
+  "en": "uncomfortable things to do alone instead of scrolling #mentalmaxxing #dopamine #tierlist #selfimprovement",
+  "fr": "les trucs inconfortables à faire seul au lieu de scroller #mentalmaxxing #dopamine #tierlist #developpementpersonnel",
+  "de": "unangenehme Dinge, die du allein machen kannst statt zu scrollen #mentalmaxxing #dopamin #tierlist #selbstverbesserung",
+  "es": "cosas incómodas para hacer solo en vez de hacer scroll #mentalmaxxing #dopamina #tierlist #superacionpersonal",
+  "it": "cose scomode da fare da soli invece di scrollare #mentalmaxxing #dopamina #tierlist #crescitapersonale",
+  "tr": "scroll yerine yalnız yapılacak rahatsız edici şeyler #mentalmaxxing #dopamin #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690401294120389889/1",
+   "boite": [
+    280,
+    50,
+    520,
+    430
+   ]
+  },
+  "theme": {
+   "en": "Instead of scrolling",
+   "fr": "Au lieu de scroller",
+   "de": "Statt zu scrollen",
+   "es": "En vez de hacer scroll",
+   "it": "Invece di scrollare",
+   "tr": "Scroll yerine"
+  },
+  "sous": {
+   "en": "tier list",
+   "fr": "tier list",
+   "de": "Tierlist",
+   "es": "tier list",
+   "it": "tier list",
+   "tr": "tier list"
+  }
+ },
+ "items": [
+  {
+   "rang": "S+",
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Walk with no headphones",
+    "fr": "Marcher sans écouteurs",
+    "de": "Gehen ohne Kopfhörer",
+    "es": "Caminar sin auriculares",
+    "it": "Camminare senza cuffie",
+    "tr": "Kulaklıksız yürüyüş"
+   },
+   "texte": {
+    "en": "Twenty minutes with only your thoughts. Awkward at first, then your head finally gets quiet.",
+    "fr": "Vingt minutes seul avec tes pensées. Bizarre au début, puis ta tête se calme enfin.",
+    "de": "Zwanzig Minuten nur mit deinen Gedanken. Erst komisch, dann wird es in deinem Kopf endlich ruhig.",
+    "es": "Veinte minutos solo con tus pensamientos. Raro al principio, luego tu cabeza por fin se calma.",
+    "it": "Venti minuti solo con i tuoi pensieri. Strano all’inizio, poi la testa finalmente si calma.",
+    "tr": "Sadece düşüncelerinle yirmi dakika. Başta tuhaf, sonra kafan sonunda sakinleşir."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Eat alone, no phone",
+    "fr": "Manger seul, sans tél",
+    "de": "Allein essen, ohne Handy",
+    "es": "Comer solo, sin móvil",
+    "it": "Mangiare da soli, senza telefono",
+    "tr": "Telefonsuz, yalnız yemek"
+   },
+   "texte": {
+    "en": "No video, no feed, just the meal. You notice how often you reach for the phone out of habit.",
+    "fr": "Pas de vidéo, pas de feed, juste le repas. Tu vois à quel point tu prends ton tél par réflexe.",
+    "de": "Kein Video, kein Feed, nur das Essen. Du merkst, wie oft du aus Gewohnheit zum Handy greifst.",
+    "es": "Sin vídeo, sin feed, solo la comida. Te das cuenta de cuántas veces coges el móvil por costumbre.",
+    "it": "Niente video, niente feed, solo il pasto. Ti accorgi di quante volte prendi il telefono per abitudine.",
+    "tr": "Video yok, akış yok, sadece yemek. Telefona ne kadar alışkanlıkla uzandığını fark edersin."
+   }
+  },
+  {
+   "rang": "S+",
+   "src": "7698939556371975431/5",
+   "boite": [
+    336,
+    486,
+    456,
+    486
+   ],
+   "titre": {
+    "en": "Train alone",
+    "fr": "S’entraîner seul",
+    "de": "Allein trainieren",
+    "es": "Entrenar solo",
+    "it": "Allenarsi da soli",
+    "tr": "Yalnız antrenman"
+   },
+   "texte": {
+    "en": "Nobody to push you or watch you. Showing up anyway builds the kind of confidence that lasts.",
+    "fr": "Personne pour te pousser ni te regarder. Y aller quand même construit une confiance qui dure.",
+    "de": "Niemand, der dich pusht oder zuschaut. Trotzdem hinzugehen baut Selbstvertrauen auf, das bleibt.",
+    "es": "Nadie que te empuje ni te mire. Ir igualmente construye una confianza que dura.",
+    "it": "Nessuno che ti spinga o ti guardi. Andarci lo stesso costruisce una fiducia che resta.",
+    "tr": "Seni zorlayan ya da izleyen kimse yok. Yine de gitmek kalıcı bir özgüven inşa eder."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cold shower",
+    "fr": "Douche froide",
+    "de": "Kalte Dusche",
+    "es": "Ducha fría",
+    "it": "Doccia fredda",
+    "tr": "Soğuk duş"
+   },
+   "texte": {
+    "en": "Two minutes of choosing discomfort on purpose. The rest of the day feels easier.",
+    "fr": "Deux minutes à choisir l’inconfort exprès. Le reste de la journée paraît plus simple.",
+    "de": "Zwei Minuten bewusst Unangenehmes wählen. Der Rest des Tages fühlt sich leichter an.",
+    "es": "Dos minutos eligiendo la incomodidad a propósito. El resto del día parece más fácil.",
+    "it": "Due minuti a scegliere apposta il disagio. Il resto della giornata sembra più facile.",
+    "tr": "İki dakika bilerek rahatsızlığı seçmek. Günün geri kalanı daha kolay gelir."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "I deleted short videos with UnSwipe so boredom had nowhere to hide. That is when I started doing everything on this list.",
+    "fr": "J’ai supprimé les vidéos courtes avec UnSwipe pour que l’ennui n’ait plus où se cacher. C’est là que j’ai commencé tout ce qu’il y a dans cette liste.",
+    "de": "Ich habe Kurzvideos mit UnSwipe gelöscht, damit sich die Langeweile nicht mehr verstecken kann. Ab da habe ich mit allem auf dieser Liste angefangen.",
+    "es": "Borré los vídeos cortos con UnSwipe para que el aburrimiento no tuviera dónde esconderse. Ahí empecé a hacer todo lo de esta lista.",
+    "it": "Ho eliminato i video brevi con UnSwipe così la noia non aveva più dove nascondersi. Da lì ho iniziato a fare tutto quello che c’è in questa lista.",
+    "tr": "Can sıkıntısı saklanacak yer bulamasın diye kısa videoları UnSwipe ile sildim. Bu listedeki her şeye o zaman başladım."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "One phone-free hour",
+    "fr": "Une heure sans tél",
+    "de": "Eine Stunde ohne Handy",
+    "es": "Una hora sin móvil",
+    "it": "Un’ora senza telefono",
+    "tr": "Telefonsuz bir saat"
+   },
+   "texte": {
+    "en": "Sit with nothing to check. The first ten minutes itch, then ideas start showing up.",
+    "fr": "Reste sans rien à checker. Les dix premières minutes grattent, puis les idées arrivent.",
+    "de": "Sitz da, ohne etwas zu checken. Die ersten zehn Minuten jucken, dann kommen die Ideen.",
+    "es": "Quédate sin nada que mirar. Los primeros diez minutos pican, luego llegan las ideas.",
+    "it": "Resta senza niente da controllare. I primi dieci minuti pizzicano, poi arrivano le idee.",
+    "tr": "Kontrol edecek hiçbir şey olmadan otur. İlk on dakika kaşındırır, sonra fikirler gelir."
+   }
+  },
+  {
+   "rang": "C",
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Read in public",
+    "fr": "Lire en public",
+    "de": "In der Öffentlichkeit lesen",
+    "es": "Leer en público",
+    "it": "Leggere in pubblico",
+    "tr": "Dışarıda kitap okumak"
+   },
+   "texte": {
+    "en": "A café, a train, a park bench. It feels strange at first, then you stop caring who is looking.",
+    "fr": "Un café, un train, un banc. Ça fait bizarre au début, puis tu te fiches de qui regarde.",
+    "de": "Ein Café, ein Zug, eine Parkbank. Erst fühlt es sich seltsam an, dann ist es dir egal, wer schaut.",
+    "es": "Un café, un tren, un banco. Al principio es raro, luego te da igual quién mire.",
+    "it": "Un bar, un treno, una panchina. All’inizio è strano, poi non ti importa più chi guarda.",
+    "tr": "Bir kafe, bir tren, bir park bankı. Başta garip gelir, sonra kimin baktığını umursamazsın."
+   }
+  }
+ ],
+ "notes": "essai (routine du 27/10, original n° 15) : accroche « uncomfortable things to do alone instead of scrolling » (schéma uncomfortable-alone du playbook du pod 9) en carrousel mentalmaxxing. cta C : élément UnSwipe en item à lui seul (5e item), conseil à la 1re personne. Couverture : l’émoji qui pleure de la banque."
+}

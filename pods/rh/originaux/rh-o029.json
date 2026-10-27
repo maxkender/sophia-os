@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o029",
+ "schema_id": "copie-habitudes",
+ "titre": "j'ai arrêté 5 habitudes au boulot pendant un mois (et j'ai jamais été aussi efficace) #travail #productivite #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste, pas la chute), slide Sophia en position 5. Routine du 27/10 (4 livraisons par jour). Règle §4.6 : seule rh-o028 reprend une famille d'accroche faite 3 fois en 7 jours (« quand j'étais rh »). rh-o027 est sur job-toxique (2 fois en 7 jours), rh-o029 et rh-o030 ouvrent des familles d'accroche jamais faites (« j'ai arrêté », « vrai ou faux »). Schéma copie-habitudes (r 4,12 sur 5 passages, 63ffa170) : le récit d'habitudes concrètes avec réplique, mais en famille d'accroche jamais faite chez nous : « j'ai arrêté » au lieu de « j'ai copié ». Accroches écrites : « j'ai arrêté 5 habitudes au boulot pendant un mois (et j'ai jamais été aussi efficace) » (retenue), « 5 trucs que j'ai arrêté de faire au bureau » (écartée : plate), « ce que j'ai supprimé de mes journées de travail » (écartée : vague). Cinq habitudes neuves, aucune reprise de rh-o011, rh-o015, rh-o023 ni des sources. Rien de médical. CTA de fin jamais utilisé : dire laquelle on garde malgré tout. Inspirations : sans les slides 5 des deux sources (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b214eb0",
+   "texte_overlay": "j'ai arrêté 5 habitudes au boulot pendant un mois\n(et j'ai jamais été aussi efficace)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "55cf37f8",
+   "texte_overlay": "j'ai arrêté d'ouvrir mes mails en arrivant\nd'abord 1 heure sur ma tâche la plus importante.\nles mails attendaient très bien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "55e86b2f",
+   "texte_overlay": "j'ai arrêté de dire « je suis débordée »\nà la place : « je finis X d'abord, Y demain ».\nles gens ont arrêté de m'en rajouter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5626098d",
+   "texte_overlay": "j'ai arrêté de déjeuner devant mon écran\n20 minutes ailleurs, même seule.\nmon après-midi a doublé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "56fc0988",
+   "texte_overlay": "j'ai arrêté de scroller pendant mes pauses\nà la place : marcher, appeler quelqu'un, ou apprendre un truc.\nje revenais reposée, pas vidée",
+   "texte_sophia": "j'ai arrêté de scroller pendant mes pauses\nà la place : marcher, appeler quelqu'un, ou 5 minutes sur l'appli Sophia.\nje revenais reposée, pas vidée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5763a81d",
+   "texte_overlay": "j'ai arrêté les « petite question » en direct\nje groupe tout dans un message, deux fois par jour.\nmoins de coupures pour tout le monde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "576ce7fb",
+   "texte_overlay": "laquelle tu pourrais jamais arrêter ?\ndis-le en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

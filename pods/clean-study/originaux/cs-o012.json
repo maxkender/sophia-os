@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o012",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "if you've read the same page 5 times today… #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "Schéma relatable-struggle-fix (@sofiya.yussupova : 313 k vues le 21/10, valable jusqu'au 20/11), 3e livraison de la famille sur 7 jours. Accroches écrites : « reading the same page 5 times because my brain left after the first line » (retenue : la galère que tout le monde connaît, en une phrase, en minuscules), « highlighting the whole chapter and remembering nothing » (écartée : déjà proche de l'astuce « highlight after » de cs-o006), « studying for 2 hours and only remembering the title » (écartée : moins précise). Cinq gestes vrais, absents de nos originaux et du label : lire les questions et les titres d'abord, résumer chaque paragraphe en une ligne dans la marge, lire à mi-voix quand ça décroche, fermer le livre et dire les 3 idées de la section (place micabo, slide 6), « ne pas déranger » et le téléphone hors de portée (place UnSwipe, slide 7 ; on ne reprend pas « phone in another room » du label). Images jamais prises, sans visage ; slides 6 et 7 sans personne. Écartées à l'aperçu : 9ab69c56 (titre de livre lisible), 95ccb363 (marque sur une boîte), b0f889b0 (presque la même photo que la slide 1).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "87b8b3f2",
+      "texte_overlay": "reading the same page 5 times because my brain left after the first line",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "af69b68d",
+      "texte_overlay": "how i finally fixed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9ce613cf",
+      "texte_overlay": "before reading, i look at the titles and the questions at the end.\nnow my brain knows what it's looking for.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "aa52a56e",
+      "texte_overlay": "one line in the margin after every paragraph.\nif i can't write it, i didn't get it, so i read that part again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "95df39a1",
+      "texte_overlay": "when it starts slipping, i read half out loud, very quietly.\nit pulls my attention straight back.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8701d90a",
+      "texte_overlay": "after each section, i close the book and say the 3 main ideas.\nno peeking. that's what actually stays.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9a7063ad",
+      "texte_overlay": "do not disturb on, phone out of reach.\none buzz and i'm back at the first line again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "a72d194f",
+      "texte_overlay": "now i read it once. maybe twice.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

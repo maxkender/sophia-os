@@ -1019,7 +1019,8 @@
     "id": "7636068211729599264",
     "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta B"
   },
   {
    "post_id": "7699386616988650774",
@@ -1205,6 +1206,81 @@
     "6": "7697728269335924001_5"
    },
    "notes": "nouvelle accroche (rebuild from zero, étapes); cta A"
+  },
+  {
+   "post_id": "original-013",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reading #booktok #screentimehacks",
+   "musique": {
+    "titre": "Solace",
+    "auteur": "Txmy",
+    "original": false,
+    "id": "7629352188019509265",
+    "url_tiktok": "https://www.tiktok.com/music/x-7629352188019509265"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7697728269335924001_1",
+    "2": "7695416366886604064_5",
+    "3": "7685340052989398275_3",
+    "4": "7696836327026724128_4",
+    "5": "7684726544442346774_2",
+    "6": "7696836327026724128_2"
+   },
+   "notes": "schéma journal (comme original-008); cta C"
+  },
+  {
+   "post_id": "original-014",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#phoneaddiction #screentimehacks #digitalminimalism",
+   "musique": {
+    "titre": "Better in the Dark",
+    "auteur": "Jordana & TV Girl",
+    "original": false,
+    "id": "7015372949901281281",
+    "url_tiktok": "https://www.tiktok.com/music/x-7015372949901281281"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7681048823824649494_1",
+    "2": "7696836327026724128_4",
+    "3": "7699939278847085857_4",
+    "4": "7681048823824649494_4",
+    "5": "7683541501007252758_3",
+    "6": "7683541501007252758_6"
+   },
+   "notes": "nouvelle accroche (règles de tel); cta A"
+  },
+  {
+   "post_id": "original-015",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brain #studytips #neuroscience",
+   "musique": {
+    "titre": "The beginning by Flawed Mangoes slowed",
+    "auteur": "⠀",
+    "original": true,
+    "id": "7318739514535889697",
+    "url_tiktok": "https://www.tiktok.com/music/x-7318739514535889697"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696836327026724128_1",
+    "2": "7685340052989398275_5",
+    "3": "7689918962905124129_6",
+    "4": "7696836327026724128_2",
+    "5": "7696836327026724128_4",
+    "6": "7696836327026724128_5"
+   },
+   "notes": "essai (accroche de @thewholeworld.music, 3,8M vues, transposée en page blanche); cta B"
   }
  ]
 }

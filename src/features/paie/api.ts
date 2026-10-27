@@ -17,6 +17,8 @@ export interface LignePaie {
   raison: string | null;
   paye_at: string | null;
   paye_par: string | null;
+  /** « Semaine suivante faite » : la milestone de la semaine d'après est traitée (0369). */
+  semaine_suivante_faite_at: string | null;
   poster: {
     prenom: string | null;
     nom: string | null;
@@ -31,7 +33,7 @@ export async function lirePaie(semaine: string): Promise<LignePaie[]> {
   const { data, error } = await supabase
     .from("paie_semaines")
     .select(
-      "id, poster_id, semaine, nb_comptes, comptes_payes, prevus, faits, manques, tarif, retenue, montant, statut, raison, paye_at, paye_par, poster:profiles!paie_semaines_poster_id_fkey(prenom, nom, email, upwork_contrat_url, manager_id)",
+      "id, poster_id, semaine, nb_comptes, comptes_payes, prevus, faits, manques, tarif, retenue, montant, statut, raison, paye_at, paye_par, semaine_suivante_faite_at, poster:profiles!paie_semaines_poster_id_fkey(prenom, nom, email, upwork_contrat_url, manager_id)",
     )
     .eq("semaine", semaine);
   if (error) throw error;
@@ -45,6 +47,40 @@ export async function lirePaie(semaine: string): Promise<LignePaie[]> {
 
 export async function marquerPayee(id: string, paye: boolean): Promise<void> {
   const { error } = await supabase.rpc("paie_marquer_payee", { p_id: id, p_paye: paye });
+  if (error) throw error;
+}
+
+export type ActionSuivante =
+  | "financer"
+  | "financer_double"
+  | "financer_normal"
+  | "ne_pas_financer"
+  | "deja_financee"
+  | "a_voir";
+
+/** Que faire de la milestone de la semaine d'après, par posteur (0369). */
+export interface SemaineSuivante {
+  poster_id: string;
+  action: ActionSuivante;
+  /** Comptes qui postent la semaine suivante : le nom de la milestone. */
+  comptes: number;
+  montant: number | null;
+  raison: "kill" | "desactive" | "aucun_compte" | "zero_post" | null;
+}
+
+export async function lireSemaineSuivante(semaine: string): Promise<Map<string, SemaineSuivante>> {
+  const { data, error } = await supabase.rpc("paie_semaine_suivante", { p_lundi: semaine });
+  if (error) throw error;
+  return new Map(
+    ((data ?? []) as SemaineSuivante[]).map((l) => [
+      l.poster_id,
+      { ...l, montant: l.montant === null ? null : Number(l.montant), comptes: Number(l.comptes) },
+    ]),
+  );
+}
+
+export async function marquerSemaineSuivante(id: string, fait: boolean): Promise<void> {
+  const { error } = await supabase.rpc("paie_marquer_semaine_suivante", { p_id: id, p_fait: fait });
   if (error) throw error;
 }
 

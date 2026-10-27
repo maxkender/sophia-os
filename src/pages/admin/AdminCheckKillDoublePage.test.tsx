@@ -243,14 +243,15 @@ describe("AdminCheckKillDoublePage", () => {
     ]);
   });
 
-  it("propose Kill, Nudge ou Garder pour un absent, et liste les autres posts manqués pour info", async () => {
+  it("samedi (0369) : Kill ou Garder pour un absent, et liste les autres posts manqués pour info", async () => {
     rendre();
     const ionut = await screen.findByTestId("proposition-ionut.mentalitate346");
     expect(within(ionut).getAllByText("Kill (ne pas renouveler)").length).toBeGreaterThan(0);
     expect(within(ionut).getByText(/Absent : trop de posts manqués/)).toBeInTheDocument();
-    for (const nom of ["Kill", "Envoyer le nudge", "Garder"]) {
+    for (const nom of ["Kill", "Garder"]) {
       expect(within(ionut).getByRole("button", { name: nom })).toBeEnabled();
     }
+    expect(within(ionut).queryByRole("button", { name: "Envoyer le nudge" })).toBeNull();
     const carte = await screen.findByTestId("carte-manques");
     expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("7/10");
     expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("13/10, 14/10, 15/10");
@@ -271,7 +272,9 @@ describe("AdminCheckKillDoublePage", () => {
       "href",
       "https://www.tiktok.com/@clara/photo/2",
     );
-    expect(within(clara).getByRole("button", { name: "Recréer le compte" })).toBeEnabled();
+    // Le samedi ne recrée plus (0369) : Kill ou Garder.
+    expect(within(clara).queryByRole("button", { name: "Recréer le compte" })).toBeNull();
+    expect(within(clara).getByRole("button", { name: "Kill" })).toBeEnabled();
     // Sans HM : en dernier.
     expect(screen.getByTestId("groupe-hm-aucun")).toBeInTheDocument();
     expect(screen.getByTestId("proposition-katerina.exelissetai333")).toBeInTheDocument();
@@ -288,13 +291,32 @@ describe("AdminCheckKillDoublePage", () => {
     await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p4", "ne_pas_renouveler", "a posté sans lien ?"));
   });
 
-  it("Recréer passe par la confirmation, sans note", async () => {
+  it("jeudi (0368) : « Recréer » proposé est choisi d'avance, et passe par la confirmation", async () => {
+    const avant = api.listerPropositions.getMockImplementation()!;
+    api.listerPropositions.mockImplementation(async (id: string) =>
+      id === "ctrl-jeudi"
+        ? [
+          proposition({
+            id: "p5",
+            controle_id: "ctrl-jeudi",
+            type: "jeudi",
+            jour: "2026-10-22",
+            regle: "jeudi",
+            action: "recreer",
+            donnees: { ...proposition({}).donnees, handle: "bruno.reveil101", motifs: ["reveil"] },
+          }),
+        ]
+        : avant(id),
+    );
     rendre();
-    const clara = await screen.findByTestId("proposition-clara.eclaire390");
-    fireEvent.click(within(clara).getByRole("button", { name: "Recréer le compte" }));
-    expect(within(clara).getByText(/Un nouveau compte est créé tout de suite/)).toBeInTheDocument();
-    fireEvent.click(within(clara).getByRole("button", { name: "Confirmer : Recréer le compte" }));
-    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p1", "recreer", null));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const bruno = await screen.findByTestId("proposition-bruno.reveil101");
+    for (const nom of ["Envoyer le nudge", "Recréer le compte", "Rien"]) {
+      expect(within(bruno).getByRole("button", { name: nom })).toBeEnabled();
+    }
+    expect(within(bruno).getByText(/Un nouveau compte est créé tout de suite/)).toBeInTheDocument();
+    fireEvent.click(within(bruno).getByRole("button", { name: "Confirmer : Recréer le compte" }));
+    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p5", "recreer", null));
   });
 
   it("montre une décision prise, son arrêt prévu, et l'annule tant que rien n'est parti", async () => {

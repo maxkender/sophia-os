@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { LignePaie } from "./api";
-import { milestone, parHm, semaineAPayer, totaux, trier } from "./logique";
+import { consigneSuivante, milestone, parHm, semaineAPayer, totaux, trier } from "./logique";
 
 function ligne(partiel: Partial<LignePaie> & { hm?: string | null; nom?: string }): LignePaie {
   const { hm = "hm1", nom = "Ana", ...reste } = partiel;
@@ -67,5 +67,49 @@ describe("paie : totaux", () => {
       ligne({ nom: "Ana" }),
     ]);
     expect(l.map((x) => x.poster?.prenom)).toEqual(["Bob", "Ana", "Zoé", "Payée"]);
+  });
+});
+
+describe("paie : semaine suivante (0369)", () => {
+  const usd = (n: number) => `${n} $`;
+  const s = (action: string, comptes = 1, montant: number | null = 10, raison: string | null = null) =>
+    ({ poster_id: "p", action, comptes, montant, raison }) as never;
+
+  it("continue : financer la milestone de la semaine d'APRÈS la semaine payée", () => {
+    // Semaine payée 26/10 (Week 44) : la suivante est la Week 45.
+    expect(consigneSuivante("2026-10-26", s("financer"), 10, usd)).toEqual({
+      cle: "financer",
+      valeurs: { montant: "10 $", milestone: "Week 45" },
+      ton: "ok",
+    });
+  });
+
+  it("Double : × 2 et « (2 acc) » seulement quand le 2ᵉ compte poste", () => {
+    expect(consigneSuivante("2026-11-02", s("financer_double", 2, 20), 10, usd)).toEqual({
+      cle: "financer_double",
+      valeurs: { tarif: "10 $", milestone: "Week 46 (2 acc)" },
+      ton: "ok",
+    });
+  });
+
+  it("recréé : financer normalement, milestone d'un seul compte (pas de retenue, rien ne change)", () => {
+    expect(consigneSuivante("2026-10-26", s("financer_normal", 1, 10), 10, usd).valeurs.milestone).toBe("Week 45");
+  });
+
+  it("Kill ou désactivé : ne pas financer, avec la raison ; déjà financée : remboursement", () => {
+    expect(consigneSuivante("2026-10-26", s("ne_pas_financer", 0, null, "kill"), 10, usd)).toMatchObject({
+      cle: "ne_pas_financer",
+      valeurs: { raison: "kill" },
+      ton: "stop",
+    });
+    expect(consigneSuivante("2026-10-26", s("ne_pas_financer", 1, null, "desactive"), 10, usd).valeurs.raison).toBe("desactive");
+    expect(consigneSuivante("2026-10-26", s("deja_financee", 0, null, "kill"), 10, usd)).toMatchObject({
+      cle: "deja_financee",
+      ton: "alerte",
+    });
+  });
+
+  it("0 post et pas de décision : à voir", () => {
+    expect(consigneSuivante("2026-10-26", s("a_voir", 1, null, "zero_post"), 10, usd).cle).toBe("a_voir");
   });
 });

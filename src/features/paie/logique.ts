@@ -5,7 +5,7 @@ import { semaineIso } from "@/features/moteur/cohortes";
 import { lundiDe } from "@/features/moteur/semaines";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 
-import type { LignePaie } from "./api";
+import type { LignePaie, SemaineSuivante } from "./api";
 
 /** La semaine à payer : celle qui vient de finir (le lundi, celle d'avant). */
 export function semaineAPayer(aujourdhui: string): string {
@@ -16,6 +16,36 @@ export function semaineAPayer(aujourdhui: string): string {
 export function milestone(semaine: string, comptesPayes: number): string {
   const base = `Week ${semaineIso(semaine)}`;
   return comptesPayes >= 2 ? `${base} (${comptesPayes} acc)` : base;
+}
+
+/**
+ * La consigne « Semaine suivante » (0369) : la clé du texte et ses valeurs. La
+ * milestone porte le numéro de la semaine d'APRÈS la semaine payée, pour
+ * éviter les erreurs de numéro.
+ */
+export function consigneSuivante(
+  semainePayee: string,
+  s: SemaineSuivante,
+  tarif: number | null,
+  dollarsFn: (n: number) => string,
+): { cle: string; valeurs: Record<string, string>; ton: "ok" | "stop" | "alerte" } {
+  const lundi = ajouterJours(semainePayee, 7);
+  const nom = milestone(lundi, Math.max(1, s.comptes));
+  const montant = s.montant === null ? "?" : dollarsFn(s.montant);
+  switch (s.action) {
+    case "financer":
+      return { cle: "financer", valeurs: { montant, milestone: nom }, ton: "ok" };
+    case "financer_double":
+      return { cle: "financer_double", valeurs: { tarif: tarif === null ? "?" : dollarsFn(tarif), milestone: nom }, ton: "ok" };
+    case "financer_normal":
+      return { cle: "financer_normal", valeurs: { milestone: milestone(lundi, 1) }, ton: "ok" };
+    case "ne_pas_financer":
+      return { cle: "ne_pas_financer", valeurs: { raison: s.raison ?? "kill" }, ton: "stop" };
+    case "deja_financee":
+      return { cle: "deja_financee", valeurs: {}, ton: "alerte" };
+    default:
+      return { cle: "a_voir", valeurs: {}, ton: "alerte" };
+  }
 }
 
 export function nomPosteur(l: LignePaie): string {

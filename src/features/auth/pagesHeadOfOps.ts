@@ -34,6 +34,7 @@ export const ROUTES_HO: readonly string[] = [
   "/admin/paie", // Paie : Lucia paie le lundi depuis une seule liste (v3, 0380)
   "/admin/slack", // Slack à relier : les posteurs sans compte Slack connu (0381)
   "/admin/nudges", // Nudge all, réponses, relances Upwork (v3, 0384)
+  "/admin/inactifs", // Inactifs : marqués à 7 h, proposés en Kill le samedi (v3, 0385)
   "/admin/check-kill-double", // Check, Kill or Double : décider, envoyer aux HMs, suivre les Done (21/10)
   // Sans ces deux-là, Schedule et Account watch sont des culs-de-sac : elles
   // renvoient toutes les deux vers la fiche d'un créateur, qui renvoie vers le

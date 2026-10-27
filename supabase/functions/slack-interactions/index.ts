@@ -72,7 +72,14 @@ async function commentFait(payload: any, action: any) {
   // `is fait_at null` : un double clic ne réécrit pas l'heure du premier.
   await supabase
     .from("comment_master_demandes")
-    .update({ fait_at: new Date().toISOString(), fait_par: utilisateur.username ?? utilisateur.name ?? utilisateur.id })
+    .update({
+      fait_at: new Date().toISOString(),
+      fait_par: utilisateur.username ?? utilisateur.name ?? utilisateur.id,
+      // Comment Masters · suivi (0373) : d'où vient le Done, et qui l'a fait.
+      fait_slack_id: utilisateur.id ?? null,
+      fait_source: "bouton",
+      fait_mode: "bouton",
+    })
     .eq("id", action.value)
     .is("fait_at", null);
 

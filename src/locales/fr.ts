@@ -2458,6 +2458,41 @@ export const fr = {
       },
     },
     accueilHm: {
+      anciens: {
+        titre: "Anciens posteurs",
+        desc: "Les posteurs qui ont fini leur première semaine. Par défaut, seulement ceux qui ont un problème, rangés sous le plus grave.",
+        toutAfficher: "Tout afficher",
+        problemesSeulement: "Problèmes seulement",
+        aucun: "Aucun ancien posteur n'a de problème.",
+        historique: "14 derniers jours",
+        aussi: "Aussi :",
+        actionTitre: "Que faire",
+        problemes: {
+          shadowban: "Shadowban probable",
+          vues_basses: "Vues très basses",
+          irregulier: "Irrégulier",
+          liens_manquants: "Liens manquants",
+          baisse: "Poste moins",
+          ok: "Sans problème",
+        },
+        regles: {
+          shadowban: "Ses 4 derniers posts mesurés sont sous le seuil mort.",
+          vues_basses: "Médiane des 7 derniers jours sous 20 % de celle de son pays.",
+          irregulier: "2 jours ou plus sans aucun post publié sur les 7 derniers jours.",
+          liens_manquants: "Des posts sans lien des jours où il a publié.",
+          baisse: "Moins de posts publiés que les 7 jours d'avant.",
+          ok: "Rien à signaler sur les 7 derniers jours.",
+        },
+        actions: {
+          shadowban: "Compte probablement bloqué : il sera proposé à la recréation jeudi. Préviens le posteur.",
+          vues_basses: "Regarde ses derniers posts avec lui (accroche, image, heure de publication) et corrigez ensemble.",
+          irregulier: "Écris-lui sur Slack : 2 posts par jour, tous les jours. S'il continue, il sera proposé en Kill samedi.",
+          liens_manquants: "Demande-lui de coller dans l'OS le lien de chaque post publié, le jour même.",
+          baisse: "Demande-lui pourquoi il poste moins que la semaine d'avant et rappelle-lui le rythme de 2 posts par jour.",
+          ok: "Rien à faire.",
+        },
+        resume: "{{n}} avec un problème",
+      },
       prochaine: {
         etapes: {
           compteOs: "Compte créé dans l'OS",

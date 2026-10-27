@@ -8,6 +8,7 @@ import { BarreChargement } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
 import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
+import { AnciensPosteurs } from "@/features/ckd/anciens/AnciensPosteurs";
 import { SemaineProchaine } from "@/features/ckd/semaineProchaine/SemaineProchaine";
 import { ChoixHm } from "@/features/ckd/vueHm/ChoixHm";
 import { listerShadowban } from "@/features/ckd/api";
@@ -246,6 +247,8 @@ export function HiringAccueilPage() {
           <CalendrierSemaine hm={hm} />
 
           <SemaineProchaine hm={hm} />
+
+          <AnciensPosteurs hm={hm} />
         </>
       )}
     </div>

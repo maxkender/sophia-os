@@ -2454,6 +2454,41 @@ export const en = {
       },
     },
     accueilHm: {
+      anciens: {
+        titre: "Former creators",
+        desc: "Creators who finished their first week. By default, only those with a problem, listed under the most serious one.",
+        toutAfficher: "Show all",
+        problemesSeulement: "Problems only",
+        aucun: "No former creator has a problem.",
+        historique: "Last 14 days",
+        aussi: "Also:",
+        actionTitre: "What to do",
+        problemes: {
+          shadowban: "Probable shadowban",
+          vues_basses: "Very low views",
+          irregulier: "Irregular",
+          liens_manquants: "Missing links",
+          baisse: "Posting less",
+          ok: "No problem",
+        },
+        regles: {
+          shadowban: "Their last 4 measured posts are below the dead threshold.",
+          vues_basses: "7-day median below 20% of their country's.",
+          irregulier: "2 days or more with no post published in the last 7 days.",
+          liens_manquants: "Posts without a link on days they posted.",
+          baisse: "Fewer posts published than the 7 days before.",
+          ok: "Nothing to report over the last 7 days.",
+        },
+        actions: {
+          shadowban: "Account probably blocked: it will be offered for recreation on Thursday. Let the creator know.",
+          vues_basses: "Go through their last posts with them (hook, image, posting time) and fix them together.",
+          irregulier: "Message them on Slack: 2 posts a day, every day. If it goes on, they will be proposed for Kill on Saturday.",
+          liens_manquants: "Ask them to paste the link of every published post in the OS the same day.",
+          baisse: "Ask them why they post less than the week before and remind them of the 2 posts a day pace.",
+          ok: "Nothing to do.",
+        },
+        resume: "{{n}} with a problem",
+      },
       prochaine: {
         etapes: {
           compteOs: "Account created in the OS",

@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o016",
+ "schema_id": "signs-of-a-man",
+ "titre": "6 signs a man is quietly leveling up #men #selfimprovement #discipline #mindset #growth",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [
+  "0685b2ff-4e1d-45f0-a0a5-8cde772f0b58",
+  "bb4502c1-13b8-4ef3-a0ac-b9645a9ae530"
+ ],
+ "notes": "cta C. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est au 4e signe sur 6, en « he ». Schéma signs-of-a-man (0685b2ff, le plus vu du label ; bb4502c1, rang S). Nouvel angle pour moi : la montée silencieuse, pas l'éducation (am-o002). Accroches écrites : « 6 signs a man is quietly leveling up » (retenue : forme « N signs a man [verbe] » du gagnant), « 5 signs you've outgrown who you used to be » (écartée : existe déjà dans le label), « signs a man is finally growing up » (écartée : moins valorisant). Format du gagnant : un mot en titre, puis deux lignes sur lui. Signes neufs (vérifié dans donnees/label.json). Images : la banque du label, sans visage ; slide Sophia sur une pièce sombre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "827b50fc",
+   "texte_overlay": "6 signs a man is\nquietly leveling up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "82bb1647",
+   "texte_overlay": "1. Fewer plans.\nHe stopped saying yes to nights\nhe'd regret. His weekends got\nquieter, his mornings got better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "81c7fb18",
+   "texte_overlay": "2. Old jokes.\nWhat he used to laugh at\nfeels cheap now. He outgrew\nhumour that needs a target.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8153c934",
+   "texte_overlay": "3. Early nights.\nHe's in bed when he used\nto be going out. Nobody\ntold him to. He just likes\nwho he is at 7am.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "816239e0",
+   "texte_overlay": "4. Curiosity.\nHe reads things nobody\nassigned him. Learning stopped\nfeeling like a chore.",
+   "texte_sophia": "4. Curiosity.\nHe learns one thing a day\non the Sophia app: 5 minutes\nof history, science or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c0835990",
+   "texte_overlay": "5. Money.\nHe stopped buying things\nto be seen. He buys\nthings that last.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c02f4066",
+   "texte_overlay": "6. Long game.\nHe doesn't need to win today.\nWhat he's building\ntakes years, and he knows it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

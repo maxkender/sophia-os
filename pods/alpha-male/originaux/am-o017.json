@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o017",
+ "schema_id": "weird-advice",
+ "titre": "Weird habits that make people trust you instantly #psychology #men #selfimprovement #mindset #advice",
+ "musique_titre": "bipolar (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
+ "inspirations": [
+  "ffa5e1d4-830b-4eba-8ad9-44218026db3a",
+  "3d553a29-a71e-4428-9636-e429d2234e12"
+ ],
+ "notes": "cta B. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Schéma weird-advice (r 7,39 sur ffa5e1d4 ; 137 k vues sur 3d553a29). Nouvel angle pour moi : la confiance, pas les conseils de vie (am-o001). Accroches écrites : « Weird Habits That Make People Trust You Instantly » (retenue : le « weird » et la promesse précise des gagnants, Title Case de @selfsculpt_), « Weird Advice That 100% Works (Part 3) » (écartée : même accroche qu'am-o001), « Strange things trustworthy men do » (écartée : plus loin). Format : le geste, puis « • » et pourquoi, formulé prudemment. Gestes neufs (vérifié dans donnees/label.json) ; écartés car déjà dans le label ou mes originaux : se souvenir d'un détail, utiliser les prénoms, attendre avant de répondre. Images : la banque du label, sans visage ; slide Sophia sur un hall sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c06a6367",
+   "texte_overlay": "Weird Habits That Make\nPeople Trust You Instantly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c1469ae7",
+   "texte_overlay": "1. Admit a small mistake early\n\n• People trust someone\nwho isn't pretending\nto be perfect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "818cbff5",
+   "texte_overlay": "2. Say \"I don't know\" out loud\n\n• Then they believe you\nwhen you say you do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c0e62edf",
+   "texte_overlay": "3. Give credit in front of others\n\n• Praise in public.\nPeople trust the man who\ndoesn't steal the win.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "825061c7",
+   "texte_overlay": "4. Keep your hands visible\nwhen you talk\n\n• Open hands tend to read\nas more honest than\nhidden ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c08f5c7f",
+   "texte_overlay": "5. Ask for advice,\nnot for favours\n\n• People warm up to someone\nwho values their opinion.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c1614749",
+   "texte_overlay": "6. Always have one interesting\nthing to say\n\n• Learn one random fact a day.\nCurious people are\neasier to talk to.",
+   "texte_sophia": "6. Always have one interesting\nthing to say\n\n• I swap my morning scroll for\n5 minutes on the Sophia app.\nOne story from history,\none idea from science.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  }
+ ]
+}

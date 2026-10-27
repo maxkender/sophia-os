@@ -98,3 +98,17 @@ export function ligneWarmup(c: CompteCohorte, aujourdhui: string): LigneWarmup {
   const statut = etat.statut === "pret" ? "pret" : raisons.length > 0 ? "a_relancer" : "en_cours";
   return { compte: c, etat, statut, raisons };
 }
+
+/**
+ * Compte créé sans warm-up : introuvable sur TikTok à chaque relevé du warm-up,
+ * mais il publie. La règle de l'accueil : pas de warm-up, pas de paie.
+ */
+export function postsSansWarmup(c: CompteCohorte): boolean {
+  const lus = c.releves.filter((r) => r.existe !== null);
+  return lus.length > 0 && lus.every((r) => r.existe === false) && c.posts.some((p) => p.url);
+}
+
+/** Le compte a déjà publié au moins un post (le report de cohorte est alors refusé). */
+export function aPublie(c: CompteCohorte): boolean {
+  return c.posts.some((p) => p.url);
+}

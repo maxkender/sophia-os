@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { CompteCohorte, PostCohorte, ReleveWarmup } from "./api";
-import { aFaireAujourdhui, ligneSemaine, ligneWarmup, raisonsPoste } from "./dashboardHm";
+import { aFaireAujourdhui, aPublie, ligneSemaine, ligneWarmup, postsSansWarmup, raisonsPoste } from "./dashboardHm";
 
 function compte(partiel: Partial<CompteCohorte> = {}): CompteCohorte {
   return {
@@ -125,5 +125,19 @@ describe("dashboard HM : à faire aujourd'hui", () => {
       ["a", "poste"],
       ["d", "warmup"],
     ]);
+  });
+});
+
+describe("dashboard HM : posts sans warm-up", () => {
+  it("introuvable à chaque relevé du warm-up mais publie : NO WARM-UP", () => {
+    const c = compte({ releves: [releve({ existe: false }), releve({ existe: false })], posts: [post(MARDI, "https://t/1")] });
+    expect(postsSansWarmup(c)).toBe(true);
+    expect(aPublie(c)).toBe(true);
+  });
+
+  it("existait pendant le warm-up, ou ne publie pas, ou jamais relevé : rien à signaler", () => {
+    expect(postsSansWarmup(compte({ releves: [releve({ existe: false }), releve({ existe: true })], posts: [post(MARDI, "https://t/1")] }))).toBe(false);
+    expect(postsSansWarmup(compte({ releves: [releve({ existe: false })], posts: [post(MARDI, null)] }))).toBe(false);
+    expect(postsSansWarmup(compte({ posts: [post(MARDI, "https://t/1")] }))).toBe(false);
   });
 });

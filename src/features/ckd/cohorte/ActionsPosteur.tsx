@@ -28,20 +28,25 @@ type Action = "reporter" | "desactiver" | "supprimer";
  *   - Delete : définitif, historique compris — admin et Head of Ops seulement,
  *     comme manage-users.
  * Chaque action se confirme d'un second clic.
+ *
+ * v3 point 8 : le dashboard HM n'a plus d'action qui contrôle. Une HM (ou un
+ * directing manager) ne voit pas ce menu ; l'admin et le Head of Ops oui.
  */
-export function ActionsPosteur({
-  posteurId,
-  nom,
-  compteId,
-  warmupLance,
-  aPublie,
-}: {
+type ProprietesActions = {
   posteurId: string;
   nom: string;
   compteId: string;
   warmupLance: boolean;
   aPublie: boolean;
-}) {
+};
+
+export function ActionsPosteur(props: ProprietesActions) {
+  const { role } = useAuth();
+  if (role !== "admin" && role !== "head_of_ops") return null;
+  return <MenuActions {...props} />;
+}
+
+function MenuActions({ posteurId, nom, compteId, warmupLance, aPublie }: ProprietesActions) {
   const { t, i18n } = useTranslation();
   const { role } = useAuth();
   const queryClient = useQueryClient();

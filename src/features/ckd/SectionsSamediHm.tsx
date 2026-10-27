@@ -1,16 +1,15 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { semaineIso } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { localeDate } from "@/locales/localeDate";
 
-import { listerDecisionsHm, listerRecrutementHm, marquerFaitHm, type DecisionHm } from "./api";
+import { listerDecisionsHm, listerRecrutementHm, type DecisionHm } from "./api";
 import { DiagnosticCompte } from "./DiagnosticCompte";
 
 const CLE = ["accueil-hm", "samedi"] as const;
@@ -24,11 +23,6 @@ function LigneDecision({ d }: { d: DecisionHm }) {
     date: new Intl.DateTimeFormat(localeDate(i18n.language), { day: "numeric", month: "long", timeZone: "UTC" })
       .format(new Date(`${lundiDouble}T12:00:00Z`)),
     semaine: semaineIso(lundiDouble),
-  });
-  const queryClient = useQueryClient();
-  const fait = useMutation({
-    mutationFn: () => marquerFaitHm(d.id),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: CLE }),
   });
   return (
     <div className="space-y-2 py-3 first:pt-0 last:pb-0" data-testid={`decision-hm-${d.handle}`}>
@@ -49,28 +43,27 @@ function LigneDecision({ d }: { d: DecisionHm }) {
         {d.nouveau_handle && (
           <span className="text-muted-foreground">{t("ckd.decisionsHm.nouveau", { handle: d.nouveau_handle })}</span>
         )}
-        <span className="ml-auto">
-          {d.fait_at ? (
+        {/* v3 point 8 : la HM voit, elle ne valide plus (le « Done » de Slack reste affiché). */}
+        {d.fait_at && (
+          <span className="ml-auto">
             <Badge variant="success">
               <Check className="size-3" />
               {t("ckd.decisionsHm.fait")}
             </Badge>
-          ) : (
-            <Button size="sm" disabled={fait.isPending} onClick={() => fait.mutate()}>
-              {t("ckd.decisionsHm.marquerFait")}
-            </Button>
-          )}
-        </span>
+          </span>
+        )}
       </div>
       <p className="text-xs text-muted-foreground">{consigne}</p>
       {d.note && <p className="text-xs italic text-muted-foreground">{d.note}</p>}
       <DiagnosticCompte diagnostic={d.diagnostic} />
-      {fait.error && <p className="text-xs text-destructive">{(fait.error as Error).message}</p>}
     </div>
   );
 }
 
-/** Dashboard HM : les décisions du samedi à appliquer et la liste de recrutement (0364). */
+/**
+ * Dashboard HM : les décisions du samedi, pour information (v3 point 8 : les
+ * messages au posteur partent de l'OS), et la liste de recrutement (0364).
+ */
 export function SectionsSamediHm() {
   const { t, i18n } = useTranslation();
   const donnees = useQuery({
@@ -82,16 +75,12 @@ export function SectionsSamediHm() {
   });
   const date = (j: string) =>
     new Date(`${j}T12:00:00Z`).toLocaleDateString(localeDate(i18n.resolvedLanguage), { day: "numeric", month: "short" });
-  const aFaire = (donnees.data?.decisions ?? []).filter((d) => !d.fait_at).length;
 
   return (
     <>
       <Card>
         <CardHeader>
-          <CardTitle>
-            {t("ckd.decisionsHm.titre")}
-            {aFaire > 0 && ` · ${t("ckd.decisionsHm.aFaire", { n: aFaire })}`}
-          </CardTitle>
+          <CardTitle>{t("ckd.decisionsHm.titre")}</CardTitle>
         </CardHeader>
         <CardContent>
           {donnees.error ? (

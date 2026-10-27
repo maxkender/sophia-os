@@ -1307,7 +1307,7 @@ export const fr = {
       decisionsHm: {
         titre: "Décisions du samedi",
         aFaire: "{{n}} à faire",
-        desc: "Les décisions validées et envoyées pour tes posteurs. Fais ce qui est demandé, puis clique « Fait ».",
+        desc: "Pour information : les décisions validées pour tes posteurs. Les messages au posteur partent de l'OS ; rien à valider de ton côté.",
         vide: "Aucune décision envoyée ces 3 dernières semaines.",
         nouveau: "nouveau compte : @{{handle}}",
         fait: "Fait",
@@ -1315,8 +1315,8 @@ export const fr = {
         decisions: { ne_pas_renouveler: "Arrêter", doubler: "Doubler", recreer: "Nouveau compte" },
         consignes: {
           ne_pas_renouveler: "Arrêt dimanche soir, ne pas financer la prochaine milestone.",
-          doubler: "2e compte @{{handle}}, démarre le lundi {{date}}. À partir de cette semaine-là, milestone Week {{semaine}} (2 acc), paie × 2.",
-          recreer: "Nouveau compte prêt dans l'OS : le posteur le crée sur TikTok et lance le warm-up avant dimanche minuit. L'ancien s'arrête.",
+          doubler: "2ᵉ compte proposé au posteur (pop-up Yes / No jusqu'au mercredi). S'il accepte, il démarre le lundi {{date}} : milestone Week {{semaine}} (2 acc), paie × 2.",
+          recreer: "Nouveau compte prêt dans l'OS : le posteur a reçu le message (pop-up et Slack), il le crée sur TikTok et lance le warm-up avant dimanche minuit. L'ancien s'arrête.",
         },
       },
       recrutementHm: {

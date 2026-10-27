@@ -1303,7 +1303,7 @@ export const en = {
       decisionsHm: {
         titre: "Saturday decisions",
         aFaire: "{{n}} to do",
-        desc: "Validated decisions sent for your creators. Do what's asked, then click “Done”.",
+        desc: "For your information: the decisions validated for your creators. Messages to the poster go out from the OS; nothing to validate on your side.",
         vide: "No decision sent in the last 3 weeks.",
         nouveau: "new account: @{{handle}}",
         fait: "Done",
@@ -1311,8 +1311,8 @@ export const en = {
         decisions: { ne_pas_renouveler: "Stop", doubler: "Double", recreer: "New account" },
         consignes: {
           ne_pas_renouveler: "Stops Sunday night: don't fund the next milestone.",
-          doubler: "2nd account @{{handle}}, starts on Monday {{date}}. From that week on: milestone Week {{semaine}} (2 acc), pay × 2.",
-          recreer: "New account ready in the OS: the creator creates it on TikTok and starts the warm-up before Sunday midnight. The old one stops.",
+          doubler: "2nd account offered to the poster (Yes / No pop-up until Wednesday). If they accept, it starts on Monday {{date}}: milestone Week {{semaine}} (2 acc), pay × 2.",
+          recreer: "New account ready in the OS: the creator got the message (pop-up and Slack), creates it on TikTok and starts the warm-up before Sunday midnight. The old one stops.",
         },
       },
       recrutementHm: {

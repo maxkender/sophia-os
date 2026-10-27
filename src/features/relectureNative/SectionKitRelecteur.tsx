@@ -8,7 +8,6 @@ import { Card, CardDescription, CardHeader, CardPanel, CardTitle, EmptyState } f
 import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 import { nomApplication } from "@/features/moteur/applications";
-import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
 import { cn } from "@/lib/utils";
 
 import {
@@ -42,7 +41,7 @@ const VARIANTE_ETAT: Record<EtatPostKit, "secondary" | "warning" | "success"> = 
 
 /**
  * Partie 2 de l'espace relecteur : le kit natif. Chaque post s'écrit slide par
- * slide, à côté du TikTok d'origine et de l'image de chaque slide.
+ * slide, à côté de l'image de la slide d'origine.
  */
 export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
   const { t } = useTranslation();
@@ -208,80 +207,63 @@ function EditeurPostKit({
           )}
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,325px)_minmax(0,1fr)]">
-          <div className="lg:sticky lg:top-4 lg:self-start">
-            {post.source_url ? (
-              <TikTokEmbed
-                url={post.source_url}
-                titre={t("relectureNative.kit.apercu")}
-                videLabel={t("relectureNative.kit.sansTiktok")}
-                chargementLabel={t("relectureNative.kit.apercuChargement")}
-              />
-            ) : (
-              <p className="rounded-lg border border-dashed p-3 text-xs text-muted-foreground">
-                {t("relectureNative.kit.sansTiktok")}
-              </p>
-            )}
-          </div>
-
-          <ol className="min-w-0 space-y-5">
-            {slidesEn.map((s) => {
-              const cta = slideAppli === s.position;
-              const ecrit = texteEcrit(slides, s.position);
-              const enregistre = texteEcrit(ecriture?.slides ?? [], s.position);
-              const id = `kit-${post.id}-${s.position}`;
-              return (
-                <li
-                  key={s.position}
-                  className={cn(
-                    "grid gap-3 rounded-lg border p-3 sm:grid-cols-[96px_minmax(0,1fr)]",
-                    cta && "border-primary/50 bg-primary/5",
-                  )}
-                  data-testid={`slide-kit-${s.position}`}
-                >
-                  {s.image_url ? (
-                    <a href={s.image_url} target="_blank" rel="noreferrer" className="block w-24">
-                      <img
-                        src={s.image_url}
-                        alt={t("relectureNative.kit.slide", { n: s.position })}
-                        loading="lazy"
-                        className="aspect-[9/16] w-24 rounded-md border object-cover"
-                      />
-                    </a>
-                  ) : (
-                    <div className="aspect-[9/16] w-24 rounded-md border border-dashed bg-muted/40" />
-                  )}
-                  <div className="min-w-0 space-y-2">
-                    <p className="flex flex-wrap items-center gap-2 text-xs font-medium">
-                      {t("relectureNative.kit.slide", { n: s.position })}
-                      {cta && <Badge variant="info">{t("relectureNative.kit.slideAppli", { appli })}</Badge>}
-                    </p>
-                    <div className="space-y-0.5">
-                      <p className="text-[11px] tracking-wide text-muted-foreground uppercase">
-                        {t("relectureNative.kit.anglais")}
-                      </p>
-                      <p className="text-sm whitespace-pre-wrap">{s.texte}</p>
-                    </div>
-                    <label htmlFor={id} className="block text-[11px] tracking-wide text-muted-foreground uppercase">
-                      {t("relectureNative.kit.taVersion")}
-                    </label>
-                    <Textarea
-                      id={id}
-                      dir="auto"
-                      rows={Math.min(8, Math.max(2, s.texte.split("\n").length))}
-                      aria-label={t("relectureNative.kit.taVersionSlide", { n: s.position })}
-                      value={ecrit}
-                      onChange={(e) => setSlides((avant) => avecSlideEcrite(avant, s.position, e.target.value))}
-                      onBlur={() => {
-                        if (ecrit !== enregistre) sauver({});
-                      }}
+        <ol className="space-y-5">
+          {slidesEn.map((s) => {
+            const cta = slideAppli === s.position;
+            const ecrit = texteEcrit(slides, s.position);
+            const enregistre = texteEcrit(ecriture?.slides ?? [], s.position);
+            const id = `kit-${post.id}-${s.position}`;
+            return (
+              <li
+                key={s.position}
+                className={cn(
+                  "grid gap-3 rounded-lg border p-3 sm:grid-cols-[144px_minmax(0,1fr)]",
+                  cta && "border-primary/50 bg-primary/5",
+                )}
+                data-testid={`slide-kit-${s.position}`}
+              >
+                {s.image_url ? (
+                  <a href={s.image_url} target="_blank" rel="noreferrer" className="block w-36">
+                    <img
+                      src={s.image_url}
+                      alt={t("relectureNative.kit.slide", { n: s.position })}
+                      loading="lazy"
+                      className="aspect-[9/16] w-36 rounded-md border object-cover"
                     />
+                  </a>
+                ) : (
+                  <div className="aspect-[9/16] w-36 rounded-md border border-dashed bg-muted/40" />
+                )}
+                <div className="min-w-0 space-y-2">
+                  <p className="flex flex-wrap items-center gap-2 text-xs font-medium">
+                    {t("relectureNative.kit.slide", { n: s.position })}
+                    {cta && <Badge variant="info">{t("relectureNative.kit.slideAppli", { appli })}</Badge>}
+                  </p>
+                  <div className="space-y-0.5">
+                    <p className="text-[11px] tracking-wide text-muted-foreground uppercase">
+                      {t("relectureNative.kit.anglais")}
+                    </p>
+                    <p className="text-sm whitespace-pre-wrap">{s.texte}</p>
                   </div>
-                </li>
-              );
-            })}
-          </ol>
-        </div>
+                  <label htmlFor={id} className="block text-[11px] tracking-wide text-muted-foreground uppercase">
+                    {t("relectureNative.kit.taVersion")}
+                  </label>
+                  <Textarea
+                    id={id}
+                    dir="auto"
+                    rows={Math.min(8, Math.max(2, s.texte.split("\n").length))}
+                    aria-label={t("relectureNative.kit.taVersionSlide", { n: s.position })}
+                    value={ecrit}
+                    onChange={(e) => setSlides((avant) => avecSlideEcrite(avant, s.position, e.target.value))}
+                    onBlur={() => {
+                      if (ecrit !== enregistre) sauver({});
+                    }}
+                  />
+                </div>
+              </li>
+            );
+          })}
+        </ol>
 
         <label className="block space-y-1">
           <span className="text-sm font-medium">{t("relectureNative.kit.remarque")}</span>

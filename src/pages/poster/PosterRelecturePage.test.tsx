@@ -28,10 +28,6 @@ vi.mock("@/features/relectureNative/api", () => ({
     Promise.resolve([{ application_id: "app-micabo", nom: "micabo", slug: "micabo", presentation: "micabo turns your notes into quizzes." }]),
 }));
 
-vi.mock("@/features/reviews/TikTokEmbed", () => ({
-  TikTokEmbed: ({ url, titre }: { url: string; titre: string }) => <iframe title={titre} src={url} />,
-}));
-
 import { PosterRelecturePage } from "./PosterRelecturePage";
 
 const RELECTEUR = {
@@ -151,7 +147,7 @@ describe("PosterRelecturePage", () => {
     expect(listerKit).not.toHaveBeenCalled();
   });
 
-  it("questionnaire envoyé : un invité voit les 3 posts du test, le TikTok et chaque slide", async () => {
+  it("questionnaire envoyé : un invité voit les 3 posts du test et chaque slide avec son image", async () => {
     espace.mockReturnValue({
       relecteurs: [{ ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
       isPending: false,
@@ -165,7 +161,8 @@ describe("PosterRelecturePage", () => {
       "Post 2To do",
       "Post 3To do",
     ]);
-    expect(screen.getByTitle("The original TikTok")).toHaveAttribute("src", "https://www.tiktok.com/@a/video/1");
+    // Pas de lecteur TikTok : l'image de chaque slide suffit.
+    expect(document.querySelector("iframe")).toBeNull();
     expect(screen.getByText(/already recommends an app on slide 2/)).toHaveTextContent("recommend micabo");
     expect(screen.getByText("Slide 2 recommends bycat. Same idea with micabo.")).toBeInTheDocument();
     expect(screen.getByText("micabo turns your notes into quizzes.")).toBeInTheDocument();

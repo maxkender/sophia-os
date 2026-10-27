@@ -837,7 +837,6 @@ export const en = {
           en_cours: "In progress",
           rendu: "Done",
         },
-        apercu: "The original TikTok",
         apercuChargement: "Loading the TikTok…",
         sansTiktok: "Our team wrote this post: the slides next to it are the original.",
         slide: "Slide {{n}}",

@@ -841,7 +841,6 @@ export const fr = {
           en_cours: "En cours",
           rendu: "Fini",
         },
-        apercu: "Le TikTok d’origine",
         apercuChargement: "Chargement du TikTok…",
         sansTiktok: "Ce post a été écrit par notre équipe : les slides ci-contre sont l’original.",
         slide: "Slide {{n}}",

@@ -2679,6 +2679,8 @@ export const fr = {
         totalEquipe: "{{total}} · reste {{reste}}",
         sansEquipe: "Sans équipe",
         exporter: "Exporter CSV",
+        simuler: "Simulation (rien n'est enregistré)",
+        simulationBandeau: "Simulation : la liste calculée maintenant avec les règles v3, sur les données d'aujourd'hui. Rien n'est enregistré ni payé. Pour une semaine pas finie, les posts des jours à venir comptent comme pas encore faits.",
         exporterEquipe: "CSV de l'équipe",
         vide: "Pas encore de liste pour cette semaine : elle est calculée le lundi à 6 h.",
         cols: {

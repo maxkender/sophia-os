@@ -141,7 +141,7 @@ function MenuLigne({ l }: { l: LigneListePaie }) {
   );
 }
 
-function LignePaie({ l, semaine }: { l: LigneListePaie; semaine: string }) {
+function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: string; simulation: boolean }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
   const texteAction =
@@ -177,7 +177,7 @@ function LignePaie({ l, semaine }: { l: LigneListePaie; semaine: string }) {
         </p>
       </td>
       <td className={TD}>
-        {!l.exclu && (
+        {!l.exclu && !simulation && (
           <Case
             coche={Boolean(l.paye_at)}
             libelle={t("paie.liste.cols.paye")}
@@ -187,7 +187,7 @@ function LignePaie({ l, semaine }: { l: LigneListePaie; semaine: string }) {
         )}
       </td>
       <td className={TD}>
-        {!l.exclu && (
+        {!l.exclu && !simulation && (
           <Case
             coche={Boolean(l.semaine_suivante_faite_at)}
             libelle={t("paie.liste.cols.suivante")}
@@ -196,14 +196,12 @@ function LignePaie({ l, semaine }: { l: LigneListePaie; semaine: string }) {
           />
         )}
       </td>
-      <td className={cn(TD, "w-8")}>
-        <MenuLigne l={l} />
-      </td>
+      <td className={cn(TD, "w-8")}>{!simulation && <MenuLigne l={l} />}</td>
     </tr>
   );
 }
 
-function Tableau({ lignes, semaine }: { lignes: LigneListePaie[]; semaine: string }) {
+function Tableau({ lignes, semaine, simulation }: { lignes: LigneListePaie[]; semaine: string; simulation: boolean }) {
   const { t } = useTranslation();
   return (
     <div className="overflow-x-auto rounded-xl border">
@@ -222,7 +220,7 @@ function Tableau({ lignes, semaine }: { lignes: LigneListePaie[]; semaine: strin
         </thead>
         <tbody className="divide-y">
           {lignes.map((l) => (
-            <LignePaie key={l.id} l={l} semaine={semaine} />
+            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} />
           ))}
         </tbody>
       </table>
@@ -334,12 +332,16 @@ function BlocCommentMasters({ lundi }: { lundi: string }) {
  * La liste de paie du lundi (0380), pour l'admin et le Head of Ops : une
  * seule liste pour la semaine `semaine` (son lundi), un bloc repliable par
  * équipe avec son total, le total général en haut, et le bloc Comment Masters
- * le lundi bonus.
+ * le lundi bonus. `simulation` : la liste calculée avec les règles v3 sur les
+ * données d'aujourd'hui, sans rien enregistrer ni rien cocher.
  */
-export function ListePaie({ semaine }: { semaine: string }) {
+export function ListePaie({ semaine, simulation = false }: { semaine: string; simulation?: boolean }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
-  const liste = useQuery({ queryKey: ["paie", "liste", semaine], queryFn: () => lireListePaie(semaine) });
+  const liste = useQuery({
+    queryKey: ["paie", "liste", semaine, simulation],
+    queryFn: () => lireListePaie(semaine, simulation),
+  });
   const reglagesBonus = useQuery({ queryKey: ["reglages", "bonus"], queryFn: lireReglagesBonus });
   const lundiPaie = ajouterJours(semaine, 7);
   const lundiBonus =
@@ -350,7 +352,7 @@ export function ListePaie({ semaine }: { semaine: string }) {
   const texteAction = (l: LigneListePaie) =>
     l.action === "payer_moins" ? t("paie.liste.actions.payer_moins", { retenue: dollars(l.retenue, langue) }) : t(`paie.liste.actions.${l.action}`);
   const exporter = (ls: LigneListePaie[], nom: string) =>
-    telechargerCsv(`paie_${nom}_${semaine}.csv`, csvListe(ls, texteAction));
+    telechargerCsv(`paie_${simulation ? "simulation_" : ""}${nom}_${semaine}.csv`, csvListe(ls, texteAction));
   const slug = (s: string) =>
     s
       .normalize("NFD")
@@ -361,6 +363,11 @@ export function ListePaie({ semaine }: { semaine: string }) {
 
   return (
     <div className="space-y-4" data-testid="liste-paie">
+      {simulation && (
+        <p className="rounded-md border border-info/40 bg-info/8 px-3 py-2 text-sm font-medium" data-testid="paie-simulation">
+          {t("paie.liste.simulationBandeau")}
+        </p>
+      )}
       <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-muted/30 px-4 py-3">
         <p className="text-sm font-medium tabular-nums">
           {t("paie.liste.totalGeneral", {
@@ -402,12 +409,12 @@ export function ListePaie({ semaine }: { semaine: string }) {
             </Button>
           </summary>
           <div className="px-4 pb-4">
-            <Tableau lignes={e.lignes} semaine={semaine} />
+            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} />
           </div>
         </details>
       ))}
 
-      {lundiBonus && <BlocCommentMasters lundi={lundiPaie} />}
+      {lundiBonus && !simulation && <BlocCommentMasters lundi={lundiPaie} />}
     </div>
   );
 }

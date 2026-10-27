@@ -225,12 +225,13 @@ as $$
   ),
   etat as (
     select a.*, po.is_active,
-           -- Kill (ne pas renouveler) validé : arrêt prévu ou fait d'ici lundi 10 h.
+           -- Kill (ne pas renouveler) validé cette semaine : arrêt prévu ou fait d'ici lundi 10 h.
            exists (select 1 from public.ckd_arrets ar
                      join public.comptes c on c.id = ar.compte_id
                     cross join bornes b
                    where c.poster_id = a.poster_id and ar.raison = 'ne_pas_renouveler'
                      and ar.annule_at is null
+                     and coalesce(ar.fait_at, ar.prevu_at) >= b.debut
                      and coalesce(ar.fait_at, ar.prevu_at) <= b.coupure) as kill,
            -- La semaine payée avait déjà été financée (« Semaine suivante faite » la semaine d'avant).
            exists (select 1 from public.paie_semaines ps
@@ -249,6 +250,8 @@ as $$
     select e.*,
            case
              when (e.kill or not e.is_active) and e.faits = 0 and e.deja_financee then 'annuler'
+             -- Arrêté sans aucun post et semaine pas financée : rien à payer ni à annuler.
+             when (e.kill or not e.is_active) and e.faits = 0 then 'rien'
              when (e.kill or not e.is_active) then 'kill'
              when e.nb_comptes = 0 or e.faits = 0 then 'rien'
              when e.n_suiv >= 2 and e.n_suiv > e.comptes_payes then 'modifier'
@@ -380,6 +383,67 @@ $$;
 
 revoke execute on function public.paie_liste(date) from public, anon;
 grant execute on function public.paie_liste(date) to authenticated, service_role;
+
+-- Simuler la liste d'une semaine avec les règles v3, sans rien écrire (admin
+-- et Head of Ops) : même forme que `paie_liste`, id vide.
+create or replace function public.paie_simuler(p_lundi date)
+returns table (
+  id                        uuid,
+  poster_id                 uuid,
+  poster_nom                text,
+  hm_id                     uuid,
+  hm_prenom                 text,
+  equipe                    text,
+  contrat_url               text,
+  nb_comptes                integer,
+  comptes_payes             integer,
+  prevus                    integer,
+  faits                     integer,
+  tarif                     numeric,
+  retenue                   numeric,
+  montant_calcule           numeric,
+  montant                   numeric,
+  montant_corrige           numeric,
+  raison_correction         text,
+  statut                    text,
+  raison                    text,
+  action                    text,
+  detail_comptes            jsonb,
+  exclu                     boolean,
+  exclu_raison              text,
+  paye_at                   timestamptz,
+  semaine_suivante_faite_at timestamptz
+)
+language plpgsql
+stable
+security definer
+set search_path = public
+as $$
+#variable_conflict use_column
+begin
+  if coalesce(auth.role(), '') in ('anon', 'authenticated') and not public.is_admin() then
+    raise exception 'paie_simuler : réservé à l''admin et au Head of Ops';
+  end if;
+  if extract(isodow from p_lundi) <> 1 then
+    raise exception 'paie_simuler : % n''est pas un lundi', p_lundi;
+  end if;
+  return query
+  select null::uuid, c.poster_id,
+         coalesce(nullif(btrim(concat_ws(' ', pr.prenom, pr.nom)), ''), pr.email),
+         pr.manager_id, hm.prenom,
+         coalesce(hm.equipe_upwork, nullif(btrim(concat_ws(' ', hm.prenom, hm.nom)), '')),
+         pr.upwork_contrat_url,
+         c.nb_comptes, c.comptes_payes, c.prevus, c.faits, c.tarif, c.retenue,
+         c.montant, c.montant, null::numeric, null::text, c.statut, c.raison, c.action, c.detail_comptes,
+         false, null::text, null::timestamptz, null::timestamptz
+    from public.paie_calculer_v3(p_lundi) c
+    join public.profiles pr on pr.id = c.poster_id
+    left join public.profiles hm on hm.id = pr.manager_id;
+end;
+$$;
+
+revoke execute on function public.paie_simuler(date) from public, anon;
+grant execute on function public.paie_simuler(date) to authenticated, service_role;
 
 -- Corriger un montant (raison obligatoire) ; null : revenir au montant calculé.
 create or replace function public.paie_corriger(p_id uuid, p_montant numeric, p_raison text)

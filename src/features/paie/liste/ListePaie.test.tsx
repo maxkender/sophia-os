@@ -55,11 +55,11 @@ function ligne(o: Partial<LigneListePaie>): LigneListePaie {
   };
 }
 
-function rendu(semaine: string) {
+function rendu(semaine: string, simulation = false) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={qc}>
-      <ListePaie semaine={semaine} />
+      <ListePaie semaine={semaine} simulation={simulation} />
     </QueryClientProvider>,
   );
 }
@@ -128,5 +128,14 @@ describe("ListePaie", () => {
     fireEvent.change(within(dialogue).getByLabelText("Nouveau montant ($)"), { target: { value: "12" } });
     fireEvent.click(bouton);
     await vi.waitFor(() => expect(api.corrigerPaie).toHaveBeenCalledWith("1", 12, "bonus"));
+  });
+
+  it("simulation : lit le calcul v3 sans rien enregistrer ; ni case ni menu ; bandeau", async () => {
+    rendu("2026-10-26", true);
+    await screen.findByText("Ana");
+    expect(api.lireListePaie).toHaveBeenCalledWith("2026-10-26", true);
+    expect(screen.getByTestId("paie-simulation")).toBeTruthy();
+    expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
+    expect(screen.queryByRole("button", { name: "Modifier la ligne de Ana" })).toBeNull();
   });
 });

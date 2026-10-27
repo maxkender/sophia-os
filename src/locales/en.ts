@@ -2672,6 +2672,8 @@ export const en = {
         totalEquipe: "{{total}} · left {{reste}}",
         sansEquipe: "No team",
         exporter: "Export CSV",
+        simuler: "Simulation (nothing is saved)",
+        simulationBandeau: "Simulation: the list calculated now with the v3 rules, on today's data. Nothing is saved or paid. For a week not finished yet, the posts of the coming days count as not done yet.",
         exporterEquipe: "Team CSV",
         vide: "No list yet for this week: it is calculated on Monday at 6am.",
         cols: {

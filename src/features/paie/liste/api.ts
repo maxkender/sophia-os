@@ -48,11 +48,17 @@ export interface LigneListePaie {
 
 const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
 
-export async function lireListePaie(lundi: string): Promise<LigneListePaie[]> {
-  const { data, error } = await supabase.rpc("paie_liste", { p_lundi: lundi });
+/**
+ * La liste enregistrée du lundi, ou `simulation` : la même calculée avec les
+ * règles v3 sur les données d'aujourd'hui, sans rien enregistrer (0380).
+ */
+export async function lireListePaie(lundi: string, simulation = false): Promise<LigneListePaie[]> {
+  const { data, error } = await supabase.rpc(simulation ? "paie_simuler" : "paie_liste", { p_lundi: lundi });
   if (error) throw error;
-  return ((data ?? []) as LigneListePaie[]).map((l) => ({
+  return ((data ?? []) as LigneListePaie[]).map((l, i) => ({
     ...l,
+    // Une ligne simulée n'a pas d'id en base.
+    id: l.id ?? `simulation-${l.poster_id}-${i}`,
     tarif: num(l.tarif),
     retenue: Number(l.retenue),
     montant_calcule: Number(l.montant_calcule),

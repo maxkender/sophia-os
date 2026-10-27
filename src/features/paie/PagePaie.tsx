@@ -28,6 +28,7 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["paie"] }),
   });
   const fin = ajouterJours(semaine, 6);
+  const [simulation, setSimulation] = React.useState(false);
 
   return (
     <div className="space-y-6">
@@ -52,13 +53,22 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
             {t("paie.recalculer")}
           </Button>
         )}
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-md border px-3 py-1.5 text-sm">
+          <input
+            type="checkbox"
+            className="size-4 accent-[var(--color-primary)]"
+            checked={simulation}
+            onChange={(e) => setSimulation(e.target.checked)}
+          />
+          {t("paie.liste.simuler")}
+        </label>
         {recalculer.data !== undefined && (
           <span className="text-xs text-muted-foreground">{t("paie.recalcule", { n: recalculer.data })}</span>
         )}
         {recalculer.error && <span className="text-xs text-destructive">{(recalculer.error as Error).message}</span>}
       </div>
 
-      <ListePaie semaine={semaine} />
+      <ListePaie semaine={semaine} simulation={simulation} />
 
       {apres}
 

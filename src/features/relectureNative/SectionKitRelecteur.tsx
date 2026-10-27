@@ -48,6 +48,7 @@ import {
 } from "./kit";
 import { messageErreur } from "./messageErreur";
 import { Puce, TuileIcone } from "./Puces";
+import { useEnregistrementAuto } from "./useEnregistrementAuto";
 
 /**
  * Partie 2 de l'espace relecteur : le kit natif. Les posts en tuiles, puis le
@@ -218,6 +219,12 @@ function EditeurPostKit({
   });
   const sauver = (patch: Partial<Pick<EcritureKit, "slides" | "remarque" | "rendu_at">>) =>
     enregistrer.mutate({ slides, remarque, rendu_at: renduAt, ...patch });
+  // Tout le post (slides et remarque) s'enregistre au fil de la frappe.
+  const quitter = useEnregistrementAuto(
+    empreinte(slides, remarque),
+    empreinte(ecriture?.slides ?? [], ecriture?.remarque ?? ""),
+    () => sauver({}),
+  );
 
   const slidesEn = [...post.slides_en].sort((a, b) => a.position - b.position);
   const ecrites = slidesEn.filter((s) => texteEcrit(slides, s.position).trim()).length;
@@ -364,9 +371,7 @@ function EditeurPostKit({
                       placeholder={t("relectureNative.kit.placeholder")}
                       value={ecrit}
                       onChange={(e) => setSlides((avant) => avecSlideEcrite(avant, s.position, e.target.value))}
-                      onBlur={() => {
-                        if (ecrit !== enregistre) sauver({});
-                      }}
+                      onBlur={quitter}
                     />
                   </div>
                 </li>
@@ -387,9 +392,7 @@ function EditeurPostKit({
               rows={2}
               value={remarque}
               onChange={(e) => setRemarque(e.target.value)}
-              onBlur={() => {
-                if (remarque !== (ecriture?.remarque ?? "")) sauver({});
-              }}
+              onBlur={quitter}
             />
           </label>
 
@@ -423,6 +426,12 @@ function EditeurPostKit({
       </CardPanel>
     </Card>
   );
+}
+
+/** Ce qui est écrit dans un post, pour savoir s'il reste quelque chose à enregistrer. */
+function empreinte(slides: ReadonlyArray<{ position: number; texte: string }>, remarque: string): string {
+  const triees = [...slides].sort((a, b) => a.position - b.position).map((s) => [s.position, s.texte]);
+  return JSON.stringify([triees, remarque]);
 }
 
 function BlocBrief({ icone: Icone, titre, children }: { icone: LucideIcon; titre: string; children: React.ReactNode }) {

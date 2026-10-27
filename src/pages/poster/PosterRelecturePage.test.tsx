@@ -139,6 +139,21 @@ describe("PosterRelecturePage", () => {
     expect(screen.getByText("1 / 15 answered")).toBeInTheDocument();
   });
 
+  it("enregistre au fil de la frappe, et ce qui reste en passant au bloc suivant", async () => {
+    espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
+    rendre();
+    const pays = await screen.findByLabelText("What country are you in?");
+    fireEvent.change(pays, { target: { value: "Deutschland" } });
+    await waitFor(() => expect(enregistrer).toHaveBeenCalledWith("r1", "intro.pays", "Deutschland"), { timeout: 3000 });
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    const examen = await screen.findByLabelText(/^1\. What is the big exam/);
+    fireEvent.change(examen, { target: { value: "Abitur" } });
+    // On change de bloc sans quitter le champ ni attendre : la réponse part quand même.
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    await waitFor(() => expect(enregistrer).toHaveBeenCalledWith("r1", "ecole.examen_fin_lycee", "Abitur"));
+    expect(enregistrer).toHaveBeenCalledTimes(2);
+  });
+
   it("enregistre le choix d'un mot, et le mot local quand il en faut un", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
     rendre();

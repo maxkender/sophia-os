@@ -819,7 +819,7 @@ export const fr = {
         bienvenue:
           "Nos slideshows partent dans plein de langues. Ton rôle : qu’ils sonnent comme si un vrai créateur de ton pays les avait écrits.",
         regleOr: "La règle d’or : écris chaque slide comme TU la posterais sur TikTok. Pas une traduction. Ta version.",
-        etape1: "Ton pays, partie par partie · environ 25 min, une seule fois",
+        etape1: "Ton pays, partie par partie · environ 40 min, une seule fois",
         etape2: "Le kit de départ · 15 slideshows à écrire depuis l’anglais",
         etape3: "Chaque jour · environ 10 slideshows à vérifier et corriger, environ 30 min",
         maintenant: "Maintenant",
@@ -917,7 +917,7 @@ export const fr = {
         remarque: "Quelque chose à nous dire ? (facultatif)",
         remarqueAide:
           "Par exemple : la slide d’appli ne collait pas, tu as fait autrement ; une référence que tu as changée, et pourquoi.",
-        autoSave: "Ton texte s’enregistre quand tu quittes un champ.",
+        autoSave: "Tout s’enregistre au fil de la frappe : tu peux partir et revenir.",
         rendre: "Ce post est fini",
         rendreAide: "Écris d’abord chaque slide.",
         rendu: "Fini le {{date}}. Tu peux encore le modifier.",

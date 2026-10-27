@@ -43,13 +43,16 @@ import {
   type QuestionRelecteur,
 } from "@/features/relectureNative/questionnaire";
 import { SectionKitRelecteur } from "@/features/relectureNative/SectionKitRelecteur";
+import { useEnregistrementAuto } from "@/features/relectureNative/useEnregistrementAuto";
 import { CLE_REQUETE_MES_RELECTEURS, useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
 import { cn } from "@/lib/utils";
 
 /**
  * « Native review » : l'espace du relecteur natif, visible seulement si
  * l'admin l'a désigné ET a ouvert l'espace. Un bloc après l'autre : le
- * questionnaire « Your country, part by part », puis le kit natif. La barre
+ * questionnaire « Your country, part by part », puis le kit natif. Tout
+ * s'enregistre au fil de la frappe ; en revenant, on reprend au premier bloc
+ * incomplet et au premier post à écrire. La barre
  * du parcours reste en haut de l'écran, avec le rappel qu'on ne demande
  * jamais une traduction mot à mot.
  */
@@ -234,6 +237,7 @@ function QuestionnaireParBlocs({
                 <ChevronLeft />
                 {t("relectureNative.parcours.precedent")}
               </Button>
+              <span className="hidden text-center text-xs text-muted-foreground sm:block">{t("relectureNative.kit.autoSave")}</span>
               <Button onClick={() => aller(index + 1)}>
                 {t("relectureNative.parcours.suivant")}
                 <ChevronRight />
@@ -432,6 +436,7 @@ function ChampQuestion({
     mutationFn: (valeur: string) => enregistrerReponse(relecteurId, question.cle, valeur),
     onSuccess: (_, valeur) => onEnregistre({ question_cle: question.cle, choix: null, reponse: valeur }),
   });
+  const quitter = useEnregistrementAuto(texte, reponse?.reponse ?? "", (v) => enregistrer.mutate(v));
   const id = `q-${question.cle}`;
 
   return (
@@ -447,9 +452,7 @@ function ChampQuestion({
         rows={2}
         value={texte}
         onChange={(e) => setTexte(e.target.value)}
-        onBlur={() => {
-          if (texte !== (reponse?.reponse ?? "")) enregistrer.mutate(texte);
-        }}
+        onBlur={quitter}
       />
       <EtatEnregistrement pending={enregistrer.isPending} succes={enregistrer.isSuccess} erreur={enregistrer.error} />
     </div>
@@ -477,6 +480,13 @@ function ChampMot({
     onSuccess: (_, { c, valeur }) => onEnregistre({ question_cle: cle, choix: c, reponse: valeur }),
   });
 
+  // Le mot local s'enregistre au fil de la frappe ; les autres choix, au clic.
+  const quitterMot = useEnregistrementAuto(
+    choix === "notre_mot" ? notreMot : (reponse?.reponse ?? ""),
+    reponse?.reponse ?? "",
+    (v) => enregistrer.mutate({ c: "notre_mot", valeur: v }),
+  );
+
   const choisir = (c: ChoixMot) => {
     setChoix(c);
     enregistrer.mutate({ c, valeur: c === "notre_mot" ? notreMot : "" });
@@ -498,9 +508,7 @@ function ChampMot({
           placeholder={t("relectureNative.poster.notreMot", { mot })}
           value={notreMot}
           onChange={(e) => setNotreMot(e.target.value)}
-          onBlur={() => {
-            if (notreMot !== (reponse?.reponse ?? "")) enregistrer.mutate({ c: "notre_mot", valeur: notreMot });
-          }}
+          onBlur={quitterMot}
         />
       )}
       <EtatEnregistrement pending={enregistrer.isPending} succes={enregistrer.isSuccess} erreur={enregistrer.error} />

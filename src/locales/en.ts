@@ -815,7 +815,7 @@ export const en = {
         bienvenue:
           "Our slideshows go out in many languages. Your job: make sure they sound like a real creator from your country wrote them.",
         regleOr: "The golden rule: write every slide the way YOU would post it on TikTok. Not a translation. Your version.",
-        etape1: "Your country, part by part · about 25 min, once",
+        etape1: "Your country, part by part · about 40 min, once",
         etape2: "Starter kit · 15 slideshows to write from English",
         etape3: "Every day · about 10 slideshows to check and fix, about 30 min",
         maintenant: "Now",
@@ -913,7 +913,7 @@ export const en = {
         remarque: "Anything to tell us? (optional)",
         remarqueAide:
           "For example: the app slide didn't fit, so you did it differently; a reference you changed, and why.",
-        autoSave: "Your text saves when you leave a field.",
+        autoSave: "Everything saves as you type: you can leave and come back.",
         rendre: "This post is done",
         rendreAide: "Write every slide first.",
         rendu: "Done on {{date}}. You can still change it.",

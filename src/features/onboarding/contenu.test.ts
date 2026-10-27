@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { ECRANS, ecransPour } from "./contenu";
+import { ECRANS, QUESTIONS, ecransPour, questionsPour } from "./contenu";
 
 function texte(ecrans: ReturnType<typeof ecransPour>, cle: string): string {
   return JSON.stringify(ecrans.find((e) => e.cle === cle)?.blocs ?? []);
@@ -27,7 +27,7 @@ describe("ecransPour", () => {
     expect(paie).toContain("ana@example.com");
     expect(paie).not.toMatch(/hiring manager|upwork/i);
     expect(paie).toContain("https://app.ruul.io/register");
-    expect(texte(ecrans, "slack")).toContain("#ruul-cohort");
+    expect(texte(ecrans, "slack")).toContain("#ruul-questions");
     expect(texte(ecrans, "slack")).toContain("#welcome");
   });
 
@@ -71,8 +71,9 @@ describe("accueil standard", () => {
     expect(texte(ECRANS, "posting")).toContain("Watch the demo carefully");
   });
 
-  it("le warm-up, en rouge vif juste avant la fin : 10 min, 5 follows, sinon pas payé, avec sa vidéo", () => {
-    expect(cles.indexOf("warmup")).toBe(cles.indexOf("fin") - 1);
+  it("le warm-up, en rouge vif : 10 min, 5 follows, sinon pas payé, avec sa vidéo", () => {
+    expect(cles.indexOf("warmup")).toBe(cles.indexOf("timing") + 1);
+    expect(texte(ECRANS, "warmup")).toContain("WARM UP YOUR ACCOUNT BEFORE YOU START POSTING");
     const warmup = ECRANS.find((e) => e.cle === "warmup")!;
     const vif = warmup.blocs.find((b) => b.type === "alerte" && b.ton === "vif");
     expect(vif).toBeDefined();
@@ -89,5 +90,43 @@ describe("accueil standard", () => {
       const etoiles = JSON.stringify(ecran.blocs).match(/\*\*/g)?.length ?? 0;
       expect(etoiles % 2, ecran.cle).toBe(0);
     }
+  });
+});
+
+describe("pas de warm-up, pas de paie", () => {
+  it("un écran à part, juste après le warm-up et avant la fin, en rouge vif", () => {
+    const cles = ECRANS.map((e) => e.cle);
+    expect(cles.indexOf("sans-warmup")).toBe(cles.indexOf("warmup") + 1);
+    expect(cles.indexOf("fin")).toBe(cles.indexOf("sans-warmup") + 1);
+    const ecran = ECRANS.find((e) => e.cle === "sans-warmup")!;
+    expect(ecran.blocs[0]).toMatchObject({ type: "alerte", ton: "vif" });
+    expect(texte(ECRANS, "sans-warmup")).toContain("NO monetary compensation");
+    expect(texte(ECRANS, "sans-warmup")).toContain("shadowbanned");
+  });
+});
+
+describe("quiz", () => {
+  const q = (cle: string, liste = QUESTIONS) => liste.find((x) => x.cle === cle)!;
+
+  it("sept questions, dont la paie sans warm-up, les questions et les paiements", () => {
+    expect(QUESTIONS).toHaveLength(7);
+    expect(q("paye-sans-warmup").options[q("paye-sans-warmup").bonne]).toBe("No");
+    expect(q("question").options[q("question").bonne]).toContain("#questions");
+    expect(q("paiement").options[q("paiement").bonne]).toContain("Lucia De Mojà or Maximilien Kender");
+  });
+
+  it("chaque réponse attendue se lit sur l'écran où le quiz renvoie", () => {
+    expect(texte(ECRANS, "slack")).toContain("#questions");
+    expect(texte(ECRANS, "paiements")).toContain("Lucia De Mojà or Maximilien Kender");
+  });
+
+  it("cohorte Ruul : questions dans son salon, paie sans HM", () => {
+    const ruul = questionsPour({ cohorteRuul: true, emailRuul: null });
+    expect(ruul.map((x) => x.cle)).toEqual(QUESTIONS.map((x) => x.cle));
+    expect(q("question", ruul).options[q("question", ruul).bonne]).toContain("#ruul-cohort");
+    const paie = q("paiement", ruul).options[q("paiement", ruul).bonne]!;
+    expect(paie).not.toMatch(/hiring manager/i);
+    expect(paie).toContain("Lucia De Mojà or Maximilien Kender");
+    expect(questionsPour(null)).toBe(QUESTIONS);
   });
 });

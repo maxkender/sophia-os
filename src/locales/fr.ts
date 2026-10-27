@@ -2458,6 +2458,26 @@ export const fr = {
       },
     },
     accueilHm: {
+      prochaine: {
+        etapes: {
+          compteOs: "Compte créé dans l'OS",
+          tiktok: "Compte TikTok créé",
+          start: "Start warmup cliqué",
+          warmup: "Warm-up (follows · likes)",
+          exigences: "5 follows + 2 reposts",
+          pret: "Prêt pour lundi",
+        },
+        statuts: { fait: "Fait le {{date}}", fait_sans_date: "Fait", a_faire: "À faire", en_retard: "En retard" },
+        types: { recree: "Recréé", double: "2ᵉ compte" },
+        remplace: "remplace @{{handle}}",
+        reposts: "reposts : {{etat}}",
+        repostsFaits: "faits",
+        repostsAFaire: "pas encore",
+        phrase: "Phrase à envoyer au posteur",
+        copier: "Copier",
+        copie: "Copié",
+        resume: { prets_one: "{{count}} prêt", prets_other: "{{count}} prêts", enRetard: "{{n}} en retard" },
+      },
       calendrier: {
         semaine: "Semaine",
         cetteSemaine: "Cette semaine",

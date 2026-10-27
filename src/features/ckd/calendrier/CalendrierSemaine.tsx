@@ -24,6 +24,7 @@ import { qualiteAffichee } from "@/features/moteur/etapes";
 import { lireEtapesComptes } from "@/features/moteur/etapesApi";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { nomsHms } from "@/features/paie/api";
+import { selectClass } from "@/features/ckd/vueHm/ChoixHm";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
@@ -40,8 +41,6 @@ import {
   type EtatCase,
 } from "./logique";
 
-const selectClass =
-  "h-9 rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
 /** Les couleurs des cases : les mêmes partout (vert, orange, rouge, gris). */
 const COULEUR: Record<EtatCase, string> = {
@@ -115,10 +114,10 @@ function ListePosts({ c }: { c: CaseJour }) {
  * par jour du lundi au dimanche. Vert : tout publié ; orange : incomplet ;
  * rouge : rien ; gris : à venir ; aujourd'hui encadré. Un clic sur une case
  * ouvre les posts du jour et, s'il y a un problème, le diagnostic de la
- * semaine en 3 lignes et ce qu'il faut faire. `choixHm` : l'admin et le Head
- * of Ops choisissent la HM.
+ * semaine en 3 lignes et ce qu'il faut faire. `hm` : la HM choisie par
+ * l'admin ou le Head of Ops ("" = toutes) ; une HM ne reçoit que les siens.
  */
-export function CalendrierSemaine({ choixHm = false }: { choixHm?: boolean }) {
+export function CalendrierSemaine({ hm = "" }: { hm?: string }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
   const aujourdhui = aujourdhuiParis();
@@ -126,20 +125,14 @@ export function CalendrierSemaine({ choixHm = false }: { choixHm?: boolean }) {
   const [lundi, setLundi] = React.useState(semaines[0]!);
   const [problemesSeulement, setProblemesSeulement] = React.useState(false);
   const [pays, setPays] = React.useState("");
-  const [hm, setHm] = React.useState("");
   const [ouverte, setOuverte] = React.useState<{ ligne: LigneCalendrier; c: CaseJour } | null>(null);
 
   const donnees = useQuery({
     queryKey: ["accueil-hm", "calendrier", lundi],
     queryFn: async () => {
       const [lignes, cohorte] = await Promise.all([lireCalendrier(lundi), lireCohorte(lundi)]);
-      const [noms, hms] = await Promise.all([
-        nomsHms([...new Set(lignes.map((l) => l.poster_id))]),
-        choixHm
-          ? nomsHms([...new Set(lignes.map((l) => l.hm_id).filter((x): x is string => Boolean(x)))])
-          : Promise.resolve(new Map<string, string>()),
-      ]);
-      return { lignes, cohorte: new Map(cohorte.map((c) => [c.compte_id, c])), noms, hms };
+      const noms = await nomsHms([...new Set(lignes.map((l) => l.poster_id))]);
+      return { lignes, cohorte: new Map(cohorte.map((c) => [c.compte_id, c])), noms };
     },
   });
   const etapes = useQuery({ queryKey: ["etapes-comptes"], queryFn: lireEtapesComptes });
@@ -201,23 +194,6 @@ export function CalendrierSemaine({ choixHm = false }: { choixHm?: boolean }) {
               </option>
             ))}
           </select>
-          {choixHm && (
-            <select
-              className={selectClass}
-              value={hm}
-              onChange={(e) => setHm(e.target.value)}
-              aria-label={t("accueilHm.calendrier.filtreHm")}
-            >
-              <option value="">{t("accueilHm.calendrier.toutesHms")}</option>
-              {[...(donnees.data?.hms ?? new Map<string, string>())]
-                .sort((a, b) => a[1].localeCompare(b[1]))
-                .map(([id, n]) => (
-                  <option key={id} value={id}>
-                    {n}
-                  </option>
-                ))}
-            </select>
-          )}
           <select
             className={selectClass}
             value={pays}

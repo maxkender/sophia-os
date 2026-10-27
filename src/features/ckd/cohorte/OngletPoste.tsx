@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AlertCircle, ArrowRight, Check, Clock, MessageCircle, Moon, Scale, TrendingDown, TrendingUp, X } from "lucide-react";
 
@@ -11,7 +10,6 @@ import type { ActionCkd, ControleCkd, PersonneCkd, PropositionCkd, TypeControle 
 import { boutonDeLaDecision } from "@/features/ckd/logique";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { EtapeBadge } from "@/features/moteur/EtapeBadge";
-import { drapeauPays } from "@/features/moteur/pays";
 import { BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +17,7 @@ import { etatCohorte } from "./etapeCohorte";
 import type { CompteCohorte } from "./api";
 import { useFormats, vuesCourtes } from "./formats";
 import { BarresPubliees } from "./graphes";
+import { HandleTiktok, LienPosteur } from "./liens";
 import {
   bilanCompte,
   bilanSemaine,
@@ -486,13 +485,14 @@ function RetardsDuJour({
                 )}
               >
                 <div className="min-w-0 flex-1">
-                  <Link to={`/admin/createurs/${c.compte_id}`} className="block truncate font-medium underline-offset-2 hover:underline">
-                    {drapeauPays(c.pays)} @{c.handle}
-                  </Link>
+                  <HandleTiktok handle={c.handle} pays={c.pays} className="block" />
                   <p className="truncate text-xs text-muted-foreground">
-                    {[nomPersonne(personnes.get(c.poster_id)), c.hm_id ? t("ckd.cohorte.hm", { nom: nomPersonne(personnes.get(c.hm_id)) }) : t("ckd.sansHm")]
-                      .filter(Boolean)
-                      .join(" · ")}
+                    <PosteurEtHm
+                      compteId={c.compte_id}
+                      poster={personnes.get(c.poster_id)}
+                      hm={c.hm_id ? personnes.get(c.hm_id) : undefined}
+                      aUnHm={Boolean(c.hm_id)}
+                    />
                   </p>
                 </div>
                 <span
@@ -512,20 +512,40 @@ function RetardsDuJour({
 }
 
 function CelluleCompte({ compte: c, poster, hm }: { compte: CompteCohorte; poster?: PersonneCkd; hm?: PersonneCkd }) {
-  const { t } = useTranslation();
   return (
     <div className="flex min-w-0 flex-col gap-0.5">
       <span className="inline-flex items-center gap-1.5">
-        <Link to={`/admin/createurs/${c.compte_id}`} className="truncate font-medium underline-offset-2 hover:underline">
-          {drapeauPays(c.pays)} @{c.handle}
-        </Link>
+        <HandleTiktok handle={c.handle} pays={c.pays} />
         {c.application && <LogoApplication slug={c.application} taille="xs" />}
         <EtapeBadge etat={etatCohorte(c, aujourdhuiParis())} />
       </span>
       <span className="truncate text-xs text-muted-foreground">
-        {[nomPersonne(poster), hm ? t("ckd.cohorte.hm", { nom: nomPersonne(hm) }) : t("ckd.sansHm")].filter(Boolean).join(" · ")}
+        <PosteurEtHm compteId={c.compte_id} poster={poster} hm={hm} aUnHm={Boolean(hm)} />
       </span>
     </div>
+  );
+}
+
+/** « Posteur · HM x » : le nom du posteur mène à sa page. */
+function PosteurEtHm({
+  compteId,
+  poster,
+  hm,
+  aUnHm,
+}: {
+  compteId: string;
+  poster?: PersonneCkd;
+  hm?: PersonneCkd;
+  aUnHm: boolean;
+}) {
+  const { t } = useTranslation();
+  const nom = nomPersonne(poster);
+  return (
+    <>
+      <LienPosteur compteId={compteId} nom={nom} />
+      {nom && " · "}
+      {aUnHm ? t("ckd.cohorte.hm", { nom: nomPersonne(hm) }) : t("ckd.sansHm")}
+    </>
   );
 }
 

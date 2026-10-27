@@ -1038,8 +1038,8 @@ export const en = {
         marquerFait: "Done",
         decisions: { ne_pas_renouveler: "Stop", doubler: "Double", recreer: "New account" },
         consignes: {
-          ne_pas_renouveler: "The account stops Sunday night. Don't fund their next milestone.",
-          doubler: "Second account ready in the OS: the creator creates it on TikTok and starts the warm-up before Sunday midnight. Next milestone “Week NN (2 acc)”.",
+          ne_pas_renouveler: "Stops Sunday night: don't fund the next milestone.",
+          doubler: "2nd account @{{handle}}, starts on Monday {{date}}. From that week on: milestone Week {{semaine}} (2 acc), pay × 2.",
           recreer: "New account ready in the OS: the creator creates it on TikTok and starts the warm-up before Sunday midnight. The old one stops.",
         },
       },
@@ -2421,6 +2421,23 @@ export const en = {
       annulerPaye: "Undo “Paid”",
       tarifFiche: "Pay rate (per account, per week)",
       statuts: { ok: "OK", a_voir: "Check" },
+      suivante: {
+        financer: "Fund {{montant}} – {{milestone}}",
+        financer_double: "Fund {{tarif}} × 2 – {{milestone}}",
+        financer_normal: "Fund as usual – {{milestone}}",
+        ne_pas_financer: "Don't fund – {{raison}}",
+        deja_financee: "Already funded: ask for a refund or close the contract (see Max)",
+        a_voir: "To check: 0 post and no decision",
+        raisons: {
+          kill: "stopped (Kill)",
+          desactive: "deactivated",
+          aucun_compte: "no account posts next week",
+          zero_post: "0 post and no decision",
+        },
+        recree: "recreated",
+        faite: "Next week done",
+        annulerFaite: "Undo “Next week done”",
+      },
       colonnes: {
         posteur: "Creator",
         contrat: "Upwork contract",
@@ -2433,6 +2450,7 @@ export const en = {
         retenue: "Deduction",
         montant: "Amount",
         statut: "Status",
+        suivante: "Next week",
       },
     },
     accueilHm: {

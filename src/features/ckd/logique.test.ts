@@ -150,8 +150,8 @@ describe("propositions", () => {
 });
 
 describe("décisions", () => {
-  it("les boutons de chaque règle sont exactement les décisions permises en base (0368)", () => {
-    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0368_ckd_jeudi_recreer.sql"), "utf8");
+  it("les boutons de chaque règle sont exactement les décisions permises en base (0369)", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0369_ckd_samedi_paie_suivante.sql"), "utf8");
     for (const [regle, boutons] of Object.entries(BOUTONS_PAR_REGLE)) {
       const ligne = sql.match(new RegExp(`when '${regle}'\\s+then array\\[([^\\]]*)\\]`))?.[1] ?? "";
       const permises = [...ligne.matchAll(/'([a-z_]+)'/g)].map((m) => m[1]);
@@ -267,6 +267,15 @@ describe("jeudi : Recréer directement (0368)", () => {
     expect(boutonsPour("anciens", "samedi")).toContain("nePasRenouveler");
   });
 
+  it("samedi (0369) : seulement Kill ou Double, plus de Recréer ni de Nudge", () => {
+    for (const regle of ["premiere_semaine", "absent", "anciens"] as const) {
+      expect(boutonsPour(regle, "samedi"), regle).not.toContain("recreer");
+      expect(boutonsPour(regle, "samedi"), regle).not.toContain("envoyerNudge");
+      expect(boutonsPour(regle, "samedi"), regle).toContain("nePasRenouveler");
+    }
+    expect(boutonsPour("doubler", "samedi")).toEqual(["doubler", "pasMaintenant"]);
+  });
+
   it("une recréation du jeudi ne part pas aux HMs ; celle du samedi oui", () => {
     const recree = { action: "recreer" as const, decision: "recreer" as const, nouveau_compte_id: "n" };
     expect(aEnvoyer(proposition({ ...recree, type: "jeudi", regle: "jeudi" }))).toBe(false);
@@ -276,6 +285,7 @@ describe("jeudi : Recréer directement (0368)", () => {
   it("la règle SQL : jeudi = nudge, recreer, rien ; posteur déjà recréé = jamais Recréer ; anciens Kill seulement le samedi", () => {
     const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0368_ckd_jeudi_recreer.sql"), "utf8");
     expect(sql).toMatch(/when 'jeudi'\s+then array\['nudge', 'recreer', 'rien'\]/);
+    expect(sql).toContain("perform public.ckd_retirer_posts_a_venir(p.compte_id)");
     expect(sql).toContain("not exists (select 1 from recrees r where r.poster_id = c.poster_id)");
     expect(sql).toMatch(/when p_type = 'samedi'\s+and exists \(select 1 from recrees r where r.poster_id = c.poster_id\)\s+then 'ne_pas_renouveler'/);
     // Les posts à venir de l'ancien compte sont retirés à la recréation.

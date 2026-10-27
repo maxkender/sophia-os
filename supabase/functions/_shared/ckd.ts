@@ -224,13 +224,22 @@ function consigneEnvoyee(d: DecisionSlack): string {
   return modifiee ? echapperSlack(modifiee) : consigneNudge(d);
 }
 
-/** Le texte d'une décision dans le fil de sa zone (samedi). */
-export function texteDecision(d: DecisionSlack, semaine: number): string {
+/** « 9 Nov » : le lundi de démarrage d'un 2ᵉ compte, en anglais. */
+function jourAnglais(jour: string): string {
+  return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" })
+    .format(new Date(`${jour}T12:00:00Z`));
+}
+
+/**
+ * Le texte d'une décision dans le fil de sa zone (samedi). `lundiDouble` : le
+ * lundi où démarre le 2ᵉ compte d'un Double (samedi + 9 jours, 0369).
+ */
+export function texteDecision(d: DecisionSlack, semaine: number, lundiDouble?: string): string {
   const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
   const lignes: string[] = [];
   if (d.decision === "ne_pas_renouveler") {
     lignes.push(`:no_entry: *Don't renew* ${qui}`);
-    lignes.push("The account stops Sunday night. Don't fund their next milestone.");
+    lignes.push("Stops Sunday night: don't fund the next milestone.");
     if (d.autresComptes.length > 0) {
       lignes.push(`They keep ${d.autresComptes.map((h) => `@${h}`).join(", ")}: next milestone for 1 account less.`);
     }
@@ -242,10 +251,18 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
     );
   } else if (d.decision === "doubler") {
     lignes.push(`:heavy_plus_sign: *Double* ${qui}`);
-    lignes.push(
-      `Second account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to ` +
-        `start the warm-up in the OS before Sunday midnight. Next milestone: "Week ${semaine} (2 acc)".`,
-    );
+    if (lundiDouble) {
+      lignes.push(
+        `2nd account *${compte(d.nouveauHandle)}*, starts on Monday ${jourAnglais(lundiDouble)}. ` +
+          `From that week on: milestone "Week ${semaineIso(lundiDouble)} (2 acc)", pay × 2. ` +
+          "The poster creates it on TikTok and starts the warm-up in the OS the week before.",
+      );
+    } else {
+      lignes.push(
+        `Second account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to ` +
+          `start the warm-up in the OS before Sunday midnight. Next milestone: "Week ${semaine} (2 acc)".`,
+      );
+    }
   } else {
     lignes.push(`:speech_balloon: *Follow up* ${qui}`);
     lignes.push(consigneEnvoyee(d));
@@ -280,7 +297,7 @@ function boutonDone(d: DecisionSlack): Bloc {
 }
 
 /** Le message d'une zone, le samedi : une section et un bouton Done par décision. */
-export function blocsZoneSamedi(z: ZoneSlack, semaine: number): Bloc[] {
+export function blocsZoneSamedi(z: ZoneSlack, semaine: number, lundiDouble?: string): Bloc[] {
   const blocs: Bloc[] = [{
     type: "section",
     text: {
@@ -290,7 +307,7 @@ export function blocsZoneSamedi(z: ZoneSlack, semaine: number): Bloc[] {
   }];
   for (const d of z.decisions) {
     blocs.push({ type: "divider" });
-    blocs.push({ type: "section", text: { type: "mrkdwn", text: texteDecision(d, semaine) } });
+    blocs.push({ type: "section", text: { type: "mrkdwn", text: texteDecision(d, semaine, lundiDouble) } });
     blocs.push(boutonDone(d));
   }
   return blocs;
@@ -319,7 +336,9 @@ export function blocsZoneJeudi(z: ZoneSlack): Bloc[] {
 
 /** Le message d'une zone selon le contrôle. */
 export function blocsZone(type: "jeudi" | "samedi", z: ZoneSlack, jour: string): Bloc[] {
-  return type === "samedi" ? blocsZoneSamedi(z, semaineDesDecisions(jour)) : blocsZoneJeudi(z);
+  return type === "samedi"
+    ? blocsZoneSamedi(z, semaineDesDecisions(jour), ajouterJours(jour, 9))
+    : blocsZoneJeudi(z);
 }
 
 function comptes(type: "jeudi" | "samedi", z: ZoneSlack): string {
@@ -370,7 +389,12 @@ export function texteRappel(jour: string, zones: ZoneSlack[]): string | null {
     const morceaux: string[] = [];
     if (kills.length > 0) morceaux.push(`don't fund ${kills.map((d) => `${compte(d.handle)} (${d.poster})`).join(", ")}`);
     if (doubles.length > 0) {
-      morceaux.push(`fund "Week ${semaine} (2 acc)" for ${doubles.map((d) => `${compte(d.handle)} (${d.poster})`).join(", ")}`);
+      // Le 2ᵉ compte d'un Double démarre le lundi J+9 (0369) : × 2 à partir de là.
+      const lundi = ajouterJours(jour, 9);
+      morceaux.push(
+        `fund 1 account this week, then "Week ${semaineIso(lundi)} (2 acc)" from Monday ${jourAnglais(lundi)} for ` +
+          doubles.map((d) => `${compte(d.handle)} (${d.poster})`).join(", "),
+      );
     }
     lignes.push(`• ${titreZone(z, true)}: ${morceaux.join(" · ")}`);
   }

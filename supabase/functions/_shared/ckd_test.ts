@@ -69,7 +69,7 @@ Deno.test("maintenantParis : heure d'été et d'hiver", () => {
 Deno.test("texteDecision : ce que le HM doit faire, décision par décision", () => {
   const kill = texteDecision(decision({ autresComptes: ["emma.two"] }), 44);
   assert(kill.includes("*Don't renew* @emma.vyvija827 (Emma V 🇸🇰)"));
-  assert(kill.includes("Don't fund their next milestone"));
+  assert(kill.includes("Stops Sunday night: don't fund the next milestone."));
   assert(kill.includes("They keep @emma.two"));
 
   const recreer = texteDecision(decision({ decision: "recreer", regle: "anciens", nouveauHandle: "new.one" }), 44);
@@ -79,6 +79,11 @@ Deno.test("texteDecision : ce que le HM doit faire, décision par décision", ()
 
   const doubler = texteDecision(decision({ decision: "doubler", regle: "doubler", nouveauHandle: "second.one" }), 44);
   assert(doubler.includes('"Week 44 (2 acc)"'));
+
+  // Double décidé le samedi 31/10 : le 2ᵉ compte démarre le lundi 9/11 (J+9), semaine 46.
+  const double9 = texteDecision(decision({ decision: "doubler", regle: "doubler", nouveauHandle: "second.one" }), 45, "2026-11-09");
+  assert(double9.includes("2nd account *@second.one*, starts on Monday 9 Nov"));
+  assert(double9.includes('milestone "Week 46 (2 acc)", pay × 2'));
 
   const nudge = texteDecision(decision({ decision: "nudge", publies: 3, attendus: 10, note: "parle-lui" }), 44);
   assert(nudge.includes("*Follow up*"));
@@ -150,7 +155,8 @@ Deno.test("texteRappel : qui ne pas financer, qui passe à 2 comptes ; rien sino
   const t = texteRappel("2026-10-24", [z])!;
   assert(t.includes("<@U0C61CLD82E>"));
   assert(t.includes("don't fund @a.one (A)"));
-  assert(t.includes('fund "Week 44 (2 acc)" for @b.one (B)'));
+  // Double du samedi 24/10 : 2ᵉ compte le lundi 2/11 (J+9), semaine 45.
+  assert(t.includes('fund 1 account this week, then "Week 45 (2 acc)" from Monday 2 Nov for @b.one (B)'));
   assert(!t.includes("c.one"));
   assertEquals(texteRappel("2026-10-24", [zone([decision({ decision: "recreer" })])]), null);
 });

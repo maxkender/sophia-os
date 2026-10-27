@@ -1039,8 +1039,8 @@ export const fr = {
         marquerFait: "Fait",
         decisions: { ne_pas_renouveler: "Arrêter", doubler: "Doubler", recreer: "Nouveau compte" },
         consignes: {
-          ne_pas_renouveler: "Le compte s'arrête dimanche soir. Ne finance pas sa prochaine milestone.",
-          doubler: "2e compte prêt dans l'OS : le posteur le crée sur TikTok et lance le warm-up avant dimanche minuit. Prochaine milestone « Week NN (2 acc) ».",
+          ne_pas_renouveler: "Arrêt dimanche soir, ne pas financer la prochaine milestone.",
+          doubler: "2e compte @{{handle}}, démarre le lundi {{date}}. À partir de cette semaine-là, milestone Week {{semaine}} (2 acc), paie × 2.",
           recreer: "Nouveau compte prêt dans l'OS : le posteur le crée sur TikTok et lance le warm-up avant dimanche minuit. L'ancien s'arrête.",
         },
       },
@@ -2425,6 +2425,23 @@ export const fr = {
       annulerPaye: "Annuler « Payé »",
       tarifFiche: "Tarif paie (par compte et par semaine)",
       statuts: { ok: "OK", a_voir: "À voir" },
+      suivante: {
+        financer: "Financer {{montant}} – {{milestone}}",
+        financer_double: "Financer {{tarif}} × 2 – {{milestone}}",
+        financer_normal: "Financer normalement – {{milestone}}",
+        ne_pas_financer: "Ne pas financer – {{raison}}",
+        deja_financee: "Déjà financée : demander remboursement ou fermer le contrat (voir Max)",
+        a_voir: "À voir : 0 post et pas de décision",
+        raisons: {
+          kill: "arrêté (Kill)",
+          desactive: "désactivé",
+          aucun_compte: "aucun compte ne poste la semaine suivante",
+          zero_post: "0 post et pas de décision",
+        },
+        recree: "recréé",
+        faite: "Semaine suivante faite",
+        annulerFaite: "Annuler « Semaine suivante faite »",
+      },
       colonnes: {
         posteur: "Posteur",
         contrat: "Contrat Upwork",
@@ -2437,6 +2454,7 @@ export const fr = {
         retenue: "Retenue",
         montant: "Montant",
         statut: "Statut",
+        suivante: "Semaine suivante",
       },
     },
     accueilHm: {

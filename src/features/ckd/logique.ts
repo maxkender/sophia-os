@@ -184,19 +184,21 @@ export function grouperParHm(propositions: PropositionCkd[]): GroupeHm[] {
  */
 export const BOUTONS_PAR_REGLE: Record<RegleCkd, readonly string[]> = {
   jeudi: ["envoyerNudge", "recreer", "rien"],
-  absent: ["nePasRenouveler", "envoyerNudge", "garder"],
-  premiere_semaine: ["nePasRenouveler", "recreer", "garder"],
+  absent: ["nePasRenouveler", "garder"],
+  premiere_semaine: ["nePasRenouveler", "garder"],
   anciens: ["recreer", "nePasRenouveler", "garder"],
   doubler: ["doubler", "pasMaintenant"],
 };
 
 /**
  * Les boutons d'une proposition, selon le jour du contrôle : le jeudi ne fait
- * aucun arrêt (0368), la règle anciens n'y propose donc que « Recréer ».
+ * aucun arrêt (0368), le samedi ne recrée plus (0369) — Kill ou Double.
  */
 export function boutonsPour(regle: RegleCkd, type: TypeControle): readonly string[] {
   const boutons = BOUTONS_PAR_REGLE[regle];
-  return type === "jeudi" ? boutons.filter((b) => b !== "nePasRenouveler") : boutons;
+  return type === "jeudi"
+    ? boutons.filter((b) => b !== "nePasRenouveler")
+    : boutons.filter((b) => b !== "recreer");
 }
 
 /** Le bouton choisi d'avance : « Recréer » quand le jeudi le propose. */

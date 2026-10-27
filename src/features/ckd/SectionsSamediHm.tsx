@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
+import { semaineIso } from "@/features/moteur/cohortes";
+import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { localeDate } from "@/locales/localeDate";
 
 import { listerDecisionsHm, listerRecrutementHm, marquerFaitHm, type DecisionHm } from "./api";
@@ -14,7 +16,15 @@ import { DiagnosticCompte } from "./DiagnosticCompte";
 const CLE = ["accueil-hm", "samedi"] as const;
 
 function LigneDecision({ d }: { d: DecisionHm }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  // Double (0369) : le 2ᵉ compte démarre le lundi J+9 du samedi du contrôle.
+  const lundiDouble = ajouterJours(d.jour, 9);
+  const consigne = t(`ckd.decisionsHm.consignes.${d.decision}`, {
+    handle: d.nouveau_handle ?? "?",
+    date: new Intl.DateTimeFormat(localeDate(i18n.language), { day: "numeric", month: "long", timeZone: "UTC" })
+      .format(new Date(`${lundiDouble}T12:00:00Z`)),
+    semaine: semaineIso(lundiDouble),
+  });
   const queryClient = useQueryClient();
   const fait = useMutation({
     mutationFn: () => marquerFaitHm(d.id),
@@ -52,7 +62,7 @@ function LigneDecision({ d }: { d: DecisionHm }) {
           )}
         </span>
       </div>
-      <p className="text-xs text-muted-foreground">{t(`ckd.decisionsHm.consignes.${d.decision}`)}</p>
+      <p className="text-xs text-muted-foreground">{consigne}</p>
       {d.note && <p className="text-xs italic text-muted-foreground">{d.note}</p>}
       <DiagnosticCompte diagnostic={d.diagnostic} />
       {fait.error && <p className="text-xs text-destructive">{(fait.error as Error).message}</p>}

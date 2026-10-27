@@ -715,6 +715,13 @@ export const fr = {
       suivant: "Suivant à vérifier",
     },
     relectureNative: {
+      notion: {
+        maj: "Mettre à jour Notion",
+        ouvrir: "Ouvrir dans Notion",
+        enCours: "Mise à jour de la table Notion…",
+        aJour: "Table Notion à jour ({{n}} ligne(s) réécrite(s)).",
+        secretManquant: "Notion n’est pas relié à l’OS (secret NOTION_TOKEN manquant).",
+      },
       titre: "Relecture native",
       description:
         "Tout ce qu’il faut avant la réécriture native : les relecteurs, le kit qu’ils écrivent, leurs réponses au questionnaire et les fiches des applis. Rien ici ne touche la production.",

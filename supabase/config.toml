@@ -128,6 +128,11 @@ verify_jwt = false
 [functions.notion-hired]
 verify_jwt = false
 
+# Appelée depuis l'OS (admin, ou relecteur après son questionnaire ou un post
+# du kit). Le contrôle d'accès est interne (assertRole + relecteur invité/actif).
+[functions.notion-relecteurs]
+verify_jwt = false
+
 [functions.oublier-source]
 verify_jwt = false
 

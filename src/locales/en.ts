@@ -714,6 +714,13 @@ export const en = {
       suivant: "Next to check",
     },
     relectureNative: {
+      notion: {
+        maj: "Update Notion",
+        ouvrir: "Open in Notion",
+        enCours: "Updating the Notion table…",
+        aJour: "Notion table up to date ({{n}} row(s) rewritten).",
+        secretManquant: "Notion is not connected to the OS (NOTION_TOKEN secret missing).",
+      },
       titre: "Native review",
       description:
         "Everything needed before native rewriting: the reviewers, the kit they write, their questionnaire answers and the app sheets. Nothing here touches production.",

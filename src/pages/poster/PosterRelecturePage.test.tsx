@@ -11,6 +11,7 @@ const terminer = vi.fn();
 const listerKit = vi.fn();
 const listerEcritures = vi.fn();
 const enregistrerEcriture = vi.fn();
+const synchroNotion = vi.fn();
 
 vi.mock("@/features/relectureNative/useEspaceRelecteur", () => ({
   CLE_REQUETE_MES_RELECTEURS: ["mes-relecteurs"],
@@ -24,6 +25,7 @@ vi.mock("@/features/relectureNative/api", () => ({
   listerKit: () => listerKit(),
   listerEcrituresKit: (...a: unknown[]) => listerEcritures(...a),
   enregistrerEcritureKit: (...a: unknown[]) => enregistrerEcriture(...a),
+  synchroniserNotionEnFond: () => synchroNotion(),
   presentationsApplis: () =>
     Promise.resolve([{ application_id: "app-micabo", nom: "micabo", slug: "micabo", presentation: "micabo turns your notes into quizzes." }]),
 }));
@@ -79,6 +81,7 @@ describe("PosterRelecturePage", () => {
     listerKit.mockReset();
     listerEcritures.mockReset();
     enregistrerEcriture.mockReset();
+    synchroNotion.mockReset();
     listerKit.mockResolvedValue(POSTS);
     listerEcritures.mockResolvedValue([]);
     enregistrerEcriture.mockResolvedValue(undefined);
@@ -183,6 +186,7 @@ describe("PosterRelecturePage", () => {
     fireEvent.click(screen.getByRole("button", { name: "I'm done" }));
     await waitFor(() => expect(terminer).toHaveBeenCalledWith("r1"));
     expect(await screen.findByText("Thanks! You can still change your answers.")).toBeInTheDocument();
+    expect(synchroNotion).toHaveBeenCalledTimes(1);
   });
 
   it("questionnaire envoyé : on arrive sur les 15 posts, chaque slide avec son image et le rappel « pas mot à mot »", async () => {
@@ -242,6 +246,7 @@ describe("PosterRelecturePage", () => {
       }),
     );
     expect(fini).toBeDisabled();
+    expect(synchroNotion).not.toHaveBeenCalled();
 
     const s2 = screen.getByLabelText("Your version of slide 2");
     fireEvent.change(s2, { target: { value: "Ich lerne mit der micabo-App" } });
@@ -256,6 +261,7 @@ describe("PosterRelecturePage", () => {
     expect(await screen.findByTestId("post-kit-2")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Post 1 · Done" })).toBeInTheDocument();
     expect(screen.getByText("1 / 4 posts done")).toBeInTheDocument();
+    expect(synchroNotion).toHaveBeenCalledTimes(1);
   });
 
   it("ouvre le premier post qui reste à écrire", async () => {

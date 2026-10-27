@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o023",
+ "schema_id": "je-note-tout",
+ "titre": "je note TOUTES les astuces que j'ai essayées pour me remettre à lire #pourtoi #lecture #culture #apprentissage",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "cta B (l'anecdote du jour au milieu du deck, notée 8/10 ; voir CTA.md). Fait vérifié le 27/10 sur https://fr.wikipedia.org/wiki/Les_Misérables : le manuscrit est daté « 30 décembre 1860. Guernesey », Hugo l'achève en exil, et l'ouvrage paraît à partir de fin mars 1862. Routine du 27/10, livraison 5 sur 5. Schéma je-note-tout (r 7,45, d61696f9 ; r 4,51, f0cfb4f0), sur un but jamais fait chez nous : se remettre à lire. Accroches écrites : « je note TOUTES les astuces que j'ai essayées pour me remettre à lire » (retenue : le gabarit du gagnant, sur le geste le plus attendu du label), « je note TOUS les trucs bizarres que j'ai testés pour lire plus » (écartée : moins clair), « j'ai essayé 6 astuces pour lire un livre par semaine : mes notes » (écartée : sans le TOUTES crié). Notes en « je », du 2/10 au 10/10, items neufs : le livre très connu jamais ouvert, lire au lit, l'anecdote sur l'auteur (Sophia), 10 minutes dans les transports, le club de lecture. Aucun livre nommé à part Les Misérables. Images de la banque, sans célébrité ni texte. Inspirations : slides 1, 3, 4 de d61696f9 (sa 2 montre un écran), 1, 2, 3, 4, 6 de f0cfb4f0 (sa 5 cite une appli). Images claires ou en double remplacées par des images sombres après relecture de l'aperçu.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c5bc9b6f",
+   "texte_overlay": "je note TOUTES les astuces\nque j'ai essayées\npour me remettre à lire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0edcacf5",
+   "texte_overlay": "1. acheter un livre très connu pour me motiver\n\n2/10\nil est resté deux mois sur ma table de nuit. joli objet, zéro page lue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c486594",
+   "texte_overlay": "2. lire au lit le soir\n\n4/10\nje m'endormais à la page trois. au moins, je dormais bien.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9340ebca",
+   "texte_overlay": "3. apprendre une anecdote sur un auteur avant de lire\n\n8/10\nce matin : victor hugo a terminé les misérables en exil, à guernesey. le roman est sorti en 1862.\ndu coup, j'ai eu envie de l'ouvrir.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg",
+   "texte_sophia": "3. l'appli Sophia le matin\n\n8/10\nce matin, elle m'a appris que victor hugo a terminé les misérables en exil, à guernesey. le roman est sorti en 1862.\ndu coup, j'ai eu envie de l'ouvrir."
+  },
+  {
+   "position": 5,
+   "media_id": "400433d1",
+   "texte_overlay": "4. lire 10 minutes dans les transports au lieu de scroller\n\n9/10\nen un mois, j'ai fini deux livres sans changer mon emploi du temps.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "34d218ad",
+   "texte_overlay": "5. rejoindre un club de lecture\n\n10/10\nquand d'autres attendent ton avis, tu finis le livre. et tu découvres des livres que t'aurais jamais choisis.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "51c43c06",
+   "texte_overlay": "et toi, c'est quoi ton astuce\npour lire plus ?\nje la teste et je la note.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

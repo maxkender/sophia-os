@@ -14,6 +14,7 @@ import {
   zonesDe,
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
+import { prevenirPosteur, texteRecreation } from "../_shared/slack_posteur.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
@@ -29,8 +30,10 @@ type Supabase = ReturnType<typeof serviceClient>;
  *   { action: "decider", id, decision: "recreer" | "doubler", note? }   admin
  *       Réserve la proposition (`ckd_decider`), crée le compte par
  *       manage-users (`ajouter_compte`, même application), puis le relie
- *       (`ckd_compte_cree`). Recréer : répartition habituelle. Doubler : le
- *       choix équilibré de la répartition, sans les labels du 1ᵉʳ compte.
+ *       (`ckd_compte_cree`). Recréer : répartition habituelle ; l'ancien compte
+ *       s'arrête, ses posts à venir sont retirés (0368), et le posteur reçoit
+ *       un message Slack (pas la HM). Doubler : le choix équilibré de la
+ *       répartition, sans les labels du 1ᵉʳ compte.
  *       Échec : la proposition redevient libre, avec l'erreur.
  *   { action: "recreer_shadowban", compte_id }                        admin
  *       Page Shadowban (0362) : « Nouveau compte » pour un compte signalé, même
@@ -215,7 +218,8 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
       .select("id, handle_tiktok")
       .eq("id", cree.compteId)
       .maybeSingle();
-    return json({ ok: true, compte: nouveau ?? { id: cree.compteId } });
+    const slack = decision === "recreer" ? await prevenirRecreation(supabase, cree.compteId) : undefined;
+    return json({ ok: true, compte: nouveau ?? { id: cree.compteId }, ...(slack ? { slack } : {}) });
   } catch (error) {
     return await liberer(messageErreur(error), 500);
   }
@@ -276,9 +280,66 @@ async function recreerShadowban(supabase: Supabase, compteId: string, par: strin
       .select("id, handle_tiktok")
       .eq("id", cree.compteId)
       .maybeSingle();
-    return json({ ok: true, compte: nouveau ?? { id: cree.compteId } });
+    const slack = await prevenirRecreation(supabase, cree.compteId);
+    return json({ ok: true, compte: nouveau ?? { id: cree.compteId }, slack });
   } catch (error) {
     return await liberer(messageErreur(error), 500);
+  }
+}
+
+/**
+ * Recréation (0368) : message Slack direct au posteur, en anglais, avec ses
+ * deux @, la date et le lundi de reprise. Retrouvé par email perso puis email ;
+ * l'issue (envoyé / introuvable / erreur) est notée sur `ckd_recreations` et
+ * montrée sur la page. Ne fait jamais échouer la recréation, qui est faite.
+ */
+async function prevenirRecreation(
+  supabase: Supabase,
+  nouveauCompteId: string,
+): Promise<{ statut: string; erreur?: string }> {
+  try {
+    const { data: r, error } = await supabase
+      .from("ckd_recreations")
+      .select("id, poster_id, ancien_compte_id, created_at")
+      .eq("nouveau_compte_id", nouveauCompteId)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .single();
+    if (error) throw error;
+    const [{ data: comptes }, { data: profil }] = await Promise.all([
+      supabase.from("comptes").select("id, handle_tiktok").in("id", [r.ancien_compte_id, nouveauCompteId]),
+      supabase.from("profiles").select("email, email_perso").eq("id", r.poster_id).single(),
+    ]);
+    const handle = (id: string) => (comptes ?? []).find((c) => c.id === id)?.handle_tiktok ?? "?";
+    const jourParis = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(r.created_at));
+    const iso = new Date(`${jourParis}T12:00:00Z`).getUTCDay() || 7;
+    const lundi = ajouterJours(jourParis, 8 - iso);
+    const date = (j: string, jourSemaine: boolean) =>
+      new Intl.DateTimeFormat("en-GB", {
+        ...(jourSemaine ? { weekday: "short" } : {}),
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+      }).format(new Date(`${j}T12:00:00Z`));
+    const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
+    const issue = ecriture
+      ? await prevenirPosteur(
+        { ecriture, lecture: Deno.env.get("SLACK_BOT_TOKEN2") },
+        [profil?.email_perso, profil?.email],
+        texteRecreation({
+          ancien: handle(r.ancien_compte_id),
+          nouveau: handle(nouveauCompteId),
+          le: date(jourParis, true),
+          lundi: date(lundi, false),
+        }),
+      )
+      : { statut: "erreur" as const, erreur: "SLACK_HM_BOT_TOKEN manquant" };
+    await supabase.from("ckd_recreations")
+      .update({ slack_statut: issue.statut, slack_at: new Date().toISOString() })
+      .eq("id", r.id);
+    return issue.statut === "erreur" ? { statut: "erreur", erreur: issue.erreur } : { statut: issue.statut };
+  } catch (e) {
+    return { statut: "erreur", erreur: messageErreur(e) };
   }
 }
 
@@ -472,9 +533,12 @@ async function envoyer(supabase: Supabase, controleId: string) {
     .eq("controle_id", controleId)
     .is("envoye_at", null);
   if (errRecrues) throw errRecrues;
-  // Recréer et Doubler ne partent qu'avec leur nouveau compte.
+  // Recréer et Doubler ne partent qu'avec leur nouveau compte. Une recréation
+  // du jeudi ne part pas : la HM n'est pas notifiée (0368), le posteur l'est.
   const props = ((brutes ?? []) as PropositionSlack[]).filter(
-    (p) => !["recreer", "doubler"].includes(p.decision ?? "") || p.nouveau_compte_id,
+    (p) =>
+      (!["recreer", "doubler"].includes(p.decision ?? "") || p.nouveau_compte_id) &&
+      !(c.type === "jeudi" && p.decision === "recreer"),
   );
   if (props.length === 0) return { ok: true, envoyees: 0 };
 

@@ -36,6 +36,7 @@ import {
   lireTextesNudges,
   listerArrets,
   listerHandles,
+  listerSlackRecreations,
   listerManques,
   type ManqueCkd,
   MOTIFS_NUDGE,
@@ -61,7 +62,8 @@ import {
   aEnvoyer,
   annulable,
   boutonDeLaDecision,
-  BOUTONS_PAR_REGLE,
+  boutonPropose,
+  boutonsPour,
   compterActions,
   creeUnCompte,
   DECISION_DU_BOUTON,
@@ -384,6 +386,16 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
     queryFn: () => listerHandles(nouveauxIds),
     enabled: nouveauxIds.length > 0,
   });
+  // Recréations : le message Slack au posteur est-il parti ? (0368)
+  const recreesIds = React.useMemo(
+    () => (propositions.data ?? []).filter((p) => p.decision === "recreer" && p.nouveau_compte_id).map((p) => p.id).sort(),
+    [propositions.data],
+  );
+  const slackRecreations = useQuery({
+    queryKey: [...CLE, "slack-recreations", recreesIds],
+    queryFn: () => listerSlackRecreations(recreesIds),
+    enabled: recreesIds.length > 0,
+  });
   const personnes = useQuery({
     queryKey: [...CLE, "personnes", ids],
     queryFn: () => listerPersonnes(ids),
@@ -544,6 +556,7 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
                       decideur={p.decision_par ? parId.get(p.decision_par) : undefined}
                       arret={arretDe.get(p.compte_id)}
                       nouveauHandle={p.nouveau_compte_id ? handleDe.get(p.nouveau_compte_id) ?? null : null}
+                      slackPosteur={slackRecreations.data?.get(p.id)}
                     />
                   ))}
                 </CardContent>
@@ -807,6 +820,7 @@ function LigneProposition({
   decideur,
   arret,
   nouveauHandle,
+  slackPosteur,
 }: {
   p: PropositionCkd;
   type: TypeControle;
@@ -815,6 +829,7 @@ function LigneProposition({
   decideur?: PersonneCkd;
   arret?: ArretCkd;
   nouveauHandle: string | null;
+  slackPosteur?: string | null;
 }) {
   const { t } = useTranslation();
   const date = useDate();
@@ -968,7 +983,14 @@ function LigneProposition({
         </div>
       </details>
 
-      <BlocDecision p={p} type={type} decideur={decideur} arret={arret} nouveauHandle={nouveauHandle} />
+      <BlocDecision
+        p={p}
+        type={type}
+        decideur={decideur}
+        arret={arret}
+        nouveauHandle={nouveauHandle}
+        slackPosteur={slackPosteur}
+      />
     </div>
   );
 }
@@ -985,17 +1007,20 @@ function BlocDecision({
   decideur,
   arret,
   nouveauHandle,
+  slackPosteur,
 }: {
   p: PropositionCkd;
   type: TypeControle;
   decideur?: PersonneCkd;
   arret?: ArretCkd;
   nouveauHandle: string | null;
+  slackPosteur?: string | null;
 }) {
   const { t } = useTranslation();
   const date = useDate();
   const queryClient = useQueryClient();
-  const [choix, setChoix] = React.useState<string | null>(null);
+  // Le jeudi, « Recréer » proposé est choisi d'avance (0368) : reste à confirmer.
+  const [choix, setChoix] = React.useState<string | null>(() => boutonPropose(p));
   const [note, setNote] = React.useState("");
   const nudge = choix !== null && DECISION_DU_BOUTON[choix] === "nudge";
   const perso = usePersonnalisationNudge(p, nudge);
@@ -1023,7 +1048,7 @@ function BlocDecision({
     return (
       <div className="space-y-2" data-testid={`decision-${p.donnees.handle}`}>
         <div className="flex flex-wrap items-center gap-1.5">
-          {BOUTONS_PAR_REGLE[p.regle].map((b) => (
+          {boutonsPour(p.regle, type).map((b) => (
             <Button
               key={b}
               size="sm"
@@ -1090,6 +1115,12 @@ function BlocDecision({
         ? t("ckd.statut.arrete", { date: date(arret.fait_at, heure) })
         : t("ckd.statut.arretPrevu", { date: date(arret.prevu_at, heure) }),
     );
+  }
+  if (p.decision === "recreer" && p.nouveau_compte_id) {
+    if (slackPosteur === "envoye") statut.push(t("ckd.statut.slackEnvoye"));
+    else if (slackPosteur === "introuvable") statut.push(t("ckd.statut.slackIntrouvable"));
+    else if (slackPosteur === "erreur") statut.push(t("ckd.statut.slackErreur"));
+    if (type === "jeudi") statut.push(t("ckd.statut.hmNonNotifiee"));
   }
   if (p.envoye_at) statut.push(t("ckd.statut.envoye", { date: date(p.envoye_at, heure) }));
   else if (p.decision === "nudge" && p.hm_suivi === false) statut.push(t("ckd.statut.sansSuiviHm"));

@@ -1189,7 +1189,7 @@ export const en = {
         nudge: "@{{handle}} gets the pop-up below at their next login.",
         rien: "Nothing is sent.",
         ne_pas_renouveler: "@{{handle}} posts until Sunday and stops at 11:30 pm (right away on a Monday before 10 am). A poster with no other account is deactivated.",
-        recreer: "A new account is created right away (same app, label from the distribution). @{{handle}} stops at once and moves to the Archive.",
+        recreer: "A new account is created right away (same app, language and country). @{{handle}} stops at once and moves to the Archive; its upcoming posts are removed (not counted as missed). The creator is told in their space and on Slack; their HM isn't.",
         doubler: "A 2nd account is created right away (same app, a label different from the 1st).",
         garder: "Nothing changes; the same rule won't suggest @{{handle}} again for 14 days.",
         pas_maintenant: "Nothing changes; not suggested again for 14 days.",
@@ -1229,6 +1229,10 @@ export const en = {
         envoye: "sent to HM {{date}}",
         aEnvoyer: "not sent to the HM yet",
         sansSuiviHm: "no HM follow-up",
+        slackEnvoye: "creator told on Slack",
+        slackIntrouvable: "creator not found on Slack (neither personal email nor email): tell them another way",
+        slackErreur: "Slack message to the creator not sent",
+        hmNonNotifiee: "HM not notified (Thursday recreation)",
         fait: "✅ done {{date}}",
       },
       canalSlack: "Slack channel for decisions",
@@ -2502,6 +2506,10 @@ export const en = {
         warmupPasCommence: "Warm-up not started (0 follows, 0 likes)",
         startPasClique: "Start warmup not clicked",
       },
+    },
+    recreationPosteur: {
+      texte:
+        "Your account @{{ancien}} was replaced by @{{nouveau}} on {{le}}. Create @{{nouveau}} on TikTok and start the warm-up before Sunday midnight: your posts resume on {{lundi}}.",
     },
     archive: {
       titre: "Archive",

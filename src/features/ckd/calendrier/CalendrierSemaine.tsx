@@ -29,6 +29,7 @@ import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
 import { lireCalendrier, type LigneCalendrier } from "./api";
+import { COULEUR } from "./couleurs";
 import {
   aPublieCalendrier,
   aUnProbleme,
@@ -38,19 +39,9 @@ import {
   paysPresents,
   semainesChoix,
   type CaseJour,
-  type EtatCase,
 } from "./logique";
 
 
-/** Les couleurs des cases : les mêmes partout (vert, orange, rouge, gris). */
-const COULEUR: Record<EtatCase, string> = {
-  ok: "border-success/40 bg-success/15 text-success-foreground",
-  partiel: "border-warning/50 bg-warning/15 text-warning-foreground",
-  rate: "border-destructive/40 bg-destructive/12 text-destructive-foreground",
-  en_cours: "border-border bg-muted/60 text-muted-foreground",
-  a_venir: "border-border bg-muted/40 text-muted-foreground",
-  vide: "border-transparent text-muted-foreground/60",
-};
 
 function initiales(nom: string): string {
   return (

@@ -20,6 +20,8 @@ export interface DiagnosticCkd {
   morts: number;
   seuil_mort: number;
   shadowban: boolean;
+  /** Médiane sous 20 % de celle du pays (0362). */
+  vues_basses?: boolean;
   derniers_morts?: number | null;
   derniers_max?: number | null;
 }

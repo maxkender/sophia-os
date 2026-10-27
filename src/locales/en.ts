@@ -526,7 +526,7 @@ export const en = {
       onboardingNote:
         "The flow is in English only for now. Video creators (pod 3) keep their own screen and never see it.",
       onboardingNoteRuul:
-        "Ruul cohort: the Slack (#welcome, #ruul-cohort) and Payments (Ruul) screens change, the rest is the same. The address shown is an example; the creator sees the one given on the site.",
+        "Ruul cohort: the Slack (#welcome, #ruul-questions) and Payments (Ruul) screens change, the rest is the same. The address shown is an example; the creator sees the one given on the site.",
       completTitre: "Full test (one post per account)",
       completDesc:
         "Simulates the full pipeline on each account: import → cleaning → translation → Sophia. Outputs one test post per account, without assigning or publishing anything.",

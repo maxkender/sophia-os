@@ -527,7 +527,7 @@ export const fr = {
       onboardingNote:
         "Le parcours est en anglais seulement pour l'instant. Les créateurs vidéo (pod 3) gardent leur écran et ne le voient jamais.",
       onboardingNoteRuul:
-        "Cohorte Ruul : les écrans Slack (#welcome, #ruul-cohort) et Payments (Ruul) changent, le reste est identique. L'adresse affichée est un exemple ; le créateur voit celle donnée sur le site.",
+        "Cohorte Ruul : les écrans Slack (#welcome, #ruul-questions) et Payments (Ruul) changent, le reste est identique. L'adresse affichée est un exemple ; le créateur voit celle donnée sur le site.",
       completTitre: "Test complet (un post par compte)",
       completDesc:
         "Simule le pipeline complet sur chaque compte : import → nettoyage → traduction → Sophia. Sort un post de test par compte, sans rien assigner ni publier.",

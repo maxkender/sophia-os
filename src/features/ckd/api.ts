@@ -519,3 +519,84 @@ export async function recreerShadowban(compteId: string): Promise<{ id: string; 
   });
   return r.compte;
 }
+
+// ---------------------------------------------------------------------------
+// Recrutement du samedi et décisions côté HM (0364)
+// ---------------------------------------------------------------------------
+
+export interface RecrutementCkd {
+  id: string;
+  controle_id: string;
+  pays: string;
+  hm_id: string | null;
+  nombre: number;
+  cohorte: string;
+  envoye_at: string | null;
+}
+
+const COLONNES_RECRUTEMENT = "id, controle_id, pays, hm_id, nombre, cohorte, envoye_at";
+
+/** Les lignes « À recruter » d'un contrôle du samedi (admin). */
+export async function listerRecrutement(controleId: string): Promise<RecrutementCkd[]> {
+  const { data, error } = await supabase
+    .from("ckd_recrutement")
+    .select(COLONNES_RECRUTEMENT)
+    .eq("controle_id", controleId)
+    .order("pays");
+  if (error) throw error;
+  return (data ?? []) as RecrutementCkd[];
+}
+
+/** Les pays où des comptes actifs postent : ceux qu'on propose pour « À recruter ». */
+export async function listerPaysActifs(): Promise<string[]> {
+  const { data, error } = await supabase.from("comptes").select("pays").eq("is_active", true).not("pays", "is", null);
+  if (error) throw error;
+  return [...new Set((data ?? []).map((c) => String(c.pays).toUpperCase()))].sort();
+}
+
+/** « À recruter » : la HM est déduite de la zone de recrutement, côté serveur. 0 retire la ligne. */
+export async function enregistrerRecrutement(controleId: string, pays: string, nombre: number) {
+  return await invoke<{ ok: boolean }>("ckd", { action: "recrutement", controle_id: controleId, pays, nombre });
+}
+
+/** La liste de recrutement de la HM : ses lignes envoyées (la base filtre). */
+export async function listerRecrutementHm(): Promise<RecrutementCkd[]> {
+  const { data, error } = await supabase
+    .from("ckd_recrutement")
+    .select(COLONNES_RECRUTEMENT)
+    .not("envoye_at", "is", null)
+    .order("cohorte", { ascending: false })
+    .order("pays")
+    .limit(100);
+  if (error) throw error;
+  return (data ?? []) as RecrutementCkd[];
+}
+
+export interface DecisionHm {
+  id: string;
+  jour: string;
+  decision: "ne_pas_renouveler" | "doubler" | "recreer";
+  compte_id: string;
+  poster_id: string;
+  handle: string | null;
+  pays: string | null;
+  nouveau_handle: string | null;
+  note: string | null;
+  envoye_at: string;
+  fait_at: string | null;
+  fait_par: string | null;
+  diagnostic: DiagnosticCkd | null;
+}
+
+/** Les décisions du samedi envoyées pour les posteurs de la HM. */
+export async function listerDecisionsHm(): Promise<DecisionHm[]> {
+  const { data, error } = await supabase.rpc("ckd_decisions_hm");
+  if (error) throw error;
+  return (data ?? []) as DecisionHm[];
+}
+
+/** « Fait », comme le bouton Done de Slack. */
+export async function marquerFaitHm(id: string): Promise<void> {
+  const { error } = await supabase.rpc("ckd_fait_hm", { p_id: id });
+  if (error) throw error;
+}

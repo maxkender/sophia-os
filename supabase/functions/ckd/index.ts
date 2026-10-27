@@ -13,6 +13,7 @@ import {
   texteRecap,
   zonesDe,
 } from "../_shared/ckd.ts";
+import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
@@ -35,6 +36,9 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       Page Shadowban (0362) : « Nouveau compte » pour un compte signalé, même
  *       création que Recréer (manage-users `ajouter_compte`, même application,
  *       langue et pays), puis `ckd_recreations` et arrêt de l'ancien compte.
+ *   { action: "recrutement", controle_id, pays, nombre }               admin
+ *       « À recruter » du samedi (0364) : la HM du pays (même règle que le
+ *       routage du site), la cohorte (samedi + 9 jours). 0 retire la ligne.
  *   { action: "envoyer", controle_id }                                 admin
  *       Poste dans #managers-hq les décisions pas encore envoyées : le récap
  *       (une fois), puis un message par zone dans son fil.
@@ -78,8 +82,12 @@ Deno.serve(async (request) => {
         if (!body.force && (p.isoJour !== 7 || p.heure !== 12)) return json({ ok: true, ignore: "pas dimanche 12 h" });
         const c = await controleSamedi(supabase, ajouterJours(p.jour, -1));
         if (!c) return json({ ok: true, ignore: "pas de contrôle samedi" });
-        return json(await envoyer(supabase, c.id));
+        // Avant l'envoi, qui ne part qu'avec ce qui est décidé : l'alarme (0364).
+        const alarme = await alarmeNonValidees(supabase, c.id).catch((e) => ({ erreur: messageErreur(e) }));
+        return json({ ...(await envoyer(supabase, c.id)), alarme });
       }
+      case "recrutement":
+        return json(await enregistrerRecrutement(supabase, body));
       case "rappel_lundi": {
         const p = maintenantParis();
         if (!body.force && (p.isoJour !== 1 || p.heure !== 9)) return json({ ok: true, ignore: "pas lundi 9 h" });
@@ -350,6 +358,91 @@ async function appelerManageUsers(
 }
 
 // ---------------------------------------------------------------------------
+// Recrutement et alarme du dimanche (0364)
+// ---------------------------------------------------------------------------
+
+/** Max, sur Slack : prévenu quand les propositions du samedi ne sont pas validées à temps. */
+const SLACK_MAX = "U0BL5FRLBEU";
+
+/** HMs (et Head of Ops) actifs qui ont une zone, comme le routage du site (hub-posteurs). */
+async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
+  const { data: roles, error: errRoles } = await supabase
+    .from("user_roles")
+    .select("user_id")
+    .in("role", ["hiring_manager", "head_of_ops"]);
+  if (errRoles) throw errRoles;
+  const ids = [...new Set((roles ?? []).map((r: { user_id: string }) => r.user_id))];
+  if (ids.length === 0) return [];
+  const { data: profils, error } = await supabase
+    .from("profiles")
+    .select("id, prenom, nom, email, zone_recrutement, langues")
+    .in("id", ids)
+    .eq("is_active", true)
+    .not("zone_recrutement", "is", null);
+  if (error) throw error;
+  return await Promise.all((profils ?? []).map(async (p) => {
+    const { count, error: errCount } = await supabase
+      .from("profiles")
+      .select("id", { count: "exact", head: true })
+      .eq("manager_id", p.id)
+      .eq("is_active", true);
+    if (errCount) throw errCount;
+    return { ...(p as Omit<Recruteur, "posters_actifs">), posters_actifs: count ?? 0 };
+  }));
+}
+
+// deno-lint-ignore no-explicit-any
+async function enregistrerRecrutement(supabase: Supabase, body: any) {
+  const controleId = String(body.controle_id ?? "");
+  const pays = String(body.pays ?? "").trim().toUpperCase();
+  const nombre = Number(body.nombre ?? 0);
+  if (!controleId || !/^[A-Z]{2}$/.test(pays) || !Number.isInteger(nombre) || nombre < 0 || nombre > 500) {
+    throw new Error("controle_id, pays (ISO) et nombre (0 à 500) requis");
+  }
+  const { data: c, error } = await supabase.from("ckd_controles").select("id, type, jour").eq("id", controleId).single();
+  if (error) throw error;
+  if (c.type !== "samedi") throw new Error("« À recruter » se note sur le contrôle du samedi");
+
+  if (nombre === 0) {
+    const { error: errDel } = await supabase.from("ckd_recrutement").delete().eq("controle_id", controleId).eq("pays", pays);
+    if (errDel) throw errDel;
+    return { ok: true, pays, nombre: 0 };
+  }
+  const hmId = hmDuPays(pays, await lireRecruteurs(supabase));
+  const { data: ligne, error: errUp } = await supabase
+    .from("ckd_recrutement")
+    .upsert({
+      controle_id: controleId,
+      pays,
+      hm_id: hmId,
+      nombre,
+      cohorte: ajouterJours(c.jour, 9),
+      maj_at: new Date().toISOString(),
+    }, { onConflict: "controle_id,pays" })
+    .select("id, pays, hm_id, nombre, cohorte, envoye_at")
+    .single();
+  if (errUp) throw errUp;
+  return { ok: true, ...ligne };
+}
+
+/** Dimanche 12 h : des propositions du samedi sans décision ? Un message à Max. */
+async function alarmeNonValidees(supabase: Supabase, controleId: string) {
+  const { count, error } = await supabase
+    .from("ckd_propositions")
+    .select("id", { count: "exact", head: true })
+    .eq("controle_id", controleId)
+    .is("decision", null);
+  if (error) throw error;
+  if (!count) return { envoyee: false, non_validees: 0 };
+  const r = await slackApi(jetonSlack(), "chat.postMessage", {
+    channel: SLACK_MAX,
+    text: `:rotating_light: Check, Kill or Double: ${count} Saturday proposal${count > 1 ? "s are" : " is"} still not validated ` +
+      "(Sunday 12:00). Only the validated decisions were sent to the HMs. Validate the rest in the OS, then send again.",
+  });
+  return { envoyee: r.ok, non_validees: count, ...(r.ok ? {} : { erreur: r.error }) };
+}
+
+// ---------------------------------------------------------------------------
 // Slack
 // ---------------------------------------------------------------------------
 
@@ -372,6 +465,13 @@ async function envoyer(supabase: Supabase, controleId: string) {
     // Suivi du HM désactivé sur la page (0339) : rien dans #managers-hq.
     .eq("hm_suivi", true);
   if (errProps) throw errProps;
+  // La liste de recrutement du contrôle apparaît chez les HMs à l'envoi (0364).
+  const { error: errRecrues } = await supabase
+    .from("ckd_recrutement")
+    .update({ envoye_at: new Date().toISOString() })
+    .eq("controle_id", controleId)
+    .is("envoye_at", null);
+  if (errRecrues) throw errRecrues;
   // Recréer et Doubler ne partent qu'avec leur nouveau compte.
   const props = ((brutes ?? []) as PropositionSlack[]).filter(
     (p) => !["recreer", "doubler"].includes(p.decision ?? "") || p.nouveau_compte_id,

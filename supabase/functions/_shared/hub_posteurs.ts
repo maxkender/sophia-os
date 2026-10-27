@@ -189,6 +189,15 @@ export function resoudreAffectation(paysCode: string, recruteurs: Recruteur[]): 
   return { ok: true, hm: gere, langue };
 }
 
+/**
+ * La HM qui recrute dans ce pays (« À recruter » du samedi, 0364) : celle du
+ * routage du site, même si la langue du pays n'y est pas encore gérée.
+ */
+export function hmDuPays(paysCode: string, recruteurs: Recruteur[]): string | null {
+  const a = resoudreAffectation(paysCode, recruteurs);
+  return a.ok || a.raison === "langue_non_geree" ? a.hm.id : null;
+}
+
 /** Pays couverts par au moins un HM, ouverts ou non (langue pas gérée), pour le bouton « Accepter » du site. */
 export function carteDesZones(recruteurs: Recruteur[]): {
   ouverts: { pays_code: string; langue: string; hm_id: string }[];

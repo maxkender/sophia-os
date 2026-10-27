@@ -85,6 +85,7 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
+import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
@@ -506,6 +507,8 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
           {t("ckd.envoyees", { n: envoyerHm.data.envoyees })}
         </p>
       )}
+
+      {type === "samedi" && controle && <CarteRecrutement controle={controle} />}
 
       {controles.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>

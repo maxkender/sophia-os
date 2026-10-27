@@ -38,6 +38,7 @@ import {
 } from "@/features/moteur/comptesCm";
 import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
+import { CaseReposts } from "@/features/ckd/cohorte/CaseReposts";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
 import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
@@ -467,6 +468,7 @@ export function PosterCalendrierPage() {
             )}
           </div>
         )}
+        {compte && !ugc && warmupStatut !== "termine" && <CaseReposts compteId={compte.id} />}
       </div>
       )}
 

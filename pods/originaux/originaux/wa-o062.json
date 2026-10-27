@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o062",
+ "titre": "hobbies that will make you scary smart #selfimprovement #intelligence #learning #languages #hobbies",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "1c5a68fa-929f-4892-90d1-f57236ec4a2b"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 1c5a68fa). variante de wa-o031 (39 900 vues en pl) : même schéma « hobbies qui rendent cultivé », accroche changée (pas de dangerously/disgustingly), angle « les mots et les langues ». cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1d754c33-e41b-4a73-bb27-c8704b979146",
+   "texte_overlay": "hobbies that will make you\nscary smart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180646083038478/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cb2fca8e-d9c2-4b2c-a8bf-78f587c42d05",
+   "texte_overlay": "a word a day\n\nlearn one new word a day and use it in a sentence before bed. a bigger vocabulary doesn't just make you sound smarter, it gives you more ways to actually think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180646083038478/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ea9cb0af-8fe4-403c-9619-5d366760f584",
+   "texte_overlay": "foreign films\n\nwatch one film a week in a language you don't speak, with subtitles. you pick up the rhythm of other languages and see how differently people live and think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180646083038478/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9b4feaa4-c605-4866-b531-e34f9ea3a58d",
+   "texte_overlay": "where words come from\n\nspend 5 minutes a day learning the story behind one word or one idea. knowing where things come from makes every conversation, book and headline suddenly make more sense.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180646083038478/3.jpg",
+   "texte_sophia": "where words come from\n\ni spend 5 minutes a day learning the story behind one word or one idea. i do it with the Sophia app, one lesson a day, and every book and headline suddenly makes more sense."
+  },
+  {
+   "position": 5,
+   "media_id": "22f94b3c-e7f1-4fea-aeab-39131093548b",
+   "texte_overlay": "a language on the side\n\nlearn 10 words a day in a language you'd love to speak someday. even a little of a second language changes how you hear your own, and it keeps your memory sharp.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180646083038478/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cb1dddd7-0310-4786-8f1e-4a5e115acc87",
+   "texte_overlay": "poetry out loud\n\nread one poem out loud every evening. poetry squeezes huge ideas into a few lines, and reading it slowly teaches you to notice what most people rush straight past.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180646083038478/6.jpg"
+  }
+ ]
+}

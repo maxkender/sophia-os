@@ -85,6 +85,13 @@ Deno.test("texteDecision : ce que le HM doit faire, décision par décision", ()
   assert(double9.includes("2nd account *@second.one*, starts on Monday 9 Nov"));
   assert(double9.includes('milestone "Week 46 (2 acc)", pay × 2'));
 
+  // v3 (0382) : Doubler sans compte = offre au posteur, de l'information pour la HM.
+  const offre = texteDecision(decision({ decision: "doubler", regle: "doubler" }), 45, "2026-11-09");
+  assert(offre.includes("*Double offered*"));
+  assert(offre.includes("pop-up in the OS from Sunday"));
+  assert(offre.includes("starts on Monday 9 Nov"));
+  assert(offre.includes("Nothing to do for you."));
+
   const nudge = texteDecision(decision({ decision: "nudge", publies: 3, attendus: 10, note: "parle-lui" }), 44);
   assert(nudge.includes("*Follow up*"));
   assert(nudge.includes("Posted 3/10 this week"));

@@ -26,6 +26,7 @@ import { paireDuJour } from "@/features/ckd/cohorte/logique";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
+import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
 async function nomsPosteurs(ids: string[]): Promise<Map<string, string>> {
@@ -232,6 +233,7 @@ export function HiringAccueilPage() {
           <SemaineProchaine hm={hm} />
 
           <AnciensPosteurs hm={hm} />
+          <SuiviMessages admin={false} />
         </>
       )}
     </div>

@@ -89,6 +89,8 @@ import {
 import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
 import { VueHm } from "@/features/ckd/vueHm/VueHm";
 import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
+import { ReglagesMessages } from "@/features/messagesPosteurs/ReglagesMessages";
+import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
@@ -218,9 +220,17 @@ export function AdminCheckKillDoublePage() {
 
           <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
             {onglet === "reglages" ? (
-              <VueReglages />
+              <div className="space-y-6">
+                <VueReglages />
+                <ReglagesMessages />
+              </div>
             ) : onglet === "historique" ? (
               <VueHistorique />
+            ) : onglet === "samedi" ? (
+              <div className="space-y-6">
+                <VueControles key={onglet} type={onglet} />
+                <SuiviMessages admin />
+              </div>
             ) : (
               <VueControles key={onglet} type={onglet} />
             )}
@@ -1113,6 +1123,9 @@ function BlocDecision({
   const statut: string[] = [];
   if (creeUnCompte(p.decision)) {
     statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.compteAttente"));
+  } else if (p.decision === "doubler") {
+    // v3 (0382) : une offre au posteur ; le compte n'existe que s'il a dit oui.
+    statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.offreDouble"));
   }
   if (arret && !arret.annule_at) {
     statut.push(

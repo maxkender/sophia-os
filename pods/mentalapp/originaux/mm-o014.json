@@ -1,0 +1,551 @@
+{
+ "id": "mm-o014",
+ "titre": "tier list of Confidence boosters",
+ "position_app": 2,
+ "legendes": {
+  "en": "confidence boosters, ranked #confidence #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "ce qui booste ta confiance, classé #confiance #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Selbstvertrauen-Booster im Ranking #selbstvertrauen #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "lo que sube tu confianza, en ranking #confianza #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "cosa aumenta la fiducia in te, in classifica #autostima #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "özgüven artırıcılar sıralaması #özgüven #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7691308606603447559/1",
+   "boite": [
+    250,
+    300,
+    630,
+    516
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list de ce",
+   "de": "Tierlist der",
+   "es": "tier list de lo",
+   "it": "tier list di cosa",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Confidence",
+   "fr": "qui booste",
+   "de": "Selbstvertrauen-",
+   "es": "que sube",
+   "it": "aumenta",
+   "tr": "özgüven"
+  },
+  "bas": {
+   "en": "boosters",
+   "fr": "ta confiance",
+   "de": "Booster",
+   "es": "tu confianza",
+   "it": "la fiducia",
+   "tr": "artırıcılar"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what made you confident?",
+  "fr": "qu’est-ce qui t’a donné confiance ?",
+  "de": "was hat dir Selbstvertrauen gegeben?",
+  "es": "¿qué te dio confianza?",
+  "it": "cosa ti ha dato fiducia?",
+  "tr": "sana özgüveni ne verdi?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "real confidence",
+    "fr": "vraie confiance",
+    "de": "echtes Selbstvertrauen",
+    "es": "confianza real",
+    "it": "fiducia vera",
+    "tr": "gerçek özgüven"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "lifting",
+      "fr": "muscu",
+      "de": "Krafttraining",
+      "es": "pesas",
+      "it": "pesi",
+      "tr": "ağırlık"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      805,
+      241,
+      99,
+      94
+     ],
+     "t": {
+      "en": "getting good|at a skill",
+      "fr": "devenir bon|à un truc",
+      "de": "in etwas|gut werden",
+      "es": "ser bueno|en algo",
+      "it": "diventare bravo|in qualcosa",
+      "tr": "bir şeyde|iyi olmak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "keeping|your word",
+      "fr": "tenir|parole",
+      "de": "Wort|halten",
+      "es": "cumplir|tu palabra",
+      "it": "mantenere|la parola",
+      "tr": "sözünü|tutmak"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      662,
+      239,
+      102,
+      99
+     ],
+     "t": {
+      "en": "beating|your PR",
+      "fr": "battre|ton record",
+      "de": "Rekord|brechen",
+      "es": "superar|tu récord",
+      "it": "battere|il record",
+      "tr": "rekorunu|kırmak"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      766,
+      394,
+      110,
+      110
+     ],
+     "t": {
+      "en": "walking alone",
+      "fr": "marcher seul",
+      "de": "allein spazieren",
+      "es": "caminar solo",
+      "it": "camminare da solo",
+      "tr": "yalnız yürümek"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "finishing|what you start",
+      "fr": "finir ce que|tu commences",
+      "de": "beenden, was|du anfängst",
+      "es": "terminar lo que|empiezas",
+      "it": "finire quello|che inizi",
+      "tr": "başladığını|bitirmek"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "fr": "8h de sommeil",
+      "de": "8h Schlaf",
+      "es": "8h de sueño",
+      "it": "8 ore di sonno",
+      "tr": "8 saat uyku"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "eating clean",
+      "fr": "manger sain",
+      "de": "sauber essen",
+      "es": "comer limpio",
+      "it": "mangiare sano",
+      "tr": "temiz beslenmek"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "hype playlist",
+      "fr": "playlist qui motive",
+      "de": "Motivations-Playlist",
+      "es": "playlist motivadora",
+      "it": "playlist carica",
+      "tr": "gaz veren liste"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee",
+      "fr": "café",
+      "de": "Kaffee",
+      "es": "café",
+      "it": "caffè",
+      "tr": "kahve"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "new outfit",
+      "fr": "nouvelle tenue",
+      "de": "neues Outfit",
+      "es": "outfit nuevo",
+      "it": "outfit nuovo",
+      "tr": "yeni kıyafet"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "water",
+      "fr": "boire de l’eau",
+      "de": "Wasser trinken",
+      "es": "beber agua",
+      "it": "bere acqua",
+      "tr": "su içmek"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake confidence",
+    "fr": "fausse confiance",
+    "de": "falsches Selbstvertrauen",
+    "es": "falsa confianza",
+    "it": "finta fiducia",
+    "tr": "sahte özgüven"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "motivation|videos",
+      "fr": "vidéos|motivation",
+      "de": "Motivations-|videos",
+      "es": "vídeos de|motivación",
+      "it": "video|motivazionali",
+      "tr": "motivasyon|videoları"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "likes on|your posts",
+      "fr": "les likes|sur tes posts",
+      "de": "Likes auf|deine Posts",
+      "es": "likes en|tus posts",
+      "it": "like ai|tuoi post",
+      "tr": "paylaşımlarına|beğeni"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "supplements",
+      "fr": "compléments",
+      "de": "Supplements",
+      "es": "suplementos",
+      "it": "integratori",
+      "tr": "takviyeler"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "ranked wins",
+      "fr": "victoires en ranked",
+      "de": "Ranked-Siege",
+      "es": "victorias ranked",
+      "it": "vittorie ranked",
+      "tr": "dereceli galibiyetler"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills it",
+   "fr": "la tue",
+   "de": "zerstört es",
+   "es": "la mata",
+   "it": "la uccide",
+   "tr": "yok eder"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "comparing|on reels",
+     "fr": "se comparer|sur les reels",
+     "de": "Vergleichen|auf Reels",
+     "es": "compararte|en reels",
+     "it": "confrontarsi|sui reel",
+     "tr": "reels’te|kıyaslamak"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h",
+     "de": "Scrollen um 3",
+     "es": "scroll a las 3",
+     "it": "scrollare alle 3",
+     "tr": "gece 3’te scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 27/10 : la seule tier list du jour (point 6 de ROUTINE.md), sujet confiance. cta B : élément UnSwipe en dernière case du S+. Couverture : Tom Hardy au bouquet de la banque."
+}

@@ -1,0 +1,219 @@
+{
+ "id": "mm-o016",
+ "format": "carrousel",
+ "titre": "Sleepmaxxing tier list",
+ "legendes": {
+  "en": "sleepmaxxing tier list, what actually fixes your sleep #sleepmaxxing #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "tier list sleepmaxxing, ce qui répare vraiment ton sommeil #sleepmaxxing #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Sleepmaxxing Tierlist, was deinen Schlaf wirklich repariert #sleepmaxxing #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "tier list sleepmaxxing, lo que de verdad arregla tu sueño #sleepmaxxing #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "tier list sleepmaxxing, cosa sistema davvero il sonno #sleepmaxxing #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "sleepmaxxing tier list, uykunu gerçekten düzeltenler #sleepmaxxing #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7689665265591799048/1",
+   "boite": [
+    290,
+    246,
+    402,
+    616
+   ]
+  },
+  "theme": {
+   "en": "Sleepmaxxing",
+   "fr": "Sleepmaxxing",
+   "de": "Sleepmaxxing",
+   "es": "Sleepmaxxing",
+   "it": "Sleepmaxxing",
+   "tr": "Sleepmaxxing"
+  },
+  "sous": {
+   "en": "tier list",
+   "fr": "tier list",
+   "de": "Tierlist",
+   "es": "tier list",
+   "it": "tier list",
+   "tr": "tier list"
+  }
+ },
+ "items": [
+  {
+   "rang": "F",
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "Reels in bed",
+    "fr": "Reels au lit",
+    "de": "Reels im Bett",
+    "es": "Reels en la cama",
+    "it": "Reel a letto",
+    "tr": "Yatakta reels"
+   },
+   "texte": {
+    "en": "Bright screen, endless new content. Your brain stays switched on long after you put the phone down.",
+    "fr": "Écran lumineux, contenu sans fin. Ton cerveau reste allumé bien après avoir posé le téléphone.",
+    "de": "Heller Bildschirm, endloser Content. Dein Gehirn bleibt an, lange nachdem du das Handy weglegst.",
+    "es": "Pantalla brillante, contenido sin fin. Tu cerebro sigue encendido mucho después de soltar el móvil.",
+    "it": "Schermo luminoso, contenuti infiniti. Il cervello resta acceso molto dopo aver posato il telefono.",
+    "tr": "Parlak ekran, bitmeyen içerik. Telefonu bıraktıktan çok sonra bile beynin açık kalır."
+   }
+  },
+  {
+   "rang": "S+",
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Same time every night",
+    "fr": "Même heure chaque soir",
+    "de": "Jeden Abend gleiche Zeit",
+    "es": "Misma hora cada noche",
+    "it": "Stessa ora ogni sera",
+    "tr": "Her gece aynı saat"
+   },
+   "texte": {
+    "en": "Even on weekends. A fixed bedtime does more than any supplement or sleep hack.",
+    "fr": "Même le week-end. Une heure fixe fait plus que n’importe quel complément ou astuce.",
+    "de": "Auch am Wochenende. Eine feste Schlafenszeit bringt mehr als jedes Supplement oder jeder Schlaf-Hack.",
+    "es": "Incluso los fines de semana. Una hora fija hace más que cualquier suplemento o truco.",
+    "it": "Anche nel weekend. Un orario fisso fa più di qualsiasi integratore o trucco.",
+    "tr": "Hafta sonu bile. Sabit bir yatış saati her takviyeden ya da uyku hilesinden daha etkilidir."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "No coffee after 2pm",
+    "fr": "Pas de café après 14h",
+    "de": "Kein Kaffee nach 14 Uhr",
+    "es": "Nada de café tras las 14h",
+    "it": "Niente caffè dopo le 14",
+    "tr": "Saat 14’ten sonra kahve yok"
+   },
+   "texte": {
+    "en": "Caffeine stays in your body for hours. Your 5pm coffee is still awake when you try to sleep.",
+    "fr": "La caféine reste des heures dans ton corps. Ton café de 17h est encore réveillé quand tu veux dormir.",
+    "de": "Koffein bleibt stundenlang im Körper. Dein Kaffee von 17 Uhr ist noch wach, wenn du schlafen willst.",
+    "es": "La cafeína se queda horas en tu cuerpo. Tu café de las 17h sigue despierto cuando intentas dormir.",
+    "it": "La caffeina resta nel corpo per ore. Il caffè delle 17 è ancora sveglio quando provi a dormire.",
+    "tr": "Kafein vücudunda saatlerce kalır. Saat 17’deki kahven, uyumaya çalıştığında hâlâ uyanık."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "My worst nights were the ones I scrolled. Since I deleted short videos with UnSwipe, I fall asleep in minutes.",
+    "fr": "Mes pires nuits, c’était celles où je scrollais. Depuis que j’ai supprimé les vidéos courtes avec UnSwipe, je m’endors en quelques minutes.",
+    "de": "Meine schlimmsten Nächte waren die mit Scrollen. Seit ich Kurzvideos mit UnSwipe gelöscht habe, schlafe ich in Minuten ein.",
+    "es": "Mis peores noches eran las de hacer scroll. Desde que borré los vídeos cortos con UnSwipe, me duermo en minutos.",
+    "it": "Le mie notti peggiori erano quelle passate a scrollare. Da quando ho eliminato i video brevi con UnSwipe, mi addormento in pochi minuti.",
+    "tr": "En kötü gecelerim scroll yaptığım gecelerdi. Kısa videoları UnSwipe ile sildiğimden beri dakikalar içinde uyuyorum."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Warm shower",
+    "fr": "Douche chaude",
+    "de": "Warme Dusche",
+    "es": "Ducha caliente",
+    "it": "Doccia calda",
+    "tr": "Ilık duş"
+   },
+   "texte": {
+    "en": "An hour before bed. Your body cools down after it, and that drop helps you fall asleep.",
+    "fr": "Une heure avant de dormir. Ton corps refroidit ensuite, et cette baisse aide à s’endormir.",
+    "de": "Eine Stunde vor dem Schlafen. Danach kühlt dein Körper ab, und das hilft beim Einschlafen.",
+    "es": "Una hora antes de dormir. Después tu cuerpo se enfría, y esa bajada te ayuda a dormirte.",
+    "it": "Un’ora prima di dormire. Poi il corpo si raffredda, e quel calo aiuta ad addormentarsi.",
+    "tr": "Yatmadan bir saat önce. Sonrasında vücudun soğur ve bu düşüş uykuya dalmana yardım eder."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "10k steps",
+    "fr": "10k pas",
+    "de": "10k Schritte",
+    "es": "10k pasos",
+    "it": "10k passi",
+    "tr": "10k adım"
+   },
+   "texte": {
+    "en": "A tired body sleeps deeper. Walking more is the easiest sleep fix nobody talks about.",
+    "fr": "Un corps fatigué dort plus profond. Marcher plus, c’est l’astuce sommeil la plus simple.",
+    "de": "Ein müder Körper schläft tiefer. Mehr gehen ist der einfachste Schlaf-Fix, über den keiner spricht.",
+    "es": "Un cuerpo cansado duerme más profundo. Caminar más es el truco de sueño más fácil.",
+    "it": "Un corpo stanco dorme più profondo. Camminare di più è il trucco per il sonno più semplice.",
+    "tr": "Yorgun beden daha derin uyur. Daha çok yürümek, kimsenin konuşmadığı en kolay uyku çözümü."
+   }
+  },
+  {
+   "rang": "D",
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Working in bed",
+    "fr": "Bosser au lit",
+    "de": "Im Bett arbeiten",
+    "es": "Trabajar en la cama",
+    "it": "Lavorare a letto",
+    "tr": "Yatakta çalışmak"
+   },
+   "texte": {
+    "en": "Your brain links the bed with tasks and stress. Keep the bed for sleep only.",
+    "fr": "Ton cerveau associe le lit au boulot et au stress. Garde le lit pour dormir.",
+    "de": "Dein Gehirn verbindet das Bett mit Arbeit und Stress. Nutz das Bett nur zum Schlafen.",
+    "es": "Tu cerebro asocia la cama con tareas y estrés. Deja la cama solo para dormir.",
+    "it": "Il cervello associa il letto a compiti e stress. Usa il letto solo per dormire.",
+    "tr": "Beynin yatağı işle ve stresle eşleştirir. Yatağı sadece uyku için kullan."
+   }
+  }
+ ],
+ "notes": "routine du 27/10 : original au format carrousel, sujet sommeil. cta C : élément UnSwipe en item à lui seul (4e item), conseil à la 1re personne."
+}

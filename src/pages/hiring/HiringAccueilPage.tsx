@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { BarreChargement } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
+import { BonusAVenir } from "@/features/bonus/BonusAVenir";
+import { SectionBonus } from "@/features/bonus/SectionBonus";
 import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
 import { AnciensPosteurs } from "@/features/ckd/anciens/AnciensPosteurs";
 import { SemaineProchaine } from "@/features/ckd/semaineProchaine/SemaineProchaine";
@@ -243,6 +245,11 @@ export function HiringAccueilPage() {
           <SectionsSamediHm />
 
           <SectionPaieHm hmId={user?.id} />
+
+          <BonusAVenir hm={hm} />
+
+          {/* Les bonus se paient ici pour le Head of Ops (Lucia), comme dans Admin → Paie. */}
+          {role === "head_of_ops" && <SectionBonus />}
 
           <CalendrierSemaine hm={hm} />
 

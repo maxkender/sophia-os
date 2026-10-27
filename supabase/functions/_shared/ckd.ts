@@ -37,6 +37,23 @@ export interface DecisionSlack {
   /** Le message au HM modifié sur la page pour ce posteur (0339) : remplace la consigne par défaut d'un nudge. */
   texteHm: string | null;
   fait: { par: string; heure: string } | null;
+  /** Le diagnostic du compte (0362, colonne calculée `diagnostic`). */
+  diagnostic?: DiagnosticCkd | null;
+}
+
+/** Le diagnostic d'un compte, calculé par `ckd_diagnostic` (0362). */
+export interface DiagnosticCkd {
+  badge: "ok" | "posts_manquants" | "vues_basses" | "shadowban";
+  attendus: number;
+  publies: number;
+  liens_manquants: string[];
+  mediane: number | null;
+  mediane_ref: number | null;
+  morts: number;
+  seuil_mort: number;
+  shadowban: boolean;
+  derniers_morts?: number | null;
+  derniers_max?: number | null;
 }
 
 export interface ZoneSlack {
@@ -110,6 +127,46 @@ function compte(handle: string | null): string {
 
 function lienTiktok(handle: string | null): string {
   return handle ? ` · <https://www.tiktok.com/@${handle}|TikTok>` : "";
+}
+
+const BADGE_SLACK: Record<DiagnosticCkd["badge"], string> = {
+  ok: ":large_green_circle: OK",
+  posts_manquants: ":large_orange_circle: Missing posts",
+  vues_basses: ":large_yellow_circle: Low views",
+  shadowban: ":red_circle: Shadowban",
+};
+
+const VERDICT_SLACK: Record<DiagnosticCkd["badge"], string> = {
+  ok: "OK",
+  posts_manquants: "missing posts → make sure they publish everything and paste each link",
+  vues_basses: "views far below the country → go through their posts with them",
+  shadowban: "probable shadowban → new account",
+};
+
+function nombre(n: number | null | undefined): string {
+  return n === null || n === undefined ? "—" : Math.round(n).toLocaleString("en-US");
+}
+
+/** « 17, 18, 20, 21 Oct » */
+function joursSlack(jours: string[]): string {
+  if (jours.length === 0) return "";
+  const mois = new Date(`${jours[jours.length - 1]}T12:00:00Z`).toLocaleString("en-US", { month: "short", timeZone: "UTC" });
+  return `${jours.map((j) => Number(j.slice(8, 10))).join(", ")} ${mois}`;
+}
+
+/** Le diagnostic en 3 lignes, en haut du message : posts, vues, verdict (0362). */
+export function lignesDiagnosticSlack(d: DiagnosticCkd): string[] {
+  const manquants = Math.max(0, d.attendus - d.publies);
+  const liens = d.liens_manquants ?? [];
+  const posts = `Posts: ${d.publies} published out of ${d.attendus} expected` +
+    (manquants > 0 ? `, ${manquants} link${manquants > 1 ? "s" : ""} missing${liens.length ? ` (${joursSlack(liens)})` : ""}` : "");
+  const vues = `Views: median ${nombre(d.mediane)} (country: ${nombre(d.mediane_ref)})` +
+    (d.morts > 0 ? `, ${d.morts} dead post${d.morts > 1 ? "s" : ""} (< ${nombre(d.seuil_mort)} views)` : "");
+  return [`${BADGE_SLACK[d.badge]} · ${posts}`, vues, `Verdict: ${VERDICT_SLACK[d.badge]}`];
+}
+
+function diagnosticEnTete(d: DecisionSlack): string[] {
+  return d.diagnostic ? lignesDiagnosticSlack(d.diagnostic).map((l) => `> ${l}`) : [];
 }
 
 function quiHm(z: ZoneSlack, mention: boolean): string {
@@ -193,6 +250,8 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
     lignes.push(`:speech_balloon: *Follow up* ${qui}`);
     lignes.push(consigneEnvoyee(d));
   }
+  // Le diagnostic juste sous le titre, avant le détail.
+  lignes.splice(1, 0, ...diagnosticEnTete(d));
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
 }
@@ -200,7 +259,7 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
 /** Le texte d'un nouveau posteur à relancer (jeudi) : quoi vérifier avec lui. */
 export function texteSuiviJeudi(d: DecisionSlack): string {
   const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
-  const lignes = [`:eyes: *Follow up* ${qui}`, consigneEnvoyee(d)];
+  const lignes = [`:eyes: *Follow up* ${qui}`, ...diagnosticEnTete(d), consigneEnvoyee(d)];
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
 }
@@ -340,10 +399,11 @@ export interface PropositionSlack {
   fait_at: string | null;
   fait_par: string | null;
   slack_ts: string | null;
+  diagnostic?: DiagnosticCkd | null;
 }
 
 export const COLONNES_PROPOSITION =
-  "id, controle_id, regle, decision, compte_id, poster_id, hm_id, pays, donnees, note, hm_texte, nouveau_compte_id, envoye_at, fait_at, fait_par, slack_ts";
+  "id, controle_id, regle, decision, compte_id, poster_id, hm_id, pays, donnees, note, hm_texte, nouveau_compte_id, envoye_at, fait_at, fait_par, slack_ts, diagnostic";
 
 function nom(p: { prenom: string | null; nom: string | null } | undefined): string {
   return [p?.prenom, p?.nom].filter(Boolean).join(" ").trim();
@@ -413,6 +473,7 @@ export async function zonesDe(supabase: Supabase, props: PropositionSlack[]): Pr
       note: p.note,
       texteHm: p.hm_texte ?? null,
       fait: p.fait_at && p.fait_par ? { par: p.fait_par, heure: heureCourteParis(p.fait_at) } : null,
+      diagnostic: p.diagnostic ?? null,
     });
   }
   const ordre = (d: DecisionSlack) => DECISIONS_ENVOYEES.indexOf(d.decision);

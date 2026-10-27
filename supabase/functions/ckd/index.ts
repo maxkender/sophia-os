@@ -31,6 +31,10 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       (`ckd_compte_cree`). Recréer : répartition habituelle. Doubler : le
  *       choix équilibré de la répartition, sans les labels du 1ᵉʳ compte.
  *       Échec : la proposition redevient libre, avec l'erreur.
+ *   { action: "recreer_shadowban", compte_id }                        admin
+ *       Page Shadowban (0362) : « Nouveau compte » pour un compte signalé, même
+ *       création que Recréer (manage-users `ajouter_compte`, même application,
+ *       langue et pays), puis `ckd_recreations` et arrêt de l'ancien compte.
  *   { action: "envoyer", controle_id }                                 admin
  *       Poste dans #managers-hq les décisions pas encore envoyées : le récap
  *       (une fois), puis un message par zone dans son fil.
@@ -65,6 +69,8 @@ Deno.serve(async (request) => {
     switch (body.action) {
       case "decider":
         return await decider(supabase, body, cron ? null : acces.userId);
+      case "recreer_shadowban":
+        return await recreerShadowban(supabase, String(body.compte_id ?? ""), cron ? null : acces.userId);
       case "envoyer":
         return json(await envoyer(supabase, String(body.controle_id ?? "")));
       case "envoi_auto": {
@@ -195,6 +201,67 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
     }
 
     const { error: errLien } = await supabase.rpc("ckd_compte_cree", { p_id: id, p_compte: cree.compteId });
+    if (errLien) throw errLien;
+    const { data: nouveau } = await supabase
+      .from("comptes")
+      .select("id, handle_tiktok")
+      .eq("id", cree.compteId)
+      .maybeSingle();
+    return json({ ok: true, compte: nouveau ?? { id: cree.compteId } });
+  } catch (error) {
+    return await liberer(messageErreur(error), 500);
+  }
+}
+
+async function recreerShadowban(supabase: Supabase, compteId: string, par: string | null): Promise<Response> {
+  if (!compteId) return json({ ok: false, error: "compte_id requis" }, 400);
+
+  // 1. Réserver : deux clics ne créent pas deux comptes.
+  const { data: ligne, error: errReserve } = await supabase.rpc("ckd_shadowban_reserver", {
+    p_compte: compteId,
+    p_par: par,
+  });
+  if (errReserve) return json({ ok: false, error: messageErreur(errReserve) }, 409);
+
+  const liberer = async (erreur: string, statut: number) => {
+    await supabase.rpc("ckd_shadowban_liberer", { p_compte: compteId, p_erreur: erreur });
+    return json({ ok: false, error: erreur }, statut);
+  };
+
+  try {
+    const { data: ancien, error: errCompte } = await supabase
+      .from("comptes")
+      .select("id, poster_id, langue, pays, posts_par_jour")
+      .eq("id", compteId)
+      .single();
+    if (errCompte) throw errCompte;
+    const slug = String((ligne as { application?: string | null } | null)?.application ?? "sophia");
+
+    const cree = await appelerManageUsers({
+      action: "ajouter_compte",
+      userId: ancien.poster_id,
+      type_compte: "perso",
+      langue: ancien.langue,
+      ...(ancien.pays ? { pays: ancien.pays } : {}),
+      ...(ancien.posts_par_jour ? { posts_par_jour: ancien.posts_par_jour } : {}),
+      parts_applications: { [slug]: 100 },
+    });
+    if (!cree.ok) {
+      if (cree.incertain) {
+        // Le compte a peut-être été créé : la réservation reste, pour ne pas en
+        // créer un second en réessayant.
+        await supabase.from("ckd_shadowban").update({
+          erreur: `création incertaine (${cree.error}) : vérifier les comptes du poster avant de recommencer`,
+        }).eq("compte_id", compteId);
+        return json({ ok: false, error: cree.error, incertain: true }, 502);
+      }
+      return await liberer(cree.error, 409);
+    }
+
+    const { error: errLien } = await supabase.rpc("ckd_shadowban_compte_cree", {
+      p_compte: compteId,
+      p_nouveau: cree.compteId,
+    });
     if (errLien) throw errLien;
     const { data: nouveau } = await supabase
       .from("comptes")

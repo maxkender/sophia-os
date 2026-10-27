@@ -1019,6 +1019,40 @@ export const en = {
       },
     },
     ckd: {
+      shadowban: {
+        intro: "Recomputed every morning at 6 am.",
+        calcule: "Last run: {{quand}}.",
+        recalculer: "Recompute now",
+        hm: "HM",
+        depuis: "since {{date}}",
+        derniers: "Views of the last 6 posts",
+        medianePays: "Country median",
+        nouveauCompte: "New account",
+        creationEnCours: "Creating…",
+        nouveauCree: "New account created: the old one stops at the next planned stop.",
+        ignorer: "Ignore for 7 days",
+        vide: "No account.",
+        types: { shadowban: "Probable shadowban", vues_basses: "Abnormally low views" },
+        typesDesc: {
+          shadowban: "The creator posts, but their last 4 measured posts (48 h or more) are all under the dead-post threshold.",
+          vues_basses: "The 7-day median is under 20% of the country median.",
+        },
+      },
+      diagnostic: {
+        posts: "Posts: {{publies}} published out of {{attendus}} expected",
+        liensManquants_one: ", {{count}} link missing{{jours}}",
+        liensManquants_other: ", {{count}} links missing{{jours}}",
+        vues: "Views: median {{mediane}} (country: {{ref}})",
+        morts_one: ", {{count}} dead post (< {{seuil}} views)",
+        morts_other: ", {{count}} dead posts (< {{seuil}} views)",
+        verdicts: {
+          ok: "Verdict: OK",
+          posts_manquants: "Verdict: missing posts → follow up with the creator",
+          vues_basses: "Verdict: views far below the country → go through their posts with them",
+          shadowban: "Verdict: probable shadowban → new account",
+        },
+        badges: { ok: "OK", posts_manquants: "Missing posts", vues_basses: "Low views", shadowban: "Shadowban" },
+      },
       titre: "Check, Kill or Double",
       description:
         "Every week, the OS suggests which accounts to kill (recreate the account, or don't renew the poster) and which posters to double. An admin decides, account by account.",
@@ -1340,7 +1374,7 @@ export const en = {
       colonnesExceptions: { label: "Label", pays: "Country", reglage: "Setting", valeur: "Value" },
       sections: { seuils: "Thresholds", slack: "Slack and texts" },
       cohorte: {
-        vues: { aria: "Page view", cohorte: "Cohort tracking", global: "Global tracking" },
+        vues: { aria: "Page view", cohorte: "Cohort tracking", global: "Global tracking", shadowban: "Shadowban" },
         paire: {
           aria: "Cohort pair",
           semaine: "Week of {{du}} to {{au}}",

@@ -45,6 +45,12 @@ export const LIEN_GUIDE =
 export const LIEN_SLACK =
   "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA";
 
+/** Le salon où les posters posent leurs questions. */
+export const SALON_QUESTIONS = "#questions";
+
+/** À qui écrire quand un paiement bloque et que la HM ne répond pas. */
+export const CONTACTS_PAIEMENT = "Lucia De Mojà or Maximilien Kender";
+
 /** Le salon des posters venus du site, qui n'ont pas de HM. */
 export const SALON_COHORTE_RUUL = "#ruul-questions";
 
@@ -118,8 +124,9 @@ export const ECRANS: Ecran[] = [
       {
         type: "p",
         texte:
-          "You will be invited to **your country's channel**. Ask **all your questions there**: a technical problem, a payment question, or just to chat with the team.",
+          "You will be invited to **your country's channel**, to chat and connect with the team.",
       },
+      { type: "alerte", ton: "orange", items: [`Any question? Ask it in **${SALON_QUESTIONS}** on Slack.`] },
       { type: "lien", avant: "**If you are not in it yet:**", libelle: "here is the link", href: LIEN_SLACK },
     ],
   },
@@ -131,8 +138,11 @@ export const ECRANS: Ecran[] = [
     blocs: [
       { type: "p", texte: "Your **hiring manager** handles your payments." },
       {
-        type: "p",
-        texte: "Any question about money: **ask them directly on Slack**. They are the right person, and the fastest.",
+        type: "etapes",
+        items: [
+          "Any issue with a payment: **message your hiring manager on Slack**. They are the right person, and the fastest.",
+          `No answer? **Send a direct message to ${CONTACTS_PAIEMENT}** on Slack.`,
+        ],
       },
     ],
   },
@@ -284,7 +294,7 @@ export const ECRANS: Ecran[] = [
       {
         type: "alerte",
         ton: "vif",
-        titre: "VERY IMPORTANT",
+        titre: "VERY IMPORTANT: WARM UP YOUR ACCOUNT BEFORE YOU START POSTING!!!",
         items: [
           "**At least 10 minutes** of scrolling, in your niche.",
           "**Follow at least 5 people.**",
@@ -309,6 +319,34 @@ export const ECRANS: Ecran[] = [
         titre: "The warm-up, step by step",
         fichier: true,
       },
+    ],
+  },
+  {
+    cle: "sans-warmup",
+    titre: "No warm-up = no pay",
+    mico: "sad",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      {
+        type: "alerte",
+        ton: "vif",
+        items: [
+          "If you do **not** warm up your account before next Monday, you start posting anyway, and your account gets **shadowbanned**: **you will receive NO monetary compensation.**",
+        ],
+      },
+      {
+        type: "p",
+        texte:
+          "**Why?** TikTok treats a brand-new account that posts straight away like a robot. Its posts get **0 views**: that is a shadowban, and those posts are worth nothing to us.",
+      },
+      {
+        type: "etapes",
+        items: [
+          "**First**, warm up your account: every day, until next Monday.",
+          "**Then**, from Monday, post your slideshows.",
+        ],
+      },
+      { type: "p", texte: "**Never the other way round.**" },
     ],
   },
   {
@@ -345,9 +383,10 @@ export interface Question {
 }
 
 /**
- * Quatre questions, et seulement quatre : celles dont l'oubli coûte
- * réellement quelque chose. Le minuteur force à attendre, le quiz force à
- * lire — c'est lui le vrai verrou.
+ * Sept questions : celles dont l'oubli coûte réellement quelque chose. Le
+ * minuteur force à attendre, le quiz force à lire — c'est lui le vrai verrou.
+ * La cohorte Ruul a ses propres réponses pour le Slack et la paie
+ * (`questionsPour`).
  */
 export const QUESTIONS: Question[] = [
   {
@@ -389,6 +428,31 @@ export const QUESTIONS: Question[] = [
     ],
     bonne: 1,
     ecran: "warmup",
+  },
+  {
+    cle: "paye-sans-warmup",
+    question: "Will I be paid if I start posting without warming up my account?",
+    options: ["Yes", "No"],
+    bonne: 1,
+    ecran: "sans-warmup",
+  },
+  {
+    cle: "question",
+    question: "If I have a question, what do I do?",
+    options: ["I DM the CEO on Slack", `I ask in ${SALON_QUESTIONS} on Slack`, "I ask anybody"],
+    bonne: 1,
+    ecran: "slack",
+  },
+  {
+    cle: "paiement",
+    question: "I have an issue regarding a payment. What do I do?",
+    options: [
+      "I post about it in my country's channel",
+      `I message my hiring manager on Slack. No answer? I DM ${CONTACTS_PAIEMENT}`,
+      "I wait for the next payment",
+    ],
+    bonne: 1,
+    ecran: "paiements",
   },
 ];
 
@@ -455,7 +519,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
         },
         {
           type: "p",
-          texte: `Questions about money: send a **direct message** on Slack to the team running ${SALON_COHORTE_RUUL}, **never in the channel**.`,
+          texte: `Questions about money: send a **direct message** on Slack to the team running ${SALON_COHORTE_RUUL}, **never in the channel**. No answer? DM **${CONTACTS_PAIEMENT}**.`,
         },
         { type: "identite" },
       ],
@@ -472,4 +536,25 @@ export function ecransPour(contexte: ContexteAccueil | null | undefined): Ecran[
   if (!contexte?.cohorteRuul) return ECRANS;
   const remplacants = ecransCohorteRuul(contexte.emailRuul);
   return ECRANS.map((e) => remplacants[e.cle] ?? e);
+}
+
+/**
+ * Les questions du quiz pour ce créateur. La cohorte Ruul n'a pas de HM et
+ * pose ses questions dans son salon : ces deux réponses changent.
+ */
+export function questionsPour(contexte: ContexteAccueil | null | undefined): Question[] {
+  if (!contexte?.cohorteRuul) return QUESTIONS;
+  const remplacantes: Record<string, Partial<Question>> = {
+    question: {
+      options: ["I DM the CEO on Slack", `I ask in ${SALON_COHORTE_RUUL} on Slack`, "I ask anybody"],
+    },
+    paiement: {
+      options: [
+        "I post about it in the channel",
+        `I DM the team running ${SALON_COHORTE_RUUL} on Slack. No answer? I DM ${CONTACTS_PAIEMENT}`,
+        "I wait for the next payment",
+      ],
+    },
+  };
+  return QUESTIONS.map((q) => (remplacantes[q.cle] ? { ...q, ...remplacantes[q.cle] } : q));
 }

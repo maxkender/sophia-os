@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o021",
+ "schema_id": "independante",
+ "titre": "les choses que je fais seule le dimanche et qui m'ont rendue indépendante #pourtoi #independance #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7434388289938492206",
+ "inspirations": [
+  "71ef7d85-19b2-46c0-a4cc-97313387e592"
+ ],
+ "notes": "cta C (le défi d'une amie en premier item ; voir CTA.md). Routine du 27/10, livraison 3 sur 5. Schéma independante (r 2,1, 71ef7d85, rang S), sur un angle neuf chez nous : le dimanche. Accroches écrites : « les choses que je fais seule le dimanche et qui m'ont rendue indépendante » (retenue : le gabarit du gagnant, plus un moment précis de la semaine), « les petites choses que j'ai appris à faire seule cette année » (écartée : trop proche de bsg-o008), « ce que je fais seule maintenant (et que je n'osais pas avant) » (écartée : plus long). Items neufs en « je » (rien de repris de la source ni de bsg-o008) : le défi Sophia de 7 jours, le cinéma seule, écrire ses papiers soi-même, le journal du dimanche, réparer les petites choses. Aucun fait, aucun conseil financier ni médical. Images de la banque, sans célébrité ni texte. Inspirations : slides 1, 2, 3, 4, 8 de 71ef7d85 (ses 5 et 6 montrent un écran). Images claires ou en double remplacées par des images sombres après relecture de l'aperçu.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c1e5148e",
+   "texte_overlay": "les choses que je fais seule le dimanche\net qui m'ont rendue\nindépendante",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "795caf02",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "10b41935",
+   "texte_overlay": "je vais au cinéma seule.\n\nje choisis le film, la place, l'heure.\npersonne à convaincre, et je ressors avec un avis bien à moi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f1441393",
+   "texte_overlay": "j'écris mes papiers moi-même.\n\nune lettre, un mail officiel, une réclamation.\nça fait moins peur qu'on croit. et ça rend libre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "868dba81",
+   "texte_overlay": "je lis le journal le dimanche matin.\n\nun vrai, en entier, avec un café.\nje me fais mon avis avant d'entendre celui des autres.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2004f076",
+   "texte_overlay": "je répare les petites choses.\n\nun bouton, une chaise qui grince, une ampoule.\nchaque fois, je me prouve que je sais me débrouiller.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/3.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "87cbec30",
+   "texte_overlay": "et toi, c'est quoi la chose\nque tu fais seule ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/8.jpg"
+  }
+ ]
+}

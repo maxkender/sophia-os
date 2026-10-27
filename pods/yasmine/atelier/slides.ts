@@ -7,7 +7,7 @@ import { IPAD_CARTE, ipad, iphone } from "./appareils.ts";
 import { type Carte, carte } from "./cartes.ts";
 import { type EcranPhoto, gabaritIpadPaysage, incruster, pleinEcran } from "./ecran-photo.ts";
 import { type NoteIos, noteIos } from "./note-ios.ts";
-import { type Cadrage, type Couverture, fond, H, L, legende, legendePhoto, type LegendePhoto, titreCouverture } from "./dessin.ts";
+import { type Cadrage, type Couverture, type Ctx, fond, fondBande, H, L, legende, legendePhoto, type LegendePhoto, titreCouverture } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { type Etiquettes, type Modele, modele, page, type Page } from "./notes.ts";
 
@@ -30,6 +30,8 @@ export type ContenuSlide = {
   capture?: string;
   /** Slide photo : la photo de cette langue (la version traduite d'une mise en scène de l'OS), à la place de celle de la slide. */
   photo?: Photo;
+  /** Collage : la photo du bas de cette langue, à la place de celle de la slide. */
+  photo_bas?: Photo;
   /** Slide photo : la petite légende posée sur la photo, et une seconde (sous l'iPhone). */
   legende?: LegendePhoto;
   legende_bas?: LegendePhoto;
@@ -60,10 +62,12 @@ export type Slide = {
   app?: boolean;
   /** Sa propre photo (slides photo, et couverture d'un post photo) ; sinon le `fond` du post. */
   photo?: Photo;
+  /** Collage : une seconde photo, en bas ; `photo` prend alors la moitié du haut (« older sister advice »). */
+  photo_bas?: Photo;
 } & Record<Langue, ContenuSlide | Photo | string | boolean | undefined>;
 
 /** Les clés d'une slide qui ne sont pas des langues. */
-const CLES = new Set(["type", "app", "photo"]);
+const CLES = new Set(["type", "app", "photo", "photo_bas"]);
 
 export type Post = {
   /** Notre id : yp-001, yp-002… */
@@ -126,6 +130,12 @@ async function photoSlide(photo: Photo): Promise<Image> {
   return loadImage(c!.toBuffer("image/png"));
 }
 
+/** Deux photos l'une sur l'autre, chacune sur la moitié de la slide. */
+async function collage(ctx: Ctx, haut: Photo, bas: Photo) {
+  fondBande(ctx, await photoSlide(haut), 0, H / 2, haut.cadrage);
+  fondBande(ctx, await photoSlide(bas), H / 2, H / 2, bas.cadrage);
+}
+
 /** La photo de fond du post. */
 export function chargerFond(p: Post): Promise<Image> {
   return chargerPhoto(p.fond);
@@ -141,7 +151,8 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
   const ctx = canvas.getContext("2d");
   if (s.type === "couverture") {
     if (!c.couverture) throw new Error("couverture sans titre");
-    if (s.photo) fond(ctx, await chargerPhoto(s.photo), s.photo.cadrage);
+    if (s.photo && s.photo_bas) await collage(ctx, s.photo, c.photo_bas ?? s.photo_bas);
+    else if (s.photo) fond(ctx, await chargerPhoto(s.photo), s.photo.cadrage);
     else fond(ctx, photo, p.fond.cadrage);
     titreCouverture(ctx, c.couverture);
   } else if (s.type === "photo") {
@@ -149,7 +160,9 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
     const photoLangue = c.photo ?? s.photo;
     if (!photoLangue) throw new Error("slide photo sans photo");
     if (!c.legende && !c.note && !c.notes?.length) throw new Error("slide photo sans légende ni note");
-    fond(ctx, await photoSlide(photoLangue), photoLangue.cadrage);
+    const basLangue = c.photo_bas ?? s.photo_bas;
+    if (basLangue) await collage(ctx, photoLangue, basLangue);
+    else fond(ctx, await photoSlide(photoLangue), photoLangue.cadrage);
     for (const n of [...(c.note ? [c.note] : []), ...(c.notes ?? [])]) noteIos(ctx, n);
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
     if (c.legende) legendePhoto(ctx, c.legende);

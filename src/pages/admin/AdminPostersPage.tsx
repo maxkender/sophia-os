@@ -109,6 +109,8 @@ import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
 import { compterEtapes, ETAPES, etapeCompte, qualiteAffichee, type Etape, type EtatEtape } from "@/features/moteur/etapes";
 import { lireEtapesComptes } from "@/features/moteur/etapesApi";
+import { compteActif, repartirArchive } from "@/features/archive/archive";
+import { SectionArchive, type LigneArchive } from "@/features/archive/SectionArchive";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
   Classement,
@@ -830,10 +832,12 @@ export function AdminPostersPage() {
     },
     [etapes.data, premiersJours.data, aujourdhuiEtapes],
   );
-  /** L'étape d'un créateur : celle de son compte principal. */
+  /** L'étape d'un créateur : celle de son compte principal, actif d'abord. */
   const etatCreateur = React.useCallback(
     (p: PosterProfil): EtatEtape => {
-      const liste = comptesParPoster.get(p.id) ?? [];
+      const tousSiens = comptesParPoster.get(p.id) ?? [];
+      const actifs = tousSiens.filter(compteActif);
+      const liste = actifs.length > 0 ? actifs : tousSiens;
       const principal = liste.find((c) => c.id === p.compte_id) ?? liste[0];
       return principal ? etatCompte(principal) : { etape: "not_created", semaine: null };
     },
@@ -1589,9 +1593,39 @@ export function AdminPostersPage() {
   const tous = posters.data ?? [];
   const admins = tous.filter((p) => p.role === "admin");
   const tousCreateurs = tous.filter((p) => p.role === "poster");
+  // L'Archive (0366) : posteurs désactivés ou sans compte actif, et comptes
+  // dormants. Hors des listes, compteurs, carte et équipes ; en bas de page,
+  // par HM, fermée par défaut.
+  const { actifs: createursActifs, archive } = repartirArchive(tousCreateurs, comptes.data);
+  const idsCreateursActifs = new Set(createursActifs.map((p) => p.id));
+  const tousHorsArchive = tous.filter((p) => p.role !== "poster" || idsCreateursActifs.has(p.id));
+  const archiveParHm = new Map<string, LigneArchive[]>();
+  for (const e of archive) {
+    const cle = e.posteur.manager_id ?? "";
+    archiveParHm.set(cle, [
+      ...(archiveParHm.get(cle) ?? []),
+      {
+        posteurId: e.posteur.id,
+        nom: nomAffiche(e.posteur),
+        desactive: !e.posteur.is_active,
+        comptes: e.comptes.map((c) => ({
+          id: c.id,
+          handle: c.handle_tiktok,
+          pays: c.pays,
+          actif: compteActif(c),
+        })),
+      },
+    ]);
+  }
+  const blocsArchive = [...archiveParHm.entries()]
+    .map(([hmId, lignes]) => {
+      const hm = tous.find((p) => p.id === hmId);
+      return { hmId, titre: hm ? nomAffiche(hm) : t("posters.sansRecruteur"), lignes };
+    })
+    .sort((a, b) => a.titre.localeCompare(b.titre, "fr"));
   // Zone → recruteur → créateurs. La zone est celle du RECRUTEUR (master list
   // Notion), dont ses créateurs héritent — pas la langue des comptes.
-  const parZone = regrouperParZone(tous, {
+  const parZone = regrouperParZone(tousHorsArchive, {
     garderCreateur: matchCreateur,
     filtreActif: filtreListe,
     garderRecruteur: recruteurCherche,
@@ -1600,7 +1634,7 @@ export function AdminPostersPage() {
   });
   // Carte : toutes les zones, filtres ignorés — un filtre ne repeint pas la
   // carte, il ne fait que mettre sa zone en avant.
-  const zonesCarte: ZoneCarte[] = regrouperParZone(tous, { zonesCohorteRuul }).zones.map((g) => ({
+  const zonesCarte: ZoneCarte[] = regrouperParZone(tousHorsArchive, { zonesCohorteRuul }).zones.map((g) => ({
     cle: g.cle,
     zone: g.zone ?? "",
     compteurs: g.compteurs,
@@ -1615,7 +1649,7 @@ export function AdminPostersPage() {
   }));
   // Équipe d'un DM (ses créateurs + ceux de ses HM), filtres ignorés : le
   // résumé que l'ancien arbre DM → HM donnait en tête de chaque DM.
-  const equipeDm = new Map<string, EquipeDm>(equipesParDm(tous).map((e) => [e.dm.id, e]));
+  const equipeDm = new Map<string, EquipeDm>(equipesParDm(tousHorsArchive).map((e) => [e.dm.id, e]));
   const groupesZone: GroupeZone[] = [
     ...parZone.zones,
     ...(parZone.sansZone ? [parZone.sansZone] : []),
@@ -1623,7 +1657,7 @@ export function AdminPostersPage() {
 
   /** Part des créateurs du recruteur en BIEN ou STAR (null s'il n'en a aucun). */
   const partBienRecruteur = (recId: string): number | null => {
-    const cases = tousCreateurs
+    const cases = createursActifs
       .filter((c) => c.manager_id === recId && c.classement != null)
       .map((c) => c.classement as Classement);
     if (cases.length === 0) return null;
@@ -1636,9 +1670,9 @@ export function AdminPostersPage() {
 
   /** Pays des comptes de ses créateurs directs ; les langues seulement s'il n'en a aucun. */
   const drapeauxRecruteur = (poster: PosterProfil) => {
-    const pays = tousCreateurs
+    const pays = createursActifs
       .filter((c) => c.manager_id === poster.id)
-      .flatMap((c) => (comptesParPoster.get(c.id) ?? []).map((x) => x.pays ?? ""));
+      .flatMap((c) => (comptesParPoster.get(c.id) ?? []).filter(compteActif).map((x) => x.pays ?? ""));
     return pays.some((c) => estCodePays(c))
       ? <DrapeauxPays codes={pays} />
       : <DrapeauxLangues codes={languesRecruteur(poster)} />;
@@ -1675,7 +1709,8 @@ export function AdminPostersPage() {
   };
 
   const carteCreateur = (poster: PosterProfil) => {
-    const liste = comptesParPoster.get(poster.id) ?? [];
+    // Les comptes dormants sont dans l'Archive, pas sur la carte.
+    const liste = (comptesParPoster.get(poster.id) ?? []).filter(compteActif);
     const cohorte = cohorteDe(poster.id);
     const semaine = cohorte ? semaineDansCohorte(cohorte, aujourdhui) : null;
     return (
@@ -2007,6 +2042,27 @@ export function AdminPostersPage() {
           </details>
         )}
         {adminsVisibles && section(t("nav.admin"), admins.length, admins, "createur")}
+        {blocsArchive.length > 0 && (
+          <section className="space-y-2">
+            <div className="flex flex-wrap items-baseline gap-2 border-b pb-1.5">
+              <h2 className="text-sm font-semibold">{t("archive.titre")}</h2>
+              <span className="text-xs tabular-nums text-muted-foreground">
+                {t("archive.resume", {
+                  posteurs: archive.length,
+                  comptes: archive.reduce((n, e) => n + e.comptes.length, 0),
+                })}
+              </span>
+            </div>
+            {blocsArchive.map((b) => (
+              <SectionArchive
+                key={b.hmId || "sans-hm"}
+                titre={b.titre}
+                lignes={b.lignes}
+                onOuvrir={(id) => ouvrirFiche(id)}
+              />
+            ))}
+          </section>
+        )}
       </div>
     );
   })();

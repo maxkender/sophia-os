@@ -1070,7 +1070,7 @@ export const fr = {
         medianePays: "Médiane du pays",
         nouveauCompte: "Nouveau compte",
         creationEnCours: "Création en cours…",
-        nouveauCree: "Nouveau compte créé : l'ancien s'arrête au prochain arrêt prévu.",
+        nouveauCree: "Nouveau compte créé : l'ancien est arrêté et passe en Archive.",
         ignorer: "Ignorer 7 jours",
         vide: "Aucun compte.",
         types: { shadowban: "Shadowban probable", vues_basses: "Vues anormalement basses" },
@@ -1104,7 +1104,7 @@ export const fr = {
       calendrierVues:
         "Les vues sont celles du relevé de nuit (chaque post relevé les 3 nuits qui suivent sa date). Un post ne compte que s'il avait l'âge minimum au relevé.",
       circuit:
-        "Tu décides ligne par ligne. Kill : le compte poste jusqu'au dimanche et s'arrête à 23 h 30. Recréer et Doubler créent le compte tout de suite. « Envoyer aux HM » poste les décisions dans #managers-hq ; ce qui est décidé et pas encore envoyé part tout seul le dimanche à 12 h, et le rappel des jalons le lundi à 9 h.",
+        "Tu décides ligne par ligne. Kill : le compte poste jusqu'au dimanche et s'arrête à 23 h 30. Recréer et Doubler créent le compte tout de suite ; avec Recréer, l'ancien s'arrête aussitôt et passe en Archive. « Envoyer aux HM » poste les décisions dans #managers-hq ; ce qui est décidé et pas encore envoyé part tout seul le dimanche à 12 h, et le rappel des jalons le lundi à 9 h.",
       onglets: { samedi: "Samedi : kill, recréer, doubler", jeudi: "Jeudi : nudges", historique: "Historique", reglages: "Réglages" },
       controle: "Contrôle",
       controleDu: "Contrôle du {{date}}",
@@ -1190,7 +1190,7 @@ export const fr = {
         nudge: "@{{handle}} reçoit le pop-up ci-dessous à sa prochaine connexion.",
         rien: "Rien n'est envoyé.",
         ne_pas_renouveler: "@{{handle}} poste jusqu'au dimanche et s'arrête à 23 h 30 (tout de suite un lundi avant 10 h). Un posteur sans autre compte est désactivé.",
-        recreer: "Un nouveau compte est créé tout de suite (même application, label de la répartition). @{{handle}} s'arrête dimanche à 23 h 30.",
+        recreer: "Un nouveau compte est créé tout de suite (même application, label de la répartition). @{{handle}} s'arrête aussitôt et passe en Archive.",
         doubler: "Un 2ᵉ compte est créé tout de suite (même application, label différent du 1ᵉʳ).",
         garder: "Rien ne change ; la même règle ne repropose pas @{{handle}} pendant 14 jours.",
         pas_maintenant: "Rien ne change ; pas reproposé pendant 14 jours.",
@@ -2472,6 +2472,14 @@ export const fr = {
         warmupPasCommence: "Warm-up pas commencé (0 follow, 0 like)",
         startPasClique: "Start warmup pas cliqué",
       },
+    },
+    archive: {
+      titre: "Archive",
+      resume: "{{posteurs}} posteur(s) · {{comptes}} compte(s)",
+      aide: "Posteurs désactivés et comptes dormants : hors des listes actives, ignorés des agents et de Hired. Reactivate réveille un seul compte (et son profil s'il était désactivé).",
+      reactiver: "Reactivate",
+      sansCompte: "aucun compte",
+      sansHandle: "compte sans @",
     },
     etapes: {
       legende: "Étapes : Account not created → Not warming up → Warming up → Ready → Posting · week N → Stopped / Dormant",

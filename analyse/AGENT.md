@@ -38,6 +38,11 @@ et un humain la valide.
   smart_girl, alpha_male_yellow, RH, medical_study…).
 - **`comptes`** : `handle_tiktok`, `langue`, `classement` (star, bien, passable,
   mauvaises_vues, inactif), `is_active`.
+- **L'Archive** (0366) : un compte `is_active = false` (dormant ou arrêté) et un
+  posteur désactivé (`profiles.is_active = false`) ou sans aucun compte actif.
+  Ne les liste jamais avec les comptes ou posteurs actifs, ne propose, ne relance
+  et n'écris rien à leur sujet. Leurs posts passés restent valables pour
+  l'historique (médianes, comparaisons).
 - **`applications`** : sophia, micabo, unswipe.
 - Hors `passages` : les vidéos CM (`papier_posts`) et UGC vidéo (`ugc_video_posts`).
 - Le fonctionnement du moteur : `docs/tierlist.md` (rangs et requalification),

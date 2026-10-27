@@ -17,11 +17,14 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
+import { compteActif, repartirArchive } from "@/features/archive/archive";
+import { SectionArchive } from "@/features/archive/SectionArchive";
 import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
 import {
   activerPoster,
   creerPoster,
   emailPersoValide,
+  listerComptesAvecDormants,
   listerLanguesReference,
   listerPosters,
   majCompte,
@@ -286,6 +289,20 @@ export function HiringPosterPage() {
     () => (posters.data ?? []).filter((p) => p.role === "poster"),
     [posters.data],
   );
+  // L'Archive (0366) : posteurs désactivés ou sans compte actif, et comptes
+  // dormants, sous la liste, fermée par défaut. La RLS ne rend à une HM que
+  // les comptes de ses posteurs.
+  const comptesTous = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
+  const { actifs: createursActifs, archive } = React.useMemo(
+    () => repartirArchive(createurs, comptesTous.data),
+    [createurs, comptesTous.data],
+  );
+  const lignesArchive = archive.map((e) => ({
+    posteurId: e.posteur.id,
+    nom: [e.posteur.prenom, e.posteur.nom].filter(Boolean).join(" ") || e.posteur.email || "",
+    desactive: !e.posteur.is_active,
+    comptes: e.comptes.map((c) => ({ id: c.id, handle: c.handle_tiktok, pays: c.pays, actif: compteActif(c) })),
+  }));
 
   // Un seul champ « Full name » : premier mot = prénom, le reste = nom.
   const [nomComplet, setNomComplet] = React.useState("");
@@ -481,12 +498,13 @@ export function HiringPosterPage() {
       <Card>
         <CardContent className="space-y-2 pt-5">
           {posters.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-          {createurs.length === 0 && !posters.isPending && (
+          {createursActifs.length === 0 && !posters.isPending && (
             <EmptyState title={t("posters.empty")} />
           )}
-          {createurs.map((p) => (
+          {createursActifs.map((p) => (
             <LignePoster key={p.id} poster={p} createurs={createurs} />
           ))}
+          <SectionArchive lignes={lignesArchive} />
         </CardContent>
       </Card>
     </div>

@@ -6,16 +6,20 @@
   "accroche": "S Tier YouTube Videos You Need To Watch"
  },
  "titre": {
-  "en": "S Tier YouTube Videos You Need To Watch"
+  "en": "S Tier YouTube Videos You Need To Watch",
+  "de": "S-Tier-YouTube-Videos, die du sehen musst",
+  "pt": "Vídeos do YouTube de nível S que tens de ver"
  },
  "legendes": {
-  "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement"
+  "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement",
+  "de": "S-Tier-YouTube-Videos, die du sehen musst #youtube #lernenmittiktok #selbstverbesserung",
+  "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
  },
- "notes": "cta C (« what I open / instead of scrolling. », conseil à la 1re personne, en 2e position). Sophia en carte d'appli à l'étape 2 « IF YOU ONLY HAVE 5 MINUTES ». Pas d'UnSwipe. Ses cartes YouTube sous un titre géant ; ses miniatures à visages réels (Brad Pitt, Anthony Hopkins, Anthony Bourdain) remplacées par des vidéos à miniature sans visage.",
+ "notes": "cta C (« what I open / instead of scrolling. », conseil à la 1re personne, en 2e position). Sophia en carte d'appli à l'étape 2 « IF YOU ONLY HAVE 5 MINUTES ». Pas d'UnSwipe. Ses cartes YouTube sous un titre géant ; ses miniatures à visages réels (Brad Pitt, Anthony Hopkins, Anthony Bourdain) remplacées par des vidéos à miniature sans visage. En de et pt (Portugal), chaque langue a ses propres vidéos natives (Kurzgesagt en allemand et en portugais, Dominik Lebersorger, Ciência Todo Dia).",
  "slides": [
   {
    "type": "couverture",
@@ -30,6 +34,30 @@
      ],
      "YOUTUBE VIDEOS",
      "YOU NEED TO WATCH"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE-VIDEOS",
+     "DIE DU SEHEN MUSST"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "VÍDEOS DO YOUTUBE",
+     "QUE TENS DE VER"
     ]
    }
   },
@@ -49,6 +77,35 @@
      "duree": "10:55",
      "avatar": "https://yt3.ggpht.com/y7wwThXjLfpLuazUIBSyi515FcoH9s64xtvwiFHAFSQ97PK4FzLdDXOuIGEOdgXCOaxAZgkb7Q=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "de": {
+    "titre": [
+     "OPTIMISTISCHER",
+     "NIHILISMUS"
+    ],
+    "video": {
+     "id": "-9xNrBQpFt4",
+     "titre": "Optimistischer Nihilismus",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "2,7 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "NIILISMO OTIMISTA"
+    ],
+    "video": {
+     "id": "uqgWU-oGqv4",
+     "titre": "Niilismo Otimista",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "371 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -64,6 +121,31 @@
      "texte": [
       "what I open",
       "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WENN DU NUR",
+     "5 MINUTEN HAST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SE SÓ TENS 5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
      ]
     }
    }
@@ -83,6 +165,34 @@
      "duree": "7:26",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "de": {
+    "titre": [
+     "DAS EI – EINE KURZGESCHICHTE"
+    ],
+    "video": {
+     "id": "VmHAuMGJwe4",
+     "titre": "Das Ei - Eine Kurzgeschichte",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "3,6 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O OVO – UM CONTO"
+    ],
+    "video": {
+     "id": "Tl9uyOqRdJ8",
+     "titre": "O Ovo – Um conto",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "1,4 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "8:05",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -100,6 +210,35 @@
      "duree": "12:12",
      "avatar": "https://yt3.ggpht.com/b_H1babbckWhqlhhRRxZhKRaH6_v2hGhGigU075LZR7NNqwpwob-0qsf5DSnTZB4WXh_1Xm3L3s=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "de": {
+    "titre": [
+     "NIE WIEDER KURZVIDEOS"
+    ],
+    "video": {
+     "id": "bT47qBKflJc",
+     "titre": "Nach diesem Video wirst du nie mehr Kurzvideos schauen",
+     "chaine": "Dominik Lebersorger",
+     "vues": "658.631 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "15:38",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "UMA BREVE HISTÓRIA",
+     "DO ESTOICISMO"
+    ],
+    "video": {
+     "id": "scWI-ykd94w",
+     "titre": "Uma Breve História do Estoicismo",
+     "chaine": "Ciência Todo Dia",
+     "vues": "3,4 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "10:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -116,6 +255,36 @@
      "date": "2 years ago",
      "duree": "9:14",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GENUG VOM",
+     "DOOMSCROLLING?"
+    ],
+    "video": {
+     "id": "mxtSd6WBdaw",
+     "titre": "Genug vom Doomscrolling?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "11:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM ANTÍDOTO PARA",
+     "A INSATISFAÇÃO"
+    ],
+    "video": {
+     "id": "JHwKaiF6XYA",
+     "titre": "Um antídoto para a insatisfação",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "539 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "9:40",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

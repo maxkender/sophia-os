@@ -58,7 +58,7 @@ function CelluleContrat({ ligne }: { ligne: LignePaie }) {
 }
 
 /** Une case de la ligne : « Payé » ou « Semaine suivante faite ». Recliquer annule. */
-function Case({
+export function Case({
   coche,
   libelle,
   aideAnnuler,

@@ -14,7 +14,10 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import { ChoixRecrue } from "@/features/bonus/ChoixRecrue";
+import { listerPosters } from "@/features/moteur/api";
 import { drapeauLangue } from "@/features/moteur/langues";
+import type { PosterProfil } from "@/features/moteur/types";
 import {
   deciderReferral,
   listerReferralsAdmin,
@@ -42,10 +45,13 @@ function LigneReferral({
   row,
   onDecide,
   pending,
+  posteurs,
 }: {
   row: CreatorReferralAdmin;
   onDecide: (statut: "accepte" | "refuse", note: string) => void;
   pending: boolean;
+  /** Pour relier un parrainage accepté à sa recrue (bonus, 0374). */
+  posteurs?: PosterProfil[];
 }) {
   const { t, i18n } = useTranslation();
   const [note, setNote] = React.useState(row.note_admin ?? "");
@@ -112,6 +118,8 @@ function LigneReferral({
         </>
       )}
 
+      {row.statut === "accepte" && posteurs && <ChoixRecrue referral={row} posteurs={posteurs} />}
+
       {row.statut !== "en_attente" && row.note_admin && (
         <p className="rounded-lg bg-muted/50 px-3 py-2 text-xs text-muted-foreground">
           {row.note_admin}
@@ -125,6 +133,7 @@ export function AdminReferralsPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const liste = useQuery({ queryKey: ["admin-referrals"], queryFn: listerReferralsAdmin });
+  const posteurs = useQuery({ queryKey: ["admin-referrals", "posteurs"], queryFn: listerPosters });
 
   const decide = useMutation({
     mutationFn: ({
@@ -186,6 +195,7 @@ export function AdminReferralsPage() {
               key={row.id}
               row={row}
               pending={decide.isPending}
+              posteurs={posteurs.data}
               onDecide={(statut, note) => decide.mutate({ id: row.id, statut, note })}
             />
           ))}

@@ -10,6 +10,7 @@ import { aujourdhuiParis, semaineIso } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { genererPaie, lirePaie, nomsHms } from "@/features/paie/api";
 import { dollars, parHm, semaineAPayer, totaux } from "@/features/paie/logique";
+import { SectionBonus } from "@/features/bonus/SectionBonus";
 import { TableauPaie } from "@/features/paie/TableauPaie";
 
 const selectClass =
@@ -125,6 +126,8 @@ export function AdminPaiePage() {
           </CardContent>
         </Card>
       ))}
+
+      <SectionBonus />
     </div>
   );
 }

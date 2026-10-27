@@ -25,7 +25,7 @@ import {
 } from "@/features/moteur/api";
 
 import { Mico, type EtatMico } from "./Mico";
-import { ecransPour, QUESTIONS, type Bloc, type ContexteAccueil } from "./contenu";
+import { ecransPour, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -107,8 +107,8 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
           style={style}
         >
           {bloc.titre && (
-            <p className={cn("mb-1.5 flex items-center gap-1.5 font-semibold", vif && "mb-2 text-lg tracking-tight")}>
-              {vif ? <TriangleAlert className="size-5" /> : <Sparkles className="size-3.5" />}
+            <p className={cn("mb-1.5 flex items-center gap-1.5 font-semibold", vif && "mb-2 items-start gap-2 text-lg leading-snug tracking-tight")}>
+              {vif ? <TriangleAlert className="mt-0.5 size-5 shrink-0" /> : <Sparkles className="size-3.5 shrink-0" />}
               <Riche texte={bloc.titre} />
             </p>
           )}
@@ -292,10 +292,12 @@ function Pastilles({ etape }: { etape: number }) {
 }
 
 function Quiz({
+  questions,
   reponses,
   onRepondre,
   verdict,
 }: {
+  questions: Question[];
   reponses: Record<string, number | undefined>;
   onRepondre: (cle: string, index: number) => void;
   verdict: CorrectionQuiz | null;
@@ -304,9 +306,10 @@ function Quiz({
   return (
     <div className="space-y-5">
       <p className="text-muted-foreground text-sm leading-relaxed">
-        Four quick questions, to be sure nothing important was missed. You need all four right.
+        {questions.length} quick questions, to be sure nothing important was missed. You need
+        {" "}<strong className="font-semibold text-foreground">all of them right</strong>.
       </p>
-      {QUESTIONS.map((q, n) => (
+      {questions.map((q, n) => (
         <fieldset
           key={q.cle}
           className="animate-in fade-in slide-in-from-bottom-2 space-y-2 fill-mode-backwards duration-500"
@@ -388,6 +391,7 @@ export function OnboardingParcours({
   });
   const contexte = simulation ? contexteSimule : cohorte.data;
   const ecrans = ecransPour(contexte);
+  const questions = questionsPour(contexte);
 
   const surQuiz = etape >= INDEX_QUIZ;
   const ecran = surQuiz ? null : ecrans[etape];
@@ -448,7 +452,7 @@ export function OnboardingParcours({
   const remplissage = attente > 0 ? Math.min(100, (ecoulees / attente) * 100) : 100;
 
   const valider = () => {
-    const resultat = corrigerQuiz(reponses);
+    const resultat = corrigerQuiz(reponses, questions);
     setVerdict(resultat);
     if (!resultat.reussi) return;
     setTermine(true);
@@ -521,6 +525,7 @@ export function OnboardingParcours({
                 {surQuiz
                   ? (
                     <Quiz
+                      questions={questions}
                       reponses={reponses}
                       onRepondre={(cle, i) => {
                         setReponses((r) => ({ ...r, [cle]: i }));
@@ -544,7 +549,7 @@ export function OnboardingParcours({
 
                 {surQuiz && verdict && !verdict.complet && (
                   <p className="animate-in fade-in text-destructive text-sm">
-                    Please answer all four questions.
+                    Please answer every question.
                   </p>
                 )}
                 {surQuiz && verdict?.complet && !verdict.reussi && (

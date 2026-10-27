@@ -1,3 +1,4 @@
+import { type RefObject, useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 
@@ -25,11 +26,17 @@ export function TikTokEmbed({
   /** Le lecteur prend la hauteur de son parent au lieu de ses 680 px. */
   pleineHauteur?: boolean;
 }) {
+  // Le lecteur ne se charge qu'une fois à l'écran. TikTok limite les lecteurs
+  // par visiteur (« rate limit triggered ») : une page qui en monte 15 d'un coup,
+  // même dans des blocs repliés, bloquait ensuite tous les aperçus de l'OS.
+  const conteneur = useRef<HTMLDivElement>(null);
+  const visible = useVisible(conteneur);
+
   const aResoudre = besoinResoudreTiktok(url);
   const apercu = useQuery({
     queryKey: ["tiktok-apercu", url],
     queryFn: () => resoudreTiktok(url!),
-    enabled: aResoudre,
+    enabled: aResoudre && visible,
     staleTime: 10 * 60_000,
   });
 
@@ -38,10 +45,10 @@ export function TikTokEmbed({
   const embed = urlEmbedTiktokDepuisId(id) ?? urlEmbedTiktok(canon);
   const thumbnail = apercu.data?.thumbnail ?? null;
   const lien = canon || url;
-  const attendApercu = aResoudre && apercu.isPending && !embed;
+  const attendApercu = (aResoudre && apercu.isPending && !embed) || (!visible && Boolean(url));
 
   return (
-    <div className={cn("flex min-w-0 flex-col gap-2", pleineHauteur && "h-full min-h-0")}>
+    <div ref={conteneur} className={cn("flex min-w-0 flex-col gap-2", pleineHauteur && "h-full min-h-0")}>
       <div className="flex items-center justify-between gap-2">
         <p className="text-sm font-medium">{titre}</p>
         {lien ? (
@@ -92,4 +99,29 @@ export function TikTokEmbed({
       )}
     </div>
   );
+}
+
+/**
+ * Vrai dès que l'élément entre dans l'écran (avec 200 px d'avance), et le reste.
+ * Un bloc replié (`<details>` fermé) ou masqué n'a pas de boîte : il ne passe
+ * à vrai qu'une fois ouvert. Sans IntersectionObserver (tests), vrai d'emblée.
+ */
+function useVisible(ref: RefObject<HTMLElement | null>): boolean {
+  const [visible, setVisible] = useState(() => typeof IntersectionObserver === "undefined");
+  useEffect(() => {
+    const el = ref.current;
+    if (visible || !el) return;
+    const observateur = new IntersectionObserver(
+      (entrees) => {
+        if (entrees.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          observateur.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observateur.observe(el);
+    return () => observateur.disconnect();
+  }, [ref, visible]);
+  return visible;
 }

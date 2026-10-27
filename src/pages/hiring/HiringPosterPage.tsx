@@ -106,8 +106,8 @@ function LignePoster({
       queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
-  // Un recruteur désactive ; supprimer (historique compris) reste à l'admin et
-  // au Head of Ops, seuls autorisés par manage-users.
+  // Désactiver et supprimer (historique compris) restent à l'admin et au Head
+  // of Ops (v3 point 8 : une HM ne contrôle plus, le Kill se décide le samedi).
   const peutSupprimer = role === "admin" || role === "head_of_ops";
   const nomAffiche = [p.prenom, p.nom].filter(Boolean).join(" ") || p.email;
   const basculer = useMutation({
@@ -135,18 +135,21 @@ function LignePoster({
           <span className="text-[11px] text-muted-foreground">
             {t("posters.nbComptes", { n: comptes.length })}
           </span>
-          <button
-            type="button"
-            disabled={basculer.isPending}
-            onClick={() => {
-              if (!p.is_active || window.confirm(t("hiring.confirmDesactiver", { nom: nomAffiche })))
-                basculer.mutate();
-            }}
-            className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground"
-          >
-            <Power className="size-3" />
-            {p.is_active ? t("posters.disable") : t("posters.enable")}
-          </button>
+          {/* v3 point 8 : arrêter un posteur se décide le samedi (Kill), plus depuis l'espace HM. */}
+          {peutSupprimer && (
+            <button
+              type="button"
+              disabled={basculer.isPending}
+              onClick={() => {
+                if (!p.is_active || window.confirm(t("hiring.confirmDesactiver", { nom: nomAffiche })))
+                  basculer.mutate();
+              }}
+              className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground"
+            >
+              <Power className="size-3" />
+              {p.is_active ? t("posters.disable") : t("posters.enable")}
+            </button>
+          )}
           {peutSupprimer && (
             <button
               type="button"

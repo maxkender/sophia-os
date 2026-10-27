@@ -199,6 +199,9 @@ verify_jwt = false
 [functions.slack-relier]
 verify_jwt = false
 
+[functions.nudges]
+verify_jwt = false
+
 [functions.strip-c2pa]
 verify_jwt = false
 

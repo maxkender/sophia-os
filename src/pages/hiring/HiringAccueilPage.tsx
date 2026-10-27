@@ -9,6 +9,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useAuth } from "@/features/auth/AuthContext";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
+import { CelluleExigences } from "@/features/ckd/cohorte/CelluleExigences";
+import { lireReposts } from "@/features/ckd/cohorte/exigences";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { etatCohorte } from "@/features/ckd/cohorte/etapeCohorte";
 import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
@@ -96,8 +98,11 @@ export function HiringAccueilPage() {
       const miens = (l: CompteCohorte[]) => l.filter((c) => c.hm_id === user!.id);
       const p = miens(enPoste);
       const w = miens(enWarmup);
-      const noms = await nomsPosteurs([...new Set([...p, ...w].map((c) => c.poster_id))]);
-      return { poste: p, warmup: w, noms };
+      const [noms, reposts] = await Promise.all([
+        nomsPosteurs([...new Set([...p, ...w].map((c) => c.poster_id))]),
+        lireReposts(w.map((c) => c.compte_id)),
+      ]);
+      return { poste: p, warmup: w, noms, reposts };
     },
   });
 
@@ -272,6 +277,7 @@ export function HiringAccueilPage() {
                     t("accueilHm.etape"),
                     t("accueilHm.tiktok"),
                     t("accueilHm.warmup"),
+                    t("ckd.exigences.colonne"),
                     t("accueilHm.start"),
                     t("accueilHm.statut"),
                   ]}
@@ -292,6 +298,9 @@ export function HiringAccueilPage() {
                           {l.etat.abonnements === null
                             ? "—"
                             : t("accueilHm.followsLikes", { follows: l.etat.abonnements, likes: l.etat.likes ?? 0 })}
+                        </td>
+                        <td className={TD}>
+                          <CelluleExigences etat={l.etat} repostsAt={donnees.data.reposts.get(c.compte_id)} />
                         </td>
                         <td className={TD}>{l.etat.start ? t("accueilHm.oui") : t("accueilHm.non")}</td>
                         <td className={TD}>

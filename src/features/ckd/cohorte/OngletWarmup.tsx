@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AlertTriangle, Check, Clock, CornerDownRight, ExternalLink, Info, RefreshCw, Smartphone, UserPlus, X } from "lucide-react";
@@ -18,6 +19,8 @@ import { cn } from "@/lib/utils";
 
 import { etatCohorte } from "./etapeCohorte";
 import type { CompteCohorte, ResultatReleve } from "./api";
+import { CelluleExigences } from "./CelluleExigences";
+import { lireReposts } from "./exigences";
 import { useFormats } from "./formats";
 import { BLEUS, CourbesCumul } from "./graphes";
 import {
@@ -90,6 +93,12 @@ export function OngletWarmup({
   const reste = resteAvant(minuitParis(lundi), maintenant);
 
   const lignes = comptes.map((compte) => ({ compte, etat: etatWarmup(compte, aujourdhui) }));
+  // La case « J'ai fait 2 reposts » de chaque compte (0365).
+  const reposts = useQuery({
+    queryKey: ["ckd", "reposts", comptes.map((c) => c.compte_id).sort().join(",")],
+    queryFn: () => lireReposts(comptes.map((c) => c.compte_id)),
+    enabled: comptes.length > 0,
+  });
   const n = lignes.length;
   const compter = (f: (e: EtatWarmup) => boolean) => lignes.filter((l) => f(l.etat)).length;
   const surTiktok = compter((e) => e.tiktok === "cree");
@@ -319,6 +328,7 @@ export function OngletWarmup({
                       <th className={TH}>{t("ckd.cohorte.colonnes.creeOs")}</th>
                       <th className={TH}>{t("ckd.cohorte.colonnes.tiktok")}</th>
                       <th className={TH}>{t("ckd.cohorte.colonnes.warmup")}</th>
+                      <th className={TH}>{t("ckd.exigences.colonne")}</th>
                       <th className={TH}>{t("ckd.cohorte.colonnes.start")}</th>
                       <th className={cn(TH, "text-right")}>{t("ckd.cohorte.colonnes.statut")}</th>
                     </tr>
@@ -329,7 +339,7 @@ export function OngletWarmup({
                     return (
                       <tbody key={g.hmId ?? "sans-hm"} data-testid={`groupe-warmup-${g.hmId ?? "aucun"}`}>
                         <tr>
-                          <th colSpan={6} scope="colgroup" className="pt-4 pb-1.5 text-left font-normal">
+                          <th colSpan={7} scope="colgroup" className="pt-4 pb-1.5 text-left font-normal">
                             <span className="font-semibold">{hm ? nomPersonne(hm) : t("ckd.sansHm")}</span>
                             <span className="ml-2 text-xs text-muted-foreground">
                               {[hm?.zone_recrutement, t("ckd.cohorte.warmup.resumeHm", { count: g.lignes.length, prets: pretsGroupe })]
@@ -339,7 +349,13 @@ export function OngletWarmup({
                           </th>
                         </tr>
                         {g.lignes.map(({ compte: c, etat: e }) => (
-                          <LigneWarmup key={c.compte_id} compte={c} etat={e} poster={personnes.get(c.poster_id)} />
+                          <LigneWarmup
+                            key={c.compte_id}
+                            compte={c}
+                            etat={e}
+                            poster={personnes.get(c.poster_id)}
+                            repostsAt={reposts.data?.get(c.compte_id)}
+                          />
                         ))}
                       </tbody>
                     );
@@ -364,7 +380,17 @@ export function OngletWarmup({
 
 }
 
-function LigneWarmup({ compte: c, etat: e, poster }: { compte: CompteCohorte; etat: EtatWarmup; poster?: PersonneCkd }) {
+function LigneWarmup({
+  compte: c,
+  etat: e,
+  poster,
+  repostsAt,
+}: {
+  compte: CompteCohorte;
+  etat: EtatWarmup;
+  poster?: PersonneCkd;
+  repostsAt: string | null | undefined;
+}) {
   const { t } = useTranslation();
   const { date, nombre } = useFormats();
   const tiktok = lienTiktok(c.handle);
@@ -444,6 +470,9 @@ function LigneWarmup({ compte: c, etat: e, poster }: { compte: CompteCohorte; et
             </div>
           )}
         </div>
+      </td>
+      <td className={TD}>
+        <CelluleExigences etat={e} repostsAt={repostsAt} />
       </td>
       <td className={TD}>
         <Indicateur

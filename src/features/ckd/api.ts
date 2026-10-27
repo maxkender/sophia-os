@@ -372,6 +372,17 @@ export async function listerArrets(compteIds: string[]): Promise<ArretCkd[]> {
   return (data ?? []) as ArretCkd[];
 }
 
+/** Le message Slack au posteur de chaque recréation (0368), par proposition. */
+export async function listerSlackRecreations(propositionIds: string[]): Promise<Map<string, string | null>> {
+  if (propositionIds.length === 0) return new Map();
+  const { data, error } = await supabase
+    .from("ckd_recreations")
+    .select("proposition_id, slack_statut")
+    .in("proposition_id", propositionIds);
+  if (error) throw error;
+  return new Map((data ?? []).map((r) => [r.proposition_id as string, (r.slack_statut as string | null) ?? null]));
+}
+
 export async function listerHandles(compteIds: string[]): Promise<{ id: string; handle_tiktok: string | null }[]> {
   if (compteIds.length === 0) return [];
   const { data, error } = await supabase.from("comptes").select("id, handle_tiktok").in("id", compteIds);

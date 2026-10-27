@@ -183,12 +183,26 @@ export function grouperParHm(propositions: PropositionCkd[]): GroupeHm[] {
  * nouveau compte.
  */
 export const BOUTONS_PAR_REGLE: Record<RegleCkd, readonly string[]> = {
-  jeudi: ["envoyerNudge", "rien"],
+  jeudi: ["envoyerNudge", "recreer", "rien"],
   absent: ["nePasRenouveler", "envoyerNudge", "garder"],
   premiere_semaine: ["nePasRenouveler", "recreer", "garder"],
   anciens: ["recreer", "nePasRenouveler", "garder"],
   doubler: ["doubler", "pasMaintenant"],
 };
+
+/**
+ * Les boutons d'une proposition, selon le jour du contrôle : le jeudi ne fait
+ * aucun arrêt (0368), la règle anciens n'y propose donc que « Recréer ».
+ */
+export function boutonsPour(regle: RegleCkd, type: TypeControle): readonly string[] {
+  const boutons = BOUTONS_PAR_REGLE[regle];
+  return type === "jeudi" ? boutons.filter((b) => b !== "nePasRenouveler") : boutons;
+}
+
+/** Le bouton choisi d'avance : « Recréer » quand le jeudi le propose. */
+export function boutonPropose(p: Pick<PropositionCkd, "action" | "type">): string | null {
+  return p.type === "jeudi" && p.action === "recreer" ? "recreer" : null;
+}
 
 /** La décision enregistrée pour chaque bouton (même liste que `ckd_decisions_permises`). */
 export const DECISION_DU_BOUTON: Record<string, DecisionCkd> = {
@@ -219,6 +233,8 @@ export function aEnvoyer(p: PropositionCkd): boolean {
   if (!p.decision || p.envoye_at || !DECISIONS_ENVOYEES.includes(p.decision)) return false;
   // Suivi du HM désactivé (0339) : rien ne part dans #managers-hq.
   if (p.hm_suivi === false) return false;
+  // Recréation du jeudi : la HM n'est pas notifiée, le posteur l'est (0368).
+  if (p.type === "jeudi" && p.decision === "recreer") return false;
   return !creeUnCompte(p.decision) || Boolean(p.nouveau_compte_id);
 }
 

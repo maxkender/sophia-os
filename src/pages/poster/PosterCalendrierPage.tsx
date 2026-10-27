@@ -39,6 +39,7 @@ import {
 import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { CaseReposts } from "@/features/ckd/cohorte/CaseReposts";
+import { BandeauRecreation } from "@/features/ckd/recreation/BandeauRecreation";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
 import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
@@ -396,6 +397,8 @@ export function PosterCalendrierPage() {
 
   return (
     <div className="space-y-8">
+      {/* Compte recréé (0368) : quoi faire, en haut de son espace. */}
+      <BandeauRecreation actif={Boolean(user?.id)} />
       {comptes && comptes.length > 0 && (
         <SelecteurCompte
           comptes={comptes}

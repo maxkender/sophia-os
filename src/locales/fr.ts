@@ -1190,7 +1190,7 @@ export const fr = {
         nudge: "@{{handle}} reçoit le pop-up ci-dessous à sa prochaine connexion.",
         rien: "Rien n'est envoyé.",
         ne_pas_renouveler: "@{{handle}} poste jusqu'au dimanche et s'arrête à 23 h 30 (tout de suite un lundi avant 10 h). Un posteur sans autre compte est désactivé.",
-        recreer: "Un nouveau compte est créé tout de suite (même application, label de la répartition). @{{handle}} s'arrête aussitôt et passe en Archive.",
+        recreer: "Un nouveau compte est créé tout de suite (même application, langue et pays). @{{handle}} s'arrête aussitôt et passe en Archive ; ses posts à venir sont retirés (pas comptés comme manqués). Le posteur est prévenu sur son espace et sur Slack ; sa HM ne l'est pas.",
         doubler: "Un 2ᵉ compte est créé tout de suite (même application, label différent du 1ᵉʳ).",
         garder: "Rien ne change ; la même règle ne repropose pas @{{handle}} pendant 14 jours.",
         pas_maintenant: "Rien ne change ; pas reproposé pendant 14 jours.",
@@ -1230,6 +1230,10 @@ export const fr = {
         envoye: "envoyé au HM {{date}}",
         aEnvoyer: "pas encore envoyé au HM",
         sansSuiviHm: "sans suivi HM",
+        slackEnvoye: "posteur prévenu sur Slack",
+        slackIntrouvable: "posteur introuvable sur Slack (ni email perso ni email) : préviens-le autrement",
+        slackErreur: "message Slack au posteur pas parti",
+        hmNonNotifiee: "HM pas notifiée (recréation du jeudi)",
         fait: "✅ fait (Done) {{date}}",
       },
       canalSlack: "Canal Slack des décisions",
@@ -2506,6 +2510,10 @@ export const fr = {
         warmupPasCommence: "Warm-up pas commencé (0 follow, 0 like)",
         startPasClique: "Start warmup pas cliqué",
       },
+    },
+    recreationPosteur: {
+      texte:
+        "Ton compte @{{ancien}} a été remplacé par @{{nouveau}} le {{le}}. Crée @{{nouveau}} sur TikTok, lance le warm-up avant dimanche minuit, tes posts reprennent {{lundi}}.",
     },
     archive: {
       titre: "Archive",

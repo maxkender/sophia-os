@@ -1,7 +1,18 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CheckCircle2, ClipboardList, Layers, Trash2, UserPlus, Users } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle2,
+  ClipboardList,
+  ExternalLink,
+  Layers,
+  Loader2,
+  RefreshCw,
+  Trash2,
+  UserPlus,
+  Users,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardPanel, EmptyState } from "@/components/ui/card";
@@ -18,7 +29,10 @@ import {
   listerToutesReponses,
   majRelecteur,
   supprimerRelecteur,
+  synchroniserNotion,
+  URL_NOTION_RELECTEURS,
   type RelecteurAvecNom,
+  type ResumeSynchroNotion,
 } from "./api";
 import { CLASSES_TON, initiales, type Ton } from "./apparence";
 import { avancementKit, postsDuKit } from "./kit";
@@ -83,9 +97,12 @@ export function SectionRelecteurs({
     setLangue(langues[0] ?? "");
   };
 
+  // La table Notion « Relecteurs natifs » suit chaque changement.
+  const synchro = useMutation({ mutationFn: synchroniserNotion });
   const rafraichir = () => {
     void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_RELECTEURS });
     void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_REPONSES });
+    synchro.mutate();
   };
 
   const ajouter = useMutation({
@@ -122,13 +139,26 @@ export function SectionRelecteurs({
       )}
 
       <Card className="overflow-hidden">
-        <div className="flex items-center gap-3 border-b px-5 py-4">
+        <div className="flex flex-wrap items-center gap-3 border-b px-5 py-4">
           <TuileIcone icone={Users} ton="bleu" />
-          <div className="min-w-0 flex-1">
+          <div className="min-w-[12rem] flex-1">
             <p className="text-sm font-semibold">{t("relectureNative.relecteurs.titre")}</p>
             <p className="text-xs text-muted-foreground">{t("relectureNative.relecteurs.aide")}</p>
           </div>
+          <div className="flex flex-wrap items-center gap-1">
+            <Button variant="outline" size="sm" onClick={() => synchro.mutate()} disabled={synchro.isPending}>
+              {synchro.isPending ? <Loader2 className="animate-spin" /> : <RefreshCw />}
+              {t("relectureNative.notion.maj")}
+            </Button>
+            <Button variant="ghost" size="sm" asChild>
+              <a href={URL_NOTION_RELECTEURS} target="_blank" rel="noreferrer">
+                <ExternalLink />
+                {t("relectureNative.notion.ouvrir")}
+              </a>
+            </Button>
+          </div>
         </div>
+        <EtatNotion pending={synchro.isPending} resultat={synchro.data} erreur={synchro.error} />
         {relecteurs.isPending && <p className="px-5 py-4 text-sm text-muted-foreground">{t("common.loading")}</p>}
         {relecteurs.data?.length === 0 && (
           <div className="p-5">
@@ -322,6 +352,45 @@ export function SectionRelecteurs({
           )}
         </CardPanel>
       </Card>
+    </div>
+  );
+}
+
+/** Où en est la table Notion, sous l'en-tête des relecteurs. Rien tant qu'on n'a rien demandé. */
+function EtatNotion({
+  pending,
+  resultat,
+  erreur,
+}: {
+  pending: boolean;
+  resultat: ResumeSynchroNotion | undefined;
+  erreur: unknown;
+}) {
+  const { t } = useTranslation();
+  let contenu: React.ReactNode = null;
+  if (pending) {
+    contenu = <span className="text-muted-foreground">{t("relectureNative.notion.enCours")}</span>;
+  } else if (erreur) {
+    contenu = (
+      <span role="alert" className="flex items-center gap-1.5 text-destructive">
+        <AlertCircle className="size-3.5 shrink-0" aria-hidden />
+        {messageErreur(erreur)}
+      </span>
+    );
+  } else if (resultat?.secret_manquant) {
+    contenu = <span className="text-warning-foreground">{t("relectureNative.notion.secretManquant")}</span>;
+  } else if (resultat) {
+    contenu = (
+      <span className="flex items-center gap-1.5 text-success-foreground">
+        <CheckCircle2 className="size-3.5" aria-hidden />
+        {t("relectureNative.notion.aJour", { n: resultat.ecrites ?? 0 })}
+      </span>
+    );
+  }
+  if (!contenu) return null;
+  return (
+    <div className="border-b bg-muted/30 px-5 py-2 text-xs" data-testid="etat-notion">
+      {contenu}
     </div>
   );
 }

@@ -32,6 +32,7 @@ import {
   listerEcrituresKit,
   listerKit,
   presentationsApplis,
+  synchroniserNotionEnFond,
   type PresentationAppli,
   type Relecteur,
 } from "./api";
@@ -90,6 +91,7 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
   // Sinon, le post enregistré reste affiché.
   const memoriser = (e: EcritureKit) => {
     const vientDeFinir = Boolean(e.rendu_at) && !parPost.get(e.kit_id)?.rendu_at;
+    if (vientDeFinir) synchroniserNotionEnFond();
     queryClient.setQueryData<EcritureKit[]>(cleEcritures, (avant = []) => [
       ...avant.filter((x) => x.kit_id !== e.kit_id),
       e,

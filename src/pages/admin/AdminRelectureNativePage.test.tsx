@@ -21,6 +21,7 @@ const lireReponses = vi.fn();
 const listerKit = vi.fn();
 const listerEcrituresKit = vi.fn();
 const majPostKit = vi.fn();
+const synchroniserNotion = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
   lireReglageRelecture: () => lireReglage(),
@@ -39,6 +40,8 @@ vi.mock("@/features/relectureNative/api", () => ({
   majPostKit: (...a: unknown[]) => majPostKit(...a),
   ajouterPostKit: vi.fn(),
   supprimerPostKit: vi.fn(),
+  synchroniserNotion: () => synchroniserNotion(),
+  URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
 }));
 
 vi.mock("@/features/reviews/TikTokEmbed", () => ({
@@ -106,6 +109,7 @@ describe("AdminRelectureNativePage", () => {
     listerKit.mockResolvedValue([POST_KIT]);
     listerEcrituresKit.mockResolvedValue([]);
     majPostKit.mockResolvedValue(undefined);
+    synchroniserNotion.mockResolvedValue({ ok: true, ecrites: 2 });
   });
 
   it("montre l'espace fermé et la production coupée, et ouvre l'espace", async () => {
@@ -128,6 +132,23 @@ describe("AdminRelectureNativePage", () => {
     expect(screen.getByRole("combobox", { name: "Langue" })).toHaveValue("tr");
     fireEvent.click(screen.getByRole("button", { name: "Ajouter" }));
     await waitFor(() => expect(ajouterRelecteur).toHaveBeenCalledWith("p1", "tr"));
+    // La table Notion suit tout de suite.
+    await waitFor(() => expect(synchroniserNotion).toHaveBeenCalledTimes(1));
+    expect(await screen.findByText("Table Notion à jour (2 ligne(s) réécrite(s)).")).toBeInTheDocument();
+  });
+
+  it("met la table Notion à jour à la demande, et dit pourquoi quand elle n'est pas partagée", async () => {
+    rendre();
+    expect(await screen.findByRole("link", { name: "Ouvrir dans Notion" })).toHaveAttribute(
+      "href",
+      "https://www.notion.so/relecteurs",
+    );
+    expect(screen.queryByTestId("etat-notion")).not.toBeInTheDocument();
+    synchroniserNotion.mockRejectedValueOnce(new Error("La table Notion « Relecteurs natifs » n'est pas partagée"));
+    fireEvent.click(screen.getByRole("button", { name: "Mettre à jour Notion" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("n'est pas partagée");
+    fireEvent.click(screen.getByRole("button", { name: "Mettre à jour Notion" }));
+    expect(await screen.findByText("Table Notion à jour (2 ligne(s) réécrite(s)).")).toBeInTheDocument();
   });
 
   it("écrit une fiche appli à partir du modèle et l'enregistre", async () => {

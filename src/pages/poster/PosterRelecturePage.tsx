@@ -18,6 +18,7 @@ import {
   listerKit,
   lireReponses,
   presentationsApplis,
+  synchroniserNotionEnFond,
   terminerQuestionnaire,
   type Relecteur,
 } from "@/features/relectureNative/api";
@@ -375,7 +376,10 @@ function BlocEnvoi({
   const queryClient = useQueryClient();
   const terminer = useMutation({
     mutationFn: () => terminerQuestionnaire(relecteur.id),
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_MES_RELECTEURS }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_MES_RELECTEURS });
+      synchroniserNotionEnFond();
+    },
   });
   const termineLe = relecteur.questionnaire_termine_at;
   const p = progressionQuestionnaire(reponses);

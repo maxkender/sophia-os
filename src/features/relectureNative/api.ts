@@ -4,6 +4,7 @@
  * le kit natif. Rien ici ne touche la production : l'espace relecteur est
  * fermé et la production coupée tant que l'admin ne les ouvre pas.
  */
+import { invoke } from "@/features/moteur/api";
 import type { ContenuSlide } from "@/features/moteur/types";
 import { supabase } from "@/lib/supabase/client";
 
@@ -63,6 +64,33 @@ export async function ecrireEspaceOuvert(ouvert: boolean): Promise<void> {
       { onConflict: "cle" },
     );
   if (error) throw error;
+}
+
+// ---------------------------------------------------------------------------
+// Table Notion « Relecteurs natifs »
+// ---------------------------------------------------------------------------
+
+/** La page Notion « Relecteurs natifs par pays » (une ligne par langue). */
+export const URL_NOTION_RELECTEURS = "https://www.notion.so/406241308d6681bc83eec71a78726676";
+
+export interface ResumeSynchroNotion {
+  ok?: boolean;
+  ecrites?: number;
+  secret_manquant?: string;
+}
+
+/**
+ * Recopie l'état des relecteurs dans la table Notion (fonction
+ * `notion-relecteurs`). Sans argument : la fonction relit tout l'OS et
+ * n'écrit que les lignes qui changent.
+ */
+export function synchroniserNotion(): Promise<ResumeSynchroNotion> {
+  return invoke<ResumeSynchroNotion>("notion-relecteurs", {});
+}
+
+/** Côté relecteur : la synchro part en fond, une erreur n'a pas à le gêner. */
+export function synchroniserNotionEnFond(): void {
+  synchroniserNotion().catch(() => undefined);
 }
 
 // ---------------------------------------------------------------------------

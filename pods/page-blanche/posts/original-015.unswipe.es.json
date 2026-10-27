@@ -1,0 +1,284 @@
+{
+ "post_id": "original-015",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "5 hábitos raros que en secreto son buenos para tu cerebro"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(respaldado por la ciencia)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "explique ce que t'apprends [[à voix haute]]",
+     "texte": "explícale las cosas [[a la pared]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "simply, you probably don't",
+      "understand it yet"
+     ],
+     "fr": "si tu sais pas expliquer une idée simplement, [[tu l'as pas encore comprise]]",
+     "texte": "cierra lo que lees y explícalo en voz alta, como si [[alguien te escuchara]]"
+    },
+    "T3": {
+     "en": [
+      "after reading or studying,",
+      "spend 5 minutes teaching it",
+      "from memory"
+     ],
+     "fr": "après avoir lu ou révisé, prends [[5 minutes]] pour tout réexpliquer de tête",
+     "texte": "los estudios lo dicen: [[enseñar]] algo te ayuda a recordarlo mejor"
+    },
+    "T4": {
+     "en": [
+      "the gaps become painfully",
+      "obvious very quickly"
+     ],
+     "fr": "les trous te sautent aux yeux direct, et ça pique",
+     "texte": "y lo que [[no entendiste]] salta a la vista enseguida"
+    },
+    "T5": {
+     "en": [
+      "it's also scientifically proven to be one of the best",
+      "ways to learn!"
+     ],
+     "fr": "et c'est prouvé : c'est une des meilleures façons d'apprendre !",
+     "texte": "parece un poco de locos, pero [[nadie te está viendo]], ¡así que da igual!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "cierra los apuntes y [[hazte un examen]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "releer parece productivo, pero solo hace que la página te resulte [[familiar]]"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "escribe todo lo que recuerdes y luego revisa qué te faltó. según los estudios, [[funciona mejor que releer]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "se llama [[efecto de prueba]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "pasea [[sin auriculares]]"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "sin música, sin podcast, sin llamadas. solo tú y tu cabeza, y los primeros diez minutos es [[rarísimo]]"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "si dejas vagar la mente, se activa la [[red neuronal por defecto]],"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "una red ligada a los recuerdos, a soñar despierto y a las [[conexiones inesperadas]] entre ideas"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "por eso [[las buenas ideas]] suelen llegar caminando"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "haz tu móvil [[un poco aburrido]]"
+    },
+    "T2": {
+     "en": [
+      "endless scrolling is conditioning your brain to crave",
+      "instant gratification"
+     ],
+     "fr": "le scroll sans fin habitue ton cerveau à vouloir [[tout, tout de suite]]",
+     "texte": "los estudios relacionan scrollear videos cortos con [[peor atención]]"
+    },
+    "T3": {
+     "en": [
+      "we are entering a literary",
+      "crisis, scrolling tiktok is",
+      "rotting your brain and books",
+      "are being tossed aside"
+     ],
+     "fr": "on entre dans une [[crise de la lecture]], tiktok [[te grille le cerveau]] et les livres finissent au placard",
+     "texte": "al principio es raro, como si el móvil estuviera roto. luego [[lo sueltas al minuto]] en vez de a la hora"
+    },
+    "T4": {
+     "en": [
+      "my tip: i always said i",
+      "wanted to read but would",
+      "just scroll tiktok, i found this",
+      "thing that blocks apps until i",
+      "read and it changed my life"
+     ],
+     "fr": "mon astuce ? aujourd'hui, mes 5 min sur [[l'appli Sophia]], c'était [[pourquoi Camus imagine Sisyphe heureux]]. mieux qu'une heure de tiktok",
+     "texte": "el truco: insta sin reels (los mensajes y las stories siguen ahí) y tiktok bloqueado. [[la app UnSwipe]] hace las dos cosas"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop sacrificing sleep"
+     ],
+     "fr": "sacrifie plus [[ton sommeil]]",
+     "texte": "[[duérmete]] con la duda"
+    },
+    "T2": {
+     "en": [
+      "your brain strengthens",
+      "memories and clears",
+      "out metabolic waste",
+      "while you sleep"
+     ],
+     "fr": "ton cerveau [[consolide tes souvenirs]] et fait le ménage pendant que tu dors",
+     "texte": "¿algo se te resiste? deja de forzarlo a medianoche y vete a dormir con la pregunta"
+    },
+    "T3": {
+     "en": [
+      "consistently getting",
+      "too little makes it",
+      "harder to focus, learn,",
+      "and make decisions"
+     ],
+     "fr": "en manque de sommeil, t'as plus de mal à te concentrer, à apprendre et à décider",
+     "texte": "mientras duermes, tu cerebro [[repasa y ordena]] lo que aprendiste durante el día"
+    },
+    "T4": {
+     "en": [
+      "if you want to think sharper, stop treating sleep like",
+      "optional downtime"
+     ],
+     "fr": "pour avoir l'esprit vif, arrête de traiter le sommeil comme [[une option]]",
+     "texte": "la respuesta que no aparecía a medianoche suele ser [[obvia]] por la mañana"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1029,7 +1029,7 @@ export const en = {
         medianePays: "Country median",
         nouveauCompte: "New account",
         creationEnCours: "Creating…",
-        nouveauCree: "New account created: the old one stops at the next planned stop.",
+        nouveauCree: "New account created: the old one is stopped and moved to the Archive.",
         ignorer: "Ignore for 7 days",
         vide: "No account.",
         types: { shadowban: "Probable shadowban", vues_basses: "Abnormally low views" },
@@ -1063,7 +1063,7 @@ export const en = {
       calendrierVues:
         "Views come from the nightly check (each post measured on the 3 nights after its date). A post only counts if it was old enough when measured.",
       circuit:
-        "You decide row by row. Kill: the account posts until Sunday and stops at 11:30 pm. Recreate and Double create the account right away. “Send to HMs” posts decisions in #managers-hq; anything decided but not sent goes out on its own on Sunday at noon, and the milestone reminder on Monday at 9 am.",
+        "You decide row by row. Kill: the account posts until Sunday and stops at 11:30 pm. Recreate and Double create the account right away; with Recreate, the old one stops at once and moves to the Archive. “Send to HMs” posts decisions in #managers-hq; anything decided but not sent goes out on its own on Sunday at noon, and the milestone reminder on Monday at 9 am.",
       onglets: { samedi: "Saturday: kill, recreate, double", jeudi: "Thursday: nudges", historique: "History", reglages: "Settings" },
       controle: "Check",
       controleDu: "Check of {{date}}",
@@ -1149,7 +1149,7 @@ export const en = {
         nudge: "@{{handle}} gets the pop-up below at their next login.",
         rien: "Nothing is sent.",
         ne_pas_renouveler: "@{{handle}} posts until Sunday and stops at 11:30 pm (right away on a Monday before 10 am). A poster with no other account is deactivated.",
-        recreer: "A new account is created right away (same app, label from the distribution). @{{handle}} stops on Sunday at 11:30 pm.",
+        recreer: "A new account is created right away (same app, label from the distribution). @{{handle}} stops at once and moves to the Archive.",
         doubler: "A 2nd account is created right away (same app, a label different from the 1st).",
         garder: "Nothing changes; the same rule won't suggest @{{handle}} again for 14 days.",
         pas_maintenant: "Nothing changes; not suggested again for 14 days.",
@@ -2428,6 +2428,14 @@ export const en = {
         warmupPasCommence: "Warm-up not started (0 follows, 0 likes)",
         startPasClique: "Start warmup not clicked",
       },
+    },
+    archive: {
+      titre: "Archive",
+      resume: "{{posteurs}} poster(s) · {{comptes}} account(s)",
+      aide: "Deactivated posters and dormant accounts: out of the active lists, ignored by agents and by Hired. Reactivate wakes one account only (and its profile if it was deactivated).",
+      reactiver: "Reactivate",
+      sansCompte: "no account",
+      sansHandle: "account without @",
     },
     etapes: {
       legende: "Stages: Account not created → Not warming up → Warming up → Ready → Posting · week N → Stopped / Dormant",

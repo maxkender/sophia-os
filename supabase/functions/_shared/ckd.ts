@@ -238,7 +238,7 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
     lignes.push(`:repeat: *Recreate* ${qui}`);
     lignes.push(
       `New account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to start ` +
-        "the warm-up in the OS before Sunday midnight. The old account stops Sunday night; the milestone doesn't change.",
+        "the warm-up in the OS before Sunday midnight. The old account is already stopped (moved to the Archive); the milestone doesn't change.",
     );
   } else if (d.decision === "doubler") {
     lignes.push(`:heavy_plus_sign: *Double* ${qui}`);

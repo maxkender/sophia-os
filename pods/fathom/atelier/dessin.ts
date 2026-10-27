@@ -152,7 +152,8 @@ export function mesurerTitre(ctx: Ctx, lignes: LigneTitre[], o: Omit<OptionsTitr
   const plusLongue = Math.max(...lignes.map((l) => largeurLigne(ctx, l, ref, espacement)));
   const taille = Math.min((ref * (o.largeur ?? 1040)) / plusLongue, (ref * (o.capMax ?? 346)) / capRef);
   const cap = (capRef * taille) / ref;
-  const accents = lignes.reduce((t, _, i) => t + ecartAccents(ctx, lignes, i, taille), 0);
+  // La cédille de la dernière ligne (« INSATISFAÇÃO ») descend vers la carte : on la compte.
+  const accents = lignes.reduce((t, _, i) => t + ecartAccents(ctx, lignes, i, taille), 0) + depassements(ctx, lignes[lignes.length - 1], taille).bas;
   return { taille, cap, hauteur: lignes.length * cap + (lignes.length - 1) * cap * (o.interligne ?? 0.055) + accents };
 }
 
@@ -195,7 +196,7 @@ export function titreGeant(ctx: Ctx, lignes: LigneTitre[], o: OptionsTitre): { b
     base += cap + ecart;
   }
   ctx.restore();
-  return { bas: base - cap - ecart, cap, taille };
+  return { bas: base - cap - ecart + depassements(ctx, lignes[lignes.length - 1], taille).bas, cap, taille };
 }
 
 /**

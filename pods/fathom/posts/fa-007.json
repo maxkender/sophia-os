@@ -6,16 +6,20 @@
   "accroche": "5 Ways To Be Unrecognisable In 3 Months"
  },
  "titre": {
-  "en": "5 Ways To Be Unrecognisable In 3 Months"
+  "en": "5 Ways To Be Unrecognisable In 3 Months",
+  "de": "5 Wege, in 3 Monaten nicht wiederzuerkennen",
+  "pt": "5 formas de ficar irreconhecível em 3 meses"
  },
  "legendes": {
-  "en": "5 Ways To Be Unrecognisable In 3 Months #selfimprovement #learnontiktok #selfmastery"
+  "en": "5 Ways To Be Unrecognisable In 3 Months #selfimprovement #learnontiktok #selfmastery",
+  "de": "5 Wege, in 3 Monaten nicht wiederzuerkennen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "pt": "5 formas de ficar irreconhecível em 3 meses #desenvolvimentopessoal #aprendernotiktok #autoconhecimento"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
  },
- "notes": "cta A (« learn something new every day, / in 5 minutes. »). Double intégration : UnSwipe à l'étape 1 « LEARN TO BE BORED » (Instagram sans les Reels), Sophia en carte d'appli à l'étape 3 « FEED YOUR MIND » (leur slide Fathomly de fin disparaît). Variante de fa-001 par ses étapes à lui (matins, voix, force), autres vidéos ; son « CHANGE YOUR STYLE » tombe.",
+ "notes": "cta A (« learn something new every day, / in 5 minutes. »). Double intégration : UnSwipe à l'étape 1 « LEARN TO BE BORED » (Instagram sans les Reels), Sophia en carte d'appli à l'étape 3 « FEED YOUR MIND » (leur slide Fathomly de fin disparaît). Variante de fa-001 par ses étapes à lui (matins, voix, force), autres vidéos ; son « CHANGE YOUR STYLE » tombe. En de et pt (Portugal), chaque langue a ses propres vidéos natives.",
  "slides": [
   {
    "type": "couverture",
@@ -39,6 +43,46 @@
      ],
      "IN 3 MONTHS"
     ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE, IN"
+      }
+     ],
+     "3 MONATEN",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 3 MESES"
+    ]
    }
   },
   {
@@ -53,6 +97,30 @@
      "texte": [
       "Instagram without the Reels.",
       "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN, DICH ZU LANGWEILEN"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A ESTAR ABORRECIDO"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
      ]
     }
    }
@@ -72,6 +140,35 @@
      "duree": "9:40",
      "avatar": "https://yt3.ggpht.com/u-HzltuKtE_y3KqRS_ea2ThRDENTgFzDuRFQHPBVoZcmnriMBWc5u-1xHLh1QA9peeMs8HIS=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "de": {
+    "titre": [
+     "MEISTERE DEINE",
+     "MORGENROUTINE"
+    ],
+    "video": {
+     "id": "Qmn7gEtWXAE",
+     "titre": "Ich habe die perfekte Routine getestet (wissenschaftlich bewiesen)",
+     "chaine": "Robin Fübbeker",
+     "vues": "165.717 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/UM36K7GbLmK5DbcLphrX3ANtu_QNuU35VS-9TPRY9e8auAN791kRu0nyCAb4oxohRHCHgeJ6gQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "DOMINA AS TUAS MANHÃS"
+    ],
+    "video": {
+     "id": "2w-P3Bas39w",
+     "titre": "Os Hábitos Matinais Perfeitos (comprovados pela neurociência)",
+     "chaine": "Gabriel Conde",
+     "vues": "425 mil visualizações",
+     "date": "há 8 meses",
+     "duree": "8:38",
+     "avatar": "https://yt3.ggpht.com/BuXYTsfh5UxvmWBp_VTWrO169t-kC200CwyLoOYpnQjHAY0Wm-Ra7yj8sZTslBzKPsOcppkkZQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -86,6 +183,30 @@
      "texte": [
       "learn something new every day,",
       "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FÜTTERE DEINEN GEIST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "ALIMENTA A TUA MENTE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
      ]
     }
    }
@@ -105,6 +226,34 @@
      "duree": "9:44",
      "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "de": {
+    "titre": [
+     "TRAINIERE DEINE STIMME"
+    ],
+    "video": {
+     "id": "cEB9RdFX-5g",
+     "titre": "Tiefe Stimme bekommen mit dieser starken Übung + Trick",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "356.769 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TREINA A TUA VOZ"
+    ],
+    "video": {
+     "id": "rqgZIlYjFVg",
+     "titre": "Como melhorar a dicção: 4 dicas + 4 exercícios para turbinar sua comunicação!",
+     "chaine": "Dicas da Fono por Paula Moura",
+     "vues": "814 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:15",
+     "avatar": "https://yt3.ggpht.com/RrUldzQKOdROiOE7lqYazscDJMn1WNNt7_bRUnuXAMRPCTRgjNv_mwtjxWuc1qggH39-0s13QQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -121,6 +270,34 @@
      "date": "1 year ago",
      "duree": "3:15",
      "avatar": "https://yt3.ggpht.com/WjYTJFTzkvFbDwaqv4FCainKS-Hc38uSt_-mD2fDluiO3DQZlF_wPfad9q9jykbR560eA9vdpw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WERDE STARK"
+    ],
+    "video": {
+     "id": "89F7Gcpi_Rk",
+     "titre": "Trainingsplan für Anfänger im Fitnessstudio (3-4x pro Woche)",
+     "chaine": "Coach Stef",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FICA FORTE"
+    ],
+    "video": {
+     "id": "MSiPOg--BHw",
+     "titre": "Tudo sobre treino de força",
+     "chaine": "Leandro Twin",
+     "vues": "245 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/3MF_YLULfQG2kX4wuxWl161vkRyyUANacZvcy7xZxxFXZQhMocJ9qfqbFGORMSGvbOM4SXML1g=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

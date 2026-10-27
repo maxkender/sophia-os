@@ -31,6 +31,7 @@ export const ROUTES_HO: readonly string[] = [
   "/admin/assistant", // Assistant
   "/admin/comment-masters", // Comment masters : changer qui commente, suivre les bonus
   "/admin/comment-masters/suivi", // Comment Masters · suivi : les Done par Comment Master (0373)
+  "/admin/paie", // Paie : Lucia paie le lundi depuis une seule liste (v3, 0380)
   "/admin/check-kill-double", // Check, Kill or Double : décider, envoyer aux HMs, suivre les Done (21/10)
   // Sans ces deux-là, Schedule et Account watch sont des culs-de-sac : elles
   // renvoient toutes les deux vers la fiche d'un créateur, qui renvoie vers le

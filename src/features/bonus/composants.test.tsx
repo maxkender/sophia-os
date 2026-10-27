@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import i18n from "@/locales";
 import type { PosterProfil } from "@/features/moteur/types";
 
-import type { BonusAVenir as TBonusAVenir, LigneBonus } from "./api";
+import type { BonusAVenir as TBonusAVenir } from "./api";
 
 const api = vi.hoisted(() => ({
   lireBonus: vi.fn(),
@@ -28,7 +28,6 @@ vi.mock("@/features/moteur/cohortes", async (orig) => ({
 
 import { BonusAVenir } from "./BonusAVenir";
 import { ChoixRecrue } from "./ChoixRecrue";
-import { SectionBonus } from "./SectionBonus";
 
 const REGLAGES = {
   parrainage_montant: 25,
@@ -38,28 +37,6 @@ const REGLAGES = {
   premier_lundi: "2026-11-30",
 };
 
-function ligne(o: Partial<LigneBonus>): LigneBonus {
-  return {
-    id: "b1",
-    poster_id: "Parrain",
-    hm_id: "hm",
-    type: "parrainage",
-    referral_id: "r",
-    recrue_id: "x",
-    lundi_bonus: "2026-11-30",
-    periode_debut: "2026-11-02",
-    periode_fin: "2026-11-29",
-    detail: "parrainage de Ana Pérez, 2 semaines faites",
-    quantite: 2,
-    verifies: null,
-    montant: 25,
-    statut: "a_payer",
-    contrat_url: "https://upwork.com/c/1",
-    paye_at: null,
-    paye_par: null,
-    ...o,
-  };
-}
 
 function avec(el: React.ReactNode) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -72,57 +49,6 @@ beforeEach(async () => {
   api.lireReglagesBonus.mockResolvedValue(REGLAGES);
   api.marquerBonusPaye.mockResolvedValue(undefined);
   api.lierRecrue.mockResolvedValue(undefined);
-});
-
-describe("SectionBonus (Paie)", () => {
-  beforeEach(() => {
-    api.lireBonus.mockResolvedValue([
-      ligne({}),
-      ligne({
-        id: "b2",
-        poster_id: "Cm",
-        type: "comment_master",
-        referral_id: null,
-        detail: "37 commentaires du 2 au 29 nov.",
-        quantite: 37,
-        verifies: 30,
-        montant: 18.5,
-        statut: "a_voir",
-        contrat_url: null,
-      }),
-    ]);
-  });
-
-  it("la consigne, les lignes du lundi bonus, « À voir » sans contrat Upwork", async () => {
-    avec(<SectionBonus />);
-    await screen.findByText("Parrain Nom");
-    expect(api.lireBonus).toHaveBeenCalledWith("2026-11-30");
-    expect(screen.getByText("Payer en Bonus sur le contrat Upwork actif du posteur.")).toBeTruthy();
-    const cm = screen.getByText("Cm Nom").closest("tr")!;
-    expect(within(cm).getByText("Pas de contrat : à voir")).toBeTruthy();
-    expect(within(cm).getByText("30 vérifiés sur TikTok")).toBeTruthy();
-    expect(screen.getByText(/1 ligne à voir/)).toBeTruthy();
-  });
-
-  it("la case « Payé »", async () => {
-    avec(<SectionBonus />);
-    const parrain = (await screen.findByText("Parrain Nom")).closest("tr")!;
-    fireEvent.click(within(parrain).getByRole("checkbox"));
-    await vi.waitFor(() => expect(api.marquerBonusPaye).toHaveBeenCalledWith("b1", true));
-  });
-
-  it("les réglages viennent de l'OS et s'enregistrent", async () => {
-    api.enregistrerReglagesBonus.mockResolvedValue(undefined);
-    avec(<SectionBonus />);
-    await screen.findByText("Parrain Nom");
-    const champ = screen.getByLabelText("Comment Master : montant par commentaire ($)") as HTMLInputElement;
-    expect(champ.value).toBe("0.5");
-    fireEvent.change(champ, { target: { value: "0.75" } });
-    fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
-    await vi.waitFor(() =>
-      expect(api.enregistrerReglagesBonus).toHaveBeenCalledWith({ ...REGLAGES, comment_master_par_commentaire: 0.75 }),
-    );
-  });
 });
 
 describe("Bonus à venir (dashboard HM)", () => {

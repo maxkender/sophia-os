@@ -98,6 +98,7 @@ export function AppRouter() {
             <Route path="/admin/assistant" element={<AdminChatbotPage />} />
             <Route path="/admin/comment-masters" element={<AdminCommentMastersPage />} />
             <Route path="/admin/comment-masters/suivi" element={<AdminCommentMastersSuiviPage />} />
+            <Route path="/admin/paie" element={<AdminPaiePage />} />
             <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
             {/* Sans ces deux-là, Schedule et Account watch sont des culs-de-sac. */}
             <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />
@@ -120,7 +121,6 @@ export function AppRouter() {
               <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
-              <Route path="/admin/paie" element={<AdminPaiePage />} />
               <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
               <Route path="/admin/reglages" element={<AdminReglagesPage />} />

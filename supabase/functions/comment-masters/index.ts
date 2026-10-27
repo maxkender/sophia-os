@@ -26,7 +26,9 @@ import {
   texteNotification,
   verdictCanal,
 } from "../_shared/comment_masters.ts";
+import { detecterDone, lireFil, nomSlack } from "../_shared/cm_suivi.ts";
 import { lireParLots } from "../_shared/lots.ts";
+import { trouverPosteur } from "../_shared/slack_posteur.ts";
 import { mapPool } from "../_shared/parallel.ts";
 import {
   assertAuthorised,
@@ -97,6 +99,10 @@ const CLE_RECALIBRAGE = "comment_masters_recalibrage";
  *   { action: "activer", langue, actif } → allume (après vérification) ou
  *                                         éteint une région.
  * Les deux actions servent la page Admin → Comment masters (admin et Head of Ops).
+ *   { action: "synchro_slack" }          → Comment Masters · suivi (0373) : lit
+ *                                         le fil et les réactions des demandes
+ *                                         ouvertes, note les Done vus sur Slack.
+ *   { action: "synchro_slack_planifiee" } → la même, par le cron de 7 h (Paris).
  */
 Deno.serve(async (request) => {
   let corps: Record<string, unknown> = {};
@@ -122,8 +128,32 @@ Deno.serve(async (request) => {
     }
   }
 
+  if (corps.action === "synchro_slack") {
+    const acces = await assertRole(request, ["admin", "head_of_ops"]);
+    if (acces instanceof Response) return acces;
+    try {
+      const par = acces.userId && acces.userId !== "cron" ? acces.userId : null;
+      return json(await synchroSlack(serviceClient(), jetonSlack(), par, false));
+    } catch (error) {
+      return json({ ok: false, error: messageErreur(error) }, 500);
+    }
+  }
+
   const denied = await assertAuthorised(request);
   if (denied) return denied;
+
+  if (corps.action === "synchro_slack_planifiee") {
+    // Le cron passe à 5 h et 6 h UTC : on ne garde que 7 h à Paris.
+    const heure = Number(
+      new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(new Date()),
+    );
+    if (heure !== 7) return json({ ok: true, ignore: `${heure} h à Paris` });
+    try {
+      return json(await synchroSlack(serviceClient(), jetonSlack(), null, true));
+    } catch (error) {
+      return json({ ok: false, error: messageErreur(error) }, 500);
+    }
+  }
 
   const apercu = Number(corps.apercu) || 0;
   if (apercu > 0) {
@@ -1131,5 +1161,123 @@ async function resoudreLien(url: string): Promise<string> {
     return res.url || url;
   } catch {
     return url;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Comment Masters · suivi (0373) : la synchro des Done vus sur Slack
+// ---------------------------------------------------------------------------
+
+// Les demandes ouvertes des 5 dernières semaines : la période de 4 semaines en
+// cours et la fin de la précédente.
+const JOURS_SYNCHRO = 35;
+
+/**
+ * Pour chaque demande encore ouverte d'un canal actif : lit son fil ; une
+ * réponse « done » / ✅ ou une réaction ✅ remplit `fait_at` et `fait_par`
+ * (source `slack_sync`), seulement si `fait_at` est vide. Retrouve aussi le
+ * compte Slack de chaque Comment Master (par son email) pour repérer un Done
+ * fait par quelqu'un d'autre. Tout est journalisé dans `comment_master_syncs`.
+ */
+async function synchroSlack(supabase: Supabase, slack: string, lancePar: string | null, auto: boolean) {
+  const { data: journal, error: errJ } = await supabase
+    .from("comment_master_syncs")
+    .insert({ auto, lance_par: lancePar })
+    .select("id")
+    .single();
+  if (errJ) throw errJ;
+  const erreurs: { canal?: string; demande?: string; erreur: string }[] = [];
+
+  const { data: regions, error: errR } = await supabase
+    .from("comment_master_regions")
+    .select("langue, slack_channel_id")
+    .eq("actif", true)
+    .not("slack_channel_id", "is", null);
+  if (errR) throw errR;
+  const canaux = new Set((regions ?? []).map((r) => r.slack_channel_id as string));
+
+  const depuis = new Date(Date.now() - JOURS_SYNCHRO * 86_400_000).toISOString();
+  const { data: ouvertes, error: errD } = await supabase
+    .from("comment_master_demandes")
+    .select("id, slack_channel_id, slack_ts")
+    .is("fait_at", null)
+    .not("slack_ts", "is", null)
+    .gte("envoye_at", depuis);
+  if (errD) throw errD;
+  const aLire = (ouvertes ?? []).filter((d) => canaux.has(d.slack_channel_id as string));
+
+  const noms = new Map<string, string | null>();
+  const nom = async (id: string) => {
+    if (!noms.has(id)) noms.set(id, await nomSlack(slack, id).catch(() => null));
+    return noms.get(id) ?? null;
+  };
+
+  let majs = 0;
+  await mapPool(aLire, 3, async (d) => {
+    const lu = await lireFil(slack, d.slack_channel_id as string, d.slack_ts as string);
+    if (!lu.ok) {
+      erreurs.push({ canal: d.slack_channel_id as string, demande: d.id as string, erreur: lu.erreur });
+      return;
+    }
+    const done = detecterDone(lu.fil);
+    if (!done) return;
+    const { data: faite, error } = await supabase
+      .from("comment_master_demandes")
+      .update({
+        fait_at: done.at ?? new Date().toISOString(),
+        fait_par: done.user ? ((await nom(done.user)) ?? done.user) : null,
+        fait_slack_id: done.user,
+        fait_source: "slack_sync",
+        fait_mode: done.mode,
+      })
+      .eq("id", d.id)
+      .is("fait_at", null)
+      .select("id");
+    if (error) erreurs.push({ demande: d.id as string, erreur: error.message });
+    else majs += faite?.length ?? 0;
+  });
+
+  // Le compte Slack de chaque Comment Master (une fois par semaine).
+  try {
+    await retrouverCommentMasters(supabase, slack);
+  } catch (error) {
+    erreurs.push({ erreur: `comptes Slack : ${messageErreur(error)}` });
+  }
+
+  const resultat = { canaux: canaux.size, lues: aLire.length, mises_a_jour: majs, erreurs };
+  await supabase
+    .from("comment_master_syncs")
+    .update({ ...resultat, fin: new Date().toISOString() })
+    .eq("id", journal.id);
+  return { ok: erreurs.length === 0, ...resultat };
+}
+
+async function retrouverCommentMasters(supabase: Supabase, slack: string) {
+  const { data: mandats, error } = await supabase.from("comment_master_mandats").select("profile_id");
+  if (error) throw error;
+  const ids = [...new Set((mandats ?? []).map((m) => m.profile_id as string).filter(Boolean))];
+  if (ids.length === 0) return;
+  const { data: connus } = await supabase.from("comment_master_slack").select("profile_id, slack_user_id, maj_at").in("profile_id", ids);
+  const semaine = Date.now() - 7 * 86_400_000;
+  const frais = new Set(
+    (connus ?? []).filter((c) => c.slack_user_id && Date.parse(c.maj_at as string) > semaine).map((c) => c.profile_id),
+  );
+  const aChercher = ids.filter((id) => !frais.has(id));
+  if (aChercher.length === 0) return;
+  const { data: profils, error: errP } = await supabase
+    .from("profiles")
+    .select("id, email, email_perso")
+    .in("id", aChercher);
+  if (errP) throw errP;
+  const lecture = Deno.env.get("SLACK_BOT_TOKEN2");
+  for (const p of profils ?? []) {
+    const trouve = await trouverPosteur({ ecriture: slack, lecture }, [p.email_perso, p.email]);
+    const userId = trouve.userId ?? null;
+    await supabase.from("comment_master_slack").upsert({
+      profile_id: p.id,
+      slack_user_id: userId,
+      slack_name: userId ? await nomSlack(slack, userId).catch(() => null) : null,
+      maj_at: new Date().toISOString(),
+    });
   }
 }

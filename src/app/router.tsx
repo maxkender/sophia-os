@@ -18,6 +18,7 @@ import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { AdminChatbotPage } from "@/pages/admin/AdminChatbotPage";
 import { AdminCheckKillDoublePage } from "@/pages/admin/AdminCheckKillDoublePage";
 import { AdminCommentMastersPage } from "@/pages/admin/AdminCommentMastersPage";
+import { AdminCommentMastersSuiviPage } from "@/pages/admin/AdminCommentMastersSuiviPage";
 import { DocumentView } from "@/features/documents/DocumentView";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
@@ -93,6 +94,7 @@ export function AppRouter() {
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />
             <Route path="/admin/assistant" element={<AdminChatbotPage />} />
             <Route path="/admin/comment-masters" element={<AdminCommentMastersPage />} />
+            <Route path="/admin/comment-masters/suivi" element={<AdminCommentMastersSuiviPage />} />
             <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
             {/* Sans ces deux-là, Schedule et Account watch sont des culs-de-sac. */}
             <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />

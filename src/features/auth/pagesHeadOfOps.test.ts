@@ -29,6 +29,7 @@ const PAGES_DEMANDEES = [
   "/admin/documents", // Documents
   "/admin/assistant", // Assistant
   "/admin/comment-masters", // Comment masters (ticket 002)
+  "/admin/comment-masters/suivi", // Comment Masters · suivi (27/10)
   "/admin/check-kill-double", // Check, Kill or Double (21/10)
   "/admin/retours-contestes", // Retours que les créateurs disent faux, à côté des Reviews (23/10)
 ];

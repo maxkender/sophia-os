@@ -116,7 +116,7 @@ export const en = {
     nav: {
       cmSuivi: "Comment Masters · tracking",
       checkKillDouble: "Check, Kill or Double",
-      commentMasters: "Comment masters",
+      commentMasters: "Comment Masters",
       admin: "Admin",
       poster: "Poster",
       pilotage: "Dashboard",
@@ -202,7 +202,7 @@ export const en = {
     navDesc: {
       cmSuivi: "Done per Comment Master, Slack sync, total for the bonus",
       checkKillDouble: "Thursday nudges; kill, recreate or double on Saturday",
-      commentMasters: "Regions, comment masters, thresholds by country and bonuses",
+      commentMasters: "Done tracking and settings (regions, comment masters, thresholds, bonuses)",
       pilotage: "Overview and pipeline launch",
       calendrier: "Planned posts for the day, by creator",
       minuit: "Day's passages (labels ∩ score), and gaps",
@@ -1157,6 +1157,7 @@ export const en = {
       },
     },
     commentMasters: {
+      onglets: { suivi: "Tracking", reglages: "Settings" },
       titre: "Comment masters",
       description:
         "A region = one language, one comment master (an OS poster) and one private Slack channel. Every post from a country of the region that passes that country's threshold within the window goes to Slack with a ready-to-post comment. Everything is set here and applies at the next check, with no redeploy.",

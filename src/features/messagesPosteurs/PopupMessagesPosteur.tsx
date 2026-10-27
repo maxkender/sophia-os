@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CircleAlert, Sparkles } from "lucide-react";
+import { CircleAlert, RefreshCw, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { useAuth } from "@/features/auth/AuthContext";
 
-import { mesMessages, repondreDouble, type MonMessage } from "./api";
+import { marquerMessageLu, mesMessages, repondreDouble, type MonMessage } from "./api";
 
 /**
  * Tous les messages aux posteurs sont en anglais (v3) : les libellés d'ici
@@ -31,6 +31,8 @@ export const EN = {
   erreur: "Something went wrong. Please try again.",
   fermer: "Close",
   killTitre: "Message from the team",
+  recreerTitre: "Your new TikTok account",
+  compris: "Got it",
 } as const;
 
 function dateAnglaise(iso: string): string {
@@ -45,8 +47,9 @@ function dateAnglaise(iso: string): string {
 }
 
 /**
- * Espace du posteur (v3, 0382) : l'offre Double en pop-up (Yes / No) et le
- * message de Kill en bandeau. Réservé au vrai posteur, comme `NudgePopup` :
+ * Espace du posteur (v3) : la recréation en pop-up bloquante (« Got it »,
+ * 0383), l'offre Double en pop-up (Yes / No, 0382) et le message de Kill en
+ * bandeau. Une pop-up à la fois : la recréation d'abord. Réservé au vrai posteur, comme `NudgePopup` :
  * l'admin qui traverse l'espace ne répond pas à sa place.
  */
 export function PopupMessagesPosteur() {
@@ -58,11 +61,16 @@ export function PopupMessagesPosteur() {
 function MessagesDuPosteur() {
   const { data } = useQuery({ queryKey: ["mes-messages-posteur"], queryFn: mesMessages, staleTime: 60_000 });
   const kill = (data ?? []).find((m) => m.type === "kill");
+  const recreation = (data ?? []).find((m) => m.type === "recreer");
   const offre = (data ?? []).find((m) => m.type === "double");
   return (
     <>
       {kill && <BandeauKill message={kill} />}
-      {offre && <OffreDouble key={offre.id} message={offre} />}
+      {recreation ? (
+        <Recreation key={recreation.id} message={recreation} />
+      ) : (
+        offre && <OffreDouble key={offre.id} message={offre} />
+      )}
     </>
   );
 }
@@ -80,6 +88,38 @@ function BandeauKill({ message }: { message: MonMessage }) {
         <p>{message.texte}</p>
       </div>
     </div>
+  );
+}
+
+/** Recréer (0383) : bloquante, seul « Got it » la ferme (et pose `lu_at`). */
+function Recreation({ message }: { message: MonMessage }) {
+  const queryClient = useQueryClient();
+  const lu = useMutation({
+    mutationFn: () => marquerMessageLu(message.id),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["mes-messages-posteur"] }),
+  });
+  return (
+    <Dialog open disablePointerDismissal>
+      <DialogPopup showCloseButton={false} className="max-w-md" data-testid="popup-recreation">
+        <DialogHeader>
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 items-center justify-center rounded-xl bg-warning/15 text-warning-foreground">
+              <RefreshCw className="size-5" />
+            </span>
+            <DialogTitle className="text-base">{EN.recreerTitre}</DialogTitle>
+          </div>
+        </DialogHeader>
+        <DialogPanel>
+          <p className="whitespace-pre-wrap rounded-lg bg-muted/50 p-4 text-sm leading-relaxed">{message.texte}</p>
+          {lu.isError && <p className="mt-2 text-sm text-destructive">{EN.erreur}</p>}
+        </DialogPanel>
+        <DialogFooter>
+          <Button disabled={lu.isPending} onClick={() => lu.mutate()}>
+            {EN.compris}
+          </Button>
+        </DialogFooter>
+      </DialogPopup>
+    </Dialog>
   );
 }
 

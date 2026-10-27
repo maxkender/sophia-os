@@ -24,8 +24,8 @@ const VARIANTE: Record<StatutMessage, "success" | "warning" | "error" | "info" |
 };
 
 /**
- * Ce que l'OS a dit aux posteurs (v3, 0382) : Kill et offres Double des deux
- * dernières semaines. L'admin voit tout et relance une création ratée ; une
+ * Ce que l'OS a dit aux posteurs (v3) les deux dernières semaines : Kill et
+ * offres Double (samedi, 0382), Recréer et Nudge (jeudi, 0383). L'admin voit tout et relance une création ratée ; une
  * HM voit ses posteurs, en lecture seule.
  */
 export function SuiviMessages({ admin }: { admin: boolean }) {
@@ -45,7 +45,7 @@ export function SuiviMessages({ admin }: { admin: boolean }) {
     minute: "2-digit",
     timeZone: "Europe/Paris",
   });
-  const lignes = (messages.data ?? []).filter((m) => m.type === "kill" || m.type === "double");
+  const lignes = messages.data ?? [];
 
   const detail = (m: MessagePosteur): string[] => {
     const d: string[] = [];
@@ -78,7 +78,7 @@ export function SuiviMessages({ admin }: { admin: boolean }) {
                 <div className="min-w-0 space-y-0.5">
                   <p className="flex flex-wrap items-center gap-1.5">
                     <span className="font-medium">{m.poster_nom ?? "—"}</span>
-                    <Badge variant={m.type === "kill" ? "error" : "success"}>{t(`messagesPosteurs.types.${m.type}`)}</Badge>
+                    <Badge variant={m.type === "kill" ? "error" : m.type === "double" ? "success" : "info"}>{t(`messagesPosteurs.types.${m.type}`)}</Badge>
                     <Badge variant={VARIANTE[m.statut]}>{t(`messagesPosteurs.statuts.${m.statut}`)}</Badge>
                   </p>
                   <p className="text-xs text-muted-foreground">

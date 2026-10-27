@@ -6,6 +6,7 @@ import i18n from "@/locales";
 
 const api = vi.hoisted(() => ({
   mesMessages: vi.fn(),
+  marquerMessageLu: vi.fn(),
   repondreDouble: vi.fn(),
   lireMessagesPosteurs: vi.fn(),
   creerCompteDouble: vi.fn(),
@@ -65,6 +66,20 @@ describe("PopupMessagesPosteur", () => {
     expect(await screen.findByTestId("bandeau-kill")).toHaveTextContent("Hi Bo, thank you");
   });
 
+  it("Recréer : bloquante, seul Got it la ferme, avant l'offre Double", async () => {
+    api.mesMessages.mockResolvedValue([
+      offre,
+      { ...offre, id: "r", type: "recreer", texte: "There was a problem with your account. Here is the new account to create: @ana.new.", expire_at: null },
+    ]);
+    api.marquerMessageLu.mockResolvedValue(undefined);
+    rendu(<PopupMessagesPosteur />);
+    expect(await screen.findByTestId("popup-recreation")).toHaveTextContent("@ana.new");
+    expect(screen.queryByTestId("offre-double")).toBeNull();
+    expect(screen.queryByRole("button", { name: /close/i })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Got it" }));
+    await waitFor(() => expect(api.marquerMessageLu).toHaveBeenCalledWith("r"));
+  });
+
   it("rien pour l'admin qui traverse l'espace", () => {
     auth.roleReel = "admin";
     rendu(<PopupMessagesPosteur />);
@@ -113,11 +128,14 @@ describe("ReglagesMessages", () => {
       kill_message_texte: "Hi {prenom}",
       double_popup_texte: "Offer",
       double_popup_expire: { jour_iso: 3, heure: "23:59" },
+      recreer_popup_texte: "New @{nouveau} on Monday {date}",
+      nudge_regularite_texte: "Hi {prenom}, post",
     });
     api.enregistrerReglagesMessages.mockResolvedValue(undefined);
     rendu(<ReglagesMessages />);
     fireEvent.click(await screen.findByLabelText(/Message de Kill automatique/));
     fireEvent.change(screen.getByLabelText("Jour d'expiration"), { target: { value: "4" } });
+    fireEvent.change(screen.getByLabelText(/Jeudi, message Slack du Nudge/), { target: { value: "Hi {prenom}, please post" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() =>
       expect(api.enregistrerReglagesMessages).toHaveBeenCalledWith({
@@ -125,6 +143,8 @@ describe("ReglagesMessages", () => {
         kill_message_texte: "Hi {prenom}",
         double_popup_texte: "Offer",
         double_popup_expire: { jour_iso: 4, heure: "23:59" },
+        recreer_popup_texte: "New @{nouveau} on Monday {date}",
+        nudge_regularite_texte: "Hi {prenom}, please post",
       }),
     );
   });

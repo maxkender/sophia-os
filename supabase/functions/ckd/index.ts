@@ -14,7 +14,7 @@ import {
   zonesDe,
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
-import { ecrireAuPosteur, prevenirPosteur, texteRecreation } from "../_shared/slack_posteur.ts";
+import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
@@ -32,7 +32,7 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       manage-users (`ajouter_compte`, même application), puis le relie
  *       (`ckd_compte_cree`) ; répartition habituelle ; l'ancien compte
  *       s'arrête, ses posts à venir sont retirés (0368), et le posteur reçoit
- *       un message Slack (pas la HM). Doubler (v3, 0382) : ne crée plus rien,
+ *       une pop-up « Got it » et le même texte sur Slack (0383, pas la HM). Doubler (v3, 0382) : ne crée plus rien,
  *       propose le 2ᵉ compte au posteur (pop-up à partir du dimanche,
  *       `double_offrir`).
  *       Échec : la proposition redevient libre, avec l'erreur.
@@ -41,6 +41,10 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       créé (choix équilibré de la répartition, sans les labels du 1ᵉʳ
  *       compte) et démarre le lundi J+9 (0369). Un échec de création est noté,
  *       la réponse reste : l'admin relance par `double_creer`.
+ *   { action: "nudges_slack", controle_id? , id? }                      admin
+ *       Nudge du jeudi (v3, 0383) : le message Slack au posteur (réglage
+ *       `nudge_regularite_texte`), une fois par semaine. Appelée par la page
+ *       après un Nudge, et par « Envoyer aux HM ».
  *   { action: "double_creer", id }                                     admin
  *       Recrée le 2ᵉ compte d'une offre acceptée restée sans compte.
  *   { action: "recreer_shadowban", compte_id }                        admin
@@ -107,6 +111,8 @@ Deno.serve(async (request) => {
         const kills = await messagesKill(supabase, c.id).catch((e) => ({ erreur: messageErreur(e) }));
         return json({ ...envoi, alarme, kills });
       }
+      case "nudges_slack":
+        return json(await nudgesSlack(supabase, { controleId: body.controle_id, id: body.id }));
       case "messages_kill":
         return json(await messagesKill(supabase, String(body.controle_id ?? "")));
       case "double_creer":
@@ -383,6 +389,34 @@ async function messagesKill(supabase: Supabase, controleId: string) {
   return { ok: true, ...bilan };
 }
 
+/** Nudge du jeudi (0383) : le message Slack de chaque nudge décidé, une fois par semaine. */
+async function nudgesSlack(supabase: Supabase, o: { controleId?: string; id?: string }) {
+  let requete = supabase.from("ckd_propositions").select("id").eq("type", "jeudi").eq("decision", "nudge");
+  if (o.id) requete = requete.eq("id", o.id);
+  else if (o.controleId) requete = requete.eq("controle_id", o.controleId);
+  else throw new Error("controle_id ou id requis");
+  const { data: props, error } = await requete;
+  if (error) throw error;
+  const bilan = { crees: 0, envoyes: 0, introuvables: 0, erreurs: 0 };
+  for (const p of props ?? []) {
+    const { data: crees, error: errCree } = await supabase.rpc("nudge_message_creer", { p_id: p.id });
+    if (errCree) throw errCree;
+    for (const m of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
+      bilan.crees++;
+      const issue = await ecrireAuPosteur(supabase, m.poster_id, m.texte);
+      if (issue.statut === "envoye") bilan.envoyes++;
+      else if (issue.statut === "introuvable") bilan.introuvables++;
+      else bilan.erreurs++;
+      await supabase.from("posteur_messages").update({
+        slack_statut: issue.statut,
+        slack_at: new Date().toISOString(),
+        slack_erreur: issue.statut === "erreur" ? issue.erreur : null,
+      }).eq("id", m.id);
+    }
+  }
+  return { ok: true, ...bilan };
+}
+
 async function recreerShadowban(supabase: Supabase, compteId: string, par: string | null): Promise<Response> {
   if (!compteId) return json({ ok: false, error: "compte_id requis" }, 400);
 
@@ -464,37 +498,27 @@ async function prevenirRecreation(
       .limit(1)
       .single();
     if (error) throw error;
-    const [{ data: comptes }, { data: profil }] = await Promise.all([
-      supabase.from("comptes").select("id, handle_tiktok").in("id", [r.ancien_compte_id, nouveauCompteId]),
-      supabase.from("profiles").select("email, email_perso").eq("id", r.poster_id).single(),
-    ]);
-    const handle = (id: string) => (comptes ?? []).find((c) => c.id === id)?.handle_tiktok ?? "?";
+    const { data: nouveau } = await supabase.from("comptes").select("handle_tiktok").eq("id", nouveauCompteId).single();
     const jourParis = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(r.created_at));
     const iso = new Date(`${jourParis}T12:00:00Z`).getUTCDay() || 7;
     const lundi = ajouterJours(jourParis, 8 - iso);
-    const date = (j: string, jourSemaine: boolean) =>
-      new Intl.DateTimeFormat("en-GB", {
-        ...(jourSemaine ? { weekday: "short" } : {}),
-        day: "numeric",
-        month: "short",
-        timeZone: "UTC",
-      }).format(new Date(`${j}T12:00:00Z`));
-    const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
-    const issue = ecriture
-      ? await prevenirPosteur(
-        { ecriture, lecture: Deno.env.get("SLACK_BOT_TOKEN2") },
-        [profil?.email_perso, profil?.email],
-        texteRecreation({
-          ancien: handle(r.ancien_compte_id),
-          nouveau: handle(nouveauCompteId),
-          le: date(jourParis, true),
-          lundi: date(lundi, false),
-        }),
-      )
-      : { statut: "erreur" as const, erreur: "SLACK_HM_BOT_TOKEN manquant" };
-    await supabase.from("ckd_recreations")
-      .update({ slack_statut: issue.statut, slack_at: new Date().toISOString() })
-      .eq("id", r.id);
+    const date = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "UTC" })
+      .format(new Date(`${lundi}T12:00:00Z`));
+    // v3 (0383) : le texte est un réglage ; le même part en pop-up et sur Slack.
+    const { data: message, error: errMessage } = await supabase.rpc("recreer_message_creer", {
+      p_recreation: r.id,
+      p_nouveau: nouveau?.handle_tiktok ?? "?",
+      p_date: date,
+    });
+    if (errMessage) throw errMessage;
+    const issue = await ecrireAuPosteur(supabase, r.poster_id, message.texte);
+    const maintenant = new Date().toISOString();
+    await supabase.from("ckd_recreations").update({ slack_statut: issue.statut, slack_at: maintenant }).eq("id", r.id);
+    await supabase.from("posteur_messages").update({
+      slack_statut: issue.statut,
+      slack_at: maintenant,
+      slack_erreur: issue.statut === "erreur" ? issue.erreur : null,
+    }).eq("id", message.id);
     return issue.statut === "erreur" ? { statut: "erreur", erreur: issue.erreur } : { statut: issue.statut };
   } catch (e) {
     return { statut: "erreur", erreur: messageErreur(e) };
@@ -674,6 +698,10 @@ async function envoyer(supabase: Supabase, controleId: string) {
     .eq("id", controleId)
     .single();
   if (error) throw error;
+  // Le jeudi, les nudges partent aussi au posteur sur Slack (0383), une seule fois.
+  const nudges = c.type === "jeudi"
+    ? await nudgesSlack(supabase, { controleId }).catch((e) => ({ erreur: messageErreur(e) }))
+    : undefined;
 
   const { data: brutes, error: errProps } = await supabase
     .from("ckd_propositions")
@@ -699,7 +727,7 @@ async function envoyer(supabase: Supabase, controleId: string) {
       (p.decision !== "recreer" || p.nouveau_compte_id) &&
       !(c.type === "jeudi" && p.decision === "recreer"),
   );
-  if (props.length === 0) return { ok: true, envoyees: 0 };
+  if (props.length === 0) return { ok: true, envoyees: 0, ...(nudges ? { nudges } : {}) };
 
   const canal = c.slack_canal ?? await canalSlack(supabase);
   const noterErreur = async (e: string) => {
@@ -747,7 +775,7 @@ async function envoyer(supabase: Supabase, controleId: string) {
 
   await majRecap(supabase, jeton, controleId);
   await supabase.from("ckd_controles").update({ slack_erreur: erreurs.length ? erreurs.join(" · ") : null }).eq("id", controleId);
-  return { ok: erreurs.length === 0, envoyees, ...(erreurs.length ? { erreurs } : {}) };
+  return { ok: erreurs.length === 0, envoyees, ...(erreurs.length ? { erreurs } : {}), ...(nudges ? { nudges } : {}) };
 }
 
 async function rappel(supabase: Supabase, controleId: string) {

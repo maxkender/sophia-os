@@ -307,6 +307,14 @@ export async function deciderCkd(
       })
       : await supabase.rpc("ckd_decider", { p_id: id, p_decision: decision, p_note: note });
   if (error) throw error;
+  // Le Nudge du jeudi part aussi au posteur sur Slack (0383). Un échec Slack
+  // n'annule pas le nudge : la page de suivi le montre.
+  if (decision === "nudge") await nudgesSlack({ id }).catch(() => undefined);
+}
+
+/** Nudge du jeudi : le message Slack au posteur (fonction `ckd`, 0383), une fois par semaine. */
+export async function nudgesSlack(cible: { id: string } | { controle_id: string }): Promise<void> {
+  await invoke<{ ok: boolean }>("ckd", { action: "nudges_slack", ...cible });
 }
 
 /** La consigne par défaut d'un nudge pour le HM, pour ce posteur (fonction `ckd`, 0339). */
@@ -333,6 +341,7 @@ export async function annulerCkd(id: string): Promise<void> {
 export async function envoyerNudgesCkd(controleId: string): Promise<number> {
   const { data, error } = await supabase.rpc("ckd_envoyer_nudges", { p_controle: controleId });
   if (error) throw error;
+  await nudgesSlack({ controle_id: controleId }).catch(() => undefined);
   return Number(data ?? 0);
 }
 

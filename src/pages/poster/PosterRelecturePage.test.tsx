@@ -28,10 +28,6 @@ vi.mock("@/features/relectureNative/api", () => ({
     Promise.resolve([{ application_id: "app-micabo", nom: "micabo", slug: "micabo", presentation: "micabo turns your notes into quizzes." }]),
 }));
 
-vi.mock("@/features/reviews/TikTokEmbed", () => ({
-  TikTokEmbed: ({ url, titre }: { url: string; titre: string }) => <iframe title={titre} src={url} />,
-}));
-
 import { PosterRelecturePage } from "./PosterRelecturePage";
 
 const RELECTEUR = {
@@ -151,26 +147,46 @@ describe("PosterRelecturePage", () => {
     expect(listerKit).not.toHaveBeenCalled();
   });
 
-  it("questionnaire envoyé : un invité voit les 3 posts du test, le TikTok et chaque slide", async () => {
+  it("questionnaire envoyé : un invité voit tout le kit, chaque slide avec son image", async () => {
     espace.mockReturnValue({
       relecteurs: [{ ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
       isPending: false,
       error: null,
     });
     rendre();
-    expect(await screen.findByText(/Your first 3 posts are a paid test/)).toBeInTheDocument();
-    const liste = screen.getByRole("list", { name: "The posts" });
-    expect(within(liste).getAllByRole("button").map((b) => b.textContent)).toEqual([
-      "Post 1To do",
-      "Post 2To do",
-      "Post 3To do",
+    const liste = await screen.findByRole("navigation", { name: "The posts" });
+    expect(within(liste).getAllByRole("button").map((b) => b.getAttribute("aria-label"))).toEqual([
+      "Post 1 · To do",
+      "Post 2 · To do",
+      "Post 3 · To do",
+      "Post 4 · To do",
     ]);
-    expect(screen.getByTitle("The original TikTok")).toHaveAttribute("src", "https://www.tiktok.com/@a/video/1");
+    expect(screen.queryByText(/paid test/)).not.toBeInTheDocument();
+    // Pas de lecteur TikTok : l'image de chaque slide suffit.
+    expect(document.querySelector("iframe")).toBeNull();
+    expect(screen.getByText("Post 1 of 4")).toBeInTheDocument();
     expect(screen.getByText(/already recommends an app on slide 2/)).toHaveTextContent("recommend micabo");
     expect(screen.getByText("Slide 2 recommends bycat. Same idea with micabo.")).toBeInTheDocument();
     expect(screen.getByText("micabo turns your notes into quizzes.")).toBeInTheDocument();
     expect(screen.getByText("micabo slide")).toBeInTheDocument();
     expect(screen.getByAltText("Slide 1")).toHaveAttribute("src", "https://x/1.jpg");
+    expect(screen.getByText("0 / 2 slides written")).toBeInTheDocument();
+  });
+
+  it("passe d'un post à l'autre avec les flèches et les tuiles", async () => {
+    espace.mockReturnValue({
+      relecteurs: [{ ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
+      isPending: false,
+      error: null,
+    });
+    rendre();
+    expect(await screen.findByTestId("post-kit-1")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Previous post" })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Next post" }));
+    expect(screen.getByTestId("post-kit-2")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Post 4 · To do" }));
+    expect(screen.getByTestId("post-kit-4")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Next post" })).toBeDisabled();
   });
 
   it("enregistre chaque slide en quittant le champ, puis rend le post quand tout est écrit", async () => {
@@ -207,7 +223,7 @@ describe("PosterRelecturePage", () => {
     expect(await screen.findByText(/Done on/)).toBeInTheDocument();
   });
 
-  it("un relecteur actif voit tout le kit, sans l'avertissement du test", async () => {
+  it("compte les posts finis et ouvre le premier qui reste à écrire", async () => {
     espace.mockReturnValue({
       relecteurs: [{ ...RELECTEUR, statut: "actif", questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
       isPending: false,
@@ -217,8 +233,8 @@ describe("PosterRelecturePage", () => {
       { relecteur_id: "r1", kit_id: "k1", slides: [{ position: 1, texte: "a" }], remarque: "", rendu_at: "2026-10-27T12:00:00Z" },
     ]);
     rendre();
-    expect(await screen.findByText("1 / 4 posts done")).toBeInTheDocument();
-    expect(screen.queryByText(/paid test/)).not.toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Post 1 · Done" })).toBeInTheDocument();
+    expect(screen.getByText("posts done").previousElementSibling).toHaveTextContent("1 / 4");
     // Le post 1 est rendu : on ouvre le premier qui reste à écrire.
     expect(screen.getByTestId("post-kit-2")).toBeInTheDocument();
   });

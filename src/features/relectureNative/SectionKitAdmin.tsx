@@ -1,20 +1,37 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import {
+  CheckCircle2,
+  ChevronUp,
+  EyeOff,
+  Globe2,
+  Images,
+  Layers,
+  Megaphone,
+  Pencil,
+  Plus,
+  Save,
+  Smartphone,
+  Trash2,
+} from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardHeader, CardPanel, CardTitle, EmptyState } from "@/components/ui/card";
+import { Card, CardPanel, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { MICRO_LABEL } from "@/components/ui/micro-label";
 import { Replie } from "@/components/ui/replie";
 import { Textarea } from "@/components/ui/textarea";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
+import { cn } from "@/lib/utils";
 
 import { ajouterPostKit, listerEcrituresKit, listerKit, majPostKit, supprimerPostKit } from "./api";
-import { accrochePost, TAILLE_TEST_KIT, VOIES_KIT, type PostKit, type VoieKit } from "./kit";
+import { VOIE } from "./apparence";
+import { accrochePost, VOIES_KIT, type PostKit, type VoieKit } from "./kit";
 import { messageErreur } from "./messageErreur";
+import { Puce, TuileIcone } from "./Puces";
 
 export const CLE_REQUETE_KIT = ["kit-natif"] as const;
 export const CLE_REQUETE_ECRITURES_KIT = ["kit-natif-ecritures"] as const;
@@ -24,7 +41,8 @@ const selectClass =
 
 /**
  * Le kit natif côté admin : les posts que chaque relecteur écrit de A à Z,
- * leur appli, leur voie de CTA et la consigne montrée au relecteur.
+ * en liste compacte ; chaque post s'ouvre pour changer son appli, sa voie de
+ * CTA et la consigne montrée au relecteur.
  */
 export function SectionKitAdmin() {
   const { t } = useTranslation();
@@ -32,6 +50,7 @@ export function SectionKitAdmin() {
   const { applications } = useApplication();
   const kit = useQuery({ queryKey: CLE_REQUETE_KIT, queryFn: listerKit });
   const ecritures = useQuery({ queryKey: CLE_REQUETE_ECRITURES_KIT, queryFn: () => listerEcrituresKit() });
+  const [ouvert, setOuvert] = React.useState<string | null>(null);
 
   const [contenuId, setContenuId] = React.useState("");
   const [appliAjout, setAppliAjout] = React.useState("");
@@ -52,32 +71,74 @@ export function SectionKitAdmin() {
     return n;
   }, [ecritures.data]);
 
-  const actifs = (kit.data ?? []).filter((p) => p.actif).length;
+  const posts = kit.data ?? [];
+  const actifs = posts.filter((p) => p.actif);
+  const slides = actifs.reduce((n, p) => n + p.slides_en.length, 0);
 
   return (
     <div className="space-y-4">
-      <p className="text-xs text-muted-foreground">{t("relectureNative.kitAdmin.aide", { n: TAILLE_TEST_KIT })}</p>
       {kit.error && (
         <p role="alert" className="text-sm text-destructive">
           {messageErreur(kit.error)}
         </p>
       )}
-      {kit.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-      {kit.data?.length === 0 && <EmptyState title={t("relectureNative.kitAdmin.vide")} />}
-      {(kit.data?.length ?? 0) > 0 && (
-        <p className="text-sm">{t("relectureNative.kitAdmin.compte", { n: actifs })}</p>
-      )}
 
-      {(kit.data ?? []).map((p) => (
-        <CartePostKit key={p.id} post={p} rendus={rendusParPost.get(p.id) ?? 0} onChange={rafraichir} />
-      ))}
+      <Card className="overflow-hidden">
+        <div className="flex flex-wrap items-center gap-3 border-b px-5 py-4">
+          <TuileIcone icone={Layers} ton="violet" />
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-semibold">{t("relectureNative.kitAdmin.titre")}</p>
+            <p className="text-xs text-muted-foreground">{t("relectureNative.kitAdmin.aide")}</p>
+          </div>
+          {posts.length > 0 && (
+            <p className="text-xs text-muted-foreground tabular-nums">
+              {t("relectureNative.kitAdmin.compte", { n: actifs.length, slides })}
+            </p>
+          )}
+        </div>
+        <div className="flex flex-wrap gap-x-4 gap-y-1.5 border-b bg-muted/30 px-5 py-2.5 text-xs text-muted-foreground">
+          {VOIES_KIT.map((v) => {
+            const { icone: Icone } = VOIE[v];
+            return (
+              <span key={v} className="flex items-center gap-1.5">
+                <Puce icone={Icone} ton={VOIE[v].ton}>
+                  {t(`relectureNative.kitAdmin.voies.${v}`)}
+                </Puce>
+                {t(`relectureNative.kitAdmin.voiesAide.${v}`)}
+              </span>
+            );
+          })}
+        </div>
+
+        {kit.isPending && <p className="px-5 py-4 text-sm text-muted-foreground">{t("common.loading")}</p>}
+        {kit.data?.length === 0 && (
+          <div className="p-5">
+            <EmptyState title={t("relectureNative.kitAdmin.vide")} />
+          </div>
+        )}
+        <ul className="divide-y">
+          {posts.map((p) => (
+            <LignePostKit
+              key={p.id}
+              post={p}
+              rendus={rendusParPost.get(p.id) ?? 0}
+              ouvert={ouvert === p.id}
+              onOuvrir={() => setOuvert((o) => (o === p.id ? null : p.id))}
+              onChange={rafraichir}
+            />
+          ))}
+        </ul>
+      </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="text-sm">{t("relectureNative.kitAdmin.ajouterTitre")}</CardTitle>
-          <CardDescription>{t("relectureNative.kitAdmin.ajouterAide")}</CardDescription>
-        </CardHeader>
-        <CardPanel>
+        <CardPanel className="space-y-4">
+          <div className="flex items-start gap-3">
+            <TuileIcone icone={Plus} />
+            <div className="min-w-0 space-y-0.5">
+              <p className="text-sm font-semibold">{t("relectureNative.kitAdmin.ajouterTitre")}</p>
+              <p className="text-xs text-muted-foreground">{t("relectureNative.kitAdmin.ajouterAide")}</p>
+            </div>
+          </div>
           <form
             className="grid gap-3 sm:grid-cols-[2fr_1fr_1fr_auto] sm:items-end"
             onSubmit={(e) => {
@@ -110,11 +171,12 @@ export function SectionKitAdmin() {
               </select>
             </label>
             <Button type="submit" disabled={!contenuId.trim() || !appli || ajouter.isPending}>
+              <Plus />
               {t("relectureNative.kitAdmin.ajouter")}
             </Button>
           </form>
           {ajouter.error && (
-            <p role="alert" className="mt-2 text-xs text-destructive">
+            <p role="alert" className="text-xs text-destructive">
               {messageErreur(ajouter.error)}
             </p>
           )}
@@ -124,7 +186,68 @@ export function SectionKitAdmin() {
   );
 }
 
-function CartePostKit({ post, rendus, onChange }: { post: PostKit; rendus: number; onChange: () => void }) {
+function LignePostKit({
+  post,
+  rendus,
+  ouvert,
+  onOuvrir,
+  onChange,
+}: {
+  post: PostKit;
+  rendus: number;
+  ouvert: boolean;
+  onOuvrir: () => void;
+  onChange: () => void;
+}) {
+  const { t } = useTranslation();
+  const { applications } = useApplication();
+  const app = applications.find((a) => a.id === post.application_id);
+  const voie = VOIE[post.voie];
+  const vignette = [...post.slides_en].sort((a, b) => a.position - b.position)[0]?.image_url;
+
+  return (
+    <li data-testid={`kit-admin-${post.rang}`} className={cn(!post.actif && "bg-muted/30")}>
+      <div className="flex items-center gap-3 px-5 py-3">
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary tabular-nums">
+          {post.rang}
+        </span>
+        {vignette ? (
+          <img src={vignette} alt="" loading="lazy" className="aspect-[9/16] w-9 shrink-0 rounded border bg-muted object-cover" />
+        ) : (
+          <span className="aspect-[9/16] w-9 shrink-0 rounded border border-dashed bg-muted/40" />
+        )}
+        <div className="min-w-0 flex-1 space-y-1.5">
+          <p className={cn("truncate text-sm font-medium", !post.actif && "text-muted-foreground")}>{accrochePost(post)}</p>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {app && <Puce icone={Smartphone}>{nomApplication(app)}</Puce>}
+            <Puce icone={voie.icone} ton={voie.ton}>
+              {t(`relectureNative.kitAdmin.voies.${post.voie}`)}
+            </Puce>
+            {post.voie !== "libre" && post.slide_cta && (
+              <Puce icone={Megaphone}>{t("relectureNative.kitAdmin.slideN", { n: post.slide_cta })}</Puce>
+            )}
+            <Puce icone={Images}>{t("relectureNative.kitAdmin.slides", { n: post.slides_en.length })}</Puce>
+            <Puce icone={CheckCircle2} ton={rendus > 0 ? "vert" : "neutre"}>
+              {t("relectureNative.kitAdmin.rendus", { n: rendus })}
+            </Puce>
+            {!post.actif && (
+              <Puce icone={EyeOff} ton="ambre">
+                {t("relectureNative.kitAdmin.horsKit")}
+              </Puce>
+            )}
+          </div>
+        </div>
+        <Button variant="outline" size="sm" onClick={onOuvrir} aria-expanded={ouvert}>
+          {ouvert ? <ChevronUp /> : <Pencil />}
+          {ouvert ? t("relectureNative.kitAdmin.fermer") : t("relectureNative.kitAdmin.modifier")}
+        </Button>
+      </div>
+      {ouvert && <EditionPostKit post={post} rendus={rendus} onChange={onChange} />}
+    </li>
+  );
+}
+
+function EditionPostKit({ post, rendus, onChange }: { post: PostKit; rendus: number; onChange: () => void }) {
   const { t } = useTranslation();
   const { applications } = useApplication();
   const initial = React.useMemo(
@@ -142,6 +265,7 @@ function CartePostKit({ post, rendus, onChange }: { post: PostKit; rendus: numbe
   const [f, setF] = React.useState(initial);
   React.useEffect(() => setF(initial), [initial]);
   const modifie = JSON.stringify(f) !== JSON.stringify(initial);
+  const rangValide = Number.isInteger(Number(f.rang)) && Number(f.rang) > 0;
 
   const enregistrer = useMutation({
     mutationFn: () =>
@@ -157,126 +281,131 @@ function CartePostKit({ post, rendus, onChange }: { post: PostKit; rendus: numbe
     onSuccess: onChange,
   });
   const supprimer = useMutation({ mutationFn: () => supprimerPostKit(post.id), onSuccess: onChange });
-  const app = applications.find((a) => a.id === post.application_id);
-  const rangValide = Number.isInteger(Number(f.rang)) && Number(f.rang) > 0;
 
   return (
-    <Card data-testid={`kit-admin-${post.rang}`} className={post.actif ? undefined : "opacity-60"}>
-      <CardHeader>
-        <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
-          #{post.rang}
-          {post.rang <= TAILLE_TEST_KIT && <Badge variant="info">{t("relectureNative.kitAdmin.test")}</Badge>}
-          {app && <Badge variant="outline">{nomApplication(app)}</Badge>}
-          <Badge variant="secondary">{t(`relectureNative.kitAdmin.voies.${post.voie}`)}</Badge>
-          <span className="text-xs font-normal text-muted-foreground">
-            {t("relectureNative.kitAdmin.slides", { n: post.slides_en.length })} ·{" "}
-            {t("relectureNative.kitAdmin.rendus", { n: rendus })}
+    <div className="space-y-5 border-t bg-muted/20 px-5 py-5">
+      <div className="grid gap-3 sm:grid-cols-4">
+        <label className="space-y-1 text-xs">
+          <span className="text-muted-foreground">{t("relectureNative.kitAdmin.rang")}</span>
+          <Input type="number" min={1} value={f.rang} onChange={(e) => setF({ ...f, rang: e.target.value })} />
+        </label>
+        <label className="space-y-1 text-xs">
+          <span className="text-muted-foreground">{t("relectureNative.kitAdmin.appli")}</span>
+          <select className={selectClass} value={f.application_id} onChange={(e) => setF({ ...f, application_id: e.target.value })}>
+            {applications.map((a) => (
+              <option key={a.id} value={a.id}>
+                {nomApplication(a)}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="space-y-1 text-xs">
+          <span className="text-muted-foreground">{t("relectureNative.kitAdmin.voie")}</span>
+          <select className={selectClass} value={f.voie} onChange={(e) => setF({ ...f, voie: e.target.value as VoieKit })}>
+            {VOIES_KIT.map((v) => (
+              <option key={v} value={v}>
+                {t(`relectureNative.kitAdmin.voies.${v}`)}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="space-y-1 text-xs">
+          <span className="text-muted-foreground">{t("relectureNative.kitAdmin.slideCta")}</span>
+          <select className={selectClass} value={f.slide_cta} onChange={(e) => setF({ ...f, slide_cta: e.target.value })}>
+            <option value="">{t("relectureNative.kitAdmin.aucune")}</option>
+            {post.slides_en.map((s) => (
+              <option key={s.position} value={String(s.position)}>
+                {s.position}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div className="grid gap-3 md:grid-cols-2">
+        <label className="block space-y-1 text-xs">
+          <span className="flex items-center gap-1.5 text-muted-foreground">
+            <Megaphone className="size-3.5" aria-hidden />
+            {t("relectureNative.kitAdmin.consigne")}
           </span>
-          {!post.actif && <Badge variant="warning">{t("relectureNative.kitAdmin.horsKit")}</Badge>}
-        </CardTitle>
-        <CardDescription>{accrochePost(post)}</CardDescription>
-      </CardHeader>
-      <CardPanel className="space-y-4">
-        <div className="grid gap-3 sm:grid-cols-4">
-          <label className="space-y-1 text-xs">
-            <span className="text-muted-foreground">{t("relectureNative.kitAdmin.rang")}</span>
-            <Input type="number" min={1} value={f.rang} onChange={(e) => setF({ ...f, rang: e.target.value })} />
-          </label>
-          <label className="space-y-1 text-xs">
-            <span className="text-muted-foreground">{t("relectureNative.kitAdmin.appli")}</span>
-            <select className={selectClass} value={f.application_id} onChange={(e) => setF({ ...f, application_id: e.target.value })}>
-              {applications.map((a) => (
-                <option key={a.id} value={a.id}>
-                  {nomApplication(a)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="space-y-1 text-xs">
-            <span className="text-muted-foreground">{t("relectureNative.kitAdmin.voie")}</span>
-            <select className={selectClass} value={f.voie} onChange={(e) => setF({ ...f, voie: e.target.value as VoieKit })}>
-              {VOIES_KIT.map((v) => (
-                <option key={v} value={v}>
-                  {t(`relectureNative.kitAdmin.voies.${v}`)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="space-y-1 text-xs">
-            <span className="text-muted-foreground">{t("relectureNative.kitAdmin.slideCta")}</span>
-            <select className={selectClass} value={f.slide_cta} onChange={(e) => setF({ ...f, slide_cta: e.target.value })}>
-              <option value="">{t("relectureNative.kitAdmin.aucune")}</option>
-              {post.slides_en.map((s) => (
-                <option key={s.position} value={String(s.position)}>
-                  {s.position}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <label className="block space-y-1 text-xs">
-          <span className="text-muted-foreground">{t("relectureNative.kitAdmin.consigne")}</span>
-          <Textarea rows={2} value={f.consigne_cta} onChange={(e) => setF({ ...f, consigne_cta: e.target.value })} />
+          <Textarea rows={3} value={f.consigne_cta} onChange={(e) => setF({ ...f, consigne_cta: e.target.value })} />
         </label>
         <label className="block space-y-1 text-xs">
-          <span className="text-muted-foreground">{t("relectureNative.kitAdmin.aAdapter")}</span>
-          <Textarea rows={2} value={f.a_adapter} onChange={(e) => setF({ ...f, a_adapter: e.target.value })} />
+          <span className="flex items-center gap-1.5 text-muted-foreground">
+            <Globe2 className="size-3.5" aria-hidden />
+            {t("relectureNative.kitAdmin.aAdapter")}
+          </span>
+          <Textarea rows={3} value={f.a_adapter} onChange={(e) => setF({ ...f, a_adapter: e.target.value })} />
         </label>
-        <label className="flex items-center gap-2 text-sm">
+      </div>
+
+      <div className="space-y-2">
+        <p className={MICRO_LABEL}>{t("relectureNative.kitAdmin.lesSlides")}</p>
+        <ol className="flex gap-3 overflow-x-auto pb-2">
+          {[...post.slides_en]
+            .sort((a, b) => a.position - b.position)
+            .map((s) => (
+              <li
+                key={s.position}
+                className={cn(
+                  "w-32 shrink-0 space-y-1.5 rounded-lg border bg-card p-1.5",
+                  f.voie !== "libre" && f.slide_cta === String(s.position) && "border-info/50 ring-1 ring-info/20",
+                )}
+              >
+                {s.image_url ? (
+                  <img src={s.image_url} alt="" loading="lazy" className="aspect-[9/16] w-full rounded border bg-muted object-cover" />
+                ) : (
+                  <div className="aspect-[9/16] w-full rounded border border-dashed bg-muted/40" />
+                )}
+                <p className="line-clamp-4 text-[11px] leading-snug text-muted-foreground">
+                  <span className="font-semibold text-foreground">{s.position}. </span>
+                  {s.texte}
+                </p>
+              </li>
+            ))}
+        </ol>
+      </div>
+
+      {post.source_url && (
+        <Replie titre={t("relectureNative.kitAdmin.apercu")}>
+          <div className="max-w-[325px]">
+            <TikTokEmbed
+              url={post.source_url}
+              titre="TikTok"
+              videLabel={t("relectureNative.kit.sansTiktok")}
+              chargementLabel={t("relectureNative.kit.apercuChargement")}
+            />
+          </div>
+        </Replie>
+      )}
+
+      <div className="flex flex-wrap items-center gap-3">
+        <label className="mr-auto flex items-center gap-2 text-sm">
           <input type="checkbox" checked={f.actif} onChange={(e) => setF({ ...f, actif: e.target.checked })} />
           {t("relectureNative.kitAdmin.actif")}
         </label>
-
-        <Replie titre={t("relectureNative.kitAdmin.apercu")}>
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,325px)_minmax(0,1fr)]">
-            {post.source_url ? (
-              <TikTokEmbed
-                url={post.source_url}
-                titre="TikTok"
-                videLabel={t("relectureNative.kit.sansTiktok")}
-                chargementLabel={t("relectureNative.kit.apercuChargement")}
-              />
-            ) : (
-              <p className="text-xs text-muted-foreground">{t("relectureNative.kitAdmin.sansSource")}</p>
-            )}
-            <ol className="space-y-2">
-              {post.slides_en.map((s) => (
-                <li key={s.position} className="flex gap-3 text-sm">
-                  {s.image_url && (
-                    <img src={s.image_url} alt="" loading="lazy" className="aspect-[9/16] w-16 shrink-0 rounded border object-cover" />
-                  )}
-                  <p className="whitespace-pre-wrap">
-                    <span className="font-medium">{s.position}. </span>
-                    {s.texte}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Replie>
-
-        <div className="flex flex-wrap items-center gap-3">
-          <Button disabled={!modifie || !rangValide || enregistrer.isPending} onClick={() => enregistrer.mutate()}>
-            {t("relectureNative.fiches.enregistrer")}
-          </Button>
-          {modifie && <span className="text-xs text-muted-foreground">{t("relectureNative.fiches.nonEnregistre")}</span>}
-          <Button
-            variant="ghost"
-            size="sm"
-            disabled={supprimer.isPending}
-            onClick={() => {
-              if (window.confirm(t("relectureNative.kitAdmin.confirmerSuppression", { n: rendus }))) supprimer.mutate();
-            }}
-          >
-            {t("relectureNative.kitAdmin.supprimer")}
-          </Button>
-          {(enregistrer.error ?? supprimer.error) && (
-            <span role="alert" className="text-xs text-destructive">
-              {messageErreur(enregistrer.error ?? supprimer.error)}
-            </span>
-          )}
-        </div>
-      </CardPanel>
-    </Card>
+        {(enregistrer.error ?? supprimer.error) && (
+          <span role="alert" className="text-xs text-destructive">
+            {messageErreur(enregistrer.error ?? supprimer.error)}
+          </span>
+        )}
+        {modifie && <span className="text-xs text-muted-foreground">{t("relectureNative.fiches.nonEnregistre")}</span>}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-muted-foreground hover:text-destructive"
+          disabled={supprimer.isPending}
+          onClick={() => {
+            if (window.confirm(t("relectureNative.kitAdmin.confirmerSuppression", { n: rendus }))) supprimer.mutate();
+          }}
+        >
+          <Trash2 />
+          {t("relectureNative.kitAdmin.supprimer")}
+        </Button>
+        <Button disabled={!modifie || !rangValide || enregistrer.isPending} onClick={() => enregistrer.mutate()}>
+          <Save />
+          {t("relectureNative.fiches.enregistrer")}
+        </Button>
+      </div>
+    </div>
   );
 }

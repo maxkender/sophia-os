@@ -1,12 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { ClipboardList } from "lucide-react";
 
 import { Card, CardDescription, CardHeader, CardPanel, CardTitle, EmptyState } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 
 import { lireReponses, listerRelecteurs } from "./api";
 import { progressionQuestionnaire, type ReponseQuestionnaire } from "./logique";
 import { messageErreur } from "./messageErreur";
+import { TuileIcone } from "./Puces";
 import { cleMot, MOTS_ANGLAIS, PARTIES_QUESTIONNAIRE, QUESTION_INTRO, questionsNumerotees } from "./questionnaire";
 import { CLE_REQUETE_RELECTEURS } from "./SectionRelecteurs";
 
@@ -46,23 +49,31 @@ export function SectionReponses({
 
   return (
     <div className="space-y-4">
-      <label className="block space-y-1 text-xs">
-        <span className="text-muted-foreground">{t("relectureNative.reponses.relecteur")}</span>
-        <select className={selectClass} value={choisi ?? ""} onChange={(e) => onChoisir(e.target.value)}>
-          {(relecteurs.data ?? []).map((r) => (
-            <option key={r.id} value={r.id}>
-              {drapeauLangue(r.langue)} {nomLangue(r.langue)} · {[r.prenom, r.nom].filter(Boolean).join(" ") || r.email}
-            </option>
-          ))}
-        </select>
-      </label>
-      <p className="text-xs text-muted-foreground">{t("relectureNative.reponses.aide")}</p>
+      <Card>
+        <div className="flex flex-wrap items-end gap-4 px-5 py-4">
+          <TuileIcone icone={ClipboardList} ton="bleu" className="self-center" />
+          <label className="flex min-w-0 flex-1 flex-col gap-1 text-xs">
+            <span className="text-muted-foreground">{t("relectureNative.reponses.relecteur")}</span>
+            <select className={selectClass} value={choisi ?? ""} onChange={(e) => onChoisir(e.target.value)}>
+              {(relecteurs.data ?? []).map((r) => (
+                <option key={r.id} value={r.id}>
+                  {drapeauLangue(r.langue)} {nomLangue(r.langue)} · {[r.prenom, r.nom].filter(Boolean).join(" ") || r.email}
+                </option>
+              ))}
+            </select>
+          </label>
+          {relecteur && (
+            <div className="w-full space-y-1 sm:w-56">
+              <p className="text-right text-xs tabular-nums text-muted-foreground">
+                {t("relectureNative.relecteurs.progression", { repondues: p.repondues, total: p.total })}
+              </p>
+              <Progress value={(p.repondues / p.total) * 100} />
+            </div>
+          )}
+          <p className="w-full text-xs text-muted-foreground">{t("relectureNative.reponses.aide")}</p>
+        </div>
+      </Card>
 
-      {relecteur && (
-        <p className="text-sm">
-          {t("relectureNative.relecteurs.progression", { repondues: p.repondues, total: p.total })}
-        </p>
-      )}
       {reponses.error && (
         <p role="alert" className="text-sm text-destructive">
           {messageErreur(reponses.error)}

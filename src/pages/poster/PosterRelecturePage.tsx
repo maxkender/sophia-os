@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Languages } from "lucide-react";
+import { CalendarCheck, CheckCircle2, Globe2, Languages, PenLine, Quote, Wallet } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardPanel, CardTitle, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,6 +18,7 @@ import {
   type ReponseQuestionnaire,
 } from "@/features/relectureNative/logique";
 import { messageErreur } from "@/features/relectureNative/messageErreur";
+import { Puce, TuileIcone } from "@/features/relectureNative/Puces";
 import {
   cleMot,
   CONSIGNES_QUESTIONNAIRE,
@@ -30,6 +30,7 @@ import {
 } from "@/features/relectureNative/questionnaire";
 import { SectionKitRelecteur } from "@/features/relectureNative/SectionKitRelecteur";
 import { CLE_REQUETE_MES_RELECTEURS, useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
+import { cn } from "@/lib/utils";
 
 /**
  * « Native review » : l'espace du relecteur natif, visible seulement si
@@ -52,37 +53,51 @@ export function PosterRelecturePage() {
   return (
     <div className="space-y-6" data-testid="page-relecture-poster">
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Languages className="size-4 text-primary" />
-            {t("relectureNative.poster.bienvenueTitre")}
-          </CardTitle>
-          <CardDescription>{t("relectureNative.poster.bienvenue")}</CardDescription>
-        </CardHeader>
-        <CardPanel className="space-y-3 text-sm">
-          <p className="font-medium">{t("relectureNative.poster.regleOr")}</p>
-          <ol className="list-decimal space-y-1 pl-5">
-            <li className={questionnaireFini ? "text-muted-foreground" : undefined}>
-              {t("relectureNative.poster.etape1")}{" "}
-              {questionnaireFini ? (
-                <Badge variant="success">{t("relectureNative.poster.fait")}</Badge>
-              ) : (
-                <Badge variant="info">{t("relectureNative.poster.maintenant")}</Badge>
-              )}
-            </li>
-            <li className={questionnaireFini ? undefined : "text-muted-foreground"}>
-              {t("relectureNative.poster.etape2")}{" "}
-              {questionnaireFini ? (
-                <Badge variant="info">{t("relectureNative.poster.maintenant")}</Badge>
-              ) : (
-                <Badge variant="secondary">{t("relectureNative.poster.apresEtape1")}</Badge>
-              )}
-            </li>
-            <li className="text-muted-foreground">
-              {t("relectureNative.poster.etape3")} <Badge variant="secondary">{t("relectureNative.poster.bientot")}</Badge>
-            </li>
+        <CardPanel className="space-y-5">
+          <div className="flex items-start gap-4">
+            <TuileIcone icone={Languages} ton="bleu" />
+            <div className="min-w-0 space-y-1">
+              <h1 className="text-lg font-semibold">{t("relectureNative.poster.bienvenueTitre")}</h1>
+              <p className="text-sm text-muted-foreground">{t("relectureNative.poster.bienvenue")}</p>
+            </div>
+          </div>
+          <p className="flex items-start gap-2 rounded-xl border border-primary/15 bg-primary/5 p-3 text-sm font-medium">
+            <Quote className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
+            {t("relectureNative.poster.regleOr")}
+          </p>
+          <ol className="grid gap-2 sm:grid-cols-3">
+            {(
+              [
+                { icone: Globe2, texte: t("relectureNative.poster.etape1"), etat: questionnaireFini ? "fait" : "maintenant" },
+                { icone: PenLine, texte: t("relectureNative.poster.etape2"), etat: questionnaireFini ? "maintenant" : "apres" },
+                { icone: CalendarCheck, texte: t("relectureNative.poster.etape3"), etat: "bientot" },
+              ] as const
+            ).map((e, i) => (
+              <li
+                key={e.texte}
+                className={cn(
+                  "flex flex-col gap-2 rounded-xl border p-3 text-sm",
+                  e.etat === "maintenant" ? "border-info/40 bg-info/5" : "bg-card",
+                  (e.etat === "apres" || e.etat === "bientot") && "text-muted-foreground",
+                )}
+              >
+                <span className="flex items-center justify-between gap-2">
+                  <span className="flex items-center gap-2 font-medium">
+                    <span className="flex size-6 items-center justify-center rounded-full bg-muted text-xs font-semibold tabular-nums">
+                      {i + 1}
+                    </span>
+                    <e.icone className="size-4" aria-hidden />
+                  </span>
+                  <EtapeEtat etat={e.etat} />
+                </span>
+                <span>{e.texte}</span>
+              </li>
+            ))}
           </ol>
-          <p className="text-muted-foreground">{t("relectureNative.poster.paye")}</p>
+          <p className="flex items-center gap-2 text-xs text-muted-foreground">
+            <Wallet className="size-3.5" aria-hidden />
+            {t("relectureNative.poster.paye")}
+          </p>
         </CardPanel>
       </Card>
 
@@ -103,6 +118,21 @@ export function PosterRelecturePage() {
   );
 }
 
+function EtapeEtat({ etat }: { etat: "fait" | "maintenant" | "apres" | "bientot" }) {
+  const { t } = useTranslation();
+  if (etat === "fait") {
+    return (
+      <Puce icone={CheckCircle2} ton="vert">
+        {t("relectureNative.poster.fait")}
+      </Puce>
+    );
+  }
+  if (etat === "maintenant") {
+    return <Puce ton="bleu">{t("relectureNative.poster.maintenant")}</Puce>;
+  }
+  return <Puce>{t(etat === "apres" ? "relectureNative.poster.apresEtape1" : "relectureNative.poster.bientot")}</Puce>;
+}
+
 type PartieEspace = "questionnaire" | "kit";
 
 /** Le questionnaire, puis le kit une fois le questionnaire envoyé. */
@@ -119,8 +149,24 @@ function EspaceRelecteur({ relecteur }: { relecteur: Relecteur }) {
         actif={partie}
         onChange={setPartie}
         options={[
-          { cle: "questionnaire", contenu: t("relectureNative.poster.partieQuestionnaire") },
-          { cle: "kit", contenu: t("relectureNative.poster.partieKit") },
+          {
+            cle: "questionnaire",
+            contenu: (
+              <>
+                <Globe2 className="size-3.5" aria-hidden />
+                {t("relectureNative.poster.partieQuestionnaire")}
+              </>
+            ),
+          },
+          {
+            cle: "kit",
+            contenu: (
+              <>
+                <PenLine className="size-3.5" aria-hidden />
+                {t("relectureNative.poster.partieKit")}
+              </>
+            ),
+          },
         ]}
       />
       {partie === "questionnaire" ? <Questionnaire relecteur={relecteur} /> : <SectionKitRelecteur relecteur={relecteur} />}

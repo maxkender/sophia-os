@@ -5,7 +5,7 @@ import {
   avancementKit,
   avecSlideEcrite,
   etatPostKit,
-  postsDuRelecteur,
+  postsDuKit,
   slidesKitDepuisContenu,
   texteEcrit,
   toutesSlidesEcrites,
@@ -13,13 +13,9 @@ import {
 
 const posts = [4, 1, 3, 2].map((rang) => ({ id: `k${rang}`, rang, actif: rang !== 2 }));
 
-describe("postsDuRelecteur", () => {
-  it("un invité n'a que les 3 posts du test, actifs, dans l'ordre", () => {
-    expect(postsDuRelecteur(posts, "invite").map((p) => p.rang)).toEqual([1, 3]);
-  });
-
-  it("un actif a tout le kit, sauf les posts retirés", () => {
-    expect(postsDuRelecteur(posts, "actif").map((p) => p.rang)).toEqual([1, 3, 4]);
+describe("postsDuKit", () => {
+  it("tout le kit, dans l'ordre, sauf les posts retirés", () => {
+    expect(postsDuKit(posts).map((p) => p.rang)).toEqual([1, 3, 4]);
   });
 });
 

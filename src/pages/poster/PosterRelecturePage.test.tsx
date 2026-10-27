@@ -75,6 +75,7 @@ describe("PosterRelecturePage", () => {
     enregistrer.mockReset();
     terminer.mockReset();
     enregistrer.mockResolvedValue(undefined);
+    lire.mockResolvedValue([]);
     listerKit.mockReset();
     listerEcritures.mockReset();
     enregistrerEcriture.mockReset();
@@ -83,6 +84,8 @@ describe("PosterRelecturePage", () => {
     enregistrerEcriture.mockResolvedValue(undefined);
   });
 
+  const RELECTEUR_FINI = { ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" };
+
   it("dit que l'espace n'est pas ouvert quand le posteur n'y a pas accès", () => {
     espace.mockReturnValue({ relecteurs: [], isPending: false, error: null });
     rendre();
@@ -90,35 +93,57 @@ describe("PosterRelecturePage", () => {
     expect(lire).not.toHaveBeenCalled();
   });
 
-  it("montre les consignes, les 49 questions et la liste de mots", async () => {
+  it("commence par le bloc d'accueil : consignes, rappel « pas mot à mot », barre de progression et pays", async () => {
+    espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
+    rendre();
+    expect(await screen.findByTestId("bloc-avant")).toBeInTheDocument();
+    expect(screen.getByText(/RESPOND IN YOUR LANGUAGE/)).toBeInTheDocument();
+    expect(screen.getByText("Block 1 of 13")).toBeInTheDocument();
+    const barre = screen.getByTestId("barre-parcours");
+    expect(within(barre).getByText(/Never a word-for-word translation/)).toBeInTheDocument();
+    expect(within(barre).getByRole("progressbar")).toHaveAttribute("aria-valuenow", "0");
+    expect(within(barre).getByText("0 / 88 questions answered")).toBeInTheDocument();
+    expect(within(barre).getByRole("button", { name: /The 15 posts/ })).toBeDisabled();
+    expect(screen.getByLabelText("What country are you in?")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Back" })).toBeDisabled();
+    expect(listerKit).not.toHaveBeenCalled();
+  });
+
+  it("reprend au premier bloc incomplet et avance bloc par bloc jusqu'aux mots", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
     lire.mockResolvedValue([{ question_cle: "intro.pays", choix: null, reponse: "Deutschland" }]);
     rendre();
-    expect(await screen.findByText(/RESPOND IN YOUR LANGUAGE/)).toBeInTheDocument();
+    expect(await screen.findByTestId("bloc-ecole")).toBeInTheDocument();
     expect(screen.getByText(/^1\. What is the big exam/)).toBeInTheDocument();
-    expect(screen.getByText(/^49\. How would you naturally say/)).toBeInTheDocument();
+    expect(screen.queryByText(/RESPOND IN YOUR LANGUAGE/)).not.toBeInTheDocument();
+    expect(screen.getByText("1 / 88 questions answered")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByTestId("bloc-mots.1")).toBeInTheDocument();
     expect(screen.getByTestId("mot-mot.brain-rot")).toBeInTheDocument();
-    expect(screen.getByText("1 / 88 answered")).toBeInTheDocument();
-    expect(screen.getByLabelText("What country are you in?")).toHaveValue("Deutschland");
+    expect(screen.queryByTestId("mot-mot.quiet-luxury")).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Block 12 of 13/ }));
+    expect(screen.getByText(/^49\. How would you naturally say/)).toBeInTheDocument();
   });
 
   it("enregistre une réponse quand on quitte le champ, seulement si elle a changé", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
-    lire.mockResolvedValue([]);
     rendre();
+    fireEvent.click(await screen.findByRole("button", { name: "Next" }));
     const champ = await screen.findByLabelText(/^2\. Is there a big exam around age 15-16/);
     fireEvent.blur(champ);
     expect(enregistrer).not.toHaveBeenCalled();
     fireEvent.change(champ, { target: { value: "MSA" } });
     fireEvent.blur(champ);
     await waitFor(() => expect(enregistrer).toHaveBeenCalledWith("r1", "ecole.examen_15_16", "MSA"));
-    expect(await screen.findByText("1 / 88 answered")).toBeInTheDocument();
+    expect(await screen.findByText("1 / 88 questions answered")).toBeInTheDocument();
+    expect(screen.getByText("1 / 15 answered")).toBeInTheDocument();
   });
 
   it("enregistre le choix d'un mot, et le mot local quand il en faut un", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
-    lire.mockResolvedValue([]);
     rendre();
+    fireEvent.click(await screen.findByRole("button", { name: "Next" }));
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
     const bloc = await screen.findByTestId("mot-mot.glow-up");
     fireEvent.click(bloc.querySelector("button:nth-of-type(2)") as HTMLButtonElement);
     await waitFor(() => expect(enregistrer).toHaveBeenCalledWith("r1", "mot.glow-up", "", "notre_mot"));
@@ -128,31 +153,22 @@ describe("PosterRelecturePage", () => {
     await waitFor(() => expect(enregistrer).toHaveBeenCalledWith("r1", "mot.glow-up", "Verwandlung", "notre_mot"));
   });
 
-  it("« I'm done » envoie le questionnaire", async () => {
+  it("le dernier bloc liste ce qui manque et envoie le questionnaire", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
-    lire.mockResolvedValue([]);
     terminer.mockResolvedValue(undefined);
     rendre();
-    fireEvent.click(await screen.findByRole("button", { name: "I'm done" }));
+    fireEvent.click(await screen.findByRole("button", { name: /Block 13 of 13/ }));
+    expect(screen.getByText("0 / 88 answered.")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^Part 4 · Voice & tone/ }));
+    expect(screen.getByTestId("bloc-ton")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Block 13 of 13/ }));
+    fireEvent.click(screen.getByRole("button", { name: "I'm done" }));
     await waitFor(() => expect(terminer).toHaveBeenCalledWith("r1"));
     expect(await screen.findByText("Thanks! You can still change your answers.")).toBeInTheDocument();
   });
 
-  it("le kit reste fermé tant que le questionnaire n'est pas envoyé", async () => {
-    espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
-    lire.mockResolvedValue([]);
-    rendre();
-    expect(await screen.findByText(/RESPOND IN YOUR LANGUAGE/)).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "2 · The posts" })).not.toBeInTheDocument();
-    expect(listerKit).not.toHaveBeenCalled();
-  });
-
-  it("questionnaire envoyé : un invité voit tout le kit, chaque slide avec son image", async () => {
-    espace.mockReturnValue({
-      relecteurs: [{ ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
-      isPending: false,
-      error: null,
-    });
+  it("questionnaire envoyé : on arrive sur les 15 posts, chaque slide avec son image et le rappel « pas mot à mot »", async () => {
+    espace.mockReturnValue({ relecteurs: [RELECTEUR_FINI], isPending: false, error: null });
     rendre();
     const liste = await screen.findByRole("navigation", { name: "The posts" });
     expect(within(liste).getAllByRole("button").map((b) => b.getAttribute("aria-label"))).toEqual([
@@ -162,23 +178,23 @@ describe("PosterRelecturePage", () => {
       "Post 4 · To do",
     ]);
     expect(screen.queryByText(/paid test/)).not.toBeInTheDocument();
-    // Pas de lecteur TikTok : l'image de chaque slide suffit.
     expect(document.querySelector("iframe")).toBeNull();
     expect(screen.getByText("Post 1 of 4")).toBeInTheDocument();
+    expect(screen.getByText(/Never word for word\./)).toBeInTheDocument();
+    expect(screen.getByLabelText("Your version of slide 1")).toHaveAttribute(
+      "placeholder",
+      "Your words, not a word-for-word translation…",
+    );
     expect(screen.getByText(/already recommends an app on slide 2/)).toHaveTextContent("recommend micabo");
     expect(screen.getByText("Slide 2 recommends bycat. Same idea with micabo.")).toBeInTheDocument();
     expect(screen.getByText("micabo turns your notes into quizzes.")).toBeInTheDocument();
     expect(screen.getByText("micabo slide")).toBeInTheDocument();
     expect(screen.getByAltText("Slide 1")).toHaveAttribute("src", "https://x/1.jpg");
-    expect(screen.getByText("0 / 2 slides written")).toBeInTheDocument();
+    expect(within(screen.getByTestId("barre-parcours")).getByText("0 / 4 posts done")).toBeInTheDocument();
   });
 
   it("passe d'un post à l'autre avec les flèches et les tuiles", async () => {
-    espace.mockReturnValue({
-      relecteurs: [{ ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
-      isPending: false,
-      error: null,
-    });
+    espace.mockReturnValue({ relecteurs: [RELECTEUR_FINI], isPending: false, error: null });
     rendre();
     expect(await screen.findByTestId("post-kit-1")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Previous post" })).toBeDisabled();
@@ -189,12 +205,8 @@ describe("PosterRelecturePage", () => {
     expect(screen.getByRole("button", { name: "Next post" })).toBeDisabled();
   });
 
-  it("enregistre chaque slide en quittant le champ, puis rend le post quand tout est écrit", async () => {
-    espace.mockReturnValue({
-      relecteurs: [{ ...RELECTEUR, questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
-      isPending: false,
-      error: null,
-    });
+  it("enregistre chaque slide, rend le post et enchaîne sur le suivant", async () => {
+    espace.mockReturnValue({ relecteurs: [RELECTEUR_FINI], isPending: false, error: null });
     rendre();
     const s1 = await screen.findByLabelText("Your version of slide 1");
     const fini = screen.getByRole("button", { name: "This post is done" });
@@ -212,7 +224,7 @@ describe("PosterRelecturePage", () => {
     expect(fini).toBeDisabled();
 
     const s2 = screen.getByLabelText("Your version of slide 2");
-    fireEvent.change(s2, { target: { value: "Ich lerne mit micabo" } });
+    fireEvent.change(s2, { target: { value: "Ich lerne mit der micabo-App" } });
     fireEvent.blur(s2);
     await waitFor(() => expect(enregistrerEcriture).toHaveBeenCalledTimes(2));
     fireEvent.click(fini);
@@ -220,22 +232,20 @@ describe("PosterRelecturePage", () => {
     const [, , dernier] = enregistrerEcriture.mock.calls[2] as [string, string, { slides: unknown[]; rendu_at: string }];
     expect(dernier.slides).toHaveLength(2);
     expect(dernier.rendu_at).toEqual(expect.any(String));
-    expect(await screen.findByText(/Done on/)).toBeInTheDocument();
+    // Le post 1 est fini : on passe au post 2, et la barre suit.
+    expect(await screen.findByTestId("post-kit-2")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Post 1 · Done" })).toBeInTheDocument();
+    expect(screen.getByText("1 / 4 posts done")).toBeInTheDocument();
   });
 
-  it("compte les posts finis et ouvre le premier qui reste à écrire", async () => {
-    espace.mockReturnValue({
-      relecteurs: [{ ...RELECTEUR, statut: "actif", questionnaire_termine_at: "2026-10-27T11:00:00Z" }],
-      isPending: false,
-      error: null,
-    });
+  it("ouvre le premier post qui reste à écrire", async () => {
+    espace.mockReturnValue({ relecteurs: [{ ...RELECTEUR_FINI, statut: "actif" }], isPending: false, error: null });
     listerEcritures.mockResolvedValue([
       { relecteur_id: "r1", kit_id: "k1", slides: [{ position: 1, texte: "a" }], remarque: "", rendu_at: "2026-10-27T12:00:00Z" },
     ]);
     rendre();
     expect(await screen.findByRole("button", { name: "Post 1 · Done" })).toBeInTheDocument();
-    expect(screen.getByText("posts done").previousElementSibling).toHaveTextContent("1 / 4");
-    // Le post 1 est rendu : on ouvre le premier qui reste à écrire.
     expect(screen.getByTestId("post-kit-2")).toBeInTheDocument();
+    expect(within(screen.getByTestId("barre-parcours")).getByRole("progressbar")).toHaveAttribute("aria-valuenow", "25");
   });
 });

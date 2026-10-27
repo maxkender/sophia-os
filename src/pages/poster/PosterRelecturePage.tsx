@@ -1,16 +1,26 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CalendarCheck, CheckCircle2, Globe2, Languages, PenLine, Quote, Wallet } from "lucide-react";
+import type { TFunction } from "i18next";
+import { ArrowRight, Check, ChevronLeft, ChevronRight, Languages, Quote, Send, Wallet } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardHeader, CardPanel, CardTitle, EmptyState } from "@/components/ui/card";
+import { Card, CardPanel, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Progress } from "@/components/ui/progress";
+import { MICRO_LABEL } from "@/components/ui/micro-label";
 import { Segments } from "@/components/ui/segments";
 import { Textarea } from "@/components/ui/textarea";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
-import { enregistrerReponse, lireReponses, terminerQuestionnaire, type Relecteur } from "@/features/relectureNative/api";
+import {
+  enregistrerReponse,
+  listerEcrituresKit,
+  listerKit,
+  lireReponses,
+  terminerQuestionnaire,
+  type Relecteur,
+} from "@/features/relectureNative/api";
+import { BarreParcours, type EtapeParcours } from "@/features/relectureNative/BarreParcours";
+import { avancementKit, postsDuKit } from "@/features/relectureNative/kit";
 import {
   CHOIX_MOT,
   progressionQuestionnaire,
@@ -18,12 +28,16 @@ import {
   type ReponseQuestionnaire,
 } from "@/features/relectureNative/logique";
 import { messageErreur } from "@/features/relectureNative/messageErreur";
+import {
+  avancementBloc,
+  blocsQuestionnaire,
+  premierBlocAFaire,
+  type BlocQuestionnaire,
+} from "@/features/relectureNative/parcours";
 import { Puce, TuileIcone } from "@/features/relectureNative/Puces";
 import {
   cleMot,
   CONSIGNES_QUESTIONNAIRE,
-  MOTS_ANGLAIS,
-  PARTIES_QUESTIONNAIRE,
   QUESTION_INTRO,
   questionsNumerotees,
   type QuestionRelecteur,
@@ -34,9 +48,10 @@ import { cn } from "@/lib/utils";
 
 /**
  * « Native review » : l'espace du relecteur natif, visible seulement si
- * l'admin l'a désigné ET a ouvert l'espace. D'abord le questionnaire « Your
- * country, part by part », enregistré au fil de l'eau ; une fois envoyé, le
- * kit natif (les posts à écrire de A à Z).
+ * l'admin l'a désigné ET a ouvert l'espace. Un bloc après l'autre : le
+ * questionnaire « Your country, part by part », puis le kit natif. La barre
+ * du parcours reste en haut de l'écran, avec le rappel qu'on ne demande
+ * jamais une traduction mot à mot.
  */
 export function PosterRelecturePage() {
   const { t } = useTranslation();
@@ -48,59 +63,9 @@ export function PosterRelecturePage() {
   if (espace.relecteurs.length === 0) return <EmptyState title={t("relectureNative.poster.pasOuvert")} />;
 
   const relecteur = espace.relecteurs.find((r) => r.langue === langue) ?? espace.relecteurs[0];
-  const questionnaireFini = Boolean(relecteur.questionnaire_termine_at);
 
   return (
-    <div className="space-y-6" data-testid="page-relecture-poster">
-      <Card>
-        <CardPanel className="space-y-5">
-          <div className="flex items-start gap-4">
-            <TuileIcone icone={Languages} ton="bleu" />
-            <div className="min-w-0 space-y-1">
-              <h1 className="text-lg font-semibold">{t("relectureNative.poster.bienvenueTitre")}</h1>
-              <p className="text-sm text-muted-foreground">{t("relectureNative.poster.bienvenue")}</p>
-            </div>
-          </div>
-          <p className="flex items-start gap-2 rounded-xl border border-primary/15 bg-primary/5 p-3 text-sm font-medium">
-            <Quote className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
-            {t("relectureNative.poster.regleOr")}
-          </p>
-          <ol className="grid gap-2 sm:grid-cols-3">
-            {(
-              [
-                { icone: Globe2, texte: t("relectureNative.poster.etape1"), etat: questionnaireFini ? "fait" : "maintenant" },
-                { icone: PenLine, texte: t("relectureNative.poster.etape2"), etat: questionnaireFini ? "maintenant" : "apres" },
-                { icone: CalendarCheck, texte: t("relectureNative.poster.etape3"), etat: "bientot" },
-              ] as const
-            ).map((e, i) => (
-              <li
-                key={e.texte}
-                className={cn(
-                  "flex flex-col gap-2 rounded-xl border p-3 text-sm",
-                  e.etat === "maintenant" ? "border-info/40 bg-info/5" : "bg-card",
-                  (e.etat === "apres" || e.etat === "bientot") && "text-muted-foreground",
-                )}
-              >
-                <span className="flex items-center justify-between gap-2">
-                  <span className="flex items-center gap-2 font-medium">
-                    <span className="flex size-6 items-center justify-center rounded-full bg-muted text-xs font-semibold tabular-nums">
-                      {i + 1}
-                    </span>
-                    <e.icone className="size-4" aria-hidden />
-                  </span>
-                  <EtapeEtat etat={e.etat} />
-                </span>
-                <span>{e.texte}</span>
-              </li>
-            ))}
-          </ol>
-          <p className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Wallet className="size-3.5" aria-hidden />
-            {t("relectureNative.poster.paye")}
-          </p>
-        </CardPanel>
-      </Card>
-
+    <div className="space-y-5" data-testid="page-relecture-poster">
       {espace.relecteurs.length > 1 && (
         <Segments
           libelle={t("relectureNative.poster.langue")}
@@ -112,79 +77,26 @@ export function PosterRelecturePage() {
           }))}
         />
       )}
-
       <EspaceRelecteur key={relecteur.id} relecteur={relecteur} />
     </div>
   );
 }
 
-function EtapeEtat({ etat }: { etat: "fait" | "maintenant" | "apres" | "bientot" }) {
-  const { t } = useTranslation();
-  if (etat === "fait") {
-    return (
-      <Puce icone={CheckCircle2} ton="vert">
-        {t("relectureNative.poster.fait")}
-      </Puce>
-    );
-  }
-  if (etat === "maintenant") {
-    return <Puce ton="bleu">{t("relectureNative.poster.maintenant")}</Puce>;
-  }
-  return <Puce>{t(etat === "apres" ? "relectureNative.poster.apresEtape1" : "relectureNative.poster.bientot")}</Puce>;
-}
-
-type PartieEspace = "questionnaire" | "kit";
-
-/** Le questionnaire, puis le kit une fois le questionnaire envoyé. */
+/** La barre du parcours, puis le questionnaire ou le kit. */
 function EspaceRelecteur({ relecteur }: { relecteur: Relecteur }) {
   const { t } = useTranslation();
-  const questionnaireFini = Boolean(relecteur.questionnaire_termine_at);
-  const [partie, setPartie] = React.useState<PartieEspace>(questionnaireFini ? "kit" : "questionnaire");
-
-  if (!questionnaireFini) return <Questionnaire relecteur={relecteur} />;
-  return (
-    <div className="space-y-4">
-      <Segments<PartieEspace>
-        libelle={t("relectureNative.poster.parties")}
-        actif={partie}
-        onChange={setPartie}
-        options={[
-          {
-            cle: "questionnaire",
-            contenu: (
-              <>
-                <Globe2 className="size-3.5" aria-hidden />
-                {t("relectureNative.poster.partieQuestionnaire")}
-              </>
-            ),
-          },
-          {
-            cle: "kit",
-            contenu: (
-              <>
-                <PenLine className="size-3.5" aria-hidden />
-                {t("relectureNative.poster.partieKit")}
-              </>
-            ),
-          },
-        ]}
-      />
-      {partie === "questionnaire" ? <Questionnaire relecteur={relecteur} /> : <SectionKitRelecteur relecteur={relecteur} />}
-    </div>
-  );
-}
-
-function Questionnaire({ relecteur }: { relecteur: Relecteur }) {
-  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
+  const questionnaireFini = Boolean(relecteur.questionnaire_termine_at);
+  const [etape, setEtape] = React.useState<EtapeParcours>(questionnaireFini ? "posts" : "pays");
+
   const cle = ["relecteur-mes-reponses", relecteur.id] as const;
   const reponses = useQuery({ queryKey: cle, queryFn: () => lireReponses(relecteur.id) });
-  const parCle = React.useMemo(
-    () => new Map((reponses.data ?? []).map((r) => [r.question_cle, r])),
-    [reponses.data],
-  );
-  const numeros = React.useMemo(() => new Map(questionsNumerotees().map((q) => [q.cle, q.numero])), []);
-  const progression = progressionQuestionnaire(reponses.data ?? []);
+  const kit = useQuery({ queryKey: ["kit-natif-relecteur"], queryFn: listerKit, enabled: questionnaireFini });
+  const ecritures = useQuery({
+    queryKey: ["kit-natif-mes-ecritures", relecteur.id],
+    queryFn: () => listerEcrituresKit(relecteur.id),
+    enabled: questionnaireFini,
+  });
 
   // Une réponse enregistrée met le cache à jour : l'avancement suit sans recharger.
   const memoriser = (r: ReponseQuestionnaire) =>
@@ -193,96 +105,310 @@ function Questionnaire({ relecteur }: { relecteur: Relecteur }) {
       r,
     ]);
 
+  if (reponses.isPending) return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
+  if (reponses.error) return <p className="text-sm text-destructive">{messageErreur(reponses.error)}</p>;
+
+  const pays = progressionQuestionnaire(reponses.data ?? []);
+  const posts = avancementKit(postsDuKit(kit.data ?? []), ecritures.data ?? []);
+
+  return (
+    <div className="space-y-5">
+      <BarreParcours
+        etape={etape}
+        questionnaire={{ fait: pays.repondues, total: pays.total, envoye: questionnaireFini }}
+        posts={{ fait: posts.rendus, total: posts.total }}
+        postsOuverts={questionnaireFini}
+        onEtape={setEtape}
+      />
+      {etape === "pays" || !questionnaireFini ? (
+        <QuestionnaireParBlocs
+          relecteur={relecteur}
+          reponses={reponses.data ?? []}
+          onEnregistre={memoriser}
+          onAllerAuxPosts={() => setEtape("posts")}
+        />
+      ) : (
+        <SectionKitRelecteur relecteur={relecteur} />
+      )}
+    </div>
+  );
+}
+
+/** Le questionnaire, un bloc à la fois, avec la liste des blocs pour sauter de l'un à l'autre. */
+function QuestionnaireParBlocs({
+  relecteur,
+  reponses,
+  onEnregistre,
+  onAllerAuxPosts,
+}: {
+  relecteur: Relecteur;
+  reponses: ReponseQuestionnaire[];
+  onEnregistre: (r: ReponseQuestionnaire) => void;
+  onAllerAuxPosts: () => void;
+}) {
+  const { t } = useTranslation();
+  const blocs = React.useMemo(() => blocsQuestionnaire(), []);
+  const [index, setIndex] = React.useState(() => premierBlocAFaire(blocs, reponses));
+  const haut = React.useRef<HTMLDivElement>(null);
+  const bloc = blocs[index];
+  const avancement = avancementBloc(bloc, reponses);
+
+  const aller = (i: number) => {
+    setIndex(Math.max(0, Math.min(blocs.length - 1, i)));
+    haut.current?.scrollIntoView?.({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <div ref={haut} className="scroll-mt-48 space-y-4">
+      <nav aria-label={t("relectureNative.parcours.blocs")}>
+        <ol className="flex flex-wrap gap-1.5">
+          {blocs.map((b, i) => {
+            const a = avancementBloc(b, reponses);
+            const complet = a.total > 0 && a.repondues === a.total;
+            const entame = a.repondues > 0 && !complet;
+            return (
+              <li key={b.cle}>
+                <button
+                  type="button"
+                  onClick={() => aller(i)}
+                  aria-current={i === index ? "step" : undefined}
+                  aria-label={`${t("relectureNative.parcours.bloc", { n: i + 1, total: blocs.length })} · ${titreBloc(b, t)}`}
+                  title={titreBloc(b, t)}
+                  className={cn(
+                    "flex h-7 min-w-7 items-center justify-center rounded-full border px-2 text-xs font-semibold tabular-nums transition-colors",
+                    complet && "border-success/30 bg-success/10 text-success-foreground",
+                    entame && "border-warning/30 bg-warning/10 text-warning-foreground",
+                    !complet && !entame && "bg-card text-muted-foreground",
+                    i === index && "ring-2 ring-primary ring-offset-1 ring-offset-background",
+                  )}
+                >
+                  {b.type === "envoi" ? <Send className="size-3" aria-hidden /> : complet ? <Check className="size-3" aria-hidden /> : i + 1}
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+
+      <Card data-testid={`bloc-${bloc.cle}`}>
+        <CardPanel className="space-y-6">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="space-y-1">
+              <p className={MICRO_LABEL}>{t("relectureNative.parcours.bloc", { n: index + 1, total: blocs.length })}</p>
+              <h2 className="text-lg font-semibold">{titreBloc(bloc, t)}</h2>
+            </div>
+            {avancement.total > 0 && (
+              <Puce icone={avancement.repondues === avancement.total ? Check : undefined} ton={avancement.repondues === avancement.total ? "vert" : "neutre"}>
+                {t("relectureNative.parcours.repondues", { n: avancement.repondues, total: avancement.total })}
+              </Puce>
+            )}
+          </div>
+
+          {bloc.type === "avant" && (
+            <BlocAvant relecteurId={relecteur.id} reponse={reponses.find((r) => r.question_cle === QUESTION_INTRO.cle)} onEnregistre={onEnregistre} />
+          )}
+          {bloc.type === "questions" && (
+            <BlocQuestions relecteurId={relecteur.id} questions={bloc.questions} reponses={reponses} onEnregistre={onEnregistre} />
+          )}
+          {bloc.type === "mots" && (
+            <div className="space-y-5">
+              <p className="text-sm text-muted-foreground">{t("relectureNative.poster.motsAide")}</p>
+              {bloc.mots.map((mot) => (
+                <ChampMot
+                  key={mot}
+                  relecteurId={relecteur.id}
+                  mot={mot}
+                  reponse={reponses.find((r) => r.question_cle === cleMot(mot))}
+                  onEnregistre={onEnregistre}
+                />
+              ))}
+            </div>
+          )}
+          {bloc.type === "envoi" && (
+            <BlocEnvoi relecteur={relecteur} blocs={blocs} reponses={reponses} onAller={aller} onAllerAuxPosts={onAllerAuxPosts} />
+          )}
+
+          {bloc.type !== "envoi" && (
+            <div className="flex items-center justify-between gap-3 border-t pt-4">
+              <Button variant="outline" disabled={index === 0} onClick={() => aller(index - 1)}>
+                <ChevronLeft />
+                {t("relectureNative.parcours.precedent")}
+              </Button>
+              <Button onClick={() => aller(index + 1)}>
+                {t("relectureNative.parcours.suivant")}
+                <ChevronRight />
+              </Button>
+            </div>
+          )}
+        </CardPanel>
+      </Card>
+    </div>
+  );
+}
+
+function titreBloc(bloc: BlocQuestionnaire, t: TFunction): string {
+  switch (bloc.type) {
+    case "avant":
+      return t("relectureNative.parcours.avantTitre");
+    case "questions":
+      return bloc.titre;
+    case "mots":
+      return t("relectureNative.parcours.motsTitre", { titre: bloc.titre, n: bloc.morceau, total: bloc.morceaux });
+    case "envoi":
+      return t("relectureNative.parcours.envoiTitre");
+  }
+}
+
+/** Le premier bloc : à quoi sert l'espace, les consignes, et le pays. */
+function BlocAvant({
+  relecteurId,
+  reponse,
+  onEnregistre,
+}: {
+  relecteurId: string;
+  reponse: ReponseQuestionnaire | undefined;
+  onEnregistre: (r: ReponseQuestionnaire) => void;
+}) {
+  const { t } = useTranslation();
+  return (
+    <div className="space-y-5">
+      <div className="flex items-start gap-4">
+        <TuileIcone icone={Languages} ton="bleu" />
+        <div className="min-w-0 space-y-1">
+          <p className="font-semibold">{t("relectureNative.poster.bienvenueTitre")}</p>
+          <p className="text-sm text-muted-foreground">{t("relectureNative.poster.bienvenue")}</p>
+        </div>
+      </div>
+      <p className="flex items-start gap-2 rounded-xl border border-violet-500/25 bg-violet-500/8 p-4 text-sm font-semibold text-violet-800 dark:text-violet-200">
+        <Quote className="mt-0.5 size-4 shrink-0" aria-hidden />
+        {t("relectureNative.poster.regleOr")}
+      </p>
+      <div className="space-y-2 rounded-xl border bg-muted/30 p-4 text-sm">
+        {CONSIGNES_QUESTIONNAIRE.map((c) => (
+          <p key={c} className="font-medium">
+            {c}
+          </p>
+        ))}
+      </div>
+      <ol className="grid gap-2 text-sm sm:grid-cols-3">
+        {(["etape1", "etape2", "etape3"] as const).map((e, i) => (
+          <li key={e} className="flex items-start gap-2 rounded-xl border p-3">
+            <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold">{i + 1}</span>
+            {t(`relectureNative.poster.${e}`)}
+          </li>
+        ))}
+      </ol>
+      <p className="flex items-center gap-2 text-xs text-muted-foreground">
+        <Wallet className="size-3.5" aria-hidden />
+        {t("relectureNative.poster.paye")}
+      </p>
+      <div className="border-t pt-5">
+        <ChampQuestion relecteurId={relecteurId} question={QUESTION_INTRO} reponse={reponse} onEnregistre={onEnregistre} />
+      </div>
+    </div>
+  );
+}
+
+function BlocQuestions({
+  relecteurId,
+  questions,
+  reponses,
+  onEnregistre,
+}: {
+  relecteurId: string;
+  questions: QuestionRelecteur[];
+  reponses: ReponseQuestionnaire[];
+  onEnregistre: (r: ReponseQuestionnaire) => void;
+}) {
+  const numeros = React.useMemo(() => new Map(questionsNumerotees().map((q) => [q.cle, q.numero])), []);
+  return (
+    <div className="space-y-6">
+      {questions.map((q) => (
+        <ChampQuestion
+          key={q.cle}
+          relecteurId={relecteurId}
+          question={q}
+          numero={numeros.get(q.cle)}
+          reponse={reponses.find((r) => r.question_cle === q.cle)}
+          onEnregistre={onEnregistre}
+        />
+      ))}
+    </div>
+  );
+}
+
+/** Le dernier bloc : ce qui reste, et « I'm done ». */
+function BlocEnvoi({
+  relecteur,
+  blocs,
+  reponses,
+  onAller,
+  onAllerAuxPosts,
+}: {
+  relecteur: Relecteur;
+  blocs: BlocQuestionnaire[];
+  reponses: ReponseQuestionnaire[];
+  onAller: (i: number) => void;
+  onAllerAuxPosts: () => void;
+}) {
+  const { t, i18n } = useTranslation();
+  const queryClient = useQueryClient();
   const terminer = useMutation({
     mutationFn: () => terminerQuestionnaire(relecteur.id),
     onSuccess: () => void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_MES_RELECTEURS }),
   });
   const termineLe = relecteur.questionnaire_termine_at;
-
-  if (reponses.isPending) return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
-  if (reponses.error) return <p className="text-sm text-destructive">{messageErreur(reponses.error)}</p>;
+  const p = progressionQuestionnaire(reponses);
+  const incomplets = blocs
+    .map((b, i) => ({ b, i, a: avancementBloc(b, reponses) }))
+    .filter(({ a }) => a.total > 0 && a.repondues < a.total);
 
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-sm">{t("relectureNative.poster.questionnaireTitre")}</CardTitle>
-          <CardDescription>{t("relectureNative.poster.questionnaireAide")}</CardDescription>
-        </CardHeader>
-        <CardPanel className="space-y-3">
-          <div className="space-y-2 rounded-lg border border-primary/30 bg-primary/5 p-3 text-sm">
-            {CONSIGNES_QUESTIONNAIRE.map((c) => (
-              <p key={c} className="font-medium">
-                {c}
-              </p>
-            ))}
-          </div>
-          <div className="space-y-1">
-            <Progress value={(progression.repondues / progression.total) * 100} />
-            <p className="text-xs text-muted-foreground">
-              {t("relectureNative.poster.progression", { repondues: progression.repondues, total: progression.total })}
-            </p>
-          </div>
-        </CardPanel>
-      </Card>
-
-      <Card>
-        <CardPanel>
-          <ChampQuestion
-            relecteurId={relecteur.id}
-            question={QUESTION_INTRO}
-            reponse={parCle.get(QUESTION_INTRO.cle)}
-            onEnregistre={memoriser}
-          />
-        </CardPanel>
-      </Card>
-
-      {PARTIES_QUESTIONNAIRE.map((partie) => (
-        <Card key={partie.cle}>
-          <CardHeader>
-            <CardTitle className="text-sm">{partie.titre}</CardTitle>
-            {partie.mots && <CardDescription>{t("relectureNative.poster.motsAide")}</CardDescription>}
-          </CardHeader>
-          <CardPanel className="space-y-5">
-            {partie.mots
-              ? MOTS_ANGLAIS.map((mot) => (
-                  <ChampMot
-                    key={mot}
-                    relecteurId={relecteur.id}
-                    mot={mot}
-                    reponse={parCle.get(cleMot(mot))}
-                    onEnregistre={memoriser}
-                  />
-                ))
-              : partie.questions.map((q) => (
-                  <ChampQuestion
-                    key={q.cle}
-                    relecteurId={relecteur.id}
-                    question={q}
-                    numero={numeros.get(q.cle)}
-                    reponse={parCle.get(q.cle)}
-                    onEnregistre={memoriser}
-                  />
-                ))}
-          </CardPanel>
-        </Card>
-      ))}
-
-      <Card>
-        <CardPanel className="flex flex-wrap items-center gap-3">
-          <Button disabled={terminer.isPending} onClick={() => terminer.mutate()}>
-            {t("relectureNative.poster.jaiFini")}
-          </Button>
-          {(termineLe || terminer.isSuccess) && (
-            <span className="text-sm text-muted-foreground">
+    <div className="space-y-5">
+      <p className="text-sm">
+        {t("relectureNative.parcours.envoiResume", { repondues: p.repondues, total: p.total })}{" "}
+        <span className="text-muted-foreground">{t("relectureNative.parcours.envoiAide")}</span>
+      </p>
+      {incomplets.length > 0 && (
+        <ul className="space-y-1.5">
+          {incomplets.map(({ b, i, a }) => (
+            <li key={b.cle}>
+              <button
+                type="button"
+                onClick={() => onAller(i)}
+                className="flex w-full items-center justify-between gap-3 rounded-lg border px-3 py-2 text-left text-sm hover:bg-accent/50"
+              >
+                <span>{titreBloc(b, t)}</span>
+                <Puce ton="ambre">{t("relectureNative.parcours.manquent", { n: a.total - a.repondues })}</Puce>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="flex flex-wrap items-center gap-3 border-t pt-4">
+        {termineLe || terminer.isSuccess ? (
+          <>
+            <span className="flex items-center gap-1.5 text-sm text-success-foreground">
+              <Check className="size-4" aria-hidden />
               {termineLe
                 ? t("relectureNative.poster.finiLe", { date: new Date(termineLe).toLocaleDateString(i18n.language) })
                 : t("relectureNative.poster.fini")}
             </span>
-          )}
-          {terminer.error && <span className="text-sm text-destructive">{messageErreur(terminer.error)}</span>}
-        </CardPanel>
-      </Card>
+            {termineLe && (
+              <Button onClick={onAllerAuxPosts}>
+                {t("relectureNative.parcours.allerAuxPosts")}
+                <ArrowRight />
+              </Button>
+            )}
+          </>
+        ) : (
+          <Button disabled={terminer.isPending} onClick={() => terminer.mutate()}>
+            <Send />
+            {t("relectureNative.poster.jaiFini")}
+          </Button>
+        )}
+        {terminer.error && <span className="text-sm text-destructive">{messageErreur(terminer.error)}</span>}
+      </div>
     </div>
   );
 }

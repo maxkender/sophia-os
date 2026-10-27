@@ -5,9 +5,10 @@
 --    premiere_semaine, et anciens pour un posteur déjà recréé, 0368) ou Double.
 --    Plus de « Recréer » sur premiere_semaine, plus de « Nudge » sur absent.
 -- 2. Double : le 2ᵉ compte démarre avec la cohorte du lundi J+9.
---    - `comptes.demarre_le` (nouvelle colonne, vide) : posée par
---      `ckd_compte_cree` à la création du 2ᵉ compte (samedi + 9) ;
---    - trigger `comptes_warmup_z_demarre_le` : quand le posteur clique
+--    - `comptes.premiers_posts_le` (nouvelle colonne, vide) : posée par
+--      `ckd_compte_cree` à la création du 2ᵉ compte (samedi + 9). À ne pas
+--      confondre avec `comptes.demarre_le` (0100, date de création), inchangée ;
+--    - trigger `comptes_warmup_z_premiers_posts` : quand le posteur clique
 --      « Start warmup », la fin du warm-up (lundi qui suit, 0301) est repoussée
 --      à ce lundi-là. Il passe après `comptes_warmup_jusqu_au_lundi` (ordre
 --      alphabétique) et ne touche pas au « skip warmup » de l'admin.
@@ -27,8 +28,8 @@
 -- (`ckd_decisions_permises`, `ckd_compte_cree` de 0368). Aucune ligne
 -- modifiée ni supprimée par la migration.
 -- Retour arrière : réappliquer ckd_decisions_permises et ckd_compte_cree
--- (0368) ; drop trigger comptes_warmup_z_demarre_le on public.comptes ;
--- drop function public.warmup_pas_avant_demarre_le(),
+-- (0368) ; drop trigger comptes_warmup_z_premiers_posts on public.comptes ;
+-- drop function public.warmup_pas_avant_premiers_posts(),
 -- public.paie_semaine_suivante(date), public.paie_marquer_semaine_suivante(uuid, boolean).
 
 set lock_timeout = '10s';
@@ -54,12 +55,12 @@ $$;
 -- ---------------------------------------------------------------------------
 -- 2. Double : le 2ᵉ compte démarre le lundi J+9
 -- ---------------------------------------------------------------------------
-alter table public.comptes add column if not exists demarre_le date;
+alter table public.comptes add column if not exists premiers_posts_le date;
 
-comment on column public.comptes.demarre_le is
+comment on column public.comptes.premiers_posts_le is
   'Lundi de démarrage imposé (0369) : un 2ᵉ compte (Double) ne finit pas son warm-up avant ce lundi, 00:00 Paris. Null : la règle habituelle (lundi qui suit le Start warmup, 0301).';
 
-create or replace function public.warmup_pas_avant_demarre_le()
+create or replace function public.warmup_pas_avant_premiers_posts()
 returns trigger
 language plpgsql
 security definer
@@ -68,13 +69,13 @@ as $$
 declare
   v_debut timestamptz;
 begin
-  if new.demarre_le is null
+  if new.premiers_posts_le is null
      or new.warmup_ends_at is null
      or new.warmup_ends_at <= now()   -- « skip warmup » de l'admin : intouché
      or new.warmup_ends_at is not distinct from old.warmup_ends_at then
     return new;
   end if;
-  v_debut := new.demarre_le::timestamp at time zone 'Europe/Paris';
+  v_debut := new.premiers_posts_le::timestamp at time zone 'Europe/Paris';
   if new.warmup_ends_at < v_debut then
     new.warmup_ends_at := v_debut;
   end if;
@@ -82,10 +83,10 @@ begin
 end;
 $$;
 
-drop trigger if exists comptes_warmup_z_demarre_le on public.comptes;
-create trigger comptes_warmup_z_demarre_le
+drop trigger if exists comptes_warmup_z_premiers_posts on public.comptes;
+create trigger comptes_warmup_z_premiers_posts
   before update of warmup_ends_at on public.comptes
-  for each row execute function public.warmup_pas_avant_demarre_le();
+  for each row execute function public.warmup_pas_avant_premiers_posts();
 
 create or replace function public.ckd_compte_cree(p_id uuid, p_compte uuid)
 returns void
@@ -120,7 +121,7 @@ begin
   elsif p.decision = 'doubler' then
     -- Double (0369) : le 2ᵉ compte démarre avec la cohorte du lundi J+9 (samedi
     -- du contrôle + 9) : warm-up la semaine d'avant, premiers posts ce lundi-là.
-    update public.comptes set demarre_le = p.jour + 9 where id = p_compte;
+    update public.comptes set premiers_posts_le = p.jour + 9 where id = p_compte;
   end if;
 end;
 $$;
@@ -171,7 +172,7 @@ begin
   cpt as (
     select c.id, c.poster_id,
            -- Le lundi où le compte poste pour la 1re fois : son 1er post prévu,
-           -- sinon la fin de son warm-up (jamais avant `demarre_le`, trigger) ;
+           -- sinon la fin de son warm-up (jamais avant `premiers_posts_le`, trigger) ;
            -- warm-up pas lancé : il ne poste pas, il ne compte pas.
            coalesce((select pj.premier_jour - (extract(isodow from pj.premier_jour)::int - 1)
                        from public.comptes_premier_jour pj where pj.compte_id = c.id),
@@ -253,7 +254,7 @@ begin
 end;
 $$;
 
-revoke execute on function public.warmup_pas_avant_demarre_le() from public, anon, authenticated;
+revoke execute on function public.warmup_pas_avant_premiers_posts() from public, anon, authenticated;
 revoke execute on function public.paie_semaine_suivante(date) from public, anon;
 grant execute on function public.paie_semaine_suivante(date) to authenticated, service_role;
 revoke execute on function public.paie_marquer_semaine_suivante(uuid, boolean) from public, anon;

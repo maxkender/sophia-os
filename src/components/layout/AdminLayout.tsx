@@ -17,6 +17,7 @@ import {
   Gift,
   Images,
   Languages,
+  Link2,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
@@ -203,6 +204,12 @@ export function AdminLayout() {
               description: t("navDesc.checkKillDouble"),
             },
             { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
+            {
+              to: "/admin/slack",
+              label: t("slackRelier.nav"),
+              icon: Link2,
+              description: t("slackRelier.navDesc"),
+            },
             // Toujours visible : le recrutement relève de l'identité des
             // comptes, qui reste Sophia quelle que soit l'application choisie.
             {

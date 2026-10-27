@@ -31,6 +31,7 @@ const PAGES_DEMANDEES = [
   "/admin/comment-masters", // Comment masters (ticket 002)
   "/admin/comment-masters/suivi", // Comment Masters · suivi (27/10)
   "/admin/paie", // Paie (v3, 27/10)
+  "/admin/slack", // Slack à relier (v3 point 2)
   "/admin/check-kill-double", // Check, Kill or Double (21/10)
   "/admin/retours-contestes", // Retours que les créateurs disent faux, à côté des Reviews (23/10)
 ];

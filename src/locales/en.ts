@@ -2664,6 +2664,30 @@ export const en = {
         NO_LABELS_APPLICATION: "No label serves the chosen app: none can be picked. Tick it on at least one label (Pilotage → Labels).",
       },
     },
+    slackRelier: {
+      nav: "Slack to link",
+      navDesc: "Posters whose Slack account we don't know yet",
+      titre: "Slack to link",
+      description:
+        "Active posters with no known Slack account. The OS links them by itself (personal email, then unique full name) every night and when they join Slack; the ones left here are linked by hand.",
+      simuler: "Simulate",
+      synchroniser: "Sync Slack",
+      relies_one: "{{count}} linked",
+      relies_other: "{{count}} linked",
+      aRelier_one: "{{count}} to link",
+      aRelier_other: "{{count}} to link",
+      derniere: "Last sync: {{date}} · {{n}} links made",
+      resultat:
+        "Sync done: {{email}} linked by email, {{nom}} by name ({{deja}} already were). {{ambigus}} ambiguous, {{restants}} left to link. {{membres}} Slack members read.",
+      resultatSimulation:
+        "Simulation, nothing written: {{email}} would be linked by email, {{nom}} by name ({{deja}} already are). {{ambigus}} ambiguous, {{restants}} would be left. {{membres}} Slack members read.",
+      hm: "HM: {{hm}}",
+      peutEtre: "Maybe:",
+      chercher: "Search a Slack member (name, handle) or paste their ID",
+      relierId: "Link ID {{id}}",
+      aucun: "No free Slack member matches.",
+      vide: "All active posters are linked to Slack.",
+    },
     paie: {
       liste: {
         titre: "Pay · week {{numero}} ({{debut}} → {{fin}})",

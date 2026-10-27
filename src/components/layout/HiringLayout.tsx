@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, FilePenLine, Gauge, LayoutDashboard, UserPlus, Users, Wallet } from "lucide-react";
+import { CalendarDays, FilePenLine, Gauge, LayoutDashboard, Link2, UserPlus, Users, Wallet } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
 import { BoutonGuideNotion, GUIDE_NOTION_HM } from "@/features/documents/BoutonGuideNotion";
@@ -52,6 +52,12 @@ export function HiringLayout() {
               label: t("hiring.calendrierNav"),
               icon: CalendarDays,
               description: t("hiring.calendrierSous"),
+            },
+            {
+              to: "/manager/slack",
+              label: t("slackRelier.nav"),
+              icon: Link2,
+              description: t("slackRelier.navDesc"),
             },
             ...(estDm
               ? [

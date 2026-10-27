@@ -76,12 +76,14 @@ ou de déposer.
   (16 du top 20). Variantes testées : `disgustingly intelligent`,
   `habits that will make you unreasonably confident`. Pas de dating, pas d'ironie,
   pas de « in the age of ai », rien de vulgaire.
-- **Varier les accroches (consigne du chef, 25/10)** : le gabarit s'use. Sur
-  les 3 livraisons normales du jour, **au plus 1** en « dangerously confident /
-  disgustingly intelligent ». Les 2 autres sur une accroche du label jamais
-  faite chez nous (`npm run label -- --top 400`, classée par r), par exemple
-  « magnetic », « articulate », « protect your brain from aging ». Jamais deux
-  fois la même accroche dans un lot. Les variantes des percées restent en plus.
+- **Varier les schémas (consigne du chef, 25 et 27/10)** : la famille à limiter
+  est tout le schéma « hobbies / habits that (will) make you X », quel que soit
+  X. Sur les livraisons normales du jour, **au plus 1** dans ce schéma. Les
+  autres sur d'autres formats : « how to… », « things that… », « rules i
+  follow… », « microhabits… », récit à la 1re personne (« small dares that
+  rebuilt my confidence »), avant/après. Les variantes des percées gardent le
+  fond de l'original mais prennent aussi une accroche hors de ce schéma.
+  Jamais deux fois la même accroche ni la même image d'accroche dans un lot.
 - **Item** : `titre (2 à 4 mots)\n\n` puis 2 phrases, **150 à 200 caractères** :
   une consigne concrète et chiffrée (durée, fréquence), puis une chute
   introspective (« most people… », « the avoidance costs more than… »).

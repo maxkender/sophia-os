@@ -37,7 +37,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Le titre est une vraie étape de la liste, dans son style : « LEARN NEW TOPICS » (une liste « 5 Ways »), « ANSWER RANDOM QUESTIONS » (une liste de compétences).
 	- Elle remplace une étape : on garde son nombre d'étapes (« 5 Ways » = 5 étapes, Sophia et UnSwipe comprises), donc une slide de moins que lui quand il avait une slide d'appli.
 	- La carte : « SOPHIA » et une phrase de son positionnement, en versions qu'on alterne d'une livraison à l'autre (ROUTINE.md § 4.5), notées dans `notes` et identiques sur toutes les langues :
-		- `cta A` : « learn something new every day, » / « in 5 minutes. » (fa-001 à fa-004) ;
+		- `cta A` : « learn something new every day, » / « in 5 minutes. » (fa-001 à fa-004, fa-007) ;
 		- `cta B` : « 5 minutes a day » / « to know a bit about everything. » (fa-005) ;
 		- `cta C` : « what I open » / « instead of scrolling. », conseil à la 1re personne, en 2e position (fa-006). Chaque lundi, la moins bonne des trois cède sa place à une nouvelle idée (ROUTINE.md § 4.5).
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».

@@ -15,6 +15,8 @@ const TITRE_OS = "Message from the team";
  *       Chaque envoi est noté dans `nudges`.
  *   { action: "resolus" }                                          admin, cron
  *       Marque résolus les nudges dont le blocage a disparu.
+ *   { action: "agent_matin", force? }        cron `agent-inactifs`, 7 h (Paris)
+ *       Les nudges résolus, puis les inactifs (`inactifs_marquer`, 0385).
  *
  * Secrets : SLACK_HM_BOT_TOKEN (et SLACK_BOT_TOKEN2 pour retrouver un
  * posteur par email), CRON_SECRET.
@@ -30,6 +32,18 @@ Deno.serve(async (request) => {
     switch (body.action) {
       case "envoyer":
         return json(await envoyer(supabase, body, acces.userId === "cron" ? null : acces.userId));
+      case "agent_matin": {
+        // L'agent de 7 h (cron `agent-inactifs`, 0385) : nudges résolus, puis inactifs.
+        const heure = Number(
+          new Intl.DateTimeFormat("en-GB", { hour: "numeric", hour12: false, timeZone: "Europe/Paris" }).format(new Date()),
+        );
+        if (!body.force && heure !== 7) return json({ ok: true, ignore: "pas 7 h" });
+        const { data: resolus, error: errResolus } = await supabase.rpc("nudges_maj_resolus");
+        if (errResolus) throw errResolus;
+        const { data: inactifs, error: errInactifs } = await supabase.rpc("inactifs_marquer");
+        if (errInactifs) throw errInactifs;
+        return json({ ok: true, resolus, inactifs });
+      }
       case "resolus": {
         const { data, error } = await supabase.rpc("nudges_maj_resolus");
         if (error) throw error;

@@ -32,6 +32,7 @@ import {
   ShieldAlert,
   Users,
   UserPlus,
+  UserX,
   Wallet,
 } from "lucide-react";
 
@@ -209,6 +210,12 @@ export function AdminLayout() {
               label: t("nudges.nav"),
               icon: BellRing,
               description: t("nudges.navDesc"),
+            },
+            {
+              to: "/admin/inactifs",
+              label: t("inactifs.nav"),
+              icon: UserX,
+              description: t("inactifs.navDesc"),
             },
             {
               to: "/admin/slack",

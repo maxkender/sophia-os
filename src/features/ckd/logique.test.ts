@@ -150,8 +150,8 @@ describe("propositions", () => {
 });
 
 describe("décisions", () => {
-  it("les boutons de chaque règle sont exactement les décisions permises en base (0369)", () => {
-    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0369_ckd_samedi_paie_suivante.sql"), "utf8");
+  it("les boutons de chaque règle sont exactement les décisions permises en base (0385, qui reprend 0369)", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0385_inactifs.sql"), "utf8");
     for (const [regle, boutons] of Object.entries(BOUTONS_PAR_REGLE)) {
       const ligne = sql.match(new RegExp(`when '${regle}'\\s+then array\\[([^\\]]*)\\]`))?.[1] ?? "";
       const permises = [...ligne.matchAll(/'([a-z_]+)'/g)].map((m) => m[1]);

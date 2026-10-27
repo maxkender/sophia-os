@@ -185,6 +185,7 @@ export function grouperParHm(propositions: PropositionCkd[]): GroupeHm[] {
 export const BOUTONS_PAR_REGLE: Record<RegleCkd, readonly string[]> = {
   jeudi: ["envoyerNudge", "recreer", "rien"],
   absent: ["nePasRenouveler", "garder"],
+  inactif: ["nePasRenouveler", "garder"],
   premiere_semaine: ["nePasRenouveler", "garder"],
   anciens: ["recreer", "nePasRenouveler", "garder"],
   doubler: ["doubler", "pasMaintenant"],

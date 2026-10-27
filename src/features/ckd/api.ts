@@ -12,7 +12,7 @@ import type { DiagnosticCkd } from "./diagnostic";
  */
 
 export type TypeControle = "jeudi" | "samedi";
-export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler" | "absent";
+export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler" | "absent" | "inactif";
 export type ActionCkd = "nudge" | "recreer" | "ne_pas_renouveler" | "doubler";
 export type DecisionCkd = ActionCkd | "garder" | "pas_maintenant" | "rien";
 export type SourceReglage = "defaut" | "pays" | "label" | "pays_label";

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Send, Users } from "lucide-react";
+import { CalendarDays, Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Send, Users } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -87,6 +87,7 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
+import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
 import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
@@ -159,12 +160,13 @@ interface FiltreCohorte {
  * Deux vues (0356) : « Suivi cohorte », la paire de cohortes de nouveaux
  * posteurs (celle qui poste, celle en warm-up), et « Suivi global », la page
  * telle qu'elle était, pour toutes les cohortes. `?vue=global` ouvre la seconde.
+ * « Vue HM » (`?vue=hm`, 0370) : le dashboard des HMs, avec le choix de la HM.
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const brut = params.get("vue");
-  const vue: Vue = brut === "global" || brut === "shadowban" ? brut : "cohorte";
+  const vue: Vue = brut === "global" || brut === "shadowban" || brut === "hm" ? brut : "cohorte";
   const choisirVue = (v: Vue) =>
     setParams(
       (p) => {
@@ -199,6 +201,8 @@ export function AdminCheckKillDoublePage() {
 
       {vue === "shadowban" ? (
         <VueShadowban />
+      ) : vue === "hm" ? (
+        <CalendrierSemaine choixHm />
       ) : vue === "cohorte" ? (
         <VueCohorte
           ouvrirGlobal={() => choisirVue("global")}
@@ -227,7 +231,7 @@ export function AdminCheckKillDoublePage() {
   );
 }
 
-type Vue = "cohorte" | "global" | "shadowban";
+type Vue = "cohorte" | "global" | "shadowban" | "hm";
 
 /** Suivi cohorte, suivi global ou Shadowban : des boutons collés, celui de la vue affichée en avant. */
 function ChoixVue({ vue, onChange }: { vue: Vue; onChange: (v: Vue) => void }) {
@@ -239,6 +243,7 @@ function ChoixVue({ vue, onChange }: { vue: Vue; onChange: (v: Vue) => void }) {
           { v: "cohorte", icone: <Users className="size-4" aria-hidden /> },
           { v: "global", icone: <List className="size-4" aria-hidden /> },
           { v: "shadowban", icone: <EyeOff className="size-4" aria-hidden /> },
+          { v: "hm", icone: <CalendarDays className="size-4" aria-hidden /> },
         ] as const
       ).map(({ v, icone }) => (
         <button

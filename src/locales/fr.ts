@@ -2496,7 +2496,8 @@ export const fr = {
       },
       raisons: {
         compteIntrouvable: "Compte TikTok introuvable : pas encore créé",
-        sansWarmup: "A posté sans warm-up : pas de paie",
+        sansWarmup: "Pas de warm-up : 0 follow",
+        warmupFaible: "Warm-up insuffisant : {{n}}/{{min}} follows",
         aucunPostPublie: "Aucun post publié",
         postsManquants: "{{n}} post(s) manquant(s)",
         zeroPostHier: "0 post hier",

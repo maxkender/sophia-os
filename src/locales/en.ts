@@ -2492,7 +2492,8 @@ export const en = {
       },
       raisons: {
         compteIntrouvable: "TikTok account not found: not created yet",
-        sansWarmup: "Posted without warm-up: no pay",
+        sansWarmup: "No warm-up: 0 follows",
+        warmupFaible: "Bad warm-up: {{n}}/{{min}} follows",
         aucunPostPublie: "No post published yet",
         postsManquants: "{{n}} post(s) missing",
         zeroPostHier: "0 posts yesterday",

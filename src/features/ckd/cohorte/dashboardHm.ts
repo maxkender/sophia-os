@@ -20,6 +20,7 @@ export interface Raison {
     | "warmupPasCommence"
     | "compteIntrouvable"
     | "sansWarmup"
+    | "warmupFaible"
     | "aucunPostPublie"
     | "postsManquants";
   valeurs?: Record<string, number>;
@@ -80,12 +81,17 @@ export interface LigneSemaine {
 /**
  * « Cette semaine » : le problème du compte, dit en clair. Le compte TikTok
  * introuvable d'abord (rien d'autre ne compte tant qu'il n'existe pas), puis
- * le warm-up sauté, puis les posts : aucun publié, ou combien manquent.
+ * le warm-up (0 follow : pas de warm-up ; moins de 5 : warm-up insuffisant),
+ * puis les posts : aucun publié, ou combien manquent.
  */
 export function problemesSemaine(c: CompteCohorte, etat: EtatEtape, aujourdhui: string): Raison[] {
   if (etat.etape === "not_created") return [{ cle: "compteIntrouvable" }];
   const raisons: Raison[] = [];
-  if (postsSansWarmup(c)) raisons.push({ cle: "sansWarmup" });
+  const follows = followsWarmup(c);
+  if (follows === 0) raisons.push({ cle: "sansWarmup" });
+  else if (follows !== null && follows < FOLLOWS_WARMUP) {
+    raisons.push({ cle: "warmupFaible", valeurs: { n: follows, min: FOLLOWS_WARMUP } });
+  }
   const bilan = bilanCompte(c, aujourdhui);
   if (bilan.manques > 0) {
     raisons.push(
@@ -123,13 +129,16 @@ export function ligneWarmup(c: CompteCohorte, aujourdhui: string): LigneWarmup {
   return { compte: c, etat, statut, raisons };
 }
 
+/** Le minimum de follows d'un warm-up (consigne de l'accueil). */
+export const FOLLOWS_WARMUP = 5;
+
 /**
- * Compte créé sans warm-up : introuvable sur TikTok à chaque relevé du warm-up,
- * mais il publie. La règle de l'accueil : pas de warm-up, pas de paie.
+ * Les follows du compte relevés pendant le warm-up (le plus haut relevé), null
+ * s'ils n'ont jamais été lus : un relevé raté ne prouve rien, on n'accuse pas.
  */
-export function postsSansWarmup(c: CompteCohorte): boolean {
-  const lus = c.releves.filter((r) => r.existe !== null);
-  return lus.length > 0 && lus.every((r) => r.existe === false) && c.posts.some((p) => p.url);
+export function followsWarmup(c: CompteCohorte): number | null {
+  const lus = c.releves.map((r) => r.abonnements).filter((n): n is number => n !== null);
+  return lus.length > 0 ? Math.max(...lus) : null;
 }
 
 /** Le compte a déjà publié au moins un post (le report de cohorte est alors refusé). */

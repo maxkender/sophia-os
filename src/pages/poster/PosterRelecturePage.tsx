@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
 import { ArrowRight, Check, ChevronLeft, ChevronRight, Languages, Quote, Send, Wallet } from "lucide-react";
 
+import { EtiquetteApplication } from "@/components/brand/LogoApplication";
 import { Button } from "@/components/ui/button";
 import { Card, CardPanel, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -16,6 +17,7 @@ import {
   listerEcrituresKit,
   listerKit,
   lireReponses,
+  presentationsApplis,
   terminerQuestionnaire,
   type Relecteur,
 } from "@/features/relectureNative/api";
@@ -274,6 +276,7 @@ function BlocAvant({
   onEnregistre: (r: ReponseQuestionnaire) => void;
 }) {
   const { t } = useTranslation();
+  const applis = useQuery({ queryKey: ["presentations-applis-relecteur"], queryFn: presentationsApplis });
   return (
     <div className="space-y-5">
       <div className="flex items-start gap-4">
@@ -302,6 +305,19 @@ function BlocAvant({
           </li>
         ))}
       </ol>
+      {applis.data && applis.data.length > 0 && (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" data-testid="applis-relecture">
+          <span className="text-muted-foreground">{t("relectureNative.poster.applis")}</span>
+          {applis.data.map((a) => (
+            <EtiquetteApplication
+              key={a.application_id}
+              slug={a.slug}
+              taille="md"
+              className="rounded-full border bg-card py-1 pr-3 pl-1 font-medium"
+            />
+          ))}
+        </div>
+      )}
       <p className="flex items-center gap-2 text-xs text-muted-foreground">
         <Wallet className="size-3.5" aria-hidden />
         {t("relectureNative.poster.paye")}

@@ -105,6 +105,9 @@ describe("PosterRelecturePage", () => {
     expect(within(barre).getByText("0 / 88 questions answered")).toBeInTheDocument();
     expect(within(barre).getByRole("button", { name: /The 15 posts/ })).toBeDisabled();
     expect(screen.getByLabelText("What country are you in?")).toBeInTheDocument();
+    const applis = await screen.findByTestId("applis-relecture");
+    expect(applis).toHaveTextContent("micabo");
+    expect(within(applis).getByTitle("micabo")).toHaveAttribute("src");
     expect(screen.getByRole("button", { name: "Back" })).toBeDisabled();
     expect(listerKit).not.toHaveBeenCalled();
   });
@@ -204,6 +207,8 @@ describe("PosterRelecturePage", () => {
     expect(screen.getByText("Slide 2 recommends bycat. Same idea with micabo.")).toBeInTheDocument();
     expect(screen.getByText("micabo turns your notes into quizzes.")).toBeInTheDocument();
     expect(screen.getByText("micabo slide")).toBeInTheDocument();
+    expect(within(screen.getByTestId("post-kit-1")).getAllByTitle("micabo").length).toBeGreaterThan(0);
+    expect(within(liste).getAllByTitle("micabo").length).toBeGreaterThan(0);
     expect(screen.getByAltText("Slide 1")).toHaveAttribute("src", "https://x/1.jpg");
     expect(within(screen.getByTestId("barre-parcours")).getByText("0 / 4 posts done")).toBeInTheDocument();
   });

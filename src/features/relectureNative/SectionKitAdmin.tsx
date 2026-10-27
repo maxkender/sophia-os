@@ -12,7 +12,6 @@ import {
   Pencil,
   Plus,
   Save,
-  Smartphone,
   Trash2,
 } from "lucide-react";
 
@@ -219,7 +218,7 @@ function LignePostKit({
         <div className="min-w-0 flex-1 space-y-1.5">
           <p className={cn("truncate text-sm font-medium", !post.actif && "text-muted-foreground")}>{accrochePost(post)}</p>
           <div className="flex flex-wrap items-center gap-1.5">
-            {app && <Puce icone={Smartphone}>{nomApplication(app)}</Puce>}
+            {app && <Puce logo={app.slug}>{nomApplication(app)}</Puce>}
             <Puce icone={voie.icone} ton={voie.ton}>
               {t(`relectureNative.kitAdmin.voies.${post.voie}`)}
             </Puce>

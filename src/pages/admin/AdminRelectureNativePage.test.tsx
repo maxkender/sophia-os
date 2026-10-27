@@ -153,6 +153,7 @@ describe("AdminRelectureNativePage", () => {
     expect(within(ligne).getByText("6 hobbies that will make you noticeably smarter")).toBeInTheDocument();
     expect(within(ligne).getByText("Reprise")).toBeInTheDocument();
     expect(within(ligne).getByText("CTA slide 5")).toBeInTheDocument();
+    expect(within(ligne).getByTitle("Sophia")).toHaveAttribute("src");
     expect(within(ligne).queryByRole("combobox", { name: "Voie du CTA" })).not.toBeInTheDocument();
 
     fireEvent.click(within(ligne).getByRole("button", { name: "Modifier" }));

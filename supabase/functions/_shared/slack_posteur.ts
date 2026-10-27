@@ -75,3 +75,40 @@ export async function prevenirPosteur(
     return { statut: "erreur", erreur: e instanceof Error ? e.message : String(e) };
   }
 }
+
+/**
+ * Écrire au posteur par son ID Slack connu (`profiles.slack_user_id`, 0381),
+ * sinon en le retrouvant par ses emails. Bot « Sophia OS » (SLACK_HM_BOT_TOKEN).
+ * Ne lève jamais : l'issue est rendue.
+ */
+export async function ecrireAuPosteur(
+  // deno-lint-ignore no-explicit-any
+  supabase: any,
+  posterId: string,
+  texte: string,
+  fetchFn: Fetch = fetch,
+): Promise<IssueMessagePosteur> {
+  const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!ecriture) return { statut: "erreur", erreur: "SLACK_HM_BOT_TOKEN manquant" };
+  try {
+    const { data: profil, error } = await supabase
+      .from("profiles")
+      .select("slack_user_id, email, email_perso")
+      .eq("id", posterId)
+      .single();
+    if (error) return { statut: "erreur", erreur: error.message };
+    if (profil?.slack_user_id) {
+      const envoi = await appel(ecriture, "chat.postMessage", { channel: profil.slack_user_id, text: texte }, fetchFn);
+      if (envoi.ok) return { statut: "envoye", userId: profil.slack_user_id };
+      return { statut: "erreur", erreur: `postMessage: ${envoi.error}` };
+    }
+    return await prevenirPosteur(
+      { ecriture, lecture: Deno.env.get("SLACK_BOT_TOKEN2") },
+      [profil?.email_perso, profil?.email],
+      texte,
+      fetchFn,
+    );
+  } catch (e) {
+    return { statut: "erreur", erreur: e instanceof Error ? e.message : String(e) };
+  }
+}

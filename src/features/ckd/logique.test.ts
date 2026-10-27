@@ -163,6 +163,8 @@ describe("décisions", () => {
     expect(aEnvoyer(proposition({ action: "ne_pas_renouveler", decision: "ne_pas_renouveler" }))).toBe(true);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer", nouveau_compte_id: "n" }))).toBe(true);
+    // v3 (0382) : Doubler est une offre au posteur, elle part sans compte.
+    expect(aEnvoyer(proposition({ action: "doubler", regle: "doubler", decision: "doubler" }))).toBe(true);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "garder" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge", envoye_at: "2026-10-24T10:00:00Z" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge" }))).toBe(false);

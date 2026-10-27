@@ -249,6 +249,17 @@ export function texteDecision(d: DecisionSlack, semaine: number, lundiDouble?: s
       `New account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to start ` +
         "the warm-up in the OS before Sunday midnight. The old account is already stopped (moved to the Archive); the milestone doesn't change.",
     );
+  } else if (d.decision === "doubler" && !d.nouveauHandle) {
+    // v3 (0382) : le posteur reçoit l'offre dans l'OS et répond lui-même. Pour la HM, de l'information.
+    lignes.push(`:heavy_plus_sign: *Double offered* ${qui}`);
+    lignes.push(
+      "The poster gets a pop-up in the OS from Sunday (Yes / No, until Wednesday night). " +
+        (lundiDouble
+          ? `If they say yes, their 2nd account starts on Monday ${jourAnglais(lundiDouble)}` +
+            ` (milestone "Week ${semaineIso(lundiDouble)} (2 acc)" from then on). `
+          : "") +
+        "Nothing to do for you.",
+    );
   } else if (d.decision === "doubler") {
     lignes.push(`:heavy_plus_sign: *Double* ${qui}`);
     if (lundiDouble) {

@@ -222,9 +222,13 @@ export function boutonDeLaDecision(decision: DecisionCkd): string {
   return Object.keys(DECISION_DU_BOUTON).find((b) => DECISION_DU_BOUTON[b] === decision) ?? decision;
 }
 
-/** Ces décisions créent un compte : confirmation, et pas d'annulation. */
+/**
+ * Ces décisions créent un compte tout de suite : pas d'annulation, et elles ne
+ * partent aux HMs qu'avec le nouveau compte. Doubler n'en fait plus partie
+ * (v3, 0382) : c'est une offre au posteur, qui part tout de suite.
+ */
 export function creeUnCompte(decision: DecisionCkd): boolean {
-  return decision === "recreer" || decision === "doubler";
+  return decision === "recreer";
 }
 
 /** Les décisions qui partent aux HMs (les autres sont seulement notées). */

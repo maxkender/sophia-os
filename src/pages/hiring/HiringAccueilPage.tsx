@@ -10,6 +10,10 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
+import { etatCohorte } from "@/features/ckd/cohorte/etapeCohorte";
+import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
+import { qualiteAffichee } from "@/features/moteur/etapes";
+import { lireEtapesComptes } from "@/features/moteur/etapesApi";
 import {
   aFaireAujourdhui,
   ligneSemaine,
@@ -106,6 +110,8 @@ export function HiringAccueilPage() {
       return { lignes, noms: await nomsPosteurs([...new Set(lignes.map((l) => l.poster_id))]) };
     },
   });
+  // Le tag qualité (GOOD / POOR VIEWS / SHADOWBAN) : d'après la base (0363).
+  const etapes = useQuery({ queryKey: ["etapes-comptes"], queryFn: lireEtapesComptes, enabled: Boolean(user?.id) });
   const { semaine: semainePaie, paie } = usePaieHm(user?.id);
   const paieAFaire = totaux(paie.data ?? []);
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -207,6 +213,7 @@ export function HiringAccueilPage() {
                   entetes={[
                     t("accueilHm.posteur"),
                     t("accueilHm.compte"),
+                    t("accueilHm.etape"),
                     t("accueilHm.postsJour"),
                     t("accueilHm.postsSemaine"),
                     t("accueilHm.statut"),
@@ -214,11 +221,18 @@ export function HiringAccueilPage() {
                 >
                   {donnees.data.poste.map((c) => {
                     const l = ligneSemaine(c, aujourdhui);
+                    const etat = etatCohorte(c, aujourdhui);
                     return (
                       <tr key={c.compte_id}>
                         <td className={TD}>{nom(c)}</td>
                         <td className={TD}>
                           <Handle compte={c} />
+                        </td>
+                        <td className={TD}>
+                          <span className="inline-flex flex-wrap gap-1">
+                            <EtapeBadge etat={etat} />
+                            <QualiteBadge qualite={qualiteAffichee(etat, etapes.data?.get(c.compte_id)?.qualite)} />
+                          </span>
                         </td>
                         <td className={TD}>
                           {l.jour.prevus > 0 ? `${l.jour.publies}/${l.jour.prevus}` : "—"}
@@ -255,6 +269,7 @@ export function HiringAccueilPage() {
                   entetes={[
                     t("accueilHm.posteur"),
                     t("accueilHm.compte"),
+                    t("accueilHm.etape"),
                     t("accueilHm.tiktok"),
                     t("accueilHm.warmup"),
                     t("accueilHm.start"),
@@ -268,6 +283,9 @@ export function HiringAccueilPage() {
                         <td className={TD}>{nom(c)}</td>
                         <td className={TD}>
                           <Handle compte={c} />
+                        </td>
+                        <td className={TD}>
+                          <EtapeBadge etat={etatCohorte(c, aujourdhui)} />
                         </td>
                         <td className={TD}>{t(`accueilHm.etatsTiktok.${l.etat.tiktok}`)}</td>
                         <td className={TD}>

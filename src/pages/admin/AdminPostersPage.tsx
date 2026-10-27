@@ -16,7 +16,7 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
-import { messageErreur } from "@/lib/utils";
+import { cn, messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
 import { AvatarProfil } from "@/features/hiring/AvatarProfil";
@@ -106,6 +106,9 @@ import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, estCodePays, nomPaysIso, paysTries } from "@/features/moteur/pays";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
+import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
+import { compterEtapes, ETAPES, etapeCompte, qualiteAffichee, type Etape, type EtatEtape } from "@/features/moteur/etapes";
+import { lireEtapesComptes } from "@/features/moteur/etapesApi";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
   Classement,
@@ -218,11 +221,11 @@ function AidePosters() {
         <span className="mb-2 block">{t("posters.aideAcces")}</span>
         <span className="mb-2 block">{t("posters.aideZones")}</span>
         <span className="mb-2 block">{t("posters.labelsAide")}</span>
-        <span className="mb-1.5 block">{t("warmup.phasesLegende")}</span>
+        <span className="mb-1.5 block">{t("etapes.legende")}</span>
         <span className="flex flex-wrap gap-1.5">
-          <Badge variant="outline">{t("warmup.phasePasCree")}</Badge>
-          <Badge variant="warning">{t("warmup.phaseWarmupAttente")}</Badge>
-          <Badge variant="success">{t("warmup.phaseActif")}</Badge>
+          {ETAPES.map((e) => (
+            <EtapeBadge key={e} etat={{ etape: e, semaine: e === "posting" ? 1 : null }} />
+          ))}
         </span>
       </span>
     </span>
@@ -737,7 +740,7 @@ export function AdminPostersPage() {
   });
 
   // Défaut « tous » : les nouveaux (warmup pas démarré) restent visibles.
-  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
+  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | Etape>("tous");
   const [filtreLangue, setFiltreLangue] = React.useState("");
   // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
   const [filtrePays, setFiltrePays] = React.useState("");
@@ -803,6 +806,41 @@ export function AdminPostersPage() {
   // prévu, sinon fin du warm-up), et pour le posteur le plus ancien de ses
   // comptes, sommeil compris (un posteur recréé ou doublé garde sa cohorte).
   const premiersJours = useQuery({ queryKey: ["comptes-premier-jour"], queryFn: premiersJoursComptes });
+
+  // Un seul tag d'étape par compte (0363), les mêmes mots que le dashboard HM
+  // et Cohort tracking. Sans les données (migration absente) : étape tirée du
+  // seul warm-up.
+  const etapes = useQuery({ queryKey: ["etapes-comptes"], queryFn: lireEtapesComptes });
+  const aujourdhuiEtapes = aujourdhuiParis();
+  const etatCompte = React.useCallback(
+    (c: { id: string; is_active?: boolean | null; warmup_started_at: string | null; warmup_ends_at: string | null }): EtatEtape => {
+      const d = etapes.data?.get(c.id);
+      return etapeCompte(
+        {
+          compteId: c.id,
+          isActive: c.is_active,
+          arrete: d?.arrete,
+          warmupStartedAt: c.warmup_started_at,
+          warmupEndsAt: c.warmup_ends_at,
+          tiktokExiste: d?.tiktokExiste,
+          premierJour: d?.premierJour ?? premiersJours.data?.get(c.id) ?? null,
+        },
+        aujourdhuiEtapes,
+      );
+    },
+    [etapes.data, premiersJours.data, aujourdhuiEtapes],
+  );
+  /** L'étape d'un créateur : celle de son compte principal. */
+  const etatCreateur = React.useCallback(
+    (p: PosterProfil): EtatEtape => {
+      const liste = comptesParPoster.get(p.id) ?? [];
+      const principal = liste.find((c) => c.id === p.compte_id) ?? liste[0];
+      return principal ? etatCompte(principal) : { etape: "not_created", semaine: null };
+    },
+    [comptesParPoster, etatCompte],
+  );
+  /** Filtre d'étape choisi en cliquant un compteur, par recruteur. */
+  const [etapeParHm, setEtapeParHm] = React.useState<Record<string, Etape | undefined>>({});
   const lundiParCompte = React.useMemo(() => {
     const m = new Map<string, string | null>();
     for (const c of comptes.data ?? []) {
@@ -1304,12 +1342,7 @@ export function AdminPostersPage() {
 
   const rechercheNormalisee = sansAccents(recherche.trim());
   const matchCreateur = (p: PosterProfil) => {
-    const phase = phaseCreateur({
-      compteId: p.compte_id,
-      warmup_started_at: p.warmup_started_at,
-      warmup_ends_at: p.warmup_ends_at,
-    });
-    if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
+    if (filtrePhase !== "tous" && etatCreateur(p).etape !== filtrePhase) return false;
     if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
     if (filtreCohorte && (cohorteDe(p.id) ?? COHORTE_PAS_DEMARRE) !== filtreCohorte) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
@@ -1430,12 +1463,14 @@ export function AdminPostersPage() {
           id="filtrePhase"
           className={selectClass}
           value={filtrePhase}
-          onChange={(e) => setFiltrePhase(e.target.value as "tous" | PhaseCreateur)}
+          onChange={(e) => setFiltrePhase(e.target.value as "tous" | Etape)}
         >
           <option value="tous">{t("posters.filtreTous")}</option>
-          <option value="pas_cree">{t("warmup.phasePasCree")}</option>
-          <option value="warmup">{t("posters.filtreWarmup")}</option>
-          <option value="actif">{t("warmup.phaseActif")}</option>
+          {ETAPES.map((e) => (
+            <option key={e} value={e}>
+              {t(`etapes.${e}`)}
+            </option>
+          ))}
         </select>
       </div>
       <div className="space-y-1">
@@ -1697,17 +1732,17 @@ export function AdminPostersPage() {
                   applications={applicationsCompte(c)}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
-                      {!c.is_active && <BadgeDormant />}
+                      {estCompteCm(c) ? (
+                        !c.is_active && <BadgeDormant />
+                      ) : (
+                        <>
+                          <EtapeBadge etat={etatCompte(c)} />
+                          <QualiteBadge qualite={qualiteAffichee(etatCompte(c), etapes.data?.get(c.id)?.qualite)} />
+                        </>
+                      )}
                       <BadgeClassement classement={c.classement} size="sm" />
                       {liste.length > 1 && lundiParCompte.get(c.id) && (
                         <span>{t("posters.departCompte", { date: dateCourte(lundiParCompte.get(c.id)!) })}</span>
-                      )}
-                      {c.is_active && !estCompteCm(c) && (
-                        <WarmupBadge
-                          compteId={c.id}
-                          startedAt={c.warmup_started_at}
-                          endsAt={c.warmup_ends_at}
-                        />
                       )}
                     </div>
                   }
@@ -1758,7 +1793,32 @@ export function AdminPostersPage() {
     const equipe = r.role === "directing_manager" ? equipeDm.get(r.id) : undefined;
     // Un filtre de créateurs réduit la liste : dire combien sont affichés,
     // les compteurs restant ceux de toute l'équipe.
-    const filtre = bloc.createurs.length !== bloc.compteursEquipe.total;
+    const etapeChoisie = etapeParHm[r.id];
+    const compteursEtapes = compterEtapes(bloc.equipe.map(etatCreateur));
+    const createursAffiches = etapeChoisie
+      ? bloc.createurs.filter((p) => etatCreateur(p).etape === etapeChoisie)
+      : bloc.createurs;
+    const filtre = createursAffiches.length !== bloc.compteursEquipe.total;
+    const puces = (
+      <span className="flex flex-wrap items-center gap-1" title={t("etapes.filtreAide")}>
+        {ETAPES.filter((e) => compteursEtapes[e] > 0).map((e) => (
+          <button
+            key={e}
+            type="button"
+            aria-pressed={etapeChoisie === e}
+            onClick={() => setEtapeParHm((m) => ({ ...m, [r.id]: m[r.id] === e ? undefined : e }))}
+            className={cn(
+              "rounded-full border px-2 py-0.5 text-[11px] tabular-nums transition-colors",
+              etapeChoisie === e
+                ? "border-primary bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+            )}
+          >
+            {t(`etapes.compteurs.${e}`, { n: compteursEtapes[e] })}
+          </button>
+        ))}
+      </span>
+    );
     return (
       <div key={r.id} className="space-y-2">
         <div className="flex flex-wrap items-center gap-2">
@@ -1792,26 +1852,21 @@ export function AdminPostersPage() {
                 })}
               </span>
             )}
-            <span>
+            <span className="flex flex-wrap items-center gap-1 sm:justify-end">
               {equipe && `${t("posters.createursDuDm")} · `}
-              {t("posters.equipeHoResume", {
-                total: bloc.compteursEquipe.total,
-                pasCree: bloc.compteursEquipe.pasCree,
-                warmup: bloc.compteursEquipe.warmup,
-                actif: bloc.compteursEquipe.actif,
-              })}
+              {puces}
             </span>
             {filtre && (
-              <span>{t("posters.nbAffiches", { n: bloc.createurs.length })}</span>
+              <span>{t("posters.nbAffiches", { n: createursAffiches.length })}</span>
             )}
           </span>
         </div>
-        {bloc.createurs.length === 0 && bloc.compteursEquipe.total > 0 ? (
+        {createursAffiches.length === 0 && bloc.compteursEquipe.total > 0 ? (
           <p className="text-xs text-muted-foreground">
             {t("posters.aucunCreateurFiltre", { n: bloc.compteursEquipe.total })}
           </p>
         ) : (
-          grille(bloc.createurs, "createur")
+          grille(createursAffiches, "createur")
         )}
       </div>
     );

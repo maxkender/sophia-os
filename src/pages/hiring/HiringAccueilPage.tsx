@@ -23,7 +23,7 @@ import {
   aPublie,
   ligneSemaine,
   ligneWarmup,
-  postsSansWarmup,
+  problemesSemaine,
   type Raison,
 } from "@/features/ckd/cohorte/dashboardHm";
 import { libelleCohorte, minuitParis, paireDuJour, resteAvant } from "@/features/ckd/cohorte/logique";
@@ -125,6 +125,20 @@ function Resume({ items }: { items: { libelle: string; ton?: "ok" | "alerte" | "
         </span>
       ))}
     </div>
+  );
+}
+
+/** Le problème du compte, en clair ; « OK » s'il n'y en a pas. */
+function Problemes({ raisons, t }: { raisons: Raison[]; t: TFunction }) {
+  if (raisons.length === 0) return <Badge variant="success">{t("accueilHm.statuts.ok")}</Badge>;
+  return (
+    <span className="flex flex-col items-start gap-1">
+      {raisons.map((r) => (
+        <Badge key={r.cle} variant={r.cle === "sansWarmup" || r.cle === "compteIntrouvable" ? "error" : "warning"}>
+          {texteRaison(t, r)}
+        </Badge>
+      ))}
+    </span>
   );
 }
 
@@ -299,8 +313,10 @@ export function HiringAccueilPage() {
               </CardTitle>
               <CardDescription>{t("accueilHm.cetteSemaineDesc")}</CardDescription>
               {donnees.data.poste.length > 0 && (() => {
-                const lignes = donnees.data.poste.map((c) => ligneSemaine(c, aujourdhui));
-                const aRelancer = lignes.filter((l) => l.statut === "a_relancer").length;
+                const lignes = donnees.data.poste;
+                const aRelancer = lignes.filter(
+                  (c) => problemesSemaine(c, etatCohorte(c, aujourdhui), aujourdhui).length > 0,
+                ).length;
                 return (
                   <Resume
                     items={[
@@ -324,20 +340,22 @@ export function HiringAccueilPage() {
                     t("accueilHm.etape"),
                     t("accueilHm.postsJour"),
                     t("accueilHm.postsSemaine"),
-                    t("accueilHm.statut"),
+                    t("accueilHm.probleme"),
                     "",
                   ]}
                 >
                   {donnees.data.poste
-                    .map((c) => ({ c, l: ligneSemaine(c, aujourdhui) }))
-                    // À relancer d'abord, puis par nom.
+                    .map((c) => {
+                      const etat = etatCohorte(c, aujourdhui);
+                      return { c, l: ligneSemaine(c, aujourdhui), etat, problemes: problemesSemaine(c, etat, aujourdhui) };
+                    })
+                    // Ceux qui ont un problème d'abord, puis par nom.
                     .sort(
                       (a, b) =>
-                        Number(b.l.statut === "a_relancer") - Number(a.l.statut === "a_relancer") ||
+                        Number(b.problemes.length > 0) - Number(a.problemes.length > 0) ||
                         nom(a.c).localeCompare(nom(b.c)),
                     )
-                    .map(({ c, l }) => {
-                      const etat = etatCohorte(c, aujourdhui);
+                    .map(({ c, l, etat, problemes }) => {
                       return (
                         <tr key={c.compte_id}>
                           <td className={TD}>
@@ -347,11 +365,7 @@ export function HiringAccueilPage() {
                             <span className="inline-flex flex-wrap gap-1">
                               <EtapeBadge etat={etat} />
                               <QualiteBadge qualite={qualiteAffichee(etat, etapes.data?.get(c.compte_id)?.qualite)} />
-                              {postsSansWarmup(c) && (
-                                <Badge variant="error" title={t("accueilHm.sansWarmupAide")}>
-                                  {t("accueilHm.sansWarmup")}
-                                </Badge>
-                              )}
+
                             </span>
                           </td>
                           <td className={TD}>
@@ -361,9 +375,7 @@ export function HiringAccueilPage() {
                             <Progression fait={l.semaine.publies} prevu={l.semaine.prevus} />
                           </td>
                           <td className={TD}>
-                            <Badge variant={l.statut === "ok" ? "success" : "warning"}>
-                              {t(`accueilHm.statuts.${l.statut}`)}
-                            </Badge>
+                            <Problemes raisons={problemes} t={t} />
                           </td>
                           <td className={cn(TD, "w-10 text-right")}>
                             <ActionsPosteur
@@ -449,11 +461,13 @@ export function HiringAccueilPage() {
                           </Badge>
                         </td>
                         <td className={TD}>
-                          <Badge
-                            variant={l.statut === "pret" ? "success" : l.statut === "a_relancer" ? "warning" : "secondary"}
-                          >
-                            {t(`accueilHm.statuts.${l.statut}`)}
-                          </Badge>
+                          {l.statut === "a_relancer" ? (
+                            <Problemes raisons={l.raisons} t={t} />
+                          ) : (
+                            <Badge variant={l.statut === "pret" ? "success" : "secondary"}>
+                              {t(`accueilHm.statuts.${l.statut}`)}
+                            </Badge>
+                          )}
                         </td>
                         <td className={cn(TD, "w-10 text-right")}>
                           <ActionsPosteur

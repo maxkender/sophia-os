@@ -5,6 +5,8 @@
  */
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 
+import type { EtatEtape } from "@/features/moteur/etapes";
+
 import type { CompteCohorte } from "./api";
 import { bilanCompte, etatWarmup, JOURS_AVANT_RELANCE, type EtatWarmup } from "./logique";
 
@@ -15,7 +17,11 @@ export interface Raison {
     | "postsHier"
     | "tiktokPasCree"
     | "startPasClique"
-    | "warmupPasCommence";
+    | "warmupPasCommence"
+    | "compteIntrouvable"
+    | "sansWarmup"
+    | "aucunPostPublie"
+    | "postsManquants";
   valeurs?: Record<string, number>;
 }
 
@@ -69,6 +75,24 @@ export interface LigneSemaine {
   jour: { publies: number; prevus: number };
   semaine: { publies: number; prevus: number };
   statut: "ok" | "a_relancer";
+}
+
+/**
+ * « Cette semaine » : le problème du compte, dit en clair. Le compte TikTok
+ * introuvable d'abord (rien d'autre ne compte tant qu'il n'existe pas), puis
+ * le warm-up sauté, puis les posts : aucun publié, ou combien manquent.
+ */
+export function problemesSemaine(c: CompteCohorte, etat: EtatEtape, aujourdhui: string): Raison[] {
+  if (etat.etape === "not_created") return [{ cle: "compteIntrouvable" }];
+  const raisons: Raison[] = [];
+  if (postsSansWarmup(c)) raisons.push({ cle: "sansWarmup" });
+  const bilan = bilanCompte(c, aujourdhui);
+  if (bilan.manques > 0) {
+    raisons.push(
+      bilan.publies === 0 ? { cle: "aucunPostPublie" } : { cle: "postsManquants", valeurs: { n: bilan.manques } },
+    );
+  }
+  return raisons;
 }
 
 /** « Cette semaine » : posts du jour x/2, posts de la semaine, OK ou À relancer. */

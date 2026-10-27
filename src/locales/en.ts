@@ -2452,6 +2452,7 @@ export const en = {
       raison: "Reason",
       postsJour: "Today's posts",
       postsSemaine: "This week's posts",
+      probleme: "Problem",
       statut: "Status",
       tiktok: "TikTok account",
       warmup: "Warm-up (follows · likes)",
@@ -2461,8 +2462,6 @@ export const en = {
       followsLikes: "{{follows}} · {{likes}}",
       etatsTiktok: { cree: "Created", introuvable: "Not created", inconnu: "Not checked yet" },
       statuts: { ok: "OK", a_relancer: "Follow up", pret: "Ready", en_cours: "In progress" },
-      sansWarmup: "NO WARM-UP",
-      sansWarmupAide: "The TikTok account didn't exist during the warm-up checks, but it posts: no warm-up, no pay.",
       resume: {
         posteurs_one: "{{count}} creator",
         posteurs_other: "{{count}} creators",
@@ -2492,6 +2491,10 @@ export const en = {
         enCours: "…",
       },
       raisons: {
+        compteIntrouvable: "TikTok account not found: not created yet",
+        sansWarmup: "Posted without warm-up: no pay",
+        aucunPostPublie: "No post published yet",
+        postsManquants: "{{n}} post(s) missing",
         zeroPostHier: "0 posts yesterday",
         postsHier: "{{publies}} post out of {{prevus}} yesterday",
         tiktokPasCree: "TikTok account not created",

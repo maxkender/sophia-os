@@ -818,6 +818,7 @@ export const en = {
         etape1: "Your country, part by part · about 40 min, once",
         etape2: "Starter kit · 15 slideshows to write from English",
         etape3: "Every day · about 10 slideshows to check and fix, about 30 min",
+        applis: "The apps in our slideshows:",
         maintenant: "Now",
         bientot: "Coming soon",
         fait: "Done",

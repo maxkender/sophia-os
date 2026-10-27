@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CheckCircle2, FileText, History, PenLine, Save, Smartphone } from "lucide-react";
+import { CheckCircle2, FileText, History, PenLine, Save } from "lucide-react";
 
+import { LogoApplication } from "@/components/brand/LogoApplication";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardPanel, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,7 +13,7 @@ import { nomApplication } from "@/features/moteur/applications";
 import { compterVersionsFiches, enregistrerFicheAppli, listerFichesAppli, type FicheAppli } from "./api";
 import { modeleFicheAppli } from "./logique";
 import { messageErreur } from "./messageErreur";
-import { Puce, TuileIcone } from "./Puces";
+import { Puce } from "./Puces";
 
 const CLE_REQUETE_FICHES = ["fiches-appli"] as const;
 const CLE_REQUETE_VERSIONS = ["fiches-appli-versions"] as const;
@@ -42,6 +43,7 @@ export function SectionFichesAppli() {
         <CarteFicheAppli
           key={app.id}
           applicationId={app.id}
+          slug={app.slug}
           nom={nomApplication(app)}
           fiche={fiches.data?.find((f) => f.application_id === app.id) ?? null}
           versions={versions.data?.[app.id] ?? 0}
@@ -53,11 +55,13 @@ export function SectionFichesAppli() {
 
 function CarteFicheAppli({
   applicationId,
+  slug,
   nom,
   fiche,
   versions,
 }: {
   applicationId: string;
+  slug: string;
   nom: string;
   fiche: FicheAppli | null;
   versions: number;
@@ -86,7 +90,7 @@ function CarteFicheAppli({
     <Card data-testid={`fiche-appli-${applicationId}`}>
       <CardHeader>
         <div className="flex flex-wrap items-center gap-3">
-          <TuileIcone icone={Smartphone} ton={fiche?.contenu?.trim() ? "vert" : "ambre"} />
+          <LogoApplication slug={slug} taille="lg" decoratif className="size-9" />
           <div className="min-w-0 flex-1 space-y-0.5">
             <CardTitle className="text-sm">{t("relectureNative.fiches.titre", { nom })}</CardTitle>
             <CardDescription className="flex items-center gap-1.5">

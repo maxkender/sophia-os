@@ -5,6 +5,8 @@ import { Megaphone, MessageSquare, PenLine } from "lucide-react";
 import { Card, EmptyState } from "@/components/ui/card";
 import { MICRO_LABEL } from "@/components/ui/micro-label";
 import { Progress } from "@/components/ui/progress";
+import { useApplication } from "@/features/moteur/ApplicationContext";
+import { nomApplication } from "@/features/moteur/applications";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +30,7 @@ export function SectionEcrituresKit({
   onChoisir: (relecteurId: string) => void;
 }) {
   const { t, i18n } = useTranslation();
+  const { applications } = useApplication();
   const relecteurs = useQuery({ queryKey: CLE_REQUETE_RELECTEURS, queryFn: listerRelecteurs });
   const kit = useQuery({ queryKey: CLE_REQUETE_KIT, queryFn: listerKit });
   const ecritures = useQuery({ queryKey: CLE_REQUETE_ECRITURES_KIT, queryFn: () => listerEcrituresKit() });
@@ -85,6 +88,7 @@ export function SectionEcrituresKit({
         const e = siennes.get(p.id);
         const etat = etatPostKit(e);
         const voie = VOIE[p.voie];
+        const app = applications.find((a) => a.id === p.application_id);
         return (
           <Card key={p.id} className="overflow-hidden" data-testid={`ecriture-kit-${p.rang}`}>
             <div className="flex flex-wrap items-center gap-3 border-b bg-muted/30 px-5 py-3">
@@ -92,6 +96,7 @@ export function SectionEcrituresKit({
                 {p.rang}
               </span>
               <p className="min-w-0 flex-1 truncate text-sm font-medium">{accrochePost(p)}</p>
+              {app && <Puce logo={app.slug}>{nomApplication(app)}</Puce>}
               <Puce icone={voie.icone} ton={voie.ton}>
                 {t(`relectureNative.kitAdmin.voies.${p.voie}`)}
               </Puce>

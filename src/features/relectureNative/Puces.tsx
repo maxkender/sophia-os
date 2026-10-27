@@ -1,18 +1,25 @@
 import type React from "react";
 import type { LucideIcon } from "lucide-react";
 
+import { LogoApplication } from "@/components/brand/LogoApplication";
 import { cn } from "@/lib/utils";
 
 import { CLASSES_TON, type Ton } from "./apparence";
 
-/** Une pastille : icône et libellé, dans la teinte de ce qu'elle désigne. */
+/**
+ * Une pastille : icône et libellé, dans la teinte de ce qu'elle désigne. Une
+ * pastille d'application prend le logo de l'appli (`logo`, son slug) à la
+ * place de l'icône.
+ */
 export function Puce({
   icone: Icone,
+  logo,
   ton = "neutre",
   children,
   className,
 }: {
   icone?: LucideIcon;
+  logo?: string;
   ton?: Ton;
   children: React.ReactNode;
   className?: string;
@@ -25,7 +32,11 @@ export function Puce({
         className,
       )}
     >
-      {Icone && <Icone className="size-3.5 shrink-0" aria-hidden />}
+      {logo ? (
+        <LogoApplication slug={logo} taille="xs" decoratif className="-ml-1" />
+      ) : (
+        Icone && <Icone className="size-3.5 shrink-0" aria-hidden />
+      )}
       <span className="truncate">{children}</span>
     </span>
   );

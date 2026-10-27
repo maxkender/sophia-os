@@ -822,6 +822,7 @@ export const fr = {
         etape1: "Ton pays, partie par partie · environ 40 min, une seule fois",
         etape2: "Le kit de départ · 15 slideshows à écrire depuis l’anglais",
         etape3: "Chaque jour · environ 10 slideshows à vérifier et corriger, environ 30 min",
+        applis: "Les applis de nos slideshows :",
         maintenant: "Maintenant",
         bientot: "Bientôt",
         fait: "Fait",

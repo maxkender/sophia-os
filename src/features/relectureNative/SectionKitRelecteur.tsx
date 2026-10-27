@@ -15,11 +15,11 @@ import {
   Megaphone,
   MessageSquare,
   PenLine,
-  Smartphone,
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
+import { LogoApplication } from "@/components/brand/LogoApplication";
 import { Button } from "@/components/ui/button";
 import { Card, CardPanel, EmptyState } from "@/components/ui/card";
 import { MICRO_LABEL } from "@/components/ui/micro-label";
@@ -68,6 +68,10 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
   const parPost = React.useMemo(
     () => new Map((ecritures.data ?? []).map((e) => [e.kit_id, e])),
     [ecritures.data],
+  );
+  const slugAppli = React.useMemo(
+    () => new Map((presentations.data ?? []).map((a) => [a.application_id, a.slug])),
+    [presentations.data],
   );
 
   if (kit.isPending || ecritures.isPending) return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
@@ -141,6 +145,7 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
               const etat = etatPostKit(parPost.get(p.id));
               const { icone: Icone, ton } = ETAT[etat];
               const actif = p.id === post?.id;
+              const slug = slugAppli.get(p.application_id);
               return (
                 <li key={p.id}>
                   <button
@@ -156,7 +161,10 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
                     )}
                   >
                     <span className="text-base leading-none font-semibold tabular-nums">{p.rang}</span>
-                    <Icone className="size-3.5" aria-hidden />
+                    <span className="flex items-center gap-1">
+                      <Icone className="size-3.5" aria-hidden />
+                      {slug && <LogoApplication slug={slug} taille="xs" decoratif />}
+                    </span>
                   </button>
                 </li>
               );
@@ -268,7 +276,7 @@ function EditeurPostKit({
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-1.5 sm:pl-13">
-          {presentation && <Puce icone={Smartphone}>{appli}</Puce>}
+          {presentation && <Puce logo={presentation.slug}>{appli}</Puce>}
           <Puce icone={voie.icone} ton={voie.ton}>
             {t(`relectureNative.kit.voiesCourtes.${post.voie}`)}
           </Puce>
@@ -296,7 +304,7 @@ function EditeurPostKit({
             </BlocBrief>
           )}
           {presentation?.presentation.trim() && (
-            <BlocBrief icone={Info} titre={t("relectureNative.kit.presentation", { appli })}>
+            <BlocBrief icone={Info} logo={presentation.slug} titre={t("relectureNative.kit.presentation", { appli })}>
               {presentation.presentation}
             </BlocBrief>
           )}
@@ -345,7 +353,7 @@ function EditeurPostKit({
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="text-sm font-medium">{t("relectureNative.kit.slide", { n: s.position })}</span>
                       {cta && (
-                        <Puce icone={Megaphone} ton="bleu">
+                        <Puce icone={Megaphone} logo={presentation?.slug} ton="bleu">
                           {t("relectureNative.kit.slideAppli", { appli })}
                         </Puce>
                       )}
@@ -434,11 +442,26 @@ function empreinte(slides: ReadonlyArray<{ position: number; texte: string }>, r
   return JSON.stringify([triees, remarque]);
 }
 
-function BlocBrief({ icone: Icone, titre, children }: { icone: LucideIcon; titre: string; children: React.ReactNode }) {
+function BlocBrief({
+  icone: Icone,
+  logo,
+  titre,
+  children,
+}: {
+  icone: LucideIcon;
+  /** Le slug de l'appli : son logo remplace l'icône. */
+  logo?: string;
+  titre: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="space-y-1.5 rounded-xl border bg-card p-4 text-sm">
       <p className="flex items-center gap-2 font-semibold">
-        <Icone className="size-4 text-muted-foreground" aria-hidden />
+        {logo ? (
+          <LogoApplication slug={logo} taille="sm" decoratif />
+        ) : (
+          <Icone className="size-4 text-muted-foreground" aria-hidden />
+        )}
         {titre}
       </p>
       <p className="whitespace-pre-wrap text-muted-foreground">{children}</p>

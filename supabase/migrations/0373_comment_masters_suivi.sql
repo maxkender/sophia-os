@@ -21,7 +21,8 @@
 -- créée seulement si elle n'existe pas, des fonctions, une tâche planifiée.
 -- Aucune donnée existante modifiée. Retour arrière :
 --   select cron.unschedule('comment-masters-synchro');
---   drop function public.cm_demandes(date, date), public.cm_valider_autre(uuid, boolean);
+--   drop function public.cm_demandes(date, date), public.cm_demandes_toutes(date, date),
+--     public.cm_valider_autre(uuid, boolean);
 --   drop table public.comment_master_syncs, public.comment_master_slack;
 --   alter table public.comment_master_demandes drop column fait_source,
 --     drop column fait_slack_id, drop column fait_mode,
@@ -92,7 +93,8 @@ on conflict (cle) do nothing;
 -- ---------------------------------------------------------------------------
 -- Les demandes d'une période, attribuées
 -- ---------------------------------------------------------------------------
-create or replace function public.cm_demandes(p_debut date, p_fin date)
+-- Le compteur brut, sans contrôle d'accès : pour les fonctions de l'OS (bonus).
+create or replace function public.cm_demandes_toutes(p_debut date, p_fin date)
 returns table (
   id              uuid,
   langue          text,
@@ -123,9 +125,6 @@ set search_path = public
 as $$
 #variable_conflict use_column
 begin
-  if coalesce(auth.role(), '') in ('anon', 'authenticated') and not public.is_admin() then
-    raise exception 'cm_demandes : réservé à l''admin';
-  end if;
   return query
   select d.id, d.langue, r.region, r.slack_canal_nom, d.slack_channel_id, d.slack_ts, d.publie_url,
          d.envoye_at, d.fait_at, d.fait_par, d.fait_source, d.fait_mode,
@@ -154,6 +153,47 @@ begin
    where d.slack_ts is not null
      and d.envoye_at is not null
      and (d.envoye_at at time zone 'Europe/Paris')::date between p_debut and p_fin;
+end;
+$$;
+
+revoke execute on function public.cm_demandes_toutes(date, date) from public, anon, authenticated;
+grant execute on function public.cm_demandes_toutes(date, date) to service_role;
+
+-- La version de la page : admin et Head of Ops.
+create or replace function public.cm_demandes(p_debut date, p_fin date)
+returns table (
+  id              uuid,
+  langue          text,
+  region          text,
+  canal           text,
+  slack_channel_id text,
+  slack_ts        text,
+  publie_url      text,
+  envoye_at       timestamptz,
+  fait_at         timestamptz,
+  fait_par        text,
+  fait_source     text,
+  fait_mode       text,
+  verifie         boolean,
+  cm_profile_id   uuid,
+  cm_nom          text,
+  cm_slack_connu  boolean,
+  -- Done par quelqu'un d'autre que le Comment Master du mandat.
+  autre_personne  boolean,
+  autre_valide_at timestamptz,
+  -- Ce qui compte : fait, et par le Comment Master (ou validé par l'admin).
+  compte          boolean
+)
+language plpgsql
+stable
+security definer
+set search_path = public
+as $$
+begin
+  if coalesce(auth.role(), '') in ('anon', 'authenticated') and not public.is_admin() then
+    raise exception 'cm_demandes : réservé à l''admin';
+  end if;
+  return query select * from public.cm_demandes_toutes(p_debut, p_fin);
 end;
 $$;
 

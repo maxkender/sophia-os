@@ -27,6 +27,13 @@ export const LOOM_EMBED = "https://www.loom.com/embed/c79229ddee5d4dfd84f38e1f4d
  */
 export const ATTENTE_VIDEO_S = 60;
 
+/** La vidéo du warm-up (37 s), servie depuis `public/onboarding`. */
+export const VIDEO_WARMUP = "/onboarding/warmup.mp4";
+export const VIDEO_WARMUP_IMAGE = "/onboarding/warmup-poster.jpg";
+
+/** Attente de l'écran du warm-up : le temps de la vidéo, en entier. */
+export const ATTENTE_WARMUP_S = 40;
+
 /** Attente par défaut d'un écran de texte, en secondes. */
 export const ATTENTE_TEXTE_S = 8;
 
@@ -49,13 +56,20 @@ export const LIEN_RUUL_INSCRIPTION = "https://app.ruul.io/register";
 
 import type { EtatMico } from "./Mico";
 
+/**
+ * Les textes acceptent le gras en **double étoile** (rendu par le parcours).
+ */
 export type Bloc =
   | { type: "p"; texte: string }
   | { type: "liste"; items: string[] }
   | { type: "etapes"; items: string[] }
   | { type: "titre"; texte: string }
-  | { type: "alerte"; ton: "rouge" | "orange"; titre?: string; items: string[] }
-  | { type: "video"; src: string; titre: string }
+  /** « vif » : fond rouge plein, texte blanc, pour la règle qu'on ne peut pas rater. */
+  | { type: "alerte"; ton: "rouge" | "orange" | "vif"; titre?: string; items: string[] }
+  /** Une frise verticale : quand, quoi, détail. */
+  | { type: "frise"; items: { quand: string; titre: string; texte?: string }[] }
+  /** `fichier` : une vidéo du site (balise <video>, verticale), sinon un lecteur intégré. */
+  | { type: "video"; src: string; titre: string; fichier?: boolean; image?: string }
   | { type: "lien"; avant?: string; libelle: string; href: string }
   /** Formulaire prénom + nom de la pièce d'identité (cohorte Ruul) : verrouille « Next ». */
   | { type: "identite" };
@@ -78,34 +92,19 @@ export const ECRANS: Ecran[] = [
     mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "Hello! Welcome to the Vik Studios team!" },
+      { type: "alerte", ton: "vif", items: ["PLEASE READ EVERYTHING CAREFULLY."] },
+      { type: "p", texte: "Hello, and **welcome to the Vik Studios team**! We are really happy to have you." },
       {
-        type: "p",
-        texte:
-          "Please read carefully through this onboarding and watch the video. You may have already seen some of this in the onboarding documents, but we kindly ask you to read through it thoroughly.",
+        type: "liste",
+        items: [
+          "Read **every screen**, to the end.",
+          "Watch **the videos**: they show exactly what to do.",
+          "A **short quiz** at the end checks the key points.",
+        ],
       },
       {
         type: "p",
-        texte:
-          "We are really delighted to welcome you onboard, and we hope that our collaboration will be seamless.",
-      },
-      { type: "p", texte: "Let's get started!" },
-    ],
-  },
-  {
-    cle: "mission",
-    titre: "Our mission",
-    mico: "happy",
-    attente: ATTENTE_TEXTE_S,
-    blocs: [
-      {
-        type: "p",
-        texte:
-          "We are a mobile app studio called Vik Studios, and our goal is to put our apps in front of millions of people online, to help them improve their lives with our products. We have built more than 5 apps (general knowledge, health and fitness, and more) across more than 40 countries.",
-      },
-      {
-        type: "p",
-        texte: "That is why we need your help to turn our vision and mission into reality!",
+        texte: "Even if you have already seen some of this in your onboarding documents, **please read it again**.",
       },
     ],
   },
@@ -115,13 +114,13 @@ export const ECRANS: Ecran[] = [
     mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "First thing: all communication happens on Slack." },
+      { type: "titre", texte: "1. ALL COMMUNICATION HAPPENS ON SLACK." },
       {
         type: "p",
         texte:
-          "You will be invited to your country's channel. Ask all your questions there, whether you hit a problem (technical, payment) or simply want to chat and connect with other members of the Vik Studios team.",
+          "You will be invited to **your country's channel**. Ask **all your questions there**: a technical problem, a payment question, or just to chat with the team.",
       },
-      { type: "lien", avant: "Not in yet?", libelle: "Join the Slack workspace", href: LIEN_SLACK },
+      { type: "lien", avant: "**If you are not in it yet:**", libelle: "here is the link", href: LIEN_SLACK },
     ],
   },
   {
@@ -130,11 +129,10 @@ export const ECRANS: Ecran[] = [
     mico: "happy",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "Payments are handled directly by your hiring manager." },
+      { type: "p", texte: "Your **hiring manager** handles your payments." },
       {
         type: "p",
-        texte:
-          "Anything about money goes to them, on Slack. They are the right person, and the fastest one.",
+        texte: "Any question about money: **ask them directly on Slack**. They are the right person, and the fastest.",
       },
     ],
   },
@@ -144,16 +142,18 @@ export const ECRANS: Ecran[] = [
     mico: "think",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "The Vik Studios platform you are on right now." },
+      { type: "p", texte: "**This platform** is your workspace. Here you will find:" },
       {
-        type: "p",
-        texte:
-          "This is where the creatives and everything about your posting mission live. You will find your posts and your account information here: TikTok handle, bio, profile picture.",
+        type: "liste",
+        items: [
+          "**Your slideshows** to post, every day.",
+          "**Your account details**: TikTok handle, bio, profile picture.",
+        ],
       },
       {
         type: "alerte",
         ton: "orange",
-        items: ["Everything you need to post is here. Nothing important is sent by message."],
+        items: ["**Everything you need is here.** Nothing important is sent by message."],
       },
     ],
   },
@@ -163,25 +163,41 @@ export const ECRANS: Ecran[] = [
     mico: "think",
     attente: ATTENTE_TEXTE_S,
     blocs: [
+      { type: "p", texte: "Your **first week**, step by step:" },
       {
-        type: "p",
-        texte:
-          "You create the account yourself, with an email address of your choice. Everything you need is provided on your dashboard on this platform.",
-      },
-      { type: "p", texte: "Please use all the information we provide, exactly as provided." },
-      {
-        type: "p",
-        texte:
-          "When everything is set up, press “Start warmup”. That tells us you have started warming up your account, so we can track it.",
+        type: "frise",
+        items: [
+          {
+            quand: "Today",
+            titre: "Create your TikTok account",
+            texte:
+              "With an email address of your choice. Use the handle, bio and profile picture from your dashboard, **exactly as provided**.",
+          },
+          {
+            quand: "Right after",
+            titre: "Press “Start warmup”",
+            texte: "On your dashboard. It tells us you have started, so we can follow your account.",
+          },
+          {
+            quand: "Every day until Monday",
+            titre: "Warm up your account",
+            texte: "Use TikTok like a normal person, in your niche. **Do not post anything.**",
+          },
+          {
+            quand: "Next Monday",
+            titre: "Your first posts",
+            texte: "Your slideshows arrive on the platform, **with your cohort**. You start posting.",
+          },
+        ],
       },
       {
         type: "alerte",
-        ton: "orange",
-        titre: "Until your first posts, on the Monday after you start",
+        ton: "rouge",
+        titre: "The warm-up, every day until your first posts",
         items: [
-          "Scroll through a few videos, about 5 minutes, IN THE NICHE YOU WILL BE POSTING IN.",
-          "Follow a few people, leave comments, repost.",
-          "This is important. Do not post anything yet.",
+          "Scroll **at least 10 minutes** of videos **in the niche you will post in**.",
+          "**Follow at least 5 people**, like, comment, and **repost at least 2 videos**.",
+          "**Do not post anything yet.**",
         ],
       },
     ],
@@ -196,21 +212,21 @@ export const ECRANS: Ecran[] = [
         type: "alerte",
         ton: "rouge",
         items: [
-          "You publish the slideshows exactly as they are provided. You download the images, you copy the text, and you post them like the reference images: alignment, colour, everything.",
+          "Post the slideshows **exactly as provided**: same images, same order, same text, same sound. Alignment, colour, everything.",
         ],
       },
       { type: "titre", texte: "The routine" },
       {
         type: "etapes",
         items: [
-          "Open the platform and find today's slideshows.",
-          "Download the images (easiest on your phone).",
-          "On TikTok, start a new post and select the images in the correct order.",
-          "Add the caption provided.",
-          "Add the sound provided.",
-          "Check every slide is readable and well formatted.",
-          "Publish.",
-          "Copy the post link and paste it on the platform.",
+          "Open the platform and find **today's slideshows**.",
+          "**Download the images** (easiest on your phone).",
+          "On TikTok, start a new post and select the images **in the right order**.",
+          "Add the **caption provided**.",
+          "Add the **sound provided**.",
+          "Check that every slide is **readable** and well formatted.",
+          "**Publish.**",
+          "**Copy the post link** and paste it **on the platform**.",
         ],
       },
       {
@@ -218,32 +234,80 @@ export const ECRANS: Ecran[] = [
         ton: "rouge",
         titre: "Two common mistakes",
         items: [
-          "The sound is not your choice. Use the one on the system.",
-          "The link goes on the platform, not in Slack. That is how we know you posted.",
+          "The sound is **not your choice**: use the one on the platform.",
+          "The link goes **on the platform**, not in Slack. That is how we know you posted.",
         ],
       },
-      { type: "titre", texte: "Timing" },
+      { type: "titre", texte: "Watch the demo carefully" },
       {
-        type: "liste",
-        items: [
-          "Twice a day, spread out, for example morning and evening.",
-          "At peak hours in your country's time zone.",
-          "At roughly the same times each day.",
-        ],
+        type: "p",
+        texte: "**Really watch it, until the end.** It shows every step above, on a real post.",
       },
-      { type: "p", texte: "Consistency matters more than the perfect minute." },
-      { type: "titre", texte: "Watch the demo" },
       { type: "video", src: LOOM_EMBED, titre: "How to post TikTok slideshows" },
       {
         type: "lien",
-        avant: "If anything is missing, check the guide for FAQs and extra instructions.",
+        avant: "Something missing? The guide has FAQs and extra instructions:",
         libelle: "Vik Studios TikTok Poster Guide",
         href: LIEN_GUIDE,
       },
+    ],
+  },
+  {
+    cle: "timing",
+    titre: "When to post",
+    mico: "think",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      { type: "p", texte: "**Twice a day, every day.**" },
+      {
+        type: "liste",
+        items: [
+          "**Spread out**: for example once in the morning, once in the evening.",
+          "At **peak hours** in your country's time zone.",
+          "At **roughly the same times** each day.",
+        ],
+      },
+      { type: "p", texte: "**Consistency** matters more than the perfect minute." },
       {
         type: "alerte",
         ton: "orange",
-        items: ["Do not forget to paste your links once you have posted!"],
+        items: ["After each post: **paste its link on the platform**."],
+      },
+    ],
+  },
+  {
+    cle: "warmup",
+    titre: "Your warm-up: do it now",
+    mico: "surprise",
+    attente: ATTENTE_WARMUP_S,
+    blocs: [
+      {
+        type: "alerte",
+        ton: "vif",
+        titre: "VERY IMPORTANT",
+        items: [
+          "**At least 10 minutes** of scrolling, in your niche.",
+          "**Follow at least 5 people.**",
+          "**Repost at least 2 videos.**",
+          "**If you do not do it, you will not be paid.**",
+        ],
+      },
+      {
+        type: "p",
+        texte:
+          "**Do it as soon as possible**: today, right after creating your account. Then keep using TikTok like this **every day** until your first posts.",
+      },
+      {
+        type: "p",
+        texte: "You **start posting next Monday**, with your cohort. Your date is on your dashboard.",
+      },
+      { type: "titre", texte: "Watch: the warm-up, step by step" },
+      {
+        type: "video",
+        src: VIDEO_WARMUP,
+        image: VIDEO_WARMUP_IMAGE,
+        titre: "The warm-up, step by step",
+        fichier: true,
       },
     ],
   },
@@ -253,20 +317,15 @@ export const ECRANS: Ecran[] = [
     mico: "celebrate",
     attente: ATTENTE_TEXTE_S,
     blocs: [
+      { type: "p", texte: "We hope everything was clear. **Anything unclear? Ask on Slack.**" },
       {
         type: "p",
-        texte:
-          "We hope everything was clear. If anything is unclear, feel free to ask any question on Slack.",
-      },
-      {
-        type: "p",
-        texte:
-          "We hope everything goes well for you, and we thank you for everything. We are building something great.",
+        texte: "Thank you for everything, and good luck! **We are building something great.**",
       },
       { type: "p", texte: "Bye bye! Maximilien ;)" },
       {
         type: "lien",
-        avant: "If you have any other questions:",
+        avant: "Any other question:",
         libelle: "Vik Studios TikTok Poster Guide",
         href: LIEN_GUIDE,
       },
@@ -318,18 +377,18 @@ export const QUESTIONS: Question[] = [
     question: "How many times a day do you post?",
     options: ["Once a day", "As many times as you want", "Twice a day, spread out"],
     bonne: 2,
-    ecran: "posting",
+    ecran: "timing",
   },
   {
     cle: "warmup",
     question: "What do you do during your warmup?",
     options: [
       "Post your first slideshow straight away",
-      "Scroll about 5 minutes in your niche, follow, comment and repost, without posting yet",
+      "At least 10 minutes of scrolling in your niche, follow at least 5 people, repost at least 2 videos, and no posting yet",
       "Nothing at all, you just wait",
     ],
     bonne: 1,
-    ecran: "compte",
+    ecran: "warmup",
   },
 ];
 
@@ -356,13 +415,13 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
       mico: "wave",
       attente: ATTENTE_TEXTE_S,
       blocs: [
-        { type: "p", texte: "First thing: all communication happens on Slack." },
+        { type: "titre", texte: "1. ALL COMMUNICATION HAPPENS ON SLACK." },
         {
           type: "p",
           texte:
-            `Join the ${SALON_BIENVENUE} and ${SALON_COHORTE_RUUL} channels. Ask all your questions in ${SALON_COHORTE_RUUL}, whether you hit a problem (technical, payment) or simply want to chat and connect with the Vik Studios team.`,
+            `Join the **${SALON_BIENVENUE}** and **${SALON_COHORTE_RUUL}** channels. Ask **all your questions in ${SALON_COHORTE_RUUL}**: a technical problem, a payment question, or just to chat with the team.`,
         },
-        { type: "lien", avant: "Not in yet?", libelle: "Join the Slack workspace", href: LIEN_SLACK },
+        { type: "lien", avant: "**If you are not in it yet:**", libelle: "here is the link", href: LIEN_SLACK },
       ],
     },
     paiements: {
@@ -374,17 +433,17 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
         {
           type: "p",
           texte:
-            "You are paid every week through Ruul (ruul.io), our payment partner. Nothing to submit: every Monday, we pay you for the week of posts that just ended (Monday → Sunday). Your first payment date is shown on your calendar.",
+            "You are paid **every week** through **Ruul** (ruul.io), our payment partner. **Nothing to submit**: every Monday, we pay you for the week of posts that just ended (Monday → Sunday). Your first payment date is on your calendar.",
         },
         { type: "titre", texte: "Before your first Monday" },
         {
           type: "etapes",
           items: [
             emailRuul
-              ? `Create your free freelancer account on ruul.io with this email address: ${emailRuul}.`
-              : "Create your free freelancer account on ruul.io with the email address you applied with.",
-            "Complete the identity check (ID and selfie, about 10 minutes).",
-            "Add your bank account in Ruul.",
+              ? `Create your free freelancer account on ruul.io with **this email address: ${emailRuul}**.`
+              : "Create your free freelancer account on ruul.io with **the email address you applied with**.",
+            "Complete the **identity check** (ID and selfie, about 10 minutes).",
+            "Add your **bank account** in Ruul.",
           ],
         },
         { type: "lien", avant: "Start here:", libelle: "Create my Ruul account", href: LIEN_RUUL_INSCRIPTION },
@@ -392,11 +451,11 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
           type: "alerte",
           ton: "orange",
           titre: "Same email address",
-          items: ["If you sign up on Ruul with another email address, we cannot pay you."],
+          items: ["If you sign up on Ruul with another email address, **we cannot pay you**."],
         },
         {
           type: "p",
-          texte: `Questions about money: send a direct message on Slack to the team running ${SALON_COHORTE_RUUL}, never in the channel.`,
+          texte: `Questions about money: send a **direct message** on Slack to the team running ${SALON_COHORTE_RUUL}, **never in the channel**.`,
         },
         { type: "identite" },
       ],

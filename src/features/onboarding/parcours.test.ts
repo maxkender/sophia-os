@@ -148,12 +148,17 @@ describe("le contenu tient ses promesses", () => {
     }
   });
 
-  it("l'écran de la vidéo impose une attente nettement plus longue que les autres", () => {
+  it("l'écran de la démo impose une attente nettement plus longue que les écrans de texte", () => {
     const posting = ECRANS.find((e) => e.cle === "posting")!;
     expect(posting.attente).toBe(ATTENTE_VIDEO_S);
     expect(posting.blocs.some((b) => b.type === "video")).toBe(true);
-    const autres = ECRANS.filter((e) => e.cle !== "posting").map((e) => e.attente);
-    expect(posting.attente).toBeGreaterThan(Math.max(...autres) * 3);
+    const texte = ECRANS.filter((e) => !e.blocs.some((b) => b.type === "video")).map((e) => e.attente);
+    expect(posting.attente).toBeGreaterThan(Math.max(...texte) * 3);
+  });
+
+  it("l'écran du warm-up laisse le temps de voir sa vidéo en entier (37 s)", () => {
+    const warmup = ECRANS.find((e) => e.cle === "warmup")!;
+    expect(warmup.attente).toBeGreaterThanOrEqual(37);
   });
 
   it("le quiz couvre les deux erreurs qui coûtent cher : le son et le lien", () => {

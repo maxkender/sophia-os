@@ -53,14 +53,30 @@ export interface ReglagesMessages {
   kill_message_texte: string;
   double_popup_texte: string;
   double_popup_expire: { jour_iso: number; heure: string };
+  /** Jeudi (0383) : {nouveau} = le nouveau @, {date} = le lundi de reprise. */
+  recreer_popup_texte: string;
+  nudge_regularite_texte: string;
 }
 
-export const CLES_REGLAGES = ["kill_message_auto", "kill_message_texte", "double_popup_texte", "double_popup_expire"] as const;
+export const CLES_REGLAGES = [
+  "kill_message_auto",
+  "kill_message_texte",
+  "double_popup_texte",
+  "double_popup_expire",
+  "recreer_popup_texte",
+  "nudge_regularite_texte",
+] as const;
 
 export async function mesMessages(): Promise<MonMessage[]> {
   const { data, error } = await supabase.rpc("mes_messages_posteur");
   if (error) throw error;
   return (data ?? []) as MonMessage[];
+}
+
+/** « Got it » (Recréer, 0383). */
+export async function marquerMessageLu(id: string): Promise<void> {
+  const { error } = await supabase.rpc("posteur_message_lu", { p_id: id });
+  if (error) throw error;
 }
 
 export async function repondreDouble(messageId: string, reponse: "oui" | "non"): Promise<void> {
@@ -89,6 +105,8 @@ export async function lireReglagesMessages(): Promise<ReglagesMessages> {
     kill_message_texte: typeof v.kill_message_texte === "string" ? v.kill_message_texte : "",
     double_popup_texte: typeof v.double_popup_texte === "string" ? v.double_popup_texte : "",
     double_popup_expire: { jour_iso: Number(exp.jour_iso ?? 3), heure: String(exp.heure ?? "23:59") },
+    recreer_popup_texte: typeof v.recreer_popup_texte === "string" ? v.recreer_popup_texte : "",
+    nudge_regularite_texte: typeof v.nudge_regularite_texte === "string" ? v.nudge_regularite_texte : "",
   };
 }
 

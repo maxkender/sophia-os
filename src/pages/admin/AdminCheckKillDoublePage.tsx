@@ -226,13 +226,11 @@ export function AdminCheckKillDoublePage() {
               </div>
             ) : onglet === "historique" ? (
               <VueHistorique />
-            ) : onglet === "samedi" ? (
+            ) : (
               <div className="space-y-6">
                 <VueControles key={onglet} type={onglet} />
                 <SuiviMessages admin />
               </div>
-            ) : (
-              <VueControles key={onglet} type={onglet} />
             )}
           </div>
         </>

@@ -2667,10 +2667,10 @@ export const en = {
       },
     },
     messagesPosteurs: {
-      titre: "Messages to posters (Kill and Double)",
+      titre: "Messages to posters",
       descriptionAdmin:
-        "What the OS told posters over the last two weeks: the Sunday noon Kill message (Slack + banner), and the 2nd-account offer (Yes / No pop-up until Wednesday 11:59 pm).",
-      descriptionHm: "For your information: what the OS told your posters (Kill, 2nd-account offer). Nothing to do on your side.",
+        "What the OS told posters over the last two weeks: on Saturday, the Sunday noon Kill message (Slack + banner) and the 2nd-account offer (Yes / No pop-up until Wednesday 11:59 pm); on Thursday, the Recreate pop-up (“Got it”) and the Nudge on Slack.",
+      descriptionHm: "For your information: what the OS told your posters (Kill, 2nd-account offer, recreation, nudge). Nothing to do on your side.",
       vide: "No message over the last two weeks.",
       hm: "HM: {{hm}}",
       jusqua: "Answer expected before {{date}}",
@@ -2698,6 +2698,8 @@ export const en = {
         expire: "The Double offer expires on",
         expireJour: "Expiry day",
         expireHeure: "Expiry time",
+        recreerTexte: "Thursday, Recreate pop-up and Slack ({nouveau}: the new @, {date}: the Monday posts resume)",
+        nudgeTexte: "Thursday, Nudge Slack message",
         enregistrer: "Save",
         ok: "Saved.",
       },

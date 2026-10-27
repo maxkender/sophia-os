@@ -13,9 +13,10 @@ const selectClass =
   "h-9 rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
 /**
- * Les messages du samedi aux posteurs (v3, 0382), modifiables par l'admin :
+ * Les messages aux posteurs (v3), modifiables par l'admin. Samedi (0382) :
  * message de Kill automatique (oui / non, texte), texte de l'offre Double et
- * son heure limite. Textes en anglais ; `{prenom}` devient le prénom.
+ * son heure limite. Jeudi (0383) : pop-up Recréer et Slack du Nudge. Textes
+ * en anglais ; `{prenom}` devient le prénom.
  */
 export function ReglagesMessages() {
   const { t } = useTranslation();
@@ -94,9 +95,34 @@ export function ReglagesMessages() {
                 onChange={(e) => setR({ ...r, double_popup_expire: { ...r.double_popup_expire, heure: e.target.value } })}
               />
             </div>
+            <div className="space-y-1">
+              <label className="text-sm font-medium" htmlFor="recreer-texte">
+                {t("messagesPosteurs.reglages.recreerTexte")}
+              </label>
+              <Textarea
+                id="recreer-texte"
+                value={r.recreer_popup_texte}
+                onChange={(e) => setR({ ...r, recreer_popup_texte: e.target.value })}
+              />
+            </div>
+            <div className="space-y-1">
+              <label className="text-sm font-medium" htmlFor="nudge-texte">
+                {t("messagesPosteurs.reglages.nudgeTexte")}
+              </label>
+              <Textarea
+                id="nudge-texte"
+                value={r.nudge_regularite_texte}
+                onChange={(e) => setR({ ...r, nudge_regularite_texte: e.target.value })}
+              />
+            </div>
             <div className="flex items-center gap-2">
               <Button
-                disabled={enregistrer.isPending || !r.kill_message_texte.trim() || !r.double_popup_texte.trim()}
+                disabled={
+                  enregistrer.isPending ||
+                  [r.kill_message_texte, r.double_popup_texte, r.recreer_popup_texte, r.nudge_regularite_texte].some(
+                    (texte) => !texte.trim(),
+                  )
+                }
                 onClick={() => enregistrer.mutate()}
               >
                 {t("messagesPosteurs.reglages.enregistrer")}

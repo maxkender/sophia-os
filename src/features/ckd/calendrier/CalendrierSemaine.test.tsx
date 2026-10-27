@@ -61,12 +61,12 @@ const p = (jour: string, rang: number, url: string | null, vues: number | null =
   mesure: vues !== null,
 });
 
-function rendu() {
+function rendu(hm = "") {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={qc}>
       <TooltipProvider>
-        <CalendrierSemaine choixHm />
+        <CalendrierSemaine hm={hm} />
       </TooltipProvider>
     </QueryClientProvider>,
   );
@@ -123,12 +123,15 @@ describe("CalendrierSemaine", () => {
     expect(screen.queryByText("Nom anna")).toBeNull();
     expect(screen.getByText("Nom bruno")).toBeTruthy();
     fireEvent.click(screen.getByRole("checkbox", { name: "Problèmes seulement" }));
-    fireEvent.change(screen.getByLabelText("HM"), { target: { value: "hm-a" } });
-    expect(screen.getByText("Nom anna")).toBeTruthy();
-    expect(screen.queryByText("Nom bruno")).toBeNull();
-    fireEvent.change(screen.getByLabelText("HM"), { target: { value: "" } });
     fireEvent.change(screen.getByLabelText("Pays"), { target: { value: "DE" } });
     expect(screen.queryByText("Nom anna")).toBeNull();
+    expect(screen.getByText("Nom bruno")).toBeTruthy();
+  });
+
+  it("la HM choisie par l'admin ou le Head of Ops", async () => {
+    rendu("hm-a");
+    expect(await screen.findByText("Nom anna")).toBeTruthy();
+    expect(screen.queryByText("Nom bruno")).toBeNull();
   });
 
   it("le choix de semaine : cette semaine et la semaine dernière seulement", async () => {

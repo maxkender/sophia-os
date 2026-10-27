@@ -2454,6 +2454,26 @@ export const en = {
       },
     },
     accueilHm: {
+      prochaine: {
+        etapes: {
+          compteOs: "Account created in the OS",
+          tiktok: "TikTok account created",
+          start: "Start warmup clicked",
+          warmup: "Warm-up (follows · likes)",
+          exigences: "5 follows + 2 reposts",
+          pret: "Ready for Monday",
+        },
+        statuts: { fait: "Done on {{date}}", fait_sans_date: "Done", a_faire: "To do", en_retard: "Late" },
+        types: { recree: "Recreated", double: "2nd account" },
+        remplace: "replaces @{{handle}}",
+        reposts: "reposts: {{etat}}",
+        repostsFaits: "done",
+        repostsAFaire: "not yet",
+        phrase: "Message to send to the creator",
+        copier: "Copy",
+        copie: "Copied",
+        resume: { prets_one: "{{count}} ready", prets_other: "{{count}} ready", enRetard: "{{n}} late" },
+      },
       calendrier: {
         semaine: "Week",
         cetteSemaine: "This week",

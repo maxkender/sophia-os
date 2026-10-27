@@ -8,22 +8,19 @@ import { BarreChargement } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
 import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
+import { SemaineProchaine } from "@/features/ckd/semaineProchaine/SemaineProchaine";
+import { ChoixHm } from "@/features/ckd/vueHm/ChoixHm";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
-import { CelluleExigences } from "@/features/ckd/cohorte/CelluleExigences";
-import { lireReposts } from "@/features/ckd/cohorte/exigences";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
-import { etatCohorte } from "@/features/ckd/cohorte/etapeCohorte";
-import { EtapeBadge } from "@/features/moteur/EtapeBadge";
 import { ActionsPosteur } from "@/features/ckd/cohorte/ActionsPosteur";
 import {
   aFaireAujourdhui,
   aPublie,
-  ligneWarmup,
   type Raison,
 } from "@/features/ckd/cohorte/dashboardHm";
-import { libelleCohorte, minuitParis, paireDuJour, resteAvant } from "@/features/ckd/cohorte/logique";
+import { paireDuJour } from "@/features/ckd/cohorte/logique";
 import { aujourdhuiParis, semaineIso } from "@/features/moteur/cohortes";
 import { SectionPaieHm } from "@/features/paie/SectionPaieHm";
 import { usePaieHm } from "@/features/paie/usePaieHm";
@@ -85,41 +82,6 @@ function Posteur({ nom, compte }: { nom: string; compte: { handle: string | null
   );
 }
 
-/** Résumé en tête de carte : « 12 creators · 9 OK · 3 follow up ». */
-function Resume({ items }: { items: { libelle: string; ton?: "ok" | "alerte" | "neutre" }[] }) {
-  return (
-    <div className="flex flex-wrap gap-1.5 pt-1">
-      {items.map((i) => (
-        <span
-          key={i.libelle}
-          className={cn(
-            "rounded-full border px-2.5 py-0.5 text-xs tabular-nums",
-            i.ton === "ok" && "border-success/40 bg-success/8 text-success-foreground",
-            i.ton === "alerte" && "border-warning/50 bg-warning/10 text-warning-foreground",
-            (!i.ton || i.ton === "neutre") && "text-muted-foreground",
-          )}
-        >
-          {i.libelle}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-/** Le problème du compte, en clair ; « OK » s'il n'y en a pas. */
-function Problemes({ raisons, t }: { raisons: Raison[]; t: TFunction }) {
-  if (raisons.length === 0) return <Badge variant="success">{t("accueilHm.statuts.ok")}</Badge>;
-  return (
-    <span className="flex flex-col items-start gap-1">
-      {raisons.map((r) => (
-        <Badge key={r.cle} variant={r.cle === "sansWarmup" || r.cle === "compteIntrouvable" ? "error" : "warning"}>
-          {texteRaison(t, r)}
-        </Badge>
-      ))}
-    </span>
-  );
-}
-
 const TH = "px-4 py-2.5 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground";
 const TD = "px-4 py-3 align-middle";
 
@@ -149,6 +111,8 @@ function Tableau({ entetes, children }: { entetes: string[]; children: React.Rea
 export function HiringAccueilPage() {
   const { t, i18n } = useTranslation();
   const { user, role } = useAuth();
+  // Le Head of Ops choisit la HM des blocs Cette semaine et Semaine prochaine.
+  const [hm, setHm] = React.useState("");
   const aujourdhui = aujourdhuiParis();
   const { poste, warmup } = paireDuJour(aujourdhui);
 
@@ -161,11 +125,8 @@ export function HiringAccueilPage() {
       const miens = (l: CompteCohorte[]) => l.filter((c) => c.hm_id === user!.id);
       const p = miens(enPoste);
       const w = miens(enWarmup);
-      const [noms, reposts] = await Promise.all([
-        nomsPosteurs([...new Set([...p, ...w].map((c) => c.poster_id))]),
-        lireReposts(w.map((c) => c.compte_id)),
-      ]);
-      return { poste: p, warmup: w, noms, reposts };
+      const noms = await nomsPosteurs([...new Set([...p, ...w].map((c) => c.poster_id))]);
+      return { poste: p, warmup: w, noms };
     },
   });
 
@@ -183,7 +144,6 @@ export function HiringAccueilPage() {
   const langue = i18n.resolvedLanguage ?? "fr";
 
   const nom = (c: CompteCohorte) => donnees.data?.noms.get(c.poster_id) ?? "—";
-  const reste = resteAvant(minuitParis(warmup));
 
   return (
     <div className="space-y-6">
@@ -191,6 +151,7 @@ export function HiringAccueilPage() {
         <h1 className="text-lg font-semibold tracking-tight">{t("accueilHm.titre")}</h1>
         <p className="text-sm text-muted-foreground">{t("accueilHm.sous")}</p>
       </div>
+      {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
 
       <BarreChargement actif={donnees.isLoading} />
       {donnees.error && <p className="text-sm text-destructive">{String((donnees.error as Error).message)}</p>}
@@ -282,99 +243,9 @@ export function HiringAccueilPage() {
 
           <SectionPaieHm hmId={user?.id} />
 
-          <CalendrierSemaine choixHm={role === "head_of_ops"} />
+          <CalendrierSemaine hm={hm} />
 
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                {t("accueilHm.semaineProchaine")} · {libelleCohorte(warmup)}
-              </CardTitle>
-              <CardDescription>
-                {t("accueilHm.dateLimite")}
-                {reste && ` ${t("accueilHm.reste", { jours: reste.jours, heures: reste.heures })}`}
-              </CardDescription>
-              {donnees.data.warmup.length > 0 && (() => {
-                const lignes = donnees.data.warmup.map((c) => ligneWarmup(c, aujourdhui));
-                const n = (s: string) => lignes.filter((l) => l.statut === s).length;
-                return (
-                  <Resume
-                    items={[
-                      { libelle: t("accueilHm.resume.posteurs", { count: lignes.length }) },
-                      { libelle: t("accueilHm.resume.prets", { n: n("pret") }), ton: "ok" },
-                      { libelle: t("accueilHm.resume.enCours", { n: n("en_cours") }) },
-                      ...(n("a_relancer") > 0
-                        ? [{ libelle: t("accueilHm.resume.aRelancer", { n: n("a_relancer") }), ton: "alerte" as const }]
-                        : []),
-                    ]}
-                  />
-                );
-              })()}
-            </CardHeader>
-            <CardContent>
-              {donnees.data.warmup.length === 0 ? (
-                <p className="text-sm text-muted-foreground">{t("accueilHm.vide")}</p>
-              ) : (
-                <Tableau
-                  entetes={[
-                    t("accueilHm.posteur"),
-                    t("accueilHm.etape"),
-                    t("accueilHm.tiktok"),
-                    t("accueilHm.warmup"),
-                    t("ckd.exigences.colonne"),
-                    t("accueilHm.start"),
-                    t("accueilHm.statut"),
-                    "",
-                  ]}
-                >
-                  {donnees.data.warmup.map((c) => {
-                    const l = ligneWarmup(c, aujourdhui);
-                    return (
-                      <tr key={c.compte_id}>
-                        <td className={TD}>
-                          <Posteur nom={nom(c)} compte={c} />
-                        </td>
-                        <td className={TD}>
-                          <EtapeBadge etat={etatCohorte(c, aujourdhui)} />
-                        </td>
-                        <td className={TD}>{t(`accueilHm.etatsTiktok.${l.etat.tiktok}`)}</td>
-                        <td className={TD}>
-                          {l.etat.abonnements === null
-                            ? "—"
-                            : t("accueilHm.followsLikes", { follows: l.etat.abonnements, likes: l.etat.likes ?? 0 })}
-                        </td>
-                        <td className={TD}>
-                          <CelluleExigences etat={l.etat} repostsAt={donnees.data.reposts.get(c.compte_id)} />
-                        </td>
-                        <td className={TD}>
-                          <Badge variant={l.etat.start ? "success" : "outline"}>
-                            {l.etat.start ? t("accueilHm.oui") : t("accueilHm.non")}
-                          </Badge>
-                        </td>
-                        <td className={TD}>
-                          {l.statut === "a_relancer" ? (
-                            <Problemes raisons={l.raisons} t={t} />
-                          ) : (
-                            <Badge variant={l.statut === "pret" ? "success" : "secondary"}>
-                              {t(`accueilHm.statuts.${l.statut}`)}
-                            </Badge>
-                          )}
-                        </td>
-                        <td className={cn(TD, "w-10 text-right")}>
-                          <ActionsPosteur
-                            posteurId={c.poster_id}
-                            nom={nom(c)}
-                            compteId={c.compte_id}
-                            warmupLance={Boolean(c.warmup_lance_le)}
-                            aPublie={aPublie(c)}
-                          />
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </Tableau>
-              )}
-            </CardContent>
-          </Card>
+          <SemaineProchaine hm={hm} />
         </>
       )}
     </div>

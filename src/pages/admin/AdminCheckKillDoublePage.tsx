@@ -87,7 +87,7 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
-import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
+import { VueHm } from "@/features/ckd/vueHm/VueHm";
 import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
@@ -202,7 +202,7 @@ export function AdminCheckKillDoublePage() {
       {vue === "shadowban" ? (
         <VueShadowban />
       ) : vue === "hm" ? (
-        <CalendrierSemaine choixHm />
+        <VueHm />
       ) : vue === "cohorte" ? (
         <VueCohorte
           ouvrirGlobal={() => choisirVue("global")}

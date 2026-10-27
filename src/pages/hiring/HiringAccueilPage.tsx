@@ -5,10 +5,8 @@ import type { TFunction } from "i18next";
 
 import { Badge } from "@/components/ui/badge";
 import { BarreChargement } from "@/components/ui/progress";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
-import { BonusAVenir } from "@/features/bonus/BonusAVenir";
-import { SectionBonus } from "@/features/bonus/SectionBonus";
 import { BoutonExport } from "@/features/export/BoutonExport";
 import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
 import { AnciensPosteurs } from "@/features/ckd/anciens/AnciensPosteurs";
@@ -25,10 +23,7 @@ import {
   type Raison,
 } from "@/features/ckd/cohorte/dashboardHm";
 import { paireDuJour } from "@/features/ckd/cohorte/logique";
-import { aujourdhuiParis, semaineIso } from "@/features/moteur/cohortes";
-import { SectionPaieHm } from "@/features/paie/SectionPaieHm";
-import { usePaieHm } from "@/features/paie/usePaieHm";
-import { dollars, totaux } from "@/features/paie/logique";
+import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 
@@ -113,7 +108,7 @@ function Tableau({ entetes, children }: { entetes: string[]; children: React.Rea
  * Kill or Double → Cohort tracking, limitées à ses posteurs (0360).
  */
 export function HiringAccueilPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { user, role } = useAuth();
   // Le Head of Ops choisit la HM des blocs Cette semaine et Semaine prochaine.
   const [hm, setHm] = React.useState("");
@@ -143,19 +138,13 @@ export function HiringAccueilPage() {
       return { lignes, noms: await nomsPosteurs([...new Set(lignes.map((l) => l.poster_id))]) };
     },
   });
-  const { semaine: semainePaie, paie } = usePaieHm(user?.id);
-  const paieAFaire = totaux(paie.data ?? []);
-  const langue = i18n.resolvedLanguage ?? "fr";
 
   const nom = (c: CompteCohorte) => donnees.data?.noms.get(c.poster_id) ?? "—";
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <div>
-          <h1 className="text-lg font-semibold tracking-tight">{t("accueilHm.titre")}</h1>
-          <p className="text-sm text-muted-foreground">{t("accueilHm.sous")}</p>
-        </div>
+        <h1 className="text-lg font-semibold tracking-tight">{t("accueilHm.titre")}</h1>
         <BoutonExport hm={hm} />
       </div>
       {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
@@ -168,18 +157,8 @@ export function HiringAccueilPage() {
           <Card>
             <CardHeader>
               <CardTitle>{t("accueilHm.aFaire")}</CardTitle>
-              <CardDescription>{t("accueilHm.aFaireDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
-              {paieAFaire.aPayer > 0 && (
-                <p className="mb-3 rounded-md border border-warning/40 bg-warning/8 px-3 py-2 text-sm font-medium">
-                  {t("accueilHm.paieAFaire", {
-                    semaine: semaineIso(semainePaie),
-                    n: paieAFaire.aPayer,
-                    montant: dollars(paieAFaire.resteAPayer, langue),
-                  })}
-                </p>
-              )}
               {(signales.data?.lignes.length ?? 0) > 0 && (
                 <div className="mb-3 space-y-3" data-testid="accueil-shadowban">
                   {signales.data!.lignes.map((l) => (
@@ -210,7 +189,7 @@ export function HiringAccueilPage() {
               {(() => {
                 const lignes = aFaireAujourdhui(donnees.data.poste, donnees.data.warmup, aujourdhui);
                 if (lignes.length === 0)
-                  return paieAFaire.aPayer > 0 || (signales.data?.lignes.length ?? 0) > 0 ? null : (
+                  return (signales.data?.lignes.length ?? 0) > 0 ? null : (
                     <p className="text-sm text-muted-foreground">{t("accueilHm.rienAFaire")}</p>
                   );
                 return (
@@ -247,13 +226,6 @@ export function HiringAccueilPage() {
           </Card>
 
           <SectionsSamediHm />
-
-          <SectionPaieHm hmId={user?.id} />
-
-          <BonusAVenir hm={hm} />
-
-          {/* Les bonus se paient ici pour le Head of Ops (Lucia), comme dans Admin → Paie. */}
-          {role === "head_of_ops" && <SectionBonus />}
 
           <CalendrierSemaine hm={hm} />
 

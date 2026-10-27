@@ -12,6 +12,7 @@ import { AdminLayout } from "@/components/layout/AdminLayout";
 import { PosterLayout } from "@/components/layout/PosterLayout";
 import { HiringLayout } from "@/components/layout/HiringLayout";
 import { HiringAccueilPage } from "@/pages/hiring/HiringAccueilPage";
+import { HiringPaiementsPage } from "@/pages/hiring/HiringPaiementsPage";
 import { HiringCalendrierPage } from "@/pages/hiring/HiringCalendrierPage";
 import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
@@ -151,6 +152,10 @@ export function AppRouter() {
         <Route element={<RoleGate allow={["hiring_manager", "directing_manager", "head_of_ops"]} />}>
           <Route element={<HiringLayout />}>
             <Route path="/manager/accueil" element={<HiringAccueilPage />} />
+            {/* Paiements : Head of Ops seulement pour l'instant, les HM sont renvoyées à l'accueil. */}
+            <Route element={<RoleGate allow={["head_of_ops"]} />}>
+              <Route path="/manager/paiements" element={<HiringPaiementsPage />} />
+            </Route>
             <Route path="/embauche" element={<HiringPosterPage />} />
             <Route path="/manager/calendrier" element={<HiringCalendrierPage />} />
             <Route path="/manager/recruteurs" element={<HiringRecruteursPage />} />

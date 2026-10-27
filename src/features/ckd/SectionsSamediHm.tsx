@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { semaineIso } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
@@ -92,7 +92,6 @@ export function SectionsSamediHm() {
             {t("ckd.decisionsHm.titre")}
             {aFaire > 0 && ` · ${t("ckd.decisionsHm.aFaire", { n: aFaire })}`}
           </CardTitle>
-          <CardDescription>{t("ckd.decisionsHm.desc")}</CardDescription>
         </CardHeader>
         <CardContent>
           {donnees.error ? (
@@ -112,7 +111,6 @@ export function SectionsSamediHm() {
       <Card>
         <CardHeader>
           <CardTitle>{t("ckd.recrutementHm.titre")}</CardTitle>
-          <CardDescription>{t("ckd.recrutementHm.desc")}</CardDescription>
         </CardHeader>
         <CardContent>
           {(donnees.data?.recrues.length ?? 0) === 0 ? (

@@ -196,7 +196,7 @@ describe("AdminPostersPage — par zone", () => {
   it("filtre de phase : tous les recruteurs restent visibles et cliquables", async () => {
     renderPage();
     await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
-    fireEvent.change(screen.getByLabelText("Phase"), { target: { value: "warmup" } });
+    fireEvent.click(screen.getByRole("checkbox", { name: "Warming up" }));
 
     for (const nom of ["Amanda", "Kris", "Rémi"]) {
       expect(screen.getByRole("button", { name: nom })).toBeTruthy();
@@ -333,7 +333,7 @@ describe("AdminPostersPage — par zone", () => {
     listerPosters.mockResolvedValue([...PROFILS, hmOff, profil({ id: "c6", role: "poster", prenom: "Cesar", manager_id: "otto" })]);
     renderPage();
     await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
-    fireEvent.change(screen.getByLabelText("Phase"), { target: { value: "posting" } });
+    fireEvent.click(screen.getByRole("checkbox", { name: "Posting" }));
 
     const espagne = sectionZone("Spain + Portugal");
     // Les compteurs d'étapes restent ceux de toute l'équipe.
@@ -343,6 +343,21 @@ describe("AdminPostersPage — par zone", () => {
     // Désactivé avec un créateur : reste dans sa zone, pas replié « sans créateur ».
     expect(within(sectionZone("France")).getByRole("button", { name: "Otto" })).toBeTruthy();
     expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
+  });
+
+  it("filtre d'étapes : plusieurs à la fois, « All » pour tout revoir", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    const pasCree = screen.getByRole("checkbox", { name: "Account not created" });
+    const posting = screen.getByRole("checkbox", { name: "Posting" });
+    fireEvent.click(pasCree);
+    fireEvent.click(posting);
+    expect((pasCree as HTMLInputElement).checked).toBe(true);
+    expect((posting as HTMLInputElement).checked).toBe(true);
+    // Un créateur sans compte (Account not created) reste affiché.
+    expect(within(sectionZone("Spain + Portugal")).queryByText("No creator matches the filters (1 in total).")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "All" }));
+    expect((pasCree as HTMLInputElement).checked).toBe(false);
   });
 
   it("compteur d'étape cliquable : ne montre que cette étape, reclic pour tout revoir", async () => {

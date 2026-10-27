@@ -47,6 +47,7 @@ import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
 import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
 import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 import { SlackARelier } from "@/features/slack/SlackARelier";
+import { PageNudges } from "@/features/nudges/PageNudges";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
 import { AdminRelectureNativePage } from "@/pages/admin/AdminRelectureNativePage";
@@ -100,6 +101,7 @@ export function AppRouter() {
             <Route path="/admin/comment-masters/suivi" element={<Navigate to="/admin/comment-masters" replace />} />
             <Route path="/admin/paie" element={<AdminPaiePage />} />
             <Route path="/admin/slack" element={<SlackARelier />} />
+            <Route path="/admin/nudges" element={<PageNudges />} />
             <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
             {/* Sans ces deux-là, Schedule et Account watch sont des culs-de-sac. */}
             <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />

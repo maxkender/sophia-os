@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import {
   AtSign,
   BarChart3,
+  BellRing,
   BookOpen,
   CalendarDays,
   Columns2,
@@ -203,6 +204,12 @@ export function AdminLayout() {
               description: t("navDesc.checkKillDouble"),
             },
             { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
+            {
+              to: "/admin/nudges",
+              label: t("nudges.nav"),
+              icon: BellRing,
+              description: t("nudges.navDesc"),
+            },
             {
               to: "/admin/slack",
               label: t("slackRelier.nav"),

@@ -47,6 +47,8 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *
  * Événement `team_join` (à cocher dans l'appli, scope `users:read`) : le
  * nouveau membre est relié à son posteur s'il est sûr (0381, slack_relier.ts).
+ * Événement `message.im` (scope `im:history`) : un posteur qui répond au bot
+ * en DM a « répondu » à ses nudges (0384).
  */
 Deno.serve(async (request) => {
   const signature = request.headers.get("x-slack-signature");
@@ -81,6 +83,20 @@ Deno.serve(async (request) => {
     return new Response(payload.challenge ?? "", { status: 200, headers: { "content-type": "text/plain" } });
   }
   if (payload.type !== "event_callback" || !payload.event) return new Response("", { status: 200 });
+
+  // Un posteur répond au bot en message direct : ses nudges sont « répondus » (0384).
+  const ev = payload.event as unknown as { type?: string; channel_type?: string; user?: string; bot_id?: string; subtype?: string };
+  if (ev.type === "message" && ev.channel_type === "im") {
+    if (ev.user && !ev.bot_id && !ev.subtype) {
+      const repondu = Promise.resolve(serviceClient().rpc("nudge_repondu_slack", { p_slack_user: ev.user })).catch((erreur) =>
+        console.error("[slack-faq] message.im", messageErreur(erreur))
+      );
+      const edgeIm = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+      if (edgeIm) edgeIm.waitUntil(repondu);
+      else await repondu;
+    }
+    return new Response("", { status: 200 });
+  }
 
   // Un membre arrive dans le workspace : on le relie à son posteur (0381).
   if (payload.event.type === "team_join") {

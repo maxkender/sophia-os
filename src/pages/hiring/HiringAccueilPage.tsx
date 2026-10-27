@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { BarreChargement } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
+import { CalendrierSemaine } from "@/features/ckd/calendrier/CalendrierSemaine";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
 import { CelluleExigences } from "@/features/ckd/cohorte/CelluleExigences";
@@ -14,16 +15,12 @@ import { lireReposts } from "@/features/ckd/cohorte/exigences";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
 import { etatCohorte } from "@/features/ckd/cohorte/etapeCohorte";
-import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
-import { qualiteAffichee } from "@/features/moteur/etapes";
-import { lireEtapesComptes } from "@/features/moteur/etapesApi";
+import { EtapeBadge } from "@/features/moteur/EtapeBadge";
 import { ActionsPosteur } from "@/features/ckd/cohorte/ActionsPosteur";
 import {
   aFaireAujourdhui,
   aPublie,
-  ligneSemaine,
   ligneWarmup,
-  problemesSemaine,
   type Raison,
 } from "@/features/ckd/cohorte/dashboardHm";
 import { libelleCohorte, minuitParis, paireDuJour, resteAvant } from "@/features/ckd/cohorte/logique";
@@ -84,25 +81,6 @@ function Posteur({ nom, compte }: { nom: string; compte: { handle: string | null
           <span className="text-xs text-muted-foreground">—</span>
         )}
       </div>
-    </div>
-  );
-}
-
-/** « 1/2 » avec une petite barre : vert si complet, orange si en retard. */
-function Progression({ fait, prevu }: { fait: number; prevu: number }) {
-  if (prevu === 0) return <span className="text-muted-foreground">—</span>;
-  const part = Math.min(1, fait / prevu);
-  return (
-    <div className="flex items-center gap-2">
-      <span className="w-8 tabular-nums">
-        {fait}/{prevu}
-      </span>
-      <span className="h-1.5 w-16 overflow-hidden rounded-full bg-muted">
-        <span
-          className={cn("block h-full rounded-full", part >= 1 ? "bg-success" : part > 0 ? "bg-warning" : "bg-transparent")}
-          style={{ width: `${part * 100}%` }}
-        />
-      </span>
     </div>
   );
 }
@@ -170,7 +148,7 @@ function Tableau({ entetes, children }: { entetes: string[]; children: React.Rea
  */
 export function HiringAccueilPage() {
   const { t, i18n } = useTranslation();
-  const { user } = useAuth();
+  const { user, role } = useAuth();
   const aujourdhui = aujourdhuiParis();
   const { poste, warmup } = paireDuJour(aujourdhui);
 
@@ -200,8 +178,6 @@ export function HiringAccueilPage() {
       return { lignes, noms: await nomsPosteurs([...new Set(lignes.map((l) => l.poster_id))]) };
     },
   });
-  // Le tag qualité (GOOD / POOR VIEWS / SHADOWBAN) : d'après la base (0363).
-  const etapes = useQuery({ queryKey: ["etapes-comptes"], queryFn: lireEtapesComptes, enabled: Boolean(user?.id) });
   const { semaine: semainePaie, paie } = usePaieHm(user?.id);
   const paieAFaire = totaux(paie.data ?? []);
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -306,93 +282,7 @@ export function HiringAccueilPage() {
 
           <SectionPaieHm hmId={user?.id} />
 
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                {t("accueilHm.cetteSemaine")} · {libelleCohorte(poste)}
-              </CardTitle>
-              <CardDescription>{t("accueilHm.cetteSemaineDesc")}</CardDescription>
-              {donnees.data.poste.length > 0 && (() => {
-                const lignes = donnees.data.poste;
-                const aRelancer = lignes.filter(
-                  (c) => problemesSemaine(c, etatCohorte(c, aujourdhui), aujourdhui).length > 0,
-                ).length;
-                return (
-                  <Resume
-                    items={[
-                      { libelle: t("accueilHm.resume.posteurs", { count: lignes.length }) },
-                      { libelle: t("accueilHm.resume.ok", { n: lignes.length - aRelancer }), ton: "ok" },
-                      ...(aRelancer > 0
-                        ? [{ libelle: t("accueilHm.resume.aRelancer", { n: aRelancer }), ton: "alerte" as const }]
-                        : []),
-                    ]}
-                  />
-                );
-              })()}
-            </CardHeader>
-            <CardContent>
-              {donnees.data.poste.length === 0 ? (
-                <p className="text-sm text-muted-foreground">{t("accueilHm.vide")}</p>
-              ) : (
-                <Tableau
-                  entetes={[
-                    t("accueilHm.posteur"),
-                    t("accueilHm.etape"),
-                    t("accueilHm.postsJour"),
-                    t("accueilHm.postsSemaine"),
-                    t("accueilHm.probleme"),
-                    "",
-                  ]}
-                >
-                  {donnees.data.poste
-                    .map((c) => {
-                      const etat = etatCohorte(c, aujourdhui);
-                      return { c, l: ligneSemaine(c, aujourdhui), etat, problemes: problemesSemaine(c, etat, aujourdhui) };
-                    })
-                    // Ceux qui ont un problème d'abord, puis par nom.
-                    .sort(
-                      (a, b) =>
-                        Number(b.problemes.length > 0) - Number(a.problemes.length > 0) ||
-                        nom(a.c).localeCompare(nom(b.c)),
-                    )
-                    .map(({ c, l, etat, problemes }) => {
-                      return (
-                        <tr key={c.compte_id}>
-                          <td className={TD}>
-                            <Posteur nom={nom(c)} compte={c} />
-                          </td>
-                          <td className={TD}>
-                            <span className="inline-flex flex-wrap gap-1">
-                              <EtapeBadge etat={etat} />
-                              <QualiteBadge qualite={qualiteAffichee(etat, etapes.data?.get(c.compte_id)?.qualite)} />
-
-                            </span>
-                          </td>
-                          <td className={TD}>
-                            <Progression fait={l.jour.publies} prevu={l.jour.prevus} />
-                          </td>
-                          <td className={TD}>
-                            <Progression fait={l.semaine.publies} prevu={l.semaine.prevus} />
-                          </td>
-                          <td className={TD}>
-                            <Problemes raisons={problemes} t={t} />
-                          </td>
-                          <td className={cn(TD, "w-10 text-right")}>
-                            <ActionsPosteur
-                              posteurId={c.poster_id}
-                              nom={nom(c)}
-                              compteId={c.compte_id}
-                              warmupLance={Boolean(c.warmup_lance_le)}
-                              aPublie={aPublie(c)}
-                            />
-                          </td>
-                        </tr>
-                      );
-                    })}
-                </Tableau>
-              )}
-            </CardContent>
-          </Card>
+          <CalendrierSemaine choixHm={role === "head_of_ops"} />
 
           <Card>
             <CardHeader>

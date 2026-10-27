@@ -146,16 +146,20 @@ describe("AdminRelectureNativePage", () => {
     );
   });
 
-  it("montre le kit avec son aperçu, et enregistre un changement de voie", async () => {
+  it("montre le kit en liste, ouvre un post et enregistre un changement de voie", async () => {
     rendre();
     fireEvent.click(screen.getByRole("button", { name: "Kit" }));
-    const carte = await screen.findByTestId("kit-admin-1");
-    expect(within(carte).getByText("Test")).toBeInTheDocument();
-    expect(within(carte).getByText("6 hobbies that will make you noticeably smarter", { selector: "div" })).toBeInTheDocument();
-    expect(within(carte).getByTitle("TikTok")).toHaveAttribute("src", POST_KIT.source_url);
-    const enregistrerBtn = within(carte).getByRole("button", { name: "Enregistrer" });
+    const ligne = await screen.findByTestId("kit-admin-1");
+    expect(within(ligne).getByText("6 hobbies that will make you noticeably smarter")).toBeInTheDocument();
+    expect(within(ligne).getByText("Reprise")).toBeInTheDocument();
+    expect(within(ligne).getByText("CTA slide 5")).toBeInTheDocument();
+    expect(within(ligne).queryByRole("combobox", { name: "Voie du CTA" })).not.toBeInTheDocument();
+
+    fireEvent.click(within(ligne).getByRole("button", { name: "Modifier" }));
+    expect(within(ligne).getByTitle("TikTok")).toHaveAttribute("src", POST_KIT.source_url);
+    const enregistrerBtn = within(ligne).getByRole("button", { name: "Enregistrer" });
     expect(enregistrerBtn).toBeDisabled();
-    fireEvent.change(within(carte).getByRole("combobox", { name: "Voie du CTA" }), { target: { value: "libre" } });
+    fireEvent.change(within(ligne).getByRole("combobox", { name: "Voie du CTA" }), { target: { value: "libre" } });
     fireEvent.click(enregistrerBtn);
     await waitFor(() =>
       expect(majPostKit).toHaveBeenCalledWith("k1", {
@@ -170,7 +174,7 @@ describe("AdminRelectureNativePage", () => {
     );
   });
 
-  it("montre l'avancement du kit de chaque relecteur, et le test à lire", async () => {
+  it("montre les chiffres et l'avancement du kit de chaque relecteur", async () => {
     listerRelecteurs.mockResolvedValue([
       {
         id: "r1",
@@ -191,6 +195,8 @@ describe("AdminRelectureNativePage", () => {
     rendre();
     const ligne = await screen.findByTestId("relecteur-r1");
     await waitFor(() => expect(within(ligne).getByText("1 / 1 rendus")).toBeInTheDocument());
-    expect(within(ligne).getByText("Test à lire")).toBeInTheDocument();
+    expect(within(ligne).getByLabelText("Kit fini")).toBeInTheDocument();
+    expect(within(ligne).getByText("AY")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText("Posts écrits").closest("div")).toHaveTextContent(/1\s*\/ 1/));
   });
 });

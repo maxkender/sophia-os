@@ -1,13 +1,8 @@
 /**
- * Relecture native · étape 2 (migration 0377) : le kit natif. Après son
- * questionnaire, chaque relecteur écrit les mêmes slideshows depuis l'anglais,
- * de A à Z, CTA compris. Les 3 premiers sont le test payé : un relecteur
- * « invite » ne voit qu'eux ; passé « actif », il voit tout le kit.
+ * Relecture native · étape 2 (migrations 0377, 0378) : le kit natif. Après
+ * son questionnaire, chaque relecteur écrit les mêmes slideshows depuis
+ * l'anglais, de A à Z, CTA compris : tout le kit, d'un coup.
  */
-import type { StatutRelecteur } from "./logique";
-
-/** Les premiers posts du kit, écrits avant que l'admin valide le relecteur. */
-export const TAILLE_TEST_KIT = 3;
 
 /** reprise : l'original a sa slide d'appli · forme : forme imposée · libre : essai. */
 export const VOIES_KIT = ["reprise", "forme", "libre"] as const;
@@ -49,14 +44,9 @@ export interface EcritureKit {
 
 export type EtatPostKit = "a_faire" | "en_cours" | "rendu";
 
-/** Les posts qu'un relecteur doit écrire : les 3 du test tant qu'il est invité. */
-export function postsDuRelecteur<T extends Pick<PostKit, "rang" | "actif">>(
-  posts: ReadonlyArray<T>,
-  statut: StatutRelecteur,
-): T[] {
-  return posts
-    .filter((p) => p.actif && (statut === "actif" || p.rang <= TAILLE_TEST_KIT))
-    .sort((a, b) => a.rang - b.rang);
+/** Les posts qu'un relecteur doit écrire : ceux du kit, dans l'ordre. */
+export function postsDuKit<T extends Pick<PostKit, "rang" | "actif">>(posts: ReadonlyArray<T>): T[] {
+  return posts.filter((p) => p.actif).sort((a, b) => a.rang - b.rang);
 }
 
 export function etatPostKit(ecriture: Pick<EcritureKit, "slides" | "rendu_at"> | undefined): EtatPostKit {

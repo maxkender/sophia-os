@@ -1,8 +1,11 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { ClipboardList, FileText, Languages, Layers, PenLine, Users, type LucideIcon } from "lucide-react";
 
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Segments } from "@/components/ui/segments";
 import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteurs";
+import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
 import { SectionEcrituresKit } from "@/features/relectureNative/SectionEcrituresKit";
 import { SectionFichesAppli } from "@/features/relectureNative/SectionFichesAppli";
 import { SectionKitAdmin } from "@/features/relectureNative/SectionKitAdmin";
@@ -11,11 +14,18 @@ import { SectionReponses } from "@/features/relectureNative/SectionReponses";
 
 type Onglet = "relecteurs" | "fiches" | "reponses" | "kit" | "ecritures";
 
+const ONGLETS: ReadonlyArray<{ cle: Onglet; icone: LucideIcon }> = [
+  { cle: "relecteurs", icone: Users },
+  { cle: "kit", icone: Layers },
+  { cle: "ecritures", icone: PenLine },
+  { cle: "reponses", icone: ClipboardList },
+  { cle: "fiches", icone: FileText },
+];
+
 /**
  * Relecture native : tout ce qu'il faut écrire avant de lancer le système.
- * Étape 1 : les relecteurs choisis, les fiches des applications, les réponses
- * au questionnaire. Étape 2 : le kit natif et les versions des relecteurs.
- * La production reste coupée.
+ * Les relecteurs, le kit natif et leurs versions, leurs réponses au
+ * questionnaire, les fiches des applications. La production reste coupée.
  */
 export function AdminRelectureNativePage() {
   const { t } = useTranslation();
@@ -24,24 +34,32 @@ export function AdminRelectureNativePage() {
 
   return (
     <div className="space-y-6" data-testid="page-relecture-native">
-      <div className="space-y-2">
-        <h2 className="text-sm font-semibold">{t("relectureNative.titre")}</h2>
-        <p className="text-xs text-muted-foreground">{t("relectureNative.description")}</p>
-      </div>
+      <PageHeader
+        title={
+          <span className="flex items-center gap-2">
+            <Languages className="size-6 text-muted-foreground" aria-hidden />
+            {t("relectureNative.titre")}
+          </span>
+        }
+        description={t("relectureNative.description")}
+      />
 
+      <ChiffresRelecture />
       <CarteInterrupteurs />
 
       <Segments<Onglet>
         libelle={t("relectureNative.titre")}
         actif={onglet}
         onChange={setOnglet}
-        options={[
-          { cle: "relecteurs", contenu: t("relectureNative.onglets.relecteurs") },
-          { cle: "fiches", contenu: t("relectureNative.onglets.fiches") },
-          { cle: "reponses", contenu: t("relectureNative.onglets.reponses") },
-          { cle: "kit", contenu: t("relectureNative.onglets.kit") },
-          { cle: "ecritures", contenu: t("relectureNative.onglets.ecritures") },
-        ]}
+        options={ONGLETS.map(({ cle, icone: Icone }) => ({
+          cle,
+          contenu: (
+            <>
+              <Icone className="size-3.5" aria-hidden />
+              {t(`relectureNative.onglets.${cle}`)}
+            </>
+          ),
+        }))}
       />
 
       {onglet === "relecteurs" && (
@@ -56,10 +74,10 @@ export function AdminRelectureNativePage() {
           }}
         />
       )}
-      {onglet === "fiches" && <SectionFichesAppli />}
-      {onglet === "reponses" && <SectionReponses relecteurId={relecteurId} onChoisir={setRelecteurId} />}
       {onglet === "kit" && <SectionKitAdmin />}
       {onglet === "ecritures" && <SectionEcrituresKit relecteurId={relecteurId} onChoisir={setRelecteurId} />}
+      {onglet === "reponses" && <SectionReponses relecteurId={relecteurId} onChoisir={setRelecteurId} />}
+      {onglet === "fiches" && <SectionFichesAppli />}
     </div>
   );
 }

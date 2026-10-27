@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { CheckCircle2, FileText, History, PenLine, Save, Smartphone } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardPanel, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,6 +12,7 @@ import { nomApplication } from "@/features/moteur/applications";
 import { compterVersionsFiches, enregistrerFicheAppli, listerFichesAppli, type FicheAppli } from "./api";
 import { modeleFicheAppli } from "./logique";
 import { messageErreur } from "./messageErreur";
+import { Puce, TuileIcone } from "./Puces";
 
 const CLE_REQUETE_FICHES = ["fiches-appli"] as const;
 const CLE_REQUETE_VERSIONS = ["fiches-appli-versions"] as const;
@@ -84,18 +85,30 @@ function CarteFicheAppli({
   return (
     <Card data-testid={`fiche-appli-${applicationId}`}>
       <CardHeader>
-        <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
-          {t("relectureNative.fiches.titre", { nom })}
-          {!fiche?.contenu?.trim() && <Badge variant="warning">{t("relectureNative.fiches.vide")}</Badge>}
-        </CardTitle>
-        <CardDescription>
-          {fiche?.updated_at
-            ? t("relectureNative.fiches.majLe", {
-                date: new Date(fiche.updated_at).toLocaleString(i18n.language),
-                versions,
-              })
-            : t("relectureNative.fiches.jamais")}
-        </CardDescription>
+        <div className="flex flex-wrap items-center gap-3">
+          <TuileIcone icone={Smartphone} ton={fiche?.contenu?.trim() ? "vert" : "ambre"} />
+          <div className="min-w-0 flex-1 space-y-0.5">
+            <CardTitle className="text-sm">{t("relectureNative.fiches.titre", { nom })}</CardTitle>
+            <CardDescription className="flex items-center gap-1.5">
+              <History className="size-3.5" aria-hidden />
+              {fiche?.updated_at
+                ? t("relectureNative.fiches.majLe", {
+                    date: new Date(fiche.updated_at).toLocaleString(i18n.language),
+                    versions,
+                  })
+                : t("relectureNative.fiches.jamais")}
+            </CardDescription>
+          </div>
+          {fiche?.contenu?.trim() ? (
+            <Puce icone={CheckCircle2} ton="vert">
+              {t("relectureNative.fiches.ecrite")}
+            </Puce>
+          ) : (
+            <Puce icone={PenLine} ton="ambre">
+              {t("relectureNative.fiches.vide")}
+            </Puce>
+          )}
+        </div>
       </CardHeader>
       <CardPanel className="space-y-4">
         <div className="space-y-1">
@@ -103,6 +116,7 @@ function CarteFicheAppli({
             <span className="font-medium">{t("relectureNative.fiches.contenu")}</span>
             {!contenu.trim() && (
               <Button type="button" variant="outline" size="sm" onClick={() => setContenu(modeleFicheAppli(nom))}>
+                <FileText />
                 {t("relectureNative.fiches.partirDuModele")}
               </Button>
             )}
@@ -128,6 +142,7 @@ function CarteFicheAppli({
         </label>
         <div className="flex flex-wrap items-center gap-3">
           <Button disabled={!modifie || enregistrer.isPending} onClick={() => enregistrer.mutate()}>
+            <Save />
             {t("relectureNative.fiches.enregistrer")}
           </Button>
           {modifie && <span className="text-xs text-muted-foreground">{t("relectureNative.fiches.nonEnregistre")}</span>}

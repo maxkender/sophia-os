@@ -23,7 +23,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardPanel, EmptyState } from "@/components/ui/card";
 import { MICRO_LABEL } from "@/components/ui/micro-label";
-import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 import { nomApplication } from "@/features/moteur/applications";
 import { cn } from "@/lib/utils";
@@ -39,7 +38,6 @@ import {
 import { CLASSES_TON, ETAT, VOIE } from "./apparence";
 import {
   accrochePost,
-  avancementKit,
   avecSlideEcrite,
   etatPostKit,
   postsDuKit,
@@ -75,7 +73,6 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
   const erreur = kit.error ?? ecritures.error;
   if (erreur) return <p className="text-sm text-destructive">{messageErreur(erreur)}</p>;
 
-  const avancement = avancementKit(posts, ecritures.data ?? []);
   const post =
     posts.find((p) => p.id === choisi) ?? posts.find((p) => etatPostKit(parPost.get(p.id)) !== "rendu") ?? posts[0];
   const index = post ? posts.indexOf(post) : -1;
@@ -84,13 +81,20 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
     setChoisi(id);
     haut.current?.scrollIntoView?.({ behavior: "smooth", block: "start" });
   };
-  // Le post qu'on vient d'enregistrer reste affiché, même une fois rendu.
+  // Un post qui vient d'être fini : on passe au suivant qui reste à écrire.
+  // Sinon, le post enregistré reste affiché.
   const memoriser = (e: EcritureKit) => {
-    setChoisi(e.kit_id);
+    const vientDeFinir = Boolean(e.rendu_at) && !parPost.get(e.kit_id)?.rendu_at;
     queryClient.setQueryData<EcritureKit[]>(cleEcritures, (avant = []) => [
       ...avant.filter((x) => x.kit_id !== e.kit_id),
       e,
     ]);
+    const i = posts.findIndex((p) => p.id === e.kit_id);
+    const suivant = vientDeFinir
+      ? [...posts.slice(i + 1), ...posts.slice(0, i)].find((p) => etatPostKit(parPost.get(p.id)) !== "rendu")
+      : undefined;
+    if (suivant) ouvrir(suivant.id);
+    else setChoisi(e.kit_id);
   };
 
   return (
@@ -103,27 +107,23 @@ export function SectionKitRelecteur({ relecteur }: { relecteur: Relecteur }) {
               <h2 className="text-base font-semibold">{t("relectureNative.kit.titre")}</h2>
               <p className="text-sm text-muted-foreground">{t("relectureNative.kit.aide")}</p>
             </div>
-            {posts.length > 0 && (
-              <div className="text-right">
-                <p className="text-2xl leading-none font-semibold tabular-nums">
-                  {avancement.rendus}
-                  <span className="text-sm font-medium text-muted-foreground"> / {avancement.total}</span>
-                </p>
-                <p className={cn(MICRO_LABEL, "mt-1")}>{t("relectureNative.kit.finis")}</p>
-              </div>
-            )}
           </div>
-          {posts.length > 0 && <Progress value={(avancement.rendus / avancement.total) * 100} />}
           <ul className="grid gap-2 sm:grid-cols-3">
             {(
               [
+                [Sparkles, "regleMotAMot"],
                 [ListOrdered, "regleStructure"],
-                [Sparkles, "regleMots"],
                 [Globe2, "regleCulture"],
               ] as const
-            ).map(([Icone, cle]) => (
-              <li key={cle} className="flex items-start gap-2 rounded-lg border bg-muted/30 p-3 text-sm">
-                <Icone className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
+            ).map(([Icone, cle], i) => (
+              <li
+                key={cle}
+                className={cn(
+                  "flex items-start gap-2 rounded-lg border p-3 text-sm",
+                  i === 0 ? "border-violet-500/25 bg-violet-500/8 font-semibold text-violet-800 dark:text-violet-200" : "bg-muted/30",
+                )}
+              >
+                <Icone className={cn("mt-0.5 size-4 shrink-0", i === 0 ? "" : "text-muted-foreground")} aria-hidden />
                 {t(`relectureNative.kit.${cle}`)}
               </li>
             ))}
@@ -361,6 +361,7 @@ function EditeurPostKit({
                       dir="auto"
                       rows={Math.min(8, Math.max(2, s.texte.split("\n").length))}
                       aria-label={t("relectureNative.kit.taVersionSlide", { n: s.position })}
+                      placeholder={t("relectureNative.kit.placeholder")}
                       value={ecrit}
                       onChange={(e) => setSlides((avant) => avecSlideEcrite(avant, s.position, e.target.value))}
                       onBlur={() => {

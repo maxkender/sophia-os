@@ -5,6 +5,8 @@
  */
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 
+import type { EtatEtape } from "@/features/moteur/etapes";
+
 import type { CompteCohorte } from "./api";
 import { bilanCompte, etatWarmup, JOURS_AVANT_RELANCE, type EtatWarmup } from "./logique";
 
@@ -15,7 +17,12 @@ export interface Raison {
     | "postsHier"
     | "tiktokPasCree"
     | "startPasClique"
-    | "warmupPasCommence";
+    | "warmupPasCommence"
+    | "compteIntrouvable"
+    | "sansWarmup"
+    | "warmupFaible"
+    | "aucunPostPublie"
+    | "postsManquants";
   valeurs?: Record<string, number>;
 }
 
@@ -71,6 +78,29 @@ export interface LigneSemaine {
   statut: "ok" | "a_relancer";
 }
 
+/**
+ * « Cette semaine » : le problème du compte, dit en clair. Le compte TikTok
+ * introuvable d'abord (rien d'autre ne compte tant qu'il n'existe pas), puis
+ * le warm-up (0 follow : pas de warm-up ; moins de 5 : warm-up insuffisant),
+ * puis les posts : aucun publié, ou combien manquent.
+ */
+export function problemesSemaine(c: CompteCohorte, etat: EtatEtape, aujourdhui: string): Raison[] {
+  if (etat.etape === "not_created") return [{ cle: "compteIntrouvable" }];
+  const raisons: Raison[] = [];
+  const follows = followsWarmup(c);
+  if (follows === 0) raisons.push({ cle: "sansWarmup" });
+  else if (follows !== null && follows < FOLLOWS_WARMUP) {
+    raisons.push({ cle: "warmupFaible", valeurs: { n: follows, min: FOLLOWS_WARMUP } });
+  }
+  const bilan = bilanCompte(c, aujourdhui);
+  if (bilan.manques > 0) {
+    raisons.push(
+      bilan.publies === 0 ? { cle: "aucunPostPublie" } : { cle: "postsManquants", valeurs: { n: bilan.manques } },
+    );
+  }
+  return raisons;
+}
+
 /** « Cette semaine » : posts du jour x/2, posts de la semaine, OK ou À relancer. */
 export function ligneSemaine(c: CompteCohorte, aujourdhui: string): LigneSemaine {
   const duJour = c.posts.filter((p) => p.jour === aujourdhui);
@@ -99,13 +129,16 @@ export function ligneWarmup(c: CompteCohorte, aujourdhui: string): LigneWarmup {
   return { compte: c, etat, statut, raisons };
 }
 
+/** Le minimum de follows d'un warm-up (consigne de l'accueil). */
+export const FOLLOWS_WARMUP = 5;
+
 /**
- * Compte créé sans warm-up : introuvable sur TikTok à chaque relevé du warm-up,
- * mais il publie. La règle de l'accueil : pas de warm-up, pas de paie.
+ * Les follows du compte relevés pendant le warm-up (le plus haut relevé), null
+ * s'ils n'ont jamais été lus : un relevé raté ne prouve rien, on n'accuse pas.
  */
-export function postsSansWarmup(c: CompteCohorte): boolean {
-  const lus = c.releves.filter((r) => r.existe !== null);
-  return lus.length > 0 && lus.every((r) => r.existe === false) && c.posts.some((p) => p.url);
+export function followsWarmup(c: CompteCohorte): number | null {
+  const lus = c.releves.map((r) => r.abonnements).filter((n): n is number => n !== null);
+  return lus.length > 0 ? Math.max(...lus) : null;
 }
 
 /** Le compte a déjà publié au moins un post (le report de cohorte est alors refusé). */

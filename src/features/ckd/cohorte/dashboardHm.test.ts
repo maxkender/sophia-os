@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { CompteCohorte, PostCohorte, ReleveWarmup } from "./api";
-import { aFaireAujourdhui, aPublie, ligneSemaine, ligneWarmup, postsSansWarmup, raisonsPoste } from "./dashboardHm";
+import { aFaireAujourdhui, aPublie, followsWarmup, ligneSemaine, ligneWarmup, problemesSemaine, raisonsPoste } from "./dashboardHm";
 
 function compte(partiel: Partial<CompteCohorte> = {}): CompteCohorte {
   return {
@@ -128,16 +128,39 @@ describe("dashboard HM : à faire aujourd'hui", () => {
   });
 });
 
-describe("dashboard HM : posts sans warm-up", () => {
-  it("introuvable à chaque relevé du warm-up mais publie : NO WARM-UP", () => {
-    const c = compte({ releves: [releve({ existe: false }), releve({ existe: false })], posts: [post(MARDI, "https://t/1")] });
-    expect(postsSansWarmup(c)).toBe(true);
-    expect(aPublie(c)).toBe(true);
+describe("dashboard HM : follows du warm-up", () => {
+  it("le plus haut relevé ; jamais lus : inconnu (on n'accuse pas)", () => {
+    expect(followsWarmup(compte({ releves: [releve({ abonnements: 2 }), releve({ abonnements: 4 })] }))).toBe(4);
+    expect(followsWarmup(compte({ releves: [releve({ existe: false, abonnements: null })] }))).toBeNull();
+    expect(aPublie(compte({ posts: [post(MARDI, "https://t/1")] }))).toBe(true);
+  });
+});
+
+describe("dashboard HM : le problème de chaque compte, en clair", () => {
+  const posting = { etape: "posting" as const, semaine: 1 };
+  const semaine = (publies: number) =>
+    ["2026-10-26", "2026-10-26", "2026-10-27", "2026-10-27"].map((jour, i) => post(jour, i < publies ? `https://t/${i}` : null));
+
+  it("compte introuvable : ce seul problème", () => {
+    expect(problemesSemaine(compte({ posts: semaine(0) }), { etape: "not_created", semaine: null }, MARDI)).toEqual([
+      { cle: "compteIntrouvable" },
+    ]);
   });
 
-  it("existait pendant le warm-up, ou ne publie pas, ou jamais relevé : rien à signaler", () => {
-    expect(postsSansWarmup(compte({ releves: [releve({ existe: false }), releve({ existe: true })], posts: [post(MARDI, "https://t/1")] }))).toBe(false);
-    expect(postsSansWarmup(compte({ releves: [releve({ existe: false })], posts: [post(MARDI, null)] }))).toBe(false);
-    expect(postsSansWarmup(compte({ posts: [post(MARDI, "https://t/1")] }))).toBe(false);
+  it("rien publié : « aucun post publié » ; en retard : combien manquent ; à jour : rien", () => {
+    expect(problemesSemaine(compte({ posts: semaine(0) }), posting, "2026-10-28").map((r) => r.cle)).toEqual(["aucunPostPublie"]);
+    const retard = problemesSemaine(compte({ posts: semaine(2) }), posting, "2026-10-28");
+    expect(retard).toEqual([{ cle: "postsManquants", valeurs: { n: 2 } }]);
+    expect(problemesSemaine(compte({ posts: semaine(4) }), posting, "2026-10-28")).toEqual([]);
+  });
+
+  it("0 follow : pas de warm-up ; moins de 5 : warm-up insuffisant ; follows jamais lus : rien", () => {
+    const avec = (abonnements: number | null) => compte({ releves: [releve({ abonnements })], posts: semaine(4) });
+    expect(problemesSemaine(avec(0), posting, "2026-10-28")).toEqual([{ cle: "sansWarmup" }]);
+    expect(problemesSemaine(avec(3), posting, "2026-10-28")).toEqual([
+      { cle: "warmupFaible", valeurs: { n: 3, min: 5 } },
+    ]);
+    expect(problemesSemaine(avec(5), posting, "2026-10-28")).toEqual([]);
+    expect(problemesSemaine(avec(null), posting, "2026-10-28")).toEqual([]);
   });
 });

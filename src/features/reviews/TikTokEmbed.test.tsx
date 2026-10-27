@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { describe, expect, it, vi } from "vitest";
 
@@ -36,5 +36,29 @@ describe("TikTokEmbed", () => {
     expect(screen.getByText("The creator hasn't pasted the post link.")).toBeInTheDocument();
     expect(screen.queryByTitle("Creator's TikTok")).not.toBeInTheDocument();
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
+});
+
+describe("TikTokEmbed hors écran", () => {
+  it("ne charge le lecteur TikTok qu'une fois visible (bloc replié, liste)", async () => {
+    let rappel: ((entrees: { isIntersecting: boolean }[]) => void) | null = null;
+    const Observateur = vi.fn(function (this: unknown, cb: typeof rappel) {
+      rappel = cb;
+      return { observe: vi.fn(), disconnect: vi.fn() };
+    });
+    vi.stubGlobal("IntersectionObserver", Observateur);
+    try {
+      renderEmbed("https://www.tiktok.com/@crea/photo/7123456789");
+      expect(screen.queryByTitle("Creator's TikTok")).not.toBeInTheDocument();
+      expect(screen.getByText("Loading preview…")).toBeInTheDocument();
+
+      await act(async () => rappel!([{ isIntersecting: true }]));
+      expect(screen.getByTitle("Creator's TikTok")).toHaveAttribute(
+        "src",
+        "https://www.tiktok.com/embed/v2/7123456789",
+      );
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

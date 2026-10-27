@@ -20,6 +20,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Jamais plaquée : une liste de compétences ou de vidéos à regarder n'a pas d'étape UnSwipe.
 - **Le label** : `Fathomly`, qui sert **Sophia seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes Sophia anglais.
 - **En six langues** : l'anglais d'abord, puis fr, es, de, it et pt (`LANGUES` dans `atelier/api.ts`). Chaque langue a ses propres vidéos YouTube, cherchées dans cette langue (`npm run youtube -- "…" --langue fr`), avec un titre natif : si YouTube renvoie le titre traduit d'une chaîne, passe `--recherche "<titre natif>"` ou change de vidéo.
+- **Les comptes du label (27/10)** : @jakob.staerke637 (de) et @margarida.aprende717 (pt du Portugal), à 2 posts par jour chacun. Chaque livraison part donc d'abord en **de et pt**, puis dans les autres langues. Le pt s'écrit pour le Portugal (« tu », vocabulaire pt-PT). Un deck livré seulement en anglais ne nourrit aucun de ces comptes : complète-le avec une livraison `~langues`.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake

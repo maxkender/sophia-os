@@ -18,6 +18,9 @@ const listerFiches = vi.fn();
 const enregistrerFiche = vi.fn();
 const compterVersions = vi.fn();
 const lireReponses = vi.fn();
+const listerKit = vi.fn();
+const listerEcrituresKit = vi.fn();
+const majPostKit = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
   lireReglageRelecture: () => lireReglage(),
@@ -31,7 +34,33 @@ vi.mock("@/features/relectureNative/api", () => ({
   enregistrerFicheAppli: (...a: unknown[]) => enregistrerFiche(...a),
   compterVersionsFiches: () => compterVersions(),
   lireReponses: (...a: unknown[]) => lireReponses(...a),
+  listerKit: () => listerKit(),
+  listerEcrituresKit: (...a: unknown[]) => listerEcrituresKit(...a),
+  majPostKit: (...a: unknown[]) => majPostKit(...a),
+  ajouterPostKit: vi.fn(),
+  supprimerPostKit: vi.fn(),
 }));
+
+vi.mock("@/features/reviews/TikTokEmbed", () => ({
+  TikTokEmbed: ({ url }: { url: string }) => <iframe title="TikTok" src={url} />,
+}));
+
+const POST_KIT = {
+  id: "k1",
+  rang: 1,
+  contenu_id: "c1",
+  application_id: SOPHIA,
+  voie: "reprise",
+  slide_cta: 5,
+  consigne_cta: "Slide 5 recommends unscroll.",
+  a_adapter: "The weekly poem.",
+  source_url: "https://www.tiktok.com/@brookeandbloom/video/7641213732919577887",
+  slides_en: [
+    { position: 1, texte: "6 hobbies that will make you noticeably smarter", image_url: "https://x/1.jpg" },
+    { position: 5, texte: "i use unscroll", image_url: "https://x/5.jpg" },
+  ],
+  actif: true,
+};
 
 vi.mock("@/features/moteur/api", () => ({
   listerPosters: () =>
@@ -74,6 +103,9 @@ describe("AdminRelectureNativePage", () => {
     listerFiches.mockResolvedValue([]);
     compterVersions.mockResolvedValue({});
     enregistrerFiche.mockResolvedValue(undefined);
+    listerKit.mockResolvedValue([POST_KIT]);
+    listerEcrituresKit.mockResolvedValue([]);
+    majPostKit.mockResolvedValue(undefined);
   });
 
   it("montre l'espace fermé et la production coupée, et ouvre l'espace", async () => {
@@ -112,5 +144,53 @@ describe("AdminRelectureNativePage", () => {
     await waitFor(() =>
       expect(enregistrerFiche).toHaveBeenCalledWith(MICABO, contenu.value, "micabo turns your notes into quizzes."),
     );
+  });
+
+  it("montre le kit avec son aperçu, et enregistre un changement de voie", async () => {
+    rendre();
+    fireEvent.click(screen.getByRole("button", { name: "Kit" }));
+    const carte = await screen.findByTestId("kit-admin-1");
+    expect(within(carte).getByText("Test")).toBeInTheDocument();
+    expect(within(carte).getByText("6 hobbies that will make you noticeably smarter", { selector: "div" })).toBeInTheDocument();
+    expect(within(carte).getByTitle("TikTok")).toHaveAttribute("src", POST_KIT.source_url);
+    const enregistrerBtn = within(carte).getByRole("button", { name: "Enregistrer" });
+    expect(enregistrerBtn).toBeDisabled();
+    fireEvent.change(within(carte).getByRole("combobox", { name: "Voie du CTA" }), { target: { value: "libre" } });
+    fireEvent.click(enregistrerBtn);
+    await waitFor(() =>
+      expect(majPostKit).toHaveBeenCalledWith("k1", {
+        rang: 1,
+        application_id: SOPHIA,
+        voie: "libre",
+        slide_cta: 5,
+        consigne_cta: "Slide 5 recommends unscroll.",
+        a_adapter: "The weekly poem.",
+        actif: true,
+      }),
+    );
+  });
+
+  it("montre l'avancement du kit de chaque relecteur, et le test à lire", async () => {
+    listerRelecteurs.mockResolvedValue([
+      {
+        id: "r1",
+        profile_id: "p1",
+        langue: "tr",
+        statut: "invite",
+        note: null,
+        questionnaire_termine_at: "2026-10-27T11:00:00Z",
+        created_at: "2026-10-27T10:00:00Z",
+        prenom: "Ayşe",
+        nom: "Yılmaz",
+        email: "a@x.io",
+      },
+    ]);
+    listerEcrituresKit.mockResolvedValue([
+      { relecteur_id: "r1", kit_id: "k1", slides: [], remarque: "", rendu_at: "2026-10-27T12:00:00Z" },
+    ]);
+    rendre();
+    const ligne = await screen.findByTestId("relecteur-r1");
+    await waitFor(() => expect(within(ligne).getByText("1 / 1 rendus")).toBeInTheDocument());
+    expect(within(ligne).getByText("Test à lire")).toBeInTheDocument();
   });
 });

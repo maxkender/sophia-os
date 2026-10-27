@@ -10,14 +10,18 @@ import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/lang
 
 import {
   ajouterRelecteur,
+  listerEcrituresKit,
+  listerKit,
   listerRelecteurs,
   listerToutesReponses,
   majRelecteur,
   supprimerRelecteur,
   type RelecteurAvecNom,
 } from "./api";
+import { avancementKit, postsDuRelecteur } from "./kit";
 import { languesDuPoster, progressionQuestionnaire, STATUTS_RELECTEUR, type StatutRelecteur } from "./logique";
 import { messageErreur } from "./messageErreur";
+import { CLE_REQUETE_ECRITURES_KIT, CLE_REQUETE_KIT } from "./SectionKitAdmin";
 
 export const CLE_REQUETE_RELECTEURS = ["relecteurs-natifs"] as const;
 export const CLE_REQUETE_REPONSES = ["relecteurs-natifs-reponses"] as const;
@@ -34,12 +38,20 @@ function nomPoster(p: { prenom: string | null; nom: string | null; email: string
  * questionnaire, changer son statut. Le relecteur ne voit son espace que s'il
  * est invité ou actif ET que l'espace est ouvert.
  */
-export function SectionRelecteurs({ onVoirReponses }: { onVoirReponses: (relecteurId: string) => void }) {
+export function SectionRelecteurs({
+  onVoirReponses,
+  onVoirKit,
+}: {
+  onVoirReponses: (relecteurId: string) => void;
+  onVoirKit: (relecteurId: string) => void;
+}) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const relecteurs = useQuery({ queryKey: CLE_REQUETE_RELECTEURS, queryFn: listerRelecteurs });
   const reponses = useQuery({ queryKey: CLE_REQUETE_REPONSES, queryFn: listerToutesReponses });
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
+  const kit = useQuery({ queryKey: CLE_REQUETE_KIT, queryFn: listerKit });
+  const ecritures = useQuery({ queryKey: CLE_REQUETE_ECRITURES_KIT, queryFn: () => listerEcrituresKit() });
 
   const [posterId, setPosterId] = React.useState("");
   const [langue, setLangue] = React.useState("");
@@ -80,8 +92,14 @@ export function SectionRelecteurs({ onVoirReponses }: { onVoirReponses: (relecte
 
   const progressionDe = (r: RelecteurAvecNom) =>
     progressionQuestionnaire((reponses.data ?? []).filter((x) => x.relecteur_id === r.id));
+  // Un relecteur pas encore actif n'a que les posts du test à écrire.
+  const kitDe = (r: RelecteurAvecNom) =>
+    avancementKit(
+      postsDuRelecteur(kit.data ?? [], r.statut === "actif" ? "actif" : "invite"),
+      (ecritures.data ?? []).filter((e) => e.relecteur_id === r.id),
+    );
 
-  const erreur = relecteurs.error ?? posters.error ?? reponses.error;
+  const erreur = relecteurs.error ?? posters.error ?? reponses.error ?? kit.error ?? ecritures.error;
 
   return (
     <div className="space-y-4">
@@ -156,12 +174,14 @@ export function SectionRelecteurs({ onVoirReponses }: { onVoirReponses: (relecte
                   <th className="py-2 pr-3 font-medium">{t("relectureNative.relecteurs.relecteur")}</th>
                   <th className="py-2 pr-3 font-medium">{t("relectureNative.relecteurs.statut")}</th>
                   <th className="py-2 pr-3 font-medium">{t("relectureNative.relecteurs.questionnaire")}</th>
+                  <th className="py-2 pr-3 font-medium">{t("relectureNative.relecteurs.kit")}</th>
                   <th className="py-2 font-medium" />
                 </tr>
               </thead>
               <tbody>
                 {(relecteurs.data ?? []).map((r) => {
                   const p = progressionDe(r);
+                  const k = kitDe(r);
                   return (
                     <tr key={r.id} className="border-t align-top" data-testid={`relecteur-${r.id}`}>
                       <td className="py-2 pr-3 whitespace-nowrap">
@@ -192,10 +212,23 @@ export function SectionRelecteurs({ onVoirReponses }: { onVoirReponses: (relecte
                           <Badge variant="success">{t("relectureNative.relecteurs.termine")}</Badge>
                         )}
                       </td>
+                      <td className="py-2 pr-3 whitespace-nowrap">
+                        {r.questionnaire_termine_at ? (
+                          <p>{t("relectureNative.relecteurs.kitRendus", { rendus: k.rendus, total: k.total })}</p>
+                        ) : (
+                          <p className="text-muted-foreground">—</p>
+                        )}
+                        {r.statut === "invite" && r.questionnaire_termine_at && k.total > 0 && k.rendus >= k.total && (
+                          <Badge variant="warning">{t("relectureNative.relecteurs.testALire")}</Badge>
+                        )}
+                      </td>
                       <td className="py-2">
                         <div className="flex flex-wrap justify-end gap-2">
                           <Button variant="outline" size="sm" onClick={() => onVoirReponses(r.id)}>
                             {t("relectureNative.relecteurs.voirReponses")}
+                          </Button>
+                          <Button variant="outline" size="sm" onClick={() => onVoirKit(r.id)}>
+                            {t("relectureNative.relecteurs.voirKit")}
                           </Button>
                           <Button
                             variant="ghost"

@@ -28,12 +28,14 @@ import {
   questionsNumerotees,
   type QuestionRelecteur,
 } from "@/features/relectureNative/questionnaire";
+import { SectionKitRelecteur } from "@/features/relectureNative/SectionKitRelecteur";
 import { CLE_REQUETE_MES_RELECTEURS, useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
 
 /**
  * « Native review » : l'espace du relecteur natif, visible seulement si
- * l'admin l'a désigné ET a ouvert l'espace. Étape 1 : le questionnaire
- * « Your country, part by part », enregistré au fil de l'eau.
+ * l'admin l'a désigné ET a ouvert l'espace. D'abord le questionnaire « Your
+ * country, part by part », enregistré au fil de l'eau ; une fois envoyé, le
+ * kit natif (les posts à écrire de A à Z).
  */
 export function PosterRelecturePage() {
   const { t } = useTranslation();
@@ -45,6 +47,7 @@ export function PosterRelecturePage() {
   if (espace.relecteurs.length === 0) return <EmptyState title={t("relectureNative.poster.pasOuvert")} />;
 
   const relecteur = espace.relecteurs.find((r) => r.langue === langue) ?? espace.relecteurs[0];
+  const questionnaireFini = Boolean(relecteur.questionnaire_termine_at);
 
   return (
     <div className="space-y-6" data-testid="page-relecture-poster">
@@ -59,11 +62,21 @@ export function PosterRelecturePage() {
         <CardPanel className="space-y-3 text-sm">
           <p className="font-medium">{t("relectureNative.poster.regleOr")}</p>
           <ol className="list-decimal space-y-1 pl-5">
-            <li>
-              {t("relectureNative.poster.etape1")} <Badge variant="info">{t("relectureNative.poster.maintenant")}</Badge>
+            <li className={questionnaireFini ? "text-muted-foreground" : undefined}>
+              {t("relectureNative.poster.etape1")}{" "}
+              {questionnaireFini ? (
+                <Badge variant="success">{t("relectureNative.poster.fait")}</Badge>
+              ) : (
+                <Badge variant="info">{t("relectureNative.poster.maintenant")}</Badge>
+              )}
             </li>
-            <li className="text-muted-foreground">
-              {t("relectureNative.poster.etape2")} <Badge variant="secondary">{t("relectureNative.poster.bientot")}</Badge>
+            <li className={questionnaireFini ? undefined : "text-muted-foreground"}>
+              {t("relectureNative.poster.etape2")}{" "}
+              {questionnaireFini ? (
+                <Badge variant="info">{t("relectureNative.poster.maintenant")}</Badge>
+              ) : (
+                <Badge variant="secondary">{t("relectureNative.poster.apresEtape1")}</Badge>
+              )}
             </li>
             <li className="text-muted-foreground">
               {t("relectureNative.poster.etape3")} <Badge variant="secondary">{t("relectureNative.poster.bientot")}</Badge>
@@ -85,7 +98,32 @@ export function PosterRelecturePage() {
         />
       )}
 
-      <Questionnaire key={relecteur.id} relecteur={relecteur} />
+      <EspaceRelecteur key={relecteur.id} relecteur={relecteur} />
+    </div>
+  );
+}
+
+type PartieEspace = "questionnaire" | "kit";
+
+/** Le questionnaire, puis le kit une fois le questionnaire envoyé. */
+function EspaceRelecteur({ relecteur }: { relecteur: Relecteur }) {
+  const { t } = useTranslation();
+  const questionnaireFini = Boolean(relecteur.questionnaire_termine_at);
+  const [partie, setPartie] = React.useState<PartieEspace>(questionnaireFini ? "kit" : "questionnaire");
+
+  if (!questionnaireFini) return <Questionnaire relecteur={relecteur} />;
+  return (
+    <div className="space-y-4">
+      <Segments<PartieEspace>
+        libelle={t("relectureNative.poster.parties")}
+        actif={partie}
+        onChange={setPartie}
+        options={[
+          { cle: "questionnaire", contenu: t("relectureNative.poster.partieQuestionnaire") },
+          { cle: "kit", contenu: t("relectureNative.poster.partieKit") },
+        ]}
+      />
+      {partie === "questionnaire" ? <Questionnaire relecteur={relecteur} /> : <SectionKitRelecteur relecteur={relecteur} />}
     </div>
   );
 }

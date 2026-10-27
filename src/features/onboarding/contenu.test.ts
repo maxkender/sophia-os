@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { ECRANS, QUESTIONS, ecransPour, questionsPour } from "./contenu";
+import { ECRANS, QUESTIONS, SALON_COHORTE_RUUL, ecransPour, questionsPour } from "./contenu";
 
 function texte(ecrans: ReturnType<typeof ecransPour>, cle: string): string {
   return JSON.stringify(ecrans.find((e) => e.cle === cle)?.blocs ?? []);
@@ -123,7 +123,7 @@ describe("quiz", () => {
   it("cohorte Ruul : questions dans son salon, paie sans HM", () => {
     const ruul = questionsPour({ cohorteRuul: true, emailRuul: null });
     expect(ruul.map((x) => x.cle)).toEqual(QUESTIONS.map((x) => x.cle));
-    expect(q("question", ruul).options[q("question", ruul).bonne]).toContain("#ruul-cohort");
+    expect(q("question", ruul).options[q("question", ruul).bonne]).toContain(SALON_COHORTE_RUUL);
     const paie = q("paiement", ruul).options[q("paiement", ruul).bonne]!;
     expect(paie).not.toMatch(/hiring manager/i);
     expect(paie).toContain("Lucia De Mojà or Maximilien Kender");

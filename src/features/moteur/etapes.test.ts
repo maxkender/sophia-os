@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { compterEtapes, etapeCompte, qualiteAffichee } from "./etapes";
+import { compterEtapes, etapeCompte, qualiteAffichee, tempsRestant } from "./etapes";
 
 // Mardi 27 oct. 2026, 10 h.
 const AUJ = "2026-10-27";
@@ -57,5 +57,43 @@ describe("étape d'un compte", () => {
     expect(c.not_created).toBe(1);
     expect(c.posting).toBe(2);
     expect(c.stopped).toBe(0);
+  });
+});
+
+describe("Inactive et temps restant du warm-up", () => {
+  const fini = { ...base, warmupStartedAt: "2026-09-28T10:00:00Z", warmupEndsAt: "2026-10-04T22:00:00Z", premierJour: "2026-10-05" };
+
+  it("plus de 4 jours sans post publié : Inactive, avec la date du dernier post", () => {
+    expect(etape({ ...fini, dernierPublie: "2026-10-15" })).toEqual({
+      etape: "inactive",
+      semaine: 4,
+      dernierPost: "2026-10-15",
+    });
+  });
+
+  it("4 jours pile : encore Posting", () => {
+    expect(etape({ ...fini, dernierPublie: "2026-10-23" }).etape).toBe("posting");
+    expect(etape({ ...fini, dernierPublie: "2026-10-22" }).etape).toBe("inactive");
+  });
+
+  it("aucun post : compté depuis le premier jour prévu", () => {
+    expect(etape({ ...fini, premierJour: "2026-10-26", dernierPublie: null }).etape).toBe("posting");
+    expect(etape({ ...fini, dernierPublie: null })).toMatchObject({ etape: "inactive", dernierPost: null });
+  });
+
+  it("dernier post inconnu (données absentes) : jamais Inactive", () => {
+    expect(etape({ ...fini }).etape).toBe("posting");
+  });
+
+  it("la qualité reste affichée sur un compte Inactive", () => {
+    expect(qualiteAffichee({ etape: "inactive", semaine: 4 }, "good")).toBe("good");
+  });
+
+  it("warm-up : la fin est rendue pour le temps restant", () => {
+    const e = etape({ ...base, warmupStartedAt: "2026-10-25T10:00:00Z", warmupEndsAt: "2026-11-01T23:00:00Z" });
+    expect(e).toMatchObject({ etape: "warming_up", warmupFin: "2026-11-01T23:00:00Z" });
+    expect(tempsRestant("2026-11-01T23:00:00Z", MAINTENANT)).toEqual({ jours: 5, heures: 14 });
+    expect(tempsRestant("2026-10-27T13:30:00Z", MAINTENANT)).toEqual({ jours: 0, heures: 5 });
+    expect(tempsRestant("2026-10-27T08:00:00Z", MAINTENANT)).toEqual({ jours: 0, heures: 0 });
   });
 });

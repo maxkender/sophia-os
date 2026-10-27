@@ -742,7 +742,8 @@ export function AdminPostersPage() {
   });
 
   // Défaut « tous » : les nouveaux (warmup pas démarré) restent visibles.
-  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | Etape>("tous");
+  // Étapes choisies (plusieurs à la fois) ; vide = toutes.
+  const [filtreEtapes, setFiltreEtapes] = React.useState<ReadonlySet<Etape>>(() => new Set());
   const [filtreLangue, setFiltreLangue] = React.useState("");
   // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
   const [filtrePays, setFiltrePays] = React.useState("");
@@ -826,6 +827,8 @@ export function AdminPostersPage() {
           warmupEndsAt: c.warmup_ends_at,
           tiktokExiste: d?.tiktokExiste,
           premierJour: d?.premierJour ?? premiersJours.data?.get(c.id) ?? null,
+          // « Inactive » : seulement quand on connaît le dernier post publié.
+          dernierPublie: d ? d.dernierPublie : undefined,
         },
         aujourdhuiEtapes,
       );
@@ -844,7 +847,7 @@ export function AdminPostersPage() {
     [comptesParPoster, etatCompte],
   );
   /** Filtre d'étape choisi en cliquant un compteur, par recruteur. */
-  const [etapeParHm, setEtapeParHm] = React.useState<Record<string, Etape | undefined>>({});
+  const [etapeParHm, setEtapeParHm] = React.useState<Record<string, readonly Etape[] | undefined>>({});
   const lundiParCompte = React.useMemo(() => {
     const m = new Map<string, string | null>();
     for (const c of comptes.data ?? []) {
@@ -1346,7 +1349,7 @@ export function AdminPostersPage() {
 
   const rechercheNormalisee = sansAccents(recherche.trim());
   const matchCreateur = (p: PosterProfil) => {
-    if (filtrePhase !== "tous" && etatCreateur(p).etape !== filtrePhase) return false;
+    if (filtreEtapes.size > 0 && !filtreEtapes.has(etatCreateur(p).etape)) return false;
     if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
     if (filtreCohorte && (cohorteDe(p.id) ?? COHORTE_PAS_DEMARRE) !== filtreCohorte) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
@@ -1461,21 +1464,49 @@ export function AdminPostersPage() {
           <option value={CLE_SANS_ZONE}>{t("posters.sansZone")}</option>
         </select>
       </div>
-      <div className="space-y-1">
-        <Label htmlFor="filtrePhase">{t("posters.filtrePhase")}</Label>
-        <select
-          id="filtrePhase"
-          className={selectClass}
-          value={filtrePhase}
-          onChange={(e) => setFiltrePhase(e.target.value as "tous" | Etape)}
-        >
-          <option value="tous">{t("posters.filtreTous")}</option>
-          {ETAPES.map((e) => (
-            <option key={e} value={e}>
-              {t(`etapes.${e}`)}
-            </option>
-          ))}
-        </select>
+      <div className="space-y-1.5 sm:col-span-2 lg:col-span-6">
+        <span className="flex flex-wrap items-baseline gap-2">
+          <Label>{t("etapes.filtre")}</Label>
+          <span className="text-[11px] text-muted-foreground">{t("etapes.filtreMultiAide")}</span>
+        </span>
+        <div role="group" aria-label={t("etapes.filtre")} className="flex flex-wrap gap-1.5">
+          {ETAPES.map((e) => {
+            const coche = filtreEtapes.has(e);
+            return (
+              <label
+                key={e}
+                className={cn(
+                  "flex cursor-pointer items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-colors",
+                  coche ? "border-primary bg-primary/10 font-medium text-foreground" : "text-muted-foreground hover:bg-muted",
+                )}
+              >
+                <input
+                  type="checkbox"
+                  className="size-3.5 accent-[var(--color-primary)]"
+                  checked={coche}
+                  onChange={() =>
+                    setFiltreEtapes((avant) => {
+                      const apres = new Set(avant);
+                      if (apres.has(e)) apres.delete(e);
+                      else apres.add(e);
+                      return apres;
+                    })
+                  }
+                />
+                {t(`etapes.${e}`)}
+              </label>
+            );
+          })}
+          {filtreEtapes.size > 0 && (
+            <button
+              type="button"
+              className="px-1.5 text-xs text-muted-foreground underline-offset-2 hover:underline"
+              onClick={() => setFiltreEtapes(new Set())}
+            >
+              {t("posters.filtreTous")}
+            </button>
+          )}
+        </div>
       </div>
       <div className="space-y-1">
         <Label htmlFor="filtreLangue">{t("posters.filtreLangue")}</Label>
@@ -1599,6 +1630,8 @@ export function AdminPostersPage() {
   const { actifs: createursActifs, archive } = repartirArchive(tousCreateurs, comptes.data);
   const idsCreateursActifs = new Set(createursActifs.map((p) => p.id));
   const tousHorsArchive = tous.filter((p) => p.role !== "poster" || idsCreateursActifs.has(p.id));
+  // Filtrer sur Dormant ou Stopped va chercher dans l'Archive.
+  const avecArchive = filtreEtapes.has("dormant") || filtreEtapes.has("stopped");
   const archiveParHm = new Map<string, LigneArchive[]>();
   for (const e of archive) {
     const cle = e.posteur.manager_id ?? "";
@@ -1625,7 +1658,7 @@ export function AdminPostersPage() {
     .sort((a, b) => a.titre.localeCompare(b.titre, "fr"));
   // Zone → recruteur → créateurs. La zone est celle du RECRUTEUR (master list
   // Notion), dont ses créateurs héritent — pas la langue des comptes.
-  const parZone = regrouperParZone(tousHorsArchive, {
+  const parZone = regrouperParZone(avecArchive ? tous : tousHorsArchive, {
     garderCreateur: matchCreateur,
     filtreActif: filtreListe,
     garderRecruteur: recruteurCherche,
@@ -1709,8 +1742,10 @@ export function AdminPostersPage() {
   };
 
   const carteCreateur = (poster: PosterProfil) => {
-    // Les comptes dormants sont dans l'Archive, pas sur la carte.
-    const liste = (comptesParPoster.get(poster.id) ?? []).filter(compteActif);
+    // Les comptes dormants sont dans l'Archive, pas sur la carte (sauf un
+    // posteur de l'Archive, montré par le filtre Dormant / Stopped).
+    const siens = comptesParPoster.get(poster.id) ?? [];
+    const liste = idsCreateursActifs.has(poster.id) ? siens.filter(compteActif) : siens;
     const cohorte = cohorteDe(poster.id);
     const semaine = cohorte ? semaineDansCohorte(cohorte, aujourdhui) : null;
     return (
@@ -1775,7 +1810,9 @@ export function AdminPostersPage() {
                           <QualiteBadge qualite={qualiteAffichee(etatCompte(c), etapes.data?.get(c.id)?.qualite)} />
                         </>
                       )}
-                      <BadgeClassement classement={c.classement} size="sm" />
+                      {!(c.classement === "inactif" && etatCompte(c).etape === "inactive") && (
+                        <BadgeClassement classement={c.classement} size="sm" />
+                      )}
                       {liste.length > 1 && lundiParCompte.get(c.id) && (
                         <span>{t("posters.departCompte", { date: dateCourte(lundiParCompte.get(c.id)!) })}</span>
                       )}
@@ -1828,10 +1865,10 @@ export function AdminPostersPage() {
     const equipe = r.role === "directing_manager" ? equipeDm.get(r.id) : undefined;
     // Un filtre de créateurs réduit la liste : dire combien sont affichés,
     // les compteurs restant ceux de toute l'équipe.
-    const etapeChoisie = etapeParHm[r.id];
+    const etapesChoisies = etapeParHm[r.id] ?? [];
     const compteursEtapes = compterEtapes(bloc.equipe.map(etatCreateur));
-    const createursAffiches = etapeChoisie
-      ? bloc.createurs.filter((p) => etatCreateur(p).etape === etapeChoisie)
+    const createursAffiches = etapesChoisies.length > 0
+      ? bloc.createurs.filter((p) => etapesChoisies.includes(etatCreateur(p).etape))
       : bloc.createurs;
     const filtre = createursAffiches.length !== bloc.compteursEquipe.total;
     const puces = (
@@ -1840,11 +1877,16 @@ export function AdminPostersPage() {
           <button
             key={e}
             type="button"
-            aria-pressed={etapeChoisie === e}
-            onClick={() => setEtapeParHm((m) => ({ ...m, [r.id]: m[r.id] === e ? undefined : e }))}
+            aria-pressed={etapesChoisies.includes(e)}
+            onClick={() =>
+              setEtapeParHm((m) => {
+                const avant = m[r.id] ?? [];
+                return { ...m, [r.id]: avant.includes(e) ? avant.filter((x) => x !== e) : [...avant, e] };
+              })
+            }
             className={cn(
               "rounded-full border px-2 py-0.5 text-[11px] tabular-nums transition-colors",
-              etapeChoisie === e
+              etapesChoisies.includes(e)
                 ? "border-primary bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground",
             )}
@@ -1953,7 +1995,7 @@ export function AdminPostersPage() {
     // Admins : mêmes règles qu'avant les zones (masqués par un filtre de phase,
     // de langue ou de label), et hors de toute zone.
     const adminsVisibles =
-      filtrePhase === "tous" && !filtreListe && !filtreZoneEffectif && admins.length > 0;
+      filtreEtapes.size === 0 && !filtreListe && !filtreZoneEffectif && admins.length > 0;
 
     // Puces : une par zone, plus « Sans zone » qui compte aussi les créateurs
     // sans recruteur (le clic les montre). La zone filtrée garde sa puce même

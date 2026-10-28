@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronDown, Download, ExternalLink, Link2Off, MoreHorizontal } from "lucide-react";
+import { ChevronDown, Download, ExternalLink, Link2Off, MoreHorizontal, RefreshCw } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,7 +26,7 @@ import { supabase } from "@/lib/supabase/client";
 import { telechargerCsv } from "@/lib/csv";
 import { cn } from "@/lib/utils";
 
-import { corrigerPaie, exclurePaie, lireListePaie, type LigneListePaie } from "./api";
+import { corrigerPaie, exclurePaie, lireJalonsPaie, lireListePaie, relireJalonsUpwork, type LigneListePaie } from "./api";
 import { ContratsATerminer } from "./ContratsATerminer";
 import {
   actionAffichee,
@@ -34,11 +34,13 @@ import {
   besoinSuivante,
   consigne,
   csvListe,
+  noteJalon,
   parEquipe,
   postsParCompte,
   raisonsLigne,
   resteAFaire,
   totauxPaie,
+  TEXTES_NOTE_JALON,
   type ActionAffichee,
 } from "./logique";
 
@@ -194,6 +196,7 @@ function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: str
   const texteAction = useTexteAction();
   const action = actionAffichee(l);
   const texte = consigne(l, semaine);
+  const note = noteJalon(l, semaine);
   const raisons = raisonsLigne(l);
   return (
     <tr data-paie={l.poster_nom ?? l.id} className={cn(l.exclu && "opacity-60", l.paye_at && "bg-success/5")}>
@@ -236,6 +239,11 @@ function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: str
         {texte && (
           <p className="mt-1 max-w-72 text-xs font-medium" data-consigne>
             {texte}
+          </p>
+        )}
+        {note && (
+          <p className="mt-0.5 text-[11px] text-warning-foreground" data-note-jalon={note}>
+            {TEXTES_NOTE_JALON[note]}
           </p>
         )}
         {action === "rien" &&
@@ -326,6 +334,30 @@ function ContratsACompleter({ lignes }: { lignes: LigneListePaie[] }) {
         </ul>
       </div>
     </details>
+  );
+}
+
+/** « Read milestones » : relit chez Upwork la milestone à approuver de chaque contrat (F1). Lecture seule. */
+function BoutonJalons() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const relire = useMutation({
+    mutationFn: () => relireJalonsUpwork(),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["paie", "jalons"] }),
+  });
+  return (
+    <span className="inline-flex items-center gap-2">
+      <Button variant="outline" size="sm" disabled={relire.isPending} onClick={() => relire.mutate()} data-testid="relire-jalons">
+        <RefreshCw className={cn(relire.isPending && "animate-spin")} />
+        {t("paie.liste.jalons.relire")}
+      </Button>
+      {relire.data && (
+        <span className="text-xs text-muted-foreground">
+          {t("paie.liste.jalons.lus", { lus: relire.data.lus, contrats: relire.data.contrats })}
+        </span>
+      )}
+      {relire.isError && <span className="text-xs text-destructive">{(relire.error as Error).message}</span>}
+    </span>
   );
 }
 
@@ -447,7 +479,17 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
   const lundiPaie = ajouterJours(semaine, 7);
   const lundiBonus =
     reglagesBonus.data && prochainLundiBonus(lundiPaie, reglagesBonus.data.premier_lundi) === lundiPaie;
-  const lignes = liste.data ?? [];
+  // La milestone à approuver de chaque posteur, relue chez Upwork (F1, 0398).
+  const posterIds = (liste.data ?? []).map((l) => l.poster_id);
+  const jalons = useQuery({
+    queryKey: ["paie", "jalons", posterIds],
+    queryFn: () => lireJalonsPaie(posterIds),
+    enabled: !simulation && posterIds.length > 0,
+  });
+  const lignes = React.useMemo(
+    () => (liste.data ?? []).map((l) => ({ ...l, jalon: jalons.data?.get(l.poster_id) ?? null })),
+    [liste.data, jalons.data],
+  );
   // « À faire » par défaut : cache « Nothing to pay », les lignes terminées et les retirées.
   const [toutVoir, setToutVoir] = React.useState(false);
   const visibles = toutVoir ? lignes : lignes.filter(resteAFaire);
@@ -499,6 +541,7 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
               </button>
             ))}
           </div>
+          {!simulation && <BoutonJalons />}
           <Button variant="outline" size="sm" disabled={lignes.length === 0} onClick={() => exporter(lignes, "tout")}>
             <Download />
             {t("paie.liste.exporter")}

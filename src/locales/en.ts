@@ -3092,6 +3092,10 @@ export const en = {
         },
         toutFait: "Nothing to do: every line is done. “All” to see them again.",
         contratsACompleter: "Contracts to complete ({{n}})",
+        jalons: {
+          relire: "Read milestones (Upwork)",
+          lus: "{{lus}} / {{contrats}} contracts read",
+        },
         contratsACompleterDesc: "Creators to pay without an Upwork contract link: paste the link here, it then shows on the line.",
         corrige: "corrected ({{raison}}), calculated {{calcule}}",
         retire: "Removed from the list: {{raison}}",

@@ -3099,6 +3099,10 @@ export const fr = {
         },
         toutFait: "Rien à faire : toutes les lignes sont faites. « Tout » pour les revoir.",
         contratsACompleter: "Contrats à compléter ({{n}})",
+        jalons: {
+          relire: "Relire les milestones (Upwork)",
+          lus: "{{lus}} / {{contrats}} contrats lus",
+        },
         contratsACompleterDesc: "Posteurs à payer sans lien de contrat Upwork : colle le lien ici, il s'affiche ensuite sur la ligne.",
         corrige: "corrigé ({{raison}}), calculé {{calcule}}",
         retire: "Retiré de la liste : {{raison}}",

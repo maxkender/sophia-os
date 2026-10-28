@@ -200,9 +200,50 @@ export function curseurSuivant(offres: any): string | null {
 export const REQUETE_JALONS = `query Jalons($id: ID!) {
   contractDetails(id: $id) {
     id status
-    terms { fixedPriceTerms { id fixedAmount { rawValue currency } milestones { id description state sequenceId depositAmount { rawValue currency } paid { rawValue currency } dueDateTime } } }
+    terms { fixedPriceTerms { id fixedAmount { rawValue currency } milestones { id description state sequenceId depositAmount { rawValue currency displayValue } paid { rawValue currency displayValue } dueDateTime } } }
   }
 }`;
+
+/** Une milestone financée et pas encore payée (MilestoneState, schéma lu le 28/10). */
+export const ETATS_FINANCES = ["Active", "Submitted", "Rejected"];
+
+export interface JalonAApprouver {
+  jalon_id: string | null;
+  nom: string | null;
+  montant: number | null;
+  etat: string | null;
+  sequence: number | null;
+  /** Combien de milestones financées et non payées (plus d'une : à vérifier). */
+  nb_finances: number;
+}
+
+/**
+ * La milestone à approuver (chantier du 28 oct., F1) : la PREMIÈRE financée et
+ * pas encore payée du contrat (plus petit sequenceId), quel que soit son nom.
+ * Aucune : tout à null.
+ */
+// deno-lint-ignore no-explicit-any
+export function jalonAApprouver(contractDetails: any): JalonAApprouver {
+  // deno-lint-ignore no-explicit-any
+  const jalons: any[] = (contractDetails?.terms?.fixedPriceTerms ?? []).flatMap((t: any) => t?.milestones ?? []);
+  const finances = jalons
+    .filter((m) => ETATS_FINANCES.includes(m?.state))
+    .sort((a, b) => Number(a?.sequenceId ?? 0) - Number(b?.sequenceId ?? 0));
+  const m = finances[0];
+  // rawValue est en centimes (« 1500 » = 15 $, vérifié le 28/10) ; displayValue en dollars (« 15.00 »).
+  const brut = m?.depositAmount;
+  const montant = brut?.displayValue !== undefined && brut?.displayValue !== null
+    ? Number(String(brut.displayValue).replace(/[^0-9.]/g, ""))
+    : brut?.rawValue !== undefined ? Number(brut.rawValue) / 100 : NaN;
+  return {
+    jalon_id: m?.id ? String(m.id) : null,
+    nom: m?.description?.trim() || null,
+    montant: Number.isFinite(montant) ? montant : null,
+    etat: m?.state ?? null,
+    sequence: m?.sequenceId !== undefined && m?.sequenceId !== null ? Number(m.sequenceId) : null,
+    nb_finances: finances.length,
+  };
+}
 
 /** La conversation d'un contrat (contractRoom(contractId: ID!)), lecture seule. */
 export const REQUETE_SALON = `query Salon($id: ID!) { contractRoom(contractId: $id) { id roomName roomType } }`;

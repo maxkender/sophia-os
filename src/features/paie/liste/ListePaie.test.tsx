@@ -6,7 +6,13 @@ import i18n from "@/locales";
 
 import type { LigneListePaie } from "./api";
 
-const api = vi.hoisted(() => ({ lireListePaie: vi.fn(), corrigerPaie: vi.fn(), exclurePaie: vi.fn() }));
+const api = vi.hoisted(() => ({
+  lireListePaie: vi.fn(),
+  corrigerPaie: vi.fn(),
+  exclurePaie: vi.fn(),
+  lireJalonsPaie: vi.fn(async () => new Map()),
+  relireJalonsUpwork: vi.fn(),
+}));
 vi.mock("./api", () => api);
 vi.mock("./contratsATerminer", () => ({ lireContratsATerminer: vi.fn(async () => []), marquerContratTermine: vi.fn() }));
 const bonus = vi.hoisted(() => ({ lireBonus: vi.fn(), lireReglagesBonus: vi.fn(), marquerBonusPaye: vi.fn() }));
@@ -110,6 +116,26 @@ describe("ListePaie", () => {
     fireEvent.click(screen.getByRole("button", { name: "Tout (4)" }));
     expect(within(grece as HTMLElement).getByText(/Retiré de la liste : payé à part/)).toBeTruthy();
     expect(document.querySelector('[data-equipe="Zone – DACH & Nordics"]')!.textContent).toContain("Kill");
+  });
+
+  it("28 oct., F1 : la consigne prend le nom de la milestone lue chez Upwork, avec la note si elle diffère", async () => {
+    api.lireListePaie.mockResolvedValue([
+      ligne({ id: "1", poster_id: "p1", poster_nom: "Ana", montant: 10, suivante_montant: 10 }),
+      ligne({ id: "2", poster_id: "p2", poster_nom: "Bruno", montant: 12, suivante_montant: 12 }),
+    ]);
+    api.lireJalonsPaie.mockResolvedValue(
+      new Map([
+        ["p1", { jalon_id: "m1", nom: "Week 42", montant: 10, etat: "Active", nb_finances: 1, erreur: null, lu_at: "2026-10-28T16:00:00Z" }],
+      ]),
+    );
+    rendu("2026-10-19"); // Week 43
+    const ana = (await screen.findByText("Ana")).closest("tr") as HTMLElement;
+    expect(await within(ana).findByText("Approve Week 42: $10 · Fund Week 44: $10")).toBeTruthy();
+    expect(within(ana).getByText("name ≠ week posted (postponed)")).toBeTruthy();
+    const bruno = screen.getByText("Bruno").closest("tr") as HTMLElement;
+    expect(within(bruno).getByText("Approve Week 43: $12 · Fund Week 44: $12")).toBeTruthy();
+    expect(bruno.querySelector("[data-note-jalon]")).toBeNull();
+    expect(api.lireJalonsPaie).toHaveBeenCalledWith(["p1", "p2"]);
   });
 
   it("le bloc Comment Masters n'apparaît pas un lundi ordinaire", async () => {

@@ -1,3 +1,4 @@
+import { invoke } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
 
 /**
@@ -68,6 +69,42 @@ export interface LigneListePaie {
    */
   remboursement_semaine?: string | null;
   remboursement_montant?: number | null;
+  /** La milestone à approuver, relue chez Upwork (0398) ; absente tant qu'elle n'est pas lue. */
+  jalon?: JalonPaie | null;
+}
+
+/** La 1re milestone financée et non payée du contrat (chantier du 28 oct., F1). */
+export interface JalonPaie {
+  jalon_id: string | null;
+  nom: string | null;
+  montant: number | null;
+  etat: string | null;
+  /** Milestones financées et non payées sur le contrat (0 : rien à approuver chez Upwork). */
+  nb_finances: number;
+  erreur: string | null;
+  lu_at: string;
+}
+
+/** Les milestones à approuver des posteurs de la liste (0398), par posteur. */
+export async function lireJalonsPaie(posterIds: readonly string[]): Promise<Map<string, JalonPaie>> {
+  if (posterIds.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("paie_jalons", { p_posters: [...posterIds] });
+  if (error) throw error;
+  return new Map(
+    ((data ?? []) as (JalonPaie & { poster_id: string })[]).map((j) => [
+      j.poster_id,
+      { ...j, montant: j.montant === null ? null : Number(j.montant), nb_finances: Number(j.nb_finances ?? 0) },
+    ]),
+  );
+}
+
+/** Relit chez Upwork la milestone à approuver de chaque contrat actif relié (lecture seule). */
+export async function relireJalonsUpwork(): Promise<{ contrats: number; lus: number; erreurs: number }> {
+  const r = await invoke<{ ok: boolean; contrats?: number; lus?: number; erreurs?: number; error?: string }>("upwork", {
+    action: "jalons",
+  });
+  if (!r.ok) throw new Error(r.error ?? "lecture des milestones impossible");
+  return { contrats: r.contrats ?? 0, lus: r.lus ?? 0, erreurs: r.erreurs ?? 0 };
 }
 
 const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));

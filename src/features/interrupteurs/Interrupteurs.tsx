@@ -1,12 +1,23 @@
+import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 
-import { enregistrerInterrupteur, INTERRUPTEURS, lireInterrupteurs, type CleInterrupteur, type ModeInterrupteur } from "./api";
+import {
+  enregistrerInterrupteur,
+  enregistrerRepriseRappels,
+  INTERRUPTEURS,
+  lireInterrupteurs,
+  lireRepriseRappels,
+  type CleInterrupteur,
+  type ModeInterrupteur,
+} from "./api";
 
 const MODES: ModeInterrupteur[] = ["off", "test", "on"];
 const VARIANTE: Record<ModeInterrupteur, "secondary" | "warning" | "success"> = { off: "secondary", test: "warning", on: "success" };
@@ -67,7 +78,46 @@ export function Interrupteurs() {
           );
         })}
         {changer.isError && <p className="text-sm text-destructive">{(changer.error as Error).message}</p>}
+        <PauseRappels admin={admin} />
       </CardContent>
     </Card>
+  );
+}
+
+/** Rappels en pause pour tous jusqu'à une date (les HM suivent encore la cohorte). */
+function PauseRappels({ admin }: { admin: boolean }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const lu = useQuery({ queryKey: ["rappels-reprise"], queryFn: lireRepriseRappels });
+  const [jour, setJour] = useState("");
+  useEffect(() => setJour(lu.data ?? ""), [lu.data]);
+  const enregistrer = useMutation({
+    mutationFn: (j: string) => enregistrerRepriseRappels(j),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["rappels-reprise"] }),
+  });
+  return (
+    <div className="space-y-1.5 rounded-lg border p-3" data-testid="pause-rappels">
+      <p className="text-sm font-medium">{t("interrupteurs.pause.titre")}</p>
+      <p className="text-xs text-muted-foreground">{t("interrupteurs.pause.aide")}</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <Input
+          type="date"
+          className="w-44"
+          value={jour}
+          disabled={!admin}
+          aria-label={t("interrupteurs.pause.titre")}
+          onChange={(e) => setJour(e.target.value)}
+        />
+        <Button size="sm" variant="outline" disabled={!admin || enregistrer.isPending || jour === (lu.data ?? "")} onClick={() => enregistrer.mutate(jour)}>
+          {t("interrupteurs.pause.enregistrer")}
+        </Button>
+        {admin && jour && (
+          <Button size="sm" variant="ghost" disabled={enregistrer.isPending} onClick={() => enregistrer.mutate("")}>
+            {t("interrupteurs.pause.retirer")}
+          </Button>
+        )}
+      </div>
+      {enregistrer.isError && <p className="text-sm text-destructive">{(enregistrer.error as Error).message}</p>}
+    </div>
   );
 }

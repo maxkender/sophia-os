@@ -96,3 +96,52 @@ export function texteJeudi(modele: string, o: { prenom: string | null; faits: nu
     attendus: String(o.attendus),
   });
 }
+
+// ---------------------------------------------------------------------------
+// Le check du lundi soir (pipeline, partie 2) : 1er jour de posts, 20 h heure
+// du pays, aucun post publié avec son lien → un message sur Upwork, une fois.
+// 48 h après, ni post ni réponse → Kill (comme pendant l'accueil).
+// ---------------------------------------------------------------------------
+
+export interface PosteurLundiSoir {
+  poster_id: string;
+  compte_id: string | null;
+  deuxieme: boolean;
+  prenom: string | null;
+  fuseau: string;
+  contrat_id: string | null;
+  /** Posts publiés avec leur lien ce lundi (le compte de la carte). */
+  publies_lundi: number;
+  /** Le dernier post publié (avec lien), pour savoir s'il a posté depuis le message. */
+  dernier_post_at: string | null;
+  message_at: string | null;
+  message_id: string | null;
+  message_erreur: string | null;
+  /** En test : le 1er passage où le message était prévu. */
+  prevu_at: string | null;
+  repondu_at: string | null;
+  kill_id: string | null;
+  kill_statut: string | null;
+}
+
+/** Le message du lundi soir est dû : le lundi, de 20 h à minuit (heure du pays), aucun post, pas encore parti. */
+export function lundiSoirDu(p: PosteurLundiSoir, lundi: string, maintenant: Date, heure: number, test: boolean): boolean {
+  if (p.publies_lundi > 0 || p.message_at || (test && p.prevu_at)) return false;
+  return dansCreneau(maintenant, p.fuseau, lundi, heure, 24);
+}
+
+/** Une réaction depuis le message : un post publié, ou une réponse. */
+export function reactionLundiSoir(p: PosteurLundiSoir, envoyeAt: Date): boolean {
+  const apres = (iso: string | null) => iso !== null && Date.parse(iso) >= envoyeAt.getTime();
+  return apres(p.dernier_post_at) || apres(p.repondu_at);
+}
+
+/** Le Kill du lundi soir : `kill_h` heures après le message, sans post ni réponse. */
+export function killLundiSoir(p: PosteurLundiSoir, envoyeAt: Date | null, maintenant: Date, killH: number): boolean {
+  if (!envoyeAt || reactionLundiSoir(p, envoyeAt)) return false;
+  return maintenant.getTime() >= envoyeAt.getTime() + killH * 3_600_000;
+}
+
+export function texteLundiSoir(modele: string, prenom: string | null): string {
+  return remplir(modele, { prenom: (prenom ?? "").trim() || "there" });
+}

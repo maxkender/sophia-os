@@ -7,7 +7,7 @@ import { supabase } from "@/lib/supabase/client";
  */
 export type ModeInterrupteur = "off" | "test" | "on";
 
-export const INTERRUPTEURS = ["accueil_auto", "relances_auto", "lundi_message_auto", "kill_auto", "arret_auto", "reponses_auto"] as const;
+export const INTERRUPTEURS = ["accueil_auto", "relances_auto", "lundi_message_auto", "lundi_soir_auto", "kill_auto", "arret_auto", "reponses_auto"] as const;
 export type CleInterrupteur = (typeof INTERRUPTEURS)[number];
 
 /** « simulation » (ancien nom de relances_auto) = test. */
@@ -27,5 +27,20 @@ export async function enregistrerInterrupteur(cle: CleInterrupteur, mode: ModeIn
   const { error } = await supabase
     .from("reglages")
     .upsert({ cle, valeur: mode, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
+  if (error) throw error;
+}
+
+/** Rappels en pause pour tous jusqu'à cette date (minuit, Paris) : `rappels_reprise_le`, vide = pas de pause. */
+export async function lireRepriseRappels(): Promise<string> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "rappels_reprise_le").maybeSingle();
+  if (error) throw error;
+  return typeof data?.valeur === "string" ? data.valeur : "";
+}
+
+export async function enregistrerRepriseRappels(jour: string): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("reglages")
+    .upsert({ cle: "rappels_reprise_le", valeur: jour, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
   if (error) throw error;
 }

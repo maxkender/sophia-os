@@ -122,7 +122,7 @@ sera ensuite relu dans la PR.
 - **Slide 5 = slide Sophia** : un item sur l'apprentissage (apprendre un peu de tout, avoir quelque chose à dire sur tout). La base est sans appli, la version Sophia dans `texte_sophia`.
 - **Images** : celles des contenus d'inspiration du schéma (banque du label).
 	- La plus forte en accroche.
-	- **Couverture et accroche variées** (règle du 28/10, précisée par Adrien) : une slide 1 (`media_id` ou `reference_url`) ou une accroche identique ne revient pas avant 10 jours après sa dernière livraison chez nous, et rarement (2 usages au plus en tout). Varie le plus possible : 367 images d'accroche dans la banque. `npm run couvertures` propose des couvertures neuves, `deposer` refuse un doublon (à partir d'ay-o048).
+	- **Couvertures variées** : pioche largement dans la banque (367 images d'accroche, `npm run couvertures`). Reprendre une accroche ou une couverture est permis (c'est le principe des variantes, `ROUTINE.md` §4.7), mais chaque reprise change quelque chose : items, angle, image ou CTA. `deposer` refuse un post identique à un autre.
 	- Jamais deux fois la même image dans un deck.
 	- **La slide Sophia n'est jamais posée sur le visage reconnaissable d'une star** (prends la mer, une vague, un plongeon, une silhouette de dos). Sinon, la star aurait l'air de recommander l'app.
 - **Slides d'inspiration** : celles d'un post gagnant, position par position. Elles montrent au poster où et comment poser le texte jaune.

@@ -856,10 +856,17 @@ export function AdminPostersPage() {
     }
     return m;
   }, [comptes.data, premiersJours.data]);
+  // Prompt 17 (0391) : la cohorte est celle du profil, fixée dès l'offre
+  // acceptée ; le calcul par les comptes reste pour qui n'en a pas.
+  const cohorteProfil = React.useMemo(
+    () => new Map((posters.data ?? []).map((p) => [p.id, p.cohorte_lundi ?? null])),
+    [posters.data],
+  );
   const cohorteDe = React.useCallback(
     (posterId: string) =>
+      cohorteProfil.get(posterId) ??
       cohortePosteur((comptesParPoster.get(posterId) ?? []).map((c) => lundiParCompte.get(c.id) ?? null)),
-    [comptesParPoster, lundiParCompte],
+    [cohorteProfil, comptesParPoster, lundiParCompte],
   );
   const aujourdhui = aujourdhuiParis();
   const dateCourte = (jour: string) =>

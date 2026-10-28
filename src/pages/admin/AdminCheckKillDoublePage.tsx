@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { CalendarDays, Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Users } from "lucide-react";
@@ -85,7 +85,6 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
-import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
 import { VueHm } from "@/features/ckd/vueHm/VueHm";
 import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
 import { ReglagesMessages } from "@/features/messagesPosteurs/ReglagesMessages";
@@ -158,27 +157,30 @@ interface FiltreCohorte {
  * décide ligne par ligne (0328) ; les décisions partent aux HMs dans
  * #managers-hq (bouton, ou tout seul le dimanche à 12 h).
  *
- * Deux vues (0356) : « Suivi cohorte », la paire de cohortes de nouveaux
- * posteurs (celle qui poste, celle en warm-up), et « Suivi global », la page
- * telle qu'elle était, pour toutes les cohortes. `?vue=global` ouvre la seconde.
+ * « Suivi global » : la page telle qu'elle était, pour toutes les cohortes.
+ * L'ancien « Suivi cohorte » (0356, 1re semaine / warm-up) est remplacé par
+ * la page Cohortes (prompt 17, partie B) : `?vue=cohorte` y renvoie. Les
+ * décisions du samedi restent ici.
  * « Vue HM » (`?vue=hm`, 0370) : le dashboard des HMs, avec le choix de la HM.
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const brut = params.get("vue");
-  const vue: Vue = brut === "global" || brut === "shadowban" || brut === "hm" ? brut : "cohorte";
+  const vue: Vue = brut === "shadowban" || brut === "hm" ? brut : "global";
   const choisirVue = (v: Vue) =>
     setParams(
       (p) => {
         const n = new URLSearchParams(p);
-        if (v === "cohorte") n.delete("vue");
+        if (v === "global") n.delete("vue");
         else n.set("vue", v);
         return n;
       },
       { replace: true },
     );
   const [onglet, setOnglet] = React.useState<Onglet>("samedi");
+
+  if (brut === "cohorte") return <Navigate to="/admin/cohortes" replace />;
 
   return (
     <div className="space-y-6" data-testid="page-ckd">
@@ -204,13 +206,6 @@ export function AdminCheckKillDoublePage() {
         <VueShadowban />
       ) : vue === "hm" ? (
         <VueHm />
-      ) : vue === "cohorte" ? (
-        <VueCohorte
-          ouvrirGlobal={() => choisirVue("global")}
-          rendreControle={(type, jour, comptes) => (
-            <VueControles key={`${type}-${jour}`} type={type} cohorte={{ jour, comptes }} />
-          )}
-        />
       ) : (
         <>
           <Semaine />
@@ -238,16 +233,25 @@ export function AdminCheckKillDoublePage() {
   );
 }
 
-type Vue = "cohorte" | "global" | "shadowban" | "hm";
+type Vue = "global" | "shadowban" | "hm";
 
-/** Suivi cohorte, suivi global ou Shadowban : des boutons collés, celui de la vue affichée en avant. */
+/** Suivi global, Shadowban ou Vue HM : des boutons collés, celui de la vue affichée en avant ; Cohortes est une autre page. */
 function ChoixVue({ vue, onChange }: { vue: Vue; onChange: (v: Vue) => void }) {
   const { t } = useTranslation();
   return (
     <div role="group" aria-label={t("ckd.cohorte.vues.aria")} className="inline-flex rounded-lg border bg-muted/40 p-1">
+      <Link
+        to="/admin/cohortes"
+        className={cn(
+          "inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
+          "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
+        )}
+      >
+        <Users className="size-4" aria-hidden />
+        {t("cohortes.titre")}
+      </Link>
       {(
         [
-          { v: "cohorte", icone: <Users className="size-4" aria-hidden /> },
           { v: "global", icone: <List className="size-4" aria-hidden /> },
           { v: "shadowban", icone: <EyeOff className="size-4" aria-hidden /> },
           { v: "hm", icone: <CalendarDays className="size-4" aria-hidden /> },

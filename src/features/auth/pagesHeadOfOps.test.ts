@@ -35,6 +35,7 @@ const PAGES_DEMANDEES = [
   "/admin/nudges", // Nudges (v3 point 6)
   "/admin/inactifs", // Inactifs (v3 point 7)
   "/admin/check-kill-double", // Check, Kill or Double (21/10)
+  "/admin/cohortes", // Cohortes (prompt 17, partie B)
   "/admin/retours-contestes", // Retours que les créateurs disent faux, à côté des Reviews (23/10)
 ];
 

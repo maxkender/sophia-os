@@ -48,6 +48,7 @@ import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
 import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 import { SlackARelier } from "@/features/slack/SlackARelier";
 import { PageNudges } from "@/features/nudges/PageNudges";
+import { PageCohortes } from "@/features/cohortes/PageCohortes";
 import { PageInactifs } from "@/features/inactifs/PageInactifs";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
@@ -105,6 +106,7 @@ export function AppRouter() {
             <Route path="/admin/nudges" element={<PageNudges />} />
             <Route path="/admin/inactifs" element={<PageInactifs />} />
             <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
+            <Route path="/admin/cohortes" element={<PageCohortes />} />
             {/* Sans ces deux-là, Schedule et Account watch sont des culs-de-sac. */}
             <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />
             <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />

@@ -1,12 +1,11 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MemoryRouter } from "react-router-dom";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { PropositionCkd } from "@/features/ckd/api";
-import type { CompteCohorte } from "@/features/ckd/cohorte/api";
 
 const api = vi.hoisted(() => ({
   listerControles: vi.fn(),
@@ -108,7 +107,7 @@ function chiffre(intitule: string): HTMLElement {
   return within(screen.getByTestId("chiffres-ckd")).getByText(intitule).closest("div") as HTMLElement;
 }
 
-/** Le suivi global par défaut (la page d'avant 0356) ; `"/"` ouvre le suivi cohorte. */
+/** Le suivi global (la vue par défaut depuis la page Cohortes, prompt 17). */
 function rendre(entree = "/?vue=global") {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
@@ -580,165 +579,35 @@ describe("AdminCheckKillDoublePage", () => {
     await waitFor(() => expect(api.enregistrerSlackHm).toHaveBeenCalledWith("sara", "U0BST9HKKBQ"));
   });
 
-  describe("suivi cohorte", () => {
-    function compteCohorte(p: Partial<CompteCohorte>): CompteCohorte {
-      return {
-        compte_id: "c",
-        poster_id: "poster-clara",
-        hm_id: LUCIA,
-        handle: "h",
-        pays: "ES",
-        langue: "es",
-        application: "sophia",
-        is_active: true,
-        cree_le: "2026-10-19T09:00:00Z",
-        warmup_lance_le: null,
-        warmup_fin: null,
-        premier_jour: null,
-        glisse_de: null,
-        seuil_mort: 50,
-        seuil_bon: 3000,
-        posts: [],
-        releves: [],
-        ...p,
-      };
+  describe("suivi cohorte → page Cohortes (prompt 17, partie B)", () => {
+    function rendreAvecRoutes(entree: string) {
+      const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+      return render(
+        <QueryClientProvider client={client}>
+          <MemoryRouter initialEntries={[entree]}>
+            <TooltipProvider>
+              <Routes>
+                <Route path="/" element={<AdminCheckKillDoublePage />} />
+                <Route path="/admin/cohortes" element={<p>page cohortes</p>} />
+              </Routes>
+            </TooltipProvider>
+          </MemoryRouter>
+        </QueryClientProvider>,
+      );
     }
-    const semaine = (jours: string[], vues: (number | null)[]) =>
-      jours.flatMap((jour, i) => [0, 1].map((k) => {
-        const v = vues[i * 2 + k] ?? null;
-        return { jour, vues: v, url: v === null ? null : `https://www.tiktok.com/@x/photo/${i}${k}`, mesure: v !== null };
-      }));
-    const JOURS = ["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23"];
 
-    beforeEach(() => {
-      // Samedi 24 octobre, 10 h à Paris.
-      vi.useFakeTimers({ toFake: ["Date"] });
-      vi.setSystemTime(new Date("2026-10-24T08:00:00Z"));
-      cohorteApi.lireCohorte.mockImplementation(async (lundi: string) =>
-        lundi === "2026-10-19"
-          ? [
-              compteCohorte({
-                compte_id: "compte-ionut",
-                handle: "ionut.mentalitate346",
-                premier_jour: "2026-10-19",
-                posts: semaine(JOURS, [null, null, 300, null, null, null, null, null, null, null]),
-              }),
-              compteCohorte({
-                compte_id: "compte-katerina",
-                handle: "katerina.exelissetai333",
-                premier_jour: "2026-10-19",
-                posts: semaine(JOURS, [4000, 3500, 900, 5000, 3100, 700, 800, 4200, 1200, 600]),
-              }),
-            ]
-          : lundi === "2026-10-26"
-            ? [
-                compteCohorte({
-                  compte_id: "w1",
-                  handle: "lucia.lectura214",
-                  warmup_lance_le: "2026-10-20T10:00:00Z",
-                  releves: [
-                    { at: "2026-10-24T06:02:00Z", existe: true, cree_tiktok_at: "2026-10-20T08:00:00Z",
-                      abonnements: 18, likes: 52, abonnes: 0, videos: 0 },
-                  ],
-                }),
-                compteCohorte({
-                  compte_id: "w2",
-                  handle: "tomas.habitos119",
-                  cree_le: "2026-10-21T09:00:00Z",
-                  releves: [
-                    { at: "2026-10-24T06:02:00Z", existe: false, cree_tiktok_at: null, abonnements: null, likes: null,
-                      abonnes: null, videos: null },
-                  ],
-                }),
-                compteCohorte({
-                  compte_id: "w3",
-                  handle: "sara.idee184",
-                  cree_le: "2026-10-23T15:00:00Z",
-                  glisse_de: "2026-10-19",
-                  releves: [
-                    { at: "2026-10-24T06:02:00Z", existe: false, cree_tiktok_at: null, abonnements: null, likes: null,
-                      abonnes: null, videos: null },
-                  ],
-                }),
-              ]
-            : [],
-      );
-      cohorteApi.releverWarmup.mockResolvedValue({ ok: true, comptes: 3, existent: 1, introuvables: 2, illisibles: 0 });
-    });
-    afterEach(() => vi.useRealTimers());
-
-    it("par défaut : la paire S43 / S44 et, le samedi, le kill / keep de la cohorte seulement", async () => {
-      rendre("/");
-      expect(await screen.findByTestId("vue-cohorte")).toBeInTheDocument();
-      expect(screen.getByRole("tab", { name: "S43 · 1re semaine de posts" })).toHaveAttribute("aria-selected", "true");
-      expect(screen.getByRole("tab", { name: "S44 · Warm-up" })).toHaveAttribute("aria-selected", "false");
-      expect(cohorteApi.lireCohorte).toHaveBeenCalledWith("2026-10-19");
-      expect(cohorteApi.lireCohorte).toHaveBeenCalledWith("2026-10-26");
-
-      // Le samedi : les propositions des comptes de la cohorte, pas celles des autres.
-      const focus = await screen.findByTestId("focus-jour");
-      expect(await within(focus).findByTestId("proposition-ionut.mentalitate346")).toBeInTheDocument();
-      expect(within(focus).getByTestId("proposition-katerina.exelissetai333")).toBeInTheDocument();
-      expect(within(focus).queryByTestId("proposition-clara.eclaire390")).toBeNull();
-      // L'envoi aux HM part pour toutes les cohortes : seulement depuis le suivi global.
-      expect(within(focus).queryByTestId("barre-envoi")).toBeNull();
-      expect(within(focus).getByText(/L'envoi aux HM se fait depuis le suivi global/)).toBeInTheDocument();
-
-      // Compte par compte : publiés sur prévus, et une case par post.
-      const ionut = screen.getByTestId("ligne-poste-ionut.mentalitate346");
-      expect(within(ionut).getByText("1/10")).toBeInTheDocument();
-      expect(within(ionut).getAllByRole("img", { name: /Manqué ou sans lien/ })).toHaveLength(9);
-      expect(within(ionut).getByText("Kill (ne pas renouveler)")).toBeInTheDocument();
-      const katerina = screen.getByTestId("ligne-poste-katerina.exelissetai333");
-      expect(within(katerina).getByText("10/10")).toBeInTheDocument();
-      expect(within(katerina).getByRole("link", { name: /4\D?000 vues · Bon post/ })).toHaveAttribute(
-        "href",
-        "https://www.tiktok.com/@x/photo/00",
-      );
+    it("les onglets 1re semaine / warm-up sont retirés : ?vue=cohorte renvoie vers Cohortes", async () => {
+      rendreAvecRoutes("/?vue=cohorte");
+      expect(await screen.findByText("page cohortes")).toBeInTheDocument();
+      expect(cohorteApi.lireCohorte).not.toHaveBeenCalled();
     });
 
-    it("un autre jour : le suivi du soir, les comptes qui n'ont pas tout posté", async () => {
-      rendre("/");
-      const jours = await screen.findByRole("group", { name: "Jour de la semaine mis en avant" });
-      fireEvent.click(within(jours).getByRole("button", { name: /mar\.? 20/i }));
-      const focus = screen.getByTestId("focus-jour");
-      expect(within(focus).getByText(/1 compte sans tous ses posts/)).toBeInTheDocument();
-      expect(within(focus).getByText("@ionut.mentalitate346", { exact: false })).toBeInTheDocument();
-      expect(within(focus).getByText("1/2")).toBeInTheDocument();
-    });
-
-    it("l'onglet warm-up : statuts, alerte « Start warmup », filtres et relevé à la demande", async () => {
-      rendre("/");
-      fireEvent.click(await screen.findByRole("tab", { name: "S44 · Warm-up" }));
-      const onglet = await screen.findByTestId("onglet-warmup");
-      expect(within(onglet).getByText("2 comptes n'ont pas encore cliqué « Start warmup »")).toBeInTheDocument();
-      expect(within(onglet).getByText(/glissent en S45/)).toBeInTheDocument();
-
-      const lucia = screen.getByTestId("ligne-warmup-lucia.lectura214");
-      expect(within(lucia).getByText("Prêt")).toBeInTheDocument();
-      expect(within(lucia).getByText("18 abonnements · 52 likes")).toBeInTheDocument();
-      const tomas = screen.getByTestId("ligne-warmup-tomas.habitos119");
-      expect(within(tomas).getByText("À relancer")).toBeInTheDocument();
-      expect(within(tomas).getByText("Introuvable sur TikTok")).toBeInTheDocument();
-      const sara = screen.getByTestId("ligne-warmup-sara.idee184");
-      expect(within(sara).getByText("Nouveau")).toBeInTheDocument();
-      expect(within(sara).getByText("glissé de S43")).toBeInTheDocument();
-
-      fireEvent.click(within(onglet).getByRole("button", { name: "Pas sur TikTok 2" }));
-      expect(screen.queryByTestId("ligne-warmup-lucia.lectura214")).toBeNull();
-      expect(screen.getByTestId("ligne-warmup-tomas.habitos119")).toBeInTheDocument();
-
-      fireEvent.click(within(onglet).getByRole("button", { name: "Relever maintenant" }));
-      await waitFor(() => expect(cohorteApi.releverWarmup).toHaveBeenCalled());
-      expect(await within(onglet).findByText(/3 profils relus : 1 sur TikTok, 2 introuvables/)).toBeInTheDocument();
-    });
-
-    it("le bouton « Suivi global » ramène la page d'avant, avec ses onglets", async () => {
-      rendre("/");
-      await screen.findByTestId("vue-cohorte");
-      fireEvent.click(screen.getByRole("button", { name: "Suivi global" }));
+    it("par défaut : le suivi global, avec les décisions du samedi, et un lien vers Cohortes", async () => {
+      rendreAvecRoutes("/");
       expect(await screen.findByRole("tab", { name: "Samedi : kill, recréer, doubler" })).toBeInTheDocument();
       expect(screen.queryByTestId("vue-cohorte")).toBeNull();
+      fireEvent.click(screen.getByRole("link", { name: "Cohortes" }));
+      expect(await screen.findByText("page cohortes")).toBeInTheDocument();
     });
   });
 });

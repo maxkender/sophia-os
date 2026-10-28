@@ -43,6 +43,8 @@ export function consigne(l: LigneListePaie, semaine: string): string | null {
   // Warm-up : la 1re semaine de posts est la milestone financée par la HM à l'embauche.
   if (action === "rien" && l.nb_comptes === 0) return `Nothing to pay · Week ${n} funded at hiring`;
   if (action === "annuler") return `Don't approve Week ${w} · Ask for a refund · Don't fund`;
+  // Arrêtée avant d'avoir posté (page Cohortes, 0392) : la milestone financée à l'embauche est à rembourser.
+  if (action === "kill" && l.faits === 0) return `Nothing to pay · Ask for a refund · End the contract`;
   const approuver = action === "rien" ? "Nothing to pay" : `Approve Week ${w}: ${usd(l.montant)}`;
   if (action === "kill") return `${approuver} · Don't fund · End the contract`;
   const montant = l.suivante_montant === null ? "rate missing" : usd(l.suivante_montant);
@@ -69,7 +71,8 @@ export function consigne(l: LigneListePaie, semaine: string): string | null {
 /** La case « Payé » sert : il y a une milestone à approuver. */
 export function besoinPaye(l: LigneListePaie): boolean {
   const a = actionAffichee(l);
-  return a === "payer" || a === "payer_moins" || a === "modifier" || a === "kill";
+  if (a === "kill") return l.faits > 0;
+  return a === "payer" || a === "payer_moins" || a === "modifier";
 }
 
 /** La case « Semaine suivante faite » sert : il y a une milestone à financer. */

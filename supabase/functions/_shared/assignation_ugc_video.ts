@@ -19,6 +19,7 @@ import { formaterVideoMeta, sonderVideoMeta } from "./fal_normaliser_video.ts";
 import { falHebergerOctets } from "./fal_queue.ts";
 import { cleanImage, TEXT_MODELS } from "./gemini.ts";
 import { mapPool } from "./parallel.ts";
+import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
 import { chargerPrompt, serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -877,7 +878,7 @@ export async function assignerTousComptesUgcVideo(
   let q = supabase
     .from("comptes")
     .select(
-      "id, langue, application_id, ugc_persona_id, persona_nom, handle_tiktok, posts_par_jour, warmup_ends_at, ugc_ai_video, is_active",
+      "id, poster_id, langue, application_id, ugc_persona_id, persona_nom, handle_tiktok, posts_par_jour, warmup_ends_at, ugc_ai_video, is_active",
     );
   if (!libre) {
     q = q.eq("is_active", true).eq("ugc_ai_video", true);
@@ -885,7 +886,9 @@ export async function assignerTousComptesUgcVideo(
   if (compteId) q = q.eq("id", compteId);
   const { data, error } = await q;
   if (error) throw error;
-  const comptes = data ?? [];
+  // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392).
+  const rouges = libre || compteId || opts.ignorerWarmup ? new Set<string>() : await posteursEnRouge(supabase);
+  const comptes = (data ?? []).filter((c) => !compteBloque(c, rouges));
   if (compteId && comptes.length === 0) {
     opts.onLog?.(
       `Compte ${compteId.slice(0, 8)} introuvable — pas en base (id faux ?)`,

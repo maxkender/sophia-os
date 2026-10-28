@@ -3069,6 +3069,12 @@ export const fr = {
       aide: "Chaque fonction automatique : off (rien), test (l'OS montre ce qu'il ferait, sans rien envoyer ni payer), on (pour de vrai).",
       modes: { off: "Off", test: "Test", on: "On" },
       confirmerOn: "Passer « {{nom}} » sur on ? L'OS agira pour de vrai.",
+      pause: {
+        titre: "Rappels en pause jusqu'au",
+        aide: "Jusqu'à cette date (minuit, heure de Paris), l'OS n'envoie aucun rappel à personne : ni message des 4 étapes, ni message du lundi, ni Nudge du jeudi, ni check du lundi soir, ni Kill automatique. L'accueil et le Pipeline continuent. Vide : pas de pause.",
+        enregistrer: "Enregistrer",
+        retirer: "Retirer la pause",
+      },
       accueil_auto: {
         titre: "Accueil automatique",
         on: "Toutes les heures : chaque nouveau contrat Upwork d'une annonce connue crée son posteur (comme /embauche) et reçoit le message de bienvenue dans la conversation du contrat. Annonce inconnue ou générique : « Contrats à relier ».",

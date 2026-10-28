@@ -16,6 +16,7 @@ import {
   lireDelais,
   lireMode,
   type PosteurMercredi,
+  rappelsEnPause,
   type Recrue,
 } from "./relances.ts";
 
@@ -178,4 +179,12 @@ Deno.test("réglages : mode et délais lus avec des valeurs par défaut", () => 
   assertEquals(lireMode(undefined), "simulation");
   assertEquals(lireDelais({ acces_message_h: 12 }).acces_message_h, 12);
   assertEquals(lireDelais(null).acces_rouge_h, 48);
+});
+
+Deno.test("rappels en pause jusqu'au lundi minuit (Paris) ; vide ou mal écrit : pas de pause", () => {
+  assertEquals(rappelsEnPause("2026-11-02", new Date("2026-11-01T22:59:00Z")), true);
+  assertEquals(rappelsEnPause("2026-11-02", new Date("2026-11-01T23:00:00Z")), false);
+  assertEquals(rappelsEnPause("", new Date("2026-10-28T12:00:00Z")), false);
+  assertEquals(rappelsEnPause(null, new Date("2026-10-28T12:00:00Z")), false);
+  assertEquals(rappelsEnPause("2 nov", new Date("2026-10-28T12:00:00Z")), false);
 });

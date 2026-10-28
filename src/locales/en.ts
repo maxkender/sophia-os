@@ -3062,6 +3062,12 @@ export const en = {
       aide: "Each automatic function: off (nothing), test (the OS shows what it would do, without sending or paying anything), on (for real).",
       modes: { off: "Off", test: "Test", on: "On" },
       confirmerOn: "Turn “{{nom}}” on? The OS will act for real.",
+      pause: {
+        titre: "Reminders paused until",
+        aide: "Until this date (midnight, Paris time), the OS sends no reminder to anyone: no 4-step message, no Monday message, no Thursday nudge, no Monday evening check, no automatic Kill. Onboarding and the Pipeline keep running. Empty: no pause.",
+        enregistrer: "Save",
+        retirer: "Remove the pause",
+      },
       accueil_auto: {
         titre: "Automatic onboarding",
         on: "Every hour: each new Upwork contract from a known job post creates its poster (like /embauche) and gets the welcome message in the contract's conversation. Unknown or generic job post: “Contracts to link”.",

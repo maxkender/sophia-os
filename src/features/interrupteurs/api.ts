@@ -29,3 +29,18 @@ export async function enregistrerInterrupteur(cle: CleInterrupteur, mode: ModeIn
     .upsert({ cle, valeur: mode, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
   if (error) throw error;
 }
+
+/** Rappels en pause pour tous jusqu'à cette date (minuit, Paris) : `rappels_reprise_le`, vide = pas de pause. */
+export async function lireRepriseRappels(): Promise<string> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "rappels_reprise_le").maybeSingle();
+  if (error) throw error;
+  return typeof data?.valeur === "string" ? data.valeur : "";
+}
+
+export async function enregistrerRepriseRappels(jour: string): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("reglages")
+    .upsert({ cle: "rappels_reprise_le", valeur: jour, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
+  if (error) throw error;
+}

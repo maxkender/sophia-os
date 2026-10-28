@@ -13,13 +13,21 @@
 -- fonction. Aucune donnée existante modifiée.
 -- Retour arrière : drop function lundi_soir_posteurs ; alter table kills_auto
 -- drop column compte_id ; remettre le check de kills_auto.etape sans
--- 'lundi_soir' ; delete des réglages lundi_soir_*.
+-- 'lundi_soir' ; delete des réglages lundi_soir_* et rappels_reprise_le.
 
 insert into public.reglages (cle, valeur) values
   ('lundi_soir_auto', to_jsonb('test'::text)),
   ('lundi_soir_heure', to_jsonb(20)),
   ('lundi_soir_texte', to_jsonb(
     'Hi {prenom}, today is your first posting day and we don''t see any post on your dashboard yet. You still have until midnight: publish your 2 slideshows and paste each link on your dashboard. If something is blocking you, reply here.'::text))
+on conflict (cle) do nothing;
+
+-- Les rappels en pause jusqu'au lundi 2 nov. (minuit, Paris) : la cohorte du
+-- 2 nov. est encore suivie par les HM. Ni message d'étape, ni message du
+-- lundi, ni Nudge du jeudi, ni check du lundi soir, ni Kill automatique.
+-- Vide : pas de pause. Modifiable dans Réglages → Interrupteurs.
+insert into public.reglages (cle, valeur) values
+  ('rappels_reprise_le', to_jsonb('2026-11-02'::text))
 on conflict (cle) do nothing;
 
 -- Le Kill du lundi soir : une étape de plus ; et, pour un 2e compte, le compte visé.

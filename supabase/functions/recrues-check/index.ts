@@ -1,4 +1,4 @@
-import { instantLocal, lireMode, lundiParis, partiesLocales } from "../_shared/relances.ts";
+import { instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
 import {
   canalEtape,
   type DelaisAccueil,
@@ -120,6 +120,7 @@ async function reglages(supabase: Supabase) {
       "lundi_soir_auto",
       "lundi_soir_texte",
       "lundi_soir_heure",
+      "rappels_reprise_le",
     ]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -142,6 +143,7 @@ async function reglages(supabase: Supabase) {
     heures: lireHeuresSemaine(v.semaine_heures),
     lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
     texteLundiSoir: texte("lundi_soir_texte"),
+    repriseRappels: typeof v.rappels_reprise_le === "string" ? (v.rappels_reprise_le as string) : null,
     heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
   };
 }
@@ -168,6 +170,8 @@ interface Bilan {
   kills: number;
   killsPartis: number;
   killsAnnules: number;
+  /** Rappels en pause pour tous (`rappels_reprise_le`) : ni message, ni Kill. */
+  rappelsEnPause: boolean;
   erreurs: string[];
   /** Interne : les relances prévues existantes (pas rendu). */
   prevuesConnues?: Set<string>;
@@ -185,7 +189,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   const r = await reglages(supabase);
   const bilan: Bilan = {
     mode: r.mode, kill: r.kill, recrues: 0, semaine: 0, envoyes: 0, prevus: 0, bloques: 0, rouges: 0, resolus: 0,
-    kills: 0, killsPartis: 0, killsAnnules: 0, erreurs: [],
+    kills: 0, killsPartis: 0, killsAnnules: 0, rappelsEnPause: rappelsEnPause(r.repriseRappels, maintenant), erreurs: [],
   };
   if (r.mode === "off") return { ok: true, ...bilan };
 
@@ -346,7 +350,7 @@ async function appliquerEtape(
     await effacerPrevue();
     return;
   }
-  if (killEnCours(x) || bilan.pauses?.has(x.poster_id)) return;
+  if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
 
   const d = deciderEtape(e, maintenant, x.fuseau, r.etapes, { envoyeAt: envoi.envoyeAt, reponduAt: repondu, debut: debutCohorte(x) });
   if (d.kill) {
@@ -444,7 +448,7 @@ async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, 
  * part (file `arrets`, partie C), seulement si `kill_auto` est sur « on ».
  */
 async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[], maintenant: Date, bilan: Bilan) {
-  if (r.kill !== "on") return;
+  if (r.kill !== "on" || bilan.rappelsEnPause) return;
   const { data, error } = await supabase
     .from("kills_auto")
     .select("id, poster_id, compte_id, etape, message_at")
@@ -533,6 +537,7 @@ async function envoyerUpwork(contratId: string, texte: string): Promise<string |
 // ---------------------------------------------------------------------------
 
 async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[], maintenant: Date, bilan: Bilan) {
+  if (bilan.rappelsEnPause) return;
   const lundi = lundiParis(maintenant);
   const { data, error } = await supabase.rpc("semaine_posteurs", { p_lundi: lundi });
   if (error) {
@@ -790,7 +795,7 @@ async function autreCompteActif(supabase: Supabase, posterId: string, compteId: 
  * compte : seul ce compte s'arrête.
  */
 async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan) {
-  if (r.lundiSoir === "off") return;
+  if (r.lundiSoir === "off" || bilan.rappelsEnPause) return;
   // Le lundi de cette semaine et celui de la semaine d'avant (le Kill tombe le mercredi).
   const lundi = lundiParis(maintenant);
   for (const l of [lundi, ajouterJoursIso(lundi, -7)]) {

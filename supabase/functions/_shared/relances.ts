@@ -105,6 +105,15 @@ export function dansFenetre(instant: Date, fuseau: string, d: Delais): boolean {
   return h >= d.fenetre_debut && h < d.fenetre_fin;
 }
 
+/**
+ * Rappels en pause jusqu'au `reprise` (AAAA-MM-JJ, minuit à Paris), réglage
+ * `rappels_reprise_le` : les HM s'occupent encore de la cohorte. Vide : pas de pause.
+ */
+export function rappelsEnPause(reprise: unknown, maintenant: Date): boolean {
+  if (typeof reprise !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(reprise)) return false;
+  return maintenant < instantLocal(reprise, 0, "Europe/Paris");
+}
+
 /** Le lundi (AAAA-MM-JJ) de la semaine d'un instant, heure de Paris. */
 export function lundiParis(instant: Date): string {
   const p = partiesLocales(instant, "Europe/Paris");

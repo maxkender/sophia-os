@@ -2863,6 +2863,33 @@ export const fr = {
         statuts: { simule: "Simulé", en_attente: "En attente", annule: "Annulé", parti: "Parti", erreur: "Erreur" },
         arret: { a_faire: "Arrêt à faire", en_cours: "Arrêt en cours", fait: "Arrêt fait", erreur: "Arrêt en erreur" },
       },
+      arrets: {
+        titre: "Arrêts complets",
+        aide: {
+          off: "Éteint : les arrêts attendent dans la file, rien n'est fait.",
+          test: "Test : le posteur est désactivé dans l'OS ; sur Upwork, rien ne part (dernier message, milestones, fermeture : « simulé »).",
+          on: "On : désactivé dans l'OS ; jamais posté : dernier message, milestones non financées supprimées, remboursement à demander (liste de paie), contrat fermé s'il ne reste rien de financé ; déjà posté : la paie de lundi paie la semaine et ferme.",
+        },
+        vide: "Aucun arrêt ces 14 derniers jours.",
+        slack: "À retirer de Slack ({{n}})",
+        retire: "Retiré",
+        faitMain: "Fait à la main",
+        faitConfirm: "{{action}} : fait à la main pour {{nom}} ?",
+        aPoste: "a déjà posté",
+        jamaisPoste: "jamais posté",
+        sources: { kill_48h: "Kill à 48 h", je_ne_veux_plus: "« Je ne veux plus »", kill_samedi: "Kill du samedi", manuel: "Arrêter (à la main)" },
+        statuts: { a_faire: "À faire", en_cours: "En cours", fait: "Fait", erreur: "Erreur" },
+        actions: {
+          os: "OS",
+          message: "Dernier message",
+          jalons: "Milestones",
+          remboursement: "Remboursement",
+          fermeture: "Fermeture du contrat",
+          slack: "Slack",
+          paie: "Paie de lundi",
+        },
+        etats: { fait: "fait", simule: "simulé", erreur: "échec", a_faire: "à faire", sans_objet: "rien à faire" },
+      },
       parHm: {
         titre: "Par HM",
         aide: "Les 4 dernières cohortes démarrées ({{cohortes}}). Gardées samedi : seulement les cohortes dont le samedi est passé.",
@@ -3043,6 +3070,10 @@ export const fr = {
       relances_auto: {
         titre: "Messages des 4 étapes",
         on: "Toutes les heures : une recrue en retard sur une étape (connexion, compte TikTok, warm-up lancé, warm-up bien fait) reçoit UN message, jamais deux, sur Slack si relié, sinon sur Upwork, entre 10 h et 20 h heure de son pays. Le mercredi : le message aux posteurs sans post lundi et mardi.",
+      },
+      arret_auto: {
+        titre: "Arrêt complet",
+        on: "Chaque arrêt (Kill à 48 h, « je ne veux plus », Arrêter) : désactivé dans l'OS ; jamais posté : dernier message sur Upwork (« Your contract has ended. Thank you for your time. »), milestones non financées supprimées, remboursement à demander dans la liste de paie, contrat fermé par l'API s'il ne reste rien de financé ; déjà posté : payé pour la semaine en cours lundi, puis contrat fermé. Slack : liste « À retirer de Slack ».",
       },
       kill_auto: {
         titre: "Kill automatique",

@@ -45,7 +45,10 @@ export function dollarsUpwork(m: any): number | null {
 // deno-lint-ignore no-explicit-any
 export function lireJalonsContrat(contractDetails: any): JalonUpwork[] {
   // deno-lint-ignore no-explicit-any
-  const brut: any[] = (contractDetails?.terms?.fixedPriceTerms ?? []).flatMap((t: any) => t?.milestones ?? []);
+  // Une liste (vu le 28/10) ; un objet seul est lu aussi, au lieu de planter.
+  const termes = contractDetails?.terms?.fixedPriceTerms;
+  // deno-lint-ignore no-explicit-any
+  const brut: any[] = (Array.isArray(termes) ? termes : termes ? [termes] : []).flatMap((t: any) => t?.milestones ?? []);
   return brut
     .filter((m) => m?.id)
     .map((m) => ({

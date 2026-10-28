@@ -125,7 +125,8 @@ export function AppShell({
             </div>
 
             <div className="flex items-center gap-2">
-              {SUPPORTED_LANGUAGES.length > 1 && (
+              {/* Prompt 15, point 6d : un posteur voit toujours l'anglais, sans sélecteur. */}
+              {SUPPORTED_LANGUAGES.length > 1 && roleReel !== "poster" && (
                 <Select
                   value={langue}
                   onValueChange={(value) => {

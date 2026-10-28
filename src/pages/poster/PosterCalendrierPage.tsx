@@ -334,7 +334,12 @@ export function PosterCalendrierPage() {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
-  const duJour = parJour.get(jour) ?? [];
+  // Prompt 15, point 6a : « Today » montre les posts de TOUS ses comptes actifs
+  // (badge @compte sur chaque carte), un 2e compte (Double) compris.
+  const actifs = new Set((comptes ?? []).map((c) => c.id));
+  const duJour = (posts ?? []).filter(
+    (p) => p.date_publication_prevue === jour && (!p.compte_id || actifs.size === 0 || actifs.has(p.compte_id)),
+  );
   const titreJour = t("calendrier.aujourdhui");
   // En avance sur Paris (Nouvelle-Zélande…), les posts du jour arrivent en
   // pleine journée : on annonce l'heure plutôt que « rien de prévu » le matin.
@@ -402,6 +407,29 @@ export function PosterCalendrierPage() {
     <div className="space-y-8">
       {/* Compte recréé (0368) : quoi faire, en haut de son espace. */}
       <BandeauRecreation actif={Boolean(user?.id)} />
+
+      {/* Prompt 15, point 6a : « Today » tout en haut. */}
+      {!ugc && (
+      <section className="space-y-4">
+        <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
+        {duJour.length === 0 ? (
+          <EmptyState
+            icon={<CalendarCheck className="size-5" />}
+            title={
+              postsAVenir && warmupStatut === "termine"
+                ? t("calendrier.arriveeVers", { heure: heureArrivee })
+                : t("calendrier.rien")
+            }
+          />
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {duJour.map((post, index) => (
+              <CartePost key={post.id} post={post} creneau={index + 1} />
+            ))}
+          </div>
+        )}
+      </section>
+      )}
       {comptes && comptes.length > 0 && (
         <SelecteurCompte
           comptes={comptes}
@@ -428,8 +456,9 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM. */}
-      {compte && !estCm && (
+      {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM.
+          Prompt 15, point 6b : seulement pendant le warm-up (à lancer, en cours). */}
+      {compte && !estCm && warmupStatut !== "termine" && (
       <div
         className={cn(
           "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
@@ -487,7 +516,20 @@ export function PosterCalendrierPage() {
 
       {debutRuul && <BandeauCohorteRuul />}
 
-      {compte && <IdentiteTikTok compte={compte} />}
+      {/* Prompt 15, point 6b : la carte identité se replie une fois le warm-up fini. */}
+      {compte &&
+        (warmupStatut === "termine" ? (
+          <details className="group rounded-lg border" data-testid="identite-repliee">
+            <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium">
+              {t("identite.titre")} · @{compte.handle_tiktok ?? "—"}
+            </summary>
+            <div className="px-1 pb-1">
+              <IdentiteTikTok compte={compte} />
+            </div>
+          </details>
+        ) : (
+          <IdentiteTikTok compte={compte} />
+        ))}
 
       {/* Chantier du 28 oct. : comment il est payé et la règle du lien (pas la cohorte Ruul). */}
       {cohorte.isSuccess && !debutRuul && !estCm && <CarteCommentPaye />}
@@ -520,27 +562,6 @@ export function PosterCalendrierPage() {
         </Link>
       )}
 
-      {!ugc && (
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
-        {duJour.length === 0 ? (
-          <EmptyState
-            icon={<CalendarCheck className="size-5" />}
-            title={
-              postsAVenir && warmupStatut === "termine"
-                ? t("calendrier.arriveeVers", { heure: heureArrivee })
-                : t("calendrier.rien")
-            }
-          />
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {duJour.map((post, index) => (
-              <CartePost key={post.id} post={post} creneau={index + 1} />
-            ))}
-          </div>
-        )}
-      </section>
-      )}
 
       {!ugc && (
       <section className="space-y-3">

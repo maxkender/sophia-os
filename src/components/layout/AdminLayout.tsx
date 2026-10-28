@@ -22,6 +22,7 @@ import {
   MessageCircle,
   MessageSquareQuote,
   MessagesSquare,
+  Workflow,
   MoonStar,
   PenLine,
   Boxes,
@@ -184,6 +185,13 @@ export function AdminLayout() {
             // à relier sortent du menu (routes gardées) : les inactifs sont dans
             // Decisions et dans un filtre de Posters, Slack se relie dans la
             // fiche du posteur.
+            // Pipeline (0407) : en 1re position du suivi, avant Cohorts.
+            {
+              to: "/admin/pipeline",
+              label: t("pipeline.nav"),
+              icon: Workflow,
+              description: t("pipeline.navDesc"),
+            },
             {
               to: "/admin/cohortes",
               label: t("cohortes.nav"),

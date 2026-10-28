@@ -34,6 +34,7 @@ export const ROUTES_HO: readonly string[] = [
   "/admin/paie", // Paie : Lucia paie le lundi depuis une seule liste (v3, 0380)
   "/admin/slack", // Slack à relier : les posteurs sans compte Slack connu (0381)
   "/admin/nudges", // Nudge all, réponses, relances Upwork (v3, 0384)
+  "/admin/pipeline", // Pipeline : toutes les recrues, de l'offre au 1er jour posté, en direct (0407)
   "/admin/reponses", // Réponses : les messages des posteurs, classés par l'OS (système du 2 nov., 0406)
   "/admin/inactifs", // Inactifs : marqués à 7 h, proposés en Kill le samedi (v3, 0385)
   "/admin/check-kill-double", // Check, Kill or Double : décider, envoyer aux HMs, suivre les Done (21/10)

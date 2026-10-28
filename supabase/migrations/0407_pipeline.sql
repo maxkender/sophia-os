@@ -13,14 +13,16 @@
 --    colonne (1 offre acceptée … 6 1er jour posté), son état (attente,
 --    relancé, a répondu, Kill, fait), la date limite et le dernier événement.
 -- 3. `pipeline_arretes()` : les arrêtés des 7 derniers jours ;
---    `pipeline_historique(p_poster)` : le panneau d'une carte.
+--    `pipeline_historique(p_poster)` : le panneau d'une carte ;
+--    `pipeline_arreter(p_poster)` : « Arrêter » (file des arrêts complets).
 -- 4. Realtime : `recrue_evenements` dans la publication supabase_realtime.
 --
 -- Admin et Head of Ops (is_admin). Additive : une table, des fonctions, des
 -- déclencheurs AFTER qui n'écrivent que dans la nouvelle table. Aucune donnée
 -- existante modifiée.
 -- Retour arrière : drop des déclencheurs pipeline_* ; drop des fonctions
--- pipeline_* et recrue_evenement_noter ; drop table recrue_evenements.
+-- pipeline_* (dont pipeline_arreter) et recrue_evenement_noter ; drop table
+-- recrue_evenements.
 
 create table if not exists public.recrue_evenements (
   id         uuid primary key default gen_random_uuid(),
@@ -602,5 +604,27 @@ $$;
 
 revoke execute on function public.pipeline_historique(uuid) from public, anon;
 grant execute on function public.pipeline_historique(uuid) to authenticated;
+
+-- « Arrêter » (panneau du pipeline, admin et Head of Ops) : la file des
+-- arrêts complets (partie C, source manuel), un seul arrêt ouvert par posteur.
+create or replace function public.pipeline_arreter(p_poster uuid)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if not public.is_admin() then
+    raise exception 'pipeline_arreter : réservé à l''admin et au Head of Ops';
+  end if;
+  if exists (select 1 from public.arrets where poster_id = p_poster and statut in ('a_faire', 'en_cours')) then
+    raise exception 'pipeline_arreter : un arrêt est déjà en cours pour ce posteur';
+  end if;
+  insert into public.arrets (poster_id, source, demande_par) values (p_poster, 'manuel', auth.uid());
+end;
+$$;
+
+revoke execute on function public.pipeline_arreter(uuid) from public, anon;
+grant execute on function public.pipeline_arreter(uuid) to authenticated;
 
 notify pgrst, 'reload schema';

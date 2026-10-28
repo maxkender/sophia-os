@@ -102,6 +102,9 @@ const COMPTE = "principal";
  *       `accueil_contrats_depuis` → posteur créé et message de bienvenue
  *       (annonce connue), « Contrats à relier », ou doublon signalé.
  *       Interrupteur `accueil_auto` (off / test / on).
+ *   { action: "message_posteur", poster_id, texte, type? }  admin, Head of Ops
+ *       « Send on Upwork » : le texte dans la conversation du contrat du
+ *       posteur, noté dans `nudges` (canal upwork, à la main).
  *   { action: "arrets" }                     cron `arrets`, minute 40 ; admin
  *       Système du 2 nov., partie C : l'arrêt complet des posteurs de la file
  *       `arrets` (Kill à 48 h, « je ne veux plus », Arrêter). Désactivé dans
@@ -144,7 +147,7 @@ Deno.serve(async (request) => {
     // deno-lint-ignore no-explicit-any
     const body: any = await request.json().catch(() => ({}));
     const par = acces.userId === "cron" ? null : acces.userId;
-    if (acces.role !== "admin" && !["paie_apercu", "paie_payer"].includes(body.action)) {
+    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "message_posteur"].includes(body.action)) {
       return json({ error: "forbidden" }, 403);
     }
 
@@ -170,6 +173,8 @@ Deno.serve(async (request) => {
         return json(await testerDroits(supabase, par));
       case "message":
         return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? "")));
+      case "message_posteur":
+        return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
         return json(await traiterArrets(supabase, par));
       case "reponses_lire":
@@ -952,6 +957,29 @@ async function ecrire(
     duree: Date.now() - debut,
   });
   return { data: valeur?.data ?? null, erreur };
+}
+
+/**
+ * « Send on Upwork » (page Pipeline, Relances) : le texte, dans la conversation
+ * du contrat du posteur, une fois, puis noté dans `nudges` (canal upwork, à la
+ * main) : il apparaît dans l'historique et compte comme une relance.
+ */
+async function messagePosteur(supabase: Supabase, par: string | null, posterId: string, texte: string, type: unknown) {
+  if (!posterId || !texte.trim()) return { ok: false, error: "poster_id et texte requis" };
+  const { data: p } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
+  const contrat = p?.upwork_contract_id as string | undefined;
+  if (!contrat) return { ok: false, error: "contrat Upwork non relié à ce posteur" };
+  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim());
+  if (!envoi.ok) return envoi;
+  await supabase.from("nudges").insert({
+    poster_id: posterId,
+    type: typeof type === "string" && type.trim() ? `${type.trim()}_upwork` : "manuel_upwork",
+    canal: "upwork",
+    texte: texte.trim(),
+    cible: "manuel",
+    envoye_par: par,
+  });
+  return envoi;
 }
 
 async function envoyerMessage(supabase: Supabase, par: string | null, contratId: string, texte: string) {

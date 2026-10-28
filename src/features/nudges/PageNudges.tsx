@@ -26,6 +26,7 @@ import {
   type ReglagesRelances,
 } from "./api";
 import { ETAPES_STATS, etatNudge, statsRelances } from "./logique";
+import { BoutonSendUpwork } from "@/features/pipeline/BoutonSendUpwork";
 
 function useDate() {
   const { i18n } = useTranslation();
@@ -83,11 +84,17 @@ function Historique() {
                       <p className="text-xs text-destructive">{t("nudges.historique.erreur", { erreur: n.slack_erreur })}</p>
                     )}
                   </div>
-                  {etat === "sans_reponse" && (
-                    <Button size="sm" variant="outline" disabled={repondu.isPending} onClick={() => repondu.mutate(n.id)}>
-                      {t("nudges.historique.aRepondu")}
-                    </Button>
-                  )}
+                  <span className="inline-flex flex-wrap items-center gap-1.5">
+                    {/* Parti sur Slack, ou en échec : le même texte sur Upwork, en un clic. */}
+                    {(n.canal !== "upwork" || n.slack_erreur) && n.texte && (
+                      <BoutonSendUpwork posterId={n.poster_id} nom={n.poster_nom} texte={n.texte} type={n.type} />
+                    )}
+                    {etat === "sans_reponse" && (
+                      <Button size="sm" variant="outline" disabled={repondu.isPending} onClick={() => repondu.mutate(n.id)}>
+                        {t("nudges.historique.aRepondu")}
+                      </Button>
+                    )}
+                  </span>
                 </li>
               );
             })}
@@ -176,6 +183,7 @@ function Prevues() {
                   <span className="text-xs text-muted-foreground">· {date(p.maj_at)}</span>
                 </p>
                 {p.texte && <p className="whitespace-pre-line rounded-md bg-muted/40 p-2 text-xs">{p.texte}</p>}
+                {p.texte && <BoutonSendUpwork posterId={p.poster_id} nom={p.poster_nom} texte={p.texte} type={p.type} />}
               </li>
             ))}
           </ul>

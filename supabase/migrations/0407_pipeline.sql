@@ -20,6 +20,7 @@
 -- Admin et Head of Ops (is_admin). Additive : une table, des fonctions, des
 -- déclencheurs AFTER qui n'écrivent que dans la nouvelle table. Aucune donnée
 -- existante modifiée.
+-- (create or replace trigger : rien n'est supprimé.)
 -- Retour arrière : drop des déclencheurs pipeline_* ; drop des fonctions
 -- pipeline_* (dont pipeline_arreter) et recrue_evenement_noter ; drop table
 -- recrue_evenements.
@@ -110,8 +111,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_profiles on public.profiles;
-create trigger pipeline_profiles after insert or update of offre_acceptee_le, premiere_connexion_at on public.profiles
+create or replace trigger pipeline_profiles after insert or update of offre_acceptee_le, premiere_connexion_at on public.profiles
   for each row execute function public.pipeline_tg_profiles();
 
 -- accueils : le message de bienvenue parti.
@@ -131,8 +131,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_accueils on public.accueils;
-create trigger pipeline_accueils after insert or update of message_at on public.accueils
+create or replace trigger pipeline_accueils after insert or update of message_at on public.accueils
   for each row execute function public.pipeline_tg_accueils();
 
 -- comptes : un 2e compte (Double), le Start warmup.
@@ -159,8 +158,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_comptes on public.comptes;
-create trigger pipeline_comptes after insert or update of warmup_started_at on public.comptes
+create or replace trigger pipeline_comptes after insert or update of warmup_started_at on public.comptes
   for each row execute function public.pipeline_tg_comptes();
 
 -- ckd_warmup_releves : le compte TikTok vu pour la 1re fois, le warm-up bien fait.
@@ -191,8 +189,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_releves on public.ckd_warmup_releves;
-create trigger pipeline_releves after insert on public.ckd_warmup_releves
+create or replace trigger pipeline_releves after insert on public.ckd_warmup_releves
   for each row execute function public.pipeline_tg_releves();
 
 -- passages : le 1er post publié avec son lien, par compte.
@@ -217,8 +214,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_passages on public.passages;
-create trigger pipeline_passages after insert or update of publie_url on public.passages
+create or replace trigger pipeline_passages after insert or update of publie_url on public.passages
   for each row execute function public.pipeline_tg_passages();
 
 -- nudges : une relance partie ; relances_prevues : prévue (test) ou bloquée.
@@ -238,8 +234,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_nudges on public.nudges;
-create trigger pipeline_nudges after insert on public.nudges
+create or replace trigger pipeline_nudges after insert on public.nudges
   for each row execute function public.pipeline_tg_nudges();
 
 create or replace function public.pipeline_tg_prevues()
@@ -260,8 +255,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_prevues on public.relances_prevues;
-create trigger pipeline_prevues after insert on public.relances_prevues
+create or replace trigger pipeline_prevues after insert on public.relances_prevues
   for each row execute function public.pipeline_tg_prevues();
 
 -- posteur_reponses : une réponse reçue.
@@ -280,8 +274,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_reponses on public.posteur_reponses;
-create trigger pipeline_reponses after insert on public.posteur_reponses
+create or replace trigger pipeline_reponses after insert on public.posteur_reponses
   for each row execute function public.pipeline_tg_reponses();
 
 -- kills_auto : chaque statut (simulé, en attente, annulé, parti, erreur).
@@ -303,8 +296,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_kills on public.kills_auto;
-create trigger pipeline_kills after insert or update of statut on public.kills_auto
+create or replace trigger pipeline_kills after insert or update of statut on public.kills_auto
   for each row execute function public.pipeline_tg_kills();
 
 -- arrets : l'arrêt complet demandé.
@@ -322,8 +314,7 @@ exception when others then
 end;
 $$;
 
-drop trigger if exists pipeline_arrets on public.arrets;
-create trigger pipeline_arrets after insert on public.arrets
+create or replace trigger pipeline_arrets after insert on public.arrets
   for each row execute function public.pipeline_tg_arrets();
 
 -- ---------------------------------------------------------------------------

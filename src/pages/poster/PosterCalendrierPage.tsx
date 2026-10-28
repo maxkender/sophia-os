@@ -47,6 +47,7 @@ import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteu
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
+import { useParrainageActif } from "@/features/bonus/parrainageActif";
 
 interface PostCalendrier {
   id: string;
@@ -267,6 +268,7 @@ export function PosterCalendrierPage() {
   const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const parrainage = useParrainageActif();
   const { data: posts, isPending } = useQuery({
     queryKey: ["mes-posts", user?.id],
     queryFn: mesPosts,
@@ -499,21 +501,24 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      <Link
-        to="/createur/parrainage"
-        className="block rounded-lg border border-primary/30 bg-primary/5 p-4 transition-colors hover:bg-primary/10"
-      >
-        <div className="flex items-start gap-3">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-            <Gift className="size-5" />
+      {/* Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause. */}
+      {parrainage && (
+        <Link
+          to="/createur/parrainage"
+          className="block rounded-lg border border-primary/30 bg-primary/5 p-4 transition-colors hover:bg-primary/10"
+        >
+          <div className="flex items-start gap-3">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <Gift className="size-5" />
+            </div>
+            <div className="min-w-0 flex-1 space-y-1">
+              <p className="text-sm font-semibold">{t("referral.dashTitre")}</p>
+              <p className="text-sm text-muted-foreground">{t("referral.dashCorps")}</p>
+              <p className="text-xs font-medium text-primary">{t("referral.dashLien")}</p>
+            </div>
           </div>
-          <div className="min-w-0 flex-1 space-y-1">
-            <p className="text-sm font-semibold">{t("referral.dashTitre")}</p>
-            <p className="text-sm text-muted-foreground">{t("referral.dashCorps")}</p>
-            <p className="text-xs font-medium text-primary">{t("referral.dashLien")}</p>
-          </div>
-        </div>
-      </Link>
+        </Link>
+      )}
 
       {!ugc && (
       <section className="space-y-4">

@@ -43,12 +43,14 @@ import { nomApplication } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 import type { NavGroup } from "./Sidebar";
+import { useParrainageActif } from "@/features/bonus/parrainageActif";
 
 export function AdminLayout() {
   const { t } = useTranslation();
   const { role } = useAuth();
   const { applications, slug, setSlug, application } = useApplication();
   const estHo = role === "head_of_ops";
+  const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
   const contestations = useQuery({
     queryKey: ["contestations-a-verifier"],
@@ -249,12 +251,17 @@ export function AdminLayout() {
               icon: ListChecks,
               description: t("navDesc.bancRelecture"),
             },
-            {
-              to: "/admin/parrainages",
-              label: t("nav.referral"),
-              icon: Gift,
-              description: t("navDesc.referral"),
-            },
+            // Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause (la route reste).
+            ...(parrainage
+              ? [
+                  {
+                    to: "/admin/parrainages",
+                    label: t("nav.referral"),
+                    icon: Gift,
+                    description: t("navDesc.referral"),
+                  },
+                ]
+              : []),
             {
               to: "/admin/comment-masters",
               label: t("nav.commentMasters"),

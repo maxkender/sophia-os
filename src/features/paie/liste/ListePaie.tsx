@@ -26,6 +26,9 @@ import { supabase } from "@/lib/supabase/client";
 import { telechargerCsv } from "@/lib/csv";
 import { cn } from "@/lib/utils";
 
+import { BoutonPayer, EtatPaiementLigne } from "@/features/paie/api-upwork/DialogPaiement";
+import { lireEtatPaiementsApi, type EtatPaiementApi } from "@/features/paie/api-upwork/api";
+import { useAuth } from "@/features/auth/AuthContext";
 import { corrigerPaie, exclurePaie, lireJalonsPaie, lireListePaie, relireJalonsUpwork, type LigneListePaie } from "./api";
 import { ContratsATerminer } from "./ContratsATerminer";
 import {
@@ -190,7 +193,19 @@ function IconeContrat({ lien }: { lien: string | null }) {
   );
 }
 
-function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: string; simulation: boolean }) {
+function LignePaie({
+  l,
+  semaine,
+  simulation,
+  etatApi,
+  admin,
+}: {
+  l: LigneListePaie;
+  semaine: string;
+  simulation: boolean;
+  etatApi?: EtatPaiementApi;
+  admin: boolean;
+}) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
   const texteAction = useTexteAction();
@@ -275,16 +290,40 @@ function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: str
           />
         )}
       </td>
+      <td className={TD}>
+        {etatApi ? (
+          <EtatPaiementLigne etat={etatApi} admin={admin} />
+        ) : (
+          !simulation &&
+          !l.exclu &&
+          !l.paye_at &&
+          besoinPaye(l) && (
+            <BoutonPayer semaine={semaine} ids={[l.id]} titre={t("paie.api.titreLigne", { nom: l.poster_nom ?? "" })} libelle={t("paie.api.payer")} petit />
+          )
+        )}
+      </td>
       <td className={cn(TD, "w-8")}>{!simulation && <MenuLigne l={l} />}</td>
     </tr>
   );
 }
 
-function Tableau({ lignes, semaine, simulation }: { lignes: LigneListePaie[]; semaine: string; simulation: boolean }) {
+function Tableau({
+  lignes,
+  semaine,
+  simulation,
+  etatsApi,
+  admin,
+}: {
+  lignes: LigneListePaie[];
+  semaine: string;
+  simulation: boolean;
+  etatsApi: Map<string, EtatPaiementApi>;
+  admin: boolean;
+}) {
   const { t } = useTranslation();
   return (
     <div className="overflow-x-auto rounded-xl border">
-      <table className="w-full min-w-[1000px] text-sm">
+      <table className="w-full min-w-[1100px] text-sm">
         <thead className="bg-muted/40">
           <tr className="border-b">
             {(["posteur", "compteUpwork", "comptes", "posts", "tarif", "retenue", "montant", "action", "paye", "suivante"] as const).map(
@@ -294,12 +333,13 @@ function Tableau({ lignes, semaine, simulation }: { lignes: LigneListePaie[]; se
                 </th>
               ),
             )}
+            <th className={TH}>{t("paie.api.colonne")}</th>
             <th className={TH} />
           </tr>
         </thead>
         <tbody className="divide-y">
           {lignes.map((l) => (
-            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} />
+            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} etatApi={etatsApi.get(l.id)} admin={admin} />
           ))}
         </tbody>
       </table>
@@ -479,6 +519,14 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
   const lundiPaie = ajouterJours(semaine, 7);
   const lundiBonus =
     reglagesBonus.data && prochainLundiBonus(lundiPaie, reglagesBonus.data.premier_lundi) === lundiPaie;
+  const { role } = useAuth();
+  // Les paiements par l'API de la semaine (prompt 14, point 3, 0399).
+  const etatsApi = useQuery({
+    queryKey: ["paie", "api-etat", semaine],
+    queryFn: () => lireEtatPaiementsApi(semaine),
+    enabled: !simulation,
+  });
+  const etats = etatsApi.data ?? new Map<string, EtatPaiementApi>();
   // La milestone à approuver de chaque posteur, relue chez Upwork (F1, 0398).
   const posterIds = (liste.data ?? []).map((l) => l.poster_id);
   const jalons = useQuery({
@@ -582,9 +630,17 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
               <Download />
               {t("paie.liste.exporterEquipe")}
             </Button>
+            {!simulation && (
+              <BoutonPayer
+                semaine={semaine}
+                ids={e.lignes.filter((l) => !l.exclu && !l.paye_at && besoinPaye(l) && !etats.has(l.id)).map((l) => l.id)}
+                titre={t("paie.api.titreEquipe", { equipe: e.equipe ?? t("paie.liste.sansEquipe") })}
+                libelle={t("paie.api.payerEquipe")}
+              />
+            )}
           </summary>
           <div className="px-4 pb-4">
-            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} />
+            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} etatsApi={etats} admin={role === "admin"} />
           </div>
         </details>
       ))}

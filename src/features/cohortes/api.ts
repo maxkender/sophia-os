@@ -54,6 +54,8 @@ export interface RecrueCohorte {
   nudges: { type: string; periode: string | null; envoye_at: string; canal: string; resolu_at: string | null; erreur: string | null }[];
   prevues: { type: string; periode: string; statut: "prevu" | "bloque"; canal: string | null; raison: string | null }[];
   rouges: { etape: string; periode: string; rouge_at: string; decision: "reporter" | "arreter" | null; decision_at: string | null }[];
+  /** L'id du contrat Upwork (0394) : sans lui, une relance par Upwork ne part pas. */
+  contrat_id: string | null;
 }
 
 export async function lireRecrues(lundis: readonly string[]): Promise<RecrueCohorte[]> {
@@ -67,6 +69,7 @@ export async function lireRecrues(lundis: readonly string[]): Promise<RecrueCoho
     nudges: r.nudges ?? [],
     prevues: r.prevues ?? [],
     rouges: r.rouges ?? [],
+    contrat_id: r.contrat_id ?? null,
   }));
 }
 
@@ -81,4 +84,11 @@ export async function reporterRecrue(posterId: string): Promise<string> {
 export async function arreterRecrue(posterId: string): Promise<void> {
   const { error } = await supabase.rpc("cohorte_arreter", { p_poster: posterId });
   if (error) throw error;
+}
+
+/** « Link » : le lien du contrat Upwork, avec son id (0394). Rend l'id. */
+export async function relierContrat(posterId: string, url: string): Promise<string> {
+  const { data, error } = await supabase.rpc("cohorte_relier_contrat", { p_poster: posterId, p_url: url.trim() });
+  if (error) throw error;
+  return data as string;
 }

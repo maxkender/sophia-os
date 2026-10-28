@@ -4,18 +4,24 @@ import { describe, expect, it } from "vitest";
 
 import type { RecrueCohorte } from "./api";
 import {
+  barre,
   caseEtape,
   cohorteDeLOffre,
   cohorteLundiDe,
+  cohorteParDefaut,
   cohortesParDefaut,
   entonnoir,
   estRouge,
+  FILTRES_VIDES,
   filtrer,
+  morceauBarre,
   phaseCohorte,
   pretLundi,
+  pretLundiFige,
   quatreDernieres,
   samediRecrue,
   tableauHm,
+  trierRecrues,
 } from "./logique";
 
 function recrue(o: Partial<RecrueCohorte> = {}): RecrueCohorte {
@@ -44,6 +50,7 @@ function recrue(o: Partial<RecrueCohorte> = {}): RecrueCohorte {
     nudges: [],
     prevues: [],
     rouges: [],
+    contrat_id: "44707021",
     ...o,
   };
 }
@@ -97,7 +104,13 @@ describe("la règle de cohorte (vendredi → jeudi, lundi qui suit)", () => {
 });
 
 describe("les cohortes affichées", () => {
-  it("par défaut : celle en préparation et celle en semaine 1", () => {
+  it("page Cohorts : une seule cohorte par défaut, celle « getting ready »", () => {
+    expect(cohorteParDefaut(["2026-11-09", "2026-11-02", "2026-10-26"], "2026-10-28")).toBe("2026-11-02");
+    expect(cohorteParDefaut(["2026-10-26", "2026-10-19"], "2026-10-28")).toBe("2026-10-26");
+    expect(cohorteParDefaut([], "2026-10-28")).toBeNull();
+  });
+
+  it("accueil HM : celle en préparation et celle en semaine 1", () => {
     const lundis = ["2026-11-09", "2026-11-02", "2026-10-26", "2026-10-19"];
     expect(cohortesParDefaut(lundis, "2026-10-28")).toEqual(["2026-11-02", "2026-10-26"]);
     expect(phaseCohorte("2026-11-02", "2026-10-28")).toEqual({ prepa: true });
@@ -107,34 +120,61 @@ describe("les cohortes affichées", () => {
   });
 });
 
-describe("les cases : une seule chose chacune", () => {
-  it("fait > rouge > relancé > prévu > bloqué > pas encore", () => {
+describe("les cases : une seule information chacune", () => {
+  const ENVOI = { type: "acces", periode: "2026-11-02", envoye_at: "2026-10-27T11:10:00Z", canal: "upwork", resolu_at: null, erreur: null };
+
+  it("faite : « ✓ date » ; en cours : ce qui manque + la relance ; après : —", () => {
     expect(caseEtape(recrue(PRETE), "acces")).toEqual({ etat: "fait", le: "2026-10-26T12:00:00Z" });
+    // Accès pas fait : l'accès est l'étape en cours, TikTok et warm-up « — » (pas de détail du warm-up).
+    const r = recrue({ nudges: [ENVOI] });
+    expect(caseEtape(r, "acces")).toEqual({
+      etat: "encours",
+      detail: { cle: "connexion" },
+      envoi: { type: "envoye", le: "2026-10-27T11:10:00Z", canal: "upwork" },
+    });
+    expect(caseEtape(r, "tiktok")).toEqual({ etat: "apres" });
+    expect(caseEtape(r, "warmup")).toEqual({ etat: "apres" });
+    // Simulation : « ✉ planned ».
+    const prevue = recrue({
+      premiere_connexion_at: "2026-10-26T12:00:00Z",
+      prevues: [{ type: "tiktok", periode: "2026-11-02", statut: "prevu", canal: "slack", raison: "simulation" }],
+    });
+    expect(caseEtape(prevue, "tiktok")).toEqual({
+      etat: "encours",
+      detail: { cle: "tiktok", handle: "ana.tt" },
+      envoi: { type: "prevu", canal: "slack" },
+    });
+    // Warm-up en cours : son détail (follows 2/5).
+    const warmup = recrue({ ...PRETE, abonnements: 2 });
+    expect(caseEtape(warmup, "warmup")).toEqual({
+      etat: "encours",
+      detail: { cle: "warmup", start: true, follows: 2 },
+      envoi: null,
+    });
+  });
+
+  it("rouge : la relance et ce qui manque, dans la même case", () => {
     const rouge = recrue({
       rouges: [{ etape: "acces", periode: "2026-11-02", rouge_at: "2026-10-28T11:10:00Z", decision: null, decision_at: null }],
-      nudges: [{ type: "acces", periode: "2026-11-02", envoye_at: "2026-10-27T11:10:00Z", canal: "upwork", resolu_at: null, erreur: null }],
+      nudges: [ENVOI],
     });
-    expect(caseEtape(rouge, "acces")).toEqual({ etat: "rouge", le: "2026-10-28T11:10:00Z" });
+    expect(caseEtape(rouge, "acces")).toEqual({
+      etat: "rouge",
+      detail: { cle: "connexion" },
+      envoi: { type: "envoye", le: "2026-10-27T11:10:00Z", canal: "upwork" },
+      le: "2026-10-28T11:10:00Z",
+    });
     expect(estRouge(rouge)).toBe(true);
-    const relance = recrue({ nudges: rouge.nudges });
-    expect(caseEtape(relance, "acces")).toEqual({ etat: "relance", le: "2026-10-27T11:10:00Z", canal: "upwork" });
-    const prevue = recrue({ prevues: [{ type: "tiktok", periode: "2026-11-02", statut: "prevu", canal: "slack", raison: "simulation" }] });
-    expect(caseEtape(prevue, "tiktok")).toEqual({ etat: "prevu", canal: "slack" });
-    const bloque = recrue({
-      prevues: [{ type: "acces", periode: "2026-11-02", statut: "bloque", canal: null, raison: "contrat_non_relie" }],
-    });
-    expect(caseEtape(bloque, "acces")).toEqual({ etat: "bloque", raison: "contrat_non_relie" });
-    expect(caseEtape(recrue(), "warmup")).toEqual({ etat: "attente" });
   });
 
   it("après « Reporter », la relance déjà envoyée reste visible et la ligne n'est plus rouge", () => {
     const r = recrue({
       cohorte_lundi: "2026-11-09",
-      nudges: [{ type: "acces", periode: "2026-11-02", envoye_at: "2026-10-27T11:10:00Z", canal: "upwork", resolu_at: null, erreur: null }],
+      nudges: [ENVOI],
       rouges: [{ etape: "acces", periode: "2026-11-02", rouge_at: "2026-10-28T11:10:00Z", decision: "reporter", decision_at: "x" }],
     });
     expect(estRouge(r)).toBe(false);
-    expect(caseEtape(r, "acces").etat).toBe("relance");
+    expect(caseEtape(r, "acces")).toMatchObject({ etat: "encours", envoi: { type: "envoye" } });
   });
 
   it("28 oct. : prêt = TikTok + Start warmup + 5 follows ; ni Slack ni reposts", () => {
@@ -147,6 +187,16 @@ describe("les cases : une seule chose chacune", () => {
     expect(pretLundi(recrue({ ...PRETE, warmup_reposts_at: null }))).toBe(true);
   });
 
+  it("« Ready Monday » : — jusqu'à dimanche minuit (Paris), puis la photo, figée", () => {
+    const r = recrue(PRETE); // cohorte du 2 nov.
+    expect(pretLundiFige(r, new Date("2026-11-01T22:59:00Z"))).toBeNull(); // dimanche 23 h 59 à Paris
+    expect(pretLundiFige(r, new Date("2026-11-01T23:00:00Z"))).toBe(true); // lundi 0 h
+    // Start warmup cliqué après minuit : la photo dit « pas prêt », même si c'est fait depuis.
+    const tard = recrue({ ...PRETE, warmup_started_at: "2026-11-02T08:00:00Z" });
+    expect(pretLundiFige(tard, new Date("2026-11-05T12:00:00Z"))).toBe(false);
+    expect(pretLundi(tard)).toBe(true);
+  });
+
   it("samedi : la décision de Check, Kill or Double", () => {
     const base = { cohorte_lundi: "2026-10-19" };
     expect(samediRecrue(recrue(base), "2026-10-23")).toBe("attente");
@@ -156,52 +206,88 @@ describe("les cases : une seule chose chacune", () => {
     expect(samediRecrue(recrue({ ...base, samedi: [{ ...kill[0]!, decision: null }] }), "2026-10-28")).toBe("a_decider");
     expect(samediRecrue(recrue({ ...base, is_active: false }), "2026-10-28")).toBe("arrete");
   });
+
+  it("le tri : rouges d'abord, puis du moins au plus avancé", () => {
+    const rouge = recrue({
+      poster_id: "rouge",
+      ...PRETE,
+      rouges: [{ etape: "warmup", periode: "2026-11-02", rouge_at: "x", decision: null, decision_at: null }],
+    });
+    const rien = recrue({ poster_id: "rien" });
+    const pret = recrue({ poster_id: "pret", ...PRETE });
+    const tiktok = recrue({ poster_id: "tiktok", premiere_connexion_at: "2026-10-26T12:00:00Z" });
+    expect(trierRecrues([pret, tiktok, rien, rouge], "2026-10-28").map((r) => r.poster_id)).toEqual([
+      "rouge",
+      "rien",
+      "tiktok",
+      "pret",
+    ]);
+  });
 });
 
-describe("entonnoir, filtres, tableau par HM", () => {
-  it("un Double n'est pas une recrue : 2 comptes, 1 recrue", () => {
+describe("Where they are now, entonnoir, filtres, tableau par HM", () => {
+  it("la barre compte chaque recrue une seule fois, là où elle bloque (rouge avant tout)", () => {
+    const recrues = [
+      recrue({ poster_id: "a" }),
+      recrue({ poster_id: "b", premiere_connexion_at: "2026-10-26T12:00:00Z" }),
+      recrue({ poster_id: "c", premiere_connexion_at: "2026-10-26T12:00:00Z", tiktok_existe: true }),
+      recrue({ poster_id: "d", ...PRETE }),
+      recrue({ poster_id: "e", rouges: [{ etape: "acces", periode: "2026-11-02", rouge_at: "x", decision: null, decision_at: null }] }),
+    ];
+    const n = barre(recrues);
+    expect(n).toEqual({ connexion: 1, tiktok: 1, warmup: 1, prets: 1, rouges: 1 });
+    expect(Object.values(n).reduce((x, y) => x + y, 0)).toBe(recrues.length);
+    expect(morceauBarre(recrues[4]!)).toBe("rouges");
+  });
+
+  it("entonnoir séquentiel ; un Double n'est pas une recrue : 2 comptes, 1 recrue", () => {
     const r = recrue({
       ...PRETE,
-      cohorte_lundi: "2026-10-19",
       semaine1: [
         { compte_id: "c1", handle: "ana.tt", is_active: true, prevus: 14, publies: 12, publies_lun_mar: 4 },
         { compte_id: "c2", handle: "ana.double", is_active: true, prevus: 2, publies: 2, publies_lun_mar: 0 },
       ],
     });
-    expect(entonnoir([r], "2026-10-28")).toEqual({ offre: 1, acces: 1, tiktok: 1, warmup: 1, pret: 1, aPoste: 1, garde: 1 });
-  });
-
-  it("une recrue d'une ancienne cohorte qui a posté : TikTok et warm-up faits même sans relevé", () => {
-    const r = recrue({
-      premiere_connexion_at: "x",
-      slack_lie: true,
-      cohorte_lundi: "2026-10-12",
-      semaine1: [{ compte_id: "c1", handle: "a", is_active: true, prevus: 14, publies: 10, publies_lun_mar: 2 }],
+    // A posté sans avoir fait l'accès : compte seulement dans « offre ».
+    const sansAcces = recrue({
+      poster_id: "z",
+      semaine1: [{ compte_id: "c9", handle: "z", is_active: true, prevus: 14, publies: 3, publies_lun_mar: 1 }],
     });
-    expect(caseEtape(r, "tiktok").etat).toBe("fait");
-    expect(pretLundi(r)).toBe(true);
+    expect(entonnoir([r, sansAcces], "2026-11-09", new Date("2026-11-09T12:00:00Z"))).toEqual({
+      offre: 2,
+      acces: 1,
+      tiktok: 1,
+      warmup: 1,
+      pret: 1,
+      aPoste: 1,
+      garde: 1,
+    });
   });
 
-  it("3 filtres : rouges, HM, pays", () => {
+  it("filtres : un morceau de la barre, contrats non reliés, HM, pays", () => {
     const rouge = recrue({
       poster_id: "a",
+      contrat_id: null,
       rouges: [{ etape: "tiktok", periode: "2026-11-02", rouge_at: "x", decision: null, decision_at: null }],
     });
     const autre = recrue({ poster_id: "b", hm_id: "hm-rana", pays: "AU" });
-    expect(filtrer([rouge, autre], { rouges: true, hm: "", pays: "" }).map((r) => r.poster_id)).toEqual(["a"]);
-    expect(filtrer([rouge, autre], { rouges: false, hm: "hm-rana", pays: "" }).map((r) => r.poster_id)).toEqual(["b"]);
-    expect(filtrer([rouge, autre], { rouges: false, hm: "", pays: "BR" }).map((r) => r.poster_id)).toEqual(["a"]);
+    const ids = (f: Partial<typeof FILTRES_VIDES>) => filtrer([rouge, autre], { ...FILTRES_VIDES, ...f }).map((r) => r.poster_id);
+    expect(ids({ morceau: "rouges" })).toEqual(["a"]);
+    expect(ids({ sansContrat: true })).toEqual(["a"]);
+    expect(ids({ hm: "hm-rana" })).toEqual(["b"]);
+    expect(ids({ pays: "BR" })).toEqual(["a"]);
   });
 
-  it("par HM : % prêtes lundi, % gardées samedi sur les cohortes dont le samedi est passé", () => {
+  it("par HM : % prêtes lundi (photo), % gardées samedi sur les cohortes dont le samedi est passé", () => {
     const lignes = tableauHm(
       [
-        recrue({ ...PRETE, poster_id: "a", cohorte_lundi: "2026-10-19" }),
-        recrue({ poster_id: "b", cohorte_lundi: "2026-10-19", is_active: false }),
-        recrue({ ...PRETE, poster_id: "c", cohorte_lundi: "2026-10-26" }),
-        recrue({ poster_id: "d", hm_id: "hm-rana", hm_prenom: "Rana", cohorte_lundi: "2026-10-26" }),
+        recrue({ ...PRETE, poster_id: "a" }),
+        recrue({ poster_id: "b", is_active: false }),
+        recrue({ ...PRETE, poster_id: "c", cohorte_lundi: "2026-11-09" }),
+        recrue({ poster_id: "d", hm_id: "hm-rana", hm_prenom: "Rana", cohorte_lundi: "2026-11-09" }),
       ],
-      "2026-10-28",
+      "2026-11-12",
+      new Date("2026-11-12T12:00:00Z"),
     );
     expect(lignes).toEqual([
       { hm_id: "hm-lucia", hm_prenom: "Lucia", recrues: 3, pretes: 67, gardees: 50 },

@@ -1,34 +1,47 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, Check, Link2, Link2Off, Mail, Minus } from "lucide-react";
+import { AlertTriangle, Check, Link2, Link2Off, Mail, Minus, X } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { useAuth } from "@/features/auth/AuthContext";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { drapeauPays } from "@/features/moteur/pays";
+import { lireReglagesRelances } from "@/features/nudges/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
-import { arreterRecrue, lireCohortes, lireRecrues, reporterRecrue, type RecrueCohorte } from "./api";
+import { arreterRecrue, lireCohortes, lireRecrues, relierContrat, reporterRecrue, type RecrueCohorte } from "./api";
 import {
+  barre,
   caseEtape,
+  cohorteParDefaut,
   cohortesParDefaut,
   entonnoir,
   estRouge,
   ETAPES_ENTONNOIR,
+  ETAPES_PREPA,
+  FILTRES_VIDES,
   filtrer,
   FOLLOWS_MIN,
+  MORCEAUX_BARRE,
   phaseCohorte,
-  pretLundi,
+  pretLundiFige,
   quatreDernieres,
   samediRecrue,
+  sansContrat,
   tableauHm,
+  trierRecrues,
   type Case,
-  type EtapeCohorte,
+  type Detail,
+  type Envoi,
   type FiltresCohorte,
+  type MorceauBarre,
 } from "./logique";
 
 const CLE = ["cohortes"] as const;
@@ -49,80 +62,144 @@ function useDates() {
 }
 
 // ---------------------------------------------------------------------------
-// Une case : icône + mot, jamais la couleur seule
+// Une case : une seule information, icône + mot, jamais la couleur seule
 // ---------------------------------------------------------------------------
+
+function useTextes() {
+  const { t } = useTranslation();
+  const { le } = useDates();
+  const canal = (x: string | null) => (x ? t(`nudges.canaux.${x}`, { defaultValue: x }) : null);
+  const detail = (d: Detail, rouge: boolean) => {
+    const encore = rouge ? "Rouge" : "";
+    switch (d.cle) {
+      case "connexion":
+        return t(`cohortes.detail.connexion${encore}`);
+      case "tiktok":
+        return t(`cohortes.detail.tiktok${encore}`, { handle: d.handle ? `@${d.handle}` : "" });
+      case "warmup":
+        return d.start
+          ? t("cohortes.detail.follows", { n: d.follows, min: FOLLOWS_MIN })
+          : t("cohortes.detail.start", { n: d.follows, min: FOLLOWS_MIN });
+      default:
+        return t("cohortes.detail.mercredi");
+    }
+  };
+  const envoi = (e: Envoi) =>
+    e.type === "envoye"
+      ? t("cohortes.envoi.envoye", { date: le(e.le), canal: canal(e.canal) })
+      : e.type === "prevu"
+        ? e.canal
+          ? t("cohortes.envoi.prevuCanal", { canal: canal(e.canal) })
+          : t("cohortes.envoi.prevu")
+        : t("cohortes.envoi.bloque");
+  /** La ligne rouge en une phrase : la relance, puis ce qui manque encore. */
+  const pourquoi = (c: Extract<Case, { etat: "rouge" }>) => {
+    const relance = !c.envoi
+      ? t("cohortes.rouge.aucune")
+      : c.envoi.type === "envoye"
+        ? t("cohortes.rouge.envoyee", { date: le(c.envoi.le), canal: canal(c.envoi.canal) })
+        : c.envoi.type === "prevu"
+          ? t("cohortes.rouge.prevue")
+          : t("cohortes.rouge.bloquee");
+    return `${relance} · ${detail(c.detail, true)}`;
+  };
+  return { detail, envoi, pourquoi };
+}
 
 function CelluleEtape({ c }: { c: Case }) {
   const { t } = useTranslation();
   const { le } = useDates();
-  const canal = (x: string | null) => (x ? t(`nudges.canaux.${x}`, { defaultValue: x }) : null);
+  const textes = useTextes();
   switch (c.etat) {
     case "fait":
       return (
-        <span className="inline-flex items-center gap-1 text-success-foreground">
+        <span className="inline-flex items-center gap-1 whitespace-nowrap text-success-foreground">
           <Check className="size-3.5 shrink-0" aria-hidden />
-          {c.le ? t("cohortes.case.faitLe", { date: le(c.le) }) : t("cohortes.case.fait")}
+          {c.le ? le(c.le) : t("cohortes.case.fait")}
         </span>
       );
     case "rouge":
       return (
-        <span className="inline-flex items-center gap-1 font-medium text-destructive">
-          <AlertTriangle className="size-3.5 shrink-0" aria-hidden />
-          {t("cohortes.case.rouge", { date: le(c.le) })}
+        <span className="inline-flex items-start gap-1 font-medium text-destructive" data-pourquoi>
+          <AlertTriangle className="mt-0.5 size-3.5 shrink-0" aria-hidden />
+          {textes.pourquoi(c)}
         </span>
       );
-    case "relance":
+    case "encours":
       return (
-        <span className="inline-flex items-center gap-1">
-          <Mail className="size-3.5 shrink-0" aria-hidden />
-          {t("cohortes.case.relance", { date: le(c.le), canal: canal(c.canal) })}
-        </span>
-      );
-    case "prevu":
-      return (
-        <span className="inline-flex items-center gap-1 text-info-foreground">
-          <Mail className="size-3.5 shrink-0" aria-hidden />
-          {c.canal ? t("cohortes.case.prevuCanal", { canal: canal(c.canal) }) : t("cohortes.case.prevu")}
-        </span>
-      );
-    case "bloque":
-      return (
-        <span className="inline-flex items-center gap-1 text-warning-foreground">
-          <Link2Off className="size-3.5 shrink-0" aria-hidden />
-          {t(`nudges.prevues.raisons.${c.raison ?? "contrat_non_relie"}`, { defaultValue: c.raison ?? "" })}
+        <span className="block space-y-0.5">
+          <span className="block">{textes.detail(c.detail, false)}</span>
+          {c.envoi && (
+            <span
+              className={cn(
+                "flex items-center gap-1 text-xs",
+                c.envoi.type === "bloque" ? "text-warning-foreground" : c.envoi.type === "prevu" ? "text-info-foreground" : "text-muted-foreground",
+              )}
+            >
+              {c.envoi.type === "bloque" ? <Link2Off className="size-3 shrink-0" aria-hidden /> : <Mail className="size-3 shrink-0" aria-hidden />}
+              {textes.envoi(c.envoi)}
+            </span>
+          )}
         </span>
       );
     default:
       return (
-        <span className="inline-flex items-center gap-1 text-muted-foreground">
-          <Minus className="size-3.5 shrink-0" aria-hidden />
-          <span className="sr-only">{t("cohortes.case.attente")}</span>
+        <span className="inline-flex items-center text-muted-foreground" aria-label={t("cohortes.case.attente")}>
+          —
         </span>
       );
   }
 }
 
-function DetailWarmup({ r }: { r: RecrueCohorte }) {
+/** « Link » : coller le lien du contrat (même contrôle que la paie), sans quitter la page. */
+function LierContrat({ r }: { r: RecrueCohorte }) {
   const { t } = useTranslation();
-  const oui = (b: boolean) => (b ? "✓" : "✗");
+  const qc = useQueryClient();
+  const [ouvert, setOuvert] = React.useState(false);
+  const [url, setUrl] = React.useState("");
+  const lier = useMutation({
+    mutationFn: () => relierContrat(r.poster_id, url),
+    onSuccess: () => {
+      setOuvert(false);
+      setUrl("");
+      void qc.invalidateQueries({ queryKey: CLE });
+    },
+  });
+  if (!ouvert) {
+    return (
+      <Button size="sm" variant="outline" className="h-6 px-2 text-xs" onClick={() => setOuvert(true)}>
+        <Link2 className="size-3" aria-hidden />
+        {t("cohortes.lier")}
+      </Button>
+    );
+  }
   return (
-    <p className="mt-0.5 text-xs text-muted-foreground">
-      {t("cohortes.warmupDetail", {
-        start: oui(Boolean(r.warmup_started_at)),
-        follows: r.abonnements ?? 0,
-        min: FOLLOWS_MIN,
-      })}
-    </p>
+    <span className="mt-1 flex flex-wrap items-center gap-1">
+      <Input
+        className="h-7 w-56 text-xs"
+        placeholder="https://www.upwork.com/nx/wm/workroom/…"
+        aria-label={t("cohortes.lierAria", { nom: r.nom ?? "—" })}
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
+      <Button size="sm" className="h-7" disabled={!url.trim() || lier.isPending} onClick={() => lier.mutate()}>
+        {t("cohortes.lierEnregistrer")}
+      </Button>
+      <Button size="sm" variant="ghost" className="h-7" onClick={() => setOuvert(false)}>
+        {t("common.cancel")}
+      </Button>
+      {lier.error && <span className="w-full text-xs text-destructive">{(lier.error as Error).message}</span>}
+    </span>
   );
 }
 
-function Recrue({ r }: { r: RecrueCohorte }) {
+function Recrue({ r, lectureSeule }: { r: RecrueCohorte; lectureSeule?: boolean }) {
   const { t } = useTranslation();
   return (
-    <div className="min-w-0">
+    <div className="min-w-0 space-y-0.5">
       <p className="flex items-center gap-1.5 font-medium">
         <span className="truncate">{r.nom ?? "—"}</span>
-        {r.contrat ? (
+        {r.contrat_id ? (
           <Link2 className="size-3.5 shrink-0 text-muted-foreground" aria-label={t("cohortes.contratRelie")} />
         ) : (
           <Link2Off className="size-3.5 shrink-0 text-warning-foreground" aria-label={t("cohortes.contratNonRelie")} />
@@ -134,19 +211,45 @@ function Recrue({ r }: { r: RecrueCohorte }) {
           .filter(Boolean)
           .join(" · ")}
       </p>
+      {!r.contrat_id && !lectureSeule && <LierContrat r={r} />}
     </div>
   );
 }
 
+function CellulePret({ r, maintenant }: { r: RecrueCohorte; maintenant: Date }) {
+  const { t } = useTranslation();
+  const pret = pretLundiFige(r, maintenant);
+  if (pret === null) return <CelluleEtape c={{ etat: "apres" }} />;
+  return pret ? (
+    <span className="inline-flex items-center gap-1 text-success-foreground">
+      <Check className="size-3.5" aria-hidden />
+      {t("cohortes.pret")}
+    </span>
+  ) : (
+    <span className="inline-flex items-center gap-1 text-muted-foreground">
+      <X className="size-3.5" aria-hidden />
+      {t("cohortes.pasPret")}
+    </span>
+  );
+}
+
 // ---------------------------------------------------------------------------
-// Le tableau des recrues (page Cohortes, et en lecture seule sur l'accueil HM)
+// Le tableau des recrues (page Cohorts, et en lecture seule sur l'accueil HM)
 // ---------------------------------------------------------------------------
 
-export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly RecrueCohorte[]; lectureSeule?: boolean }) {
+export function TableauRecrues({
+  recrues,
+  lectureSeule,
+  maintenant = new Date(),
+}: {
+  recrues: readonly RecrueCohorte[];
+  lectureSeule?: boolean;
+  maintenant?: Date;
+}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const { jour, le } = useDates();
-  const aujourdhui = aujourdhuiParis();
+  const { jour } = useDates();
+  const aujourdhui = aujourdhuiParis(maintenant);
   const finir = () => qc.invalidateQueries({ queryKey: CLE });
   const reporter = useMutation({ mutationFn: (id: string) => reporterRecrue(id), onSuccess: finir });
   const arreter = useMutation({ mutationFn: (id: string) => arreterRecrue(id), onSuccess: finir });
@@ -154,22 +257,20 @@ export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly Re
   const occupe = reporter.isPending || arreter.isPending;
 
   const surReporter = (r: RecrueCohorte) => {
-    const nouveau = (() => {
-      const d = new Date(`${r.cohorte_lundi}T12:00:00Z`);
-      d.setUTCDate(d.getUTCDate() + 7);
-      const iso = d.toISOString().slice(0, 10);
-      return iso > aujourdhui ? iso : null;
-    })();
-    const texte = nouveau
-      ? t("cohortes.reporterConfirm", { nom: r.nom ?? "—", date: jour(nouveau) })
-      : t("cohortes.reporterConfirmProchain", { nom: r.nom ?? "—" });
+    const d = new Date(`${r.cohorte_lundi}T12:00:00Z`);
+    d.setUTCDate(d.getUTCDate() + 7);
+    const nouveau = d.toISOString().slice(0, 10);
+    const texte =
+      nouveau > aujourdhui
+        ? t("cohortes.reporterConfirm", { nom: r.nom ?? "—", date: jour(nouveau) })
+        : t("cohortes.reporterConfirmProchain", { nom: r.nom ?? "—" });
     if (window.confirm(texte)) reporter.mutate(r.poster_id);
   };
   const surArreter = (r: RecrueCohorte) => {
     if (window.confirm(t("cohortes.arreterConfirm", { nom: r.nom ?? "—" }))) arreter.mutate(r.poster_id);
   };
 
-  const etapes: EtapeCohorte[] = ["acces", "tiktok", "warmup"];
+  const lignes = trierRecrues(recrues, aujourdhui);
   return (
     <div className="space-y-2">
       {erreur && <p className="text-sm text-destructive">{erreur.message}</p>}
@@ -178,7 +279,6 @@ export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly Re
           <thead className="bg-muted/40">
             <tr>
               <th className={TH}>{t("cohortes.col.recrue")}</th>
-              <th className={TH}>{t("cohortes.col.offre")}</th>
               <th className={TH}>{t("cohortes.col.acces")}</th>
               <th className={TH}>{t("cohortes.col.tiktok")}</th>
               <th className={TH}>{t("cohortes.col.warmup")}</th>
@@ -189,36 +289,27 @@ export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly Re
             </tr>
           </thead>
           <tbody className="divide-y">
-            {recrues.map((r) => {
+            {lignes.map((r) => {
               const rouge = estRouge(r);
               const samedi = samediRecrue(r, aujourdhui);
               const commence = aujourdhui >= r.cohorte_lundi;
               return (
                 <tr key={r.poster_id} data-recrue={r.poster_id} data-rouge={rouge || undefined} className={cn(rouge && "bg-destructive/5")}>
                   <td className={TD}>
-                    <Recrue r={r} />
+                    <Recrue r={r} lectureSeule={lectureSeule} />
                   </td>
-                  <td className={cn(TD, "whitespace-nowrap")}>{le(r.offre_at)}</td>
-                  {etapes.map((e) => (
-                    <td key={e} className={TD}>
-                      <CelluleEtape c={caseEtape(r, e)} />
-                      {e === "warmup" && <DetailWarmup r={r} />}
+                  {ETAPES_PREPA.map((e) => (
+                    <td key={e} className={TD} data-case={e}>
+                      <CelluleEtape c={caseEtape(r, e, aujourdhui)} />
                     </td>
                   ))}
-                  <td className={TD}>
-                    {pretLundi(r) ? (
-                      <CelluleEtape c={{ etat: "fait", le: null }} />
-                    ) : (
-                      <span className="inline-flex items-center gap-1 text-muted-foreground">
-                        <Minus className="size-3.5" aria-hidden />
-                        {t("cohortes.pasPret")}
-                      </span>
-                    )}
+                  <td className={TD} data-case="pret">
+                    <CellulePret r={r} maintenant={maintenant} />
                   </td>
-                  <td className={TD}>
+                  <td className={TD} data-case="semaine1">
                     {commence ? (
                       <>
-                        <CelluleEtape c={caseEtape(r, "mercredi")} />
+                        <CelluleEtape c={caseEtape(r, "mercredi", aujourdhui)} />
                         <ul className="mt-0.5 space-y-0.5 text-xs text-muted-foreground">
                           {r.semaine1.map((c) => (
                             <li key={c.compte_id}>
@@ -232,12 +323,12 @@ export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly Re
                         </ul>
                       </>
                     ) : (
-                      <CelluleEtape c={{ etat: "attente" }} />
+                      <CelluleEtape c={{ etat: "apres" }} />
                     )}
                   </td>
                   <td className={TD}>
                     {samedi === "attente" ? (
-                      <CelluleEtape c={{ etat: "attente" }} />
+                      <CelluleEtape c={{ etat: "apres" }} />
                     ) : (
                       <Badge variant={samedi === "kill" || samedi === "arrete" ? "error" : samedi === "a_decider" ? "warning" : "success"}>
                         {t(`cohortes.samedi.${samedi}`)}
@@ -261,9 +352,9 @@ export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly Re
                 </tr>
               );
             })}
-            {recrues.length === 0 && (
+            {lignes.length === 0 && (
               <tr>
-                <td className={cn(TD, "text-muted-foreground")} colSpan={lectureSeule ? 8 : 9}>
+                <td className={cn(TD, "text-muted-foreground")} colSpan={lectureSeule ? 7 : 8}>
                   {t("cohortes.aucune")}
                 </td>
               </tr>
@@ -276,31 +367,134 @@ export function TableauRecrues({ recrues, lectureSeule }: { recrues: readonly Re
 }
 
 // ---------------------------------------------------------------------------
+// Le haut de page
+// ---------------------------------------------------------------------------
+
+const COULEUR_MORCEAU: Record<MorceauBarre, string> = {
+  connexion: "bg-muted-foreground/40",
+  tiktok: "bg-info/60",
+  warmup: "bg-warning/70",
+  prets: "bg-success/70",
+  rouges: "bg-destructive/80",
+};
+
+/** « Where they are now » : chaque recrue une seule fois, à l'étape où elle bloque. Clic = filtre. */
+function BarreOuIlsEnSont({
+  recrues,
+  actif,
+  onChange,
+}: {
+  recrues: readonly RecrueCohorte[];
+  actif: MorceauBarre | null;
+  onChange: (m: MorceauBarre | null) => void;
+}) {
+  const { t } = useTranslation();
+  const n = barre(recrues);
+  const total = recrues.length || 1;
+  return (
+    <Card data-testid="barre-cohorte">
+      <CardHeader>
+        <CardTitle>{t("cohortes.barre.titre")}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="flex h-3 w-full overflow-hidden rounded-full bg-muted" aria-hidden>
+          {MORCEAUX_BARRE.map((m) => (
+            <div key={m} className={COULEUR_MORCEAU[m]} style={{ width: `${(100 * n[m]) / total}%` }} />
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-2" role="group" aria-label={t("cohortes.barre.titre")}>
+          {MORCEAUX_BARRE.map((m) => (
+            <button
+              key={m}
+              type="button"
+              aria-pressed={actif === m}
+              data-morceau={m}
+              onClick={() => onChange(actif === m ? null : m)}
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm",
+                actif === m ? "border-primary bg-primary text-primary-foreground" : "bg-background hover:bg-muted",
+              )}
+            >
+              <span aria-hidden className={cn("size-2.5 rounded-full", COULEUR_MORCEAU[m])} />
+              {t(`cohortes.barre.${m}`, { n: n[m] })}
+            </button>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+/** L'entonnoir d'une cohorte passée : chaque colonne ne compte que ceux qui ont fait les étapes d'avant. */
+function Entonnoir({ recrues, maintenant }: { recrues: readonly RecrueCohorte[]; maintenant: Date }) {
+  const { t } = useTranslation();
+  const n = entonnoir(recrues, aujourdhuiParis(maintenant), maintenant);
+  return (
+    <Card data-testid="entonnoir">
+      <CardHeader>
+        <CardTitle>{t("cohortes.entonnoir.titre")}</CardTitle>
+        <p className="text-sm text-muted-foreground">{t("cohortes.entonnoir.aide")}</p>
+      </CardHeader>
+      <CardContent className="overflow-x-auto">
+        <ol className="flex min-w-[640px] items-stretch gap-1">
+          {ETAPES_ENTONNOIR.map((e, i) => (
+            <li key={e} className="flex-1 rounded-md border bg-muted/30 px-2 py-1.5" data-entonnoir={e}>
+              <p className="text-xs text-muted-foreground">{t(`cohortes.entonnoir.${e}`)}</p>
+              <p className="text-lg font-semibold tabular-nums">{n[e]}</p>
+              {i > 0 && n.offre > 0 && (
+                <p className="text-xs text-muted-foreground tabular-nums">{Math.round((100 * n[e]) / n.offre)} %</p>
+              )}
+            </li>
+          ))}
+        </ol>
+      </CardContent>
+    </Card>
+  );
+}
+
+/** L'état des relances (réglage relances_auto), pour l'admin. */
+function EtatRelances() {
+  const { t } = useTranslation();
+  const r = useQuery({ queryKey: ["reglages", "relances"], queryFn: lireReglagesRelances });
+  if (!r.data) return null;
+  return (
+    <p className="text-sm" data-testid="etat-relances">
+      {t("cohortes.relances", { mode: t(`nudges.mode.${r.data.mode}`) })}{" "}
+      <Link to="/admin/nudges" className="text-primary underline-offset-2 hover:underline">
+        {t("cohortes.relancesLien")}
+      </Link>
+    </p>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // La page
 // ---------------------------------------------------------------------------
 
 /**
- * Cohortes (prompt 17, partie B, 0392). Une cohorte = les offres acceptées du
- * vendredi au jeudi ; elle commence à poster le lundi qui suit. En haut une
- * puce par cohorte, puis l'entonnoir, une ligne par recrue (Reporter /
- * Arrêter sur les rouges), et un petit tableau par HM. Les décisions du
- * samedi restent dans Check, Kill or Double.
+ * Cohorts (prompt 17, partie B ; plus lisible le 28 oct.). Une cohorte à la
+ * fois, par défaut celle « getting ready ». En préparation : la barre « Where
+ * they are now » ; passée : l'entonnoir séquentiel. Puis une ligne par recrue
+ * (rouges d'abord), « Link » sur un contrat non relié, Postpone / Stop sur
+ * une ligne rouge, et un petit tableau par HM.
  */
-export function PageCohortes() {
+export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
   const { t } = useTranslation();
+  const { role } = useAuth();
   const { jour } = useDates();
-  const aujourdhui = aujourdhuiParis();
+  const maintenant = React.useMemo(() => fixe ?? new Date(), [fixe]);
+  const aujourdhui = aujourdhuiParis(maintenant);
   const cohortes = useQuery({ queryKey: [...CLE, "liste"], queryFn: lireCohortes });
   const lundis = React.useMemo(() => (cohortes.data ?? []).map((c) => c.lundi), [cohortes.data]);
-  const [choix, setChoix] = React.useState<string[] | null>(null);
+  const [choix, setChoix] = React.useState<string | null>(null);
   const [anciennes, setAnciennes] = React.useState(false);
-  const choisies = choix ?? cohortesParDefaut(lundis, aujourdhui);
-  const [filtres, setFiltres] = React.useState<FiltresCohorte>({ rouges: false, hm: "", pays: "" });
+  const choisie = choix ?? cohorteParDefaut(lundis, aujourdhui);
+  const [filtres, setFiltres] = React.useState<FiltresCohorte>(FILTRES_VIDES);
 
   const recrues = useQuery({
-    queryKey: [...CLE, "recrues", [...choisies].sort()],
-    queryFn: () => lireRecrues(choisies),
-    enabled: choisies.length > 0,
+    queryKey: [...CLE, "recrues", choisie ? [choisie] : []],
+    queryFn: () => lireRecrues(choisie ? [choisie] : []),
+    enabled: Boolean(choisie),
   });
   const dernieres = quatreDernieres(lundis, aujourdhui);
   const parHm = useQuery({
@@ -309,16 +503,15 @@ export function PageCohortes() {
     enabled: dernieres.length > 0,
   });
 
-  const basculer = (l: string) =>
-    setChoix((avant) => {
-      const x = avant ?? choisies;
-      return x.includes(l) ? x.filter((y) => y !== l) : [...x, l];
-    });
+  const choisir = (l: string) => {
+    setChoix(l);
+    setFiltres(FILTRES_VIDES);
+  };
 
-  // Les 6 plus récentes, les autres repliées.
   const visibles = anciennes ? cohortes.data ?? [] : (cohortes.data ?? []).slice(0, 6);
   const toutes = recrues.data ?? [];
   const lignes = filtrer(toutes, filtres);
+  const nbSansContrat = toutes.filter((r) => r.is_active && sansContrat(r)).length;
   const hms = [...new Map(toutes.filter((r) => r.hm_id).map((r) => [r.hm_id!, r.hm_prenom ?? "—"])).entries()].sort((a, b) =>
     a[1].localeCompare(b[1]),
   );
@@ -327,20 +520,24 @@ export function PageCohortes() {
     const p = phaseCohorte(l, aujourdhui);
     return p.prepa ? t("cohortes.prepa") : t("cohortes.semaine", { n: p.semaine });
   };
+  const enPrepa = Boolean(choisie && choisie > aujourdhui);
+  const filtre = filtres.morceau !== null || filtres.sansContrat || Boolean(filtres.hm) || Boolean(filtres.pays);
 
   return (
     <div className="space-y-6" data-testid="page-cohortes">
       <PageHeader title={t("cohortes.titre")} description={t("cohortes.description")} />
 
+      {role === "admin" && <EtatRelances />}
+
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("cohortes.puces")}>
         {visibles.map((c) => {
-          const actif = choisies.includes(c.lundi);
+          const actif = choisie === c.lundi;
           return (
             <button
               key={c.lundi}
               type="button"
               aria-pressed={actif}
-              onClick={() => basculer(c.lundi)}
+              onClick={() => choisir(c.lundi)}
               className={cn(
                 "rounded-full border px-3 py-1 text-sm transition-colors",
                 actif ? "border-primary bg-primary text-primary-foreground" : "bg-background hover:bg-muted",
@@ -366,54 +563,31 @@ export function PageCohortes() {
       {cohortes.error && <p className="text-sm text-destructive">{(cohortes.error as Error).message}</p>}
       {recrues.error && <p className="text-sm text-destructive">{(recrues.error as Error).message}</p>}
 
-      {choisies.length > 0 && (
-        <Card data-testid="entonnoir">
-          <CardHeader>
-            <CardTitle>{t("cohortes.entonnoir.titre")}</CardTitle>
-          </CardHeader>
-          <CardContent className="overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse">
-              <thead>
-                <tr>
-                  <th className={TH}>{t("cohortes.entonnoir.cohorte")}</th>
-                  {ETAPES_ENTONNOIR.map((e) => (
-                    <th key={e} className={TH}>
-                      {t(`cohortes.entonnoir.${e}`)}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y">
-                {[...choisies].sort().reverse().map((l) => {
-                  const n = entonnoir(toutes.filter((r) => r.cohorte_lundi === l), aujourdhui);
-                  return (
-                    <tr key={l} data-entonnoir={l}>
-                      <td className={cn(TD, "whitespace-nowrap font-medium")}>
-                        {jour(l)} · {libelle(l)}
-                      </td>
-                      {ETAPES_ENTONNOIR.map((e) => (
-                        <td key={e} className={cn(TD, "tabular-nums")}>
-                          {n[e]}
-                        </td>
-                      ))}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </CardContent>
-        </Card>
+      {choisie &&
+        recrues.data &&
+        (enPrepa ? (
+          <BarreOuIlsEnSont recrues={toutes} actif={filtres.morceau} onChange={(m) => setFiltres({ ...filtres, morceau: m })} />
+        ) : (
+          <Entonnoir recrues={toutes} maintenant={maintenant} />
+        ))}
+
+      {nbSansContrat > 0 && (
+        <button
+          type="button"
+          aria-pressed={filtres.sansContrat}
+          data-testid="compteur-contrats"
+          onClick={() => setFiltres({ ...filtres, sansContrat: !filtres.sansContrat })}
+          className={cn(
+            "inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm",
+            filtres.sansContrat ? "border-warning bg-warning/20" : "border-warning/50 bg-warning/10 hover:bg-warning/20",
+          )}
+        >
+          <Link2Off className="size-4" aria-hidden />
+          {t("cohortes.sansContrat", { count: nbSansContrat })}
+        </button>
       )}
 
       <div className="flex flex-wrap items-center gap-3 text-sm">
-        <label className="inline-flex items-center gap-1.5">
-          <input
-            type="checkbox"
-            checked={filtres.rouges}
-            onChange={(e) => setFiltres({ ...filtres, rouges: e.target.checked })}
-          />
-          {t("cohortes.filtres.rouges")}
-        </label>
         <select
           aria-label={t("cohortes.filtres.hm")}
           className="h-8 rounded-md border bg-background px-2"
@@ -441,9 +615,15 @@ export function PageCohortes() {
           ))}
         </select>
         <span className="text-muted-foreground">{t("cohortes.nbLignes", { n: lignes.length })}</span>
+        {filtre && (
+          <Button size="sm" variant="ghost" onClick={() => setFiltres(FILTRES_VIDES)}>
+            <Minus className="size-3" aria-hidden />
+            {t("cohortes.filtres.effacer")}
+          </Button>
+        )}
       </div>
 
-      <TableauRecrues recrues={lignes} />
+      <TableauRecrues recrues={lignes} maintenant={maintenant} />
 
       <Card data-testid="tableau-hm">
         <CardHeader>
@@ -463,7 +643,7 @@ export function PageCohortes() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {tableauHm(parHm.data ?? [], aujourdhui).map((l) => (
+              {tableauHm(parHm.data ?? [], aujourdhui, maintenant).map((l) => (
                 <tr key={l.hm_id ?? "sans"}>
                   <td className={TD}>{l.hm_prenom ?? t("cohortes.parHm.sansHm")}</td>
                   <td className={cn(TD, "tabular-nums")}>{l.recrues}</td>

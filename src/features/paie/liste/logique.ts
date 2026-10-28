@@ -50,7 +50,8 @@ export function consigne(l: LigneListePaie, semaine: string): string | null {
   if (action === "annuler") return `Don't approve Week ${w} · Ask for a refund · Don't fund`;
   // Arrêtée avant d'avoir posté (page Cohortes, 0392) : la milestone financée à l'embauche est à rembourser.
   if (action === "kill" && l.faits === 0) return `Nothing to pay · Ask for a refund · End the contract`;
-  const approuver = action === "rien" ? "Nothing to pay" : `Approve Week ${w}: ${usd(l.montant)}`;
+  const nom = nomJalon(l);
+  const approuver = action === "rien" ? "Nothing to pay" : `Approve ${nom ?? `Week ${w}`}: ${usd(l.montant)}`;
   if (action === "kill") return `${approuver} · Don't fund · End the contract`;
   const montant = l.suivante_montant === null ? "rate missing" : usd(l.suivante_montant);
   const suite = (() => {
@@ -71,6 +72,32 @@ export function consigne(l: LigneListePaie, semaine: string): string | null {
     }
   })();
   return suite ? `${approuver} · ${suite}` : approuver;
+}
+
+/** Les notes sous la consigne, en anglais comme elle (F1). */
+export const TEXTES_NOTE_JALON = {
+  nom_different: "name ≠ week posted (postponed)",
+  aucune_financee: "no funded milestone on Upwork",
+} as const;
+
+/** Le nom de la milestone à approuver lue chez Upwork (F1), sans le « : » final. */
+export function nomJalon(l: LigneListePaie): string | null {
+  const nom = l.jalon?.nom?.trim().replace(/[:\s]+$/, "");
+  return nom ? nom : null;
+}
+
+/**
+ * La petite note sous la consigne (F1) : le nom de la milestone ne dit pas la
+ * semaine postée (recrue reportée : « Week 45 » pour une semaine postée en
+ * 46), ou Upwork n'a aucune milestone financée à approuver.
+ */
+export function noteJalon(l: LigneListePaie, semaine: string): "nom_different" | "aucune_financee" | null {
+  const a = actionAffichee(l);
+  if (!l.jalon || a === "rien" || a === "a_verifier" || a === "annuler" || l.montant <= 0) return null;
+  if (l.jalon.erreur) return null;
+  if (l.jalon.nb_finances === 0) return "aucune_financee";
+  const n = nomJalon(l)?.match(/week\s*(\d{1,2})\b/i);
+  return n && Number(n[1]) !== semaineIso(semaine) ? "nom_different" : null;
 }
 
 /** La case « Payé » sert : il y a une milestone à approuver. */

@@ -9,6 +9,7 @@ import {
   lireJetons,
   racinesSchema,
   REQUETE_JALONS,
+  jalonAApprouver,
   MUTATION_MESSAGE,
   REQUETE_SALON,
   requeteContrats,
@@ -45,8 +46,11 @@ const COMPTE = "principal";
  *       Relit le schéma, les organisations et ce que la clé permet de lire.
  *   { action: "contrats" }                   admin
  *       Point 2a : relit les contrats actifs de chaque organisation connectée
- *       (organization.clientOffers, 100 par page) dans `upwork_contrats`.
+ *       (organization.clientOffers, 50 par page) dans `upwork_contrats`.
  *       Lecture seule.
+ *   { action: "jalons" }                     admin
+ *       F1 (28 oct.) : pour chaque contrat actif relié à un posteur, la 1re
+ *       milestone financée et non payée, dans `upwork_jalons`. Lecture seule.
  *   { action: "droits" }                     admin
  *       Teste, en lecture seulement, ce que la clé permet : contrats, jalons
  *       d'un contrat, conversation d'un contrat. Aucune écriture.
@@ -82,6 +86,8 @@ Deno.serve(async (request) => {
         return json(await verifier(supabase));
       case "contrats":
         return json(await lireContrats(supabase, par));
+      case "jalons":
+        return json(await lireJalons(supabase, par));
       case "droits":
         return json(await testerDroits(supabase, par));
       case "message":
@@ -418,6 +424,50 @@ async function lireContrats(supabase: Supabase, par: string | null) {
     bilan[org.title?.trim() ?? org.organizationId] = { total, lus, erreur };
   }
   return { ok: true, organisations: bilan };
+}
+
+// ---------------------------------------------------------------------------
+// F1 (28 oct.) : la milestone à approuver de chaque contrat relié
+// ---------------------------------------------------------------------------
+
+async function lireJalons(supabase: Supabase, par: string | null) {
+  // Les contrats actifs lus (action « contrats ») et reliés à un posteur actif.
+  const [{ data: contrats, error: e1 }, { data: posteurs, error: e2 }] = await Promise.all([
+    supabase.from("upwork_contrats").select("contrat_id, organisation_id").eq("actif", true).not("contrat_id", "is", null),
+    supabase.from("profiles").select("upwork_contract_id").eq("is_active", true).not("upwork_contract_id", "is", null),
+  ]);
+  if (e1) throw e1;
+  if (e2) throw e2;
+  const relies = new Set((posteurs ?? []).map((p) => String(p.upwork_contract_id)));
+  const aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)));
+  if (aLire.length === 0) return { ok: false, error: "aucun contrat actif relié : lancer d'abord l'action contrats" };
+
+  // Le jeton renouvelé une seule fois avant les appels en parallèle.
+  await jetonValide(supabase, par);
+  let lus = 0;
+  let erreurs = 0;
+  // 5 à la fois : ~270 contrats en moins d'une minute.
+  for (let i = 0; i < aLire.length; i += 5) {
+    const lot = aLire.slice(i, i + 5);
+    const lignes = await Promise.all(lot.map(async (c) => {
+      const r = await lire(supabase, {
+        par, action: "jalons", query: REQUETE_JALONS, variables: { id: c.contrat_id }, tenant: c.organisation_id,
+      });
+      const jalon = jalonAApprouver(r.data?.contractDetails);
+      return {
+        contrat_id: String(c.contrat_id),
+        organisation_id: c.organisation_id,
+        ...jalon,
+        erreur: r.data?.contractDetails ? null : (r.erreur ?? "réponse sans contractDetails"),
+        lu_at: new Date().toISOString(),
+      };
+    }));
+    const { error } = await supabase.from("upwork_jalons").upsert(lignes, { onConflict: "contrat_id" });
+    if (error) throw error;
+    lus += lignes.filter((l) => !l.erreur).length;
+    erreurs += lignes.filter((l) => l.erreur).length;
+  }
+  return { ok: true, contrats: aLire.length, lus, erreurs };
 }
 
 /** Ce que la clé permet de LIRE, testé sur un contrat actif. Aucune écriture. */

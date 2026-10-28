@@ -9,6 +9,7 @@ import {
   besoinSuivante,
   consigne,
   csvListe,
+  noteJalon,
   parEquipe,
   postsParCompte,
   raisonsLigne,
@@ -114,6 +115,39 @@ describe("la liste de paie", () => {
     expect(l1).toBe(
       "Zone – Greece,Ana,https://www.upwork.com/c/1,,1,@ana 14/14,10,0,0,10,12,bonus,payer,Approve Week 44: $12 · Fund Week 45: $10,no,no,no,",
     );
+  });
+
+  describe("28 oct., F1 : la 1re milestone financée et non payée, quel que soit son nom", () => {
+    const S = "2026-10-26"; // Week 44
+    const jalon = (nom: string | null, o: Partial<NonNullable<LigneListePaie["jalon"]>> = {}) => ({
+      jalon_id: "m1", nom, montant: 15, etat: "Active", nb_finances: 1, erreur: null, lu_at: "2026-10-28T16:00:00Z", ...o,
+    });
+
+    it("le nom de la milestone lue chez Upwork dans la consigne", () => {
+      expect(consigne(ligne({ montant: 15, suivante_montant: 15, jalon: jalon("Week 44") }), S)).toBe(
+        "Approve Week 44: $15 · Fund Week 45: $15",
+      );
+      expect(consigne(ligne({ montant: 11, suivante_montant: 10, jalon: jalon("Trial week:") }), S)).toBe(
+        "Approve Trial week: $11 · Fund Week 45: $10",
+      );
+    });
+
+    it("recrue reportée : « Week 43 » pour une semaine postée en 44, avec la petite note", () => {
+      const l = ligne({ montant: 15, suivante_montant: 15, jalon: jalon("Week 43") });
+      expect(consigne(l, S)).toBe("Approve Week 43: $15 · Fund Week 45: $15");
+      expect(noteJalon(l, S)).toBe("nom_different");
+      expect(noteJalon(ligne({ montant: 15, jalon: jalon("Week 44") }), S)).toBeNull();
+      // Un nom sans numéro de semaine : pas de note.
+      expect(noteJalon(ligne({ montant: 15, jalon: jalon("Trial week:") }), S)).toBeNull();
+    });
+
+    it("aucune milestone financée chez Upwork : la note le dit ; pas encore lue : la consigne d'avant", () => {
+      expect(noteJalon(ligne({ montant: 15, jalon: jalon(null, { jalon_id: null, nb_finances: 0 }) }), S)).toBe("aucune_financee");
+      expect(consigne(ligne({ montant: 14, suivante_montant: 14, jalon: null }), S)).toBe("Approve Week 44: $14 · Fund Week 45: $14");
+      expect(noteJalon(ligne({ montant: 14, jalon: null }), S)).toBeNull();
+      // Rien à payer : pas de note.
+      expect(noteJalon(ligne({ action: "rien", faits: 0, montant: 0, jalon: jalon("Week 43") }), S)).toBeNull();
+    });
   });
 
   describe("prompt 15, point 5 : la consigne exacte (semaine du 26 oct. = Week 44)", () => {

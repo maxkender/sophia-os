@@ -12,6 +12,7 @@ import {
   curseurSuivant,
   erreurGraphql,
   erreurPassagere,
+  jalonAApprouver,
   lireContrat,
   lireJetons,
   requeteContrats,
@@ -120,4 +121,25 @@ Deno.test("contrats : 50 par page, page suivante par le cursor de la dernière l
   assertEquals(curseurSuivant(page(1, 50, true, "abc")), "abc");
   assertEquals(curseurSuivant({ edges: [], pageInfo: { hasNextPage: true, endCursor: null } }), null);
   assertEquals(curseurSuivant(null), null);
+});
+
+Deno.test("F1 : la 1re milestone financée et non payée, quel que soit son nom", () => {
+  const details = {
+    terms: {
+      fixedPriceTerms: [{
+        milestones: [
+          { id: "m1", description: "Week 44", state: "Paid", sequenceId: 1, depositAmount: { rawValue: "1500", displayValue: "15.00" } },
+          { id: "m3", description: "Week 46", state: "Active", sequenceId: 3, depositAmount: { rawValue: "1500", displayValue: "15.00" } },
+          { id: "m2", description: " Week 45 ", state: "Submitted", sequenceId: 2, depositAmount: { rawValue: "1600", displayValue: "16.00" } },
+          { id: "m4", description: "Week 47", state: "NotFunded", sequenceId: 4, depositAmount: { rawValue: "15" } },
+        ],
+      }],
+    },
+  };
+  assertEquals(jalonAApprouver(details), { jalon_id: "m2", nom: "Week 45", montant: 16, etat: "Submitted", sequence: 2, nb_finances: 2 });
+  assertEquals(jalonAApprouver({ terms: { fixedPriceTerms: [{ milestones: [{ id: "x", state: "NotFunded", sequenceId: 1 }] }] } }).jalon_id, null);
+  // Sans displayValue : rawValue est en centimes.
+  const sansAffichage = { terms: { fixedPriceTerms: [{ milestones: [{ id: "y", state: "Active", sequenceId: 1, depositAmount: { rawValue: "1100" } }] }] } };
+  assertEquals(jalonAApprouver(sansAffichage).montant, 11);
+  assertEquals(jalonAApprouver(null).nb_finances, 0);
 });

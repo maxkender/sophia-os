@@ -209,6 +209,9 @@ verify_jwt = false
 [functions.upwork]
 verify_jwt = false
 
+[functions.recrues-check]
+verify_jwt = false
+
 [functions.upwork-callback]
 verify_jwt = false
 

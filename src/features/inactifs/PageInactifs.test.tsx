@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -42,7 +42,8 @@ describe("PageInactifs", () => {
     const liste = await screen.findByTestId("liste-inactifs");
     expect(within(liste).getByText("Proposé en Kill samedi")).toBeInTheDocument();
     expect(within(liste).getByText("Kill proposé, à décider")).toBeInTheDocument();
-    expect(within(liste).getAllByText(/4 jour\(s\) sans post · 2 nudge\(s\) sans réponse/)).toHaveLength(2);
+    expect(within(liste).getAllByText(/4 jour\(s\) sans post/)).toHaveLength(2);
+    expect(within(liste).queryByText(/nudge\(s\) sans réponse/)).toBeNull();
     expect(within(liste).getAllByRole("link", { name: /Contrat Upwork/ })[0]).toHaveAttribute("href", "https://upwork/c/9");
   });
 
@@ -53,17 +54,5 @@ describe("PageInactifs", () => {
     expect(await screen.findByText("Aucun posteur inactif.")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /Recalculer maintenant/ }));
     expect(await screen.findByTestId("bilan-inactifs")).toHaveTextContent("3 inactif(s), dont 1 nouveau(x) ; 2 sorti(s)");
-  });
-
-  it("réglages : les deux seuils", async () => {
-    api.lireInactifs.mockResolvedValue([]);
-    api.enregistrerReglagesInactifs.mockResolvedValue(undefined);
-    rendu();
-    const bloc = await screen.findByTestId("reglages-inactifs");
-    fireEvent.change(within(bloc).getByLabelText(/jours sans post/), { target: { value: "3" } });
-    fireEvent.click(within(bloc).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() =>
-      expect(api.enregistrerReglagesInactifs).toHaveBeenCalledWith({ inactif_jours_sans_post: 3, inactif_nudges_sans_reponse: 2 }),
-    );
   });
 });

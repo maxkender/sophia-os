@@ -9,6 +9,7 @@ import {
   lireJetons,
   racinesSchema,
   REQUETE_JALONS,
+  MUTATION_MESSAGE,
   REQUETE_SALON,
   requeteContrats,
   UPWORK_GRAPHQL,
@@ -81,6 +82,8 @@ Deno.serve(async (request) => {
         return json(await lireContrats(supabase, par));
       case "droits":
         return json(await testerDroits(supabase, par));
+      case "message":
+        return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? "")));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -451,6 +454,76 @@ async function testerDroits(supabase: Supabase, par: string | null) {
   const { data: conn } = await supabase.from("upwork_connexion").select("droits").eq("compte", COMPTE).maybeSingle();
   await supabase.from("upwork_connexion").update({ droits: { ...(conn?.droits ?? {}), lectures: resultat } }).eq("compte", COMPTE);
   return { ok: true, ...resultat, apercu_jalons: jalons.data?.contractDetails ?? null };
+}
+
+// ---------------------------------------------------------------------------
+// Messages (prompt 17) : la conversation du contrat, puis le message
+// ---------------------------------------------------------------------------
+
+/** Une ÉCRITURE GraphQL : un seul essai, journalisée, jamais relancée. */
+async function ecrire(
+  supabase: Supabase,
+  o: { par: string | null; action: string; query: string; variables: Record<string, unknown>; tenant: string | null; contrat: string },
+  // deno-lint-ignore no-explicit-any
+): Promise<{ data: any; erreur: string | null }> {
+  const jeton = await jetonValide(supabase, o.par);
+  const debut = Date.now();
+  let statut: number | null = null;
+  // deno-lint-ignore no-explicit-any
+  let valeur: any = null;
+  try {
+    const reponse = await fetch(UPWORK_GRAPHQL, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${jeton}`,
+        "content-type": "application/json",
+        ...(o.tenant ? { "X-Upwork-API-TenantId": o.tenant } : {}),
+      },
+      body: JSON.stringify({ query: o.query, variables: o.variables }),
+    });
+    statut = reponse.status;
+    valeur = await reponse.json().catch(() => null);
+  } catch (e) {
+    valeur = { errors: [{ message: messageErreur(e) }] };
+  }
+  const erreur = statut !== null && statut >= 400
+    ? `HTTP ${statut}${erreurGraphql(valeur) ? ` : ${erreurGraphql(valeur)}` : ""}`
+    : erreurGraphql(valeur) ?? (statut === null ? "réseau" : null);
+  await noter(supabase, {
+    par: o.par,
+    action: o.action,
+    contrat: o.contrat,
+    requete: { query: o.query, variables: o.variables, tenant: o.tenant },
+    reponse: valeur,
+    erreur,
+    statut,
+    duree: Date.now() - debut,
+  });
+  return { data: valeur?.data ?? null, erreur };
+}
+
+async function envoyerMessage(supabase: Supabase, par: string | null, contratId: string, texte: string) {
+  if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  const { data: c } = await supabase
+    .from("upwork_contrats")
+    .select("organisation_id")
+    .eq("contrat_id", contratId)
+    .maybeSingle();
+  const tenant = (c?.organisation_id as string | undefined) ?? null;
+  const salon = await lire(supabase, { par, action: "message_salon", query: REQUETE_SALON, variables: { id: contratId }, tenant });
+  const roomId = salon.data?.contractRoom?.id as string | undefined;
+  if (!roomId) return { ok: false, error: salon.erreur ?? "conversation du contrat introuvable" };
+  const r = await ecrire(supabase, {
+    par,
+    action: "message",
+    query: MUTATION_MESSAGE,
+    variables: { input: { roomId, message: texte } },
+    tenant,
+    contrat: contratId,
+  });
+  const storyId = r.data?.createRoomStoryV2?.id as string | undefined;
+  if (!storyId) return { ok: false, error: r.erreur ?? "message non confirmé par Upwork" };
+  return { ok: true, story_id: storyId };
 }
 
 // ---------------------------------------------------------------------------

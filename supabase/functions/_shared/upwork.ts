@@ -191,6 +191,13 @@ export const REQUETE_JALONS = `query Jalons($id: ID!) {
 /** La conversation d'un contrat (contractRoom(contractId: ID!)), lecture seule. */
 export const REQUETE_SALON = `query Salon($id: ID!) { contractRoom(contractId: $id) { id roomName roomType } }`;
 
+/**
+ * Un message dans une conversation (prompt 17) : createRoomStoryV2(input:
+ * RoomStoryCreateInputV2! { roomId, message }) → RoomStory { id }. Noms
+ * vérifiés dans le schéma lu à l'API (28/10). Une écriture : jamais de retry.
+ */
+export const MUTATION_MESSAGE = `mutation Message($input: RoomStoryCreateInputV2!) { createRoomStoryV2(input: $input) { id } }`;
+
 export interface ContratLu {
   offre_id: string;
   contrat_id: string | null;

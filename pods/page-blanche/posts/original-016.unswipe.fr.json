@@ -1,0 +1,246 @@
+{
+ "post_id": "original-016",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra intelligente",
+     "texte": "ce que je dirais à mes 16 ans sur l'attention"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(j'aurais rien écouté)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "l'ennui [[c'est pas une urgence]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs te file [[un shot de dopamine]] avant d'avoir fait quoi que ce soit",
+     "texte": "tu vas dégainer ton tel dans chaque file, chaque trajet, chaque minute de silence. rien ne t'y oblige"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kif de l'ambition]], les compliments, tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "c'est dans ces minutes vides que ta tête vagabonde, et [[c'est là que naissent tes meilleures idées]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "laisse-toi t'ennuyer 10 minutes. au début c'est horrible, puis [[ça devient de la place pour penser]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "ton tel va te bouffer [[des soirées entières]]"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "tu ouvres tiktok pour 2 minutes et tu relèves la tête à minuit. [[le fil est conçu pour ça]], c'est pas toi le problème"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "à la volonté, tu perds à tous les coups. [[rends le scroll plus dur d'accès]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "avant je perdais mes soirées sur les reels. maintenant je lis, je dessine, [[je dors à l'heure]]"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "enlève les Reels d'insta, bloque tiktok avec [[l'appli UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "t'as pas besoin de tout lire"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "[[finis juste un truc]]. un livre, du début à la fin, sans survoler"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "dix livres commencés, ça apprend juste à [[lâcher dès que ça ralentit]]"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "en finir un seul t'apprend l'inverse : [[rester sur un truc]] même quand ça devient moins excitant"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "[[un seul truc]] à la fois, même les devoirs"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "chaque petit coup d'œil au tel, faut [[retrouver où t'en étais]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "tel dans une autre pièce, un onglet, [[une tâche]] jusqu'au bout"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "tu finis plus vite, et [[tu t'en souviens vraiment]] le lendemain"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "only reading the headings",
+      "of these slides"
+     ],
+     "fr": "lire que [[les titres]] de ces slides",
+     "texte": "le scroll de 1h du mat [[vaut jamais le coup]]"
+    },
+    "T2": {
+     "en": [
+      "YOU! most people swipe through slideshows like",
+      "this and never read the actual text"
+     ],
+     "fr": "TOI ! la plupart des gens font défiler ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "tu te dis que ça te détend. en vrai c'est pour ça que la première heure de cours est si dure"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[choper le titre et passer à autre chose]]",
+     "texte": "charge ton tel [[hors de ta chambre]], ton cerveau a besoin de dormir"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration bat celle de la plupart des gens]]",
+     "texte": "et si t'as lu jusqu'ici, [[ton attention est moins cassée que tu crois]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

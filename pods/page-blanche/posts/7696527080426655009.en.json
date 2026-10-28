@@ -1,0 +1,288 @@
+{
+ "post_id": "7696527080426655009",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "10/10 habits to make you dangerously charismatic"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(niche edition)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "scissions": {
+    "T1": 1
+   },
+   "textes": {
+    "T1a": {
+     "en": [
+      "be comfortable with yourself"
+     ],
+     "fr": "sois [[bien dans ta peau]]",
+     "texte": "be [[comfortable with yourself]]"
+    },
+    "T1b": {
+     "en": [
+      "focus on yourself instead of the person in front of you"
+     ],
+     "fr": "plus tu forces pour impressionner, plus tu penses à [[toi]] au lieu de la personne en face de toi",
+     "texte": "the harder you try to look interesting, the more you focus on [[yourself]] instead of the person in front of you"
+    },
+    "T2": {
+     "en": [
+      "stop performing,",
+      "stop name-dropping,",
+      "stop trying to prove",
+      "how smart you are"
+     ],
+     "fr": "arrête de surjouer, de lâcher des noms, de [[vouloir prouver ton QI]]",
+     "texte": "stop performing, stop name-dropping, stop trying to [[prove how smart you are]]"
+    },
+    "T3": {
+     "en": [
+      "BE YOURSELF. confidence is being comfortable without",
+      "needing constant approval"
+     ],
+     "fr": "[[SOIS TOI-MÊME.]] la confiance, c'est être [[à l'aise]] sans avoir besoin qu'on te valide",
+     "texte": "[[BE YOURSELF.]] confidence is being [[comfortable]] without needing constant approval"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "become genuinely [[interested in people]]"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "most people listen just long enough to figure out [[what they’re going to say next]]"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "ask better questions, remember small details, and [[follow up]] on things people told you weeks ago"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "making someone [[feel understood]] is more memorable than having the best story"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books that expand your mind"
+     ],
+     "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
+     "texte": "read books that [[expand your mind]]"
+    },
+    "T2": {
+     "en": [
+      "read psychology, philosophy, history, and classic literature"
+     ],
+     "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
+     "texte": "read psychology, philosophy, history, and [[classic literature]]"
+    },
+    "T3": {
+     "en": [
+      "the more you understand",
+      "about people, human",
+      "nature, and the world"
+     ],
+     "fr": "plus tu comprends les gens, la nature humaine et le monde",
+     "texte": "the more you understand about people, human nature, and the world"
+    },
+    "T4": {
+     "en": [
+      "the more you have to",
+      "contribute to a conversation"
+     ],
+     "fr": "plus t'as de choses [[à apporter à une conversation]]",
+     "texte": "the more you have to [[contribute to a conversation]]"
+    },
+    "T5": {
+     "en": [
+      "i used to struggle with",
+      "stopping scrolling until i found",
+      "this thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel de toute façon",
+     "texte": "my conversation fuel: a novel on the train, history podcasts, and [[a 5 min lesson on the Sophia app]] when i grab my phone anyway"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get comfortable with silence"
+     ],
+     "fr": "sois à l'aise avec [[les silences]]",
+     "texte": "get comfortable with [[silence]]"
+    },
+    "T2": {
+     "en": [
+      "stop rushing to fill",
+      "every pause in a",
+      "conversation"
+     ],
+     "fr": "arrête de vouloir combler [[chaque blanc]] dans la discussion",
+     "texte": "stop rushing to fill [[every pause]] in a conversation"
+    },
+    "T3": {
+     "en": [
+      "speak slower, finish",
+      "your sentences, and",
+      "let your words land",
+      "before adding more"
+     ],
+     "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
+     "texte": "[[speak slower]], finish your sentences, and [[let your words land]] before adding more"
+    },
+    "T4": {
+     "en": [
+      "people who seem comfortable with silence often",
+      "come across as more confident because they aren’t",
+      "desperately chasing approval"
+     ],
+     "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
+     "texte": "people who seem comfortable with silence often come across as [[more confident]] because they aren’t desperately chasing approval"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "develop opinions of your own"
+     ],
+     "fr": "forge-toi [[tes propres avis]]",
+     "texte": "develop [[opinions of your own]]"
+    },
+    "T2": {
+     "en": [
+      "agreeing with everyone",
+      "might make you easy to",
+      "like, but it rarely makes you",
+      "memorable"
+     ],
+     "fr": "être d'accord avec tout le monde, ça te rend sympa, mais [[rarement mémorable]]",
+     "texte": "agreeing with everyone might make you easy to like, but it [[rarely makes you memorable]]"
+    },
+    "T3": {
+     "en": [
+      "form your own views,",
+      "explain why you believe",
+      "them, and disagree",
+      "without getting defensive"
+     ],
+     "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
+     "texte": "form your own views, explain why you believe them, and [[disagree without getting defensive]]"
+    },
+    "T4": {
+     "en": [
+      "charisma comes from having a personality people can",
+      "actually get a read on"
+     ],
+     "fr": "le charisme, c'est avoir une personnalité que les gens [[arrivent à cerner]]",
+     "texte": "charisma comes from having a personality people can actually [[get a read on]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

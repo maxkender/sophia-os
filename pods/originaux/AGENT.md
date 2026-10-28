@@ -148,6 +148,9 @@ normale : un original, comme « Écris N originaux » avec N = 1.
 
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
+- **Personnes sur les images** : les photos de la banque où l'on voit des
+  célébrités (acteurs, actrices) sont acceptées (Adrien, 28/10). Seule limite :
+  jamais de personne réelle sur la slide Sophia (`pods/ROUTINE.md`).
 - **Versions** : commite avant de réécrire un fichier existant.
 - **Git** : travaille sur ta branche, PR vers `main` limitée à `pods/originaux/`,
   merge-la. Tout changement hors de ce dossier : propose-le, ne le merge pas.

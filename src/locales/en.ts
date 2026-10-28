@@ -2500,6 +2500,7 @@ export const en = {
       regenerate: "Default",
       create: "Create poster",
       done: "Poster created",
+      bienvenue: { titre: "Welcome message (send it to the poster)", copier: "Copy", copie: "Copied" },
       transmit: "Note these credentials, the password won't be shown again.",
       empty: "No poster.",
       disable: "Deactivate",
@@ -2516,6 +2517,8 @@ export const en = {
         upworkContrat: "Upwork Contract link",
         emailPerso: "Personal email",
         emailInvalide: "This email is not valid.",
+        contratInvalide: "Paste the contract link from upwork.com.",
+        aCompleter: "Contract or personal email missing",
         lienProfil: "Upwork profile ↗",
         lienContrat: "Upwork contract ↗",
       },
@@ -2855,6 +2858,9 @@ export const en = {
       aide: "In English. Shown on the home page, the onboarding, the welcome message and a post's page.",
       lien: "The link rule (paie_regle_lien_texte)",
       warmup: "The warm-up rule (warmup_regle_texte)",
+      bienvenue: "The welcome message (message_bienvenue_texte)",
+      bienvenueAide:
+        "Copied after creating a poster. Variables: {prenom}, {email}, {password}, {url}, {slack}, {guide}, {regle_warmup}, {regle_lien}.",
       enregistrer: "Save",
       ok: "Saved",
     },
@@ -3589,7 +3595,7 @@ export const en = {
     hiring: {
       title: "Create a poster",
       subtitle:
-        "One creator = one login. Choose the first account: personal (publishing, warmup) or CM (company, existing credentials).",
+        "One creator = one login, and their first TikTok account. The Upwork contract link and personal email are required.",
       langue: "Poster's language",
       langueAide:
         "Pick THIS creator’s language. Every target language is available: hiring in a new one adds it to the languages you manage.",

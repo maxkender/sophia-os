@@ -2506,6 +2506,7 @@ export const fr = {
       regenerate: "Par défaut",
       create: "Créer le poster",
       done: "Poster créé",
+      bienvenue: { titre: "Welcome message (à envoyer au posteur)", copier: "Copier", copie: "Copié" },
       transmit: "Note ces identifiants, le mot de passe ne sera plus affiché.",
       empty: "Aucun poster.",
       disable: "Désactiver",
@@ -2522,6 +2523,8 @@ export const fr = {
         upworkContrat: "Lien du contrat Upwork",
         emailPerso: "Email personnel",
         emailInvalide: "Cet email n’est pas valide.",
+        contratInvalide: "Colle le lien du contrat sur upwork.com.",
+        aCompleter: "Contrat ou email perso manquant",
         lienProfil: "Profil Upwork ↗",
         lienContrat: "Contrat Upwork ↗",
       },
@@ -2862,6 +2865,9 @@ export const fr = {
       aide: "En anglais. Affichées dans l'accueil, l'onboarding, le message de bienvenue et la page d'un post.",
       lien: "La règle du lien (paie_regle_lien_texte)",
       warmup: "La règle du warm-up (warmup_regle_texte)",
+      bienvenue: "Le message de bienvenue (message_bienvenue_texte)",
+      bienvenueAide:
+        "Copié après la création d'un poster. Variables : {prenom}, {email}, {password}, {url}, {slack}, {guide}, {regle_warmup}, {regle_lien}.",
       enregistrer: "Enregistrer",
       ok: "Enregistré",
     },
@@ -3596,7 +3602,7 @@ export const fr = {
     hiring: {
       title: "Créer un poster",
       subtitle:
-        "Un créateur = un login. Choisis le premier compte : perso (publication, warmup) ou CM (boîte, identifiants déjà existants).",
+        "Un créateur = un login, et son premier compte TikTok. Le lien du contrat Upwork et l'email perso sont obligatoires.",
       langue: "Langue du poster",
       langueAide:
         "Choisis la langue de CE créateur. Toutes les langues cibles sont ouvertes : si tu embauches dans une nouvelle, elle s’ajoute à tes langues gérées.",

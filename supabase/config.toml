@@ -202,6 +202,12 @@ verify_jwt = false
 [functions.nudges]
 verify_jwt = false
 
+[functions.upwork]
+verify_jwt = false
+
+[functions.upwork-callback]
+verify_jwt = false
+
 [functions.strip-c2pa]
 verify_jwt = false
 

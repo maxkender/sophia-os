@@ -11,6 +11,7 @@ import { ReviewPopup } from "@/features/reviews/ReviewPopup";
 import { OnboardingPopup } from "@/features/onboarding/OnboardingPopup";
 import { useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
 import { AppShell } from "./AppShell";
+import { useParrainageActif } from "@/features/bonus/parrainageActif";
 
 export function PosterLayout() {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export function PosterLayout() {
   const cohorte = useQuery({ queryKey: ["accueil-cohorte"], queryFn: lireCohorteAccueil, staleTime: Infinity });
   // Relecteur natif désigné, espace ouvert par l'admin : un onglet en plus.
   const espaceRelecteur = useEspaceRelecteur();
+  const parrainage = useParrainageActif();
   const items = [
     { to: "/calendrier", label: t("nav.calendrier"), icon: CalendarDays },
     ...(cohorte.data?.cohorteRuul ? [{ to: "/createur/paiements", label: t("nav.paiementsRuul"), icon: Wallet }] : []),
@@ -25,7 +27,8 @@ export function PosterLayout() {
     ...(espaceRelecteur.relecteurs.length > 0
       ? [{ to: "/createur/relecture", label: t("nav.relectureNativePoster"), icon: Languages }]
       : []),
-    { to: "/createur/parrainage", label: t("nav.referral"), icon: Gift },
+    // Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause.
+    ...(parrainage ? [{ to: "/createur/parrainage", label: t("nav.referral"), icon: Gift }] : []),
   ];
   return (
     <AppShell

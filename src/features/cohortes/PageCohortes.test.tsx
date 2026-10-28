@@ -15,10 +15,12 @@ const api = vi.hoisted(() => ({
   relierContrat: vi.fn(),
   lireKillsAuto: vi.fn(async () => [] as unknown[]),
   annulerKill: vi.fn(async () => undefined),
+  lireArrets: vi.fn(async () => [] as unknown[]),
+  marquerActionArret: vi.fn(async () => undefined),
 }));
 vi.mock("./api", () => api);
 vi.mock("@/features/interrupteurs/api", () => ({
-  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "on" })),
+  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "on", arret_auto: "test" })),
 }));
 const auth = vi.hoisted(() => ({ role: "admin" as string }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
@@ -243,6 +245,50 @@ describe("Cohorts, plus lisible (28 oct., partie B)", () => {
     fireEvent.click(within(k1).getByRole("button", { name: "Annuler" }));
     expect(confirmer).toHaveBeenLastCalledWith(expect.stringContaining("Ana Silva"));
     await waitFor(() => expect(api.annulerKill).toHaveBeenCalledWith("k1"));
+  });
+});
+
+describe("Arrêts complets (partie C)", () => {
+  beforeEach(async () => {
+    vi.clearAllMocks();
+    auth.role = "admin";
+    await i18n.changeLanguage("fr");
+    api.lireCohortes.mockResolvedValue([]);
+    api.lireRecrues.mockResolvedValue([]);
+    api.lireKillsAuto.mockResolvedValue([]);
+    relances.lireReglagesRelances.mockResolvedValue({ mode: "simulation", delais: {}, textes: {}, slack: "" });
+  });
+
+  it("chaque action et son état ; échec en rouge ; « À retirer de Slack » et « Fait à la main »", async () => {
+    const at = "2026-10-28T10:40:00Z";
+    api.lireArrets.mockResolvedValue([
+      {
+        id: "a1", poster_id: "ana", poster_nom: "Ana Silva", hm_prenom: "Lucia", source: "kill_48h", a_poste: false, statut: "erreur",
+        erreur: "jalons : HTTP 403", created_at: at, maj_at: at,
+        etapes: [
+          { action: "os", statut: "fait", detail: null, at },
+          { action: "message", statut: "fait", detail: null, at },
+          { action: "jalons", statut: "erreur", detail: "HTTP 403", at },
+          { action: "remboursement", statut: "a_faire", detail: "Ask for a refund : Week 45 ($30) (liste de paie)", at },
+          { action: "fermeture", statut: "a_faire", detail: "après le remboursement", at },
+          { action: "slack", statut: "a_faire", detail: "à retirer de Slack", at },
+        ],
+      },
+    ]);
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    const bloc = await screen.findByTestId("arrets");
+    const ligne = (await within(bloc).findByText("Milestones : échec")).closest<HTMLElement>("[data-arret]")!;
+    expect(ligne.className).toContain("destructive");
+    expect(within(ligne).getByText("Milestones : échec")).toBeInTheDocument();
+    expect(within(ligne).getByText(/Ask for a refund : Week 45/)).toBeInTheDocument();
+    const slack = within(bloc).getByTestId("a-retirer-slack");
+    fireEvent.click(within(slack).getByRole("button", { name: "Retiré" }));
+    await waitFor(() => expect(api.marquerActionArret).toHaveBeenCalledWith("a1", "slack"));
+    const remb = ligne.querySelector<HTMLElement>('[data-etape="remboursement"]')!;
+    fireEvent.click(within(remb).getByRole("button", { name: "Fait à la main" }));
+    expect(confirmer).toHaveBeenLastCalledWith(expect.stringContaining("Remboursement"));
+    await waitFor(() => expect(api.marquerActionArret).toHaveBeenCalledWith("a1", "remboursement"));
   });
 });
 

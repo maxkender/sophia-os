@@ -30,6 +30,18 @@ import {
   type PosteurExistant,
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
+import {
+  decrireJalons,
+  etape,
+  type EtapeArret,
+  lireJalons as lireJalonsArret,
+  MESSAGE_FIN_DEFAUT,
+  MUTATION_FERMER_CONTRAT,
+  MUTATION_SUPPRIMER_JALON,
+  planUpwork,
+  RAISON_FIN_DEFAUT,
+  statutArret,
+} from "../_shared/arret.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -69,6 +81,15 @@ const COMPTE = "principal";
  *       `accueil_contrats_depuis` → posteur créé et message de bienvenue
  *       (annonce connue), « Contrats à relier », ou doublon signalé.
  *       Interrupteur `accueil_auto` (off / test / on).
+ *   { action: "arrets" }                     cron `arrets`, minute 40 ; admin
+ *       Système du 2 nov., partie C : l'arrêt complet des posteurs de la file
+ *       `arrets` (Kill à 48 h, « je ne veux plus », Arrêter). Désactivé dans
+ *       l'OS ; jamais posté : dernier message, milestones non financées
+ *       supprimées, remboursement à demander (liste de paie), contrat fermé
+ *       s'il ne reste rien de financé ; déjà posté : la paie de lundi paie la
+ *       semaine et ferme. Interrupteur `arret_auto` (off / test / on) : en
+ *       test, rien ne part sur Upwork. Chaque action journalisée, un échec ne
+ *       bloque pas les autres, jamais de nouvel essai.
  *   { action: "verifier" }                   cron `upwork-verifier`, chaque jour
  *       Renouvelle le jeton si besoin et fait un appel léger (la connexion
  *       reste valable 2 semaines après le dernier usage). En cas d'échec :
@@ -109,6 +130,8 @@ Deno.serve(async (request) => {
         return json(await testerDroits(supabase, par));
       case "message":
         return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? "")));
+      case "arrets":
+        return json(await traiterArrets(supabase, par));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -789,6 +812,165 @@ async function creerEtAccueillir(
 // ---------------------------------------------------------------------------
 // Vérification quotidienne
 // ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// Système du 2 nov., partie C : l'arrêt complet
+// ---------------------------------------------------------------------------
+
+async function traiterArrets(supabase: Supabase, par: string | null) {
+  const { data: regl } = await supabase
+    .from("reglages")
+    .select("cle, valeur")
+    .in("cle", ["arret_auto", "arret_message_texte", "arret_raison_upwork"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const mode = lireModeAuto(v.arret_auto);
+  if (mode === "off") return { ok: true, mode, ignore: "arret_auto = off" };
+  const texteFin = typeof v.arret_message_texte === "string" && v.arret_message_texte.trim()
+    ? v.arret_message_texte.trim()
+    : MESSAGE_FIN_DEFAUT;
+  const raison = typeof v.arret_raison_upwork === "string" && v.arret_raison_upwork.trim()
+    ? v.arret_raison_upwork.trim()
+    : RAISON_FIN_DEFAUT;
+
+  const { data: file, error } = await supabase
+    .from("arrets")
+    .select("id")
+    .eq("statut", "a_faire")
+    .order("created_at")
+    .limit(20);
+  if (error) throw error;
+  const bilan = { mode, traites: 0, erreurs: [] as string[] };
+  for (const a of file ?? []) {
+    // Un seul passage prend la ligne.
+    const { data: pris } = await supabase
+      .from("arrets")
+      .update({ statut: "en_cours", maj_at: new Date().toISOString() })
+      .eq("id", a.id)
+      .eq("statut", "a_faire")
+      .select("id");
+    if (!pris?.length) continue;
+    const etapes = await arreterUn(supabase, par, a.id, mode === "on", texteFin, raison);
+    const statut = statutArret(etapes);
+    const erreur = etapes.filter((e) => e.statut === "erreur").map((e) => `${e.action} : ${e.detail}`).join(" · ") || null;
+    await supabase.from("arrets").update({ statut, etapes, erreur, maj_at: new Date().toISOString() }).eq("id", a.id);
+    bilan.traites++;
+    if (erreur) bilan.erreurs.push(erreur);
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/** Les actions d'un arrêt, dans l'ordre ; chacune journalisée, un échec n'arrête pas les autres. */
+async function arreterUn(
+  supabase: Supabase,
+  par: string | null,
+  id: string,
+  reel: boolean,
+  texteFin: string,
+  raison: string,
+): Promise<EtapeArret[]> {
+  const etapes: EtapeArret[] = [];
+  // 1. L'OS : désactivé (profil et comptes), plus de messages ni de posts.
+  const { data: os, error: errOs } = await supabase.rpc("arret_os", { p_id: id });
+  const p = (os ?? [])[0] as { poster_id: string; a_poste: boolean; contrat_id: string | null; slack_user_id: string | null } | undefined;
+  if (errOs || !p) {
+    etapes.push(etape("os", "erreur", errOs?.message ?? "posteur introuvable"));
+    return etapes;
+  }
+  etapes.push(etape("os", "fait", "posteur et comptes désactivés"));
+
+  // Slack : pas de retrait par l'API (compte standard) → liste « À retirer de Slack ».
+  const slack = p.slack_user_id ? etape("slack", "a_faire", "à retirer de Slack") : etape("slack", "sans_objet");
+
+  if (p.a_poste) {
+    // En cours de route : lundi, la liste de paie paie la semaine en cours, ne
+    // finance rien et ferme le contrat.
+    etapes.push(etape("paie", "a_faire", "lundi : payer la semaine en cours, ne rien financer, fermer le contrat"));
+    etapes.push(slack);
+    return etapes;
+  }
+
+  if (!p.contrat_id) {
+    for (const a of ["message", "jalons", "remboursement", "fermeture"] as const) {
+      etapes.push(etape(a, "erreur", "contrat Upwork non relié"));
+    }
+    etapes.push(slack);
+    return etapes;
+  }
+  const { data: c } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", p.contrat_id).maybeSingle();
+  const tenant = (c?.organisation_id as string | undefined) ?? null;
+
+  // 2. Le dernier message.
+  if (reel) {
+    const m = await envoyerMessage(supabase, par, p.contrat_id, texteFin);
+    etapes.push(m.ok ? etape("message", "fait", texteFin) : etape("message", "erreur", m.error ?? "message non envoyé"));
+  } else {
+    etapes.push(etape("message", "simule", texteFin));
+  }
+
+  // 3. Les milestones : lues, les non financées supprimées, les financées à rembourser.
+  const lu = await lire(supabase, { par, action: "arret_jalons", query: REQUETE_JALONS, variables: { id: p.contrat_id }, tenant });
+  if (lu.erreur || !lu.data?.contractDetails) {
+    etapes.push(etape("jalons", "erreur", lu.erreur ?? "contrat illisible"));
+    etapes.push(etape("remboursement", "erreur", "milestones illisibles"));
+    etapes.push(etape("fermeture", "erreur", "milestones illisibles"));
+    etapes.push(slack);
+    return etapes;
+  }
+  const plan = planUpwork(lireJalonsArret(lu.data.contractDetails));
+  if (plan.supprimer.length === 0) {
+    etapes.push(etape("jalons", "sans_objet", "aucune milestone non financée"));
+  } else if (!reel) {
+    etapes.push(etape("jalons", "simule", `à supprimer : ${decrireJalons(plan.supprimer)}`));
+  } else {
+    const echecs: string[] = [];
+    for (const j of plan.supprimer) {
+      const r = await ecrire(supabase, {
+        par,
+        action: "arret_supprimer_jalon",
+        query: MUTATION_SUPPRIMER_JALON,
+        variables: { input: { id: j.id } },
+        tenant,
+        contrat: p.contrat_id,
+      });
+      if (r.erreur || r.data?.deleteMilestone !== true) echecs.push(`${j.nom ?? j.id} : ${r.erreur ?? "non confirmé"}`);
+    }
+    etapes.push(
+      echecs.length
+        ? etape("jalons", "erreur", echecs.join(" ; "))
+        : etape("jalons", "fait", `supprimées : ${decrireJalons(plan.supprimer)}`),
+    );
+  }
+
+  // 4. Le remboursement : l'API ne le permet pas → la liste de paie (« Ask for a refund »).
+  etapes.push(
+    plan.rembourser.length
+      ? etape("remboursement", "a_faire", `Ask for a refund : ${decrireJalons(plan.rembourser)} (liste de paie)`)
+      : etape("remboursement", "sans_objet", "rien de financé"),
+  );
+
+  // 5. La fermeture : seulement s'il ne reste rien de financé.
+  if (!plan.fermer) {
+    etapes.push(etape("fermeture", "a_faire", "après le remboursement (liste de paie : End the contract)"));
+  } else if (!reel) {
+    etapes.push(etape("fermeture", "simule", `endContractByClient, raison ${raison}`));
+  } else {
+    const r = await ecrire(supabase, {
+      par,
+      action: "arret_fermer_contrat",
+      query: MUTATION_FERMER_CONTRAT,
+      variables: { contractId: p.contrat_id, input: { reasonRef: raison } },
+      tenant,
+      contrat: p.contrat_id,
+    });
+    etapes.push(
+      r.data?.endContractByClient?.success === true
+        ? etape("fermeture", "fait", "contrat fermé")
+        : etape("fermeture", "erreur", r.erreur ?? "fermeture non confirmée par Upwork"),
+    );
+  }
+  etapes.push(slack);
+  return etapes;
+}
 
 async function verifier(supabase: Supabase) {
   const { data: c } = await supabase

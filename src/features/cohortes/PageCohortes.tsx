@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 
 import { arreterRecrue, lireCohortes, lireRecrues, relierContrat, type RecrueCohorte } from "./api";
 import { AccueilAuto } from "@/features/accueil/AccueilAuto";
+import { Arrets } from "./Arrets";
 import { KillsAuto } from "./KillsAuto";
 import {
   barre,
@@ -520,6 +521,9 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
 
       {/* Partie B : les Kills automatiques (48 h sans réaction), annulables 12 h. */}
       <KillsAuto maintenant={maintenant} />
+
+      {/* Partie C : les arrêts complets, action par action, et « À retirer de Slack ». */}
+      <Arrets />
 
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("cohortes.puces")}>
         {visibles.map((c) => {

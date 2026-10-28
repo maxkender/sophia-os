@@ -125,3 +125,37 @@ export async function annulerKill(id: string): Promise<void> {
   const { error } = await supabase.rpc("kill_annuler", { p_id: id });
   if (error) throw error;
 }
+
+/** Système du 2 nov., partie C (0403) : une action d'un arrêt complet, journalisée. */
+export interface EtapeArret {
+  action: "os" | "message" | "jalons" | "remboursement" | "fermeture" | "slack" | "paie";
+  statut: "fait" | "simule" | "erreur" | "a_faire" | "sans_objet";
+  detail: string | null;
+  at: string;
+}
+
+export interface Arret {
+  id: string;
+  poster_id: string;
+  poster_nom: string | null;
+  hm_prenom: string | null;
+  source: "kill_48h" | "je_ne_veux_plus" | "kill_samedi" | "manuel";
+  a_poste: boolean | null;
+  statut: "a_faire" | "en_cours" | "fait" | "erreur";
+  etapes: EtapeArret[];
+  erreur: string | null;
+  created_at: string;
+  maj_at: string;
+}
+
+export async function lireArrets(): Promise<Arret[]> {
+  const { data, error } = await supabase.rpc("arrets_liste");
+  if (error) throw error;
+  return ((data ?? []) as Arret[]).map((a) => ({ ...a, etapes: a.etapes ?? [] }));
+}
+
+/** Une action faite à la main (Slack retiré, remboursement demandé, contrat fermé). */
+export async function marquerActionArret(id: string, action: "slack" | "remboursement" | "fermeture" | "message"): Promise<void> {
+  const { error } = await supabase.rpc("arret_action_faite", { p_id: id, p_action: action });
+  if (error) throw error;
+}

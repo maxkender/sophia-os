@@ -2853,6 +2853,33 @@ export const en = {
         statuts: { simule: "Simulated", en_attente: "Pending", annule: "Cancelled", parti: "Gone", erreur: "Error" },
         arret: { a_faire: "Stop to do", en_cours: "Stop in progress", fait: "Stop done", erreur: "Stop failed" },
       },
+      arrets: {
+        titre: "Full stops",
+        aide: {
+          off: "Off: stops wait in the queue, nothing is done.",
+          test: "Test: the poster is deactivated in the OS; nothing goes out on Upwork (last message, milestones, closing: “simulated”).",
+          on: "On: deactivated in the OS; never posted: last message, unfunded milestones deleted, refund to request (payroll list), contract closed if nothing funded is left; already posted: Monday's payroll pays the week and closes.",
+        },
+        vide: "No stop in the last 14 days.",
+        slack: "To remove from Slack ({{n}})",
+        retire: "Removed",
+        faitMain: "Done by hand",
+        faitConfirm: "{{action}}: done by hand for {{nom}}?",
+        aPoste: "already posted",
+        jamaisPoste: "never posted",
+        sources: { kill_48h: "48 h Kill", je_ne_veux_plus: "“I want to stop”", kill_samedi: "Saturday Kill", manuel: "Stop (by hand)" },
+        statuts: { a_faire: "To do", en_cours: "In progress", fait: "Done", erreur: "Error" },
+        actions: {
+          os: "OS",
+          message: "Last message",
+          jalons: "Milestones",
+          remboursement: "Refund",
+          fermeture: "Contract closing",
+          slack: "Slack",
+          paie: "Monday payroll",
+        },
+        etats: { fait: "done", simule: "simulated", erreur: "failed", a_faire: "to do", sans_objet: "nothing to do" },
+      },
       parHm: {
         titre: "By HM",
         aide: "The last 4 cohorts that started ({{cohortes}}). Kept Saturday: only cohorts whose Saturday has passed.",
@@ -3030,6 +3057,10 @@ export const en = {
       relances_auto: {
         titre: "Messages for the 4 steps",
         on: "Every hour: a recruit late on a step (login, TikTok account, warm-up started, warm-up done right) gets ONE message, never two, on Slack if linked, otherwise on Upwork, between 10 am and 8 pm their country's time. On Wednesday: the message to posters with no post on Monday and Tuesday.",
+      },
+      arret_auto: {
+        titre: "Full stop",
+        on: "Each stop (48 h Kill, “I want to stop”, Stop): deactivated in the OS; never posted: last message on Upwork (“Your contract has ended. Thank you for your time.”), unfunded milestones deleted, refund to request in the payroll list, contract closed through the API if nothing funded is left; already posted: paid for the current week on Monday, then contract closed. Slack: “To remove from Slack” list.",
       },
       kill_auto: {
         titre: "Automatic Kill",

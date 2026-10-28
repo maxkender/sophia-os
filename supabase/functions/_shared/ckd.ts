@@ -413,6 +413,36 @@ export function texteRappel(jour: string, zones: ZoneSlack[]): string | null {
   return `:moneybag: *Before funding this week's milestones (week ${semaine})*\n${lignes.join("\n")}`;
 }
 
+const DECISION_MAX: Record<DecisionEnvoyee, string> = {
+  ne_pas_renouveler: "Kill",
+  recreer: "New account",
+  doubler: "Double offered",
+  nudge: "Nudge",
+};
+
+/**
+ * Le récap pour Max en message privé (prompt 15, point 3) : plus de fil par
+ * zone dans #managers-hq. Par HM, chaque décision envoyée, sans mention (rien
+ * à faire pour la HM). `null` s'il n'y a rien.
+ */
+export function texteRecapMax(type: "jeudi" | "samedi", jour: string, zones: ZoneSlack[]): string | null {
+  const lignes: string[] = [];
+  for (const z of zones) {
+    if (z.decisions.length === 0) continue;
+    lignes.push(`*${quiHm(z, false)}${z.zone ? ` · ${z.zone}` : ""}*`);
+    for (const d of z.decisions) {
+      const nouveau = d.nouveauHandle ? ` → @${d.nouveauHandle}` : "";
+      lignes.push(`• ${DECISION_MAX[d.decision]}: ${compte(d.handle)} (${d.poster})${nouveau}`);
+    }
+  }
+  if (lignes.length === 0) return null;
+  const n = zones.reduce((t, z) => t + z.decisions.length, 0);
+  const titre = type === "samedi"
+    ? `:clipboard: *Check, Kill or Double · week ${semaineDesDecisions(jour)}* (${jourCourt(jour)}): ${n} decision${n > 1 ? "s" : ""}`
+    : `:clipboard: *Check, Kill or Double · Thursday follow-ups* (${jourCourt(jour)}): ${n} decision${n > 1 ? "s" : ""}`;
+  return `${titre}\n${lignes.join("\n")}\n_Nothing was posted in #managers-hq. HMs see Kill / Double / New account on their dashboard._`;
+}
+
 // ---------------------------------------------------------------------------
 // Chargement
 // ---------------------------------------------------------------------------

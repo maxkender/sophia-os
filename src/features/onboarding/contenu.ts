@@ -136,13 +136,10 @@ export const ECRANS: Ecran[] = [
     mico: "happy",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "Your **hiring manager** handles your payments." },
+      { type: "p", texte: "You're paid **every Monday on Upwork by Vik Studios**." },
       {
         type: "etapes",
-        items: [
-          "Any issue with a payment: **message your hiring manager on Slack**. They are the right person, and the fastest.",
-          `No answer? **Send a direct message to ${CONTACTS_PAIEMENT}** on Slack.`,
-        ],
+        items: [`Any issue with a payment: **send a direct message to ${CONTACTS_PAIEMENT}** on Slack.`],
       },
     ],
   },

@@ -344,12 +344,12 @@ describe("AdminCheckKillDoublePage", () => {
     expect(within(decision).getByText(/pas encore envoyé au HM/)).toBeInTheDocument();
     expect(within(decision).getByText("Note : vérifier ses liens")).toBeInTheDocument();
     expect(chiffre("Sans décision")).toHaveTextContent(/^Sans décision0/);
-    expect(chiffre("À envoyer aux HM")).toHaveTextContent(/^À envoyer aux HM1/);
+    expect(chiffre("À envoyer (dimanche 12 h)")).toHaveTextContent(/^À envoyer \(dimanche 12 h\)1/);
     fireEvent.click(within(decision).getByRole("button", { name: "Annuler la décision" }));
     await waitFor(() => expect(api.annulerCkd).toHaveBeenCalledWith("p4"));
   });
 
-  it("envoie aux HM les décisions prêtes, après confirmation", async () => {
+  it("prompt 15 : plus de bouton « Envoyer aux HM », les décisions prêtes partent le dimanche", async () => {
     api.listerPropositions.mockResolvedValue([
       proposition({ decision: "recreer", decision_par: "admin-1", decision_at: "2026-10-24T08:00:00Z" }),
       proposition({
@@ -364,12 +364,11 @@ describe("AdminCheckKillDoublePage", () => {
     api.listerHandles.mockResolvedValue([{ id: "nouveau-1", handle_tiktok: "katerina.nea" }]);
     rendre();
     // Recréer sans compte créé ne part pas : 1 seule décision prête.
-    const bouton = await screen.findByRole("button", { name: "Envoyer aux HM (1)" });
     expect(await screen.findByText(/compte créé : @katerina.nea/)).toBeInTheDocument();
     expect(screen.getByText(/compte pas encore confirmé/)).toBeInTheDocument();
-    fireEvent.click(bouton);
-    await waitFor(() => expect(api.envoyerAuxHm).toHaveBeenCalledWith("ctrl-samedi"));
-    expect(window.confirm).toHaveBeenCalled();
+    expect(chiffre("À envoyer (dimanche 12 h)")).toHaveTextContent(/1/);
+    expect(screen.queryByRole("button", { name: /Envoyer aux HM/ })).toBeNull();
+    expect(api.envoyerAuxHm).not.toHaveBeenCalled();
   });
 
   it("le jeudi, envoie tous les nudges encore sans décision", async () => {
@@ -465,44 +464,20 @@ describe("AdminCheckKillDoublePage", () => {
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
         popup: { titre: "Some posts are missing", corps: "Your first day was Sunday: post every day from now on." },
         hm: null,
-        suiviHm: true,
+        suiviHm: false,
       }),
     );
   });
 
-  it("le message au HM : consigne par défaut pré-remplie, modifiable, et pas de note à part", async () => {
+  it("prompt 15 : plus de message au HM ni de suivi dans #managers-hq, la décision part sans suivi", async () => {
     rendre();
     fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
-    const message = await within(alice).findByRole("textbox", { name: "Message au HM" });
-    expect(message).toHaveValue("• Some posts are missing or have no link in the OS. (2/4 published)");
-    expect(api.apercuHmCkd).toHaveBeenCalledWith("p3");
-    expect(within(alice).queryByRole("textbox", { name: "Note" })).toBeNull();
-    expect(within(alice).getByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeChecked();
-
-    fireEvent.change(message, { target: { value: " Her 2 missing posts are from Sunday, her first day. " } });
-    expect(within(alice).getByText("modifié pour ce posteur")).toBeInTheDocument();
-    fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
-    await waitFor(() =>
-      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
-        popup: null,
-        hm: "Her 2 missing posts are from Sunday, her first day.",
-        suiviHm: true,
-      }),
-    );
-  });
-
-  it("suivi du HM décoché : seul le pop-up part, et la décision ne compte pas dans « Envoyer aux HM »", async () => {
-    rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
-    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
-    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
-    const suivi = await within(alice).findByRole("checkbox", { name: "Suivi du HM dans #managers-hq" });
-    await within(alice).findByRole("textbox", { name: "Message au HM" });
-    fireEvent.click(suivi);
+    await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
     expect(within(alice).queryByRole("textbox", { name: "Message au HM" })).toBeNull();
-    expect(within(alice).getByText(/seul le pop-up part/)).toBeInTheDocument();
+    expect(within(alice).queryByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeNull();
+    expect(api.apercuHmCkd).not.toHaveBeenCalled();
     fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
     await waitFor(() =>
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
@@ -525,10 +500,12 @@ describe("AdminCheckKillDoublePage", () => {
     expect(corps).toHaveValue("Some posts planned for @alice.utvecklas492 were not published.");
     expect(confirmer).toBeEnabled();
     fireEvent.click(confirmer);
-    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null));
+    await waitFor(() =>
+      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
+    );
   });
 
-  it("un nudge décidé sans suivi du HM : affiché comme tel, jamais à envoyer aux HM", async () => {
+  it("un nudge décidé sans suivi du HM : jamais à envoyer aux HM", async () => {
     const avant = api.listerPropositions.getMockImplementation()!;
     api.listerPropositions.mockImplementation(async (id: string) =>
       id === "ctrl-jeudi"
@@ -552,9 +529,8 @@ describe("AdminCheckKillDoublePage", () => {
     rendre();
     fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
-    expect(await within(alice).findByText(/sans suivi HM/)).toBeInTheDocument();
+    expect(await within(alice).findByText(/par /)).toBeInTheDocument();
     expect(within(alice).queryByText(/pas encore envoyé au HM/)).toBeNull();
-    expect(screen.getByRole("button", { name: "Envoyer aux HM (0)" })).toBeDisabled();
   });
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {

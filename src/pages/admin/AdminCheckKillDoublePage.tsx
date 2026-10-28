@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Send, Users } from "lucide-react";
+import { CalendarDays, Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Users } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -23,7 +23,6 @@ import {
   enregistrerCanalSlack,
   enregistrerSlackHm,
   enregistrerTextesNudges,
-  envoyerAuxHm,
   envoyerNudgesCkd,
   type ChiffresCkd,
   type DecisionCkd,
@@ -424,10 +423,6 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
     mutationFn: () => envoyerNudgesCkd(controle!.id),
     onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
   });
-  const envoyerHm = useMutation({
-    mutationFn: () => envoyerAuxHm(controle!.id),
-    onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
-  });
 
   const parId = React.useMemo(
     () => new Map((personnes.data ?? []).map((p) => [p.id, p] as const)),
@@ -449,8 +444,7 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
   const liste = cohorte ? toutes.filter((p) => cohorte.comptes.has(p.compte_id)) : toutes;
   const groupes = grouperParHm(liste);
   const nudgesEnAttente = liste.filter((p) => p.action === "nudge" && !p.decision).length;
-  const prets = liste.filter(aEnvoyer).length;
-  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error ?? envoyerHm.error;
+  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error;
 
   return (
     <div className="space-y-5" data-testid={`vue-${type}`}>
@@ -500,19 +494,7 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
                 {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
               </Button>
             )}
-            {controle && liste.length > 0 && (
-              <Button
-                size="sm"
-                disabled={prets === 0}
-                loading={envoyerHm.isPending}
-                onClick={() => {
-                  if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
-                }}
-              >
-                <Send />
-                {t("ckd.envoyerHm", { n: prets })}
-              </Button>
-            )}
+            {/* « Envoyer aux HM » retiré (prompt 15, point 3) : ce qui est décidé part le dimanche à 12 h, en récap à Max. */}
           </div>
         </div>
       )}
@@ -525,11 +507,6 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
       {controle?.slack_erreur && (
         <p role="alert" className="text-sm text-destructive">
           {t("ckd.erreurSlack", { erreur: controle.slack_erreur })}
-        </p>
-      )}
-      {envoyerHm.data && (
-        <p role="status" className="text-sm text-muted-foreground">
-          {t("ckd.envoyees", { n: envoyerHm.data.envoyees })}
         </p>
       )}
 
@@ -1139,7 +1116,6 @@ function BlocDecision({
     if (type === "jeudi") statut.push(t("ckd.statut.hmNonNotifiee"));
   }
   if (p.envoye_at) statut.push(t("ckd.statut.envoye", { date: date(p.envoye_at, heure) }));
-  else if (p.decision === "nudge" && p.hm_suivi === false) statut.push(t("ckd.statut.sansSuiviHm"));
   else if (aEnvoyer(p)) statut.push(t("ckd.statut.aEnvoyer"));
   if (p.fait_at) statut.push(t("ckd.statut.fait", { date: date(p.fait_at, heure) }));
 
@@ -1184,7 +1160,8 @@ function BlocDecision({
 function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
   const [popup, setPopup] = React.useState<TexteNudge | null>(null);
   const [hm, setHm] = React.useState<string | null>(null);
-  const [suiviHm, setSuiviHm] = React.useState(true);
+  // Prompt 15, point 3 : plus rien dans #managers-hq, le suivi HM est désactivé par défaut.
+  const [suiviHm, setSuiviHm] = React.useState(false);
   const apercuPopup = useQuery({
     queryKey: [...CLE, "apercu-nudge", p.id],
     queryFn: () => apercuNudgeCkd(p.id),
@@ -1194,7 +1171,7 @@ function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
   const apercuHm = useQuery({
     queryKey: [...CLE, "apercu-hm", p.id],
     queryFn: () => apercuHmCkd(p.id),
-    enabled: actif && !p.decision,
+    enabled: actif && !p.decision && suiviHm,
     staleTime: Infinity,
   });
   const popupAffiche = popup ?? apercuPopup.data ?? null;
@@ -1227,7 +1204,7 @@ function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
     reinitialiser: () => {
       setPopup(null);
       setHm(null);
-      setSuiviHm(true);
+      setSuiviHm(false);
     },
   };
 }
@@ -1278,45 +1255,7 @@ function PanneauNudge({ handle, perso }: { handle: string | null | undefined; pe
         )}
       </div>
 
-      <div className="min-w-0 space-y-1.5 rounded-md border bg-background p-2.5" data-testid={`message-hm-${handle}`}>
-        <label className="flex items-center gap-2 font-medium">
-          <input type="checkbox" checked={perso.suiviHm} onChange={(e) => perso.setSuiviHm(e.target.checked)} />
-          {t("ckd.messageHm.suivi")}
-        </label>
-        {!perso.suiviHm ? (
-          <p className="text-muted-foreground">{t("ckd.messageHm.sansSuivi")}</p>
-        ) : (
-          <>
-            <p className="text-muted-foreground">{t("ckd.messageHm.aide", { handle })}</p>
-            {perso.apercuHm.isLoading ? (
-              <p className="text-muted-foreground">{t("common.loading")}</p>
-            ) : perso.apercuHm.error ? (
-              <p role="alert" className="text-destructive">
-                {t("ckd.messageHm.erreur", { erreur: messageErreur(perso.apercuHm.error) })}
-              </p>
-            ) : (
-              <>
-                <textarea
-                  className={cn(champ, "min-h-20")}
-                  aria-label={t("ckd.messageHm.champ")}
-                  maxLength={2000}
-                  value={perso.hmAffiche ?? ""}
-                  onChange={(e) => perso.setHm(e.target.value)}
-                />
-                <div className="flex flex-wrap items-center gap-2">
-                  {perso.hmModifie && <Badge variant="outline">{t("ckd.messageHm.modifie")}</Badge>}
-                  {perso.hmModifie && (
-                    <Button size="xs" variant="ghost" onClick={() => perso.setHm(null)}>
-                      {t("ckd.messageHm.retablir")}
-                    </Button>
-                  )}
-                  {perso.hmVide && <span className="text-destructive">{t("ckd.messageHm.vide")}</span>}
-                </div>
-              </>
-            )}
-          </>
-        )}
-      </div>
+      {/* Le message au HM et son suivi dans #managers-hq : retirés au prompt 15, point 3. */}
     </>
   );
 }

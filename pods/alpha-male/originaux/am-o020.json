@@ -1,0 +1,56 @@
+{
+ "source_id": "am-o020",
+ "schema_id": "situational-rules",
+ "titre": "6 manly rules that make you quietly attractive #men #dating #respect #selfimprovement #mindset",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "a776694b-f434-4371-b4ba-14ce13361bcd"
+ ],
+ "notes": "essai (am-o020, une livraison sur cinq). cta B. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Seule livraison du jour sur situational-rules (famille déjà livrée 3 fois en 7 jours, ROUTINE §4.6). Veille du 25/10 : « 6 manly rules that make you insanely attractive » de @millyjhino (13/10) fait 84 k vues et 3,3 % d'enregistrements. L'angle séduction n'a jamais été fait chez moi. Preuve : celle du schéma (504 k vues de @millyjhino, r 5,26 sur a776694b). Accroches écrites : « 6 manly rules that make you quietly attractive » (retenue : forme du post à 84 k, avec « quietly » à la place d'« insanely »), « 6 manly rules that make you insanely attractive » (écartée : copie exacte), « things a respectful man does on a date » (écartée : plus loin). Garde-fous : respect et attention, jamais de manipulation ni de « les femmes sont ». Règles neuves (vérifié dans donnees/label.json) ; écartées car déjà dans le label ou chez @millyjhino : côté trottoir, compliment, fleurs, père, mains vides. Images : la banque du label, sans visage ; slide Sophia sur un bureau sans personne. reference_url prises sur a776694b, vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e51e4377",
+   "texte_overlay": "6 manly rules that make\nyou quietly attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e46253a5",
+   "texte_overlay": "1. If She's Telling You\nAbout Her Day... Put the\nPhone Away:\n\n• Ask what happened next.\n• Remember one detail.\n• Full attention is the rarest\nthing you can give.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "151afa0d",
+   "texte_overlay": "2. If You Make Plans...\nMake Them Specific:\n\n• Not \"we should hang out\nsometime.\"\n• \"Thursday, 8pm, that place\nyou mentioned.\"\n• Clarity is attractive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e4aba479",
+   "texte_overlay": "3. If You're Nervous...\nSay So, Lightly:\n\n• \"I'm a bit nervous,\nI wanted this to go well.\"\n• Honesty disarms.\n• Being real beats\nacting cool.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e583d784",
+   "texte_overlay": "4. If Her Friends Are There...\nTalk to Them Too:\n\n• Ask their names.\n• Include them in the jokes.\n• Her people's opinion\nof you matters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "14e60c4e",
+   "texte_overlay": "5. If You Have to Cancel...\nCall, Don't Text:\n\n• Say why.\n• Offer a new day.\n• Respect shows in\nhow you cancel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e4c3b863",
+   "texte_overlay": "6. If You Run Out of\nThings to Say... Get\nMore Curious:\n\n• Read one interesting thing\na day.\n• Curious men are never\nboring to be around.",
+   "texte_sophia": "6. If You Run Out of\nThings to Say... Get\nMore Curious:\n\n• I swap my morning scroll\nfor 5 minutes on the Sophia app.\n• One story from history,\none idea from science.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  }
+ ]
+}

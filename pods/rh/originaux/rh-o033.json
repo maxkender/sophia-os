@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o033",
+ "schema_id": "insider-rh",
+ "titre": "ex-rh, je traduis les phrases que les recruteurs disent en entretien #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 6. Routine du 28/10 (5 livraisons + 6 variantes). Livraison normale. Schéma insider-rh (r 3,6 sur 8 passages, d3d9cd2f). Famille d'accroche jamais faite : « je traduis ». Différent de rh-o025 (qui décode les offres écrites) : ici, les phrases dites en entretien, avec ce qu'on pensait vraiment et quoi faire. Accroches écrites : celle-ci (retenue), « ce que veut vraiment dire ton recruteur quand il dit… » (écartée : longue), « les phrases de recruteur décodées » (écartée : sans la confession). CTA de fin jamais utilisé : proposer une phrase à traduire. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7ffa9ca5",
+   "texte_overlay": "ex-rh, je traduis les phrases\nque les recruteurs disent\nen entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "719e5ad1",
+   "texte_overlay": "« on a reçu beaucoup de candidatures »\n= on veut savoir si t'as d'autres pistes.\nréponds honnêtement, sans en rajouter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "72064543",
+   "texte_overlay": "« vous êtes sûre de vouloir ce poste ? »\n= on doute de ta motivation.\nredis pourquoi, en une phrase précise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "721fcc3d",
+   "texte_overlay": "« parlez-moi d'un moment difficile »\n= on regarde comment tu racontes, pas l'histoire.\nla situation, ce que t'as fait, ce que t'en retiens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "727ade85",
+   "texte_overlay": "« on a une culture assez intense »\n= ça finit souvent tard.\ndemande un exemple de semaine type",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "72a5769c",
+   "texte_overlay": "« vous avez une passion en dehors ? »\n= on cherche un détail pour se souvenir de toi.\nmes 3 sources : mes voyages, mes podcasts, et ce que j'apprends chaque jour",
+   "texte_sophia": "« vous avez une passion en dehors ? »\n= on cherche un détail pour se souvenir de toi.\nmes 3 sources : mes voyages, mes podcasts, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "72b986cb",
+   "texte_overlay": "« on revient vers vous rapidement »\n= chez nous, si c'était oui, ça allait vite.\nsans nouvelles au bout d'une semaine, relance poliment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7311bc55",
+   "texte_overlay": "quelle phrase de recruteur\ntu veux que je traduise ?\nécris-la en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

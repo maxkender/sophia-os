@@ -22,6 +22,7 @@ import {
 } from "@/features/moteur/pipelinesSchema";
 import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { CarteUpwork } from "@/features/upwork/CarteUpwork";
 
 function ChampNombre({
   id,
@@ -241,6 +242,8 @@ export function AdminReglagesPage() {
         <h1 className="text-lg font-semibold tracking-tight">{t("reglages.title")}</h1>
         <p className="text-sm text-muted-foreground">{t("reglages.subtitleActions")}</p>
       </div>
+
+      <CarteUpwork />
 
       {/* ── Cleaning ── */}
       <Card>

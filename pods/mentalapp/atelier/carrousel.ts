@@ -20,14 +20,16 @@ GlobalFonts.registerFromPath(join(RACINE, "polices/InterTight-Light.ttf"), FAMIL
 type ParLangue = Record<Langue, string>;
 type Recadrage = { src: string; boite: Boite };
 export type Rang = "S+" | "A" | "B" | "C" | "D" | "F";
-type Item = { rang: Rang; titre: ParLangue; texte: ParLangue } & ({ app: true } | Recadrage);
+/** `rang` absent : pas de badge (liste de leçons plutôt que classement). */
+type Item = { rang?: Rang; titre: ParLangue; texte: ParLangue } & ({ app: true } | Recadrage);
 
 export type Carrousel = {
   id: string;
   format: "carrousel";
   titre: string;
   legendes: ParLangue;
-  couverture: { image: Recadrage; theme: ParLangue; sous: ParLangue };
+  /** `frise: false` : pas de frise S+ → F sous l'image (accroche sans classement). */
+  couverture: { image: Recadrage; theme: ParLangue; sous: ParLangue; frise?: boolean };
   items: Item[];
   notes?: string;
 };
@@ -114,7 +116,7 @@ export async function rendreCarrousel(o: Carrousel, langue: Langue, icone: Image
     const k = Math.min(760 / sl, 720 / sh, 1.2);
     x.drawImage(await source(o.couverture.image.src), sx, sy, sl, sh, L / 2 - (sl * k) / 2, 1130 - sh * k, sl * k, sh * k);
     // La frise S+ → A → B → C → F, couronne sur le S+ (dessinée).
-    const rangs: Rang[] = ["S+", "A", "B", "C", "F"];
+    const rangs: Rang[] = o.couverture.frise === false ? [] : ["S+", "A", "B", "C", "F"];
     const tailles = [68, 60, 54, 50, 44];
     let bx = 0;
     const total = tailles.reduce((a, b) => a + b, 0) + 4 * 26;
@@ -137,7 +139,7 @@ export async function rendreCarrousel(o: Carrousel, langue: Langue, icone: Image
     const x = c.getContext("2d");
     x.fillStyle = FOND;
     x.fillRect(0, 0, L, H);
-    badge(x, it.rang, 88, 80, 156);
+    if (it.rang) badge(x, it.rang, 88, 80, 156);
     const app = "app" in it;
     const titre = app ? LEGENDE_APP[langue].texte : it.titre[langue];
     const s = centree(x, titre, L / 2, 382, 104, 200, 960, -0.025);

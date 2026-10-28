@@ -1,5 +1,5 @@
 {
-  "maj_le": "2026-10-27",
+  "maj_le": "2026-10-28",
   "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Le label est jeune (premiers posts le 12/10) : aucun de ses contenus n'est encore à r ≥ 2, les schémas actifs le sont par des posts de la niche. Un schéma « en attente » a des contenus du label pas encore mesurés ; « pas prouvé » : mesurés sous r 2. `npm run playbook -- --mesurer` chaque jour, `npm run preuve -- --maj` pour relire les vues des preuves TikTok.",
   "schemas": [
     {
@@ -24,33 +24,33 @@
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@studyy.hackz/photo/7695135912182746389",
-          "vues": 406800,
+          "vues": 413400,
           "publie_le": "2026-10-10",
-          "enregistrements": 11786,
-          "releve_le": "2026-10-27"
+          "enregistrements": 11998,
+          "releve_le": "2026-10-28"
         },
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@studyy.hackz/photo/7693566248134774037",
-          "vues": 686400,
+          "vues": 717300,
           "publie_le": "2026-10-06",
-          "enregistrements": 15309,
-          "releve_le": "2026-10-27"
+          "enregistrements": 15995,
+          "releve_le": "2026-10-28"
         },
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@studyy.hackz/photo/7691328069914676500",
-          "vues": 291400,
+          "vues": 297800,
           "publie_le": "2026-09-30",
-          "enregistrements": 6474,
-          "releve_le": "2026-10-27"
+          "enregistrements": 6620,
+          "releve_le": "2026-10-28"
         },
         {
           "type": "os",
           "contenu_id": "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
-          "r_median": 0.61,
+          "r_median": 0.63,
           "publies": 7,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-28"
         }
       ]
     },
@@ -77,8 +77,8 @@
           "url": "https://www.tiktok.com/@katy._.studies/photo/7690671753332378898",
           "vues": 1100000,
           "publie_le": "2026-09-28",
-          "enregistrements": 75036,
-          "releve_le": "2026-10-27"
+          "enregistrements": 75558,
+          "releve_le": "2026-10-28"
         }
       ]
     },
@@ -103,10 +103,10 @@
         {
           "type": "tiktok",
           "url": "https://www.tiktok.com/@sofiya.yussupova/photo/7699154511213923604",
-          "vues": 313000,
+          "vues": 323200,
           "publie_le": "2026-10-21",
-          "enregistrements": 5689,
-          "releve_le": "2026-10-27"
+          "enregistrements": 5757,
+          "releve_le": "2026-10-28"
         }
       ]
     },
@@ -134,23 +134,23 @@
         {
           "type": "os",
           "contenu_id": "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
-          "r_median": 0.97,
+          "r_median": 1,
           "publies": 7,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-28"
         },
         {
           "type": "os",
           "contenu_id": "55376335-ad2b-47dc-8aa1-03b3d6241fce",
-          "r_median": 0.82,
+          "r_median": 0.85,
           "publies": 9,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-28"
         },
         {
           "type": "os",
           "contenu_id": "52f784f6-90e4-410f-a2d7-e2de72c461af",
-          "r_median": 0.9,
-          "publies": 4,
-          "releve_le": "2026-10-27"
+          "r_median": 1.07,
+          "publies": 5,
+          "releve_le": "2026-10-28"
         }
       ]
     },
@@ -177,9 +177,16 @@
         {
           "type": "os",
           "contenu_id": "bb2eeefa-d48f-4aab-9e65-405885ce9658",
-          "r_median": null,
-          "publies": 2,
-          "releve_le": "2026-10-27"
+          "r_median": 3.17,
+          "publies": 3,
+          "releve_le": "2026-10-28"
+        },
+        {
+          "type": "os",
+          "contenu_id": "5d957bad-136e-4d88-8582-0fefc3b0bdf8",
+          "r_median": 2.84,
+          "publies": 3,
+          "releve_le": "2026-10-28"
         }
       ]
     },
@@ -208,7 +215,14 @@
           "contenu_id": "741e7669-a63d-4fcc-af3d-7d065404d6aa",
           "r_median": null,
           "publies": 2,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-28"
+        },
+        {
+          "type": "os",
+          "contenu_id": "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+          "r_median": 2.15,
+          "publies": 4,
+          "releve_le": "2026-10-28"
         }
       ]
     }
@@ -221,9 +235,9 @@
         {
           "type": "os",
           "contenu_id": "2b3c468e-6fa8-4a4f-985c-1271c55cd2b0",
-          "r_median": 1.47,
+          "r_median": 2.06,
           "publies": 4,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-28"
         }
       ]
     },
@@ -236,7 +250,7 @@
           "contenu_id": "da4b4215-0fa1-4f63-aa6d-72f412d05755",
           "r_median": 0.45,
           "publies": 5,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-28"
         }
       ]
     }

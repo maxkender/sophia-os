@@ -176,3 +176,17 @@ export function csvListe(
     ]),
   );
 }
+
+/**
+ * La retenue d'un compte pour la semaine (0393, à partir de la semaine du
+ * 2 nov.) : 1 post manqué toléré, puis la retenue par post. Même calcul que
+ * `paie_calculer_v3` ; 0 post : rien (ni paie ni retenue).
+ */
+export function retenueCompte(
+  attendus: number,
+  faits: number,
+  r: { manques_toleres: number; retenue_par_post: number },
+): number {
+  if (faits <= 0) return 0;
+  return Math.max(0, attendus - faits - r.manques_toleres) * r.retenue_par_post;
+}

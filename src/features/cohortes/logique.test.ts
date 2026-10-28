@@ -109,7 +109,7 @@ describe("les cohortes affichées", () => {
 
 describe("les cases : une seule chose chacune", () => {
   it("fait > rouge > relancé > prévu > bloqué > pas encore", () => {
-    expect(caseEtape(recrue(PRETE), "acces")).toEqual({ etat: "fait", le: "2026-10-27T09:00:00Z" });
+    expect(caseEtape(recrue(PRETE), "acces")).toEqual({ etat: "fait", le: "2026-10-26T12:00:00Z" });
     const rouge = recrue({
       rouges: [{ etape: "acces", periode: "2026-11-02", rouge_at: "2026-10-28T11:10:00Z", decision: null, decision_at: null }],
       nudges: [{ type: "acces", periode: "2026-11-02", envoye_at: "2026-10-27T11:10:00Z", canal: "upwork", resolu_at: null, erreur: null }],
@@ -137,10 +137,14 @@ describe("les cases : une seule chose chacune", () => {
     expect(caseEtape(r, "acces").etat).toBe("relance");
   });
 
-  it("warm-up : Start + 5 follows + reposts ; prêt lundi = étapes 1 à 3", () => {
+  it("28 oct. : prêt = TikTok + Start warmup + 5 follows ; ni Slack ni reposts", () => {
     expect(pretLundi(recrue(PRETE))).toBe(true);
     expect(pretLundi(recrue({ ...PRETE, abonnements: 4 }))).toBe(false);
-    expect(pretLundi(recrue({ ...PRETE, slack_lie: false }))).toBe(false);
+    // Accès fait sans Slack → étape verte.
+    expect(caseEtape(recrue({ ...PRETE, slack_lie: false, slack_lie_at: null }), "acces").etat).toBe("fait");
+    expect(pretLundi(recrue({ ...PRETE, slack_lie: false }))).toBe(true);
+    // Warm-up sans reposts → prêt.
+    expect(pretLundi(recrue({ ...PRETE, warmup_reposts_at: null }))).toBe(true);
   });
 
   it("samedi : la décision de Check, Kill or Double", () => {

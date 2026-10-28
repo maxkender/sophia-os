@@ -103,8 +103,11 @@ export async function exclurePaie(id: string, exclu: boolean, raison: string): P
 }
 
 export interface ReglagesPaie {
+  /** Ancienne règle « 10 posts sur 14 = plein » : plus lue depuis la semaine du 2 nov. (0393), gardée. */
   seuil_posts_complets: number;
   retenue_par_post: number;
+  /** Posts manqués tolérés par compte et par semaine avant la retenue (0393). */
+  manques_toleres: number;
 }
 
 export async function lireReglagesPaie(): Promise<{
@@ -124,6 +127,7 @@ export async function lireReglagesPaie(): Promise<{
     paie: {
       seuil_posts_complets: Number(paie.seuil_posts_complets ?? 10),
       retenue_par_post: Number(paie.retenue_par_post ?? 1),
+      manques_toleres: Number(paie.manques_toleres ?? 1),
     },
     parrainageActif: v.bonus_parrainage_actif === true,
     bonusPremiereSemaine: Number(v.paie_bonus_premiere_semaine ?? 1),

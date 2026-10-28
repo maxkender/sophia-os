@@ -111,7 +111,6 @@ function DetailWarmup({ r }: { r: RecrueCohorte }) {
         start: oui(Boolean(r.warmup_started_at)),
         follows: r.abonnements ?? 0,
         min: FOLLOWS_MIN,
-        reposts: oui(Boolean(r.warmup_reposts_at)),
       })}
     </p>
   );

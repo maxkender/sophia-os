@@ -13,9 +13,6 @@ export const ETAPES = ["compteOs", "tiktok", "start", "warmup", "exigences", "pr
 export type CleEtape = (typeof ETAPES)[number];
 export type StatutEtape = "fait" | "a_faire" | "en_retard";
 
-/** Les reposts demandés pendant le warm-up (consigne de l'accueil). */
-export const REPOSTS_WARMUP = 2;
-
 export interface Etape {
   cle: CleEtape;
   statut: StatutEtape;
@@ -42,7 +39,7 @@ function max(valeurs: (number | null)[]): number | null {
  * Les 6 étapes d'un compte. En retard :
  *   - compte TikTok et Start warmup : 2 jours après la création dans l'OS
  *     (comme la relance de l'accueil) ;
- *   - warm-up commencé, 5 follows + 2 reposts : à partir du samedi ;
+ *   - warm-up commencé, 5 follows : à partir du samedi (plus de reposts, 28 oct.) ;
  *   - prêt pour lundi : jamais en retard avant dimanche minuit (la date limite).
  */
 export function etatSemaine(c: CompteSemaine, lundi: string, aujourdhui: string): EtatSemaine {
@@ -61,8 +58,7 @@ export function etatSemaine(c: CompteSemaine, lundi: string, aujourdhui: string)
 
   const statut = (fait: boolean, retard: boolean): StatutEtape => (fait ? "fait" : retard ? "en_retard" : "a_faire");
   const creeTiktok = existants.find((r) => r.cree_tiktok_at)?.cree_tiktok_at ?? existants[0]?.at ?? null;
-  const exigencesFaites = Boolean(assez) && Boolean(c.reposts_le);
-  const finExigences = [assez?.at, c.reposts_le].filter((x): x is string => Boolean(x)).sort();
+  const exigencesFaites = Boolean(assez);
 
   const etapes: Etape[] = [
     { cle: "compteOs", statut: "fait", le: creeOs },
@@ -76,7 +72,7 @@ export function etatSemaine(c: CompteSemaine, lundi: string, aujourdhui: string)
     {
       cle: "exigences",
       statut: statut(exigencesFaites, samedi),
-      le: exigencesFaites ? jourParis(finExigences[finExigences.length - 1]!) : null,
+      le: assez ? jourParis(assez.at) : null,
     },
   ];
   const pret = etapes.every((e) => e.statut === "fait");
@@ -90,7 +86,7 @@ export function etatSemaine(c: CompteSemaine, lundi: string, aujourdhui: string)
  */
 export function phrasePosteur(
   e: EtatSemaine,
-  o: { prenom: string; handle: string | null; reposts: boolean },
+  o: { prenom: string; handle: string | null },
 ): string | null {
   if (!e.retard) return null;
   const compte = o.handle ? `@${o.handle}` : "your TikTok account";
@@ -103,13 +99,8 @@ export function phrasePosteur(
       return `${bonjour} Please press "Start warmup" in the OS for ${compte} today, then warm it up: scroll at least 10 minutes a day, like and follow accounts in your niche. ${fin}`;
     case "warmup":
       return `${bonjour} The warm-up on ${compte} hasn't started yet: scroll at least 10 minutes a day, like and follow accounts in your niche. No warm-up = no pay. ${fin}`;
-    case "exigences": {
-      const manque = [
-        (e.follows ?? 0) < FOLLOWS_WARMUP ? `follow at least ${FOLLOWS_WARMUP} accounts (you have ${e.follows ?? 0})` : null,
-        !o.reposts ? `repost ${REPOSTS_WARMUP} videos and tick "I did 2 reposts" in the OS` : null,
-      ].filter(Boolean);
-      return `${bonjour} Before Monday, on ${compte}: ${manque.join(", and ")}. ${fin}`;
-    }
+    case "exigences":
+      return `${bonjour} Before Monday, on ${compte}: follow at least ${FOLLOWS_WARMUP} accounts (you have ${e.follows ?? 0}). ${fin}`;
     default:
       return null;
   }

@@ -77,6 +77,10 @@ export type Bloc =
   /** `fichier` : une vidéo du site (balise <video>, verticale), sinon un lecteur intégré. */
   | { type: "video"; src: string; titre: string; fichier?: boolean; image?: string }
   | { type: "lien"; avant?: string; libelle: string; href: string }
+  /** Une règle aux posteurs lue dans son réglage (le lien, le warm-up), chantier du 28 oct. */
+  | { type: "regle"; regle: "lien" | "warmup" }
+  /** « Join Slack » : le lien du réglage `slack_lien_invitation`, sinon `LIEN_SLACK`. */
+  | { type: "rejoindreSlack" }
   /** Formulaire prénom + nom de la pièce d'identité (cohorte Ruul) : verrouille « Next ». */
   | { type: "identite" };
 
@@ -120,14 +124,13 @@ export const ECRANS: Ecran[] = [
     mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "titre", texte: "1. ALL COMMUNICATION HAPPENS ON SLACK." },
+      { type: "titre", texte: "1. JOIN SLACK (RECOMMENDED)" },
       {
         type: "p",
-        texte:
-          "You will be invited to **your country's channel**, to chat and connect with the team.",
+        texte: "Join with your **full name**: that's where you get news and answers to your questions.",
       },
+      { type: "rejoindreSlack" },
       { type: "alerte", ton: "orange", items: [`Any question? Ask it in **${SALON_QUESTIONS}** on Slack.`] },
-      { type: "lien", avant: "**If you are not in it yet:**", libelle: "here is the link", href: LIEN_SLACK },
     ],
   },
   {
@@ -203,10 +206,11 @@ export const ECRANS: Ecran[] = [
         titre: "The warm-up, every day until your first posts",
         items: [
           "Scroll **at least 10 minutes** of videos **in the niche you will post in**.",
-          "**Follow at least 5 people**, like, comment, and **repost at least 2 videos**.",
+          "**Follow at least 5 people**, like and comment.",
           "**Do not post anything yet.**",
         ],
       },
+      { type: "regle", regle: "warmup" },
     ],
   },
   {
@@ -245,6 +249,7 @@ export const ECRANS: Ecran[] = [
           "The link goes **on the platform**, not in Slack. That is how we know you posted.",
         ],
       },
+      { type: "regle", regle: "lien" },
       { type: "titre", texte: "Watch the demo carefully" },
       {
         type: "p",
@@ -295,7 +300,6 @@ export const ECRANS: Ecran[] = [
         items: [
           "**At least 10 minutes** of scrolling, in your niche.",
           "**Follow at least 5 people.**",
-          "**Repost at least 2 videos.**",
           "**If you do not do it, you will not be paid.**",
         ],
       },
@@ -420,7 +424,7 @@ export const QUESTIONS: Question[] = [
     question: "What do you do during your warmup?",
     options: [
       "Post your first slideshow straight away",
-      "At least 10 minutes of scrolling in your niche, follow at least 5 people, repost at least 2 videos, and no posting yet",
+      "At least 10 minutes of scrolling in your niche, follow at least 5 people, and no posting yet",
       "Nothing at all, you just wait",
     ],
     bonne: 1,

@@ -61,26 +61,23 @@ export type Case =
   | { etat: "bloque"; raison: string | null }
   | { etat: "attente" };
 
-function plusTard(...dates: (string | null | undefined)[]): string | null {
-  const d = dates.filter((x): x is string => Boolean(x)).sort();
-  return d.length ? d[d.length - 1]! : null;
-}
-
 /** La cohorte a commencé et la recrue a publié : ce qui n'était pas encore relevé à l'époque est fait. */
 function aPublie(r: RecrueCohorte): boolean {
   return r.semaine1.some((c) => c.publies > 0);
 }
 
+/** Accès = 1re connexion à l'OS, rien d'autre : Slack ne bloque plus (28 oct.). */
 export function accesFait(r: RecrueCohorte): boolean {
-  return Boolean(r.premiere_connexion_at) && r.slack_lie;
+  return Boolean(r.premiere_connexion_at);
 }
 
 export function tiktokFait(r: RecrueCohorte): boolean {
   return r.tiktok_existe === true || aPublie(r);
 }
 
+/** Start warmup + 5 follows ; les reposts ne comptent plus (28 oct.). */
 export function warmupFait(r: RecrueCohorte): boolean {
-  const releve = Boolean(r.warmup_started_at) && (r.abonnements ?? 0) >= FOLLOWS_MIN && Boolean(r.warmup_reposts_at);
+  const releve = Boolean(r.warmup_started_at) && (r.abonnements ?? 0) >= FOLLOWS_MIN;
   return releve || aPublie(r);
 }
 
@@ -132,9 +129,9 @@ export function caseEtape(r: RecrueCohorte, etape: EtapeCohorte): Case {
     : aPosteMercredi(r);
   if (fait) {
     const le =
-      etape === "acces" ? plusTard(r.premiere_connexion_at, r.slack_lie_at)
+      etape === "acces" ? r.premiere_connexion_at
       : etape === "tiktok" ? r.tiktok_vu_at
-      : etape === "warmup" ? plusTard(r.warmup_started_at, r.warmup_reposts_at)
+      : etape === "warmup" ? r.warmup_started_at
       : null;
     return { etat: "fait", le };
   }

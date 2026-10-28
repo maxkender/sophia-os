@@ -31,7 +31,7 @@ function IconeEtape({ e }: { e: Etape }) {
 }
 
 /** Les 6 étapes en frise : une colonne par étape, sur 2 ou 3 colonnes sur mobile. */
-function Frise({ etat, c }: { etat: EtatSemaine; c: CompteSemaine }) {
+function Frise({ etat }: { etat: EtatSemaine }) {
   const { t, i18n } = useTranslation();
   const fmt = new Intl.DateTimeFormat(localeDate(i18n.resolvedLanguage ?? "fr"), {
     weekday: "short",
@@ -46,9 +46,7 @@ function Frise({ etat, c }: { etat: EtatSemaine; c: CompteSemaine }) {
           e.cle === "warmup" && etat.follows !== null
             ? t("accueilHm.followsLikes", { follows: etat.follows, likes: etat.likes ?? 0 })
             : e.cle === "exigences" && e.statut !== "fait"
-              ? `${etat.follows ?? 0}/5 · ${t("accueilHm.prochaine.reposts", {
-                  etat: c.reposts_le ? t("accueilHm.prochaine.repostsFaits") : t("accueilHm.prochaine.repostsAFaire"),
-                })}`
+              ? `${etat.follows ?? 0}/5`
               : null;
         return (
           <li
@@ -169,7 +167,7 @@ export function SemaineProchaine({ hm = "" }: { hm?: string }) {
         {lignes.length > 0 && (
           <ul className="divide-y rounded-xl border">
             {lignes.map(({ c, etat }) => {
-              const phrase = phrasePosteur(etat, { prenom: prenom(nom(c)), handle: c.handle, reposts: Boolean(c.reposts_le) });
+              const phrase = phrasePosteur(etat, { prenom: prenom(nom(c)), handle: c.handle });
               return (
                 <li key={c.compte_id} className="space-y-2 p-3" data-compte={c.handle ?? c.compte_id}>
                   <div className="flex items-start justify-between gap-2">
@@ -209,7 +207,7 @@ export function SemaineProchaine({ hm = "" }: { hm?: string }) {
                       aPublie={false}
                     />
                   </div>
-                  <Frise etat={etat} c={c} />
+                  <Frise etat={etat} />
                   {phrase && <Phrase texte={phrase} />}
                 </li>
               );

@@ -28,6 +28,7 @@ import {
 } from "@/features/moteur/api";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
+import { CarteCommentPaye } from "@/features/regles/CartesRegles";
 import { arriveePosts, estManque, heureArriveeAnnoncee } from "@/features/moteur/echeancePublication";
 import { debutParDefaut, joursFenetre, libelleFenetre, lundiDe } from "@/features/moteur/semaines";
 import {
@@ -38,7 +39,6 @@ import {
 } from "@/features/moteur/comptesCm";
 import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
-import { CaseReposts } from "@/features/ckd/cohorte/CaseReposts";
 import { BandeauRecreation } from "@/features/ckd/recreation/BandeauRecreation";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
@@ -471,13 +471,15 @@ export function PosterCalendrierPage() {
             )}
           </div>
         )}
-        {compte && !ugc && warmupStatut !== "termine" && <CaseReposts compteId={compte.id} />}
       </div>
       )}
 
       {debutRuul && <BandeauCohorteRuul />}
 
       {compte && <IdentiteTikTok compte={compte} />}
+
+      {/* Chantier du 28 oct. : comment il est payé et la règle du lien (pas la cohorte Ruul). */}
+      {cohorte.isSuccess && !debutRuul && !estCm && <CarteCommentPaye />}
 
       {compte && (
         <VideosAPoster

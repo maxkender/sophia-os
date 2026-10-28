@@ -53,15 +53,22 @@ describe("accueil standard", () => {
     expect(cles).not.toContain("mission");
   });
 
-  it("le Slack d'abord, avec son lien", () => {
+  it("Slack d'abord, recommandé (28 oct.) : « Join Slack » et la phrase sur le nom complet", () => {
     expect(cles[1]).toBe("slack");
-    expect(texte(ECRANS, "slack")).toContain("1. ALL COMMUNICATION HAPPENS ON SLACK.");
-    expect(texte(ECRANS, "slack")).toContain("https://join.slack.com/");
+    expect(texte(ECRANS, "slack")).toContain("1. JOIN SLACK (RECOMMENDED)");
+    expect(texte(ECRANS, "slack")).toContain("Join with your **full name**: that's where you get news and answers to your questions.");
+    expect(ECRANS.find((e) => e.cle === "slack")!.blocs.some((b) => b.type === "rejoindreSlack")).toBe(true);
   });
 
-  it("la création du compte est une frise, la consigne du warm-up en dessous", () => {
+  it("la création du compte est une frise, la consigne du warm-up en dessous, puis la règle du warm-up", () => {
     const compte = ECRANS.find((e) => e.cle === "compte")!;
-    expect(compte.blocs.map((b) => b.type)).toEqual(["p", "frise", "alerte"]);
+    expect(compte.blocs.map((b) => b.type)).toEqual(["p", "frise", "alerte", "regle"]);
+  });
+
+  it("28 oct. : la règle du lien sur l'écran du post, et plus aucun repost demandé au posteur", () => {
+    expect(ECRANS.find((e) => e.cle === "posting")!.blocs).toContainEqual({ type: "regle", regle: "lien" });
+    expect(JSON.stringify(ECRANS).toLowerCase()).not.toContain("repost");
+    expect(JSON.stringify(QUESTIONS).toLowerCase()).not.toContain("repost");
   });
 
   it("le timing a son propre écran, juste après la démo", () => {

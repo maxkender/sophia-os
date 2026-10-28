@@ -111,6 +111,8 @@ export const fr = {
       changeBody: "Ton compte a été créé par l'admin. Définis ton propre mot de passe.",
       newPassword: "Nouveau mot de passe",
       confirmPassword: "Confirme le mot de passe",
+      emailPerso: "Ton email perso",
+      emailPersoAide: "Celui que tu utiliseras sur Slack : on te relie tout seul.",
       mismatch: "Les deux mots de passe ne correspondent pas.",
       save: "Enregistrer et continuer",
     },
@@ -2786,7 +2788,7 @@ export const fr = {
         prevuCanal: "Prévu · {{canal}} (simulation)",
         attente: "Pas encore",
       },
-      warmupDetail: "Start {{start}} · follows {{follows}}/{{min}} · reposts {{reposts}}",
+      warmupDetail: "Start {{start}} · follows {{follows}}/{{min}}",
       pasPret: "Pas prêt",
       postsCompte: "{{compte}} : {{publies}}/{{prevus}} publiés",
       samedi: {
@@ -2821,6 +2823,14 @@ export const fr = {
       },
       mesRecrues: "Mes recrues",
       mesRecruesAide: "La cohorte en préparation et celle en semaine 1, en lecture seule. Max ou le Head of Ops décide des rouges.",
+    },
+    regles: {
+      titre: "Règles dites aux posteurs",
+      aide: "En anglais. Affichées dans l'accueil, l'onboarding, le message de bienvenue et la page d'un post.",
+      lien: "La règle du lien (paie_regle_lien_texte)",
+      warmup: "La règle du warm-up (warmup_regle_texte)",
+      enregistrer: "Enregistrer",
+      ok: "Enregistré",
     },
     nudges: {
       nav: "Relances",
@@ -3034,8 +3044,8 @@ export const fr = {
       },
       reglagesV3: {
         titre: "Réglages de la paie",
-        seuil: "Posts faits par compte pour une semaine pleine (sur 14)",
-        retenue: "Retenue par post raté ($)",
+        toleres: "Posts manqués tolérés par compte et par semaine",
+        retenue: "Retenue par post manqué au-delà ($)",
         parrainage: "Bonus de parrainage actif",
         bonusPremiere: "Bonus de la 1re semaine de posts ($)",
         lectureSeule: "Lecture seule : ces réglages sont modifiables par l'admin.",

@@ -68,15 +68,15 @@ describe("les 6 étapes", () => {
     expect(etatSemaine(c, LUNDI, "2026-10-27").etapes[1]!.statut).toBe("a_faire");
   });
 
-  it("warm-up et 5 follows + 2 reposts : en retard à partir du samedi", () => {
+  it("warm-up et 5 follows : en retard à partir du samedi", () => {
     const c = compte({ warmup_lance_le: "2026-10-26T10:00:00Z", releves: [releve("2026-10-27T06:00:00Z")] });
     expect(statuts(c, "2026-10-30")).toMatchObject({ warmup: "a_faire", exigences: "a_faire" });
     expect(statuts(c, "2026-10-31")).toMatchObject({ warmup: "en_retard", exigences: "en_retard" });
   });
 
-  it("5 follows sans les reposts cochés : pas fait", () => {
+  it("28 oct. : 5 follows sans les reposts cochés → fait", () => {
     const c = compte({ releves: [releve("2026-10-27T06:00:00Z", { abonnements: 8 })] });
-    expect(statuts(c, "2026-10-29").exigences).toBe("a_faire");
+    expect(statuts(c, "2026-10-29").exigences).toBe("fait");
   });
 
   it("prêt pour lundi n'est jamais en retard avant la date limite", () => {
@@ -86,31 +86,28 @@ describe("les 6 étapes", () => {
 
 describe("la phrase au posteur", () => {
   it("aucune quand rien n'est en retard", () => {
-    expect(phrasePosteur(etatSemaine(compte(), LUNDI, "2026-10-26"), { prenom: "Anna", handle: "a", reposts: false })).toBeNull();
+    expect(phrasePosteur(etatSemaine(compte(), LUNDI, "2026-10-26"), { prenom: "Anna", handle: "a" })).toBeNull();
   });
 
   it("pour la première étape en retard, en anglais, avec le @ et la date limite", () => {
     const p = phrasePosteur(etatSemaine(compte(), LUNDI, "2026-10-28"), {
       prenom: "Anna",
       handle: "anna.studies",
-      reposts: false,
     });
     expect(p).toBe(
       'Hi Anna! @anna.studies isn\'t created on TikTok yet. Please create it today, then press "Start warmup" in the OS. Deadline: Sunday midnight, otherwise your start moves to the following week.',
     );
   });
 
-  it("5 follows + 2 reposts : dit ce qui manque", () => {
+  it("5 follows : dit ce qui manque, sans parler de reposts", () => {
     const c = compte({
       warmup_lance_le: "2026-10-26T10:00:00Z",
       releves: [releve("2026-10-27T06:00:00Z", { cree_tiktok_at: "2026-10-26T08:00:00Z", abonnements: 3, likes: 5 })],
     });
     const e = etatSemaine(c, LUNDI, "2026-10-31");
     expect(e.retard).toBe("exigences");
-    expect(phrasePosteur(e, { prenom: "Anna", handle: "a", reposts: false })).toContain(
-      'follow at least 5 accounts (you have 3), and repost 2 videos and tick "I did 2 reposts" in the OS',
-    );
-    expect(phrasePosteur(e, { prenom: "Anna", handle: "a", reposts: true })).not.toContain("repost 2");
+    expect(phrasePosteur(e, { prenom: "Anna", handle: "a" })).toContain("follow at least 5 accounts (you have 3).");
+    expect(phrasePosteur(e, { prenom: "Anna", handle: "a" })).not.toContain("repost");
   });
 
   it("le prénom : premier mot du nom", () => {

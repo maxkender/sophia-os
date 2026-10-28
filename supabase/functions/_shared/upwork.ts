@@ -158,8 +158,7 @@ export function abregerPourJournal(valeur: unknown, max = 20_000): unknown {
 // → ContractOfferConnection { totalCount, edges { node: ContractOfferResult }, pageInfo }.
 // ---------------------------------------------------------------------------
 
-export function requeteContrats(avecPays: boolean): string {
-  const pays = avecPays ? " freelancerProfile { countryDetails { twoLetterAbbreviation } }" : "";
+export function requeteContrats(): string {
   return `query ContratsActifs($pagination: Pagination!) {
   organization {
     id
@@ -167,10 +166,11 @@ export function requeteContrats(avecPays: boolean): string {
     clientOffers(offerByClientFilter: { commonFilter: { states_any: [Active] } }, pagination: $pagination) {
       totalCount
       edges {
+        cursor
         node {
           id title type state milestoneState startDateTime
           team { id name }
-          freelancer { id name${pays} }
+          freelancer { id name }
           contractDetails { id status }
         }
       }
@@ -178,6 +178,22 @@ export function requeteContrats(avecPays: boolean): string {
     }
   }
 }`;
+}
+
+/** clientOffers rend 50 lignes au plus par page, même si on en demande plus (testé le 28/10). */
+export const TAILLE_PAGE_OFFRES = 50;
+
+/**
+ * Le curseur de la page suivante. Upwork laisse `endCursor` vide (testé le
+ * 28/10) : on prend alors le `cursor` de la dernière ligne (sa position, « 50 »
+ * → la page suivante commence à 51). Null : plus de page.
+ */
+// deno-lint-ignore no-explicit-any
+export function curseurSuivant(offres: any): string | null {
+  if (!offres?.pageInfo?.hasNextPage) return null;
+  const edges = offres.edges ?? [];
+  const dernier = edges.length > 0 ? edges[edges.length - 1]?.cursor : null;
+  return offres.pageInfo.endCursor ?? dernier ?? null;
 }
 
 /** Les jalons d'un contrat au forfait (contractDetails(id: ID!) → terms.fixedPriceTerms.milestones). */

@@ -9,12 +9,14 @@ import {
   aRenouveler,
   avecRetry,
   corpsJeton,
+  curseurSuivant,
   erreurGraphql,
   erreurPassagere,
   lireContrat,
   lireJetons,
   requeteContrats,
   racinesSchema,
+  TAILLE_PAGE_OFFRES,
   urlAutorisation,
   urlRetour,
 } from "./upwork.ts";
@@ -90,10 +92,11 @@ Deno.test("racines du schéma et erreurs GraphQL", () => {
   assertEquals((abregerPourJournal({ a: "x".repeat(50) }, 20) as { abrege: boolean }).abrege, true);
 });
 
-Deno.test("contrats : requête avec ou sans pays, lecture d'un nœud", () => {
-  assert(requeteContrats(true).includes("countryDetails { twoLetterAbbreviation }"));
-  assert(!requeteContrats(false).includes("countryDetails"));
-  assert(requeteContrats(false).includes("states_any: [Active]"));
+Deno.test("contrats : requête sans le pays du freelance (il vient de l'annonce), lecture d'un nœud", () => {
+  assert(!requeteContrats().includes("countryDetails"));
+  assert(!requeteContrats().includes("freelancerProfile"));
+  assert(requeteContrats().includes("states_any: [Active]"));
+  assert(requeteContrats().includes("cursor"));
   const c = lireContrat({
     id: "o1", title: "Week 44", type: "FixedPrice", state: "Active", milestoneState: "Active",
     startDateTime: "1761000000000", team: { id: "t", name: "Vik" },
@@ -103,4 +106,18 @@ Deno.test("contrats : requête avec ou sans pays, lecture d'un nœud", () => {
   assertEquals([c.offre_id, c.contrat_id, c.freelancer_nom, c.freelancer_pays, c.equipe_nom], ["o1", "c9", "Ana S.", "PT", "Vik"]);
   assertEquals(c.debut_at, new Date(1761000000000).toISOString());
   assertEquals(lireContrat({ id: "o2" }).contrat_id, null);
+});
+
+Deno.test("contrats : 50 par page, page suivante par le cursor de la dernière ligne (endCursor vide)", () => {
+  assertEquals(TAILLE_PAGE_OFFRES, 50);
+  const page = (debut: number, n: number, suite: boolean, fin: string | null = null) => ({
+    edges: Array.from({ length: n }, (_, i) => ({ cursor: String(debut + i), node: { id: `o${debut + i}` } })),
+    pageInfo: { endCursor: fin, hasNextPage: suite },
+  });
+  assertEquals(curseurSuivant(page(1, 50, true)), "50");
+  assertEquals(curseurSuivant(page(51, 50, true)), "100");
+  assertEquals(curseurSuivant(page(301, 39, false)), null);
+  assertEquals(curseurSuivant(page(1, 50, true, "abc")), "abc");
+  assertEquals(curseurSuivant({ edges: [], pageInfo: { hasNextPage: true, endCursor: null } }), null);
+  assertEquals(curseurSuivant(null), null);
 });

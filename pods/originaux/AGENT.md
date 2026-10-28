@@ -84,16 +84,16 @@ ou de déposer.
   rebuilt my confidence »), avant/après. Les variantes des percées gardent le
   fond de l'original mais prennent aussi une accroche hors de ce schéma.
   Jamais deux fois la même accroche ni la même image d'accroche dans un lot.
-- **Unicité (consigne du chef et d'Adrien, 28/10)** : un titre de slide 1 mot
-  pour mot ou une couverture déjà utilisée chez nous peut revenir, mais **pas
-  avant 10 jours** après sa dernière livraison, et rarement (au plus une
-  reprise par lot). La couverture compte même sous un autre `media_id` : la
-  banque contient beaucoup de doublons visuels. Surtout, varie : nouveaux
-  schémas, nouvelles accroches, nouvelles images. Avant `deposer` :
-  `npm run accroches` (empreintes visuelles, couvertures libres dans
-  `sortie/accroches-libres.txt`), puis `npm run unicite -- <ids>` : il doit
-  répondre « ok ». L'OS empêche de son côté qu'un compte reçoive deux fois la
-  même accroche ou la même couverture en 10 jours.
+- **Reprises (Adrien, 28/10, `pods/ROUTINE.md` §4.7)** : reprendre un titre de
+  slide 1 ou une couverture est permis, c'est le principe des variantes. Seule
+  règle : **jamais deux posts identiques**, chaque reprise change quelque chose
+  (autres items, autre angle, autre image ou autre CTA). Varie quand même :
+  nouveaux schémas, nouvelles accroches, nouvelles images (la banque contient
+  beaucoup de doublons visuels sous des `media_id` différents). Avant
+  `deposer` : `npm run accroches` (empreintes visuelles, couvertures neuves dans
+  `sortie/accroches-libres.txt`), puis `npm run unicite -- <ids>`, qui signale
+  les reprises et refuse un post identique. Éviter qu'un compte reçoive deux
+  fois la même chose relève de l'assignation, côté OS.
 - **Item** : `titre (2 à 4 mots)\n\n` puis 2 phrases, **150 à 200 caractères** :
   une consigne concrète et chiffrée (durée, fréquence), puis une chute
   introspective (« most people… », « the avoidance costs more than… »).

@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o025",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "comment te cultiver quand t'as littéralement zéro temps #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "essai. cta A (avant / après sur le dernier item ; voir CTA.md). Routine du 28/10, livraison 2 sur 5 (le numéro finit par 5). L'essai : l'angle « quand t'as zéro temps », vu dans la veille du 26/10 (@mia.study5, « how to study properly when you have barely any time left », 25 k vues et 9,7 % d'enregistrements le 14/10, https://www.tiktok.com/@mia.study5/video/7696618582704147725), appliqué à la culture et jamais fait chez nous. La preuve reste celle du schéma dangereusement-cultivee (r 2,96, 2e2ef1c3 ; chez nous, bsg-o004 à r 3,56). C'est la seule livraison normale du jour sur une famille déjà livrée 3 fois en 7 jours (ROUTINE §4.6) ; les 4 autres sont des variantes. Accroches écrites : « comment te cultiver quand t'as littéralement zéro temps » (retenue : la forme du post à 25 k), « se cultiver avec zéro temps libre, mode d'emploi » (écartée : plus froid), « comment je me cultive alors que j'ai jamais le temps » (écartée : plus long). Items neufs : temps morts, podcast pendant les tâches, un sujet par semaine, le résumé avant le chapitre. Aucun fait. Images de la banque, sans célébrité ni texte. Inspirations : slides de 2e2ef1c3 et 1a941e8c sans appli.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "43a7762d",
+   "texte_overlay": "comment te cultiver quand\nt'as littéralement\nzéro temps",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67cb1a44",
+   "texte_overlay": "1. utilise les temps morts.\n\nla file d'attente, le bus, les cinq minutes avant un cours.\nmis bout à bout, ça fait une heure par jour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "692a12cb",
+   "texte_overlay": "2. mets un podcast pendant les tâches.\n\nla vaisselle, le rangement, la marche.\ntes mains travaillent, ta tête apprend.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9f0d7628",
+   "texte_overlay": "3. un seul sujet par semaine.\n\ncette semaine les pharaons, la suivante les impressionnistes.\nmoins tu t'éparpilles, plus tu retiens.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6974cdce",
+   "texte_overlay": "4. lis le résumé avant le chapitre.\n\ntu sais où tu vas, tu lis plus vite, tu retiens l'essentiel.\nmême avec dix minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "df491376",
+   "texte_overlay": "5. un truc nouveau chaque matin.\n\navant, je disais que j'avais pas le temps de me cultiver.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg",
+   "texte_sophia": "5. un truc nouveau chaque matin.\n\navant, je disais que j'avais pas le temps de me cultiver.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "69394dd2",
+   "texte_overlay": "laquelle tu testes\ndès demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

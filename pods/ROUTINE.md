@@ -86,14 +86,11 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    pas dans cette limite. Un schéma qui marche finit par s'user : on en
    cherche toujours le suivant.
 
-7. **Pas de répétition visible** (podz d'originaux dont le label n'est pas
-   nourri qu'aux podz : 2, 4, 5, 7, 8, 9 et 12). Un titre de slide 1 mot pour
-   mot, ou une couverture identique (même image, même sous un autre
-   `media_id` : compare l'image elle-même), ne revient pas avant **10 jours**
-   après sa dernière livraison chez toi, et au plus **1 reprise par lot**. Le
-   reste du temps : nouveaux schémas, nouvelles accroches, nouvelles images.
-   Vérifie-le avant chaque dépôt. Podz 1, 6, 10 et 11 (labels 100 % podz) :
-   pas concernés pour l'instant.
+7. **Reprendre, oui, mais en changeant quelque chose.** Les reprises et les
+   variantes de ce qui marche sont le principe même des podz : un titre ou
+   une couverture peut revenir. Chaque reprise apporte juste du changement
+   (autres items, autre angle, autre image ou autre CTA), pour que deux
+   posts ne soient jamais identiques. Pas de délai ni de quota imposé.
 
 ## 5. Livrer
 

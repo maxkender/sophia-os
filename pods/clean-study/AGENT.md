@@ -62,6 +62,7 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 | `npm run label -- --slides <id8>` | Donne les slides d'un contenu, position par position : `media_id` (image propre) et `reference_url` (slide d'inspiration). |
 | `npm run images -- --depuis <id8,id8…>` | Fait une planche des images propres de ces contenus, chaque vignette avec son id (★ = accroche). |
 | `npm run top-posts -- --compte renaraise` | Liste nos posts publiés les plus vus, tels que postés, avec leur slide d'appli (micabo ou UnSwipe). |
+| `npm run doublons -- <source_id…>` | Règle §4.7 de `pods/ROUTINE.md` : vérifie que le titre de slide 1 et la photo de couverture (même sous un autre `media_id`) ne reprennent pas ceux d'un autre original. À lancer avant chaque dépôt. |
 | `npm run apercu -- <source_id\|all>` | Fait l'aperçu d'un original : texte posé sur les images, puis les slides d'inspiration. Les émojis y sortent en ▯ (police de l'aperçu) : c'est normal. |
 | `npm run deposer -- <source_id\|all> [--essai]` | Dépose dans la file avec la preuve du schéma. `--essai` fait les contrôles locaux seulement. |
 | `npm run etat` | Montre la file, les rangs, les vues et le r de chaque passage de tes originaux. |

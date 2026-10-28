@@ -42,3 +42,18 @@ export async function lienConnexionUpwork(): Promise<string> {
 export async function diagnosticUpwork(): Promise<void> {
   await invoke("upwork", { action: "diagnostic" });
 }
+
+export interface BilanContrats {
+  total: number | null;
+  lus: number;
+  erreur: string | null;
+}
+
+/** Point 2a : relit les contrats actifs de chaque organisation (lecture seule). */
+export async function lireContratsUpwork(): Promise<Record<string, BilanContrats>> {
+  const r = await invoke<{ ok: boolean; organisations?: Record<string, BilanContrats>; error?: string }>("upwork", {
+    action: "contrats",
+  });
+  if (!r.ok || !r.organisations) throw new Error(r.error ?? "lecture des contrats impossible");
+  return r.organisations;
+}

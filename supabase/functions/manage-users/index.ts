@@ -48,7 +48,7 @@ import { lireTout } from "../_shared/lots.ts";
 import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
-import { estRoleManager, rattachementNouvelHm, roleACreer } from "../_shared/roles.ts";
+import { estRoleManager, rattachementNouvelHm, refuseAuHm, roleACreer } from "../_shared/roles.ts";
 import {
   assertRole,
   corsHeaders,
@@ -263,6 +263,11 @@ async function gererRequete(request: Request): Promise<Response> {
     "head_of_ops",
   ]);
   if (acces instanceof Response) return acces;
+  // Prompt 15, point 1 : ajouter un compte, (dés)activer un posteur et créer
+  // un hiring manager sont retirés aux HMs (admin et Head of Ops les gardent).
+  if (refuseAuHm(acces.role, body.action, body.role)) {
+    return json({ error: "Réservé à l'admin et au Head of Ops" }, 403);
+  }
 
   if (body.action === "create") {
     const prenom = String(body.prenom ?? "").trim();

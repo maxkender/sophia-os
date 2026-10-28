@@ -426,6 +426,11 @@ function LigneFile({
   );
 }
 
+/** Arrêté par un Kill de Check, Kill or Double (motif « ckd: », 0328). */
+function estKillCkd(ligne: Pick<LigneSurveillance, "non_renouveler_raison">): boolean {
+  return (ligne.non_renouveler_raison ?? "").startsWith("ckd:");
+}
+
 function LigneNonRenouveler({
   ligne,
   reglages,
@@ -469,9 +474,17 @@ function LigneNonRenouveler({
           )}
         </span>
       </label>
-      <Button size="sm" variant="outline" disabled={pending} onClick={onRetirer}>
+      {/* Arrêté par un Kill (motif ckd:) : on ne le retire pas d'ici, l'annulation se fait dans Check, Kill or Double. */}
+      <Button
+        size="sm"
+        variant="outline"
+        disabled={pending || estKillCkd(ligne)}
+        title={estKillCkd(ligne) ? t("surveillance.retirerKill") : undefined}
+        onClick={onRetirer}
+      >
         {t("surveillance.retirerNonRenouv")}
       </Button>
+      {estKillCkd(ligne) && <p className="text-xs text-muted-foreground">{t("surveillance.retirerKill")}</p>}
     </div>
   );
 }

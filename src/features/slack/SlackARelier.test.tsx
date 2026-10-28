@@ -61,6 +61,7 @@ describe("SlackARelier", () => {
       { id: "p1", nom: "José Perez", email_perso: null, email: null, hm_id: "hm", hm_prenom: "Kris", created_at: "2026-10-01" },
     ]);
     api.relierSlack.mockResolvedValue(undefined);
+    vi.spyOn(window, "confirm").mockReturnValue(true);
   });
 
   it("une HM relie son posteur d'un clic sur la suggestion, sans bouton de synchro", async () => {
@@ -68,7 +69,16 @@ describe("SlackARelier", () => {
     const suggestion = await screen.findByRole("button", { name: /José Pérez/ });
     expect(screen.queryByRole("button", { name: /Synchroniser Slack/ })).toBeNull();
     fireEvent.click(suggestion);
+    expect(window.confirm).toHaveBeenCalledWith(expect.stringMatching(/^Relier José Perez à José Pérez/));
     await waitFor(() => expect(api.relierSlack).toHaveBeenCalledWith("p1", "UAAAAAA1"));
+  });
+
+  it("prompt 15 : confirmation refusée, rien n'est relié", async () => {
+    vi.mocked(window.confirm).mockReturnValueOnce(false);
+    rendu();
+    fireEvent.click(await screen.findByRole("button", { name: /José Pérez/ }));
+    expect(window.confirm).toHaveBeenCalled();
+    expect(api.relierSlack).not.toHaveBeenCalled();
   });
 
   it("un ID Slack collé peut être relié tel quel", async () => {

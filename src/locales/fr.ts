@@ -231,7 +231,7 @@ export const fr = {
       reviews: "Retours aux créateurs (pop-up à leur connexion)",
       retoursContestes: "Les retours que des créateurs disent faux : vérifier et leur répondre",
       fileReviews: "TikToks publiés aujourd’hui, à comparer et reviewer",
-      bancRelecture: "L’agent de relecture sur de vrais posts, sans rien envoyer : juge ses remarques",
+      bancRelecture: "L’agent de relecture sur de vrais posts : juge ses remarques, et règle l’envoi automatique des retours aux créateurs",
       tests: "Tester un TikTok ou la chaîne complète",
       embauche: "Créer des posters, l'IA fait le reste",
       referral: "Propositions de nouveaux créateurs",
@@ -706,6 +706,7 @@ export const fr = {
       verdict: "Ta décision",
       reponse: "Réponse au créateur (facultatif)",
       reponsePlaceholder: "Ex. : tu as raison, l’original avait été mal assigné. Merci !",
+      confirmReponse: "Le créateur recevra cette réponse :\n\n{{texte}}\n\nEnvoyer ?",
       fondee: "Le créateur a raison",
       nonFondee: "Le retour était juste",
       decide: "{{verdict}}, le {{date}}",
@@ -1035,6 +1036,7 @@ export const fr = {
       passer: "Passer",
       envoyer: "Envoyer",
       envoi: "Envoi…",
+      confirmEnvoi: "Le créateur recevra ce texte :\n\n{{texte}}\n\nEnvoyer ?",
       hier: "Hier",
       aujourdhui: "Aujourd’hui",
       videAideJour: "Tous les TikToks publiés ce jour-là ont été reviewés ou passés.",
@@ -1139,6 +1141,7 @@ export const fr = {
       envoiAuto: "Envoi automatique des retours",
       envoiAutoActif: "Envoi automatique activé",
       envoiAutoInactif: "Envoi automatique désactivé (brouillons seulement)",
+      envoiAutoConfirm: "Activer l'envoi automatique ? Chaque nuit, l'agent enverra lui-même un retour à chaque créateur relu : {{n}} créateur(s) la dernière nuit.",
       envoiAutoAide:
         "La nuit, une fois la relecture finie : un retour par créateur (son post au défaut le plus important), jamais sur un post déjà reviewé ou passé dans la file.",
       pasDeMessageMarche: "Pas de message : le post marche ({{vues}} vues), on ne le corrige pas.",
@@ -1344,6 +1347,7 @@ export const fr = {
         derniers: "Vues des 6 derniers posts",
         medianePays: "Médiane du pays",
         nouveauCompte: "Nouveau compte",
+        confirmNouveau: "Arrêter @{{handle}} et créer un nouveau compte ?",
         creationEnCours: "Création en cours…",
         nouveauCree: "Nouveau compte créé : l'ancien est arrêté et passe en Archive.",
         ignorer: "Ignorer 7 jours",
@@ -1975,6 +1979,18 @@ export const fr = {
         "Process auto en pause — le cron de minuit ne tourne pas. Relancer reste manuel (ELO → assignation) sans réactiver l’auto.",
       pauseOn: "En pause (manuel seul)",
       pauseOff: "Auto actif",
+      confirm: {
+        relancer:
+          "Relancer pour le {{date}} ?\n\n1) ELO : relevé Apify des posts des 4 derniers jours de tous les comptes (crédit Apify).\n2) Assignation de la journée pour {{comptes}} compte(s) (crédit Gemini pour les traductions).",
+        rattrapage:
+          "Rattrapage ELO sur les {{jours}} derniers jours, jusqu'au {{date}} ?\n\nCoût : relevé Apify des posts de cette période, pour tous les comptes (crédit Apify).",
+        reassigner:
+          "Réassigner {{count}} compte(s) incomplet(s) pour le {{date}} ?\n\nCoût : crédit Gemini (traduction des posts réassignés).",
+        pauseOn:
+          "Mettre en pause les process de minuit à partir de cette nuit ({{date}}) ?\n\nAucun coût. Plus aucun post n'est assigné automatiquement tant que la pause dure.",
+        pauseOff:
+          "Rallumer les process de minuit à partir de cette nuit ({{date}}) ?\n\nCoût chaque nuit : relevé Apify (ELO) et assignation de tous les comptes (crédit Gemini).",
+      },
       vnextInactifBanner:
         "Runtime v-next désactivé (Réglages) — le cron de minuit part bien, mais il saute l’assignation. Réactive « Activer le runtime v-next » pour que minuit travaille sans toi.",
       eloCronInfo:
@@ -2225,6 +2241,12 @@ export const fr = {
       activate: "Activer",
       deactivate: "Désactiver",
       extraire: "Extraire",
+      confirmExtraire:
+        "Extraire @{{handle}} maintenant ({{date}}) ?\n\nCoût : relevé Apify de ses TikToks (crédit Apify), puis analyse et traduction de chaque nouveau contenu (crédit Gemini).",
+      confirmUpdate:
+        "Mettre à jour @{{handle}} maintenant ({{date}}) : seulement les TikToks publiés depuis le dernier import ?\n\nCoût : relevé Apify (crédit Apify) et analyse des nouveaux contenus (crédit Gemini).",
+      confirmMaj:
+        "Mettre à jour {{count}} source(s) maintenant ({{date}}) ?\n\nCoût : un relevé Apify par source (crédit Apify), puis analyse des nouveaux contenus (crédit Gemini).",
       extraireAide:
         "Liste les slideshows, puis lance 1 agent de scrape + pipeline par TikTok en parallèle (pertinence, ELO, nettoyage, trad). Logs complets. Sans bloquer la page — plusieurs comptes aussi en parallèle.",
       update: "Mettre à jour",
@@ -2839,6 +2861,10 @@ export const fr = {
       peutEtre: "Peut-être :",
       chercher: "Chercher un membre Slack (nom, pseudo) ou coller son ID",
       relierId: "Relier l'ID {{id}}",
+      confirmRelier: "Relier {{nom}} à {{slack}} ?",
+      delier: "Délier Slack",
+      confirmDelier: "Délier {{nom}} de son compte Slack ({{slack}}) ? Les messages de l'OS ne lui arriveront plus sur Slack.",
+      relieA: "Slack : {{slack}}",
       aucun: "Aucun membre Slack libre ne correspond.",
       vide: "Tous les posteurs actifs sont reliés à Slack.",
     },
@@ -2915,6 +2941,8 @@ export const fr = {
         seuil: "Posts faits par compte pour une semaine pleine (sur 14)",
         retenue: "Retenue par post raté ($)",
         parrainage: "Bonus de parrainage actif",
+        bonusPremiere: "Bonus de la 1re semaine de posts ($)",
+        lectureSeule: "Lecture seule : ces réglages sont modifiables par l'admin.",
         enregistrer: "Enregistrer",
         enregistre: "Enregistré",
       },
@@ -3533,7 +3561,13 @@ export const fr = {
       upscaleDebut: "Upscale ({{modele}}) de {{count}} photo(s) non upscalée(s)…",
       upscaleFin: "Terminé — ok={{ok}} · déjà faits={{sautes}} · échecs={{echecs}}",
       upscaleConfirm:
-        "Lancer l'upscale {{modele}} sur {{count}} photo(s) ?",
+        "Lancer l'upscale {{modele}} sur {{count}} photo(s) maintenant ({{date}}) ?\n\nCoût : Fal, environ 0,001 $ par mégapixel (SeedVR2).",
+      confirmNettoyerTout:
+        "Nettoyer {{count}} visuel(s) à texte maintenant ({{date}}) ?\n\nCoût : un appel Gemini par visuel (crédit Gemini).",
+      confirmC2pa:
+        "Retirer les Content Credentials de {{count}} photo(s) maintenant ({{date}}) ?\n\nAucun crédit externe : traitement sur nos serveurs.",
+      confirmRattraper:
+        "Rattraper les captions des photos déjà importées maintenant ({{date}}) ?\n\nCoût : IA de vision (Florence-2 puis Moondream) sur chaque photo sans caption ; ça continue côté serveur.",
       captionHook: "Hook",
       captionAucune: "Pas de caption reconnue",
       captionEnCours: "Caption…",
@@ -4654,6 +4688,8 @@ export const fr = {
       subtitle:
         "Performances réelles, tirées du profil TikTok de chaque compte. Mise à jour aussi après un « ELO refresh » (Assignation de minuit).",
       rafraichir: "Rafraîchir les stats",
+      confirmRafraichir:
+        "Rafraîchir les stats maintenant ({{date}}) ?\n\nCoût : un run Apify facturé, les 30 derniers posts de chacun des {{n}} comptes (crédit Apify).",
       rafraichirEnCours: "Scraping des comptes…",
       rafraichiOk: "{{count}} relevés mis à jour depuis TikTok.",
       vues: "Vues",
@@ -4730,6 +4766,7 @@ export const fr = {
       nePasRenouveler: "Ne pas renouveler",
       nePasRenouvelerAide: "Ajoute le compte à la liste de non-renouvellement (sans rien couper).",
       retirerNonRenouv: "Retirer de la liste",
+      retirerKill: "Arrêté par un Kill : pour l'annuler, passe par Check, Kill or Double.",
       hmDemande: "J'ai demandé au HM de ne pas renouveler ce compte",
       hmDemandeFait: "Demande au HM faite le {{date}}",
       ajouteLe: "Ajouté le {{date}}",

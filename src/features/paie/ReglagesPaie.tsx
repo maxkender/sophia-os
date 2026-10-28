@@ -4,28 +4,35 @@ import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/features/auth/AuthContext";
 import { enregistrerReglagesBonus, lireReglagesBonus, type ReglagesBonus } from "@/features/bonus/api";
 
 import { enregistrerReglagesPaie, lireReglagesPaie, type ReglagesPaie as TReglagesPaie } from "./liste/api";
 
 /**
- * Les réglages de la paie et des bonus (0380, 0374), modifiables par l'admin
- * et le Head of Ops : seuil d'une semaine pleine, retenue par post raté, bonus
+ * Les réglages de la paie et des bonus (0380, 0374, 0388) : seuil d'une
+ * semaine pleine, retenue par post raté, bonus de la 1re semaine, bonus
  * Comment Master, premier lundi bonus, et le bonus de parrainage (en pause
  * tant que la case est décochée : ses champs sont alors cachés).
+ * Modifiables par l'admin seulement (prompt 15, point 1 ; politique 0390) :
+ * le Head of Ops les lit.
  */
 export function ReglagesPaie() {
   const { t } = useTranslation();
+  const { role } = useAuth();
+  const admin = role === "admin";
   const queryClient = useQueryClient();
   const paie = useQuery({ queryKey: ["reglages", "paie"], queryFn: lireReglagesPaie });
   const bonus = useQuery({ queryKey: ["reglages", "bonus"], queryFn: lireReglagesBonus });
   const [p, setP] = React.useState<TReglagesPaie | null>(null);
   const [parrainage, setParrainage] = React.useState(false);
+  const [bonusPremiere, setBonusPremiere] = React.useState(1);
   const [b, setB] = React.useState<ReglagesBonus | null>(null);
   React.useEffect(() => {
     if (paie.data) {
       setP(paie.data.paie);
       setParrainage(paie.data.parrainageActif);
+      setBonusPremiere(paie.data.bonusPremiereSemaine);
     }
   }, [paie.data]);
   React.useEffect(() => {
@@ -34,7 +41,7 @@ export function ReglagesPaie() {
 
   const enregistrer = useMutation({
     mutationFn: async () => {
-      await enregistrerReglagesPaie(p!, parrainage);
+      await enregistrerReglagesPaie(p!, parrainage, bonusPremiere);
       await enregistrerReglagesBonus(b!);
     },
     onSuccess: () => {
@@ -55,9 +62,11 @@ export function ReglagesPaie() {
   return (
     <details className="rounded-xl border px-4 py-3" data-testid="reglages-paie">
       <summary className="cursor-pointer text-sm font-medium">{t("paie.reglagesV3.titre")}</summary>
-      <div className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">
+      {!admin && <p className="pt-2 text-xs text-muted-foreground">{t("paie.reglagesV3.lectureSeule")}</p>}
+      <fieldset disabled={!admin} className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">
         {nombre(t("paie.reglagesV3.seuil"), p.seuil_posts_complets, (n) => setP({ ...p, seuil_posts_complets: n }))}
         {nombre(t("paie.reglagesV3.retenue"), p.retenue_par_post, (n) => setP({ ...p, retenue_par_post: n }), "0.01")}
+        {nombre(t("paie.reglagesV3.bonusPremiere"), bonusPremiere, setBonusPremiere, "0.01")}
         {nombre(t("bonus.reglages.comment_master_par_commentaire"), b.comment_master_par_commentaire, (n) =>
           setB({ ...b, comment_master_par_commentaire: n }), "0.01")}
         <label className="space-y-1 text-sm">
@@ -88,8 +97,8 @@ export function ReglagesPaie() {
               setB({ ...b, parrainage_posts_min_semaine: n }))}
           </>
         )}
-      </div>
-      <div className="flex items-center gap-2 pt-3">
+      </fieldset>
+      <div className={admin ? "flex items-center gap-2 pt-3" : "hidden"}>
         <Button size="sm" disabled={enregistrer.isPending || pasLundi} onClick={() => enregistrer.mutate()}>
           {t("paie.reglagesV3.enregistrer")}
         </Button>

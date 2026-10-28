@@ -60,6 +60,10 @@ function LignePosteur({
   const proches = React.useMemo(() => suggestions(membres, p.nom), [membres, p.nom]);
   const trouves = React.useMemo(() => filtrerMembres(membres, recherche), [membres, recherche]);
   const id = recherche.trim().toUpperCase();
+  // Prompt 15, point 1 : « Relier X à @y ? » avant de relier.
+  const relierConfirme = (slackUserId: string, libelle: string) => {
+    if (window.confirm(t("slackRelier.confirmRelier", { nom: p.nom ?? "—", slack: libelle }))) relier(slackUserId);
+  };
 
   return (
     <li className="space-y-2 p-3" data-posteur={p.id}>
@@ -74,7 +78,13 @@ function LignePosteur({
         <div className="flex flex-wrap items-center gap-1.5 text-xs">
           <span className="text-muted-foreground">{t("slackRelier.peutEtre")}</span>
           {proches.map((m) => (
-            <Button key={m.slack_user_id} size="sm" variant="outline" disabled={enCours} onClick={() => relier(m.slack_user_id)}>
+            <Button
+              key={m.slack_user_id}
+              size="sm"
+              variant="outline"
+              disabled={enCours}
+              onClick={() => relierConfirme(m.slack_user_id, libelleMembre(m))}
+            >
               <Link2 className="size-3.5" />
               {libelleMembre(m)}
             </Button>
@@ -93,7 +103,7 @@ function LignePosteur({
         <ul className="flex flex-wrap gap-1.5">
           {trouves.map((m) => (
             <li key={m.slack_user_id}>
-              <Button size="sm" variant="secondary" disabled={enCours} onClick={() => relier(m.slack_user_id)}>
+              <Button size="sm" variant="secondary" disabled={enCours} onClick={() => relierConfirme(m.slack_user_id, libelleMembre(m))}>
                 {libelleMembre(m)}
                 {m.email && <span className="text-muted-foreground">· {m.email}</span>}
               </Button>
@@ -101,7 +111,7 @@ function LignePosteur({
           ))}
           {ID_SLACK.test(id) && !trouves.some((m) => m.slack_user_id === id) && (
             <li>
-              <Button size="sm" variant="secondary" disabled={enCours} onClick={() => relier(id)}>
+              <Button size="sm" variant="secondary" disabled={enCours} onClick={() => relierConfirme(id, id)}>
                 {t("slackRelier.relierId", { id })}
               </Button>
             </li>

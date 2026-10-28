@@ -20,7 +20,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { rangClassement } from "@/features/moteur/classementComptes";
 import type { StatsPost } from "@/features/moteur/types";
-import { localeDate } from "@/locales/localeDate";
+import { aujourdhuiEnLettres, localeDate } from "@/locales/localeDate";
 
 /** Un post « viral » : ≥ 7 jours après publication (N+7) ET plus de 30 000 vues.
  *  Le signal que ce contenu a vraiment percé — à repérer pour le rejouer. */
@@ -128,7 +128,11 @@ export function AdminAnalyticsPage() {
             variant="outline"
             size="sm"
             disabled={rafraichir.isPending}
-            onClick={() => rafraichir.mutate()}
+            onClick={() => {
+              // Prompt 15, point 1 : la date et le coût avant le run Apify facturé.
+              const n = (comptes.data ?? []).length;
+              if (window.confirm(t("analytics.confirmRafraichir", { n, date: aujourdhuiEnLettres() }))) rafraichir.mutate();
+            }}
           >
             <RefreshCw className={cn("size-4", rafraichir.isPending && "animate-spin")} />
             {rafraichir.isPending ? t("analytics.rafraichirEnCours") : t("analytics.rafraichir")}

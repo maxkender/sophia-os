@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  ameliorerReview,
   enregistrerAvisRelecture,
   listerAvisRelecture,
   listerPosters,
@@ -206,8 +207,24 @@ function Detail({
   const supprimer = useMutation({ mutationFn: (a: AvisRelecture) => supprimerAvisRelecture(a.id), onSuccess: rafraichirAvis });
 
   const trancher = useMutation({
-    mutationFn: (verdict: VerdictContestation) => trancherContestation(retour.id, verdict, reponse),
-    onSuccess: () => {
+    mutationFn: async (verdict: VerdictContestation) => {
+      // Prompt 15, point 1 : la réponse part en anglais ; le texte final est
+      // montré avant l'envoi. Refusé : rien ne part, le texte final reste à l'écran.
+      const brut = reponse.trim();
+      if (brut) {
+        const anglais = (await ameliorerReview(brut)).texte;
+        if (!window.confirm(t("contestes.confirmReponse", { texte: anglais }))) {
+          setReponse(anglais);
+          return false;
+        }
+        await trancherContestation(retour.id, verdict, anglais);
+        return true;
+      }
+      await trancherContestation(retour.id, verdict, reponse);
+      return true;
+    },
+    onSuccess: (fait) => {
+      if (!fait) return;
       void queryClient.invalidateQueries({ queryKey: ["reviews-contestees"] });
       void queryClient.invalidateQueries({ queryKey: ["contestations-a-verifier"] });
       setRouvert(false);

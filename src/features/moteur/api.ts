@@ -1187,6 +1187,31 @@ export async function ecrireEnvoiAutoRelecture(actif: boolean): Promise<void> {
   await ecrireReglage("relecture_envoi_auto", { actif });
 }
 
+/**
+ * Les créateurs qu'une nuit d'envoi automatique toucherait : ceux qui ont un
+ * brouillon de l'agent la dernière nuit de relecture (un retour chacun au plus).
+ */
+export async function compterPosteursRelecture(): Promise<number> {
+  const { data: dernier, error: errJour } = await supabase
+    .from("relectures_auto")
+    .select("jour")
+    .eq("origine", "cron")
+    .order("jour", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (errJour) throw errJour;
+  if (!dernier) return 0;
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("poster_id")
+    .eq("jour", dernier.jour)
+    .eq("origine", "cron")
+    .eq("statut", "fait")
+    .not("brouillon", "is", null);
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => r.poster_id as string | null).filter(Boolean)).size;
+}
+
 /** Les jours qui ont des relectures de l'agent, le plus récent d'abord. */
 export async function listerJoursRelecture(): Promise<string[]> {
   const { data, error } = await supabase
@@ -7605,6 +7630,8 @@ export interface LigneSurveillance {
   surveillance_skip_jusqu: string | null;
   non_renouveler: boolean;
   non_renouveler_at: string | null;
+  /** « ckd:<règle> » : arrêté par un Kill de Check, Kill or Double (0328). */
+  non_renouveler_raison?: string | null;
   non_renouveler_hm_demande: boolean;
   non_renouveler_hm_demande_at: string | null;
   /** Dernier nudge envoyé à ce compte. */
@@ -7621,7 +7648,7 @@ export async function listerSurveillanceComptes(): Promise<LigneSurveillance[]> 
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
+      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_raison, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
     )
     .eq("is_active", true)
     .neq("type_compte", "cm")

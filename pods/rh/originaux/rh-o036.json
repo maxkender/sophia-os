@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o036",
+ "schema_id": "copie-habitudes",
+ "titre": "j'ai copié 5 habitudes de la personne qu'on écoute TOUJOURS en réunion #travail #reunion #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 28/10 (5 livraisons + 6 variantes). variante de rh-o011 (30,7 k vues en ro le 24/10). Même schéma copie-habitudes (r 6,67 sur 6 passages, 63ffa170), autre angle, autres items : aucune reprise de rh-o011, rh-o015, rh-o023, rh-o029, rh-o034 ni des sources. Angle : la prise de parole en réunion. Accroches écrites : celle-ci (retenue), « elle parlait peu en réunion, mais tout le monde l'écoutait » (écartée : sans le « j'ai copié »), « 5 réflexes pour qu'on t'écoute en réunion » (écartée : tuto). CTA de fin jamais utilisé : se situer (« trop » ou « pas assez »). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8ca3d196",
+   "texte_overlay": "j'ai copié 5 habitudes de la personne\nqu'on écoute TOUJOURS\nen réunion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "76e17a8e",
+   "texte_overlay": "elle commençait par sa conclusion\npuis elle expliquait.\nmoi je finissais par l'idée, quand plus personne n'écoutait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "78e8acbb",
+   "texte_overlay": "elle annonçait « en une phrase : »\net elle tenait en une phrase.\ntout le monde levait la tête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "78f62b1d",
+   "texte_overlay": "elle citait le prénom de celui qui avait eu l'idée\n« comme disait karim tout à l'heure… »\nles gens se rangeaient de son côté",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7929df67",
+   "texte_overlay": "elle avait toujours un exemple concret\nmes 3 réserves d'exemples maintenant : mes clients, mes lectures, et ce que j'apprends chaque jour",
+   "texte_sophia": "elle avait toujours un exemple concret\nmes 3 réserves d'exemples maintenant : mes clients, mes lectures, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "79f7bbcd",
+   "texte_overlay": "elle disait la décision à voix haute à la fin\n« donc on fait X, et Y s'en occupe »\nc'était elle qu'on retenait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7ad0dfaa",
+   "texte_overlay": "toi en réunion, tu parles\n« trop » ou « pas assez » ?\nréponds en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

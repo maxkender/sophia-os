@@ -21,6 +21,7 @@
     "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
     "top-posts": "NODE_USE_ENV_PROXY=1 node atelier/cli-top-posts.ts",
     "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",
-    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts"
+    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts",
+    "couvertures": "NODE_USE_ENV_PROXY=1 node atelier/cli-couvertures.ts"
   }
 }

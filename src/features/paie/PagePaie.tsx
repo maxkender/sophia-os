@@ -10,6 +10,7 @@ import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { genererPaie } from "./api";
 import { ListePaie } from "./liste/ListePaie";
 import { semaineAPayer } from "./logique";
+import { ReglagesPaiementApi } from "./api-upwork/ReglagesPaiementApi";
 import { ReglagesPaie } from "./ReglagesPaie";
 
 /**
@@ -73,6 +74,7 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
       {apres}
 
       <ReglagesPaie />
+      <ReglagesPaiementApi />
     </div>
   );
 }

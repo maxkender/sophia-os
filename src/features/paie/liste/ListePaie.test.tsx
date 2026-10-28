@@ -14,6 +14,14 @@ const api = vi.hoisted(() => ({
   relireJalonsUpwork: vi.fn(),
 }));
 vi.mock("./api", () => api);
+const apiUpwork = vi.hoisted(() => ({
+  lireEtatPaiementsApi: vi.fn(async () => new Map()),
+  apercuPaiement: vi.fn(),
+  payer: vi.fn(),
+  libererPaiementApi: vi.fn(),
+}));
+vi.mock("@/features/paie/api-upwork/api", () => apiUpwork);
+vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: "admin" }) }));
 vi.mock("./contratsATerminer", () => ({ lireContratsATerminer: vi.fn(async () => []), marquerContratTermine: vi.fn() }));
 const bonus = vi.hoisted(() => ({ lireBonus: vi.fn(), lireReglagesBonus: vi.fn(), marquerBonusPaye: vi.fn() }));
 vi.mock("@/features/bonus/api", () => bonus);
@@ -136,6 +144,48 @@ describe("ListePaie", () => {
     expect(within(bruno).getByText("Approve Week 43: $12 · Fund Week 44: $12")).toBeTruthy();
     expect(bruno.querySelector("[data-note-jalon]")).toBeNull();
     expect(api.lireJalonsPaie).toHaveBeenCalledWith(["p1", "p2"]);
+  });
+
+  it("prompt 14, point 3 : Pay → aperçu relu chez Upwork → Confirm ; état « à vérifier » et Libérer", async () => {
+    api.lireListePaie.mockResolvedValue([
+      ligne({ id: "1", poster_id: "p1", poster_nom: "Ana", montant: 14, suivante_montant: 14 }),
+      ligne({ id: "2", poster_id: "p2", poster_nom: "Bruno", montant: 12 }),
+    ]);
+    apiUpwork.lireEtatPaiementsApi.mockResolvedValue(
+      new Map([
+        ["2", {
+          id: "pa2", paie_semaine_id: "2", poster_id: "p2", statut: "a_verifier", jalon_approuve: "m9", montant_approuve: 12,
+          jalon_finance: null, montant_finance: null, financement: "erreur", erreur: "payée ; financement de Week 44 : HTTP 500",
+          par_nom: "Lucia", created_at: "2026-11-09T09:00:00Z", updated_at: "2026-11-09T09:00:00Z",
+        }],
+      ]),
+    );
+    const plan = {
+      id: "1", poster_id: "p1", poster_nom: "Ana", action: "payer", contrat_id: "c1", statut: "pret" as const, raison: null,
+      approuver: { jalon_id: "m1", nom: "Week 43", montant: 14, depot: 14, sous_paiement: null },
+      financer: { mode: "existant" as const, jalon_id: "m2", nom: "Week 44", montant: 14, editer: false },
+      lien: null, total: 28, montant_trouve: null, bloque: null,
+    };
+    apiUpwork.apercuPaiement.mockResolvedValue({ mode: "on", plafond_ligne: 30, plafond_jour: 5000, lignes: [plan], total: 28 });
+    apiUpwork.payer.mockResolvedValue([{ ...plan, resultat: "paye" }]);
+    rendu("2026-10-19");
+    const ana = (await screen.findByText("Ana")).closest("tr") as HTMLElement;
+    // Bruno : déjà passé par l'API, en erreur → « À vérifier », la raison, et « Libérer » pour l'admin.
+    const bruno = screen.getByText("Bruno").closest("tr") as HTMLElement;
+    expect(await within(bruno).findByText("À vérifier")).toBeTruthy();
+    expect(within(bruno).getByText(/financement de Week 44 : HTTP 500/)).toBeTruthy();
+    expect(within(bruno).getByRole("button", { name: "Libérer" })).toBeTruthy();
+    expect(within(bruno).queryByRole("button", { name: "Payer" })).toBeNull();
+
+    fireEvent.click(within(ana).getByRole("button", { name: "Payer" }));
+    const dialog = await screen.findByTestId("dialog-paiement");
+    expect(apiUpwork.apercuPaiement).toHaveBeenCalledWith("2026-10-19", ["1"]);
+    expect(await within(dialog).findByText("Approuver Week 43 : 14 $")).toBeTruthy();
+    expect(within(dialog).getByText("Financer Week 44 (existante) : 14 $")).toBeTruthy();
+    fireEvent.click(within(dialog).getByTestId("paiement-confirmer"));
+    expect(await within(dialog).findByTestId("paiement-bilan")).toBeTruthy();
+    expect(apiUpwork.payer).toHaveBeenCalledWith("2026-10-19", ["1"]);
+    expect(within(dialog).getByTestId("paiement-bilan").textContent).toBe("1 payée(s), 0 à vérifier.");
   });
 
   it("le bloc Comment Masters n'apparaît pas un lundi ordinaire", async () => {

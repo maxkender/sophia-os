@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronDown, Download, ExternalLink, MoreHorizontal } from "lucide-react";
+import { ChevronDown, Download, ExternalLink, Link2Off, MoreHorizontal } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,6 @@ import { Input } from "@/components/ui/input";
 import { BarreChargement } from "@/components/ui/progress";
 import { lireBonus, lireReglagesBonus, marquerBonusPaye } from "@/features/bonus/api";
 import { prochainLundiBonus } from "@/features/bonus/logique";
-import { semaineIso } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { marquerPayee, marquerSemaineSuivante } from "@/features/paie/api";
 import { dollars } from "@/features/paie/logique";
@@ -27,13 +26,26 @@ import { supabase } from "@/lib/supabase/client";
 import { telechargerCsv } from "@/lib/csv";
 import { cn } from "@/lib/utils";
 
-import { corrigerPaie, exclurePaie, lireListePaie, type ActionPaie, type LigneListePaie } from "./api";
-import { csvListe, parEquipe, postsParCompte, totauxPaie } from "./logique";
+import { corrigerPaie, exclurePaie, lireListePaie, type LigneListePaie } from "./api";
+import {
+  actionAffichee,
+  besoinPaye,
+  besoinSuivante,
+  consigne,
+  csvListe,
+  parEquipe,
+  postsParCompte,
+  raisonsLigne,
+  resteAFaire,
+  totauxPaie,
+  type ActionAffichee,
+} from "./logique";
 
 const TH = "px-2 py-2 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground whitespace-nowrap";
 const TD = "px-2 py-2 align-top";
 
-const VARIANTE_ACTION: Record<ActionPaie, "success" | "warning" | "error" | "info" | "secondary" | "outline"> = {
+const VARIANTE_ACTION: Record<ActionAffichee, "success" | "warning" | "error" | "info" | "secondary" | "outline"> = {
+  a_verifier: "warning",
   payer: "success",
   payer_moins: "warning",
   kill: "error",
@@ -141,43 +153,101 @@ function MenuLigne({ l }: { l: LigneListePaie }) {
   );
 }
 
+/** Le texte du badge : « Payer moins 2 $ », « À vérifier »… */
+function useTexteAction() {
+  const { t, i18n } = useTranslation();
+  const langue = i18n.resolvedLanguage ?? "fr";
+  return (l: LigneListePaie) => {
+    const a = actionAffichee(l);
+    return a === "payer_moins" ? t("paie.liste.actions.payer_moins", { retenue: dollars(l.retenue, langue) }) : t(`paie.liste.actions.${a}`);
+  };
+}
+
+/** Le lien du contrat : une icône ; manquant, une petite icône rouge (à compléter plus haut). */
+function IconeContrat({ lien }: { lien: string | null }) {
+  const { t } = useTranslation();
+  if (lien) {
+    return (
+      <a
+        href={lien}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex text-primary hover:opacity-80"
+        title={t("paie.contrat")}
+        aria-label={t("paie.contrat")}
+      >
+        <ExternalLink className="size-3.5" />
+      </a>
+    );
+  }
+  return (
+    <span className="inline-flex text-destructive" title={t("paie.lienManquant")} aria-label={t("paie.lienManquant")} data-contrat-manquant>
+      <Link2Off className="size-3.5" />
+    </span>
+  );
+}
+
 function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: string; simulation: boolean }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
-  const texteAction =
-    l.action === "payer_moins" ? t("paie.liste.actions.payer_moins", { retenue: dollars(l.retenue, langue) }) : t(`paie.liste.actions.${l.action}`);
+  const texteAction = useTexteAction();
+  const action = actionAffichee(l);
+  const texte = consigne(l, semaine);
+  const raisons = raisonsLigne(l);
   return (
     <tr data-paie={l.poster_nom ?? l.id} className={cn(l.exclu && "opacity-60", l.paye_at && "bg-success/5")}>
       <td className={cn(TD, "font-medium")}>
-        {l.poster_nom}
+        <span className="inline-flex items-center gap-1.5">
+          {l.poster_nom}
+          <IconeContrat lien={l.contrat_url} />
+        </span>
         {l.exclu && (
           <p className="text-xs font-normal text-destructive-foreground">{t("paie.liste.retire", { raison: l.exclu_raison })}</p>
         )}
-        {l.statut === "a_voir" && l.raison && <p className="text-xs font-normal text-warning-foreground">{l.raison}</p>}
+        {raisons
+          .filter((r) => r === "tarif_manquant")
+          .map((r) => (
+            <p key={r} className="text-xs font-normal text-warning-foreground">
+              {t(`paie.liste.raisons.${r}`)}
+            </p>
+          ))}
+        {l.premiere_semaine && l.bonus > 0 && (
+          <p className="text-xs font-normal text-muted-foreground">
+            {t("paie.liste.premiereSemaine", { bonus: dollars(l.bonus, langue) })}
+          </p>
+        )}
       </td>
-      <td className={TD}>
-        <CelluleContrat posterId={l.poster_id} lien={l.contrat_url} />
-      </td>
+      <td className={cn(TD, "text-xs text-muted-foreground")}>{l.upwork_compte ?? "—"}</td>
       <td className={cn(TD, "tabular-nums")}>{l.nb_comptes}</td>
       <td className={cn(TD, "text-xs tabular-nums")}>{postsParCompte(l) || "—"}</td>
       <td className={cn(TD, "tabular-nums")}>{l.tarif === null ? "—" : dollars(l.tarif, langue)}</td>
       <td className={cn(TD, "tabular-nums")}>{l.retenue > 0 ? `−${dollars(l.retenue, langue)}` : "—"}</td>
       <td className={cn(TD, "tabular-nums")}>
-        <span className="font-semibold">{dollars(l.montant, langue)}</span>
+        <span className="font-semibold">{action === "a_verifier" ? "—" : dollars(l.montant, langue)}</span>
         {l.montant_corrige !== null && (
           <p className="text-xs text-muted-foreground">
             {t("paie.liste.corrige", { raison: l.raison_correction, calcule: dollars(l.montant_calcule, langue) })}
           </p>
         )}
       </td>
-      <td className={TD} title={t(`paie.liste.aides.${l.action}`, { semaine: semaineIso(ajouterJours(semaine, 7)) })}>
-        <Badge variant={VARIANTE_ACTION[l.action]}>{texteAction}</Badge>
-        <p className="mt-0.5 max-w-52 text-[11px] text-muted-foreground">
-          {t(`paie.liste.aides.${l.action}`, { semaine: semaineIso(ajouterJours(semaine, 7)) })}
-        </p>
+      <td className={TD}>
+        <Badge variant={VARIANTE_ACTION[action]}>{texteAction(l)}</Badge>
+        {texte && (
+          <p className="mt-1 max-w-72 text-xs font-medium" data-consigne>
+            {texte}
+          </p>
+        )}
+        {action === "rien" &&
+          raisons
+            .filter((r) => r !== "tarif_manquant")
+            .map((r) => (
+              <p key={r} className="mt-0.5 text-[11px] text-muted-foreground">
+                {t(`paie.liste.raisons.${r}`)}
+              </p>
+            ))}
       </td>
       <td className={TD}>
-        {!l.exclu && !simulation && (
+        {!l.exclu && !simulation && besoinPaye(l) && (
           <Case
             coche={Boolean(l.paye_at)}
             libelle={t("paie.liste.cols.paye")}
@@ -187,7 +257,7 @@ function LignePaie({ l, semaine, simulation }: { l: LigneListePaie; semaine: str
         )}
       </td>
       <td className={TD}>
-        {!l.exclu && !simulation && (
+        {!l.exclu && !simulation && besoinSuivante(l) && (
           <Case
             coche={Boolean(l.semaine_suivante_faite_at)}
             libelle={t("paie.liste.cols.suivante")}
@@ -208,7 +278,7 @@ function Tableau({ lignes, semaine, simulation }: { lignes: LigneListePaie[]; se
       <table className="w-full min-w-[1000px] text-sm">
         <thead className="bg-muted/40">
           <tr className="border-b">
-            {(["posteur", "contrat", "comptes", "posts", "tarif", "retenue", "montant", "action", "paye", "suivante"] as const).map(
+            {(["posteur", "compteUpwork", "comptes", "posts", "tarif", "retenue", "montant", "action", "paye", "suivante"] as const).map(
               (c) => (
                 <th key={c} className={TH}>
                   {t(`paie.liste.cols.${c}`)}
@@ -225,6 +295,36 @@ function Tableau({ lignes, semaine, simulation }: { lignes: LigneListePaie[]; se
         </tbody>
       </table>
     </div>
+  );
+}
+
+/** « Contrats à compléter » : les posteurs à payer sans lien de contrat, avec le champ pour le coller. */
+function ContratsACompleter({ lignes }: { lignes: LigneListePaie[] }) {
+  const { t } = useTranslation();
+  const manquants = lignes.filter((l) => !l.contrat_url && !l.exclu && actionAffichee(l) !== "rien");
+  if (manquants.length === 0) return null;
+  return (
+    <details className="group rounded-xl border border-destructive/30 bg-destructive/5" data-testid="paie-contrats-a-completer">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-4 py-3">
+        <ChevronDown className="size-4 transition-transform group-[:not([open])]:-rotate-90" aria-hidden />
+        <Link2Off className="size-4 text-destructive" aria-hidden />
+        <span className="font-medium">{t("paie.liste.contratsACompleter", { n: manquants.length })}</span>
+      </summary>
+      <div className="space-y-2 px-4 pb-4">
+        <p className="text-xs text-muted-foreground">{t("paie.liste.contratsACompleterDesc")}</p>
+        <ul className="divide-y rounded-lg border bg-card">
+          {manquants.map((l) => (
+            <li key={l.id} className="flex flex-wrap items-center justify-between gap-2 px-3 py-2">
+              <span className="text-sm">
+                <span className="font-medium">{l.poster_nom}</span>
+                <span className="text-muted-foreground"> · {l.equipe ?? t("paie.liste.sansEquipe")}</span>
+              </span>
+              <CelluleContrat posterId={l.poster_id} lien={l.contrat_url} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
   );
 }
 
@@ -347,12 +447,16 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
   const lundiBonus =
     reglagesBonus.data && prochainLundiBonus(lundiPaie, reglagesBonus.data.premier_lundi) === lundiPaie;
   const lignes = liste.data ?? [];
-  const equipes = parEquipe(lignes);
+  // « À faire » par défaut : cache « Nothing to pay », les lignes terminées et les retirées.
+  const [toutVoir, setToutVoir] = React.useState(false);
+  const visibles = toutVoir ? lignes : lignes.filter(resteAFaire);
+  // Les totaux d'une équipe restent ceux de toute l'équipe, même filtrée.
+  const totauxEquipe = new Map(parEquipe(lignes).map((e) => [e.equipe, e.totaux]));
+  const equipes = parEquipe(visibles).map((e) => ({ ...e, totaux: totauxEquipe.get(e.equipe) ?? e.totaux }));
   const tot = totauxPaie(lignes);
-  const texteAction = (l: LigneListePaie) =>
-    l.action === "payer_moins" ? t("paie.liste.actions.payer_moins", { retenue: dollars(l.retenue, langue) }) : t(`paie.liste.actions.${l.action}`);
+  const texteAction = useTexteAction();
   const exporter = (ls: LigneListePaie[], nom: string) =>
-    telechargerCsv(`paie_${simulation ? "simulation_" : ""}${nom}_${semaine}.csv`, csvListe(ls, texteAction));
+    telechargerCsv(`paie_${simulation ? "simulation_" : ""}${nom}_${semaine}.csv`, csvListe(ls, texteAction, semaine));
   const slug = (s: string) =>
     s
       .normalize("NFD")
@@ -377,15 +481,38 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
             lignes: tot.lignes,
           })}
         </p>
-        <Button variant="outline" size="sm" disabled={lignes.length === 0} onClick={() => exporter(lignes, "tout")}>
-          <Download />
-          {t("paie.liste.exporter")}
-        </Button>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="inline-flex rounded-md border p-0.5 text-sm" role="group" aria-label={t("paie.liste.filtre.label")}>
+            {([false, true] as const).map((tout) => (
+              <button
+                key={String(tout)}
+                type="button"
+                aria-pressed={toutVoir === tout}
+                className={cn(
+                  "rounded px-2.5 py-1",
+                  toutVoir === tout ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted",
+                )}
+                onClick={() => setToutVoir(tout)}
+              >
+                {tout ? t("paie.liste.filtre.tout", { n: lignes.length }) : t("paie.liste.filtre.aFaire", { n: lignes.filter(resteAFaire).length })}
+              </button>
+            ))}
+          </div>
+          <Button variant="outline" size="sm" disabled={lignes.length === 0} onClick={() => exporter(lignes, "tout")}>
+            <Download />
+            {t("paie.liste.exporter")}
+          </Button>
+        </div>
       </div>
+
+      <ContratsACompleter lignes={lignes} />
 
       {liste.isLoading && <BarreChargement actif />}
       {liste.error && <p className="text-sm text-destructive">{(liste.error as Error).message}</p>}
       {liste.data && lignes.length === 0 && <p className="text-sm text-muted-foreground">{t("paie.liste.vide")}</p>}
+      {liste.data && lignes.length > 0 && visibles.length === 0 && (
+        <p className="text-sm text-muted-foreground">{t("paie.liste.toutFait")}</p>
+      )}
 
       {equipes.map((e) => (
         <details key={e.equipe ?? "aucune"} open className="group rounded-xl border bg-card" data-equipe={e.equipe ?? ""}>
@@ -401,7 +528,10 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
               className="ml-auto h-7"
               onClick={(ev) => {
                 ev.preventDefault();
-                exporter(e.lignes, slug(e.equipe ?? "sans-equipe"));
+                exporter(
+                  lignes.filter((l) => l.equipe === e.equipe),
+                  slug(e.equipe ?? "sans-equipe"),
+                );
               }}
             >
               <Download />

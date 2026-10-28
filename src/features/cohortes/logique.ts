@@ -5,6 +5,7 @@
  * du tableau, l'entonnoir et le tableau par HM.
  */
 import { ajouterJours, partiesParis } from "@/features/onboarding/datesRuul";
+import { minuitParis } from "@/features/ckd/cohorte/logique";
 import { lundiDe } from "@/features/moteur/semaines";
 
 import type { RecrueCohorte } from "./api";
@@ -35,7 +36,16 @@ export function phaseCohorte(lundi: string, aujourdhui: string): { prepa: true }
   return { prepa: false, semaine: Math.round(ecart / (7 * 86_400_000)) + 1 };
 }
 
-/** Les cohortes cochées par défaut : celle en préparation (la plus proche) et celle en semaine 1. */
+/**
+ * La cohorte affichée par défaut (page Cohorts, 28 oct.) : celle « getting
+ * ready » (le prochain lundi), sinon la plus récente.
+ */
+export function cohorteParDefaut(lundis: readonly string[], aujourdhui: string): string | null {
+  const avenir = lundis.filter((l) => l > aujourdhui).sort();
+  return avenir[0] ?? [...lundis].sort().reverse()[0] ?? null;
+}
+
+/** L'accueil HM : la cohorte en préparation et celle en semaine 1. */
 export function cohortesParDefaut(lundis: readonly string[], aujourdhui: string): string[] {
   const avenir = lundis.filter((l) => l > aujourdhui).sort();
   const semaine1 = lundis.find((l) => l === lundiDe(aujourdhui));
@@ -43,23 +53,14 @@ export function cohortesParDefaut(lundis: readonly string[], aujourdhui: string)
 }
 
 // ---------------------------------------------------------------------------
-// Les cases
+// Les étapes
 // ---------------------------------------------------------------------------
 
 export type EtapeCohorte = "acces" | "tiktok" | "warmup" | "mercredi";
 export const ETAPES_COHORTE: readonly EtapeCohorte[] = ["acces", "tiktok", "warmup", "mercredi"];
-
-/**
- * Une case dit une seule chose : ✓ fait (le…), rouge, ✉ relancé le… (canal),
- * ✉ prévu (simulation), bloqué (contrat non relié), ou — (pas encore).
- */
-export type Case =
-  | { etat: "fait"; le: string | null }
-  | { etat: "rouge"; le: string }
-  | { etat: "relance"; le: string; canal: string }
-  | { etat: "prevu"; canal: string | null }
-  | { etat: "bloque"; raison: string | null }
-  | { etat: "attente" };
+/** Les étapes d'avant le lundi, dans l'ordre. */
+export const ETAPES_PREPA = ["acces", "tiktok", "warmup"] as const;
+export type EtapePrepa = (typeof ETAPES_PREPA)[number];
 
 /** La cohorte a commencé et la recrue a publié : ce qui n'était pas encore relevé à l'époque est fait. */
 function aPublie(r: RecrueCohorte): boolean {
@@ -81,9 +82,26 @@ export function warmupFait(r: RecrueCohorte): boolean {
   return releve || aPublie(r);
 }
 
-/** Prêt lundi : les étapes 1 à 3 faites. */
+/** Prêt, à cet instant : les étapes 1 à 3 faites. */
 export function pretLundi(r: RecrueCohorte): boolean {
   return accesFait(r) && tiktokFait(r) && warmupFait(r);
+}
+
+/**
+ * « Ready Monday », figé à dimanche minuit (Paris) : une photo des faits
+ * datés d'avant le lundi de la cohorte, plus recalculée ensuite. null avant
+ * dimanche minuit. Les relevés TikTok rendus par la base sont déjà ceux
+ * d'avant le lundi ; une cohorte d'avant les relevés (aucun) compte comme
+ * prête si elle a publié en semaine 1.
+ */
+export function pretLundiFige(r: RecrueCohorte, maintenant: Date = new Date()): boolean | null {
+  const coupure = minuitParis(r.cohorte_lundi).getTime();
+  if (maintenant.getTime() < coupure) return null;
+  const avant = (iso: string | null) => Boolean(iso) && Date.parse(iso!) < coupure;
+  const sansReleve = r.tiktok_existe === null;
+  const tiktok = r.tiktok_existe === true || (sansReleve && aPublie(r));
+  const follows = (r.abonnements ?? 0) >= FOLLOWS_MIN || (r.abonnements === null && aPublie(r));
+  return avant(r.premiere_connexion_at) && tiktok && avant(r.warmup_started_at) && follows;
 }
 
 /** A posté (étape du mercredi) : au moins un post publié lundi ou mardi. */
@@ -120,14 +138,70 @@ export function estRouge(r: RecrueCohorte): boolean {
   return rougeOuvert(r) !== null;
 }
 
-/** La case d'une étape. Les relances des étapes 1 à 3 valent quelle que soit la période (« Reporter »). */
-export function caseEtape(r: RecrueCohorte, etape: EtapeCohorte): Case {
-  const fait =
-    etape === "acces" ? accesFait(r)
-    : etape === "tiktok" ? tiktokFait(r)
-    : etape === "warmup" ? warmupFait(r)
-    : aPosteMercredi(r);
-  if (fait) {
+/** Contrat non relié : une relance par Upwork ne peut pas l'atteindre. */
+export function sansContrat(r: RecrueCohorte): boolean {
+  return !r.contrat_id;
+}
+
+function faite(r: RecrueCohorte, e: EtapeCohorte): boolean {
+  return e === "acces" ? accesFait(r) : e === "tiktok" ? tiktokFait(r) : e === "warmup" ? warmupFait(r) : aPosteMercredi(r);
+}
+
+/** L'étape d'avant le lundi où la recrue en est (la 1re pas faite), null si les 3 sont faites. */
+export function etapeEnCours(r: RecrueCohorte): EtapePrepa | null {
+  return ETAPES_PREPA.find((e) => !faite(r, e)) ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// Les cases : une seule information chacune
+// ---------------------------------------------------------------------------
+
+/** La relance de l'étape : partie (quand, par où), prévue en simulation, ou bloquée. */
+export type Envoi =
+  | { type: "envoye"; le: string; canal: string }
+  | { type: "prevu"; canal: string | null }
+  | { type: "bloque"; raison: string | null };
+
+/** Ce qui manque à l'étape en cours. */
+export type Detail =
+  | { cle: "connexion" }
+  | { cle: "tiktok"; handle: string | null }
+  | { cle: "warmup"; start: boolean; follows: number }
+  | { cle: "mercredi" };
+
+export type Case =
+  | { etat: "fait"; le: string | null }
+  | { etat: "encours"; detail: Detail; envoi: Envoi | null }
+  | { etat: "rouge"; detail: Detail; envoi: Envoi | null; le: string }
+  | { etat: "apres" };
+
+function envoiEtape(r: RecrueCohorte, etape: EtapeCohorte): Envoi | null {
+  // Étapes 1 à 3 : la relance vaut quelle que soit la période (« Postpone »).
+  const memePeriode = (periode: string | null) => etape !== "mercredi" || periode === r.cohorte_lundi;
+  const envois = r.nudges.filter((n) => n.type === etape && memePeriode(n.periode));
+  const envoi = envois[envois.length - 1];
+  if (envoi) return { type: "envoye", le: envoi.envoye_at, canal: envoi.canal };
+  const prevue = r.prevues.find((p) => p.type === etape && memePeriode(p.periode));
+  if (prevue?.statut === "prevu") return { type: "prevu", canal: prevue.canal };
+  if (prevue?.statut === "bloque") return { type: "bloque", raison: prevue.raison };
+  return null;
+}
+
+function detailEtape(r: RecrueCohorte, etape: EtapeCohorte): Detail {
+  if (etape === "acces") return { cle: "connexion" };
+  if (etape === "tiktok") return { cle: "tiktok", handle: r.handle };
+  if (etape === "warmup") return { cle: "warmup", start: Boolean(r.warmup_started_at), follows: r.abonnements ?? 0 };
+  return { cle: "mercredi" };
+}
+
+/**
+ * La case d'une étape. Faite : « ✓ 28 Oct ». En cours : ce qui manque et la
+ * relance. Rouge : pourquoi. Après l'étape en cours : « — » (pas de détail du
+ * warm-up tant que l'accès n'est pas fait). Mercredi : seulement une fois la
+ * cohorte commencée.
+ */
+export function caseEtape(r: RecrueCohorte, etape: EtapeCohorte, aujourdhui?: string): Case {
+  if (faite(r, etape)) {
     const le =
       etape === "acces" ? r.premiere_connexion_at
       : etape === "tiktok" ? r.tiktok_vu_at
@@ -135,16 +209,54 @@ export function caseEtape(r: RecrueCohorte, etape: EtapeCohorte): Case {
       : null;
     return { etat: "fait", le };
   }
-  const memePeriode = (periode: string | null) => etape !== "mercredi" || periode === r.cohorte_lundi;
+  if (etape === "mercredi") {
+    if (aujourdhui !== undefined && aujourdhui < r.cohorte_lundi) return { etat: "apres" };
+  } else if (etapeEnCours(r) !== etape) {
+    return { etat: "apres" };
+  }
+  const detail = detailEtape(r, etape);
+  const envoi = envoiEtape(r, etape);
+  const memePeriode = (periode: string) => etape !== "mercredi" || periode === r.cohorte_lundi;
   const rouge = r.rouges.find((x) => x.etape === etape && x.decision === null && memePeriode(x.periode));
-  if (rouge) return { etat: "rouge", le: rouge.rouge_at };
-  const envois = r.nudges.filter((n) => n.type === etape && memePeriode(n.periode));
-  const envoi = envois[envois.length - 1];
-  if (envoi) return { etat: "relance", le: envoi.envoye_at, canal: envoi.canal };
-  const prevue = r.prevues.find((p) => p.type === etape && memePeriode(p.periode));
-  if (prevue?.statut === "prevu") return { etat: "prevu", canal: prevue.canal };
-  if (prevue?.statut === "bloque") return { etat: "bloque", raison: prevue.raison };
-  return { etat: "attente" };
+  if (rouge) return { etat: "rouge", detail, envoi, le: rouge.rouge_at };
+  return { etat: "encours", detail, envoi };
+}
+
+/** Où en est la recrue : 0 rien, 1 accès, 2 TikTok, 3 warm-up, 4 a posté, 5 gardée. */
+export function avancement(r: RecrueCohorte, aujourdhui: string): number {
+  const prepa = ETAPES_PREPA.findIndex((e) => !faite(r, e));
+  if (prepa >= 0) return prepa;
+  if (!aPosteMercredi(r)) return 3;
+  return gardeSamedi(r, aujourdhui) ? 5 : 4;
+}
+
+/** Le tri : les rouges d'abord, puis du moins avancé au plus avancé. */
+export function trierRecrues(recrues: readonly RecrueCohorte[], aujourdhui: string): RecrueCohorte[] {
+  return [...recrues].sort(
+    (a, b) =>
+      Number(estRouge(b)) - Number(estRouge(a)) ||
+      avancement(a, aujourdhui) - avancement(b, aujourdhui) ||
+      (a.nom ?? "").localeCompare(b.nom ?? ""),
+  );
+}
+
+// ---------------------------------------------------------------------------
+// « Where they are now » : chaque recrue une seule fois, là où elle bloque
+// ---------------------------------------------------------------------------
+
+export const MORCEAUX_BARRE = ["connexion", "tiktok", "warmup", "prets", "rouges"] as const;
+export type MorceauBarre = (typeof MORCEAUX_BARRE)[number];
+
+export function morceauBarre(r: RecrueCohorte): MorceauBarre {
+  if (estRouge(r)) return "rouges";
+  const e = etapeEnCours(r);
+  return e === "acces" ? "connexion" : e === "tiktok" ? "tiktok" : e === "warmup" ? "warmup" : "prets";
+}
+
+export function barre(recrues: readonly RecrueCohorte[]): Record<MorceauBarre, number> {
+  const n = Object.fromEntries(MORCEAUX_BARRE.map((m) => [m, 0])) as Record<MorceauBarre, number>;
+  for (const r of recrues) n[morceauBarre(r)]++;
+  return n;
 }
 
 // ---------------------------------------------------------------------------
@@ -163,27 +275,47 @@ export interface Entonnoir {
 
 export const ETAPES_ENTONNOIR: readonly (keyof Entonnoir)[] = ["offre", "acces", "tiktok", "warmup", "pret", "aPoste", "garde"];
 
-export function entonnoir(recrues: readonly RecrueCohorte[], aujourdhui: string): Entonnoir {
+/**
+ * L'entonnoir d'une cohorte passée, séquentiel : chaque colonne ne compte que
+ * ceux qui ont fait toutes les étapes d'avant. « Prêt lundi » : la photo de
+ * dimanche minuit.
+ */
+export function entonnoir(recrues: readonly RecrueCohorte[], aujourdhui: string, maintenant: Date = new Date()): Entonnoir {
+  const acces = recrues.filter(accesFait);
+  const tiktok = acces.filter(tiktokFait);
+  const warmup = tiktok.filter(warmupFait);
+  const pret = warmup.filter((r) => pretLundiFige(r, maintenant) === true);
+  const aPoste = pret.filter(aPosteMercredi);
+  const garde = aPoste.filter((r) => gardeSamedi(r, aujourdhui));
   return {
     offre: recrues.length,
-    acces: recrues.filter(accesFait).length,
-    tiktok: recrues.filter(tiktokFait).length,
-    warmup: recrues.filter(warmupFait).length,
-    pret: recrues.filter(pretLundi).length,
-    aPoste: recrues.filter(aPosteMercredi).length,
-    garde: recrues.filter((r) => gardeSamedi(r, aujourdhui)).length,
+    acces: acces.length,
+    tiktok: tiktok.length,
+    warmup: warmup.length,
+    pret: pret.length,
+    aPoste: aPoste.length,
+    garde: garde.length,
   };
 }
 
 export interface FiltresCohorte {
-  rouges: boolean;
+  /** Un morceau de la barre « Where they are now ». */
+  morceau: MorceauBarre | null;
+  /** Seulement les contrats non reliés. */
+  sansContrat: boolean;
   hm: string;
   pays: string;
 }
 
+export const FILTRES_VIDES: FiltresCohorte = { morceau: null, sansContrat: false, hm: "", pays: "" };
+
 export function filtrer(recrues: readonly RecrueCohorte[], f: FiltresCohorte): RecrueCohorte[] {
   return recrues.filter(
-    (r) => (!f.rouges || estRouge(r)) && (!f.hm || r.hm_id === f.hm) && (!f.pays || r.pays === f.pays),
+    (r) =>
+      (!f.morceau || morceauBarre(r) === f.morceau) &&
+      (!f.sansContrat || sansContrat(r)) &&
+      (!f.hm || r.hm_id === f.hm) &&
+      (!f.pays || r.pays === f.pays),
   );
 }
 
@@ -201,7 +333,7 @@ export interface LigneHm {
  * prêtes lundi, % gardées samedi (seulement les cohortes dont le samedi est
  * passé). Les arrêtées comptent dans les recrues.
  */
-export function tableauHm(recrues: readonly RecrueCohorte[], aujourdhui: string): LigneHm[] {
+export function tableauHm(recrues: readonly RecrueCohorte[], aujourdhui: string, maintenant: Date = new Date()): LigneHm[] {
   const parHm = new Map<string, RecrueCohorte[]>();
   for (const r of recrues) {
     const cle = r.hm_id ?? "";
@@ -215,7 +347,7 @@ export function tableauHm(recrues: readonly RecrueCohorte[], aujourdhui: string)
         hm_id: liste[0]!.hm_id,
         hm_prenom: liste[0]!.hm_prenom,
         recrues: liste.length,
-        pretes: pct(liste.filter(pretLundi).length, liste.length),
+        pretes: pct(liste.filter((r) => pretLundiFige(r, maintenant) === true).length, liste.length),
         gardees: pct(samediPasse.filter((r) => gardeSamedi(r, aujourdhui)).length, samediPasse.length),
       };
     })

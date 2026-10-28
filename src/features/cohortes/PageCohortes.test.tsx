@@ -12,8 +12,13 @@ const api = vi.hoisted(() => ({
   lireRecrues: vi.fn(),
   reporterRecrue: vi.fn(),
   arreterRecrue: vi.fn(),
+  relierContrat: vi.fn(),
 }));
 vi.mock("./api", () => api);
+const auth = vi.hoisted(() => ({ role: "admin" as string }));
+vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
+const relances = vi.hoisted(() => ({ lireReglagesRelances: vi.fn() }));
+vi.mock("@/features/nudges/api", () => relances);
 
 import { MesRecrues, PageCohortes } from "./PageCohortes";
 
@@ -43,6 +48,7 @@ function recrue(o: Partial<RecrueCohorte>): RecrueCohorte {
     nudges: [],
     prevues: [],
     rouges: [],
+    contrat_id: "44707021",
     ...o,
   };
 }
@@ -60,9 +66,19 @@ const BO = recrue({
   hm_id: "hm-rana",
   hm_prenom: "Rana",
   contrat: false,
+  contrat_id: null,
   premiere_connexion_at: "2026-10-26T12:00:00Z",
-  slack_lie: true,
-  slack_lie_at: "2026-10-27T09:00:00Z",
+  handle: "bo.tt",
+});
+const CY = recrue({
+  poster_id: "cy",
+  nom: "Cy Moss",
+  premiere_connexion_at: "2026-10-26T12:00:00Z",
+  tiktok_existe: true,
+  tiktok_vu_at: "2026-10-27T08:00:00Z",
+  warmup_started_at: "2026-10-27T10:00:00Z",
+  abonnements: 2,
+  prevues: [{ type: "warmup", periode: "2026-11-02", statut: "prevu", canal: "slack", raison: "simulation" }],
 });
 
 function rendu(ui: React.ReactElement) {
@@ -74,111 +90,146 @@ function rendu(ui: React.ReactElement) {
   );
 }
 
-describe("PageCohortes (prompt 17, partie B)", () => {
+const MERCREDI = new Date("2026-10-28T12:00:00Z");
+
+describe("Cohorts, plus lisible (28 oct., partie B)", () => {
   beforeEach(async () => {
-    vi.useFakeTimers({ toFake: ["Date"] });
-    vi.setSystemTime(new Date("2026-10-28T12:00:00Z"));
     vi.clearAllMocks();
+    auth.role = "admin";
     await i18n.changeLanguage("fr");
     api.lireCohortes.mockResolvedValue([
-      { lundi: "2026-11-02", recrues: 2, rouges: 1 },
-      { lundi: "2026-10-26", recrues: 0, rouges: 0 },
-      { lundi: "2026-10-19", recrues: 0, rouges: 0 },
+      { lundi: "2026-11-02", recrues: 3, rouges: 1 },
+      { lundi: "2026-10-26", recrues: 1, rouges: 0 },
     ]);
-    api.lireRecrues.mockImplementation(async (lundis: string[]) => (lundis.includes("2026-11-02") ? [ANA, BO] : []));
+    api.lireRecrues.mockImplementation(async (lundis: string[]) =>
+      lundis.includes("2026-11-02") ? [BO, CY, ANA] : lundis.includes("2026-10-26") ? [recrue({ poster_id: "x", nom: "Xu", cohorte_lundi: "2026-10-26" })] : [],
+    );
     api.reporterRecrue.mockResolvedValue("2026-11-09");
     api.arreterRecrue.mockResolvedValue(undefined);
+    api.relierContrat.mockResolvedValue("44784352");
+    relances.lireReglagesRelances.mockResolvedValue({ mode: "simulation", delais: {}, textes: {}, slack: "" });
   });
-  afterEach(() => vi.useRealTimers());
+  afterEach(() => vi.restoreAllMocks());
 
-  it("par défaut : la cohorte en préparation et celle en semaine 1, l'entonnoir et une ligne par recrue", async () => {
-    rendu(<PageCohortes />);
+  it("une seule cohorte par défaut, celle en préparation ; une puce = une cohorte", async () => {
+    rendu(<PageCohortes maintenant={MERCREDI} />);
     const puces = await screen.findByRole("group", { name: "Cohortes affichées" });
     await within(puces).findByRole("button", { name: /2 nov/ });
-    expect(within(puces).getByRole("button", { name: /2 nov\.? · 2 recrues · en préparation/ })).toHaveAttribute("aria-pressed", "true");
-    expect(within(puces).getByRole("button", { name: /26 oct\.? · 0 recrues · semaine 1/ })).toHaveAttribute("aria-pressed", "true");
-    expect(within(puces).getByRole("button", { name: /19 oct\.?/ })).toHaveAttribute("aria-pressed", "false");
-    await waitFor(() => expect(api.lireRecrues).toHaveBeenCalledWith(["2026-11-02", "2026-10-26"]));
+    expect(within(puces).getByRole("button", { name: /2 nov/ })).toHaveAttribute("aria-pressed", "true");
+    expect(within(puces).getByRole("button", { name: /26 oct/ })).toHaveAttribute("aria-pressed", "false");
+    await waitFor(() => expect(api.lireRecrues).toHaveBeenCalledWith(["2026-11-02"]));
+    expect(api.lireRecrues).not.toHaveBeenCalledWith(["2026-11-02", "2026-10-26"]);
 
-    const tableau = await screen.findByTestId("tableau-recrues");
-    const ana = await within(tableau).findByText("Ana Silva");
-    const ligneAna = ana.closest("tr")!;
-    expect(ligneAna).toHaveAttribute("data-rouge", "true");
-    expect(within(ligneAna).getByText(/Rouge depuis le 28 oct/)).toBeInTheDocument();
-    const ligneBo = within(tableau).getByText("Bo Lee").closest("tr")!;
-    expect(within(ligneBo).getByText(/Fait le 26 oct/)).toBeInTheDocument();
-    expect(within(ligneBo).getByLabelText("Contrat Upwork non relié")).toBeInTheDocument();
-    // Les boutons seulement sur une ligne rouge.
-    expect(within(ligneBo).queryByRole("button", { name: "Reporter" })).toBeNull();
-
-    const entonnoir = within(screen.getByTestId("entonnoir")).getAllByRole("row")[1]!;
-    expect(within(entonnoir).getAllByRole("cell").map((c) => c.textContent)).toEqual([
-      expect.stringMatching(/2 nov/),
-      "2", // offre acceptée
-      "1", // accès
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-    ]);
-  });
-
-  it("filtres : rouges seulement, HM, pays", async () => {
-    rendu(<PageCohortes />);
-    await screen.findByText("Ana Silva");
-    fireEvent.click(screen.getByLabelText("Rouges seulement"));
-    expect(screen.queryByText("Bo Lee")).toBeNull();
-    fireEvent.click(screen.getByLabelText("Rouges seulement"));
-    fireEvent.change(screen.getByLabelText("HM"), { target: { value: "hm-rana" } });
+    fireEvent.click(within(puces).getByRole("button", { name: /26 oct/ }));
+    expect(await screen.findByText("Xu")).toBeInTheDocument();
     expect(screen.queryByText("Ana Silva")).toBeNull();
-    expect(screen.getByText("Bo Lee")).toBeInTheDocument();
-    fireEvent.change(screen.getByLabelText("HM"), { target: { value: "" } });
-    fireEvent.change(screen.getByLabelText("Pays"), { target: { value: "BR" } });
-    expect(screen.queryByText("Bo Lee")).toBeNull();
+    // Cohorte passée : l'entonnoir, plus la barre.
+    expect(await screen.findByTestId("entonnoir")).toBeInTheDocument();
+    expect(screen.queryByTestId("barre-cohorte")).toBeNull();
   });
 
-  it("Reporter : confirmation avec la nouvelle date ; refusée, rien ne part", async () => {
-    const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValueOnce(true);
-    rendu(<PageCohortes />);
+  it("la barre compte chaque recrue une fois ; un clic filtre", async () => {
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    const barre = await screen.findByTestId("barre-cohorte");
+    expect(within(barre).getByRole("button", { name: /Attendent la connexion · 0/ })).toBeInTheDocument();
+    expect(within(barre).getByRole("button", { name: /Attendent TikTok · 1/ })).toBeInTheDocument();
+    expect(within(barre).getByRole("button", { name: /Attendent le warm-up · 1/ })).toBeInTheDocument();
+    expect(within(barre).getByRole("button", { name: /Rouges · 1/ })).toBeInTheDocument();
+    fireEvent.click(within(barre).getByRole("button", { name: /Attendent TikTok/ }));
+    expect(screen.getByText("Bo Lee")).toBeInTheDocument();
+    expect(screen.queryByText("Ana Silva")).toBeNull();
+    expect(screen.queryByText("Cy Moss")).toBeNull();
+  });
+
+  it("une case = une info : ✉ quand la relance est partie, ✉ prévu en simulation, — après, Ready Monday — avant dimanche minuit", async () => {
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    const tableau = await screen.findByTestId("tableau-recrues");
+    await within(tableau).findByText("Ana Silva");
+    // Rouges d'abord.
+    const lignes = within(tableau).getAllByRole("row").slice(1);
+    expect(lignes[0]).toHaveAttribute("data-recrue", "ana");
+    // Ligne rouge : pourquoi, en une phrase.
+    const ana = lignes[0]!;
+    expect(within(ana).getByText("Relance partie le 27 oct. (Upwork) · toujours pas connecté")).toBeInTheDocument();
+    // TikTok en cours, et le warm-up « — » tant que TikTok n'est pas fait.
+    const bo = within(tableau).getByText("Bo Lee").closest("tr")!;
+    expect(within(bo.querySelector("[data-case='acces']") as HTMLElement).getByText(/26 oct/)).toBeInTheDocument();
+    expect(within(bo.querySelector("[data-case='tiktok']") as HTMLElement).getByText("@bo.tt pas encore sur TikTok")).toBeInTheDocument();
+    expect((bo.querySelector("[data-case='warmup']") as HTMLElement).textContent).toBe("—");
+    // Warm-up en cours : son détail, et « ✉ prévu » en simulation.
+    const cy = within(tableau).getByText("Cy Moss").closest("tr")!;
+    const warmup = cy.querySelector("[data-case='warmup']") as HTMLElement;
+    expect(within(warmup).getByText("follows 2/5")).toBeInTheDocument();
+    expect(within(warmup).getByText("✉ prévu (Slack)")).toBeInTheDocument();
+    // Ready Monday : « — » avant dimanche minuit.
+    for (const l of lignes) expect((l.querySelector("[data-case='pret']") as HTMLElement).textContent).toBe("—");
+  });
+
+  it("Ready Monday : ✓ ou ✗ après dimanche minuit", async () => {
+    api.lireCohortes.mockResolvedValue([{ lundi: "2026-11-02", recrues: 1, rouges: 0 }]);
+    api.lireRecrues.mockResolvedValue([CY]);
+    rendu(<PageCohortes maintenant={new Date("2026-11-03T10:00:00Z")} />);
+    const ligne = (await screen.findByText("Cy Moss")).closest("tr")!;
+    expect(within(ligne.querySelector("[data-case='pret']") as HTMLElement).getByText("Pas prêt")).toBeInTheDocument();
+  });
+
+  it("contrat non relié : le compteur filtre, et « Link » enregistre le contrat", async () => {
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    const compteur = await screen.findByTestId("compteur-contrats");
+    expect(compteur).toHaveTextContent("1 contrat non relié : les relances ne peuvent pas l'atteindre");
+    fireEvent.click(compteur);
+    expect(screen.getByText("Bo Lee")).toBeInTheDocument();
+    expect(screen.queryByText("Cy Moss")).toBeNull();
+
+    const bo = screen.getByText("Bo Lee").closest("tr")!;
+    fireEvent.click(within(bo).getByRole("button", { name: /Link/ }));
+    fireEvent.change(within(bo).getByLabelText("Lien du contrat Upwork de Bo Lee"), {
+      target: { value: "https://www.upwork.com/nx/wm/workroom/44784352/overview" },
+    });
+    fireEvent.click(within(bo).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() =>
+      expect(api.relierContrat).toHaveBeenCalledWith("bo", "https://www.upwork.com/nx/wm/workroom/44784352/overview"),
+    );
+  });
+
+  it("l'état des relances : visible par l'admin seulement", async () => {
+    const { unmount } = rendu(<PageCohortes maintenant={MERCREDI} />);
+    expect(await screen.findByTestId("etat-relances")).toHaveTextContent("Relances : Simulation.");
+    unmount();
+    auth.role = "head_of_ops";
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    await screen.findByText("Ana Silva");
+    expect(screen.queryByTestId("etat-relances")).toBeNull();
+  });
+
+  it("Postpone et Stop : confirmation, refusée rien ne part", async () => {
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValue(true);
+    rendu(<PageCohortes maintenant={MERCREDI} />);
     const ligne = (await screen.findByText("Ana Silva")).closest("tr")!;
     fireEvent.click(within(ligne).getByRole("button", { name: "Reporter" }));
     expect(confirmer).toHaveBeenLastCalledWith(expect.stringMatching(/Reporter Ana Silva à la cohorte du 9 nov/));
     expect(api.reporterRecrue).not.toHaveBeenCalled();
     fireEvent.click(within(ligne).getByRole("button", { name: "Reporter" }));
     await waitFor(() => expect(api.reporterRecrue).toHaveBeenCalledWith("ana"));
-    confirmer.mockRestore();
-  });
-
-  it("Arrêter : confirmation qui annonce « End the contract » dans la paie de lundi", async () => {
-    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
-    rendu(<PageCohortes />);
-    const ligne = (await screen.findByText("Ana Silva")).closest("tr")!;
     fireEvent.click(within(ligne).getByRole("button", { name: "Arrêter" }));
-    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("End the contract"));
+    expect(confirmer).toHaveBeenLastCalledWith(expect.stringContaining("End the contract"));
     await waitFor(() => expect(api.arreterRecrue).toHaveBeenCalledWith("ana"));
-    confirmer.mockRestore();
   });
 });
 
 describe("MesRecrues (accueil HM, lecture seule)", () => {
   beforeEach(async () => {
-    vi.useFakeTimers({ toFake: ["Date"] });
-    vi.setSystemTime(new Date("2026-10-28T12:00:00Z"));
     vi.clearAllMocks();
     await i18n.changeLanguage("fr");
     api.lireCohortes.mockResolvedValue([{ lundi: "2026-11-02", recrues: 2, rouges: 1 }]);
     api.lireRecrues.mockResolvedValue([ANA, BO]);
   });
-  afterEach(() => vi.useRealTimers());
 
-  it("une HM : ses recrues seulement, sans bouton, même sur un rouge", async () => {
+  it("une HM : ses recrues seulement, sans bouton (ni Postpone, ni Stop, ni Link)", async () => {
     rendu(<MesRecrues hm="hm-lucia" />);
     const bloc = await screen.findByTestId("mes-recrues");
     expect(await within(bloc).findByText("Ana Silva")).toBeInTheDocument();
     expect(within(bloc).queryByText("Bo Lee")).toBeNull();
-    expect(within(bloc).getByText(/Rouge depuis/)).toBeInTheDocument();
-    expect(within(bloc).queryByRole("button", { name: "Reporter" })).toBeNull();
-    expect(within(bloc).queryByRole("button", { name: "Arrêter" })).toBeNull();
+    expect(within(bloc).queryByRole("button")).toBeNull();
   });
 });

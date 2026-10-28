@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import i18n from "@/locales";
 
 const api = vi.hoisted(() => ({
-  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "test", arret_auto: "test" })),
+  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "test", arret_auto: "test", lundi_message_auto: "test" })),
   enregistrerInterrupteur: vi.fn(async () => undefined),
 }));
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
@@ -36,7 +36,7 @@ describe("Réglages → Interrupteurs", () => {
     const ligne = within(document.querySelector<HTMLElement>('[data-interrupteur="accueil_auto"]')!);
     const on = ligne.getByRole("button", { name: "On" });
     expect(ligne.getByRole("button", { name: "Test" }).getAttribute("aria-pressed")).toBe("true");
-    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(4);
+    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(5);
     vi.spyOn(window, "confirm").mockReturnValueOnce(false);
     fireEvent.click(on);
     expect(api.enregistrerInterrupteur).not.toHaveBeenCalled();

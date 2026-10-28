@@ -183,7 +183,8 @@ export const TYPES_COLONNE: Record<EtapeCohorte, readonly string[]> = {
   acces: ["connexion", "acces"],
   tiktok: ["tiktok"],
   warmup: ["warmup_bien_fait", "warmup_lance", "warmup"],
-  mercredi: ["mercredi"],
+  // Partie D (0404) : le Nudge du jeudi remplace le message du mercredi.
+  mercredi: ["jeudi", "mercredi"],
 };
 
 function envoiEtape(r: RecrueCohorte, etape: EtapeCohorte): Envoi | null {

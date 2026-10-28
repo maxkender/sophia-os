@@ -14,7 +14,7 @@ const api = vi.hoisted(() => ({
   lireReglagesRelances: vi.fn(),
   enregistrerReglagesRelances: vi.fn(),
   lireRougesDepuis: vi.fn(async () => []),
-  ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "mercredi"],
+  ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "lundi_tous", "lundi_cohorte", "lundi_warmup", "jeudi"],
   DELAIS_ETAPES: ["connexion_message_h", "tiktok_message_h", "warmup_lance_message_h", "warmup_bien_fait_heure", "kill_h", "kill_annulation_h"],
 }));
 vi.mock("./api", () => api);
@@ -35,7 +35,7 @@ function rendu() {
 const REGLAGES = {
   mode: "simulation",
   delais: { connexion_message_h: 24, tiktok_message_h: 48, warmup_lance_message_h: 24, warmup_bien_fait_heure: 12, kill_h: 48, kill_annulation_h: 12 },
-  textes: { connexion: "a", tiktok: "b", warmup_lance: "c", warmup_bien_fait: "e", mercredi: "d" },
+  textes: { connexion: "a", tiktok: "b", warmup_lance: "c", warmup_bien_fait: "e", lundi_tous: "f", lundi_cohorte: "g", lundi_warmup: "h", jeudi: "d" },
   slack: "",
   lienEtapes: "https://guide",
 };
@@ -62,6 +62,8 @@ describe("les 3 chiffres sur 7 jours (28 oct., partie E)", () => {
     // Les anciens noms comptent pour l'étape qui les remplace.
     expect(s.connexion).toEqual({ envoyees: 3, faites48h: 33, rouges: 1 });
     expect(s.warmup_bien_fait).toEqual({ envoyees: 1, faites48h: 0, rouges: 2 });
+    expect(s.jeudi).toEqual({ envoyees: 0, faites48h: null, rouges: 0 });
+    expect(statsRelances([{ type: "jeudi", envoye_at: "2026-11-05T12:00:00Z", resolu_at: null }], []).jeudi.envoyees).toBe(1);
     expect(s.tiktok).toEqual({ envoyees: 0, faites48h: null, rouges: 0 });
   });
 });

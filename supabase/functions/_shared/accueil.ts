@@ -164,3 +164,58 @@ export function messageAccueil(
   };
   return modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout)).trim();
 }
+
+/** Un posteur déjà embauché, relié à l'annonce de son contrat. */
+export interface PosteurAnnonce {
+  job_id: string;
+  titre: string | null;
+  pays: string | null;
+  langue: string | null;
+  hm_id: string | null;
+  tarif: number | null;
+}
+
+export interface AnnonceDeduite {
+  job_id: string;
+  titre: string | null;
+  pays: string | null;
+  langue: string | null;
+  hm_id: string | null;
+  tarif: number | null;
+  generique: boolean;
+  posteurs: number;
+}
+
+/**
+ * Les annonces déduites des posteurs déjà embauchés : un seul pays et une
+ * seule langue → l'annonce les prend (la HM la plus fréquente, le tarif s'il
+ * est le même pour tous) ; plusieurs pays ou langues → générique (chaque
+ * contrat passera par « Contrats à relier ») ; aucun pays connu → rien dit.
+ */
+export function annoncesDepuisPosteurs(lignes: PosteurAnnonce[]): AnnonceDeduite[] {
+  const parJob = new Map<string, PosteurAnnonce[]>();
+  for (const l of lignes) {
+    if (!l.job_id) continue;
+    parJob.set(l.job_id, [...(parJob.get(l.job_id) ?? []), l]);
+  }
+  const distincts = <T>(xs: (T | null)[]) => [...new Set(xs.filter((x): x is T => x !== null && x !== undefined))];
+  return [...parJob.entries()].map(([job_id, ls]) => {
+    const pays = distincts(ls.map((l) => l.pays?.toUpperCase() ?? null));
+    const langues = distincts(ls.map((l) => l.langue));
+    const tarifs = distincts(ls.map((l) => l.tarif));
+    const compte = new Map<string, number>();
+    for (const l of ls) if (l.hm_id) compte.set(l.hm_id, (compte.get(l.hm_id) ?? 0) + 1);
+    const hm = [...compte.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+    const unique = pays.length === 1 && langues.length === 1;
+    return {
+      job_id,
+      titre: ls.find((l) => l.titre)?.titre ?? null,
+      pays: unique ? pays[0]! : null,
+      langue: unique ? langues[0]! : null,
+      hm_id: hm,
+      tarif: tarifs.length === 1 ? tarifs[0]! : null,
+      generique: pays.length > 1 || langues.length > 1,
+      posteurs: ls.length,
+    };
+  });
+}

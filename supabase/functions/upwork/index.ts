@@ -28,8 +28,10 @@ import {
   type Annonce,
   type DetailsContrat,
   lireDetailsContrat,
+  annoncesDepuisPosteurs,
   lireModeAuto,
   messageAccueil,
+  type PosteurAnnonce,
   planAccueil,
   type PosteurExistant,
   REQUETE_DETAILS_CONTRAT,
@@ -114,6 +116,11 @@ const COMPTE = "principal";
  *       (`reponses_cibles_upwork`) dans la conversation de leur contrat, plus
  *       récents que le dernier lu → `posteur_reponses` (canal upwork). Lecture
  *       seule ; le classement et la réponse viennent de recrues-check.
+ *   { action: "annonces_amorcer" }           admin
+ *       Système du 2 nov., partie A : remplit `annonces_pays` depuis les
+ *       posteurs déjà embauchés (l'annonce de leur contrat, lue en lecture
+ *       seule ; leur pays, langue, HM, tarif). Une annonce déjà dite à la main
+ *       n'est jamais changée.
  *   { action: "verifier" }                   cron `upwork-verifier`, chaque jour
  *       Renouvelle le jeton si besoin et fait un appel léger (la connexion
  *       reste valable 2 semaines après le dernier usage). En cas d'échec :
@@ -167,6 +174,8 @@ Deno.serve(async (request) => {
         return json(await traiterArrets(supabase, par));
       case "reponses_lire":
         return json(await lireReponsesUpwork(supabase, par));
+      case "annonces_amorcer":
+        return json(await amorcerAnnonces(supabase, par));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -1044,12 +1053,21 @@ async function accueillir(supabase: Supabase, par: string | null) {
     }
     // L'annonce : vue pour la 1re fois → notée, pays à dire.
     let annonce: Annonce | null = null;
+    let errAnnonce: string | null = null;
     if (details.job_id) {
-      const { data: a } = await supabase.from("annonces_pays").select("job_id, pays, langue, hm_id, tarif, generique").eq("job_id", details.job_id).maybeSingle();
+      const { data: a, error: errLu } = await supabase.from("annonces_pays").select("job_id, pays, langue, hm_id, tarif, generique").eq("job_id", details.job_id).maybeSingle();
       if (a) annonce = { ...a, tarif: a.tarif === null ? null : Number(a.tarif) } as Annonce;
-      else await supabase.from("annonces_pays").insert({ job_id: details.job_id, titre: details.job_titre });
+      else {
+        const { error: errIns } = await supabase.from("annonces_pays").upsert(
+          { job_id: details.job_id, titre: details.job_titre },
+          { onConflict: "job_id", ignoreDuplicates: true },
+        );
+        errAnnonce = errLu?.message ?? errIns?.message ?? null;
+        if (errAnnonce) bilan.erreurs.push(`annonce ${details.job_id} : ${errAnnonce}`);
+      }
     }
     const plan = planAccueil(details, annonce, connu ? { statut: connu.statut, pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id } : null, posteurs);
+    if (errAnnonce && plan.raison) plan.raison = `${plan.raison} (annonce non notée : ${errAnnonce})`;
     const base = {
       contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
       job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
@@ -1173,6 +1191,78 @@ async function creerEtAccueillir(
 // ---------------------------------------------------------------------------
 // Vérification quotidienne
 // ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// Système du 2 nov., partie A : les annonces depuis les posteurs déjà embauchés
+// ---------------------------------------------------------------------------
+
+const REQUETE_ANNONCE_CONTRAT = `query AnnonceContrat($id: ID!) { contractDetails(id: $id) { id job { id content { title } } } }`;
+
+async function amorcerAnnonces(supabase: Supabase, par: string | null) {
+  const { data: posteurs, error } = await supabase
+    .from("profiles")
+    .select("id, manager_id, tarif_hebdo, upwork_contract_id")
+    .eq("is_active", true)
+    .not("upwork_contract_id", "is", null);
+  if (error) throw error;
+  const ids = (posteurs ?? []).map((p) => p.id as string);
+  const [{ data: comptes }, { data: contrats }, { data: connues }] = await Promise.all([
+    supabase.from("comptes").select("poster_id, pays, langue, created_at").in("poster_id", ids).eq("type_compte", "perso")
+      .order("created_at"),
+    supabase.from("upwork_contrats").select("contrat_id, organisation_id").not("contrat_id", "is", null),
+    supabase.from("annonces_pays").select("job_id, pays, generique, maj_par"),
+  ]);
+  const compteDe = new Map<string, { pays: string | null; langue: string | null }>();
+  for (const c of comptes ?? []) if (!compteDe.has(c.poster_id)) compteDe.set(c.poster_id, { pays: c.pays, langue: c.langue });
+  const tenantDe = new Map((contrats ?? []).map((c) => [String(c.contrat_id), (c.organisation_id as string | null) ?? null]));
+
+  // Le jeton renouvelé une fois, puis les lectures par paquets de 8.
+  await jetonValide(supabase, par);
+  const lignes: PosteurAnnonce[] = [];
+  const erreurs: string[] = [];
+  const liste = posteurs ?? [];
+  for (let i = 0; i < liste.length; i += 8) {
+    await Promise.all(liste.slice(i, i + 8).map(async (p) => {
+      const contrat = String(p.upwork_contract_id);
+      const r = await lire(supabase, { par, action: "annonce_contrat", query: REQUETE_ANNONCE_CONTRAT, variables: { id: contrat }, tenant: tenantDe.get(contrat) ?? null });
+      const job = r.data?.contractDetails?.job;
+      if (!job?.id) {
+        erreurs.push(`${contrat} : ${r.erreur ?? "annonce introuvable"}`);
+        return;
+      }
+      const c = compteDe.get(p.id as string);
+      lignes.push({
+        job_id: String(job.id),
+        titre: job.content?.title ?? null,
+        pays: c?.pays ?? null,
+        langue: c?.langue ?? null,
+        hm_id: (p.manager_id as string | null) ?? null,
+        tarif: p.tarif_hebdo === null ? null : Number(p.tarif_hebdo),
+      });
+    }));
+  }
+
+  // Une annonce déjà dite (pays, générique ou modifiée à la main) ne change jamais.
+  const dites = new Set((connues ?? []).filter((a) => a.pays || a.generique || a.maj_par).map((a) => a.job_id as string));
+  const deduites = annoncesDepuisPosteurs(lignes).filter((a) => !dites.has(a.job_id));
+  if (deduites.length > 0) {
+    const { error: errUp } = await supabase.from("annonces_pays").upsert(
+      deduites.map(({ posteurs: _n, ...a }) => ({ ...a, maj_at: new Date().toISOString() })),
+      { onConflict: "job_id" },
+    );
+    if (errUp) throw errUp;
+  }
+  return {
+    ok: erreurs.length === 0,
+    posteurs: liste.length,
+    lus: lignes.length,
+    annonces: deduites.length,
+    avec_pays: deduites.filter((a) => a.pays).length,
+    generiques: deduites.filter((a) => a.generique).length,
+    deja_dites: dites.size,
+    erreurs: erreurs.slice(0, 20),
+  };
+}
 
 // ---------------------------------------------------------------------------
 // Système du 2 nov., partie E : les messages des posteurs sur Upwork

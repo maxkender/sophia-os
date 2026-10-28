@@ -3143,6 +3143,10 @@ export const en = {
       },
     },
     accueil: {
+      amorcer: "Fill from existing contracts",
+      amorcerEnCours: "Reading contracts…",
+      amorcerAide: "Reads the job post of each poster already hired (read-only on Upwork) and deduces country, language, HM and rate. A job post already set by hand never changes.",
+      amorcerBilan: "{{annonces}} job posts filled: {{pays}} with a country, {{generiques}} generic; {{dites}} already set; {{erreurs}} unreadable contracts.",
       titre: "Automatic onboarding",
       aide: {
         off: "Off: new contracts aren't read.",

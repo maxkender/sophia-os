@@ -9,6 +9,7 @@ const api = vi.hoisted(() => ({
   relierAccueil: vi.fn(),
   lireAnnonces: vi.fn(async () => []),
   enregistrerAnnonce: vi.fn(),
+  amorcerAnnonces: vi.fn(async () => ({ ok: true, posteurs: 3, lus: 3, annonces: 2, avec_pays: 1, generiques: 1, deja_dites: 0, erreurs: [] })),
 }));
 vi.mock("./api", () => api);
 vi.mock("@/features/ckd/api", () => ({ listerHms: async () => [{ profile_id: "hm1", nom: "Aram", zone: null, posters: 3, slack_user_id: null }] }));
@@ -65,5 +66,17 @@ describe("système du 2 nov., partie A : l'accueil automatique", () => {
     rendu({ hmSeulement: true });
     await vi.waitFor(() => expect(api.lireAccueils).toHaveBeenCalled());
     expect(screen.queryByTestId("accueil-auto")).toBeNull();
+  });
+
+  it("admin : « Remplir depuis les contrats existants » et son bilan", async () => {
+    auth.role = "admin";
+    api.lireAccueils.mockResolvedValue([]);
+    render(
+      <QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}>
+        <AccueilAuto />
+      </QueryClientProvider>,
+    );
+    fireEvent.click(await screen.findByRole("button", { name: "Remplir depuis les contrats existants" }));
+    expect(await screen.findByTestId("bilan-amorcage")).toHaveTextContent("2 annonces remplies : 1 avec pays, 1 génériques");
   });
 });

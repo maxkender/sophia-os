@@ -15,7 +15,6 @@ import { ChoixHm } from "@/features/ckd/vueHm/ChoixHm";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
-import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
 import { ActionsPosteur } from "@/features/ckd/cohorte/ActionsPosteur";
 import {
   aFaireAujourdhui,
@@ -228,7 +227,7 @@ export function HiringAccueilPage() {
             </CardContent>
           </Card>
 
-          <SectionsSamediHm />
+          {/* 28 oct. : les décisions du samedi ne sont plus sur l'accueil des HMs, elles n'ont rien à faire. */}
 
           <CeQueLOsAFait />
 

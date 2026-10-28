@@ -1032,8 +1032,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
     const connu = connuDe.get(contratId);
     // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur).
     if (connu && ["cree", "envoi", "envoye", "doublon", "erreur"].includes(connu.statut)) continue;
-    // À relier sans pays choisi : on attend la HM.
-    if (connu?.statut === "a_relier") continue;
+    // À relier : le plan est refait à chaque passage (sans appel à Upwork) ; si
+    // l'annonce a reçu son pays depuis, le contrat est accueilli.
 
     let details: DetailsContrat | null = connu
       ? {

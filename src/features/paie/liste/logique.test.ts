@@ -138,6 +138,14 @@ describe("la liste de paie", () => {
       );
     });
 
+    it("Arrêtée depuis Cohortes avant d'avoir posté (0392) : remboursement et fin du contrat, aucune case", () => {
+      const l = ligne({ action: "kill", nb_comptes: 0, prevus: 0, faits: 0, montant: 0, suivante_action: "ne_pas_financer" });
+      expect(consigne(l, S)).toBe("Nothing to pay · Ask for a refund · End the contract");
+      expect(besoinPaye(l)).toBe(false);
+      expect(besoinSuivante(l)).toBe(false);
+      expect(resteAFaire(l)).toBe(true);
+    });
+
     it("Annuler : remboursement, rien d'approuvé", () => {
       expect(consigne(ligne({ action: "annuler", faits: 0, montant: 0 }), S)).toBe(
         "Don't approve Week 44 · Ask for a refund · Don't fund",

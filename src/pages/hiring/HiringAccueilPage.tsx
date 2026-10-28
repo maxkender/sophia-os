@@ -28,6 +28,7 @@ import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { CeQueLOsAFait } from "@/features/nudges/CeQueLOsAFait";
+import { MesRecrues } from "@/features/cohortes/PageCohortes";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
 async function nomsPosteurs(ids: string[]): Promise<Map<string, string>> {
@@ -230,6 +231,9 @@ export function HiringAccueilPage() {
           <SectionsSamediHm />
 
           <CeQueLOsAFait />
+
+          {/* Prompt 17, partie B : ses recrues, en lecture seule (le bloc complet vient en partie C). */}
+          <MesRecrues hm={role === "head_of_ops" ? hm : undefined} />
 
           <CalendrierSemaine hm={hm} />
 

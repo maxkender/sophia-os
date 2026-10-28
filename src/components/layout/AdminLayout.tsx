@@ -30,6 +30,7 @@ import {
   Settings,
   Tags,
   Users,
+  UsersRound,
   UserPlus,
   UserX,
   Wallet,
@@ -192,6 +193,12 @@ export function AdminLayout() {
             },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
             // Account watch : retirée du menu (prompt 15, point 1), la route /admin/surveillance reste.
+            {
+              to: "/admin/cohortes",
+              label: t("cohortes.nav"),
+              icon: UsersRound,
+              description: t("cohortes.navDesc"),
+            },
             {
               to: "/admin/check-kill-double",
               label: t("nav.checkKillDouble"),

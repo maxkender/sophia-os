@@ -278,6 +278,8 @@ export interface PosterProfil {
   upwork_contrat_url?: string | null;
   /** Email personnel, celui de Slack (0358). */
   email_perso?: string | null;
+  /** Le lundi de sa cohorte (0391), changé seulement par « Reporter » (page Cohortes). */
+  cohorte_lundi?: string | null;
   cout_mensuel: number | null;
   compte_id: string | null;
   handle_tiktok: string | null;

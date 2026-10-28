@@ -41,6 +41,7 @@ import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
+import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
 import { serviceClient } from "./supabase.ts";
 import {
   BANDES_AVANT_DERNIER_RECOURS,
@@ -2798,12 +2799,15 @@ export async function listerComptesSousQuota(
   if (error) throw error;
 
   const maintenant = Date.now();
+  // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392).
+  const rouges = opts.ignorerWarmup ? new Set<string>() : await posteursEnRouge(supabase);
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm") return false;
     if (Boolean(c.ugc_ai_video)) return false;
     if (c.videos_uniquement) return false;
     // Quota 0 (legacy) = toujours à traiter (plancher 1).
     if (opts.ignorerWarmup) return true;
+    if (compteBloque(c, rouges)) return false;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false;
     return new Date(ends).getTime() <= maintenant;
@@ -3002,11 +3006,15 @@ export async function assignerTousComptes(
   // UGC AI VIDEO : hors pipeline slideshow (même en test ciblé on laisse
   // assignerCompteJour renvoyer la raison — sauf filtre batch minuit).
   const maintenant = Date.now();
+  // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392) ;
+  // un compte ciblé à la main passe.
+  const rouges = o.ignorerWarmup || compteId ? new Set<string>() : await posteursEnRouge(supabase);
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm" && !compteId) return false;
     if (Boolean(c.ugc_ai_video) && !compteId) return false;
     if (c.videos_uniquement && !compteId) return false;
     if (o.ignorerWarmup) return true;
+    if (compteBloque(c, rouges)) return false;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false; // pas démarré → hors process
     return new Date(ends).getTime() <= maintenant;

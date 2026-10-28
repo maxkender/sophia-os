@@ -215,6 +215,12 @@ export function AdminLayout() {
               description: t("nudges.navDesc"),
             },
             {
+              to: "/admin/reponses",
+              label: t("reponses.nav"),
+              icon: MessagesSquare,
+              description: t("reponses.navDesc"),
+            },
+            {
               to: "/admin/analytics",
               label: t("nav.analytics"),
               icon: BarChart3,

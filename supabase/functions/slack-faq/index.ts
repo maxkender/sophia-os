@@ -48,7 +48,8 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  * Événement `team_join` (à cocher dans l'appli, scope `users:read`) : le
  * nouveau membre est relié à son posteur s'il est sûr (0381, slack_relier.ts).
  * Événement `message.im` (scope `im:history`) : un posteur qui répond au bot
- * en DM a « répondu » à ses nudges (0384).
+ * en DM a « répondu » à ses nudges (0384), et son message entre dans
+ * `posteur_reponses` (partie E, 0406).
  */
 Deno.serve(async (request) => {
   const signature = request.headers.get("x-slack-signature");
@@ -85,12 +86,23 @@ Deno.serve(async (request) => {
   if (payload.type !== "event_callback" || !payload.event) return new Response("", { status: 200 });
 
   // Un posteur répond au bot en message direct : ses nudges sont « répondus » (0384).
-  const ev = payload.event as unknown as { type?: string; channel_type?: string; user?: string; bot_id?: string; subtype?: string };
+  const ev = payload.event as unknown as {
+    type?: string;
+    channel_type?: string;
+    user?: string;
+    bot_id?: string;
+    subtype?: string;
+    ts?: string;
+    text?: string;
+  };
   if (ev.type === "message" && ev.channel_type === "im") {
     if (ev.user && !ev.bot_id && !ev.subtype) {
-      const repondu = Promise.resolve(serviceClient().rpc("nudge_repondu_slack", { p_slack_user: ev.user })).catch((erreur) =>
-        console.error("[slack-faq] message.im", messageErreur(erreur))
-      );
+      // Partie E (0406) : le message est gardé, l'OS le classe et y répond (recrues-check).
+      const db = serviceClient();
+      const repondu = Promise.all([
+        db.rpc("nudge_repondu_slack", { p_slack_user: ev.user }),
+        db.rpc("reponse_noter_slack", { p_slack_user: ev.user, p_ts: ev.ts ?? null, p_texte: ev.text ?? "" }),
+      ]).catch((erreur) => console.error("[slack-faq] message.im", messageErreur(erreur)));
       const edgeIm = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
       if (edgeIm) edgeIm.waitUntil(repondu);
       else await repondu;

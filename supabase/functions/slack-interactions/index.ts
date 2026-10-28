@@ -7,6 +7,7 @@ import {
   type PropositionSlack,
   zonesDe,
 } from "../_shared/ckd.ts";
+import { BOUTONS } from "../_shared/reponses.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -15,7 +16,9 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *     chaque post à commenter ;
  *   * « Sophia OS » (SLACK_HM_SIGNING_SECRET) : le bouton « ✅ Done » sous
  *     chaque décision Check, Kill or Double (samedi) et chaque posteur à
- *     relancer (jeudi), dans le fil de la zone du HM.
+ *     relancer (jeudi), dans le fil de la zone du HM ; et, sous chaque message
+ *     de l'OS à un posteur (partie E, 0406), « Done » / « I need help » /
+ *     « I want to stop » → `posteur_reponses` (canal bouton).
  *
  * Appelée par Slack, pas par un cron ni par l'OS : pas de x-cron-secret ni de
  * JWT, c'est la signature Slack qui authentifie (l'un ou l'autre secret).
@@ -47,6 +50,7 @@ Deno.serve(async (request) => {
     const action = payload?.actions?.[0];
     if (payload?.type !== "block_actions") return new Response("", { status: 200 });
     if (action?.action_id === "comment_fait") await commentFait(payload, action);
+    else if (action?.action_id && action.action_id in BOUTONS) await boutonPosteur(payload, action);
     else if (action?.action_id === ACTION_DONE) {
       // Plusieurs lectures et deux écritures Slack : on répond d'abord à Slack
       // (3 s max), la suite tourne derrière.
@@ -64,6 +68,41 @@ Deno.serve(async (request) => {
     return new Response("", { status: 200 });
   }
 });
+
+/**
+ * Un bouton sous un message de l'OS : une ligne `posteur_reponses` (canal
+ * bouton, un clic par message et par bouton), classée sans IA par
+ * recrues-check. Le message garde son texte, les boutons laissent place à
+ * « Thanks, noted. ».
+ */
+// deno-lint-ignore no-explicit-any
+async function boutonPosteur(payload: any, action: any) {
+  const supabase = serviceClient();
+  const userId = String(payload?.user?.id ?? "");
+  const ts = String(payload?.message?.ts ?? payload?.container?.message_ts ?? "");
+  const { data: profil } = await supabase.from("profiles").select("id").eq("slack_user_id", userId).maybeSingle();
+  if (!profil?.id || !ts) return;
+  const { error } = await supabase.from("posteur_reponses").insert({
+    poster_id: profil.id,
+    canal: "bouton",
+    source_id: `${ts}:${action.action_id}`,
+    texte: BOUTONS[action.action_id]!.texte,
+  });
+  if (error && error.code !== "23505") throw error;
+  if (payload.response_url) {
+    // deno-lint-ignore no-explicit-any
+    const section = (payload.message?.blocks ?? []).filter((b: any) => b?.type === "section");
+    await fetch(payload.response_url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        replace_original: true,
+        text: payload.message?.text ?? "",
+        blocks: [...section, { type: "context", elements: [{ type: "mrkdwn", text: `✅ ${BOUTONS[action.action_id]!.texte} · Thanks, noted.` }] }],
+      }),
+    }).catch(() => undefined);
+  }
+}
 
 // deno-lint-ignore no-explicit-any
 async function commentFait(payload: any, action: any) {

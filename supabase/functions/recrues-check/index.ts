@@ -1,4 +1,4 @@
-import { lireMode, lundiParis } from "../_shared/relances.ts";
+import { instantLocal, lireMode, lundiParis, partiesLocales } from "../_shared/relances.ts";
 import {
   canalEtape,
   type DelaisAccueil,
@@ -18,6 +18,20 @@ import {
 } from "../_shared/etapes.ts";
 import { lireModeAuto, type ModeAuto } from "../_shared/accueil.ts";
 import { ceQuiManqueRecrue, jeudiDu, lundiDu, type PosteurSemaine, texteJeudi, texteLundi } from "../_shared/semaine.ts";
+import {
+  BOUTONS,
+  blocsBoutons,
+  boutonDeSource,
+  type CanalReponse,
+  type Classement,
+  construirePromptReponse,
+  lireClassement,
+  planReponse,
+  REGLAGES_REPONSES_DEFAUT,
+  type ReglagesReponses,
+} from "../_shared/reponses.ts";
+import { chargerBase } from "../_shared/faq_moteur.ts";
+import { generateTextFast } from "../_shared/gemini.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
@@ -49,6 +63,11 @@ const OS_URL = "https://sophia-marketing-orga.vercel.app";
  *       5. partie D (0404) : le message du lundi 10 h (`lundi_message_auto`)
  *          et le Nudge du jeudi 12 h (posts ou liens manquants de lundi à
  *          mercredi, `relances_auto`), heure du pays ; les inactifs.
+ *   { action: "reponses" }   cron `reponses`, toutes les 10 minutes ; admin
+ *       Partie E (0406) : les messages reçus des posteurs (Slack, boutons,
+ *       Upwork) sont classés (IA, seuil 0,8) puis traités selon
+ *       `reponses_auto` : réponse, arrêt, pause, ou listes « Questions de
+ *       paie » et « À lire ».
  * Jamais de nouvel essai d'envoi : un échec est noté sur la relance.
  */
 Deno.serve(async (request) => {
@@ -57,6 +76,7 @@ Deno.serve(async (request) => {
     const acces = await assertRole(request, ["admin"]);
     if (acces instanceof Response) return acces;
     const body = (await request.json().catch(() => ({}))) as { action?: string };
+    if (body.action === "reponses") return json(await traiterReponses(serviceClient(), new Date()));
     if (body.action !== "verifier") return json({ ok: false, error: "action inconnue" }, 400);
     return json(await verifier(serviceClient(), new Date()));
   } catch (erreur) {
@@ -133,6 +153,8 @@ interface Bilan {
   erreurs: string[];
   /** Interne : les relances prévues existantes (pas rendu). */
   prevuesConnues?: Set<string>;
+  /** Interne : les posteurs en pause (malade, absent, partie E). */
+  pauses?: Set<string>;
 }
 
 async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
@@ -154,6 +176,10 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
   const { data: prevues } = await supabase.from("relances_prevues").select("poster_id, type, periode");
   bilan.prevuesConnues = new Set((prevues ?? []).map((x) => clePrevue(x.poster_id, x.type, x.periode)));
+
+  // Partie E : en pause (malade, absent), ni message ni Kill automatique.
+  const { data: pauses } = await supabase.from("posteur_pauses").select("poster_id").gt("jusqu_au", maintenant.toISOString());
+  bilan.pauses = new Set((pauses ?? []).map((x) => x.poster_id as string));
 
   let recrues = await lireRecrues(supabase);
   const test = r.mode === "simulation";
@@ -300,7 +326,7 @@ async function appliquerEtape(
     await effacerPrevue();
     return;
   }
-  if (killEnCours(x)) return;
+  if (killEnCours(x) || bilan.pauses?.has(x.poster_id)) return;
 
   const d = deciderEtape(e, maintenant, x.fuseau, r.etapes, { envoyeAt: envoi.envoyeAt, reponduAt: repondu, debut: debutCohorte(x) });
   if (d.kill) {
@@ -359,7 +385,9 @@ async function appliquerEtape(
     if (errIns.code !== "23505") bilan.erreurs.push(`relance ${x.poster_id} : ${errIns.message}`);
     return;
   }
-  const erreur = canal === "slack" ? await envoyerSlack(supabase, x.poster_id, texte) : await envoyerUpwork(x.contrat_id!, texte);
+  const erreur = canal === "slack"
+    ? await envoyerSlack(supabase, x.poster_id, texte, blocsBoutons(texte))
+    : await envoyerUpwork(x.contrat_id!, texte);
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
     bilan.erreurs.push(`${e.etape} ${x.poster_id} : ${erreur}`);
@@ -436,8 +464,8 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
   }
 }
 
-async function envoyerSlack(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {
-  const issue = await ecrireAuPosteur(supabase, posterId, texte);
+async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[]): Promise<string | null> {
+  const issue = await ecrireAuPosteur(supabase, posterId, texte, fetch, blocs);
   if (issue.statut === "envoye") return null;
   return issue.statut === "erreur" ? issue.erreur : "introuvable sur Slack";
 }
@@ -473,8 +501,11 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
     return;
   }
   const recrue = new Map(recrues.map((x) => [x.poster_id, x]));
+  // Le message du mercredi n'existe plus (0404) : ses lignes « prévu » ne s'affichent plus.
+  await supabase.from("relances_prevues").delete().eq("type", "mercredi");
   for (const p of (data ?? []) as PosteurSemaine[]) {
     bilan.semaine++;
+    if (bilan.pauses?.has(p.poster_id)) continue;
     const posteur = { ...p, envoyes: p.envoyes ?? [], prevus_test: p.prevus_test ?? [] };
     if (r.lundi !== "off" && lundiDu(posteur, lundi, maintenant, { debut: r.heures.lundi_heure, fin: r.heures.fin })) {
       const x = recrue.get(p.poster_id);
@@ -522,7 +553,9 @@ async function envoyerSemaine(
     if (errIns.code !== "23505") bilan.erreurs.push(`${type} ${p.poster_id} : ${errIns.message}`);
     return;
   }
-  const erreur = canal === "slack" ? await envoyerSlack(supabase, p.poster_id, texte) : await envoyerUpwork(p.contrat_id!, texte);
+  const erreur = canal === "slack"
+    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte))
+    : await envoyerUpwork(p.contrat_id!, texte);
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
     bilan.erreurs.push(`${type} ${p.poster_id} : ${erreur}`);
@@ -532,4 +565,160 @@ async function envoyerSemaine(
   if (bilan.prevuesConnues?.has(clePrevue(p.poster_id, type, lundi))) {
     await supabase.from("relances_prevues").delete().match(cle);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Système du 2 nov., partie E : l'OS lit et répond
+// ---------------------------------------------------------------------------
+
+interface LigneReponse {
+  id: string;
+  poster_id: string;
+  canal: CanalReponse;
+  source_id: string | null;
+  texte: string | null;
+}
+
+async function reglagesReponses(supabase: Supabase): Promise<{ mode: ModeAuto; r: ReglagesReponses }> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("cle, valeur")
+    .in("cle", [
+      "reponses_auto",
+      "reponses_reglages",
+      "reponse_texte_upwork",
+      "reponse_texte_augmentation",
+      "reponse_texte_propre_compte",
+      "reponse_texte_absent",
+      "slack_lien_invitation",
+    ]);
+  const v = Object.fromEntries((data ?? []).map((x) => [x.cle as string, x.valeur]));
+  const t = (cle: string, d: string) => (typeof v[cle] === "string" ? (v[cle] as string) : d);
+  const o = (v.reponses_reglages && typeof v.reponses_reglages === "object" ? v.reponses_reglages : {}) as Record<string, unknown>;
+  const n = (x: unknown, d: number) => (x !== undefined && x !== null && Number.isFinite(Number(x)) ? Number(x) : d);
+  const D = REGLAGES_REPONSES_DEFAUT;
+  return {
+    mode: lireModeAuto(v.reponses_auto),
+    r: {
+      seuil: n(o.seuil, D.seuil),
+      max_jour: n(o.max_jour, D.max_jour),
+      pause_max_jours: n(o.pause_max_jours, D.pause_max_jours),
+      textes: {
+        upwork: t("reponse_texte_upwork", D.textes.upwork),
+        augmentation: t("reponse_texte_augmentation", D.textes.augmentation),
+        propre_compte: t("reponse_texte_propre_compte", D.textes.propre_compte),
+        absent: t("reponse_texte_absent", D.textes.absent),
+      },
+      slack: t("slack_lien_invitation", "").trim() || "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA",
+    },
+  };
+}
+
+/** Minuit à Paris aujourd'hui : le début du compteur « 3 réponses par jour ». */
+function minuitParis(maintenant: Date): Date {
+  return instantLocal(partiesLocales(maintenant, "Europe/Paris").date, 0, "Europe/Paris");
+}
+
+async function traiterReponses(supabase: Supabase, maintenant: Date) {
+  const { mode, r } = await reglagesReponses(supabase);
+  const bilan = { mode, classes: 0, reponses: 0, simules: 0, arrets: 0, pauses: 0, a_lire: 0, paie: 0, erreurs: [] as string[] };
+  if (mode === "off") return { ok: true, ...bilan };
+  const { data, error } = await supabase
+    .from("posteur_reponses")
+    .select("id, poster_id, canal, source_id, texte")
+    .eq("statut", "a_classer")
+    .order("recu_at")
+    .limit(30);
+  if (error) throw error;
+  const lignes = (data ?? []) as LigneReponse[];
+  if (lignes.length === 0) return { ok: true, ...bilan };
+
+  // Le guide du poster, chargé une fois (seulement s'il y a un vrai message à classer).
+  let guide: string | null = null;
+  const reel = mode === "on";
+  for (const l of lignes) {
+    let c: Classement | null = null;
+    let erreur: string | null = null;
+    const bouton = l.canal === "bouton" ? boutonDeSource(l.source_id) : null;
+    if (bouton) {
+      c = BOUTONS[bouton]!.classement;
+    } else {
+      try {
+        if (guide === null) guide = (await chargerBase(supabase, "poster")).base.guide;
+        const { data: a } = await supabase.from("accueils").select("job_titre").eq("poster_id", l.poster_id).maybeSingle();
+        const prompt = construirePromptReponse({ message: l.texte ?? "", canal: l.canal, guide, annonce: a?.job_titre ?? null });
+        c = lireClassement(await generateTextFast(prompt));
+        if (!c) erreur = "classement illisible";
+      } catch (e) {
+        erreur = `classement : ${messageErreur(e)}`;
+      }
+    }
+    const classement = c ?? { cas: "a_lire" as const, confiance: 0, sous_cas: null, reponse: "", jours: null };
+
+    const { count } = await supabase
+      .from("posteur_reponses")
+      .select("id", { count: "exact", head: true })
+      .eq("poster_id", l.poster_id)
+      .eq("reponse_statut", "envoye")
+      .gte("reponse_at", minuitParis(maintenant).toISOString());
+    const plan = planReponse(classement, l.canal, r, count ?? 0);
+
+    const maj: Record<string, unknown> = {
+      statut: "classe",
+      cas: plan.cas,
+      cas_ia: c?.cas ?? null,
+      confiance: c?.confiance ?? null,
+      sous_cas: classement.sous_cas,
+      liste: plan.liste,
+      erreur,
+      traite_at: new Date().toISOString(),
+      reponse_statut: plan.bloque ?? (plan.repondre ? null : "aucune"),
+    };
+    if (plan.liste === "a_lire") bilan.a_lire++;
+    if (plan.liste === "paie") bilan.paie++;
+
+    // 1 réponse automatique par message reçu, sur le canal du message.
+    if (plan.repondre) {
+      maj.reponse_texte = plan.repondre;
+      if (!reel) {
+        maj.reponse_statut = "simule";
+        bilan.simules++;
+      } else {
+        const envoi = l.canal === "upwork" ? await repondreUpwork(supabase, l.poster_id, plan.repondre) : await envoyerSlack(supabase, l.poster_id, plan.repondre);
+        maj.reponse_statut = envoi ? "erreur" : "envoye";
+        maj.reponse_at = new Date().toISOString();
+        if (envoi) maj.erreur = envoi;
+        else bilan.reponses++;
+      }
+    }
+    if (plan.arret) {
+      if (!reel) maj.action = "arret_simule";
+      else {
+        const { error: errA } = await supabase.from("arrets").insert({ poster_id: l.poster_id, source: "je_ne_veux_plus" });
+        maj.action = "arret";
+        if (errA && errA.code !== "23505") maj.erreur = `arrêt : ${errA.message}`;
+        else bilan.arrets++;
+      }
+    }
+    if (plan.pause) {
+      if (!reel) maj.action = "pause_simulee";
+      else {
+        const jusqu = new Date(maintenant.getTime() + plan.pause * 86_400_000).toISOString();
+        const { error: errP } = await supabase.from("posteur_pauses").insert({ poster_id: l.poster_id, jusqu_au: jusqu, reponse_id: l.id, raison: (l.texte ?? "").slice(0, 300) });
+        maj.action = "pause";
+        if (errP) maj.erreur = `pause : ${errP.message}`;
+        else bilan.pauses++;
+      }
+    }
+    const { error: errMaj } = await supabase.from("posteur_reponses").update(maj).eq("id", l.id).eq("statut", "a_classer");
+    if (errMaj) bilan.erreurs.push(`${l.id} : ${errMaj.message}`);
+    else bilan.classes++;
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+async function repondreUpwork(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {
+  const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
+  if (!data?.upwork_contract_id) return "contrat Upwork non relié";
+  return await envoyerUpwork(data.upwork_contract_id as string, texte);
 }

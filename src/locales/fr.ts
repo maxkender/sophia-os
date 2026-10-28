@@ -5314,6 +5314,19 @@ export const fr = {
       casePremiersPosts: "PREMIERS POSTS",
       legendeWarmup: "🔥 Warm-up : utilise TikTok normalement, ne poste jamais. 🚀 Premiers posts : ils arrivent ce matin-là.",
       legendeWarmupHeure: "🔥 Warm-up : utilise TikTok normalement, ne poste jamais. 🚀 Premiers posts : ils arrivent ce jour-là vers {{heure}} (ton heure).",
+      cinq: {
+        titre: "Ta première semaine, en 5 étapes",
+        connexion: "1. Se connecter",
+        slack: "2. Rejoindre Slack",
+        recommande: "(recommandé)",
+        slackDetail: "Rejoins-le avec ton nom complet : c'est là que tu as les nouvelles et les réponses à tes questions.",
+        rejoindreSlack: "Rejoindre Slack",
+        tiktok: "3. Créer ton compte TikTok {{handle}}",
+        tiktokSansHandle: "3. Créer ton compte TikTok",
+        tiktokDetail: "Avec le @, la bio et la photo de ton tableau de bord, exactement comme fournis.",
+        warmup: "4. Start warmup + suivre 5 comptes, avant {{dimanche}} minuit",
+        post: "5. Ton premier post : {{lundi}}",
+      },
       ruul: {
         frise: {
           titre: "Ta première semaine, étape par étape",

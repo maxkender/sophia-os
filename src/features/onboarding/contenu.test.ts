@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { ECRANS, QUESTIONS, SALON_COHORTE_RUUL, ecransPour, questionsPour } from "./contenu";
+import { ECRANS, QUESTIONS, QUESTIONS_PAIE, SALON_COHORTE_RUUL, ecransPour, questionsPour } from "./contenu";
 
 function texte(ecrans: ReturnType<typeof ecransPour>, cle: string): string {
   return JSON.stringify(ecrans.find((e) => e.cle === cle)?.blocs ?? []);
@@ -60,9 +60,29 @@ describe("accueil standard", () => {
     expect(ECRANS.find((e) => e.cle === "slack")!.blocs.some((b) => b.type === "rejoindreSlack")).toBe(true);
   });
 
-  it("la création du compte est une frise, la consigne du warm-up en dessous, puis la règle du warm-up", () => {
+  it("28 oct., G : la 1re semaine en 5 étapes, dans l'ordre, avec les règles du warm-up et du lien", () => {
     const compte = ECRANS.find((e) => e.cle === "compte")!;
-    expect(compte.blocs.map((b) => b.type)).toEqual(["p", "frise", "alerte", "regle"]);
+    expect(compte.blocs.map((b) => b.type)).toEqual(["frise", "regle", "regle", "alerte"]);
+    const frise = compte.blocs[0] as Extract<(typeof compte.blocs)[number], { type: "frise" }>;
+    expect(frise.items.map((i) => i.titre)).toEqual([
+      "1. Log in",
+      "2. Join Slack",
+      "3. Create your TikTok account",
+      "4. Start warmup + follow 5 accounts",
+      "5. Your first post",
+    ]);
+    expect(frise.items[3]!.quand).toBe("Before Sunday midnight");
+    expect(compte.blocs).toContainEqual({ type: "regle", regle: "warmup" });
+    expect(compte.blocs).toContainEqual({ type: "regle", regle: "lien" });
+  });
+
+  it("28 oct., G : le @ et le lundi du posteur quand on les connaît", () => {
+    const ecrans = ecransPour({ cohorteRuul: false, emailRuul: null, handle: "@ana.studies", premierPost: "Monday 2 November" });
+    expect(ecrans.map((e) => e.cle)).toEqual(ECRANS.map((e) => e.cle));
+    const t = texte(ecrans, "compte");
+    expect(t).toContain("3. Create your TikTok account @ana.studies");
+    expect(t).toContain("Monday 2 November");
+    expect(t).not.toContain("@@");
   });
 
   it("28 oct. : la règle du lien sur l'écran du post, et plus aucun repost demandé au posteur", () => {
@@ -92,6 +112,11 @@ describe("accueil standard", () => {
     expect(warmup.blocs).toContainEqual(expect.objectContaining({ type: "video", fichier: true, src: "/onboarding/warmup.mp4" }));
   });
 
+  it("28 oct., G : aucun texte posteur ne renvoie à la HM pour la paie", () => {
+    expect(JSON.stringify(ECRANS)).not.toMatch(/hiring manager/i);
+    expect(JSON.stringify(QUESTIONS.find((x) => x.cle === "paiement"))).not.toMatch(/hiring manager/i);
+  });
+
   it("le gras est bien fermé partout (pas d'étoiles orphelines)", () => {
     for (const ecran of [...ECRANS, ...ecransPour({ cohorteRuul: true, emailRuul: "ana@example.com" })]) {
       const etoiles = JSON.stringify(ecran.blocs).match(/\*\*/g)?.length ?? 0;
@@ -119,12 +144,16 @@ describe("quiz", () => {
     expect(QUESTIONS).toHaveLength(7);
     expect(q("paye-sans-warmup").options[q("paye-sans-warmup").bonne]).toBe("No");
     expect(q("question").options[q("question").bonne]).toContain("#questions");
-    expect(q("paiement").options[q("paiement").bonne]).toContain("Lucia De Mojà or Maximilien Kender");
+    const paie = q("paiement").options[q("paiement").bonne]!;
+    expect(paie).toContain("#questions");
+    expect(paie).toContain("Upwork");
+    expect(paie).not.toMatch(/hiring manager/i);
   });
 
   it("chaque réponse attendue se lit sur l'écran où le quiz renvoie", () => {
     expect(texte(ECRANS, "slack")).toContain("#questions");
-    expect(texte(ECRANS, "paiements")).toContain("Lucia De Mojà or Maximilien Kender");
+    expect(texte(ECRANS, "paiements")).toContain(QUESTIONS_PAIE);
+    expect(QUESTIONS_PAIE).toBe("Questions? Ask in #questions on Slack, or reply to our message on Upwork.");
   });
 
   it("cohorte Ruul : questions dans son salon, paie sans HM", () => {

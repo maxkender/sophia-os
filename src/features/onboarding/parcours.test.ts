@@ -256,7 +256,7 @@ describe("aperçu admin", () => {
 
   it("l'accueil vient du choix de l'aperçu, pas du compte connecté", () => {
     expect(source).toContain("enabled: !simulation");
-    expect(source).toContain("const contexte = simulation ? contexteSimule : cohorte.data;");
+    expect(source).toContain("if (simulation) return contexteSimule;");
     expect(source).toContain("ecransPour(contexte)");
   });
 });

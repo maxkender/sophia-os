@@ -8,6 +8,7 @@ import type { LigneListePaie } from "./api";
 
 const api = vi.hoisted(() => ({ lireListePaie: vi.fn(), corrigerPaie: vi.fn(), exclurePaie: vi.fn() }));
 vi.mock("./api", () => api);
+vi.mock("./contratsATerminer", () => ({ lireContratsATerminer: vi.fn(async () => []), marquerContratTermine: vi.fn() }));
 const bonus = vi.hoisted(() => ({ lireBonus: vi.fn(), lireReglagesBonus: vi.fn(), marquerBonusPaye: vi.fn() }));
 vi.mock("@/features/bonus/api", () => bonus);
 vi.mock("@/features/paie/api", () => ({

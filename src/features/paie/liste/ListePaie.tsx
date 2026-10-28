@@ -27,6 +27,7 @@ import { telechargerCsv } from "@/lib/csv";
 import { cn } from "@/lib/utils";
 
 import { corrigerPaie, exclurePaie, lireListePaie, type LigneListePaie } from "./api";
+import { ContratsATerminer } from "./ContratsATerminer";
 import {
   actionAffichee,
   besoinPaye,
@@ -506,6 +507,7 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
       </div>
 
       <ContratsACompleter lignes={lignes} />
+      {!simulation && <ContratsATerminer lundi={semaine} />}
 
       {liste.isLoading && <BarreChargement actif />}
       {liste.error && <p className="text-sm text-destructive">{(liste.error as Error).message}</p>}

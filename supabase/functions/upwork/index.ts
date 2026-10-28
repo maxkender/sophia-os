@@ -20,6 +20,16 @@ import {
   urlAutorisation,
   urlRetour,
 } from "../_shared/upwork.ts";
+import {
+  type Annonce,
+  type DetailsContrat,
+  lireDetailsContrat,
+  lireModeAuto,
+  messageAccueil,
+  planAccueil,
+  type PosteurExistant,
+  REQUETE_DETAILS_CONTRAT,
+} from "../_shared/accueil.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -54,6 +64,11 @@ const COMPTE = "principal";
  *   { action: "droits" }                     admin
  *       Teste, en lecture seulement, ce que la clé permet : contrats, jalons
  *       d'un contrat, conversation d'un contrat. Aucune écriture.
+ *   { action: "accueil" }                    cron `accueil-auto`, minute 25 ; admin
+ *       Système du 2 nov., partie A : les contrats démarrés depuis
+ *       `accueil_contrats_depuis` → posteur créé et message de bienvenue
+ *       (annonce connue), « Contrats à relier », ou doublon signalé.
+ *       Interrupteur `accueil_auto` (off / test / on).
  *   { action: "verifier" }                   cron `upwork-verifier`, chaque jour
  *       Renouvelle le jeton si besoin et fait un appel léger (la connexion
  *       reste valable 2 semaines après le dernier usage). En cas d'échec :
@@ -88,6 +103,8 @@ Deno.serve(async (request) => {
         return json(await lireContrats(supabase, par));
       case "jalons":
         return json(await lireJalons(supabase, par));
+      case "accueil":
+        return json(await accueillir(supabase, par));
       case "droits":
         return json(await testerDroits(supabase, par));
       case "message":
@@ -566,6 +583,207 @@ async function envoyerMessage(supabase: Supabase, par: string | null, contratId:
   const storyId = r.data?.createRoomStoryV2?.id as string | undefined;
   if (!storyId) return { ok: false, error: r.erreur ?? "message non confirmé par Upwork" };
   return { ok: true, story_id: storyId };
+}
+
+// ---------------------------------------------------------------------------
+// Système du 2 nov., partie A : l'accueil automatique
+// ---------------------------------------------------------------------------
+
+const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
+const SLACK_DEFAUT = "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA";
+/** Le mot de passe de départ, comme sur /embauche ; le posteur le change à sa 1re connexion. */
+const MOT_DE_PASSE_DEPART = "12345678";
+
+async function accueillir(supabase: Supabase, par: string | null) {
+  const { data: regl } = await supabase
+    .from("reglages")
+    .select("cle, valeur")
+    .in("cle", ["accueil_auto", "accueil_contrats_depuis", "accueil_message_texte", "slack_lien_invitation"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const mode = lireModeAuto(v.accueil_auto);
+  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off" };
+  const depuis = typeof v.accueil_contrats_depuis === "string" ? v.accueil_contrats_depuis : null;
+  if (!depuis) return { ok: false, error: "accueil_contrats_depuis absent" };
+  const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
+  const slack = typeof v.slack_lien_invitation === "string" && v.slack_lien_invitation.trim()
+    ? v.slack_lien_invitation.trim()
+    : SLACK_DEFAUT;
+
+  // 1. Les contrats actifs, relus (lecture seule).
+  const lecture = await lireContrats(supabase, par);
+  const { data: nouveaux, error } = await supabase
+    .from("upwork_contrats")
+    .select("contrat_id, organisation_id, offre_id, debut_at")
+    .eq("actif", true)
+    .not("contrat_id", "is", null)
+    .gte("debut_at", depuis);
+  if (error) throw error;
+  const ids = (nouveaux ?? []).map((c) => String(c.contrat_id));
+  const { data: connus } = ids.length
+    ? await supabase.from("accueils").select("*").in("contrat_id", ids)
+    : { data: [] };
+  const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
+  const [{ data: profils }, { data: comptesPays }] = await Promise.all([
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("comptes").select("poster_id, pays").not("pays", "is", null),
+  ]);
+  const paysDe = new Map((comptesPays ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
+  const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
+    id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id,
+    pays: paysDe.get(p.id) ?? null,
+  }));
+
+  const bilan = { mode, contrats: lecture.organisations, nouveaux: ids.length, crees: 0, simules: 0, a_relier: 0, doublons: 0, erreurs: [] as string[] };
+  for (const c of nouveaux ?? []) {
+    const contratId = String(c.contrat_id);
+    const connu = connuDe.get(contratId);
+    // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur).
+    if (connu && ["cree", "envoi", "envoye", "doublon", "erreur"].includes(connu.statut)) continue;
+    // À relier sans pays choisi : on attend la HM.
+    if (connu?.statut === "a_relier") continue;
+
+    let details: DetailsContrat | null = connu
+      ? {
+        contrat_id: contratId, offre_id: connu.offre_id, job_id: connu.job_id, job_titre: connu.job_titre,
+        prenom: connu.prenom, nom: connu.nom, debut_at: connu.debut_at, hm_upwork_id: connu.hm_upwork_id, statut: null,
+      }
+      : null;
+    if (!details) {
+      const lu = await lire(supabase, {
+        par, action: "accueil_contrat", query: REQUETE_DETAILS_CONTRAT, variables: { id: contratId }, tenant: c.organisation_id,
+      });
+      details = lireDetailsContrat(lu.data?.contractDetails);
+      if (!details) {
+        bilan.erreurs.push(`${contratId} : ${lu.erreur ?? "contrat illisible"}`);
+        continue;
+      }
+    }
+    // L'annonce : vue pour la 1re fois → notée, pays à dire.
+    let annonce: Annonce | null = null;
+    if (details.job_id) {
+      const { data: a } = await supabase.from("annonces_pays").select("job_id, pays, langue, hm_id, tarif, generique").eq("job_id", details.job_id).maybeSingle();
+      if (a) annonce = { ...a, tarif: a.tarif === null ? null : Number(a.tarif) } as Annonce;
+      else await supabase.from("annonces_pays").insert({ job_id: details.job_id, titre: details.job_titre });
+    }
+    const plan = planAccueil(details, annonce, connu ? { statut: connu.statut, pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id } : null, posteurs);
+    const base = {
+      contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
+      job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
+      hm_upwork_id: details.hm_upwork_id, pays: plan.pays, langue: plan.langue, hm_id: plan.hm_id, tarif: plan.tarif,
+      updated_at: new Date().toISOString(),
+    };
+    if (plan.statut === "doublon") {
+      await supabase.from("accueils").upsert({ ...base, statut: "doublon", raison: plan.raison });
+      bilan.doublons++;
+      continue;
+    }
+    if (plan.statut === "a_relier") {
+      await supabase.from("accueils").upsert({ ...base, statut: "a_relier", raison: plan.raison });
+      bilan.a_relier++;
+      continue;
+    }
+    const { data: lundi } = await supabase.rpc("cohorte_lundi_de", {
+      p_jour: new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(base.debut_at ?? Date.now())),
+    });
+    const cohorte = String(lundi ?? "");
+    if (mode === "test") {
+      // Test : le plan et le message, sans rien créer ni envoyer.
+      await supabase.from("accueils").upsert({
+        ...base, statut: "simule", raison: "test : rien n'est créé ni envoyé", cohorte_lundi: cohorte || null,
+        message_texte: messageAccueil(modele, {
+          prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", mot_de_passe: MOT_DE_PASSE_DEPART,
+          slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+        }),
+      });
+      bilan.simules++;
+      continue;
+    }
+    // On : la ligne d'abord (« envoi »), pour qu'un 2e passage ne recrée rien.
+    const { error: errVerrou } = await supabase.from("accueils").upsert({ ...base, statut: "envoi", raison: "création en cours", cohorte_lundi: cohorte || null });
+    if (errVerrou) {
+      bilan.erreurs.push(`${contratId} : ${errVerrou.message}`);
+      continue;
+    }
+    const resultat = await creerEtAccueillir(supabase, par, { ...base, cohorte_lundi: cohorte }, modele, slack);
+    if (resultat.erreur) bilan.erreurs.push(`${contratId} : ${resultat.erreur}`);
+    else bilan.crees++;
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/** Crée le posteur comme /embauche (manage-users), le relie, puis envoie le message de bienvenue (une fois). */
+async function creerEtAccueillir(
+  supabase: Supabase,
+  par: string | null,
+  a: {
+    contrat_id: string; organisation_id: string | null; prenom: string | null; nom: string | null; debut_at: string | null;
+    pays: string | null; langue: string | null; hm_id: string | null; tarif: number | null; cohorte_lundi: string;
+  },
+  modele: string,
+  slack: string,
+): Promise<{ erreur: string | null }> {
+  const fin = async (champs: Record<string, unknown>) =>
+    await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", a.contrat_id);
+  const base = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("CRON_SECRET");
+  const cle = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!base || !secret) {
+    await fin({ statut: "erreur", raison: "SUPABASE_URL ou CRON_SECRET absent" });
+    return { erreur: "SUPABASE_URL ou CRON_SECRET absent" };
+  }
+  const contratUrl = `https://www.upwork.com/nx/wm/workroom/${a.contrat_id}/overview`;
+  // 1. Le posteur, comme sur /embauche : 2 posts par jour, identité générée.
+  let cree: { userId?: string; email?: string; error?: string } | null = null;
+  try {
+    const r = await fetch(`${base}/functions/v1/manage-users`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-cron-secret": secret,
+        ...(cle ? { authorization: `Bearer ${cle}`, apikey: cle } : {}),
+      },
+      body: JSON.stringify({
+        action: "create",
+        prenom: a.prenom ?? "",
+        nom: a.nom ?? "",
+        password: MOT_DE_PASSE_DEPART,
+        langue: a.langue,
+        ...(a.pays ? { pays: a.pays } : {}),
+        type_compte: "perso",
+        posts_par_jour: 2,
+        upwork_contrat_url: contratUrl,
+      }),
+    });
+    cree = await r.json().catch(() => null);
+    if (!r.ok || !cree?.userId) throw new Error(cree?.error ?? `HTTP ${r.status}`);
+  } catch (e) {
+    const erreur = `création du posteur : ${messageErreur(e)}`;
+    await fin({ statut: "erreur", raison: erreur });
+    return { erreur };
+  }
+  // 2. Relié : HM de l'annonce, contrat, tarif, cohorte depuis le début du contrat.
+  await supabase.from("profiles").update({
+    manager_id: a.hm_id,
+    upwork_contract_id: a.contrat_id,
+    upwork_contrat_url: contratUrl,
+    offre_acceptee_le: a.debut_at,
+    cohorte_lundi: a.cohorte_lundi || null,
+    ...(a.tarif ? { tarif_hebdo: a.tarif } : {}),
+  }).eq("id", cree.userId);
+  await fin({ statut: "cree", raison: null, poster_id: cree.userId, email: cree.email ?? null });
+  // 3. Le message de bienvenue, une seule fois (accueils.message_at).
+  const texte = messageAccueil(modele, {
+    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
+    cohorte_lundi: a.cohorte_lundi,
+  });
+  const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
+  if (!envoi.ok) {
+    const erreur = `message de bienvenue : ${"error" in envoi ? envoi.error : "non envoyé"}`;
+    await fin({ statut: "erreur", raison: erreur, message_texte: texte });
+    return { erreur };
+  }
+  await fin({ statut: "envoye", message_texte: texte, message_at: new Date().toISOString() });
+  return { erreur: null };
 }
 
 // ---------------------------------------------------------------------------

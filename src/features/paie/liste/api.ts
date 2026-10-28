@@ -6,6 +6,14 @@ import { supabase } from "@/lib/supabase/client";
  */
 export type ActionPaie = "payer" | "payer_moins" | "kill" | "modifier" | "annuler" | "rien";
 
+export type SuivantePaie =
+  | "financer"
+  | "financer_double"
+  | "financer_normal"
+  | "ne_pas_financer"
+  | "deja_financee"
+  | "a_voir";
+
 export interface CompteDetailPaie {
   compte_id: string;
   handle: string | null;
@@ -44,16 +52,27 @@ export interface LigneListePaie {
   exclu_raison: string | null;
   paye_at: string | null;
   semaine_suivante_faite_at: string | null;
+  /** 1re semaine de posts du posteur (0388) : `bonus` ajouté au montant à approuver. */
+  premiere_semaine: boolean;
+  bonus: number;
+  /** La milestone de la semaine d'après (0369, 0388). */
+  suivante_action: SuivantePaie | null;
+  suivante_comptes: number | null;
+  suivante_montant: number | null;
+  suivante_raison: string | null;
+  /** Vik Studios / compte perso / Micabo : vide tant que les contrats ne sont pas reliés (prompt 14). */
+  upwork_compte: string | null;
 }
 
 const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
 
 /**
  * La liste enregistrée du lundi, ou `simulation` : la même calculée avec les
- * règles v3 sur les données d'aujourd'hui, sans rien enregistrer (0380).
+ * règles v3 sur les données d'aujourd'hui, sans rien enregistrer (0380), avec
+ * la 1re semaine et la milestone de la semaine d'après (0388).
  */
 export async function lireListePaie(lundi: string, simulation = false): Promise<LigneListePaie[]> {
-  const { data, error } = await supabase.rpc(simulation ? "paie_simuler" : "paie_liste", { p_lundi: lundi });
+  const { data, error } = await supabase.rpc("paie_liste_v2", { p_lundi: lundi, p_simulation: simulation });
   if (error) throw error;
   return ((data ?? []) as LigneListePaie[]).map((l, i) => ({
     ...l,
@@ -64,6 +83,9 @@ export async function lireListePaie(lundi: string, simulation = false): Promise<
     montant_calcule: Number(l.montant_calcule),
     montant: Number(l.montant),
     montant_corrige: num(l.montant_corrige),
+    bonus: Number(l.bonus ?? 0),
+    premiere_semaine: Boolean(l.premiere_semaine),
+    suivante_montant: num(l.suivante_montant),
     detail_comptes: (l.detail_comptes ?? []).map((c) => ({ ...c, retenue: Number(c.retenue), montant: Number(c.montant) })),
   }));
 }

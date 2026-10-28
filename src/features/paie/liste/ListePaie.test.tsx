@@ -51,6 +51,13 @@ function ligne(o: Partial<LigneListePaie>): LigneListePaie {
     exclu_raison: null,
     paye_at: null,
     semaine_suivante_faite_at: null,
+    premiere_semaine: false,
+    bonus: 0,
+    suivante_action: "financer",
+    suivante_comptes: 1,
+    suivante_montant: 10,
+    suivante_raison: null,
+    upwork_compte: null,
     ...o,
   };
 }
@@ -97,6 +104,9 @@ describe("ListePaie", () => {
     const grece = document.querySelector('[data-equipe="Zone – Greece"]')!;
     expect(within(grece as HTMLElement).getByText(/15 \$ · reste 15 \$/)).toBeTruthy();
     expect(within(grece as HTMLElement).getByText("Payer moins 5 $")).toBeTruthy();
+    // « À faire » par défaut : la ligne retirée est cachée, « Tout » la montre.
+    expect(within(grece as HTMLElement).queryByText(/Retiré de la liste : payé à part/)).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Tout (4)" }));
     expect(within(grece as HTMLElement).getByText(/Retiré de la liste : payé à part/)).toBeTruthy();
     expect(document.querySelector('[data-equipe="Zone – DACH & Nordics"]')!.textContent).toContain("Kill");
   });
@@ -137,5 +147,67 @@ describe("ListePaie", () => {
     expect(screen.getByTestId("paie-simulation")).toBeTruthy();
     expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
     expect(screen.queryByRole("button", { name: "Modifier la ligne de Ana" })).toBeNull();
+  });
+
+  describe("prompt 15, point 5", () => {
+    it("la consigne exacte par ligne ; Kill sans case « Semaine suivante faite »", async () => {
+      rendu("2026-10-26");
+      await screen.findByText("Ana");
+      const consignes = [...document.querySelectorAll("[data-consigne]")].map((e) => e.textContent);
+      expect(consignes).toContain("Approve Week 44: $10 · Fund Week 45: $10");
+      expect(consignes).toContain("Approve Week 44: $14 · Don't fund · End the contract");
+      const carla = document.querySelector('[data-paie="Carla"]') as HTMLElement;
+      expect(within(carla).getByRole("checkbox", { name: "Payé" })).toBeTruthy();
+      expect(within(carla).queryByRole("checkbox", { name: "Semaine suivante faite" })).toBeNull();
+    });
+
+    it("« À faire » cache « Nothing to pay » et les lignes terminées", async () => {
+      api.lireListePaie.mockResolvedValue([
+        ligne({ id: "1", poster_nom: "Ana" }),
+        ligne({ id: "2", poster_nom: "Bruno", action: "rien", faits: 0, montant: 0 }),
+        ligne({ id: "3", poster_nom: "Carla", paye_at: "x", semaine_suivante_faite_at: "x" }),
+      ]);
+      rendu("2026-10-26");
+      await screen.findByText("Ana");
+      expect(screen.queryByText("Bruno")).toBeNull();
+      expect(screen.queryByText("Carla")).toBeNull();
+      fireEvent.click(screen.getByRole("button", { name: "Tout (3)" }));
+      expect(screen.getByText("Bruno")).toBeTruthy();
+      expect(screen.getByText("Carla")).toBeTruthy();
+    });
+
+    it("tarif manquant : « À vérifier », pas de montant ni de case", async () => {
+      api.lireListePaie.mockResolvedValue([ligne({ id: "1", poster_nom: "Ana", tarif: null, montant: 0, suivante_montant: null })]);
+      rendu("2026-10-26");
+      const ana = (await screen.findByText("Ana")).closest("tr") as HTMLElement;
+      expect(within(ana).getByText("À vérifier")).toBeTruthy();
+      expect(within(ana).getByText(/Tarif à renseigner/)).toBeTruthy();
+      expect(within(ana).queryAllByRole("checkbox")).toHaveLength(0);
+      expect(within(ana).queryByText(/0 \$/)).toBeNull();
+    });
+
+    it("contrat manquant : une icône sur la ligne, le champ dans « Contrats à compléter »", async () => {
+      api.lireListePaie.mockResolvedValue([ligne({ id: "1", poster_nom: "Ana", contrat_url: null })]);
+      rendu("2026-10-26");
+      const ana = (await screen.findAllByText("Ana"))[0]!;
+      expect(document.querySelector("[data-contrat-manquant]")).toBeTruthy();
+      const bloc = screen.getByTestId("paie-contrats-a-completer");
+      expect(within(bloc).getByText("Contrats à compléter (1)")).toBeTruthy();
+      expect(within(bloc).getByLabelText("Coller le lien du contrat Upwork")).toBeTruthy();
+      expect(ana).toBeTruthy();
+    });
+
+    it("1re semaine : le bonus est signalé ; Double renommé « Payer + financer ×2 »", async () => {
+      api.lireListePaie.mockResolvedValue([
+        ligne({ id: "1", poster_nom: "Ana", premiere_semaine: true, bonus: 1, montant: 11 }),
+        ligne({ id: "2", poster_nom: "Bruno", action: "modifier", suivante_action: "financer_double", suivante_comptes: 2, suivante_montant: 20 }),
+      ]);
+      rendu("2026-10-26");
+      await screen.findByText("Ana");
+      expect(screen.getByText("1re semaine de posts : +1 $ inclus")).toBeTruthy();
+      expect(screen.getByText("Approve Week 44: $11 · Fund Week 45: $10")).toBeTruthy();
+      expect(screen.getByText("Payer + financer ×2")).toBeTruthy();
+      expect(screen.getByText("Approve Week 44: $10 · Fund Week 45 (2 acc): $20")).toBeTruthy();
+    });
   });
 });

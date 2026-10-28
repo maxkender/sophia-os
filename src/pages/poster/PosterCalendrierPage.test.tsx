@@ -21,6 +21,9 @@ vi.mock("@/features/moteur/api", async (importOriginal) => ({
 }));
 
 vi.mock("@/features/pods/VideosAPoster", () => ({ VideosAPoster: () => null }));
+vi.mock("@/features/onboarding/cinqEtapesApi", () => ({
+  lireMaPremiereSemaine: async () => ({ cohorteLundi: null, slackLie: false }),
+}));
 
 vi.mock("@/lib/supabase/client", () => {
   const requete = { select: () => requete, order: () => requete, limit: async () => ({ data: [], error: null }) };
@@ -81,21 +84,43 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     expect(screen.getAllByText(/FIRST POSTS/)).toHaveLength(1);
     // Mardi 20 → dimanche 25 : 6 jours couverts.
     expect(screen.getAllByText("🔥", { exact: false }).length).toBeGreaterThanOrEqual(6);
-    // Hors cohorte Ruul : la même frise, payée par le HM sur Upwork.
-    expect(screen.getByText("Your first week, step by step")).toBeInTheDocument();
-    expect(screen.getByText("First payment, through Upwork")).toBeInTheDocument();
-    expect(screen.getByText(/For your first week of posts \(Monday 26 October → Sunday 1 November\)/)).toBeInTheDocument();
-    expect(screen.queryByText(/through Ruul/)).not.toBeInTheDocument();
+    // Hors cohorte Ruul : les 5 étapes (28 oct., G), TikTok et warm-up faits.
+    expect(await screen.findByText("Your first week, in 5 steps")).toBeInTheDocument();
+    const etapes = screen.getByTestId("cinq-etapes");
+    expect([...etapes.querySelectorAll("[data-etape]")].map((e) => e.getAttribute("data-etat"))).toEqual([
+      "fait",
+      "recommande",
+      "fait",
+      "en_cours",
+      "a_venir",
+    ]);
+    expect(screen.getByText("5. Your first post: Monday 26 October")).toBeInTheDocument();
+    expect(screen.queryByText(/First payment/)).not.toBeInTheDocument();
+    expect(screen.queryByText("Your first week, step by step")).not.toBeInTheDocument();
   });
 
   it("pas démarré : la frise dit quel lundi arrivent les posts si on lance aujourd'hui", async () => {
     mesComptes.mockResolvedValue([compte({})]);
     afficher();
 
-    expect(await screen.findByText("Your first week, step by step")).toBeInTheDocument();
-    expect(screen.getByText(/Now, and on Sunday 25 October at the latest/)).toBeInTheDocument();
-    expect(screen.getByText("Monday 26 October, in the morning")).toBeInTheDocument();
-    expect(screen.getByText("First payment, through Upwork")).toBeInTheDocument();
+    // Les 5 étapes, dans l'ordre (28 oct., G), avec le @ et les dates.
+    const etapes = await screen.findByTestId("cinq-etapes");
+    expect([...etapes.querySelectorAll("[data-etape]")].map((e) => e.getAttribute("data-etape"))).toEqual([
+      "connexion",
+      "slack",
+      "tiktok",
+      "warmup",
+      "post",
+    ]);
+    expect(screen.getByText("1. Log in")).toBeInTheDocument();
+    expect(screen.getByText("2. Join Slack")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Join Slack" })).toBeInTheDocument();
+    expect(screen.getByText("3. Create your TikTok account @lea")).toBeInTheDocument();
+    expect(screen.getByText("4. Start warmup + follow 5 accounts, before Sunday 25 October midnight")).toBeInTheDocument();
+    expect(screen.getByText("5. Your first post: Monday 26 October")).toBeInTheDocument();
+    // La règle du lien sur l'étape 5, et aucun repost demandé.
+    expect(etapes.querySelector('[data-regle="lien"]')).not.toBeNull();
+    expect(document.body.textContent?.toLowerCase()).not.toContain("repost");
     expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
   });
 

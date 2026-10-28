@@ -26,6 +26,7 @@ import {
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
+import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 import { CarteCommentPaye } from "@/features/regles/CartesRegles";
@@ -407,13 +408,21 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      {/* La première semaine en quatre étapes datées, juste au-dessus du bouton. */}
-      {debutFrise && compte && !estCm && !ugc && (
+      {/* Cohorte Ruul : sa première semaine en quatre étapes datées, juste au-dessus du bouton. */}
+      {debutRuul && compte && !estCm && !ugc && (
         <FriseCohorteRuul
-          debutLe={debutFrise}
+          debutLe={debutRuul}
           warmupStartedAt={compte.warmup_started_at}
           warmupEndsAt={compte.warmup_ends_at}
-          paiePar={debutRuul ? "ruul" : "upwork"}
+          paiePar="ruul"
+        />
+      )}
+      {/* Les autres : les 5 étapes du chantier du 28 oct. (partie G). */}
+      {debutUpwork && compte && (
+        <CinqEtapes
+          handle={compte.handle_tiktok}
+          warmupStartedAt={compte.warmup_started_at}
+          warmupEndsAt={compte.warmup_ends_at}
         />
       )}
 

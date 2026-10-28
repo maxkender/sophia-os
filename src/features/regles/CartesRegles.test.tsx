@@ -27,6 +27,9 @@ describe("les règles aux posteurs (28 oct.)", () => {
       ),
     ).toBeInTheDocument();
     expect(within(carte).getByText(REGLE_LIEN)).toBeInTheDocument();
+    expect(
+      within(carte).getByText("Questions? Ask in #questions on Slack, or reply to our message on Upwork."),
+    ).toBeInTheDocument();
     expect(carte.textContent).not.toMatch(/hiring manager/i);
   });
 

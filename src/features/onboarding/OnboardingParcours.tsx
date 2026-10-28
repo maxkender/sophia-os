@@ -22,12 +22,17 @@ import {
   enregistrerOnboardingEtape,
   lireCohorteAccueil,
   marquerOnboardingVu,
+  mesComptes,
 } from "@/features/moteur/api";
+import { comptePrincipal } from "@/features/moteur/comptesCm";
+import { partiesParis } from "@/features/onboarding/datesRuul";
 
 import { Mico, type EtatMico } from "./Mico";
 import { useRegles } from "@/features/regles/api";
 import { RegleTexte } from "@/features/regles/CartesRegles";
 
+import { jourAnglais, premierPostLe } from "./cinqEtapes";
+import { lireMaPremiereSemaine } from "./cinqEtapesApi";
 import { ecransPour, LIEN_SLACK, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
 import {
   basDePageAtteint,
@@ -416,7 +421,22 @@ export function OnboardingParcours({
     enabled: !simulation,
     staleTime: Infinity,
   });
-  const contexte = simulation ? contexteSimule : cohorte.data;
+  // Les 5 étapes (28 oct., G) : le @ à créer et le lundi du 1er post.
+  const comptes = useQuery({ queryKey: ["mes-comptes"], queryFn: mesComptes, enabled: !simulation });
+  const semaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, enabled: !simulation });
+  const contexte = React.useMemo<ContexteAccueil | null | undefined>(() => {
+    if (simulation) return contexteSimule;
+    if (!cohorte.data || cohorte.data.cohorteRuul) return cohorte.data;
+    const compte = comptePrincipal(comptes.data ?? []);
+    const maintenant = new Date();
+    const premier = premierPostLe({
+      warmupEndsAt: compte?.warmup_ends_at ?? null,
+      cohorteLundi: semaine.data?.cohorteLundi ?? null,
+      maintenant,
+      aujourdhui: partiesParis(maintenant).date,
+    });
+    return { ...cohorte.data, handle: compte?.handle_tiktok ?? null, premierPost: jourAnglais(premier) };
+  }, [simulation, contexteSimule, cohorte.data, comptes.data, semaine.data]);
   const ecrans = ecransPour(contexte);
   const questions = questionsPour(contexte);
 

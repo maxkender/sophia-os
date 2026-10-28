@@ -1,6 +1,7 @@
 import { Link2, Wallet } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { QUESTIONS_PAIE } from "@/features/onboarding/contenu";
 import { cn } from "@/lib/utils";
 
 import { useRegles } from "./api";
@@ -44,7 +45,7 @@ export function CarteCommentPaye() {
           ))}
         </ul>
         <RegleTexte regle="lien" />
-        <p className="text-xs text-muted-foreground">Questions? Ask in #questions on Slack, or reply to our message on Upwork.</p>
+        <p className="text-xs text-muted-foreground">{QUESTIONS_PAIE}</p>
       </CardContent>
     </Card>
   );

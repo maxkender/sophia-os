@@ -125,18 +125,23 @@ Deno.serve(async (request) => {
   const rapport = { traites: 0, empreintes: 0, accroches: 0, sans_image: 0, reportes: 0, podz: 0 };
 
   try {
-    // Les contenus rejetés aussi : un post déjà publié compte pour ses voisins
-    // même si son contenu a été rejeté depuis. Les valides d'abord.
-    const { data, error } = await supabase
-      .from("contenus")
-      .select("id, langue_source, pod, structure_slides")
-      .eq("import_statut", "done")
-      .is("empreintes_le", null)
-      .order("statut", { ascending: false })
-      .order("created_at", { ascending: false })
-      .limit(LOT);
-    if (error) throw new Error(`contenus : ${error.message}`);
-    const contenus = (data ?? []) as Contenu[];
+    // Les valides d'abord, puis les rejetés : un post déjà publié compte pour
+    // ses voisins même si son contenu a été rejeté depuis. (Pas de tri sur
+    // `statut` : c'est un enum, trié dans l'ordre de sa déclaration.)
+    const lire = async (valides: boolean, n: number) => {
+      const q = supabase
+        .from("contenus")
+        .select("id, langue_source, pod, structure_slides")
+        .eq("import_statut", "done")
+        .is("empreintes_le", null);
+      const { data, error } = await (valides ? q.eq("statut", "valide") : q.neq("statut", "valide"))
+        .order("created_at", { ascending: false })
+        .limit(n);
+      if (error) throw new Error(`contenus : ${error.message}`);
+      return (data ?? []) as Contenu[];
+    };
+    const contenus = await lire(true, LOT);
+    if (contenus.length < LOT) contenus.push(...await lire(false, LOT - contenus.length));
     if (contenus.length === 0) return json({ ok: true, ...rapport, restants: 0 });
 
     const exemptes = await exemptesPodz(supabase, contenus);

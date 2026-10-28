@@ -4051,8 +4051,9 @@ export const en = {
       transfert: "Cross-language transfer",
       repechagePassages: "Passes on D revival",
       ecartMinMemeContenu: "Min. gap, same post (days)",
+      ecartMinMemeAccroche: "Min. gap, same hook or cover (days)",
       assignationParamsAide:
-        "A post's tier sets how often it goes out (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Within the day's pool the draw is uniform. Pool exhausted → a D-tier post is revived with this many passes. A post the account already ran less than the min. gap ago drops to last resort: it only comes back out if the account has nothing else, since a spaced-out repeat beats an empty slot. 0 turns the rule off.",
+        "A post's tier sets how often it goes out (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Within the day's pool the draw is uniform. Pool exhausted → a D-tier post is revived with this many passes. A post the account already ran less than the min. gap ago drops to last resort: it only comes back out if the account has nothing else, since a spaced-out repeat beats an empty slot. Same for a different post with the same hook (slide 1 text) or the same cover image (recognized by its visual fingerprint, even under another file). 0 turns a rule off.",
       tierlistParams: "Tierlist & requalification",
       tierlistParamsAide:
         "A post is requalified once all its passes are published and have aged the set number of days: m = mean views over the cycle. With no measurement the cycle restarts at the same tier — as soon as no views can arrive, or once the max wait is up. A pass above the recall threshold runs again on the same account at D+7, outside the quota and outside the m calculation. A B-tier post with no pass reaching the floor (over at least 2 measurements) drops to C: it only goes out once every B and above is used up. 0 turns the floor off.",

@@ -80,6 +80,10 @@ verify_jwt = false
 [functions.creation-manuelle]
 verify_jwt = false
 
+# Doublons d'accroche et de couverture (0388) : cron toutes les 10 minutes.
+[functions.empreintes]
+verify_jwt = false
+
 [functions.extraction]
 verify_jwt = false
 

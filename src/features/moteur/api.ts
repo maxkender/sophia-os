@@ -4251,6 +4251,7 @@ export async function lireReglages(): Promise<Reglages> {
       repechage_passages: 1,
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
+      ecart_min_meme_accroche: 10,
       plancher_b: 3_000,
       fatigue_passages: 8,
       fatigue_plafond: 10_000,

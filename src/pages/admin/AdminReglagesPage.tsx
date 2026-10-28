@@ -437,6 +437,13 @@ export function AdminReglagesPage() {
                 valeur={reglages.tierlist.ecart_min_meme_contenu}
                 onChange={(n) => majTierlist({ ecart_min_meme_contenu: n })}
               />
+              <ChampNombre
+                id="ecartMemeAccroche"
+                label={t("reglages.ecartMinMemeAccroche")}
+                min={0}
+                valeur={reglages.tierlist.ecart_min_meme_accroche}
+                onChange={(n) => majTierlist({ ecart_min_meme_accroche: n })}
+              />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.assignationParamsAide")}</p>
           </section>

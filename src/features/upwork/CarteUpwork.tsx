@@ -1,14 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { Link2, RefreshCw } from "lucide-react";
+import { FileText, Link2, RefreshCw } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { localeDate } from "@/locales/localeDate";
 
-import { diagnosticUpwork, lienConnexionUpwork, lireEtatUpwork } from "./api";
+import { diagnosticUpwork, lienConnexionUpwork, lireContratsUpwork, lireEtatUpwork } from "./api";
 
 /**
  * Réglages → Upwork (prompt 14, point 1) : l'état de la connexion, le dernier
@@ -28,6 +28,10 @@ export function CarteUpwork() {
   });
   const diagnostic = useMutation({
     mutationFn: diagnosticUpwork,
+    onSettled: () => qc.invalidateQueries({ queryKey: ["upwork"] }),
+  });
+  const contrats = useMutation({
+    mutationFn: lireContratsUpwork,
     onSettled: () => qc.invalidateQueries({ queryKey: ["upwork"] }),
   });
   const fmt = new Intl.DateTimeFormat(localeDate(i18n.resolvedLanguage ?? "fr"), {
@@ -96,9 +100,26 @@ export function CarteUpwork() {
               {t("upwork.diagnostic")}
             </Button>
           )}
+          {c?.statut === "connecte" && (
+            <Button variant="outline" disabled={contrats.isPending} onClick={() => contrats.mutate()}>
+              <FileText className={contrats.isPending ? "size-4 animate-pulse" : "size-4"} />
+              {contrats.isPending ? t("upwork.contratsEnCours") : t("upwork.lireContrats")}
+            </Button>
+          )}
         </div>
-        {(connecter.error || diagnostic.error) && (
-          <p className="text-destructive">{((connecter.error ?? diagnostic.error) as Error).message}</p>
+        {contrats.data && (
+          <ul className="space-y-0.5 rounded-md bg-muted/40 px-3 py-2" data-testid="upwork-contrats-bilan">
+            {Object.entries(contrats.data).map(([org, b]) => (
+              <li key={org} className={b.erreur ? "text-destructive" : undefined}>
+                {b.erreur
+                  ? t("upwork.contratsErreur", { org, erreur: b.erreur })
+                  : t("upwork.contratsLus", { org, lus: b.lus, total: b.total ?? b.lus })}
+              </li>
+            ))}
+          </ul>
+        )}
+        {(connecter.error || diagnostic.error || contrats.error) && (
+          <p className="text-destructive">{((connecter.error ?? diagnostic.error ?? contrats.error) as Error).message}</p>
         )}
       </CardContent>
     </Card>

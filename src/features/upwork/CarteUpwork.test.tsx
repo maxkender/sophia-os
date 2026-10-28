@@ -5,7 +5,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 
-const api = vi.hoisted(() => ({ lireEtatUpwork: vi.fn(), lienConnexionUpwork: vi.fn(), diagnosticUpwork: vi.fn() }));
+const api = vi.hoisted(() => ({
+  lireEtatUpwork: vi.fn(),
+  lienConnexionUpwork: vi.fn(),
+  diagnosticUpwork: vi.fn(),
+  lireContratsUpwork: vi.fn(),
+}));
 vi.mock("./api", () => api);
 
 import { CarteUpwork } from "./CarteUpwork";
@@ -56,6 +61,15 @@ describe("CarteUpwork", () => {
     expect(screen.getByRole("button", { name: /Reconnecter/ })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /Relire les droits/ }));
     await waitFor(() => expect(api.diagnosticUpwork).toHaveBeenCalled());
+    // Lire les contrats : le bilan par organisation.
+    api.lireContratsUpwork.mockResolvedValue({
+      "Vik Studios": { total: 339, lus: 339, erreur: null },
+      Micabo: { total: null, lus: 0, erreur: "token doesn't have enough oauth2 permissions" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Lire les contrats/ }));
+    const bilan = await screen.findByTestId("upwork-contrats-bilan");
+    expect(bilan.textContent).toContain("Vik Studios : 339 contrats actifs lus sur 339");
+    expect(bilan.textContent).toContain("Micabo : token doesn't have enough oauth2 permissions");
   });
 
   it("retour en erreur : la raison s'affiche", async () => {

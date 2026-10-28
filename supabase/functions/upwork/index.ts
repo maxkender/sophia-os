@@ -109,6 +109,11 @@ const COMPTE = "principal";
  *       semaine et ferme. Interrupteur `arret_auto` (off / test / on) : en
  *       test, rien ne part sur Upwork. Chaque action journalisée, un échec ne
  *       bloque pas les autres, jamais de nouvel essai.
+ *   { action: "reponses_lire" }              cron `reponses-upwork`, 8 h 45 et 15 h 45 UTC ; admin
+ *       Système du 2 nov., partie E : les messages des posteurs ciblés
+ *       (`reponses_cibles_upwork`) dans la conversation de leur contrat, plus
+ *       récents que le dernier lu → `posteur_reponses` (canal upwork). Lecture
+ *       seule ; le classement et la réponse viennent de recrues-check.
  *   { action: "verifier" }                   cron `upwork-verifier`, chaque jour
  *       Renouvelle le jeton si besoin et fait un appel léger (la connexion
  *       reste valable 2 semaines après le dernier usage). En cas d'échec :
@@ -160,6 +165,8 @@ Deno.serve(async (request) => {
         return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? "")));
       case "arrets":
         return json(await traiterArrets(supabase, par));
+      case "reponses_lire":
+        return json(await lireReponsesUpwork(supabase, par));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -1095,6 +1102,60 @@ async function creerEtAccueillir(
 // ---------------------------------------------------------------------------
 // Vérification quotidienne
 // ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// Système du 2 nov., partie E : les messages des posteurs sur Upwork
+// ---------------------------------------------------------------------------
+
+/** La conversation d'un contrat et l'id du freelancer (vérifiés le 28/10 : story.user.id = freelancer.id). */
+const REQUETE_SALON_POSTEUR = `query SalonPosteur($id: ID!) {
+  contractDetails(id: $id) { id freelancer { id } }
+  contractRoom(contractId: $id) { id }
+}`;
+const REQUETE_MESSAGES_SALON = `query MessagesSalon($r: ID!) {
+  roomStories(filter: { roomId_eq: $r }) { edges { node { id createdDateTime message user { id } } } }
+}`;
+
+async function lireReponsesUpwork(supabase: Supabase, par: string | null) {
+  const { data: cibles, error } = await supabase.rpc("reponses_cibles_upwork");
+  if (error) throw error;
+  const bilan = { cibles: (cibles ?? []).length, nouveaux: 0, erreurs: [] as string[] };
+  for (const c of (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[]) {
+    try {
+      const salon = await lire(supabase, { par, action: "reponses_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+      const roomId = salon.data?.contractRoom?.id as string | undefined;
+      const freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
+      if (!roomId || !freelancer) {
+        bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
+        continue;
+      }
+      const msgs = await lire(supabase, { par, action: "reponses_messages", query: REQUETE_MESSAGES_SALON, variables: { r: roomId }, tenant: c.organisation_id });
+      if (msgs.erreur) {
+        bilan.erreurs.push(`${c.contrat_id} : ${msgs.erreur}`);
+        continue;
+      }
+      const depuis = new Date(c.depuis).getTime();
+      // deno-lint-ignore no-explicit-any
+      const nouveaux = ((msgs.data?.roomStories?.edges ?? []) as any[])
+        .map((e) => e?.node)
+        .filter((n) => n?.id && n.user?.id === freelancer && String(n.message ?? "").trim() && new Date(n.createdDateTime).getTime() > depuis);
+      for (const n of nouveaux) {
+        const { error: errIns } = await supabase.from("posteur_reponses").insert({
+          poster_id: c.poster_id,
+          canal: "upwork",
+          source_id: String(n.id),
+          texte: String(n.message).slice(0, 4000),
+          recu_at: new Date(n.createdDateTime).toISOString(),
+        });
+        if (!errIns) bilan.nouveaux++;
+        else if (errIns.code !== "23505") bilan.erreurs.push(`${c.contrat_id} : ${errIns.message}`);
+      }
+    } catch (e) {
+      bilan.erreurs.push(`${c.contrat_id} : ${messageErreur(e)}`);
+    }
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan };
+}
 
 // ---------------------------------------------------------------------------
 // Système du 2 nov., partie C : l'arrêt complet

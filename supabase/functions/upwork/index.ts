@@ -1022,7 +1022,13 @@ async function accueillir(supabase: Supabase, par: string | null) {
     .in("cle", ["accueil_auto", "accueil_contrats_depuis", "accueil_message_texte", "slack_lien_invitation"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
   const mode = lireModeAuto(v.accueil_auto);
-  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off" };
+
+  // 1. Les contrats actifs, relus (lecture seule) ; chaque posteur sans
+  // contrat est relié au sien (0409), toujours, même en test ou sur off.
+  const lecture = await lireContrats(supabase, par);
+  const { data: relies, error: errRelier } = await supabase.rpc("contrats_relier");
+  const reliage = { relies: (relies ?? []).length, erreur_relier: errRelier?.message ?? null };
+  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off", ...reliage };
   const depuis = typeof v.accueil_contrats_depuis === "string" ? v.accueil_contrats_depuis : null;
   if (!depuis) return { ok: false, error: "accueil_contrats_depuis absent" };
   const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
@@ -1030,8 +1036,6 @@ async function accueillir(supabase: Supabase, par: string | null) {
     ? v.slack_lien_invitation.trim()
     : SLACK_DEFAUT;
 
-  // 1. Les contrats actifs, relus (lecture seule).
-  const lecture = await lireContrats(supabase, par);
   const { data: nouveaux, error } = await supabase
     .from("upwork_contrats")
     .select("contrat_id, organisation_id, offre_id, debut_at")
@@ -1054,7 +1058,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
     pays: paysDe.get(p.id) ?? null,
   }));
 
-  const bilan = { mode, contrats: lecture.organisations, nouveaux: ids.length, crees: 0, simules: 0, a_relier: 0, doublons: 0, erreurs: [] as string[] };
+  const bilan = { mode, contrats: lecture.organisations, ...reliage, nouveaux: ids.length, crees: 0, simules: 0, a_relier: 0, doublons: 0, erreurs: [] as string[] };
   for (const c of nouveaux ?? []) {
     const contratId = String(c.contrat_id);
     const connu = connuDe.get(contratId);

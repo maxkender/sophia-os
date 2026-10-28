@@ -1,0 +1,551 @@
+{
+ "id": "mm-o017",
+ "titre": "tier list of Exam season habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "exam season habits, ranked #studytok #mentalmaxxing #tierlist #exams",
+  "fr": "les habitudes en période d’exams, classées #revisions #mentalmaxxing #tierlist #examens",
+  "de": "Gewohnheiten in der Prüfungszeit im Ranking #prüfungen #mentalmaxxing #tierlist #lernen",
+  "es": "hábitos en época de exámenes, en ranking #examenes #mentalmaxxing #tierlist #estudiar",
+  "it": "abitudini sotto esame, in classifica #esami #mentalmaxxing #tierlist #studio",
+  "tr": "sınav dönemi alışkanlıkları #sınav #mentalmaxxing #tierlist #dersçalış"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Exam season",
+   "fr": "habitudes",
+   "de": "Prüfungszeit-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "sınav dönemi"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "en période d’exams",
+   "de": "gewohnheiten",
+   "es": "en época de exámenes",
+   "it": "sotto esame",
+   "tr": "alışkanlıkları"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what saved your last exam?",
+  "fr": "qu’est-ce qui a sauvé ton dernier exam ?",
+  "de": "was hat deine letzte Prüfung gerettet?",
+  "es": "¿qué salvó tu último examen?",
+  "it": "cosa ha salvato il tuo ultimo esame?",
+  "tr": "son sınavını ne kurtardı?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "pass for sure",
+    "fr": "validé à coup sûr",
+    "de": "sicher bestanden",
+    "es": "aprobado seguro",
+    "it": "promosso di sicuro",
+    "tr": "kesin geçer"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "practice tests",
+      "fr": "annales",
+      "de": "Probeklausuren",
+      "es": "exámenes de práctica",
+      "it": "simulazioni d’esame",
+      "tr": "deneme sınavları"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "sleep before|the exam",
+      "fr": "dormir avant|l’exam",
+      "de": "vor der Prüfung|schlafen",
+      "es": "dormir antes|del examen",
+      "it": "dormire prima|dell’esame",
+      "tr": "sınavdan önce|uyumak"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|another room",
+      "fr": "téléphone dans|une autre pièce",
+      "de": "Handy im|anderen Raum",
+      "es": "móvil en|otra habitación",
+      "it": "telefono in|un’altra stanza",
+      "tr": "telefon|başka odada"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      805,
+      241,
+      99,
+      94
+     ],
+     "t": {
+      "en": "explaining it|to a friend",
+      "fr": "l’expliquer|à un pote",
+      "de": "es einem Freund|erklären",
+      "es": "explicárselo|a un amigo",
+      "it": "spiegarlo|a un amico",
+      "tr": "bir arkadaşa|anlatmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "timed sessions",
+      "fr": "sessions chronométrées",
+      "de": "Lernen mit Timer",
+      "es": "sesiones con tiempo",
+      "it": "sessioni a tempo",
+      "tr": "süreli çalışma"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "walk|between blocks",
+      "fr": "marcher|entre deux blocs",
+      "de": "Gehen|zwischen Blöcken",
+      "es": "caminar|entre bloques",
+      "it": "camminare|tra i blocchi",
+      "tr": "bloklar arası|yürüyüş"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "one chapter|a day",
+      "fr": "un chapitre|par jour",
+      "de": "ein Kapitel|pro Tag",
+      "es": "un tema|al día",
+      "it": "un capitolo|al giorno",
+      "tr": "günde|bir ünite"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "water",
+      "fr": "boire de l’eau",
+      "de": "Wasser trinken",
+      "es": "beber agua",
+      "it": "bere acqua",
+      "tr": "su içmek"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "real meals",
+      "fr": "vrais repas",
+      "de": "echte Mahlzeiten",
+      "es": "comidas de verdad",
+      "it": "pasti veri",
+      "tr": "gerçek öğünler"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      742,
+      739,
+      230,
+      94
+     ],
+     "t": {
+      "en": "focus mode",
+      "fr": "mode focus",
+      "de": "Fokus-Modus",
+      "es": "modo concentración",
+      "it": "modalità focus",
+      "tr": "odak modu"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "lofi",
+      "fr": "lofi",
+      "de": "Lofi",
+      "es": "lofi",
+      "it": "lofi",
+      "tr": "lofi"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee / tea",
+      "fr": "café / thé",
+      "de": "Kaffee / Tee",
+      "es": "café / té",
+      "it": "caffè / tè",
+      "tr": "kahve / çay"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "power nap",
+      "fr": "micro-sieste",
+      "de": "Powernap",
+      "es": "siesta corta",
+      "it": "pisolino",
+      "tr": "kısa şekerleme"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess breaks",
+      "fr": "pauses échecs",
+      "de": "Schach-Pausen",
+      "es": "pausas de ajedrez",
+      "it": "pause scacchi",
+      "tr": "satranç molası"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "breathing",
+      "fr": "respiration",
+      "de": "Atemübung",
+      "es": "respiración",
+      "it": "respirazione",
+      "tr": "nefes egzersizi"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake studying",
+    "fr": "faux travail",
+    "de": "Fake-Lernen",
+    "es": "falso estudio",
+    "it": "finto studio",
+    "tr": "sahte çalışma"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "study-with-me|videos",
+      "fr": "vidéos|study with me",
+      "de": "Study-with-me-|Videos",
+      "es": "vídeos|study with me",
+      "it": "video|study with me",
+      "tr": "study with me|videoları"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "pretty notes|for insta",
+      "fr": "jolies fiches|pour insta",
+      "de": "schöne Notizen|für Insta",
+      "es": "apuntes bonitos|para insta",
+      "it": "appunti belli|per insta",
+      "tr": "insta için|süslü notlar"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "energy pills",
+      "fr": "cachets énergie",
+      "de": "Energie-Pillen",
+      "es": "pastillas de energía",
+      "it": "pillole energia",
+      "tr": "enerji hapları"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "rewatching|lectures",
+      "fr": "revoir|les cours",
+      "de": "Vorlesungen|nochmal schauen",
+      "es": "volver a ver|las clases",
+      "it": "rivedere|le lezioni",
+      "tr": "dersleri|tekrar izlemek"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "fail mode",
+   "fr": "mode échec",
+   "de": "Durchfall-Modus",
+   "es": "modo suspenso",
+   "it": "modalità bocciato",
+   "tr": "kalma modu"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "all-nighter|scrolling",
+     "fr": "nuit blanche|à scroller",
+     "de": "Durchmachen|mit Scrollen",
+     "es": "noche en vela|scrolleando",
+     "it": "notte in bianco|a scrollare",
+     "tr": "sabaha kadar|scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "“5 min”|of reels",
+     "fr": "« 5 min »|de reels",
+     "de": "„5 Min.“|Reels",
+     "es": "“5 min”|de reels",
+     "it": "“5 min”|di reel",
+     "tr": "“5 dk”|reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     764,
+     860,
+     124,
+     92
+    ],
+    "t": {
+     "en": "gaming|“breaks”",
+     "fr": "« pauses »|gaming",
+     "de": "Gaming-|„Pausen“",
+     "es": "“pausas”|de gaming",
+     "it": "“pause”|gaming",
+     "tr": "oyun|“molası”"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 28/10 : la seule livraison du jour sur la famille tier list (point 6), sujet études (mm-o009 « Study habits » à 1 454 vues en fr, le meilleur avec mm-o013). cta A : élément UnSwipe en première case du S+. Couverture : le guerrier qui lit de la banque."
+}

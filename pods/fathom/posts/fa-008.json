@@ -1,0 +1,280 @@
+{
+ "id": "fa-008",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7687989471857462550",
+  "vues": 154000,
+  "accroche": "How To Step Outside Of Your Comfort Zone"
+ },
+ "titre": {
+  "en": "How To Step Outside Of Your Comfort Zone",
+  "de": "Wie du deine Komfortzone verlässt",
+  "pt": "Como sair da tua zona de conforto"
+ },
+ "legendes": {
+  "en": "How To Step Outside Of Your Comfort Zone #comfortzone #selfimprovement #learnontiktok",
+  "de": "Wie du deine Komfortzone verlässt #komfortzone #selbstverbesserung #lernenmittiktok",
+  "pt": "Como sair da tua zona de conforto #zonadeconforto #desenvolvimentopessoal #aprendernotiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7435207007541480224"
+ },
+ "notes": "cta B (« 5 minutes a day / to know a bit about everything. »). Double intégration : UnSwipe à l'étape 2 « STOP DOOMSCROLLING » (sa « STOP USING YOUR PHONE » : UnSwipe ne bloque pas le téléphone, il enlève les vidéos courtes), Sophia en carte d'appli à l'étape 4 « EXPLORE NEW TOPICS ». Son « TRY COLD EXPOSURE » tombe (miniature à visage d'un tiers). en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "HOW TO",
+       "bronze": true
+      }
+     ],
+     "STEP OUTSIDE OF",
+     "YOUR COMFORT ZONE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "WIE DU DEINE",
+       "bronze": true
+      }
+     ],
+     "KOMFORTZONE",
+     "VERLÄSST"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "COMO SAIR",
+       "bronze": true
+      }
+     ],
+     "DA TUA ZONA",
+     "DE CONFORTO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TALK TO STRANGERS"
+    ],
+    "video": {
+     "id": "QT1zpWB74yo",
+     "titre": "The Life Changing Effect of Small Talk With Strangers",
+     "chaine": "The School of Life",
+     "vues": "521K views",
+     "date": "3 years ago",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldJz69qUu_3sEO5c-lO5Cevt7X2gUE2YQ11iWAC-6TZFU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPRICH FREMDE AN"
+    ],
+    "video": {
+     "id": "Ud1xRjkSJcc",
+     "titre": "Leute ansprechen ist extrem einfach.",
+     "chaine": "extrem einfach.",
+     "vues": "60.371 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/tcG4x42OIRF-cI7KSZRCigHnQJY3ZhoFkkkV6leq_ASxmxGWGVcHQF-kMGBmq0pXM6qulhO5DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FALA COM DESCONHECIDOS"
+    ],
+    "video": {
+     "id": "rM9bpvqG-Ts",
+     "titre": "Como Dominar a Arte de Iniciar uma Conversa? Mesmo Sendo Tímido",
+     "chaine": "Klaus Schneider",
+     "vues": "389 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "7:20",
+     "avatar": "https://yt3.ggpht.com/us-4It3HmjaSzIKR674-aVJwqThddlpPbz07V-GT2BK4iuLq3S6f48mlKg4HRKEEyXwN8a0H=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "STOP DOOMSCROLLING"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "no more short videos,",
+      "no need to delete anything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLUSS MIT DOOMSCROLLING"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "keine Kurzvideos mehr,",
+      "du musst nichts löschen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "CHEGA DE DOOMSCROLLING"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "acabaram-se os vídeos curtos,",
+      "sem apagar nada."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLO TRAVEL"
+    ],
+    "video": {
+     "id": "Xef6E5jYO9Q",
+     "titre": "solo travel will change your life",
+     "chaine": "Joshua Paine",
+     "vues": "541K views",
+     "date": "4 months ago",
+     "duree": "20:16",
+     "avatar": "https://yt3.ggpht.com/2RGY-6IQzOqgCroUaoQSOc5_jckCxBAHb2tXUeKfDUELxAzP4ZpQhtPPYRM4gk8jiaGymkrYFw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "REISE ALLEIN"
+    ],
+    "video": {
+     "id": "dZ06DoYcYQ0",
+     "titre": "Die Psychologie von Menschen, die alleine reisen | SEKTION PSYCHE",
+     "chaine": "SEKTION PSYCHE",
+     "vues": "144.785 Aufrufe",
+     "date": "vor 7 Monaten",
+     "duree": "4:26",
+     "avatar": "https://yt3.ggpht.com/cJ4iH2q69T5Lp5P6CNWdCCvrKRl58BV3tHclsfsJ25b0fMsjiz8F5edkWCkpGCWdjg1WgQcE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "VIAJA SOZINHO"
+    ],
+    "video": {
+     "id": "mhavK7J-YtU",
+     "titre": "Viajar Sozinho Irá Mudar Sua Vida",
+     "chaine": "Bagetti",
+     "vues": "146 mil visualizações",
+     "date": "há 3 meses",
+     "duree": "39:33",
+     "avatar": "https://yt3.ggpht.com/QIFTUEgjGeYimChUg1WzojC_KLkneTmasnWHnZsOm32oEkTm2MosqF5C0aUhCaLWi9R4u_lRMdU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "EXPLORE NEW TOPICS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "ENTDECKE NEUE THEMEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "EXPLORA TEMAS NOVOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WAKE UP EARLY"
+    ],
+    "video": {
+     "id": "WFtrModTjAo",
+     "titre": "waking up at 4:30am is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "1.2M views",
+     "date": "1 year ago",
+     "duree": "9:56",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "STEH FRÜH AUF"
+    ],
+    "video": {
+     "id": "jDtcrvUonDc",
+     "titre": "Nie wieder SNOOZE drücken und morgens direkt aufstehen",
+     "chaine": "Coach Stef",
+     "vues": "68.154 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ACORDA CEDO"
+    ],
+    "video": {
+     "id": "dvrYL7BSKek",
+     "titre": "COMO ACORDAR CEDO MUDOU MINHA VIDA!",
+     "chaine": "Eslen Delanogare",
+     "vues": "399 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "7:59",
+     "avatar": "https://yt3.ggpht.com/OTYFvyU919jH9jY4pdu5OJsqzEnxtCIie48q6M85JhHoVngTN4q6PoWWJ1F7ia73rqSOZUF5mw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

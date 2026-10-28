@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o041",
+ "schema_id": "mentir-entretien",
+ "titre": "mes réponses à mon tout premier entretien vs au dernier (j'ai appris à MENTIR… un peu) #entretien #premierjob #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 28/10 (5 livraisons + 6 variantes). variante de rh-o009 (39,4 k vues en el le 26/10). Même schéma mentir-entretien (r 29,23 sur 4 passages, 496f8d72) et même format avant/maintenant, autre angle, autres questions : aucune reprise de rh-o001 à rh-o032 ni des sources. Angle : le tout premier entretien de ma vie contre le dernier. Accroches écrites : celle-ci (retenue), « mon premier entretien vs mon dernier, la différence » (écartée : sans mentir), « ce que je dirais à la moi de mon premier entretien » (écartée : proche de rh-o020). Le budget géré : formulé « si c'est vrai », on n'invente rien. CTA de fin jamais utilisé : raconter pour quoi était son tout premier entretien. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a99c1ef3",
+   "texte_overlay": "mes réponses à mon tout premier entretien\nvs au dernier\n(j'ai appris à MENTIR… un peu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "87cf707f",
+   "texte_overlay": "« vous savez ce qu'on fait ? »\n1er : « un peu »\ndernier : « oui, et surtout X, qui m'intéresse »\n15 minutes sur leur site, et tout change",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8a2564a2",
+   "texte_overlay": "« pourquoi ce secteur ? »\n1er : « ça m'a toujours plu »\ndernier : « parce que j'ai découvert X en faisant Y »\nune vraie origine bat une passion vague",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8a9e2cfa",
+   "texte_overlay": "« comment vous gérez un client mécontent ? »\n1er : « je m'excuse beaucoup »\ndernier : « j'écoute, je reformule, je propose une solution »\nune méthode en 3 mots",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8b0ae91a",
+   "texte_overlay": "« de quoi vous pourriez parler une heure ? »\n1er : « euh… »\ndernier : un sujet précis\nmes 3 réserves de sujets : mes voyages, mes podcasts, ce que j'apprends chaque jour",
+   "texte_sophia": "« de quoi vous pourriez parler une heure ? »\nmes 3 réserves de sujets : mes voyages, mes podcasts, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8b212efd",
+   "texte_overlay": "« vous avez déjà géré un budget ? »\n1er : « non »\ndernier : « oui, celui de X, je peux vous expliquer comment »\nsi c'est vrai, même petit, même associatif, ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8b47b4fa",
+   "texte_overlay": "ton tout premier entretien,\nc'était pour quoi ?\nraconte en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

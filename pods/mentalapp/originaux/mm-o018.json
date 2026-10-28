@@ -1,0 +1,219 @@
+{
+ "id": "mm-o018",
+ "format": "carrousel",
+ "titre": "Things that make you quietly disciplined",
+ "legendes": {
+  "en": "things that make you quietly disciplined #discipline #mentalmaxxing #selfimprovement #habits",
+  "fr": "les trucs qui te rendent discipliné sans bruit #discipline #mentalmaxxing #developpementpersonnel #habitudes",
+  "de": "Dinge, die dich leise diszipliniert machen #disziplin #mentalmaxxing #selbstverbesserung #gewohnheiten",
+  "es": "cosas que te hacen disciplinado en silencio #disciplina #mentalmaxxing #superacionpersonal #habitos",
+  "it": "cose che ti rendono disciplinato in silenzio #disciplina #mentalmaxxing #crescitapersonale #abitudini",
+  "tr": "seni sessizce disiplinli yapan şeyler #disiplin #mentalmaxxing #kişiselgelişim #alışkanlıklar"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690401294120389889/2",
+   "boite": [
+    216,
+    6,
+    648,
+    498
+   ]
+  },
+  "theme": {
+   "en": "Quietly disciplined",
+   "fr": "Discipliné sans bruit",
+   "de": "Leise diszipliniert",
+   "es": "Disciplinado en silencio",
+   "it": "Disciplinato in silenzio",
+   "tr": "Sessizce disiplinli"
+  },
+  "sous": {
+   "en": "ranked",
+   "fr": "classé",
+   "de": "gerankt",
+   "es": "en ranking",
+   "it": "in classifica",
+   "tr": "sıralı"
+  }
+ },
+ "items": [
+  {
+   "rang": "S+",
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Same wake-up time",
+    "fr": "Même heure de réveil",
+    "de": "Gleiche Aufstehzeit",
+    "es": "Misma hora al despertar",
+    "it": "Stessa sveglia",
+    "tr": "Aynı kalkış saati"
+   },
+   "texte": {
+    "en": "No announcement, no streak post. You just get up at the same time, every day, and the rest follows.",
+    "fr": "Pas d’annonce, pas de post. Tu te lèves juste à la même heure, chaque jour, et le reste suit.",
+    "de": "Keine Ankündigung, kein Post. Du stehst einfach jeden Tag zur gleichen Zeit auf, der Rest folgt.",
+    "es": "Sin anunciarlo, sin postearlo. Solo te levantas a la misma hora cada día, y lo demás llega solo.",
+    "it": "Niente annunci, niente post. Ti alzi alla stessa ora ogni giorno, e il resto viene da sé.",
+    "tr": "Duyuru yok, paylaşım yok. Her gün aynı saatte kalkarsın, gerisi kendiliğinden gelir."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Planning tomorrow tonight",
+    "fr": "Préparer demain ce soir",
+    "de": "Morgen heute Abend planen",
+    "es": "Planear mañana esta noche",
+    "it": "Pianificare domani stasera",
+    "tr": "Yarını bu akşam planlamak"
+   },
+   "texte": {
+    "en": "Three tasks on paper before bed. You never wake up wondering what to do first.",
+    "fr": "Trois tâches sur papier avant de dormir. Tu ne te réveilles jamais en te demandant par quoi commencer.",
+    "de": "Drei Aufgaben auf Papier vor dem Schlafen. Du wachst nie auf und fragst dich, womit du anfängst.",
+    "es": "Tres tareas en papel antes de dormir. Nunca te despiertas preguntándote por dónde empezar.",
+    "it": "Tre compiti su carta prima di dormire. Non ti svegli mai chiedendoti da dove iniziare.",
+    "tr": "Yatmadan önce kâğıda üç iş. Hiçbir sabah nereden başlayacağını düşünerek uyanmazsın."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "I stopped fighting the urge to scroll every day. I deleted short videos with UnSwipe and the fight just ended.",
+    "fr": "J’ai arrêté de lutter chaque jour contre l’envie de scroller. J’ai supprimé les vidéos courtes avec UnSwipe et le combat s’est arrêté.",
+    "de": "Ich habe aufgehört, jeden Tag gegen den Drang zu scrollen zu kämpfen. Ich habe Kurzvideos mit UnSwipe gelöscht und der Kampf war vorbei.",
+    "es": "Dejé de pelear cada día contra las ganas de hacer scroll. Borré los vídeos cortos con UnSwipe y la pelea se acabó.",
+    "it": "Ho smesso di combattere ogni giorno contro la voglia di scrollare. Ho eliminato i video brevi con UnSwipe e la lotta è finita.",
+    "tr": "Her gün scroll isteğiyle savaşmayı bıraktım. Kısa videoları UnSwipe ile sildim ve savaş bitti."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7698939556371975431/5",
+   "boite": [
+    336,
+    486,
+    456,
+    486
+   ],
+   "titre": {
+    "en": "Training when nobody sees",
+    "fr": "S’entraîner sans public",
+    "de": "Trainieren ohne Publikum",
+    "es": "Entrenar sin que nadie mire",
+    "it": "Allenarsi senza pubblico",
+    "tr": "Kimse görmezken antrenman"
+   },
+   "texte": {
+    "en": "No gym selfie, no story. Discipline that does not need an audience is the kind that lasts.",
+    "fr": "Pas de selfie, pas de story. La discipline qui n’a pas besoin de public, c’est celle qui dure.",
+    "de": "Kein Gym-Selfie, keine Story. Disziplin ohne Publikum ist die, die bleibt.",
+    "es": "Sin selfie, sin story. La disciplina que no necesita público es la que dura.",
+    "it": "Niente selfie, niente storia. La disciplina che non ha bisogno di pubblico è quella che dura.",
+    "tr": "Selfie yok, hikâye yok. Seyirciye ihtiyaç duymayan disiplin kalıcı olandır."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Boring meals",
+    "fr": "Repas simples",
+    "de": "Langweilige Mahlzeiten",
+    "es": "Comidas aburridas",
+    "it": "Pasti semplici",
+    "tr": "Sıkıcı öğünler"
+   },
+   "texte": {
+    "en": "The same healthy plates most days. Fewer decisions, more energy for what matters.",
+    "fr": "Les mêmes assiettes saines la plupart du temps. Moins de décisions, plus d’énergie pour l’essentiel.",
+    "de": "Meistens die gleichen gesunden Teller. Weniger Entscheidungen, mehr Energie für das Wichtige.",
+    "es": "Los mismos platos sanos casi todos los días. Menos decisiones, más energía para lo importante.",
+    "it": "Gli stessi piatti sani quasi ogni giorno. Meno decisioni, più energia per ciò che conta.",
+    "tr": "Çoğu gün aynı sağlıklı tabaklar. Daha az karar, önemli şeylere daha çok enerji."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Reading before bed",
+    "fr": "Lire avant de dormir",
+    "de": "Lesen vor dem Schlafen",
+    "es": "Leer antes de dormir",
+    "it": "Leggere prima di dormire",
+    "tr": "Yatmadan okumak"
+   },
+   "texte": {
+    "en": "Ten pages instead of ten videos. You fall asleep calmer and wake up sharper.",
+    "fr": "Dix pages au lieu de dix vidéos. Tu t’endors plus calme et tu te réveilles plus vif.",
+    "de": "Zehn Seiten statt zehn Videos. Du schläfst ruhiger ein und wachst klarer auf.",
+    "es": "Diez páginas en vez de diez vídeos. Te duermes más tranquilo y te despiertas más despierto.",
+    "it": "Dieci pagine invece di dieci video. Ti addormenti più calmo e ti svegli più lucido.",
+    "tr": "On video yerine on sayfa. Daha sakin uyur, daha zinde uyanırsın."
+   }
+  },
+  {
+   "rang": "C",
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cold showers",
+    "fr": "Douches froides",
+    "de": "Kalte Duschen",
+    "es": "Duchas frías",
+    "it": "Docce fredde",
+    "tr": "Soğuk duşlar"
+   },
+   "texte": {
+    "en": "Good practice for doing hard things on purpose. But on its own, it will not change your life.",
+    "fr": "Bon entraînement pour faire exprès des choses dures. Mais seule, elle ne changera pas ta vie.",
+    "de": "Gute Übung, um bewusst Schweres zu tun. Aber allein verändert sie dein Leben nicht.",
+    "es": "Buena práctica para hacer cosas difíciles a propósito. Pero sola no te cambiará la vida.",
+    "it": "Buon allenamento per fare apposta cose difficili. Ma da sola non ti cambierà la vita.",
+    "tr": "Zor şeyleri bilerek yapmak için iyi bir pratik. Ama tek başına hayatını değiştirmez."
+   }
+  }
+ ],
+ "notes": "routine du 28/10 : accroche jamais faite chez nous, « things that make you quietly <disciplined> » (schéma « quietly » du playbook du pod 4), en carrousel classé. cta C : élément UnSwipe en item à lui seul (3e item), conseil à la 1re personne. Couverture : l’homme au costume de la banque."
+}

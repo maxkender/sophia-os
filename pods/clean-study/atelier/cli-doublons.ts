@@ -4,7 +4,8 @@
 // autre media_id) déjà pris par un autre original de originaux/ : texte
 // normalisé, et empreinte de l'image (dHash 64 bits, distance ≤ 10 = même
 // photo). Informatif : une reprise est permise (§4.7 de pods/ROUTINE.md) si
-// elle change quelque chose (items, angle, image ou CTA).
+// elle change quelque chose (items, angle, image ou CTA). Seule une copie
+// identique (mêmes images et mêmes textes sur toutes les slides) est refusée.
 import { readFileSync, readdirSync } from "node:fs";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { appelPod } from "./api.ts";
@@ -43,10 +44,17 @@ const couv = new Map<string, bigint>();
 for (const o of originaux) couv.set(o.source_id, await empreinte(o.slides[0].media_id));
 
 let doublons = 0;
+let copies = 0;
+const signature = (o: Original) => o.slides.map((s) => `${s.media_id.slice(0, 8)}|${titre(s.texte_overlay)}`).join("\n");
 for (const id of cibles) {
   const o = originaux.find((x) => x.source_id === id);
   if (!o) throw new Error(`${id} absent de originaux/`);
   const avant = doublons;
+  const copie = originaux.find((x) => x.source_id !== id && signature(x) === signature(o));
+  if (copie) {
+    console.log(`${id} : COPIE IDENTIQUE de ${copie.source_id} (mêmes images, mêmes textes sur toutes les slides) : refusé`);
+    copies++;
+  }
   for (const autre of originaux) {
     if (autre.source_id === id) continue;
     if (titre(autre.slides[0].texte_overlay) === titre(o.slides[0].texte_overlay)) {
@@ -61,4 +69,5 @@ for (const id of cibles) {
   }
   if (doublons === avant) console.log(`${id} : ni titre ni couverture en double`);
 }
+if (copies) process.exit(1);
 if (doublons) console.log(`\n${doublons} reprise(s) : permis, à condition que chaque post change quelque chose (items, angle, image ou CTA).`);

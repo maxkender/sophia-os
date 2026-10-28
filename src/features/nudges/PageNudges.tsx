@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
+import { ReglagesRegles } from "@/features/regles/ReglagesRegles";
 import { localeDate } from "@/locales/localeDate";
 
 import {
@@ -241,6 +242,7 @@ export function PageNudges() {
       <Prevues />
       <Historique />
       <ReglagesRelancesCarte />
+      <ReglagesRegles />
     </div>
   );
 }

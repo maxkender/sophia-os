@@ -3,11 +3,11 @@
  * la base ni le réseau : l'état de chaque étape, ce qui est dû à cet instant,
  * le canal, le texte. `recrues-check` s'en sert toutes les heures.
  *
- *   acces    : 1re connexion ET relié à Slack ; message offre + 24 h (Upwork),
- *              rouge offre + 48 h ;
+ *   acces    : 1re connexion à l'OS (Slack ne bloque plus, 28 oct.) ;
+ *              message offre + 24 h (Upwork), rouge offre + 48 h ;
  *   tiktok   : le pseudo existe ; message 1re connexion + 48 h (Slack, sinon
  *              Upwork), rouge 24 h après le message ;
- *   warmup   : Start warmup + 5 follows + 2 reposts ; message samedi 12 h,
+ *   warmup   : Start warmup + 5 follows (plus de reposts, 28 oct.) ; message samedi 12 h,
  *              rouge dimanche minuit (heure du pays) ;
  *   mercredi : au moins 1 post lundi ou mardi ; message mercredi 12 h
  *              (Upwork), rouge vendredi 20 h s'il n'a toujours rien publié.
@@ -157,7 +157,7 @@ export interface PosteurMercredi {
 }
 
 /** Ce qui manque, en codes : le texte les traduit. */
-export type Manque = "connexion" | "slack" | "start" | "follows" | "reposts";
+export type Manque = "connexion" | "start" | "follows";
 
 export interface EtatEtape {
   etape: Etape;
@@ -198,7 +198,6 @@ export function etapesRecrue(r: Recrue, d: Delais): EtatEtape[] {
   // 1. Accès
   const manqueAcces: Manque[] = [];
   if (!r.premiere_connexion_at) manqueAcces.push("connexion");
-  if (!r.slack_user_id) manqueAcces.push("slack");
   const envAcces = envoi(r, "acces", periode);
   etats.push({
     etape: "acces",
@@ -235,7 +234,6 @@ export function etapesRecrue(r: Recrue, d: Delais): EtatEtape[] {
   if (!r.warmup_started_at) manqueWarmup.push("start");
   const follows = Math.max(0, FOLLOWS_MIN - (r.abonnements ?? 0));
   if (follows > 0) manqueWarmup.push("follows");
-  if (!r.warmup_reposts_at) manqueWarmup.push("reposts");
   const envWarmup = envoi(r, "warmup", periode);
   etats.push({
     etape: "warmup",
@@ -324,12 +322,8 @@ export function texteManque(
   const morceaux: string[] = [];
   for (const m of manque) {
     if (etape === "acces" && m === "connexion") morceaux.push(`log in to your dashboard: ${o.url}`);
-    if (etape === "acces" && m === "slack") {
-      morceaux.push(`join our Slack with your full name (as on Upwork)${o.slack ? `: ${o.slack}` : ""}`);
-    }
     if (etape === "warmup" && m === "start") morceaux.push('click "Start warmup"');
     if (etape === "warmup" && m === "follows") morceaux.push(`follow ${o.follows} more accounts`);
-    if (etape === "warmup" && m === "reposts") morceaux.push('tick "I did 2 reposts"');
   }
   return etape === "acces" ? morceaux.join(" and ") : morceaux.join(", ");
 }

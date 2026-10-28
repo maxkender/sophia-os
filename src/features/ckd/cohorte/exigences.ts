@@ -1,7 +1,7 @@
 /**
- * « Au moins 5 follows et 2 reposts » pendant le warm-up (0365). Les follows
- * viennent du dernier relevé TikTok ; les reposts, de la case que le posteur
- * coche (le scraper ne les voit pas, la HM vérifie dans l'onglet Reposts).
+ * « Au moins 5 follows » pendant le warm-up (0365). Les follows viennent du
+ * dernier relevé TikTok. Les 2 reposts ne sont plus exigés (chantier du
+ * 28 oct.) : la case `warmup_reposts_at` reste en base, on ne la compte plus.
  */
 import { supabase } from "@/lib/supabase/client";
 
@@ -14,20 +14,17 @@ export interface Exigences {
   /** Follows au dernier relevé (null : compte TikTok pas lu). */
   follows: number | null;
   followsOk: boolean;
-  repostsOk: boolean;
   /** Follows qui manquent pour atteindre 5. */
   followsManquants: number;
 }
 
-export function exigencesWarmup(e: Pick<EtatWarmup, "abonnements">, repostsAt: string | null | undefined): Exigences {
+export function exigencesWarmup(e: Pick<EtatWarmup, "abonnements">): Exigences {
   const follows = e.abonnements;
   const followsOk = (follows ?? 0) >= FOLLOWS_MIN;
-  const repostsOk = Boolean(repostsAt);
   return {
-    ok: followsOk && repostsOk,
+    ok: followsOk,
     follows,
     followsOk,
-    repostsOk,
     followsManquants: Math.max(0, FOLLOWS_MIN - (follows ?? 0)),
   };
 }

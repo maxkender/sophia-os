@@ -110,6 +110,8 @@ export const en = {
       changeBody: "Your account was created by the admin. Set your own password.",
       newPassword: "New password",
       confirmPassword: "Confirm password",
+      emailPerso: "Your personal email",
+      emailPersoAide: "The one you'll use on Slack: we link you automatically.",
       mismatch: "The two passwords don't match.",
       save: "Save and continue",
     },
@@ -2779,7 +2781,7 @@ export const en = {
         prevuCanal: "Planned · {{canal}} (simulation)",
         attente: "Not yet",
       },
-      warmupDetail: "Start {{start}} · follows {{follows}}/{{min}} · reposts {{reposts}}",
+      warmupDetail: "Start {{start}} · follows {{follows}}/{{min}}",
       pasPret: "Not ready",
       postsCompte: "{{compte}}: {{publies}}/{{prevus}} published",
       samedi: {
@@ -2814,6 +2816,14 @@ export const en = {
       },
       mesRecrues: "My recruits",
       mesRecruesAide: "The cohort getting ready and the one in week 1, read-only. Max or the Head of Ops decides on reds.",
+    },
+    regles: {
+      titre: "Rules told to posters",
+      aide: "In English. Shown on the home page, the onboarding, the welcome message and a post's page.",
+      lien: "The link rule (paie_regle_lien_texte)",
+      warmup: "The warm-up rule (warmup_regle_texte)",
+      enregistrer: "Save",
+      ok: "Saved",
     },
     nudges: {
       nav: "Follow-ups",
@@ -3027,8 +3037,8 @@ export const en = {
       },
       reglagesV3: {
         titre: "Pay settings",
-        seuil: "Posts done per account for a full week (out of 14)",
-        retenue: "Deduction per missed post ($)",
+        toleres: "Missed posts tolerated per account per week",
+        retenue: "Deduction per further missed post ($)",
         parrainage: "Referral bonus active",
         bonusPremiere: "1st posting week bonus ($)",
         lectureSeule: "Read only: these settings can be changed by the admin.",

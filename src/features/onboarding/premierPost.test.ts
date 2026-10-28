@@ -13,27 +13,27 @@ import {
   type Reponses,
 } from "./premierPost";
 
-const TOUT_OUI: Reponses = { warmup: "oui", follow: "oui", scroll: "oui", commentaires: "oui", repost: "oui" };
+const TOUT_OUI: Reponses = { warmup: "oui", follow: "oui", scroll: "oui", commentaires: "oui" };
 
 describe("checklist avant le premier post", () => {
-  it("les cinq questions, dans l'ordre demandé", () => {
-    expect(QUESTIONS_PREMIER_POST.map((q) => q.cle)).toEqual(["warmup", "follow", "scroll", "commentaires", "repost"]);
+  it("les quatre questions, dans l'ordre demandé (plus de repost, 28 oct.)", () => {
+    expect(QUESTIONS_PREMIER_POST.map((q) => q.cle)).toEqual(["warmup", "follow", "scroll", "commentaires"]);
   });
 
-  it("Continue seulement quand les cinq ont une réponse", () => {
+  it("Continue seulement quand les quatre ont une réponse", () => {
     expect(toutRepondu({})).toBe(false);
-    expect(toutRepondu({ ...TOUT_OUI, repost: undefined })).toBe(false);
+    expect(toutRepondu({ ...TOUT_OUI, commentaires: undefined })).toBe(false);
     expect(toutRepondu({ ...TOUT_OUI, scroll: "non" })).toBe(true);
   });
 
   it("l'écran rouge liste ce qui manque ; le retour ne garde que les Yes", () => {
-    const r: Reponses = { ...TOUT_OUI, follow: "non", repost: "non" };
+    const r: Reponses = { ...TOUT_OUI, follow: "non", commentaires: "non" };
     expect(manquants(r).map((q) => q.action)).toEqual([
       "Follow at least 5 people on this account",
-      "Repost at least 1 post",
+      "Comment on at least 3 posts in the niche you're going to post in",
     ]);
     expect(manquants(TOUT_OUI)).toEqual([]);
-    expect(sansLesNon(r)).toEqual({ warmup: "oui", scroll: "oui", commentaires: "oui" });
+    expect(sansLesNon(r)).toEqual({ warmup: "oui", scroll: "oui" });
   });
 
   describe("mémoire du navigateur", () => {

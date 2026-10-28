@@ -106,7 +106,7 @@ describe("PageCohortes (prompt 17, partie B)", () => {
     expect(ligneAna).toHaveAttribute("data-rouge", "true");
     expect(within(ligneAna).getByText(/Rouge depuis le 28 oct/)).toBeInTheDocument();
     const ligneBo = within(tableau).getByText("Bo Lee").closest("tr")!;
-    expect(within(ligneBo).getByText(/Fait le 27 oct/)).toBeInTheDocument();
+    expect(within(ligneBo).getByText(/Fait le 26 oct/)).toBeInTheDocument();
     expect(within(ligneBo).getByLabelText("Contrat Upwork non relié")).toBeInTheDocument();
     // Les boutons seulement sur une ligne rouge.
     expect(within(ligneBo).queryByRole("button", { name: "Reporter" })).toBeNull();

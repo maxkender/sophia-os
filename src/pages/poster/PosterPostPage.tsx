@@ -74,6 +74,7 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
+import { RegleTexte } from "@/features/regles/CartesRegles";
 import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
 import { localeDate } from "@/locales/localeDate";
 
@@ -758,8 +759,12 @@ export function PosterPostPage() {
       {/* Rappel : coller le lien de SON TikTok après publication — c'est ce qui
           alimente les stats. Visible tant que le post n'est pas publié. */}
       {!estAdmin && !publie && (
-        <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-base font-bold text-destructive">
-          {t("posts.rappelLien")}
+        <div className="space-y-2">
+          <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-base font-bold text-destructive">
+            {t("posts.rappelLien")}
+          </div>
+          {/* La règle du lien (0304), écrite là où on colle le lien (28 oct.). */}
+          <RegleTexte regle="lien" />
         </div>
       )}
 

@@ -55,10 +55,16 @@ Deno.test("heures locales : instantLocal et la fenêtre 10 h-20 h", () => {
   assert(!dansFenetre(new Date("2026-10-27T08:30:00Z"), "Europe/Paris", D)); // 9 h 30
 });
 
+Deno.test("accès (28 oct.) : la 1re connexion suffit, sans Slack l'étape est faite", () => {
+  const e = etape(recrue({ premiere_connexion_at: "2026-10-26T18:00:00Z", slack_user_id: null }), "acces");
+  assert(e.fait);
+  assertEquals(e.manque, []);
+});
+
 Deno.test("accès : message 24 h après l'offre, sur Upwork, seulement ce qui manque", () => {
-  const r = recrue({ premiere_connexion_at: "2026-10-26T18:00:00Z" });
+  const r = recrue({});
   const e = etape(r, "acces");
-  assertEquals(e.manque, ["slack"]);
+  assertEquals(e.manque, ["connexion"]);
   const avant = decider(e, new Date("2026-10-27T08:00:00Z"), r.fuseau, D);
   assert(!avant.envoyer);
   const apres = decider(e, new Date("2026-10-27T10:00:00Z"), r.fuseau, D);
@@ -67,7 +73,7 @@ Deno.test("accès : message 24 h après l'offre, sur Upwork, seulement ce qui ma
   const texte = composerTexte("Hi {prenom}, do this today: {manque}.", e, {
     prenom: r.prenom, handle: r.handle, url: "https://os", slack: "https://slack/join", canal: "upwork",
   });
-  assertEquals(texte, `Hi Ana, do this today: join our Slack with your full name (as on Upwork): https://slack/join.\n\n${FIN_UPWORK}`);
+  assertEquals(texte, `Hi Ana, do this today: log in to your dashboard: https://os.\n\n${FIN_UPWORK}`);
 });
 
 Deno.test("une seule relance : déjà envoyée → plus jamais, même au passage suivant", () => {
@@ -133,11 +139,16 @@ Deno.test("warm-up : samedi 12 h, rouge dimanche minuit, ce qui manque seulement
   const e = etape(r, "warmup");
   assertEquals(e.messageAt.toISOString(), "2026-10-31T11:00:00.000Z");
   assertEquals(e.rougeAt.toISOString(), "2026-11-01T23:00:00.000Z");
-  assertEquals(e.manque, ["follows", "reposts"]);
+  assertEquals(e.manque, ["follows"]);
   const texte = composerTexte("Hi {prenom}: {manque}. Monday {date}.", e, {
     prenom: "Ana", handle: null, url: "u", slack: "", canal: "slack",
   });
-  assertEquals(texte, 'Hi Ana: follow 2 more accounts, tick "I did 2 reposts". Monday 2 November.');
+  assertEquals(texte, "Hi Ana: follow 2 more accounts. Monday 2 November.");
+});
+
+Deno.test("warm-up (28 oct.) : Start + 5 follows sans reposts → prêt", () => {
+  const e = etape(recrue({ warmup_started_at: "2026-10-28T10:00:00Z", abonnements: 5, warmup_reposts_at: null }), "warmup");
+  assert(e.fait);
 });
 
 Deno.test("contrat non relié et pas de Slack → rien ne part", () => {

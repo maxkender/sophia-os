@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { AlertTriangle, Check, Clock, CornerDownRight, Info, RefreshCw, Smartphone, UserPlus, X } from "lucide-react";
 
@@ -17,7 +16,6 @@ import { cn } from "@/lib/utils";
 import { etatCohorte } from "./etapeCohorte";
 import type { CompteCohorte, ResultatReleve } from "./api";
 import { CelluleExigences } from "./CelluleExigences";
-import { lireReposts } from "./exigences";
 import { useFormats } from "./formats";
 import { BLEUS, CourbesCumul } from "./graphes";
 import { HandleTiktok, LienPosteur } from "./liens";
@@ -91,12 +89,6 @@ export function OngletWarmup({
   const reste = resteAvant(minuitParis(lundi), maintenant);
 
   const lignes = comptes.map((compte) => ({ compte, etat: etatWarmup(compte, aujourdhui) }));
-  // La case « J'ai fait 2 reposts » de chaque compte (0365).
-  const reposts = useQuery({
-    queryKey: ["ckd", "reposts", comptes.map((c) => c.compte_id).sort().join(",")],
-    queryFn: () => lireReposts(comptes.map((c) => c.compte_id)),
-    enabled: comptes.length > 0,
-  });
   const n = lignes.length;
   const compter = (f: (e: EtatWarmup) => boolean) => lignes.filter((l) => f(l.etat)).length;
   const surTiktok = compter((e) => e.tiktok === "cree");
@@ -352,7 +344,6 @@ export function OngletWarmup({
                             compte={c}
                             etat={e}
                             poster={personnes.get(c.poster_id)}
-                            repostsAt={reposts.data?.get(c.compte_id)}
                           />
                         ))}
                       </tbody>
@@ -382,12 +373,10 @@ function LigneWarmup({
   compte: c,
   etat: e,
   poster,
-  repostsAt,
 }: {
   compte: CompteCohorte;
   etat: EtatWarmup;
   poster?: PersonneCkd;
-  repostsAt: string | null | undefined;
 }) {
   const { t } = useTranslation();
   const { date, nombre } = useFormats();
@@ -456,7 +445,7 @@ function LigneWarmup({
         </div>
       </td>
       <td className={TD}>
-        <CelluleExigences etat={e} repostsAt={repostsAt} />
+        <CelluleExigences etat={e} />
       </td>
       <td className={TD}>
         <Indicateur

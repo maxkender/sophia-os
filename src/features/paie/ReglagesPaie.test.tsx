@@ -27,7 +27,7 @@ describe("ReglagesPaie (prompt 15, point 1 : admin seulement)", () => {
     await i18n.changeLanguage("fr");
     vi.clearAllMocks();
     paie.lireReglagesPaie.mockResolvedValue({
-      paie: { seuil_posts_complets: 10, retenue_par_post: 1 },
+      paie: { seuil_posts_complets: 10, retenue_par_post: 1, manques_toleres: 1 },
       parrainageActif: false,
       bonusPremiereSemaine: 1,
     });
@@ -45,7 +45,7 @@ describe("ReglagesPaie (prompt 15, point 1 : admin seulement)", () => {
   it("le Head of Ops lit les réglages sans pouvoir les modifier", async () => {
     auth.role = "head_of_ops";
     rendu();
-    const seuil = await screen.findByLabelText("Posts faits par compte pour une semaine pleine (sur 14)");
+    const seuil = await screen.findByLabelText("Posts manqués tolérés par compte et par semaine");
     expect(seuil).toBeDisabled();
     expect(screen.getByLabelText("Bonus de la 1re semaine de posts ($)")).toBeDisabled();
     expect(screen.getByText(/Lecture seule/)).toBeInTheDocument();
@@ -60,7 +60,7 @@ describe("ReglagesPaie (prompt 15, point 1 : admin seulement)", () => {
     fireEvent.change(champ, { target: { value: "2" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() =>
-      expect(paie.enregistrerReglagesPaie).toHaveBeenCalledWith({ seuil_posts_complets: 10, retenue_par_post: 1 }, false, 2),
+      expect(paie.enregistrerReglagesPaie).toHaveBeenCalledWith({ seuil_posts_complets: 10, retenue_par_post: 1, manques_toleres: 1 }, false, 2),
     );
   });
 });

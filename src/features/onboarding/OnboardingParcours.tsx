@@ -25,7 +25,10 @@ import {
 } from "@/features/moteur/api";
 
 import { Mico, type EtatMico } from "./Mico";
-import { ecransPour, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
+import { useRegles } from "@/features/regles/api";
+import { RegleTexte } from "@/features/regles/CartesRegles";
+
+import { ecransPour, LIEN_SLACK, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -191,9 +194,33 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
           </a>
         </p>
       );
+    case "regle":
+      return (
+        <div className={anime} style={style}>
+          <RegleTexte regle={bloc.regle} />
+        </div>
+      );
+    case "rejoindreSlack":
+      return (
+        <div className={anime} style={style}>
+          <RejoindreSlack />
+        </div>
+      );
     case "identite":
       return null; // rendu par le parcours, qui tient l'état du formulaire
   }
+}
+
+/** « Join Slack » : recommandé, pas obligatoire (chantier du 28 oct.). */
+function RejoindreSlack() {
+  const { slack } = useRegles();
+  return (
+    <Button asChild>
+      <a href={slack ?? LIEN_SLACK} target="_blank" rel="noreferrer">
+        Join Slack
+      </a>
+    </Button>
+  );
 }
 
 /**

@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import type { LigneListePaie } from "./api";
@@ -11,6 +13,7 @@ import {
   postsParCompte,
   raisonsLigne,
   resteAFaire,
+  retenueCompte,
   totauxPaie,
   trierLignes,
 } from "./logique";
@@ -197,5 +200,24 @@ describe("la liste de paie", () => {
       expect(resteAFaire(ligne({ action: "rien", faits: 0 }))).toBe(false);
       expect(resteAFaire(ligne({ exclu: true }))).toBe(false);
     });
+  });
+});
+
+describe("la retenue (0393, à partir de la semaine du 2 nov.)", () => {
+  const R = { manques_toleres: 1, retenue_par_post: 1 };
+  it("1 post manqué toléré par compte, puis 1 $ par post manqué", () => {
+    expect(retenueCompte(14, 14, R)).toBe(0);
+    expect(retenueCompte(14, 13, R)).toBe(0); // 13/14 → plein
+    expect(retenueCompte(14, 12, R)).toBe(1); // 12/14 → −1 $
+    expect(retenueCompte(14, 9, R)).toBe(4); // 9/14 → −4 $
+    expect(retenueCompte(14, 0, R)).toBe(0); // 0 post → rien
+  });
+
+  it("la base fait le même calcul, et garde l'ancienne règle jusqu'à la semaine du 26 oct.", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0393_regles_simples.sql"), "utf8");
+    expect(sql).toContain("p_lundi >= date '2026-11-02' as tolerance");
+    expect(sql).toContain("when rg.tolerance then greatest(cs.attendus - cs.faits - rg.toleres, 0) * rg.par_post");
+    expect(sql).toContain("when cs.faits >= rg.seuil or cs.faits >= cs.attendus then 0");
+    expect(sql).toContain("'manques_toleres', coalesce((v->>'manques_toleres')::int, 1)");
   });
 });

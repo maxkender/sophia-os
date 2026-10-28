@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import { exigencesWarmup, FOLLOWS_MIN } from "./exigences";
 import type { EtatWarmup } from "./logique";
 
-/** « Au moins 5 follows et 2 reposts » : OK seulement si les deux, sinon ce qui manque (0365). */
-export function CelluleExigences({ etat, repostsAt }: { etat: Pick<EtatWarmup, "abonnements">; repostsAt: string | null | undefined }) {
+/** « Au moins 5 follows » : OK, sinon ce qui manque (0365 ; plus de reposts depuis le 28 oct.). */
+export function CelluleExigences({ etat }: { etat: Pick<EtatWarmup, "abonnements"> }) {
   const { t } = useTranslation();
-  const x = exigencesWarmup(etat, repostsAt);
+  const x = exigencesWarmup(etat);
   if (x.ok) {
     return (
       <span className="inline-flex items-center gap-1 font-medium text-success-foreground" data-exigences="ok">
@@ -23,7 +23,6 @@ export function CelluleExigences({ etat, repostsAt }: { etat: Pick<EtatWarmup, "
       (x.follows === null
         ? t("ckd.exigences.followsInconnus", { min: FOLLOWS_MIN })
         : t("ckd.exigences.follows", { n: x.follows, min: FOLLOWS_MIN })),
-    !x.repostsOk && t("ckd.exigences.reposts"),
   ].filter(Boolean);
   return (
     <span className={cn("text-xs text-warning-foreground")} data-exigences="manque">

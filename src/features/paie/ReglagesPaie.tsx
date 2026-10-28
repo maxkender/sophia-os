@@ -10,8 +10,9 @@ import { enregistrerReglagesBonus, lireReglagesBonus, type ReglagesBonus } from 
 import { enregistrerReglagesPaie, lireReglagesPaie, type ReglagesPaie as TReglagesPaie } from "./liste/api";
 
 /**
- * Les réglages de la paie et des bonus (0380, 0374, 0388) : seuil d'une
- * semaine pleine, retenue par post raté, bonus de la 1re semaine, bonus
+ * Les réglages de la paie et des bonus (0380, 0374, 0388, 0393) : posts
+ * manqués tolérés par compte et par semaine, retenue par post raté au-delà,
+ * bonus de la 1re semaine, bonus
  * Comment Master, premier lundi bonus, et le bonus de parrainage (en pause
  * tant que la case est décochée : ses champs sont alors cachés).
  * Modifiables par l'admin seulement (prompt 15, point 1 ; politique 0390) :
@@ -64,7 +65,7 @@ export function ReglagesPaie() {
       <summary className="cursor-pointer text-sm font-medium">{t("paie.reglagesV3.titre")}</summary>
       {!admin && <p className="pt-2 text-xs text-muted-foreground">{t("paie.reglagesV3.lectureSeule")}</p>}
       <fieldset disabled={!admin} className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">
-        {nombre(t("paie.reglagesV3.seuil"), p.seuil_posts_complets, (n) => setP({ ...p, seuil_posts_complets: n }))}
+        {nombre(t("paie.reglagesV3.toleres"), p.manques_toleres, (n) => setP({ ...p, manques_toleres: n }))}
         {nombre(t("paie.reglagesV3.retenue"), p.retenue_par_post, (n) => setP({ ...p, retenue_par_post: n }), "0.01")}
         {nombre(t("paie.reglagesV3.bonusPremiere"), bonusPremiere, setBonusPremiere, "0.01")}
         {nombre(t("bonus.reglages.comment_master_par_commentaire"), b.comment_master_par_commentaire, (n) =>

@@ -158,6 +158,10 @@ export function abregerPourJournal(valeur: unknown, max = 20_000): unknown {
 // → ContractOfferConnection { totalCount, edges { node: ContractOfferResult }, pageInfo }.
 // ---------------------------------------------------------------------------
 
+/**
+ * Sans `milestoneState` : Upwork rend parfois une valeur absente de son propre
+ * schéma (« PaidBySystem », 28/10), ce qui vide toute la ligne du contrat.
+ */
 export function requeteContrats(): string {
   return `query ContratsActifs($pagination: Pagination!) {
   organization {
@@ -168,7 +172,7 @@ export function requeteContrats(): string {
       edges {
         cursor
         node {
-          id title type state milestoneState startDateTime
+          id title type state startDateTime
           team { id name }
           freelancer { id name }
           contractDetails { id status }

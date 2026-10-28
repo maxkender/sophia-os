@@ -13,8 +13,13 @@ const api = vi.hoisted(() => ({
   reporterRecrue: vi.fn(),
   arreterRecrue: vi.fn(),
   relierContrat: vi.fn(),
+  lireKillsAuto: vi.fn(async () => [] as unknown[]),
+  annulerKill: vi.fn(async () => undefined),
 }));
 vi.mock("./api", () => api);
+vi.mock("@/features/interrupteurs/api", () => ({
+  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "on" })),
+}));
 const auth = vi.hoisted(() => ({ role: "admin" as string }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
 const relances = vi.hoisted(() => ({ lireReglagesRelances: vi.fn() }));
@@ -202,18 +207,42 @@ describe("Cohorts, plus lisible (28 oct., partie B)", () => {
     expect(screen.queryByTestId("etat-relances")).toBeNull();
   });
 
-  it("Postpone et Stop : confirmation, refusée rien ne part", async () => {
+  it("ligne rouge : plus de Reporter ; Arrêter pour l'admin seulement, avec confirmation", async () => {
     const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValue(true);
     rendu(<PageCohortes maintenant={MERCREDI} />);
     const ligne = (await screen.findByText("Ana Silva")).closest("tr")!;
-    fireEvent.click(within(ligne).getByRole("button", { name: "Reporter" }));
-    expect(confirmer).toHaveBeenLastCalledWith(expect.stringMatching(/Reporter Ana Silva à la cohorte du 9 nov/));
-    expect(api.reporterRecrue).not.toHaveBeenCalled();
-    fireEvent.click(within(ligne).getByRole("button", { name: "Reporter" }));
-    await waitFor(() => expect(api.reporterRecrue).toHaveBeenCalledWith("ana"));
+    expect(within(ligne).queryByRole("button", { name: "Reporter" })).toBeNull();
     fireEvent.click(within(ligne).getByRole("button", { name: "Arrêter" }));
     expect(confirmer).toHaveBeenLastCalledWith(expect.stringContaining("End the contract"));
+    expect(api.arreterRecrue).not.toHaveBeenCalled();
+    fireEvent.click(within(ligne).getByRole("button", { name: "Arrêter" }));
     await waitFor(() => expect(api.arreterRecrue).toHaveBeenCalledWith("ana"));
+  });
+
+  it("Head of Ops : pas de bouton Arrêter", async () => {
+    auth.role = "head_of_ops";
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    const ligne = (await screen.findByText("Ana Silva")).closest("tr")!;
+    expect(within(ligne).queryByRole("button", { name: "Arrêter" })).toBeNull();
+  });
+
+  it("Kills automatiques : Annuler pendant le délai, confirmé ; parti : plus de bouton", async () => {
+    const base = { poster_id: "ana", hm_prenom: "Lucia", periode: "2026-11-02", message_at: "2026-10-26T10:10:00Z", detecte_at: "2026-10-28T10:10:00Z", raison: null, annule_at: null, parti_at: null, arret_statut: null, arret_erreur: null };
+    api.lireKillsAuto.mockResolvedValue([
+      { ...base, id: "k1", poster_nom: "Ana Silva", etape: "connexion", prevu_at: "2026-10-28T22:10:00Z", statut: "en_attente" },
+      { ...base, id: "k2", poster_nom: "Bo Lee", etape: "tiktok", prevu_at: "2026-10-27T22:10:00Z", statut: "parti", arret_statut: "erreur", arret_erreur: "Upwork : 403" },
+    ]);
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    const bloc = await screen.findByTestId("kills-auto");
+    expect(await within(bloc).findByText("Kills automatiques (1 en attente)")).toBeInTheDocument();
+    const k1 = bloc.querySelector<HTMLElement>('[data-kill="k1"]')!;
+    const k2 = bloc.querySelector<HTMLElement>('[data-kill="k2"]')!;
+    expect(within(k2).queryByRole("button")).toBeNull();
+    expect(within(k2).getByText(/Arrêt en erreur : Upwork : 403/)).toBeInTheDocument();
+    fireEvent.click(within(k1).getByRole("button", { name: "Annuler" }));
+    expect(confirmer).toHaveBeenLastCalledWith(expect.stringContaining("Ana Silva"));
+    await waitFor(() => expect(api.annulerKill).toHaveBeenCalledWith("k1"));
   });
 });
 

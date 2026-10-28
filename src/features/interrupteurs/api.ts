@@ -7,9 +7,10 @@ import { supabase } from "@/lib/supabase/client";
  */
 export type ModeInterrupteur = "off" | "test" | "on";
 
-export const INTERRUPTEURS = ["accueil_auto"] as const;
+export const INTERRUPTEURS = ["accueil_auto", "relances_auto", "kill_auto"] as const;
 export type CleInterrupteur = (typeof INTERRUPTEURS)[number];
 
+/** « simulation » (ancien nom de relances_auto) = test. */
 export function lireMode(v: unknown): ModeInterrupteur {
   return v === "off" || v === "on" ? v : "test";
 }

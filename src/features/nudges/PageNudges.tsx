@@ -15,6 +15,7 @@ import { localeDate } from "@/locales/localeDate";
 
 import {
   enregistrerReglagesRelances,
+  DELAIS_ETAPES,
   ETAPES_RELANCE,
   lireNudges,
   lireReglagesRelances,
@@ -204,7 +205,6 @@ function ReglagesRelancesCarte() {
     setR(x);
     enregistrer.mutate(x);
   };
-  const delais = ["acces_message_h", "acces_rouge_h", "tiktok_message_h", "tiktok_rouge_h"] as const;
   return (
     <Card data-testid="reglages-relances">
       <CardHeader>
@@ -243,15 +243,19 @@ function ReglagesRelancesCarte() {
           <span className="font-medium">{t("nudges.reglages.slack")}</span>
           <Input value={r.slack} onChange={(ev) => setR({ ...r, slack: ev.target.value })} aria-label={t("nudges.reglages.slack")} />
         </label>
+        <label className="block space-y-1 text-sm">
+          <span className="font-medium">{t("nudges.reglages.lienEtapes")}</span>
+          <Input value={r.lienEtapes} onChange={(ev) => setR({ ...r, lienEtapes: ev.target.value })} aria-label={t("nudges.reglages.lienEtapes")} />
+        </label>
         <div className="space-y-1">
           <p className="text-sm font-medium">{t("nudges.reglages.delais")}</p>
           <div className="grid gap-2 sm:grid-cols-2">
-            {delais.map((k) => (
+            {DELAIS_ETAPES.map((k) => (
               <label key={k} className="space-y-1 text-xs text-muted-foreground">
                 <span className="block">{t(`nudges.reglages.${k}`)}</span>
                 <Input
                   type="number"
-                  min={1}
+                  min={0}
                   value={String(r.delais[k])}
                   aria-label={t(`nudges.reglages.${k}`)}
                   onChange={(ev) => setR({ ...r, delais: { ...r.delais, [k]: Number(ev.target.value) } })}

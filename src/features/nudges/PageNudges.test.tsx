@@ -14,7 +14,8 @@ const api = vi.hoisted(() => ({
   lireReglagesRelances: vi.fn(),
   enregistrerReglagesRelances: vi.fn(),
   lireRougesDepuis: vi.fn(async () => []),
-  ETAPES_RELANCE: ["acces", "tiktok", "warmup", "mercredi"],
+  ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "mercredi"],
+  DELAIS_ETAPES: ["connexion_message_h", "tiktok_message_h", "warmup_lance_message_h", "warmup_bien_fait_heure", "kill_h", "kill_annulation_h"],
 }));
 vi.mock("./api", () => api);
 
@@ -33,9 +34,10 @@ function rendu() {
 
 const REGLAGES = {
   mode: "simulation",
-  delais: { acces_message_h: 24, acces_rouge_h: 48, tiktok_message_h: 48, tiktok_rouge_h: 24 },
-  textes: { acces: "a", tiktok: "b", warmup: "c", mercredi: "d" },
+  delais: { connexion_message_h: 24, tiktok_message_h: 48, warmup_lance_message_h: 24, warmup_bien_fait_heure: 12, kill_h: 48, kill_annulation_h: 12 },
+  textes: { connexion: "a", tiktok: "b", warmup_lance: "c", warmup_bien_fait: "e", mercredi: "d" },
   slack: "",
+  lienEtapes: "https://guide",
 };
 
 describe("etatNudge", () => {
@@ -57,8 +59,9 @@ describe("les 3 chiffres sur 7 jours (28 oct., partie E)", () => {
       ],
       [{ etape: "acces" }, { etape: "warmup" }, { etape: "warmup" }],
     );
-    expect(s.acces).toEqual({ envoyees: 3, faites48h: 33, rouges: 1 });
-    expect(s.warmup).toEqual({ envoyees: 1, faites48h: 0, rouges: 2 });
+    // Les anciens noms comptent pour l'étape qui les remplace.
+    expect(s.connexion).toEqual({ envoyees: 3, faites48h: 33, rouges: 1 });
+    expect(s.warmup_bien_fait).toEqual({ envoyees: 1, faites48h: 0, rouges: 2 });
     expect(s.tiktok).toEqual({ envoyees: 0, faites48h: null, rouges: 0 });
   });
 });

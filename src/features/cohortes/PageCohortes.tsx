@@ -16,8 +16,9 @@ import { lireReglagesRelances } from "@/features/nudges/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
-import { arreterRecrue, lireCohortes, lireRecrues, relierContrat, reporterRecrue, type RecrueCohorte } from "./api";
+import { arreterRecrue, lireCohortes, lireRecrues, relierContrat, type RecrueCohorte } from "./api";
 import { AccueilAuto } from "@/features/accueil/AccueilAuto";
+import { KillsAuto } from "./KillsAuto";
 import {
   barre,
   caseEtape,
@@ -249,24 +250,13 @@ export function TableauRecrues({
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const { jour } = useDates();
   const aujourdhui = aujourdhuiParis(maintenant);
   const finir = () => qc.invalidateQueries({ queryKey: CLE });
-  const reporter = useMutation({ mutationFn: (id: string) => reporterRecrue(id), onSuccess: finir });
+  const { role } = useAuth();
+  // Système du 2 nov. : plus de « Reporter » ; « Arrêter » reste, pour l'admin seulement.
+  const admin = role === "admin";
   const arreter = useMutation({ mutationFn: (id: string) => arreterRecrue(id), onSuccess: finir });
-  const erreur = (reporter.error ?? arreter.error) as Error | null;
-  const occupe = reporter.isPending || arreter.isPending;
-
-  const surReporter = (r: RecrueCohorte) => {
-    const d = new Date(`${r.cohorte_lundi}T12:00:00Z`);
-    d.setUTCDate(d.getUTCDate() + 7);
-    const nouveau = d.toISOString().slice(0, 10);
-    const texte =
-      nouveau > aujourdhui
-        ? t("cohortes.reporterConfirm", { nom: r.nom ?? "—", date: jour(nouveau) })
-        : t("cohortes.reporterConfirmProchain", { nom: r.nom ?? "—" });
-    if (window.confirm(texte)) reporter.mutate(r.poster_id);
-  };
+  const erreur = arreter.error as Error | null;
   const surArreter = (r: RecrueCohorte) => {
     if (window.confirm(t("cohortes.arreterConfirm", { nom: r.nom ?? "—" }))) arreter.mutate(r.poster_id);
   };
@@ -338,15 +328,10 @@ export function TableauRecrues({
                   </td>
                   {!lectureSeule && (
                     <td className={cn(TD, "whitespace-nowrap text-right")}>
-                      {rouge && r.is_active && (
-                        <span className="inline-flex gap-1">
-                          <Button size="sm" variant="outline" disabled={occupe} onClick={() => surReporter(r)}>
-                            {t("cohortes.reporter")}
-                          </Button>
-                          <Button size="sm" variant="destructive" disabled={occupe} onClick={() => surArreter(r)}>
-                            {t("cohortes.arreter")}
-                          </Button>
-                        </span>
+                      {rouge && r.is_active && admin && (
+                        <Button size="sm" variant="destructive" disabled={arreter.isPending} onClick={() => surArreter(r)}>
+                          {t("cohortes.arreter")}
+                        </Button>
                       )}
                     </td>
                   )}
@@ -532,6 +517,9 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
 
       {/* Système du 2 nov., partie A : l'accueil automatique des nouveaux contrats. */}
       <AccueilAuto />
+
+      {/* Partie B : les Kills automatiques (48 h sans réaction), annulables 12 h. */}
+      <KillsAuto maintenant={maintenant} />
 
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("cohortes.puces")}>
         {visibles.map((c) => {

@@ -175,13 +175,26 @@ export type Case =
   | { etat: "rouge"; detail: Detail; envoi: Envoi | null; le: string }
   | { etat: "apres" };
 
+/**
+ * Les types de relance de chaque colonne : les 4 étapes du système du 2 nov.
+ * (0402) et leurs anciens noms (prompt 17).
+ */
+export const TYPES_COLONNE: Record<EtapeCohorte, readonly string[]> = {
+  acces: ["connexion", "acces"],
+  tiktok: ["tiktok"],
+  warmup: ["warmup_bien_fait", "warmup_lance", "warmup"],
+  mercredi: ["mercredi"],
+};
+
 function envoiEtape(r: RecrueCohorte, etape: EtapeCohorte): Envoi | null {
   // Étapes 1 à 3 : la relance vaut quelle que soit la période (« Postpone »).
   const memePeriode = (periode: string | null) => etape !== "mercredi" || periode === r.cohorte_lundi;
-  const envois = r.nudges.filter((n) => n.type === etape && memePeriode(n.periode));
+  const types = TYPES_COLONNE[etape];
+  const envois = r.nudges.filter((n) => types.includes(n.type) && memePeriode(n.periode));
   const envoi = envois[envois.length - 1];
   if (envoi) return { type: "envoye", le: envoi.envoye_at, canal: envoi.canal };
-  const prevue = r.prevues.find((p) => p.type === etape && memePeriode(p.periode));
+  // La plus avancée des étapes de la colonne (warm-up bien fait avant warm-up lancé).
+  const prevue = types.map((ty) => r.prevues.find((p) => p.type === ty && memePeriode(p.periode))).find(Boolean);
   if (prevue?.statut === "prevu") return { type: "prevu", canal: prevue.canal };
   if (prevue?.statut === "bloque") return { type: "bloque", raison: prevue.raison };
   return null;

@@ -1,11 +1,11 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 
 const api = vi.hoisted(() => ({
-  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test" })),
+  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "test" })),
   enregistrerInterrupteur: vi.fn(async () => undefined),
 }));
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
@@ -32,8 +32,11 @@ describe("Réglages → Interrupteurs", () => {
 
   it("test par défaut ; on demande une confirmation ; le Head of Ops ne peut pas changer", async () => {
     rendu();
-    const on = await screen.findByRole("button", { name: "On" });
-    expect(screen.getByRole("button", { name: "Test" }).getAttribute("aria-pressed")).toBe("true");
+    await screen.findByText("Kill automatique");
+    const ligne = within(document.querySelector<HTMLElement>('[data-interrupteur="accueil_auto"]')!);
+    const on = ligne.getByRole("button", { name: "On" });
+    expect(ligne.getByRole("button", { name: "Test" }).getAttribute("aria-pressed")).toBe("true");
+    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(3);
     vi.spyOn(window, "confirm").mockReturnValueOnce(false);
     fireEvent.click(on);
     expect(api.enregistrerInterrupteur).not.toHaveBeenCalled();
@@ -45,6 +48,6 @@ describe("Réglages → Interrupteurs", () => {
   it("Head of Ops : lecture seule", async () => {
     auth.role = "head_of_ops";
     rendu();
-    expect((await screen.findByRole("button", { name: "Off" })).hasAttribute("disabled")).toBe(true);
+    expect((await screen.findAllByRole("button", { name: "Off" })).every((b) => b.hasAttribute("disabled"))).toBe(true);
   });
 });

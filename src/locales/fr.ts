@@ -3150,6 +3150,10 @@ export const fr = {
       },
     },
     accueil: {
+      amorcer: "Remplir depuis les contrats existants",
+      amorcerEnCours: "Lecture des contrats…",
+      amorcerAide: "Lit l'annonce de chaque posteur déjà embauché (lecture seule sur Upwork) et en déduit pays, langue, HM et tarif. Une annonce déjà réglée à la main ne change pas.",
+      amorcerBilan: "{{annonces}} annonces remplies : {{pays}} avec pays, {{generiques}} génériques ; {{dites}} déjà réglées ; {{erreurs}} contrats illisibles.",
       titre: "Accueil automatique",
       aide: {
         off: "Éteint : les nouveaux contrats ne sont pas lus.",

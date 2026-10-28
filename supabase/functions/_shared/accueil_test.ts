@@ -68,3 +68,19 @@ Deno.test("le message de bienvenue, rempli, en anglais", () => {
   });
   assertEquals(m, "Hi Ana! https://os · ana@vik.co · 12345678 · https://slack · https://guide · Monday 2 November · {inconnu}");
 });
+
+Deno.test("annonces déduites des posteurs déjà embauchés", async () => {
+  const { annoncesDepuisPosteurs } = await import("./accueil.ts");
+  const p = (job_id: string, pays: string | null, langue: string | null, hm: string | null, tarif: number | null) => ({
+    job_id, titre: `Job ${job_id}`, pays, langue, hm_id: hm, tarif,
+  });
+  const r = annoncesDepuisPosteurs([
+    p("j1", "TR", "tr", "h1", 30), p("j1", "tr", "tr", "h1", 30), p("j1", "TR", "tr", "h2", 30),
+    p("j2", "GR", "el", "h1", 30), p("j2", "CY", "el", "h1", 25),
+    p("j3", null, null, null, null),
+  ]);
+  const de = (id: string) => r.find((x) => x.job_id === id)!;
+  assertEquals(de("j1"), { job_id: "j1", titre: "Job j1", pays: "TR", langue: "tr", hm_id: "h1", tarif: 30, generique: false, posteurs: 3 });
+  assertEquals([de("j2").generique, de("j2").pays, de("j2").tarif], [true, null, null]);
+  assertEquals([de("j3").generique, de("j3").pays], [false, null]);
+});

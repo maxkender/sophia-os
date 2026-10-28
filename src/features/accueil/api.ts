@@ -1,3 +1,4 @@
+import { invoke } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
 
 /** Système du 2 nov., partie A (0401) : un accueil par contrat Upwork. */
@@ -66,4 +67,23 @@ export async function enregistrerAnnonce(a: Pick<AnnoncePays, "job_id" | "pays" 
     p_generique: a.generique,
   });
   if (error) throw error;
+}
+
+export interface BilanAmorcage {
+  ok: boolean;
+  posteurs: number;
+  lus: number;
+  annonces: number;
+  avec_pays: number;
+  generiques: number;
+  deja_dites: number;
+  erreurs: string[];
+  error?: string;
+}
+
+/** Remplir les annonces depuis les posteurs déjà embauchés (lecture seule sur Upwork). */
+export async function amorcerAnnonces(): Promise<BilanAmorcage> {
+  const r = await invoke<BilanAmorcage>("upwork", { action: "annonces_amorcer" });
+  if (r.error) throw new Error(r.error);
+  return r;
 }

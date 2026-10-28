@@ -14,7 +14,7 @@ import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { paysParDefaut } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
 
-import { enregistrerAnnonce, lireAccueils, lireAnnonces, relierAccueil, type Accueil, type AnnoncePays } from "./api";
+import { amorcerAnnonces, enregistrerAnnonce, lireAccueils, lireAnnonces, relierAccueil, type Accueil, type AnnoncePays } from "./api";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -163,6 +163,11 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
   const hmsQ = useQuery({ queryKey: ["ckd", "hms"], queryFn: listerHms, enabled: admin });
   const interrupteurs = useQuery({ queryKey: ["interrupteurs"], queryFn: lireInterrupteurs });
   const hms = (hmsQ.data ?? []).map((h) => ({ id: h.profile_id, nom: h.nom }));
+  const qc = useQueryClient();
+  const amorcer = useMutation({
+    mutationFn: amorcerAnnonces,
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["annonces"] }),
+  });
   const liste = accueils.data ?? [];
   const aRelier = liste.filter((a) => a.statut === "a_relier");
   const autres = liste.filter((a) => a.statut !== "a_relier");
@@ -227,6 +232,24 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
             <ChevronDown className="size-4 transition-transform group-[:not([open])]:-rotate-90" aria-hidden />
             {t("accueil.annonces", { n: (annonces.data ?? []).length })}
           </summary>
+          <div className="flex flex-wrap items-center gap-2 border-t px-3 py-2">
+            <Button size="sm" variant="outline" className="h-8" disabled={amorcer.isPending} onClick={() => amorcer.mutate()}>
+              {amorcer.isPending ? t("accueil.amorcerEnCours") : t("accueil.amorcer")}
+            </Button>
+            <span className="text-xs text-muted-foreground">{t("accueil.amorcerAide")}</span>
+            {amorcer.data && (
+              <span className="text-xs" data-testid="bilan-amorcage">
+                {t("accueil.amorcerBilan", {
+                  annonces: amorcer.data.annonces,
+                  pays: amorcer.data.avec_pays,
+                  generiques: amorcer.data.generiques,
+                  dites: amorcer.data.deja_dites,
+                  erreurs: amorcer.data.erreurs.length,
+                })}
+              </span>
+            )}
+            {amorcer.error && <span className="text-xs text-destructive">{(amorcer.error as Error).message}</span>}
+          </div>
           <ul className="divide-y border-t">
             {(annonces.data ?? []).map((a) => (
               <LigneAnnonce key={a.job_id} a={a} hms={hms} />

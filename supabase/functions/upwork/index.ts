@@ -5,8 +5,12 @@ import {
   corpsJeton,
   erreurGraphql,
   INTROSPECTION,
+  lireContrat,
   lireJetons,
   racinesSchema,
+  REQUETE_JALONS,
+  REQUETE_SALON,
+  requeteContrats,
   UPWORK_GRAPHQL,
   UPWORK_JETON,
   urlAutorisation,
@@ -36,6 +40,13 @@ const COMPTE = "principal";
  *       organisations, puis renvoie l'admin sur Réglages.
  *   { action: "diagnostic" }                 admin
  *       Relit le schéma, les organisations et ce que la clé permet de lire.
+ *   { action: "contrats" }                   admin
+ *       Point 2a : relit les contrats actifs de chaque organisation connectée
+ *       (organization.clientOffers, 100 par page) dans `upwork_contrats`.
+ *       Lecture seule.
+ *   { action: "droits" }                     admin
+ *       Teste, en lecture seulement, ce que la clé permet : contrats, jalons
+ *       d'un contrat, conversation d'un contrat. Aucune écriture.
  *   { action: "verifier" }                   cron `upwork-verifier`, chaque jour
  *       Renouvelle le jeton si besoin et fait un appel léger (la connexion
  *       reste valable 2 semaines après le dernier usage). En cas d'échec :
@@ -66,6 +77,10 @@ Deno.serve(async (request) => {
         return json(await diagnostic(supabase, par));
       case "verifier":
         return json(await verifier(supabase));
+      case "contrats":
+        return json(await lireContrats(supabase, par));
+      case "droits":
+        return json(await testerDroits(supabase, par));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -330,6 +345,112 @@ async function diagnostic(supabase: Supabase, par: string | null, scope: string 
     derniere_erreur: schema.erreur && orgs.erreur ? `${schema.erreur} · ${orgs.erreur}` : null,
   }).eq("compte", COMPTE);
   return { ok: true, organisations: orgs.data?.companySelector?.items ?? null, droits };
+}
+
+// ---------------------------------------------------------------------------
+// Point 2a : les contrats actifs (lecture seule)
+// ---------------------------------------------------------------------------
+
+interface Organisation {
+  title: string;
+  organizationId: string;
+}
+
+async function organisations(supabase: Supabase): Promise<Organisation[]> {
+  const { data } = await supabase.from("upwork_connexion").select("organisations").eq("compte", COMPTE).maybeSingle();
+  return ((data?.organisations ?? []) as Organisation[]).filter((o) => o?.organizationId);
+}
+
+async function lireContrats(supabase: Supabase, par: string | null) {
+  const orgs = await organisations(supabase);
+  if (orgs.length === 0) throw new Error("aucune organisation connue : relire les droits dans Réglages → Upwork");
+  const debut = new Date().toISOString();
+  const bilan: Record<string, { total: number | null; lus: number; erreur: string | null; pays: boolean }> = {};
+  for (const org of orgs) {
+    let apres: string | null = null;
+    let avecPays = true;
+    let total: number | null = null;
+    let lus = 0;
+    let erreur: string | null = null;
+    // 100 par page, 20 pages au plus (2 000 contrats) : pas de lecture sans fin.
+    for (let page = 0; page < 20; page++) {
+      let r = await lire(supabase, {
+        par,
+        action: "contrats",
+        query: requeteContrats(avecPays),
+        variables: { pagination: { first: 100, ...(apres ? { after: apres } : {}) } },
+        tenant: org.organizationId,
+      });
+      // Sans le droit sur le profil du freelance : on relit sans le pays.
+      if (avecPays && r.erreur && !r.data?.organization?.clientOffers) {
+        avecPays = false;
+        r = await lire(supabase, {
+          par,
+          action: "contrats",
+          query: requeteContrats(false),
+          variables: { pagination: { first: 100, ...(apres ? { after: apres } : {}) } },
+          tenant: org.organizationId,
+        });
+      }
+      const offres = r.data?.organization?.clientOffers;
+      if (!offres) {
+        erreur = r.erreur ?? "réponse sans clientOffers";
+        break;
+      }
+      total = offres.totalCount ?? total;
+      // deno-lint-ignore no-explicit-any
+      const lignes = (offres.edges ?? []).map((e: any) => ({
+        ...lireContrat(e?.node),
+        organisation_id: org.organizationId,
+        organisation_nom: org.title?.trim() ?? null,
+        actif: true,
+        lu_at: new Date().toISOString(),
+        brut: e?.node ?? null,
+      })).filter((l: { offre_id: string }) => l.offre_id);
+      if (lignes.length > 0) {
+        const { error } = await supabase.from("upwork_contrats").upsert(lignes, { onConflict: "offre_id" });
+        if (error) throw error;
+      }
+      lus += lignes.length;
+      if (!offres.pageInfo?.hasNextPage || !offres.pageInfo?.endCursor) break;
+      apres = offres.pageInfo.endCursor;
+    }
+    // Un contrat de cette organisation qui n'est plus rendu actif n'est plus actif.
+    if (!erreur) {
+      await supabase.from("upwork_contrats").update({ actif: false })
+        .eq("organisation_id", org.organizationId).lt("lu_at", debut);
+    }
+    bilan[org.title?.trim() ?? org.organizationId] = { total, lus, erreur, pays: avecPays };
+  }
+  return { ok: true, organisations: bilan };
+}
+
+/** Ce que la clé permet de LIRE, testé sur un contrat actif. Aucune écriture. */
+async function testerDroits(supabase: Supabase, par: string | null) {
+  const { data: c } = await supabase
+    .from("upwork_contrats")
+    .select("contrat_id, organisation_id")
+    .eq("actif", true)
+    .not("contrat_id", "is", null)
+    .limit(1)
+    .maybeSingle();
+  if (!c) return { ok: false, error: "aucun contrat lu : lancer d'abord l'action contrats" };
+  const jalons = await lire(supabase, {
+    par, action: "droits_jalons", query: REQUETE_JALONS, variables: { id: c.contrat_id }, tenant: c.organisation_id,
+  });
+  const salon = await lire(supabase, {
+    par, action: "droits_salon", query: REQUETE_SALON, variables: { id: c.contrat_id }, tenant: c.organisation_id,
+  });
+  const resultat = {
+    lu_at: new Date().toISOString(),
+    contrat_teste: c.contrat_id,
+    contrats: true,
+    jalons: { ok: Boolean(jalons.data?.contractDetails), erreur: jalons.erreur },
+    salon: { ok: Boolean(salon.data?.contractRoom), erreur: salon.erreur },
+  };
+  const { data: conn } = await supabase.from("upwork_connexion").select("droits").eq("compte", COMPTE).maybeSingle();
+  await supabase.from("upwork_connexion").update({ droits: { ...(conn?.droits ?? {}), lectures: resultat } }).eq("compte", COMPTE);
+  return { ok: true, ...resultat, apercu_jalons: jalons.data?.contractDetails ?? null };
 }
 
 // ---------------------------------------------------------------------------

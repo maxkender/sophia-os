@@ -11,7 +11,9 @@ import {
   corpsJeton,
   erreurGraphql,
   erreurPassagere,
+  lireContrat,
   lireJetons,
+  requeteContrats,
   racinesSchema,
   urlAutorisation,
   urlRetour,
@@ -86,4 +88,19 @@ Deno.test("racines du schéma et erreurs GraphQL", () => {
   assertEquals(erreurGraphql({ errors: [{ message: "Forbidden" }, { message: "x" }] }), "Forbidden · x");
   assertEquals(erreurGraphql({ data: {} }), null);
   assertEquals((abregerPourJournal({ a: "x".repeat(50) }, 20) as { abrege: boolean }).abrege, true);
+});
+
+Deno.test("contrats : requête avec ou sans pays, lecture d'un nœud", () => {
+  assert(requeteContrats(true).includes("countryDetails { twoLetterAbbreviation }"));
+  assert(!requeteContrats(false).includes("countryDetails"));
+  assert(requeteContrats(false).includes("states_any: [Active]"));
+  const c = lireContrat({
+    id: "o1", title: "Week 44", type: "FixedPrice", state: "Active", milestoneState: "Active",
+    startDateTime: "1761000000000", team: { id: "t", name: "Vik" },
+    freelancer: { id: "f", name: "Ana S.", freelancerProfile: { countryDetails: { twoLetterAbbreviation: "PT" } } },
+    contractDetails: { id: "c9", status: "ACTIVE" },
+  });
+  assertEquals([c.offre_id, c.contrat_id, c.freelancer_nom, c.freelancer_pays, c.equipe_nom], ["o1", "c9", "Ana S.", "PT", "Vik"]);
+  assertEquals(c.debut_at, new Date(1761000000000).toISOString());
+  assertEquals(lireContrat({ id: "o2" }).contrat_id, null);
 });

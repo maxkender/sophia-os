@@ -151,3 +151,76 @@ export function abregerPourJournal(valeur: unknown, max = 20_000): unknown {
   if (texte.length <= max) return valeur ?? null;
   return { abrege: true, taille: texte.length, debut: texte.slice(0, max) };
 }
+
+// ---------------------------------------------------------------------------
+// Lectures du point 2 (noms vérifiés dans le schéma lu à l'API, 28/10) :
+// CurrentOrganization.clientOffers(offerByClientFilter, pagination: Pagination!)
+// → ContractOfferConnection { totalCount, edges { node: ContractOfferResult }, pageInfo }.
+// ---------------------------------------------------------------------------
+
+export function requeteContrats(avecPays: boolean): string {
+  const pays = avecPays ? " freelancerProfile { countryDetails { twoLetterAbbreviation } }" : "";
+  return `query ContratsActifs($pagination: Pagination!) {
+  organization {
+    id
+    name
+    clientOffers(offerByClientFilter: { commonFilter: { states_any: [Active] } }, pagination: $pagination) {
+      totalCount
+      edges {
+        node {
+          id title type state milestoneState startDateTime
+          team { id name }
+          freelancer { id name${pays} }
+          contractDetails { id status }
+        }
+      }
+      pageInfo { endCursor hasNextPage }
+    }
+  }
+}`;
+}
+
+/** Les jalons d'un contrat au forfait (contractDetails(id: ID!) → terms.fixedPriceTerms.milestones). */
+export const REQUETE_JALONS = `query Jalons($id: ID!) {
+  contractDetails(id: $id) {
+    id status
+    terms { fixedPriceTerms { id fixedAmount { rawValue currency } milestones { id description state sequenceId depositAmount { rawValue currency } paid { rawValue currency } dueDateTime } } }
+  }
+}`;
+
+/** La conversation d'un contrat (contractRoom(contractId: ID!)), lecture seule. */
+export const REQUETE_SALON = `query Salon($id: ID!) { contractRoom(contractId: $id) { id roomName roomType } }`;
+
+export interface ContratLu {
+  offre_id: string;
+  contrat_id: string | null;
+  titre: string | null;
+  type: string | null;
+  etat: string | null;
+  jalon_etat: string | null;
+  debut_at: string | null;
+  freelancer_id: string | null;
+  freelancer_nom: string | null;
+  freelancer_pays: string | null;
+  equipe_id: string | null;
+  equipe_nom: string | null;
+}
+
+// deno-lint-ignore no-explicit-any
+export function lireContrat(node: any): ContratLu {
+  const debut = node?.startDateTime ? new Date(isNaN(Number(node.startDateTime)) ? node.startDateTime : Number(node.startDateTime)) : null;
+  return {
+    offre_id: String(node?.id ?? ""),
+    contrat_id: node?.contractDetails?.id ? String(node.contractDetails.id) : null,
+    titre: node?.title ?? null,
+    type: node?.type ?? null,
+    etat: node?.state ?? null,
+    jalon_etat: node?.milestoneState ?? null,
+    debut_at: debut && !isNaN(debut.getTime()) ? debut.toISOString() : null,
+    freelancer_id: node?.freelancer?.id ? String(node.freelancer.id) : null,
+    freelancer_nom: node?.freelancer?.name ?? null,
+    freelancer_pays: node?.freelancer?.freelancerProfile?.countryDetails?.twoLetterAbbreviation ?? null,
+    equipe_id: node?.team?.id ? String(node.team.id) : null,
+    equipe_nom: node?.team?.name ?? null,
+  };
+}

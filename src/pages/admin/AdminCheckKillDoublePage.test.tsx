@@ -43,6 +43,17 @@ const cohorteApi = vi.hoisted(() => ({
   releverWarmup: vi.fn(),
 }));
 vi.mock("@/features/ckd/cohorte/api", () => cohorteApi);
+const decisionsApi = vi.hoisted(() => ({
+  lireADecider: vi.fn(async () => []),
+  lireSemaine: vi.fn(async () => ({
+    mercredi: { envoyes: 0 },
+    jeudi: { calcule: false, propositions: 0, a_decider: 0 },
+    samedi: { calcule: false, propositions: 0, a_decider: 0 },
+    dimanche: { prevus: 0, faits: 0 },
+    lundi: { lignes: 0, payees: 0 },
+  })),
+}));
+vi.mock("@/features/ckd/decisions/api", () => decisionsApi);
 
 import { AdminCheckKillDoublePage } from "./AdminCheckKillDoublePage";
 
@@ -308,7 +319,7 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const bruno = await screen.findByTestId("proposition-bruno.reveil101");
     for (const nom of ["Envoyer le nudge", "Recréer le compte", "Rien"]) {
       expect(within(bruno).getByRole("button", { name: nom })).toBeEnabled();
@@ -372,7 +383,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("le jeudi, envoie tous les nudges encore sans décision", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     fireEvent.click(await screen.findByRole("button", { name: "Envoyer les nudges (1)" }));
     await waitFor(() => expect(api.envoyerNudgesCkd).toHaveBeenCalledWith("ctrl-jeudi"));
   });
@@ -447,7 +458,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("le nudge d'un posteur : texte de Réglages pré-rempli, modifiable pour lui seul", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const titre = await within(alice).findByRole("textbox", { name: "Titre du pop-up" });
@@ -470,7 +481,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("prompt 15 : plus de message au HM ni de suivi dans #managers-hq, la décision part sans suivi", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
@@ -485,7 +496,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("nudge sans retouche : le texte de Réglages, et un texte vidé bloque la confirmation", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const corps = await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
@@ -526,7 +537,7 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     expect(await within(alice).findByText(/par /)).toBeInTheDocument();
     expect(within(alice).queryByText(/pas encore envoyé au HM/)).toBeNull();
@@ -534,7 +545,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     expect(within(alice).getByText("à surveiller")).toBeInTheDocument();
     expect(within(alice).getByText("discipline")).toBeInTheDocument();
@@ -602,12 +613,24 @@ describe("AdminCheckKillDoublePage", () => {
       expect(cohorteApi.lireCohorte).not.toHaveBeenCalled();
     });
 
-    it("par défaut : le suivi global, avec les décisions du samedi, et un lien vers Cohortes", async () => {
-      rendreAvecRoutes("/");
-      expect(await screen.findByRole("tab", { name: "Samedi : kill, recréer, doubler" })).toBeInTheDocument();
-      expect(screen.queryByTestId("vue-cohorte")).toBeNull();
-      fireEvent.click(screen.getByRole("link", { name: "Cohortes" }));
-      expect(await screen.findByText("page cohortes")).toBeInTheDocument();
+    it("28 oct. : la page « Décisions », 4 onglets, la semaine et « À décider maintenant » ; plus de Cohorts ni de Vue HM", async () => {
+      rendreAvecRoutes("/?vue=hm");
+      expect(await screen.findByRole("heading", { name: /Décisions/ })).toBeInTheDocument();
+      const onglets = screen.getAllByRole("tablist")[0]!;
+      expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual([
+        "Décisions",
+        "Shadowban",
+        "Historique",
+        "Réglages",
+      ]);
+      expect(within(onglets).getByRole("tab", { name: "Décisions" })).toHaveAttribute("aria-selected", "true");
+      expect(await screen.findByTestId("semaine-decisions")).toBeInTheDocument();
+      expect(screen.getByTestId("a-decider")).toBeInTheDocument();
+      expect(screen.queryByRole("link", { name: "Cohortes" })).toBeNull();
+      expect(screen.queryByText("Vue HM")).toBeNull();
+      // Plus de « Jeudi : nudges » ni de grille « To recruit ».
+      expect(screen.queryByRole("tab", { name: "Jeudi : nudges" })).toBeNull();
+      expect(screen.queryByTestId("carte-recrutement")).toBeNull();
     });
   });
 });

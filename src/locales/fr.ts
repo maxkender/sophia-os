@@ -118,7 +118,7 @@ export const fr = {
     },
     nav: {
       cmSuivi: "Comment Masters · suivi",
-      checkKillDouble: "Check, Kill or Double",
+      checkKillDouble: "Décisions",
       commentMasters: "Comment Masters",
       admin: "Admin",
       poster: "Poster",
@@ -204,7 +204,7 @@ export const fr = {
     },
     navDesc: {
       cmSuivi: "Done par Comment Master, synchro Slack, total pour le bonus",
-      checkKillDouble: "Nudges du jeudi ; kill, recréer ou doubler le samedi",
+      checkKillDouble: "Recréer le jeudi ; Kill ou Double le samedi",
       commentMasters: "Suivi des Done et réglages (régions, comment masters, seuils, bonus)",
       pilotage: "Vue d'ensemble et lancement du pipeline",
       calendrier: "Posts prévus du jour, par créateur",
@@ -1386,7 +1386,7 @@ export const fr = {
         "Les vues sont celles du relevé de nuit (chaque post relevé les 3 nuits qui suivent sa date). Un post ne compte que s'il avait l'âge minimum au relevé.",
       circuit:
         "Tu décides ligne par ligne. Kill : le compte poste jusqu'au dimanche et s'arrête à 23 h 30. Recréer crée le compte tout de suite et l'ancien s'arrête aussitôt (Archive). Doubler propose le 2ᵉ compte au posteur, qui répond Yes ou No dans son espace avant mercredi soir. Plus rien n'est posté dans #managers-hq : le dimanche à 12 h, ce qui est décidé part tout seul, Max reçoit le récap en message privé Slack, et les HMs voient Kill, Double et Nouveau compte sur leur accueil.",
-      onglets: { samedi: "Samedi : kill, recréer, doubler", jeudi: "Jeudi : nudges", historique: "Historique", reglages: "Réglages" },
+      onglets: { samedi: "Samedi : Kill ou Double", jeudi: "Jeudi : Recréer", historique: "Historique", reglages: "Réglages" },
       controle: "Contrôle",
       controleDu: "Contrôle du {{date}}",
       calculeLe: "calculé le {{date}}",
@@ -2864,6 +2864,43 @@ export const fr = {
       warmup: "La règle du warm-up (warmup_regle_texte)",
       enregistrer: "Enregistrer",
       ok: "Enregistré",
+    },
+    decisions: {
+      titre: "Décisions",
+      description: "Ce qu'il faut décider cette semaine : Recréer le jeudi, Kill ou Double le samedi. Le reste part tout seul.",
+      onglets: { decisions: "Décisions", shadowban: "Shadowban", historique: "Historique", reglages: "Réglages" },
+      etats: { fait: "Fait", a_toi: "À toi", a_venir: "À venir" },
+      semaine: {
+        titre: "Semaine du {{date}}",
+        mercredi: { quand: "Mer. 12:00", quoi: "Check des posts (auto)", nombres: "{{n}} message(s) envoyé(s)" },
+        jeudi: { quand: "Jeu. 06:00", quoi: "Recréer (tu valides)", nombres: "{{n}} compte(s) proposé(s) · {{reste}} à décider" },
+        samedi: { quand: "Sam. 06:00", quoi: "Kill ou Double (avant 20:00)", nombres: "{{n}} proposition(s) · {{reste}} à décider" },
+        dimanche: { quand: "Dim. 23:30", quoi: "Comptes arrêtés", nombres: "{{n}} prévu(s) · {{faits}} fait(s)" },
+        lundi: { quand: "Lun.", quoi: "Paie", nombres: "{{payees}}/{{n}} payée(s)" },
+      },
+      aDecider: {
+        titre: "À décider maintenant",
+        aide: "Tout est coché : décoche les exceptions, puis valide. Une case décochée part en Garder, Pas maintenant ou Rien.",
+        vide: "Rien à décider.",
+        cocher: "Valider la proposition pour {{nom}}",
+        valider: "Tout valider ({{n}})",
+        progres: "{{n}}/{{total}}…",
+      },
+      groupes: { kill: "Kill", double: "Double", recreate: "Recréer" },
+      confirmer:
+        "Valider : {{kill}} Kill, {{double}} Double, {{recreate}} Recréer. {{exceptions}} exception(s) décochée(s) partent en Garder / Pas maintenant / Rien. Continuer ?",
+      raison: {
+        inactif: "aucun post depuis lundi · message du mercredi {{date}} · rien depuis",
+        inactifSansMessage: "aucun post depuis lundi · rien depuis",
+        absent: "{{manques}} posts manqués sur {{attendus}}",
+        premiere: "{{n}} posts, aucun au-dessus de {{vues}} vues",
+        premiereSansVues: "{{n}} posts, aucune vue mesurée",
+        anciens: "médiane {{mediane}} vues contre {{reference}} dans le pays · déjà recréé une fois",
+        doubler: "{{n}} bons posts (≥ {{seuil}} vues)",
+        reveil: "pas de réveil depuis les premiers posts",
+        shadowban: "shadowban soupçonné",
+      },
+      details: "Toutes les propositions de la semaine",
     },
     nudges: {
       stats: {

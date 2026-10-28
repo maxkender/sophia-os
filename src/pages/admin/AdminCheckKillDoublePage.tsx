@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Users } from "lucide-react";
+import { Check, ChevronRight, ExternalLink, RefreshCw } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -85,8 +85,8 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
-import { VueHm } from "@/features/ckd/vueHm/VueHm";
-import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
+import { ADeciderCarte } from "@/features/ckd/decisions/ADeciderCarte";
+import { SemaineDecisions } from "@/features/ckd/decisions/SemaineDecisions";
 import { ReglagesMessages } from "@/features/messagesPosteurs/ReglagesMessages";
 import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
@@ -114,11 +114,9 @@ const POINT_ACTION: Record<ActionCkd, string> = {
   nudge: "bg-info",
 };
 
-const ONGLETS = ["samedi", "jeudi", "historique", "reglages"] as const;
+/** Les onglets de la page Decisions (28 oct.). */
+const ONGLETS = ["decisions", "shadowban", "historique", "reglages"] as const;
 type Onglet = (typeof ONGLETS)[number];
-
-/** La semaine du contrôle, dans l'ordre : ce qui tourne, qui décide, quand ça part. */
-const ETAPES = ["jeudi", "samedi", "decision", "envoi"] as const;
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -151,34 +149,29 @@ interface FiltreCohorte {
 }
 
 /**
- * Admin → Check, Kill or Double (PROMPT 5, migration 0326). Le jeudi 6 h, les
- * nudges proposés aux comptes dans leur première semaine ; le samedi 6 h, les
- * comptes à tuer (recréer, ne pas renouveler) et les posteurs à doubler. L'admin
- * décide ligne par ligne (0328) ; les décisions partent aux HMs dans
- * #managers-hq (bouton, ou tout seul le dimanche à 12 h).
- *
- * « Suivi global » : la page telle qu'elle était, pour toutes les cohortes.
- * L'ancien « Suivi cohorte » (0356, 1re semaine / warm-up) est remplacé par
- * la page Cohortes (prompt 17, partie B) : `?vue=cohorte` y renvoie. Les
- * décisions du samedi restent ici.
- * « Vue HM » (`?vue=hm`, 0370) : le dashboard des HMs, avec le choix de la HM.
+ * Admin → Decisions (ex Check, Kill or Double ; chantier du 28 oct.). En haut,
+ * la vraie semaine (mercredi check auto, jeudi Recréer, samedi Kill ou
+ * Double, dimanche arrêts, lundi paie) ; puis un seul bloc « À décider
+ * maintenant » ; le détail de chaque contrôle en dessous. Onglets : Décisions
+ * · Shadowban · Historique · Réglages. `?vue=cohorte` renvoie vers Cohorts ;
+ * `?vue=shadowban` ouvre l'onglet Shadowban. Le récap du dimanche part à Max
+ * seulement (fonction `ckd`).
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const brut = params.get("vue");
-  const vue: Vue = brut === "shadowban" || brut === "hm" ? brut : "global";
-  const choisirVue = (v: Vue) =>
+  const onglet: Onglet = brut === "shadowban" || brut === "historique" || brut === "reglages" ? brut : "decisions";
+  const choisir = (o: Onglet) =>
     setParams(
       (p) => {
         const n = new URLSearchParams(p);
-        if (v === "global") n.delete("vue");
-        else n.set("vue", v);
+        if (o === "decisions") n.delete("vue");
+        else n.set("vue", o);
         return n;
       },
       { replace: true },
     );
-  const [onglet, setOnglet] = React.useState<Onglet>("samedi");
 
   if (brut === "cohorte") return <Navigate to="/admin/cohortes" replace />;
 
@@ -187,112 +180,74 @@ export function AdminCheckKillDoublePage() {
       <PageHeader
         title={
           <span className="inline-flex items-center gap-2">
-            {t("ckd.titre")}
-            <Aide libelle={t("ckd.titre")}>
-              <ul className="list-disc space-y-1 pl-4">
-                <li>{t("ckd.calendrierJeudi")}</li>
-                <li>{t("ckd.calendrierSamedi")}</li>
-                <li>{t("ckd.calendrierVues")}</li>
-              </ul>
-              <p className="mt-1.5">{t("ckd.circuit")}</p>
+            {t("decisions.titre")}
+            <Aide libelle={t("decisions.titre")}>
+              <p>{t("ckd.circuit")}</p>
             </Aide>
           </span>
         }
-        description={t("ckd.description")}
-        actions={<ChoixVue vue={vue} onChange={choisirVue} />}
+        description={t("decisions.description")}
       />
 
-      {vue === "shadowban" ? (
-        <VueShadowban />
-      ) : vue === "hm" ? (
-        <VueHm />
-      ) : (
-        <>
-          <Semaine />
+      <Onglets actif={onglet} onChange={choisir} />
 
-          <Onglets actif={onglet} onChange={setOnglet} />
-
-          <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
-            {onglet === "reglages" ? (
-              <div className="space-y-6">
-                <VueReglages />
-                <ReglagesMessages />
-              </div>
-            ) : onglet === "historique" ? (
-              <VueHistorique />
-            ) : (
-              <div className="space-y-6">
-                <VueControles key={onglet} type={onglet} />
+      <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
+        {onglet === "shadowban" ? (
+          <VueShadowban />
+        ) : onglet === "historique" ? (
+          <VueHistorique />
+        ) : onglet === "reglages" ? (
+          <div className="space-y-6">
+            <VueReglages />
+            <ReglagesMessages />
+          </div>
+        ) : (
+          <div className="space-y-6">
+            <SemaineDecisions />
+            <ADeciderCarte />
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("decisions.details")}</summary>
+              <div className="mt-4 space-y-6">
+                <DetailControles />
                 <SuiviMessages admin />
               </div>
-            )}
+            </details>
           </div>
-        </>
-      )}
-    </div>
-  );
-}
-
-type Vue = "global" | "shadowban" | "hm";
-
-/** Suivi global, Shadowban ou Vue HM : des boutons collés, celui de la vue affichée en avant ; Cohortes est une autre page. */
-function ChoixVue({ vue, onChange }: { vue: Vue; onChange: (v: Vue) => void }) {
-  const { t } = useTranslation();
-  return (
-    <div role="group" aria-label={t("ckd.cohorte.vues.aria")} className="inline-flex rounded-lg border bg-muted/40 p-1">
-      <Link
-        to="/admin/cohortes"
-        className={cn(
-          "inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
-          "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
         )}
-      >
-        <Users className="size-4" aria-hidden />
-        {t("cohortes.titre")}
-      </Link>
-      {(
-        [
-          { v: "global", icone: <List className="size-4" aria-hidden /> },
-          { v: "shadowban", icone: <EyeOff className="size-4" aria-hidden /> },
-          { v: "hm", icone: <CalendarDays className="size-4" aria-hidden /> },
-        ] as const
-      ).map(({ v, icone }) => (
-        <button
-          key={v}
-          type="button"
-          aria-pressed={vue === v}
-          onClick={() => onChange(v)}
-          className={cn(
-            "inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors",
-            "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
-            vue === v ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
-          )}
-        >
-          {icone}
-          {t(`ckd.cohorte.vues.${v}`)}
-        </button>
-      ))}
+      </div>
     </div>
   );
 }
 
-/** Les quatre temps de la semaine, en une bande : remplace le pavé d'explications. */
-function Semaine() {
+/** Le détail d'un contrôle : celui du samedi (Kill ou Double) ou du jeudi (Recréer), un à la fois. */
+function DetailControles() {
   const { t } = useTranslation();
+  const [type, setType] = React.useState<TypeControle>("samedi");
   return (
-    <ol className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border bg-border/70 sm:grid-cols-2 lg:grid-cols-4">
-      {ETAPES.map((e) => (
-        <li key={e} className="min-w-0 bg-card px-4 py-3">
-          <p className={MICRO_LABEL}>{t(`ckd.semaine.${e}Quand`)}</p>
-          <p className="mt-0.5 text-sm font-medium">{t(`ckd.semaine.${e}`)}</p>
-          <p className="text-xs text-muted-foreground">{t(`ckd.semaine.${e}Detail`)}</p>
-        </li>
-      ))}
-    </ol>
+    <div className="space-y-4">
+      <div role="tablist" aria-label={t("decisions.details")} className="inline-flex gap-1 rounded-lg border bg-muted/40 p-1">
+        {(["samedi", "jeudi"] as const).map((o) => (
+          <button
+            key={o}
+            type="button"
+            role="tab"
+            aria-selected={o === type}
+            onClick={() => setType(o)}
+            className={cn(
+              "rounded-md px-2.5 py-1 text-sm transition-colors",
+              o === type ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {t(`ckd.onglets.${o}`)}
+          </button>
+        ))}
+      </div>
+      <VueControles key={type} type={type} />
+    </div>
   );
 }
 
-/** Les onglets de la page Allocation : flèches, Début et Fin pour passer de l'un à l'autre. */
+/** Les onglets de la page : flèches, Début et Fin pour passer de l'un à l'autre. */
 function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => void }) {
   const { t } = useTranslation();
   return (
@@ -330,7 +285,7 @@ function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => 
             o === actif ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
           )}
         >
-          {t(`ckd.onglets.${o}`)}
+          {t(`decisions.onglets.${o}`)}
         </button>
       ))}
     </div>
@@ -514,7 +469,7 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
         </p>
       )}
 
-      {type === "samedi" && controle && <CarteRecrutement controle={controle} />}
+      {/* La grille « To recruit » est partie dans Recruiting (28 oct., partie D). */}
 
       {controles.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>

@@ -117,7 +117,7 @@ export const en = {
     },
     nav: {
       cmSuivi: "Comment Masters · tracking",
-      checkKillDouble: "Check, Kill or Double",
+      checkKillDouble: "Decisions",
       commentMasters: "Comment Masters",
       admin: "Admin",
       poster: "Poster",
@@ -203,7 +203,7 @@ export const en = {
     },
     navDesc: {
       cmSuivi: "Done per Comment Master, Slack sync, total for the bonus",
-      checkKillDouble: "Thursday nudges; kill, recreate or double on Saturday",
+      checkKillDouble: "Recreate on Thursday; Kill or Double on Saturday",
       commentMasters: "Done tracking and settings (regions, comment masters, thresholds, bonuses)",
       pilotage: "Overview and pipeline launch",
       calendrier: "Planned posts for the day, by creator",
@@ -1382,7 +1382,7 @@ export const en = {
         "Views come from the nightly check (each post measured on the 3 nights after its date). A post only counts if it was old enough when measured.",
       circuit:
         "You decide row by row. Kill: the account posts until Sunday and stops at 11:30 pm. Recreate creates the account right away and the old one stops at once (Archive). Double offers the 2nd account to the poster, who answers Yes or No in their space before Wednesday night. Nothing is posted in #managers-hq any more: on Sunday at noon, what's decided goes out on its own, Max gets the recap by Slack DM, and HMs see Kill, Double and New account on their dashboard.",
-      onglets: { samedi: "Saturday: kill, recreate, double", jeudi: "Thursday: nudges", historique: "History", reglages: "Settings" },
+      onglets: { samedi: "Saturday: Kill or Double", jeudi: "Thursday: Recreate", historique: "History", reglages: "Settings" },
       controle: "Check",
       controleDu: "Check of {{date}}",
       calculeLe: "computed on {{date}}",
@@ -2857,6 +2857,43 @@ export const en = {
       warmup: "The warm-up rule (warmup_regle_texte)",
       enregistrer: "Save",
       ok: "Saved",
+    },
+    decisions: {
+      titre: "Decisions",
+      description: "What to decide this week: Recreate on Thursday, Kill or Double on Saturday. Everything else runs on its own.",
+      onglets: { decisions: "Decisions", shadowban: "Shadowban", historique: "History", reglages: "Settings" },
+      etats: { fait: "Done", a_toi: "Your turn", a_venir: "Upcoming" },
+      semaine: {
+        titre: "Week of {{date}}",
+        mercredi: { quand: "Wed 12:00", quoi: "Posts check (auto)", nombres: "{{n}} message(s) sent" },
+        jeudi: { quand: "Thu 06:00", quoi: "Recreate (you validate)", nombres: "{{n}} account(s) proposed · {{reste}} to decide" },
+        samedi: { quand: "Sat 06:00", quoi: "Kill or Double (decide before 20:00)", nombres: "{{n}} proposal(s) · {{reste}} to decide" },
+        dimanche: { quand: "Sun 23:30", quoi: "Accounts stopped", nombres: "{{n}} planned · {{faits}} done" },
+        lundi: { quand: "Mon", quoi: "Pay", nombres: "{{payees}}/{{n}} paid" },
+      },
+      aDecider: {
+        titre: "To decide now",
+        aide: "Everything is ticked: untick the exceptions, then validate. An unticked line becomes Keep, Not now or Nothing.",
+        vide: "Nothing to decide.",
+        cocher: "Validate the proposal for {{nom}}",
+        valider: "Validate all ({{n}})",
+        progres: "{{n}}/{{total}}…",
+      },
+      groupes: { kill: "Kill", double: "Double", recreate: "Recreate" },
+      confirmer:
+        "Validate: {{kill}} Kill, {{double}} Double, {{recreate}} Recreate. {{exceptions}} unticked exception(s) become Keep / Not now / Nothing. Continue?",
+      raison: {
+        inactif: "no post since Monday · Wednesday message {{date}} · nothing since",
+        inactifSansMessage: "no post since Monday · nothing since",
+        absent: "{{manques}} of {{attendus}} posts missed",
+        premiere: "{{n}} posts, none above {{vues}} views",
+        premiereSansVues: "{{n}} posts, no views measured",
+        anciens: "median {{mediane}} views vs {{reference}} in the country · already recreated once",
+        doubler: "{{n}} good posts (≥ {{seuil}} views)",
+        reveil: "no wake-up since the first posts",
+        shadowban: "shadowban suspected",
+      },
+      details: "All proposals of the week",
     },
     nudges: {
       stats: {

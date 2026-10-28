@@ -1,16 +1,13 @@
 import {
   ajouterJours,
-  blocsRecap,
-  blocsZone,
   COLONNES_PROPOSITION,
   consigneNudge,
   DECISIONS_ENVOYEES,
   maintenantParis,
-  majRecap,
   type PropositionSlack,
   slackApi,
   texteRappel,
-  texteRecap,
+  texteRecapMax,
   zonesDe,
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
@@ -55,13 +52,16 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       « À recruter » du samedi (0364) : la HM du pays (même règle que le
  *       routage du site), la cohorte (samedi + 9 jours). 0 retire la ligne.
  *   { action: "envoyer", controle_id }                                 admin
- *       Poste dans #managers-hq les décisions pas encore envoyées : le récap
- *       (une fois), puis un message par zone dans son fil.
+ *       Marque envoyées les décisions prêtes (la HM les voit sur son
+ *       accueil) et envoie à Max un récap en message privé. Plus rien dans
+ *       #managers-hq (prompt 15, point 3).
  *   { action: "envoi_auto" }      cron, dimanche 12 h (heure de Paris)
  *       Pareil pour le contrôle du samedi, puis le message de Kill à chaque
  *       posteur arrêté si `kill_message_auto` (0382) : Slack + bandeau.
  *   { action: "rappel_lundi" }    cron, lundi 9 h (heure de Paris)
  *       Dans le fil du samedi : qui ne pas financer, qui passe à 2 comptes.
+ *       Cron `ckd-rappel-lundi` en pause depuis le prompt 15 (les HMs ne
+ *       financent plus) ; l'action reste.
  *   { action: "verifier_slack" }                                       admin
  *       Le jeton marche-t-il, et le bot est-il dans le canal ? N'écrit rien.
  *   { action: "apercu_hm", id }                                        admin
@@ -729,53 +729,28 @@ async function envoyer(supabase: Supabase, controleId: string) {
   );
   if (props.length === 0) return { ok: true, envoyees: 0, ...(nudges ? { nudges } : {}) };
 
-  const canal = c.slack_canal ?? await canalSlack(supabase);
-  const noterErreur = async (e: string) => {
-    await supabase.from("ckd_controles").update({ slack_erreur: e }).eq("id", controleId);
-    throw new Error(`Slack : ${e}`);
+  // Prompt 15, point 3 : plus de fil par zone dans #managers-hq. Les décisions
+  // sont marquées envoyées (la HM voit Kill / Double / Nouveau compte sur son
+  // accueil, 0364) et Max reçoit un récap en message privé.
+  const ids = props.map((p) => p.id);
+  const { error: errMaj } = await supabase
+    .from("ckd_propositions")
+    .update({ envoye_at: new Date().toISOString() })
+    .in("id", ids);
+  if (errMaj) throw errMaj;
+  const texte = texteRecapMax(c.type, c.jour, await zonesDe(supabase, props));
+  let erreurRecap: string | null = null;
+  if (texte) {
+    const r = await slackApi(jeton, "chat.postMessage", { channel: SLACK_MAX, text: texte, unfurl_links: false });
+    if (!r.ok) erreurRecap = `récap à Max : ${r.error ?? "erreur"}`;
+  }
+  await supabase.from("ckd_controles").update({ slack_erreur: erreurRecap }).eq("id", controleId);
+  return {
+    ok: erreurRecap === null,
+    envoyees: ids.length,
+    ...(erreurRecap ? { erreurs: [erreurRecap] } : {}),
+    ...(nudges ? { nudges } : {}),
   };
-
-  // Le récap : posté une fois, réécrit ensuite.
-  let fil = c.slack_ts as string | null;
-  if (!fil) {
-    const r = await slackApi(jeton, "chat.postMessage", {
-      channel: canal,
-      text: texteRecap(c.type, c.jour),
-      blocks: blocsRecap(c.type, c.jour, []),
-      unfurl_links: false,
-    });
-    if (!r.ok || !r.ts) return await noterErreur(r.error ?? "pas de ts");
-    fil = r.ts;
-    await supabase.from("ckd_controles").update({ slack_canal: canal, slack_ts: fil, slack_erreur: null }).eq("id", controleId);
-  }
-
-  let envoyees = 0;
-  const erreurs: string[] = [];
-  for (const z of await zonesDe(supabase, props)) {
-    const r = await slackApi(jeton, "chat.postMessage", {
-      channel: canal,
-      thread_ts: fil,
-      text: `Check, Kill or Double: ${z.decisions.length} decision${z.decisions.length > 1 ? "s" : ""} for ${z.zone ?? z.hmNom}`,
-      blocks: blocsZone(c.type, z, c.jour),
-      unfurl_links: false,
-      unfurl_media: false,
-    });
-    if (!r.ok) {
-      erreurs.push(`${z.zone ?? z.hmNom} : ${r.error}`);
-      continue;
-    }
-    const ids = z.decisions.map((d) => d.id);
-    const { error: errMaj } = await supabase
-      .from("ckd_propositions")
-      .update({ envoye_at: new Date().toISOString(), slack_ts: r.ts })
-      .in("id", ids);
-    if (errMaj) throw errMaj;
-    envoyees += ids.length;
-  }
-
-  await majRecap(supabase, jeton, controleId);
-  await supabase.from("ckd_controles").update({ slack_erreur: erreurs.length ? erreurs.join(" · ") : null }).eq("id", controleId);
-  return { ok: erreurs.length === 0, envoyees, ...(erreurs.length ? { erreurs } : {}), ...(nudges ? { nudges } : {}) };
 }
 
 async function rappel(supabase: Supabase, controleId: string) {

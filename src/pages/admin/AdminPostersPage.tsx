@@ -35,6 +35,7 @@ import {
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import { MessageBienvenue } from "@/features/regles/MessageBienvenue";
 import { TarifPoster } from "@/features/paie/TarifPoster";
 import { nomCompletDe, separerNomComplet } from "@/features/moteur/nomComplet";
 import {
@@ -81,6 +82,7 @@ import {
   premiersJoursComptes,
   majLanguesRecruteur,
   majRecruteur,
+  contactCreationComplet,
   emailPersoValide,
   majContactPoster,
   renommerPoster,
@@ -926,7 +928,6 @@ export function AdminPostersPage() {
   React.useEffect(() => {
     setPaysCompte("");
   }, [langue]);
-  const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   // Compte UGC vidéo (pod 3) : login seul côté manage-users, puis le compte
   // vidéos uniquement créé ici — ni label ni persona de la file.
@@ -942,6 +943,7 @@ export function AdminPostersPage() {
   );
   const [cree, setCree] = React.useState<{
     email: string;
+    prenom: string;
     password: string;
     type: PremierCompte | "ugc_video";
   } | null>(null);
@@ -972,7 +974,8 @@ export function AdminPostersPage() {
         contact,
         langue: premierCompte === "aucun" ? undefined : langue || undefined,
         type_compte: premierCompte,
-        posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
+        // Prompt 15, point 7 : toujours 2 posts par jour, plus de choix.
+        posts_par_jour: premierCompte === "perso" ? 2 : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
         ...(paysAEnvoyer(langue, paysCompte)
           ? { pays: paysAEnvoyer(langue, paysCompte)! }
@@ -981,14 +984,13 @@ export function AdminPostersPage() {
       });
     },
     onSuccess: (r) => {
-      setCree({ email: r.email, password, type: ugcVideo ? "ugc_video" : premierCompte });
+      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password, type: ugcVideo ? "ugc_video" : premierCompte });
       choixAppsPoster.reinitialiser();
       setNomComplet("");
       setContact(CONTACT_POSTER_VIDE);
       setHandleTiktok("");
       setHandleInstagram("");
       setPaysCompte("");
-      setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
@@ -1112,7 +1114,8 @@ export function AdminPostersPage() {
             e.preventDefault();
             // Application du compte non choisie : le bloc le dit, rien ne part.
             if (!choixAppsPoster.verifier()) return;
-            if (!emailPersoValide(contact.email_perso)) return;
+            // Prompt 15, point 7 : contrat Upwork et email perso obligatoires.
+            if (!contactCreationComplet(contact)) return;
             setCree(null);
             creer.mutate();
           }}
@@ -1128,7 +1131,7 @@ export function AdminPostersPage() {
               onChange={(e) => setNomComplet(e.target.value)}
             />
           </div>
-          <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
+          <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" obligatoires />
           <label className="flex items-start gap-2 text-sm sm:col-span-2">
             <input
               type="checkbox"
@@ -1159,8 +1162,6 @@ export function AdminPostersPage() {
             onLangue={setLangue}
             pays={paysCompte}
             onPays={setPaysCompte}
-            postsParJour={ugcVideo ? undefined : postsParJour}
-            onPostsParJour={ugcVideo ? undefined : setPostsParJour}
             handle={handleTiktok}
             onHandle={setHandleTiktok}
           />
@@ -1251,6 +1252,7 @@ export function AdminPostersPage() {
                   ? t("posters.creeAucun")
                   : t("warmup.apresCreation")}
             </p>
+            {cree.type !== "ugc_video" && <MessageBienvenue prenom={cree.prenom} email={cree.email} password={cree.password} />}
           </div>
         )}
       </CardContent>

@@ -18,7 +18,6 @@ import {
   Gift,
   Images,
   Languages,
-  Link2,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
@@ -32,7 +31,6 @@ import {
   Users,
   UsersRound,
   UserPlus,
-  UserX,
   Wallet,
 } from "lucide-react";
 
@@ -179,6 +177,41 @@ export function AdminLayout() {
         {
           title: t("navSection.suivi"),
           items: [
+            // 28 oct. (partie E) : le suivi dans cet ordre, Cohorts · Posters ·
+            // Decisions · Recruiting · Payroll · Follow-ups. Inactifs et Slack
+            // à relier sortent du menu (routes gardées) : les inactifs sont dans
+            // Decisions et dans un filtre de Posters, Slack se relie dans la
+            // fiche du posteur.
+            {
+              to: "/admin/cohortes",
+              label: t("cohortes.nav"),
+              icon: UsersRound,
+              description: t("cohortes.navDesc"),
+            },
+            { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
+            // Account watch : retirée du menu (prompt 15, point 1), la route /admin/surveillance reste.
+            {
+              to: "/admin/check-kill-double",
+              label: t("nav.checkKillDouble"),
+              icon: Gavel,
+              description: t("navDesc.checkKillDouble"),
+            },
+            // Toujours visible : le recrutement relève de l'identité des
+            // comptes, qui reste Sophia quelle que soit l'application choisie.
+            {
+              to: "/admin/recrutements",
+              label: t("nav.recrutements"),
+              icon: UserPlus,
+              description: t("navDesc.recrutements"),
+              end: false,
+            },
+            { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
+            {
+              to: "/admin/nudges",
+              label: t("nudges.nav"),
+              icon: BellRing,
+              description: t("nudges.navDesc"),
+            },
             {
               to: "/admin/analytics",
               label: t("nav.analytics"),
@@ -190,48 +223,6 @@ export function AdminLayout() {
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
-            },
-            { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
-            // Account watch : retirée du menu (prompt 15, point 1), la route /admin/surveillance reste.
-            {
-              to: "/admin/cohortes",
-              label: t("cohortes.nav"),
-              icon: UsersRound,
-              description: t("cohortes.navDesc"),
-            },
-            {
-              to: "/admin/check-kill-double",
-              label: t("nav.checkKillDouble"),
-              icon: Gavel,
-              description: t("navDesc.checkKillDouble"),
-            },
-            { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
-            {
-              to: "/admin/nudges",
-              label: t("nudges.nav"),
-              icon: BellRing,
-              description: t("nudges.navDesc"),
-            },
-            {
-              to: "/admin/inactifs",
-              label: t("inactifs.nav"),
-              icon: UserX,
-              description: t("inactifs.navDesc"),
-            },
-            {
-              to: "/admin/slack",
-              label: t("slackRelier.nav"),
-              icon: Link2,
-              description: t("slackRelier.navDesc"),
-            },
-            // Toujours visible : le recrutement relève de l'identité des
-            // comptes, qui reste Sophia quelle que soit l'application choisie.
-            {
-              to: "/admin/recrutements",
-              label: t("nav.recrutements"),
-              icon: UserPlus,
-              description: t("navDesc.recrutements"),
-              end: false,
             },
             {
               to: "/admin/reviews",

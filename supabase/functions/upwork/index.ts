@@ -805,6 +805,17 @@ async function raisonFin(supabase: Supabase): Promise<string> {
   return typeof data?.valeur === "string" && data.valeur.trim() ? data.valeur.trim() : RAISON_FIN_DEFAUT;
 }
 
+/**
+ * Un même posteur peut avoir 2 comptes, donc 2 fiches sur un seul contrat
+ * Upwork (0410). Arrêter une fiche ne touche pas au contrat tant qu'une autre
+ * fiche active l'utilise.
+ */
+async function contratPartage(supabase: Supabase, contratId: string, saufPoster: string): Promise<boolean> {
+  const { data } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contratId).eq("is_active", true)
+    .neq("id", saufPoster).limit(1);
+  return (data ?? []).length > 0;
+}
+
 /** Fermer un contrat par l'API (endContractByClient), un seul essai. */
 async function fermerContrat(
   supabase: Supabase,
@@ -812,7 +823,11 @@ async function fermerContrat(
   contratId: string,
   tenant: string | null,
   raison: string,
+  saufPoster: string,
 ): Promise<{ ferme: boolean; raison: string | null }> {
+  if (await contratPartage(supabase, contratId, saufPoster)) {
+    return { ferme: false, raison: "contrat partagé avec un autre compte actif du posteur : pas fermé" };
+  }
   const r = await ecrire(supabase, {
     par,
     action: "fermer_contrat",
@@ -847,7 +862,7 @@ async function fermerApresPaiement(
   if (!plan.fermer) {
     return { ferme: false, raison: plan.rembourser.length ? `encore financé : ${decrireJalons(plan.rembourser)} (à rembourser, puis fermer à la main)` : "aucune milestone lue : contrat à fermer à la main" };
   }
-  const fin = await fermerContrat(supabase, par, contratId, tenant, await raisonFin(supabase));
+  const fin = await fermerContrat(supabase, par, contratId, tenant, await raisonFin(supabase), posterId);
   if (!fin.ferme) return fin;
   await supabase.from("contrats_fins").upsert({ poster_id: posterId, semaine, termine_par: par }, { onConflict: "poster_id,semaine", ignoreDuplicates: true });
   const { data: arrets } = await supabase.from("arrets").select("id, etapes").eq("poster_id", posterId).order("created_at", { ascending: false }).limit(1);
@@ -1435,6 +1450,14 @@ async function arreterUn(
     etapes.push(slack);
     return etapes;
   }
+  // Un 2e compte du même posteur sur le même contrat : Upwork intact.
+  if (await contratPartage(supabase, p.contrat_id, p.poster_id)) {
+    for (const a of ["message", "jalons", "remboursement", "fermeture"] as const) {
+      etapes.push(etape(a, "sans_objet", "contrat partagé avec un autre compte actif du posteur"));
+    }
+    etapes.push(slack);
+    return etapes;
+  }
   const { data: c } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", p.contrat_id).maybeSingle();
   const tenant = (c?.organisation_id as string | undefined) ?? null;
 
@@ -1500,7 +1523,7 @@ async function arreterUn(
   } else if (!reel) {
     etapes.push(etape("fermeture", "simule", `endContractByClient, raison ${raison}`));
   } else {
-    const fin = await fermerContrat(supabase, par, p.contrat_id, tenant, raison);
+    const fin = await fermerContrat(supabase, par, p.contrat_id, tenant, raison, p.poster_id);
     etapes.push(fin.ferme ? etape("fermeture", "fait", "contrat fermé") : etape("fermeture", "erreur", fin.raison));
   }
   etapes.push(slack);

@@ -8,23 +8,14 @@ import i18n from "@/locales";
 import { etatNudge } from "./logique";
 
 const api = vi.hoisted(() => ({
-  apercuNudges: vi.fn(),
-  envoyerNudges: vi.fn(),
   lireNudges: vi.fn(),
-  lireARelancerUpwork: vi.fn(),
   marquerNudge: vi.fn(),
-  lireMessagesNudge: vi.fn(),
-  enregistrerMessagesNudge: vi.fn(),
-  TYPES_BLOCAGE: ["warmup_pas_lance", "compte_introuvable", "reposts", "abonnements", "posts_manques"],
+  lireRelancesPrevues: vi.fn(),
+  lireReglagesRelances: vi.fn(),
+  enregistrerReglagesRelances: vi.fn(),
+  ETAPES_RELANCE: ["acces", "tiktok", "warmup", "mercredi"],
 }));
 vi.mock("./api", () => api);
-vi.mock("@/features/ckd/vueHm/ChoixHm", () => ({
-  ChoixHm: ({ onChange }: { onChange: (v: string) => void }) => (
-    <button type="button" onClick={() => onChange("hm-kris")}>
-      choisir-kris
-    </button>
-  ),
-}));
 
 import { PageNudges } from "./PageNudges";
 
@@ -39,81 +30,74 @@ function rendu() {
   );
 }
 
-const ligne = (o: Record<string, unknown>) => ({
-  poster_id: "p1", poster_nom: "Ana Silva", hm_id: "h", hm_prenom: "Kris", compte_id: "c1", handle: "ana.tt",
-  type: "warmup_pas_lance", n: 0, texte: "Hi Ana, your account @ana.tt is ready", slack: true, nudges_sans_reponse: 0, ...o,
-});
+const REGLAGES = {
+  mode: "simulation",
+  delais: { acces_message_h: 24, acces_rouge_h: 48, tiktok_message_h: 48, tiktok_rouge_h: 24 },
+  textes: { acces: "a", tiktok: "b", warmup: "c", mercredi: "d" },
+  slack: "",
+};
 
 describe("etatNudge", () => {
-  it("résolu > répondu > Upwork > sans réponse", () => {
-    expect(etatNudge({ reponse_at: "x", resolu_at: "y", upwork_relance_at: null })).toBe("resolu");
-    expect(etatNudge({ reponse_at: "x", resolu_at: null, upwork_relance_at: "z" })).toBe("repondu");
-    expect(etatNudge({ reponse_at: null, resolu_at: null, upwork_relance_at: "z" })).toBe("upwork");
-    expect(etatNudge({ reponse_at: null, resolu_at: null, upwork_relance_at: null })).toBe("sans_reponse");
+  it("résolu > répondu > pas encore fait", () => {
+    expect(etatNudge({ reponse_at: "x", resolu_at: "y" })).toBe("resolu");
+    expect(etatNudge({ reponse_at: "x", resolu_at: null })).toBe("repondu");
+    expect(etatNudge({ reponse_at: null, resolu_at: null })).toBe("sans_reponse");
   });
 });
 
-describe("PageNudges", () => {
+describe("PageNudges → Relances (prompt 17)", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
     await i18n.changeLanguage("fr");
     api.lireNudges.mockResolvedValue([]);
-    api.lireARelancerUpwork.mockResolvedValue([]);
-    api.lireMessagesNudge.mockResolvedValue({
-      warmup_pas_lance: "a", compte_introuvable: "b", reposts: "c", abonnements: "d", posts_manques: "e",
-    });
+    api.lireRelancesPrevues.mockResolvedValue([]);
+    api.lireReglagesRelances.mockResolvedValue(REGLAGES);
+    api.enregistrerReglagesRelances.mockResolvedValue(undefined);
   });
 
-  it("aperçu avant envoi, on décoche, seuls les cochés partent", async () => {
-    api.apercuNudges.mockResolvedValue([
-      ligne({}),
-      ligne({ poster_id: "p2", poster_nom: "Bo Lee", compte_id: "c2", handle: "bo.tt", slack: false, nudges_sans_reponse: 1 }),
+  it("plus de « Nudge all », d'escalade ni de liste « À relancer sur Upwork »", async () => {
+    rendu();
+    await screen.findByTestId("reglages-relances");
+    expect(screen.queryByText("Nudge all")).toBeNull();
+    expect(screen.queryByText("À relancer sur Upwork")).toBeNull();
+    expect(screen.getByRole("heading", { name: "Relances", level: 1 })).toBeInTheDocument();
+  });
+
+  it("prévues : le texte et le canal en simulation, « contrat non relié » bloqué", async () => {
+    api.lireRelancesPrevues.mockResolvedValue([
+      { poster_id: "p1", poster_nom: "Ana Silva", type: "warmup", periode: "2026-11-02", statut: "prevu", canal: "slack", texte: "Hi Ana, your warm-up isn't finished", raison: "simulation", maj_at: "2026-10-31T11:10:00Z" },
+      { poster_id: "p2", poster_nom: "Bo Lee", type: "acces", periode: "2026-11-02", statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: "2026-10-27T10:10:00Z" },
     ]);
-    api.envoyerNudges.mockResolvedValue({ envoyes: 1, slack: 1, os: 0, erreurs: [] });
     rendu();
-    expect(api.apercuNudges).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByRole("button", { name: "Voir l'aperçu" }));
-    const apercu = await screen.findByTestId("apercu-nudges");
-    expect(api.apercuNudges).toHaveBeenCalledWith("warmup", null);
-    expect(within(apercu).getByText("Pop-up OS")).toBeInTheDocument();
-    expect(within(apercu).getByText("1 nudge(s) sans réponse")).toBeInTheDocument();
-    fireEvent.click(screen.getByLabelText("Relancer Bo Lee"));
-    fireEvent.click(screen.getByRole("button", { name: "Envoyer 1 nudge" }));
-    await waitFor(() => expect(api.envoyerNudges).toHaveBeenCalledWith("warmup", null, ["c1"]));
-    expect(await screen.findByTestId("bilan-nudges")).toHaveTextContent("1 nudge(s) envoyé(s) : 1 sur Slack");
+    const bloc = await screen.findByTestId("relances-prevues");
+    expect(await within(bloc).findByText("✉ prévu")).toBeInTheDocument();
+    expect(within(bloc).getByText("Hi Ana, your warm-up isn't finished")).toBeInTheDocument();
+    expect(within(bloc).getByText(/contrat non relié/)).toBeInTheDocument();
   });
 
-  it("une HM : les actifs de cette HM", async () => {
-    api.apercuNudges.mockResolvedValue([]);
+  it("activer demande confirmation ; refusée, le mode ne change pas", async () => {
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValueOnce(true);
     rendu();
-    fireEvent.change(screen.getByLabelText("Qui relancer"), { target: { value: "hm" } });
-    expect(screen.getByRole("button", { name: "Voir l'aperçu" })).toBeDisabled();
-    fireEvent.click(screen.getByRole("button", { name: "choisir-kris" }));
-    fireEvent.click(screen.getByRole("button", { name: "Voir l'aperçu" }));
-    await waitFor(() => expect(api.apercuNudges).toHaveBeenCalledWith("actifs", "hm-kris"));
-    expect(await screen.findByText("Personne n'est bloqué dans cette cible.")).toBeInTheDocument();
+    const bloc = await screen.findByTestId("reglages-relances");
+    fireEvent.click(within(bloc).getByRole("button", { name: "Activé" }));
+    expect(confirmer).toHaveBeenCalled();
+    expect(api.enregistrerReglagesRelances).not.toHaveBeenCalled();
+    fireEvent.click(within(bloc).getByRole("button", { name: "Activé" }));
+    await waitFor(() =>
+      expect(api.enregistrerReglagesRelances).toHaveBeenCalledWith(expect.objectContaining({ mode: "on" })),
+    );
+    confirmer.mockRestore();
   });
 
-  it("à relancer sur Upwork : lien du contrat et « Relancé »", async () => {
-    api.lireARelancerUpwork.mockResolvedValue([
-      { poster_id: "p1", poster_nom: "Ana Silva", hm_prenom: "Kris", upwork_contrat_url: "https://upwork/c/1", upwork_url: null, nudges: 2, dernier_at: "2026-10-27T10:00:00Z", types: ["posts_manques"] },
-    ]);
-    api.marquerNudge.mockResolvedValue(undefined);
-    rendu();
-    const bloc = await screen.findByTestId("relancer-upwork");
-    expect(await within(bloc).findByRole("link", { name: /Ouvrir le contrat/ })).toHaveAttribute("href", "https://upwork/c/1");
-    fireEvent.click(within(bloc).getByRole("button", { name: "Relancé" }));
-    await waitFor(() => expect(api.marquerNudge).toHaveBeenCalledWith("p1", "upwork"));
-  });
-
-  it("historique : « A répondu » sur un nudge sans réponse", async () => {
+  it("journal : l'étape, le canal ; « A répondu » sur une relance pas encore faite", async () => {
     api.lireNudges.mockResolvedValue([
-      { id: "n1", poster_id: "p1", poster_nom: "Ana Silva", hm_prenom: null, compte_id: "c1", handle: "ana.tt", type: "reposts", canal: "slack", texte: "x", envoye_at: "2026-10-27T10:00:00Z", reponse_at: null, resolu_at: null, upwork_relance_at: null, slack_erreur: null },
+      { id: "n1", poster_id: "p1", poster_nom: "Ana Silva", hm_prenom: null, handle: "ana.tt", type: "tiktok", periode: "2026-11-02", canal: "upwork", texte: "x", envoye_at: "2026-10-27T10:00:00Z", reponse_at: null, resolu_at: null, slack_erreur: null },
     ]);
     api.marquerNudge.mockResolvedValue(undefined);
     rendu();
     const bloc = await screen.findByTestId("historique-nudges");
-    expect(await within(bloc).findByText("Sans réponse")).toBeInTheDocument();
+    expect(await within(bloc).findByText("2. Compte TikTok")).toBeInTheDocument();
+    expect(within(bloc).getByText(/Upwork/)).toBeInTheDocument();
     fireEvent.click(within(bloc).getByRole("button", { name: "A répondu" }));
     await waitFor(() => expect(api.marquerNudge).toHaveBeenCalledWith("n1", "repondu"));
   });

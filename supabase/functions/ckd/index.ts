@@ -39,9 +39,8 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       compte) et démarre le lundi J+9 (0369). Un échec de création est noté,
  *       la réponse reste : l'admin relance par `double_creer`.
  *   { action: "nudges_slack", controle_id? , id? }                      admin
- *       Nudge du jeudi (v3, 0383) : le message Slack au posteur (réglage
- *       `nudge_regularite_texte`), une fois par semaine. Appelée par la page
- *       après un Nudge, et par « Envoyer aux HM ».
+ *       Arrêté au prompt 17 (0391) : plus de message Slack de régularité le
+ *       jeudi (le pop-up reste). Les relances passent par `recrues-check`.
  *   { action: "double_creer", id }                                     admin
  *       Recrée le 2ᵉ compte d'une offre acceptée restée sans compte.
  *   { action: "recreer_shadowban", compte_id }                        admin
@@ -112,7 +111,7 @@ Deno.serve(async (request) => {
         return json({ ...envoi, alarme, kills });
       }
       case "nudges_slack":
-        return json(await nudgesSlack(supabase, { controleId: body.controle_id, id: body.id }));
+        return json({ ok: true, ignore: "prompt 17 : plus de nudge Slack le jeudi" });
       case "messages_kill":
         return json(await messagesKill(supabase, String(body.controle_id ?? "")));
       case "double_creer":
@@ -372,34 +371,6 @@ async function messagesKill(supabase: Supabase, controleId: string) {
   const bilan = { crees: 0, envoyes: 0, introuvables: 0, erreurs: 0 };
   for (const p of props ?? []) {
     const { data: crees, error: errCree } = await supabase.rpc("kill_message_creer", { p_id: p.id });
-    if (errCree) throw errCree;
-    for (const m of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
-      bilan.crees++;
-      const issue = await ecrireAuPosteur(supabase, m.poster_id, m.texte);
-      if (issue.statut === "envoye") bilan.envoyes++;
-      else if (issue.statut === "introuvable") bilan.introuvables++;
-      else bilan.erreurs++;
-      await supabase.from("posteur_messages").update({
-        slack_statut: issue.statut,
-        slack_at: new Date().toISOString(),
-        slack_erreur: issue.statut === "erreur" ? issue.erreur : null,
-      }).eq("id", m.id);
-    }
-  }
-  return { ok: true, ...bilan };
-}
-
-/** Nudge du jeudi (0383) : le message Slack de chaque nudge décidé, une fois par semaine. */
-async function nudgesSlack(supabase: Supabase, o: { controleId?: string; id?: string }) {
-  let requete = supabase.from("ckd_propositions").select("id").eq("type", "jeudi").eq("decision", "nudge");
-  if (o.id) requete = requete.eq("id", o.id);
-  else if (o.controleId) requete = requete.eq("controle_id", o.controleId);
-  else throw new Error("controle_id ou id requis");
-  const { data: props, error } = await requete;
-  if (error) throw error;
-  const bilan = { crees: 0, envoyes: 0, introuvables: 0, erreurs: 0 };
-  for (const p of props ?? []) {
-    const { data: crees, error: errCree } = await supabase.rpc("nudge_message_creer", { p_id: p.id });
     if (errCree) throw errCree;
     for (const m of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
       bilan.crees++;
@@ -698,10 +669,7 @@ async function envoyer(supabase: Supabase, controleId: string) {
     .eq("id", controleId)
     .single();
   if (error) throw error;
-  // Le jeudi, les nudges partent aussi au posteur sur Slack (0383), une seule fois.
-  const nudges = c.type === "jeudi"
-    ? await nudgesSlack(supabase, { controleId }).catch((e) => ({ erreur: messageErreur(e) }))
-    : undefined;
+  // Prompt 17 : plus de nudge Slack le jeudi (0383) ; le pop-up de régularité reste.
 
   const { data: brutes, error: errProps } = await supabase
     .from("ckd_propositions")
@@ -727,7 +695,7 @@ async function envoyer(supabase: Supabase, controleId: string) {
       (p.decision !== "recreer" || p.nouveau_compte_id) &&
       !(c.type === "jeudi" && p.decision === "recreer"),
   );
-  if (props.length === 0) return { ok: true, envoyees: 0, ...(nudges ? { nudges } : {}) };
+  if (props.length === 0) return { ok: true, envoyees: 0 };
 
   // Prompt 15, point 3 : plus de fil par zone dans #managers-hq. Les décisions
   // sont marquées envoyées (la HM voit Kill / Double / Nouveau compte sur son
@@ -749,7 +717,6 @@ async function envoyer(supabase: Supabase, controleId: string) {
     ok: erreurRecap === null,
     envoyees: ids.length,
     ...(erreurRecap ? { erreurs: [erreurRecap] } : {}),
-    ...(nudges ? { nudges } : {}),
   };
 }
 

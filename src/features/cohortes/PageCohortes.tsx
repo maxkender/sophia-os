@@ -17,6 +17,7 @@ import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
 import { arreterRecrue, lireCohortes, lireRecrues, relierContrat, reporterRecrue, type RecrueCohorte } from "./api";
+import { AccueilAuto } from "@/features/accueil/AccueilAuto";
 import {
   barre,
   caseEtape,
@@ -528,6 +529,9 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
       <PageHeader title={t("cohortes.titre")} description={t("cohortes.description")} />
 
       {role === "admin" && <EtatRelances />}
+
+      {/* Système du 2 nov., partie A : l'accueil automatique des nouveaux contrats. */}
+      <AccueilAuto />
 
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("cohortes.puces")}>
         {visibles.map((c) => {

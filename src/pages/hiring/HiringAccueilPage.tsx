@@ -28,6 +28,7 @@ import { cn } from "@/lib/utils";
 import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { CeQueLOsAFait } from "@/features/nudges/CeQueLOsAFait";
 import { MesRecrues } from "@/features/cohortes/PageCohortes";
+import { AccueilAuto } from "@/features/accueil/AccueilAuto";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
 async function nomsPosteurs(ids: string[]): Promise<Map<string, string>> {
@@ -150,6 +151,9 @@ export function HiringAccueilPage() {
         <BoutonExport hm={hm} />
       </div>
       {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
+
+      {/* Système du 2 nov., partie A : les contrats dont l'annonce ne dit pas le pays. */}
+      <AccueilAuto hmSeulement />
 
       <BarreChargement actif={donnees.isLoading} />
       {donnees.error && <p className="text-sm text-destructive">{String((donnees.error as Error).message)}</p>}

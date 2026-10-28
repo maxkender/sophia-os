@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o034",
+ "schema_id": "copie-habitudes",
+ "titre": "ce que ma première manager m'a appris sans jamais me le dire #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 3. Routine du 28/10 (5 livraisons + 6 variantes). Livraison normale. Schéma copie-habitudes (r 6,67 sur 6 passages, 63ffa170) : habitudes concrètes observées chez quelqu'un. Famille d'accroche jamais faite : « ce que X m'a appris sans me le dire ». Accroches écrites : celle-ci (retenue), « les leçons muettes de ma première manager » (écartée : plate), « j'ai mis 3 ans à comprendre ce que faisait ma première manager » (écartée : longue). Items neufs, aucune reprise de rh-o011, rh-o015, rh-o023, rh-o029 ni des sources. CTA de fin jamais utilisé : raconter sa meilleure manager. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "87897d25",
+   "texte_overlay": "ce que ma première manager\nm'a appris\nsans jamais me le dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "73cb4993",
+   "texte_overlay": "elle disait merci avec un détail\njamais « merci pour tout ».\n« merci pour le tableau, il m'a fait gagner une heure »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "743d8ec9",
+   "texte_overlay": "elle partageait un truc appris chaque lundi\nen début de réunion, 2 minutes, souvent sans rapport avec le boulot.\ntout le monde arrivait à l'heure pour l'écouter",
+   "texte_sophia": "elle partageait un truc appris chaque lundi\nperso, j'ai copié : 5 minutes par jour sur l'appli Sophia, et le lundi j'ai toujours une histoire à raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "744d2be4",
+   "texte_overlay": "elle fermait son ordi quand on lui parlait\nmême 2 minutes.\non se sentait vraiment écoutés",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "748df057",
+   "texte_overlay": "elle donnait les mauvaises nouvelles en premier\nvite, simplement, avec la suite prévue.\npersonne ne paniquait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "74be0b98",
+   "texte_overlay": "elle disait « on » quand ça marchait\net « je » quand ça ratait.\nl'équipe la suivait partout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7527e48d",
+   "texte_overlay": "et ta meilleure manager,\nelle faisait quoi ?\nraconte en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

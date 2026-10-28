@@ -720,6 +720,15 @@ async function paiePayer(supabase: Supabase, par: string | null, semaine: string
     await supabase.from("paie_semaines").update({ paye_at: new Date().toISOString(), paye_par: par }).eq("id", ligne.id).is("paye_at", null);
     await maj({ jalon_approuve: a.jalon_id, montant_approuve: a.montant });
 
+    // Kill (système du 2 nov., partie F) : payée, rien de financé, puis le contrat fermé.
+    if (plan.lien === "fermer") {
+      const fin = await fermerApresPaiement(supabase, par, semaine, ligne.poster_id, ligne.contrat_id, tenant);
+      etapes.push({ etape: "fermer", ...fin });
+      await maj({ statut: fin.ferme ? "paye" : "a_verifier", financement: "non", erreur: fin.ferme ? null : `payée ; ${fin.raison}` });
+      resultats.push({ ...resume(p), resultat: fin.ferme ? "paye" : "a_verifier", ...(fin.ferme ? {} : { raison: `payée ; ${fin.raison}` }) });
+      continue;
+    }
+
     // 3. Financer la semaine suivante (existante, sinon créée), puis relire son état.
     const f = plan.financer;
     if (!f) {
@@ -774,6 +783,68 @@ async function paiePayer(supabase: Supabase, par: string | null, semaine: string
     }
   }
   return { ok: true, lignes: resultats };
+}
+
+/** La raison de fin de contrat (réglage `arret_raison_upwork`, 107 par défaut). */
+async function raisonFin(supabase: Supabase): Promise<string> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "arret_raison_upwork").maybeSingle();
+  return typeof data?.valeur === "string" && data.valeur.trim() ? data.valeur.trim() : RAISON_FIN_DEFAUT;
+}
+
+/** Fermer un contrat par l'API (endContractByClient), un seul essai. */
+async function fermerContrat(
+  supabase: Supabase,
+  par: string | null,
+  contratId: string,
+  tenant: string | null,
+  raison: string,
+): Promise<{ ferme: boolean; raison: string | null }> {
+  const r = await ecrire(supabase, {
+    par,
+    action: "fermer_contrat",
+    query: MUTATION_FERMER_CONTRAT,
+    variables: { contractId: contratId, input: { reasonRef: raison } },
+    tenant,
+    contrat: contratId,
+  });
+  return r.data?.endContractByClient?.success === true
+    ? { ferme: true, raison: null }
+    : { ferme: false, raison: `fermeture : ${r.erreur ?? "non confirmée par Upwork"}` };
+}
+
+/**
+ * Le Kill payé (partie F) : on relit les milestones ; s'il ne reste rien de
+ * financé, le contrat est fermé, coché « Ended » dans Contracts to end, et
+ * l'étape « paie » de son arrêt complet passe faite. Sinon : à vérifier
+ * (une milestone financée reste à rembourser à la main).
+ */
+async function fermerApresPaiement(
+  supabase: Supabase,
+  par: string | null,
+  semaine: string,
+  posterId: string,
+  contratId: string,
+  tenant: string | null,
+): Promise<{ ferme: boolean; raison: string | null }> {
+  const relu = await lire(supabase, { par, action: "kill_relire_jalons", query: REQUETE_JALONS, variables: { id: contratId }, tenant });
+  if (relu.erreur || !relu.data?.contractDetails) return { ferme: false, raison: `milestones illisibles (${relu.erreur ?? "réponse vide"}) : contrat à fermer à la main` };
+  const jalons = lireJalonsContrat(relu.data.contractDetails);
+  const plan = planUpwork(jalons);
+  if (!plan.fermer) {
+    return { ferme: false, raison: plan.rembourser.length ? `encore financé : ${decrireJalons(plan.rembourser)} (à rembourser, puis fermer à la main)` : "aucune milestone lue : contrat à fermer à la main" };
+  }
+  const fin = await fermerContrat(supabase, par, contratId, tenant, await raisonFin(supabase));
+  if (!fin.ferme) return fin;
+  await supabase.from("contrats_fins").upsert({ poster_id: posterId, semaine, termine_par: par }, { onConflict: "poster_id,semaine", ignoreDuplicates: true });
+  const { data: arrets } = await supabase.from("arrets").select("id, etapes").eq("poster_id", posterId).order("created_at", { ascending: false }).limit(1);
+  const a = arrets?.[0];
+  if (a) {
+    const etapes = ((a.etapes ?? []) as EtapeArret[]).map((e) =>
+      e.action === "paie" && e.statut === "a_faire" ? etape("paie", "fait", "payée par l'API, contrat fermé") : e
+    );
+    await supabase.from("arrets").update({ etapes, maj_at: new Date().toISOString() }).eq("id", a.id);
+  }
+  return fin;
 }
 
 /** Payée à la main sur Upwork : verrou à 0 $, « déjà payée », case « Payé » cochée. */
@@ -1307,19 +1378,8 @@ async function arreterUn(
   } else if (!reel) {
     etapes.push(etape("fermeture", "simule", `endContractByClient, raison ${raison}`));
   } else {
-    const r = await ecrire(supabase, {
-      par,
-      action: "arret_fermer_contrat",
-      query: MUTATION_FERMER_CONTRAT,
-      variables: { contractId: p.contrat_id, input: { reasonRef: raison } },
-      tenant,
-      contrat: p.contrat_id,
-    });
-    etapes.push(
-      r.data?.endContractByClient?.success === true
-        ? etape("fermeture", "fait", "contrat fermé")
-        : etape("fermeture", "erreur", r.erreur ?? "fermeture non confirmée par Upwork"),
-    );
+    const fin = await fermerContrat(supabase, par, p.contrat_id, tenant, raison);
+    etapes.push(fin.ferme ? etape("fermeture", "fait", "contrat fermé") : etape("fermeture", "erreur", fin.raison));
   }
   etapes.push(slack);
   return etapes;

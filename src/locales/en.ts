@@ -3343,7 +3343,7 @@ export const en = {
         financer: "Fund {{nom}} (existing): {{montant}}",
         financerEditer: "Fund {{nom}} (existing, amount or name fixed): {{montant}}",
         financerCreer: "Create and fund {{nom}}: {{montant}}",
-        fermer: "Then end the contract on Upwork, by hand (Contracts to end)",
+        fermer: "Then the contract is closed through the API if nothing funded is left (ticked “Ended” in Contracts to end); otherwise, end it by hand",
         total: "{{n}} line(s) ready · {{total}} committed (daily cap {{plafond}})",
         confirmer: "Confirm ({{n}})",
         envoi: "Paying…",

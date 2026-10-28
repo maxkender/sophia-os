@@ -2955,16 +2955,21 @@ export const en = {
       navDesc: "One follow-up per step, sent by the OS: the log, the mode and the texts",
       titre: "Follow-ups",
       description:
-        "The OS checks every recruit each hour (login, TikTok account, warm-up started, warm-up done right) and every poster on Wednesday. A late step gets ONE message, never two. 48 h later, with no step done and no reply: automatic Kill (“Automatic Kill” switch), which can be cancelled for 12 h in Cohorts.",
+        "The OS checks every recruit each hour (login, TikTok account, warm-up started, warm-up done right), writes to every poster on Monday at 10 am and nudges on Thursday those missing posts or links. A late step gets ONE message, never two. 48 h later, with no step done and no reply: automatic Kill (“Automatic Kill” switch), which can be cancelled for 12 h in Cohorts.",
       hm: "HM: {{hm}}",
       types: {
         connexion: "1. Login",
         tiktok: "2. TikTok account",
         warmup_lance: "3. Warm-up started",
         warmup_bien_fait: "4. Warm-up done right",
+        lundi: "Monday",
+        lundi_tous: "Monday: to everyone",
+        lundi_cohorte: "Monday: plus, new cohort ready",
+        lundi_warmup: "Monday: plus, new cohort not ready ({ce_qui_manque})",
+        jeudi: "Thursday: missing posts or links",
         acces: "Access (old)",
         warmup: "Warm-up (old)",
-        mercredi: "Wednesday",
+        mercredi: "Wednesday (old)",
         warmup_pas_lance: "Warm-up not started",
         compte_introuvable: "Account not found on TikTok",
         reposts: "Reposts not done",
@@ -3001,7 +3006,7 @@ export const en = {
       },
       reglages: {
         titre: "Texts and delays",
-        aide: "In English. {prenom}, {date} (the cohort's Monday), {url} (the OS), {handle}, {lien_etapes} (the link below), {ce_qui_manque} (only what the warm-up is missing). Wednesday: {manque}, {slack}.",
+        aide: "In English. {prenom}, {date} (the cohort's Monday), {url} (the OS), {handle}, {lien_etapes} (the link below), {ce_qui_manque} (only what the warm-up is missing). Thursday: {faits}, {attendus}.",
         slack: "Slack invite link",
         lienEtapes: "“How to create the TikTok account” link (step 2)",
         delais: "Delays (hours)",
@@ -3060,9 +3065,13 @@ export const en = {
         titre: "Automatic onboarding",
         on: "Every hour: each new Upwork contract from a known job post creates its poster (like /embauche) and gets the welcome message in the contract's conversation. Unknown or generic job post: “Contracts to link”.",
       },
+      lundi_message_auto: {
+        titre: "Monday message",
+        on: "Every Monday at 10 am, local time, one message to each poster, once: the link rule (“No link = not paid”); plus, to the new cohort: “You start posting today” if ready, otherwise what their warm-up is missing. Slack if linked, otherwise Upwork.",
+      },
       relances_auto: {
-        titre: "Messages for the 4 steps",
-        on: "Every hour: a recruit late on a step (login, TikTok account, warm-up started, warm-up done right) gets ONE message, never two, on Slack if linked, otherwise on Upwork, between 10 am and 8 pm their country's time. On Wednesday: the message to posters with no post on Monday and Tuesday.",
+        titre: "Messages for the 4 steps and Thursday nudge",
+        on: "Every hour: a recruit late on a step (login, TikTok account, warm-up started, warm-up done right) gets ONE message, never two, on Slack if linked, otherwise on Upwork, between 10 am and 8 pm their country's time. On Thursday at noon: a nudge to posters missing posts or links since Monday; with no post published afterwards by Friday 8 pm, proposed for Kill on Saturday.",
       },
       arret_auto: {
         titre: "Full stop",

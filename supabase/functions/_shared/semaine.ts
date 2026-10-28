@@ -1,0 +1,98 @@
+/**
+ * Système du 2 nov., partie D : la semaine de posts. Rien ici ne touche la
+ * base ni le réseau.
+ *
+ *   lundi  10 h (heure du pays) : un message à chaque posteur, une fois.
+ *          À tous : la règle du lien. Nouvelle cohorte prête : « You start
+ *          posting today ». Nouvelle cohorte pas prête : ce qui manque.
+ *   jeudi  12 h (heure du pays) : posts ou liens manquants de lundi à
+ *          mercredi → un Nudge, une fois (remplace le mercredi).
+ * Les deux : entre 10 h et 20 h heure du pays, seulement le jour même.
+ */
+import { ajouterJours, partiesLocales } from "./relances.ts";
+import { type EtatAccueil, texteCeQuiManque } from "./etapes.ts";
+
+export interface TextesLundi {
+  tous: string;
+  cohorte: string;
+  warmup: string;
+}
+
+export interface PosteurSemaine {
+  poster_id: string;
+  prenom: string | null;
+  fuseau: string;
+  slack_user_id: string | null;
+  contrat_id: string | null;
+  cohorte_lundi: string | null;
+  /** Posts prévus de lundi à mercredi (comptes perso actifs). */
+  attendus_lun_mer: number;
+  /** Ceux marqués publiés avec leur lien. */
+  faits_lun_mer: number;
+  /** Prévus cette semaine (lundi à dimanche) : il poste cette semaine. */
+  prevus_semaine: number;
+  /** Les messages de la semaine déjà partis (nudges), par type. */
+  envoyes: string[];
+  /** Les messages de la semaine déjà prévus en test (relances_prevues), par type. */
+  prevus_test: string[];
+}
+
+/** Le jour local est-il `jour`, entre `heure` et `fin` (heure du pays) ? */
+export function dansCreneau(maintenant: Date, fuseau: string, jour: string, heure: number, fin: number): boolean {
+  const l = partiesLocales(maintenant, fuseau);
+  return l.date === jour && l.heure >= heure && l.heure < fin;
+}
+
+/** Le message du lundi est dû : lundi, 10 h-20 h heure du pays, pas encore parti. */
+export function lundiDu(p: PosteurSemaine, lundi: string, maintenant: Date, o: { debut: number; fin: number }): boolean {
+  if (p.envoyes.includes("lundi")) return false;
+  if (p.prevus_semaine === 0 && p.cohorte_lundi !== lundi) return false;
+  return dansCreneau(maintenant, p.fuseau, lundi, o.debut, o.fin);
+}
+
+/** Le Nudge du jeudi est dû : posts ou liens manquants de lundi à mercredi. */
+export function jeudiDu(p: PosteurSemaine, lundi: string, maintenant: Date, o: { heure: number; fin: number }): boolean {
+  if (p.envoyes.includes("jeudi")) return false;
+  if (p.attendus_lun_mer === 0 || p.faits_lun_mer >= p.attendus_lun_mer) return false;
+  return dansCreneau(maintenant, p.fuseau, ajouterJours(lundi, 3), o.heure, o.fin);
+}
+
+/**
+ * Ce qui manque encore à une recrue, en anglais : la 1re étape pas faite
+ * (connexion, compte TikTok, Start warmup, puis le warm-up lui-même).
+ * null : tout est fait.
+ */
+export function ceQuiManqueRecrue(etats: EtatAccueil[], o: { url: string; handle: string | null }): string | null {
+  const e = etats.find((x) => !x.fait);
+  if (!e) return null;
+  if (e.etape === "connexion") return `log in to your dashboard (${o.url})`;
+  if (e.etape === "tiktok") return `create your TikTok account${o.handle ? ` @${o.handle.replace(/^@/, "")}` : ""}`;
+  if (e.etape === "warmup_lance") return 'click "Start warmup" on your dashboard, then follow 5 accounts';
+  return texteCeQuiManque(e.manque, e.followsManquants);
+}
+
+const remplir = (modele: string, vars: Record<string, string>) =>
+  modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout)).trim();
+
+/**
+ * Le message du lundi : la règle à tous ; en plus, pour la nouvelle cohorte,
+ * « You start posting today » si elle est prête, sinon ce qui manque (jamais
+ * les deux : ils se contredisent).
+ */
+export function texteLundi(
+  t: TextesLundi,
+  o: { prenom: string | null; nouvelleCohorte: boolean; ceQuiManque: string | null },
+): string {
+  const vars = { prenom: (o.prenom ?? "").trim() || "there", ce_qui_manque: o.ceQuiManque ?? "" };
+  const morceaux = [remplir(t.tous, vars)];
+  if (o.nouvelleCohorte) morceaux.push(remplir(o.ceQuiManque ? t.warmup : t.cohorte, vars));
+  return morceaux.filter(Boolean).join("\n\n");
+}
+
+export function texteJeudi(modele: string, o: { prenom: string | null; faits: number; attendus: number }): string {
+  return remplir(modele, {
+    prenom: (o.prenom ?? "").trim() || "there",
+    faits: String(o.faits),
+    attendus: String(o.attendus),
+  });
+}

@@ -5,8 +5,25 @@ import { supabase } from "@/lib/supabase/client";
  * `recrues-check`. Cette page est le journal (lecture), le mode et les textes.
  * Système du 2 nov. (0402) : les 4 étapes de l'accueil, puis le mercredi.
  */
-export type EtapeRelance = "connexion" | "tiktok" | "warmup_lance" | "warmup_bien_fait" | "mercredi";
-export const ETAPES_RELANCE: readonly EtapeRelance[] = ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "mercredi"];
+export type EtapeRelance =
+  | "connexion"
+  | "tiktok"
+  | "warmup_lance"
+  | "warmup_bien_fait"
+  | "lundi_tous"
+  | "lundi_cohorte"
+  | "lundi_warmup"
+  | "jeudi";
+export const ETAPES_RELANCE: readonly EtapeRelance[] = [
+  "connexion",
+  "tiktok",
+  "warmup_lance",
+  "warmup_bien_fait",
+  "lundi_tous",
+  "lundi_cohorte",
+  "lundi_warmup",
+  "jeudi",
+];
 export type ModeRelances = "off" | "simulation" | "on";
 
 export interface NudgeEnvoye {
@@ -110,7 +127,11 @@ const CLES_TEXTES: Record<EtapeRelance, string> = {
   tiktok: "etape_texte_tiktok",
   warmup_lance: "etape_texte_warmup_lance",
   warmup_bien_fait: "etape_texte_warmup_bien_fait",
-  mercredi: "relance_texte_mercredi",
+  // Partie D (0404) : le lundi et le jeudi (le mercredi n'existe plus).
+  lundi_tous: "lundi_texte_tous",
+  lundi_cohorte: "lundi_texte_cohorte",
+  lundi_warmup: "lundi_texte_warmup",
+  jeudi: "jeudi_texte",
 };
 
 export async function lireReglagesRelances(): Promise<ReglagesRelances> {

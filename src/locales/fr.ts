@@ -2962,16 +2962,21 @@ export const fr = {
       navDesc: "Une relance par étape, envoyée par l'OS : le journal, le mode et les textes",
       titre: "Relances",
       description:
-        "L'OS vérifie chaque recrue toutes les heures (connexion, compte TikTok, warm-up lancé, warm-up bien fait) et tous les posteurs le mercredi. Étape en retard : UN message, jamais deux. 48 h après, ni étape faite ni réponse : Kill automatique (interrupteur « Kill automatique »), annulable 12 h dans Cohortes.",
+        "L'OS vérifie chaque recrue toutes les heures (connexion, compte TikTok, warm-up lancé, warm-up bien fait), écrit à tous les posteurs le lundi 10 h et relance le jeudi ceux à qui il manque des posts ou des liens. Étape en retard : UN message, jamais deux. 48 h après, ni étape faite ni réponse : Kill automatique (interrupteur « Kill automatique »), annulable 12 h dans Cohortes.",
       hm: "HM : {{hm}}",
       types: {
         connexion: "1. Connexion",
         tiktok: "2. Compte TikTok",
         warmup_lance: "3. Warm-up lancé",
         warmup_bien_fait: "4. Warm-up bien fait",
+        lundi: "Lundi",
+        lundi_tous: "Lundi : à tous",
+        lundi_cohorte: "Lundi : en plus, nouvelle cohorte prête",
+        lundi_warmup: "Lundi : en plus, nouvelle cohorte pas prête ({ce_qui_manque})",
+        jeudi: "Jeudi : posts ou liens manquants",
         acces: "Accès (ancien)",
         warmup: "Warm-up (ancien)",
-        mercredi: "Mercredi",
+        mercredi: "Mercredi (ancien)",
         warmup_pas_lance: "Warm-up pas lancé",
         compte_introuvable: "Compte introuvable sur TikTok",
         reposts: "Reposts pas faits",
@@ -3008,7 +3013,7 @@ export const fr = {
       },
       reglages: {
         titre: "Textes et délais",
-        aide: "En anglais. {prenom}, {date} (le lundi de la cohorte), {url} (l'OS), {handle}, {lien_etapes} (le lien ci-dessous), {ce_qui_manque} (seulement ce qui manque au warm-up). Mercredi : {manque}, {slack}.",
+        aide: "En anglais. {prenom}, {date} (le lundi de la cohorte), {url} (l'OS), {handle}, {lien_etapes} (le lien ci-dessous), {ce_qui_manque} (seulement ce qui manque au warm-up). Jeudi : {faits}, {attendus}.",
         slack: "Lien d'invitation Slack",
         lienEtapes: "Lien « comment créer le compte TikTok » (étape 2)",
         delais: "Délais (heures)",
@@ -3067,9 +3072,13 @@ export const fr = {
         titre: "Accueil automatique",
         on: "Toutes les heures : chaque nouveau contrat Upwork d'une annonce connue crée son posteur (comme /embauche) et reçoit le message de bienvenue dans la conversation du contrat. Annonce inconnue ou générique : « Contrats à relier ».",
       },
+      lundi_message_auto: {
+        titre: "Message du lundi",
+        on: "Chaque lundi à 10 h, heure du pays, un message à chaque posteur, une seule fois : la règle du lien (« No link = not paid ») ; en plus, à la nouvelle cohorte : « You start posting today » si elle est prête, sinon ce qui manque à son warm-up. Slack si relié, sinon Upwork.",
+      },
       relances_auto: {
-        titre: "Messages des 4 étapes",
-        on: "Toutes les heures : une recrue en retard sur une étape (connexion, compte TikTok, warm-up lancé, warm-up bien fait) reçoit UN message, jamais deux, sur Slack si relié, sinon sur Upwork, entre 10 h et 20 h heure de son pays. Le mercredi : le message aux posteurs sans post lundi et mardi.",
+        titre: "Messages des 4 étapes et Nudge du jeudi",
+        on: "Toutes les heures : une recrue en retard sur une étape (connexion, compte TikTok, warm-up lancé, warm-up bien fait) reçoit UN message, jamais deux, sur Slack si relié, sinon sur Upwork, entre 10 h et 20 h heure de son pays. Le jeudi à 12 h : un Nudge aux posteurs à qui il manque des posts ou des liens depuis lundi ; sans post publié ensuite vendredi 20 h, proposé en Kill samedi.",
       },
       arret_auto: {
         titre: "Arrêt complet",

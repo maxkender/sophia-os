@@ -7,8 +7,8 @@ export function etatNudge(n: Pick<NudgeEnvoye, "reponse_at" | "resolu_at">) {
   return "sans_reponse" as const;
 }
 
-/** Une étape des relances : les 4 du système du 2 nov. (0402), puis le mercredi. */
-export const ETAPES_STATS = ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "mercredi"] as const;
+/** Une étape des relances : les 4 du système du 2 nov. (0402), puis le lundi et le jeudi (0404). */
+export const ETAPES_STATS = ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "lundi", "jeudi"] as const;
 
 /** Les anciens noms (prompt 17) comptent pour l'étape qui les remplace. */
 const TYPES_STATS: Record<(typeof ETAPES_STATS)[number], readonly string[]> = {
@@ -16,7 +16,8 @@ const TYPES_STATS: Record<(typeof ETAPES_STATS)[number], readonly string[]> = {
   tiktok: ["tiktok"],
   warmup_lance: ["warmup_lance"],
   warmup_bien_fait: ["warmup_bien_fait", "warmup"],
-  mercredi: ["mercredi"],
+  lundi: ["lundi"],
+  jeudi: ["jeudi", "mercredi"],
 };
 
 /** L'étape de `recrues_rouges` (acces, tiktok, warmup, mercredi) de chaque ligne. */
@@ -25,7 +26,8 @@ const ROUGE_STATS: Record<(typeof ETAPES_STATS)[number], string | null> = {
   tiktok: "tiktok",
   warmup_lance: null,
   warmup_bien_fait: "warmup",
-  mercredi: "mercredi",
+  lundi: null,
+  jeudi: "mercredi",
 };
 
 export interface StatsEtape {

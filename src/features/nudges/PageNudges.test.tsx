@@ -14,7 +14,7 @@ const api = vi.hoisted(() => ({
   lireReglagesRelances: vi.fn(),
   enregistrerReglagesRelances: vi.fn(),
   lireRougesDepuis: vi.fn(async () => []),
-  ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "lundi_tous", "lundi_cohorte", "lundi_warmup", "jeudi"],
+  ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "lundi_tous", "lundi_cohorte", "lundi_warmup", "lundi_soir", "jeudi"],
   DELAIS_ETAPES: ["connexion_message_h", "tiktok_message_h", "warmup_lance_message_h", "warmup_bien_fait_heure", "kill_h", "kill_annulation_h"],
 }));
 vi.mock("./api", () => api);
@@ -35,7 +35,7 @@ function rendu() {
 const REGLAGES = {
   mode: "simulation",
   delais: { connexion_message_h: 24, tiktok_message_h: 48, warmup_lance_message_h: 24, warmup_bien_fait_heure: 12, kill_h: 48, kill_annulation_h: 12 },
-  textes: { connexion: "a", tiktok: "b", warmup_lance: "c", warmup_bien_fait: "e", lundi_tous: "f", lundi_cohorte: "g", lundi_warmup: "h", jeudi: "d" },
+  textes: { connexion: "a", tiktok: "b", warmup_lance: "c", warmup_bien_fait: "e", lundi_tous: "f", lundi_cohorte: "g", lundi_warmup: "h", lundi_soir: "i", jeudi: "d" },
   slack: "",
   lienEtapes: "https://guide",
 };

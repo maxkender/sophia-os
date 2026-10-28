@@ -13,6 +13,7 @@ export type EtapeRelance =
   | "lundi_tous"
   | "lundi_cohorte"
   | "lundi_warmup"
+  | "lundi_soir"
   | "jeudi";
 export const ETAPES_RELANCE: readonly EtapeRelance[] = [
   "connexion",
@@ -22,6 +23,7 @@ export const ETAPES_RELANCE: readonly EtapeRelance[] = [
   "lundi_tous",
   "lundi_cohorte",
   "lundi_warmup",
+  "lundi_soir",
   "jeudi",
 ];
 export type ModeRelances = "off" | "simulation" | "on";
@@ -131,6 +133,8 @@ const CLES_TEXTES: Record<EtapeRelance, string> = {
   lundi_tous: "lundi_texte_tous",
   lundi_cohorte: "lundi_texte_cohorte",
   lundi_warmup: "lundi_texte_warmup",
+  // Pipeline, partie 2 (0408) : le check du lundi soir, sur Upwork.
+  lundi_soir: "lundi_soir_texte",
   jeudi: "jeudi_texte",
 };
 

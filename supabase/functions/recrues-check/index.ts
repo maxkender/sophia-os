@@ -17,7 +17,19 @@ import {
   texteEtape,
 } from "../_shared/etapes.ts";
 import { lireModeAuto, type ModeAuto } from "../_shared/accueil.ts";
-import { ceQuiManqueRecrue, jeudiDu, lundiDu, type PosteurSemaine, texteJeudi, texteLundi } from "../_shared/semaine.ts";
+import {
+  ceQuiManqueRecrue,
+  jeudiDu,
+  killLundiSoir,
+  lundiDu,
+  lundiSoirDu,
+  type PosteurLundiSoir,
+  type PosteurSemaine,
+  reactionLundiSoir,
+  texteJeudi,
+  texteLundi,
+  texteLundiSoir,
+} from "../_shared/semaine.ts";
 import {
   BOUTONS,
   blocsBoutons,
@@ -105,6 +117,9 @@ async function reglages(supabase: Supabase) {
       "lundi_texte_warmup",
       "jeudi_texte",
       "semaine_heures",
+      "lundi_soir_auto",
+      "lundi_soir_texte",
+      "lundi_soir_heure",
     ]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -125,6 +140,9 @@ async function reglages(supabase: Supabase) {
     textesLundi: { tous: texte("lundi_texte_tous"), cohorte: texte("lundi_texte_cohorte"), warmup: texte("lundi_texte_warmup") },
     texteJeudi: texte("jeudi_texte"),
     heures: lireHeuresSemaine(v.semaine_heures),
+    lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
+    texteLundiSoir: texte("lundi_soir_texte"),
+    heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
   };
 }
 
@@ -234,6 +252,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
   // Partie D : le message du lundi et le Nudge du jeudi (semaine en cours, heure de Paris).
   await semaine(supabase, r, recrues, maintenant, bilan);
+  // Pipeline, partie 2 : le check du lundi soir (1er jour de posts).
+  await lundiSoir(supabase, r, maintenant, bilan);
 
   // Les inactifs : Nudge du jeudi envoyé, rien publié depuis vendredi 20 h (0404).
   const { error: errInactifs } = await supabase.rpc("inactifs_marquer");
@@ -427,7 +447,7 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
   if (r.kill !== "on") return;
   const { data, error } = await supabase
     .from("kills_auto")
-    .select("id, poster_id, etape, message_at")
+    .select("id, poster_id, compte_id, etape, message_at")
     .eq("statut", "en_attente")
     .lte("prevu_at", maintenant.toISOString());
   if (error) {
@@ -439,11 +459,18 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
     const brut = parPosteur.get(k.poster_id);
     const x = brut && maintenant >= debutCohorte(brut) ? { ...brut, videos: null } : brut;
     // Dernière vérification : une réaction depuis le Kill l'annule.
-    const e = x ? etatsAccueil(x, r.etapes).find((y) => y.etape === k.etape) : null;
-    const repondu = x ? reponduAt(x) : null;
-    const reaction = Boolean(e?.fait) || (repondu !== null && k.message_at !== null && repondu >= new Date(k.message_at));
+    let reaction: boolean;
+    let fait = false;
+    if (k.etape === "lundi_soir") {
+      reaction = k.message_at !== null && await reactionDepuis(supabase, k.poster_id, k.compte_id, k.message_at);
+    } else {
+      const e = x ? etatsAccueil(x, r.etapes).find((y) => y.etape === k.etape) : null;
+      const repondu = x ? reponduAt(x) : null;
+      fait = Boolean(e?.fait);
+      reaction = fait || (repondu !== null && k.message_at !== null && repondu >= new Date(k.message_at));
+    }
     if (reaction) {
-      await supabase.from("kills_auto").update({ statut: "annule", annule_at: new Date().toISOString(), raison: e?.fait ? "étape faite" : "réponse reçue" })
+      await supabase.from("kills_auto").update({ statut: "annule", annule_at: new Date().toISOString(), raison: fait ? "étape faite" : "réaction reçue" })
         .eq("id", k.id).eq("statut", "en_attente");
       bilan.killsAnnules++;
       continue;
@@ -454,6 +481,18 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
       .eq("id", k.id).eq("statut", "en_attente")
       .select("id");
     if (!pris?.length) continue;
+    // Un 2e compte (lundi soir) : seulement ce compte s'arrête, le 1er continue.
+    if (k.compte_id && await autreCompteActif(supabase, k.poster_id, k.compte_id)) {
+      const { error: errCompte } = await supabase.from("ckd_arrets").upsert(
+        { compte_id: k.compte_id, raison: "ne_pas_renouveler", prevu_at: new Date().toISOString() },
+        { onConflict: "compte_id" },
+      );
+      if (errCompte) {
+        await supabase.from("kills_auto").update({ statut: "erreur", raison: errCompte.message }).eq("id", k.id);
+        bilan.erreurs.push(`arrêt du compte ${k.compte_id} : ${errCompte.message}`);
+      } else bilan.killsPartis++;
+      continue;
+    }
     const { error: errArret } = await supabase.from("arrets").insert({ poster_id: k.poster_id, source: "kill_48h", kill_id: k.id });
     if (errArret && errArret.code !== "23505") {
       await supabase.from("kills_auto").update({ statut: "erreur", raison: errArret.message }).eq("id", k.id);
@@ -721,4 +760,114 @@ async function repondreUpwork(supabase: Supabase, posterId: string, texte: strin
   const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   if (!data?.upwork_contract_id) return "contrat Upwork non relié";
   return await envoyerUpwork(data.upwork_contract_id as string, texte);
+}
+
+// ---------------------------------------------------------------------------
+// Pipeline, partie 2 : le check du lundi soir
+// ---------------------------------------------------------------------------
+
+/** Un post publié (avec son lien) ou une réponse depuis `depuis`. */
+async function reactionDepuis(supabase: Supabase, posterId: string, compteId: string | null, depuis: string): Promise<boolean> {
+  const [{ data: rep }, posts] = await Promise.all([
+    supabase.from("posteur_reponses").select("id").eq("poster_id", posterId).gte("recu_at", depuis).limit(1),
+    compteId
+      ? supabase.from("passages").select("id").eq("compte_id", compteId).not("publie_url", "is", null).gte("publie_at", depuis).limit(1)
+      : Promise.resolve({ data: [] as unknown[] }),
+  ]);
+  return (rep ?? []).length > 0 || (posts.data ?? []).length > 0;
+}
+
+async function autreCompteActif(supabase: Supabase, posterId: string, compteId: string): Promise<boolean> {
+  const { data } = await supabase.from("comptes").select("id").eq("poster_id", posterId).eq("is_active", true).neq("id", compteId).limit(1);
+  return (data ?? []).length > 0;
+}
+
+/**
+ * Chaque lundi, 20 h heure du pays : la nouvelle cohorte et les 2es comptes
+ * qui démarrent, sans aucun post publié avec son lien ce jour-là → un seul
+ * message sur Upwork (`lundi_soir_auto`). 48 h après, ni post ni réponse →
+ * Kill (comme pendant l'accueil, `kill_auto`, 12 h pour annuler). Un 2e
+ * compte : seul ce compte s'arrête.
+ */
+async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan) {
+  if (r.lundiSoir === "off") return;
+  // Le lundi de cette semaine et celui de la semaine d'avant (le Kill tombe le mercredi).
+  const lundi = lundiParis(maintenant);
+  for (const l of [lundi, ajouterJoursIso(lundi, -7)]) {
+    const { data, error } = await supabase.rpc("lundi_soir_posteurs", { p_lundi: l });
+    if (error) {
+      bilan.erreurs.push(`lundi soir : ${error.message}`);
+      return;
+    }
+    const test = r.lundiSoir !== "on";
+    for (const p of (data ?? []) as PosteurLundiSoir[]) {
+      if (bilan.pauses?.has(p.poster_id)) continue;
+      const envoyeAt = p.message_at ? new Date(p.message_at) : test && p.prevu_at ? new Date(p.prevu_at) : null;
+      // Une réaction annule un Kill en attente.
+      if (p.kill_id && (p.kill_statut === "en_attente" || p.kill_statut === "simule") && envoyeAt && reactionLundiSoir(p, envoyeAt)) {
+        await supabase.from("kills_auto").update({ statut: "annule", annule_at: new Date().toISOString(), raison: "réaction reçue" })
+          .eq("id", p.kill_id).in("statut", ["en_attente", "simule"]);
+        bilan.killsAnnules++;
+        continue;
+      }
+      if (l === lundi && lundiSoirDu(p, l, maintenant, r.heureLundiSoir, test)) {
+        await envoyerLundiSoir(supabase, r, p, l, test, bilan);
+        continue;
+      }
+      if (r.kill !== "off" && (!p.kill_id || p.kill_statut === "simule") && killLundiSoir(p, envoyeAt, maintenant, r.etapes.kill_h)) {
+        const reel = r.kill === "on" && !test && Boolean(p.message_at) && !p.message_erreur;
+        if (p.kill_id && !reel) continue;
+        const { data: id, error: errK } = await supabase.rpc("kill_noter", {
+          p_poster: p.poster_id,
+          p_etape: "lundi_soir",
+          p_periode: l,
+          p_nudge: p.message_id,
+          p_message_at: envoyeAt!.toISOString(),
+          p_statut: reel ? "en_attente" : "simule",
+          p_annulation_h: r.etapes.kill_annulation_h,
+        });
+        if (errK) bilan.erreurs.push(`kill lundi soir ${p.poster_id} : ${errK.message}`);
+        else {
+          bilan.kills++;
+          if (id && p.compte_id) await supabase.from("kills_auto").update({ compte_id: p.compte_id }).eq("id", id);
+        }
+      }
+    }
+  }
+}
+
+/** Sur Upwork seulement (dans la conversation du contrat), une fois. */
+async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundiSoir, lundi: string, test: boolean, bilan: Bilan) {
+  const cle = { poster_id: p.poster_id, type: "lundi_soir", periode: lundi };
+  if (!p.contrat_id) {
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: new Date().toISOString() });
+    bilan.bloques++;
+    return;
+  }
+  const texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
+  if (test) {
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal: "upwork", texte, raison: "simulation", maj_at: new Date().toISOString() });
+    bilan.prevus++;
+    return;
+  }
+  const { data: ligne, error: errIns } = await supabase
+    .from("nudges")
+    .insert({ ...cle, compte_id: p.compte_id, cible: "recrues-check", canal: "upwork", texte })
+    .select("id")
+    .single();
+  if (errIns) {
+    if (errIns.code !== "23505") bilan.erreurs.push(`lundi soir ${p.poster_id} : ${errIns.message}`);
+    return;
+  }
+  const erreur = await envoyerUpwork(p.contrat_id, texte);
+  if (erreur) {
+    await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
+    bilan.erreurs.push(`lundi soir ${p.poster_id} : ${erreur}`);
+  } else bilan.envoyes++;
+}
+
+function ajouterJoursIso(jour: string, n: number): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
 }

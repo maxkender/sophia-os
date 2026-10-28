@@ -245,6 +245,24 @@ export function jalonAApprouver(contractDetails: any): JalonAApprouver {
   };
 }
 
+/**
+ * Prompt 14, point 3 : les ÉCRITURES de la paie (noms et types vérifiés dans
+ * le schéma lu à l'API le 28/10). Montants en centimes (« 1000 » = 10 $).
+ * Jamais de nouvel essai automatique.
+ * - approveMilestone(input: ApproveMilestoneInput! { id, paidAmount!,
+ *   paymentComment, underpaymentReason }) → Milestone ;
+ * - createMilestoneV2(input: CreateMilestoneInput! { contractId, description,
+ *   depositAmount }) → Milestone ;
+ * - editMilestone(input: EditMilestoneInput { id!, description, depositAmount }) ;
+ * - activateMilestone(input: ActivateMilestoneInput { id!, message }) : la doc
+ *   dit qu'hors compte « enterprise », Upwork ouvre un paiement (checkout) et
+ *   ne finance qu'après : l'état est relu, jamais supposé.
+ */
+export const MUTATION_APPROUVER = `mutation Approuver($input: ApproveMilestoneInput!) { approveMilestone(input: $input) { id state } }`;
+export const MUTATION_CREER_JALON = `mutation CreerJalon($input: CreateMilestoneInput!) { createMilestoneV2(input: $input) { id state } }`;
+export const MUTATION_EDITER_JALON = `mutation EditerJalon($input: EditMilestoneInput) { editMilestone(input: $input) { id state } }`;
+export const MUTATION_FINANCER_JALON = `mutation FinancerJalon($input: ActivateMilestoneInput) { activateMilestone(input: $input) { id state } }`;
+
 /** La conversation d'un contrat (contractRoom(contractId: ID!)), lecture seule. */
 export const REQUETE_SALON = `query Salon($id: ID!) { contractRoom(contractId: $id) { id roomName roomType } }`;
 

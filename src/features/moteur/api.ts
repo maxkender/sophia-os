@@ -1544,6 +1544,33 @@ export function emailPersoValide(email: string): boolean {
   return !e || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
 }
 
+/** Le lien du contrat : vide, ou un lien upwork.com (même contrôle que poster_maj_contact, 0400). */
+export function contratUpworkValide(url: string): boolean {
+  const u = url.trim();
+  return !u || /^https?:\/\/([a-z0-9-]+\.)*upwork\.com\//i.test(u);
+}
+
+/** Prompt 15, point 7 : à la création, le lien du contrat et l'email perso sont obligatoires et valides. */
+export function contactCreationComplet(c: { upwork_contrat_url: string; email_perso: string }): boolean {
+  return (
+    Boolean(c.upwork_contrat_url.trim()) &&
+    Boolean(c.email_perso.trim()) &&
+    contratUpworkValide(c.upwork_contrat_url) &&
+    emailPersoValide(c.email_perso)
+  );
+}
+
+/** Contact d'un poster par sa HM (ou l'admin, le Head of Ops) : poster_maj_contact (0400). */
+export async function majContactPosterHm(posterId: string, c: { upwork_url: string; upwork_contrat_url: string; email_perso: string }): Promise<void> {
+  const { error } = await supabase.rpc("poster_maj_contact", {
+    p_poster: posterId,
+    p_upwork_url: c.upwork_url,
+    p_contrat_url: c.upwork_contrat_url,
+    p_email_perso: c.email_perso,
+  });
+  if (error) throw error;
+}
+
 /** Enregistre les liens Upwork et l'email perso d'un poster (fiche admin). Vide = effacé. */
 export async function majContactPoster(userId: string, contact: Partial<ContactPoster>): Promise<void> {
   const patch: Partial<ContactPoster> = {};

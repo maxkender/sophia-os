@@ -22,20 +22,25 @@ import { SectionArchive } from "@/features/archive/SectionArchive";
 import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
 import {
   activerPoster,
+  contactCreationComplet,
   creerPoster,
   emailPersoValide,
+  contratUpworkValide,
   listerComptesAvecDormants,
   listerLanguesReference,
   listerPosters,
   majCompte,
+  majContactPosterHm,
   supprimerPoster,
 } from "@/features/moteur/api";
+import { MessageBienvenue } from "@/features/regles/MessageBienvenue";
 import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
 import { separerNomComplet } from "@/features/moteur/nomComplet";
 import {
   CONTACT_POSTER_VIDE,
+  valeursContactDe,
   type ValeursContactPoster,
 } from "@/features/moteur/contactPoster";
 import { langueInitiale } from "@/features/moteur/langues";
@@ -62,6 +67,67 @@ const MOT_DE_PASSE = "12345678";
  * identité (RLS `comptes_update_hiring`). La source et les ratios restent côté
  * admin. L'affichage se met à jour dès qu'on enregistre (invalidation ["posters"]).
  */
+/**
+ * Prompt 15, point 7 : le lien du contrat Upwork, le profil et l'email perso
+ * du posteur, modifiables par sa HM (poster_maj_contact, 0400).
+ */
+function ContactPosterHm({ poster }: { poster: PosterProfil }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const [edit, setEdit] = React.useState(false);
+  const [valeurs, setValeurs] = React.useState<ValeursContactPoster>(() => valeursContactDe(poster));
+  const enregistrer = useMutation({
+    mutationFn: () => majContactPosterHm(poster.id, valeurs),
+    onSuccess: () => {
+      setEdit(false);
+      void queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+  if (edit) {
+    return (
+      <div className="mt-2 space-y-2 rounded-md border p-3" data-testid={`contact-hm-${poster.id}`}>
+        <ChampsContactPoster valeurs={valeurs} onChange={setValeurs} idPrefixe={`hm-${poster.id}`} />
+        <div className="flex gap-2">
+          <Button
+            size="sm"
+            className="h-7"
+            disabled={enregistrer.isPending || !emailPersoValide(valeurs.email_perso) || !contratUpworkValide(valeurs.upwork_contrat_url)}
+            onClick={() => enregistrer.mutate()}
+          >
+            {t("common.save")}
+          </Button>
+          <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
+            {t("common.cancel")}
+          </Button>
+        </div>
+        {enregistrer.isError && <p className="text-xs text-destructive">{(enregistrer.error as Error).message}</p>}
+      </div>
+    );
+  }
+  const manque = !poster.upwork_contrat_url || !poster.email_perso;
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs">
+      {poster.upwork_contrat_url && (
+        <a href={poster.upwork_contrat_url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+          {t("posters.contact.lienContrat")}
+        </a>
+      )}
+      {poster.email_perso && <span className="select-all text-muted-foreground">{poster.email_perso}</span>}
+      {manque && <span className="font-medium text-destructive">{t("posters.contact.aCompleter")}</span>}
+      <button
+        type="button"
+        onClick={() => {
+          setValeurs(valeursContactDe(poster));
+          setEdit(true);
+        }}
+        className="text-muted-foreground underline underline-offset-2"
+      >
+        {t("posters.upworkModifier")}
+      </button>
+    </div>
+  );
+}
+
 function LignePoster({
   poster: p,
   createurs,
@@ -132,6 +198,7 @@ function LignePoster({
           </div>
           <p className="truncate text-xs text-muted-foreground">{p.email}</p>
           <BoutonDelierSlack posterId={p.id} nom={nomAffiche ?? ""} />
+          <ContactPosterHm poster={p} />
         </div>
         <div className="flex items-center gap-3">
           <span className="text-[11px] text-muted-foreground">
@@ -322,10 +389,10 @@ export function HiringPosterPage() {
   React.useEffect(() => {
     setPaysCompte("");
   }, [langue]);
-  const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   const [cree, setCree] = React.useState<{
     email: string;
+    prenom: string;
     persona: boolean;
     type: PremierCompte;
   } | null>(null);
@@ -358,7 +425,8 @@ export function HiringPosterPage() {
         contact,
         langue,
         type_compte: premierCompte,
-        posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
+        // Prompt 15, point 7 : toujours 2 posts par jour, plus de choix.
+        posts_par_jour: premierCompte === "perso" ? 2 : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
         ...(paysAEnvoyer(langue, paysCompte)
           ? { pays: paysAEnvoyer(langue, paysCompte)! }
@@ -368,13 +436,13 @@ export function HiringPosterPage() {
     onSuccess: (r) => {
       setCree({
         email: r.email,
+        prenom: separerNomComplet(nomComplet).prenom ?? "",
         persona: Boolean(r.compte?.persona),
         type: premierCompte,
       });
       setNomComplet("");
       setPaysCompte("");
       setContact(CONTACT_POSTER_VIDE);
-      setPostsParJour(2);
       setHandleTiktok("");
       choixApps.reinitialiser();
       queryClient.invalidateQueries({ queryKey: ["posters"] });
@@ -404,7 +472,8 @@ export function HiringPosterPage() {
               e.preventDefault();
               // Application du compte non choisie : le bloc le dit, rien ne part.
               if (!choixApps.verifier()) return;
-              if (!emailPersoValide(contact.email_perso)) return;
+              // Prompt 15, point 7 : contrat Upwork et email perso obligatoires.
+              if (!contactCreationComplet(contact)) return;
               setCree(null);
               creer.mutate();
             }}
@@ -420,7 +489,7 @@ export function HiringPosterPage() {
                 onChange={(e) => setNomComplet(e.target.value)}
               />
             </div>
-            <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
+            <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" obligatoires />
             <ChampsPremierCompte
               typeCompte={premierCompte}
               onType={setPremierCompte}
@@ -429,8 +498,6 @@ export function HiringPosterPage() {
               onLangue={setLangue}
               pays={paysCompte}
               onPays={setPaysCompte}
-              postsParJour={postsParJour}
-              onPostsParJour={setPostsParJour}
               handle={handleTiktok}
               onHandle={setHandleTiktok}
             />
@@ -444,6 +511,7 @@ export function HiringPosterPage() {
                 type="submit"
                 disabled={
                   creer.isPending ||
+                  !contactCreationComplet(contact) ||
                   !langue ||
                   (paysRequis(langue) && !paysCompte) ||
                   choixApps.bloque
@@ -497,6 +565,7 @@ export function HiringPosterPage() {
                   <p className="text-xs text-muted-foreground">{t("warmup.apresCreation")}</p>
                 </>
               )}
+              <MessageBienvenue prenom={cree.prenom} email={cree.email} password={MOT_DE_PASSE} />
             </div>
           )}
         </CardContent>

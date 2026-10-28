@@ -16,6 +16,7 @@
  *
  * Un échec ne bloque pas les autres actions ; chacune est journalisée.
  */
+import type { JalonUpwork } from "./paiement.ts";
 import { ETATS_FINANCES } from "./upwork.ts";
 
 export type ActionArret = "os" | "message" | "jalons" | "remboursement" | "fermeture" | "slack" | "paie";
@@ -28,48 +29,24 @@ export interface EtapeArret {
   at: string;
 }
 
-export interface JalonContrat {
-  id: string;
-  nom: string | null;
-  etat: string | null;
-  montant: number | null;
-}
-
-interface JalonLu {
-  id?: unknown;
-  description?: string | null;
-  state?: string | null;
-  depositAmount?: { displayValue?: unknown } | null;
-}
-
-/** Les milestones d'un contrat (REQUETE_JALONS), montants en dollars (displayValue). */
-export function lireJalons(contractDetails: unknown): JalonContrat[] {
-  const c = contractDetails as { terms?: { fixedPriceTerms?: { milestones?: JalonLu[] } } } | null;
-  const jalons = c?.terms?.fixedPriceTerms?.milestones ?? [];
-  return jalons.map((j) => {
-    const n = Number(j?.depositAmount?.displayValue);
-    return {
-      id: String(j?.id ?? ""),
-      nom: j?.description ?? null,
-      etat: j?.state ?? null,
-      montant: Number.isFinite(n) ? n : null,
-    };
-  }).filter((j) => j.id);
-}
-
 export interface PlanUpwork {
   /** Milestones à supprimer (pas financées). */
-  supprimer: JalonContrat[];
+  supprimer: JalonUpwork[];
   /** Milestones financées et pas payées : à rembourser à la main. */
-  rembourser: JalonContrat[];
+  rembourser: JalonUpwork[];
   /** Le contrat peut être fermé par l'API (plus rien de financé après suppression). */
   fermer: boolean;
 }
 
-export function planUpwork(jalons: JalonContrat[]): PlanUpwork {
+/**
+ * Les milestones lues par `lireJalonsContrat` (paiement.ts). Aucune milestone
+ * lue : jamais de fermeture (un contrat a toujours au moins sa 1re semaine ;
+ * une liste vide veut dire une lecture ratée).
+ */
+export function planUpwork(jalons: JalonUpwork[]): PlanUpwork {
   const supprimer = jalons.filter((j) => j.etat === "NotFunded");
-  const rembourser = jalons.filter((j) => ETATS_FINANCES.includes(j.etat ?? ""));
-  return { supprimer, rembourser, fermer: rembourser.length === 0 };
+  const rembourser = jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
+  return { supprimer, rembourser, fermer: jalons.length > 0 && rembourser.length === 0 };
 }
 
 export const MESSAGE_FIN_DEFAUT = "Your contract has ended. Thank you for your time.";
@@ -90,6 +67,6 @@ export function statutArret(etapes: EtapeArret[]): "fait" | "erreur" {
 }
 
 /** « Week 45 ($30) » : pour le journal et la liste de paie. */
-export function decrireJalons(jalons: JalonContrat[]): string {
-  return jalons.map((j) => `${j.nom ?? j.id}${j.montant !== null ? ` ($${j.montant})` : ""}`).join(", ");
+export function decrireJalons(jalons: JalonUpwork[]): string {
+  return jalons.map((j) => `${j.nom || j.id}${j.depot !== null ? ` ($${j.depot})` : ""}`).join(", ");
 }

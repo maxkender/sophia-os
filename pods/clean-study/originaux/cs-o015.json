@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o015",
+  "schema_id": "best-student",
+  "titre": "how to be the BEST student in your class #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
+  ],
+  "notes": "Schéma du label activé le 28/10 : best-student, r 2,15 sur 4 passages (602efb01, @renaraise). Accroches écrites : « how to be the BEST student in your class (not just good grades) » (retenue : la forme du gagnant chez nous, avec sa nuance), « how to become annoyingly good at school » (écartée : seconde accroche de la même source, pas mesurée), « habits of the student who ALWAYS knows the answer » (écartée : plus faible). Six habitudes neuves, aucune reprise de la source (répondre dans sa tête, le pattern du prof, la note « ??? », la régularité) : lire la leçon suivante en 5 minutes, refaire les erreurs du contrôle rendu, se tester sur les cours anciens (place micabo, slide 5), une question précise après le cours, le téléphone éteint en classe (place UnSwipe, slide 7), la liste des devoirs. Images sans visage ; slides 5 et 7 sans personne. Écartées à l'aperçu : e98d8f17 (étiquette imprimée sur le cahier), c0a28fd7 (marque de cahier lisible).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "bf861f54",
+      "texte_overlay": "how to be the BEST student\nin your class\nnot just good grades.\nthe one who's ALWAYS ready",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e0ee812c",
+      "texte_overlay": "skim tomorrow's lesson for 5 minutes tonight.\nin class, you're not discovering it, you're recognizing it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c50c301f",
+      "texte_overlay": "when you get a test back, redo every mistake.\nnot just read the correction. REDO it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d643a14c",
+      "texte_overlay": "after class, ask one precise question.\n\"why does this step work?\" beats \"i didn't get it\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c448cc40",
+      "texte_overlay": "quiz yourself on OLD chapters, not just this week's.\nthe final exam doesn't care what's recent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ce610782",
+      "texte_overlay": "one list with every homework and its due date.\nthe best student never says \"wait, that was today?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cb5d0819",
+      "texte_overlay": "phone off in class. not silent. OFF.\nyou can't catch the important part while checking a notification.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

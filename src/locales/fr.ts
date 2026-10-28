@@ -2810,7 +2810,7 @@ export const fr = {
       reporterConfirmProchain:
         "Reporter {{nom}} à la cohorte de lundi prochain ? Ses posts pas encore publiés sont retirés. Les étapes déjà relancées ne le seront pas une 2e fois.",
       arreterConfirm:
-        "Arrêter {{nom}} ? Le posteur et ses comptes sont désactivés, et la liste de paie de lundi aura la ligne « End the contract ».",
+        "Arrêter {{nom}} ? Le posteur et ses comptes sont désactivés. Lundi, la liste de paie aura sa ligne : « Ask for a refund (Week NN, $X) · End the contract » s'il n'a jamais posté, sinon « End the contract ».",
       aucune: "Aucune recrue.",
       parHm: {
         titre: "Par HM",

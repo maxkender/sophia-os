@@ -62,6 +62,12 @@ export interface LigneListePaie {
   suivante_raison: string | null;
   /** Vik Studios / compte perso / Micabo : vide tant que les contrats ne sont pas reliés (prompt 14). */
   upwork_compte: string | null;
+  /**
+   * Arrêtée depuis Cohorts sans avoir jamais posté (0395) : la milestone de sa
+   * 1re semaine, financée à l'embauche, à rembourser (lundi de sa cohorte, montant).
+   */
+  remboursement_semaine?: string | null;
+  remboursement_montant?: number | null;
 }
 
 const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
@@ -86,6 +92,8 @@ export async function lireListePaie(lundi: string, simulation = false): Promise<
     bonus: Number(l.bonus ?? 0),
     premiere_semaine: Boolean(l.premiere_semaine),
     suivante_montant: num(l.suivante_montant),
+    remboursement_semaine: l.remboursement_semaine ?? null,
+    remboursement_montant: num(l.remboursement_montant),
     detail_comptes: (l.detail_comptes ?? []).map((c) => ({ ...c, retenue: Number(c.retenue), montant: Number(c.montant) })),
   }));
 }

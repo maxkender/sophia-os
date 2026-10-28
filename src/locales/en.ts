@@ -2803,7 +2803,7 @@ export const en = {
       reporterConfirmProchain:
         "Postpone {{nom}} to next Monday's cohort? Their unpublished posts are removed. Steps already followed up won't be followed up again.",
       arreterConfirm:
-        "Stop {{nom}}? The poster and their accounts are deactivated, and Monday's payroll list will have the \"End the contract\" line.",
+        "Stop {{nom}}? The poster and their accounts are deactivated. Monday's payroll list will have their line: \"Ask for a refund (Week NN, $X) · End the contract\" if they never posted, otherwise \"End the contract\".",
       aucune: "No recruits.",
       parHm: {
         titre: "By HM",

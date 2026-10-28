@@ -221,3 +221,35 @@ describe("la retenue (0393, à partir de la semaine du 2 nov.)", () => {
     expect(sql).toContain("'manques_toleres', coalesce((v->>'manques_toleres')::int, 1)");
   });
 });
+
+describe("Stop sur Cohorts d'une recrue qui n'a jamais posté (0395, F2)", () => {
+  it("« Ask for a refund (Week NN, $X) · End the contract », aucune case à cocher", () => {
+    const l = ligne({
+      action: "annuler",
+      nb_comptes: 0,
+      prevus: 0,
+      faits: 0,
+      montant: 0,
+      suivante_action: "ne_pas_financer",
+      remboursement_semaine: "2026-11-02",
+      remboursement_montant: 15,
+    });
+    expect(consigne(l, "2026-10-26")).toBe("Ask for a refund (Week 45, $15) · End the contract");
+    expect(besoinPaye(l)).toBe(false);
+    expect(besoinSuivante(l)).toBe(false);
+    expect(resteAFaire(l)).toBe(true);
+  });
+
+  it("une annulation ordinaire (0380) garde sa consigne", () => {
+    expect(consigne(ligne({ action: "annuler", faits: 0, montant: 0 }), "2026-10-26")).toBe(
+      "Don't approve Week 44 · Ask for a refund · Don't fund",
+    );
+  });
+
+  it("la base : annuler si jamais posté, kill sinon, et la milestone de sa cohorte", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0395_stop_remboursement.sql"), "utf8");
+    expect(sql).toContain("when c.poster_id in (select a.poster_id from arretes a where a.jamais_poste) then 'annuler'");
+    expect(sql).toContain("case when a.jamais_poste then 'annuler' else 'kill' end");
+    expect(sql).toContain("select a.poster_id, pr.cohorte_lundi as semaine,");
+  });
+});

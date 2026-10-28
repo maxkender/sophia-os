@@ -230,7 +230,7 @@ export const en = {
       reviews: "Feedback to creators (pop-up on their login)",
       retoursContestes: "Feedback creators say is wrong: check it and answer them",
       fileReviews: "TikToks published today, to compare and review",
-      bancRelecture: "The review agent on real posts, sending nothing: judge its points",
+      bancRelecture: "The review agent on real posts: judge its points, and set the automatic sending of feedback to creators",
       tests: "Test a TikTok or the full chain",
       embauche: "Create posters, the AI does the rest",
       referral: "New creator proposals",
@@ -705,6 +705,7 @@ export const en = {
       verdict: "Your decision",
       reponse: "Answer to the creator (optional)",
       reponsePlaceholder: "E.g. you’re right, the original was assigned by mistake. Thanks!",
+      confirmReponse: "The creator will get this answer:\n\n{{texte}}\n\nSend?",
       fondee: "The creator is right",
       nonFondee: "The feedback was correct",
       decide: "{{verdict}}, on {{date}}",
@@ -1031,6 +1032,7 @@ export const en = {
       passer: "Skip",
       envoyer: "Send",
       envoi: "Sending…",
+      confirmEnvoi: "The creator will get this text:\n\n{{texte}}\n\nSend?",
       hier: "Yesterday",
       aujourdhui: "Today",
       videAideJour: "Every TikTok published that day has been reviewed or skipped.",
@@ -1135,6 +1137,7 @@ export const en = {
       envoiAuto: "Automatic sending of feedback",
       envoiAutoActif: "Automatic sending on",
       envoiAutoInactif: "Automatic sending off (drafts only)",
+      envoiAutoConfirm: "Turn on automatic sending? Every night, the agent will itself send a feedback to each reviewed creator: {{n}} creator(s) last night.",
       envoiAutoAide:
         "At night, once the review run is done: one feedback per creator (their post with the most important defect), never on a post already reviewed or skipped in the queue.",
       pasDeMessageMarche: "No message: the post is doing well ({{vues}} views), so we don't correct it.",
@@ -1340,6 +1343,7 @@ export const en = {
         derniers: "Views of the last 6 posts",
         medianePays: "Country median",
         nouveauCompte: "New account",
+        confirmNouveau: "Stop @{{handle}} and create a new account?",
         creationEnCours: "Creating…",
         nouveauCree: "New account created: the old one is stopped and moved to the Archive.",
         ignorer: "Ignore for 7 days",
@@ -1971,6 +1975,18 @@ export const en = {
         "Auto processes paused — the midnight cron is not running. Re-run stays manual (ELO → assignment) and does not re-enable auto.",
       pauseOn: "Paused (manual only)",
       pauseOff: "Auto on",
+      confirm: {
+        relancer:
+          "Re-run for {{date}}?\n\n1) ELO: Apify scrape of the last 4 days of posts of every account (Apify credit).\n2) Assignment of the day for {{comptes}} account(s) (Gemini credit for translations).",
+        rattrapage:
+          "ELO catch-up over the last {{jours}} days, up to {{date}}?\n\nCost: Apify scrape of that period's posts, for every account (Apify credit).",
+        reassigner:
+          "Reassign {{count}} incomplete account(s) for {{date}}?\n\nCost: Gemini credit (translation of the reassigned posts).",
+        pauseOn:
+          "Pause the midnight processes from tonight ({{date}})?\n\nNo cost. No post is assigned automatically while paused.",
+        pauseOff:
+          "Turn the midnight processes back on from tonight ({{date}})?\n\nCost every night: Apify scrape (ELO) and assignment of every account (Gemini credit).",
+      },
       vnextInactifBanner:
         "v-next runtime is off (Settings) — the midnight cron fires, but assignment is skipped. Turn on “Enable v-next runtime” so midnight runs without you.",
       eloCronInfo:
@@ -2221,6 +2237,12 @@ export const en = {
       activate: "Activate",
       deactivate: "Deactivate",
       extraire: "Extract",
+      confirmExtraire:
+        "Extract @{{handle}} now ({{date}})?\n\nCost: Apify scrape of its TikToks (Apify credit), then analysis and translation of each new content (Gemini credit).",
+      confirmUpdate:
+        "Update @{{handle}} now ({{date}}): only the TikToks posted since the last import?\n\nCost: Apify scrape (Apify credit) and analysis of the new contents (Gemini credit).",
+      confirmMaj:
+        "Update {{count}} source(s) now ({{date}})?\n\nCost: one Apify scrape per source (Apify credit), then analysis of the new contents (Gemini credit).",
       extraireAide:
         "Lists slideshows, then runs 1 scrape + pipeline agent per TikTok in parallel (relevance, ELO, cleaning, translation). Full logs. Without blocking the page — several accounts can also run in parallel.",
       update: "Update",
@@ -2832,6 +2854,10 @@ export const en = {
       peutEtre: "Maybe:",
       chercher: "Search a Slack member (name, handle) or paste their ID",
       relierId: "Link ID {{id}}",
+      confirmRelier: "Link {{nom}} to {{slack}}?",
+      delier: "Unlink Slack",
+      confirmDelier: "Unlink {{nom}} from their Slack account ({{slack}})? OS messages won't reach them on Slack any more.",
+      relieA: "Slack: {{slack}}",
       aucun: "No free Slack member matches.",
       vide: "All active posters are linked to Slack.",
     },
@@ -2908,6 +2934,8 @@ export const en = {
         seuil: "Posts done per account for a full week (out of 14)",
         retenue: "Deduction per missed post ($)",
         parrainage: "Referral bonus active",
+        bonusPremiere: "1st posting week bonus ($)",
+        lectureSeule: "Read only: these settings can be changed by the admin.",
         enregistrer: "Save",
         enregistre: "Saved",
       },
@@ -3526,7 +3554,13 @@ export const en = {
       upscaleDebut: "Upscaling ({{modele}}) {{count}} non-upscaled photo(s)…",
       upscaleFin: "Done — ok={{ok}} · already done={{sautes}} · failed={{echecs}}",
       upscaleConfirm:
-        "Run {{modele}} upscale on {{count}} photo(s)?",
+        "Run {{modele}} upscale on {{count}} photo(s) now ({{date}})?\n\nCost: Fal, about $0.001 per megapixel (SeedVR2).",
+      confirmNettoyerTout:
+        "Clean {{count}} text visual(s) now ({{date}})?\n\nCost: one Gemini call per visual (Gemini credit).",
+      confirmC2pa:
+        "Strip Content Credentials from {{count}} photo(s) now ({{date}})?\n\nNo external credit: processed on our servers.",
+      confirmRattraper:
+        "Backfill captions of already imported photos now ({{date}})?\n\nCost: vision AI (Florence-2 then Moondream) on each photo without a caption; it keeps going server-side.",
       captionHook: "Hook",
       captionAucune: "No caption recognized",
       captionEnCours: "Captioning…",
@@ -4646,6 +4680,8 @@ export const en = {
       subtitle:
         "Real performance from each account's TikTok profile. Also updates after an “ELO refresh” (Midnight assignment).",
       rafraichir: "Refresh stats",
+      confirmRafraichir:
+        "Refresh the stats now ({{date}})?\n\nCost: one billed Apify run, the last 30 posts of each of the {{n}} accounts (Apify credit).",
       rafraichirEnCours: "Scraping accounts…",
       rafraichiOk: "{{count}} readings updated from TikTok.",
       vues: "Views",
@@ -4722,6 +4758,7 @@ export const en = {
       nePasRenouveler: "Do not renew",
       nePasRenouvelerAide: "Adds the account to the non-renewal list (nothing is cut off).",
       retirerNonRenouv: "Remove from list",
+      retirerKill: "Stopped by a Kill: to undo it, go through Check, Kill or Double.",
       hmDemande: "I asked the HM not to renew this account",
       hmDemandeFait: "HM asked on {{date}}",
       ajouteLe: "Added on {{date}}",

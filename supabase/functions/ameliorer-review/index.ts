@@ -25,7 +25,8 @@ Draft:
 `;
 
 Deno.serve(async (request) => {
-  const acces = await assertRole(request, ["admin"]);
+  // Le Head of Ops envoie aussi des retours (Today's queue, Disputed feedback).
+  const acces = await assertRole(request, ["admin", "head_of_ops"]);
   if (acces instanceof Response) return acces;
 
   try {

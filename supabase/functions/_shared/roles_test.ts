@@ -6,7 +6,7 @@
  */
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { estRoleManager, rattachementNouvelHm, roleACreer } from "./roles.ts";
+import { estRoleManager, rattachementNouvelHm, refuseAuHm, roleACreer } from "./roles.ts";
 
 Deno.test("estRoleManager couvre les trois rôles de l'espace recrutement", () => {
   for (const r of ["hiring_manager", "directing_manager", "head_of_ops"]) {
@@ -68,4 +68,18 @@ Deno.test("le cron ne rattache à personne", () => {
   for (const r of ["admin", "hiring_manager", "directing_manager", "head_of_ops"]) {
     assertEquals(rattachementNouvelHm(r, "cron", "dm-9"), undefined, r);
   }
+});
+
+Deno.test("refuseAuHm : une HM ne peut plus ajouter un compte, (dés)activer, créer une HM", () => {
+  for (const action of ["ajouter_compte", "ajouter_compte_perso", "activer"]) {
+    assertEquals(refuseAuHm("hiring_manager", action), true);
+    assertEquals(refuseAuHm("admin", action), false);
+    assertEquals(refuseAuHm("head_of_ops", action), false);
+  }
+  assertEquals(refuseAuHm("hiring_manager", "create", "hiring_manager"), true);
+  // Créer un poster reste permis à la HM.
+  assertEquals(refuseAuHm("hiring_manager", "create", "poster"), false);
+  assertEquals(refuseAuHm("hiring_manager", "create"), false);
+  assertEquals(refuseAuHm("hiring_manager", "renommer"), false);
+  assertEquals(refuseAuHm("head_of_ops", "create", "hiring_manager"), false);
 });

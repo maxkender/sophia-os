@@ -119,6 +119,7 @@ import type {
   PosterProfil,
 } from "@/features/moteur/types";
 import { localeDate } from "@/locales/localeDate";
+import { BoutonDelierSlack } from "@/features/slack/BoutonDelierSlack";
 
 // Carte des zones : d3-geo et le fond de carte dans un morceau à part.
 const CarteZones = React.lazy(() => import("@/features/hiring/CarteZones"));
@@ -2408,6 +2409,7 @@ export function AdminPostersPage() {
               <div className="flex flex-wrap items-center gap-2">
                 {!fiche.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
               </div>
+              <BoutonDelierSlack posterId={fiche.id} nom={nomAffiche(fiche)} />
 
               <p className="flex flex-wrap items-center gap-x-1.5 text-xs text-muted-foreground">
                 <span>{t("posters.recruteur")} :</span>

@@ -26,11 +26,14 @@ export function SectionArchive({
   lignes,
   titre,
   onOuvrir,
+  peutReactiver = true,
 }: {
   lignes: LigneArchive[];
   /** Par défaut « Archive » ; la page Posters y met le nom de la HM. */
   titre?: string;
   onOuvrir?: (posteurId: string) => void;
+  /** Faux pour une HM (prompt 15, point 1) : Reactivate reste à l'admin et au Head of Ops. */
+  peutReactiver?: boolean;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -81,7 +84,7 @@ export function SectionArchive({
                 <span>
                   {drapeauPays(c.pays)} {c.handle ? `@${c.handle}` : t("archive.sansHandle")}
                 </span>
-                {(!c.actif || l.desactive) && (
+                {peutReactiver && (!c.actif || l.desactive) && (
                   <Button
                     type="button"
                     size="sm"

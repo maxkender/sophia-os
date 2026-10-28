@@ -80,7 +80,13 @@ function LigneShadowban({ s, personnes }: { s: ShadowbanCkd; personnes: Map<stri
         {s.nouveau_compte_id ? (
           <span className="text-sm text-success-foreground">{t("ckd.shadowban.nouveauCree")}</span>
         ) : (
-          <Button size="sm" disabled={enCours || recreer.isPending} onClick={() => recreer.mutate()}>
+          <Button
+            size="sm"
+            disabled={enCours || recreer.isPending}
+            onClick={() => {
+              if (window.confirm(t("ckd.shadowban.confirmNouveau", { handle: s.handle ?? "" }))) recreer.mutate();
+            }}
+          >
             <Repeat />
             {enCours || recreer.isPending ? t("ckd.shadowban.creationEnCours") : t("ckd.shadowban.nouveauCompte")}
           </Button>

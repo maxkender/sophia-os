@@ -42,6 +42,7 @@ import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
+import { BoutonDelierSlack } from "@/features/slack/BoutonDelierSlack";
 import { ChoixApplicationsCreation } from "@/features/moteur/repartition/ChoixApplicationsCreation";
 import {
   cleErreurChoixCompte,
@@ -130,6 +131,7 @@ function LignePoster({
             {!p.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
           </div>
           <p className="truncate text-xs text-muted-foreground">{p.email}</p>
+          <BoutonDelierSlack posterId={p.id} nom={nomAffiche ?? ""} />
         </div>
         <div className="flex items-center gap-3">
           <span className="text-[11px] text-muted-foreground">
@@ -267,12 +269,15 @@ function LignePoster({
         </ul>
       )}
 
-      {/* Choix de l'application du compte du créateur, comme à la création. */}
-      <FormulaireAjouterCompte
-        posterId={p.id}
-        languesProposees={langues.data ?? []}
-        choixApplications={peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video}
-      />
+      {/* Choix de l'application du compte du créateur, comme à la création.
+          Retiré aux HMs (prompt 15, point 1) : l'admin et le Head of Ops ajoutent les comptes. */}
+      {role !== "hiring_manager" && (
+        <FormulaireAjouterCompte
+          posterId={p.id}
+          languesProposees={langues.data ?? []}
+          choixApplications={peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video}
+        />
+      )}
     </div>
   );
 }
@@ -378,7 +383,8 @@ export function HiringPosterPage() {
 
   // Le DM a sa propre page « Suivi des HM » où la même carte vit à côté de son
   // équipe : l'afficher ici aussi lui donnerait deux formulaires identiques.
-  const montrerCreerRecruteur = role === "hiring_manager" || role === "head_of_ops";
+  // Créer un hiring manager : plus pour les HMs (prompt 15, point 1).
+  const montrerCreerRecruteur = role === "head_of_ops";
 
   return (
     <div className="space-y-6">
@@ -507,7 +513,7 @@ export function HiringPosterPage() {
           {createursActifs.map((p) => (
             <LignePoster key={p.id} poster={p} createurs={createurs} />
           ))}
-          <SectionArchive lignes={lignesArchive} />
+          <SectionArchive lignes={lignesArchive} peutReactiver={role !== "hiring_manager"} />
         </CardContent>
       </Card>
     </div>

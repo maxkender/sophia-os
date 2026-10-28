@@ -75,9 +75,15 @@ describe("MajSourcesPanel", () => {
     expect((go as HTMLButtonElement).disabled).toBe(true);
 
     fireEvent.click(screen.getByRole("checkbox", { name: "@moyenne" }));
+    // Prompt 15, point 1 : refusée, la confirmation ne lance rien.
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValue(true);
+    fireEvent.click(screen.getByRole("button", { name: "Mettre à jour 1 source" }));
+    expect(confirmer.mock.calls[0]![0]).toMatch(/Apify/);
+    expect(demarrerMajSourcesServeur).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole("button", { name: "Mettre à jour 1 source" }));
     await waitFor(() => expect(demarrerMajSourcesServeur).toHaveBeenCalledTimes(1));
     expect(demarrerMajSourcesServeur.mock.calls[0][0]).toEqual([{ id: "moyenne", handle: "moyenne", langue: "es" }]);
+    confirmer.mockRestore();
   });
 
   it("« Plus de 7 jours » ne coche que les anciennes", async () => {

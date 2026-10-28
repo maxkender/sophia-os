@@ -107,11 +107,16 @@ export interface ReglagesPaie {
   retenue_par_post: number;
 }
 
-export async function lireReglagesPaie(): Promise<{ paie: ReglagesPaie; parrainageActif: boolean }> {
+export async function lireReglagesPaie(): Promise<{
+  paie: ReglagesPaie;
+  parrainageActif: boolean;
+  /** 1re semaine de posts : tarif + ce bonus (0388). */
+  bonusPremiereSemaine: number;
+}> {
   const { data, error } = await supabase
     .from("reglages")
     .select("cle, valeur")
-    .in("cle", ["paie", "bonus_parrainage_actif"]);
+    .in("cle", ["paie", "bonus_parrainage_actif", "paie_bonus_premiere_semaine"]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   const paie = (v.paie ?? {}) as Partial<ReglagesPaie>;
@@ -121,15 +126,21 @@ export async function lireReglagesPaie(): Promise<{ paie: ReglagesPaie; parraina
       retenue_par_post: Number(paie.retenue_par_post ?? 1),
     },
     parrainageActif: v.bonus_parrainage_actif === true,
+    bonusPremiereSemaine: Number(v.paie_bonus_premiere_semaine ?? 1),
   };
 }
 
-export async function enregistrerReglagesPaie(paie: ReglagesPaie, parrainageActif: boolean): Promise<void> {
+export async function enregistrerReglagesPaie(
+  paie: ReglagesPaie,
+  parrainageActif: boolean,
+  bonusPremiereSemaine: number,
+): Promise<void> {
   const { data: auth } = await supabase.auth.getUser();
   const par = { updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() };
   const { error } = await supabase.from("reglages").upsert([
     { cle: "paie", valeur: paie, ...par },
     { cle: "bonus_parrainage_actif", valeur: parrainageActif, ...par },
+    { cle: "paie_bonus_premiere_semaine", valeur: bonusPremiereSemaine, ...par },
   ]);
   if (error) throw error;
 }

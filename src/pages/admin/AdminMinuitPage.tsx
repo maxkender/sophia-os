@@ -345,10 +345,21 @@ function Tuile({
 }
 
 export function AdminMinuitPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   // Jour Paris (comme Edge assignation / ELO) — pas le fuseau navigateur.
   const [date, setDate] = React.useState(aujourdhuiParis());
+  // Prompt 15, point 1 : chaque bouton qui lance un traitement payant (ou la
+  // pause) demande confirmation, avec la date et le coût.
+  const dateLongue = (d: string) =>
+    new Date(`${d}T12:00:00Z`).toLocaleDateString(localeDate(i18n.language), {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      timeZone: "UTC",
+    });
+  const confirmer = (cle: string, vars: Record<string, unknown> = {}) =>
+    window.confirm(t(`minuit.confirm.${cle}`, { date: dateLongue(date), ...vars }));
 
   const suivi = useQuery({
     queryKey: ["suivi-minuit", date],
@@ -605,7 +616,12 @@ export function AdminMinuitPage() {
                 className="size-4 accent-primary"
                 checked={autoEnPause}
                 disabled={basculerPause.isPending || reglages.isPending}
-                onChange={(e) => basculerPause.mutate(e.target.checked)}
+                onChange={(e) => {
+                  const pause = e.target.checked;
+                  if (confirmer(pause ? "pauseOn" : "pauseOff", { date: dateLongue(aujourdhuiParis()) })) {
+                    basculerPause.mutate(pause);
+                  }
+                }}
               />
               <span className={autoEnPause ? "font-medium text-warning" : "text-muted-foreground"}>
                 {autoEnPause ? t("minuit.pauseOn") : t("minuit.pauseOff")}
@@ -691,7 +707,9 @@ export function AdminMinuitPage() {
               {t("common.refresh")}
             </Button>
             <Button
-              onClick={() => relancer.mutate()}
+              onClick={() => {
+                if (confirmer("relancer", { comptes: lignes.length })) relancer.mutate();
+              }}
               disabled={
                 relancer.isPending ||
                 rattrapageElo.isPending ||
@@ -707,7 +725,9 @@ export function AdminMinuitPage() {
             </Button>
             <Button
               variant="secondary"
-              onClick={() => rattrapageElo.mutate(4)}
+              onClick={() => {
+                if (confirmer("rattrapage", { jours: 4, date: dateLongue(aujourdhuiParis()) })) rattrapageElo.mutate(4);
+              }}
               disabled={rattrapageElo.isPending || relancer.isPending || reassignerIncomplets.isPending}
               title={t("minuit.rattrapageEloAide")}
             >
@@ -717,7 +737,9 @@ export function AdminMinuitPage() {
             </Button>
             <Button
               variant="secondary"
-              onClick={() => rattrapageElo.mutate(2)}
+              onClick={() => {
+                if (confirmer("rattrapage", { jours: 2, date: dateLongue(aujourdhuiParis()) })) rattrapageElo.mutate(2);
+              }}
               disabled={rattrapageElo.isPending || relancer.isPending || reassignerIncomplets.isPending}
               title={t("minuit.rattrapageElo2jAide")}
             >
@@ -727,7 +749,9 @@ export function AdminMinuitPage() {
             </Button>
             <Button
               variant="default"
-              onClick={() => reassignerIncomplets.mutate()}
+              onClick={() => {
+                if (confirmer("reassigner", { count: comptesEnEchec })) reassignerIncomplets.mutate();
+              }}
               disabled={
                 reassignerIncomplets.isPending ||
                 relancer.isPending ||

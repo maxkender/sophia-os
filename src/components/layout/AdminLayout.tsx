@@ -29,7 +29,6 @@ import {
   Scale,
   Settings,
   Tags,
-  ShieldAlert,
   Users,
   UserPlus,
   UserX,
@@ -192,12 +191,7 @@ export function AdminLayout() {
               description: t("navDesc.suiviRc"),
             },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
-            {
-              to: "/admin/surveillance",
-              label: t("nav.surveillance"),
-              icon: ShieldAlert,
-              description: t("navDesc.surveillance"),
-            },
+            // Account watch : retirée du menu (prompt 15, point 1), la route /admin/surveillance reste.
             {
               to: "/admin/check-kill-double",
               label: t("nav.checkKillDouble"),

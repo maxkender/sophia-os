@@ -52,7 +52,7 @@ import { MajSourcesPanel } from "@/features/moteur/MajSourcesPanel";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
-import { localeDate } from "@/locales/localeDate";
+import { aujourdhuiEnLettres, localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -186,6 +186,8 @@ function BoutonExtraire({
         title={t("sources.extraireAide")}
         disabled={!langue}
         onClick={() => {
+          // Prompt 15, point 1 : la date et le coût avant de lancer.
+          if (!window.confirm(t("sources.confirmExtraire", { handle, date: aujourdhuiEnLettres() }))) return;
           demarrerImportCompte({
             compteReferenceId: sourceId,
             handle,
@@ -225,6 +227,7 @@ function BoutonUpdateSource({
         title={t("sources.updateAide")}
         disabled={!langue}
         onClick={() => {
+          if (!window.confirm(t("sources.confirmUpdate", { handle, date: aujourdhuiEnLettres() }))) return;
           demarrerImportCompte({
             compteReferenceId: sourceId,
             handle,

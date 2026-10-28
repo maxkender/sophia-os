@@ -111,6 +111,7 @@ import { compterEtapes, ETAPES, etapeCompte, qualiteAffichee, type Etape, type E
 import { lireEtapesComptes } from "@/features/moteur/etapesApi";
 import { compteActif, repartirArchive } from "@/features/archive/archive";
 import { SectionArchive, type LigneArchive } from "@/features/archive/SectionArchive";
+import { lireInactifs } from "@/features/inactifs/api";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
   Classement,
@@ -752,6 +753,10 @@ export function AdminPostersPage() {
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
   const [filtreRuul, setFiltreRuul] = React.useState(false);
+  // 28 oct. (partie E) : les inactifs (0385), plus dans le menu, se filtrent ici.
+  const [filtreInactifs, setFiltreInactifs] = React.useState(false);
+  const inactifs = useQuery({ queryKey: ["posters", "inactifs"], queryFn: lireInactifs, enabled: filtreInactifs });
+  const idsInactifs = React.useMemo(() => new Set((inactifs.data ?? []).map((i) => i.poster_id)), [inactifs.data]);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
   // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
@@ -1359,6 +1364,7 @@ export function AdminPostersPage() {
   const matchCreateur = (p: PosterProfil) => {
     if (filtreEtapes.size > 0 && !filtreEtapes.has(etatCreateur(p).etape)) return false;
     if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
+    if (filtreInactifs && !idsInactifs.has(p.id)) return false;
     if (filtreCohorte && (cohorteDe(p.id) ?? COHORTE_PAS_DEMARRE) !== filtreCohorte) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
@@ -1433,6 +1439,7 @@ export function AdminPostersPage() {
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
     filtreRuul ||
+    filtreInactifs ||
     Boolean(filtreCohorte) ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
@@ -1625,6 +1632,16 @@ export function AdminPostersPage() {
           onChange={(e) => setFiltreRuul(e.target.checked)}
         />
         {t("posters.filtreRuul", { n: zonesCohorteRuul?.size ?? 0 })}
+      </label>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={filtreInactifs}
+          onChange={(e) => setFiltreInactifs(e.target.checked)}
+        />
+        {t("posters.filtreInactifs")}
+        {filtreInactifs && inactifs.data && <span className="text-muted-foreground">· {inactifs.data.length}</span>}
       </label>
     </div>
   );

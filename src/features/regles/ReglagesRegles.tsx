@@ -10,7 +10,7 @@ import { supabase } from "@/lib/supabase/client";
 import { lireRegles } from "./api";
 import { CLES_REGLES, type Regle } from "./textes";
 
-const REGLES: readonly Regle[] = ["lien", "warmup"];
+const REGLES: readonly Regle[] = ["lien", "warmup", "bienvenue"];
 
 async function enregistrer(textes: Record<Regle, string>): Promise<void> {
   const { data: auth } = await supabase.auth.getUser();
@@ -45,7 +45,12 @@ export function ReglagesRegles() {
         {REGLES.map((r) => (
           <label key={r} className="block space-y-1 text-sm">
             <span className="font-medium">{t(`regles.${r}`)}</span>
-            <Textarea value={textes[r]} onChange={(e) => setTextes({ ...textes, [r]: e.target.value })} />
+            <Textarea
+              value={textes[r]}
+              rows={r === "bienvenue" ? 12 : 3}
+              onChange={(e) => setTextes({ ...textes, [r]: e.target.value })}
+            />
+            {r === "bienvenue" && <span className="block text-xs text-muted-foreground">{t("regles.bienvenueAide")}</span>}
           </label>
         ))}
         <div className="flex items-center gap-2">

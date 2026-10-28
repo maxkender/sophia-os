@@ -12,13 +12,40 @@ export const REGLE_LIEN =
 export const REGLE_WARMUP =
   "Create your TikTok account, click Start warmup and follow 5 accounts before Sunday midnight.";
 
+/**
+ * `message_bienvenue_texte` : le « Welcome message » copié après la création
+ * d'un poster (prompt 15, point 7). Variables : {prenom}, {email},
+ * {password}, {url}, {slack}, {guide}, {regle_lien}, {regle_warmup}.
+ */
+export const MESSAGE_BIENVENUE = [
+  "Hi {prenom}, welcome to Vik Studios!",
+  "",
+  "Your dashboard: {url}",
+  "Login: {email}",
+  "Password: {password} (you'll choose your own at your first login)",
+  "",
+  "Join our Slack (recommended), with your full name: {slack}",
+  "Poster Guide: {guide}",
+  "",
+  "{regle_warmup}",
+  "{regle_lien}",
+  "",
+  "Questions? Ask in #questions on Slack, or reply to this message.",
+].join("\n");
+
 export const CLES_REGLES = {
   lien: "paie_regle_lien_texte",
   warmup: "warmup_regle_texte",
+  bienvenue: "message_bienvenue_texte",
 } as const;
 export type Regle = keyof typeof CLES_REGLES;
 
-export const DEFAUTS_REGLES: Record<Regle, string> = { lien: REGLE_LIEN, warmup: REGLE_WARMUP };
+export const DEFAUTS_REGLES: Record<Regle, string> = { lien: REGLE_LIEN, warmup: REGLE_WARMUP, bienvenue: MESSAGE_BIENVENUE };
+
+/** Le message de bienvenue rempli ; une variable inconnue reste telle quelle. */
+export function remplirBienvenue(modele: string, valeurs: Record<string, string>): string {
+  return modele.replace(/\{(\w+)\}/g, (tout, cle: string) => (cle in valeurs ? valeurs[cle] : tout));
+}
 
 /** Les réglages de paie qui comptent pour le posteur (`paie`, 0380 / 0393). */
 export interface ReglesPaie {

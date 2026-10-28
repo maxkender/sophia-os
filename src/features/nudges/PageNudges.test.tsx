@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 
-import { etatNudge } from "./logique";
+import { etatNudge, statsRelances } from "./logique";
 
 const api = vi.hoisted(() => ({
   lireNudges: vi.fn(),
@@ -13,6 +13,7 @@ const api = vi.hoisted(() => ({
   lireRelancesPrevues: vi.fn(),
   lireReglagesRelances: vi.fn(),
   enregistrerReglagesRelances: vi.fn(),
+  lireRougesDepuis: vi.fn(async () => []),
   ETAPES_RELANCE: ["acces", "tiktok", "warmup", "mercredi"],
 }));
 vi.mock("./api", () => api);
@@ -42,6 +43,23 @@ describe("etatNudge", () => {
     expect(etatNudge({ reponse_at: "x", resolu_at: "y" })).toBe("resolu");
     expect(etatNudge({ reponse_at: "x", resolu_at: null })).toBe("repondu");
     expect(etatNudge({ reponse_at: null, resolu_at: null })).toBe("sans_reponse");
+  });
+});
+
+describe("les 3 chiffres sur 7 jours (28 oct., partie E)", () => {
+  it("relances envoyées, faites dans les 48 h, passées en rouge, par étape", () => {
+    const s = statsRelances(
+      [
+        { type: "acces", envoye_at: "2026-10-27T10:00:00Z", resolu_at: "2026-10-28T09:00:00Z" },
+        { type: "acces", envoye_at: "2026-10-27T10:00:00Z", resolu_at: "2026-10-30T09:00:00Z" },
+        { type: "acces", envoye_at: "2026-10-27T10:00:00Z", resolu_at: null },
+        { type: "warmup", envoye_at: "2026-10-31T11:00:00Z", resolu_at: null },
+      ],
+      [{ etape: "acces" }, { etape: "warmup" }, { etape: "warmup" }],
+    );
+    expect(s.acces).toEqual({ envoyees: 3, faites48h: 33, rouges: 1 });
+    expect(s.warmup).toEqual({ envoyees: 1, faites48h: 0, rouges: 2 });
+    expect(s.tiktok).toEqual({ envoyees: 0, faites48h: null, rouges: 0 });
   });
 });
 

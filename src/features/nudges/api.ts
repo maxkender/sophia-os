@@ -131,3 +131,10 @@ export async function lireCeQueLOsAFait(): Promise<CeQueLOsAFait[]> {
   if (error) throw error;
   return (data ?? []) as CeQueLOsAFait[];
 }
+
+/** Les recrues passées en rouge depuis une date (0391), pour les chiffres de la page. */
+export async function lireRougesDepuis(depuisIso: string): Promise<{ etape: string; rouge_at: string }[]> {
+  const { data, error } = await supabase.from("recrues_rouges").select("etape, rouge_at").gte("rouge_at", depuisIso);
+  if (error) throw error;
+  return (data ?? []) as { etape: string; rouge_at: string }[];
+}

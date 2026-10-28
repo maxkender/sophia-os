@@ -19,11 +19,12 @@ import {
   lireNudges,
   lireReglagesRelances,
   lireRelancesPrevues,
+  lireRougesDepuis,
   marquerNudge,
   type ModeRelances,
   type ReglagesRelances,
 } from "./api";
-import { etatNudge } from "./logique";
+import { ETAPES_STATS, etatNudge, statsRelances } from "./logique";
 
 function useDate() {
   const { i18n } = useTranslation();
@@ -91,6 +92,52 @@ function Historique() {
             })}
           </ul>
         )}
+      </CardContent>
+    </Card>
+  );
+}
+
+/** En haut de la page (28 oct., partie E) : 3 chiffres sur 7 jours, par étape. */
+function StatsRelances() {
+  const { t } = useTranslation();
+  const depuis = ajouterJours(aujourdhuiParis(), -7);
+  const nudges = useQuery({ queryKey: ["nudges", "liste", depuis], queryFn: () => lireNudges(depuis) });
+  const rouges = useQuery({
+    queryKey: ["nudges", "rouges", depuis],
+    queryFn: () => lireRougesDepuis(new Date(Date.now() - 7 * 86_400_000).toISOString()),
+  });
+  if (!nudges.data || !rouges.data) return null;
+  const septJours = Date.now() - 7 * 86_400_000;
+  const stats = statsRelances(
+    nudges.data.filter((n) => Date.parse(n.envoye_at) >= septJours),
+    rouges.data,
+  );
+  return (
+    <Card data-testid="stats-relances">
+      <CardHeader>
+        <CardTitle>{t("nudges.stats.titre")}</CardTitle>
+      </CardHeader>
+      <CardContent className="overflow-x-auto">
+        <table className="w-full min-w-[480px] text-sm">
+          <thead>
+            <tr className="text-left text-xs text-muted-foreground">
+              <th className="py-1 pr-3 font-medium">{t("nudges.stats.etape")}</th>
+              <th className="py-1 pr-3 font-medium">{t("nudges.stats.envoyees")}</th>
+              <th className="py-1 pr-3 font-medium">{t("nudges.stats.faites")}</th>
+              <th className="py-1 font-medium">{t("nudges.stats.rouges")}</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y">
+            {ETAPES_STATS.map((e) => (
+              <tr key={e} data-etape={e}>
+                <td className="py-1.5 pr-3">{t(`nudges.types.${e}`)}</td>
+                <td className="py-1.5 pr-3 tabular-nums">{stats[e].envoyees}</td>
+                <td className="py-1.5 pr-3 tabular-nums">{stats[e].faites48h === null ? "—" : `${stats[e].faites48h} %`}</td>
+                <td className="py-1.5 tabular-nums">{stats[e].rouges}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </CardContent>
     </Card>
   );
@@ -239,6 +286,7 @@ export function PageNudges() {
   return (
     <div className="space-y-6">
       <PageHeader title={t("nudges.titre")} description={t("nudges.description")} />
+      <StatsRelances />
       <Prevues />
       <Historique />
       <ReglagesRelancesCarte />

@@ -1,7 +1,19 @@
 import { describe, expect, it } from "vitest";
 
 import type { LigneListePaie } from "./api";
-import { csvListe, parEquipe, postsParCompte, totauxPaie, trierLignes } from "./logique";
+import {
+  actionAffichee,
+  besoinPaye,
+  besoinSuivante,
+  consigne,
+  csvListe,
+  parEquipe,
+  postsParCompte,
+  raisonsLigne,
+  resteAFaire,
+  totauxPaie,
+  trierLignes,
+} from "./logique";
 
 function ligne(o: Partial<LigneListePaie>): LigneListePaie {
   return {
@@ -28,6 +40,13 @@ function ligne(o: Partial<LigneListePaie>): LigneListePaie {
     detail_comptes: [{ compte_id: "c", handle: "ana", attendus: 14, faits: 14, rates: 0, retenue: 0, montant: 10, warmup: false }],
     exclu: false,
     exclu_raison: null,
+    premiere_semaine: false,
+    bonus: 0,
+    suivante_action: "financer",
+    suivante_comptes: 1,
+    suivante_montant: 10,
+    suivante_raison: null,
+    upwork_compte: null,
     paye_at: null,
     semaine_suivante_faite_at: null,
     ...o,
@@ -84,9 +103,91 @@ describe("la liste de paie", () => {
     const csv = csvListe(
       [ligne({ montant: 12, montant_corrige: 12, raison_correction: "bonus", montant_calcule: 10 })],
       (l) => l.action,
+      "2026-10-26",
     );
     const [entete, l1] = csv.replace("﻿", "").split("\r\n");
     expect(entete!.split(",")).toContain("amount_correction_reason");
-    expect(l1).toBe("Zone – Greece,Ana,https://www.upwork.com/c/1,1,@ana 14/14,10,0,10,12,bonus,payer,no,no,no,");
+    expect(entete!.split(",")).toContain("instruction");
+    expect(l1).toBe(
+      "Zone – Greece,Ana,https://www.upwork.com/c/1,,1,@ana 14/14,10,0,0,10,12,bonus,payer,Approve Week 44: $12 · Fund Week 45: $10,no,no,no,",
+    );
+  });
+
+  describe("prompt 15, point 5 : la consigne exacte (semaine du 26 oct. = Week 44)", () => {
+    const S = "2026-10-26";
+
+    it("Payer : approuver la semaine, financer la suivante", () => {
+      expect(consigne(ligne({ montant: 14, suivante_montant: 14 }), S)).toBe("Approve Week 44: $14 · Fund Week 45: $14");
+    });
+
+    it("Payer moins : le montant après retenue, la suivante au tarif", () => {
+      expect(consigne(ligne({ action: "payer_moins", montant: 12, retenue: 2, suivante_montant: 14 }), S)).toBe(
+        "Approve Week 44: $12 · Fund Week 45: $14",
+      );
+    });
+
+    it("Double : la suivante au double, avec le nombre de comptes", () => {
+      expect(
+        consigne(ligne({ action: "modifier", montant: 14, suivante_action: "financer_double", suivante_comptes: 2, suivante_montant: 28 }), S),
+      ).toBe("Approve Week 44: $14 · Fund Week 45 (2 acc): $28");
+    });
+
+    it("Kill : approuver, ne pas financer, fermer le contrat", () => {
+      expect(consigne(ligne({ action: "kill", montant: 14, suivante_action: "ne_pas_financer" }), S)).toBe(
+        "Approve Week 44: $14 · Don't fund · End the contract",
+      );
+    });
+
+    it("Annuler : remboursement, rien d'approuvé", () => {
+      expect(consigne(ligne({ action: "annuler", faits: 0, montant: 0 }), S)).toBe(
+        "Don't approve Week 44 · Ask for a refund · Don't fund",
+      );
+    });
+
+    it("warm-up : rien à payer, la 1re semaine est financée à l'embauche", () => {
+      expect(consigne(ligne({ action: "rien", nb_comptes: 0, faits: 0, prevus: 0, montant: 0 }), S)).toBe(
+        "Nothing to pay · Week 45 funded at hiring",
+      );
+    });
+
+    it("0 post : rien à payer, la suivante à voir", () => {
+      expect(consigne(ligne({ action: "rien", faits: 0, montant: 0, suivante_action: "a_voir", suivante_montant: null }), S)).toBe(
+        "Nothing to pay · Week 45: check before funding",
+      );
+    });
+
+    it("1re semaine : le montant à approuver contient le bonus (tarif + 1 $)", () => {
+      expect(consigne(ligne({ montant: 15, bonus: 1, premiere_semaine: true, suivante_montant: 14 }), S)).toBe(
+        "Approve Week 44: $15 · Fund Week 45: $14",
+      );
+    });
+
+    it("tarif manquant : « À vérifier », jamais « Pay $0 », aucune case", () => {
+      const l = ligne({ tarif: null, montant: 0, suivante_montant: null });
+      expect(actionAffichee(l)).toBe("a_verifier");
+      expect(consigne(l, S)).toBeNull();
+      expect(raisonsLigne(l)).toEqual(["tarif_manquant"]);
+      expect(besoinPaye(l)).toBe(false);
+      expect(besoinSuivante(l)).toBe(false);
+      expect(resteAFaire(l)).toBe(true);
+    });
+
+    it("les cases : cachées quand l'action n'en a pas besoin", () => {
+      expect(besoinSuivante(ligne({ action: "kill" }))).toBe(false);
+      expect(besoinPaye(ligne({ action: "rien", faits: 0 }))).toBe(false);
+      expect(besoinPaye(ligne({ action: "annuler", faits: 0 }))).toBe(false);
+      expect(besoinSuivante(ligne({ suivante_action: "deja_financee" }))).toBe(false);
+      expect(besoinPaye(ligne({}))).toBe(true);
+      expect(besoinSuivante(ligne({}))).toBe(true);
+    });
+
+    it("« À faire » : cache rien à payer, retirée, et terminée", () => {
+      expect(resteAFaire(ligne({}))).toBe(true);
+      expect(resteAFaire(ligne({ paye_at: "x" }))).toBe(true);
+      expect(resteAFaire(ligne({ paye_at: "x", semaine_suivante_faite_at: "x" }))).toBe(false);
+      expect(resteAFaire(ligne({ action: "kill", paye_at: "x" }))).toBe(false);
+      expect(resteAFaire(ligne({ action: "rien", faits: 0 }))).toBe(false);
+      expect(resteAFaire(ligne({ exclu: true }))).toBe(false);
+    });
   });
 });

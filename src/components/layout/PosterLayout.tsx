@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Outlet } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -12,9 +13,15 @@ import { OnboardingPopup } from "@/features/onboarding/OnboardingPopup";
 import { useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
 import { AppShell } from "./AppShell";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
+import { useAuth } from "@/features/auth/AuthContext";
 
 export function PosterLayout() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { roleReel } = useAuth();
+  // Prompt 15, point 6d : l'interface du posteur est toujours en anglais.
+  React.useEffect(() => {
+    if (roleReel === "poster" && i18n.resolvedLanguage !== "en") void i18n.changeLanguage("en");
+  }, [i18n, i18n.resolvedLanguage, roleReel]);
   // Cohorte Ruul (venus du site) : une page Payments en plus.
   const cohorte = useQuery({ queryKey: ["accueil-cohorte"], queryFn: lireCohorteAccueil, staleTime: Infinity });
   // Relecteur natif désigné, espace ouvert par l'admin : un onglet en plus.

@@ -25,8 +25,9 @@ vi.mock("@/features/onboarding/cinqEtapesApi", () => ({
   lireMaPremiereSemaine: async () => ({ cohorteLundi: null, slackLie: false }),
 }));
 
+const postsMock = vi.hoisted(() => ({ liste: [] as unknown[] }));
 vi.mock("@/lib/supabase/client", () => {
-  const requete = { select: () => requete, order: () => requete, limit: async () => ({ data: [], error: null }) };
+  const requete = { select: () => requete, order: () => requete, limit: async () => ({ data: postsMock.liste, error: null }) };
   return { supabase: { from: () => requete } };
 });
 
@@ -157,3 +158,40 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     expect(screen.queryByText(/First post$/)).not.toBeInTheDocument();
   });
 });
+
+describe("prompt 15, point 6 : l'accueil du posteur", () => {
+  beforeEach(async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-10-21T10:00:00Z"));
+    await i18n.changeLanguage("en");
+    lireCohorteAccueil.mockResolvedValue({ cohorteRuul: false, emailRuul: null });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    postsMock.liste = [];
+  });
+
+  it("Today tout en haut, avec les posts de ses 2 comptes (Double) ; warm-up fini : pas de bandeau, identité repliée", async () => {
+    const fini = { warmup_started_at: "2026-10-01T08:00:00Z", warmup_ends_at: "2026-10-04T22:00:00Z" };
+    mesComptes.mockResolvedValue([
+      compte({ id: "c1", handle_tiktok: "lea", ...fini }),
+      compte({ id: "c2", handle_tiktok: "lea.two", ...fini }),
+    ]);
+    postsMock.liste = [
+      { id: "p1", compte_id: "c1", handle_tiktok: "lea", date_publication_prevue: "2026-10-21", type: "slideshow", sujet_titre: "Post A", publie_at: null },
+      { id: "p2", compte_id: "c2", handle_tiktok: "lea.two", date_publication_prevue: "2026-10-21", type: "slideshow", sujet_titre: "Post B", publie_at: null },
+    ];
+    afficher();
+    // Today : les cartes des deux comptes (le calendrier dessous reste celui du compte choisi).
+    const cartes = (await screen.findAllByText(/^Post [AB]$/, { selector: "p" })).map((p) => p.textContent);
+    expect(cartes).toEqual(["Post A", "Post B"]);
+    expect(screen.getAllByText("@lea.two").length).toBeGreaterThanOrEqual(1);
+    // « Today » avant le reste de la page.
+    const titres = screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent);
+    expect(titres[0]).toBe("Today");
+    expect(screen.queryByText(/Warm-up in progress/)).toBeNull();
+    expect(screen.getByTestId("identite-repliee")).toBeInTheDocument();
+  });
+});
+

@@ -878,7 +878,8 @@ export function PosterPostPage() {
                     <Badge>{t("multiAppPosts.appPromue", { app: nomApp })}</Badge>
                   )}
                 </span>
-                {!publie && (
+                {/* Prompt 15, point 6e : réordonner les slides, réservé à l'admin. */}
+                {!publie && estAdmin && (
                   <div className="flex gap-1">
                     <Button
                       size="icon"
@@ -1194,7 +1195,8 @@ function texteComplet(post: Post, slides: PostSlide[]): string {
   const lignes = slides
     .filter((s) => s.texte_overlay)
     .map((s) => `Slide ${s.position}\n${s.texte_overlay}`);
-  if (post.hashtags) lignes.push(`Description :\n${post.hashtags}`);
-  if (post.musique_url) lignes.push(`Musique : ${post.musique_url}`);
+  // Prompt 15, point 6d : en anglais, comme tout ce que voit un posteur.
+  if (post.hashtags) lignes.push(`Caption:\n${post.hashtags}`);
+  if (post.musique_url) lignes.push(`Sound: ${post.musique_url}`);
   return lignes.join("\n\n");
 }

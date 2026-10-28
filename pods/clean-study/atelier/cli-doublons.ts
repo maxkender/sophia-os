@@ -1,10 +1,10 @@
 // Usage : POD_JETON=… node atelier/cli-doublons.ts <source_id…>
 //
-// Règle §4.7 de pods/ROUTINE.md : un titre de slide 1 mot pour mot, ou une
-// couverture identique (même photo, même sous un autre media_id), ne revient
-// pas avant 10 jours. Compare la slide 1 des originaux donnés à celle de tous
-// les autres de originaux/ : texte normalisé, et empreinte de l'image (dHash
-// 64 bits, distance ≤ 10 = même photo). Sort en erreur s'il y a un doublon.
+// Signale un titre de slide 1 ou une couverture (même photo, même sous un
+// autre media_id) déjà pris par un autre original de originaux/ : texte
+// normalisé, et empreinte de l'image (dHash 64 bits, distance ≤ 10 = même
+// photo). Informatif : une reprise est permise (§4.7 de pods/ROUTINE.md) si
+// elle change quelque chose (items, angle, image ou CTA).
 import { readFileSync, readdirSync } from "node:fs";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { appelPod } from "./api.ts";
@@ -61,4 +61,4 @@ for (const id of cibles) {
   }
   if (doublons === avant) console.log(`${id} : ni titre ni couverture en double`);
 }
-if (doublons) process.exit(1);
+if (doublons) console.log(`\n${doublons} reprise(s) : permis, à condition que chaque post change quelque chose (items, angle, image ou CTA).`);

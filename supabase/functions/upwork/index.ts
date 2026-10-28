@@ -12,6 +12,8 @@ import {
   MUTATION_MESSAGE,
   REQUETE_SALON,
   requeteContrats,
+  TAILLE_PAGE_OFFRES,
+  curseurSuivant,
   UPWORK_GRAPHQL,
   UPWORK_JETON,
   urlAutorisation,
@@ -368,33 +370,22 @@ async function lireContrats(supabase: Supabase, par: string | null) {
   const orgs = await organisations(supabase);
   if (orgs.length === 0) throw new Error("aucune organisation connue : relire les droits dans Réglages → Upwork");
   const debut = new Date().toISOString();
-  const bilan: Record<string, { total: number | null; lus: number; erreur: string | null; pays: boolean }> = {};
+  const bilan: Record<string, { total: number | null; lus: number; erreur: string | null }> = {};
   for (const org of orgs) {
     let apres: string | null = null;
-    let avecPays = true;
     let total: number | null = null;
     let lus = 0;
     let erreur: string | null = null;
-    // 100 par page, 20 pages au plus (2 000 contrats) : pas de lecture sans fin.
-    for (let page = 0; page < 20; page++) {
-      let r = await lire(supabase, {
+    // 50 par page (le plus qu'Upwork rend), 40 pages au plus (2 000 contrats) :
+    // pas de lecture sans fin. Le pays ne vient plus du freelance mais de l'annonce.
+    for (let page = 0; page < 40; page++) {
+      const r = await lire(supabase, {
         par,
         action: "contrats",
-        query: requeteContrats(avecPays),
-        variables: { pagination: { first: 100, ...(apres ? { after: apres } : {}) } },
+        query: requeteContrats(),
+        variables: { pagination: { first: TAILLE_PAGE_OFFRES, ...(apres ? { after: apres } : {}) } },
         tenant: org.organizationId,
       });
-      // Sans le droit sur le profil du freelance : on relit sans le pays.
-      if (avecPays && r.erreur && !r.data?.organization?.clientOffers) {
-        avecPays = false;
-        r = await lire(supabase, {
-          par,
-          action: "contrats",
-          query: requeteContrats(false),
-          variables: { pagination: { first: 100, ...(apres ? { after: apres } : {}) } },
-          tenant: org.organizationId,
-        });
-      }
       const offres = r.data?.organization?.clientOffers;
       if (!offres) {
         erreur = r.erreur ?? "réponse sans clientOffers";
@@ -415,15 +406,16 @@ async function lireContrats(supabase: Supabase, par: string | null) {
         if (error) throw error;
       }
       lus += lignes.length;
-      if (!offres.pageInfo?.hasNextPage || !offres.pageInfo?.endCursor) break;
-      apres = offres.pageInfo.endCursor;
+      apres = curseurSuivant(offres);
+      if (!apres) break;
     }
-    // Un contrat de cette organisation qui n'est plus rendu actif n'est plus actif.
-    if (!erreur) {
+    // Un contrat de cette organisation qui n'est plus rendu actif n'est plus actif,
+    // seulement si toute la liste a été lue (sinon on désactiverait des contrats actifs).
+    if (!erreur && (total === null || lus >= total)) {
       await supabase.from("upwork_contrats").update({ actif: false })
         .eq("organisation_id", org.organizationId).lt("lu_at", debut);
     }
-    bilan[org.title?.trim() ?? org.organizationId] = { total, lus, erreur, pays: avecPays };
+    bilan[org.title?.trim() ?? org.organizationId] = { total, lus, erreur };
   }
   return { ok: true, organisations: bilan };
 }

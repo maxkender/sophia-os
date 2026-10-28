@@ -48,8 +48,8 @@
      "en": [
       "focus on yourself instead of the person in front of you"
      ],
-     "fr": "plus tu forces pour impressionner, plus tu penses à [[toi]] au lieu de la personne en face de toi",
-     "texte": "più cerchi di sembrare interessante, più ti concentri su [[te]] invece che sulla persona davanti a te"
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "più vuoi fare colpo, più pensi a [[te]] e non a chi hai davanti"
     },
     "T2": {
      "en": [
@@ -162,7 +162,7 @@
       "contribute to a conversation"
      ],
      "fr": "plus t'as de choses [[à apporter à une conversation]]",
-     "texte": "e più hai [[da dire in una conversazione]]"
+     "texte": "e più cose hai [[da dire in una conversazione]]"
     },
     "T5": {
      "en": [
@@ -171,7 +171,7 @@
       "this thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel de toute façon",
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
      "texte": "non riuscivo a smettere di scrollare finché non ho tolto i reel dal mio insta. si fa con [[l'app UnSwipe]]"
     },
     "T6": {
@@ -222,7 +222,7 @@
       "desperately chasing approval"
      ],
      "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
-     "texte": "chi sta bene nel silenzio spesso [[trasmette più sicurezza]], perché non sta cercando disperatamente approvazione"
+     "texte": "chi sta bene nel silenzio spesso [[trasmette più sicurezza]], perché non sta cercando disperatamente l'approvazione degli altri"
     },
     "T5": {
      "en": [
@@ -243,7 +243,7 @@
       "develop opinions of your own"
      ],
      "fr": "forge-toi [[tes propres avis]]",
-     "texte": "fatti [[opinioni tue]]"
+     "texte": "fatti [[opinioni tutte tue]]"
     },
     "T2": {
      "en": [

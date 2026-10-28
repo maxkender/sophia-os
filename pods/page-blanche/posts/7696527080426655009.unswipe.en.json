@@ -42,14 +42,16 @@
       "be comfortable with yourself"
      ],
      "fr": "sois [[bien dans ta peau]]",
-     "texte": "be [[comfortable with yourself]]"
+     "texte": "be [[comfortable with yourself]]",
+     "garder": true
     },
     "T1b": {
      "en": [
       "focus on yourself instead of the person in front of you"
      ],
-     "fr": "plus tu forces pour impressionner, plus tu penses à [[toi]] au lieu de la personne en face de toi",
-     "texte": "the harder you try to look interesting, the more you focus on [[yourself]] instead of the person in front of you"
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "the harder you try to look interesting, the more you focus on [[yourself]] instead of the person in front of you",
+     "garder": true
     },
     "T2": {
      "en": [
@@ -171,7 +173,7 @@
       "this thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel de toute façon",
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
      "texte": "i struggled to stop scrolling until i took the reels off my insta. you can do that with [[the UnSwipe app]]"
     },
     "T6": {

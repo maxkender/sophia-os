@@ -47,8 +47,8 @@
      "en": [
       "focus on yourself instead of the person in front of you"
      ],
-     "fr": "plus tu forces pour impressionner, plus tu penses à [[toi]] au lieu de la personne en face de toi",
-     "texte": "je mehr du versuchst, interessant zu wirken, desto mehr achtest du auf [[dich]] statt auf die Person vor dir"
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "willst du beeindrucken, denkst du nur an [[dich]] statt an dein Gegenüber"
     },
     "T2": {
      "en": [
@@ -116,7 +116,7 @@
       "the best story"
      ],
      "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
-     "texte": "jemandem das Gefühl zu geben, [[verstanden zu werden]], bleibt mehr hängen als die beste Story"
+     "texte": "wenn sich jemand [[verstanden fühlt]], bleibt das mehr hängen als die beste Story"
     },
     "T5": {
      "en": [
@@ -170,7 +170,7 @@
       "this thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel de toute façon",
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
      "texte": "mein Gesprächsstoff: ein Roman in der Bahn, Geschichtspodcasts und [[eine 5-Minuten-Lektion in der Sophia-App]], wenn ich eh zum Handy greife"
     },
     "T6": {
@@ -212,7 +212,7 @@
       "before adding more"
      ],
      "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
-     "texte": "[[sprich langsamer]], bring deine Sätze zu Ende und [[lass deine Worte wirken]], bevor du nachlegst"
+     "texte": "[[sprich langsamer]], sprich Sätze zu Ende und [[lass Worte wirken]], bevor du nachlegst"
     },
     "T4": {
      "en": [
@@ -262,7 +262,7 @@
       "without getting defensive"
      ],
      "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
-     "texte": "entwickle eigene Ansichten, erklär, warum du sie hast, und [[widersprich, ohne in die Defensive zu gehen]]"
+     "texte": "entwickle eigene Ansichten, erklär sie und [[widersprich, ohne gleich dichtzumachen]]"
     },
     "T4": {
      "en": [

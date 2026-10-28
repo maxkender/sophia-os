@@ -49,6 +49,7 @@ import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 import { SlackARelier } from "@/features/slack/SlackARelier";
 import { PageNudges } from "@/features/nudges/PageNudges";
 import { PageReponses } from "@/features/reponses/PageReponses";
+import { PagePipeline } from "@/features/pipeline/PagePipeline";
 import { PageCohortes } from "@/features/cohortes/PageCohortes";
 import { PageInactifs } from "@/features/inactifs/PageInactifs";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
@@ -106,6 +107,7 @@ export function AppRouter() {
             <Route path="/admin/slack" element={<SlackARelier />} />
             <Route path="/admin/nudges" element={<PageNudges />} />
             <Route path="/admin/reponses" element={<PageReponses />} />
+            <Route path="/admin/pipeline" element={<PagePipeline />} />
             <Route path="/admin/inactifs" element={<PageInactifs />} />
             <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
             <Route path="/admin/cohortes" element={<PageCohortes />} />

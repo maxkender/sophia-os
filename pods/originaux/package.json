@@ -18,6 +18,8 @@
     "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
     "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",
     "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts",
-    "top-posts": "NODE_USE_ENV_PROXY=1 node atelier/cli-top-posts.ts"
+    "top-posts": "NODE_USE_ENV_PROXY=1 node atelier/cli-top-posts.ts",
+    "accroches": "NODE_USE_ENV_PROXY=1 node atelier/hash-accroches.mjs",
+    "unicite": "node atelier/verifier-unicite.mjs"
   }
 }

@@ -84,6 +84,15 @@ ou de déposer.
   rebuilt my confidence »), avant/après. Les variantes des percées gardent le
   fond de l'original mais prennent aussi une accroche hors de ce schéma.
   Jamais deux fois la même accroche ni la même image d'accroche dans un lot.
+- **Unicité (consigne du chef, 28/10, après des plaintes d'utilisateurs)** :
+  jamais deux fois le même titre de slide 1 mot pour mot, variantes comprises
+  (27 originaux portent déjà « hobbies that will make you dangerously
+  confident »), et une couverture jamais utilisée chez nous, même sous un autre
+  `media_id` (la banque contient beaucoup de doublons visuels : moine
+  squelette, lune qui crie…). Avant `deposer` :
+  `npm run accroches` (empreintes visuelles, liste des
+  couvertures libres dans `sortie/accroches-libres.txt`), puis
+  `npm run unicite -- <ids>` : il doit répondre « ok ».
 - **Item** : `titre (2 à 4 mots)\n\n` puis 2 phrases, **150 à 200 caractères** :
   une consigne concrète et chiffrée (durée, fréquence), puis une chute
   introspective (« most people… », « the avoidance costs more than… »).

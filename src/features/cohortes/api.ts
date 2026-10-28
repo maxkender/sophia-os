@@ -92,3 +92,36 @@ export async function relierContrat(posterId: string, url: string): Promise<stri
   if (error) throw error;
   return data as string;
 }
+
+/** Système du 2 nov., partie B (0402) : un Kill automatique (48 h sans réaction). */
+export interface KillAuto {
+  id: string;
+  poster_id: string;
+  poster_nom: string | null;
+  hm_prenom: string | null;
+  etape: "connexion" | "tiktok" | "warmup_lance" | "warmup_bien_fait";
+  periode: string;
+  message_at: string | null;
+  detecte_at: string;
+  /** Fin du délai d'annulation : l'arrêt complet part à ce moment. */
+  prevu_at: string;
+  statut: "simule" | "en_attente" | "annule" | "parti" | "erreur";
+  raison: string | null;
+  annule_at: string | null;
+  parti_at: string | null;
+  /** L'arrêt complet (partie C) : a_faire, en_cours, fait, erreur. */
+  arret_statut: string | null;
+  arret_erreur: string | null;
+}
+
+export async function lireKillsAuto(): Promise<KillAuto[]> {
+  const { data, error } = await supabase.rpc("kills_auto_liste");
+  if (error) throw error;
+  return (data ?? []) as KillAuto[];
+}
+
+/** « Annuler » : tant que le délai court, rien ne part. */
+export async function annulerKill(id: string): Promise<void> {
+  const { error } = await supabase.rpc("kill_annuler", { p_id: id });
+  if (error) throw error;
+}

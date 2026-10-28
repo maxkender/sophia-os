@@ -7,8 +7,26 @@ export function etatNudge(n: Pick<NudgeEnvoye, "reponse_at" | "resolu_at">) {
   return "sans_reponse" as const;
 }
 
-/** Une étape des relances (prompt 17). */
-export const ETAPES_STATS = ["acces", "tiktok", "warmup", "mercredi"] as const;
+/** Une étape des relances : les 4 du système du 2 nov. (0402), puis le mercredi. */
+export const ETAPES_STATS = ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "mercredi"] as const;
+
+/** Les anciens noms (prompt 17) comptent pour l'étape qui les remplace. */
+const TYPES_STATS: Record<(typeof ETAPES_STATS)[number], readonly string[]> = {
+  connexion: ["connexion", "acces"],
+  tiktok: ["tiktok"],
+  warmup_lance: ["warmup_lance"],
+  warmup_bien_fait: ["warmup_bien_fait", "warmup"],
+  mercredi: ["mercredi"],
+};
+
+/** L'étape de `recrues_rouges` (acces, tiktok, warmup, mercredi) de chaque ligne. */
+const ROUGE_STATS: Record<(typeof ETAPES_STATS)[number], string | null> = {
+  connexion: "acces",
+  tiktok: "tiktok",
+  warmup_lance: null,
+  warmup_bien_fait: "warmup",
+  mercredi: "mercredi",
+};
 
 export interface StatsEtape {
   envoyees: number;
@@ -29,14 +47,14 @@ export function statsRelances(
   const H48 = 48 * 3_600_000;
   return Object.fromEntries(
     ETAPES_STATS.map((e) => {
-      const envoyes = nudges.filter((n) => n.type === e);
+      const envoyes = nudges.filter((n) => TYPES_STATS[e].includes(n.type));
       const vite = envoyes.filter((n) => n.resolu_at && Date.parse(n.resolu_at) - Date.parse(n.envoye_at) <= H48).length;
       return [
         e,
         {
           envoyees: envoyes.length,
           faites48h: envoyes.length ? Math.round((100 * vite) / envoyes.length) : null,
-          rouges: rouges.filter((r) => r.etape === e).length,
+          rouges: rouges.filter((r) => r.etape === ROUGE_STATS[e]).length,
         },
       ];
     }),

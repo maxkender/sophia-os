@@ -134,6 +134,10 @@ describe("les cases : une seule information chacune", () => {
     });
     expect(caseEtape(r, "tiktok")).toEqual({ etat: "apres" });
     expect(caseEtape(r, "warmup")).toEqual({ etat: "apres" });
+    // Système du 2 nov. : la relance « connexion » s'affiche dans la colonne Accès.
+    expect(caseEtape(recrue({ nudges: [{ ...ENVOI, type: "connexion" }] }), "acces")).toMatchObject({
+      envoi: { type: "envoye", canal: "upwork" },
+    });
     // Simulation : « ✉ planned ».
     const prevue = recrue({
       premiere_connexion_at: "2026-10-26T12:00:00Z",

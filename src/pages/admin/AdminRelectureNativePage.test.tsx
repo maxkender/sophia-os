@@ -10,17 +10,12 @@ const MICABO = "00000000-0000-4000-8000-000000000002";
 const lireReglage = vi.fn();
 const ecrireEspace = vi.fn();
 const listerRelecteurs = vi.fn();
-const listerToutesReponses = vi.fn();
 const ajouterRelecteur = vi.fn();
 const majRelecteur = vi.fn();
 const supprimerRelecteur = vi.fn();
 const listerFiches = vi.fn();
 const enregistrerFiche = vi.fn();
 const compterVersions = vi.fn();
-const lireReponses = vi.fn();
-const listerKit = vi.fn();
-const listerEcrituresKit = vi.fn();
-const majPostKit = vi.fn();
 const synchroniserNotion = vi.fn();
 const listerExemples = vi.fn();
 const ajouterExemples = vi.fn();
@@ -31,19 +26,12 @@ vi.mock("@/features/relectureNative/api", () => ({
   lireReglageRelecture: () => lireReglage(),
   ecrireEspaceOuvert: (...a: unknown[]) => ecrireEspace(...a),
   listerRelecteurs: () => listerRelecteurs(),
-  listerToutesReponses: () => listerToutesReponses(),
   ajouterRelecteur: (...a: unknown[]) => ajouterRelecteur(...a),
   majRelecteur: (...a: unknown[]) => majRelecteur(...a),
   supprimerRelecteur: (...a: unknown[]) => supprimerRelecteur(...a),
   listerFichesAppli: () => listerFiches(),
   enregistrerFicheAppli: (...a: unknown[]) => enregistrerFiche(...a),
   compterVersionsFiches: () => compterVersions(),
-  lireReponses: (...a: unknown[]) => lireReponses(...a),
-  listerKit: () => listerKit(),
-  listerEcrituresKit: (...a: unknown[]) => listerEcrituresKit(...a),
-  majPostKit: (...a: unknown[]) => majPostKit(...a),
-  ajouterPostKit: vi.fn(),
-  supprimerPostKit: vi.fn(),
   synchroniserNotion: () => synchroniserNotion(),
   listerExemplesNatifs: () => listerExemples(),
   ajouterExemplesNatifs: (...a: unknown[]) => ajouterExemples(...a),
@@ -52,27 +40,6 @@ vi.mock("@/features/relectureNative/api", () => ({
   supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
 }));
-
-vi.mock("@/features/reviews/TikTokEmbed", () => ({
-  TikTokEmbed: ({ url }: { url: string }) => <iframe title="TikTok" src={url} />,
-}));
-
-const POST_KIT = {
-  id: "k1",
-  rang: 1,
-  contenu_id: "c1",
-  application_id: SOPHIA,
-  voie: "reprise",
-  slide_cta: 5,
-  consigne_cta: "Slide 5 recommends unscroll.",
-  a_adapter: "The weekly poem.",
-  source_url: "https://www.tiktok.com/@brookeandbloom/video/7641213732919577887",
-  slides_en: [
-    { position: 1, texte: "6 hobbies that will make you noticeably smarter", image_url: "https://x/1.jpg" },
-    { position: 5, texte: "i use unscroll", image_url: "https://x/5.jpg" },
-  ],
-  actif: true,
-};
 
 vi.mock("@/features/moteur/api", () => ({
   listerLabels: () =>
@@ -115,14 +82,10 @@ describe("AdminRelectureNativePage", () => {
     lireReglage.mockResolvedValue({ espace_ouvert: false, production: false });
     ecrireEspace.mockResolvedValue(undefined);
     listerRelecteurs.mockResolvedValue([]);
-    listerToutesReponses.mockResolvedValue([]);
     ajouterRelecteur.mockResolvedValue(undefined);
     listerFiches.mockResolvedValue([]);
     compterVersions.mockResolvedValue({});
     enregistrerFiche.mockResolvedValue(undefined);
-    listerKit.mockResolvedValue([POST_KIT]);
-    listerEcrituresKit.mockResolvedValue([]);
-    majPostKit.mockResolvedValue(undefined);
     synchroniserNotion.mockResolvedValue({ ok: true, ecrites: 2 });
     listerExemples.mockResolvedValue([]);
     lireExemple.mockResolvedValue({ statut: "pret" });
@@ -184,59 +147,45 @@ describe("AdminRelectureNativePage", () => {
     );
   });
 
-  it("montre le kit en liste, ouvre un post et enregistre un changement de voie", async () => {
-    rendre();
-    fireEvent.click(screen.getByRole("button", { name: "Kit" }));
-    const ligne = await screen.findByTestId("kit-admin-1");
-    expect(within(ligne).getByText("6 hobbies that will make you noticeably smarter")).toBeInTheDocument();
-    expect(within(ligne).getByText("Reprise")).toBeInTheDocument();
-    expect(within(ligne).getByText("CTA slide 5")).toBeInTheDocument();
-    expect(within(ligne).getByTitle("Sophia")).toHaveAttribute("src");
-    expect(within(ligne).queryByRole("combobox", { name: "Voie du CTA" })).not.toBeInTheDocument();
-
-    fireEvent.click(within(ligne).getByRole("button", { name: "Modifier" }));
-    expect(within(ligne).getByTitle("TikTok")).toHaveAttribute("src", POST_KIT.source_url);
-    const enregistrerBtn = within(ligne).getByRole("button", { name: "Enregistrer" });
-    expect(enregistrerBtn).toBeDisabled();
-    fireEvent.change(within(ligne).getByRole("combobox", { name: "Voie du CTA" }), { target: { value: "libre" } });
-    fireEvent.click(enregistrerBtn);
-    await waitFor(() =>
-      expect(majPostKit).toHaveBeenCalledWith("k1", {
-        rang: 1,
-        application_id: SOPHIA,
-        voie: "libre",
-        slide_cta: 5,
-        consigne_cta: "Slide 5 recommends unscroll.",
-        a_adapter: "The weekly poem.",
-        actif: true,
-      }),
-    );
-  });
-
-  it("montre les chiffres et l'avancement du kit de chaque relecteur", async () => {
+  it("n'a plus ni questionnaire ni kit, et compte relecteurs, langues et exemples", async () => {
     listerRelecteurs.mockResolvedValue([
       {
         id: "r1",
         profile_id: "p1",
         langue: "tr",
-        statut: "invite",
+        statut: "actif",
         note: null,
-        questionnaire_termine_at: "2026-10-27T11:00:00Z",
         created_at: "2026-10-27T10:00:00Z",
         prenom: "Ayşe",
         nom: "Yılmaz",
         email: "a@x.io",
       },
     ]);
-    listerEcrituresKit.mockResolvedValue([
-      { relecteur_id: "r1", kit_id: "k1", slides: [], remarque: "", rendu_at: "2026-10-27T12:00:00Z" },
+    const exemple = (id: string, langue: string, statut = "pret") => ({
+      id,
+      langue,
+      source_url: `https://www.tiktok.com/@x/photo/${id}`,
+      handle: "x",
+      label_id: null,
+      slides: [],
+      vues: null,
+      statut,
+      erreur: null,
+      created_at: "2026-10-29T10:00:00Z",
+    });
+    listerExemples.mockResolvedValue([
+      ...["1", "2", "3", "4", "5"].map((id) => exemple(id, "de")),
+      exemple("6", "tr"),
+      exemple("7", "tr", "erreur"),
     ]);
     rendre();
     const ligne = await screen.findByTestId("relecteur-r1");
-    await waitFor(() => expect(within(ligne).getByText("1 / 1 rendus")).toBeInTheDocument());
-    expect(within(ligne).getByLabelText("Kit fini")).toBeInTheDocument();
     expect(within(ligne).getByText("AY")).toBeInTheDocument();
-    await waitFor(() => expect(screen.getByText("Posts écrits").closest("div")).toHaveTextContent(/1\s*\/ 1/));
+    expect(within(ligne).queryByText(/questionnaire|rendus/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Kit" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Réponses au questionnaire" })).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText("Exemples natifs prêts").closest("div")).toHaveTextContent(/6/));
+    expect(screen.getByText("Banques en service").closest("div")).toHaveTextContent(/1/);
   });
 
   it("banque d'exemples natifs : couverture par label, ajout de liens puis lecture un par un", async () => {

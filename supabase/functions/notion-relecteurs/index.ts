@@ -1,4 +1,4 @@
-import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { cleNotion } from "../_shared/notion.ts";
 import {
   baseRelecteurs,
@@ -17,10 +17,9 @@ import {
  * natifs » (une ligne par langue), demandée par Adrien le 27/10/2026 : « mis à
  * jour quand j'en accepte un ».
  *
- * Appelée par l'OS juste après chaque changement :
- *   • l'admin ajoute un relecteur, change son statut ou le retire ;
- *   • le relecteur envoie son questionnaire ou rend un post du kit.
- * Un relecteur n'envoie rien : la fonction relit tout l'état de l'OS, et
+ * Appelée par l'admin juste après chaque changement (un relecteur ajouté, son
+ * statut changé ou retiré) et par le bouton « Mettre à jour Notion ». Elle
+ * relit tout l'état de l'OS, et
  * n'écrit que les lignes qui changent. Seules les colonnes de l'OS sont
  * touchées (voir `_shared/notion_relecteurs.ts`).
  *
@@ -29,8 +28,8 @@ import {
  *   {"blanc": true}  calcule et renvoie le plan SANS rien écrire
  */
 Deno.serve(async (request) => {
-  const acces = await assertRole(request, ["admin", "poster"]);
-  if (acces instanceof Response) return acces;
+  const denied = await assertAuthorised(request);
+  if (denied) return denied;
 
   let blanc = false;
   try {
@@ -40,18 +39,6 @@ Deno.serve(async (request) => {
   }
 
   const supabase = serviceClient();
-
-  // Un posteur ne déclenche la synchro que s'il est relecteur.
-  if (acces.role === "poster") {
-    const { data, error } = await supabase
-      .from("relecteurs_natifs")
-      .select("id")
-      .eq("profile_id", acces.userId)
-      .in("statut", ["invite", "actif"])
-      .limit(1);
-    if (error) return json({ error: error.message }, 500);
-    if (!data?.length) return json({ error: "forbidden" }, 403);
-  }
 
   const cle = cleNotion();
   if (!cle) return json({ ok: true, secret_manquant: "NOTION_TOKEN", ecrites: 0 });
@@ -88,10 +75,10 @@ Deno.serve(async (request) => {
       }),
     );
 
-    // Les relecteurs, leur questionnaire et leur kit.
+    // Les relecteurs et leur nom.
     const { data: lignesRelecteurs, error: erreurRelecteurs } = await supabase
       .from("relecteurs_natifs")
-      .select("id, profile_id, langue, statut, questionnaire_termine_at");
+      .select("id, profile_id, langue, statut");
     if (erreurRelecteurs) return json({ error: erreurRelecteurs.message }, 500);
     const ids = (lignesRelecteurs ?? []).map((r) => r.profile_id as string);
     const { data: noms, error: erreurNoms } = ids.length
@@ -105,38 +92,15 @@ Deno.serve(async (request) => {
       ]),
     );
 
-    const relecteurs: RelecteurOs[] = await Promise.all(
-      (lignesRelecteurs ?? []).map(async (r) => {
-        const [reponses, rendus] = await Promise.all([
-          supabase.from("relecteur_questionnaire").select("question_cle", { count: "exact", head: true }).eq("relecteur_id", r.id),
-          supabase
-            .from("kit_natif_ecritures")
-            .select("kit_id", { count: "exact", head: true })
-            .eq("relecteur_id", r.id)
-            .not("rendu_at", "is", null),
-        ]);
-        if (reponses.error) throw new Error(`questionnaire : ${reponses.error.message}`);
-        if (rendus.error) throw new Error(`kit : ${rendus.error.message}`);
-        return {
-          langue: r.langue as string,
-          nom: nomDe.get(r.profile_id as string) ?? "—",
-          statut: r.statut as StatutRelecteur,
-          reponses: reponses.count ?? 0,
-          questionnaireEnvoye: Boolean(r.questionnaire_termine_at),
-          kitRendus: rendus.count ?? 0,
-        };
-      }),
-    );
-
-    const { count: totalKit, error: erreurKit } = await supabase
-      .from("kit_natif")
-      .select("id", { count: "exact", head: true })
-      .eq("actif", true);
-    if (erreurKit) return json({ error: erreurKit.message }, 500);
+    const relecteurs: RelecteurOs[] = (lignesRelecteurs ?? []).map((r) => ({
+      langue: r.langue as string,
+      nom: nomDe.get(r.profile_id as string) ?? "—",
+      statut: r.statut as StatutRelecteur,
+    }));
 
     const baseId = baseRelecteurs();
     const lignes = await lireLignesRelecteurs(cle, baseId);
-    const plan = planifierRelecteurs(langues, relecteurs, totalKit ?? 0, lignes);
+    const plan = planifierRelecteurs(langues, relecteurs, lignes);
 
     const resume = {
       ok: true,

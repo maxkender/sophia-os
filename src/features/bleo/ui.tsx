@@ -2,8 +2,22 @@
 
 import type React from "react";
 import { useTranslation } from "react-i18next";
+import {
+  CircleCheck,
+  CircleDashed,
+  FlaskConical,
+  Hourglass,
+  Repeat,
+  RotateCcw,
+  Sparkles,
+  Sprout,
+  TrendingDown,
+  Trophy,
+  type LucideIcon,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 import type { EtatBleo, VerdictContenu, VerdictFamille } from "./api";
@@ -52,40 +66,78 @@ export function EtatRequete({ erreur, chargement }: { erreur?: unknown; chargeme
   return null;
 }
 
-const VARIANTE_VERDICT = {
-  gagnante: "success",
-  gagnant: "success",
-  en_attente: "secondary",
-  non_gagnante: "warning",
-  non_gagnant: "warning",
-} as const;
+/** Un titre de carte précédé de son icône, partout dans la section. */
+export function TitreCarte({ icone: Icone, children }: { icone: LucideIcon; children: React.ReactNode }) {
+  return (
+    <CardTitle className="flex items-center gap-2">
+      <Icone className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+      {children}
+    </CardTitle>
+  );
+}
+
+/** Une étiquette de liste de définitions précédée de son icône. */
+export function EtiquetteIcone({ icone: Icone, children }: { icone: LucideIcon; children: React.ReactNode }) {
+  return (
+    <dt className="flex items-center gap-1.5 text-muted-foreground">
+      <Icone className="size-3.5 shrink-0" aria-hidden />
+      {children}
+    </dt>
+  );
+}
+
+const VERDICTS: Record<VerdictFamille | VerdictContenu, { variante: "success" | "secondary" | "warning"; icone: LucideIcon }> = {
+  gagnante: { variante: "success", icone: Trophy },
+  gagnant: { variante: "success", icone: Trophy },
+  en_attente: { variante: "secondary", icone: Hourglass },
+  non_gagnante: { variante: "warning", icone: TrendingDown },
+  non_gagnant: { variante: "warning", icone: TrendingDown },
+};
 
 export function BadgeVerdict({ verdict }: { verdict: VerdictFamille | VerdictContenu | null }) {
   const { t } = useTranslation();
   if (!verdict) return <span className="text-muted-foreground">—</span>;
-  return <Badge variant={VARIANTE_VERDICT[verdict]}>{t(`bleo.verdicts.${verdict}`)}</Badge>;
+  const { variante, icone: Icone } = VERDICTS[verdict];
+  return (
+    <Badge variant={variante}>
+      <Icone aria-hidden />
+      {t(`bleo.verdicts.${verdict}`)}
+    </Badge>
+  );
 }
+
+const ETATS: Record<EtatBleo, LucideIcon> = { a_juger: CircleDashed, en_test: FlaskConical, juge: CircleCheck };
 
 export function BadgeEtat({ etat }: { etat: EtatBleo | null }) {
   const { t } = useTranslation();
   if (!etat) return <span className="text-muted-foreground">—</span>;
-  return <Badge variant={etat === "juge" ? "outline" : "info"}>{t(`bleo.etats.${etat}`)}</Badge>;
+  const Icone = ETATS[etat];
+  return (
+    <Badge variant={etat === "juge" ? "outline" : "info"}>
+      <Icone aria-hidden />
+      {t(`bleo.etats.${etat}`)}
+    </Badge>
+  );
 }
 
-const VARIANTE_CATEGORIE: Record<string, "info" | "success" | "warning" | "secondary" | "outline"> = {
-  juger: "info",
-  recolte: "success",
-  gagnant_servi: "success",
-  non_gagnant_neuve: "warning",
-  non_gagnant_servie: "warning",
-  rappel: "secondary",
+const CATEGORIES: Record<string, { variante: "info" | "success" | "warning" | "secondary"; icone: LucideIcon }> = {
+  juger: { variante: "info", icone: FlaskConical },
+  recolte: { variante: "success", icone: Sprout },
+  gagnant_servi: { variante: "success", icone: Trophy },
+  non_gagnant_neuve: { variante: "warning", icone: Sparkles },
+  non_gagnant_servie: { variante: "warning", icone: Repeat },
+  rappel: { variante: "secondary", icone: RotateCcw },
 };
 
+/** La catégorie d'un passage du plan ; l'infobulle dit ce qu'elle veut dire. */
 export function BadgeCategorie({ categorie }: { categorie: string | null }) {
   const { t } = useTranslation();
   if (!categorie) return <span className="text-muted-foreground">—</span>;
+  const c = CATEGORIES[categorie];
+  const Icone = c?.icone;
   return (
-    <Badge variant={VARIANTE_CATEGORIE[categorie] ?? "outline"}>
+    <Badge variant={c?.variante ?? "outline"} title={t(`bleo.categoriesAide.${categorie}`, { defaultValue: "" }) || undefined}>
+      {Icone && <Icone aria-hidden />}
       {t(`bleo.categories.${categorie}`, { defaultValue: categorie })}
     </Badge>
   );

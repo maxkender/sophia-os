@@ -1,11 +1,44 @@
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { SlidersHorizontal } from "lucide-react";
+import {
+  Activity,
+  AtSign,
+  Coins,
+  FlaskConical,
+  Gauge,
+  Ghost,
+  Languages,
+  Package,
+  Ruler,
+  Settings,
+  ShieldCheck,
+  SlidersHorizontal,
+  Split,
+  Tags,
+  Trophy,
+  type LucideIcon,
+} from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { lireReglagesBleo } from "@/features/bleo/api";
-import { EtatRequete } from "@/features/bleo/ui";
+import { EtatRequete, TitreCarte } from "@/features/bleo/ui";
+
+const ICONES_SECTIONS: Record<string, LucideIcon> = {
+  mesure: Ruler,
+  verdict: Trophy,
+  forme: Activity,
+  valeur: Coins,
+  classes: Tags,
+  file_juger: FlaskConical,
+  garde_fous: ShieldCheck,
+  boite: Package,
+  jauge: Gauge,
+  ombre: Ghost,
+  ab: Split,
+  agent: Languages,
+  sources: AtSign,
+};
 
 /** Une valeur de réglage en une ligne : nombre, texte, liste ou petit objet. */
 function texteValeur(v: unknown): string {
@@ -56,7 +89,7 @@ export function AdminBleoReglagesPage() {
         {simples.length > 0 && (
           <Card>
             <CardHeader>
-              <CardTitle>{t("bleo.reglages.general")}</CardTitle>
+              <TitreCarte icone={Settings}>{t("bleo.reglages.general")}</TitreCarte>
             </CardHeader>
             <CardContent>
               <dl className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1.5 text-sm">
@@ -73,7 +106,7 @@ export function AdminBleoReglagesPage() {
         {sections.map(([nom, section]) => (
           <Card key={nom}>
             <CardHeader>
-              <CardTitle>{t(`bleo.reglages.sections.${nom}`, { defaultValue: nom })}</CardTitle>
+              <TitreCarte icone={ICONES_SECTIONS[nom] ?? SlidersHorizontal}>{t(`bleo.reglages.sections.${nom}`, { defaultValue: nom })}</TitreCarte>
             </CardHeader>
             <CardContent>
               <dl className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1.5 text-sm">

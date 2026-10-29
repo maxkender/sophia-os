@@ -2,11 +2,11 @@ import * as React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Shuffle } from "lucide-react";
+import { ChartPie, CheckCheck, FlaskConical, Shuffle, Users } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { listerLabelsBleo, listerPlan, listerRuns, runOfficiel, TAILLE_PAGE } from "@/features/bleo/api";
@@ -22,6 +22,7 @@ import {
   TH,
   TH_NUM,
   Tableau,
+  TitreCarte,
 } from "@/features/bleo/ui";
 import { nomLangue } from "@/features/moteur/langues";
 
@@ -138,7 +139,7 @@ export function AdminBleoPlanPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle>{t("bleo.plan.melange")}</CardTitle>
+              <TitreCarte icone={ChartPie}>{t("bleo.plan.melange")}</TitreCarte>
               <CardDescription>{t("bleo.plan.melangeDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -175,7 +176,7 @@ export function AdminBleoPlanPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>{t("bleo.plan.capacite")}</CardTitle>
+              <TitreCarte icone={FlaskConical}>{t("bleo.plan.capacite")}</TitreCarte>
               <CardDescription>{t("bleo.plan.capaciteDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -206,7 +207,7 @@ export function AdminBleoPlanPage() {
       {runId && (
         <Card>
           <CardHeader>
-            <CardTitle>{t("bleo.plan.parCompte")}</CardTitle>
+            <TitreCarte icone={Users}>{t("bleo.plan.parCompte")}</TitreCarte>
             <CardDescription>{t("bleo.plan.parCompteDesc")}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
@@ -263,7 +264,9 @@ export function AdminBleoPlanPage() {
                 <th className={TH}>{t("bleo.colonnes.label")}</th>
                 <th className={TH}>{t("bleo.colonnes.langue")}</th>
                 <th className={TH}>{t("bleo.colonnes.appli")}</th>
-                <th className={TH_NUM}>{t("bleo.colonnes.valeur")}</th>
+                <th className={`${TH_NUM} cursor-help`} title={t("bleo.colonnes.valeurAide")}>
+                  {t("bleo.colonnes.valeur")}
+                </th>
                 <th className={TH}>{t("bleo.colonnes.minuit")}</th>
               </EnteteTableau>
               <tbody>
@@ -298,7 +301,10 @@ export function AdminBleoPlanPage() {
                     <td className={TD_NUM}>{formaterNombre(l.valeur_tirage, 2)}</td>
                     <td className={`${TD} max-w-[18rem] text-muted-foreground`}>
                       {l.identique_au_reel ? (
-                        <span className="font-medium text-success">{t("bleo.plan.identique")}</span>
+                        <span className="inline-flex items-center gap-1 font-medium text-success">
+                          <CheckCheck className="size-3.5" aria-hidden />
+                          {t("bleo.plan.identique")}
+                        </span>
                       ) : (
                         <span className="line-clamp-2" title={l.reel_titres ?? undefined}>
                           {l.reel_titres ?? t("bleo.plan.pasEncore")}

@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ExternalLink, GitBranch } from "lucide-react";
+import { ArrowLeft, ExternalLink, GitBranch, Layers, Lock, Send } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { lireFamille, listerContenusFamille, listerPassagesFamille } from "@/features/bleo/api";
 import { formaterJour, formaterNombre, formaterQuand, formaterVues } from "@/features/bleo/format";
@@ -21,6 +21,7 @@ import {
   TH,
   TH_NUM,
   Tableau,
+  TitreCarte,
 } from "@/features/bleo/ui";
 import { nomLangue } from "@/features/moteur/langues";
 
@@ -75,6 +76,7 @@ export function AdminBleoFamillePage() {
                 <BadgeVerdict verdict={f.verdict} />
                 {f.close && (
                   <Badge variant="outline" title={formaterQuand(f.close_le, i18n.language)}>
+                    <Lock aria-hidden />
                     {t("bleo.close")}
                   </Badge>
                 )}
@@ -106,7 +108,7 @@ export function AdminBleoFamillePage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>{t("bleo.famille.contenus")}</CardTitle>
+              <TitreCarte icone={Layers}>{t("bleo.famille.contenus")}</TitreCarte>
               <CardDescription>{t("bleo.famille.contenusDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -121,7 +123,9 @@ export function AdminBleoFamillePage() {
                   <th className={TH_NUM}>{t("bleo.colonnes.vuesMax")}</th>
                   <th className={TH_NUM}>{t("bleo.colonnes.vuesMoyenne")}</th>
                   <th className={TH_NUM}>{t("bleo.colonnes.rMedian")}</th>
-                  <th className={TH_NUM}>{t("bleo.colonnes.valeur")}</th>
+                  <th className={`${TH_NUM} cursor-help`} title={t("bleo.colonnes.valeurAide")}>
+                  {t("bleo.colonnes.valeur")}
+                </th>
                 </EnteteTableau>
                 <tbody>
                   {(contenus.data ?? []).map((c) => (
@@ -169,7 +173,7 @@ export function AdminBleoFamillePage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>{t("bleo.famille.passages")}</CardTitle>
+              <TitreCarte icone={Send}>{t("bleo.famille.passages")}</TitreCarte>
               <CardDescription>{t("bleo.famille.passagesDesc")}</CardDescription>
             </CardHeader>
             <CardContent>

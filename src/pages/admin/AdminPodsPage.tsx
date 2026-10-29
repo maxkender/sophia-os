@@ -15,6 +15,7 @@ import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { Replie } from "@/components/ui/replie";
 import { Segments } from "@/components/ui/segments";
+import { SectionBoitePodz } from "@/features/bleo/SectionBoitePodz";
 import { drapeauLangue } from "@/features/moteur/langues";
 import { SEUIL_STOCK_JOURS } from "@/features/moteur/pilotage";
 import { Aide, BarreReserve } from "@/features/moteur/repartition/graphes";
@@ -827,6 +828,9 @@ export function AdminPodsPage() {
           </Card>
         );
       })}
+
+      {/* BLEO : la jauge et la boîte des podz de la voie 1 (lecture seule). */}
+      <SectionBoitePodz />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 /**
- * Prompt 22, partie 11 : une phrase en haut de chaque page (9 pages, Needs you
+ * Prompt 22, partie 11 : une phrase en haut de chaque page (10 pages, Needs you
  * compris), en français et en anglais, dans `auto.phrases.<page>`. Elle est
  * posée par PageAuto (en-tête commun) : aucune page n'a à l'écrire elle-même.
  */
@@ -30,8 +30,8 @@ describe("les phrases en haut des pages (prompt 22, partie 11)", () => {
     await i18n.changeLanguage("en");
   });
 
-  it("chacune des 9 pages a sa phrase, en anglais et en français", () => {
-    expect(PAGES_AUTO).toHaveLength(9);
+  it("chacune des 10 pages a sa phrase, en anglais et en français", () => {
+    expect(PAGES_AUTO).toHaveLength(10);
     for (const langue of ["en", "fr"]) {
       const t = i18n.getFixedT(langue);
       for (const p of PAGES_AUTO) {

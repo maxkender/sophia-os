@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { localeDate } from "@/locales/localeDate";
+import { BandeauDisputes } from "@/features/disputes/PageDisputes";
 import { cn } from "@/lib/utils";
 
 import { lireJournal, SOURCES_JOURNAL, type FiltreJournal, type LigneJournal, type SourceJournal } from "./api";
@@ -72,6 +73,7 @@ export function PageLogs() {
 
   return (
     <div className="space-y-4" data-testid="page-logs">
+      <BandeauDisputes />
       <div className="flex flex-wrap items-center gap-2">
         <select className={selectClass} aria-label={t("auto.logs.filtres.type")} value={f.source} onChange={maj("source")}>
           <option value="">{t("auto.logs.filtres.tousTypes")}</option>

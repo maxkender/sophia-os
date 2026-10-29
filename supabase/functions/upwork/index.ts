@@ -41,6 +41,7 @@ import {
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { appelSlack, decrireRetrait, retirerDesCanaux } from "../_shared/slack_retrait.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
+import { sansSuspendus } from "../_shared/contestations.ts";
 import {
   decrireJalons,
   etape,
@@ -2192,15 +2193,20 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
     ? v.arret_raison_upwork.trim()
     : RAISON_FIN_DEFAUT;
 
-  const { data: file, error } = await supabase
+  const { data: lue, error } = await supabase
     .from("arrets")
-    .select("id, etapes")
+    .select("id, poster_id, etapes")
     .eq("statut", "a_faire")
+    .is("annule_at", null)
     .order("created_at")
     .limit(20);
   if (error) throw error;
-  const bilan = { mode, traites: 0, erreurs: [] as string[] };
-  for (const a of file ?? []) {
+  // Prompt 21, R7 : un Kill contesté (Disputes) attend : ni désactivation, ni Slack, ni fin de contrat.
+  const { data: contestes, error: errC } = await supabase.rpc("contestations_kill_ouvertes");
+  if (errC) throw errC;
+  const { garder: file, suspendus } = sansSuspendus((lue ?? []) as { id: string; poster_id: string; etapes: unknown }[], (contestes ?? []) as string[]);
+  const bilan = { mode, traites: 0, suspendus: suspendus.length, erreurs: [] as string[] };
+  for (const a of file) {
     if (mode !== "on") {
       // Prompt 21, F6 : en test, rien n'est désactivé ni envoyé ; le plan est noté
       // une fois et la ligne reste « à faire » (elle partira pour de vrai sur « on »).

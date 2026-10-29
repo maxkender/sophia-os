@@ -127,7 +127,12 @@ function LigneCas({ c }: { c: CasNeedsYou }) {
   const saisie = boutons.find((a) => ["corriger_lien", "corriger_handle", "repondre", "classer"].includes(a));
 
   return (
-    <Card data-cas={c.cle} data-type={c.type} className={cn(c.urgence !== "rien" && "border-l-4 border-l-warning")}>
+    <Card
+      data-cas={c.cle}
+      data-type={c.type}
+      // Prompt 21, R6 : une contestation ouverte depuis plus de 24 h passe en rouge.
+      className={cn(c.type === "contestation_24h" ? "border-l-4 border-l-destructive" : c.urgence !== "rien" && "border-l-4 border-l-warning")}
+    >
       <CardContent className="space-y-2 py-3 text-sm">
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="secondary">{t(`needsYou.cat.${c.categorie}`)}</Badge>

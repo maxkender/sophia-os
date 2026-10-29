@@ -19,8 +19,12 @@ const c = (o: Partial<Classement>): Classement => ({ cas: "travail", confiance: 
 
 Deno.test("lire le JSON du modèle ; illisible ou cas inconnu → null", () => {
   assertEquals(lireClassement('bla {"cas":"paie","confiance":0.9,"sous_cas":null,"reponse":"","jours":null} bla')?.cas, "paie");
-  assertEquals(lireClassement('{"cas":"absent","confiance":1.4,"jours":"3"}'), { cas: "absent", confiance: 1, sous_cas: null, reponse: "", jours: 3 });
+  assertEquals(lireClassement('{"cas":"absent","confiance":1.4,"jours":"3"}'), { cas: "absent", confiance: 1, sous_cas: null, reponse: "", jours: 3, conteste: null });
   assertEquals(lireClassement('{"cas":"autre"}'), null);
+  // Prompt 21, R : la contestation, seulement un type connu.
+  assertEquals(lireClassement('{"cas":"paie","confiance":0.9,"conteste":"paie"}')?.conteste, "paie");
+  assertEquals(lireClassement('{"cas":"a_lire","confiance":0.9,"conteste":"kill"}')?.conteste, "kill");
+  assertEquals(lireClassement('{"cas":"a_lire","confiance":0.9,"conteste":"autre chose"}')?.conteste, null);
   assertEquals(lireClassement("pas de json"), null);
   // Le sous-cas n'a de sens que pour une question de travail.
   assertEquals(lireClassement('{"cas":"paie","confiance":0.9,"sous_cas":"augmentation"}')?.sous_cas, null);

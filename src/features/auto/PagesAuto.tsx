@@ -3,6 +3,7 @@ import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
 import { Lien1000Card } from "@/features/moteur/Lien1000Card";
 import { PageNudges } from "@/features/nudges/PageNudges";
 import { CarteSante } from "@/features/frequences/Frequences";
+import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -80,6 +81,14 @@ export function NeedsYouPage() {
   return (
     <PageAuto cle="needs">
       <PageNeedsYou />
+    </PageAuto>
+  );
+}
+
+export function DisputesPage() {
+  return (
+    <PageAuto cle="disputes">
+      <PageDisputes />
     </PageAuto>
   );
 }

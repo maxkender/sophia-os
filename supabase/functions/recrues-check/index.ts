@@ -51,6 +51,7 @@ import { generateTextFast } from "../_shared/gemini.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { construirePromptContestation, lireContestation, texteAccuse } from "../_shared/contestations.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -89,10 +90,22 @@ const OS_URL = "https://sophia-marketing-orga.vercel.app";
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   try {
-    const acces = await assertRole(request, ["admin"]);
+    // Prompt 21, R : « Reply » sur Disputes est ouvert au Head of Ops ; le reste : admin.
+    const acces = await assertRole(request, ["admin", "head_of_ops"]);
     if (acces instanceof Response) return acces;
-    const body = (await request.json().catch(() => ({}))) as { action?: string };
-    if (body.action === "reponses") return json(await traiterReponses(serviceClient(), new Date()));
+    const body = (await request.json().catch(() => ({}))) as { action?: string; id?: string; texte?: string };
+    if (body.action === "contestation_repondre") {
+      return json(await repondreContestation(serviceClient(), String(body.id ?? ""), String(body.texte ?? "")));
+    }
+    if (acces.role !== "admin") return json({ error: "forbidden" }, 403);
+    if (body.action === "reponses") {
+      const maintenant = new Date();
+      const r = await traiterReponses(serviceClient(), maintenant);
+      // Prompt 21, R : les contestations (tableau de bord, réponse automatique), même sans nouveau message.
+      const contestations = await traiterContestations(serviceClient())
+        .catch((e) => ({ ok: false, erreurs: [`contestations : ${messageErreur(e)}`] }));
+      return json({ ...r, contestations });
+    }
     if (body.action !== "verifier") return json({ ok: false, error: "action inconnue" }, 400);
     return json(await verifier(serviceClient(), new Date()));
   } catch (erreur) {
@@ -801,6 +814,8 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       erreur,
       traite_at: new Date().toISOString(),
       reponse_statut: plan.bloque ?? (plan.repondre ? null : "aucune"),
+      // Prompt 21, R : une contestation (le déclencheur l'ajoute à Disputes).
+      conteste: classement.conteste ?? null,
       ...(maj_paie ? { action: `paie_${maj_paie}` } : {}),
     };
     if (plan.liste === "a_lire") bilan.a_lire++;
@@ -847,6 +862,85 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
     else bilan.classes++;
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 21, partie R : Disputes
+// ---------------------------------------------------------------------------
+
+/**
+ * 1. Les questions du tableau de bord (chat) des 2 derniers jours : l'IA dit
+ *    si c'est une contestation (le déclencheur l'ajoute à Disputes).
+ * 2. La réponse automatique « we're checking it », sur le canal du message
+ *    (`reponses_auto` : test → simulée, rien ne part).
+ */
+async function traiterContestations(supabase: Supabase) {
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["reponses_auto", "contestation_accuse_texte"]);
+  const v = Object.fromEntries((regl ?? []).map((x) => [x.cle as string, x.valeur]));
+  const mode = lireModeAuto(v.reponses_auto);
+  const bilan = { ok: true, mode, tableau: 0, contestations_tableau: 0, accuses: 0, simules: 0, erreurs: [] as string[] };
+  if (mode === "off") return bilan;
+
+  const { data: questions } = await supabase
+    .from("chatbot_questions")
+    .select("id, question")
+    .eq("source", "os")
+    .eq("role", "poster")
+    .is("conteste_vu_at", null)
+    .not("user_id", "is", null)
+    .gte("created_at", new Date(Date.now() - 2 * 86_400_000).toISOString())
+    .order("created_at")
+    .limit(10);
+  for (const q of (questions ?? []) as { id: string; question: string | null }[]) {
+    let conteste: string | null = null;
+    try {
+      conteste = (q.question ?? "").trim() ? lireContestation(await generateTextFast(construirePromptContestation(q.question ?? ""))) : null;
+    } catch (e) {
+      bilan.erreurs.push(`tableau ${q.id} : ${messageErreur(e)}`);
+      continue;
+    }
+    await supabase.from("chatbot_questions").update({ conteste_vu_at: new Date().toISOString(), conteste }).eq("id", q.id);
+    bilan.tableau++;
+    if (conteste) bilan.contestations_tableau++;
+  }
+
+  const { data: file, error } = await supabase.rpc("contestations_accuses");
+  if (error) throw error;
+  const reel = mode === "on";
+  if (reel && (await automationEnPause(supabase))) return bilan;
+  for (const c of (file ?? []) as { id: string; poster_id: string; canal: string | null; prenom: string | null }[]) {
+    const texte = texteAccuse(v.contestation_accuse_texte, c.prenom);
+    let statut = "simule";
+    let erreur: string | null = null;
+    if (reel) {
+      erreur = c.canal === "upwork" ? await repondreUpwork(supabase, c.poster_id, texte) : await envoyerSlack(supabase, c.poster_id, texte);
+      statut = erreur ? "erreur" : "envoye";
+    }
+    await supabase.from("contestations")
+      .update({ accuse_statut: statut, accuse_at: new Date().toISOString(), accuse_erreur: erreur, maj_at: new Date().toISOString() })
+      .eq("id", c.id).eq("accuse_statut", "a_envoyer");
+    await supabase.rpc("contestation_noter_journal", { p_id: c.id, p_action: "accuse", p_detail: `${statut}${erreur ? ` : ${erreur}` : ""} · ${texte}` });
+    if (statut === "simule") bilan.simules++;
+    else if (statut === "envoye") bilan.accuses++;
+    else bilan.erreurs.push(`${c.id} : ${erreur}`);
+  }
+  bilan.ok = bilan.erreurs.length === 0;
+  return bilan;
+}
+
+/** « Reply » sur Disputes : le texte relu par une personne, dans le canal du message (Upwork, sinon Slack). */
+async function repondreContestation(supabase: Supabase, id: string, texte: string) {
+  if (!id || !texte.trim()) return { ok: false, error: "id et texte requis" };
+  const { data: c } = await supabase.from("contestations").select("id, poster_id, canal").eq("id", id).maybeSingle();
+  if (!c) return { ok: false, error: "contestation introuvable" };
+  const erreur = c.canal === "upwork"
+    ? await repondreUpwork(supabase, c.poster_id as string, texte.trim())
+    : await envoyerSlack(supabase, c.poster_id as string, texte.trim());
+  await supabase.from("contestations")
+    .update({ reponse_texte: texte.trim(), reponse_statut: erreur ? "erreur" : "envoye", reponse_at: new Date().toISOString(), maj_at: new Date().toISOString() })
+    .eq("id", id);
+  await supabase.rpc("contestation_noter_journal", { p_id: id, p_action: "reponse", p_detail: `${erreur ? `erreur : ${erreur}` : "envoyée"} · ${texte.trim()}` });
+  return erreur ? { ok: false, error: erreur } : { ok: true, canal: c.canal === "upwork" ? "upwork" : "slack" };
 }
 
 /** Prompt 21, P3 : la fonction upwork regarde (et règle, si elle le peut) la paie du posteur. */

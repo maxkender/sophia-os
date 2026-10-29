@@ -13,6 +13,7 @@ import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
 import { lireAujourdhui, lireSante, lireSemaine, type EtatTacheAuto } from "./api";
+import { BudgetUpwork } from "./sent/Attente";
 import { joursSemaine, type EtatJour } from "./logique";
 
 function useDates() {
@@ -104,6 +105,8 @@ export function SanteAuto() {
         )}
         {reconnecter.error && <p className="text-destructive">{(reconnecter.error as Error).message}</p>}
       </div>
+      {/* Prompt 25 : le budget Upwork du jour (conversations distinctes, limite d'Upwork). */}
+      <BudgetUpwork />
       <div className="space-y-1">
         <p className="font-medium">{t("auto.sante.titreTaches")}</p>
         <ul className="divide-y text-sm" data-testid="taches-auto">

@@ -14,6 +14,7 @@ import { FrequencesUpwork } from "@/features/frequences/Frequences";
 import { cn } from "@/lib/utils";
 
 import {
+  AVEC_APPROVE,
   enregistrerInterrupteur,
   enregistrerModePaieApi,
   enregistrerRepriseRappels,
@@ -26,7 +27,13 @@ import {
 } from "./api";
 
 const MODES: readonly ModeInterrupteur[] = ["off", "test", "on"];
-const VARIANTE: Record<ModeInterrupteur, "secondary" | "warning" | "success"> = { off: "secondary", test: "warning", on: "success" };
+const MODES_APPROVE: readonly ModeInterrupteur[] = ["off", "test", "approve", "on"];
+const VARIANTE: Record<ModeInterrupteur, "secondary" | "warning" | "info" | "success"> = {
+  off: "secondary",
+  test: "warning",
+  approve: "info",
+  on: "success",
+};
 
 /** Une ligne off / test / on : le nom, le mode, la phrase de ce qu'il fait, les boutons (« on » confirmé). */
 function LigneMode({
@@ -109,6 +116,7 @@ export function Interrupteurs() {
             titre={t(`interrupteurs.${cle}.titre`)}
             phrase={t(`interrupteurs.${cle}.on`)}
             mode={lu.data?.[cle] ?? "test"}
+            modes={AVEC_APPROVE.includes(cle) ? MODES_APPROVE : MODES}
             admin={admin}
             occupe={changer.isPending}
             attribut={{ "data-interrupteur": cle }}

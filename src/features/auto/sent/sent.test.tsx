@@ -32,6 +32,12 @@ vi.mock("@/features/nudges/PageNudges", () => ({
   Prevues: () => <div data-testid="relances-prevues" />,
 }));
 vi.mock("@/features/regles/ReglagesRegles", () => ({ ReglagesRegles: () => <div data-testid="reglages-regles" /> }));
+const attente = vi.hoisted(() => ({
+  lireAApprouver: vi.fn(async () => [] as import("./attenteApi").MessageAApprouver[]),
+  approuverMessages: vi.fn(async (garder: unknown, ecarter: unknown) => (garder && ecarter ? 2 : 0)),
+  envoyerFile: vi.fn(async () => ({ ok: true, envoyes: 1, perimes: 0, doublons: 0, upwork_bloque: 1 })),
+}));
+vi.mock("./attenteApi", async (orig) => ({ ...(await orig<typeof import("./attenteApi")>()), ...attente }));
 
 import { PageMessagesEnvoyes } from "./PageMessagesEnvoyes";
 
@@ -57,7 +63,7 @@ describe("Messages sent (prompt 22, partie 6)", () => {
     auth.role = "admin";
     reglages.valeurs = {
       accueil_message_texte: "Hi {prenom}, welcome! {url}",
-      etape_texte_tiktok: "Hi {prenom}, create @{handle} {oops}",
+      relance_texte_compte_tiktok: "create @{handle} {oops}",
       lien_1000: { message: "Congrats @{handle}: {lien}", seuil: 1000, liens: { sophia: "taap.it/sophia.culture" } },
       reponse_texte_absent: "",
       etapes_delais: { kill_h: 48, kill_annulation_h: 12, autre: 7 },
@@ -66,10 +72,10 @@ describe("Messages sent (prompt 22, partie 6)", () => {
     await i18n.changeLanguage("fr");
   });
 
-  it("5 onglets : Journal, Prévu, Aperçu, Textes, Délais ; ?onglet= ouvre le bon", async () => {
+  it("6 onglets : Journal, À approuver, Prévu, Aperçu, Textes, Délais ; ?onglet= ouvre le bon", async () => {
     rendu("/?onglet=prevus");
     const onglets = await screen.findByRole("tablist", { name: "Onglets de Messages envoyés" });
-    expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual(["Journal", "Prévu", "Aperçu", "Textes", "Délais"]);
+    expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual(["Journal", "À approuver", "Prévu", "Aperçu", "Textes", "Délais"]);
     expect(screen.getByTestId("relances-prevues")).toBeInTheDocument();
   });
 
@@ -99,9 +105,9 @@ describe("Messages sent (prompt 22, partie 6)", () => {
     expect([...textes.querySelectorAll("[data-groupe-texte]")].map((e) => e.getAttribute("data-groupe-texte"))).toEqual([...GROUPES_TEXTES]);
     expect(within(textes).getByTestId("apercu-accueil")).toHaveTextContent("Hi Ana, welcome! https://sophia-marketing-orga.vercel.app");
     expect(within(textes).getByText("Variables inconnues, laissées telles quelles : {oops}")).toBeInTheDocument();
-    // Le texte du jeudi pour les recrues n'est pas encore en base (partie C du prompt 21).
-    const recrue = textes.querySelector('[data-texte="jeudi_recrue"]') as HTMLElement;
-    expect(within(recrue).getByText("Pas encore en base")).toBeInTheDocument();
+    // Un texte pas encore en base (ici celui des abonnements de la relance du jour).
+    const follows = textes.querySelector('[data-texte="relance_follows"]') as HTMLElement;
+    expect(within(follows).getByText("Pas encore en base")).toBeInTheDocument();
 
     const lien = textes.querySelector("#texte-lien1000") as HTMLTextAreaElement;
     fireEvent.change(lien, { target: { value: "Well done @{handle}! {lien}" } });
@@ -140,6 +146,43 @@ describe("Messages sent (prompt 22, partie 6)", () => {
     expect(ecrit.double_popup_expire).toEqual({ jour_iso: 3, heure: "23:59" });
   });
 
+  it("À approuver (prompt 25) : tout est coché ; décocher, modifier un texte, Send selected → gardés et écartés, puis la file part", async () => {
+    attente.lireAApprouver.mockResolvedValue([
+      { poster_id: "p1", type: "relance", periode: "2026-10-30", canal: "slack", texte: "Hi Ana, log in", raison: "a_approuver",
+        donnees: { element: "connexion", email: "anaa@sophia.com" }, premier_at: "2026-10-30T09:00:00Z", poster_nom: "Ana Silva", hm_nom: "Lucia" },
+      { poster_id: "p2", type: "relance", periode: "2026-10-30", canal: "upwork", texte: "Hi Bo, follow", raison: "a_approuver",
+        donnees: { element: "follows" }, premier_at: "2026-10-30T09:05:00Z", poster_nom: "Bo Li", hm_nom: null },
+    ]);
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu("/?onglet=approuver");
+    const carte = await screen.findByTestId("a-approuver");
+    await waitFor(() => expect(carte.querySelectorAll("[data-message]")).toHaveLength(2));
+    expect(within(carte).getByText("HM : Lucia")).toBeInTheDocument();
+    expect(within(carte).getByText(/email: anaa@sophia.com/)).toBeInTheDocument();
+    fireEvent.click(within(carte).getByRole("checkbox", { name: "Envoyer à Bo Li" }));
+    fireEvent.change(within(carte).getByRole("textbox", { name: "Texte pour Ana Silva" }), { target: { value: "Hi Ana, please log in" } });
+    fireEvent.click(within(carte).getByRole("button", { name: "Send selected (1)" }));
+    await waitFor(() => expect(attente.envoyerFile).toHaveBeenCalled());
+    expect(attente.approuverMessages).toHaveBeenCalledWith(
+      [{ poster_id: "p1", type: "relance", periode: "2026-10-30", texte: "Hi Ana, please log in" }],
+      [{ poster_id: "p2", type: "relance", periode: "2026-10-30" }],
+    );
+    expect(await within(carte).findByText(/2 approuvés : 1 partis maintenant, 1 attendent le budget Upwork/)).toBeInTheDocument();
+  });
+
+  it("À approuver : le Head of Ops voit la liste, sans case ni bouton d'envoi", async () => {
+    auth.role = "head_of_ops";
+    attente.lireAApprouver.mockResolvedValue([
+      { poster_id: "p1", type: "lundi_soir", periode: "2026-11-02", canal: "upwork", texte: "Hi Ana", raison: "a_approuver",
+        donnees: null, premier_at: "2026-11-02T19:00:00Z", poster_nom: "Ana Silva", hm_nom: null },
+    ]);
+    rendu("/?onglet=approuver");
+    const carte = await screen.findByTestId("a-approuver");
+    await waitFor(() => expect(carte.querySelectorAll("[data-message]")).toHaveLength(1));
+    expect(within(carte).getByRole("checkbox")).toBeDisabled();
+    expect(within(carte).queryByRole("button", { name: /Send selected/ })).toBeNull();
+  });
+
   it("Délais : lecture seule pour le Head of Ops", async () => {
     auth.role = "head_of_ops";
     rendu("/?onglet=timing");
@@ -152,8 +195,8 @@ describe("Messages sent (prompt 22, partie 6)", () => {
 describe("le catalogue des textes, les délais et le journal (sans base)", () => {
   it("tous les textes d'un message envoyé, une seule fois chacun", () => {
     expect(new Set(TEXTES.map((x) => x.id)).size).toBe(TEXTES.length);
-    for (const cle of ["accueil_message_texte", "etape_texte_connexion", "lundi_texte_tous", "lundi_soir_texte", "jeudi_texte",
-      "jeudi_texte_recrue", "kill_message_texte", "arret_message_texte", "double_popup_texte", "recreer_popup_texte",
+    for (const cle of ["accueil_message_texte", "relance_texte_cadre", "relance_texte_connexion", "lundi_texte_tous", "lundi_soir_texte",
+      "jeudi_texte", "kill_message_texte", "arret_message_texte", "double_popup_texte", "recreer_popup_texte",
       "nudge_regularite_texte", "lien_1000", "reponse_texte_upwork", "reponse_texte_augmentation", "reponse_texte_propre_compte",
       "reponse_texte_absent"]) {
       expect(CLES_TEXTES).toContain(cle);

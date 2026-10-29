@@ -104,12 +104,45 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | D29 | Le passage à 6 h est donné à la fois à L4 (P1) et à L7 | L7 (ligne 635 de la spec) | spec |
 | D35 | **Tranché le 29/10 par Adrien.** La spec ne dit pas si une déclinaison change l'accroche, et range les générations 2 après les familles jamais déclinées | Génération 1 : accroche identique mot pour mot. Génération 2 : accroche reformulée (même promesse), ouverte au verdict de la spec (un passage à 10 000 vues ou r ≥ 2 ; le seuil « 10 000 vues de moyenne » de 0605 a été retiré par 0606). Les générations 2 passent en tête de la boîte. Vue `bleo_boite`, colonne `accroche_attendue` ; le guichet (L4) refusera une génération 1 dont l'accroche normalisée diffère du parent et une génération 2 identique | fait (boîte), guichet en L4 |
 | D36 | **Tranché le 29/10 par Adrien.** La spec ferme une famille sur le r **médian** de sa dernière génération : un post qui explose ne la sauve pas (168 des 243 familles closes avaient un r moyen d'au moins 1) | Fermeture sur le r **moyen**, chaque r plafonné à 20 comme dans la forme ; la règle est recalculée chaque nuit dans les deux sens (réouverture si la moyenne repasse à 1). Le r du compte reste divisé par la **médiane** du compte, et la forme reste une moyenne plafonnée (1,4 % des r dépassent 20) | fait (0608) |
-| D37 | **Demandé le 29/10 par Adrien.** `bleo_boite` ne rend que l'accroche et des identifiants : un podz ne voit ni la tournure du post ni ses images | `bleo_boite_posts(label, limite)` (0609) rend chaque ligne avec le post parent tel que posté : slides dans l'ordre (texte posé, image, slide d'appli, slide d'inspiration), passage de référence (langue source d'abord) et 3 meilleurs passages. Visible dès maintenant sur la page Pods (ligne dépliable). L'action `boite` du guichet (L4) n'aura qu'à l'appeler ; `npm run boite` en fera une planche | fait (données, OS) ; guichet en L4 |
-| D38 | Images : la banque de chaque label est grande (de 748 images pour clean_study à 7 707 pour alpha_male, plus de 90 % jamais utilisées), mais les podz choisissent **à l'œil** sur des planches de vignettes (`npm run images`, `--depuis <contenus>`, `--accroches`). Une légende texte (`media_library.caption`) existe pour 45 % des images (3 % pour weird_alpha) mais n'est pas envoyée aux podz | Pour une déclinaison, `npm run boite` ouvre la planche des images du parent et de sa famille (`--depuis`). Ajouter la légende à l'action `images` et un `--cherche <mots>` ; compléter les légendes manquantes (weird_alpha d'abord) | L4. Chiffrage du 29/10 : 13 419 images sans légende dans les labels des podz de la voie 1 ; traitement existant (`caption-media`, fal.ai `florence-2-large`, repli `moondream2`, crons `caption-media-drain-1` à `-6` éteints depuis le 25/10), 24 images par minute, soit environ 9 h ; coût estimé de 0 à 35 $ (fal affiche 0 $ la seconde pour ce modèle ; au tarif H100, 4,50 $/h, avec 1 à 2 s par image : 17 à 34 $). En attente de l'accord d'Adrien |
-| D39 | **Tranché le 29/10 par Adrien.** Le rappel J+7 rejoue le même post sur le même compte : sur 147 rappels mesurés, r médian 1,32 (post normal du compte : 1,00), mais 5,4 % seulement battent le post d'origine (vues médianes 5 300 contre 80 500). Le même contenu sur d'autres comptes (r médian 1,62) et une déclinaison G1 (1,66, 65 posts) font mieux | Pour chaque hit à 50 000 vues, le compte reçoit une **déclinaison G1 du hit** à la place du repost : la famille du hit passe en tête de la boîte du podz (commande urgente, à livrer avant J+7), puis l'assignation donne au compte une G1 qu'il n'a pas encore postée. Repli quand aucune G1 n'est prête, ou quand le label n'a pas de podz de la voie 1 (medical_study, white_bg) : le repost actuel. Volume : environ 27 hits par semaine, environ 20 contenus distincts (smart_girl 9,5 hits par semaine, alpha_yellow 4,8, alpha_male 3,3, weird_alpha 3, RH 3) | L4 (commande dans la boîte) ; bascule ou avant, à décider (assignation) |
+| D37 | **Demandé le 29/10 par Adrien.** `bleo_boite` ne rend que l'accroche et des identifiants : un podz ne voit ni la tournure du post ni ses images | `bleo_boite_posts(label, limite)` (0610) rend chaque ligne avec le post parent tel que posté : slides dans l'ordre (texte posé, image, slide d'appli, slide d'inspiration), passage de référence (langue source d'abord) et 3 meilleurs passages. Visible dès maintenant sur la page Pods (ligne dépliable). L'action `boite` du guichet (L4) n'aura qu'à l'appeler ; `npm run boite` en fera une planche | fait (données, OS) ; guichet en L4 |
+| D38 | Images : la banque de chaque label est grande (de 748 images pour clean_study à 7 707 pour alpha_male, plus de 90 % jamais utilisées), mais les podz choisissent **à l'œil** sur des planches de vignettes (`npm run images`, `--depuis <contenus>`, `--accroches`). Une légende texte (`media_library.caption`) existe pour 45 % des images (3 % pour weird_alpha) mais n'est pas envoyée aux podz | Pour une déclinaison, `npm run boite` ouvre la planche des images du parent et de sa famille (`--depuis`). Ajouter la légende à l'action `images` et un `--cherche <mots>` ; compléter les légendes manquantes (weird_alpha d'abord) | L4. Chiffrage du 29/10 : 13 419 images sans légende dans les labels des podz de la voie 1 ; traitement existant (`caption-media`, fal.ai `florence-2-large`, repli `moondream2`, crons `caption-media-drain-1` à `-6` éteints depuis le 25/10), 24 images par minute, soit environ 9 h ; coût estimé de 0 à 35 $ (fal affiche 0 $ la seconde pour ce modèle ; au tarif H100, 4,50 $/h, avec 1 à 2 s par image : 17 à 34 $). Décision d'Adrien le 29/10 : les légendes vont **avec** la recherche des podz (L4), pas avant. Charge vérifiée : 24 images par minute, une fonction Edge par minute et par tâche, une écriture par image, 3 à 7 Go lus par fal dans le stockage, à lancer en journée (loin de minuit, du relevé de 0 h à 5 h, de la nuit BLEO de 5 h 15 et du tirage de 14 h), tâches éteintes à la fin. Côté podz, la recherche tourne dans l'outil (`donnees/images.json`) : l'agent ne lit que la planche des images trouvées |
+| D39 | **Tranché le 29/10 par Adrien.** Le rappel J+7 rejoue le même post sur le même compte : sur 147 rappels mesurés, r médian 1,32 (post normal du compte : 1,00), mais 5,4 % seulement battent le post d'origine (vues médianes 5 300 contre 80 500). Le même contenu sur d'autres comptes (r médian 1,62) et une déclinaison G1 (1,66, 65 posts) font mieux | Pour chaque hit à 50 000 vues, le compte reçoit une **déclinaison G1 du hit** à la place du repost : la famille du hit passe en tête de la boîte du podz (commande urgente, à livrer avant J+7), puis l'assignation donne au compte une G1 qu'il n'a pas encore postée. Repli quand aucune G1 n'est prête, ou quand le label n'a pas de podz de la voie 1 (medical_study, white_bg) : le repost actuel. Volume : environ 27 hits par semaine, environ 20 contenus distincts (smart_girl 9,5 hits par semaine, alpha_yellow 4,8, alpha_male 3,3, weird_alpha 3, RH 3) | L4 (commande dans la boîte) ; **assignation à la bascule** (décision d'Adrien le 29/10 : on attend la bascule) |
 | D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) | à décider |
 
-### Agent de langue (L9)
+### Colonne langue : la réécriture native (plan du 29/10, remplace L9 à L11)
+
+Le plan « Réécriture native » du 29/10 (page Notion « Révolution
+placement/traduction ») remplace l'agent de langue de la spec. Plus de
+relecteurs recrutés, plus d'agent Claude par langue, plus de sessions de langue
+en tâches planifiées : **un seul appel Gemini par deck** qui voit tout le post
+et lit des fiches en base. Ce que ça change pour BLEO :
+
+| Spec BLEO | Devient | Où |
+| --- | --- | --- |
+| L9 · agent de langue à blanc (`bleo_decks_file` comme file de l'agent, guichet `langues`, sessions D0 à D6, relectures `ab_aveugle`, banque, Google Sheet) | Étapes 2 à 4 du plan : fiches, appel unique branché sur le comparateur, fiche CTA et tirage de la voie | Rien dans BLEO avant L7 |
+| L10 · test 50/50 de l'agent (3 langues, slide marquée) | Étape 5 : production 50/50 sur l'allemand derrière l'interrupteur de la page Relecture native | Après J14 de l'A/B BLEO (voir plus bas) |
+| L11 · étendre langue par langue, fin du CTA A/B/C | Grosses langues d'abord (de, es, it, pt, fr, nl), selon la solidité des fiches ; le CTA A/B/C est remplacé par le tirage de la voie | Après L10 |
+| `bleo_banque` (banque remplie par les relecteurs) | **Abandonnée** : la banque est `exemples_natifs` (#810, 0423), remplie depuis des comptes natifs TikTok | — |
+| `bleo_fiches` (`sorte` langue, label ou appli ; `version` ; jamais écrasée) | **Reprise** pour les fiches langue et label de l'étape 2 : c'est déjà la « table avec historique ». Les fiches appli restent dans `fiches_appli` (0379) | Étape 2 |
+| `bleo_relectures` (micro-tâches payées) | Réduite aux corrections de posts publiés (`tache = 'correction'`) ; les 10 dernières de la langue entrent dans l'appel | Étape 6 |
+| `bleo_decks_file` (file des decks de l'agent) | File des decks du lendemain cuits l'après-midi (L7) ; `circuit` prendra `natif` à la place de `agent`, `voie_cta` garde `reprise`, `prouvee`, `essai` | L7, puis étape 5 |
+| `passages.voie_cta`, `forme_cta`, `circuit`, `deck_version` (0600) | La **fiche CTA** de chaque post publié : voie, forme, circuit, version de la fiche langue (`deck_version`). Il manque la slide du CTA par deck : une colonne à ajouter à l'étape 4 | Étape 4 |
+| Règle de la slide marquée (jamais la slide 1) | « Jamais dans les 3 premières slides » (−4,8 points mesurés) | Étape 3 |
+| Boucle du lundi | Dans `bleo-lundi` (L3) : comparer formes, slides et voies **à contenu égal**, avec le r (vues ÷ médiane du compte) des posts mûrs (72 h), hors rappels, et le taux d'enregistrements pour 1 000 vues (qui attend la lecture Apify de L0) | L3 |
+
+**Calendrier.** Les étapes 2 à 4 (fiches, appel unique sur le comparateur,
+fiche CTA) ne touchent pas la production : elles peuvent avancer tout de suite.
+La production 50/50 sur l'allemand change les decks d'une partie des posts :
+elle part **après J14** de l'A/B BLEO, comme L3 et L4 (rien ne change pendant
+la mesure). Si on veut la lancer avant, elle doit tirer sa moitié au hasard
+**indépendamment du bras BLEO**, et le rapport A/B la compte par bras.
+
+**L7 (decks l'après-midi)** reste dans BLEO : c'est là que tournera l'appel
+unique pour les decks du lendemain, avec dix heures de marge entre le tirage de
+14 h et minuit pour un appel cinq fois plus lourd (environ 10 000 tokens). Le
+plafond de dépense par jour va dans `reglages.bleo`.
+
+Ce qui reste de la spec et vaut toujours pour l'appel unique :
 
 | # | Constat | Proposition | Statut |
 | --- | --- | --- | --- |
@@ -124,9 +157,10 @@ corriger dans `docs/bleo.md` et le doc Claude).
    (relâche des garde-fous), D30 et D34. Sans réponse avant le lot concerné,
    la proposition s'applique.
 2. Ajouter l'installation de Deno au script de démarrage de l'environnement.
-3. Avant L9 : le montant des micro-tâches de relecture (bloquant), les fiches
-   appli (D8 de la spec, nécessaires au contrôle D5.4), le Google Sheet de
-   relecture.
+3. Réécriture native (plan du 29/10) : les comptes allemands de la banque
+   d'exemples (bloquant pour la fiche allemande), puis les quatre points à
+   trancher du plan (liberté du CTA, angles micabo et UnSwipe, concurrent en
+   essai, plafond de dépense).
 4. Avant L3 : ajouter @sofiya.yussupova comme source de clean_study.
 
 ## Calendrier visé
@@ -144,8 +178,8 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | Mer 25/11 | J17 : confirmation | |
 | ~9/12 | L8 : suppression de la tierlist | 14 jours stables après J17 |
 
-La colonne « agent de langue » (L9 → L11) part après L7, dès que les points
-bloquants de L9 sont levés.
+La colonne langue suit le plan « Réécriture native » du 29/10 (voir plus haut) :
+fiches et comparateur tout de suite, production 50/50 sur l'allemand après J14.
 
 ## À blanc du 29/10 au 2/11 (décision d'Adrien le 29/10)
 
@@ -163,7 +197,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0606_bleo_boite_g2_spec` | Génération 2 de nouveau ouverte au verdict de la spec ; générations 2 en tête de la boîte (D35) | Appliquée |
 | `0607_bleo_vues_os` | Vues de lecture de la section BLEO de l'OS : `bleo_familles_ui`, `bleo_contenus_ui`, `bleo_plan_ui` | Appliquée |
 | `0608_bleo_fermeture_moyenne` | Fermeture des familles sur le r moyen plafonné, dans les deux sens (D36) ; `r_moyen` dans les vues de l'OS | Appliquée : 243 → 78 familles closes, boîte 659 → 815 lignes |
-| `0609_bleo_boite_posts` | `bleo_boite_posts()` : la boîte avec le post parent complet (D37) | Appliquée |
+| `0610_bleo_boite_posts` | `bleo_boite_posts()` : la boîte avec le post parent complet (D37). D'abord numérotée 0609, en collision avec `0609_relecture_sans_questionnaire_ni_kit` (#827) : renommée le 29/10. BLEO garde la plage 0610 à 0699 | Appliquée |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -257,3 +291,9 @@ recalculée à la main, rejouabilité, derniers plans).
   familles rouvertes ; jauges : weird_alpha 2,4 → 3,6 semaines (full test 30 → 20 %),
   clean_study 2,1 → 3,2 (30 → 20 %), alpha_yellow 5,4 → 7,1 (20 → 10 %), RH reste à
   30 %. D37 (la boîte rend le post parent complet) et D38 (images) pour L4.
+- **29/10, nuit (suite)** : D39 attend la bascule (décision d'Adrien). Les légendes
+  d'images partiront avec la recherche des podz (L4), pas avant. La colonne langue
+  de la spec (L9 à L11) est remplacée par le plan « Réécriture native » du 29/10 :
+  `bleo_fiches` reprise pour les fiches, `bleo_banque` abandonnée au profit de
+  `exemples_natifs`, production 50/50 sur l'allemand après J14. Migration de la
+  boîte renommée 0610 (collision avec la 0609 de la relecture native).

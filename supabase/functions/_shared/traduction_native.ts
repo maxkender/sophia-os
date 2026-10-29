@@ -28,6 +28,7 @@ import {
   textOf,
 } from "./gemini.ts";
 import type { serviceClient } from "./supabase.ts";
+import { texteExemple } from "./exemples_natifs.ts";
 
 export interface SlideSource {
   position: number;
@@ -105,9 +106,15 @@ export function formaterAncres(ancres: ReadonlyArray<Ancre>, max = 12): string {
     .join("\n\n");
 }
 
+/** Au-delà, la banque d'exemples coûte plus qu'elle n'apprend. */
+export const MAX_EXEMPLES_BANQUE = 30;
+
 /**
- * Ancres natives d'une langue : les slideshows écrits DANS cette langue
- * (`langue_source` = langue), valides, les mieux vus d'abord. D'abord les
+ * Ancres natives d'une langue. D'abord la banque d'exemples natifs (0423) :
+ * des slideshows de créateurs de la langue, collés par l'admin, tous labels
+ * confondus ; elle est lue EN ENTIER (jusqu'à 30). Sans banque (moins de 5
+ * exemples prêts), on retombe sur nos propres contenus écrits DANS cette
+ * langue (`langue_source` = langue), valides, les mieux vus d'abord. D'abord les
  * IMPORTS, écrits par de vrais créateurs natifs (careerswemma, studyavec_lea…
  * pour le français) ; les originaux des podz, écrits par des agents et porteurs
  * des mêmes tics, ne servent qu'en complément s'il manque d'imports. Texte pris
@@ -118,6 +125,18 @@ export async function chargerAncresNatives(
   langue: string,
   n = 12,
 ): Promise<Ancre[]> {
+  const { data: banque } = await supabase
+    .from("exemples_natifs")
+    .select("slides, vues")
+    .eq("langue", langue)
+    .eq("statut", "pret")
+    .order("created_at", { ascending: true })
+    .limit(MAX_EXEMPLES_BANQUE);
+  const exemples = ((banque ?? []) as Array<{ slides: unknown; vues: number | null }>)
+    .map((e) => ({ texte: texteExemple(e.slides), vues: e.vues ?? null }))
+    .filter((e) => e.texte.split("\n").length >= 3);
+  if (exemples.length >= 5) return exemples;
+
   const { data: contenus } = await supabase
     .from("contenus")
     .select("id, pod, creation_mode")
@@ -161,9 +180,9 @@ export async function chargerAncresNatives(
     (estOriginal.get(l.contenu_id) ? originaux : natifs).push(ancre);
   }
   const parVues = (a: Ancre, b: Ancre) => (b.vues ?? 0) - (a.vues ?? 0);
-  const choisis = natifs.sort(parVues).slice(0, n);
+  const choisis = [...exemples, ...natifs.sort(parVues)].slice(0, Math.max(n, exemples.length));
   if (choisis.length >= 5) return choisis;
-  return [...choisis, ...originaux.sort(parVues)].slice(0, n);
+  return [...choisis, ...originaux.sort(parVues)].slice(0, Math.max(n, exemples.length));
 }
 
 /** Traduction fidèle, formulée comme les natifs des ancres. */
@@ -199,11 +218,11 @@ anglaise mise en ${langue}.
 ${
     input.ancres.length
       ? `
-Slideshows écrits par de vrais créateurs natifs de ta langue, dans la même
-niche, qui ont marché. Imite leur registre, la longueur de leurs lignes, leur
-ponctuation, leur façon de s'adresser au lecteur. Ne recopie aucune phrase.
+Slideshows écrits par de vrais créateurs natifs de ta langue, dans des niches
+variées. Imite leur registre, la longueur de leurs lignes, leur ponctuation,
+leur façon de s'adresser au lecteur. Ne recopie aucune phrase.
 
-${formaterAncres(input.ancres)}
+${formaterAncres(input.ancres, MAX_EXEMPLES_BANQUE)}
 `
       : ""
   }

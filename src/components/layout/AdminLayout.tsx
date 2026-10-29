@@ -137,20 +137,6 @@ export function AdminLayout() {
         ) : undefined
       }
       groups={filtrer([
-        // Prompt 22 : tout le système du 2 nov. en une section, en tête.
-        {
-          title: t("auto.section"),
-          items: PAGES_AUTO.map((p) => ({
-            to: p.to,
-            label: t(`auto.pages.${p.cle}.titre`),
-            icon: ICONES_AUTO[p.cle],
-            description: t(`auto.pages.${p.cle}.phrase`),
-            // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
-            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
-            // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
-            ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
-          })),
-        },
         {
           items: [
             { to: "/admin", label: t("nav.pilotage"), icon: Gauge, description: t("navDesc.pilotage") },
@@ -262,6 +248,20 @@ export function AdminLayout() {
               description: t("navDesc.commentMasters"),
             },
           ],
+        },
+        // Prompt 22 : tout le système du 2 nov. en une section, sous « Tracking ».
+        {
+          title: t("auto.section"),
+          items: PAGES_AUTO.map((p) => ({
+            to: p.to,
+            label: t(`auto.pages.${p.cle}.titre`),
+            icon: ICONES_AUTO[p.cle],
+            description: t(`auto.phrases.${p.cle}`),
+            // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
+            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
+            // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
+            ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
+          })),
         },
         {
           title: t("navSection.config"),

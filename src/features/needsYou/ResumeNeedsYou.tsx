@@ -52,6 +52,12 @@ export function ResumeNeedsYou() {
               <Badge variant={c.urgence === "rien" ? "secondary" : "warning"}>{t(`needsYou.urgence.${c.urgence}`)}</Badge>
               <span className="font-medium">{c.nom ?? t("needsYou.inconnu")}</span>
               <span className="text-muted-foreground">{t(`needsYou.types.${c.type}`, { defaultValue: c.type })}</span>
+              {/* Prompt 22, partie 3 : « Fix » mène là où le cas se règle (Needs you, filtré sur son type). */}
+              <Button size="sm" variant="outline" className="ml-auto h-7" asChild>
+                <Link to={`/admin/auto/needs-you?type=${encodeURIComponent(c.type)}`} data-fix={c.cle}>
+                  {t("needsYou.resume.fix")}
+                </Link>
+              </Button>
             </li>
           ))}
         </ul>

@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
@@ -69,8 +70,12 @@ export function FrequencesUpwork({ admin }: { admin: boolean }) {
   );
 }
 
-/** Overview → Health : les appels Upwork du jour et la limite (alerte au-dessus de 30 000). */
-export function CarteSante() {
+/**
+ * Overview → Health : les appels Upwork du jour et la limite (alerte au-dessus
+ * de 30 000). Prompt 22, partie 3 : `children` ajoute la connexion Upwork et
+ * le dernier passage des tâches automatiques dans la même carte.
+ */
+export function CarteSante({ children }: { children?: React.ReactNode } = {}) {
   const { t } = useTranslation();
   const lu = useQuery({ queryKey: ["frequences-upwork"], queryFn: lireEtatFrequences, refetchInterval: 60_000 });
   const d = lu.data;
@@ -88,6 +93,7 @@ export function CarteSante() {
         )}
         {alerte && <p className="text-destructive">{t("frequences.sante.alerte", { seuil: d!.alerte.toLocaleString("fr-FR") })}</p>}
         {lu.error && <p className="text-destructive">{(lu.error as Error).message}</p>}
+        {children}
       </CardContent>
     </Card>
   );

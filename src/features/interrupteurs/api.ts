@@ -55,3 +55,26 @@ export async function enregistrerRepriseRappels(jour: string): Promise<void> {
     .upsert({ cle: "rappels_reprise_le", valeur: jour, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
   if (error) throw error;
 }
+
+/**
+ * Prompt 22, partie 3 : le mode de la paie par l'API (`paie_api.mode`), dans
+ * Overview → Switches. Seul le mode change : les contrats de test, les dates
+ * et les plafonds restent dans Payroll, tels quels.
+ */
+export async function lireModePaieApi(): Promise<ModeInterrupteur> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "paie_api").maybeSingle();
+  if (error) throw error;
+  const mode = (data?.valeur as { mode?: unknown } | null)?.mode;
+  return mode === "test" || mode === "on" ? mode : "off";
+}
+
+export async function enregistrerModePaieApi(mode: ModeInterrupteur): Promise<void> {
+  const { data, error: errLu } = await supabase.from("reglages").select("valeur").eq("cle", "paie_api").maybeSingle();
+  if (errLu) throw errLu;
+  const avant = data?.valeur && typeof data.valeur === "object" ? (data.valeur as Record<string, unknown>) : {};
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("reglages")
+    .upsert({ cle: "paie_api", valeur: { ...avant, mode }, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
+  if (error) throw error;
+}

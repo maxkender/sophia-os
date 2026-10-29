@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ import { AdminRetoursContestesPage } from "@/pages/admin/AdminRetoursContestesPa
 import {
   agirContestation,
   CLES_TEXTES_CONTESTATION,
+  compterContestations,
   enregistrerTexteContestation,
   lireContestations,
   lireDossier,
@@ -462,5 +463,20 @@ function TextesContestation() {
         {enregistrer.error && <p className="text-xs text-destructive">{(enregistrer.error as Error).message}</p>}
       </CardContent>
     </Card>
+  );
+}
+
+/** Prompt 21, R5 : le nombre de contestations ouvertes, en haut de Logs (lien vers Disputes). */
+export function BandeauDisputes() {
+  const { t } = useTranslation();
+  const lu = useQuery({ queryKey: ["disputes", "compte"], queryFn: compterContestations, refetchInterval: 60_000 });
+  if (!lu.data || lu.data.ouvertes === 0) return null;
+  return (
+    <Link to="/admin/auto/disputes" data-testid="bandeau-disputes" className="inline-block">
+      <Badge variant={lu.data.plus_24h > 0 ? "error" : "secondary"}>
+        {t("disputes.resume", { n: lu.data.ouvertes })}
+        {lu.data.plus_24h > 0 && ` · ${t("disputes.resumeRetard", { n: lu.data.plus_24h })}`}
+      </Badge>
+    </Link>
   );
 }

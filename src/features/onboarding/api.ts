@@ -92,3 +92,21 @@ export function filtrerOnboarding(liste: readonly RecrueOnboarding[], f: Filtres
     .filter((r) => (!f.hm || (r.hm_id ?? "") === f.hm) && (!f.cohorte || r.cohorte_lundi === f.cohorte) && (!f.etape || etapeCourante(r) === f.etape))
     .sort((a, b) => a.cohorte_lundi.localeCompare(b.cohorte_lundi) || (a.nom ?? "").localeCompare(b.nom ?? ""));
 }
+
+/** Prompt 25 MAJ, 7b : le dernier relevé TikTok lisible de chaque recrue, et la dernière tentative (0449). */
+export interface ReleveRecrue {
+  releve_at: string | null;
+  tentative_at: string | null;
+}
+
+export async function lireDerniersReleves(posteurs: string[]): Promise<Map<string, ReleveRecrue>> {
+  if (posteurs.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("derniers_releves_posteurs", { p_posteurs: posteurs });
+  if (error) throw error;
+  return new Map(((data ?? []) as ({ poster_id: string } & ReleveRecrue)[]).map((d) => [d.poster_id, { releve_at: d.releve_at, tentative_at: d.tentative_at }]));
+}
+
+/** Heures écoulées depuis un relevé (arrondi bas). */
+export function heuresDepuis(at: string, maintenant = new Date()): number {
+  return Math.max(0, Math.floor((maintenant.getTime() - new Date(at).getTime()) / 3_600_000));
+}

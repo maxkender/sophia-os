@@ -15,7 +15,7 @@ import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { modeKillMessage } from "../_shared/arret.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
-import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import { lireProfilTiktokFiable as lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";

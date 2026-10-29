@@ -1975,17 +1975,26 @@ export function creerPoster(input: {
   });
 }
 
-/** Démarre le warmup d'un compte (créateur sur son compte, ou admin). */
-export function demarrerWarmup(compteId: string) {
+/**
+ * Démarre le warmup d'un compte (créateur sur son compte, ou admin). Prompt 25
+ * MAJ : avec `handle` (le @ tapé par la recrue), l'OS le lit d'abord sur
+ * TikTok ; introuvable → `{ ok: false, error: "compte_introuvable" }` et le
+ * warm-up ne démarre pas.
+ */
+export function demarrerWarmup(compteId: string, handle?: string) {
   return invoke<{
     ok: boolean;
+    error?: "compte_introuvable" | "handle_invalide" | string;
+    handle?: string;
     deja?: boolean;
-    warmup_started_at: string;
-    warmup_ends_at: string;
+    warmup_started_at?: string;
+    warmup_ends_at?: string;
     heures?: number;
+    verification?: { statut: "trouve" | "illisible"; handle: string };
   }>("manage-users", {
     action: "start_warmup",
     compteId,
+    ...(handle !== undefined ? { handle } : {}),
   });
 }
 

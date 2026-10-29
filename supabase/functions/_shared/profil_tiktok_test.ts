@@ -4,7 +4,7 @@
 
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { profilDepuisHtml } from "./profil_tiktok.ts";
+import { lireProfilTiktokFiable, profilDepuisHtml, type ProfilTiktok } from "./profil_tiktok.ts";
 
 function page(detail: unknown): string {
   const donnees = { __DEFAULT_SCOPE__: { "webapp.app-context": {}, "webapp.user-detail": detail } };
@@ -54,4 +54,18 @@ Deno.test("une page bloquée ne dit jamais « n'existe pas »", () => {
     profilDepuisHtml('<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">{pas du json</script>').existe,
     null,
   );
+});
+
+Deno.test("prompt 25 MAJ, 7b : une page illisible est relue une 2e fois avant de conclure", async () => {
+  const p = (existe: boolean | null): ProfilTiktok => ({ existe, creeLe: null, abonnements: null, likes: null, abonnes: null, videos: null, erreur: existe === null ? "blocage" : null });
+  let n = 0;
+  const lectures = [p(null), p(true)];
+  assertEquals((await lireProfilTiktokFiable("a", async () => lectures[n++]!, 0)).existe, true);
+  assertEquals(n, 2);
+  n = 0;
+  assertEquals((await lireProfilTiktokFiable("a", async () => { n++; return p(false); }, 0)).existe, false);
+  assertEquals(n, 1);
+  const deux = await lireProfilTiktokFiable("a", async () => p(null), 0);
+  assertEquals(deux.existe, null);
+  assertEquals(deux.erreur, "2 lectures illisibles : blocage");
 });

@@ -630,7 +630,8 @@ describe("AdminCheckKillDoublePage", () => {
       // Plus de « Tout valider » coché d'avance.
       expect(screen.queryByTestId("a-decider")).toBeNull();
       expect(screen.queryByRole("link", { name: "Cohortes" })).toBeNull();
-      expect(screen.queryByTestId("carte-recrutement")).toBeNull();
+      // Prompt 21, D : la cible de recrutement par pays revient le samedi.
+      expect(await screen.findByTestId("carte-recrutement")).toBeInTheDocument();
     });
   });
 

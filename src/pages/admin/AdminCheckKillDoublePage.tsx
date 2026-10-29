@@ -86,6 +86,7 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { CartesDecision } from "@/features/ckd/decisions/CartesDecision";
+import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
 import { JeudiNudge } from "@/features/ckd/decisions/JeudiNudge";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
 import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
@@ -220,6 +221,8 @@ export function AdminCheckKillDoublePage() {
           <>
             <SemaineDecisions />
             <CartesDecision groupes={GROUPES_SAMEDI} testid="cartes-samedi" />
+            {/* Prompt 21, D : le samedi, la cible de recrutement par pays (avec recrutés et écart). */}
+            <CiblesRecrutementAdmin />
             <details className="space-y-4 rounded-xl border p-4">
               <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailSamedi")}</summary>
               <div className="mt-4 space-y-6">

@@ -29,6 +29,7 @@ import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { CeQueLOsAFait } from "@/features/nudges/CeQueLOsAFait";
 import { MesRecrues } from "@/features/cohortes/PageCohortes";
 import { AccueilAuto } from "@/features/accueil/AccueilAuto";
+import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
 async function nomsPosteurs(ids: string[]): Promise<Map<string, string>> {
@@ -151,6 +152,9 @@ export function HiringAccueilPage() {
         <BoutonExport hm={hm} />
       </div>
       {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
+
+      {/* Prompt 21, D : en haut, ses cibles de recrutement (cible, recrutés, écart). */}
+      <SectionsSamediHm decisions={false} prochaines />
 
       {/* Système du 2 nov., partie A : les contrats dont l'annonce ne dit pas le pays. */}
       <AccueilAuto hmSeulement />

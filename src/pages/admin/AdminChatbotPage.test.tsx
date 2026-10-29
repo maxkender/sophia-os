@@ -125,7 +125,10 @@ describe("AdminChatbotPage", () => {
     // L'onglet « À traiter » porte le nombre de la file.
     expect(within(onglet(/Questions à traiter/)).getByText("2")).toBeInTheDocument();
     // Prompt 22, partie 9 : 3 onglets et la phrase en haut.
-    expect(screen.getAllByRole("tab").map((o) => o.textContent?.replace(/\d+$/, ""))).toEqual(["Questions à traiter", "Réponses validées", "Sources"]);
+    // Prompt 21, Q : plus « FAQ par situation » et « Test ».
+    expect(screen.getAllByRole("tab").map((o) => o.textContent?.replace(/\d+$/, ""))).toEqual([
+      "Questions à traiter", "Réponses validées", "Sources", "FAQ par situation", "Test",
+    ]);
     expect(screen.getByTestId("faq-phrase")).toHaveTextContent(/guides Notion/);
     // L'état du bot dans l'en-tête.
     expect(screen.getByText("Slack · Test")).toBeInTheDocument();

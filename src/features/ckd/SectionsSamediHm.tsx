@@ -4,12 +4,13 @@ import { Check } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
+import { drapeauPays } from "@/features/moteur/pays";
 import { semaineIso } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
+import { CiblesRecrutementHm } from "@/features/recrutementCibles/CiblesHm";
 import { localeDate } from "@/locales/localeDate";
 
-import { listerDecisionsHm, listerRecrutementHm, type DecisionHm } from "./api";
+import { listerDecisionsHm, type DecisionHm } from "./api";
 import { DiagnosticCompte } from "./DiagnosticCompte";
 
 const CLE = ["accueil-hm", "samedi"] as const;
@@ -63,62 +64,44 @@ function LigneDecision({ d }: { d: DecisionHm }) {
 /**
  * Dashboard HM : les décisions du samedi, pour information (v3 point 8 : les
  * messages au posteur partent de l'OS), et la liste de recrutement (0364).
+ *
+ * Prompt 21, D : la liste de recrutement montre la cible, les recrutés et
+ * l'écart par pays (0425). `decisions = false` : seulement la liste (en haut
+ * de « My cohort » : le 28 oct., les décisions ont quitté l'accueil des HMs).
+ * `prochaines` : seulement les cohortes à venir.
  */
-export function SectionsSamediHm() {
-  const { t, i18n } = useTranslation();
+export function SectionsSamediHm({ decisions = true, prochaines = false }: { decisions?: boolean; prochaines?: boolean }) {
+  const { t } = useTranslation();
   const donnees = useQuery({
     queryKey: CLE,
-    queryFn: async () => {
-      const [decisions, recrues] = await Promise.all([listerDecisionsHm(), listerRecrutementHm()]);
-      return { decisions, recrues };
-    },
+    queryFn: async () => ({ decisions: await listerDecisionsHm() }),
+    enabled: decisions,
   });
-  const date = (j: string) =>
-    new Date(`${j}T12:00:00Z`).toLocaleDateString(localeDate(i18n.resolvedLanguage), { day: "numeric", month: "short" });
 
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("ckd.decisionsHm.titre")}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {donnees.error ? (
-            <p className="text-sm text-destructive">{(donnees.error as Error).message}</p>
-          ) : (donnees.data?.decisions.length ?? 0) === 0 ? (
-            <p className="text-sm text-muted-foreground">{t("ckd.decisionsHm.vide")}</p>
-          ) : (
-            <div className="divide-y">
-              {donnees.data!.decisions.map((d) => (
-                <LigneDecision key={d.id} d={d} />
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      {decisions && (
+        <Card>
+          <CardHeader>
+            <CardTitle>{t("ckd.decisionsHm.titre")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {donnees.error ? (
+              <p className="text-sm text-destructive">{(donnees.error as Error).message}</p>
+            ) : (donnees.data?.decisions.length ?? 0) === 0 ? (
+              <p className="text-sm text-muted-foreground">{t("ckd.decisionsHm.vide")}</p>
+            ) : (
+              <div className="divide-y">
+                {donnees.data!.decisions.map((d) => (
+                  <LigneDecision key={d.id} d={d} />
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("ckd.recrutementHm.titre")}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {(donnees.data?.recrues.length ?? 0) === 0 ? (
-            <p className="text-sm text-muted-foreground">{t("ckd.recrutementHm.vide")}</p>
-          ) : (
-            <ul className="space-y-1 text-sm">
-              {donnees.data!.recrues.map((r) => (
-                <li key={r.id} className="flex flex-wrap items-center gap-2">
-                  <span className="font-medium">
-                    {drapeauPays(r.pays)} {nomPaysIso(r.pays)}
-                  </span>
-                  <span>{t("ckd.recrutementHm.nombre", { count: r.nombre })}</span>
-                  <span className="text-muted-foreground">{t("ckd.recrutementHm.cohorte", { date: date(r.cohorte) })}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </CardContent>
-      </Card>
+      <CiblesRecrutementHm prochaines={prochaines} />
     </>
   );
 }

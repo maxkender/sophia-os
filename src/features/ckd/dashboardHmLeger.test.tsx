@@ -10,6 +10,8 @@ const auth = vi.hoisted(() => ({ role: "hiring_manager" }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => auth }));
 const api = vi.hoisted(() => ({ listerDecisionsHm: vi.fn(), listerRecrutementHm: vi.fn() }));
 vi.mock("./api", () => api);
+// Prompt 21, D : la liste de recrutement lit les cibles (0425).
+vi.mock("@/features/recrutementCibles/api", () => ({ CLE_CIBLES: ["recrutement-cibles"], listerCiblesRecrutement: vi.fn(async () => []) }));
 vi.mock("@/features/moteur/api", () => ({ activerPoster: vi.fn(), supprimerPoster: vi.fn() }));
 vi.mock("./cohorte/reporter", () => ({ reporterCompte: vi.fn() }));
 

@@ -1,11 +1,14 @@
 import { ADMINS_SLACK, audiencesNotes, reponseEquipeDansFil } from "../_shared/faq.ts";
 import {
+  chargerBase,
   chargerEquipeSlack,
   chargerReglagesFaq,
+  demanderAuCerveau,
   jetonSlackFaq,
   lireFil,
   posterSlack,
 } from "../_shared/faq_moteur.ts";
+import { repondreParSituation } from "../_shared/faq_situations_moteur.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
@@ -23,6 +26,10 @@ import { bloquer, PAUSE } from "../_shared/pause.ts";
  *   { action: "ajouter_base", id, reponse }
  *       Une réponse (la tienne, celle d'Aram dans le fil, celle du cerveau)
  *       devient une réponse validée : la prochaine fois, le cerveau la donne seul.
+ *   { action: "tester", question, situation? | poster_id? }
+ *       Prompt 21, Q (onglet Test) : la réponse exacte que le bot donnerait,
+ *       la situation détectée et l'entrée de FAQ utilisée. N'écrit rien,
+ *       n'envoie rien.
  */
 
 type Db = ReturnType<typeof serviceClient>;
@@ -47,6 +54,7 @@ Deno.serve(async (request) => {
   try {
     const body = await request.json().catch(() => ({}));
     const action = String(body?.action ?? "");
+    if (action === "tester") return json(await tester(serviceClient(), body));
     const id = String(body?.id ?? "");
     if (!id) return json({ error: "id manquant" }, 400);
 
@@ -169,6 +177,32 @@ async function livrer(db: Db, q: Question, reponse: string): Promise<Livraison> 
     return r.ok ? { envoye: true } : { envoye: false, raison: `Slack : ${r.error}` };
   }
   return { envoye: false, raison: "rien à livrer à un admin" };
+}
+
+/**
+ * Prompt 21, Q : l'onglet Test. Le même chemin que le bot (situation, entrée
+ * reconnue, variables), puis, sans réponse par situation, ce que le cerveau
+ * du guide répondrait. Aucune écriture, aucun envoi.
+ */
+// deno-lint-ignore no-explicit-any
+async function tester(db: Db, body: any) {
+  const question = String(body?.question ?? "").trim().slice(0, 1_500);
+  if (!question) throw new Error("question vide");
+  const situation = typeof body?.situation === "string" && body.situation.trim() ? body.situation.trim() : null;
+  const posterId = typeof body?.poster_id === "string" && body.poster_id.trim() ? body.poster_id.trim() : null;
+  const r = await repondreParSituation(db, { question, situation, posterId });
+  let cerveau: { decision: string; reponse: string; section: string | null } | null = null;
+  if (!r.reponse) {
+    const role = r.situation === "hm" ? "hiring_manager" : "poster";
+    try {
+      const charge = await chargerBase(db, role);
+      const c = await demanderAuCerveau({ canal: "os", role, question, base: charge.base });
+      cerveau = { decision: c.decision, reponse: c.reponse || c.proposition, section: c.section };
+    } catch (erreur) {
+      cerveau = { decision: "erreur", reponse: messageErreur(erreur), section: null };
+    }
+  }
+  return { ok: true, ...r, cerveau };
 }
 
 /** Une réponse validée, rangée pour le rôle de la personne qui a demandé. */

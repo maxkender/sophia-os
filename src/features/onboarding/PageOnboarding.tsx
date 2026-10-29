@@ -21,8 +21,11 @@ import {
   etapesRecrue,
   type FiltresOnboarding,
   filtrerOnboarding,
+  heuresDepuis,
+  lireDerniersReleves,
   lireOnboarding,
   type RecrueOnboarding,
+  type ReleveRecrue,
 } from "./api";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
@@ -39,7 +42,7 @@ function useFormats() {
 }
 
 /** Une recrue : qui, son contrat, ses étapes, ses messages, la prochaine relance, et les boutons. */
-function CarteRecrue({ r }: { r: RecrueOnboarding }) {
+function CarteRecrue({ r, releve }: { r: RecrueOnboarding; releve?: ReleveRecrue }) {
   const { t } = useTranslation();
   const { le, jour } = useFormats();
   const admin = useAuth().role === "admin";
@@ -103,6 +106,18 @@ function CarteRecrue({ r }: { r: RecrueOnboarding }) {
             <>
               <dt className="text-muted-foreground">{t("onboardingPosters.handle")}</dt>
               <dd>@{r.handle}</dd>
+            </>
+          )}
+          {/* Prompt 25 MAJ, 7b : l'âge du dernier relevé lisible (une relance sur le compte n'en utilise qu'un de moins de 12 h). */}
+          {releve && (
+            <>
+              <dt className="text-muted-foreground">{t("onboardingPosters.releve")}</dt>
+              <dd data-testid="releve">
+                {releve.releve_at ? t("onboardingPosters.releveIlYa", { h: heuresDepuis(releve.releve_at) }) : t("onboardingPosters.releveJamais")}
+                {releve.tentative_at && releve.tentative_at !== releve.releve_at && (
+                  <span className="text-warning"> {t("onboardingPosters.releveEchecs", { h: heuresDepuis(releve.releve_at ?? releve.tentative_at) })}</span>
+                )}
+              </dd>
             </>
           )}
         </dl>
@@ -238,6 +253,8 @@ export function PageOnboarding() {
   const { t } = useTranslation();
   const { jour } = useFormats();
   const lu = useQuery({ queryKey: ["onboarding"], queryFn: lireOnboarding, refetchInterval: 60_000 });
+  const ids = (lu.data ?? []).map((r) => r.poster_id);
+  const releves = useQuery({ queryKey: ["onboarding-releves", ids], queryFn: () => lireDerniersReleves(ids), enabled: ids.length > 0 });
   const [f, setF] = React.useState<FiltresOnboarding>({ hm: "", cohorte: "", etape: "" });
   const tous = lu.data ?? [];
   const liste = filtrerOnboarding(tous, f);
@@ -282,7 +299,7 @@ export function PageOnboarding() {
       {lu.data && liste.length === 0 && <p className="text-sm text-muted-foreground">{t("onboardingPosters.vide")}</p>}
       <div className="grid gap-3 lg:grid-cols-2">
         {liste.map((r) => (
-          <CarteRecrue key={r.poster_id} r={r} />
+          <CarteRecrue key={r.poster_id} r={r} releve={releves.data?.get(r.poster_id)} />
         ))}
       </div>
     </section>

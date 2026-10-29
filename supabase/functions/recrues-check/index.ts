@@ -56,15 +56,18 @@ import {
 } from "../_shared/reponses.ts";
 import { chargerBase } from "../_shared/faq_moteur.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
-import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import { lireProfilTiktok as lireProfilBrut, lireProfilTiktokFiable as lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { familleMessage, raisonLisible } from "../_shared/raison.ts";
 import {
   etapeHandle,
   extraireHandle,
   type HandleIntrouvable,
   lireTextesHandle,
+  releveRecent,
   texteHandle,
   type TextesHandle,
+  varianteRecente,
+  variantesHandle,
   verifierHandlePropose,
 } from "../_shared/handle_tiktok.ts";
 import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
@@ -338,6 +341,10 @@ interface Bilan {
   handles?: Map<string, HandleIntrouvable>;
   /** Interne (0444) : les textes « we can't find your TikTok account ». */
   textesHandle?: TextesHandle;
+  /** Prompt 25 MAJ : relances sur le compte TikTok retenues, faute de relevé lisible de moins de 12 h. */
+  releveTropVieux?: number;
+  /** Prompt 25 MAJ : la recherche des @ proches à ce passage (1 compte au plus). */
+  variantes?: { compte: string; essais: number; trouve: string | null } | null;
 }
 
 async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
@@ -601,9 +608,12 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   // passent cette fois. Les Kills, eux, sont vérifiés à chaque passage.
   const etapesDues = await passageDu(supabase, "etapes");
   bilan.etapes = etapesDues;
+  let releves = new Map<string, string | null>();
   if (etapesDues) {
     bilan.handles = await lireHandlesIntrouvables(supabase);
     bilan.textesHandle = await lireTextesHandle(supabase);
+    releves = await lireDerniersReleves(supabase, recrues.map((x) => x.compte_id).filter((id): id is string => Boolean(id)));
+    bilan.releveTropVieux = 0;
   }
   for (let x of etapesDues ? recrues : []) {
     // Cohorte commencée : ses vidéos sont ses posts, pas un warm-up raté.
@@ -613,19 +623,33 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     const plan = planRelance(x, etats, maintenant, r.etapes);
     const aRelever = !killEnCours(x) && x.handle && x.compte_id &&
       plan.element !== null && plan.element !== "connexion" && !bilan.relancesFaites.has(`${x.poster_id}|${partiesLocales(maintenant, x.fuseau).date}`);
+    let frais: RecrueAccueil | null = null;
     if (aRelever) {
-      const frais = await releverTiktok(supabase, x).catch(() => null);
+      frais = await releverTiktok(supabase, x).catch(() => null);
       if (frais) {
         x = maintenant >= debutCohorte(frais) ? { ...frais, videos: null } : frais;
         etats = etatsAccueil(x, r.etapes);
       }
     }
+    // Prompt 25 MAJ : une relance sur le compte (introuvable, abonnements) ne part que sur un relevé
+    // lisible de moins de 12 h ; sinon elle attend le prochain relevé.
+    const releveOk = frais !== null || releveRecent(x.compte_id ? releves.get(x.compte_id) : null, maintenant);
     for (const e of etats) await suivreEtape(supabase, x, e, test, bilan);
-    await relanceDuJour(supabase, r, x, etats, maintenant, bilan);
+    const surLeCompte = plan.element === "tiktok" || plan.element === "follows";
+    if (surLeCompte && !releveOk) bilan.releveTropVieux = (bilan.releveTropVieux ?? 0) + 1;
+    else await relanceDuJour(supabase, r, x, etats, maintenant, bilan);
     // 0444 : @ introuvable après Start warmup : « we can't find your TikTok account », jamais « create ».
-    await handleDuJour(supabase, r, x, maintenant, bilan);
+    if (releveOk) await handleDuJour(supabase, r, x, maintenant, bilan);
     // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
     if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
+  }
+
+  // Prompt 25 MAJ, point 7b : un @ toujours introuvable, les @ proches (1 compte par passage).
+  if (etapesDues && bilan.handles?.size) {
+    bilan.variantes = await chercherVariantes(supabase, bilan.handles).catch((e) => {
+      bilan.erreurs.push(`variantes : ${(e as Error).message}`);
+      return null;
+    });
   }
 
   // Décisions finales : plus de Kill à 48 h (ni lecture avant Kill, ni arrêt automatique).
@@ -983,6 +1007,58 @@ async function relanceDuJour(
 // ---------------------------------------------------------------------------
 // 0444 : le @ TikTok qui ne correspond pas
 // ---------------------------------------------------------------------------
+
+/** Prompt 25 MAJ : le dernier relevé TikTok lisible de chaque compte (0449). */
+async function lireDerniersReleves(supabase: Supabase, comptes: string[]): Promise<Map<string, string | null>> {
+  if (comptes.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("derniers_releves", { p_comptes: comptes });
+  if (error) throw error;
+  return new Map(((data ?? []) as { compte_id: string; releve_at: string | null }[]).map((d) => [d.compte_id, d.releve_at]));
+}
+
+/**
+ * Prompt 25 MAJ, point 7b : le @ d'une recrue reste introuvable. L'OS lit les @
+ * proches (un point, un tiret bas, une voyelle) ; le 1er qui existe et a été créé
+ * au plus 14 jours avant le Start warmup est proposé dans Needs you (« @ probable »).
+ * Un compte par passage ; une page illisible sur deux : on réessaiera.
+ */
+async function chercherVariantes(supabase: Supabase, handles: Map<string, HandleIntrouvable>) {
+  const { data: faits, error } = await supabase.from("handles_variantes")
+    .select("compte_id, handle_attendu, statut, cherche_at")
+    .in("compte_id", [...handles.keys()]);
+  if (error) throw error;
+  const deja = new Map(((faits ?? []) as { compte_id: string; handle_attendu: string; statut: string; cherche_at: string }[])
+    .map((f) => [`${f.compte_id}|${f.handle_attendu}`, f]));
+  const h = [...handles.values()].find((x) => {
+    const f = deja.get(`${x.compte_id}|${x.handle.toLowerCase()}`);
+    return !f || (f.statut === "incomplet" && Date.now() - new Date(f.cherche_at).getTime() > 6 * 3_600_000);
+  });
+  if (!h) return null;
+  let essais = 0, illisibles = 0, coupe = false;
+  let trouve: { handle: string; creeLe: string | null } | null = null;
+  const debut = Date.now();
+  for (const v of variantesHandle(h.handle)) {
+    // Au plus 60 s par passage : la suite au prochain.
+    if (Date.now() - debut > 60_000) {
+      coupe = true;
+      break;
+    }
+    const p = await lireProfilBrut(v, 8_000);
+    essais++;
+    if (p.existe === null) illisibles++;
+    if (p.existe && varianteRecente(p.creeLe, h.warmup_at)) {
+      trouve = { handle: v, creeLe: p.creeLe };
+      break;
+    }
+  }
+  const statut = trouve ? "propose" : coupe || illisibles * 2 > essais ? "incomplet" : "aucune";
+  const { error: e } = await supabase.from("handles_variantes").upsert({
+    compte_id: h.compte_id, poster_id: h.poster_id, handle_attendu: h.handle.toLowerCase(), essais, illisibles,
+    variante: trouve?.handle ?? null, cree_tiktok_at: trouve?.creeLe ?? null, statut, cherche_at: new Date().toISOString(),
+  }, { onConflict: "compte_id,handle_attendu" });
+  if (e) throw e;
+  return { compte: h.compte_id, essais, trouve: trouve?.handle ?? null };
+}
 
 async function lireHandlesIntrouvables(supabase: Supabase): Promise<Map<string, HandleIntrouvable>> {
   const { data, error } = await supabase.rpc("handles_introuvables");

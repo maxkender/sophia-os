@@ -1,7 +1,17 @@
 /** 0444 : le @ TikTok qui ne correspond pas (extraction, étape du message, textes). */
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { etapeHandle, extraireHandle, type HandleIntrouvable, normaliserHandle, texteHandle, TEXTES_HANDLE_DEFAUT } from "./handle_tiktok.ts";
+import {
+  etapeHandle,
+  extraireHandle,
+  type HandleIntrouvable,
+  normaliserHandle,
+  releveRecent,
+  texteHandle,
+  TEXTES_HANDLE_DEFAUT,
+  varianteRecente,
+  variantesHandle,
+} from "./handle_tiktok.ts";
 
 Deno.test("normaliserHandle : @, lien, majuscules, ponctuation ; forme invalide → null", () => {
   assertEquals(normaliserHandle("@Sara.Studio746"), "sara.studio746");
@@ -45,4 +55,27 @@ Deno.test("les textes : jamais « create your account »", () => {
   );
   for (const x of Object.values(TEXTES_HANDLE_DEFAUT)) assertEquals(/create your/i.test(x), false);
   assertEquals(texteHandle(TEXTES_HANDLE_DEFAUT.trouve, { handle: "sara.studio746" }), "Thanks, we found @sara.studio746.");
+});
+
+Deno.test("prompt 25 MAJ : les @ proches d'un @ introuvable (point, tiret bas, une voyelle)", () => {
+  const v = variantesHandle("sara.studie746");
+  assertEquals(v.includes("sara.studio746"), true);
+  assertEquals(v.includes("sarastudie746"), true);
+  assertEquals(v.includes("sara_studie746"), true);
+  assertEquals(v.includes("sara.studie.746"), true);
+  assertEquals(v.includes("sara.studie746"), false);
+  assertEquals(v.length <= 30, true);
+  // Le point et le tiret bas d'abord : les plus probables.
+  assertEquals(v[0], "sarastudie746");
+  assertEquals(variantesHandle("@@"), []);
+});
+
+Deno.test("une variante créée récemment ; un relevé de moins de 12 h", () => {
+  assertEquals(varianteRecente("2026-10-20T10:00:00Z", "2026-10-28T10:00:00Z"), true);
+  assertEquals(varianteRecente("2026-09-01T10:00:00Z", "2026-10-28T10:00:00Z"), false);
+  assertEquals(varianteRecente(null, "2026-10-28T10:00:00Z"), false);
+  const m = new Date("2026-10-29T12:00:00Z");
+  assertEquals(releveRecent("2026-10-29T01:00:00Z", m), true);
+  assertEquals(releveRecent("2026-10-28T23:00:00Z", m), false);
+  assertEquals(releveRecent(null, m), false);
 });

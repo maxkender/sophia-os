@@ -11,6 +11,8 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import { normaliserHandle } from "../_shared/handle_tiktok.ts";
+import { lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
 import { lireContactPoster } from "../_shared/contact_poster.ts";
 import { separerNomComplet } from "../_shared/nom_complet.ts";
 import {
@@ -107,7 +109,8 @@ function resoudrePremierCompte(
  *   { action: "ajouter_compte_cm", userId, langue, … } — Instagram + Gmail via le contrat
  *   { action: "maj_identifiants_cm", compteId, tiktok_email, tiktok_password, … }
  *   { action: "deplacer_compte", compteId, destPosterId } — rattache le compte à un autre créateur (même id)
- *   { action: "start_warmup", compteId }  — créateur (son compte perso) ou admin
+ *   { action: "start_warmup", compteId, handle? }  — créateur (son compte perso) ou admin ;
+ *       prompt 25 MAJ : `handle` (le @ tapé) est lu sur TikTok avant de démarrer
  *   { action: "skip_warmup", compteId }   — admin : compte actif immédiat
  *   { action: "delete", userId }
  *
@@ -174,7 +177,7 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const { data: compte, error } = await supabase
       .from("comptes")
-      .select("id, poster_id, type_compte, warmup_started_at, warmup_ends_at")
+      .select("id, poster_id, type_compte, warmup_started_at, warmup_ends_at, handle_tiktok")
       .eq("id", compteId)
       .maybeSingle();
     if (error) return json({ error: error.message }, 400);
@@ -187,6 +190,27 @@ async function gererRequete(request: Request): Promise<Response> {
       if (compte.poster_id !== acces.userId) {
         return json({ error: "forbidden" }, 403);
       }
+    }
+
+    // Prompt 25 MAJ, point 7b : la recrue tape son @ exactement comme sur TikTok ; l'OS le lit tout de
+    // suite (2 lectures si la page est illisible). Trouvé : le @ de l'OS est mis à jour s'il diffère.
+    // Introuvable : le warm-up ne démarre pas. Illisible deux fois : le warm-up démarre (jamais bloqué
+    // par un relevé), le @ reste à vérifier par les relevés suivants.
+    let verification: { statut: "trouve" | "illisible"; handle: string } | null = null;
+    if (body.handle !== undefined && !compte.warmup_started_at) {
+      const handle = normaliserHandle(String(body.handle ?? ""));
+      if (!handle) return json({ ok: false, error: "handle_invalide" });
+      const profil = await lireProfilTiktokFiable(handle);
+      await supabase.from("ckd_warmup_releves").insert({
+        compte_id: compteId, handle, existe: profil.existe, cree_tiktok_at: profil.creeLe,
+        abonnements: profil.abonnements, likes: profil.likes, abonnes: profil.abonnes, videos: profil.videos, erreur: profil.erreur,
+      });
+      if (profil.existe === false) return json({ ok: false, error: "compte_introuvable", handle });
+      if (handle !== String(compte.handle_tiktok ?? "").toLowerCase()) {
+        const { error: errH } = await supabase.from("comptes").update({ handle_tiktok: handle }).eq("id", compteId);
+        if (errH) return json({ error: errH.message }, 400);
+      }
+      verification = { statut: profil.existe ? "trouve" : "illisible", handle };
     }
 
     if (compte.warmup_started_at && compte.warmup_ends_at) {
@@ -218,6 +242,7 @@ async function gererRequete(request: Request): Promise<Response> {
       warmup_started_at: start.toISOString(),
       warmup_ends_at: end.toISOString(),
       heures,
+      ...(verification ? { verification } : {}),
     });
   }
 

@@ -103,3 +103,20 @@ export async function lireProfilTiktok(handle: string, delaiMs = 20_000): Promis
     return ILLISIBLE(e instanceof Error ? e.message.slice(0, 200) : String(e).slice(0, 200));
   }
 }
+
+/**
+ * Prompt 25 MAJ, point 7b : une page illisible (TikTok bloque, délai) ne veut
+ * jamais dire « introuvable » : la lecture est refaite une 2e fois, 2 s plus
+ * tard, avant de conclure. `lire` est remplaçable (tests).
+ */
+export async function lireProfilTiktokFiable(
+  handle: string,
+  lire: (h: string) => Promise<ProfilTiktok> = lireProfilTiktok,
+  attente = 2000,
+): Promise<ProfilTiktok> {
+  const premier = await lire(handle);
+  if (premier.existe !== null) return premier;
+  if (attente > 0) await new Promise((r) => setTimeout(r, attente));
+  const second = await lire(handle);
+  return second.existe !== null ? second : { ...second, erreur: `2 lectures illisibles : ${second.erreur ?? premier.erreur ?? "?"}` };
+}

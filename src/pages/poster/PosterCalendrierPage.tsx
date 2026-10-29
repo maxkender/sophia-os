@@ -19,7 +19,6 @@ import { Card, CardContent, EmptyState } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase/client";
 import {
   aujourdhui,
-  demarrerWarmup,
   lireCohorteAccueil,
   majMonHandleInstagram,
   mesComptes,
@@ -27,6 +26,8 @@ import {
 } from "@/features/moteur/api";
 import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
 import { MonCompteTiktok } from "@/features/onboarding/MonCompteTiktok";
+import { StartWarmupHandle } from "@/features/onboarding/StartWarmupHandle";
+import { WarmupFiniCapture } from "@/features/onboarding/WarmupFiniCapture";
 import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
@@ -268,7 +269,6 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
 export function PosterCalendrierPage() {
   const { t, i18n } = useTranslation();
   const { user } = useAuth();
-  const queryClient = useQueryClient();
   const parrainage = useParrainageActif();
   const jour = aujourdhui();
   // Page laissée ouverte la nuit (Olena, 29/10) : sans le jour dans la clé ni
@@ -314,12 +314,8 @@ export function PosterCalendrierPage() {
     if (user?.id) ecrireCompteActif(user.id, id);
   };
 
-  const startWarmup = useMutation({
-    mutationFn: () => demarrerWarmup(compte!.id),
-    onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: ["mes-comptes"] });
-    },
-  });
+  // Prompt 25 MAJ, point 7b : Start warmup demande d'abord le @ exact, lu sur TikTok.
+  const [demandeHandle, setDemandeHandle] = React.useState(false);
 
   const maintenant = new Date();
   // Fenêtre de 2 semaines (change 1), décalable semaine par semaine.
@@ -509,16 +505,14 @@ export function PosterCalendrierPage() {
               compteId={compte.id}
               startedAt={compte.warmup_started_at}
               endsAt={compte.warmup_ends_at}
-              showStart={warmupStatut === "attente"}
-              startPending={startWarmup.isPending}
-              onStart={() => startWarmup.mutate()}
+              showStart={warmupStatut === "attente" && !demandeHandle}
+              onStart={() => setDemandeHandle(true)}
               libelle={warmupLundi ? `🔥 ${t("calendrier.caseWarmup")}` : undefined}
             />
-            {startWarmup.isError && (
-              <span className="text-xs text-destructive">
-                {(startWarmup.error as Error).message}
-              </span>
+            {demandeHandle && (
+              <StartWarmupHandle compteId={compte.id} handle={compte.handle_tiktok} onFerme={() => setDemandeHandle(false)} />
             )}
+            {compte.warmup_started_at && user?.id && <WarmupFiniCapture compteId={compte.id} uid={user.id} />}
           </div>
         )}
       </div>

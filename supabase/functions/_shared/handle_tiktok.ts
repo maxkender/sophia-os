@@ -159,3 +159,54 @@ export async function verifierHandlePropose(
     .eq("id", p.id);
   return "trouve";
 }
+
+/**
+ * Prompt 25 MAJ, point 7b : les @ proches d'un @ introuvable, du plus probable
+ * au moins probable : un point ou un tiret bas en moins, échangé ou ajouté entre
+ * lettres et chiffres, puis une voyelle changée (sara.studie746 → sara.studio746).
+ * Jamais le @ lui-même, jamais un @ invalide ; au plus `max`.
+ */
+export function variantesHandle(handle: string, max = 30): string[] {
+  const h = normaliserHandle(handle);
+  if (!h) return [];
+  const sortie = new Set<string>();
+  const ajouter = (v: string) => {
+    const n = normaliserHandle(v);
+    if (n && n !== h) sortie.add(n);
+  };
+  for (let i = 0; i < h.length; i++) {
+    const c = h[i]!;
+    if (c === "." || c === "_") {
+      ajouter(h.slice(0, i) + h.slice(i + 1));
+      ajouter(h.slice(0, i) + (c === "." ? "_" : ".") + h.slice(i + 1));
+    }
+  }
+  for (let i = 1; i < h.length; i++) {
+    const a = h[i - 1]!, b = h[i]!;
+    if (/[a-z]/.test(a) && /[0-9]/.test(b) || /[0-9]/.test(a) && /[a-z]/.test(b)) {
+      ajouter(h.slice(0, i) + "." + h.slice(i));
+      ajouter(h.slice(0, i) + "_" + h.slice(i));
+    }
+  }
+  const voyelles = "aeiouy";
+  for (let i = 0; i < h.length; i++) {
+    if (!voyelles.includes(h[i]!)) continue;
+    for (const v of voyelles) if (v !== h[i]) ajouter(h.slice(0, i) + v + h.slice(i + 1));
+  }
+  return [...sortie].slice(0, max);
+}
+
+/** Une variante « créée récemment » : au plus 14 jours avant le Start warmup. */
+export function varianteRecente(creeLe: string | null, warmupAt: string | null): boolean {
+  if (!creeLe) return false;
+  const depuis = new Date(warmupAt ?? Date.now()).getTime() - 14 * 86_400_000;
+  return new Date(creeLe).getTime() >= depuis;
+}
+
+/** Prompt 25 MAJ : une relance sur le compte TikTok ne s'appuie que sur un relevé de moins de 12 h. */
+export const RELEVE_MAX_HEURES = 12;
+
+export function releveRecent(releveAt: string | null | undefined, maintenant: Date): boolean {
+  if (!releveAt) return false;
+  return maintenant.getTime() - new Date(releveAt).getTime() < RELEVE_MAX_HEURES * 3_600_000;
+}

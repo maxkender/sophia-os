@@ -200,9 +200,9 @@ export function AdminReglagesPage() {
 
   const enregistrer = useMutation({
     mutationFn: async (r: Reglages) => {
-      await ecrireReglage("repartition", r.repartition);
+      // Prompt 21, C8 : la carte Legacy (répartition, semaine 1) est retirée ;
+      // ses réglages ne sont plus réécrits d'ici (leurs valeurs restent en base).
       await ecrireReglage("frequence", r.frequence);
-      await ecrireReglage("semaine1", r.semaine1);
       await ecrireReglage("scoring", r.scoring);
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
       await ecrireReglage("assignation_auto", r.assignation_auto);
@@ -213,7 +213,7 @@ export function AdminReglagesPage() {
       // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
       // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
       // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
-      // « warmup.heures » n'est plus lu : la fin du warm-up suit la cohorte (0301).
+      // « warmup.heures » est retiré (prompt 21, C8) : la fin du warm-up suit le lundi (0301) et la cohorte (0413).
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -233,9 +233,6 @@ export function AdminReglagesPage() {
   const majClassement = (patch: Partial<Reglages["classement_comptes"]>) =>
     maj({ classement_comptes: { ...reglages.classement_comptes, ...patch } });
   const majModeles = (modeles: ModeleNudge[]) => maj({ nudges: { modeles } });
-  const total =
-    reglages.repartition.recycle + reglages.repartition.remanie + reglages.repartition.nouveau;
-  const totalValide = total === 100;
   const cleaningSchema = schemaCleaning(reglages.nettoyage.provider_principal);
 
   return (
@@ -749,90 +746,9 @@ export function AdminReglagesPage() {
         </CardContent>
       </Card>
 
-      {/* ── Legacy ── */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("reglages.legacyTitle")}</CardTitle>
-          <CardDescription>{t("reglages.legacySubtitle")}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.repartition")}</h3>
-            <div className="grid gap-4 sm:grid-cols-3">
-              <ChampNombre
-                id="recycle"
-                label={t("reglages.recycle")}
-                valeur={reglages.repartition.recycle}
-                onChange={(n) => maj({ repartition: { ...reglages.repartition, recycle: n } })}
-              />
-              <ChampNombre
-                id="remanie"
-                label={t("reglages.remanie")}
-                valeur={reglages.repartition.remanie}
-                onChange={(n) => maj({ repartition: { ...reglages.repartition, remanie: n } })}
-              />
-              <ChampNombre
-                id="nouveau"
-                label={t("reglages.nouveau")}
-                valeur={reglages.repartition.nouveau}
-                onChange={(n) => maj({ repartition: { ...reglages.repartition, nouveau: n } })}
-              />
-            </div>
-            <p className={totalValide ? "text-xs text-muted-foreground" : "text-xs text-destructive"}>
-              {totalValide ? t("reglages.total", { total }) : t("reglages.totalInvalide")}
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.semaine1")}</h3>
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={reglages.semaine1.actif}
-                onChange={(e) =>
-                  maj({ semaine1: { ...reglages.semaine1, actif: e.target.checked } })
-                }
-              />
-              {t("reglages.semaine1Actif")}
-            </label>
-            {reglages.semaine1.actif && (
-              <div className="grid gap-4 sm:grid-cols-3">
-                <ChampNombre
-                  id="s1jours"
-                  label={t("reglages.semaine1Jours")}
-                  min={1}
-                  valeur={reglages.semaine1.jours}
-                  onChange={(n) => maj({ semaine1: { ...reglages.semaine1, jours: n } })}
-                />
-                <ChampNombre
-                  id="s1posts"
-                  label={t("reglages.semaine1Posts")}
-                  min={1}
-                  max={3}
-                  valeur={reglages.semaine1.posts_par_jour}
-                  onChange={(n) =>
-                    maj({ semaine1: { ...reglages.semaine1, posts_par_jour: n } })
-                  }
-                />
-                <label className="flex items-end gap-2 pb-2 text-sm">
-                  <input
-                    type="checkbox"
-                    checked={reglages.semaine1.tout_recycle}
-                    onChange={(e) =>
-                      maj({ semaine1: { ...reglages.semaine1, tout_recycle: e.target.checked } })
-                    }
-                  />
-                  {t("reglages.semaine1Recycle")}
-                </label>
-              </div>
-            )}
-          </section>
-        </CardContent>
-      </Card>
-
       <div className="flex items-center gap-3">
         <Button
-          disabled={!brouillon || !totalValide || enregistrer.isPending}
+          disabled={!brouillon || enregistrer.isPending}
           onClick={() => enregistrer.mutate(reglages)}
         >
           {enregistrer.isPending ? t("common.saving") : t("common.save")}

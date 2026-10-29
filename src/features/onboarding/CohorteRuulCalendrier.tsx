@@ -3,9 +3,10 @@ import { useTranslation } from "react-i18next";
 import { Check, MessageCircle, Wallet } from "lucide-react";
 
 import { lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
+import { useRegles } from "@/features/regles/api";
 import { cn } from "@/lib/utils";
 
-import { LIEN_SLACK, SALON_COHORTE_RUUL } from "./contenu";
+import { SALON_COHORTE_RUUL } from "./contenu";
 import {
   ajouterJours,
   formaterInstantParis,
@@ -149,12 +150,14 @@ export function FriseCohorteRuul({
 /** Cohorte Ruul, toujours visible : une question → Slack ; la paie → la page Payments. */
 export function BandeauCohorteRuul() {
   const { t } = useTranslation();
+  // Prompt 21, C8 : le seul lien Slack, le réglage slack_lien_invitation.
+  const { slack } = useRegles();
   return (
     <div className="flex flex-col gap-2 rounded-lg border p-3 text-sm sm:flex-row sm:items-center sm:justify-between">
       <p className="flex items-center gap-2">
         <span className="text-muted-foreground">{t("calendrier.ruul.question")}</span>
         <a
-          href={LIEN_SLACK}
+          href={slack ?? undefined}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 font-medium text-primary underline underline-offset-2"

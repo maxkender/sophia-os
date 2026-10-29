@@ -22,6 +22,7 @@ import { lireModeAuto, type ModeAuto } from "../_shared/accueil.ts";
 import {
   ceQuiManqueRecrue,
   jeudiDu,
+  jeudiRecrueDu,
   killLundiSoir,
   lundiDu,
   lundiSoirDu,
@@ -29,6 +30,7 @@ import {
   type PosteurSemaine,
   reactionLundiSoir,
   texteJeudi,
+  texteJeudiRecrue,
   texteLundi,
   texteLundiSoir,
 } from "../_shared/semaine.ts";
@@ -107,19 +109,21 @@ async function reglages(supabase: Supabase) {
     .select("cle, valeur")
     .in("cle", [
       "relances_auto",
-      "slack_lien_invitation",
       "kill_auto",
       "etapes_delais",
       "etape_texte_connexion",
       "etape_texte_tiktok",
       "etape_texte_warmup_lance",
       "etape_texte_warmup_bien_fait",
+      "etape_texte_warmup_lance_deuxieme",
+      "etape_texte_warmup_bien_fait_deuxieme",
       "lien_etapes_tiktok",
       "lundi_message_auto",
       "lundi_texte_tous",
       "lundi_texte_cohorte",
       "lundi_texte_warmup",
       "jeudi_texte",
+      "jeudi_texte_recrue",
       "semaine_heures",
       "lundi_soir_auto",
       "lundi_soir_texte",
@@ -132,7 +136,6 @@ async function reglages(supabase: Supabase) {
   const texte = (cle: string) => (typeof v[cle] === "string" ? (v[cle] as string) : "");
   return {
     mode: lireMode(v.relances_auto),
-    slack: texte("slack_lien_invitation"),
     kill: lireModeAuto(v.kill_auto) as ModeAuto,
     etapes: lireDelaisAccueil(v.etapes_delais),
     textesEtapes: {
@@ -141,10 +144,17 @@ async function reglages(supabase: Supabase) {
       warmup_lance: texte("etape_texte_warmup_lance"),
       warmup_bien_fait: texte("etape_texte_warmup_bien_fait"),
     } as Record<EtapeAccueil, string>,
+    // Prompt 21, C4 : le 2e compte d'un Double (étapes 3 et 4 seulement).
+    textesDeuxieme: {
+      warmup_lance: texte("etape_texte_warmup_lance_deuxieme"),
+      warmup_bien_fait: texte("etape_texte_warmup_bien_fait_deuxieme"),
+    } as Partial<Record<EtapeAccueil, string>>,
     lienEtapes: texte("lien_etapes_tiktok"),
     lundi: lireModeAuto(v.lundi_message_auto) as ModeAuto,
     textesLundi: { tous: texte("lundi_texte_tous"), cohorte: texte("lundi_texte_cohorte"), warmup: texte("lundi_texte_warmup") },
     texteJeudi: texte("jeudi_texte"),
+    // Prompt 21, C7 : les recrues du lundi suivant pas encore prêtes.
+    texteJeudiRecrue: texte("jeudi_texte_recrue"),
     heures: lireHeuresSemaine(v.semaine_heures),
     lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
     texteLundiSoir: texte("lundi_soir_texte"),
@@ -190,7 +200,8 @@ interface Bilan {
 }
 
 async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
-  const { data, error } = await supabase.rpc("etapes_recrues");
+  // Prompt 21, C3 et C4 (0423) : « Ready » calculé par la base, et les 2es comptes d'un Double.
+  const { data, error } = await supabase.rpc("etapes_recrues_v2");
   if (error) throw error;
   return ((data ?? []) as RecrueAccueil[]).map((x) => ({ ...x, messages: x.messages ?? [], prevues: x.prevues ?? [] }));
 }
@@ -264,7 +275,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
       }
     }
     for (const e of etats) await appliquerEtape(supabase, r, x, e, maintenant, test, bilan);
-    await rougeDimanche(supabase, r, x, maintenant, bilan);
+    // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
+    if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
 
   // Prompt 21, A2 : juste avant les Kills, les conversations Upwork de ceux qui en ont un dû.
@@ -301,12 +313,15 @@ async function releverTiktok(supabase: Supabase, x: RecrueAccueil): Promise<Recr
     erreur: p.erreur,
   });
   if (p.existe === null) return null;
+  // Prompt 21, C3 : « Ready » relu dans la base avec ce relevé (une seule définition).
+  const { data: pret, error } = await supabase.rpc("compte_pret", { p_compte: x.compte_id });
   return {
     ...x,
     tiktok_existe: p.existe,
     tiktok_vu_at: x.tiktok_vu_at ?? (p.existe ? new Date().toISOString() : null),
     abonnements: p.abonnements ?? x.abonnements,
     videos: p.videos ?? x.videos,
+    pret: error || typeof pret !== "boolean" ? x.pret : pret,
   };
 }
 
@@ -364,6 +379,7 @@ async function appliquerEtape(
         .update({ resolu_at: new Date().toISOString() })
         .eq("poster_id", x.poster_id)
         .eq("type", e.etape)
+        .eq("periode", periode)
         .is("resolu_at", null)
         .select("id");
       bilan.resolus += (data ?? []).length;
@@ -396,7 +412,14 @@ async function appliquerEtape(
       p_annulation_h: r.etapes.kill_annulation_h,
     });
     if (error) bilan.erreurs.push(`kill ${x.poster_id} : ${error.message}`);
-    else bilan.kills++;
+    else {
+      bilan.kills++;
+      // Prompt 21, C4 : le Kill du 2e compte d'un Double n'arrête que ce compte (killsEchus).
+      if (x.deuxieme && x.compte_id) {
+        await supabase.from("kills_auto").update({ compte_id: x.compte_id })
+          .eq("poster_id", x.poster_id).eq("etape", e.etape).eq("periode", periode).is("compte_id", null);
+      }
+    }
     return;
   }
   if (!d.envoyer && !d.horsFenetre) return;
@@ -407,7 +430,10 @@ async function appliquerEtape(
     bilan.bloques++;
     return;
   }
-  const texte = texteEtape(r.textesEtapes[e.etape], e, {
+  const modele = x.deuxieme ? r.textesDeuxieme[e.etape] ?? "" : r.textesEtapes[e.etape];
+  // Un texte vide ne part pas (réglage manquant).
+  if (!modele.trim()) return;
+  const texte = texteEtape(modele, e, {
     prenom: x.prenom,
     handle: x.handle,
     url: OS_URL,
@@ -519,9 +545,15 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
     bilan.erreurs.push(`kills : ${error.message}`);
     return;
   }
-  const parPosteur = new Map(recrues.map((x) => [x.poster_id, x]));
+  const parPosteur = new Map(recrues.filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
+  // Prompt 21, C4 : le Kill d'un 2e compte de Double se vérifie sur ce compte.
+  const parCompte = new Map(recrues.filter((x) => x.deuxieme && x.compte_id).map((x) => [x.compte_id!, x]));
   for (const k of data ?? []) {
-    const brut = parPosteur.get(k.poster_id);
+    // Un Kill d'étape noté sur un compte = le 2e compte d'un Double (C4) : jamais
+    // vérifié sur le 1er compte ; s'il n'est plus dans la liste, il attend.
+    const deuxieme = k.etape !== "lundi_soir" && Boolean(k.compte_id);
+    if (deuxieme && !parCompte.has(k.compte_id!)) continue;
+    const brut = deuxieme ? parCompte.get(k.compte_id!) : parPosteur.get(k.poster_id);
     const x = brut && maintenant >= debutCohorte(brut) ? { ...brut, videos: null } : brut;
     // Dernière vérification : une réaction depuis le Kill l'annule.
     let reaction: boolean;
@@ -609,7 +641,9 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
     bilan.erreurs.push(`semaine : ${error.message}`);
     return;
   }
-  const recrue = new Map(recrues.map((x) => [x.poster_id, x]));
+  // Le 1er compte de chaque recrue (pas le 2e compte d'un Double).
+  const premiers = recrues.filter((x) => !x.deuxieme);
+  const recrue = new Map(premiers.map((x) => [x.poster_id, x]));
   // Le message du mercredi n'existe plus (0404) : ses lignes « prévu » ne s'affichent plus.
   await supabase.from("relances_prevues").delete().eq("type", "mercredi");
   for (const p of (data ?? []) as PosteurSemaine[]) {
@@ -628,13 +662,31 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
       await envoyerSemaine(supabase, posteur, "jeudi", lundi, texte, r.mode === "on", bilan, r.boutons);
     }
   }
+
+  // Prompt 21, C7 : jeudi, les recrues du lundi suivant pas encore prêtes reçoivent
+  // jeudi_texte_recrue (le même nudge, une fois ; aucun compte à rebours de Kill).
+  if (r.mode === "off" || !r.texteJeudiRecrue.trim()) return;
+  for (const x of premiers) {
+    if (bilan.pauses?.has(x.poster_id)) continue;
+    if (!jeudiRecrueDu(x, lundi, maintenant, { heure: r.heures.jeudi_heure, fin: r.heures.fin })) continue;
+    const manque = ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle });
+    if (!manque) continue;
+    const reel = r.mode === "on";
+    if (!reel && bilan.prevuesConnues?.has(clePrevue(x.poster_id, "jeudi_recrue", lundi))) continue;
+    const texte = texteJeudiRecrue(r.texteJeudiRecrue, { prenom: x.prenom, cohorte_lundi: x.cohorte_lundi, ceQuiManque: manque });
+    const cible: PosteurSemaine = {
+      poster_id: x.poster_id, prenom: x.prenom, fuseau: x.fuseau, slack_user_id: x.slack_user_id, contrat_id: x.contrat_id,
+      cohorte_lundi: x.cohorte_lundi, attendus_lun_mer: 0, faits_lun_mer: 0, prevus_semaine: 0, envoyes: [], prevus_test: [],
+    };
+    await envoyerSemaine(supabase, cible, "jeudi_recrue", lundi, texte, reel, bilan, r.boutons);
+  }
 }
 
 /** Un message de la semaine : en test, noté « prévu » ; sinon la ligne d'abord, puis l'envoi (jamais deux). */
 async function envoyerSemaine(
   supabase: Supabase,
   p: PosteurSemaine,
-  type: "lundi" | "jeudi",
+  type: "lundi" | "jeudi" | "jeudi_recrue",
   lundi: string,
   texte: string,
   reel: boolean,
@@ -664,7 +716,8 @@ async function envoyerSemaine(
     return;
   }
   const erreur = canal === "slack"
-    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons))
+    // Prompt 21, C6 : pas de « I want to stop » sur le lundi ni le jeudi.
+    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons, { stop: false }))
     : await envoyerUpwork(p.contrat_id!, texte);
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
@@ -721,7 +774,8 @@ async function reglagesReponses(supabase: Supabase): Promise<{ mode: ModeAuto; r
         absent: t("reponse_texte_absent", D.textes.absent),
         paie_attente: t("paie_reponse_attente_texte", D.textes.paie_attente),
       },
-      slack: t("slack_lien_invitation", "").trim() || "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA",
+      // Prompt 21, C8 : un seul lien Slack, ce réglage (plus de lien écrit en dur).
+      slack: t("slack_lien_invitation", "").trim(),
     },
   };
 }

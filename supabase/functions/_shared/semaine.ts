@@ -6,11 +6,14 @@
  *          À tous : la règle du lien. Nouvelle cohorte prête : « You start
  *          posting today ». Nouvelle cohorte pas prête : ce qui manque.
  *   jeudi  12 h (heure du pays) : posts ou liens manquants de lundi à
- *          mercredi → un Nudge, une fois (remplace le mercredi).
+ *          mercredi → un Nudge, une fois (remplace le mercredi). Prompt 21,
+ *          C7 : un seul nudge, à tous ceux qui ont un problème, sans compte à
+ *          rebours de Kill ; les recrues du lundi suivant pas encore prêtes
+ *          reçoivent jeudi_texte_recrue.
  * Les deux : entre 10 h et 20 h heure du pays, seulement le jour même.
  */
 import { ajouterJours, partiesLocales } from "./relances.ts";
-import { type EtatAccueil, texteCeQuiManque } from "./etapes.ts";
+import { dateAnglaise, type EtatAccueil, texteCeQuiManque } from "./etapes.ts";
 
 export interface TextesLundi {
   tous: string;
@@ -58,6 +61,22 @@ export function jeudiDu(p: PosteurSemaine, lundi: string, maintenant: Date, o: {
 }
 
 /**
+ * Prompt 21, C7 : le nudge du jeudi d'une recrue du lundi suivant pas encore
+ * prête (le 1er compte, pas un 2e compte de Double) : jeudi, entre `heure` et
+ * `fin` (heure du pays). Une fois : la ligne `nudges` (type jeudi_recrue) est
+ * unique par semaine.
+ */
+export function jeudiRecrueDu(
+  x: { cohorte_lundi: string; fuseau: string; deuxieme?: boolean },
+  lundi: string,
+  maintenant: Date,
+  o: { heure: number; fin: number },
+): boolean {
+  if (x.deuxieme || x.cohorte_lundi !== ajouterJours(lundi, 7)) return false;
+  return dansCreneau(maintenant, x.fuseau, ajouterJours(lundi, 3), o.heure, o.fin);
+}
+
+/**
  * Ce qui manque encore à une recrue, en anglais : la 1re étape pas faite
  * (connexion, compte TikTok, Start warmup, puis le warm-up lui-même).
  * null : tout est fait.
@@ -94,6 +113,18 @@ export function texteJeudi(modele: string, o: { prenom: string | null; faits: nu
     prenom: (o.prenom ?? "").trim() || "there",
     faits: String(o.faits),
     attendus: String(o.attendus),
+  });
+}
+
+/** C7 : « Hi {prenom}, you start on Monday {date} only if … Still missing: {ce_qui_manque}. » */
+export function texteJeudiRecrue(
+  modele: string,
+  o: { prenom: string | null; cohorte_lundi: string; ceQuiManque: string },
+): string {
+  return remplir(modele, {
+    prenom: (o.prenom ?? "").trim() || "there",
+    date: dateAnglaise(o.cohorte_lundi),
+    ce_qui_manque: o.ceQuiManque,
   });
 }
 

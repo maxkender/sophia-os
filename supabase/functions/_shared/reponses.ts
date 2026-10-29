@@ -146,7 +146,15 @@ export function libelleBouton(actionId: string, l: LibellesBoutons): string {
  * Le message Slack de l'OS avec ses 3 boutons. « I want to stop » demande
  * une confirmation (Slack) : un clic par erreur ne ferme pas un contrat.
  */
-export function blocsBoutons(texte: string, l: LibellesBoutons = LIBELLES_BOUTONS_DEFAUT): unknown[] {
+/**
+ * Prompt 21, C6 : « I want to stop » seulement sur les messages d'étape
+ * (`stop`, vrai par défaut) ; le lundi et le jeudi n'ont que Done et Help.
+ */
+export function blocsBoutons(
+  texte: string,
+  l: LibellesBoutons = LIBELLES_BOUTONS_DEFAUT,
+  o: { stop?: boolean } = {},
+): unknown[] {
   const bouton = (action_id: string, style?: "primary" | "danger") => ({
     type: "button",
     action_id,
@@ -161,7 +169,7 @@ export function blocsBoutons(texte: string, l: LibellesBoutons = LIBELLES_BOUTON
       elements: [
         bouton("posteur_done", "primary"),
         bouton("posteur_aide"),
-        {
+        ...(o.stop === false ? [] : [{
           ...bouton("posteur_stop", "danger"),
           confirm: {
             title: { type: "plain_text", text: l.confirmer_titre },
@@ -169,7 +177,7 @@ export function blocsBoutons(texte: string, l: LibellesBoutons = LIBELLES_BOUTON
             confirm: { type: "plain_text", text: l.confirmer_oui },
             deny: { type: "plain_text", text: l.confirmer_non },
           },
-        },
+        }]),
       ],
     },
   ];
@@ -212,7 +220,14 @@ export function planReponse(c: Classement, canal: CanalReponse, r: ReglagesRepon
     plan.pause = Math.min(c.jours ?? r.pause_max_jours, r.pause_max_jours);
     plan.repondre = r.textes.absent.trim() ? remplir(r.textes.absent, { jours: String(plan.pause) }) : null;
   } else if (cas === "travail") {
-    if (canal === "upwork") plan.repondre = remplir(r.textes.upwork, { slack: r.slack });
+    // Prompt 21, C8 : le lien vient du seul réglage slack_lien_invitation ; vide,
+    // un texte qui le demande ne part pas (une personne lira).
+    if (canal === "upwork") {
+      if (r.textes.upwork.includes("{slack}") && !r.slack.trim()) {
+        plan.cas = "a_lire";
+        plan.liste = "a_lire";
+      } else plan.repondre = remplir(r.textes.upwork, { slack: r.slack.trim() });
+    }
     else if (c.sous_cas === "augmentation") plan.repondre = r.textes.augmentation.trim() || null;
     else if (c.sous_cas === "propre_compte") plan.repondre = r.textes.propre_compte.trim() || null;
     else if (c.reponse) plan.repondre = c.reponse;

@@ -114,6 +114,18 @@ export interface RecrueAccueil {
   repondu_at: string | null;
   /** Les Kills automatiques déjà notés pour cette cohorte. */
   kill: KillConnu[] | null;
+  /**
+   * Prompt 21, C4 (0423) : le 2e compte d'un Double. Seules les étapes 3 et 4
+   * le concernent ; `cohorte_lundi` est alors son lundi à lui.
+   */
+  deuxieme?: boolean;
+  /**
+   * Prompt 21, C3 (0423) : « Ready » calculé par la base (`compte_pret`), la
+   * seule définition. Absent (ancienne fonction) : le calcul d'ici.
+   */
+  pret?: boolean | null;
+  /** La création du compte (2e compte : l'étape 3 compte depuis là s'il n'est pas encore vu sur TikTok). */
+  compte_cree_at?: string | null;
 }
 
 export type ManqueWarmup = "start" | "follows" | "posts";
@@ -154,12 +166,14 @@ export function etatsAccueil(r: RecrueAccueil, d: DelaisAccueil): EtatAccueil[] 
     message: msg("tiktok"),
   });
   // 3. Warm-up lancé : compté depuis la création du compte (1er relevé où il existe).
+  // Un 2e compte (C4) : depuis sa création dans l'OS s'il n'est pas encore vu.
+  const baseLance = r.tiktok_existe && r.tiktok_vu_at
+    ? r.tiktok_vu_at
+    : r.deuxieme ? r.compte_cree_at ?? null : null;
   etats.push({
     etape: "warmup_lance",
     fait: Boolean(r.warmup_started_at),
-    messageAt: r.tiktok_existe && r.tiktok_vu_at
-      ? new Date(new Date(r.tiktok_vu_at).getTime() + d.warmup_lance_message_h * H)
-      : null,
+    messageAt: baseLance ? new Date(new Date(baseLance).getTime() + d.warmup_lance_message_h * H) : null,
     manque: r.warmup_started_at ? [] : ["start"],
     followsManquants: 0,
     message: msg("warmup_lance"),
@@ -173,7 +187,8 @@ export function etatsAccueil(r: RecrueAccueil, d: DelaisAccueil): EtatAccueil[] 
   if ((r.videos ?? 0) > 0) manque.push("posts");
   etats.push({
     etape: "warmup_bien_fait",
-    fait: manque.length === 0 && r.tiktok_existe === true,
+    // Prompt 21, C3 : « Ready » vient de la base quand elle le donne (compte_pret).
+    fait: typeof r.pret === "boolean" ? r.pret : manque.length === 0 && r.tiktok_existe === true,
     messageAt: r.warmup_started_at
       ? instantLocal(ajouterJours(r.cohorte_lundi, -joursAvantLundi(d.warmup_bien_fait_jour)), d.warmup_bien_fait_heure, r.fuseau)
       : null,
@@ -181,7 +196,8 @@ export function etatsAccueil(r: RecrueAccueil, d: DelaisAccueil): EtatAccueil[] 
     followsManquants: follows,
     message: msg("warmup_bien_fait"),
   });
-  return etats;
+  // Prompt 21, C4 : le 2e compte d'un Double n'a que les étapes 3 et 4.
+  return r.deuxieme ? etats.filter((e) => e.etape === "warmup_lance" || e.etape === "warmup_bien_fait") : etats;
 }
 
 export interface DecisionEtape {
@@ -285,9 +301,10 @@ export function debutCohorte(r: Pick<RecrueAccueil, "cohorte_lundi" | "fuseau">)
 
 /**
  * La 1re étape pas faite, pour le rouge de dimanche minuit (heure du pays) :
- * la recrue ne commence pas lundi. Les vidéos ne comptent pas (une fois la
- * cohorte commencée, ce sont ses posts). Rend l'étape de `recrues_rouges`
- * (acces, tiktok, warmup), null si tout est fait.
+ * la recrue ne commence pas lundi. Les vidéos relevées après le lundi ne
+ * comptent pas (ce sont ses posts) ; avant, « aucun post » fait partie de
+ * « Ready » (prompt 21, C3 : `compte_pret`, quand la base le donne). Rend
+ * l'étape de `recrues_rouges` (acces, tiktok, warmup), null si tout est fait.
  */
 export function etapeRouge(r: RecrueAccueil, d: DelaisAccueil): "acces" | "tiktok" | "warmup" | null {
   const e = etatsAccueil({ ...r, videos: null }, d).find((x) => !x.fait);

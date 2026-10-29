@@ -41,10 +41,6 @@ export const ATTENTE_TEXTE_S = 8;
 export const LIEN_GUIDE =
   "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
-/** Invitation Slack de l'espace de travail. */
-export const LIEN_SLACK =
-  "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA";
-
 /** Le salon où les posters posent leurs questions. */
 export const SALON_QUESTIONS = "#questions";
 
@@ -82,7 +78,7 @@ export type Bloc =
   | { type: "lien"; avant?: string; libelle: string; href: string }
   /** Une règle aux posteurs lue dans son réglage (le lien, le warm-up), chantier du 28 oct. */
   | { type: "regle"; regle: "lien" | "warmup" }
-  /** « Join Slack » : le lien du réglage `slack_lien_invitation`, sinon `LIEN_SLACK`. */
+  /** « Join Slack » : le lien du réglage `slack_lien_invitation` (prompt 21, C8 : le seul). */
   | { type: "rejoindreSlack" }
   /** Formulaire prénom + nom de la pièce d'identité (cohorte Ruul) : verrouille « Next ». */
   | { type: "identite" };
@@ -501,7 +497,9 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
           texte:
             `Join the **${SALON_BIENVENUE}** and **${SALON_COHORTE_RUUL}** channels. Ask **all your questions in ${SALON_COHORTE_RUUL}**: a technical problem, a payment question, or just to chat with the team.`,
         },
-        { type: "lien", avant: "**If you are not in it yet:**", libelle: "here is the link", href: LIEN_SLACK },
+        // Prompt 21, C8 : le lien du réglage slack_lien_invitation, comme les autres écrans.
+        { type: "p", texte: "**If you are not in it yet:**" },
+        { type: "rejoindreSlack" },
       ],
     },
     paiements: {

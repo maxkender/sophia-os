@@ -1812,7 +1812,6 @@ async function envoyerMessage(supabase: Supabase, par: string | null, contratId:
 // ---------------------------------------------------------------------------
 
 const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
-const SLACK_DEFAUT = "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA";
 /** Le mot de passe de départ, comme sur /embauche ; le posteur le change à sa 1re connexion. */
 const MOT_DE_PASSE_DEPART = "12345678";
 
@@ -1838,9 +1837,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const depuis = typeof v.accueil_contrats_depuis === "string" ? v.accueil_contrats_depuis : null;
   if (!depuis) return { ok: false, error: "accueil_contrats_depuis absent" };
   const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
-  const slack = typeof v.slack_lien_invitation === "string" && v.slack_lien_invitation.trim()
-    ? v.slack_lien_invitation.trim()
-    : SLACK_DEFAUT;
+  // Prompt 21, C8 : un seul lien Slack, le réglage slack_lien_invitation (plus de lien écrit en dur).
+  const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
 
   const { data: nouveaux, error } = await supabase
     .from("upwork_contrats")

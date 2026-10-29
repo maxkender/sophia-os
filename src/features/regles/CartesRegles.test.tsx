@@ -6,7 +6,7 @@ import { DEFAUTS_REGLES, lireReglesPaie, phrasesPaie, REGLE_LIEN } from "./texte
 vi.mock("./api", () => ({
   useRegles: () => ({
     textes: DEFAUTS_REGLES,
-    paie: lireReglesPaie({ manques_toleres: 1, retenue_par_post: 1 }),
+    paie: lireReglesPaie(6),
     slack: null,
   }),
 }));
@@ -14,18 +14,21 @@ vi.mock("./api", () => ({
 import { CarteCommentPaye, RegleTexte } from "./CartesRegles";
 
 describe("les règles aux posteurs (28 oct.)", () => {
-  it("« How you're paid » : les 3 règles, puis la règle du lien", () => {
+  it("« How you're paid » : les règles du 2 nov. (prompt 21, C8), puis la règle du lien", () => {
     render(<CarteCommentPaye />);
     const carte = screen.getByTestId("carte-comment-paye");
-    expect(within(carte).getByText("Paid every Monday, for the week just finished.")).toBeInTheDocument();
-    expect(
-      within(carte).getByText("1 missed post per account per week is tolerated. Every further missed post is $1 off."),
-    ).toBeInTheDocument();
     expect(
       within(carte).getByText(
-        "No post on Monday and Tuesday: we message you once on Upwork. Still no post by Friday: the contract ends on Saturday.",
+        "Paid every Monday for the week just finished (Monday to Sunday): 6 posts or more with their link = your full rate.",
       ),
     ).toBeInTheDocument();
+    expect(
+      within(carte).getByText("Below 6 posts with link in a week, we stop our collaboration. That last week is still paid in full."),
+    ).toBeInTheDocument();
+    expect(within(carte).getByText(/Monday 8 pm/)).toBeInTheDocument();
+    expect(within(carte).getByText(/^Thursday:/)).toBeInTheDocument();
+    expect(within(carte).getByText(/^Saturday:/)).toBeInTheDocument();
+    expect(carte.textContent).not.toMatch(/tolerated|\$1 off|Wednesday|Friday/);
     expect(within(carte).getByText(REGLE_LIEN)).toBeInTheDocument();
     expect(
       within(carte).getByText("Questions? Ask in #questions on Slack, or reply to our message on Upwork."),
@@ -42,10 +45,12 @@ describe("les règles aux posteurs (28 oct.)", () => {
     ).toBeInTheDocument();
   });
 
-  it("les nombres viennent des réglages, et aucune règle ne demande de repost", () => {
-    expect(phrasesPaie({ manquesToleres: 2, retenueParPost: 1.5 })[1]).toBe(
-      "2 missed posts per account per week are tolerated. Every further missed post is $1.50 off.",
+  it("le minimum vient du réglage, et aucune règle ne demande de repost", () => {
+    expect(phrasesPaie(lireReglesPaie(5))[1]).toBe(
+      "Below 5 posts with link in a week, we stop our collaboration. That last week is still paid in full.",
     );
+    expect(lireReglesPaie(null).minimumPosts).toBe(6);
+    expect(lireReglesPaie("x").minimumPosts).toBe(6);
     expect(JSON.stringify(DEFAUTS_REGLES).toLowerCase()).not.toContain("repost");
     expect(DEFAUTS_REGLES.warmup).toBe(
       "Create your TikTok account, click Start warmup and follow 5 accounts before Sunday midnight.",

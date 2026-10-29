@@ -75,7 +75,7 @@ function CarteRecrue({ r }: { r: RecrueOnboarding }) {
   const contrat = r.contrat_url ?? (r.contrat_id ? `https://www.upwork.com/nx/wm/workroom/${r.contrat_id}/overview` : null);
   const erreur = envoyer.error ?? reporter.error ?? arreter.error;
   return (
-    <Card data-recrue={r.poster_id} data-etape={etapeCourante(r)}>
+    <Card id={`recrue-${r.poster_id}`} data-recrue={r.poster_id} data-etape={etapeCourante(r)}>
       <CardContent className="space-y-3 p-4 text-sm">
         <div className="flex flex-wrap items-center gap-2">
           {r.test && <Badge variant="info">TEST</Badge>}

@@ -179,17 +179,27 @@ créneaux, 0 vide ; file à juger 40 %, récolte 36 %, non-gagnants 17 %,
 garde-fous relâchés 10 fois sur 498 ; rejoué deux fois : 492 lignes sur 492
 identiques.
 
-Ce que les portes vont montrer, avant même les rapports :
+Réglés le 29/10 avec Adrien, avant le premier tirage du cron :
 
-- **File à juger au plafond (40 %)** : 1 839 contenus à tester au 29/10, dont 671
-  de moins de 30 jours. La porte (25 à 35 %) ne tiendra pas tant que le stock
-  n'est pas résorbé (environ deux semaines au plafond).
+- **File à juger étalée** : `file_juger.part_max` passe de 0,40 à 0,30. Le stock
+  (1 839 contenus à tester, dont 671 de moins de 30 jours) se résorbe sur environ
+  trois semaines au lieu de deux, et la file reste dans la porte (25 à 35 %).
+- **Non-gagnants** : le premier comptage (16 %) rangeait parmi eux les contenus
+  pas encore mesurés d'une accroche gagnante (reprises, variantes). Ils comptent
+  désormais comme gagnants. Le 15 % n'est pas une règle du tirage mais un
+  résultat du tirage au cube ; une règle dure reste possible si besoin.
+
+Plan du 30/10 après ces deux réglages (essai, 14,8 s) : file à juger 30 %,
+non-gagnants 14,5 %, récolte 48 %, 0 créneau vide.
+
+Reste connu avant les rapports :
+
 - **Tests des contenus de moins de 3 jours** : les petits labels (white_bg,
   clean_study, RH, Fathomly, mentalmaxxing, that_girl_study) reçoivent chaque
-  jour plus de livraisons que 40 % de leurs créneaux ne peuvent en tester. Le
-  critère ne peut pas tenir sur eux ; à trancher (part plus haute pour ces
-  labels, ou critère limité aux labels qui ont la place).
-- **Non-gagnants autour de 16 %** pour un plafond de 15 %.
+  jour plus de livraisons que 30 % de leurs créneaux ne peuvent en tester
+  (34 sur 62 complets le 30/10). Le critère ne peut pas tenir sur eux ; à
+  trancher (part plus haute pour ces labels, ou critère limité aux labels qui
+  ont la place).
 
 Contrôles : `docs/sql/bleo_controles.sql` (copies des règles TypeScript, A5
 recalculée à la main, rejouabilité, derniers plans).
@@ -200,3 +210,6 @@ recalculée à la main, rejouabilité, derniers plans).
 - **29/10 après-midi** : 0600 à 0603 appliquées, première nuit, premier plan,
   mode ombre. Prochains rendez-vous : 14 h (plan du 30/10 par le cron), 05 h 15
   (nuit), 22 h le 30/10 (premier rapport : plan du 30/10 contre minuit).
+- **29/10, 12 h 40** : file à juger à 30 % (réglage), mélange corrigé (accroches
+  gagnantes pas encore mesurées = gagnantes). Les rapports de 22 h sont résumés
+  à Adrien dans la session de coordination, pas dans #podz (décision d'Adrien).

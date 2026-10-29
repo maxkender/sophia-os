@@ -327,12 +327,17 @@ begin
   create index on bt_pool (contenu_id);
 
   -- 4. Les valeurs de travail (A5 de la nuit), mises à jour à chaque tirage.
+  -- `verdict` sert au mélange : un contenu pas encore mesuré d'une accroche
+  -- gagnante (reprise, variante) compte comme gagnant, pas comme non-gagnant.
   create temp table bt_val on commit drop as
   select v.contenu_id, v.langue, v.valeur, v.n_post, c.famille_id, c.etat_bleo as etat,
-         coalesce(c.verdict, 'en_attente') as verdict, c.couverture_empreinte as couverture,
+         case when coalesce(c.verdict, 'en_attente') = 'en_attente' and f.verdict = 'gagnante' then 'gagnant'
+              else coalesce(c.verdict, 'en_attente') end as verdict,
+         c.couverture_empreinte as couverture,
          (select min(cl.label_id::text)::uuid from contenu_labels cl where cl.contenu_id = c.id) as label_id
     from bleo_valeurs v
     join contenus c on c.id = v.contenu_id
+    left join bleo_familles f on f.id = c.famille_id
    where c.statut = 'valide' and v.langue in (select distinct langue from bt_comptes);
   alter table bt_val add primary key (contenu_id, langue);
   create index on bt_val (famille_id, langue);
@@ -617,7 +622,10 @@ begin
   plan_c as (select plan.*, bleo_valeur_au_jour(contenu_id, langue, v_jour) as v
                from plan where compte_id in (select compte_id from communs)),
   reel_c as (select reel.*, bleo_valeur_au_jour(contenu_id, langue, v_jour) as v,
-                    c.etat_bleo, c.verdict,
+                    c.etat_bleo,
+                    case when coalesce(c.verdict, 'en_attente') = 'en_attente'
+                              and (select f.verdict from bleo_familles f where f.id = c.famille_id) = 'gagnante'
+                         then 'gagnant' else c.verdict end as verdict,
                     exists (select 1 from passages p2 where p2.contenu_id = reel.contenu_id and p2.langue = reel.langue
                                                         and p2.date_publication_prevue < v_jour) as servi
                from reel join contenus c on c.id = reel.contenu_id

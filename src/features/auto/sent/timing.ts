@@ -29,9 +29,12 @@ export interface Timing {
   double_heure: string;
   /** Prompt 25 v4 : relances Upwork au plus par recrue ; au-delà, Slack seulement (relances_upwork_max_par_recrue). */
   relances_upwork_max: number;
+  /** Prompt 25 MAJ : les freins (freins_envoi) : plafond par type et par heure, part des destinataires déjà à jour (%). */
+  frein_plafond_heure: number;
+  frein_part_deja_faite: number;
 }
 
-export const CLES_TIMING = ["etapes_delais", "lundi_soir_heure", "semaine_heures", "double_popup_expire", "relances_upwork_max_par_recrue"] as const;
+export const CLES_TIMING = ["etapes_delais", "lundi_soir_heure", "semaine_heures", "double_popup_expire", "relances_upwork_max_par_recrue", "freins_envoi"] as const;
 
 const objet = (v: unknown): Record<string, unknown> => (v && typeof v === "object" ? (v as Record<string, unknown>) : {});
 const nombre = (v: unknown, d: number) => (v !== null && v !== undefined && v !== "" && Number.isFinite(Number(v)) ? Number(v) : d);
@@ -41,6 +44,7 @@ export function lireTiming(v: Record<string, unknown>): Timing {
   const e = objet(v.etapes_delais);
   const s = objet(v.semaine_heures);
   const d = objet(v.double_popup_expire);
+  const f = objet(v.freins_envoi);
   return {
     connexion_message_h: nombre(e.connexion_message_h, 24),
     tiktok_message_h: nombre(e.tiktok_message_h, 48),
@@ -58,6 +62,8 @@ export function lireTiming(v: Record<string, unknown>): Timing {
     double_jour_iso: nombre(d.jour_iso, 3),
     double_heure: typeof d.heure === "string" ? d.heure : "23:59",
     relances_upwork_max: nombre(v.relances_upwork_max_par_recrue, 5),
+    frein_plafond_heure: nombre(f.plafond_heure, 40),
+    frein_part_deja_faite: nombre(f.part_deja_faite, 20),
   };
 }
 
@@ -73,6 +79,8 @@ export function erreursTiming(t: Timing): ErreurTiming[] {
   const delais = [t.connexion_message_h, t.tiktok_message_h, t.warmup_lance_message_h, t.kill_annulation_h];
   if (delais.some((h) => !(h > 0))) e.push("delai");
   if (!Number.isInteger(t.relances_upwork_max) || t.relances_upwork_max < 0) e.push("nombre");
+  if (!Number.isInteger(t.frein_plafond_heure) || t.frein_plafond_heure < 1) e.push("nombre");
+  if (!(t.frein_part_deja_faite > 0 && t.frein_part_deja_faite <= 100)) e.push("nombre");
   return e;
 }
 
@@ -95,5 +103,6 @@ export function valeursTiming(t: Timing, frais: Record<string, unknown>): Record
     semaine_heures: { ...objet(frais.semaine_heures), lundi_heure: t.lundi_heure, jeudi_heure: t.jeudi_heure, fin: t.semaine_fin },
     double_popup_expire: { ...objet(frais.double_popup_expire), jour_iso: t.double_jour_iso, heure: t.double_heure },
     relances_upwork_max_par_recrue: t.relances_upwork_max,
+    freins_envoi: { ...objet(frais.freins_envoi), plafond_heure: t.frein_plafond_heure, part_deja_faite: t.frein_part_deja_faite },
   };
 }

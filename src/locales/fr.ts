@@ -57,6 +57,8 @@ export const fr = {
       },
       messages: "Messages envoyés ({{n}})",
       aucunMessage: "Aucun message envoyé.",
+      expediteurs: { secours: "depuis le compte d'Adrien", principal: "depuis le compte de Max", hm: "envoyé par la HM" },
+      raison: "Pourquoi : {{raison}}",
       statuts: { envoye: "parti", erreur: "échec" },
       reponse: "Réponse {{quand}} ({{canal}}) :",
       prochaine: "Prochaine relance :",
@@ -368,6 +370,7 @@ export const fr = {
           semaine: "Messages de la semaine",
           double: "Offre Double",
           upwork: "Upwork",
+          freins: "Freins",
         },
         champs: {
           connexion_message_h: "1. Pas connecté : message après (h)",
@@ -386,6 +389,8 @@ export const fr = {
           double_jour_iso: "L'offre Double expire le",
           double_heure: "à (heure de Paris)",
           relances_upwork_max: "Relances Upwork maximum par recrue (ensuite Slack seulement)",
+          frein_plafond_heure: "Frein : un type de message s'arrête au-delà de ce nombre en une heure",
+          frein_part_deja_faite: "Frein : arrêt quand plus de ce % d'un envoi avait déjà fait l'étape",
         },
         erreurs: {
           kill_min: "Le Kill ne peut pas partir avant {{n}} h.",
@@ -3939,6 +3944,12 @@ export const fr = {
         logs: { titre: "Journal" },
       },
       // Prompt 22, partie 11 : la phrase en haut de chaque page (et sous son nom dans le menu).
+      freins: {
+        titre: "Messages « {{type}} » en pause",
+        motifs: { plafond_heure: "plafond par heure atteint", deja_fait: "trop de destinataires avaient déjà fait l'étape" },
+        reprendre: "Reprendre",
+        confirm: "Reprendre ces messages ? Rien de ce qui était dû pendant la pause ne part en rafale.",
+      },
       phrases: {
         overview: "Tout ce que fait l'automatisation, sur une page. Le bouton rouge arrête toutes les actions automatiques.",
         recruits: "Chaque recrue jusqu'à son 1er post : étapes, messages envoyés, prochaine relance.",

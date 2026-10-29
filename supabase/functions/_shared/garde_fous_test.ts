@@ -16,15 +16,13 @@ import {
 
 const t = (iso: string) => new Date(iso);
 
-Deno.test("pas de rattrapage : dû avant le passage sur « on » → en attente, puis Send, peu à peu", () => {
+Deno.test("pas de rattrapage : dû avant le passage sur « on » → ne part jamais (prompt 25 MAJ)", () => {
   const base = { onDepuis: t("2026-10-29T14:53:00Z"), valide: false, partisCeTour: 0, cap: 2 };
   // Dû après le passage sur « on » : part normalement.
   assertEquals(decisionRattrapage({ ...base, du: t("2026-10-29T15:30:00Z") }), "envoyer");
-  // Dû avant : attend.
-  assertEquals(decisionRattrapage({ ...base, du: t("2026-10-29T12:00:00Z") }), "attendre");
-  // Validé (« Send ») : part, dans la limite du passage.
-  assertEquals(decisionRattrapage({ ...base, du: t("2026-10-29T12:00:00Z"), valide: true }), "envoyer");
-  assertEquals(decisionRattrapage({ ...base, du: t("2026-10-29T12:00:00Z"), valide: true, partisCeTour: 2 }), "attendre");
+  // Dû avant : ignoré, même « validé » (l'OS repart du moment présent).
+  assertEquals(decisionRattrapage({ ...base, du: t("2026-10-29T12:00:00Z") }), "ignorer");
+  assertEquals(decisionRattrapage({ ...base, du: t("2026-10-29T12:00:00Z"), valide: true }), "ignorer");
   // Pas de date « on » connue : rien n'est retenu.
   assertEquals(decisionRattrapage({ ...base, onDepuis: null, du: t("2026-10-29T12:00:00Z") }), "envoyer");
 });

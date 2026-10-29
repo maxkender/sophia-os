@@ -83,67 +83,6 @@ export async function lireDoublons(): Promise<Doublon[]> {
 /** L'ordre des types de messages à l'écran (prompt 25 : la relance du jour remplace les 4 étapes ; le jeudi est sur Thursday). */
 export const TYPES_MESSAGES = ["accueil", "relance", "lundi_soir", "lundi"] as const;
 
-/**
- * Prompt 25 : Messages sent → To approve. Les messages préparés en mode
- * Approve (relances des recrues, lundi 20 h) et ceux qui attendent un Send
- * (0432) : le destinataire, sa HM, le canal, le texte, les données utilisées.
- */
-export interface MessageAApprouver {
-  poster_id: string;
-  type: string;
-  periode: string;
-  canal: string | null;
-  texte: string | null;
-  raison: string;
-  donnees: Record<string, unknown> | null;
-  premier_at: string;
-  poster_nom: string | null;
-  hm_nom: string | null;
-  /** Prompt 25 v4 : la cohorte (lundi) du destinataire. */
-  cohorte: string | null;
-}
-
-export async function lireAApprouver(): Promise<MessageAApprouver[]> {
-  const { data, error } = await supabase
-    .from("relances_prevues")
-    .select("poster_id, type, periode, canal, texte, raison, donnees, premier_at, profiles(prenom, nom, manager_id, cohorte_lundi)")
-    .eq("statut", "prevu")
-    .is("valide_at", null)
-    .in("raison", ["a_approuver", "en_attente", "a_valider"])
-    .order("type")
-    .order("premier_at");
-  if (error) throw error;
-  const lignes = (data ?? []) as unknown as (Omit<MessageAApprouver, "poster_nom" | "hm_nom" | "cohorte"> & {
-    profiles: { prenom: string | null; nom: string | null; manager_id: string | null; cohorte_lundi: string | null } | null;
-  })[];
-  const hmIds = [...new Set(lignes.map((l) => l.profiles?.manager_id).filter((x): x is string => Boolean(x)))];
-  const { data: hms } = hmIds.length ? await supabase.from("profiles").select("id, prenom, nom").in("id", hmIds) : { data: [] };
-  const nom = (p: { prenom: string | null; nom: string | null } | null | undefined) =>
-    p ? [p.prenom, p.nom].filter(Boolean).join(" ") || null : null;
-  const hmDe = new Map((hms ?? []).map((h) => [h.id as string, nom(h as { prenom: string | null; nom: string | null })]));
-  return lignes.map(({ profiles, ...l }) => ({
-    ...l,
-    poster_nom: nom(profiles),
-    hm_nom: profiles?.manager_id ? hmDe.get(profiles.manager_id) ?? null : null,
-    cohorte: profiles?.cohorte_lundi ?? null,
-  }));
-}
-
-export interface CleMessage {
-  poster_id: string;
-  type: string;
-  periode: string;
-  /** Le texte modifié (sinon celui préparé). */
-  texte?: string;
-}
-
-/** « Send selected » : les messages gardés partent peu à peu, les autres sont écartés. Admin seulement. */
-export async function approuverMessages(garder: CleMessage[], ecarter: CleMessage[]): Promise<number> {
-  const { data, error } = await supabase.rpc("messages_approuver", { p_garder: garder, p_ecarter: ecarter });
-  if (error) throw error;
-  return Number(data ?? 0);
-}
-
 export interface BilanFile {
   ok: boolean;
   envoyes: number;

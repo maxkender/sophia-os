@@ -2,7 +2,7 @@ import { CarteUpwork } from "@/features/upwork/CarteUpwork";
 import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
 import { Lien1000Card } from "@/features/moteur/Lien1000Card";
 import { PageMessagesEnvoyes } from "@/features/auto/sent/PageMessagesEnvoyes";
-import { BandeauAttente } from "@/features/auto/sent/Attente";
+import { FreinsEnvoi } from "@/features/auto/FreinsEnvoi";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
@@ -35,8 +35,8 @@ export function OverviewPage() {
   return (
     <PageAuto cle="overview">
       <GrandInterrupteur />
-      {/* 0432 : « X messages waiting » (Send dans Messages sent → Planned). */}
-      <BandeauAttente />
+      {/* Prompt 25 MAJ : un type de message en pause (frein) se voit tout de suite, avec « Resume ». */}
+      <FreinsEnvoi />
       <ResumeNeedsYou />
       <Interrupteurs />
       <CarteSante>

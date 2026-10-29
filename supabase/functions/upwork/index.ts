@@ -1926,10 +1926,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
     .select("cle, valeur")
     .in("cle", ["accueil_auto", "accueil_contrats_depuis", "accueil_message_texte", "slack_lien_invitation"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
-  // Prompt 25 v4 : Approve crée le posteur et son login comme « on », et prépare
-  // la bienvenue dans Messages sent → To approve (elle part après « Send selected »).
-  const approuver = v.accueil_auto === "approve";
-  const mode = approuver ? "on" : lireModeAuto(v.accueil_auto);
+  // Prompt 25 MAJ : plus de mode Approve (un ancien « approve » se lit comme test).
+  const mode = lireModeAuto(v.accueil_auto);
 
   // 1. Les contrats actifs, relus (lecture seule) ; chaque posteur sans
   // contrat est relié au sien (0409), toujours, même en test ou sur off.
@@ -2063,7 +2061,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
       bilan.erreurs.push(`${contratId} : ${errVerrou.message}`);
       continue;
     }
-    const resultat = await creerEtAccueillir(supabase, par, { ...base, cohorte_lundi: cohorte }, modele, slack, approuver && !test);
+    const resultat = await creerEtAccueillir(supabase, par, { ...base, cohorte_lundi: cohorte }, modele, slack);
     if (resultat.erreur) bilan.erreurs.push(`${contratId} : ${resultat.erreur}`);
     else bilan.crees++;
     if (test) {
@@ -2084,7 +2082,6 @@ async function creerEtAccueillir(
   },
   modele: string,
   slack: string,
-  approuver = false,
 ): Promise<{ erreur: string | null }> {
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", a.contrat_id);
@@ -2140,24 +2137,6 @@ async function creerEtAccueillir(
     prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
     cohorte_lundi: a.cohorte_lundi,
   });
-  if (approuver) {
-    // La bienvenue attend « Send selected » (To approve) ; elle part ensuite avant tout le reste sur Upwork.
-    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
-    const { error: errPrep } = await supabase.from("relances_prevues").upsert({
-      poster_id: cree.userId, type: "accueil", periode: jour, statut: "prevu", canal: "upwork", texte, raison: "a_approuver",
-      valide_at: null, maj_at: new Date().toISOString(),
-      donnees: {
-        contrat: a.contrat_id, cohorte: a.cohorte_lundi || null, email: cree.email ?? null, pays: a.pays, langue: a.langue,
-        offre_acceptee: a.debut_at,
-      },
-    });
-    if (errPrep) {
-      await fin({ statut: "erreur", raison: `bienvenue à approuver : ${errPrep.message}`, message_texte: texte });
-      return { erreur: errPrep.message };
-    }
-    await fin({ statut: "cree", raison: "bienvenue à approuver (Messages sent → To approve)", message_texte: texte });
-    return { erreur: null };
-  }
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
     // Prompt 25 v4 (0442) : Upwork plein (Max et Adrien) : la HM envoie la bienvenue à la main aujourd'hui.

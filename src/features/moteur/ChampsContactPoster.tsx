@@ -20,7 +20,7 @@ export function ChampsContactPoster({
   valeurs: ValeursContactPoster;
   onChange: (valeurs: ValeursContactPoster) => void;
   idPrefixe?: string;
-  /** Prompt 15, point 7 : à la création, le lien du contrat et l'email perso sont obligatoires. */
+  /** Prompt 15, point 7 : à la création, le lien du contrat est obligatoire (l'email perso, non : 29 oct.). */
   obligatoires?: boolean;
 }) {
   const { t } = useTranslation();
@@ -57,12 +57,11 @@ export function ChampsContactPoster({
       <div className="space-y-2 sm:col-span-2">
         <Label htmlFor={`${idPrefixe}-email`}>
           {t("posters.contact.emailPerso")}
-          {obligatoires && " *"}
+          {obligatoires && <span className="text-xs font-normal text-muted-foreground"> {t("posters.contact.facultatif")}</span>}
         </Label>
         <Input
           id={`${idPrefixe}-email`}
           type="email"
-          required={obligatoires}
           value={valeurs.email_perso}
           placeholder="name@gmail.com"
           aria-invalid={emailFaux || undefined}

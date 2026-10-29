@@ -1550,11 +1550,10 @@ export function contratUpworkValide(url: string): boolean {
   return !u || /^https?:\/\/([a-z0-9-]+\.)*upwork\.com\//i.test(u);
 }
 
-/** Prompt 15, point 7 : à la création, le lien du contrat et l'email perso sont obligatoires et valides. */
+/** À la création : le lien du contrat obligatoire ; l'email perso facultatif, mais lisible s'il est rempli (29 oct.). */
 export function contactCreationComplet(c: { upwork_contrat_url: string; email_perso: string }): boolean {
   return (
     Boolean(c.upwork_contrat_url.trim()) &&
-    Boolean(c.email_perso.trim()) &&
     contratUpworkValide(c.upwork_contrat_url) &&
     emailPersoValide(c.email_perso)
   );

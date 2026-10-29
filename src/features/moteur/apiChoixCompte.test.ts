@@ -17,6 +17,7 @@ import {
   assurerComptePoster,
   corpsApplicationsCompte,
   creerPoster,
+  contactCreationComplet,
   emailPersoValide,
 } from "./api";
 
@@ -95,6 +96,14 @@ describe("choix label + répartition dans les corps manage-users", () => {
     expect(corps.upwork_url).toBe("https://www.upwork.com/freelancers/~01");
     expect(corps.email_perso).toBe("ana@gmail.com");
     expect("upwork_contrat_url" in corps).toBe(false);
+  });
+
+  it("création : le lien du contrat obligatoire, l'email perso facultatif mais vérifié s'il est rempli", () => {
+    const contrat = "https://www.upwork.com/nx/wm/workroom/1";
+    expect(contactCreationComplet({ upwork_contrat_url: contrat, email_perso: "" })).toBe(true);
+    expect(contactCreationComplet({ upwork_contrat_url: contrat, email_perso: "ana@gmail.com" })).toBe(true);
+    expect(contactCreationComplet({ upwork_contrat_url: contrat, email_perso: "ana.gmail" })).toBe(false);
+    expect(contactCreationComplet({ upwork_contrat_url: "", email_perso: "ana@gmail.com" })).toBe(false);
   });
 
   it("emailPersoValide : vide accepté, format vérifié", () => {

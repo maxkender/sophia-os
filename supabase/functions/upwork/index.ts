@@ -29,6 +29,7 @@ import {
 import {
   type Annonce,
   type DetailsContrat,
+  GUIDE_POSTER,
   lireDetailsContrat,
   annoncesDepuisPosteurs,
   lireModeAuto,
@@ -1912,7 +1913,6 @@ const MUTATION_AJOUT_SALON = `mutation AjoutSalon($roomId: ID!, $users: [RoomUse
 // Système du 2 nov., partie A : l'accueil automatique
 // ---------------------------------------------------------------------------
 
-const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 /** Le mot de passe de départ, comme sur /embauche ; le posteur le change à sa 1re connexion. */
 const MOT_DE_PASSE_DEPART = "12345678";
 
@@ -1966,9 +1966,16 @@ async function accueillir(supabase: Supabase, par: string | null) {
     pays: paysDe.get(p.id) ?? null,
   }));
 
+  // Prompt 25 v4 (0440) : sur un contrat de test, la bienvenue part pour de vrai même sur Test ou Approve.
+  const { data: tests } = await supabase.from("contrats_test").select("contrat_id, poster_id").is("retire_at", null);
+  const testDe = new Map((tests ?? []).map((x) => [String(x.contrat_id), (x.poster_id as string | null) ?? null]));
+
   const bilan = { mode, contrats: lecture.organisations, ...reliage, nouveaux: ids.length, crees: 0, simules: 0, a_relier: 0, doublons: 0, erreurs: [] as string[] };
   for (const c of nouveaux ?? []) {
     const contratId = String(c.contrat_id);
+    const test = testDe.has(contratId);
+    // Le posteur TEST de ce contrat existe déjà (Overview → Test contracts) : rien à créer.
+    if (test && testDe.get(contratId)) continue;
     const connu = connuDe.get(contratId);
     // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur).
     if (connu && ["cree", "envoi", "envoye", "doublon", "erreur"].includes(connu.statut)) continue;
@@ -2030,7 +2037,11 @@ async function accueillir(supabase: Supabase, par: string | null) {
       p_pays: plan.pays ?? null,
     });
     const cohorte = String(lundi ?? "");
-    if (mode === "test") {
+    if (test) {
+      // Un contrat de test : le posteur s'appelle « TEST {prénom} ».
+      base.prenom = `TEST ${(base.prenom ?? "").trim()}`.trim();
+    }
+    if (mode === "test" && !test) {
       // Test : le plan et le message, sans rien créer ni envoyer.
       await supabase.from("accueils").upsert({
         ...base, statut: "simule", raison: "test : rien n'est créé ni envoyé", cohorte_lundi: cohorte || null,
@@ -2048,9 +2059,13 @@ async function accueillir(supabase: Supabase, par: string | null) {
       bilan.erreurs.push(`${contratId} : ${errVerrou.message}`);
       continue;
     }
-    const resultat = await creerEtAccueillir(supabase, par, { ...base, cohorte_lundi: cohorte }, modele, slack, approuver);
+    const resultat = await creerEtAccueillir(supabase, par, { ...base, cohorte_lundi: cohorte }, modele, slack, approuver && !test);
     if (resultat.erreur) bilan.erreurs.push(`${contratId} : ${resultat.erreur}`);
     else bilan.crees++;
+    if (test) {
+      const { data: a } = await supabase.from("accueils").select("poster_id").eq("contrat_id", contratId).maybeSingle();
+      if (a?.poster_id) await supabase.from("contrats_test").update({ poster_id: a.poster_id }).eq("contrat_id", contratId);
+    }
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
 }

@@ -137,7 +137,15 @@ export function PageLogs() {
                 <tr key={`${l.at}-${l.source}-${i}`} data-source={l.source} className="align-top">
                   <td className="whitespace-nowrap px-2 py-1.5 tabular-nums text-muted-foreground">{quand.format(new Date(l.at))}</td>
                   <td className="px-2 py-1.5">{l.auteur}</td>
-                  <td className="px-2 py-1.5">{l.poster_nom ?? "—"}</td>
+                  <td className="px-2 py-1.5">
+                    {/* Prompt 25 v4 : ce qui touche un contrat de test est marqué TEST. */}
+                    {(l.action.startsWith("test_") || (l.poster_nom ?? "").startsWith("TEST")) && (
+                      <Badge variant="info" className="mr-1" data-test-tag>
+                        TEST
+                      </Badge>
+                    )}
+                    {l.poster_nom ?? "—"}
+                  </td>
                   <td className="px-2 py-1.5">
                     <span className="font-medium">{t(`auto.logs.sources.${l.source}`)}</span>{" "}
                     <span>{t(`auto.today.types.${l.action}`, { defaultValue: t(`pipeline.evenements.${l.action}`, { defaultValue: l.action }) })}</span>

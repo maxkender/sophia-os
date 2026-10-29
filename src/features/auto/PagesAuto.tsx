@@ -17,6 +17,7 @@ import { CarteAujourdhui, CarteSemaine, SanteAuto } from "./Overview";
 import { PageAuto } from "./PageAuto";
 import { PageLogs } from "./PageLogs";
 import { PageRecruits } from "./PageRecruits";
+import { ContratsTest } from "./test/ContratsTest";
 
 /**
  * Prompt 22 : les 9 pages de « Recruitment Automation ». Chacune reprend la
@@ -42,6 +43,8 @@ export function OverviewPage() {
       </CarteSante>
       <CarteAujourdhui />
       <CarteSemaine />
+      {/* Prompt 25 v4 : les contrats de test (admin). */}
+      <ContratsTest />
       <CarteUpwork />
       <Lien1000Card />
     </PageAuto>

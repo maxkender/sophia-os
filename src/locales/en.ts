@@ -6,6 +6,36 @@ export const en = {
     // Prompt 22, parts 5 to 9: the tabs of Weekly decisions, Messages sent,
     // Messages received, Payroll and FAQ bot. (The sentences at the top of the
     // pages are in auto.pages / auto.phrases.)
+    // Prompt 25 v4 (0440) : Overview → Test contracts.
+    autoTest: {
+      titre: "Test contracts",
+      aide: "On these Upwork contracts, the welcome and the reminders go out for real even when the switch is on Test or Approve. A contract linked to a real active poster is refused. Everything appears in Logs with type “test_…”.",
+      ajouterAide: "Contract ID or Upwork link",
+      ajouter: "Add",
+      retirer: "Remove",
+      confirmRetirer: "Remove contract {{contrat}} from the test contracts? Its messages follow the switches again.",
+      sansPosteur: "No test poster yet",
+      prenom: "First name",
+      creer: "Create test poster",
+      confirmCreer: "Create “{{nom}}”, linked to contract {{contrat}}, in next Monday's cohort? Its login is created (password 12345678); nothing is sent.",
+      detail: "Cohort {{cohorte}} · {{email}} · {{slack}}",
+      surSlack: "on Slack",
+      pasSlack: "not on Slack",
+      boutons: {
+        accueil: "Welcome",
+        etape0: "Step 0 (Slack)",
+        etape1: "Step 1 (login)",
+        etape2: "Step 2 (TikTok)",
+        etape3: "Step 3 (warm-up started)",
+        etape4: "Step 4 (warm-up done)",
+        lundi_soir: "Monday 8 pm",
+        reset: "Reset test poster",
+      },
+      confirm: "Send “{{quoi}}” to the test poster now, for real (Slack if they're on it, and Upwork)?",
+      confirmReset: "Reset the test poster? Not logged in, Start warmup not clicked, next Monday's cohort; messages already sent stay in Logs.",
+      lance: "{{quoi}}: sent ({{canaux}}).",
+      echec: "Not sent: {{erreur}}",
+    },
     autoOnglets: {
       decisions: {
         onglets: { jeudi: "Thursday", samedi: "Saturday", reglages: "Settings" },

@@ -45,7 +45,7 @@ export async function creerPosteurTest(contrat: string, prenom: string): Promise
 }
 
 /** Ce que « Run now » envoie au posteur de test (ou « reset »). */
-export const LANCEMENTS_TEST = ["accueil", "etape0", "etape1", "etape2", "etape3", "etape4", "lundi_soir", "reset"] as const;
+export const LANCEMENTS_TEST = ["accueil", "etape0", "etape1", "etape2", "etape3", "etape4", "lundi_soir", "secours", "reset"] as const;
 export type LancementTest = (typeof LANCEMENTS_TEST)[number];
 
 export interface BilanLancement {

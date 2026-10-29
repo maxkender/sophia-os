@@ -218,9 +218,21 @@ Deno.serve(async (request) => {
         return json(await paieQuestion(supabase, par, String(body.poster_id ?? ""), body.simuler === true));
       case "droits":
         return json(await testerDroits(supabase, par));
-      case "message":
+      case "message": {
         // Prompt 25 : relances et nudges (priorite: false) s'arrêtent avant la réserve gardée pour la bienvenue, le Kill et l'arrêt.
-        return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? ""), { prioritaire: body.priorite !== false }));
+        const contratId = String(body.contrat_id ?? "");
+        // Prompt 25 v4 : « compte: secours » force le compte d'Adrien, seulement sur un contrat de test (Run now).
+        if (body.compte === COMPTE_SECOURS) {
+          const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
+          if (!t) return json({ ok: false, error: "le compte de secours ne se force que sur un contrat de test" }, 400);
+        }
+        return json(
+          await envoyerMessage(supabase, par, contratId, String(body.texte ?? ""), {
+            prioritaire: body.priorite !== false,
+            ...(body.compte === COMPTE_SECOURS ? { forcer: COMPTE_SECOURS } : {}),
+          }),
+        );
+      }
       case "message_posteur":
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
@@ -1844,10 +1856,11 @@ async function envoyerMessage(
   par: string | null,
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean; exclure?: string[] } = {},
+  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
 ): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
-  const choix = await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
+  // Run now (contrat de test) : le compte de secours, forcé ; sinon Max d'abord, puis Adrien.
+  const choix = o.forcer ? { compte: o.forcer, erreur: null } : await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
   if (choix.compte === null) return { ok: false, error: choix.erreur, budget: true };
   const compte = choix.compte;
   const { data: c } = await supabase
@@ -1869,7 +1882,7 @@ async function envoyerMessage(
   let storyId = r.data?.createRoomStoryV2?.id as string | undefined;
   if (storyId) return { ok: true, story_id: storyId, compte };
   // La limite d'Upwork sur le compte de Max : rien n'est parti ; Adrien prend le relais (une fois).
-  if (compte === COMPTE && estLimiteUpwork(r.erreur) && !(o.exclure ?? []).includes(COMPTE_SECOURS)) {
+  if (compte === COMPTE && !o.forcer && estLimiteUpwork(r.erreur) && !(o.exclure ?? []).includes(COMPTE_SECOURS)) {
     return await envoyerMessage(supabase, par, contratId, texte, { ...o, exclure: [...(o.exclure ?? []), COMPTE] });
   }
   if (compte === COMPTE_SECOURS && r.erreur !== PAUSE && !estLimiteUpwork(r.erreur)) {

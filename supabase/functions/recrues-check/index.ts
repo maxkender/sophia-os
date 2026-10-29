@@ -1324,7 +1324,7 @@ async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[];
 async function envoyerUpwork(
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean } = {},
+  o: { prioritaire?: boolean; compte?: string } = {},
 ): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean }> {
   const base = Deno.env.get("SUPABASE_URL");
   const secret = Deno.env.get("CRON_SECRET");
@@ -1333,7 +1333,7 @@ async function envoyerUpwork(
     const r = await fetch(`${base}/functions/v1/upwork`, {
       method: "POST",
       headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false }),
+      body: JSON.stringify({ action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false, ...(o.compte ? { compte: o.compte } : {}) }),
     });
     const corps = await r.json().catch(() => null);
     // Prompt 25 v4 : « reporter » : le compte de secours n'a pas pu écrire ici ; le message repart demain (Max d'abord).
@@ -1969,6 +1969,9 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
     });
   } else if (quoi === "lundi_soir") {
     texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
+  } else if (quoi === "secours") {
+    // Prompt 25 v4 : un message depuis le compte de secours (Adrien), sur le contrat de test.
+    texte = `Hi ${(p.prenom ?? "").trim() || "there"}, this is a test message from our second Upwork account (Vik Studios). No action needed.`;
   } else if (ELEMENTS_TEST[quoi]) {
     const element = ELEMENTS_TEST[quoi]!;
     texte = texteRelance(r.textesRelance, { element, elements: [element], needsYou: false, follows: 3 }, {
@@ -1981,6 +1984,7 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
   }
   if (!texte.trim()) return { ok: false, error: "texte vide (réglage vide, ou lien Slack / e-mail manquant)" };
   const canaux: Canal[] = slack ? ["slack", "upwork"] : ["upwork"];
+  const compteForce = quoi === "secours" ? "secours" : undefined;
   const { data: ligne, error: errIns } = await supabase.from("nudges")
     .insert({ poster_id: posterId, type: `test_${quoi}`, periode: null, compte_id: null, cible: "test", canal: canaux[0], texte })
     .select("id").single();
@@ -1992,13 +1996,13 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
     if (e) erreurs.push(`slack : ${e}`);
     else partis.push("slack");
   }
-  const u = await envoyerUpwork(contrat, texte, { prioritaire: true });
+  const u = await envoyerUpwork(contrat, texte, { prioritaire: true, compte: compteForce });
   if (u.erreur) erreurs.push(u.erreur);
   else partis.push("upwork");
   await supabase.from("nudges").update({
     canaux: partis, erreur_canal: erreurs.join(" · ") || null, ...(partis.length === 0 ? { slack_erreur: erreurs.join(" · ") || "aucun canal" } : {}),
   }).eq("id", ligne.id);
-  return { ok: partis.length > 0, quoi, partis, erreurs, texte };
+  return { ok: partis.length > 0, quoi, partis, erreurs, texte, ...(compteForce ? { compte: compteForce } : {}) };
 }
 
 function ajouterJoursIso(jour: string, n: number): string {

@@ -557,6 +557,19 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     .lt("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -1));
 
   if (r.mode === "off") {
+    // Prompt 25 MAJ, point 6 : les données restent justes même sur Off (rien n'est envoyé) :
+    // la connexion (étape 1) et les @ proches d'un @ introuvable.
+    const { error: errCnxOff } = await supabase.rpc("relances_noter_connexions");
+    if (errCnxOff) bilan.erreurs.push(`connexions : ${errCnxOff.message}`);
+    if (await passageDu(supabase, "etapes")) {
+      const handles = await lireHandlesIntrouvables(supabase).catch(() => null);
+      if (handles?.size) {
+        bilan.variantes = await chercherVariantes(supabase, handles).catch((e) => {
+          bilan.erreurs.push(`variantes : ${(e as Error).message}`);
+          return null;
+        });
+      }
+    }
     // Les messages validés à la main (Thursday, To approve) partent quand même, peu à peu.
     await envoyerFile(supabase, r, null, maintenant, bilan);
     await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));

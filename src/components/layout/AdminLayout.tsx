@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
+  CircleAlert,
   AtSign,
   BarChart3,
   BookOpen,
@@ -43,6 +44,7 @@ import { BandePause } from "@/features/auto/BandePause";
 import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestationsAVerifier } from "@/features/moteur/api";
+import { lireCompteNeedsYou } from "@/features/needsYou/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
@@ -58,6 +60,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   decisions: Gavel,
   sent: Send,
   received: Inbox,
+  needs: CircleAlert,
   payroll: Wallet,
   faq: MessageCircle,
   logs: ListTodo,
@@ -70,6 +73,7 @@ export function AdminLayout() {
   const estHo = role === "head_of_ops";
   const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
+  const needsYou = useQuery({ queryKey: ["needs-you", "compte"], queryFn: lireCompteNeedsYou, refetchInterval: 5 * 60_000 });
   const contestations = useQuery({
     queryKey: ["contestations-a-verifier"],
     queryFn: compterContestationsAVerifier,
@@ -144,6 +148,8 @@ export function AdminLayout() {
             label: t(`auto.pages.${p.cle}.titre`),
             icon: ICONES_AUTO[p.cle],
             description: t(`auto.pages.${p.cle}.phrase`),
+            // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
+            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
           })),
         },
         {

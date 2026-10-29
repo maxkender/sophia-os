@@ -14,6 +14,7 @@
   "scripts": {
     "typecheck": "tsc -p .",
     "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
     "suivi": "NODE_USE_ENV_PROXY=1 node atelier/cli-suivi.ts",
     "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
     "playbook": "NODE_USE_ENV_PROXY=1 node atelier/cli-playbook.ts",

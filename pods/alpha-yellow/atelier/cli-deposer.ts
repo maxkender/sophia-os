@@ -1,4 +1,6 @@
 // Usage : POD_JETON=… node atelier/cli-deposer.ts <source_id|all> [--essai]
+// BLEO : un original qui déclare "type_bleo" (et "parent_contenu_id" pour une
+// déclinaison, voir npm run boite) part sans schéma ni preuve.
 // Dépose un ou tous les originaux (originaux/<id>.json) dans la file de
 // validation de l'OS, AVEC LA PREUVE de leur schéma d'accroche (playbook.json,
 // `schema_id`). Sans preuve valable aujourd'hui (post de la niche ≥ 200 k vues
@@ -8,7 +10,7 @@
 // refusé par l'OS (créer un nouvel id). Préfixes d'images (8 car.) résolus.
 // --essai : contrôles locaux seulement, rien n'est envoyé.
 import { readdirSync, readFileSync } from "node:fs";
-import { appelPod, preuveDuSchema, type Original, type Playbook } from "./api.ts";
+import { appelPod, declarationBleo, preuveDuSchema, type Original, type Playbook } from "./api.ts";
 
 const [cible] = process.argv.slice(2);
 if (!cible) throw new Error("usage : deposer <source_id|all> [--essai]");
@@ -38,8 +40,15 @@ const fichiers = readdirSync("originaux").filter((f) => f.endsWith(".json") && (
 if (!fichiers.length) throw new Error(`aucun original « ${cible} »`);
 for (const f of fichiers) {
   const o = JSON.parse(readFileSync(`originaux/${f}`, "utf8")) as Original;
-  const schema = playbook.schemas.find((s) => s.id === o.schema_id);
-  if (!schema) {
+  // BLEO (L4) : un original déclaré (type_bleo, voir npm run boite) part sans
+  // schéma ni preuve ; l'OS le juge sur la boîte (famille, génération, quota, accroche).
+  const bleo = declarationBleo(o);
+  if ("erreur" in bleo) {
+    console.log(`${o.source_id} : REFUSÉ ${bleo.erreur}`);
+    continue;
+  }
+  const schema = bleo.type_bleo ? null : playbook.schemas.find((s) => s.id === o.schema_id);
+  if (!bleo.type_bleo && !schema) {
     console.log(`${o.source_id} : REFUSÉ schéma « ${o.schema_id} » absent du playbook`);
     continue;
   }
@@ -48,8 +57,8 @@ for (const f of fichiers) {
     console.log(`${o.source_id} : REFUSÉ ${doublon}`);
     continue;
   }
-  const preuve = preuveDuSchema(schema);
-  if (!preuve) {
+  const preuve = schema ? preuveDuSchema(schema) : null;
+  if (!bleo.type_bleo && !preuve) {
     console.log(`${o.source_id} : REFUSÉ schéma « ${o.schema_id} » expiré (aucune preuve de moins de 30 jours) : refais la veille`);
     continue;
   }
@@ -65,7 +74,7 @@ for (const f of fichiers) {
     };
   });
   if (essai) {
-    console.log(`${o.source_id} : ${slides.length} slides, schéma « ${schema.id} », ${preuve.references.length} référence(s) de preuve, prêt`);
+    console.log(`${o.source_id} : ${slides.length} slides, ${bleo.type_bleo ? bleo.resume : `schéma « ${schema?.id} », ${preuve?.references.length ?? 0} référence(s) de preuve`}, prêt`);
     continue;
   }
   const d = await appelPod<{ id: string }>({
@@ -77,7 +86,7 @@ for (const f of fichiers) {
     musique_titre: o.musique_titre ?? null,
     musique_url: o.musique_url ?? null,
     inspirations: o.inspirations ?? [],
-    preuve,
+    ...(bleo.type_bleo ? bleo.champs : { preuve }),
     slides,
   });
   console.log(`${o.source_id} : ${d.ok ? `déposé (${d.id})` : `REFUSÉ ${d.error}`}`);

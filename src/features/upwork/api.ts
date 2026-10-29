@@ -32,9 +32,12 @@ export async function lireEtatUpwork(): Promise<EtatUpwork[]> {
   return (data ?? []) as EtatUpwork[];
 }
 
-/** L'adresse d'autorisation Upwork (state à usage unique, 15 min). */
-export async function lienConnexionUpwork(): Promise<string> {
-  const r = await invoke<{ ok: boolean; url?: string; error?: string }>("upwork", { action: "lien" });
+/**
+ * L'adresse d'autorisation Upwork (state à usage unique, 15 min). Prompt 25 v4 :
+ * « secours » : la connexion de secours (Adrien), pour les messages seulement.
+ */
+export async function lienConnexionUpwork(compte: "principal" | "secours" = "principal"): Promise<string> {
+  const r = await invoke<{ ok: boolean; url?: string; error?: string }>("upwork", { action: "lien", ...(compte === "secours" ? { compte } : {}) });
   if (!r.url) throw new Error(r.error ?? "lien Upwork indisponible");
   return r.url;
 }

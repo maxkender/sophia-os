@@ -29,6 +29,7 @@ export const fr = {
         etape3: "Step 3 (warm-up started)",
         etape4: "Step 4 (warm-up done)",
         lundi_soir: "Monday 8 pm",
+        secours: "Message depuis le compte de secours",
         reset: "Reset test poster",
       },
       confirm: "Envoyer « {{quoi}} » au posteur de test maintenant, pour de vrai (Slack s'il y est, et Upwork) ?",

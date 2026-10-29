@@ -2380,6 +2380,14 @@ export const fr = {
         passages: "Passages",
         passagesDesc: "Les 100 derniers passages de la famille, toutes générations. Les rappels sont grisés.",
         aucunPassage: "Aucun passage.",
+        valeurs: "Valeur par langue",
+        valeursDesc:
+          "Ce que BLEO attend de chaque contenu dans chaque langue des comptes du label. En vert, le contenu qu'il préfère dans la langue. Survole une case pour le calcul.",
+        valeursLe: "Calculée par la nuit du {{quand}}.",
+        valeurDetail:
+          "Forme {{forme}} × 0,6^{{post}} × 0,75^{{acc}} × {{age}} = {{valeur}}. {{post}} passage(s) de ce contenu dans la langue, {{acc}} de la même accroche (autres contenus de la famille).",
+        prefere: "Préféré dans cette langue",
+        aucuneValeur: "Pas de valeur : aucun contenu de la famille n'est candidat (contenu retiré, ou pas de compte actif dans une langue du label).",
       },
       podz: {
         titre: "Boîte et jauge des podz (BLEO)",

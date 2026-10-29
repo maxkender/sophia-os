@@ -316,6 +316,35 @@ export async function listerPassagesFamille(contenuIds: string[], limite = 100):
   return (data ?? []) as unknown as PassageFamille[];
 }
 
+/** A5 : la valeur d'un contenu dans une langue, avec ce qui la compose (forme × fatigues × âge). */
+export interface ValeurLangue {
+  contenu_id: string;
+  langue: string;
+  forme: number;
+  n_post: number;
+  n_accroche: number;
+  facteur_age: number;
+  valeur: number;
+  calcule_le: string;
+}
+
+/** Les valeurs de la dernière nuit pour ces contenus, langue par langue (les couples à 0 ne sont plus candidats). */
+export async function listerValeursFamille(contenuIds: string[]): Promise<ValeurLangue[]> {
+  if (contenuIds.length === 0) return [];
+  const { data, error } = await supabase
+    .from("bleo_valeurs")
+    .select("contenu_id, langue, forme, n_post, n_accroche, facteur_age, valeur, calcule_le")
+    .in("contenu_id", contenuIds)
+    .gt("valeur", 0);
+  if (error) throw error;
+  return ((data ?? []) as ValeurLangue[]).map((v) => ({
+    ...v,
+    forme: Number(v.forme),
+    facteur_age: Number(v.facteur_age),
+    valeur: Number(v.valeur),
+  }));
+}
+
 export async function listerJauge(): Promise<LigneJauge[]> {
   const { data, error } = await supabase.from("bleo_jauge").select("*").order("semaines", { ascending: true, nullsFirst: false });
   if (error) throw error;

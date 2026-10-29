@@ -175,6 +175,11 @@ vi.mock("@/features/bleo/api", async (original) => ({
         comptes: { handle_tiktok: "lea.etudes" },
       },
     ]),
+  listerValeursFamille: () =>
+    Promise.resolve([
+      { contenu_id: "k0", langue: "fr", forme: 5, n_post: 3, n_accroche: 0, facteur_age: 1, valeur: 1.08, calcule_le: "2026-10-30T03:15:00Z" },
+      { contenu_id: "k0", langue: "de", forme: 5, n_post: 0, n_accroche: 0, facteur_age: 1, valeur: 5, calcule_le: "2026-10-30T03:15:00Z" },
+    ]),
   listerJauge: () =>
     Promise.resolve([
       { label_id: LABEL, pod: "originaux_rh", familles_en_boite: 27, par_jour: 5.29, semaines: 2.2, part_full_test: 0.3 },
@@ -255,6 +260,8 @@ describe("section BLEO de l'OS", () => {
     expect(screen.getAllByText("G0").length).toBeGreaterThan(0);
     expect(screen.getByText("Close")).toBeInTheDocument();
     expect(await screen.findByText("@lea.etudes")).toBeInTheDocument();
+    expect(await screen.findByText("Valeur par langue")).toBeInTheDocument();
+    expect((await screen.findByText("1,08")).closest("td")).toHaveAttribute("title", expect.stringContaining("0,6^3"));
   });
 
   it("boîte des podz (en bas de Pods) : jauge, boîte, 2ᵉ déclinaison en tête avec accroche reformulée", async () => {

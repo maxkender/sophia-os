@@ -9,6 +9,7 @@ import {
   envoiEtape,
   etapeRouge,
   etatsAccueil,
+  joursAvantLundi,
   killEnCours,
   nuitDuRouge,
   type RecrueAccueil,
@@ -115,4 +116,16 @@ Deno.test("cohorte commencée : plus de message d'étape, le Kill d'un message p
   const debut = debutCohorte(r());
   assertEquals(deciderEtape(e, t("2026-11-02T11:00:00Z"), "Europe/Lisbon", D, { envoyeAt: null, reponduAt: null, debut }).envoyer, false);
   assertEquals(deciderEtape(e, t("2026-11-02T11:00:00Z"), "Europe/Lisbon", D, { envoyeAt: t("2026-10-31T10:00:00Z"), reponduAt: null, debut }).kill, true);
+});
+
+Deno.test("étape 4 : le jour du réglage (samedi par défaut, vendredi, dimanche), à l'heure du réglage", () => {
+  const x = r({ warmup_started_at: "2026-10-27T10:00:00Z" });
+  // Lisbonne = UTC en hiver ; cohorte du lundi 2 nov.
+  assertEquals(etatsAccueil(x, D).find((y) => y.etape === "warmup_bien_fait")!.messageAt?.toISOString(), "2026-10-31T12:00:00.000Z");
+  const vendredi = { ...D, warmup_bien_fait_jour: 5, warmup_bien_fait_heure: 18 };
+  assertEquals(etatsAccueil(x, vendredi).find((y) => y.etape === "warmup_bien_fait")!.messageAt?.toISOString(), "2026-10-30T18:00:00.000Z");
+  assertEquals(joursAvantLundi(7), 1);
+  assertEquals(joursAvantLundi(6), 2);
+  assertEquals(joursAvantLundi(0), 2);
+  assertEquals(joursAvantLundi(9.5), 2);
 });

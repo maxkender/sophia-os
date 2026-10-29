@@ -102,15 +102,53 @@ export const BOUTONS: Readonly<Record<string, { texte: string; classement: Class
   posteur_stop: { texte: "I want to stop", classement: { cas: "stop", confiance: 1, sous_cas: null, reponse: "", jours: null } },
 };
 
+/** Les libellés des boutons Slack (réglage `slack_boutons`, 0411), en anglais. */
+export interface LibellesBoutons {
+  done: string;
+  aide: string;
+  stop: string;
+  confirmer_titre: string;
+  confirmer_texte: string;
+  confirmer_oui: string;
+  confirmer_non: string;
+  merci: string;
+}
+
+export const LIBELLES_BOUTONS_DEFAUT: LibellesBoutons = {
+  done: "Done",
+  aide: "I need help",
+  stop: "I want to stop",
+  confirmer_titre: "Are you sure?",
+  confirmer_texte: "We will end your contract.",
+  confirmer_oui: "Yes, I want to stop",
+  confirmer_non: "No",
+  merci: "Thanks, noted.",
+};
+
+/** Le réglage lu ; un libellé vide ou absent garde le défaut. */
+export function lireLibellesBoutons(v: unknown): LibellesBoutons {
+  const o = (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
+  const l = { ...LIBELLES_BOUTONS_DEFAUT };
+  for (const k of Object.keys(l) as (keyof LibellesBoutons)[]) {
+    if (typeof o[k] === "string" && (o[k] as string).trim()) l[k] = (o[k] as string).trim();
+  }
+  return l;
+}
+
+/** Le libellé d'un bouton (action_id) avec les libellés du réglage. */
+export function libelleBouton(actionId: string, l: LibellesBoutons): string {
+  return actionId === "posteur_done" ? l.done : actionId === "posteur_aide" ? l.aide : actionId === "posteur_stop" ? l.stop : actionId;
+}
+
 /**
  * Le message Slack de l'OS avec ses 3 boutons. « I want to stop » demande
  * une confirmation (Slack) : un clic par erreur ne ferme pas un contrat.
  */
-export function blocsBoutons(texte: string): unknown[] {
+export function blocsBoutons(texte: string, l: LibellesBoutons = LIBELLES_BOUTONS_DEFAUT): unknown[] {
   const bouton = (action_id: string, style?: "primary" | "danger") => ({
     type: "button",
     action_id,
-    text: { type: "plain_text", text: BOUTONS[action_id]!.texte },
+    text: { type: "plain_text", text: libelleBouton(action_id, l) },
     value: action_id,
     ...(style ? { style } : {}),
   });
@@ -124,10 +162,10 @@ export function blocsBoutons(texte: string): unknown[] {
         {
           ...bouton("posteur_stop", "danger"),
           confirm: {
-            title: { type: "plain_text", text: "Are you sure?" },
-            text: { type: "plain_text", text: "We will end your contract." },
-            confirm: { type: "plain_text", text: "Yes, I want to stop" },
-            deny: { type: "plain_text", text: "No" },
+            title: { type: "plain_text", text: l.confirmer_titre },
+            text: { type: "plain_text", text: l.confirmer_texte },
+            confirm: { type: "plain_text", text: l.confirmer_oui },
+            deny: { type: "plain_text", text: l.confirmer_non },
           },
         },
       ],

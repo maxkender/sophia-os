@@ -15,9 +15,15 @@ const api = vi.hoisted(() => ({
   enregistrerReglagesRelances: vi.fn(),
   lireRougesDepuis: vi.fn(async () => []),
   ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "lundi_tous", "lundi_cohorte", "lundi_warmup", "lundi_soir", "jeudi"],
+  CLES_DELAIS_ADMIN: ["etapes_delais", "lundi_soir_heure"],
   DELAIS_ETAPES: ["connexion_message_h", "tiktok_message_h", "warmup_lance_message_h", "warmup_bien_fait_heure", "kill_h", "kill_annulation_h"],
 }));
 vi.mock("./api", () => api);
+vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: "admin" }) }));
+vi.mock("@/features/reglagesOs/api", async (orig) => ({
+  ...(await orig<typeof import("@/features/reglagesOs/api")>()),
+  lireJournal: vi.fn(async () => []),
+}));
 
 import { PageNudges } from "./PageNudges";
 
@@ -34,7 +40,8 @@ function rendu() {
 
 const REGLAGES = {
   mode: "simulation",
-  delais: { connexion_message_h: 24, tiktok_message_h: 48, warmup_lance_message_h: 24, warmup_bien_fait_heure: 12, kill_h: 48, kill_annulation_h: 12 },
+  delais: { connexion_message_h: 24, tiktok_message_h: 48, warmup_lance_message_h: 24, warmup_bien_fait_heure: 12, warmup_bien_fait_jour: 6, kill_h: 48, kill_annulation_h: 12 },
+  lundiSoirHeure: 20,
   textes: { connexion: "a", tiktok: "b", warmup_lance: "c", warmup_bien_fait: "e", lundi_tous: "f", lundi_cohorte: "g", lundi_warmup: "h", lundi_soir: "i", jeudi: "d" },
   slack: "",
   lienEtapes: "https://guide",
@@ -107,7 +114,7 @@ describe("PageNudges → Relances (prompt 17)", () => {
     expect(api.enregistrerReglagesRelances).not.toHaveBeenCalled();
     fireEvent.click(within(bloc).getByRole("button", { name: "Activé" }));
     await waitFor(() =>
-      expect(api.enregistrerReglagesRelances).toHaveBeenCalledWith(expect.objectContaining({ mode: "on" })),
+      expect(api.enregistrerReglagesRelances).toHaveBeenCalledWith(expect.objectContaining({ mode: "on" }), true),
     );
     confirmer.mockRestore();
   });

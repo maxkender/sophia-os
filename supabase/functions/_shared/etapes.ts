@@ -21,8 +21,10 @@ export interface DelaisAccueil {
   connexion_message_h: number;
   tiktok_message_h: number;
   warmup_lance_message_h: number;
-  /** Samedi avant la cohorte, à cette heure (heure du pays). */
+  /** Le jour avant la cohorte (`warmup_bien_fait_jour`), à cette heure (heure du pays). */
   warmup_bien_fait_heure: number;
+  /** Le jour du message de l'étape 4, jour ISO avant le lundi de la cohorte : 6 = samedi (0411). */
+  warmup_bien_fait_jour: number;
   /** Sans réaction ce nombre d'heures après le message : Kill. */
   kill_h: number;
   /** Le Kill reste annulable ce nombre d'heures (page Cohorts). */
@@ -36,6 +38,7 @@ export const DELAIS_ACCUEIL_DEFAUT: DelaisAccueil = {
   tiktok_message_h: 48,
   warmup_lance_message_h: 24,
   warmup_bien_fait_heure: 12,
+  warmup_bien_fait_jour: 6,
   kill_h: 48,
   kill_annulation_h: 12,
   fenetre_debut: 10,
@@ -50,6 +53,12 @@ export function lireDelaisAccueil(v: unknown): DelaisAccueil {
     if (o[k] !== undefined && o[k] !== null && Number.isFinite(n)) d[k] = n;
   }
   return d;
+}
+
+/** Jour ISO (1 = lundi … 7 = dimanche) → jours avant le lundi qui suit : samedi → 2. Hors 1-7 : samedi. */
+export function joursAvantLundi(jourIso: number): number {
+  const j = Number.isInteger(jourIso) && jourIso >= 1 && jourIso <= 7 ? jourIso : 6;
+  return 8 - j;
 }
 
 export const FOLLOWS_MIN = 5;
@@ -155,7 +164,8 @@ export function etatsAccueil(r: RecrueAccueil, d: DelaisAccueil): EtatAccueil[] 
     followsManquants: 0,
     message: msg("warmup_lance"),
   });
-  // 4. Warm-up bien fait : 5 follows et aucun post publié, vérifié samedi 12 h.
+  // 4. Warm-up bien fait : 5 follows et aucun post publié, vérifié le jour et
+  // à l'heure du réglage (samedi 12 h par défaut).
   const follows = Math.max(0, FOLLOWS_MIN - (r.abonnements ?? 0));
   const manque: ManqueWarmup[] = [];
   if (!r.warmup_started_at) manque.push("start");
@@ -164,7 +174,9 @@ export function etatsAccueil(r: RecrueAccueil, d: DelaisAccueil): EtatAccueil[] 
   etats.push({
     etape: "warmup_bien_fait",
     fait: manque.length === 0 && r.tiktok_existe === true,
-    messageAt: r.warmup_started_at ? instantLocal(ajouterJours(r.cohorte_lundi, -2), d.warmup_bien_fait_heure, r.fuseau) : null,
+    messageAt: r.warmup_started_at
+      ? instantLocal(ajouterJours(r.cohorte_lundi, -joursAvantLundi(d.warmup_bien_fait_jour)), d.warmup_bien_fait_heure, r.fuseau)
+      : null,
     manque,
     followsManquants: follows,
     message: msg("warmup_bien_fait"),

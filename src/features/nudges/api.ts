@@ -90,6 +90,8 @@ export interface DelaisRelances {
   tiktok_message_h: number;
   warmup_lance_message_h: number;
   warmup_bien_fait_heure: number;
+  /** Le jour du message de l'étape 4 (ISO : 6 = samedi), avant le lundi de la cohorte (0411). */
+  warmup_bien_fait_jour: number;
   kill_h: number;
   kill_annulation_h: number;
   [cle: string]: number;
@@ -109,6 +111,7 @@ const DELAIS_DEFAUT: DelaisRelances = {
   tiktok_message_h: 48,
   warmup_lance_message_h: 24,
   warmup_bien_fait_heure: 12,
+  warmup_bien_fait_jour: 6,
   kill_h: 48,
   kill_annulation_h: 12,
   fenetre_debut: 10,
@@ -122,6 +125,8 @@ export interface ReglagesRelances {
   slack: string;
   /** Le lien des étapes de création du compte TikTok (texte « tiktok »). */
   lienEtapes: string;
+  /** L'heure du check du lundi soir, heure du pays (`lundi_soir_heure`, 0408). */
+  lundiSoirHeure: number;
 }
 
 const CLES_TEXTES: Record<EtapeRelance, string> = {
@@ -142,7 +147,7 @@ export async function lireReglagesRelances(): Promise<ReglagesRelances> {
   const { data, error } = await supabase
     .from("reglages")
     .select("cle, valeur")
-    .in("cle", ["relances_auto", "etapes_delais", "slack_lien_invitation", "lien_etapes_tiktok", ...Object.values(CLES_TEXTES)]);
+    .in("cle", ["relances_auto", "etapes_delais", "lundi_soir_heure", "slack_lien_invitation", "lien_etapes_tiktok", ...Object.values(CLES_TEXTES)]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   const texte = (cle: string) => (typeof v[cle] === "string" ? (v[cle] as string) : "");
@@ -154,15 +159,25 @@ export async function lireReglagesRelances(): Promise<ReglagesRelances> {
     textes: Object.fromEntries(Object.entries(CLES_TEXTES).map(([e, cle]) => [e, texte(cle)])) as Record<EtapeRelance, string>,
     slack: texte("slack_lien_invitation"),
     lienEtapes: texte("lien_etapes_tiktok"),
+    lundiSoirHeure: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
   };
 }
 
-export async function enregistrerReglagesRelances(r: ReglagesRelances): Promise<void> {
+/** Les réglages des heures et des délais : admin seulement (0411). */
+export const CLES_DELAIS_ADMIN = ["etapes_delais", "lundi_soir_heure"] as const;
+
+/** `admin` : les heures et les délais aussi (le Head of Ops ne change que le mode et les textes). */
+export async function enregistrerReglagesRelances(r: ReglagesRelances, admin = true): Promise<void> {
   const { data: auth } = await supabase.auth.getUser();
   const par = { updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() };
   const { error } = await supabase.from("reglages").upsert([
     { cle: "relances_auto", valeur: r.mode === "simulation" ? "test" : r.mode, ...par },
-    { cle: "etapes_delais", valeur: r.delais, ...par },
+    ...(admin
+      ? [
+        { cle: "etapes_delais", valeur: r.delais, ...par },
+        { cle: "lundi_soir_heure", valeur: r.lundiSoirHeure, ...par },
+      ]
+      : []),
     { cle: "slack_lien_invitation", valeur: r.slack, ...par },
     { cle: "lien_etapes_tiktok", valeur: r.lienEtapes, ...par },
     ...ETAPES_RELANCE.map((e) => ({ cle: CLES_TEXTES[e], valeur: r.textes[e], ...par })),

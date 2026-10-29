@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ReglagesReponses } from "./ReglagesReponses";
 import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/features/auth/AuthContext";
 import { lireInterrupteurs } from "@/features/interrupteurs/api";
@@ -211,6 +212,7 @@ export function PageReponses() {
       <Bloc titre={t("reponses.aLire", { n: aLire.length })} aide={t("reponses.aLireAide")} lignes={aLire} testid="reponses-a-lire" dansListe />
       <Bloc titre={t("reponses.paie", { n: paie.length })} aide={t("reponses.paieAide")} lignes={paie} testid="reponses-paie" dansListe />
       <Bloc titre={t("reponses.toutes", { n: toutes.length })} aide={t("reponses.toutesAide")} lignes={toutes} testid="reponses-toutes" />
+      <ReglagesReponses />
       {role === "admin" && <TextesReponses />}
     </div>
   );

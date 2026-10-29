@@ -18,7 +18,7 @@ import { PAGES_AUTO } from "./pages";
 const TEXTES_EN: Record<string, string> = {
   overview: "Everything the automation does, on one page. The red button stops every automatic action.",
   recruits: "Every recruit, from accepted offer to first day posted, live.",
-  decisions: "Thursday: one nudge to everyone with a problem. Saturday: Kill or Double. Dead accounts: Recreate.",
+  decisions: "Thursday: Nudge or Recreate, account by account; nothing goes out before Send. Saturday: Kill, Double or Keep; nothing happens before Validate.",
   sent: "Every message the OS sends to recruits and posters, and the texts it uses.",
   received: "Everything posters write to us, sorted by the OS.",
   payroll: "Monday pay for the week just finished.",

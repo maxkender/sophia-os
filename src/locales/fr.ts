@@ -3661,7 +3661,7 @@ export const fr = {
       phrases: {
         overview: "Tout ce que fait l'automatisation, sur une page. Le bouton rouge arrête toutes les actions automatiques.",
         recruits: "Chaque recrue, de l'offre acceptée au 1er jour posté, en direct.",
-        decisions: "Jeudi : un nudge à tous ceux qui ont un problème. Samedi : Kill ou Double. Comptes morts : Recreate.",
+        decisions: "Jeudi : Nudge ou Recreate, compte par compte, rien ne part avant Send. Samedi : Kill, Double ou Keep, rien ne se passe avant Validate.",
         sent: "Chaque message que l'OS envoie aux recrues et aux posteurs, et les textes qu'il utilise.",
         received: "Tout ce que les posteurs nous écrivent, trié par l'OS.",
         needs: "Ce qui t'attend et ce qui casse : tout ce que l'OS n'a pas pu faire, ou dont il n'est pas sûr. À régler sur place.",

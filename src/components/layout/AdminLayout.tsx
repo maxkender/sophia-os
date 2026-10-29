@@ -43,7 +43,7 @@ import { LogoApplication } from "@/components/brand/LogoApplication";
 import { BandePause } from "@/features/auto/BandePause";
 import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useAuth } from "@/features/auth/AuthContext";
-import { compterContestationsAVerifier } from "@/features/moteur/api";
+import { compterContestations } from "@/features/disputes/api";
 import { lireCompteNeedsYou } from "@/features/needsYou/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
@@ -61,6 +61,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   sent: Send,
   received: Inbox,
   needs: CircleAlert,
+  disputes: Flag,
   payroll: Wallet,
   faq: MessageCircle,
   logs: ListTodo,
@@ -74,11 +75,7 @@ export function AdminLayout() {
   const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
   const needsYou = useQuery({ queryKey: ["needs-you", "compte"], queryFn: lireCompteNeedsYou, refetchInterval: 5 * 60_000 });
-  const contestations = useQuery({
-    queryKey: ["contestations-a-verifier"],
-    queryFn: compterContestationsAVerifier,
-    refetchInterval: 5 * 60_000,
-  });
+  const contestations = useQuery({ queryKey: ["disputes", "compte"], queryFn: compterContestations, refetchInterval: 5 * 60_000 });
 
   /**
    * Le Head of Ops partage la coquille de l'admin mais n'a droit qu'aux
@@ -150,6 +147,8 @@ export function AdminLayout() {
             description: t(`auto.pages.${p.cle}.phrase`),
             // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
             ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
+            // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
+            ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
           })),
         },
         {
@@ -232,13 +231,6 @@ export function AdminLayout() {
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
-            },
-            {
-              to: "/admin/retours-contestes",
-              label: t("nav.retoursContestes"),
-              icon: Flag,
-              description: t("navDesc.retoursContestes"),
-              badge: contestations.data ?? 0,
             },
             {
               to: "/admin/file-reviews",

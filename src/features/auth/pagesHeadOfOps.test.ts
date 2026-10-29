@@ -29,6 +29,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/sent",
   "/admin/auto/received",
   "/admin/auto/needs-you",
+  "/admin/auto/disputes",
   "/admin/auto/payroll",
   "/admin/auto/faq",
   "/admin/auto/logs",
@@ -40,7 +41,7 @@ const PAGES_DEMANDEES = [
   "/admin/comment-masters", // Comment masters (ticket 002)
   "/admin/comment-masters/suivi", // Comment Masters · suivi (27/10)
   "/admin/slack", // Slack à relier (v3 point 2)
-  "/admin/retours-contestes", // Disputed feedback (23/10)
+  // Disputed feedback (23/10) est l'onglet Feedback de Disputes (prompt 21, R).
 ];
 
 const routeur = fs.readFileSync(
@@ -134,7 +135,7 @@ describe("prompt 22 : les anciennes adresses", () => {
   it("redirigent toutes, depuis le bloc ouvert au Head of Ops, vers une page qu'il voit (ou Disputed feedback)", () => {
     expect(blocHo()).toContain("ANCIENNES_ADRESSES");
     for (const [de, vers] of Object.entries(ANCIENNES_ADRESSES)) {
-      expect(ROUTES_HO).toContain(vers);
+      expect(ROUTES_HO).toContain(vers.split("?")[0]);
       expect(ROUTES_HO).not.toContain(de);
     }
     for (const ancienne of ["/admin/pipeline", "/admin/cohortes", "/admin/nudges", "/admin/reponses", "/admin/paie", "/admin/recrutements", "/admin/reviews"]) {

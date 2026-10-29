@@ -40,6 +40,7 @@ import {
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { appelSlack, decrireRetrait, retirerDesCanaux } from "../_shared/slack_retrait.ts";
+import { noter429, passageDu } from "../_shared/frequences.ts";
 import {
   decrireJalons,
   etape,
@@ -189,6 +190,8 @@ Deno.serve(async (request) => {
       case "jalons":
         return json(await lireJalons(supabase, par));
       case "accueil":
+        // Prompt 21 : le cron passe toutes les 15 min ; « Welcome check » dit si c'est son tour.
+        if (acces.userId === "cron" && !(await passageDu(supabase, "accueil"))) return json({ ok: true, ignore: "pas encore son tour (Overview → Switches)" });
         return json(await accueillir(supabase, par));
       case "paie_apercu":
         return json(await paieApercu(supabase, par, String(body.semaine ?? ""), body.ids));
@@ -212,8 +215,14 @@ Deno.serve(async (request) => {
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
         return json(await traiterArrets(supabase, par));
-      case "reponses_lire":
-        return json(await lireReponsesUpwork(supabase, par, Array.isArray(body.posteurs) ? body.posteurs.map(String) : null));
+      case "reponses_lire": {
+        const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
+        // « Upwork replies » règle le passage du cron ; avant un Kill (posteurs donnés), toujours.
+        if (acces.userId === "cron" && !posteurs && !(await passageDu(supabase, "reponses"))) {
+          return json({ ok: true, ignore: "pas encore son tour (Overview → Switches)" });
+        }
+        return json(await lireReponsesUpwork(supabase, par, posteurs));
+      }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
       default:
@@ -410,6 +419,7 @@ async function lire(
 ): Promise<{ data: any; erreur: string | null; statut: number | null }> {
   const jeton = await jetonValide(supabase, o.par);
   const debut = Date.now();
+  let vu429 = false;
   // deno-lint-ignore no-explicit-any
   const r = await avecRetry<any>(async () => {
     try {
@@ -422,11 +432,14 @@ async function lire(
         },
         body: JSON.stringify({ query: o.query, variables: o.variables ?? {} }),
       });
+      if (reponse.status === 429) vu429 = true;
       return { statut: reponse.status, valeur: await reponse.json().catch(() => null), retryAfter: reponse.headers.get("retry-after") };
     } catch (e) {
       return { statut: null, valeur: { errors: [{ message: messageErreur(e) }] } };
     }
   });
+  // Prompt 21 : un 429 double l'intervalle des passages pour la journée (Needs you le signale).
+  if (vu429) await noter429(supabase, null);
   const erreur = r.statut !== null && r.statut >= 400
     ? `HTTP ${r.statut}${erreurGraphql(r.valeur) ? ` : ${erreurGraphql(r.valeur)}` : ""}`
     : erreurGraphql(r.valeur);
@@ -1726,6 +1739,7 @@ async function ecrire(
       statut = null;
       valeur = { errors: [{ message: messageErreur(e) }] };
     }
+    if (statut === 429) await noter429(supabase, null);
     if (statut !== 429 || essai === 2) break;
     await new Promise((r) => setTimeout(r, attenteRetryAfter(retryAfter) ?? 5_000));
   }

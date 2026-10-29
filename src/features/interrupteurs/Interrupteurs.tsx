@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
+import { FrequencesUpwork } from "@/features/frequences/Frequences";
 import { cn } from "@/lib/utils";
 
 import {
@@ -79,6 +80,7 @@ export function Interrupteurs() {
         })}
         {changer.isError && <p className="text-sm text-destructive">{(changer.error as Error).message}</p>}
         <PauseRappels admin={admin} />
+        <FrequencesUpwork admin={admin} />
       </CardContent>
     </Card>
   );

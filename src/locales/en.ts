@@ -3286,6 +3286,20 @@ export const en = {
         tarif_corrige: "Rate set from contract",
       },
     },
+    frequences: {
+      titre: "Upwork check frequency",
+      aide: "Tasks run every 15 minutes and only act on their turn. A change applies on the next run. Before every Kill check, Upwork replies are always read.",
+      accueil: { titre: "Welcome check", aide: "accepted offers and welcome message" },
+      reponses: { titre: "Upwork replies", aide: "replies in conversations the OS wrote in over the last 14 days" },
+      etapes: { titre: "Step checks", aide: "the 4 steps and follow-ups" },
+      dernier: "last run {{heure}}",
+      double: "Upwork rate-limited (429): {{duree}} today",
+      sante: {
+        titre: "Health",
+        appels: "Upwork calls today: {{n}} / {{limite}}",
+        alerte: "Above {{seuil}}: slow the Upwork checks down.",
+      },
+    },
     needsYou: {
       categories: "Categories",
       cat: { pas_pu_repondre: "Couldn't answer", bloque: "Blocked", pas_sur: "Not sure", a_la_main: "By hand" },
@@ -3326,6 +3340,7 @@ export const en = {
         kill_incomplet: "Kill on incomplete data",
         remboursement: "Refund to follow",
         samedi_non_valide: "Saturday decision not validated",
+        upwork_limite: "Upwork is rate-limiting (429)",
       },
       actions: {
         compter: "Count this post",

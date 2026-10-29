@@ -46,8 +46,13 @@ export interface PlanUpwork {
 export function planUpwork(jalons: JalonUpwork[]): PlanUpwork {
   const supprimer = jalons.filter((j) => j.etat === "NotFunded");
   const rembourser = jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
-  return { supprimer, rembourser, fermer: jalons.length > 0 && rembourser.length === 0 };
+  // Prompt 21, B7 : fermer seulement si chaque état est connu (un état inconnu : rien).
+  const connus = jalons.every((j) => ETATS_CONNUS.includes(j.etat));
+  return { supprimer, rembourser, fermer: jalons.length > 0 && rembourser.length === 0 && connus };
 }
+
+/** Les états de milestone lus chez Upwork (29/10) ; tout autre bloque la fermeture. */
+export const ETATS_CONNUS = ["NotFunded", "Active", "Submitted", "Rejected", "Paid", "PaidByUpwork", "PaidBySystem"];
 
 export const MESSAGE_FIN_DEFAUT = "Your contract has ended. Thank you for your time.";
 /** « Job canceled for other reasons » (reasons(reasonType: CONTRACT_END_FIXED), lu le 28/10). */

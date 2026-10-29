@@ -41,6 +41,8 @@ export interface ReglagesReponses {
     augmentation: string;
     propre_compte: string;
     absent: string;
+    /** Prompt 21, P3 : la réponse d'attente à une question de paie (puis « Pay questions »). */
+    paie_attente: string;
   };
   slack: string;
 }
@@ -236,6 +238,7 @@ export const REGLAGES_REPONSES_DEFAUT: ReglagesReponses = {
     augmentation: "The rate is fixed.",
     propre_compte: "Please use the account your dashboard gives you.",
     absent: "",
+    paie_attente: "Thanks, we're checking it. We'll reply here within 24 hours.",
   },
   slack: "",
 };

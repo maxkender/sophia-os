@@ -271,12 +271,22 @@ function Panneau({ c, onFermer }: { c: CartePipeline | null; onFermer: () => voi
  * avance passe au vert, une flèche apparaît, puis elle glisse dans la colonne
  * suivante (sans animation si « réduire les animations »).
  */
-export function PagePipeline({ maintenant: fixe }: { maintenant?: Date } = {}) {
+export function PagePipeline({
+  maintenant: fixe,
+  cohorte = "",
+  risqueInitial = false,
+}: {
+  maintenant?: Date;
+  /** Prompt 22, partie 4 (Recruits) : le lundi de cohorte choisi ; vide = toutes. */
+  cohorte?: string;
+  /** Arrivée depuis Overview → Today (« Kills en cours ») : seulement les cartes à risque. */
+  risqueInitial?: boolean;
+} = {}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const cartes = useQuery({ queryKey: [...CLE, "cartes"], queryFn: lirePipeline, refetchInterval: 60_000 });
   const arretes = useQuery({ queryKey: [...CLE, "arretes"], queryFn: lireArretes, refetchInterval: 60_000 });
-  const [filtres, setFiltres] = React.useState<FiltresPipeline>(FILTRES_VIDES);
+  const [filtres, setFiltres] = React.useState<FiltresPipeline>(() => ({ ...FILTRES_VIDES, risque: risqueInitial }));
   const [ouverteId, setOuverteId] = React.useState<string | null>(null);
   const [horloge, setHorloge] = React.useState(() => (fixe ?? new Date()).getTime());
 
@@ -313,7 +323,7 @@ export function PagePipeline({ maintenant: fixe }: { maintenant?: Date } = {}) {
     return () => window.clearTimeout(id);
   }, [cartes.data]);
 
-  const toutes = cartes.data ?? [];
+  const toutes = (cartes.data ?? []).filter((c) => !cohorte || c.cohorte_lundi === cohorte);
   // Le panneau suit la carte en direct (Kill annulé, relance, réponse).
   const ouverte = toutes.find((c) => c.carte_id === ouverteId) ?? null;
   const visibles = filtrer(toutes, filtres).map((c) => (passages.has(c.carte_id) ? { ...c, colonne: passages.get(c.carte_id)! } : c));

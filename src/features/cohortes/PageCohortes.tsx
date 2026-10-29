@@ -483,13 +483,6 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
     queryFn: () => lireRecrues(choisie ? [choisie] : []),
     enabled: Boolean(choisie),
   });
-  const dernieres = quatreDernieres(lundis, aujourdhui);
-  const parHm = useQuery({
-    queryKey: [...CLE, "recrues", dernieres],
-    queryFn: () => lireRecrues(dernieres),
-    enabled: dernieres.length > 0,
-  });
-
   const choisir = (l: string) => {
     setChoix(l);
     setFiltres(FILTRES_VIDES);
@@ -621,37 +614,61 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
 
       <TableauRecrues recrues={lignes} maintenant={maintenant} />
 
-      <Card data-testid="tableau-hm">
-        <CardHeader>
-          <CardTitle>{t("cohortes.parHm.titre")}</CardTitle>
-          <p className="text-sm text-muted-foreground">
-            {t("cohortes.parHm.aide", { cohortes: dernieres.map(jour).join(", ") || "—" })}
-          </p>
-        </CardHeader>
-        <CardContent className="overflow-x-auto">
-          <table className="w-full min-w-[420px] border-collapse">
-            <thead>
-              <tr>
-                <th className={TH}>{t("cohortes.parHm.hm")}</th>
-                <th className={TH}>{t("cohortes.parHm.recrues")}</th>
-                <th className={TH}>{t("cohortes.parHm.pretes")}</th>
-                <th className={TH}>{t("cohortes.parHm.gardees")}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {tableauHm(parHm.data ?? [], aujourdhui, maintenant).map((l) => (
-                <tr key={l.hm_id ?? "sans"}>
-                  <td className={TD}>{l.hm_prenom ?? t("cohortes.parHm.sansHm")}</td>
-                  <td className={cn(TD, "tabular-nums")}>{l.recrues}</td>
-                  <td className={cn(TD, "tabular-nums")}>{l.pretes === null ? "—" : `${l.pretes} %`}</td>
-                  <td className={cn(TD, "tabular-nums")}>{l.gardees === null ? "—" : `${l.gardees} %`}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </CardContent>
-      </Card>
+      <TableauParHm maintenant={maintenant} />
     </div>
+  );
+}
+
+/**
+ * Le petit tableau par HM, sur les 4 dernières cohortes commencées (Cohorts,
+ * puis Recruits au prompt 22, partie 4).
+ */
+export function TableauParHm({ maintenant: fixe }: { maintenant?: Date } = {}) {
+  const { t } = useTranslation();
+  const { jour } = useDates();
+  const maintenant = React.useMemo(() => fixe ?? new Date(), [fixe]);
+  const aujourdhui = aujourdhuiParis(maintenant);
+  const cohortes = useQuery({ queryKey: [...CLE, "liste"], queryFn: lireCohortes });
+  const dernieres = quatreDernieres((cohortes.data ?? []).map((c) => c.lundi), aujourdhui);
+  const parHm = useQuery({
+    queryKey: [...CLE, "recrues", dernieres],
+    queryFn: () => lireRecrues(dernieres),
+    enabled: dernieres.length > 0,
+  });
+  return (
+    <Card data-testid="tableau-hm">
+      <CardHeader>
+        <CardTitle>{t("cohortes.parHm.titre")}</CardTitle>
+        <p className="text-sm text-muted-foreground">
+          {t("cohortes.parHm.aide", { cohortes: dernieres.map(jour).join(", ") || "—" })}
+        </p>
+      </CardHeader>
+      <CardContent className="overflow-x-auto">
+        {(cohortes.error || parHm.error) && (
+          <p className="text-sm text-destructive">{((cohortes.error ?? parHm.error) as Error).message}</p>
+        )}
+        <table className="w-full min-w-[420px] border-collapse">
+          <thead>
+            <tr>
+              <th className={TH}>{t("cohortes.parHm.hm")}</th>
+              <th className={TH}>{t("cohortes.parHm.recrues")}</th>
+              <th className={TH}>{t("cohortes.parHm.pretes")}</th>
+              <th className={TH}>{t("cohortes.parHm.gardees")}</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y">
+            {tableauHm(parHm.data ?? [], aujourdhui, maintenant).map((l) => (
+              <tr key={l.hm_id ?? "sans"}>
+                <td className={TD}>{l.hm_prenom ?? t("cohortes.parHm.sansHm")}</td>
+                <td className={cn(TD, "tabular-nums")}>{l.recrues}</td>
+                <td className={cn(TD, "tabular-nums")}>{l.pretes === null ? "—" : `${l.pretes} %`}</td>
+                <td className={cn(TD, "tabular-nums")}>{l.gardees === null ? "—" : `${l.gardees} %`}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </CardContent>
+    </Card>
   );
 }
 

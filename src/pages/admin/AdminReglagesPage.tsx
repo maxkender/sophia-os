@@ -23,7 +23,6 @@ import {
 import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 import { CarteUpwork } from "@/features/upwork/CarteUpwork";
-import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
 import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPaie, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
 
 function ChampNombre({
@@ -245,7 +244,13 @@ export function AdminReglagesPage() {
         <p className="text-sm text-muted-foreground">{t("reglages.subtitleActions")}</p>
       </div>
 
-      <Interrupteurs />
+      {/* Prompt 22, partie 3 : les interrupteurs sont déplacés dans Overview → Switches. */}
+      <p className="rounded-md border px-3 py-2 text-sm" data-testid="interrupteurs-deplaces">
+        {t("auto.switchesDeplaces")}{" "}
+        <Link to="/admin/auto#interrupteurs" className="text-primary underline-offset-2 hover:underline">
+          {t("auto.pages.overview.titre")}
+        </Link>
+      </p>
 
       <CarteUpwork />
 

@@ -147,7 +147,7 @@ export function AdminLayout() {
             to: p.to,
             label: t(`auto.pages.${p.cle}.titre`),
             icon: ICONES_AUTO[p.cle],
-            description: t(`auto.pages.${p.cle}.phrase`),
+            description: t(`auto.phrases.${p.cle}`),
             // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
             ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
           })),

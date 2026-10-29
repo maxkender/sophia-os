@@ -106,7 +106,8 @@ export function canauxMessage(
  */
 export function prioriteUpwork(type: string, surSlack: boolean): number {
   if (type === "accueil") return 0;
-  if (type === "relance" || type === "jeudi") return surSlack ? 2 : 1;
+  // 0444 : le @ TikTok introuvable (et l'excuse) comme une relance.
+  if (["relance", "jeudi", "handle", "handle_upwork", "handle_excuse"].includes(type)) return surSlack ? 2 : 1;
   if (type === "lundi") return 3;
   return 4;
 }

@@ -12,6 +12,7 @@ export const GROUPES_TEXTES = [
   "lundi",
   "lundi_soir",
   "jeudi",
+  "handle",
   "kill",
   "arret",
   "popups",
@@ -56,6 +57,11 @@ export const TEXTES: readonly TexteCatalogue[] = [
   { id: "lundi_soir", groupe: "lundi_soir", cle: "lundi_soir_texte", variables: ["prenom"] },
   // Prompt 25 : le nudge du jeudi, envoyé seulement depuis Weekly decisions → Thursday.
   { id: "jeudi", groupe: "jeudi", cle: "jeudi_nudge_texte", variables: ["prenom", "faits", "attendus"] },
+  // 0444 : le @ TikTok introuvable (jamais « create your account »), l'excuse, les réponses du dashboard.
+  { id: "handle_introuvable", groupe: "handle", cle: "handle_introuvable_texte", variables: ["prenom", "handle"] },
+  { id: "handle_excuse", groupe: "handle", cle: "handle_excuse_texte", variables: ["prenom", "handle"] },
+  { id: "handle_trouve", groupe: "handle", cle: "handle_trouve_texte", variables: ["handle"] },
+  { id: "handle_pas_trouve", groupe: "handle", cle: "handle_pas_trouve_texte", variables: ["handle"] },
   { id: "kill", groupe: "kill", cle: "kill_message_texte", variables: ["prenom"] },
   { id: "kill_moins6", groupe: "kill", cle: "kill_moins6_texte", variables: ["prenom", "n"] },
   { id: "arret", groupe: "arret", cle: "arret_message_texte", variables: [] },

@@ -16,6 +16,7 @@ import { modeKillMessage } from "../_shared/arret.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
 import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
@@ -74,6 +75,11 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       (existe ?, abonnements, likes) et l'enregistre (0356). Sans Apify.
  *   { action: "releve_warmup_planifie" }   cron, 8 h et 20 h (heure de Paris)
  *       Pareil.
+ *   { action: "handle_proposer", handle, compte_id? }                 posteur
+ *       0444 : « My account has a different name » ; le @ est lu tout de suite
+ *       sur TikTok (trouvé : il remplace celui du compte).
+ *   { action: "lire_handle", handle }                                 admin
+ *       0444 : lit un @ sur TikTok sans rien enregistrer (test).
  *
  * Le bouton Done des messages arrive dans `slack-interactions`.
  * Secrets : SLACK_HM_BOT_TOKEN (le bot « Sophia OS »), CRON_SECRET.
@@ -83,14 +89,15 @@ Deno.serve(async (request) => {
   try {
     // deno-lint-ignore no-explicit-any
     const body: any = await request.clone().json().catch(() => ({}));
-    // La réponse à l'offre Double vient du posteur lui-même ; tout le reste est admin.
-    const posteur = body.action === "double_repondre";
+    // La réponse à l'offre Double et le @ TikTok exact (0444) viennent du posteur lui-même ; tout le reste est admin.
+    const posteur = body.action === "double_repondre" || body.action === "handle_proposer";
     const acces = await assertRole(request, posteur ? ["poster"] : ["admin", "head_of_ops"]);
     if (acces instanceof Response) return acces;
     const supabase = serviceClient();
     const cron = acces.userId === "cron";
     if (posteur) {
       if (cron) return json({ ok: false, error: "réservé au posteur" }, 403);
+      if (body.action === "handle_proposer") return json(await handleProposer(supabase, body, acces.userId));
       return await doubleRepondre(supabase, body, acces.userId);
     }
 
@@ -135,6 +142,12 @@ Deno.serve(async (request) => {
         return json(await releverWarmup(supabase));
       case "releve_compte":
         return json(await releverCompte(supabase, String(body.compte_id ?? "")));
+      case "lire_handle": {
+        // 0444 : une lecture TikTok d'un @ quelconque, sans rien enregistrer (test).
+        const h = normaliserHandle(String(body.handle ?? ""));
+        if (!h) return json({ ok: false, error: "@ invalide" }, 400);
+        return json({ ok: true, handle: h, ...(await lireProfilTiktok(h)) });
+      }
       case "needs_you_alerte":
         return json(await alerteNeedsYou(supabase));
       case "releve_warmup_planifie": {
@@ -870,6 +883,37 @@ async function releverCompte(supabase: Supabase, compteId: string) {
   });
   if (errIns) throw errIns;
   return { ok: true, existe: p.existe, abonnements: p.abonnements };
+}
+
+/**
+ * 0444 : « My account has a different name » (dashboard). Le posteur donne son
+ * @ exact ; l'OS le lit tout de suite sur TikTok. Trouvé : le @ du compte est
+ * remplacé (les dates du warm-up restent) ; introuvable : « please check the
+ * spelling » ; page illisible : relu au passage suivant (dans l'heure).
+ */
+async function handleProposer(supabase: Supabase, body: { handle?: unknown; compte_id?: unknown }, posteurId: string) {
+  const handle = normaliserHandle(String(body.handle ?? ""));
+  if (!handle) return { ok: false, error: "handle_invalide" };
+  let requete = supabase.from("comptes").select("id, poster_id, handle_tiktok").eq("poster_id", posteurId).eq("is_active", true);
+  requete = body.compte_id ? requete.eq("id", String(body.compte_id)) : requete.eq("type_compte", "perso");
+  const { data: comptes, error } = await requete.order("created_at").limit(1);
+  if (error) throw error;
+  const c = comptes?.[0];
+  if (!c) return { ok: false, error: "compte_introuvable" };
+  const textes = await lireTextesHandle(supabase);
+  const { data: ligne, error: errIns } = await supabase.from("handles_proposes").insert({
+    poster_id: posteurId, compte_id: c.id, handle_attendu: c.handle_tiktok, handle_propose: handle, source: "dashboard",
+  }).select("id").single();
+  if (errIns) throw errIns;
+  const issue = await verifierHandlePropose(supabase, lireProfilTiktok, {
+    id: ligne.id, poster_id: posteurId, compte_id: c.id, handle_propose: handle, handle_attendu: c.handle_tiktok,
+  });
+  const message = issue === "trouve"
+    ? texteHandle(textes.trouve, { handle })
+    : issue === "introuvable"
+    ? texteHandle(textes.pas_trouve, { handle })
+    : null;
+  return { ok: true, statut: issue, handle, message };
 }
 
 /** Prompt 21, U6 : à 18 h (Paris), un DM Slack à Max s'il reste de l'urgent dans « Needs you ». */

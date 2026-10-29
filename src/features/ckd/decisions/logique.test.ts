@@ -63,14 +63,17 @@ describe("Decisions (28 oct., partie C)", () => {
     expect(heureMoment(lundi, "jeudi").toISOString()).toBe("2026-10-29T05:00:00.000Z");
     const mercredi = new Date("2026-10-28T12:00:00Z");
     // Prompt 22, partie 5 : plus de moment « mercredi ».
-    expect(MOMENTS).toEqual(["jeudi", "samedi", "dimanche", "lundi"]);
+    // Prompt 12 : plus de « Sun 23:30 » ; lundi 9 h la paie, puis les contrats fermés.
+    expect(MOMENTS).toEqual(["jeudi", "samedi", "lundi", "lundi_fin"]);
     expect(etatMoment("jeudi", S, lundi, mercredi)).toBe("a_venir");
     const vendredi = new Date("2026-10-30T12:00:00Z");
     expect(etatMoment("jeudi", S, lundi, vendredi)).toBe("a_toi");
     const dimanche = new Date("2026-11-01T12:00:00Z");
     expect(etatMoment("samedi", S, lundi, dimanche)).toBe("fait");
-    expect(etatMoment("dimanche", S, lundi, dimanche)).toBe("a_venir");
+    expect(etatMoment("lundi", S, lundi, dimanche)).toBe("a_venir");
     expect(etatMoment("lundi", S, lundi, new Date("2026-11-02T12:00:00Z"))).toBe("fait");
+    // Les contrats fermés : 4 prévus, 0 faits → à toi, lundi après la paie.
+    expect(etatMoment("lundi_fin", S, lundi, new Date("2026-11-02T12:30:00Z"))).toBe("a_toi");
   });
 
   it("la base : le jeudi ne propose plus de Nudge (0396)", () => {

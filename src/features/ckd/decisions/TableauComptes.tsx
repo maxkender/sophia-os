@@ -124,16 +124,23 @@ export function EnTetesJours({ jours }: { jours: readonly string[] }) {
 }
 
 /** Posts avec lien sur prévus, jour par jour ; un jour passé avec un manque en couleur. */
-export function CellulesJours({ c, aujourdhui }: { c: CompteSemaine; aujourdhui: string }) {
+export function CellulesJours({ c, aujourdhui, onJour }: { c: CompteSemaine; aujourdhui: string; onJour?: (jour: string) => void }) {
   return (
     <>
       {c.jours.map((j) => {
         const manque = j.jour < aujourdhui && j.lien < j.prevus;
+        const texte = j.prevus === 0 && j.lien === 0 ? "–" : `${j.lien}/${j.prevus}`;
+        const classe = cn(manque && "font-semibold text-warning-foreground", j.prevus === 0 && "text-muted-foreground");
         return (
           <td key={j.jour} className={cn(TD, "text-center tabular-nums")} data-jour={j.jour}>
-            <span className={cn(manque && "font-semibold text-warning-foreground", j.prevus === 0 && "text-muted-foreground")}>
-              {j.prevus === 0 && j.lien === 0 ? "–" : `${j.lien}/${j.prevus}`}
-            </span>
+            {/* Prompt 12 : un clic sur une case jour montre les liens de ce jour-là et leur statut. */}
+            {onJour && j.prevus + j.lien > 0 ? (
+              <button type="button" className={cn(classe, "underline-offset-2 hover:underline")} onClick={() => onJour(j.jour)}>
+                {texte}
+              </button>
+            ) : (
+              <span className={classe}>{texte}</span>
+            )}
           </td>
         );
       })}
@@ -143,12 +150,14 @@ export function CellulesJours({ c, aujourdhui }: { c: CompteSemaine; aujourdhui:
 
 /** Les vues des derniers posts (lien vers le post). */
 export function CelluleVues({ c }: { c: CompteSemaine }) {
+  const { t } = useTranslation();
   if (c.vues.length === 0) return <span className="text-muted-foreground">—</span>;
   return (
     <span className="inline-flex flex-wrap gap-x-2 text-xs tabular-nums">
       {c.vues.map((v) => (
         <a key={v.url} href={v.url} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
-          {v.vues === null ? "?" : v.vues.toLocaleString()}
+          {/* Prompt 12 : « 0 » = 0 vue réelle ; pas encore relevé : « pas de relevé ». */}
+          {v.vues === null ? <span className="text-muted-foreground">{t("autoOnglets.decisions.liste.statut.pasDeReleve")}</span> : v.vues.toLocaleString()}
         </a>
       ))}
     </span>

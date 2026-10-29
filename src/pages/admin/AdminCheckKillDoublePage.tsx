@@ -86,6 +86,7 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
+import { CarteSeuilsConfiance } from "@/features/ckd/decisions/CarteSeuilsConfiance";
 import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
 import { ListeSamedi } from "@/features/ckd/decisions/ListeSamedi";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
@@ -1485,6 +1486,7 @@ function VueReglages() {
         <CartePays reglages={reglages.data} pays={pays} />
         <CarteExceptions reglages={reglages.data} labels={labels.data ?? []} pays={pays} />
         <CartePartBons />
+        <CarteSeuilsConfiance />
       </section>
       <section className="space-y-4">
         <h2 className={MICRO_LABEL}>{t("ckd.sections.slack")}</h2>

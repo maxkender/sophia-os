@@ -76,8 +76,12 @@ export function raison(p: Pick<ADecider, "regle" | "donnees" | "mercredi_at">): 
 // La semaine, en haut de page
 // ---------------------------------------------------------------------------
 
-/** Prompt 22, partie 5 : l'étape « Wed 12:00 » n'existe plus (plus de check du mercredi). */
-export const MOMENTS = ["jeudi", "samedi", "dimanche", "lundi"] as const;
+/**
+ * Prompt 22, partie 5 : l'étape « Wed 12:00 » n'existe plus. Prompt 12 : plus de
+ * « Sun 23:30 » ; samedi Validate (désactivés et retirés de Slack tout de suite),
+ * lundi 9 h la paie, puis les contrats fermés après la paie.
+ */
+export const MOMENTS = ["jeudi", "samedi", "lundi", "lundi_fin"] as const;
 export type Moment = (typeof MOMENTS)[number];
 export type EtatMoment = "fait" | "a_toi" | "a_venir";
 
@@ -105,10 +109,10 @@ export function heureMoment(lundi: string, m: Moment): Date {
       return h(3, 6);
     case "samedi":
       return h(5, 6);
-    case "dimanche":
-      return h(6, 23, 30);
+    case "lundi":
+      return h(7, 9);
     default:
-      return h(7, 0);
+      return h(7, 12);
   }
 }
 
@@ -123,6 +127,7 @@ export function etatMoment(m: Moment, s: SemaineDecisions, lundi: string, mainte
     case "lundi":
       return s.lundi.lignes > 0 && s.lundi.payees >= s.lundi.lignes ? "fait" : "a_toi";
     default:
-      return "fait";
+      // Les contrats fermés après la paie (arrêts du samedi).
+      return s.dimanche.faits >= s.dimanche.prevus ? "fait" : "a_toi";
   }
 }

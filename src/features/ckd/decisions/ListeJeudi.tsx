@@ -9,8 +9,12 @@ import { envoyerFile } from "@/features/auto/sent/attenteApi";
 import { useAuth } from "@/features/auth/AuthContext";
 import { deciderCkd, recreerShadowban } from "@/features/ckd/api";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
+import { cn } from "@/lib/utils";
 
+import { FicheSamedi } from "./FicheSamedi";
+import { BadgesPosteur, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
+import { evaluerCompte, lireExtras, ordreStatut } from "./statutCompte";
 import {
   attendusJusquIci,
   type ChoixJeudi,
@@ -46,16 +50,26 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
   const aujourdhui = aujourdhuiParis(maintenant);
   const lundi = lundiDeLaSemaine(aujourdhui);
   const lu = useQuery({ queryKey: ["semaine-comptes", lundi, aujourdhui], queryFn: () => lireSemaineComptes(lundi, aujourdhui) });
+  const extras = useQuery({ queryKey: ["semaine-extras", lundi], queryFn: () => lireExtras(lundi) });
+  const [ouverts, setOuverts] = React.useState<Record<string, string | true | undefined>>({});
   const [choix, setChoix] = React.useState<Record<string, ChoixJeudi>>({});
   const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
   const [tri, setTri] = React.useState<Tri>("posts_asc");
   const [bilan, setBilan] = React.useState<string | null>(null);
 
-  const liste = lu.data ?? [];
+  // Correction du prompt 12 : le jeudi, seulement la nouvelle cohorte (1re semaine de posts).
+  const liste = React.useMemo(() => (lu.data ?? []).filter((c) => c.cohorte_lundi === lundi), [lu.data, lundi]);
+  const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
+    lundi, aujourdhui, maintenant, page: "jeudi",
+  })])), [liste, extras.data, lundi, aujourdhui, maintenant]);
+  const ev = (c: CompteSemaine) => evals.get(c.compte_id)!;
   const choixDe = (c: CompteSemaine) => choix[c.compte_id] ?? choixJeudiInitial(c);
   const nudges = liste.filter((c) => choixDe(c) === "nudge");
   const recreates = liste.filter((c) => choixDe(c) === "recreate" && c.recreer);
-  const visibles = trierComptes(filtrerComptes(liste, filtres), tri);
+  const visibles = trierComptes(filtrerComptes(liste, filtres), tri).sort((a, b) => ordreStatut(ev(a), ev(b)));
+  // « À traiter » d'abord ; les comptes sans problème regroupés en bas, fermés.
+  const principaux = visibles.filter((c) => ev(c).statut === "rouge" || ev(c).statut === "orange");
+  const rienASignaler = visibles.filter((c) => ev(c).statut === "ok" || ev(c).statut === "vert");
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
 
   const envoyer = useMutation({
@@ -83,35 +97,10 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
     },
   });
 
-  return (
-    <Card data-testid="liste-jeudi">
-      <CardHeader>
-        <CardTitle>{t("autoOnglets.decisions.liste.jeudi.titre", { n: liste.length })}</CardTitle>
-        <CardDescription>{t("autoOnglets.decisions.liste.jeudi.aide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
-        {lu.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-        <BarreFiltres liste={liste} filtres={filtres} setFiltres={setFiltres} tri={tri} setTri={setTri} />
-        <p className="text-xs text-muted-foreground">
-          {t("autoOnglets.decisions.liste.affiches", { n: visibles.length, total: liste.length })}
-        </p>
-        <div className="relative overflow-x-auto">
-          <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr className="border-b">
-                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.choix")}</th>
-                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.compte")}</th>
-                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.pays")}</th>
-                <EnTetesJours jours={jours} />
-                <th className={`${TH} text-right`}>{t("autoOnglets.decisions.liste.colonnes.total")}</th>
-                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.vues")}</th>
-                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.signaux")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {visibles.map((c) => (
-                <tr key={c.compte_id} className="border-b border-border/40" data-compte={c.handle ?? c.compte_id}>
+  const ligne = (c: CompteSemaine) => (
+    <React.Fragment key={c.compte_id}>
+
+                <tr className={cn("border-b border-border/40", ev(c).statut === "rouge" && "bg-destructive/5")} data-compte={c.handle ?? c.compte_id}>
                   <td className={TD}>
                     <Choix
                       valeur={choixDe(c)}
@@ -132,10 +121,21 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                     )}
                   </td>
                   <td className={TD}>
+                    <StatutCompte e={ev(c)} x={extras.data?.get(c.compte_id)} />
+                  </td>
+                  <td className={TD}>
                     <CelluleCompte c={c} />
+                    <BadgesPosteur e={ev(c)} x={extras.data?.get(c.compte_id)} />
+                    <button
+                      type="button"
+                      className="mt-1 block text-[11px] text-primary underline"
+                      onClick={() => setOuverts((v) => ({ ...v, [c.compte_id]: v[c.compte_id] ? undefined : true }))}
+                    >
+                      {t(ouverts[c.compte_id] ? "autoOnglets.decisions.liste.samedi.fiche.masquer" : "autoOnglets.decisions.liste.samedi.fiche.voir")}
+                    </button>
                   </td>
                   <td className={`${TD} text-xs`}>{c.pays ?? "—"}</td>
-                  <CellulesJours c={c} aujourdhui={aujourdhui} />
+                  <CellulesJours c={c} aujourdhui={aujourdhui} onJour={(j) => setOuverts((v) => ({ ...v, [c.compte_id]: j }))} />
                   <td className={`${TD} text-right tabular-nums`}>
                     <span className={c.lien_total < attendusJusquIci(c) ? "font-semibold text-warning-foreground" : undefined}>
                       {c.lien_total}/{attendusJusquIci(c)}
@@ -148,10 +148,62 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                     <Signaux c={c} />
                   </td>
                 </tr>
-              ))}
+
+      {ouverts[c.compte_id] && (
+        <tr className="border-b border-border/40 bg-muted/20" data-fiche={c.handle ?? c.compte_id}>
+          <td className={TD} colSpan={jours.length + 7}>
+            <FicheSamedi posterId={c.poster_id} lundi={lundi} jour={typeof ouverts[c.compte_id] === "string" ? (ouverts[c.compte_id] as string) : null} />
+          </td>
+        </tr>
+      )}
+    </React.Fragment>
+  );
+
+  return (
+    <Card data-testid="liste-jeudi">
+      <CardHeader>
+        <CardTitle>{t("autoOnglets.decisions.liste.jeudi.titre", { n: liste.length })}</CardTitle>
+        <CardDescription>{t("autoOnglets.decisions.liste.jeudi.aide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
+        {lu.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
+        <BarreFiltres liste={liste} filtres={filtres} setFiltres={setFiltres} tri={tri} setTri={setTri} />
+        <p className="text-xs text-muted-foreground">
+          {t("autoOnglets.decisions.liste.affiches", { n: visibles.length, total: liste.length })}
+        </p>
+        <div className="relative overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="border-b">
+                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.choix")}</th>
+                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.statut")}</th>
+                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.compte")}</th>
+                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.pays")}</th>
+                <EnTetesJours jours={jours} />
+                <th className={`${TH} text-right`}>{t("autoOnglets.decisions.liste.colonnes.total")}</th>
+                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.vues")}</th>
+                <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.signaux")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {principaux.map(ligne)}
             </tbody>
           </table>
+          {principaux.length === 0 && <p className="py-3 text-sm text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.rienATraiter")}</p>}
         </div>
+        {rienASignaler.length > 0 && (
+          <details className="rounded-md border" data-testid="section-rien">
+            <summary className="cursor-pointer px-3 py-2 text-sm font-medium">
+              {t("autoOnglets.decisions.liste.jeudi.rienASignaler", { n: rienASignaler.length })}
+            </summary>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <tbody>{rienASignaler.map(ligne)}</tbody>
+              </table>
+            </div>
+          </details>
+        )}
         <div className="sticky bottom-0 flex flex-wrap items-center gap-3 border-t bg-background py-3">
           <Badge variant="info">{t("autoOnglets.decisions.liste.jeudi.compte", { nudges: nudges.length, recreates: recreates.length })}</Badge>
           {admin && (

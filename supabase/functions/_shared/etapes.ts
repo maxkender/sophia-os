@@ -126,6 +126,10 @@ export interface RecrueAccueil {
   pret?: boolean | null;
   /** La création du compte (2e compte : l'étape 3 compte depuis là s'il n'est pas encore vu sur TikTok). */
   compte_cree_at?: string | null;
+  /** L'e-mail de connexion (identifiants dans le rappel de connexion). */
+  email?: string | null;
+  /** L'OS a lui-même envoyé la bienvenue (avec les identifiants) sur Upwork. */
+  bienvenue_os?: boolean;
 }
 
 export type ManqueWarmup = "start" | "follows" | "posts";
@@ -254,7 +258,15 @@ export function dateAnglaise(jour: string): string {
 export function texteEtape(
   modele: string,
   e: EtatAccueil,
-  o: { prenom: string | null; handle: string | null; url: string; lien_etapes: string; cohorte_lundi: string },
+  o: {
+    prenom: string | null;
+    handle: string | null;
+    url: string;
+    lien_etapes: string;
+    cohorte_lundi: string;
+    email?: string | null;
+    mot_de_passe?: string;
+  },
 ): string {
   const vars: Record<string, string> = {
     prenom: (o.prenom ?? "").trim() || "there",
@@ -263,8 +275,41 @@ export function texteEtape(
     lien_etapes: o.lien_etapes,
     date: dateAnglaise(o.cohorte_lundi),
     ce_qui_manque: texteCeQuiManque(e.manque, e.followsManquants),
+    ...(o.email ? { email: o.email } : {}),
+    ...(o.mot_de_passe ? { mot_de_passe: o.mot_de_passe } : {}),
   };
   return modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout)).trim();
+}
+
+/** Le mot de passe de départ (accueil automatique et /embauche) ; le posteur le change à sa 1re connexion. */
+export const MOT_DE_PASSE_DEPART = "12345678";
+
+export type VarianteEtape = "normal" | "identifiants" | "verifier_handle";
+
+/**
+ * Le texte d'une étape selon la situation :
+ * - connexion, sans bienvenue envoyée par l'OS : les identifiants dans le message
+ *   (jamais « your login is in our first message ») ;
+ * - compte TikTok, Start warmup déjà cliqué : on demande le bon @ (jamais
+ *   « create your account »), et pas de Kill ;
+ * - sinon le texte de l'étape (2e compte d'un Double : son texte à lui).
+ */
+export function choisirModeleEtape(
+  etape: EtapeAccueil,
+  x: Pick<RecrueAccueil, "deuxieme" | "warmup_started_at" | "bienvenue_os" | "email">,
+  t: {
+    etapes: Record<EtapeAccueil, string>;
+    deuxieme: Partial<Record<EtapeAccueil, string>>;
+    connexionIdentifiants: string;
+    tiktokVerifier: string;
+  },
+): { modele: string; variante: VarianteEtape } {
+  if (etape === "connexion" && !x.bienvenue_os) {
+    // Sans e-mail connu, pas d'identifiants à donner : rien ne part (le texte est vide).
+    return { modele: x.email ? t.connexionIdentifiants : "", variante: "identifiants" };
+  }
+  if (etape === "tiktok" && x.warmup_started_at) return { modele: t.tiktokVerifier, variante: "verifier_handle" };
+  return { modele: x.deuxieme ? t.deuxieme[etape] ?? "" : t.etapes[etape], variante: "normal" };
 }
 
 /** Le canal : Slack si relié, sinon Upwork ; ni l'un ni l'autre : bloqué. */

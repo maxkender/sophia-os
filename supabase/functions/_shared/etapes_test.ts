@@ -3,6 +3,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
   canalEtape,
+  choisirModeleEtape,
   canauxEnvoi,
   libelleCanaux,
   debutCohorte,
@@ -162,4 +163,22 @@ Deno.test("prompt 21, C4 : le 2e compte d'un Double n'a que les étapes 3 et 4",
   // Le 1er compte garde ses 4 étapes, et l'étape 3 attend le compte TikTok.
   assertEquals(etatsAccueil(r(), D).length, 4);
   assertEquals(etat(r({ compte_cree_at: "2026-11-01T10:00:00Z" }), "warmup_lance").messageAt, null);
+});
+
+Deno.test("le texte d'une étape : identifiants sans bienvenue de l'OS, bon @ après Start warmup", () => {
+  const T = {
+    etapes: { connexion: "LOGIN IN FIRST MESSAGE", tiktok: "CREATE", warmup_lance: "START", warmup_bien_fait: "FOLLOWS" },
+    deuxieme: { warmup_lance: "START 2" },
+    connexionIdentifiants: "LOGIN {email}",
+    tiktokVerifier: "IS IT @{handle}?",
+  };
+  // Bienvenue envoyée par l'OS : le texte habituel.
+  assertEquals(choisirModeleEtape("connexion", { bienvenue_os: true, email: "a@b.c", warmup_started_at: null }, T), { modele: "LOGIN IN FIRST MESSAGE", variante: "normal" });
+  // Sinon : jamais « your login is in our first message », les identifiants dans le message.
+  assertEquals(choisirModeleEtape("connexion", { bienvenue_os: false, email: "a@b.c", warmup_started_at: null }, T), { modele: "LOGIN {email}", variante: "identifiants" });
+  assertEquals(choisirModeleEtape("connexion", { bienvenue_os: false, email: null, warmup_started_at: null }, T).modele, "");
+  // Compte TikTok : Start warmup cliqué → on demande le bon @.
+  assertEquals(choisirModeleEtape("tiktok", { warmup_started_at: "2026-10-28T10:00:00Z" }, T), { modele: "IS IT @{handle}?", variante: "verifier_handle" });
+  assertEquals(choisirModeleEtape("tiktok", { warmup_started_at: null }, T).modele, "CREATE");
+  assertEquals(choisirModeleEtape("warmup_lance", { deuxieme: true, warmup_started_at: null }, T).modele, "START 2");
 });

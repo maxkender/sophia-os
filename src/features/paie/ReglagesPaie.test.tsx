@@ -47,20 +47,20 @@ describe("ReglagesPaie (prompt 15, point 1 : admin seulement)", () => {
     rendu();
     const seuil = await screen.findByLabelText("Posts manqués tolérés par compte et par semaine");
     expect(seuil).toBeDisabled();
-    expect(screen.getByLabelText("Bonus de la 1re semaine de posts ($)")).toBeDisabled();
+    expect(screen.queryByLabelText("Bonus de la 1re semaine de posts ($)")).toBeNull();
     expect(screen.getByText(/Lecture seule/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Enregistrer", hidden: true }).closest("div")).toHaveClass("hidden");
   });
 
-  it("l'admin modifie et enregistre, bonus de la 1re semaine compris", async () => {
+  it("0453 : plus de bonus de 1re semaine ; l'admin enregistre, le bonus reste à 0", async () => {
     auth.role = "admin";
     rendu();
-    const champ = await screen.findByLabelText("Bonus de la 1re semaine de posts ($)");
+    const champ = await screen.findByLabelText("Posts manqués tolérés par compte et par semaine");
     expect(champ).toBeEnabled();
-    fireEvent.change(champ, { target: { value: "2" } });
+    expect(screen.queryByLabelText("Bonus de la 1re semaine de posts ($)")).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() =>
-      expect(paie.enregistrerReglagesPaie).toHaveBeenCalledWith({ seuil_posts_complets: 10, retenue_par_post: 1, manques_toleres: 1 }, false, 2),
+      expect(paie.enregistrerReglagesPaie).toHaveBeenCalledWith({ seuil_posts_complets: 10, retenue_par_post: 1, manques_toleres: 1 }, false, 0),
     );
   });
 });

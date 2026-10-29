@@ -27,13 +27,11 @@ export function ReglagesPaie({ ouvert = false }: { ouvert?: boolean }) {
   const bonus = useQuery({ queryKey: ["reglages", "bonus"], queryFn: lireReglagesBonus });
   const [p, setP] = React.useState<TReglagesPaie | null>(null);
   const [parrainage, setParrainage] = React.useState(false);
-  const [bonusPremiere, setBonusPremiere] = React.useState(1);
   const [b, setB] = React.useState<ReglagesBonus | null>(null);
   React.useEffect(() => {
     if (paie.data) {
       setP(paie.data.paie);
       setParrainage(paie.data.parrainageActif);
-      setBonusPremiere(paie.data.bonusPremiereSemaine);
     }
   }, [paie.data]);
   React.useEffect(() => {
@@ -42,7 +40,8 @@ export function ReglagesPaie({ ouvert = false }: { ouvert?: boolean }) {
 
   const enregistrer = useMutation({
     mutationFn: async () => {
-      await enregistrerReglagesPaie(p!, parrainage, bonusPremiere);
+      // 0453 : plus de bonus de 1re semaine (toujours 0).
+      await enregistrerReglagesPaie(p!, parrainage, 0);
       await enregistrerReglagesBonus(b!);
     },
     onSuccess: () => {
@@ -67,7 +66,6 @@ export function ReglagesPaie({ ouvert = false }: { ouvert?: boolean }) {
       <fieldset disabled={!admin} className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">
         {nombre(t("paie.reglagesV3.toleres"), p.manques_toleres, (n) => setP({ ...p, manques_toleres: n }))}
         {nombre(t("paie.reglagesV3.retenue"), p.retenue_par_post, (n) => setP({ ...p, retenue_par_post: n }), "0.01")}
-        {nombre(t("paie.reglagesV3.bonusPremiere"), bonusPremiere, setBonusPremiere, "0.01")}
         {nombre(t("bonus.reglages.comment_master_par_commentaire"), b.comment_master_par_commentaire, (n) =>
           setB({ ...b, comment_master_par_commentaire: n }), "0.01")}
         <label className="space-y-1 text-sm">

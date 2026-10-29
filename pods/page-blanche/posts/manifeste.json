@@ -1421,6 +1421,31 @@
     "6": "7699939278847085857_2"
    },
    "notes": "nouvelle accroche (faux productif); cta A"
+  },
+  {
+   "post_id": "original-020",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #attentionspan #iceberg",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7695416366886604064_1",
+    "2": "7699939278847085857_2",
+    "3": "7685071416466607382_2",
+    "4": "7685736268617059616_2",
+    "5": "7695416366886604064_4",
+    "6": "7694778035337235744_6"
+   },
+   "notes": "essai (format iceberg de @slowinternetclub, 264k vues, transposé en page blanche); cta C"
   }
  ]
 }

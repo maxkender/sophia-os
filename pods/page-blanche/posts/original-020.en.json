@@ -129,37 +129,39 @@
    "textes": {
     "T1": {
      "en": [
-      "consuming everything at 2x speed"
+      "you watch everything at",
+      "2x speed"
      ],
-     "fr": "tout mettre [[en vitesse x2]]",
+     "fr": "tu regardes tout [[en vitesse x2]]",
      "texte": "level 3: [[2x speed]] on everything"
     },
     "T2": {
      "en": [
-      "when every podcast, video",
-      "and voice note is sped up,",
-      "normal-speed information",
-      "starts feeling painfully slow"
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
      ],
-     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
      "texte": "podcasts, lectures, voice notes, even shows. once it's all sped up, [[normal speed feels unbearably slow]]"
     },
     "T3": {
      "en": [
-      "you're training yourself to",
-      "need constant density"
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
      ],
-     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
-     "texte": "you're training yourself to [[skim, not listen]]"
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "you're training yourself to [[skim, not listen]], so a slow class or a real talk drags"
     },
     "T4": {
      "en": [
-      "instead, actually sit with an",
-      "idea for more than 10",
-      "seconds"
+      "are you really in a rush",
+      "to watch a tiktok?"
      ],
-     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
-     "texte": "watch one thing at normal speed and [[actually stay with it]]"
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "watch one thing at normal speed and [[stay]]"
     }
    },
    "images": {

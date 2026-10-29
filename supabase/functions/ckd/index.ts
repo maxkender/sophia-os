@@ -57,9 +57,9 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       accueil) et envoie à Max un récap en message privé. Plus rien dans
  *       #managers-hq (prompt 15, point 3).
  *   { action: "envoi_auto" }      cron, dimanche 12 h (heure de Paris)
- *       Pareil pour le contrôle du samedi, puis le message de Kill à chaque
- *       posteur arrêté (`kill_message_auto`, off / test / on) : sur Upwork,
- *       dans la conversation du contrat, + la bannière (prompt 21, F).
+ *       Pareil pour le contrôle du samedi. Prompt 25 v4 : plus de message de
+ *       Kill le dimanche (le Kill du samedi part à Validate, sans message) ;
+ *       `messages_kill` reste à la main.
  *   { action: "rappel_lundi" }    cron, lundi 9 h (heure de Paris)
  *       Dans le fil du samedi : qui ne pas financer, qui passe à 2 comptes.
  *       Cron `ckd-rappel-lundi` en pause depuis le prompt 15 (les HMs ne
@@ -109,9 +109,8 @@ Deno.serve(async (request) => {
         // Avant l'envoi, qui ne part qu'avec ce qui est décidé : l'alarme (0364).
         const alarme = await alarmeNonValidees(supabase, c.id).catch((e) => ({ erreur: messageErreur(e) }));
         const envoi = await envoyer(supabase, c.id).catch((e) => ({ ok: false, error: messageErreur(e) }));
-        // Les messages de Kill partent même si l'envoi aux HMs a échoué (0382).
-        const kills = await messagesKill(supabase, c.id).catch((e) => ({ erreur: messageErreur(e) }));
-        return json({ ...envoi, alarme, kills });
+        // Prompt 25 v4 : le message de Kill du dimanche est retiré du parcours.
+        return json({ ...envoi, alarme });
       }
       case "nudges_slack":
         return json({ ok: true, ignore: "prompt 17 : plus de nudge Slack le jeudi" });

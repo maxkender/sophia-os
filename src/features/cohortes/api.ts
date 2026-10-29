@@ -99,6 +99,12 @@ export async function arreterRecrue(posterId: string): Promise<void> {
   if (error) throw error;
 }
 
+/** Prompt 25 v4 (0439) : Kill d'une recrue sans compte depuis la liste du samedi : désactivée, arrêt complet sans message. */
+export async function arreterRecrueSamedi(posterId: string): Promise<void> {
+  const { error } = await supabase.rpc("samedi_arreter_recrue", { p_poster: posterId });
+  if (error) throw error;
+}
+
 /** « Link » : le lien du contrat Upwork, avec son id (0394). Rend l'id. */
 export async function relierContrat(posterId: string, url: string): Promise<string> {
   const { data, error } = await supabase.rpc("cohorte_relier_contrat", { p_poster: posterId, p_url: url.trim() });

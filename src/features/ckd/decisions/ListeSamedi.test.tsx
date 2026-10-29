@@ -16,10 +16,12 @@ vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./s
 const ckd = vi.hoisted(() => ({ deciderCkd: vi.fn<(id: string, decision: string, note: string | null) => Promise<void>>(async () => undefined) }));
 vi.mock("@/features/ckd/api", async (orig) => ({ ...(await orig<typeof import("@/features/ckd/api")>()), ...ckd }));
 const cohortes = vi.hoisted(() => ({
-  arreterRecrue: vi.fn<(poster: string) => Promise<void>>(async () => undefined),
+  arreterRecrueSamedi: vi.fn<(poster: string) => Promise<void>>(async () => undefined),
   reporterRecrue: vi.fn<(poster: string) => Promise<string>>(async () => "2026-11-09"),
 }));
 vi.mock("@/features/cohortes/api", async (orig) => ({ ...(await orig<typeof import("@/features/cohortes/api")>()), ...cohortes }));
+const moteur = vi.hoisted(() => ({ invoke: vi.fn<(fn: string, body: unknown) => Promise<unknown>>(async () => ({ ok: true })) }));
+vi.mock("@/features/moteur/api", async (orig) => ({ ...(await orig<typeof import("@/features/moteur/api")>()), ...moteur }));
 const auth = vi.hoisted(() => ({ role: "admin" }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
 
@@ -94,7 +96,9 @@ describe("Weekly decisions → Saturday, la masterlist (prompt 25, partie 4)", (
     expect(ckd.deciderCkd).toHaveBeenCalledWith("manuel-c", "ne_pas_renouveler", null);
     expect(api.choisirSamedi).toHaveBeenCalledWith("rc1", "ne_pas_renouveler");
     expect(ckd.deciderCkd).not.toHaveBeenCalledWith("s4", expect.anything(), null);
-    expect(cohortes.arreterRecrue).not.toHaveBeenCalled();
+    expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
+    // Prompt 25 v4 : les arrêts partent tout de suite (sans message), pas dimanche.
+    await waitFor(() => expect(moteur.invoke).toHaveBeenCalledWith("upwork", { action: "arrets" }));
   });
 
   it("le Head of Ops lit la masterlist sans Validate", async () => {

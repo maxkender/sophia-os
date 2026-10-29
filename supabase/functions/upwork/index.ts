@@ -2452,6 +2452,9 @@ async function arreterUn(
   raison: string,
 ): Promise<EtapeArret[]> {
   const etapes: EtapeArret[] = [];
+  // Prompt 25 v4 : le Kill du samedi part sans aucun message (ni dernier message sur Upwork).
+  const { data: ligne } = await supabase.from("arrets").select("sans_message").eq("id", id).maybeSingle();
+  const sansMessage = ligne?.sans_message === true;
   // 1. L'OS : désactivé (profil et comptes), plus de messages ni de posts.
   // Prompt 21, F6 : en test, le posteur n'est PAS désactivé (lecture seule).
   const { data: os, error: errOs } = await supabase.rpc(reel ? "arret_os" : "arret_lire", { p_id: id });
@@ -2492,8 +2495,10 @@ async function arreterUn(
   const { data: c } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", p.contrat_id).maybeSingle();
   const tenant = (c?.organisation_id as string | undefined) ?? null;
 
-  // 2. Le dernier message.
-  if (reel) {
+  // 2. Le dernier message (jamais pour le Kill du samedi).
+  if (sansMessage) {
+    etapes.push(etape("message", "sans_objet", "Kill du samedi : sans message"));
+  } else if (reel) {
     const m = await envoyerMessage(supabase, par, p.contrat_id, texteFin);
     etapes.push(m.ok ? etape("message", "fait", texteFin) : etape("message", "erreur", m.error ?? "message non envoyé"));
   } else {

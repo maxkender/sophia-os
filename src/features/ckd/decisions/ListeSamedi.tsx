@@ -8,7 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useAuth } from "@/features/auth/AuthContext";
 import { deciderCkd } from "@/features/ckd/api";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
-import { arreterRecrue, reporterRecrue } from "@/features/cohortes/api";
+import { arreterRecrueSamedi, reporterRecrue } from "@/features/cohortes/api";
+import { invoke } from "@/features/moteur/api";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 
@@ -63,9 +64,10 @@ function Proposition({ c }: { c: CompteSemaine }) {
  * vues, nudgé jeudi ou non, shadowban supposé, la proposition de l'OS avec sa
  * raison. Kill / Double / Keep, pré-rempli avec la proposition ; mêmes filtres
  * et même tri que le jeudi. Une section à part : les recrues qui n'ont pas
- * réagi aux relances (Kill ou reporter). Rien sans « Validate » : les Kill
- * partent dimanche midi (message de Kill, puis arrêt complet), les Double
- * suivent l'offre au posteur.
+ * réagi aux relances (Kill ou reporter). Rien sans « Validate ». Prompt 25
+ * v4 : un Kill part tout de suite, sans message (désactivé, retiré de Slack,
+ * contrat fermé ; milestone financée : Needs you) ; les Double suivent l'offre
+ * au posteur.
  */
 export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) {
   const { t } = useTranslation();
@@ -113,7 +115,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       for (const r of recruesKill) {
         try {
           if (r.compte_id) await deciderCkd(await choisirSamedi(r.compte_id, "ne_pas_renouveler"), "ne_pas_renouveler", null);
-          else await arreterRecrue(r.poster_id);
+          else await arreterRecrueSamedi(r.poster_id);
         } catch (err) {
           erreurs.push(`${r.nom ?? "?"} : ${(err as Error).message}`);
         }
@@ -125,6 +127,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           erreurs.push(`${r.nom ?? "?"} : ${(err as Error).message}`);
         }
       }
+      // Prompt 25 v4 : les arrêts (désactivé, Slack, contrat fermé, sans message) partent tout de suite, pas au passage suivant.
+      if (decides > 0 || recruesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
       return { decides, kills: recruesKill.length, reports: recruesReport.length, erreurs };
     },
     onSuccess: (r) => {

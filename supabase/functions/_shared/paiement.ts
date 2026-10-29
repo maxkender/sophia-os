@@ -25,6 +25,8 @@ export interface JalonUpwork {
   /** En dollars. */
   depot: number | null;
   paye: number | null;
+  /** dueDateTime (ISO), si Upwork le donne. */
+  echeance?: string | null;
 }
 
 /** Un montant Upwork : displayValue en dollars, sinon rawValue en centimes (vérifié le 28/10). */
@@ -58,6 +60,7 @@ export function lireJalonsContrat(contractDetails: any): JalonUpwork[] {
       sequence: Number(m.sequenceId ?? 0),
       depot: dollarsUpwork(m.depositAmount),
       paye: dollarsUpwork(m.paid),
+      echeance: m.dueDateTime ? String(m.dueDateTime) : null,
     }))
     .sort((a, b) => a.sequence - b.sequence);
 }
@@ -154,7 +157,8 @@ const vide = (statut: PlanPaiement["statut"], raison: string | null, extra: Part
   statut, raison, approuver: null, financer: null, lien: null, total: 0, montant_trouve: null, ...extra,
 });
 
-const PAYEES = ["Paid", "PaidByUpwork"];
+/** Payée : par nous, par Upwork (libérée seule après 14 jours) ou par le système (prompt 21, B7). */
+export const PAYEES = ["Paid", "PaidByUpwork", "PaidBySystem"];
 
 /**
  * Le plan d'une ligne. `semaine` : le lundi de la semaine payée. Au moindre
@@ -168,6 +172,9 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   if (l.faits > 0 && l.tarif === null) return vide("refuse", "tarif manquant : à vérifier");
   if (l.action === "rien") return vide("rien", "rien à payer");
   if (l.action === "annuler") return vide("lien", "à rembourser sur Upwork", { lien: "rembourser" });
+  // Prompt 21, S (0415) : tarif du contrat impossible à déduire, ou contrat Legacy (payé à la fin de sa période).
+  if (l.action === "a_verifier") return vide("refuse", "tarif du contrat à vérifier (Payroll → Contract rate)");
+  if (l.action === "legacy") return vide("rien", "contrat Legacy : payé à la fin de sa période");
   if (!["payer", "payer_moins", "modifier", "kill"].includes(l.action)) return vide("refuse", `action « ${l.action} » inconnue`);
   if (!l.contrat_id) return vide("refuse", "contrat Upwork non relié");
   if (l.montant <= 0) return vide("rien", "montant nul");

@@ -16,6 +16,16 @@ export function actionAffichee(l: LigneListePaie): ActionAffichee {
   return l.faits > 0 && l.tarif === null ? "a_verifier" : l.action;
 }
 
+/**
+ * Prompt 21, S : le tarif du contrat diffère-t-il du tarif de zone ? Legacy et
+ * « à vérifier » comptent comme différents (le contrat ne suit pas la zone).
+ */
+export function differentDeZone(t: { tarif_zone: number | null; tarif_contrat: number | null; rythme: string | null } | undefined): boolean {
+  if (!t || !t.rythme) return false;
+  if (t.rythme !== "hebdo") return true;
+  return t.tarif_zone !== null && t.tarif_contrat !== null && Math.abs(t.tarif_zone - t.tarif_contrat) > 0.005;
+}
+
 /** Les raisons de la ligne, en codes à traduire (plus le texte français de la base). */
 export type RaisonPaie = "warmup" | "zero_post" | "tarif_manquant";
 
@@ -160,7 +170,8 @@ const RANG_ACTION: Record<ActionAffichee, number> = {
   modifier: 3,
   payer_moins: 4,
   payer: 5,
-  rien: 6,
+  legacy: 6,
+  rien: 7,
 };
 
 export function trierLignes(lignes: LigneListePaie[]): LigneListePaie[] {

@@ -29,7 +29,17 @@ import { cn } from "@/lib/utils";
 import { BoutonPayer, EtatPaiementLigne } from "@/features/paie/api-upwork/DialogPaiement";
 import { lireEtatPaiementsApi, type EtatPaiementApi } from "@/features/paie/api-upwork/api";
 import { useAuth } from "@/features/auth/AuthContext";
-import { corrigerPaie, exclurePaie, lireJalonsPaie, lireListePaie, relireJalonsUpwork, type LigneListePaie } from "./api";
+import {
+  corrigerPaie,
+  exclurePaie,
+  fixerTarifContrat,
+  lireJalonsPaie,
+  lireListePaie,
+  lireTarifsPaie,
+  relireJalonsUpwork,
+  type LigneListePaie,
+  type TarifPaie,
+} from "./api";
 import { ContratsATerminer } from "./ContratsATerminer";
 import {
   actionAffichee,
@@ -37,6 +47,7 @@ import {
   besoinSuivante,
   consigne,
   csvListe,
+  differentDeZone,
   noteJalon,
   parEquipe,
   postsParCompte,
@@ -58,12 +69,19 @@ const VARIANTE_ACTION: Record<ActionAffichee, "success" | "warning" | "error" | 
   modifier: "info",
   annuler: "error",
   rien: "secondary",
+  legacy: "info",
 };
 
 /** « Modifier le montant » (raison obligatoire) et « Retirer de la liste », journalisés (0380). */
-function MenuLigne({ l }: { l: LigneListePaie }) {
+function MenuLigne({ l, tarif }: { l: LigneListePaie; tarif?: TarifPaie }) {
   const { t, i18n } = useTranslation();
+  const admin = useAuth().role === "admin";
   const queryClient = useQueryClient();
+  const [tarifContrat, setTarifContrat] = React.useState(tarif?.tarif_contrat === null || tarif?.tarif_contrat === undefined ? "" : String(tarif.tarif_contrat));
+  const fixer = useMutation({
+    mutationFn: () => fixerTarifContrat(tarif!.contrat_id!, tarifContrat.trim() === "" ? null : Number(tarifContrat)),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["paie"] }),
+  });
   const [ouvert, setOuvert] = React.useState(false);
   const [montant, setMontant] = React.useState(String(l.montant));
   const [raison, setRaison] = React.useState("");
@@ -152,6 +170,29 @@ function MenuLigne({ l }: { l: LigneListePaie }) {
               )}
             </div>
             {action.isError && <p className="text-sm text-destructive">{(action.error as Error).message}</p>}
+            {/* Prompt 21, S : l'admin fixe le tarif d'un contrat impossible à déduire. */}
+            {admin && tarif?.contrat_id && (
+              <div className="space-y-1 border-t pt-3">
+                <p className="text-xs text-muted-foreground">{t("paie.liste.tarifs.fixerAide", { raison: tarif.raison ?? "—" })}</p>
+                <div className="flex items-end gap-2">
+                  <label className="flex-1 space-y-1 text-sm">
+                    <span className="text-xs text-muted-foreground">{t("paie.liste.tarifs.fixer")}</span>
+                    <Input
+                      type="number"
+                      min={1}
+                      step="0.01"
+                      value={tarifContrat}
+                      onChange={(e) => setTarifContrat(e.target.value)}
+                      aria-label={t("paie.liste.tarifs.fixer")}
+                    />
+                  </label>
+                  <Button size="sm" variant="outline" disabled={fixer.isPending} onClick={() => fixer.mutate()}>
+                    {t("paie.liste.tarifs.enregistrer")}
+                  </Button>
+                </div>
+                {fixer.isError && <p className="text-sm text-destructive">{(fixer.error as Error).message}</p>}
+              </div>
+            )}
           </DialogPanel>
         </DialogPopup>
       </Dialog>
@@ -193,18 +234,48 @@ function IconeContrat({ lien }: { lien: string | null }) {
   );
 }
 
+/** Prompt 21, S : le tarif du contrat (hebdo par compte, Legacy, ou à vérifier). */
+function CelluleTarifContrat({ tarif }: { tarif?: TarifPaie }) {
+  const { t, i18n } = useTranslation();
+  const langue = i18n.resolvedLanguage ?? "fr";
+  if (!tarif?.rythme) return <span className="text-muted-foreground">—</span>;
+  const different = differentDeZone(tarif);
+  if (tarif.rythme === "legacy") {
+    return (
+      <span className="text-xs font-medium text-info-foreground" title={tarif.raison ?? ""}>
+        {t("paie.liste.tarifs.legacy", { montant: dollars(tarif.montant ?? 0, langue), jours: tarif.periode_jours ?? "?" })}
+      </span>
+    );
+  }
+  if (tarif.rythme === "a_verifier") {
+    return (
+      <span className="text-xs font-medium text-destructive" title={tarif.raison ?? ""} data-tarif-a-verifier>
+        {t("paie.liste.tarifs.aVerifier")}
+      </span>
+    );
+  }
+  return (
+    <span className={cn("tabular-nums", different && "font-semibold text-warning-foreground")} title={tarif.raison ?? ""}>
+      {tarif.tarif_contrat === null ? "—" : dollars(tarif.tarif_contrat, langue)}
+      {tarif.force && <span className="ml-1 text-[10px] text-muted-foreground">{t("paie.liste.tarifs.force")}</span>}
+    </span>
+  );
+}
+
 function LignePaie({
   l,
   semaine,
   simulation,
   etatApi,
   admin,
+  tarif,
 }: {
   l: LigneListePaie;
   semaine: string;
   simulation: boolean;
   etatApi?: EtatPaiementApi;
   admin: boolean;
+  tarif?: TarifPaie;
 }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -240,7 +311,12 @@ function LignePaie({
       <td className={cn(TD, "tabular-nums")}>{l.nb_comptes}</td>
       <td className={cn(TD, "text-xs tabular-nums")}>{postsParCompte(l) || "—"}</td>
       <td className={cn(TD, "tabular-nums")}>{l.tarif === null ? "—" : dollars(l.tarif, langue)}</td>
-      <td className={cn(TD, "tabular-nums")}>{l.retenue > 0 ? `−${dollars(l.retenue, langue)}` : "—"}</td>
+      <td className={cn(TD, "tabular-nums text-muted-foreground")}>
+        {tarif?.tarif_zone === null || tarif?.tarif_zone === undefined ? "—" : dollars(tarif.tarif_zone, langue)}
+      </td>
+      <td className={TD}>
+        <CelluleTarifContrat tarif={tarif} />
+      </td>
       <td className={cn(TD, "tabular-nums")}>
         <span className="font-semibold">{action === "a_verifier" ? "—" : dollars(l.montant, langue)}</span>
         {l.montant_corrige !== null && (
@@ -302,7 +378,7 @@ function LignePaie({
           )
         )}
       </td>
-      <td className={cn(TD, "w-8")}>{!simulation && <MenuLigne l={l} />}</td>
+      <td className={cn(TD, "w-8")}>{!simulation && <MenuLigne l={l} tarif={tarif} />}</td>
     </tr>
   );
 }
@@ -313,12 +389,14 @@ function Tableau({
   simulation,
   etatsApi,
   admin,
+  tarifs,
 }: {
   lignes: LigneListePaie[];
   semaine: string;
   simulation: boolean;
   etatsApi: Map<string, EtatPaiementApi>;
   admin: boolean;
+  tarifs: Map<string, TarifPaie>;
 }) {
   const { t } = useTranslation();
   return (
@@ -326,7 +404,7 @@ function Tableau({
       <table className="w-full min-w-[1100px] text-sm">
         <thead className="bg-muted/40">
           <tr className="border-b">
-            {(["posteur", "compteUpwork", "comptes", "posts", "tarif", "retenue", "montant", "action", "paye", "suivante"] as const).map(
+            {(["posteur", "compteUpwork", "comptes", "posts", "tarif", "tarifZone", "tarifContrat", "montant", "action", "paye", "suivante"] as const).map(
               (c) => (
                 <th key={c} className={TH}>
                   {t(`paie.liste.cols.${c}`)}
@@ -339,7 +417,7 @@ function Tableau({
         </thead>
         <tbody className="divide-y">
           {lignes.map((l) => (
-            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} etatApi={etatsApi.get(l.id)} admin={admin} />
+            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} etatApi={etatsApi.get(l.id)} admin={admin} tarif={tarifs.get(l.poster_id)} />
           ))}
         </tbody>
       </table>
@@ -538,9 +616,20 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
     () => (liste.data ?? []).map((l) => ({ ...l, jalon: jalons.data?.get(l.poster_id) ?? null })),
     [liste.data, jalons.data],
   );
+  // Prompt 21, S : le tarif du contrat et celui de la zone.
+  const tarifsQ = useQuery({
+    queryKey: ["paie", "tarifs", posterIds],
+    queryFn: () => lireTarifsPaie(posterIds),
+    enabled: posterIds.length > 0,
+  });
+  const tarifs = tarifsQ.data ?? new Map<string, TarifPaie>();
+  const nbDifferents = lignes.filter((l) => differentDeZone(tarifs.get(l.poster_id))).length;
   // « À faire » par défaut : cache « Nothing to pay », les lignes terminées et les retirées.
   const [toutVoir, setToutVoir] = React.useState(false);
-  const visibles = toutVoir ? lignes : lignes.filter(resteAFaire);
+  const [seulementDifferents, setSeulementDifferents] = React.useState(false);
+  const visibles = (toutVoir ? lignes : lignes.filter(resteAFaire)).filter(
+    (l) => !seulementDifferents || differentDeZone(tarifs.get(l.poster_id)),
+  );
   // Les totaux d'une équipe restent ceux de toute l'équipe, même filtrée.
   const totauxEquipe = new Map(parEquipe(lignes).map((e) => [e.equipe, e.totaux]));
   const equipes = parEquipe(visibles).map((e) => ({ ...e, totaux: totauxEquipe.get(e.equipe) ?? e.totaux }));
@@ -589,6 +678,15 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
               </button>
             ))}
           </div>
+          <Button
+            variant={seulementDifferents ? "default" : "outline"}
+            size="sm"
+            aria-pressed={seulementDifferents}
+            data-testid="filtre-different-zone"
+            onClick={() => setSeulementDifferents((v) => !v)}
+          >
+            {t("paie.liste.tarifs.filtre", { n: nbDifferents })}
+          </Button>
           {!simulation && <BoutonJalons />}
           <Button variant="outline" size="sm" disabled={lignes.length === 0} onClick={() => exporter(lignes, "tout")}>
             <Download />
@@ -640,7 +738,7 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
             )}
           </summary>
           <div className="px-4 pb-4">
-            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} etatsApi={etats} admin={role === "admin"} />
+            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} etatsApi={etats} admin={role === "admin"} tarifs={tarifs} />
           </div>
         </details>
       ))}

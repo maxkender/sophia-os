@@ -287,3 +287,15 @@ describe("Stop sur Cohorts d'une recrue qui n'a jamais posté (0395, F2)", () =>
     expect(sql).toContain("select a.poster_id, pr.cohorte_lundi as semaine,");
   });
 });
+
+describe("prompt 21, S : tarif du contrat différent de la zone", () => {
+  it("hebdo : différent seulement si les deux tarifs sont connus et diffèrent ; Legacy et à vérifier : toujours", async () => {
+    const { differentDeZone } = await import("./logique");
+    expect(differentDeZone({ tarif_zone: 14, tarif_contrat: 15, rythme: "hebdo" })).toBe(true);
+    expect(differentDeZone({ tarif_zone: 14, tarif_contrat: 14, rythme: "hebdo" })).toBe(false);
+    expect(differentDeZone({ tarif_zone: null, tarif_contrat: 15, rythme: "hebdo" })).toBe(false);
+    expect(differentDeZone({ tarif_zone: 14, tarif_contrat: null, rythme: "legacy" })).toBe(true);
+    expect(differentDeZone({ tarif_zone: 14, tarif_contrat: null, rythme: "a_verifier" })).toBe(true);
+    expect(differentDeZone(undefined)).toBe(false);
+  });
+});

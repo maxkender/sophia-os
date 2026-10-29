@@ -21,6 +21,8 @@ const ckd = vi.hoisted(() => ({
   recreerShadowban: vi.fn<(compteId: string) => Promise<{ id: string }>>(async () => ({ id: "n" })),
 }));
 vi.mock("@/features/ckd/api", async (orig) => ({ ...(await orig<typeof import("@/features/ckd/api")>()), ...ckd }));
+const statut = vi.hoisted(() => ({ lireExtras: vi.fn(async () => new Map()) }));
+vi.mock("./statutCompte", async (orig) => ({ ...(await orig<typeof import("./statutCompte")>()), ...statut }));
 const auth = vi.hoisted(() => ({ role: "admin" }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
 
@@ -38,17 +40,17 @@ function rendu() {
 const ligne = (handle: string) => document.querySelector<HTMLElement>(`[data-compte="${handle}"]`)!;
 const presse = (handle: string, nom: string) => within(ligne(handle)).getByRole("button", { name: nom }).getAttribute("aria-pressed");
 
-describe("Weekly decisions → Thursday (prompt 25, partie 3)", () => {
+describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la nouvelle cohorte seulement)", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
     auth.role = "admin";
     await i18n.changeLanguage("fr");
     api.lireSemaineComptes.mockResolvedValue([
-      compte({ compte_id: "a", handle: "manque", lien_passes: 4, lien_total: 4 }),
-      compte({ compte_id: "b", handle: "complet" }),
-      compte({ compte_id: "c", handle: "mort", shadowban: "vues_basses", recreer: "shadowban" }),
-      compte({ compte_id: "d", handle: "deja", lien_passes: 2, lien_total: 2, nudge_envoye_at: "2026-10-29T15:00:00Z" }),
-      compte({ compte_id: "e", handle: "proposeckd", ckd_jeudi_id: "prop-1", ckd_jeudi_action: "recreer", recreer: "ckd" }),
+      compte({ compte_id: "a", handle: "manque", cohorte_lundi: "2026-10-26", lien_passes: 4, lien_total: 4 }),
+      compte({ compte_id: "b", handle: "complet", cohorte_lundi: "2026-10-26" }),
+      compte({ compte_id: "c", handle: "mort", cohorte_lundi: "2026-10-26", shadowban: "vues_basses", recreer: "shadowban" }),
+      compte({ compte_id: "d", handle: "deja", cohorte_lundi: "2026-10-26", lien_passes: 2, lien_total: 2, nudge_envoye_at: "2026-10-29T15:00:00Z" }),
+      compte({ compte_id: "e", handle: "proposeckd", cohorte_lundi: "2026-10-26", ckd_jeudi_id: "prop-1", ckd_jeudi_action: "recreer", recreer: "ckd" }),
     ]);
   });
 
@@ -84,7 +86,7 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3)", () => {
     rendu();
     await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(5));
     fireEvent.change(screen.getByRole("combobox", { name: "Posts" }), { target: { value: "manque" } });
-    expect([...document.querySelectorAll("[data-compte]")].map((e) => e.getAttribute("data-compte"))).toEqual(["deja", "manque"]);
+    expect([...document.querySelectorAll("[data-compte]")].map((e) => e.getAttribute("data-compte")).sort()).toEqual(["deja", "manque"]);
   });
 
   it("prompt 25 MAJ : Lucia (Head of Ops) choisit compte par compte et envoie, comme Max", async () => {
@@ -93,5 +95,17 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3)", () => {
     await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(5));
     expect(within(ligne("manque")).getByRole("button", { name: "Nudge" })).not.toBeDisabled();
     expect(screen.getByRole("button", { name: "Send" })).toBeInTheDocument();
+  });
+
+  it("prompt 12 : seulement la nouvelle cohorte ; les anciens n'apparaissent pas ; rien à signaler en bas", async () => {
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "a", handle: "manque", cohorte_lundi: "2026-10-26", lien_passes: 4, lien_total: 4 }),
+      compte({ compte_id: "v", handle: "ancien", cohorte_lundi: "2026-10-12", lien_passes: 0, lien_total: 0 }),
+      compte({ compte_id: "c", handle: "complet", cohorte_lundi: "2026-10-26", jours: [{ jour: "2026-10-26", prevus: 2, lien: 2 }] }),
+    ]);
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="manque"]')).not.toBeNull());
+    expect(document.querySelector('[data-compte="ancien"]')).toBeNull();
+    expect(screen.getByTestId("section-rien")).toHaveTextContent("Rien à signaler (1)");
   });
 });

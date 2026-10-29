@@ -27,7 +27,7 @@ function nombres(m: Moment, s: Semaine): Record<string, number> {
       return { n: s.jeudi.propositions, reste: s.jeudi.a_decider };
     case "samedi":
       return { n: s.samedi.propositions, reste: s.samedi.a_decider };
-    case "dimanche":
+    case "lundi_fin":
       return { n: s.dimanche.prevus, faits: s.dimanche.faits };
     default:
       return { n: s.lundi.lignes, payees: s.lundi.payees };

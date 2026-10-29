@@ -156,8 +156,12 @@ export function optionsFiltres(liste: readonly CompteSemaine[]) {
 // Prompt 25, partie 4 : le samedi (masterlist)
 // ---------------------------------------------------------------------------
 
-/** Prompt 26 : « kill » = Kill & pay (par défaut), « kill_np » = Kill & don't pay (raison obligatoire). */
-export type ChoixSamedi = "kill" | "kill_np" | "double" | "keep";
+/**
+ * Prompt 26 : « kill » = Kill & pay (par défaut), « kill_np » = Kill & don't pay (raison obligatoire).
+ * Prompt 12 : « repondre » (Je réponds : la conversation Upwork s'ouvre, la ligne reste à traiter) et
+ * « Autre » : recreate, pause, reporter.
+ */
+export type ChoixSamedi = "kill" | "kill_np" | "double" | "keep" | "repondre" | "recreate" | "pause" | "reporter";
 
 /** La décision déjà prise sur la proposition du samedi, en Kill / Double / Keep. */
 export function decisionSamedi(c: Pick<CompteSemaine, "ckd_samedi_decision">): ChoixSamedi | null {
@@ -204,7 +208,8 @@ export function planSamedi(c: CompteSemaine, choix: ChoixSamedi): EtapeSamedi[] 
   const id = c.ckd_samedi_id;
   const doubler = c.ckd_samedi_regle === "doubler";
   const refuser: EtapeSamedi[] = id ? [{ op: "decider", id, decision: doubler ? "pas_maintenant" : "garder" }] : [];
-  if (choix === "keep") return refuser;
+  if (choix === "repondre") return [];
+  if (choix === "keep" || choix === "recreate" || choix === "pause" || choix === "reporter") return refuser;
   if (choix === "kill" || choix === "kill_np") {
     return id && !doubler && c.ckd_samedi_action === "ne_pas_renouveler"
       ? [{ op: "decider", id, decision: "ne_pas_renouveler" }]
@@ -297,10 +302,18 @@ export interface FicheSamedi {
     cohorte: string | null;
     comptes: { handle: string | null; actif: boolean; cree: string }[];
     pauses: { debut: string; jusqu_au: string; raison: string | null }[];
+    recreations?: number;
     kills_annules: number;
   };
-  contrat: { id: string | null; url: string | null; freelance: string | null; tarif: number | null };
-  semaine: { faits: number; prevus: number; montant: number; action: string; raison: string | null } | null;
+  contrat: { id: string | null; url: string | null; freelance: string | null; profil?: string | null; tarif: number | null };
+  /** 0454 : la conversation Upwork, le profil TikTok, le DM Slack, la carte du posteur dans l'OS. */
+  liens?: { tiktok: string | null; slack: string | null; os: string | null };
+  semaine: { faits: number; prevus: number; montant: number; action: string; raison: string | null; tarif?: number | null } | null;
+  /** Les milestones financées lues par l'OS (l'état de la paie). */
+  paie?: { jalons_lus_le: string | null; finances: { nom: string | null; montant: string | null; etat: string | null }[] } | null;
+  needs_you?: { type: string; vu: string | null; pense: string | null }[];
+  disputes?: { type: string; texte: string | null; recu_at: string }[];
+  to_read?: { liste: string; texte: string | null; recu_at: string }[];
 }
 
 export async function lireFicheSamedi(posterId: string, lundi: string): Promise<FicheSamedi> {

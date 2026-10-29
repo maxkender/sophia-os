@@ -12,6 +12,7 @@ import {
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { identiteSlack, urlConnexionSlack } from "../_shared/slack_connect.ts";
 import { modeKillMessage } from "../_shared/arret.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
@@ -78,6 +79,10 @@ type Supabase = ReturnType<typeof serviceClient>;
  *   { action: "handle_proposer", handle, compte_id? }                 posteur
  *       0444 : « My account has a different name » ; le @ est lu tout de suite
  *       sur TikTok (trouvé : il remplace celui du compte).
+ *   { action: "slack_connect_url", redirect_uri, state, nonce }        posteur
+ *       Prompt 25 MAJ, 7a : l'URL « Sign in with Slack » ({ disponible: false } sans SLACK_CLIENT_ID).
+ *   { action: "slack_connect", code, redirect_uri }                    posteur
+ *       relie le posteur au compte Slack qui vient de se connecter.
  *   { action: "lire_handle", handle }                                 admin
  *       0444 : lit un @ sur TikTok sans rien enregistrer (test).
  *
@@ -90,7 +95,7 @@ Deno.serve(async (request) => {
     // deno-lint-ignore no-explicit-any
     const body: any = await request.clone().json().catch(() => ({}));
     // La réponse à l'offre Double et le @ TikTok exact (0444) viennent du posteur lui-même ; tout le reste est admin.
-    const posteur = body.action === "double_repondre" || body.action === "handle_proposer";
+    const posteur = ["double_repondre", "handle_proposer", "slack_connect_url", "slack_connect"].includes(body.action);
     const acces = await assertRole(request, posteur ? ["poster"] : ["admin", "head_of_ops"]);
     if (acces instanceof Response) return acces;
     const supabase = serviceClient();
@@ -98,6 +103,8 @@ Deno.serve(async (request) => {
     if (posteur) {
       if (cron) return json({ ok: false, error: "réservé au posteur" }, 403);
       if (body.action === "handle_proposer") return json(await handleProposer(supabase, body, acces.userId));
+      if (body.action === "slack_connect_url") return json(slackConnectUrl(body));
+      if (body.action === "slack_connect") return json(await slackConnect(supabase, body, acces.userId));
       return await doubleRepondre(supabase, body, acces.userId);
     }
 
@@ -964,4 +971,41 @@ async function droitsSlack(jeton: string) {
     .then(async (x) => ({ statut: x.status, corps: (await x.text()).slice(0, 200) }))
     .catch((e) => ({ statut: null, corps: messageErreur(e) }));
   return { scopes, manquent: voulus.filter((v) => !scopes.includes(v)), scim };
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 25 MAJ, 7a : « Connect my Slack » (Sign in with Slack)
+// ---------------------------------------------------------------------------
+
+/** L'URL de retour doit être le dashboard (jamais une autre adresse). */
+function retourSlackValide(uri: unknown): uri is string {
+  return uri === `${OS_URL}/lier-slack`;
+}
+
+function slackConnectUrl(body: { redirect_uri?: unknown; state?: unknown; nonce?: unknown }) {
+  const clientId = Deno.env.get("SLACK_CLIENT_ID");
+  if (!clientId || !Deno.env.get("SLACK_CLIENT_SECRET")) return { ok: true, disponible: false };
+  if (!retourSlackValide(body.redirect_uri)) return { ok: false, error: "redirect_uri" };
+  return {
+    ok: true,
+    disponible: true,
+    url: urlConnexionSlack({
+      clientId, redirectUri: body.redirect_uri, state: String(body.state ?? ""), nonce: String(body.nonce ?? ""),
+      team: Deno.env.get("SLACK_TEAM_ID") ?? null,
+    }),
+  };
+}
+
+async function slackConnect(supabase: Supabase, body: { code?: unknown; redirect_uri?: unknown }, posterId: string) {
+  const clientId = Deno.env.get("SLACK_CLIENT_ID");
+  const clientSecret = Deno.env.get("SLACK_CLIENT_SECRET");
+  if (!clientId || !clientSecret) return { ok: false, error: "indisponible" };
+  if (!retourSlackValide(body.redirect_uri) || typeof body.code !== "string" || !body.code) return { ok: false, error: "parametres" };
+  const id = await identiteSlack({ code: body.code, redirectUri: body.redirect_uri, clientId, clientSecret });
+  if (!id.slack_user_id) return { ok: false, error: id.erreur ?? "slack" };
+  const equipe = Deno.env.get("SLACK_TEAM_ID");
+  if (equipe && id.team_id && id.team_id !== equipe) return { ok: false, error: "autre_workspace" };
+  const { data, error } = await supabase.rpc("slack_lier_profil", { p_profile: posterId, p_slack: id.slack_user_id, p_par: "slack_connect" });
+  if (error) return { ok: false, error: error.message };
+  return data === "lie" || data === "deja" ? { ok: true, statut: data } : { ok: false, error: String(data) };
 }

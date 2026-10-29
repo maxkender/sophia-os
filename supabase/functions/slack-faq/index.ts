@@ -29,8 +29,11 @@ import {
 } from "../_shared/faq_moteur.ts";
 import { chargerModeSituations, colonnesSituation, situationSansRisque } from "../_shared/faq_situations_moteur.ts";
 import { relierNouveau } from "../_shared/slack_relier.ts";
+import { proposerLienSlack } from "../_shared/slack_connect.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
+
+const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
 /**
  * slack-faq — l'entrée Slack de la FAQ automatique (docs/faq-automatique.md).
@@ -130,10 +133,16 @@ Deno.serve(async (request) => {
 
   // Un membre arrive dans le workspace : on le relie à son posteur (0381).
   if (payload.event.type === "team_join") {
-    const user = (payload.event as unknown as { user?: unknown }).user;
-    const lien = relierNouveau(serviceClient(), user).catch((erreur) =>
-      console.error("[slack-faq] team_join", messageErreur(erreur))
-    );
+    const user = (payload.event as unknown as { user?: { id?: string; is_bot?: boolean; deleted?: boolean } }).user;
+    // Prompt 25 MAJ, 7a : relié à personne → un lien personnel par DM (interrupteur slack_lien_dm_auto).
+    const lien = relierNouveau(serviceClient(), user).then(async (relie) => {
+      const id = user?.id;
+      if (relie || !id || user?.is_bot || user?.deleted) return;
+      const db = serviceClient();
+      if (await bloquer(db, { fonction: "slack", action: "lien_dm" })) return;
+      const r = await proposerLienSlack(db, id, { osUrl: OS_URL, ecriture: Deno.env.get("SLACK_HM_BOT_TOKEN") ?? null });
+      if (r.statut === "erreur") console.error("[slack-faq] lien DM", r.erreur);
+    }).catch((erreur) => console.error("[slack-faq] team_join", messageErreur(erreur)));
     const edgeJoin = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
     if (edgeJoin) edgeJoin.waitUntil(lien);
     else await lien;

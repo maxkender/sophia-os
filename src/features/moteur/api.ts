@@ -3263,6 +3263,13 @@ export async function paysDuCompte(compteId: string): Promise<string | null> {
   return (data?.pays as string | null) ?? null;
 }
 
+/** Prompt 25 MAJ, 7d : le @ TikTok du compte, pour vérifier le lien d'un post. */
+export async function handleDuCompte(compteId: string): Promise<string | null> {
+  const { data, error } = await supabase.from("comptes").select("handle_tiktok").eq("id", compteId).maybeSingle();
+  if (error) throw error;
+  return (data?.handle_tiktok as string | null) ?? null;
+}
+
 export interface CompteCreateurDetail {
   id: string;
   poster_id: string;

@@ -61,6 +61,10 @@ export function raisonLisible(type: string, donnees: Record<string, unknown> | n
     }
     case "lundi":
       return "message du lundi";
+    case "lien_introuvable": {
+      const n = Array.isArray(d.liens) ? d.liens.length : 0;
+      return `${n} lien(s) de post introuvable(s) sur le profil plus de 24 h après la publication${jourCourt(d.depuis) ? ` (depuis le ${jourCourt(d.depuis)})` : ""}`;
+    }
     case "jeudi":
       return typeof d.raison === "string" ? d.raison : "choisi sur la page du jeudi";
     default:

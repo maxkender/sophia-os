@@ -38,6 +38,24 @@ export const en = {
       echec: "Not sent: {{erreur}}",
     },
     // Prompt 25 v4 (0441) : Recruitment Automation → Onboarding posters.
+    slackLier: {
+      aide: "Link your Slack account so we know it's you.",
+      bouton: "Connect my Slack",
+      indisponible: "Not available yet: click the link our bot sent you on Slack.",
+      enCours: "Linking your Slack account…",
+      ok: "✓ Your Slack account is linked.",
+      retour: "Back to my dashboard",
+      erreurs: {
+        jeton_invalide: "This link doesn't work. Click the latest link our bot sent you on Slack.",
+        jeton_utilise: "This link was already used by another account.",
+        jeton_expire: "This link has expired. Ask your manager for a new one.",
+        pris: "This Slack account is already linked to another profile. Contact your manager.",
+        autre: "We couldn't link your Slack account. Contact your manager.",
+        etat: "The Slack sign-in expired. Try “Connect my Slack” again.",
+        connexion: "Log in to your dashboard first, then click the link again.",
+        autre_workspace: "This Slack account is not in our workspace. Join our Slack first.",
+      },
+    },
     onboardingPosters: {
       titre: "Onboarding posters ({{n}})",
       vide: "No recruit for these filters.",
@@ -251,6 +269,7 @@ export const en = {
           handle_upwork: "TikTok @ not found (Upwork, after 24 h)",
           handle_excuse: "Sorry: wrong “create your account”",
           lundi_soir: "Monday 8 pm",
+          lien_introuvable: "Post link not found (24 h)",
         },
       },
       apercu: {
@@ -349,6 +368,8 @@ export const en = {
           lien1000: { titre: "1,000 followers link", quand: "On the dashboard, when the account passes 1,000 followers, then a reminder." },
           reponses: { titre: "The 4 automatic replies", quand: "To messages received, depending on the case (Messages received)." },
           paie: { titre: "Pay", quand: "Milestone not submitted and answers to pay questions, on Upwork." },
+          slack_lien: { titre: "Slack link", quand: "On joining Slack, if the OS can't link the member to a profile (switch “Slack: link DM on arrival”)." },
+          lien_post: { titre: "Post link not found", quand: "24 h after publishing, link still not found on the profile (switch “Post link not found”)." },
         },
         items: {
           accueil: "Welcome message",
@@ -362,6 +383,8 @@ export const en = {
           handle_excuse: "Sorry for a wrong “create your account” (catch-up of 29/10, To approve)",
           handle_trouve: "Dashboard: the @ given is found",
           handle_pas_trouve: "Dashboard: the @ given is still not found",
+          slack_lien_dm: "DM on joining Slack ({lien} = their personal link)",
+          lien_introuvable: "We can't find this post ({lien} = the link(s))",
           lundi_tous: "To everyone",
           lundi_cohorte: "New cohort, ready",
           lundi_warmup: "New cohort, not ready",
@@ -3832,6 +3855,14 @@ export const en = {
         titre: "Step reminders (new recruits)",
         on: "Every day, between 10 am and 8 pm their country's time: ONE reminder per recruit with only what they're missing (login with their email and password, TikTok account, Start warmup, follows). On Slack, or on Upwork only if they're not on Slack, within the Upwork budget of the day. Start warmup clicked but account not found: no message, the recruit goes to Needs you. Approve: the reminders wait in Messages sent → To approve and only go out after “Send selected”. The Thursday nudge has no switch: it only goes out from Weekly decisions → Thursday.",
       },
+      slack_lien_dm_auto: {
+        titre: "Slack: link DM on arrival",
+        on: "When someone joins Slack and the OS can't link them to a profile (by email or name), the bot sends them a DM: “Welcome! Click here to link your account: {link}”. The link opens their dashboard and links their Slack. Test: the link is created, nothing is sent.",
+      },
+      lien_introuvable_auto: {
+        titre: "Post link not found",
+        on: "A post link the OS still can't find on the profile 24 h after publishing: ONE message to the poster (Slack, or Upwork if not on Slack, 10 am-8 pm local time): “We can't find this post on your profile. Is it public and still online?”. Once per link. Needs you keeps one line per poster.",
+      },
       reponses_auto: {
         titre: "The OS reads and replies",
         on: "Messages from posters (Slack DMs, Done / I need help / I want to stop buttons, Upwork conversation read twice a day) are classified by AI (threshold 0.8). “I want to stop”: full stop. Work question: answer from the guide (raise: “The rate is fixed.”; own account: “Please use the account your dashboard gives you.”; on Upwork: sent to Slack). Payroll question: list, no reply. Sick or away: reminders paused, 7 days at most. The rest: “To read”. At most 3 automatic replies per poster per day.",
@@ -4319,6 +4350,7 @@ export const en = {
         envoi_main_introuvable: "Sent clicked by the HM, message not found on Upwork",
         warmup_capture: "Warm-up done: screenshot to check",
         handle_probable: "Probable TikTok @",
+        slack_non_lie: "Slack member linked to no profile (24 h)",
         a_payer_avant_fermeture: "Pay or refund before closing",
         samedi_non_valide: "Saturday decision not validated",
         upwork_limite: "Upwork is rate-limiting (429)",
@@ -6298,6 +6330,7 @@ export const en = {
         "Two posts published back to back compete with each other: one eats the other's views. Space them out and together they will do better.",
       delaiBouton: "Available in {{minutes}} min",
       delaiRefus: "Too soon: wait {{minutes}} more min before posting on this account.",
+      lienAutreCompte: "This link is from @{{lien}}, not your account @{{compte}}. Paste the link of the post from your account.",
       lienDejaUtilise:
         "This link is already on another of your slideshows (marked {{date}}). If you pasted it on the wrong one, open that slideshow, tap Edit link, paste the link of its own post, then come back here. Otherwise, open the post of THIS slideshow on TikTok, tap Share, then Copy link, and paste it here.",
       lienDejaUtiliseOuvrir: "Open the other slideshow →",

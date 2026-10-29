@@ -27,7 +27,7 @@ import {
   minutesDepuisErreurPublication,
 } from "@/features/moteur/delaiPublication";
 import { echeancePublication, publicationOuverte } from "@/features/moteur/echeancePublication";
-import { dateDepuisErreurLienDejaUtilise, lienPourEnregistrement } from "@/features/moteur/lienPublication";
+import { dateDepuisErreurLienDejaUtilise, handleAutreCompte, lienPourEnregistrement } from "@/features/moteur/lienPublication";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { Badge } from "@/components/ui/badge";
@@ -47,6 +47,7 @@ import {
   majPost,
   podDuPost,
   autrePostAvecLien,
+  handleDuCompte,
   paysDuCompte,
   rechargerPostCreateur,
   renettoyerSlide,
@@ -487,6 +488,12 @@ export function PosterPostPage() {
     queryFn: () => paysDuCompte(compteIdDuPost!),
     enabled: Boolean(compteIdDuPost),
     staleTime: Infinity,
+  });
+  // Prompt 25 MAJ, 7d : le lien doit venir du compte du post.
+  const handleCompte = useQuery({
+    queryKey: ["handle-compte", compteIdDuPost],
+    queryFn: () => handleDuCompte(compteIdDuPost!),
+    enabled: Boolean(compteIdDuPost),
   });
   const peutForcer = role === "admin" || role === "head_of_ops";
   const datePost = post.data?.date_publication_prevue ?? null;
@@ -1049,6 +1056,11 @@ export function PosterPostPage() {
                 >
                   {donnees.publie_url}
                 </a>
+              )}
+              {donnees.publie_url && handleAutreCompte(donnees.publie_url, handleCompte.data) && (
+                <p className="text-sm font-medium text-warning" role="alert" data-testid="lien-autre-compte">
+                  {t("posts.lienAutreCompte", { lien: handleAutreCompte(donnees.publie_url, handleCompte.data), compte: handleCompte.data })}
+                </p>
               )}
               {editionLien ? (
                 <div className="space-y-2">

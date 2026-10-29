@@ -50,7 +50,7 @@ describe("Réglages → Interrupteurs", () => {
     const ligne = within(document.querySelector<HTMLElement>('[data-interrupteur="accueil_auto"]')!);
     const on = ligne.getByRole("button", { name: "On" });
     expect(ligne.getByRole("button", { name: "Test" }).getAttribute("aria-pressed")).toBe("true");
-    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(7);
+    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(9);
     // Prompt 21, A6 : le message de Kill du dimanche est un interrupteur, « on » au départ.
     const kill = within(document.querySelector<HTMLElement>('[data-interrupteur="kill_message_auto"]')!);
     await vi.waitFor(() => expect(kill.getByRole("button", { name: "On" }).getAttribute("aria-pressed")).toBe("true"));

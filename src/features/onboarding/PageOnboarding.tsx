@@ -132,7 +132,14 @@ function CarteRecrue({ r }: { r: RecrueOnboarding }) {
                     <span className="font-medium">{t(`autoOnglets.attente.types.${m.type}`, { defaultValue: m.type })}</span>
                     <Badge variant="secondary">{(m.canaux?.length ? m.canaux : [m.canal ?? "—"]).join(" + ")}</Badge>
                     {m.expediteur && m.expediteur !== "slack" && (
-                      <span className="text-muted-foreground" data-expediteur={m.expediteur}>{t(`onboardingPosters.expediteurs.${m.expediteur}`, { defaultValue: m.expediteur })}</span>
+                      <span className="text-muted-foreground" data-expediteur={m.expediteur}>
+                        {m.expediteur === "hm" && m.hm_nom
+                          ? t("onboardingPosters.expediteurHm", { hm: m.hm_nom })
+                          : t(`onboardingPosters.expediteurs.${m.expediteur}`, { defaultValue: m.expediteur })}
+                      </span>
+                    )}
+                    {m.verif && (
+                      <Badge variant={m.verif === "verifie" ? "success" : "error"} data-verif={m.verif}>{t(`onboardingPosters.verifs.${m.verif}`)}</Badge>
                     )}
                     <Badge variant={m.statut === "erreur" ? "error" : "success"}>{t(`onboardingPosters.statuts.${m.statut}`)}</Badge>
                   </div>

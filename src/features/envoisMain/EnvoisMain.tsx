@@ -8,9 +8,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { localeDate } from "@/locales/localeDate";
 
-import { type EnvoiMain, lireEnvoisMain, marquerEnvoye } from "./api";
+import { aFaire, type EnvoiMain, lireEnvoisMain, marquerEnvoye } from "./api";
 
 const cle = (m: EnvoiMain) => `${m.poster_id}|${m.type}|${m.periode}`;
+
+const STATUT_VARIANTE: Record<EnvoiMain["statut_tache"], "warning" | "error" | "info" | "success"> = {
+  a_envoyer: "warning",
+  en_retard: "error",
+  sent: "info",
+  verifie: "success",
+  sent_introuvable: "error",
+};
 
 function Ligne({ m, avecHm }: { m: EnvoiMain; avecHm: boolean }) {
   const { t, i18n } = useTranslation();
@@ -30,7 +38,7 @@ function Ligne({ m, avecHm }: { m: EnvoiMain; avecHm: boolean }) {
         <Badge variant="secondary">{t(`envoisMain.types.${m.type}`, { defaultValue: m.type })}</Badge>
         {avecHm && <span className="text-xs text-muted-foreground">{t("envoisMain.hm", { hm: m.hm_nom ?? "—" })}</span>}
         <span className="text-xs tabular-nums text-muted-foreground">{heure.format(new Date(m.main_at))}</span>
-        {m.en_retard && <Badge variant="error">{t("envoisMain.retard")}</Badge>}
+        <Badge variant={STATUT_VARIANTE[m.statut_tache]} data-statut-tache={m.statut_tache}>{t(`envoisMain.statuts.${m.statut_tache}`)}</Badge>
         {m.salon_url && (
           <a className="text-xs underline" href={m.salon_url} target="_blank" rel="noreferrer">
             {t("envoisMain.salon")}
@@ -38,6 +46,7 @@ function Ligne({ m, avecHm }: { m: EnvoiMain; avecHm: boolean }) {
         )}
       </div>
       <p className="whitespace-pre-wrap break-words rounded-md bg-muted/50 p-2 text-xs">{m.texte}</p>
+      {aFaire(m) && (
       <div className="flex flex-wrap items-center gap-2">
         <Button
           size="xs"
@@ -54,6 +63,7 @@ function Ligne({ m, avecHm }: { m: EnvoiMain; avecHm: boolean }) {
         </Button>
         {fait.error && <span className="text-xs text-destructive">{(fait.error as Error).message}</span>}
       </div>
+      )}
     </li>
   );
 }
@@ -69,11 +79,12 @@ export function EnvoisMain({ avecHm = false, toujours = false }: { avecHm?: bool
   const { t } = useTranslation();
   const lu = useQuery({ queryKey: ["envois-main"], queryFn: lireEnvoisMain, refetchInterval: 60_000 });
   const liste = lu.data ?? [];
+  const n = liste.filter(aFaire).length;
   if (!toujours && liste.length === 0 && !lu.error) return null;
   return (
-    <Card id="a-envoyer-main" className={liste.length ? "border-warning/60" : undefined} data-testid="envois-main">
+    <Card id="a-envoyer-main" className={n ? "border-warning/60" : undefined} data-testid="envois-main">
       <CardHeader>
-        <CardTitle className="text-base">{t("envoisMain.titre", { n: liste.length })}</CardTitle>
+        <CardTitle className="text-base">{t("envoisMain.titre", { n })}</CardTitle>
         <CardDescription>{t("envoisMain.aide")}</CardDescription>
       </CardHeader>
       <CardContent className="text-sm">

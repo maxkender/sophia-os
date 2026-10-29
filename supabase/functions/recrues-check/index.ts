@@ -2181,6 +2181,48 @@ async function prevenirHms(supabase: Supabase, maintenant: Date) {
         .match({ poster_id: l.poster_id, type: l.type, periode: l.periode }).eq("statut", "main");
     }
   }
+  await rappelerHms(supabase, jeton, maintenant);
+}
+
+/**
+ * Prompt 25 MAJ, point 8 : rien d'envoyé (ni vu sur Upwork) 3 h après la
+ * tâche : un rappel Slack à la HM, une fois. À 6 h, la tâche passe dans Needs
+ * you (pour Lucia).
+ */
+async function rappelerHms(supabase: Supabase, jeton: string, maintenant: Date) {
+  const limite = new Date(maintenant.getTime() - 3 * 3_600_000).toISOString();
+  const { data } = await supabase.from("relances_prevues")
+    .select("poster_id, type, periode, main_at, main_hm_id, profiles(prenom, nom, manager_id)")
+    .eq("statut", "main").is("main_rappel_at", null).lt("main_at", limite).limit(500);
+  const parHm = new Map<string, { poster_id: string; type: string; periode: string; nom: string }[]>();
+  for (const l of (data ?? []) as unknown as (LigneMain & { profiles: { prenom: string | null; nom: string | null; manager_id: string | null } | null })[]) {
+    const hm = l.profiles?.manager_id ?? l.main_hm_id;
+    if (!hm) continue;
+    parHm.set(hm, [...(parHm.get(hm) ?? []), {
+      poster_id: l.poster_id, type: l.type, periode: l.periode,
+      nom: [l.profiles?.prenom, l.profiles?.nom].filter(Boolean).join(" ") || "Recruit",
+    }]);
+  }
+  for (const [hm, lignes] of parHm) {
+    const { data: s } = await supabase.from("hm_slack").select("slack_user_id").eq("profile_id", hm).maybeSingle();
+    const slackId = s?.slack_user_id as string | undefined;
+    if (!slackId) continue;
+    const noms = lignes.slice(0, 15).map((l) => `• ${l.nom} · ${LIBELLES_MAIN[l.type] ?? l.type}`).join("\n");
+    const r = await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        channel: slackId,
+        text: `:hourglass: Reminder: ${lignes.length} Upwork message(s) to send by hand are still waiting (3 h).\n${noms}\nSend them in the contract room, then click Sent: ${OS_URL}/manager/accueil#a-envoyer-main`,
+      }),
+    });
+    const corps = await r.json().catch(() => null);
+    if (!corps?.ok) continue;
+    for (const l of lignes) {
+      await supabase.from("relances_prevues").update({ main_rappel_at: new Date().toISOString() })
+        .match({ poster_id: l.poster_id, type: l.type, periode: l.periode }).eq("statut", "main");
+    }
+  }
 }
 
 /** Les blocs du DM : une ligne par message (20 au plus, le reste dans l'OS). */

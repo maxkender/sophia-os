@@ -10,7 +10,7 @@ const api = vi.hoisted(() => ({
   lireEnvoisMain: vi.fn<() => Promise<EnvoiMain[]>>(async () => []),
   marquerEnvoye: vi.fn<(m: Pick<EnvoiMain, "poster_id" | "type" | "periode">) => Promise<void>>(async () => undefined),
 }));
-vi.mock("./api", () => api);
+vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
 
 import { EnvoisMain } from "./EnvoisMain";
 
@@ -22,7 +22,7 @@ function rendu(el: React.ReactElement) {
 const envoi = (o: Partial<EnvoiMain>): EnvoiMain => ({
   poster_id: "p1", type: "accueil", periode: "2026-10-30", nom: "Aysel K", hm_id: "h1", hm_nom: "Amanda C", contrat_id: "44790000",
   salon_url: "https://www.upwork.com/nx/wm/workroom/44790000/overview", texte: "Hi Aysel, welcome to Vik Studios!", priorite: 0,
-  main_at: "2026-10-30T09:00:00Z", en_retard: false, ...o,
+  main_at: "2026-10-30T09:00:00Z", statut_tache: "a_envoyer", main_envoye_at: null, main_verif_at: null, main_rappel_at: null, ...o,
 });
 
 describe("To send by hand (prompt 25 v4)", () => {
@@ -40,7 +40,7 @@ describe("To send by hand (prompt 25 v4)", () => {
   it("le lien du contrat, le texte exact, Copy et Sent ; plus de 6 h signalé", async () => {
     const ecrire = vi.fn(async () => undefined);
     Object.assign(navigator, { clipboard: { writeText: ecrire } });
-    api.lireEnvoisMain.mockResolvedValue([envoi({}), envoi({ poster_id: "p2", type: "relance", nom: "Bo Li", texte: "Hi Bo", en_retard: true })]);
+    api.lireEnvoisMain.mockResolvedValue([envoi({}), envoi({ poster_id: "p2", type: "relance", nom: "Bo Li", texte: "Hi Bo", statut_tache: "en_retard" })]);
     rendu(<EnvoisMain avecHm />);
     const carte = await screen.findByTestId("envois-main");
     expect(within(carte).getByText("To send by hand (2)")).toBeTruthy();
@@ -54,5 +54,20 @@ describe("To send by hand (prompt 25 v4)", () => {
     fireEvent.click(within(ligne).getByRole("button", { name: "Sent" }));
     await waitFor(() => expect(api.marquerEnvoye).toHaveBeenCalledWith(expect.objectContaining({ poster_id: "p1", type: "accueil", periode: "2026-10-30" })));
     expect(within(carte.querySelector<HTMLElement>('[data-envoi-main="p2|relance|2026-10-30"]')!).getByText("Over 6 h")).toBeTruthy();
+  });
+
+  it("prompt 25 MAJ, point 8 : Sent cliqué (vérification), vérifié sur Upwork, introuvable ; plus de bouton une fois envoyé", async () => {
+    api.lireEnvoisMain.mockResolvedValue([
+      envoi({ poster_id: "a", statut_tache: "sent" }),
+      envoi({ poster_id: "b", statut_tache: "verifie" }),
+      envoi({ poster_id: "c", statut_tache: "sent_introuvable" }),
+    ]);
+    rendu(<EnvoisMain avecHm toujours />);
+    const carte = await screen.findByTestId("envois-main");
+    expect(await within(carte).findByText("Sent, checking Upwork")).toBeTruthy();
+    expect(within(carte).getByText("To send by hand (0)")).toBeTruthy();
+    expect(within(carte).getByText("Sent (verified)")).toBeTruthy();
+    expect(within(carte).getByText("Sent clicked, message not found")).toBeTruthy();
+    expect(within(carte).queryByRole("button", { name: "Sent" })).toBeNull();
   });
 });

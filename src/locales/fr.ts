@@ -3279,6 +3279,7 @@ export const fr = {
         reporte: "Pas prête dimanche : passée au lundi suivant",
         kill_message: "Message de Kill (Upwork)",
         contrat_termine: "Contrat terminé (Contract ended)",
+        tarif_corrige: "Tarif corrigé (Rate set from contract)",
       },
     },
     reponses: {
@@ -3468,6 +3469,8 @@ export const fr = {
           comptes: "Comptes",
           posts: "Posts faits / attendus",
           tarif: "Tarif",
+          tarifZone: "Tarif de zone",
+          tarifContrat: "Tarif du contrat",
           retenue: "Retenue",
           montant: "Montant",
           action: "Action",
@@ -3482,6 +3485,16 @@ export const fr = {
           annuler: "Demander un remboursement",
           rien: "Rien à payer",
           a_verifier: "À vérifier",
+          legacy: "Legacy (fin de période)",
+        },
+        tarifs: {
+          filtre: "Différent de la zone ({{n}})",
+          legacy: "Legacy : {{montant}} / {{jours}} j",
+          aVerifier: "À vérifier",
+          force: "(fixé à la main)",
+          fixer: "Tarif du contrat (par compte, par semaine)",
+          fixerAide: "Lu dans le contrat Upwork : {{raison}}. Fixe-le à la main si l'OS n'a pas pu le déduire ; vide = retour au contrat.",
+          enregistrer: "Enregistrer le tarif",
         },
         raisons: {
           warmup: "Semaine de warm-up : la 1re semaine de posts est la milestone financée à l'embauche.",

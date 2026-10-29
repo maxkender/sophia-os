@@ -36,6 +36,7 @@ import {
   type PosteurExistant,
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
+import { deduireTarif } from "../_shared/tarifs.ts";
 import {
   decrireJalons,
   etape,
@@ -538,6 +539,7 @@ async function lireJalons(supabase: Supabase, par: string | null) {
   await jetonValide(supabase, par);
   let lus = 0;
   let erreurs = 0;
+  const bilanTarifs = { hebdo: 0, legacy: 0, a_verifier: 0 };
   // 5 à la fois : ~270 contrats en moins d'une minute.
   for (let i = 0; i < aLire.length; i += 5) {
     const lot = aLire.slice(i, i + 5);
@@ -546,20 +548,74 @@ async function lireJalons(supabase: Supabase, par: string | null) {
         par, action: "jalons", query: REQUETE_JALONS, variables: { id: c.contrat_id }, tenant: c.organisation_id,
       });
       const jalon = jalonAApprouver(r.data?.contractDetails);
+      const tous = r.data?.contractDetails ? lireJalonsContrat(r.data.contractDetails) : null;
       return {
         contrat_id: String(c.contrat_id),
         organisation_id: c.organisation_id,
         ...jalon,
+        // Prompt 21, S (0415) : toutes les milestones, pour en déduire le tarif du contrat.
+        jalons: tous,
         erreur: r.data?.contractDetails ? null : (r.erreur ?? "réponse sans contractDetails"),
         lu_at: new Date().toISOString(),
       };
     }));
     const { error } = await supabase.from("upwork_jalons").upsert(lignes, { onConflict: "contrat_id" });
     if (error) throw error;
+    // Le tarif et le rythme de chaque contrat lu (jamais sur une lecture ratée).
+    const tarifs = lignes.filter((l) => !l.erreur && l.jalons).map((l) => {
+      const t = deduireTarif(l.jalons!);
+      return {
+        contrat_id: l.contrat_id, rythme: t.rythme, montant: t.montant, comptes: t.comptes, tarif_compte: t.tarif_compte,
+        periode_jours: t.periode_jours, courant: t.courant, raison: t.raison, lu_at: new Date().toISOString(),
+      };
+    });
+    if (tarifs.length) {
+      const { error: errT } = await supabase.from("contrats_tarifs").upsert(tarifs, { onConflict: "contrat_id" });
+      if (errT) throw errT;
+      bilanTarifs.hebdo += tarifs.filter((t) => t.rythme === "hebdo").length;
+      bilanTarifs.legacy += tarifs.filter((t) => t.rythme === "legacy").length;
+      bilanTarifs.a_verifier += tarifs.filter((t) => t.rythme === "a_verifier").length;
+    }
     lus += lignes.filter((l) => !l.erreur).length;
     erreurs += lignes.filter((l) => l.erreur).length;
   }
-  return { ok: true, contrats: aLire.length, lus, erreurs };
+  // Prompt 21, S2 : le contrat gagne. tarif_hebdo corrigé, noté dans le Pipeline (Logs).
+  const corriges = await corrigerTarifsHebdo(supabase).catch((e) => ({ erreur: messageErreur(e), corriges: 0 }));
+  return { ok: true, contrats: aLire.length, lus, erreurs, tarifs: bilanTarifs, ...("erreur" in corriges ? { erreur_tarifs: corriges.erreur } : { corriges: corriges.corriges }) };
+}
+
+/**
+ * Prompt 21, S2 (0415) : chaque posteur payé au tarif de SON contrat. Pour un
+ * contrat hebdo, tarif_hebdo prend le tarif par compte du contrat (fixé à la
+ * main s'il l'a été) ; chaque correction est notée (recrue_evenements,
+ * « tarif_corrige »). Legacy et à vérifier : rien n'est touché.
+ */
+async function corrigerTarifsHebdo(supabase: Supabase): Promise<{ corriges: number }> {
+  const { data: tarifs, error } = await supabase.from("contrats_tarifs").select("contrat_id, rythme, tarif_compte, force_tarif");
+  if (error) throw error;
+  const voulu = new Map<string, number>();
+  for (const t of tarifs ?? []) {
+    const v = t.force_tarif !== null ? Number(t.force_tarif) : t.rythme === "hebdo" && t.tarif_compte !== null ? Number(t.tarif_compte) : null;
+    if (v !== null && Number.isFinite(v)) voulu.set(String(t.contrat_id), v);
+  }
+  if (voulu.size === 0) return { corriges: 0 };
+  const { data: profils, error: errP } = await supabase.from("profiles").select("id, upwork_contract_id, tarif_hebdo")
+    .eq("is_active", true).in("upwork_contract_id", [...voulu.keys()]);
+  if (errP) throw errP;
+  let corriges = 0;
+  for (const p of profils ?? []) {
+    const v = voulu.get(String(p.upwork_contract_id));
+    if (v === undefined || (p.tarif_hebdo !== null && Math.abs(Number(p.tarif_hebdo) - v) < 0.005)) continue;
+    const { error: errU } = await supabase.from("profiles").update({ tarif_hebdo: v }).eq("id", p.id);
+    if (errU) continue;
+    corriges++;
+    await supabase.from("recrue_evenements").upsert({
+      poster_id: p.id, type: "tarif_corrige", at: new Date().toISOString(),
+      detail: `tarif_hebdo ${p.tarif_hebdo ?? "vide"} → ${v} $ (contrat ${p.upwork_contract_id})`,
+      cle: `tarif_corrige:${p.tarif_hebdo ?? "vide"}:${v}`,
+    }, { onConflict: "poster_id,type,cle", ignoreDuplicates: true });
+  }
+  return { corriges };
 }
 
 // ---------------------------------------------------------------------------

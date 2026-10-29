@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabase/client";
  * La liste de paie du lundi (0380), pour l'admin et le Head of Ops : une
  * ligne par posteur, regroupée par équipe (une HM et sa zone).
  */
-export type ActionPaie = "payer" | "payer_moins" | "kill" | "modifier" | "annuler" | "rien";
+export type ActionPaie = "payer" | "payer_moins" | "kill" | "modifier" | "annuler" | "rien" | "legacy" | "a_verifier";
 
 export type SuivantePaie =
   | "financer"
@@ -191,5 +191,38 @@ export async function enregistrerReglagesPaie(
     { cle: "bonus_parrainage_actif", valeur: parrainageActif, ...par },
     { cle: "paie_bonus_premiere_semaine", valeur: bonusPremiereSemaine, ...par },
   ]);
+  if (error) throw error;
+}
+
+/** Prompt 21, S (0415) : le tarif du contrat Upwork à côté du tarif de zone. */
+export interface TarifPaie {
+  poster_id: string;
+  contrat_id: string | null;
+  tarif_zone: number | null;
+  tarif_contrat: number | null;
+  rythme: "hebdo" | "legacy" | "a_verifier" | null;
+  montant: number | null;
+  comptes: number | null;
+  periode_jours: number | null;
+  raison: string | null;
+  force: boolean;
+}
+
+export async function lireTarifsPaie(posterIds: string[]): Promise<Map<string, TarifPaie>> {
+  if (posterIds.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("paie_tarifs", { p_posters: posterIds });
+  if (error) throw error;
+  const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
+  return new Map(
+    ((data ?? []) as TarifPaie[]).map((t) => [
+      t.poster_id,
+      { ...t, tarif_zone: num(t.tarif_zone), tarif_contrat: num(t.tarif_contrat), montant: num(t.montant), comptes: num(t.comptes), periode_jours: num(t.periode_jours) },
+    ]),
+  );
+}
+
+/** Le tarif d'un contrat impossible à déduire, fixé par l'admin (par compte et par semaine). */
+export async function fixerTarifContrat(contratId: string, tarif: number | null): Promise<void> {
+  const { error } = await supabase.rpc("contrat_tarif_fixer", { p_contrat: contratId, p_tarif: tarif });
   if (error) throw error;
 }

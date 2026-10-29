@@ -4,6 +4,7 @@ import { Lien1000Card } from "@/features/moteur/Lien1000Card";
 import { PageCohortes } from "@/features/cohortes/PageCohortes";
 import { PageNudges } from "@/features/nudges/PageNudges";
 import { PagePipeline } from "@/features/pipeline/PagePipeline";
+import { CarteSante } from "@/features/frequences/Frequences";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -25,6 +26,7 @@ export function OverviewPage() {
     <PageAuto cle="overview">
       <GrandInterrupteur />
       <ResumeNeedsYou />
+      <CarteSante />
       <Interrupteurs />
       <CarteUpwork />
       <Lien1000Card />

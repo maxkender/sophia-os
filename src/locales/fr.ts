@@ -3293,6 +3293,20 @@ export const fr = {
         tarif_corrige: "Tarif corrigé (Rate set from contract)",
       },
     },
+    frequences: {
+      titre: "Fréquence des passages Upwork",
+      aide: "Les tâches passent toutes les 15 minutes et n'agissent qu'à leur tour. Un changement vaut au passage suivant. Avant chaque vérification des Kills, les réponses Upwork sont toujours relues.",
+      accueil: { titre: "Welcome check", aide: "offres acceptées et message de bienvenue" },
+      reponses: { titre: "Upwork replies", aide: "réponses dans les conversations où l'OS a écrit depuis 14 jours" },
+      etapes: { titre: "Step checks", aide: "les 4 étapes et les relances" },
+      dernier: "dernier passage {{heure}}",
+      double: "Upwork a limité (429) : {{duree}} aujourd'hui",
+      sante: {
+        titre: "Health",
+        appels: "Appels Upwork aujourd'hui : {{n}} / {{limite}}",
+        alerte: "Au-dessus de {{seuil}} : ralentir les passages Upwork.",
+      },
+    },
     needsYou: {
       categories: "Catégories",
       cat: { pas_pu_repondre: "Pas pu répondre", bloque: "Bloqué", pas_sur: "Pas sûr", a_la_main: "À la main" },
@@ -3333,6 +3347,7 @@ export const fr = {
         kill_incomplet: "Kill sur des données incomplètes",
         remboursement: "Remboursement à suivre",
         samedi_non_valide: "Décision du samedi pas validée",
+        upwork_limite: "Upwork limite les appels (429)",
       },
       actions: {
         compter: "Count this post",

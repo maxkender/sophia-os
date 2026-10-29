@@ -68,3 +68,33 @@ export async function enregistrerTextesReponses(textes: Record<TexteReponse, str
     .upsert((Object.keys(CLES_TEXTES_REPONSES) as TexteReponse[]).map((k) => ({ cle: CLES_TEXTES_REPONSES[k], valeur: textes[k], ...par })));
   if (error) throw error;
 }
+
+/** Prompt 22, partie 7 : un Kill automatique arrêté par une réaction du posteur (kills_auto, raison « réaction reçue »). */
+export interface KillArrete {
+  poster_id: string;
+  annule_at: string | null;
+}
+
+export async function lireKillsArretes(posteurs: readonly string[]): Promise<KillArrete[]> {
+  if (posteurs.length === 0) return [];
+  const { data, error } = await supabase
+    .from("kills_auto")
+    .select("poster_id, annule_at")
+    .in("poster_id", [...posteurs])
+    .eq("statut", "annule")
+    .eq("raison", "réaction reçue");
+  if (error) throw error;
+  return (data ?? []) as KillArrete[];
+}
+
+/** L'identifiant Slack de chaque posteur : le lien vers sa conversation Slack. */
+export async function lireSlackPosteurs(posteurs: readonly string[]): Promise<Map<string, string>> {
+  if (posteurs.length === 0) return new Map();
+  const { data, error } = await supabase.from("profiles").select("id, slack_user_id").in("id", [...posteurs]);
+  if (error) throw error;
+  return new Map(
+    (data ?? [])
+      .filter((p) => typeof p.slack_user_id === "string" && p.slack_user_id)
+      .map((p) => [p.id as string, p.slack_user_id as string]),
+  );
+}

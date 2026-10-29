@@ -12,8 +12,10 @@ import { enregistrerReglagesPaiementApi, lireReglagesPaiementApi, type ReglagesP
  * Paiement par l'API Upwork (prompt 14, point 3, 0399) : le mode (éteint,
  * test sur les contrats choisis, tout le monde), les dates d'ouverture et les
  * plafonds. Modifiables par l'admin seulement ; le Head of Ops les lit.
+ * Prompt 22, partie 8 : le mode est affiché en tête ; passer sur « Tout le
+ * monde » (on) demande une confirmation explicite, refusée = rien n'est écrit.
  */
-export function ReglagesPaiementApi() {
+export function ReglagesPaiementApi({ ouvert = false }: { ouvert?: boolean }) {
   const { t } = useTranslation();
   const { role } = useAuth();
   const admin = role === "admin";
@@ -28,11 +30,16 @@ export function ReglagesPaiementApi() {
     }
   }, [lu.data]);
   const enregistrer = useMutation({
-    mutationFn: () =>
-      enregistrerReglagesPaiementApi({
+    mutationFn: async () => {
+      // Prompt 22 : jamais « on » sans confirmation explicite (de vrais paiements partiraient).
+      if (r!.mode === "on" && lu.data?.mode !== "on" && !window.confirm(t("autoOnglets.payroll.confirmerOn"))) {
+        throw new Error(t("autoOnglets.payroll.onAnnule"));
+      }
+      await enregistrerReglagesPaiementApi({
         ...r!,
         contrats_test: contrats.split(/[\s,;]+/).map((c) => c.trim()).filter(Boolean),
-      }),
+      });
+    },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["reglages", "paie-api"] }),
   });
   if (!r) return null;
@@ -49,10 +56,18 @@ export function ReglagesPaiementApi() {
     </label>
   );
   return (
-    <details className="rounded-xl border px-4 py-3" data-testid="reglages-paie-api">
+    <details className="rounded-xl border px-4 py-3" data-testid="reglages-paie-api" open={ouvert}>
       <summary className="cursor-pointer text-sm font-medium">
         {t("paie.api.reglages.titre")} · <span className="text-muted-foreground">{t(`paie.api.reglages.modes.${r.mode}`)}</span>
       </summary>
+      {lu.data && (
+        <p className="pt-2 text-sm" data-testid="mode-paie-api" data-mode={lu.data.mode}>
+          {t("autoOnglets.payroll.modeActuel", { mode: t(`paie.api.reglages.modes.${lu.data.mode}`) })}
+        </p>
+      )}
+      {r.mode === "on" && lu.data?.mode !== "on" && (
+        <p className="pt-1 text-xs font-medium text-destructive">{t("autoOnglets.payroll.attentionOn")}</p>
+      )}
       <p className="pt-2 text-xs text-muted-foreground">{t("paie.api.reglages.aide")}</p>
       {!admin && <p className="pt-1 text-xs text-muted-foreground">{t("paie.reglagesV3.lectureSeule")}</p>}
       <fieldset disabled={!admin} className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">

@@ -15,6 +15,8 @@ import { ReglagesPaie } from "./ReglagesPaie";
 import { ZonesPaie } from "@/features/reglagesOs/ZonesPaie";
 import { cn } from "@/lib/utils";
 
+const ONGLETS_PAIE = ["liste", "reglages", "zones"] as const;
+
 /**
  * La paie du lundi (0361, v3 0380), pour l'admin et le Head of Ops (Lucia) :
  * la liste pour la semaine qui vient de finir, par équipe, le bloc Comment
@@ -32,13 +34,15 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
   });
   const fin = ajouterJours(semaine, 6);
   const [simulation, setSimulation] = React.useState(false);
-  // Partie E : un onglet « Zones » (tarif par zone, pays → zone).
-  const [onglet, setOnglet] = React.useState<"liste" | "zones">("liste");
+  // Partie E : un onglet « Zones » (tarif par zone, pays → zone). Prompt 22,
+  // partie 8 : un onglet « Réglages » (paie et bonus, paie par l'API : mode,
+  // contrats de test, plafonds). La liste reste le premier onglet.
+  const [onglet, setOnglet] = React.useState<(typeof ONGLETS_PAIE)[number]>("liste");
 
   return (
     <div className="space-y-6">
       <div className="inline-flex rounded-md border p-0.5 text-sm" role="tablist">
-        {(["liste", "zones"] as const).map((o) => (
+        {ONGLETS_PAIE.map((o) => (
           <button
             key={o}
             type="button"
@@ -53,6 +57,11 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
       </div>
       {onglet === "zones" ? (
         <ZonesPaie />
+      ) : onglet === "reglages" ? (
+        <div className="space-y-4">
+          <ReglagesPaiementApi ouvert />
+          <ReglagesPaie ouvert />
+        </div>
       ) : (
         <>
           <div>
@@ -94,9 +103,6 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
           <ListePaie semaine={semaine} simulation={simulation} />
 
           {apres}
-
-          <ReglagesPaie />
-          <ReglagesPaiementApi />
         </>
       )}
     </div>

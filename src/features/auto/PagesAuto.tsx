@@ -2,7 +2,7 @@ import { CarteUpwork } from "@/features/upwork/CarteUpwork";
 import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
 import { Lien1000Card } from "@/features/moteur/Lien1000Card";
 import { PageCohortes } from "@/features/cohortes/PageCohortes";
-import { PageNudges } from "@/features/nudges/PageNudges";
+import { PageMessagesEnvoyes } from "@/features/auto/sent/PageMessagesEnvoyes";
 import { PagePipeline } from "@/features/pipeline/PagePipeline";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
@@ -54,7 +54,7 @@ export function DecisionsPage() {
 export function SentPage() {
   return (
     <PageAuto cle="sent">
-      <PageNudges />
+      <PageMessagesEnvoyes />
     </PageAuto>
   );
 }

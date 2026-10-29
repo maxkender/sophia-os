@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o042",
+ "schema_id": "signaux-recruteur",
+ "titre": "6 signaux en entretien qui te disent que le recruteur a déjà décidé (et c'est oui) #entretien #rechercheemploi #emploi #recrutement #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 4. Routine du 29/10 (6 livraisons). Règle §4.6 : seule rh-o043 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les 5 autres ouvrent des familles jamais faites chez nous (« signaux », « questions pièges », « test », « je négocie », « ma routine »). Schéma signaux-recruteur, réactivé le 29/10 (r 5,25 sur 4 passages, d9f07ab9), jamais écrit chez nous. Accroches écrites : celle-ci (retenue : gabarit gagnant + promesse positive), « les signes qu'un entretien se passe mieux que tu crois » (écartée : plus faible), « ton recruteur a déjà dit oui si… » (écartée : affirmation trop sûre). Six signaux neufs, aucune reprise de la source (prénoms de l'équipe, il vend les avantages, questions pratiques, prochaines étapes, durée dépassée). Formulés comme des indices, jamais comme une garantie. Aucune vraie entreprise (la slide 4 de la source en citait une : écartée). CTA de fin jamais utilisé : raconter le signal vécu. Inspirations : sans les slides 4 et 5 de d9f07ab9 (une vraie entreprise citée, une appli concurrente) ni la 6 de e33deadc (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aab0039a",
+   "texte_overlay": "6 signaux en entretien\nqui te disent que le recruteur a déjà décidé\n(et c'est oui)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b75b12c6",
+   "texte_overlay": "1. il prend des notes quand tu parles de tes résultats\npas quand tu te présentes.\nil prépare déjà son retour à son manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8b95cdb9",
+   "texte_overlay": "2. il te présente quelqu'un de l'équipe, à l'improviste\n« attends, je vais chercher léa, elle sera ravie de te rencontrer »\non ne dérange pas une collègue pour rien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8bce4db2",
+   "texte_overlay": "3. il sort du script\nil te parle d'un livre, d'un voyage, de ta ville.\nil teste si t'es agréable au quotidien",
+   "texte_sophia": "3. il sort du script\nil te parle d'un livre, d'un voyage, de ta ville.\nperso, j'ouvre l'appli Sophia 5 minutes chaque matin, et j'ai toujours de quoi suivre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8c05443e",
+   "texte_overlay": "4. il te demande ce qui pourrait te faire dire non\nil anticipe tes objections.\nc'est qu'il veut que tu dises oui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8c60db5a",
+   "texte_overlay": "5. il te parle de « quand tu seras là »\npas de « si ».\nun petit mot qui change tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8cc8974d",
+   "texte_overlay": "6. il te raccompagne et continue à parler\njusqu'à l'ascenseur, sans regarder sa montre.\nbon signe, même si rien n'est jamais garanti",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8cffa8de",
+   "texte_overlay": "t'as déjà vécu lequel ?\nraconte en commentaire\net dis-nous si t'as eu le poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

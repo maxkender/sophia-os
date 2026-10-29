@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o047",
+ "schema_id": "erreurs-chomage",
+ "titre": "ma routine de recherche d'emploi qui a enfin marché (après 7 mois de chaos) #rechercheemploi #chomage #routine #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 6. Routine du 29/10 (6 livraisons). Règle §4.6 : seule rh-o043 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les 5 autres ouvrent des familles jamais faites chez nous (« signaux », « questions pièges », « test », « je négocie », « ma routine »). Schéma erreurs-chomage (r 3,52 sur 6 passages, 4adc261e) : l'échec raconté puis réparé, ici sous forme de routine. Famille d'accroche jamais faite : « ma routine ». Accroches écrites : celle-ci (retenue), « ma journée type de chômeuse qui a retrouvé un job » (écartée : moins positive), « le planning qui m'a sortie du chômage » (écartée : promesse trop forte). Créneaux neufs, aucune reprise de rh-o014, rh-o020, rh-o026, rh-o030 ni de la source. Rien sur les droits au chômage. CTA de fin jamais utilisé : écrire l'heure à laquelle on commence demain. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d3828d94",
+   "texte_overlay": "ma routine de recherche d'emploi\nqui a enfin marché\n(après 7 mois de chaos)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9d882a84",
+   "texte_overlay": "9 h : je fais le point, 10 minutes\n3 actions pour la journée, pas une de plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9d9d0a3d",
+   "texte_overlay": "9 h 15 : deux candidatures, vraiment ciblées\nchacune relue, chacune adaptée.\nfini les 15 envois à l'aveugle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9e58e767",
+   "texte_overlay": "11 h : un message à quelqu'un du métier\nune question, pas une demande de job.\nc'est comme ça que les portes s'ouvrent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ec88e8e",
+   "texte_overlay": "13 h : je sors marcher\nmême 20 minutes.\nla recherche d'emploi, ça use la tête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9f4375bf",
+   "texte_overlay": "14 h : j'apprends un truc\nmes 3 options : un tuto pour le métier, un podcast, ou une leçon d'histoire",
+   "texte_sophia": "14 h : j'apprends un truc\nmes 3 options : un tuto pour le métier, un podcast, ou 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9fd56f99",
+   "texte_overlay": "17 h : j'arrête\npas de candidatures le soir.\nle cerveau a besoin de couper pour tenir des mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9ff76564",
+   "texte_overlay": "tu commences à quelle heure demain ?\nécris l'heure en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

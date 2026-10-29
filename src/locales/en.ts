@@ -93,6 +93,26 @@ export const en = {
         fini: "Ready",
       },
     },
+    // Prompt 25 v4 (0442) : Upwork plein → « To send by hand » chez la HM.
+    envoisMain: {
+      titre: "To send by hand ({{n}})",
+      aide: "Upwork is full for today (both OS accounts). Paste each text in the recruit's contract room on Upwork, then click Sent: it's logged as sent on Upwork, by you. Not marked Sent after 6 hours: it goes to Needs you.",
+      vide: "Nothing to send by hand.",
+      hm: "HM: {{hm}}",
+      retard: "Over 6 h",
+      salon: "Open the contract room",
+      copier: "Copy",
+      copie: "Copied",
+      envoye: "Sent",
+      types: {
+        accueil: "Welcome",
+        relance: "Step reminder",
+        lundi: "Monday message",
+        lundi_soir: "Monday 8 pm",
+        jeudi: "Thursday nudge",
+        reponse: "Reply to their question",
+      },
+    },
     autoOnglets: {
       decisions: {
         onglets: { jeudi: "Thursday", samedi: "Saturday", reglages: "Settings" },
@@ -228,7 +248,7 @@ export const en = {
       },
       sent: {
         ongletsAria: "Messages sent tabs",
-        onglets: { journal: "Log", approuver: "To approve", prevus: "Planned", apercu: "Preview", textes: "Texts", timing: "Timing" },
+        onglets: { journal: "Log", approuver: "To approve", main: "By hand (HMs)", prevus: "Planned", apercu: "Preview", textes: "Texts", timing: "Timing" },
         journal: {
           titre: "Every message sent",
           aide: "Welcome, steps 1 to 4, Monday, Monday 8 pm, Thursday, Kill, stop, automatic replies, pop-ups and dashboard notes. Most recent first.",
@@ -4129,6 +4149,7 @@ export const en = {
         liaison_incertaine: "Uncertain contract ↔ poster link",
         kill_incomplet: "Kill on incomplete data",
         remboursement: "Refund to follow",
+        envoi_main_6h: "Not sent by hand after 6 h",
         a_payer_avant_fermeture: "Pay or refund before closing",
         samedi_non_valide: "Saturday decision not validated",
         upwork_limite: "Upwork is rate-limiting (429)",

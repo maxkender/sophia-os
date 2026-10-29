@@ -50,6 +50,7 @@ Deno.serve(async (request) => {
     const action = payload?.actions?.[0];
     if (payload?.type !== "block_actions") return new Response("", { status: 200 });
     if (action?.action_id === "comment_fait") await commentFait(payload, action);
+    else if (action?.action_id === "envoi_main_fait") await envoiMainFait(payload, action);
     else if (action?.action_id && action.action_id in BOUTONS) await boutonPosteur(payload, action);
     else if (action?.action_id === ACTION_DONE) {
       // Plusieurs lectures et deux écritures Slack : on répond d'abord à Slack
@@ -105,6 +106,30 @@ async function boutonPosteur(payload: any, action: any) {
       }),
     }).catch(() => undefined);
   }
+}
+
+/**
+ * Prompt 25 v4 (0442) : « Sent » sous un message à envoyer à la main (DM à la
+ * HM, Upwork plein) : le message est noté parti (Upwork, par la HM) ; la ligne
+ * du DM devient « ✅ Sent ».
+ */
+// deno-lint-ignore no-explicit-any
+async function envoiMainFait(payload: any, action: any) {
+  const supabase = serviceClient();
+  const v = JSON.parse(String(action.value ?? "{}")) as { p?: string; t?: string; d?: string };
+  const { data: hm } = await supabase.from("hm_slack").select("profile_id").eq("slack_user_id", String(payload?.user?.id ?? "")).maybeSingle();
+  const { error } = await supabase.rpc("envoi_main_fait", { p_poster: v.p, p_type: v.t, p_periode: v.d, p_par: hm?.profile_id ?? null });
+  if (!payload.response_url) return;
+  const note = error ? `⚠️ Not logged: ${error.message}` : "✅ Sent, logged in the OS";
+  // deno-lint-ignore no-explicit-any
+  const blocks = (payload.message?.blocks ?? []).map((b: any) =>
+    b?.block_id === action.block_id ? { type: "context", elements: [{ type: "mrkdwn", text: note }] } : b
+  );
+  await fetch(payload.response_url, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ replace_original: true, text: payload.message?.text ?? "", blocks }),
+  }).catch(() => undefined);
 }
 
 // deno-lint-ignore no-explicit-any

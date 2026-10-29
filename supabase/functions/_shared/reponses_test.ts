@@ -48,10 +48,16 @@ Deno.test("travail : le guide, l'augmentation, son propre compte ; sur Upwork, r
   // Prompt 21, C8 : sans lien Slack (réglage vide), rien ne part, une personne lira.
   const sansLien = planReponse(c({ reponse: "x" }), "upwork", { ...R, slack: " " }, 0);
   assertEquals([sansLien.repondre, sansLien.liste], [null, "a_lire"]);
+  // Prompt 25 v4 : sur Upwork, toute question reçoit « ask on Slack » (et reste à lire).
+  const aLire = planReponse(c({ confiance: 0.3 }), "upwork", R, 0);
+  assertEquals([aLire.repondre, aLire.liste], ["Thanks! For anything about the work, please ask on Slack: https://join.slack.com/x.", "a_lire"]);
 });
 
 Deno.test("paie : liste, jamais de réponse ; stop : arrêt ; absent : pause de 7 jours au plus", () => {
-  assertEquals(planReponse(c({ cas: "paie" }), "upwork", R, 0), { cas: "paie", repondre: null, bloque: null, arret: false, pause: null, liste: "paie" });
+  assertEquals(planReponse(c({ cas: "paie" }), "slack", R, 0), { cas: "paie", repondre: null, bloque: null, arret: false, pause: null, liste: "paie" });
+  // Prompt 25 v4 : sur Upwork, une question de paie reçoit aussi « ask on Slack », et reste dans la liste.
+  assertEquals(planReponse(c({ cas: "paie" }), "upwork", R, 0).repondre, "Thanks! For anything about the work, please ask on Slack: https://join.slack.com/x.");
+  assertEquals(planReponse(c({ cas: "paie" }), "upwork", R, 0).liste, "paie");
   assertEquals(planReponse(c({ cas: "stop" }), "slack", R, 0).arret, true);
   assertEquals(planReponse(c({ cas: "absent", jours: 3 }), "slack", R, 0).pause, 3);
   assertEquals(planReponse(c({ cas: "absent", jours: 20 }), "slack", R, 0).pause, 7);

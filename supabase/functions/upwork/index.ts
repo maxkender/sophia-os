@@ -2168,6 +2168,17 @@ async function creerEtAccueillir(
     return { erreur: null };
   }
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
+  if (!envoi.ok && envoi.budget) {
+    // Prompt 25 v4 (0442) : Upwork plein (Max et Adrien) : la HM envoie la bienvenue à la main aujourd'hui.
+    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+    await supabase.from("relances_prevues").upsert({
+      poster_id: cree.userId, type: "accueil", periode: jour, statut: "main", canal: "upwork", texte, raison: "upwork_plein",
+      main_at: new Date().toISOString(), main_hm_id: a.hm_id, main_slack_at: null, maj_at: new Date().toISOString(),
+      donnees: { contrat: a.contrat_id, cohorte: a.cohorte_lundi || null, email: cree.email ?? null },
+    });
+    await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM (To send by hand)", message_texte: texte });
+    return { erreur: null };
+  }
   if (!envoi.ok) {
     const erreur = `message de bienvenue : ${"error" in envoi ? envoi.error : "non envoyé"}`;
     await fin({ statut: "erreur", raison: erreur, message_texte: texte });

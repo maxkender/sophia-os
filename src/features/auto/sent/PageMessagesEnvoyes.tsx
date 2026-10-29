@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { Prevues, StatsRelances } from "@/features/nudges/PageNudges";
 import { ReglagesRegles } from "@/features/regles/ReglagesRegles";
+import { EnvoisMain } from "@/features/envoisMain/EnvoisMain";
 
 import { OngletsAuto, PanneauOnglet } from "../OngletsAuto";
 import { useOnglet } from "../useOnglet";
@@ -10,7 +11,7 @@ import { JournalMessages } from "./JournalMessages";
 import { TextesMessages } from "./TextesMessages";
 import { TimingMessages } from "./TimingMessages";
 
-const ONGLETS = ["journal", "approuver", "prevus", "apercu", "textes", "timing"] as const;
+const ONGLETS = ["journal", "approuver", "main", "prevus", "apercu", "textes", "timing"] as const;
 
 /**
  * Messages sent (prompt 22, partie 6) : tout ce que l'OS envoie. Le journal
@@ -40,6 +41,9 @@ export function PageMessagesEnvoyes() {
         ) : onglet === "approuver" ? (
           // Prompt 25 : rien ne part sans « Send selected » (mode Approve, et ce qui attendait un Send).
           <AApprouver />
+        ) : onglet === "main" ? (
+          // Prompt 25 v4 : Upwork plein, les messages que les HM envoient à la main.
+          <EnvoisMain avecHm toujours />
         ) : onglet === "prevus" ? (
           <Prevues />
         ) : onglet === "apercu" ? (

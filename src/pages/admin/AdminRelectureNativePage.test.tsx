@@ -22,6 +22,10 @@ const listerKit = vi.fn();
 const listerEcrituresKit = vi.fn();
 const majPostKit = vi.fn();
 const synchroniserNotion = vi.fn();
+const listerExemples = vi.fn();
+const ajouterExemples = vi.fn();
+const lireExemple = vi.fn();
+const majLabelExemple = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
   lireReglageRelecture: () => lireReglage(),
@@ -41,6 +45,11 @@ vi.mock("@/features/relectureNative/api", () => ({
   ajouterPostKit: vi.fn(),
   supprimerPostKit: vi.fn(),
   synchroniserNotion: () => synchroniserNotion(),
+  listerExemplesNatifs: () => listerExemples(),
+  ajouterExemplesNatifs: (...a: unknown[]) => ajouterExemples(...a),
+  lireExempleNatif: (...a: unknown[]) => lireExemple(...a),
+  majLabelExemple: (...a: unknown[]) => majLabelExemple(...a),
+  supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
 }));
 
@@ -66,6 +75,11 @@ const POST_KIT = {
 };
 
 vi.mock("@/features/moteur/api", () => ({
+  listerLabels: () =>
+    Promise.resolve([
+      { id: "l-smart", nom: "smart_girl" },
+      { id: "l-alpha", nom: "alpha_male" },
+    ]),
   listerPosters: () =>
     Promise.resolve([
       { id: "p1", prenom: "Ayşe", nom: "Yılmaz", email: "a@x.io", role: "poster", is_active: true, langues: [], comptes: [{ langue: "tr" }] },
@@ -110,6 +124,9 @@ describe("AdminRelectureNativePage", () => {
     listerEcrituresKit.mockResolvedValue([]);
     majPostKit.mockResolvedValue(undefined);
     synchroniserNotion.mockResolvedValue({ ok: true, ecrites: 2 });
+    listerExemples.mockResolvedValue([]);
+    lireExemple.mockResolvedValue({ statut: "pret" });
+    majLabelExemple.mockResolvedValue(undefined);
   });
 
   it("montre l'espace fermé et la production coupée, et ouvre l'espace", async () => {
@@ -220,5 +237,59 @@ describe("AdminRelectureNativePage", () => {
     expect(within(ligne).getByLabelText("Kit fini")).toBeInTheDocument();
     expect(within(ligne).getByText("AY")).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText("Posts écrits").closest("div")).toHaveTextContent(/1\s*\/ 1/));
+  });
+
+  it("banque d'exemples natifs : couverture par label, ajout de liens puis lecture un par un", async () => {
+    const pret = {
+      id: "e1",
+      langue: "de",
+      source_url: "https://www.tiktok.com/@motiversum/photo/1",
+      handle: "motiversum",
+      label_id: "l-smart",
+      slides: [
+        { position: 2, texte: "1. Sie hören zu" },
+        { position: 1, texte: "8 psychologische Fakten" },
+      ],
+      vues: 12000,
+      statut: "pret",
+      erreur: null,
+      created_at: "2026-10-29T10:00:00Z",
+    };
+    listerExemples.mockResolvedValue([pret, { ...pret, id: "e9", langue: "tr", label_id: null }]);
+    rendre();
+    fireEvent.click(screen.getByRole("button", { name: "Exemples natifs" }));
+    const section = await screen.findByTestId("exemples-natifs");
+    expect(await within(section).findByText("1 / 20 exemples prêts")).toBeInTheDocument();
+    const couverture = within(section).getByRole("list", { name: "Couverture par label" });
+    await waitFor(() => expect(couverture).toHaveTextContent("smart_girl · 1"));
+    expect(couverture).toHaveTextContent("alpha_male · 0");
+    // Seul l'exemple allemand s'affiche ; son texte se déplie, slide par slide.
+    expect(screen.queryByTestId("exemple-e9")).not.toBeInTheDocument();
+    const ligne = screen.getByTestId("exemple-e1");
+    expect(within(ligne).getByText("8 psychologische Fakten")).toBeInTheDocument();
+    fireEvent.click(within(ligne).getByRole("button", { name: "Texte" }));
+    expect(within(ligne).getByText("1. Sie hören zu")).toBeInTheDocument();
+
+    // Ajout : la fonction crée les lignes en attente, puis l'OS les lit une par une.
+    ajouterExemples.mockResolvedValue({
+      ajoutes: 2,
+      deja: 0,
+      comptes: [{ pseudo: "zitatxplorer", slideshows: 1 }],
+      ignorees: ["n'importe quoi"],
+    });
+    const attente = (id: string) => ({ ...pret, id, statut: "en_attente", slides: [], vues: null, label_id: "l-alpha" });
+    listerExemples.mockResolvedValue([pret, attente("e2"), attente("e3")]);
+    fireEvent.change(within(section).getByRole("combobox", { name: "Label" }), { target: { value: "l-alpha" } });
+    fireEvent.change(within(section).getByRole("textbox"), {
+      target: { value: "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi" },
+    });
+    fireEvent.click(within(section).getByRole("button", { name: "Ajouter et lire" }));
+    await waitFor(() =>
+      expect(ajouterExemples).toHaveBeenCalledWith("de", "l-alpha", "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi"),
+    );
+    expect(await within(section).findByTestId("resume-ajout")).toHaveTextContent("2 ajouté(s), 0 déjà dans la banque.");
+    expect(within(section).getByTestId("resume-ajout")).toHaveTextContent("@zitatxplorer : 1 slideshow(s) trouvé(s)");
+    await waitFor(() => expect(lireExemple).toHaveBeenCalledTimes(2));
+    expect(lireExemple.mock.calls.map((c) => c[0]).sort()).toEqual(["e2", "e3"]);
   });
 });

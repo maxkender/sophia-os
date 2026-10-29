@@ -24,6 +24,7 @@ const api = vi.hoisted(() => ({
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
 
 import { PageNeedsYou } from "./PageNeedsYou";
+import { ResumeNeedsYou } from "./ResumeNeedsYou";
 
 function cas(o: Partial<CasNeedsYou>): CasNeedsYou {
   return {
@@ -102,5 +103,42 @@ describe("Needs you (prompt 21, U)", () => {
     fireEvent.change(within(ligne).getByLabelText("Répondre et ajouter à la FAQ"), { target: { value: "Every Monday." } });
     fireEvent.click(within(ligne).getByRole("button", { name: "Répondre et ajouter à la FAQ" }));
     await waitFor(() => expect(api.repondreQuestions).toHaveBeenCalledWith(["q1", "q2"], "Every Monday."));
+  });
+});
+
+describe("Needs you depuis Overview (prompt 22, partie 3)", () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage("fr");
+    vi.clearAllMocks();
+    api.lireNeedsYou.mockResolvedValue(LISTE);
+  });
+
+  function renduDepuis(depart: string, el: React.ReactElement) {
+    const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+    return render(
+      <QueryClientProvider client={qc}>
+        <MemoryRouter initialEntries={[depart]}>{el}</MemoryRouter>
+      </QueryClientProvider>,
+    );
+  }
+
+  it("un compteur d'Overview arrive déjà filtré sur son type (?type=…) ; ✕ retire le filtre", async () => {
+    renduDepuis("/admin/auto/needs-you?type=compte_introuvable,question_faq", <PageNeedsYou />);
+    await screen.findByText("Cid");
+    expect([...document.querySelectorAll("[data-cas]")].map((x) => x.getAttribute("data-cas")).sort()).toEqual(["compte:c1", "faq:abc"]);
+    fireEvent.click(screen.getByTestId("filtre-type"));
+    await waitFor(() => expect(document.querySelectorAll("[data-cas]")).toHaveLength(4));
+  });
+
+  it("le résumé d'Overview : chaque ligne a « Régler », qui mène à Needs you filtré sur son type", async () => {
+    renduDepuis("/admin/auto", <ResumeNeedsYou />);
+    const fix = await waitFor(() => {
+      const x = document.querySelector('[data-fix="compte:c1"]');
+      if (!x) throw new Error("pas encore");
+      return x;
+    });
+    expect(fix.textContent).toBe("Régler");
+    expect(fix.getAttribute("href")).toBe("/admin/auto/needs-you?type=compte_introuvable");
+    expect(document.querySelectorAll("[data-fix]")).toHaveLength(4);
   });
 });

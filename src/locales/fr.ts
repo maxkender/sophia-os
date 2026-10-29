@@ -82,6 +82,7 @@ export const fr = {
         pret: "{{n}}. Warm-up fait",
       },
       messages: "Messages envoyés ({{n}})",
+      recus: "Messages reçus ({{n}})",
       aucunMessage: "Aucun message envoyé.",
       expediteurs: { secours: "depuis le compte d'Adrien", principal: "depuis le compte de Max", hm: "envoyé par la HM" },
       expediteurHm: "envoyé par la HM {{hm}}",
@@ -175,6 +176,9 @@ export const fr = {
           filtres: {
             hm: "HM",
             toutesHm: "Toutes les HM",
+            cohorte: "Cohorte",
+            toutesCohortes: "Toutes les cohortes",
+            cohorteDu: "Cohorte du {{date}}",
             pays: "Pays",
             tousPays: "Tous les pays",
             posts: "Posts",
@@ -190,6 +194,7 @@ export const fr = {
             titre: "Masterlist du samedi : tous les comptes actifs ({{n}})",
             aide: "Une ligne par compte : posts avec lien du lundi au samedi, vues, nudgé jeudi ou non, signaux, et la proposition de l'OS avec sa raison. Kill, Double ou Keep, pré-rempli avec la proposition ; mêmes filtres et même tri que le jeudi. Rien ne se passe avant Validate.",
             choix: { kill: "Kill & pay", kill_np: "Kill & don't pay", double: "Double", keep: "Keep" },
+            groupes: { premiere: "2. Première semaine de posts ({{n}})", anciens: "3. Anciens posteurs ({{n}})" },
             demande: {
               bouton: "Demande d'arrêt (bouton I want to stop)",
               message: "Demande d'arrêt (message)",
@@ -246,7 +251,7 @@ export const fr = {
             bilan: "{{decides}} comptes décidés · {{kills}} recrues arrêtées · {{reports}} recrues reportées",
           },
           recrues: {
-            titre: "Recrues qui n'ont pas réagi aux relances ({{n}})",
+            titre: "1. Prochaine cohorte : recrues qui n'ont pas réagi aux relances ({{n}})",
             aide: "La cohorte du lundi suivant, pas prête, relancée cette semaine sans réponse depuis la dernière relance. Kill (tout de suite à Validate, sans message, comme les autres) ou reporter d'une semaine. Rien ne se passe avant Validate.",
             vide: "Aucune recrue sans réaction.",
             choix: { kill: "Kill", reporter: "Reporter", rien: "Rien" },
@@ -4064,6 +4069,14 @@ export const fr = {
         logs: "Tout ce que l'automatisation a fait. Ce qui t'attend et ce qui casse est dans Needs you.",
       },
       sante: {
+        compteurs: {
+          titre: "Messages Upwork, 7 derniers jours (partis par l'OS · confiés aux HM)",
+          vide: "Aucun message Upwork ces 7 derniers jours.",
+          jour: "Jour",
+          cellule: "{{upwork}} · {{hm}}",
+          attente: "En attente maintenant :",
+          attenteType: "{{type}} {{n}} en file, {{main}} chez les HM",
+        },
         upwork: "Connexion Upwork",
         expire: "Jeton valable jusqu'au {{quand}}",
         renouvellementOk: "dernier renouvellement le {{quand}}",

@@ -141,3 +141,15 @@ export async function lireJournal(f: FiltreJournal): Promise<LigneJournal[]> {
   if (error) throw error;
   return (data ?? []) as LigneJournal[];
 }
+
+/** Décisions finales 4 : les messages Upwork des 7 derniers jours, par jour et par type, ceux confiés aux HM, et ce qui attend. */
+export interface CompteursUpwork {
+  jours: { jour: string; type: string; upwork: number; hm: number }[];
+  attente: { type: string; n: number; main: number }[];
+}
+
+export async function lireCompteursUpwork(): Promise<CompteursUpwork> {
+  const { data, error } = await supabase.rpc("sante_messages_upwork");
+  if (error) throw error;
+  return (data ?? { jours: [], attente: [] }) as CompteursUpwork;
+}

@@ -66,7 +66,7 @@ describe("le jeudi (prompt 25, partie 3)", () => {
     expect(filtrerComptes(l, { ...FILTRES_VIDES, nom: "bo" }).map((x) => x.compte_id)).toEqual(["b"]);
     expect(trierComptes(l, "posts_desc").map((x) => x.compte_id)).toEqual(["c", "b", "a"]);
     expect(trierComptes(l, "posts_asc").map((x) => x.compte_id)).toEqual(["a", "b", "c"]);
-    expect(optionsFiltres(l)).toEqual({ hms: [["aucune", "—"], ["h2", "Ines"], ["h1", "Lucia"]], pays: ["ES", "FR"] });
+    expect(optionsFiltres(l)).toEqual({ hms: [["aucune", "—"], ["h2", "Ines"], ["h1", "Lucia"]], pays: ["ES", "FR"], cohortes: ["2026-10-19"] });
   });
 });
 

@@ -82,6 +82,7 @@ export const en = {
         pret: "{{n}}. Warm-up done",
       },
       messages: "Messages sent ({{n}})",
+      recus: "Messages received ({{n}})",
       aucunMessage: "No message sent yet.",
       expediteurs: { secours: "from Adrien's account", principal: "from Max's account", hm: "sent by the HM" },
       expediteurHm: "sent by HM {{hm}}",
@@ -175,6 +176,9 @@ export const en = {
           filtres: {
             hm: "HM",
             toutesHm: "All HMs",
+            cohorte: "Cohort",
+            toutesCohortes: "All cohorts",
+            cohorteDu: "Cohort {{date}}",
             pays: "Country",
             tousPays: "All countries",
             posts: "Posts",
@@ -190,6 +194,7 @@ export const en = {
             titre: "Saturday masterlist: every active account ({{n}})",
             aide: "One line per account: posts with link Monday to Saturday, views, nudged on Thursday or not, signals, and the OS proposal with its reason. Kill, Double or Keep, pre-filled with the proposal; same filters and sort as Thursday. Nothing happens before Validate.",
             choix: { kill: "Kill & pay", kill_np: "Kill & don't pay", double: "Double", keep: "Keep" },
+            groupes: { premiere: "2. First week of posts ({{n}})", anciens: "3. Older posters ({{n}})" },
             demande: {
               bouton: "Asked to stop (I want to stop button)",
               message: "Asked to stop (message)",
@@ -246,7 +251,7 @@ export const en = {
             bilan: "{{decides}} accounts decided · {{kills}} recruits stopped · {{reports}} recruits postponed",
           },
           recrues: {
-            titre: "Recruits who didn't react to the reminders ({{n}})",
+            titre: "1. Next cohort: recruits who didn't react to the reminders ({{n}})",
             aide: "Next Monday's cohort, not ready, reminded this week with no reply since the last reminder. Kill (right away on Validate, with no message, like the others) or postpone by one week. Nothing happens before Validate.",
             vide: "No recruit without reaction.",
             choix: { kill: "Kill", reporter: "Postpone", rien: "Nothing" },
@@ -4056,6 +4061,14 @@ export const en = {
         logs: "Everything the automation did. What needs you and what's broken is in Needs you.",
       },
       sante: {
+        compteurs: {
+          titre: "Upwork messages, last 7 days (sent by the OS · given to the HMs)",
+          vide: "No Upwork message in the last 7 days.",
+          jour: "Day",
+          cellule: "{{upwork}} · {{hm}}",
+          attente: "Waiting now:",
+          attenteType: "{{type}} {{n}} queued, {{main}} with the HMs",
+        },
         upwork: "Upwork connection",
         expire: "Token expires {{quand}}",
         renouvellementOk: "last renewal {{quand}}",

@@ -99,15 +99,18 @@ export interface FiltresListe {
   /** « tous », « oui » (shadowban supposé ou compte mort), « non ». */
   shadowban: string;
   nom: string;
+  /** Décisions finales 2 : la cohorte (lundi de début), « » = toutes. */
+  cohorte: string;
 }
 
-export const FILTRES_VIDES: FiltresListe = { hm: "", pays: "", posts: "tous", shadowban: "tous", nom: "" };
+export const FILTRES_VIDES: FiltresListe = { hm: "", pays: "", posts: "tous", shadowban: "tous", nom: "", cohorte: "" };
 
 export function filtrerComptes(liste: readonly CompteSemaine[], f: FiltresListe): CompteSemaine[] {
   const nom = f.nom.trim().toLowerCase();
   return liste.filter((c) => {
     if (f.hm && (c.hm_id ?? "aucune") !== f.hm) return false;
     if (f.pays && (c.pays ?? "") !== f.pays) return false;
+    if (f.cohorte && (c.cohorte_lundi ?? "") !== f.cohorte) return false;
     if (f.posts === "0" && c.lien_total !== 0) return false;
     if (f.posts === "max2" && c.lien_total > 2) return false;
     if (f.posts === "max4" && c.lien_total > 4) return false;
@@ -136,13 +139,16 @@ export function trierComptes(liste: readonly CompteSemaine[], tri: Tri): CompteS
 export function optionsFiltres(liste: readonly CompteSemaine[]) {
   const hms = new Map<string, string>();
   const pays = new Set<string>();
+  const cohortes = new Set<string>();
   for (const c of liste) {
     hms.set(c.hm_id ?? "aucune", c.hm_nom ?? "—");
     if (c.pays) pays.add(c.pays);
+    if (c.cohorte_lundi) cohortes.add(c.cohorte_lundi);
   }
   return {
     hms: [...hms.entries()].sort((a, b) => a[1].localeCompare(b[1])),
     pays: [...pays].sort(),
+    cohortes: [...cohortes].sort().reverse(),
   };
 }
 

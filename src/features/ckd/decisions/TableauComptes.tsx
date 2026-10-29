@@ -36,7 +36,7 @@ export function BarreFiltres({
   setTri: (t: Tri) => void;
 }) {
   const { t } = useTranslation();
-  const { hms, pays } = React.useMemo(() => optionsFiltres(liste), [liste]);
+  const { hms, pays, cohortes } = React.useMemo(() => optionsFiltres(liste), [liste]);
   const f = (k: keyof FiltresListe) => (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => setFiltres({ ...filtres, [k]: e.target.value });
   return (
     <div className="flex flex-wrap items-center gap-2" data-testid="filtres-liste">
@@ -53,6 +53,14 @@ export function BarreFiltres({
         {pays.map((p) => (
           <option key={p} value={p}>
             {p}
+          </option>
+        ))}
+      </select>
+      <select className={selectClass} aria-label={t("autoOnglets.decisions.liste.filtres.cohorte")} value={filtres.cohorte} onChange={f("cohorte")}>
+        <option value="">{t("autoOnglets.decisions.liste.filtres.toutesCohortes")}</option>
+        {cohortes.map((c) => (
+          <option key={c} value={c}>
+            {t("autoOnglets.decisions.liste.filtres.cohorteDu", { date: c })}
           </option>
         ))}
       </select>
@@ -93,7 +101,9 @@ export function CelluleCompte({ c }: { c: CompteSemaine }) {
   return (
     <div className="min-w-40 space-y-0.5">
       <HandleTiktok handle={c.handle} pays={c.pays} className="font-medium" />
-      <p className="text-xs text-muted-foreground">{[c.poster_nom, c.hm_nom ? `HM ${c.hm_nom}` : null].filter(Boolean).join(" · ")}</p>
+      <p className="text-xs text-muted-foreground">
+        {[c.poster_nom, c.hm_nom ? `HM ${c.hm_nom}` : null, c.cohorte_lundi ? `${c.cohorte_lundi.slice(8, 10)}/${c.cohorte_lundi.slice(5, 7)}` : null].filter(Boolean).join(" · ")}
+      </p>
     </div>
   );
 }

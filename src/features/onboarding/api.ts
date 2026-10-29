@@ -110,3 +110,21 @@ export async function lireDerniersReleves(posteurs: string[]): Promise<Map<strin
 export function heuresDepuis(at: string, maintenant = new Date()): number {
   return Math.max(0, Math.floor((maintenant.getTime() - new Date(at).getTime()) / 3_600_000));
 }
+
+/** Décisions finales 4 : les derniers messages reçus de chaque recrue (Slack, Upwork, dashboard). */
+export interface MessageRecu {
+  poster_id: string;
+  canal: string | null;
+  recu_at: string;
+  texte: string | null;
+  cas: string | null;
+}
+
+export async function lireMessagesRecus(posteurs: string[]): Promise<Map<string, MessageRecu[]>> {
+  if (posteurs.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("messages_recus_posteurs", { p_posteurs: posteurs });
+  if (error) throw error;
+  const m = new Map<string, MessageRecu[]>();
+  for (const x of (data ?? []) as MessageRecu[]) m.set(x.poster_id, [...(m.get(x.poster_id) ?? []), x]);
+  return m;
+}

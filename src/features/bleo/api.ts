@@ -402,6 +402,47 @@ export interface LigneBoitePost {
   passages: PassageBoite[];
 }
 
+/** Une ligne du suivi avant/après (vue `bleo_suivi_jours`, 0617). */
+export interface JourSuivi {
+  jour: string;
+  assignes: number;
+  publies: number;
+  mesures: number;
+  r_median: number | null;
+  part_10k: number | null;
+  vues_par_post: number | null;
+  plan_bleo: number;
+  tierlist: number;
+}
+
+export async function listerSuivi(jours = 21): Promise<JourSuivi[]> {
+  const { data, error } = await supabase
+    .from("bleo_suivi_jours")
+    .select("*")
+    .order("jour", { ascending: false })
+    .limit(jours);
+  if (error) throw error;
+  return (data ?? []) as JourSuivi[];
+}
+
+/** L'alerte du suivi (0617) : r médian des derniers jours mesurés contre les 14 d'avant. */
+export interface AlerteSuivi {
+  alerte: boolean;
+  jour_fin: string | null;
+  jours_recents?: number;
+  jours_reference?: number;
+  r_recent?: number | null;
+  r_reference?: number | null;
+  baisse?: number | null;
+  seuil?: number;
+}
+
+export async function lireAlerteSuivi(): Promise<AlerteSuivi> {
+  const { data, error } = await supabase.rpc("bleo_suivi_alerte");
+  if (error) throw error;
+  return data as AlerteSuivi;
+}
+
 export type ModeBleo = "off" | "ombre" | "actif";
 
 export interface ChangementModeBleo {

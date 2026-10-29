@@ -2161,6 +2161,23 @@ export const fr = {
     bleo: {
       mode: "Mode : {{mode}}",
       modes: { off: "coupé", ombre: "à blanc", ab: "A/B", actif: "actif" },
+      suivi: {
+        titre: "Avant / après la bascule",
+        description:
+          "Jour par jour, hors rappels et posts de test : le r médian (mesuré 72 h après la publication, donc 3 à 4 jours de retard), la part des posts à 10 000 vues, les vues par post et la part des passages servis par le plan BLEO.",
+        comparaison:
+          "r médian des {{n}} derniers jours mesurés (jusqu'au {{jour}}) : {{recent}}, contre {{reference}} sur les {{m}} jours d'avant ({{ecart}}). L'alerte se lève à −15 %.",
+        alerteTitre: "Alerte : le r médian baisse de {{baisse}}",
+        alerteDetail:
+          "{{recent}} sur les {{n}} derniers jours mesurés (jusqu'au {{jour}}), contre {{reference}} sur les {{m}} jours d'avant. Si la baisse vient de BLEO, « Revenir à l'ancien système » rend la nuit suivante à la tierlist.",
+        jour: "Jour",
+        publies: "Publiés",
+        rMedian: "r médian",
+        part10k: "≥ 10 k vues",
+        vuesParPost: "Vues par post",
+        planBleo: "Plan BLEO",
+        pasMur: "Pas encore mesuré : le r d'un post se calcule 72 h après sa publication.",
+      },
       interrupteur: {
         bouton_actif: "Passer en actif",
         bouton_ombre: "Revenir à l'ancien système",

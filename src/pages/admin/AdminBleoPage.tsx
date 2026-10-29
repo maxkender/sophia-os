@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { listerNuits, listerRuns, lireReglagesBleo, runOfficiel, type RapportPlan } from "@/features/bleo/api";
 import { formaterJour, formaterNombre, formaterPart, formaterQuand, part, PORTES } from "@/features/bleo/format";
+import { CarteSuivi } from "@/features/bleo/CarteSuivi";
 import { InterrupteurMode } from "@/features/bleo/InterrupteurMode";
 import { EnteteTableau, EtatRequete, EtiquetteIcone, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, TitreCarte } from "@/features/bleo/ui";
 
@@ -118,6 +119,8 @@ export function AdminBleoPage() {
           </CardContent>
         </Card>
       )}
+
+      <CarteSuivi />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>

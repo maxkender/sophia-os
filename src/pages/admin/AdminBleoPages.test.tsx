@@ -41,6 +41,22 @@ vi.mock("@/features/auth/AuthContext", async (original) => ({
 vi.mock("@/features/bleo/api", async (original) => ({
   ...(await original<typeof import("@/features/bleo/api")>()),
   changerModeBleo: (mode: string) => changerModeBleo(mode),
+  listerSuivi: () =>
+    Promise.resolve([
+      { jour: "2026-11-04", assignes: 500, publies: 450, mesures: 10, r_median: null, part_10k: 0.03, vues_par_post: 2100, plan_bleo: 470, tierlist: 30 },
+      { jour: "2026-11-03", assignes: 500, publies: 460, mesures: 455, r_median: 1.21, part_10k: 0.09, vues_par_post: 5300, plan_bleo: 480, tierlist: 20 },
+    ]),
+  lireAlerteSuivi: () =>
+    Promise.resolve({
+      alerte: true,
+      jour_fin: "2026-11-06",
+      jours_recents: 3,
+      jours_reference: 14,
+      r_recent: 0.8,
+      r_reference: 1,
+      baisse: 0.2,
+      seuil: 0.15,
+    }),
   lireReglagesBleo: () =>
     Promise.resolve({ mode: "ombre", slide_marquee: false, boite: { generation_max: 2, declinaisons_par_parent: 3 } }),
   listerNuits: () =>
@@ -288,6 +304,14 @@ describe("section BLEO de l'OS", () => {
     fireEvent.click(boutons[boutons.length - 1]);
     await vi.waitFor(() => expect(changerModeBleo).toHaveBeenCalledWith("actif"));
     await vi.waitFor(() => expect(screen.queryByText("Passer BLEO en actif ?")).not.toBeInTheDocument());
+  });
+
+  it("vue d'ensemble : suivi avant/après, jour non mesuré en attente, alerte à −20 %", async () => {
+    rendre(<AdminBleoPage />);
+    expect(await screen.findByText("Alerte : le r médian baisse de 20 %")).toBeInTheDocument();
+    expect(screen.getByText("1,21")).toBeInTheDocument();
+    expect(screen.getByText("…")).toBeInTheDocument();
+    expect(screen.getByText("96 %")).toBeInTheDocument(); // 480 sur 500 servis par le plan
   });
 
   it("plan du jour : le tirage officiel par défaut, compte par compte", async () => {

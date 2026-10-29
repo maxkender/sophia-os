@@ -222,6 +222,21 @@ export const REQUETE_JALONS = `query Jalons($id: ID!) {
   }
 }`;
 
+/** Le statut d'un seul contrat (décisions finales : fermé par le freelance ?). */
+export const REQUETE_STATUT_CONTRAT = `query StatutContrat($id: ID!) {
+  contractDetails(id: $id) { id status }
+}`;
+
+/**
+ * Le contrat est-il fermé ? Seulement un statut lu et clairement terminé :
+ * actif, en pause, suspendu ou vide → non (jamais de désactivation sur un doute).
+ */
+export function contratFerme(statut: string | null | undefined): boolean {
+  const s = String(statut ?? "").trim().toUpperCase();
+  if (!s || s === "ACTIVE" || s.includes("PAUS") || s.includes("SUSPEND") || s.includes("PENDING")) return false;
+  return s.includes("CLOS") || s.includes("END") || s.includes("TERMINAT") || s.includes("CANCEL");
+}
+
 /** Une milestone financée et pas encore payée (MilestoneState, schéma lu le 28/10). */
 export const ETATS_FINANCES = ["Active", "Submitted", "Rejected"];
 

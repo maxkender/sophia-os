@@ -14,12 +14,12 @@ export type ModeInterrupteur = "off" | "test" | "approve" | "on";
  */
 export const AVEC_APPROVE: readonly string[] = ["accueil_auto", "relances_auto", "lundi_soir_auto"];
 
+/** Décisions finales : plus de Kill automatique, l'interrupteur `kill_auto` n'est plus proposé. */
 export const INTERRUPTEURS = [
   "accueil_auto",
   "relances_auto",
   "lundi_message_auto",
   "lundi_soir_auto",
-  "kill_auto",
   "kill_message_auto",
   "arret_auto",
   "reponses_auto",

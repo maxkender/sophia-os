@@ -73,9 +73,10 @@ export const fr = {
       reporter: "Postpone",
       confirmReporter: "Reporter {{nom}} à la cohorte de la semaine suivante ?",
       reporte: "Reportée à la cohorte du {{date}}.",
-      arreter: "Stop",
-      confirmArreter: "Arrêter {{nom}} ? Désactivée dans l'OS, puis l'arrêt complet (Slack, contrat).",
-      arrete: "Arrêt demandé (Recruits → arrêts complets).",
+      arreter: "Kill samedi",
+      confirmArreter: "Mettre {{nom}} dans la masterlist du samedi, Kill pré-coché ? Les relances s'arrêtent tout de suite ; rien n'est désactivé avant Validate samedi.",
+      arrete: "Dans la masterlist du samedi, Kill pré-coché. Relances coupées.",
+      demande: "Demande d'arrêt",
       filtres: {
         hm: "HM",
         tousHm: "Toutes les HM",
@@ -139,6 +140,12 @@ export const fr = {
             titre: "Masterlist du samedi : tous les comptes actifs ({{n}})",
             aide: "Une ligne par compte : posts avec lien du lundi au samedi, vues, nudgé jeudi ou non, signaux, et la proposition de l'OS avec sa raison. Kill, Double ou Keep, pré-rempli avec la proposition ; mêmes filtres et même tri que le jeudi. Rien ne se passe avant Validate.",
             choix: { kill: "Kill", double: "Double", keep: "Keep" },
+            demande: {
+              bouton: "Demande d'arrêt (bouton I want to stop)",
+              message: "Demande d'arrêt (message)",
+              persona: "Persona refusé",
+              manuel: "Envoyé au samedi par Max",
+            },
             rienAProposer: "Rien à signaler",
             manuel: "Choisi à la main",
             dejaDecide: "Déjà décidé",
@@ -303,7 +310,7 @@ export const fr = {
           lundi: { titre: "Lundi", quand: "Le lundi matin, à tous ; en plus, à la nouvelle cohorte (prête ou pas)." },
           lundi_soir: { titre: "Lundi 20 h", quand: "1er jour de posts sans post publié, sur Upwork." },
           jeudi: { titre: "Jeudi", quand: "Un seul nudge à tous ceux qui ont un problème." },
-          kill: { titre: "Kill", quand: "Kill du samedi : aucun message (désactivé, retiré de Slack, contrat fermé) ; lundi matin (moins de 6 posts)." },
+          kill: { titre: "Kill", quand: "Seulement Validate du samedi : aucun message (désactivé, retiré de Slack, contrat fermé). Jamais automatique." },
           arret: { titre: "Arrêt complet", quand: "Le dernier message sur Upwork, à la fin du contrat." },
           popups: { titre: "Pop-ups Double et Recréer", quand: "Sur le tableau de bord du posteur." },
           regularite: { titre: "Nudge de régularité", quand: "Sur le tableau de bord, pour poster plus régulièrement." },
@@ -3545,7 +3552,7 @@ export const fr = {
       navDesc: "Une relance par étape, envoyée par l'OS : le journal, le mode et les textes",
       titre: "Relances",
       description:
-        "L'OS vérifie chaque recrue toutes les heures (connexion, compte TikTok, warm-up lancé, warm-up bien fait), écrit à tous les posteurs le lundi 10 h et relance le jeudi ceux à qui il manque des posts ou des liens. Étape en retard : UN message, jamais deux. 48 h après, ni étape faite ni réponse : Kill automatique (interrupteur « Kill automatique »), annulable 12 h dans Cohortes.",
+        "L'OS vérifie chaque recrue toutes les heures (connexion, compte TikTok, warm-up lancé, warm-up bien fait), écrit à tous les posteurs le lundi 10 h et relance le jeudi ceux à qui il manque des posts ou des liens. Étape en retard : UN message, jamais deux. Aucun Kill automatique : les recrues qui ne réagissent pas, et ceux qui demandent à arrêter, vont dans la masterlist du samedi ; seul Validate les arrête.",
       hm: "HM : {{hm}}",
       types: {
         connexion: "1. Connexion",
@@ -3676,7 +3683,7 @@ export const fr = {
       },
       lundi_soir_auto: {
         titre: "Check du lundi soir",
-        on: "Chaque lundi à 20 h, heure du pays : la nouvelle cohorte et les 2es comptes qui démarrent, sans aucun post publié avec son lien ce jour-là, reçoivent UN message sur Upwork. Approve : les messages attendent dans Messages sent → To approve et ne partent qu'après « Send selected ». 48 h après, ni post ni réponse : Kill automatique (interrupteur « Kill automatique »), annulable 12 h ; un 2e compte : seul ce compte s'arrête.",
+        on: "Chaque lundi à 20 h, heure du pays : la nouvelle cohorte et les 2es comptes qui démarrent, sans aucun post publié avec son lien ce jour-là, reçoivent UN message sur Upwork. Approve : les messages attendent dans Messages sent → To approve et ne partent qu'après « Send selected ». Plus de Kill automatique ensuite : masterlist du samedi.",
       },
       relances_auto: {
         titre: "Relances des recrues",
@@ -3688,7 +3695,7 @@ export const fr = {
       },
       arret_auto: {
         titre: "Arrêt complet",
-        on: "Chaque arrêt (Kill à 48 h, « je ne veux plus », Arrêter) : désactivé dans l'OS ; jamais posté : dernier message sur Upwork (« Your contract has ended. Thank you for your time. »), milestones non financées supprimées, remboursement à demander dans la liste de paie, contrat fermé par l'API s'il ne reste rien de financé ; déjà posté : payé pour la semaine en cours lundi, puis contrat fermé. Slack : liste « À retirer de Slack ».",
+        on: "Chaque arrêt (Validate du samedi, ou à la main) : désactivé dans l'OS ; jamais posté : dernier message sur Upwork (« Your contract has ended. Thank you for your time. »), milestones non financées supprimées, remboursement à demander dans la liste de paie, contrat fermé par l'API s'il ne reste rien de financé ; déjà posté : payé pour la semaine en cours lundi, puis contrat fermé. Slack : liste « À retirer de Slack ».",
       },
       kill_message_auto: {
         titre: "Message de Kill (dimanche)",
@@ -4232,6 +4239,7 @@ export const fr = {
       actions: {
         arret: "Arrêt complet demandé (Cohorts → Arrêts complets)",
         arret_simule: "Arrêt complet (simulé, test)",
+        demande_arret: "Demande d'arrêt : relances coupées, dans la masterlist du samedi avec Kill pré-coché",
         pause: "Relances en pause",
         pause_simulee: "Relances en pause (simulé, test)",
       },

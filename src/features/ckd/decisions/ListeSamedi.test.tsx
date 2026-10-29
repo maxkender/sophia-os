@@ -4,13 +4,15 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 
-import type { CompteSemaine, RecrueSansReaction } from "./semaineComptes";
+import type { CompteSemaine, DemandeArret, RecrueSansReaction } from "./semaineComptes";
 import { compte } from "./semaineComptes.test";
 
 const api = vi.hoisted(() => ({
   lireSemaineComptes: vi.fn<(lundi: string, jusqu: string) => Promise<CompteSemaine[]>>(async () => []),
   lireRecruesSansReaction: vi.fn<(lundi: string) => Promise<RecrueSansReaction[]>>(async () => []),
   choisirSamedi: vi.fn<(compte: string, action: string) => Promise<string>>(async (c) => `manuel-${c}`),
+  lireDemandesArret: vi.fn<() => Promise<DemandeArret[]>>(async () => []),
+  garderMalgreDemande: vi.fn<(poster: string) => Promise<void>>(async () => undefined),
 }));
 vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./semaineComptes")>()), ...api }));
 const ckd = vi.hoisted(() => ({ deciderCkd: vi.fn<(id: string, decision: string, note: string | null) => Promise<void>>(async () => undefined) }));
@@ -99,6 +101,35 @@ describe("Weekly decisions → Saturday, la masterlist (prompt 25, partie 4)", (
     expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
     // Prompt 25 v4 : les arrêts partent tout de suite (sans message), pas dimanche.
     await waitFor(() => expect(moteur.invoke).toHaveBeenCalledWith("upwork", { action: "arrets" }));
+  });
+
+  it("décisions finales : une demande d'arrêt arrive Kill pré-coché avec sa raison ; Keep la classe « garder »", async () => {
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "c", handle: "calme", poster_id: "pc", cohorte_lundi: "2026-10-19" }),
+      compte({ compte_id: "e", handle: "envie", poster_id: "pe", cohorte_lundi: "2026-10-19" }),
+    ]);
+    api.lireRecruesSansReaction.mockResolvedValue([recrue({ poster_id: "r3", nom: "Zoe K", compte_id: null, relances: 0 })]);
+    api.lireDemandesArret.mockResolvedValue([
+      { poster_id: "pc", source: "bouton", raison: "I want to stop (button)", demande_at: "2026-10-30T10:00:00Z" },
+      { poster_id: "pe", source: "persona", raison: "I won't post this", demande_at: "2026-10-30T11:00:00Z" },
+      { poster_id: "r3", source: "message", raison: "STOP", demande_at: "2026-10-30T12:00:00Z" },
+    ]);
+    rendu();
+    await waitFor(() => expect(presse("calme", "Kill")).toBe("true"));
+    expect(presse("envie", "Kill")).toBe("true");
+    expect(within(ligne("envie")).getByText("Persona refusé")).toBeInTheDocument();
+    expect(within(ligne("envie")).getByText("« I won't post this »")).toBeInTheDocument();
+    const zoe = (await screen.findByTestId("samedi-recrues")).querySelector<HTMLElement>('[data-recrue="r3"]')!;
+    expect(within(zoe).getByRole("button", { name: "Kill" }).getAttribute("aria-pressed")).toBe("true");
+    expect(within(zoe).getByText("Demande d'arrêt (message)")).toBeInTheDocument();
+    // Max garde « envie » : la demande est classée, les relances reprennent ; les deux autres partent en Kill.
+    fireEvent.click(within(ligne("envie")).getByRole("button", { name: "Keep" }));
+    fireEvent.click(screen.getByRole("button", { name: "Validate" }));
+    await waitFor(() => expect(api.garderMalgreDemande).toHaveBeenCalledWith("pe"));
+    expect(api.garderMalgreDemande).toHaveBeenCalledTimes(1);
+    expect(api.choisirSamedi).toHaveBeenCalledWith("c", "ne_pas_renouveler");
+    expect(cohortes.arreterRecrueSamedi).toHaveBeenCalledWith("r3");
   });
 
   it("le Head of Ops lit la masterlist sans Validate", async () => {

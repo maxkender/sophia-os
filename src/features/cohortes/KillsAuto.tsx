@@ -4,7 +4,7 @@ import { Skull } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { lireInterrupteurs } from "@/features/interrupteurs/api";
+import type { ModeInterrupteur } from "@/features/interrupteurs/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
@@ -22,17 +22,18 @@ const VARIANTE: Record<KillAuto["statut"], "info" | "warning" | "secondary" | "e
  * Système du 2 nov., partie B : les Kills automatiques (48 h après le message
  * d'une étape, ni étape faite ni réponse). En attente : « Annuler » jusqu'à
  * la fin du délai ; ensuite l'arrêt complet part. En test : « simulé ».
+ * Décisions finales : il n'y en a plus de nouveaux ; seul le samedi arrête.
  */
 export function KillsAuto({ maintenant = new Date() }: { maintenant?: Date }) {
   const { t, i18n } = useTranslation();
   const qc = useQueryClient();
   const kills = useQuery({ queryKey: ["kills-auto"], queryFn: lireKillsAuto });
-  const interrupteurs = useQuery({ queryKey: ["interrupteurs"], queryFn: lireInterrupteurs });
   const annuler = useMutation({
     mutationFn: (id: string) => annulerKill(id),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["kills-auto"] }),
   });
-  const mode = interrupteurs.data?.kill_auto ?? "test";
+  // Décisions finales : plus de Kill automatique (l'interrupteur kill_auto est retiré) ; l'historique reste lisible.
+  const mode: ModeInterrupteur = "off" as ModeInterrupteur;
   const liste = kills.data ?? [];
   const fmt = new Intl.DateTimeFormat(localeDate(i18n.resolvedLanguage ?? "fr"), {
     weekday: "short",

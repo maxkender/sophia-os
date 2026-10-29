@@ -9,6 +9,7 @@ import {
   aRenouveler,
   avecRetry,
   corpsJeton,
+  contratFerme,
   curseurSuivant,
   erreurGraphql,
   erreurPassagere,
@@ -142,4 +143,9 @@ Deno.test("F1 : la 1re milestone financée et non payée, quel que soit son nom"
   const sansAffichage = { terms: { fixedPriceTerms: [{ milestones: [{ id: "y", state: "Active", sequenceId: 1, depositAmount: { rawValue: "1100" } }] }] } };
   assertEquals(jalonAApprouver(sansAffichage).montant, 11);
   assertEquals(jalonAApprouver(null).nb_finances, 0);
+});
+
+Deno.test("contratFerme : seulement un statut lu et clairement terminé (décisions finales)", () => {
+  for (const s of ["CLOSED", "Closed", "ENDED", "TERMINATED", "CANCELLED"]) assertEquals(contratFerme(s), true, s);
+  for (const s of ["ACTIVE", "Active", "PAUSED", "SUSPENDED", "PENDING", "", null, undefined, "OTHER"]) assertEquals(contratFerme(s), false, String(s));
 });

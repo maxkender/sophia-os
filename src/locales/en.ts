@@ -73,9 +73,10 @@ export const en = {
       reporter: "Postpone",
       confirmReporter: "Postpone {{nom}} to next week's cohort?",
       reporte: "Postponed to the cohort of {{date}}.",
-      arreter: "Stop",
-      confirmArreter: "Stop {{nom}}? Deactivated in the OS, then the full stop (Slack, contract).",
-      arrete: "Stop requested (Recruits → full stops).",
+      arreter: "Kill on Saturday",
+      confirmArreter: "Send {{nom}} to the Saturday masterlist with Kill pre-selected? Reminders stop now; nothing is deactivated until you Validate on Saturday.",
+      arrete: "In the Saturday masterlist, Kill pre-selected. Reminders stopped.",
+      demande: "Asked to stop",
       filtres: {
         hm: "HM",
         tousHm: "All HMs",
@@ -139,6 +140,12 @@ export const en = {
             titre: "Saturday masterlist: every active account ({{n}})",
             aide: "One line per account: posts with link Monday to Saturday, views, nudged on Thursday or not, signals, and the OS proposal with its reason. Kill, Double or Keep, pre-filled with the proposal; same filters and sort as Thursday. Nothing happens before Validate.",
             choix: { kill: "Kill", double: "Double", keep: "Keep" },
+            demande: {
+              bouton: "Asked to stop (I want to stop button)",
+              message: "Asked to stop (message)",
+              persona: "Refused the persona",
+              manuel: "Sent to Saturday by Max",
+            },
             rienAProposer: "Nothing to report",
             manuel: "Chosen by hand",
             dejaDecide: "Already decided",
@@ -303,7 +310,7 @@ export const en = {
           lundi: { titre: "Monday", quand: "Monday morning, to everyone; plus, to the new cohort (ready or not)." },
           lundi_soir: { titre: "Monday 8 pm", quand: "First posting day with no post published, on Upwork." },
           jeudi: { titre: "Thursday", quand: "One nudge to everyone with a problem." },
-          kill: { titre: "Kill", quand: "Saturday Kill: no message (deactivated, removed from Slack, contract closed); Monday morning (fewer than 6 posts)." },
+          kill: { titre: "Kill", quand: "Only Saturday Validate: no message (deactivated, removed from Slack, contract closed). Never automatic." },
           arret: { titre: "Full stop", quand: "The last message on Upwork, when the contract ends." },
           popups: { titre: "Double and Recreate pop-ups", quand: "On the poster's dashboard." },
           regularite: { titre: "Regularity nudge", quand: "On the dashboard, to post more regularly." },
@@ -3537,7 +3544,7 @@ export const en = {
       navDesc: "One follow-up per step, sent by the OS: the log, the mode and the texts",
       titre: "Follow-ups",
       description:
-        "The OS checks every recruit each hour (login, TikTok account, warm-up started, warm-up done right), writes to every poster on Monday at 10 am and nudges on Thursday those missing posts or links. A late step gets ONE message, never two. 48 h later, with no step done and no reply: automatic Kill (“Automatic Kill” switch), which can be cancelled for 12 h in Cohorts.",
+        "The OS checks every recruit each hour (login, TikTok account, warm-up started, warm-up done right), writes to every poster on Monday at 10 am and nudges on Thursday those missing posts or links. A late step gets ONE message, never two. No automatic Kill: recruits who don't react, and anyone asking to stop, go to the Saturday masterlist; only Validate stops them.",
       hm: "HM: {{hm}}",
       types: {
         connexion: "1. Login",
@@ -3668,7 +3675,7 @@ export const en = {
       },
       lundi_soir_auto: {
         titre: "Monday evening check",
-        on: "Every Monday at 8 pm, local time: the new cohort and the 2nd accounts starting, with no post published with its link that day, get ONE message on Upwork. Approve: the messages wait in Messages sent → To approve and only go out after “Send selected”. 48 h later, with no post and no reply: automatic Kill (“Automatic Kill” switch), can be cancelled for 12 h; a 2nd account: only that account stops.",
+        on: "Every Monday at 8 pm, local time: the new cohort and the 2nd accounts starting, with no post published with its link that day, get ONE message on Upwork. Approve: the messages wait in Messages sent → To approve and only go out after “Send selected”. No automatic Kill afterwards: Saturday masterlist.",
       },
       relances_auto: {
         titre: "Step reminders (new recruits)",
@@ -3680,7 +3687,7 @@ export const en = {
       },
       arret_auto: {
         titre: "Full stop",
-        on: "Each stop (48 h Kill, “I want to stop”, Stop): deactivated in the OS; never posted: last message on Upwork (“Your contract has ended. Thank you for your time.”), unfunded milestones deleted, refund to request in the payroll list, contract closed through the API if nothing funded is left; already posted: paid for the current week on Monday, then contract closed. Slack: “To remove from Slack” list.",
+        on: "Each stop (Saturday Validate, or by hand): deactivated in the OS; never posted: last message on Upwork (“Your contract has ended. Thank you for your time.”), unfunded milestones deleted, refund to request in the payroll list, contract closed through the API if nothing funded is left; already posted: paid for the current week on Monday, then contract closed. Slack: “To remove from Slack” list.",
       },
       kill_message_auto: {
         titre: "Kill message (Sunday)",
@@ -4224,6 +4231,7 @@ export const en = {
       actions: {
         arret: "Full stop requested (Cohorts → Full stops)",
         arret_simule: "Full stop (simulated, test)",
+        demande_arret: "Stop request: reminders stopped, in the Saturday masterlist with Kill pre-selected",
         pause: "Reminders paused",
         pause_simulee: "Reminders paused (simulated, test)",
       },

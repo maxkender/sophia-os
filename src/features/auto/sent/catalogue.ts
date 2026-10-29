@@ -38,12 +38,14 @@ export interface TexteCatalogue {
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
 const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "slack", "guide", "date"] as const;
 /** Les variables d'un morceau de la relance du jour (_shared/relance_jour.ts, texteRelance). */
-const VARIABLES_RELANCE = ["prenom", "handle", "url", "lien_etapes", "date", "email", "mot_de_passe", "follows"] as const;
+const VARIABLES_RELANCE = ["prenom", "handle", "url", "lien_etapes", "date", "email", "mot_de_passe", "follows", "slack"] as const;
 
 export const TEXTES: readonly TexteCatalogue[] = [
   { id: "accueil", groupe: "accueil", cle: "accueil_message_texte", variables: VARIABLES_ACCUEIL },
   // Prompt 25 : la relance du jour (une par recrue et par jour, avec seulement ce qui lui manque).
   { id: "relance_cadre", groupe: "relance", cle: "relance_texte_cadre", variables: ["prenom", "date", "ce_qui_manque"] },
+  // Prompt 25 v4 : l'étape 0, rejoindre Slack (avec la prochaine étape, dans le même message).
+  { id: "relance_slack", groupe: "relance", cle: "relance_texte_slack", variables: VARIABLES_RELANCE },
   { id: "relance_connexion", groupe: "relance", cle: "relance_texte_connexion", variables: VARIABLES_RELANCE },
   { id: "relance_tiktok", groupe: "relance", cle: "relance_texte_compte_tiktok", variables: VARIABLES_RELANCE },
   { id: "relance_warmup", groupe: "relance", cle: "relance_texte_start_warmup", variables: VARIABLES_RELANCE },

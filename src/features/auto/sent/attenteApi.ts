@@ -81,7 +81,7 @@ export async function lireDoublons(): Promise<Doublon[]> {
 }
 
 /** L'ordre des types de messages à l'écran (prompt 25 : la relance du jour remplace les 4 étapes ; le jeudi est sur Thursday). */
-export const TYPES_MESSAGES = ["relance", "lundi_soir", "lundi"] as const;
+export const TYPES_MESSAGES = ["accueil", "relance", "lundi_soir", "lundi"] as const;
 
 /**
  * Prompt 25 : Messages sent → To approve. Les messages préparés en mode
@@ -99,20 +99,22 @@ export interface MessageAApprouver {
   premier_at: string;
   poster_nom: string | null;
   hm_nom: string | null;
+  /** Prompt 25 v4 : la cohorte (lundi) du destinataire. */
+  cohorte: string | null;
 }
 
 export async function lireAApprouver(): Promise<MessageAApprouver[]> {
   const { data, error } = await supabase
     .from("relances_prevues")
-    .select("poster_id, type, periode, canal, texte, raison, donnees, premier_at, profiles(prenom, nom, manager_id)")
+    .select("poster_id, type, periode, canal, texte, raison, donnees, premier_at, profiles(prenom, nom, manager_id, cohorte_lundi)")
     .eq("statut", "prevu")
     .is("valide_at", null)
     .in("raison", ["a_approuver", "en_attente", "a_valider"])
     .order("type")
     .order("premier_at");
   if (error) throw error;
-  const lignes = (data ?? []) as unknown as (Omit<MessageAApprouver, "poster_nom" | "hm_nom"> & {
-    profiles: { prenom: string | null; nom: string | null; manager_id: string | null } | null;
+  const lignes = (data ?? []) as unknown as (Omit<MessageAApprouver, "poster_nom" | "hm_nom" | "cohorte"> & {
+    profiles: { prenom: string | null; nom: string | null; manager_id: string | null; cohorte_lundi: string | null } | null;
   })[];
   const hmIds = [...new Set(lignes.map((l) => l.profiles?.manager_id).filter((x): x is string => Boolean(x)))];
   const { data: hms } = hmIds.length ? await supabase.from("profiles").select("id, prenom, nom").in("id", hmIds) : { data: [] };
@@ -123,6 +125,7 @@ export async function lireAApprouver(): Promise<MessageAApprouver[]> {
     ...l,
     poster_nom: nom(profiles),
     hm_nom: profiles?.manager_id ? hmDe.get(profiles.manager_id) ?? null : null,
+    cohorte: profiles?.cohorte_lundi ?? null,
   }));
 }
 

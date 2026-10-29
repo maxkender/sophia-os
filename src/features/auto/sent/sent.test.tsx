@@ -149,15 +149,16 @@ describe("Messages sent (prompt 22, partie 6)", () => {
   it("À approuver (prompt 25) : tout est coché ; décocher, modifier un texte, Send selected → gardés et écartés, puis la file part", async () => {
     attente.lireAApprouver.mockResolvedValue([
       { poster_id: "p1", type: "relance", periode: "2026-10-30", canal: "slack", texte: "Hi Ana, log in", raison: "a_approuver",
-        donnees: { element: "connexion", email: "anaa@sophia.com" }, premier_at: "2026-10-30T09:00:00Z", poster_nom: "Ana Silva", hm_nom: "Lucia" },
+        donnees: { element: "connexion", email: "anaa@sophia.com" }, premier_at: "2026-10-30T09:00:00Z", poster_nom: "Ana Silva", hm_nom: "Lucia", cohorte: "2026-11-02" },
       { poster_id: "p2", type: "relance", periode: "2026-10-30", canal: "upwork", texte: "Hi Bo, follow", raison: "a_approuver",
-        donnees: { element: "follows" }, premier_at: "2026-10-30T09:05:00Z", poster_nom: "Bo Li", hm_nom: null },
+        donnees: { element: "follows" }, premier_at: "2026-10-30T09:05:00Z", poster_nom: "Bo Li", hm_nom: null, cohorte: null },
     ]);
     vi.spyOn(window, "confirm").mockReturnValue(true);
     rendu("/?onglet=approuver");
     const carte = await screen.findByTestId("a-approuver");
     await waitFor(() => expect(carte.querySelectorAll("[data-message]")).toHaveLength(2));
     expect(within(carte).getByText("HM : Lucia")).toBeInTheDocument();
+    expect(within(carte).getByText("Cohorte : 2026-11-02")).toBeInTheDocument();
     expect(within(carte).getByText(/email: anaa@sophia.com/)).toBeInTheDocument();
     fireEvent.click(within(carte).getByRole("checkbox", { name: "Envoyer à Bo Li" }));
     fireEvent.change(within(carte).getByRole("textbox", { name: "Texte pour Ana Silva" }), { target: { value: "Hi Ana, please log in" } });
@@ -174,7 +175,7 @@ describe("Messages sent (prompt 22, partie 6)", () => {
     auth.role = "head_of_ops";
     attente.lireAApprouver.mockResolvedValue([
       { poster_id: "p1", type: "lundi_soir", periode: "2026-11-02", canal: "upwork", texte: "Hi Ana", raison: "a_approuver",
-        donnees: null, premier_at: "2026-11-02T19:00:00Z", poster_nom: "Ana Silva", hm_nom: null },
+        donnees: null, premier_at: "2026-11-02T19:00:00Z", poster_nom: "Ana Silva", hm_nom: null, cohorte: "2026-11-02" },
     ]);
     rendu("/?onglet=approuver");
     const carte = await screen.findByTestId("a-approuver");
@@ -219,6 +220,11 @@ describe("le catalogue des textes, les délais et le journal (sans base)", () =>
     expect(erreursTiming({ ...t, fenetre_debut: 20 })).toContain("fenetre");
     const v = valeursTiming(t, { semaine_heures: { fin: 20, autre: true } });
     expect(v.semaine_heures).toEqual({ fin: 20, autre: true, lundi_heure: 10, jeudi_heure: 12 });
+    // Prompt 25 v4 : 5 relances Upwork au plus par recrue, puis Slack seulement.
+    expect(t.relances_upwork_max).toBe(5);
+    expect(lireTiming({ relances_upwork_max_par_recrue: 3 }).relances_upwork_max).toBe(3);
+    expect(erreursTiming({ ...t, relances_upwork_max: -1 })).toContain("nombre");
+    expect(v.relances_upwork_max_par_recrue).toBe(5);
   });
 
   it("filtres du journal et message auquel répond un message reçu", () => {

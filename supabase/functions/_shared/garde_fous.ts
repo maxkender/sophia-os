@@ -79,3 +79,74 @@ export function canalUnique(
   if (clesPersonne(p, type, periode).some((k) => servis.has(k))) return { canal: null, doublon: true };
   return { canal: p.slack_user_id ? "slack" : p.contrat_id ? "upwork" : null, doublon: false };
 }
+
+/**
+ * Prompt 25 v4 : les canaux d'un message, le même texte sur Slack (s'il y est)
+ * ET sur Upwork (s'il y a un contrat et que `upwork` le permet : plafond par
+ * recrue, budget). `doublon` comme pour `canalUnique`.
+ */
+export function canauxMessage(
+  p: { slack_user_id: string | null; contrat_id: string | null },
+  type: string,
+  periode: string,
+  servis: ReadonlySet<string>,
+  o: { slack?: boolean; upwork: boolean },
+): { canaux: Canal[]; doublon: boolean } {
+  if (clesPersonne(p, type, periode).some((k) => servis.has(k))) return { canaux: [], doublon: true };
+  const canaux: Canal[] = [];
+  if (o.slack !== false && p.slack_user_id) canaux.push("slack");
+  if (o.upwork && p.contrat_id) canaux.push("upwork");
+  return { canaux, doublon: false };
+}
+
+/**
+ * Prompt 25 v4 : l'ordre d'Upwork. 0 la bienvenue, 1 les relances (et nudges)
+ * de ceux qui ne sont pas sur Slack, 2 les autres relances et nudges, 3 le
+ * message du lundi, 4 le lundi 20 h.
+ */
+export function prioriteUpwork(type: string, surSlack: boolean): number {
+  if (type === "accueil") return 0;
+  if (type === "relance" || type === "jeudi") return surSlack ? 2 : 1;
+  if (type === "lundi") return 3;
+  return 4;
+}
+
+/**
+ * La file dans l'ordre : ce qui reste d'avant (Upwork plein hier) part
+ * d'abord, puis par priorité, puis le plus ancien.
+ */
+export function trierFile<T extends { type: string; periode: string; premier_at: string; surSlack: boolean }>(lignes: readonly T[], aujourdhui: string): T[] {
+  return [...lignes].sort((a, b) =>
+    Number(a.periode >= aujourdhui) - Number(b.periode >= aujourdhui) ||
+    prioriteUpwork(a.type, a.surSlack) - prioriteUpwork(b.type, b.surSlack) ||
+    a.periode.localeCompare(b.periode) ||
+    a.premier_at.localeCompare(b.premier_at)
+  );
+}
+
+/**
+ * Upwork pour ce message, dans le budget du jour ? Une conversation déjà écrite
+ * aujourd'hui ne compte pas une 2e fois. La bienvenue peut prendre la réserve ;
+ * une relance d'une recrue pas sur Slack prend ce qui reste ; les autres
+ * (sur Slack, lundi, lundi 20 h) laissent la place à celles qui attendent.
+ */
+export function upworkAccorde(o: {
+  priorite: number;
+  deja: boolean;
+  limite: boolean;
+  /** Conversations encore possibles hors réserve. */
+  restant: number;
+  /** Conversations encore possibles, réserve comprise. */
+  restantPrioritaire: number;
+  /** Messages plus prioritaires (0 et 1) encore dans la file. */
+  attentePrioritaire: number;
+}): boolean {
+  if (o.limite) return false;
+  if (o.deja) return true;
+  if (o.priorite === 0) return o.restantPrioritaire > 0;
+  if (o.priorite === 1) return o.restant > 0;
+  return o.restant - o.attentePrioritaire > 0;
+}
+
+/** L'erreur d'Upwork quand la limite du jour est atteinte. */
+export const estLimiteUpwork = (erreur: string | null | undefined) => /maximum number of rooms/i.test(erreur ?? "");

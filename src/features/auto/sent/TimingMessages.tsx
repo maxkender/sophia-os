@@ -19,6 +19,7 @@ const SECTIONS: readonly { cle: string; champs: readonly Champ[] }[] = [
   { cle: "fenetre", champs: ["fenetre_debut", "fenetre_fin"] },
   { cle: "semaine", champs: ["lundi_heure", "lundi_soir_heure", "jeudi_heure", "semaine_fin"] },
   { cle: "double", champs: ["double_jour_iso"] },
+  { cle: "upwork", champs: ["relances_upwork_max"] },
 ];
 
 /** Les champs qui se choisissent par jour (ISO) plutôt qu'en nombre. */

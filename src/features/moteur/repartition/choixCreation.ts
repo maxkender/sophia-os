@@ -182,6 +182,8 @@ export const CODES_ERREUR_CHOIX_COMPTE = [
   "LABEL_INCOMPATIBLE",
   "CHOIX_COMPTE_INCOMPATIBLE",
   "NO_LABELS_APPLICATION",
+  // Prompt 21, A5 : contrat déjà pris par l'accueil automatique.
+  "ACCUEIL_AUTO",
 ] as const;
 
 export type CodeErreurChoixCompte = (typeof CODES_ERREUR_CHOIX_COMPTE)[number];

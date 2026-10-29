@@ -51,6 +51,8 @@ import { bloquer, PAUSE } from "../_shared/pause.ts";
  * Événement `message.im` (scope `im:history`) : un posteur qui répond au bot
  * en DM a « répondu » à ses nudges (0384), et son message entre dans
  * `posteur_reponses` (partie E, 0406).
+ * Un message dans un canal (hors DM) : `posteur_reaction_slack` (prompt 21,
+ * A2, 0413), une réaction qui annule un Kill.
  */
 Deno.serve(async (request) => {
   const signature = request.headers.get("x-slack-signature");
@@ -109,6 +111,20 @@ Deno.serve(async (request) => {
       else await repondu;
     }
     return new Response("", { status: 200 });
+  }
+
+  // Prompt 21, A2 : un message du posteur dans un canal (hors DM) compte comme
+  // une réaction (plus de Kill) ; la suite (FAQ) continue comme avant.
+  if (ev.type === "message" && ev.channel_type !== "im" && ev.user && !ev.bot_id && !ev.subtype) {
+    const canal = (payload.event as unknown as { channel?: string }).channel ?? null;
+    const reaction = Promise.resolve(serviceClient().rpc("posteur_reaction_slack", { p_slack_user: ev.user, p_canal: canal }))
+      .then(({ error }) => {
+        if (error) console.error("[slack-faq] réaction", error.message);
+      })
+      .catch((erreur) => console.error("[slack-faq] réaction", messageErreur(erreur)));
+    const edgeR = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+    if (edgeR) edgeR.waitUntil(reaction);
+    else await reaction;
   }
 
   // Un membre arrive dans le workspace : on le relie à son posteur (0381).

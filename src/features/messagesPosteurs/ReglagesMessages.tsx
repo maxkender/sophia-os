@@ -44,14 +44,6 @@ export function ReglagesMessages() {
         {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
         {r && (
           <>
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={r.kill_message_auto}
-                onChange={(e) => setR({ ...r, kill_message_auto: e.target.checked })}
-              />
-              {t("messagesPosteurs.reglages.killAuto")}
-            </label>
             <div className="space-y-1">
               <label className="text-sm font-medium" htmlFor="kill-texte">
                 {t("messagesPosteurs.reglages.killTexte")}

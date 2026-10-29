@@ -138,6 +138,8 @@ function LignePoster({
 }) {
   const { t } = useTranslation();
   const { role, profil } = useAuth();
+  // Prompt 15, point 1 et prompt 21, A5 : la HM et le DM n'ajoutent pas de compte et ne réactivent pas.
+  const bloqueCommeHm = role === "hiring_manager" || role === "directing_manager";
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const comptes = p.comptes ?? [];
@@ -339,7 +341,7 @@ function LignePoster({
 
       {/* Choix de l'application du compte du créateur, comme à la création.
           Retiré aux HMs (prompt 15, point 1) : l'admin et le Head of Ops ajoutent les comptes. */}
-      {role !== "hiring_manager" && (
+      {!bloqueCommeHm && (
         <FormulaireAjouterCompte
           posterId={p.id}
           languesProposees={langues.data ?? []}
@@ -357,6 +359,8 @@ function LignePoster({
 export function HiringPosterPage() {
   const { t } = useTranslation();
   const { role, profil } = useAuth();
+  // Prompt 15, point 1 et prompt 21, A5 : la HM et le DM n'ajoutent pas de compte et ne réactivent pas.
+  const bloqueCommeHm = role === "hiring_manager" || role === "directing_manager";
   const queryClient = useQueryClient();
 
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
@@ -583,7 +587,7 @@ export function HiringPosterPage() {
           {createursActifs.map((p) => (
             <LignePoster key={p.id} poster={p} createurs={createurs} />
           ))}
-          <SectionArchive lignes={lignesArchive} peutReactiver={role !== "hiring_manager"} />
+          <SectionArchive lignes={lignesArchive} peutReactiver={!bloqueCommeHm} />
         </CardContent>
       </Card>
     </div>

@@ -14,6 +14,7 @@ import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { paysParDefaut } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
 
+import { LiaisonsContrats } from "./LiaisonsContrats";
 import { amorcerAnnonces, enregistrerAnnonce, lireAccueils, lireAnnonces, relierAccueil, type Accueil, type AnnoncePays } from "./api";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
@@ -196,6 +197,8 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
           </ul>
         )}
       </div>
+
+      {!hmSeulement && admin && <LiaisonsContrats />}
 
       {!hmSeulement && (
         <details className="group rounded-lg border">

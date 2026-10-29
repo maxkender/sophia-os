@@ -2702,6 +2702,7 @@ export const fr = {
         LABEL_INCOMPATIBLE: "Ce label ne sert pas l’application choisie.",
         CHOIX_COMPTE_INCOMPATIBLE: "Ce choix d’application n’est pas possible pour ce type de compte.",
         NO_LABELS_APPLICATION: "Aucun label ne sert l’application choisie : impossible de lui en choisir un. Coche-la sur au moins un label (Pilotage → Labels).",
+        ACCUEIL_AUTO: "L’OS crée ce posteur automatiquement.",
       },
     },
     messagesPosteurs: {
@@ -2730,7 +2731,6 @@ export const fr = {
       reglages: {
         titre: "Messages aux posteurs",
         aide: "Textes en anglais. {prenom} est remplacé par le prénom du posteur.",
-        killAuto: "Message de Kill automatique (dimanche 12 h, Slack + bandeau)",
         killTexte: "Texte du message de Kill",
         doubleTexte: "Texte de l'offre Double (pop-up Yes / No)",
         expire: "L'offre Double expire le",
@@ -2747,7 +2747,7 @@ export const fr = {
       navDesc: "Les recrues dès l'offre acceptée : étapes, rouges, Reporter ou Arrêter.",
       titre: "Cohortes",
       description:
-        "Une cohorte = les offres acceptées du vendredi au jeudi ; elle commence à poster le lundi qui suit. Les décisions du samedi restent dans Check, Kill or Double.",
+        "Une cohorte = les offres acceptées du dimanche au samedi (fin de journée, pays de la recrue). Elle poste dès le lundi qui suit si elle est prête dimanche minuit (compte TikTok, Start warmup, 5 follows, aucun post) ; sinon elle passe au lundi d'après.",
       puces: "Cohortes affichées",
       puce: "{{date}} · {{n}} recrues · {{phase}}",
       prepa: "en préparation",
@@ -3027,6 +3027,7 @@ export const fr = {
         lundi_soir_heure: "Check du lundi soir : heure (heure du pays)",
         kill_h: "Kill : sans réaction après le message",
         kill_annulation_h: "Kill : annulable pendant",
+        killMin: "Le délai avant un Kill doit faire au moins {{n}} h.",
         enregistrer: "Enregistrer",
         ok: "Enregistré.",
       },
@@ -3102,6 +3103,10 @@ export const fr = {
         titre: "Arrêt complet",
         on: "Chaque arrêt (Kill à 48 h, « je ne veux plus », Arrêter) : désactivé dans l'OS ; jamais posté : dernier message sur Upwork (« Your contract has ended. Thank you for your time. »), milestones non financées supprimées, remboursement à demander dans la liste de paie, contrat fermé par l'API s'il ne reste rien de financé ; déjà posté : payé pour la semaine en cours lundi, puis contrat fermé. Slack : liste « À retirer de Slack ».",
       },
+      kill_message_auto: {
+        titre: "Message de Kill (dimanche)",
+        on: "Dimanche 12 h, pour chaque Kill validé le samedi : le message de Kill au posteur (bandeau du tableau de bord). Test : noté, rien n'est créé ni envoyé.",
+      },
       kill_auto: {
         titre: "Kill automatique",
         on: "48 h après le message d'une étape, sans étape faite ni réponse : le Kill apparaît dans Cohorts (« Kills automatiques »), annulable 12 h ; ensuite l'arrêt complet part (désactivé dans l'OS, contrat fermé sur Upwork). Ne part que si le message est vraiment parti.",
@@ -3131,7 +3136,7 @@ export const fr = {
         titre: "Cohortes et accueil automatique",
         aide: "Quand une recrue entre dans une cohorte, et depuis quand l'accueil automatique prend les contrats.",
         jour: "Jour limite de la cohorte",
-        jourAide: "Une offre acceptée après ce jour passe à la cohorte de la semaine d'après.",
+        jourAide: "Samedi par défaut : une offre acceptée après ce jour (fin de journée, pays de la recrue) passe à la cohorte de la semaine d'après.",
         depuis: "Accueil automatique : contrats commencés depuis (heure de Paris)",
         depuisAide: "Les contrats plus anciens ne sont jamais accueillis.",
       },
@@ -3340,6 +3345,19 @@ export const fr = {
       },
     },
     accueil: {
+      liaisons: {
+        suggestions: "Liaisons suggérées ({{n}})",
+        suggestionsAide: "Un contrat dont le nom ressemble à un posteur sans contrat. L'OS ne les relie plus seul : confirme si c'est la bonne personne.",
+        lier: "Relier",
+        confirmerLier: "Relier {{nom}} au contrat Upwork de {{freelancer}} ?",
+        aVerifier: "Liaisons automatiques à vérifier ({{n}})",
+        aVerifierAide: "Contrats reliés à un posteur sans accueil automatique ni lien exact du contrat (règles par le nom du 28 oct.). OK : la liaison est bonne. Délier : le contrat revient dans les contrats à relier.",
+        ok: "OK",
+        delier: "Délier",
+        confirmerDelier: "Délier {{nom}} du contrat {{contrat}} ? Aucun message ne part ; le posteur n'a plus de contrat dans l'OS.",
+        partage: "partagé avec un autre profil",
+        regles: { "0": "aucun nom commun", "1": "même nom", "2": "tous les mots", "3": "orthographe proche", "4": "2e compte" },
+      },
       amorcer: "Remplir depuis les contrats existants",
       amorcerEnCours: "Lecture des contrats…",
       amorcerAide: "Lit l'annonce de chaque posteur déjà embauché (lecture seule sur Upwork) et en déduit pays, langue, HM et tarif. Une annonce déjà réglée à la main ne change pas.",

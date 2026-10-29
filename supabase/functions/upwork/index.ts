@@ -115,7 +115,7 @@ const COMPTE = "principal";
  *       semaine et ferme. Interrupteur `arret_auto` (off / test / on) : en
  *       test, rien ne part sur Upwork. Chaque action journalisée, un échec ne
  *       bloque pas les autres, jamais de nouvel essai.
- *   { action: "reponses_lire" }              cron `reponses-upwork`, 8 h 45 et 15 h 45 UTC ; admin
+ *   { action: "reponses_lire", posteurs? }   cron `reponses-upwork`, toutes les heures à :05 ; recrues-check avant un Kill ; admin
  *       Système du 2 nov., partie E : les messages des posteurs ciblés
  *       (`reponses_cibles_upwork`) dans la conversation de leur contrat, plus
  *       récents que le dernier lu → `posteur_reponses` (canal upwork). Lecture
@@ -179,7 +179,7 @@ Deno.serve(async (request) => {
       case "arrets":
         return json(await traiterArrets(supabase, par));
       case "reponses_lire":
-        return json(await lireReponsesUpwork(supabase, par));
+        return json(await lireReponsesUpwork(supabase, par, Array.isArray(body.posteurs) ? body.posteurs.map(String) : null));
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
       default:
@@ -1143,8 +1143,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
       bilan.a_relier++;
       continue;
     }
-    const { data: lundi } = await supabase.rpc("cohorte_lundi_de", {
-      p_jour: new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(base.debut_at ?? Date.now())),
+    // Prompt 21, A1 : acceptée au plus tard le samedi, fin de journée dans le pays de la recrue.
+    const { data: lundi } = await supabase.rpc("cohorte_lundi_de_pays", {
+      p_at: new Date(base.debut_at ?? Date.now()).toISOString(),
+      p_pays: plan.pays ?? null,
     });
     const cohorte = String(lundi ?? "");
     if (mode === "test") {
@@ -1336,23 +1338,28 @@ const REQUETE_MESSAGES_SALON = `query MessagesSalon($r: ID!) {
   roomStories(filter: { roomId_eq: $r }) { edges { node { id createdDateTime message user { id } } } }
 }`;
 
-async function lireReponsesUpwork(supabase: Supabase, par: string | null) {
-  const { data: cibles, error } = await supabase.rpc("reponses_cibles_upwork");
+/** Prompt 21, A2 : 5 conversations à la fois au plus (Upwork : 10 requêtes par seconde). */
+const REPONSES_EN_PARALLELE = 5;
+
+async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null = null) {
+  // Toutes les conversations où l'OS a écrit depuis 14 jours (0413) ; `posteurs` : juste avant un Kill.
+  const { data: cibles, error } = await supabase.rpc("reponses_cibles_upwork_v2", { p_posteurs: posteurs });
   if (error) throw error;
-  const bilan = { cibles: (cibles ?? []).length, nouveaux: 0, erreurs: [] as string[] };
-  for (const c of (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[]) {
+  const liste = (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[];
+  const bilan = { cibles: liste.length, nouveaux: 0, erreurs: [] as string[], posteurs_nouveaux: [] as string[] };
+  const lireUne = async (c: (typeof liste)[number]) => {
     try {
       const salon = await lire(supabase, { par, action: "reponses_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
       const roomId = salon.data?.contractRoom?.id as string | undefined;
       const freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
       if (!roomId || !freelancer) {
         bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
-        continue;
+        return;
       }
       const msgs = await lire(supabase, { par, action: "reponses_messages", query: REQUETE_MESSAGES_SALON, variables: { r: roomId }, tenant: c.organisation_id });
       if (msgs.erreur) {
         bilan.erreurs.push(`${c.contrat_id} : ${msgs.erreur}`);
-        continue;
+        return;
       }
       const depuis = new Date(c.depuis).getTime();
       // deno-lint-ignore no-explicit-any
@@ -1367,12 +1374,17 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null) {
           texte: String(n.message).slice(0, 4000),
           recu_at: new Date(n.createdDateTime).toISOString(),
         });
-        if (!errIns) bilan.nouveaux++;
-        else if (errIns.code !== "23505") bilan.erreurs.push(`${c.contrat_id} : ${errIns.message}`);
+        if (!errIns) {
+          bilan.nouveaux++;
+          if (!bilan.posteurs_nouveaux.includes(c.poster_id)) bilan.posteurs_nouveaux.push(c.poster_id);
+        } else if (errIns.code !== "23505") bilan.erreurs.push(`${c.contrat_id} : ${errIns.message}`);
       }
     } catch (e) {
       bilan.erreurs.push(`${c.contrat_id} : ${messageErreur(e)}`);
     }
+  };
+  for (let i = 0; i < liste.length; i += REPONSES_EN_PARALLELE) {
+    await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUne));
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
 }

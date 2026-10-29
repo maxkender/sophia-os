@@ -83,3 +83,11 @@ Deno.test("refuseAuHm : une HM ne peut plus ajouter un compte, (dés)activer, cr
   assertEquals(refuseAuHm("hiring_manager", "renommer"), false);
   assertEquals(refuseAuHm("head_of_ops", "create", "hiring_manager"), false);
 });
+
+Deno.test("refuseAuHm : le DM est bloqué comme une HM (prompt 21, A5)", () => {
+  for (const action of ["ajouter_compte", "ajouter_compte_perso", "activer"]) {
+    assertEquals(refuseAuHm("directing_manager", action), true);
+  }
+  assertEquals(refuseAuHm("directing_manager", "create", "hiring_manager"), true);
+  assertEquals(refuseAuHm("directing_manager", "create", "poster"), false);
+});

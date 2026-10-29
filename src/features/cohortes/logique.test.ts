@@ -66,28 +66,30 @@ const PRETE = {
   warmup_reposts_at: "2026-10-29T10:00:00Z",
 } as const;
 
-describe("la règle de cohorte (vendredi → jeudi, lundi qui suit)", () => {
-  it("les 4 exemples du prompt 17", () => {
+describe("la règle de cohorte (prompt 21, A1 : dimanche → samedi, lundi qui suit)", () => {
+  it("acceptée au plus tard le samedi : le lundi qui suit", () => {
     expect(cohorteLundiDe("2026-10-26")).toBe("2026-11-02"); // lun. 26 oct.
-    expect(cohorteLundiDe("2026-10-29")).toBe("2026-11-02"); // jeu. 29 oct.
-    expect(cohorteLundiDe("2026-10-30")).toBe("2026-11-09"); // ven. 30 oct.
+    expect(cohorteLundiDe("2026-10-30")).toBe("2026-11-02"); // ven. 30 oct. (avant : 9 nov.)
+    expect(cohorteLundiDe("2026-10-31")).toBe("2026-11-02"); // sam. 31 oct.
     expect(cohorteLundiDe("2026-11-01")).toBe("2026-11-09"); // dim. 1er nov.
   });
 
-  it("l'heure de Paris compte : jeudi 23 h 30 à Paris, c'est encore jeudi", () => {
-    expect(cohorteDeLOffre(new Date("2026-10-29T22:30:00Z"))).toBe("2026-11-02");
-    expect(cohorteDeLOffre(new Date("2026-10-29T23:30:00Z"))).toBe("2026-11-09");
+  it("l'heure de Paris compte (sans pays) : samedi 23 h 30 à Paris, c'est encore samedi", () => {
+    expect(cohorteDeLOffre(new Date("2026-10-31T22:30:00Z"))).toBe("2026-11-02");
+    expect(cohorteDeLOffre(new Date("2026-10-31T23:30:00Z"))).toBe("2026-11-09");
   });
 
-  it("le jour limite est un réglage (mercredi = 3)", () => {
-    expect(cohorteLundiDe("2026-10-29", 3)).toBe("2026-11-09");
-    expect(cohorteLundiDe("2026-10-28", 3)).toBe("2026-11-02");
+  it("le jour limite est un réglage (jeudi = 4, l'ancienne règle)", () => {
+    expect(cohorteLundiDe("2026-10-29", 4)).toBe("2026-11-02");
+    expect(cohorteLundiDe("2026-10-30", 4)).toBe("2026-11-09");
   });
 
-  it("la même règle que la base (0391, cohorte_lundi_de)", () => {
+  it("la même règle que la base (0391, cohorte_lundi_de ; samedi par défaut depuis 0413)", () => {
     const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0391_relances.sql"), "utf8");
     expect(sql).toMatch(/p_jour \+ \(7 - coalesce\(.*cohorte_jour_limite.*, 4\)\)/);
     expect(sql).toContain("(d + (8 - extract(isodow from d)::int))::date");
+    const sql0413 = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0413_cohorte_samedi.sql"), "utf8");
+    expect(sql0413).toMatch(/p_jour \+ \(7 - coalesce\(.*cohorte_jour_limite.*, 6\)\)/);
   });
 
   it("un posteur existant garde sa cohorte : seul « Reporter » la change", () => {

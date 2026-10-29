@@ -97,6 +97,9 @@ export interface DelaisRelances {
   [cle: string]: number;
 }
 
+/** Prompt 21, A7 : le délai avant un Kill, 24 h au moins. */
+export const KILL_H_MIN = 24;
+
 export const DELAIS_ETAPES: readonly (keyof DelaisRelances & string)[] = [
   "connexion_message_h",
   "tiktok_message_h",

@@ -345,3 +345,60 @@ export async function presentationsApplis(): Promise<PresentationAppli[]> {
   if (error) throw error;
   return (data ?? []) as PresentationAppli[];
 }
+
+// ---------------------------------------------------------------------------
+// Banque d'exemples natifs (0380)
+// ---------------------------------------------------------------------------
+
+export type StatutExempleNatif = "en_attente" | "pret" | "erreur";
+
+export interface ExempleNatif {
+  id: string;
+  langue: string;
+  source_url: string;
+  handle: string | null;
+  label_id: string | null;
+  slides: Array<{ position: number; texte: string }>;
+  vues: number | null;
+  statut: StatutExempleNatif;
+  erreur: string | null;
+  created_at: string;
+}
+
+export interface ResumeAjoutExemples {
+  ajoutes: number;
+  deja: number;
+  comptes: Array<{ pseudo: string; slideshows: number; erreur?: string }>;
+  ignorees: string[];
+}
+
+/** Toute la banque, toutes langues (quelques centaines de lignes au plus). */
+export async function listerExemplesNatifs(): Promise<ExempleNatif[]> {
+  const { data, error } = await supabase
+    .from("exemples_natifs")
+    .select("id, langue, source_url, handle, label_id, slides, vues, statut, erreur, created_at")
+    .order("created_at", { ascending: false })
+    .limit(2000);
+  if (error) throw error;
+  return (data ?? []) as ExempleNatif[];
+}
+
+/** Ajoute des liens ou des comptes collés ; rien n'est encore lu. */
+export function ajouterExemplesNatifs(langue: string, labelId: string | null, texte: string): Promise<ResumeAjoutExemples> {
+  return invoke<ResumeAjoutExemples>("exemples-natifs", { ajouter: { langue, labelId, texte } });
+}
+
+/** Récupère un slideshow et lit le texte de ses slides. */
+export function lireExempleNatif(id: string): Promise<{ statut: StatutExempleNatif; erreur?: string }> {
+  return invoke<{ statut: StatutExempleNatif; erreur?: string }>("exemples-natifs", { traiter: { id } });
+}
+
+export async function majLabelExemple(id: string, labelId: string | null): Promise<void> {
+  const { error } = await supabase.from("exemples_natifs").update({ label_id: labelId }).eq("id", id);
+  if (error) throw error;
+}
+
+export async function supprimerExempleNatif(id: string): Promise<void> {
+  const { error } = await supabase.from("exemples_natifs").delete().eq("id", id);
+  if (error) throw error;
+}

@@ -4,7 +4,8 @@
  *
  * Une ligne par langue, retrouvée par sa colonne Code. L'OS n'écrit QUE ses
  * colonnes : Statut (dès qu'un relecteur est accepté pour la langue),
- * Relecteur, Questionnaire, Kit, Posteurs, Posts 30 j et Maj OS. Vague,
+ * Relecteur, Posteurs, Posts 30 j et Maj OS. Le questionnaire et le kit ont
+ * été retirés (0608), leurs colonnes avec. Vague,
  * Candidats Slack et Notes sont tenues à la main par Adrien : on ne les écrit
  * jamais, même à la création d'une ligne.
  */
@@ -26,10 +27,6 @@ export interface RelecteurOs {
   langue: string;
   nom: string;
   statut: StatutRelecteur;
-  /** Lignes de réponses au questionnaire, vides comprises. */
-  reponses: number;
-  questionnaireEnvoye: boolean;
-  kitRendus: number;
 }
 
 export interface LangueOs {
@@ -44,8 +41,6 @@ export interface LigneNotionRelecteurs {
   statut: string | null;
   candidats: string;
   relecteur: string;
-  questionnaire: string | null;
-  kit: string;
   posteurs: number | null;
   posts30j: number | null;
 }
@@ -54,8 +49,6 @@ export interface LigneNotionRelecteurs {
 export interface ColonnesOs {
   statut: string | null;
   relecteur: string;
-  questionnaire: string | null;
-  kit: string;
   posteurs: number;
   posts30j: number;
 }
@@ -124,16 +117,11 @@ export function titreLangue(code: string): string {
   return drapeau ? `${drapeau} ${nom}` : nom;
 }
 
-function prenom(nom: string): string {
-  return nom.split(/\s+/)[0] || nom;
-}
-
 /** Ce que l'OS veut voir sur la ligne d'une langue, la ligne actuelle en main. */
 export function colonnesVoulues(
   code: string,
   langue: LangueOs | undefined,
   relecteurs: RelecteurOs[],
-  totalKit: number,
   actuelle: Pick<LigneNotionRelecteurs, "statut" | "candidats"> | null,
 ): ColonnesOs {
   const chiffres = { posteurs: langue?.posteurs ?? 0, posts30j: langue?.posts30j ?? 0 };
@@ -151,27 +139,12 @@ export function colonnesVoulues(
           ? "Candidats Slack"
           : "Aucun candidat"
         : actuelle.statut;
-    return { statut, relecteur: "", questionnaire: null, kit: "", ...chiffres };
+    return { statut, relecteur: "", ...chiffres };
   }
-
-  // Les retirés ne comptent pour l'avancement que s'il n'y a qu'eux.
-  const enJeu = siens.filter((r) => r.statut !== "retire");
-  const suivis = enJeu.length > 0 ? enJeu : siens;
-  const questionnaire = suivis.some((r) => r.questionnaireEnvoye)
-    ? "Envoyé"
-    : suivis.some((r) => r.reponses > 0)
-      ? "En cours"
-      : "Pas commencé";
-  const kit =
-    suivis.length === 1
-      ? `${suivis[0].kitRendus} / ${totalKit}`
-      : suivis.map((r) => `${prenom(r.nom)} ${r.kitRendus} / ${totalKit}`).join(" · ");
 
   return {
     statut: STATUT_NOTION[siens[0].statut],
     relecteur: siens.map((r) => `${r.nom} (${STATUT_COURT[r.statut]})`).join(", "),
-    questionnaire,
-    kit,
     ...chiffres,
   };
 }
@@ -180,8 +153,6 @@ function egales(a: ColonnesOs, b: ColonnesOs): boolean {
   return (
     a.statut === b.statut &&
     a.relecteur === b.relecteur &&
-    a.questionnaire === b.questionnaire &&
-    a.kit === b.kit &&
     a.posteurs === b.posteurs &&
     a.posts30j === b.posts30j
   );
@@ -195,7 +166,6 @@ function egales(a: ColonnesOs, b: ColonnesOs): boolean {
 export function planifierRelecteurs(
   langues: LangueOs[],
   relecteurs: RelecteurOs[],
-  totalKit: number,
   lignes: LigneNotionRelecteurs[],
 ): Plan {
   const parCode = new Map(langues.map((l) => [l.code, l]));
@@ -208,12 +178,10 @@ export function planifierRelecteurs(
   let inchangees = 0;
   for (const l of lignes) {
     if (!l.code || doublons.includes(l.code)) continue;
-    const voulu = colonnesVoulues(l.code, parCode.get(l.code), relecteurs, totalKit, l);
+    const voulu = colonnesVoulues(l.code, parCode.get(l.code), relecteurs, l);
     const actuel: ColonnesOs = {
       statut: l.statut,
       relecteur: l.relecteur,
-      questionnaire: l.questionnaire,
-      kit: l.kit,
       posteurs: l.posteurs ?? 0,
       posts30j: l.posts30j ?? 0,
     };
@@ -232,7 +200,7 @@ export function planifierRelecteurs(
     .map((code) => ({
       code,
       titre: titreLangue(code),
-      colonnes: colonnesVoulues(code, parCode.get(code), relecteurs, totalKit, null),
+      colonnes: colonnesVoulues(code, parCode.get(code), relecteurs, null),
     }));
 
   return { creations, majs, inchangees, doublons };
@@ -301,8 +269,6 @@ export async function lireLignesRelecteurs(cle: string, baseId: string): Promise
         statut: selection(p["Statut"]),
         candidats: texteRiche(p["Candidats Slack"], "rich_text"),
         relecteur: texteRiche(p["Relecteur"], "rich_text"),
-        questionnaire: selection(p["Questionnaire"]),
-        kit: texteRiche(p["Kit"], "rich_text"),
         posteurs: nombre(p["Posteurs"]),
         posts30j: nombre(p["Posts 30 j"]),
       });
@@ -321,8 +287,6 @@ export function proprietesOs(c: ColonnesOs, maintenant: string): Record<string, 
   return {
     Statut: { select: c.statut ? { name: c.statut } : null },
     Relecteur: { rich_text: texte(c.relecteur) },
-    Questionnaire: { select: c.questionnaire ? { name: c.questionnaire } : null },
-    Kit: { rich_text: texte(c.kit) },
     Posteurs: { number: c.posteurs },
     "Posts 30 j": { number: c.posts30j },
     "Maj OS": { date: { start: maintenant } },

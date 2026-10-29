@@ -42,6 +42,8 @@ import { MiniBarre, Puce, TuileIcone } from "./Puces";
 export const CLE_REQUETE_EXEMPLES = ["exemples-natifs"] as const;
 /** Une vingtaine d'exemples par langue, tous labels confondus. */
 export const OBJECTIF_EXEMPLES = 20;
+/** La traduction ancrée ne lit la banque d'une langue qu'à partir de ce nombre d'exemples prêts. */
+export const SEUIL_BANQUE = 5;
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";

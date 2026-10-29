@@ -1,15 +1,14 @@
 /**
- * Relecture native · étape 1 (migration 0376) : relecteurs, fiches des
- * applications, réponses au questionnaire et interrupteurs. Étape 2 (0377) :
- * le kit natif. Rien ici ne touche la production : l'espace relecteur est
- * fermé et la production coupée tant que l'admin ne les ouvre pas.
+ * Relecture native : relecteurs, fiches des applications, interrupteurs
+ * (migration 0376) et banque d'exemples natifs (0423). Le questionnaire et le
+ * kit ont été retirés (0608) : un relecteur corrigera les posts publiés. Rien
+ * ici ne touche la production : l'espace relecteur est fermé et la production
+ * coupée tant que l'admin ne les ouvre pas.
  */
 import { invoke } from "@/features/moteur/api";
-import type { ContenuSlide } from "@/features/moteur/types";
 import { supabase } from "@/lib/supabase/client";
 
-import { slidesKitDepuisContenu, type EcritureKit, type PostKit, type VoieKit } from "./kit";
-import type { ChoixMot, ReponseQuestionnaire, StatutRelecteur } from "./logique";
+import type { StatutRelecteur } from "./logique";
 
 export interface Relecteur {
   id: string;
@@ -17,7 +16,6 @@ export interface Relecteur {
   langue: string;
   statut: StatutRelecteur;
   note: string | null;
-  questionnaire_termine_at: string | null;
   created_at: string;
 }
 
@@ -41,7 +39,7 @@ export interface ReglageRelectureNative {
 }
 
 const CLE_REGLAGE = "relecture_native";
-const COLONNES_RELECTEUR = "id, profile_id, langue, statut, note, questionnaire_termine_at, created_at";
+const COLONNES_RELECTEUR = "id, profile_id, langue, statut, note, created_at";
 
 // ---------------------------------------------------------------------------
 // Interrupteurs
@@ -88,11 +86,6 @@ export function synchroniserNotion(): Promise<ResumeSynchroNotion> {
   return invoke<ResumeSynchroNotion>("notion-relecteurs", {});
 }
 
-/** Côté relecteur : la synchro part en fond, une erreur n'a pas à le gêner. */
-export function synchroniserNotionEnFond(): void {
-  synchroniserNotion().catch(() => undefined);
-}
-
 // ---------------------------------------------------------------------------
 // Relecteurs (admin)
 // ---------------------------------------------------------------------------
@@ -114,7 +107,6 @@ export async function listerRelecteurs(): Promise<RelecteurAvecNom[]> {
       langue: r.langue,
       statut: r.statut,
       note: r.note,
-      questionnaire_termine_at: r.questionnaire_termine_at,
       created_at: r.created_at,
       prenom: r.profiles?.prenom ?? null,
       nom: r.profiles?.nom ?? null,
@@ -145,16 +137,6 @@ export async function majRelecteur(id: string, patch: { statut?: StatutRelecteur
 export async function supprimerRelecteur(id: string): Promise<void> {
   const { error } = await supabase.from("relecteurs_natifs").delete().eq("id", id);
   if (error) throw error;
-}
-
-/** Toutes les réponses, pour l'avancement de chaque relecteur (une ligne par question). */
-export async function listerToutesReponses(): Promise<Array<ReponseQuestionnaire & { relecteur_id: string }>> {
-  const { data, error } = await supabase
-    .from("relecteur_questionnaire")
-    .select("relecteur_id, question_cle, choix, reponse, updated_at")
-    .limit(20000);
-  if (error) throw error;
-  return (data ?? []) as Array<ReponseQuestionnaire & { relecteur_id: string }>;
 }
 
 // ---------------------------------------------------------------------------
@@ -204,146 +186,6 @@ export async function mesRelecteurs(): Promise<Relecteur[]> {
     .order("created_at", { ascending: true });
   if (error) throw error;
   return (data ?? []) as Relecteur[];
-}
-
-export async function lireReponses(relecteurId: string): Promise<ReponseQuestionnaire[]> {
-  const { data, error } = await supabase
-    .from("relecteur_questionnaire")
-    .select("question_cle, choix, reponse, updated_at")
-    .eq("relecteur_id", relecteurId);
-  if (error) throw error;
-  return (data ?? []) as ReponseQuestionnaire[];
-}
-
-export async function enregistrerReponse(
-  relecteurId: string,
-  questionCle: string,
-  reponse: string,
-  choix: ChoixMot | null = null,
-): Promise<void> {
-  const { error } = await supabase.from("relecteur_questionnaire").upsert(
-    {
-      relecteur_id: relecteurId,
-      question_cle: questionCle,
-      reponse,
-      choix,
-      updated_at: new Date().toISOString(),
-    },
-    { onConflict: "relecteur_id,question_cle" },
-  );
-  if (error) throw error;
-}
-
-export async function terminerQuestionnaire(relecteurId: string): Promise<void> {
-  const { error } = await supabase.rpc("terminer_questionnaire_relecteur", { p_relecteur_id: relecteurId });
-  if (error) throw error;
-}
-
-// ---------------------------------------------------------------------------
-// Kit natif (étape 2, migration 0377)
-// ---------------------------------------------------------------------------
-
-const COLONNES_KIT =
-  "id, rang, contenu_id, application_id, voie, slide_cta, consigne_cta, a_adapter, source_url, slides_en, actif";
-const COLONNES_ECRITURE = "relecteur_id, kit_id, slides, remarque, rendu_at, updated_at";
-
-/** Les posts du kit. L'admin les voit tous ; un relecteur, ceux que la RLS lui ouvre. */
-export async function listerKit(): Promise<PostKit[]> {
-  const { data, error } = await supabase.from("kit_natif").select(COLONNES_KIT).order("rang", { ascending: true });
-  if (error) throw error;
-  return (data ?? []) as PostKit[];
-}
-
-export async function majPostKit(
-  id: string,
-  patch: Partial<Pick<PostKit, "rang" | "application_id" | "voie" | "slide_cta" | "consigne_cta" | "a_adapter" | "actif">>,
-): Promise<void> {
-  const { error } = await supabase.from("kit_natif").update(patch).eq("id", id);
-  if (error) {
-    if (error.code === "23505") throw new Error("Ce rang est déjà pris par un autre post du kit.");
-    throw error;
-  }
-}
-
-/** Ajoute un contenu au kit, au rang suivant, avec la copie de ses slides anglaises. */
-export async function ajouterPostKit(contenuId: string, applicationId: string, voie: VoieKit): Promise<void> {
-  const { data: contenu, error: e1 } = await supabase
-    .from("contenus")
-    .select("id, source_url, structure_slides")
-    .eq("id", contenuId)
-    .maybeSingle();
-  if (e1) throw e1;
-  if (!contenu) throw new Error("Aucun contenu avec cet identifiant.");
-  const { data: langue, error: e2 } = await supabase
-    .from("contenu_langues")
-    .select("slides, slides_base")
-    .eq("contenu_id", contenuId)
-    .eq("langue", "en")
-    .maybeSingle();
-  if (e2) throw e2;
-  const slides = slidesKitDepuisContenu(langue, contenu.structure_slides as ContenuSlide[] | null);
-  if (slides.length === 0) throw new Error("Ce contenu n'a pas de slides en anglais.");
-
-  const { data: dernier, error: e3 } = await supabase
-    .from("kit_natif")
-    .select("rang")
-    .order("rang", { ascending: false })
-    .limit(1)
-    .maybeSingle();
-  if (e3) throw e3;
-  const { error } = await supabase.from("kit_natif").insert({
-    rang: (dernier?.rang ?? 0) + 1,
-    contenu_id: contenuId,
-    application_id: applicationId,
-    voie,
-    source_url: contenu.source_url ?? null,
-    slides_en: slides,
-  });
-  if (error) throw error;
-}
-
-/** Retire un post du kit, et les versions déjà écrites dessus. */
-export async function supprimerPostKit(id: string): Promise<void> {
-  const { error } = await supabase.from("kit_natif").delete().eq("id", id);
-  if (error) throw error;
-}
-
-/** Toutes les versions écrites (admin), ou celles d'un relecteur. */
-export async function listerEcrituresKit(relecteurId?: string): Promise<EcritureKit[]> {
-  let requete = supabase.from("kit_natif_ecritures").select(COLONNES_ECRITURE).limit(5000);
-  if (relecteurId) requete = requete.eq("relecteur_id", relecteurId);
-  const { data, error } = await requete;
-  if (error) throw error;
-  return (data ?? []) as EcritureKit[];
-}
-
-/** Enregistre la version d'un relecteur pour un post (slides, remarque, rendu). */
-export async function enregistrerEcritureKit(
-  relecteurId: string,
-  kitId: string,
-  ecriture: Pick<EcritureKit, "slides" | "remarque" | "rendu_at">,
-): Promise<void> {
-  const { error } = await supabase
-    .from("kit_natif_ecritures")
-    .upsert(
-      { relecteur_id: relecteurId, kit_id: kitId, ...ecriture },
-      { onConflict: "relecteur_id,kit_id" },
-    );
-  if (error) throw error;
-}
-
-export interface PresentationAppli {
-  application_id: string;
-  nom: string | null;
-  slug: string;
-  presentation: string;
-}
-
-/** « What is micabo? » : la présentation courte de chaque appli, pour le relecteur. */
-export async function presentationsApplis(): Promise<PresentationAppli[]> {
-  const { data, error } = await supabase.rpc("presentations_applis_relecteur");
-  if (error) throw error;
-  return (data ?? []) as PresentationAppli[];
 }
 
 // ---------------------------------------------------------------------------

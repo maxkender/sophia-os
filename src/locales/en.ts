@@ -2157,6 +2157,23 @@ export const en = {
     bleo: {
       mode: "Mode: {{mode}}",
       modes: { off: "off", ombre: "shadow", ab: "A/B", actif: "live" },
+      suivi: {
+        titre: "Before / after the switch",
+        description:
+          "Day by day, excluding reposts and test posts: median r (measured 72 h after posting, so 3 to 4 days behind), share of posts at 10,000 views, views per post and share of slots served by the BLEO plan.",
+        comparaison:
+          "Median r over the last {{n}} measured days (up to {{jour}}): {{recent}}, against {{reference}} over the {{m}} days before ({{ecart}}). The alert goes off at −15%.",
+        alerteTitre: "Alert: median r is down {{baisse}}",
+        alerteDetail:
+          "{{recent}} over the last {{n}} measured days (up to {{jour}}), against {{reference}} over the {{m}} days before. If BLEO is the cause, “Back to the old system” hands the next night back to the tier list.",
+        jour: "Day",
+        publies: "Posted",
+        rMedian: "Median r",
+        part10k: "≥ 10k views",
+        vuesParPost: "Views per post",
+        planBleo: "BLEO plan",
+        pasMur: "Not measured yet: a post's r is computed 72 h after it's posted.",
+      },
       interrupteur: {
         bouton_actif: "Go live",
         bouton_ombre: "Back to the old system",

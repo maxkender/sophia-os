@@ -250,6 +250,14 @@ rend la légende de chaque image (`legende`, en anglais) ; `npm run images --
 les moins utilisées d'abord, et liste leurs légendes. Elle devient utile avec
 le rattrapage des légendes du 30/10.
 
+**Suivi avant/après (remplace la mesure A/B), mergé le 29/10.** Carte « Avant /
+après la bascule » sur la vue d'ensemble BLEO : 21 jours, jours pas encore
+mesurés en grisé (le r d'un post se calcule 72 h après sa publication ; en
+pratique 3 à 4 jours de retard), et l'alerte en rouge quand le r médian des 3
+derniers jours mesurés baisse de plus de 15 % par rapport aux 14 jours d'avant.
+Le premier jour assigné par BLEO (3/11) entre dans l'alerte vers le 7/11 ; elle
+ne compare BLEO seul à l'ancien système qu'à partir du 9/11 environ.
+
 **Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
 en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
 rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine
@@ -306,6 +314,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0614_bleo_mode_actif` | Le tirage de 14 h tourne aussi en mode `actif` (`bleo_tirage` et `bleo_tirage_cron` patchées en place : ils ne tiraient qu'en `ombre`) ; `bleo_changer_mode(p_mode)`, l'interrupteur, admin seulement, avec les 20 derniers changements dans `reglages.bleo.mode_historique` | Appliquée le 29/10 (mode resté `ombre`) |
 | `0615_bleo_guichet` | L4 : `bleo_verifier_depot(label, type_bleo, parent, accroche_norm, livraison)` juge un dépôt de podz (13 codes de refus, voir plus bas) ; `reglages.bleo.podz.type_obligatoire` (faux jusqu'à la bascule des podz) | Appliquée le 29/10, testée sur les données réelles (chaque code) |
 | `0616_bleo_jauge_jours` | La jauge des podz photographiée chaque jour à 5 h 40 (`bleo_jauge_jours`, cron `bleo-jauge-photo`) : la règle de baisse du chef (14 jours sous 1 semaine) et le suivi avant/après en ont besoin | Appliquée le 29/10, première photo prise |
+| `0617_bleo_suivi` | Suivi avant/après : vue `bleo_suivi_jours` (r médian, part à 10 000 vues, vues par post, part du plan BLEO, par jour) et `bleo_suivi_alerte()` (r médian des 3 derniers jours mesurés contre les 14 d'avant, alerte au-delà de 15 %, `reglages.bleo.suivi`) | Appliquée le 29/10 ; au 25/10 : 0,96 contre 1,00 (−4 %), pas d'alerte |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 

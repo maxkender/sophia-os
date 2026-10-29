@@ -305,7 +305,6 @@ export const fr = {
       bleo: "Vue d'ensemble",
       bleoPlan: "Plan du jour",
       bleoFamilles: "Familles d'accroche",
-      bleoPodz: "Podz",
       bleoReglages: "Réglages BLEO",
       cmSuivi: "Comment Masters · suivi",
       checkKillDouble: "Décisions",
@@ -397,7 +396,6 @@ export const fr = {
       bleo: "BLEO à blanc : dernière nuit, dernier plan, rapport",
       bleoPlan: "Le plan tiré à 14 h, compte par compte, contre minuit",
       bleoFamilles: "Les familles d'accroche, leurs déclinaisons et leurs vues",
-      bleoPodz: "Boîte et jauge de chaque podz de la voie 1",
       bleoReglages: "Les réglages de la nuit et du tirage (lecture seule)",
       cmSuivi: "Done par Comment Master, synchro Slack, total pour le bonus",
       checkKillDouble: "Recréer le jeudi ; Kill ou Double le samedi",
@@ -2168,10 +2166,19 @@ export const fr = {
       categories: {
         juger: "À juger",
         recolte: "Récolte",
-        gagnant_servi: "Gagnant déjà servi",
-        non_gagnant_neuve: "Non gagnant neuf",
-        non_gagnant_servie: "Non gagnant servi",
+        gagnant_servi: "Gagnant, langue déjà servie",
+        non_gagnant_neuve: "Non gagnant, langue neuve",
+        non_gagnant_servie: "Non gagnant, langue déjà servie",
         rappel: "Rappel",
+      },
+      // Infobulles des catégories du plan : « neuve » = jamais posté dans cette langue.
+      categoriesAide: {
+        juger: "Contenu neuf qu'on teste pour savoir s'il marche (file à juger).",
+        recolte: "Contenu gagnant jamais posté dans cette langue : le meilleur tirage possible.",
+        gagnant_servi: "Contenu gagnant déjà posté dans cette langue : il reste bon, mais s'use un peu à chaque passage.",
+        non_gagnant_neuve: "Contenu pas (encore) gagnant, jamais posté dans cette langue.",
+        non_gagnant_servie: "Contenu pas (encore) gagnant, déjà posté dans cette langue.",
+        rappel: "Rappel d'un post déjà publié sur le compte (règle des rappels, pas tiré par BLEO).",
       },
       relaches: {
         tout: "tout relâché",
@@ -2216,7 +2223,9 @@ export const fr = {
         accroche: "Accroche",
         langue: "Langue",
         appli: "Appli",
-        valeur: "Valeur",
+        valeur: "Valeur attendue",
+        valeurAide:
+          "Ce que BLEO attend du contenu dans cette langue : sa forme (moyenne lissée de ses r) × 0,6 par passage déjà fait dans la langue × 0,75 par passage de la même accroche dans la langue × 0,7 s'il a plus de 45 jours.",
         minuit: "Minuit (réel)",
         verdict: "Verdict",
         contenus: "Contenus",
@@ -2284,7 +2293,7 @@ export const fr = {
         aucun: "Aucun tirage pour l'instant.",
         essai: "Essai manuel, remplacé par le tirage du cron : {{erreur}}",
         tests: "{{places}} tests placés · contenus récents : {{recents}}/{{total}} complets",
-        duree: "Durée",
+        duree: "Durée du tirage",
         melange: "Mélange",
         melangeDesc: "Les passages du plan par catégorie. Un clic filtre le tableau.",
         relaches: "Garde-fous relâchés :",
@@ -2335,7 +2344,7 @@ export const fr = {
         aucunPassage: "Aucun passage.",
       },
       podz: {
-        titre: "Podz",
+        titre: "Boîte et jauge des podz (BLEO)",
         description:
           "Ce que chaque podz de la voie 1 peut décliner, et combien de temps sa boîte tient. Les podz ne lisent pas encore cette boîte : elle passera dans leurs routines avec le lot L4.",
         jauge: "Jauge",

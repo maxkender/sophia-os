@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, Radar, X } from "lucide-react";
+import { Calculator, Check, ClipboardCheck, Gavel, GitBranch, History, Layers, Lock, MoonStar, Radar, RefreshCw, Shuffle, X } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { listerNuits, listerRuns, lireReglagesBleo, runOfficiel, type RapportPlan } from "@/features/bleo/api";
 import { formaterJour, formaterNombre, formaterPart, formaterQuand, part, PORTES } from "@/features/bleo/format";
-import { EnteteTableau, EtatRequete, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau } from "@/features/bleo/ui";
+import { EnteteTableau, EtatRequete, EtiquetteIcone, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, TitreCarte } from "@/features/bleo/ui";
 
 function Portes({ rapport }: { rapport: RapportPlan }) {
   const { t } = useTranslation();
@@ -77,7 +77,7 @@ export function AdminBleoPage() {
       {plan && resume && (
         <Card>
           <CardHeader>
-            <CardTitle>{t("bleo.vue.dernierPlan", { jour: formaterJour(plan.jour_vise, i18n.language) })}</CardTitle>
+            <TitreCarte icone={Shuffle}>{t("bleo.vue.dernierPlan", { jour: formaterJour(plan.jour_vise, i18n.language) })}</TitreCarte>
             <CardDescription>
               {t("bleo.vue.dernierPlanDesc", { quand: formaterQuand(plan.fini_le, i18n.language), duree: formaterNombre(resume.duree_s, 1) })}{" "}
               <Link to="/admin/bleo/plan" className="underline">
@@ -118,7 +118,7 @@ export function AdminBleoPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>{t("bleo.vue.rapport")}</CardTitle>
+            <TitreCarte icone={ClipboardCheck}>{t("bleo.vue.rapport")}</TitreCarte>
             <CardDescription>
               {rapport
                 ? t("bleo.vue.rapportDesc", { jour: formaterJour(rapport.jour, i18n.language), quand: formaterQuand(rapport.calcule_le, i18n.language) })
@@ -141,7 +141,7 @@ export function AdminBleoPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>{t("bleo.vue.derniereNuit")}</CardTitle>
+            <TitreCarte icone={MoonStar}>{t("bleo.vue.derniereNuit")}</TitreCarte>
             <CardDescription>
               {nuit
                 ? t("bleo.vue.derniereNuitDesc", {
@@ -155,15 +155,15 @@ export function AdminBleoPage() {
           {nuit?.resume && (
             <CardContent>
               <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
-                <dt className="text-muted-foreground">{t("bleo.nuit.rCalcules")}</dt>
+                <EtiquetteIcone icone={Calculator}>{t("bleo.nuit.rCalcules")}</EtiquetteIcone>
                 <dd className="tabular-nums">{nuit.resume.r_calcules ?? "—"}</dd>
-                <dt className="text-muted-foreground">{t("bleo.nuit.juges")}</dt>
+                <EtiquetteIcone icone={Gavel}>{t("bleo.nuit.juges")}</EtiquetteIcone>
                 <dd className="tabular-nums">{nuit.resume.juges ?? "—"}</dd>
-                <dt className="text-muted-foreground">{t("bleo.nuit.verdictsChanges")}</dt>
+                <EtiquetteIcone icone={RefreshCw}>{t("bleo.nuit.verdictsChanges")}</EtiquetteIcone>
                 <dd className="tabular-nums">{nuit.resume.contenus_verdict_change ?? "—"}</dd>
-                <dt className="text-muted-foreground">{t("bleo.nuit.famillesCloses")}</dt>
+                <EtiquetteIcone icone={Lock}>{t("bleo.nuit.famillesCloses")}</EtiquetteIcone>
                 <dd className="tabular-nums">{nuit.resume.familles_closes ?? "—"}</dd>
-                <dt className="text-muted-foreground">{t("bleo.nuit.familles")}</dt>
+                <EtiquetteIcone icone={GitBranch}>{t("bleo.nuit.familles")}</EtiquetteIcone>
                 <dd className="tabular-nums">
                   {t("bleo.nuit.famillesDetail", {
                     g: nuit.resume.verdicts_familles?.gagnante ?? 0,
@@ -171,7 +171,7 @@ export function AdminBleoPage() {
                     n: nuit.resume.verdicts_familles?.non_gagnante ?? 0,
                   })}
                 </dd>
-                <dt className="text-muted-foreground">{t("bleo.nuit.contenus")}</dt>
+                <EtiquetteIcone icone={Layers}>{t("bleo.nuit.contenus")}</EtiquetteIcone>
                 <dd className="tabular-nums">
                   {t("bleo.nuit.contenusDetail", {
                     j: nuit.resume.etats?.juge ?? 0,
@@ -187,7 +187,7 @@ export function AdminBleoPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>{t("bleo.vue.historique")}</CardTitle>
+          <TitreCarte icone={History}>{t("bleo.vue.historique")}</TitreCarte>
           <CardDescription>{t("bleo.vue.historiqueDesc")}</CardDescription>
         </CardHeader>
         <CardContent>

@@ -30,7 +30,6 @@ import {
   Workflow,
   MoonStar,
   PenLine,
-  Package,
   Boxes,
   Radar,
   Scale,
@@ -181,12 +180,6 @@ export function AdminLayout() {
               description: t("navDesc.creation"),
             },
             {
-              to: "/admin/pods",
-              label: t("nav.pods"),
-              icon: Boxes,
-              description: t("navDesc.pods"),
-            },
-            {
               to: "/admin/bibliotheque",
               label: t("nav.bibliotheque"),
               icon: Images,
@@ -207,7 +200,19 @@ export function AdminLayout() {
               description: t("navDesc.bleoFamilles"),
               end: false,
             },
-            { to: "/admin/bleo/podz", label: t("nav.bleoPodz"), icon: Package, description: t("navDesc.bleoPodz") },
+            // Pods (avec la boîte des podz en bas) et Allocation : déplacées ici telles quelles.
+            {
+              to: "/admin/pods",
+              label: t("nav.pods"),
+              icon: Boxes,
+              description: t("navDesc.pods"),
+            },
+            {
+              to: "/admin/repartition",
+              label: t("nav.repartition"),
+              icon: Scale,
+              description: t("navDesc.repartition"),
+            },
             {
               to: "/admin/bleo/reglages",
               label: t("nav.bleoReglages"),
@@ -304,12 +309,6 @@ export function AdminLayout() {
               label: t("nav.reglages"),
               icon: Settings,
               description: t("navDesc.reglages"),
-            },
-            {
-              to: "/admin/repartition",
-              label: t("nav.repartition"),
-              icon: Scale,
-              description: t("navDesc.repartition"),
             },
             {
               to: "/admin/prompts",

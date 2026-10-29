@@ -240,3 +240,8 @@ recalculée à la main, rejouabilité, derniers plans).
   nuit, dernier plan, rapport, historique), plan du jour compte par compte contre
   minuit, familles d'accroche et leur fiche (contenus par génération, passages),
   podz (jauge et boîte), réglages. Les podz ne lisent toujours rien (L4).
+- **29/10, soir (suite)** : #811 mergée. Dans l'OS : Pods et Répartition (Allocation)
+  rangées telles quelles dans la section BLEO ; la boîte et la jauge des podz
+  passent en bas de la page Pods (l'ancienne adresse /admin/bleo/podz y renvoie) ;
+  icônes sur les titres et les badges ; catégories du plan renommées pour dire
+  « langue neuve » ou « langue déjà servie », infobulle sur la valeur attendue.

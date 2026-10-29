@@ -1,28 +1,29 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Package } from "lucide-react";
+import { CircleAlert, Copy, Gauge, Package, Sparkles } from "lucide-react";
 
-import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { listerBoite, listerJauge, lireReglagesBleo } from "@/features/bleo/api";
-import { formaterJour, formaterNombre, formaterPart } from "@/features/bleo/format";
-import { EnteteTableau, EtatRequete, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau } from "@/features/bleo/ui";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
+import { listerBoite, listerJauge, lireReglagesBleo } from "./api";
+import { formaterJour, formaterNombre, formaterPart } from "./format";
+import { EnteteTableau, EtatRequete, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, TitreCarte } from "./ui";
+
 /**
- * BLEO, podz : la jauge de chaque podz de la voie 1 (semaines de boîte, part
- * de full test du jour) et sa boîte, c'est-à-dire les déclinaisons qu'il peut
- * faire, dans l'ordre (2ᵉ génération d'abord, puis les familles jamais
- * déclinées). Les podz ne lisent pas encore la boîte (lot L4).
+ * BLEO, en bas de la page Pods : la jauge de chaque podz de la voie 1
+ * (semaines de boîte, part de full test du jour) et sa boîte, c'est-à-dire les
+ * déclinaisons qu'il peut faire, dans l'ordre (2ᵉ génération d'abord, puis les
+ * familles jamais déclinées). Les podz ne lisent pas encore la boîte (lot L4).
+ * Le podz choisi est dans l'URL (`?boite=<label>`).
  */
-export function AdminBleoPodzPage() {
+export function SectionBoitePodz() {
   const { t, i18n } = useTranslation();
   const [params, setParams] = useSearchParams();
   const jauge = useQuery({ queryKey: ["bleo", "jauge"], queryFn: listerJauge });
   const reglages = useQuery({ queryKey: ["bleo", "reglages"], queryFn: lireReglagesBleo });
-  const labelId = params.get("label") ?? jauge.data?.[0]?.label_id ?? "";
+  const labelId = params.get("boite") ?? jauge.data?.[0]?.label_id ?? "";
   const pod = jauge.data?.find((j) => j.label_id === labelId);
   const boite = useQuery({
     queryKey: ["bleo", "boite", labelId],
@@ -31,23 +32,27 @@ export function AdminBleoPodzPage() {
   });
   const maxParParent = Number((reglages.data?.boite as { declinaisons_par_parent?: number } | undefined)?.declinaisons_par_parent ?? 3);
 
+  const choisir = (id: string) => {
+    const suivant = new URLSearchParams(params);
+    suivant.set("boite", id);
+    setParams(suivant, { replace: true });
+  };
+
   return (
-    <div className="space-y-6" data-testid="page-bleo-podz">
-      <PageHeader
-        title={
-          <span className="flex items-center gap-2">
-            <Package className="size-6 text-muted-foreground" aria-hidden />
-            {t("bleo.podz.titre")}
-          </span>
-        }
-        description={t("bleo.podz.description")}
-      />
+    <section id="boite-podz" className="scroll-mt-20 space-y-6" data-testid="section-bleo-boite">
+      <div className="space-y-2 border-t pt-6">
+        <h2 className="flex items-center gap-2 text-xl font-semibold">
+          <Package className="size-5 text-muted-foreground" aria-hidden />
+          {t("bleo.podz.titre")}
+        </h2>
+        <p className="max-w-3xl text-sm text-muted-foreground">{t("bleo.podz.description")}</p>
+      </div>
 
       <EtatRequete erreur={jauge.error ?? boite.error ?? reglages.error} chargement={jauge.isLoading} />
 
       <Card>
         <CardHeader>
-          <CardTitle>{t("bleo.podz.jauge")}</CardTitle>
+          <TitreCarte icone={Gauge}>{t("bleo.podz.jauge")}</TitreCarte>
           <CardDescription>{t("bleo.podz.jaugeDesc")}</CardDescription>
         </CardHeader>
         <CardContent>
@@ -67,7 +72,7 @@ export function AdminBleoPodzPage() {
                       type="button"
                       className="font-medium underline-offset-2 hover:underline"
                       aria-pressed={j.label_id === labelId}
-                      onClick={() => setParams({ label: j.label_id }, { replace: true })}
+                      onClick={() => choisir(j.label_id)}
                     >
                       {j.pod.replace(/^originaux_/, "")}
                     </button>
@@ -88,7 +93,7 @@ export function AdminBleoPodzPage() {
       {pod && (
         <Card>
           <CardHeader>
-            <CardTitle>{t("bleo.podz.boite", { pod: pod.pod.replace(/^originaux_/, "") })}</CardTitle>
+            <TitreCarte icone={Package}>{t("bleo.podz.boite", { pod: pod.pod.replace(/^originaux_/, "") })}</TitreCarte>
             <CardDescription>
               {t("bleo.podz.boiteDesc", { max: maxParParent })}{" "}
               <Link to={`/admin/bleo/familles?label=${pod.label_id}&verdict=gagnante`} className="underline">
@@ -111,7 +116,10 @@ export function AdminBleoPodzPage() {
                   <Ligne key={`${b.famille_id}:${b.parent_contenu_id}`}>
                     <td className={TD_NUM}>{b.rang}</td>
                     <td className={TD}>
-                      <Badge variant={b.sorte === "g2" ? "success" : "outline"}>{t(`bleo.podz.sortes.${b.sorte}`)}</Badge>
+                      <Badge variant={b.sorte === "g2" ? "success" : "outline"}>
+                        {b.sorte === "g2" ? <Sparkles aria-hidden /> : <Copy aria-hidden />}
+                        {t(`bleo.podz.sortes.${b.sorte}`)}
+                      </Badge>
                       <span className="mt-0.5 block text-[11px] text-muted-foreground">
                         {t(`bleo.podz.accroches.${b.accroche_attendue}`)}
                       </span>
@@ -128,6 +136,7 @@ export function AdminBleoPodzPage() {
                     <td className={TD}>
                       {b.au_budget ? (
                         <Badge variant="warning" title={t("bleo.podz.auBudgetAide")}>
+                          <CircleAlert aria-hidden />
                           {t("bleo.podz.auBudget")}
                         </Badge>
                       ) : (
@@ -149,6 +158,6 @@ export function AdminBleoPodzPage() {
       )}
 
       <p className="text-xs text-muted-foreground">{t("bleo.podz.voie2")}</p>
-    </div>
+    </section>
   );
 }

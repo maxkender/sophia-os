@@ -62,7 +62,6 @@ import { AdminBleoPage } from "@/pages/admin/AdminBleoPage";
 import { AdminBleoPlanPage } from "@/pages/admin/AdminBleoPlanPage";
 import { AdminBleoFamillesPage } from "@/pages/admin/AdminBleoFamillesPage";
 import { AdminBleoFamillePage } from "@/pages/admin/AdminBleoFamillePage";
-import { AdminBleoPodzPage } from "@/pages/admin/AdminBleoPodzPage";
 import { AdminBleoReglagesPage } from "@/pages/admin/AdminBleoReglagesPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
@@ -160,7 +159,8 @@ export function AppRouter() {
               <Route path="/admin/bleo/plan" element={<AdminBleoPlanPage />} />
               <Route path="/admin/bleo/familles" element={<AdminBleoFamillesPage />} />
               <Route path="/admin/bleo/familles/:id" element={<AdminBleoFamillePage />} />
-              <Route path="/admin/bleo/podz" element={<AdminBleoPodzPage />} />
+              {/* La boîte des podz vit en bas de la page Pods. */}
+              <Route path="/admin/bleo/podz" element={<Navigate to="/admin/pods#boite-podz" replace />} />
               <Route path="/admin/bleo/reglages" element={<AdminBleoReglagesPage />} />
               {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
               <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />

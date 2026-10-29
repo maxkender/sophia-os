@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { GitBranch } from "lucide-react";
+import { GitBranch, Hourglass, Layers, Lock, TrendingDown, Trophy, type LucideIcon } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
@@ -32,6 +32,13 @@ import {
 } from "@/features/bleo/ui";
 
 const VERDICTS: FiltreVerdict[] = ["toutes", "gagnante", "en_attente", "non_gagnante", "closes"];
+const ICONES_VERDICT: Record<FiltreVerdict, LucideIcon> = {
+  toutes: Layers,
+  gagnante: Trophy,
+  en_attente: Hourglass,
+  non_gagnante: TrendingDown,
+  closes: Lock,
+};
 const TRIS: TriFamilles[] = ["vues", "verdict", "passages", "recentes"];
 
 /**
@@ -83,7 +90,18 @@ export function AdminBleoFamillesPage() {
           libelle={t("bleo.colonnes.verdict")}
           actif={verdict}
           onChange={(v) => changer("verdict", v === "toutes" ? "" : v)}
-          options={VERDICTS.map((v) => ({ cle: v, contenu: t(`bleo.familles.filtres.${v}`) }))}
+          options={VERDICTS.map((v) => {
+            const Icone = ICONES_VERDICT[v];
+            return {
+              cle: v,
+              contenu: (
+                <>
+                  <Icone className="size-3.5" aria-hidden />
+                  {t(`bleo.familles.filtres.${v}`)}
+                </>
+              ),
+            };
+          })}
         />
         <select
           aria-label={t("bleo.colonnes.label")}
@@ -154,7 +172,12 @@ export function AdminBleoFamillesPage() {
                   <td className={TD}>
                     <span className="flex flex-wrap items-center gap-1">
                       <BadgeVerdict verdict={f.verdict} />
-                      {f.close && <Badge variant="outline">{t("bleo.close")}</Badge>}
+                      {f.close && (
+                        <Badge variant="outline">
+                          <Lock aria-hidden />
+                          {t("bleo.close")}
+                        </Badge>
+                      )}
                     </span>
                   </td>
                   <td className={TD_NUM}>

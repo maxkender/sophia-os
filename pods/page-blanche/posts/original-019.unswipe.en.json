@@ -5,19 +5,26 @@
    "textes": {
     "T1": {
      "en": [
-      "6 habits to become",
-      "disgustingly productive"
+      "10/10 habits to make you",
+      "dangerously charismatic"
      ],
-     "fr": "6 habitudes pour devenir ultra productive",
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
      "texte": "no phone in bed for [[21 days]]: a little diary"
     },
     "T2": {
      "en": [
-      "(neuroscience approved)"
+      "(niche edition)"
      ],
-     "fr": "(la science est d'accord)",
+     "fr": "(édition niche)",
      "alignement": "droite",
-     "texte": "(first night was weird)"
+     "texte": "(night 1: weird)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
     }
    },
    "images": {
@@ -152,23 +159,37 @@
    "textes": {
     "T1": {
      "en": [
-      "1. Stop taking your phone",
-      "everywhere with you"
+      "never sit in silence"
      ],
-     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
-     "alignement": "gauche",
-     "texte": "night 14: [[i slipped]] and brought it to bed"
+     "fr": "jamais de silence",
+     "texte": "night 14: [[i slipped]]"
     },
     "T2": {
      "en": [
-      "You don't need your",
-      "phone to go",
-      "to the bathroom,",
-      "stop taking it with",
-      "you everywhere!!"
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
      ],
-     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
-     "texte": "rough day, so \"just 5 minutes\". suddenly it was 1am and i woke up [[foggy and annoyed]]"
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "rough day, so i brought my phone to bed for \"just 5 minutes\". big mistake"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "suddenly it was [[1am]] and i was still going"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "woke up [[foggy and annoyed]], and it clicked how much better the other nights had been. the phone went straight back to the kitchen"
     }
    },
    "images": {

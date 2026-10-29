@@ -5,19 +5,26 @@
    "textes": {
     "T1": {
      "en": [
-      "6 habits to become",
-      "disgustingly productive"
+      "10/10 habits to make you",
+      "dangerously charismatic"
      ],
-     "fr": "6 habitudes pour devenir ultra productive",
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
      "texte": "[[21 giorni]] senza telefono a letto: il mio diario"
     },
     "T2": {
      "en": [
-      "(neuroscience approved)"
+      "(niche edition)"
      ],
-     "fr": "(la science est d'accord)",
+     "fr": "(édition niche)",
      "alignement": "droite",
-     "texte": "(1ª notte: che strano)"
+     "texte": "(notte 1: strana)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
     }
    },
    "images": {
@@ -152,23 +159,37 @@
    "textes": {
     "T1": {
      "en": [
-      "1. Stop taking your phone",
-      "everywhere with you"
+      "never sit in silence"
      ],
-     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
-     "alignement": "gauche",
-     "texte": "notte 14: [[ricaduta]], il telefono è venuto a letto"
+     "fr": "jamais de silence",
+     "texte": "notte 14: [[ricaduta]]"
     },
     "T2": {
      "en": [
-      "You don't need your",
-      "phone to go",
-      "to the bathroom,",
-      "stop taking it with",
-      "you everywhere!!"
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
      ],
-     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
-     "texte": "giornata storta, «solo 5 minuti». di colpo era l'1. sveglia [[con la testa annebbiata]]"
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "giornata storta, così il telefono è venuto a letto, solo 5 minuti, dicevo"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "di colpo era [[l'una di notte]] e io ancora lì"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "sveglia [[con la testa annebbiata]] e lì ho capito quanto erano state meglio le altre notti. il telefono è tornato in cucina"
     }
    },
    "images": {

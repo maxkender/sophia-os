@@ -95,17 +95,25 @@ Deno.test("Kill : approuver la dernière semaine, ne rien financer, fermer à la
   assertEquals(planPaiement(ligne({ action: "rien", montant: 0, faits: 0 }), [], S, R).statut, "rien");
 });
 
-Deno.test("Recrue reportée : approuve la 1re financée, même nommée Week 44", () => {
+Deno.test("prompt 26 : milestone financée pour une autre semaine → Needs you (rien ne part) ; sans numéro, seule : payée", () => {
   const p = planPaiement(ligne(), [j("m0", "Week 44", "Active", 1), j("m1", "Week 46", "NotFunded", 2)], S, R);
-  assertEquals(p.approuver?.nom, "Week 44");
-  assertEquals(p.financer?.jalon_id, "m1");
+  assertEquals(p.statut, "refuse");
+  assert(p.raison?.includes("autre semaine"));
+  const essai = planPaiement(ligne(), [j("m0", "Trial week", "Active", 1), j("m1", "Week 46", "NotFunded", 2)], S, R);
+  assertEquals([essai.statut, essai.approuver?.jalon_id, essai.financer?.jalon_id], ["pret", "m0", "m1"]);
+  const deuxSans = planPaiement(ligne(), [j("m0", "Trial week", "Active", 1), j("m1", "Posting", "Active", 2)], S, R);
+  assertEquals(deuxSans.statut, "refuse");
 });
 
 Deno.test("garde-fous : montant inattendu, deux milestones possibles, plafond, contrat absent, tarif manquant", () => {
   const inattendu = planPaiement(ligne(), [j("m1", "Week 45", "Active", 1, 20)], S, R);
   assertEquals(inattendu.statut, "refuse");
   assert(inattendu.raison?.includes("attendu 14"));
-  const deux = planPaiement(ligne(), [j("m1", "Week 45", "Active", 1), j("m2", "Week 46", "Active", 2)], S, R);
+  // Prompt 26 : Week 46 déjà financée au bon montant : Week 45 payée, rien de plus à financer ; à un autre montant : à vérifier.
+  const suiteDeja = planPaiement(ligne(), [j("m1", "Week 45", "Active", 1), j("m2", "Week 46", "Active", 2)], S, R);
+  assertEquals([suiteDeja.statut, suiteDeja.approuver?.jalon_id, suiteDeja.financer], ["pret", "m1", null]);
+  assertEquals(planPaiement(ligne(), [j("m1", "Week 45", "Active", 1), j("m2", "Week 46", "Active", 2, 20)], S, R).statut, "refuse");
+  const deux = planPaiement(ligne(), [j("m1", "Week 45", "Active", 1), j("m2", "Week 47", "Active", 2)], S, R);
   assertEquals(deux.statut, "refuse");
   // Semaine suivante déjà financée : deux financées, c'est normal ; on n'en finance pas une 3e.
   const dejaFin = planPaiement(ligne({ suivante_action: "deja_financee" }), [j("m1", "Week 45", "Active", 1), j("m2", "Week 46", "Active", 2)], S, R);
@@ -153,4 +161,16 @@ Deno.test("prompt 21, S et B7 : tarif à vérifier refusé, Legacy laissé, Paid
   assertEquals(planPaiement(ligne({ action: "legacy" }), embauche, S, R).statut, "rien");
   const p = planPaiement(ligne(), [j("m1", "Week 45", "PaidBySystem", 1, 14, 14)], S, R);
   assertEquals(p.statut, "deja_payee");
+});
+
+Deno.test("prompt 26 : 0 post et gardé : la milestone financée est renommée pour la semaine suivante, rien de payé", () => {
+  const z = ligne({ action: "rien", faits: 0, montant: 0, montant_calcule: 0, suivante_action: "renommer", suivante_montant: null });
+  const p = planPaiement(z, [j("m1", "Week 45 (2 acc)", "Active", 1, 28)], S, R);
+  assertEquals([p.statut, p.renommer], ["renommer", { jalon_id: "m1", de: "Week 45 (2 acc)", vers: "Week 46 (2 acc)" }]);
+  assertEquals([p.approuver, p.financer, p.total], [null, null, 0]);
+  assertEquals(planPaiement(z, [j("m2", "Week 46", "Active", 1)], S, R).statut, "rien");
+  assertEquals(planPaiement(z, [], S, R).statut, "rien");
+  assertEquals(planPaiement(z, [j("m0", "Trial week", "Active", 1)], S, R).statut, "refuse");
+  // Kill & don't pay : rien n'est approuvé.
+  assertEquals(planPaiement(ligne({ action: "kill_sans_paie" }), embauche, S, R).statut, "rien");
 });

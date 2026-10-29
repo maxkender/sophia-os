@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
+import { payerSemaineTest } from "@/features/paie/api-upwork/api";
 
 import {
   ajouterContratTest,
@@ -66,6 +67,35 @@ export function BoutonsTest({ posterId }: { posterId: string }) {
   );
 }
 
+/**
+ * Prompt 26 : « Pay this week » : la milestone financée du contrat de test est
+ * approuvée et la semaine suivante financée, pour de vrai, dans les plafonds.
+ */
+function PayerSemaineTest({ contratId }: { contratId: string }) {
+  const { t } = useTranslation();
+  const payer = useMutation({ mutationFn: () => payerSemaineTest(contratId) });
+  const r = payer.data;
+  return (
+    <div className="flex flex-wrap items-center gap-2" data-testid="payer-semaine-test">
+      <Button
+        size="xs"
+        loading={payer.isPending}
+        onClick={() => {
+          if (window.confirm(t("autoTest.payerConfirm", { contrat: contratId }))) payer.mutate();
+        }}
+      >
+        {t("autoTest.payer")}
+      </Button>
+      {r && (
+        <span className={r.ok ? "text-xs text-success-foreground" : "text-xs text-destructive"} role="status">
+          {r.ok ? t("autoTest.paye", { semaine: r.semaine }) : t("autoTest.pasPaye", { raison: r.raison ?? r.error ?? r.resultat ?? "?" })}
+        </span>
+      )}
+      {payer.error && <span className="text-xs text-destructive">{(payer.error as Error).message}</span>}
+    </div>
+  );
+}
+
 function LigneContrat({ c }: { c: ContratTest }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -108,7 +138,10 @@ function LigneContrat({ c }: { c: ContratTest }) {
         </Button>
       </div>
       {actif ? (
-        <BoutonsTest posterId={c.poster_id!} />
+        <>
+          <BoutonsTest posterId={c.poster_id!} />
+          <PayerSemaineTest contratId={c.contrat_id} />
+        </>
       ) : (
         <div className="flex flex-wrap items-center gap-2">
           <Input

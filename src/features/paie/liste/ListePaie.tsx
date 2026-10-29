@@ -42,6 +42,7 @@ import {
 } from "./api";
 import { ContratsATerminer } from "./ContratsATerminer";
 import { PaieAuto } from "./PaieAuto";
+import { SimulationPaie } from "./SimulationPaie";
 import {
   actionAffichee,
   besoinPaye,
@@ -654,6 +655,8 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
         </p>
       )}
       {!simulation && <PaieAuto semaine={semaine} />}
+      {/* Prompt 26 : la paie du lundi, simulée (rien n'est payé). */}
+      {!simulation && <SimulationPaie />}
       <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-muted/30 px-4 py-3">
         <p className="text-sm font-medium tabular-nums">
           {t("paie.liste.totalGeneral", {

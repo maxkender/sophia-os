@@ -142,9 +142,10 @@ export interface PlanPaiement {
   /**
    * pret : approuver (et financer) ; rien : rien à faire ; lien : à faire à la
    * main sur Upwork (fermer, rembourser) ; deja_payee : payée à la main ;
-   * refuse : à vérifier, rien ne part.
+   * refuse : à vérifier, rien ne part ; renommer (prompt 26) : 0 post et gardé,
+   * la milestone financée de la semaine passe à la semaine suivante.
    */
-  statut: "pret" | "rien" | "lien" | "deja_payee" | "refuse";
+  statut: "pret" | "rien" | "lien" | "deja_payee" | "refuse" | "renommer";
   raison: string | null;
   approuver: { jalon_id: string; nom: string; montant: number; depot: number; sous_paiement: string | null } | null;
   financer: { mode: "existant" | "creer"; jalon_id: string | null; nom: string; montant: number; editer: boolean } | null;
@@ -159,7 +160,11 @@ export interface PlanPaiement {
   total: number;
   /** Déjà payée à la main : le montant trouvé sur Upwork. */
   montant_trouve: number | null;
+  /** Prompt 26 : 0 post, gardé le samedi : « Week 44 » devient « Week 45 » (rien n'est payé ni financé). */
+  renommer?: { jalon_id: string; de: string; vers: string } | null;
 }
+
+const FINANCER_ACTIONS = ["financer", "financer_normal", "financer_double"];
 
 const vide = (statut: PlanPaiement["statut"], raison: string | null, extra: Partial<PlanPaiement> = {}): PlanPaiement => ({
   statut, raison, approuver: null, financer: null, lien: null, total: 0, montant_trouve: null, ...extra,
@@ -178,7 +183,11 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   if (l.exclu) return vide("rien", "retirée de la liste");
   if (l.paye_at) return vide("rien", "déjà cochée « Payé »");
   if (l.faits > 0 && l.tarif === null) return vide("refuse", "tarif manquant : à vérifier");
-  if (l.action === "rien") return vide("rien", "rien à payer");
+  if (l.action === "rien") return l.suivante_action === "renommer" ? planRenommer(jalons, w, n) : vide("rien", "rien à payer");
+  // Prompt 26 : « Kill & don't pay » : rien n'est approuvé, le contrat est fermé lundi (arrêt complet).
+  if (l.action === "kill_sans_paie") {
+    return vide("rien", "Kill & don't pay : rien n'est approuvé ; le contrat est fermé lundi (Upwork demande le remboursement de la milestone financée)");
+  }
   if (l.action === "annuler") return vide("lien", "à rembourser sur Upwork", { lien: "rembourser" });
   // Prompt 21, S (0415) : tarif du contrat impossible à déduire, ou contrat Legacy (payé à la fin de sa période).
   if (l.action === "a_verifier") return vide("refuse", "tarif du contrat à vérifier (Payroll → Contract rate)");
@@ -195,12 +204,23 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
     }
     return vide("refuse", "aucune milestone financée sur Upwork");
   }
-  // Semaine suivante déjà financée : 2 milestones financées attendues, sinon une seule.
-  const permises = l.suivante_action === "deja_financee" ? 2 : 1;
-  if (finances.length > permises) {
-    return vide("refuse", `${finances.length} milestones financées et non payées : laquelle approuver ? à vérifier`);
+  // Prompt 26 : la milestone de LA semaine payée (« Week 44 »), ou la seule financée sans numéro.
+  // Financée pour une autre semaine, ou deux possibles : Needs you, rien ne part.
+  const deLaSemaine = finances.filter((x) => semaineDuNom(x.nom) === w);
+  const sansNumero = finances.filter((x) => semaineDuNom(x.nom) === null);
+  if (deLaSemaine.length > 1) return vide("refuse", `${deLaSemaine.length} milestones « Week ${w} » financées : laquelle approuver ? à vérifier`);
+  const a = deLaSemaine[0] ?? (sansNumero.length === 1 ? sansNumero[0] : null);
+  if (!a) {
+    return sansNumero.length > 1
+      ? vide("refuse", `${sansNumero.length} milestones financées sans numéro de semaine : laquelle approuver ? à vérifier`)
+      : vide("refuse", `milestone financée pour une autre semaine (${finances.map((x) => x.nom || x.id).join(", ")}), attendu Week ${w}`);
   }
-  const a = finances[0];
+  // La semaine suivante peut déjà être financée ; toute autre milestone financée : à vérifier.
+  const suivanteFinancee = finances.filter((x) => x !== a && semaineDuNom(x.nom) === n);
+  const autres = finances.filter((x) => x !== a && semaineDuNom(x.nom) !== n);
+  if (autres.length > 0 || suivanteFinancee.length > 1) {
+    return vide("refuse", `${finances.length} milestones financées et non payées (${finances.map((x) => x.nom || x.id).join(", ")}) : laquelle approuver ? à vérifier`);
+  }
   if (a.depot === null) return vide("refuse", `${a.nom || "milestone"} : montant illisible`);
   const attendu = arrondi(l.montant_calcule + l.retenue);
   // B9 : le 2e compte d'un Double a commencé cette semaine, la milestone n'était
@@ -231,6 +251,14 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   }
 
   let financer: PlanPaiement["financer"] = null;
+  // Week n déjà financée (par la HM, ou un passage précédent) : au bon montant, rien à refaire.
+  if (suivanteFinancee.length === 1 && FINANCER_ACTIONS.includes(l.suivante_action ?? "")) {
+    const deja = suivanteFinancee[0];
+    if (l.suivante_montant !== null && deja.depot !== null && Math.abs(deja.depot - l.suivante_montant) > 0.009) {
+      return vide("refuse", `${deja.nom} déjà financée à ${deja.depot} $, attendu ${l.suivante_montant} $ : à vérifier`);
+    }
+    return { ...vide("pret", null), approuver, complement, financer: null, total: arrondi(approuver.montant + (complement?.montant ?? 0)) };
+  }
   switch (l.suivante_action) {
     case "financer":
     case "financer_normal":
@@ -271,3 +299,21 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   };
 }
 
+
+/**
+ * Prompt 26 : 0 post dans la semaine, gardé le samedi. Rien n'est payé ni
+ * financé : la milestone financée « Week w » sert la semaine suivante, elle
+ * devient « Week n » (le reste du nom gardé, « (2 acc) » compris).
+ */
+export function planRenommer(jalons: JalonUpwork[], w: number, n: number): PlanPaiement {
+  const finances = jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
+  const cible = finances.filter((j) => semaineDuNom(j.nom) === w);
+  if (cible.length === 1) {
+    const c = cible[0];
+    return { ...vide("renommer", null), renommer: { jalon_id: c.id, de: c.nom, vers: c.nom.replace(/week\s*\d{1,2}/i, `Week ${n}`) } };
+  }
+  if (cible.length > 1) return vide("refuse", `0 post : ${cible.length} milestones « Week ${w} » financées, laquelle renommer ? à vérifier`);
+  if (finances.some((j) => semaineDuNom(j.nom) === n)) return vide("rien", `0 post : Week ${n} déjà financée, rien à renommer`);
+  if (finances.length === 0) return vide("rien", "0 post : aucune milestone financée, rien à renommer");
+  return vide("refuse", `0 post : milestone financée « ${finances.map((j) => j.nom || j.id).join(", ")} » à renommer en Week ${n} à la main`);
+}

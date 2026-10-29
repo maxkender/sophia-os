@@ -22,6 +22,8 @@ const apiUpwork = vi.hoisted(() => ({
   lireEtatPaieAuto: vi.fn(async () => null),
   lireReglagesPaiementApi: vi.fn(async () => ({ mode: "off" })),
   lancerPaieAuto: vi.fn(async () => ({})),
+  lireDerniereSimulation: vi.fn(async () => null),
+  simulerPaie: vi.fn(),
 }));
 vi.mock("@/features/paie/api-upwork/api", () => apiUpwork);
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: "admin" }) }));

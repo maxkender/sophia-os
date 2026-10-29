@@ -148,3 +148,36 @@ export async function lancerPaieAuto(): Promise<{ ignore?: string; payees?: numb
   if (!r.ok && r.error) throw new Error(r.error);
   return r;
 }
+
+/** Prompt 26 : la simulation d'une paie (rien n'est payé ni financé). */
+export interface SimulationPaie {
+  id?: string | null;
+  semaine: string;
+  lignes: number;
+  par_categorie: Record<string, number>;
+  total: { approuve: number; finance: number; total: number };
+  plafonds: { ligne: number; jour: number };
+  depasse_plafond_jour: boolean;
+  milestones_lues_le: string | null;
+  needs_you: { poster: string; contrat: string | null; lien: string | null; montant: number; raison: string }[];
+  lance_at?: string;
+}
+
+export async function simulerPaie(semaine?: string): Promise<SimulationPaie> {
+  const r = await invoke<{ ok: boolean; error?: string } & SimulationPaie>("upwork", { action: "paie_simulation", ...(semaine ? { semaine } : {}) });
+  if (!r.ok) throw new Error(r.error ?? "simulation impossible");
+  return r;
+}
+
+export async function lireDerniereSimulation(): Promise<SimulationPaie | null> {
+  const { data, error } = await supabase.from("paie_simulations").select("id, semaine, resultat, lance_at")
+    .eq("statut", "fini").order("lance_at", { ascending: false }).limit(1).maybeSingle();
+  if (error) throw error;
+  if (!data?.resultat) return null;
+  return { ...(data.resultat as SimulationPaie), id: data.id as string, lance_at: data.lance_at as string };
+}
+
+/** Prompt 26 : « Pay this week » sur un contrat de test : la semaine approuvée, la suivante financée (pour de vrai). */
+export async function payerSemaineTest(contratId: string): Promise<{ ok: boolean; semaine?: string; resultat?: string; raison?: string | null; error?: string }> {
+  return await invoke("upwork", { action: "paie_test_payer", contrat_id: contratId, confirmer: true });
+}

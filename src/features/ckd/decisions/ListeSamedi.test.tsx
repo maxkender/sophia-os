@@ -13,6 +13,13 @@ const api = vi.hoisted(() => ({
   choisirSamedi: vi.fn<(compte: string, action: string) => Promise<string>>(async (c) => `manuel-${c}`),
   lireDemandesArret: vi.fn<() => Promise<DemandeArret[]>>(async () => []),
   garderMalgreDemande: vi.fn<(poster: string) => Promise<void>>(async () => undefined),
+  lireFicheSamedi: vi.fn(async () => ({
+    posts: [{ jour: "2026-10-26", handle: "calme", url: "https://www.tiktok.com/@calme/photo/1", vues: 120, statut: "resolu" }],
+    nudges: [], messages: [], historique: { cohorte: "2026-10-19", comptes: [], pauses: [], kills_annules: 0 },
+    contrat: { id: "123", url: "https://www.upwork.com/nx/wm/workroom/123/overview", freelance: "Ana P.", tarif: 14 },
+    semaine: { faits: 3, prevus: 6, montant: 14, action: "payer", raison: null },
+  })),
+  noterKillSansPaie: vi.fn<(p: string, l: string, r: string, m: number | null) => Promise<void>>(async () => undefined),
 }));
 vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./semaineComptes")>()), ...api }));
 const ckd = vi.hoisted(() => ({ deciderCkd: vi.fn<(id: string, decision: string, note: string | null) => Promise<void>>(async () => undefined) }));
@@ -65,11 +72,11 @@ describe("Weekly decisions → Saturday, la masterlist (prompt 25, partie 4)", (
   it("tous les comptes, pré-remplis avec la proposition de l'OS et sa raison ; nudgé jeudi ; déjà décidé figé", async () => {
     rendu();
     await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(4));
-    expect(presse("absent", "Kill")).toBe("true");
+    expect(presse("absent", "Kill & pay")).toBe("true");
     expect(presse("bon", "Double")).toBe("true");
     expect(presse("calme", "Keep")).toBe("true");
     expect(presse("fait", "Keep")).toBe("true");
-    expect(within(ligne("fait")).getByRole("button", { name: "Kill" })).toBeDisabled();
+    expect(within(ligne("fait")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
     expect(within(ligne("absent")).getByText("10 posts manqués sur 12")).toBeInTheDocument();
     expect(within(ligne("absent")).getByText("Nudgé")).toBeInTheDocument();
     expect(within(ligne("calme")).getByText("Rien à signaler")).toBeInTheDocument();
@@ -84,7 +91,7 @@ describe("Weekly decisions → Saturday, la masterlist (prompt 25, partie 4)", (
     expect(ckd.deciderCkd).not.toHaveBeenCalled();
     // « bon » passe en Keep, « calme » en Kill (à la main).
     fireEvent.click(within(ligne("bon")).getByRole("button", { name: "Keep" }));
-    fireEvent.click(within(ligne("calme")).getByRole("button", { name: "Kill" }));
+    fireEvent.click(within(ligne("calme")).getByRole("button", { name: "Kill & pay" }));
     const recrues = await screen.findByTestId("samedi-recrues");
     const mia = recrues.querySelector<HTMLElement>('[data-recrue="r1"]')!;
     const ola = recrues.querySelector<HTMLElement>('[data-recrue="r2"]')!;
@@ -116,8 +123,8 @@ describe("Weekly decisions → Saturday, la masterlist (prompt 25, partie 4)", (
       { poster_id: "r3", source: "message", raison: "STOP", demande_at: "2026-10-30T12:00:00Z" },
     ]);
     rendu();
-    await waitFor(() => expect(presse("calme", "Kill")).toBe("true"));
-    expect(presse("envie", "Kill")).toBe("true");
+    await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
+    expect(presse("envie", "Kill & pay")).toBe("true");
     expect(within(ligne("envie")).getByText("Persona refusé")).toBeInTheDocument();
     expect(within(ligne("envie")).getByText("« I won't post this »")).toBeInTheDocument();
     const zoe = (await screen.findByTestId("samedi-recrues")).querySelector<HTMLElement>('[data-recrue="r3"]')!;
@@ -136,7 +143,35 @@ describe("Weekly decisions → Saturday, la masterlist (prompt 25, partie 4)", (
     auth.role = "head_of_ops";
     rendu();
     await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(4));
-    expect(within(ligne("absent")).getByRole("button", { name: "Kill" })).toBeDisabled();
+    expect(within(ligne("absent")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
     expect(screen.queryByRole("button", { name: "Validate" })).toBeNull();
+  });
+
+  it("prompt 26 : Kill & don't pay demande une raison, montre le montant en jeu, puis la note pour lundi", async () => {
+    const confirm = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu();
+    await waitFor(() => expect(document.querySelectorAll("[data-compte]").length).toBeGreaterThan(0));
+    fireEvent.click(within(ligne("calme")).getByRole("button", { name: "Kill & don't pay" }));
+    expect(await screen.findByText("Montant en jeu : 14 $")).toBeInTheDocument();
+    expect(screen.getByText("Si le freelance refuse le remboursement, Upwork ouvre un litige.")).toBeInTheDocument();
+    const valider = document.querySelector<HTMLButtonElement>('[data-action="valider-samedi"]')!;
+    expect(valider).toBeDisabled();
+    fireEvent.change(screen.getByRole("combobox", { name: "Raison (obligatoire)" }), { target: { value: "faux_liens" } });
+    fireEvent.change(screen.getByRole("textbox", { name: "Détail (obligatoire pour « Autre »)" }), { target: { value: "3 liens d'un autre compte" } });
+    expect(valider).not.toBeDisabled();
+    fireEvent.click(valider);
+    await waitFor(() => expect(api.noterKillSansPaie).toHaveBeenCalledWith(expect.any(String), "2026-10-26", "Faux liens : 3 liens d'un autre compte", 14));
+    expect(confirm).toHaveBeenCalledTimes(2);
+  });
+
+  it("prompt 26 : la fiche du compte (contrat, montant, posts avec liens et vues, ce que fait chaque bouton)", async () => {
+    rendu();
+    await waitFor(() => expect(document.querySelectorAll("[data-compte]").length).toBeGreaterThan(0));
+    fireEvent.click(within(ligne("calme")).getByRole("button", { name: "Détails" }));
+    const fiche = await screen.findByTestId("fiche-samedi");
+    expect(within(fiche).getByText("Cette semaine : 14 $ en jeu (3/6 posts avec lien)")).toBeInTheDocument();
+    expect(within(fiche).getByRole("link", { name: "123" })).toHaveAttribute("href", "https://www.upwork.com/nx/wm/workroom/123/overview");
+    expect(within(fiche).getByText("120 vues")).toBeInTheDocument();
+    expect(within(fiche).getByText(/Kill & don't pay : rien n'est approuvé/)).toBeInTheDocument();
   });
 });

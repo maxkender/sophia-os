@@ -86,7 +86,9 @@ import {
   planPaiement,
   type ReglagesPaieApi,
   refusMode,
+  semaineDuNom,
 } from "../_shared/paiement.ts";
+import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_shared/ckd.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, lireCompte } from "../_shared/upwork_comptes.ts";
@@ -185,7 +187,7 @@ Deno.serve(async (request) => {
     // deno-lint-ignore no-explicit-any
     const body: any = await request.json().catch(() => ({}));
     const par = acces.userId === "cron" ? null : acces.userId;
-    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur"].includes(body.action)) {
+    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation"].includes(body.action)) {
       return json({ error: "forbidden" }, 403);
     }
 
@@ -218,6 +220,13 @@ Deno.serve(async (request) => {
         return json(await paieReconcilier(supabase, par));
       case "paie_question":
         return json(await paieQuestion(supabase, par, String(body.poster_id ?? ""), body.simuler === true));
+      case "paie_simulation":
+        // Prompt 26 : la paie d'une semaine, simulée (rien n'est payé ni financé).
+        return json(await paieSimulation(supabase, par, typeof body.semaine === "string" ? body.semaine : null));
+      case "paie_test_payer":
+        // Prompt 26 : « Pay this week » sur un contrat de test (Overview → Test contracts).
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await paieTestPayer(supabase, par, String(body.contrat_id ?? "")));
       case "droits":
         return json(await testerDroits(supabase, par));
       case "message": {
@@ -768,7 +777,10 @@ async function reglagesPaieApi(supabase: Supabase) {
     .select("cle, valeur")
     .in("cle", ["paie_api", "paie_plafond_ligne", "paie_plafond_jour"]);
   if (error) throw error;
-  return lireReglagesPaieApi(Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur])));
+  const r = lireReglagesPaieApi(Object.fromEntries((data ?? []).map((x) => [x.cle as string, x.valeur])));
+  // Prompt 26 : les contrats de la liste « Test contracts » (0440) sont des contrats de test pour la paie aussi.
+  const { data: tests } = await supabase.from("contrats_test").select("contrat_id").is("retire_at", null);
+  return { ...r, contrats_test: [...new Set([...r.contrats_test, ...(tests ?? []).map((t) => String(t.contrat_id))])] };
 }
 
 /** Des réglages simples (nombre ou texte), lus en une fois. */
@@ -783,12 +795,18 @@ const texteReglage = (v: unknown, defaut: string) => (typeof v === "string" && v
  * Toute la liste de la semaine, fusionnée par contrat (prompt 21, B8), avec
  * l'organisation Upwork de chaque contrat.
  */
-async function chargerLignes(supabase: Supabase, semaine: string): Promise<{ lignes: LigneAuto[]; tenantDe: Map<string, string | null> }> {
+async function chargerLignes(
+  supabase: Supabase,
+  semaine: string,
+  o: { simulation?: boolean } = {},
+): Promise<{ lignes: LigneAuto[]; tenantDe: Map<string, string | null>; raisonDe: Map<string, string | null> }> {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(semaine)) throw new Error("semaine invalide");
-  const { data: liste, error } = await supabase.rpc("paie_liste_v2", { p_lundi: semaine, p_simulation: false });
+  const { data: liste, error } = await supabase.rpc("paie_liste_v2", { p_lundi: semaine, p_simulation: o.simulation === true });
   if (error) throw error;
+  // Prompt 26 : en simulation, les lignes ne sont pas encore écrites ; le posteur sert d'identifiant.
   // deno-lint-ignore no-explicit-any
-  const brutes = ((liste ?? []) as any[]).filter((l) => l.id);
+  const brutes = ((liste ?? []) as any[]).map((l) => (o.simulation ? { ...l, id: l.id ?? l.poster_id } : l)).filter((l) => l.id);
+  const raisonDe = new Map(brutes.map((b) => [String(b.id), (b.raison as string | null) ?? null]));
   const posteurs = brutes.map((l) => l.poster_id);
   const { data: profils } = posteurs.length
     ? await supabase.from("profiles").select("id, upwork_contract_id").in("id", posteurs)
@@ -815,7 +833,7 @@ async function chargerLignes(supabase: Supabase, semaine: string): Promise<{ lig
     // deno-lint-ignore no-explicit-any
     douteux: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).reduce((n: number, d: any) => n + Number(d?.douteux ?? 0), 0),
   })));
-  return { lignes, tenantDe };
+  return { lignes, tenantDe, raisonDe };
 }
 
 /** Le plan d'une ligne : ses milestones lues chez Upwork (seulement si elle paie). */
@@ -828,7 +846,7 @@ async function planLigne(
   r: ReglagesPaieApi,
 ): Promise<LignePlan> {
   if (ligne.refus) return { ligne, tenant, jalons: [], plan: { ...planPaiement(ligne, [], semaine, r), statut: "refuse", raison: ligne.refus }, bloque: null };
-  const aLire = ACTIONS_PAYEES.includes(ligne.action) && ligne.contrat_id && !ligne.paye_at && !ligne.exclu;
+  const aLire = (ACTIONS_PAYEES.includes(ligne.action) || aRenommer(ligne)) && ligne.contrat_id && !ligne.paye_at && !ligne.exclu;
   if (!aLire) return { ligne, tenant, jalons: [], plan: planPaiement(ligne, [], semaine, r), bloque: null };
   if (!tenant) {
     return {
@@ -848,7 +866,7 @@ async function planLigne(
   const jalons = lireJalonsContrat(lu.data.contractDetails);
   const plan = planPaiement(ligne, jalons, semaine, r);
   // Le mode (off / test / on) ne bloque que ce qui partirait vraiment.
-  const bloque = plan.statut === "pret" || plan.statut === "deja_payee" ? refusMode(r, ligne.contrat_id!, aujourdhuiParis()) : null;
+  const bloque = ["pret", "deja_payee", "renommer"].includes(plan.statut) ? refusMode(r, ligne.contrat_id!, aujourdhuiParis()) : null;
   return { ligne, tenant, jalons, plan, bloque };
 }
 
@@ -857,7 +875,9 @@ async function planifier(supabase: Supabase, par: string | null, semaine: string
   const voulues = new Set(Array.isArray(ids) ? ids.map(String) : []);
   if (voulues.size === 0) throw new Error("aucune ligne choisie");
   if (voulues.size > 400) throw new Error("trop de lignes d'un coup");
-  const r = await reglagesPaieApi(supabase);
+  // Prompt 26 : un clic (aperçu, « Pay this week » en mode Test) n'attend pas la date d'ouverture du test.
+  const r0 = await reglagesPaieApi(supabase);
+  const r = r0.mode === "test" ? { ...r0, test_des: "2000-01-01" } : r0;
   const { lignes, tenantDe } = await chargerLignes(supabase, semaine);
   const choisies = lignes.filter((l) => l.ids.some((id) => voulues.has(id)));
   await jetonValide(supabase, par);
@@ -894,6 +914,187 @@ async function paieApercu(supabase: Supabase, par: string | null, semaine: strin
     lignes: plans.map(resume),
     total: Math.round(plans.filter((p) => p.plan.statut === "pret" && !p.bloque).reduce((s, p) => s + p.plan.total, 0) * 100) / 100,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 26 : la simulation d'une paie (rien n'est payé), « Pay this week »
+// sur un contrat de test, et le renommage d'une milestone (0 post, gardé).
+// ---------------------------------------------------------------------------
+
+/** Le lundi de la semaine qui sera payée au prochain lundi de paie (Paris). */
+function prochaineSemaineAPayer(d = new Date()): string {
+  const p = maintenantParis(d);
+  return p.isoJour === 1 ? ajouterJours(p.jour, -7) : ajouterJours(p.jour, -(p.isoJour - 1));
+}
+
+type CategorieSimulation = "payer" | "double" | "rien" | "pause" | "legacy" | "a_la_main" | "kill" | "kill_sans_paie" | "annuler" | "warmup" | "renommer";
+
+function categorieSimulation(l: LigneAuto, plan: PlanPaiement, raison: string | null): CategorieSimulation {
+  if (l.refus || l.action === "a_verifier" || plan.statut === "refuse") return "a_la_main";
+  if (l.action === "legacy") return "legacy";
+  if (l.action === "kill") return "kill";
+  if (l.action === "kill_sans_paie") return "kill_sans_paie";
+  if (l.action === "annuler") return "annuler";
+  if (l.action === "rien") return plan.statut === "renommer" ? "renommer" : l.faits === 0 && /warm-up/i.test(raison ?? "") ? "warmup" : "rien";
+  if (/pause/i.test(raison ?? "")) return "pause";
+  if (l.nb_comptes >= 2 || l.suivante_action === "financer_double") return "double";
+  return "payer";
+}
+
+/**
+ * La paie d'une semaine, simulée : chaque ligne passe par le même plan que la
+ * paie du lundi, avec les milestones lues par l'OS (Sunday 20 h, Monday 4 h 30).
+ * Rien n'est payé, financé ni écrit chez Upwork. Le résultat est gardé.
+ */
+async function paieSimulation(supabase: Supabase, par: string | null, semaineDemandee: string | null) {
+  const semaine = semaineDemandee && /^\d{4}-\d{2}-\d{2}$/.test(semaineDemandee) ? semaineDemandee : prochaineSemaineAPayer();
+  const r = await reglagesPaieApi(supabase);
+  const { lignes, raisonDe } = await chargerLignes(supabase, semaine, { simulation: true });
+  const contrats = [...new Set(lignes.map((l) => l.contrat_id).filter(Boolean))] as string[];
+  const jalonsDe = new Map<string, { jalons: JalonUpwork[]; lu_at: string | null }>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_jalons").select("contrat_id, jalons, lu_at").in("contrat_id", contrats.slice(i, i + 200));
+    for (const j of data ?? []) {
+      jalonsDe.set(String(j.contrat_id), { jalons: Array.isArray(j.jalons) ? (j.jalons as JalonUpwork[]) : [], lu_at: (j.lu_at as string | null) ?? null });
+    }
+  }
+  const compte: Record<CategorieSimulation, number> = {
+    payer: 0, double: 0, rien: 0, pause: 0, legacy: 0, a_la_main: 0, kill: 0, kill_sans_paie: 0, annuler: 0, warmup: 0, renommer: 0,
+  };
+  let approuve = 0;
+  let finance = 0;
+  const needsYou: Record<string, unknown>[] = [];
+  const detail: Record<string, unknown>[] = [];
+  for (const l of lignes) {
+    const lu = l.contrat_id ? jalonsDe.get(l.contrat_id) : undefined;
+    const aLire = (ACTIONS_PAYEES.includes(l.action) || aRenommer(l)) && !l.paye_at && !l.exclu;
+    let plan: PlanPaiement = l.refus ? { ...planPaiement(l, [], semaine, r), statut: "refuse", raison: l.refus } : planPaiement(l, lu?.jalons ?? [], semaine, r);
+    if (!l.refus && aLire && l.contrat_id && !lu) plan = { ...plan, statut: "refuse", raison: "milestones jamais lues par l'OS (Réglages → Upwork → Lire les milestones)" };
+    const cat = categorieSimulation(l, plan, raisonDe.get(l.ids[0]) ?? null);
+    compte[cat]++;
+    if (plan.statut === "pret") {
+      approuve += (plan.approuver?.montant ?? 0) + (plan.complement?.montant ?? 0);
+      finance += plan.financer?.montant ?? 0;
+    }
+    const ligne = {
+      poster: l.poster_nom ?? l.poster_id, contrat: l.contrat_id, action: l.action, categorie: cat, faits: l.faits, montant: l.montant,
+      suivante: l.suivante_action, suivante_montant: l.suivante_montant, plan: plan.statut, raison: plan.raison,
+      approuver: plan.approuver ? `${plan.approuver.nom} · ${plan.approuver.montant} $` : null,
+      financer: plan.financer ? `${plan.financer.nom} · ${plan.financer.montant} $ (${plan.financer.mode === "creer" ? "à créer" : "existante"})` : null,
+      renommer: plan.renommer ? `${plan.renommer.de} → ${plan.renommer.vers}` : null,
+    };
+    detail.push(ligne);
+    if (cat === "a_la_main" || cat === "legacy") {
+      needsYou.push({
+        poster: ligne.poster, contrat: l.contrat_id,
+        lien: l.contrat_id ? `https://www.upwork.com/nx/wm/workroom/${l.contrat_id}/overview` : null,
+        montant: l.montant, raison: cat === "legacy" ? "contrat Legacy : payé à la fin de sa période" : (plan.raison ?? l.refus ?? "tarif du contrat à vérifier"),
+      });
+    }
+  }
+  const arrondi = (x: number) => Math.round(x * 100) / 100;
+  const resultat = {
+    semaine, lignes: lignes.length, par_categorie: compte,
+    total: { approuve: arrondi(approuve), finance: arrondi(finance), total: arrondi(approuve + finance) },
+    plafonds: { ligne: r.plafond_ligne, jour: r.plafond_jour },
+    depasse_plafond_jour: approuve + finance > r.plafond_jour,
+    milestones_lues_le: [...jalonsDe.values()].map((x) => x.lu_at).filter(Boolean).sort().at(-1) ?? null,
+    needs_you: needsYou,
+  };
+  const { data: sim } = await supabase.from("paie_simulations").insert({
+    semaine, statut: "fini", lance_par: par, fini_at: new Date().toISOString(), resultat, lignes: detail,
+  }).select("id").single();
+  return { ok: true, id: sim?.id ?? null, ...resultat };
+}
+
+/** Le lundi de la semaine ISO `n`, la plus proche d'aujourd'hui (Paris). */
+function lundiDeSemaine(n: number, d = new Date()): string {
+  const jour = maintenantParis(d).jour;
+  const actuelle = semaineIsoDe(jour);
+  let delta = n - actuelle;
+  if (delta > 26) delta -= 52;
+  if (delta < -26) delta += 52;
+  const p = maintenantParis(d);
+  return ajouterJours(ajouterJours(jour, -(p.isoJour - 1)), delta * 7);
+}
+
+/**
+ * Prompt 26 : « Pay this week » sur un contrat de test : la milestone financée
+ * est approuvée et la semaine suivante financée, au même montant, dans les
+ * plafonds, par le même moteur que la paie du lundi. Seulement sur un contrat
+ * de la liste « Test contracts », relié à son posteur de test.
+ */
+async function paieTestPayer(supabase: Supabase, par: string | null, contratId: string) {
+  if (await bloquer(supabase, { fonction: "upwork", action: "paie_test_payer", cible: contratId })) return { ok: false, error: PAUSE };
+  if (!contratId) return { ok: false, error: "contrat_id requis" };
+  const { data: t } = await supabase.from("contrats_test").select("poster_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
+  if (!t) return { ok: false, error: "ce contrat n'est pas dans la liste « Test contracts »" };
+  if (!t.poster_id) return { ok: false, error: "créer d'abord le posteur de test de ce contrat" };
+  const posterId = String(t.poster_id);
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contratId).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  if (!tenant) return { ok: false, error: "contrat absent des contrats lus (Réglages → Upwork → Lire les contrats)" };
+  await jetonValide(supabase, par);
+  const relu = await relireJalons(supabase, par, contratId, tenant, "paie_test_jalons");
+  if (!relu.jalons) return { ok: false, error: `milestones illisibles : ${relu.erreur}` };
+  const finances = relu.jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
+  if (finances.length === 0) return { ok: false, error: "aucune milestone financée sur ce contrat" };
+  const a = finances[0];
+  if (a.depot === null || !(a.depot > 0)) return { ok: false, error: `${a.nom || "milestone"} : montant illisible` };
+  const numero = semaineDuNom(a.nom);
+  const semaine = numero !== null ? lundiDeSemaine(numero) : prochaineSemaineAPayer();
+  const { data: prof } = await supabase.from("profiles").select("prenom, nom").eq("id", posterId).maybeSingle();
+  const nom = [prof?.prenom, prof?.nom].filter(Boolean).join(" ") || "TEST";
+  const { data: ligneLue, error: errL } = await supabase.from("paie_semaines").upsert({
+    poster_id: posterId, semaine, nb_comptes: 1, comptes_payes: 1, prevus: 1, faits: 1, manques: 0, tarif: a.depot, retenue: 0,
+    montant: a.depot, statut: "ok", raison: "Test : Pay this week", action: "payer", calcule_at: new Date().toISOString(),
+  }, { onConflict: "poster_id,semaine" }).select("id, paye_at").single();
+  if (errL || !ligneLue) return { ok: false, error: errL?.message ?? "ligne de paie impossible" };
+  if (ligneLue.paye_at) return { ok: false, error: `semaine du ${semaine} déjà payée` };
+  const ligne: LigneAuto = {
+    id: String(ligneLue.id), poster_id: posterId, poster_nom: nom, action: "payer", faits: 1, tarif: a.depot,
+    montant: a.depot, montant_calcule: a.depot, retenue: 0, raison_correction: null, exclu: false, paye_at: null,
+    semaine_suivante_faite_at: null, suivante_action: "financer", suivante_comptes: 1, suivante_montant: a.depot,
+    contrat_id: contratId, ids: [String(ligneLue.id)], posteurs: [posterId], nb_comptes: 1, moins6: 0, douteux: 0, refus: null,
+  };
+  const r = await reglagesPaieApi(supabase);
+  const plan = planPaiement(ligne, relu.jalons, semaine, r);
+  if (plan.statut !== "pret") return { ok: false, error: plan.raison ?? plan.statut, plan };
+  const issue = await executer(supabase, par, semaine, { ligne, tenant, jalons: relu.jalons, plan, bloque: null }, null);
+  return { ok: issue.resultat === "paye", semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan };
+}
+
+/**
+ * Prompt 26 : 0 post, gardé le samedi. La milestone financée « Week w »
+ * devient « Week n » : rien n'est payé ni financé. Un seul passage (verrou à 0 $).
+ */
+async function executerRenommage(supabase: Supabase, par: string | null, semaine: string, p: LignePlan): Promise<Issue> {
+  const { ligne, tenant, plan } = p;
+  const rn = plan.renommer!;
+  if (!ligne.ids[0] || !ligne.contrat_id) return { resultat: "refuse", raison: "ligne incomplète" };
+  const { data: id, error } = await supabase.rpc("paie_api_reserver", {
+    p_paie_semaine_id: ligne.ids[0], p_poster: ligne.poster_id, p_semaine: semaine, p_contrat: ligne.contrat_id, p_montant: 0, p_par: par,
+  });
+  if (error || !id) return { resultat: "refuse", raison: error?.message ?? "verrou impossible" };
+  const edite = await ecrire(supabase, {
+    par, action: "paie_renommer_jalon", query: MUTATION_EDITER_JALON, tenant, contrat: ligne.contrat_id, montant: 0,
+    variables: { input: { id: rn.jalon_id, description: rn.vers } },
+  });
+  const etapes = [{ etape: "renommer", jalon: rn.jalon_id, de: rn.de, vers: rn.vers, erreur: edite.erreur }];
+  if (edite.erreur || !edite.data?.editMilestone) {
+    const raison = `0 post, gardé : ${rn.de} à renommer en « ${rn.vers} » à la main (${edite.erreur ?? "réponse vide"})`;
+    await supabase.from("paie_paiements_api").update({ statut: "a_verifier", erreur: raison, etapes, plan, lignes: ligne.ids, updated_at: new Date().toISOString() }).eq("id", id);
+    await aFaire(supabase, {
+      cle: `paie:${semaine}:${ligne.ids[0]}`, titre: `Paie ${ligne.poster_nom ?? ligne.poster_id} : milestone à renommer`, detail: resumePaie(ligne, raison),
+      poster_id: ligne.poster_id, contrat_id: ligne.contrat_id, semaine,
+    });
+    return { resultat: "a_verifier", raison };
+  }
+  await supabase.from("paie_paiements_api").update({
+    statut: "paye", financement: "renomme", erreur: null, etapes, plan, lignes: ligne.ids, updated_at: new Date().toISOString(),
+  }).eq("id", id);
+  await marquerLignes(supabase, ligne.ids, par, "suivante");
+  return { resultat: "paye", plan };
 }
 
 /** Payer depuis la liste (bouton) : le même moteur que la paie automatique, ligne par ligne. */
@@ -955,13 +1156,26 @@ async function relireJalons(supabase: Supabase, par: string | null, contrat: str
 /** Une ligne de « Logs & to do » (onglet To do, ou Issues si `issue`), une seule fois par clé. */
 async function aFaire(
   supabase: Supabase,
-  o: { cle: string; titre: string; detail?: string | null; issue?: boolean; poster_id?: string | null; contrat_id?: string | null; semaine?: string | null; type?: string },
+  o: { cle: string; titre: string; detail?: string | null; issue?: boolean; poster_id?: string | null; contrat_id?: string | null; semaine?: string | null; type?: string; lien?: string | null },
 ) {
+  // Prompt 26 : une fiche dans Needs you, avec le lien du contrat sur Upwork.
+  const lien = o.lien ?? (o.contrat_id ? `https://www.upwork.com/nx/wm/workroom/${o.contrat_id}/overview` : null);
   await supabase.from("a_faire").upsert({
     cle: o.cle, type: o.type ?? "paie", gravite: o.issue ? "issue" : "todo", titre: o.titre, detail: o.detail ?? null,
-    poster_id: o.poster_id ?? null, contrat_id: o.contrat_id ?? null, semaine: o.semaine ?? null, maj_at: new Date().toISOString(),
+    poster_id: o.poster_id ?? null, contrat_id: o.contrat_id ?? null, semaine: o.semaine ?? null, lien, maj_at: new Date().toISOString(),
   }, { onConflict: "cle" });
 }
+
+/** Prompt 26 : le résumé d'une fiche de paie (montant attendu, semaine suivante). */
+function resumePaie(l: LigneAuto, raison: string | null): string {
+  const suite = l.suivante_montant !== null && FINANCER_PAIE.includes(l.suivante_action ?? "") ? ` · semaine suivante ${l.suivante_montant} $` : "";
+  return `${raison ?? "à vérifier"} · ${l.faits} post(s) avec lien · ${l.montant} $ attendus${suite}`;
+}
+
+const FINANCER_PAIE = ["financer", "financer_normal", "financer_double"];
+
+/** Prompt 26 : 0 post et gardé le samedi, la milestone financée est renommée pour la semaine suivante. */
+const aRenommer = (l: LigneAuto) => l.action === "rien" && l.suivante_action === "renommer";
 
 /** Un DM Slack à Max (canari arrêté, carte refusée, contrat en pause). */
 async function dmMax(texte: string): Promise<void> {
@@ -1004,11 +1218,15 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
     reprise = null;
   }
   const plan = reprise?.plan ?? p.plan;
+  if (!reprise && plan.statut === "renommer" && plan.renommer) {
+    if (p.bloque) return { resultat: "refuse", raison: p.bloque };
+    return await executerRenommage(supabase, par, semaine, p);
+  }
   if (!reprise) {
     if (p.bloque) return { resultat: "refuse", raison: p.bloque };
     if (plan.statut === "deja_payee") return { resultat: await noterDejaPayee(supabase, par, semaine, p) as Issue["resultat"], raison: plan.raison };
     if (plan.statut !== "pret" || !plan.approuver || !ligne.id || !ligne.contrat_id) {
-      return { resultat: plan.statut === "refuse" ? "refuse" : plan.statut, raison: plan.raison };
+      return { resultat: plan.statut === "refuse" || plan.statut === "renommer" ? "refuse" : plan.statut, raison: plan.raison };
     }
   }
   if (!ligne.contrat_id || !plan.approuver) return { resultat: "refuse", raison: "plan incomplet" };
@@ -1234,19 +1452,11 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
 // ---------------------------------------------------------------------------
 
 /** Lignes que la paie automatique ne touche pas (et pourquoi), sans lire Upwork. */
-function horsPaieAuto(l: LigneAuto, killAuto: string): string | null {
+function horsPaieAuto(l: LigneAuto): string | null {
   if (l.exclu) return "retirée de la liste";
   if (l.paye_at) return "déjà cochée « Payé »";
   if (l.refus) return l.refus;
-  if (!ACTIONS_PAYEES.includes(l.action)) return null;
-  // Kill sous les 6 posts (0415) : seulement quand le Kill automatique est sur « on ».
-  if (l.action === "kill" && l.moins6 > 0 && l.moins6 >= l.nb_comptes && killAuto !== "on") {
-    return "Kill sous les 6 posts : kill_auto n'est pas sur « on », à payer à la main";
-  }
-  // Prompt 21, U : jamais de Kill sur des données incomplètes (liens introuvables pas vérifiés).
-  if (l.action === "kill" && l.moins6 > 0 && l.douteux > 0) {
-    return `Kill sous les 6 posts, mais ${l.douteux} lien(s) introuvable(s) pas vérifié(s) : Needs you`;
-  }
+  // Prompt 26 : plus de Kill sous les 6 posts ; seul le Kill du samedi arrête.
   return null;
 }
 
@@ -1266,12 +1476,11 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
   if (!etat) return { ok: true, ignore: "un autre passage est en cours" };
   let encore = false;
   try {
-    const v = await reglagesValeurs(supabase, ["paie_auto_heure", "kill_auto"]);
+    const v = await reglagesValeurs(supabase, ["paie_auto_heure"]);
     const heure = Number.isFinite(Number(v.paie_auto_heure)) ? Number(v.paie_auto_heure) : 9;
     const quand = peutPayer(new Date(), heure, etat.lance_at);
     if (!quand.ok) return { ok: true, ignore: quand.raison };
     if (etat.statut === "arrete") return { ok: true, ignore: `arrêtée après le canari : ${etat.arret_raison ?? "voir Payroll"}` };
-    const killAuto = lireModeAuto(v.kill_auto);
     const { lignes, tenantDe } = await chargerLignes(supabase, semaine);
     const tenant = (l: LigneAuto) => (l.contrat_id ? (tenantDe.get(l.contrat_id) ?? null) : null);
     await jetonValide(supabase, par);
@@ -1283,7 +1492,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
 
     // 1. Le canari (B4) : un seul contrat, relu en entier avant d'aller plus loin.
     if (!etat.canari_ok) {
-      const libres = lignes.filter((l) => !verrouDe.has(l.ids[0]) && !horsPaieAuto(l, killAuto) && l.contrat_id);
+      const libres = lignes.filter((l) => !verrouDe.has(l.ids[0]) && !horsPaieAuto(l) && l.contrat_id);
       // Le canari : une ligne simple ; à défaut, la 1re ligne « Payer » d'un seul profil.
       const c = choisirCanari(libres) ?? libres.find((l) => l.action === "payer" && l.ids.length === 1) ?? null;
       if (!c) {
@@ -1333,11 +1542,11 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
         });
         continue;
       }
-      if (!ACTIONS_PAYEES.includes(l.action) || !l.contrat_id || !l.ids[0]) continue;
-      const hors = horsPaieAuto(l, killAuto);
+      if ((!ACTIONS_PAYEES.includes(l.action) && !aRenommer(l)) || !l.contrat_id || !l.ids[0]) continue;
+      const hors = horsPaieAuto(l);
       if (hors) {
         if (!l.exclu && !l.paye_at) {
-          await aFaire(supabase, { cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : à faire à la main`, detail: hors, poster_id: l.poster_id, contrat_id: l.contrat_id, semaine });
+          await aFaire(supabase, { cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : à faire à la main`, detail: resumePaie(l, hors), poster_id: l.poster_id, contrat_id: l.contrat_id, semaine });
         }
         continue;
       }
@@ -1405,7 +1614,7 @@ async function noterRefus(supabase: Supabase, par: string | null, semaine: strin
   }).eq("id", id);
   if (!reessai) {
     await aFaire(supabase, {
-      cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : à vérifier`, detail: raison,
+      cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : à payer à la main`, detail: resumePaie(l, raison),
       poster_id: l.poster_id, contrat_id: l.contrat_id, semaine,
     });
   }
@@ -1536,6 +1745,14 @@ async function paieQuestion(supabase: Supabase, par: string | null, posterId: st
   const { lignes, tenantDe } = await chargerLignes(supabase, semaine);
   const l = lignes.find((x) => x.posteurs.includes(posterId));
   const attente = { ok: true, cas: "attente", texte: null as string | null, liste: "paie" };
+  // Prompt 26 : ce qu'Upwork montre d'abord : la semaine payée, ou la suivante financée → la réponse part seule.
+  const vu = await semaineVueSurUpwork(supabase, par, posterId, semaine).catch(() => null);
+  if (vu?.cas === "payee") {
+    return { ok: true, cas: "payee", texte: remplirTexte(texteReglage(v.paie_reponse_payee_texte, REPONSE_PAYEE), { montant: vu.montant.toFixed(2).replace(/\.00$/, ""), NN }) };
+  }
+  if (vu?.cas === "financee") {
+    return { ok: true, cas: "financee", texte: remplirTexte(texteReglage(v.paie_reponse_financee_texte, REPONSE_FINANCEE), { NN: NN + 1 }) };
+  }
   if (!l || !ACTIONS_PAYEES.includes(l.action) || l.exclu || !l.contrat_id || !l.ids[0]) return attente;
   const { data: x } = await supabase.from("paie_paiements_api").select(COLONNES_PAIEMENT).eq("paie_semaine_id", l.ids[0]).neq("statut", "libere").maybeSingle();
   const verrou = x as (PaiementApi & { montant_approuve: number | null }) | null;
@@ -1574,6 +1791,35 @@ async function paieQuestion(supabase: Supabase, par: string | null, posterId: st
   } finally {
     await supabase.rpc("paie_auto_rendre", { p_semaine: semaine });
   }
+}
+
+/**
+ * Prompt 26 : la paie d'un posteur vue chez Upwork (lecture seule) : la
+ * milestone de la semaine payée (« Week w » payée) ou la suivante financée
+ * (« Week w+1 » financée). null : rien de sûr.
+ */
+async function semaineVueSurUpwork(
+  supabase: Supabase,
+  par: string | null,
+  posterId: string,
+  semaine: string,
+): Promise<{ cas: "payee"; montant: number } | { cas: "financee" } | null> {
+  const { data: pr } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
+  const contrat = (pr?.upwork_contract_id as string | null) ?? null;
+  if (!contrat) return null;
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  if (!tenant) return null;
+  await jetonValide(supabase, par);
+  const relu = await relireJalons(supabase, par, contrat, tenant, "paie_question_jalons");
+  if (!relu.jalons) return null;
+  const w = numeroSemaine(semaine);
+  const payee = relu.jalons.find((j) => semaineDuNom(j.nom) === w && PAYEES.includes(j.etat));
+  const montant = Number(payee?.paye ?? payee?.depot ?? 0);
+  if (payee && montant > 0) return { cas: "payee", montant };
+  const n = numeroSemaine(ajouterJours(semaine, 7));
+  if (relu.jalons.some((j) => semaineDuNom(j.nom) === n && ETATS_FINANCES.includes(j.etat))) return { cas: "financee" };
+  return null;
 }
 
 async function payerQuestion(

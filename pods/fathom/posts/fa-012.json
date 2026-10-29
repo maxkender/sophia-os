@@ -1,0 +1,297 @@
+{
+ "id": "fa-012",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7692804200308296982",
+  "vues": 77600,
+  "accroche": "10/10 YouTube Videos To Watch Instead Of Scrolling"
+ },
+ "titre": {
+  "en": "10/10 YouTube Videos To Watch Instead Of Scrolling",
+  "de": "10/10 YouTube-Videos statt Scrollen",
+  "pt": "10/10 vídeos do YouTube para ver em vez de fazer scroll"
+ },
+ "legendes": {
+  "en": "10/10 YouTube Videos To Watch Instead Of Scrolling #youtube #learnontiktok #screentime",
+  "de": "10/10 YouTube-Videos statt Scrollen #youtube #lernenmittiktok #bildschirmzeit",
+  "pt": "10/10 vídeos do YouTube para ver em vez de fazer scroll #youtube #aprendernotiktok #tempodeecra"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "cta C (1re personne). Double intégration : UnSwipe à l'étape 2 « BUT FIRST, KILL THE FEED » (Instagram sans les Reels), Sophia à l'étape 4 « 5 MINUTES, EVERY DAY ». Les titres des étapes sont les sujets des vidéos (style « S Tier »). en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE VIDEOS",
+     "TO WATCH INSTEAD",
+     "OF SCROLLING"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE-VIDEOS",
+     "STATT SCROLLEN"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VÍDEOS DO YOUTUBE",
+     "EM VEZ DE",
+     "FAZER SCROLL"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE BANACH–TARSKI",
+     "PARADOX"
+    ],
+    "video": {
+     "id": "s86-Z-CbaHA",
+     "titre": "The Banach–Tarski Paradox",
+     "chaine": "Vsauce",
+     "vues": "49M views",
+     "date": "11 years ago",
+     "duree": "24:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpYedipdXUXCKkwjQEeFrepFlDHZ0LiczqWeKyG0YmJvA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS TIEFSTE",
+     "LOCH DER WELT"
+    ],
+    "video": {
+     "id": "ZU0A3AiJKc4",
+     "titre": "Was verbirgt sich im tiefsten Loch der Welt?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "826.123 Aufrufe",
+     "date": "vor 10 Monaten",
+     "duree": "13:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O PARADOXO",
+     "DE FERMI"
+    ],
+    "video": {
+     "id": "kEdaRdDkEiA",
+     "titre": "O Paradoxo de Fermi – Onde estão todos os alienígenas? (1/2)",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "666 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "BUT FIRST,",
+     "KILL THE FEED"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "ABER ZUERST:",
+     "WEG MIT DEM FEED"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "MAS PRIMEIRO,",
+     "ADEUS AO FEED"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY WE",
+     "CAN'T FOCUS"
+    ],
+    "video": {
+     "id": "6QltxZ-vPMc",
+     "titre": "Why we can't focus.",
+     "chaine": "Jared Henderson",
+     "vues": "3.3M views",
+     "date": "1 year ago",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/hD3OORvL4-7g-In9kHhX9xSR_SjVP2ikCovuHaVqPNZhmhjPxvq1O8AT2yLqrjSVI-F8rNd9zQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GOLDFISCH-",
+     "AUFMERKSAMKEIT?"
+    ],
+    "video": {
+     "id": "3WQod9iu7uY",
+     "titre": "Ab 8 Sekunden ist Schluss: Können wir uns nicht mehr konzentrieren? | Quarks",
+     "chaine": "Quarks",
+     "vues": "66.616 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "21:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4bDvezc36i3vmptDIlmT9_Hc_kYlyVJg3zlJmsjBf1_M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PORQUE NÃO TE",
+     "CONSEGUES CONCENTRAR"
+    ],
+    "video": {
+     "id": "RO6hh2bJdG0",
+     "titre": "É POR ISSO QUE VOCÊ NÃO CONSEGUE SE CONCENTRAR (cientificamente)",
+     "chaine": "Henri Felix",
+     "vues": "557 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/k5wjbNPeeiqaFieepG10Q2vJlZ6jpMx0ehiOR0rZHWalIJYd3oGfRpMxdILuyF3x1L2RLoTq=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "5 MINUTES",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "5 MINUTEN",
+     "JEDEN TAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "5 MINUTOS",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HISTORY OF",
+     "THE WORLD"
+    ],
+    "video": {
+     "id": "zohg5rx5ptU",
+     "titre": "The ENTIRE History of The World (NO AI) | 4K Documentary",
+     "chaine": "Beginning To Now",
+     "vues": "1.5M views",
+     "date": "3 months ago",
+     "duree": "4:00:01",
+     "avatar": "https://yt3.ggpht.com/UFc7FoqddJjva4D617MRV8f1ina5aGhqqh2XQPiRnVfdhbHxZoMlTzKIwhfmO3wywmZDsa-RFJs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "4,5 MILLIARDEN JAHRE",
+     "IN EINER STUNDE"
+    ],
+    "video": {
+     "id": "8wQkM-znhjY",
+     "titre": "4,5 Milliarden Jahre in einer Stunde",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "1:03:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "AS CIVILIZAÇÕES",
+     "ANTIGAS"
+    ],
+    "video": {
+     "id": "GFSoRGgdAfQ",
+     "titre": "Toda a História das Civilizações Antigas | Documentário",
+     "chaine": "Era Humana",
+     "vues": "502 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "2:14:32",
+     "avatar": "https://yt3.ggpht.com/WVGn_jVYv1XGvjNp4RrJlb1nDkhZvredcxC2l_2sRToxJH0LVXoOOvxeetrmoFlI9yqrEXHNHic=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

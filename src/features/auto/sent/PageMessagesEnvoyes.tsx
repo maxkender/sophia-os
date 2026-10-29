@@ -5,11 +5,12 @@ import { ReglagesRegles } from "@/features/regles/ReglagesRegles";
 
 import { OngletsAuto, PanneauOnglet } from "../OngletsAuto";
 import { useOnglet } from "../useOnglet";
+import { ApercuMessages, MessagesEnAttente } from "./Attente";
 import { JournalMessages } from "./JournalMessages";
 import { TextesMessages } from "./TextesMessages";
 import { TimingMessages } from "./TimingMessages";
 
-const ONGLETS = ["journal", "prevus", "textes", "timing"] as const;
+const ONGLETS = ["journal", "prevus", "apercu", "textes", "timing"] as const;
 
 /**
  * Messages sent (prompt 22, partie 6) : tout ce que l'OS envoie. Le journal
@@ -36,7 +37,13 @@ export function PageMessagesEnvoyes() {
             <JournalMessages />
           </>
         ) : onglet === "prevus" ? (
-          <Prevues />
+          <>
+            {/* 0432 : les messages qui attendent un « Send » (jamais de rattrapage d'un coup). */}
+            <MessagesEnAttente />
+            <Prevues />
+          </>
+        ) : onglet === "apercu" ? (
+          <ApercuMessages />
         ) : onglet === "textes" ? (
           <>
             <TextesMessages />

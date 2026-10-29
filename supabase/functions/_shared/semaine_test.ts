@@ -50,19 +50,27 @@ Deno.test("ce qui manque : la 1re étape pas faite", () => {
   const o = { url: "https://os", handle: "ana.pt" };
   assertEquals(ceQuiManqueRecrue(etatsAccueil(r({}), D), o), null);
   assertEquals(ceQuiManqueRecrue(etatsAccueil(r({ premiere_connexion_at: null }), D), o), "log in to your dashboard (https://os)");
-  assertEquals(ceQuiManqueRecrue(etatsAccueil(r({ tiktok_existe: false }), D), o), "create your TikTok account @ana.pt");
+  assertEquals(ceQuiManqueRecrue(etatsAccueil(r({ tiktok_existe: false, warmup_started_at: null }), D), o), "create your TikTok account @ana.pt");
+  // Start warmup cliqué, @ introuvable : jamais « create your account ».
+  assertEquals(
+    ceQuiManqueRecrue(etatsAccueil(r({ tiktok_existe: false }), D), { ...o, warmupClique: true }),
+    "check that your TikTok account is exactly @ana.pt (we can't find it); if not, reply with your exact @",
+  );
   assertEquals(ceQuiManqueRecrue(etatsAccueil(r({ abonnements: 3 }), D), o), "follow 2 more accounts");
 });
 
-Deno.test("jeudi : posts ou liens manquants de lundi à mercredi, le jeudi, une fois", () => {
+Deno.test("jeudi : sous 6 posts avec lien (compte par compte, aujourd'hui inclus), le jeudi, une fois", () => {
   const J = { heure: 12, fin: 20 };
-  const x = p({ faits_lun_mer: 4 });
+  const x = p();
   // Jeudi 5 nov., São Paulo : 16:00Z = 13 h → dû ; 14:00Z = 11 h → trop tôt.
-  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T16:00:00Z"), J), true);
-  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T14:00:00Z"), J), false);
-  assertEquals(jeudiDu(p(), LUNDI, t("2026-11-05T16:00:00Z"), J), false);
-  assertEquals(jeudiDu(p({ attendus_lun_mer: 0, faits_lun_mer: 0 }), LUNDI, t("2026-11-05T16:00:00Z"), J), false);
-  assertEquals(jeudiDu({ ...x, envoyes: ["jeudi"] }, LUNDI, t("2026-11-05T16:00:00Z"), J), false);
+  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T16:00:00Z"), J, 4), true);
+  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T14:00:00Z"), J, 4), false);
+  // 6 ou plus : jamais le texte « below 6 » (même 23 posts).
+  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T16:00:00Z"), J, 6), false);
+  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T16:00:00Z"), J, 23), false);
+  // Aucun compte cette semaine : rien.
+  assertEquals(jeudiDu(x, LUNDI, t("2026-11-05T16:00:00Z"), J, null), false);
+  assertEquals(jeudiDu({ ...x, envoyes: ["jeudi"] }, LUNDI, t("2026-11-05T16:00:00Z"), J, 4), false);
   assertEquals(
     texteJeudi("Hi {prenom}, ({faits} of {attendus}).", { prenom: "Ana", faits: 4, attendus: 6 }),
     "Hi Ana, (4 of 6).",

@@ -43,7 +43,11 @@ const VARIABLES_ETAPE = ["prenom", "handle", "url", "lien_etapes", "date", "ce_q
 export const TEXTES: readonly TexteCatalogue[] = [
   { id: "accueil", groupe: "accueil", cle: "accueil_message_texte", variables: VARIABLES_ACCUEIL },
   { id: "etape_connexion", groupe: "etapes", cle: "etape_texte_connexion", variables: VARIABLES_ETAPE },
+  // 0432 : la bienvenue n'a pas été envoyée par l'OS → les identifiants dans le rappel.
+  { id: "etape_connexion_identifiants", groupe: "etapes", cle: "etape_texte_connexion_identifiants", variables: [...VARIABLES_ETAPE, "email", "mot_de_passe"] },
   { id: "etape_tiktok", groupe: "etapes", cle: "etape_texte_tiktok", variables: VARIABLES_ETAPE },
+  // 0432 : Start warmup cliqué, @ introuvable → on demande le bon @ (jamais « create your account »).
+  { id: "etape_tiktok_verifier", groupe: "etapes", cle: "etape_texte_tiktok_verifier", variables: VARIABLES_ETAPE },
   { id: "etape_warmup_lance", groupe: "etapes", cle: "etape_texte_warmup_lance", variables: VARIABLES_ETAPE },
   { id: "etape_warmup_bien_fait", groupe: "etapes", cle: "etape_texte_warmup_bien_fait", variables: VARIABLES_ETAPE },
   { id: "lundi_tous", groupe: "lundi", cle: "lundi_texte_tous", variables: ["prenom", "ce_qui_manque"] },

@@ -66,10 +66,10 @@ describe("Messages sent (prompt 22, partie 6)", () => {
     await i18n.changeLanguage("fr");
   });
 
-  it("4 onglets : Journal, Prévu, Textes, Délais ; ?onglet= ouvre le bon", async () => {
+  it("5 onglets : Journal, Prévu, Aperçu, Textes, Délais ; ?onglet= ouvre le bon", async () => {
     rendu("/?onglet=prevus");
     const onglets = await screen.findByRole("tablist", { name: "Onglets de Messages envoyés" });
-    expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual(["Journal", "Prévu", "Textes", "Délais"]);
+    expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual(["Journal", "Prévu", "Aperçu", "Textes", "Délais"]);
     expect(screen.getByTestId("relances-prevues")).toBeInTheDocument();
   });
 

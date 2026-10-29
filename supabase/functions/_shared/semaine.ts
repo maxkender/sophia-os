@@ -53,10 +53,21 @@ export function lundiDu(p: PosteurSemaine, lundi: string, maintenant: Date, o: {
   return dansCreneau(maintenant, p.fuseau, lundi, o.debut, o.fin);
 }
 
-/** Le Nudge du jeudi est dû : posts ou liens manquants de lundi à mercredi. */
-export function jeudiDu(p: PosteurSemaine, lundi: string, maintenant: Date, o: { heure: number; fin: number }): boolean {
+/**
+ * Le Nudge du jeudi est dû : un compte du posteur sous `seuil` posts avec lien
+ * de lundi à aujourd'hui inclus (compté compte par compte : `postsMin` est le
+ * plus bas). À 6 ou plus, jamais le texte « below 6 ». null : rien cette semaine.
+ */
+export function jeudiDu(
+  p: PosteurSemaine,
+  lundi: string,
+  maintenant: Date,
+  o: { heure: number; fin: number },
+  postsMin: number | null,
+  seuil = 6,
+): boolean {
   if (p.envoyes.includes("jeudi")) return false;
-  if (p.attendus_lun_mer === 0 || p.faits_lun_mer >= p.attendus_lun_mer) return false;
+  if (postsMin === null || postsMin >= seuil) return false;
   return dansCreneau(maintenant, p.fuseau, ajouterJours(lundi, 3), o.heure, o.fin);
 }
 
@@ -81,11 +92,21 @@ export function jeudiRecrueDu(
  * (connexion, compte TikTok, Start warmup, puis le warm-up lui-même).
  * null : tout est fait.
  */
-export function ceQuiManqueRecrue(etats: EtatAccueil[], o: { url: string; handle: string | null }): string | null {
+export function ceQuiManqueRecrue(
+  etats: EtatAccueil[],
+  o: { url: string; handle: string | null; warmupClique?: boolean },
+): string | null {
   const e = etats.find((x) => !x.fait);
   if (!e) return null;
   if (e.etape === "connexion") return `log in to your dashboard (${o.url})`;
-  if (e.etape === "tiktok") return `create your TikTok account${o.handle ? ` @${o.handle.replace(/^@/, "")}` : ""}`;
+  const handle = o.handle ? o.handle.replace(/^@/, "") : null;
+  // Start warmup cliqué mais @ introuvable : jamais « create your account », on demande le bon @.
+  if (e.etape === "tiktok" && o.warmupClique) {
+    return handle
+      ? `check that your TikTok account is exactly @${handle} (we can't find it); if not, reply with your exact @`
+      : "reply with the exact @ of your TikTok account";
+  }
+  if (e.etape === "tiktok") return `create your TikTok account${handle ? ` @${handle}` : ""}`;
   if (e.etape === "warmup_lance") return 'click "Start warmup" on your dashboard, then follow 5 accounts';
   return texteCeQuiManque(e.manque, e.followsManquants);
 }

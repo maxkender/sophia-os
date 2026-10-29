@@ -272,7 +272,8 @@ comment on view public.bleo_mediane_compte is
   'BLEO : médiane des vues des passages mûrs du compte sur la fenêtre de reglages.bleo.mesure, hors rappels, définie à partir de mediane_min_posts passages.';
 
 -- ---------------------------------------------------------------------------
--- 4. RLS : admins et service, comme les tables du moteur (0256)
+-- 4. RLS : admins et service, comme les tables du moteur (0256). Tables neuves :
+--    aucune politique à remplacer, et sans politique pour anon la RLS lui ferme tout.
 -- ---------------------------------------------------------------------------
 do $$
 declare
@@ -283,17 +284,14 @@ begin
                            'bleo_relectures', 'bleo_banque', 'bleo_fiches']
   loop
     execute format('alter table public.%I enable row level security', t);
-    execute format('drop policy if exists %I on public.%I', t || '_admin', t);
     execute format('create policy %I on public.%I for all to authenticated using (public.is_admin()) with check (public.is_admin())',
                    t || '_admin', t);
     execute format('grant select, insert, update, delete on public.%I to authenticated', t);
     execute format('grant all on public.%I to service_role', t);
-    execute format('revoke all on public.%I from anon', t);
   end loop;
 end;
 $$;
 
-revoke all on public.bleo_mediane_compte from anon;
 grant select on public.bleo_mediane_compte to authenticated, service_role;
 
 -- ---------------------------------------------------------------------------

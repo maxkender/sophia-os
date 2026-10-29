@@ -48,9 +48,9 @@ corriger dans `docs/bleo.md` et le doc Claude).
 
 | # | Constat | Preuve | Proposition | Statut |
 | --- | --- | --- | --- | --- |
-| D1 | À minuit, l'ancien système **supprime tout passage du jour sans `post_id`** puis compte le quota sur les **posts**. Un passage BLEO encore « sans slides » à 00 h est effacé et le témoin remplit les deux créneaux : pas de paire. Même purge à 04 h, au bouton « Assigner » et à la recharge d'un créateur | `purgerAssignationIncomplete` (AC:452), `listerComptesSousQuota` (AC:2836), `revoquer-post` | BLEO crée à 14 h le passage **et son post**, masqué aux posteurs jusqu'à minuit ; le deck prêt remplit les slides du post et de `passages.slides` | à décider |
-| D2 | Les posteurs voient le post J+1 de BLEO dès l'après-midi, ~10 h avant celui du témoin : la mesure « BLEO publié en premier ≈ 50 % » est biaisée d'avance | `PosterCalendrierPage.tsx:66` | Réglé par le masquage de D1 | à décider |
-| D3 | Les passages BLEO **consomment le budget de la tierlist** (`restants`) et leurs vues nourrissent la requalification : le témoin tire dans un stock entamé par BLEO, surtout les contenus neufs (`tier_cycle` 0) que BLEO teste | vue `contenu_tier_etat` (M/0270:444) | Exclure les passages `bras = 'bleo'` de `contenu_tier_etat` et de la requalification pendant l'A/B | à décider |
+| D1 | **Tranché le 29/10 : oui.** À minuit, l'ancien système **supprime tout passage du jour sans `post_id`** puis compte le quota sur les **posts**. Un passage BLEO encore « sans slides » à 00 h est effacé et le témoin remplit les deux créneaux : pas de paire. Même purge à 04 h, au bouton « Assigner » et à la recharge d'un créateur | `purgerAssignationIncomplete` (AC:452), `listerComptesSousQuota` (AC:2836), `revoquer-post` | BLEO crée à 14 h le passage **et son post**, masqué aux posteurs jusqu'à minuit ; le deck prêt remplit les slides du post et de `passages.slides` | à décider |
+| D2 | **Tranché le 29/10 : oui.** Les posteurs voient le post J+1 de BLEO dès l'après-midi, ~10 h avant celui du témoin : la mesure « BLEO publié en premier ≈ 50 % » est biaisée d'avance | `PosterCalendrierPage.tsx:66` | Réglé par le masquage de D1 | à décider |
+| D3 | **Tranché le 29/10 : oui.** Les passages BLEO **consomment le budget de la tierlist** (`restants`) et leurs vues nourrissent la requalification : le témoin tire dans un stock entamé par BLEO, surtout les contenus neufs (`tier_cycle` 0) que BLEO teste | vue `contenu_tier_etat` (M/0270:444) | Exclure les passages `bras = 'bleo'` de `contenu_tier_etat` et de la requalification pendant l'A/B | à décider |
 | D4 | Si le tirage témoin échoue sur « pool », `baisserQuotaSiBesoin` compte le passage BLEO et **baisse le quota 2 → 1 pour de bon** : le compte sort de l'A/B et reste à 1 après | AC:1101, 1188 | Ne jamais baisser le quota d'un compte qui a un passage `bleo` ce jour-là | technique |
 | D5 | A8 **exclut** (même contenu 14 j, famille 10 j, couverture 10 j) là où le code actuel **déclasse**, exprès pour ne jamais laisser un créneau vide dans les petites langues | AC:2506, tierlist.ts:140 | Exclure comme la spec, puis relâcher dans l'ordre couverture → famille → contenu avant de laisser un créneau vide ; le rapport compte chaque relâche | à décider |
 
@@ -213,3 +213,7 @@ recalculée à la main, rejouabilité, derniers plans).
 - **29/10, 12 h 40** : file à juger à 30 % (réglage), mélange corrigé (accroches
   gagnantes pas encore mesurées = gagnantes). Les rapports de 22 h sont résumés
   à Adrien dans la session de coordination, pas dans #podz (décision d'Adrien).
+- **29/10, 13 h 45** : Adrien tranche D1 + D2 (le passage BLEO et son post sont
+  créés à 14 h, le post est masqué aux posteurs jusqu'à minuit) et D3 (les
+  passages BLEO sont exclus du budget et des requalifications de la tierlist
+  pendant l'A/B). Nuit relancée à la main à 13 h 43 (13,1 s) avant le tirage de 14 h.

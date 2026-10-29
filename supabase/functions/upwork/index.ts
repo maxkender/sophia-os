@@ -1850,7 +1850,7 @@ async function envoyerMessage(
   o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
 ): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
-  // Run now (contrat de test) : le compte de secours, forcé ; sinon Max d'abord, puis Adrien.
+  // Run now (contrat de test) : le compte de secours, forcé ; sinon Adrien d'abord, puis Max (prompt 25 MAJ).
   const choix = o.forcer ? { compte: o.forcer, erreur: null } : await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
   if (choix.compte === null) return { ok: false, error: choix.erreur, budget: true };
   const compte = choix.compte;
@@ -1872,24 +1872,25 @@ async function envoyerMessage(
   let r = await poster();
   let storyId = r.data?.createRoomStoryV2?.id as string | undefined;
   if (storyId) return { ok: true, story_id: storyId, compte };
-  // La limite d'Upwork sur le compte de Max : rien n'est parti ; Adrien prend le relais (une fois).
-  if (compte === COMPTE && !o.forcer && estLimiteUpwork(r.erreur) && !(o.exclure ?? []).includes(COMPTE_SECOURS)) {
-    return await envoyerMessage(supabase, par, contratId, texte, { ...o, exclure: [...(o.exclure ?? []), COMPTE] });
-  }
-  if (compte === COMPTE_SECOURS && r.erreur !== PAUSE && !estLimiteUpwork(r.erreur)) {
-    // Adrien n'a pas pu écrire : Max l'ajoute à la conversation, puis un seul nouvel essai.
-    const ajout = await ajouterSecoursAuSalon(supabase, par, roomId, tenant, contratId);
-    if (!ajout) {
-      r = await poster();
-      storyId = r.data?.createRoomStoryV2?.id as string | undefined;
-      if (storyId) return { ok: true, story_id: storyId, compte };
+  // Prompt 25 MAJ : Adrien d'abord. Il n'a pas pu écrire : Max l'ajoute à la conversation et un seul
+  // nouvel essai ; sinon (ou limite d'Upwork) Max prend le relais (une fois). Max plein : la HM.
+  const relais = !o.forcer && !(o.exclure ?? []).includes(COMPTE);
+  if (compte === COMPTE_SECOURS && r.erreur !== PAUSE) {
+    let ajout: string | null = null;
+    if (!estLimiteUpwork(r.erreur)) {
+      ajout = await ajouterSecoursAuSalon(supabase, par, roomId, tenant, contratId);
+      if (!ajout) {
+        r = await poster();
+        storyId = r.data?.createRoomStoryV2?.id as string | undefined;
+        if (storyId) return { ok: true, story_id: storyId, compte };
+      }
+      await noter(supabase, {
+        par, action: "message_secours_echec", contrat: contratId, compte,
+        erreur: `compte de secours : ${r.erreur ?? "message non confirmé"}${ajout ? ` ; ajout à la conversation : ${ajout}` : ""}${relais ? " — relais par le compte principal" : ""}`,
+      });
     }
-    // Échec : noté ; le message repart demain, avec Max d'abord.
-    await noter(supabase, {
-      par, action: "message_secours_echec", contrat: contratId, compte,
-      erreur: `compte de secours : ${r.erreur ?? "message non confirmé"}${ajout ? ` ; ajout à la conversation : ${ajout}` : ""} — demain avec le compte principal`,
-    });
-    return { ok: false, error: `compte de secours : ${r.erreur ?? "message non confirmé"} (demain avec le compte principal)`, reporter: true, compte };
+    if (relais) return await envoyerMessage(supabase, par, contratId, texte, { ...o, exclure: [...(o.exclure ?? []), COMPTE_SECOURS] });
+    return { ok: false, error: `compte de secours : ${r.erreur ?? "message non confirmé"}`, budget: estLimiteUpwork(r.erreur), compte };
   }
   return { ok: false, error: r.erreur ?? "message non confirmé par Upwork", budget: estLimiteUpwork(r.erreur), compte };
 }
@@ -2024,6 +2025,14 @@ async function accueillir(supabase: Supabase, par: string | null) {
       updated_at: new Date().toISOString(),
     };
     if (plan.statut === "doublon") {
+      // Prompt 25 MAJ : la recrue déjà créée par la HM. Jamais un 2e profil : le contrat est relié au sien
+      // et la bienvenue part quand même (un message en double n'est pas grave).
+      if (plan.poster_id && (mode === "on" || test)) {
+        const r = await accueillirExistant(supabase, par, base, plan.poster_id, modele, slack);
+        if (r.erreur) bilan.erreurs.push(`${contratId} : ${r.erreur}`);
+        else bilan.crees++;
+        continue;
+      }
       await supabase.from("accueils").upsert({ ...base, statut: "doublon", raison: plan.raison });
       bilan.doublons++;
       continue;
@@ -2033,10 +2042,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
       bilan.a_relier++;
       continue;
     }
-    // Prompt 21, A1 : acceptée au plus tard le samedi, fin de journée dans le pays de la recrue.
+    // Prompt 25 MAJ, point 3 : acceptée au plus tard le samedi à 23 h 59, heure de Paris (pour tout le monde).
     const { data: lundi } = await supabase.rpc("cohorte_lundi_de_pays", {
       p_at: new Date(base.debut_at ?? Date.now()).toISOString(),
-      p_pays: plan.pays ?? null,
+      p_pays: null,
     });
     const cohorte = String(lundi ?? "");
     if (test) {
@@ -2147,6 +2156,62 @@ async function creerEtAccueillir(
       donnees: { contrat: a.contrat_id, cohorte: a.cohorte_lundi || null, email: cree.email ?? null },
     });
     await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM (To send by hand)", message_texte: texte });
+    return { erreur: null };
+  }
+  if (!envoi.ok) {
+    const erreur = `message de bienvenue : ${"error" in envoi ? envoi.error : "non envoyé"}`;
+    await fin({ statut: "erreur", raison: erreur, message_texte: texte });
+    return { erreur };
+  }
+  await fin({ statut: "envoye", message_texte: texte, message_at: new Date().toISOString() });
+  return { erreur: null };
+}
+
+/**
+ * Prompt 25 MAJ : le profil existe déjà (créé par la HM, même contrat ou même
+ * nom et même pays). Le contrat lui est relié (s'il n'en a pas), la bienvenue
+ * part avec son login. Un profil relié à un autre contrat : rien (doublon).
+ */
+async function accueillirExistant(
+  supabase: Supabase,
+  par: string | null,
+  base: Record<string, unknown> & { contrat_id: string; hm_id: string | null },
+  posterId: string,
+  modele: string,
+  slack: string,
+): Promise<{ erreur: string | null }> {
+  const { data: p } = await supabase.from("profiles")
+    .select("id, prenom, email, cohorte_lundi, upwork_contract_id, must_change_password, is_active")
+    .eq("id", posterId).maybeSingle();
+  if (!p?.is_active || (p.upwork_contract_id && String(p.upwork_contract_id) !== base.contrat_id)) {
+    await supabase.from("accueils").upsert({ ...base, statut: "doublon", raison: "profil existant inactif ou relié à un autre contrat" });
+    return { erreur: null };
+  }
+  if (!p.upwork_contract_id) {
+    const { error } = await supabase.from("profiles").update({ upwork_contract_id: base.contrat_id }).eq("id", posterId).is("upwork_contract_id", null);
+    if (error) return { erreur: `liaison du contrat : ${error.message}` };
+  }
+  const cohorte = String(p.cohorte_lundi ?? "");
+  await supabase.from("accueils").upsert({
+    ...base, statut: "envoi", poster_id: posterId, cohorte_lundi: cohorte || null,
+    raison: "recrue déjà créée par la HM : contrat relié, bienvenue envoyée", relie_at: new Date().toISOString(),
+  });
+  const fin = async (champs: Record<string, unknown>) =>
+    await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", base.contrat_id);
+  const texte = messageAccueil(modele, {
+    prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
+    // Il a peut-être déjà changé son mot de passe : on ne lui en donne pas un faux.
+    mot_de_passe: p.must_change_password ? MOT_DE_PASSE_DEPART : "the one you chose", slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+  });
+  const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);
+  if (!envoi.ok && envoi.budget) {
+    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+    await supabase.from("relances_prevues").upsert({
+      poster_id: posterId, type: "accueil", periode: jour, statut: "main", canal: "upwork", texte, raison: "upwork_plein",
+      main_at: new Date().toISOString(), main_hm_id: base.hm_id, main_slack_at: null, maj_at: new Date().toISOString(),
+      donnees: { contrat: base.contrat_id, cohorte: cohorte || null, email: p.email ?? null, existant: true },
+    });
+    await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM", message_texte: texte });
     return { erreur: null };
   }
   if (!envoi.ok) {

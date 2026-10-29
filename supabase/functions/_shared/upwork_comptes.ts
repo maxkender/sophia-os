@@ -1,9 +1,10 @@
 /**
- * Prompt 25 v4 : les messages Upwork sur deux comptes. Max (« principal »)
- * d'abord, jusqu'à 45 personnes différentes par jour ou la 1re erreur de
- * limite d'Upwork ; puis Adrien (« secours »), jusqu'à 45. Une personne déjà
- * écrite aujourd'hui garde le même compte toute la journée. La réserve (pour
- * la bienvenue, le Kill, l'arrêt) est gardée sur le dernier compte connecté.
+ * Prompt 25, mises à jour, point 2 : les messages Upwork sur deux comptes.
+ * Adrien (« secours ») d'abord, jusqu'à 45 personnes différentes par jour ou
+ * la 1re erreur de limite d'Upwork ; puis Max (« principal »), jusqu'à 45 ;
+ * ensuite la HM, à la main. Une personne déjà écrite aujourd'hui garde le même
+ * compte toute la journée. La réserve (pour la bienvenue) est gardée sur le
+ * dernier compte connecté (Max).
  * Seulement les messages : la paie, les milestones et la fin de contrat restent
  * sur le compte de Max. Rien ici ne touche la base ni le réseau.
  */
@@ -39,7 +40,10 @@ export function choisirCompte(
     if (deja.connecte && !deja.limite && !(o.exclure ?? []).includes(deja.compte)) return { compte: deja.compte, nouvelle: false, raison: null };
     return { compte: null, nouvelle: false, raison: `déjà écrit aujourd'hui par le compte ${deja.compte}, qui ne peut plus écrire : demain` };
   }
-  const possibles = comptes.filter((c) => c.connecte && !(o.exclure ?? []).includes(c.compte));
+  // Adrien d'abord, puis Max (prompt 25 MAJ).
+  const possibles = comptes
+    .filter((c) => c.connecte && !(o.exclure ?? []).includes(c.compte))
+    .sort((a, b) => Number(b.compte === COMPTE_SECOURS) - Number(a.compte === COMPTE_SECOURS));
   if (possibles.length === 0) return { compte: null, nouvelle: false, raison: "aucun compte Upwork connecté" };
   for (const [i, c] of possibles.entries()) {
     if (c.limite) continue;

@@ -116,8 +116,9 @@ Deno.test("Kill en cours : plus de message ; rouge de dimanche = 1re étape pas 
   // Ses posts de la semaine 1 ne le remettent pas en rouge.
   assertEquals(etapeRouge(r({ ...ok, abonnements: 5, videos: 4 }), D), null);
   // Lisbonne : lundi 2 nov. 0 h = 00:00Z ; le rouge seulement dans les 24 h qui suivent.
-  assertEquals(nuitDuRouge(r(), t("2026-11-01T23:30:00Z")), false);
-  assertEquals(nuitDuRouge(r(), t("2026-11-02T00:30:00Z")), true);
+  // Prompt 25 MAJ : dimanche minuit à Paris pour tout le monde (Lisbonne comprise) : 23 h UTC le 1/11.
+  assertEquals(nuitDuRouge(r(), t("2026-11-01T22:30:00Z")), false);
+  assertEquals(nuitDuRouge(r(), t("2026-11-01T23:30:00Z")), true);
   assertEquals(nuitDuRouge(r(), t("2026-11-04T10:00:00Z")), false);
 });
 

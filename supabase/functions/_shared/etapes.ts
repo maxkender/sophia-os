@@ -340,8 +340,12 @@ export function killEnCours(r: Pick<RecrueAccueil, "kill">): boolean {
 }
 
 /** Lundi 0 h de la cohorte, heure du pays : la fin de l'accueil. */
+/**
+ * Le début de la cohorte : lundi 0 h, heure de Paris pour tout le monde
+ * (prompt 25, mises à jour, point 3 : prête le dimanche à 23 h 59, Paris).
+ */
 export function debutCohorte(r: Pick<RecrueAccueil, "cohorte_lundi" | "fuseau">): Date {
-  return instantLocal(r.cohorte_lundi, 0, r.fuseau);
+  return instantLocal(r.cohorte_lundi, 0, "Europe/Paris");
 }
 
 /**

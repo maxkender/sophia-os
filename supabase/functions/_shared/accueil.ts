@@ -98,6 +98,11 @@ export interface PlanAccueil {
   langue: string | null;
   hm_id: string | null;
   tarif: number | null;
+  /**
+   * Prompt 25 MAJ : le profil qui existe déjà (créé par la HM). Jamais un 2e
+   * profil : l'OS relie le contrat à celui-ci et envoie quand même la bienvenue.
+   */
+  poster_id?: string;
 }
 
 /**
@@ -113,7 +118,7 @@ export function planAccueil(
 ): PlanAccueil {
   const relie = posteurs.find((p) => p.upwork_contract_id === d.contrat_id);
   if (relie) {
-    return { statut: "doublon", raison: "contrat déjà relié à un posteur", pays: relie.pays, langue: null, hm_id: null, tarif: null };
+    return { statut: "doublon", raison: "contrat déjà relié à un posteur", pays: relie.pays, langue: null, hm_id: null, tarif: null, poster_id: relie.id };
   }
   const choisi = connu?.statut === "a_creer" && connu.pays && connu.langue
     ? { pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id, tarif: annonce?.tarif ?? null }
@@ -137,7 +142,7 @@ export function planAccueil(
     (p.pays ?? "") === choisi.pays
   );
   if (meme) {
-    return { statut: "doublon", raison: "même nom et même pays qu'un posteur actif", ...choisi };
+    return { statut: "doublon", raison: "même nom et même pays qu'un posteur actif", ...choisi, poster_id: meme.id };
   }
   return { statut: "a_creer", raison: null, ...choisi };
 }

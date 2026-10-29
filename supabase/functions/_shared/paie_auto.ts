@@ -19,6 +19,8 @@ export interface LigneAuto extends LignePaieApi {
   nb_comptes: number;
   /** Les comptes sous les 6 posts (0415). */
   moins6: number;
+  /** Prompt 21, U : liens introuvables pas encore vérifiés (ils ne comptent pas). */
+  douteux: number;
   /** Fusion impossible ou incohérente : rien ne part, la raison va dans To do. */
   refus: string | null;
 }
@@ -31,8 +33,10 @@ const FINANCER = ["financer", "financer_normal", "financer_double"];
  * Upwork → une seule ligne : montants additionnés, une seule milestone payée,
  * une seule financée. Au moindre mélange incohérent, `refus`.
  */
-export function fusionnerParContrat(lignes: (LignePaieApi & { nb_comptes?: number; moins6?: number })[]): LigneAuto[] {
-  const groupes = new Map<string, (LignePaieApi & { nb_comptes?: number; moins6?: number })[]>();
+type LigneBrute = LignePaieApi & { nb_comptes?: number; moins6?: number; douteux?: number };
+
+export function fusionnerParContrat(lignes: LigneBrute[]): LigneAuto[] {
+  const groupes = new Map<string, LigneBrute[]>();
   const seules: LigneAuto[] = [];
   for (const l of lignes) {
     if (!l.contrat_id || !l.id) {
@@ -100,19 +104,21 @@ export function fusionnerParContrat(lignes: (LignePaieApi & { nb_comptes?: numbe
       posteurs: g.map((l) => l.poster_id),
       nb_comptes: g.reduce((s, l) => s + Number(l.nb_comptes ?? 1), 0),
       moins6: g.reduce((s, l) => s + Number(l.moins6 ?? 0), 0),
+      douteux: g.reduce((s, l) => s + Number(l.douteux ?? 0), 0),
       refus,
     });
   }
   return [...fusions, ...seules];
 }
 
-function versAuto(l: LignePaieApi & { nb_comptes?: number; moins6?: number }): LigneAuto {
+function versAuto(l: LigneBrute): LigneAuto {
   return {
     ...l,
     ids: l.id ? [l.id] : [],
     posteurs: [l.poster_id],
     nb_comptes: Number(l.nb_comptes ?? 1),
     moins6: Number(l.moins6 ?? 0),
+    douteux: Number(l.douteux ?? 0),
     refus: null,
   };
 }

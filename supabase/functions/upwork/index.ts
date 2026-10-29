@@ -717,6 +717,8 @@ async function chargerLignes(supabase: Supabase, semaine: string): Promise<{ lig
     nb_comptes: Number(brute.nb_comptes ?? 1),
     // deno-lint-ignore no-explicit-any
     moins6: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).filter((d: any) => d?.moins6 === true).length,
+    // deno-lint-ignore no-explicit-any
+    douteux: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).reduce((n: number, d: any) => n + Number(d?.douteux ?? 0), 0),
   })));
   return { lignes, tenantDe };
 }
@@ -1146,6 +1148,10 @@ function horsPaieAuto(l: LigneAuto, killAuto: string): string | null {
   if (l.action === "kill" && l.moins6 > 0 && l.moins6 >= l.nb_comptes && killAuto !== "on") {
     return "Kill sous les 6 posts : kill_auto n'est pas sur « on », à payer à la main";
   }
+  // Prompt 21, U : jamais de Kill sur des données incomplètes (liens introuvables pas vérifiés).
+  if (l.action === "kill" && l.moins6 > 0 && l.douteux > 0) {
+    return `Kill sous les 6 posts, mais ${l.douteux} lien(s) introuvable(s) pas vérifié(s) : Needs you`;
+  }
   return null;
 }
 
@@ -1348,7 +1354,8 @@ async function killsMoins6(supabase: Supabase, par: string | null, semaine: stri
   if (mode === "off") return;
   const modeMessage = lireModeAuto(v.kill_message_auto);
   for (const l of lignes) {
-    if (l.exclu || l.moins6 === 0) continue;
+    // Liens introuvables pas vérifiés : pas de Kill (Needs you, « Count this post »).
+    if (l.exclu || l.moins6 === 0 || l.douteux > 0) continue;
     const tous = l.action === "kill" && l.moins6 >= l.nb_comptes;
     for (const posteur of l.posteurs) {
       const cle = `moins6:${semaine}`;

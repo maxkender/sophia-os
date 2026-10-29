@@ -8,6 +8,7 @@ import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
+import { PageCohortesTableau } from "@/features/cohortesTableau/PageCohortesTableau";
 import { AdminChatbotPage } from "@/pages/admin/AdminChatbotPage";
 import { AdminCheckKillDoublePage } from "@/pages/admin/AdminCheckKillDoublePage";
 import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
@@ -55,6 +56,14 @@ export function RecruitsPage() {
   return (
     <PageAuto cle="recruits">
       <PageRecruits />
+    </PageAuto>
+  );
+}
+
+export function CohortsPage() {
+  return (
+    <PageAuto cle="cohorts">
+      <PageCohortesTableau />
     </PageAuto>
   );
 }

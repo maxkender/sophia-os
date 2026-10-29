@@ -28,6 +28,7 @@ import {
   MessageSquareQuote,
   MessagesSquare,
   Workflow,
+  ChartColumn,
   MoonStar,
   PenLine,
   Boxes,
@@ -61,6 +62,7 @@ import { useParrainageActif } from "@/features/bonus/parrainageActif";
 const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   overview: LayoutDashboard,
   recruits: Workflow,
+  cohorts: ChartColumn,
   decisions: Gavel,
   sent: Send,
   received: Inbox,

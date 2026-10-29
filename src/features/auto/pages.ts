@@ -4,11 +4,13 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "decisions" | "sent" | "received" | "needs" | "disputes" | "payroll" | "faq" | "logs";
+export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "disputes" | "payroll" | "faq" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
   { cle: "recruits", to: "/admin/auto/recruits" },
+  // Les tableaux de bord des cohortes (lecture seule) : la prochaine sera-t-elle prête, comment ont fait les passées.
+  { cle: "cohorts", to: "/admin/auto/cohorts" },
   { cle: "decisions", to: "/admin/auto/decisions" },
   { cle: "sent", to: "/admin/auto/sent" },
   { cle: "received", to: "/admin/auto/received" },

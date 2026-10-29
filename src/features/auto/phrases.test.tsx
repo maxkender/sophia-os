@@ -30,8 +30,8 @@ describe("les phrases en haut des pages (prompt 22, partie 11)", () => {
     await i18n.changeLanguage("en");
   });
 
-  it("chacune des 10 pages a sa phrase, en anglais et en français", () => {
-    expect(PAGES_AUTO).toHaveLength(10);
+  it("chacune des 11 pages a sa phrase, en anglais et en français", () => {
+    expect(PAGES_AUTO).toHaveLength(11);
     for (const langue of ["en", "fr"]) {
       const t = i18n.getFixedT(langue);
       for (const p of PAGES_AUTO) {

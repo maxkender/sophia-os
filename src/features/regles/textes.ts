@@ -47,29 +47,31 @@ export function remplirBienvenue(modele: string, valeurs: Record<string, string>
   return modele.replace(/\{(\w+)\}/g, (tout, cle: string) => (cle in valeurs ? valeurs[cle] : tout));
 }
 
-/** Les réglages de paie qui comptent pour le posteur (`paie`, 0380 / 0393). */
+/**
+ * La règle de paie qui compte pour le posteur (prompt 21, B1 : le minimum de
+ * posts avec lien par semaine, `paie_minimum_posts`, 6 par défaut). Plus
+ * aucune retenue par post manqué depuis le 2 nov.
+ */
 export interface ReglesPaie {
-  manquesToleres: number;
-  retenueParPost: number;
+  minimumPosts: number;
 }
 
-export const REGLES_PAIE_DEFAUT: ReglesPaie = { manquesToleres: 1, retenueParPost: 1 };
-
-const dollars = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
+export const REGLES_PAIE_DEFAUT: ReglesPaie = { minimumPosts: 6 };
 
 /**
- * La carte « How you're paid », trois phrases. Les nombres viennent des
- * réglages : 1 post manqué toléré par compte et par semaine, puis 1 $.
+ * La carte « How you're paid » (prompt 21, C8), les règles du 2 nov. : le
+ * minimum de la semaine, la fin de la collaboration en dessous (semaine
+ * payée), puis lundi 20 h, jeudi et samedi. La règle du lien (le jour même)
+ * suit la carte, depuis son réglage.
  */
 export function phrasesPaie(r: ReglesPaie): string[] {
-  const tolere =
-    r.manquesToleres === 0
-      ? `Every missed post is ${dollars(r.retenueParPost)} off.`
-      : `${r.manquesToleres} missed post${r.manquesToleres > 1 ? "s" : ""} per account per week ${r.manquesToleres > 1 ? "are" : "is"} tolerated. Every further missed post is ${dollars(r.retenueParPost)} off.`;
+  const n = r.minimumPosts;
   return [
-    "Paid every Monday, for the week just finished.",
-    tolere,
-    "No post on Monday and Tuesday: we message you once on Upwork. Still no post by Friday: the contract ends on Saturday.",
+    `Paid every Monday for the week just finished (Monday to Sunday): ${n} posts or more with their link = your full rate.`,
+    `Below ${n} posts with link in a week, we stop our collaboration. That last week is still paid in full.`,
+    "Monday 8 pm, on your first day: no post with its link yet? We message you once.",
+    "Thursday: posts or links missing since Monday? You get one reminder with your count.",
+    "Saturday: we review every account. An account can be stopped, or you can be offered a 2nd one.",
   ];
 }
 
@@ -78,14 +80,11 @@ export function texteRegle(valeur: unknown, regle: Regle): string {
   return typeof valeur === "string" && valeur.trim() ? valeur.trim() : DEFAUTS_REGLES[regle];
 }
 
+/** `paie_minimum_posts` (0415) : un entier positif, sinon 6. */
 export function lireReglesPaie(valeur: unknown): ReglesPaie {
-  const v = (valeur && typeof valeur === "object" ? valeur : {}) as Record<string, unknown>;
-  const nombre = (x: unknown, defaut: number) => {
-    const n = Number(x);
-    return x !== undefined && x !== null && Number.isFinite(n) && n >= 0 ? n : defaut;
-  };
+  const n = Number(valeur);
   return {
-    manquesToleres: nombre(v.manques_toleres, REGLES_PAIE_DEFAUT.manquesToleres),
-    retenueParPost: nombre(v.retenue_par_post, REGLES_PAIE_DEFAUT.retenueParPost),
+    minimumPosts:
+      valeur !== undefined && valeur !== null && Number.isInteger(n) && n > 0 ? n : REGLES_PAIE_DEFAUT.minimumPosts,
   };
 }

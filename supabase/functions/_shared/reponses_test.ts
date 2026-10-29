@@ -45,6 +45,9 @@ Deno.test("travail : le guide, l'augmentation, son propre compte ; sur Upwork, r
   );
   // Le guide ne répond pas : une personne lira.
   assertEquals(planReponse(c({}), "slack", R, 0).liste, "a_lire");
+  // Prompt 21, C8 : sans lien Slack (réglage vide), rien ne part, une personne lira.
+  const sansLien = planReponse(c({ reponse: "x" }), "upwork", { ...R, slack: " " }, 0);
+  assertEquals([sansLien.repondre, sansLien.liste], [null, "a_lire"]);
 });
 
 Deno.test("paie : liste, jamais de réponse ; stop : arrêt ; absent : pause de 7 jours au plus", () => {
@@ -81,4 +84,13 @@ Deno.test("boutons Slack : les libellés du réglage, un libellé vide garde le 
   assertEquals(actions.map((b: { text: { text: string } }) => b.text.text), ["Fait ✅", "I need help", "I want to stop"]);
   assertEquals(actions[2].confirm.deny.text, "Cancel");
   assertEquals(lireLibellesBoutons(null), LIBELLES_BOUTONS_DEFAUT);
+});
+
+Deno.test("prompt 21, C6 : « I want to stop » seulement sur les messages d'étape", () => {
+  // deno-lint-ignore no-explicit-any
+  const lundi = (blocsBoutons("Reminder", LIBELLES_BOUTONS_DEFAUT, { stop: false })[1] as any).elements;
+  assertEquals(lundi.map((b: { action_id: string }) => b.action_id), ["posteur_done", "posteur_aide"]);
+  // deno-lint-ignore no-explicit-any
+  const etape = (blocsBoutons("Hi")[1] as any).elements;
+  assertEquals(etape.map((b: { action_id: string }) => b.action_id), ["posteur_done", "posteur_aide", "posteur_stop"]);
 });

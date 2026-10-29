@@ -56,13 +56,26 @@ export interface RecrueCohorte {
   rouges: { etape: string; periode: string; rouge_at: string; decision: "reporter" | "arreter" | null; decision_at: string | null }[];
   /** L'id du contrat Upwork (0394) : sans lui, une relance par Upwork ne part pas. */
   contrat_id: string | null;
+  /**
+   * Prompt 21, C3 (0423) : « Ready » au dernier relevé avant le lundi de la
+   * cohorte, par la seule définition de la base (`compte_pret`). Absent : pas lu.
+   */
+  pret?: boolean | null;
 }
 
 export async function lireRecrues(lundis: readonly string[]): Promise<RecrueCohorte[]> {
   if (lundis.length === 0) return [];
-  const { data, error } = await supabase.rpc("cohorte_recrues", { p_lundis: [...lundis] });
+  const [{ data, error }, prets] = await Promise.all([
+    supabase.rpc("cohorte_recrues", { p_lundis: [...lundis] }),
+    // C3 : « Ready » vient de la base ; une erreur (migration pas encore là) garde l'ancien calcul.
+    supabase.rpc("cohorte_prets", { p_lundis: [...lundis] }),
+  ]);
   if (error) throw error;
+  const pretDe = new Map(
+    ((prets.error ? [] : prets.data ?? []) as { poster_id: string; pret: boolean }[]).map((p) => [p.poster_id, p.pret]),
+  );
   return ((data ?? []) as RecrueCohorte[]).map((r) => ({
+    pret: pretDe.get(r.poster_id) ?? null,
     ...r,
     semaine1: r.semaine1 ?? [],
     samedi: r.samedi ?? [],

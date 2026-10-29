@@ -33,7 +33,7 @@ import { RegleTexte } from "@/features/regles/CartesRegles";
 
 import { jourAnglais, premierPostLe } from "./cinqEtapes";
 import { lireMaPremiereSemaine } from "./cinqEtapesApi";
-import { ecransPour, LIEN_SLACK, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
+import { ecransPour, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -216,12 +216,13 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
   }
 }
 
-/** « Join Slack » : recommandé, pas obligatoire (chantier du 28 oct.). */
+/** « Join Slack » : recommandé, pas obligatoire (chantier du 28 oct.). Sans lien dans le réglage, rien. */
 function RejoindreSlack() {
   const { slack } = useRegles();
+  if (!slack) return null;
   return (
     <Button asChild>
-      <a href={slack ?? LIEN_SLACK} target="_blank" rel="noreferrer">
+      <a href={slack} target="_blank" rel="noreferrer">
         Join Slack
       </a>
     </Button>

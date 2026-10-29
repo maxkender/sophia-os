@@ -4332,10 +4332,6 @@ export async function lireReglages(): Promise<Reglages> {
       ...((map.get("nettoyage") as Partial<Reglages["nettoyage"]> | undefined) ?? {}),
     },
     file_labels_comptes: normaliserFileLabels(map.get("file_labels_comptes")),
-    warmup: {
-      heures: 24,
-      ...((map.get("warmup") as Partial<Reglages["warmup"]> | undefined) ?? {}),
-    },
   };
 }
 

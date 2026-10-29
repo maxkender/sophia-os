@@ -2,7 +2,16 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
 import { DELAIS_ACCUEIL_DEFAUT as D, etatsAccueil, type RecrueAccueil } from "./etapes.ts";
-import { ceQuiManqueRecrue, jeudiDu, lundiDu, type PosteurSemaine, texteJeudi, texteLundi } from "./semaine.ts";
+import {
+  ceQuiManqueRecrue,
+  jeudiDu,
+  jeudiRecrueDu,
+  lundiDu,
+  type PosteurSemaine,
+  texteJeudi,
+  texteJeudiRecrue,
+  texteLundi,
+} from "./semaine.ts";
 
 const LUNDI = "2026-11-02";
 const p = (o: Partial<PosteurSemaine> = {}): PosteurSemaine => ({
@@ -81,4 +90,29 @@ Deno.test("lundi soir : 20 h heure du pays, aucun post → 1 message ; un post �
   assertEquals(killLundiSoir({ ...p, dernier_post_at: "2026-11-02T22:00:00Z" }, env, t("2026-11-05T00:00:00Z"), 48), false);
   assertEquals(reactionLundiSoir({ ...p, repondu_at: "2026-11-03T08:00:00Z" }, env), true);
   assertEquals(texteLundiSoir("Hi {prenom}, today is your first posting day.", "Ana"), "Hi Ana, today is your first posting day.");
+});
+
+Deno.test("prompt 21, C7 : le jeudi des recrues du lundi suivant pas encore prêtes", () => {
+  const x = { cohorte_lundi: "2026-11-09", fuseau: "America/Sao_Paulo" };
+  // Jeudi 5 nov., São Paulo 13 h (16:00Z) : dû ; 10 h (13:00Z) : trop tôt (12 h) ; mercredi : non.
+  assertEquals(jeudiRecrueDu(x, LUNDI, t("2026-11-05T16:00:00Z"), { heure: 12, fin: 20 }), true);
+  assertEquals(jeudiRecrueDu(x, LUNDI, t("2026-11-05T13:00:00Z"), { heure: 12, fin: 20 }), false);
+  assertEquals(jeudiRecrueDu(x, LUNDI, t("2026-11-04T16:00:00Z"), { heure: 12, fin: 20 }), false);
+  // Pas la cohorte du lundi suivant, ou un 2e compte : jamais.
+  assertEquals(jeudiRecrueDu({ ...x, cohorte_lundi: LUNDI }, LUNDI, t("2026-11-05T16:00:00Z"), { heure: 12, fin: 20 }), false);
+  assertEquals(jeudiRecrueDu({ ...x, deuxieme: true }, LUNDI, t("2026-11-05T16:00:00Z"), { heure: 12, fin: 20 }), false);
+  assertEquals(
+    texteJeudiRecrue(
+      "Hi {prenom}, you start on Monday {date} only if your warm-up is done by Sunday midnight. Still missing: {ce_qui_manque}.",
+      { prenom: "Ana", cohorte_lundi: "2026-11-09", ceQuiManque: "follow 2 more accounts" },
+    ),
+    "Hi Ana, you start on Monday 9 November only if your warm-up is done by Sunday midnight. Still missing: follow 2 more accounts.",
+  );
+});
+
+Deno.test("prompt 21, C7 : jeudi_texte, le nombre de posts avec lien", () => {
+  assertEquals(
+    texteJeudi("Hi {prenom}, you have {faits} posts with link this week. Below 6 by Sunday midnight, we'll have to stop our collaboration.", { prenom: "Ana", faits: 3, attendus: 6 }),
+    "Hi Ana, you have 3 posts with link this week. Below 6 by Sunday midnight, we'll have to stop our collaboration.",
+  );
 });

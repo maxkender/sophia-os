@@ -17,7 +17,6 @@ import {
   type EtatCinq,
 } from "./cinqEtapes";
 import { lireMaPremiereSemaine } from "./cinqEtapesApi";
-import { LIEN_SLACK } from "./contenu";
 import { formaterJour, partiesParis } from "./datesRuul";
 
 function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
@@ -76,9 +75,9 @@ export function CinqEtapes({
       detail: (
         <>
           <p>{t("calendrier.cinq.slackDetail")}</p>
-          {etats.slack !== "fait" && (
+          {etats.slack !== "fait" && slack && (
             <Button asChild size="sm" variant="outline" className="mt-1 h-7">
-              <a href={slack ?? LIEN_SLACK} target="_blank" rel="noreferrer">
+              <a href={slack} target="_blank" rel="noreferrer">
                 {t("calendrier.cinq.rejoindreSlack")}
               </a>
             </Button>

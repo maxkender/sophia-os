@@ -19,9 +19,19 @@ export function filtrer(cartes: readonly CartePipeline[], f: FiltresPipeline): C
   return cartes.filter((c) => (!f.hm || c.hm_id === f.hm) && (!f.pays || c.pays === f.pays) && (!f.risque || aRisque(c)));
 }
 
-/** Les cartes par colonne : à risque d'abord, puis les plus anciennes à leur étape. */
+/**
+ * Prompt 21, C9 : ni contrat Upwork ni Slack, l'OS n'a aucun canal pour lui
+ * écrire (étiquette « No channel », en tête de sa colonne). Une carte « fait »
+ * (1er jour posté) n'en a plus besoin.
+ */
+export function sansCanal(c: Pick<CartePipeline, "upwork_contrat_url" | "slack_user_id" | "etat">): boolean {
+  return c.etat !== "fait" && !c.upwork_contrat_url?.trim() && !c.slack_user_id;
+}
+
+/** Les cartes par colonne : sans canal, puis à risque, puis les plus anciennes à leur étape. */
 export function parColonne(cartes: readonly CartePipeline[]): Record<number, CartePipeline[]> {
-  const rang = (c: CartePipeline) => (c.etat === "kill" ? 0 : c.etat === "relance" ? 1 : c.etat === "repondu" ? 2 : 3);
+  const rang = (c: CartePipeline) =>
+    sansCanal(c) ? -1 : c.etat === "kill" ? 0 : c.etat === "relance" ? 1 : c.etat === "repondu" ? 2 : 3;
   const out: Record<number, CartePipeline[]> = Object.fromEntries(COLONNES.map((n) => [n, []]));
   for (const c of cartes) (out[c.colonne] ??= []).push(c);
   for (const n of COLONNES) {

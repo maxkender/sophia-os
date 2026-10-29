@@ -9,7 +9,7 @@ export async function lireRegles(): Promise<{ textes: Record<Regle, string>; pai
   const { data, error } = await supabase
     .from("reglages")
     .select("cle, valeur")
-    .in("cle", [...Object.values(CLES_REGLES), "paie", "slack_lien_invitation"]);
+    .in("cle", [...Object.values(CLES_REGLES), "paie_minimum_posts", "slack_lien_invitation"]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   return {
@@ -18,7 +18,7 @@ export async function lireRegles(): Promise<{ textes: Record<Regle, string>; pai
       warmup: texteRegle(v[CLES_REGLES.warmup], "warmup"),
       bienvenue: texteRegle(v[CLES_REGLES.bienvenue], "bienvenue"),
     },
-    paie: lireReglesPaie(v.paie),
+    paie: lireReglesPaie(v.paie_minimum_posts),
     slack: typeof v.slack_lien_invitation === "string" && v.slack_lien_invitation.trim() ? v.slack_lien_invitation.trim() : null,
   };
 }

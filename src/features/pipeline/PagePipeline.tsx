@@ -24,7 +24,7 @@ import {
   lirePipeline,
   type CartePipeline,
 } from "./api";
-import { aRisque, cartesAvancees, COLONNES, duree, FILTRES_VIDES, filtrer, parColonne, type FiltresPipeline } from "./logique";
+import { aRisque, cartesAvancees, COLONNES, duree, FILTRES_VIDES, filtrer, parColonne, sansCanal, type FiltresPipeline } from "./logique";
 
 const CLE = ["pipeline"] as const;
 /** Le temps où une carte qui vient d'avancer reste verte, avec sa flèche, dans son ancienne colonne. */
@@ -87,6 +87,11 @@ function Carte({
         {passage && <ArrowRight className="ml-auto size-4 shrink-0 text-success-foreground" aria-label={t("pipeline.avance")} />}
       </p>
       {c.deuxieme && <p className="text-[11px] text-muted-foreground">{t("pipeline.deuxieme", { nom: c.nom ?? "—" })}</p>}
+      {sansCanal(c) && (
+        <Badge variant="destructive" className="text-[10px]" data-sans-canal>
+          {t("pipeline.sansCanal")}
+        </Badge>
+      )}
       <p className="text-muted-foreground">
         {c.hm_prenom ? t("pipeline.hm", { hm: c.hm_prenom }) : t("pipeline.sansHm")}
         {c.colonne_depuis && ` · ${t("pipeline.depuis", { d: d(maintenant - Date.parse(c.colonne_depuis)) })}`}

@@ -158,6 +158,9 @@ vi.mock("@/features/bleo/api", async (original) => ({
         valeur_max: 3.2,
         n_langues: 4,
         r_moyen: 2.4,
+        texte_slide1: "hobbies that will make you\ndisgustingly confident",
+        texte_slide2: "voice journaling",
+        image_slide1: "https://exemple.test/1.jpg",
       },
     ]),
   listerPassagesFamille: () =>
@@ -286,7 +289,9 @@ describe("section BLEO de l'OS", () => {
 
   it("une famille : contenus par génération et passages", async () => {
     rendre(<AdminBleoFamillePage />, `/admin/bleo/familles/${FAMILLE}`, "/admin/bleo/familles/:id");
-    expect(await screen.findByText("La racine")).toBeInTheDocument();
+    // La slide 1 et la première ligne de la slide 2 remplacent la description TikTok (titre en infobulle).
+    expect(await screen.findAllByText("hobbies that will make you disgustingly confident")).not.toHaveLength(0);
+    expect(screen.getAllByText("→ voice journaling")).not.toHaveLength(0);
     expect(screen.getAllByText("G0").length).toBeGreaterThan(0);
     expect(screen.getByText("Close")).toBeInTheDocument();
     expect(await screen.findByText("@lea.etudes")).toBeInTheDocument();

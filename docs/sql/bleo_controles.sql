@@ -36,11 +36,16 @@ calc as (
         and not coalesce(p.est_rappel, false) and p.r is not null and p.publie_at <= now() - interval '72 hours') as n_r,
     (select sum(least(p.r, 20)) from passages p where p.contenu_id = e.contenu_id and p.statut = 'publie'
         and not coalesce(p.est_rappel, false) and p.r is not null and p.publie_at <= now() - interval '72 hours') as somme_r,
+    -- D41 (0612) : 60 derniers jours ; un passage non publié ne compte que 3 jours après sa date.
     (select count(*) from passages p where p.contenu_id = e.contenu_id and p.langue = e.langue
-        and p.statut in ('assigne', 'valide_par_poster', 'publie')) as n_post,
+        and p.statut in ('assigne', 'valide_par_poster', 'publie')
+        and p.date_publication_prevue >= current_date - 60
+        and (p.statut = 'publie' or p.date_publication_prevue >= current_date - 3)) as n_post,
     (select count(*) from passages p join contenus c2 on c2.id = p.contenu_id
       where c2.famille_id = c.famille_id and p.contenu_id <> e.contenu_id and p.langue = e.langue
-        and p.statut in ('assigne', 'valide_par_poster', 'publie')) as n_acc
+        and p.statut in ('assigne', 'valide_par_poster', 'publie')
+        and p.date_publication_prevue >= current_date - 60
+        and (p.statut = 'publie' or p.date_publication_prevue >= current_date - 3)) as n_acc
   from ech e join contenus c on c.id = e.contenu_id)
 select contenu_id, langue, round(stockee, 4) as stockee,
   round(((2 * (case classe_defaut when 'import' then 2.0 when 'podz' then 2.7 when 'livre' then 4.0

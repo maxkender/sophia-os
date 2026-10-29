@@ -530,6 +530,8 @@ begin
   -- Réactivé : un arrêt pas encore commencé (rien de fait pour de vrai) est annulé.
   update public.arrets a
      set statut = 'fait',
+         -- Prompt 21, R (0428) : annulé, il ne compte ni pour la fin de contrat ni pour Slack.
+         annule_at = coalesce(a.annule_at, now()),
          etapes = a.etapes || jsonb_build_array(jsonb_build_object(
                     'action', 'os', 'statut', 'sans_objet', 'detail', 'annulé : posteur réactivé', 'at', now())),
          erreur = null,

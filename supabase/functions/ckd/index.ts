@@ -854,13 +854,31 @@ async function verifierSlack(supabase: Supabase) {
   if (!jeton) return { ok: false, error: "SLACK_HM_BOT_TOKEN manquant" };
   const qui = await slackApi(jeton, "auth.test", {});
   if (!qui.ok) return { ok: false, error: `jeton refusé : ${qui.error}` };
+  // Prompt 21, T : les droits du bot (en-tête x-oauth-scopes) et la désactivation par SCIM.
+  const droits = await droitsSlack(jeton);
   const canal = await canalSlack(supabase);
   // Lecture : en GET, comme verifierCanal des comment masters.
   const info = await fetch(`https://slack.com/api/conversations.info?channel=${encodeURIComponent(canal)}`, {
     headers: { authorization: `Bearer ${jeton}` },
   }).then((r) => r.json() as Promise<{ ok: boolean; error?: string; channel?: unknown }>);
-  if (!info.ok) return { ok: false, bot: qui.user, canal, error: `canal illisible : ${info.error}` };
+  if (!info.ok) return { ok: false, bot: qui.user, canal, error: `canal illisible : ${info.error}`, droits };
   // deno-lint-ignore no-explicit-any
   const ch: any = info.channel ?? {};
-  return { ok: Boolean(ch.is_member), bot: qui.user, canal, nom: ch.name ?? null, membre: Boolean(ch.is_member) };
+  return { ok: Boolean(ch.is_member), bot: qui.user, canal, nom: ch.name ?? null, membre: Boolean(ch.is_member), droits };
+}
+
+/**
+ * Prompt 21, T : ce que le bot peut faire pour retirer quelqu'un de Slack.
+ * conversations.kick demande channels:manage (canaux publics) et groups:write
+ * (privés) ; la désactivation d'un compte passe par SCIM (plan Business+ ou
+ * Enterprise, jeton d'un admin), jamais par un jeton de bot.
+ */
+async function droitsSlack(jeton: string) {
+  const r = await fetch("https://slack.com/api/auth.test", { method: "POST", headers: { authorization: `Bearer ${jeton}` } });
+  const scopes = (r.headers.get("x-oauth-scopes") ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+  const voulus = ["channels:manage", "groups:write", "channels:read", "groups:read", "users:read"];
+  const scim = await fetch("https://api.slack.com/scim/v2/ServiceProviderConfigs", { headers: { authorization: `Bearer ${jeton}` } })
+    .then(async (x) => ({ statut: x.status, corps: (await x.text()).slice(0, 200) }))
+    .catch((e) => ({ statut: null, corps: messageErreur(e) }));
+  return { scopes, manquent: voulus.filter((v) => !scopes.includes(v)), scim };
 }

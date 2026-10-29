@@ -39,6 +39,7 @@ import {
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
+import { appelSlack, decrireRetrait, retirerDesCanaux } from "../_shared/slack_retrait.ts";
 import {
   decrireJalons,
   etape,
@@ -2314,8 +2315,9 @@ async function arreterUn(
   }
   etapes.push(reel ? etape("os", "fait", "posteur et comptes désactivés") : etape("os", "simule", "test : posteur et comptes pas désactivés"));
 
-  // Slack : pas de retrait par l'API (compte standard) → liste « À retirer de Slack ».
-  const slack = p.slack_user_id ? etape("slack", "a_faire", "à retirer de Slack") : etape("slack", "sans_objet");
+  // Prompt 21, T : retiré de tous les canaux (sauf #general) ; le compte reste à
+  // désactiver à la main (liste « To remove from Slack » du lundi). En test : simulé.
+  const slack = p.slack_user_id ? await etapeSlack(p.slack_user_id, reel) : etape("slack", "sans_objet");
 
   if (p.a_poste) {
     // En cours de route : lundi, la liste de paie paie la semaine en cours, ne
@@ -2410,6 +2412,17 @@ async function arreterUn(
   }
   etapes.push(slack);
   return etapes;
+}
+
+/** L'étape « slack » d'un arrêt complet : les canaux quittés, puis le compte à désactiver. */
+async function etapeSlack(slackUser: string, reel: boolean): Promise<EtapeArret> {
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return etape("slack", "a_faire", "SLACK_HM_BOT_TOKEN absent : à retirer de Slack à la main");
+  const b = await retirerDesCanaux(appelSlack(jeton), slackUser, reel).catch((e) => ({
+    retires: [], echecs: [], simules: [], erreur: messageErreur(e),
+  }));
+  // « a_faire » : le compte reste à désactiver (Cohorts, Logs & to do) ; un canal raté reste visible dans le détail.
+  return etape("slack", reel ? "a_faire" : "simule", decrireRetrait(b));
 }
 
 async function verifier(supabase: Supabase) {

@@ -4,8 +4,6 @@ import { passageDu } from "../_shared/frequences.ts";
 import {
   libelleCanaux,
   MOT_DE_PASSE_DEPART,
-  type DelaisAccueil,
-  deciderEtape,
   envoiEtape,
   type EtapeAccueil,
   type EtatAccueil,
@@ -34,7 +32,6 @@ import {
 import { type ElementRelance, planRelance, type TextesRelance, TEXTES_RELANCE_DEFAUT, texteRelance } from "../_shared/relance_jour.ts";
 import {
   ceQuiManqueRecrue,
-  killLundiSoir,
   lundiDu,
   lundiSoirDu,
   type PosteurLundiSoir,
@@ -71,8 +68,9 @@ const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
 /**
  * recrues-check — une seule relance par étape (prompt 17 A, 0391), et depuis
- * le système du 2 nov. (partie B, 0402) les 4 étapes de l'accueil et le Kill
- * automatique à 48 h.
+ * le système du 2 nov. (partie B, 0402) les 4 étapes de l'accueil. Décisions
+ * finales : plus aucun Kill ni fin de contrat automatique ; une demande
+ * d'arrêt coupe les relances et attend le samedi (Kill pré-coché).
  *
  *   { action: "verifier" }   cron `recrues-check`, minute 10 de chaque heure ; admin
  *       1. note les 1res connexions (relances_noter_connexions) ;
@@ -84,18 +82,16 @@ const OS_URL = "https://sophia-marketing-orga.vercel.app";
  *          (« ✉ prévu »), rien ne part ; on → la ligne `nudges` d'abord (index
  *          unique : une seule relance même si deux passages se croisent), puis
  *          l'envoi (Slack, ou Upwork par la fonction `upwork`) ;
- *       4. 48 h après le message, ni étape faite ni réponse : Kill (`kills_auto`,
- *          selon `kill_auto` : test → « simulé » ; on → annulable 12 h, puis
- *          la file `arrets`, partie C) ; dimanche minuit, une étape pas faite :
- *          rouge (pas de posts lundi), effacé dès que tout est fait ;
+ *       4. dimanche minuit, une étape pas faite : rouge (pas de posts lundi),
+ *          effacé dès que tout est fait ;
  *       5. partie D (0404) : le message du lundi 10 h (`lundi_message_auto`)
  *          et le Nudge du jeudi 12 h (posts ou liens manquants de lundi à
  *          mercredi, `relances_auto`), heure du pays ; les inactifs.
  *   { action: "reponses" }   cron `reponses`, toutes les 10 minutes ; admin
  *       Partie E (0406) : les messages reçus des posteurs (Slack, boutons,
  *       Upwork) sont classés (IA, seuil 0,8) puis traités selon
- *       `reponses_auto` : réponse, arrêt, pause, ou listes « Questions de
- *       paie » et « À lire ».
+ *       `reponses_auto` : réponse, demande d'arrêt (samedi), pause, ou listes
+ *       « Questions de paie » et « À lire ».
  * Jamais de nouvel essai d'envoi : un échec est noté sur la relance.
  */
 Deno.serve(async (request) => {
@@ -379,8 +375,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
   const { data: hms } = hmIds.length ? await supabase.from("profiles").select("id, prenom, nom").in("id", hmIds) : { data: [] };
   const hmNom = new Map((hms ?? []).map((h) => [h.id as string, [h.prenom, h.nom].filter(Boolean).join(" ") || null]));
   const hmDe = new Map((noms ?? []).map((n) => [n.id as string, n.manager_id ? hmNom.get(n.manager_id as string) ?? null : null]));
-  const { data: pauses } = await supabase.from("posteur_pauses").select("poster_id").gt("jusqu_au", maintenant.toISOString());
-  const enPause = new Set((pauses ?? []).map((x) => x.poster_id as string));
+  const enPause = await lirePauses(supabase, maintenant);
   const { data: faites } = await supabase.from("nudges").select("poster_id, periode").eq("type", "relance")
     .gte("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -1));
   const dejaParties = new Set((faites ?? []).map((n) => `${n.poster_id}|${n.periode}`));
@@ -495,6 +490,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     aApprouver: 0, needsYou: 0, file: { envoyes: 0, perimes: 0, doublons: 0, upwork_bloque: 0 },
   };
   bilan.servis = await lireServis(supabase, maintenant);
+  // Partie E : en pause (malade, absent), aucun message ; décisions finales : une demande d'arrêt aussi.
+  bilan.pauses = await lirePauses(supabase, maintenant);
   await ajouterPreparees(supabase, bilan);
   bilan.relancesUpwork = await lireRelancesUpwork(supabase);
   bilan.contratsTest = await lireContratsTest(supabase);
@@ -535,10 +532,6 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     .gte("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -2));
   for (const n of parties ?? []) bilan.relancesFaites.add(`${n.poster_id}|${n.periode}`);
 
-  // Partie E : en pause (malade, absent), ni message ni Kill automatique.
-  const { data: pauses } = await supabase.from("posteur_pauses").select("poster_id").gt("jusqu_au", maintenant.toISOString());
-  bilan.pauses = new Set((pauses ?? []).map((x) => x.poster_id as string));
-
   let recrues = await lireRecrues(supabase);
   const test = r.mode === "simulation";
 
@@ -577,10 +570,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     let etats = etatsAccueil(x, r.etapes);
     // Une relance tiktok ou warm-up due (ou un Kill d'un ancien message) : un relevé TikTok à jour avant.
     const plan = planRelance(x, etats, maintenant, r.etapes);
-    const aRelever = !killEnCours(x) && x.handle && x.compte_id && (
-      (plan.element !== null && plan.element !== "connexion" && !bilan.relancesFaites.has(`${x.poster_id}|${partiesLocales(maintenant, x.fuseau).date}`)) ||
-      etats.some((e) => e.etape !== "connexion" && decision(x, e, maintenant, r.etapes, test).kill)
-    );
+    const aRelever = !killEnCours(x) && x.handle && x.compte_id &&
+      plan.element !== null && plan.element !== "connexion" && !bilan.relancesFaites.has(`${x.poster_id}|${partiesLocales(maintenant, x.fuseau).date}`);
     if (aRelever) {
       const frais = await releverTiktok(supabase, x).catch(() => null);
       if (frais) {
@@ -588,15 +579,13 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
         etats = etatsAccueil(x, r.etapes);
       }
     }
-    for (const e of etats) await suivreEtape(supabase, r, x, e, maintenant, test, bilan);
+    for (const e of etats) await suivreEtape(supabase, x, e, test, bilan);
     await relanceDuJour(supabase, r, x, etats, maintenant, bilan);
     // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
     if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
 
-  // Prompt 21, A2 : juste avant les Kills, les conversations Upwork de ceux qui en ont un dû.
-  if (await lireAvantKills(supabase, r, maintenant, bilan)) recrues = await lireRecrues(supabase);
-  await killsEchus(supabase, r, recrues, maintenant, bilan);
+  // Décisions finales : plus de Kill à 48 h (ni lecture avant Kill, ni arrêt automatique).
 
   // Une fois par heure (le passage de :00) : le message du lundi, le check du lundi soir
   // et les inactifs. Prompt 25 : le nudge du jeudi ne part plus d'ici (page Thursday).
@@ -693,6 +682,18 @@ async function lireRelancesUpwork(supabase: Supabase): Promise<Map<string, numbe
   return n;
 }
 
+/**
+ * Ceux à qui aucune relance ne part : en pause (malade, absent, partie E), et
+ * décisions finales (0443) ceux qui ont demandé à arrêter (ils attendent le samedi).
+ */
+async function lirePauses(supabase: Supabase, maintenant: Date): Promise<Set<string>> {
+  const [{ data: pauses }, { data: demandes }] = await Promise.all([
+    supabase.from("posteur_pauses").select("poster_id").gt("jusqu_au", maintenant.toISOString()),
+    supabase.from("demandes_arret").select("poster_id").is("decision", null),
+  ]);
+  return new Set([...(pauses ?? []), ...(demandes ?? [])].map((x) => x.poster_id as string));
+}
+
 /** Prompt 25 v4 (0440) : les contrats de test (pas retirés). */
 async function lireContratsTest(supabase: Supabase): Promise<Set<string>> {
   const { data } = await supabase.from("contrats_test").select("contrat_id").is("retire_at", null);
@@ -740,26 +741,16 @@ function reponduAt(x: RecrueAccueil): Date | null {
   return x.repondu_at ? new Date(x.repondu_at) : null;
 }
 
-function decision(x: RecrueAccueil, e: EtatAccueil, maintenant: Date, d: DelaisAccueil, test: boolean) {
-  return deciderEtape(e, maintenant, x.fuseau, d, {
-    envoyeAt: envoiEtape(x, e.etape, test).envoyeAt,
-    reponduAt: reponduAt(x),
-    debut: debutCohorte(x),
-  });
-}
-
 /**
  * Une étape : une réaction (étape faite, réponse) annule un Kill en attente ;
  * l'étape faite résout son ancien message ; un ancien message d'étape sans
- * réaction 48 h après → Kill (`kill_auto`, sur « off »). Prompt 25 : plus aucun
- * message d'étape d'ici, c'est la relance du jour qui écrit.
+ * réaction : décisions finales, plus de Kill (le samedi, Max décide). Prompt 25 :
+ * plus aucun message d'étape d'ici, c'est la relance du jour qui écrit.
  */
 async function suivreEtape(
   supabase: Supabase,
-  r: Reglages,
   x: RecrueAccueil,
   e: EtatAccueil,
-  maintenant: Date,
   test: boolean,
   bilan: Bilan,
 ): Promise<void> {
@@ -797,39 +788,8 @@ async function suivreEtape(
     }
     return;
   }
-  if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
-
-  const d = deciderEtape(e, maintenant, x.fuseau, r.etapes, { envoyeAt: envoi.envoyeAt, reponduAt: repondu, debut: debutCohorte(x) });
-  if (!d.kill) return;
-  // Prompt 22 : en pause, ni message ni Kill ; l'action est notée.
-  if (bilan.automationPause) {
-    await noterBloquee(supabase, { fonction: "recrues-check", action: `kill_${e.etape}`, poster_id: x.poster_id });
-    return;
-  }
-  // 0432 : Start warmup cliqué mais @ introuvable : on ne sait pas ; jamais de Kill.
-  if (e.etape === "tiktok" && x.warmup_started_at) return;
-  if (r.kill === "off" || (kill && kill.statut !== "simule")) return;
-  // Un vrai Kill : interrupteur sur « on » ET un message vraiment parti.
-  const reel = r.kill === "on" && envoi.reel;
-  if (kill && !reel) return;
-  const { error } = await supabase.rpc("kill_noter", {
-    p_poster: x.poster_id,
-    p_etape: e.etape,
-    p_periode: periode,
-    p_nudge: envoi.nudgeId,
-    p_message_at: envoi.envoyeAt!.toISOString(),
-    p_statut: reel ? "en_attente" : "simule",
-    p_annulation_h: r.etapes.kill_annulation_h,
-  });
-  if (error) bilan.erreurs.push(`kill ${x.poster_id} : ${error.message}`);
-  else {
-    bilan.kills++;
-    // Prompt 21, C4 : le Kill du 2e compte d'un Double n'arrête que ce compte (killsEchus).
-    if (x.deuxieme && x.compte_id) {
-      await supabase.from("kills_auto").update({ compte_id: x.compte_id })
-        .eq("poster_id", x.poster_id).eq("etape", e.etape).eq("periode", periode).is("compte_id", null);
-    }
-  }
+  // Décisions finales : plus aucun Kill automatique. Une recrue qui ne réagit pas
+  // va dans la masterlist du samedi (samedi_recrues) ; seul « Validate » arrête.
 }
 
 /** Le texte de la relance du jour (vide : rien ne part). */
@@ -1027,6 +987,11 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     const sortir = () => {
       if (priorite <= 1 && contrat) attente--;
     };
+    // En pause ou demande d'arrêt (0443) : rien ne part ; la bienvenue, elle, part.
+    if (l.type !== "accueil" && bilan.pauses?.has(l.poster_id)) {
+      sortir();
+      continue;
+    }
     if (!p?.is_active || !l.texte?.trim()) {
       await marquer(l, "perime");
       bilan.file.perimes++;
@@ -1177,6 +1142,7 @@ async function envoyerFileMaintenant(supabase: Supabase, maintenant: Date) {
     erreurs: [], attente: 0, doublons: 0, aApprouver: 0, needsYou: 0, file: { envoyes: 0, perimes: 0, doublons: 0, upwork_bloque: 0 },
   };
   bilan.servis = await lireServis(supabase, maintenant);
+  bilan.pauses = await lirePauses(supabase, maintenant);
   await ajouterPreparees(supabase, bilan);
   await envoyerFile(supabase, r, await lireRecrues(supabase), maintenant, bilan);
   await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
@@ -1213,109 +1179,6 @@ async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, 
   const { error } = await supabase.rpc("cohorte_reporter_auto", { p_poster: x.poster_id, p_etape: etape, p_periode: x.cohorte_lundi });
   if (error) bilan.erreurs.push(`report ${x.poster_id} : ${error.message}`);
   else bilan.rouges++;
-}
-
-/**
- * Les Kills en attente dont le délai d'annulation est passé : l'arrêt complet
- * part (file `arrets`, partie C), seulement si `kill_auto` est sur « on ».
- */
-/** Les Kills dus : leurs conversations Upwork relues (lecture seule). Vrai si un message est arrivé. */
-async function lireAvantKills(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan): Promise<boolean> {
-  if (r.kill !== "on" || bilan.rappelsEnPause) return false;
-  const { data } = await supabase
-    .from("kills_auto")
-    .select("poster_id")
-    .eq("statut", "en_attente")
-    .lte("prevu_at", maintenant.toISOString());
-  const posteurs = [...new Set((data ?? []).map((k) => k.poster_id as string))];
-  if (posteurs.length === 0) return false;
-  const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
-  if (!base || !secret) return false;
-  try {
-    const rep = await fetch(`${base}/functions/v1/upwork`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "reponses_lire", posteurs }),
-    });
-    const corps = await rep.json().catch(() => null);
-    if (!rep.ok) bilan.erreurs.push(`lecture avant Kill : HTTP ${rep.status}`);
-    return Number(corps?.nouveaux ?? 0) > 0;
-  } catch (e) {
-    bilan.erreurs.push(`lecture avant Kill : ${messageErreur(e)}`);
-    return false;
-  }
-}
-
-async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[], maintenant: Date, bilan: Bilan) {
-  if (r.kill !== "on" || bilan.rappelsEnPause) return;
-  const { data, error } = await supabase
-    .from("kills_auto")
-    .select("id, poster_id, compte_id, etape, message_at")
-    .eq("statut", "en_attente")
-    .lte("prevu_at", maintenant.toISOString());
-  // Prompt 22 : en pause, aucun Kill ne part ; il reste en attente.
-  if (bilan.automationPause) {
-    for (const k of data ?? []) await noterBloquee(supabase, { fonction: "recrues-check", action: "kill", poster_id: k.poster_id, cible: k.id });
-    return;
-  }
-  if (error) {
-    bilan.erreurs.push(`kills : ${error.message}`);
-    return;
-  }
-  const parPosteur = new Map(recrues.filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
-  // Prompt 21, C4 : le Kill d'un 2e compte de Double se vérifie sur ce compte.
-  const parCompte = new Map(recrues.filter((x) => x.deuxieme && x.compte_id).map((x) => [x.compte_id!, x]));
-  for (const k of data ?? []) {
-    // Un Kill d'étape noté sur un compte = le 2e compte d'un Double (C4) : jamais
-    // vérifié sur le 1er compte ; s'il n'est plus dans la liste, il attend.
-    const deuxieme = k.etape !== "lundi_soir" && Boolean(k.compte_id);
-    if (deuxieme && !parCompte.has(k.compte_id!)) continue;
-    const brut = deuxieme ? parCompte.get(k.compte_id!) : parPosteur.get(k.poster_id);
-    const x = brut && maintenant >= debutCohorte(brut) ? { ...brut, videos: null } : brut;
-    // Dernière vérification : une réaction depuis le Kill l'annule.
-    let reaction: boolean;
-    let fait = false;
-    if (k.etape === "lundi_soir") {
-      reaction = k.message_at !== null && await reactionDepuis(supabase, k.poster_id, k.compte_id, k.message_at);
-    } else {
-      const e = x ? etatsAccueil(x, r.etapes).find((y) => y.etape === k.etape) : null;
-      const repondu = x ? reponduAt(x) : null;
-      fait = Boolean(e?.fait);
-      reaction = fait || (repondu !== null && k.message_at !== null && repondu >= new Date(k.message_at));
-    }
-    if (reaction) {
-      await supabase.from("kills_auto").update({ statut: "annule", annule_at: new Date().toISOString(), raison: fait ? "étape faite" : "réaction reçue" })
-        .eq("id", k.id).eq("statut", "en_attente");
-      bilan.killsAnnules++;
-      continue;
-    }
-    // La ligne passe « parti » d'abord (un seul passage la prend), puis l'arrêt.
-    const { data: pris } = await supabase.from("kills_auto")
-      .update({ statut: "parti", parti_at: new Date().toISOString() })
-      .eq("id", k.id).eq("statut", "en_attente")
-      .select("id");
-    if (!pris?.length) continue;
-    // Un 2e compte (lundi soir) : seulement ce compte s'arrête, le 1er continue.
-    if (k.compte_id && await autreCompteActif(supabase, k.poster_id, k.compte_id)) {
-      const { error: errCompte } = await supabase.from("ckd_arrets").upsert(
-        { compte_id: k.compte_id, raison: "ne_pas_renouveler", prevu_at: new Date().toISOString() },
-        { onConflict: "compte_id" },
-      );
-      if (errCompte) {
-        await supabase.from("kills_auto").update({ statut: "erreur", raison: errCompte.message }).eq("id", k.id);
-        bilan.erreurs.push(`arrêt du compte ${k.compte_id} : ${errCompte.message}`);
-      } else bilan.killsPartis++;
-      continue;
-    }
-    const { error: errArret } = await supabase.from("arrets").insert({ poster_id: k.poster_id, source: "kill_48h", kill_id: k.id });
-    if (errArret && errArret.code !== "23505") {
-      await supabase.from("kills_auto").update({ statut: "erreur", raison: errArret.message }).eq("id", k.id);
-      bilan.erreurs.push(`arrêt ${k.poster_id} : ${errArret.message}`);
-    } else {
-      bilan.killsPartis++;
-    }
-  }
 }
 
 async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[]): Promise<string | null> {
@@ -1637,13 +1500,15 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       }
     }
     if (plan.arret) {
-      if (!reel) maj.action = "arret_simule";
-      else {
-        const { error: errA } = await supabase.from("arrets").insert({ poster_id: l.poster_id, source: "je_ne_veux_plus" });
-        maj.action = "arret";
-        if (errA && errA.code !== "23505") maj.erreur = `arrêt : ${errA.message}`;
-        else bilan.arrets++;
-      }
+      // Décisions finales (0443) : rien ne s'arrête ici. Les relances sont coupées et la
+      // personne attend le samedi, Kill pré-coché, avec la raison ; seul Validate arrête.
+      const source = l.canal === "bouton" ? "bouton" : classement.sous_cas === "persona" ? "persona" : "message";
+      const { error: errA } = await supabase.rpc("demande_arret_noter", {
+        p_poster: l.poster_id, p_source: source, p_raison: (l.texte ?? "").slice(0, 500) || null, p_reponse: l.id,
+      });
+      maj.action = "demande_arret";
+      if (errA) maj.erreur = `demande d'arrêt : ${errA.message}`;
+      else bilan.arrets++;
     }
     if (plan.pause) {
       if (!reel) maj.action = "pause_simulee";
@@ -1778,30 +1643,11 @@ async function repondreUpwork(supabase: Supabase, posterId: string, texte: strin
 // Pipeline, partie 2 : le check du lundi soir
 // ---------------------------------------------------------------------------
 
-/** Un post publié (avec son lien) ou une réponse depuis `depuis`. */
-async function reactionDepuis(supabase: Supabase, posterId: string, compteId: string | null, depuis: string): Promise<boolean> {
-  const [{ data: rep }, { data: slack }, posts] = await Promise.all([
-    supabase.from("posteur_reponses").select("id").eq("poster_id", posterId).gte("recu_at", depuis).limit(1),
-    // Prompt 21, A2 : un message dans n'importe quel canal Slack compte aussi.
-    supabase.from("posteur_reactions").select("poster_id").eq("poster_id", posterId).gte("slack_at", depuis).limit(1),
-    compteId
-      ? supabase.from("passages").select("id").eq("compte_id", compteId).not("publie_url", "is", null).gte("publie_at", depuis).limit(1)
-      : Promise.resolve({ data: [] as unknown[] }),
-  ]);
-  return (rep ?? []).length > 0 || (slack ?? []).length > 0 || (posts.data ?? []).length > 0;
-}
-
-async function autreCompteActif(supabase: Supabase, posterId: string, compteId: string): Promise<boolean> {
-  const { data } = await supabase.from("comptes").select("id").eq("poster_id", posterId).eq("is_active", true).neq("id", compteId).limit(1);
-  return (data ?? []).length > 0;
-}
-
 /**
  * Chaque lundi, 20 h heure du pays : la nouvelle cohorte et les 2es comptes
  * qui démarrent, sans aucun post publié avec son lien ce jour-là → un seul
- * message sur Upwork (`lundi_soir_auto`). 48 h après, ni post ni réponse →
- * Kill (comme pendant l'accueil, `kill_auto`, 12 h pour annuler). Un 2e
- * compte : seul ce compte s'arrête.
+ * message sur Upwork (`lundi_soir_auto`). Décisions finales : plus de Kill
+ * automatique ensuite ; le samedi, Max décide (masterlist).
  */
 async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan) {
   if (r.lundiSoir === "off" || bilan.rappelsEnPause) return;
@@ -1833,24 +1679,7 @@ async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bila
         if (!bilan.prevuesConnues?.has(clePrevue(p.poster_id, "lundi_soir", l)) || test) await envoyerLundiSoir(supabase, r, p, l, test, bilan);
         continue;
       }
-      if (r.kill !== "off" && (!p.kill_id || p.kill_statut === "simule") && killLundiSoir(p, envoyeAt, maintenant, r.etapes.kill_h)) {
-        const reel = r.kill === "on" && !test && Boolean(p.message_at) && !p.message_erreur;
-        if (p.kill_id && !reel) continue;
-        const { data: id, error: errK } = await supabase.rpc("kill_noter", {
-          p_poster: p.poster_id,
-          p_etape: "lundi_soir",
-          p_periode: l,
-          p_nudge: p.message_id,
-          p_message_at: envoyeAt!.toISOString(),
-          p_statut: reel ? "en_attente" : "simule",
-          p_annulation_h: r.etapes.kill_annulation_h,
-        });
-        if (errK) bilan.erreurs.push(`kill lundi soir ${p.poster_id} : ${errK.message}`);
-        else {
-          bilan.kills++;
-          if (id && p.compte_id) await supabase.from("kills_auto").update({ compte_id: p.compte_id }).eq("id", id);
-        }
-      }
+      // Décisions finales : plus de Kill 48 h après le lundi 20 h.
     }
   }
 }

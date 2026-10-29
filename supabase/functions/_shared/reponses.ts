@@ -4,7 +4,8 @@
  * la lecture du JSON du modèle et ce que l'OS fait de chaque cas.
  *
  * Les cas :
- *   stop          « je ne veux plus » → arrêt complet (partie C)
+ *   stop          « je ne veux plus », ou persona refusé → demande d'arrêt :
+ *                 relances coupées, Kill pré-coché le samedi (décisions finales)
  *   travail       une question sur le travail → réponse depuis le guide ;
  *                 augmentation : « The rate is fixed. » ; son propre compte :
  *                 « Please use the account your dashboard gives you. » ;
@@ -19,7 +20,8 @@
 
 export type CasReponse = "stop" | "travail" | "paie" | "absent" | "a_lire" | "accuse";
 export const CAS_REPONSE: readonly CasReponse[] = ["stop", "travail", "paie", "absent", "a_lire", "accuse"];
-export type SousCas = "augmentation" | "propre_compte" | null;
+/** « persona » (cas stop) : il refuse le persona ou le contenu qu'on lui donne (décisions finales). */
+export type SousCas = "augmentation" | "propre_compte" | "persona" | null;
 export type CanalReponse = "slack" | "bouton" | "upwork";
 /** Prompt 21, R : ce que le posteur conteste (page Disputes) ; null : pas une contestation. */
 export type TypeContestation = "paie" | "kill" | "posts" | "lien" | "message";
@@ -57,7 +59,7 @@ export function construirePromptReponse(o: { message: string; canal: CanalRepons
     o.canal === "upwork" ? "dans la conversation de son contrat Upwork" : "en message privé sur Slack"
   }.
 Classe-le dans UN cas :
-- "stop" : il veut arrêter, quitter, mettre fin au contrat (clairement, pas une plainte passagère).
+- "stop" : il veut arrêter, quitter, mettre fin au contrat (clairement, pas une plainte passagère). S'il refuse le persona ou le contenu qu'on lui donne à poster (il ne le fera pas) : "stop" avec "sous_cas":"persona".
 - "travail" : une question sur le travail (comment poster, warm-up, compte TikTok, liens, horaires, slides, l'appli). Si c'est une demande d'augmentation de tarif : "sous_cas":"augmentation". S'il veut utiliser ou créer son propre compte TikTok : "sous_cas":"propre_compte".
 - "paie" : une question ou une réclamation sur l'argent (paiement, montant, milestone, bonus, retard de paie).
 - "absent" : il est malade, absent, en voyage, indisponible pour un temps. "jours" : le nombre de jours s'il le dit, sinon null.
@@ -92,12 +94,12 @@ export function lireClassement(brut: string): Classement | null {
   const cas = String(o.cas ?? "") as CasReponse;
   if (!CAS_REPONSE.includes(cas)) return null;
   const confiance = Number(o.confiance);
-  const sous = o.sous_cas === "augmentation" || o.sous_cas === "propre_compte" ? o.sous_cas : null;
+  const sous = o.sous_cas === "augmentation" || o.sous_cas === "propre_compte" || o.sous_cas === "persona" ? o.sous_cas : null;
   const jours = Number(o.jours);
   return {
     cas,
     confiance: Number.isFinite(confiance) ? Math.max(0, Math.min(1, confiance)) : 0,
-    sous_cas: cas === "travail" ? sous : null,
+    sous_cas: cas === "travail" && sous !== "persona" ? sous : cas === "stop" && sous === "persona" ? sous : null,
     reponse: String(o.reponse ?? "").replace(/\s*—\s*/g, ", ").trim().slice(0, 1200),
     jours: cas === "absent" && Number.isFinite(jours) && jours > 0 ? Math.round(jours) : null,
     conteste: TYPES_CONTESTATION.includes(o.conteste as TypeContestation) ? (o.conteste as TypeContestation) : null,

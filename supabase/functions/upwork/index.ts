@@ -10,6 +10,8 @@ import {
   lireJetons,
   racinesSchema,
   REQUETE_JALONS,
+  REQUETE_STATUT_CONTRAT,
+  contratFerme,
   jalonAApprouver,
   MUTATION_APPROUVER,
   MUTATION_CREER_JALON,
@@ -551,6 +553,7 @@ async function lireContrats(supabase: Supabase, par: string | null) {
   const orgs = await organisations(supabase);
   if (orgs.length === 0) throw new Error("aucune organisation connue : relire les droits dans Réglages → Upwork");
   const debut = new Date().toISOString();
+  const fermes: { contrat: string; tenant: string }[] = [];
   const bilan: Record<string, { total: number | null; lus: number; erreur: string | null }> = {};
   for (const org of orgs) {
     let apres: string | null = null;
@@ -593,12 +596,51 @@ async function lireContrats(supabase: Supabase, par: string | null) {
     // Un contrat de cette organisation qui n'est plus rendu actif n'est plus actif,
     // seulement si toute la liste a été lue (sinon on désactiverait des contrats actifs).
     if (!erreur && (total === null || lus >= total)) {
-      await supabase.from("upwork_contrats").update({ actif: false })
-        .eq("organisation_id", org.organizationId).lt("lu_at", debut);
+      const { data: partis } = await supabase.from("upwork_contrats").update({ actif: false })
+        .eq("organisation_id", org.organizationId).eq("actif", true).lt("lu_at", debut)
+        .select("contrat_id");
+      for (const c of partis ?? []) if (c.contrat_id) fermes.push({ contrat: String(c.contrat_id), tenant: org.organizationId });
     }
     bilan[org.title?.trim() ?? org.organizationId] = { total, lus, erreur };
   }
-  return { ok: true, organisations: bilan };
+  const desactives = await contratsFermes(supabase, par, fermes);
+  return { ok: true, organisations: bilan, ...(desactives ? { desactives } : {}) };
+}
+
+/** Au-delà, une lecture qui fait tomber trop de contrats d'un coup est suspecte : rien n'est désactivé, Max est prévenu. */
+const MAX_FERMES_PAR_LECTURE = 10;
+
+/**
+ * Décisions finales : un contrat qui vient de quitter la liste des contrats
+ * actifs (lecture complète) et que l'OS n'a pas fermé (son posteur est encore
+ * actif) a été fermé par le freelance : le posteur et ses comptes sont
+ * seulement désactivés (`contrats_termines_desactiver`, 0443). Ni message, ni
+ * Slack, ni Upwork.
+ */
+async function contratsFermes(supabase: Supabase, par: string | null, fermes: { contrat: string; tenant: string }[]): Promise<string[] | null> {
+  if (fermes.length === 0) return null;
+  if (fermes.length > MAX_FERMES_PAR_LECTURE) {
+    await dmMax(`:warning: ${fermes.length} contrats ne sont plus actifs d'un coup chez Upwork : personne n'a été désactivé, à vérifier (Contracts).`);
+    return null;
+  }
+  // Seulement les contrats que l'OS relie à un posteur encore actif, et vraiment fermés
+  // chez Upwork (relus un par un : en pause, illisible ou encore actif → rien).
+  const { data: relies } = await supabase.from("profiles").select("upwork_contract_id").eq("is_active", true)
+    .in("upwork_contract_id", fermes.map((f) => f.contrat));
+  const actifs = new Set((relies ?? []).map((p) => String(p.upwork_contract_id)));
+  const contrats: string[] = [];
+  for (const f of fermes.filter((x) => actifs.has(x.contrat))) {
+    const lu = await lire(supabase, { par, action: "contrat_statut", query: REQUETE_STATUT_CONTRAT, variables: { id: f.contrat }, tenant: f.tenant });
+    const statut = String(lu.data?.contractDetails?.status ?? "").toUpperCase();
+    if (!lu.erreur && contratFerme(statut)) contrats.push(f.contrat);
+  }
+  if (contrats.length === 0) return null;
+  const { data, error } = await supabase.rpc("contrats_termines_desactiver", { p_contrats: contrats });
+  if (error) {
+    console.error("[upwork] contrats fermés", error.message);
+    return null;
+  }
+  return ((data ?? []) as { nom: string | null; contrat_id: string }[]).map((d) => `${d.nom ?? "?"} (${d.contrat_id})`);
 }
 
 // ---------------------------------------------------------------------------
@@ -1222,7 +1264,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
   if (!etat) return { ok: true, ignore: "un autre passage est en cours" };
   let encore = false;
   try {
-    const v = await reglagesValeurs(supabase, ["paie_auto_heure", "kill_auto", "kill_message_auto", "kill_moins6_texte"]);
+    const v = await reglagesValeurs(supabase, ["paie_auto_heure", "kill_auto"]);
     const heure = Number.isFinite(Number(v.paie_auto_heure)) ? Number(v.paie_auto_heure) : 9;
     const quand = peutPayer(new Date(), heure, etat.lance_at);
     if (!quand.ok) return { ok: true, ignore: quand.raison };
@@ -1232,8 +1274,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const tenant = (l: LigneAuto) => (l.contrat_id ? (tenantDe.get(l.contrat_id) ?? null) : null);
     await jetonValide(supabase, par);
 
-    // Kill sous les 6 posts : arrêt complet et message (seulement si kill_auto = on).
-    await killsMoins6(supabase, par, semaine, lignes, v);
+    // Décisions finales : plus de Kill automatique sous les 6 posts (le samedi, Max décide).
 
     const { data: verrous } = await supabase.from("paie_paiements_api").select(COLONNES_PAIEMENT).eq("semaine", semaine).neq("statut", "libere");
     const verrouDe = new Map(((verrous ?? []) as PaiementApi[]).map((x) => [x.paie_semaine_id, x]));
@@ -1391,56 +1432,6 @@ function enchainer(action: string) {
   // deno-lint-ignore no-explicit-any
   (globalThis as any).EdgeRuntime?.waitUntil?.(appel);
 }
-
-/**
- * Prompt 21, B1 : moins de 6 posts avec lien. Tous les comptes : arrêt
- * complet (file `arrets`, motif « moins6 ») et message kill_moins6_texte sur
- * Upwork ; un seul compte d'un Double : ce compte s'arrête. Rien sans
- * kill_auto = on (test : noté dans le Pipeline). Le message suit aussi
- * kill_message_auto.
- */
-// deno-lint-ignore no-explicit-any
-async function killsMoins6(supabase: Supabase, par: string | null, semaine: string, lignes: LigneAuto[], v: Record<string, any>) {
-  const mode = lireModeAuto(v.kill_auto);
-  if (mode === "off") return;
-  const modeMessage = lireModeAuto(v.kill_message_auto);
-  for (const l of lignes) {
-    // Liens introuvables pas vérifiés : pas de Kill (Needs you, « Count this post »).
-    if (l.exclu || l.moins6 === 0 || l.douteux > 0) continue;
-    const tous = l.action === "kill" && l.moins6 >= l.nb_comptes;
-    for (const posteur of l.posteurs) {
-      const cle = `moins6:${semaine}`;
-      const { data: deja } = await supabase.from("recrue_evenements").select("id").eq("poster_id", posteur).eq("type", "kill_moins6").eq("cle", cle).maybeSingle();
-      if (deja) continue;
-      const detail = tous
-        ? `Moins de 6 posts avec lien la semaine du ${semaine} : Kill, semaine payée${mode === "on" ? "" : " (test : rien n'est fait)"}`
-        : `Un compte sous les 6 posts la semaine du ${semaine} : ce compte s'arrête${mode === "on" ? "" : " (test : rien n'est fait)"}`;
-      await supabase.from("recrue_evenements").upsert({ poster_id: posteur, type: "kill_moins6", at: new Date().toISOString(), detail, cle }, { onConflict: "poster_id,type,cle", ignoreDuplicates: true });
-      if (mode !== "on") continue;
-      if (tous) {
-        const { error } = await supabase.from("arrets").insert({ poster_id: posteur, source: "manuel", motif: "moins6", demande_par: par });
-        if (error && error.code !== "23505") console.error("[upwork] arrêt moins6", error.message);
-        if (modeMessage === "on" && l.contrat_id && posteur === l.posteurs[0]) {
-          const texte = remplirTexte(texteReglage(v.kill_moins6_texte, KILL_MOINS6_DEFAUT), {
-            prenom: await prenomPosteur(supabase, posteur), n: l.faits,
-          });
-          const m = await envoyerMessage(supabase, par, l.contrat_id, texte);
-          await supabase.from("recrue_evenements").upsert({
-            poster_id: posteur, type: "kill_message", at: new Date().toISOString(), cle: `moins6:${semaine}`,
-            detail: m.ok ? `Message envoyé sur Upwork : ${texte}` : `Message pas envoyé : ${m.error ?? "erreur"}`,
-          }, { onConflict: "poster_id,type,cle", ignoreDuplicates: true });
-        }
-      } else {
-        // Le compte sous les 6 d'un Double : arrêté seul ; la semaine suivante est au tarif simple (0415).
-        const { error } = await supabase.rpc("compte_arreter_moins6", { p_poster: posteur, p_lundi: semaine });
-        if (error) console.error("[upwork] compte moins6", error.message);
-      }
-    }
-  }
-}
-
-const KILL_MOINS6_DEFAUT =
-  "Hi {prenom}, last week you posted {n} times out of 14, below our minimum of 6. Your week is paid today, and we're ending our collaboration. Thank you for your time.";
 
 // ---------------------------------------------------------------------------
 // Prompt 21, P2 : la réconciliation (lundi 20 h, mardi 12 h, Paris). Chaque

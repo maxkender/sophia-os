@@ -28,6 +28,9 @@ Deno.test("lire le JSON du modèle ; illisible ou cas inconnu → null", () => {
   assertEquals(lireClassement("pas de json"), null);
   // Le sous-cas n'a de sens que pour une question de travail.
   assertEquals(lireClassement('{"cas":"paie","confiance":0.9,"sous_cas":"augmentation"}')?.sous_cas, null);
+  // Décisions finales : un persona refusé est une demande d'arrêt (sous-cas « persona »).
+  assertEquals(lireClassement('{"cas":"stop","confiance":0.9,"sous_cas":"persona"}')?.sous_cas, "persona");
+  assertEquals(lireClassement('{"cas":"travail","confiance":0.9,"sous_cas":"persona"}')?.sous_cas, null);
 });
 
 Deno.test("sous le seuil de 0,8 : « À lire », rien ne part", () => {

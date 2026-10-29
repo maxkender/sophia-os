@@ -18,9 +18,10 @@ const onboarding = vi.hoisted(() => ({ lireOnboarding: vi.fn<() => Promise<Recru
 vi.mock("@/features/onboarding/api", async (orig) => ({ ...(await orig<typeof import("@/features/onboarding/api")>()), ...onboarding }));
 const pipeline = vi.hoisted(() => ({
   envoyerSurUpwork: vi.fn<(p: string, t: string, type?: string | null) => Promise<void>>(async () => undefined),
-  arreterDepuisPipeline: vi.fn<(p: string) => Promise<void>>(async () => undefined),
 }));
 vi.mock("@/features/pipeline/api", () => pipeline);
+const samedi = vi.hoisted(() => ({ demanderArretSamedi: vi.fn<(p: string, r: string | null) => Promise<boolean>>(async () => true) }));
+vi.mock("@/features/ckd/decisions/semaineComptes", async (orig) => ({ ...(await orig<typeof import("@/features/ckd/decisions/semaineComptes")>()), ...samedi }));
 const cohortes = vi.hoisted(() => ({ reporterRecrue: vi.fn<(p: string) => Promise<string>>(async () => "2026-11-09") }));
 vi.mock("@/features/cohortes/api", () => cohortes);
 vi.mock("@/features/auto/test/ContratsTest", () => ({ BoutonsTest: () => <div data-testid="boutons-test" /> }));
@@ -111,7 +112,7 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     expect(visibles()).toEqual(["p3"]);
   });
 
-  it("Send a message, Postpone, Stop (confirmés) ; le posteur de test a ses boutons « Run now »", async () => {
+  it("Send a message, Postpone, Kill on Saturday (confirmés, rien n'est arrêté) ; le posteur de test a ses boutons « Run now »", async () => {
     rendu();
     await screen.findByText("Ana Silva");
     const carte = document.querySelector<HTMLElement>('[data-recrue="p1"]')!;
@@ -121,8 +122,8 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     await waitFor(() => expect(pipeline.envoyerSurUpwork).toHaveBeenCalledWith("p1", "Hello", "onboarding"));
     fireEvent.click(within(carte).getByRole("button", { name: "Postpone" }));
     await waitFor(() => expect(cohortes.reporterRecrue).toHaveBeenCalledWith("p1"));
-    fireEvent.click(within(carte).getByRole("button", { name: "Stop" }));
-    await waitFor(() => expect(pipeline.arreterDepuisPipeline).toHaveBeenCalledWith("p1"));
+    fireEvent.click(within(carte).getByRole("button", { name: "Kill on Saturday" }));
+    await waitFor(() => expect(samedi.demanderArretSamedi).toHaveBeenCalledWith("p1", null));
     const test = document.querySelector<HTMLElement>('[data-recrue="p3"]')!;
     expect(within(test).getByTestId("boutons-test")).toBeTruthy();
     expect(within(test).getByText("TEST")).toBeTruthy();

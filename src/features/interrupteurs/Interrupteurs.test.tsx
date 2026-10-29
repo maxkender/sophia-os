@@ -44,11 +44,13 @@ describe("Réglages → Interrupteurs", () => {
 
   it("test par défaut ; on demande une confirmation ; le Head of Ops ne peut pas changer", async () => {
     rendu();
-    await screen.findByText("Kill automatique");
+    await screen.findByText("Relances des recrues");
+    // Décisions finales : plus d'interrupteur de Kill automatique.
+    expect(screen.queryByText("Kill automatique")).toBeNull();
     const ligne = within(document.querySelector<HTMLElement>('[data-interrupteur="accueil_auto"]')!);
     const on = ligne.getByRole("button", { name: "On" });
     expect(ligne.getByRole("button", { name: "Test" }).getAttribute("aria-pressed")).toBe("true");
-    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(8);
+    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(7);
     // Prompt 21, A6 : le message de Kill du dimanche est un interrupteur, « on » au départ.
     const kill = within(document.querySelector<HTMLElement>('[data-interrupteur="kill_message_auto"]')!);
     await vi.waitFor(() => expect(kill.getByRole("button", { name: "On" }).getAttribute("aria-pressed")).toBe("true"));

@@ -167,10 +167,14 @@ export function decisionSamedi(c: Pick<CompteSemaine, "ckd_samedi_decision">): C
   }
 }
 
-/** Pré-rempli avec la proposition de l'OS (contrôle du samedi) : Kill, Double, sinon Keep. */
-export function choixSamediInitial(c: CompteSemaine): ChoixSamedi {
+/**
+ * Pré-rempli avec la proposition de l'OS (contrôle du samedi) : Kill, Double,
+ * sinon Keep. Décisions finales : une demande d'arrêt → Kill pré-coché.
+ */
+export function choixSamediInitial(c: CompteSemaine, demande: DemandeArret | null = null): ChoixSamedi {
   const prise = decisionSamedi(c);
   if (prise) return prise;
+  if (demande) return "kill";
   if (c.ckd_samedi_action === "ne_pas_renouveler") return "kill";
   if (c.ckd_samedi_action === "doubler") return "double";
   return "keep";
@@ -238,4 +242,35 @@ export function manqueRecrue(r: Pick<RecrueSansReaction, "connecte" | "tiktok_tr
   if (!r.start_warmup) return r.tiktok_trouve ? "warmup" : "tiktok";
   if (!r.tiktok_trouve) return "tiktok";
   return "follows";
+}
+
+// ---------------------------------------------------------------------------
+// Décisions finales (0443) : les demandes d'arrêt attendent le samedi
+// ---------------------------------------------------------------------------
+
+/** « I want to stop », « STOP », un message classé stop, un persona refusé, ou Max (Onboarding posters). */
+export interface DemandeArret {
+  poster_id: string;
+  source: "bouton" | "message" | "persona" | "manuel";
+  raison: string | null;
+  demande_at: string;
+}
+
+export async function lireDemandesArret(): Promise<DemandeArret[]> {
+  const { data, error } = await supabase.rpc("demandes_arret_ouvertes");
+  if (error) throw error;
+  return (data ?? []) as DemandeArret[];
+}
+
+/** Max, depuis Onboarding posters : la personne va au samedi, Kill pré-coché (rien n'est arrêté). */
+export async function demanderArretSamedi(posterId: string, raison: string | null): Promise<boolean> {
+  const { data, error } = await supabase.rpc("demande_arret_noter", { p_poster: posterId, p_source: "manuel", p_raison: raison, p_reponse: null });
+  if (error) throw error;
+  return data === true;
+}
+
+/** Keep ou Postpone le samedi : la demande est classée, les relances reprennent. */
+export async function garderMalgreDemande(posterId: string): Promise<void> {
+  const { error } = await supabase.rpc("demande_arret_garder", { p_poster: posterId });
+  if (error) throw error;
 }

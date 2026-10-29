@@ -21,6 +21,9 @@ import {
   choixSamediInitial,
   type CompteSemaine,
   decisionSamedi,
+  type DemandeArret,
+  garderMalgreDemande,
+  lireDemandesArret,
   FILTRES_VIDES,
   filtrerComptes,
   lireRecruesSansReaction,
@@ -38,10 +41,22 @@ const CHOIX: readonly ChoixSamedi[] = ["kill", "double", "keep"];
 type ChoixRecrue = "kill" | "reporter" | "rien";
 const CHOIX_RECRUE: readonly ChoixRecrue[] = ["kill", "reporter", "rien"];
 
+/** Décisions finales : la demande d'arrêt (Kill pré-coché) et sa raison. */
+export function BadgeDemande({ d }: { d: DemandeArret }) {
+  const { t } = useTranslation();
+  return (
+    <div className="max-w-64 space-y-0.5 text-xs" data-demande-arret={d.source}>
+      <Badge variant="error">{t(`autoOnglets.decisions.liste.samedi.demande.${d.source}`)}</Badge>
+      {d.raison && <p className="line-clamp-3 text-muted-foreground">« {d.raison} »</p>}
+    </div>
+  );
+}
+
 /** La proposition de l'OS et sa raison, en une ligne. */
-function Proposition({ c }: { c: CompteSemaine }) {
+function Proposition({ c, demande }: { c: CompteSemaine; demande: DemandeArret | null }) {
   const { t } = useTranslation();
   const texteRaison = useRaison();
+  if (demande && !decisionSamedi(c)) return <BadgeDemande d={demande} />;
   if (!c.ckd_samedi_id) return <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.rienAProposer")}</span>;
   const manuel = Boolean(c.ckd_samedi_donnees?.manuel);
   const action = c.ckd_samedi_action === "ne_pas_renouveler" ? "kill" : c.ckd_samedi_action === "doubler" ? "double" : "keep";
@@ -67,7 +82,8 @@ function Proposition({ c }: { c: CompteSemaine }) {
  * réagi aux relances (Kill ou reporter). Rien sans « Validate ». Prompt 25
  * v4 : un Kill part tout de suite, sans message (désactivé, retiré de Slack,
  * contrat fermé ; milestone financée : Needs you) ; les Double suivent l'offre
- * au posteur.
+ * au posteur. Décisions finales : seul ce « Validate » arrête ; une demande
+ * d'arrêt (STOP, persona refusé…) y arrive Kill pré-coché, avec sa raison.
  */
 export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) {
   const { t } = useTranslation();
@@ -80,6 +96,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const jusqu = aujourdhui < samedi ? aujourdhui : samedi;
   const lu = useQuery({ queryKey: ["semaine-comptes", lundi, jusqu], queryFn: () => lireSemaineComptes(lundi, jusqu) });
   const recrues = useQuery({ queryKey: ["samedi-recrues", lundi], queryFn: () => lireRecruesSansReaction(lundi) });
+  const demandes = useQuery({ queryKey: ["demandes-arret"], queryFn: lireDemandesArret });
   const [choix, setChoix] = React.useState<Record<string, ChoixSamedi>>({});
   const [choixRecrues, setChoixRecrues] = React.useState<Record<string, ChoixRecrue>>({});
   const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
@@ -87,12 +104,16 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const [bilan, setBilan] = React.useState<string | null>(null);
 
   const liste = lu.data ?? [];
-  const choixDe = (c: CompteSemaine) => choix[c.compte_id] ?? choixSamediInitial(c);
+  // Décisions finales : une demande d'arrêt pré-coche Kill (sur les comptes de ceux qui ont commencé ;
+  // une recrue d'une cohorte pas commencée est dans la liste des recrues).
+  const demandeDe = new Map((demandes.data ?? []).map((d) => [d.poster_id, d]));
+  const demandeCompte = (c: CompteSemaine) => (!c.cohorte_lundi || c.cohorte_lundi <= lundi ? demandeDe.get(c.poster_id) ?? null : null);
+  const choixDe = (c: CompteSemaine) => choix[c.compte_id] ?? choixSamediInitial(c, demandeCompte(c));
   const visibles = trierComptes(filtrerComptes(liste, filtres), tri);
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
   const aDecider = liste.filter((c) => !decisionSamedi(c));
   const compte = (x: ChoixSamedi) => aDecider.filter((c) => choixDe(c) === x && (x !== "keep" || c.ckd_samedi_id)).length;
-  const choixRecrueDe = (r: RecrueSansReaction) => choixRecrues[r.poster_id] ?? "rien";
+  const choixRecrueDe = (r: RecrueSansReaction) => choixRecrues[r.poster_id] ?? (demandeDe.has(r.poster_id) ? "kill" : "rien");
   const recruesKill = (recrues.data ?? []).filter((r) => choixRecrueDe(r) === "kill");
   const recruesReport = (recrues.data ?? []).filter((r) => choixRecrueDe(r) === "reporter");
 
@@ -127,6 +148,18 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           erreurs.push(`${r.nom ?? "?"} : ${(err as Error).message}`);
         }
       }
+      // Décisions finales : une demande d'arrêt pas suivie d'un Kill est classée « garder » (les relances reprennent).
+      const gardes = new Set([
+        ...aDecider.filter((c) => demandeCompte(c) && choixDe(c) !== "kill").map((c) => c.poster_id),
+        ...(recrues.data ?? []).filter((r) => demandeDe.has(r.poster_id) && choixRecrueDe(r) !== "kill").map((r) => r.poster_id),
+      ]);
+      for (const p of gardes) {
+        try {
+          await garderMalgreDemande(p);
+        } catch (err) {
+          erreurs.push((err as Error).message);
+        }
+      }
       // Prompt 25 v4 : les arrêts (désactivé, Slack, contrat fermé, sans message) partent tout de suite, pas au passage suivant.
       if (decides > 0 || recruesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
       return { decides, kills: recruesKill.length, reports: recruesReport.length, erreurs };
@@ -137,6 +170,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       setBilan(t("autoOnglets.decisions.liste.samedi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
       void qc.invalidateQueries({ queryKey: ["semaine-comptes"] });
       void qc.invalidateQueries({ queryKey: ["samedi-recrues"] });
+      void qc.invalidateQueries({ queryKey: ["demandes-arret"] });
       void qc.invalidateQueries({ queryKey: ["ckd"] });
     },
   });
@@ -205,7 +239,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                         <Signaux c={c} />
                       </td>
                       <td className={TD}>
-                        <Proposition c={c} />
+                        <Proposition c={c} demande={demandeCompte(c)} />
                       </td>
                     </tr>
                   );
@@ -238,6 +272,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                 {r.handle && <HandleTiktok handle={r.handle} pays={r.pays} className="text-xs font-normal" />}
                 <span className="text-xs text-muted-foreground">{[r.hm_nom ? `HM ${r.hm_nom}` : null, r.pays].filter(Boolean).join(" · ")}</span>
                 <Badge variant="warning">{t(`autoOnglets.decisions.liste.recrues.manque.${manqueRecrue(r)}`, { n: Math.max(0, 5 - (r.abonnements ?? 0)) })}</Badge>
+                {demandeDe.get(r.poster_id) && <BadgeDemande d={demandeDe.get(r.poster_id)!} />}
                 <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.relances", { n: r.relances })}</span>
               </li>
             ))}

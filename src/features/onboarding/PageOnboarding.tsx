@@ -10,7 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BoutonsTest } from "@/features/auto/test/ContratsTest";
 import { reporterRecrue } from "@/features/cohortes/api";
-import { arreterDepuisPipeline, envoyerSurUpwork } from "@/features/pipeline/api";
+import { demanderArretSamedi } from "@/features/ckd/decisions/semaineComptes";
+import { envoyerSurUpwork } from "@/features/pipeline/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
@@ -64,7 +65,8 @@ function CarteRecrue({ r }: { r: RecrueOnboarding }) {
     },
   });
   const arreter = useMutation({
-    mutationFn: () => arreterDepuisPipeline(r.poster_id),
+    // Décisions finales : rien ne s'arrête ici ; la personne va au samedi, Kill pré-coché.
+    mutationFn: () => demanderArretSamedi(r.poster_id, null),
     onSuccess: () => {
       setBilan(t("onboardingPosters.arrete"));
       recharger();

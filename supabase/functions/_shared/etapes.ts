@@ -323,3 +323,17 @@ export function canalEtape(p: { slack_user_id: string | null; contrat_id: string
   if (p.contrat_id) return "upwork";
   return null;
 }
+
+/**
+ * Les canaux d'un message d'étape, du lundi ou du jeudi : Slack ET Upwork,
+ * chacun s'il est relié (le message part une fois sur chaque canal). Vide :
+ * aucun canal, le message est bloqué.
+ */
+export function canauxEnvoi(p: { slack_user_id: string | null; contrat_id: string | null }): ("slack" | "upwork")[] {
+  return [...(p.slack_user_id ? ["slack" as const] : []), ...(p.contrat_id ? ["upwork" as const] : [])];
+}
+
+/** Le libellé des canaux pour « prévu » (relances_prevues.canal) : « slack+upwork », « slack » ou « upwork ». */
+export function libelleCanaux(canaux: readonly string[]): string | null {
+  return canaux.length ? canaux.join("+") : null;
+}

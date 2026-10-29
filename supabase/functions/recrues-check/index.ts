@@ -3,6 +3,8 @@ import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
 import {
   canalEtape,
+  canauxEnvoi,
+  libelleCanaux,
   type DelaisAccueil,
   deciderEtape,
   envoiEtape,
@@ -437,6 +439,8 @@ async function appliquerEtape(
   }
   if (!d.envoyer && !d.horsFenetre) return;
 
+  // Slack ET Upwork, chacun s'il est relié (une fois sur chaque canal).
+  const canaux = canauxEnvoi(x);
   const canal = canalEtape(x);
   if (canal === null) {
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: new Date().toISOString() });
@@ -457,7 +461,7 @@ async function appliquerEtape(
     await supabase.from("relances_prevues").upsert({
       ...cle,
       statut: "prevu",
-      canal,
+      canal: libelleCanaux(canaux),
       texte,
       raison: d.horsFenetre ? "hors_fenetre" : "simulation",
       maj_at: new Date().toISOString(),
@@ -476,15 +480,7 @@ async function appliquerEtape(
     if (errIns.code !== "23505") bilan.erreurs.push(`relance ${x.poster_id} : ${errIns.message}`);
     return;
   }
-  const erreur = canal === "slack"
-    ? await envoyerSlack(supabase, x.poster_id, texte, blocsBoutons(texte, r.boutons))
-    : await envoyerUpwork(x.contrat_id!, texte);
-  if (erreur) {
-    await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
-    bilan.erreurs.push(`${e.etape} ${x.poster_id} : ${erreur}`);
-  } else {
-    bilan.envoyes++;
-  }
+  await noterEnvoi(supabase, ligne.id, await envoyerPartout(supabase, x, texte, blocsBoutons(texte, r.boutons)), `${e.etape} ${x.poster_id}`, bilan);
   await effacerPrevue();
 }
 
@@ -619,6 +615,39 @@ async function envoyerSlack(supabase: Supabase, posterId: string, texte: string,
   return issue.statut === "erreur" ? issue.erreur : "introuvable sur Slack";
 }
 
+/**
+ * Un message d'étape, du lundi ou du jeudi : sur Slack (s'il est relié) ET sur
+ * Upwork (s'il y a un contrat), une fois sur chacun, sans nouvel essai.
+ */
+async function envoyerPartout(
+  supabase: Supabase,
+  p: { poster_id: string; slack_user_id: string | null; contrat_id: string | null },
+  texte: string,
+  blocs?: unknown[],
+): Promise<{ partis: ("slack" | "upwork")[]; erreurs: string[] }> {
+  const partis: ("slack" | "upwork")[] = [];
+  const erreurs: string[] = [];
+  for (const canal of canauxEnvoi(p)) {
+    const erreur = canal === "slack"
+      ? await envoyerSlack(supabase, p.poster_id, texte, blocs)
+      : await envoyerUpwork(p.contrat_id!, texte);
+    if (erreur) erreurs.push(canal === "slack" ? `slack : ${erreur}` : erreur);
+    else partis.push(canal);
+  }
+  return { partis, erreurs };
+}
+
+/** Sur la ligne du message : les canaux partis ; « slack_erreur » seulement si rien n'est parti. */
+async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[]; erreurs: string[] }, quoi: string, bilan: Bilan) {
+  await supabase.from("nudges").update({
+    canaux: r.partis,
+    erreur_canal: r.erreurs.join(" · ") || null,
+    ...(r.partis.length === 0 ? { slack_erreur: r.erreurs.join(" · ") || "aucun canal" } : {}),
+  }).eq("id", id);
+  if (r.partis.length === 0) bilan.erreurs.push(`${quoi} : ${r.erreurs.join(" · ")}`);
+  else bilan.envoyes++;
+}
+
 /** Par la fonction `upwork` (le seul endroit qui parle à Upwork), sans nouvel essai. */
 async function envoyerUpwork(contratId: string, texte: string): Promise<string | null> {
   const base = Deno.env.get("SUPABASE_URL");
@@ -707,6 +736,8 @@ async function envoyerSemaine(
   boutons: LibellesBoutons,
 ) {
   const cle = { poster_id: p.poster_id, type, periode: lundi };
+  // Slack ET Upwork, chacun s'il est relié (une fois sur chaque canal).
+  const canaux = canauxEnvoi(p);
   const canal = canalEtape(p);
   if (canal === null) {
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: new Date().toISOString() });
@@ -715,7 +746,7 @@ async function envoyerSemaine(
   }
   if (!reel) {
     if (p.prevus_test.includes(type)) return;
-    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal, texte, raison: "simulation", maj_at: new Date().toISOString() });
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal: libelleCanaux(canaux), texte, raison: "simulation", maj_at: new Date().toISOString() });
     bilan.prevus++;
     return;
   }
@@ -728,16 +759,8 @@ async function envoyerSemaine(
     if (errIns.code !== "23505") bilan.erreurs.push(`${type} ${p.poster_id} : ${errIns.message}`);
     return;
   }
-  const erreur = canal === "slack"
-    // Prompt 21, C6 : pas de « I want to stop » sur le lundi ni le jeudi.
-    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons, { stop: false }))
-    : await envoyerUpwork(p.contrat_id!, texte);
-  if (erreur) {
-    await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
-    bilan.erreurs.push(`${type} ${p.poster_id} : ${erreur}`);
-  } else {
-    bilan.envoyes++;
-  }
+  // Prompt 21, C6 : pas de « I want to stop » sur le lundi ni le jeudi.
+  await noterEnvoi(supabase, ligne.id, await envoyerPartout(supabase, p, texte, blocsBoutons(texte, boutons, { stop: false })), `${type} ${p.poster_id}`, bilan);
   if (bilan.prevuesConnues?.has(clePrevue(p.poster_id, type, lundi))) {
     await supabase.from("relances_prevues").delete().match(cle);
   }

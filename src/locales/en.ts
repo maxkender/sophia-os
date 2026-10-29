@@ -84,7 +84,7 @@ export const en = {
         absent: "Not in the database yet",
         groupes: {
           accueil: { titre: "Welcome", quand: "As soon as the offer is accepted, on Upwork." },
-          etapes: { titre: "Steps 1 to 4", quand: "A late step: one message, never two (Slack, otherwise Upwork)." },
+          etapes: { titre: "Steps 1 to 4", quand: "A late step: one message, never two, on Slack and on Upwork." },
           lundi: { titre: "Monday", quand: "Monday morning, to everyone; plus, to the new cohort (ready or not)." },
           lundi_soir: { titre: "Monday 8 pm", quand: "First posting day with no post published, on Upwork." },
           jeudi: { titre: "Thursday", quand: "One nudge to everyone with a problem." },
@@ -3295,7 +3295,7 @@ export const en = {
       },
       lundi_message_auto: {
         titre: "Monday message",
-        on: "Every Monday at 10 am, local time, one message to each poster, once: the link rule (“No link = not paid”); plus, to the new cohort: “You start posting today” if ready, otherwise what their warm-up is missing. Slack if linked, otherwise Upwork.",
+        on: "Every Monday at 10 am, local time, one message to each poster, once: the link rule (“No link = not paid”); plus, to the new cohort: “You start posting today” if ready, otherwise what their warm-up is missing. On Slack and on Upwork.",
       },
       lundi_soir_auto: {
         titre: "Monday evening check",
@@ -3303,7 +3303,7 @@ export const en = {
       },
       relances_auto: {
         titre: "Messages for the 4 steps and Thursday nudge",
-        on: "Every hour: a recruit late on a step (login, TikTok account, warm-up started, warm-up done right) gets ONE message, never two, on Slack if linked, otherwise on Upwork, between 10 am and 8 pm their country's time. On Thursday at noon: a nudge to posters missing posts or links since Monday; with no post published afterwards by Friday 8 pm, proposed for Kill on Saturday.",
+        on: "Every hour: a recruit late on a step (login, TikTok account, warm-up started, warm-up done right) gets ONE message, never two, on Slack and on Upwork, between 10 am and 8 pm their country's time. On Thursday at noon: a nudge, on Slack and on Upwork, to posters missing posts or links since Monday; with no post published afterwards by Friday 8 pm, proposed for Kill on Saturday.",
       },
       reponses_auto: {
         titre: "The OS reads and replies",

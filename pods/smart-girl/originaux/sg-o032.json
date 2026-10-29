@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o032",
+ "schema_id": "hobbies-smarter",
+ "titre": "Hobbies That Quietly Upgrade Your Life #hobbies #smartgirl #slowliving #selfimprovement #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "a00d2d63-e649-4fa7-bd9e-4a842e04bf80",
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e"
+ ],
+ "notes": "cta A. CTA au 29/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Familles usées sur 7 jours (3 livraisons ou plus) : vocabulaire, magnetic-speaking, high-status-woman ; seule sg-o031 en reprend une (variante de sg-o005, que le suivi demande de décliner). Schéma hobbies-smarter (1ab301c9 r 7,06 ; a00d2d63 r 3,37 ; c4229613 r 4,95 sur 13). Accroche neuve chez nous. Accroches écrites : « Hobbies That Quietly Upgrade Your Life » (retenue : le gagnant a00d2d63, « HOBBIES THAT QUIETLY UPGRADE YOUR LIFE », en Title Case), « slow hobbies that make you smarter » (écartée : proche de sg-o003, rang C), « hobbies for girls who want a quieter mind » (écartée : sans preuve). Six hobbies neufs face à sg-o003, sg-o019 et aux sources : calligraphie, cuisiner la cuisine d'un autre pays, promenades photo, poterie, apprendre le nom des arbres et des fleurs de sa rue, une chose nouvelle chaque matin (Sophia, cta A). Images de la banque (sources @brookeandbloom), sans texte ni marque ; slide Sophia sur un livre ouvert et des lunettes, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3517ed16",
+   "texte_overlay": "Hobbies That Quietly\nUpgrade Your Life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c06f4bc",
+   "texte_overlay": "1. Calligraphy\nSlows you down and trains\npatience with every letter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "30159c00",
+   "texte_overlay": "2. Cooking food from\nanother country\nEvery recipe is a little\nlesson in its culture.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7c57df82",
+   "texte_overlay": "3. Photography walks\nTeach you to notice light,\nlines and small details.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9c27680e",
+   "texte_overlay": "4. Pottery\nBusy hands, quiet mind.\nAnd something real\nto keep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "409f4ec3",
+   "texte_overlay": "5. Learning the names of\ntrees and flowers\nYour daily walk becomes\na field guide.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5cc4ea21",
+   "texte_overlay": "6. One new thing every\nmorning\nA little history, art or\nscience with your coffee.",
+   "texte_sophia": "6. One new thing every\nmorning\nI learn mine with a\nmicro-learning app like the\nSophia app, 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "58cbf9da",
+   "texte_overlay": "Which one are you\nstarting this week?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685353694820437269/8.jpg"
+  }
+ ]
+}

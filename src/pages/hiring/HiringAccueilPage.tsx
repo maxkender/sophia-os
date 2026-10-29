@@ -30,6 +30,7 @@ import { CeQueLOsAFait } from "@/features/nudges/CeQueLOsAFait";
 import { MesRecrues } from "@/features/cohortes/PageCohortes";
 import { AccueilAuto } from "@/features/accueil/AccueilAuto";
 import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
+import { EnvoisMain } from "@/features/envoisMain/EnvoisMain";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
 async function nomsPosteurs(ids: string[]): Promise<Map<string, string>> {
@@ -152,6 +153,9 @@ export function HiringAccueilPage() {
         <BoutonExport hm={hm} />
       </div>
       {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
+
+      {/* Prompt 25 v4 : Upwork plein, les messages à envoyer à la main (en premier). */}
+      <EnvoisMain />
 
       {/* Prompt 21, D : en haut, ses cibles de recrutement (cible, recrutés, écart). */}
       <SectionsSamediHm decisions={false} prochaines />

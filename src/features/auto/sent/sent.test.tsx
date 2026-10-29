@@ -75,7 +75,7 @@ describe("Messages sent (prompt 22, partie 6)", () => {
   it("6 onglets : Journal, À approuver, Prévu, Aperçu, Textes, Délais ; ?onglet= ouvre le bon", async () => {
     rendu("/?onglet=prevus");
     const onglets = await screen.findByRole("tablist", { name: "Onglets de Messages envoyés" });
-    expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual(["Journal", "À approuver", "Prévu", "Aperçu", "Textes", "Délais"]);
+    expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual(["Journal", "À approuver", "À la main (HM)", "Prévu", "Aperçu", "Textes", "Délais"]);
     expect(screen.getByTestId("relances-prevues")).toBeInTheDocument();
   });
 

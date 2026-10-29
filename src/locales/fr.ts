@@ -93,6 +93,26 @@ export const fr = {
         fini: "Prête",
       },
     },
+    // Prompt 25 v4 (0442) : Upwork plein → « To send by hand » chez la HM.
+    envoisMain: {
+      titre: "To send by hand ({{n}})",
+      aide: "Upwork est plein aujourd'hui (les deux comptes de l'OS). Colle chaque texte dans la conversation du contrat de la recrue sur Upwork, puis clique Sent : il est noté parti sur Upwork, par toi. Pas marqué Sent 6 h après : il va dans Needs you.",
+      vide: "Rien à envoyer à la main.",
+      hm: "HM : {{hm}}",
+      retard: "Plus de 6 h",
+      salon: "Ouvrir la conversation du contrat",
+      copier: "Copy",
+      copie: "Copié",
+      envoye: "Sent",
+      types: {
+        accueil: "Bienvenue",
+        relance: "Relance",
+        lundi: "Message du lundi",
+        lundi_soir: "Lundi 20 h",
+        jeudi: "Nudge du jeudi",
+        reponse: "Réponse à sa question",
+      },
+    },
     autoOnglets: {
       decisions: {
         onglets: { jeudi: "Jeudi", samedi: "Samedi", reglages: "Réglages" },
@@ -228,7 +248,7 @@ export const fr = {
       },
       sent: {
         ongletsAria: "Onglets de Messages envoyés",
-        onglets: { journal: "Journal", approuver: "À approuver", prevus: "Prévu", apercu: "Aperçu", textes: "Textes", timing: "Délais" },
+        onglets: { journal: "Journal", approuver: "À approuver", main: "À la main (HM)", prevus: "Prévu", apercu: "Aperçu", textes: "Textes", timing: "Délais" },
         journal: {
           titre: "Tous les messages envoyés",
           aide: "Accueil, étapes 1 à 4, lundi, lundi 20 h, jeudi, Kill, arrêt, réponses automatiques, pop-ups et notes du tableau de bord. Le plus récent d'abord.",
@@ -4120,6 +4140,7 @@ export const fr = {
         liaison_incertaine: "Liaison contrat ↔ posteur incertaine",
         kill_incomplet: "Kill sur des données incomplètes",
         remboursement: "Remboursement à suivre",
+        envoi_main_6h: "Pas envoyé à la main depuis 6 h",
         a_payer_avant_fermeture: "À payer ou rembourser avant fermeture",
         samedi_non_valide: "Décision du samedi pas validée",
         upwork_limite: "Upwork limite les appels (429)",

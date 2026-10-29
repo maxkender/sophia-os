@@ -129,6 +129,8 @@ Deno.serve(async (request) => {
     if (body.action === "reponses") {
       const maintenant = new Date();
       const r = await traiterReponses(serviceClient(), maintenant);
+      // Prompt 25 v4 : une réponse à envoyer à la main (Upwork plein) : la HM est prévenue.
+      await prevenirHms(serviceClient(), maintenant).catch((e) => console.error("[recrues-check] HM", messageErreur(e)));
       // Prompt 21, R : les contestations (tableau de bord, réponse automatique), même sans nouveau message.
       const contestations = await traiterContestations(serviceClient())
         .catch((e) => ({ ok: false, erreurs: [`contestations : ${messageErreur(e)}`] }));
@@ -299,7 +301,7 @@ interface Bilan {
   /** Prompt 25 : Start warmup cliqué, compte introuvable : Needs you, pas de message. */
   needsYou: number;
   /** Prompt 25 : la file d'envoi (messages validés) à ce passage. */
-  file: { envoyes: number; perimes: number; doublons: number; upwork_bloque: number };
+  file: { envoyes: number; perimes: number; doublons: number; upwork_bloque: number; main?: number };
   /** Interne : relances du jour déjà préparées ou parties (`poster|jour`). */
   relancesFaites?: Set<string>;
   /** Interne : posteurs avec une relance validée pas encore partie (elle part d'abord). */
@@ -504,6 +506,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   if (r.mode === "off") {
     // Les messages validés à la main (Thursday, To approve) partent quand même, peu à peu.
     await envoyerFile(supabase, r, null, maintenant, bilan);
+    await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
     return { ok: bilan.erreurs.length === 0, ...nettoyer(bilan) };
   }
 
@@ -522,7 +525,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   };
   // Prompt 25 : les relances du jour déjà préparées, écartées ou parties (une par recrue et par jour).
   bilan.relancesFaites = new Set(
-    (prevues ?? []).filter((x) => x.type === "relance" && x.raison !== "simulation" && ["prevu", "ecarte"].includes(x.statut))
+    (prevues ?? []).filter((x) => x.type === "relance" && x.raison !== "simulation" && ["prevu", "ecarte", "main"].includes(x.statut))
       .map((x) => `${x.poster_id}|${x.periode}`),
   );
   bilan.relanceEnFile = new Set(
@@ -609,6 +612,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
   // Prompt 25 : ce qui est validé (On, To approve, Thursday) part, peu à peu.
   await envoyerFile(supabase, r, recrues, maintenant, bilan);
+  await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
   return { ok: bilan.erreurs.length === 0, ...nettoyer(bilan) };
 }
 
@@ -627,7 +631,7 @@ async function ajouterPreparees(supabase: Supabase, bilan: Bilan) {
   bilan.preparees = new Map();
   const { data } = await supabase.from("relances_prevues")
     .select("poster_id, type, periode, raison, profiles(slack_user_id, upwork_contract_id)")
-    .in("statut", ["prevu", "ecarte"]).neq("raison", "simulation");
+    .in("statut", ["prevu", "ecarte", "main"]).neq("raison", "simulation");
   for (const x of data ?? []) {
     const p = (x as unknown as { profiles: { slack_user_id: string | null; upwork_contract_id: string | null } | null }).profiles;
     if (!p) continue;
@@ -919,6 +923,9 @@ async function relanceDuJour(
   // Une relance plus ancienne pas approuvée : remplacée par celle du jour.
   await supabase.from("relances_prevues").update({ statut: "expire", maj_at: new Date().toISOString() })
     .eq("poster_id", x.poster_id).eq("type", "relance").eq("statut", "prevu").is("valide_at", null).lt("periode", jour);
+  // Prompt 25 v4 : une relance d'hier jamais envoyée à la main par la HM : remplacée aussi.
+  await supabase.from("relances_prevues").update({ statut: "perime", maj_at: new Date().toISOString() })
+    .eq("poster_id", x.poster_id).eq("type", "relance").eq("statut", "main").lt("periode", jour);
   const approuver = r.mode === "approve" && !test;
   const { error } = await supabase.from("relances_prevues").upsert({
     ...ligne,
@@ -1071,8 +1078,10 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     const canaux = possibles.filter((c) => c === "slack" || upwork);
     if (canaux.length === 0) {
       if (possibles.includes("upwork")) {
-        // Pas sur Slack, Upwork plein : le message attend demain (il partira d'abord).
-        bilan.file.upwork_bloque++;
+        // Prompt 25 v4 : pas sur Slack, Upwork plein (Max et Adrien) : la HM l'envoie à la main aujourd'hui.
+        await versHm(supabase, { poster_id: l.poster_id, type: l.type, periode: l.periode, texte: l.texte });
+        bilan.file.main = (bilan.file.main ?? 0) + 1;
+        sortir();
         continue;
       }
       await marquer(l, "bloque", l.type === "relance" && contrat ? "upwork_max" : "contrat_non_relie");
@@ -1095,6 +1104,7 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     const partis: Canal[] = [];
     const erreurs: string[] = [];
     let plein = false;
+    let reporte = false;
     if (canaux.includes("slack")) {
       // « I want to stop » seulement sur les relances d'accueil (prompt 21, C6).
       const e = await envoyerSlack(supabase, l.poster_id, l.texte, blocsBoutons(l.texte, r.boutons, { stop: l.type === "relance" }));
@@ -1111,6 +1121,7 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
       } else if (u.reporter) {
         // Le compte de secours n'a pas pu écrire à cette personne : demain, avec Max.
         plein = true;
+        reporte = true;
       } else if (u.erreur) {
         erreurs.push(u.erreur);
       } else {
@@ -1124,9 +1135,16 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
       }
     }
     if (plein && partis.length === 0 && erreurs.length === 0) {
-      // Rien n'est parti (Upwork seul, plein) : le message reste dans la file, il part demain.
       await supabase.from("nudges").delete().eq("id", ligne.id);
-      bilan.file.upwork_bloque++;
+      if (reporte) {
+        // Le compte de secours n'a pas pu : le message reste dans la file, il part demain avec Max.
+        bilan.file.upwork_bloque++;
+        continue;
+      }
+      // Prompt 25 v4 : Upwork plein (Max et Adrien) : la HM l'envoie à la main aujourd'hui.
+      await versHm(supabase, { poster_id: l.poster_id, type: l.type, periode: l.periode, texte: l.texte });
+      bilan.file.main = (bilan.file.main ?? 0) + 1;
+      sortir();
       continue;
     }
     sortir();
@@ -1161,6 +1179,7 @@ async function envoyerFileMaintenant(supabase: Supabase, maintenant: Date) {
   bilan.servis = await lireServis(supabase, maintenant);
   await ajouterPreparees(supabase, bilan);
   await envoyerFile(supabase, r, await lireRecrues(supabase), maintenant, bilan);
+  await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
   return { ok: bilan.erreurs.length === 0, pause: bilan.automationPause, ...bilan.file, erreurs: bilan.erreurs };
 }
 
@@ -1168,9 +1187,10 @@ async function envoyerFileMaintenant(supabase: Supabase, maintenant: Date) {
 async function upworkPossible(supabase: Supabase, contratId: string): Promise<boolean> {
   const { data, error } = await supabase.rpc("upwork_budget_jour", { p_contrat: contratId });
   if (error || !data) return false;
-  const b = data as { conversations: number; max: number; reserve: number; limite_atteinte: boolean; deja: boolean };
+  const b = data as { conversations: number; max: number; reserve: number; limite_atteinte: boolean; deja: boolean; restant?: number };
   if (b.limite_atteinte) return false;
-  return b.deja || b.conversations < Math.max(0, b.max - b.reserve);
+  // 0438 : « restant » additionne les comptes (Max, Adrien) qui peuvent encore écrire.
+  return b.deja || (b.restant ?? Math.max(0, b.max - b.reserve - b.conversations)) > 0;
 }
 
 /**
@@ -1422,6 +1442,8 @@ async function envoyerSemaine(
   if (!(await peutPartir(supabase, r, bilan, { cle, ...quand, canaux: [canal], texte }))) return;
   if (canal === "upwork" && (bilan.upworkPlein || !(await upworkPossible(supabase, p.contrat_id!)))) {
     bilan.upworkPlein = true;
+    // Prompt 25 v4 : Upwork plein : la HM l'envoie à la main aujourd'hui.
+    await versHm(supabase, { poster_id: p.poster_id, type, periode: lundi, texte });
     return;
   }
   const { data: ligne, error: errIns } = await supabase
@@ -1440,7 +1462,10 @@ async function envoyerSemaine(
     const u = await envoyerUpwork(p.contrat_id!, texte, { prioritaire: false });
     if (u.budget || u.reporter) {
       await supabase.from("nudges").delete().eq("id", ligne.id);
-      if (u.budget) bilan.upworkPlein = true;
+      if (u.budget) {
+        bilan.upworkPlein = true;
+        await versHm(supabase, { poster_id: p.poster_id, type, periode: lundi, texte });
+      }
       return;
     }
     erreur = u.erreur;
@@ -1558,7 +1583,7 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
     // Prompt 21, P3 : une question de paie. L'OS regarde la ligne du posteur :
     // payée, déjà payée, semaine suivante financée → la réponse ; sinon une
     // réponse d'attente et la liste « Pay questions ».
-    if (plan.cas === "paie") {
+    if (plan.cas === "paie" && l.canal !== "upwork") {
       const q = await questionPaie(l.poster_id, !reel || pause);
       if (q.texte) plan.liste = null;
       maj_paie = q.cas;
@@ -1594,11 +1619,21 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
         maj.reponse_statut = "simule";
         bilan.simules++;
       } else {
-        const envoi = l.canal === "upwork" ? await repondreUpwork(supabase, l.poster_id, plan.repondre) : await envoyerSlack(supabase, l.poster_id, plan.repondre);
-        maj.reponse_statut = envoi ? "erreur" : "envoye";
-        maj.reponse_at = new Date().toISOString();
-        if (envoi) maj.erreur = envoi;
-        else bilan.reponses++;
+        const u = l.canal === "upwork" ? await repondreUpworkBudget(supabase, l.poster_id, plan.repondre) : null;
+        if (u?.budget) {
+          // Prompt 25 v4 : Upwork plein : la HM envoie la réponse à la main aujourd'hui.
+          await versHm(supabase, {
+            poster_id: l.poster_id, type: "reponse", periode: partiesLocales(maintenant, "Europe/Paris").date, texte: plan.repondre,
+            donnees: { reponse_id: l.id },
+          });
+          maj.reponse_statut = "a_la_main";
+        } else {
+          const envoi = l.canal === "upwork" ? u!.erreur : await envoyerSlack(supabase, l.poster_id, plan.repondre);
+          maj.reponse_statut = envoi ? "erreur" : "envoye";
+          maj.reponse_at = new Date().toISOString();
+          if (envoi) maj.erreur = envoi;
+          else bilan.reponses++;
+        }
       }
     }
     if (plan.arret) {
@@ -1723,6 +1758,14 @@ async function questionPaie(posterId: string, simuler: boolean): Promise<{ cas: 
   } catch {
     return { cas: "attente", texte: null };
   }
+}
+
+/** Une réponse sur Upwork, avec « budget » : Upwork plein aujourd'hui (rien n'est parti). */
+async function repondreUpworkBudget(supabase: Supabase, posterId: string, texte: string): Promise<{ erreur: string | null; budget: boolean }> {
+  const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
+  if (!data?.upwork_contract_id) return { erreur: "contrat Upwork non relié", budget: false };
+  const u = await envoyerUpwork(data.upwork_contract_id as string, texte);
+  return { erreur: u.erreur, budget: u.budget };
 }
 
 async function repondreUpwork(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {
@@ -1856,9 +1899,13 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
   }
   const u = await envoyerUpwork(p.contrat_id, texte, { prioritaire: false });
   if (u.budget || u.reporter) {
-    // Upwork plein aujourd'hui (ou le compte de secours n'a pas pu) : rien n'est parti, le message pourra repartir.
+    // Upwork plein aujourd'hui (ou le compte de secours n'a pas pu) : rien n'est parti.
     await supabase.from("nudges").delete().eq("id", ligne.id);
-    if (u.budget) bilan.upworkPlein = true;
+    if (u.budget) {
+      bilan.upworkPlein = true;
+      // Prompt 25 v4 : la HM l'envoie à la main aujourd'hui.
+      await versHm(supabase, { poster_id: p.poster_id, type: "lundi_soir", periode: lundi, texte });
+    }
     return;
   }
   const erreur = u.erreur;
@@ -1869,6 +1916,135 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
     bilan.envoyes++;
     bilan.servis?.add(cleServi("lundi_soir", lundi, "upwork", p.contrat_id));
   }
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 25 v4 (0442) : Upwork plein → « To send by hand » chez la HM
+// ---------------------------------------------------------------------------
+
+/** L'ordre chez la HM : bienvenue > relances > lundi > nudge du jeudi > réponses. */
+const ORDRE_MAIN: Record<string, number> = { accueil: 0, relance: 1, lundi: 2, lundi_soir: 2, jeudi: 3, reponse: 4 };
+const LIBELLES_MAIN: Record<string, string> = {
+  accueil: "Welcome",
+  relance: "Step reminder",
+  lundi: "Monday message",
+  lundi_soir: "Monday 8 pm",
+  jeudi: "Thursday nudge",
+  reponse: "Reply to their question",
+};
+
+/**
+ * Upwork ne peut plus rien prendre aujourd'hui (Max et Adrien) : le message ne
+ * passe plus au lendemain, il va à la HM de la recrue (statut « main ») ; elle
+ * l'envoie elle-même et clique « Sent ». Jamais la paie ni la fin de contrat.
+ */
+async function versHm(
+  supabase: Supabase,
+  m: { poster_id: string; type: string; periode: string; texte: string | null; donnees?: Record<string, unknown> },
+) {
+  if (!m.texte?.trim()) return;
+  const { data: p } = await supabase.from("profiles").select("manager_id").eq("id", m.poster_id).maybeSingle();
+  await supabase.from("relances_prevues").upsert({
+    poster_id: m.poster_id, type: m.type, periode: m.periode, statut: "main", canal: "upwork", texte: m.texte,
+    main_at: new Date().toISOString(), main_hm_id: (p?.manager_id as string | null) ?? null, main_slack_at: null,
+    maj_at: new Date().toISOString(), ...(m.donnees ? { donnees: m.donnees } : {}),
+  });
+}
+
+interface LigneMain {
+  poster_id: string;
+  type: string;
+  periode: string;
+  texte: string | null;
+  main_at: string | null;
+  main_slack_at: string | null;
+  main_hm_id: string | null;
+  profiles: { prenom: string | null; nom: string | null; manager_id: string | null; upwork_contract_id: string | null } | null;
+}
+
+/**
+ * Un DM Slack groupé par HM, une fois par heure au plus, quand elle a de
+ * nouveaux messages à envoyer à la main : le nom de la recrue, le lien du
+ * contrat Upwork, le texte exact, « Copy » (dans l'OS) et « Sent ».
+ */
+async function prevenirHms(supabase: Supabase, maintenant: Date) {
+  if (await automationEnPause(supabase)) return;
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return;
+  const { data, error } = await supabase.from("relances_prevues")
+    .select("poster_id, type, periode, texte, main_at, main_slack_at, main_hm_id, profiles(prenom, nom, manager_id, upwork_contract_id)")
+    .eq("statut", "main").order("main_at").limit(500);
+  if (error) throw error;
+  const parHm = new Map<string, LigneMain[]>();
+  for (const l of (data ?? []) as unknown as LigneMain[]) {
+    const hm = l.profiles?.manager_id ?? l.main_hm_id;
+    if (hm) parHm.set(hm, [...(parHm.get(hm) ?? []), l]);
+  }
+  for (const [hm, lignes] of parHm) {
+    if (!lignes.some((l) => !l.main_slack_at)) continue;
+    // Au plus une fois par heure : le dernier DM à cette HM.
+    const { data: dernier } = await supabase.from("relances_prevues").select("main_slack_at")
+      .eq("main_hm_id", hm).not("main_slack_at", "is", null).order("main_slack_at", { ascending: false }).limit(1);
+    const derniereFois = dernier?.[0]?.main_slack_at as string | undefined;
+    if (derniereFois && maintenant.getTime() - new Date(derniereFois).getTime() < 3_600_000) continue;
+    const { data: s } = await supabase.from("hm_slack").select("slack_user_id").eq("profile_id", hm).maybeSingle();
+    const slackId = s?.slack_user_id as string | undefined;
+    if (!slackId) continue;
+    const tries = [...lignes].sort((a, b) =>
+      (ORDRE_MAIN[a.type] ?? 9) - (ORDRE_MAIN[b.type] ?? 9) || String(a.main_at).localeCompare(String(b.main_at))
+    );
+    const r = await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ channel: slackId, text: `${tries.length} Upwork message(s) to send by hand`, blocks: blocsMain(tries) }),
+    });
+    const corps = await r.json().catch(() => null);
+    if (!corps?.ok) throw new Error(`DM HM ${hm} : ${corps?.error ?? `HTTP ${r.status}`}`);
+    const maintenantIso = new Date().toISOString();
+    for (const l of tries) {
+      await supabase.from("relances_prevues").update({ main_slack_at: maintenantIso, main_hm_id: hm })
+        .match({ poster_id: l.poster_id, type: l.type, periode: l.periode }).eq("statut", "main");
+    }
+  }
+}
+
+/** Les blocs du DM : une ligne par message (20 au plus, le reste dans l'OS). */
+function blocsMain(lignes: LigneMain[]): unknown[] {
+  const montrees = lignes.slice(0, 20);
+  const blocs: unknown[] = [{
+    type: "section",
+    text: {
+      type: "mrkdwn",
+      text: `*${lignes.length} Upwork message(s) to send by hand.* Upwork is full for today: paste each text in the recruit's contract room, then click *Sent*.`,
+    },
+  }];
+  const triple = "`".repeat(3);
+  for (const l of montrees) {
+    const nom = [l.profiles?.prenom, l.profiles?.nom].filter(Boolean).join(" ") || "Recruit";
+    const contrat = l.profiles?.upwork_contract_id;
+    const lien = contrat ? ` · <https://www.upwork.com/nx/wm/workroom/${contrat}/overview|Open the contract room>` : "";
+    const texte = (l.texte ?? "").replaceAll(triple, "'''").slice(0, 2500);
+    blocs.push({ type: "divider" });
+    blocs.push({ type: "section", text: { type: "mrkdwn", text: `*${nom}* · ${LIBELLES_MAIN[l.type] ?? l.type}${lien}\n${triple}${texte}${triple}` } });
+    blocs.push({
+      type: "actions",
+      block_id: `main:${l.poster_id}:${l.type}:${l.periode}`,
+      elements: [
+        { type: "button", text: { type: "plain_text", text: "Copy (OS)" }, url: `${OS_URL}/manager/accueil#a-envoyer-main` },
+        {
+          type: "button",
+          style: "primary",
+          text: { type: "plain_text", text: "Sent" },
+          action_id: "envoi_main_fait",
+          value: JSON.stringify({ p: l.poster_id, t: l.type, d: l.periode }),
+        },
+      ],
+    });
+  }
+  if (lignes.length > montrees.length) {
+    blocs.push({ type: "context", elements: [{ type: "mrkdwn", text: `+${lignes.length - montrees.length} more in the OS (My cohort).` }] });
+  }
+  return blocs;
 }
 
 // ---------------------------------------------------------------------------

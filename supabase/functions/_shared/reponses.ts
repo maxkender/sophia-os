@@ -244,6 +244,11 @@ export function planReponse(c: Classement, canal: CanalReponse, r: ReglagesRepon
       plan.liste = "a_lire";
     }
   }
+  // Prompt 25 v4 : sur Upwork, une question (travail, à lire, paie) reçoit toujours « Please ask on
+  // Slack: {lien} » ; « à lire » et « paie » restent aussi dans leur liste pour une personne.
+  if (canal === "upwork" && (plan.cas === "a_lire" || plan.cas === "paie") && r.slack.trim()) {
+    plan.repondre = remplir(r.textes.upwork, { slack: r.slack.trim() });
+  }
   if (plan.repondre && envoyesAujourdhui >= r.max_jour) {
     plan.repondre = null;
     plan.bloque = "limite";

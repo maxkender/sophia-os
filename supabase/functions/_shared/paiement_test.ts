@@ -128,3 +128,29 @@ Deno.test("déjà payée à la main : la ligne passe « déjà payée » avec le
   assertEquals(planPaiement(ligne({ paye_at: "2026-11-09T09:00:00Z" }), embauche, S, R).statut, "rien");
   assertEquals(planPaiement(ligne({ exclu: true }), embauche, S, R).statut, "rien");
 });
+
+Deno.test("prompt 21, B9 : 1re semaine du 2e compte, le reste part dans un complément (jamais plus que le calcul)", () => {
+  // Week 45 financée pour un compte (14 $) ; les deux comptes ont posté : 28 $ dus.
+  const p = planPaiement(
+    ligne({ montant: 28, montant_calcule: 28, nb_comptes: 2, suivante_action: "financer_double", suivante_comptes: 2, suivante_montant: 28 }),
+    [j("m1", "Week 45", "Active", 1, 14), j("m2", "Week 46", "NotFunded", 2)],
+    S,
+    R,
+  );
+  assertEquals(p.statut, "pret");
+  assertEquals(p.approuver?.montant, 14);
+  assertEquals(p.complement, { nom: "Week 45 (2nd acc)", montant: 14 });
+  assertEquals(p.total, 56);
+  // Un seul compte : pas de complément, la milestone inattendue est refusée.
+  assertEquals(planPaiement(ligne({ montant: 28, montant_calcule: 28 }), [j("m1", "Week 45", "Active", 1, 14)], S, R).statut, "refuse");
+  // Un écart plus grand qu'un tarif + 1 $ : refusé.
+  const trop = planPaiement(ligne({ montant: 30, montant_calcule: 30, nb_comptes: 2 }), [j("m1", "Week 45", "Active", 1, 10)], S, R);
+  assertEquals(trop.statut, "refuse");
+});
+
+Deno.test("prompt 21, S et B7 : tarif à vérifier refusé, Legacy laissé, PaidBySystem compte comme payée", () => {
+  assertEquals(planPaiement(ligne({ action: "a_verifier" }), embauche, S, R).statut, "refuse");
+  assertEquals(planPaiement(ligne({ action: "legacy" }), embauche, S, R).statut, "rien");
+  const p = planPaiement(ligne(), [j("m1", "Week 45", "PaidBySystem", 1, 14, 14)], S, R);
+  assertEquals(p.statut, "deja_payee");
+});

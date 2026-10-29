@@ -22,7 +22,7 @@ export interface PlanLigne {
   /** Le mode (éteint, test, date) bloque l'envoi de cette ligne : la raison. */
   bloque: string | null;
   /** Après « Confirmer » : ce qui s'est passé. */
-  resultat?: "paye" | "a_verifier" | "deja_payee" | "refuse" | "rien" | "lien" | "pret";
+  resultat?: "paye" | "a_verifier" | "reessai" | "deja_payee" | "refuse" | "rien" | "lien" | "pret";
 }
 
 export interface Apercu {
@@ -119,4 +119,32 @@ export async function enregistrerReglagesPaiementApi(r: ReglagesPaiementApi): Pr
     { cle: "paie_plafond_jour", valeur: r.plafond_jour, ...par },
   ]);
   if (error) throw error;
+}
+
+/** Prompt 21, B3-B6 : la paie automatique d'une semaine (table paie_auto, 0416). */
+export interface EtatPaieAuto {
+  semaine: string;
+  statut: "attente" | "en_cours" | "fini" | "arrete";
+  lance_at: string | null;
+  canari_ok: boolean | null;
+  canari_detail: { poster?: string | null; contrat?: string | null; ecarts?: string[]; aucun?: string } | null;
+  arret_raison: string | null;
+  dernier_bilan: { payees?: number; reessais?: number; a_verifier?: number; refusees?: number } | null;
+  maj_at: string;
+}
+
+export async function lireEtatPaieAuto(semaine: string): Promise<EtatPaieAuto | null> {
+  const { data, error } = await supabase.from("paie_auto").select("*").eq("semaine", semaine).maybeSingle();
+  if (error) throw error;
+  return (data as EtatPaieAuto | null) ?? null;
+}
+
+/** « Pay now » : la paie automatique part tout de suite (canari d'abord), si paie_api est sur « on ». */
+export async function lancerPaieAuto(): Promise<{ ignore?: string; payees?: number; canari?: unknown }> {
+  const r = await invoke<{ ok: boolean; error?: string; ignore?: string; payees?: number; canari?: unknown }>("upwork", {
+    action: "paie_auto_lancer",
+    confirmer: true,
+  });
+  if (!r.ok && r.error) throw new Error(r.error);
+  return r;
 }

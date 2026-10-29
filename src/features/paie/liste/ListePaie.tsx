@@ -41,6 +41,7 @@ import {
   type TarifPaie,
 } from "./api";
 import { ContratsATerminer } from "./ContratsATerminer";
+import { PaieAuto } from "./PaieAuto";
 import {
   actionAffichee,
   besoinPaye,
@@ -652,6 +653,7 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
           {t("paie.liste.simulationBandeau")}
         </p>
       )}
+      {!simulation && <PaieAuto semaine={semaine} />}
       <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-muted/30 px-4 py-3">
         <p className="text-sm font-medium tabular-nums">
           {t("paie.liste.totalGeneral", {

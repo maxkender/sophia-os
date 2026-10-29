@@ -134,6 +134,8 @@ export interface LignePaieApi {
   suivante_comptes: number | null;
   suivante_montant: number | null;
   contrat_id: string | null;
+  /** Comptes payés cette semaine (Double : 2). */
+  nb_comptes?: number;
 }
 
 export interface PlanPaiement {
@@ -147,6 +149,12 @@ export interface PlanPaiement {
   approuver: { jalon_id: string; nom: string; montant: number; depot: number; sous_paiement: string | null } | null;
   financer: { mode: "existant" | "creer"; jalon_id: string | null; nom: string; montant: number; editer: boolean } | null;
   lien: "fermer" | "rembourser" | null;
+  /**
+   * Prompt 21, B9 : 1re semaine du 2e compte d'un Double. La milestone de la
+   * semaine a été financée pour un compte ; le reste est payé par une
+   * milestone de complément, créée, financée puis approuvée.
+   */
+  complement?: { nom: string; montant: number } | null;
   /** Le montant engagé (approbation + financement), compté dans le plafond du jour. */
   total: number;
   /** Déjà payée à la main : le montant trouvé sur Upwork. */
@@ -195,18 +203,31 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   const a = finances[0];
   if (a.depot === null) return vide("refuse", `${a.nom || "milestone"} : montant illisible`);
   const attendu = arrondi(l.montant_calcule + l.retenue);
-  if (Math.abs(a.depot - attendu) > 0.009) {
+  // B9 : le 2e compte d'un Double a commencé cette semaine, la milestone n'était
+  // financée que pour un compte. Le reste (au plus un tarif + le bonus) part
+  // dans une milestone de complément, jamais plus que le calcul de l'OS.
+  const reste = arrondi(attendu - a.depot);
+  const complement = reste > 0.009 && (l.nb_comptes ?? 1) >= 2 && l.tarif !== null && reste <= l.tarif + 1.009 &&
+      Math.abs(l.montant - attendu) < 0.009
+    ? { nom: `Week ${w} (2nd acc)`, montant: reste }
+    : null;
+  if (!complement && Math.abs(a.depot - attendu) > 0.009) {
     return vide("refuse", `${a.nom || "milestone"} vaut ${a.depot} $, attendu ${attendu} $ : à vérifier`);
   }
-  if (l.montant > a.depot + 0.009) return vide("refuse", `montant ${l.montant} $ au-dessus de la milestone (${a.depot} $)`);
+  if (!complement && l.montant > a.depot + 0.009) return vide("refuse", `montant ${l.montant} $ au-dessus de la milestone (${a.depot} $)`);
   if (l.montant > r.plafond_ligne) return vide("refuse", `montant ${l.montant} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)`);
-  const sous = l.montant < a.depot - 0.009
+  const sous = !complement && l.montant < a.depot - 0.009
     ? (l.raison_correction?.trim() || `Missed posts: ${arrondi(a.depot - l.montant)} $ deducted`)
     : null;
-  const approuver = { jalon_id: a.id, nom: a.nom, montant: arrondi(l.montant), depot: a.depot, sous_paiement: sous };
+  const approuver = {
+    jalon_id: a.id, nom: a.nom, montant: complement ? a.depot : arrondi(l.montant), depot: a.depot, sous_paiement: sous,
+  };
 
   if (l.action === "kill") {
-    return { ...vide("pret", null), approuver, lien: "fermer", total: approuver.montant };
+    return {
+      ...vide("pret", null), approuver, complement, lien: "fermer",
+      total: arrondi(approuver.montant + (complement?.montant ?? 0)),
+    };
   }
 
   let financer: PlanPaiement["financer"] = null;
@@ -244,8 +265,9 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   return {
     ...vide("pret", null),
     approuver,
+    complement,
     financer,
-    total: arrondi(approuver.montant + (financer?.montant ?? 0)),
+    total: arrondi(approuver.montant + (complement?.montant ?? 0) + (financer?.montant ?? 0)),
   };
 }
 

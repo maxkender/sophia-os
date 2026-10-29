@@ -3113,6 +3113,16 @@ export const fr = {
       },
     },
     reglagesOs: {
+      paie: {
+        titre: "Textes de la paie",
+        aide: "En anglais, envoyés sur Upwork (ou sur le canal du message). Le Kill sous les 6 posts part le lundi matin ; « Submit » quand une milestone n'est pas soumise ; les réponses aux questions de paie.",
+        kill_moins6_texte: "Kill : moins de 6 posts avec lien",
+        paie_soumettre_texte: "Milestone pas soumise",
+        paie_reponse_payee_texte: "Réponse : payé maintenant",
+        paie_reponse_deja_payee_texte: "Réponse : déjà payé",
+        paie_reponse_financee_texte: "Réponse : semaine suivante financée",
+        paie_reponse_attente_texte: "Réponse d'attente (puis « Pay questions »)",
+      },
       enregistre: "Enregistré.",
       adminSeulement: "Modifiable par l'admin seulement.",
       variables: "Variables : {{liste}}",
@@ -3198,7 +3208,7 @@ export const fr = {
         faq: { titre: "Bot FAQ", phrase: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas." },
         logs: { titre: "Journal et à faire", phrase: "Ce qui t'attend, ce qui est cassé, et tout ce que l'automatisation a fait." },
       },
-      logs: { vide: "Rien pour l'instant." },
+      logs: { vide: "Rien pour l'instant.", issue: "Issues ({{n}})", todo: "To do ({{n}})", rien: "Rien à faire.", fait: "Done" },
       pause: {
         titre: "Désactiver les actions automatiques par l'API",
         inactif: "Les actions automatiques tournent. Le bouton arrête tous les messages, paiements, Kills et actions sur les contrats ; la lecture continue.",
@@ -3450,6 +3460,21 @@ export const fr = {
       vide: "Tous les posteurs actifs sont reliés à Slack.",
     },
     paie: {
+      auto: {
+        statuts: {
+          attente: "Paie automatique : lundi à 9 h (Paris), sans clic.",
+          en_cours: "Paie automatique en cours (lots de 10).",
+          fini: "Paie automatique terminée pour cette semaine.",
+          arrete: "Paie automatique arrêtée au canari : rien d'autre n'est parti.",
+        },
+        modeOff: "Paie par l'API sur « {{mode}} » : rien ne part tout seul.",
+        aide: "Elle commence par un seul contrat (le canari), le relit sur Upwork, puis paie le reste par lots de 10. Retirez une ligne avant 9 h pour qu'elle ne parte pas.",
+        canariOk: "Canari vérifié : {{nom}}.",
+        arrete: "Écart au canari : {{raison}}",
+        bilan: "{{payees}} payées · {{reessais}} en réessai · {{verifier}} à vérifier",
+        payerMaintenant: "Pay now",
+        confirmer: "Payer maintenant ? L'OS paie d'abord un contrat (canari), le relit sur Upwork, puis tout le reste par lots de 10, dans les plafonds.",
+      },
       onglets: { liste: "Liste de paie", zones: "Zones" },
       liste: {
         titre: "Paie · semaine {{numero}} ({{debut}} → {{fin}})",
@@ -3593,6 +3618,7 @@ export const fr = {
         },
         statuts: {
           pret: "Prête",
+          reessai: "Nouvel essai dans 1 h",
           paye: "Payée (API)",
           deja_payee: "Déjà payée",
           a_verifier: "À vérifier",

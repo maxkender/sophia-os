@@ -99,6 +99,7 @@ import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
+import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 
 const CLE = ["ckd"] as const;
 
@@ -623,8 +624,9 @@ function CarteManques({
             {lignes.map((m) => (
               <tr key={m.compte_id} className={LIGNE} data-testid={`manque-${m.handle}`}>
                 <td className={TD}>
-                  <Link to={`/admin/createurs/${m.compte_id}`} className="whitespace-nowrap underline-offset-2 hover:underline">
-                    {drapeauPays(m.pays)} @{m.handle}
+                  <HandleTiktok handle={m.handle} pays={m.pays} className="whitespace-nowrap font-normal" />
+                  <Link to={`/admin/createurs/${m.compte_id}`} title={t("ckd.ficheCompte")} className="ml-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
+                    OS
                   </Link>
                 </td>
                 <td className={cn(TD, "whitespace-nowrap text-muted-foreground")}>
@@ -878,9 +880,13 @@ function LigneProposition({
               {d.autres_comptes.map((c, i) => (
                 <React.Fragment key={c.id}>
                   {i > 0 && ", "}
-                  <Link to={`/admin/createurs/${c.id}`} className={cn("underline-offset-2 hover:underline", !c.actif && "line-through")}>
-                    @{c.handle ?? "?"}
-                  </Link>
+                  {c.handle ? (
+                    <HandleTiktok handle={c.handle} className={cn("font-normal", !c.actif && "line-through")} />
+                  ) : (
+                    <Link to={`/admin/createurs/${c.id}`} className={cn("underline-offset-2 hover:underline", !c.actif && "line-through")}>
+                      @?
+                    </Link>
+                  )}
                 </React.Fragment>
               ))}
             </p>
@@ -1383,8 +1389,9 @@ function LigneHistorique({ h, poster, decideur }: { h: HistoriqueCkd; poster?: P
         {h.note && <div className="text-muted-foreground italic">{h.note}</div>}
       </td>
       <td className={TD}>
-        <Link to={`/admin/createurs/${h.compte_id}`} className="whitespace-nowrap text-sm underline-offset-2 hover:underline">
-          {drapeauPays(h.pays)} @{h.handle}
+        <HandleTiktok handle={h.handle} pays={h.pays} className="whitespace-nowrap text-sm font-normal" />
+        <Link to={`/admin/createurs/${h.compte_id}`} title={t("ckd.ficheCompte")} className="ml-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
+          OS
         </Link>
         <div className="text-muted-foreground">
           {[nomPersonne(poster), t(`ckd.reglesCourtes.${h.regle}`)].filter(Boolean).join(" · ")}

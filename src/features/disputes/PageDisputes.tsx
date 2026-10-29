@@ -30,6 +30,7 @@ import {
   TYPES_MANUELS,
 } from "./api";
 import { bilanPosts, compterOnglets, enRetard, filtrerOnglet, ligneDue, ONGLETS, proposerVerdict, reponseProposee, type Onglet } from "./logique";
+import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 
 const quand = (iso: string | null | undefined, langue: string) =>
   iso ? new Intl.DateTimeFormat(langue, { dateStyle: "short", timeStyle: "short", timeZone: "Europe/Paris" }).format(new Date(iso)) : "—";
@@ -245,7 +246,7 @@ function SectionPosts({ d, ouverte, onCompter }: { d: Dossier; ouverte: boolean;
         {d.posts.map((p) => (
           <li key={p.id} className="flex flex-wrap items-center gap-2">
             <span className="w-24 shrink-0">{p.jour}</span>
-            <span className="text-muted-foreground">@{p.compte ?? "?"}</span>
+            {p.compte ? <HandleTiktok handle={p.compte} className="font-normal text-muted-foreground" /> : <span className="text-muted-foreground">@?</span>}
             {p.url ? (
               <a href={p.url} target="_blank" rel="noreferrer" className="underline">{p.publie_at ? quand(p.publie_at, i18n.language) : t("disputes.posts.lien")}</a>
             ) : (

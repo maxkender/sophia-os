@@ -24,6 +24,7 @@ import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 import { CarteUpwork } from "@/features/upwork/CarteUpwork";
 import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
+import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
 
 function ChampNombre({
   id,
@@ -212,7 +213,7 @@ export function AdminReglagesPage() {
       // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
       // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
       // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
-      await ecrireReglage("warmup", r.warmup);
+      // « warmup.heures » n'existe plus (0412) : la fin du warm-up suit la cohorte.
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -247,6 +248,11 @@ export function AdminReglagesPage() {
       <Interrupteurs />
 
       <CarteUpwork />
+
+      {/* Partie E (0411) : messages Upwork, cohorte et accueil, textes aux posteurs. */}
+      <CarteMessagesUpwork />
+      <CarteCohorteAccueil />
+      <CarteTextesPosteurs />
 
       {/* ── Cleaning ── */}
       <Card>
@@ -726,18 +732,6 @@ export function AdminReglagesPage() {
           <CardDescription>{t("warmup.settingsDesc")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-5">
-          <section className="space-y-3 sm:max-w-xs">
-            <ChampNombre
-              id="warmupH"
-              label={t("warmup.heures")}
-              min={1}
-              max={168}
-              valeur={reglages.warmup.heures}
-              onChange={(n) => maj({ warmup: { heures: n } })}
-            />
-            <p className="text-xs text-muted-foreground">{t("warmup.heuresAide")}</p>
-          </section>
-
           {/* La File a déménagé sur la page Allocation : décider où va la
               prochaine recrue et forcer la main au moteur sont la même
               conversation, et elles se lisent mieux côte à côte. On laisse le

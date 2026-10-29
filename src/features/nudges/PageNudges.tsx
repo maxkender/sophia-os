@@ -16,6 +16,7 @@ import { localeDate } from "@/locales/localeDate";
 import {
   enregistrerReglagesRelances,
   DELAIS_ETAPES,
+  CLES_DELAIS_ADMIN,
   ETAPES_RELANCE,
   lireNudges,
   lireReglagesRelances,
@@ -27,6 +28,11 @@ import {
 } from "./api";
 import { ETAPES_STATS, etatNudge, statsRelances } from "./logique";
 import { BoutonSendUpwork } from "@/features/pipeline/BoutonSendUpwork";
+import { useAuth } from "@/features/auth/AuthContext";
+import { JournalReglages } from "@/features/reglagesOs/JournalReglages";
+
+/** Le jour de l'étape 4 : jeudi, vendredi, samedi ou dimanche avant le lundi de la cohorte. */
+const JOURS_ETAPE_4 = [4, 5, 6, 7] as const;
 
 function useDate() {
   const { i18n } = useTranslation();
@@ -196,6 +202,8 @@ function Prevues() {
 /** Le mode (arrêté / simulation / activé), les textes et les délais. */
 function ReglagesRelancesCarte() {
   const { t } = useTranslation();
+  const { role } = useAuth();
+  const admin = role === "admin";
   const qc = useQueryClient();
   const lu = useQuery({ queryKey: ["reglages", "relances"], queryFn: lireReglagesRelances });
   const [r, setR] = React.useState<ReglagesRelances | null>(null);
@@ -203,8 +211,11 @@ function ReglagesRelancesCarte() {
     if (lu.data) setR(lu.data);
   }, [lu.data]);
   const enregistrer = useMutation({
-    mutationFn: (x: ReglagesRelances) => enregistrerReglagesRelances(x),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["reglages", "relances"] }),
+    mutationFn: (x: ReglagesRelances) => enregistrerReglagesRelances(x, admin),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ["reglages", "relances"] });
+      void qc.invalidateQueries({ queryKey: ["reglages-journal"] });
+    },
   });
   if (!r) return null;
   const changerMode = (mode: ModeRelances) => {
@@ -265,12 +276,42 @@ function ReglagesRelancesCarte() {
                   type="number"
                   min={0}
                   value={String(r.delais[k])}
+                  disabled={!admin}
                   aria-label={t(`nudges.reglages.${k}`)}
                   onChange={(ev) => setR({ ...r, delais: { ...r.delais, [k]: Number(ev.target.value) } })}
                 />
               </label>
             ))}
+            {/* Partie E (0411) : le jour de l'étape 4, et l'heure du check du lundi soir. */}
+            <label className="space-y-1 text-xs text-muted-foreground">
+              <span className="block">{t("nudges.reglages.warmup_bien_fait_jour")}</span>
+              <select
+                className="h-9 w-full rounded-md border bg-background px-2 text-sm text-foreground"
+                value={r.delais.warmup_bien_fait_jour}
+                disabled={!admin}
+                aria-label={t("nudges.reglages.warmup_bien_fait_jour")}
+                onChange={(ev) => setR({ ...r, delais: { ...r.delais, warmup_bien_fait_jour: Number(ev.target.value) } })}
+              >
+                {JOURS_ETAPE_4.map((j) => (
+                  <option key={j} value={j}>{t(`reglagesOs.jours.${j}`)}</option>
+                ))}
+              </select>
+            </label>
+            <label className="space-y-1 text-xs text-muted-foreground">
+              <span className="block">{t("nudges.reglages.lundi_soir_heure")}</span>
+              <Input
+                type="number"
+                min={0}
+                max={23}
+                value={String(r.lundiSoirHeure)}
+                disabled={!admin}
+                aria-label={t("nudges.reglages.lundi_soir_heure")}
+                onChange={(ev) => setR({ ...r, lundiSoirHeure: Number(ev.target.value) })}
+              />
+            </label>
           </div>
+          {!admin && <p className="text-xs text-muted-foreground">{t("reglagesOs.adminSeulement")}</p>}
+          <JournalReglages cles={CLES_DELAIS_ADMIN} />
         </div>
         <div className="flex items-center gap-2">
           <Button

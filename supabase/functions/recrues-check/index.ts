@@ -33,6 +33,8 @@ import {
 import {
   BOUTONS,
   blocsBoutons,
+  type LibellesBoutons,
+  lireLibellesBoutons,
   boutonDeSource,
   type CanalReponse,
   type Classement,
@@ -121,6 +123,7 @@ async function reglages(supabase: Supabase) {
       "lundi_soir_texte",
       "lundi_soir_heure",
       "rappels_reprise_le",
+      "slack_boutons",
     ]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -143,6 +146,7 @@ async function reglages(supabase: Supabase) {
     heures: lireHeuresSemaine(v.semaine_heures),
     lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
     texteLundiSoir: texte("lundi_soir_texte"),
+    boutons: lireLibellesBoutons(v.slack_boutons),
     repriseRappels: typeof v.rappels_reprise_le === "string" ? (v.rappels_reprise_le as string) : null,
     heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
   };
@@ -410,7 +414,7 @@ async function appliquerEtape(
     return;
   }
   const erreur = canal === "slack"
-    ? await envoyerSlack(supabase, x.poster_id, texte, blocsBoutons(texte))
+    ? await envoyerSlack(supabase, x.poster_id, texte, blocsBoutons(texte, r.boutons))
     : await envoyerUpwork(x.contrat_id!, texte);
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
@@ -556,11 +560,11 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
       const nouvelle = p.cohorte_lundi === lundi;
       const manque = nouvelle && x ? ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle }) : null;
       const texte = texteLundi(r.textesLundi, { prenom: p.prenom, nouvelleCohorte: nouvelle, ceQuiManque: manque });
-      await envoyerSemaine(supabase, posteur, "lundi", lundi, texte, r.lundi === "on", bilan);
+      await envoyerSemaine(supabase, posteur, "lundi", lundi, texte, r.lundi === "on", bilan, r.boutons);
     }
     if (r.mode !== "off" && jeudiDu(posteur, lundi, maintenant, { heure: r.heures.jeudi_heure, fin: r.heures.fin })) {
       const texte = texteJeudi(r.texteJeudi, { prenom: p.prenom, faits: p.faits_lun_mer, attendus: p.attendus_lun_mer });
-      await envoyerSemaine(supabase, posteur, "jeudi", lundi, texte, r.mode === "on", bilan);
+      await envoyerSemaine(supabase, posteur, "jeudi", lundi, texte, r.mode === "on", bilan, r.boutons);
     }
   }
 }
@@ -574,6 +578,7 @@ async function envoyerSemaine(
   texte: string,
   reel: boolean,
   bilan: Bilan,
+  boutons: LibellesBoutons,
 ) {
   const cle = { poster_id: p.poster_id, type, periode: lundi };
   const canal = canalEtape(p);
@@ -598,7 +603,7 @@ async function envoyerSemaine(
     return;
   }
   const erreur = canal === "slack"
-    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte))
+    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons))
     : await envoyerUpwork(p.contrat_id!, texte);
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);

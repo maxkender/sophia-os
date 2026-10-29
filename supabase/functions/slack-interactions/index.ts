@@ -7,7 +7,7 @@ import {
   type PropositionSlack,
   zonesDe,
 } from "../_shared/ckd.ts";
-import { BOUTONS } from "../_shared/reponses.ts";
+import { BOUTONS, libelleBouton, lireLibellesBoutons } from "../_shared/reponses.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -73,7 +73,7 @@ Deno.serve(async (request) => {
  * Un bouton sous un message de l'OS : une ligne `posteur_reponses` (canal
  * bouton, un clic par message et par bouton), classée sans IA par
  * recrues-check. Le message garde son texte, les boutons laissent place à
- * « Thanks, noted. ».
+ * « Thanks, noted. » (libellés du réglage `slack_boutons`).
  */
 // deno-lint-ignore no-explicit-any
 async function boutonPosteur(payload: any, action: any) {
@@ -90,6 +90,9 @@ async function boutonPosteur(payload: any, action: any) {
   });
   if (error && error.code !== "23505") throw error;
   if (payload.response_url) {
+    // Les libellés du réglage `slack_boutons` (0411).
+    const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "slack_boutons").maybeSingle();
+    const l = lireLibellesBoutons(regl?.valeur);
     // deno-lint-ignore no-explicit-any
     const section = (payload.message?.blocks ?? []).filter((b: any) => b?.type === "section");
     await fetch(payload.response_url, {
@@ -98,7 +101,7 @@ async function boutonPosteur(payload: any, action: any) {
       body: JSON.stringify({
         replace_original: true,
         text: payload.message?.text ?? "",
-        blocks: [...section, { type: "context", elements: [{ type: "mrkdwn", text: `✅ ${BOUTONS[action.action_id]!.texte} · Thanks, noted.` }] }],
+        blocks: [...section, { type: "context", elements: [{ type: "mrkdwn", text: `✅ ${libelleBouton(action.action_id, l)} · ${l.merci}` }] }],
       }),
     }).catch(() => undefined);
   }

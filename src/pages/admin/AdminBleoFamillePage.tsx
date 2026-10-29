@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { lireFamille, listerContenusFamille, listerPassagesFamille } from "@/features/bleo/api";
+import { CarteValeursParLangue } from "@/features/bleo/CarteValeursParLangue";
 import { formaterJour, formaterNombre, formaterQuand, formaterVues } from "@/features/bleo/format";
 import {
   BadgeEtat,
@@ -170,6 +171,8 @@ export function AdminBleoFamillePage() {
               </Tableau>
             </CardContent>
           </Card>
+
+          <CarteValeursParLangue contenus={contenus.data ?? []} />
 
           <Card>
             <CardHeader>

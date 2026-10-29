@@ -2337,6 +2337,14 @@ export const en = {
         passages: "Posts",
         passagesDesc: "The family's last 100 posts, all generations. Reposts are greyed out.",
         aucunPassage: "No post.",
+        valeurs: "Value by language",
+        valeursDesc:
+          "What BLEO expects from each content in each language of the label's accounts. In green, the content it prefers in that language. Hover a cell for the computation.",
+        valeursLe: "Computed by the night run of {{quand}}.",
+        valeurDetail:
+          "Form {{forme}} × 0.6^{{post}} × 0.75^{{acc}} × {{age}} = {{valeur}}. {{post}} post(s) of this content in the language, {{acc}} of the same hook (other contents of the family).",
+        prefere: "Preferred in this language",
+        aucuneValeur: "No value: no content of the family is a candidate (content withdrawn, or no active account in one of the label's languages).",
       },
       podz: {
         titre: "Podz box and gauge (BLEO)",

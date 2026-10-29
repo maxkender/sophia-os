@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o049",
+ "schema_id": "disarm-insult",
+ "titre": "How to handle criticism without getting defensive #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "df13ebcb-80f6-4648-9668-aa95ef699f53"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 7, sur une image sans visage. Couverture neuve 17f9f824. Schéma disarm-insult (df13ebcb r 4,35 sur 16 passages). Branche « critique » du gabarit, après ay-o041 (remarque blessante). Accroches écrites : « How to handle criticism without getting defensive » (retenue : scène du travail et du couple, très partagée), « How to take feedback like a grown man » (écartée : ton moralisateur), « How to handle criticism with class » (écartée : trop proche d'ay-o041). Maîtrise de soi. Items neufs.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17f9f824",
+   "texte_overlay": "How to handle criticism\nwithout getting defensive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663872283512982816/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Let them finish. Don't jump in at the first word. Nod, listen to the whole thing, then answer. Half of the anger in an argument comes from people who feel cut off before they've made their point.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Say \"Tell me more\" before anything else. It sounds simple, but it lowers the temperature instantly. People expect a fight. When you ask for details instead, they calm down and get specific.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Separate the message from the tone. Someone can say a true thing badly. Take the useful part, ignore the delivery. You can always talk about the tone later, once the real problem is fixed.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Thank them, even if it stings. \"Thanks for telling me, I didn't see it that way.\" It's hard to keep attacking someone who just thanked you, and it makes you look like the adult in the room.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Take a day before you reply to the big ones. \"Let me think about that and come back to you tomorrow.\" Answers written while you're angry are the ones you regret for weeks.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Learning something new every day gets you used to being wrong, and that makes criticism a lot easier to take.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. Learning every day gets you used to being wrong, and that makes criticism much easier to take.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Show the change. Next week, do the thing differently and let them see it. Nothing ends criticism faster than proof that you listened. Words are cheap. Changes are what people remember.",
+   "media_id": "3fff1b1f"
+  }
+ ]
+}

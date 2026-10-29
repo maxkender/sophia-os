@@ -16,7 +16,7 @@
 --    ils deviennent modifiables dans Settings.
 -- 4. Étape 4 : le jour du message (`etapes_delais.warmup_bien_fait_jour`,
 --    jour ISO, 6 = samedi, comme avant) à côté de son heure.
--- (Les réglages morts sont supprimés à part, 0412.)
+-- (Les réglages morts seront supprimés à part.)
 --
 -- Retour arrière : drop des déclencheurs reglages_journal_* et de la table ;
 -- drop des politiques reglages_partie_e_* et zones_paie*_ecriture ;

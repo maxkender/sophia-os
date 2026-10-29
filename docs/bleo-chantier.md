@@ -209,6 +209,25 @@ gagne la case « Suivre le plan BLEO » : le vrai code de la nuit suit le plan d
 jour choisi même en mode ombre, sans rien écrire. C'est l'outil des répétitions
 de samedi et dimanche.
 
+**Guichet des podz (L4, P1), mergé le 29/10, inerte pour les outils actuels.**
+Fonction `pods` : action `boite` (la boîte du label avec le post parent complet,
+la jauge, le nombre de full tests du jour et les dépôts du jour) ; `deposer` d'un
+original accepte `type_bleo` (`full_test` ou `declinaison`) et
+`parent_contenu_id`. Un dépôt déclaré est jugé par `bleo_verifier_depot` (0615)
+puis, pour un full test, sur les accroches des livraisons en attente du label ;
+la preuve n'est plus demandée. Codes de refus : `type_bleo_invalide`,
+`parent_interdit`, `accroche_existante`, `parent_requis`, `parent_introuvable`,
+`famille_inconnue`, `famille_non_gagnante`, `famille_close`, `generation_max`,
+`parent_non_gagnant`, `quota_atteint`, `accroche_differente` (G1, D35),
+`accroche_identique` (G2, D35), plus `type_bleo_requis` quand
+`bleo.podz.type_obligatoire` est vrai. Une déclinaison validée rejoint la
+famille de son parent tout de suite (même règle que A2 a). Le nombre de full
+tests du jour suit la part de la jauge sans hasard (cumul arrondi). Sans
+`type_bleo`, le dépôt suit le chemin d'avant (preuve comprise) : les outils des
+podz passent à `type_bleo` avec les routines (lundi), puis
+`type_obligatoire = true`. D30 (accroche à peine reformulée d'une famille
+gagnante) reste à décider : pas encore de refus.
+
 **Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
 en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
 rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine
@@ -263,6 +282,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0612_bleo_fatigue_60j` | La fatigue ne compte que les 60 derniers jours, et un passage non publié 3 jours après sa date (D41). `bleo_nuit` patchée en place (bloc `exp` de A5 seulement) | Appliquée |
 | `0613_bleo_contenus_textes` | Texte et image de la slide 1, première ligne de la slide 2, dans `bleo_contenus_ui` (fiche famille) | Appliquée |
 | `0614_bleo_mode_actif` | Le tirage de 14 h tourne aussi en mode `actif` (`bleo_tirage` et `bleo_tirage_cron` patchées en place : ils ne tiraient qu'en `ombre`) ; `bleo_changer_mode(p_mode)`, l'interrupteur, admin seulement, avec les 20 derniers changements dans `reglages.bleo.mode_historique` | Appliquée le 29/10 (mode resté `ombre`) |
+| `0615_bleo_guichet` | L4 : `bleo_verifier_depot(label, type_bleo, parent, accroche_norm, livraison)` juge un dépôt de podz (13 codes de refus, voir plus bas) ; `reglages.bleo.podz.type_obligatoire` (faux jusqu'à la bascule des podz) | Appliquée le 29/10, testée sur les données réelles (chaque code) |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 

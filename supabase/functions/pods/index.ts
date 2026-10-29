@@ -116,8 +116,15 @@ import {
   verifierDecksApplications,
 } from "../_shared/pods.ts";
 import { applicationsDuLabel, ID_SOPHIA } from "../_shared/multi_app.ts";
+import {
+  accrocheDuDeck,
+  accrochesEnAttente,
+  debutJourParis,
+  fullTestsDuJour,
+  lireDeclarationBleo,
+} from "../_shared/bleo_guichet.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
-import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, aujourdhuiParis, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
 
 const BUCKET = "medias";
@@ -158,6 +165,7 @@ Deno.serve(async (request) => {
     }
     if (body?.action === "deposer") return await deposer(request, supabase, body);
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
+    if (body?.action === "boite") return await boite(request, supabase, body);
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
     if (body?.action === "photos") return await photosDeLaBanque(request, supabase, body);
@@ -178,7 +186,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -930,12 +938,6 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   const erreurs = verifierOriginal(slides, { sophia });
   if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
-  let preuve: Record<string, unknown> | null = null;
-  if (PODS_AVEC_PREUVE.has(pod.slug)) {
-    const p = await preuveVerifiee(supabase, pod.label_id, body.preuve);
-    if ("erreur" in p) return json({ ok: false, error: p.erreur }, 400);
-    preuve = p.preuve;
-  }
 
   const { data: existante } = await supabase
     .from("pod_livraisons")
@@ -945,6 +947,32 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
     .maybeSingle();
   if (existante && existante.statut !== "a_valider") {
     return json({ ok: false, error: `livraison déjà ${existante.statut}` }, 409);
+  }
+
+  // BLEO (L4) : un dépôt déclaré (`type_bleo`) est jugé sur la boîte, sans
+  // preuve. Sans déclaration : le chemin d'avant, refusé en voie 1 une fois
+  // `bleo.podz.type_obligatoire` vrai (bascule des podz).
+  const declaration = lireDeclarationBleo(body);
+  if ("erreur" in declaration) return json({ ok: false, code: "declaration_invalide", error: declaration.erreur }, 400);
+  let bleo: Record<string, unknown> | null = null;
+  let preuve: Record<string, unknown> | null = null;
+  if (declaration.typeBleo) {
+    const jugement = await jugerDepotBleo(supabase, pod, declaration, slides, existante?.id ?? null);
+    if (!jugement.ok) return json({ ok: false, code: jugement.code, error: `${jugement.code} : ${jugement.message}` }, 409);
+    bleo = jugement.bleo;
+  } else {
+    if (await typeBleoObligatoire(supabase, pod.label_id)) {
+      return json({
+        ok: false,
+        code: "type_bleo_requis",
+        error: "type_bleo_requis : déclarer type_bleo (« full_test » ou « declinaison », avec parent_contenu_id) — voir npm run boite",
+      }, 400);
+    }
+    if (PODS_AVEC_PREUVE.has(pod.slug)) {
+      const p = await preuveVerifiee(supabase, pod.label_id, body.preuve);
+      if ("erreur" in p) return json({ ok: false, error: p.erreur }, 400);
+      preuve = p.preuve;
+    }
   }
 
   const { data: medias } = await supabase.from("media_library").select("id, url").in("id", slides.map((s) => s.media_id));
@@ -981,10 +1009,13 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
       legende: titre,
       inspirations: Array.isArray(body.inspirations) ? body.inspirations.map(String).slice(0, 20) : [],
       ...(preuve ? { preuve } : {}),
+      ...(bleo ? { bleo } : {}),
     },
     statut: "a_valider",
     depose_le: new Date().toISOString(),
     auto_erreur: null,
+    type_bleo: declaration.typeBleo,
+    parent_contenu_id: declaration.parentContenuId,
   };
   const { data: l, error } = await supabase
     .from("pod_livraisons")
@@ -992,7 +1023,157 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
     .select("id")
     .single();
   if (error || !l) throw new Error(`livraison : ${messageErreur(error)}`);
-  return json({ ok: true, id: l.id, type: "original", ...(preuve ? { preuve } : {}) });
+  return json({ ok: true, id: l.id, type: "original", ...(preuve ? { preuve } : {}), ...(bleo ? { bleo } : {}) });
+}
+
+/** Vrai quand la voie 1 doit déclarer `type_bleo` (`reglages.bleo.podz.type_obligatoire`). */
+async function typeBleoObligatoire(supabase: Supabase, labelId: string): Promise<boolean> {
+  const [{ data: reglage }, { data: label }] = await Promise.all([
+    supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),
+    supabase.from("labels").select("voie").eq("id", labelId).maybeSingle(),
+  ]);
+  return reglage?.valeur?.podz?.type_obligatoire === true && Number(label?.voie) === 1;
+}
+
+/**
+ * Juge un dépôt BLEO : les règles de la boîte en base (`bleo_verifier_depot`,
+ * 0615 : famille gagnante et ouverte, génération, quota du parent, accroche
+ * identique en génération 1 et reformulée en génération 2, accroche déjà dans
+ * le label), puis, pour un full test, les accroches des livraisons en attente
+ * des podz du label (D15).
+ */
+async function jugerDepotBleo(
+  supabase: Supabase,
+  pod: { slug: string; label_id: string | null },
+  declaration: { typeBleo: string | null; parentContenuId: string | null },
+  slides: SlideOriginale[],
+  remplacee: string | null,
+): Promise<{ ok: true; bleo: Record<string, unknown> } | { ok: false; code: string; message: string }> {
+  const accroche = accrocheDuDeck(slides);
+  const { data: verdict, error } = await supabase.rpc("bleo_verifier_depot", {
+    p_label_id: pod.label_id,
+    p_type_bleo: declaration.typeBleo,
+    p_parent_contenu_id: declaration.parentContenuId,
+    p_accroche_norm: accroche,
+    p_livraison: remplacee,
+  });
+  if (error) throw new Error(`bleo_verifier_depot : ${messageErreur(error)}`);
+  if (!verdict?.ok) return { ok: false, code: String(verdict?.code ?? "refus"), message: String(verdict?.message ?? "refusé") };
+  if (declaration.typeBleo === "full_test" && accroche) {
+    const { data: podsDuLabel } = await supabase.from("pods").select("slug").eq("label_id", pod.label_id);
+    const slugs = (podsDuLabel ?? []).map((p: { slug: string }) => p.slug);
+    const { data: attente } = await supabase
+      .from("pod_livraisons")
+      .select("id, pod, langue_source, decks")
+      .eq("type", "original")
+      .eq("statut", "a_valider")
+      .in("pod", slugs.length ? slugs : [pod.slug])
+      .limit(500);
+    const deja = accrochesEnAttente(attente ?? [], remplacee).get(accroche);
+    if (deja) {
+      return {
+        ok: false,
+        code: "accroche_existante",
+        message: `cette accroche attend déjà la validation (livraison ${deja.slice(0, 8)}) : pas de second full test`,
+      };
+    }
+  }
+  return {
+    ok: true,
+    bleo: {
+      type_bleo: declaration.typeBleo,
+      parent_contenu_id: declaration.parentContenuId,
+      famille_id: verdict.famille_id ?? null,
+      generation: verdict.generation ?? 0,
+      ...(verdict.accroche_attendue ? { accroche_attendue: verdict.accroche_attendue } : {}),
+    },
+  };
+}
+
+/**
+ * Déclinaison validée : rattachée tout de suite à la famille de son parent
+ * (même règle que A2 a, 0602), pour que le quota du parent et la boîte la
+ * comptent avant la nuit. Jamais bloquant : A2 la rattache à 5 h 15 sinon.
+ */
+async function rattacherDeclinaison(supabase: Supabase, contenuId: string, parentId: string): Promise<string | null> {
+  try {
+    const { data: parent } = await supabase
+      .from("contenus")
+      .select("id, famille_id, generation")
+      .eq("id", parentId)
+      .maybeSingle();
+    if (!parent?.famille_id) return "parent sans famille : rattachement à la nuit";
+    const { data: famille } = await supabase.from("bleo_familles").select("verdict").eq("id", parent.famille_id).maybeSingle();
+    const jugee = (famille?.verdict ?? "en_attente") !== "en_attente";
+    const { error } = await supabase
+      .from("contenus")
+      .update({
+        famille_id: parent.famille_id,
+        generation: Math.min(Number(parent.generation ?? 0) + 1, 2),
+        parent_bleo_id: parent.id,
+        type_bleo: "declinaison",
+        classe_defaut: "accroche_gagnante",
+        etat_bleo: jugee ? "juge" : "a_juger",
+        juge_le: jugee ? new Date().toISOString() : null,
+        verdict: "en_attente",
+      })
+      .eq("id", contenuId)
+      .is("famille_id", null);
+    return error ? messageErreur(error) : null;
+  } catch (e) {
+    return messageErreur(e);
+  }
+}
+
+/**
+ * Action `boite` (L4, P1) : la boîte du label du podz, dans l'ordre (le post
+ * parent complet, D37), avec la jauge et le nombre de full tests du jour.
+ * `par_jour` : celui de `pods/rythme.json` (sinon le rythme mesuré sur 7 jours).
+ */
+async function boite(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  const limite = Math.max(1, Math.min(Number(body.limite ?? 30) || 30, 100));
+  const jour = aujourdhuiParis();
+  const [{ data: lignes, error }, { data: jauge }, { data: reglage }, { data: deposes }] = await Promise.all([
+    supabase.rpc("bleo_boite_posts", { p_label_id: pod.label_id, p_limite: limite }),
+    supabase.from("bleo_jauge").select("familles_en_boite, par_jour, semaines, part_full_test").eq("pod", pod.slug).maybeSingle(),
+    supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),
+    supabase
+      .from("pod_livraisons")
+      .select("type_bleo")
+      .eq("pod", pod.slug)
+      .eq("type", "original")
+      .gte("depose_le", debutJourParis(jour))
+      .limit(100),
+  ]);
+  if (error) throw new Error(`bleo_boite_posts : ${messageErreur(error)}`);
+  const parts = (reglage?.valeur?.jauge?.parts ?? [0.1, 0.2, 0.3, 0.4]) as number[];
+  const enBoite = Number(jauge?.familles_en_boite ?? 0);
+  const part = jauge?.part_full_test == null ? (enBoite === 0 ? 1 : parts[1]) : Number(jauge.part_full_test);
+  const parJourDemande = Number(body.par_jour);
+  const parJour = Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
+  const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0 };
+  for (const d of deposes ?? []) {
+    const t = (d as { type_bleo: string | null }).type_bleo;
+    if (t === "full_test" || t === "declinaison") aujourdhui[t] += 1;
+    else aujourdhui.sans_type += 1;
+  }
+  return json({
+    ok: true,
+    pod: pod.slug,
+    jour,
+    jauge: {
+      familles_en_boite: enBoite,
+      semaines: jauge?.semaines ?? null,
+      part_full_test: part,
+      par_jour: parJour,
+      full_tests_du_jour: fullTestsDuJour(parJour, part, jour, enBoite === 0),
+    },
+    deposes_aujourdhui: aujourdhui,
+    boite: lignes ?? [],
+  });
 }
 
 /**
@@ -1156,6 +1337,11 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
     .select("id");
   if (!decidee?.length) return await defaireApresDecision(supabase, contenu.id);
 
+  // BLEO : une déclinaison rejoint la famille de son parent dès la validation.
+  const rattachement = l.type_bleo === "declinaison" && l.parent_contenu_id
+    ? await rattacherDeclinaison(supabase, contenu.id, l.parent_contenu_id)
+    : null;
+
   // UnSwipe, Micabo… : l'original entre aussi dans la réserve des autres
   // applications de son label. Jamais bloquant : le contenu Sophia est validé.
   // Label hors Sophia : c'est sa seule réserve ; un échec reste dans la
@@ -1180,6 +1366,7 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
     tier,
     applications,
     ...(applicationsErreur ? { applications_erreur: applicationsErreur } : {}),
+    ...(rattachement ? { bleo_rattachement: rattachement } : {}),
   });
 }
 

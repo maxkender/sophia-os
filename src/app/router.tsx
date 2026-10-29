@@ -56,6 +56,12 @@ import { SlackARelier } from "@/features/slack/SlackARelier";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
 import { AdminRelectureNativePage } from "@/pages/admin/AdminRelectureNativePage";
+import { AdminBleoPage } from "@/pages/admin/AdminBleoPage";
+import { AdminBleoPlanPage } from "@/pages/admin/AdminBleoPlanPage";
+import { AdminBleoFamillesPage } from "@/pages/admin/AdminBleoFamillesPage";
+import { AdminBleoFamillePage } from "@/pages/admin/AdminBleoFamillePage";
+import { AdminBleoPodzPage } from "@/pages/admin/AdminBleoPodzPage";
+import { AdminBleoReglagesPage } from "@/pages/admin/AdminBleoReglagesPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
 import { PosterPaiementsPage } from "@/pages/poster/PosterPaiementsPage";
@@ -147,6 +153,13 @@ export function AppRouter() {
               <Route path="/admin/angles" element={<AdminAnglesPage />} />
               <Route path="/admin/relecture-native" element={<AdminRelectureNativePage />} />
               <Route path="/admin/labels" element={<AdminLabelsPage />} />
+              {/* BLEO (docs/bleo.md), en lecture seule : la nuit, les plans, les familles, les podz. */}
+              <Route path="/admin/bleo" element={<AdminBleoPage />} />
+              <Route path="/admin/bleo/plan" element={<AdminBleoPlanPage />} />
+              <Route path="/admin/bleo/familles" element={<AdminBleoFamillesPage />} />
+              <Route path="/admin/bleo/familles/:id" element={<AdminBleoFamillePage />} />
+              <Route path="/admin/bleo/podz" element={<AdminBleoPodzPage />} />
+              <Route path="/admin/bleo/reglages" element={<AdminBleoReglagesPage />} />
               {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
               <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />
               <Route path="/admin/ugc/*" element={<Navigate to="/admin" replace />} />

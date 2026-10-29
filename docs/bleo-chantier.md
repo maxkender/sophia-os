@@ -102,7 +102,7 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | D27 | La validation relance `verifierOriginal` : quand `bleo.slide_marquee` passe à vrai, les dépôts en attente avec `texte_sophia` tombent en 409, jamais retentés (`auto_erreur`) | Juger un dépôt sur la règle en vigueur au moment du dépôt | technique (L10) |
 | D28 | Changer la forme de `etat` et `label` casse 30 copies d'outils (`cli-etat` ×11, `cli-label` ×7, `cli-suivi` ×6, `cli-playbook` ×6) | Champs ajoutés, rien de retiré | technique |
 | D29 | Le passage à 6 h est donné à la fois à L4 (P1) et à L7 | L7 (ligne 635 de la spec) | spec |
-| D35 | **Tranché le 29/10 par Adrien.** La spec ouvre la génération 2 au verdict (un passage à 10 k ou r ≥ 2) et ne dit pas si une déclinaison change l'accroche | Génération 1 : accroche identique mot pour mot. Génération 2 : accroche reformulée (même promesse), ouverte seulement si la génération 1 fait plus de 10 000 vues en moyenne sur au moins 2 passages mûrs. Vue `bleo_boite` (0605), colonne `accroche_attendue` ; le guichet (L4) refusera une génération 1 dont l'accroche normalisée diffère du parent et une génération 2 identique | fait (boîte), guichet en L4 |
+| D35 | **Tranché le 29/10 par Adrien.** La spec ne dit pas si une déclinaison change l'accroche, et range les générations 2 après les familles jamais déclinées | Génération 1 : accroche identique mot pour mot. Génération 2 : accroche reformulée (même promesse), ouverte au verdict de la spec (un passage à 10 000 vues ou r ≥ 2 ; le seuil « 10 000 vues de moyenne » de 0605 a été retiré par 0606). Les générations 2 passent en tête de la boîte. Vue `bleo_boite`, colonne `accroche_attendue` ; le guichet (L4) refusera une génération 1 dont l'accroche normalisée diffère du parent et une génération 2 identique | fait (boîte), guichet en L4 |
 | D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) | à décider |
 
 ### Agent de langue (L9)
@@ -155,7 +155,9 @@ modifié, aucune fonction Edge redéployée) :
 | `0602_bleo_nuit` | `bleo_nuit()` : A2, A1, A3, A4, A5 ; cron 05 h 15 | Appliquée, 1re nuit le 29/10 à 12 h (9,5 s) |
 | `0603_bleo_tirage` | `bleo_tirage()` en mode ombre (A6 à A8), `bleo_rapport()`, crons 14 h et 22 h | Appliquée (+ correctif « hors_file ») |
 | `0604_bleo_boite` | Boîte et jauge des podz (vues `bleo_boite`, `bleo_jauge`), fermeture des familles chaque nuit (A9, A10) | Appliquée ; les podz ne la lisent pas encore (reste de L4) |
-| `0605_bleo_boite_g2` | Règle des déclinaisons (D35) : génération 2 ouverte à plus de 10 000 vues en moyenne sur 2 passages mûrs ; `accroche_attendue` identique ou reformulée | Appliquée |
+| `0605_bleo_boite_g2` | Règle des déclinaisons (D35) : génération 2 ouverte à plus de 10 000 vues en moyenne sur 2 passages mûrs ; `accroche_attendue` identique ou reformulée | Appliquée, puis annulée par 0606 |
+| `0606_bleo_boite_g2_spec` | Génération 2 de nouveau ouverte au verdict de la spec ; générations 2 en tête de la boîte (D35) | Appliquée |
+| `0607_bleo_vues_os` | Vues de lecture de la section BLEO de l'OS : `bleo_familles_ui`, `bleo_contenus_ui`, `bleo_plan_ui` | Appliquée |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -231,3 +233,10 @@ recalculée à la main, rejouabilité, derniers plans).
   1 de génération 2 (alpha_male_yellow, 13 840 vues de moyenne sur 4 passages).
   Les deux autres générations 1 au-dessus de 10 000 vues ont déjà leurs 3
   déclinaisons. Avec la règle de la spec, 14 générations 2 auraient été ouvertes.
+- **29/10, soir** : Adrien revient au verdict de la spec pour ouvrir la génération 2
+  et met les générations 2 en tête de la boîte (0606) : 10 générations 2 ouvertes,
+  toutes au rang 1 et suivants de leur label. Section BLEO dans l'OS, admin
+  seulement et en lecture seule (vues de 0607) : vue d'ensemble (mode, dernière
+  nuit, dernier plan, rapport, historique), plan du jour compte par compte contre
+  minuit, familles d'accroche et leur fiche (contenus par génération, passages),
+  podz (jauge et boîte), réglages. Les podz ne lisent toujours rien (L4).

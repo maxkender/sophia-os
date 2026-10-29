@@ -10,6 +10,7 @@ import { deciderCkd, type DecisionCkd } from "../api";
 import { lireADecider, type ADecider } from "./api";
 import { decisionDe, groupe, type Groupe } from "./logique";
 import { useRaison } from "./useRaison";
+import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 
 /**
  * Prompt 22, partie 5 : une carte par compte, une phrase et 2 boutons. Rien
@@ -65,7 +66,7 @@ function CarteCompte({ p, g }: { p: ADecider; g: Groupe }) {
       <CardHeader className="pb-2">
         <CardTitle className="flex flex-wrap items-center gap-x-1.5 text-base">
           <span>{nom}</span>
-          {p.handle && <span className="text-sm font-normal text-muted-foreground">@{p.handle}</span>}
+          {p.handle && <HandleTiktok handle={p.handle} className="text-sm font-normal text-muted-foreground" />}
         </CardTitle>
         <p className="text-xs text-muted-foreground">
           {[p.pays ? `${drapeauPays(p.pays)} ${p.pays}` : null, p.hm_prenom].filter(Boolean).join(" · ")}

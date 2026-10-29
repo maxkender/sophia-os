@@ -656,6 +656,10 @@ describe("AdminCheckKillDoublePage", () => {
       rendre("/?onglet=samedi");
       const cartes = await screen.findByTestId("cartes-samedi");
       const ionut = await within(cartes).findByTestId("carte-decision-ionut.mentalitate346");
+      // Le @handle ouvre le profil TikTok dans un nouvel onglet.
+      const lienTiktok = within(ionut).getByRole("link", { name: "@ionut.mentalitate346" });
+      expect(lienTiktok).toHaveAttribute("href", "https://www.tiktok.com/@ionut.mentalitate346");
+      expect(lienTiktok).toHaveAttribute("target", "_blank");
       expect(within(ionut).getByText("11 posts manqués sur 14")).toBeInTheDocument();
       expect(within(cartes).queryByRole("checkbox")).toBeNull();
       expect(within(cartes).queryByTestId("carte-decision-bruno.reveil101")).toBeNull();

@@ -11,6 +11,7 @@ import { deciderCkd } from "../api";
 import { lireADecider } from "./api";
 import { decisionDe, GROUPES, groupe, type Groupe } from "./logique";
 import { useRaison } from "./useRaison";
+import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 
 /**
  * « To decide now » (28 oct.) : un seul bloc, trois groupes (Kill, Double,
@@ -97,7 +98,7 @@ export function ADeciderCarte() {
                     <div className="min-w-0">
                       <p className="flex flex-wrap items-center gap-x-1.5">
                         <span className="font-medium">{p.poster_nom ?? "—"}</span>
-                        {p.handle && <span className="text-muted-foreground">@{p.handle}</span>}
+                        {p.handle && <HandleTiktok handle={p.handle} className="font-normal text-muted-foreground" />}
                         {p.pays && <span className="text-muted-foreground">{drapeauPays(p.pays)} {p.pays}</span>}
                         {p.hm_prenom && <span className="text-muted-foreground">· {p.hm_prenom}</span>}
                       </p>

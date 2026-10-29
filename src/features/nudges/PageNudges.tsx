@@ -31,6 +31,7 @@ import { ETAPES_STATS, etatNudge, statsRelances } from "./logique";
 import { BoutonSendUpwork } from "@/features/pipeline/BoutonSendUpwork";
 import { useAuth } from "@/features/auth/AuthContext";
 import { JournalReglages } from "@/features/reglagesOs/JournalReglages";
+import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 
 /** Le jour de l'étape 4 : jeudi, vendredi, samedi ou dimanche avant le lundi de la cohorte. */
 const JOURS_ETAPE_4 = [4, 5, 6, 7] as const;
@@ -78,7 +79,7 @@ function Historique() {
                   <div className="min-w-0 space-y-0.5">
                     <p className="flex flex-wrap items-center gap-1.5">
                       <span className="font-medium">{n.poster_nom ?? "—"}</span>
-                      {n.handle && <span className="text-muted-foreground">@{n.handle}</span>}
+                      {n.handle && <HandleTiktok handle={n.handle} className="font-normal text-muted-foreground" />}
                       <Badge variant="secondary">{t(`nudges.types.${n.type}`, { defaultValue: n.type })}</Badge>
                       <Badge variant={VARIANTE[etat]}>{t(`nudges.etats.${etat}`)}</Badge>
                     </p>

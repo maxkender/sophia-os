@@ -166,6 +166,8 @@ export interface BudgetUpwork {
   reserve: number;
   limite_atteinte: boolean;
   limite_at: string | null;
+  /** Prompt 25 v4 : par compte (Max, Adrien). */
+  comptes?: { compte: string; connecte: boolean; conversations: number; limite: boolean }[];
 }
 
 /** Overview → Health : les conversations Upwork du jour (UTC) et le plafond. */

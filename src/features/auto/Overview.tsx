@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { AlertTriangle, CheckCircle2, Clock, Link2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -12,7 +12,7 @@ import { lienConnexionUpwork } from "@/features/upwork/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
-import { lireAujourdhui, lireSante, lireSemaine, type EtatTacheAuto } from "./api";
+import { lireAujourdhui, lireSante, lireSemaine, type EtatTacheAuto, type SanteCompteUpwork } from "./api";
 import { BudgetUpwork } from "./sent/Attente";
 import { joursSemaine, type EtatJour } from "./logique";
 
@@ -71,7 +71,7 @@ export function SanteAuto() {
   const { le } = useDates();
   const admin = useAuth().role === "admin";
   const lu = useQuery({ queryKey: ["auto", "sante"], queryFn: lireSante, refetchInterval: 5 * 60_000 });
-  const reconnecter = useMutation({ mutationFn: lienConnexionUpwork, onSuccess: (url) => window.location.assign(url) });
+  const reconnecter = useMutation({ mutationFn: () => lienConnexionUpwork(), onSuccess: (url) => window.location.assign(url) });
   const u = lu.data?.upwork ?? null;
   const statut = u?.statut ?? "deconnecte";
   return (
@@ -105,7 +105,9 @@ export function SanteAuto() {
         )}
         {reconnecter.error && <p className="text-destructive">{(reconnecter.error as Error).message}</p>}
       </div>
-      {/* Prompt 25 : le budget Upwork du jour (conversations distinctes, limite d'Upwork). */}
+      {/* Prompt 25 v4 : le compte de secours (Adrien), pour les messages seulement. */}
+      <CompteSecours c={lu.data?.upwork_comptes?.find((x) => x.compte === "secours") ?? null} admin={admin} />
+      {/* Prompt 25 : le budget Upwork du jour (conversations distinctes, limite d'Upwork), par compte. */}
       <BudgetUpwork />
       <div className="space-y-1">
         <p className="font-medium">{t("auto.sante.titreTaches")}</p>
@@ -115,6 +117,53 @@ export function SanteAuto() {
           ))}
         </ul>
       </div>
+    </div>
+  );
+}
+
+/**
+ * Prompt 25 v4 : « Fallback account ». Une 2e connexion Upwork (Adrien, membre
+ * de Vik Studios), son bouton Connect, son état et son compteur du jour ; une
+ * alerte s'il se déconnecte. Elle n'envoie que des messages, après Max.
+ */
+function CompteSecours({ c, admin }: { c: SanteCompteUpwork | null; admin: boolean }) {
+  const { t } = useTranslation();
+  const { le } = useDates();
+  const connecter = useMutation({ mutationFn: () => lienConnexionUpwork("secours"), onSuccess: (url) => window.location.assign(url) });
+  const [params] = useSearchParams();
+  const retour = params.get("compte") === "secours" ? params.get("upwork") : null;
+  const statut = c?.statut ?? "deconnecte";
+  return (
+    <div className="space-y-1" data-testid="compte-secours" id="upwork">
+      {retour === "ok" && <p className="rounded-md bg-success/10 px-3 py-2">{t("auto.sante.secoursOk")}</p>}
+      {retour === "erreur" && (
+        <p className="rounded-md bg-destructive/10 px-3 py-2 text-destructive">{t("upwork.retourErreur", { raison: params.get("raison") ?? "" })}</p>
+      )}
+      {c?.alerte && (
+        <p role="alert" className="rounded-md bg-destructive/10 px-3 py-2 font-medium text-destructive" data-testid="alerte-secours">
+          {t("auto.sante.alerteSecours")}
+        </p>
+      )}
+      <p className="flex flex-wrap items-center gap-2 font-medium">
+        {t("auto.sante.secours")}
+        <Badge variant={statut === "connecte" ? "success" : statut === "erreur" ? "error" : "secondary"}>{t(`upwork.statuts.${statut}`)}</Badge>
+        {c?.utilisateur && <span className="font-normal text-muted-foreground">{c.utilisateur}</span>}
+      </p>
+      <p className="text-muted-foreground">{t("auto.sante.secoursAide")}</p>
+      {c?.organisations && <p className="text-muted-foreground">{t("auto.sante.secoursOrganisations", { liste: c.organisations })}</p>}
+      {c?.connecte_une_fois && (
+        <p className={cn("text-muted-foreground", c.expire_bientot && "text-warning-foreground")}>
+          {t("auto.sante.expire", { quand: le(c.access_expire_at) })}
+        </p>
+      )}
+      {c?.derniere_erreur && <p className="break-words text-destructive">{t("auto.sante.derniereErreur", { erreur: c.derniere_erreur })}</p>}
+      {admin && (
+        <Button size="sm" variant={statut === "connecte" ? "outline" : "default"} disabled={connecter.isPending} onClick={() => connecter.mutate()}>
+          <Link2 className="size-4" />
+          {c?.connecte_une_fois ? t("auto.sante.secoursReconnecter") : t("auto.sante.secoursConnecter")}
+        </Button>
+      )}
+      {connecter.error && <p className="text-destructive">{(connecter.error as Error).message}</p>}
     </div>
   );
 }

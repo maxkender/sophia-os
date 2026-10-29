@@ -32,9 +32,23 @@ export interface SanteUpwork {
   alerte: boolean;
 }
 
+/** Prompt 25 v4 : chaque compte Upwork (Max, Adrien), son jeton et son compteur du jour. */
+export interface SanteCompteUpwork extends Omit<SanteUpwork, "statut"> {
+  compte: "principal" | "secours";
+  statut: "connecte" | "deconnecte" | "erreur";
+  connecte_une_fois: boolean;
+  utilisateur: string | null;
+  /** Les organisations vues par cette connexion (Vik Studios doit y être). */
+  organisations: string | null;
+  utilises: number;
+  limite: boolean;
+}
+
 export interface SanteAuto {
   taches: EtatTacheAuto[];
   upwork: SanteUpwork | null;
+  upwork_comptes?: SanteCompteUpwork[];
+  upwork_max?: number;
 }
 
 export async function lireSante(): Promise<SanteAuto> {

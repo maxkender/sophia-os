@@ -183,12 +183,30 @@ export function BudgetUpwork() {
   const lu = useQuery({ queryKey: ["upwork-budget"], queryFn: lireBudgetUpwork, refetchInterval: 5 * 60_000 });
   const b = lu.data;
   if (!b) return null;
-  const plein = b.limite_atteinte || b.conversations >= b.max;
+  // Prompt 25 v4 : un compteur par compte connecté (Max, puis Adrien).
+  const comptes = (b.comptes ?? []).filter((c) => c.connecte || c.compte === "principal");
+  if (comptes.length === 0) {
+    const plein = b.limite_atteinte || b.conversations >= b.max;
+    return (
+      <p className={plein ? "font-medium text-destructive" : "text-muted-foreground"} data-testid="budget-upwork">
+        {t("auto.sante.budgetUpwork", { n: b.conversations, max: b.max, reserve: b.reserve })}
+        {b.limite_atteinte && ` · ${t("auto.sante.limiteUpwork")}`}
+      </p>
+    );
+  }
   return (
-    <p className={plein ? "font-medium text-destructive" : "text-muted-foreground"} data-testid="budget-upwork">
-      {t("auto.sante.budgetUpwork", { n: b.conversations, max: b.max, reserve: b.reserve })}
-      {b.limite_atteinte && ` · ${t("auto.sante.limiteUpwork")}`}
-    </p>
+    <div className="space-y-0.5" data-testid="budget-upwork">
+      {comptes.map((c) => {
+        const plein = c.limite || c.conversations >= b.max;
+        return (
+          <p key={c.compte} className={plein ? "font-medium text-destructive" : "text-muted-foreground"} data-budget-compte={c.compte}>
+            {t("auto.sante.budgetCompte", { compte: t(`auto.sante.comptes.${c.compte}`), n: c.conversations, max: b.max })}
+            {c.limite && ` · ${t("auto.sante.limiteUpwork")}`}
+          </p>
+        );
+      })}
+      <p className="text-xs text-muted-foreground">{t("auto.sante.budgetOrdre", { reserve: b.reserve })}</p>
+    </div>
   );
 }
 

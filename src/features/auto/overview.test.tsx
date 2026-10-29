@@ -125,6 +125,42 @@ describe("Overview → Health", () => {
   });
 });
 
+describe("Overview → Health, compte de secours (prompt 25 v4)", () => {
+  beforeEach(async () => {
+    vi.clearAllMocks();
+    auth.role = "admin";
+    await i18n.changeLanguage("en");
+  });
+  const compte = (o: Partial<NonNullable<SanteAuto["upwork_comptes"]>[number]>): NonNullable<SanteAuto["upwork_comptes"]>[number] => ({
+    compte: "secours", statut: "deconnecte", connecte_une_fois: false, utilisateur: null, organisations: null, utilises: 0, limite: false,
+    access_expire_at: null, derniere_erreur: null, dernier_appel_at: null, renouvellement_at: null, renouvellement_erreur: null,
+    expire_bientot: false, alerte: false, ...o,
+  });
+
+  it("pas encore connecté : « Connect the fallback account » ouvre l'autorisation du compte de secours", async () => {
+    api.lireSante.mockResolvedValue({ ...SANTE, upwork_comptes: [compte({ compte: "principal", statut: "connecte", connecte_une_fois: true }), compte({})] });
+    rendu(<SanteAuto />);
+    const bloc = await screen.findByTestId("compte-secours");
+    fireEvent.click(await within(bloc).findByRole("button", { name: "Connect the fallback account" }));
+    await vi.waitFor(() => expect(upwork.lienConnexionUpwork).toHaveBeenCalledWith("secours"));
+    expect(within(bloc).queryByTestId("alerte-secours")).toBeNull();
+  });
+
+  it("connecté puis déconnecté : alerte, nom et organisations ; la Head of Ops n'a pas le bouton", async () => {
+    auth.role = "head_of_ops";
+    api.lireSante.mockResolvedValue({
+      ...SANTE,
+      upwork_comptes: [compte({ statut: "erreur", connecte_une_fois: true, alerte: true, utilisateur: "Adrien M", organisations: "Vik Studios" })],
+    });
+    rendu(<SanteAuto />);
+    expect((await screen.findByTestId("alerte-secours")).textContent).toMatch(/fallback Upwork account is disconnected/);
+    const bloc = screen.getByTestId("compte-secours");
+    expect(within(bloc).getByText("Adrien M")).toBeTruthy();
+    expect(within(bloc).getByText("Organizations: Vik Studios")).toBeTruthy();
+    expect(within(bloc).queryByRole("button")).toBeNull();
+  });
+});
+
 describe("Overview → Today", () => {
   beforeEach(async () => {
     vi.clearAllMocks();

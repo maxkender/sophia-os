@@ -21,7 +21,7 @@ export function CarteUpwork() {
   const [params] = useSearchParams();
   const etat = useQuery({ queryKey: ["upwork", "etat"], queryFn: lireEtatUpwork });
   const connecter = useMutation({
-    mutationFn: lienConnexionUpwork,
+    mutationFn: () => lienConnexionUpwork(),
     onSuccess: (url) => {
       window.location.assign(url);
     },
@@ -40,7 +40,8 @@ export function CarteUpwork() {
     timeZone: "Europe/Paris",
   });
   const date = (iso: string | null) => (iso ? fmt.format(new Date(iso)) : "—");
-  const c = etat.data?.[0];
+  // Prompt 25 v4 : la connexion de Max ; celle de secours (Adrien) est dans Overview → Health.
+  const c = etat.data?.find((x) => x.compte === "principal") ?? etat.data?.[0];
   const retour = params.get("upwork");
   const variante = c?.statut === "connecte" ? "success" : c?.statut === "erreur" ? "error" : "secondary";
 

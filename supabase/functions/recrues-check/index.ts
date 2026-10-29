@@ -1079,6 +1079,9 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
         // Upwork plein (budget, ou limite d'Upwork) : plus rien sur Upwork aujourd'hui.
         bilan.upworkPlein = true;
         plein = true;
+      } else if (u.reporter) {
+        // Le compte de secours n'a pas pu écrire à cette personne : demain, avec Max.
+        plein = true;
       } else if (u.erreur) {
         erreurs.push(u.erreur);
       } else {
@@ -1289,7 +1292,11 @@ async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[];
  * s'arrête avant la réserve du budget Upwork du jour ; `budget` : pas envoyé
  * parce qu'Upwork est plein aujourd'hui (le message peut repartir demain).
  */
-async function envoyerUpwork(contratId: string, texte: string, o: { prioritaire?: boolean } = {}): Promise<{ erreur: string | null; budget: boolean }> {
+async function envoyerUpwork(
+  contratId: string,
+  texte: string,
+  o: { prioritaire?: boolean } = {},
+): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean }> {
   const base = Deno.env.get("SUPABASE_URL");
   const secret = Deno.env.get("CRON_SECRET");
   if (!base || !secret) return { erreur: "SUPABASE_URL ou CRON_SECRET absent", budget: false };
@@ -1300,7 +1307,8 @@ async function envoyerUpwork(contratId: string, texte: string, o: { prioritaire?
       body: JSON.stringify({ action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false }),
     });
     const corps = await r.json().catch(() => null);
-    if (!r.ok || !corps?.ok) return { erreur: `upwork : ${corps?.error ?? `HTTP ${r.status}`}`, budget: corps?.budget === true };
+    // Prompt 25 v4 : « reporter » : le compte de secours n'a pas pu écrire ici ; le message repart demain (Max d'abord).
+    if (!r.ok || !corps?.ok) return { erreur: `upwork : ${corps?.error ?? `HTTP ${r.status}`}`, budget: corps?.budget === true, reporter: corps?.reporter === true };
     return { erreur: null, budget: false };
   } catch (e) {
     return { erreur: `upwork : ${messageErreur(e)}`, budget: false };
@@ -1401,9 +1409,9 @@ async function envoyerSemaine(
   if (canal === "slack") erreur = await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons, { stop: false }));
   else {
     const u = await envoyerUpwork(p.contrat_id!, texte, { prioritaire: false });
-    if (u.budget) {
+    if (u.budget || u.reporter) {
       await supabase.from("nudges").delete().eq("id", ligne.id);
-      bilan.upworkPlein = true;
+      if (u.budget) bilan.upworkPlein = true;
       return;
     }
     erreur = u.erreur;
@@ -1818,10 +1826,10 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
     return;
   }
   const u = await envoyerUpwork(p.contrat_id, texte, { prioritaire: false });
-  if (u.budget) {
-    // Upwork plein aujourd'hui : rien n'est parti, le message pourra repartir.
+  if (u.budget || u.reporter) {
+    // Upwork plein aujourd'hui (ou le compte de secours n'a pas pu) : rien n'est parti, le message pourra repartir.
     await supabase.from("nudges").delete().eq("id", ligne.id);
-    bilan.upworkPlein = true;
+    if (u.budget) bilan.upworkPlein = true;
     return;
   }
   const erreur = u.erreur;

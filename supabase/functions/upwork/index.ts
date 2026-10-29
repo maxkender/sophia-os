@@ -86,6 +86,8 @@ import {
 } from "../_shared/paiement.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
+import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, lireCompte } from "../_shared/upwork_comptes.ts";
+import { estLimiteUpwork } from "../_shared/garde_fous.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -93,7 +95,11 @@ type Supabase = ReturnType<typeof serviceClient>;
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
 /** Max, sur Slack : prévenu si la connexion tombe. */
 const SLACK_MAX = "U0BL5FRLBEU";
-/** La seule connexion pour l'instant : celle de Max (propriétaire de Vik Studios). */
+/**
+ * La connexion de Max (propriétaire de Vik Studios) : tout passe par elle. Prompt
+ * 25 v4 : une 2e connexion, « secours » (Adrien, membre de Vik Studios), pour
+ * les messages seulement, quand Max a écrit à 45 personnes ou a eu la limite.
+ */
 const COMPTE = "principal";
 
 /**
@@ -163,6 +169,7 @@ const COMPTE = "principal";
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   const supabase = serviceClient();
+  // Prompt 25 v4 : { action: "lien" | "diagnostic", compte: "secours" } : la connexion de secours (Adrien).
   try {
     const url = new URL(request.url);
     if (request.method === "GET" && (url.searchParams.has("code") || url.searchParams.has("error"))) {
@@ -181,9 +188,9 @@ Deno.serve(async (request) => {
 
     switch (body.action) {
       case "lien":
-        return json(await lien(supabase, par));
+        return json(await lien(supabase, par, lireCompte(body.compte)));
       case "diagnostic":
-        return json(await diagnostic(supabase, par));
+        return json(await diagnostic(supabase, par, null, lireCompte(body.compte)));
       case "verifier":
         return json(await verifier(supabase));
       case "contrats":
@@ -261,11 +268,13 @@ async function noter(
     duree?: number;
     contrat?: string | null;
     montant?: number | null;
+    compte?: string;
   },
 ): Promise<void> {
+  const compte = ligne.compte ?? COMPTE;
   await supabase.from("upwork_appels").insert({
     par: ligne.par,
-    compte: COMPTE,
+    compte,
     action: ligne.action,
     contrat: ligne.contrat ?? null,
     montant: ligne.montant ?? null,
@@ -275,24 +284,26 @@ async function noter(
     statut_http: ligne.statut ?? null,
     duree_ms: ligne.duree ?? null,
   });
-  await supabase.from("upwork_connexion").update({ dernier_appel_at: new Date().toISOString() }).eq("compte", COMPTE);
+  await supabase.from("upwork_connexion").update({ dernier_appel_at: new Date().toISOString() }).eq("compte", compte);
 }
 
 // ---------------------------------------------------------------------------
 // Connexion
 // ---------------------------------------------------------------------------
 
-async function lien(supabase: Supabase, par: string | null) {
+async function lien(supabase: Supabase, par: string | null, compte: string = COMPTE) {
   const { clientId, redirectUri } = identifiants();
   const state = crypto.randomUUID().replaceAll("-", "") + crypto.randomUUID().replaceAll("-", "");
-  const { error } = await supabase.from("upwork_etats").insert({ state, compte: COMPTE, cree_par: par });
+  const { error } = await supabase.from("upwork_etats").insert({ state, compte, cree_par: par });
   if (error) throw error;
   return { ok: true, url: urlAutorisation(clientId, redirectUri, state), redirect_uri: redirectUri };
 }
 
-function versReglages(statut: "ok" | "erreur", raison?: string): Response {
-  const u = new URL(`${OS_URL}/admin/reglages`);
+function versReglages(statut: "ok" | "erreur", raison?: string, compte: string = COMPTE): Response {
+  // La connexion de secours se fait depuis Overview (Health).
+  const u = new URL(`${OS_URL}${compte === COMPTE ? "/admin/reglages" : "/admin/auto"}`);
   u.searchParams.set("upwork", statut);
+  if (compte !== COMPTE) u.searchParams.set("compte", compte);
   if (raison) u.searchParams.set("raison", raison.slice(0, 200));
   u.hash = "upwork";
   return new Response(null, { status: 302, headers: { location: u.toString() } });
@@ -307,13 +318,14 @@ async function retourUpwork(supabase: Supabase, url: URL): Promise<Response> {
   // Le state : créé par un admin il y a moins de 15 min, jamais utilisé.
   const { data: etat, error } = await supabase
     .from("upwork_etats")
-    .select("state, cree_par, cree_at, utilise_at")
+    .select("state, compte, cree_par, cree_at, utilise_at")
     .eq("state", state)
     .maybeSingle();
   if (error) throw error;
   if (!etat || etat.utilise_at || Date.now() - new Date(etat.cree_at).getTime() > 15 * 60_000 || !code) {
     return versReglages("erreur", "lien de connexion expiré ou déjà utilisé : recommence depuis Réglages");
   }
+  const compte = lireCompte(etat.compte);
   await supabase.from("upwork_etats").update({ utilise_at: new Date().toISOString() }).eq("state", state);
 
   const { clientId, clientSecret, redirectUri } = identifiants();
@@ -334,17 +346,18 @@ async function retourUpwork(supabase: Supabase, url: URL): Promise<Response> {
       reponse: { token_type: brut?.token_type, expires_in: brut?.expires_in, scope: brut?.scope ?? null },
       statut: reponse.status,
       duree: Date.now() - debut,
+      compte,
     });
     const { error: errJetons } = await supabase.rpc("upwork_jetons_ecrire", {
-      p_compte: COMPTE,
+      p_compte: compte,
       p_access: jetons.access,
       p_refresh: jetons.refresh,
       p_access_expire: jetons.expireAt,
       p_par: etat.cree_par,
     });
     if (errJetons) throw errJetons;
-    await diagnostic(supabase, etat.cree_par, jetons.scope);
-    return versReglages("ok");
+    await diagnostic(supabase, etat.cree_par, jetons.scope, compte);
+    return versReglages("ok", undefined, compte);
   } catch (e) {
     const message = messageErreur(e);
     await noter(supabase, {
@@ -355,17 +368,20 @@ async function retourUpwork(supabase: Supabase, url: URL): Promise<Response> {
       erreur: message,
       statut: reponse.status,
       duree: Date.now() - debut,
+      compte,
     });
-    return versReglages("erreur", message);
+    return versReglages("erreur", message, compte);
   }
 }
 
 /** Un jeton d'accès valide : renouvelé s'il expire dans moins de 2 h. */
-async function jetonValide(supabase: Supabase, par: string | null): Promise<string> {
-  const { data, error } = await supabase.rpc("upwork_jetons_lire", { p_compte: COMPTE });
+async function jetonValide(supabase: Supabase, par: string | null, compte: string = COMPTE): Promise<string> {
+  const { data, error } = await supabase.rpc("upwork_jetons_lire", { p_compte: compte });
   if (error) throw error;
   const j = (data ?? [])[0] as { access_token: string | null; refresh_token: string | null; access_expire_at: string | null } | undefined;
-  if (!j?.access_token) throw new Error("Upwork n'est pas connecté : Réglages → Upwork → Connecter");
+  if (!j?.access_token) {
+    throw new Error(compte === COMPTE ? "Upwork n'est pas connecté : Réglages → Upwork → Connecter" : `le compte Upwork « ${compte} » n'est pas connecté`);
+  }
   if (!aRenouveler(j.access_expire_at)) return j.access_token;
   if (!j.refresh_token) throw new Error("jeton expiré et pas de jeton de renouvellement : reconnecter Upwork");
 
@@ -389,6 +405,7 @@ async function jetonValide(supabase: Supabase, par: string | null): Promise<stri
       erreur: messageErreur(e),
       statut: reponse.status,
       duree: Date.now() - debut,
+      compte,
     });
     throw e;
   }
@@ -398,9 +415,10 @@ async function jetonValide(supabase: Supabase, par: string | null): Promise<stri
     reponse: { expires_in: brut?.expires_in, scope: brut?.scope ?? null },
     statut: reponse.status,
     duree: Date.now() - debut,
+    compte,
   });
   const { error: errJetons } = await supabase.rpc("upwork_jetons_ecrire", {
-    p_compte: COMPTE,
+    p_compte: compte,
     p_access: jetons.access,
     p_refresh: jetons.refresh,
     p_access_expire: jetons.expireAt,
@@ -416,10 +434,10 @@ async function jetonValide(supabase: Supabase, par: string | null): Promise<stri
  */
 async function lire(
   supabase: Supabase,
-  o: { par: string | null; action: string; query: string; variables?: Record<string, unknown>; tenant?: string | null },
+  o: { par: string | null; action: string; query: string; variables?: Record<string, unknown>; tenant?: string | null; compte?: string },
   // deno-lint-ignore no-explicit-any
 ): Promise<{ data: any; erreur: string | null; statut: number | null }> {
-  const jeton = await jetonValide(supabase, o.par);
+  const jeton = await jetonValide(supabase, o.par, o.compte);
   const debut = Date.now();
   let vu429 = false;
   // deno-lint-ignore no-explicit-any
@@ -453,6 +471,7 @@ async function lire(
     erreur,
     statut: r.statut,
     duree: Date.now() - debut,
+    compte: o.compte,
   });
   return { data: r.valeur?.data ?? null, erreur, statut: r.statut };
 }
@@ -461,9 +480,9 @@ async function lire(
 // Diagnostic : schéma, organisations, ce que la clé permet de lire
 // ---------------------------------------------------------------------------
 
-async function diagnostic(supabase: Supabase, par: string | null, scope: string | null = null) {
+async function diagnostic(supabase: Supabase, par: string | null, scope: string | null = null, compte: string = COMPTE) {
   // 1. Le schéma : les noms exacts de l'API, rangés pour être vérifiés avant usage.
-  const schema = await lire(supabase, { par, action: "schema", query: INTROSPECTION });
+  const schema = await lire(supabase, { par, action: "schema", query: INTROSPECTION, compte });
   let racines: { requetes: string[]; mutations: string[] } | null = null;
   if (schema.data?.__schema) {
     await supabase.from("upwork_schema").insert({ schema: schema.data });
@@ -476,8 +495,11 @@ async function diagnostic(supabase: Supabase, par: string | null, scope: string 
       par,
       action: "organisations",
       query: "query Organisations { companySelector { items { title organizationId } } }",
+      compte,
     })
     : { data: null, erreur: "companySelector absent du schéma", statut: null };
+  // Prompt 25 v4 : qui a autorisé (l'id sert à ajouter Adrien à une conversation).
+  const moi = await lire(supabase, { par, action: "utilisateur", query: "query Moi { user { id nid name } }", compte });
 
   const droits = {
     lu_at: new Date().toISOString(),
@@ -491,10 +513,11 @@ async function diagnostic(supabase: Supabase, par: string | null, scope: string 
   await supabase.from("upwork_connexion").update({
     organisations: orgs.data?.companySelector?.items ?? null,
     droits,
+    ...(moi.data?.user?.id ? { utilisateur: moi.data.user } : {}),
     statut: schema.erreur && orgs.erreur ? "erreur" : "connecte",
     derniere_erreur: schema.erreur && orgs.erreur ? `${schema.erreur} · ${orgs.erreur}` : null,
-  }).eq("compte", COMPTE);
-  return { ok: true, organisations: orgs.data?.companySelector?.items ?? null, droits };
+  }).eq("compte", compte);
+  return { ok: true, compte, utilisateur: moi.data?.user ?? null, organisations: orgs.data?.companySelector?.items ?? null, droits };
 }
 
 // ---------------------------------------------------------------------------
@@ -1710,12 +1733,14 @@ async function ecrire(
     tenant: string | null;
     contrat: string;
     montant?: number | null;
+    /** Prompt 25 v4 : les messages peuvent partir du compte de secours ; tout le reste, du compte de Max. */
+    compte?: string;
   },
   // deno-lint-ignore no-explicit-any
 ): Promise<{ data: any; erreur: string | null }> {
   // Prompt 22 : le grand interrupteur passe avant tout (rien n'est écrit sur Upwork).
   if (await bloquer(supabase, { fonction: "upwork", action: o.action, cible: o.contrat })) return { data: null, erreur: PAUSE };
-  const jeton = await jetonValide(supabase, o.par);
+  const jeton = await jetonValide(supabase, o.par, o.compte);
   const debut = Date.now();
   let statut: number | null = null;
   // deno-lint-ignore no-explicit-any
@@ -1758,6 +1783,7 @@ async function ecrire(
     erreur,
     statut,
     duree: Date.now() - debut,
+    compte: o.compte,
   });
   return { data: valeur?.data ?? null, erreur };
 }
@@ -1788,21 +1814,28 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
 /**
  * Prompt 25 : Upwork bloque après un nombre de conversations par jour (« maximum
  * number of rooms … in one day », 50 le 29/10). Au plus `upwork_conversations_jour_max`
- * (45) conversations distinctes par jour (UTC) ; relances et nudges s'arrêtent
- * `upwork_reserve_prioritaire` (5) avant, pour la bienvenue, le Kill et l'arrêt.
- * Écrire à une conversation déjà écrite aujourd'hui ne compte pas. Après
- * l'erreur de limite d'Upwork : plus rien jusqu'au lendemain. 1 message par
- * seconde au plus. Rend l'erreur, ou null si le message peut partir.
+ * (45) conversations distinctes par jour (UTC) et par compte ; relances et nudges
+ * s'arrêtent `upwork_reserve_prioritaire` (5) avant, pour la bienvenue, le Kill
+ * et l'arrêt. Écrire à une conversation déjà écrite aujourd'hui ne compte pas.
+ * Après l'erreur de limite d'Upwork : plus rien sur ce compte jusqu'au
+ * lendemain. 1 message par seconde au plus.
+ * Prompt 25 v4 : Max d'abord, puis Adrien (« secours ») ; une personne garde
+ * le même compte toute la journée (_shared/upwork_comptes.ts). Rend le compte,
+ * ou l'erreur si rien ne peut partir aujourd'hui.
  */
-async function budgetUpwork(supabase: Supabase, contratId: string, prioritaire: boolean): Promise<string | null> {
+async function compteDuMessage(
+  supabase: Supabase,
+  contratId: string,
+  prioritaire: boolean,
+  exclure: string[] = [],
+): Promise<{ compte: string; erreur: null } | { compte: null; erreur: string }> {
   const { data, error } = await supabase.rpc("upwork_budget_jour", { p_contrat: contratId });
-  if (error) return `budget Upwork illisible : ${error.message}`;
-  const b = data as { conversations: number; max: number; reserve: number; limite_atteinte: boolean; deja: boolean; dernier_ms: number | null };
-  if (b.limite_atteinte) return "limite Upwork du jour atteinte : plus rien jusqu'à demain";
-  const plafond = prioritaire ? b.max : Math.max(0, b.max - b.reserve);
-  if (!b.deja && b.conversations >= plafond) return `budget Upwork du jour atteint (${b.conversations}/${plafond})`;
+  if (error) return { compte: null, erreur: `budget Upwork illisible : ${error.message}` };
+  const b = data as { max: number; reserve: number; dernier_ms: number | null; comptes?: CompteDuJour[] };
+  const choix = choisirCompte(b.comptes ?? [], { max: b.max, reserve: b.reserve, prioritaire, exclure });
+  if (choix.compte === null) return { compte: null, erreur: choix.raison };
   if (b.dernier_ms !== null && b.dernier_ms < 1_000) await new Promise((r) => setTimeout(r, 1_000 - b.dernier_ms!));
-  return null;
+  return { compte: choix.compte, erreur: null };
 }
 
 async function envoyerMessage(
@@ -1810,32 +1843,70 @@ async function envoyerMessage(
   par: string | null,
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean } = {},
-): Promise<{ ok: boolean; error?: string; budget?: boolean; story_id?: string }> {
+  o: { prioritaire?: boolean; exclure?: string[] } = {},
+): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
-  const budget = await budgetUpwork(supabase, contratId, o.prioritaire !== false);
-  if (budget) return { ok: false, error: budget, budget: true };
+  const choix = await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
+  if (choix.compte === null) return { ok: false, error: choix.erreur, budget: true };
+  const compte = choix.compte;
   const { data: c } = await supabase
     .from("upwork_contrats")
     .select("organisation_id")
     .eq("contrat_id", contratId)
     .maybeSingle();
   const tenant = (c?.organisation_id as string | undefined) ?? null;
-  const salon = await lire(supabase, { par, action: "message_salon", query: REQUETE_SALON, variables: { id: contratId }, tenant });
+  // La conversation se lit avec le compte de Max (propriétaire), sinon avec celui qui écrit.
+  let salon = await lire(supabase, { par, action: "message_salon", query: REQUETE_SALON, variables: { id: contratId }, tenant });
+  if (!salon.data?.contractRoom?.id && compte !== COMPTE) {
+    salon = await lire(supabase, { par, action: "message_salon", query: REQUETE_SALON, variables: { id: contratId }, tenant, compte });
+  }
   const roomId = salon.data?.contractRoom?.id as string | undefined;
   if (!roomId) return { ok: false, error: salon.erreur ?? "conversation du contrat introuvable" };
+  const poster = () =>
+    ecrire(supabase, { par, action: "message", query: MUTATION_MESSAGE, variables: { input: { roomId, message: texte } }, tenant, contrat: contratId, compte });
+  let r = await poster();
+  let storyId = r.data?.createRoomStoryV2?.id as string | undefined;
+  if (storyId) return { ok: true, story_id: storyId, compte };
+  // La limite d'Upwork sur le compte de Max : rien n'est parti ; Adrien prend le relais (une fois).
+  if (compte === COMPTE && estLimiteUpwork(r.erreur) && !(o.exclure ?? []).includes(COMPTE_SECOURS)) {
+    return await envoyerMessage(supabase, par, contratId, texte, { ...o, exclure: [...(o.exclure ?? []), COMPTE] });
+  }
+  if (compte === COMPTE_SECOURS && r.erreur !== PAUSE && !estLimiteUpwork(r.erreur)) {
+    // Adrien n'a pas pu écrire : Max l'ajoute à la conversation, puis un seul nouvel essai.
+    const ajout = await ajouterSecoursAuSalon(supabase, par, roomId, tenant, contratId);
+    if (!ajout) {
+      r = await poster();
+      storyId = r.data?.createRoomStoryV2?.id as string | undefined;
+      if (storyId) return { ok: true, story_id: storyId, compte };
+    }
+    // Échec : noté ; le message repart demain, avec Max d'abord.
+    await noter(supabase, {
+      par, action: "message_secours_echec", contrat: contratId, compte,
+      erreur: `compte de secours : ${r.erreur ?? "message non confirmé"}${ajout ? ` ; ajout à la conversation : ${ajout}` : ""} — demain avec le compte principal`,
+    });
+    return { ok: false, error: `compte de secours : ${r.erreur ?? "message non confirmé"} (demain avec le compte principal)`, reporter: true, compte };
+  }
+  return { ok: false, error: r.erreur ?? "message non confirmé par Upwork", budget: estLimiteUpwork(r.erreur), compte };
+}
+
+/** addUserToRoom (par le compte de Max, propriétaire) : Adrien entre dans la conversation. Rend l'erreur, ou null. */
+async function ajouterSecoursAuSalon(supabase: Supabase, par: string | null, roomId: string, tenant: string | null, contratId: string): Promise<string | null> {
+  const { data: conn } = await supabase.from("upwork_connexion").select("utilisateur").eq("compte", COMPTE_SECOURS).maybeSingle();
+  const userId = (conn?.utilisateur as { id?: string } | null)?.id;
+  if (!userId) return "id Upwork d'Adrien inconnu (Diagnostic du compte de secours)";
+  if (!tenant) return "organisation du contrat inconnue";
   const r = await ecrire(supabase, {
     par,
-    action: "message",
-    query: MUTATION_MESSAGE,
-    variables: { input: { roomId, message: texte } },
+    action: "message_ajout_secours",
+    query: MUTATION_AJOUT_SALON,
+    variables: { roomId, users: [{ userId, organizationId: tenant, role: "participant" }] },
     tenant,
     contrat: contratId,
   });
-  const storyId = r.data?.createRoomStoryV2?.id as string | undefined;
-  if (!storyId) return { ok: false, error: r.erreur ?? "message non confirmé par Upwork" };
-  return { ok: true, story_id: storyId };
+  return r.data?.addUserToRoom === true ? null : r.erreur ?? "ajout non confirmé par Upwork";
 }
+
+const MUTATION_AJOUT_SALON = `mutation AjoutSalon($roomId: ID!, $users: [RoomUserInput!]!) { addUserToRoom(roomId: $roomId, roomUsers: $users) }`;
 
 // ---------------------------------------------------------------------------
 // Système du 2 nov., partie A : l'accueil automatique
@@ -2502,35 +2573,42 @@ async function etapeSlack(slackUser: string, reel: boolean): Promise<EtapeArret>
 }
 
 async function verifier(supabase: Supabase) {
-  const { data: c } = await supabase
-    .from("upwork_connexion")
-    .select("statut, alerte_at, access_secret_id")
-    .eq("compte", COMPTE)
-    .maybeSingle();
-  if (!c?.access_secret_id) return { ok: true, ignore: "pas encore connecté" };
-  try {
-    const r = await lire(supabase, {
-      par: null,
-      action: "verification",
-      query: "query Verification { companySelector { items { organizationId } } }",
-    });
-    if (r.erreur) throw new Error(r.erreur);
-    await supabase.from("upwork_connexion").update({ statut: "connecte", derniere_erreur: null }).eq("compte", COMPTE);
-    return { ok: true };
-  } catch (e) {
-    const message = messageErreur(e);
-    const deja = c.alerte_at && Date.now() - new Date(c.alerte_at).getTime() < 20 * 3_600_000;
-    await supabase.from("upwork_connexion").update({
-      statut: "erreur",
-      derniere_erreur: message.slice(0, 500),
-      ...(deja ? {} : { alerte_at: new Date().toISOString() }),
-    }).eq("compte", COMPTE);
-    if (!deja) await alerterMax(message);
-    return { ok: false, error: message };
+  // Prompt 25 v4 : chaque compte connecté (Max, et Adrien s'il a connecté le sien).
+  const { data: comptes } = await supabase.from("upwork_connexion").select("compte, statut, alerte_at, access_secret_id");
+  const resultats: Record<string, { ok: boolean; error?: string; ignore?: string }> = {};
+  for (const c of comptes ?? []) {
+    const compte = String(c.compte);
+    if (!c.access_secret_id) {
+      resultats[compte] = { ok: true, ignore: "pas encore connecté" };
+      continue;
+    }
+    try {
+      const r = await lire(supabase, {
+        par: null,
+        action: "verification",
+        query: "query Verification { companySelector { items { organizationId } } }",
+        compte,
+      });
+      if (r.erreur) throw new Error(r.erreur);
+      await supabase.from("upwork_connexion").update({ statut: "connecte", derniere_erreur: null }).eq("compte", compte);
+      resultats[compte] = { ok: true };
+    } catch (e) {
+      const message = messageErreur(e);
+      const deja = c.alerte_at && Date.now() - new Date(c.alerte_at).getTime() < 20 * 3_600_000;
+      await supabase.from("upwork_connexion").update({
+        statut: "erreur",
+        derniere_erreur: message.slice(0, 500),
+        ...(deja ? {} : { alerte_at: new Date().toISOString() }),
+      }).eq("compte", compte);
+      if (!deja) await alerterMax(message, compte);
+      resultats[compte] = { ok: false, error: message };
+    }
   }
+  if (!resultats[COMPTE]) return { ok: true, ignore: "pas encore connecté", comptes: resultats };
+  return { ok: Object.values(resultats).every((r) => r.ok), ...(resultats[COMPTE].error ? { error: resultats[COMPTE].error } : {}), comptes: resultats };
 }
 
-async function alerterMax(message: string): Promise<void> {
+async function alerterMax(message: string, compte: string = COMPTE): Promise<void> {
   const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (!jeton) return;
   await fetch("https://slack.com/api/chat.postMessage", {
@@ -2538,8 +2616,10 @@ async function alerterMax(message: string): Promise<void> {
     headers: { authorization: `Bearer ${jeton}`, "content-type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
       channel: SLACK_MAX,
-      text: `:warning: La connexion Upwork de l'OS ne marche plus (${message.slice(0, 300)}). ` +
-        `Reconnecte-la : ${OS_URL}/admin/reglages#upwork`,
+      text: compte === COMPTE
+        ? `:warning: La connexion Upwork de l'OS ne marche plus (${message.slice(0, 300)}). Reconnecte-la : ${OS_URL}/admin/reglages#upwork`
+        : `:warning: Le compte Upwork de secours (${compte}) ne marche plus (${message.slice(0, 300)}). ` +
+          `Les messages passent par le compte principal seulement. Reconnecter : ${OS_URL}/admin/auto`,
     }),
   }).catch(() => undefined);
 }

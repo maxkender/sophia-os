@@ -1,9 +1,9 @@
--- 0419 : BLEO, le modèle de données (docs/bleo.md, « Modèle de données » ; lot L0).
+-- 0600 : BLEO, le modèle de données (docs/bleo.md, « Modèle de données » ; lot L0).
 --
 -- AJOUT SEULEMENT. Rien de ce qui tourne ne lit ces colonnes ni ces tables :
 -- l'assignation, la tierlist, les podz et le relevé de nuit sont inchangés.
 -- Les colonnes neuves des tables existantes sont nulles (ou à une constante),
--- donc sans réécriture de table. Les remplir, c'est le lot L1 (0420).
+-- donc sans réécriture de table. Les remplir, c'est le lot L1 (0601).
 --
 -- Écarts assumés avec la spec, notés dans docs/bleo-chantier.md :
 --   * `deck_version` est un entier (la spec dit « + 1 » à chaque correction) ;

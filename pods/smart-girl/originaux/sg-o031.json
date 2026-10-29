@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o031",
+ "schema_id": "magnetic-speaking",
+ "titre": "stop saying \"nice\": words that make you sound dangerously well spoken #vocabulary #speakbetter #eloquence #smartgirl #englishwords",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a"
+ ],
+ "notes": "variante de sg-o005 (rang S, un passage à r 134, r médian 2,9 ; le suivi demande de la décliner). cta C. CTA au 29/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Familles usées sur 7 jours (3 livraisons ou plus) : vocabulaire, magnetic-speaking, high-status-woman ; seule sg-o031 en reprend une (variante de sg-o005, que le suivi demande de décliner). Même schéma magnetic-speaking, même format « instead of … say … » en minuscules, autre mot faible : « nice ». Paires au sens courant du dictionnaire, aucune reprise des variantes sg-o022 à sg-o024 : gracious, lovely, clever, delightful, elegant, wonderful, riveting. Accroches écrites : « stop saying \"nice\": words that make you sound dangerously well spoken » (retenue : l'accroche exacte de sg-o005, le mot changé), « 7 words to say instead of \"nice\" » (écartée : moins d'ordre), « why \"nice\" is the most boring word in english » (écartée : sans preuve). Images de la banque (sources @speakbetter14), autres que celles des variantes précédentes ; slide Sophia sur un ciel du soir, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0b9a66da",
+   "texte_overlay": "stop saying \"nice\"\nwords that make you sound\ndangerously well spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11287cde",
+   "texte_overlay": "instead of \"a nice person\"\nsay \"gracious\"\n\ninstead of \"a nice day\"\nsay \"lovely\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f49aac62",
+   "texte_overlay": "instead of \"a nice idea\"\nsay \"clever\"\n\ninstead of \"a nice meal\"\nsay \"delightful\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bcd40ac4",
+   "texte_overlay": "instead of \"a nice dress\"\nsay \"elegant\"\n\ninstead of \"a nice surprise\"\nsay \"wonderful\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "474a2db6",
+   "texte_overlay": "\"nice\" is polite.\nthe precise word is\nwhat people remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0681ed76",
+   "texte_overlay": "instead of \"a nice story\"\nsay \"riveting\"\n\nwant more words like these?\nread a little every day.",
+   "texte_sophia": "instead of \"a nice story\"\nsay \"riveting\"\n\nwhere i find words like these?\ni swapped the scroll for an\napp like sophia: one lesson\nof art or history a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eeeb8af8",
+   "texte_overlay": "save this and swap one\nword today\nwhich \"nice\" do you\nsay the most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o046",
+ "schema_id": "boite-te-merite",
+ "titre": "ce que je négocie maintenant AVANT de signer (et que j'osais pas demander avant) #negociation #salaire #emploi #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Routine du 29/10 (6 livraisons). Règle §4.6 : seule rh-o043 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les 5 autres ouvrent des familles jamais faites chez nous (« signaux », « questions pièges », « test », « je négocie », « ma routine »). Schéma boite-te-merite (r 6,81 sur 4 passages, 1fd9d1f3) : le rapport de force inversé. Famille d'accroche jamais faite : « je négocie ». Accroches écrites : celle-ci (retenue), « les 6 choses qu'on peut négocier en plus du salaire » (écartée : tuto), « j'ai signé trop vite pendant 5 ans » (écartée : sans liste claire). Six points généraux, aucune promesse de résultat, rien de juridique, aucun chiffre inventé. Aucune reprise de rh-o013, rh-o019, rh-o025, rh-o035 ni des sources. CTA de fin jamais utilisé : s'engager à en demander une. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac762e1d",
+   "texte_overlay": "ce que je négocie maintenant\nAVANT de signer\n(et que j'osais pas demander avant)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "99332e8e",
+   "texte_overlay": "1. la date de début\nune semaine de pause entre deux jobs, ça change tout.\nsouvent, ça se discute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "99dfcbc5",
+   "texte_overlay": "2. l'intitulé exact du poste, par écrit\nc'est lui qui comptera sur ton prochain cv",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9a23041a",
+   "texte_overlay": "3. un budget ou du temps de formation\nc'est un investissement pour eux aussi.\net en attendant, je me forme seule",
+   "texte_sophia": "3. un budget ou du temps de formation\nc'est un investissement pour eux aussi.\net en attendant, utilise l'appli Sophia : 5 minutes par jour pour apprendre seule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9b16ca69",
+   "texte_overlay": "4. un point sur le salaire à 6 mois\navec des critères clairs, notés dans un mail.\npas un « on verra »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bd53f772",
+   "texte_overlay": "5. un jour de télétravail\nsi le poste le permet. demander, c'est pas exiger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9bb3f547",
+   "texte_overlay": "6. les missions, écrites dans l'offre\nce qui n'est pas écrit n'existe pas vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9ce1df51",
+   "texte_overlay": "la prochaine fois, t'en demandes au moins une\npromis ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

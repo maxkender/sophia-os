@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o044",
+ "schema_id": "insider-rh",
+ "titre": "les questions pièges que je posais en entretien quand j'étais rh (et ce que je voulais entendre) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 29/10 (6 livraisons). Règle §4.6 : seule rh-o043 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les 5 autres ouvrent des familles jamais faites chez nous (« signaux », « questions pièges », « test », « je négocie », « ma routine »). Schéma insider-rh (r 3,49 sur 8 passages, d3d9cd2f). Famille d'accroche jamais faite : « les questions pièges que je posais ». Accroches écrites : celle-ci (retenue : confession + promesse concrète), « 5 questions de recruteur qui cachent un piège » (écartée : sans la confession), « la question que je posais pour éliminer un candidat » (écartée : trop dure). Cinq questions neuves, aucune reprise de rh-o003, rh-o005, rh-o010, rh-o018, rh-o022, rh-o028, rh-o033 ni des sources. CTA de fin jamais utilisé : répondre à la n°5 comme en entretien. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b1f54a06",
+   "texte_overlay": "les questions pièges que je posais en entretien\nquand j'étais rh\n(et ce que je voulais entendre)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "912a4499",
+   "texte_overlay": "1. « qu'est-ce que votre manager actuel dirait de vous ? »\nle piège : se lancer des fleurs.\nce que je voulais : une qualité, et un point qu'il te demande d'améliorer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c29be24f",
+   "texte_overlay": "2. « racontez-moi une journée où rien ne s'est passé comme prévu »\nle piège : accuser les autres.\nce que je voulais : ce que TOI t'as fait pour rattraper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "91eecf2f",
+   "texte_overlay": "3. « qu'est-ce qui vous fait perdre patience ? »\nle piège : « rien ».\nce que je voulais : un vrai agacement, et comment tu le gères",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bab987dd",
+   "texte_overlay": "4. « quelle est la dernière chose qui vous a fait changer d'avis ? »\nle piège : ne jamais changer d'avis.\nmes 3 sources pour en avoir : les autres, mes lectures, et ce que j'apprends chaque jour",
+   "texte_sophia": "4. « quelle est la dernière chose qui vous a fait changer d'avis ? »\nmes 3 sources pour en avoir : les autres, mes lectures, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9343df80",
+   "texte_overlay": "5. « pourquoi on ne prendrait pas l'autre candidat ? »\nle piège : critiquer quelqu'un que tu connais pas.\nce que je voulais : ce que toi tu apportes, calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "94cb615d",
+   "texte_overlay": "réponds à la n°5 en commentaire\ncomme si t'étais en entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

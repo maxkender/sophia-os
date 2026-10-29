@@ -74,12 +74,15 @@ export function DialogPaiement({
   titre,
   ouvert,
   onOpenChange,
+  onPaye,
 }: {
   semaine: string;
   ids: string[];
   titre: string;
   ouvert: boolean;
   onOpenChange: (o: boolean) => void;
+  /** Prompt 21, R : après « Confirmer » (Disputes note ce qui est parti). */
+  onPaye?: (lignes: PlanLigne[]) => void;
 }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -93,6 +96,7 @@ export function DialogPaiement({
   });
   const confirmer = useMutation({
     mutationFn: () => payer(semaine, ids),
+    onSuccess: (lignes) => onPaye?.(lignes),
     onSettled: () => queryClient.invalidateQueries({ queryKey: ["paie"] }),
   });
   React.useEffect(() => {

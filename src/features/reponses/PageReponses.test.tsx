@@ -63,7 +63,8 @@ describe("Messages received (prompt 22, partie 7)", () => {
     await waitFor(() =>
       expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual([
         "À lire1",
-        "Questions de paie1",
+        // Prompt 21, R2 : l'onglet de paie renvoie vers Disputes → Pay.
+        "Paie → Disputes1",
         "Demandes d'arrêt1",
         "Répondu par l'OS1",
       ]),
@@ -73,7 +74,8 @@ describe("Messages received (prompt 22, partie 7)", () => {
     fireEvent.click(within(aLire).getByRole("button", { name: "Lu" }));
     await waitFor(() => expect(api.corrigerReponse).toHaveBeenCalledWith("a", null, true));
 
-    fireEvent.click(within(onglets).getByRole("tab", { name: /Questions de paie/ }));
+    fireEvent.click(within(onglets).getByRole("tab", { name: /Paie → Disputes/ }));
+    expect(await screen.findByRole("link", { name: "Ouvrir Disputes → Pay" })).toHaveAttribute("href", "/admin/auto/disputes?onglet=paie");
     const paie = await screen.findByTestId("reponses-paie");
     // Déjà lu : plus dans la liste.
     expect(within(paie).queryByText("Paid?")).toBeNull();

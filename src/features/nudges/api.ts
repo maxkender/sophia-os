@@ -14,7 +14,11 @@ export type EtapeRelance =
   | "lundi_cohorte"
   | "lundi_warmup"
   | "lundi_soir"
-  | "jeudi";
+  | "jeudi"
+  // Prompt 21, C7 et C4 (0423) : le jeudi des recrues pas prêtes, le 2e compte d'un Double.
+  | "jeudi_recrue"
+  | "warmup_lance_deuxieme"
+  | "warmup_bien_fait_deuxieme";
 export const ETAPES_RELANCE: readonly EtapeRelance[] = [
   "connexion",
   "tiktok",
@@ -25,6 +29,9 @@ export const ETAPES_RELANCE: readonly EtapeRelance[] = [
   "lundi_warmup",
   "lundi_soir",
   "jeudi",
+  "jeudi_recrue",
+  "warmup_lance_deuxieme",
+  "warmup_bien_fait_deuxieme",
 ];
 export type ModeRelances = "off" | "simulation" | "on";
 
@@ -144,6 +151,9 @@ const CLES_TEXTES: Record<EtapeRelance, string> = {
   // Pipeline, partie 2 (0408) : le check du lundi soir, sur Upwork.
   lundi_soir: "lundi_soir_texte",
   jeudi: "jeudi_texte",
+  jeudi_recrue: "jeudi_texte_recrue",
+  warmup_lance_deuxieme: "etape_texte_warmup_lance_deuxieme",
+  warmup_bien_fait_deuxieme: "etape_texte_warmup_bien_fait_deuxieme",
 };
 
 export async function lireReglagesRelances(): Promise<ReglagesRelances> {

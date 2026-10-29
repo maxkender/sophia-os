@@ -10,9 +10,11 @@ export interface Filtres {
   /** Ancienneté : moins de 24 h, moins de 3 jours, plus de 7 jours. */
   anciennete: "" | "24h" | "3j" | "7j";
   recherche: string;
+  /** Prompt 22 : un ou plusieurs types (séparés par des virgules), depuis un compteur d'Overview (?type=…). */
+  type: string;
 }
 
-export const FILTRES_VIDES: Filtres = { cohorte: "", hm: "", pays: "", categorie: "", urgence: "", anciennete: "", recherche: "" };
+export const FILTRES_VIDES: Filtres = { cohorte: "", hm: "", pays: "", categorie: "", urgence: "", anciennete: "", recherche: "", type: "" };
 
 const HEURE = 3_600_000;
 
@@ -24,6 +26,7 @@ export function filtrer(cas: CasNeedsYou[], f: Filtres, maintenant = Date.now())
     if (f.pays && c.pays !== f.pays) return false;
     if (f.categorie && c.categorie !== f.categorie) return false;
     if (f.urgence && c.urgence !== f.urgence) return false;
+    if (f.type && !f.type.split(",").includes(c.type)) return false;
     const age = maintenant - new Date(c.cree_at).getTime();
     if (f.anciennete === "24h" && age > 24 * HEURE) return false;
     if (f.anciennete === "3j" && age > 72 * HEURE) return false;

@@ -24,7 +24,7 @@ import {
   lirePipeline,
   type CartePipeline,
 } from "./api";
-import { aRisque, cartesAvancees, COLONNES, duree, FILTRES_VIDES, filtrer, parColonne, type FiltresPipeline } from "./logique";
+import { aRisque, cartesAvancees, COLONNES, duree, FILTRES_VIDES, filtrer, parColonne, sansCanal, type FiltresPipeline } from "./logique";
 
 const CLE = ["pipeline"] as const;
 /** Le temps où une carte qui vient d'avancer reste verte, avec sa flèche, dans son ancienne colonne. */
@@ -87,6 +87,11 @@ function Carte({
         {passage && <ArrowRight className="ml-auto size-4 shrink-0 text-success-foreground" aria-label={t("pipeline.avance")} />}
       </p>
       {c.deuxieme && <p className="text-[11px] text-muted-foreground">{t("pipeline.deuxieme", { nom: c.nom ?? "—" })}</p>}
+      {sansCanal(c) && (
+        <Badge variant="destructive" className="text-[10px]" data-sans-canal>
+          {t("pipeline.sansCanal")}
+        </Badge>
+      )}
       <p className="text-muted-foreground">
         {c.hm_prenom ? t("pipeline.hm", { hm: c.hm_prenom }) : t("pipeline.sansHm")}
         {c.colonne_depuis && ` · ${t("pipeline.depuis", { d: d(maintenant - Date.parse(c.colonne_depuis)) })}`}
@@ -271,12 +276,22 @@ function Panneau({ c, onFermer }: { c: CartePipeline | null; onFermer: () => voi
  * avance passe au vert, une flèche apparaît, puis elle glisse dans la colonne
  * suivante (sans animation si « réduire les animations »).
  */
-export function PagePipeline({ maintenant: fixe }: { maintenant?: Date } = {}) {
+export function PagePipeline({
+  maintenant: fixe,
+  cohorte = "",
+  risqueInitial = false,
+}: {
+  maintenant?: Date;
+  /** Prompt 22, partie 4 (Recruits) : le lundi de cohorte choisi ; vide = toutes. */
+  cohorte?: string;
+  /** Arrivée depuis Overview → Today (« Kills en cours ») : seulement les cartes à risque. */
+  risqueInitial?: boolean;
+} = {}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const cartes = useQuery({ queryKey: [...CLE, "cartes"], queryFn: lirePipeline, refetchInterval: 60_000 });
   const arretes = useQuery({ queryKey: [...CLE, "arretes"], queryFn: lireArretes, refetchInterval: 60_000 });
-  const [filtres, setFiltres] = React.useState<FiltresPipeline>(FILTRES_VIDES);
+  const [filtres, setFiltres] = React.useState<FiltresPipeline>(() => ({ ...FILTRES_VIDES, risque: risqueInitial }));
   const [ouverteId, setOuverteId] = React.useState<string | null>(null);
   const [horloge, setHorloge] = React.useState(() => (fixe ?? new Date()).getTime());
 
@@ -313,7 +328,7 @@ export function PagePipeline({ maintenant: fixe }: { maintenant?: Date } = {}) {
     return () => window.clearTimeout(id);
   }, [cartes.data]);
 
-  const toutes = cartes.data ?? [];
+  const toutes = (cartes.data ?? []).filter((c) => !cohorte || c.cohorte_lundi === cohorte);
   // Le panneau suit la carte en direct (Kill annulé, relance, réponse).
   const ouverte = toutes.find((c) => c.carte_id === ouverteId) ?? null;
   const visibles = filtrer(toutes, filtres).map((c) => (passages.has(c.carte_id) ? { ...c, colonne: passages.get(c.carte_id)! } : c));

@@ -27,7 +27,13 @@ vi.mock("@/features/onboarding/cinqEtapesApi", () => ({
 
 const postsMock = vi.hoisted(() => ({ liste: [] as unknown[] }));
 vi.mock("@/lib/supabase/client", () => {
-  const requete = { select: () => requete, order: () => requete, limit: async () => ({ data: postsMock.liste, error: null }) };
+  const requete = {
+    select: () => requete,
+    order: () => requete,
+    limit: async () => ({ data: postsMock.liste, error: null }),
+    // Les réglages des posteurs (prompt 21, C8 : le lien Slack vient du seul réglage slack_lien_invitation).
+    in: async () => ({ data: [{ cle: "slack_lien_invitation", valeur: "https://join.slack.com/t/x" }], error: null }),
+  };
   return { supabase: { from: () => requete } };
 });
 

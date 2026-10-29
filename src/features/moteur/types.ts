@@ -481,11 +481,6 @@ export interface ReglagesFileLabels {
   par_application?: Record<string, FileLabelsApplication>;
 }
 
-export interface ReglagesWarmup {
-  /** Durée du warmup en heures (défaut 24). */
-  heures: number;
-}
-
 export interface Reglages {
   repartition: { recycle: number; remanie: number; nouveau: number };
   frequence: { posts_par_jour: number };
@@ -509,7 +504,6 @@ export interface Reglages {
   assignation_auto: { actif: boolean };
   nettoyage: ReglagesNettoyage;
   file_labels_comptes: ReglagesFileLabels;
-  warmup: ReglagesWarmup;
 }
 
 export interface StatsCompte {

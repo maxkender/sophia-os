@@ -12,6 +12,7 @@ import { useLibelleType } from "@/features/auto/sent/journal";
 import { useOnglet } from "@/features/auto/useOnglet";
 import { lireInterrupteurs } from "@/features/interrupteurs/api";
 import { localeDate } from "@/locales/localeDate";
+import { BoutonContestation, RenvoiPaieDisputes } from "@/features/disputes/PageDisputes";
 import { cn } from "@/lib/utils";
 
 import { ReglagesReponses } from "./ReglagesReponses";
@@ -138,6 +139,8 @@ function Ligne({ r, ctx }: { r: ReponsePosteur; ctx: Contexte }) {
             {t("autoOnglets.received.ouvrirSlack")}
           </a>
         )}
+        {/* Prompt 21, R2 : à la main, une contestation (page Disputes). */}
+        <BoutonContestation reponseId={r.id} />
         {r.statut === "classe" &&
           (corriger ? (
             <span className="inline-flex flex-wrap items-center gap-1" role="group" aria-label={t("reponses.mauvaisCas")}>
@@ -232,6 +235,8 @@ export function PageReponses() {
         alerte={["a_lire", "paie", "stop"]}
       />
       <PanneauOnglet id="received" actif={onglet}>
+        {/* Prompt 21, R2 : les questions de paie sont dans Disputes → Pay. */}
+        {onglet === "paie" && <RenvoiPaieDisputes />}
         <Bloc
           titre={t(TEXTES_ONGLET[onglet].titre, { n: listes[onglet].length })}
           aide={t(TEXTES_ONGLET[onglet].aide)}

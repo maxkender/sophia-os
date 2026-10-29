@@ -6,7 +6,8 @@ import { CalendarCheck, ExternalLink, IdCard, MessageCircle, Wallet } from "luci
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { lireCohorteAccueil } from "@/features/moteur/api";
-import { LIEN_RUUL_INSCRIPTION, LIEN_SLACK, SALON_COHORTE_RUUL } from "@/features/onboarding/contenu";
+import { LIEN_RUUL_INSCRIPTION, SALON_COHORTE_RUUL } from "@/features/onboarding/contenu";
+import { useRegles } from "@/features/regles/api";
 import { finPremiereSemaineRuul, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 
 /** Espace freelancer Ruul (connexion, compte bancaire, paiements reçus). */
@@ -20,6 +21,8 @@ const LIEN_RUUL = "https://app.ruul.io";
 export function PosterPaiementsPage() {
   const { t, i18n } = useTranslation();
   const cohorte = useQuery({ queryKey: ["accueil-cohorte"], queryFn: lireCohorteAccueil, staleTime: Infinity });
+  // Prompt 21, C8 : le seul lien Slack, le réglage slack_lien_invitation.
+  const { slack } = useRegles();
 
   if (cohorte.isPending) return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   if (!cohorte.data?.cohorteRuul) return <Navigate to="/calendrier" replace />;
@@ -115,14 +118,16 @@ export function PosterPaiementsPage() {
           </CardTitle>
           <CardDescription>{t("paiementsRuul.questions", { salon: SALON_COHORTE_RUUL })}</CardDescription>
         </CardHeader>
-        <CardContent>
-          <Button asChild variant="outline">
-            <a href={LIEN_SLACK} target="_blank" rel="noreferrer">
-              <MessageCircle />
-              {t("paiementsRuul.rejoindreSlack")}
-            </a>
-          </Button>
-        </CardContent>
+        {slack && (
+          <CardContent>
+            <Button asChild variant="outline">
+              <a href={slack} target="_blank" rel="noreferrer">
+                <MessageCircle />
+                {t("paiementsRuul.rejoindreSlack")}
+              </a>
+            </Button>
+          </CardContent>
+        )}
       </Card>
     </div>
   );

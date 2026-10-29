@@ -19,8 +19,12 @@ const c = (o: Partial<Classement>): Classement => ({ cas: "travail", confiance: 
 
 Deno.test("lire le JSON du modèle ; illisible ou cas inconnu → null", () => {
   assertEquals(lireClassement('bla {"cas":"paie","confiance":0.9,"sous_cas":null,"reponse":"","jours":null} bla')?.cas, "paie");
-  assertEquals(lireClassement('{"cas":"absent","confiance":1.4,"jours":"3"}'), { cas: "absent", confiance: 1, sous_cas: null, reponse: "", jours: 3 });
+  assertEquals(lireClassement('{"cas":"absent","confiance":1.4,"jours":"3"}'), { cas: "absent", confiance: 1, sous_cas: null, reponse: "", jours: 3, conteste: null });
   assertEquals(lireClassement('{"cas":"autre"}'), null);
+  // Prompt 21, R : la contestation, seulement un type connu.
+  assertEquals(lireClassement('{"cas":"paie","confiance":0.9,"conteste":"paie"}')?.conteste, "paie");
+  assertEquals(lireClassement('{"cas":"a_lire","confiance":0.9,"conteste":"kill"}')?.conteste, "kill");
+  assertEquals(lireClassement('{"cas":"a_lire","confiance":0.9,"conteste":"autre chose"}')?.conteste, null);
   assertEquals(lireClassement("pas de json"), null);
   // Le sous-cas n'a de sens que pour une question de travail.
   assertEquals(lireClassement('{"cas":"paie","confiance":0.9,"sous_cas":"augmentation"}')?.sous_cas, null);
@@ -41,6 +45,9 @@ Deno.test("travail : le guide, l'augmentation, son propre compte ; sur Upwork, r
   );
   // Le guide ne répond pas : une personne lira.
   assertEquals(planReponse(c({}), "slack", R, 0).liste, "a_lire");
+  // Prompt 21, C8 : sans lien Slack (réglage vide), rien ne part, une personne lira.
+  const sansLien = planReponse(c({ reponse: "x" }), "upwork", { ...R, slack: " " }, 0);
+  assertEquals([sansLien.repondre, sansLien.liste], [null, "a_lire"]);
 });
 
 Deno.test("paie : liste, jamais de réponse ; stop : arrêt ; absent : pause de 7 jours au plus", () => {
@@ -77,4 +84,13 @@ Deno.test("boutons Slack : les libellés du réglage, un libellé vide garde le 
   assertEquals(actions.map((b: { text: { text: string } }) => b.text.text), ["Fait ✅", "I need help", "I want to stop"]);
   assertEquals(actions[2].confirm.deny.text, "Cancel");
   assertEquals(lireLibellesBoutons(null), LIBELLES_BOUTONS_DEFAUT);
+});
+
+Deno.test("prompt 21, C6 : « I want to stop » seulement sur les messages d'étape", () => {
+  // deno-lint-ignore no-explicit-any
+  const lundi = (blocsBoutons("Reminder", LIBELLES_BOUTONS_DEFAUT, { stop: false })[1] as any).elements;
+  assertEquals(lundi.map((b: { action_id: string }) => b.action_id), ["posteur_done", "posteur_aide"]);
+  // deno-lint-ignore no-explicit-any
+  const etape = (blocsBoutons("Hi")[1] as any).elements;
+  assertEquals(etape.map((b: { action_id: string }) => b.action_id), ["posteur_done", "posteur_aide", "posteur_stop"]);
 });

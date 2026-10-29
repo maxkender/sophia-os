@@ -1,21 +1,23 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { ClipboardList, FileText, Languages, Layers, PenLine, Users, type LucideIcon } from "lucide-react";
+import { BookOpenText, ClipboardList, FileText, Languages, Layers, PenLine, Users, type LucideIcon } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Segments } from "@/components/ui/segments";
 import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteurs";
 import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
 import { SectionEcrituresKit } from "@/features/relectureNative/SectionEcrituresKit";
+import { SectionExemplesNatifs } from "@/features/relectureNative/SectionExemplesNatifs";
 import { SectionFichesAppli } from "@/features/relectureNative/SectionFichesAppli";
 import { SectionKitAdmin } from "@/features/relectureNative/SectionKitAdmin";
 import { SectionRelecteurs } from "@/features/relectureNative/SectionRelecteurs";
 import { SectionReponses } from "@/features/relectureNative/SectionReponses";
 
-type Onglet = "relecteurs" | "fiches" | "reponses" | "kit" | "ecritures";
+type Onglet = "relecteurs" | "exemples" | "fiches" | "reponses" | "kit" | "ecritures";
 
 const ONGLETS: ReadonlyArray<{ cle: Onglet; icone: LucideIcon }> = [
   { cle: "relecteurs", icone: Users },
+  { cle: "exemples", icone: BookOpenText },
   { cle: "kit", icone: Layers },
   { cle: "ecritures", icone: PenLine },
   { cle: "reponses", icone: ClipboardList },
@@ -74,6 +76,7 @@ export function AdminRelectureNativePage() {
           }}
         />
       )}
+      {onglet === "exemples" && <SectionExemplesNatifs />}
       {onglet === "kit" && <SectionKitAdmin />}
       {onglet === "ecritures" && <SectionEcrituresKit relecteurId={relecteurId} onChoisir={setRelecteurId} />}
       {onglet === "reponses" && <SectionReponses relecteurId={relecteurId} onChoisir={setRelecteurId} />}

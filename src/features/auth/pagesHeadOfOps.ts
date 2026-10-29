@@ -27,7 +27,6 @@ export const ROUTES_HO: readonly string[] = [
   ...PAGES_AUTO.map((p) => p.to),
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters
-  "/admin/retours-contestes", // Disputed feedback (0340)
   "/admin/file-reviews", // Today's queue
   "/admin/parrainages", // Referrals
   "/admin/documents", // Documents, en écriture

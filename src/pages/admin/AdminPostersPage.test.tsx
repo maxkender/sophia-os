@@ -36,6 +36,10 @@ vi.mock("@/features/moteur/apiMultiApp", async (importOriginal) => ({
   listerLiensLabels: () => listerLiensLabels(),
 }));
 
+// Prompt 25 v4 : qui a posté (vide : personne n'est caché, comme avant).
+const ayantPoste = vi.hoisted(() => ({ lirePosteursAyantPoste: vi.fn<() => Promise<Set<string>>>(async () => new Set()) }));
+vi.mock("@/features/onboarding/api", async (orig) => ({ ...(await orig<typeof import("@/features/onboarding/api")>()), ...ayantPoste }));
+
 import { AdminPostersPage } from "./AdminPostersPage";
 
 function profil(over: Partial<PosterProfil> & { id: string; role: PosterProfil["role"] }): PosterProfil {
@@ -137,6 +141,16 @@ describe("AdminPostersPage — par zone", () => {
     expect(screen.getByText("Solo")).toBeTruthy();
     // Recruteur désactivé sans créateur : replié à part.
     expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
+  });
+
+  it("prompt 25 v4 : seulement les posteurs qui ont posté ; les recrues sont sur Onboarding posters", async () => {
+    ayantPoste.lirePosteursAyantPoste.mockResolvedValueOnce(new Set(["beyza", "marta", "elodie"]));
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    expect((await screen.findByTestId("posters-onboarding")).textContent).toMatch(/1 recruits not posting yet/);
+    expect(screen.getByRole("link", { name: "Onboarding posters" }).getAttribute("href")).toBe("/admin/auto/recruits");
+    expect(within(sectionZone("Turkey + Israel")).getByText("Beyza")).toBeTruthy();
+    expect(screen.queryByText("Solo")).toBeNull();
   });
 
   it("filtre de zone par puce, et recherche sans accent", async () => {

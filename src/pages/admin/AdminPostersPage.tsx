@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { HelpCircle, MapPin, Plus, Search, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -114,6 +114,7 @@ import { lireEtapesComptes } from "@/features/moteur/etapesApi";
 import { compteActif, repartirArchive } from "@/features/archive/archive";
 import { SectionArchive, type LigneArchive } from "@/features/archive/SectionArchive";
 import { lireInactifs } from "@/features/inactifs/api";
+import { lirePosteursAyantPoste } from "@/features/onboarding/api";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
   Classement,
@@ -758,6 +759,9 @@ export function AdminPostersPage() {
   // 28 oct. (partie E) : les inactifs (0385), plus dans le menu, se filtrent ici.
   const [filtreInactifs, setFiltreInactifs] = React.useState(false);
   const inactifs = useQuery({ queryKey: ["posters", "inactifs"], queryFn: lireInactifs, enabled: filtreInactifs });
+  // Prompt 25 v4 : Posters ne montre que les posteurs qui ont publié (1er post avec lien) ;
+  // les recrues sont sur Recruitment Automation → Onboarding posters.
+  const ayantPoste = useQuery({ queryKey: ["posters", "ayant-poste"], queryFn: lirePosteursAyantPoste });
   const idsInactifs = React.useMemo(() => new Set((inactifs.data ?? []).map((i) => i.poster_id)), [inactifs.data]);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
@@ -1654,7 +1658,9 @@ export function AdminPostersPage() {
   // L'Archive (0366) : posteurs désactivés ou sans compte actif, et comptes
   // dormants. Hors des listes, compteurs, carte et équipes ; en bas de page,
   // par HM, fermée par défaut.
-  const { actifs: createursActifs, archive } = repartirArchive(tousCreateurs, comptes.data);
+  const { actifs: createursEnPlace, archive } = repartirArchive(tousCreateurs, comptes.data);
+  // Prompt 25 v4 : sans la liste (pas encore lue, ou vide), personne n'est caché.
+  const createursActifs = ayantPoste.data?.size ? createursEnPlace.filter((p) => ayantPoste.data.has(p.id)) : createursEnPlace;
   const idsCreateursActifs = new Set(createursActifs.map((p) => p.id));
   const tousHorsArchive = tous.filter((p) => p.role !== "poster" || idsCreateursActifs.has(p.id));
   // Filtrer sur Dormant ou Stopped va chercher dans l'Archive.
@@ -2165,6 +2171,14 @@ export function AdminPostersPage() {
 
   return (
     <div className="space-y-6">
+      {ayantPoste.data?.size ? (
+        <p className="text-sm text-muted-foreground" data-testid="posters-onboarding">
+          {t("posters.seulementActifs", { n: createursEnPlace.length - createursActifs.length })}{" "}
+          <Link className="underline" to="/admin/auto/recruits">
+            {t("posters.voirOnboarding")}
+          </Link>
+        </p>
+      ) : null}
       {erreurChargement && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
           <span>{t("posters.erreurChargement", { msg: messageErreur(erreurChargement) })}</span>

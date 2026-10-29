@@ -159,8 +159,13 @@ export const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-
 /** Le message de bienvenue, depuis le réglage ; une variable inconnue reste telle quelle. */
 export function messageAccueil(
   modele: string,
-  v: { prenom: string | null; url: string; email: string; mot_de_passe: string; slack: string; guide: string; cohorte_lundi: string },
+  v: {
+    prenom: string | null; url: string; email: string; mot_de_passe: string; slack: string; guide: string; cohorte_lundi: string;
+    /** Prompt 13 : le @ TikTok à créer ; inconnu → la ligne qui le cite est retirée. */
+    handle?: string | null;
+  },
 ): string {
+  const handle = (v.handle ?? "").trim().replace(/^@+/, "");
   const vars: Record<string, string> = {
     prenom: (v.prenom ?? "").trim() || "there",
     url: v.url,
@@ -169,8 +174,10 @@ export function messageAccueil(
     slack: v.slack,
     guide: v.guide,
     date: dateAnglaise(v.cohorte_lundi),
+    ...(handle ? { handle } : {}),
   };
-  return modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout)).trim();
+  const lignes = handle ? modele : modele.split("\n").filter((l) => !l.includes("{handle}")).join("\n");
+  return lignes.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout)).trim();
 }
 
 /** Un posteur déjà embauché, relié à l'annonce de son contrat. */

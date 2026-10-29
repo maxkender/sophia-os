@@ -34,6 +34,7 @@ import {
   type ReglagesFaq,
   VARIANTE_ETAT,
 } from "./faq";
+import { EpinglerQuestions } from "./EpinglerQuestions";
 import { ilYA, sujetCourt } from "./statsFaq";
 import { localeDate } from "@/locales/localeDate";
 
@@ -244,6 +245,7 @@ export function ReglagesFaqCarte() {
                 })}
               </p>
               {enTest && <p className="text-xs text-warning-foreground">{t("chatbot.faq.aideTest")}</p>}
+              <EpinglerQuestions />
             </div>
           ) : null}
 

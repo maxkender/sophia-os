@@ -570,6 +570,12 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
         });
       }
     }
+    // Prompt 13 : pas prête dimanche 23 h 59 (Paris) → reportée à la cohorte suivante, même sur Off
+    // (aucun message ; jamais d'arrêt automatique).
+    for (const x of await lireRecrues(supabase)) {
+      if (x.deuxieme) continue;
+      await rougeDimanche(supabase, r, maintenant >= debutCohorte(x) ? { ...x, videos: null } : x, maintenant, bilan);
+    }
     // Les messages validés à la main (Thursday, To approve) partent quand même, peu à peu.
     await envoyerFile(supabase, r, null, maintenant, bilan);
     await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
@@ -2475,7 +2481,7 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
   if (quoi === "accueil") {
     texte = messageAccueil(r.texteAccueil, {
       prenom: p.prenom, url: OS_URL, email: (p.email as string | null) ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack: r.slackLien,
-      guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+      guide: GUIDE_POSTER, cohorte_lundi: cohorte, handle: (compte?.handle_tiktok as string | null) ?? null,
     });
   } else if (quoi === "lundi_soir") {
     texte = texteLundiSoir(r.texteLundiSoir, p.prenom);

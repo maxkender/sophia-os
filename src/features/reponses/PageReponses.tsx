@@ -129,6 +129,11 @@ function Ligne({ r, ctx }: { r: ReponsePosteur; ctx: Contexte }) {
             {t("reponses.ouvrirUpwork")}
           </a>
         )}
+        {r.lien && (
+          <a href={r.lien} target="_blank" rel="noreferrer" className="text-xs text-primary underline-offset-2 hover:underline" data-testid={`lien-${r.id}`}>
+            {t("reponses.ouvrirMessageSlack")}
+          </a>
+        )}
         {r.canal !== "upwork" && slack && (
           <a
             href={`https://sophia-system.slack.com/team/${slack}`}

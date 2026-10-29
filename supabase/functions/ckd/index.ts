@@ -21,6 +21,7 @@ import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose 
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
 import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
+import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } from "../_shared/slack_questions.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -79,6 +80,8 @@ type Supabase = ReturnType<typeof serviceClient>;
  *   { action: "handle_proposer", handle, compte_id? }                 posteur
  *       0444 : « My account has a different name » ; le @ est lu tout de suite
  *       sur TikTok (trouvé : il remplace celui du compte).
+ *   { action: "questions_epingler" }                                    admin
+ *       Prompt 13 : poste et épingle dans #questions « Questions: post them in #questions… ».
  *   { action: "slack_connect_url", redirect_uri, state, nonce }        posteur
  *       Prompt 25 MAJ, 7a : l'URL « Sign in with Slack » ({ disponible: false } sans SLACK_CLIENT_ID).
  *   { action: "slack_connect", code, redirect_uri }                    posteur
@@ -155,6 +158,10 @@ Deno.serve(async (request) => {
         if (!h) return json({ ok: false, error: "@ invalide" }, 400);
         return json({ ok: true, handle: h, ...(await lireProfilTiktok(h)) });
       }
+      case "questions_epingler":
+        // Prompt 13 : le message épinglé de #questions, sur le bouton de l'admin seulement.
+        if (cron || acces.role !== "admin") return json({ ok: false, error: "réservé à l'admin" }, 403);
+        return json(await epinglerMessageQuestions(supabase, acces.userId));
       case "needs_you_alerte":
         return json(await alerteNeedsYou(supabase));
       case "releve_warmup_planifie": {
@@ -169,6 +176,22 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+/** Prompt 13 : poste et épingle dans #questions le texte du réglage `slack_questions_texte`. */
+async function epinglerMessageQuestions(supabase: Supabase, par: string) {
+  const { data } = await supabase.from("reglages").select("cle, valeur").in("cle", ["slack_questions_texte", "slack_questions_canal"]);
+  const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
+  const texte = typeof v.slack_questions_texte === "string" && v.slack_questions_texte.trim() ? v.slack_questions_texte.trim() : TEXTE_QUESTIONS_DEFAUT;
+  const canal = typeof v.slack_questions_canal === "string" && v.slack_questions_canal.trim() ? v.slack_questions_canal.trim() : CANAL_QUESTIONS_DEFAUT;
+  const r = await epinglerQuestions(jetonSlack(), canal, texte);
+  if (r.ts) {
+    await supabase.from("reglages").upsert({
+      cle: "slack_questions_epingle", valeur: { canal, ts: r.ts, epingle: r.ok, at: new Date().toISOString() },
+      updated_by: par, updated_at: new Date().toISOString(),
+    }, { onConflict: "cle" });
+  }
+  return { ok: r.ok, canal, ts: r.ts, error: r.erreur ?? undefined };
+}
 
 function jetonSlack(): string {
   const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");

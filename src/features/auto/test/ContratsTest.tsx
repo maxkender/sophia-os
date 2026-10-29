@@ -18,6 +18,7 @@ import {
   type LancementTest,
   lireContratsTest,
   retirerContratTest,
+  testerFermeture,
 } from "./api";
 
 /**
@@ -96,6 +97,53 @@ function PayerSemaineTest({ contratId }: { contratId: string }) {
   );
 }
 
+/**
+ * Prompt 13 : tester la fermeture d'un contrat de test, pour de vrai, chacun
+ * avec sa confirmation : Kill & pay (milestone approuvée, puis contrat fermé)
+ * ou Kill & don't pay (contrat fermé, milestone toujours financée). Le bilan est
+ * relu chez Upwork ; les réponses complètes sont dans les Logs.
+ */
+function FermerContratTest({ contratId }: { contratId: string }) {
+  const { t } = useTranslation();
+  const fermer = useMutation({ mutationFn: (mode: "payer" | "sans_payer") => testerFermeture(contratId, mode) });
+  const r = fermer.data;
+  const b = r?.bilan;
+  return (
+    <div className="space-y-1" data-testid="fermer-contrat-test">
+      <div className="flex flex-wrap gap-1.5">
+        {(["payer", "sans_payer"] as const).map((mode) => (
+          <Button
+            key={mode}
+            size="xs"
+            variant="outline"
+            disabled={fermer.isPending}
+            data-fermer={mode}
+            onClick={() => {
+              if (window.confirm(t(`autoTest.fermer.confirm_${mode}`, { contrat: contratId }))) fermer.mutate(mode);
+            }}
+          >
+            {t(`autoTest.fermer.${mode}`)}
+          </Button>
+        ))}
+      </div>
+      {r && !r.ok && <p className="text-xs text-destructive">{t("autoTest.fermer.echec", { erreur: r.error ?? "?" })}</p>}
+      {b && (
+        <p className="text-xs" role="status">
+          {t("autoTest.fermer.bilan", {
+            statut: b.contrat_statut,
+            paye: b.paye_par_ce_test,
+            remboursement: b.remboursement,
+            requis: b.champs_obligatoires_fermeture.join(", ") || "—",
+            feedback: t(`autoTest.fermer.${b.feedback_obligatoire ? "oui" : "non"}`),
+            raison: t(`autoTest.fermer.${b.raison_obligatoire ? "oui" : "non"}`),
+          })}
+        </p>
+      )}
+      {fermer.error && <p className="text-xs text-destructive">{(fermer.error as Error).message}</p>}
+    </div>
+  );
+}
+
 function LigneContrat({ c }: { c: ContratTest }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -141,6 +189,7 @@ function LigneContrat({ c }: { c: ContratTest }) {
         <>
           <BoutonsTest posterId={c.poster_id!} />
           <PayerSemaineTest contratId={c.contrat_id} />
+          <FermerContratTest contratId={c.contrat_id} />
         </>
       ) : (
         <div className="flex flex-wrap items-center gap-2">

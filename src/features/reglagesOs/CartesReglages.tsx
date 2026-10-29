@@ -83,7 +83,7 @@ function ChampTexte({
 
 const CLES_UPWORK = ["accueil_message_texte", "arret_message_texte", "arret_raison_upwork"] as const;
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
-export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "slack", "guide", "date"] as const;
+export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "handle", "slack", "guide", "date"] as const;
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
 const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
@@ -120,6 +120,7 @@ export function CarteMessagesUpwork() {
     url: OS_URL,
     email: "anas@sophia.com",
     mot_de_passe: "12345678",
+    handle: "ana.studies",
     slack: texte(lu.data?.slack_lien_invitation) || "https://join.slack.com/…",
     guide: GUIDE_POSTER,
     date: dateAnglaise(prochainLundi()),

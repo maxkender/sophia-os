@@ -227,6 +227,10 @@ Deno.serve(async (request) => {
         // Prompt 26 : « Pay this week » sur un contrat de test (Overview → Test contracts).
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
         return json(await paieTestPayer(supabase, par, String(body.contrat_id ?? "")));
+      case "test_fermeture":
+        // Prompt 13 : Test Kill & pay / Test Kill & don't pay sur un contrat de test (jamais par le cron).
+        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await testFermeture(supabase, par, String(body.contrat_id ?? ""), body.mode === "payer" ? "payer" : "sans_payer"));
       case "droits":
         return json(await testerDroits(supabase, par));
       case "message": {
@@ -1062,6 +1066,84 @@ async function paieTestPayer(supabase: Supabase, par: string | null, contratId: 
   if (plan.statut !== "pret") return { ok: false, error: plan.raison ?? plan.statut, plan };
   const issue = await executer(supabase, par, semaine, { ligne, tenant, jalons: relu.jalons, plan, bloque: null }, null);
   return { ok: issue.resultat === "paye", semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan };
+}
+
+/** Les champs de fin de contrat qu'Upwork exige (introspection, lecture seule). */
+const REQUETE_CHAMPS_FIN = `query ChampsFin {
+  __type(name: "EndContractInput") { inputFields { name type { kind name ofType { kind name } } } }
+}`;
+
+/**
+ * Prompt 13 : tester la fermeture d'un contrat (Overview → Test contracts), un seul essai.
+ * « payer » (Test Kill & pay) : la milestone financée est approuvée, puis le contrat fermé
+ * (endContractByClient) ; « sans_payer » (Test Kill & don't pay) : le contrat est fermé sans
+ * rien approuver, la milestone toujours financée. Chaque réponse d'Upwork est gardée en entier
+ * dans les Logs (upwork_appels) ; le contrat et ses milestones sont ensuite relus pour le bilan.
+ */
+async function testFermeture(supabase: Supabase, par: string | null, contratId: string, mode: "payer" | "sans_payer") {
+  if (await bloquer(supabase, { fonction: "upwork", action: "test_fermeture", cible: contratId })) return { ok: false, error: PAUSE };
+  if (!contratId) return { ok: false, error: "contrat_id requis" };
+  const { data: t } = await supabase.from("contrats_test").select("poster_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
+  if (!t) return { ok: false, error: "ce contrat n'est pas dans la liste « Test contracts »" };
+  if (!t.poster_id) return { ok: false, error: "créer d'abord le posteur de test de ce contrat" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contratId).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  if (!tenant) return { ok: false, error: "contrat absent des contrats lus (Réglages → Upwork → Lire les contrats)" };
+  await jetonValide(supabase, par);
+  const avant = await relireJalons(supabase, par, contratId, tenant, "test_fermeture_jalons_avant");
+  if (!avant.jalons) return { ok: false, error: `milestones illisibles : ${avant.erreur}` };
+  const finances = avant.jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
+  const etapes: Record<string, unknown>[] = [];
+  let erreur: string | null = null;
+  if (mode === "payer") {
+    const a = finances[0];
+    if (!a) return { ok: false, error: "aucune milestone financée sur ce contrat" };
+    if (a.depot === null || !(a.depot > 0)) return { ok: false, error: `${a.nom || "milestone"} : montant illisible` };
+    const ap = await ecrire(supabase, {
+      par, action: "test_fermeture_approuver", query: MUTATION_APPROUVER, tenant, contrat: contratId, montant: a.depot,
+      variables: { input: { id: a.id, paidAmount: centimes(a.depot), paymentComment: a.nom || "Weekly posting" } },
+    });
+    etapes.push({ etape: "approuver", jalon: a.id, montant: a.depot, erreur: ap.erreur, reponse: ap.data });
+    // Pas approuvée : le contrat n'est pas fermé (rien ne part sans le paiement demandé).
+    if (ap.erreur || !ap.data?.approveMilestone) erreur = `approbation : ${ap.erreur ?? "réponse vide"}`;
+  }
+  if (!erreur) {
+    const fe = await ecrire(supabase, {
+      par, action: "test_fermeture_fermer", query: MUTATION_FERMER_CONTRAT, tenant, contrat: contratId,
+      variables: { contractId: contratId, input: { reasonRef: await raisonFin(supabase) } },
+    });
+    etapes.push({ etape: "fermer", erreur: fe.erreur, reponse: fe.data });
+    if (fe.erreur || fe.data?.endContractByClient?.success !== true) erreur = `fermeture : ${fe.erreur ?? "non confirmée par Upwork"}`;
+  }
+  // Le bilan, relu chez Upwork (lecture seule).
+  const statut = await lire(supabase, { par, action: "test_fermeture_statut", query: REQUETE_STATUT_CONTRAT, variables: { id: contratId }, tenant });
+  const apres = await relireJalons(supabase, par, contratId, tenant, "test_fermeture_jalons_apres");
+  const champs = await lire(supabase, { par, action: "test_fermeture_champs", query: REQUETE_CHAMPS_FIN, tenant });
+  const paye = (js: JalonUpwork[] | null) => (js ?? []).reduce((n, j) => n + (j.paye ?? 0), 0);
+  // deno-lint-ignore no-explicit-any
+  const requis = ((champs.data?.__type?.inputFields ?? []) as any[]).filter((f) => f?.type?.kind === "NON_NULL").map((f) => String(f.name));
+  // Une milestone financée avant qui n'est plus financée ni payée : rendue (remboursée) par Upwork.
+  const rendues = finances.filter((f) => {
+    const j = (apres.jalons ?? []).find((x) => x.id === f.id);
+    return !j || (!ETATS_FINANCES.includes(j.etat) && !(j.paye && j.paye > 0));
+  }).map((f) => f.nom || f.id);
+  const bilan = {
+    mode,
+    contrat_statut: statut.data?.contractDetails?.status ?? `illisible (${statut.erreur ?? "réponse vide"})`,
+    contrat_ferme: contratFerme(statut.data?.contractDetails?.status),
+    paye_avant: paye(avant.jalons),
+    paye_apres: paye(apres.jalons),
+    paye_par_ce_test: Math.round((paye(apres.jalons) - paye(avant.jalons)) * 100) / 100,
+    jalons_avant: avant.jalons.map((j) => ({ nom: j.nom, etat: j.etat, depot: j.depot, paye: j.paye })),
+    jalons_apres: apres.jalons ? apres.jalons.map((j) => ({ nom: j.nom, etat: j.etat, depot: j.depot, paye: j.paye })) : null,
+    financees_rendues: rendues,
+    remboursement: rendues.length > 0 ? "milestone financée plus financée ni payée après la fermeture (rendue au client)" : finances.length && mode === "sans_payer" ? "milestone encore financée : pas de remboursement visible" : "rien à rembourser",
+    champs_obligatoires_fermeture: requis,
+    feedback_obligatoire: requis.some((n) => /feedback|rating|score/i.test(n)),
+    raison_obligatoire: requis.some((n) => /reason/i.test(n)),
+  };
+  await noter(supabase, { par, action: "test_fermeture_bilan", contrat: contratId, reponse: { etapes, bilan }, erreur });
+  return { ok: erreur === null, error: erreur ?? undefined, etapes, bilan };
 }
 
 /**
@@ -2306,7 +2388,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
         ...base, statut: "simule", raison: "test : rien n'est créé ni envoyé", cohorte_lundi: cohorte || null,
         message_texte: messageAccueil(modele, {
           prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", mot_de_passe: MOT_DE_PASSE_DEPART,
-          slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+          slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte, handle: "(@ généré à la création)",
         }),
       });
       bilan.simules++;
@@ -2327,6 +2409,13 @@ async function accueillir(supabase: Supabase, par: string | null) {
     }
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/** Prompt 13 : le @ TikTok que la recrue doit créer (son 1er compte perso, généré à la création). */
+async function handleACreer(supabase: Supabase, posterId: string): Promise<string | null> {
+  const { data } = await supabase.from("comptes").select("handle_tiktok").eq("poster_id", posterId).eq("type_compte", "perso")
+    .eq("is_active", true).order("created_at").limit(1).maybeSingle();
+  return (data?.handle_tiktok as string | null) ?? null;
 }
 
 /** Crée le posteur comme /embauche (manage-users), le relie, puis envoie le message de bienvenue (une fois). */
@@ -2392,7 +2481,7 @@ async function creerEtAccueillir(
   // 3. Le message de bienvenue, une seule fois (accueils.message_at).
   const texte = messageAccueil(modele, {
     prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
-    cohorte_lundi: a.cohorte_lundi,
+    cohorte_lundi: a.cohorte_lundi, handle: await handleACreer(supabase, cree.userId),
   });
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
@@ -2450,6 +2539,7 @@ async function accueillirExistant(
     prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
     // Il a peut-être déjà changé son mot de passe : on ne lui en donne pas un faux.
     mot_de_passe: p.must_change_password ? MOT_DE_PASSE_DEPART : "the one you chose", slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+    handle: await handleACreer(supabase, posterId),
   });
   const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {

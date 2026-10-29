@@ -80,7 +80,7 @@ verify_jwt = false
 [functions.creation-manuelle]
 verify_jwt = false
 
-# Banque d'exemples natifs (0380) : appelée par l'admin, contrôle interne
+# Banque d'exemples natifs (0423) : appelée par l'admin, contrôle interne
 # (assertAuthorised).
 [functions.exemples-natifs]
 verify_jwt = false

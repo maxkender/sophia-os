@@ -110,7 +110,7 @@ export function formaterAncres(ancres: ReadonlyArray<Ancre>, max = 12): string {
 export const MAX_EXEMPLES_BANQUE = 30;
 
 /**
- * Ancres natives d'une langue. D'abord la banque d'exemples natifs (0380) :
+ * Ancres natives d'une langue. D'abord la banque d'exemples natifs (0423) :
  * des slideshows de créateurs de la langue, collés par l'admin, tous labels
  * confondus ; elle est lue EN ENTIER (jusqu'à 30). Sans banque (moins de 5
  * exemples prêts), on retombe sur nos propres contenus écrits DANS cette

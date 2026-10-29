@@ -1,4 +1,4 @@
--- 0380 : Relecture native · la banque d'exemples natifs (29/10).
+-- 0423 : Relecture native · la banque d'exemples natifs (29/10).
 --
 -- Une vingtaine de slideshows écrits par de vrais créateurs de chaque langue,
 -- tous labels confondus, pour que la traduction ancrée
@@ -31,7 +31,7 @@ create table if not exists public.exemples_natifs (
 );
 
 comment on table public.exemples_natifs is
-  'Banque d''exemples natifs (0380) : slideshows de créateurs natifs, par langue, lus par la traduction ancrée. Jamais publiés.';
+  'Banque d''exemples natifs (0423) : slideshows de créateurs natifs, par langue, lus par la traduction ancrée. Jamais publiés.';
 comment on column public.exemples_natifs.slides is
   'Le texte de chaque slide, lu par OCR : [{position, texte}].';
 comment on column public.exemples_natifs.statut is

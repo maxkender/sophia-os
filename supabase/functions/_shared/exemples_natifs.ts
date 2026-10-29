@@ -1,5 +1,5 @@
 /**
- * Banque d'exemples natifs (0380) : des slideshows de vrais créateurs de chaque
+ * Banque d'exemples natifs (0423) : des slideshows de vrais créateurs de chaque
  * langue, tous labels confondus, que la traduction ancrée lit en entier. Ici
  * la logique pure : ce que l'admin a collé, et le texte d'un exemple.
  */

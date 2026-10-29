@@ -11,7 +11,7 @@ import { LANGUES_CIBLES } from "../_shared/langues_cibles.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Banque d'exemples natifs (0380) : des slideshows de vrais créateurs de
+ * Banque d'exemples natifs (0423) : des slideshows de vrais créateurs de
  * chaque langue, lus par la traduction ancrée.
  *
  *   { ajouter: { langue, labelId?, texte } }

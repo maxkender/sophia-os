@@ -53,6 +53,10 @@ declare
   n integer := 0;
   k integer;
 begin
+  -- Le cron et le SQL de service n'ont pas d'utilisateur ; un utilisateur connecté doit être admin.
+  if auth.uid() is not null and not public.is_admin() then
+    raise exception 'bleo : réservé aux admins' using errcode = '42501';
+  end if;
   -- a. Déclinaisons déclarées au dépôt.
   update contenus c
      set famille_id = p.famille_id,
@@ -195,6 +199,10 @@ declare
   k integer;
   v_resume jsonb;
 begin
+  -- Le cron et le SQL de service n'ont pas d'utilisateur ; un utilisateur connecté doit être admin.
+  if auth.uid() is not null and not public.is_admin() then
+    raise exception 'bleo : réservé aux admins' using errcode = '42501';
+  end if;
   select valeur into reg from reglages where cle = 'bleo';
   if reg is null then
     raise exception 'reglages.bleo absent';
@@ -326,7 +334,9 @@ begin
   get diagnostics k = row_count; v_juges := v_juges + k;
 
   -- A5 · forme et valeur attendue par contenu × langue des comptes actifs de ses labels.
-  delete from bleo_valeurs where calcule_le < v_debut;
+  -- Les couples qui ne sont plus candidats (contenu retiré, langue sans compte
+  -- actif) gardent leur ligne à valeur 0 : jamais tirés.
+  update bleo_valeurs set valeur = 0, calcule_le = v_debut where calcule_le < v_debut;
 
   with langues as (
     select distinct cl.label_id, co.langue
@@ -403,8 +413,6 @@ begin
 end;
 $$;
 
-revoke execute on function public.bleo_nuit(boolean) from public, anon, authenticated;
-revoke execute on function public.bleo_rattacher_nouveaux() from public, anon, authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Le cron : 05 h 15 heure de Paris, réessai toutes les 10 min tant que le relevé
@@ -423,6 +431,10 @@ declare
   elo jsonb;
   v_releve_fini boolean;
 begin
+  -- Le cron et le SQL de service n'ont pas d'utilisateur ; un utilisateur connecté doit être admin.
+  if auth.uid() is not null and not public.is_admin() then
+    raise exception 'bleo : réservé aux admins' using errcode = '42501';
+  end if;
   select valeur->>'mode' into v_mode from reglages where cle = 'bleo';
   if coalesce(v_mode, 'off') = 'off' then
     return jsonb_build_object('ignore', 'mode off');
@@ -442,7 +454,6 @@ begin
 end;
 $$;
 
-revoke execute on function public.bleo_nuit_cron() from public, anon, authenticated;
 
 -- Deux horaires UTC couvrent l'heure d'été et l'heure d'hiver ; la garde est
 -- dans la fonction (heure de Paris = 5).

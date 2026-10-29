@@ -142,6 +142,61 @@ corriger dans `docs/bleo.md` et le doc Claude).
 La colonne « agent de langue » (L9 → L11) part après L7, dès que les points
 bloquants de L9 sont levés.
 
+## À blanc du 29/10 au 2/11 (décision d'Adrien le 29/10)
+
+Construit et branché le 29/10, en ajouts seulement (rien de ce qui tourne n'est
+modifié, aucune fonction Edge redéployée) :
+
+| Migration | Contenu | État |
+| --- | --- | --- |
+| `0600_bleo_modele` | Colonnes, tables `bleo_*`, vue `bleo_mediane_compte`, `reglages.bleo` | Appliquée |
+| `0601_bleo_remplir` | L1 : 3 458 familles, 65 liens parent → variante des notes (`scripts/bleo-parents-notes.mjs`), types, classes | Appliquée |
+| `0602_bleo_nuit` | `bleo_nuit()` : A2, A1, A3, A4, A5 ; cron 05 h 15 | Appliquée, 1re nuit le 29/10 à 12 h (9,5 s) |
+| `0603_bleo_tirage` | `bleo_tirage()` en mode ombre (A6 à A8), `bleo_rapport()`, crons 14 h et 22 h | Appliquée (+ correctif « hors_file ») |
+
+`reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
+
+Écarts assumés avec la spec, à reporter dans `docs/bleo.md` après l'à blanc :
+
+- Migrations dans une plage réservée (06xx) : le chantier « Prompt 21/22 »
+  prend les numéros à la suite plusieurs fois par jour.
+- `bleo-nuit` et `bleo-assignation` sont des fonctions SQL appelées par pg_cron
+  (`bleo_nuit_cron`, `bleo_tirage_cron`, `bleo_rapport_cron`), pas des
+  fonctions Edge : tout est ensembliste, testable directement en base, et rien
+  n'est déployé.
+- L0 réduit au modèle de données : la lecture des enregistrements Apify, le
+  modèle Gemini des decks et la garde des colonnes de `passages` touchent
+  l'existant ; après l'à blanc.
+- Une variante prend la famille de son parent même si son accroche diffère (D11).
+- Tirage : un dernier repli `hors_file` (un contenu à juger au-delà de la
+  capacité) plutôt qu'un créneau vide (voie 2 : that_girl_study, mentalmaxxing).
+- Un contenu à juger avec un passage à 10 000 vues est jugé (comme la sortie de J+2).
+- Le rapport compare plan et réel avec la même formule de valeur, fatigue
+  comptée sur les passages d'avant le jour.
+
+Premier plan (30/10, essai de mise au point, 14,5 s) : 249 comptes, 498
+créneaux, 0 vide ; file à juger 40 %, récolte 36 %, non-gagnants 17 %,
+garde-fous relâchés 10 fois sur 498 ; rejoué deux fois : 492 lignes sur 492
+identiques.
+
+Ce que les portes vont montrer, avant même les rapports :
+
+- **File à juger au plafond (40 %)** : 1 839 contenus à tester au 29/10, dont 671
+  de moins de 30 jours. La porte (25 à 35 %) ne tiendra pas tant que le stock
+  n'est pas résorbé (environ deux semaines au plafond).
+- **Tests des contenus de moins de 3 jours** : les petits labels (white_bg,
+  clean_study, RH, Fathomly, mentalmaxxing, that_girl_study) reçoivent chaque
+  jour plus de livraisons que 40 % de leurs créneaux ne peuvent en tester. Le
+  critère ne peut pas tenir sur eux ; à trancher (part plus haute pour ces
+  labels, ou critère limité aux labels qui ont la place).
+- **Non-gagnants autour de 16 %** pour un plafond de 15 %.
+
+Contrôles : `docs/sql/bleo_controles.sql` (copies des règles TypeScript, A5
+recalculée à la main, rejouabilité, derniers plans).
+
 ## Journal
 
 - **29/10** : lecture de la spec, contrôle du code et de la base ; ce fichier.
+- **29/10 après-midi** : 0600 à 0603 appliquées, première nuit, premier plan,
+  mode ombre. Prochains rendez-vous : 14 h (plan du 30/10 par le cron), 05 h 15
+  (nuit), 22 h le 30/10 (premier rapport : plan du 30/10 contre minuit).

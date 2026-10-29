@@ -17,7 +17,7 @@ import { PAGES_AUTO } from "./pages";
 // Le texte exact demandé (partie 11) ; Needs you et Logs se sont séparés depuis (prompt 21, U).
 const TEXTES_EN: Record<string, string> = {
   overview: "Everything the automation does, on one page. The red button stops every automatic action.",
-  recruits: "Every recruit, from accepted offer to first day posted, live.",
+  recruits: "Every recruit until their first post: steps, messages sent, next reminder.",
   decisions: "Thursday: Nudge or Recreate, account by account; nothing goes out before Send. Saturday: Kill, Double or Keep; nothing happens before Validate.",
   sent: "Every message the OS sends to recruits and posters, and the texts it uses.",
   received: "Everything posters write to us, sorted by the OS.",

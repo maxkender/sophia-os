@@ -628,9 +628,10 @@ describe("AdminCheckKillDoublePage", () => {
       expect(screen.getByTestId("a-decider")).toBeInTheDocument();
       expect(screen.queryByRole("link", { name: "Cohortes" })).toBeNull();
       expect(screen.queryByText("Vue HM")).toBeNull();
-      // Plus de « Jeudi : nudges » ni de grille « To recruit ».
+      // Plus de « Jeudi : nudges ». Prompt 21, D : la grille « À recruter » du
+      // dernier samedi revient sous « À décider maintenant » (cible par pays).
       expect(screen.queryByRole("tab", { name: "Jeudi : nudges" })).toBeNull();
-      expect(screen.queryByTestId("carte-recrutement")).toBeNull();
+      expect(await screen.findByTestId("carte-recrutement")).toBeInTheDocument();
     });
   });
 });

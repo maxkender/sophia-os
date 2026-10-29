@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { AjouterAFaqSituation, BadgeSituation } from "@/features/faq/situations";
 import { Tableau } from "@/features/moteur/repartition/Tableau";
 import { cn } from "@/lib/utils";
 
@@ -354,8 +355,10 @@ export function BoiteATraiter({ questions }: { questions: QuestionFaq[] }) {
                   <span className="ml-auto shrink-0">{ilYA(q.created_at, i18n.language)}</span>
                 </span>
                 <span className="line-clamp-2 text-sm">{q.question}</span>
-                <span>
+                <span className="flex flex-wrap gap-1">
                   <BadgeEtat q={q} />
+                  {/* Prompt 21, Q : la situation de la personne quand elle a écrit. */}
+                  <BadgeSituation cle={q.situation} />
                 </span>
               </button>
             </li>
@@ -397,11 +400,13 @@ function DetailATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq
         <span>·</span>
         <span title={new Date(q.created_at).toLocaleString(localeDate(i18n.language))}>{ilYA(q.created_at, i18n.language)}</span>
         {q.test && <Badge variant="outline">{t("chatbot.faq.test")}</Badge>}
+        <BadgeSituation cle={q.situation} />
         <span className="ml-auto">
           <LienSlack q={q} />
         </span>
       </div>
       <p className="whitespace-pre-wrap rounded-md bg-muted/50 px-3 py-2 text-sm">{q.question}</p>
+      {q.reponse_situation && <Encadre titre={t("faqSituations.reponseSituation")}>{q.reponse_situation}</Encadre>}
       {aValider ? (
         <p className="text-xs text-warning-foreground">
           {t("chatbot.faq.aValiderAide")}
@@ -441,6 +446,13 @@ function DetailATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq
           {messageErreur(traiter.error ?? ignorer.error)}
         </p>
       )}
+      {/* Prompt 21, Q : l'ajouter à la FAQ par situation, pour sa situation seulement ou pour tous. */}
+      <AjouterAFaqSituation
+        question={q.question}
+        situation={q.situation ?? null}
+        entreeId={q.faq_entree_id ?? null}
+        reponse={reponse.trim() || q.reponse_humaine || q.reponse_faq}
+      />
     </div>
   );
 }

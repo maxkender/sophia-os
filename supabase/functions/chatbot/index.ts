@@ -1,5 +1,7 @@
 import { etatDepuisDecision, propositionDe, type TourFaq } from "../_shared/faq.ts";
 import { chargerBase, chargerReglagesFaq, demanderAuCerveau } from "../_shared/faq_moteur.ts";
+import type { ResultatSituation } from "../_shared/faq_situations.ts";
+import { chargerModeSituations, colonnesSituation, situationSansRisque } from "../_shared/faq_situations_moteur.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { LOT_IDS, type ReponseLot, decouperEnLots, lireParLots, lireTout } from "../_shared/lots.ts";
 import { garderDocumentsPoster, posterGuideCle } from "../_shared/poster_guide.ts";
@@ -603,7 +605,7 @@ interface EntreeCerveau {
 async function repondreAvecLeCerveau(
   db: ReturnType<typeof serviceClient>,
   entree: EntreeCerveau & { userId: string | null },
-): Promise<string | null> {
+): Promise<{ reponse: string; id: string | null } | null> {
   try {
     const charge = await chargerBase(db, entree.role);
     if (!charge.pages) return null;
@@ -618,7 +620,7 @@ async function repondreAvecLeCerveau(
     });
     if (!r.reponse) return null;
     const reponse = r.decision === "repondu" && r.section ? `${r.reponse}\n\n📖 ${r.section}` : r.reponse;
-    const { error } = await db.from("chatbot_questions").insert({
+    const { data: ligne, error } = await db.from("chatbot_questions").insert({
       user_id: entree.userId,
       role: entree.role,
       question: entree.question,
@@ -627,9 +629,9 @@ async function repondreAvecLeCerveau(
       section_guide: r.section,
       etat: etatDepuisDecision(r.decision),
       envoye_at: new Date().toISOString(),
-    });
+    }).select("id").single();
     if (error) console.error("chatbot_questions insert (faq)", error);
-    return reponse;
+    return { reponse, id: (ligne?.id as string | undefined) ?? null };
   } catch (erreur) {
     console.warn(`[chatbot] cerveau FAQ indisponible, ancien assistant : ${messageErreur(erreur)}`);
     return null;
@@ -731,9 +733,50 @@ Deno.serve(async (request) => {
     // ce qu'il ne sait pas part à l'admin. En test, l'ancien assistant répond
     // comme avant et le cerveau tourne à côté, sans rien montrer.
     const reglages = await chargerReglagesFaq(db);
+
+    // Prompt 21, Q : la FAQ par situation. En « on », la réponse de la
+    // situation de la personne part (sinon le cerveau, comme avant). En
+    // « test », elle est calculée à côté et seulement notée sur la question.
+    const modeSituations = await chargerModeSituations(db);
+    const situation: Promise<ResultatSituation | null> = modeSituations === "off"
+      ? Promise.resolve(null)
+      : situationSansRisque(db, { question, posterId: userId, role });
+    if (modeSituations === "on") {
+      const sit = await situation;
+      if (sit?.reponse) {
+        const { error } = await db.from("chatbot_questions").insert({
+          user_id: userId,
+          role,
+          question,
+          reponse: sit.reponse.texte,
+          reponse_faq: sit.reponse.texte,
+          etat: "repondu",
+          envoye_at: new Date().toISOString(),
+          ...colonnesSituation(sit),
+        });
+        if (error) console.error("chatbot_questions insert (situation)", error);
+        return json({ ok: true, reponse: sit.reponse.texte, locale });
+      }
+    }
+    // Après la réponse : la situation (et ce que la FAQ par situation aurait
+    // dit) rejoint la question, sans faire attendre la personne.
+    const noterSituation = (id: string | null) => {
+      if (!id || modeSituations === "off") return;
+      const travail = situation.then(async (sit) => {
+        if (!sit) return;
+        const { error } = await db.from("chatbot_questions").update(colonnesSituation(sit)).eq("id", id);
+        if (error) console.error("chatbot_questions (situation)", error);
+      });
+      const edge = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+      if (edge) edge.waitUntil(travail);
+    };
+
     if (reglages.mode_os === "actif") {
       const reponseFaq = await repondreAvecLeCerveau(db, { userId, role, question, live, historique, locale });
-      if (reponseFaq) return json({ ok: true, reponse: reponseFaq, locale });
+      if (reponseFaq) {
+        noterSituation(reponseFaq.id);
+        return json({ ok: true, reponse: reponseFaq.reponse, locale });
+      }
     }
 
     // Tables éditées à la main par l'admin : petites aujourd'hui, non bornées
@@ -811,6 +854,7 @@ Deno.serve(async (request) => {
       .select("id")
       .single();
     if (insertError) console.error("chatbot_questions insert", insertError);
+    noterSituation((ligne?.id as string | undefined) ?? null);
 
     if (ligne && reglages.mode_os === "test") {
       // Après la réponse : la personne n'attend pas le cerveau.

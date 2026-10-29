@@ -86,6 +86,7 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { ADeciderCarte } from "@/features/ckd/decisions/ADeciderCarte";
+import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
 import { SemaineDecisions } from "@/features/ckd/decisions/SemaineDecisions";
 import { ReglagesMessages } from "@/features/messagesPosteurs/ReglagesMessages";
 import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
@@ -205,6 +206,8 @@ export function AdminCheckKillDoublePage() {
           <div className="space-y-6">
             <SemaineDecisions />
             <ADeciderCarte />
+            {/* Prompt 21, D : le samedi, la cible de recrutement par pays (avec recrutés et écart). */}
+            <CiblesRecrutementAdmin />
             <details className="space-y-4 rounded-xl border p-4">
               <summary className="cursor-pointer text-sm font-medium">{t("decisions.details")}</summary>
               <div className="mt-4 space-y-6">

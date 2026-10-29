@@ -27,6 +27,7 @@ import {
   posterSlack,
   secretSignatureFaq,
 } from "../_shared/faq_moteur.ts";
+import { chargerModeSituations, colonnesSituation, situationSansRisque } from "../_shared/faq_situations_moteur.ts";
 import { relierNouveau } from "../_shared/slack_relier.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
@@ -206,18 +207,34 @@ async function repondre(
   ]);
   if (!charge.pages) erreurs.push("guide Notion pas encore copié (guides-notion)");
 
+  // Prompt 21, Q : la situation de la personne (inconnue : Candidat). En
+  // « on », la réponse de sa situation passe avant le cerveau ; en « test »,
+  // elle est seulement notée sur la question.
+  // En « test », elle tourne en même temps que le cerveau : rien n'attend.
+  const modeSituations = await chargerModeSituations(db);
+  const situation = modeSituations === "off"
+    ? Promise.resolve(null)
+    : situationSansRisque(db, { question: q.texte, posterId: userId, role });
+  let sit = modeSituations === "on" ? await situation : null;
+
   let r: ReponseFaq | null = null;
-  try {
-    r = await demanderAuCerveau({ canal: "slack", role, question: q.texte, base: charge.base });
-  } catch (erreur) {
-    erreurs.push(`cerveau : ${messageErreur(erreur)}`);
+  if (modeSituations === "on" && sit?.reponse) {
+    r = { decision: "repondu", reponse: sit.reponse.texte, proposition: "", section: null };
+  } else {
+    try {
+      r = await demanderAuCerveau({ canal: "slack", role, question: q.texte, base: charge.base });
+    } catch (erreur) {
+      erreurs.push(`cerveau : ${messageErreur(erreur)}`);
+    }
   }
+  if (modeSituations === "test") sit = await situation;
 
   const patch: Record<string, unknown> = {
     etat: r ? etatDepuisDecision(r.decision) : "a_traiter",
     slack_nom: nom,
     reponse_faq: r ? propositionDe(r) : null,
     section_guide: r?.section ?? null,
+    ...colonnesSituation(sit),
   };
 
   // Rien ne part sans guide : sans lui, le cerveau dirait « je ne sais pas » à

@@ -28,9 +28,11 @@ import { HiringAccueilPage } from "@/pages/hiring/HiringAccueilPage";
 import { HiringPaiementsPage } from "@/pages/hiring/HiringPaiementsPage";
 import { HiringCalendrierPage } from "@/pages/hiring/HiringCalendrierPage";
 import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
+import { HiringRecruterPage } from "@/pages/hiring/HiringRecruterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHubPage";
-import { DocumentView } from "@/features/documents/DocumentView";
+import { GUIDE_NOTION_HM, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
+import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNotion";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
@@ -162,8 +164,9 @@ export function AppRouter() {
             <Route path="/createur/retours" element={<PosterRetoursPage />} />
             <Route path="/createur/relecture" element={<PosterRelecturePage />} />
             <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
-            <Route path="/createur/guide" element={<DocumentView cle="guide_poster" />} />
-            <Route path="/createur/faq" element={<DocumentView cle="faq_poster" />} />
+            {/* Prompt 21, D3 : les anciennes pages Guide et FAQ renvoient vers le guide Notion. */}
+            <Route path="/createur/guide" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
+            <Route path="/createur/faq" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
           </Route>
         </Route>
 
@@ -179,9 +182,12 @@ export function AppRouter() {
             <Route path="/manager/slack" element={<SlackARelier />} />
             <Route path="/manager/recruteurs" element={<HiringRecruteursPage />} />
             <Route path="/manager/documents" element={<HiringDocumentsPage />} />
-            <Route path="/manager/guide" element={<DocumentView cle="guide_manager" />} />
-            <Route path="/manager/onboarding" element={<DocumentView cle="onboarding" />} />
-            <Route path="/manager/faq" element={<DocumentView cle="faq_manager" />} />
+            {/* Prompt 21, D : « Recruit », ses cibles de recrutement par pays. */}
+            <Route path="/manager/recruit" element={<HiringRecruterPage />} />
+            {/* Prompt 21, D3 : les anciennes pages Guide, Onboarding et FAQ renvoient vers le guide Notion. */}
+            <Route path="/manager/guide" element={<RedirectionGuideNotion url={GUIDE_NOTION_HM} />} />
+            <Route path="/manager/onboarding" element={<RedirectionGuideNotion url={GUIDE_NOTION_HM} />} />
+            <Route path="/manager/faq" element={<RedirectionGuideNotion url={GUIDE_NOTION_HM} />} />
           </Route>
         </Route>
 

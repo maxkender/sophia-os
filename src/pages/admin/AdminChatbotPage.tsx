@@ -31,6 +31,7 @@ import {
 } from "@/features/chatbot/api";
 import { BoiteATraiter, EtatBot, JournalFaq, ReglagesFaqCarte } from "@/features/chatbot/FaqAdmin";
 import { useQuestionsFaq } from "@/features/chatbot/faqDonnees";
+import { OngletTestFaq, PanneauFaqSituations } from "@/features/faq/situations";
 import type { AudienceSnippet } from "@/features/chatbot/prompt";
 import { ilYA, ISSUES, nomsCourts, statsFaq, type Issue } from "@/features/chatbot/statsFaq";
 // Les briques de la page Allocation : même lecture d'une page à l'autre.
@@ -241,7 +242,8 @@ function ReponsesValidees({
   );
 }
 
-const ONGLETS = ["aTraiter", "journal", "reponses"] as const;
+// Prompt 21, Q : « FAQ by situation » et « Test » à côté des réponses validées.
+const ONGLETS = ["aTraiter", "journal", "reponses", "situations", "test"] as const;
 type Onglet = (typeof ONGLETS)[number];
 
 /** Les onglets, au motif ARIA de la page Allocation (flèches, Début, Fin). */
@@ -500,6 +502,8 @@ export function AdminChatbotPage() {
               aTraiter: aTraiter.data?.length,
               journal: journal.data?.length,
               reponses: contexte.data?.length,
+              situations: undefined,
+              test: undefined,
             }}
           />
         </CardHeader>
@@ -519,6 +523,8 @@ export function AdminChatbotPage() {
           {onglet === "reponses" && (
             <ReponsesValidees key={brouillon?.titre ?? "liste"} brouillon={brouillon} onFini={() => setBrouillon(null)} />
           )}
+          {onglet === "situations" && <PanneauFaqSituations />}
+          {onglet === "test" && <OngletTestFaq />}
         </CardContent>
       </Card>
 

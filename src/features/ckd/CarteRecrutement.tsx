@@ -16,7 +16,20 @@ import {
   type RecrutementCkd,
 } from "./api";
 
-function LignePays({ controle, pays, ligne, hmNom }: { controle: ControleCkd; pays: string; ligne?: RecrutementCkd; hmNom?: string }) {
+function LignePays({
+  controle,
+  pays,
+  ligne,
+  hmNom,
+  recrutes,
+}: {
+  controle: ControleCkd;
+  pays: string;
+  ligne?: RecrutementCkd;
+  hmNom?: string;
+  /** Prompt 21, D : les recrutés de la cohorte dans ce pays (0425). */
+  recrutes?: number;
+}) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [valeur, setValeur] = React.useState(ligne ? String(ligne.nombre) : "");
@@ -52,14 +65,20 @@ function LignePays({ controle, pays, ligne, hmNom }: { controle: ControleCkd; pa
       <span className="truncate text-xs text-muted-foreground">
         {ligne ? (hmNom ? t("ckd.recrutement.pour", { hm: hmNom }) : t("ckd.recrutement.sansHm")) : ""}
         {ligne?.envoye_at ? ` · ${t("ckd.recrutement.envoye")}` : ""}
+        {recrutes !== undefined && (ligne || recrutes > 0)
+          ? ` · ${t("recrutementCibles.recrutesPays", { n: recrutes, ecart: Math.max((ligne?.nombre ?? 0) - recrutes, 0) })}`
+          : ""}
       </span>
       {enregistrer.error && <span className="text-xs text-destructive">{(enregistrer.error as Error).message}</span>}
     </div>
   );
 }
 
-/** Le samedi, avec les décisions : combien recruter par pays (0364). */
-export function CarteRecrutement({ controle }: { controle: ControleCkd }) {
+/**
+ * Le samedi, avec les décisions : combien recruter par pays (0364). Prompt 21,
+ * D : avec `recrutes`, chaque pays montre aussi ses recrutés et l'écart.
+ */
+export function CarteRecrutement({ controle, recrutes }: { controle: ControleCkd; recrutes?: Map<string, number> }) {
   const { t } = useTranslation();
   const donnees = useQuery({
     queryKey: ["ckd", "recrutement", controle.id],
@@ -90,6 +109,7 @@ export function CarteRecrutement({ controle }: { controle: ControleCkd }) {
             pays={p}
             ligne={parPays.get(p)}
             hmNom={parPays.get(p)?.hm_id ? donnees.data?.personnes.get(parPays.get(p)!.hm_id!) : undefined}
+            recrutes={recrutes ? (recrutes.get(p) ?? 0) : undefined}
           />
         ))}
         {donnees.error && <p className="text-sm text-destructive">{(donnees.error as Error).message}</p>}

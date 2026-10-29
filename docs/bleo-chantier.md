@@ -192,6 +192,29 @@ Ce qui change par rapport au plan de la spec :
 - **D39 (G1 à la place du repost)** suit la bascule d'une semaine environ, le
   temps que les podz produisent les G1 commandées.
 
+**Code de bascule (29/10, mergé avant lundi, inerte tant que `bleo.mode` n'est
+pas `actif`).** `supabase/functions/_shared/bleo_plan.ts` lit, une fois par lot
+de minuit, le mode et le run officiel du jour (dernier tirage fini sans erreur
+pour ce `jour_vise`), puis le plan du compte (`bleo_ombre_passages`, rappels
+exclus). Dans `assignerCompteJour`, chaque créneau prend d'abord la ligne
+suivante du plan dans la langue du compte ; le passage porte `bras = 'bleo'`,
+`file_bleo`, `valeur_tirage` et `bleo_run_id`. Un créneau du plan non servable
+(application plus servie par le compte, contenu plus `valide`, deck refusé ou
+qui lève) repart sur la tierlist avec `bras = 'temoin'`. Hors mode `actif`, une
+seule lecture de `reglages` par lot et aucun changement dans les passages. Pas
+de plan pour les comptes UGC ni pour l'assignation test.
+
+**Répétitions.** L'assignation à blanc (Moteur → « Assignation test à blanc »)
+gagne la case « Suivre le plan BLEO » : le vrai code de la nuit suit le plan du
+jour choisi même en mode ombre, sans rien écrire. C'est l'outil des répétitions
+de samedi et dimanche.
+
+**Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
+en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
+rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine
+assignation de minuit. Sans l'interrupteur, le tirage aurait cessé en mode
+actif (corrigé par 0614).
+
 | Quand | Quoi |
 | --- | --- |
 | Ven 30/10 | L4 : guichet (`boite`, dépôt BLEO, refus D30, D35), outils `boite` et `deposer` des 7 podz de la voie 1, routines, chef. Code de bascule (plan suivi à minuit, interrupteur de mode). Légendes d'images (10 h à 19 h 30) |
@@ -239,6 +262,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0611_bleo_r_moyen_vues` | Correctif du r moyen affiché (D40) | Appliquée |
 | `0612_bleo_fatigue_60j` | La fatigue ne compte que les 60 derniers jours, et un passage non publié 3 jours après sa date (D41). `bleo_nuit` patchée en place (bloc `exp` de A5 seulement) | Appliquée |
 | `0613_bleo_contenus_textes` | Texte et image de la slide 1, première ligne de la slide 2, dans `bleo_contenus_ui` (fiche famille) | Appliquée |
+| `0614_bleo_mode_actif` | Le tirage de 14 h tourne aussi en mode `actif` (`bleo_tirage` et `bleo_tirage_cron` patchées en place : ils ne tiraient qu'en `ombre`) ; `bleo_changer_mode(p_mode)`, l'interrupteur, admin seulement, avec les 20 derniers changements dans `reglages.bleo.mode_historique` | Appliquée le 29/10 (mode resté `ombre`) |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 

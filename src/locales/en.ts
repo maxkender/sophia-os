@@ -593,6 +593,9 @@ export const en = {
       iaAide:
         "Checked: translation and placement done in memory, shown, never saved. Unchecked: decks to build are shown as a preview (source text, without the ad slide).",
       iaNuit: "Unavailable at night (midnight and 4 am catch-up): the model is shared with the real assignment.",
+      bleo: "Follow the BLEO plan (as after the switch)",
+      bleoAide:
+        "Each slot takes the content BLEO drew at 2 pm for that day, even while BLEO is still in shadow mode; a slot that can't be served falls back to the tier list.",
       lancer: "Run dry-run test",
       enCours: "Dry run…",
       garantie:
@@ -2067,6 +2070,21 @@ export const en = {
     bleo: {
       mode: "Mode: {{mode}}",
       modes: { off: "off", ombre: "shadow", ab: "A/B", actif: "live" },
+      interrupteur: {
+        bouton_actif: "Go live",
+        bouton_ombre: "Back to the old system",
+        titre_actif: "Put BLEO live?",
+        titre_ombre: "Go back to the old system?",
+        effet_actif:
+          "From the next midnight assignment, each slot takes the content, language and app of the 2 pm plan. A planned slot that can't be served falls back to the tier list.",
+        effet_ombre:
+          "BLEO goes back to shadow mode: the next midnight assignment is the old one (tier list). BLEO keeps computing at night and drawing a plan, without assigning anything.",
+        plan: "Plan followed: the one for {{jour}}, {{n}} slots.",
+        sansPlan: "No finished plan yet: until there is one, midnight stays on the tier list.",
+        quand: "The change applies from the next midnight assignment; posts already assigned don't move.",
+        confirmer_actif: "Go live",
+        confirmer_ombre: "Back to the old system",
+      },
       ok: "Met",
       pasOk: "Not met",
       close: "Closed",
@@ -2193,6 +2211,8 @@ export const en = {
           "BLEO runs in shadow mode: every night it computes r, verdicts and values, and every afternoon it draws a plan for the next day, without publishing anything. Midnight is still the only one assigning.",
         description_off: "BLEO is off: no night run, no draw.",
         description_ab: "BLEO is in A/B: part of the slots are drawn by BLEO, the rest by midnight.",
+        description_actif:
+          "BLEO is live: the midnight assignment follows the plan drawn at 2 pm; a planned slot it can't serve falls back to the tier list.",
         dernierPlan: "Latest plan: {{jour}}",
         dernierPlanDesc: "Drawn on {{quand}} in {{duree}} s.",
         voirPlan: "See the plan account by account",

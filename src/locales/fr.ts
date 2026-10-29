@@ -594,6 +594,9 @@ export const fr = {
       iaAide:
         "Cochée : traduction et placement faits en mémoire, montrés, jamais enregistrés. Décochée : les decks à fabriquer sont montrés en aperçu (texte source, sans la slide pub).",
       iaNuit: "Indisponible pendant la nuit (minuit et rattrapage de 4 h) : le modèle est partagé avec la vraie assignation.",
+      bleo: "Suivre le plan BLEO (comme après la bascule)",
+      bleoAide:
+        "Chaque créneau prend le contenu tiré par BLEO à 14 h pour ce jour, même si BLEO est encore en mode ombre ; un créneau non servable retombe sur la tierlist.",
       lancer: "Lancer le test à blanc",
       enCours: "Test à blanc…",
       garantie:
@@ -2071,6 +2074,21 @@ export const fr = {
     bleo: {
       mode: "Mode : {{mode}}",
       modes: { off: "coupé", ombre: "à blanc", ab: "A/B", actif: "actif" },
+      interrupteur: {
+        bouton_actif: "Passer en actif",
+        bouton_ombre: "Revenir à l'ancien système",
+        titre_actif: "Passer BLEO en actif ?",
+        titre_ombre: "Revenir à l'ancien système ?",
+        effet_actif:
+          "À la prochaine assignation de minuit, chaque créneau prend le contenu, la langue et l'appli du plan de 14 h. Un créneau du plan qui ne peut pas être servi retombe sur la tierlist.",
+        effet_ombre:
+          "BLEO repasse à blanc : la prochaine assignation de minuit est celle d'avant (tierlist). BLEO continue de calculer la nuit et de tirer un plan, sans rien assigner.",
+        plan: "Plan suivi : celui du {{jour}}, {{n}} créneaux.",
+        sansPlan: "Aucun plan fini pour l'instant : tant qu'il n'y en a pas, minuit reste sur la tierlist.",
+        quand: "Le changement vaut pour la prochaine assignation de minuit ; les posts déjà assignés ne bougent pas.",
+        confirmer_actif: "Passer en actif",
+        confirmer_ombre: "Revenir à l'ancien système",
+      },
       ok: "Respectée",
       pasOk: "Pas respectée",
       close: "Close",
@@ -2198,6 +2216,8 @@ export const fr = {
           "BLEO tourne à blanc : il calcule chaque nuit (r, verdicts, valeurs) et tire un plan chaque après-midi pour le lendemain, sans rien publier. Minuit reste le seul à assigner.",
         description_off: "BLEO est coupé : ni nuit ni tirage.",
         description_ab: "BLEO est en A/B : une partie des créneaux est tirée par BLEO, l'autre par minuit.",
+        description_actif:
+          "BLEO est actif : l'assignation de minuit suit le plan tiré à 14 h ; un créneau du plan qu'elle ne peut pas servir retombe sur la tierlist.",
         dernierPlan: "Dernier plan : {{jour}}",
         dernierPlanDesc: "Tiré le {{quand}} en {{duree}} s.",
         voirPlan: "Voir le plan compte par compte",

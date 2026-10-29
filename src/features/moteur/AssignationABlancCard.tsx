@@ -37,6 +37,7 @@ export function AssignationABlancCard() {
   const [date, setDate] = React.useState(demainParis());
   const [compteId, setCompteId] = React.useState("");
   const [ia, setIa] = React.useState(false);
+  const [bleo, setBleo] = React.useState(false);
   const [logs, setLogs] = React.useState<AssignationABlancLog[]>([]);
   const logsRef = React.useRef<HTMLDivElement>(null);
   const nuit = iaBloqueeParLaNuit();
@@ -49,9 +50,15 @@ export function AssignationABlancCard() {
   const tester = useMutation({
     mutationFn: () => {
       setLogs([]);
-      return lancerAssignationABlanc(date, compteId, ia && !nuit, (ligne) => {
-        setLogs((prev) => [...prev, ligne]);
-      });
+      return lancerAssignationABlanc(
+        date,
+        compteId,
+        ia && !nuit,
+        (ligne) => {
+          setLogs((prev) => [...prev, ligne]);
+        },
+        bleo,
+      );
     },
   });
 
@@ -110,6 +117,18 @@ export function AssignationABlancCard() {
             <span className="block text-xs text-muted-foreground">
               {nuit ? t("aBlanc.iaNuit") : t("aBlanc.iaAide")}
             </span>
+          </span>
+        </label>
+
+        <label className="flex items-start gap-2 text-sm">
+          <Checkbox
+            checked={bleo}
+            disabled={tester.isPending}
+            onCheckedChange={(valeur) => setBleo(Boolean(valeur))}
+          />
+          <span>
+            {t("aBlanc.bleo")}
+            <span className="block text-xs text-muted-foreground">{t("aBlanc.bleoAide")}</span>
           </span>
         </label>
 

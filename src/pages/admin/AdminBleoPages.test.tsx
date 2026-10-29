@@ -28,9 +28,19 @@ const resumePlan = {
   labels_file_juger: { RH: { utilise: 7, capacite: 7 } },
 };
 
+const changerModeBleo = vi.fn((mode: string) =>
+  Promise.resolve({ mode, avant: "ombre", le: "2026-11-02T21:00:00Z", dernier_plan: null }),
+);
+
+vi.mock("@/features/auth/AuthContext", async (original) => ({
+  ...(await original<typeof import("@/features/auth/AuthContext")>()),
+  useAuth: () => ({ role: "admin" }),
+}));
+
 // Les lectures sont remplacées, les aides du module (runOfficiel, TAILLE_PAGE) restent les vraies.
 vi.mock("@/features/bleo/api", async (original) => ({
   ...(await original<typeof import("@/features/bleo/api")>()),
+  changerModeBleo: (mode: string) => changerModeBleo(mode),
   lireReglagesBleo: () =>
     Promise.resolve({ mode: "ombre", slide_marquee: false, boite: { generation_max: 2, declinaisons_par_parent: 3 } }),
   listerNuits: () =>
@@ -266,6 +276,18 @@ describe("section BLEO de l'OS", () => {
     expect(screen.getByText("243")).toBeInTheDocument(); // familles closes de la nuit
     expect(screen.getByText("Essai")).toBeInTheDocument();
     expect(screen.getByText(/Pas encore de rapport/)).toBeInTheDocument();
+  });
+
+  it("vue d'ensemble : l'interrupteur passe en actif après confirmation, plan suivi affiché", async () => {
+    rendre(<AdminBleoPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "Passer en actif" }));
+    expect(await screen.findByText("Passer BLEO en actif ?")).toBeInTheDocument();
+    expect(screen.getByText(/Plan suivi : celui du .*, 498 créneaux\./)).toBeInTheDocument();
+    expect(changerModeBleo).not.toHaveBeenCalled();
+    const boutons = screen.getAllByRole("button", { name: "Passer en actif" });
+    fireEvent.click(boutons[boutons.length - 1]);
+    await vi.waitFor(() => expect(changerModeBleo).toHaveBeenCalledWith("actif"));
+    await vi.waitFor(() => expect(screen.queryByText("Passer BLEO en actif ?")).not.toBeInTheDocument());
   });
 
   it("plan du jour : le tirage officiel par défaut, compte par compte", async () => {

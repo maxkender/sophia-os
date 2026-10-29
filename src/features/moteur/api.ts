@@ -5627,8 +5627,10 @@ export async function lancerAssignationABlanc(
   compteId: string,
   ia: boolean,
   onLog?: (ligne: AssignationABlancLog) => void,
+  /** BLEO : suivre le plan du tirage comme après la bascule. */
+  bleo = false,
 ): Promise<AssignationABlancResultat> {
-  const fin = await posterFluxABlanc({ date, compteId, ia }, onLog);
+  const fin = await posterFluxABlanc({ date, compteId, ia, bleo }, onLog);
   return fin.resultat as AssignationABlancResultat;
 }
 

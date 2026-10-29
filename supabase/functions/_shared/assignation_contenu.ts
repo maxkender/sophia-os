@@ -38,6 +38,14 @@ import {
   type PartsApplications,
 } from "./multi_app.ts";
 import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
+import {
+  colonnesBleoPassage,
+  type LignePlanBleo,
+  lirePlanBleoCompte,
+  lirePlanBleoJour,
+  type PlanBleoJour,
+  prochaineLignePlan,
+} from "./bleo_plan.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
@@ -288,6 +296,11 @@ export interface MemoAssignation {
    * Écrites par la fonction `empreintes`, elles ne bougent pas pendant le run.
    */
   signatures?: Map<string, Signature>;
+  /**
+   * jour → plan BLEO à suivre (mode `actif` et run officiel du jour), lu une
+   * fois par lot ; `null` : pas de plan, l'assignation reste celle d'avant.
+   */
+  bleo?: Map<string, Promise<PlanBleoJour | null>>;
 }
 
 export function creerMemoAssignation(): MemoAssignation {
@@ -301,6 +314,7 @@ export function creerMemoAssignation(): MemoAssignation {
     decksIneligibles: new Map(),
     echecsDeck: new Map(),
     signatures: new Map(),
+    bleo: new Map(),
   };
 }
 
@@ -419,6 +433,11 @@ export interface AssignationOpts {
   ignorerTierlist?: boolean;
   /** Ignore `warmup_ends_at` (compte hors process OK). */
   ignorerWarmup?: boolean;
+  /**
+   * BLEO : suit le plan du tirage même quand `bleo.mode` n'est pas `actif`
+   * (répétition de la bascule par l'assignation à blanc, rien n'est écrit).
+   */
+  suivrePlanBleo?: boolean;
   /** Logs progression (stream NDJSON / UI test). */
   onLog?: (detail: string) => void;
   /**
@@ -754,6 +773,30 @@ export async function assignerCompteJour(
     }
   }
 
+  // BLEO (bascule du 2/11) : en mode `actif`, chaque créneau suit le plan du
+  // tirage de 14 h ; un créneau du plan non servable retombe sur la tierlist.
+  // Hors test et hors UGC (le tirage ne connaît pas les personas). Une lecture
+  // ratée n'arrête jamais l'assignation : on reste sur la tierlist.
+  let planJour: PlanBleoJour | null = null;
+  let planCompte: LignePlanBleo[] = [];
+  if (!estTest && !ugcAi) {
+    const cache = memo.bleo ?? (memo.bleo = new Map());
+    planJour = await memoiser(cache, jour, () =>
+      lirePlanBleoJour(supabase, jour, { forcer: Boolean(o.suivrePlanBleo) }).catch((e) => {
+        console.error(`[bleo] plan du ${jour} illisible, assignation tierlist — ${e instanceof Error ? e.message : String(e)}`);
+        return null;
+      })
+    );
+    if (planJour) {
+      try {
+        planCompte = await lirePlanBleoCompte(supabase, planJour, compte.id as string);
+      } catch (e) {
+        log(`Plan BLEO illisible pour ce compte (${e instanceof Error ? e.message : String(e)}) — tierlist`);
+      }
+      log(`BLEO actif : ${planCompte.length} créneau(x) au plan pour ce compte`);
+    }
+  }
+
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [...(o.exclureContenus ?? [])];
   const maxTentatives = manquants + 8;
@@ -858,6 +901,74 @@ export async function assignerCompteJour(
     return { motif, detail };
   };
 
+  /**
+   * BLEO : sert un créneau du plan — le contenu, l'application et la langue
+   * tirés à 14 h, avec le deck du circuit actuel. `null` : le créneau retombe
+   * sur la tierlist (application plus servie par le compte, contenu retiré,
+   * deck refusé ou raté).
+   */
+  const servirLignePlan = async (
+    ligne: LignePlanBleo,
+  ): Promise<{ choisi: Candidat; slides: SlideLangue[]; hashtags: string; app: ApplicationMoteur } | null> => {
+    const appPlan = !ligne.applicationId || ligne.applicationId === ID_SOPHIA
+      ? (labelsSophia.length > 0 ? repartition.sophia : null)
+      : repartition.eligibles.find((a) => a.id === ligne.applicationId) ?? null;
+    if (!appPlan) {
+      log(`Plan BLEO : application du créneau ${ligne.creneau} plus servie par ce compte — tierlist`);
+      return null;
+    }
+    const { data: c, error } = await supabase
+      .from("contenus")
+      .select("id, statut, tier, tier_cycle, musique_url, musique_titre, musique_plateforme")
+      .eq("id", ligne.contenuId)
+      .maybeSingle();
+    if (error || !c || c.statut !== "valide") {
+      log(`Plan BLEO : contenu ${ligne.contenuId.slice(0, 8)} plus disponible — tierlist`);
+      return null;
+    }
+    contenusSession.push(ligne.contenuId);
+    const choisiPlan: Candidat = {
+      contenuId: ligne.contenuId,
+      tier: (c.tier ?? "B") as Tier,
+      tierCycle: Number(c.tier_cycle ?? 0),
+      restants: 0,
+      repeche: false,
+      slides: null,
+      musique_url: c.musique_url ?? null,
+      musique_titre: c.musique_titre ?? null,
+      musique_plateforme: c.musique_plateforme ?? null,
+      dejaPoste: false,
+      posteRecemment: false,
+      ecartDepuisDernier: null,
+      derniereDate: null,
+    };
+    log(
+      `Plan BLEO · créneau ${ligne.creneau} · ${ligne.categorie ?? ligne.fileBleo} · contenu ${ligne.contenuId.slice(0, 8)}` +
+        ` · ${appPlan.nom} — deck ${langue}…`,
+    );
+    try {
+      if (appPlan.id !== ID_SOPHIA) {
+        const deck = await decksAssignation.application(supabase, ligne.contenuId, langue, appPlan, {
+          echeance: o.echeance !== undefined ? o.echeance + MARGE_CUISSON_MS : undefined,
+        });
+        if (deck.statut === "pret" && deck.slides.length > 0) {
+          return { choisi: choisiPlan, slides: deck.slides, hashtags: deck.hashtags ?? "", app: appPlan };
+        }
+        log(`Plan BLEO : deck ${appPlan.nom} ${deck.statut}${"raison" in deck ? ` (${deck.raison})` : ""} — tierlist`);
+        return null;
+      }
+      const deck = await decksAssignation.sophia(supabase, ligne.contenuId, langue);
+      if (!deck.slides.length) {
+        log("Plan BLEO : deck vide — tierlist");
+        return null;
+      }
+      return { choisi: choisiPlan, slides: deck.slides, hashtags: deck.hashtags, app: repartition.sophia };
+    } catch (e) {
+      log(`Plan BLEO : deck échoué (${e instanceof Error ? e.message : String(e)}) — tierlist`);
+      return null;
+    }
+  };
+
   let persona = null;
   if (ugcAi && ugcPersonaId) {
     log("Chargement persona UGC…");
@@ -893,7 +1004,22 @@ export async function assignerCompteJour(
     let slides: SlideLangue[] = [];
     let hashtagsDeck = "";
 
-    if (appCreneau.id !== ID_SOPHIA) {
+    // BLEO actif : le créneau suivant du plan d'abord.
+    let lignePlan = planCompte.length > 0 ? prochaineLignePlan(planCompte, langue, contenusSession) : null;
+    if (lignePlan) {
+      const servi = await servirLignePlan(lignePlan);
+      if (servi) {
+        choisi = servi.choisi;
+        slides = servi.slides;
+        hashtagsDeck = servi.hashtags;
+        appEffective = servi.app;
+        log(`Deck prêt (${slides.length} slides, plan BLEO) — matérialisation…`);
+      } else {
+        lignePlan = null;
+      }
+    }
+
+    if (!choisi && appCreneau.id !== ID_SOPHIA) {
       const dejaRepliee = appsRepliees.get(appCreneau.id);
       const servi = dejaRepliee ? { motif: dejaRepliee } : await piocherPourApplication(appCreneau);
       if ("choisi" in servi) {
@@ -989,6 +1115,8 @@ export async function assignerCompteJour(
         // y en a eu un. Sur le chemin historique, l'objet inséré reste celui
         // d'avant 0256 — la colonne prend son défaut (Sophia).
         ...(repartition.multi ? colonnesApplicationPassage(appEffective, repli) : {}),
+        // BLEO : servi par le plan (`bleo`) ou rendu à la tierlist en mode actif (`temoin`).
+        ...colonnesBleoPassage(lignePlan, Boolean(planJour)),
       })
       .select("id")
       .single();

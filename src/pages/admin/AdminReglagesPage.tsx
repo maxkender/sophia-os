@@ -213,7 +213,7 @@ export function AdminReglagesPage() {
       // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
       // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
       // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
-      // « warmup.heures » n'existe plus (0412) : la fin du warm-up suit la cohorte.
+      // « warmup.heures » n'est plus lu : la fin du warm-up suit la cohorte (0301).
     },
     onSuccess: () => {
       setBrouillon(null);

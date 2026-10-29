@@ -12,6 +12,7 @@ import {
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { modeKillMessage } from "../_shared/arret.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
@@ -57,7 +58,8 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       #managers-hq (prompt 15, point 3).
  *   { action: "envoi_auto" }      cron, dimanche 12 h (heure de Paris)
  *       Pareil pour le contrôle du samedi, puis le message de Kill à chaque
- *       posteur arrêté si `kill_message_auto` (0382) : Slack + bandeau.
+ *       posteur arrêté (`kill_message_auto`, off / test / on) : sur Upwork,
+ *       dans la conversation du contrat, + la bannière (prompt 21, F).
  *   { action: "rappel_lundi" }    cron, lundi 9 h (heure de Paris)
  *       Dans le fil du samedi : qui ne pas financer, qui passe à 2 comptes.
  *       Cron `ckd-rappel-lundi` en pause depuis le prompt 15 (les HMs ne
@@ -356,39 +358,80 @@ async function creerDeuxieme(
 // ---------------------------------------------------------------------------
 
 /**
- * Pour chaque Kill validé du contrôle : le message (`kill_message_creer`,
- * qui ne crée rien si le réglage est coupé, si le message existe déjà ou si
- * le posteur garde un compte), puis le DM Slack. Le bandeau de son espace lit
- * le même message.
+ * Prompt 21, partie F (0414) : pour chaque Kill validé du contrôle, le message
+ * part dans la conversation Upwork du contrat, pour tout le monde (Slack ou
+ * pas) ; plus de DM Slack. La bannière du tableau de bord lit le même message
+ * (`kill_message_creer`). Un seul message de Kill par posteur. Interrupteur
+ * `kill_message_auto` : off rien, test noté dans le Pipeline sans rien créer
+ * ni envoyer, on pour de vrai. Un échec d'envoi est noté, jamais relancé.
  */
 async function messagesKill(supabase: Supabase, controleId: string) {
   if (!controleId) throw new Error("controle_id requis");
-  // Prompt 22 : en pause, aucun message de Kill (ni pop-up ni Slack) ; rien n'est créé.
+  // Prompt 22 : en pause, aucun message de Kill (ni bannière ni Upwork) ; rien n'est créé.
   if (await bloquer(supabase, { fonction: "ckd", action: "messages_kill", cible: controleId })) return { ok: true, ignore: PAUSE };
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "kill_message_auto").maybeSingle();
+  const mode = modeKillMessage(regl?.valeur);
+  if (mode === "off") return { ok: true, mode, ignore: "kill_message_auto = off" };
   const { data: props, error } = await supabase
     .from("ckd_propositions")
     .select("id")
     .eq("controle_id", controleId)
     .eq("decision", "ne_pas_renouveler");
   if (error) throw error;
-  const bilan = { crees: 0, envoyes: 0, introuvables: 0, erreurs: 0 };
+  const bilan = { mode, crees: 0, envoyes: 0, simules: 0, sans_contrat: 0, erreurs: 0 };
   for (const p of props ?? []) {
+    const { data: prep, error: errPrep } = await supabase.rpc("kill_message_preparer", { p_id: p.id });
+    if (errPrep) throw errPrep;
+    const m = ((prep ?? []) as { poster_id: string; semaine: string; texte: string; contrat_id: string | null; deja: boolean }[])[0];
+    if (!m || m.deja) continue;
+    if (mode === "test") {
+      await supabase.from("recrue_evenements").upsert(
+        { poster_id: m.poster_id, type: "kill_message", at: new Date().toISOString(), detail: `test : ${m.texte}`, cle: `kill_message:${m.semaine}` },
+        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
+      );
+      bilan.simules++;
+      continue;
+    }
     const { data: crees, error: errCree } = await supabase.rpc("kill_message_creer", { p_id: p.id });
     if (errCree) throw errCree;
-    for (const m of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
+    for (const cree of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
       bilan.crees++;
-      const issue = await ecrireAuPosteur(supabase, m.poster_id, m.texte);
-      if (issue.statut === "envoye") bilan.envoyes++;
-      else if (issue.statut === "introuvable") bilan.introuvables++;
+      const erreur = m.contrat_id ? await envoyerUpwork(m.contrat_id, cree.texte) : "contrat Upwork non relié";
+      const statut = !m.contrat_id ? "sans_contrat" : erreur ? "erreur" : "envoye";
+      if (statut === "envoye") bilan.envoyes++;
+      else if (statut === "sans_contrat") bilan.sans_contrat++;
       else bilan.erreurs++;
       await supabase.from("posteur_messages").update({
-        slack_statut: issue.statut,
-        slack_at: new Date().toISOString(),
-        slack_erreur: issue.statut === "erreur" ? issue.erreur : null,
-      }).eq("id", m.id);
+        upwork_statut: statut,
+        upwork_at: new Date().toISOString(),
+        upwork_erreur: erreur,
+      }).eq("id", cree.id);
+      await supabase.from("recrue_evenements").upsert(
+        { poster_id: cree.poster_id, type: "kill_message", at: new Date().toISOString(), detail: erreur ? `erreur : ${erreur}` : "envoyé sur Upwork", cle: `kill_message:${m.semaine}` },
+        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
+      );
     }
   }
   return { ok: true, ...bilan };
+}
+
+/** Par la fonction `upwork` (le seul endroit qui parle à Upwork), sans nouvel essai. */
+async function envoyerUpwork(contratId: string, texte: string): Promise<string | null> {
+  const base = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("CRON_SECRET");
+  if (!base || !secret) return "SUPABASE_URL ou CRON_SECRET absent";
+  try {
+    const r = await fetch(`${base}/functions/v1/upwork`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": secret },
+      body: JSON.stringify({ action: "message", contrat_id: contratId, texte }),
+    });
+    const corps = await r.json().catch(() => null);
+    if (!r.ok || !corps?.ok) return `upwork : ${corps?.error ?? `HTTP ${r.status}`}`;
+    return null;
+  } catch (e) {
+    return `upwork : ${messageErreur(e)}`;
+  }
 }
 
 async function recreerShadowban(supabase: Supabase, compteId: string, par: string | null): Promise<Response> {

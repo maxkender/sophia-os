@@ -3098,7 +3098,7 @@ export const en = {
       },
       kill_message_auto: {
         titre: "Kill message (Sunday)",
-        on: "Sunday at noon, for each Kill validated on Saturday: the Kill message to the poster (banner on the dashboard). Test: noted, nothing is created or sent.",
+        on: "Sunday at noon, for each Kill validated on Saturday: the Kill message in the Upwork conversation of the contract (and the banner on the dashboard), once per poster. No Slack DM. Test: noted in the Pipeline, nothing is created or sent.",
       },
       kill_auto: {
         titre: "Automatic Kill",
@@ -3269,6 +3269,9 @@ export const en = {
         kill_parti: "Kill gone",
         kill_erreur: "Kill error",
         arret: "Full stop requested",
+        reporte: "Not ready on Sunday: moved to next Monday",
+        kill_message: "Kill message (Upwork)",
+        contrat_termine: "Contract ended",
       },
     },
     reponses: {

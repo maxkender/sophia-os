@@ -70,3 +70,43 @@ export function statutArret(etapes: EtapeArret[]): "fait" | "erreur" {
 export function decrireJalons(jalons: JalonUpwork[]): string {
   return jalons.map((j) => `${j.nom || j.id}${j.depot !== null ? ` ($${j.depot})` : ""}`).join(", ");
 }
+
+// ---------------------------------------------------------------------------
+// Prompt 21, partie F : la fin du contrat après la dernière semaine (0414)
+// ---------------------------------------------------------------------------
+
+/** Ce que `arrets_fins_a_faire` dit de la semaine du Kill. */
+export interface SemaineKill {
+  /** Montant de la ligne de paie (corrigé s'il l'a été) ; null : pas de ligne. */
+  montant: number | null;
+  paye_at: string | null;
+  /** Posts publiés avec leur lien cette semaine-là. */
+  posts: number;
+}
+
+/** Payée (API ou case « Payé ») → on termine ; à 0 $ → on termine aussi ; sinon on attend la paie. */
+export function etatSemaineKill(s: SemaineKill): "payee" | "zero" | "attendre" {
+  if (s.paye_at) return "payee";
+  if (s.montant === 0 || (s.montant === null && s.posts === 0)) return "zero";
+  return "attendre";
+}
+
+/**
+ * Terminer le contrat ? Jamais tant qu'une milestone financée reste (elle n'est
+ * pas payée), sauf la semaine à 0 $ : l'argent en séquestre devient une
+ * demande de remboursement et le contrat se termine quand même.
+ */
+export function planFinContrat(plan: PlanUpwork, semaine: "payee" | "zero"): { fermer: boolean; raison: string | null } {
+  if (!plan.fermer && plan.rembourser.length === 0) return { fermer: false, raison: "aucune milestone lue : contrat à terminer à la main" };
+  if (semaine === "payee" && plan.rembourser.length > 0) {
+    return { fermer: false, raison: `encore financé : ${decrireJalons(plan.rembourser)} (à payer ou rembourser, puis terminer)` };
+  }
+  return { fermer: true, raison: null };
+}
+
+/** `kill_message_auto` (0413) : off / test / on ; l'ancien oui / non = on / off ; inconnu = off. */
+export function modeKillMessage(v: unknown): "off" | "test" | "on" {
+  if (v === true || v === "on") return "on";
+  if (v === "test") return "test";
+  return "off";
+}

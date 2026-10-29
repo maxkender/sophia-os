@@ -40,9 +40,11 @@ import {
   decrireJalons,
   etape,
   type EtapeArret,
+  etatSemaineKill,
   MESSAGE_FIN_DEFAUT,
   MUTATION_FERMER_CONTRAT,
   MUTATION_SUPPRIMER_JALON,
+  planFinContrat,
   planUpwork,
   RAISON_FIN_DEFAUT,
   statutArret,
@@ -1415,13 +1417,23 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
 
   const { data: file, error } = await supabase
     .from("arrets")
-    .select("id")
+    .select("id, etapes")
     .eq("statut", "a_faire")
     .order("created_at")
     .limit(20);
   if (error) throw error;
   const bilan = { mode, traites: 0, erreurs: [] as string[] };
   for (const a of file ?? []) {
+    if (mode !== "on") {
+      // Prompt 21, F6 : en test, rien n'est désactivé ni envoyé ; le plan est noté
+      // une fois et la ligne reste « à faire » (elle partira pour de vrai sur « on »).
+      if (((a.etapes ?? []) as EtapeArret[]).some((e) => e.statut === "simule")) continue;
+      const etapesTest = await arreterUn(supabase, par, a.id, false, texteFin, raison)
+        .catch((e) => [etape("os", "erreur", `arrêt simulé interrompu : ${messageErreur(e)}`)]);
+      await supabase.from("arrets").update({ etapes: etapesTest, maj_at: new Date().toISOString() }).eq("id", a.id);
+      bilan.traites++;
+      continue;
+    }
     // Un seul passage prend la ligne.
     const { data: pris } = await supabase
       .from("arrets")
@@ -1439,7 +1451,92 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
     bilan.traites++;
     if (erreur) bilan.erreurs.push(erreur);
   }
-  return { ok: bilan.erreurs.length === 0, ...bilan };
+  // Prompt 21, F : la dernière semaine payée (ou à 0 $), le contrat se termine.
+  const fins = await finsDeContrat(supabase, par, mode === "on", raison)
+    .catch((e) => ({ terminees: 0, attente: 0, bloquees: 0, simulees: 0, erreurs: [`fins de contrat : ${messageErreur(e)}`] }));
+  bilan.erreurs.push(...fins.erreurs);
+  return { ok: bilan.erreurs.length === 0, ...bilan, fins };
+}
+
+/**
+ * Prompt 21, partie F (0414) : un posteur arrêté qui avait posté (Kill du
+ * samedi, « je ne veux plus », Arrêter). Dès que la ligne de paie de sa
+ * dernière semaine est payée (par l'API ou cochée « Payé ») — ou si la semaine
+ * est à 0 $ —, au passage suivant : milestones non financées supprimées, rien
+ * de financé, contrat terminé (endContractByClient, motif arret_raison_upwork),
+ * noté dans recrue_evenements (« Contract ended »). Jamais avec une milestone
+ * financée restante, sauf à 0 $ (remboursement à demander). Test : simulé.
+ */
+async function finsDeContrat(supabase: Supabase, par: string | null, reel: boolean, raison: string) {
+  const { data, error } = await supabase.rpc("arrets_fins_a_faire");
+  if (error) throw error;
+  const bilan = { terminees: 0, attente: 0, bloquees: 0, simulees: 0, erreurs: [] as string[] };
+  for (const f of (data ?? []) as { arret_id: string; poster_id: string; contrat_id: string | null; semaine: string; montant: number | string | null; paye_at: string | null; posts: number }[]) {
+    const semaine = etatSemaineKill({ montant: f.montant === null ? null : Number(f.montant), paye_at: f.paye_at, posts: Number(f.posts ?? 0) });
+    if (semaine === "attendre") {
+      bilan.attente++;
+      continue;
+    }
+    const nouvelles: EtapeArret[] = [];
+    let termine = false;
+    if (!f.contrat_id) {
+      nouvelles.push(etape("fermeture", "erreur", "contrat Upwork non relié"));
+    } else if (await contratPartage(supabase, f.contrat_id, f.poster_id)) {
+      nouvelles.push(etape("fermeture", "sans_objet", "contrat partagé avec un autre compte actif du posteur"));
+    } else {
+      const { data: c } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", f.contrat_id).maybeSingle();
+      const tenant = (c?.organisation_id as string | undefined) ?? null;
+      const lu = await lire(supabase, { par, action: "fin_jalons", query: REQUETE_JALONS, variables: { id: f.contrat_id }, tenant });
+      if (lu.erreur || !lu.data?.contractDetails) {
+        nouvelles.push(etape("fermeture", "erreur", `milestones illisibles (${lu.erreur ?? "réponse vide"})`));
+      } else {
+        const plan = planUpwork(lireJalonsContrat(lu.data.contractDetails));
+        if (plan.supprimer.length && !reel) {
+          nouvelles.push(etape("jalons", "simule", `à supprimer : ${decrireJalons(plan.supprimer)}`));
+        } else if (plan.supprimer.length) {
+          const echecs: string[] = [];
+          for (const j of plan.supprimer) {
+            const r = await ecrire(supabase, { par, action: "fin_supprimer_jalon", query: MUTATION_SUPPRIMER_JALON, variables: { input: { id: j.id } }, tenant, contrat: f.contrat_id });
+            if (r.erreur || r.data?.deleteMilestone !== true) echecs.push(`${j.nom ?? j.id} : ${r.erreur ?? "non confirmé"}`);
+          }
+          nouvelles.push(echecs.length ? etape("jalons", "erreur", echecs.join(" ; ")) : etape("jalons", "fait", `supprimées : ${decrireJalons(plan.supprimer)}`));
+        }
+        if (semaine === "zero" && plan.rembourser.length) {
+          nouvelles.push(etape("remboursement", "a_faire", `Ask for a refund : ${decrireJalons(plan.rembourser)} (liste de paie)`));
+        }
+        const fin = planFinContrat(plan, semaine);
+        if (!fin.fermer) {
+          nouvelles.push(etape("fermeture", "a_faire", fin.raison));
+          bilan.bloquees++;
+        } else if (!reel) {
+          nouvelles.push(etape("fermeture", "simule", `endContractByClient, raison ${raison}`));
+          bilan.simulees++;
+        } else {
+          const r = await fermerContrat(supabase, par, f.contrat_id, tenant, raison, f.poster_id);
+          nouvelles.push(r.ferme ? etape("fermeture", "fait", "contrat terminé") : etape("fermeture", "erreur", r.raison));
+          termine = r.ferme;
+        }
+      }
+    }
+    if (termine) {
+      bilan.terminees++;
+      await supabase.from("contrats_fins").upsert({ poster_id: f.poster_id, semaine: f.semaine, termine_par: par }, { onConflict: "poster_id,semaine", ignoreDuplicates: true });
+      await supabase.from("recrue_evenements").upsert(
+        { poster_id: f.poster_id, type: "contrat_termine", at: new Date().toISOString(), detail: semaine === "zero" ? "semaine à 0 $" : "dernière semaine payée", cle: `contrat_termine:${f.semaine}` },
+        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
+      );
+    }
+    const erreur = nouvelles.filter((e) => e.statut === "erreur").map((e) => `${e.action} : ${e.detail}`).join(" · ") || null;
+    if (erreur) bilan.erreurs.push(`${f.poster_id} : ${erreur}`);
+    const { data: a } = await supabase.from("arrets").select("etapes").eq("id", f.arret_id).maybeSingle();
+    const paie = semaine === "zero" ? "semaine à 0 $" : "dernière semaine payée";
+    const etapes = [
+      ...((a?.etapes ?? []) as EtapeArret[]).map((e) => e.action === "paie" && e.statut === "a_faire" ? etape("paie", reel ? "fait" : "simule", paie) : e),
+      ...nouvelles,
+    ];
+    await supabase.from("arrets").update({ etapes, erreur, statut: erreur ? "erreur" : "fait", maj_at: new Date().toISOString() }).eq("id", f.arret_id);
+  }
+  return bilan;
 }
 
 /** Les actions d'un arrêt, dans l'ordre ; chacune journalisée, un échec n'arrête pas les autres. */
@@ -1453,13 +1550,14 @@ async function arreterUn(
 ): Promise<EtapeArret[]> {
   const etapes: EtapeArret[] = [];
   // 1. L'OS : désactivé (profil et comptes), plus de messages ni de posts.
-  const { data: os, error: errOs } = await supabase.rpc("arret_os", { p_id: id });
+  // Prompt 21, F6 : en test, le posteur n'est PAS désactivé (lecture seule).
+  const { data: os, error: errOs } = await supabase.rpc(reel ? "arret_os" : "arret_lire", { p_id: id });
   const p = (os ?? [])[0] as { poster_id: string; a_poste: boolean; contrat_id: string | null; slack_user_id: string | null } | undefined;
   if (errOs || !p) {
     etapes.push(etape("os", "erreur", errOs?.message ?? "posteur introuvable"));
     return etapes;
   }
-  etapes.push(etape("os", "fait", "posteur et comptes désactivés"));
+  etapes.push(reel ? etape("os", "fait", "posteur et comptes désactivés") : etape("os", "simule", "test : posteur et comptes pas désactivés"));
 
   // Slack : pas de retrait par l'API (compte standard) → liste « À retirer de Slack ».
   const slack = p.slack_user_id ? etape("slack", "a_faire", "à retirer de Slack") : etape("slack", "sans_objet");

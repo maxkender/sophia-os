@@ -102,6 +102,7 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | D27 | La validation relance `verifierOriginal` : quand `bleo.slide_marquee` passe à vrai, les dépôts en attente avec `texte_sophia` tombent en 409, jamais retentés (`auto_erreur`) | Juger un dépôt sur la règle en vigueur au moment du dépôt | technique (L10) |
 | D28 | Changer la forme de `etat` et `label` casse 30 copies d'outils (`cli-etat` ×11, `cli-label` ×7, `cli-suivi` ×6, `cli-playbook` ×6) | Champs ajoutés, rien de retiré | technique |
 | D29 | Le passage à 6 h est donné à la fois à L4 (P1) et à L7 | L7 (ligne 635 de la spec) | spec |
+| D35 | **Tranché le 29/10 par Adrien.** La spec ouvre la génération 2 au verdict (un passage à 10 k ou r ≥ 2) et ne dit pas si une déclinaison change l'accroche | Génération 1 : accroche identique mot pour mot. Génération 2 : accroche reformulée (même promesse), ouverte seulement si la génération 1 fait plus de 10 000 vues en moyenne sur au moins 2 passages mûrs. Vue `bleo_boite` (0605), colonne `accroche_attendue` ; le guichet (L4) refusera une génération 1 dont l'accroche normalisée diffère du parent et une génération 2 identique | fait (boîte), guichet en L4 |
 | D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) | à décider |
 
 ### Agent de langue (L9)
@@ -154,6 +155,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0602_bleo_nuit` | `bleo_nuit()` : A2, A1, A3, A4, A5 ; cron 05 h 15 | Appliquée, 1re nuit le 29/10 à 12 h (9,5 s) |
 | `0603_bleo_tirage` | `bleo_tirage()` en mode ombre (A6 à A8), `bleo_rapport()`, crons 14 h et 22 h | Appliquée (+ correctif « hors_file ») |
 | `0604_bleo_boite` | Boîte et jauge des podz (vues `bleo_boite`, `bleo_jauge`), fermeture des familles chaque nuit (A9, A10) | Appliquée ; les podz ne la lisent pas encore (reste de L4) |
+| `0605_bleo_boite_g2` | Règle des déclinaisons (D35) : génération 2 ouverte à plus de 10 000 vues en moyenne sur 2 passages mûrs ; `accroche_attendue` identique ou reformulée | Appliquée |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -224,3 +226,8 @@ recalculée à la main, rejouabilité, derniers plans).
   sur 918 closes (dernière génération sous r = 1 sur au moins 4 passages).
   `par_jour` de la jauge mesuré sur les dépôts des 7 derniers jours (plus bas que
   pods/rythme.json : smart_girl 4,3 contre 7, alpha_male 3,1 contre 4).
+- **29/10, fin d'après-midi** : règle des déclinaisons tranchée par Adrien (D35),
+  0605 appliquée. Boîte : 649 déclinaisons de génération 1 (accroche identique),
+  1 de génération 2 (alpha_male_yellow, 13 840 vues de moyenne sur 4 passages).
+  Les deux autres générations 1 au-dessus de 10 000 vues ont déjà leurs 3
+  déclinaisons. Avec la règle de la spec, 14 générations 2 auraient été ouvertes.

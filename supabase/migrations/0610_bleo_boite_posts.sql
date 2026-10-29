@@ -1,4 +1,4 @@
--- 0609 : BLEO, la boîte avec le post parent complet (D37, demandé par Adrien le 29/10).
+-- 0610 (d'abord numérotée 0609, en collision avec 0609_relecture_sans_questionnaire_ni_kit) : BLEO, la boîte avec le post parent complet (D37, demandé par Adrien le 29/10).
 --
 -- `bleo_boite` ne rend que l'accroche et des identifiants : un podz ne voit ni
 -- la tournure du post ni ses images. `bleo_boite_posts(label, limite)` rend

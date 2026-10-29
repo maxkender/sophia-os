@@ -224,23 +224,26 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   if (a.depot === null) return vide("refuse", `${a.nom || "milestone"} : montant illisible`);
   const attendu = arrondi(l.montant_calcule + l.retenue);
   // B9 : le 2e compte d'un Double a commencé cette semaine, la milestone n'était
-  // financée que pour un compte. Le reste (au plus un tarif + le bonus) part
+  // financée que pour un compte. Le reste (au plus un tarif) part
   // dans une milestone de complément, jamais plus que le calcul de l'OS.
   const reste = arrondi(attendu - a.depot);
-  const complement = reste > 0.009 && (l.nb_comptes ?? 1) >= 2 && l.tarif !== null && reste <= l.tarif + 1.009 &&
+  const complement = reste > 0.009 && (l.nb_comptes ?? 1) >= 2 && l.tarif !== null && reste <= l.tarif + 0.009 &&
       Math.abs(l.montant - attendu) < 0.009
     ? { nom: `Week ${w} (2nd acc)`, montant: reste }
     : null;
-  if (!complement && Math.abs(a.depot - attendu) > 0.009) {
+  // 0453 : plus de +1 $ en 1re semaine. Transition : une milestone déjà financée au tarif + 1 $
+  // (offre acceptée avant la suppression) est payée en entier, sans rien réclamer.
+  const transition = !complement && l.retenue === 0 && Math.abs(a.depot - attendu - 1) < 0.009;
+  if (!complement && !transition && Math.abs(a.depot - attendu) > 0.009) {
     return vide("refuse", `${a.nom || "milestone"} vaut ${a.depot} $, attendu ${attendu} $ : à vérifier`);
   }
-  if (!complement && l.montant > a.depot + 0.009) return vide("refuse", `montant ${l.montant} $ au-dessus de la milestone (${a.depot} $)`);
+  if (!complement && !transition && l.montant > a.depot + 0.009) return vide("refuse", `montant ${l.montant} $ au-dessus de la milestone (${a.depot} $)`);
   if (l.montant > r.plafond_ligne) return vide("refuse", `montant ${l.montant} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)`);
-  const sous = !complement && l.montant < a.depot - 0.009
+  const sous = !complement && !transition && l.montant < a.depot - 0.009
     ? (l.raison_correction?.trim() || `Missed posts: ${arrondi(a.depot - l.montant)} $ deducted`)
     : null;
   const approuver = {
-    jalon_id: a.id, nom: a.nom, montant: complement ? a.depot : arrondi(l.montant), depot: a.depot, sous_paiement: sous,
+    jalon_id: a.id, nom: a.nom, montant: complement || transition ? a.depot : arrondi(l.montant), depot: a.depot, sous_paiement: sous,
   };
 
   if (l.action === "kill") {

@@ -60,7 +60,7 @@ Deno.test("mode : off, test (contrats listés, pas avant le 2 nov.), on (pas ava
   assertEquals(lireReglagesPaieApi({}).plafond_jour, 5000);
 });
 
-Deno.test("Payer, 1re semaine (tarif + 1 $) : approuver Week 45, financer la Week 46 existante (jamais de doublon)", () => {
+Deno.test("Payer : approuver Week 45 (financée à 15 $ avant la suppression du +1 $), financer la Week 46 existante (jamais de doublon)", () => {
   const p = planPaiement(ligne({ montant: 15, montant_calcule: 15 }), embauche, S, R);
   assertEquals(p.statut, "pret");
   assertEquals(p.approuver, { jalon_id: "m1", nom: "Week 45", montant: 15, depot: 15, sous_paiement: null });
@@ -173,4 +173,14 @@ Deno.test("prompt 26 : 0 post et gardé : la milestone financée est renommée p
   assertEquals(planPaiement(z, [j("m0", "Trial week", "Active", 1)], S, R).statut, "refuse");
   // Kill & don't pay : rien n'est approuvé.
   assertEquals(planPaiement(ligne({ action: "kill_sans_paie" }), embauche, S, R).statut, "rien");
+});
+
+Deno.test("0453 : plus de +1 $ ; une 1re milestone déjà financée à tarif + 1 $ est payée en entier ; la suivante au tarif", () => {
+  // Offre acceptée avant la suppression : Week 45 financée à 15 $, tarif 14 $.
+  const p = planPaiement(ligne(), [j("m1", "Week 45", "Active", 1, 15), j("m2", "Week 46", "NotFunded", 2, 15)], S, R);
+  assertEquals([p.statut, p.approuver?.montant, p.approuver?.sous_paiement], ["pret", 15, null]);
+  // La milestone non financée créée à 15 $ est corrigée à 14 $ avant d'être financée.
+  assertEquals([p.financer?.montant, p.financer?.editer], [14, true]);
+  // Un autre écart reste à vérifier.
+  assertEquals(planPaiement(ligne(), [j("m1", "Week 45", "Active", 1, 16)], S, R).statut, "refuse");
 });

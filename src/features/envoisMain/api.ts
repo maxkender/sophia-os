@@ -18,13 +18,45 @@ export interface EnvoiMain {
   texte: string | null;
   priorite: number;
   main_at: string;
-  en_retard: boolean;
+  /**
+   * Prompt 25 MAJ, point 8 (0448) : a_envoyer, en_retard (6 h), sent (Sent
+   * cliqué, en vérification), verifie (vu sur Upwork), sent_introuvable (Sent
+   * cliqué, rien sur Upwork 1 h après).
+   */
+  statut_tache: "a_envoyer" | "en_retard" | "sent" | "verifie" | "sent_introuvable";
+  main_envoye_at: string | null;
+  main_verif_at: string | null;
+  main_rappel_at: string | null;
 }
 
 export async function lireEnvoisMain(): Promise<EnvoiMain[]> {
-  const { data, error } = await supabase.rpc("envois_main_liste");
+  const { data, error } = await supabase.rpc("envois_main_v2");
   if (error) throw error;
   return (data ?? []) as EnvoiMain[];
+}
+
+/** Une tâche encore à faire par la HM (pas encore « Sent » ni vue sur Upwork). */
+export const aFaire = (m: Pick<EnvoiMain, "statut_tache">) => m.statut_tache === "a_envoyer" || m.statut_tache === "en_retard";
+
+/** Par HM : à envoyer maintenant ; créés, envoyés, vérifiés, en retard, aujourd'hui et sur 7 jours. */
+export interface CompteursHm {
+  hm_id: string | null;
+  hm_nom: string | null;
+  a_envoyer: number;
+  crees_jour: number;
+  envoyes_jour: number;
+  verifies_jour: number;
+  retard_jour: number;
+  crees_7j: number;
+  envoyes_7j: number;
+  verifies_7j: number;
+  retard_7j: number;
+}
+
+export async function lireCompteursHm(): Promise<CompteursHm[]> {
+  const { data, error } = await supabase.rpc("envois_main_compteurs");
+  if (error) throw error;
+  return (data ?? []) as CompteursHm[];
 }
 
 /** « Sent » : noté parti sur Upwork, par la HM. */

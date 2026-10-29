@@ -2,6 +2,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: "admin" }) }));
 
 import "@/locales";
 import type { PostCalendrierAdmin } from "@/features/moteur/api";

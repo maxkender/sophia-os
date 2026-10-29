@@ -18,6 +18,9 @@ export interface MessageOnboarding {
   /** Prompt 25 MAJ (0446) : pourquoi il est parti (les données utilisées), et qui l'a envoyé. */
   raison?: string | null;
   expediteur?: string | null;
+  /** Prompt 25 MAJ, point 8 (0448) : la HM qui l'a envoyé, et la vérification sur Upwork. */
+  hm_nom?: string | null;
+  verif?: "verifie" | "sent_introuvable" | null;
 }
 
 export interface RecrueOnboarding {

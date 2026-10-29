@@ -241,11 +241,13 @@ Deno.serve(async (request) => {
         return json(await traiterArrets(supabase, par));
       case "reponses_lire": {
         const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
+        // Prompt 25 MAJ, point 8 : à chaque passage, les messages confiés aux HM sont vérifiés sur Upwork (lecture seule).
+        const verifs = posteurs ? null : await verifierEnvoisMain(supabase, par).catch((e) => ({ ok: false, error: messageErreur(e) }));
         // « Upwork replies » règle le passage du cron ; avant un Kill (posteurs donnés), toujours.
         if (acces.userId === "cron" && !posteurs && !(await passageDu(supabase, "reponses"))) {
           return json({ ok: true, ignore: "pas encore son tour (Overview → Switches)" });
         }
-        return json(await lireReponsesUpwork(supabase, par, posteurs));
+        return json({ ...(await lireReponsesUpwork(supabase, par, posteurs)), ...(verifs ? { envois_main: verifs } : {}) });
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
@@ -2360,6 +2362,87 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
   for (let i = 0; i < liste.length; i += REPONSES_EN_PARALLELE) {
     await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUne));
   }
+  return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 25, mises à jour, point 8 : la HM a-t-elle vraiment envoyé ?
+// ---------------------------------------------------------------------------
+
+interface TacheMain {
+  poster_id: string;
+  type: string;
+  periode: string;
+  statut: string;
+  texte: string | null;
+  main_at: string;
+  main_envoye_at: string | null;
+  contrat_id: string;
+  organisation_id: string | null;
+}
+
+/**
+ * Les messages confiés aux HM (Upwork plein) : la conversation du contrat est
+ * relue (30 min au plus entre deux lectures ; lire ne compte pas dans la
+ * limite). Un nouveau message du côté client après l'heure de la tâche (pas
+ * le freelance, pas un message parti par l'API) : envoyé, vérifié — même sans
+ * « Sent ». « Sent » cliqué et rien 1 h après : « Sent cliqué, message
+ * introuvable » (Needs you).
+ */
+async function verifierEnvoisMain(supabase: Supabase, par: string | null) {
+  const bilan = { lues: 0, verifiees: 0, introuvables: 0, erreurs: [] as string[] };
+  const { data, error } = await supabase.rpc("envois_main_a_verifier");
+  if (error) throw error;
+  const taches = (data ?? []) as TacheMain[];
+  const parContrat = new Map<string, TacheMain[]>();
+  for (const t of taches) parContrat.set(t.contrat_id, [...(parContrat.get(t.contrat_id) ?? []), t]);
+  const maintenant = Date.now();
+  const lireUn = async ([contrat, liste]: [string, TacheMain[]]) => {
+    const tenant = liste[0]!.organisation_id;
+    const salon = await lire(supabase, { par, action: "verif_main_salon", query: REQUETE_SALON_POSTEUR, variables: { id: contrat }, tenant });
+    const roomId = salon.data?.contractRoom?.id as string | undefined;
+    const freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
+    if (!roomId || !freelancer) {
+      bilan.erreurs.push(`${contrat} : ${salon.erreur ?? "conversation introuvable"}`);
+      return;
+    }
+    const msgs = await lire(supabase, { par, action: "verif_main_messages", query: REQUETE_MESSAGES_SALON, variables: { r: roomId }, tenant });
+    if (msgs.erreur) {
+      bilan.erreurs.push(`${contrat} : ${msgs.erreur}`);
+      return;
+    }
+    bilan.lues++;
+    // Les messages partis par l'API (comptes de Max et d'Adrien) : pas ceux de la HM.
+    const debut = liste.reduce((m, t) => (t.main_at < m ? t.main_at : m), liste[0]!.main_at);
+    const { data: appels } = await supabase.from("upwork_appels").select("at").eq("action", "message").eq("contrat", contrat)
+      .is("erreur", null).gte("at", debut);
+    const parApi = (appels ?? []).map((a) => Date.parse(a.at as string));
+    // deno-lint-ignore no-explicit-any
+    const cote = ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node)
+      .filter((n) => n?.id && n.user?.id && n.user.id !== freelancer && String(n.message ?? "").trim())
+      .map((n) => ({ at: Date.parse(n.createdDateTime), texte: String(n.message) }))
+      .filter((n) => !parApi.some((a) => Math.abs(a - n.at) < 120_000));
+    for (const t of liste) {
+      const vu = cote.some((n) => n.at > Date.parse(t.main_at));
+      if (vu) {
+        const { error: errV } = await supabase.rpc("envoi_main_verifie", { p_poster: t.poster_id, p_type: t.type, p_periode: t.periode });
+        if (errV) bilan.erreurs.push(`${contrat} ${t.type} : ${errV.message}`);
+        else bilan.verifiees++;
+        continue;
+      }
+      const maj: Record<string, unknown> = { main_lu_at: new Date().toISOString() };
+      if (t.statut === "deja_envoye" && t.main_envoye_at && maintenant - Date.parse(t.main_envoye_at) >= 3_600_000) {
+        maj.main_verif = "sent_introuvable";
+        maj.main_verif_at = new Date().toISOString();
+        bilan.introuvables++;
+        await supabase.from("nudges").update({ verif: "sent_introuvable" })
+          .eq("poster_id", t.poster_id).eq("type", t.type).eq("cible", "hm");
+      }
+      await supabase.from("relances_prevues").update(maj).match({ poster_id: t.poster_id, type: t.type, periode: t.periode });
+    }
+  };
+  const entrees = [...parContrat.entries()];
+  for (let i = 0; i < entrees.length; i += 5) await Promise.all(entrees.slice(i, i + 5).map(lireUn));
   return { ok: bilan.erreurs.length === 0, ...bilan };
 }
 

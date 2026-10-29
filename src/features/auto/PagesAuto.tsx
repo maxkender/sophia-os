@@ -3,6 +3,7 @@ import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
 import { Lien1000Card } from "@/features/moteur/Lien1000Card";
 import { PageMessagesEnvoyes } from "@/features/auto/sent/PageMessagesEnvoyes";
 import { FreinsEnvoi } from "@/features/auto/FreinsEnvoi";
+import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
@@ -42,6 +43,8 @@ export function OverviewPage() {
       <CarteSante>
         <SanteAuto />
       </CarteSante>
+      {/* Prompt 25 MAJ, point 8 : les messages confiés aux HM, par HM (aujourd'hui, 7 jours). */}
+      <CompteursHm />
       <CarteAujourdhui />
       <CarteSemaine />
       {/* Prompt 25 v4 : les contrats de test (admin). */}

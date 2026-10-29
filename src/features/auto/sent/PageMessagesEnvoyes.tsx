@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Prevues, StatsRelances } from "@/features/nudges/PageNudges";
 import { ReglagesRegles } from "@/features/regles/ReglagesRegles";
 import { EnvoisMain } from "@/features/envoisMain/EnvoisMain";
+import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 
 import { OngletsAuto, PanneauOnglet } from "../OngletsAuto";
 import { useOnglet } from "../useOnglet";
@@ -40,7 +41,10 @@ export function PageMessagesEnvoyes() {
           </>
         ) : onglet === "main" ? (
           // Prompt 25 v4 : Upwork plein, les messages que les HM envoient à la main.
-          <EnvoisMain avecHm toujours />
+          <>
+            <EnvoisMain avecHm toujours />
+            <CompteursHm />
+          </>
         ) : onglet === "prevus" ? (
           <Prevues />
         ) : onglet === "apercu" ? (

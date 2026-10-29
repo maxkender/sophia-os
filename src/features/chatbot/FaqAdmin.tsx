@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { BookOpen, ChevronDown, ChevronRight, ExternalLink, RefreshCw, Settings2 } from "lucide-react";
+import { BookOpen, ChevronDown, ChevronRight, ExternalLink, Settings2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,6 @@ import {
   ignorerQuestionFaq,
   lireReglagesFaqAdmin,
   listerGuidesCopies,
-  recopierGuides,
   traiterQuestionFaq,
   type QuestionFaq,
 } from "./api";
@@ -140,19 +139,14 @@ export function EtatBot() {
 // ---------------------------------------------------------------------------
 
 export function ReglagesFaqCarte() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [deplie, setDeplie] = React.useState(false);
   const reglages = useQuery({ queryKey: [...CLE_FAQ, "reglages"], queryFn: lireReglagesFaqAdmin });
-  const guides = useQuery({ queryKey: [...CLE_FAQ, "guides"], queryFn: listerGuidesCopies });
 
   const ecrire = useMutation({
     mutationFn: (r: ReglagesFaq) => ecrireReglagesFaq(r),
     onSettled: () => queryClient.invalidateQueries({ queryKey: [...CLE_FAQ, "reglages"] }),
-  });
-  const recopier = useMutation({
-    mutationFn: () => recopierGuides(),
-    onSettled: () => queryClient.invalidateQueries({ queryKey: [...CLE_FAQ, "guides"] }),
   });
 
   const r = reglages.data;
@@ -162,13 +156,6 @@ export function ReglagesFaqCarte() {
     ecrire.mutate({ ...r, ...patch });
   };
 
-  const pages = guides.data ?? [];
-  const derniere = pages.reduce<string | null>((max, p) => (!max || p.copie_at > max ? p.copie_at : max), null);
-  const bilan = recopier.data;
-  const erreursCopie = [
-    ...(bilan?.guides ?? []).flatMap((g) => g.erreurs),
-    ...(bilan && !bilan.ok && bilan.error ? [bilan.error] : []),
-  ];
   const enTest = r && (r.mode_slack !== "actif" || r.mode_os !== "actif");
   const selectClass = "h-9 rounded-md border border-input bg-background px-2 text-sm";
 
@@ -259,56 +246,10 @@ export function ReglagesFaqCarte() {
             </div>
           ) : null}
 
-          <div className="space-y-2 rounded-md border border-border/80 p-3">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <p className="text-sm font-medium">{t("chatbot.faq.guideTitre")}</p>
-                <p className="text-xs text-muted-foreground">
-                  {pages.length && derniere
-                    ? t("chatbot.faq.guidePages", {
-                        n: pages.length,
-                        date: new Date(derniere).toLocaleString(localeDate(i18n.language)),
-                      })
-                    : t("chatbot.faq.guideVide")}
-                </p>
-              </div>
-              <Button size="sm" variant="outline" disabled={recopier.isPending} onClick={() => recopier.mutate()}>
-                <RefreshCw className={cn(recopier.isPending && "animate-spin")} />
-                {recopier.isPending ? t("chatbot.faq.recopieEnCours") : t("chatbot.faq.recopier")}
-              </Button>
-            </div>
-            {bilan?.guides && !erreursCopie.length && (
-              <p className="text-xs text-success">
-                {t("chatbot.faq.recopieOk", {
-                  recopiees: bilan.guides.reduce((n, g) => n + g.recopiees, 0),
-                  inchangees: bilan.guides.reduce((n, g) => n + g.inchangees, 0),
-                })}
-              </p>
-            )}
-            {erreursCopie.map((e) => (
-              <p key={e} role="alert" className="text-xs text-destructive">
-                {e}
-              </p>
-            ))}
-            {pages.length > 0 && (
-              <details className="text-xs text-muted-foreground">
-                <summary className="cursor-pointer">{t("chatbot.faq.voirPages")}</summary>
-                <ul className="mt-1 space-y-0.5">
-                  {pages.map((p) => (
-                    <li key={p.page_id}>
-                      <a href={p.url} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
-                        {p.chemin}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            )}
-          </div>
-
-          {(reglages.error || ecrire.error || recopier.error) && (
+          {/* Prompt 22, partie 9 : le guide Notion (copie, « Recopier maintenant ») est dans l'onglet Sources. */}
+          {(reglages.error || ecrire.error) && (
             <p role="alert" className="text-xs text-destructive">
-              {messageErreur(reglages.error ?? ecrire.error ?? recopier.error)}
+              {messageErreur(reglages.error ?? ecrire.error)}
             </p>
           )}
         </CardContent>

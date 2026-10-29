@@ -113,7 +113,7 @@ function Historique() {
 }
 
 /** En haut de la page (28 oct., partie E) : 3 chiffres sur 7 jours, par étape. */
-function StatsRelances() {
+export function StatsRelances() {
   const { t } = useTranslation();
   const depuis = ajouterJours(aujourdhuiParis(), -7);
   const nudges = useQuery({ queryKey: ["nudges", "liste", depuis], queryFn: () => lireNudges(depuis) });
@@ -158,9 +158,14 @@ function StatsRelances() {
   );
 }
 
-/** Ce qui partirait maintenant (simulation, hors fenêtre) et ce qui ne peut pas partir. */
-function Prevues() {
+/**
+ * Ce qui partirait maintenant (simulation, hors fenêtre) et ce qui ne peut pas
+ * partir. Prompt 22 : l'onglet « Planned » de Messages sent ; « Send on
+ * Upwork » pour l'admin seulement (le Head of Ops lit la page).
+ */
+export function Prevues() {
   const { t } = useTranslation();
+  const { role } = useAuth();
   const date = useDate();
   const liste = useQuery({ queryKey: ["nudges", "prevues"], queryFn: lireRelancesPrevues });
   return (
@@ -190,7 +195,9 @@ function Prevues() {
                   <span className="text-xs text-muted-foreground">· {date(p.maj_at)}</span>
                 </p>
                 {p.texte && <p className="whitespace-pre-line rounded-md bg-muted/40 p-2 text-xs">{p.texte}</p>}
-                {p.texte && <BoutonSendUpwork posterId={p.poster_id} nom={p.poster_nom} texte={p.texte} type={p.type} />}
+                {p.texte && role === "admin" && (
+                  <BoutonSendUpwork posterId={p.poster_id} nom={p.poster_nom} texte={p.texte} type={p.type} />
+                )}
               </li>
             ))}
           </ul>

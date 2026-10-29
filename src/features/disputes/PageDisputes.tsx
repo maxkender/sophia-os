@@ -17,6 +17,7 @@ import {
   agirContestation,
   CLES_TEXTES_CONTESTATION,
   compterContestations,
+  creerContestation,
   enregistrerTexteContestation,
   lireContestations,
   lireDossier,
@@ -26,6 +27,7 @@ import {
   type Contestation,
   type Dossier,
   type Verdict,
+  TYPES_MANUELS,
 } from "./api";
 import { bilanPosts, compterOnglets, enRetard, filtrerOnglet, ligneDue, ONGLETS, proposerVerdict, reponseProposee, type Onglet } from "./logique";
 
@@ -478,5 +480,57 @@ export function BandeauDisputes() {
         {lu.data.plus_24h > 0 && ` · ${t("disputes.resumeRetard", { n: lu.data.plus_24h })}`}
       </Badge>
     </Link>
+  );
+}
+
+/** Prompt 21, R2 : « This is a dispute » sur un message de Messages received (le type, puis le bouton). */
+export function BoutonContestation({ reponseId }: { reponseId: string }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [type, setType] = React.useState<(typeof TYPES_MANUELS)[number]>("paie");
+  const creer = useMutation({
+    mutationFn: () => creerContestation(reponseId, type),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ["disputes"] });
+      void qc.invalidateQueries({ queryKey: ["needs-you"] });
+    },
+  });
+  if (creer.isSuccess) {
+    return (
+      <Link to="/admin/auto/disputes" className="text-xs text-primary underline-offset-2 hover:underline" data-testid={`contestation-creee-${reponseId}`}>
+        {t("disputes.creee")}
+      </Link>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1">
+      <select
+        className="h-7 rounded-md border border-input bg-background px-1 text-xs"
+        aria-label={t("disputes.typeContestation")}
+        value={type}
+        onChange={(e) => setType(e.target.value as (typeof TYPES_MANUELS)[number])}
+      >
+        {TYPES_MANUELS.map((x) => <option key={x} value={x}>{t(`disputes.types.${x}`)}</option>)}
+      </select>
+      <Button size="sm" variant="outline" className="h-7 text-xs" data-action="contestation" disabled={creer.isPending} onClick={() => creer.mutate()}>
+        {t("disputes.estUneContestation")}
+      </Button>
+      {creer.error && <span className="text-xs text-destructive">{(creer.error as Error).message}</span>}
+    </span>
+  );
+}
+
+/** Prompt 21, R2 : l'onglet « Pay questions » de Messages received est l'onglet Pay de Disputes. */
+export function RenvoiPaieDisputes() {
+  const { t } = useTranslation();
+  return (
+    <Card data-testid="reponses-paie-disputes">
+      <CardContent className="flex flex-wrap items-center gap-3 pt-6 text-sm">
+        <span>{t("disputes.paieDeplacee")}</span>
+        <Button size="sm" asChild>
+          <Link to="/admin/auto/disputes?onglet=paie">{t("disputes.ouvrirPaie")}</Link>
+        </Button>
+      </CardContent>
+    </Card>
   );
 }

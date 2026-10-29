@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import type { SemaineDecisions } from "./api";
-import { decisionDe, etatMoment, groupe, heureMoment, lundiAffiche, raison } from "./logique";
+import { decisionDe, etatMoment, groupe, heureMoment, lundiAffiche, lundiDeLaSemaine, MOMENTS, raison } from "./logique";
 
 const S: SemaineDecisions = {
   mercredi: { envoyes: 3 },
@@ -51,12 +51,19 @@ describe("Decisions (28 oct., partie C)", () => {
     expect(lundiAffiche("2026-11-03")).toBe("2026-11-02");
   });
 
+  it("prompt 22 : le lundi de la semaine du jeudi (le lundi lui-même compris)", () => {
+    expect(lundiDeLaSemaine("2026-10-29")).toBe("2026-10-26");
+    expect(lundiDeLaSemaine("2026-10-26")).toBe("2026-10-26");
+    expect(lundiDeLaSemaine("2026-11-01")).toBe("2026-10-26");
+  });
+
   it("Done / Your turn / Upcoming", () => {
     const lundi = "2026-10-26";
     // Jeudi 6 h (Paris, heure d'hiver) = 5 h UTC.
     expect(heureMoment(lundi, "jeudi").toISOString()).toBe("2026-10-29T05:00:00.000Z");
     const mercredi = new Date("2026-10-28T12:00:00Z");
-    expect(etatMoment("mercredi", S, lundi, mercredi)).toBe("fait");
+    // Prompt 22, partie 5 : plus de moment « mercredi ».
+    expect(MOMENTS).toEqual(["jeudi", "samedi", "dimanche", "lundi"]);
     expect(etatMoment("jeudi", S, lundi, mercredi)).toBe("a_venir");
     const vendredi = new Date("2026-10-30T12:00:00Z");
     expect(etatMoment("jeudi", S, lundi, vendredi)).toBe("a_toi");

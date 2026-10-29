@@ -23,8 +23,6 @@ function Icone({ etat }: { etat: EtatMoment }) {
 
 function nombres(m: Moment, s: Semaine): Record<string, number> {
   switch (m) {
-    case "mercredi":
-      return { n: s.mercredi.envoyes };
     case "jeudi":
       return { n: s.jeudi.propositions, reste: s.jeudi.a_decider };
     case "samedi":
@@ -37,10 +35,10 @@ function nombres(m: Moment, s: Semaine): Record<string, number> {
 }
 
 /**
- * La vraie semaine, en haut de la page Decisions (28 oct.) : mercredi 12 h
- * (check des posts, auto), jeudi 6 h (Recréer, tu valides), samedi 6 h (Kill
- * ou Double, avant 20 h), dimanche 23 h 30 (arrêts), lundi (paie). Chaque
- * moment : Done, Your turn ou Upcoming, et ses nombres.
+ * La vraie semaine, en haut de la page Decisions (28 oct.) : jeudi 6 h
+ * (Recréer, tu valides), samedi 6 h (Kill ou Double, avant 20 h), dimanche
+ * 23 h 30 (arrêts), lundi (paie). Chaque moment : Done, Your turn ou
+ * Upcoming, et ses nombres. Prompt 22, partie 5 : plus de « Wed 12:00 ».
  */
 export function SemaineDecisions({ maintenant = new Date() }: { maintenant?: Date }) {
   const { t, i18n } = useTranslation();
@@ -55,7 +53,7 @@ export function SemaineDecisions({ maintenant = new Date() }: { maintenant?: Dat
       <p className="text-sm text-muted-foreground">
         {t("decisions.semaine.titre", { date: fmt.format(new Date(`${lundi}T12:00:00Z`)) })}
       </p>
-      <ol className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
+      <ol className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
         {MOMENTS.map((m) => {
           const etat = etatMoment(m, s, lundi, maintenant);
           return (

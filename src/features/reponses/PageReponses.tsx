@@ -6,24 +6,27 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ReglagesReponses } from "./ReglagesReponses";
-import { Textarea } from "@/components/ui/textarea";
-import { useAuth } from "@/features/auth/AuthContext";
+import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
+import { lireMessagesEnvoyes, messageRepondu, type MessageEnvoye } from "@/features/auto/sent/api";
+import { useLibelleType } from "@/features/auto/sent/journal";
+import { useOnglet } from "@/features/auto/useOnglet";
 import { lireInterrupteurs } from "@/features/interrupteurs/api";
 import { localeDate } from "@/locales/localeDate";
+import { BoutonContestation, RenvoiPaieDisputes } from "@/features/disputes/PageDisputes";
 import { cn } from "@/lib/utils";
 
+import { ReglagesReponses } from "./ReglagesReponses";
 import {
   CAS_REPONSE,
-  CLES_TEXTES_REPONSES,
   corrigerReponse,
-  enregistrerTextesReponses,
+  lireKillsArretes,
   lireReponses,
-  lireTextesReponses,
+  lireSlackPosteurs,
   type CasReponse,
+  type KillArrete,
   type ReponsePosteur,
-  type TexteReponse,
 } from "./api";
+import { killArretePar, listesReponses, ONGLETS_REPONSES, type OngletReponses } from "./listes";
 
 const CLE = ["reponses-posteurs"] as const;
 
@@ -53,10 +56,18 @@ function useDate() {
   return (iso: string) => fmt.format(new Date(iso));
 }
 
-/** Un message reçu : le texte, le cas, ce que l'OS a fait ; « Mauvais cas » et « Lu ». */
-function Ligne({ r, dansListe }: { r: ReponsePosteur; dansListe?: boolean }) {
+/** Ce qui entoure un message reçu : le message de l'OS auquel il répond, le Kill qu'il a arrêté, le lien Slack. */
+interface Contexte {
+  envoyes: readonly MessageEnvoye[];
+  kills: readonly KillArrete[];
+  slack: ReadonlyMap<string, string>;
+}
+
+/** Un message reçu : le texte, le cas, ce que l'OS a fait ; « Mauvais cas », « Lu » et le lien vers la conversation. */
+function Ligne({ r, ctx }: { r: ReponsePosteur; ctx: Contexte }) {
   const { t } = useTranslation();
   const date = useDate();
+  const libelleType = useLibelleType();
   const qc = useQueryClient();
   const [corriger, setCorriger] = React.useState(false);
   const maj = useMutation({
@@ -67,6 +78,9 @@ function Ligne({ r, dansListe }: { r: ReponsePosteur; dansListe?: boolean }) {
     },
   });
   const cas = r.corrige_cas ?? r.cas;
+  const repondu = messageRepondu(ctx.envoyes, r.poster_id, r.recu_at);
+  const kill = killArretePar(ctx.kills, r);
+  const slack = ctx.slack.get(r.poster_id);
   return (
     <li className={cn("space-y-1 px-3 py-2 text-sm", r.erreur && "bg-destructive/5")} data-reponse={r.id}>
       <p className="flex flex-wrap items-center gap-2">
@@ -82,7 +96,19 @@ function Ligne({ r, dansListe }: { r: ReponsePosteur; dansListe?: boolean }) {
         )}
         {r.corrige_cas && <span className="text-xs text-muted-foreground">{t("reponses.corrige", { ia: r.cas_ia ? t(`reponses.cas.${r.cas_ia}`) : "—" })}</span>}
         {r.confiance !== null && <span className="text-xs tabular-nums text-muted-foreground">{Math.round(r.confiance * 100)} %</span>}
+        {r.lu_at && <Badge variant="secondary">{t("autoOnglets.received.dejaLu")}</Badge>}
+        {kill && (
+          <Badge variant="success" data-testid={`kill-arrete-${r.id}`}>
+            {t("autoOnglets.received.killArrete")}
+          </Badge>
+        )}
       </p>
+      {repondu && (
+        <p className="text-xs text-muted-foreground" data-testid={`repond-a-${r.id}`}>
+          {t("autoOnglets.received.repondA", { type: libelleType(repondu.type), date: date(repondu.at) })}
+          {repondu.texte && <span className="mt-0.5 block truncate italic">« {repondu.texte} »</span>}
+        </p>
+      )}
       <p className="whitespace-pre-wrap rounded-md bg-muted/40 p-2 text-sm">{r.texte || "—"}</p>
       {r.reponse_texte && (
         <p className="text-xs">
@@ -93,7 +119,7 @@ function Ligne({ r, dansListe }: { r: ReponsePosteur; dansListe?: boolean }) {
       {r.action && <p className="text-xs text-muted-foreground">{t(`reponses.actions.${r.action}`, { defaultValue: r.action })}</p>}
       {r.erreur && <p className="text-xs font-medium text-destructive">{r.erreur}</p>}
       <div className="flex flex-wrap items-center gap-1.5">
-        {dansListe && !r.lu_at && (
+        {!r.lu_at && (
           <Button size="sm" variant="outline" className="h-7" disabled={maj.isPending} onClick={() => maj.mutate({ cas: null, lu: true })}>
             {t("reponses.lu")}
           </Button>
@@ -103,6 +129,18 @@ function Ligne({ r, dansListe }: { r: ReponsePosteur; dansListe?: boolean }) {
             {t("reponses.ouvrirUpwork")}
           </a>
         )}
+        {r.canal !== "upwork" && slack && (
+          <a
+            href={`https://sophia-system.slack.com/team/${slack}`}
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs text-primary underline-offset-2 hover:underline"
+          >
+            {t("autoOnglets.received.ouvrirSlack")}
+          </a>
+        )}
+        {/* Prompt 21, R2 : à la main, une contestation (page Disputes). */}
+        <BoutonContestation reponseId={r.id} />
         {r.statut === "classe" &&
           (corriger ? (
             <span className="inline-flex flex-wrap items-center gap-1" role="group" aria-label={t("reponses.mauvaisCas")}>
@@ -123,7 +161,7 @@ function Ligne({ r, dansListe }: { r: ReponsePosteur; dansListe?: boolean }) {
   );
 }
 
-function Bloc({ titre, aide, lignes, testid, dansListe }: { titre: string; aide: string; lignes: ReponsePosteur[]; testid: string; dansListe?: boolean }) {
+function Bloc({ titre, aide, lignes, testid, ctx }: { titre: string; aide: string; lignes: ReponsePosteur[]; testid: string; ctx: Contexte }) {
   const { t } = useTranslation();
   return (
     <Card data-testid={testid}>
@@ -137,7 +175,7 @@ function Bloc({ titre, aide, lignes, testid, dansListe }: { titre: string; aide:
         ) : (
           <ul className="divide-y rounded-lg border">
             {lignes.map((r) => (
-              <Ligne key={r.id} r={r} dansListe={dansListe} />
+              <Ligne key={r.id} r={r} ctx={ctx} />
             ))}
           </ul>
         )}
@@ -146,61 +184,39 @@ function Bloc({ titre, aide, lignes, testid, dansListe }: { titre: string; aide:
   );
 }
 
-/** Les textes des réponses automatiques (admin) : en anglais, éditables. */
-function TextesReponses() {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const lu = useQuery({ queryKey: ["reglages", "reponses-textes"], queryFn: lireTextesReponses });
-  const [textes, setTextes] = React.useState<Record<TexteReponse, string> | null>(null);
-  React.useEffect(() => {
-    if (lu.data) setTextes(lu.data);
-  }, [lu.data]);
-  const enregistrer = useMutation({
-    mutationFn: (x: Record<TexteReponse, string>) => enregistrerTextesReponses(x),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["reglages", "reponses-textes"] }),
-  });
-  if (!textes) return null;
-  return (
-    <Card data-testid="reponses-textes">
-      <CardHeader>
-        <CardTitle>{t("reponses.textes.titre")}</CardTitle>
-        <CardDescription>{t("reponses.textes.aide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        {(Object.keys(CLES_TEXTES_REPONSES) as TexteReponse[]).map((k) => (
-          <label key={k} className="block space-y-1 text-sm">
-            <span className="font-medium">{t(`reponses.textes.${k}`)}</span>
-            <Textarea value={textes[k]} onChange={(e) => setTextes({ ...textes, [k]: e.target.value })} aria-label={t(`reponses.textes.${k}`)} />
-          </label>
-        ))}
-        <div className="flex items-center gap-2">
-          <Button disabled={enregistrer.isPending} onClick={() => enregistrer.mutate(textes)}>
-            {t("common.save")}
-          </Button>
-          {enregistrer.isSuccess && <span className="text-sm text-muted-foreground">{t("reponses.textes.ok")}</span>}
-          {enregistrer.error && <span className="text-sm text-destructive">{(enregistrer.error as Error).message}</span>}
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+/** Les titres et aides des 4 onglets (prompt 22, partie 7). */
+const TEXTES_ONGLET: Record<OngletReponses, { titre: string; aide: string }> = {
+  a_lire: { titre: "reponses.aLire", aide: "reponses.aLireAide" },
+  paie: { titre: "reponses.paie", aide: "reponses.paieAide" },
+  stop: { titre: "autoOnglets.received.stop", aide: "autoOnglets.received.stopAide" },
+  auto: { titre: "autoOnglets.received.auto", aide: "autoOnglets.received.autoAide" },
+};
 
 /**
- * Réponses (système du 2 nov., partie E) : « À lire » et « Questions de
- * paie » en tête (pas de réponse automatique), puis tous les messages des 14
- * derniers jours, avec le cas et ce que l'OS a fait. « Mauvais cas » note le
- * bon cas ; rien n'est renvoyé au posteur.
+ * Messages received (prompt 22, partie 7 ; ex Replies, système du 2 nov.,
+ * partie E) : une boîte de réception, tous les messages reçus (DM Slack,
+ * boutons, Upwork) avec le message de l'OS auquel ils répondent. 4 onglets :
+ * To read · Pay questions · Stop requests · Answered by the OS. Sur chaque
+ * message : « Lu », « Mauvais cas » (rien ne part au posteur), le lien vers la
+ * conversation, et le compte à rebours du Kill qu'il a arrêté. Les textes des
+ * réponses automatiques sont dans Messages sent → Texts.
  */
 export function PageReponses() {
   const { t } = useTranslation();
-  const { role } = useAuth();
   const depuis = React.useMemo(il_y_a_14_jours, []);
+  const [onglet, choisir] = useOnglet(ONGLETS_REPONSES, "a_lire");
   const lu = useQuery({ queryKey: [...CLE, depuis], queryFn: () => lireReponses(depuis) });
   const interrupteurs = useQuery({ queryKey: ["interrupteurs"], queryFn: lireInterrupteurs });
   const mode = interrupteurs.data?.reponses_auto ?? "test";
-  const toutes = lu.data ?? [];
-  const aLire = toutes.filter((r) => r.liste === "a_lire" && !r.lu_at);
-  const paie = toutes.filter((r) => r.liste === "paie" && !r.lu_at);
+  const toutes = React.useMemo(() => lu.data ?? [], [lu.data]);
+  const posteurs = React.useMemo(() => [...new Set(toutes.map((r) => r.poster_id))].sort(), [toutes]);
+  // Le message de l'OS auquel chacun répond : les envois des 4 dernières semaines.
+  const depuisEnvois = React.useMemo(() => new Date(Date.now() - 28 * 86_400_000).toISOString(), []);
+  const envoyes = useQuery({ queryKey: ["messages-envoyes", "reponses", depuisEnvois], queryFn: () => lireMessagesEnvoyes(depuisEnvois) });
+  const kills = useQuery({ queryKey: [...CLE, "kills", posteurs], queryFn: () => lireKillsArretes(posteurs), enabled: posteurs.length > 0 });
+  const slack = useQuery({ queryKey: [...CLE, "slack", posteurs], queryFn: () => lireSlackPosteurs(posteurs), enabled: posteurs.length > 0 });
+  const ctx: Contexte = { envoyes: envoyes.data ?? [], kills: kills.data ?? [], slack: slack.data ?? new Map() };
+  const listes = listesReponses(toutes);
   return (
     <div className="space-y-6" data-testid="page-reponses">
       <PageHeader title={t("reponses.titre")} description={t("reponses.description")} />
@@ -209,11 +225,33 @@ export function PageReponses() {
         <span className="text-muted-foreground">{t(`reponses.aide.${mode}`)}</span>
       </p>
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
-      <Bloc titre={t("reponses.aLire", { n: aLire.length })} aide={t("reponses.aLireAide")} lignes={aLire} testid="reponses-a-lire" dansListe />
-      <Bloc titre={t("reponses.paie", { n: paie.length })} aide={t("reponses.paieAide")} lignes={paie} testid="reponses-paie" dansListe />
-      <Bloc titre={t("reponses.toutes", { n: toutes.length })} aide={t("reponses.toutesAide")} lignes={toutes} testid="reponses-toutes" />
+      <OngletsAuto
+        id="received"
+        libelle={t("autoOnglets.received.ongletsAria")}
+        onglets={ONGLETS_REPONSES.map((o) => ({ cle: o, titre: t(`autoOnglets.received.onglets.${o}`) }))}
+        actif={onglet}
+        onChange={choisir}
+        compteurs={lu.data ? Object.fromEntries(ONGLETS_REPONSES.map((o) => [o, listes[o].length])) : {}}
+        alerte={["a_lire", "paie", "stop"]}
+      />
+      <PanneauOnglet id="received" actif={onglet}>
+        {/* Prompt 21, R2 : les questions de paie sont dans Disputes → Pay. */}
+        {onglet === "paie" && <RenvoiPaieDisputes />}
+        <Bloc
+          titre={t(TEXTES_ONGLET[onglet].titre, { n: listes[onglet].length })}
+          aide={t(TEXTES_ONGLET[onglet].aide)}
+          lignes={listes[onglet]}
+          testid={`reponses-${onglet.replace("_", "-")}`}
+          ctx={ctx}
+        />
+      </PanneauOnglet>
+      <details className="rounded-xl border p-4">
+        <summary className="cursor-pointer text-sm font-medium">{t("reponses.toutes", { n: toutes.length })}</summary>
+        <div className="mt-4">
+          <Bloc titre={t("reponses.toutes", { n: toutes.length })} aide={t("reponses.toutesAide")} lignes={toutes} testid="reponses-toutes" ctx={ctx} />
+        </div>
+      </details>
       <ReglagesReponses />
-      {role === "admin" && <TextesReponses />}
     </div>
   );
 }

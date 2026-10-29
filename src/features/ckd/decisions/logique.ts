@@ -76,7 +76,8 @@ export function raison(p: Pick<ADecider, "regle" | "donnees" | "mercredi_at">): 
 // La semaine, en haut de page
 // ---------------------------------------------------------------------------
 
-export const MOMENTS = ["mercredi", "jeudi", "samedi", "dimanche", "lundi"] as const;
+/** Prompt 22, partie 5 : l'étape « Wed 12:00 » n'existe plus (plus de check du mercredi). */
+export const MOMENTS = ["jeudi", "samedi", "dimanche", "lundi"] as const;
 export type Moment = (typeof MOMENTS)[number];
 export type EtatMoment = "fait" | "a_toi" | "a_venir";
 
@@ -88,13 +89,18 @@ export function lundiAffiche(aujourdhui: string): string {
   return ajouterJours(veille, 1 - isodow);
 }
 
+/** Le lundi de la semaine d'un jour (Paris) : le nudge du jeudi de cette semaine (prompt 22, partie 5). */
+export function lundiDeLaSemaine(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  const isodow = ((d.getUTCDay() + 6) % 7) + 1;
+  return ajouterJours(jour, 1 - isodow);
+}
+
 /** L'instant (Paris) de chaque moment de la semaine du lundi `lundi`. */
 export function heureMoment(lundi: string, m: Moment): Date {
   const h = (jour: number, heures: number, minutes = 0) =>
     new Date(minuitParis(ajouterJours(lundi, jour)).getTime() + (heures * 60 + minutes) * 60_000);
   switch (m) {
-    case "mercredi":
-      return h(2, 12);
     case "jeudi":
       return h(3, 6);
     case "samedi":

@@ -3201,7 +3201,7 @@ export const en = {
         faq: { titre: "FAQ bot", phrase: "What the bot answers on Slack and in the dashboard, and what it doesn't know." },
         logs: { titre: "Logs & to do", phrase: "What needs you, what's broken, and everything the automation did." },
       },
-      logs: { vide: "Nothing yet.", issue: "Issues ({{n}})", todo: "To do ({{n}})", rien: "Nothing to do.", fait: "Done" },
+      logs: { vide: "Nothing yet.", issue: "Issues ({{n}})", todo: "To do ({{n}})", rien: "Nothing to do.", fait: "Done", ouvrir: "Open", ouvrirSlack: "Open Slack members" },
       pause: {
         titre: "Deactivate automatic actions with API",
         inactif: "Automatic actions are running. The button stops every message, payment, Kill and contract action; reading continues.",

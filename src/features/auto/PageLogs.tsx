@@ -18,6 +18,8 @@ interface AFaire {
   titre: string;
   detail: string | null;
   semaine: string | null;
+  lien: string | null;
+  type: string;
   created_at: string;
 }
 
@@ -35,7 +37,7 @@ async function lireDerniersEvenements(): Promise<Evenement[]> {
 async function lireAFaire(): Promise<AFaire[]> {
   const { data, error } = await supabase
     .from("a_faire")
-    .select("id, gravite, titre, detail, semaine, created_at")
+    .select("id, gravite, type, titre, detail, semaine, lien, created_at")
     .is("fait_at", null)
     .order("created_at", { ascending: false })
     .limit(200);
@@ -67,9 +69,18 @@ function ListeAFaire({ gravite, lignes }: { gravite: "todo" | "issue"; lignes: A
               <p className="font-medium">{l.titre}</p>
               {l.detail && <p className="text-muted-foreground">{l.detail}</p>}
             </div>
-            <Button size="sm" variant="outline" disabled={fait.isPending} onClick={() => fait.mutate(l.id)}>
-              {t("auto.logs.fait")}
-            </Button>
+            <div className="flex shrink-0 gap-2">
+              {l.lien && (
+                <Button size="sm" variant="outline" asChild>
+                  <a href={l.lien} target="_blank" rel="noreferrer">
+                    {l.type === "slack" ? t("auto.logs.ouvrirSlack") : t("auto.logs.ouvrir")}
+                  </a>
+                </Button>
+              )}
+              <Button size="sm" variant="outline" disabled={fait.isPending} onClick={() => fait.mutate(l.id)}>
+                {t("auto.logs.fait")}
+              </Button>
+            </div>
           </div>
         ))}
         {fait.error && <p className="text-destructive">{(fait.error as Error).message}</p>}

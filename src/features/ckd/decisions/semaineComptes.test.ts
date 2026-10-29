@@ -4,6 +4,9 @@ import {
   aManque,
   attendusJusquIci,
   choixJeudiInitial,
+  choixSamediInitial,
+  manqueRecrue,
+  planSamedi,
   type CompteSemaine,
   FILTRES_VIDES,
   filtrerComptes,
@@ -64,5 +67,38 @@ describe("le jeudi (prompt 25, partie 3)", () => {
     expect(trierComptes(l, "posts_desc").map((x) => x.compte_id)).toEqual(["c", "b", "a"]);
     expect(trierComptes(l, "posts_asc").map((x) => x.compte_id)).toEqual(["a", "b", "c"]);
     expect(optionsFiltres(l)).toEqual({ hms: [["aucune", "—"], ["h2", "Ines"], ["h1", "Lucia"]], pays: ["ES", "FR"] });
+  });
+});
+
+describe("le samedi (prompt 25, partie 4)", () => {
+  it("pré-rempli avec la proposition de l'OS ; une décision déjà prise reste", () => {
+    expect(choixSamediInitial(compte({}))).toBe("keep");
+    expect(choixSamediInitial(compte({ ckd_samedi_id: "s1", ckd_samedi_action: "ne_pas_renouveler", ckd_samedi_regle: "absent" }))).toBe("kill");
+    expect(choixSamediInitial(compte({ ckd_samedi_id: "s1", ckd_samedi_action: "doubler", ckd_samedi_regle: "doubler" }))).toBe("double");
+    expect(choixSamediInitial(compte({ ckd_samedi_id: "s1", ckd_samedi_action: "ne_pas_renouveler", ckd_samedi_decision: "garder" }))).toBe("keep");
+  });
+
+  it("Validate : décider la proposition, la refuser, ou en créer une à la main", () => {
+    const kill = compte({ ckd_samedi_id: "s1", ckd_samedi_action: "ne_pas_renouveler", ckd_samedi_regle: "absent" });
+    const dbl = compte({ ckd_samedi_id: "s2", ckd_samedi_action: "doubler", ckd_samedi_regle: "doubler" });
+    const rien = compte({});
+    expect(planSamedi(kill, "kill")).toEqual([{ op: "decider", id: "s1", decision: "ne_pas_renouveler" }]);
+    expect(planSamedi(kill, "keep")).toEqual([{ op: "decider", id: "s1", decision: "garder" }]);
+    expect(planSamedi(kill, "double")).toEqual([{ op: "decider", id: "s1", decision: "garder" }, { op: "choisir", action: "doubler" }]);
+    expect(planSamedi(dbl, "double")).toEqual([{ op: "decider", id: "s2", decision: "doubler" }]);
+    expect(planSamedi(dbl, "keep")).toEqual([{ op: "decider", id: "s2", decision: "pas_maintenant" }]);
+    expect(planSamedi(dbl, "kill")).toEqual([{ op: "decider", id: "s2", decision: "pas_maintenant" }, { op: "choisir", action: "ne_pas_renouveler" }]);
+    expect(planSamedi(rien, "keep")).toEqual([]);
+    expect(planSamedi(rien, "kill")).toEqual([{ op: "choisir", action: "ne_pas_renouveler" }]);
+    expect(planSamedi({ ...kill, ckd_samedi_decision: "ne_pas_renouveler" }, "keep")).toEqual([]);
+  });
+
+  it("ce qui manque à une recrue", () => {
+    const r = { connecte: true, tiktok_trouve: true, start_warmup: true, abonnements: 2 };
+    expect(manqueRecrue({ ...r, connecte: false })).toBe("connexion");
+    expect(manqueRecrue({ ...r, start_warmup: false, tiktok_trouve: false })).toBe("tiktok");
+    expect(manqueRecrue({ ...r, start_warmup: false })).toBe("warmup");
+    expect(manqueRecrue({ ...r, tiktok_trouve: false })).toBe("tiktok");
+    expect(manqueRecrue(r)).toBe("follows");
   });
 });

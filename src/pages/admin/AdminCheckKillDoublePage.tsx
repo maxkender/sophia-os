@@ -85,9 +85,9 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
-import { CartesDecision } from "@/features/ckd/decisions/CartesDecision";
 import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
 import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
+import { ListeSamedi } from "@/features/ckd/decisions/ListeSamedi";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
 import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
 import { useOnglet } from "@/features/auto/useOnglet";
@@ -233,7 +233,8 @@ export function AdminCheckKillDoublePage() {
         ) : onglet === "samedi" ? (
           <>
             <SemaineDecisions />
-            <CartesDecision groupes={GROUPES_SAMEDI} testid="cartes-samedi" />
+            {/* Prompt 25 : la masterlist, tous les comptes, Kill / Double / Keep, rien sans Validate. */}
+            <ListeSamedi />
             {/* Prompt 21, D : le samedi, la cible de recrutement par pays (avec recrutés et écart). */}
             <CiblesRecrutementAdmin />
             <details className="space-y-4 rounded-xl border p-4">

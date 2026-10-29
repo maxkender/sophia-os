@@ -57,6 +57,7 @@ vi.mock("@/features/ckd/decisions/api", () => decisionsApi);
 // Prompt 25 : Dead accounts est fusionné dans Thursday (la liste, puis le détail du contrôle et Shadowban).
 vi.mock("@/features/ckd/shadowban/VueShadowban", () => ({ VueShadowban: () => <div data-testid="vue-shadowban" /> }));
 vi.mock("@/features/ckd/decisions/ListeJeudi", () => ({ ListeJeudi: () => <div data-testid="liste-jeudi" /> }));
+vi.mock("@/features/ckd/decisions/ListeSamedi", () => ({ ListeSamedi: () => <div data-testid="liste-samedi" /> }));
 
 import { AdminCheckKillDoublePage } from "./AdminCheckKillDoublePage";
 
@@ -626,7 +627,7 @@ describe("AdminCheckKillDoublePage", () => {
       expect(within(onglets).getByRole("tab", { name: /^Samedi/ })).toHaveAttribute("aria-selected", "true");
       const semaine = await screen.findByTestId("semaine-decisions");
       expect(semaine.querySelector('[data-moment="mercredi"]')).toBeNull();
-      expect(screen.getByTestId("cartes-samedi")).toBeInTheDocument();
+      expect(screen.getByTestId("liste-samedi")).toBeInTheDocument();
       // Plus de « Tout valider » coché d'avance.
       expect(screen.queryByTestId("a-decider")).toBeNull();
       expect(screen.queryByRole("link", { name: "Cohortes" })).toBeNull();
@@ -652,27 +653,11 @@ describe("AdminCheckKillDoublePage", () => {
       ] as never);
     });
 
-    it("Saturday : Kill / Keep et Double / Not now ; Kill demande confirmation, Keep part sans", async () => {
+    it("prompt 25 : Saturday montre la masterlist (plus de cartes) ; le compteur de l'onglet reste", async () => {
       rendre("/?onglet=samedi");
-      const cartes = await screen.findByTestId("cartes-samedi");
-      const ionut = await within(cartes).findByTestId("carte-decision-ionut.mentalitate346");
-      // Le @handle ouvre le profil TikTok dans un nouvel onglet.
-      const lienTiktok = within(ionut).getByRole("link", { name: "@ionut.mentalitate346" });
-      expect(lienTiktok).toHaveAttribute("href", "https://www.tiktok.com/@ionut.mentalitate346");
-      expect(lienTiktok).toHaveAttribute("target", "_blank");
-      expect(within(ionut).getByText("11 posts manqués sur 14")).toBeInTheDocument();
-      expect(within(cartes).queryByRole("checkbox")).toBeNull();
-      expect(within(cartes).queryByTestId("carte-decision-bruno.reveil101")).toBeNull();
-      vi.mocked(window.confirm).mockReturnValueOnce(false);
-      fireEvent.click(within(ionut).getByRole("button", { name: "Kill" }));
-      expect(api.deciderCkd).not.toHaveBeenCalled();
-      fireEvent.click(within(ionut).getByRole("button", { name: "Kill" }));
-      await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("a1", "ne_pas_renouveler", null));
-      const katerina = within(cartes).getByTestId("carte-decision-katerina.exelissetai333");
-      fireEvent.click(within(katerina).getByRole("button", { name: "Pas maintenant" }));
-      await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("a2", "pas_maintenant", null));
-      // Le compteur de l'onglet : les comptes qui attendent un clic.
-      expect(screen.getByRole("tab", { name: /^Samedi/ }).textContent).toBe("Samedi2");
+      expect(await screen.findByTestId("liste-samedi")).toBeInTheDocument();
+      expect(screen.queryByTestId("cartes-samedi")).toBeNull();
+      await waitFor(() => expect(screen.getByRole("tab", { name: /^Samedi/ }).textContent).toBe("Samedi2"));
     });
 
     it("prompt 25 : l'ancien onglet Dead accounts ouvre Thursday : la liste de tous les comptes, puis le contrôle du jeudi et Shadowban", async () => {

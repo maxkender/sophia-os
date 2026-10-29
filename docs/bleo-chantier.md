@@ -153,6 +153,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0601_bleo_remplir` | L1 : 3 458 familles, 65 liens parent → variante des notes (`scripts/bleo-parents-notes.mjs`), types, classes | Appliquée |
 | `0602_bleo_nuit` | `bleo_nuit()` : A2, A1, A3, A4, A5 ; cron 05 h 15 | Appliquée, 1re nuit le 29/10 à 12 h (9,5 s) |
 | `0603_bleo_tirage` | `bleo_tirage()` en mode ombre (A6 à A8), `bleo_rapport()`, crons 14 h et 22 h | Appliquée (+ correctif « hors_file ») |
+| `0604_bleo_boite` | Boîte et jauge des podz (vues `bleo_boite`, `bleo_jauge`), fermeture des familles chaque nuit (A9, A10) | Appliquée ; les podz ne la lisent pas encore (reste de L4) |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -217,3 +218,9 @@ recalculée à la main, rejouabilité, derniers plans).
   créés à 14 h, le post est masqué aux posteurs jusqu'à minuit) et D3 (les
   passages BLEO sont exclus du budget et des requalifications de la tierlist
   pendant l'A/B). Nuit relancée à la main à 13 h 43 (13,1 s) avant le tirage de 14 h.
+- **29/10, 14 h** : premier plan officiel par le cron (plan du 30/10, 17,8 s) :
+  249 comptes, 0 créneau vide, file à juger 30 %, non-gagnants 12 %, récolte 49 %.
+  Boîte et jauge en place (0604) ; première fermeture : 243 familles gagnantes
+  sur 918 closes (dernière génération sous r = 1 sur au moins 4 passages).
+  `par_jour` de la jauge mesuré sur les dépôts des 7 derniers jours (plus bas que
+  pods/rythme.json : smart_girl 4,3 contre 7, alpha_male 3,1 contre 4).

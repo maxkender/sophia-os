@@ -18,6 +18,7 @@ import {
   PayrollPage,
   ReceivedPage,
   RecruitsPage,
+  CohortsPage,
   SentPage,
 } from "@/features/auto/PagesAuto";
 import { HiringDocumentsPage } from "@/pages/hiring/HiringDocumentsPage";
@@ -105,6 +106,7 @@ export function AppRouter() {
                 admin seulement, vérifiés en base). */}
             <Route path="/admin/auto" element={<OverviewPage />} />
             <Route path="/admin/auto/recruits" element={<RecruitsPage />} />
+            <Route path="/admin/auto/cohorts" element={<CohortsPage />} />
             <Route path="/admin/auto/decisions" element={<DecisionsPage />} />
             <Route path="/admin/auto/sent" element={<SentPage />} />
             <Route path="/admin/auto/received" element={<ReceivedPage />} />

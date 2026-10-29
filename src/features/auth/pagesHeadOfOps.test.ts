@@ -25,6 +25,7 @@ const PAGES_DEMANDEES = [
   // Prompt 22 : Recruitment Automation (les 8 pages).
   "/admin/auto",
   "/admin/auto/recruits",
+  "/admin/auto/cohorts",
   "/admin/auto/decisions",
   "/admin/auto/sent",
   "/admin/auto/received",

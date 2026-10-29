@@ -13,7 +13,7 @@ export const en = {
         detailJeudi: "Thursday check in detail and Shadowban page (ex Dead accounts)",
         liste: {
           affiches: "{{n}} shown out of {{total}}",
-          colonnes: { choix: "Decision", compte: "Account", pays: "Country", total: "Total", vues: "Last views", signaux: "Signals", propose: "OS proposal" },
+          colonnes: { choix: "Decision", compte: "Account", pays: "Country", total: "Total", vues: "Last views", jeudi: "Thursday", signaux: "Signals", propose: "OS proposal" },
           filtres: {
             hm: "HM",
             toutesHm: "All HMs",
@@ -28,6 +28,28 @@ export const en = {
             nom: "Name or @",
           },
           signaux: { shadowban: "Shadowban?", mort: "Dead account", liens: "{{n}} link(s) not found", double: "2 accounts", sansCanal: "No channel" },
+          samedi: {
+            titre: "Saturday masterlist: every active account ({{n}})",
+            aide: "One line per account: posts with link Monday to Saturday, views, nudged on Thursday or not, signals, and the OS proposal with its reason. Kill, Double or Keep, pre-filled with the proposal; same filters and sort as Thursday. Nothing happens before Validate.",
+            choix: { kill: "Kill", double: "Double", keep: "Keep" },
+            rienAProposer: "Nothing to report",
+            manuel: "Chosen by hand",
+            dejaDecide: "Already decided",
+            nudge: "Nudged",
+            compte: "{{kills}} Kill · {{doubles}} Double · {{keeps}} Keep (OS proposal refused) · {{recrues}} recruits",
+            valider: "Validate",
+            confirm: "Validate {{kills}} Kill, {{doubles}} Double and {{reports}} postponed recruits? Kills go out on Sunday at noon (Kill message, then full stop); Doubles follow the offer to the poster.",
+            quand: "Kills: Sunday at noon (Kill message on Upwork, then full stop). Doubles: the offer pop-up from Sunday.",
+            bilan: "{{decides}} accounts decided · {{kills}} recruits stopped · {{reports}} recruits postponed",
+          },
+          recrues: {
+            titre: "Recruits who didn't react to the reminders ({{n}})",
+            aide: "Next Monday's cohort, not ready, reminded this week with no reply since the last reminder. Kill (Sunday at noon, like the others) or postpone by one week. Nothing happens before Validate.",
+            vide: "No recruit without reaction.",
+            choix: { kill: "Kill", reporter: "Postpone", rien: "Nothing" },
+            manque: { connexion: "Not logged in", tiktok: "TikTok account not found", warmup: "Start warmup not clicked", follows: "{{n}} follows missing" },
+            relances: "{{n}} reminder(s) this week",
+          },
           jeudi: {
             titre: "Thursday: every active account ({{n}})",
             aide: "One line per account: posts with link day by day since Monday (today included), total so far, views of the last posts, signals. Pre-checked: Nudge for any account that missed at least one post with link since Monday; Recreate for a suspected shadowban or a dead account. Change anything; nothing goes out before Send.",

@@ -13,7 +13,7 @@ export const fr = {
         detailJeudi: "Détail du contrôle du jeudi et page Shadowban (ex Comptes morts)",
         liste: {
           affiches: "{{n}} affichés sur {{total}}",
-          colonnes: { choix: "Décision", compte: "Compte", pays: "Pays", total: "Total", vues: "Dernières vues", signaux: "Signaux", propose: "Proposition de l'OS" },
+          colonnes: { choix: "Décision", compte: "Compte", pays: "Pays", total: "Total", vues: "Dernières vues", jeudi: "Jeudi", signaux: "Signaux", propose: "Proposition de l'OS" },
           filtres: {
             hm: "HM",
             toutesHm: "Toutes les HM",
@@ -28,6 +28,28 @@ export const fr = {
             nom: "Nom ou @",
           },
           signaux: { shadowban: "Shadowban ?", mort: "Compte mort", liens: "{{n}} lien(s) introuvable(s)", double: "2 comptes", sansCanal: "Aucun canal" },
+          samedi: {
+            titre: "Masterlist du samedi : tous les comptes actifs ({{n}})",
+            aide: "Une ligne par compte : posts avec lien du lundi au samedi, vues, nudgé jeudi ou non, signaux, et la proposition de l'OS avec sa raison. Kill, Double ou Keep, pré-rempli avec la proposition ; mêmes filtres et même tri que le jeudi. Rien ne se passe avant Validate.",
+            choix: { kill: "Kill", double: "Double", keep: "Keep" },
+            rienAProposer: "Rien à signaler",
+            manuel: "Choisi à la main",
+            dejaDecide: "Déjà décidé",
+            nudge: "Nudgé",
+            compte: "{{kills}} Kill · {{doubles}} Double · {{keeps}} Keep (proposition refusée) · {{recrues}} recrues",
+            valider: "Validate",
+            confirm: "Valider {{kills}} Kill, {{doubles}} Double et {{reports}} recrues reportées ? Les Kill partent dimanche midi (message de Kill, puis arrêt complet) ; les Double suivent l'offre au posteur.",
+            quand: "Kill : dimanche midi (message de Kill sur Upwork, puis arrêt complet). Double : la pop-up d'offre à partir de dimanche.",
+            bilan: "{{decides}} comptes décidés · {{kills}} recrues arrêtées · {{reports}} recrues reportées",
+          },
+          recrues: {
+            titre: "Recrues qui n'ont pas réagi aux relances ({{n}})",
+            aide: "La cohorte du lundi suivant, pas prête, relancée cette semaine sans réponse depuis la dernière relance. Kill (dimanche midi, comme les autres) ou reporter d'une semaine. Rien ne se passe avant Validate.",
+            vide: "Aucune recrue sans réaction.",
+            choix: { kill: "Kill", reporter: "Reporter", rien: "Rien" },
+            manque: { connexion: "Pas connectée", tiktok: "Compte TikTok introuvable", warmup: "Start warmup pas cliqué", follows: "{{n}} abonnements manquent" },
+            relances: "{{n}} relance(s) cette semaine",
+          },
           jeudi: {
             titre: "Jeudi : tous les comptes actifs ({{n}})",
             aide: "Une ligne par compte : posts avec lien jour par jour depuis lundi (aujourd'hui compris), total jusqu'ici, vues des derniers posts, signaux. Pré-coché : Nudge pour tout compte qui a manqué au moins un post avec lien depuis lundi ; Recreate pour un shadowban supposé ou un compte mort. Tout se change ; rien ne part avant Send.",

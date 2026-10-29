@@ -145,3 +145,97 @@ export function optionsFiltres(liste: readonly CompteSemaine[]) {
     pays: [...pays].sort(),
   };
 }
+
+// ---------------------------------------------------------------------------
+// Prompt 25, partie 4 : le samedi (masterlist)
+// ---------------------------------------------------------------------------
+
+export type ChoixSamedi = "kill" | "double" | "keep";
+
+/** La décision déjà prise sur la proposition du samedi, en Kill / Double / Keep. */
+export function decisionSamedi(c: Pick<CompteSemaine, "ckd_samedi_decision">): ChoixSamedi | null {
+  switch (c.ckd_samedi_decision) {
+    case null:
+    case undefined:
+      return null;
+    case "ne_pas_renouveler":
+      return "kill";
+    case "doubler":
+      return "double";
+    default:
+      return "keep";
+  }
+}
+
+/** Pré-rempli avec la proposition de l'OS (contrôle du samedi) : Kill, Double, sinon Keep. */
+export function choixSamediInitial(c: CompteSemaine): ChoixSamedi {
+  const prise = decisionSamedi(c);
+  if (prise) return prise;
+  if (c.ckd_samedi_action === "ne_pas_renouveler") return "kill";
+  if (c.ckd_samedi_action === "doubler") return "double";
+  return "keep";
+}
+
+/** Une étape de « Validate » : décider une proposition existante, ou en créer une (choisi à la main) puis la décider. */
+export type EtapeSamedi =
+  | { op: "decider"; id: string; decision: "ne_pas_renouveler" | "doubler" | "garder" | "pas_maintenant" }
+  | { op: "choisir"; action: "ne_pas_renouveler" | "doubler" };
+
+/**
+ * Ce que « Validate » fait pour un compte. Déjà décidé : rien. Keep : la
+ * proposition de l'OS est refusée (Garder, ou Pas maintenant pour un Double).
+ * Kill ou Double proposé par l'OS : il est décidé. Kill ou Double choisi à la
+ * main (autre proposition, ou aucune) : l'autre proposition est refusée, une
+ * proposition « à la main » est créée puis décidée.
+ */
+export function planSamedi(c: CompteSemaine, choix: ChoixSamedi): EtapeSamedi[] {
+  if (c.ckd_samedi_decision || decisionSamedi(c)) return [];
+  const id = c.ckd_samedi_id;
+  const doubler = c.ckd_samedi_regle === "doubler";
+  const refuser: EtapeSamedi[] = id ? [{ op: "decider", id, decision: doubler ? "pas_maintenant" : "garder" }] : [];
+  if (choix === "keep") return refuser;
+  if (choix === "kill") {
+    return id && !doubler && c.ckd_samedi_action === "ne_pas_renouveler"
+      ? [{ op: "decider", id, decision: "ne_pas_renouveler" }]
+      : [...refuser, { op: "choisir", action: "ne_pas_renouveler" }];
+  }
+  return id && doubler ? [{ op: "decider", id, decision: "doubler" }] : [...refuser, { op: "choisir", action: "doubler" }];
+}
+
+export async function choisirSamedi(compteId: string, action: "ne_pas_renouveler" | "doubler"): Promise<string> {
+  const { data, error } = await supabase.rpc("samedi_choisir", { p_compte: compteId, p_action: action });
+  if (error) throw error;
+  return data as string;
+}
+
+export interface RecrueSansReaction {
+  poster_id: string;
+  nom: string | null;
+  hm_nom: string | null;
+  pays: string | null;
+  compte_id: string | null;
+  handle: string | null;
+  cohorte_lundi: string;
+  connecte: boolean;
+  tiktok_trouve: boolean;
+  start_warmup: boolean;
+  abonnements: number | null;
+  relances: number;
+  derniere_relance: string | null;
+  repondu_at: string | null;
+}
+
+/** Les recrues de la cohorte du lundi suivant, pas prêtes, relancées cette semaine sans réaction. */
+export async function lireRecruesSansReaction(lundi: string): Promise<RecrueSansReaction[]> {
+  const { data, error } = await supabase.rpc("samedi_recrues", { p_lundi: lundi });
+  if (error) throw error;
+  return (data ?? []) as RecrueSansReaction[];
+}
+
+/** Ce qui manque à une recrue, la 1re étape pas faite. */
+export function manqueRecrue(r: Pick<RecrueSansReaction, "connecte" | "tiktok_trouve" | "start_warmup" | "abonnements">): "connexion" | "tiktok" | "warmup" | "follows" {
+  if (!r.connecte) return "connexion";
+  if (!r.start_warmup) return r.tiktok_trouve ? "warmup" : "tiktok";
+  if (!r.tiktok_trouve) return "tiktok";
+  return "follows";
+}

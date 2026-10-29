@@ -125,6 +125,8 @@ export interface FamilleBleo {
   vues_total: number | null;
   r_median: number | null;
   dernier_passage: string | null;
+  /** r moyen des passages publiés, chaque r plafonné à 20 (la mesure qui ferme une famille, D36). */
+  r_moyen: number | null;
 }
 
 export interface ContenuBleo {
@@ -150,6 +152,7 @@ export interface ContenuBleo {
   dernier_passage: string | null;
   valeur_max: number | null;
   n_langues: number;
+  r_moyen: number | null;
 }
 
 export interface PassageFamille {

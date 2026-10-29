@@ -99,8 +99,8 @@ export function AdminBleoFamillePage() {
               detail={t("bleo.famille.vuesTotal", { n: formaterVues(f.vues_total, i18n.language) })}
             />
             <StatTile
-              label={t("bleo.colonnes.rMedian")}
-              value={formaterNombre(f.r_median, 2)}
+              label={t("bleo.colonnes.rMoyen")}
+              value={formaterNombre(f.r_moyen, 2)}
               detail={
                 f.verdict_le ? t("bleo.famille.verdictLe", { quand: formaterQuand(f.verdict_le, i18n.language) }) : undefined
               }
@@ -123,7 +123,9 @@ export function AdminBleoFamillePage() {
                   <th className={TH_NUM}>{t("bleo.colonnes.passages")}</th>
                   <th className={TH_NUM}>{t("bleo.colonnes.vuesMax")}</th>
                   <th className={TH_NUM}>{t("bleo.colonnes.vuesMoyenne")}</th>
-                  <th className={TH_NUM}>{t("bleo.colonnes.rMedian")}</th>
+                  <th className={`${TH_NUM} cursor-help`} title={t("bleo.colonnes.rMoyenAide")}>
+                    {t("bleo.colonnes.rMoyen")}
+                  </th>
                   <th className={`${TH_NUM} cursor-help`} title={t("bleo.colonnes.valeurAide")}>
                   {t("bleo.colonnes.valeur")}
                 </th>
@@ -163,7 +165,7 @@ export function AdminBleoFamillePage() {
                       <td className={TD_NUM}>{c.n_passages}</td>
                       <td className={TD_NUM}>{formaterVues(c.vues_max, i18n.language)}</td>
                       <td className={TD_NUM}>{formaterVues(c.vues_moyenne, i18n.language)}</td>
-                      <td className={TD_NUM}>{formaterNombre(c.r_median, 2)}</td>
+                      <td className={TD_NUM}>{formaterNombre(c.r_moyen, 2)}</td>
                       <td className={TD_NUM}>{formaterNombre(c.valeur_max, 2)}</td>
                     </Ligne>
                   ))}

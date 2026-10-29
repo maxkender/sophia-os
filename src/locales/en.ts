@@ -2266,6 +2266,8 @@ export const en = {
         vuesMoyenne: "Average views",
         vues: "Views",
         rMedian: "Median r",
+        rMoyen: "Average r",
+        rMoyenAide: "Average r of published posts (views ÷ the account's median), each r capped at 20.",
         dernierPassage: "Last post",
         generation: "Gen.",
         titre: "Title",
@@ -2343,7 +2345,7 @@ export const en = {
       familles: {
         titre: "Hook families",
         description:
-          "A family = one hook in one label, with all its variations. Winning as soon as one post reaches 10,000 views or r ≥ 2; closed when its latest generation drops under r = 1 over at least 4 posts.",
+          "A family = one hook in one label, with all its variations. Winning as soon as one post reaches 10,000 views or r ≥ 2; closed when the average r of its latest generation (r capped at 20) drops under 1 over at least 4 posts, reopened if it goes back above.",
         filtres: {
           toutes: "All",
           gagnante: "Winning",

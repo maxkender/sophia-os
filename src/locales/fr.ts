@@ -2271,6 +2271,8 @@ export const fr = {
         vuesMoyenne: "Vues moyennes",
         vues: "Vues",
         rMedian: "r médian",
+        rMoyen: "r moyen",
+        rMoyenAide: "Moyenne des r des posts publiés (vues ÷ médiane du compte), chaque r plafonné à 20.",
         dernierPassage: "Dernier passage",
         generation: "Gén.",
         titre: "Titre",
@@ -2348,7 +2350,7 @@ export const fr = {
       familles: {
         titre: "Familles d'accroche",
         description:
-          "Une famille = une accroche dans un label, avec toutes ses déclinaisons. Gagnante dès qu'un passage fait 10 000 vues ou r ≥ 2 ; close quand sa dernière génération passe sous r = 1 sur au moins 4 passages.",
+          "Une famille = une accroche dans un label, avec toutes ses déclinaisons. Gagnante dès qu'un passage fait 10 000 vues ou r ≥ 2 ; close quand le r moyen de sa dernière génération (r plafonné à 20) passe sous 1 sur au moins 4 passages, rouverte s'il y repasse.",
         filtres: {
           toutes: "Toutes",
           gagnante: "Gagnantes",

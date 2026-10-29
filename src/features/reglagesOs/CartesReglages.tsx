@@ -198,7 +198,7 @@ export function CarteCohorteAccueil() {
   React.useEffect(() => {
     if (lu.data) {
       const n = Number(lu.data.cohorte_jour_limite);
-      setB({ jour: Number.isInteger(n) && n >= 1 && n <= 7 ? n : 4, depuis: isoVersLocalParis(texte(lu.data.accueil_contrats_depuis)) });
+      setB({ jour: Number.isInteger(n) && n >= 1 && n <= 7 ? n : 6, depuis: isoVersLocalParis(texte(lu.data.accueil_contrats_depuis)) });
     }
   }, [lu.data]);
   if (!b) return null;

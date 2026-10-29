@@ -17,6 +17,7 @@ import {
   enregistrerReglagesRelances,
   DELAIS_ETAPES,
   CLES_DELAIS_ADMIN,
+  KILL_H_MIN,
   ETAPES_RELANCE,
   lireNudges,
   lireReglagesRelances,
@@ -218,6 +219,8 @@ function ReglagesRelancesCarte() {
     },
   });
   if (!r) return null;
+  // Prompt 21, A7 : le Kill jamais avant 24 h ; 0 refusé (vérifié aussi en base, 0413).
+  const killTropCourt = !(Number(r.delais.kill_h) >= KILL_H_MIN);
   const changerMode = (mode: ModeRelances) => {
     if (mode === "on" && !window.confirm(t("nudges.mode.confirmOn"))) return;
     const x = { ...r, mode };
@@ -237,7 +240,7 @@ function ReglagesRelancesCarte() {
               key={m}
               type="button"
               aria-pressed={r.mode === m}
-              disabled={enregistrer.isPending}
+              disabled={enregistrer.isPending || !admin}
               className={r.mode === m ? "rounded bg-primary px-3 py-1 text-primary-foreground" : "rounded px-3 py-1 text-muted-foreground hover:bg-muted"}
               onClick={() => changerMode(m)}
             >
@@ -255,16 +258,16 @@ function ReglagesRelancesCarte() {
             <label className="text-sm font-medium" htmlFor={`relance-${e}`}>
               {t(`nudges.types.${e}`)}
             </label>
-            <Textarea id={`relance-${e}`} value={r.textes[e]} onChange={(ev) => setR({ ...r, textes: { ...r.textes, [e]: ev.target.value } })} />
+            <Textarea id={`relance-${e}`} value={r.textes[e]} readOnly={!admin} onChange={(ev) => setR({ ...r, textes: { ...r.textes, [e]: ev.target.value } })} />
           </div>
         ))}
         <label className="block space-y-1 text-sm">
           <span className="font-medium">{t("nudges.reglages.slack")}</span>
-          <Input value={r.slack} onChange={(ev) => setR({ ...r, slack: ev.target.value })} aria-label={t("nudges.reglages.slack")} />
+          <Input value={r.slack} readOnly={!admin} onChange={(ev) => setR({ ...r, slack: ev.target.value })} aria-label={t("nudges.reglages.slack")} />
         </label>
         <label className="block space-y-1 text-sm">
           <span className="font-medium">{t("nudges.reglages.lienEtapes")}</span>
-          <Input value={r.lienEtapes} onChange={(ev) => setR({ ...r, lienEtapes: ev.target.value })} aria-label={t("nudges.reglages.lienEtapes")} />
+          <Input value={r.lienEtapes} readOnly={!admin} onChange={(ev) => setR({ ...r, lienEtapes: ev.target.value })} aria-label={t("nudges.reglages.lienEtapes")} />
         </label>
         <div className="space-y-1">
           <p className="text-sm font-medium">{t("nudges.reglages.delais")}</p>
@@ -274,7 +277,7 @@ function ReglagesRelancesCarte() {
                 <span className="block">{t(`nudges.reglages.${k}`)}</span>
                 <Input
                   type="number"
-                  min={0}
+                  min={k === "kill_h" ? KILL_H_MIN : 0}
                   value={String(r.delais[k])}
                   disabled={!admin}
                   aria-label={t(`nudges.reglages.${k}`)}
@@ -310,16 +313,19 @@ function ReglagesRelancesCarte() {
               />
             </label>
           </div>
+          {killTropCourt && <p className="text-xs text-destructive">{t("nudges.reglages.killMin", { n: KILL_H_MIN })}</p>}
           {!admin && <p className="text-xs text-muted-foreground">{t("reglagesOs.adminSeulement")}</p>}
           <JournalReglages cles={CLES_DELAIS_ADMIN} />
         </div>
         <div className="flex items-center gap-2">
-          <Button
-            disabled={enregistrer.isPending || ETAPES_RELANCE.some((e) => !r.textes[e].trim())}
-            onClick={() => enregistrer.mutate(r)}
-          >
-            {t("nudges.reglages.enregistrer")}
-          </Button>
+          {admin && (
+            <Button
+              disabled={enregistrer.isPending || killTropCourt || ETAPES_RELANCE.some((e) => !r.textes[e].trim())}
+              onClick={() => enregistrer.mutate(r)}
+            >
+              {t("nudges.reglages.enregistrer")}
+            </Button>
+          )}
           {enregistrer.isSuccess && <span className="text-sm text-muted-foreground">{t("nudges.reglages.ok")}</span>}
           {enregistrer.error && <span className="text-sm text-destructive">{(enregistrer.error as Error).message}</span>}
         </div>

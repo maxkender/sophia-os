@@ -55,10 +55,11 @@ describe("prompt 15, point 1 : boutons dangereux", () => {
     expect(lire("src/features/auto/pages.ts")).toContain('"/admin/surveillance": "/admin/auto"');
   });
 
-  it("d) espace HM : ajouter un compte, Reactivate, créer une HM cachés à la HM", () => {
+  it("d) espace HM : ajouter un compte, Reactivate, créer une HM cachés à la HM (et au DM, prompt 21 A5)", () => {
     const page = lire("src/pages/hiring/HiringPosterPage.tsx");
-    expect(page).toMatch(/role !== "hiring_manager" && \(\s*<FormulaireAjouterCompte/);
-    expect(page).toContain('peutReactiver={role !== "hiring_manager"}');
+    expect(page).toContain('const bloqueCommeHm = role === "hiring_manager" || role === "directing_manager";');
+    expect(page).toMatch(/!bloqueCommeHm && \(\s*<FormulaireAjouterCompte/);
+    expect(page).toContain("peutReactiver={!bloqueCommeHm}");
     expect(page).toContain('const montrerCreerRecruteur = role === "head_of_ops";');
     const serveur = lire("supabase/functions/manage-users/index.ts");
     expect(serveur).toContain("if (refuseAuHm(acces.role, body.action, body.role))");

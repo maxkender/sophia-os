@@ -27,6 +27,7 @@ import {
   type MonCompte,
 } from "@/features/moteur/api";
 import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
+import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 import { CarteCommentPaye } from "@/features/regles/CartesRegles";
@@ -292,6 +293,7 @@ export function PosterCalendrierPage() {
   // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
   const ugc = Boolean(compte?.videos_uniquement);
   // Cohorte Ruul (venus du site) : leurs dates en clair, et Slack toujours à portée.
+  const maSemaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, staleTime: 5 * 60_000 });
   const cohorte = useQuery({
     queryKey: ["accueil-cohorte"],
     queryFn: lireCohorteAccueil,
@@ -369,7 +371,10 @@ export function PosterCalendrierPage() {
   // premiers posts, le calendrier couvre les jours de warm-up et marque la case
   // « FIRST POSTS ».
   const warmupLundi = Boolean(compte && !estCm);
-  const lundiApresAujourdhui = lundiApres(new Date());
+  // Prompt 21, A1 : jamais avant le lundi de sa cohorte (le même que le message de bienvenue et les 5 étapes).
+  const lundiApresClic = lundiApres(new Date());
+  const cohorteLundi = maSemaine.data?.cohorteLundi ?? null;
+  const lundiApresAujourdhui = cohorteLundi && cohorteLundi > lundiApresClic ? cohorteLundi : lundiApresClic;
   const lundiSiLanceAujourdhui =
     debutRuul && debutRuul > lundiApresAujourdhui ? debutRuul : lundiApresAujourdhui;
   const premiersPostsLe =

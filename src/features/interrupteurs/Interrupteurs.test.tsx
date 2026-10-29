@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import i18n from "@/locales";
 
 const api = vi.hoisted(() => ({
-  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "test", arret_auto: "test", lundi_message_auto: "test", lundi_soir_auto: "test", reponses_auto: "test" })),
+  lireInterrupteurs: vi.fn(async () => ({ accueil_auto: "test", relances_auto: "test", kill_auto: "test", arret_auto: "test", lundi_message_auto: "test", lundi_soir_auto: "test", reponses_auto: "test", kill_message_auto: "on" })),
   enregistrerInterrupteur: vi.fn(async () => undefined),
   lireRepriseRappels: vi.fn(async () => "2026-11-02"),
   enregistrerRepriseRappels: vi.fn(async () => undefined),
@@ -25,6 +25,16 @@ function rendu() {
   );
 }
 
+describe("lireMode", () => {
+  it("l'ancien oui / non de kill_message_auto devient on / off ; « simulation » = test", async () => {
+    const { lireMode } = await vi.importActual<typeof import("./api")>("./api");
+    expect(lireMode(true)).toBe("on");
+    expect(lireMode(false)).toBe("off");
+    expect(lireMode("simulation")).toBe("test");
+    expect(lireMode("on")).toBe("on");
+  });
+});
+
 describe("Réglages → Interrupteurs", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
@@ -38,7 +48,10 @@ describe("Réglages → Interrupteurs", () => {
     const ligne = within(document.querySelector<HTMLElement>('[data-interrupteur="accueil_auto"]')!);
     const on = ligne.getByRole("button", { name: "On" });
     expect(ligne.getByRole("button", { name: "Test" }).getAttribute("aria-pressed")).toBe("true");
-    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(7);
+    expect(document.querySelectorAll("[data-interrupteur]")).toHaveLength(8);
+    // Prompt 21, A6 : le message de Kill du dimanche est un interrupteur, « on » au départ.
+    const kill = within(document.querySelector<HTMLElement>('[data-interrupteur="kill_message_auto"]')!);
+    await vi.waitFor(() => expect(kill.getByRole("button", { name: "On" }).getAttribute("aria-pressed")).toBe("true"));
     vi.spyOn(window, "confirm").mockReturnValueOnce(false);
     fireEvent.click(on);
     expect(api.enregistrerInterrupteur).not.toHaveBeenCalled();

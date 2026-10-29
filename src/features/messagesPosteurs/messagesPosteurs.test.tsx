@@ -124,7 +124,6 @@ describe("ReglagesMessages", () => {
   it("enregistre les réglages modifiés", async () => {
     await i18n.changeLanguage("fr");
     api.lireReglagesMessages.mockResolvedValue({
-      kill_message_auto: true,
       kill_message_texte: "Hi {prenom}",
       double_popup_texte: "Offer",
       double_popup_expire: { jour_iso: 3, heure: "23:59" },
@@ -133,13 +132,14 @@ describe("ReglagesMessages", () => {
     });
     api.enregistrerReglagesMessages.mockResolvedValue(undefined);
     rendu(<ReglagesMessages />);
-    fireEvent.click(await screen.findByLabelText(/Message de Kill automatique/));
+    // Prompt 21, A6 : l'envoi du message de Kill est un interrupteur (carte Interrupteurs), plus une case ici.
+    expect(await screen.findByLabelText(/Jour d'expiration/)).toBeInTheDocument();
+    expect(screen.queryByLabelText(/Message de Kill automatique/)).toBeNull();
     fireEvent.change(screen.getByLabelText("Jour d'expiration"), { target: { value: "4" } });
     fireEvent.change(screen.getByLabelText(/Jeudi, message Slack du Nudge/), { target: { value: "Hi {prenom}, please post" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() =>
       expect(api.enregistrerReglagesMessages).toHaveBeenCalledWith({
-        kill_message_auto: false,
         kill_message_texte: "Hi {prenom}",
         double_popup_texte: "Offer",
         double_popup_expire: { jour_iso: 4, heure: "23:59" },

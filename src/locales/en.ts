@@ -2695,6 +2695,7 @@ export const en = {
         LABEL_INCOMPATIBLE: "This label does not serve the chosen app.",
         CHOIX_COMPTE_INCOMPATIBLE: "This app choice is not possible for this type of account.",
         NO_LABELS_APPLICATION: "No label serves the chosen app: none can be picked. Tick it on at least one label (Pilotage → Labels).",
+        ACCUEIL_AUTO: "The OS creates this poster automatically",
       },
     },
     messagesPosteurs: {
@@ -2723,7 +2724,6 @@ export const en = {
       reglages: {
         titre: "Messages to posters",
         aide: "Texts in English. {prenom} is replaced by the poster's first name.",
-        killAuto: "Automatic Kill message (Sunday noon, Slack + banner)",
         killTexte: "Kill message text",
         doubleTexte: "Double offer text (Yes / No pop-up)",
         expire: "The Double offer expires on",
@@ -2740,7 +2740,7 @@ export const en = {
       navDesc: "Recruits from the accepted offer: steps, reds, Postpone or Stop.",
       titre: "Cohorts",
       description:
-        "A cohort = offers accepted from Friday to Thursday; it starts posting the following Monday. Saturday decisions stay in Check, Kill or Double.",
+        "A cohort = offers accepted from Sunday to Saturday (end of day, the recruit's country). It starts posting the following Monday if ready by Sunday midnight (TikTok account, Start warmup, 5 follows, no post); otherwise it moves to the Monday after.",
       puces: "Cohorts shown",
       puce: "{{date}} · {{n}} recruits · {{phase}}",
       prepa: "getting ready",
@@ -3020,6 +3020,7 @@ export const en = {
         lundi_soir_heure: "Monday evening check: hour (local time)",
         kill_h: "Kill: no reaction after the message",
         kill_annulation_h: "Kill: can be cancelled for",
+        killMin: "The Kill delay must be at least {{n}} h.",
         enregistrer: "Save",
         ok: "Saved.",
       },
@@ -3095,6 +3096,10 @@ export const en = {
         titre: "Full stop",
         on: "Each stop (48 h Kill, “I want to stop”, Stop): deactivated in the OS; never posted: last message on Upwork (“Your contract has ended. Thank you for your time.”), unfunded milestones deleted, refund to request in the payroll list, contract closed through the API if nothing funded is left; already posted: paid for the current week on Monday, then contract closed. Slack: “To remove from Slack” list.",
       },
+      kill_message_auto: {
+        titre: "Kill message (Sunday)",
+        on: "Sunday at noon, for each Kill validated on Saturday: the Kill message to the poster (banner on the dashboard). Test: noted, nothing is created or sent.",
+      },
       kill_auto: {
         titre: "Automatic Kill",
         on: "48 h after a step's message, with no step done and no reply: the Kill shows in Cohorts (“Automatic Kills”), can be cancelled for 12 h; then the full stop goes out (deactivated in the OS, contract closed on Upwork). Only if the message really went out.",
@@ -3124,7 +3129,7 @@ export const en = {
         titre: "Cohorts and automatic onboarding",
         aide: "When a recruit joins a cohort, and since when automatic onboarding picks up contracts.",
         jour: "Cohort cut-off day",
-        jourAide: "An offer accepted after this day goes to the following week's cohort.",
+        jourAide: "Saturday by default: an offer accepted after this day (end of day, the recruit's country) goes to the following week's cohort.",
         depuis: "Automatic onboarding: contracts started since (Paris time)",
         depuisAide: "Older contracts are never onboarded.",
       },
@@ -3333,6 +3338,19 @@ export const en = {
       },
     },
     accueil: {
+      liaisons: {
+        suggestions: "Suggested links ({{n}})",
+        suggestionsAide: "A contract whose name looks like a poster without a contract. The OS no longer links them by itself: confirm if it is the right person.",
+        lier: "Link",
+        confirmerLier: "Link {{nom}} to the Upwork contract of {{freelancer}}?",
+        aVerifier: "Automatic links to check ({{n}})",
+        aVerifierAide: "Contracts linked to a poster without automatic onboarding or the exact contract link (name rules of 28 Oct.). OK: the link is right. Unlink: the contract goes back to the contracts to link.",
+        ok: "OK",
+        delier: "Unlink",
+        confirmerDelier: "Unlink {{nom}} from contract {{contrat}}? No message is sent; the poster no longer has a contract in the OS.",
+        partage: "shared with another profile",
+        regles: { "0": "no name match", "1": "same name", "2": "all the words", "3": "close spelling", "4": "2nd account" },
+      },
       amorcer: "Fill from existing contracts",
       amorcerEnCours: "Reading contracts…",
       amorcerAide: "Reads the job post of each poster already hired (read-only on Upwork) and deduces country, language, HM and rate. A job post already set by hand never changes.",

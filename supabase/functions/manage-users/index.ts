@@ -293,6 +293,15 @@ async function gererRequete(request: Request): Promise<Response> {
     // Liens Upwork et email perso (0358), vérifiés avant de créer le login.
     const lectureContact = lireContactPoster(body);
     if (!lectureContact.ok) return json({ error: lectureContact.erreur }, 400);
+    // Prompt 21, A5 : accueil automatique sur « on » → un contrat qu'il a déjà
+    // pris ne se crée pas à la main (doublon). L'accueil lui-même passe (cron).
+    if (acces.userId !== "cron" && lectureContact.contact.upwork_contrat_url) {
+      const { data: auto, error: errAuto } = await supabase.rpc("accueil_contrat_auto", {
+        p_url: lectureContact.contact.upwork_contrat_url,
+      });
+      if (errAuto) return json({ error: `accueil_contrat_auto : ${errAuto.message}` }, 500);
+      if (auto === true) return json({ error: "ACCUEIL_AUTO" }, 409);
+    }
 
     // Label / répartition imposés par le recruteur. `null` = chemin historique.
     const lecture = lireChoixCompte(body, acces.role);

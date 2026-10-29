@@ -1545,6 +1545,13 @@ export function emailPersoValide(email: string): boolean {
 }
 
 /** Le lien du contrat : vide, ou un lien upwork.com (même contrôle que poster_maj_contact, 0400). */
+/** Prompt 21, A5 : accueil automatique sur « on » et ce contrat déjà accueilli → l'OS crée le posteur lui-même. */
+export async function contratAccueilliAuto(url: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("accueil_contrat_auto", { p_url: url });
+  if (error) throw error;
+  return data === true;
+}
+
 export function contratUpworkValide(url: string): boolean {
   const u = url.trim();
   return !u || /^https?:\/\/([a-z0-9-]+\.)*upwork\.com\//i.test(u);

@@ -1,9 +1,10 @@
 import * as React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { contratUpworkValide, emailPersoValide } from "@/features/moteur/api";
+import { contratAccueilliAuto, contratUpworkValide, emailPersoValide } from "@/features/moteur/api";
 import type { ValeursContactPoster } from "@/features/moteur/contactPoster";
 
 /**
@@ -28,6 +29,14 @@ export function ChampsContactPoster({
     onChange({ ...valeurs, [cle]: e.target.value });
   const emailFaux = !emailPersoValide(valeurs.email_perso);
   const contratFaux = !contratUpworkValide(valeurs.upwork_contrat_url);
+  // Prompt 21, A5 : à la création, un contrat déjà pris par l'accueil automatique (sur « on »).
+  const url = valeurs.upwork_contrat_url.trim();
+  const auto = useQuery({
+    queryKey: ["accueil-contrat-auto", url],
+    queryFn: () => contratAccueilliAuto(url),
+    enabled: obligatoires && Boolean(url) && !contratFaux,
+    staleTime: 60_000,
+  });
   return (
     <div className="grid gap-4 sm:col-span-2 sm:grid-cols-2">
       <div className="space-y-2">
@@ -53,6 +62,11 @@ export function ChampsContactPoster({
           onChange={maj("upwork_contrat_url")}
         />
         {contratFaux && <p className="text-xs text-destructive">{t("posters.contact.contratInvalide")}</p>}
+        {auto.data === true && (
+          <p className="text-xs text-destructive" data-testid="contrat-accueil-auto">
+            {t("choixCompteCreation.erreurs.ACCUEIL_AUTO")}
+          </p>
+        )}
       </div>
       <div className="space-y-2 sm:col-span-2">
         <Label htmlFor={`${idPrefixe}-email`}>

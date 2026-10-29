@@ -48,8 +48,8 @@ export interface MessagePosteur {
 }
 
 /** Les réglages des messages aux posteurs (table `reglages`, 0382). */
+/** `kill_message_auto` est un interrupteur off / test / on (prompt 21, A6) : carte Interrupteurs. */
 export interface ReglagesMessages {
-  kill_message_auto: boolean;
   kill_message_texte: string;
   double_popup_texte: string;
   double_popup_expire: { jour_iso: number; heure: string };
@@ -59,7 +59,6 @@ export interface ReglagesMessages {
 }
 
 export const CLES_REGLAGES = [
-  "kill_message_auto",
   "kill_message_texte",
   "double_popup_texte",
   "double_popup_expire",
@@ -101,7 +100,6 @@ export async function lireReglagesMessages(): Promise<ReglagesMessages> {
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   const exp = (v.double_popup_expire ?? {}) as Partial<ReglagesMessages["double_popup_expire"]>;
   return {
-    kill_message_auto: v.kill_message_auto === true,
     kill_message_texte: typeof v.kill_message_texte === "string" ? v.kill_message_texte : "",
     double_popup_texte: typeof v.double_popup_texte === "string" ? v.double_popup_texte : "",
     double_popup_expire: { jour_iso: Number(exp.jour_iso ?? 3), heure: String(exp.heure ?? "23:59") },

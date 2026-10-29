@@ -16,6 +16,7 @@ const api = vi.hoisted(() => ({
   lireRougesDepuis: vi.fn(async () => []),
   ETAPES_RELANCE: ["connexion", "tiktok", "warmup_lance", "warmup_bien_fait", "lundi_tous", "lundi_cohorte", "lundi_warmup", "lundi_soir", "jeudi"],
   CLES_DELAIS_ADMIN: ["etapes_delais", "lundi_soir_heure"],
+  KILL_H_MIN: 24,
   DELAIS_ETAPES: ["connexion_message_h", "tiktok_message_h", "warmup_lance_message_h", "warmup_bien_fait_heure", "kill_h", "kill_annulation_h"],
 }));
 vi.mock("./api", () => api);

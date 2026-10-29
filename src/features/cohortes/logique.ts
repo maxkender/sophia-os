@@ -1,7 +1,7 @@
 /**
- * Cohortes (prompt 17, partie B) : une cohorte = les offres acceptées du
- * vendredi au jeudi (heure de Paris), qui commencent à poster le lundi qui
- * suit. Rien ici ne touche la base : la règle de date, l'état de chaque case
+ * Cohortes (prompt 17, partie B ; prompt 21, A1) : une cohorte = les offres
+ * acceptées du dimanche au samedi (fin de journée), qui commencent à poster le
+ * lundi qui suit si elles sont prêtes dimanche minuit. Rien ici ne touche la base : la règle de date, l'état de chaque case
  * du tableau, l'entonnoir et le tableau par HM.
  */
 import { ajouterJours, partiesParis } from "@/features/onboarding/datesRuul";
@@ -10,14 +10,15 @@ import { lundiDe } from "@/features/moteur/semaines";
 
 import type { RecrueCohorte } from "./api";
 
-/** Le jour limite par défaut (`cohorte_jour_limite`) : jeudi = 4. */
-export const JOUR_LIMITE_DEFAUT = 4;
+/** Le jour limite par défaut (`cohorte_jour_limite`) : samedi = 6 (prompt 21, A1). */
+export const JOUR_LIMITE_DEFAUT = 6;
 export const FOLLOWS_MIN = 5;
 
 /**
- * Le premier lundi strictement après (acceptation + 3 jours) ; avec un jour
- * limite J (jeudi = 4), + (7 − J) jours. Même calcul que `cohorte_lundi_de`
- * (0391). `jour` : la date d'acceptation à Paris (AAAA-MM-JJ).
+ * Le premier lundi strictement après (acceptation + 7 − J jours), J le jour
+ * limite (samedi = 6 : acceptée samedi → lundi 2 jours après ; dimanche →
+ * lundi d'après). Même calcul que `cohorte_lundi_de` (0391, 0413). `jour` : la
+ * date d'acceptation dans le pays de la recrue (AAAA-MM-JJ).
  */
 export function cohorteLundiDe(jour: string, jourLimite = JOUR_LIMITE_DEFAUT): string {
   const d = ajouterJours(jour, 7 - jourLimite);

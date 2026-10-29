@@ -260,6 +260,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
 
+  // Prompt 21, A2 : juste avant les Kills, les conversations Upwork de ceux qui en ont un dû.
+  if (await lireAvantKills(supabase, r, maintenant, bilan)) recrues = await lireRecrues(supabase);
   await killsEchus(supabase, r, recrues, maintenant, bilan);
 
   // Partie D : le message du lundi et le Nudge du jeudi (semaine en cours, heure de Paris).
@@ -451,10 +453,10 @@ async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, 
     return;
   }
   if (!nuitDuRouge(x, maintenant)) return;
-  const { error } = await supabase
-    .from("recrues_rouges")
-    .upsert({ poster_id: x.poster_id, etape, periode: x.cohorte_lundi }, { onConflict: "poster_id,etape,periode", ignoreDuplicates: true });
-  if (error) bilan.erreurs.push(`rouge ${x.poster_id} : ${error.message}`);
+  // Prompt 21, A1 : pas prête dimanche minuit (heure du pays) → reportée seule au
+  // lundi suivant (0413) ; ses posts n'arrivent pas, les étapes et le Kill continuent.
+  const { error } = await supabase.rpc("cohorte_reporter_auto", { p_poster: x.poster_id, p_etape: etape, p_periode: x.cohorte_lundi });
+  if (error) bilan.erreurs.push(`report ${x.poster_id} : ${error.message}`);
   else bilan.rouges++;
 }
 
@@ -462,6 +464,34 @@ async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, 
  * Les Kills en attente dont le délai d'annulation est passé : l'arrêt complet
  * part (file `arrets`, partie C), seulement si `kill_auto` est sur « on ».
  */
+/** Les Kills dus : leurs conversations Upwork relues (lecture seule). Vrai si un message est arrivé. */
+async function lireAvantKills(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan): Promise<boolean> {
+  if (r.kill !== "on" || bilan.rappelsEnPause) return false;
+  const { data } = await supabase
+    .from("kills_auto")
+    .select("poster_id")
+    .eq("statut", "en_attente")
+    .lte("prevu_at", maintenant.toISOString());
+  const posteurs = [...new Set((data ?? []).map((k) => k.poster_id as string))];
+  if (posteurs.length === 0) return false;
+  const base = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("CRON_SECRET");
+  if (!base || !secret) return false;
+  try {
+    const rep = await fetch(`${base}/functions/v1/upwork`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": secret },
+      body: JSON.stringify({ action: "reponses_lire", posteurs }),
+    });
+    const corps = await rep.json().catch(() => null);
+    if (!rep.ok) bilan.erreurs.push(`lecture avant Kill : HTTP ${rep.status}`);
+    return Number(corps?.nouveaux ?? 0) > 0;
+  } catch (e) {
+    bilan.erreurs.push(`lecture avant Kill : ${messageErreur(e)}`);
+    return false;
+  }
+}
+
 async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[], maintenant: Date, bilan: Bilan) {
   if (r.kill !== "on" || bilan.rappelsEnPause) return;
   const { data, error } = await supabase
@@ -805,13 +835,15 @@ async function repondreUpwork(supabase: Supabase, posterId: string, texte: strin
 
 /** Un post publié (avec son lien) ou une réponse depuis `depuis`. */
 async function reactionDepuis(supabase: Supabase, posterId: string, compteId: string | null, depuis: string): Promise<boolean> {
-  const [{ data: rep }, posts] = await Promise.all([
+  const [{ data: rep }, { data: slack }, posts] = await Promise.all([
     supabase.from("posteur_reponses").select("id").eq("poster_id", posterId).gte("recu_at", depuis).limit(1),
+    // Prompt 21, A2 : un message dans n'importe quel canal Slack compte aussi.
+    supabase.from("posteur_reactions").select("poster_id").eq("poster_id", posterId).gte("slack_at", depuis).limit(1),
     compteId
       ? supabase.from("passages").select("id").eq("compte_id", compteId).not("publie_url", "is", null).gte("publie_at", depuis).limit(1)
       : Promise.resolve({ data: [] as unknown[] }),
   ]);
-  return (rep ?? []).length > 0 || (posts.data ?? []).length > 0;
+  return (rep ?? []).length > 0 || (slack ?? []).length > 0 || (posts.data ?? []).length > 0;
 }
 
 async function autreCompteActif(supabase: Supabase, posterId: string, compteId: string): Promise<boolean> {

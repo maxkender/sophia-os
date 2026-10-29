@@ -1,0 +1,254 @@
+{
+ "post_id": "original-020",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te bousillent la concentration",
+     "texte": "l'iceberg des habitudes qui ruinent ton focus"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(et ça empire)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "niveau 1 : [[le scroll]] et l'autoplay"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "tout le monde la connaît : la vidéo suivante se lance toute seule, donc [[t'arrêtes jamais vraiment]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "une heure file et tu serais incapable de citer [[une seule vidéo vue]]"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "ton cerveau s'habitue à du nouveau en continu, alors [[tout ce qui va moins vite devient une corvée]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "niveau 2 : réviser [[avec paroles]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "une playlist calme peut t'aider, mais [[les chansons à paroles]], c'est une autre histoire"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "ton cerveau [[suit les paroles]] pendant que t'essaies de lire tes fiches"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "teste le lo-fi ou le silence, tu verras [[ce qui rentre]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "tout mettre [[en vitesse x2]]",
+     "texte": "niveau 3 : [[tout regarder en x2]]"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "texte": "podcasts, cours, vocaux, même les séries : une fois que tout est accéléré, [[la vitesse normale devient insupportable]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
+     "texte": "tu t'entraînes à [[survoler au lieu d'écouter]]"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
+     "texte": "regarde un truc en vitesse normale et [[reste vraiment dedans]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "ne [[plus lire de livres]]",
+     "texte": "niveau 4 : [[réflexe]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu consommes surtout des posts courts, des clips et des titres, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "une file d'attente, un écran qui charge, une phrase dure dans tes notes, et [[ta main est déjà sur ton tel]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[un livre t'oblige à suivre une idée sur des pages]], à retenir le contexte et à résister à l'envie d'autre chose",
+     "texte": "chaque coup d'œil te sort de ce que tu fais, et [[t'y remettre prend du temps]] à chaque fois"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors tant qu'à être sur mon tel, je fais 5 min de leçon sur [[l'appli Sophia]]",
+     "texte": "ce qui marche pour moi : le tel dans le sac, un onglet à la fois, et une leçon de 5 min sur [[l'appli Sophia]] si je le sors"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "fr": "apprends à [[supporter la routine chiante]]",
+     "texte": "niveau 5 : [[jamais une minute de calme]]"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "fr": "réussir, c'est [[moins excitant]] que ça en a l'air",
+     "texte": "une série en cuisinant, un podcast à la douche"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh",
+     "texte": "tes pensées n'ont jamais leur tour, alors [[tes idées restent à moitié faites]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent",
+     "texte": "le niveau le plus profond, c'est celui qui [[a l'air de rien]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

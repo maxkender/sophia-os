@@ -1,0 +1,296 @@
+{
+ "post_id": "7699386616988650774",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things quietly destroying",
+      "your discipline"
+     ],
+     "fr": "10/10 trucs qui flinguent ta discipline en silence",
+     "texte": "10/10 things quietly destroying your discipline"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(neuroscience backed)",
+     "alignement": "droite"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "waiting until you [[feel motivated]]"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "motivation is just a feeling, and feelings [[come and go]] every day"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "if you only work when you feel like it, you’ll [[barely ever work]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "discipline is doing it [[even when you don’t feel like it]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "telling everyone your goals"
+     ],
+     "fr": "crier [[tes objectifs]] partout",
+     "texte": "telling everyone [[your goals]]"
+    },
+    "T2": {
+     "en": [
+      "when people say “that’s amazing”, your brain gets the",
+      "reward before you’ve done anything"
+     ],
+     "fr": "quand on te dit « trop bien », ton cerveau a sa récompense [[avant même que t'aies rien fait]]",
+     "texte": "when people say “that’s amazing”, your brain gets the reward [[before you’ve done anything]]"
+    },
+    "T3": {
+     "en": [
+      "so the motivation to",
+      "actually do it quietly",
+      "disappears"
+     ],
+     "fr": "du coup l'envie de vraiment le faire [[s'évapore en douce]]",
+     "texte": "so the motivation to actually do it [[quietly disappears]]"
+    },
+    "T4": {
+     "en": [
+      "keep it to yourself until",
+      "you’ve actually done it"
+     ],
+     "fr": "garde-le pour toi jusqu'à [[ce que ce soit fait]]",
+     "texte": "keep it to yourself until [[you’ve actually done it]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "living on cheap dopamine"
+     ],
+     "fr": "vivre de [[dopamine facile]]",
+     "texte": "living on [[cheap dopamine]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling, youtube, snacks, games, your brain gets",
+      "rewarded all day for doing nothing"
+     ],
+     "fr": "scroll, youtube, grignotage, jeux : ton cerveau est [[récompensé toute la journée]] pour rien",
+     "texte": "scrolling, youtube, snacks, games, your brain gets [[rewarded all day]] for doing nothing"
+    },
+    "T3": {
+     "en": [
+      "so hard things start feeling",
+      "impossible"
+     ],
+     "fr": "du coup l'effort te paraît [[impossible]]",
+     "texte": "so hard things start feeling [[impossible]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with this until i",
+      "found this thing that blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "avant je [[scrollais H24]], maintenant quitte à être sur mon tel, je fais [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "i used to [[doomscroll reels]] all day, now hard things feel doable again. remove reels from insta with [[the UnSwipe app]]"
+    },
+    "T5": {
+     "en": [
+      "earn your dopamine!!"
+     ],
+     "fr": "[[mérite ta dopamine !!]]",
+     "texte": "[[earn your dopamine!!]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "[[all or nothing]] thinking"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "you miss one workout or eat one bad meal, and decide [[the whole week is ruined]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "so you quit completely instead of [[just getting back on track]] the next day"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "it's consistency that matters, being [[consistently good is better than being occasionally great]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "too many small decisions"
+     ],
+     "fr": "trop de [[petites décisions]]",
+     "texte": "too many [[small decisions]]"
+    },
+    "T2": {
+     "en": [
+      "what to wear, what to eat,",
+      "when to start, every",
+      "choice uses up willpower"
+     ],
+     "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
+     "texte": "what to wear, what to eat, when to start, every choice [[uses up willpower]]"
+    },
+    "T3": {
+     "en": [
+      "this is called decision",
+      "fatigue"
+     ],
+     "fr": "ça s'appelle la [[fatigue décisionnelle]]",
+     "texte": "this is called [[decision fatigue]]"
+    },
+    "T4": {
+     "en": [
+      "plan tomorrow the night",
+      "before, so in the",
+      "morning you just start"
+     ],
+     "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
+     "texte": "plan tomorrow the night before, so in the morning [[you just start]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

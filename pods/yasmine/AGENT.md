@@ -79,7 +79,7 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `photos` demandent
 | `npm run veille` | Relève ses posts en direct (Apify) : 60 posts sur 400 jours, les 20 meilleurs en planche. Chaque slide reste en taille réelle dans `donnees/cache/tt_<id du post>_<n>.jpg`. Budget : 1 $ par semaine glissante (un relevé coûte environ 0,15 $). |
 | `npm run photos -- "desk notebook"` | Cherche dans la banque de l'OS : la description, en anglais, contient chaque mot. Jamais une personne entière (une main ou des pieds au plus), ni texte, ni collage. Planche `sortie/photos/…` avec les ids. |
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/fr/<n>.jpg`) et la planche `sortie/apercus/<id>.fr.jpg`. |
-| `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). |
+| `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). Une variante (même `source.url` qu'un remake plus ancien) part avec `?variante=<id>` : l'OS refuse deux contenus de même source. |
 | `npm run etat` | Montre la file, le rang micabo, puis les vues et le r de chaque remake en ligne. |
 
 Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'outil Read, avant de livrer.

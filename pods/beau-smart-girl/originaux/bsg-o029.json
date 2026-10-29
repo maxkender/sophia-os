@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o029",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à ma prof de littérature #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+ ],
+ "notes": "variante de bsg-o005 (« les habitudes insolites que j'ai volées à ma prof d'histoire de l'art », 29,5 k vues sur son premier passage mûr, r 13,47, rang A). Même schéma vole-habitudes (preuve r 7,58, 83ef5e79), autre angle, autres items. cta B (l'anecdote du jour au milieu du deck ; voir CTA.md). Fait vérifié le 29/10 sur https://fr.wikipedia.org/wiki/Palais_du_Louvre : la forteresse est « accolée à l'extérieur de l'enceinte bâtie par Philippe Auguste en 1190 », et la Révolution inaugure « en 1793 le musée du Louvre ». Routine du 29/10, livraison 1 sur 6. Angle : une autre prof, de littérature. Accroches écrites : « les habitudes insolites que j'ai volées à ma prof de littérature pour me cultiver sans m'en rendre compte » (retenue : le gabarit exact de bsg-o005 et du gagnant à r 7,58, une autre personne admirée), « ce que ma prof de littérature faisait pour qu'on retienne tout » (écartée : sans « volées »), « les habitudes de ma prof de français que je copie encore aujourd'hui » (écartée : plus loin du gagnant). Items neufs (rien de repris de bsg-o001, bsg-o005, bsg-o011, bsg-o015 ni des sources) : une phrase sur la page de garde, la vie des auteurs comme des potins, une anecdote en début de cours (Sophia), le même roman chaque été, les lectures publiques. Aucune personne réelle nommée. Images de la banque (célébrités permises depuis la décision d'Adrien du 28/10, aucune personne sur la slide Sophia), assez sombres pour le texte blanc. Inspirations : slides 1 à 5 de 83ef5e79, 2 et 3 de d1970d80.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0f52dd14",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à ma prof de littérature\npour me cultiver sans\nm'en rendre compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1012960f",
+   "texte_overlay": "1. elle écrivait une phrase de chaque livre sur la page de garde.\n\nla phrase qui l'avait marquée, au crayon.\ndix ans après, elle rouvrait le livre et tout revenait.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "32f434d5",
+   "texte_overlay": "2. elle racontait la vie des auteurs comme des potins.\n\nleurs amours, leurs disputes, leurs dettes.\non retenait tout, parce qu'on voulait savoir la suite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6780bd2b",
+   "texte_overlay": "3. elle commençait chaque cours par une anecdote.\n\nce matin, j'ai appris que le louvre était d'abord une forteresse, construite vers 1190. il n'est devenu un musée qu'en 1793.\non attendait le début du cours rien que pour ça.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg",
+   "texte_sophia": "3. elle commençait chaque cours par une anecdote.\n\nmoi, maintenant, c'est l'appli Sophia qui me les donne. ce matin : le louvre était d'abord une forteresse, construite vers 1190. il n'est devenu un musée qu'en 1793."
+  },
+  {
+   "position": 5,
+   "media_id": "335ad655",
+   "texte_overlay": "4. elle relisait chaque été le même roman.\n\nelle disait que le livre ne changeait pas, mais elle si.\net chaque été, elle y trouvait autre chose.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "355a2110",
+   "texte_overlay": "5. elle allait aux lectures publiques de la bibliothèque.\n\ngratuites, une heure, un auteur qui lit à voix haute.\nun livre entendu, ça ne s'oublie pas.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8dd711af",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/3.jpg"
+  }
+ ]
+}

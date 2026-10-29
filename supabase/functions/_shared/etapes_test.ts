@@ -3,6 +3,8 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
   canalEtape,
+  canauxEnvoi,
+  libelleCanaux,
   debutCohorte,
   DELAIS_ACCUEIL_DEFAUT as D,
   deciderEtape,
@@ -82,6 +84,13 @@ Deno.test("texte et canal : Slack si relié, sinon Upwork", () => {
   assertEquals(canalEtape({ slack_user_id: "U1", contrat_id: "c1" }), "slack");
   assertEquals(canalEtape({ slack_user_id: null, contrat_id: "c1" }), "upwork");
   assertEquals(canalEtape({ slack_user_id: null, contrat_id: null }), null);
+  // Les messages d'étape, du lundi et du jeudi partent sur Slack ET sur Upwork.
+  assertEquals(canauxEnvoi({ slack_user_id: "U1", contrat_id: "c1" }), ["slack", "upwork"]);
+  assertEquals(canauxEnvoi({ slack_user_id: null, contrat_id: "c1" }), ["upwork"]);
+  assertEquals(canauxEnvoi({ slack_user_id: "U1", contrat_id: null }), ["slack"]);
+  assertEquals(canauxEnvoi({ slack_user_id: null, contrat_id: null }), []);
+  assertEquals(libelleCanaux(["slack", "upwork"]), "slack+upwork");
+  assertEquals(libelleCanaux([]), null);
 });
 
 Deno.test("envoi pour le Kill : vrai message, ou prévu en test ; un échec d'envoi ne tue jamais", () => {

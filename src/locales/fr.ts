@@ -84,7 +84,7 @@ export const fr = {
         absent: "Pas encore en base",
         groupes: {
           accueil: { titre: "Bienvenue", quand: "Dès que l'offre est acceptée, sur Upwork." },
-          etapes: { titre: "Étapes 1 à 4", quand: "Une étape en retard : un message, jamais deux (Slack, sinon Upwork)." },
+          etapes: { titre: "Étapes 1 à 4", quand: "Une étape en retard : un message, jamais deux, sur Slack et sur Upwork." },
           lundi: { titre: "Lundi", quand: "Le lundi matin, à tous ; en plus, à la nouvelle cohorte (prête ou pas)." },
           lundi_soir: { titre: "Lundi 20 h", quand: "1er jour de posts sans post publié, sur Upwork." },
           jeudi: { titre: "Jeudi", quand: "Un seul nudge à tous ceux qui ont un problème." },
@@ -3302,7 +3302,7 @@ export const fr = {
       },
       lundi_message_auto: {
         titre: "Message du lundi",
-        on: "Chaque lundi à 10 h, heure du pays, un message à chaque posteur, une seule fois : la règle du lien (« No link = not paid ») ; en plus, à la nouvelle cohorte : « You start posting today » si elle est prête, sinon ce qui manque à son warm-up. Slack si relié, sinon Upwork.",
+        on: "Chaque lundi à 10 h, heure du pays, un message à chaque posteur, une seule fois : la règle du lien (« No link = not paid ») ; en plus, à la nouvelle cohorte : « You start posting today » si elle est prête, sinon ce qui manque à son warm-up. Sur Slack et sur Upwork.",
       },
       lundi_soir_auto: {
         titre: "Check du lundi soir",
@@ -3310,7 +3310,7 @@ export const fr = {
       },
       relances_auto: {
         titre: "Messages des 4 étapes et Nudge du jeudi",
-        on: "Toutes les heures : une recrue en retard sur une étape (connexion, compte TikTok, warm-up lancé, warm-up bien fait) reçoit UN message, jamais deux, sur Slack si relié, sinon sur Upwork, entre 10 h et 20 h heure de son pays. Le jeudi à 12 h : un Nudge aux posteurs à qui il manque des posts ou des liens depuis lundi ; sans post publié ensuite vendredi 20 h, proposé en Kill samedi.",
+        on: "Toutes les heures : une recrue en retard sur une étape (connexion, compte TikTok, warm-up lancé, warm-up bien fait) reçoit UN message, jamais deux, sur Slack et sur Upwork, entre 10 h et 20 h heure de son pays. Le jeudi à 12 h : un Nudge, sur Slack et sur Upwork, aux posteurs à qui il manque des posts ou des liens depuis lundi ; sans post publié ensuite vendredi 20 h, proposé en Kill samedi.",
       },
       reponses_auto: {
         titre: "L'OS lit et répond",

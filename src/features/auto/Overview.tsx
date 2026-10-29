@@ -12,6 +12,7 @@ import { lienConnexionUpwork } from "@/features/upwork/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
+import { CompteursUpwork } from "./CompteursUpwork";
 import { lireAujourdhui, lireSante, lireSemaine, type EtatTacheAuto, type SanteCompteUpwork } from "./api";
 import { BudgetUpwork } from "./sent/Attente";
 import { joursSemaine, type EtatJour } from "./logique";
@@ -109,6 +110,8 @@ export function SanteAuto() {
       <CompteSecours c={lu.data?.upwork_comptes?.find((x) => x.compte === "secours") ?? null} admin={admin} />
       {/* Prompt 25 : le budget Upwork du jour (conversations distinctes, limite d'Upwork), par compte. */}
       <BudgetUpwork />
+      {/* Décisions finales 4 : les messages Upwork par jour et par type, ceux confiés aux HM, ce qui attend. */}
+      <CompteursUpwork />
       <div className="space-y-1">
         <p className="font-medium">{t("auto.sante.titreTaches")}</p>
         <ul className="divide-y text-sm" data-testid="taches-auto">

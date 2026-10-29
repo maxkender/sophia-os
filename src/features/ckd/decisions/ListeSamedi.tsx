@@ -155,6 +155,12 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const demandeCompte = (c: CompteSemaine) => (!c.cohorte_lundi || c.cohorte_lundi <= lundi ? demandeDe.get(c.poster_id) ?? null : null);
   const choixDe = (c: CompteSemaine) => choix[c.compte_id] ?? choixSamediInitial(c, demandeCompte(c));
   const visibles = trierComptes(filtrerComptes(liste, filtres), tri);
+  // Décisions finales 2 : la masterlist en 3 parties : les recrues de la prochaine cohorte (plus bas, en tête de page),
+  // les comptes en 1re semaine de posts, puis les anciens.
+  const groupes: [string, CompteSemaine[]][] = [
+    ["premiere", visibles.filter((c) => c.cohorte_lundi === lundi)],
+    ["anciens", visibles.filter((c) => c.cohorte_lundi !== lundi)],
+  ];
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
   const aDecider = liste.filter((c) => !decisionSamedi(c));
   const compte = (x: ChoixSamedi) => aDecider.filter((c) => choixDe(c) === x && (x !== "keep" || c.ckd_samedi_id)).length;
@@ -238,6 +244,36 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
 
   return (
     <div className="space-y-4">
+      <Card data-testid="samedi-recrues">
+        <CardHeader>
+          <CardTitle className="text-base">{t("autoOnglets.decisions.liste.recrues.titre", { n: recrues.data?.length ?? 0 })}</CardTitle>
+          <CardDescription>{t("autoOnglets.decisions.liste.recrues.aide")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2 text-sm">
+          {recrues.error && <p className="text-destructive">{(recrues.error as Error).message}</p>}
+          {recrues.data && recrues.data.length === 0 && <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.vide")}</p>}
+          <ul className="divide-y rounded-md border">
+            {(recrues.data ?? []).map((r) => (
+              <li key={r.poster_id} className="flex flex-wrap items-center gap-3 p-2" data-recrue={r.poster_id}>
+                <Choix
+                  valeur={choixRecrueDe(r)}
+                  options={CHOIX_RECRUE}
+                  libelle={(o) => t(`autoOnglets.decisions.liste.recrues.choix.${o}`)}
+                  lecture={!admin}
+                  onChange={(o) => setChoixRecrues((x) => ({ ...x, [r.poster_id]: o }))}
+                />
+                <span className="font-medium">{r.nom ?? "—"}</span>
+                {r.handle && <HandleTiktok handle={r.handle} pays={r.pays} className="text-xs font-normal" />}
+                <span className="text-xs text-muted-foreground">{[r.hm_nom ? `HM ${r.hm_nom}` : null, r.pays].filter(Boolean).join(" · ")}</span>
+                <Badge variant="warning">{t(`autoOnglets.decisions.liste.recrues.manque.${manqueRecrue(r)}`, { n: Math.max(0, 5 - (r.abonnements ?? 0)) })}</Badge>
+                {demandeDe.get(r.poster_id) && <BadgeDemande d={demandeDe.get(r.poster_id)!} />}
+                <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.relances", { n: r.relances })}</span>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+
       <Card data-testid="liste-samedi">
         <CardHeader>
           <CardTitle>{t("autoOnglets.decisions.liste.samedi.titre", { n: liste.length })}</CardTitle>
@@ -264,7 +300,14 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                 </tr>
               </thead>
               <tbody>
-                {visibles.map((c) => {
+                {groupes.map(([g, lignes]) => lignes.length === 0 ? null : (
+                  <React.Fragment key={g}>
+                  <tr className="bg-muted/40" data-groupe={g}>
+                    <td className={`${TD} font-medium`} colSpan={jours.length + 8}>
+                      {t(`autoOnglets.decisions.liste.samedi.groupes.${g}`, { n: lignes.length })}
+                    </td>
+                  </tr>
+                {lignes.map((c) => {
                   const prise = decisionSamedi(c);
                   const np = !prise && choixDe(c) === "kill_np";
                   return (
@@ -332,41 +375,14 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                     </React.Fragment>
                   );
                 })}
+                  </React.Fragment>
+                ))}
               </tbody>
             </table>
           </div>
         </CardContent>
       </Card>
 
-      <Card data-testid="samedi-recrues">
-        <CardHeader>
-          <CardTitle className="text-base">{t("autoOnglets.decisions.liste.recrues.titre", { n: recrues.data?.length ?? 0 })}</CardTitle>
-          <CardDescription>{t("autoOnglets.decisions.liste.recrues.aide")}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-2 text-sm">
-          {recrues.error && <p className="text-destructive">{(recrues.error as Error).message}</p>}
-          {recrues.data && recrues.data.length === 0 && <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.vide")}</p>}
-          <ul className="divide-y rounded-md border">
-            {(recrues.data ?? []).map((r) => (
-              <li key={r.poster_id} className="flex flex-wrap items-center gap-3 p-2" data-recrue={r.poster_id}>
-                <Choix
-                  valeur={choixRecrueDe(r)}
-                  options={CHOIX_RECRUE}
-                  libelle={(o) => t(`autoOnglets.decisions.liste.recrues.choix.${o}`)}
-                  lecture={!admin}
-                  onChange={(o) => setChoixRecrues((x) => ({ ...x, [r.poster_id]: o }))}
-                />
-                <span className="font-medium">{r.nom ?? "—"}</span>
-                {r.handle && <HandleTiktok handle={r.handle} pays={r.pays} className="text-xs font-normal" />}
-                <span className="text-xs text-muted-foreground">{[r.hm_nom ? `HM ${r.hm_nom}` : null, r.pays].filter(Boolean).join(" · ")}</span>
-                <Badge variant="warning">{t(`autoOnglets.decisions.liste.recrues.manque.${manqueRecrue(r)}`, { n: Math.max(0, 5 - (r.abonnements ?? 0)) })}</Badge>
-                {demandeDe.get(r.poster_id) && <BadgeDemande d={demandeDe.get(r.poster_id)!} />}
-                <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.relances", { n: r.relances })}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
 
       <div className="sticky bottom-0 flex flex-wrap items-center gap-3 border-t bg-background py-3">
         <Badge variant="info">

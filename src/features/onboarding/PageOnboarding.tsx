@@ -23,6 +23,8 @@ import {
   filtrerOnboarding,
   heuresDepuis,
   lireDerniersReleves,
+  lireMessagesRecus,
+  type MessageRecu,
   lireOnboarding,
   type RecrueOnboarding,
   type ReleveRecrue,
@@ -42,7 +44,7 @@ function useFormats() {
 }
 
 /** Une recrue : qui, son contrat, ses étapes, ses messages, la prochaine relance, et les boutons. */
-function CarteRecrue({ r, releve }: { r: RecrueOnboarding; releve?: ReleveRecrue }) {
+function CarteRecrue({ r, releve, recus = [] }: { r: RecrueOnboarding; releve?: ReleveRecrue; recus?: MessageRecu[] }) {
   const { t } = useTranslation();
   const { le, jour } = useFormats();
   const admin = useAuth().role === "admin";
@@ -172,6 +174,25 @@ function CarteRecrue({ r, releve }: { r: RecrueOnboarding; releve?: ReleveRecrue
           )}
         </div>
 
+        {/* Décisions finales 4 : les messages reçus de la recrue (Slack, Upwork, dashboard). */}
+        <div className="space-y-1" data-testid="recus">
+          <p className="text-xs font-medium">{t("onboardingPosters.recus", { n: recus.length })}</p>
+          {recus.length > 0 && (
+            <ul className="max-h-40 divide-y overflow-y-auto rounded-md border text-xs">
+              {recus.map((m, i) => (
+                <li key={`${m.recu_at}-${i}`} className="space-y-0.5 p-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="tabular-nums text-muted-foreground">{le(m.recu_at)}</span>
+                    <Badge variant="secondary">{m.canal ?? "—"}</Badge>
+                    {m.cas && <span className="text-muted-foreground">{t(`reponses.cas.${m.cas}`, { defaultValue: m.cas })}</span>}
+                  </div>
+                  {m.texte && <p className="whitespace-pre-wrap break-words">{m.texte}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
         <p className="text-xs" data-testid="prochaine">
           <span className="font-medium">{t("onboardingPosters.prochaine")}</span>{" "}
           {r.prochaine
@@ -255,6 +276,7 @@ export function PageOnboarding() {
   const lu = useQuery({ queryKey: ["onboarding"], queryFn: lireOnboarding, refetchInterval: 60_000 });
   const ids = (lu.data ?? []).map((r) => r.poster_id);
   const releves = useQuery({ queryKey: ["onboarding-releves", ids], queryFn: () => lireDerniersReleves(ids), enabled: ids.length > 0 });
+  const recus = useQuery({ queryKey: ["onboarding-recus", ids], queryFn: () => lireMessagesRecus(ids), enabled: ids.length > 0 });
   const [f, setF] = React.useState<FiltresOnboarding>({ hm: "", cohorte: "", etape: "" });
   const tous = lu.data ?? [];
   const liste = filtrerOnboarding(tous, f);
@@ -299,7 +321,7 @@ export function PageOnboarding() {
       {lu.data && liste.length === 0 && <p className="text-sm text-muted-foreground">{t("onboardingPosters.vide")}</p>}
       <div className="grid gap-3 lg:grid-cols-2">
         {liste.map((r) => (
-          <CarteRecrue key={r.poster_id} r={r} releve={releves.data?.get(r.poster_id)} />
+          <CarteRecrue key={r.poster_id} r={r} releve={releves.data?.get(r.poster_id)} recus={recus.data?.get(r.poster_id)} />
         ))}
       </div>
     </section>

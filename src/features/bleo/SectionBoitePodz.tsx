@@ -12,7 +12,7 @@ import { formaterJour, formaterNombre, formaterPart } from "./format";
 import { EnteteTableau, EtatRequete, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, TitreCarte } from "./ui";
 
 /**
- * BLEO, en bas de la page Pods : la jauge de chaque podz de la voie 1
+ * BLEO, sur la page Pods sous le tableau de bord : la jauge de chaque podz de la voie 1
  * (semaines de boîte, part de full test du jour) et sa boîte, c'est-à-dire les
  * déclinaisons qu'il peut faire, dans l'ordre (2ᵉ génération d'abord, puis les
  * familles jamais déclinées). Les podz ne lisent pas encore la boîte (lot L4).

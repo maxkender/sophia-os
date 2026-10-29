@@ -773,6 +773,9 @@ export function AdminPodsPage() {
 
       <TableauDeBord />
 
+      {/* BLEO : la jauge et la boîte des podz de la voie 1 (lecture seule), sous le tableau de bord. */}
+      <SectionBoitePodz />
+
       {(error || pods.error) && <p className="text-sm text-destructive">{((error ?? pods.error) as Error).message}</p>}
 
       {!isLoading && !slugs.length && (
@@ -828,9 +831,6 @@ export function AdminPodsPage() {
           </Card>
         );
       })}
-
-      {/* BLEO : la jauge et la boîte des podz de la voie 1 (lecture seule). */}
-      <SectionBoitePodz />
     </div>
   );
 }

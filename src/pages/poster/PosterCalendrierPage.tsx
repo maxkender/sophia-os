@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -269,10 +269,16 @@ export function PosterCalendrierPage() {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const parrainage = useParrainageActif();
+  const jour = aujourdhui();
+  // Page laissée ouverte la nuit (Olena, 29/10) : sans le jour dans la clé ni
+  // rechargement au retour sur l'onglet, « Today » gardait la liste de la
+  // veille et affichait « rien de prévu ».
   const { data: posts, isPending } = useQuery({
-    queryKey: ["mes-posts", user?.id],
+    queryKey: ["mes-posts", user?.id, jour],
     queryFn: mesPosts,
     enabled: Boolean(user?.id),
+    refetchOnWindowFocus: true,
+    placeholderData: keepPreviousData,
   });
   const { data: comptes } = useQuery({
     queryKey: ["mes-comptes"],
@@ -313,7 +319,6 @@ export function PosterCalendrierPage() {
     },
   });
 
-  const jour = aujourdhui();
   const maintenant = new Date();
   // Fenêtre de 2 semaines (change 1), décalable semaine par semaine.
   const [decalageSemaines, setDecalageSemaines] = React.useState(0);

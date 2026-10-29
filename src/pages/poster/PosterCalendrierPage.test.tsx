@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { act, render, screen } from "@testing-library/react";
+import { focusManager, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -51,7 +51,8 @@ function compte(over: Partial<MonCompte>): MonCompte {
 }
 
 function afficher() {
-  const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  // Comme l'appli (providers.tsx) : pas de rechargement au focus par défaut.
+  const client = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } });
   render(
     <QueryClientProvider client={client}>
       <MemoryRouter>
@@ -192,6 +193,35 @@ describe("prompt 15, point 6 : l'accueil du posteur", () => {
     expect(titres[0]).toBe("Today");
     expect(screen.queryByText(/Warm-up in progress/)).toBeNull();
     expect(screen.getByTestId("identite-repliee")).toBeInTheDocument();
+  });
+
+  it("page restée ouverte la nuit : au retour sur l'onglet, Today montre les posts du nouveau jour", async () => {
+    const fini = { warmup_started_at: "2026-10-01T08:00:00Z", warmup_ends_at: "2026-10-04T22:00:00Z" };
+    mesComptes.mockResolvedValue([compte({ id: "c1", handle_tiktok: "lea", ...fini })]);
+    const post = (id: string, date: string, titre: string) => ({
+      id,
+      compte_id: "c1",
+      handle_tiktok: "lea",
+      date_publication_prevue: date,
+      type: "slideshow",
+      sujet_titre: titre,
+      publie_at: null,
+    });
+    postsMock.liste = [post("p1", "2026-10-21", "Post A")];
+    afficher();
+    expect(await screen.findByText("Post A", { selector: "p" })).toBeInTheDocument();
+
+    // Le lendemain matin, les posts de la nuit sont arrivés ; l'onglet revient au premier plan.
+    vi.setSystemTime(new Date("2026-10-22T05:30:00Z"));
+    postsMock.liste = [post("p2", "2026-10-22", "Post B"), post("p1", "2026-10-21", "Post A")];
+    act(() => {
+      focusManager.setFocused(false);
+      focusManager.setFocused(true);
+    });
+
+    expect(await screen.findByText("Post B", { selector: "p" })).toBeInTheDocument();
+    expect(screen.queryByText("Nothing planned today.")).toBeNull();
+    focusManager.setFocused(undefined);
   });
 });
 

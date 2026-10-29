@@ -104,7 +104,8 @@ function ContactPosterHm({ poster }: { poster: PosterProfil }) {
       </div>
     );
   }
-  const manque = !poster.upwork_contrat_url || !poster.email_perso;
+  // L'email perso est facultatif (29 oct.) : seul le contrat manque vraiment.
+  const manque = !poster.upwork_contrat_url;
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs">
       {poster.upwork_contrat_url && (
@@ -472,7 +473,7 @@ export function HiringPosterPage() {
               e.preventDefault();
               // Application du compte non choisie : le bloc le dit, rien ne part.
               if (!choixApps.verifier()) return;
-              // Prompt 15, point 7 : contrat Upwork et email perso obligatoires.
+              // Contrat Upwork obligatoire ; email perso facultatif (29 oct.).
               if (!contactCreationComplet(contact)) return;
               setCree(null);
               creer.mutate();

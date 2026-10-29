@@ -1114,7 +1114,7 @@ export function AdminPostersPage() {
             e.preventDefault();
             // Application du compte non choisie : le bloc le dit, rien ne part.
             if (!choixAppsPoster.verifier()) return;
-            // Prompt 15, point 7 : contrat Upwork et email perso obligatoires.
+            // Contrat Upwork obligatoire ; email perso facultatif (29 oct.).
             if (!contactCreationComplet(contact)) return;
             setCree(null);
             creer.mutate();

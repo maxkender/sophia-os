@@ -21,12 +21,12 @@ import {
   aujourdhui,
   demarrerWarmup,
   lireCohorteAccueil,
-  majMonHandle,
   majMonHandleInstagram,
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
 import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
+import { MonCompteTiktok } from "@/features/onboarding/MonCompteTiktok";
 import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
@@ -224,8 +224,8 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
             </p>
             {compte.persona_nom && <p className="text-sm font-semibold">{compte.persona_nom}</p>}
 
-            {/* Le @ TikTok : éditable par le poster une fois son compte créé. */}
-            <ChampHandle valeur={compte.handle_tiktok} enregistrer={(h) => majMonHandle(h, compte.id)} />
+            {/* 0444 : « My TikTok account » ; un autre @ n'est enregistré que s'il est trouvé sur TikTok. */}
+            <MonCompteTiktok compteId={compte.id} handle={compte.handle_tiktok} />
             {/* Compte du pod 3 : il publie aussi sur Instagram. */}
             {compte.videos_uniquement && (
               <ChampHandle

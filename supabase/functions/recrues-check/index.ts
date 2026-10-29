@@ -57,6 +57,15 @@ import {
 import { chargerBase } from "../_shared/faq_moteur.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import {
+  etapeHandle,
+  extraireHandle,
+  type HandleIntrouvable,
+  lireTextesHandle,
+  texteHandle,
+  type TextesHandle,
+  verifierHandlePropose,
+} from "../_shared/handle_tiktok.ts";
 import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { construirePromptContestation, lireContestation, texteAccuse } from "../_shared/contestations.ts";
@@ -124,13 +133,16 @@ Deno.serve(async (request) => {
     if (body.action === "test_lancer") return json(await lancerTest(serviceClient(), String(body.poster_id ?? ""), String(body.quoi ?? "")));
     if (body.action === "reponses") {
       const maintenant = new Date();
+      // 0444 : un @ TikTok dans une réponse (recrue introuvable) est lu avant le classement, même sur off.
+      const handles = await handlesDansReponses(serviceClient(), maintenant)
+        .catch((e) => ({ ok: false, erreurs: [`@ TikTok : ${messageErreur(e)}`] }));
       const r = await traiterReponses(serviceClient(), maintenant);
       // Prompt 25 v4 : une réponse à envoyer à la main (Upwork plein) : la HM est prévenue.
       await prevenirHms(serviceClient(), maintenant).catch((e) => console.error("[recrues-check] HM", messageErreur(e)));
       // Prompt 21, R : les contestations (tableau de bord, réponse automatique), même sans nouveau message.
       const contestations = await traiterContestations(serviceClient())
         .catch((e) => ({ ok: false, erreurs: [`contestations : ${messageErreur(e)}`] }));
-      return json({ ...r, contestations });
+      return json({ ...r, contestations, handles });
     }
     if (body.action !== "verifier") return json({ ok: false, error: "action inconnue" }, 400);
     return json(await verifier(serviceClient(), new Date()));
@@ -310,6 +322,10 @@ interface Bilan {
   relancesUpwork?: Map<string, number>;
   /** Interne : les contrats de test (0440) ; bienvenue et relances partent pour de vrai même sur Test ou Approve. */
   contratsTest?: Set<string>;
+  /** Interne (0444) : Start warmup cliqué, @ introuvable deux fois de suite, par compte. */
+  handles?: Map<string, HandleIntrouvable>;
+  /** Interne (0444) : les textes « we can't find your TikTok account ». */
+  textesHandle?: TextesHandle;
 }
 
 async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
@@ -497,7 +513,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   bilan.contratsTest = await lireContratsTest(supabase);
   // Prompt 25 : les relances d'hier pas approuvées ne partent plus (jamais de rattrapage) ; la bienvenue, elle, attend.
   await supabase.from("relances_prevues").update({ statut: "expire", maj_at: new Date().toISOString() })
-    .eq("statut", "prevu").is("valide_at", null).eq("raison", "a_approuver").neq("type", "accueil")
+    .eq("statut", "prevu").is("valide_at", null).eq("raison", "a_approuver").not("type", "in", "(accueil,handle_excuse)")
     .lt("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -1));
 
   if (r.mode === "off") {
@@ -564,6 +580,10 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   // passent cette fois. Les Kills, eux, sont vérifiés à chaque passage.
   const etapesDues = await passageDu(supabase, "etapes");
   bilan.etapes = etapesDues;
+  if (etapesDues) {
+    bilan.handles = await lireHandlesIntrouvables(supabase);
+    bilan.textesHandle = await lireTextesHandle(supabase);
+  }
   for (let x of etapesDues ? recrues : []) {
     // Cohorte commencée : ses vidéos sont ses posts, pas un warm-up raté.
     if (maintenant >= debutCohorte(x)) x = { ...x, videos: null };
@@ -581,6 +601,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     }
     for (const e of etats) await suivreEtape(supabase, x, e, test, bilan);
     await relanceDuJour(supabase, r, x, etats, maintenant, bilan);
+    // 0444 : @ introuvable après Start warmup : « we can't find your TikTok account », jamais « create ».
+    await handleDuJour(supabase, r, x, maintenant, bilan);
     // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
     if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
@@ -607,7 +629,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
 /** Le bilan rendu, sans les champs internes. */
 function nettoyer(bilan: Bilan): Bilan {
-  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, relancesUpwork: _w, contratsTest: _t, ...reste } = bilan;
+  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, relancesUpwork: _w, contratsTest: _t, handles: _h, textesHandle: _x, ...reste } = bilan;
   return reste;
 }
 
@@ -901,6 +923,142 @@ async function relanceDuJour(
   if (approuver) bilan.aApprouver++;
 }
 
+// ---------------------------------------------------------------------------
+// 0444 : le @ TikTok qui ne correspond pas
+// ---------------------------------------------------------------------------
+
+async function lireHandlesIntrouvables(supabase: Supabase): Promise<Map<string, HandleIntrouvable>> {
+  const { data, error } = await supabase.rpc("handles_introuvables");
+  if (error) throw error;
+  return new Map(((data ?? []) as HandleIntrouvable[]).map((h) => [h.compte_id, h]));
+}
+
+/**
+ * Start warmup cliqué et le @ introuvable deux fois de suite (au moins 12 h
+ * après le clic) : jamais « create your account ». « We can't find your TikTok
+ * account @… » sur Slack (sinon Upwork) ; s'il n'y a pas de réaction en 24 h,
+ * le même sur Upwork. Même interrupteur que les relances (Test, Approve, On),
+ * entre 10 h et 20 h heure du pays.
+ */
+async function handleDuJour(supabase: Supabase, r: Reglages, x: RecrueAccueil, maintenant: Date, bilan: Bilan) {
+  const h = x.compte_id ? bilan.handles?.get(x.compte_id) : undefined;
+  if (!h || !bilan.textesHandle) return;
+  if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
+  if (!dansFenetre(maintenant, x.fuseau, r.etapes as unknown as Delais)) return;
+  const etape = etapeHandle(h, { slack: Boolean(x.slack_user_id), contrat: Boolean(x.contrat_id) }, maintenant);
+  if (!etape) return;
+  const periode = x.cohorte_lundi;
+  if (bilan.prevuesConnues?.has(clePrevue(x.poster_id, etape, periode))) return;
+  if (bilan.automationPause) {
+    await noterBloquee(supabase, { fonction: "recrues-check", action: etape, poster_id: x.poster_id });
+    return;
+  }
+  const canal = etape === "handle" && x.slack_user_id ? "slack" : "upwork";
+  const texte = texteHandle(bilan.textesHandle.introuvable, { prenom: x.prenom, handle: h.handle });
+  const ligne = {
+    poster_id: x.poster_id, type: etape, periode, statut: "prevu", canal, texte, maj_at: new Date().toISOString(),
+    donnees: {
+      handle: h.handle, start_warmup: h.warmup_at, introuvable_depuis: h.introuvable_at, premier_message: h.message_at,
+      sur_slack: Boolean(x.slack_user_id), contrat: x.contrat_id, cohorte: x.cohorte_lundi,
+    },
+  };
+  const test = Boolean(x.contrat_id && bilan.contratsTest?.has(x.contrat_id));
+  if (r.mode === "simulation" && !test) {
+    await supabase.from("relances_prevues").upsert({ ...ligne, raison: "simulation" });
+    bilan.prevus++;
+  } else {
+    const approuver = r.mode === "approve" && !test;
+    const { error } = await supabase.from("relances_prevues").upsert({
+      ...ligne, raison: approuver ? "a_approuver" : "auto", valide_at: approuver ? null : new Date().toISOString(),
+    });
+    if (error) {
+      bilan.erreurs.push(`${etape} ${x.poster_id} : ${error.message}`);
+      return;
+    }
+    if (approuver) bilan.aApprouver++;
+  }
+  bilan.prevuesConnues?.add(clePrevue(x.poster_id, etape, periode));
+}
+
+/**
+ * 0444 : une recrue au @ introuvable répond avec un @ (Slack, Upwork) : il est
+ * lu sur TikTok. Trouvé : le @ du compte est remplacé ; introuvable : « To
+ * read ». Puis les @ du dashboard que TikTok n'a pas pu lire (page bloquée)
+ * sont relus, dans l'heure. Même sur off : rien ne part au posteur.
+ */
+async function handlesDansReponses(supabase: Supabase, maintenant: Date) {
+  const bilan = { ok: true, lus: 0, trouves: 0, introuvables: 0, illisibles: 0, erreurs: [] as string[] };
+  const introuvables = await lireHandlesIntrouvables(supabase);
+  const parPosteur = new Map([...introuvables.values()].map((h) => [h.poster_id, h]));
+  if (parPosteur.size > 0) {
+    const { data: reponses } = await supabase.from("posteur_reponses")
+      .select("id, poster_id, canal, texte, statut")
+      .in("canal", ["slack", "upwork"])
+      .in("poster_id", [...parPosteur.keys()])
+      .gte("recu_at", new Date(maintenant.getTime() - 3 * 86_400_000).toISOString())
+      .order("recu_at").limit(200);
+    const ids = (reponses ?? []).map((x) => x.id as string);
+    const { data: dejaLues } = ids.length
+      ? await supabase.from("handles_proposes").select("reponse_id").in("reponse_id", ids)
+      : { data: [] };
+    const deja = new Set((dejaLues ?? []).map((x) => x.reponse_id as string));
+    for (const rep of reponses ?? []) {
+      if (deja.has(rep.id as string)) continue;
+      const handle = extraireHandle(rep.texte as string | null);
+      const h = parPosteur.get(rep.poster_id as string);
+      if (!handle || !h) continue;
+      const { data: ligne, error } = await supabase.from("handles_proposes").insert({
+        poster_id: h.poster_id, compte_id: h.compte_id, handle_attendu: h.handle, handle_propose: handle,
+        source: rep.canal, reponse_id: rep.id,
+      }).select("id").single();
+      if (error) {
+        if (error.code !== "23505") bilan.erreurs.push(`${rep.id} : ${error.message}`);
+        continue;
+      }
+      bilan.lus++;
+      const issue = await verifierHandlePropose(supabase, lireProfilTiktok, {
+        id: ligne.id, poster_id: h.poster_id, compte_id: h.compte_id, handle_propose: handle, handle_attendu: h.handle,
+      });
+      await noterIssueReponse(supabase, rep as { id: string; statut: string }, issue, handle, bilan);
+    }
+  }
+  // Les @ pas encore lus (TikTok a bloqué la page) : relus, 6 fois au plus.
+  const { data: attente } = await supabase.from("handles_proposes")
+    .select("id, poster_id, compte_id, handle_propose, handle_attendu, tentatives, reponse_id")
+    .eq("statut", "a_verifier").lt("tentatives", 6).order("demande_at").limit(20);
+  for (const a of attente ?? []) {
+    const issue = await verifierHandlePropose(supabase, lireProfilTiktok, a as never);
+    if (a.reponse_id) {
+      await noterIssueReponse(supabase, { id: a.reponse_id as string, statut: "" }, issue, a.handle_propose as string, bilan);
+    } else if (issue === "trouve") bilan.trouves++;
+    else if (issue === "introuvable") bilan.introuvables++;
+    else bilan.illisibles++;
+  }
+  bilan.ok = bilan.erreurs.length === 0;
+  return bilan;
+}
+
+/** Sur la réponse : trouvé → classée (rien à répondre) ; introuvable → « To read ». */
+async function noterIssueReponse(
+  supabase: Supabase,
+  rep: { id: string; statut: string },
+  issue: "trouve" | "introuvable" | "illisible",
+  handle: string,
+  bilan: { trouves: number; introuvables: number; illisibles: number },
+) {
+  if (issue === "illisible") {
+    bilan.illisibles++;
+    return;
+  }
+  if (issue === "trouve") bilan.trouves++;
+  else bilan.introuvables++;
+  await supabase.from("posteur_reponses").update(
+    issue === "trouve"
+      ? { statut: "classe", cas: "accuse", action: "handle_corrige", traite_at: new Date().toISOString() }
+      : { statut: "classe", cas: "a_lire", liste: "a_lire", action: "handle_introuvable", erreur: `@${handle} introuvable sur TikTok`, traite_at: new Date().toISOString() },
+  ).eq("id", rep.id);
+}
+
 interface LigneFile {
   poster_id: string;
   type: string;
@@ -962,6 +1120,7 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     partiesLocales(maintenant, "Europe/Paris").date,
   );
   if (lignes.length === 0) return;
+  if (lignes.some((l) => l.type === "handle" || l.type === "handle_upwork")) bilan.handles ??= await lireHandlesIntrouvables(supabase);
   const budget = await lireBudgetFile(supabase, maintenant);
   if (budget.limite) bilan.upworkPlein = true;
   bilan.relancesUpwork ??= await lireRelancesUpwork(supabase);
@@ -977,7 +1136,8 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     // L'interrupteur de ce type : sur off ou test, rien ne part (le jeudi n'a pas d'interrupteur) ;
     // un contrat de test (0440) : la relance et la bienvenue partent même sur Test.
     const surTest = Boolean(l.profiles?.upwork_contract_id && contratsTest.has(l.profiles.upwork_contract_id));
-    if (l.type === "relance" && !(r.mode === "approve" || r.mode === "on" || (surTest && r.mode !== "off"))) continue;
+    if ((l.type === "relance" || l.type === "handle" || l.type === "handle_upwork") &&
+      !(r.mode === "approve" || r.mode === "on" || (surTest && r.mode !== "off"))) continue;
     if (l.type === "lundi_soir" && !(r.lundiSoir === "approve" || r.lundiSoir === "on")) continue;
     if (l.type === "lundi" && r.lundi !== "on") continue;
     if (l.type === "accueil" && !(r.accueil === "approve" || r.accueil === "on" || (surTest && r.accueil !== "off"))) continue;
@@ -1011,6 +1171,16 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
         continue;
       }
     }
+    // 0444 : le @ est-il toujours introuvable (même @) ? Sinon le message ne part pas.
+    if ((l.type === "handle" || l.type === "handle_upwork") && bilan.handles) {
+      const h = [...bilan.handles.values()].find((x) => x.poster_id === l.poster_id);
+      if (!h || (l.donnees?.handle && h.handle !== l.donnees.handle) || (l.type === "handle_upwork" && h.reaction_at)) {
+        await marquer(l, "perime");
+        bilan.file.perimes++;
+        sortir();
+        continue;
+      }
+    }
     // La bienvenue : une seule fois.
     if (l.type === "accueil") {
       const { data: a } = await supabase.from("accueils").select("statut").eq("poster_id", l.poster_id).maybeSingle();
@@ -1022,8 +1192,9 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     }
     // Un seul message par personne : un autre profil sur le même Slack ou le même contrat.
     const personne = { poster_id: l.poster_id, slack_user_id: p.slack_user_id, contrat_id: contrat };
-    const slack = ["relance", "jeudi", "lundi"].includes(l.type) && Boolean(p.slack_user_id);
-    let upworkVoulu = Boolean(contrat) && (l.type !== "lundi" || !slack);
+    const slack = ["relance", "jeudi", "lundi", "handle", "handle_excuse"].includes(l.type) && Boolean(p.slack_user_id);
+    // 0444 : le @ introuvable et l'excuse : Slack s'il y est, sinon Upwork ; le 2e message : Upwork seulement.
+    let upworkVoulu = Boolean(contrat) && (!["lundi", "handle", "handle_excuse"].includes(l.type) || !slack);
     if (l.type === "relance" && !upworkPourRelance(r, bilan, l.poster_id)) upworkVoulu = false;
     const { canaux: possibles, doublon } = canauxPour(bilan, personne, l.type, l.periode, { slack, upwork: upworkVoulu });
     if (doublon) {

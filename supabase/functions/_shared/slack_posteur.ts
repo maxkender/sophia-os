@@ -9,6 +9,8 @@
  * le même pour tous les bots du workspace.
  */
 
+import { bloquer, PAUSE } from "./pause.ts";
+
 type Fetch = typeof fetch;
 
 export type IssueMessagePosteur =
@@ -95,6 +97,10 @@ export async function ecrireAuPosteur(
   /** Des blocs Slack (boutons « Done »…, partie E) ; le texte reste la notification. */
   blocs?: unknown[],
 ): Promise<IssueMessagePosteur> {
+  // Prompt 22 : le grand interrupteur passe avant tout (aucun message Slack au posteur).
+  if (await bloquer(supabase, { fonction: "slack", action: "message_posteur", poster_id: posterId })) {
+    return { statut: "erreur", erreur: PAUSE };
+  }
   const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (!ecriture) return { statut: "erreur", erreur: "SLACK_HM_BOT_TOKEN manquant" };
   try {

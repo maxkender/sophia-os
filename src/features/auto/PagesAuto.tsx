@@ -9,6 +9,7 @@ import { AdminChatbotPage } from "@/pages/admin/AdminChatbotPage";
 import { AdminCheckKillDoublePage } from "@/pages/admin/AdminCheckKillDoublePage";
 import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 
+import { GrandInterrupteur } from "./GrandInterrupteur";
 import { PageAuto } from "./PageAuto";
 import { PageLogs } from "./PageLogs";
 
@@ -20,6 +21,7 @@ import { PageLogs } from "./PageLogs";
 export function OverviewPage() {
   return (
     <PageAuto cle="overview">
+      <GrandInterrupteur />
       <Interrupteurs />
       <CarteUpwork />
       <Lien1000Card />

@@ -58,6 +58,7 @@ import {
   refusMode,
 } from "../_shared/paiement.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -682,6 +683,10 @@ async function paieApercu(supabase: Supabase, par: string | null, semaine: strin
 
 /** Exécute le plan, ligne par ligne. Jamais de nouvel essai : une erreur = « a_verifier ». */
 async function paiePayer(supabase: Supabase, par: string | null, semaine: string, ids: unknown) {
+  // Prompt 22 : en pause, rien ne part et les lignes restent « à faire ».
+  if (await bloquer(supabase, { fonction: "upwork", action: "paie_payer", cible: semaine })) {
+    return { ok: false, error: PAUSE, lignes: [] };
+  }
   // Le plan est relu au moment de payer : rien ne part sur un aperçu périmé.
   const plans = await planifier(supabase, par, semaine, ids);
   const resultats: Record<string, unknown>[] = [];
@@ -937,6 +942,8 @@ async function ecrire(
   },
   // deno-lint-ignore no-explicit-any
 ): Promise<{ data: any; erreur: string | null }> {
+  // Prompt 22 : le grand interrupteur passe avant tout (rien n'est écrit sur Upwork).
+  if (await bloquer(supabase, { fonction: "upwork", action: o.action, cible: o.contrat })) return { data: null, erreur: PAUSE };
   const jeton = await jetonValide(supabase, o.par);
   const debut = Date.now();
   let statut: number | null = null;
@@ -1044,6 +1051,11 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const { data: relies, error: errRelier } = await supabase.rpc("contrats_relier");
   const reliage = { relies: (relies ?? []).length, erreur_relier: errRelier?.message ?? null };
   if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off", ...reliage };
+  // Prompt 22 : en pause, ni posteur créé ni bienvenue envoyée ; repris au passage suivant.
+  if (await automationEnPause(supabase)) {
+    await noterBloquee(supabase, { fonction: "upwork", action: "accueil" });
+    return { ok: true, mode, ignore: PAUSE, ...reliage };
+  }
   const depuis = typeof v.accueil_contrats_depuis === "string" ? v.accueil_contrats_depuis : null;
   if (!depuis) return { ok: false, error: "accueil_contrats_depuis absent" };
   const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
@@ -1377,6 +1389,11 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
   const mode = lireModeAuto(v.arret_auto);
   if (mode === "off") return { ok: true, mode, ignore: "arret_auto = off" };
+  // Prompt 22 : en pause, aucun arrêt ; la file reste « à faire ».
+  if (await automationEnPause(supabase)) {
+    await noterBloquee(supabase, { fonction: "upwork", action: "arrets" });
+    return { ok: true, mode, ignore: PAUSE };
+  }
   const texteFin = typeof v.arret_message_texte === "string" && v.arret_message_texte.trim()
     ? v.arret_message_texte.trim()
     : MESSAGE_FIN_DEFAUT;

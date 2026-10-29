@@ -68,6 +68,8 @@ Deno.test("échec d'envoi : erreur rendue, jamais levée", async () => {
 function fauxSupabase(profil: Record<string, unknown>) {
   return {
     from: () => ({ select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: profil, error: null }) }) }) }),
+    // Le grand interrupteur (0412) est lu avant tout envoi : ici, pas de pause.
+    rpc: () => Promise.resolve({ data: false, error: null }),
   };
 }
 

@@ -29,6 +29,7 @@ import {
 } from "../_shared/faq_moteur.ts";
 import { relierNouveau } from "../_shared/slack_relier.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { bloquer, PAUSE } from "../_shared/pause.ts";
 
 /**
  * slack-faq — l'entrée Slack de la FAQ automatique (docs/faq-automatique.md).
@@ -227,6 +228,9 @@ async function repondre(
         patch.etat = "traite_slack";
         patch.traite_at = new Date().toISOString();
       }
+    } else if (texte && token && (await bloquer(db, { fonction: "faq", action: "reponse_slack", cible: q.ts }))) {
+      // Prompt 22 : en pause, le bot ne répond pas (la question reste à traiter).
+      erreurs.push(`Slack : ${PAUSE}`);
     } else if (texte && token) {
       const envoi = await posterSlack(token, q.canal, texte, q.ts);
       if (envoi.ok) {

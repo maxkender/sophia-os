@@ -27,9 +27,11 @@ export interface Timing {
   /** La fin de l'offre Double (double_popup_expire). */
   double_jour_iso: number;
   double_heure: string;
+  /** Prompt 25 v4 : relances Upwork au plus par recrue ; au-delà, Slack seulement (relances_upwork_max_par_recrue). */
+  relances_upwork_max: number;
 }
 
-export const CLES_TIMING = ["etapes_delais", "lundi_soir_heure", "semaine_heures", "double_popup_expire"] as const;
+export const CLES_TIMING = ["etapes_delais", "lundi_soir_heure", "semaine_heures", "double_popup_expire", "relances_upwork_max_par_recrue"] as const;
 
 const objet = (v: unknown): Record<string, unknown> => (v && typeof v === "object" ? (v as Record<string, unknown>) : {});
 const nombre = (v: unknown, d: number) => (v !== null && v !== undefined && v !== "" && Number.isFinite(Number(v)) ? Number(v) : d);
@@ -55,10 +57,11 @@ export function lireTiming(v: Record<string, unknown>): Timing {
     lundi_soir_heure: nombre(v.lundi_soir_heure, 20),
     double_jour_iso: nombre(d.jour_iso, 3),
     double_heure: typeof d.heure === "string" ? d.heure : "23:59",
+    relances_upwork_max: nombre(v.relances_upwork_max_par_recrue, 5),
   };
 }
 
-export type ErreurTiming = "kill_min" | "heure" | "fenetre" | "delai";
+export type ErreurTiming = "kill_min" | "heure" | "fenetre" | "delai" | "nombre";
 
 /** Ce qui empêche d'enregistrer : le Kill sous 24 h (A7), une heure hors 0-23, une fenêtre vide. */
 export function erreursTiming(t: Timing): ErreurTiming[] {
@@ -69,6 +72,7 @@ export function erreursTiming(t: Timing): ErreurTiming[] {
   if (!(t.fenetre_debut < t.fenetre_fin)) e.push("fenetre");
   const delais = [t.connexion_message_h, t.tiktok_message_h, t.warmup_lance_message_h, t.kill_annulation_h];
   if (delais.some((h) => !(h > 0))) e.push("delai");
+  if (!Number.isInteger(t.relances_upwork_max) || t.relances_upwork_max < 0) e.push("nombre");
   return e;
 }
 
@@ -90,5 +94,6 @@ export function valeursTiming(t: Timing, frais: Record<string, unknown>): Record
     lundi_soir_heure: t.lundi_soir_heure,
     semaine_heures: { ...objet(frais.semaine_heures), lundi_heure: t.lundi_heure, jeudi_heure: t.jeudi_heure, fin: t.semaine_fin },
     double_popup_expire: { ...objet(frais.double_popup_expire), jour_iso: t.double_jour_iso, heure: t.double_heure },
+    relances_upwork_max_par_recrue: t.relances_upwork_max,
   };
 }

@@ -121,6 +121,7 @@ export function AApprouver() {
                         />
                         <span className="font-medium">{m.poster_nom ?? "—"}</span>
                         <span className="text-muted-foreground">{t("autoOnglets.approuver.hm", { hm: m.hm_nom ?? "—" })}</span>
+                        <span className="text-muted-foreground" data-cohorte>{t("autoOnglets.approuver.cohorte", { cohorte: m.cohorte ?? "—" })}</span>
                         <Badge variant="secondary">{m.canal ?? t("autoOnglets.apercu.aucunCanal")}</Badge>
                         <span className="text-muted-foreground">{m.periode}</span>
                       </label>

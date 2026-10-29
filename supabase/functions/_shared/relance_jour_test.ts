@@ -48,7 +48,7 @@ Deno.test("compte introuvable : « create » seulement sans Start warmup ; avec 
   assertEquals(plan(connecte, "2026-10-29T09:00:00Z").element, "tiktok");
   assertStringIncludes(texte(connecte, "2026-10-29T09:00:00Z"), "create your TikTok account @ana.books1");
   const clique = { ...connecte, warmup_started_at: "2026-10-28T08:00:00Z" };
-  assertEquals(plan(clique, "2026-10-29T09:00:00Z"), { element: null, needsYou: true, follows: 0 });
+  assertEquals(plan(clique, "2026-10-29T09:00:00Z"), { element: null, elements: [], needsYou: true, follows: 0 });
   assertEquals(texte(clique, "2026-10-29T09:00:00Z"), "");
 });
 
@@ -58,7 +58,7 @@ Deno.test("compte trouvé : Start warmup, puis les abonnements qui manquent (24 
   assertEquals(plan(trouve, "2026-10-29T09:00:00Z").element, "warmup");
   const lance = { ...trouve, warmup_started_at: "2026-10-29T10:00:00Z", abonnements: 2 };
   assertEquals(plan(lance, "2026-10-29T12:00:00Z").element, null);
-  assertEquals(plan(lance, "2026-10-30T11:00:00Z"), { element: "follows", needsYou: false, follows: 3 });
+  assertEquals(plan(lance, "2026-10-30T11:00:00Z"), { element: "follows", elements: ["follows"], needsYou: false, follows: 3 });
   assertStringIncludes(texte(lance, "2026-10-30T11:00:00Z"), "follow 3 more accounts with @ana.books1");
   assertStringIncludes(texte({ ...lance, abonnements: 4 }, "2026-10-30T11:00:00Z"), "follow 1 more account with");
   // 5 abonnements : plus rien.
@@ -68,4 +68,34 @@ Deno.test("compte trouvé : Start warmup, puis les abonnements qui manquent (24 
 Deno.test("le texte : un seul élément, dans le cadre, avec la date de la cohorte", () => {
   const t = texte(base, "2026-10-27T11:00:00Z");
   assertStringIncludes(t, "Hi Ana, to start posting on Monday 2 November, you still need to log in to your dashboard: https://os");
+});
+
+const planSlack = (x: RecrueAccueil, iso: string) =>
+  planRelance(x, etatsAccueil(x, DELAIS_ACCUEIL_DEFAUT), new Date(iso), DELAIS_ACCUEIL_DEFAUT, { slack: true });
+const texteSlack = (x: RecrueAccueil, iso: string, slack = "https://join.slack/x") =>
+  texteRelance(TEXTES_RELANCE_DEFAUT, planSlack(x, iso), {
+    prenom: x.prenom, handle: x.handle, url: "https://os", lien_etapes: "https://guide", cohorte_lundi: x.cohorte_lundi,
+    email: x.email, mot_de_passe: "12345678", slack,
+  });
+
+Deno.test("v4, étape 0 : pas sur Slack, « join our Slack » avec la prochaine étape, dans le même message", () => {
+  assertEquals(planSlack(base, "2026-10-27T09:00:00Z").elements, []);
+  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["slack", "connexion"]);
+  const t = texteSlack(base, "2026-10-27T11:00:00Z");
+  assertStringIncludes(t, "you still need to join our Slack: https://join.slack/x and log in to your dashboard: https://os");
+  // Sur Slack : plus d'étape 0.
+  assertEquals(planSlack({ ...base, slack_user_id: "U1" }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
+  // Le 2e compte d'un Double : jamais d'étape 0.
+  assertEquals(planSlack({ ...base, deuxieme: true }, "2026-10-27T11:00:00Z").elements.includes("slack"), false);
+  // Tout fait sauf Slack : l'étape 0 seule.
+  const pret = { ...base, premiere_connexion_at: "x", tiktok_existe: true, tiktok_vu_at: "2026-10-27T08:00:00Z", warmup_started_at: "2026-10-27T09:00:00Z", abonnements: 6 };
+  assertEquals(planSlack(pret, "2026-10-28T11:00:00Z").elements, ["slack"]);
+  assertStringIncludes(texteSlack(pret, "2026-10-28T11:00:00Z"), "you still need to join our Slack: https://join.slack/x.");
+});
+
+Deno.test("v4 : sans lien Slack, l'étape 0 est laissée de côté ; Start warmup cliqué et compte introuvable : rien", () => {
+  assertStringIncludes(texteSlack(base, "2026-10-27T11:00:00Z", ""), "you still need to log in to your dashboard");
+  assertEquals(texteSlack(base, "2026-10-27T11:00:00Z", "").includes("Slack"), false);
+  const clique = { ...base, premiere_connexion_at: "2026-10-27T08:00:00Z", warmup_started_at: "2026-10-28T08:00:00Z" };
+  assertEquals(planSlack(clique, "2026-10-29T09:00:00Z"), { element: null, elements: [], needsYou: true, follows: 0 });
 });

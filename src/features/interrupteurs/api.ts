@@ -12,7 +12,7 @@ export type ModeInterrupteur = "off" | "test" | "approve" | "on";
  * « Approve » : l'OS prépare les messages (Messages sent → To approve), ils ne
  * partent qu'après « Send selected ».
  */
-export const AVEC_APPROVE: readonly string[] = ["relances_auto", "lundi_soir_auto"];
+export const AVEC_APPROVE: readonly string[] = ["accueil_auto", "relances_auto", "lundi_soir_auto"];
 
 export const INTERRUPTEURS = [
   "accueil_auto",

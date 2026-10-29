@@ -96,6 +96,7 @@ export const fr = {
         confirm: "Envoyer {{n}} messages « {{type}} » ? Ils partent peu à peu, quelques-uns par passage.",
         bandeau: "{{n}} messages en attente (Messages sent → To approve)",
         types: {
+          accueil: "Bienvenue (Upwork)",
           relance: "Relance du jour (recrues)",
           connexion: "Étape 1 · connexion",
           tiktok: "Étape 2 · compte TikTok",
@@ -124,7 +125,7 @@ export const fr = {
       },
       approuver: {
         titre: "À approuver ({{n}})",
-        aide: "Ce que l'OS a préparé en mode Approve (relances des recrues, lundi 20 h), et ce qui attendait un Send. Tout est coché : décoche ce que tu ne veux pas, modifie un texte si besoin, puis « Send selected ». Les messages décochés sont écartés. Rien ne part avant ce clic, et jamais d'un coup : Slack d'abord, Upwork dans le budget du jour.",
+        aide: "Ce que l'OS a préparé en mode Approve (bienvenues, relances des recrues, lundi 20 h), et ce qui attendait un Send. Tout est coché : décoche ce que tu ne veux pas, modifie un texte si besoin, puis « Send selected ». Les messages décochés sont écartés. Rien ne part avant ce clic, et jamais d'un coup : les relances partent sur Slack et sur Upwork (le même texte), Upwork dans le budget du jour.",
         vide: "Rien à approuver.",
         coches: "{{n}} / {{total}} cochés",
         toutCocher: "Tout cocher",
@@ -132,9 +133,10 @@ export const fr = {
         cocher: "Envoyer à {{nom}}",
         texte: "Texte pour {{nom}}",
         hm: "HM : {{hm}}",
+        cohorte: "Cohorte : {{cohorte}}",
         envoyer: "Send selected ({{n}})",
         confirm: "Envoyer {{n}} messages ({{ecartes}} décochés seront écartés) ? Ils partent peu à peu, quelques-uns par passage.",
-        rythme: "20 par passage au plus, Slack d'abord ; Upwork : 40 nouvelles conversations par jour pour les relances et les nudges, le reste part en premier le lendemain.",
+        rythme: "20 par passage au plus. Upwork : 45 conversations par jour ; les bienvenues d'abord, puis les recrues pas sur Slack, puis les autres (Slack seulement quand Upwork est plein) ; le reste part en premier le lendemain.",
         bilan: "{{n}} approuvés : {{partis}} partis maintenant, {{attente}} attendent le budget Upwork ; le reste part aux passages suivants.",
       },
       sent: {
@@ -205,6 +207,7 @@ export const fr = {
         items: {
           accueil: "Message de bienvenue",
           relance_cadre: "La relance ({ce_qui_manque} = le morceau qui manque, ci-dessous)",
+          relance_slack: "Manque : rejoindre Slack (étape 0, ajoutée à la prochaine étape ; {slack} = le lien d'invitation)",
           relance_connexion: "Manque : se connecter (e-mail et mot de passe dans le message)",
           relance_tiktok: "Manque : compte TikTok (Start warmup pas cliqué)",
           relance_warmup: "Manque : Start warmup",
@@ -242,6 +245,7 @@ export const fr = {
           fenetre: "Fenêtre d'envoi des messages d'étape",
           semaine: "Messages de la semaine",
           double: "Offre Double",
+          upwork: "Upwork",
         },
         champs: {
           connexion_message_h: "1. Pas connecté : message après (h)",
@@ -259,12 +263,14 @@ export const fr = {
           semaine_fin: "Lundi et jeudi : plus d'envoi après (heure)",
           double_jour_iso: "L'offre Double expire le",
           double_heure: "à (heure de Paris)",
+          relances_upwork_max: "Relances Upwork maximum par recrue (ensuite Slack seulement)",
         },
         erreurs: {
           kill_min: "Le Kill ne peut pas partir avant {{n}} h.",
           heure: "Une heure doit être un nombre entier entre 0 et 24.",
           fenetre: "La fenêtre d'envoi doit commencer avant de finir.",
           delai: "Un délai doit être supérieur à 0.",
+          nombre: "Le maximum de relances Upwork doit être un nombre entier, 0 ou plus.",
         },
       },
       received: {
@@ -3439,6 +3445,7 @@ export const fr = {
           simulation: "simulation",
           hors_fenetre: "part à 10 h (heure du pays)",
           contrat_non_relie: "contrat non relié, pas de Slack",
+          upwork_max: "pas sur Slack, maximum de relances Upwork atteint",
         },
       },
       historique: {

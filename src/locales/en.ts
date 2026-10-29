@@ -96,6 +96,7 @@ export const en = {
         confirm: "Send {{n}} \"{{type}}\" messages? They go out gradually, a few per run.",
         bandeau: "{{n}} messages waiting (Messages sent → To approve)",
         types: {
+          accueil: "Welcome (Upwork)",
           relance: "Daily reminder (new recruits)",
           connexion: "Step 1 · login",
           tiktok: "Step 2 · TikTok account",
@@ -124,7 +125,7 @@ export const en = {
       },
       approuver: {
         titre: "To approve ({{n}})",
-        aide: "What the OS prepared in Approve mode (recruit reminders, Monday 8 pm), and what was waiting for a Send. Everything is checked: uncheck what you don't want, edit a text if needed, then “Send selected”. Unchecked messages are dropped. Nothing goes out before this click, and never all at once: Slack first, Upwork within the day's budget.",
+        aide: "What the OS prepared in Approve mode (welcomes, recruit reminders, Monday 8 pm), and what was waiting for a Send. Everything is checked: uncheck what you don't want, edit a text if needed, then “Send selected”. Unchecked messages are dropped. Nothing goes out before this click, and never all at once: reminders go on Slack and Upwork (same text), Upwork within the day's budget.",
         vide: "Nothing to approve.",
         coches: "{{n}} / {{total}} checked",
         toutCocher: "Check all",
@@ -132,9 +133,10 @@ export const en = {
         cocher: "Send to {{nom}}",
         texte: "Text for {{nom}}",
         hm: "HM: {{hm}}",
+        cohorte: "Cohort: {{cohorte}}",
         envoyer: "Send selected ({{n}})",
         confirm: "Send {{n}} messages ({{ecartes}} unchecked will be dropped)? They go out gradually, a few per run.",
-        rythme: "20 per run at most, Slack first; Upwork: 40 new conversations a day for reminders and nudges, the rest goes out first the next day.",
+        rythme: "20 per run at most. Upwork: 45 conversations a day; welcomes first, then recruits not on Slack, then the others (Slack only when Upwork is full); the rest goes out first the next day.",
         bilan: "{{n}} approved: {{partis}} sent now, {{attente}} waiting for Upwork's budget; the rest goes out at the next runs.",
       },
       sent: {
@@ -205,6 +207,7 @@ export const en = {
         items: {
           accueil: "Welcome message",
           relance_cadre: "The reminder ({ce_qui_manque} = the missing part below)",
+          relance_slack: "Missing: join Slack (step 0, added to the next step; {slack} = the invitation link)",
           relance_connexion: "Missing: log in (email and password in the message)",
           relance_tiktok: "Missing: TikTok account (Start warmup not clicked)",
           relance_warmup: "Missing: Start warmup",
@@ -242,6 +245,7 @@ export const en = {
           fenetre: "Sending window for step messages",
           semaine: "Messages of the week",
           double: "Double offer",
+          upwork: "Upwork",
         },
         champs: {
           connexion_message_h: "1. Not logged in: message after (h)",
@@ -259,12 +263,14 @@ export const en = {
           semaine_fin: "Monday and Thursday: no sending after (hour)",
           double_jour_iso: "The Double offer expires on",
           double_heure: "at (Paris time)",
+          relances_upwork_max: "Upwork reminders per recruit, at most (then Slack only)",
         },
         erreurs: {
           kill_min: "A Kill can't go out before {{n}} h.",
           heure: "An hour must be a whole number between 0 and 24.",
           fenetre: "The sending window must start before it ends.",
           delai: "A delay must be above 0.",
+          nombre: "The Upwork reminder limit must be a whole number, 0 or more.",
         },
       },
       received: {
@@ -3431,6 +3437,7 @@ export const en = {
           simulation: "simulation",
           hors_fenetre: "goes out at 10 am (local time)",
           contrat_non_relie: "contract not linked, no Slack",
+          upwork_max: "not on Slack, Upwork reminder limit reached",
         },
       },
       historique: {

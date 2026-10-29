@@ -12,6 +12,7 @@ import {
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
@@ -362,6 +363,8 @@ async function creerDeuxieme(
  */
 async function messagesKill(supabase: Supabase, controleId: string) {
   if (!controleId) throw new Error("controle_id requis");
+  // Prompt 22 : en pause, aucun message de Kill (ni pop-up ni Slack) ; rien n'est créé.
+  if (await bloquer(supabase, { fonction: "ckd", action: "messages_kill", cible: controleId })) return { ok: true, ignore: PAUSE };
   const { data: props, error } = await supabase
     .from("ckd_propositions")
     .select("id")

@@ -8,6 +8,7 @@ import {
 } from "../_shared/faq_moteur.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { bloquer, PAUSE } from "../_shared/pause.ts";
 
 /**
  * faq-admin — ce que l'admin fait d'une question de la FAQ, depuis la page
@@ -126,6 +127,7 @@ async function livrer(db: Db, q: Question, reponse: string): Promise<Livraison> 
       const nom = ADMINS_SLACK[deja.user] ?? deja.user;
       return { envoye: false, raison: `${nom} a déjà répondu dans le fil : rien n'est envoyé`, deja: { ...deja, nom } };
     }
+    if (await bloquer(db, { fonction: "faq", action: "reponse_slack", cible: q.slack_ts })) return { envoye: false, raison: PAUSE };
     const r = await posterSlack(token, q.slack_canal, reponse, q.slack_ts);
     return r.ok ? { envoye: true } : { envoye: false, raison: `Slack : ${r.error}` };
   }
@@ -162,6 +164,7 @@ async function livrer(db: Db, q: Question, reponse: string): Promise<Livraison> 
       .maybeSingle();
     const token = jetonSlackFaq();
     if (!slack?.slack_user_id || !token) return { envoye: false, raison: "ID Slack du manager inconnu" };
+    if (await bloquer(db, { fonction: "faq", action: "reponse_slack_manager", cible: q.user_id })) return { envoye: false, raison: PAUSE };
     const r = await posterSlack(token, String(slack.slack_user_id), corps);
     return r.ok ? { envoye: true } : { envoye: false, raison: `Slack : ${r.error}` };
   }

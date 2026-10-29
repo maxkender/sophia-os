@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
+import { BandePause } from "@/features/auto/BandePause";
 import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestationsAVerifier } from "@/features/moteur/api";
@@ -313,6 +314,7 @@ export function AdminLayout() {
         },
       ])}
     >
+      <BandePause />
       <Outlet />
     </AppShell>
   );

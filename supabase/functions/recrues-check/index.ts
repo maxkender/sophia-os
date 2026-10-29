@@ -1,4 +1,5 @@
 import { instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
+import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import {
   canalEtape,
   type DelaisAccueil,
@@ -176,6 +177,8 @@ interface Bilan {
   killsAnnules: number;
   /** Rappels en pause pour tous (`rappels_reprise_le`) : ni message, ni Kill. */
   rappelsEnPause: boolean;
+  /** Prompt 22 : le grand interrupteur (`automation_pause`) : rien ne part, chaque action est notée. */
+  automationPause: boolean;
   erreurs: string[];
   /** Interne : les relances prévues existantes (pas rendu). */
   prevuesConnues?: Set<string>;
@@ -193,7 +196,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   const r = await reglages(supabase);
   const bilan: Bilan = {
     mode: r.mode, kill: r.kill, recrues: 0, semaine: 0, envoyes: 0, prevus: 0, bloques: 0, rouges: 0, resolus: 0,
-    kills: 0, killsPartis: 0, killsAnnules: 0, rappelsEnPause: rappelsEnPause(r.repriseRappels, maintenant), erreurs: [],
+    kills: 0, killsPartis: 0, killsAnnules: 0, rappelsEnPause: rappelsEnPause(r.repriseRappels, maintenant),
+    automationPause: await automationEnPause(supabase), erreurs: [],
   };
   if (r.mode === "off") return { ok: true, ...bilan };
 
@@ -357,6 +361,13 @@ async function appliquerEtape(
   if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
 
   const d = deciderEtape(e, maintenant, x.fuseau, r.etapes, { envoyeAt: envoi.envoyeAt, reponduAt: repondu, debut: debutCohorte(x) });
+  // Prompt 22 : en pause, ni message ni Kill ; l'action est notée, et reprise au passage suivant la reprise.
+  if (bilan.automationPause) {
+    if (d.kill || d.envoyer) {
+      await noterBloquee(supabase, { fonction: "recrues-check", action: d.kill ? `kill_${e.etape}` : `message_${e.etape}`, poster_id: x.poster_id });
+    }
+    return;
+  }
   if (d.kill) {
     if (r.kill === "off" || (kill && kill.statut !== "simule")) return;
     // Un vrai Kill : interrupteur sur « on » ET un message vraiment parti.
@@ -458,6 +469,11 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
     .select("id, poster_id, compte_id, etape, message_at")
     .eq("statut", "en_attente")
     .lte("prevu_at", maintenant.toISOString());
+  // Prompt 22 : en pause, aucun Kill ne part ; il reste en attente.
+  if (bilan.automationPause) {
+    for (const k of data ?? []) await noterBloquee(supabase, { fonction: "recrues-check", action: "kill", poster_id: k.poster_id, cible: k.id });
+    return;
+  }
   if (error) {
     bilan.erreurs.push(`kills : ${error.message}`);
     return;
@@ -542,6 +558,10 @@ async function envoyerUpwork(contratId: string, texte: string): Promise<string |
 
 async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[], maintenant: Date, bilan: Bilan) {
   if (bilan.rappelsEnPause) return;
+  if (bilan.automationPause) {
+    await noterBloquee(supabase, { fonction: "recrues-check", action: "semaine" });
+    return;
+  }
   const lundi = lundiParis(maintenant);
   const { data, error } = await supabase.rpc("semaine_posteurs", { p_lundi: lundi });
   if (error) {
@@ -684,6 +704,10 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
 
   // Le guide du poster, chargé une fois (seulement s'il y a un vrai message à classer).
   let guide: string | null = null;
+  // Prompt 22 : en pause, le classement continue et la réponse ne part pas. Une
+  // demande d'arrêt ou une pause sont notées (internes) : l'arrêt complet, lui,
+  // attend la reprise dans sa file.
+  const pause = await automationEnPause(supabase);
   const reel = mode === "on";
   for (const l of lignes) {
     let c: Classement | null = null;
@@ -729,7 +753,10 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
     // 1 réponse automatique par message reçu, sur le canal du message.
     if (plan.repondre) {
       maj.reponse_texte = plan.repondre;
-      if (!reel) {
+      if (pause && reel) {
+        maj.reponse_statut = PAUSE;
+        await noterBloquee(supabase, { fonction: "reponses", action: "reponse_auto", poster_id: l.poster_id, cible: l.id });
+      } else if (!reel) {
         maj.reponse_statut = "simule";
         bilan.simules++;
       } else {
@@ -801,6 +828,10 @@ async function autreCompteActif(supabase: Supabase, posterId: string, compteId: 
  */
 async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan) {
   if (r.lundiSoir === "off" || bilan.rappelsEnPause) return;
+  if (bilan.automationPause) {
+    await noterBloquee(supabase, { fonction: "recrues-check", action: "lundi_soir" });
+    return;
+  }
   // Le lundi de cette semaine et celui de la semaine d'avant (le Kill tombe le mercredi).
   const lundi = lundiParis(maintenant);
   for (const l of [lundi, ajouterJoursIso(lundi, -7)]) {

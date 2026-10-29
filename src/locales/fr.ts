@@ -3194,6 +3194,16 @@ export const fr = {
         logs: { titre: "Journal et à faire", phrase: "Ce qui t'attend, ce qui est cassé, et tout ce que l'automatisation a fait." },
       },
       logs: { vide: "Rien pour l'instant." },
+      pause: {
+        titre: "Désactiver les actions automatiques par l'API",
+        inactif: "Les actions automatiques tournent. Le bouton arrête tous les messages, paiements, Kills et actions sur les contrats ; la lecture continue.",
+        actif: "En pause depuis le {{quand}} par {{par}}. Rien ne sort de l'OS ; les actions bloquées sont dans le Journal avec « paused ».",
+        bouton: "Désactiver les actions automatiques",
+        reprendre: "Reprendre les actions automatiques",
+        confirmerPause: "Arrêter toutes les actions automatiques (Upwork, Slack, paiements, Kill) ? Les interrupteurs gardent leur valeur.",
+        confirmerReprise: "Reprendre les actions automatiques ? Rien n'est rattrapé : le prochain passage horaire envoie ce qui est encore utile.",
+        bande: "Actions automatiques en pause depuis le {{depuis}} par {{par}}",
+      },
     },
     pipeline: {
       nav: "Pipeline",

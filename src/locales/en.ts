@@ -3187,6 +3187,16 @@ export const en = {
         logs: { titre: "Logs & to do", phrase: "What needs you, what's broken, and everything the automation did." },
       },
       logs: { vide: "Nothing yet." },
+      pause: {
+        titre: "Deactivate automatic actions with API",
+        inactif: "Automatic actions are running. The button stops every message, payment, Kill and contract action; reading continues.",
+        actif: "Paused since {{quand}} by {{par}}. Nothing leaves the OS; blocked actions are in Logs with « paused ».",
+        bouton: "Deactivate automatic actions",
+        reprendre: "Resume automatic actions",
+        confirmerPause: "Stop every automatic action (Upwork, Slack, payments, Kill)? Switches keep their value.",
+        confirmerReprise: "Resume automatic actions? Nothing is caught up: the next hourly run sends what is still useful.",
+        bande: "Automatic actions are paused since {{depuis}} by {{par}}",
+      },
     },
     pipeline: {
       nav: "Pipeline",

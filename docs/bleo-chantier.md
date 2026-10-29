@@ -169,7 +169,39 @@ Ce qui reste de la spec et vaut toujours pour l'appel unique :
    `sansConcurrent`). Restent : liberté du CTA, plafond de dépense.
 4. Avant L3 : ajouter @sofiya.yussupova comme source de clean_study.
 
-## Calendrier visé
+## Bascule du lundi 2/11 (décision d'Adrien le 29/10 au soir)
+
+**Pas d'A/B.** Podz sur BLEO et bascule lundi, l'ancien système gardé en secours.
+Ce qui change par rapport au plan de la spec :
+
+- **Pas de L6 (A/B) ni de L7 (decks l'après-midi).** BLEO ne crée pas de passages
+  à 14 h : le tirage de 14 h reste le **plan** du lendemain (`bleo_ombre_passages`),
+  et c'est l'assignation de minuit actuelle qui le suit. Dans `assignerCompteJour`,
+  quand `bleo.mode = 'actif'`, chaque créneau prend le contenu, la langue et
+  l'appli du plan à la place de `choisirContenu`. Tout le reste ne bouge pas :
+  rappels, quotas, decks, posts, upscale. D1, D2 et D3 ne se posent plus.
+- **Secours à deux niveaux.** Par créneau : si le contenu du plan n'est plus
+  assignable à minuit (deck en échec, contenu retiré, compte changé), le créneau
+  repart sur `choisirContenu` (tierlist). Global : `bleo.mode` repasse à
+  `ombre` (interrupteur dans l'OS) et la nuit suivante est l'ancienne. La
+  tierlist continue de tourner pendant ce temps, pour un retour immédiat.
+- **Ce qui remplace la mesure A/B** : un suivi avant/après dans l'OS (r médian
+  par jour, part à 10 000 vues, vues par créneau, part du plan suivie) et une
+  alerte si le r médian glissant sur 3 jours baisse de plus de 15 % par rapport
+  aux 14 jours d'avant.
+- **D39 (G1 à la place du repost)** suit la bascule d'une semaine environ, le
+  temps que les podz produisent les G1 commandées.
+
+| Quand | Quoi |
+| --- | --- |
+| Ven 30/10 | L4 : guichet (`boite`, dépôt BLEO, refus D30, D35), outils `boite` et `deposer` des 7 podz de la voie 1, routines, chef. Code de bascule (plan suivi à minuit, interrupteur de mode). Légendes d'images (10 h à 19 h 30) |
+| Sam 31/10 | Tests : guichet et outils, assignation de quelques comptes en `dryRun` sur le plan du 1/11 |
+| Dim 1/11 | Répétition générale en `dryRun` sur tous les comptes ; relecture avec Adrien |
+| Lun 2/11 | Merge le matin : les podz passent sur BLEO. 14 h : plan du mardi. 22 h : feu vert ou non (rapport et porte « BLEO tourne »), `bleo.mode = actif` |
+| Mar 3/11 | **Premier jour assigné par BLEO** (assignation de minuit du lundi au mardi) |
+| ~Lun 9/11 | D39 : déclinaison G1 du hit à la place du repost |
+| ~Lun 16/11 | Fin de la tierlist (L8) si 14 jours stables |
+
 
 | Quand | Lot | Remarque |
 | --- | --- | --- |
@@ -316,3 +348,5 @@ recalculée à la main, rejouabilité, derniers plans).
 - **29/10, fin de soirée (suite)** : D41 tranché et appliqué (0612, effet à la nuit
   du 30/10) ; la fiche famille montre la slide 1 et la slide 2 de chaque contenu
   (0613) au lieu de la description TikTok.
+- **29/10, 19 h** : décision d'Adrien : pas d'A/B, podz sur BLEO et bascule lundi,
+  ancien système en secours. Plan ci-dessus (section « Bascule du lundi 2/11 »).

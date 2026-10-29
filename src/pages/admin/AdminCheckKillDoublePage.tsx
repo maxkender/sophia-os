@@ -87,7 +87,7 @@ import {
 } from "@/features/ckd/logique";
 import { CartesDecision } from "@/features/ckd/decisions/CartesDecision";
 import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
-import { JeudiNudge } from "@/features/ckd/decisions/JeudiNudge";
+import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
 import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
 import { useOnglet } from "@/features/auto/useOnglet";
@@ -124,13 +124,15 @@ const POINT_ACTION: Record<ActionCkd, string> = {
  * jeudi), Saturday (Kill / Double), Dead accounts (Recreate et Shadowban),
  * Settings (les seuils). Les anciennes vues (`?vue=`) ouvrent le bon onglet.
  */
-const ONGLETS = ["jeudi", "samedi", "morts", "reglages"] as const;
+const ONGLETS = ["jeudi", "samedi", "reglages"] as const;
 type Onglet = (typeof ONGLETS)[number];
+/** Prompt 25 : « Dead accounts » est fusionné dans Thursday. */
 const ANCIENNES_VUES: Readonly<Record<string, Onglet>> = {
   decisions: "samedi",
   historique: "samedi",
-  shadowban: "morts",
-  recreer: "morts",
+  shadowban: "jeudi",
+  recreer: "jeudi",
+  morts: "jeudi",
 };
 
 /** L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), sinon Saturday. */
@@ -187,7 +189,6 @@ export function AdminCheckKillDoublePage() {
   const [params] = useSearchParams();
   const [onglet, choisir] = useOnglet(ONGLETS, ongletDuJour(), ANCIENNES_VUES);
   const aDeciderSamedi = useNombreADecider(GROUPES_SAMEDI);
-  const aDeciderMorts = useNombreADecider(GROUPES_MORTS);
 
   if (params.get("vue") === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
@@ -211,13 +212,24 @@ export function AdminCheckKillDoublePage() {
         onglets={ONGLETS.map((o) => ({ cle: o, titre: t(`autoOnglets.decisions.onglets.${o}`) }))}
         actif={onglet}
         onChange={choisir}
-        compteurs={{ samedi: aDeciderSamedi, morts: aDeciderMorts }}
-        alerte={["samedi", "morts"]}
+        compteurs={{ samedi: aDeciderSamedi }}
+        alerte={["samedi"]}
       />
 
       <PanneauOnglet id="decisions" actif={onglet}>
         {onglet === "jeudi" ? (
-          <JeudiNudge />
+          <>
+            {/* Prompt 25 : tous les comptes actifs, Nudge / Recreate / rien, rien ne part avant Send. */}
+            <ListeJeudi />
+            {/* Ex « Dead accounts » : le détail du contrôle du jeudi et la page Shadowban. */}
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailJeudi")}</summary>
+              <div className="mt-4 space-y-6">
+                <VueControles type="jeudi" />
+                <VueShadowban />
+              </div>
+            </details>
+          </>
         ) : onglet === "samedi" ? (
           <>
             <SemaineDecisions />
@@ -238,17 +250,6 @@ export function AdminCheckKillDoublePage() {
               </div>
             </details>
           </>
-        ) : onglet === "morts" ? (
-          <>
-            <CartesDecision groupes={GROUPES_MORTS} testid="cartes-recreer" />
-            <details className="space-y-4 rounded-xl border p-4">
-              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailJeudi")}</summary>
-              <div className="mt-4">
-                <VueControles type="jeudi" />
-              </div>
-            </details>
-            <VueShadowban />
-          </>
         ) : (
           <VueReglages />
         )}
@@ -258,7 +259,6 @@ export function AdminCheckKillDoublePage() {
 }
 
 const GROUPES_SAMEDI = ["kill", "double"] as const;
-const GROUPES_MORTS = ["recreate"] as const;
 
 // ---------------------------------------------------------------------------
 // Propositions (samedi) et nudges (jeudi)

@@ -52,7 +52,8 @@ export const TEXTES: readonly TexteCatalogue[] = [
   { id: "lundi_cohorte", groupe: "lundi", cle: "lundi_texte_cohorte", variables: ["prenom", "ce_qui_manque"] },
   { id: "lundi_warmup", groupe: "lundi", cle: "lundi_texte_warmup", variables: ["prenom", "ce_qui_manque"] },
   { id: "lundi_soir", groupe: "lundi_soir", cle: "lundi_soir_texte", variables: ["prenom"] },
-  { id: "jeudi", groupe: "jeudi", cle: "jeudi_texte", variables: ["prenom", "faits", "attendus"] },
+  // Prompt 25 : le nudge du jeudi, envoyé seulement depuis Weekly decisions → Thursday.
+  { id: "jeudi", groupe: "jeudi", cle: "jeudi_nudge_texte", variables: ["prenom", "faits", "attendus"] },
   { id: "kill", groupe: "kill", cle: "kill_message_texte", variables: ["prenom"] },
   { id: "kill_moins6", groupe: "kill", cle: "kill_moins6_texte", variables: ["prenom", "n"] },
   { id: "arret", groupe: "arret", cle: "arret_message_texte", variables: [] },

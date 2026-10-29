@@ -103,6 +103,9 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | D28 | Changer la forme de `etat` et `label` casse 30 copies d'outils (`cli-etat` ×11, `cli-label` ×7, `cli-suivi` ×6, `cli-playbook` ×6) | Champs ajoutés, rien de retiré | technique |
 | D29 | Le passage à 6 h est donné à la fois à L4 (P1) et à L7 | L7 (ligne 635 de la spec) | spec |
 | D35 | **Tranché le 29/10 par Adrien.** La spec ne dit pas si une déclinaison change l'accroche, et range les générations 2 après les familles jamais déclinées | Génération 1 : accroche identique mot pour mot. Génération 2 : accroche reformulée (même promesse), ouverte au verdict de la spec (un passage à 10 000 vues ou r ≥ 2 ; le seuil « 10 000 vues de moyenne » de 0605 a été retiré par 0606). Les générations 2 passent en tête de la boîte. Vue `bleo_boite`, colonne `accroche_attendue` ; le guichet (L4) refusera une génération 1 dont l'accroche normalisée diffère du parent et une génération 2 identique | fait (boîte), guichet en L4 |
+| D36 | **Tranché le 29/10 par Adrien.** La spec ferme une famille sur le r **médian** de sa dernière génération : un post qui explose ne la sauve pas (168 des 243 familles closes avaient un r moyen d'au moins 1) | Fermeture sur le r **moyen**, chaque r plafonné à 20 comme dans la forme ; la règle est recalculée chaque nuit dans les deux sens (réouverture si la moyenne repasse à 1). Le r du compte reste divisé par la **médiane** du compte, et la forme reste une moyenne plafonnée (1,4 % des r dépassent 20) | fait (0608) |
+| D37 | **Demandé le 29/10 par Adrien.** `bleo_boite` ne rend que l'accroche et des identifiants : un podz ne voit ni la tournure du post ni ses images | L'action `boite` (L4) rend, pour chaque ligne, le post parent tel que posté : slides dans l'ordre (texte de base et image publiée, `structure_slides.raw_url`), slide d'appli, meilleurs passages (vues, r, lien TikTok), comme `top_posts` aujourd'hui ; `npm run boite` en fait une planche à lire avec Read | L4 |
+| D38 | Images : la banque de chaque label est grande (de 748 images pour clean_study à 7 707 pour alpha_male, plus de 90 % jamais utilisées), mais les podz choisissent **à l'œil** sur des planches de vignettes (`npm run images`, `--depuis <contenus>`, `--accroches`). Une légende texte (`media_library.caption`) existe pour 45 % des images (3 % pour weird_alpha) mais n'est pas envoyée aux podz | Pour une déclinaison, `npm run boite` ouvre la planche des images du parent et de sa famille (`--depuis`). Ajouter la légende à l'action `images` et un `--cherche <mots>` ; compléter les légendes manquantes (weird_alpha d'abord) | L4, à décider |
 | D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) | à décider |
 
 ### Agent de langue (L9)
@@ -158,6 +161,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0605_bleo_boite_g2` | Règle des déclinaisons (D35) : génération 2 ouverte à plus de 10 000 vues en moyenne sur 2 passages mûrs ; `accroche_attendue` identique ou reformulée | Appliquée, puis annulée par 0606 |
 | `0606_bleo_boite_g2_spec` | Génération 2 de nouveau ouverte au verdict de la spec ; générations 2 en tête de la boîte (D35) | Appliquée |
 | `0607_bleo_vues_os` | Vues de lecture de la section BLEO de l'OS : `bleo_familles_ui`, `bleo_contenus_ui`, `bleo_plan_ui` | Appliquée |
+| `0608_bleo_fermeture_moyenne` | Fermeture des familles sur le r moyen plafonné, dans les deux sens (D36) ; `r_moyen` dans les vues de l'OS | Appliquée : 243 → 78 familles closes, boîte 659 → 815 lignes |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -245,3 +249,9 @@ recalculée à la main, rejouabilité, derniers plans).
   passent en bas de la page Pods (l'ancienne adresse /admin/bleo/podz y renvoie) ;
   icônes sur les titres et les badges ; catégories du plan renommées pour dire
   « langue neuve » ou « langue déjà servie », infobulle sur la valeur attendue.
+- **29/10, nuit** : Pods et Allocation dans la section BLEO, boîte des podz sous le
+  tableau de bord de Pods, valeur par langue dans la fiche famille (#822, #824,
+  #825). Fermeture des familles sur le r moyen plafonné (D36, 0608) : 165
+  familles rouvertes ; jauges : weird_alpha 2,4 → 3,6 semaines (full test 30 → 20 %),
+  clean_study 2,1 → 3,2 (30 → 20 %), alpha_yellow 5,4 → 7,1 (20 → 10 %), RH reste à
+  30 %. D37 (la boîte rend le post parent complet) et D38 (images) pour L4.

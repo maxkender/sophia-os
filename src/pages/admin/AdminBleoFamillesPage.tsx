@@ -157,7 +157,9 @@ export function AdminBleoFamillesPage() {
               <th className={TH_NUM}>{t("bleo.colonnes.contenus")}</th>
               <th className={TH_NUM}>{t("bleo.colonnes.passages")}</th>
               <th className={TH_NUM}>{t("bleo.colonnes.vuesMax")}</th>
-              <th className={TH_NUM}>{t("bleo.colonnes.rMedian")}</th>
+              <th className={`${TH_NUM} cursor-help`} title={t("bleo.colonnes.rMoyenAide")}>
+                {t("bleo.colonnes.rMoyen")}
+              </th>
               <th className={TH}>{t("bleo.colonnes.dernierPassage")}</th>
             </EnteteTableau>
             <tbody>
@@ -186,7 +188,7 @@ export function AdminBleoFamillesPage() {
                   </td>
                   <td className={TD_NUM}>{f.n_passages}</td>
                   <td className={TD_NUM}>{formaterVues(f.vues_max, i18n.language)}</td>
-                  <td className={TD_NUM}>{formaterNombre(f.r_median, 2)}</td>
+                  <td className={TD_NUM}>{formaterNombre(f.r_moyen, 2)}</td>
                   <td className={TD}>{formaterJour(f.dernier_passage?.slice(0, 10), i18n.language)}</td>
                 </Ligne>
               ))}

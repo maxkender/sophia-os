@@ -103,6 +103,7 @@ vi.mock("@/features/bleo/api", async (original) => ({
           vues_max: 968500,
           vues_total: 2509832,
           r_median: 4.69,
+          r_moyen: 5.12,
           dernier_passage: "2026-10-20T14:11:04Z",
         },
       ],
@@ -129,6 +130,7 @@ vi.mock("@/features/bleo/api", async (original) => ({
       vues_total: 60000,
       r_median: 2.1,
       dernier_passage: "2026-10-20T14:11:04Z",
+      r_moyen: 2.4,
     }),
   listerContenusFamille: () =>
     Promise.resolve([
@@ -155,6 +157,7 @@ vi.mock("@/features/bleo/api", async (original) => ({
         dernier_passage: null,
         valeur_max: 3.2,
         n_langues: 4,
+        r_moyen: 2.4,
       },
     ]),
   listerPassagesFamille: () =>
@@ -251,6 +254,7 @@ describe("section BLEO de l'OS", () => {
     const lien = await screen.findByText("6 erreurs debiles qui m ont gardee au chomage");
     expect(lien.closest("a")).toHaveAttribute("href", `/admin/bleo/familles/${FAMILLE}`);
     expect(screen.getByText("969 k")).toBeInTheDocument();
+    expect(screen.getByText("5,12")).toBeInTheDocument(); // r moyen plafonné, la mesure qui ferme (D36)
     expect(screen.getByText("1 familles")).toBeInTheDocument();
   });
 

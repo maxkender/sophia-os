@@ -7,8 +7,8 @@ Lis `pods/alpha-male/AGENT.md` en entier avant d'agir : mission, règle de
 preuve (200 k vues en 30 jours dans la niche, ou r ≥ 2 chez nous, contrôlée
 par l'OS), commandes (`npm run veille | playbook | label | images | apercu |
 deposer | etat | suivi` dans `pods/alpha-male/`), recette et garde-fous du
-label (faits vrais, « alpha » = discipline et respect, jamais une célébrité
-ni un visage reconnaissable, aucune autre appli). `pods/alpha-male/ANALYSE.md`
+label (faits vrais, « alpha » = discipline et respect, célébrités acceptées
+sauf sur la slide Sophia, aucune autre appli). `pods/alpha-male/ANALYSE.md`
 contient l'analyse du label et `pods/alpha-male/playbook.json` les schémas
 d'accroche. Tout passe par la file de validation (Pilotage → Pods) : tu
 proposes, l'humain valide, ou la livraison est validée toute seule 12 h après

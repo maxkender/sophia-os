@@ -9,6 +9,8 @@
  * le même pour tous les bots du workspace.
  */
 
+import { bloquer, PAUSE } from "./pause.ts";
+
 type Fetch = typeof fetch;
 
 export type IssueMessagePosteur =
@@ -49,6 +51,10 @@ export async function trouverPosteur(
   return { userId: null };
 }
 
+function corpsMessage(channel: string, text: string, blocs?: unknown[]): Record<string, string> {
+  return blocs?.length ? { channel, text, blocks: JSON.stringify(blocs) } : { channel, text };
+}
+
 /** Le texte (en anglais) : même information que le bandeau de son espace. */
 export function texteRecreation(o: { ancien: string; nouveau: string; le: string; lundi: string }): string {
   return (
@@ -64,13 +70,58 @@ export async function prevenirPosteur(
   emails: (string | null | undefined)[],
   texte: string,
   fetchFn: Fetch = fetch,
+  blocs?: unknown[],
 ): Promise<IssueMessagePosteur> {
   try {
     const trouve = await trouverPosteur(jetons, emails, fetchFn);
     if (!trouve.userId) return "erreur" in trouve && trouve.erreur ? { statut: "erreur", erreur: trouve.erreur } : { statut: "introuvable" };
-    const envoi = await appel(jetons.ecriture, "chat.postMessage", { channel: trouve.userId, text: texte }, fetchFn);
+    const envoi = await appel(jetons.ecriture, "chat.postMessage", corpsMessage(trouve.userId, texte, blocs), fetchFn);
     if (!envoi.ok) return { statut: "erreur", erreur: `postMessage: ${envoi.error}` };
     return { statut: "envoye", userId: trouve.userId };
+  } catch (e) {
+    return { statut: "erreur", erreur: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+/**
+ * Écrire au posteur par son ID Slack connu (`profiles.slack_user_id`, 0381),
+ * sinon en le retrouvant par ses emails. Bot « Sophia OS » (SLACK_HM_BOT_TOKEN).
+ * Ne lève jamais : l'issue est rendue.
+ */
+export async function ecrireAuPosteur(
+  // deno-lint-ignore no-explicit-any
+  supabase: any,
+  posterId: string,
+  texte: string,
+  fetchFn: Fetch = fetch,
+  /** Des blocs Slack (boutons « Done »…, partie E) ; le texte reste la notification. */
+  blocs?: unknown[],
+): Promise<IssueMessagePosteur> {
+  // Prompt 22 : le grand interrupteur passe avant tout (aucun message Slack au posteur).
+  if (await bloquer(supabase, { fonction: "slack", action: "message_posteur", poster_id: posterId })) {
+    return { statut: "erreur", erreur: PAUSE };
+  }
+  const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!ecriture) return { statut: "erreur", erreur: "SLACK_HM_BOT_TOKEN manquant" };
+  try {
+    const { data: profil, error } = await supabase
+      .from("profiles")
+      .select("slack_user_id, email, email_perso")
+      .eq("id", posterId)
+      .single();
+    if (error) return { statut: "erreur", erreur: error.message };
+    if (profil?.slack_user_id) {
+      const envoi = await appel(ecriture, "chat.postMessage", corpsMessage(profil.slack_user_id, texte, blocs), fetchFn);
+      if (envoi.ok) return { statut: "envoye", userId: profil.slack_user_id };
+      return { statut: "erreur", erreur: `postMessage: ${envoi.error}` };
+    }
+    return await prevenirPosteur(
+      { ecriture, lecture: Deno.env.get("SLACK_BOT_TOKEN2") },
+      [profil?.email_perso, profil?.email],
+      texte,
+      fetchFn,
+      blocs,
+    );
   } catch (e) {
     return { statut: "erreur", erreur: e instanceof Error ? e.message : String(e) };
   }

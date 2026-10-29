@@ -74,6 +74,7 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
+import { RegleTexte } from "@/features/regles/CartesRegles";
 import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
 import { localeDate } from "@/locales/localeDate";
 
@@ -758,8 +759,12 @@ export function PosterPostPage() {
       {/* Rappel : coller le lien de SON TikTok après publication — c'est ce qui
           alimente les stats. Visible tant que le post n'est pas publié. */}
       {!estAdmin && !publie && (
-        <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-base font-bold text-destructive">
-          {t("posts.rappelLien")}
+        <div className="space-y-2">
+          <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-base font-bold text-destructive">
+            {t("posts.rappelLien")}
+          </div>
+          {/* La règle du lien (0304), écrite là où on colle le lien (28 oct.). */}
+          <RegleTexte regle="lien" />
         </div>
       )}
 
@@ -873,7 +878,8 @@ export function PosterPostPage() {
                     <Badge>{t("multiAppPosts.appPromue", { app: nomApp })}</Badge>
                   )}
                 </span>
-                {!publie && (
+                {/* Prompt 15, point 6e : réordonner les slides, réservé à l'admin. */}
+                {!publie && estAdmin && (
                   <div className="flex gap-1">
                     <Button
                       size="icon"
@@ -1189,7 +1195,8 @@ function texteComplet(post: Post, slides: PostSlide[]): string {
   const lignes = slides
     .filter((s) => s.texte_overlay)
     .map((s) => `Slide ${s.position}\n${s.texte_overlay}`);
-  if (post.hashtags) lignes.push(`Description :\n${post.hashtags}`);
-  if (post.musique_url) lignes.push(`Musique : ${post.musique_url}`);
+  // Prompt 15, point 6d : en anglais, comme tout ce que voit un posteur.
+  if (post.hashtags) lignes.push(`Caption:\n${post.hashtags}`);
+  if (post.musique_url) lignes.push(`Sound: ${post.musique_url}`);
   return lignes.join("\n\n");
 }

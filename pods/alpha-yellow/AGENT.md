@@ -48,6 +48,7 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 | `npm run images -- --depuis <id8,id8…>` | Fait une planche des images propres de ces contenus, chaque vignette avec son id (★ = accroche). |
 | `npm run top-posts -- --compte stonemag.co` | Liste nos posts publiés les plus vus du label, tels que postés avec leur slide Sophia. |
 | `npm run apercu -- <source_id\|all>` | Fait l'aperçu d'un original : texte jaune posé sur les images, puis les slides d'inspiration. |
+| `npm run couvertures -- [--n 20] [--planche]` | Propose des couvertures neuves pour la slide 1 : images d'accroche jamais prises en slide 1, et slides 1 d'inspiration jamais reprises. |
 | `npm run deposer -- <source_id\|all> [--essai]` | Dépose dans la file avec la preuve du schéma. `--essai` fait les contrôles locaux seulement. |
 | `npm run etat` | Montre la file, les rangs, les vues et le r de chaque passage de tes originaux. |
 | `npm run suivi` | Fait le suivi à J+3 : coupe à proposer, schémas à décliner, bilan contre l'objectif. |
@@ -121,6 +122,7 @@ sera ensuite relu dans la PR.
 - **Slide 5 = slide Sophia** : un item sur l'apprentissage (apprendre un peu de tout, avoir quelque chose à dire sur tout). La base est sans appli, la version Sophia dans `texte_sophia`.
 - **Images** : celles des contenus d'inspiration du schéma (banque du label).
 	- La plus forte en accroche.
+	- **Couvertures variées** : pioche largement dans la banque (367 images d'accroche, `npm run couvertures`). Reprendre une accroche ou une couverture est permis (c'est le principe des variantes, `ROUTINE.md` §4.7), mais chaque reprise change quelque chose : items, angle, image ou CTA. `deposer` refuse un post identique à un autre.
 	- Jamais deux fois la même image dans un deck.
 	- **La slide Sophia n'est jamais posée sur le visage reconnaissable d'une star** (prends la mer, une vague, un plongeon, une silhouette de dos). Sinon, la star aurait l'air de recommander l'app.
 - **Slides d'inspiration** : celles d'un post gagnant, position par position. Elles montrent au poster où et comment poser le texte jaune.

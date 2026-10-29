@@ -27,7 +27,9 @@ import {
   posterSlack,
   secretSignatureFaq,
 } from "../_shared/faq_moteur.ts";
+import { relierNouveau } from "../_shared/slack_relier.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { bloquer, PAUSE } from "../_shared/pause.ts";
 
 /**
  * slack-faq — l'entrée Slack de la FAQ automatique (docs/faq-automatique.md).
@@ -43,6 +45,14 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *
  * Mode test (`reglages.faq_automatique.mode_slack`) : le cerveau tranche et
  * tout s'écrit dans `chatbot_questions`, mais rien ne part sur Slack.
+ *
+ * Événement `team_join` (à cocher dans l'appli, scope `users:read`) : le
+ * nouveau membre est relié à son posteur s'il est sûr (0381, slack_relier.ts).
+ * Événement `message.im` (scope `im:history`) : un posteur qui répond au bot
+ * en DM a « répondu » à ses nudges (0384), et son message entre dans
+ * `posteur_reponses` (partie E, 0406).
+ * Un message dans un canal (hors DM) : `posteur_reaction_slack` (prompt 21,
+ * A2, 0413), une réaction qui annule un Kill.
  */
 Deno.serve(async (request) => {
   const signature = request.headers.get("x-slack-signature");
@@ -77,6 +87,57 @@ Deno.serve(async (request) => {
     return new Response(payload.challenge ?? "", { status: 200, headers: { "content-type": "text/plain" } });
   }
   if (payload.type !== "event_callback" || !payload.event) return new Response("", { status: 200 });
+
+  // Un posteur répond au bot en message direct : ses nudges sont « répondus » (0384).
+  const ev = payload.event as unknown as {
+    type?: string;
+    channel_type?: string;
+    user?: string;
+    bot_id?: string;
+    subtype?: string;
+    ts?: string;
+    text?: string;
+  };
+  if (ev.type === "message" && ev.channel_type === "im") {
+    if (ev.user && !ev.bot_id && !ev.subtype) {
+      // Partie E (0406) : le message est gardé, l'OS le classe et y répond (recrues-check).
+      const db = serviceClient();
+      const repondu = Promise.all([
+        db.rpc("nudge_repondu_slack", { p_slack_user: ev.user }),
+        db.rpc("reponse_noter_slack", { p_slack_user: ev.user, p_ts: ev.ts ?? null, p_texte: ev.text ?? "" }),
+      ]).catch((erreur) => console.error("[slack-faq] message.im", messageErreur(erreur)));
+      const edgeIm = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+      if (edgeIm) edgeIm.waitUntil(repondu);
+      else await repondu;
+    }
+    return new Response("", { status: 200 });
+  }
+
+  // Prompt 21, A2 : un message du posteur dans un canal (hors DM) compte comme
+  // une réaction (plus de Kill) ; la suite (FAQ) continue comme avant.
+  if (ev.type === "message" && ev.channel_type !== "im" && ev.user && !ev.bot_id && !ev.subtype) {
+    const canal = (payload.event as unknown as { channel?: string }).channel ?? null;
+    const reaction = Promise.resolve(serviceClient().rpc("posteur_reaction_slack", { p_slack_user: ev.user, p_canal: canal }))
+      .then(({ error }) => {
+        if (error) console.error("[slack-faq] réaction", error.message);
+      })
+      .catch((erreur) => console.error("[slack-faq] réaction", messageErreur(erreur)));
+    const edgeR = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+    if (edgeR) edgeR.waitUntil(reaction);
+    else await reaction;
+  }
+
+  // Un membre arrive dans le workspace : on le relie à son posteur (0381).
+  if (payload.event.type === "team_join") {
+    const user = (payload.event as unknown as { user?: unknown }).user;
+    const lien = relierNouveau(serviceClient(), user).catch((erreur) =>
+      console.error("[slack-faq] team_join", messageErreur(erreur))
+    );
+    const edgeJoin = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+    if (edgeJoin) edgeJoin.waitUntil(lien);
+    else await lien;
+    return new Response("", { status: 200 });
+  }
 
   const travail = traiter(payload.event, payload.authorizations?.[0]?.user_id ?? null).catch((erreur) =>
     console.error("[slack-faq]", messageErreur(erreur))
@@ -183,6 +244,9 @@ async function repondre(
         patch.etat = "traite_slack";
         patch.traite_at = new Date().toISOString();
       }
+    } else if (texte && token && (await bloquer(db, { fonction: "faq", action: "reponse_slack", cible: q.ts }))) {
+      // Prompt 22 : en pause, le bot ne répond pas (la question reste à traiter).
+      erreurs.push(`Slack : ${PAUSE}`);
     } else if (texte && token) {
       const envoi = await posterSlack(token, q.canal, texte, q.ts);
       if (envoi.ok) {
@@ -230,6 +294,14 @@ async function suivreFil(
 
 /** Les posters arrivés par le site sont les seuls dont l'OS connaît l'ID Slack. */
 async function profilDuPoster(db: Db, slackUserId: string): Promise<string | null> {
+  // L'ID Slack du posteur (0381), puis la cohorte Ruul.
+  const { data: profil } = await db
+    .from("profiles")
+    .select("id")
+    .eq("slack_user_id", slackUserId)
+    .limit(1)
+    .maybeSingle();
+  if (profil?.id) return profil.id as string;
   const { data } = await db
     .from("hub_posteurs")
     .select("profile_id")

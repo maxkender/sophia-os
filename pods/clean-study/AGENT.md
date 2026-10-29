@@ -62,6 +62,7 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 | `npm run label -- --slides <id8>` | Donne les slides d'un contenu, position par position : `media_id` (image propre) et `reference_url` (slide d'inspiration). |
 | `npm run images -- --depuis <id8,id8…>` | Fait une planche des images propres de ces contenus, chaque vignette avec son id (★ = accroche). |
 | `npm run top-posts -- --compte renaraise` | Liste nos posts publiés les plus vus, tels que postés, avec leur slide d'appli (micabo ou UnSwipe). |
+| `npm run doublons -- <source_id…>` | Signale un titre de slide 1 ou une photo de couverture (même sous un autre `media_id`) déjà pris par un autre original. Une reprise est permise (§4.7 de `pods/ROUTINE.md`), à condition de changer quelque chose : items, angle, image ou CTA. Seule une copie identique (mêmes images, mêmes textes sur toutes les slides) est refusée. |
 | `npm run apercu -- <source_id\|all>` | Fait l'aperçu d'un original : texte posé sur les images, puis les slides d'inspiration. Les émojis y sortent en ▯ (police de l'aperçu) : c'est normal. |
 | `npm run deposer -- <source_id\|all> [--essai]` | Dépose dans la file avec la preuve du schéma. `--essai` fait les contrôles locaux seulement. |
 | `npm run etat` | Montre la file, les rangs, les vues et le r de chaque passage de tes originaux. |
@@ -104,7 +105,8 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : bureaux, cahiers, ordinateurs, cafés, bibliothèques, filles de dos.
 	- Pas une image déjà prise par un autre original : les mêmes comptes publient tous les posts du label. Regarde `used_count` dans `donnees/images.json` et les `media_id` de `originaux/`.
-	- **Jamais un visage reconnaissable** : on ne prête pas un conseil, ni une appli, à une personne réelle.
+	- Les photos de la banque où l'on voit une célébrité (acteurs et actrices de films et de séries) sont acceptées (décision d'Adrien du 28/10).
+	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
 - **Musique** : celle du schéma.

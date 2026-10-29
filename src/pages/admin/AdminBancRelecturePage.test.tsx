@@ -16,6 +16,7 @@ const ecrireEnvoiAutoRelecture = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
   lireEnvoiAutoRelecture: () => lireEnvoiAutoRelecture(),
   ecrireEnvoiAutoRelecture: (actif: boolean) => ecrireEnvoiAutoRelecture(actif),
+  compterPosteursRelecture: () => Promise.resolve(42),
   listerJoursRelecture: () => listerJoursRelecture(),
   listerRelecturesBanc: (jour: string) => listerRelecturesBanc(jour),
   listerAvisRelecture: (ids: string[]) => listerAvisRelecture(ids),
@@ -213,8 +214,15 @@ describe("AdminBancRelecturePage", () => {
     renderPage();
     const interrupteur = await screen.findByRole("switch", { name: /Envoi automatique|Automatic sending/ });
     expect(screen.getByText(/Envoi automatique désactivé|Automatic sending off/)).toBeInTheDocument();
+    // Prompt 15, point 1 : refuser la confirmation ne change rien.
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValueOnce(true);
+    fireEvent.click(interrupteur);
+    await waitFor(() => expect(confirmer).toHaveBeenCalledTimes(1));
+    expect(confirmer.mock.calls[0]![0]).toMatch(/42/);
+    expect(ecrireEnvoiAutoRelecture).not.toHaveBeenCalled();
     fireEvent.click(interrupteur);
     await waitFor(() => expect(ecrireEnvoiAutoRelecture).toHaveBeenCalledWith(true));
+    confirmer.mockRestore();
     expect(await screen.findByText(/Envoi automatique activé|Automatic sending on/)).toBeInTheDocument();
     expect(screen.getByText(/^(Envoyé au créateur|Sent to the creator)$/)).toBeInTheDocument();
   });

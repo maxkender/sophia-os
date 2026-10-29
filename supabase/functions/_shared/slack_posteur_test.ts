@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { prevenirPosteur, texteRecreation } from "./slack_posteur.ts";
+import { ecrireAuPosteur, prevenirPosteur, texteRecreation } from "./slack_posteur.ts";
 
 function faux(reponses: Record<string, unknown[]>) {
   const appels: { methode: string; jeton: string; corps: string }[] = [];
@@ -63,4 +63,31 @@ Deno.test("échec d'envoi : erreur rendue, jamais levée", async () => {
   });
   const r = await prevenirPosteur({ ecriture: "xoxb-hm" }, ["a@b.c"], TEXTE, fetchFn);
   assertEquals(r, { statut: "erreur", erreur: "postMessage: channel_not_found" });
+});
+
+function fauxSupabase(profil: Record<string, unknown>) {
+  return {
+    from: () => ({ select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: profil, error: null }) }) }) }),
+    // Le grand interrupteur (0412) est lu avant tout envoi : ici, pas de pause.
+    rpc: () => Promise.resolve({ data: false, error: null }),
+  };
+}
+
+Deno.test("ecrireAuPosteur : l'ID Slack connu, sans chercher par email", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const { fetchFn, appels } = faux({ "chat.postMessage": [{ ok: true }] });
+  const r = await ecrireAuPosteur(fauxSupabase({ slack_user_id: "U0SLACK1", email: "a@sophia.com" }), "p", "Hi", fetchFn);
+  assertEquals(r, { statut: "envoye", userId: "U0SLACK1" });
+  assertEquals(appels.map((a) => a.methode), ["chat.postMessage"]);
+});
+
+Deno.test("ecrireAuPosteur : sans ID Slack, par les emails", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const { fetchFn, appels } = faux({
+    "users.lookupByEmail": [{ ok: true, user: { id: "U7" } }],
+    "chat.postMessage": [{ ok: true }],
+  });
+  const r = await ecrireAuPosteur(fauxSupabase({ slack_user_id: null, email_perso: "x@y.z" }), "p", "Hi", fetchFn);
+  assertEquals(r, { statut: "envoye", userId: "U7" });
+  assertEquals(appels.map((a) => a.methode), ["users.lookupByEmail", "chat.postMessage"]);
 });

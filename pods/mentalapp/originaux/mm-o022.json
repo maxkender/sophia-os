@@ -1,0 +1,219 @@
+{
+ "id": "mm-o022",
+ "format": "carrousel",
+ "titre": "Instead of scrolling tier list pt2",
+ "legendes": {
+  "en": "what to do instead of scrolling, part 2 #mentalmaxxing #dopamine #tierlist #selfimprovement",
+  "fr": "quoi faire au lieu de scroller, partie 2 #mentalmaxxing #dopamine #tierlist #developpementpersonnel",
+  "de": "was du statt Scrollen machen kannst, Teil 2 #mentalmaxxing #dopamin #tierlist #selbstverbesserung",
+  "es": "qué hacer en vez de hacer scroll, parte 2 #mentalmaxxing #dopamina #tierlist #superacionpersonal",
+  "it": "cosa fare invece di scrollare, parte 2 #mentalmaxxing #dopamina #tierlist #crescitapersonale",
+  "tr": "scroll yerine ne yapmalı, 2. bölüm #mentalmaxxing #dopamin #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686216051712970002/1",
+   "boite": [
+    140,
+    322,
+    790,
+    418
+   ]
+  },
+  "theme": {
+   "en": "Instead of scrolling",
+   "fr": "Au lieu de scroller",
+   "de": "Statt zu scrollen",
+   "es": "En vez de hacer scroll",
+   "it": "Invece di scrollare",
+   "tr": "Scroll yerine"
+  },
+  "sous": {
+   "en": "tier list pt2",
+   "fr": "tier list partie 2",
+   "de": "Tierlist Teil 2",
+   "es": "tier list parte 2",
+   "it": "tier list parte 2",
+   "tr": "tier list 2. bölüm"
+  }
+ },
+ "items": [
+  {
+   "rang": "S+",
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Finish one small task",
+    "fr": "Finir une petite tâche",
+    "de": "Eine kleine Aufgabe erledigen",
+    "es": "Terminar una tarea pequeña",
+    "it": "Finire un piccolo compito",
+    "tr": "Küçük bir işi bitir"
+   },
+   "texte": {
+    "en": "Reply to that email, clean that desk. Five minutes, and you get a real sense of progress.",
+    "fr": "Réponds à ce mail, range ce bureau. Cinq minutes, et un vrai sentiment d’avancer.",
+    "de": "Beantworte die Mail, räum den Schreibtisch auf. Fünf Minuten, und du spürst echten Fortschritt.",
+    "es": "Responde ese correo, ordena esa mesa. Cinco minutos y sientes que avanzas de verdad.",
+    "it": "Rispondi a quella mail, sistema la scrivania. Cinque minuti, e senti di andare avanti davvero.",
+    "tr": "O e-postayı yanıtla, masanı topla. Beş dakika ve gerçek bir ilerleme hissi."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "20 push-ups",
+    "fr": "20 pompes",
+    "de": "20 Liegestütze",
+    "es": "20 flexiones",
+    "it": "20 flessioni",
+    "tr": "20 şınav"
+   },
+   "texte": {
+    "en": "Your hand reaches for the phone? Drop and do twenty. Your body wakes up, the urge fades.",
+    "fr": "Ta main cherche le téléphone ? Fais vingt pompes. Ton corps se réveille, l’envie passe.",
+    "de": "Deine Hand greift zum Handy? Mach zwanzig Liegestütze. Dein Körper wird wach, der Drang verschwindet.",
+    "es": "¿Tu mano busca el móvil? Haz veinte flexiones. Tu cuerpo se despierta y las ganas se van.",
+    "it": "La mano cerca il telefono? Fai venti flessioni. Il corpo si sveglia, la voglia passa.",
+    "tr": "Elin telefona mı gidiyor? Yirmi şınav çek. Bedenin uyanır, istek geçer."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Listen to a full album",
+    "fr": "Écouter un album entier",
+    "de": "Ein ganzes Album hören",
+    "es": "Escuchar un álbum entero",
+    "it": "Ascoltare un album intero",
+    "tr": "Tam bir albüm dinle"
+   },
+   "texte": {
+    "en": "Start to finish, no skipping. It retrains your attention to stay with one thing.",
+    "fr": "Du début à la fin, sans zapper. Ça réapprend à ton attention à rester sur une seule chose.",
+    "de": "Von Anfang bis Ende, ohne Skippen. Das trainiert deine Aufmerksamkeit, bei einer Sache zu bleiben.",
+    "es": "De principio a fin, sin saltar. Reentrena tu atención para quedarse en una sola cosa.",
+    "it": "Dall’inizio alla fine, senza saltare. Riallena l’attenzione a restare su una cosa sola.",
+    "tr": "Baştan sona, atlamadan. Dikkatini tek bir şeyde kalmaya yeniden alıştırır."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The easiest one on this list: I deleted short videos with UnSwipe. Now there is nothing to scroll back to.",
+    "fr": "Le plus simple de la liste : j’ai supprimé les vidéos courtes avec UnSwipe. Maintenant il n’y a plus rien à rescroller.",
+    "de": "Das Einfachste auf der Liste: Ich habe Kurzvideos mit UnSwipe gelöscht. Jetzt gibt es nichts mehr zum Zurückscrollen.",
+    "es": "Lo más fácil de la lista: borré los vídeos cortos con UnSwipe. Ahora no hay nada a lo que volver a hacer scroll.",
+    "it": "La più facile della lista: ho eliminato i video brevi con UnSwipe. Ora non c’è più niente da riscrollare.",
+    "tr": "Listenin en kolayı: kısa videoları UnSwipe ile sildim. Artık geri dönüp kaydıracak bir şey yok."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cook something new",
+    "fr": "Cuisiner un truc nouveau",
+    "de": "Etwas Neues kochen",
+    "es": "Cocinar algo nuevo",
+    "it": "Cucinare qualcosa di nuovo",
+    "tr": "Yeni bir yemek yap"
+   },
+   "texte": {
+    "en": "One recipe you have never tried. Your hands are busy and your brain gets a real reward.",
+    "fr": "Une recette jamais testée. Tes mains sont occupées et ton cerveau reçoit une vraie récompense.",
+    "de": "Ein Rezept, das du noch nie probiert hast. Deine Hände sind beschäftigt, dein Gehirn bekommt eine echte Belohnung.",
+    "es": "Una receta que nunca has probado. Tus manos están ocupadas y tu cerebro recibe una recompensa real.",
+    "it": "Una ricetta mai provata. Le mani sono occupate e il cervello riceve una vera ricompensa.",
+    "tr": "Hiç denemediğin bir tarif. Ellerin meşgul, beynin gerçek bir ödül alır."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Walk around the block",
+    "fr": "Faire le tour du pâté",
+    "de": "Eine Runde um den Block",
+    "es": "Dar una vuelta a la manzana",
+    "it": "Fare il giro dell’isolato",
+    "tr": "Mahallede bir tur"
+   },
+   "texte": {
+    "en": "Ten minutes, no headphones. You come back calmer and with at least one new idea.",
+    "fr": "Dix minutes, sans écouteurs. Tu reviens plus calme et avec au moins une idée nouvelle.",
+    "de": "Zehn Minuten, ohne Kopfhörer. Du kommst ruhiger zurück, mit mindestens einer neuen Idee.",
+    "es": "Diez minutos, sin auriculares. Vuelves más tranquilo y con al menos una idea nueva.",
+    "it": "Dieci minuti, senza cuffie. Torni più calmo e con almeno un’idea nuova.",
+    "tr": "On dakika, kulaklıksız. Daha sakin ve en az bir yeni fikirle dönersin."
+   }
+  },
+  {
+   "rang": "C",
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "Slow coffee",
+    "fr": "Café lent",
+    "de": "Langsamer Kaffee",
+    "es": "Café lento",
+    "it": "Caffè lento",
+    "tr": "Yavaş kahve"
+   },
+   "texte": {
+    "en": "Make it, then drink it without a screen. Small, but it breaks the reflex.",
+    "fr": "Prépare-le, puis bois-le sans écran. Petit, mais ça casse le réflexe.",
+    "de": "Mach ihn und trink ihn ohne Bildschirm. Klein, aber es bricht den Reflex.",
+    "es": "Prepáralo y tómatelo sin pantalla. Poca cosa, pero rompe el reflejo.",
+    "it": "Preparalo e bevilo senza schermo. Piccola cosa, ma spezza il riflesso.",
+    "tr": "Hazırla ve ekransız iç. Küçük ama refleksi kırar."
+   }
+  }
+ ],
+ "notes": "routine du 29/10 : reprise de mm-o015 (« Instead of scrolling », 1 535 vues en es), autres items et autre couverture (point 7 de ROUTINE.md). cta C : élément UnSwipe en item à lui seul (4e), à la 1re personne. Couverture : l’émoji à lunettes de la banque."
+}

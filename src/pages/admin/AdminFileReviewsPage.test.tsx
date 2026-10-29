@@ -67,6 +67,8 @@ function renderPage() {
 
 describe("AdminFileReviewsPage", () => {
   beforeEach(() => {
+    // Prompt 15, point 1 : « Envoyer » montre le texte anglais final et demande confirmation.
+    vi.spyOn(window, "confirm").mockReturnValue(true);
     listerFileReviewsJour.mockReset();
     listerReviewRemarques.mockReset();
     compterRemarquesParCreateur.mockReset();
@@ -128,6 +130,17 @@ describe("AdminFileReviewsPage", () => {
         /Aucune remarque générique envoyée à ce créateur|No generic remark sent to this creator yet/,
       ),
     ).toBeInTheDocument();
+  });
+
+  it("prompt 15 : « Envoyer » montre le texte anglais final ; refusé, rien ne part", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([REMARQUE]);
+    vi.mocked(window.confirm).mockReturnValueOnce(false);
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: "Hook trop lent" }));
+    fireEvent.click(await screen.findByRole("button", { name: /Envoyer|Send/ }));
+    await waitFor(() => expect(window.confirm).toHaveBeenCalledWith(expect.stringContaining("The hook is too slow, rewritten.")));
+    expect(envoyerReview).not.toHaveBeenCalled();
   });
 
   it("joint la remarque cliquée à la review envoyée", async () => {

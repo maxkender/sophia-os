@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -26,8 +26,11 @@ import {
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
+import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
+import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
+import { CarteCommentPaye } from "@/features/regles/CartesRegles";
 import { arriveePosts, estManque, heureArriveeAnnoncee } from "@/features/moteur/echeancePublication";
 import { debutParDefaut, joursFenetre, libelleFenetre, lundiDe } from "@/features/moteur/semaines";
 import {
@@ -38,7 +41,6 @@ import {
 } from "@/features/moteur/comptesCm";
 import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
-import { CaseReposts } from "@/features/ckd/cohorte/CaseReposts";
 import { BandeauRecreation } from "@/features/ckd/recreation/BandeauRecreation";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
@@ -46,6 +48,7 @@ import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteu
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
+import { useParrainageActif } from "@/features/bonus/parrainageActif";
 
 interface PostCalendrier {
   id: string;
@@ -266,10 +269,17 @@ export function PosterCalendrierPage() {
   const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const parrainage = useParrainageActif();
+  const jour = aujourdhui();
+  // Page laissée ouverte la nuit (Olena, 29/10) : sans le jour dans la clé ni
+  // rechargement au retour sur l'onglet, « Today » gardait la liste de la
+  // veille et affichait « rien de prévu ».
   const { data: posts, isPending } = useQuery({
-    queryKey: ["mes-posts", user?.id],
+    queryKey: ["mes-posts", user?.id, jour],
     queryFn: mesPosts,
     enabled: Boolean(user?.id),
+    refetchOnWindowFocus: true,
+    placeholderData: keepPreviousData,
   });
   const { data: comptes } = useQuery({
     queryKey: ["mes-comptes"],
@@ -283,6 +293,7 @@ export function PosterCalendrierPage() {
   // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
   const ugc = Boolean(compte?.videos_uniquement);
   // Cohorte Ruul (venus du site) : leurs dates en clair, et Slack toujours à portée.
+  const maSemaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, staleTime: 5 * 60_000 });
   const cohorte = useQuery({
     queryKey: ["accueil-cohorte"],
     queryFn: lireCohorteAccueil,
@@ -310,7 +321,6 @@ export function PosterCalendrierPage() {
     },
   });
 
-  const jour = aujourdhui();
   const maintenant = new Date();
   // Fenêtre de 2 semaines (change 1), décalable semaine par semaine.
   const [decalageSemaines, setDecalageSemaines] = React.useState(0);
@@ -331,7 +341,12 @@ export function PosterCalendrierPage() {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
-  const duJour = parJour.get(jour) ?? [];
+  // Prompt 15, point 6a : « Today » montre les posts de TOUS ses comptes actifs
+  // (badge @compte sur chaque carte), un 2e compte (Double) compris.
+  const actifs = new Set((comptes ?? []).map((c) => c.id));
+  const duJour = (posts ?? []).filter(
+    (p) => p.date_publication_prevue === jour && (!p.compte_id || actifs.size === 0 || actifs.has(p.compte_id)),
+  );
   const titreJour = t("calendrier.aujourdhui");
   // En avance sur Paris (Nouvelle-Zélande…), les posts du jour arrivent en
   // pleine journée : on annonce l'heure plutôt que « rien de prévu » le matin.
@@ -356,7 +371,10 @@ export function PosterCalendrierPage() {
   // premiers posts, le calendrier couvre les jours de warm-up et marque la case
   // « FIRST POSTS ».
   const warmupLundi = Boolean(compte && !estCm);
-  const lundiApresAujourdhui = lundiApres(new Date());
+  // Prompt 21, A1 : jamais avant le lundi de sa cohorte (le même que le message de bienvenue et les 5 étapes).
+  const lundiApresClic = lundiApres(new Date());
+  const cohorteLundi = maSemaine.data?.cohorteLundi ?? null;
+  const lundiApresAujourdhui = cohorteLundi && cohorteLundi > lundiApresClic ? cohorteLundi : lundiApresClic;
   const lundiSiLanceAujourdhui =
     debutRuul && debutRuul > lundiApresAujourdhui ? debutRuul : lundiApresAujourdhui;
   const premiersPostsLe =
@@ -399,6 +417,29 @@ export function PosterCalendrierPage() {
     <div className="space-y-8">
       {/* Compte recréé (0368) : quoi faire, en haut de son espace. */}
       <BandeauRecreation actif={Boolean(user?.id)} />
+
+      {/* Prompt 15, point 6a : « Today » tout en haut. */}
+      {!ugc && (
+      <section className="space-y-4">
+        <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
+        {duJour.length === 0 ? (
+          <EmptyState
+            icon={<CalendarCheck className="size-5" />}
+            title={
+              postsAVenir && warmupStatut === "termine"
+                ? t("calendrier.arriveeVers", { heure: heureArrivee })
+                : t("calendrier.rien")
+            }
+          />
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {duJour.map((post, index) => (
+              <CartePost key={post.id} post={post} creneau={index + 1} />
+            ))}
+          </div>
+        )}
+      </section>
+      )}
       {comptes && comptes.length > 0 && (
         <SelecteurCompte
           comptes={comptes}
@@ -407,18 +448,27 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      {/* La première semaine en quatre étapes datées, juste au-dessus du bouton. */}
-      {debutFrise && compte && !estCm && !ugc && (
+      {/* Cohorte Ruul : sa première semaine en quatre étapes datées, juste au-dessus du bouton. */}
+      {debutRuul && compte && !estCm && !ugc && (
         <FriseCohorteRuul
-          debutLe={debutFrise}
+          debutLe={debutRuul}
           warmupStartedAt={compte.warmup_started_at}
           warmupEndsAt={compte.warmup_ends_at}
-          paiePar={debutRuul ? "ruul" : "upwork"}
+          paiePar="ruul"
+        />
+      )}
+      {/* Les autres : les 5 étapes du chantier du 28 oct. (partie G). */}
+      {debutUpwork && compte && (
+        <CinqEtapes
+          handle={compte.handle_tiktok}
+          warmupStartedAt={compte.warmup_started_at}
+          warmupEndsAt={compte.warmup_ends_at}
         />
       )}
 
-      {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM. */}
-      {compte && !estCm && (
+      {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM.
+          Prompt 15, point 6b : seulement pendant le warm-up (à lancer, en cours). */}
+      {compte && !estCm && warmupStatut !== "termine" && (
       <div
         className={cn(
           "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
@@ -471,13 +521,28 @@ export function PosterCalendrierPage() {
             )}
           </div>
         )}
-        {compte && !ugc && warmupStatut !== "termine" && <CaseReposts compteId={compte.id} />}
       </div>
       )}
 
       {debutRuul && <BandeauCohorteRuul />}
 
-      {compte && <IdentiteTikTok compte={compte} />}
+      {/* Prompt 15, point 6b : la carte identité se replie une fois le warm-up fini. */}
+      {compte &&
+        (warmupStatut === "termine" ? (
+          <details className="group rounded-lg border" data-testid="identite-repliee">
+            <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium">
+              {t("identite.titre")} · @{compte.handle_tiktok ?? "—"}
+            </summary>
+            <div className="px-1 pb-1">
+              <IdentiteTikTok compte={compte} />
+            </div>
+          </details>
+        ) : (
+          <IdentiteTikTok compte={compte} />
+        ))}
+
+      {/* Chantier du 28 oct. : comment il est payé et la règle du lien (pas la cohorte Ruul). */}
+      {cohorte.isSuccess && !debutRuul && !estCm && <CarteCommentPaye />}
 
       {compte && (
         <VideosAPoster
@@ -488,43 +553,25 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      <Link
-        to="/createur/parrainage"
-        className="block rounded-lg border border-primary/30 bg-primary/5 p-4 transition-colors hover:bg-primary/10"
-      >
-        <div className="flex items-start gap-3">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-            <Gift className="size-5" />
+      {/* Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause. */}
+      {parrainage && (
+        <Link
+          to="/createur/parrainage"
+          className="block rounded-lg border border-primary/30 bg-primary/5 p-4 transition-colors hover:bg-primary/10"
+        >
+          <div className="flex items-start gap-3">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <Gift className="size-5" />
+            </div>
+            <div className="min-w-0 flex-1 space-y-1">
+              <p className="text-sm font-semibold">{t("referral.dashTitre")}</p>
+              <p className="text-sm text-muted-foreground">{t("referral.dashCorps")}</p>
+              <p className="text-xs font-medium text-primary">{t("referral.dashLien")}</p>
+            </div>
           </div>
-          <div className="min-w-0 flex-1 space-y-1">
-            <p className="text-sm font-semibold">{t("referral.dashTitre")}</p>
-            <p className="text-sm text-muted-foreground">{t("referral.dashCorps")}</p>
-            <p className="text-xs font-medium text-primary">{t("referral.dashLien")}</p>
-          </div>
-        </div>
-      </Link>
-
-      {!ugc && (
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
-        {duJour.length === 0 ? (
-          <EmptyState
-            icon={<CalendarCheck className="size-5" />}
-            title={
-              postsAVenir && warmupStatut === "termine"
-                ? t("calendrier.arriveeVers", { heure: heureArrivee })
-                : t("calendrier.rien")
-            }
-          />
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {duJour.map((post, index) => (
-              <CartePost key={post.id} post={post} creneau={index + 1} />
-            ))}
-          </div>
-        )}
-      </section>
+        </Link>
       )}
+
 
       {!ugc && (
       <section className="space-y-3">

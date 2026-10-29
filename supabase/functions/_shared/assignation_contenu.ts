@@ -15,6 +15,7 @@ import {
   DELAI_REESSAI_ECHEC_MS,
   RAISON_BUDGET,
 } from "./deck_application.ts";
+import { ecartsDoublons, estEmpreinte, type PostRecent, type Signature } from "./doublons.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
 import {
@@ -40,6 +41,7 @@ import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
+import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
 import { serviceClient } from "./supabase.ts";
 import {
   BANDES_AVANT_DERNIER_RECOURS,
@@ -124,6 +126,13 @@ export interface AssignationReglages {
    * 0 rend exactement le comportement d'avant 0271.
    */
   ecartMinMemeContenu: number;
+  /**
+   * Jours pendant lesquels un compte ne reçoit pas un AUTRE contenu à la même
+   * accroche ou à la même image de couverture (28/10, `doublons.ts`) : relégué
+   * en dernier recours, comme un contenu posté récemment. Absent ou 0 : règle
+   * éteinte, aucune lecture de plus.
+   */
+  ecartMinMemeAccroche?: number;
 }
 
 export async function chargerAssignationReglages(
@@ -162,6 +171,7 @@ export async function chargerAssignationReglages(
     postsParJour: Math.min(3, Math.max(1, frequence.posts_par_jour ?? 1)),
     repechagePassages: Math.max(1, tierlist.repechage_passages ?? 1),
     ecartMinMemeContenu: Math.max(0, tierlist.ecart_min_meme_contenu ?? 14),
+    ecartMinMemeAccroche: Math.max(0, tierlist.ecart_min_meme_accroche ?? 10),
   };
 }
 
@@ -192,6 +202,10 @@ export interface ContenuCandidat {
   musique_titre: string | null;
   musique_plateforme: string | null;
   ugc_compatible: boolean | null;
+  /** Accroche normalisée (fonction `empreintes`) ; absente : rien à comparer. */
+  accroche_norm?: string | null;
+  /** Empreinte de l'image de couverture (fonction `empreintes`). */
+  couverture_empreinte?: string | null;
 }
 
 /* -------------------------------------------------------------------------
@@ -268,6 +282,12 @@ export interface MemoAssignation {
   decksIneligibles: Map<string, Promise<Set<string>>>;
   /** application_id::langue → échecs de cuisson dans ce lot. */
   echecsDeck: Map<string, number>;
+  /**
+   * contenu_id → accroche et empreinte de couverture, pour les contenus que
+   * les comptes ont postés récemment hors de leur pool (`doublonsRecents`).
+   * Écrites par la fonction `empreintes`, elles ne bougent pas pendant le run.
+   */
+  signatures?: Map<string, Signature>;
 }
 
 export function creerMemoAssignation(): MemoAssignation {
@@ -280,6 +300,7 @@ export function creerMemoAssignation(): MemoAssignation {
     pertinences: new Map(),
     decksIneligibles: new Map(),
     echecsDeck: new Map(),
+    signatures: new Map(),
   };
 }
 
@@ -1897,7 +1918,9 @@ export async function poolContenusPrets(
       (lot) =>
         supabase
           .from("contenus")
-          .select("id, musique_url, musique_titre, musique_plateforme, ugc_compatible")
+          .select(
+            "id, musique_url, musique_titre, musique_plateforme, ugc_compatible, accroche_norm, couverture_empreinte",
+          )
           .eq("statut", "valide")
           .eq("import_statut", "done")
           .eq("ugc_compatible", args.ugcAi)
@@ -1974,6 +1997,96 @@ export async function lireHistoriquePassages(
     hist.push(...lignes);
   }
   return hist;
+}
+
+const signatureDe = (c: { accroche_norm?: string | null; couverture_empreinte?: string | null }): Signature => ({
+  accroche: c.accroche_norm || null,
+  empreinte: estEmpreinte(c.couverture_empreinte) ? c.couverture_empreinte : null,
+});
+
+/**
+ * Doublons d'accroche ou de couverture (décision d'Adrien du 28/10) : pour
+ * chaque contenu du pool qui partage l'accroche ou l'image de couverture d'un
+ * AUTRE contenu posté (ou assigné) sur CE compte à moins de
+ * `ecartMinMemeAccroche` jours du jour visé, l'écart en jours au plus proche.
+ * Le contenu n'est pas écarté : l'appelant le relègue en dernier recours,
+ * comme un contenu posté récemment (0271). Les contenus déjà pris dans cette
+ * session comptent pour le jour même.
+ *
+ * Ne bloque jamais un créneau : règle éteinte, pool sans signature ou lecture
+ * en panne rendent une carte vide, et le tirage d'avant s'applique.
+ */
+async function doublonsRecents(
+  supabase: Supabase,
+  compteId: string,
+  jour: string,
+  jours: number,
+  pool: ContenuCandidat[],
+  session: string[],
+  exclureTests: boolean,
+  memo?: MemoAssignation,
+): Promise<Map<string, number>> {
+  if (jours <= 0) return new Map();
+  const candidats: Array<[string, Signature]> = pool
+    .map((c): [string, Signature] => [c.id, signatureDe(c)])
+    .filter(([, s]) => s.accroche !== null || s.empreinte !== null);
+  if (candidats.length === 0) return new Map();
+  try {
+    const debut = new Date(Date.parse(`${jour}T00:00:00Z`) - jours * 86_400_000).toISOString().slice(0, 10);
+    const fin = new Date(Date.parse(`${jour}T00:00:00Z`) + jours * 86_400_000).toISOString().slice(0, 10);
+    const lignes = await lireTout<{ id: string; contenu_id: string; date_publication_prevue: string | null; posts?: PostLie }>(
+      "Posts récents du compte",
+      async (curseur, taille) => {
+        let q = supabase
+          .from("passages")
+          .select("id, contenu_id, date_publication_prevue, posts(est_test)")
+          .eq("compte_id", compteId)
+          .gte("date_publication_prevue", debut)
+          .lte("date_publication_prevue", fin);
+        if (curseur) q = q.gt("id", curseur.id);
+        const { data, error } = await q.order("id", { ascending: true }).limit(taille);
+        return {
+          data: (data ?? null) as unknown as Array<
+            { id: string; contenu_id: string; date_publication_prevue: string | null; posts?: PostLie }
+          > | null,
+          error,
+        };
+      },
+      { ancre: (l) => l.id },
+    );
+    const recents: PostRecent[] = [];
+    for (const l of lignes) {
+      if (exclureTests && estPassageDeTest(l.posts)) continue;
+      if (!l.date_publication_prevue) continue;
+      const ecart = ecartJours(l.date_publication_prevue, jour);
+      if (ecart < jours) recents.push({ contenuId: l.contenu_id, ecart });
+    }
+    for (const cid of session) recents.push({ contenuId: cid, ecart: 0 });
+    if (recents.length === 0) return new Map();
+
+    // Signatures : celles du pool, puis celles des autres contenus postés
+    // (autre label, autre application), lues une fois par run.
+    const signatures = new Map<string, Signature>(candidats);
+    const connues = memo?.signatures ?? new Map<string, Signature>();
+    const aLire = [...new Set(recents.map((r) => r.contenuId))].filter((id) => !signatures.has(id) && !connues.has(id));
+    if (aLire.length > 0) {
+      const lues = await lireParLots<{ id: string; accroche_norm: string | null; couverture_empreinte: string | null }>(
+        aLire,
+        "Signatures des posts récents",
+        (lot) => supabase.from("contenus").select("id, accroche_norm, couverture_empreinte").in("id", lot),
+      );
+      for (const id of aLire) connues.set(id, { accroche: null, empreinte: null });
+      for (const c of lues) connues.set(c.id, signatureDe(c));
+    }
+    for (const r of recents) {
+      const s = connues.get(r.contenuId);
+      if (s && !signatures.has(r.contenuId)) signatures.set(r.contenuId, s);
+    }
+    return ecartsDoublons({ candidats, recents, signatures });
+  } catch (e) {
+    console.warn(`doublons d'accroche ignorés pour ${compteId} : ${e instanceof Error ? e.message : String(e)}`);
+    return new Map();
+  }
 }
 
 /** Explique pourquoi le pool labels ∩ langue est vide / trop petit. */
@@ -2397,6 +2510,29 @@ async function choisirContenu(
     return ecart !== undefined && ecart < ecartMin;
   };
 
+  /**
+   * Même accroche ou même couverture qu'un AUTRE contenu posté sur ce compte à
+   * moins de `ecartMinMemeAccroche` jours (28/10) : relégué comme un contenu
+   * posté récemment, dans le tirage comme dans le repêchage. Dans la zone de
+   * dernier recours, l'écart retenu est celui du doublon le plus proche.
+   */
+  const tirables = new Set(idsTirables);
+  const doublons = await doublonsRecents(
+    supabase,
+    compteId,
+    jour,
+    reglages.ecartMinMemeAccroche ?? 0,
+    contenus.filter((c) => tirables.has(c.id)),
+    dejaCreesCetteSession,
+    Boolean(opts.exclureTestsHisto),
+    memo,
+  );
+  const estRelegue = (cid: string): boolean => estPosteRecemment(cid) || doublons.has(cid);
+  const ecartRetenu = (cid: string): number | null => {
+    const ecarts = [ecartLePlusProche.get(cid), doublons.get(cid)].filter((e): e is number => e !== undefined);
+    return ecarts.length ? Math.min(...ecarts) : null;
+  };
+
   const construire = (cid: string, e: TierEtatLigne | undefined, repeche: boolean): Candidat | null => {
     const m = meta.get(cid);
     if (!m) return null;
@@ -2412,8 +2548,8 @@ async function choisirContenu(
       musique_titre: m.musique_titre,
       musique_plateforme: m.musique_plateforme,
       dejaPoste: derniere.has(cid),
-      posteRecemment: estPosteRecemment(cid),
-      ecartDepuisDernier: ecartLePlusProche.get(cid) ?? null,
+      posteRecemment: estRelegue(cid),
+      ecartDepuisDernier: ecartRetenu(cid),
       derniereDate: derniere.get(cid) ?? null,
     };
   };
@@ -2472,7 +2608,7 @@ async function choisirContenu(
       dejaCreesCetteSession,
       reglages.repechagePassages,
       construire,
-      estPosteRecemment,
+      estRelegue,
     )
     : await repecherContenuD(
       supabase,
@@ -2481,7 +2617,7 @@ async function choisirContenu(
       dejaCreesCetteSession,
       reglages.repechagePassages,
       construire,
-      estPosteRecemment,
+      estRelegue,
     );
   return repeche ?? dernierRecours();
 }
@@ -2663,12 +2799,15 @@ export async function listerComptesSousQuota(
   if (error) throw error;
 
   const maintenant = Date.now();
+  // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392).
+  const rouges = opts.ignorerWarmup ? new Set<string>() : await posteursEnRouge(supabase);
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm") return false;
     if (Boolean(c.ugc_ai_video)) return false;
     if (c.videos_uniquement) return false;
     // Quota 0 (legacy) = toujours à traiter (plancher 1).
     if (opts.ignorerWarmup) return true;
+    if (compteBloque(c, rouges)) return false;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false;
     return new Date(ends).getTime() <= maintenant;
@@ -2867,11 +3006,15 @@ export async function assignerTousComptes(
   // UGC AI VIDEO : hors pipeline slideshow (même en test ciblé on laisse
   // assignerCompteJour renvoyer la raison — sauf filtre batch minuit).
   const maintenant = Date.now();
+  // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392) ;
+  // un compte ciblé à la main passe.
+  const rouges = o.ignorerWarmup || compteId ? new Set<string>() : await posteursEnRouge(supabase);
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm" && !compteId) return false;
     if (Boolean(c.ugc_ai_video) && !compteId) return false;
     if (c.videos_uniquement && !compteId) return false;
     if (o.ignorerWarmup) return true;
+    if (compteBloque(c, rouges)) return false;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false; // pas démarré → hors process
     return new Date(ends).getTime() <= maintenant;

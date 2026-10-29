@@ -35,6 +35,7 @@ import {
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import { MessageBienvenue } from "@/features/regles/MessageBienvenue";
 import { TarifPoster } from "@/features/paie/TarifPoster";
 import { nomCompletDe, separerNomComplet } from "@/features/moteur/nomComplet";
 import {
@@ -81,6 +82,7 @@ import {
   premiersJoursComptes,
   majLanguesRecruteur,
   majRecruteur,
+  contactCreationComplet,
   emailPersoValide,
   majContactPoster,
   renommerPoster,
@@ -111,6 +113,7 @@ import { compterEtapes, ETAPES, etapeCompte, qualiteAffichee, type Etape, type E
 import { lireEtapesComptes } from "@/features/moteur/etapesApi";
 import { compteActif, repartirArchive } from "@/features/archive/archive";
 import { SectionArchive, type LigneArchive } from "@/features/archive/SectionArchive";
+import { lireInactifs } from "@/features/inactifs/api";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
   Classement,
@@ -119,6 +122,7 @@ import type {
   PosterProfil,
 } from "@/features/moteur/types";
 import { localeDate } from "@/locales/localeDate";
+import { BoutonDelierSlack } from "@/features/slack/BoutonDelierSlack";
 
 // Carte des zones : d3-geo et le fond de carte dans un morceau à part.
 const CarteZones = React.lazy(() => import("@/features/hiring/CarteZones"));
@@ -751,6 +755,10 @@ export function AdminPostersPage() {
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
   const [filtreRuul, setFiltreRuul] = React.useState(false);
+  // 28 oct. (partie E) : les inactifs (0385), plus dans le menu, se filtrent ici.
+  const [filtreInactifs, setFiltreInactifs] = React.useState(false);
+  const inactifs = useQuery({ queryKey: ["posters", "inactifs"], queryFn: lireInactifs, enabled: filtreInactifs });
+  const idsInactifs = React.useMemo(() => new Set((inactifs.data ?? []).map((i) => i.poster_id)), [inactifs.data]);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
   // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
@@ -855,10 +863,17 @@ export function AdminPostersPage() {
     }
     return m;
   }, [comptes.data, premiersJours.data]);
+  // Prompt 17 (0391) : la cohorte est celle du profil, fixée dès l'offre
+  // acceptée ; le calcul par les comptes reste pour qui n'en a pas.
+  const cohorteProfil = React.useMemo(
+    () => new Map((posters.data ?? []).map((p) => [p.id, p.cohorte_lundi ?? null])),
+    [posters.data],
+  );
   const cohorteDe = React.useCallback(
     (posterId: string) =>
+      cohorteProfil.get(posterId) ??
       cohortePosteur((comptesParPoster.get(posterId) ?? []).map((c) => lundiParCompte.get(c.id) ?? null)),
-    [comptesParPoster, lundiParCompte],
+    [cohorteProfil, comptesParPoster, lundiParCompte],
   );
   const aujourdhui = aujourdhuiParis();
   const dateCourte = (jour: string) =>
@@ -913,7 +928,6 @@ export function AdminPostersPage() {
   React.useEffect(() => {
     setPaysCompte("");
   }, [langue]);
-  const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   // Compte UGC vidéo (pod 3) : login seul côté manage-users, puis le compte
   // vidéos uniquement créé ici — ni label ni persona de la file.
@@ -929,6 +943,7 @@ export function AdminPostersPage() {
   );
   const [cree, setCree] = React.useState<{
     email: string;
+    prenom: string;
     password: string;
     type: PremierCompte | "ugc_video";
   } | null>(null);
@@ -959,7 +974,8 @@ export function AdminPostersPage() {
         contact,
         langue: premierCompte === "aucun" ? undefined : langue || undefined,
         type_compte: premierCompte,
-        posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
+        // Prompt 15, point 7 : toujours 2 posts par jour, plus de choix.
+        posts_par_jour: premierCompte === "perso" ? 2 : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
         ...(paysAEnvoyer(langue, paysCompte)
           ? { pays: paysAEnvoyer(langue, paysCompte)! }
@@ -968,14 +984,13 @@ export function AdminPostersPage() {
       });
     },
     onSuccess: (r) => {
-      setCree({ email: r.email, password, type: ugcVideo ? "ugc_video" : premierCompte });
+      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password, type: ugcVideo ? "ugc_video" : premierCompte });
       choixAppsPoster.reinitialiser();
       setNomComplet("");
       setContact(CONTACT_POSTER_VIDE);
       setHandleTiktok("");
       setHandleInstagram("");
       setPaysCompte("");
-      setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
@@ -1099,7 +1114,8 @@ export function AdminPostersPage() {
             e.preventDefault();
             // Application du compte non choisie : le bloc le dit, rien ne part.
             if (!choixAppsPoster.verifier()) return;
-            if (!emailPersoValide(contact.email_perso)) return;
+            // Contrat Upwork obligatoire ; email perso facultatif (29 oct.).
+            if (!contactCreationComplet(contact)) return;
             setCree(null);
             creer.mutate();
           }}
@@ -1115,7 +1131,7 @@ export function AdminPostersPage() {
               onChange={(e) => setNomComplet(e.target.value)}
             />
           </div>
-          <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" />
+          <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" obligatoires />
           <label className="flex items-start gap-2 text-sm sm:col-span-2">
             <input
               type="checkbox"
@@ -1146,8 +1162,6 @@ export function AdminPostersPage() {
             onLangue={setLangue}
             pays={paysCompte}
             onPays={setPaysCompte}
-            postsParJour={ugcVideo ? undefined : postsParJour}
-            onPostsParJour={ugcVideo ? undefined : setPostsParJour}
             handle={handleTiktok}
             onHandle={setHandleTiktok}
           />
@@ -1238,6 +1252,7 @@ export function AdminPostersPage() {
                   ? t("posters.creeAucun")
                   : t("warmup.apresCreation")}
             </p>
+            {cree.type !== "ugc_video" && <MessageBienvenue prenom={cree.prenom} email={cree.email} password={cree.password} />}
           </div>
         )}
       </CardContent>
@@ -1351,6 +1366,7 @@ export function AdminPostersPage() {
   const matchCreateur = (p: PosterProfil) => {
     if (filtreEtapes.size > 0 && !filtreEtapes.has(etatCreateur(p).etape)) return false;
     if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
+    if (filtreInactifs && !idsInactifs.has(p.id)) return false;
     if (filtreCohorte && (cohorteDe(p.id) ?? COHORTE_PAS_DEMARRE) !== filtreCohorte) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
@@ -1425,6 +1441,7 @@ export function AdminPostersPage() {
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
     filtreRuul ||
+    filtreInactifs ||
     Boolean(filtreCohorte) ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
@@ -1617,6 +1634,16 @@ export function AdminPostersPage() {
           onChange={(e) => setFiltreRuul(e.target.checked)}
         />
         {t("posters.filtreRuul", { n: zonesCohorteRuul?.size ?? 0 })}
+      </label>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={filtreInactifs}
+          onChange={(e) => setFiltreInactifs(e.target.checked)}
+        />
+        {t("posters.filtreInactifs")}
+        {filtreInactifs && inactifs.data && <span className="text-muted-foreground">· {inactifs.data.length}</span>}
       </label>
     </div>
   );
@@ -2408,6 +2435,7 @@ export function AdminPostersPage() {
               <div className="flex flex-wrap items-center gap-2">
                 {!fiche.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
               </div>
+              <BoutonDelierSlack posterId={fiche.id} nom={nomAffiche(fiche)} />
 
               <p className="flex flex-wrap items-center gap-x-1.5 text-xs text-muted-foreground">
                 <span>{t("posters.recruteur")} :</span>

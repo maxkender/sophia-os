@@ -1,5 +1,5 @@
 {
-  "maj_le": "2026-10-27",
+  "maj_le": "2026-10-29",
   "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Une accroche ne s'écrit que sur un schéma actif.",
   "schemas": [
     {
@@ -32,23 +32,23 @@
         {
           "type": "os",
           "contenu_id": "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
-          "r_median": 1.79,
-          "publies": 21,
-          "releve_le": "2026-10-27"
+          "r_median": 1.89,
+          "publies": 23,
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708",
           "r_median": 1.54,
           "publies": 13,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "561faa99-1dc0-4976-8643-66149e6b40b9",
-          "r_median": 2.71,
+          "r_median": 2.79,
           "publies": 5,
-          "releve_le": "2026-10-27",
+          "releve_le": "2026-10-29",
           "note": "original du pod ay-o001"
         }
       ]
@@ -81,9 +81,9 @@
         {
           "type": "os",
           "contenu_id": "4674dd61-a5d0-4e34-b63a-d2b8ccf331a5",
-          "r_median": 3.28,
-          "publies": 14,
-          "releve_le": "2026-10-27",
+          "r_median": 2.27,
+          "publies": 15,
+          "releve_le": "2026-10-29",
           "note": "original du pod ay-o003"
         }
       ]
@@ -116,16 +116,16 @@
         {
           "type": "os",
           "contenu_id": "ee79c00a-c7d9-4754-87bd-4c21798a3161",
-          "r_median": 2.19,
+          "r_median": 2.22,
           "publies": 12,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "dde4847b-7b0c-4a50-9646-2f224c6e0a8e",
-          "r_median": 8.09,
-          "publies": 3,
-          "releve_le": "2026-10-27",
+          "r_median": 4.58,
+          "publies": 10,
+          "releve_le": "2026-10-29",
           "note": "original du pod ay-o004"
         }
       ]
@@ -174,9 +174,9 @@
         {
           "type": "os",
           "contenu_id": "7f1b3e18-7b9b-4fc0-866a-100a70a7bc68",
-          "r_median": 4.31,
+          "r_median": 4.44,
           "publies": 5,
-          "releve_le": "2026-10-27",
+          "releve_le": "2026-10-29",
           "note": "original du pod ay-o005"
         }
       ]
@@ -217,9 +217,9 @@
         {
           "type": "os",
           "contenu_id": "7c5066c9-2762-49cf-81a3-b00caabf5fde",
-          "r_median": 3.25,
-          "publies": 6,
-          "releve_le": "2026-10-27",
+          "r_median": 1.8,
+          "publies": 13,
+          "releve_le": "2026-10-29",
           "note": "original du pod ay-o006"
         }
       ]
@@ -256,23 +256,23 @@
         {
           "type": "os",
           "contenu_id": "51759eba-2baa-40c2-90dc-2ab9d65273db",
-          "r_median": 4.64,
+          "r_median": 4.48,
           "publies": 22,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "114f61ce-f972-4879-b886-01694a747522",
-          "r_median": 5.17,
-          "publies": 15,
-          "releve_le": "2026-10-27"
+          "r_median": 4.87,
+          "publies": 20,
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "409a91e1-6766-4163-afbd-e39949f78261",
-          "r_median": 2.04,
-          "publies": 21,
-          "releve_le": "2026-10-27"
+          "r_median": 1.95,
+          "publies": 22,
+          "releve_le": "2026-10-29"
         }
       ]
     },
@@ -295,30 +295,30 @@
         {
           "type": "os",
           "contenu_id": "7ecc8796-4f49-4b3e-abbc-3a111dee2030",
-          "r_median": 1.53,
-          "publies": 13,
-          "releve_le": "2026-10-27"
+          "r_median": 1.5,
+          "publies": 14,
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "5d42b2c3-cb27-427a-b7fa-0397ca7f68c9",
-          "r_median": 1.38,
-          "publies": 14,
-          "releve_le": "2026-10-27"
+          "r_median": 1.44,
+          "publies": 15,
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "4b1c178e-a684-4cde-878a-208022731b43",
-          "r_median": 2.3,
+          "r_median": 2.28,
           "publies": 19,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-29"
         },
         {
           "type": "os",
           "contenu_id": "35ee3b67-4a34-44e5-bd97-bc66a82764dd",
-          "r_median": 2.81,
+          "r_median": 2.29,
           "publies": 14,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-29"
         }
       ]
     },
@@ -337,9 +337,9 @@
         {
           "type": "os",
           "contenu_id": "5490f976-0b6e-404f-b6f1-ae7d41b7901e",
-          "r_median": 1.88,
+          "r_median": 1.87,
           "publies": 22,
-          "releve_le": "2026-10-27"
+          "releve_le": "2026-10-29"
         }
       ]
     },
@@ -387,6 +387,155 @@
           "releve_le": "2026-10-27"
         }
       ]
+    },
+    {
+      "id": "flirting-20s",
+      "schema": "How to become extremely good at <flirting|conversation> in your 20s",
+      "exemples": [
+        "How to become extremely good at flirting in your 20s."
+      ],
+      "pourquoi": "r 4,38 sur 21 passages chez nous, rang S (b4a1d805, @klevr.mind). Une promesse sociale datée (20s), des gestes précis. Toujours RESPECTUEUX : écouter, remarquer, taquiner gentiment, jamais de manipulation ni d'insistance.",
+      "inspiration_contenus": [
+        "b4a1d805-b744-4f4a-ad38-38977aae7f91",
+        "114f61ce-f972-4879-b886-01694a747522"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "b4a1d805-b744-4f4a-ad38-38977aae7f91",
+          "r_median": 3,
+          "publies": 23,
+          "releve_le": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "disarm-insult",
+      "schema": "How to handle <criticism|an insult|a rude comment> with class",
+      "exemples": [
+        "Comment désarmer une critique ou une insulte avec élégance"
+      ],
+      "pourquoi": "r 4,35 sur 16 passages chez nous, rang A (df13ebcb, @supermaxing, en français). Des répliques calmes pour une scène que tout le monde a vécue. Rester du côté de la maîtrise de soi : désamorcer, pas humilier.",
+      "inspiration_contenus": [
+        "df13ebcb-80f6-4648-9668-aa95ef699f53",
+        "35ee3b67-4a34-44e5-bd97-bc66a82764dd"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "df13ebcb-80f6-4648-9668-aa95ef699f53",
+          "r_median": 4.28,
+          "publies": 16,
+          "releve_le": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "steal-charisma",
+      "schema": "How to steal <a star>'s charisma without looking like him",
+      "exemples": [
+        "how to steal Brad Pitt's charisma without looking like him"
+      ],
+      "pourquoi": "r 2,23 sur 22 passages chez nous (31f54402, @stonemag.co). On parle de la star, on ne la fait jamais parler : des traits concrets de sa présence, transposés à la vie de tous les jours.",
+      "inspiration_contenus": [
+        "31f54402-9562-43a3-a934-85631ea2f0ed"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "31f54402-9562-43a3-a934-85631ea2f0ed",
+          "r_median": 1.77,
+          "publies": 24,
+          "releve_le": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "articulate",
+      "schema": "Habits that make you <disgustingly articulate|sound smarter>",
+      "exemples": [
+        "habits that make you disgustingly articulate"
+      ],
+      "pourquoi": "r 2,10 sur 15 passages chez nous (40a51d1d, @rockyjune11). Promesse précise (bien parler), gestes concrets, très proche de Sophia.",
+      "inspiration_contenus": [
+        "40a51d1d-49d3-4231-ac5f-31f01177641c"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "40a51d1d-49d3-4231-ac5f-31f01177641c",
+          "r_median": 2.09,
+          "publies": 15,
+          "releve_le": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "unusual-hobbies",
+      "schema": "Unusual hobbies that make you <smarter|more interesting>",
+      "exemples": [
+        "unusual hobbies that make you better smarter"
+      ],
+      "pourquoi": "r 2,13 sur 15 passages chez nous (411606fc, @rockyjune00). Une liste de hobbies précis et faisables, chacun avec son bénéfice. Éviter le contemplatif : chaque hobby doit avoir un effet concret.",
+      "inspiration_contenus": [
+        "411606fc-9da8-4979-808a-0a7eed69ab35"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "411606fc-9da8-4979-808a-0a7eed69ab35",
+          "r_median": 2.13,
+          "publies": 15,
+          "releve_le": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "posture-charisma",
+      "schema": "N posture mistakes that kill your charisma <in public|in a room>",
+      "exemples": [
+        "4 erreurs de posture qui détruisent ton charisme en public"
+      ],
+      "pourquoi": "r 2,14 sur 16 passages chez nous (036a6e38, @supermaxing, en français). Des erreurs physiques précises et faciles à corriger.",
+      "inspiration_contenus": [
+        "036a6e38-4fd5-412f-a724-4cce3e802284"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "036a6e38-4fd5-412f-a724-4cce3e802284",
+          "r_median": 2.21,
+          "publies": 16,
+          "releve_le": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "get-what-you-want",
+      "schema": "How to get what you want without raising your voice",
+      "exemples": [
+        "Comment obtenir ce que tu veux sans jamais hausser le ton"
+      ],
+      "pourquoi": "r 2,57 sur 12 passages chez nous (a1a86f6f, @supermaxing, en français). Maîtrise de soi et demandes claires, jamais manipulation.",
+      "inspiration_contenus": [
+        "a1a86f6f-83a2-4adc-8b83-10b6556f4a52"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "a1a86f6f-83a2-4adc-8b83-10b6556f4a52",
+          "r_median": 2.57,
+          "publies": 12,
+          "releve_le": "2026-10-29"
+        }
+      ]
     }
   ],
   "a_eviter": [
@@ -398,28 +547,28 @@
           "type": "os",
           "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
           "r_median": 0.28,
-          "releve_le": "2026-10-27",
+          "releve_le": "2026-10-29",
           "publies": 5
         },
         {
           "type": "os",
           "contenu_id": "a186bf8f-9a90-4438-b3ee-e1a5e2b81c14",
-          "r_median": 0.32,
-          "releve_le": "2026-10-27",
+          "r_median": 0.31,
+          "releve_le": "2026-10-29",
           "publies": 10
         },
         {
           "type": "os",
           "contenu_id": "3e9988c3-bd5e-48d8-95d9-c1948b920d59",
           "r_median": 0.59,
-          "releve_le": "2026-10-27",
+          "releve_le": "2026-10-29",
           "publies": 6
         },
         {
           "type": "os",
           "contenu_id": "63d2a455-b017-452e-912c-1fc7c7548942",
-          "r_median": 0.45,
-          "releve_le": "2026-10-27",
+          "r_median": 0.46,
+          "releve_le": "2026-10-29",
           "publies": 12
         }
       ]
@@ -454,7 +603,7 @@
           "type": "os",
           "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
           "r_median": 0.28,
-          "releve_le": "2026-10-27",
+          "releve_le": "2026-10-29",
           "publies": 5
         }
       ]

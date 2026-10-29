@@ -51,6 +51,9 @@ export const SALON_QUESTIONS = "#questions";
 /** À qui écrire quand un paiement bloque et que la HM ne répond pas. */
 export const CONTACTS_PAIEMENT = "Lucia De Mojà or Maximilien Kender";
 
+/** Une question sur la paie : jamais « ask your hiring manager » (chantier du 28 oct., G). */
+export const QUESTIONS_PAIE = `Questions? Ask in ${SALON_QUESTIONS} on Slack, or reply to our message on Upwork.`;
+
 /** Le salon des posters venus du site, qui n'ont pas de HM. */
 export const SALON_COHORTE_RUUL = "#ruul-questions";
 
@@ -77,6 +80,10 @@ export type Bloc =
   /** `fichier` : une vidéo du site (balise <video>, verticale), sinon un lecteur intégré. */
   | { type: "video"; src: string; titre: string; fichier?: boolean; image?: string }
   | { type: "lien"; avant?: string; libelle: string; href: string }
+  /** Une règle aux posteurs lue dans son réglage (le lien, le warm-up), chantier du 28 oct. */
+  | { type: "regle"; regle: "lien" | "warmup" }
+  /** « Join Slack » : le lien du réglage `slack_lien_invitation`, sinon `LIEN_SLACK`. */
+  | { type: "rejoindreSlack" }
   /** Formulaire prénom + nom de la pièce d'identité (cohorte Ruul) : verrouille « Next ». */
   | { type: "identite" };
 
@@ -89,6 +96,63 @@ export interface Ecran {
   blocs: Bloc[];
   /** Secondes à passer sur l'écran avant que « Next » se déverrouille. */
   attente: number;
+}
+
+/**
+ * « Your first week, in 5 steps » (chantier du 28 oct., partie G) : le même
+ * ordre que la carte de l'accueil. `handle` et `premierPost` (« Monday 2
+ * November ») viennent du posteur quand on les connaît, sinon le texte
+ * renvoie au tableau de bord.
+ */
+export function ecranCompte(handle: string | null, premierPost: string | null): Ecran {
+  const arobase = handle ? `@${handle.replace(/^@/, "")}` : null;
+  return {
+    cle: "compte",
+    titre: "Your first week, in 5 steps",
+    mico: "think",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      {
+        type: "frise",
+        items: [
+          { quand: "Done", titre: "1. Log in", texte: "You're in: your dashboard has everything you need." },
+          {
+            quand: "Today (recommended)",
+            titre: "2. Join Slack",
+            texte: "Join with your **full name**: that's where you get news and answers to your questions.",
+          },
+          {
+            quand: "Today",
+            titre: arobase ? `3. Create your TikTok account ${arobase}` : "3. Create your TikTok account",
+            texte: `With an email address of your choice. Use the ${arobase ? `handle **${arobase}**` : "handle"}, bio and profile picture from your dashboard, **exactly as provided**.`,
+          },
+          {
+            quand: "Before Sunday midnight",
+            titre: "4. Start warmup + follow 5 accounts",
+            texte:
+              "Press **“Start warmup”** on your dashboard, then follow **5 accounts** in your niche. Until your first post, use TikTok every day and **do not post anything**.",
+          },
+          {
+            quand: premierPost ? premierPost : "Next Monday (the date is on your dashboard)",
+            titre: "5. Your first post",
+            texte: "Your slideshows arrive on the platform, **with your cohort**. Post, then paste the link on your dashboard the same day.",
+          },
+        ],
+      },
+      { type: "regle", regle: "warmup" },
+      { type: "regle", regle: "lien" },
+      {
+        type: "alerte",
+        ton: "rouge",
+        titre: "The warm-up, every day until your first posts",
+        items: [
+          "Scroll **at least 10 minutes** of videos **in the niche you will post in**.",
+          "**Follow at least 5 people**, like and comment.",
+          "**Do not post anything yet.**",
+        ],
+      },
+    ],
+  };
 }
 
 export const ECRANS: Ecran[] = [
@@ -120,14 +184,13 @@ export const ECRANS: Ecran[] = [
     mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "titre", texte: "1. ALL COMMUNICATION HAPPENS ON SLACK." },
+      { type: "titre", texte: "1. JOIN SLACK (RECOMMENDED)" },
       {
         type: "p",
-        texte:
-          "You will be invited to **your country's channel**, to chat and connect with the team.",
+        texte: "Join with your **full name**: that's where you get news and answers to your questions.",
       },
+      { type: "rejoindreSlack" },
       { type: "alerte", ton: "orange", items: [`Any question? Ask it in **${SALON_QUESTIONS}** on Slack.`] },
-      { type: "lien", avant: "**If you are not in it yet:**", libelle: "here is the link", href: LIEN_SLACK },
     ],
   },
   {
@@ -136,14 +199,8 @@ export const ECRANS: Ecran[] = [
     mico: "happy",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "Your **hiring manager** handles your payments." },
-      {
-        type: "etapes",
-        items: [
-          "Any issue with a payment: **message your hiring manager on Slack**. They are the right person, and the fastest.",
-          `No answer? **Send a direct message to ${CONTACTS_PAIEMENT}** on Slack.`,
-        ],
-      },
+      { type: "p", texte: "You're paid **every Monday on Upwork by Vik Studios**." },
+      { type: "alerte", ton: "orange", items: [QUESTIONS_PAIE] },
     ],
   },
   {
@@ -167,51 +224,7 @@ export const ECRANS: Ecran[] = [
       },
     ],
   },
-  {
-    cle: "compte",
-    titre: "Setting up your account",
-    mico: "think",
-    attente: ATTENTE_TEXTE_S,
-    blocs: [
-      { type: "p", texte: "Your **first week**, step by step:" },
-      {
-        type: "frise",
-        items: [
-          {
-            quand: "Today",
-            titre: "Create your TikTok account",
-            texte:
-              "With an email address of your choice. Use the handle, bio and profile picture from your dashboard, **exactly as provided**.",
-          },
-          {
-            quand: "Right after",
-            titre: "Press “Start warmup”",
-            texte: "On your dashboard. It tells us you have started, so we can follow your account.",
-          },
-          {
-            quand: "Every day until Monday",
-            titre: "Warm up your account",
-            texte: "Use TikTok like a normal person, in your niche. **Do not post anything.**",
-          },
-          {
-            quand: "Next Monday",
-            titre: "Your first posts",
-            texte: "Your slideshows arrive on the platform, **with your cohort**. You start posting.",
-          },
-        ],
-      },
-      {
-        type: "alerte",
-        ton: "rouge",
-        titre: "The warm-up, every day until your first posts",
-        items: [
-          "Scroll **at least 10 minutes** of videos **in the niche you will post in**.",
-          "**Follow at least 5 people**, like, comment, and **repost at least 2 videos**.",
-          "**Do not post anything yet.**",
-        ],
-      },
-    ],
-  },
+  ecranCompte(null, null),
   {
     cle: "posting",
     titre: "Posting your slideshows",
@@ -248,6 +261,7 @@ export const ECRANS: Ecran[] = [
           "The link goes **on the platform**, not in Slack. That is how we know you posted.",
         ],
       },
+      { type: "regle", regle: "lien" },
       { type: "titre", texte: "Watch the demo carefully" },
       {
         type: "p",
@@ -298,7 +312,6 @@ export const ECRANS: Ecran[] = [
         items: [
           "**At least 10 minutes** of scrolling, in your niche.",
           "**Follow at least 5 people.**",
-          "**Repost at least 2 videos.**",
           "**If you do not do it, you will not be paid.**",
         ],
       },
@@ -406,7 +419,7 @@ export const QUESTIONS: Question[] = [
     options: [
       "On the platform, on the post's card",
       "In your country's Slack channel",
-      "You send it to your hiring manager",
+      "You send it in a Slack DM",
     ],
     bonne: 0,
     ecran: "posting",
@@ -423,7 +436,7 @@ export const QUESTIONS: Question[] = [
     question: "What do you do during your warmup?",
     options: [
       "Post your first slideshow straight away",
-      "At least 10 minutes of scrolling in your niche, follow at least 5 people, repost at least 2 videos, and no posting yet",
+      "At least 10 minutes of scrolling in your niche, follow at least 5 people, and no posting yet",
       "Nothing at all, you just wait",
     ],
     bonne: 1,
@@ -448,7 +461,7 @@ export const QUESTIONS: Question[] = [
     question: "I have an issue regarding a payment. What do I do?",
     options: [
       "I post about it in my country's channel",
-      `I message my hiring manager on Slack. No answer? I DM ${CONTACTS_PAIEMENT}`,
+      `I ask in ${SALON_QUESTIONS} on Slack, or I reply to Vik Studios’ message on Upwork`,
       "I wait for the next payment",
     ],
     bonne: 1,
@@ -469,6 +482,9 @@ export interface ContexteAccueil {
   identite?: { prenom: string; nom: string } | null;
   /** Lundi de démarrage (AAAA-MM-JJ) : fin du warm-up, premiers posts, premier paiement. */
   debutLe?: string | null;
+  /** Le @ TikTok à créer et le jour du 1er post (« Monday 2 November »), pour les 5 étapes. */
+  handle?: string | null;
+  premierPost?: string | null;
 }
 
 function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
@@ -533,7 +549,11 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
  * cohorte Ruul remplace deux écrans, elle n'en ajoute pas.
  */
 export function ecransPour(contexte: ContexteAccueil | null | undefined): Ecran[] {
-  if (!contexte?.cohorteRuul) return ECRANS;
+  if (!contexte?.cohorteRuul) {
+    if (!contexte?.handle && !contexte?.premierPost) return ECRANS;
+    const compte = ecranCompte(contexte.handle ?? null, contexte.premierPost ?? null);
+    return ECRANS.map((e) => (e.cle === "compte" ? compte : e));
+  }
   const remplacants = ecransCohorteRuul(contexte.emailRuul);
   return ECRANS.map((e) => remplacants[e.cle] ?? e);
 }

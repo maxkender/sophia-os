@@ -1,12 +1,11 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MemoryRouter } from "react-router-dom";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { PropositionCkd } from "@/features/ckd/api";
-import type { CompteCohorte } from "@/features/ckd/cohorte/api";
 
 const api = vi.hoisted(() => ({
   listerControles: vi.fn(),
@@ -44,6 +43,17 @@ const cohorteApi = vi.hoisted(() => ({
   releverWarmup: vi.fn(),
 }));
 vi.mock("@/features/ckd/cohorte/api", () => cohorteApi);
+const decisionsApi = vi.hoisted(() => ({
+  lireADecider: vi.fn(async () => []),
+  lireSemaine: vi.fn(async () => ({
+    mercredi: { envoyes: 0 },
+    jeudi: { calcule: false, propositions: 0, a_decider: 0 },
+    samedi: { calcule: false, propositions: 0, a_decider: 0 },
+    dimanche: { prevus: 0, faits: 0 },
+    lundi: { lignes: 0, payees: 0 },
+  })),
+}));
+vi.mock("@/features/ckd/decisions/api", () => decisionsApi);
 
 import { AdminCheckKillDoublePage } from "./AdminCheckKillDoublePage";
 
@@ -108,7 +118,7 @@ function chiffre(intitule: string): HTMLElement {
   return within(screen.getByTestId("chiffres-ckd")).getByText(intitule).closest("div") as HTMLElement;
 }
 
-/** Le suivi global par défaut (la page d'avant 0356) ; `"/"` ouvre le suivi cohorte. */
+/** Le suivi global (la vue par défaut depuis la page Cohortes, prompt 17). */
 function rendre(entree = "/?vue=global") {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
@@ -309,7 +319,7 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const bruno = await screen.findByTestId("proposition-bruno.reveil101");
     for (const nom of ["Envoyer le nudge", "Recréer le compte", "Rien"]) {
       expect(within(bruno).getByRole("button", { name: nom })).toBeEnabled();
@@ -344,12 +354,12 @@ describe("AdminCheckKillDoublePage", () => {
     expect(within(decision).getByText(/pas encore envoyé au HM/)).toBeInTheDocument();
     expect(within(decision).getByText("Note : vérifier ses liens")).toBeInTheDocument();
     expect(chiffre("Sans décision")).toHaveTextContent(/^Sans décision0/);
-    expect(chiffre("À envoyer aux HM")).toHaveTextContent(/^À envoyer aux HM1/);
+    expect(chiffre("À envoyer (dimanche 12 h)")).toHaveTextContent(/^À envoyer \(dimanche 12 h\)1/);
     fireEvent.click(within(decision).getByRole("button", { name: "Annuler la décision" }));
     await waitFor(() => expect(api.annulerCkd).toHaveBeenCalledWith("p4"));
   });
 
-  it("envoie aux HM les décisions prêtes, après confirmation", async () => {
+  it("prompt 15 : plus de bouton « Envoyer aux HM », les décisions prêtes partent le dimanche", async () => {
     api.listerPropositions.mockResolvedValue([
       proposition({ decision: "recreer", decision_par: "admin-1", decision_at: "2026-10-24T08:00:00Z" }),
       proposition({
@@ -364,17 +374,16 @@ describe("AdminCheckKillDoublePage", () => {
     api.listerHandles.mockResolvedValue([{ id: "nouveau-1", handle_tiktok: "katerina.nea" }]);
     rendre();
     // Recréer sans compte créé ne part pas : 1 seule décision prête.
-    const bouton = await screen.findByRole("button", { name: "Envoyer aux HM (1)" });
     expect(await screen.findByText(/compte créé : @katerina.nea/)).toBeInTheDocument();
     expect(screen.getByText(/compte pas encore confirmé/)).toBeInTheDocument();
-    fireEvent.click(bouton);
-    await waitFor(() => expect(api.envoyerAuxHm).toHaveBeenCalledWith("ctrl-samedi"));
-    expect(window.confirm).toHaveBeenCalled();
+    expect(chiffre("À envoyer (dimanche 12 h)")).toHaveTextContent(/1/);
+    expect(screen.queryByRole("button", { name: /Envoyer aux HM/ })).toBeNull();
+    expect(api.envoyerAuxHm).not.toHaveBeenCalled();
   });
 
   it("le jeudi, envoie tous les nudges encore sans décision", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     fireEvent.click(await screen.findByRole("button", { name: "Envoyer les nudges (1)" }));
     await waitFor(() => expect(api.envoyerNudgesCkd).toHaveBeenCalledWith("ctrl-jeudi"));
   });
@@ -449,7 +458,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("le nudge d'un posteur : texte de Réglages pré-rempli, modifiable pour lui seul", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const titre = await within(alice).findByRole("textbox", { name: "Titre du pop-up" });
@@ -465,44 +474,20 @@ describe("AdminCheckKillDoublePage", () => {
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
         popup: { titre: "Some posts are missing", corps: "Your first day was Sunday: post every day from now on." },
         hm: null,
-        suiviHm: true,
+        suiviHm: false,
       }),
     );
   });
 
-  it("le message au HM : consigne par défaut pré-remplie, modifiable, et pas de note à part", async () => {
+  it("prompt 15 : plus de message au HM ni de suivi dans #managers-hq, la décision part sans suivi", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
-    const message = await within(alice).findByRole("textbox", { name: "Message au HM" });
-    expect(message).toHaveValue("• Some posts are missing or have no link in the OS. (2/4 published)");
-    expect(api.apercuHmCkd).toHaveBeenCalledWith("p3");
-    expect(within(alice).queryByRole("textbox", { name: "Note" })).toBeNull();
-    expect(within(alice).getByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeChecked();
-
-    fireEvent.change(message, { target: { value: " Her 2 missing posts are from Sunday, her first day. " } });
-    expect(within(alice).getByText("modifié pour ce posteur")).toBeInTheDocument();
-    fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
-    await waitFor(() =>
-      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
-        popup: null,
-        hm: "Her 2 missing posts are from Sunday, her first day.",
-        suiviHm: true,
-      }),
-    );
-  });
-
-  it("suivi du HM décoché : seul le pop-up part, et la décision ne compte pas dans « Envoyer aux HM »", async () => {
-    rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
-    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
-    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
-    const suivi = await within(alice).findByRole("checkbox", { name: "Suivi du HM dans #managers-hq" });
-    await within(alice).findByRole("textbox", { name: "Message au HM" });
-    fireEvent.click(suivi);
+    await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
     expect(within(alice).queryByRole("textbox", { name: "Message au HM" })).toBeNull();
-    expect(within(alice).getByText(/seul le pop-up part/)).toBeInTheDocument();
+    expect(within(alice).queryByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeNull();
+    expect(api.apercuHmCkd).not.toHaveBeenCalled();
     fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
     await waitFor(() =>
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
@@ -511,7 +496,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("nudge sans retouche : le texte de Réglages, et un texte vidé bloque la confirmation", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const corps = await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
@@ -525,10 +510,12 @@ describe("AdminCheckKillDoublePage", () => {
     expect(corps).toHaveValue("Some posts planned for @alice.utvecklas492 were not published.");
     expect(confirmer).toBeEnabled();
     fireEvent.click(confirmer);
-    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null));
+    await waitFor(() =>
+      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
+    );
   });
 
-  it("un nudge décidé sans suivi du HM : affiché comme tel, jamais à envoyer aux HM", async () => {
+  it("un nudge décidé sans suivi du HM : jamais à envoyer aux HM", async () => {
     const avant = api.listerPropositions.getMockImplementation()!;
     api.listerPropositions.mockImplementation(async (id: string) =>
       id === "ctrl-jeudi"
@@ -550,16 +537,15 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
-    expect(await within(alice).findByText(/sans suivi HM/)).toBeInTheDocument();
+    expect(await within(alice).findByText(/par /)).toBeInTheDocument();
     expect(within(alice).queryByText(/pas encore envoyé au HM/)).toBeNull();
-    expect(screen.getByRole("button", { name: "Envoyer aux HM (0)" })).toBeDisabled();
   });
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : Recréer" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     expect(within(alice).getByText("à surveiller")).toBeInTheDocument();
     expect(within(alice).getByText("discipline")).toBeInTheDocument();
@@ -604,165 +590,47 @@ describe("AdminCheckKillDoublePage", () => {
     await waitFor(() => expect(api.enregistrerSlackHm).toHaveBeenCalledWith("sara", "U0BST9HKKBQ"));
   });
 
-  describe("suivi cohorte", () => {
-    function compteCohorte(p: Partial<CompteCohorte>): CompteCohorte {
-      return {
-        compte_id: "c",
-        poster_id: "poster-clara",
-        hm_id: LUCIA,
-        handle: "h",
-        pays: "ES",
-        langue: "es",
-        application: "sophia",
-        is_active: true,
-        cree_le: "2026-10-19T09:00:00Z",
-        warmup_lance_le: null,
-        warmup_fin: null,
-        premier_jour: null,
-        glisse_de: null,
-        seuil_mort: 50,
-        seuil_bon: 3000,
-        posts: [],
-        releves: [],
-        ...p,
-      };
+  describe("suivi cohorte → page Cohortes (prompt 17, partie B)", () => {
+    function rendreAvecRoutes(entree: string) {
+      const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+      return render(
+        <QueryClientProvider client={client}>
+          <MemoryRouter initialEntries={[entree]}>
+            <TooltipProvider>
+              <Routes>
+                <Route path="/" element={<AdminCheckKillDoublePage />} />
+                <Route path="/admin/auto/recruits" element={<p>page cohortes</p>} />
+              </Routes>
+            </TooltipProvider>
+          </MemoryRouter>
+        </QueryClientProvider>,
+      );
     }
-    const semaine = (jours: string[], vues: (number | null)[]) =>
-      jours.flatMap((jour, i) => [0, 1].map((k) => {
-        const v = vues[i * 2 + k] ?? null;
-        return { jour, vues: v, url: v === null ? null : `https://www.tiktok.com/@x/photo/${i}${k}`, mesure: v !== null };
-      }));
-    const JOURS = ["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23"];
 
-    beforeEach(() => {
-      // Samedi 24 octobre, 10 h à Paris.
-      vi.useFakeTimers({ toFake: ["Date"] });
-      vi.setSystemTime(new Date("2026-10-24T08:00:00Z"));
-      cohorteApi.lireCohorte.mockImplementation(async (lundi: string) =>
-        lundi === "2026-10-19"
-          ? [
-              compteCohorte({
-                compte_id: "compte-ionut",
-                handle: "ionut.mentalitate346",
-                premier_jour: "2026-10-19",
-                posts: semaine(JOURS, [null, null, 300, null, null, null, null, null, null, null]),
-              }),
-              compteCohorte({
-                compte_id: "compte-katerina",
-                handle: "katerina.exelissetai333",
-                premier_jour: "2026-10-19",
-                posts: semaine(JOURS, [4000, 3500, 900, 5000, 3100, 700, 800, 4200, 1200, 600]),
-              }),
-            ]
-          : lundi === "2026-10-26"
-            ? [
-                compteCohorte({
-                  compte_id: "w1",
-                  handle: "lucia.lectura214",
-                  warmup_lance_le: "2026-10-20T10:00:00Z",
-                  releves: [
-                    { at: "2026-10-24T06:02:00Z", existe: true, cree_tiktok_at: "2026-10-20T08:00:00Z",
-                      abonnements: 18, likes: 52, abonnes: 0, videos: 0 },
-                  ],
-                }),
-                compteCohorte({
-                  compte_id: "w2",
-                  handle: "tomas.habitos119",
-                  cree_le: "2026-10-21T09:00:00Z",
-                  releves: [
-                    { at: "2026-10-24T06:02:00Z", existe: false, cree_tiktok_at: null, abonnements: null, likes: null,
-                      abonnes: null, videos: null },
-                  ],
-                }),
-                compteCohorte({
-                  compte_id: "w3",
-                  handle: "sara.idee184",
-                  cree_le: "2026-10-23T15:00:00Z",
-                  glisse_de: "2026-10-19",
-                  releves: [
-                    { at: "2026-10-24T06:02:00Z", existe: false, cree_tiktok_at: null, abonnements: null, likes: null,
-                      abonnes: null, videos: null },
-                  ],
-                }),
-              ]
-            : [],
-      );
-      cohorteApi.releverWarmup.mockResolvedValue({ ok: true, comptes: 3, existent: 1, introuvables: 2, illisibles: 0 });
-    });
-    afterEach(() => vi.useRealTimers());
-
-    it("par défaut : la paire S43 / S44 et, le samedi, le kill / keep de la cohorte seulement", async () => {
-      rendre("/");
-      expect(await screen.findByTestId("vue-cohorte")).toBeInTheDocument();
-      expect(screen.getByRole("tab", { name: "S43 · 1re semaine de posts" })).toHaveAttribute("aria-selected", "true");
-      expect(screen.getByRole("tab", { name: "S44 · Warm-up" })).toHaveAttribute("aria-selected", "false");
-      expect(cohorteApi.lireCohorte).toHaveBeenCalledWith("2026-10-19");
-      expect(cohorteApi.lireCohorte).toHaveBeenCalledWith("2026-10-26");
-
-      // Le samedi : les propositions des comptes de la cohorte, pas celles des autres.
-      const focus = await screen.findByTestId("focus-jour");
-      expect(await within(focus).findByTestId("proposition-ionut.mentalitate346")).toBeInTheDocument();
-      expect(within(focus).getByTestId("proposition-katerina.exelissetai333")).toBeInTheDocument();
-      expect(within(focus).queryByTestId("proposition-clara.eclaire390")).toBeNull();
-      // L'envoi aux HM part pour toutes les cohortes : seulement depuis le suivi global.
-      expect(within(focus).queryByTestId("barre-envoi")).toBeNull();
-      expect(within(focus).getByText(/L'envoi aux HM se fait depuis le suivi global/)).toBeInTheDocument();
-
-      // Compte par compte : publiés sur prévus, et une case par post.
-      const ionut = screen.getByTestId("ligne-poste-ionut.mentalitate346");
-      expect(within(ionut).getByText("1/10")).toBeInTheDocument();
-      expect(within(ionut).getAllByRole("img", { name: /Manqué ou sans lien/ })).toHaveLength(9);
-      expect(within(ionut).getByText("Kill (ne pas renouveler)")).toBeInTheDocument();
-      const katerina = screen.getByTestId("ligne-poste-katerina.exelissetai333");
-      expect(within(katerina).getByText("10/10")).toBeInTheDocument();
-      expect(within(katerina).getByRole("link", { name: /4\D?000 vues · Bon post/ })).toHaveAttribute(
-        "href",
-        "https://www.tiktok.com/@x/photo/00",
-      );
+    it("les onglets 1re semaine / warm-up sont retirés : ?vue=cohorte renvoie vers Cohortes", async () => {
+      rendreAvecRoutes("/?vue=cohorte");
+      expect(await screen.findByText("page cohortes")).toBeInTheDocument();
+      expect(cohorteApi.lireCohorte).not.toHaveBeenCalled();
     });
 
-    it("un autre jour : le suivi du soir, les comptes qui n'ont pas tout posté", async () => {
-      rendre("/");
-      const jours = await screen.findByRole("group", { name: "Jour de la semaine mis en avant" });
-      fireEvent.click(within(jours).getByRole("button", { name: /mar\.? 20/i }));
-      const focus = screen.getByTestId("focus-jour");
-      expect(within(focus).getByText(/1 compte sans tous ses posts/)).toBeInTheDocument();
-      expect(within(focus).getByText("@ionut.mentalitate346", { exact: false })).toBeInTheDocument();
-      expect(within(focus).getByText("1/2")).toBeInTheDocument();
-    });
-
-    it("l'onglet warm-up : statuts, alerte « Start warmup », filtres et relevé à la demande", async () => {
-      rendre("/");
-      fireEvent.click(await screen.findByRole("tab", { name: "S44 · Warm-up" }));
-      const onglet = await screen.findByTestId("onglet-warmup");
-      expect(within(onglet).getByText("2 comptes n'ont pas encore cliqué « Start warmup »")).toBeInTheDocument();
-      expect(within(onglet).getByText(/glissent en S45/)).toBeInTheDocument();
-
-      const lucia = screen.getByTestId("ligne-warmup-lucia.lectura214");
-      expect(within(lucia).getByText("Prêt")).toBeInTheDocument();
-      expect(within(lucia).getByText("18 abonnements · 52 likes")).toBeInTheDocument();
-      const tomas = screen.getByTestId("ligne-warmup-tomas.habitos119");
-      expect(within(tomas).getByText("À relancer")).toBeInTheDocument();
-      expect(within(tomas).getByText("Introuvable sur TikTok")).toBeInTheDocument();
-      const sara = screen.getByTestId("ligne-warmup-sara.idee184");
-      expect(within(sara).getByText("Nouveau")).toBeInTheDocument();
-      expect(within(sara).getByText("glissé de S43")).toBeInTheDocument();
-
-      fireEvent.click(within(onglet).getByRole("button", { name: "Pas sur TikTok 2" }));
-      expect(screen.queryByTestId("ligne-warmup-lucia.lectura214")).toBeNull();
-      expect(screen.getByTestId("ligne-warmup-tomas.habitos119")).toBeInTheDocument();
-
-      fireEvent.click(within(onglet).getByRole("button", { name: "Relever maintenant" }));
-      await waitFor(() => expect(cohorteApi.releverWarmup).toHaveBeenCalled());
-      expect(await within(onglet).findByText(/3 profils relus : 1 sur TikTok, 2 introuvables/)).toBeInTheDocument();
-    });
-
-    it("le bouton « Suivi global » ramène la page d'avant, avec ses onglets", async () => {
-      rendre("/");
-      await screen.findByTestId("vue-cohorte");
-      fireEvent.click(screen.getByRole("button", { name: "Suivi global" }));
-      expect(await screen.findByRole("tab", { name: "Samedi : kill, recréer, doubler" })).toBeInTheDocument();
-      expect(screen.queryByTestId("vue-cohorte")).toBeNull();
+    it("28 oct. : la page « Décisions », 4 onglets, la semaine et « À décider maintenant » ; plus de Cohorts ni de Vue HM", async () => {
+      rendreAvecRoutes("/?vue=hm");
+      expect(await screen.findByRole("heading", { name: /Décisions/ })).toBeInTheDocument();
+      const onglets = screen.getAllByRole("tablist")[0]!;
+      expect(within(onglets).getAllByRole("tab").map((o) => o.textContent)).toEqual([
+        "Décisions",
+        "Shadowban",
+        "Historique",
+        "Réglages",
+      ]);
+      expect(within(onglets).getByRole("tab", { name: "Décisions" })).toHaveAttribute("aria-selected", "true");
+      expect(await screen.findByTestId("semaine-decisions")).toBeInTheDocument();
+      expect(screen.getByTestId("a-decider")).toBeInTheDocument();
+      expect(screen.queryByRole("link", { name: "Cohortes" })).toBeNull();
+      expect(screen.queryByText("Vue HM")).toBeNull();
+      // Plus de « Jeudi : nudges » ni de grille « To recruit ».
+      expect(screen.queryByRole("tab", { name: "Jeudi : nudges" })).toBeNull();
+      expect(screen.queryByTestId("carte-recrutement")).toBeNull();
     });
   });
 });

@@ -668,7 +668,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, upwork_contrat_url, email_perso, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, upwork_contrat_url, email_perso, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url, cohorte_lundi",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -1187,6 +1187,31 @@ export async function ecrireEnvoiAutoRelecture(actif: boolean): Promise<void> {
   await ecrireReglage("relecture_envoi_auto", { actif });
 }
 
+/**
+ * Les créateurs qu'une nuit d'envoi automatique toucherait : ceux qui ont un
+ * brouillon de l'agent la dernière nuit de relecture (un retour chacun au plus).
+ */
+export async function compterPosteursRelecture(): Promise<number> {
+  const { data: dernier, error: errJour } = await supabase
+    .from("relectures_auto")
+    .select("jour")
+    .eq("origine", "cron")
+    .order("jour", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (errJour) throw errJour;
+  if (!dernier) return 0;
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("poster_id")
+    .eq("jour", dernier.jour)
+    .eq("origine", "cron")
+    .eq("statut", "fait")
+    .not("brouillon", "is", null);
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => r.poster_id as string | null).filter(Boolean)).size;
+}
+
 /** Les jours qui ont des relectures de l'agent, le plus récent d'abord. */
 export async function listerJoursRelecture(): Promise<string[]> {
   const { data, error } = await supabase
@@ -1517,6 +1542,39 @@ export interface ContactPoster {
 export function emailPersoValide(email: string): boolean {
   const e = email.trim();
   return !e || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+}
+
+/** Le lien du contrat : vide, ou un lien upwork.com (même contrôle que poster_maj_contact, 0400). */
+/** Prompt 21, A5 : accueil automatique sur « on » et ce contrat déjà accueilli → l'OS crée le posteur lui-même. */
+export async function contratAccueilliAuto(url: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("accueil_contrat_auto", { p_url: url });
+  if (error) throw error;
+  return data === true;
+}
+
+export function contratUpworkValide(url: string): boolean {
+  const u = url.trim();
+  return !u || /^https?:\/\/([a-z0-9-]+\.)*upwork\.com\//i.test(u);
+}
+
+/** À la création : le lien du contrat obligatoire ; l'email perso facultatif, mais lisible s'il est rempli (29 oct.). */
+export function contactCreationComplet(c: { upwork_contrat_url: string; email_perso: string }): boolean {
+  return (
+    Boolean(c.upwork_contrat_url.trim()) &&
+    contratUpworkValide(c.upwork_contrat_url) &&
+    emailPersoValide(c.email_perso)
+  );
+}
+
+/** Contact d'un poster par sa HM (ou l'admin, le Head of Ops) : poster_maj_contact (0400). */
+export async function majContactPosterHm(posterId: string, c: { upwork_url: string; upwork_contrat_url: string; email_perso: string }): Promise<void> {
+  const { error } = await supabase.rpc("poster_maj_contact", {
+    p_poster: posterId,
+    p_upwork_url: c.upwork_url,
+    p_contrat_url: c.upwork_contrat_url,
+    p_email_perso: c.email_perso,
+  });
+  if (error) throw error;
 }
 
 /** Enregistre les liens Upwork et l'email perso d'un poster (fiche admin). Vide = effacé. */
@@ -4251,6 +4309,7 @@ export async function lireReglages(): Promise<Reglages> {
       repechage_passages: 1,
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
+      ecart_min_meme_accroche: 10,
       plancher_b: 3_000,
       fatigue_passages: 8,
       fatigue_plafond: 10_000,
@@ -7605,6 +7664,8 @@ export interface LigneSurveillance {
   surveillance_skip_jusqu: string | null;
   non_renouveler: boolean;
   non_renouveler_at: string | null;
+  /** « ckd:<règle> » : arrêté par un Kill de Check, Kill or Double (0328). */
+  non_renouveler_raison?: string | null;
   non_renouveler_hm_demande: boolean;
   non_renouveler_hm_demande_at: string | null;
   /** Dernier nudge envoyé à ce compte. */
@@ -7621,7 +7682,7 @@ export async function listerSurveillanceComptes(): Promise<LigneSurveillance[]> 
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
+      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_raison, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
     )
     .eq("is_active", true)
     .neq("type_compte", "cm")

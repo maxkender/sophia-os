@@ -249,6 +249,17 @@ export function texteDecision(d: DecisionSlack, semaine: number, lundiDouble?: s
       `New account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to start ` +
         "the warm-up in the OS before Sunday midnight. The old account is already stopped (moved to the Archive); the milestone doesn't change.",
     );
+  } else if (d.decision === "doubler" && !d.nouveauHandle) {
+    // v3 (0382) : le posteur reçoit l'offre dans l'OS et répond lui-même. Pour la HM, de l'information.
+    lignes.push(`:heavy_plus_sign: *Double offered* ${qui}`);
+    lignes.push(
+      "The poster gets a pop-up in the OS from Sunday (Yes / No, until Wednesday night). " +
+        (lundiDouble
+          ? `If they say yes, their 2nd account starts on Monday ${jourAnglais(lundiDouble)}` +
+            ` (milestone "Week ${semaineIso(lundiDouble)} (2 acc)" from then on). `
+          : "") +
+        "Nothing to do for you.",
+    );
   } else if (d.decision === "doubler") {
     lignes.push(`:heavy_plus_sign: *Double* ${qui}`);
     if (lundiDouble) {
@@ -400,6 +411,36 @@ export function texteRappel(jour: string, zones: ZoneSlack[]): string | null {
   }
   if (lignes.length === 0) return null;
   return `:moneybag: *Before funding this week's milestones (week ${semaine})*\n${lignes.join("\n")}`;
+}
+
+const DECISION_MAX: Record<DecisionEnvoyee, string> = {
+  ne_pas_renouveler: "Kill",
+  recreer: "New account",
+  doubler: "Double offered",
+  nudge: "Nudge",
+};
+
+/**
+ * Le récap pour Max en message privé (prompt 15, point 3) : plus de fil par
+ * zone dans #managers-hq. Par HM, chaque décision envoyée, sans mention (rien
+ * à faire pour la HM). `null` s'il n'y a rien.
+ */
+export function texteRecapMax(type: "jeudi" | "samedi", jour: string, zones: ZoneSlack[]): string | null {
+  const lignes: string[] = [];
+  for (const z of zones) {
+    if (z.decisions.length === 0) continue;
+    lignes.push(`*${quiHm(z, false)}${z.zone ? ` · ${z.zone}` : ""}*`);
+    for (const d of z.decisions) {
+      const nouveau = d.nouveauHandle ? ` → @${d.nouveauHandle}` : "";
+      lignes.push(`• ${DECISION_MAX[d.decision]}: ${compte(d.handle)} (${d.poster})${nouveau}`);
+    }
+  }
+  if (lignes.length === 0) return null;
+  const n = zones.reduce((t, z) => t + z.decisions.length, 0);
+  const titre = type === "samedi"
+    ? `:clipboard: *Check, Kill or Double · week ${semaineDesDecisions(jour)}* (${jourCourt(jour)}): ${n} decision${n > 1 ? "s" : ""}`
+    : `:clipboard: *Check, Kill or Double · Thursday follow-ups* (${jourCourt(jour)}): ${n} decision${n > 1 ? "s" : ""}`;
+  return `${titre}\n${lignes.join("\n")}\n_Nothing was posted in #managers-hq. HMs see Kill / Double / New account on their dashboard._`;
 }
 
 // ---------------------------------------------------------------------------

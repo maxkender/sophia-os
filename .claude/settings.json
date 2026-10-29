@@ -1,5 +1,11 @@
 {
   "permissions": {
-    "allow": ["mcp__claude-code-remote__send_message"]
+    "allow": [
+      "mcp__claude-code-remote__send_message",
+      "mcp__Supabase",
+      "mcp__Notion",
+      "mcp__Claude_Docs",
+      "Artifact"
+    ]
   }
 }

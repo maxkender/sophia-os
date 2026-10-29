@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o073",
+ "titre": "things that will make you dangerously intelligent #selfimprovement #intelligence #learning #curiosity #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "aa47cba6-943f-499b-b1b5-329e5e960921"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, aa47cba6). format « things that » (label : r 1,25). Couverture neuve. cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35c2e07c-8280-4556-900b-e5c198de24fb",
+   "texte_overlay": "things that will make you\ndangerously intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669910769860906254/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a0ee7edf-ac17-4b43-a4c3-3a445802eef9",
+   "texte_overlay": "the why habit\n\nwhenever something works, from a fridge to a joke, ask yourself why it works. people who ask why all day end up understanding the world while everyone else just uses it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669910769860906254/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ec88d87f-d094-4918-b8dd-0762ea7b58a3",
+   "texte_overlay": "reading outside your field\n\nonce a week, read one article from a field you know nothing about: medicine, law, design. the best ideas come from mixing worlds that most people keep separate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669910769860906254/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2cd42eb4-fbd7-4456-ae23-fb6621ef95c8",
+   "texte_overlay": "a notebook of questions\n\ncarry a small notebook and write down every question that pops into your head. at the end of the week, look up three of them. curiosity only pays when you follow it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669910769860906254/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d6dd4f7f-bab7-46d2-8431-897e3c66a74d",
+   "texte_overlay": "five minutes of something hard\n\nspend 5 minutes a day on one lesson that stretches you: a theory in physics, an idea in philosophy, an economic concept. small doses of hard things sharpen your mind every week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669910769860906254/5.jpg",
+   "texte_sophia": "five minutes of something hard\n\nspend 5 minutes a day on one lesson that stretches you: physics, philosophy, economics. the Sophia app turns it into one short lesson a day, and small doses of hard ideas sharpen your mind."
+  },
+  {
+   "position": 6,
+   "media_id": "ce60bee2-f7aa-4ebe-b200-374962835269",
+   "texte_overlay": "watching experts work\n\nwatch one video a week of a real expert doing their job: a chef, a surgeon, a carpenter. seeing how masters think is a shortcut that most people never think to take.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669910769860906254/6.jpg"
+  }
+ ]
+}

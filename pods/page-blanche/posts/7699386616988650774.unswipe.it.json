@@ -1,0 +1,296 @@
+{
+ "post_id": "7699386616988650774",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things quietly destroying",
+      "your discipline"
+     ],
+     "fr": "10/10 trucs qui flinguent ta discipline en silence",
+     "texte": "10/10 cose che uccidono piano la tua disciplina"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(lo dice la scienza)",
+     "alignement": "droite"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "aspettare [[la motivazione giusta]]"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "la motivazione è solo un'emozione, e le emozioni [[vanno e vengono]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "se lavori solo quando ti va, [[non lavorerai quasi mai]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "la disciplina è farlo [[anche quando non ti va]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "telling everyone your goals"
+     ],
+     "fr": "crier [[tes objectifs]] partout",
+     "texte": "dire a tutti [[i tuoi obiettivi]]"
+    },
+    "T2": {
+     "en": [
+      "when people say “that’s amazing”, your brain gets the",
+      "reward before you’ve done anything"
+     ],
+     "fr": "quand on te dit « trop bien », ton cerveau a sa récompense [[avant même que t'aies rien fait]]",
+     "texte": "se ti dicono “che figata”, il cervello si premia [[prima che tu abbia fatto qualcosa]]"
+    },
+    "T3": {
+     "en": [
+      "so the motivation to",
+      "actually do it quietly",
+      "disappears"
+     ],
+     "fr": "du coup l'envie de vraiment le faire [[s'évapore en douce]]",
+     "texte": "così la voglia di farlo davvero [[sparisce in silenzio]]"
+    },
+    "T4": {
+     "en": [
+      "keep it to yourself until",
+      "you’ve actually done it"
+     ],
+     "fr": "garde-le pour toi jusqu'à [[ce que ce soit fait]]",
+     "texte": "tienilo per te finché [[non l'hai fatto davvero]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "living on cheap dopamine"
+     ],
+     "fr": "vivre de [[dopamine facile]]",
+     "texte": "vivere di [[dopamina facile]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling, youtube, snacks, games, your brain gets",
+      "rewarded all day for doing nothing"
+     ],
+     "fr": "scroll, youtube, grignotage, jeux : ton cerveau est [[récompensé toute la journée]] pour rien",
+     "texte": "scroll, youtube, snack, giochi: il tuo cervello è [[premiato tutto il giorno]] per niente"
+    },
+    "T3": {
+     "en": [
+      "so hard things start feeling",
+      "impossible"
+     ],
+     "fr": "du coup l'effort te paraît [[impossible]]",
+     "texte": "e le cose difficili sembrano [[impossibili]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with this until i",
+      "found this thing that blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "avant je [[scrollais H24]], maintenant quitte à être sur mon tel, je fais [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "prima [[scrollavo reel]] tutto il giorno, ora il difficile mi sembra di nuovo fattibile. togli i reel da insta con [[l'app UnSwipe]]"
+    },
+    "T5": {
+     "en": [
+      "earn your dopamine!!"
+     ],
+     "fr": "[[mérite ta dopamine !!]]",
+     "texte": "[[guadagnati la dopamina!!]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "il pensiero [[tutto o niente]]"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "salti un allenamento o mangi male una volta, e decidi che [[la settimana è rovinata]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "così molli tutto invece di [[rimetterti in carreggiata]] il giorno dopo"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "conta la costanza: [[fare bene ogni giorno batte essere geniale ogni tanto]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "too many small decisions"
+     ],
+     "fr": "trop de [[petites décisions]]",
+     "texte": "troppe [[piccole decisioni]]"
+    },
+    "T2": {
+     "en": [
+      "what to wear, what to eat,",
+      "when to start, every",
+      "choice uses up willpower"
+     ],
+     "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
+     "texte": "cosa metti, cosa mangi, quando inizi: ogni scelta [[consuma volontà]]"
+    },
+    "T3": {
+     "en": [
+      "this is called decision",
+      "fatigue"
+     ],
+     "fr": "ça s'appelle la [[fatigue décisionnelle]]",
+     "texte": "si chiama [[fatica decisionale]]"
+    },
+    "T4": {
+     "en": [
+      "plan tomorrow the night",
+      "before, so in the",
+      "morning you just start"
+     ],
+     "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
+     "texte": "pianifica domani la sera prima, così al mattino [[inizi e basta]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

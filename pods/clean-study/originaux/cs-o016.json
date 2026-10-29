@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o016",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "if you've ever blanked on a test you studied for… #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "La seule reprise du jour d'une famille déjà livrée 3 fois en 7 jours (ROUTINE point 6). Schéma relatable-struggle-fix (@sofiya.yussupova : 323 k vues le 21/10). Accroches écrites : « studying all week and still blanking the second i see the test » (retenue : galère universelle, en minuscules), « knowing everything at home and nothing in the exam room » (écartée : proche), « being so stressed about the test that i forget my own name » (écartée : hors méthode). Cinq gestes vrais, absents de nos originaux : s'entraîner dans les conditions de l'épreuve, écrire de mémoire avant de regarder ses notes (place micabo, slide 4), ne pas réviser 10 minutes avant, écrire les formules en début d'épreuve, la nuit d'avant sans écran au lit (place UnSwipe, slide 7). Rien de médical : la santé reste générale. Images sans visage ; slides 4 et 7 sans personne. Couverture changée le 28/10 (ROUTINE §4.7) : e83e4f12 était la même photo que la couverture de cs-o012 (87b8b3f2).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "dcf829c1",
+      "texte_overlay": "studying all week and still blanking the second i see the test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d6afa6ab",
+      "texte_overlay": "how i finally fixed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e0aa4fd4",
+      "texte_overlay": "i practice like it's the real test.\ntimer on, notes closed, no music. so the real one feels familiar.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ea4a5e70",
+      "texte_overlay": "before i open my notes, i write everything i remember.\nif it only comes out with the notes open, i don't know it yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c5f4e53d",
+      "texte_overlay": "no last-minute cramming in the hallway.\nthose 10 minutes only make me doubt what i already know.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d0fffaa2",
+      "texte_overlay": "first thing on the test: i write the formulas and dates i'm scared to forget.\nthen my head is free.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d2a46b01",
+      "texte_overlay": "the night before: screens off in bed, lights off early.\nsleep is when it all sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c767275f",
+      "texte_overlay": "now what i studied actually shows up on the test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

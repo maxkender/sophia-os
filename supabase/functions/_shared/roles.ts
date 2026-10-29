@@ -49,3 +49,17 @@ export function roleACreer(
   const peutCreerHm = roleCreateur === "admin" || estRoleManager(roleCreateur);
   return roleDemande === "hiring_manager" && peutCreerHm ? "hiring_manager" : "poster";
 }
+
+/**
+ * Prompt 15, point 1 : ce qu'une HM ne fait plus, côté serveur comme dans
+ * l'interface — ajouter un compte, activer / désactiver un posteur, créer un
+ * hiring manager. L'admin et le Head of Ops gardent ces droits (le DM non,
+ * prompt 21 A5) ;
+ * l'appel interne (cron, Check, Kill or Double) passe en admin.
+ */
+export function refuseAuHm(roleAppelant: string, action: unknown, roleDemande?: unknown): boolean {
+  // Prompt 21, A5 : le DM est bloqué comme une HM.
+  if (roleAppelant !== "hiring_manager" && roleAppelant !== "directing_manager") return false;
+  if (action === "ajouter_compte" || action === "ajouter_compte_perso" || action === "activer") return true;
+  return action === "create" && roleDemande === "hiring_manager";
+}

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, Check, ChevronRight, ExternalLink, EyeOff, List, RefreshCw, Send, Users } from "lucide-react";
+import { Check, ChevronRight, ExternalLink, RefreshCw } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -23,7 +23,6 @@ import {
   enregistrerCanalSlack,
   enregistrerSlackHm,
   enregistrerTextesNudges,
-  envoyerAuxHm,
   envoyerNudgesCkd,
   type ChiffresCkd,
   type DecisionCkd,
@@ -86,9 +85,10 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
-import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
-import { VueHm } from "@/features/ckd/vueHm/VueHm";
-import { CarteRecrutement } from "@/features/ckd/CarteRecrutement";
+import { ADeciderCarte } from "@/features/ckd/decisions/ADeciderCarte";
+import { SemaineDecisions } from "@/features/ckd/decisions/SemaineDecisions";
+import { ReglagesMessages } from "@/features/messagesPosteurs/ReglagesMessages";
+import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
@@ -114,11 +114,9 @@ const POINT_ACTION: Record<ActionCkd, string> = {
   nudge: "bg-info",
 };
 
-const ONGLETS = ["samedi", "jeudi", "historique", "reglages"] as const;
+/** Les onglets de la page Decisions (28 oct.). */
+const ONGLETS = ["decisions", "shadowban", "historique", "reglages"] as const;
 type Onglet = (typeof ONGLETS)[number];
-
-/** La semaine du contrôle, dans l'ordre : ce qui tourne, qui décide, quand ça part. */
-const ETAPES = ["jeudi", "samedi", "decision", "envoi"] as const;
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -151,137 +149,105 @@ interface FiltreCohorte {
 }
 
 /**
- * Admin → Check, Kill or Double (PROMPT 5, migration 0326). Le jeudi 6 h, les
- * nudges proposés aux comptes dans leur première semaine ; le samedi 6 h, les
- * comptes à tuer (recréer, ne pas renouveler) et les posteurs à doubler. L'admin
- * décide ligne par ligne (0328) ; les décisions partent aux HMs dans
- * #managers-hq (bouton, ou tout seul le dimanche à 12 h).
- *
- * Deux vues (0356) : « Suivi cohorte », la paire de cohortes de nouveaux
- * posteurs (celle qui poste, celle en warm-up), et « Suivi global », la page
- * telle qu'elle était, pour toutes les cohortes. `?vue=global` ouvre la seconde.
- * « Vue HM » (`?vue=hm`, 0370) : le dashboard des HMs, avec le choix de la HM.
+ * Admin → Decisions (ex Check, Kill or Double ; chantier du 28 oct.). En haut,
+ * la vraie semaine (mercredi check auto, jeudi Recréer, samedi Kill ou
+ * Double, dimanche arrêts, lundi paie) ; puis un seul bloc « À décider
+ * maintenant » ; le détail de chaque contrôle en dessous. Onglets : Décisions
+ * · Shadowban · Historique · Réglages. `?vue=cohorte` renvoie vers Cohorts ;
+ * `?vue=shadowban` ouvre l'onglet Shadowban. Le récap du dimanche part à Max
+ * seulement (fonction `ckd`).
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const brut = params.get("vue");
-  const vue: Vue = brut === "global" || brut === "shadowban" || brut === "hm" ? brut : "cohorte";
-  const choisirVue = (v: Vue) =>
+  const onglet: Onglet = brut === "shadowban" || brut === "historique" || brut === "reglages" ? brut : "decisions";
+  const choisir = (o: Onglet) =>
     setParams(
       (p) => {
         const n = new URLSearchParams(p);
-        if (v === "cohorte") n.delete("vue");
-        else n.set("vue", v);
+        if (o === "decisions") n.delete("vue");
+        else n.set("vue", o);
         return n;
       },
       { replace: true },
     );
-  const [onglet, setOnglet] = React.useState<Onglet>("samedi");
+
+  if (brut === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
   return (
     <div className="space-y-6" data-testid="page-ckd">
       <PageHeader
         title={
           <span className="inline-flex items-center gap-2">
-            {t("ckd.titre")}
-            <Aide libelle={t("ckd.titre")}>
-              <ul className="list-disc space-y-1 pl-4">
-                <li>{t("ckd.calendrierJeudi")}</li>
-                <li>{t("ckd.calendrierSamedi")}</li>
-                <li>{t("ckd.calendrierVues")}</li>
-              </ul>
-              <p className="mt-1.5">{t("ckd.circuit")}</p>
+            {t("decisions.titre")}
+            <Aide libelle={t("decisions.titre")}>
+              <p>{t("ckd.circuit")}</p>
             </Aide>
           </span>
         }
-        description={t("ckd.description")}
-        actions={<ChoixVue vue={vue} onChange={choisirVue} />}
+        description={t("decisions.description")}
       />
 
-      {vue === "shadowban" ? (
-        <VueShadowban />
-      ) : vue === "hm" ? (
-        <VueHm />
-      ) : vue === "cohorte" ? (
-        <VueCohorte
-          ouvrirGlobal={() => choisirVue("global")}
-          rendreControle={(type, jour, comptes) => (
-            <VueControles key={`${type}-${jour}`} type={type} cohorte={{ jour, comptes }} />
-          )}
-        />
-      ) : (
-        <>
-          <Semaine />
+      <Onglets actif={onglet} onChange={choisir} />
 
-          <Onglets actif={onglet} onChange={setOnglet} />
-
-          <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
-            {onglet === "reglages" ? (
-              <VueReglages />
-            ) : onglet === "historique" ? (
-              <VueHistorique />
-            ) : (
-              <VueControles key={onglet} type={onglet} />
-            )}
+      <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
+        {onglet === "shadowban" ? (
+          <VueShadowban />
+        ) : onglet === "historique" ? (
+          <VueHistorique />
+        ) : onglet === "reglages" ? (
+          <div className="space-y-6">
+            <VueReglages />
+            <ReglagesMessages />
           </div>
-        </>
-      )}
+        ) : (
+          <div className="space-y-6">
+            <SemaineDecisions />
+            <ADeciderCarte />
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("decisions.details")}</summary>
+              <div className="mt-4 space-y-6">
+                <DetailControles />
+                <SuiviMessages admin />
+              </div>
+            </details>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
-type Vue = "cohorte" | "global" | "shadowban" | "hm";
-
-/** Suivi cohorte, suivi global ou Shadowban : des boutons collés, celui de la vue affichée en avant. */
-function ChoixVue({ vue, onChange }: { vue: Vue; onChange: (v: Vue) => void }) {
+/** Le détail d'un contrôle : celui du samedi (Kill ou Double) ou du jeudi (Recréer), un à la fois. */
+function DetailControles() {
   const { t } = useTranslation();
+  const [type, setType] = React.useState<TypeControle>("samedi");
   return (
-    <div role="group" aria-label={t("ckd.cohorte.vues.aria")} className="inline-flex rounded-lg border bg-muted/40 p-1">
-      {(
-        [
-          { v: "cohorte", icone: <Users className="size-4" aria-hidden /> },
-          { v: "global", icone: <List className="size-4" aria-hidden /> },
-          { v: "shadowban", icone: <EyeOff className="size-4" aria-hidden /> },
-          { v: "hm", icone: <CalendarDays className="size-4" aria-hidden /> },
-        ] as const
-      ).map(({ v, icone }) => (
-        <button
-          key={v}
-          type="button"
-          aria-pressed={vue === v}
-          onClick={() => onChange(v)}
-          className={cn(
-            "inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors",
-            "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
-            vue === v ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
-          )}
-        >
-          {icone}
-          {t(`ckd.cohorte.vues.${v}`)}
-        </button>
-      ))}
+    <div className="space-y-4">
+      <div role="tablist" aria-label={t("decisions.details")} className="inline-flex gap-1 rounded-lg border bg-muted/40 p-1">
+        {(["samedi", "jeudi"] as const).map((o) => (
+          <button
+            key={o}
+            type="button"
+            role="tab"
+            aria-selected={o === type}
+            onClick={() => setType(o)}
+            className={cn(
+              "rounded-md px-2.5 py-1 text-sm transition-colors",
+              o === type ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {t(`ckd.onglets.${o}`)}
+          </button>
+        ))}
+      </div>
+      <VueControles key={type} type={type} />
     </div>
   );
 }
 
-/** Les quatre temps de la semaine, en une bande : remplace le pavé d'explications. */
-function Semaine() {
-  const { t } = useTranslation();
-  return (
-    <ol className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border bg-border/70 sm:grid-cols-2 lg:grid-cols-4">
-      {ETAPES.map((e) => (
-        <li key={e} className="min-w-0 bg-card px-4 py-3">
-          <p className={MICRO_LABEL}>{t(`ckd.semaine.${e}Quand`)}</p>
-          <p className="mt-0.5 text-sm font-medium">{t(`ckd.semaine.${e}`)}</p>
-          <p className="text-xs text-muted-foreground">{t(`ckd.semaine.${e}Detail`)}</p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-/** Les onglets de la page Allocation : flèches, Début et Fin pour passer de l'un à l'autre. */
+/** Les onglets de la page : flèches, Début et Fin pour passer de l'un à l'autre. */
 function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => void }) {
   const { t } = useTranslation();
   return (
@@ -319,7 +285,7 @@ function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => 
             o === actif ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
           )}
         >
-          {t(`ckd.onglets.${o}`)}
+          {t(`decisions.onglets.${o}`)}
         </button>
       ))}
     </div>
@@ -416,10 +382,6 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
     mutationFn: () => envoyerNudgesCkd(controle!.id),
     onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
   });
-  const envoyerHm = useMutation({
-    mutationFn: () => envoyerAuxHm(controle!.id),
-    onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
-  });
 
   const parId = React.useMemo(
     () => new Map((personnes.data ?? []).map((p) => [p.id, p] as const)),
@@ -441,8 +403,7 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
   const liste = cohorte ? toutes.filter((p) => cohorte.comptes.has(p.compte_id)) : toutes;
   const groupes = grouperParHm(liste);
   const nudgesEnAttente = liste.filter((p) => p.action === "nudge" && !p.decision).length;
-  const prets = liste.filter(aEnvoyer).length;
-  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error ?? envoyerHm.error;
+  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error;
 
   return (
     <div className="space-y-5" data-testid={`vue-${type}`}>
@@ -492,19 +453,7 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
                 {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
               </Button>
             )}
-            {controle && liste.length > 0 && (
-              <Button
-                size="sm"
-                disabled={prets === 0}
-                loading={envoyerHm.isPending}
-                onClick={() => {
-                  if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
-                }}
-              >
-                <Send />
-                {t("ckd.envoyerHm", { n: prets })}
-              </Button>
-            )}
+            {/* « Envoyer aux HM » retiré (prompt 15, point 3) : ce qui est décidé part le dimanche à 12 h, en récap à Max. */}
           </div>
         </div>
       )}
@@ -519,13 +468,8 @@ function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreC
           {t("ckd.erreurSlack", { erreur: controle.slack_erreur })}
         </p>
       )}
-      {envoyerHm.data && (
-        <p role="status" className="text-sm text-muted-foreground">
-          {t("ckd.envoyees", { n: envoyerHm.data.envoyees })}
-        </p>
-      )}
 
-      {type === "samedi" && controle && <CarteRecrutement controle={controle} />}
+      {/* La grille « To recruit » est partie dans Recruiting (28 oct., partie D). */}
 
       {controles.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
@@ -1113,6 +1057,9 @@ function BlocDecision({
   const statut: string[] = [];
   if (creeUnCompte(p.decision)) {
     statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.compteAttente"));
+  } else if (p.decision === "doubler") {
+    // v3 (0382) : une offre au posteur ; le compte n'existe que s'il a dit oui.
+    statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.offreDouble"));
   }
   if (arret && !arret.annule_at) {
     statut.push(
@@ -1128,7 +1075,6 @@ function BlocDecision({
     if (type === "jeudi") statut.push(t("ckd.statut.hmNonNotifiee"));
   }
   if (p.envoye_at) statut.push(t("ckd.statut.envoye", { date: date(p.envoye_at, heure) }));
-  else if (p.decision === "nudge" && p.hm_suivi === false) statut.push(t("ckd.statut.sansSuiviHm"));
   else if (aEnvoyer(p)) statut.push(t("ckd.statut.aEnvoyer"));
   if (p.fait_at) statut.push(t("ckd.statut.fait", { date: date(p.fait_at, heure) }));
 
@@ -1173,7 +1119,8 @@ function BlocDecision({
 function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
   const [popup, setPopup] = React.useState<TexteNudge | null>(null);
   const [hm, setHm] = React.useState<string | null>(null);
-  const [suiviHm, setSuiviHm] = React.useState(true);
+  // Prompt 15, point 3 : plus rien dans #managers-hq, le suivi HM est désactivé par défaut.
+  const [suiviHm, setSuiviHm] = React.useState(false);
   const apercuPopup = useQuery({
     queryKey: [...CLE, "apercu-nudge", p.id],
     queryFn: () => apercuNudgeCkd(p.id),
@@ -1183,7 +1130,7 @@ function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
   const apercuHm = useQuery({
     queryKey: [...CLE, "apercu-hm", p.id],
     queryFn: () => apercuHmCkd(p.id),
-    enabled: actif && !p.decision,
+    enabled: actif && !p.decision && suiviHm,
     staleTime: Infinity,
   });
   const popupAffiche = popup ?? apercuPopup.data ?? null;
@@ -1216,7 +1163,7 @@ function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
     reinitialiser: () => {
       setPopup(null);
       setHm(null);
-      setSuiviHm(true);
+      setSuiviHm(false);
     },
   };
 }
@@ -1267,45 +1214,7 @@ function PanneauNudge({ handle, perso }: { handle: string | null | undefined; pe
         )}
       </div>
 
-      <div className="min-w-0 space-y-1.5 rounded-md border bg-background p-2.5" data-testid={`message-hm-${handle}`}>
-        <label className="flex items-center gap-2 font-medium">
-          <input type="checkbox" checked={perso.suiviHm} onChange={(e) => perso.setSuiviHm(e.target.checked)} />
-          {t("ckd.messageHm.suivi")}
-        </label>
-        {!perso.suiviHm ? (
-          <p className="text-muted-foreground">{t("ckd.messageHm.sansSuivi")}</p>
-        ) : (
-          <>
-            <p className="text-muted-foreground">{t("ckd.messageHm.aide", { handle })}</p>
-            {perso.apercuHm.isLoading ? (
-              <p className="text-muted-foreground">{t("common.loading")}</p>
-            ) : perso.apercuHm.error ? (
-              <p role="alert" className="text-destructive">
-                {t("ckd.messageHm.erreur", { erreur: messageErreur(perso.apercuHm.error) })}
-              </p>
-            ) : (
-              <>
-                <textarea
-                  className={cn(champ, "min-h-20")}
-                  aria-label={t("ckd.messageHm.champ")}
-                  maxLength={2000}
-                  value={perso.hmAffiche ?? ""}
-                  onChange={(e) => perso.setHm(e.target.value)}
-                />
-                <div className="flex flex-wrap items-center gap-2">
-                  {perso.hmModifie && <Badge variant="outline">{t("ckd.messageHm.modifie")}</Badge>}
-                  {perso.hmModifie && (
-                    <Button size="xs" variant="ghost" onClick={() => perso.setHm(null)}>
-                      {t("ckd.messageHm.retablir")}
-                    </Button>
-                  )}
-                  {perso.hmVide && <span className="text-destructive">{t("ckd.messageHm.vide")}</span>}
-                </div>
-              </>
-            )}
-          </>
-        )}
-      </div>
+      {/* Le message au HM et son suivi dans #managers-hq : retirés au prompt 15, point 3. */}
     </>
   );
 }

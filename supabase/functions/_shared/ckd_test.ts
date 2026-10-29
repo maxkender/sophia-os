@@ -18,6 +18,7 @@ import {
   semaineIso,
   texteDecision,
   texteRappel,
+  texteRecapMax,
   texteSuiviJeudi,
   type ZoneSlack,
 } from "./ckd.ts";
@@ -84,6 +85,13 @@ Deno.test("texteDecision : ce que le HM doit faire, décision par décision", ()
   const double9 = texteDecision(decision({ decision: "doubler", regle: "doubler", nouveauHandle: "second.one" }), 45, "2026-11-09");
   assert(double9.includes("2nd account *@second.one*, starts on Monday 9 Nov"));
   assert(double9.includes('milestone "Week 46 (2 acc)", pay × 2'));
+
+  // v3 (0382) : Doubler sans compte = offre au posteur, de l'information pour la HM.
+  const offre = texteDecision(decision({ decision: "doubler", regle: "doubler" }), 45, "2026-11-09");
+  assert(offre.includes("*Double offered*"));
+  assert(offre.includes("pop-up in the OS from Sunday"));
+  assert(offre.includes("starts on Monday 9 Nov"));
+  assert(offre.includes("Nothing to do for you."));
 
   const nudge = texteDecision(decision({ decision: "nudge", publies: 3, attendus: 10, note: "parle-lui" }), 44);
   assert(nudge.includes("*Follow up*"));
@@ -227,4 +235,21 @@ Deno.test("diagnostic Slack : juste sous le titre, avant la consigne ; absent sa
   assert(avec[3].startsWith("> Verdict: missing posts"));
   const sans = texteSuiviJeudi(decision({ regle: "jeudi", decision: "nudge", motifs: ["discipline"] })).split("\n");
   assert(!sans[1].startsWith(">"));
+});
+
+Deno.test("texteRecapMax : par HM, sans mention, chaque décision ; rien sinon", () => {
+  const z = zone([
+    decision({ handle: "a.one", poster: "A" }),
+    decision({ decision: "doubler", handle: "b.one", poster: "B" }),
+    decision({ decision: "recreer", handle: "c.one", poster: "C", nouveauHandle: "c.two" }),
+  ]);
+  const t = texteRecapMax("samedi", "2026-10-24", [z])!;
+  assert(t.includes("week 44"));
+  assert(t.includes("3 decisions"));
+  assert(!t.includes("<@"));
+  assert(t.includes("• Kill: @a.one (A)"));
+  assert(t.includes("• Double offered: @b.one (B)"));
+  assert(t.includes("• New account: @c.one (C) → @c.two"));
+  assert(t.includes("Nothing was posted in #managers-hq"));
+  assertEquals(texteRecapMax("samedi", "2026-10-24", [zone([])]), null);
 });

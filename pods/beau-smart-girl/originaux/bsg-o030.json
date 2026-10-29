@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o030",
+ "schema_id": "je-note-tout",
+ "titre": "j'ai essayé de me cultiver 7 jours d'affilée : je note TOUT, jour par jour #pourtoi #culture #defi #apprentissage",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "essai. cta C (le défi de 7 jours en premier item ; voir CTA.md). Routine du 29/10, livraison 2 sur 6 (le numéro finit par 0). L'essai : le format journal « jour par jour » d'un défi de 7 jours, noté sur 10, jamais fait chez nous (nos notes portaient sur des astuces différentes, pas sur des jours). La preuve reste celle du schéma je-note-tout (r 7,45 sur 9 passages, d61696f9 ; r 4,51, f0cfb4f0 ; chez nous, bsg-o010 à r 2,19). Accroches écrites : « j'ai essayé de me cultiver 7 jours d'affilée : je note TOUT, jour par jour » (retenue : le TOUT crié du gagnant, et le suspense des jours), « je me suis cultivée 7 jours de suite, voilà ce qui a changé » (écartée : sans la note), « défi : 7 jours pour devenir plus cultivée, je note tout » (écartée : moins naturel). Le défi lui-même est la slide Sophia. Aucun fait précis (les pharaons restent un sujet, pas une affirmation). « ma sœur » reste anonyme. Images de la banque (célébrités permises depuis la décision d'Adrien du 28/10, aucune personne sur la slide Sophia), assez sombres pour le texte blanc. Inspirations : slides 1, 3, 4 de d61696f9 (sa 2 montre un écran), 1, 2, 3, 4, 6 de f0cfb4f0 (sa 5 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9ed9fdd3",
+   "texte_overlay": "j'ai essayé de me cultiver\n7 jours d'affilée :\nje note TOUT, jour par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "454beedf",
+   "texte_overlay": "le défi :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\net le raconter à quelqu'un le soir.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg",
+   "texte_sophia": "le défi :\nl'appli Sophia chaque matin, pendant 7 jours.\net raconter ce que j'ai appris à quelqu'un le soir."
+  },
+  {
+   "position": 3,
+   "media_id": "a006ac8c",
+   "texte_overlay": "jour 1\n\n3/10\nj'ai appris un truc sur les pharaons à 8 h.\nà midi, je l'avais oublié.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9f1554a4",
+   "texte_overlay": "jour 3\n\n6/10\nj'ai commencé à le raconter le soir même.\nça reste beaucoup mieux quand tu l'expliques.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c3a828da",
+   "texte_overlay": "jour 5\n\n8/10\nma sœur m'a demandé\n« c'est quoi l'anecdote d'aujourd'hui ? »\navant même que je parle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a104adce",
+   "texte_overlay": "jour 7\n\n10/10\nau dîner, on parlait d'art et j'avais quelque chose à dire.\nje continue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8e6367d4",
+   "texte_overlay": "tu tentes le défi avec moi ?\ndis-moi en commentaire ton jour 1.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

@@ -1,8 +1,6 @@
 import * as React from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, Check, Clock, CornerDownRight, ExternalLink, Info, RefreshCw, Smartphone, UserPlus, X } from "lucide-react";
+import { AlertTriangle, Check, Clock, CornerDownRight, Info, RefreshCw, Smartphone, UserPlus, X } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { Sparkline } from "@/components/charts/Sparkline";
@@ -11,18 +9,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState }
 import { MICRO_LABEL } from "@/components/ui/micro-label";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import type { PersonneCkd } from "@/features/ckd/api";
-import { lienTiktok } from "@/features/ckd/logique";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { EtapeBadge } from "@/features/moteur/EtapeBadge";
-import { drapeauPays } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
 
 import { etatCohorte } from "./etapeCohorte";
 import type { CompteCohorte, ResultatReleve } from "./api";
 import { CelluleExigences } from "./CelluleExigences";
-import { lireReposts } from "./exigences";
 import { useFormats } from "./formats";
 import { BLEUS, CourbesCumul } from "./graphes";
+import { HandleTiktok, LienPosteur } from "./liens";
 import {
   type EtatWarmup,
   etatWarmup,
@@ -93,12 +89,6 @@ export function OngletWarmup({
   const reste = resteAvant(minuitParis(lundi), maintenant);
 
   const lignes = comptes.map((compte) => ({ compte, etat: etatWarmup(compte, aujourdhui) }));
-  // La case « J'ai fait 2 reposts » de chaque compte (0365).
-  const reposts = useQuery({
-    queryKey: ["ckd", "reposts", comptes.map((c) => c.compte_id).sort().join(",")],
-    queryFn: () => lireReposts(comptes.map((c) => c.compte_id)),
-    enabled: comptes.length > 0,
-  });
   const n = lignes.length;
   const compter = (f: (e: EtatWarmup) => boolean) => lignes.filter((l) => f(l.etat)).length;
   const surTiktok = compter((e) => e.tiktok === "cree");
@@ -354,7 +344,6 @@ export function OngletWarmup({
                             compte={c}
                             etat={e}
                             poster={personnes.get(c.poster_id)}
-                            repostsAt={reposts.data?.get(c.compte_id)}
                           />
                         ))}
                       </tbody>
@@ -384,40 +373,24 @@ function LigneWarmup({
   compte: c,
   etat: e,
   poster,
-  repostsAt,
 }: {
   compte: CompteCohorte;
   etat: EtatWarmup;
   poster?: PersonneCkd;
-  repostsAt: string | null | undefined;
 }) {
   const { t } = useTranslation();
   const { date, nombre } = useFormats();
-  const tiktok = lienTiktok(c.handle);
   return (
     <tr className="border-t border-border/40" data-testid={`ligne-warmup-${c.handle}`}>
       <td className={TD}>
         <div className="flex min-w-0 flex-col gap-0.5">
           <span className="inline-flex items-center gap-1.5">
-            <Link to={`/admin/createurs/${c.compte_id}`} className="truncate font-medium underline-offset-2 hover:underline">
-              {drapeauPays(c.pays)} @{c.handle}
-            </Link>
+            <HandleTiktok handle={c.handle} pays={c.pays} />
             {c.application && <LogoApplication slug={c.application} taille="xs" />}
             <EtapeBadge etat={etatCohorte(c, aujourdhuiParis())} />
-            {tiktok && (
-              <a
-                href={tiktok}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={t("ckd.cohorte.ouvrirTiktok", { handle: c.handle })}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <ExternalLink className="size-3" aria-hidden />
-              </a>
-            )}
           </span>
           <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            {nomPersonne(poster)}
+            <LienPosteur compteId={c.compte_id} nom={nomPersonne(poster)} />
             {c.glisse_de && (
               <span className="inline-flex items-center gap-0.5 rounded-full border border-violet-200 bg-violet-50 px-1.5 text-[10.5px] font-medium text-violet-700 dark:border-violet-500/30 dark:bg-violet-500/10 dark:text-violet-300">
                 <CornerDownRight className="size-3" aria-hidden />
@@ -472,7 +445,7 @@ function LigneWarmup({
         </div>
       </td>
       <td className={TD}>
-        <CelluleExigences etat={e} repostsAt={repostsAt} />
+        <CelluleExigences etat={e} />
       </td>
       <td className={TD}>
         <Indicateur

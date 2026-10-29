@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o029",
+ "schema_id": "neat-and-intelligent",
+ "titre": "My Habits as a Quiet Academic #studytok #darkacademia #smartgirl #thatgirl #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "00ef8171-8281-428d-8d3a-24d3c5069750",
+  "ef149b0b-030d-438d-8d6c-71f4f654268a"
+ ],
+ "notes": "cta A. CTA au 28/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C = l'appli comme un rituel de la liste, à la place du scroll (« an app like Sophia »). Règle « ne t'enferme pas » : vocabulaire, magnetic-speaking et high-status-woman sont des familles usées (3 livraisons ou plus en 7 jours) ; seule sg-o026 en reprend une (vocabulaire, variante de sg-o001 que le suivi demande de décliner). Schéma neat-and-intelligent (ef149b0b r 9,96 sur 11 ; 00ef8171 r 3,98 sur 9 ; 3839cbaa r 2,66). Accroche neuve chez nous (sg-o009 était « How I stay neat and intelligent at the same time »). Accroches écrites : « My Habits as a Quiet Academic » (retenue : le gagnant 00ef8171, « My Habits as an Academic and active perfectionist », sans le perfectionnisme), « study habits of a girl who reads too much » (écartée : sans preuve), « things I do every day as a law student » (écartée : propre au droit, se traduit mal). Le « je » de la source, mais aucun de ses rituels (pas de pas comptés, de régime ni de réveil à 4 h 30) : lire avec un crayon, un carnet daté par matière, la bibliothèque, relire la veille 10 minutes, ranger avant d'étudier, apprendre une chose hors programme chaque soir (Sophia, cta A). Images de la banque (sources @diane.ellsworthh), sans texte lisible ni marque (collages à magazine, calculatrice et sacs écartés) ; slide Sophia sur une tasse de café, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ddaf8656",
+   "texte_overlay": "My Habits as a\nQuiet Academic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "312c1358",
+   "texte_overlay": "I never read without a pencil.\nThe margins are where\nI actually think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a4f19224",
+   "texte_overlay": "One notebook per subject,\nand every page is dated",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "97d2e69d",
+   "texte_overlay": "I study at the library even\nwhen I could stay home.\nThe silence does half\nthe work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e3348e6",
+   "texte_overlay": "Before anything new, I reread\nyesterday's notes for\n10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c07b0c9a",
+   "texte_overlay": "I clear my desk and make\nmy bed before I open\na single book",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "907cb41e",
+   "texte_overlay": "Every evening I learn one thing\noutside my studies.\nA painting, a battle,\na planet",
+   "texte_sophia": "Every evening I learn one thing\noutside my studies with a\nmicro-learning app like the\nSophia app. 5 minutes,\nevery day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e54f99f3",
+   "texte_overlay": "which one are you\nstealing first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  }
+ ]
+}

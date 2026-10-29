@@ -15,7 +15,6 @@ import { ChoixHm } from "@/features/ckd/vueHm/ChoixHm";
 import { listerShadowban } from "@/features/ckd/api";
 import { lireCohorte, type CompteCohorte } from "@/features/ckd/cohorte/api";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
-import { SectionsSamediHm } from "@/features/ckd/SectionsSamediHm";
 import { ActionsPosteur } from "@/features/ckd/cohorte/ActionsPosteur";
 import {
   aFaireAujourdhui,
@@ -26,6 +25,10 @@ import { paireDuJour } from "@/features/ckd/cohorte/logique";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
+import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
+import { CeQueLOsAFait } from "@/features/nudges/CeQueLOsAFait";
+import { MesRecrues } from "@/features/cohortes/PageCohortes";
+import { AccueilAuto } from "@/features/accueil/AccueilAuto";
 
 /** Prénom + nom des posteurs (la RLS ne rend que ceux de la HM). */
 async function nomsPosteurs(ids: string[]): Promise<Map<string, string>> {
@@ -149,6 +152,9 @@ export function HiringAccueilPage() {
       </div>
       {role === "head_of_ops" && <ChoixHm valeur={hm} onChange={setHm} />}
 
+      {/* Système du 2 nov., partie A : les contrats dont l'annonce ne dit pas le pays. */}
+      <AccueilAuto hmSeulement />
+
       <BarreChargement actif={donnees.isLoading} />
       {donnees.error && <p className="text-sm text-destructive">{String((donnees.error as Error).message)}</p>}
 
@@ -225,13 +231,19 @@ export function HiringAccueilPage() {
             </CardContent>
           </Card>
 
-          <SectionsSamediHm />
+          {/* 28 oct. : les décisions du samedi ne sont plus sur l'accueil des HMs, elles n'ont rien à faire. */}
+
+          <CeQueLOsAFait />
+
+          {/* Prompt 17, partie B : ses recrues, en lecture seule (le bloc complet vient en partie C). */}
+          <MesRecrues hm={role === "head_of_ops" ? hm : undefined} />
 
           <CalendrierSemaine hm={hm} />
 
           <SemaineProchaine hm={hm} />
 
           <AnciensPosteurs hm={hm} />
+          <SuiviMessages admin={false} />
         </>
       )}
     </div>

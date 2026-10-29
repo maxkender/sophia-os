@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o030",
+ "schema_id": "disgustingly-educated",
+ "titre": "5 Famous Paintings and the Secrets Hidden in Them #arthistory #museum #smartgirl #darkacademia #selfeducation",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "2db2f497-45b2-49ec-8faa-559f06aa0780",
+  "e7f3ee20-28ce-4874-add5-2eb99452face"
+ ],
+ "notes": "essai (sg-o030, une livraison sur cinq). cta B. CTA au 28/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C = l'appli comme un rituel de la liste, à la place du scroll (« an app like Sophia »). Règle « ne t'enferme pas » : vocabulaire, magnetic-speaking et high-status-woman sont des familles usées (3 livraisons ou plus en 7 jours) ; seule sg-o026 en reprend une (vocabulaire, variante de sg-o001 que le suivi demande de décliner). Format jamais fait chez nous : un tableau célèbre par slide avec un fait caché, du savoir qu'on emporte comme les gagnants du label. Schéma disgustingly-educated pour la preuve (2db2f497 r 9,13 sur 4 ; e7f3ee20 r 2,42 ; 9ae86482 r 2,75). Accroches écrites : « 5 Famous Paintings and the Secrets Hidden in Them » (retenue : promesse de secret, très enregistrable), « things to know before your next museum visit » (écartée : plus vague), « art history facts that make you sound cultured » (écartée : plus loin du gabarit). Faits vérifiés : la Joconde volée au Louvre en 1911 et retrouvée à Florence en 1913 ; le portrait des Arnolfini de Van Eyck porte au-dessus du miroir l'inscription « Johannes de eyck fuit hic 1434 » (« Jan van Eyck était ici ») ; La Nuit étoilée peinte en 1889 depuis l'asile de Saint-Rémy-de-Provence ; La Jeune Fille à la perle n'est pas un portrait mais une « tronie », modèle inconnu ; Le Cri existe en plusieurs versions (peintures, pastels, lithographies). Sophia au milieu (cta B). Images : captures de la série et images de la banque, sans texte lisible ; aucune reproduction d'œuvre ; slide Sophia sur un ciel rose, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7732e02d",
+   "texte_overlay": "5 Famous Paintings and\nthe Secrets Hidden\nin Them",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5e24d378",
+   "texte_overlay": "1. The Mona Lisa\nIn 1911 it was stolen from\nthe Louvre. It took two years\nto find it, in Florence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "109f2991",
+   "texte_overlay": "2. The Arnolfini Portrait\nAbove the mirror, Van Eyck\nwrote in Latin: \"Jan van Eyck\nwas here, 1434.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7d75d0ba",
+   "texte_overlay": "3. The Starry Night\nVan Gogh painted it in 1889\nfrom the asylum in\nSaint-Rémy, in Provence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0014a691",
+   "texte_overlay": "Every famous painting has\na story like this. Learn one\na week and museums become\nconversations.",
+   "texte_sophia": "Every famous painting has\na story like this. I learn one\na day with a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b95f9899",
+   "texte_overlay": "4. Girl with a Pearl Earring\nIt isn't a portrait. Nobody\nknows who the girl was.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8ec479f8",
+   "texte_overlay": "5. The Scream\nThere isn't one Scream.\nMunch made several versions,\nin paint and in pastel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "53d69e68",
+   "texte_overlay": "Which one surprised you?\nSave this for your next\nmuseum visit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/8.jpg"
+  }
+ ]
+}

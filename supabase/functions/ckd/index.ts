@@ -1,20 +1,19 @@
 import {
   ajouterJours,
-  blocsRecap,
-  blocsZone,
   COLONNES_PROPOSITION,
   consigneNudge,
   DECISIONS_ENVOYEES,
   maintenantParis,
-  majRecap,
   type PropositionSlack,
   slackApi,
   texteRappel,
-  texteRecap,
+  texteRecapMax,
   zonesDe,
 } from "../_shared/ckd.ts";
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
-import { prevenirPosteur, texteRecreation } from "../_shared/slack_posteur.ts";
+import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { modeKillMessage } from "../_shared/arret.ts";
+import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
@@ -28,13 +27,24 @@ type Supabase = ReturnType<typeof serviceClient>;
  * Check, Kill or Double (0326 à 0328) : ce qui ne peut pas se faire en SQL.
  *
  *   { action: "decider", id, decision: "recreer" | "doubler", note? }   admin
- *       Réserve la proposition (`ckd_decider`), crée le compte par
+ *       Réserve la proposition (`ckd_decider`). Recréer : crée le compte par
  *       manage-users (`ajouter_compte`, même application), puis le relie
- *       (`ckd_compte_cree`). Recréer : répartition habituelle ; l'ancien compte
+ *       (`ckd_compte_cree`) ; répartition habituelle ; l'ancien compte
  *       s'arrête, ses posts à venir sont retirés (0368), et le posteur reçoit
- *       un message Slack (pas la HM). Doubler : le choix équilibré de la
- *       répartition, sans les labels du 1ᵉʳ compte.
+ *       une pop-up « Got it » et le même texte sur Slack (0383, pas la HM). Doubler (v3, 0382) : ne crée plus rien,
+ *       propose le 2ᵉ compte au posteur (pop-up à partir du dimanche,
+ *       `double_offrir`).
  *       Échec : la proposition redevient libre, avec l'erreur.
+ *   { action: "double_repondre", message_id, reponse: "oui" | "non" } posteur
+ *       La réponse du posteur connecté à son offre. Oui : le 2ᵉ compte est
+ *       créé (choix équilibré de la répartition, sans les labels du 1ᵉʳ
+ *       compte) et démarre le lundi J+9 (0369). Un échec de création est noté,
+ *       la réponse reste : l'admin relance par `double_creer`.
+ *   { action: "nudges_slack", controle_id? , id? }                      admin
+ *       Arrêté au prompt 17 (0391) : plus de message Slack de régularité le
+ *       jeudi (le pop-up reste). Les relances passent par `recrues-check`.
+ *   { action: "double_creer", id }                                     admin
+ *       Recrée le 2ᵉ compte d'une offre acceptée restée sans compte.
  *   { action: "recreer_shadowban", compte_id }                        admin
  *       Page Shadowban (0362) : « Nouveau compte » pour un compte signalé, même
  *       création que Recréer (manage-users `ajouter_compte`, même application,
@@ -43,12 +53,17 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       « À recruter » du samedi (0364) : la HM du pays (même règle que le
  *       routage du site), la cohorte (samedi + 9 jours). 0 retire la ligne.
  *   { action: "envoyer", controle_id }                                 admin
- *       Poste dans #managers-hq les décisions pas encore envoyées : le récap
- *       (une fois), puis un message par zone dans son fil.
+ *       Marque envoyées les décisions prêtes (la HM les voit sur son
+ *       accueil) et envoie à Max un récap en message privé. Plus rien dans
+ *       #managers-hq (prompt 15, point 3).
  *   { action: "envoi_auto" }      cron, dimanche 12 h (heure de Paris)
- *       Pareil pour le contrôle du samedi.
+ *       Pareil pour le contrôle du samedi, puis le message de Kill à chaque
+ *       posteur arrêté (`kill_message_auto`, off / test / on) : sur Upwork,
+ *       dans la conversation du contrat, + la bannière (prompt 21, F).
  *   { action: "rappel_lundi" }    cron, lundi 9 h (heure de Paris)
  *       Dans le fil du samedi : qui ne pas financer, qui passe à 2 comptes.
+ *       Cron `ckd-rappel-lundi` en pause depuis le prompt 15 (les HMs ne
+ *       financent plus) ; l'action reste.
  *   { action: "verifier_slack" }                                       admin
  *       Le jeton marche-t-il, et le bot est-il dans le canal ? N'écrit rien.
  *   { action: "apercu_hm", id }                                        admin
@@ -66,12 +81,18 @@ type Supabase = ReturnType<typeof serviceClient>;
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   try {
-    const acces = await assertRole(request, ["admin", "head_of_ops"]);
-    if (acces instanceof Response) return acces;
     // deno-lint-ignore no-explicit-any
-    const body: any = await request.json().catch(() => ({}));
+    const body: any = await request.clone().json().catch(() => ({}));
+    // La réponse à l'offre Double vient du posteur lui-même ; tout le reste est admin.
+    const posteur = body.action === "double_repondre";
+    const acces = await assertRole(request, posteur ? ["poster"] : ["admin", "head_of_ops"]);
+    if (acces instanceof Response) return acces;
     const supabase = serviceClient();
     const cron = acces.userId === "cron";
+    if (posteur) {
+      if (cron) return json({ ok: false, error: "réservé au posteur" }, 403);
+      return await doubleRepondre(supabase, body, acces.userId);
+    }
 
     switch (body.action) {
       case "decider":
@@ -87,8 +108,17 @@ Deno.serve(async (request) => {
         if (!c) return json({ ok: true, ignore: "pas de contrôle samedi" });
         // Avant l'envoi, qui ne part qu'avec ce qui est décidé : l'alarme (0364).
         const alarme = await alarmeNonValidees(supabase, c.id).catch((e) => ({ erreur: messageErreur(e) }));
-        return json({ ...(await envoyer(supabase, c.id)), alarme });
+        const envoi = await envoyer(supabase, c.id).catch((e) => ({ ok: false, error: messageErreur(e) }));
+        // Les messages de Kill partent même si l'envoi aux HMs a échoué (0382).
+        const kills = await messagesKill(supabase, c.id).catch((e) => ({ erreur: messageErreur(e) }));
+        return json({ ...envoi, alarme, kills });
       }
+      case "nudges_slack":
+        return json({ ok: true, ignore: "prompt 17 : plus de nudge Slack le jeudi" });
+      case "messages_kill":
+        return json(await messagesKill(supabase, String(body.controle_id ?? "")));
+      case "double_creer":
+        return json(await doubleCreer(supabase, String(body.id ?? "")));
       case "recrutement":
         return json(await enregistrerRecrutement(supabase, body));
       case "rappel_lundi": {
@@ -104,6 +134,10 @@ Deno.serve(async (request) => {
         return json(await apercuHm(supabase, String(body.id ?? "")));
       case "releve_warmup":
         return json(await releverWarmup(supabase));
+      case "releve_compte":
+        return json(await releverCompte(supabase, String(body.compte_id ?? "")));
+      case "needs_you_alerte":
+        return json(await alerteNeedsYou(supabase));
       case "releve_warmup_planifie": {
         const p = maintenantParis();
         if (!body.force && p.heure !== 8 && p.heure !== 20) return json({ ok: true, ignore: "pas 8 h ni 20 h" });
@@ -168,6 +202,13 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
     return json({ ok: false, error: erreur }, statut);
   };
 
+  // Doubler (v3, 0382) : l'offre au posteur, pas encore de compte.
+  if (decision === "doubler") {
+    const { data: offre, error: errOffre } = await supabase.rpc("double_offrir", { p_id: id });
+    if (errOffre) return await liberer(messageErreur(errOffre), 500);
+    return json({ ok: true, offre });
+  }
+
   try {
     const { data: p, error } = await supabase
       .from("ckd_propositions")
@@ -183,12 +224,6 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
     if (errCompte) throw errCompte;
     const slug = String(p.application ?? "sophia");
 
-    let labelId: string | null = null;
-    if (decision === "doubler") {
-      labelId = await labelDuDeuxieme(supabase, p.poster_id, slug, ancien.langue, ancien.pays);
-      if (!labelId) return await liberer("aucun autre label de cette application pour le 2ᵉ compte", 409);
-    }
-
     const cree = await appelerManageUsers({
       action: "ajouter_compte",
       userId: p.poster_id,
@@ -197,7 +232,6 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
       ...(ancien.pays ? { pays: ancien.pays } : {}),
       ...(ancien.posts_par_jour ? { posts_par_jour: ancien.posts_par_jour } : {}),
       parts_applications: { [slug]: 100 },
-      ...(labelId ? { label_id: labelId } : {}),
     });
     if (!cree.ok) {
       if (cree.incertain) {
@@ -218,10 +252,189 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
       .select("id, handle_tiktok")
       .eq("id", cree.compteId)
       .maybeSingle();
-    const slack = decision === "recreer" ? await prevenirRecreation(supabase, cree.compteId) : undefined;
-    return json({ ok: true, compte: nouveau ?? { id: cree.compteId }, ...(slack ? { slack } : {}) });
+    const slack = await prevenirRecreation(supabase, cree.compteId);
+    return json({ ok: true, compte: nouveau ?? { id: cree.compteId }, slack });
   } catch (error) {
     return await liberer(messageErreur(error), 500);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Double : la réponse du posteur et le 2ᵉ compte (v3, 0382)
+// ---------------------------------------------------------------------------
+
+// deno-lint-ignore no-explicit-any
+async function doubleRepondre(supabase: Supabase, body: any, posteurId: string): Promise<Response> {
+  const messageId = String(body.message_id ?? "");
+  const reponse = String(body.reponse ?? "");
+  if (!messageId || !["oui", "non"].includes(reponse)) {
+    return json({ ok: false, error: "message_id et reponse (oui ou non) requis" }, 400);
+  }
+  const { data: propositionId, error } = await supabase.rpc("double_repondre", {
+    p_message: messageId,
+    p_reponse: reponse,
+    p_poster: posteurId,
+  });
+  if (error) return json({ ok: false, error: messageErreur(error) }, 409);
+  if (reponse === "non") return json({ ok: true, reponse });
+  // Oui : la réponse est gardée même si la création échoue (l'admin relance).
+  const cree = await creerDeuxieme(supabase, String(propositionId));
+  if (!cree.ok) {
+    await supabase.from("posteur_messages").update({ erreur: cree.error }).eq("id", messageId);
+  }
+  return json({ ok: true, reponse, compte: cree.ok ? cree.compteId : null });
+}
+
+/** Admin : recréer le 2ᵉ compte d'une offre acceptée restée sans compte. */
+async function doubleCreer(supabase: Supabase, propositionId: string) {
+  if (!propositionId) throw new Error("id requis");
+  const { data: m, error } = await supabase
+    .from("posteur_messages")
+    .select("id, reponse")
+    .eq("proposition_id", propositionId)
+    .eq("type", "double")
+    .maybeSingle();
+  if (error) throw error;
+  if (m?.reponse !== "oui") return { ok: false, error: "le posteur n'a pas accepté l'offre" };
+  const cree = await creerDeuxieme(supabase, propositionId);
+  await supabase.from("posteur_messages").update({ erreur: cree.ok ? null : cree.error }).eq("id", m.id);
+  return cree;
+}
+
+/**
+ * Le 2ᵉ compte d'un Double : même langue, pays et application que le 1ᵉʳ, un
+ * label choisi sans ceux du 1ᵉʳ compte, relié par `ckd_compte_cree` (qui pose
+ * le lundi de démarrage J+9). Une erreur est notée sur la proposition.
+ */
+async function creerDeuxieme(
+  supabase: Supabase,
+  propositionId: string,
+): Promise<{ ok: true; compteId: string } | { ok: false; error: string }> {
+  const noter = async (erreur: string) => {
+    await supabase.from("ckd_propositions").update({ erreur: erreur.slice(0, 500) }).eq("id", propositionId);
+    return { ok: false as const, error: erreur };
+  };
+  try {
+    const { data: p, error } = await supabase
+      .from("ckd_propositions")
+      .select("id, compte_id, poster_id, application, decision, nouveau_compte_id")
+      .eq("id", propositionId)
+      .single();
+    if (error) throw error;
+    if (p.decision !== "doubler") return await noter("la proposition n'est plus en Doubler");
+    if (p.nouveau_compte_id) return { ok: true, compteId: String(p.nouveau_compte_id) };
+    const { data: ancien, error: errCompte } = await supabase
+      .from("comptes")
+      .select("id, langue, pays, posts_par_jour")
+      .eq("id", p.compte_id)
+      .single();
+    if (errCompte) throw errCompte;
+    const slug = String(p.application ?? "sophia");
+    const labelId = await labelDuDeuxieme(supabase, p.poster_id, slug, ancien.langue, ancien.pays);
+    if (!labelId) return await noter("aucun autre label de cette application pour le 2ᵉ compte");
+    const cree = await appelerManageUsers({
+      action: "ajouter_compte",
+      userId: p.poster_id,
+      type_compte: "perso",
+      langue: ancien.langue,
+      ...(ancien.pays ? { pays: ancien.pays } : {}),
+      ...(ancien.posts_par_jour ? { posts_par_jour: ancien.posts_par_jour } : {}),
+      parts_applications: { [slug]: 100 },
+      label_id: labelId,
+    });
+    if (!cree.ok) {
+      return await noter(
+        cree.incertain
+          ? `création incertaine (${cree.error}) : vérifier les comptes du poster avant de recommencer`
+          : cree.error,
+      );
+    }
+    const { error: errLien } = await supabase.rpc("ckd_compte_cree", { p_id: propositionId, p_compte: cree.compteId });
+    if (errLien) throw errLien;
+    return { ok: true, compteId: cree.compteId };
+  } catch (e) {
+    return await noter(messageErreur(e));
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Kill : le message du dimanche 12 h (v3, 0382)
+// ---------------------------------------------------------------------------
+
+/**
+ * Prompt 21, partie F (0414) : pour chaque Kill validé du contrôle, le message
+ * part dans la conversation Upwork du contrat, pour tout le monde (Slack ou
+ * pas) ; plus de DM Slack. La bannière du tableau de bord lit le même message
+ * (`kill_message_creer`). Un seul message de Kill par posteur. Interrupteur
+ * `kill_message_auto` : off rien, test noté dans le Pipeline sans rien créer
+ * ni envoyer, on pour de vrai. Un échec d'envoi est noté, jamais relancé.
+ */
+async function messagesKill(supabase: Supabase, controleId: string) {
+  if (!controleId) throw new Error("controle_id requis");
+  // Prompt 22 : en pause, aucun message de Kill (ni bannière ni Upwork) ; rien n'est créé.
+  if (await bloquer(supabase, { fonction: "ckd", action: "messages_kill", cible: controleId })) return { ok: true, ignore: PAUSE };
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "kill_message_auto").maybeSingle();
+  const mode = modeKillMessage(regl?.valeur);
+  if (mode === "off") return { ok: true, mode, ignore: "kill_message_auto = off" };
+  const { data: props, error } = await supabase
+    .from("ckd_propositions")
+    .select("id")
+    .eq("controle_id", controleId)
+    .eq("decision", "ne_pas_renouveler");
+  if (error) throw error;
+  const bilan = { mode, crees: 0, envoyes: 0, simules: 0, sans_contrat: 0, erreurs: 0 };
+  for (const p of props ?? []) {
+    const { data: prep, error: errPrep } = await supabase.rpc("kill_message_preparer", { p_id: p.id });
+    if (errPrep) throw errPrep;
+    const m = ((prep ?? []) as { poster_id: string; semaine: string; texte: string; contrat_id: string | null; deja: boolean }[])[0];
+    if (!m || m.deja) continue;
+    if (mode === "test") {
+      await supabase.from("recrue_evenements").upsert(
+        { poster_id: m.poster_id, type: "kill_message", at: new Date().toISOString(), detail: `test : ${m.texte}`, cle: `kill_message:${m.semaine}` },
+        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
+      );
+      bilan.simules++;
+      continue;
+    }
+    const { data: crees, error: errCree } = await supabase.rpc("kill_message_creer", { p_id: p.id });
+    if (errCree) throw errCree;
+    for (const cree of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
+      bilan.crees++;
+      const erreur = m.contrat_id ? await envoyerUpwork(m.contrat_id, cree.texte) : "contrat Upwork non relié";
+      const statut = !m.contrat_id ? "sans_contrat" : erreur ? "erreur" : "envoye";
+      if (statut === "envoye") bilan.envoyes++;
+      else if (statut === "sans_contrat") bilan.sans_contrat++;
+      else bilan.erreurs++;
+      await supabase.from("posteur_messages").update({
+        upwork_statut: statut,
+        upwork_at: new Date().toISOString(),
+        upwork_erreur: erreur,
+      }).eq("id", cree.id);
+      await supabase.from("recrue_evenements").upsert(
+        { poster_id: cree.poster_id, type: "kill_message", at: new Date().toISOString(), detail: erreur ? `erreur : ${erreur}` : "envoyé sur Upwork", cle: `kill_message:${m.semaine}` },
+        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
+      );
+    }
+  }
+  return { ok: true, ...bilan };
+}
+
+/** Par la fonction `upwork` (le seul endroit qui parle à Upwork), sans nouvel essai. */
+async function envoyerUpwork(contratId: string, texte: string): Promise<string | null> {
+  const base = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("CRON_SECRET");
+  if (!base || !secret) return "SUPABASE_URL ou CRON_SECRET absent";
+  try {
+    const r = await fetch(`${base}/functions/v1/upwork`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": secret },
+      body: JSON.stringify({ action: "message", contrat_id: contratId, texte }),
+    });
+    const corps = await r.json().catch(() => null);
+    if (!r.ok || !corps?.ok) return `upwork : ${corps?.error ?? `HTTP ${r.status}`}`;
+    return null;
+  } catch (e) {
+    return `upwork : ${messageErreur(e)}`;
   }
 }
 
@@ -306,37 +519,27 @@ async function prevenirRecreation(
       .limit(1)
       .single();
     if (error) throw error;
-    const [{ data: comptes }, { data: profil }] = await Promise.all([
-      supabase.from("comptes").select("id, handle_tiktok").in("id", [r.ancien_compte_id, nouveauCompteId]),
-      supabase.from("profiles").select("email, email_perso").eq("id", r.poster_id).single(),
-    ]);
-    const handle = (id: string) => (comptes ?? []).find((c) => c.id === id)?.handle_tiktok ?? "?";
+    const { data: nouveau } = await supabase.from("comptes").select("handle_tiktok").eq("id", nouveauCompteId).single();
     const jourParis = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(r.created_at));
     const iso = new Date(`${jourParis}T12:00:00Z`).getUTCDay() || 7;
     const lundi = ajouterJours(jourParis, 8 - iso);
-    const date = (j: string, jourSemaine: boolean) =>
-      new Intl.DateTimeFormat("en-GB", {
-        ...(jourSemaine ? { weekday: "short" } : {}),
-        day: "numeric",
-        month: "short",
-        timeZone: "UTC",
-      }).format(new Date(`${j}T12:00:00Z`));
-    const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
-    const issue = ecriture
-      ? await prevenirPosteur(
-        { ecriture, lecture: Deno.env.get("SLACK_BOT_TOKEN2") },
-        [profil?.email_perso, profil?.email],
-        texteRecreation({
-          ancien: handle(r.ancien_compte_id),
-          nouveau: handle(nouveauCompteId),
-          le: date(jourParis, true),
-          lundi: date(lundi, false),
-        }),
-      )
-      : { statut: "erreur" as const, erreur: "SLACK_HM_BOT_TOKEN manquant" };
-    await supabase.from("ckd_recreations")
-      .update({ slack_statut: issue.statut, slack_at: new Date().toISOString() })
-      .eq("id", r.id);
+    const date = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "UTC" })
+      .format(new Date(`${lundi}T12:00:00Z`));
+    // v3 (0383) : le texte est un réglage ; le même part en pop-up et sur Slack.
+    const { data: message, error: errMessage } = await supabase.rpc("recreer_message_creer", {
+      p_recreation: r.id,
+      p_nouveau: nouveau?.handle_tiktok ?? "?",
+      p_date: date,
+    });
+    if (errMessage) throw errMessage;
+    const issue = await ecrireAuPosteur(supabase, r.poster_id, message.texte);
+    const maintenant = new Date().toISOString();
+    await supabase.from("ckd_recreations").update({ slack_statut: issue.statut, slack_at: maintenant }).eq("id", r.id);
+    await supabase.from("posteur_messages").update({
+      slack_statut: issue.statut,
+      slack_at: maintenant,
+      slack_erreur: issue.statut === "erreur" ? issue.erreur : null,
+    }).eq("id", message.id);
     return issue.statut === "erreur" ? { statut: "erreur", erreur: issue.erreur } : { statut: issue.statut };
   } catch (e) {
     return { statut: "erreur", erreur: messageErreur(e) };
@@ -424,6 +627,8 @@ async function appelerManageUsers(
 
 /** Max, sur Slack : prévenu quand les propositions du samedi ne sont pas validées à temps. */
 const SLACK_MAX = "U0BL5FRLBEU";
+/** L'OS (liens dans les DM Slack). */
+const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
 /** HMs (et Head of Ops) actifs qui ont une zone, comme le routage du site (hub-posteurs). */
 async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
@@ -516,6 +721,7 @@ async function envoyer(supabase: Supabase, controleId: string) {
     .eq("id", controleId)
     .single();
   if (error) throw error;
+  // Prompt 17 : plus de nudge Slack le jeudi (0383) ; le pop-up de régularité reste.
 
   const { data: brutes, error: errProps } = await supabase
     .from("ckd_propositions")
@@ -533,62 +739,37 @@ async function envoyer(supabase: Supabase, controleId: string) {
     .eq("controle_id", controleId)
     .is("envoye_at", null);
   if (errRecrues) throw errRecrues;
-  // Recréer et Doubler ne partent qu'avec leur nouveau compte. Une recréation
-  // du jeudi ne part pas : la HM n'est pas notifiée (0368), le posteur l'est.
+  // Recréer ne part qu'avec son nouveau compte ; Doubler part tout de suite
+  // (l'offre au posteur, 0382). Une recréation du jeudi ne part pas : la HM
+  // n'est pas notifiée (0368), le posteur l'est.
   const props = ((brutes ?? []) as PropositionSlack[]).filter(
     (p) =>
-      (!["recreer", "doubler"].includes(p.decision ?? "") || p.nouveau_compte_id) &&
+      (p.decision !== "recreer" || p.nouveau_compte_id) &&
       !(c.type === "jeudi" && p.decision === "recreer"),
   );
   if (props.length === 0) return { ok: true, envoyees: 0 };
 
-  const canal = c.slack_canal ?? await canalSlack(supabase);
-  const noterErreur = async (e: string) => {
-    await supabase.from("ckd_controles").update({ slack_erreur: e }).eq("id", controleId);
-    throw new Error(`Slack : ${e}`);
+  // Prompt 15, point 3 : plus de fil par zone dans #managers-hq. Les décisions
+  // sont marquées envoyées (la HM voit Kill / Double / Nouveau compte sur son
+  // accueil, 0364) et Max reçoit un récap en message privé.
+  const ids = props.map((p) => p.id);
+  const { error: errMaj } = await supabase
+    .from("ckd_propositions")
+    .update({ envoye_at: new Date().toISOString() })
+    .in("id", ids);
+  if (errMaj) throw errMaj;
+  const texte = texteRecapMax(c.type, c.jour, await zonesDe(supabase, props));
+  let erreurRecap: string | null = null;
+  if (texte) {
+    const r = await slackApi(jeton, "chat.postMessage", { channel: SLACK_MAX, text: texte, unfurl_links: false });
+    if (!r.ok) erreurRecap = `récap à Max : ${r.error ?? "erreur"}`;
+  }
+  await supabase.from("ckd_controles").update({ slack_erreur: erreurRecap }).eq("id", controleId);
+  return {
+    ok: erreurRecap === null,
+    envoyees: ids.length,
+    ...(erreurRecap ? { erreurs: [erreurRecap] } : {}),
   };
-
-  // Le récap : posté une fois, réécrit ensuite.
-  let fil = c.slack_ts as string | null;
-  if (!fil) {
-    const r = await slackApi(jeton, "chat.postMessage", {
-      channel: canal,
-      text: texteRecap(c.type, c.jour),
-      blocks: blocsRecap(c.type, c.jour, []),
-      unfurl_links: false,
-    });
-    if (!r.ok || !r.ts) return await noterErreur(r.error ?? "pas de ts");
-    fil = r.ts;
-    await supabase.from("ckd_controles").update({ slack_canal: canal, slack_ts: fil, slack_erreur: null }).eq("id", controleId);
-  }
-
-  let envoyees = 0;
-  const erreurs: string[] = [];
-  for (const z of await zonesDe(supabase, props)) {
-    const r = await slackApi(jeton, "chat.postMessage", {
-      channel: canal,
-      thread_ts: fil,
-      text: `Check, Kill or Double: ${z.decisions.length} decision${z.decisions.length > 1 ? "s" : ""} for ${z.zone ?? z.hmNom}`,
-      blocks: blocsZone(c.type, z, c.jour),
-      unfurl_links: false,
-      unfurl_media: false,
-    });
-    if (!r.ok) {
-      erreurs.push(`${z.zone ?? z.hmNom} : ${r.error}`);
-      continue;
-    }
-    const ids = z.decisions.map((d) => d.id);
-    const { error: errMaj } = await supabase
-      .from("ckd_propositions")
-      .update({ envoye_at: new Date().toISOString(), slack_ts: r.ts })
-      .in("id", ids);
-    if (errMaj) throw errMaj;
-    envoyees += ids.length;
-  }
-
-  await majRecap(supabase, jeton, controleId);
-  await supabase.from("ckd_controles").update({ slack_erreur: erreurs.length ? erreurs.join(" · ") : null }).eq("id", controleId);
-  return { ok: erreurs.length === 0, envoyees, ...(erreurs.length ? { erreurs } : {}) };
 }
 
 async function rappel(supabase: Supabase, controleId: string) {
@@ -609,7 +790,11 @@ async function rappel(supabase: Supabase, controleId: string) {
     .in("decision", ["ne_pas_renouveler", "doubler"])
     .not("envoye_at", "is", null);
   if (errProps) throw errProps;
-  const texte = texteRappel(c.jour, await zonesDe(supabase, (props ?? []) as PropositionSlack[]));
+  // Un Double ne compte que si le posteur a dit oui et que le compte existe (0382).
+  const retenues = ((props ?? []) as PropositionSlack[]).filter(
+    (p) => p.decision !== "doubler" || p.nouveau_compte_id,
+  );
+  const texte = texteRappel(c.jour, await zonesDe(supabase, retenues));
   if (!texte) return { ok: true, ignore: "aucun jalon à changer" };
 
   const r = await slackApi(jeton, "chat.postMessage", { channel: c.slack_canal, thread_ts: c.slack_ts, text: texte });
@@ -670,18 +855,70 @@ async function releverWarmup(supabase: Supabase) {
   };
 }
 
+/**
+ * Prompt 21, U4 : un handle corrigé dans « Needs you » est relevé tout de
+ * suite (le relevé suivant fait avancer la recrue à l'étape d'après).
+ */
+async function releverCompte(supabase: Supabase, compteId: string) {
+  if (!compteId) return { ok: false, error: "compte_id requis" };
+  const { data: c, error } = await supabase.from("comptes").select("id, handle_tiktok").eq("id", compteId).maybeSingle();
+  if (error) throw error;
+  if (!c?.handle_tiktok) return { ok: false, error: "compte sans handle" };
+  const p = await lireProfilTiktok(c.handle_tiktok as string);
+  const { error: errIns } = await supabase.from("ckd_warmup_releves").insert({
+    compte_id: c.id, handle: c.handle_tiktok, existe: p.existe, cree_tiktok_at: p.creeLe,
+    abonnements: p.abonnements, likes: p.likes, abonnes: p.abonnes, videos: p.videos, erreur: p.erreur,
+  });
+  if (errIns) throw errIns;
+  return { ok: true, existe: p.existe, abonnements: p.abonnements };
+}
+
+/** Prompt 21, U6 : à 18 h (Paris), un DM Slack à Max s'il reste de l'urgent dans « Needs you ». */
+async function alerteNeedsYou(supabase: Supabase) {
+  const p = maintenantParis();
+  if (p.heure !== 18) return { ok: true, ignore: "pas 18 h (Paris)" };
+  const { data, error } = await supabase.rpc("needs_you");
+  if (error) throw error;
+  const urgents = ((data ?? []) as { urgence: string }[]).filter((c) => c.urgence !== "rien");
+  if (urgents.length === 0) return { ok: true, urgents: 0 };
+  const n = (u: string) => urgents.filter((c) => c.urgence === u).length;
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return { ok: false, error: "SLACK_HM_BOT_TOKEN manquant" };
+  const texte = `:raising_hand: Needs you : ${urgents.length} cas urgent(s) — ${n("lundi")} bloquent lundi, ${n("paie")} la paie, ${n("kill")} un Kill.\n${OS_URL}/admin/auto/needs-you`;
+  const r = await slackApi(jeton, "chat.postMessage", { channel: SLACK_MAX, text: texte, unfurl_links: false });
+  return { ok: r.ok, urgents: urgents.length, ...(r.ok ? {} : { error: r.error }) };
+}
+
 async function verifierSlack(supabase: Supabase) {
   const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (!jeton) return { ok: false, error: "SLACK_HM_BOT_TOKEN manquant" };
   const qui = await slackApi(jeton, "auth.test", {});
   if (!qui.ok) return { ok: false, error: `jeton refusé : ${qui.error}` };
+  // Prompt 21, T : les droits du bot (en-tête x-oauth-scopes) et la désactivation par SCIM.
+  const droits = await droitsSlack(jeton);
   const canal = await canalSlack(supabase);
   // Lecture : en GET, comme verifierCanal des comment masters.
   const info = await fetch(`https://slack.com/api/conversations.info?channel=${encodeURIComponent(canal)}`, {
     headers: { authorization: `Bearer ${jeton}` },
   }).then((r) => r.json() as Promise<{ ok: boolean; error?: string; channel?: unknown }>);
-  if (!info.ok) return { ok: false, bot: qui.user, canal, error: `canal illisible : ${info.error}` };
+  if (!info.ok) return { ok: false, bot: qui.user, canal, error: `canal illisible : ${info.error}`, droits };
   // deno-lint-ignore no-explicit-any
   const ch: any = info.channel ?? {};
-  return { ok: Boolean(ch.is_member), bot: qui.user, canal, nom: ch.name ?? null, membre: Boolean(ch.is_member) };
+  return { ok: Boolean(ch.is_member), bot: qui.user, canal, nom: ch.name ?? null, membre: Boolean(ch.is_member), droits };
+}
+
+/**
+ * Prompt 21, T : ce que le bot peut faire pour retirer quelqu'un de Slack.
+ * conversations.kick demande channels:manage (canaux publics) et groups:write
+ * (privés) ; la désactivation d'un compte passe par SCIM (plan Business+ ou
+ * Enterprise, jeton d'un admin), jamais par un jeton de bot.
+ */
+async function droitsSlack(jeton: string) {
+  const r = await fetch("https://slack.com/api/auth.test", { method: "POST", headers: { authorization: `Bearer ${jeton}` } });
+  const scopes = (r.headers.get("x-oauth-scopes") ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+  const voulus = ["channels:manage", "groups:write", "channels:read", "groups:read", "users:read"];
+  const scim = await fetch("https://api.slack.com/scim/v2/ServiceProviderConfigs", { headers: { authorization: `Bearer ${jeton}` } })
+    .then(async (x) => ({ statut: x.status, corps: (await x.text()).slice(0, 200) }))
+    .catch((e) => ({ statut: null, corps: messageErreur(e) }));
+  return { scopes, manquent: voulus.filter((v) => !scopes.includes(v)), scim };
 }

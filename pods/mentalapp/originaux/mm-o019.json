@@ -1,0 +1,188 @@
+{
+ "id": "mm-o019",
+ "format": "carrousel",
+ "titre": "It took me 3 years to understand this about focus",
+ "legendes": {
+  "en": "it took me 3 years to understand this about focus #focus #mentalmaxxing #selfimprovement #lifelessons",
+  "fr": "il m’a fallu 3 ans pour comprendre ça sur la concentration #concentration #mentalmaxxing #developpementpersonnel #lecons",
+  "de": "ich habe 3 Jahre gebraucht, um das über Fokus zu verstehen #fokus #mentalmaxxing #selbstverbesserung #lektionen",
+  "es": "me costó 3 años entender esto sobre la concentración #concentracion #mentalmaxxing #superacionpersonal #lecciones",
+  "it": "mi ci sono voluti 3 anni per capire questo sulla concentrazione #concentrazione #mentalmaxxing #crescitapersonale #lezioni",
+  "tr": "odak hakkında bunu anlamam 3 yılımı aldı #odak #mentalmaxxing #kişiselgelişim #hayatdersleri"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/1",
+   "boite": [
+    300,
+    318,
+    610,
+    600
+   ]
+  },
+  "frise": false,
+  "theme": {
+   "en": "It took me 3 years",
+   "fr": "Il m’a fallu 3 ans",
+   "de": "Ich brauchte 3 Jahre",
+   "es": "Me costó 3 años",
+   "it": "Ci ho messo 3 anni",
+   "tr": "3 yılımı aldı"
+  },
+  "sous": {
+   "en": "to understand this about focus",
+   "fr": "pour comprendre ça sur la concentration",
+   "de": "um das über Fokus zu verstehen",
+   "es": "entender esto sobre la concentración",
+   "it": "per capire questo sulla concentrazione",
+   "tr": "odak hakkında bunu anlamak"
+  }
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Your phone is built to win",
+    "fr": "Ton téléphone est fait pour gagner",
+    "de": "Dein Handy will gewinnen",
+    "es": "Tu móvil está hecho para ganar",
+    "it": "Il telefono è fatto per vincere",
+    "tr": "Telefonun kazanmak için tasarlandı"
+   },
+   "texte": {
+    "en": "It was never a willpower problem. Hundreds of engineers work to keep you on that screen.",
+    "fr": "Ça n’a jamais été un problème de volonté. Des centaines d’ingénieurs bossent pour te garder sur cet écran.",
+    "de": "Es war nie ein Willensproblem. Hunderte Ingenieure arbeiten daran, dich am Bildschirm zu halten.",
+    "es": "Nunca fue un problema de fuerza de voluntad. Cientos de ingenieros trabajan para mantenerte en esa pantalla.",
+    "it": "Non è mai stato un problema di forza di volontà. Centinaia di ingegneri lavorano per tenerti su quello schermo.",
+    "tr": "Hiçbir zaman irade sorunu değildi. Yüzlerce mühendis seni o ekranda tutmak için çalışıyor."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Boredom is where ideas start",
+    "fr": "L’ennui, c’est là que naissent les idées",
+    "de": "Aus Langeweile entstehen Ideen",
+    "es": "Las ideas nacen del aburrimiento",
+    "it": "Le idee nascono dalla noia",
+    "tr": "Fikirler can sıkıntısında doğar"
+   },
+   "texte": {
+    "en": "Every time you kill boredom with a feed, you kill the thinking that comes right after it.",
+    "fr": "Chaque fois que tu tues l’ennui avec un feed, tu tues la réflexion qui vient juste après.",
+    "de": "Jedes Mal, wenn du Langeweile mit einem Feed tötest, tötest du das Denken, das danach kommt.",
+    "es": "Cada vez que matas el aburrimiento con un feed, matas el pensamiento que viene justo después.",
+    "it": "Ogni volta che uccidi la noia con un feed, uccidi il pensiero che arriva subito dopo.",
+    "tr": "Can sıkıntısını her akışla öldürdüğünde, hemen ardından gelecek düşünceyi de öldürürsün."
+   }
+  },
+  {
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "Multitasking is a lie",
+    "fr": "Le multitâche est un mensonge",
+    "de": "Multitasking ist eine Lüge",
+    "es": "La multitarea es una mentira",
+    "it": "Il multitasking è una bugia",
+    "tr": "Çoklu görev bir yalan"
+   },
+   "texte": {
+    "en": "You are not doing three things. You are switching fast and doing all three badly.",
+    "fr": "Tu ne fais pas trois choses. Tu passes vite de l’une à l’autre et tu les fais mal.",
+    "de": "Du machst nicht drei Dinge. Du wechselst schnell hin und her und machst alle drei schlecht.",
+    "es": "No haces tres cosas. Cambias rápido entre ellas y las haces mal.",
+    "it": "Non stai facendo tre cose. Salti dall’una all’altra e le fai male tutte e tre.",
+    "tr": "Üç iş yapmıyorsun. Hızla geçiş yapıyor ve üçünü de kötü yapıyorsun."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "A strong body helps a calm mind",
+    "fr": "Un corps fort aide un esprit calme",
+    "de": "Starker Körper, ruhiger Kopf",
+    "es": "Un cuerpo fuerte calma la mente",
+    "it": "Un corpo forte aiuta la mente",
+    "tr": "Güçlü beden sakin zihne yardım eder"
+   },
+   "texte": {
+    "en": "Training gave me more focus than any productivity trick. Three sessions a week is enough.",
+    "fr": "La muscu m’a donné plus de focus que n’importe quelle astuce de productivité. Trois séances par semaine suffisent.",
+    "de": "Training gab mir mehr Fokus als jeder Produktivitäts-Trick. Drei Einheiten pro Woche reichen.",
+    "es": "Entrenar me dio más foco que cualquier truco de productividad. Tres sesiones a la semana bastan.",
+    "it": "Allenarmi mi ha dato più concentrazione di qualsiasi trucco di produttività. Tre sedute a settimana bastano.",
+    "tr": "Antrenman bana her verimlilik hilesinden daha çok odak verdi. Haftada üç seans yeter."
+   }
+  },
+  {
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "Nights decide mornings",
+    "fr": "Les nuits décident des matins",
+    "de": "Die Nacht macht den Morgen",
+    "es": "Las noches deciden las mañanas",
+    "it": "Le notti decidono le mattine",
+    "tr": "Geceler sabahları belirler"
+   },
+   "texte": {
+    "en": "Every late scroll costs you the next morning. Protect the last hour of your day.",
+    "fr": "Chaque scroll tardif te coûte la matinée suivante. Protège la dernière heure de ta journée.",
+    "de": "Jedes späte Scrollen kostet dich den nächsten Morgen. Schütze die letzte Stunde deines Tages.",
+    "es": "Cada scroll tarde te cuesta la mañana siguiente. Protege la última hora de tu día.",
+    "it": "Ogni scroll a tarda sera ti costa la mattina dopo. Proteggi l’ultima ora della giornata.",
+    "tr": "Her geç saat scroll’u sana ertesi sabahı kaybettirir. Günün son saatini koru."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "What finally worked for me: I deleted short videos with UnSwipe. Not more willpower, less temptation.",
+    "fr": "Ce qui a fini par marcher pour moi : j’ai supprimé les vidéos courtes avec UnSwipe. Pas plus de volonté, moins de tentation.",
+    "de": "Was bei mir endlich geklappt hat: Ich habe Kurzvideos mit UnSwipe gelöscht. Nicht mehr Willenskraft, weniger Versuchung.",
+    "es": "Lo que por fin me funcionó: borré los vídeos cortos con UnSwipe. No más fuerza de voluntad, menos tentación.",
+    "it": "Quello che alla fine ha funzionato per me: ho eliminato i video brevi con UnSwipe. Non più forza di volontà, meno tentazione.",
+    "tr": "Sonunda işe yarayan şey: kısa videoları UnSwipe ile sildim. Daha çok irade değil, daha az cazibe."
+   }
+  }
+ ],
+ "notes": "routine du 28/10 : accroche jamais faite chez nous, « it took me N years to understand this » (schéma took-me-years du playbook du pod 9), en carrousel de leçons sans badges de rang. cta C : élément UnSwipe en dernière slide, conseil à la 1re personne. Couverture : la silhouette « Mentalmaxx » de la banque."
+}

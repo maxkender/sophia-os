@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o040",
+ "schema_id": "mentir-entretien",
+ "titre": "mes réponses d'entretien à 25 ans vs à 35 ans (j'ai appris à MENTIR… un peu) #entretien #reconversion #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 28/10 (5 livraisons + 6 variantes). variante de rh-o009 (39,4 k vues en el le 26/10). Même schéma mentir-entretien (r 29,23 sur 4 passages, 496f8d72) et même format avant/maintenant, autre angle, autres questions : aucune reprise de rh-o001 à rh-o032 ni des sources. Angle : 25 ans contre 35 ans, une cible plus âgée que rh-o009. rh-o040 finit par 0 mais c'est une variante : l'essai du jour est rh-o035. Accroches écrites : celle-ci (retenue : gabarit gagnant, autres âges), « ce que 10 ans d'entretiens m'ont appris à dire » (écartée : sans le contraste), « mes réponses à 25 ans me font honte » (écartée : négative). CTA de fin jamais utilisé : l'âge de son pire entretien. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a669d171",
+   "texte_overlay": "mes réponses d'entretien\nà 25 ans vs à 35 ans\n(j'ai appris à MENTIR… un peu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "841ee1a2",
+   "texte_overlay": "« vous êtes ambitieuse ? »\nà 25 ans : « je veux être manager dans 2 ans »\nà 35 ans : « je veux maîtriser le poste, puis prendre plus »\nmême ambition, sans faire peur à ton futur chef",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "84268b92",
+   "texte_overlay": "« vous êtes à l'aise avec nos outils ? »\nà 25 ans : « bien sûr, tous »\nà 35 ans : « oui sur X et Y, et j'apprends vite le reste »\nprécis et vrai, ça se vérifie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8454f14b",
+   "texte_overlay": "« quel type de manager vous convient ? »\nà 25 ans : « quelqu'un de cool »\nà 35 ans : « quelqu'un qui fixe des objectifs clairs et me laisse faire »\ntu décris un fonctionnement, pas une ambiance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9e7171aa",
+   "texte_overlay": "« qu'est-ce qui vous passionne en ce moment ? »\nà 25 ans : « euh… les séries »\nà 35 ans : « l'histoire de l'art, je m'y suis mise »\nun sujet précis, et la conversation s'ouvre",
+   "texte_sophia": "« qu'est-ce qui vous passionne en ce moment ? »\nà 35 ans : « l'histoire de l'art, je m'y suis mise »\nutilise l'appli Sophia 5 minutes par jour, et en un mois t'as ta réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8733e733",
+   "texte_overlay": "« et si on ne vous retient pas ? »\nà 25 ans : « c'est vous ou rien »\nà 35 ans : « je regarde d'autres postes, mais celui-ci est mon premier choix »\nmotivée, pas désespérée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "875c258c",
+   "texte_overlay": "ton pire entretien,\ntu avais quel âge ?\nécris-le en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

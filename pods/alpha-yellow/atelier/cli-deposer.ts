@@ -16,6 +16,24 @@ const essai = process.argv.includes("--essai");
 const playbook = JSON.parse(readFileSync("playbook.json", "utf8")) as Playbook;
 const r = await appelPod<{ images: { id: string }[] }>({ action: "images" });
 if (!r.ok) throw new Error(r.error);
+// Reprises (ROUTINE.md §4.7, 28/10) : reprendre une accroche ou une couverture
+// est permis, c'est le principe des variantes. Seule interdiction : deux posts
+// identiques. Une reprise doit changer au moins les items, l'angle, une image
+// ou le CTA ; un original dont toutes les slides (texte, image, texte Sophia)
+// sont celles d'un autre est refusé.
+const tous = readdirSync("originaux")
+  .filter((f) => f.endsWith(".json"))
+  .map((f) => JSON.parse(readFileSync(`originaux/${f}`, "utf8")) as Original);
+const empreinte = (o: Original) =>
+  JSON.stringify(
+    [...o.slides]
+      .sort((a, b) => a.position - b.position)
+      .map((s) => [s.media_id.slice(0, 8), s.texte_overlay.replace(/\s+/g, " ").trim().toLowerCase(), (s.texte_sophia ?? "").trim().toLowerCase()]),
+  );
+function doublonCouverture(o: Original): string | null {
+  const meme = tous.find((x) => x.source_id !== o.source_id && empreinte(x) === empreinte(o));
+  return meme ? `identique à ${meme.source_id} : change les items, l'angle, une image ou le CTA` : null;
+}
 const fichiers = readdirSync("originaux").filter((f) => f.endsWith(".json") && (cible === "all" || f === `${cible}.json`));
 if (!fichiers.length) throw new Error(`aucun original « ${cible} »`);
 for (const f of fichiers) {
@@ -23,6 +41,11 @@ for (const f of fichiers) {
   const schema = playbook.schemas.find((s) => s.id === o.schema_id);
   if (!schema) {
     console.log(`${o.source_id} : REFUSÉ schéma « ${o.schema_id} » absent du playbook`);
+    continue;
+  }
+  const doublon = doublonCouverture(o);
+  if (doublon) {
+    console.log(`${o.source_id} : REFUSÉ ${doublon}`);
     continue;
   }
   const preuve = preuveDuSchema(schema);

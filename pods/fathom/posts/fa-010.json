@@ -1,0 +1,295 @@
+{
+ "id": "fa-010",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686070623206280470",
+  "vues": 97100,
+  "accroche": "5 Ways to Build Peak Intelligence"
+ },
+ "titre": {
+  "en": "5 Ways to Build Peak Intelligence",
+  "de": "5 Wege zu maximaler Intelligenz",
+  "pt": "5 formas de chegar ao teu máximo de inteligência"
+ },
+ "legendes": {
+  "en": "5 Ways to Build Peak Intelligence #intelligence #learnontiktok #selfimprovement",
+  "de": "5 Wege zu maximaler Intelligenz #intelligenz #lernenmittiktok #selbstverbesserung",
+  "pt": "5 formas de chegar ao teu máximo de inteligência #inteligencia #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta A (« learn something new every day, / in 5 minutes. »). Double intégration : UnSwipe à l'étape 2 « PROTECT YOUR ATTENTION », Sophia en carte d'appli à l'étape 4 « FEED YOUR CURIOSITY ». Ses « EXERCISE REGULARLY » et « LEARN A NEW LANGUAGE » tombent. en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO BUILD PEAK",
+     "INTELLIGENCE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZU MAXIMALER",
+     "INTELLIGENZ"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 FORMAS",
+       "bronze": true
+      }
+     ],
+     "DE CHEGAR AO TEU",
+     "MÁXIMO DE INTELIGÊNCIA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "SOMETHING",
+     "HARD"
+    ],
+    "video": {
+     "id": "bNv8asxZc6U",
+     "titre": "Week 32 - How to Learn Really Hard Subjects",
+     "chaine": "Scott Young",
+     "vues": "1.6M views",
+     "date": "14 years ago",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLsnkSphcfZZrlfsYvxQ1WvGekCnnQV1AqWn30qnw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE ETWAS",
+     "SCHWIERIGES"
+    ],
+    "video": {
+     "id": "ge6u-u-22OM",
+     "titre": "Wie Du Alles Verstehen Kannst (Feynman Methode)",
+     "chaine": "Logical Lemon",
+     "vues": "2,7 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "DIFÍCIL"
+    ],
+    "video": {
+     "id": "CN_SCpGuJ_w",
+     "titre": "Como APRENDER QUALQUER COISA de maneira INTELIGENTE | A Técnica Feynman",
+     "chaine": "IlustradaMente",
+     "vues": "1,1 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "3:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kh2gKB65DEvKuc6F84vwg0-AJugCSg0AfRSaiHn3z0x6U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "PROTECT YOUR",
+     "ATTENTION"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHÜTZE DEINE",
+     "AUFMERKSAMKEIT"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "PROTEGE A TUA",
+     "ATENÇÃO"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "DIFFICULT BOOKS"
+    ],
+    "video": {
+     "id": "L28OLYtxXjs",
+     "titre": "How To Read Difficult Books",
+     "chaine": "Philosophy Tube",
+     "vues": "179K views",
+     "date": "9 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/s5g3Zjsm4yoWa39CucvIq7GtV_BNCOMyNR4xSPPvlv7vf1LVd40_XqdWhnEwPXSpgMEGizDAeJo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES",
+     "SCHWIERIGE BÜCHER"
+    ],
+    "video": {
+     "id": "wNpQl6qVOZU",
+     "titre": "Schwierige Texte lesen und verstehen mit der mächtigen PQ5R-Methode 📚",
+     "chaine": "shribe! - master your studies",
+     "vues": "76.039 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "9:11",
+     "avatar": "https://yt3.ggpht.com/VxDvZppAf1oq-LhGfyaTSL2_mGksOgZae7QVSrBjLk6GVI8Yt-acFjFfzLmYdc74vbRkk2ruVw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LÊ LIVROS DIFÍCEIS"
+    ],
+    "video": {
+     "id": "3JOqa3ZXsL0",
+     "titre": "Como Ler Livros Difíceis (e não desistir)",
+     "chaine": "Corre de PhD",
+     "vues": "73 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "22:27",
+     "avatar": "https://yt3.ggpht.com/tWWhDWilU1B5nONPfpoVwZVTLvT_zNbAGagzPmt0Xakyoop-2NlCCTMH5y40q35oaKLg5KKdO5Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "FEED YOUR",
+     "CURIOSITY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FÜTTERE DEINE",
+     "NEUGIER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "ALIMENTA A TUA",
+     "CURIOSIDADE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PRIORITISE",
+     "DEEP SLEEP"
+    ],
+    "video": {
+     "id": "t0kACis_dJE",
+     "titre": "6 tips for better sleep | Sleeping with Science, a TED series",
+     "chaine": "TED",
+     "vues": "2.8M views",
+     "date": "6 years ago",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_koIFcCOrvh0KThLNOiazAIDu6hcs8bjkGNwe1f6A_OYm8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLAF HAT",
+     "VORRANG"
+    ],
+    "video": {
+     "id": "l72IHVMcapk",
+     "titre": "Schlaf optimieren? Was geht und was nicht geht! | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "813.326 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "DÁ PRIORIDADE",
+     "AO SONO"
+    ],
+    "video": {
+     "id": "xSYkc9J8UjU",
+     "titre": "Como dormir melhor... de acordo com a ciência",
+     "chaine": "Ciência Todo Dia",
+     "vues": "2,2 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

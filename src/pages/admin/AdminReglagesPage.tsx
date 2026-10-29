@@ -22,6 +22,9 @@ import {
 } from "@/features/moteur/pipelinesSchema";
 import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { CarteUpwork } from "@/features/upwork/CarteUpwork";
+import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
+import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPaie, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
 
 function ChampNombre({
   id,
@@ -210,7 +213,7 @@ export function AdminReglagesPage() {
       // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
       // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
       // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
-      await ecrireReglage("warmup", r.warmup);
+      // « warmup.heures » n'est plus lu : la fin du warm-up suit la cohorte (0301).
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -241,6 +244,16 @@ export function AdminReglagesPage() {
         <h1 className="text-lg font-semibold tracking-tight">{t("reglages.title")}</h1>
         <p className="text-sm text-muted-foreground">{t("reglages.subtitleActions")}</p>
       </div>
+
+      <Interrupteurs />
+
+      <CarteUpwork />
+
+      {/* Partie E (0411) : messages Upwork, cohorte et accueil, textes aux posteurs. */}
+      <CarteMessagesUpwork />
+      <CarteCohorteAccueil />
+      <CarteTextesPosteurs />
+      <CarteTextesPaie />
 
       {/* ── Cleaning ── */}
       <Card>
@@ -433,6 +446,13 @@ export function AdminReglagesPage() {
                 min={0}
                 valeur={reglages.tierlist.ecart_min_meme_contenu}
                 onChange={(n) => majTierlist({ ecart_min_meme_contenu: n })}
+              />
+              <ChampNombre
+                id="ecartMemeAccroche"
+                label={t("reglages.ecartMinMemeAccroche")}
+                min={0}
+                valeur={reglages.tierlist.ecart_min_meme_accroche}
+                onChange={(n) => majTierlist({ ecart_min_meme_accroche: n })}
               />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.assignationParamsAide")}</p>
@@ -713,18 +733,6 @@ export function AdminReglagesPage() {
           <CardDescription>{t("warmup.settingsDesc")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-5">
-          <section className="space-y-3 sm:max-w-xs">
-            <ChampNombre
-              id="warmupH"
-              label={t("warmup.heures")}
-              min={1}
-              max={168}
-              valeur={reglages.warmup.heures}
-              onChange={(n) => maj({ warmup: { heures: n } })}
-            />
-            <p className="text-xs text-muted-foreground">{t("warmup.heuresAide")}</p>
-          </section>
-
           {/* La File a déménagé sur la page Allocation : décider où va la
               prochaine recrue et forcer la main au moteur sont la même
               conversation, et elles se lisent mieux côte à côte. On laisse le

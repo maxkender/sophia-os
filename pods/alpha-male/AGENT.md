@@ -97,7 +97,7 @@ Le pilote `originaux/am-o001.json` est l'exemple complet. Les champs :
 	Ils sont concrets et **neufs** : jamais un item de la source recopié. Vérifie dans `donnees/label.json` que l'idée n'y est pas déjà.
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : intérieurs sombres, voitures, villes la nuit, paysages, hommes de dos.
-	- **Jamais une célébrité ni un visage reconnaissable** (sportif, acteur, chanteur) : on ne prête pas un conseil à une personne réelle.
+	- **Les photos de célébrités sont acceptées** (sportif, acteur, chanteur), en illustration (décision d'Adrien, 28/10). Jamais sur la slide Sophia.
 	- La slide Sophia : une image **sans personne** (salon, bureau, bibliothèque, paysage).
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
 - **Musique** : celle du schéma.

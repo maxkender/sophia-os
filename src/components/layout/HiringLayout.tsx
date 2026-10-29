@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, FilePenLine, Gauge, LayoutDashboard, UserPlus, Users, Wallet } from "lucide-react";
+import { CalendarDays, FilePenLine, Gauge, LayoutDashboard, Link2, UserPlus, Users } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
 import { BoutonGuideNotion, GUIDE_NOTION_HM } from "@/features/documents/BoutonGuideNotion";
@@ -30,17 +30,8 @@ export function HiringLayout() {
               icon: LayoutDashboard,
               description: t("accueilHm.navDesc"),
             },
-            // Paiements : caché aux HM et DM pour l'instant, le Head of Ops y paie les bonus.
-            ...(estHo
-              ? [
-                  {
-                    to: "/manager/paiements",
-                    label: t("accueilHm.paiementsNav"),
-                    icon: Wallet,
-                    description: t("accueilHm.paiementsNavDesc"),
-                  },
-                ]
-              : []),
+            // Paiements : retiré du menu (prompt 15, doublon de Paie, où sont
+            // aussi les bonus à venir) ; la route /manager/paiements reste.
             {
               to: "/embauche",
               label: t("nav.embauche"),
@@ -52,6 +43,12 @@ export function HiringLayout() {
               label: t("hiring.calendrierNav"),
               icon: CalendarDays,
               description: t("hiring.calendrierSous"),
+            },
+            {
+              to: "/manager/slack",
+              label: t("slackRelier.nav"),
+              icon: Link2,
+              description: t("slackRelier.navDesc"),
             },
             ...(estDm
               ? [

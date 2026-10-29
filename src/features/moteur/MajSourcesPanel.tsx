@@ -27,7 +27,7 @@ import {
 } from "@/features/moteur/majSourcesVue";
 import type { CompteReference } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
-import { localeDate } from "@/locales/localeDate";
+import { aujourdhuiEnLettres, localeDate } from "@/locales/localeDate";
 
 /** Au-delà, la source est « ancienne » : la date passe en orange. */
 const JOURS_ANCIENNE = 7;
@@ -144,7 +144,13 @@ export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
             {t("sources.majStop")}
           </Button>
         ) : (
-          <Button disabled={choix.size === 0 || lancer.isPending} onClick={() => lancer.mutate()}>
+          <Button
+            disabled={choix.size === 0 || lancer.isPending}
+            onClick={() => {
+              // Prompt 15, point 1 : la date et le coût avant de lancer.
+              if (window.confirm(t("sources.confirmMaj", { count: choix.size, date: aujourdhuiEnLettres() }))) lancer.mutate();
+            }}
+          >
             <RefreshCw className="size-3.5" />
             {t("sources.majGo", { count: choix.size })}
           </Button>

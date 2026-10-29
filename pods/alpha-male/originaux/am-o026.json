@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o026",
+ "schema_id": "dangerous-skills",
+ "titre": "6 old-school skills every man should learn #men #skills #gentleman #selfimprovement #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7652148333531663135",
+ "inspirations": [
+  "c125e084-ee9a-43e2-b4f2-899d2a855663",
+  "d35caa00-ab8d-4b28-bb54-e6bdda3b7392"
+ ],
+ "notes": "cta A. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Schéma dangerous-skills (r 2,72, d35caa00 ; r 2,46, c125e084). Nouvel angle pour moi : le savoir-faire d'autrefois (am-o013 : la débrouille). Accroches écrites : « 6 old-school skills every man should learn » (retenue : forme « N skills… » du schéma, angle « gentleman » neuf, aucun « old-school » dans le label), « skills your grandfather had that you don't » (écartée : plus longue), « classy skills every man needs » (écartée : plus vague). Compétences neuves (vérifié dans donnees/label.json) ; écartées car déjà présentes : nœuds, couteaux, cuisine, carte, pneu, premiers secours. Images : la banque du label ; célébrités acceptées en illustration depuis le 28/10 (AGENT.md), jamais sur la slide Sophia. Couverture : Daniel Craig en manteau, en illustration. Slide Sophia sur une vue de voiture enneigée sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "567e011b",
+   "texte_overlay": "6 old-school skills\nevery man should learn",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a0f9075f",
+   "texte_overlay": "1. Ironing a shirt properly\nCollar, cuffs, then sleeves.\nA sharp shirt does half\nthe talking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "56482391",
+   "texte_overlay": "2. Tying a tie\nwithout a video\nLearn one knot by heart.\nYou'll need it on the days\nthat matter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a0db7e2f",
+   "texte_overlay": "3. Writing a real letter by hand\nA thank-you, a condolence.\nPeople keep letters.\nNobody keeps texts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a2480c92",
+   "texte_overlay": "4. Giving a short toast\nThirty seconds, one story,\nraise your glass.\nEvery family needs\na man who can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "56091f37",
+   "texte_overlay": "5. Checking your car's oil\nand tyre pressure\nFive minutes once a month\nsaves you a breakdown.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a1db257e",
+   "texte_overlay": "6. Knowing a bit of history\nA few stories from the past\nand you can hold any\nconversation, anywhere.",
+   "texte_sophia": "6. Knowing a bit of history\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/2.jpg"
+  }
+ ]
+}

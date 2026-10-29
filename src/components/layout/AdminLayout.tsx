@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
+  CircleAlert,
   AtSign,
   BarChart3,
   BookOpen,
@@ -13,43 +14,66 @@ import {
   Gavel,
   Gauge,
   LineChart,
+  Inbox,
+  LayoutDashboard,
   ListChecks,
+  ListTodo,
+  type LucideIcon,
   Gift,
   Images,
   Languages,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
-  MessageSquareText,
   MessagesSquare,
+  Workflow,
   MoonStar,
   PenLine,
   Boxes,
   Scale,
+  Send,
   Settings,
   Tags,
-  ShieldAlert,
   Users,
   UserPlus,
   Wallet,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
+import { BandePause } from "@/features/auto/BandePause";
+import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestationsAVerifier } from "@/features/moteur/api";
+import { lireCompteNeedsYou } from "@/features/needsYou/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 import type { NavGroup } from "./Sidebar";
+import { useParrainageActif } from "@/features/bonus/parrainageActif";
+
+/** Les icônes des pages de Recruitment Automation (prompt 22). */
+const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
+  overview: LayoutDashboard,
+  recruits: Workflow,
+  decisions: Gavel,
+  sent: Send,
+  received: Inbox,
+  needs: CircleAlert,
+  payroll: Wallet,
+  faq: MessageCircle,
+  logs: ListTodo,
+};
 
 export function AdminLayout() {
   const { t } = useTranslation();
   const { role } = useAuth();
   const { applications, slug, setSlug, application } = useApplication();
   const estHo = role === "head_of_ops";
+  const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
+  const needsYou = useQuery({ queryKey: ["needs-you", "compte"], queryFn: lireCompteNeedsYou, refetchInterval: 5 * 60_000 });
   const contestations = useQuery({
     queryKey: ["contestations-a-verifier"],
     queryFn: compterContestationsAVerifier,
@@ -116,6 +140,18 @@ export function AdminLayout() {
         ) : undefined
       }
       groups={filtrer([
+        // Prompt 22 : tout le système du 2 nov. en une section, en tête.
+        {
+          title: t("auto.section"),
+          items: PAGES_AUTO.map((p) => ({
+            to: p.to,
+            label: t(`auto.pages.${p.cle}.titre`),
+            icon: ICONES_AUTO[p.cle],
+            description: t(`auto.pages.${p.cle}.phrase`),
+            // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
+            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
+          })),
+        },
         {
           items: [
             { to: "/admin", label: t("nav.pilotage"), icon: Gauge, description: t("navDesc.pilotage") },
@@ -177,6 +213,14 @@ export function AdminLayout() {
         {
           title: t("navSection.suivi"),
           items: [
+            // 28 oct. (partie E) : le suivi dans cet ordre, Cohorts · Posters ·
+            // Decisions · Recruiting · Payroll · Follow-ups. Inactifs et Slack
+            // à relier sortent du menu (routes gardées) : les inactifs sont dans
+            // Decisions et dans un filtre de Posters, Slack se relie dans la
+            // fiche du posteur.
+            { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
+            // Account watch, Recruiting, Reviews, Cohorts, Follow-ups, Replies, Payroll, Pipeline,
+            // Decisions : dans Recruitment Automation ou retirés (prompt 22), anciennes adresses redirigées.
             {
               to: "/admin/analytics",
               label: t("nav.analytics"),
@@ -188,35 +232,6 @@ export function AdminLayout() {
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
-            },
-            { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
-            {
-              to: "/admin/surveillance",
-              label: t("nav.surveillance"),
-              icon: ShieldAlert,
-              description: t("navDesc.surveillance"),
-            },
-            {
-              to: "/admin/check-kill-double",
-              label: t("nav.checkKillDouble"),
-              icon: Gavel,
-              description: t("navDesc.checkKillDouble"),
-            },
-            { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
-            // Toujours visible : le recrutement relève de l'identité des
-            // comptes, qui reste Sophia quelle que soit l'application choisie.
-            {
-              to: "/admin/recrutements",
-              label: t("nav.recrutements"),
-              icon: UserPlus,
-              description: t("navDesc.recrutements"),
-              end: false,
-            },
-            {
-              to: "/admin/reviews",
-              label: t("nav.reviews"),
-              icon: MessageSquareQuote,
-              description: t("navDesc.reviews"),
             },
             {
               to: "/admin/retours-contestes",
@@ -237,23 +252,22 @@ export function AdminLayout() {
               icon: ListChecks,
               description: t("navDesc.bancRelecture"),
             },
-            {
-              to: "/admin/parrainages",
-              label: t("nav.referral"),
-              icon: Gift,
-              description: t("navDesc.referral"),
-            },
+            // Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause (la route reste).
+            ...(parrainage
+              ? [
+                  {
+                    to: "/admin/parrainages",
+                    label: t("nav.referral"),
+                    icon: Gift,
+                    description: t("navDesc.referral"),
+                  },
+                ]
+              : []),
             {
               to: "/admin/comment-masters",
               label: t("nav.commentMasters"),
               icon: MessagesSquare,
               description: t("navDesc.commentMasters"),
-            },
-            {
-              to: "/admin/comment-masters/suivi",
-              label: t("nav.cmSuivi"),
-              icon: MessageSquareText,
-              description: t("navDesc.cmSuivi"),
             },
           ],
         },
@@ -302,16 +316,11 @@ export function AdminLayout() {
               icon: BookOpen,
               description: t("documents.navDesc"),
             },
-            {
-              to: "/admin/assistant",
-              label: t("chatbot.nav"),
-              icon: MessageCircle,
-              description: t("chatbot.navDesc"),
-            },
           ],
         },
       ])}
     >
+      <BandePause />
       <Outlet />
     </AppShell>
   );

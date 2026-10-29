@@ -21,15 +21,14 @@ const TH = "px-2 py-2 text-left text-xs font-medium text-muted-foreground whites
 const TD = "px-2 py-2 align-top";
 
 /** Le lien du contrat Upwork, ou « lien manquant » et un champ pour le coller. */
-function CelluleContrat({ ligne }: { ligne: LignePaie }) {
+export function CelluleContrat({ posterId, lien }: { posterId: string; lien: string | null | undefined }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [url, setUrl] = React.useState("");
   const enregistrer = useMutation({
-    mutationFn: () => enregistrerContrat(ligne.poster_id, url),
+    mutationFn: () => enregistrerContrat(posterId, url),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["paie"] }),
   });
-  const lien = ligne.poster?.upwork_contrat_url;
   if (lien) {
     return (
       <a href={lien} target="_blank" rel="noreferrer" className="text-primary underline-offset-2 hover:underline">
@@ -161,7 +160,7 @@ export function TableauPaie({ lignes }: { lignes: LignePaie[] }) {
             <tr key={l.id} className={l.paye_at && l.semaine_suivante_faite_at ? "opacity-60" : undefined}>
               <td className={`${TD} whitespace-nowrap`}>{nomPosteur(l)}</td>
               <td className={TD}>
-                <CelluleContrat ligne={l} />
+                <CelluleContrat posterId={l.poster_id} lien={l.poster?.upwork_contrat_url} />
               </td>
               <td className={`${TD} whitespace-nowrap`}>{l.comptes_payes > 0 ? milestone(l.semaine, l.comptes_payes) : "—"}</td>
               <td className={TD}>{l.nb_comptes}</td>

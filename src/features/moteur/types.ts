@@ -278,6 +278,8 @@ export interface PosterProfil {
   upwork_contrat_url?: string | null;
   /** Email personnel, celui de Slack (0358). */
   email_perso?: string | null;
+  /** Le lundi de sa cohorte (0391), changé seulement par « Reporter » (page Cohortes). */
+  cohorte_lundi?: string | null;
   cout_mensuel: number | null;
   compte_id: string | null;
   handle_tiktok: string | null;
@@ -398,6 +400,11 @@ export interface ReglagesTierlist {
   repechage_passages: number;
   /** Jours minimum avant qu'un contenu puisse repasser sur le même compte. */
   ecart_min_meme_contenu: number;
+  /**
+   * Jours minimum entre deux posts d'un compte à la même accroche ou à la même
+   * image de couverture, même venant de deux contenus différents (0 désactive).
+   */
+  ecart_min_meme_accroche: number;
   /** Jours d'attente d'une mesure avant de relancer le cycle au même rang. */
   requalif_max_jours: number;
   /** Vues qu'un passage d'un B doit atteindre pour qu'il reste en B (0 désactive). */

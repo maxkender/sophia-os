@@ -150,8 +150,8 @@ describe("propositions", () => {
 });
 
 describe("décisions", () => {
-  it("les boutons de chaque règle sont exactement les décisions permises en base (0369)", () => {
-    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0369_ckd_samedi_paie_suivante.sql"), "utf8");
+  it("les boutons de chaque règle sont exactement les décisions permises en base (0385, qui reprend 0369)", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0385_inactifs.sql"), "utf8");
     for (const [regle, boutons] of Object.entries(BOUTONS_PAR_REGLE)) {
       const ligne = sql.match(new RegExp(`when '${regle}'\\s+then array\\[([^\\]]*)\\]`))?.[1] ?? "";
       const permises = [...ligne.matchAll(/'([a-z_]+)'/g)].map((m) => m[1]);
@@ -163,6 +163,8 @@ describe("décisions", () => {
     expect(aEnvoyer(proposition({ action: "ne_pas_renouveler", decision: "ne_pas_renouveler" }))).toBe(true);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer", nouveau_compte_id: "n" }))).toBe(true);
+    // v3 (0382) : Doubler est une offre au posteur, elle part sans compte.
+    expect(aEnvoyer(proposition({ action: "doubler", regle: "doubler", decision: "doubler" }))).toBe(true);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "garder" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge", envoye_at: "2026-10-24T10:00:00Z" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge" }))).toBe(false);

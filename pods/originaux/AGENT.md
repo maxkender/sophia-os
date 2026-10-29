@@ -84,6 +84,16 @@ ou de déposer.
   rebuilt my confidence »), avant/après. Les variantes des percées gardent le
   fond de l'original mais prennent aussi une accroche hors de ce schéma.
   Jamais deux fois la même accroche ni la même image d'accroche dans un lot.
+- **Reprises (Adrien, 28/10, `pods/ROUTINE.md` §4.7)** : reprendre un titre de
+  slide 1 ou une couverture est permis, c'est le principe des variantes. Seule
+  règle : **jamais deux posts identiques**, chaque reprise change quelque chose
+  (autres items, autre angle, autre image ou autre CTA). Varie quand même :
+  nouveaux schémas, nouvelles accroches, nouvelles images (la banque contient
+  beaucoup de doublons visuels sous des `media_id` différents). Avant
+  `deposer` : `npm run accroches` (empreintes visuelles, couvertures neuves dans
+  `sortie/accroches-libres.txt`), puis `npm run unicite -- <ids>`, qui signale
+  les reprises et refuse un post identique. Éviter qu'un compte reçoive deux
+  fois la même chose relève de l'assignation, côté OS.
 - **Item** : `titre (2 à 4 mots)\n\n` puis 2 phrases, **150 à 200 caractères** :
   une consigne concrète et chiffrée (durée, fréquence), puis une chute
   introspective (« most people… », « the avoidance costs more than… »).
@@ -138,6 +148,9 @@ normale : un original, comme « Écris N originaux » avec N = 1.
 
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
+- **Personnes sur les images** : les photos de la banque où l'on voit des
+  célébrités (acteurs, actrices) sont acceptées (Adrien, 28/10). Seule limite :
+  jamais de personne réelle sur la slide Sophia (`pods/ROUTINE.md`).
 - **Versions** : commite avant de réécrire un fichier existant.
 - **Git** : travaille sur ta branche, PR vers `main` limitée à `pods/originaux/`,
   merge-la. Tout changement hors de ce dossier : propose-le, ne le merge pas.

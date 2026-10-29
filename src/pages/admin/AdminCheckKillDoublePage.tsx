@@ -85,10 +85,13 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
-import { ADeciderCarte } from "@/features/ckd/decisions/ADeciderCarte";
+import { CartesDecision } from "@/features/ckd/decisions/CartesDecision";
 import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
+import { JeudiNudge } from "@/features/ckd/decisions/JeudiNudge";
+import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
+import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
+import { useOnglet } from "@/features/auto/useOnglet";
 import { SemaineDecisions } from "@/features/ckd/decisions/SemaineDecisions";
-import { ReglagesMessages } from "@/features/messagesPosteurs/ReglagesMessages";
 import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
@@ -115,9 +118,25 @@ const POINT_ACTION: Record<ActionCkd, string> = {
   nudge: "bg-info",
 };
 
-/** Les onglets de la page Decisions (28 oct.). */
-const ONGLETS = ["decisions", "shadowban", "historique", "reglages"] as const;
+/**
+ * Prompt 22, partie 5 : les onglets de Weekly decisions. Thursday (le nudge du
+ * jeudi), Saturday (Kill / Double), Dead accounts (Recreate et Shadowban),
+ * Settings (les seuils). Les anciennes vues (`?vue=`) ouvrent le bon onglet.
+ */
+const ONGLETS = ["jeudi", "samedi", "morts", "reglages"] as const;
 type Onglet = (typeof ONGLETS)[number];
+const ANCIENNES_VUES: Readonly<Record<string, Onglet>> = {
+  decisions: "samedi",
+  historique: "samedi",
+  shadowban: "morts",
+  recreer: "morts",
+};
+
+/** L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), sinon Saturday. */
+function ongletDuJour(maintenant = new Date()): Onglet {
+  const jour = new Intl.DateTimeFormat("en-GB", { weekday: "short", timeZone: "Europe/Paris" }).format(maintenant);
+  return jour === "Thu" || jour === "Fri" ? "jeudi" : "samedi";
+}
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -150,31 +169,26 @@ interface FiltreCohorte {
 }
 
 /**
- * Admin → Decisions (ex Check, Kill or Double ; chantier du 28 oct.). En haut,
- * la vraie semaine (mercredi check auto, jeudi Recréer, samedi Kill ou
- * Double, dimanche arrêts, lundi paie) ; puis un seul bloc « À décider
- * maintenant » ; le détail de chaque contrôle en dessous. Onglets : Décisions
- * · Shadowban · Historique · Réglages. `?vue=cohorte` renvoie vers Cohorts ;
- * `?vue=shadowban` ouvre l'onglet Shadowban. Le récap du dimanche part à Max
- * seulement (fonction `ckd`).
+ * Admin → Weekly decisions (ex Decisions, ex Check, Kill or Double). Prompt
+ * 22, partie 5 : trois onglets et les réglages.
+ * - Thursday : la liste du nudge du jeudi (prompt 21, C7), ce qui est parti ;
+ * - Saturday : Kill / Double, une carte par compte, une phrase et 2 boutons,
+ *   rien n'est coché par défaut ; le détail du contrôle et l'historique en
+ *   dessous, repliés ;
+ * - Dead accounts : Recreate (cartes, puis le détail du contrôle du jeudi) et
+ *   Shadowban ;
+ * - Settings : les seuils.
+ * L'étape « Wed 12:00 » n'existe plus. Les textes (Kill, pop-ups, nudges)
+ * sont dans Messages sent → Texts. `?vue=cohorte` renvoie vers Recruits.
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
-  const [params, setParams] = useSearchParams();
-  const brut = params.get("vue");
-  const onglet: Onglet = brut === "shadowban" || brut === "historique" || brut === "reglages" ? brut : "decisions";
-  const choisir = (o: Onglet) =>
-    setParams(
-      (p) => {
-        const n = new URLSearchParams(p);
-        if (o === "decisions") n.delete("vue");
-        else n.set("vue", o);
-        return n;
-      },
-      { replace: true },
-    );
+  const [params] = useSearchParams();
+  const [onglet, choisir] = useOnglet(ONGLETS, ongletDuJour(), ANCIENNES_VUES);
+  const aDeciderSamedi = useNombreADecider(GROUPES_SAMEDI);
+  const aDeciderMorts = useNombreADecider(GROUPES_MORTS);
 
-  if (brut === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
+  if (params.get("vue") === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
   return (
     <div className="space-y-6" data-testid="page-ckd">
@@ -190,110 +204,60 @@ export function AdminCheckKillDoublePage() {
         description={t("decisions.description")}
       />
 
-      <Onglets actif={onglet} onChange={choisir} />
+      <OngletsAuto
+        id="decisions"
+        libelle={t("ckd.ongletsAria")}
+        onglets={ONGLETS.map((o) => ({ cle: o, titre: t(`autoOnglets.decisions.onglets.${o}`) }))}
+        actif={onglet}
+        onChange={choisir}
+        compteurs={{ samedi: aDeciderSamedi, morts: aDeciderMorts }}
+        alerte={["samedi", "morts"]}
+      />
 
-      <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
-        {onglet === "shadowban" ? (
-          <VueShadowban />
-        ) : onglet === "historique" ? (
-          <VueHistorique />
-        ) : onglet === "reglages" ? (
-          <div className="space-y-6">
-            <VueReglages />
-            <ReglagesMessages />
-          </div>
-        ) : (
-          <div className="space-y-6">
+      <PanneauOnglet id="decisions" actif={onglet}>
+        {onglet === "jeudi" ? (
+          <JeudiNudge />
+        ) : onglet === "samedi" ? (
+          <>
             <SemaineDecisions />
-            <ADeciderCarte />
+            <CartesDecision groupes={GROUPES_SAMEDI} testid="cartes-samedi" />
             {/* Prompt 21, D : le samedi, la cible de recrutement par pays (avec recrutés et écart). */}
             <CiblesRecrutementAdmin />
             <details className="space-y-4 rounded-xl border p-4">
-              <summary className="cursor-pointer text-sm font-medium">{t("decisions.details")}</summary>
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailSamedi")}</summary>
               <div className="mt-4 space-y-6">
-                <DetailControles />
+                <VueControles type="samedi" />
                 <SuiviMessages admin />
               </div>
             </details>
-          </div>
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.historique")}</summary>
+              <div className="mt-4">
+                <VueHistorique />
+              </div>
+            </details>
+          </>
+        ) : onglet === "morts" ? (
+          <>
+            <CartesDecision groupes={GROUPES_MORTS} testid="cartes-recreer" />
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailJeudi")}</summary>
+              <div className="mt-4">
+                <VueControles type="jeudi" />
+              </div>
+            </details>
+            <VueShadowban />
+          </>
+        ) : (
+          <VueReglages />
         )}
-      </div>
+      </PanneauOnglet>
     </div>
   );
 }
 
-/** Le détail d'un contrôle : celui du samedi (Kill ou Double) ou du jeudi (Recréer), un à la fois. */
-function DetailControles() {
-  const { t } = useTranslation();
-  const [type, setType] = React.useState<TypeControle>("samedi");
-  return (
-    <div className="space-y-4">
-      <div role="tablist" aria-label={t("decisions.details")} className="inline-flex gap-1 rounded-lg border bg-muted/40 p-1">
-        {(["samedi", "jeudi"] as const).map((o) => (
-          <button
-            key={o}
-            type="button"
-            role="tab"
-            aria-selected={o === type}
-            onClick={() => setType(o)}
-            className={cn(
-              "rounded-md px-2.5 py-1 text-sm transition-colors",
-              o === type ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
-            )}
-          >
-            {t(`ckd.onglets.${o}`)}
-          </button>
-        ))}
-      </div>
-      <VueControles key={type} type={type} />
-    </div>
-  );
-}
-
-/** Les onglets de la page : flèches, Début et Fin pour passer de l'un à l'autre. */
-function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => void }) {
-  const { t } = useTranslation();
-  return (
-    <div
-      role="tablist"
-      aria-label={t("ckd.ongletsAria")}
-      className="inline-flex w-fit max-w-full flex-wrap gap-1 rounded-lg border bg-muted/40 p-1"
-      onKeyDown={(ev) => {
-        const i = ONGLETS.indexOf(actif);
-        const n = ONGLETS.length;
-        const vers =
-          ev.key === "ArrowRight" ? (i + 1) % n
-          : ev.key === "ArrowLeft" ? (i - 1 + n) % n
-          : ev.key === "Home" ? 0
-          : ev.key === "End" ? n - 1
-          : -1;
-        if (vers < 0) return;
-        ev.preventDefault();
-        onChange(ONGLETS[vers]!);
-        document.getElementById(`onglet-ckd-${ONGLETS[vers]}`)?.focus();
-      }}
-    >
-      {ONGLETS.map((o) => (
-        <button
-          key={o}
-          id={`onglet-ckd-${o}`}
-          type="button"
-          role="tab"
-          aria-selected={o === actif}
-          aria-controls="panneau-ckd"
-          tabIndex={o === actif ? 0 : -1}
-          onClick={() => onChange(o)}
-          className={cn(
-            "rounded-md px-2.5 py-1 text-sm transition-colors",
-            o === actif ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
-          )}
-        >
-          {t(`decisions.onglets.${o}`)}
-        </button>
-      ))}
-    </div>
-  );
-}
+const GROUPES_SAMEDI = ["kill", "double"] as const;
+const GROUPES_MORTS = ["recreate"] as const;
 
 // ---------------------------------------------------------------------------
 // Propositions (samedi) et nudges (jeudi)

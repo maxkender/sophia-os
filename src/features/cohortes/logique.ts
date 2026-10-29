@@ -77,9 +77,15 @@ export function tiktokFait(r: RecrueCohorte): boolean {
   return r.tiktok_existe === true || aPublie(r);
 }
 
-/** Start warmup + 5 follows ; les reposts ne comptent plus (28 oct.). */
+/**
+ * Start warmup + 5 follows ; les reposts ne comptent plus (28 oct.). Prompt
+ * 21, C3 : « Ready » de la base quand elle le donne (TikTok vu, Start warmup,
+ * ≥ 5 follows au dernier relevé, aucun post).
+ */
 export function warmupFait(r: RecrueCohorte): boolean {
-  const releve = Boolean(r.warmup_started_at) && (r.abonnements ?? 0) >= FOLLOWS_MIN;
+  const releve = typeof r.pret === "boolean"
+    ? r.pret
+    : Boolean(r.warmup_started_at) && (r.abonnements ?? 0) >= FOLLOWS_MIN;
   return releve || aPublie(r);
 }
 
@@ -100,6 +106,10 @@ export function pretLundiFige(r: RecrueCohorte, maintenant: Date = new Date()): 
   if (maintenant.getTime() < coupure) return null;
   const avant = (iso: string | null) => Boolean(iso) && Date.parse(iso!) < coupure;
   const sansReleve = r.tiktok_existe === null;
+  // Prompt 21, C3 : la photo de dimanche minuit vient de la base (compte_pret avant le lundi).
+  if (typeof r.pret === "boolean") {
+    return avant(r.premiere_connexion_at) && (r.pret || (sansReleve && aPublie(r) && avant(r.warmup_started_at)));
+  }
   const tiktok = r.tiktok_existe === true || (sansReleve && aPublie(r));
   const follows = (r.abonnements ?? 0) >= FOLLOWS_MIN || (r.abonnements === null && aPublie(r));
   return avant(r.premiere_connexion_at) && tiktok && avant(r.warmup_started_at) && follows;

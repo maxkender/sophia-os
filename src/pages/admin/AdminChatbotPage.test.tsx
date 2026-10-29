@@ -123,7 +123,13 @@ describe("AdminChatbotPage", () => {
     expect(await screen.findByText("33 %")).toBeInTheDocument();
     expect(screen.getByText("1 sur 3 questions")).toBeInTheDocument();
     // L'onglet « À traiter » porte le nombre de la file.
-    expect(within(onglet(/À traiter/)).getByText("2")).toBeInTheDocument();
+    expect(within(onglet(/Questions à traiter/)).getByText("2")).toBeInTheDocument();
+    // Prompt 22, partie 9 : 3 onglets et la phrase en haut.
+    // Prompt 21, Q : plus « FAQ par situation » et « Test ».
+    expect(screen.getAllByRole("tab").map((o) => o.textContent?.replace(/\d+$/, ""))).toEqual([
+      "Questions à traiter", "Réponses validées", "Sources", "FAQ par situation", "Test",
+    ]);
+    expect(screen.getByTestId("faq-phrase")).toHaveTextContent(/guides Notion/);
     // L'état du bot dans l'en-tête.
     expect(screen.getByText("Slack · Test")).toBeInTheDocument();
   });
@@ -170,7 +176,7 @@ describe("AdminChatbotPage", () => {
   it("le journal montre Slack et la bulle, compte les décisions, et pré-remplit une réponse validée", async () => {
     renderPage();
     await screen.findByText("33 %");
-    fireEvent.click(onglet(/Journal/));
+    // Prompt 22 : le journal est replié sous la file à traiter.
 
     const journal = screen.getByTestId("faq-journal");
     expect(within(journal).getByText("Which link should I send her?")).toBeInTheDocument();
@@ -188,7 +194,7 @@ describe("AdminChatbotPage", () => {
     expect((screen.getByPlaceholderText(/L'explication/) as HTMLTextAreaElement).value).toContain("Use the taap.it link");
 
     // Retour au journal : filtres par source, puis par décision.
-    fireEvent.click(onglet(/Journal/));
+    fireEvent.click(onglet(/Questions à traiter/));
     const journal2 = screen.getByTestId("faq-journal");
     fireEvent.change(within(journal2).getByRole("combobox", { name: "Source" }), { target: { value: "slack" } });
     expect(within(journal2).queryByText("I want to change my password")).not.toBeInTheDocument();
@@ -223,5 +229,21 @@ describe("AdminChatbotPage", () => {
       expect(mocks.ecrireReglagesFaq).toHaveBeenCalledWith(expect.objectContaining({ mode_slack: "actif" })),
     );
     confirmer.mockRestore();
+  });
+
+  it("prompt 22 : l'onglet Sources liste les pages Notion recopiées, leur date et « Recopier maintenant »", async () => {
+    const mocks = await import("@/features/chatbot/api");
+    vi.mocked(mocks.listerGuidesCopies).mockResolvedValue([
+      { page_id: "g1", guide: "poster", chemin: "Poster Guide / Pay", url: "https://notion.so/g1", copie_at: "2026-10-29T08:00:00Z", notion_modifie_at: null },
+      { page_id: "g2", guide: "manager", chemin: "Manager Guide / Kill", url: "https://notion.so/g2", copie_at: "2026-10-29T09:00:00Z", notion_modifie_at: null },
+    ]);
+    renderPage();
+    fireEvent.click(await screen.findByRole("tab", { name: /Sources/ }));
+    const sources = await screen.findByTestId("faq-sources");
+    expect(await within(sources).findByRole("link", { name: "Poster Guide / Pay" })).toHaveAttribute("href", "https://notion.so/g1");
+    expect(within(sources).getByText("Manager Guide / Kill")).toBeInTheDocument();
+    expect(within(sources).getAllByRole("link", { name: /Ouvrir dans Notion/ })).toHaveLength(2);
+    fireEvent.click(within(sources).getByRole("button", { name: /Recopier/ }));
+    await waitFor(() => expect(mocks.recopierGuides).toHaveBeenCalled());
   });
 });

@@ -203,6 +203,15 @@ describe("les cases : une seule information chacune", () => {
     expect(pretLundi(tard)).toBe(true);
   });
 
+  it("prompt 21, C3 : « Ready » de la base (compte_pret) quand elle le donne", () => {
+    // La base dit non (par ex. une vidéo avant le lundi) : ni prête, ni la photo de dimanche.
+    expect(pretLundi(recrue({ ...PRETE, pret: false }))).toBe(false);
+    expect(pretLundiFige(recrue({ ...PRETE, pret: false }), new Date("2026-11-05T12:00:00Z"))).toBe(false);
+    expect(pretLundiFige(recrue({ ...PRETE, abonnements: 1, pret: true }), new Date("2026-11-05T12:00:00Z"))).toBe(true);
+    // Pas lu : l'ancien calcul.
+    expect(pretLundi(recrue({ ...PRETE, pret: null }))).toBe(true);
+  });
+
   it("samedi : la décision de Check, Kill or Double", () => {
     const base = { cohorte_lundi: "2026-10-19" };
     expect(samediRecrue(recrue(base), "2026-10-23")).toBe("attente");

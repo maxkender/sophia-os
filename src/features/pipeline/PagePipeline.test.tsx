@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import i18n from "@/locales";
 
 import type { CartePipeline } from "./api";
-import { cartesAvancees, filtrer, FILTRES_VIDES, parColonne } from "./logique";
+import { cartesAvancees, filtrer, FILTRES_VIDES, parColonne, sansCanal } from "./logique";
 
 const api = vi.hoisted(() => ({
   lirePipeline: vi.fn(),
@@ -144,6 +144,19 @@ describe("Pipeline : la logique", () => {
     expect(filtrer(cs, { ...FILTRES_VIDES, pays: "BR" }).map((c) => c.carte_id)).toEqual(["c"]);
     expect(filtrer(cs, { ...FILTRES_VIDES, hm: "h2" }).map((c) => c.carte_id)).toEqual(["b"]);
     expect(parColonne(cs)[1]!.map((c) => c.carte_id)).toEqual(["b", "c", "a"]);
+  });
+
+  it("prompt 21, C9 : sans contrat ni Slack, « No channel » en tête de sa colonne", async () => {
+    const seul = carte({ carte_id: "n", upwork_contrat_url: null, slack_user_id: null });
+    expect(sansCanal(seul)).toBe(true);
+    expect(sansCanal(carte({ upwork_contrat_url: null, slack_user_id: "U1" }))).toBe(false);
+    expect(sansCanal({ ...seul, etat: "fait" })).toBe(false);
+    const cs = [carte({ carte_id: "k", etat: "kill" }), seul];
+    expect(parColonne(cs)[1]!.map((c) => c.carte_id)).toEqual(["n", "k"]);
+    await i18n.changeLanguage("en");
+    api.lirePipeline.mockResolvedValue(cs);
+    rendu();
+    expect(await within(colonne(1)).findByText("No channel")).toBeInTheDocument();
   });
 
   it("les cartes qui avancent : seulement vers la droite", () => {

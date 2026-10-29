@@ -18,7 +18,7 @@ import { enregistrerReglagesPaie, lireReglagesPaie, type ReglagesPaie as TReglag
  * Modifiables par l'admin seulement (prompt 15, point 1 ; politique 0390) :
  * le Head of Ops les lit.
  */
-export function ReglagesPaie() {
+export function ReglagesPaie({ ouvert = false }: { ouvert?: boolean }) {
   const { t } = useTranslation();
   const { role } = useAuth();
   const admin = role === "admin";
@@ -61,7 +61,7 @@ export function ReglagesPaie() {
   );
 
   return (
-    <details className="rounded-xl border px-4 py-3" data-testid="reglages-paie">
+    <details className="rounded-xl border px-4 py-3" data-testid="reglages-paie" open={ouvert}>
       <summary className="cursor-pointer text-sm font-medium">{t("paie.reglagesV3.titre")}</summary>
       {!admin && <p className="pt-2 text-xs text-muted-foreground">{t("paie.reglagesV3.lectureSeule")}</p>}
       <fieldset disabled={!admin} className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">

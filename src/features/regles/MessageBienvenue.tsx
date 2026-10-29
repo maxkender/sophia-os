@@ -4,7 +4,6 @@ import { Check, Copy } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
-import { LIEN_SLACK } from "@/features/onboarding/contenu";
 
 import { useRegles } from "./api";
 import { remplirBienvenue } from "./textes";
@@ -12,8 +11,8 @@ import { remplirBienvenue } from "./textes";
 /**
  * « Welcome message » (prompt 15, point 7) : après la création d'un poster,
  * le message à lui envoyer, en anglais, avec un bouton Copier. Le modèle est
- * un réglage (message_bienvenue_texte) ; le lien Slack vient du réglage
- * slack_lien_invitation, sinon de l'invitation par défaut.
+ * un réglage (message_bienvenue_texte) ; le lien Slack vient du seul réglage
+ * slack_lien_invitation (prompt 21, C8).
  */
 export function MessageBienvenue({ prenom, email, password }: { prenom: string; email: string; password: string }) {
   const { t } = useTranslation();
@@ -24,7 +23,7 @@ export function MessageBienvenue({ prenom, email, password }: { prenom: string; 
     email,
     password,
     url: window.location.origin,
-    slack: slack ?? LIEN_SLACK,
+    slack: slack ?? "",
     guide: GUIDE_NOTION_POSTER,
     regle_lien: textes.lien,
     regle_warmup: textes.warmup,

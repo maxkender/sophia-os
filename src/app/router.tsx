@@ -13,6 +13,7 @@ import {
   FaqPage,
   LogsPage,
   NeedsYouPage,
+  DisputesPage,
   OverviewPage,
   PayrollPage,
   ReceivedPage,
@@ -46,7 +47,6 @@ import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
 import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
-import { AdminRetoursContestesPage } from "@/pages/admin/AdminRetoursContestesPage";
 import { AdminReferralsPage } from "@/pages/admin/AdminReferralsPage";
 import { AdminCalendrierPage } from "@/pages/admin/AdminCalendrierPage";
 import { AdminCreateurPage } from "@/pages/admin/AdminCreateurPage";
@@ -104,6 +104,7 @@ export function AppRouter() {
             <Route path="/admin/auto/sent" element={<SentPage />} />
             <Route path="/admin/auto/received" element={<ReceivedPage />} />
             <Route path="/admin/auto/needs-you" element={<NeedsYouPage />} />
+            <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
@@ -115,7 +116,6 @@ export function AppRouter() {
             {/* L'espace du Head of Ops. */}
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
-            <Route path="/admin/retours-contestes" element={<AdminRetoursContestesPage />} />
             <Route path="/admin/file-reviews" element={<AdminFileReviewsPage />} />
             <Route path="/admin/parrainages" element={<AdminReferralsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />

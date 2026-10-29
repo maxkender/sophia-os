@@ -1,7 +1,7 @@
-/** Cadre Recrutements Sophia — constantes métier (pas de secrets). */
-
-export const SLACK_INVITE_SOPHIA =
-  "https://join.slack.com/t/sophia-system/shared_invite/zt-44pqj3z39-X4KkPQI6cwOwWE2LNaLbig";
+/**
+ * Cadre Recrutements Sophia — constantes métier (pas de secrets). Prompt 21,
+ * C8 : plus de lien Slack ici, le seul est le réglage slack_lien_invitation.
+ */
 
 export const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
@@ -50,11 +50,14 @@ export function baseEmailOs(prenom: string, nom: string): string {
   return `${p}${n}@${EMAIL_DOMAINE_OS}`;
 }
 
+/** `slack` : le lien du réglage slack_lien_invitation ; vide, la ligne Slack n'apparaît pas. */
 export function messageAccesOs(opts: {
   prenom: string;
   email: string;
   fr: boolean;
+  slack?: string | null;
 }): string {
+  const slack = (opts.slack ?? "").trim();
   if (opts.fr) {
     return [
       `Salut ${opts.prenom},`,
@@ -64,8 +67,7 @@ export function messageAccesOs(opts: {
       `Email : ${opts.email}`,
       `Mot de passe : ${MDP_OS_INITIAL}`,
       "",
-      `Rejoins aussi Slack : ${SLACK_INVITE_SOPHIA}`,
-      "",
+      ...(slack ? [`Rejoins aussi Slack : ${slack}`, ""] : []),
       "Et envoie-moi ton email perso (Gmail etc.) pour que je t'ajoute à l'équipe Upwork.",
     ].join("\n");
   }
@@ -77,8 +79,7 @@ export function messageAccesOs(opts: {
     `Email: ${opts.email}`,
     `Password: ${MDP_OS_INITIAL}`,
     "",
-    `Please join Slack as well: ${SLACK_INVITE_SOPHIA}`,
-    "",
+    ...(slack ? [`Please join Slack as well: ${slack}`, ""] : []),
     "And send me your personal email (Gmail, etc.) so I can add you to the Upwork team.",
   ].join("\n");
 }

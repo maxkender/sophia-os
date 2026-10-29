@@ -129,3 +129,28 @@ Deno.test("étape 4 : le jour du réglage (samedi par défaut, vendredi, dimanch
   assertEquals(joursAvantLundi(0), 2);
   assertEquals(joursAvantLundi(9.5), 2);
 });
+
+Deno.test("prompt 21, C3 : « Ready » vient de la base quand elle le donne (compte_pret)", () => {
+  const pret = { premiere_connexion_at: "2026-10-26T12:00:00Z", tiktok_existe: true, tiktok_vu_at: "2026-10-27T08:00:00Z", warmup_started_at: "2026-10-27T09:00:00Z", abonnements: 5, videos: 0 };
+  // La base dit non (par ex. une vidéo relevée avant le lundi) : l'étape 4 n'est pas faite.
+  assertEquals(etat(r({ ...pret, pret: false }), "warmup_bien_fait").fait, false);
+  assertEquals(etat(r({ ...pret, abonnements: 2, pret: true }), "warmup_bien_fait").fait, true);
+  // Sans la base (ancienne fonction) : le calcul d'ici.
+  assertEquals(etat(r(pret), "warmup_bien_fait").fait, true);
+  assertEquals(etapeRouge(r({ ...pret, pret: false }), D), "warmup");
+  assertEquals(etapeRouge(r({ ...pret, pret: true }), D), null);
+});
+
+Deno.test("prompt 21, C4 : le 2e compte d'un Double n'a que les étapes 3 et 4", () => {
+  const x = r({ deuxieme: true, cohorte_lundi: "2026-11-09", premiere_connexion_at: "2026-10-01T10:00:00Z", compte_cree_at: "2026-11-01T10:00:00Z" });
+  const etats = etatsAccueil(x, D);
+  assertEquals(etats.map((e) => e.etape), ["warmup_lance", "warmup_bien_fait"]);
+  // Pas encore vu sur TikTok : l'étape 3 compte depuis la création du compte (+ 24 h).
+  assertEquals(etats[0]!.messageAt?.toISOString(), "2026-11-02T10:00:00.000Z");
+  // Vu sur TikTok : depuis le relevé.
+  const vu = etatsAccueil({ ...x, tiktok_existe: true, tiktok_vu_at: "2026-11-03T08:00:00Z" }, D)[0]!;
+  assertEquals(vu.messageAt?.toISOString(), "2026-11-04T08:00:00.000Z");
+  // Le 1er compte garde ses 4 étapes, et l'étape 3 attend le compte TikTok.
+  assertEquals(etatsAccueil(r(), D).length, 4);
+  assertEquals(etat(r({ compte_cree_at: "2026-11-01T10:00:00Z" }), "warmup_lance").messageAt, null);
+});

@@ -22,6 +22,7 @@ import { lireModeAuto, type ModeAuto } from "../_shared/accueil.ts";
 import {
   ceQuiManqueRecrue,
   jeudiDu,
+  jeudiRecrueDu,
   killLundiSoir,
   lundiDu,
   lundiSoirDu,
@@ -29,6 +30,7 @@ import {
   type PosteurSemaine,
   reactionLundiSoir,
   texteJeudi,
+  texteJeudiRecrue,
   texteLundi,
   texteLundiSoir,
 } from "../_shared/semaine.ts";
@@ -51,6 +53,7 @@ import { generateTextFast } from "../_shared/gemini.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { construirePromptContestation, lireContestation, texteAccuse } from "../_shared/contestations.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -89,10 +92,22 @@ const OS_URL = "https://sophia-marketing-orga.vercel.app";
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   try {
-    const acces = await assertRole(request, ["admin"]);
+    // Prompt 21, R : « Reply » sur Disputes est ouvert au Head of Ops ; le reste : admin.
+    const acces = await assertRole(request, ["admin", "head_of_ops"]);
     if (acces instanceof Response) return acces;
-    const body = (await request.json().catch(() => ({}))) as { action?: string };
-    if (body.action === "reponses") return json(await traiterReponses(serviceClient(), new Date()));
+    const body = (await request.json().catch(() => ({}))) as { action?: string; id?: string; texte?: string };
+    if (body.action === "contestation_repondre") {
+      return json(await repondreContestation(serviceClient(), String(body.id ?? ""), String(body.texte ?? "")));
+    }
+    if (acces.role !== "admin") return json({ error: "forbidden" }, 403);
+    if (body.action === "reponses") {
+      const maintenant = new Date();
+      const r = await traiterReponses(serviceClient(), maintenant);
+      // Prompt 21, R : les contestations (tableau de bord, réponse automatique), même sans nouveau message.
+      const contestations = await traiterContestations(serviceClient())
+        .catch((e) => ({ ok: false, erreurs: [`contestations : ${messageErreur(e)}`] }));
+      return json({ ...r, contestations });
+    }
     if (body.action !== "verifier") return json({ ok: false, error: "action inconnue" }, 400);
     return json(await verifier(serviceClient(), new Date()));
   } catch (erreur) {
@@ -107,19 +122,21 @@ async function reglages(supabase: Supabase) {
     .select("cle, valeur")
     .in("cle", [
       "relances_auto",
-      "slack_lien_invitation",
       "kill_auto",
       "etapes_delais",
       "etape_texte_connexion",
       "etape_texte_tiktok",
       "etape_texte_warmup_lance",
       "etape_texte_warmup_bien_fait",
+      "etape_texte_warmup_lance_deuxieme",
+      "etape_texte_warmup_bien_fait_deuxieme",
       "lien_etapes_tiktok",
       "lundi_message_auto",
       "lundi_texte_tous",
       "lundi_texte_cohorte",
       "lundi_texte_warmup",
       "jeudi_texte",
+      "jeudi_texte_recrue",
       "semaine_heures",
       "lundi_soir_auto",
       "lundi_soir_texte",
@@ -132,7 +149,6 @@ async function reglages(supabase: Supabase) {
   const texte = (cle: string) => (typeof v[cle] === "string" ? (v[cle] as string) : "");
   return {
     mode: lireMode(v.relances_auto),
-    slack: texte("slack_lien_invitation"),
     kill: lireModeAuto(v.kill_auto) as ModeAuto,
     etapes: lireDelaisAccueil(v.etapes_delais),
     textesEtapes: {
@@ -141,10 +157,17 @@ async function reglages(supabase: Supabase) {
       warmup_lance: texte("etape_texte_warmup_lance"),
       warmup_bien_fait: texte("etape_texte_warmup_bien_fait"),
     } as Record<EtapeAccueil, string>,
+    // Prompt 21, C4 : le 2e compte d'un Double (étapes 3 et 4 seulement).
+    textesDeuxieme: {
+      warmup_lance: texte("etape_texte_warmup_lance_deuxieme"),
+      warmup_bien_fait: texte("etape_texte_warmup_bien_fait_deuxieme"),
+    } as Partial<Record<EtapeAccueil, string>>,
     lienEtapes: texte("lien_etapes_tiktok"),
     lundi: lireModeAuto(v.lundi_message_auto) as ModeAuto,
     textesLundi: { tous: texte("lundi_texte_tous"), cohorte: texte("lundi_texte_cohorte"), warmup: texte("lundi_texte_warmup") },
     texteJeudi: texte("jeudi_texte"),
+    // Prompt 21, C7 : les recrues du lundi suivant pas encore prêtes.
+    texteJeudiRecrue: texte("jeudi_texte_recrue"),
     heures: lireHeuresSemaine(v.semaine_heures),
     lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
     texteLundiSoir: texte("lundi_soir_texte"),
@@ -190,7 +213,8 @@ interface Bilan {
 }
 
 async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
-  const { data, error } = await supabase.rpc("etapes_recrues");
+  // Prompt 21, C3 et C4 (0423) : « Ready » calculé par la base, et les 2es comptes d'un Double.
+  const { data, error } = await supabase.rpc("etapes_recrues_v2");
   if (error) throw error;
   return ((data ?? []) as RecrueAccueil[]).map((x) => ({ ...x, messages: x.messages ?? [], prevues: x.prevues ?? [] }));
 }
@@ -264,7 +288,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
       }
     }
     for (const e of etats) await appliquerEtape(supabase, r, x, e, maintenant, test, bilan);
-    await rougeDimanche(supabase, r, x, maintenant, bilan);
+    // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
+    if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
 
   // Prompt 21, A2 : juste avant les Kills, les conversations Upwork de ceux qui en ont un dû.
@@ -301,12 +326,15 @@ async function releverTiktok(supabase: Supabase, x: RecrueAccueil): Promise<Recr
     erreur: p.erreur,
   });
   if (p.existe === null) return null;
+  // Prompt 21, C3 : « Ready » relu dans la base avec ce relevé (une seule définition).
+  const { data: pret, error } = await supabase.rpc("compte_pret", { p_compte: x.compte_id });
   return {
     ...x,
     tiktok_existe: p.existe,
     tiktok_vu_at: x.tiktok_vu_at ?? (p.existe ? new Date().toISOString() : null),
     abonnements: p.abonnements ?? x.abonnements,
     videos: p.videos ?? x.videos,
+    pret: error || typeof pret !== "boolean" ? x.pret : pret,
   };
 }
 
@@ -364,6 +392,7 @@ async function appliquerEtape(
         .update({ resolu_at: new Date().toISOString() })
         .eq("poster_id", x.poster_id)
         .eq("type", e.etape)
+        .eq("periode", periode)
         .is("resolu_at", null)
         .select("id");
       bilan.resolus += (data ?? []).length;
@@ -396,7 +425,14 @@ async function appliquerEtape(
       p_annulation_h: r.etapes.kill_annulation_h,
     });
     if (error) bilan.erreurs.push(`kill ${x.poster_id} : ${error.message}`);
-    else bilan.kills++;
+    else {
+      bilan.kills++;
+      // Prompt 21, C4 : le Kill du 2e compte d'un Double n'arrête que ce compte (killsEchus).
+      if (x.deuxieme && x.compte_id) {
+        await supabase.from("kills_auto").update({ compte_id: x.compte_id })
+          .eq("poster_id", x.poster_id).eq("etape", e.etape).eq("periode", periode).is("compte_id", null);
+      }
+    }
     return;
   }
   if (!d.envoyer && !d.horsFenetre) return;
@@ -407,7 +443,10 @@ async function appliquerEtape(
     bilan.bloques++;
     return;
   }
-  const texte = texteEtape(r.textesEtapes[e.etape], e, {
+  const modele = x.deuxieme ? r.textesDeuxieme[e.etape] ?? "" : r.textesEtapes[e.etape];
+  // Un texte vide ne part pas (réglage manquant).
+  if (!modele.trim()) return;
+  const texte = texteEtape(modele, e, {
     prenom: x.prenom,
     handle: x.handle,
     url: OS_URL,
@@ -519,9 +558,15 @@ async function killsEchus(supabase: Supabase, r: Reglages, recrues: RecrueAccuei
     bilan.erreurs.push(`kills : ${error.message}`);
     return;
   }
-  const parPosteur = new Map(recrues.map((x) => [x.poster_id, x]));
+  const parPosteur = new Map(recrues.filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
+  // Prompt 21, C4 : le Kill d'un 2e compte de Double se vérifie sur ce compte.
+  const parCompte = new Map(recrues.filter((x) => x.deuxieme && x.compte_id).map((x) => [x.compte_id!, x]));
   for (const k of data ?? []) {
-    const brut = parPosteur.get(k.poster_id);
+    // Un Kill d'étape noté sur un compte = le 2e compte d'un Double (C4) : jamais
+    // vérifié sur le 1er compte ; s'il n'est plus dans la liste, il attend.
+    const deuxieme = k.etape !== "lundi_soir" && Boolean(k.compte_id);
+    if (deuxieme && !parCompte.has(k.compte_id!)) continue;
+    const brut = deuxieme ? parCompte.get(k.compte_id!) : parPosteur.get(k.poster_id);
     const x = brut && maintenant >= debutCohorte(brut) ? { ...brut, videos: null } : brut;
     // Dernière vérification : une réaction depuis le Kill l'annule.
     let reaction: boolean;
@@ -609,7 +654,9 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
     bilan.erreurs.push(`semaine : ${error.message}`);
     return;
   }
-  const recrue = new Map(recrues.map((x) => [x.poster_id, x]));
+  // Le 1er compte de chaque recrue (pas le 2e compte d'un Double).
+  const premiers = recrues.filter((x) => !x.deuxieme);
+  const recrue = new Map(premiers.map((x) => [x.poster_id, x]));
   // Le message du mercredi n'existe plus (0404) : ses lignes « prévu » ne s'affichent plus.
   await supabase.from("relances_prevues").delete().eq("type", "mercredi");
   for (const p of (data ?? []) as PosteurSemaine[]) {
@@ -628,13 +675,31 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
       await envoyerSemaine(supabase, posteur, "jeudi", lundi, texte, r.mode === "on", bilan, r.boutons);
     }
   }
+
+  // Prompt 21, C7 : jeudi, les recrues du lundi suivant pas encore prêtes reçoivent
+  // jeudi_texte_recrue (le même nudge, une fois ; aucun compte à rebours de Kill).
+  if (r.mode === "off" || !r.texteJeudiRecrue.trim()) return;
+  for (const x of premiers) {
+    if (bilan.pauses?.has(x.poster_id)) continue;
+    if (!jeudiRecrueDu(x, lundi, maintenant, { heure: r.heures.jeudi_heure, fin: r.heures.fin })) continue;
+    const manque = ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle });
+    if (!manque) continue;
+    const reel = r.mode === "on";
+    if (!reel && bilan.prevuesConnues?.has(clePrevue(x.poster_id, "jeudi_recrue", lundi))) continue;
+    const texte = texteJeudiRecrue(r.texteJeudiRecrue, { prenom: x.prenom, cohorte_lundi: x.cohorte_lundi, ceQuiManque: manque });
+    const cible: PosteurSemaine = {
+      poster_id: x.poster_id, prenom: x.prenom, fuseau: x.fuseau, slack_user_id: x.slack_user_id, contrat_id: x.contrat_id,
+      cohorte_lundi: x.cohorte_lundi, attendus_lun_mer: 0, faits_lun_mer: 0, prevus_semaine: 0, envoyes: [], prevus_test: [],
+    };
+    await envoyerSemaine(supabase, cible, "jeudi_recrue", lundi, texte, reel, bilan, r.boutons);
+  }
 }
 
 /** Un message de la semaine : en test, noté « prévu » ; sinon la ligne d'abord, puis l'envoi (jamais deux). */
 async function envoyerSemaine(
   supabase: Supabase,
   p: PosteurSemaine,
-  type: "lundi" | "jeudi",
+  type: "lundi" | "jeudi" | "jeudi_recrue",
   lundi: string,
   texte: string,
   reel: boolean,
@@ -664,7 +729,8 @@ async function envoyerSemaine(
     return;
   }
   const erreur = canal === "slack"
-    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons))
+    // Prompt 21, C6 : pas de « I want to stop » sur le lundi ni le jeudi.
+    ? await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons, { stop: false }))
     : await envoyerUpwork(p.contrat_id!, texte);
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
@@ -721,7 +787,8 @@ async function reglagesReponses(supabase: Supabase): Promise<{ mode: ModeAuto; r
         absent: t("reponse_texte_absent", D.textes.absent),
         paie_attente: t("paie_reponse_attente_texte", D.textes.paie_attente),
       },
-      slack: t("slack_lien_invitation", "").trim() || "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA",
+      // Prompt 21, C8 : un seul lien Slack, ce réglage (plus de lien écrit en dur).
+      slack: t("slack_lien_invitation", "").trim(),
     },
   };
 }
@@ -801,6 +868,8 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       erreur,
       traite_at: new Date().toISOString(),
       reponse_statut: plan.bloque ?? (plan.repondre ? null : "aucune"),
+      // Prompt 21, R : une contestation (le déclencheur l'ajoute à Disputes).
+      conteste: classement.conteste ?? null,
       ...(maj_paie ? { action: `paie_${maj_paie}` } : {}),
     };
     if (plan.liste === "a_lire") bilan.a_lire++;
@@ -847,6 +916,85 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
     else bilan.classes++;
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 21, partie R : Disputes
+// ---------------------------------------------------------------------------
+
+/**
+ * 1. Les questions du tableau de bord (chat) des 2 derniers jours : l'IA dit
+ *    si c'est une contestation (le déclencheur l'ajoute à Disputes).
+ * 2. La réponse automatique « we're checking it », sur le canal du message
+ *    (`reponses_auto` : test → simulée, rien ne part).
+ */
+async function traiterContestations(supabase: Supabase) {
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["reponses_auto", "contestation_accuse_texte"]);
+  const v = Object.fromEntries((regl ?? []).map((x) => [x.cle as string, x.valeur]));
+  const mode = lireModeAuto(v.reponses_auto);
+  const bilan = { ok: true, mode, tableau: 0, contestations_tableau: 0, accuses: 0, simules: 0, erreurs: [] as string[] };
+  if (mode === "off") return bilan;
+
+  const { data: questions } = await supabase
+    .from("chatbot_questions")
+    .select("id, question")
+    .eq("source", "os")
+    .eq("role", "poster")
+    .is("conteste_vu_at", null)
+    .not("user_id", "is", null)
+    .gte("created_at", new Date(Date.now() - 2 * 86_400_000).toISOString())
+    .order("created_at")
+    .limit(10);
+  for (const q of (questions ?? []) as { id: string; question: string | null }[]) {
+    let conteste: string | null = null;
+    try {
+      conteste = (q.question ?? "").trim() ? lireContestation(await generateTextFast(construirePromptContestation(q.question ?? ""))) : null;
+    } catch (e) {
+      bilan.erreurs.push(`tableau ${q.id} : ${messageErreur(e)}`);
+      continue;
+    }
+    await supabase.from("chatbot_questions").update({ conteste_vu_at: new Date().toISOString(), conteste }).eq("id", q.id);
+    bilan.tableau++;
+    if (conteste) bilan.contestations_tableau++;
+  }
+
+  const { data: file, error } = await supabase.rpc("contestations_accuses");
+  if (error) throw error;
+  const reel = mode === "on";
+  if (reel && (await automationEnPause(supabase))) return bilan;
+  for (const c of (file ?? []) as { id: string; poster_id: string; canal: string | null; prenom: string | null }[]) {
+    const texte = texteAccuse(v.contestation_accuse_texte, c.prenom);
+    let statut = "simule";
+    let erreur: string | null = null;
+    if (reel) {
+      erreur = c.canal === "upwork" ? await repondreUpwork(supabase, c.poster_id, texte) : await envoyerSlack(supabase, c.poster_id, texte);
+      statut = erreur ? "erreur" : "envoye";
+    }
+    await supabase.from("contestations")
+      .update({ accuse_statut: statut, accuse_at: new Date().toISOString(), accuse_erreur: erreur, maj_at: new Date().toISOString() })
+      .eq("id", c.id).eq("accuse_statut", "a_envoyer");
+    await supabase.rpc("contestation_noter_journal", { p_id: c.id, p_action: "accuse", p_detail: `${statut}${erreur ? ` : ${erreur}` : ""} · ${texte}` });
+    if (statut === "simule") bilan.simules++;
+    else if (statut === "envoye") bilan.accuses++;
+    else bilan.erreurs.push(`${c.id} : ${erreur}`);
+  }
+  bilan.ok = bilan.erreurs.length === 0;
+  return bilan;
+}
+
+/** « Reply » sur Disputes : le texte relu par une personne, dans le canal du message (Upwork, sinon Slack). */
+async function repondreContestation(supabase: Supabase, id: string, texte: string) {
+  if (!id || !texte.trim()) return { ok: false, error: "id et texte requis" };
+  const { data: c } = await supabase.from("contestations").select("id, poster_id, canal").eq("id", id).maybeSingle();
+  if (!c) return { ok: false, error: "contestation introuvable" };
+  const erreur = c.canal === "upwork"
+    ? await repondreUpwork(supabase, c.poster_id as string, texte.trim())
+    : await envoyerSlack(supabase, c.poster_id as string, texte.trim());
+  await supabase.from("contestations")
+    .update({ reponse_texte: texte.trim(), reponse_statut: erreur ? "erreur" : "envoye", reponse_at: new Date().toISOString(), maj_at: new Date().toISOString() })
+    .eq("id", id);
+  await supabase.rpc("contestation_noter_journal", { p_id: id, p_action: "reponse", p_detail: `${erreur ? `erreur : ${erreur}` : "envoyée"} · ${texte.trim()}` });
+  return erreur ? { ok: false, error: erreur } : { ok: true, canal: c.canal === "upwork" ? "upwork" : "slack" };
 }
 
 /** Prompt 21, P3 : la fonction upwork regarde (et règle, si elle le peut) la paie du posteur. */

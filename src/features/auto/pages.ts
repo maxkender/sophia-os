@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "decisions" | "sent" | "received" | "needs" | "payroll" | "faq" | "logs";
+export type PageAuto = "overview" | "recruits" | "decisions" | "sent" | "received" | "needs" | "disputes" | "payroll" | "faq" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
@@ -14,6 +14,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "received", to: "/admin/auto/received" },
   // Prompt 21, U : tout ce que l'OS n'a pas pu faire, ou dont il n'est pas sûr (juste avant Disputes).
   { cle: "needs", to: "/admin/auto/needs-you" },
+  // Prompt 21, R : quand un posteur dit que l'OS s'est trompé (entre Messages received et Payroll).
+  { cle: "disputes", to: "/admin/auto/disputes" },
   { cle: "payroll", to: "/admin/auto/payroll" },
   { cle: "faq", to: "/admin/auto/faq" },
   { cle: "logs", to: "/admin/auto/logs" },
@@ -39,6 +41,8 @@ export const ANCIENNES_ADRESSES: Readonly<Record<string, string>> = {
   "/admin/reponses": "/admin/auto/received",
   "/admin/paie": "/admin/auto/payroll",
   "/admin/assistant": "/admin/auto/faq",
-  "/admin/reviews": "/admin/retours-contestes",
+  // Prompt 21, R : Disputed feedback devient l'onglet « Feedback » de Disputes.
+  "/admin/reviews": "/admin/auto/disputes?onglet=feedback",
+  "/admin/retours-contestes": "/admin/auto/disputes?onglet=feedback",
   "/admin/surveillance": "/admin/auto",
 };

@@ -2671,12 +2671,18 @@ export function AdminPostersPage() {
                       {t("hiring.promote")}
                     </Button>
                   )}
+                  {/* Prompt 21, C2 : Deactivate = l'arrêt complet (comme un Kill), confirmé. */}
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() =>
-                      basculer.mutate({ id: fiche.id, actif: !fiche.is_active })
-                    }
+                    disabled={basculer.isPending}
+                    onClick={() => {
+                      if (
+                        !fiche.is_active ||
+                        window.confirm(t("hiring.confirmDesactiver", { nom: nomAffiche(fiche) }))
+                      )
+                        basculer.mutate({ id: fiche.id, actif: !fiche.is_active });
+                    }}
                   >
                     {fiche.is_active ? t("posters.disable") : t("posters.enable")}
                   </Button>

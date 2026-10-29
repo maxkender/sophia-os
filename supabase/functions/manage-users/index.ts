@@ -198,7 +198,10 @@ async function gererRequete(request: Request): Promise<Response> {
       });
     }
 
-    const heures = await lireWarmupHeures(supabase);
+    // Prompt 21, C8 : le réglage « warmup.heures » est retiré. La fin du
+    // warm-up suit le lundi (0301) et la cohorte (0413) ; 24 h n'est qu'un
+    // point de départ que ces déclencheurs repoussent.
+    const heures = WARMUP_HEURES_DEPART;
     const start = new Date();
     const end = new Date(start.getTime() + heures * 3600_000);
     const { error: updErr } = await supabase
@@ -755,7 +758,16 @@ async function gererRequete(request: Request): Promise<Response> {
       .update({ is_active: body.actif })
       .eq("poster_id", body.userId);
     if (errComptes) return json({ error: errComptes.message }, 400);
-    return json({ ok: true });
+    // Prompt 21, C2 : « Deactivate » passe partout par l'arrêt complet (file
+    // `arrets`, comme un Kill : Upwork et Slack selon arret_auto). Réactiver
+    // annule un arrêt pas encore commencé. Posteurs seulement, jamais RUUL.
+    const { data: arret, error: errArret } = await supabase.rpc("desactivation_arret", {
+      p_poster: body.userId,
+      p_actif: body.actif,
+      p_par: acces.userId === "cron" ? null : acces.userId,
+    });
+    if (errArret) return json({ ok: true, arret: null, arret_erreur: errArret.message });
+    return json({ ok: true, arret });
   }
 
   if (body.action === "renommer") {
@@ -1087,15 +1099,8 @@ async function emailDisponible(
   return `${base}${Date.now()}@${DOMAINE}`;
 }
 
-async function lireWarmupHeures(supabase: Supabase): Promise<number> {
-  const { data } = await supabase
-    .from("reglages")
-    .select("valeur")
-    .eq("cle", "warmup")
-    .maybeSingle();
-  const h = Number((data?.valeur as { heures?: number } | null)?.heures ?? 24);
-  return Number.isFinite(h) && h > 0 ? Math.min(168, h) : 24;
-}
+/** La fin de warm-up provisoire au clic ; les déclencheurs 0301 et 0413 la repoussent au lundi. */
+const WARMUP_HEURES_DEPART = 24;
 
 /** Lit la File des créateurs (toutes tranches, cf. `_shared/file_labels_comptes.ts`). */
 async function lireFileLabels(

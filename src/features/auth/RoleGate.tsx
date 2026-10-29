@@ -1,10 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuth, type Role } from "./AuthContext";
+import { ACCUEIL_ADMIN } from "@/features/auto/pages";
+
 import { ACCUEIL_HO } from "./pagesHeadOfOps";
 
 const ACCUEIL: Record<Role, string> = {
-  admin: "/admin",
+  admin: ACCUEIL_ADMIN,
   poster: "/calendrier",
   hiring_manager: "/embauche",
   directing_manager: "/embauche",

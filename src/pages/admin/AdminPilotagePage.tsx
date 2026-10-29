@@ -213,7 +213,7 @@ function CarteAFaire({
         titre: t("pilotage.aFaireRetard"),
         nombre: dash.alertes.niveau2.length,
         urgent: true,
-        lien: "/admin/surveillance",
+        lien: "/admin/auto",
       },
       {
         cle: "stock",
@@ -238,7 +238,7 @@ function CarteAFaire({
         aide: t("pilotage.aFaireAujourdhuiAide"),
         nombre: dash.alertes.niveau1.length,
         urgent: false,
-        lien: "/admin/surveillance",
+        lien: "/admin/auto",
       },
     ] satisfies LigneAFaire[]
   ).filter((l) => l.nombre > 0);

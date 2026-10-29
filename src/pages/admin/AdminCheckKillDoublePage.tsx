@@ -173,7 +173,7 @@ export function AdminCheckKillDoublePage() {
       { replace: true },
     );
 
-  if (brut === "cohorte") return <Navigate to="/admin/cohortes" replace />;
+  if (brut === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
   return (
     <div className="space-y-6" data-testid="page-ckd">

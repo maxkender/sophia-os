@@ -6,6 +6,18 @@ import { PublicOnlyRoute } from "@/features/auth/PublicOnlyRoute";
 import { RoleGate } from "@/features/auth/RoleGate";
 import { estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { ACCUEIL_HO } from "@/features/auth/pagesHeadOfOps";
+import { ACCUEIL_ADMIN, ANCIENNES_ADRESSES } from "@/features/auto/pages";
+import { Redirection } from "@/features/auto/Redirection";
+import {
+  DecisionsPage,
+  FaqPage,
+  LogsPage,
+  OverviewPage,
+  PayrollPage,
+  ReceivedPage,
+  RecruitsPage,
+  SentPage,
+} from "@/features/auto/PagesAuto";
 import { HiringDocumentsPage } from "@/pages/hiring/HiringDocumentsPage";
 import { HiringRecruteursPage } from "@/pages/hiring/HiringRecruteursPage";
 import { AdminLayout } from "@/components/layout/AdminLayout";
@@ -16,16 +28,11 @@ import { HiringPaiementsPage } from "@/pages/hiring/HiringPaiementsPage";
 import { HiringCalendrierPage } from "@/pages/hiring/HiringCalendrierPage";
 import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
-import { AdminChatbotPage } from "@/pages/admin/AdminChatbotPage";
-import { AdminCheckKillDoublePage } from "@/pages/admin/AdminCheckKillDoublePage";
 import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHubPage";
 import { DocumentView } from "@/features/documents/DocumentView";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
-import { AdminSurveillancePage } from "@/pages/admin/AdminSurveillancePage";
-import { AdminRecrutementsPage } from "@/pages/admin/AdminRecrutementsPage";
-import { AdminRecrutementsPaysPage } from "@/pages/admin/AdminRecrutementsPaysPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminRepartitionPage } from "@/pages/admin/AdminRepartitionPage";
@@ -34,7 +41,6 @@ import { AdminAnglesPage } from "@/pages/admin/AdminAnglesPage";
 import { AdminLabelsPage } from "@/pages/admin/AdminLabelsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
-import { AdminReviewsPage } from "@/pages/admin/AdminReviewsPage";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
 import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
 import { AdminRetoursContestesPage } from "@/pages/admin/AdminRetoursContestesPage";
@@ -45,13 +51,7 @@ import { AdminMinuitPage } from "@/pages/admin/AdminMinuitPage";
 import { AdminSlideshowsPage } from "@/pages/admin/AdminSlideshowsPage";
 import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
 import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
-import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 import { SlackARelier } from "@/features/slack/SlackARelier";
-import { PageNudges } from "@/features/nudges/PageNudges";
-import { PageReponses } from "@/features/reponses/PageReponses";
-import { PagePipeline } from "@/features/pipeline/PagePipeline";
-import { PageCohortes } from "@/features/cohortes/PageCohortes";
-import { PageInactifs } from "@/features/inactifs/PageInactifs";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
 import { AdminRelectureNativePage } from "@/pages/admin/AdminRelectureNativePage";
@@ -65,7 +65,8 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 
 function Accueil() {
   const { role } = useAuth();
-  if (role === "admin") return <Navigate to="/admin" replace />;
+  // Prompt 22 : l'admin arrive sur Overview (Recruitment Automation).
+  if (role === "admin") return <Navigate to={ACCUEIL_ADMIN} replace />;
   // Avant estRoleManager : le Head of Ops est un manager, mais il atterrit dans sa
   // coquille admin, pas dans l'espace recrutement qu'il garde par ailleurs.
   if (role === "head_of_ops") return <Navigate to={ACCUEIL_HO} replace />;
@@ -91,26 +92,32 @@ export function AppRouter() {
             vérifie que les deux ne peuvent pas diverger. */}
         <Route element={<RoleGate allow={["admin", "head_of_ops"]} />}>
           <Route element={<AdminLayout />}>
+            {/* Prompt 22 : Recruitment Automation, 8 pages. Overview et Messages
+                sent en lecture pour le Head of Ops (interrupteurs et textes :
+                admin seulement, vérifiés en base). */}
+            <Route path="/admin/auto" element={<OverviewPage />} />
+            <Route path="/admin/auto/recruits" element={<RecruitsPage />} />
+            <Route path="/admin/auto/decisions" element={<DecisionsPage />} />
+            <Route path="/admin/auto/sent" element={<SentPage />} />
+            <Route path="/admin/auto/received" element={<ReceivedPage />} />
+            <Route path="/admin/auto/payroll" element={<PayrollPage />} />
+            <Route path="/admin/auto/faq" element={<FaqPage />} />
+            <Route path="/admin/auto/logs" element={<LogsPage />} />
+            {/* Les anciennes adresses redirigent : aucun lien cassé. */}
+            {Object.entries(ANCIENNES_ADRESSES).map(([de, vers]) => (
+              <Route key={de} path={de} element={<Redirection vers={vers} />} />
+            ))}
+
             {/* L'espace du Head of Ops. */}
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
-            <Route path="/admin/surveillance" element={<AdminSurveillancePage />} />
-            <Route path="/admin/reviews" element={<AdminReviewsPage />} />
             <Route path="/admin/retours-contestes" element={<AdminRetoursContestesPage />} />
             <Route path="/admin/file-reviews" element={<AdminFileReviewsPage />} />
             <Route path="/admin/parrainages" element={<AdminReferralsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />
-            <Route path="/admin/assistant" element={<AdminChatbotPage />} />
             <Route path="/admin/comment-masters" element={<AdminCommentMastersHubPage />} />
             <Route path="/admin/comment-masters/suivi" element={<Navigate to="/admin/comment-masters" replace />} />
-            <Route path="/admin/paie" element={<AdminPaiePage />} />
             <Route path="/admin/slack" element={<SlackARelier />} />
-            <Route path="/admin/nudges" element={<PageNudges />} />
-            <Route path="/admin/reponses" element={<PageReponses />} />
-            <Route path="/admin/pipeline" element={<PagePipeline />} />
-            <Route path="/admin/inactifs" element={<PageInactifs />} />
-            <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
-            <Route path="/admin/cohortes" element={<PageCohortes />} />
             {/* Sans ces deux-là, Schedule et Account watch sont des culs-de-sac. */}
             <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />
             <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />
@@ -128,8 +135,6 @@ export function AppRouter() {
               <Route path="/admin/pods" element={<AdminPodsPage />} />
               <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
               <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
-              <Route path="/admin/recrutements/:pays" element={<AdminRecrutementsPaysPage />} />
-              <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
               <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />

@@ -599,7 +599,7 @@ describe("AdminCheckKillDoublePage", () => {
             <TooltipProvider>
               <Routes>
                 <Route path="/" element={<AdminCheckKillDoublePage />} />
-                <Route path="/admin/cohortes" element={<p>page cohortes</p>} />
+                <Route path="/admin/auto/recruits" element={<p>page cohortes</p>} />
               </Routes>
             </TooltipProvider>
           </MemoryRouter>

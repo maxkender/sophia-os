@@ -50,12 +50,9 @@ describe("prompt 15, point 1 : boutons dangereux", () => {
     );
   });
 
-  it("c) Account watch : « Remove from list » bloqué pour un Kill (ckd:), page hors du menu, route gardée", () => {
-    const page = lire("src/pages/admin/AdminSurveillancePage.tsx");
-    expect(page).toContain('startsWith("ckd:")');
-    expect(page).toContain("disabled={pending || estKillCkd(ligne)}");
+  it("c) Account watch : page retirée (prompt 22), son adresse redirige vers Overview", () => {
     expect(lire("src/components/layout/AdminLayout.tsx")).not.toContain('to: "/admin/surveillance"');
-    expect(lire("src/app/router.tsx")).toContain('path="/admin/surveillance"');
+    expect(lire("src/features/auto/pages.ts")).toContain('"/admin/surveillance": "/admin/auto"');
   });
 
   it("d) espace HM : ajouter un compte, Reactivate, créer une HM cachés à la HM", () => {

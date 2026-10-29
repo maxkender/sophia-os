@@ -3174,6 +3174,20 @@ export const en = {
         vers: "→ zone {{zone}}",
       },
     },
+    auto: {
+      section: "Recruitment Automation",
+      pages: {
+        overview: { titre: "Overview", phrase: "Everything the automation does, on one page. The red button stops every automatic action." },
+        recruits: { titre: "Recruits", phrase: "Every recruit, from accepted offer to first day posted, live." },
+        decisions: { titre: "Weekly decisions", phrase: "Thursday: one nudge to everyone with a problem. Saturday: Kill or Double. Dead accounts: Recreate." },
+        sent: { titre: "Messages sent", phrase: "Every message the OS sends to recruits and posters, and the texts it uses." },
+        received: { titre: "Messages received", phrase: "Everything posters write to us, sorted by the OS." },
+        payroll: { titre: "Payroll", phrase: "Monday pay for the week just finished." },
+        faq: { titre: "FAQ bot", phrase: "What the bot answers on Slack and in the dashboard, and what it doesn't know." },
+        logs: { titre: "Logs & to do", phrase: "What needs you, what's broken, and everything the automation did." },
+      },
+      logs: { vide: "Nothing yet." },
+    },
     pipeline: {
       nav: "Pipeline",
       navDesc: "Every recruit, from accepted offer to first posting day, live",

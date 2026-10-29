@@ -1,9 +1,7 @@
 import { CarteUpwork } from "@/features/upwork/CarteUpwork";
 import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
 import { Lien1000Card } from "@/features/moteur/Lien1000Card";
-import { PageCohortes } from "@/features/cohortes/PageCohortes";
 import { PageNudges } from "@/features/nudges/PageNudges";
-import { PagePipeline } from "@/features/pipeline/PagePipeline";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
@@ -13,21 +11,33 @@ import { AdminCheckKillDoublePage } from "@/pages/admin/AdminCheckKillDoublePage
 import { AdminPaiePage } from "@/pages/admin/AdminPaiePage";
 
 import { GrandInterrupteur } from "./GrandInterrupteur";
+import { CarteAujourdhui, CarteSemaine, SanteAuto } from "./Overview";
 import { PageAuto } from "./PageAuto";
 import { PageLogs } from "./PageLogs";
+import { PageRecruits } from "./PageRecruits";
 
 /**
  * Prompt 22 : les 9 pages de « Recruitment Automation ». Chacune reprend la
  * page d'avant ; les parties suivantes du prompt les refondent une à une.
  */
 
+/**
+ * Partie 3 : tout voir sur une page. Le grand interrupteur, le résumé de
+ * Needs you (prompt 21, U6 : en haut), Switches, Health, Today, This week ;
+ * puis le détail de la connexion Upwork et le lien à 1 000 abonnés (carte
+ * Réglages, partie 1).
+ */
 export function OverviewPage() {
   return (
     <PageAuto cle="overview">
       <GrandInterrupteur />
       <ResumeNeedsYou />
-      <CarteSante />
       <Interrupteurs />
+      <CarteSante>
+        <SanteAuto />
+      </CarteSante>
+      <CarteAujourdhui />
+      <CarteSemaine />
       <CarteUpwork />
       <Lien1000Card />
     </PageAuto>
@@ -37,8 +47,7 @@ export function OverviewPage() {
 export function RecruitsPage() {
   return (
     <PageAuto cle="recruits">
-      <PagePipeline />
-      <PageCohortes />
+      <PageRecruits />
     </PageAuto>
   );
 }

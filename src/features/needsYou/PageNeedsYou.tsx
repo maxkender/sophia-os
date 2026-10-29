@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -35,7 +35,9 @@ const VARIANTE_URGENCE = { lundi: "error", paie: "warning", kill: "warning", rie
 export function PageNeedsYou() {
   const { t } = useTranslation();
   const lu = useQuery({ queryKey: ["needs-you", "liste"], queryFn: lireNeedsYou, refetchInterval: 60_000 });
-  const [f, setF] = React.useState<Filtres>(FILTRES_VIDES);
+  // Prompt 22 : un compteur ou un « Fix » d'Overview arrive ici déjà filtré (?type=question_paie…).
+  const [params] = useSearchParams();
+  const [f, setF] = React.useState<Filtres>(() => ({ ...FILTRES_VIDES, type: params.get("type") ?? "" }));
   const tous = lu.data ?? [];
   const visibles = trier(filtrer(tous, f));
   const o = options(tous);
@@ -81,6 +83,11 @@ export function PageNeedsYou() {
         </select>
         <Input className="h-9 w-52" placeholder={t("needsYou.filtres.recherche")} value={f.recherche} onChange={maj("recherche")} />
         <span className="text-sm text-muted-foreground">{t("needsYou.n", { n: visibles.length, total: tous.length })}</span>
+        {f.type && (
+          <Button size="sm" variant="secondary" data-testid="filtre-type" onClick={() => setF({ ...f, type: "" })}>
+            {f.type.split(",").map((x) => t(`needsYou.types.${x}`, { defaultValue: x })).join(" · ")} ✕
+          </Button>
+        )}
       </div>
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
       {lu.data && visibles.length === 0 && <p className="text-sm text-muted-foreground">{t("needsYou.vide")}</p>}

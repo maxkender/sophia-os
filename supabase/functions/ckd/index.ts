@@ -134,6 +134,10 @@ Deno.serve(async (request) => {
         return json(await apercuHm(supabase, String(body.id ?? "")));
       case "releve_warmup":
         return json(await releverWarmup(supabase));
+      case "releve_compte":
+        return json(await releverCompte(supabase, String(body.compte_id ?? "")));
+      case "needs_you_alerte":
+        return json(await alerteNeedsYou(supabase));
       case "releve_warmup_planifie": {
         const p = maintenantParis();
         if (!body.force && p.heure !== 8 && p.heure !== 20) return json({ ok: true, ignore: "pas 8 h ni 20 h" });
@@ -623,6 +627,8 @@ async function appelerManageUsers(
 
 /** Max, sur Slack : prévenu quand les propositions du samedi ne sont pas validées à temps. */
 const SLACK_MAX = "U0BL5FRLBEU";
+/** L'OS (liens dans les DM Slack). */
+const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
 /** HMs (et Head of Ops) actifs qui ont une zone, comme le routage du site (hub-posteurs). */
 async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
@@ -847,6 +853,40 @@ async function releverWarmup(supabase: Supabase) {
     introuvables: lignes.filter((l) => l.existe === false).length,
     illisibles: lignes.filter((l) => l.existe === null).length,
   };
+}
+
+/**
+ * Prompt 21, U4 : un handle corrigé dans « Needs you » est relevé tout de
+ * suite (le relevé suivant fait avancer la recrue à l'étape d'après).
+ */
+async function releverCompte(supabase: Supabase, compteId: string) {
+  if (!compteId) return { ok: false, error: "compte_id requis" };
+  const { data: c, error } = await supabase.from("comptes").select("id, handle_tiktok").eq("id", compteId).maybeSingle();
+  if (error) throw error;
+  if (!c?.handle_tiktok) return { ok: false, error: "compte sans handle" };
+  const p = await lireProfilTiktok(c.handle_tiktok as string);
+  const { error: errIns } = await supabase.from("ckd_warmup_releves").insert({
+    compte_id: c.id, handle: c.handle_tiktok, existe: p.existe, cree_tiktok_at: p.creeLe,
+    abonnements: p.abonnements, likes: p.likes, abonnes: p.abonnes, videos: p.videos, erreur: p.erreur,
+  });
+  if (errIns) throw errIns;
+  return { ok: true, existe: p.existe, abonnements: p.abonnements };
+}
+
+/** Prompt 21, U6 : à 18 h (Paris), un DM Slack à Max s'il reste de l'urgent dans « Needs you ». */
+async function alerteNeedsYou(supabase: Supabase) {
+  const p = maintenantParis();
+  if (p.heure !== 18) return { ok: true, ignore: "pas 18 h (Paris)" };
+  const { data, error } = await supabase.rpc("needs_you");
+  if (error) throw error;
+  const urgents = ((data ?? []) as { urgence: string }[]).filter((c) => c.urgence !== "rien");
+  if (urgents.length === 0) return { ok: true, urgents: 0 };
+  const n = (u: string) => urgents.filter((c) => c.urgence === u).length;
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return { ok: false, error: "SLACK_HM_BOT_TOKEN manquant" };
+  const texte = `:raising_hand: Needs you : ${urgents.length} cas urgent(s) — ${n("lundi")} bloquent lundi, ${n("paie")} la paie, ${n("kill")} un Kill.\n${OS_URL}/admin/auto/needs-you`;
+  const r = await slackApi(jeton, "chat.postMessage", { channel: SLACK_MAX, text: texte, unfurl_links: false });
+  return { ok: r.ok, urgents: urgents.length, ...(r.ok ? {} : { error: r.error }) };
 }
 
 async function verifierSlack(supabase: Supabase) {

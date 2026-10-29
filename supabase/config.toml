@@ -84,6 +84,11 @@ verify_jwt = false
 [functions.empreintes]
 verify_jwt = false
 
+# Banque d'exemples natifs (0423) : appelée par l'admin, contrôle interne
+# (assertAuthorised).
+[functions.exemples-natifs]
+verify_jwt = false
+
 [functions.extraction]
 verify_jwt = false
 

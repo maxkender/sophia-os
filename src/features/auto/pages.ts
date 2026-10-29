@@ -1,10 +1,10 @@
 /**
  * Prompt 22 : la section « Recruitment Automation » du menu admin. SOURCE
- * UNIQUE des 8 pages (lue par le menu, le routeur et les tests) et des
+ * UNIQUE des 9 pages (lue par le menu, le routeur et les tests) et des
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "decisions" | "sent" | "received" | "payroll" | "faq" | "logs";
+export type PageAuto = "overview" | "recruits" | "decisions" | "sent" | "received" | "needs" | "payroll" | "faq" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
@@ -12,6 +12,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "decisions", to: "/admin/auto/decisions" },
   { cle: "sent", to: "/admin/auto/sent" },
   { cle: "received", to: "/admin/auto/received" },
+  // Prompt 21, U : tout ce que l'OS n'a pas pu faire, ou dont il n'est pas sûr (juste avant Disputes).
+  { cle: "needs", to: "/admin/auto/needs-you" },
   { cle: "payroll", to: "/admin/auto/payroll" },
   { cle: "faq", to: "/admin/auto/faq" },
   { cle: "logs", to: "/admin/auto/logs" },

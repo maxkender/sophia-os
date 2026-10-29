@@ -40,6 +40,7 @@ import {
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { appelSlack, decrireRetrait, retirerDesCanaux } from "../_shared/slack_retrait.ts";
+import { noter429, passageDu } from "../_shared/frequences.ts";
 import {
   decrireJalons,
   etape,
@@ -189,6 +190,8 @@ Deno.serve(async (request) => {
       case "jalons":
         return json(await lireJalons(supabase, par));
       case "accueil":
+        // Prompt 21 : le cron passe toutes les 15 min ; « Welcome check » dit si c'est son tour.
+        if (acces.userId === "cron" && !(await passageDu(supabase, "accueil"))) return json({ ok: true, ignore: "pas encore son tour (Overview → Switches)" });
         return json(await accueillir(supabase, par));
       case "paie_apercu":
         return json(await paieApercu(supabase, par, String(body.semaine ?? ""), body.ids));
@@ -212,8 +215,14 @@ Deno.serve(async (request) => {
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
         return json(await traiterArrets(supabase, par));
-      case "reponses_lire":
-        return json(await lireReponsesUpwork(supabase, par, Array.isArray(body.posteurs) ? body.posteurs.map(String) : null));
+      case "reponses_lire": {
+        const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
+        // « Upwork replies » règle le passage du cron ; avant un Kill (posteurs donnés), toujours.
+        if (acces.userId === "cron" && !posteurs && !(await passageDu(supabase, "reponses"))) {
+          return json({ ok: true, ignore: "pas encore son tour (Overview → Switches)" });
+        }
+        return json(await lireReponsesUpwork(supabase, par, posteurs));
+      }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
       default:
@@ -410,6 +419,7 @@ async function lire(
 ): Promise<{ data: any; erreur: string | null; statut: number | null }> {
   const jeton = await jetonValide(supabase, o.par);
   const debut = Date.now();
+  let vu429 = false;
   // deno-lint-ignore no-explicit-any
   const r = await avecRetry<any>(async () => {
     try {
@@ -422,11 +432,14 @@ async function lire(
         },
         body: JSON.stringify({ query: o.query, variables: o.variables ?? {} }),
       });
+      if (reponse.status === 429) vu429 = true;
       return { statut: reponse.status, valeur: await reponse.json().catch(() => null), retryAfter: reponse.headers.get("retry-after") };
     } catch (e) {
       return { statut: null, valeur: { errors: [{ message: messageErreur(e) }] } };
     }
   });
+  // Prompt 21 : un 429 double l'intervalle des passages pour la journée (Needs you le signale).
+  if (vu429) await noter429(supabase, null);
   const erreur = r.statut !== null && r.statut >= 400
     ? `HTTP ${r.statut}${erreurGraphql(r.valeur) ? ` : ${erreurGraphql(r.valeur)}` : ""}`
     : erreurGraphql(r.valeur);
@@ -717,6 +730,8 @@ async function chargerLignes(supabase: Supabase, semaine: string): Promise<{ lig
     nb_comptes: Number(brute.nb_comptes ?? 1),
     // deno-lint-ignore no-explicit-any
     moins6: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).filter((d: any) => d?.moins6 === true).length,
+    // deno-lint-ignore no-explicit-any
+    douteux: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).reduce((n: number, d: any) => n + Number(d?.douteux ?? 0), 0),
   })));
   return { lignes, tenantDe };
 }
@@ -1146,6 +1161,10 @@ function horsPaieAuto(l: LigneAuto, killAuto: string): string | null {
   if (l.action === "kill" && l.moins6 > 0 && l.moins6 >= l.nb_comptes && killAuto !== "on") {
     return "Kill sous les 6 posts : kill_auto n'est pas sur « on », à payer à la main";
   }
+  // Prompt 21, U : jamais de Kill sur des données incomplètes (liens introuvables pas vérifiés).
+  if (l.action === "kill" && l.moins6 > 0 && l.douteux > 0) {
+    return `Kill sous les 6 posts, mais ${l.douteux} lien(s) introuvable(s) pas vérifié(s) : Needs you`;
+  }
   return null;
 }
 
@@ -1348,7 +1367,8 @@ async function killsMoins6(supabase: Supabase, par: string | null, semaine: stri
   if (mode === "off") return;
   const modeMessage = lireModeAuto(v.kill_message_auto);
   for (const l of lignes) {
-    if (l.exclu || l.moins6 === 0) continue;
+    // Liens introuvables pas vérifiés : pas de Kill (Needs you, « Count this post »).
+    if (l.exclu || l.moins6 === 0 || l.douteux > 0) continue;
     const tous = l.action === "kill" && l.moins6 >= l.nb_comptes;
     for (const posteur of l.posteurs) {
       const cle = `moins6:${semaine}`;
@@ -1719,6 +1739,7 @@ async function ecrire(
       statut = null;
       valeur = { errors: [{ message: messageErreur(e) }] };
     }
+    if (statut === 429) await noter429(supabase, null);
     if (statut !== 429 || essai === 2) break;
     await new Promise((r) => setTimeout(r, attenteRetryAfter(retryAfter) ?? 5_000));
   }

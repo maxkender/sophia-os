@@ -1,5 +1,6 @@
 import { instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
 import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
+import { passageDu } from "../_shared/frequences.ts";
 import {
   canalEtape,
   type DelaisAccueil,
@@ -179,6 +180,8 @@ interface Bilan {
   rappelsEnPause: boolean;
   /** Prompt 22 : le grand interrupteur (`automation_pause`) : rien ne part, chaque action est notée. */
   automationPause: boolean;
+  /** Prompt 21 : les 4 étapes et les relances sont passées cette fois (« Step checks »). */
+  etapes?: boolean;
   erreurs: string[];
   /** Interne : les relances prévues existantes (pas rendu). */
   prevuesConnues?: Set<string>;
@@ -238,7 +241,11 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     );
   }
 
-  for (let x of recrues) {
+  // Prompt 21 : le cron passe toutes les 15 min ; « Step checks » dit si les 4 étapes et les
+  // relances passent cette fois. Les Kills, eux, sont vérifiés à chaque passage.
+  const etapesDues = await passageDu(supabase, "etapes");
+  bilan.etapes = etapesDues;
+  for (let x of etapesDues ? recrues : []) {
     // Cohorte commencée : ses vidéos sont ses posts, pas un warm-up raté.
     if (maintenant >= debutCohorte(x)) x = { ...x, videos: null };
     let etats = etatsAccueil(x, r.etapes);
@@ -264,14 +271,18 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   if (await lireAvantKills(supabase, r, maintenant, bilan)) recrues = await lireRecrues(supabase);
   await killsEchus(supabase, r, recrues, maintenant, bilan);
 
-  // Partie D : le message du lundi et le Nudge du jeudi (semaine en cours, heure de Paris).
-  await semaine(supabase, r, recrues, maintenant, bilan);
-  // Pipeline, partie 2 : le check du lundi soir (1er jour de posts).
-  await lundiSoir(supabase, r, maintenant, bilan);
+  // Une fois par heure (le passage de :00) : le message du lundi, le Nudge du jeudi, le
+  // check du lundi soir et les inactifs, comme quand le cron passait toutes les heures.
+  if (maintenant.getUTCMinutes() < 15) {
+    // Partie D : le message du lundi et le Nudge du jeudi (semaine en cours, heure de Paris).
+    await semaine(supabase, r, recrues, maintenant, bilan);
+    // Pipeline, partie 2 : le check du lundi soir (1er jour de posts).
+    await lundiSoir(supabase, r, maintenant, bilan);
 
-  // Les inactifs : Nudge du jeudi envoyé, rien publié depuis vendredi 20 h (0404).
-  const { error: errInactifs } = await supabase.rpc("inactifs_marquer");
-  if (errInactifs) bilan.erreurs.push(`inactifs : ${errInactifs.message}`);
+    // Les inactifs : Nudge du jeudi envoyé, rien publié depuis vendredi 20 h (0404).
+    const { error: errInactifs } = await supabase.rpc("inactifs_marquer");
+    if (errInactifs) bilan.erreurs.push(`inactifs : ${errInactifs.message}`);
+  }
   delete bilan.prevuesConnues;
   return { ok: bilan.erreurs.length === 0, ...bilan };
 }

@@ -56,6 +56,9 @@ Deno.test("annonce inconnue ou générique → Contrats à relier ; pays choisi 
 Deno.test("doublon : contrat déjà relié, ou même nom et même pays actif → rien, signalé", () => {
   assertEquals(planAccueil(d, annonce(), null, [posteur({ upwork_contract_id: "44784407" })]).statut, "doublon");
   assertEquals(planAccueil(d, annonce(), null, [posteur()]).statut, "doublon");
+  // Prompt 25 MAJ : le profil existant est donné (contrat relié et bienvenue quand même, jamais un 2e profil).
+  assertEquals(planAccueil(d, annonce(), null, [posteur({ upwork_contract_id: "44784407" })]).poster_id, posteur().id);
+  assertEquals(planAccueil(d, annonce(), null, [posteur()]).poster_id, posteur().id);
   // Même nom, autre pays, ou inactif : pas un doublon.
   assertEquals(planAccueil(d, annonce(), null, [posteur({ pays: "FR" })]).statut, "a_creer");
   assertEquals(planAccueil(d, annonce(), null, [posteur({ is_active: false })]).statut, "a_creer");

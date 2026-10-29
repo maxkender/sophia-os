@@ -3974,7 +3974,7 @@ export const fr = {
         limiteUpwork: "La limite du jour d'Upwork est atteinte : plus rien jusqu'à demain",
         comptes: { principal: "Compte principal (Max)", secours: "Compte de secours" },
         budgetCompte: "{{compte}} : {{n}} / {{max}} personnes aujourd'hui (UTC)",
-        budgetOrdre: "Max d'abord, puis le compte de secours ; le même compte toute la journée pour une personne. Relances et nudges s'arrêtent {{reserve}} avant la limite du dernier compte (bienvenue, Kill, arrêt).",
+        budgetOrdre: "Le compte d'Adrien d'abord (45 personnes), puis celui de Max (45), puis la HM à la main ; le même compte toute la journée pour une personne. Les relances s'arrêtent {{reserve}} avant la limite de Max (gardé pour les bienvenues).",
         secours: "Compte de secours",
         secoursAide: "Une 2e connexion Upwork (Adrien, membre de Vik Studios), pour les messages seulement : bienvenues, relances, lundi, nudges du jeudi. Elle sert quand Max a écrit à 45 personnes ou a eu la limite d'Upwork. La paie, les milestones et la fin de contrat restent sur le compte de Max.",
         secoursOk: "Compte de secours connecté. Vérifie ci-dessous que le nom est celui d'Adrien et que Vik Studios fait partie de ses organisations.",

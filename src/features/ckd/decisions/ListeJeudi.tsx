@@ -40,7 +40,8 @@ const CHOIX: readonly ChoixJeudi[] = ["nudge", "recreate", "rien"];
 export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
   const { t } = useTranslation();
   const { role } = useAuth();
-  const admin = role === "admin";
+  // Prompt 25 MAJ : le nudge du jeudi se choisit par Lucia (Head of Ops) ou Max.
+  const admin = role === "admin" || role === "head_of_ops";
   const qc = useQueryClient();
   const aujourdhui = aujourdhuiParis(maintenant);
   const lundi = lundiDeLaSemaine(aujourdhui);

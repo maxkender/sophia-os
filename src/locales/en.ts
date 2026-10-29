@@ -3966,7 +3966,7 @@ export const en = {
         limiteUpwork: "Upwork's daily limit was hit: nothing more until tomorrow",
         comptes: { principal: "Main account (Max)", secours: "Fallback account" },
         budgetCompte: "{{compte}}: {{n}} / {{max}} people today (UTC)",
-        budgetOrdre: "Max first, then the fallback account; the same account all day for each person. Reminders and nudges stop {{reserve}} before the last account's limit (welcome, Kill and stop messages).",
+        budgetOrdre: "Adrien's account first (45 people), then Max's (45), then the HM by hand; the same account all day for each person. Reminders stop {{reserve}} before Max's limit (kept for welcomes).",
         secours: "Fallback account",
         secoursAide: "A second Upwork connection (Adrien, member of Vik Studios), for messages only: welcomes, step reminders, Monday, Thursday nudges. Used once Max has written to 45 people or hit Upwork's limit. Pay, milestones and closing stay on Max's account.",
         secoursOk: "Fallback account connected. Check below that the name is Adrien's and that Vik Studios is among its organizations.",

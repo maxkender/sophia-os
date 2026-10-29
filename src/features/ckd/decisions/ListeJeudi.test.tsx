@@ -87,11 +87,11 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3)", () => {
     expect([...document.querySelectorAll("[data-compte]")].map((e) => e.getAttribute("data-compte"))).toEqual(["deja", "manque"]);
   });
 
-  it("le Head of Ops lit la liste sans rien pouvoir envoyer", async () => {
+  it("prompt 25 MAJ : Lucia (Head of Ops) choisit compte par compte et envoie, comme Max", async () => {
     auth.role = "head_of_ops";
     rendu();
     await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(5));
-    expect(within(ligne("manque")).getByRole("button", { name: "Nudge" })).toBeDisabled();
-    expect(screen.queryByRole("button", { name: "Send" })).toBeNull();
+    expect(within(ligne("manque")).getByRole("button", { name: "Nudge" })).not.toBeDisabled();
+    expect(screen.getByRole("button", { name: "Send" })).toBeInTheDocument();
   });
 });

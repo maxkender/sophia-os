@@ -211,7 +211,8 @@ Deno.serve(async (request) => {
       case "droits":
         return json(await testerDroits(supabase, par));
       case "message":
-        return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? "")));
+        // Prompt 25 : relances et nudges (priorite: false) s'arrêtent avant la réserve gardée pour la bienvenue, le Kill et l'arrêt.
+        return json(await envoyerMessage(supabase, par, String(body.contrat_id ?? ""), String(body.texte ?? ""), { prioritaire: body.priorite !== false }));
       case "message_posteur":
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
@@ -1784,8 +1785,36 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
   return envoi;
 }
 
-async function envoyerMessage(supabase: Supabase, par: string | null, contratId: string, texte: string) {
+/**
+ * Prompt 25 : Upwork bloque après un nombre de conversations par jour (« maximum
+ * number of rooms … in one day », 50 le 29/10). Au plus `upwork_conversations_jour_max`
+ * (45) conversations distinctes par jour (UTC) ; relances et nudges s'arrêtent
+ * `upwork_reserve_prioritaire` (5) avant, pour la bienvenue, le Kill et l'arrêt.
+ * Écrire à une conversation déjà écrite aujourd'hui ne compte pas. Après
+ * l'erreur de limite d'Upwork : plus rien jusqu'au lendemain. 1 message par
+ * seconde au plus. Rend l'erreur, ou null si le message peut partir.
+ */
+async function budgetUpwork(supabase: Supabase, contratId: string, prioritaire: boolean): Promise<string | null> {
+  const { data, error } = await supabase.rpc("upwork_budget_jour", { p_contrat: contratId });
+  if (error) return `budget Upwork illisible : ${error.message}`;
+  const b = data as { conversations: number; max: number; reserve: number; limite_atteinte: boolean; deja: boolean; dernier_ms: number | null };
+  if (b.limite_atteinte) return "limite Upwork du jour atteinte : plus rien jusqu'à demain";
+  const plafond = prioritaire ? b.max : Math.max(0, b.max - b.reserve);
+  if (!b.deja && b.conversations >= plafond) return `budget Upwork du jour atteint (${b.conversations}/${plafond})`;
+  if (b.dernier_ms !== null && b.dernier_ms < 1_000) await new Promise((r) => setTimeout(r, 1_000 - b.dernier_ms!));
+  return null;
+}
+
+async function envoyerMessage(
+  supabase: Supabase,
+  par: string | null,
+  contratId: string,
+  texte: string,
+  o: { prioritaire?: boolean } = {},
+): Promise<{ ok: boolean; error?: string; budget?: boolean; story_id?: string }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  const budget = await budgetUpwork(supabase, contratId, o.prioritaire !== false);
+  if (budget) return { ok: false, error: budget, budget: true };
   const { data: c } = await supabase
     .from("upwork_contrats")
     .select("organisation_id")

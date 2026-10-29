@@ -87,7 +87,6 @@ import {
 } from "@/features/ckd/logique";
 import { CartesDecision } from "@/features/ckd/decisions/CartesDecision";
 import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
-import { MessagesEnAttente } from "@/features/auto/sent/Attente";
 import { JeudiNudge } from "@/features/ckd/decisions/JeudiNudge";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
 import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
@@ -218,11 +217,7 @@ export function AdminCheckKillDoublePage() {
 
       <PanneauOnglet id="decisions" actif={onglet}>
         {onglet === "jeudi" ? (
-          <>
-            {/* 0432 : la liste du jeudi est validée ici avant tout envoi. */}
-            <MessagesEnAttente types={["jeudi", "jeudi_recrue"]} />
-            <JeudiNudge />
-          </>
+          <JeudiNudge />
         ) : onglet === "samedi" ? (
           <>
             <SemaineDecisions />

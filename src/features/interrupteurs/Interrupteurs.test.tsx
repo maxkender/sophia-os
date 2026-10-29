@@ -60,6 +60,23 @@ describe("Réglages → Interrupteurs", () => {
     await vi.waitFor(() => expect(api.enregistrerInterrupteur).toHaveBeenCalledWith("accueil_auto", "on"));
   });
 
+  it("prompt 25 : Approve pour les relances des recrues et le lundi 20 h seulement, sans confirmation ; lu tel quel", async () => {
+    const { lireMode } = await vi.importActual<typeof import("./api")>("./api");
+    expect(lireMode("approve")).toBe("approve");
+    rendu();
+    await screen.findByText("Relances des recrues");
+    const relances = within(document.querySelector<HTMLElement>('[data-interrupteur="relances_auto"]')!);
+    expect(relances.getAllByRole("button").map((b) => b.textContent)).toEqual(["Off", "Test", "Approve", "On"]);
+    const soir = within(document.querySelector<HTMLElement>('[data-interrupteur="lundi_soir_auto"]')!);
+    expect(soir.getByRole("button", { name: "Approve" })).toBeInTheDocument();
+    const lundi = within(document.querySelector<HTMLElement>('[data-interrupteur="lundi_message_auto"]')!);
+    expect(lundi.queryByRole("button", { name: "Approve" })).toBeNull();
+    const confirmer = vi.spyOn(window, "confirm");
+    fireEvent.click(relances.getByRole("button", { name: "Approve" }));
+    await vi.waitFor(() => expect(api.enregistrerInterrupteur).toHaveBeenCalledWith("relances_auto", "approve"));
+    expect(confirmer).not.toHaveBeenCalled();
+  });
+
   it("rappels en pause jusqu'au 2 nov. ; « Retirer la pause » vide la date", async () => {
     rendu();
     const zone = within(await screen.findByTestId("pause-rappels"));

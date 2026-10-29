@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { canauxRestants, cleServi, decisionRattrapage, postsMinParCompte } from "./garde_fous.ts";
+import { canalUnique, canauxRestants, cleServi, clesPersonne, decisionRattrapage, postsMinParCompte } from "./garde_fous.ts";
 
 const t = (iso: string) => new Date(iso);
 
@@ -36,4 +36,14 @@ Deno.test("jeudi : compté compte par compte, le plus bas", () => {
   assertEquals(postsMinParCompte([]), null);
   assertEquals(postsMinParCompte([{ posts_lien: 8 }, { posts_lien: 4 }]), 4);
   assertEquals(postsMinParCompte([{ posts_lien: 23 }]), 23);
+});
+
+Deno.test("canalUnique : Slack d'abord, Upwork sans Slack, jamais les deux ; doublon par Slack ou par contrat", () => {
+  assertEquals(canalUnique({ slack_user_id: "U1", contrat_id: "C1" }, "relance", "2026-10-30", new Set()), { canal: "slack", doublon: false });
+  assertEquals(canalUnique({ slack_user_id: null, contrat_id: "C1" }, "relance", "2026-10-30", new Set()), { canal: "upwork", doublon: false });
+  assertEquals(canalUnique({ slack_user_id: null, contrat_id: null }, "relance", "2026-10-30", new Set()), { canal: null, doublon: false });
+  // L'autre profil a reçu le message sur Slack : celui-ci ne le reçoit pas sur Upwork.
+  const servis = new Set(clesPersonne({ slack_user_id: "U1", contrat_id: "C1" }, "relance", "2026-10-30"));
+  assertEquals(canalUnique({ slack_user_id: null, contrat_id: "C1" }, "relance", "2026-10-30", servis), { canal: null, doublon: true });
+  assertEquals(canalUnique({ slack_user_id: null, contrat_id: "C1" }, "relance", "2026-10-31", servis).doublon, false);
 });

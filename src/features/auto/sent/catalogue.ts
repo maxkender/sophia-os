@@ -8,7 +8,7 @@
 
 export const GROUPES_TEXTES = [
   "accueil",
-  "etapes",
+  "relance",
   "lundi",
   "lundi_soir",
   "jeudi",
@@ -37,26 +37,22 @@ export interface TexteCatalogue {
 
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
 const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "slack", "guide", "date"] as const;
-/** Les variables des messages d'étape (_shared/etapes.ts, texteEtape). */
-const VARIABLES_ETAPE = ["prenom", "handle", "url", "lien_etapes", "date", "ce_qui_manque"] as const;
+/** Les variables d'un morceau de la relance du jour (_shared/relance_jour.ts, texteRelance). */
+const VARIABLES_RELANCE = ["prenom", "handle", "url", "lien_etapes", "date", "email", "mot_de_passe", "follows"] as const;
 
 export const TEXTES: readonly TexteCatalogue[] = [
   { id: "accueil", groupe: "accueil", cle: "accueil_message_texte", variables: VARIABLES_ACCUEIL },
-  { id: "etape_connexion", groupe: "etapes", cle: "etape_texte_connexion", variables: VARIABLES_ETAPE },
-  // 0432 : la bienvenue n'a pas été envoyée par l'OS → les identifiants dans le rappel.
-  { id: "etape_connexion_identifiants", groupe: "etapes", cle: "etape_texte_connexion_identifiants", variables: [...VARIABLES_ETAPE, "email", "mot_de_passe"] },
-  { id: "etape_tiktok", groupe: "etapes", cle: "etape_texte_tiktok", variables: VARIABLES_ETAPE },
-  // 0432 : Start warmup cliqué, @ introuvable → on demande le bon @ (jamais « create your account »).
-  { id: "etape_tiktok_verifier", groupe: "etapes", cle: "etape_texte_tiktok_verifier", variables: VARIABLES_ETAPE },
-  { id: "etape_warmup_lance", groupe: "etapes", cle: "etape_texte_warmup_lance", variables: VARIABLES_ETAPE },
-  { id: "etape_warmup_bien_fait", groupe: "etapes", cle: "etape_texte_warmup_bien_fait", variables: VARIABLES_ETAPE },
+  // Prompt 25 : la relance du jour (une par recrue et par jour, avec seulement ce qui lui manque).
+  { id: "relance_cadre", groupe: "relance", cle: "relance_texte_cadre", variables: ["prenom", "date", "ce_qui_manque"] },
+  { id: "relance_connexion", groupe: "relance", cle: "relance_texte_connexion", variables: VARIABLES_RELANCE },
+  { id: "relance_tiktok", groupe: "relance", cle: "relance_texte_compte_tiktok", variables: VARIABLES_RELANCE },
+  { id: "relance_warmup", groupe: "relance", cle: "relance_texte_start_warmup", variables: VARIABLES_RELANCE },
+  { id: "relance_follows", groupe: "relance", cle: "relance_texte_follows", variables: VARIABLES_RELANCE },
   { id: "lundi_tous", groupe: "lundi", cle: "lundi_texte_tous", variables: ["prenom", "ce_qui_manque"] },
   { id: "lundi_cohorte", groupe: "lundi", cle: "lundi_texte_cohorte", variables: ["prenom", "ce_qui_manque"] },
   { id: "lundi_warmup", groupe: "lundi", cle: "lundi_texte_warmup", variables: ["prenom", "ce_qui_manque"] },
   { id: "lundi_soir", groupe: "lundi_soir", cle: "lundi_soir_texte", variables: ["prenom"] },
   { id: "jeudi", groupe: "jeudi", cle: "jeudi_texte", variables: ["prenom", "faits", "attendus"] },
-  // Prompt 21, C7 : le texte des recrues pas encore prêtes (créé par la partie C).
-  { id: "jeudi_recrue", groupe: "jeudi", cle: "jeudi_texte_recrue", variables: ["prenom", "date", "ce_qui_manque"] },
   { id: "kill", groupe: "kill", cle: "kill_message_texte", variables: ["prenom"] },
   { id: "kill_moins6", groupe: "kill", cle: "kill_moins6_texte", variables: ["prenom", "n"] },
   { id: "arret", groupe: "arret", cle: "arret_message_texte", variables: [] },

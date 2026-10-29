@@ -33,7 +33,7 @@ export const ETAPES_RELANCE: readonly EtapeRelance[] = [
   "warmup_lance_deuxieme",
   "warmup_bien_fait_deuxieme",
 ];
-export type ModeRelances = "off" | "simulation" | "on";
+export type ModeRelances = "off" | "simulation" | "approve" | "on";
 
 export interface NudgeEnvoye {
   id: string;
@@ -80,6 +80,9 @@ export async function lireRelancesPrevues(): Promise<RelancePrevue[]> {
   const { data, error } = await supabase
     .from("relances_prevues")
     .select("poster_id, type, periode, statut, canal, texte, raison, maj_at, profiles(prenom, nom)")
+    // Prompt 25 : Planned = ce que le mode Test prévoit et ce qui est bloqué ; To approve et la file d'envoi sont ailleurs.
+    .in("statut", ["prevu", "bloque"])
+    .not("raison", "in", "(a_approuver,auto,en_attente,a_valider)")
     .order("maj_at", { ascending: false });
   if (error) throw error;
   return (data ?? []).map((r) => {
@@ -165,7 +168,8 @@ export async function lireReglagesRelances(): Promise<ReglagesRelances> {
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   const texte = (cle: string) => (typeof v[cle] === "string" ? (v[cle] as string) : "");
   // « test » (Interrupteurs) = simulation.
-  const mode = v.relances_auto === "on" || v.relances_auto === "off" ? v.relances_auto : "simulation";
+  // Prompt 25 : « approve » est gardé tel quel (jamais réécrit en test).
+  const mode = v.relances_auto === "on" || v.relances_auto === "off" || v.relances_auto === "approve" ? v.relances_auto : "simulation";
   return {
     mode,
     delais: { ...DELAIS_DEFAUT, ...((v.etapes_delais ?? {}) as object) },

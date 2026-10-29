@@ -5,7 +5,14 @@ import { supabase } from "@/lib/supabase/client";
  * Réglages, off / test / on. Défaut « test » : l'OS montre ce qu'il ferait,
  * sans rien envoyer ni payer.
  */
-export type ModeInterrupteur = "off" | "test" | "on";
+export type ModeInterrupteur = "off" | "test" | "approve" | "on";
+
+/**
+ * Prompt 25 : les relances des recrues et le lundi 20 h ont une position
+ * « Approve » : l'OS prépare les messages (Messages sent → To approve), ils ne
+ * partent qu'après « Send selected ».
+ */
+export const AVEC_APPROVE: readonly string[] = ["relances_auto", "lundi_soir_auto"];
 
 export const INTERRUPTEURS = [
   "accueil_auto",
@@ -23,7 +30,7 @@ export type CleInterrupteur = (typeof INTERRUPTEURS)[number];
 export function lireMode(v: unknown): ModeInterrupteur {
   if (v === true) return "on";
   if (v === false) return "off";
-  return v === "off" || v === "on" ? v : "test";
+  return v === "off" || v === "on" || v === "approve" ? v : "test";
 }
 
 export async function lireInterrupteurs(): Promise<Record<CleInterrupteur, ModeInterrupteur>> {

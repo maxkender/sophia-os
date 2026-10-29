@@ -1,9 +1,7 @@
-import { instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
+import { dansFenetre, type Delais, instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
 import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
 import {
-  canalEtape,
-  choisirModeleEtape,
   libelleCanaux,
   MOT_DE_PASSE_DEPART,
   type DelaisAccueil,
@@ -19,22 +17,18 @@ import {
   lireDelaisAccueil,
   nuitDuRouge,
   type RecrueAccueil,
-  texteEtape,
 } from "../_shared/etapes.ts";
 import { lireModeAuto, type ModeAuto } from "../_shared/accueil.ts";
-import { type Canal, canauxRestants, cleServi, decisionRattrapage, postsMinParCompte } from "../_shared/garde_fous.ts";
+import { type Canal, canalUnique, cleServi, clesPersonne, decisionRattrapage } from "../_shared/garde_fous.ts";
+import { planRelance, type TextesRelance, TEXTES_RELANCE_DEFAUT, texteRelance } from "../_shared/relance_jour.ts";
 import {
   ceQuiManqueRecrue,
-  jeudiDu,
-  jeudiRecrueDu,
   killLundiSoir,
   lundiDu,
   lundiSoirDu,
   type PosteurLundiSoir,
   type PosteurSemaine,
   reactionLundiSoir,
-  texteJeudi,
-  texteJeudiRecrue,
   texteLundi,
   texteLundiSoir,
 } from "../_shared/semaine.ts";
@@ -105,7 +99,9 @@ Deno.serve(async (request) => {
     }
     if (acces.role !== "admin") return json({ error: "forbidden" }, 403);
     // 0432 : ce qui partirait maintenant, par type (rien n'est écrit ni envoyé).
-    if (body.action === "apercu") return json(await apercu(serviceClient(), new Date()));
+    if (body.action === "apercu") return json(await apercu(serviceClient(), new Date(), { demain: (body as { demain?: unknown }).demain === true }));
+    // Prompt 25 : « Send selected » (To approve) et Send (Thursday) : la file part tout de suite, peu à peu.
+    if (body.action === "envoyer_file") return json(await envoyerFileMaintenant(serviceClient(), new Date()));
     if (body.action === "reponses") {
       const maintenant = new Date();
       const r = await traiterReponses(serviceClient(), maintenant);
@@ -153,12 +149,19 @@ async function reglages(supabase: Supabase) {
       "etape_texte_connexion_identifiants",
       "envoi_attente_par_passage",
       "paie_minimum_posts",
+      "relance_texte_cadre",
+      "relance_texte_connexion",
+      "relance_texte_compte_tiktok",
+      "relance_texte_start_warmup",
+      "relance_texte_follows",
     ]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   const texte = (cle: string) => (typeof v[cle] === "string" ? (v[cle] as string) : "");
+  // Prompt 25 : les textes de la relance du jour (un réglage absent : le texte par défaut).
+  const relance = (cle: string, d: string) => (typeof v[cle] === "string" ? (v[cle] as string) : d);
   return {
-    mode: lireMode(v.relances_auto),
+    mode: lireModeRelances(v.relances_auto),
     kill: lireModeAuto(v.kill_auto) as ModeAuto,
     etapes: lireDelaisAccueil(v.etapes_delais),
     textesEtapes: {
@@ -186,12 +189,29 @@ async function reglages(supabase: Supabase) {
     // Prompt 21, C7 : les recrues du lundi suivant pas encore prêtes.
     texteJeudiRecrue: texte("jeudi_texte_recrue"),
     heures: lireHeuresSemaine(v.semaine_heures),
-    lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
+    lundiSoir: (v.lundi_soir_auto === "approve" ? "approve" : lireModeAuto(v.lundi_soir_auto)) as ModeAuto | "approve",
+    textesRelance: {
+      cadre: relance("relance_texte_cadre", TEXTES_RELANCE_DEFAUT.cadre),
+      connexion: relance("relance_texte_connexion", TEXTES_RELANCE_DEFAUT.connexion),
+      tiktok: relance("relance_texte_compte_tiktok", TEXTES_RELANCE_DEFAUT.tiktok),
+      warmup: relance("relance_texte_start_warmup", TEXTES_RELANCE_DEFAUT.warmup),
+      follows: relance("relance_texte_follows", TEXTES_RELANCE_DEFAUT.follows),
+    } as TextesRelance,
     texteLundiSoir: texte("lundi_soir_texte"),
     boutons: lireLibellesBoutons(v.slack_boutons),
     repriseRappels: typeof v.rappels_reprise_le === "string" ? (v.rappels_reprise_le as string) : null,
     heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
   };
+}
+
+/**
+ * Prompt 25 : « Step reminders (new recruits) » : off / test / approve / on.
+ * Approve : l'OS prépare les relances dans Messages sent → To approve ; rien ne
+ * part sans « Send selected ».
+ */
+type ModeRelances = "off" | "simulation" | "approve" | "on";
+function lireModeRelances(v: unknown): ModeRelances {
+  return v === "approve" ? "approve" : lireMode(v);
 }
 
 function lireHeuresSemaine(v: unknown): { lundi_heure: number; jeudi_heure: number; fin: number } {
@@ -238,6 +258,20 @@ interface Bilan {
   prevuesConnues?: Set<string>;
   /** Interne : les posteurs en pause (malade, absent, partie E). */
   pauses?: Set<string>;
+  /** Prompt 25 : relances préparées pour « To approve » à ce passage. */
+  aApprouver: number;
+  /** Prompt 25 : Start warmup cliqué, compte introuvable : Needs you, pas de message. */
+  needsYou: number;
+  /** Prompt 25 : la file d'envoi (messages validés) à ce passage. */
+  file: { envoyes: number; perimes: number; doublons: number; upwork_bloque: number };
+  /** Interne : relances du jour déjà préparées ou parties (`poster|jour`). */
+  relancesFaites?: Set<string>;
+  /** Interne : posteurs avec une relance validée pas encore partie (elle part d'abord). */
+  relanceEnFile?: Set<string>;
+  /** Interne : messages préparés, par clé de personne (Slack, contrat) → le profil. */
+  preparees?: Map<string, string>;
+  /** Interne : Upwork plein pour aujourd'hui (budget ou limite d'Upwork). */
+  upworkPlein?: boolean;
 }
 
 async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
@@ -262,6 +296,7 @@ async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
 interface ExempleMessage {
   poster_id: string;
   nom: string | null;
+  hm: string | null;
   canaux: Canal[];
   /** Pas envoyé : un autre profil (même contrat, même Slack) l'a déjà reçu. */
   doublon: boolean;
@@ -271,53 +306,56 @@ interface ExempleMessage {
 }
 
 /**
- * 0432 : pour chaque type de message, ce qui partirait maintenant (destinataire,
- * canaux, texte, données utilisées), avec les mêmes règles que l'envoi. Le lundi
- * et le lundi 20 h : pour le prochain lundi. Rien n'est écrit, rien n'est envoyé.
+ * 0432, prompt 25 : pour chaque type de message, ce qui partirait (destinataire,
+ * HM, canal, texte, données utilisées), avec les mêmes règles que l'envoi.
+ * `demain` : les relances préparées demain (15 h à Paris, sans la fenêtre
+ * 10 h-20 h) ; le lundi et le lundi 20 h : pour le prochain lundi. Rien n'est
+ * écrit, rien n'est envoyé.
  */
-async function apercu(supabase: Supabase, maintenant: Date) {
+async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolean } = {}) {
   const r = await reglages(supabase);
   const recrues = await lireRecrues(supabase);
-  const servis = await lireServis(supabase, maintenant);
+  const bilanVide = { servis: o.demain ? new Set<string>() : await lireServis(supabase, maintenant), preparees: new Map<string, string>() } as Bilan;
   const lundi = lundiParis(maintenant);
   const prochain = ajouterJoursIso(lundi, 7);
+  const instant = o.demain ? instantLocal(ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, 1), 15, "Europe/Paris") : maintenant;
   const sortie: Record<string, { total: number; exemples: ExempleMessage[] }> = {};
+  const needsYou: { poster_id: string; nom: string | null; handle: string | null; start_warmup: string | null }[] = [];
   const ajouter = (type: string, ex: ExempleMessage) => {
     const t = (sortie[type] ??= { total: 0, exemples: [] });
     t.total++;
     if (t.exemples.length < 10) t.exemples.push(ex);
   };
-  const { data: noms } = await supabase.from("profiles").select("id, prenom, nom").in("id", recrues.map((x) => x.poster_id));
+  const ids = [...new Set(recrues.map((x) => x.poster_id))];
+  const { data: noms } = await supabase.from("profiles").select("id, prenom, nom, manager_id").in("id", ids);
   const nomDe = new Map((noms ?? []).map((n) => [n.id as string, [n.prenom, n.nom].filter(Boolean).join(" ") || null]));
-  const canauxDe = (p: { slack_user_id: string | null; contrat_id: string | null }, type: string, periode: string) => {
-    const restants = canauxRestants(p, type, periode, servis);
-    const tous = canauxRestants(p, type, periode, new Set());
-    return { canaux: restants, doublon: tous.length > 0 && restants.length === 0 };
-  };
+  const hmIds = [...new Set((noms ?? []).map((n) => n.manager_id as string | null).filter((x): x is string => Boolean(x)))];
+  const { data: hms } = hmIds.length ? await supabase.from("profiles").select("id, prenom, nom").in("id", hmIds) : { data: [] };
+  const hmNom = new Map((hms ?? []).map((h) => [h.id as string, [h.prenom, h.nom].filter(Boolean).join(" ") || null]));
+  const hmDe = new Map((noms ?? []).map((n) => [n.id as string, n.manager_id ? hmNom.get(n.manager_id as string) ?? null : null]));
+  const { data: pauses } = await supabase.from("posteur_pauses").select("poster_id").gt("jusqu_au", maintenant.toISOString());
+  const enPause = new Set((pauses ?? []).map((x) => x.poster_id as string));
+  const { data: faites } = await supabase.from("nudges").select("poster_id, periode").eq("type", "relance")
+    .gte("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -1));
+  const dejaParties = new Set((faites ?? []).map((n) => `${n.poster_id}|${n.periode}`));
 
-  // Les 4 étapes : la 1re étape pas faite, due, pas encore relancée.
-  for (const x0 of recrues) {
-    if (killEnCours(x0) || maintenant >= debutCohorte(x0)) continue;
-    const x = x0;
-    for (const e of etatsAccueil(x, r.etapes)) {
-      if (e.fait) continue;
-      if (x.messages.some((m) => m.type === e.etape) || !e.messageAt || e.messageAt > maintenant) break;
-      const { variante } = choisirModeleEtape(e.etape, x, {
-        etapes: r.textesEtapes, deuxieme: r.textesDeuxieme, connexionIdentifiants: r.connexionIdentifiants, tiktokVerifier: r.tiktokVerifier,
-      });
-      const texte = texteEtapePour(r, x, e);
-      if (!texte) break;
-      ajouter(e.etape, {
-        poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, ...canauxDe(x, e.etape, x.cohorte_lundi), variante, texte,
-        donnees: {
-          cohorte: x.cohorte_lundi, email: x.email, bienvenue_envoyee_par_os: x.bienvenue_os ?? false,
-          premiere_connexion: x.premiere_connexion_at, handle: x.handle, start_warmup: x.warmup_started_at,
-          tiktok_trouve: x.tiktok_existe, follows: x.abonnements, videos: x.videos, du_depuis: e.messageAt?.toISOString() ?? null,
-          slack: x.slack_user_id, contrat: x.contrat_id, deuxieme_compte: x.deuxieme ?? false,
-        },
-      });
-      break;
-    }
+  // La relance du jour : une par recrue, avec ce qui lui manque.
+  for (const x of recrues) {
+    if (killEnCours(x) || enPause.has(x.poster_id) || instant >= debutCohorte(x)) continue;
+    const plan = planRelance(x, etatsAccueil(x, r.etapes), instant, r.etapes);
+    if (plan.needsYou) needsYou.push({ poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, handle: x.handle, start_warmup: x.warmup_started_at });
+    if (!plan.element) continue;
+    const jour = partiesLocales(instant, x.fuseau).date;
+    if (dejaParties.has(`${x.poster_id}|${jour}`)) continue;
+    const texte = texteRelancePour(r, x, plan);
+    if (!texte) continue;
+    const { canal, doublon } = canalPour(bilanVide, x, "relance", jour);
+    if (!doublon && canal) noterPrepare(bilanVide, x, "relance", jour);
+    ajouter("relance", {
+      poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null,
+      canaux: canal ? [canal] : [], doublon, variante: plan.element, texte,
+      donnees: { ...donneesRelance(x, plan), jour },
+    });
   }
 
   // Le message du lundi (le prochain lundi).
@@ -329,55 +367,32 @@ async function apercu(supabase: Supabase, maintenant: Date) {
     const manque = nouvelle && x
       ? ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle, warmupClique: Boolean(x.warmup_started_at) })
       : null;
+    const { canal, doublon } = canalPour(bilanVide, p, "lundi", prochain);
+    if (!doublon && canal) noterPrepare(bilanVide, p, "lundi", prochain);
     ajouter("lundi", {
-      poster_id: p.poster_id, nom: nomDe.get(p.poster_id) ?? p.prenom, ...canauxDe(p, "lundi", prochain),
+      poster_id: p.poster_id, nom: nomDe.get(p.poster_id) ?? p.prenom, hm: hmDe.get(p.poster_id) ?? null, canaux: canal ? [canal] : [], doublon,
       variante: nouvelle ? (manque ? "nouvelle_cohorte_pas_prete" : "nouvelle_cohorte_prete") : "posteur",
       texte: texteLundi(r.textesLundi, { prenom: p.prenom, nouvelleCohorte: nouvelle, ceQuiManque: manque }),
       donnees: { lundi: prochain, cohorte: p.cohorte_lundi, posts_prevus_semaine: p.prevus_semaine, ce_qui_manque: manque },
     });
   }
 
-  // Le jeudi : sous le minimum de posts avec lien, compte par compte, aujourd'hui inclus.
-  const aujourdhui = partiesLocales(maintenant, "Europe/Paris").date;
-  const { data: parCompte } = await supabase.rpc("semaine_posts_comptes", { p_lundi: lundi, p_jusqu: aujourdhui });
-  const comptesDe = new Map<string, { posts_lien: number; handle: string | null; prevus: number }[]>();
-  for (const c of (parCompte ?? []) as { poster_id: string; posts_lien: number; handle: string | null; prevus: number }[]) {
-    comptesDe.set(c.poster_id, [...(comptesDe.get(c.poster_id) ?? []), c]);
-  }
-  const { data: semaineCourante } = await supabase.rpc("semaine_posteurs", { p_lundi: lundi });
-  for (const p of (semaineCourante ?? []) as PosteurSemaine[]) {
-    const comptes = comptesDe.get(p.poster_id) ?? [];
-    const min = postsMinParCompte(comptes);
-    if (min === null || min >= r.postsMin) continue;
-    ajouter("jeudi", {
-      poster_id: p.poster_id, nom: p.prenom, ...canauxDe(p, "jeudi", lundi), variante: "sous_le_minimum",
-      texte: texteJeudi(r.texteJeudi, { prenom: p.prenom, faits: min, attendus: r.postsMin }),
-      donnees: { semaine: lundi, jusqu_au: aujourdhui, minimum: r.postsMin, comptes: comptes.map((c) => `@${c.handle ?? "?"} : ${c.posts_lien} avec lien`) },
-    });
-  }
-
-  // Le jeudi, recrues du prochain lundi pas encore prêtes.
-  for (const x of recrues) {
-    if (x.deuxieme || x.cohorte_lundi !== prochain) continue;
-    const manque = ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle, warmupClique: Boolean(x.warmup_started_at) });
-    if (!manque) continue;
-    ajouter("jeudi_recrue", {
-      poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, ...canauxDe(x, "jeudi_recrue", lundi), variante: "pas_prete",
-      texte: texteJeudiRecrue(r.texteJeudiRecrue, { prenom: x.prenom, cohorte_lundi: x.cohorte_lundi, ceQuiManque: manque }),
-      donnees: { cohorte: x.cohorte_lundi, ce_qui_manque: manque, handle: x.handle, start_warmup: x.warmup_started_at, tiktok_trouve: x.tiktok_existe, follows: x.abonnements },
-    });
-  }
-
   // Lundi 20 h (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
   for (const x of recrues) {
     if (x.deuxieme || x.cohorte_lundi !== prochain || !x.contrat_id) continue;
+    const dest = { poster_id: x.poster_id, slack_user_id: null, contrat_id: x.contrat_id };
+    const { doublon } = canalPour(bilanVide, dest, "lundi_soir", prochain);
+    if (!doublon) noterPrepare(bilanVide, dest, "lundi_soir", prochain);
     ajouter("lundi_soir", {
-      poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, ...canauxDe({ slack_user_id: null, contrat_id: x.contrat_id }, "lundi_soir", prochain),
+      poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null, canaux: doublon ? [] : ["upwork"], doublon,
       variante: "si_aucun_post_lundi", texte: texteLundiSoir(r.texteLundiSoir, x.prenom),
-      donnees: { cohorte: x.cohorte_lundi, condition: "seulement si aucun post avec lien publié le lundi à 20 h (heure du pays)" },
+      donnees: { cohorte: x.cohorte_lundi, condition: `seulement si aucun post avec lien publié le lundi à ${r.heureLundiSoir} h (heure du pays)` },
     });
   }
-  return { ok: true, genere_at: maintenant.toISOString(), minimum_posts: r.postsMin, types: sortie };
+  return {
+    ok: true, genere_at: maintenant.toISOString(), pour: instant.toISOString(), minimum_posts: r.postsMin, types: sortie,
+    needs_you: needsYou,
+  };
 }
 
 /** 0432 : ce qui est déjà parti ces 10 derniers jours, par Slack et par contrat. */
@@ -431,24 +446,45 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     mode: r.mode, kill: r.kill, recrues: 0, semaine: 0, envoyes: 0, prevus: 0, bloques: 0, rouges: 0, resolus: 0,
     kills: 0, killsPartis: 0, killsAnnules: 0, rappelsEnPause: rappelsEnPause(r.repriseRappels, maintenant),
     automationPause: await automationEnPause(supabase), erreurs: [], attente: 0, doublons: 0,
+    aApprouver: 0, needsYou: 0, file: { envoyes: 0, perimes: 0, doublons: 0, upwork_bloque: 0 },
   };
-  if (r.mode === "off") return { ok: true, ...bilan };
+  bilan.servis = await lireServis(supabase, maintenant);
+  await ajouterPreparees(supabase, bilan);
+  // Prompt 25 : les relances d'hier pas approuvées ne partent plus (jamais de rattrapage).
+  await supabase.from("relances_prevues").update({ statut: "expire", maj_at: new Date().toISOString() })
+    .eq("statut", "prevu").is("valide_at", null).eq("raison", "a_approuver")
+    .lt("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -1));
+
+  if (r.mode === "off") {
+    // Les messages validés à la main (Thursday, To approve) partent quand même, peu à peu.
+    await envoyerFile(supabase, r, null, maintenant, bilan);
+    return { ok: bilan.erreurs.length === 0, ...nettoyer(bilan) };
+  }
 
   const { error: errCnx } = await supabase.rpc("relances_noter_connexions");
   if (errCnx) bilan.erreurs.push(`connexions : ${errCnx.message}`);
 
-  const { data: prevues } = await supabase.from("relances_prevues").select("poster_id, type, periode, valide_at");
+  const { data: prevues } = await supabase.from("relances_prevues").select("poster_id, type, periode, statut, raison, valide_at");
   bilan.prevuesConnues = new Set((prevues ?? []).map((x) => clePrevue(x.poster_id, x.type, x.periode)));
-  // 0432 : les messages en attente que l'admin a validés (« Send ») ; ce qui est déjà parti
-  // (un seul message par personne) ; depuis quand chaque interrupteur est sur « on ».
+  // 0432 : les messages en attente que l'admin a validés (« Send ») ; depuis quand chaque interrupteur est sur « on ».
   bilan.valides = new Set((prevues ?? []).filter((x) => x.valide_at).map((x) => clePrevue(x.poster_id, x.type, x.periode)));
   bilan.partisValides = 0;
-  bilan.servis = await lireServis(supabase, maintenant);
   bilan.onDepuis = {
     relances: await onDepuis(supabase, "relances_auto"),
     lundi: await onDepuis(supabase, "lundi_message_auto"),
     lundiSoir: await onDepuis(supabase, "lundi_soir_auto"),
   };
+  // Prompt 25 : les relances du jour déjà préparées, écartées ou parties (une par recrue et par jour).
+  bilan.relancesFaites = new Set(
+    (prevues ?? []).filter((x) => x.type === "relance" && x.raison !== "simulation" && ["prevu", "ecarte"].includes(x.statut))
+      .map((x) => `${x.poster_id}|${x.periode}`),
+  );
+  bilan.relanceEnFile = new Set(
+    (prevues ?? []).filter((x) => x.type === "relance" && x.statut === "prevu" && x.valide_at).map((x) => x.poster_id as string),
+  );
+  const { data: parties } = await supabase.from("nudges").select("poster_id, periode").eq("type", "relance")
+    .gte("periode", ajouterJoursIso(partiesLocales(maintenant, "Europe/Paris").date, -2));
+  for (const n of parties ?? []) bilan.relancesFaites.add(`${n.poster_id}|${n.periode}`);
 
   // Partie E : en pause (malade, absent), ni message ni Kill automatique.
   const { data: pauses } = await supabase.from("posteur_pauses").select("poster_id").gt("jusqu_au", maintenant.toISOString());
@@ -457,10 +493,9 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   let recrues = await lireRecrues(supabase);
   const test = r.mode === "simulation";
 
-  // Avant un message « connexion » : la liaison Slack relancée, une fois pour tout le passage.
+  // Avant une relance « connexion » : la liaison Slack relancée, une fois pour tout le passage.
   const connexionDue = recrues.some((x) =>
-    !killEnCours(x) &&
-    etatsAccueil(x, r.etapes).some((e) => e.etape === "connexion" && decision(x, e, maintenant, r.etapes, test).envoyer)
+    !killEnCours(x) && planRelance(x, etatsAccueil(x, r.etapes), maintenant, r.etapes).element === "connexion"
   );
   if (connexionDue) {
     const jeton = jetonLectureSlack();
@@ -481,20 +516,19 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     );
   }
 
-  // Prompt 21 : le cron passe toutes les 15 min ; « Step checks » dit si les 4 étapes et les
-  // relances passent cette fois. Les Kills, eux, sont vérifiés à chaque passage.
+  // Prompt 21 : le cron passe toutes les 15 min ; « Step checks » dit si les relances
+  // passent cette fois. Les Kills, eux, sont vérifiés à chaque passage.
   const etapesDues = await passageDu(supabase, "etapes");
   bilan.etapes = etapesDues;
   for (let x of etapesDues ? recrues : []) {
     // Cohorte commencée : ses vidéos sont ses posts, pas un warm-up raté.
     if (maintenant >= debutCohorte(x)) x = { ...x, videos: null };
     let etats = etatsAccueil(x, r.etapes);
-    // Étapes tiktok et warm-up : un relevé TikTok à jour avant d'écrire ou de tuer.
-    const aRelever = !killEnCours(x) && x.handle && x.compte_id && etats.some((e) =>
-      e.etape !== "connexion" && (() => {
-        const d = decision(x, e, maintenant, r.etapes, test);
-        return d.envoyer || d.kill;
-      })()
+    // Une relance tiktok ou warm-up due (ou un Kill d'un ancien message) : un relevé TikTok à jour avant.
+    const plan = planRelance(x, etats, maintenant, r.etapes);
+    const aRelever = !killEnCours(x) && x.handle && x.compte_id && (
+      (plan.element !== null && plan.element !== "connexion" && !bilan.relancesFaites.has(`${x.poster_id}|${partiesLocales(maintenant, x.fuseau).date}`)) ||
+      etats.some((e) => e.etape !== "connexion" && decision(x, e, maintenant, r.etapes, test).kill)
     );
     if (aRelever) {
       const frais = await releverTiktok(supabase, x).catch(() => null);
@@ -503,7 +537,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
         etats = etatsAccueil(x, r.etapes);
       }
     }
-    for (const e of etats) await appliquerEtape(supabase, r, x, e, maintenant, test, bilan);
+    for (const e of etats) await suivreEtape(supabase, r, x, e, maintenant, test, bilan);
+    await relanceDuJour(supabase, r, x, etats, maintenant, bilan);
     // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
     if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
@@ -512,10 +547,9 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   if (await lireAvantKills(supabase, r, maintenant, bilan)) recrues = await lireRecrues(supabase);
   await killsEchus(supabase, r, recrues, maintenant, bilan);
 
-  // Une fois par heure (le passage de :00) : le message du lundi, le Nudge du jeudi, le
-  // check du lundi soir et les inactifs, comme quand le cron passait toutes les heures.
+  // Une fois par heure (le passage de :00) : le message du lundi, le check du lundi soir
+  // et les inactifs. Prompt 25 : le nudge du jeudi ne part plus d'ici (page Thursday).
   if (maintenant.getUTCMinutes() < 15) {
-    // Partie D : le message du lundi et le Nudge du jeudi (semaine en cours, heure de Paris).
     await semaine(supabase, r, recrues, maintenant, bilan);
     // Pipeline, partie 2 : le check du lundi soir (1er jour de posts).
     await lundiSoir(supabase, r, maintenant, bilan);
@@ -524,11 +558,59 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     const { error: errInactifs } = await supabase.rpc("inactifs_marquer");
     if (errInactifs) bilan.erreurs.push(`inactifs : ${errInactifs.message}`);
   }
-  delete bilan.prevuesConnues;
-  delete bilan.valides;
-  delete bilan.servis;
-  delete bilan.onDepuis;
-  return { ok: bilan.erreurs.length === 0, ...bilan };
+
+  // Prompt 25 : ce qui est validé (On, To approve, Thursday) part, peu à peu.
+  await envoyerFile(supabase, r, recrues, maintenant, bilan);
+  return { ok: bilan.erreurs.length === 0, ...nettoyer(bilan) };
+}
+
+/** Le bilan rendu, sans les champs internes. */
+function nettoyer(bilan: Bilan): Bilan {
+  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, ...reste } = bilan;
+  return reste;
+}
+
+/**
+ * Prompt 25 : les messages déjà préparés (To approve, file d'envoi) comptent
+ * pour « un seul message par personne » : un autre profil sur le même Slack ou
+ * le même contrat n'en reçoit pas un 2e.
+ */
+async function ajouterPreparees(supabase: Supabase, bilan: Bilan) {
+  bilan.preparees = new Map();
+  const { data } = await supabase.from("relances_prevues")
+    .select("poster_id, type, periode, raison, profiles(slack_user_id, upwork_contract_id)")
+    .in("statut", ["prevu", "ecarte"]).neq("raison", "simulation");
+  for (const x of data ?? []) {
+    const p = (x as unknown as { profiles: { slack_user_id: string | null; upwork_contract_id: string | null } | null }).profiles;
+    if (!p) continue;
+    for (const k of clesPersonne({ slack_user_id: p.slack_user_id, contrat_id: p.upwork_contract_id }, x.type, x.periode)) {
+      if (!bilan.preparees.has(k)) bilan.preparees.set(k, x.poster_id as string);
+    }
+  }
+}
+
+/**
+ * Prompt 25 : le canal d'un message, Slack d'abord (Upwork seulement sans
+ * Slack), et « doublon » si un autre profil sur le même Slack ou le même
+ * contrat l'a déjà reçu ou l'a déjà préparé.
+ */
+function canalPour(
+  bilan: Bilan,
+  p: { poster_id: string; slack_user_id: string | null; contrat_id: string | null },
+  type: string,
+  periode: string,
+): { canal: Canal | null; doublon: boolean } {
+  const autre = clesPersonne(p, type, periode).some((k) => {
+    const prepare = bilan.preparees?.get(k);
+    return prepare !== undefined && prepare !== p.poster_id;
+  });
+  if (autre) return { canal: null, doublon: true };
+  return canalUnique(p, type, periode, bilan.servis ?? new Set());
+}
+
+/** Après un message préparé ou parti : la personne (son Slack et son contrat) est servie. */
+function noterPrepare(bilan: Bilan, p: { poster_id: string; slack_user_id: string | null; contrat_id: string | null }, type: string, periode: string) {
+  for (const k of clesPersonne(p, type, periode)) if (!bilan.preparees?.has(k)) bilan.preparees?.set(k, p.poster_id);
 }
 
 async function releverTiktok(supabase: Supabase, x: RecrueAccueil): Promise<RecrueAccueil | null> {
@@ -575,7 +657,13 @@ function decision(x: RecrueAccueil, e: EtatAccueil, maintenant: Date, d: DelaisA
   });
 }
 
-async function appliquerEtape(
+/**
+ * Une étape : une réaction (étape faite, réponse) annule un Kill en attente ;
+ * l'étape faite résout son ancien message ; un ancien message d'étape sans
+ * réaction 48 h après → Kill (`kill_auto`, sur « off »). Prompt 25 : plus aucun
+ * message d'étape d'ici, c'est la relance du jour qui écrit.
+ */
+async function suivreEtape(
   supabase: Supabase,
   r: Reglages,
   x: RecrueAccueil,
@@ -586,10 +674,6 @@ async function appliquerEtape(
 ): Promise<void> {
   const periode = x.cohorte_lundi;
   const cle = { poster_id: x.poster_id, type: e.etape, periode };
-  const effacerPrevue = async () => {
-    if (!bilan.prevuesConnues?.has(clePrevue(x.poster_id, e.etape, periode))) return;
-    await supabase.from("relances_prevues").delete().match(cle);
-  };
   const envoi = envoiEtape(x, e.etape, test);
   const kill = killEtape(x, e.etape);
 
@@ -604,6 +688,10 @@ async function appliquerEtape(
     bilan.killsAnnules++;
   }
 
+  // Les anciennes relances d'étape « prévues » ne s'affichent plus (la relance du jour les remplace).
+  if (bilan.prevuesConnues?.has(clePrevue(x.poster_id, e.etape, periode))) {
+    await supabase.from("relances_prevues").delete().match(cle);
+  }
   if (e.fait) {
     if (x.messages.some((m) => m.type === e.etape)) {
       const { data } = await supabase
@@ -616,91 +704,265 @@ async function appliquerEtape(
         .select("id");
       bilan.resolus += (data ?? []).length;
     }
-    await effacerPrevue();
     return;
   }
   if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
 
   const d = deciderEtape(e, maintenant, x.fuseau, r.etapes, { envoyeAt: envoi.envoyeAt, reponduAt: repondu, debut: debutCohorte(x) });
-  // Prompt 22 : en pause, ni message ni Kill ; l'action est notée, et reprise au passage suivant la reprise.
+  if (!d.kill) return;
+  // Prompt 22 : en pause, ni message ni Kill ; l'action est notée.
   if (bilan.automationPause) {
-    if (d.kill || d.envoyer) {
-      await noterBloquee(supabase, { fonction: "recrues-check", action: d.kill ? `kill_${e.etape}` : `message_${e.etape}`, poster_id: x.poster_id });
-    }
+    await noterBloquee(supabase, { fonction: "recrues-check", action: `kill_${e.etape}`, poster_id: x.poster_id });
     return;
   }
-  if (d.kill) {
-    // 0432 : Start warmup cliqué mais @ introuvable : on ne sait pas, on a demandé le bon @ ; jamais de Kill.
-    if (e.etape === "tiktok" && x.warmup_started_at) return;
-    if (r.kill === "off" || (kill && kill.statut !== "simule")) return;
-    // Un vrai Kill : interrupteur sur « on » ET un message vraiment parti.
-    const reel = r.kill === "on" && envoi.reel;
-    if (kill && !reel) return;
-    const { error } = await supabase.rpc("kill_noter", {
-      p_poster: x.poster_id,
-      p_etape: e.etape,
-      p_periode: periode,
-      p_nudge: envoi.nudgeId,
-      p_message_at: envoi.envoyeAt!.toISOString(),
-      p_statut: reel ? "en_attente" : "simule",
-      p_annulation_h: r.etapes.kill_annulation_h,
-    });
-    if (error) bilan.erreurs.push(`kill ${x.poster_id} : ${error.message}`);
-    else {
-      bilan.kills++;
-      // Prompt 21, C4 : le Kill du 2e compte d'un Double n'arrête que ce compte (killsEchus).
-      if (x.deuxieme && x.compte_id) {
-        await supabase.from("kills_auto").update({ compte_id: x.compte_id })
-          .eq("poster_id", x.poster_id).eq("etape", e.etape).eq("periode", periode).is("compte_id", null);
-      }
+  // 0432 : Start warmup cliqué mais @ introuvable : on ne sait pas ; jamais de Kill.
+  if (e.etape === "tiktok" && x.warmup_started_at) return;
+  if (r.kill === "off" || (kill && kill.statut !== "simule")) return;
+  // Un vrai Kill : interrupteur sur « on » ET un message vraiment parti.
+  const reel = r.kill === "on" && envoi.reel;
+  if (kill && !reel) return;
+  const { error } = await supabase.rpc("kill_noter", {
+    p_poster: x.poster_id,
+    p_etape: e.etape,
+    p_periode: periode,
+    p_nudge: envoi.nudgeId,
+    p_message_at: envoi.envoyeAt!.toISOString(),
+    p_statut: reel ? "en_attente" : "simule",
+    p_annulation_h: r.etapes.kill_annulation_h,
+  });
+  if (error) bilan.erreurs.push(`kill ${x.poster_id} : ${error.message}`);
+  else {
+    bilan.kills++;
+    // Prompt 21, C4 : le Kill du 2e compte d'un Double n'arrête que ce compte (killsEchus).
+    if (x.deuxieme && x.compte_id) {
+      await supabase.from("kills_auto").update({ compte_id: x.compte_id })
+        .eq("poster_id", x.poster_id).eq("etape", e.etape).eq("periode", periode).is("compte_id", null);
     }
-    return;
   }
-  if (!d.envoyer && !d.horsFenetre) return;
+}
 
-  const canal = canalEtape(x);
+/** Le texte de la relance du jour (vide : rien ne part). */
+function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof planRelance>): string {
+  return texteRelance(r.textesRelance, plan, {
+    prenom: x.prenom,
+    handle: x.handle,
+    url: OS_URL,
+    lien_etapes: r.lienEtapes || OS_URL,
+    cohorte_lundi: x.cohorte_lundi,
+    email: x.email,
+    mot_de_passe: MOT_DE_PASSE_DEPART,
+  });
+}
+
+/** Les données utilisées par une relance (To approve, Aperçu). */
+function donneesRelance(x: RecrueAccueil, plan: ReturnType<typeof planRelance>) {
+  return {
+    element: plan.element,
+    cohorte: x.cohorte_lundi,
+    email: x.email ?? null,
+    premiere_connexion: x.premiere_connexion_at,
+    handle: x.handle,
+    start_warmup: x.warmup_started_at,
+    tiktok_trouve: x.tiktok_existe,
+    abonnements: x.abonnements,
+    pret: x.pret ?? null,
+    deuxieme_compte: x.deuxieme ?? false,
+    slack: x.slack_user_id,
+    contrat: x.contrat_id,
+  };
+}
+
+/**
+ * Prompt 25 : la relance du jour d'une recrue, une seule par jour (jour du
+ * pays), entre 10 h et 20 h, avec seulement ce qui lui manque. Test : notée
+ * « prévue » ; Approve : préparée dans To approve ; On : dans la file d'envoi
+ * (elle part peu à peu). Start warmup cliqué et compte introuvable : rien,
+ * la recrue est dans Needs you.
+ */
+async function relanceDuJour(
+  supabase: Supabase,
+  r: Reglages,
+  x: RecrueAccueil,
+  etats: EtatAccueil[],
+  maintenant: Date,
+  bilan: Bilan,
+) {
+  if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
+  if (maintenant >= debutCohorte(x)) return;
+  const plan = planRelance(x, etats, maintenant, r.etapes);
+  if (plan.needsYou) bilan.needsYou++;
+  if (!plan.element || !dansFenetre(maintenant, x.fuseau, r.etapes as unknown as Delais)) return;
+  const jour = partiesLocales(maintenant, x.fuseau).date;
+  const cle = { poster_id: x.poster_id, type: "relance", periode: jour };
+  if (bilan.relancesFaites?.has(`${x.poster_id}|${jour}`)) return;
+  // Une relance validée d'hier pas encore partie (budget Upwork) : elle part d'abord, pas une 2e.
+  if (bilan.relanceEnFile?.has(x.poster_id)) return;
+  if (bilan.automationPause) {
+    await noterBloquee(supabase, { fonction: "recrues-check", action: "relance", poster_id: x.poster_id });
+    return;
+  }
+  const { canal, doublon } = canalPour(bilan, x, "relance", jour);
+  if (doublon) {
+    bilan.doublons++;
+    return;
+  }
   if (canal === null) {
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: new Date().toISOString() });
     bilan.bloques++;
     return;
   }
-  // Slack ET Upwork, chacun s'il est relié, sauf si un autre profil (même contrat, même Slack) l'a déjà reçu.
-  const canaux = canauxRestants(x, e.etape, periode, bilan.servis ?? new Set());
-  if (canaux.length === 0) {
-    bilan.doublons++;
-    return;
-  }
-  const texte = texteEtapePour(r, x, e);
-  // Un texte vide ne part pas (réglage manquant).
+  const texte = texteRelancePour(r, x, plan);
   if (!texte) return;
-  if (test || d.horsFenetre) {
-    await supabase.from("relances_prevues").upsert({
-      ...cle,
-      statut: "prevu",
-      canal: libelleCanaux(canaux),
-      texte,
-      raison: d.horsFenetre ? "hors_fenetre" : "simulation",
-      maj_at: new Date().toISOString(),
-    });
-    if (test) bilan.prevus++;
+  const ligne = { ...cle, statut: "prevu", canal, texte, donnees: donneesRelance(x, plan), maj_at: new Date().toISOString() };
+  if (r.mode === "simulation") {
+    await supabase.from("relances_prevues").upsert({ ...ligne, raison: "simulation" });
+    bilan.prevus++;
     return;
   }
-
-  // 0432 : dû avant le passage sur « on » → en attente (« Send », puis peu à peu).
-  if (!(await peutPartir(supabase, r, bilan, { cle, du: e.messageAt, onDepuis: bilan.onDepuis?.relances ?? null, canaux, texte }))) return;
-
-  // Mode « on » : la ligne d'abord. L'index unique (poster, étape, période) refuse un doublon.
-  const { data: ligne, error: errIns } = await supabase
-    .from("nudges")
-    .insert({ ...cle, compte_id: x.compte_id, cible: "recrues-check", canal, texte })
-    .select("id")
-    .single();
-  if (errIns) {
-    if (errIns.code !== "23505") bilan.erreurs.push(`relance ${x.poster_id} : ${errIns.message}`);
+  // Une relance plus ancienne pas approuvée : remplacée par celle du jour.
+  await supabase.from("relances_prevues").update({ statut: "expire", maj_at: new Date().toISOString() })
+    .eq("poster_id", x.poster_id).eq("type", "relance").eq("statut", "prevu").is("valide_at", null).lt("periode", jour);
+  const approuver = r.mode === "approve";
+  const { error } = await supabase.from("relances_prevues").upsert({
+    ...ligne,
+    raison: approuver ? "a_approuver" : "auto",
+    valide_at: approuver ? null : new Date().toISOString(),
+  });
+  if (error) {
+    bilan.erreurs.push(`relance ${x.poster_id} : ${error.message}`);
     return;
   }
-  await noterEnvoi(supabase, ligne.id, await envoyerPartout(supabase, x, canaux, texte, blocsBoutons(texte, r.boutons), cle, bilan), `${e.etape} ${x.poster_id}`, bilan);
-  await effacerPrevue();
+  bilan.relancesFaites?.add(`${x.poster_id}|${jour}`);
+  noterPrepare(bilan, x, "relance", jour);
+  if (approuver) bilan.aApprouver++;
+}
+
+interface LigneFile {
+  poster_id: string;
+  type: string;
+  periode: string;
+  texte: string | null;
+  profiles: { prenom: string | null; slack_user_id: string | null; upwork_contract_id: string | null; is_active: boolean | null } | null;
+}
+
+/**
+ * Prompt 25 : la file d'envoi. Les messages validés (On, « Send selected »,
+ * Send du jeudi) partent dans l'ordre (les plus anciens d'abord : ce qu'Upwork
+ * a retenu hier part en premier), au plus `envoi_attente_par_passage` par
+ * passage. Slack d'abord, Upwork seulement sans Slack (le lundi 20 h : Upwork
+ * seulement) ; Upwork plein (budget du jour ou limite d'Upwork) : le reste
+ * attend demain. Une relance dont l'étape est faite entre-temps ne part pas.
+ */
+async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[] | null, maintenant: Date, bilan: Bilan) {
+  if (bilan.automationPause) return;
+  const { data, error } = await supabase.from("relances_prevues")
+    .select("poster_id, type, periode, texte, profiles(prenom, slack_user_id, upwork_contract_id, is_active)")
+    .eq("statut", "prevu").not("valide_at", "is", null)
+    .order("periode").order("premier_at")
+    .limit(300);
+  if (error) {
+    bilan.erreurs.push(`file : ${error.message}`);
+    return;
+  }
+  const recrueDe = new Map((recrues ?? []).filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
+  const marquer = (l: LigneFile, statut: string) =>
+    supabase.from("relances_prevues").update({ statut, maj_at: new Date().toISOString() })
+      .match({ poster_id: l.poster_id, type: l.type, periode: l.periode });
+  for (const l of (data ?? []) as unknown as LigneFile[]) {
+    if (bilan.file.envoyes >= r.envoiParPassage) break;
+    // L'interrupteur de ce type : sur off ou test, rien ne part (le jeudi n'a pas d'interrupteur).
+    if (l.type === "relance" && !(r.mode === "approve" || r.mode === "on")) continue;
+    if (l.type === "lundi_soir" && !(r.lundiSoir === "approve" || r.lundiSoir === "on")) continue;
+    if (l.type === "lundi" && r.lundi !== "on") continue;
+    const p = l.profiles;
+    if (!p?.is_active || !l.texte?.trim()) {
+      await marquer(l, "perime");
+      bilan.file.perimes++;
+      continue;
+    }
+    // Une relance : l'étape est-elle encore à faire ? (recrues lues à ce passage)
+    if (l.type === "relance" && recrues) {
+      const x = recrueDe.get(l.poster_id);
+      if (!x || maintenant >= debutCohorte(x) || planRelance(x, etatsAccueil(x, r.etapes), maintenant, r.etapes).element === null) {
+        await marquer(l, "perime");
+        bilan.file.perimes++;
+        continue;
+      }
+    }
+    const dest = { poster_id: l.poster_id, slack_user_id: l.type === "lundi_soir" ? null : p.slack_user_id, contrat_id: p.upwork_contract_id };
+    const { canal, doublon } = canalPour(bilan, dest, l.type, l.periode);
+    if (doublon) {
+      await marquer(l, "doublon");
+      bilan.file.doublons++;
+      continue;
+    }
+    if (canal === null) {
+      await marquer(l, "bloque");
+      bilan.bloques++;
+      continue;
+    }
+    if (canal === "upwork" && (bilan.upworkPlein || !(await upworkPossible(supabase, dest.contrat_id!)))) {
+      bilan.upworkPlein = true;
+      bilan.file.upwork_bloque++;
+      continue;
+    }
+    const { data: ligne, error: errIns } = await supabase
+      .from("nudges")
+      .insert({ poster_id: l.poster_id, type: l.type, periode: l.periode, compte_id: null, cible: "recrues-check", canal, texte: l.texte })
+      .select("id")
+      .single();
+    if (errIns) {
+      // Déjà parti (index unique : un seul message par type et par période).
+      if (errIns.code === "23505") await marquer(l, "deja_envoye");
+      else bilan.erreurs.push(`file ${l.type} ${l.poster_id} : ${errIns.message}`);
+      continue;
+    }
+    let erreur: string | null;
+    if (canal === "slack") {
+      // « I want to stop » seulement sur les relances d'accueil (prompt 21, C6).
+      erreur = await envoyerSlack(supabase, l.poster_id, l.texte, blocsBoutons(l.texte, r.boutons, { stop: l.type === "relance" }));
+    } else {
+      const u = await envoyerUpwork(dest.contrat_id!, l.texte, { prioritaire: false });
+      if (u.budget) {
+        // Upwork plein entre-temps : le message reste dans la file, il part demain.
+        await supabase.from("nudges").delete().eq("id", ligne.id);
+        bilan.upworkPlein = true;
+        bilan.file.upwork_bloque++;
+        continue;
+      }
+      erreur = u.erreur;
+    }
+    await noterEnvoi(supabase, ligne.id, { partis: erreur ? [] : [canal], erreurs: erreur ? [erreur] : [] }, `${l.type} ${l.poster_id}`, bilan);
+    if (!erreur) {
+      for (const k of clesPersonne(dest, l.type, l.periode)) bilan.servis?.add(k);
+      bilan.file.envoyes++;
+    }
+    // Jamais de nouvel essai : la ligne quitte la file (le résultat est sur le message).
+    await supabase.from("relances_prevues").delete().match({ poster_id: l.poster_id, type: l.type, periode: l.periode });
+  }
+}
+
+/** « Send selected » / Send : la file part tout de suite (au plus `envoi_attente_par_passage`, le reste aux passages suivants). */
+async function envoyerFileMaintenant(supabase: Supabase, maintenant: Date) {
+  const r = await reglages(supabase);
+  const bilan: Bilan = {
+    mode: r.mode, kill: r.kill, recrues: 0, semaine: 0, envoyes: 0, prevus: 0, bloques: 0, rouges: 0, resolus: 0,
+    kills: 0, killsPartis: 0, killsAnnules: 0, rappelsEnPause: false, automationPause: await automationEnPause(supabase),
+    erreurs: [], attente: 0, doublons: 0, aApprouver: 0, needsYou: 0, file: { envoyes: 0, perimes: 0, doublons: 0, upwork_bloque: 0 },
+  };
+  bilan.servis = await lireServis(supabase, maintenant);
+  await ajouterPreparees(supabase, bilan);
+  await envoyerFile(supabase, r, await lireRecrues(supabase), maintenant, bilan);
+  return { ok: bilan.erreurs.length === 0, pause: bilan.automationPause, ...bilan.file, erreurs: bilan.erreurs };
+}
+
+/** Le budget Upwork du jour permet-il d'écrire à ce contrat (relances et nudges) ? */
+async function upworkPossible(supabase: Supabase, contratId: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("upwork_budget_jour", { p_contrat: contratId });
+  if (error || !data) return false;
+  const b = data as { conversations: number; max: number; reserve: number; limite_atteinte: boolean; deja: boolean };
+  if (b.limite_atteinte) return false;
+  return b.deja || b.conversations < Math.max(0, b.max - b.reserve);
 }
 
 /**
@@ -834,55 +1096,6 @@ async function envoyerSlack(supabase: Supabase, posterId: string, texte: string,
   return issue.statut === "erreur" ? issue.erreur : "introuvable sur Slack";
 }
 
-/**
- * Un message d'étape, du lundi ou du jeudi : sur Slack (s'il est relié) ET sur
- * Upwork (s'il y a un contrat), une fois sur chacun, sans nouvel essai.
- */
-async function envoyerPartout(
-  supabase: Supabase,
-  p: { poster_id: string; slack_user_id: string | null; contrat_id: string | null },
-  canaux: Canal[],
-  texte: string,
-  blocs: unknown[] | undefined,
-  cle: { type: string; periode: string },
-  bilan: Bilan,
-): Promise<{ partis: Canal[]; erreurs: string[] }> {
-  const partis: Canal[] = [];
-  const erreurs: string[] = [];
-  for (const canal of canaux) {
-    const erreur = canal === "slack"
-      ? await envoyerSlack(supabase, p.poster_id, texte, blocs)
-      : await envoyerUpwork(p.contrat_id!, texte);
-    if (erreur) erreurs.push(canal === "slack" ? `slack : ${erreur}` : erreur);
-    else {
-      partis.push(canal);
-      // Un seul message par personne : l'autre profil (même Slack, même contrat) ne le reçoit pas.
-      bilan.servis?.add(cleServi(cle.type, cle.periode, canal, canal === "slack" ? p.slack_user_id! : p.contrat_id!));
-    }
-  }
-  return { partis, erreurs };
-}
-
-/** Le texte d'une étape (0432 : identifiants ou bon @ selon la situation) ; vide : rien ne part. */
-function texteEtapePour(r: Reglages, x: RecrueAccueil, e: EtatAccueil): string {
-  const { modele } = choisirModeleEtape(e.etape, x, {
-    etapes: r.textesEtapes,
-    deuxieme: r.textesDeuxieme,
-    connexionIdentifiants: r.connexionIdentifiants,
-    tiktokVerifier: r.tiktokVerifier,
-  });
-  if (!modele.trim()) return "";
-  return texteEtape(modele, e, {
-    prenom: x.prenom,
-    handle: x.handle,
-    url: OS_URL,
-    lien_etapes: r.lienEtapes || OS_URL,
-    cohorte_lundi: x.cohorte_lundi,
-    email: x.email,
-    mot_de_passe: MOT_DE_PASSE_DEPART,
-  });
-}
-
 /** Sur la ligne du message : les canaux partis ; « slack_erreur » seulement si rien n'est parti. */
 async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[]; erreurs: string[] }, quoi: string, bilan: Bilan) {
   await supabase.from("nudges").update({
@@ -894,22 +1107,27 @@ async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[];
   else bilan.envoyes++;
 }
 
-/** Par la fonction `upwork` (le seul endroit qui parle à Upwork), sans nouvel essai. */
-async function envoyerUpwork(contratId: string, texte: string): Promise<string | null> {
+/**
+ * Par la fonction `upwork` (le seul endroit qui parle à Upwork), sans nouvel
+ * essai. Prompt 25 : `prioritaire: false` (relances, nudges, lundi 20 h)
+ * s'arrête avant la réserve du budget Upwork du jour ; `budget` : pas envoyé
+ * parce qu'Upwork est plein aujourd'hui (le message peut repartir demain).
+ */
+async function envoyerUpwork(contratId: string, texte: string, o: { prioritaire?: boolean } = {}): Promise<{ erreur: string | null; budget: boolean }> {
   const base = Deno.env.get("SUPABASE_URL");
   const secret = Deno.env.get("CRON_SECRET");
-  if (!base || !secret) return "SUPABASE_URL ou CRON_SECRET absent";
+  if (!base || !secret) return { erreur: "SUPABASE_URL ou CRON_SECRET absent", budget: false };
   try {
     const r = await fetch(`${base}/functions/v1/upwork`, {
       method: "POST",
       headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "message", contrat_id: contratId, texte }),
+      body: JSON.stringify({ action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false }),
     });
     const corps = await r.json().catch(() => null);
-    if (!r.ok || !corps?.ok) return `upwork : ${corps?.error ?? `HTTP ${r.status}`}`;
-    return null;
+    if (!r.ok || !corps?.ok) return { erreur: `upwork : ${corps?.error ?? `HTTP ${r.status}`}`, budget: corps?.budget === true };
+    return { erreur: null, budget: false };
   } catch (e) {
-    return `upwork : ${messageErreur(e)}`;
+    return { erreur: `upwork : ${messageErreur(e)}`, budget: false };
   }
 }
 
@@ -917,8 +1135,13 @@ async function envoyerUpwork(contratId: string, texte: string): Promise<string |
 // Système du 2 nov., partie D : le lundi et le jeudi
 // ---------------------------------------------------------------------------
 
+/**
+ * Le message du lundi 10 h (`lundi_message_auto`). Prompt 25 : le nudge du
+ * jeudi ne part plus d'ici (Weekly decisions → Thursday, toujours validé), ni
+ * le message du jeudi aux recrues (la relance du jour s'en charge).
+ */
 async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[], maintenant: Date, bilan: Bilan) {
-  if (bilan.rappelsEnPause) return;
+  if (bilan.rappelsEnPause || r.lundi === "off") return;
   if (bilan.automationPause) {
     await noterBloquee(supabase, { fonction: "recrues-check", action: "semaine" });
     return;
@@ -929,75 +1152,34 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
     bilan.erreurs.push(`semaine : ${error.message}`);
     return;
   }
-  // 0432 : le jeudi, les posts avec lien compte par compte, de lundi à aujourd'hui inclus.
-  const { data: parCompte, error: errC } = await supabase.rpc("semaine_posts_comptes", {
-    p_lundi: lundi, p_jusqu: partiesLocales(maintenant, "Europe/Paris").date,
-  });
-  if (errC) {
-    bilan.erreurs.push(`semaine (comptes) : ${errC.message}`);
-    return;
-  }
-  const comptesDe = new Map<string, { posts_lien: number; handle: string | null }[]>();
-  for (const c of (parCompte ?? []) as { poster_id: string; posts_lien: number; handle: string | null }[]) {
-    comptesDe.set(c.poster_id, [...(comptesDe.get(c.poster_id) ?? []), c]);
-  }
   // Le 1er compte de chaque recrue (pas le 2e compte d'un Double).
-  const premiers = recrues.filter((x) => !x.deuxieme);
-  const recrue = new Map(premiers.map((x) => [x.poster_id, x]));
-  // Le message du mercredi n'existe plus (0404) : ses lignes « prévu » ne s'affichent plus.
-  await supabase.from("relances_prevues").delete().eq("type", "mercredi");
+  const recrue = new Map(recrues.filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
   for (const p of (data ?? []) as PosteurSemaine[]) {
     bilan.semaine++;
     if (bilan.pauses?.has(p.poster_id)) continue;
     const posteur = { ...p, envoyes: p.envoyes ?? [], prevus_test: p.prevus_test ?? [] };
-    if (r.lundi !== "off" && lundiDu(posteur, lundi, maintenant, { debut: r.heures.lundi_heure, fin: r.heures.fin })) {
-      const x = recrue.get(p.poster_id);
-      const nouvelle = p.cohorte_lundi === lundi;
-      const manque = nouvelle && x
-        ? ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle, warmupClique: Boolean(x.warmup_started_at) })
-        : null;
-      const texte = texteLundi(r.textesLundi, { prenom: p.prenom, nouvelleCohorte: nouvelle, ceQuiManque: manque });
-      await envoyerSemaine(supabase, posteur, "lundi", lundi, texte, r.lundi === "on", bilan, r.boutons, r, {
-        du: instantLocal(lundi, r.heures.lundi_heure, p.fuseau), onDepuis: bilan.onDepuis?.lundi ?? null,
-      });
-    }
-    // 0432 : sous 6 posts avec lien, compté compte par compte (le plus bas), aujourd'hui inclus.
-    const postsMin = postsMinParCompte(comptesDe.get(p.poster_id) ?? []);
-    if (r.mode !== "off" && jeudiDu(posteur, lundi, maintenant, { heure: r.heures.jeudi_heure, fin: r.heures.fin }, postsMin, r.postsMin)) {
-      const texte = texteJeudi(r.texteJeudi, { prenom: p.prenom, faits: postsMin ?? 0, attendus: r.postsMin });
-      // La liste du jeudi est toujours validée par l'admin avant l'envoi.
-      await envoyerSemaine(supabase, posteur, "jeudi", lundi, texte, r.mode === "on", bilan, r.boutons, r, {
-        du: instantLocal(ajouterJoursIso(lundi, 3), r.heures.jeudi_heure, p.fuseau), onDepuis: null, toujoursValider: true,
-      });
-    }
-  }
-
-  // Prompt 21, C7 : jeudi, les recrues du lundi suivant pas encore prêtes reçoivent
-  // jeudi_texte_recrue (le même nudge, une fois ; aucun compte à rebours de Kill).
-  if (r.mode === "off" || !r.texteJeudiRecrue.trim()) return;
-  for (const x of premiers) {
-    if (bilan.pauses?.has(x.poster_id)) continue;
-    if (!jeudiRecrueDu(x, lundi, maintenant, { heure: r.heures.jeudi_heure, fin: r.heures.fin })) continue;
-    const manque = ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle, warmupClique: Boolean(x.warmup_started_at) });
-    if (!manque) continue;
-    const reel = r.mode === "on";
-    if (!reel && bilan.prevuesConnues?.has(clePrevue(x.poster_id, "jeudi_recrue", lundi))) continue;
-    const texte = texteJeudiRecrue(r.texteJeudiRecrue, { prenom: x.prenom, cohorte_lundi: x.cohorte_lundi, ceQuiManque: manque });
-    const cible: PosteurSemaine = {
-      poster_id: x.poster_id, prenom: x.prenom, fuseau: x.fuseau, slack_user_id: x.slack_user_id, contrat_id: x.contrat_id,
-      cohorte_lundi: x.cohorte_lundi, attendus_lun_mer: 0, faits_lun_mer: 0, prevus_semaine: 0, envoyes: [], prevus_test: [],
-    };
-    await envoyerSemaine(supabase, cible, "jeudi_recrue", lundi, texte, reel, bilan, r.boutons, r, {
-      du: instantLocal(ajouterJoursIso(lundi, 3), r.heures.jeudi_heure, x.fuseau), onDepuis: null, toujoursValider: true,
+    if (!lundiDu(posteur, lundi, maintenant, { debut: r.heures.lundi_heure, fin: r.heures.fin })) continue;
+    const x = recrue.get(p.poster_id);
+    const nouvelle = p.cohorte_lundi === lundi;
+    const manque = nouvelle && x
+      ? ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle, warmupClique: Boolean(x.warmup_started_at) })
+      : null;
+    const texte = texteLundi(r.textesLundi, { prenom: p.prenom, nouvelleCohorte: nouvelle, ceQuiManque: manque });
+    await envoyerSemaine(supabase, posteur, "lundi", lundi, texte, r.lundi === "on", bilan, r.boutons, r, {
+      du: instantLocal(lundi, r.heures.lundi_heure, p.fuseau), onDepuis: bilan.onDepuis?.lundi ?? null,
     });
   }
 }
 
-/** Un message de la semaine : en test, noté « prévu » ; sinon la ligne d'abord, puis l'envoi (jamais deux). */
+/**
+ * Le message du lundi : en test, noté « prévu » ; sinon la ligne d'abord, puis
+ * l'envoi (jamais deux). Prompt 25 : un seul canal, Slack d'abord, Upwork
+ * seulement sans Slack (relances et nudges : dans le budget Upwork du jour).
+ */
 async function envoyerSemaine(
   supabase: Supabase,
   p: PosteurSemaine,
-  type: "lundi" | "jeudi" | "jeudi_recrue",
+  type: "lundi",
   lundi: string,
   texte: string,
   reel: boolean,
@@ -1007,26 +1189,28 @@ async function envoyerSemaine(
   quand: { du: Date | null; onDepuis: Date | null; toujoursValider?: boolean },
 ) {
   const cle = { poster_id: p.poster_id, type, periode: lundi };
-  const canal = canalEtape(p);
+  const { canal, doublon } = canalPour(bilan, p, type, lundi);
+  if (doublon) {
+    bilan.doublons++;
+    return;
+  }
   if (canal === null) {
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: new Date().toISOString() });
     bilan.bloques++;
     return;
   }
-  // Slack ET Upwork, chacun s'il est relié, sauf si un autre profil (même contrat, même Slack) l'a déjà reçu.
-  const canaux = canauxRestants(p, type, lundi, bilan.servis ?? new Set());
-  if (canaux.length === 0) {
-    bilan.doublons++;
-    return;
-  }
   if (!reel) {
     if (p.prevus_test.includes(type)) return;
-    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal: libelleCanaux(canaux), texte, raison: "simulation", maj_at: new Date().toISOString() });
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal, texte, raison: "simulation", maj_at: new Date().toISOString() });
     bilan.prevus++;
     return;
   }
-  // 0432 : dû avant le passage sur « on » ou liste du jeudi → en attente (« Send », puis peu à peu).
-  if (!(await peutPartir(supabase, r, bilan, { cle, ...quand, canaux, texte }))) return;
+  // 0432 : dû avant le passage sur « on » → en attente (« Send », puis peu à peu).
+  if (!(await peutPartir(supabase, r, bilan, { cle, ...quand, canaux: [canal], texte }))) return;
+  if (canal === "upwork" && (bilan.upworkPlein || !(await upworkPossible(supabase, p.contrat_id!)))) {
+    bilan.upworkPlein = true;
+    return;
+  }
   const { data: ligne, error: errIns } = await supabase
     .from("nudges")
     .insert({ ...cle, compte_id: null, cible: "recrues-check", canal, texte })
@@ -1036,8 +1220,20 @@ async function envoyerSemaine(
     if (errIns.code !== "23505") bilan.erreurs.push(`${type} ${p.poster_id} : ${errIns.message}`);
     return;
   }
-  // Prompt 21, C6 : pas de « I want to stop » sur le lundi ni le jeudi.
-  await noterEnvoi(supabase, ligne.id, await envoyerPartout(supabase, p, canaux, texte, blocsBoutons(texte, boutons, { stop: false }), cle, bilan), `${type} ${p.poster_id}`, bilan);
+  // Prompt 21, C6 : pas de « I want to stop » sur le lundi.
+  let erreur: string | null;
+  if (canal === "slack") erreur = await envoyerSlack(supabase, p.poster_id, texte, blocsBoutons(texte, boutons, { stop: false }));
+  else {
+    const u = await envoyerUpwork(p.contrat_id!, texte, { prioritaire: false });
+    if (u.budget) {
+      await supabase.from("nudges").delete().eq("id", ligne.id);
+      bilan.upworkPlein = true;
+      return;
+    }
+    erreur = u.erreur;
+  }
+  await noterEnvoi(supabase, ligne.id, { partis: erreur ? [] : [canal], erreurs: erreur ? [erreur] : [] }, `${type} ${p.poster_id}`, bilan);
+  if (!erreur) for (const k of clesPersonne(p, type, lundi)) bilan.servis?.add(k);
   if (bilan.prevuesConnues?.has(clePrevue(p.poster_id, type, lundi))) {
     await supabase.from("relances_prevues").delete().match(cle);
   }
@@ -1319,7 +1515,7 @@ async function questionPaie(posterId: string, simuler: boolean): Promise<{ cas: 
 async function repondreUpwork(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {
   const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   if (!data?.upwork_contract_id) return "contrat Upwork non relié";
-  return await envoyerUpwork(data.upwork_contract_id as string, texte);
+  return (await envoyerUpwork(data.upwork_contract_id as string, texte)).erreur;
 }
 
 // ---------------------------------------------------------------------------
@@ -1365,7 +1561,8 @@ async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bila
       bilan.erreurs.push(`lundi soir : ${error.message}`);
       return;
     }
-    const test = r.lundiSoir !== "on";
+    // Prompt 25 : Approve prépare le message (To approve) ; il part après « Send selected ».
+    const test = r.lundiSoir === "test";
     for (const p of (data ?? []) as PosteurLundiSoir[]) {
       if (bilan.pauses?.has(p.poster_id)) continue;
       const envoyeAt = p.message_at ? new Date(p.message_at) : test && p.prevu_at ? new Date(p.prevu_at) : null;
@@ -1377,7 +1574,7 @@ async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bila
         continue;
       }
       if (l === lundi && lundiSoirDu(p, l, maintenant, r.heureLundiSoir, test)) {
-        await envoyerLundiSoir(supabase, r, p, l, test, bilan);
+        if (!bilan.prevuesConnues?.has(clePrevue(p.poster_id, "lundi_soir", l)) || test) await envoyerLundiSoir(supabase, r, p, l, test, bilan);
         continue;
       }
       if (r.kill !== "off" && (!p.kill_id || p.kill_statut === "simule") && killLundiSoir(p, envoyeAt, maintenant, r.etapes.kill_h)) {
@@ -1411,14 +1608,24 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
     return;
   }
   const texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
-  // Un seul message par personne : un autre profil sur le même contrat l'a déjà reçu.
-  if (canauxRestants({ slack_user_id: null, contrat_id: p.contrat_id }, "lundi_soir", lundi, bilan.servis ?? new Set()).length === 0) {
+  // Un seul message par personne : un autre profil sur le même contrat l'a déjà reçu (ou préparé).
+  if (canalPour(bilan, { poster_id: p.poster_id, slack_user_id: null, contrat_id: p.contrat_id }, "lundi_soir", lundi).doublon) {
     bilan.doublons++;
     return;
   }
   if (test) {
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal: "upwork", texte, raison: "simulation", maj_at: new Date().toISOString() });
     bilan.prevus++;
+    return;
+  }
+  // Prompt 25 : Approve → To approve (le destinataire, le texte, les données) ; rien ne part sans « Send selected ».
+  if (r.lundiSoir === "approve") {
+    await supabase.from("relances_prevues").upsert({
+      ...cle, statut: "prevu", canal: "upwork", texte, raison: "a_approuver", valide_at: null, maj_at: new Date().toISOString(),
+      donnees: { cohorte: lundi, deuxieme_compte: p.deuxieme, posts_avec_lien_lundi: p.publies_lundi, contrat: p.contrat_id, heure_locale: `${r.heureLundiSoir}:00 (${p.fuseau})` },
+    });
+    noterPrepare(bilan, { poster_id: p.poster_id, slack_user_id: null, contrat_id: p.contrat_id }, "lundi_soir", lundi);
+    bilan.aApprouver++;
     return;
   }
   // 0432 : dû avant le passage sur « on » → en attente.
@@ -1434,7 +1641,14 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
     if (errIns.code !== "23505") bilan.erreurs.push(`lundi soir ${p.poster_id} : ${errIns.message}`);
     return;
   }
-  const erreur = await envoyerUpwork(p.contrat_id, texte);
+  const u = await envoyerUpwork(p.contrat_id, texte, { prioritaire: false });
+  if (u.budget) {
+    // Upwork plein aujourd'hui : rien n'est parti, le message pourra repartir.
+    await supabase.from("nudges").delete().eq("id", ligne.id);
+    bilan.upworkPlein = true;
+    return;
+  }
+  const erreur = u.erreur;
   if (erreur) {
     await supabase.from("nudges").update({ slack_erreur: erreur }).eq("id", ligne.id);
     bilan.erreurs.push(`lundi soir ${p.poster_id} : ${erreur}`);

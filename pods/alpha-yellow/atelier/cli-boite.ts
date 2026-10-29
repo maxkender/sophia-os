@@ -36,6 +36,7 @@ type Ligne = {
 };
 type Reponse = {
   jour: string;
+  podz_bleo: boolean;
   jauge: { familles_en_boite: number; semaines: number | null; part_full_test: number; par_jour: number; full_tests_du_jour: number };
   deposes_aujourdhui: { full_test: number; declinaison: number; sans_type: number };
   boite: Ligne[];
@@ -60,6 +61,9 @@ if (!r.ok) throw new Error(r.error);
 mkdirSync("donnees", { recursive: true });
 writeFileSync("donnees/boite.json", JSON.stringify(r, null, 1));
 
+console.log(r.podz_bleo
+  ? "Podz sur BLEO : oui — suis pods/ROUTINE.md §4 (voie 1)."
+  : "Podz sur BLEO : pas encore — aujourd'hui, suis pods/ROUTINE-avant-bleo.md (la boîte ci-dessous est pour information).");
 const k = (n: number | null | undefined) => (n == null ? "—" : n >= 1000 ? `${Math.round(n / 100) / 10} k` : String(n));
 const j = r.jauge;
 const deja = r.deposes_aujourdhui;

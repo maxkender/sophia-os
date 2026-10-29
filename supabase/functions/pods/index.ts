@@ -1164,6 +1164,8 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
     ok: true,
     pod: pod.slug,
     jour,
+    // Bascule des podz (ROUTINE.md) : vrai, la voie 1 suit la boîte ; faux, la routine d'avant.
+    podz_bleo: reglage?.valeur?.podz?.type_obligatoire === true,
     jauge: {
       familles_en_boite: enBoite,
       semaines: jauge?.semaines ?? null,

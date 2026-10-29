@@ -67,6 +67,41 @@ Les podz :
   identifiant de modèle** dans les commits, PR ou messages.
 - **Tout message que tu postes commence par `🤖`**, en français, court.
 
+## BLEO, voie 1 (depuis la bascule des podz)
+
+Les podz de la voie 1 (2, 4, 5, 7, 8, 9 et 12) passent sur BLEO quand
+`select valeur->'podz'->>'type_obligatoire' from reglages where cle = 'bleo';`
+vaut `true` (bascule prévue le lundi 2/11). Dès lors, pour eux :
+
+- **Ils ne font plus de variantes ni d'essais** : ils déclinent les familles
+  gagnantes de leur boîte, dans l'ordre, et déposent autant de full tests que
+  la jauge le demande (`pods/ROUTINE.md` §4). Les règles 1 (percée → 3
+  variantes), 4 (idée pour le prochain essai), 5 (le rythme ne baisse jamais),
+  6 et 7 ci-dessous ne valent plus pour eux ; elles valent toujours pour la
+  voie 2 (podz 1, 6, 10 et 11).
+- **La jauge** : `select * from bleo_jauge order by pod;` (aujourd'hui) et
+  `bleo_jauge_jours` (une photo par jour à 5 h 40). `semaines` : combien de
+  semaines de déclinaisons la boîte tient au rythme du podz ;
+  `part_full_test` : la part de full tests qui en découle (10 % au-delà de
+  6 semaines, 40 % sous 1 semaine).
+- **Monter `par_jour` de 1** quand la boîte tient plus de 6 semaines **et**
+  que la file à juger du label a de la place : moins de 90 % de ses créneaux
+  utilisés sur les 7 derniers plans
+  (`select key as label, sum((value->>'utilise')::int) as utilise, sum((value->>'capacite')::int) as capacite from bleo_runs r, jsonb_each(r.resume->'labels_file_juger') where r.fini_le is not null and r.erreur is null and r.jour_vise > current_date - 7 group by 1;`).
+- **Baisser `par_jour` de 1** quand `semaines` est resté sous 1 sur chacun
+  des 14 derniers jours de `bleo_jauge_jours`. Jamais sous 1 livraison par
+  jour.
+- **Le point du matin ajoute**, par podz de la voie 1 : la jauge (semaines,
+  part de full tests), les full tests et les déclinaisons déposés hier
+  (`pod_livraisons.type_bleo`), les familles closes la nuit
+  et les générations 2 ouvertes
+  (`select (select count(*) from bleo_familles where close_le > now() - interval '1 day') as closes, (select count(*) from bleo_boite where sorte = 'g2') as g2;`).
+  Format : `• BLEO : <podz> · <semaines> sem. · <part> % full tests · hier <f> full test(s), <d> déclinaison(s)` (une ligne par podz de la voie 1),
+  puis `• Familles : <n> closes cette nuit, <n> générations 2 ouvertes`.
+- **La règle 8** (objectif 30 %) ne monte le rythme d'un podz de la voie 1
+  que dans les conditions ci-dessus (boîte au-delà de 6 semaines, file à
+  juger avec de la place) : au-delà, ses full tests attendraient leur test.
+
 ## Le point du matin
 
 1. **Les chiffres** : `select public.pods_tableau(14);`
@@ -114,7 +149,7 @@ Les podz :
       7 derniers jours sur la même famille d'accroche, ou une slide d'appli
       qui ne varie pas (une seule version, toujours à la même place), ou des
       vues médianes en baisse d'une semaine sur l'autre → **envoie-lui un
-      message** avec les chiffres et les règles 4.5 et 4.6 de
+      message** avec les chiffres et les règles 5.5 et 5.6 (voie 2) de
       `pods/ROUTINE.md`. Dis-le dans le point (ligne « Boucle »).
 3. **Poste le point** dans #podz, au format ci-dessous. Un point par jour,
    même calme.

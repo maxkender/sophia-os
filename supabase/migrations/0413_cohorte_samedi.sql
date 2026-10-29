@@ -11,8 +11,9 @@
 --     suivant (`cohorte_reporter_auto`, appelé par recrues-check) ; lundi
 --     matin, `lundi_texte_warmup` (`semaine_posteurs` la compte encore dans la
 --     cohorte du jour) ; les relances d'étape et le Kill 48 h continuent ;
---   - « Postpone » (`cohorte_reporter`) change la cohorte AVANT les comptes,
---     sinon le déclencheur de 0301 remettait l'ancien lundi.
+--   - « Postpone » : quand la cohorte recule, le warm-up du 1er compte suit
+--     (`profiles_cohorte_warmup`) ; avant, le déclencheur de 0301 remettait
+--     le lundi qui suit le clic.
 -- A2. Pas de Kill sur quelqu'un qui a répondu :
 --   - `posteur_reactions` : un message du posteur dans n'importe quel canal
 --     Slack où le bot est (slack-faq) ; `posteur_reaction_at` (DM, Upwork,
@@ -37,8 +38,8 @@
 -- changées : cohorte_jour_limite (4 → 6), lundi_texte_warmup (nouveau texte),
 -- kill_message_auto (true → "on"), le planning du cron reponses-upwork.
 -- Aucune cohorte existante n'est recalculée.
--- Retour arrière : cohorte_jour_limite = 4 ; drop des fonctions et du
--- déclencheur ajoutés ; recréer les fonctions remplacées depuis 0391, 0392,
+-- Retour arrière : cohorte_jour_limite = 4 ; retirer les fonctions et les
+-- déclencheurs ajoutés ; recréer les fonctions remplacées depuis 0391,
 -- 0402, 0404, 0407, 0408, 0410 et 0382 ; cron reponses-upwork '45 8,15 * * *'.
 
 -- ---------------------------------------------------------------------------
@@ -85,9 +86,10 @@ as $$
 declare
   v_lundi date;
 begin
+  -- Pas de test « inchangé » : 0301 peut avoir remis l'ancienne valeur juste avant.
+  -- Une fin dans le passé (Skip warmup de l'admin) n'est jamais touchée.
   if new.warmup_ends_at is null
      or new.warmup_ends_at <= now()
-     or new.warmup_ends_at is not distinct from old.warmup_ends_at
      or new.type_compte is distinct from 'perso'
      or new.poster_id is null then
     return new;
@@ -117,35 +119,73 @@ create or replace trigger comptes_warmup_zz_cohorte
 -- ---------------------------------------------------------------------------
 -- A1. Reporter : à la main (Postpone) ou seul, dimanche minuit
 -- ---------------------------------------------------------------------------
-create or replace function public.cohorte_reporter_interne(p_poster uuid, p_par uuid)
+-- Quand la cohorte d'une recrue recule (Postpone, ou le report automatique),
+-- son 1er compte perso pas encore publié finit son warm-up au plus tôt le
+-- nouveau lundi : `cohorte_reporter` (0392) changeait les comptes avant la
+-- cohorte, et le déclencheur de 0301 remettait le lundi qui suit le clic.
+create or replace function public.profiles_cohorte_warmup()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if new.cohorte_lundi is null or new.cohorte_lundi is not distinct from old.cohorte_lundi
+     or (old.cohorte_lundi is not null and new.cohorte_lundi < old.cohorte_lundi) then
+    return null;
+  end if;
+  update public.comptes c
+     set warmup_ends_at = (new.cohorte_lundi::timestamp at time zone 'Europe/Paris')
+   where c.id = (select d.id from public.comptes d where d.poster_id = new.id and d.type_compte = 'perso'
+                  order by d.created_at limit 1)
+     and c.is_active and c.warmup_ends_at is not null and c.warmup_ends_at > now()
+     and c.warmup_ends_at < (new.cohorte_lundi::timestamp at time zone 'Europe/Paris')
+     and not exists (select 1 from public.passages p
+                      where p.compte_id = c.id
+                        and (p.publie_url is not null or p.publie_at is not null or p.statut::text = 'publie'));
+  return null;
+exception when others then
+  raise warning 'profiles_cohorte_warmup : %', sqlerrm;
+  return null;
+end;
+$$;
+
+create or replace trigger profiles_cohorte_warmup after update of cohorte_lundi on public.profiles
+  for each row execute function public.profiles_cohorte_warmup();
+
+-- recrues-check, dimanche minuit (heure du pays) : pas prête → la semaine
+-- d'après, comme « Postpone » (ses posts prévus et pas publiés retirés par
+-- `cohorte_reporter_compte`, 0367). Une seule fois par cohorte : rien si elle
+-- a déjà changé. Les messages prévus pour l'ancienne cohorte passent « bloqué ».
+create or replace function public.cohorte_reporter_auto(p_poster uuid, p_etape text, p_periode date)
 returns date
 language plpgsql
 security definer
 set search_path = public
 as $$
 declare
-  pr public.profiles%rowtype;
   v_auj date := (now() at time zone 'Europe/Paris')::date;
   v_nouveau date;
   c record;
 begin
-  select * into pr from public.profiles where id = p_poster for update;
+  if coalesce(auth.role(), '') <> 'service_role' then
+    raise exception 'cohorte_reporter_auto : réservé à recrues-check';
+  end if;
+  perform 1 from public.profiles pr where pr.id = p_poster and pr.is_active and pr.cohorte_lundi = p_periode for update;
   if not found then
-    raise exception 'cohorte_reporter : posteur introuvable';
+    return null;
   end if;
-  if not pr.is_active then
-    raise exception 'cohorte_reporter : posteur arrêté';
-  end if;
-  v_nouveau := coalesce(pr.cohorte_lundi, v_auj) + 7;
+  v_nouveau := p_periode + 7;
   if v_nouveau <= v_auj then
     v_nouveau := v_auj + (8 - extract(isodow from v_auj)::int);
   end if;
-
-  -- La cohorte d'abord : le déclencheur des comptes (0413) la lit.
+  insert into public.recrues_rouges (poster_id, etape, periode, decision, decision_at)
+  values (p_poster, p_etape, p_periode, 'reporter', now())
+  on conflict (poster_id, etape, periode) do update set decision = 'reporter', decision_at = now()
+   where recrues_rouges.decision is null;
+  update public.recrues_rouges set decision = 'reporter', decision_at = now()
+   where poster_id = p_poster and decision is null;
   update public.profiles set cohorte_lundi = v_nouveau where id = p_poster;
-
-  -- Ses comptes en warm-up qui n'ont rien publié : « Postpone » (0367), puis la
-  -- fin du warm-up alignée sur la nouvelle cohorte.
   for c in
     select co.id from public.comptes co
      where co.poster_id = p_poster and co.type_compte = 'perso' and co.is_active
@@ -159,53 +199,10 @@ begin
        set warmup_ends_at = (v_nouveau::timestamp at time zone 'Europe/Paris')
      where id = c.id;
   end loop;
-
-  update public.recrues_rouges
-     set decision = 'reporter', decision_at = now(), decision_par = p_par
-   where poster_id = p_poster and decision is null;
-  -- Ce qui était prévu pour l'ancienne cohorte ne vaut plus.
-  delete from public.relances_prevues where poster_id = p_poster and type <> 'mercredi';
-  return v_nouveau;
-end;
-$$;
-
-revoke execute on function public.cohorte_reporter_interne(uuid, uuid) from public, anon, authenticated;
-grant execute on function public.cohorte_reporter_interne(uuid, uuid) to service_role;
-
-create or replace function public.cohorte_reporter(p_poster uuid)
-returns date
-language plpgsql
-security definer
-set search_path = public
-as $$
-begin
-  if not public.is_admin() then
-    raise exception 'cohorte_reporter : réservé à l''admin et au Head of Ops';
-  end if;
-  return public.cohorte_reporter_interne(p_poster, auth.uid());
-end;
-$$;
-
--- recrues-check, dimanche minuit (heure du pays) : pas prête → la semaine
--- d'après. Une seule fois par cohorte : rien si elle a déjà changé.
-create or replace function public.cohorte_reporter_auto(p_poster uuid, p_etape text, p_periode date)
-returns date
-language plpgsql
-security definer
-set search_path = public
-as $$
-begin
-  if coalesce(auth.role(), '') <> 'service_role' then
-    raise exception 'cohorte_reporter_auto : réservé à recrues-check';
-  end if;
-  if (select pr.cohorte_lundi from public.profiles pr where pr.id = p_poster and pr.is_active) is distinct from p_periode then
-    return null;
-  end if;
-  insert into public.recrues_rouges (poster_id, etape, periode)
-  values (p_poster, p_etape, p_periode)
-  on conflict (poster_id, etape, periode) do nothing;
+  update public.relances_prevues set statut = 'bloque', raison = 'reporte', maj_at = now()
+   where poster_id = p_poster and periode = p_periode and statut = 'prevu';
   perform public.recrue_evenement_noter(p_poster, null, 'reporte', now(), p_etape, 'reporte:' || p_periode::text);
-  return public.cohorte_reporter_interne(p_poster, null);
+  return v_nouveau;
 end;
 $$;
 

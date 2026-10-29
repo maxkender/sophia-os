@@ -689,6 +689,7 @@ async function reglagesReponses(supabase: Supabase): Promise<{ mode: ModeAuto; r
       "reponse_texte_augmentation",
       "reponse_texte_propre_compte",
       "reponse_texte_absent",
+      "paie_reponse_attente_texte",
       "slack_lien_invitation",
     ]);
   const v = Object.fromEntries((data ?? []).map((x) => [x.cle as string, x.valeur]));
@@ -707,6 +708,7 @@ async function reglagesReponses(supabase: Supabase): Promise<{ mode: ModeAuto; r
         augmentation: t("reponse_texte_augmentation", D.textes.augmentation),
         propre_compte: t("reponse_texte_propre_compte", D.textes.propre_compte),
         absent: t("reponse_texte_absent", D.textes.absent),
+        paie_attente: t("paie_reponse_attente_texte", D.textes.paie_attente),
       },
       slack: t("slack_lien_invitation", "").trim() || "https://join.slack.com/t/sophia-system/shared_invite/zt-4ef0h51pi-utjxbNZ7ArY_6iwy3DWazA",
     },
@@ -757,6 +759,7 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       }
     }
     const classement = c ?? { cas: "a_lire" as const, confiance: 0, sous_cas: null, reponse: "", jours: null };
+    let maj_paie: string | null = null;
 
     const { count } = await supabase
       .from("posteur_reponses")
@@ -765,6 +768,17 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       .eq("reponse_statut", "envoye")
       .gte("reponse_at", minuitParis(maintenant).toISOString());
     const plan = planReponse(classement, l.canal, r, count ?? 0);
+    // Prompt 21, P3 : une question de paie. L'OS regarde la ligne du posteur :
+    // payée, déjà payée, semaine suivante financée → la réponse ; sinon une
+    // réponse d'attente et la liste « Pay questions ».
+    if (plan.cas === "paie") {
+      const q = await questionPaie(l.poster_id, !reel || pause);
+      if (q.texte) plan.liste = null;
+      maj_paie = q.cas;
+      const texte = q.texte ?? (r.textes.paie_attente.trim() || null);
+      if (texte && (count ?? 0) >= r.max_jour) plan.bloque = "limite";
+      else plan.repondre = texte;
+    }
 
     const maj: Record<string, unknown> = {
       statut: "classe",
@@ -776,6 +790,7 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       erreur,
       traite_at: new Date().toISOString(),
       reponse_statut: plan.bloque ?? (plan.repondre ? null : "aucune"),
+      ...(maj_paie ? { action: `paie_${maj_paie}` } : {}),
     };
     if (plan.liste === "a_lire") bilan.a_lire++;
     if (plan.liste === "paie") bilan.paie++;
@@ -821,6 +836,25 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
     else bilan.classes++;
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/** Prompt 21, P3 : la fonction upwork regarde (et règle, si elle le peut) la paie du posteur. */
+async function questionPaie(posterId: string, simuler: boolean): Promise<{ cas: string; texte: string | null }> {
+  const base = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("CRON_SECRET");
+  if (!base || !secret) return { cas: "attente", texte: null };
+  try {
+    const r = await fetch(`${base}/functions/v1/upwork`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": secret },
+      body: JSON.stringify({ action: "paie_question", poster_id: posterId, simuler }),
+    });
+    const corps = await r.json().catch(() => null);
+    if (!r.ok || !corps?.ok) return { cas: "attente", texte: null };
+    return { cas: String(corps.cas ?? "attente"), texte: typeof corps.texte === "string" && corps.texte.trim() ? corps.texte : null };
+  } catch {
+    return { cas: "attente", texte: null };
+  }
 }
 
 async function repondreUpwork(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {

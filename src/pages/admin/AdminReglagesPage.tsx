@@ -24,7 +24,7 @@ import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 import { CarteUpwork } from "@/features/upwork/CarteUpwork";
 import { Interrupteurs } from "@/features/interrupteurs/Interrupteurs";
-import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
+import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPaie, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
 
 function ChampNombre({
   id,
@@ -253,6 +253,7 @@ export function AdminReglagesPage() {
       <CarteMessagesUpwork />
       <CarteCohorteAccueil />
       <CarteTextesPosteurs />
+      <CarteTextesPaie />
 
       {/* ── Cleaning ── */}
       <Card>

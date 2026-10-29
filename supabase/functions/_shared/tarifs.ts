@@ -88,14 +88,18 @@ export function deduireTarif(jalonsBruts: JalonUpwork[]): TarifContrat {
     } else if (semaines.length >= 2) {
       // La 1re semaine (+1 $) ne compte pas : comparée à la semaine d'après.
       const autres = semaines.filter((x) => x.id !== j.id && x.depot !== null).map((x) => arrondi(x.depot! / comptesDuNom(x.nom)));
-      if (autres.length && !autres.some((t) => t === tarif || t === tarif + 1)) {
+      if (semaines[0].id === j.id && autres.length && autres.every((t) => t === arrondi(tarif - 1))) {
+        // La semaine en cours est la 1re, à +1 $ : le tarif est celui des suivantes.
+        tarif = arrondi(tarif - 1);
+        raison += ` (1re semaine à +1 $ ; les suivantes valent ${tarif} $)`;
+      } else if (autres.length && !autres.some((t) => t === tarif || t === tarif + 1)) {
         raison += ` (les autres semaines valent ${[...new Set(autres)].join(", ")} $)`;
       }
     }
     if (tarif < TARIF_COMPTE_MIN || tarif > TARIF_COMPTE_MAX) {
       return aVerifier(`${raison} : ${tarif} $ par compte, hors de ${TARIF_COMPTE_MIN} à ${TARIF_COMPTE_MAX} $`, j);
     }
-    return { rythme: "hebdo", montant: j.depot, comptes, tarif_compte: tarif, periode_jours: 7, courant: vue(j), raison };
+    return { rythme: "hebdo", montant: arrondi(tarif * comptes), comptes, tarif_compte: tarif, periode_jours: 7, courant: vue(j), raison };
   }
 
   // Pas de « Week NN ».

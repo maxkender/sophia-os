@@ -82,26 +82,40 @@ export function erreurPassagere(statut: number | null): boolean {
 }
 
 /**
+ * Retry-After (prompt 21, B11) : en secondes ou en date HTTP ; borné à 60 s.
+ * null : absent ou illisible.
+ */
+export function attenteRetryAfter(valeur: string | null | undefined, maintenant = Date.now()): number | null {
+  if (!valeur) return null;
+  const s = Number(valeur.trim());
+  const ms = Number.isFinite(s) ? s * 1000 : Date.parse(valeur) - maintenant;
+  if (!Number.isFinite(ms) || ms < 0) return null;
+  return Math.min(ms, 60_000);
+}
+
+/**
  * Lectures seulement : jusqu'à `essais` tentatives, attente doublée à chaque
- * fois (1 s, 2 s, 4 s). Une écriture (paiement, message) n'y passe JAMAIS.
+ * fois (1 s, 2 s, 4 s), ou celle que demande Upwork (Retry-After sur un 429).
+ * Une écriture (paiement, message) n'y passe JAMAIS.
  */
 export async function avecRetry<T>(
-  appel: () => Promise<{ statut: number | null; valeur: T }>,
+  appel: () => Promise<{ statut: number | null; valeur: T; retryAfter?: string | null }>,
   o: { essais?: number; attenteMs?: number; dormir?: (ms: number) => Promise<void> } = {},
 ): Promise<{ statut: number | null; valeur: T; essais: number }> {
   const essais = o.essais ?? 3;
   const dormir = o.dormir ?? ((ms: number) => new Promise((r) => setTimeout(r, ms)));
   let attente = o.attenteMs ?? 1000;
-  let dernier: { statut: number | null; valeur: T } | null = null;
+  let dernier: { statut: number | null; valeur: T; retryAfter?: string | null } | null = null;
   for (let i = 1; i <= essais; i++) {
     dernier = await appel();
-    if (!erreurPassagere(dernier.statut)) return { ...dernier, essais: i };
+    if (!erreurPassagere(dernier.statut)) return { statut: dernier.statut, valeur: dernier.valeur, essais: i };
     if (i < essais) {
-      await dormir(attente);
+      const demande = dernier.statut === 429 ? attenteRetryAfter(dernier.retryAfter) : null;
+      await dormir(demande ?? attente);
       attente *= 2;
     }
   }
-  return { ...dernier!, essais };
+  return { statut: dernier!.statut, valeur: dernier!.valeur, essais };
 }
 
 /** La requête d'introspection standard de GraphQL (les noms exacts de l'API). */

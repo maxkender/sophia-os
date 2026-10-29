@@ -348,3 +348,67 @@ export function CarteTextesPosteurs() {
     </Card>
   );
 }
+
+// ---------------------------------------------------------------------------
+// Prompt 21, B et P : les textes de la paie (Kill sous les 6 posts, milestone
+// pas soumise, réponses aux questions de paie)
+// ---------------------------------------------------------------------------
+
+export const TEXTES_PAIE = [
+  { cle: "kill_moins6_texte", variables: ["prenom", "n"] },
+  { cle: "paie_soumettre_texte", variables: ["prenom", "NN"] },
+  { cle: "paie_reponse_payee_texte", variables: ["montant", "NN"] },
+  { cle: "paie_reponse_deja_payee_texte", variables: ["montant", "NN", "date"] },
+  { cle: "paie_reponse_financee_texte", variables: ["NN"] },
+  { cle: "paie_reponse_attente_texte", variables: [] },
+] as const;
+
+const DEFAUTS_PAIE: Record<string, string> = {
+  paie_reponse_attente_texte: "Thanks, we're checking it. We'll reply here within 24 hours.",
+};
+
+export function CarteTextesPaie() {
+  const { t } = useTranslation();
+  const { role } = useAuth();
+  const admin = role === "admin";
+  const cles = TEXTES_PAIE.map((x) => x.cle);
+  const { lu, enregistrer } = useReglages(cles);
+  const [b, setB] = React.useState<Record<string, string> | null>(null);
+  React.useEffect(() => {
+    if (lu.data) setB(Object.fromEntries(cles.map((c) => [c, texte(lu.data[c], DEFAUTS_PAIE[c] ?? "")])));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lu.data]);
+  if (!b) return null;
+  return (
+    <Card data-testid="carte-textes-paie">
+      <CardHeader>
+        <CardTitle>{t("reglagesOs.paie.titre")}</CardTitle>
+        <CardDescription>{t("reglagesOs.paie.aide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {TEXTES_PAIE.map((x) => {
+          const inconnues = variablesInconnues(b[x.cle], x.variables);
+          return (
+            <div key={x.cle} className="space-y-1">
+              <ChampTexte id={x.cle} label={t(`reglagesOs.paie.${x.cle}`)} valeur={b[x.cle]} admin={admin} lignes={3}
+                onChange={(v) => setB({ ...b, [x.cle]: v })} />
+              {x.variables.length > 0 && (
+                <p className="text-xs text-muted-foreground">{t("reglagesOs.variables", { liste: x.variables.map((v) => `{${v}}`).join(" ") })}</p>
+              )}
+              {inconnues.length > 0 && (
+                <p className="text-xs text-destructive">{t("reglagesOs.inconnues", { liste: inconnues.map((v) => `{${v}}`).join(" ") })}</p>
+              )}
+            </div>
+          );
+        })}
+        <Pied
+          admin={admin}
+          enregistrer={enregistrer}
+          cles={cles}
+          desactive={cles.some((c) => !b[c].trim())}
+          onSave={() => enregistrer.mutate(b)}
+        />
+      </CardContent>
+    </Card>
+  );
+}

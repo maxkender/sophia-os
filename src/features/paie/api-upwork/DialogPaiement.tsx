@@ -24,6 +24,7 @@ const VARIANTE: Record<string, "success" | "warning" | "error" | "info" | "secon
   paye: "success",
   deja_payee: "success",
   a_verifier: "warning",
+  reessai: "warning",
   refuse: "error",
   rien: "secondary",
   lien: "warning",

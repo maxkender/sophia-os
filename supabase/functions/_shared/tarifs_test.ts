@@ -22,6 +22,9 @@ Deno.test("un contrat à 15 $ par semaine : 15 $", () => {
 Deno.test("la 1re semaine à +1 $ est ignorée", () => {
   const t = deduireTarif([j("Week 43 (First week)", 11), j("Week 44", 10, "Active"), j("Week 45", 10, "NotFunded")]);
   assertEquals(t.tarif_compte, 10);
+  // La 1re semaine en cours (financée) à +1 $, les suivantes au tarif : le tarif des suivantes.
+  const enCours = deduireTarif([j("week 43 - TikTok Slideshow Posting", 11, "Active"), j("week 44", 10, "NotFunded"), j("week 45", 10, "NotFunded")]);
+  assertEquals([enCours.tarif_compte, enCours.montant], [10, 10]);
   const recrue = deduireTarif([j("Trial week ", 8, "Active", "2026-11-01T00:00:00Z")]);
   assertEquals([recrue.rythme, recrue.tarif_compte], ["hebdo", 7]);
 });

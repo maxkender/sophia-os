@@ -3106,6 +3106,16 @@ export const en = {
       },
     },
     reglagesOs: {
+      paie: {
+        titre: "Payroll messages",
+        aide: "In English, sent on Upwork (or on the message's channel). The under-6-posts Kill goes out on Monday morning; \"Submit\" when a milestone isn't submitted; the answers to pay questions.",
+        kill_moins6_texte: "Kill: fewer than 6 posts with link",
+        paie_soumettre_texte: "Milestone not submitted",
+        paie_reponse_payee_texte: "Answer: paid now",
+        paie_reponse_deja_payee_texte: "Answer: already paid",
+        paie_reponse_financee_texte: "Answer: next week funded",
+        paie_reponse_attente_texte: "Holding answer (then \"Pay questions\")",
+      },
       enregistre: "Saved.",
       adminSeulement: "Only the admin can change this.",
       variables: "Variables: {{liste}}",
@@ -3191,7 +3201,7 @@ export const en = {
         faq: { titre: "FAQ bot", phrase: "What the bot answers on Slack and in the dashboard, and what it doesn't know." },
         logs: { titre: "Logs & to do", phrase: "What needs you, what's broken, and everything the automation did." },
       },
-      logs: { vide: "Nothing yet." },
+      logs: { vide: "Nothing yet.", issue: "Issues ({{n}})", todo: "To do ({{n}})", rien: "Nothing to do.", fait: "Done" },
       pause: {
         titre: "Deactivate automatic actions with API",
         inactif: "Automatic actions are running. The button stops every message, payment, Kill and contract action; reading continues.",
@@ -3443,6 +3453,21 @@ export const en = {
       vide: "All active posters are linked to Slack.",
     },
     paie: {
+      auto: {
+        statuts: {
+          attente: "Automatic pay: Monday at 9:00 (Paris), no click needed.",
+          en_cours: "Automatic pay running (batches of 10).",
+          fini: "Automatic pay done for this week.",
+          arrete: "Automatic pay stopped at the canary: nothing else was sent.",
+        },
+        modeOff: "API pay is \"{{mode}}\": nothing is paid automatically.",
+        aide: "It starts with one contract (the canary), checks it on Upwork, then pays the rest in batches of 10. Remove a line before 9:00 so it isn't paid.",
+        canariOk: "Canary checked: {{nom}}.",
+        arrete: "Canary mismatch: {{raison}}",
+        bilan: "{{payees}} paid · {{reessais}} retrying · {{verifier}} to check",
+        payerMaintenant: "Pay now",
+        confirmer: "Pay now? The OS first pays one contract (canary), checks it on Upwork, then pays everything else in batches of 10, within the caps.",
+      },
       onglets: { liste: "Payroll list", zones: "Zones" },
       liste: {
         titre: "Pay · week {{numero}} ({{debut}} → {{fin}})",
@@ -3586,6 +3611,7 @@ export const en = {
         },
         statuts: {
           pret: "Ready",
+          reessai: "Retrying in 1 h",
           paye: "Paid (API)",
           deja_payee: "Already paid",
           a_verifier: "To check",

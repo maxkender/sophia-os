@@ -148,6 +148,9 @@ export function dateAnglaise(jour: string): string {
     .format(new Date(`${jour}T12:00:00Z`));
 }
 
+/** Le guide du posteur (Notion), dans la bienvenue. */
+export const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
+
 /** Le message de bienvenue, depuis le réglage ; une variable inconnue reste telle quelle. */
 export function messageAccueil(
   modele: string,

@@ -6,6 +6,36 @@ export const fr = {
     // Prompt 22, parties 5 à 9 : les onglets de Weekly decisions, Messages
     // sent, Messages received, Payroll et FAQ bot. (Les phrases en haut des
     // pages sont dans auto.pages / auto.phrases.)
+    // Prompt 25 v4 (0440) : Overview → Test contracts.
+    autoTest: {
+      titre: "Contrats de test",
+      aide: "Sur ces contrats Upwork, la bienvenue et les relances partent pour de vrai même si l'interrupteur est sur Test ou Approve. Un contrat relié à un vrai posteur actif est refusé. Tout apparaît dans les Logs avec le type « test_… ».",
+      ajouterAide: "Id du contrat ou lien Upwork",
+      ajouter: "Ajouter",
+      retirer: "Retirer",
+      confirmRetirer: "Retirer le contrat {{contrat}} des contrats de test ? Ses messages suivent de nouveau les interrupteurs.",
+      sansPosteur: "Pas encore de posteur de test",
+      prenom: "Prénom",
+      creer: "Create test poster",
+      confirmCreer: "Créer « {{nom}} », relié au contrat {{contrat}}, dans la cohorte du lundi suivant ? Son login est créé (mot de passe 12345678) ; rien n'est envoyé.",
+      detail: "Cohorte {{cohorte}} · {{email}} · {{slack}}",
+      surSlack: "sur Slack",
+      pasSlack: "pas sur Slack",
+      boutons: {
+        accueil: "Welcome",
+        etape0: "Step 0 (Slack)",
+        etape1: "Step 1 (login)",
+        etape2: "Step 2 (TikTok)",
+        etape3: "Step 3 (warm-up started)",
+        etape4: "Step 4 (warm-up done)",
+        lundi_soir: "Monday 8 pm",
+        reset: "Reset test poster",
+      },
+      confirm: "Envoyer « {{quoi}} » au posteur de test maintenant, pour de vrai (Slack s'il y est, et Upwork) ?",
+      confirmReset: "Remettre le posteur de test au départ ? Pas connecté, Start warmup pas cliqué, cohorte du lundi suivant ; les messages déjà partis restent dans les Logs.",
+      lance: "{{quoi}} : parti ({{canaux}}).",
+      echec: "Pas parti : {{erreur}}",
+    },
     autoOnglets: {
       decisions: {
         onglets: { jeudi: "Jeudi", samedi: "Samedi", reglages: "Réglages" },

@@ -131,8 +131,12 @@ function CarteRecrue({ r }: { r: RecrueOnboarding }) {
                     <span className="tabular-nums text-muted-foreground">{le(m.at)}</span>
                     <span className="font-medium">{t(`autoOnglets.attente.types.${m.type}`, { defaultValue: m.type })}</span>
                     <Badge variant="secondary">{(m.canaux?.length ? m.canaux : [m.canal ?? "—"]).join(" + ")}</Badge>
+                    {m.expediteur && m.expediteur !== "slack" && (
+                      <span className="text-muted-foreground" data-expediteur={m.expediteur}>{t(`onboardingPosters.expediteurs.${m.expediteur}`, { defaultValue: m.expediteur })}</span>
+                    )}
                     <Badge variant={m.statut === "erreur" ? "error" : "success"}>{t(`onboardingPosters.statuts.${m.statut}`)}</Badge>
                   </div>
+                  {m.raison && <p className="italic text-muted-foreground" data-raison>{t("onboardingPosters.raison", { raison: m.raison })}</p>}
                   {m.texte && <p className="whitespace-pre-wrap break-words">{m.texte}</p>}
                   {m.erreur && <p className="text-destructive">{m.erreur}</p>}
                   {m.reponse && (

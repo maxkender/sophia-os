@@ -3,13 +3,13 @@
  * ni le réseau.
  *
  * - Pas de rattrapage : quand un interrupteur passe sur « on », un message qui
- *   était dû avant reste « en attente » ; il ne part qu'après « Send » (validé),
- *   et peu à peu (`cap` par passage). La liste du jeudi est toujours validée.
+ *   était dû avant ne part jamais (prompt 25, mises à jour : l'OS repart du
+ *   moment présent). La liste du jeudi est toujours validée.
  * - Un seul message par personne : deux profils sur le même contrat ou le même
  *   Slack ne reçoivent qu'une fois le même message (même type, même période).
  */
 
-export type DecisionRattrapage = "envoyer" | "attendre";
+export type DecisionRattrapage = "envoyer" | "attendre" | "ignorer";
 
 export function decisionRattrapage(o: {
   /** Quand le message est devenu dû. */
@@ -24,8 +24,9 @@ export function decisionRattrapage(o: {
   partisCeTour: number;
   cap: number;
 }): DecisionRattrapage {
-  const enAttente = o.toujoursValider === true || (o.onDepuis !== null && o.du !== null && o.du.getTime() < o.onDepuis.getTime());
-  if (!enAttente) return "envoyer";
+  // Prompt 25 MAJ : jamais de rattrapage en rafale. Dû avant le passage sur « on » : il ne part pas.
+  if (o.toujoursValider !== true && o.onDepuis !== null && o.du !== null && o.du.getTime() < o.onDepuis.getTime()) return "ignorer";
+  if (o.toujoursValider !== true) return "envoyer";
   if (!o.valide) return "attendre";
   return o.partisCeTour < o.cap ? "envoyer" : "attendre";
 }

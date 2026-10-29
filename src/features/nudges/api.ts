@@ -33,7 +33,7 @@ export const ETAPES_RELANCE: readonly EtapeRelance[] = [
   "warmup_lance_deuxieme",
   "warmup_bien_fait_deuxieme",
 ];
-export type ModeRelances = "off" | "simulation" | "approve" | "on";
+export type ModeRelances = "off" | "simulation" | "on";
 
 export interface NudgeEnvoye {
   id: string;
@@ -168,8 +168,8 @@ export async function lireReglagesRelances(): Promise<ReglagesRelances> {
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
   const texte = (cle: string) => (typeof v[cle] === "string" ? (v[cle] as string) : "");
   // « test » (Interrupteurs) = simulation.
-  // Prompt 25 : « approve » est gardé tel quel (jamais réécrit en test).
-  const mode = v.relances_auto === "on" || v.relances_auto === "off" || v.relances_auto === "approve" ? v.relances_auto : "simulation";
+  // Prompt 25 MAJ : plus de mode Approve ; un ancien « approve » se lit comme test.
+  const mode = v.relances_auto === "on" || v.relances_auto === "off" ? v.relances_auto : "simulation";
   return {
     mode,
     delais: { ...DELAIS_DEFAUT, ...((v.etapes_delais ?? {}) as object) },

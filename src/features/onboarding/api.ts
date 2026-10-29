@@ -15,6 +15,9 @@ export interface MessageOnboarding {
   statut: "envoye" | "erreur";
   erreur: string | null;
   reponse: { at: string; canal: string; texte: string | null } | null;
+  /** Prompt 25 MAJ (0446) : pourquoi il est parti (les données utilisées), et qui l'a envoyé. */
+  raison?: string | null;
+  expediteur?: string | null;
 }
 
 export interface RecrueOnboarding {

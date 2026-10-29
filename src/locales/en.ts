@@ -57,6 +57,8 @@ export const en = {
       },
       messages: "Messages sent ({{n}})",
       aucunMessage: "No message sent yet.",
+      expediteurs: { secours: "from Adrien's account", principal: "from Max's account", hm: "sent by the HM" },
+      raison: "Why: {{raison}}",
       statuts: { envoye: "sent", erreur: "failed" },
       reponse: "Reply {{quand}} ({{canal}}):",
       prochaine: "Next reminder:",
@@ -368,6 +370,7 @@ export const en = {
           semaine: "Messages of the week",
           double: "Double offer",
           upwork: "Upwork",
+          freins: "Brakes",
         },
         champs: {
           connexion_message_h: "1. Not logged in: message after (h)",
@@ -386,6 +389,8 @@ export const en = {
           double_jour_iso: "The Double offer expires on",
           double_heure: "at (Paris time)",
           relances_upwork_max: "Upwork reminders per recruit, at most (then Slack only)",
+          frein_plafond_heure: "Brake: a message type stops after this many in one hour",
+          frein_part_deja_faite: "Brake: stop when more than this % of a send had already done the step",
         },
         erreurs: {
           kill_min: "A Kill can't go out before {{n}} h.",
@@ -3828,6 +3833,12 @@ export const en = {
         logs: { titre: "Logs" },
       },
       // Prompt 22, partie 11 : la phrase en haut de chaque page (et sous son nom dans le menu).
+      freins: {
+        titre: "“{{type}}” messages paused",
+        motifs: { plafond_heure: "hourly cap reached", deja_fait: "too many recipients had already done the step" },
+        reprendre: "Resume",
+        confirm: "Resume these messages? Nothing that was due during the pause is sent in a burst.",
+      },
       phrases: {
         overview: "Everything the automation does, on one page. The red button stops every automatic action.",
         recruits: "Every recruit until their first post: steps, messages sent, next reminder.",

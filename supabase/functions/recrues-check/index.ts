@@ -57,6 +57,7 @@ import {
 import { chargerBase } from "../_shared/faq_moteur.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import { familleMessage, raisonLisible } from "../_shared/raison.ts";
 import {
   etapeHandle,
   extraireHandle,
@@ -193,6 +194,7 @@ async function reglages(supabase: Supabase) {
       "slack_lien_invitation",
       "accueil_auto",
       "accueil_message_texte",
+      "freins_envoi",
     ]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -228,7 +230,7 @@ async function reglages(supabase: Supabase) {
     // Prompt 21, C7 : les recrues du lundi suivant pas encore prêtes.
     texteJeudiRecrue: texte("jeudi_texte_recrue"),
     heures: lireHeuresSemaine(v.semaine_heures),
-    lundiSoir: (v.lundi_soir_auto === "approve" ? "approve" : lireModeAuto(v.lundi_soir_auto)) as ModeAuto | "approve",
+    lundiSoir: lireModeAuto(v.lundi_soir_auto) as ModeAuto,
     textesRelance: {
       cadre: relance("relance_texte_cadre", TEXTES_RELANCE_DEFAUT.cadre),
       connexion: relance("relance_texte_connexion", TEXTES_RELANCE_DEFAUT.connexion),
@@ -241,23 +243,31 @@ async function reglages(supabase: Supabase) {
     slackLien: texte("slack_lien_invitation").trim(),
     relancesUpworkMax: Number.isFinite(Number(v.relances_upwork_max_par_recrue)) && v.relances_upwork_max_par_recrue !== null
       ? Math.max(0, Number(v.relances_upwork_max_par_recrue)) : 5,
-    accueil: (v.accueil_auto === "approve" ? "approve" : lireModeAuto(v.accueil_auto)) as ModeAuto | "approve",
+    accueil: lireModeAuto(v.accueil_auto) as ModeAuto,
     texteAccueil: texte("accueil_message_texte"),
     texteLundiSoir: texte("lundi_soir_texte"),
     boutons: lireLibellesBoutons(v.slack_boutons),
     repriseRappels: typeof v.rappels_reprise_le === "string" ? (v.rappels_reprise_le as string) : null,
     heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
+    // Prompt 25 MAJ : les freins (plafond par type et par heure ; part des destinataires qui avaient déjà fait l'étape).
+    freins: lireFreins(v.freins_envoi),
   };
 }
 
+function lireFreins(v: unknown): { plafondHeure: number; partDejaFaite: number } {
+  const o = v && typeof v === "object" ? (v as Record<string, unknown>) : {};
+  const n = (x: unknown, d: number) => (x !== null && x !== undefined && Number.isFinite(Number(x)) && Number(x) > 0 ? Number(x) : d);
+  return { plafondHeure: n(o.plafond_heure, 40), partDejaFaite: n(o.part_deja_faite, 20) };
+}
+
 /**
- * Prompt 25 : « Step reminders (new recruits) » : off / test / approve / on.
- * Approve : l'OS prépare les relances dans Messages sent → To approve ; rien ne
- * part sans « Send selected ».
+ * Prompt 25, mises à jour : « Step reminders (new recruits) » : off / test / on.
+ * Plus de mode Approve : tout part automatiquement, revérifié au moment de
+ * l'envoi, avec des freins. Un ancien « approve » se lit comme test.
  */
-type ModeRelances = "off" | "simulation" | "approve" | "on";
+type ModeRelances = "off" | "simulation" | "on";
 function lireModeRelances(v: unknown): ModeRelances {
-  return v === "approve" ? "approve" : lireMode(v);
+  return lireMode(v);
 }
 
 function lireHeuresSemaine(v: unknown): { lundi_heure: number; jeudi_heure: number; fin: number } {
@@ -485,6 +495,13 @@ async function peutPartir(
   const d = decisionRattrapage({
     du: o.du, onDepuis: o.onDepuis, toujoursValider: o.toujoursValider, valide, partisCeTour: bilan.partisValides ?? 0, cap: r.envoiParPassage,
   });
+  if (d === "ignorer") {
+    // Prompt 25 MAJ : dû avant le passage sur « on » : il ne part jamais (l'OS repart du moment présent).
+    await supabase.from("relances_prevues").upsert({
+      ...o.cle, statut: "expire", canal: libelleCanaux(o.canaux), texte: o.texte, raison: "avant_on", maj_at: new Date().toISOString(),
+    });
+    return false;
+  }
   if (d === "attendre") {
     await supabase.from("relances_prevues").upsert({
       ...o.cle, statut: "prevu", canal: libelleCanaux(o.canaux), texte: o.texte,
@@ -623,6 +640,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
   // Prompt 25 : ce qui est validé (On, To approve, Thursday) part, peu à peu.
   await envoyerFile(supabase, r, recrues, maintenant, bilan);
+  await controleApresCoup(supabase, r, bilan).catch((e) => bilan.erreurs.push(`contrôle après coup : ${messageErreur(e)}`));
   await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
   return { ok: bilan.erreurs.length === 0, ...nettoyer(bilan) };
 }
@@ -836,6 +854,8 @@ function donneesRelance(x: RecrueAccueil, plan: ReturnType<typeof planRelance>, 
     sur_slack: Boolean(x.slack_user_id),
     relances_upwork: bilan?.relancesUpwork?.get(x.poster_id) ?? 0,
     cohorte: x.cohorte_lundi,
+    // Prompt 25 MAJ : pour la raison en clair (« pas connectée depuis le 29/10 »).
+    bienvenue: x.bienvenue_at,
     email: x.email ?? null,
     premiere_connexion: x.premiere_connexion_at,
     handle: x.handle,
@@ -908,19 +928,13 @@ async function relanceDuJour(
   // Prompt 25 v4 : une relance d'hier jamais envoyée à la main par la HM : remplacée aussi.
   await supabase.from("relances_prevues").update({ statut: "perime", maj_at: new Date().toISOString() })
     .eq("poster_id", x.poster_id).eq("type", "relance").eq("statut", "main").lt("periode", jour);
-  const approuver = r.mode === "approve" && !test;
-  const { error } = await supabase.from("relances_prevues").upsert({
-    ...ligne,
-    raison: approuver ? "a_approuver" : "auto",
-    valide_at: approuver ? null : new Date().toISOString(),
-  });
+  const { error } = await supabase.from("relances_prevues").upsert({ ...ligne, raison: "auto", valide_at: new Date().toISOString() });
   if (error) {
     bilan.erreurs.push(`relance ${x.poster_id} : ${error.message}`);
     return;
   }
   bilan.relancesFaites?.add(`${x.poster_id}|${jour}`);
   noterPrepare(bilan, x, "relance", jour);
-  if (approuver) bilan.aApprouver++;
 }
 
 // ---------------------------------------------------------------------------
@@ -967,15 +981,11 @@ async function handleDuJour(supabase: Supabase, r: Reglages, x: RecrueAccueil, m
     await supabase.from("relances_prevues").upsert({ ...ligne, raison: "simulation" });
     bilan.prevus++;
   } else {
-    const approuver = r.mode === "approve" && !test;
-    const { error } = await supabase.from("relances_prevues").upsert({
-      ...ligne, raison: approuver ? "a_approuver" : "auto", valide_at: approuver ? null : new Date().toISOString(),
-    });
+    const { error } = await supabase.from("relances_prevues").upsert({ ...ligne, raison: "auto", valide_at: new Date().toISOString() });
     if (error) {
       bilan.erreurs.push(`${etape} ${x.poster_id} : ${error.message}`);
       return;
     }
-    if (approuver) bilan.aApprouver++;
   }
   bilan.prevuesConnues?.add(clePrevue(x.poster_id, etape, periode));
 }
@@ -1059,6 +1069,93 @@ async function noterIssueReponse(
   ).eq("id", rep.id);
 }
 
+// ---------------------------------------------------------------------------
+// Prompt 25, mises à jour : les freins et les revérifications à l'envoi
+// ---------------------------------------------------------------------------
+
+async function lireFreinsOuverts(supabase: Supabase): Promise<Set<string>> {
+  const { data } = await supabase.from("freins_envoi").select("type").is("leve_at", null);
+  return new Set((data ?? []).map((f) => f.type as string));
+}
+
+/** Les messages automatiques partis dans la dernière heure, par type. */
+async function envoisDerniereHeure(supabase: Supabase, maintenant: Date): Promise<Map<string, number>> {
+  const { data } = await supabase.from("nudges").select("type")
+    .in("cible", ["recrues-check", "test"]).gte("envoye_at", new Date(maintenant.getTime() - 3_600_000).toISOString()).limit(5000);
+  const m = new Map<string, number>();
+  for (const n of data ?? []) m.set(n.type as string, (m.get(n.type as string) ?? 0) + 1);
+  return m;
+}
+
+/** Les familles de messages déjà reçues aujourd'hui (jour de Paris), par posteur. */
+async function envoisAujourdhui(supabase: Supabase, posteurs: string[], maintenant: Date): Promise<Map<string, Set<string>>> {
+  const m = new Map<string, Set<string>>();
+  const ids = [...new Set(posteurs)];
+  if (!ids.length) return m;
+  const debut = instantLocal(partiesLocales(maintenant, "Europe/Paris").date, 0, "Europe/Paris").toISOString();
+  const { data } = await supabase.from("nudges").select("poster_id, type, canaux, slack_erreur")
+    .in("poster_id", ids).gte("envoye_at", debut).limit(5000);
+  for (const n of data ?? []) {
+    if (n.slack_erreur && !(n.canaux as string[] | null)?.length) continue;
+    const f = m.get(n.poster_id as string) ?? new Set<string>();
+    f.add(familleMessage(n.type as string));
+    m.set(n.poster_id as string, f);
+  }
+  return m;
+}
+
+/** Une réponse (message, bouton, réaction Slack) depuis que le message a été préparé ? */
+async function reponduDepuis(supabase: Supabase, posterId: string, depuis: string): Promise<boolean> {
+  const [{ data: rep }, { data: reac }] = await Promise.all([
+    supabase.from("posteur_reponses").select("id").eq("poster_id", posterId).gt("recu_at", depuis).limit(1),
+    supabase.from("posteur_reactions").select("poster_id").eq("poster_id", posterId).gt("slack_at", depuis).limit(1),
+  ]);
+  return (rep ?? []).length > 0 || (reac ?? []).length > 0;
+}
+
+const SLACK_MAX = "U0BL5FRLBEU";
+
+/** Un type de message en pause : noté (un seul frein ouvert par type), Max et Lucia prévenus sur Slack. */
+async function poserFrein(supabase: Supabase, freins: Set<string>, type: string, motif: "plafond_heure" | "deja_fait", detail: string) {
+  freins.add(type);
+  const { error } = await supabase.from("freins_envoi").insert({ type, motif, detail });
+  if (error) return; // déjà un frein ouvert pour ce type : déjà prévenus
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return;
+  const { data: ho } = await supabase.from("user_roles").select("user_id").eq("role", "head_of_ops");
+  const { data: hs } = (ho ?? []).length
+    ? await supabase.from("hm_slack").select("slack_user_id").in("profile_id", (ho ?? []).map((x) => x.user_id))
+    : { data: [] };
+  const texte = `:octagonal_sign: Messages « ${type} » mis en pause : ${detail}. Rien de ce type ne part tant que le frein n'est pas levé (Overview → Health) : ${OS_URL}/admin/auto`;
+  for (const canal of [SLACK_MAX, ...(hs ?? []).map((x) => x.slack_user_id as string)]) {
+    await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ channel: canal, text: texte }),
+    }).catch(() => undefined);
+  }
+}
+
+/**
+ * Le contrôle après coup : les relances parties il y a 30 min à 6 h sont
+ * relues. Plus de `partDejaFaite` % des destinataires d'un envoi (5 au moins)
+ * avaient déjà fait ce que le message demandait : ce type est mis en pause.
+ */
+async function controleApresCoup(supabase: Supabase, r: Reglages, bilan: Bilan) {
+  const { data, error } = await supabase.rpc("relances_controle_apres_coup");
+  if (error) {
+    bilan.erreurs.push(`contrôle après coup : ${error.message}`);
+    return;
+  }
+  const freins = await lireFreinsOuverts(supabase);
+  for (const e of (data ?? []) as { envoi: string; type: string; destinataires: number; deja_fait: number }[]) {
+    if (e.destinataires < 5 || e.deja_fait * 100 <= e.destinataires * r.freins.partDejaFaite || freins.has(e.type)) continue;
+    const heure = new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" }).format(new Date(e.envoi));
+    await poserFrein(supabase, freins, e.type, "deja_fait",
+      `${e.deja_fait} destinataires sur ${e.destinataires} (envoi de ${heure}) avaient déjà fait l'étape (plus de ${r.freins.partDejaFaite} %)`);
+  }
+}
+
 interface LigneFile {
   poster_id: string;
   type: string;
@@ -1123,6 +1220,10 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
   if (lignes.some((l) => l.type === "handle" || l.type === "handle_upwork")) bilan.handles ??= await lireHandlesIntrouvables(supabase);
   const budget = await lireBudgetFile(supabase, maintenant);
   if (budget.limite) bilan.upworkPlein = true;
+  // Prompt 25 MAJ : les freins ouverts, ce qui est déjà parti dans l'heure (par type) et aujourd'hui (par famille).
+  const freins = await lireFreinsOuverts(supabase);
+  const parHeure = await envoisDerniereHeure(supabase, maintenant);
+  const aujourdhui = await envoisAujourdhui(supabase, lignes.map((l) => l.poster_id), maintenant);
   bilan.relancesUpwork ??= await lireRelancesUpwork(supabase);
   const contratsTest = (bilan.contratsTest ??= await lireContratsTest(supabase));
   // Les messages plus prioritaires (bienvenue, recrues pas sur Slack) qui attendent Upwork.
@@ -1136,11 +1237,29 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     // L'interrupteur de ce type : sur off ou test, rien ne part (le jeudi n'a pas d'interrupteur) ;
     // un contrat de test (0440) : la relance et la bienvenue partent même sur Test.
     const surTest = Boolean(l.profiles?.upwork_contract_id && contratsTest.has(l.profiles.upwork_contract_id));
-    if ((l.type === "relance" || l.type === "handle" || l.type === "handle_upwork") &&
-      !(r.mode === "approve" || r.mode === "on" || (surTest && r.mode !== "off"))) continue;
-    if (l.type === "lundi_soir" && !(r.lundiSoir === "approve" || r.lundiSoir === "on")) continue;
+    if ((l.type === "relance" || l.type === "handle" || l.type === "handle_upwork") && !(r.mode === "on" || (surTest && r.mode !== "off"))) continue;
+    if (l.type === "lundi_soir" && r.lundiSoir !== "on") continue;
     if (l.type === "lundi" && r.lundi !== "on") continue;
-    if (l.type === "accueil" && !(r.accueil === "approve" || r.accueil === "on" || (surTest && r.accueil !== "off"))) continue;
+    if (l.type === "accueil" && !(r.accueil === "on" || (surTest && r.accueil !== "off"))) continue;
+    // Prompt 25 MAJ : un type en pause (frein) ne part plus ; il reste dans la file.
+    if (freins.has(l.type)) continue;
+    if ((parHeure.get(l.type) ?? 0) >= r.freins.plafondHeure && !["accueil", "jeudi"].includes(l.type)) {
+      await poserFrein(supabase, freins, l.type, "plafond_heure", `${parHeure.get(l.type)} messages « ${l.type} » en une heure (plafond ${r.freins.plafondHeure})`);
+      continue;
+    }
+    // Revérifié au moment de l'envoi : pas déjà un message de cette famille aujourd'hui, pas de réponse depuis.
+    if (!["accueil", "jeudi", "lundi"].includes(l.type)) {
+      if (aujourdhui.get(l.poster_id)?.has(familleMessage(l.type))) {
+        await marquer(l, "perime", "deja_aujourdhui");
+        bilan.file.perimes++;
+        continue;
+      }
+      if (await reponduDepuis(supabase, l.poster_id, l.premier_at)) {
+        await marquer(l, "perime", "reponse");
+        bilan.file.perimes++;
+        continue;
+      }
+    }
     const priorite = prioriteUpwork(l.type, l.surSlack);
     const p = l.profiles;
     const contrat = p?.upwork_contract_id ?? null;
@@ -1227,7 +1346,11 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     }
     const { data: ligne, error: errIns } = await supabase
       .from("nudges")
-      .insert({ poster_id: l.poster_id, type: l.type, periode: l.periode, compte_id: null, cible: surTest ? "test" : "recrues-check", canal: canaux[0], texte: l.texte })
+      .insert({
+        poster_id: l.poster_id, type: l.type, periode: l.periode, compte_id: null, cible: surTest ? "test" : "recrues-check", canal: canaux[0], texte: l.texte,
+        // Prompt 25 MAJ : la raison (les données utilisées), gardée avec le message.
+        raison: raisonLisible(l.type, l.donnees), donnees: l.donnees,
+      })
       .select("id")
       .single();
     if (errIns) {
@@ -1241,6 +1364,7 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     const erreurs: string[] = [];
     let plein = false;
     let reporte = false;
+    let expediteur: string | null = null;
     if (canaux.includes("slack")) {
       // « I want to stop » seulement sur les relances d'accueil (prompt 21, C6).
       const e = await envoyerSlack(supabase, l.poster_id, l.texte, blocsBoutons(l.texte, r.boutons, { stop: l.type === "relance" }));
@@ -1262,6 +1386,7 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
         erreurs.push(u.erreur);
       } else {
         partis.push("upwork");
+        expediteur = u.compte ?? null;
         budget.ecrits.add(contrat!);
         if (!deja) {
           budget.restant--;
@@ -1285,6 +1410,13 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     }
     sortir();
     await noterEnvoi(supabase, ligne.id, { partis, erreurs }, `${l.type} ${l.poster_id}`, bilan);
+    if (partis.length) {
+      await supabase.from("nudges").update({ expediteur: expediteur ?? (partis.includes("slack") ? "slack" : null) }).eq("id", ligne.id);
+      parHeure.set(l.type, (parHeure.get(l.type) ?? 0) + 1);
+      const f = aujourdhui.get(l.poster_id) ?? new Set<string>();
+      f.add(familleMessage(l.type));
+      aujourdhui.set(l.poster_id, f);
+    }
     if (l.type === "accueil") await noterAccueil(supabase, l, partis.length > 0, erreurs.join(" · "));
     if (partis.length) {
       for (const k of clesPersonne(personne, l.type, l.periode)) bilan.servis?.add(k);
@@ -1379,7 +1511,7 @@ async function envoyerUpwork(
   contratId: string,
   texte: string,
   o: { prioritaire?: boolean; compte?: string } = {},
-): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean }> {
+): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean; compte?: string | null }> {
   const base = Deno.env.get("SUPABASE_URL");
   const secret = Deno.env.get("CRON_SECRET");
   if (!base || !secret) return { erreur: "SUPABASE_URL ou CRON_SECRET absent", budget: false };
@@ -1392,7 +1524,7 @@ async function envoyerUpwork(
     const corps = await r.json().catch(() => null);
     // Prompt 25 v4 : « reporter » : le compte de secours n'a pas pu écrire ici ; le message repart demain (Max d'abord).
     if (!r.ok || !corps?.ok) return { erreur: `upwork : ${corps?.error ?? `HTTP ${r.status}`}`, budget: corps?.budget === true, reporter: corps?.reporter === true };
-    return { erreur: null, budget: false };
+    return { erreur: null, budget: false, compte: typeof corps?.compte === "string" ? corps.compte : null };
   } catch (e) {
     return { erreur: `upwork : ${messageErreur(e)}`, budget: false };
   }
@@ -1482,7 +1614,7 @@ async function envoyerSemaine(
   }
   const { data: ligne, error: errIns } = await supabase
     .from("nudges")
-    .insert({ ...cle, compte_id: null, cible: "recrues-check", canal, texte })
+    .insert({ ...cle, compte_id: null, cible: "recrues-check", canal, texte, raison: raisonLisible(cle.type, { raison: "message du lundi" }) })
     .select("id")
     .single();
   if (errIns) {
@@ -1834,7 +1966,6 @@ async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bila
       bilan.erreurs.push(`lundi soir : ${error.message}`);
       return;
     }
-    // Prompt 25 : Approve prépare le message (To approve) ; il part après « Send selected ».
     const test = r.lundiSoir === "test";
     for (const p of (data ?? []) as PosteurLundiSoir[]) {
       if (bilan.pauses?.has(p.poster_id)) continue;
@@ -1864,6 +1995,10 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
     return;
   }
   const texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
+  const donneesSoir = {
+    cohorte: lundi, deuxieme_compte: p.deuxieme, posts_avec_lien_lundi: p.publies_lundi, contrat: p.contrat_id,
+    heure_locale: `${r.heureLundiSoir}:00 (${p.fuseau})`,
+  };
   // Un seul message par personne : un autre profil sur le même contrat l'a déjà reçu (ou préparé).
   if (canalPour(bilan, { poster_id: p.poster_id, slack_user_id: null, contrat_id: p.contrat_id }, "lundi_soir", lundi).doublon) {
     bilan.doublons++;
@@ -1874,23 +2009,17 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
     bilan.prevus++;
     return;
   }
-  // Prompt 25 : Approve → To approve (le destinataire, le texte, les données) ; rien ne part sans « Send selected ».
-  if (r.lundiSoir === "approve") {
-    await supabase.from("relances_prevues").upsert({
-      ...cle, statut: "prevu", canal: "upwork", texte, raison: "a_approuver", valide_at: null, maj_at: new Date().toISOString(),
-      donnees: { cohorte: lundi, deuxieme_compte: p.deuxieme, posts_avec_lien_lundi: p.publies_lundi, contrat: p.contrat_id, heure_locale: `${r.heureLundiSoir}:00 (${p.fuseau})` },
-    });
-    noterPrepare(bilan, { poster_id: p.poster_id, slack_user_id: null, contrat_id: p.contrat_id }, "lundi_soir", lundi);
-    bilan.aApprouver++;
-    return;
-  }
-  // 0432 : dû avant le passage sur « on » → en attente.
+  // Prompt 25 MAJ : dû avant le passage sur « on » → ne part pas (jamais de rattrapage).
   if (!(await peutPartir(supabase, r, bilan, {
     cle, du: instantLocal(lundi, r.heureLundiSoir, p.fuseau), onDepuis: bilan.onDepuis?.lundiSoir ?? null, canaux: ["upwork"], texte,
   }))) return;
   const { data: ligne, error: errIns } = await supabase
     .from("nudges")
-    .insert({ ...cle, compte_id: p.compte_id, cible: "recrues-check", canal: "upwork", texte })
+    .insert({
+      ...cle, compte_id: p.compte_id, cible: "recrues-check", canal: "upwork", texte,
+      // Prompt 25 MAJ : la raison et les données utilisées, gardées avec le message.
+      raison: raisonLisible("lundi_soir", donneesSoir), donnees: donneesSoir,
+    })
     .select("id")
     .single();
   if (errIns) {

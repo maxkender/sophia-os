@@ -62,24 +62,15 @@ describe("Réglages → Interrupteurs", () => {
     await vi.waitFor(() => expect(api.enregistrerInterrupteur).toHaveBeenCalledWith("accueil_auto", "on"));
   });
 
-  it("prompt 25 : Approve pour la bienvenue, les relances des recrues et le lundi 20 h seulement, sans confirmation ; lu tel quel", async () => {
+  it("prompt 25 MAJ : plus de position Approve, Off / Test / On partout ; un ancien « approve » se lit comme Test", async () => {
     const { lireMode } = await vi.importActual<typeof import("./api")>("./api");
-    expect(lireMode("approve")).toBe("approve");
+    expect(lireMode("approve")).toBe("test");
     rendu();
     await screen.findByText("Relances des recrues");
-    const relances = within(document.querySelector<HTMLElement>('[data-interrupteur="relances_auto"]')!);
-    expect(relances.getAllByRole("button").map((b) => b.textContent)).toEqual(["Off", "Test", "Approve", "On"]);
-    const soir = within(document.querySelector<HTMLElement>('[data-interrupteur="lundi_soir_auto"]')!);
-    expect(soir.getByRole("button", { name: "Approve" })).toBeInTheDocument();
-    // Prompt 25 v4 : la bienvenue aussi.
-    const accueil = within(document.querySelector<HTMLElement>('[data-interrupteur="accueil_auto"]')!);
-    expect(accueil.getByRole("button", { name: "Approve" })).toBeInTheDocument();
-    const lundi = within(document.querySelector<HTMLElement>('[data-interrupteur="lundi_message_auto"]')!);
-    expect(lundi.queryByRole("button", { name: "Approve" })).toBeNull();
-    const confirmer = vi.spyOn(window, "confirm");
-    fireEvent.click(relances.getByRole("button", { name: "Approve" }));
-    await vi.waitFor(() => expect(api.enregistrerInterrupteur).toHaveBeenCalledWith("relances_auto", "approve"));
-    expect(confirmer).not.toHaveBeenCalled();
+    for (const cle of ["relances_auto", "lundi_soir_auto", "accueil_auto"]) {
+      const ligne = within(document.querySelector<HTMLElement>(`[data-interrupteur="${cle}"]`)!);
+      expect(ligne.getAllByRole("button").map((b) => b.textContent)).toEqual(["Off", "Test", "On"]);
+    }
   });
 
   it("rappels en pause jusqu'au 2 nov. ; « Retirer la pause » vide la date", async () => {

@@ -1579,7 +1579,7 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
   const medias = await lireParLots(ids, "media_library du label", (lot) =>
     supabase
       .from("media_library")
-      .select("id, url, est_hook, used_count, contenu_id, storage_path, texte_restant")
+      .select("id, url, est_hook, used_count, contenu_id, storage_path, texte_restant, caption")
       .in("id", lot)
       .limit(lot.length)
   );
@@ -1587,7 +1587,15 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
   // deno-lint-ignore no-explicit-any
   for (const m of medias as any[]) {
     if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) continue;
-    images.push({ id: m.id, url: m.url, est_hook: Boolean(m.est_hook), used_count: m.used_count ?? 0, contenu_id: m.contenu_id });
+    // `legende` : la description de l'image (en anglais, D38), pour `images --cherche`.
+    images.push({
+      id: m.id,
+      url: m.url,
+      est_hook: Boolean(m.est_hook),
+      used_count: m.used_count ?? 0,
+      contenu_id: m.contenu_id,
+      legende: m.caption ?? null,
+    });
   }
   return json({ ok: true, total: images.length, images });
 }

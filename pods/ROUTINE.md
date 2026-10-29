@@ -88,7 +88,9 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   `"parent_contenu_id": "<l'id complet de la boîte>"`. Ni `schema_id` ni
   preuve.
 - Images : `npm run images -- --depuis <8 premiers caractères du parent>`
-  pour voir celles du parent ; pioche aussi dans le reste de la banque.
+  pour voir celles du parent ; pioche aussi dans le reste de la banque,
+  par exemple `npm run images -- --cherche "desk night"` (les légendes des
+  images sont en anglais ; les moins utilisées sortent d'abord).
 
 ### 4.4 Écrire un full test
 

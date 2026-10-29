@@ -244,6 +244,12 @@ jauge (`bleo_jauge`, `bleo_jauge_jours`), monter `par_jour` au-delà de
 6 semaines si la file à juger du label a de la place, le baisser après
 14 jours sous 1 semaine, et les lignes BLEO du point du matin.
 
+**Recherche d'images des podz (D38), mergée le 29/10.** L'action `images`
+rend la légende de chaque image (`legende`, en anglais) ; `npm run images --
+--cherche "mots"` ne garde que les images dont la légende contient chaque mot,
+les moins utilisées d'abord, et liste leurs légendes. Elle devient utile avec
+le rattrapage des légendes du 30/10.
+
 **Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
 en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
 rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine

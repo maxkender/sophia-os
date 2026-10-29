@@ -2247,6 +2247,12 @@ export const en = {
         libre: "Free",
         boiteVide: "Empty box.",
         premiers: "First {{n}} only.",
+        voirPost: "See the parent post as posted",
+        masquerPost: "Hide the post",
+        postTel: "Reference post ({{langue}}): {{vues}} views, r {{r}}",
+        slideAppli: "app",
+        meilleursPassages: "Best posts:",
+        aucunPost: "No published post yet for this content.",
         voie2:
           "Lane-2 labels (white_bg, mentalmaxxing, that_girl_study, Fathomly) remake the posts of a followed account: they have no box.",
       },

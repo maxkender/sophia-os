@@ -365,6 +365,44 @@ export async function listerBoite(labelId: string, limite = 200): Promise<LigneB
   return (data ?? []) as LigneBoite[];
 }
 
+/** Une slide du post parent, telle que postée (D37). */
+export interface SlidePostBoite {
+  position: number;
+  texte: string | null;
+  appli: boolean;
+  image: string | null;
+  inspiration: string | null;
+}
+
+export interface PassageBoite {
+  langue: string;
+  vues: number | null;
+  r: number | null;
+  url: string | null;
+}
+
+/** Une ligne de la boîte avec le post parent complet (`bleo_boite_posts`, 0609). */
+export interface LigneBoitePost {
+  rang: number;
+  sorte: "g1" | "g2";
+  accroche_attendue: "identique" | "reformulee";
+  accroche: string | null;
+  famille_id: string;
+  parent_contenu_id: string;
+  faites: number;
+  au_budget: boolean;
+  verdict_le: string | null;
+  parent: { titre: string | null; langue_source: string | null; generation: number | null; source_url: string | null } | null;
+  post: (PassageBoite & { slides: SlidePostBoite[] }) | null;
+  passages: PassageBoite[];
+}
+
+export async function listerBoitePosts(labelId: string, limite = 50): Promise<LigneBoitePost[]> {
+  const { data, error } = await supabase.rpc("bleo_boite_posts", { p_label_id: labelId, p_limite: limite });
+  if (error) throw error;
+  return (data ?? []) as LigneBoitePost[];
+}
+
 export async function listerLabelsBleo(): Promise<LabelBleo[]> {
   const { data, error } = await supabase.from("labels").select("id, slug, nom, voie").order("nom", { ascending: true });
   if (error) throw error;

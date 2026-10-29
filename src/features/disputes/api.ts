@@ -178,3 +178,11 @@ export async function enregistrerTexteContestation(cle: CleTexteContestation, te
     .upsert({ cle: CLES_TEXTES_CONTESTATION[cle], valeur: texte, updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() });
   if (error) throw error;
 }
+
+/** Prompt 26 : la raison du « Kill & don't pay » du samedi, si le freelance conteste. */
+export async function lireKillSansPaie(posterId: string): Promise<{ semaine: string; raison: string; montant: number | null } | null> {
+  const { data, error } = await supabase.from("paie_kills_sans_paie").select("semaine, raison, montant")
+    .eq("poster_id", posterId).is("annule_at", null).order("semaine", { ascending: false }).limit(1).maybeSingle();
+  if (error) throw error;
+  return (data as { semaine: string; raison: string; montant: number | null } | null) ?? null;
+}

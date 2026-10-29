@@ -21,6 +21,7 @@ import {
   enregistrerTexteContestation,
   lireContestations,
   lireDossier,
+  lireKillSansPaie,
   lireTextesContestation,
   repondreContestation,
   type CleTexteContestation,
@@ -79,6 +80,18 @@ export function PageDisputes() {
   );
 }
 
+/** Prompt 26 : la raison du « Kill & don't pay », gardée le samedi. */
+function RaisonKillSansPaie({ posterId }: { posterId: string }) {
+  const { t } = useTranslation();
+  const lu = useQuery({ queryKey: ["disputes", "kill-sans-paie", posterId], queryFn: () => lireKillSansPaie(posterId) });
+  if (!lu.data) return null;
+  return (
+    <p className="rounded-md border border-warning/40 bg-warning/10 px-2 py-1" data-testid="raison-kill-sans-paie">
+      {t("disputes.killSansPaie", { raison: lu.data.raison, semaine: lu.data.semaine, montant: lu.data.montant ?? "?" })}
+    </p>
+  );
+}
+
 function CarteContestation({ c }: { c: Contestation }) {
   const { t, i18n } = useTranslation();
   const [ouverte, setOuverte] = React.useState(false);
@@ -101,6 +114,7 @@ function CarteContestation({ c }: { c: Contestation }) {
           {c.texte ?? "—"}
         </p>
         {c.ferme_raison && <p className="text-muted-foreground">{t("disputes.fermeeRaison", { raison: c.ferme_raison })}</p>}
+        {(c.type === "kill" || c.type === "paie") && c.poster_id && <RaisonKillSansPaie posterId={c.poster_id} />}
         <Button size="sm" variant="outline" onClick={() => setOuverte(!ouverte)} aria-expanded={ouverte}>
           {ouverte ? t("disputes.masquer") : t("disputes.verifier")}
         </Button>

@@ -150,7 +150,8 @@ export function optionsFiltres(liste: readonly CompteSemaine[]) {
 // Prompt 25, partie 4 : le samedi (masterlist)
 // ---------------------------------------------------------------------------
 
-export type ChoixSamedi = "kill" | "double" | "keep";
+/** Prompt 26 : « kill » = Kill & pay (par défaut), « kill_np » = Kill & don't pay (raison obligatoire). */
+export type ChoixSamedi = "kill" | "kill_np" | "double" | "keep";
 
 /** La décision déjà prise sur la proposition du samedi, en Kill / Double / Keep. */
 export function decisionSamedi(c: Pick<CompteSemaine, "ckd_samedi_decision">): ChoixSamedi | null {
@@ -198,7 +199,7 @@ export function planSamedi(c: CompteSemaine, choix: ChoixSamedi): EtapeSamedi[] 
   const doubler = c.ckd_samedi_regle === "doubler";
   const refuser: EtapeSamedi[] = id ? [{ op: "decider", id, decision: doubler ? "pas_maintenant" : "garder" }] : [];
   if (choix === "keep") return refuser;
-  if (choix === "kill") {
+  if (choix === "kill" || choix === "kill_np") {
     return id && !doubler && c.ckd_samedi_action === "ne_pas_renouveler"
       ? [{ op: "decider", id, decision: "ne_pas_renouveler" }]
       : [...refuser, { op: "choisir", action: "ne_pas_renouveler" }];
@@ -272,5 +273,38 @@ export async function demanderArretSamedi(posterId: string, raison: string | nul
 /** Keep ou Postpone le samedi : la demande est classée, les relances reprennent. */
 export async function garderMalgreDemande(posterId: string): Promise<void> {
   const { error } = await supabase.rpc("demande_arret_garder", { p_poster: posterId });
+  if (error) throw error;
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 26 : le Kill du samedi, Kill & pay ou Kill & don't pay, avec la fiche
+// ---------------------------------------------------------------------------
+
+export const RAISONS_SANS_PAIE = ["faux_liens", "mauvais_compte", "fraude", "zero_post", "autre"] as const;
+export type RaisonSansPaie = (typeof RAISONS_SANS_PAIE)[number];
+
+export interface FicheSamedi {
+  posts: { jour: string; handle: string | null; url: string | null; vues: number | null; statut: string | null }[];
+  nudges: { type: string; at: string; canaux: string[] | null; canal: string | null; texte: string | null; erreur: string | null }[];
+  messages: { sens: "recu" | "envoye"; canal: string | null; at: string; texte: string | null; reponse?: string | null }[];
+  historique: {
+    cohorte: string | null;
+    comptes: { handle: string | null; actif: boolean; cree: string }[];
+    pauses: { debut: string; jusqu_au: string; raison: string | null }[];
+    kills_annules: number;
+  };
+  contrat: { id: string | null; url: string | null; freelance: string | null; tarif: number | null };
+  semaine: { faits: number; prevus: number; montant: number; action: string; raison: string | null } | null;
+}
+
+export async function lireFicheSamedi(posterId: string, lundi: string): Promise<FicheSamedi> {
+  const { data, error } = await supabase.rpc("samedi_fiche", { p_poster: posterId, p_lundi: lundi });
+  if (error) throw error;
+  return data as FicheSamedi;
+}
+
+/** Kill & don't pay : la raison (obligatoire) et le montant en jeu, gardés pour la paie de lundi et Disputes. */
+export async function noterKillSansPaie(posterId: string, lundi: string, raison: string, montant: number | null): Promise<void> {
+  const { error } = await supabase.rpc("kill_sans_paie_noter", { p_poster: posterId, p_semaine: lundi, p_raison: raison, p_montant: montant });
   if (error) throw error;
 }

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
 import { deciderCkd } from "@/features/ckd/api";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
@@ -14,6 +15,8 @@ import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 
 import type { ADecider } from "./api";
+import { FicheSamedi } from "./FicheSamedi";
+import { useFicheSamedi } from "./useFicheSamedi";
 import { lundiDeLaSemaine } from "./logique";
 import {
   type ChoixSamedi,
@@ -27,9 +30,13 @@ import {
   FILTRES_VIDES,
   filtrerComptes,
   lireRecruesSansReaction,
+  lireFicheSamedi,
   lireSemaineComptes,
   manqueRecrue,
+  noterKillSansPaie,
   planSamedi,
+  RAISONS_SANS_PAIE,
+  type RaisonSansPaie,
   type RecrueSansReaction,
   type Tri,
   trierComptes,
@@ -37,7 +44,42 @@ import {
 import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, Signaux, TD, TH } from "./TableauComptes";
 import { useRaison } from "./useRaison";
 
-const CHOIX: readonly ChoixSamedi[] = ["kill", "double", "keep"];
+const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep"];
+
+type RaisonSaisie = { code: RaisonSansPaie | ""; detail: string };
+/** La raison d'un Kill & don't pay, en clair (Disputes la montre si le freelance conteste). */
+const texteRaison = (r: RaisonSaisie | undefined, libelle: (c: RaisonSansPaie) => string) =>
+  r?.code ? [libelle(r.code), r.detail.trim()].filter(Boolean).join(" : ") : "";
+const raisonComplete = (r: RaisonSaisie | undefined) => Boolean(r?.code && (r.code !== "autre" || r.detail.trim()));
+
+/**
+ * Prompt 26 : Kill & don't pay : la raison obligatoire, le montant en jeu et
+ * l'avertissement (le freelance a 7 jours pour accepter le remboursement).
+ */
+function RaisonSansPaieSaisie({ posterId, lundi, valeur, onChange }: { posterId: string; lundi: string; valeur: RaisonSaisie; onChange: (r: RaisonSaisie) => void }) {
+  const { t } = useTranslation();
+  const fiche = useFicheSamedi(posterId, lundi, true);
+  const p = "autoOnglets.decisions.liste.samedi.sansPaie";
+  return (
+    <div className="space-y-1.5 rounded-md border border-destructive/40 bg-destructive/5 p-2 text-xs" data-testid="raison-sans-paie">
+      <p className="font-medium">{t(`${p}.enJeu`, { montant: fiche.data?.semaine?.montant ?? "…" })}</p>
+      <p className="text-destructive">{t(`${p}.avertissement`)}</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <select
+          className="h-8 rounded-md border bg-background px-2"
+          aria-label={t(`${p}.raison`)}
+          value={valeur.code}
+          onChange={(e) => onChange({ ...valeur, code: e.target.value as RaisonSaisie["code"] })}
+        >
+          <option value="">{t(`${p}.choisir`)}</option>
+          {RAISONS_SANS_PAIE.map((r) => <option key={r} value={r}>{t(`${p}.raisons.${r}`)}</option>)}
+        </select>
+        <Input className="h-8 max-w-md" aria-label={t(`${p}.detail`)} placeholder={t(`${p}.detail`)} value={valeur.detail}
+          onChange={(e) => onChange({ ...valeur, detail: e.target.value })} />
+      </div>
+    </div>
+  );
+}
 type ChoixRecrue = "kill" | "reporter" | "rien";
 const CHOIX_RECRUE: readonly ChoixRecrue[] = ["kill", "reporter", "rien"];
 
@@ -98,6 +140,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const recrues = useQuery({ queryKey: ["samedi-recrues", lundi], queryFn: () => lireRecruesSansReaction(lundi) });
   const demandes = useQuery({ queryKey: ["demandes-arret"], queryFn: lireDemandesArret });
   const [choix, setChoix] = React.useState<Record<string, ChoixSamedi>>({});
+  // Prompt 26 : la raison de chaque Kill & don't pay, et les fiches ouvertes.
+  const [raisons, setRaisons] = React.useState<Record<string, RaisonSaisie>>({});
+  const [ouverts, setOuverts] = React.useState<Record<string, boolean>>({});
   const [choixRecrues, setChoixRecrues] = React.useState<Record<string, ChoixRecrue>>({});
   const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
   const [tri, setTri] = React.useState<Tri>("posts_asc");
@@ -117,10 +162,24 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const recruesKill = (recrues.data ?? []).filter((r) => choixRecrueDe(r) === "kill");
   const recruesReport = (recrues.data ?? []).filter((r) => choixRecrueDe(r) === "reporter");
 
+  const libelleRaison = (c: RaisonSansPaie) => t(`autoOnglets.decisions.liste.samedi.sansPaie.raisons.${c}`);
+  const sansPaie = aDecider.filter((c) => choixDe(c) === "kill_np");
   const valider = useMutation({
     mutationFn: async () => {
       const erreurs: string[] = [];
       let decides = 0;
+      // Prompt 26 : Kill & don't pay : une raison pour chacun, puis le montant en jeu confirmé une 2e fois.
+      const montants = new Map<string, number | null>();
+      for (const c of sansPaie) {
+        const f = await qc.fetchQuery({ queryKey: ["samedi-fiche", c.poster_id, lundi], queryFn: () => lireFicheSamedi(c.poster_id, lundi) });
+        montants.set(c.compte_id, f.semaine?.montant ?? null);
+      }
+      if (sansPaie.length > 0) {
+        const total = [...montants.values()].reduce<number>((s, m) => s + Number(m ?? 0), 0);
+        if (!window.confirm(t("autoOnglets.decisions.liste.samedi.sansPaie.confirm", { n: sansPaie.length, total }))) {
+          return { decides: 0, kills: 0, reports: 0, erreurs: [t("autoOnglets.decisions.liste.samedi.sansPaie.annule")] };
+        }
+      }
       for (const c of aDecider) {
         const etapes = planSamedi(c, choixDe(c));
         try {
@@ -129,6 +188,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             else await deciderCkd(await choisirSamedi(c.compte_id, e.action), e.action, null);
           }
           if (etapes.length) decides++;
+          if (choixDe(c) === "kill_np") await noterKillSansPaie(c.poster_id, lundi, texteRaison(raisons[c.compte_id], libelleRaison), montants.get(c.compte_id) ?? null);
         } catch (err) {
           erreurs.push(`@${c.handle ?? "?"} : ${(err as Error).message}`);
         }
@@ -166,6 +226,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     },
     onSuccess: (r) => {
       setChoix({});
+      setRaisons({});
       setChoixRecrues({});
       setBilan(t("autoOnglets.decisions.liste.samedi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
       void qc.invalidateQueries({ queryKey: ["semaine-comptes"] });
@@ -205,8 +266,10 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
               <tbody>
                 {visibles.map((c) => {
                   const prise = decisionSamedi(c);
+                  const np = !prise && choixDe(c) === "kill_np";
                   return (
-                    <tr key={c.compte_id} className="border-b border-border/40" data-compte={c.handle ?? c.compte_id}>
+                    <React.Fragment key={c.compte_id}>
+                    <tr className="border-b border-border/40" data-compte={c.handle ?? c.compte_id}>
                       <td className={TD}>
                         <Choix
                           valeur={choixDe(c)}
@@ -219,6 +282,13 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                       </td>
                       <td className={TD}>
                         <CelluleCompte c={c} />
+                        <button
+                          type="button"
+                          className="mt-1 text-[11px] text-primary underline"
+                          onClick={() => setOuverts((x) => ({ ...x, [c.compte_id]: !x[c.compte_id] }))}
+                        >
+                          {t(ouverts[c.compte_id] ? "autoOnglets.decisions.liste.samedi.fiche.masquer" : "autoOnglets.decisions.liste.samedi.fiche.voir")}
+                        </button>
                       </td>
                       <td className={`${TD} text-xs`}>{c.pays ?? "—"}</td>
                       <CellulesJours c={c} aujourdhui={jusqu} />
@@ -242,6 +312,24 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                         <Proposition c={c} demande={demandeCompte(c)} />
                       </td>
                     </tr>
+                    {(np || ouverts[c.compte_id]) && (
+                      <tr className="border-b border-border/40 bg-muted/20" data-fiche={c.handle ?? c.compte_id}>
+                        <td className={TD} colSpan={jours.length + 8}>
+                          <div className="space-y-2">
+                            {np && (
+                              <RaisonSansPaieSaisie
+                                posterId={c.poster_id}
+                                lundi={lundi}
+                                valeur={raisons[c.compte_id] ?? { code: "", detail: "" }}
+                                onChange={(r) => setRaisons((x) => ({ ...x, [c.compte_id]: r }))}
+                              />
+                            )}
+                            {ouverts[c.compte_id] && <FicheSamedi posterId={c.poster_id} lundi={lundi} />}
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                    </React.Fragment>
                   );
                 })}
               </tbody>
@@ -283,19 +371,23 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       <div className="sticky bottom-0 flex flex-wrap items-center gap-3 border-t bg-background py-3">
         <Badge variant="info">
           {t("autoOnglets.decisions.liste.samedi.compte", {
-            kills: compte("kill"),
+            kills: compte("kill") + compte("kill_np"),
             doubles: compte("double"),
             keeps: compte("keep"),
             recrues: recruesKill.length + recruesReport.length,
           })}
         </Badge>
+        {admin && sansPaie.some((c) => !raisonComplete(raisons[c.compte_id])) && (
+          <span className="text-xs text-destructive">{t("autoOnglets.decisions.liste.samedi.sansPaie.manque")}</span>
+        )}
         {admin && (
           <Button
             data-action="valider-samedi"
             loading={valider.isPending}
+            disabled={sansPaie.some((c) => !raisonComplete(raisons[c.compte_id]))}
             onClick={() => {
               if (window.confirm(t("autoOnglets.decisions.liste.samedi.confirm", {
-                kills: compte("kill") + recruesKill.length, doubles: compte("double"), reports: recruesReport.length,
+                kills: compte("kill") + compte("kill_np") + recruesKill.length, doubles: compte("double"), reports: recruesReport.length,
               }))) valider.mutate();
             }}
           >

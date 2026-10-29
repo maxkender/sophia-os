@@ -20,6 +20,8 @@ export const GROUPES_TEXTES = [
   "lien1000",
   "reponses",
   "paie",
+  "slack_lien",
+  "lien_post",
 ] as const;
 export type GroupeTexte = (typeof GROUPES_TEXTES)[number];
 
@@ -62,6 +64,9 @@ export const TEXTES: readonly TexteCatalogue[] = [
   { id: "handle_excuse", groupe: "handle", cle: "handle_excuse_texte", variables: ["prenom", "handle"] },
   { id: "handle_trouve", groupe: "handle", cle: "handle_trouve_texte", variables: ["handle"] },
   { id: "handle_pas_trouve", groupe: "handle", cle: "handle_pas_trouve_texte", variables: ["handle"] },
+  // Prompt 25 MAJ, 7a et 7d : le DM de liaison Slack, le lien de post introuvable.
+  { id: "slack_lien_dm", groupe: "slack_lien", cle: "slack_lien_dm_texte", variables: ["lien"] },
+  { id: "lien_introuvable", groupe: "lien_post", cle: "lien_introuvable_texte", variables: ["prenom", "lien"] },
   { id: "kill", groupe: "kill", cle: "kill_message_texte", variables: ["prenom"] },
   { id: "kill_moins6", groupe: "kill", cle: "kill_moins6_texte", variables: ["prenom", "n"] },
   { id: "arret", groupe: "arret", cle: "arret_message_texte", variables: [] },

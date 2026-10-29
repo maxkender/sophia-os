@@ -20,6 +20,9 @@ export const INTERRUPTEURS = [
   "kill_message_auto",
   "arret_auto",
   "reponses_auto",
+  // Prompt 25 MAJ, 7a et 7d (0450) : off au départ.
+  "slack_lien_dm_auto",
+  "lien_introuvable_auto",
 ] as const;
 export type CleInterrupteur = (typeof INTERRUPTEURS)[number];
 

@@ -38,6 +38,24 @@ export const fr = {
       echec: "Pas parti : {{erreur}}",
     },
     // Prompt 25 v4 (0441) : Recruitment Automation → Onboarding posters.
+    slackLier: {
+      aide: "Relie ton compte Slack pour qu'on sache que c'est toi.",
+      bouton: "Connect my Slack",
+      indisponible: "Pas encore disponible : clique le lien que notre bot t'a envoyé sur Slack.",
+      enCours: "Liaison de ton compte Slack…",
+      ok: "✓ Ton compte Slack est relié.",
+      retour: "Retour à mon dashboard",
+      erreurs: {
+        jeton_invalide: "Ce lien ne marche pas. Clique le dernier lien que notre bot t'a envoyé sur Slack.",
+        jeton_utilise: "Ce lien a déjà servi pour un autre compte.",
+        jeton_expire: "Ce lien a expiré. Demande-en un nouveau à ta manager.",
+        pris: "Ce compte Slack est déjà relié à un autre profil. Contacte ta manager.",
+        autre: "On n'a pas pu relier ton compte Slack. Contacte ta manager.",
+        etat: "La connexion Slack a expiré. Réessaie « Connect my Slack ».",
+        connexion: "Connecte-toi d'abord à ton dashboard, puis reclique le lien.",
+        autre_workspace: "Ce compte Slack n'est pas dans notre workspace. Rejoins d'abord notre Slack.",
+      },
+    },
     onboardingPosters: {
       titre: "Onboarding posters ({{n}})",
       vide: "Aucune recrue pour ces filtres.",
@@ -251,6 +269,7 @@ export const fr = {
           handle_upwork: "@ TikTok introuvable (Upwork, après 24 h)",
           handle_excuse: "Excuse : « create your account » à tort",
           lundi_soir: "Lundi 20 h",
+          lien_introuvable: "Lien de post introuvable (24 h)",
         },
       },
       apercu: {
@@ -349,6 +368,8 @@ export const fr = {
           lien1000: { titre: "Lien à 1 000 abonnés", quand: "Sur le tableau de bord, quand le compte passe 1 000 abonnés, puis une relance." },
           reponses: { titre: "Les 4 réponses automatiques", quand: "Aux messages reçus, selon le cas (Messages reçus)." },
           paie: { titre: "Paie", quand: "Milestone pas soumise et réponses aux questions de paie, sur Upwork." },
+          slack_lien: { titre: "Liaison Slack", quand: "À l'arrivée sur Slack, si l'OS ne peut pas relier le membre à un profil (interrupteur « Slack : DM de liaison à l'arrivée »)." },
+          lien_post: { titre: "Lien de post introuvable", quand: "24 h après la publication, lien toujours introuvable sur le profil (interrupteur « Lien de post introuvable »)." },
         },
         items: {
           accueil: "Message de bienvenue",
@@ -362,6 +383,8 @@ export const fr = {
           handle_excuse: "Excuse pour un « create your account » à tort (rattrapage du 29/10, To approve)",
           handle_trouve: "Dashboard : le @ donné est trouvé",
           handle_pas_trouve: "Dashboard : le @ donné est toujours introuvable",
+          slack_lien_dm: "DM à l'arrivée sur Slack ({lien} = son lien personnel)",
+          lien_introuvable: "On ne trouve pas ce post ({lien} = le ou les liens)",
           lundi_tous: "À tous",
           lundi_cohorte: "Nouvelle cohorte, prête",
           lundi_warmup: "Nouvelle cohorte, pas prête",
@@ -3840,6 +3863,14 @@ export const fr = {
         titre: "Relances des recrues",
         on: "Chaque jour, entre 10 h et 20 h heure du pays : UNE relance par recrue avec seulement ce qui lui manque (connexion avec son e-mail et son mot de passe, compte TikTok, Start warmup, abonnements). Sur Slack, ou sur Upwork seulement si elle n'est pas sur Slack, dans le budget Upwork du jour. Start warmup cliqué mais compte introuvable : aucun message, la recrue va dans Needs you. Approve : les relances attendent dans Messages sent → To approve et ne partent qu'après « Send selected ». Le nudge du jeudi n'a pas d'interrupteur : il part seulement depuis Weekly decisions → Thursday.",
       },
+      slack_lien_dm_auto: {
+        titre: "Slack : DM de liaison à l'arrivée",
+        on: "Quand quelqu'un rejoint Slack et que l'OS ne peut pas le relier à un profil (par e-mail ou par nom), le bot lui envoie un DM : « Welcome! Click here to link your account: {lien} ». Le lien ouvre son dashboard et relie son Slack. Test : le lien est créé, rien ne part.",
+      },
+      lien_introuvable_auto: {
+        titre: "Lien de post introuvable",
+        on: "Un lien de post que l'OS ne retrouve toujours pas sur le profil 24 h après la publication : UN message au posteur (Slack, ou Upwork s'il n'est pas sur Slack, 10 h-20 h heure locale) : « We can't find this post on your profile. Is it public and still online? ». Une fois par lien. Needs you garde une seule ligne par posteur.",
+      },
       reponses_auto: {
         titre: "L'OS lit et répond",
         on: "Les messages des posteurs (DM Slack, boutons Done / I need help / I want to stop, conversation Upwork lue 2 fois par jour) sont classés par l'IA (seuil 0,8). « Je ne veux plus » : arrêt complet. Question sur le travail : réponse depuis le guide (augmentation : « The rate is fixed. » ; son propre compte : « Please use the account your dashboard gives you. » ; sur Upwork : renvoyé vers Slack). Question de paie : liste, sans réponse. Malade ou absent : relances en pause, 7 jours au plus. Le reste : « À lire ». 3 réponses automatiques par posteur et par jour au plus.",
@@ -4327,6 +4358,7 @@ export const fr = {
         envoi_main_introuvable: "Sent cliqué par la HM, message introuvable sur Upwork",
         warmup_capture: "Warm-up fini : capture à vérifier",
         handle_probable: "@ TikTok probable",
+        slack_non_lie: "Membre Slack relié à aucun profil (24 h)",
         a_payer_avant_fermeture: "À payer ou rembourser avant fermeture",
         samedi_non_valide: "Décision du samedi pas validée",
         upwork_limite: "Upwork limite les appels (429)",
@@ -6308,6 +6340,7 @@ export const fr = {
       delaiBouton: "Disponible dans {{minutes}} min",
       delaiRefus:
         "Trop tôt : attends encore {{minutes}} min avant de publier sur ce compte.",
+      lienAutreCompte: "Ce lien vient de @{{lien}}, pas de ton compte @{{compte}}. Colle le lien du post publié sur ton compte.",
       lienDejaUtilise:
         "Ce lien est déjà sur un autre de tes slideshows (marqué le {{date}}). Si tu l'as collé sur le mauvais, ouvre ce slideshow, touche Modifier le lien, colle le lien de son propre post, puis reviens ici. Sinon, ouvre le post de CE slideshow sur TikTok, touche Partager puis Copier le lien, et colle-le ici.",
       lienDejaUtiliseOuvrir: "Ouvrir l'autre slideshow →",

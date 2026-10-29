@@ -198,6 +198,8 @@ async function reglages(supabase: Supabase) {
       "accueil_auto",
       "accueil_message_texte",
       "freins_envoi",
+      "lien_introuvable_auto",
+      "lien_introuvable_texte",
     ]);
   if (error) throw error;
   const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -254,7 +256,17 @@ async function reglages(supabase: Supabase) {
     heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
     // Prompt 25 MAJ : les freins (plafond par type et par heure ; part des destinataires qui avaient déjà fait l'étape).
     freins: lireFreins(v.freins_envoi),
+    // Prompt 25 MAJ, 7d : « We can't find this post on your profile » (off par défaut).
+    lienIntrouvable: (v.lien_introuvable_auto === "on" || v.lien_introuvable_auto === "test" ? v.lien_introuvable_auto : "off") as "off" | "test" | "on",
+    texteLienIntrouvable: relance("lien_introuvable_texte", TEXTE_LIEN_INTROUVABLE_DEFAUT),
   };
+}
+
+/** Prompt 25 MAJ, 7d : le texte par défaut (réglage `lien_introuvable_texte`). */
+const TEXTE_LIEN_INTROUVABLE_DEFAUT = "Hi {prenom}, we can't find this post on your profile: {lien}. Is it public and still online?";
+
+function texteLienIntrouvable(modele: string, o: { prenom: string | null; liens: string[] }): string {
+  return modele.replace(/\{prenom\}/g, (o.prenom ?? "").trim() || "there").replace(/\{lien\}/g, o.liens.join(" "));
 }
 
 function lireFreins(v: unknown): { plafondHeure: number; partDejaFaite: number } {
@@ -660,6 +672,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     await semaine(supabase, r, recrues, maintenant, bilan);
     // Pipeline, partie 2 : le check du lundi soir (1er jour de posts).
     await lundiSoir(supabase, r, maintenant, bilan);
+    // Prompt 25 MAJ, 7d : un lien de post introuvable 24 h après : un message au posteur (interrupteur à part).
+    await liensIntrouvables(supabase, r, maintenant, bilan).catch((e) => bilan.erreurs.push(`liens introuvables : ${messageErreur(e)}`));
 
     // Les inactifs : Nudge du jeudi envoyé, rien publié depuis vendredi 20 h (0404).
     const { error: errInactifs } = await supabase.rpc("inactifs_marquer");
@@ -1360,6 +1374,7 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     if ((l.type === "relance" || l.type === "handle" || l.type === "handle_upwork") && !(r.mode === "on" || (surTest && r.mode !== "off"))) continue;
     if (l.type === "lundi_soir" && r.lundiSoir !== "on") continue;
     if (l.type === "lundi" && r.lundi !== "on") continue;
+    if (l.type === "lien_introuvable" && r.lienIntrouvable !== "on") continue;
     if (l.type === "accueil" && !(r.accueil === "on" || (surTest && r.accueil !== "off"))) continue;
     // Prompt 25 MAJ : un type en pause (frein) ne part plus ; il reste dans la file.
     if (freins.has(l.type)) continue;
@@ -1420,6 +1435,19 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
         continue;
       }
     }
+    // Prompt 25 MAJ, 7d : les liens sont-ils toujours introuvables (ni résolus, ni comptés à la main) ?
+    if (l.type === "lien_introuvable") {
+      const ids = Array.isArray(l.donnees?.passages) ? (l.donnees.passages as string[]) : [];
+      const { data: encore } = ids.length
+        ? await supabase.from("passages").select("id").in("id", ids).is("lien_confirme_at", null).in("resolution_statut", ["introuvable", "a_resoudre"])
+        : { data: [] };
+      if (!encore?.length) {
+        await marquer(l, "perime");
+        bilan.file.perimes++;
+        sortir();
+        continue;
+      }
+    }
     // La bienvenue : une seule fois.
     if (l.type === "accueil") {
       const { data: a } = await supabase.from("accueils").select("statut").eq("poster_id", l.poster_id).maybeSingle();
@@ -1431,9 +1459,9 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     }
     // Un seul message par personne : un autre profil sur le même Slack ou le même contrat.
     const personne = { poster_id: l.poster_id, slack_user_id: p.slack_user_id, contrat_id: contrat };
-    const slack = ["relance", "jeudi", "lundi", "handle", "handle_excuse"].includes(l.type) && Boolean(p.slack_user_id);
+    const slack = ["relance", "jeudi", "lundi", "handle", "handle_excuse", "lien_introuvable"].includes(l.type) && Boolean(p.slack_user_id);
     // 0444 : le @ introuvable et l'excuse : Slack s'il y est, sinon Upwork ; le 2e message : Upwork seulement.
-    let upworkVoulu = Boolean(contrat) && (!["lundi", "handle", "handle_excuse"].includes(l.type) || !slack);
+    let upworkVoulu = Boolean(contrat) && (!["lundi", "handle", "handle_excuse", "lien_introuvable"].includes(l.type) || !slack);
     if (l.type === "relance" && !upworkPourRelance(r, bilan, l.poster_id, Boolean(p.slack_user_id))) upworkVoulu = false;
     // Prompt 25 MAJ : le nudge du jeudi part sur Slack seulement.
     if (l.type === "jeudi") upworkVoulu = false;
@@ -2478,4 +2506,54 @@ function ajouterJoursIso(jour: string, n: number): string {
   const d = new Date(`${jour}T12:00:00Z`);
   d.setUTCDate(d.getUTCDate() + n);
   return d.toISOString().slice(0, 10);
+}
+
+// ---------------------------------------------------------------------------
+// Prompt 25 MAJ, 7d : le lien d'un post introuvable 24 h après
+// ---------------------------------------------------------------------------
+
+interface LiensIntrouvables {
+  poster_id: string;
+  prenom: string | null;
+  fuseau: string;
+  passages: string[];
+  liens: string[];
+  depuis: string;
+}
+
+/**
+ * Un lien collé que l'OS ne retrouve pas sur le profil 24 h après : « We can't
+ * find this post on your profile. Is it public and still online? », une fois
+ * par lien (passages.lien_message_at), dans la fenêtre 10 h-20 h locale, par la
+ * file (revérifié à l'envoi). Needs you garde une seule ligne par posteur.
+ */
+async function liensIntrouvables(supabase: Supabase, r: Reglages, maintenant: Date, bilan: Bilan) {
+  if (r.lienIntrouvable === "off" || bilan.rappelsEnPause) return;
+  if (bilan.automationPause) {
+    await noterBloquee(supabase, { fonction: "recrues-check", action: "lien_introuvable" });
+    return;
+  }
+  const { data, error } = await supabase.rpc("liens_introuvables_a_prevenir");
+  if (error) throw error;
+  for (const p of (data ?? []) as LiensIntrouvables[]) {
+    if (bilan.pauses?.has(p.poster_id)) continue;
+    if (!dansFenetre(maintenant, p.fuseau, r.etapes as unknown as Delais)) continue;
+    const periode = partiesLocales(maintenant, p.fuseau).date;
+    if (bilan.prevuesConnues?.has(clePrevue(p.poster_id, "lien_introuvable", periode))) continue;
+    const texte = texteLienIntrouvable(r.texteLienIntrouvable, { prenom: p.prenom, liens: p.liens });
+    const donnees = { passages: p.passages, liens: p.liens, depuis: p.depuis };
+    const test = r.lienIntrouvable === "test";
+    const { error: e } = await supabase.from("relances_prevues").upsert({
+      poster_id: p.poster_id, type: "lien_introuvable", periode, statut: "prevu", canal: null, texte, donnees,
+      raison: test ? "simulation" : "auto", ...(test ? {} : { valide_at: new Date().toISOString() }), maj_at: new Date().toISOString(),
+    });
+    if (e) {
+      bilan.erreurs.push(`lien introuvable ${p.poster_id} : ${e.message}`);
+      continue;
+    }
+    bilan.prevuesConnues?.add(clePrevue(p.poster_id, "lien_introuvable", periode));
+    bilan.prevus++;
+    // Un seul message par lien : sur On, les liens sont notés dès qu'il est dans la file.
+    if (!test) await supabase.from("passages").update({ lien_message_at: new Date().toISOString() }).in("id", p.passages);
+  }
 }

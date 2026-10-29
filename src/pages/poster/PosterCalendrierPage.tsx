@@ -26,6 +26,7 @@ import {
 } from "@/features/moteur/api";
 import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
 import { MonCompteTiktok } from "@/features/onboarding/MonCompteTiktok";
+import { ConnecterSlack } from "@/features/onboarding/ConnecterSlack";
 import { StartWarmupHandle } from "@/features/onboarding/StartWarmupHandle";
 import { WarmupFiniCapture } from "@/features/onboarding/WarmupFiniCapture";
 import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
@@ -517,6 +518,9 @@ export function PosterCalendrierPage() {
         )}
       </div>
       )}
+
+      {/* Prompt 25 MAJ, 7a : relier son Slack (l'étape 0 n'est cochée qu'une fois relié). */}
+      {!debutRuul && <ConnecterSlack />}
 
       {debutRuul && <BandeauCohorteRuul />}
 

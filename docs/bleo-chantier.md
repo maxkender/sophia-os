@@ -228,6 +228,22 @@ podz passent à `type_bleo` avec les routines (lundi), puis
 `type_obligatoire = true`. D30 (accroche à peine reformulée d'une famille
 gagnante) reste à décider : pas encore de refus.
 
+**Routines des podz (L4, P2 et P3), mergées le 29/10.** `pods/ROUTINE.md` en
+deux parties : voie 1 sur la boîte (lire la boîte, composer le jour : demandes
+du chef, full tests de la jauge, déclinaisons dans l'ordre ; écrire une G1, une
+G2, un full test ; que faire de chaque refus du guichet) et voie 2 inchangée
+(D25). L'ancienne routine est gardée dans `pods/ROUTINE-avant-bleo.md`. **La
+bascule des podz est un réglage** : tant que `reglages.bleo.podz.type_obligatoire`
+est faux, `npm run boite` affiche « podz sur BLEO : pas encore » et la voie 1
+suit la routine d'avant ; le passer à vrai lundi 2/11 avant 6 h fait passer les
+7 podz sur la boîte (et le guichet refuse alors un dépôt sans `type_bleo`).
+Retour en arrière : le repasser à faux. Les 7 `AGENT.md` de la voie 1 ont un
+encadré qui dit ce qui ne vaut plus (preuve, veille, variantes, essais) ; le
+nettoyage de leur texte viendra après la bascule. `pods/chef/AGENT.md` : la
+jauge (`bleo_jauge`, `bleo_jauge_jours`), monter `par_jour` au-delà de
+6 semaines si la file à juger du label a de la place, le baisser après
+14 jours sous 1 semaine, et les lignes BLEO du point du matin.
+
 **Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
 en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
 rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine
@@ -283,6 +299,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0613_bleo_contenus_textes` | Texte et image de la slide 1, première ligne de la slide 2, dans `bleo_contenus_ui` (fiche famille) | Appliquée |
 | `0614_bleo_mode_actif` | Le tirage de 14 h tourne aussi en mode `actif` (`bleo_tirage` et `bleo_tirage_cron` patchées en place : ils ne tiraient qu'en `ombre`) ; `bleo_changer_mode(p_mode)`, l'interrupteur, admin seulement, avec les 20 derniers changements dans `reglages.bleo.mode_historique` | Appliquée le 29/10 (mode resté `ombre`) |
 | `0615_bleo_guichet` | L4 : `bleo_verifier_depot(label, type_bleo, parent, accroche_norm, livraison)` juge un dépôt de podz (13 codes de refus, voir plus bas) ; `reglages.bleo.podz.type_obligatoire` (faux jusqu'à la bascule des podz) | Appliquée le 29/10, testée sur les données réelles (chaque code) |
+| `0616_bleo_jauge_jours` | La jauge des podz photographiée chaque jour à 5 h 40 (`bleo_jauge_jours`, cron `bleo-jauge-photo`) : la règle de baisse du chef (14 jours sous 1 semaine) et le suivi avant/après en ont besoin | Appliquée le 29/10, première photo prise |
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 

@@ -7,6 +7,19 @@ tu les fais de bout en bout et tu rends compte. Tu ne publies jamais rien : tout
 ce que tu écris part dans la **file de validation** de l'OS (Pilotage → Pods),
 où un humain valide ou rejette.
 
+> **BLEO, voie 1 (bascule des podz, lundi 2/11).** Quand `npm run boite`
+> affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
+> - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
+>   la **jauge** combien de full tests déposer ;
+> - chaque original déclare `"type_bleo"` : `"declinaison"` avec
+>   `"parent_contenu_id"`, ou `"full_test"` ; ni `schema_id` ni preuve ;
+> - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
+>   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
+>   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - le reste vaut toujours : le ton, le format, la recette, les images, les
+>   applis concurrentes et les personnes réelles, le playbook comme mémoire
+>   (`npm run playbook -- --mesurer`).
+
 ## Ce que fait le pod
 - **Label** : `weird_alpha`, le meilleur label du catalogue. Ses contenus viennent
   de 3 comptes source ; **@mentoridaily** est celui qui marche le mieux chez nous :
@@ -84,7 +97,7 @@ ou de déposer.
   rebuilt my confidence »), avant/après. Les variantes des percées gardent le
   fond de l'original mais prennent aussi une accroche hors de ce schéma.
   Jamais deux fois la même accroche ni la même image d'accroche dans un lot.
-- **Reprises (Adrien, 28/10, `pods/ROUTINE.md` §4.7)** : reprendre un titre de
+- **Reprises (Adrien, 28/10, `pods/ROUTINE.md` §4.3, §4.7 avant BLEO)** : reprendre un titre de
   slide 1 ou une couverture est permis, c'est le principe des variantes. Seule
   règle : **jamais deux posts identiques**, chaque reprise change quelque chose
   (autres items, autre angle, autre image ou autre CTA). Varie quand même :

@@ -161,8 +161,10 @@ Ce qui reste de la spec et vaut toujours pour l'appel unique :
 2. Ajouter l'installation de Deno au script de démarrage de l'environnement.
 3. Réécriture native (plan du 29/10) : les comptes allemands de la banque
    d'exemples (bloquant pour la fiche allemande). Angles micabo et UnSwipe :
-   tranché le 29/10, on part avec la fiche appli seule. Restent : liberté du
-   CTA, concurrent en essai, plafond de dépense.
+   tranché le 29/10, on part avec la fiche appli seule. Concurrent en essai :
+   **non** (29/10), la slide qui cite un concurrent est toujours remplacée par
+   notre appli (Sophia, UnSwipe ou micabo, selon le compte) et aucun concurrent n'est publié (règle actuelle, `reprise` +
+   `sansConcurrent`). Restent : liberté du CTA, plafond de dépense.
 4. Avant L3 : ajouter @sofiya.yussupova comme source de clean_study.
 
 ## Calendrier visé
@@ -302,3 +304,5 @@ recalculée à la main, rejouabilité, derniers plans).
 - **29/10, fin de soirée** : relecteurs recrutés gardés pour après le démarrage
   (réécriture et correction de posts) ; angles micabo et UnSwipe : fiche appli
   seule ; légendes des 13 419 images des podz lancées le 30/10 à 10 h.
+- **29/10, fin de soirée (suite)** : pas de concurrent en essai (Adrien) : la slide
+  concurrente est remplacée par notre appli (Sophia, UnSwipe ou micabo), comme aujourd'hui.

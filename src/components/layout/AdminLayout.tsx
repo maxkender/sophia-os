@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import {
   AtSign,
   BarChart3,
-  BellRing,
   BookOpen,
   CalendarDays,
   Columns2,
@@ -14,7 +13,11 @@ import {
   Gavel,
   Gauge,
   LineChart,
+  Inbox,
+  LayoutDashboard,
   ListChecks,
+  ListTodo,
+  type LucideIcon,
   Gift,
   Images,
   Languages,
@@ -27,15 +30,16 @@ import {
   PenLine,
   Boxes,
   Scale,
+  Send,
   Settings,
   Tags,
   Users,
-  UsersRound,
   UserPlus,
   Wallet,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
+import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestationsAVerifier } from "@/features/moteur/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
@@ -45,6 +49,18 @@ import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 import type { NavGroup } from "./Sidebar";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
+
+/** Les icônes des pages de Recruitment Automation (prompt 22). */
+const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
+  overview: LayoutDashboard,
+  recruits: Workflow,
+  decisions: Gavel,
+  sent: Send,
+  received: Inbox,
+  payroll: Wallet,
+  faq: MessageCircle,
+  logs: ListTodo,
+};
 
 export function AdminLayout() {
   const { t } = useTranslation();
@@ -119,6 +135,16 @@ export function AdminLayout() {
         ) : undefined
       }
       groups={filtrer([
+        // Prompt 22 : tout le système du 2 nov. en une section, en tête.
+        {
+          title: t("auto.section"),
+          items: PAGES_AUTO.map((p) => ({
+            to: p.to,
+            label: t(`auto.pages.${p.cle}.titre`),
+            icon: ICONES_AUTO[p.cle],
+            description: t(`auto.pages.${p.cle}.phrase`),
+          })),
+        },
         {
           items: [
             { to: "/admin", label: t("nav.pilotage"), icon: Gauge, description: t("navDesc.pilotage") },
@@ -185,49 +211,9 @@ export function AdminLayout() {
             // à relier sortent du menu (routes gardées) : les inactifs sont dans
             // Decisions et dans un filtre de Posters, Slack se relie dans la
             // fiche du posteur.
-            // Pipeline (0407) : en 1re position du suivi, avant Cohorts.
-            {
-              to: "/admin/pipeline",
-              label: t("pipeline.nav"),
-              icon: Workflow,
-              description: t("pipeline.navDesc"),
-            },
-            {
-              to: "/admin/cohortes",
-              label: t("cohortes.nav"),
-              icon: UsersRound,
-              description: t("cohortes.navDesc"),
-            },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
-            // Account watch : retirée du menu (prompt 15, point 1), la route /admin/surveillance reste.
-            {
-              to: "/admin/check-kill-double",
-              label: t("nav.checkKillDouble"),
-              icon: Gavel,
-              description: t("navDesc.checkKillDouble"),
-            },
-            // Toujours visible : le recrutement relève de l'identité des
-            // comptes, qui reste Sophia quelle que soit l'application choisie.
-            {
-              to: "/admin/recrutements",
-              label: t("nav.recrutements"),
-              icon: UserPlus,
-              description: t("navDesc.recrutements"),
-              end: false,
-            },
-            { to: "/admin/paie", label: t("paie.nav"), icon: Wallet, description: t("paie.navDesc") },
-            {
-              to: "/admin/nudges",
-              label: t("nudges.nav"),
-              icon: BellRing,
-              description: t("nudges.navDesc"),
-            },
-            {
-              to: "/admin/reponses",
-              label: t("reponses.nav"),
-              icon: MessagesSquare,
-              description: t("reponses.navDesc"),
-            },
+            // Account watch, Recruiting, Reviews, Cohorts, Follow-ups, Replies, Payroll, Pipeline,
+            // Decisions : dans Recruitment Automation ou retirés (prompt 22), anciennes adresses redirigées.
             {
               to: "/admin/analytics",
               label: t("nav.analytics"),
@@ -239,12 +225,6 @@ export function AdminLayout() {
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
-            },
-            {
-              to: "/admin/reviews",
-              label: t("nav.reviews"),
-              icon: MessageSquareQuote,
-              description: t("navDesc.reviews"),
             },
             {
               to: "/admin/retours-contestes",
@@ -328,12 +308,6 @@ export function AdminLayout() {
               label: t("documents.nav"),
               icon: BookOpen,
               description: t("documents.navDesc"),
-            },
-            {
-              to: "/admin/assistant",
-              label: t("chatbot.nav"),
-              icon: MessageCircle,
-              description: t("chatbot.navDesc"),
             },
           ],
         },

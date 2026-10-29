@@ -447,7 +447,7 @@ function EtatRelances() {
   return (
     <p className="text-sm" data-testid="etat-relances">
       {t("cohortes.relances", { mode: t(`nudges.mode.${r.data.mode}`) })}{" "}
-      <Link to="/admin/nudges" className="text-primary underline-offset-2 hover:underline">
+      <Link to="/admin/auto/sent" className="text-primary underline-offset-2 hover:underline">
         {t("cohortes.relancesLien")}
       </Link>
     </p>

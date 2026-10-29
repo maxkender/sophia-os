@@ -3181,6 +3181,20 @@ export const fr = {
         vers: "→ zone {{zone}}",
       },
     },
+    auto: {
+      section: "Automatisation du recrutement",
+      pages: {
+        overview: { titre: "Vue d'ensemble", phrase: "Tout ce que fait l'automatisation, sur une page. Le bouton rouge arrête toutes les actions automatiques." },
+        recruits: { titre: "Recrues", phrase: "Chaque recrue, de l'offre acceptée au 1er jour posté, en direct." },
+        decisions: { titre: "Décisions de la semaine", phrase: "Jeudi : un nudge à tous ceux qui ont un problème. Samedi : Kill ou Double. Comptes morts : Recreate." },
+        sent: { titre: "Messages envoyés", phrase: "Chaque message que l'OS envoie aux recrues et aux posteurs, et les textes qu'il utilise." },
+        received: { titre: "Messages reçus", phrase: "Tout ce que les posteurs nous écrivent, trié par l'OS." },
+        payroll: { titre: "Paie", phrase: "La paie du lundi pour la semaine qui vient de finir." },
+        faq: { titre: "Bot FAQ", phrase: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas." },
+        logs: { titre: "Journal et à faire", phrase: "Ce qui t'attend, ce qui est cassé, et tout ce que l'automatisation a fait." },
+      },
+      logs: { vide: "Rien pour l'instant." },
+    },
     pipeline: {
       nav: "Pipeline",
       navDesc: "Toutes les recrues, de l'offre acceptée au 1er jour de posts, en direct",

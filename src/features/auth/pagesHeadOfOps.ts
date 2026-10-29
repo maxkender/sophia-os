@@ -18,30 +18,24 @@
  * ancien, et qui n'a RIEN de tout ceci : il garde son seul espace recrutement.
  */
 
+import { PAGES_AUTO } from "@/features/auto/pages";
+
 /** Les pages de l'espace admin ouvertes au Head of Ops. */
 export const ROUTES_HO: readonly string[] = [
+  // Prompt 22 : Recruitment Automation, les 8 pages (Overview et Messages sent
+  // en lecture : interrupteurs et textes admin seulement, vérifiés en base).
+  ...PAGES_AUTO.map((p) => p.to),
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters
-  "/admin/surveillance", // Account watch
-  "/admin/reviews", // Reviews
-  "/admin/retours-contestes", // Retours que les créateurs disent faux : vérifier, répondre (0340)
+  "/admin/retours-contestes", // Disputed feedback (0340)
   "/admin/file-reviews", // Today's queue
   "/admin/parrainages", // Referrals
   "/admin/documents", // Documents, en écriture
-  "/admin/assistant", // Assistant
   "/admin/comment-masters", // Comment masters : changer qui commente, suivre les bonus
   "/admin/comment-masters/suivi", // Comment Masters · suivi : les Done par Comment Master (0373)
-  "/admin/paie", // Paie : Lucia paie le lundi depuis une seule liste (v3, 0380)
   "/admin/slack", // Slack à relier : les posteurs sans compte Slack connu (0381)
-  "/admin/nudges", // Nudge all, réponses, relances Upwork (v3, 0384)
-  "/admin/pipeline", // Pipeline : toutes les recrues, de l'offre au 1er jour posté, en direct (0407)
-  "/admin/reponses", // Réponses : les messages des posteurs, classés par l'OS (système du 2 nov., 0406)
-  "/admin/inactifs", // Inactifs : marqués à 7 h, proposés en Kill le samedi (v3, 0385)
-  "/admin/check-kill-double", // Check, Kill or Double : décider, envoyer aux HMs, suivre les Done (21/10)
-  "/admin/cohortes", // Cohortes : les recrues dès l'offre acceptée, Reporter / Arrêter (prompt 17, 0392)
-  // Sans ces deux-là, Schedule et Account watch sont des culs-de-sac : elles
-  // renvoient toutes les deux vers la fiche d'un créateur, qui renvoie vers le
-  // détail d'un post.
+  // Sans ces deux-là, Schedule est un cul-de-sac : elle renvoie vers la fiche
+  // d'un créateur, qui renvoie vers le détail d'un post.
   "/admin/createurs/:compteId",
   "/admin/posts/:id",
 ];

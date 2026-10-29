@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { listerNuits, listerRuns, lireReglagesBleo, runOfficiel, type RapportPlan } from "@/features/bleo/api";
 import { formaterJour, formaterNombre, formaterPart, formaterQuand, part, PORTES } from "@/features/bleo/format";
+import { InterrupteurMode } from "@/features/bleo/InterrupteurMode";
 import { EnteteTableau, EtatRequete, EtiquetteIcone, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, TitreCarte } from "@/features/bleo/ui";
 
 function Portes({ rapport }: { rapport: RapportPlan }) {
@@ -40,7 +41,7 @@ function Portes({ rapport }: { rapport: RapportPlan }) {
 
 /**
  * BLEO, vue d'ensemble : le mode, la dernière nuit, le dernier plan et son
- * rapport, puis l'historique des nuits et des plans. Lecture seule.
+ * rapport, puis l'historique des nuits et des plans. Seule écriture : l'interrupteur de mode (admin).
  */
 export function AdminBleoPage() {
   const { t, i18n } = useTranslation();
@@ -66,9 +67,12 @@ export function AdminBleoPage() {
         }
         description={t(`bleo.vue.description_${mode}`, { defaultValue: t("bleo.vue.description_ombre") })}
         actions={
-          <Badge variant={mode === "off" ? "secondary" : mode === "ombre" ? "info" : "success"} size="lg">
-            {t("bleo.mode", { mode: t(`bleo.modes.${mode}`, { defaultValue: mode }) })}
-          </Badge>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant={mode === "off" ? "secondary" : mode === "ombre" ? "info" : "success"} size="lg">
+              {t("bleo.mode", { mode: t(`bleo.modes.${mode}`, { defaultValue: mode }) })}
+            </Badge>
+            {reglages.data && <InterrupteurMode mode={mode} plan={plan} />}
+          </div>
         }
       />
 

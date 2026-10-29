@@ -402,6 +402,22 @@ export interface LigneBoitePost {
   passages: PassageBoite[];
 }
 
+export type ModeBleo = "off" | "ombre" | "actif";
+
+export interface ChangementModeBleo {
+  mode: ModeBleo;
+  avant: string | null;
+  le: string;
+  dernier_plan: { run_id: string; jour_vise: string; lignes: number } | null;
+}
+
+/** L'interrupteur (0614) : change `reglages.bleo.mode`, admin seulement. */
+export async function changerModeBleo(mode: ModeBleo): Promise<ChangementModeBleo> {
+  const { data, error } = await supabase.rpc("bleo_changer_mode", { p_mode: mode });
+  if (error) throw error;
+  return data as ChangementModeBleo;
+}
+
 export async function listerBoitePosts(labelId: string, limite = 50): Promise<LigneBoitePost[]> {
   const { data, error } = await supabase.rpc("bleo_boite_posts", { p_label_id: labelId, p_limite: limite });
   if (error) throw error;

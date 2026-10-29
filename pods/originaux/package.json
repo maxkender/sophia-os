@@ -14,6 +14,7 @@
   "scripts": {
     "typecheck": "tsc -p .",
     "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
     "label": "NODE_USE_ENV_PROXY=1 node atelier/cli-label.ts",
     "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
     "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",

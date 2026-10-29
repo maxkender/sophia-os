@@ -54,8 +54,9 @@ const decisionsApi = vi.hoisted(() => ({
   })),
 }));
 vi.mock("@/features/ckd/decisions/api", () => decisionsApi);
-// Prompt 22 : Shadowban est dans l'onglet Dead accounts, sous les cartes Recreate.
+// Prompt 25 : Dead accounts est fusionné dans Thursday (la liste, puis le détail du contrôle et Shadowban).
 vi.mock("@/features/ckd/shadowban/VueShadowban", () => ({ VueShadowban: () => <div data-testid="vue-shadowban" /> }));
+vi.mock("@/features/ckd/decisions/ListeJeudi", () => ({ ListeJeudi: () => <div data-testid="liste-jeudi" /> }));
 
 import { AdminCheckKillDoublePage } from "./AdminCheckKillDoublePage";
 
@@ -321,7 +322,7 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const bruno = await screen.findByTestId("proposition-bruno.reveil101");
     for (const nom of ["Envoyer le nudge", "Recréer le compte", "Rien"]) {
       expect(within(bruno).getByRole("button", { name: nom })).toBeEnabled();
@@ -385,7 +386,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("le jeudi, envoie tous les nudges encore sans décision", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     fireEvent.click(await screen.findByRole("button", { name: "Envoyer les nudges (1)" }));
     await waitFor(() => expect(api.envoyerNudgesCkd).toHaveBeenCalledWith("ctrl-jeudi"));
   });
@@ -458,7 +459,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("le nudge d'un posteur : texte de Réglages pré-rempli, modifiable pour lui seul", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const titre = await within(alice).findByRole("textbox", { name: "Titre du pop-up" });
@@ -481,7 +482,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("prompt 15 : plus de message au HM ni de suivi dans #managers-hq, la décision part sans suivi", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
@@ -496,7 +497,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("nudge sans retouche : le texte de Réglages, et un texte vidé bloque la confirmation", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const corps = await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
@@ -537,7 +538,7 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     expect(await within(alice).findByText(/par /)).toBeInTheDocument();
     expect(within(alice).queryByText(/pas encore envoyé au HM/)).toBeNull();
@@ -545,7 +546,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Comptes morts" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     expect(within(alice).getByText("à surveiller")).toBeInTheDocument();
     expect(within(alice).getByText("discipline")).toBeInTheDocument();
@@ -613,14 +614,13 @@ describe("AdminCheckKillDoublePage", () => {
       expect(cohorteApi.lireCohorte).not.toHaveBeenCalled();
     });
 
-    it("prompt 22 : Weekly decisions, 3 onglets + Settings ; l'ancienne vue « décisions » ouvre Saturday ; plus de mercredi", async () => {
+    it("prompt 25 : Weekly decisions, Thursday, Saturday et Settings ; l'ancienne vue « décisions » ouvre Saturday ; plus de mercredi", async () => {
       rendreAvecRoutes("/?vue=decisions");
       expect(await screen.findByRole("heading", { name: /Décisions/ })).toBeInTheDocument();
       const onglets = screen.getAllByRole("tablist")[0]!;
       expect(within(onglets).getAllByRole("tab").map((o) => o.textContent?.replace(/\d+$/, ""))).toEqual([
         "Jeudi",
         "Samedi",
-        "Comptes morts",
         "Réglages",
       ]);
       expect(within(onglets).getByRole("tab", { name: /^Samedi/ })).toHaveAttribute("aria-selected", "true");
@@ -675,15 +675,12 @@ describe("AdminCheckKillDoublePage", () => {
       expect(screen.getByRole("tab", { name: /^Samedi/ }).textContent).toBe("Samedi2");
     });
 
-    it("Dead accounts : Recreate (confirmé) ou Rien, puis Shadowban", async () => {
+    it("prompt 25 : l'ancien onglet Dead accounts ouvre Thursday : la liste de tous les comptes, puis le contrôle du jeudi et Shadowban", async () => {
       rendre("/?onglet=morts");
-      const cartes = await screen.findByTestId("cartes-recreer");
-      const bruno = await within(cartes).findByTestId("carte-decision-bruno.reveil101");
-      fireEvent.click(within(bruno).getByRole("button", { name: "Rien" }));
-      await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("a3", "rien", null));
-      fireEvent.click(within(bruno).getByRole("button", { name: "Recréer" }));
-      await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("a3", "recreer", null));
+      expect(await screen.findByTestId("liste-jeudi")).toBeInTheDocument();
+      expect(screen.getByRole("tab", { name: /^Jeudi/ })).toHaveAttribute("aria-selected", "true");
       expect(screen.getByTestId("vue-shadowban")).toBeInTheDocument();
+      expect(screen.queryByTestId("cartes-recreer")).toBeNull();
     });
   });
 });

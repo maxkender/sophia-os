@@ -153,6 +153,11 @@ export interface ContenuBleo {
   valeur_max: number | null;
   n_langues: number;
   r_moyen: number | null;
+  /** Texte de la slide 1 (l'accroche telle qu'écrite), langue source d'abord (0613). */
+  texte_slide1: string | null;
+  /** Première ligne de la slide 2 : ce qui distingue deux contenus de la même accroche. */
+  texte_slide2: string | null;
+  image_slide1: string | null;
 }
 
 export interface PassageFamille {

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 import { listerValeursFamille, type ContenuBleo, type ValeurLangue } from "./api";
 import { formaterNombre, formaterQuand } from "./format";
-import { EnteteTableau, EtatRequete, Generation, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, TitreCarte } from "./ui";
+import { EnteteTableau, EtatRequete, Generation, Ligne, TD, TD_NUM, TexteContenu, TH, TH_NUM, Tableau, TitreCarte } from "./ui";
 import { grilleValeurs } from "./valeurs";
 
 /**
@@ -71,9 +71,7 @@ export function CarteValeursParLangue({ contenus }: { contenus: ContenuBleo[] })
                     <Generation g={c.generation} />
                   </td>
                   <td className={`${TD} max-w-[16rem]`}>
-                    <span className="line-clamp-2" title={c.titre ?? undefined}>
-                      {c.titre ?? "—"}
-                    </span>
+                    <TexteContenu contenu={c} compact />
                   </td>
                   {grille.langues.map((l) => {
                     const v = grille.cellules.get(c.id)?.get(l);

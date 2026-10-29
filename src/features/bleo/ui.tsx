@@ -20,7 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-import type { EtatBleo, VerdictContenu, VerdictFamille } from "./api";
+import type { ContenuBleo, EtatBleo, VerdictContenu, VerdictFamille } from "./api";
 import { messageErreur } from "./format";
 
 export const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
@@ -149,6 +149,39 @@ export function Generation({ g }: { g: number | null }) {
   return (
     <span className="font-mono text-[11px]" title={t(`bleo.generations.g${g ?? 0}`, { defaultValue: "" })}>
       G{g ?? 0}
+    </span>
+  );
+}
+
+/**
+ * Un contenu tel qu'on le reconnaît : vignette et texte de la slide 1, puis la
+ * première ligne de la slide 2 (ce qui distingue deux contenus de la même
+ * accroche). La description TikTok (souvent des hashtags) passe en infobulle.
+ */
+export function TexteContenu({
+  contenu,
+  compact = false,
+}: {
+  contenu: Pick<ContenuBleo, "titre" | "texte_slide1" | "texte_slide2" | "image_slide1">;
+  compact?: boolean;
+}) {
+  const slide1 = contenu.texte_slide1?.replace(/\s*\n\s*/g, " ").trim() || null;
+  return (
+    <span className="flex items-start gap-2" title={contenu.titre ?? undefined}>
+      {!compact && contenu.image_slide1 && (
+        <img
+          src={contenu.image_slide1}
+          alt=""
+          loading="lazy"
+          className="h-12 w-[1.6875rem] shrink-0 rounded-sm border object-cover"
+        />
+      )}
+      <span className="min-w-0">
+        <span className="line-clamp-2">{slide1 ?? contenu.titre ?? "—"}</span>
+        {contenu.texte_slide2 && (
+          <span className="block truncate text-[11px] text-muted-foreground">→ {contenu.texte_slide2}</span>
+        )}
+      </span>
     </span>
   );
 }

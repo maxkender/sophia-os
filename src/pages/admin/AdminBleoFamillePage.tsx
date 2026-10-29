@@ -22,6 +22,7 @@ import {
   TH,
   TH_NUM,
   Tableau,
+  TexteContenu,
   TitreCarte,
 } from "@/features/bleo/ui";
 import { nomLangue } from "@/features/moteur/langues";
@@ -136,10 +137,8 @@ export function AdminBleoFamillePage() {
                       <td className={TD}>
                         <Generation g={c.generation} />
                       </td>
-                      <td className={`${TD} max-w-[22rem]`}>
-                        <span className="line-clamp-2" title={c.titre ?? undefined}>
-                          {c.titre ?? "—"}
-                        </span>
+                      <td className={`${TD} max-w-[24rem]`}>
+                        <TexteContenu contenu={c} />
                         {c.source_url && (
                           <a
                             href={c.source_url}

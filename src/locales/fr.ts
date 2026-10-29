@@ -2409,6 +2409,12 @@ export const fr = {
         libre: "Libre",
         boiteVide: "Boîte vide.",
         premiers: "Les {{n}} premières seulement.",
+        voirPost: "Voir le post parent tel que posté",
+        masquerPost: "Masquer le post",
+        postTel: "Post de référence ({{langue}}) : {{vues}} vues, r {{r}}",
+        slideAppli: "appli",
+        meilleursPassages: "Meilleurs passages :",
+        aucunPost: "Pas encore de post publié pour ce contenu.",
         voie2:
           "Les labels de la voie 2 (white_bg, mentalmaxxing, that_girl_study, Fathomly) refont les posts d'un compte suivi : ils n'ont pas de boîte.",
       },

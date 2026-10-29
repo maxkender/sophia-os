@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { beforeAll, describe, expect, it, vi } from "vitest";
@@ -183,6 +183,32 @@ vi.mock("@/features/bleo/api", async (original) => ({
       { contenu_id: "k0", langue: "fr", forme: 5, n_post: 3, n_accroche: 0, facteur_age: 1, valeur: 1.08, calcule_le: "2026-10-30T03:15:00Z" },
       { contenu_id: "k0", langue: "de", forme: 5, n_post: 0, n_accroche: 0, facteur_age: 1, valeur: 5, calcule_le: "2026-10-30T03:15:00Z" },
     ]),
+  listerBoitePosts: () =>
+    Promise.resolve([
+      {
+        rang: 1,
+        sorte: "g2",
+        accroche_attendue: "reformulee",
+        accroche: "6 erreurs debiles qui m ont gardee au chomage",
+        famille_id: FAMILLE,
+        parent_contenu_id: "k1",
+        faites: 0,
+        au_budget: true,
+        verdict_le: "2026-10-29T11:06:41Z",
+        parent: { titre: "9 mois à galérer", langue_source: "fr", generation: 1, source_url: null },
+        post: {
+          langue: "fr",
+          vues: 47000,
+          r: 4.61,
+          url: "https://www.tiktok.com/@x/photo/1",
+          slides: [
+            { position: 1, texte: "6 erreurs débiles", appli: false, image: "https://exemple.test/1.jpg", inspiration: null },
+            { position: 4, texte: "Sophia m'a aidée", appli: true, image: "https://exemple.test/4.jpg", inspiration: null },
+          ],
+        },
+        passages: [{ langue: "fr", vues: 47000, r: 4.61, url: "https://www.tiktok.com/@x/photo/1" }],
+      },
+    ]),
   listerJauge: () =>
     Promise.resolve([
       { label_id: LABEL, pod: "originaux_rh", familles_en_boite: 27, par_jour: 5.29, semaines: 2.2, part_full_test: 0.3 },
@@ -275,6 +301,11 @@ describe("section BLEO de l'OS", () => {
     expect(screen.getByText("accroche reformulée")).toBeInTheDocument();
     expect(screen.getByText("Au budget")).toBeInTheDocument();
     expect(screen.getByText("0/3")).toBeInTheDocument();
+    // D37 : une ligne s'ouvre sur le post parent tel que posté, slide d'appli marquée.
+    fireEvent.click(screen.getByRole("button", { name: "1" }));
+    expect(await screen.findByText("6 erreurs débiles")).toBeInTheDocument();
+    expect(screen.getByText("Sophia m'a aidée")).toBeInTheDocument();
+    expect(screen.getByText("appli")).toBeInTheDocument();
   });
 
   it("réglages : en lecture, section par section", async () => {

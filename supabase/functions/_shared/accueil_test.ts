@@ -72,6 +72,16 @@ Deno.test("le message de bienvenue, rempli, en anglais", () => {
   assertEquals(m, "Hi Ana! https://os · ana@vik.co · 12345678 · https://slack · https://guide · Monday 2 November · {inconnu}");
 });
 
+Deno.test("prompt 13 : le @ TikTok à créer, ou la ligne retirée s'il n'est pas connu", () => {
+  const modele = "Hi {prenom}\n• Login: {email}\n• Your TikTok account to create: @{handle} (use exactly this name)\n• Slack: {slack}";
+  const v = { prenom: "Ana", url: "u", email: "a@b", mot_de_passe: "x", slack: "s", guide: "g", cohorte_lundi: "2026-11-02" };
+  assertEquals(
+    messageAccueil(modele, { ...v, handle: "@ana.studies" }),
+    "Hi Ana\n• Login: a@b\n• Your TikTok account to create: @ana.studies (use exactly this name)\n• Slack: s",
+  );
+  assertEquals(messageAccueil(modele, { ...v, handle: null }), "Hi Ana\n• Login: a@b\n• Slack: s");
+});
+
 Deno.test("annonces déduites des posteurs déjà embauchés", async () => {
   const { annoncesDepuisPosteurs } = await import("./accueil.ts");
   const p = (job_id: string, pays: string | null, langue: string | null, hm: string | null, tarif: number | null) => ({

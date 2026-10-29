@@ -8,6 +8,7 @@ import {
   zonesDe,
 } from "../_shared/ckd.ts";
 import { BOUTONS, libelleBouton, lireLibellesBoutons } from "../_shared/reponses.ts";
+import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -18,7 +19,8 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *     chaque décision Check, Kill or Double (samedi) et chaque posteur à
  *     relancer (jeudi), dans le fil de la zone du HM ; et, sous chaque message
  *     de l'OS à un posteur (partie E, 0406), « Done » / « I need help » /
- *     « I want to stop » → `posteur_reponses` (canal bouton).
+ *     « I want to stop » → `posteur_reponses` (canal bouton) ; et le raccourci
+ *     de message « Send to OS » (prompt 13) → To read.
  *
  * Appelée par Slack, pas par un cron ni par l'OS : pas de x-cron-secret ni de
  * JWT, c'est la signature Slack qui authentifie (l'un ou l'autre secret).
@@ -48,6 +50,15 @@ Deno.serve(async (request) => {
   try {
     const payload = JSON.parse(new URLSearchParams(corps).get("payload") ?? "{}");
     const action = payload?.actions?.[0];
+    // Prompt 13 : le raccourci de message « Send to OS » (une HM, sur le DM d'un posteur).
+    if (payload?.type === "message_action" && payload?.callback_id === RACCOURCI_ENVOYER_OS) {
+      const travail = envoyerVersOs(payload).catch((e) => console.error("slack-interactions send_to_os", messageErreur(e)));
+      // deno-lint-ignore no-explicit-any
+      const edge = (globalThis as any).EdgeRuntime;
+      if (edge?.waitUntil) edge.waitUntil(travail);
+      else await travail;
+      return new Response("", { status: 200 });
+    }
     if (payload?.type !== "block_actions") return new Response("", { status: 200 });
     if (action?.action_id === "comment_fait") await commentFait(payload, action);
     else if (action?.action_id === "envoi_main_fait") await envoiMainFait(payload, action);
@@ -69,6 +80,50 @@ Deno.serve(async (request) => {
     return new Response("", { status: 200 });
   }
 });
+
+/**
+ * Prompt 13 : « Send to OS » (raccourci de message, callback_id send_to_os).
+ * Une HM (ou un admin relié dans hm_slack) le lance sur un message d'un
+ * posteur : le message entre dans To read (posteur_reponses, liste a_lire,
+ * sans réponse automatique), avec le nom du posteur et le lien du message.
+ * La HM voit la réponse en message éphémère.
+ */
+// deno-lint-ignore no-explicit-any
+async function envoyerVersOs(payload: any) {
+  const supabase = serviceClient();
+  const dire = async (texte: string) => {
+    if (!payload.response_url) return;
+    await fetch(payload.response_url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ response_type: "ephemeral", replace_original: false, text: texte }),
+    }).catch(() => undefined);
+  };
+  const { data: hm } = await supabase.from("hm_slack").select("profile_id").eq("slack_user_id", String(payload?.user?.id ?? "")).maybeSingle();
+  if (!hm?.profile_id) return await dire("Only a hiring manager linked in the OS can send a message to the OS.");
+  const auteur = String(payload?.message?.user ?? "");
+  const ts = String(payload?.message?.ts ?? "");
+  const canal = String(payload?.channel?.id ?? "");
+  if (!auteur || !ts || !canal) return await dire("This message has no author: nothing was sent.");
+  const { data: posteur } = await supabase.from("profiles").select("id, prenom, nom").eq("slack_user_id", auteur).maybeSingle();
+  if (!posteur?.id) return await dire("This message isn't from a poster linked to Slack in the OS: nothing was sent.");
+  const nom = [posteur.prenom, posteur.nom].filter(Boolean).join(" ") || "poster";
+  const { error } = await supabase.from("posteur_reponses").insert({
+    poster_id: posteur.id,
+    canal: "slack",
+    source_id: `os:${canal}:${ts}`,
+    texte: String(payload?.message?.text ?? ""),
+    statut: "classe",
+    cas: "a_lire",
+    liste: "a_lire",
+    traite_at: new Date().toISOString(),
+    lien: lienMessageSlack(payload?.team?.domain, canal, ts),
+    transmis_par: hm.profile_id,
+  });
+  if (error && error.code === "23505") return await dire(`Already in the OS (To read) for ${nom}.`);
+  if (error) throw error;
+  await dire(`Sent to the OS: To read, ${nom}.`);
+}
 
 /**
  * Un bouton sous un message de l'OS : une ligne `posteur_reponses` (canal

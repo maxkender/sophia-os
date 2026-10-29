@@ -28,12 +28,18 @@ export interface ReponsePosteur {
   lu_at: string | null;
   corrige_cas: CasReponse | null;
   upwork_contrat_url: string | null;
+  /** Prompt 13 : le lien du message Slack quand une HM l'a envoyé à l'OS (« Send to OS »). */
+  lien?: string | null;
 }
 
 export async function lireReponses(depuis: string): Promise<ReponsePosteur[]> {
   const { data, error } = await supabase.rpc("reponses_liste", { p_depuis: depuis });
   if (error) throw error;
-  return (data ?? []) as ReponsePosteur[];
+  const lignes = (data ?? []) as ReponsePosteur[];
+  // Prompt 13 : les messages envoyés à l'OS par une HM gardent le lien Slack.
+  const { data: liens } = await supabase.from("posteur_reponses").select("id, lien").not("lien", "is", null).gte("recu_at", depuis);
+  const lienDe = new Map((liens ?? []).map((l) => [l.id as string, l.lien as string]));
+  return lignes.map((r) => (lienDe.has(r.id) ? { ...r, lien: lienDe.get(r.id) } : r));
 }
 
 /** « Mauvais cas » (le bon cas, noté) et/ou « Lu » (sort des listes). Rien ne part au posteur. */

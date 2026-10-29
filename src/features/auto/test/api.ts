@@ -59,3 +59,23 @@ export interface BilanLancement {
 export async function lancerTest(posterId: string, quoi: LancementTest): Promise<BilanLancement> {
   return await invoke<BilanLancement>("recrues-check", { action: "test_lancer", poster_id: posterId, quoi });
 }
+
+/** Prompt 13 : le bilan d'un test de fermeture, relu chez Upwork après coup. */
+export interface BilanFermetureTest {
+  ok: boolean;
+  error?: string;
+  bilan?: {
+    contrat_statut: string;
+    contrat_ferme: boolean;
+    paye_par_ce_test: number;
+    remboursement: string;
+    champs_obligatoires_fermeture: string[];
+    feedback_obligatoire: boolean;
+    raison_obligatoire: boolean;
+  };
+}
+
+/** Test Kill & pay (« payer ») ou Test Kill & don't pay (« sans_payer ») sur un contrat de test, pour de vrai. */
+export async function testerFermeture(contratId: string, mode: "payer" | "sans_payer"): Promise<BilanFermetureTest> {
+  return await invoke<BilanFermetureTest>("upwork", { action: "test_fermeture", contrat_id: contratId, mode, confirmer: true });
+}

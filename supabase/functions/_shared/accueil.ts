@@ -226,15 +226,20 @@ export function langueDePays(pays: string | null, comptes: { pays: string | null
   return [...n.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? null;
 }
 
+/** Codes retirés ou réservés qu'Intl nomme comme un pays d'aujourd'hui (DD « Germany », FX « France »…). */
+const CODES_RETIRES = new Set(["AN", "BU", "CS", "DD", "DY", "EU", "EZ", "FX", "HV", "NH", "NT", "QO", "RH", "SU", "TP", "UK", "UN", "VD", "YD", "YU", "ZR"]);
+const CODE_ACTUEL: Record<string, string> = { FX: "FR", DD: "DE", UK: "GB", ZR: "CD", TP: "TL", BU: "MM", YU: "RS", CS: "RS", SU: "RU" };
+
 const CODES_PAYS = (() => {
   const m = new Map<string, string>();
   const noms = new Intl.DisplayNames(["en"], { type: "region" });
   for (let a = 65; a <= 90; a++) {
     for (let b = 65; b <= 90; b++) {
       const code = String.fromCharCode(a, b);
+      if (CODES_RETIRES.has(code)) continue;
       try {
         const nom = noms.of(code);
-        if (nom && nom !== code) m.set(normaliserNom(nom), code);
+        if (nom && nom !== code && !m.has(normaliserNom(nom))) m.set(normaliserNom(nom), code);
       } catch { /* code invalide */ }
     }
   }
@@ -249,23 +254,18 @@ const CODES_PAYS = (() => {
 export function codePays(v: string | null | undefined): string | null {
   const s = String(v ?? "").trim();
   if (!s) return null;
-  if (/^[A-Za-z]{2}$/.test(s)) return s.toUpperCase();
+  if (/^[A-Za-z]{2}$/.test(s)) return CODE_ACTUEL[s.toUpperCase()] ?? s.toUpperCase();
   return CODES_PAYS.get(normaliserNom(s)) ?? null;
 }
 
 /**
  * 0470 : où vit le freelance, par l'API (lecture seule), avec l'id freelancer du
  * contrat. Plusieurs requêtes du schéma, essayées dans l'ordre ; la première qui
- * rend un pays gagne (et le journal upwork_appels dit laquelle).
+ * rend un pays gagne (et le journal upwork_appels dit laquelle). 30/10 :
+ * talentProfile répond (pays et ville) ; userDetails répond 403.
  */
 // deno-lint-ignore no-explicit-any
 export const REQUETES_LOCALISATION: { nom: string; query: string; variable: "freelancer" | "contrat"; lire: (data: any) => { pays: string | null; ville: string | null } }[] = [
-  {
-    nom: "userDetails.location",
-    variable: "freelancer",
-    query: `query Localisation($id: ID!) { userDetails(id: $id) { id location { countryName cityName } } }`,
-    lire: (d) => ({ pays: d?.userDetails?.location?.countryName ?? null, ville: d?.userDetails?.location?.cityName ?? null }),
-  },
   {
     nom: "talentProfile.personalData.location",
     variable: "freelancer",
@@ -274,6 +274,12 @@ export const REQUETES_LOCALISATION: { nom: string; query: string; variable: "fre
       const l = d?.talentProfile?.profiles?.[0]?.personalData?.location ?? d?.talentProfile?.profiles?.personalData?.location;
       return { pays: l?.country ?? null, ville: l?.city ?? null };
     },
+  },
+  {
+    nom: "userDetails.location",
+    variable: "freelancer",
+    query: `query Localisation($id: ID!) { userDetails(id: $id) { id location { countryName cityName } } }`,
+    lire: (d) => ({ pays: d?.userDetails?.location?.countryName ?? null, ville: d?.userDetails?.location?.cityName ?? null }),
   },
   {
     nom: "contractDetails.offer.freelancer.countryDetails",

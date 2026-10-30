@@ -347,6 +347,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0620_ab_traduction` | A/B traduction et placement : duels à l'aveugle en Tests (`ab_traduction_duels`), et, coupés, le réglage, `decks_natifs`, `passages.bras_traduction`, le rapport | Appliquée le 30/10 ; A/B **seulement dans Tests** (Adrien, 30/10) |
 | `0623_fiche_cta` | `bleo_fiches` accepte la sorte `cta` : la fiche CTA commune | Appliquée le 30/10 ; version 3 (le hook ne change pas, la mise en page et la frappe) |
 | `0628_bleo_boite_une_famille_par_jour` | Une ligne par famille dans la boîte (G2 d'abord, puis le parent le moins décliné), familles au budget en fin de boîte ; le guichet refuse une 2e déclinaison de la même famille le même jour (`famille_du_jour`) | Appliquée le 30/10, testée (refus après un dépôt du jour, annulé) |
+| `0630_bleo_valeur_au_jour_fatigue_60j` | La valeur du rapport de 22 h compte la fatigue dans la fenêtre de D41 (60 jours ; un passage non publié 3 jours après sa date), comme la nuit et le tirage : elle la comptait depuis toujours | Appliquée le 30/10 ; rapport du 30/10 recalculé |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -368,7 +369,7 @@ Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture 
   capacité) plutôt qu'un créneau vide (voie 2 : that_girl_study, mentalmaxxing).
 - Un contenu à juger avec un passage à 10 000 vues est jugé (comme la sortie de J+2).
 - Le rapport compare plan et réel avec la même formule de valeur, fatigue
-  comptée sur les passages d'avant le jour.
+  comptée sur les passages d'avant le jour, dans la fenêtre de D41 (0630).
 
 Premier plan (30/10, essai de mise au point, 14,5 s) : 249 comptes, 498
 créneaux, 0 vide ; file à juger 40 %, récolte 36 %, non-gagnants 17 %,
@@ -387,6 +388,14 @@ Réglés le 29/10 avec Adrien, avant le premier tirage du cron :
 
 Plan du 30/10 après ces deux réglages (essai, 14,8 s) : file à juger 30 %,
 non-gagnants 14,5 %, récolte 48 %, 0 créneau vide.
+
+Premier rapport à blanc (30/10, réel de minuit contre le plan de 14 h le 29/10,
+recalculé après 0630) : 245 comptes comparés, valeur du plan 1 541 contre 975
+au réel (+58 %), 11 couples sur 486 identiques ; mélange du réel : à juger 187,
+récolte 166, gagnants servis 86, non-gagnants 48 (37 neufs, 11 servis) ;
+0 infraction, 5 relâches déclarées, 0 créneau vide, plan tiré en 17,8 s. Portes :
+toutes passent sauf les tests des contenus de moins de 3 jours (34 sur 62
+complets, point connu ci-dessous). Avant 0630 : 1 528 contre 952, même lecture.
 
 Reste connu avant les rapports :
 
@@ -463,3 +472,4 @@ recalculée à la main, rejouabilité, derniers plans).
 - **30/10** : nuit du 30/10 sans posts au réveil (crédits Gemini épuisés, 402, réessais qui saturent le CPU du drain) ; repli fal (#884), rattrapage complet (490 posts). Plan BLEO rebranché dans minuit (#900). Interrupteur, guichet, outils et routines des podz, suivi avant/après (L4 fini).
 - **30/10, après-midi** : A/B traduction préparé (0620), puis limité à Tests sur décision d'Adrien (#908 fermée). Fiche CTA (0623) ; le CTA sans stats ni forme tirée (0624, session de la relecture native). Relecture native et Fiches rangées dans la section BLEO du menu.
 - **30/10, soir** : bascule avancée au **dimanche 1/11 au soir** (Adrien) ; répétition des podz 8 et 9 sur la boîte samedi et dimanche ; légendes finies (13 418, 0 échec ; 820 images restent « aucune » d'un passage plus ancien) ; D42 et D43 tranchés (0628, routine) ; plus de CTA jugé aux vues dans les consignes des podz ; spec mise à jour (section « État au 30/10 »).
+- **30/10, 22 h** : premier rapport à blanc : plan +58 % de valeur sur le réel, 0 infraction, 0 créneau vide, toutes les portes sauf les tests récents des petits labels (connu). Biais corrigé : la valeur du rapport comptait la fatigue depuis toujours, le tirage dans la fenêtre de D41 (0630). Plan du 31/10 : 245 comptes, 490 créneaux, 0 vide, 18,5 s ; nuit du 30/10 sans erreur.

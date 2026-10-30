@@ -400,7 +400,7 @@ Tout passe : le deck est écrit dans le cache (`contenu_langues` pour Sophia, `c
 
 | Tâche | Ce que fait le natif | Ce qui en sort |
 | --- | --- | --- |
-| `ab_aveugle` | Choisit entre deux versions d'un même deck (agent ou Gemini, ordre tiré au sort), ou « égal » | Le choix, dans `bleo_relectures` (phases 4 et 5) |
+| `ab_aveugle` | Choisit entre deux versions d'un même deck (agent ou Gemini, ordre tiré au sort), ou « égal » ; note chaque version sur 5 et laisse une remarque typée | Le choix, dans `bleo_relectures` (phases 4 et 5). Dès aujourd'hui, pour les duels de l'A/B traduction (0620) envoyés par l'admin : `ab_traduction_votes` (0626), lus par le circuit candidat et par le rapport D8 |
 | `correction` | Réécrit une slide comme il la posterait, CTA compris, et choisit un `type_erreur` | Avant 22 h : le deck corrigé remplace celui du cache (`deck_version` + 1) et part le lendemain. Toujours : une ligne `corrige` dans `bleo_banque` |
 | `ecriture` | Écrit un deck entier de A à Z (le kit natif, pour démarrer la banque) | Des lignes `ecrit` dans `bleo_banque` |
 

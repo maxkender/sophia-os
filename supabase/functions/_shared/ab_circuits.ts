@@ -139,6 +139,46 @@ export function circuitServiceApplication(circuit: CircuitTraduction, slug: stri
   return circuit.applications === null || circuit.applications.includes(slug);
 }
 
+const REMARQUES_LUES = 12;
+
+const TYPES_ERREUR: Record<string, string> = {
+  tournure_anglaise: "tournure calquée de l'anglais",
+  registre: "registre (tutoiement, argot, formalité)",
+  vocabulaire: "vocabulaire",
+  cta_trop_pub: "mention de l'appli trop publicitaire",
+  cta_mal_place: "mention de l'appli mal placée",
+  longueur: "longueur des slides",
+  autre: "autre",
+};
+
+/**
+ * Les dernières remarques des relecteurs natifs de la langue (duels à
+ * l'aveugle, 0626), celles qui visent la version du candidat ou les deux : le
+ * circuit les passe au modèle en consignes, pour que les écarts relevés ne
+ * reviennent pas. Vide tant qu'aucun relecteur n'a voté.
+ */
+export async function chargerRemarquesRelecteurs(supabase: Supabase, langue: string): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("ab_traduction_votes")
+    .select("remarque, remarque_sur, type_erreur")
+    .eq("langue", langue)
+    .not("remarque", "is", null)
+    .in("remarque_sur", ["candidat", "les_deux"])
+    .order("updated_at", { ascending: false })
+    .limit(REMARQUES_LUES);
+  if (error || !data) return [];
+  const vues = new Set<string>();
+  const conseils: string[] = [];
+  for (const v of data as Array<{ remarque: string | null; type_erreur: string | null }>) {
+    const texte = (v.remarque ?? "").trim();
+    if (!texte || vues.has(texte.toLowerCase())) continue;
+    vues.add(texte.toLowerCase());
+    const type = v.type_erreur ? TYPES_ERREUR[v.type_erreur] ?? v.type_erreur : null;
+    conseils.push(type ? `${type} : ${texte}` : texte);
+  }
+  return conseils;
+}
+
 // ---------------------------------------------------------------------------
 // Candidat d'attente : traduction ancrée + placement actuel (Sophia)
 // ---------------------------------------------------------------------------
@@ -156,12 +196,14 @@ const ancree: CircuitTraduction = {
     const base = dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
     const scolaire = await regleLocalisationScolaire(supabase, langue);
     const ancres = await chargerAncresNatives(supabase, langue);
+    const conseils = await chargerRemarquesRelecteurs(supabase, langue);
     const ecrit = await ecrireNatif({
       slides: sources,
       sourceTitle: titre ?? "",
       langue,
       ancres,
       regles: [base, scolaire].filter(Boolean).join("\n\n") || undefined,
+      conseils,
     });
     const textes = new Map(ecrit.slides.map((s) => [s.position, s.texte]));
     let deck: SlideDeck[] = deckSource.map((s) => ({
@@ -201,7 +243,7 @@ const ancree: CircuitTraduction = {
       modele: null,
       // Placement actuel : il ne suit pas de voie.
       cta: null,
-      controles: { fidelite: ecrit.controle, reprises: ecrit.reprises, ancres: ecrit.ancres },
+      controles: { fidelite: ecrit.controle, reprises: ecrit.reprises, ancres: ecrit.ancres, remarquesRelecteurs: conseils.length },
     };
   },
 };

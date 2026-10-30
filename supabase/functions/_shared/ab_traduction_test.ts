@@ -7,6 +7,7 @@ import {
   hashUnitaire,
   langueEnTest,
   lireReglageAbTraduction,
+  nettoyerTexteSlide,
   recalerDeck,
 } from "./ab_traduction.ts";
 
@@ -94,4 +95,12 @@ Deno.test("A/B traduction : colonnes du passage, rien hors A/B", () => {
     }),
     { bras_traduction: "natif", circuit: "natif", deck_version: 3, voie_cta: "essai", forme_cta: "astuce_perso" },
   );
+});
+
+Deno.test("A/B traduction : le texte d'une slide est nettoyé des fautes de frappe mécaniques", () => {
+  assertEquals(nettoyerTexteSlide("  3.  Lies  **jeden** Tag \n\n\n\nDu wirst  sehen  "), "3. Lies jeden Tag\n\nDu wirst sehen");
+  assertEquals(nettoyerTexteSlide("titre\r\nligne"), "titre\nligne");
+  // L'espace insécable de la ponctuation française reste.
+  assertEquals(nettoyerTexteSlide("pourquoi\u00a0?"), "pourquoi\u00a0?");
+  assertEquals(nettoyerTexteSlide("   "), "");
 });

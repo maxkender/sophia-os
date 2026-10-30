@@ -5,43 +5,30 @@ const invoke = vi.fn();
 vi.mock("@/features/moteur/api", () => ({ invoke: (...a: unknown[]) => invoke(...a) }));
 vi.mock("@/lib/supabase/client", () => ({ supabase: {} }));
 
-import { ajouterExemplesNatifs, LIGNES_PAR_APPEL } from "./api";
+import { ajouterExemplesNatifs, relireExempleNatif } from "./api";
 
 describe("ajouterExemplesNatifs", () => {
   beforeEach(() => invoke.mockReset());
 
-  it("envoie les lignes collées par paquets de 4 et additionne les résumés", async () => {
-    invoke.mockImplementation((_nom: string, corps?: { ajouter: { texte: string } }) => {
-      const lignes = (corps?.ajouter.texte ?? "").split("\n");
-      return Promise.resolve({
-        ajoutes: lignes.length * 5,
-        deja: 1,
-        comptes: lignes.map((l) => ({ pseudo: l.replace("@", ""), slideshows: 5 })),
-        ignorees: [],
-      });
+  it("envoie tout le collé en un appel : le serveur cherche et lit ensuite tout seul", async () => {
+    invoke.mockResolvedValue({ ajoutes: 1, deja: 0, comptes: 9, dejaEnFile: 1, ignorees: [] });
+    const comptes = Array.from({ length: 10 }, (_, i) => `@compte${i + 1}`).join("\n");
+    const r = await ajouterExemplesNatifs("de", "l1", `https://www.tiktok.com/@x/photo/1\n${comptes}`);
+    expect(invoke).toHaveBeenCalledTimes(1);
+    expect(invoke).toHaveBeenCalledWith("exemples-natifs", {
+      ajouter: { langue: "de", labelId: "l1", texte: `https://www.tiktok.com/@x/photo/1\n${comptes}` },
     });
-    const comptes = Array.from({ length: 10 }, (_, i) => `@compte${i + 1}`);
-    const paquets: number[] = [];
-    const r = await ajouterExemplesNatifs("de", "l1", `${comptes.slice(0, 9).join("\n")}\n\n${comptes[9]}, `, (p) =>
-      paquets.push(p.comptes.length),
-    );
-    // Chaque paquet est remonté dès son retour, pour le journal et la lecture.
-    expect(paquets).toEqual([4, 4, 2]);
-
-    expect(LIGNES_PAR_APPEL).toBe(4);
-    expect(invoke).toHaveBeenCalledTimes(3);
-    expect(invoke.mock.calls.map((c) => c[1].ajouter.texte.split("\n").length)).toEqual([4, 4, 2]);
-    expect(invoke.mock.calls[0]).toEqual([
-      "exemples-natifs",
-      { ajouter: { langue: "de", labelId: "l1", texte: "@compte1\n@compte2\n@compte3\n@compte4" } },
-    ]);
-    expect(r.ajoutes).toBe(50);
-    expect(r.deja).toBe(3);
-    expect(r.comptes).toHaveLength(10);
+    expect(r).toEqual({ ajoutes: 1, deja: 0, comptes: 9, dejaEnFile: 1, ignorees: [] });
   });
 
   it("dit clairement quand rien n'a été reconnu", async () => {
-    invoke.mockResolvedValue({ ajoutes: 0, deja: 0, comptes: [], ignorees: ["n'importe quoi"] });
+    invoke.mockResolvedValue({ ajoutes: 0, deja: 0, comptes: 0, dejaEnFile: 0, ignorees: ["n'importe quoi"] });
     await expect(ajouterExemplesNatifs("de", null, "n'importe quoi")).rejects.toThrow("Aucun lien TikTok ni compte reconnu.");
+  });
+
+  it("remet un exemple en file de lecture", async () => {
+    invoke.mockResolvedValue({ ok: true, relances: 1 });
+    await relireExempleNatif("e1");
+    expect(invoke).toHaveBeenCalledWith("exemples-natifs", { relire: { ids: ["e1"] } });
   });
 });

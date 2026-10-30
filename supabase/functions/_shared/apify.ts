@@ -495,6 +495,15 @@ export function scrapePost(url: string) {
 }
 
 /**
+ * Plusieurs posts par leurs liens, en UN run, images des slideshows comprises.
+ * Les vidéos reviennent aussi (sans images) : à l'appelant de les écarter.
+ * `webVideoUrl` revient en /video/ même pour un post photo : comparer sur l'ID.
+ */
+export function scrapePosts(urls: string[]) {
+  return runActor({ postURLs: urls, resultsPerPage: 1 }, false);
+}
+
+/**
  * Scrape une vidéo TikTok et télécharge le fichier (add-on Apify).
  * Renvoie l’URL KV / CDN du MP4 — à rapatrier via `downloadMedia` avant expiration.
  */

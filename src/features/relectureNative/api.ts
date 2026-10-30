@@ -204,23 +204,40 @@ export interface ExempleNatif {
   vues: number | null;
   statut: StatutExempleNatif;
   erreur: string | null;
+  /** Pris par un passage du serveur : la lecture est en cours. */
+  pris_le: string | null;
   created_at: string;
 }
 
-export interface CompteAjoute {
+/** Un compte collé, cherché sur le serveur par la tâche planifiée (0618). */
+export interface CompteNatif {
+  id: string;
+  langue: string;
   pseudo: string;
+  label_id: string | null;
+  statut: "en_attente" | "fait" | "erreur";
   /** Posts listés par Apify (ou slideshows de la page publique, si Apify a échoué). */
-  posts?: number;
-  slideshows: number;
+  posts: number | null;
+  slideshows: number | null;
   /** Faux quand aucun post n'a été reconnu comme slideshow : la lecture fera le tri. */
-  verifies?: boolean;
-  erreur?: string;
+  verifies: boolean | null;
+  /** Slideshows nouveaux dans la banque. */
+  ajoutes: number | null;
+  /** En attente : l'erreur du dernier essai, réessayé à la minute suivante. */
+  erreur: string | null;
+  /** Pris par un passage du serveur : la recherche est en cours. */
+  pris_le: string | null;
+  created_at: string;
 }
 
 export interface ResumeAjoutExemples {
+  /** Liens de slideshows ajoutés à la banque, en attente de lecture. */
   ajoutes: number;
   deja: number;
-  comptes: CompteAjoute[];
+  /** Comptes mis en file de recherche. */
+  comptes: number;
+  /** Comptes déjà en file pour cette langue. */
+  dejaEnFile: number;
   ignorees: string[];
 }
 
@@ -228,61 +245,53 @@ export interface ResumeAjoutExemples {
 export async function listerExemplesNatifs(): Promise<ExempleNatif[]> {
   const { data, error } = await supabase
     .from("exemples_natifs")
-    .select("id, langue, source_url, handle, label_id, slides, vues, statut, erreur, created_at")
+    .select("id, langue, source_url, handle, label_id, slides, vues, statut, erreur, pris_le, created_at")
     .order("created_at", { ascending: false })
     .limit(2000);
   if (error) throw error;
   return (data ?? []) as ExempleNatif[];
 }
 
-/**
- * Lignes envoyées par appel. Chaque compte coûte une recherche Apify et une
- * fonction Edge s'arrête à 150 s : 20 comptes collés d'un coup partent en 5
- * paquets, l'un après l'autre.
- */
-export const LIGNES_PAR_APPEL = 4;
+/** Les comptes collés, du plus récent au plus ancien. */
+export async function listerComptesNatifs(): Promise<CompteNatif[]> {
+  const { data, error } = await supabase
+    .from("exemples_natifs_comptes")
+    .select("id, langue, pseudo, label_id, statut, posts, slideshows, verifies, ajoutes, erreur, pris_le, created_at")
+    .order("created_at", { ascending: false })
+    .limit(500);
+  if (error) throw error;
+  return (data ?? []) as CompteNatif[];
+}
 
 /**
- * Ajoute des liens ou des comptes collés ; rien n'est encore lu. `onPaquet`
- * reçoit le résumé de chaque paquet dès qu'il revient, pour le journal et pour
- * lancer la lecture sans attendre les paquets suivants.
+ * Note des liens ou des comptes collés et rend la main aussitôt : le serveur
+ * cherche les comptes et lit les slideshows tout seul, page fermée ou non.
  */
 export async function ajouterExemplesNatifs(
   langue: string,
   labelId: string | null,
   texte: string,
-  onPaquet?: (resume: ResumeAjoutExemples) => void,
 ): Promise<ResumeAjoutExemples> {
-  const lignes = texte
-    .split(/[\n,;]+/)
-    .map((l) => l.trim())
-    .filter(Boolean);
-  const total: ResumeAjoutExemples = { ajoutes: 0, deja: 0, comptes: [], ignorees: [] };
-  for (let i = 0; i < lignes.length; i += LIGNES_PAR_APPEL) {
-    const paquet = lignes.slice(i, i + LIGNES_PAR_APPEL).join("\n");
-    const r = await invoke<ResumeAjoutExemples>("exemples-natifs", { ajouter: { langue, labelId, texte: paquet } });
-    total.ajoutes += r.ajoutes;
-    total.deja += r.deja;
-    total.comptes.push(...r.comptes);
-    total.ignorees.push(...r.ignorees);
-    onPaquet?.(r);
-  }
-  if (total.ajoutes + total.deja === 0 && total.comptes.length === 0) {
+  const r = await invoke<ResumeAjoutExemples>("exemples-natifs", { ajouter: { langue, labelId, texte } });
+  if (r.ajoutes + r.deja + r.comptes + r.dejaEnFile === 0) {
     throw new Error("Aucun lien TikTok ni compte reconnu.");
   }
-  return total;
+  return r;
 }
 
-export interface LectureExemple {
-  statut: StatutExempleNatif;
-  erreur?: string;
-  /** Slides avec du texte, quand l'exemple est prêt. */
-  slides?: number;
+/** Remet un exemple en file : le serveur le relit dans la minute. */
+export async function relireExempleNatif(id: string): Promise<void> {
+  await invoke("exemples-natifs", { relire: { ids: [id] } });
 }
 
-/** Récupère un slideshow et lit le texte de ses slides. */
-export function lireExempleNatif(id: string): Promise<LectureExemple> {
-  return invoke<LectureExemple>("exemples-natifs", { traiter: { id } });
+/** Retire du suivi les comptes déjà cherchés d'une langue (leurs slideshows restent dans la banque). */
+export async function effacerSuiviComptes(langue: string): Promise<void> {
+  const { error } = await supabase
+    .from("exemples_natifs_comptes")
+    .delete()
+    .eq("langue", langue)
+    .neq("statut", "en_attente");
+  if (error) throw error;
 }
 
 export async function majLabelExemple(id: string, labelId: string | null): Promise<void> {

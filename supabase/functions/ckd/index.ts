@@ -185,7 +185,17 @@ Deno.serve(async (request) => {
 async function reprendreMessagesSlack(supabase: Supabase, jours: number) {
   const jeton = jetonSlack();
   const depuis = Math.floor(Date.now() / 1000) - Math.min(Math.max(jours, 1), 90) * 86_400;
-  const canaux = await canauxDuBot(jeton);
+  // Sans le scope de liste des canaux : #questions, les canaux du bot FAQ et ceux où des posteurs ont déjà écrit.
+  const canaux = await canauxDuBot(jeton).catch(async () => {
+    const [{ data: regl }, { data: reactions }] = await Promise.all([
+      supabase.from("reglages").select("cle, valeur").in("cle", ["faq_automatique", "slack_questions_canal"]),
+      supabase.from("posteur_reactions").select("slack_canal").not("slack_canal", "is", null).limit(5000),
+    ]);
+    const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+    const faq = (v.faq_automatique as { canaux_slack?: string[] } | undefined)?.canaux_slack ?? [];
+    const questions = typeof v.slack_questions_canal === "string" ? [v.slack_questions_canal] : [CANAL_QUESTIONS_DEFAUT];
+    return [...new Set([...questions, ...faq, ...(reactions ?? []).map((r) => String(r.slack_canal))])].filter((c) => /^[CG]/.test(c));
+  });
   let gardes = 0;
   const erreurs: string[] = [];
   for (const canal of canaux) {

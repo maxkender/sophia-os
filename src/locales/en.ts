@@ -1663,7 +1663,7 @@ export const en = {
     fiches: {
       titre: "Sheets",
       description:
-        "What native rewriting reads for every deck: the app sheet says what to say, the language sheet how to say it, the label sheet which CTA to draw. Nothing touches production until native rewriting is switched on.",
+        "What native rewriting reads for every deck: the app sheet says what to say, the language sheet how to say it, the label sheet which CTA to draw, the CTA sheet how to write it. Nothing touches production until native rewriting is switched on.",
       versRelecture: "Native review",
       sortes: "Kinds of sheets",
       sorte: {
@@ -1682,8 +1682,13 @@ export const en = {
           role: "Which CTA to draw: the forms that work for each label, recomputed every Monday.",
           compte: "computed",
         },
+        cta: {
+          titre: "CTA",
+          role: "How to write the CTA: the rules shared by every app and every language, and the 7 forms.",
+          compte: "written",
+        },
       },
-      chercher: { appli: "Search an app…", langue: "Search a language…", label: "Search a label…" },
+      chercher: { appli: "Search an app…", langue: "Search a language…", label: "Search a label…", cta: "Search…" },
       aucunResultat: "Nothing matches.",
       rien: "Nothing to show.",
       ecrite: "Written",
@@ -1703,6 +1708,8 @@ export const en = {
       titreAppli: "{{nom}} sheet",
       titreLangue: "{{nom}} sheet",
       titreLabel: "{{nom}} label sheet",
+      nomCta: "CTA sheet",
+      titreCta: "CTA sheet (shared)",
       mode: "Read or edit",
       lire: "Read",
       modifier: "Edit",
@@ -1711,10 +1718,14 @@ export const en = {
       videLangue: "The {{nom}} sheet isn't written yet. The template sets the sections of the writing brief (docs/fiches-langue-brief.md).",
       videLabel:
         "The {{nom}} sheet hasn't been computed yet. It is written every Monday morning, or now with \"Compute now\" once published CTAs are classified (Native review → CTA).",
+      videCta:
+        "The CTA sheet is not written yet. The template takes the rules of the Sophia placement prompt, without what belongs in the app, language and label sheets: a real tip, the app blended into it, the same mould as the surrounding slides, the path and form ordered by the OS.",
       contenu: "Sheet (Markdown)",
       contenuAideAppli: "What the app does, what we may or may not claim, its features, its name per language, its competitors.",
       contenuAideLangue:
         "In English, with native words, phrases and hooks quoted verbatim in the language (« du », « dinge, die… »), no full slideshow. 1,200 to 2,000 words at most: it goes into every call.",
+      contenuAideCta:
+        "The shared rules for writing the CTA, for every app and every language. No fact about an app (app sheet), no word specific to a language (language sheet).",
       presentation: "Presentation for reviewers",
       presentationAide: "A few lines in English, shown to reviewers (\"What is {{nom}}?\").",
       enregistrer: "Save",

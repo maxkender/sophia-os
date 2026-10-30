@@ -14,6 +14,8 @@ const listerFichesLangue = vi.fn();
 const enregistrerFicheLangue = vi.fn();
 const listerFichesLabel = vi.fn();
 const calculerFichesLabel = vi.fn();
+const lireFicheCta = vi.fn();
+const enregistrerFicheCta = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
   listerFichesAppli: () => listerFichesAppli(),
@@ -23,6 +25,10 @@ vi.mock("@/features/relectureNative/api", () => ({
   enregistrerFicheLangue: (...a: unknown[]) => enregistrerFicheLangue(...a),
   listerFichesLabel: () => listerFichesLabel(),
   calculerFichesLabel: () => calculerFichesLabel(),
+  CLE_FICHE_CTA: "commune",
+  lireFicheCta: () => lireFicheCta(),
+  enregistrerFicheCta: (...a: unknown[]) => enregistrerFicheCta(...a),
+  lireAvancementCta: () => Promise.resolve({ classes: 120, a_classer: 0 }),
   listerExemplesNatifs: () =>
     Promise.resolve([
       { id: "e1", langue: "de", statut: "pret" },
@@ -82,14 +88,17 @@ describe("AdminFichesPage", () => {
       { cle: "smart_girl", contenu: "# Fiche label : smart_girl\n\n## Sophia · 812 posts\n- **Prouvée** : Un point de la liste 80 %", version: 1, auteur: "cta-lundi", created_at: "2026-11-02T06:30:00Z", versions: 1 },
     ]);
     calculerFichesLabel.mockResolvedValue({ semaine: "2026-11-02", fiches: 9, lignes: 400 });
+    lireFicheCta.mockResolvedValue(null);
+    enregistrerFicheCta.mockResolvedValue(undefined);
   });
 
-  it("réunit les trois sortes de fiches, avec leur avancement", async () => {
+  it("réunit les quatre sortes de fiches, avec leur avancement", async () => {
     rendre();
     const sortes = screen.getByRole("group", { name: "Sortes de fiches" });
     await waitFor(() => expect(within(sortes).getByRole("button", { name: /Applis/ })).toHaveTextContent("1 / 2"));
     expect(within(sortes).getByRole("button", { name: /Langues/ })).toHaveTextContent(/1 \/ \d+/);
     expect(within(sortes).getByRole("button", { name: /Labels/ })).toHaveTextContent("1 / 2");
+    expect(within(sortes).getByRole("button", { name: /^CTA/ })).toHaveTextContent("0 / 1");
     expect(within(sortes).getByRole("button", { name: /Applis/ })).toHaveAttribute("aria-pressed", "true");
   });
 
@@ -157,5 +166,19 @@ describe("AdminFichesPage", () => {
     fireEvent.click(within(screen.getByRole("list", { name: "Labels" })).getByRole("button", { name: /alpha_male/ }));
     const vide = await screen.findByTestId("fiche-label-alpha_male");
     expect(vide).toHaveTextContent("n’a pas encore été calculée");
+  });
+
+  it("CTA : la fiche commune s'écrit depuis le modèle, avec les formes en dessous", async () => {
+    rendre("/admin/fiches?sorte=cta");
+    const fiche = await screen.findByTestId("fiche-cta");
+    expect(fiche).toHaveTextContent("Jamais enregistrée");
+    fireEvent.click(within(fiche).getByRole("button", { name: "Écrire la fiche" }));
+    const texte = (within(fiche).getByLabelText("Fiche (Markdown)") as HTMLTextAreaElement).value;
+    expect(texte.startsWith("# Fiche CTA")).toBe(true);
+    expect(texte).toContain("Jamais avant la slide 4");
+    expect(texte).not.toContain("Sophia");
+    fireEvent.click(within(fiche).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() => expect(enregistrerFicheCta).toHaveBeenCalledWith(expect.stringContaining("## La règle d'or")));
+    expect(await screen.findByTestId("cta")).toBeInTheDocument();
   });
 });

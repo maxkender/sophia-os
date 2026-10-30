@@ -1666,7 +1666,7 @@ export const fr = {
     fiches: {
       titre: "Fiches",
       description:
-        "Ce que lit la réécriture native pour chaque deck : la fiche de l’appli dit quoi dire, la fiche de la langue comment le dire, la fiche du label quel CTA tirer. Rien ne touche la production tant que la réécriture native n’est pas allumée.",
+        "Ce que lit la réécriture native pour chaque deck : la fiche de l’appli dit quoi dire, la fiche de la langue comment le dire, la fiche du label quel CTA tirer, la fiche CTA comment l’écrire. Rien ne touche la production tant que la réécriture native n’est pas allumée.",
       versRelecture: "Relecture native",
       sortes: "Sortes de fiches",
       sorte: {
@@ -1685,8 +1685,13 @@ export const fr = {
           role: "Quel CTA tirer : les formes qui marchent pour chaque label, recalculées chaque lundi.",
           compte: "calculées",
         },
+        cta: {
+          titre: "CTA",
+          role: "Comment écrire le CTA : les règles communes à toutes les applis et toutes les langues, et les 7 formes.",
+          compte: "écrite",
+        },
       },
-      chercher: { appli: "Chercher une appli…", langue: "Chercher une langue…", label: "Chercher un label…" },
+      chercher: { appli: "Chercher une appli…", langue: "Chercher une langue…", label: "Chercher un label…", cta: "Chercher…" },
       aucunResultat: "Rien ne correspond.",
       rien: "Rien à afficher.",
       ecrite: "Écrite",
@@ -1706,6 +1711,8 @@ export const fr = {
       titreAppli: "Fiche {{nom}}",
       titreLangue: "Fiche {{nom}}",
       titreLabel: "Fiche label {{nom}}",
+      nomCta: "Fiche CTA",
+      titreCta: "Fiche CTA (commune)",
       mode: "Lire ou modifier",
       lire: "Lire",
       modifier: "Modifier",
@@ -1715,11 +1722,15 @@ export const fr = {
         "La fiche {{nom}} n’est pas encore écrite. Le modèle pose les rubriques du brief de rédaction (docs/fiches-langue-brief.md).",
       videLabel:
         "La fiche de {{nom}} n’a pas encore été calculée. Elle s’écrit chaque lundi matin, ou maintenant avec « Calculer maintenant » une fois les CTA publiés classés (Relecture native → CTA).",
+      videCta:
+        "La fiche CTA n’est pas encore écrite. Le modèle reprend les règles du prompt de placement de Sophia, sans ce qui va dans les fiches appli, langue et label : un vrai conseil, l’appli fondue dedans, le même moule que les slides voisines, la voie et la forme commandées par l’OS.",
       contenu: "Fiche (Markdown)",
       contenuAideAppli:
         "Ce que fait l’appli, ce qu’on peut affirmer ou non, ses fonctionnalités, son nom par langue, ses concurrents.",
       contenuAideLangue:
         "En anglais, avec les mots, tournures et accroches natives cités tels quels dans la langue (« du », « dinge, die… »), sans slideshow complet. 1 200 à 2 000 mots au plus : elle part dans chaque appel.",
+      contenuAideCta:
+        "Les règles communes pour écrire le CTA, pour toutes les applis et toutes les langues. Pas de fait sur une appli (fiche appli), pas de mot propre à une langue (fiche langue).",
       presentation: "Présentation pour les relecteurs",
       presentationAide: "Quelques lignes en anglais, montrées aux relecteurs (« What is {{nom}}? »).",
       enregistrer: "Enregistrer",

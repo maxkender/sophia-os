@@ -190,7 +190,7 @@ export interface FicheVersionnee {
 }
 
 /** La dernière version de chaque fiche d'une sorte, avec le nombre de versions. */
-async function dernieresFiches(sorte: "langue" | "label"): Promise<FicheVersionnee[]> {
+async function dernieresFiches(sorte: "langue" | "label" | "cta"): Promise<FicheVersionnee[]> {
   const { data, error } = await supabase
     .from("bleo_fiches")
     .select("cle, version, contenu, auteur, created_at")
@@ -213,21 +213,21 @@ export function listerFichesLangue(): Promise<FicheVersionnee[]> {
   return dernieresFiches("langue");
 }
 
-/** Enregistre une nouvelle version de la fiche d'une langue ; les anciennes restent. */
-export async function enregistrerFicheLangue(langue: string, contenu: string): Promise<void> {
+/** Enregistre une nouvelle version d'une fiche écrite à la main ; les anciennes restent. */
+async function enregistrerFicheVersionnee(sorte: "langue" | "cta", cle: string, contenu: string): Promise<void> {
   const { data: derniere, error: erreurLecture } = await supabase
     .from("bleo_fiches")
     .select("version")
-    .eq("sorte", "langue")
-    .eq("cle", langue)
+    .eq("sorte", sorte)
+    .eq("cle", cle)
     .order("version", { ascending: false })
     .limit(1)
     .maybeSingle();
   if (erreurLecture) throw erreurLecture;
   const { data: session } = await supabase.auth.getUser();
   const { error } = await supabase.from("bleo_fiches").insert({
-    sorte: "langue",
-    cle: langue,
+    sorte,
+    cle,
     version: ((derniere?.version as number | undefined) ?? 0) + 1,
     contenu,
     auteur: session.user?.email ?? "admin",
@@ -236,6 +236,24 @@ export async function enregistrerFicheLangue(langue: string, contenu: string): P
     if (error.code === "23505") throw new Error("Une autre version vient d'être enregistrée : recharge la page.");
     throw error;
   }
+}
+
+/** Enregistre une nouvelle version de la fiche d'une langue ; les anciennes restent. */
+export function enregistrerFicheLangue(langue: string, contenu: string): Promise<void> {
+  return enregistrerFicheVersionnee("langue", langue, contenu);
+}
+
+/** La fiche CTA (0623) : une seule, commune à toutes les applis et toutes les langues. */
+export const CLE_FICHE_CTA = "commune";
+
+/** La fiche CTA, dernière version, ou null si elle n'a jamais été écrite. */
+export async function lireFicheCta(): Promise<FicheVersionnee | null> {
+  return (await dernieresFiches("cta")).find((f) => f.cle === CLE_FICHE_CTA) ?? null;
+}
+
+/** Enregistre une nouvelle version de la fiche CTA ; les anciennes restent. */
+export function enregistrerFicheCta(contenu: string): Promise<void> {
+  return enregistrerFicheVersionnee("cta", CLE_FICHE_CTA, contenu);
 }
 
 /** Fiches label : écrites chaque lundi par `cta-formes` (0621). */

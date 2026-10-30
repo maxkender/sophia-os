@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o055",
+ "schema_id": "mentir-entretien",
+ "titre": "la même question d'entretien, 3 niveaux de réponse : à fuir, correcte, parfaite #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. essai (rh-o055 finit par 5) : format « 3 niveaux de réponse », jamais fait chez nous. Règle §4.6 : seule rh-o048 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma mentir-entretien (r 26,46, 496f8d72), recadrage gradué. Accroches écrites : celle-ci (retenue), « réponse nulle vs réponse parfaite » (écartée : 2 niveaux seulement), « comment passer d'une réponse moyenne à une réponse qui marque » (écartée : longue). Questions neuves, rien d'inventé : la réponse parfaite reste vraie. CTA de fin jamais utilisé : avouer son niveau. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b0b2c33e",
+   "texte_overlay": "la même question d'entretien,\n3 niveaux de réponse :\nà fuir, correcte, parfaite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6138b39a",
+   "texte_overlay": "« pourquoi ce métier ? »\nà fuir : « je sais pas trop »\ncorrecte : « il me plaît »\nparfaite : « depuis X, j'aime Y, et ce poste me permet Z »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "61863c72",
+   "texte_overlay": "« comment vous organisez votre semaine ? »\nà fuir : « au jour le jour »\ncorrecte : « avec une liste »\nparfaite : « 3 priorités le lundi, un point le vendredi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "61b04d98",
+   "texte_overlay": "« qu'est-ce que vous lisez ? »\nà fuir : « rien »\ncorrecte : « un peu de tout »\nparfaite : un sujet précis, raconté en une phrase",
+   "texte_sophia": "« qu'est-ce que vous lisez ? »\nparfaite : un sujet précis.\nutilise l'appli Sophia 5 minutes par jour, et en une semaine t'as ta réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "649c7a05",
+   "texte_overlay": "« comment vous gérez un désaccord ? »\nà fuir : « je n'en ai pas »\ncorrecte : « j'en parle »\nparfaite : « j'en parle à deux, avec une proposition »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "65198142",
+   "texte_overlay": "« vous avez une question ? »\nà fuir : « non »\ncorrecte : « c'est quoi la suite ? »\nparfaite : « qu'est-ce qui ferait de ce recrutement une réussite pour vous ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "654d24f1",
+   "texte_overlay": "t'es plutôt à fuir, correcte ou parfaite ?\navoue en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

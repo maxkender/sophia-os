@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o051",
+ "schema_id": "copie-habitudes",
+ "titre": "les habitudes des gens qui obtiennent toujours leur augmentation (j'en ai observé 5 pendant un an) #salaire #augmentation #travail #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 3. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o048 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma copie-habitudes (r 7,54, 63ffa170) : des habitudes concrètes observées chez d'autres. Famille d'accroche jamais faite : « les gens qui obtiennent toujours… ». Accroches écrites : celle-ci (retenue), « pourquoi c'est toujours les mêmes qui ont une augmentation » (écartée : amère), « 5 réflexes de ceux qu'on augmente » (écartée : sans récit). Aucune promesse de résultat ni chiffre de salaire inventé. Aucune reprise de rh-o011, rh-o015, rh-o023, rh-o029, rh-o034, rh-o036 à rh-o038 ni des sources. CTA de fin jamais utilisé : dire depuis quand on n'a pas demandé d'augmentation. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7f35a621",
+   "texte_overlay": "les habitudes des gens\nqui obtiennent toujours leur augmentation\n(j'en ai observé 5 pendant un an)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1b105e56",
+   "texte_overlay": "ils notaient leurs résultats au fil de l'année\npas la veille de l'entretien.\nle jour J, ils avaient des preuves",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1b319c70",
+   "texte_overlay": "ils apprenaient en continu, même hors de leur métier\nça se voyait dans leurs idées en réunion",
+   "texte_sophia": "ils apprenaient en continu, même hors de leur métier\nperso, j'ai commencé : 5 minutes par jour sur l'appli Sophia, et j'ai enfin des idées à apporter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1ccdcdd3",
+   "texte_overlay": "ils demandaient « qu'est-ce qu'il me faut pour passer au niveau suivant ? »\ndès janvier, pas en décembre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2165c62a",
+   "texte_overlay": "ils parlaient de ce que leur travail avait changé\npas de ce qu'ils avaient fait.\n« on a gagné une semaine sur le projet »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1dc6f8bb",
+   "texte_overlay": "ils demandaient, tout simplement\ncalmement, avec un rendez-vous dédié.\nceux qui attendaient qu'on leur propose attendaient encore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "28abc703",
+   "texte_overlay": "ta dernière demande d'augmentation,\nc'était il y a combien de temps ?\nréponds en mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

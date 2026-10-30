@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o050",
+ "schema_id": "insider-rh",
+ "titre": "ex-rh : je note vos réponses d'entretien de 1 à 10 (sans pitié) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 6. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. essai (rh-o050 finit par 0) : format « je note de 1 à 10 », jamais fait chez nous. Règle §4.6 : seule rh-o048 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma insider-rh (r 3,49, d3d9cd2f). Accroches écrites : celle-ci (retenue : jeu + confession), « je classe vos réponses d'entretien de la pire à la meilleure » (écartée : plus longue), « ex-rh, je juge tes réponses » (écartée : plus dure). Réponses-types inventées comme exemples, pas de vraies personnes. Notes données avec bienveillance, chacune avec le pourquoi. CTA de fin jamais utilisé : proposer sa réponse à noter. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a979667",
+   "texte_overlay": "ex-rh : je note vos réponses d'entretien\nde 1 à 10\n(sans pitié)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "154465d6",
+   "texte_overlay": "« je suis perfectionniste »\n2/10\nle défaut déguisé, on l'entend 5 fois par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15aad0d1",
+   "texte_overlay": "« j'ai quitté mon poste parce que mon manager était nul »\n1/10\nmême si c'est vrai, je me demande ce que tu diras de moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "15ad3237",
+   "texte_overlay": "« je ne sais pas, mais je vais chercher et je reviens vers vous »\n8/10\nhonnête, et tu montres comment tu travailles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1670b510",
+   "texte_overlay": "« j'ai réduit le délai de traitement de nos dossiers, voilà comment »\n9/10\nun fait, et une méthode. c'est tout ce que je voulais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8c645c1",
+   "texte_overlay": "« en ce moment j'apprends un peu d'histoire de l'art, ça m'aide à… »\n10/10\nmes 3 sources pour ce genre de réponse : mes voyages, mes podcasts, et ce que j'apprends chaque jour",
+   "texte_sophia": "« en ce moment j'apprends un peu d'histoire de l'art »\n10/10\nmes 3 sources : mes voyages, mes podcasts, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1adf2053",
+   "texte_overlay": "« des questions ? non, vous avez tout dit »\n3/10\nune seule question aurait suffi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1af604bc",
+   "texte_overlay": "écris ta réponse à « parlez-moi de vous »\net laisse les autres la noter en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -45,6 +45,18 @@ const statut = vi.hoisted(() => ({
 }));
 vi.mock("./statutCompte", async (orig) => ({ ...(await orig<typeof import("./statutCompte")>()), ...statut }));
 
+// 0464 : la couverture, les posteurs toujours montrés, Full stop (Test : Validate simule), les contrats sans posteur.
+const exhaustif = vi.hoisted(() => ({
+  lireCouverture: vi.fn(async () => [] as { poster_id: string; nom: string | null; comptes: number; raison: string | null }[]),
+  lireForces: vi.fn(async () => new Map<string, { poster_id: string; raison: string; detail: string | null; depuis: string | null }[]>()),
+  lireModeArret: vi.fn(async () => "on" as "off" | "test" | "on"),
+  simulerValidate: vi.fn(async () => [] as unknown[]),
+  lireContratsSansPosteur: vi.fn(async () => [] as unknown[]),
+  relireContratsSansPosteur: vi.fn(),
+  fermerContratSansPosteur: vi.fn(),
+}));
+vi.mock("./samediExhaustif", async (orig) => ({ ...(await orig<typeof import("./samediExhaustif")>()), ...exhaustif }));
+
 import { ListeSamedi } from "./ListeSamedi";
 
 function rendu() {
@@ -78,6 +90,9 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
   beforeEach(async () => {
     vi.clearAllMocks();
     auth.role = "admin";
+    exhaustif.lireModeArret.mockResolvedValue("on");
+    exhaustif.lireCouverture.mockResolvedValue([]);
+    exhaustif.lireForces.mockResolvedValue(new Map());
     await i18n.changeLanguage("fr");
     api.lireSemaineComptes.mockResolvedValue([
       compte({ compte_id: "a", handle: "absent", jours: vides, prevus_passes: 6, lien_passes: 0, lien_total: 0,
@@ -197,5 +212,68 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     expect(within(fiche).getByRole("link", { name: "123" })).toHaveAttribute("href", "https://www.upwork.com/nx/wm/workroom/123/overview");
     expect(within(fiche).getByText("120 vues")).toBeInTheDocument();
     expect(within(fiche).getByText(/Kill & don't pay : rien n'est approuvé/)).toBeInTheDocument();
+  });
+
+  it("0464 : « n sur N posteurs actifs », « Pas dans la liste » avec la raison ; No channel toujours à traiter, Kill proposé", async () => {
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "c", handle: "calme", poster_id: "pc", jours: complets }),
+      compte({ compte_id: "b", handle: "bon", poster_id: "pb", jours: complets }),
+    ]);
+    statut.lireExtras.mockResolvedValue(new Map([["c", extras("c")], ["b", extras("b")]]));
+    api.lireRecruesSansReaction.mockResolvedValue([]);
+    exhaustif.lireForces.mockResolvedValue(new Map([
+      ["pc", [{ poster_id: "pc", raison: "sans_canal", detail: "No Slack, no Upwork contract", depuis: null }]],
+      ["px", [{ poster_id: "px", raison: "reporte_2", detail: "2 postponements", depuis: null }]],
+    ]));
+    exhaustif.lireCouverture.mockResolvedValue([
+      { poster_id: "pc", nom: "Carla", comptes: 1, raison: null },
+      { poster_id: "pb", nom: "Bo", comptes: 1, raison: null },
+      { poster_id: "pr", nom: "Rui", comptes: 1, raison: "ruul" },
+      { poster_id: "pz", nom: "Zoe", comptes: 0, raison: "sans_compte" },
+      { poster_id: "px", nom: "Xavi", comptes: 0, raison: "sans_compte" },
+    ]);
+    rendu();
+    const couverture = await screen.findByTestId("couverture-samedi");
+    expect(couverture).toHaveTextContent("2 montrés sur 3 posteurs actifs (3 comptes)");
+    expect(screen.getByTestId("pas-dans-la-liste")).toHaveTextContent("Rui");
+    expect(screen.getByTestId("pas-dans-la-liste")).toHaveTextContent("Cohorte RUUL (exclue)");
+    // Vert mais « No channel » : dans la liste principale, Kill & pay pré-sélectionné, la raison.
+    await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
+    expect(within(ligne("calme")).getByText("Aucun canal")).toBeInTheDocument();
+    expect(within(screen.getByTestId("section-confiance")).queryByText("calme")).toBeNull();
+    // Reporté 2 fois sans compte : sa carte, Kill proposé.
+    const sansCompte = await screen.findByTestId("forces-sans-compte");
+    expect(sansCompte).toHaveTextContent("Xavi");
+    expect(sansCompte).toHaveTextContent("Reporté 2 fois");
+  });
+
+  it("0464 : Full stop sur Test : Validate montre ligne par ligne ce qui se passerait, sans rien faire", async () => {
+    exhaustif.lireModeArret.mockResolvedValue("test");
+    exhaustif.simulerValidate.mockResolvedValue([{
+      poster_id: "p1", nom: "Ana Silva", choix: "kill", desactivation: "@absent deactivated; poster deactivated in the OS",
+      slack: "added to \"To remove from Slack\" (Logs & to do), right away",
+      fermeture: "Monday after payroll: contract 123 would be closed through the API (Full stop is test: simulated only)",
+      remboursement: "Kill & pay: this week paid Monday from Week 44 (14 $); anything else funded: refund",
+    }]);
+    const confirm = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="absent"]')).not.toBeNull());
+    expect(await screen.findByTestId("validate-test")).toHaveTextContent("Full stop est sur Test");
+    fireEvent.click(screen.getByRole("button", { name: "Validate" }));
+    const sim = await screen.findByTestId("simulation-validate");
+    expect(sim).toHaveTextContent("poster deactivated in the OS");
+    expect(sim).toHaveTextContent("To remove from Slack");
+    expect(sim).toHaveTextContent("would be closed through the API");
+    expect(sim).toHaveTextContent("Week 44 (14 $)");
+    expect(exhaustif.simulerValidate).toHaveBeenCalledWith("2026-10-26", expect.arrayContaining([
+      expect.objectContaining({ compte_id: "a", choix: "kill" }),
+    ]));
+    // Rien n'est fait : ni décision, ni arrêt, ni appel à la fonction upwork, ni confirmation.
+    expect(confirm).not.toHaveBeenCalled();
+    expect(ckd.deciderCkd).not.toHaveBeenCalled();
+    expect(api.choisirSamedi).not.toHaveBeenCalled();
+    expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
+    expect(moteur.invoke).not.toHaveBeenCalledWith("upwork", { action: "arrets" });
+    expect(screen.getByText("Test : rien n'a été fait. Passe Full stop sur On, puis Validate pour de vrai.")).toBeInTheDocument();
   });
 });

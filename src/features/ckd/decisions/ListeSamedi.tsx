@@ -19,6 +19,15 @@ import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
 import { lireContexte, relireConversationsUpwork } from "./contexte";
 import { FicheSamedi } from "./FicheSamedi";
 import { lireEtatsHandle } from "./handlesEtat";
+import {
+  calculerCouverture,
+  type LigneSimulation,
+  lireCouverture,
+  lireForces,
+  lireModeArret,
+  simulerValidate,
+} from "./samediExhaustif";
+import { BadgesForces, CompteurCouverture, ContratsSansPosteur, ResultatSimulation } from "./SectionsSamedi";
 import { LigneHandle } from "./LigneHandle";
 import { BadgesPosteur, CellulesEtapes, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
@@ -149,6 +158,11 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const seuils = useQuery({ queryKey: ["masterlist-seuils"], queryFn: lireSeuilsConfiance });
   const recrues = useQuery({ queryKey: ["samedi-recrues", lundi], queryFn: () => lireRecruesSansReaction(lundi) });
   const demandes = useQuery({ queryKey: ["demandes-arret"], queryFn: lireDemandesArret });
+  // 0464 : la couverture, les posteurs toujours montrés, le mode de Full stop (Test : Validate simule).
+  const couverture = useQuery({ queryKey: ["samedi-couverture", lundi], queryFn: () => lireCouverture(lundi) });
+  const forces = useQuery({ queryKey: ["samedi-forces", lundi], queryFn: () => lireForces(lundi) });
+  const modeArret = useQuery({ queryKey: ["reglage-arret-auto"], queryFn: lireModeArret });
+  const [simulation, setSimulation] = React.useState<{ lignes: LigneSimulation[]; autres: string[] } | null>(null);
   // Prompt 27 : le contexte de chaque posteur (messages, connexion, dernier post, absence déclarée).
   const posteursListe = React.useMemo(() => [...new Set((lu.data ?? []).map((c) => c.poster_id))].sort(), [lu.data]);
   const contexte = useQuery({
@@ -186,7 +200,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   })])), [liste, extras.data, seuils.data, lundi, aujourdhui, maintenant]);
   const e = (c: CompteSemaine) => evals.get(c.compte_id)!;
   const demandeDe = new Map((demandes.data ?? []).map((d) => [d.poster_id, d]));
-  const demandeCompte = (c: CompteSemaine) => (!c.cohorte_lundi || c.cohorte_lundi <= lundi ? demandeDe.get(c.poster_id) ?? null : null);
+  // 0464 : quelle que soit la cohorte.
+  const demandeCompte = (c: CompteSemaine) => demandeDe.get(c.poster_id) ?? null;
+  const forcesDe = (posterId: string) => forces.data?.get(posterId) ?? [];
   const choixDe = (c: CompteSemaine): ChoixSamedi => {
     if (choix[c.compte_id]) return choix[c.compte_id];
     const prise = decisionSamedi(c);
@@ -194,14 +210,20 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     if (demandeCompte(c)) return "kill";
     // « Kill Saturday » choisi jeudi : Kill & pay pré-sélectionné (Max valide toujours samedi).
     if (etats.data?.get(c.compte_id)?.kill_jeudi_at) return "kill";
+    // 0464 : reporté 2 fois, No channel (et les autres raisons) : Kill & pay proposé.
+    if (forcesDe(c.poster_id).length) return "kill";
     return choixPropose(e(c));
   };
   const filtres_ = filtrerComptes(liste, filtres);
   const duOnglet = (o: Onglet) => filtres_.filter((c) => o === "tous" || ongletDe(c, lundi) === o);
-  const aTraiter = (c: CompteSemaine) => e(c).statut === "rouge" || e(c).statut === "orange";
-  const visibles = trierComptes(duOnglet(onglet), tri).sort((a, b) => ordreStatut(e(a), e(b)));
-  const principaux = visibles.filter((c) => (tous ? e(c).statut !== "vert" : aTraiter(c)));
-  const confiance = visibles.filter((c) => e(c).statut === "vert");
+  // 0464 : un posteur « toujours montré » (demande d'arrêt, reporté 2 fois, Kill Saturday, No channel) est à traiter.
+  const force = (c: CompteSemaine) => forcesDe(c.poster_id).length > 0 || Boolean(demandeCompte(c));
+  const aTraiter = (c: CompteSemaine) => force(c) || e(c).statut === "rouge" || e(c).statut === "orange";
+  const visibles = trierComptes(duOnglet(onglet), tri).sort((a, b) => Number(force(b)) - Number(force(a)) || ordreStatut(e(a), e(b)));
+  const principaux = visibles.filter((c) => (tous ? force(c) || e(c).statut !== "vert" : aTraiter(c)));
+  const confiance = visibles.filter((c) => e(c).statut === "vert" && !force(c));
+  const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
+  const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres) : null;
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
   const nbCol = jours.length + 8;
   const compteurs = {
@@ -215,6 +237,13 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const libelleRaison = (r: RaisonSansPaie) => t(`autoOnglets.decisions.liste.samedi.sansPaie.raisons.${r}`);
   // Les recrues sans compte (pas dans la liste des comptes) restent dans leur carte.
   const recruesSansCompte = (recrues.data ?? []).filter((r) => !r.compte_id);
+  // 0464 : un posteur toujours montré sans compte dans la liste ni dans les recrues : sa carte, Kill proposé.
+  const dejaRecrues = new Set(recruesSansCompte.map((r) => r.poster_id));
+  const forcesSansCompte = [...(forces.data?.entries() ?? [])]
+    .filter(([p]) => !posteursMontres.has(p) && !dejaRecrues.has(p))
+    .map(([p, f]) => ({ poster_id: p, forces: f, nom: couverture.data?.find((l) => l.poster_id === p)?.nom ?? null }));
+  const [choixForces, setChoixForces] = React.useState<Record<string, "kill" | "rien">>({});
+  const choixForceDe = (p: string) => choixForces[p] ?? "kill";
   const choixRecrueDe = (r: RecrueSansReaction) => choixRecrues[r.poster_id] ?? (demandeDe.has(r.poster_id) ? "kill" : "rien");
 
   const recap = () => {
@@ -227,8 +256,26 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     return parties.length ? parties.join(", ") : t("autoOnglets.decisions.liste.samedi.recap.rien");
   };
 
+  /** 0464 : Full stop sur Test : ce que ferait Validate, ligne par ligne ; rien n'est écrit. */
+  const simuler = async () => {
+    const kills = [
+      ...aDecider.filter((c) => ["kill", "kill_np"].includes(choixDe(c)))
+        .map((c) => ({ poster_id: c.poster_id, compte_id: c.compte_id, choix: choixDe(c) as "kill" | "kill_np" })),
+      ...recruesSansCompte.filter((r) => choixRecrueDe(r) === "kill").map((r) => ({ poster_id: r.poster_id, compte_id: null, choix: "kill" as const })),
+      ...forcesSansCompte.filter((f) => choixForceDe(f.poster_id) === "kill").map((f) => ({ poster_id: f.poster_id, compte_id: null, choix: "kill" as const })),
+    ];
+    const autres = (["double", "recreate", "pause", "reporter"] as const)
+      .map((k) => ({ k, n: nbChoix(k) }))
+      .filter((p) => p.n > 0)
+      .map((p) => `${p.n} ${t(`autoOnglets.decisions.liste.samedi.choix.${p.k}`)}`);
+    setSimulation({ lignes: await simulerValidate(lundi, kills), autres });
+    return { decides: 0, kills: 0, reports: 0, erreurs: [] as string[], simulation: true };
+  };
+
   const valider = useMutation({
     mutationFn: async () => {
+      if (modeArret.data === "test") return await simuler();
+      setSimulation(null);
       const erreurs: string[] = [];
       let decides = 0;
       const montants = new Map<string, number | null>();
@@ -239,7 +286,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       if (sansPaie.length > 0) {
         const total = [...montants.values()].reduce<number>((s, m) => s + Number(m ?? 0), 0);
         if (!window.confirm(t("autoOnglets.decisions.liste.samedi.sansPaie.confirm", { n: sansPaie.length, total }))) {
-          return { decides: 0, kills: 0, reports: 0, erreurs: [t("autoOnglets.decisions.liste.samedi.sansPaie.annule")] };
+          return { decides: 0, kills: 0, reports: 0, erreurs: [t("autoOnglets.decisions.liste.samedi.sansPaie.annule")], simulation: false };
         }
       }
       for (const c of aDecider) {
@@ -268,6 +315,13 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           erreurs.push(`${r.nom ?? "?"} : ${(err as Error).message}`);
         }
       }
+      for (const f of forcesSansCompte.filter((x) => choixForceDe(x.poster_id) === "kill")) {
+        try {
+          await arreterRecrueSamedi(f.poster_id);
+        } catch (err) {
+          erreurs.push(`${f.nom ?? "?"} : ${(err as Error).message}`);
+        }
+      }
       for (const r of recruesReport) {
         try {
           await reporterRecrue(r.poster_id);
@@ -285,14 +339,20 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
         }
       }
       if (decides > 0 || recruesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
-      return { decides, kills: recruesKill.length, reports: recruesReport.length, erreurs };
+      return { decides, kills: recruesKill.length, reports: recruesReport.length, erreurs, simulation: false };
     },
     onSuccess: (r) => {
+      if (r.simulation) {
+        setBilan(t("autoOnglets.decisions.liste.samedi.simulation.bilan"));
+        return;
+      }
       setChoix({});
       setRaisons({});
       setChoixRecrues({});
       setBilan(t("autoOnglets.decisions.liste.samedi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
-      for (const k of ["semaine-comptes", "semaine-extras", "samedi-recrues", "demandes-arret", "ckd"]) void qc.invalidateQueries({ queryKey: [k] });
+      for (const k of ["semaine-comptes", "semaine-extras", "samedi-recrues", "demandes-arret", "ckd", "samedi-forces", "samedi-couverture"]) {
+        void qc.invalidateQueries({ queryKey: [k] });
+      }
     },
   });
 
@@ -344,6 +404,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           </td>
           <td className={TD}>
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
+            {!prise && forcesDe(c.poster_id).some((f) => f.raison === "reporte_2" || f.raison === "sans_canal") && (
+              <BadgesForces forces={forcesDe(c.poster_id).filter((f) => f.raison === "reporte_2" || f.raison === "sans_canal")} />
+            )}
             {etats.data?.get(c.compte_id)?.kill_jeudi_at && (
               <p className="mt-1 max-w-56 text-[11px]" data-testid="kill-jeudi">
                 {t("autoOnglets.decisions.liste.handle.killJeudi", {
@@ -430,6 +493,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           <CardDescription>{t("autoOnglets.decisions.liste.samedi.aide")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
+          {cover && <CompteurCouverture c={cover} />}
+          {(couverture.error || forces.error) && <p className="text-sm text-destructive">{((couverture.error ?? forces.error) as Error).message}</p>}
           {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
           {extras.error && <p className="text-sm text-destructive">{(extras.error as Error).message}</p>}
           {lu.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
@@ -511,7 +576,40 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
         </Card>
       )}
 
+      {forcesSansCompte.length > 0 && (
+        <Card data-testid="forces-sans-compte">
+          <CardHeader>
+            <CardTitle className="text-base">{t("autoOnglets.decisions.liste.samedi.forces.titre", { n: forcesSansCompte.length })}</CardTitle>
+            <CardDescription>{t("autoOnglets.decisions.liste.samedi.forces.aide")}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="divide-y rounded-md border text-sm">
+              {forcesSansCompte.map((f) => (
+                <li key={f.poster_id} className="flex flex-wrap items-center gap-3 p-2" data-force-poster={f.poster_id}>
+                  <Choix
+                    valeur={choixForceDe(f.poster_id)}
+                    options={["kill", "rien"] as const}
+                    libelle={(o) => t(`autoOnglets.decisions.liste.recrues.choix.${o}`)}
+                    lecture={!admin}
+                    onChange={(o) => setChoixForces((v) => ({ ...v, [f.poster_id]: o }))}
+                  />
+                  <span className="font-medium">{f.nom ?? "—"}</span>
+                  <BadgesForces forces={f.forces} />
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      )}
+
+      <ContratsSansPosteur admin={admin} />
+
+      {simulation && <ResultatSimulation lignes={simulation.lignes} autres={simulation.autres} />}
+
       <div className="sticky bottom-0 flex flex-wrap items-center gap-3 border-t bg-background py-3">
+        {modeArret.data === "test" && (
+          <Badge variant="warning" data-testid="validate-test">{t("autoOnglets.decisions.liste.samedi.simulation.bandeau")}</Badge>
+        )}
         <Badge variant="info" data-testid="recap-samedi">{t("autoOnglets.decisions.liste.samedi.recap.titre", { recap: recap() })}</Badge>
         {admin && sansPaie.some((c) => !raisonComplete(raisons[c.compte_id])) && (
           <span className="text-xs text-destructive">{t("autoOnglets.decisions.liste.samedi.sansPaie.manque")}</span>
@@ -522,7 +620,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             loading={valider.isPending}
             disabled={sansPaie.some((c) => !raisonComplete(raisons[c.compte_id]))}
             onClick={() => {
-              if (window.confirm(t("autoOnglets.decisions.liste.samedi.recap.confirm", { recap: recap() }))) valider.mutate();
+              if (modeArret.data === "test" || window.confirm(t("autoOnglets.decisions.liste.samedi.recap.confirm", { recap: recap() }))) valider.mutate();
             }}
           >
             {t("autoOnglets.decisions.liste.samedi.valider")}

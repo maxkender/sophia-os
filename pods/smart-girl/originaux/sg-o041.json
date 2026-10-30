@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o041",
+ "schema_id": "neat-and-intelligent",
+ "titre": "My Sunday Reset as a Quiet Academic #sundayreset #studytok #darkacademia #smartgirl #thatgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "00ef8171-8281-428d-8d3a-24d3c5069750",
+  "ef149b0b-030d-438d-8d6c-71f4f654268a"
+ ],
+ "notes": "cta A. CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Schéma neat-and-intelligent (ef149b0b r 9,96 sur 11 ; 00ef8171 r 3,98 ; nos sg-o009, r 1,57, et sg-o029). Autre angle : le dimanche. Accroches écrites : « My Sunday Reset as a Quiet Academic » (retenue : « My Habits as an Academic », r 3,98, avec le « Sunday reset » très enregistré), « How I prepare a calm, smart week » (écartée : plus vague), « Sunday habits of girls who read a lot » (écartée : sans preuve). Le « je » de la source, aucun rituel de régime ni de marque : planifier la semaine sur papier, vider le bureau, relire les notes de la semaine, choisir le livre de la semaine, 20 minutes de rangement en musique, une heure en bibliothèque ou au musée, une chose nouvelle chaque matin (Sophia, cta A). Images de la banque (bureaux, légendes), sans texte lisible ; slide Sophia sur un carnet, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2b38fe82",
+   "texte_overlay": "My Sunday Reset as a\nQuiet Academic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "28750386",
+   "texte_overlay": "I plan my whole week\non paper, with one\npriority per day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1fbd312c",
+   "texte_overlay": "I clear my desk completely,\nthen put back only\nwhat I need",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "20497171",
+   "texte_overlay": "I reread the week's notes\nfor 15 minutes. Sunday\nme is Monday me's\nbest friend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "76da1cc3",
+   "texte_overlay": "I choose the one book\nI'll read this week\nand leave it on my pillow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "457296c1",
+   "texte_overlay": "I spend one hour at the\nlibrary or a museum,\njust for me",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2fa10e4a",
+   "texte_overlay": "And every morning, I learn\none new thing with my coffee.\nA painting, a battle,\na planet",
+   "texte_sophia": "And every morning, I learn\none new thing with a\nmicro-learning app like the\nSophia app. 5 minutes,\nevery day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4c0d6882",
+   "texte_overlay": "which one are you\nstealing for this Sunday?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  }
+ ]
+}

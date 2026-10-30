@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o042",
+ "schema_id": "high-status-woman",
+ "titre": "Old-Fashioned Manners Worth Bringing Back #etiquette #elegance #manners #smartgirl #classy",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "f6b8b58a-5eb4-4c4c-bff4-267b991dd343",
+  "4950b76f-e997-4a7b-ab3d-bbf38bbc33d2"
+ ],
+ "notes": "cta C. CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Schéma high-status-woman (4950b76f r 8,72 ; f6b8b58a r 4,23 ; nos sg-o006, rang A, sg-o017, sg-o020). Accroche neuve chez nous. Accroches écrites : « Old-Fashioned Manners Worth Bringing Back » (retenue : la forme « timeless things every woman should … » des gagnants, sans objets ni argent), « Things elegant women still do in 2026 » (écartée : date qui vieillit), « Manners my grandmother taught me » (écartée : persona inventé). Title Case. Six manières neuves face à sg-o006, sg-o017, sg-o020, sg-o028 et sg-o039 : répondre à une invitation (RSVP vient du français « répondez s'il vous plaît »), ne jamais arriver les mains vides, se présenter avec son nom complet, se lever pour saluer, écrire une vraie lettre, lire au lieu de scroller en attendant (cta C : l'appli à la place du scroll). Images de la banque (sources @richgirlacadmy_1 et bureaux), sans texte ni marque lisible ; slide Sophia sur un bureau blanc, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "10d60bb0",
+   "texte_overlay": "Old-Fashioned Manners\nWorth Bringing Back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7d31b04c",
+   "texte_overlay": "1. Answering Every Invitation\nYes or no, but always reply.\nRSVP is French for \"please\nrespond\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0cd56858",
+   "texte_overlay": "2. Never Arriving\nEmpty-Handed\nFlowers, a book, homemade\nbiscuits. It's the thought.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0d9529e0",
+   "texte_overlay": "3. Introducing Yourself\nProperly\nFull name, a smile, and one\nline about yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a33ad1dd",
+   "texte_overlay": "4. Standing Up to Greet\nSomeone\nIt says \"you matter\" before\nyou say a word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "185e7f66",
+   "texte_overlay": "5. Reading Instead of\nScrolling While You Wait\nA page of history, a short\nstory. Waiting rooms become\nlibraries.",
+   "texte_sophia": "5. Reading Instead of\nScrolling While You Wait\nI open an app like Sophia\ninstead of the feed: one\n5-minute lesson of art\nor history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "36a9e5d4",
+   "texte_overlay": "6. Writing Real Letters\nOne a month, to someone\nyou love. Nothing replaces\nhandwriting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "29a37791",
+   "texte_overlay": "Which one are you\nbringing back?\nSave this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/8.jpg"
+  }
+ ]
+}

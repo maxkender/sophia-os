@@ -81,7 +81,9 @@ export function ContratsSansPosteur({ admin }: { admin: boolean }) {
       <CardHeader>
         <CardTitle className="text-base">{t(`${P}.sansPosteur.titre`, { n: liste.length })}</CardTitle>
         <CardDescription>
-          {t(`${P}.sansPosteur.aide`, { hm: parProposition("hm"), relier: parProposition("relier"), ancien: parProposition("ancien") })}
+          {t(`${P}.sansPosteur.aide`, {
+            hm: parProposition("hm"), relier: parProposition("relier"), ancien: parProposition("ancien"), autre: parProposition("autre"),
+          })}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2 text-sm">

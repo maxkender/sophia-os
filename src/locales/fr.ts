@@ -373,7 +373,7 @@ export const fr = {
             },
             sansPosteur: {
               titre: "Contrats sans posteur ({{n}})",
-              aide: "Contrats VIk Studios actifs sans profil OS : {{relier}} à relier, {{hm}} contrats HM, {{ancien}} anciens posteurs à fermer. Rien n'est fermé sans ton clic.",
+              aide: "Contrats VIk Studios actifs sans profil OS : {{relier}} à relier, {{hm}} contrats HM, {{ancien}} anciens posteurs à fermer, {{autre}} autres missions (pas du posting). Rien n'est fermé sans ton clic.",
               relire: "Relire sur Upwork",
               relu: "{{contrats}} contrats · {{jalons}} milestones lues · {{salons}} conversations lues",
               colonnes: { nom: "Freelance", debut: "Début", message: "Dernier message", finance: "Milestone financée", proposition: "Proposition" },
@@ -381,7 +381,7 @@ export const fr = {
               aucunMessage: "aucun message",
               pasLu: "pas encore lu",
               rienFinance: "rien de financé",
-              propositions: { hm: "Contrat HM", relier: "À relier", ancien: "Ancien posteur : fermer" },
+              propositions: { hm: "Contrat HM", relier: "À relier", ancien: "Ancien posteur : fermer", autre: "Autre mission (pas du posting)" },
               fermer: "Fermer le contrat",
               confirmer: "Fermer le contrat de {{nom}} sur Upwork maintenant ? Seulement si rien n'est financé et si le test de fermeture est bon. Aucun message n'est envoyé.",
             },

@@ -992,7 +992,7 @@ export const fr = {
       reglages: "Actions moteur — cleaning, ELO, assignation",
       prompts: "Éditer les prompts de l'IA (traduction, Sophia…)",
       angles: "Une consigne de placement par label et par application, en test ou active",
-      relectureNative: "Relecteurs natifs, fiches des applis, questionnaire",
+      relectureNative: "Relecteurs natifs, exemples natifs, fiches langue et fiches des applis",
       labelsApplications: "Créer les labels, leur style, et les applications qu'ils servent",
       reviews: "Retours aux créateurs (pop-up à leur connexion)",
       retoursContestes: "Les retours que des créateurs disent faux : vérifier et leur répondre",
@@ -1541,10 +1541,11 @@ export const fr = {
       },
       titre: "Relecture native",
       description:
-        "Tout ce qu’il faut pour la réécriture native : les relecteurs, qui corrigeront les posts publiés, les exemples natifs de chaque langue et les fiches des applis. Rien ici ne touche la production.",
+        "Tout ce qu’il faut pour la réécriture native : les relecteurs, qui corrigeront les posts publiés, les exemples natifs de chaque langue, les fiches langue et les fiches des applis. Rien ici ne touche la production.",
       onglets: {
         relecteurs: "Relecteurs",
         exemples: "Exemples natifs",
+        langues: "Fiches langue",
         fiches: "Fiches appli",
       },
       interrupteurs: {
@@ -1585,6 +1586,24 @@ export const fr = {
         retirer: "Supprimer",
         confirmerRetrait:
           "Supprimer {{nom}} ? Pour l’écarter sans rien perdre, passe plutôt son statut à « Retiré ».",
+      },
+      fichesLangue: {
+        aide:
+          "Une fiche par langue : comment écrivent les créateurs natifs, condensé de la banque d’exemples (registre, rythme, accroches, vocabulaire, familles de ton). La réécriture native lira la fiche, jamais les exemples eux-mêmes. Rien ne la lit encore. Brief de rédaction : docs/fiches-langue-brief.md.",
+        langue: "Langue",
+        titre: "Fiche {{nom}}",
+        vide: "À écrire",
+        ecrite: "Écrite",
+        jamais: "Jamais enregistrée.",
+        majLe: "Enregistrée le {{date}} · {{versions}} version(s)",
+        banque: "{{n}} exemples natifs prêts",
+        contenu: "Fiche complète (Markdown)",
+        contenuAide:
+          "Les règles en français, les extraits natifs dans la langue, sans slideshow complet. 1 200 à 2 000 mots au plus : elle part dans chaque appel.",
+        partirDuModele: "Partir du modèle",
+        enregistrer: "Enregistrer",
+        nonEnregistre: "Modifications non enregistrées",
+        enregistre: "Enregistré",
       },
       fiches: {
         aide:

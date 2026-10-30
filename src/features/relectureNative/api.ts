@@ -175,6 +175,37 @@ export async function compterVersionsFiches(): Promise<Record<string, number>> {
 }
 
 // ---------------------------------------------------------------------------
+// Fiches langue (admin, 0619)
+// ---------------------------------------------------------------------------
+
+export interface FicheLangue {
+  langue: string;
+  contenu: string;
+  updated_at: string | null;
+}
+
+export async function listerFichesLangue(): Promise<FicheLangue[]> {
+  const { data, error } = await supabase.from("fiches_langue").select("langue, contenu, updated_at");
+  if (error) throw error;
+  return (data ?? []) as FicheLangue[];
+}
+
+/** Enregistre la fiche d'une langue ; la base garde une version si le texte change. */
+export async function enregistrerFicheLangue(langue: string, contenu: string): Promise<void> {
+  const { error } = await supabase.from("fiches_langue").upsert({ langue, contenu }, { onConflict: "langue" });
+  if (error) throw error;
+}
+
+/** Nombre de versions enregistrées par langue. */
+export async function compterVersionsFichesLangue(): Promise<Record<string, number>> {
+  const { data, error } = await supabase.from("fiches_langue_versions").select("langue").limit(5000);
+  if (error) throw error;
+  const n: Record<string, number> = {};
+  for (const v of data ?? []) n[v.langue as string] = (n[v.langue as string] ?? 0) + 1;
+  return n;
+}
+
+// ---------------------------------------------------------------------------
 // Espace du relecteur (posteur)
 // ---------------------------------------------------------------------------
 

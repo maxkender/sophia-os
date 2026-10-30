@@ -16,12 +16,25 @@ export const SLIDESHOWS_RECENTS = 5;
 export const SLIDESHOWS_PLUS_LIKES = 5;
 export const POSTS_LUS_PAR_COMPTE = 60;
 /**
- * Comptes listés par appel. Chaque compte coûte une recherche Apify (20 à 40 s)
- * et une fonction Edge s'arrête à 150 s : le navigateur envoie donc les lignes
- * collées par petits paquets, et la fonction liste les comptes d'un paquet en
- * parallèle.
+ * Le travail tourne sur le serveur (0618) : l'admin colle et peut fermer la
+ * page ; la tâche planifiée passe chaque minute. Une fonction Edge s'arrête à
+ * 150 s, d'où des passages courts : quelques comptes (une recherche Apify de
+ * 20 à 40 s chacun, en parallèle) et quelques slideshows (un seul run Apify
+ * pour tous, puis l'OCR de leurs slides).
  */
-export const MAX_COMPTES_PAR_APPEL = 4;
+export const COMPTES_PAR_PASSAGE = 4;
+export const LECTURES_PAR_PASSAGE = 6;
+/** Slides lues en même temps par l'OCR. */
+export const OCR_EN_PARALLELE = 8;
+/**
+ * Passé ce délai, un passage ne lance plus d'OCR (une slide prend quelques
+ * secondes) : le slideshow inachevé retourne en file.
+ */
+export const BUDGET_PASSAGE_MS = 115_000;
+/** Un compte ou un slideshow pris trois fois sans aboutir est abandonné (0618). */
+export const TENTATIVES_MAX = 3;
+/** Lignes acceptées par envoi : au-delà, coller en plusieurs fois. */
+export const MAX_LIGNES_PAR_ENVOI = 200;
 /** En dessous, l'exemple n'apprend rien : c'est une image, pas un slideshow. */
 export const SLIDES_TEXTE_MIN = 3;
 
@@ -71,6 +84,27 @@ export function pseudoDuLien(url: string): string | null {
 /** L'identifiant TikTok d'un lien de post, `/photo/` ou `/video/`. */
 export function idPost(url: string): string | null {
   return url.match(/\/(?:photo|video)\/(\d+)/)?.[1] ?? null;
+}
+
+/**
+ * Le post d'Apify qui correspond à un lien de la banque. Comparer sur l'ID :
+ * Apify renvoie `/video/` même pour un slideshow collé en `/photo/`.
+ */
+export function postDuLien<P extends { postId: string; webVideoUrl: string }>(
+  url: string,
+  posts: ReadonlyArray<P>,
+): P | null {
+  const id = idPost(url);
+  if (!id) return null;
+  return posts.find((p) => p.postId === id || idPost(p.webVideoUrl) === id) ?? null;
+}
+
+/**
+ * Après un essai raté : la ligne retourne en file pour le passage suivant, ou
+ * est abandonnée si c'était son dernier essai.
+ */
+export function apresEchec(tentatives: number, motif: string): { statut: "en_attente" | "erreur"; erreur: string } {
+  return { statut: tentatives >= TENTATIVES_MAX ? "erreur" : "en_attente", erreur: motif };
 }
 
 export interface PostListe {

@@ -1,36 +1,62 @@
-import { listerDiaporamas, listerPostsProfil, scrapePost } from "../_shared/apify.ts";
+import { listerDiaporamas, listerPostsProfil, scrapePosts, type ScrapedPost } from "../_shared/apify.ts";
 import {
+  apresEchec,
+  BUDGET_PASSAGE_MS,
+  COMPTES_PAR_PASSAGE,
   idPost,
+  LECTURES_PAR_PASSAGE,
   lireLignes,
-  MAX_COMPTES_PAR_APPEL,
-  POSTS_LUS_PAR_COMPTE,
+  MAX_LIGNES_PAR_ENVOI,
   motifRefus,
+  OCR_EN_PARALLELE,
+  POSTS_LUS_PAR_COMPTE,
+  postDuLien,
+  pseudoDuLien,
   SLIDESHOWS_PLUS_LIKES,
   SLIDESHOWS_RECENTS,
-  pseudoDuLien,
   slideshowsDuCompte,
   slidesLues,
 } from "../_shared/exemples_natifs.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
 import { LANGUES_CIBLES } from "../_shared/langues_cibles.ts";
+import { enParallele } from "../_shared/nettoyage_stickers.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Banque d'exemples natifs (0423) : des slideshows de vrais créateurs de
- * chaque langue, lus par la traduction ancrée.
+ * Banque d'exemples natifs (0423, sur le serveur depuis 0618) : des slideshows
+ * de vrais créateurs de chaque langue, lus par la traduction ancrée.
  *
  *   { ajouter: { langue, labelId?, texte } }
- *       Lit les liens et comptes collés (un par ligne, 4 comptes au plus : le
- *       navigateur découpe). Un compte donne ses 5 slideshows les plus
- *       récents et ses 5 plus likés. Crée une ligne « en_attente » par slideshow ; rien n'est
- *       encore lu. → { ajoutes, deja, comptes, ignorees }
- *   { traiter: { id } }
- *       Récupère le slideshow (Apify) et lit le texte de chaque slide (OCR).
- *       Un exemple par appel : le navigateur enchaîne, sans risquer le
- *       délai de 150 s d'une fonction Edge. → { statut, erreur? }
+ *       Note les liens et comptes collés, puis répond aussitôt : l'admin peut
+ *       fermer la page. Un lien de slideshow entre dans la banque « en
+ *       attente » ; un compte entre dans la file des comptes à chercher.
+ *       → { ajoutes, deja, comptes, dejaEnFile, ignorees }
+ *   { relire: { ids } }
+ *       Remet des exemples en file de lecture. → { relances }
+ *   { tourner: {} }
+ *       Un passage (la tâche planifiée, chaque minute s'il reste du travail) :
+ *       cherche quelques comptes (leurs 5 slideshows les plus récents et leurs
+ *       5 plus likés) et lit quelques slideshows (Apify, puis OCR des slides).
  *
  * Rien n'est publié : ces slideshows ne deviennent jamais des contenus.
  */
+
+type Client = ReturnType<typeof serviceClient>;
+
+interface CompteEnFile {
+  id: string;
+  langue: string;
+  pseudo: string;
+  label_id: string | null;
+  tentatives: number;
+}
+
+interface ExempleEnFile {
+  id: string;
+  source_url: string;
+  tentatives: number;
+}
+
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
   if (denied) return denied;
@@ -39,7 +65,8 @@ Deno.serve(async (request) => {
   try {
     const body = (await request.json()) as {
       ajouter?: { langue?: string; labelId?: string | null; texte?: string };
-      traiter?: { id?: string };
+      relire?: { ids?: string[] };
+      tourner?: unknown;
     };
 
     if (body.ajouter) {
@@ -49,127 +76,241 @@ Deno.serve(async (request) => {
       }
       const labelId = body.ajouter.labelId || null;
       const lues = lireLignes(String(body.ajouter.texte ?? ""));
-      // Rien de reconnu dans ce paquet : on le dit, sans erreur (le navigateur
-      // envoie les lignes par paquets et fait le compte à la fin).
-      if (!lues.posts.length && !lues.comptes.length) {
-        return json({ ok: true, ajoutes: 0, deja: 0, comptes: [], ignorees: lues.ignorees });
-      }
-      if (lues.comptes.length > MAX_COMPTES_PAR_APPEL) {
-        return json({ error: `${MAX_COMPTES_PAR_APPEL} comptes au plus par appel.` }, 400);
+      if (lues.posts.length + lues.comptes.length > MAX_LIGNES_PAR_ENVOI) {
+        return json({ error: `${MAX_LIGNES_PAR_ENVOI} lignes au plus par envoi : colle en plusieurs fois.` }, 400);
       }
 
-      // Un compte donne ses slideshows les plus récents et les plus likés ;
-      // les comptes du paquet sont listés en parallèle. La page publique du
-      // compte (gratuite) dit quels posts sont des slideshows, ce qu'Apify ne
-      // dit pas toujours sans télécharger.
-      const comptes = await Promise.all(
-        lues.comptes.map(async (pseudo) => {
-          const [page, liste] = await Promise.all([
-            listerDiaporamas(pseudo).catch(() => [] as string[]),
-            listerPostsProfil(pseudo, POSTS_LUS_PAR_COMPTE).catch((erreur) => erreur as Error),
-          ]);
-          if (liste instanceof Error) {
-            if (page.length === 0) {
-              return { pseudo, posts: 0, slideshows: 0, verifies: false, trouves: [] as string[], erreur: messageErreur(liste) };
-            }
-            // Apify en panne mais la page publique répond : ses slideshows suffisent.
-            const trouves = page.slice(0, SLIDESHOWS_RECENTS + SLIDESHOWS_PLUS_LIKES);
-            return { pseudo, posts: page.length, slideshows: trouves.length, verifies: true, trouves };
-          }
-          const choix = slideshowsDuCompte(liste, new Set(page.map((u) => idPost(u) ?? "")));
-          console.log(
-            `exemples-natifs @${pseudo} : ${liste.length} posts Apify, ${page.length} slideshows sur la page, ` +
-              `${choix.urls.length} retenus${choix.verifies ? "" : " (type non reconnu, vérifié à la lecture)"}`,
-          );
-          return { pseudo, posts: liste.length, slideshows: choix.urls.length, verifies: choix.verifies, trouves: choix.urls };
-        }),
-      );
-      const urls = [...lues.posts];
-      for (const c of comptes) for (const u of c.trouves) if (!urls.includes(u)) urls.push(u);
+      const { ajoutes, deja } = await insererExemples(supabase, langue, labelId, lues.posts);
 
-      const { data: existants, error: erreurExistants } = await supabase
-        .from("exemples_natifs")
-        .select("source_url")
+      // Un compte déjà en file pour cette langue n'y entre pas deux fois.
+      const { data: enFile, error: erreurFile } = await supabase
+        .from("exemples_natifs_comptes")
+        .select("pseudo")
         .eq("langue", langue)
-        .in("source_url", urls.length ? urls : ["-"]);
-      if (erreurExistants) return json({ error: erreurExistants.message }, 500);
-      const deja = new Set((existants ?? []).map((e) => e.source_url as string));
-      const nouveaux = urls.filter((u) => !deja.has(u));
+        .eq("statut", "en_attente")
+        .in("pseudo", lues.comptes.length ? lues.comptes : ["-"]);
+      if (erreurFile) return json({ error: erreurFile.message }, 500);
+      const dejaEnFile = new Set((enFile ?? []).map((c) => c.pseudo as string));
+      const nouveaux = lues.comptes.filter((p) => !dejaEnFile.has(p));
       if (nouveaux.length) {
-        const { error } = await supabase.from("exemples_natifs").insert(
-          nouveaux.map((source_url) => ({
-            langue,
-            source_url,
-            handle: pseudoDuLien(source_url),
-            label_id: labelId,
-          })),
-        );
+        const { error } = await supabase
+          .from("exemples_natifs_comptes")
+          .insert(nouveaux.map((pseudo) => ({ langue, pseudo, label_id: labelId })));
         if (error) return json({ error: error.message }, 500);
+      }
+
+      // Démarrer sans attendre la prochaine minute, sauf si un passage tourne déjà.
+      if ((ajoutes > 0 || nouveaux.length > 0) && !(await passageEnCours(supabase))) {
+        enArrierePlan(passage(supabase));
       }
       return json({
         ok: true,
-        ajoutes: nouveaux.length,
-        deja: deja.size,
-        comptes: comptes.map(({ pseudo, posts, slideshows, verifies, erreur }) => ({
-          pseudo,
-          posts,
-          slideshows,
-          verifies,
-          ...(erreur ? { erreur } : {}),
-        })),
+        ajoutes,
+        deja,
+        comptes: nouveaux.length,
+        dejaEnFile: dejaEnFile.size,
         ignorees: lues.ignorees,
       });
     }
 
-    if (body.traiter?.id) {
-      const { data: exemple, error } = await supabase
+    if (body.relire) {
+      const ids = (body.relire.ids ?? []).filter((id) => typeof id === "string" && id).slice(0, 500);
+      if (!ids.length) return json({ error: "Aucun exemple à relire." }, 400);
+      const { data, error } = await supabase
         .from("exemples_natifs")
-        .select("id, source_url")
-        .eq("id", body.traiter.id)
-        .maybeSingle();
+        .update({ statut: "en_attente", erreur: null, pris_le: null, tentatives: 0 })
+        .in("id", ids)
+        .select("id");
       if (error) return json({ error: error.message }, 500);
-      if (!exemple) return json({ error: "Exemple introuvable" }, 404);
-
-      const echec = async (motif: string) => {
-        await supabase.from("exemples_natifs").update({ statut: "erreur", erreur: motif }).eq("id", exemple.id);
-        return json({ ok: true, statut: "erreur", erreur: motif });
-      };
-
-      let post;
-      try {
-        [post] = await scrapePost(exemple.source_url as string);
-      } catch (erreur) {
-        return await echec(`Apify : ${messageErreur(erreur)}`);
-      }
-      if (!post) return await echec("Post introuvable, supprimé ou privé.");
-
-      // OCR de toutes les slides, 4 à la fois.
-      const textes: string[] = new Array(post.imageUrls.length).fill("");
-      for (let i = 0; i < post.imageUrls.length; i += 4) {
-        const lot = post.imageUrls.slice(i, i + 4);
-        const lus = await Promise.all(lot.map((url) => ocrFrame(url).catch(() => "")));
-        lus.forEach((t, j) => (textes[i + j] = t));
-      }
-      const slides = slidesLues(textes);
-      const refus = motifRefus(post.imageUrls.length, slides);
-      if (refus) return await echec(refus);
-
-      const { error: erreurMaj } = await supabase
-        .from("exemples_natifs")
-        .update({
-          statut: "pret",
-          erreur: null,
-          slides,
-          vues: post.stats.vues || null,
-          handle: pseudoDuLien(post.webVideoUrl) ?? pseudoDuLien(exemple.source_url as string),
-        })
-        .eq("id", exemple.id);
-      if (erreurMaj) return json({ error: erreurMaj.message }, 500);
-      return json({ ok: true, statut: "pret", slides: slides.length });
+      if (!(await passageEnCours(supabase))) enArrierePlan(passage(supabase));
+      return json({ ok: true, relances: data?.length ?? 0 });
     }
 
-    return json({ error: "Demande inconnue : ajouter ou traiter." }, 400);
+    if (body.tourner) {
+      return json({ ok: true, ...(await passage(supabase)) });
+    }
+
+    return json({ error: "Demande inconnue : ajouter, relire ou tourner." }, 400);
   } catch (erreur) {
     return json({ error: messageErreur(erreur) }, 500);
   }
 });
+
+/** Un travail qui continue après la réponse ; la tâche planifiée prend la suite chaque minute. */
+function enArrierePlan(travail: Promise<unknown>) {
+  const suivi = travail.catch((erreur) => console.error(`exemples-natifs : ${messageErreur(erreur)}`));
+  const edge = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+  if (edge) edge.waitUntil(suivi);
+}
+
+/** Une ligne prise il y a moins de 2 minutes : un passage tourne. */
+async function passageEnCours(supabase: Client): Promise<boolean> {
+  const depuis = new Date(Date.now() - 2 * 60_000).toISOString();
+  const [comptes, exemples] = await Promise.all([
+    supabase.from("exemples_natifs_comptes").select("id").eq("statut", "en_attente").gt("pris_le", depuis).limit(1),
+    supabase.from("exemples_natifs").select("id").eq("statut", "en_attente").gt("pris_le", depuis).limit(1),
+  ]);
+  return Boolean(comptes.data?.length || exemples.data?.length);
+}
+
+async function passage(supabase: Client) {
+  const debut = Date.now();
+  const [comptes, lectures] = await Promise.all([chercherComptes(supabase), lireExemples(supabase, debut)]);
+  if (comptes + lectures.prets + lectures.erreurs + lectures.reportes > 0) {
+    console.log(
+      `exemples-natifs : ${comptes} compte(s) cherché(s), ${lectures.prets} slideshow(s) prêt(s), ` +
+        `${lectures.erreurs} écarté(s), ${lectures.reportes} reporté(s), ${Math.round((Date.now() - debut) / 1000)} s`,
+    );
+  }
+  return { comptes, ...lectures };
+}
+
+/** Ajoute des liens à la banque, en attente de lecture ; un lien déjà connu n'est pas recréé. */
+async function insererExemples(
+  supabase: Client,
+  langue: string,
+  labelId: string | null,
+  urls: string[],
+): Promise<{ ajoutes: number; deja: number }> {
+  if (!urls.length) return { ajoutes: 0, deja: 0 };
+  const { data, error } = await supabase
+    .from("exemples_natifs")
+    .upsert(
+      urls.map((source_url) => ({ langue, source_url, handle: pseudoDuLien(source_url), label_id: labelId })),
+      { onConflict: "langue,source_url", ignoreDuplicates: true },
+    )
+    .select("id");
+  if (error) throw new Error(error.message);
+  const ajoutes = data?.length ?? 0;
+  return { ajoutes, deja: urls.length - ajoutes };
+}
+
+// ---------------------------------------------------------------------------
+// Les comptes : leurs slideshows les plus récents et les plus likés
+// ---------------------------------------------------------------------------
+
+async function chercherComptes(supabase: Client): Promise<number> {
+  const { data, error } = await supabase.rpc("exemples_natifs_prendre_comptes", { p_n: COMPTES_PAR_PASSAGE });
+  if (error) throw new Error(error.message);
+  const pris = (data ?? []) as CompteEnFile[];
+  await Promise.all(pris.map((c) => chercherCompte(supabase, c)));
+  return pris.length;
+}
+
+async function chercherCompte(supabase: Client, c: CompteEnFile) {
+  // La page publique du compte (gratuite) dit quels posts sont des slideshows,
+  // ce qu'Apify ne dit pas toujours sans télécharger.
+  const [page, liste] = await Promise.all([
+    listerDiaporamas(c.pseudo).catch(() => [] as string[]),
+    listerPostsProfil(c.pseudo, POSTS_LUS_PAR_COMPTE).catch((erreur) => erreur as Error),
+  ]);
+  let trouves: string[];
+  let posts: number;
+  let verifies: boolean;
+  if (liste instanceof Error) {
+    if (page.length === 0) {
+      // Apify a pu caler une minute : nouvel essai au passage suivant.
+      const { error } = await supabase
+        .from("exemples_natifs_comptes")
+        .update({ ...apresEchec(c.tentatives, `Apify : ${messageErreur(liste)}`), pris_le: null })
+        .eq("id", c.id);
+      if (error) console.error(`exemples-natifs @${c.pseudo} : ${error.message}`);
+      return;
+    }
+    // Apify en panne mais la page publique répond : ses slideshows suffisent.
+    trouves = page.slice(0, SLIDESHOWS_RECENTS + SLIDESHOWS_PLUS_LIKES);
+    posts = page.length;
+    verifies = true;
+  } else {
+    const choix = slideshowsDuCompte(liste, new Set(page.map((u) => idPost(u) ?? "")));
+    trouves = choix.urls;
+    posts = liste.length;
+    verifies = choix.verifies;
+  }
+  const { ajoutes } = await insererExemples(supabase, c.langue, c.label_id, trouves);
+  console.log(
+    `exemples-natifs @${c.pseudo} : ${posts} posts, ${page.length} slideshows sur la page, ` +
+      `${trouves.length} retenus${verifies ? "" : " (type non reconnu, vérifié à la lecture)"}, ${ajoutes} nouveaux`,
+  );
+  const { error } = await supabase
+    .from("exemples_natifs_comptes")
+    .update({ statut: "fait", posts, slideshows: trouves.length, verifies, ajoutes, erreur: null, pris_le: null })
+    .eq("id", c.id);
+  if (error) console.error(`exemples-natifs @${c.pseudo} : ${error.message}`);
+}
+
+// ---------------------------------------------------------------------------
+// Les slideshows : un run Apify pour tous, puis l'OCR de chaque slide
+// ---------------------------------------------------------------------------
+
+async function lireExemples(supabase: Client, debut: number) {
+  const bilan = { prets: 0, erreurs: 0, reportes: 0 };
+  const { data, error } = await supabase.rpc("exemples_natifs_prendre_lectures", { p_n: LECTURES_PAR_PASSAGE });
+  if (error) throw new Error(error.message);
+  const pris = (data ?? []) as ExempleEnFile[];
+  if (!pris.length) return bilan;
+
+  const maj = async (id: string, patch: Record<string, unknown>) => {
+    const { error } = await supabase.from("exemples_natifs").update({ ...patch, pris_le: null }).eq("id", id);
+    if (error) console.error(`exemples-natifs ${id} : ${error.message}`);
+  };
+
+  let posts: ScrapedPost[];
+  try {
+    posts = await scrapePosts(pris.map((e) => e.source_url));
+  } catch (erreur) {
+    // Nouvel essai au passage suivant, trois au plus.
+    const motif = `Apify : ${messageErreur(erreur)}`;
+    await Promise.all(pris.map((e) => maj(e.id, apresEchec(e.tentatives, motif))));
+    bilan.reportes += pris.length;
+    return bilan;
+  }
+
+  // Toutes les slides de tous les slideshows passent à l'OCR, OCR_EN_PARALLELE
+  // à la fois. Passé le budget, plus rien ne part : null = slide non lue.
+  const lus = pris.map((e) => ({ exemple: e, post: postDuLien(e.source_url, posts) }));
+  const slides = lus.flatMap((l, i) => (l.post?.imageUrls ?? []).map((url, j) => ({ i, j, url })));
+  const textes = lus.map((l) => new Array<string | null>(l.post?.imageUrls.length ?? 0).fill(null));
+  await enParallele(slides, OCR_EN_PARALLELE, async ({ i, j, url }) => {
+    if (Date.now() - debut > BUDGET_PASSAGE_MS) return;
+    textes[i][j] = await ocrFrame(url).catch(() => "");
+  });
+
+  // Au moins une slide lue : le passage a avancé, un slideshow coupé par le
+  // budget ne perd pas d'essai. Sinon (Apify a tout mangé), c'est un essai.
+  const avance = textes.some((ts) => ts.some((t) => t !== null));
+
+  await Promise.all(
+    lus.map(async ({ exemple: e, post }, i) => {
+      if (!post) {
+        bilan.erreurs += 1;
+        return await maj(e.id, { statut: "erreur", erreur: "Post introuvable, supprimé ou privé." });
+      }
+      if (textes[i].some((t) => t === null)) {
+        // Coupé par le budget : le slideshow retourne en file.
+        bilan.reportes += 1;
+        return await maj(
+          e.id,
+          avance
+            ? { tentatives: Math.max(0, e.tentatives - 1) }
+            : apresEchec(e.tentatives, "Apify trop lent : slides pas lues à temps."),
+        );
+      }
+      const lues = slidesLues(textes[i] as string[]);
+      const refus = motifRefus(post.imageUrls.length, lues);
+      if (refus) {
+        bilan.erreurs += 1;
+        return await maj(e.id, { statut: "erreur", erreur: refus });
+      }
+      bilan.prets += 1;
+      await maj(e.id, {
+        statut: "pret",
+        erreur: null,
+        slides: lues,
+        vues: post.stats.vues || null,
+        handle: pseudoDuLien(post.webVideoUrl) ?? pseudoDuLien(e.source_url),
+      });
+    }),
+  );
+  return bilan;
+}

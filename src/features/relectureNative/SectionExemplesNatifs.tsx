@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient, type QueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
 import {
@@ -28,11 +28,13 @@ import { cn } from "@/lib/utils";
 
 import {
   ajouterExemplesNatifs,
-  lireExempleNatif,
+  effacerSuiviComptes,
+  listerComptesNatifs,
   listerExemplesNatifs,
   majLabelExemple,
+  relireExempleNatif,
   supprimerExempleNatif,
-  type CompteAjoute,
+  type CompteNatif,
   type ExempleNatif,
   type StatutExempleNatif,
 } from "./api";
@@ -41,12 +43,13 @@ import { messageErreur } from "./messageErreur";
 import { MiniBarre, Puce, TuileIcone } from "./Puces";
 
 export const CLE_REQUETE_EXEMPLES = ["exemples-natifs"] as const;
+const CLE_REQUETE_COMPTES = ["exemples-natifs-comptes"] as const;
 /** Une vingtaine d'exemples par langue, tous labels confondus. */
 export const OBJECTIF_EXEMPLES = 20;
 /** La traduction ancrée ne lit la banque d'une langue qu'à partir de ce nombre d'exemples prêts. */
 export const SEUIL_BANQUE = 5;
-/** Slideshows lus en même temps (chacun : un appel Apify et l'OCR de ses slides). */
-const LECTURES_EN_PARALLELE = 3;
+/** Tant que le serveur travaille, la page relit l'avancement à ce rythme. */
+const INTERVALLE_SUIVI_MS = 5000;
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -57,120 +60,70 @@ const STATUT: Record<StatutExempleNatif, { icone: LucideIcon; ton: Ton }> = {
   erreur: { icone: AlertCircle, ton: "orange" },
 };
 
+/** Le serveur a-t-il encore des comptes à chercher ou des slideshows à lire ? */
+function travailEnCours(queryClient: QueryClient): boolean {
+  const exemples = queryClient.getQueryData<ExempleNatif[]>(CLE_REQUETE_EXEMPLES) ?? [];
+  const comptes = queryClient.getQueryData<CompteNatif[]>(CLE_REQUETE_COMPTES) ?? [];
+  return exemples.some((e) => e.statut === "en_attente") || comptes.some((c) => c.statut === "en_attente");
+}
+
 /**
  * La banque d'exemples natifs d'une langue : une vingtaine de slideshows de
  * vrais créateurs, tous labels confondus, que la traduction ancrée lit en
- * entier. L'admin colle des liens ou des comptes ; l'OS récupère les slides
- * et en lit le texte, un slideshow après l'autre.
+ * entier. L'admin colle des liens ou des comptes ; le serveur cherche les
+ * comptes et lit les slides, chaque minute, page fermée ou non (0618). La page
+ * ne fait que suivre l'avancement.
  */
 export function SectionExemplesNatifs() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const exemples = useQuery({ queryKey: CLE_REQUETE_EXEMPLES, queryFn: listerExemplesNatifs });
+  const suivre = () => (travailEnCours(queryClient) ? INTERVALLE_SUIVI_MS : false);
+  const exemples = useQuery({ queryKey: CLE_REQUETE_EXEMPLES, queryFn: listerExemplesNatifs, refetchInterval: suivre });
+  const comptes = useQuery({ queryKey: CLE_REQUETE_COMPTES, queryFn: listerComptesNatifs, refetchInterval: suivre });
   const labels = useQuery({ queryKey: ["labels"], queryFn: () => listerLabels() });
 
   const [langue, setLangue] = React.useState("de");
   const [texte, setTexte] = React.useState("");
   const [labelId, setLabelId] = React.useState("");
   const [envois, setEnvois] = React.useState(0);
-  const [journal, setJournal] = React.useState<LigneJournal[]>([]);
-  const [lecture, setLecture] = React.useState<{ fait: number; total: number } | null>(null);
-  const [enFile, setEnFile] = React.useState<ReadonlySet<string>>(new Set());
+  const [retours, setRetours] = React.useState<Retour[]>([]);
 
-  const rafraichir = () => void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_EXEMPLES });
-  const noter = React.useCallback((texteLigne: string, ton: LigneJournal["ton"] = "info") => {
-    setJournal((avant) =>
-      [{ id: idJournal++, heure: new Date().toLocaleTimeString("fr-FR"), ton, texte: texteLigne }, ...avant].slice(0, 300),
-    );
-  }, []);
-  const pseudoDe = (id: string) =>
-    queryClient.getQueryData<ExempleNatif[]>(CLE_REQUETE_EXEMPLES)?.find((e) => e.id === id)?.handle ?? "?";
-
-  // La file de lecture : un slideshow par appel (chaque lecture tient dans une
-  // fonction Edge), LECTURES_EN_PARALLELE à la fois. Elle reste ouverte : un
-  // nouvel ajout la rallonge pendant qu'elle tourne.
-  const file = React.useRef<string[]>([]);
-  const vus = React.useRef(new Set<string>());
-  const actifs = React.useRef(0);
-  const bilan = React.useRef({ fait: 0, total: 0, prets: 0, erreurs: 0 });
-
-  const lecteur = async () => {
-    actifs.current += 1;
-    while (file.current.length > 0) {
-      const id = file.current.shift() as string;
-      const pseudo = pseudoDe(id);
-      try {
-        const r = await lireExempleNatif(id);
-        if (r.statut === "pret") {
-          bilan.current.prets += 1;
-          noter(t("relectureNative.exemples.journal.lu", { pseudo, n: r.slides ?? 0 }), "ok");
-        } else {
-          bilan.current.erreurs += 1;
-          noter(t("relectureNative.exemples.journal.luErreur", { pseudo, erreur: r.erreur ?? "" }), "erreur");
-        }
-      } catch (erreur) {
-        bilan.current.erreurs += 1;
-        noter(t("relectureNative.exemples.journal.luErreur", { pseudo, erreur: messageErreur(erreur) }), "erreur");
-      }
-      vus.current.delete(id);
-      setEnFile(new Set(vus.current));
-      bilan.current.fait += 1;
-      setLecture({ fait: bilan.current.fait, total: bilan.current.total });
-      rafraichir();
-    }
-    actifs.current -= 1;
-    if (actifs.current === 0) {
-      noter(t("relectureNative.exemples.journal.fin", { prets: bilan.current.prets, erreurs: bilan.current.erreurs }));
-      bilan.current = { fait: 0, total: 0, prets: 0, erreurs: 0 };
-      setLecture(null);
-    }
+  const rafraichir = () => {
+    void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_EXEMPLES });
+    void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_COMPTES });
   };
+  const noter = (ton: Retour["ton"], texteRetour: string) =>
+    setRetours((avant) => [{ id: idRetour++, ton, texte: texteRetour }, ...avant].slice(0, 20));
 
-  const enfiler = (ids: string[]) => {
-    const nouveaux = ids.filter((id) => !vus.current.has(id));
-    if (nouveaux.length === 0) return;
-    for (const id of nouveaux) {
-      vus.current.add(id);
-      file.current.push(id);
-    }
-    setEnFile(new Set(vus.current));
-    bilan.current.total += nouveaux.length;
-    setLecture({ fait: bilan.current.fait, total: bilan.current.total });
-    while (actifs.current < LECTURES_EN_PARALLELE && file.current.length > 0) void lecteur();
-  };
-
-  // Un ajout ne bloque rien : on peut coller la niche suivante pendant que la
-  // précédente se cherche ou se lit. Chaque paquet lance sa lecture dès qu'il revient.
+  // Un envoi ne bloque rien et revient en une seconde : le serveur note les
+  // comptes et les liens, puis cherche et lit tout seul.
   const envoyer = async () => {
     const colle = texte;
     const langueEnvoi = langue;
     const label = labelId || null;
     const nomLabelEnvoi = label ? (labels.data ?? []).find((l) => l.id === label)?.nom ?? "?" : t("relectureNative.exemples.sansLabel");
-    const lignes = colle.split(/[\n,;]+/).filter((l) => l.trim()).length;
     setTexte("");
     setEnvois((n) => n + 1);
-    noter(
-      t("relectureNative.exemples.journal.envoi", { n: lignes, label: nomLabelEnvoi, langue: nomLangue(langueEnvoi) }),
-    );
     try {
-      await ajouterExemplesNatifs(langueEnvoi, label, colle, (r) => {
-        for (const c of r.comptes) noter(...ligneCompte(c, t));
-        if (r.ignorees.length > 0) {
-          noter(t("relectureNative.exemples.journal.ignorees", { lignes: r.ignorees.join(" · ") }), "erreur");
-        }
-        if (r.ajoutes + r.deja > 0) {
-          noter(t("relectureNative.exemples.journal.paquet", { ajoutes: r.ajoutes, deja: r.deja }), "ok");
-        }
-        void (async () => {
-          await queryClient.invalidateQueries({ queryKey: CLE_REQUETE_EXEMPLES });
-          const liste = queryClient.getQueryData<ExempleNatif[]>(CLE_REQUETE_EXEMPLES) ?? [];
-          enfiler(liste.filter((e) => e.langue === langueEnvoi && e.statut === "en_attente").map((e) => e.id));
-        })();
-      });
+      const r = await ajouterExemplesNatifs(langueEnvoi, label, colle);
+      noter(
+        "ok",
+        t("relectureNative.exemples.retour.envoi", {
+          label: nomLabelEnvoi,
+          langue: nomLangue(langueEnvoi),
+          comptes: r.comptes,
+          liens: r.ajoutes,
+        }),
+      );
+      if (r.deja + r.dejaEnFile > 0) noter("info", t("relectureNative.exemples.retour.deja", { n: r.deja + r.dejaEnFile }));
+      if (r.ignorees.length > 0) {
+        noter("erreur", t("relectureNative.exemples.retour.ignorees", { lignes: r.ignorees.join(" · ") }));
+      }
     } catch (erreur) {
-      noter(messageErreur(erreur), "erreur");
+      noter("erreur", messageErreur(erreur));
     } finally {
       setEnvois((n) => n - 1);
+      rafraichir();
     }
   };
 
@@ -179,11 +132,15 @@ export function SectionExemplesNatifs() {
     onSuccess: rafraichir,
   });
   const supprimer = useMutation({ mutationFn: supprimerExempleNatif, onSuccess: rafraichir });
+  const relire = useMutation({ mutationFn: (id: string) => relireExempleNatif(id), onSettled: rafraichir });
+  const effacerSuivi = useMutation({ mutationFn: (code: string) => effacerSuiviComptes(code), onSuccess: rafraichir });
 
   const tous = exemples.data ?? [];
   const siens = tous.filter((e) => e.langue === langue);
   const prets = siens.filter((e) => e.statut === "pret");
-  const enAttente = siens.filter((e) => e.statut === "en_attente" && !enFile.has(e.id));
+  const aLire = siens.filter((e) => e.statut === "en_attente").length;
+  const comptesLangue = (comptes.data ?? []).filter((c) => c.langue === langue);
+  const aChercher = comptesLangue.filter((c) => c.statut === "en_attente").length;
   const parLangue = (code: string) => tous.filter((e) => e.langue === code && e.statut === "pret").length;
   const nomLabel = new Map((labels.data ?? []).map((l) => [l.id, l.nom]));
   const couverture = (labels.data ?? []).map((l) => ({
@@ -193,7 +150,7 @@ export function SectionExemplesNatifs() {
   }));
   const sansLabel = prets.filter((e) => !e.label_id || !nomLabel.has(e.label_id)).length;
 
-  const erreur = exemples.error ?? labels.error;
+  const erreur = exemples.error ?? comptes.error ?? labels.error ?? relire.error ?? effacerSuivi.error;
 
   return (
     <div className="space-y-4" data-testid="exemples-natifs">
@@ -257,7 +214,7 @@ export function SectionExemplesNatifs() {
       </Card>
 
       <Card>
-        <CardPanel className="space-y-3">
+        <CardPanel className="space-y-4">
           <form
             className="space-y-3"
             onSubmit={(e) => {
@@ -289,37 +246,34 @@ export function SectionExemplesNatifs() {
                 </select>
               </label>
               <Button type="submit" disabled={!texte.trim()}>
-                <Plus />
+                {envois > 0 ? <Loader2 className="animate-spin" /> : <Plus />}
                 {t("relectureNative.exemples.ajouter")}
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground">{t("relectureNative.exemples.enchainer")}</p>
+            <p className="text-xs text-muted-foreground">{t("relectureNative.exemples.serveur")}</p>
           </form>
 
-          {(envois > 0 || lecture) && (
-            <div className="space-y-1 text-sm text-muted-foreground" data-testid="lecture-exemples">
-              {envois > 0 && (
-                <p className="flex items-center gap-2">
-                  <Loader2 className="size-4 animate-spin" aria-hidden />
-                  {t("relectureNative.exemples.recherche", { count: envois })}
-                </p>
-              )}
-              {lecture && (
-                <p className="flex items-center gap-2">
-                  <Loader2 className="size-4 animate-spin" aria-hidden />
-                  {t("relectureNative.exemples.lecture", { fait: lecture.fait, total: lecture.total })}
-                </p>
-              )}
-            </div>
-          )}
-          {enAttente.length > 0 && (
-            <Button variant="outline" size="sm" onClick={() => enfiler(enAttente.map((e) => e.id))}>
-              <RotateCw />
-              {t("relectureNative.exemples.lireAttente", { count: enAttente.length })}
-            </Button>
+          {retours.length > 0 && (
+            <ul className="space-y-0.5 text-xs" data-testid="retours-exemples">
+              {retours.map((r) => (
+                <li
+                  key={r.id}
+                  className={cn(r.ton === "erreur" && "text-destructive", r.ton === "ok" && "text-success-foreground")}
+                >
+                  {r.texte}
+                </li>
+              ))}
+            </ul>
           )}
 
-          <Journal lignes={journal} onEffacer={() => setJournal([])} />
+          <Suivi
+            comptes={comptesLangue}
+            aChercher={aChercher}
+            aLire={aLire}
+            langue={langue}
+            nomLabel={nomLabel}
+            onEffacer={() => effacerSuivi.mutate(langue)}
+          />
         </CardPanel>
       </Card>
 
@@ -335,9 +289,9 @@ export function SectionExemplesNatifs() {
                 key={e.id}
                 exemple={e}
                 labels={labels.data ?? []}
-                occupe={enFile.has(e.id)}
+                occupe={relire.isPending && relire.variables === e.id}
                 onLabel={(label) => changerLabel.mutate({ id: e.id, label })}
-                onRelire={() => enfiler([e.id])}
+                onRelire={() => relire.mutate(e.id)}
                 onSupprimer={() => supprimer.mutate(e.id)}
               />
             ))}
@@ -348,55 +302,92 @@ export function SectionExemplesNatifs() {
   );
 }
 
-interface LigneJournal {
+interface Retour {
   id: number;
-  heure: string;
   ton: "info" | "ok" | "erreur";
   texte: string;
 }
 
-let idJournal = 0;
+let idRetour = 0;
 
-/** La ligne du journal pour un compte collé : ce qu'Apify a listé et ce qui part à la lecture. */
-function ligneCompte(c: CompteAjoute, t: TFunction): [string, LigneJournal["ton"]] {
-  if (c.erreur) return [t("relectureNative.exemples.journal.compteErreur", { pseudo: c.pseudo, erreur: c.erreur }), "erreur"];
-  if (c.slideshows === 0) return [t("relectureNative.exemples.journal.compteVide", { pseudo: c.pseudo, posts: c.posts ?? 0 }), "erreur"];
-  if (c.verifies === false) {
-    return [t("relectureNative.exemples.journal.compteNonVerifie", { pseudo: c.pseudo, posts: c.posts ?? 0, n: c.slideshows }), "info"];
+/** La ligne de suivi d'un compte collé : en file, en cours, ou ce qu'Apify a trouvé. */
+function ligneCompte(c: CompteNatif, t: TFunction): [string, Retour["ton"]] {
+  const base = { pseudo: c.pseudo, posts: c.posts ?? 0, n: c.slideshows ?? 0, ajoutes: c.ajoutes ?? 0, erreur: c.erreur ?? "" };
+  if (c.statut === "erreur") return [t("relectureNative.exemples.suivi.compteErreur", base), "erreur"];
+  if (c.statut === "en_attente") {
+    if (c.pris_le) return [t("relectureNative.exemples.suivi.compteEnCours", base), "info"];
+    if (c.erreur) return [t("relectureNative.exemples.suivi.compteNouvelEssai", base), "erreur"];
+    return [t("relectureNative.exemples.suivi.compteAttente", base), "info"];
   }
-  return [t("relectureNative.exemples.journal.compte", { pseudo: c.pseudo, posts: c.posts ?? 0, n: c.slideshows }), "ok"];
+  if (!c.slideshows) return [t("relectureNative.exemples.suivi.compteVide", base), "erreur"];
+  if (c.verifies === false) return [t("relectureNative.exemples.suivi.compteNonVerifie", base), "info"];
+  return [t("relectureNative.exemples.suivi.compte", base), "ok"];
 }
 
-/** Ce qui s'est passé, du plus récent au plus ancien : recherches, lectures, erreurs. */
-function Journal({ lignes, onEffacer }: { lignes: ReadonlyArray<LigneJournal>; onEffacer: () => void }) {
-  const { t } = useTranslation();
+/** Ce que le serveur a à faire et ce qu'il a fait pour chaque compte collé, du plus récent au plus ancien. */
+function Suivi({
+  comptes,
+  aChercher,
+  aLire,
+  langue,
+  nomLabel,
+  onEffacer,
+}: {
+  comptes: ReadonlyArray<CompteNatif>;
+  aChercher: number;
+  aLire: number;
+  langue: string;
+  nomLabel: ReadonlyMap<string, string>;
+  onEffacer: () => void;
+}) {
+  const { t, i18n } = useTranslation();
+  const enCours = aChercher + aLire > 0;
+  const termines = comptes.some((c) => c.statut !== "en_attente");
   return (
-    <div className="space-y-1.5" data-testid="journal-exemples">
+    <div className="space-y-1.5" data-testid="suivi-exemples">
       <div className="flex items-center justify-between gap-2">
-        <p className={MICRO_LABEL}>{t("relectureNative.exemples.journal.titre")}</p>
-        {lignes.length > 0 && (
+        <p className={MICRO_LABEL}>{t("relectureNative.exemples.suivi.titre")}</p>
+        {termines && (
           <Button variant="ghost" size="sm" onClick={onEffacer}>
-            {t("relectureNative.exemples.journal.effacer")}
+            {t("relectureNative.exemples.suivi.effacer")}
           </Button>
         )}
       </div>
-      {lignes.length === 0 ? (
-        <p className="text-xs text-muted-foreground">{t("relectureNative.exemples.journal.vide")}</p>
+      <p className="flex items-center gap-2 text-sm text-muted-foreground">
+        {enCours ? (
+          <Loader2 className="size-4 shrink-0 animate-spin" aria-hidden />
+        ) : (
+          <CheckCircle2 className="size-4 shrink-0" aria-hidden />
+        )}
+        {enCours
+          ? t("relectureNative.exemples.suivi.enCours", { comptes: aChercher, lectures: aLire })
+          : t("relectureNative.exemples.suivi.rien")}
+      </p>
+      {comptes.length === 0 ? (
+        <p className="text-xs text-muted-foreground">{t("relectureNative.exemples.suivi.vide", { langue: nomLangue(langue) })}</p>
       ) : (
         <ol className="max-h-72 space-y-0.5 overflow-y-auto rounded-lg border bg-muted/30 p-2 font-mono text-xs">
-          {lignes.map((l) => (
-            <li
-              key={l.id}
-              className={cn(
-                "grid grid-cols-[4.5rem_minmax(0,1fr)] gap-2",
-                l.ton === "erreur" && "text-destructive",
-                l.ton === "ok" && "text-success-foreground",
-              )}
-            >
-              <span className="text-muted-foreground tabular-nums">{l.heure}</span>
-              <span className="break-words">{l.texte}</span>
-            </li>
-          ))}
+          {comptes.map((c) => {
+            const [ligne, ton] = ligneCompte(c, t);
+            return (
+              <li
+                key={c.id}
+                className={cn(
+                  "grid grid-cols-[3rem_minmax(0,1fr)_auto] gap-2",
+                  ton === "erreur" && "text-destructive",
+                  ton === "ok" && "text-success-foreground",
+                )}
+              >
+                <span className="text-muted-foreground tabular-nums">
+                  {new Date(c.created_at).toLocaleTimeString(i18n.language, { hour: "2-digit", minute: "2-digit" })}
+                </span>
+                <span className="break-words">{ligne}</span>
+                <span className="text-muted-foreground">
+                  {(c.label_id && nomLabel.get(c.label_id)) || t("relectureNative.exemples.sansLabel")}
+                </span>
+              </li>
+            );
+          })}
         </ol>
       )}
     </div>
@@ -421,6 +412,8 @@ function LigneExemple({
   const { t, i18n } = useTranslation();
   const [ouvert, setOuvert] = React.useState(false);
   const { icone: Icone, ton } = STATUT[e.statut];
+  // Pris par un passage du serveur : la lecture est en cours.
+  const enLecture = e.statut === "en_attente" && Boolean(e.pris_le);
   const slides = [...e.slides].sort((a, b) => a.position - b.position);
   const accroche = slides[0]?.texte.split("\n")[0] ?? "";
 
@@ -430,8 +423,8 @@ function LigneExemple({
         <div className="min-w-[14rem] flex-1 space-y-1">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className={cn("inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium", CLASSES_TON[ton])}>
-              <Icone className="size-3.5" aria-hidden />
-              {t(`relectureNative.exemples.statuts.${e.statut}`)}
+              {enLecture ? <Loader2 className="size-3.5 animate-spin" aria-hidden /> : <Icone className="size-3.5" aria-hidden />}
+              {t(`relectureNative.exemples.statuts.${enLecture ? "en_lecture" : e.statut}`)}
             </span>
             <a
               href={e.source_url}
@@ -451,6 +444,9 @@ function LigneExemple({
           </div>
           {e.statut === "pret" && <p className="truncate text-sm font-medium" dir="auto">{accroche}</p>}
           {e.statut === "erreur" && <p className="text-xs text-destructive">{e.erreur}</p>}
+          {e.statut === "en_attente" && e.erreur && (
+            <p className="text-xs text-muted-foreground">{t("relectureNative.exemples.nouvelEssai", { erreur: e.erreur })}</p>
+          )}
         </div>
         <select
           className="h-8 w-40 rounded-md border border-input bg-background px-2 text-xs"
@@ -472,7 +468,7 @@ function LigneExemple({
               {t("relectureNative.exemples.texte")}
             </Button>
           )}
-          {e.statut !== "pret" && (
+          {e.statut === "erreur" && (
             <Button variant="ghost" size="sm" disabled={occupe} onClick={onRelire}>
               <RotateCw />
               {t("relectureNative.exemples.relire")}

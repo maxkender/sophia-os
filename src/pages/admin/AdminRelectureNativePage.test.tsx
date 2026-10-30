@@ -19,7 +19,8 @@ const compterVersions = vi.fn();
 const synchroniserNotion = vi.fn();
 const listerExemples = vi.fn();
 const ajouterExemples = vi.fn();
-const lireExemple = vi.fn();
+const listerComptes = vi.fn();
+const relireExemple = vi.fn();
 const majLabelExemple = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
@@ -35,7 +36,9 @@ vi.mock("@/features/relectureNative/api", () => ({
   synchroniserNotion: () => synchroniserNotion(),
   listerExemplesNatifs: () => listerExemples(),
   ajouterExemplesNatifs: (...a: unknown[]) => ajouterExemples(...a),
-  lireExempleNatif: (...a: unknown[]) => lireExemple(...a),
+  listerComptesNatifs: () => listerComptes(),
+  relireExempleNatif: (...a: unknown[]) => relireExemple(...a),
+  effacerSuiviComptes: vi.fn(),
   majLabelExemple: (...a: unknown[]) => majLabelExemple(...a),
   supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
@@ -88,7 +91,8 @@ describe("AdminRelectureNativePage", () => {
     enregistrerFiche.mockResolvedValue(undefined);
     synchroniserNotion.mockResolvedValue({ ok: true, ecrites: 2 });
     listerExemples.mockResolvedValue([]);
-    lireExemple.mockResolvedValue({ statut: "pret" });
+    listerComptes.mockResolvedValue([]);
+    relireExemple.mockResolvedValue(undefined);
     majLabelExemple.mockResolvedValue(undefined);
   });
 
@@ -188,7 +192,7 @@ describe("AdminRelectureNativePage", () => {
     expect(screen.getByText("Banques en service").closest("div")).toHaveTextContent(/1/);
   });
 
-  it("banque d'exemples natifs : couverture par label, ajout de liens puis lecture un par un", async () => {
+  it("banque d'exemples natifs : couverture par label, ajout, puis suivi du travail du serveur", async () => {
     const pret = {
       id: "e1",
       langue: "de",
@@ -219,56 +223,76 @@ describe("AdminRelectureNativePage", () => {
     fireEvent.click(within(ligne).getByRole("button", { name: "Texte" }));
     expect(within(ligne).getByText("1. Sie hören zu")).toBeInTheDocument();
 
-    // Ajout : chaque paquet revient au fil de l'eau, s'écrit au journal et
-    // lance sa lecture ; le formulaire reste libre pour la niche suivante.
-    const resume = {
-      ajoutes: 2,
-      deja: 0,
-      comptes: [
-        { pseudo: "zitatxplorer", posts: 60, slideshows: 1, verifies: true },
-        { pseudo: "videos.only", posts: 30, slideshows: 10, verifies: false },
-        { pseudo: "prive", posts: 0, slideshows: 0, erreur: "Profil privé" },
-      ],
-      ignorees: ["n'importe quoi"],
-    };
-    ajouterExemples.mockImplementation(
-      (_l: string, _label: string | null, _texte: string, onPaquet?: (r: typeof resume) => void) => {
-        onPaquet?.(resume);
-        return Promise.resolve(resume);
-      },
-    );
-    lireExemple.mockImplementation((id: string) =>
-      Promise.resolve(id === "e3" ? { statut: "erreur", erreur: "Pas un slideshow (aucune image) : c'est sans doute une vidéo." } : { statut: "pret", slides: 7 }),
-    );
-    const attente = (id: string) => ({ ...pret, id, statut: "en_attente", slides: [], vues: null, label_id: "l-alpha" });
-    listerExemples.mockResolvedValue([pret, attente("e2"), attente("e3")]);
+    // Ajout : le serveur note les comptes et répond aussitôt ; le champ se
+    // vide pour la niche suivante, et la page suit l'avancement du serveur.
+    ajouterExemples.mockResolvedValue({ ajoutes: 1, deja: 0, comptes: 1, dejaEnFile: 1, ignorees: ["n'importe quoi"] });
+    const attente = (id: string, pris_le: string | null = null, erreur: string | null = null) => ({
+      ...pret,
+      id,
+      statut: "en_attente",
+      slides: [],
+      vues: null,
+      label_id: "l-alpha",
+      pris_le,
+      erreur,
+    });
+    const echec = { ...attente("e4"), statut: "erreur", erreur: "Pas un slideshow (aucune image) : c'est sans doute une vidéo." };
+    const compte = (id: string, pseudo: string, champs: Record<string, unknown>) => ({
+      id,
+      langue: "de",
+      pseudo,
+      label_id: "l-alpha",
+      statut: "fait",
+      posts: null,
+      slideshows: null,
+      verifies: null,
+      ajoutes: null,
+      erreur: null,
+      pris_le: null,
+      created_at: "2026-10-30T09:00:00Z",
+      ...champs,
+    });
+    listerExemples.mockResolvedValue([pret, attente("e2", "2026-10-30T09:01:00Z"), attente("e3", null, "Apify : 502"), echec]);
+    listerComptes.mockResolvedValue([
+      compte("c1", "zitatxplorer", { statut: "en_attente", pris_le: "2026-10-30T09:01:00Z" }),
+      compte("c2", "attente", { statut: "en_attente" }),
+      compte("c3", "motiversum", { posts: 60, slideshows: 10, verifies: true, ajoutes: 8 }),
+      compte("c4", "videos.only", { posts: 30, slideshows: 10, verifies: false, ajoutes: 10 }),
+      compte("c5", "prive", { statut: "erreur", erreur: "Apify : 500" }),
+      compte("c6", "autre", { langue: "tr" }),
+    ]);
     fireEvent.change(within(section).getByRole("combobox", { name: "Label" }), { target: { value: "l-alpha" } });
     const zone = within(section).getByRole("textbox");
     fireEvent.change(zone, { target: { value: "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi" } });
     fireEvent.click(within(section).getByRole("button", { name: "Ajouter et lire" }));
     await waitFor(() =>
-      expect(ajouterExemples).toHaveBeenCalledWith(
-        "de",
-        "l-alpha",
-        "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi",
-        expect.any(Function),
-      ),
+      expect(ajouterExemples).toHaveBeenCalledWith("de", "l-alpha", "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi"),
     );
-    // Le champ se vide et reste disponible pour l'envoi suivant.
     expect(zone).toHaveValue("");
     fireEvent.change(zone, { target: { value: "@suivant" } });
     expect(within(section).getByRole("button", { name: "Ajouter et lire" })).toBeEnabled();
 
-    const journal = within(section).getByTestId("journal-exemples");
-    expect(journal).toHaveTextContent("alpha_male · 3 ligne(s) envoyée(s) en Allemand");
-    expect(journal).toHaveTextContent("@zitatxplorer : 60 posts lus, 1 slideshow(s) retenu(s)");
-    expect(journal).toHaveTextContent("@videos.only : 30 posts lus, aucun reconnu comme slideshow d’avance.");
-    expect(journal).toHaveTextContent("@prive : Profil privé");
-    expect(journal).toHaveTextContent("Lignes non reconnues : n'importe quoi");
-    await waitFor(() => expect(lireExemple).toHaveBeenCalledTimes(2));
-    await waitFor(() => expect(journal).toHaveTextContent("Lecture terminée : 1 prêt(s), 1 écarté(s) ou en erreur"));
-    expect(journal).toHaveTextContent("slideshow lu, 7 slides avec du texte");
-    expect(journal).toHaveTextContent("Pas un slideshow (aucune image)");
-    expect(lireExemple.mock.calls.map((c) => c[0]).sort()).toEqual(["e2", "e3"]);
+    const retours = await within(section).findByTestId("retours-exemples");
+    expect(retours).toHaveTextContent("alpha_male · Allemand : 1 compte(s) mis en file, 1 lien(s) ajouté(s)");
+    expect(retours).toHaveTextContent("Déjà là : 1 (dans la banque ou en file)");
+    expect(retours).toHaveTextContent("Lignes non reconnues : n'importe quoi");
+
+    const suivi = within(section).getByTestId("suivi-exemples");
+    await waitFor(() =>
+      expect(suivi).toHaveTextContent("2 compte(s) à chercher · 2 slideshow(s) à lire. Tu peux fermer la page."),
+    );
+    expect(suivi).toHaveTextContent("@zitatxplorer : recherche en cours…");
+    expect(suivi).toHaveTextContent("@attente : en attente");
+    expect(suivi).toHaveTextContent("@motiversum : 60 posts lus, 10 slideshow(s) retenu(s), 8 nouveau(x) dans la banque");
+    expect(suivi).toHaveTextContent("@videos.only : 30 posts lus, aucun reconnu comme slideshow d’avance.");
+    expect(suivi).toHaveTextContent("@prive : Apify : 500");
+    expect(suivi).not.toHaveTextContent("@autre");
+
+    // Les slideshows : en lecture, en nouvel essai, ou écartés (à relire à la main).
+    expect(within(screen.getByTestId("exemple-e2")).getByText("En lecture")).toBeInTheDocument();
+    expect(within(screen.getByTestId("exemple-e3")).getByText("Nouvel essai dans la minute : Apify : 502")).toBeInTheDocument();
+    expect(within(screen.getByTestId("exemple-e3")).queryByRole("button", { name: "Relire" })).not.toBeInTheDocument();
+    fireEvent.click(within(screen.getByTestId("exemple-e4")).getByRole("button", { name: "Relire" }));
+    await waitFor(() => expect(relireExemple).toHaveBeenCalledWith("e4"));
   });
 });

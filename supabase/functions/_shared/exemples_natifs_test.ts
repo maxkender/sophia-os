@@ -1,12 +1,15 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
 import {
+  apresEchec,
   idPost,
   lireLignes,
   motifRefus,
+  postDuLien,
   pseudoDuLien,
   slideshowsDuCompte,
   slidesLues,
+  TENTATIVES_MAX,
   texteExemple,
 } from "./exemples_natifs.ts";
 
@@ -86,6 +89,22 @@ Deno.test("l'identifiant d'un post, /photo/ ou /video/", () => {
   assertEquals(idPost("https://www.tiktok.com/@a/photo/123?x=1"), "123");
   assertEquals(idPost("https://www.tiktok.com/@a/video/456"), "456");
   assertEquals(idPost("https://www.tiktok.com/@a"), null);
+});
+
+Deno.test("le post d'Apify d'un lien de la banque, /photo/ ou /video/", () => {
+  const posts = [
+    { postId: "111", webVideoUrl: "https://www.tiktok.com/@a/video/111" },
+    { postId: "", webVideoUrl: "https://www.tiktok.com/@a/video/222" },
+  ];
+  assertEquals(postDuLien("https://www.tiktok.com/@a/photo/111", posts), posts[0]);
+  assertEquals(postDuLien("https://www.tiktok.com/@a/photo/222", posts), posts[1]);
+  assertEquals(postDuLien("https://www.tiktok.com/@a/photo/333", posts), null);
+  assertEquals(postDuLien("https://www.tiktok.com/@a", posts), null);
+});
+
+Deno.test("un échec retourne en file, sauf au dernier essai", () => {
+  assertEquals(apresEchec(1, "Apify : 502"), { statut: "en_attente", erreur: "Apify : 502" });
+  assertEquals(apresEchec(TENTATIVES_MAX, "Apify : 502"), { statut: "erreur", erreur: "Apify : 502" });
 });
 
 Deno.test("les slides lues gardent leur position et perdent les slides vides", () => {

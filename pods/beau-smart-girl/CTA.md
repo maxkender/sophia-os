@@ -1,8 +1,8 @@
 # Les 3 CTA Sophia du pod 7 (depuis le 26/10)
 
 Règle : `pods/ROUTINE.md` §4.5. J'alterne A, B, C d'une livraison à l'autre et je
-note la version dans `notes`. Chaque lundi, je remplace la moins bonne par une
-idée neuve.
+note la version dans `notes`. Les vues ne jugent pas un CTA (30/10) : je ne
+remplace une version que si elle se répète ou sonne pub.
 
 La phrase « 5 minutes d'histoire, d'art ou de sciences » n'est plus la phrase
 principale de la slide : elle a servi sur presque toutes les livraisons du

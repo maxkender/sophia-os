@@ -163,7 +163,6 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
 • Stock : <podz> · compte le plus juste <compte> (<langue>), <j> j de posts neufs (une ligne par label sous 7 jours).
 • Reposts faute de neuf hier : <n> (<podz> : <comptes>). Objectif : 0.
 • Boucle : <x> % des livraisons des 7 derniers jours sont des variantes ; <n> schémas jamais faits livrés sur la semaine (<podz> : <n>, …).
-• CTA : <podz> · cta A <vues médianes> · cta B <vues médianes> (sur passages mûrs, dès 10 par version).
 • Rythme : <podz> passe à <n> livraisons par jour (<raison chiffrée>).
 • Essai envoyé : <idée> → <podz>.
 • À surveiller : <podz> ne perce pas depuis 14 jours (répondez « pause » dans ce fil pour l'arrêter).
@@ -174,10 +173,8 @@ Moins de 18 lignes. Une ligne sans objet ce jour-là : ne l'écris pas.
 Pour la ligne « Boucle » : une variante est une livraison dont les `notes`
 disent « variante de … » (ou un `source_id` en `var-…`) ; un schéma jamais
 fait est une accroche dont le début ne ressemble à aucune livraison
-précédente du podz. Pour la ligne « CTA » : compare les vues médianes des
-passages mûrs par version (`cta A`, `cta B`…) notée dans la livraison. Une
-version nettement sous les autres sur 20 passages mûrs → dis-le au podz
-(`send_message`) pour qu'il la remplace.
+précédente du podz. Plus de ligne « CTA » : les vues ne jugent pas un CTA
+(décision d'Adrien du 30/10), ne compare pas les versions `cta A`, `cta B`…
 
 ## Le passage de l'après-midi
 

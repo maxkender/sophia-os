@@ -357,10 +357,10 @@ Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le ci
 ## L'agent de langue
 
 > **Remplacé le 29/10 par la réécriture native** (page Notion « Révolution placement/traduction », menée par la session de la relecture native). Ce qui vaut aujourd'hui :
-> - **Un appel par deck**, qui voit tout le post et fait traduction et placement d'une passe. Il lit quatre fiches : **appli** (quoi dire, `fiches_appli`), **langue** (comment le dire, `bleo_fiches` sorte `langue`), **label** (format du deck, où va l'appli, exemples ; écrite, plus calculée) et **CTA** (les règles communes : un vrai conseil, l'appli fondue dedans, le même moule que les voisines, le hook jamais modifié, la mise en page et la frappe ; `bleo_fiches` sorte `cta`). Pas de session Claude par langue, pas de banque des relecteurs : les exemples viennent d'`exemples_natifs` et sont résumés dans la fiche langue.
+> - **Un appel par deck**, qui voit tout le post et fait traduction et placement d'une passe. Il lit quatre fiches : **appli** (quoi dire, `fiches_appli`), **langue** (comment le dire, `bleo_fiches` sorte `langue`), **label** (l'angle de placement de Maximilien, le format du deck, où va l'appli, des exemples, ce que le podz du label en sait ; écrite, plus calculée) et **CTA** (les règles communes : un vrai conseil, l'appli fondue dedans, le même moule que les voisines, le hook jamais modifié, la mise en page et la frappe ; `bleo_fiches` sorte `cta`). Pas de session Claude par langue, pas de banque des relecteurs : les exemples viennent d'`exemples_natifs` et sont résumés dans la fiche langue.
 > - **CTA** : l'OS n'impose que `reprise` et `marquee` (D2 ci-dessous, lignes 1 et 2) ; sinon l'appel choisit la slide, à partir de la slide 4, et la tournure. Plus de voie `prouvee` / `essai`, plus de forme tirée, plus de stats CTA (0624).
 > - **Mesure** : duels à l'aveugle en Tests, sur des slideshows déjà publiés (deck parti contre deck du nouveau circuit, votes de l'admin et des relecteurs, 0620 et 0626). Rien dans l'assignation de minuit tant qu'Adrien ne le décide pas ; ensuite, une mise en production au compte-gouttes (le branchement de minuit et la cuisson de l'après-midi existent dans maxkender/sophia-os#908, fermée sans fusion).
-> - **Gardé de D0 à D8** : les contrôles automatiques (D5, avec un deck recalé sur la source et nettoyé de ses espaces), le secours par le circuit actuel (D6) et les fiches (D8, dans leur forme actuelle). Le reste ci-dessous est la conception d'origine, pour mémoire.
+> - **Gardé de D0 à D8** : les contrôles automatiques (D5, avec un deck recalé sur la source et nettoyé de ses espaces) et le secours par le circuit actuel (D6). Les fiches existent, mais pas comme D8 les décrit (voir l'encadré de D8). Le reste ci-dessous est la conception d'origine, pour mémoire.
 
 L'agent de langue remplace `translateSlideshow` + `integrateSophia` pour la voie 1. Il traite la file `bleo_decks_file` de 14 h à 20 h ; à 23 h, le circuit Gemini actuel prend tout ce qui reste. La publication n'attend jamais l'agent.
 
@@ -446,6 +446,12 @@ Tout passe : le deck est écrit dans le cache (`contenu_langues` pour Sophia, `c
 Un deck validé tel quel donne une ligne `valide`. Jusqu'à 50 decks par langue, 3 sur 5 vont au jeu `exemple` et 2 sur 5 au jeu `test` ; ensuite tout va en `exemple`. Les tâches sont payées à l'unité (montants en réglage), dans la paie du lundi (`paie_generer_lundi`). En attendant la station de relecture dans l'OS, un Google Sheet suffit (une ligne par slide), importé chaque soir.
 
 ### D8 · Les fiches
+
+> **État au 30/10** : les fiches s'écrivent et se versionnent dans la page Fiches (Admin → Config → Fiches), rien n'est calculé chaque lundi.
+> - **Fiche label** : écrite. Version 1 (0625) : l'angle de placement actif de Maximilien, cité tel quel, et des exemples tirés de nos posts publiés ; version 2 (0626) : ce que le podz du label sait de la slide d'appli. Plus d'agent stats, plus de formes classées ni de poids, plus de seuil de 20 posts par forme : les vues ne jugent pas un CTA (0624, docs/cta.md).
+> - **Fiche appli** : celle d'Adrien, plus une rubrique « Ce que les pods en savent » (0627) ; les écarts avec la pratique des podz sont notés dans « À trancher ».
+> - **Fiche langue** : en anglais, avec les mots natifs cités tels quels, écrite d'après `docs/fiches-langue-brief.md`. La boucle du lundi (règles tirées des corrections, juge à 55 %) n'existe pas encore.
+> - **Fiche CTA** : une seule, commune (0623), version 3.
 
 - **Fiche appli** : écrite par Adrien, une par appli. Ce que fait l'appli, ce qu'on peut affirmer ou non, son nom dans chaque langue, ses concurrents.
 - **Fiche langue** : chaque lundi, l'agent de langue propose des règles tirées des erreurs qui reviennent environ 3 fois dans `bleo_banque`. La nouvelle version n'est gardée que si elle bat l'ancienne sur les decks du jeu `test` : un juge (modèle Claude) compare à l'aveugle les deux sorties à la version du natif, et la nouvelle doit gagner au moins **55 %** des duels.

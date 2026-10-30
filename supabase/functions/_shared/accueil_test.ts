@@ -93,6 +93,11 @@ Deno.test("0470 : HM par le nom Upwork, langue d'un pays, code d'un pays", () =>
   assertEquals(langueDePays("IL", [{ pays: "IL", langue: "he" }, { pays: "IL", langue: "he" }, { pays: "IL", langue: "ar" }]), "he");
   assertEquals(langueDePays("IS", [{ pays: "IL", langue: "he" }]), null);
   assertEquals([codePays("Croatia"), codePays("Slovakia"), codePays("hr"), codePays("United States"), codePays("Atlantis")], ["HR", "SK", "HR", "US", null]);
+  // Jamais un code retiré (FX, DD, SU, YU…).
+  assertEquals(
+    ["France", "FX", "Germany", "Lithuania", "Israel", "Russia", "Serbia", "Myanmar (Burma)", "United Kingdom", "Romania", "Slovakia"].map(codePays),
+    ["FR", "FR", "DE", "LT", "IL", "RU", "RS", "MM", "GB", "RO", "SK"],
+  );
 });
 
 Deno.test("doublon : contrat déjà relié, ou même nom et même pays actif → rien, signalé", () => {

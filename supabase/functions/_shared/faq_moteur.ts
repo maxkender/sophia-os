@@ -18,6 +18,7 @@ import {
   type ReponseFaq,
 } from "./faq.ts";
 import { generateTextFast } from "./gemini.ts";
+import { liensPublics } from "./guide_public.ts";
 import { messageErreur, type serviceClient } from "./supabase.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -50,7 +51,8 @@ export async function chargerBase(db: Db, role: string): Promise<BaseChargee> {
   ]);
   if (pages.error) throw new Error(`guides_notion : ${messageErreur(pages.error)}`);
   if (notes.error) throw new Error(`chatbot_contexte : ${messageErreur(notes.error)}`);
-  const lignes = (pages.data ?? []) as PageGuide[];
+  // Les liens du Poster Guide recopiés pointent vers app.notion.com : le bot donne le site public.
+  const lignes = ((pages.data ?? []) as PageGuide[]).map((p) => (p.guide === "poster" && p.texte ? { ...p, texte: liensPublics(p.texte) } : p));
   return {
     base: assemblerBase(lignes, (notes.data ?? []) as NoteBase[], role),
     pages: lignes.length,

@@ -17,6 +17,7 @@ import {
   type RecrueAccueil,
 } from "../_shared/etapes.ts";
 import { GUIDE_POSTER, lireModeAuto, messageAccueil, type ModeAuto } from "../_shared/accueil.ts";
+import { liensPublics } from "../_shared/guide_public.ts";
 import {
   type Canal,
   canalUnique,
@@ -227,7 +228,8 @@ async function reglages(supabase: Supabase) {
     envoiParPassage: Number.isFinite(Number(v.envoi_attente_par_passage)) && v.envoi_attente_par_passage !== null
       ? Math.max(1, Number(v.envoi_attente_par_passage)) : 20,
     postsMin: Number.isFinite(Number(v.paie_minimum_posts)) && v.paie_minimum_posts !== null ? Number(v.paie_minimum_posts) : 6,
-    lienEtapes: texte("lien_etapes_tiktok"),
+    // Un lien du guide collé depuis app.notion.com : les posteurs n'y ont pas accès, on donne le site public.
+    lienEtapes: liensPublics(texte("lien_etapes_tiktok")),
     lundi: lireModeAuto(v.lundi_message_auto) as ModeAuto,
     textesLundi: { tous: texte("lundi_texte_tous"), cohorte: texte("lundi_texte_cohorte"), warmup: texte("lundi_texte_warmup") },
     texteJeudi: texte("jeudi_texte"),

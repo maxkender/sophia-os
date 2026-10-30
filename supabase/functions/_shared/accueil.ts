@@ -3,6 +3,7 @@
  * contrat Upwork démarré. Rien ici ne touche la base ni le réseau : lire le
  * contrat, décider (relier, doublon, créer), composer le message.
  */
+import { GUIDE_POSTER_PUBLIC } from "./guide_public.ts";
 
 /** Interrupteur off | test | on ; défaut « test » (montre, n'envoie rien). */
 export type ModeAuto = "off" | "test" | "on";
@@ -161,8 +162,8 @@ export function dateAnglaise(jour: string): string {
     .format(new Date(`${jour}T12:00:00Z`));
 }
 
-/** Le guide du posteur (Notion), dans la bienvenue. */
-export const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
+/** Le guide du posteur, dans la bienvenue : le lien public (les posteurs n'ont pas accès à app.notion.com). */
+export const GUIDE_POSTER = GUIDE_POSTER_PUBLIC;
 
 /** Le message de bienvenue, depuis le réglage ; une variable inconnue reste telle quelle. */
 export function messageAccueil(

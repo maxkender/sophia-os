@@ -86,7 +86,7 @@ export const CLES_TEXTES: readonly string[] = [...new Set(TEXTES.map((x) => x.cl
 export const CLES_APERCU = ["slack_lien_invitation", "lien_etapes_tiktok"] as const;
 
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
-const GUIDE_POSTER = "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
+const GUIDE_POSTER = "https://star-water-a0e.notion.site/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
 /** Les valeurs d'exemple de l'aperçu (Ana, un lundi de cohorte, une semaine de paie). */
 export function exemples(reglages: Record<string, unknown>): Record<string, string> {

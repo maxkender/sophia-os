@@ -35,4 +35,18 @@ describe("Simulation de la paie", () => {
     expect(screen.getByText("aucune milestone financée sur Upwork")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "123" })).toHaveAttribute("href", "https://www.upwork.com/nx/wm/workroom/123/overview");
   });
+
+  it("hors Upwork à part (jamais dans Needs you) et l'écart de comptes affiché", async () => {
+    api.lireDerniereSimulation.mockResolvedValue({
+      ...SIM, par_categorie: { payer: 2, hors_upwork: 1 }, needs_you: [],
+      hors_upwork: ["Max", "Yanis Cottin"],
+      ecarts_comptes: [{ poster: "Marieme Senghor", contrat: "456", comptes_actifs: 2, comptes_finances: 1, milestone: "Week 44", depot: 14 }],
+    });
+    render(<QueryClientProvider client={new QueryClient()}><SimulationPaie /></QueryClientProvider>);
+    expect(await screen.findByText("Hors Upwork : 1")).toBeInTheDocument();
+    expect(screen.getByTestId("simulation-hors-upwork")).toHaveTextContent("Hors Upwork (2) : pas de contrat Upwork, jamais payés par l'API : Max, Yanis Cottin");
+    expect(screen.getByTestId("simulation-ecarts")).toHaveTextContent("Marieme Senghor");
+    expect(screen.getByTestId("simulation-ecarts")).toHaveTextContent("2 comptes actifs · Week 44 financée pour 1 compte(s) (14 $)");
+    expect(screen.getByText("Irait dans Needs you (0)")).toBeInTheDocument();
+  });
 });

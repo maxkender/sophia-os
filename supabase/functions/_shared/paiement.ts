@@ -136,6 +136,34 @@ export interface LignePaieApi {
   contrat_id: string | null;
   /** Comptes payés cette semaine (Double : 2). */
   nb_comptes?: number;
+  /** Profil hors Upwork (pas de contrat, comptes en France) : jamais payé par l'API. */
+  hors_upwork?: boolean;
+}
+
+/**
+ * L'écart entre les comptes actifs du posteur et ceux couverts par la milestone
+ * financée de la semaine (« Week 44 » à 14 $ pour 2 comptes à 14 $) : affiché
+ * dans la simulation, rien n'est changé. null : pas d'écart, ou rien à comparer.
+ */
+export function ecartComptes(
+  tarif: number | null,
+  comptesActifs: number,
+  jalons: JalonUpwork[],
+  semaine: string,
+): { comptes_actifs: number; comptes_finances: number; milestone: string; depot: number } | null {
+  const w = semaineIso(semaine);
+  const a = jalons.find((j) => ETATS_FINANCES.includes(j.etat) && semaineDuNom(j.nom) === w);
+  if (!a || a.depot === null || comptesActifs < 2) return null;
+  const duNom = Number(a.nom.match(/(\d+)\s*acc/i)?.[1] ?? 0);
+  const finances = duNom >= 1 ? duNom : tarif && tarif > 0 ? Math.max(1, Math.round(a.depot / tarif)) : 1;
+  return finances < comptesActifs ? { comptes_actifs: comptesActifs, comptes_finances: finances, milestone: a.nom, depot: a.depot } : null;
+}
+
+export const RAISON_HORS_UPWORK = "hors Upwork : pas de contrat Upwork, jamais payé par l'API";
+
+/** Hors Upwork : aucun contrat Upwork et tous ses comptes en France (les profils français de l'équipe). */
+export function estHorsUpwork(contratId: string | null, paysComptes: (string | null)[]): boolean {
+  return !contratId && paysComptes.length > 0 && paysComptes.every((p) => (p ?? "").toUpperCase() === "FR");
 }
 
 export interface PlanPaiement {
@@ -182,6 +210,7 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   const n = semaineIso(ajouterJours(semaine, 7));
   if (l.exclu) return vide("rien", "retirée de la liste");
   if (l.paye_at) return vide("rien", "déjà cochée « Payé »");
+  if (l.hors_upwork) return vide("rien", RAISON_HORS_UPWORK);
   if (l.faits > 0 && l.tarif === null) return vide("refuse", "tarif manquant : à vérifier");
   if (l.action === "rien") return l.suivante_action === "renommer" ? planRenommer(jalons, w, n) : vide("rien", "rien à payer");
   // Prompt 26 : « Kill & don't pay » : rien n'est approuvé, le contrat est fermé lundi (arrêt complet).

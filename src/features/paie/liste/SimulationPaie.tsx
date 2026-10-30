@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/features/auth/AuthContext";
 import { lireDerniereSimulation, type SimulationPaie as TSimulation, simulerPaie } from "@/features/paie/api-upwork/api";
 
-const CATEGORIES = ["payer", "double", "rien", "renommer", "pause", "legacy", "a_la_main", "kill", "kill_sans_paie", "annuler", "warmup"] as const;
+const CATEGORIES = ["payer", "double", "rien", "renommer", "pause", "legacy", "a_la_main", "kill", "kill_sans_paie", "annuler", "warmup", "hors_upwork"] as const;
 
 /**
  * Prompt 26 : la paie du lundi, simulée (rien n'est payé ni financé) : les
@@ -54,6 +54,31 @@ export function SimulationPaie() {
             {s.milestones_lues_le && (
               <p className="text-xs text-muted-foreground">
                 {t("paie.simulation.lues", { quand: new Date(s.milestones_lues_le).toLocaleString("fr-FR", { timeZone: "Europe/Paris" }) })}
+              </p>
+            )}
+            {(s.ecarts_comptes ?? []).length > 0 && (
+              <div className="space-y-1" data-testid="simulation-ecarts">
+                <p className="font-medium text-amber-700 dark:text-amber-400">{t("paie.simulation.ecarts", { n: s.ecarts_comptes!.length })}</p>
+                <ul className="divide-y rounded-md border text-xs">
+                  {s.ecarts_comptes!.map((e, i) => (
+                    <li key={`${e.contrat ?? e.poster}-${i}`} className="flex flex-wrap items-center gap-2 p-2">
+                      <span className="font-medium">{e.poster}</span>
+                      {e.contrat && (
+                        <a className="underline" href={`https://www.upwork.com/nx/wm/workroom/${e.contrat}/overview`} target="_blank" rel="noreferrer">
+                          {e.contrat}
+                        </a>
+                      )}
+                      <span className="text-muted-foreground">
+                        {t("paie.simulation.ecartLigne", { actifs: e.comptes_actifs, milestone: e.milestone, finances: e.comptes_finances, depot: e.depot })}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {(s.hors_upwork ?? []).length > 0 && (
+              <p className="text-xs text-muted-foreground" data-testid="simulation-hors-upwork">
+                {t("paie.simulation.horsUpwork", { n: s.hors_upwork!.length })} : {s.hors_upwork!.join(", ")}
               </p>
             )}
             <p className="font-medium">{t("paie.simulation.needsYou", { n: s.needs_you.length })}</p>

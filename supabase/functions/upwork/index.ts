@@ -76,6 +76,8 @@ import {
 } from "../_shared/paie_auto.ts";
 import {
   centimes,
+  ecartComptes,
+  estHorsUpwork,
   type JalonUpwork,
   lireJalonsContrat,
   lireReglagesPaieApi,
@@ -875,7 +877,7 @@ async function chargerLignes(
   supabase: Supabase,
   semaine: string,
   o: { simulation?: boolean } = {},
-): Promise<{ lignes: LigneAuto[]; tenantDe: Map<string, string | null>; raisonDe: Map<string, string | null> }> {
+): Promise<{ lignes: LigneAuto[]; tenantDe: Map<string, string | null>; raisonDe: Map<string, string | null>; comptesDe: Map<string, number> }> {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(semaine)) throw new Error("semaine invalide");
   const { data: liste, error } = await supabase.rpc("paie_liste_v2", { p_lundi: semaine, p_simulation: o.simulation === true });
   if (error) throw error;
@@ -883,11 +885,18 @@ async function chargerLignes(
   // deno-lint-ignore no-explicit-any
   const brutes = ((liste ?? []) as any[]).map((l) => (o.simulation ? { ...l, id: l.id ?? l.poster_id } : l)).filter((l) => l.id);
   const raisonDe = new Map(brutes.map((b) => [String(b.id), (b.raison as string | null) ?? null]));
+  // Les comptes actifs de chaque ligne (Double en warm-up compris) : l'écart avec la milestone financée.
+  const comptesDe = new Map(brutes.map((b) => [String(b.id), Array.isArray(b.detail_comptes) ? b.detail_comptes.length : Number(b.nb_comptes ?? 1)]));
   const posteurs = brutes.map((l) => l.poster_id);
-  const { data: profils } = posteurs.length
-    ? await supabase.from("profiles").select("id, upwork_contract_id").in("id", posteurs)
-    : { data: [] };
+  const [{ data: profils }, { data: paysComptes }] = posteurs.length
+    ? await Promise.all([
+      supabase.from("profiles").select("id, upwork_contract_id").in("id", posteurs),
+      supabase.from("comptes").select("poster_id, pays").in("poster_id", posteurs),
+    ])
+    : [{ data: [] }, { data: [] }];
   const contratDe = new Map((profils ?? []).map((p) => [p.id as string, (p.upwork_contract_id as string | null) ?? null]));
+  const paysDe = new Map<string, (string | null)[]>();
+  for (const c of paysComptes ?? []) paysDe.set(String(c.poster_id), [...(paysDe.get(String(c.poster_id)) ?? []), (c.pays as string | null) ?? null]);
   const contrats = [...new Set([...contratDe.values()].filter(Boolean))] as string[];
   const { data: orgs } = contrats.length
     ? await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats)
@@ -903,13 +912,14 @@ async function chargerLignes(
     suivante_comptes: brute.suivante_comptes === null ? null : Number(brute.suivante_comptes),
     suivante_montant: brute.suivante_montant === null ? null : Number(brute.suivante_montant),
     contrat_id: contratDe.get(brute.poster_id) ?? null,
+    hors_upwork: estHorsUpwork(contratDe.get(brute.poster_id) ?? null, paysDe.get(brute.poster_id) ?? []),
     nb_comptes: Number(brute.nb_comptes ?? 1),
     // deno-lint-ignore no-explicit-any
     moins6: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).filter((d: any) => d?.moins6 === true).length,
     // deno-lint-ignore no-explicit-any
     douteux: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).reduce((n: number, d: any) => n + Number(d?.douteux ?? 0), 0),
   })));
-  return { lignes, tenantDe, raisonDe };
+  return { lignes, tenantDe, raisonDe, comptesDe };
 }
 
 /** Le plan d'une ligne : ses milestones lues chez Upwork (seulement si elle paie). */
@@ -1003,9 +1013,12 @@ function prochaineSemaineAPayer(d = new Date()): string {
   return p.isoJour === 1 ? ajouterJours(p.jour, -7) : ajouterJours(p.jour, -(p.isoJour - 1));
 }
 
-type CategorieSimulation = "payer" | "double" | "rien" | "pause" | "legacy" | "a_la_main" | "kill" | "kill_sans_paie" | "annuler" | "warmup" | "renommer";
+type CategorieSimulation =
+  | "payer" | "double" | "rien" | "pause" | "legacy" | "a_la_main" | "kill" | "kill_sans_paie" | "annuler" | "warmup" | "renommer" | "hors_upwork";
 
 function categorieSimulation(l: LigneAuto, plan: PlanPaiement, raison: string | null): CategorieSimulation {
+  // Pas de contrat Upwork, comptes en France : montré à part, jamais dans Needs you.
+  if (l.hors_upwork) return "hors_upwork";
   if (l.refus || l.action === "a_verifier" || plan.statut === "refuse") return "a_la_main";
   if (l.action === "legacy") return "legacy";
   if (l.action === "kill") return "kill";
@@ -1025,7 +1038,7 @@ function categorieSimulation(l: LigneAuto, plan: PlanPaiement, raison: string | 
 async function paieSimulation(supabase: Supabase, par: string | null, semaineDemandee: string | null) {
   const semaine = semaineDemandee && /^\d{4}-\d{2}-\d{2}$/.test(semaineDemandee) ? semaineDemandee : prochaineSemaineAPayer();
   const r = await reglagesPaieApi(supabase);
-  const { lignes, raisonDe } = await chargerLignes(supabase, semaine, { simulation: true });
+  const { lignes, raisonDe, comptesDe } = await chargerLignes(supabase, semaine, { simulation: true });
   const contrats = [...new Set(lignes.map((l) => l.contrat_id).filter(Boolean))] as string[];
   const jalonsDe = new Map<string, { jalons: JalonUpwork[]; lu_at: string | null }>();
   for (let i = 0; i < contrats.length; i += 200) {
@@ -1036,7 +1049,9 @@ async function paieSimulation(supabase: Supabase, par: string | null, semaineDem
   }
   const compte: Record<CategorieSimulation, number> = {
     payer: 0, double: 0, rien: 0, pause: 0, legacy: 0, a_la_main: 0, kill: 0, kill_sans_paie: 0, annuler: 0, warmup: 0, renommer: 0,
+    hors_upwork: 0,
   };
+  const ecarts: Record<string, unknown>[] = [];
   let approuve = 0;
   let finance = 0;
   const needsYou: Record<string, unknown>[] = [];
@@ -1058,7 +1073,14 @@ async function paieSimulation(supabase: Supabase, par: string | null, semaineDem
       approuver: plan.approuver ? `${plan.approuver.nom} · ${plan.approuver.montant} $` : null,
       financer: plan.financer ? `${plan.financer.nom} · ${plan.financer.montant} $ (${plan.financer.mode === "creer" ? "à créer" : "existante"})` : null,
       renommer: plan.renommer ? `${plan.renommer.de} → ${plan.renommer.vers}` : null,
+      ecart_comptes: null as string | null,
     };
+    // Plus de comptes actifs que la milestone financée de la semaine n'en couvre : affiché, rien n'est changé.
+    const ecart = lu ? ecartComptes(l.tarif, l.ids.reduce((n, id) => n + (comptesDe.get(id) ?? 0), 0), lu.jalons, semaine) : null;
+    if (ecart) {
+      ligne.ecart_comptes = `${ecart.comptes_actifs} comptes actifs, ${ecart.milestone} financée pour ${ecart.comptes_finances} compte(s) (${ecart.depot} $)`;
+      ecarts.push({ poster: ligne.poster, contrat: l.contrat_id, ...ecart, paye: plan.approuver?.montant ?? null, finance: plan.financer?.montant ?? null });
+    }
     detail.push(ligne);
     if (cat === "a_la_main" || cat === "legacy") {
       needsYou.push({
@@ -1076,11 +1098,25 @@ async function paieSimulation(supabase: Supabase, par: string | null, semaineDem
     depasse_plafond_jour: approuve + finance > r.plafond_jour,
     milestones_lues_le: [...jalonsDe.values()].map((x) => x.lu_at).filter(Boolean).sort().at(-1) ?? null,
     needs_you: needsYou,
+    ecarts_comptes: ecarts,
+    hors_upwork: await profilsHorsUpwork(supabase),
   };
   const { data: sim } = await supabase.from("paie_simulations").insert({
     semaine, statut: "fini", lance_par: par, fini_at: new Date().toISOString(), resultat, lignes: detail,
   }).select("id").single();
   return { ok: true, id: sim?.id ?? null, ...resultat };
+}
+
+/** Les profils actifs hors Upwork (pas de contrat, comptes en France), qu'ils aient une ligne de paie ou non. */
+async function profilsHorsUpwork(supabase: Supabase): Promise<string[]> {
+  const { data: profils } = await supabase.from("profiles").select("id, prenom, nom").eq("is_active", true).is("upwork_contract_id", null);
+  const ids = (profils ?? []).map((p) => p.id as string);
+  if (!ids.length) return [];
+  const { data: comptes } = await supabase.from("comptes").select("poster_id, pays").in("poster_id", ids);
+  const paysDe = new Map<string, (string | null)[]>();
+  for (const c of comptes ?? []) paysDe.set(String(c.poster_id), [...(paysDe.get(String(c.poster_id)) ?? []), (c.pays as string | null) ?? null]);
+  return (profils ?? []).filter((p) => estHorsUpwork(null, paysDe.get(p.id as string) ?? []))
+    .map((p) => [p.prenom, p.nom].filter(Boolean).join(" ").trim() || String(p.id)).sort((a, b) => a.localeCompare(b));
 }
 
 /** Le lundi de la semaine ISO `n`, la plus proche d'aujourd'hui (Paris). */

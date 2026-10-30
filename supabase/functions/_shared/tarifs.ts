@@ -9,7 +9,9 @@
  *   dans le nom, par le nombre de comptes actifs du posteur (une milestone
  *   couvre tous ses comptes : 28 $ = 2 × 14 $), et ce tarif par compte doit
  *   alors rejoindre celui des autres semaines (à 1 $ près), sinon à vérifier ;
- *   une seule milestone, la 1re du contrat : c'est la 1re semaine, à +1 $ ;
+ *   une seule milestone, la 1re du contrat : c'est la 1re semaine ; 1 $ retiré
+ *   seulement si elle vaut 15, 11 ou 8 $ (ancien tarif + bonus) ; à 14, 10 ou
+ *   7 $, c'est déjà le tarif. Les autres semaines du contrat passent avant ;
  * - mensuel (« Month », « mois », « Monthly ») ou une période ≥ 3 semaines
  *   entre deux échéances : contrat Legacy, payé à la fin de sa période ;
  * - sinon (montants incohérents, rien en cours, tarif hors de 5 à 20 $ par
@@ -42,6 +44,14 @@ const MENSUEL = /\b(month|months|monthly|mois|monat|mes|mese)\b|30[- ]?days?/i;
 const PREMIERE = /\b(trial|first|1st|premi[eè]re|warm ?-?up)\b/i;
 
 const arrondi = (n: number) => Math.round(n * 100) / 100;
+
+/** Les 1res milestones avec l'ancien bonus de 1re semaine (+1 $) : 14 + 1, 10 + 1, 7 + 1. */
+export const PREMIERES_AVEC_BONUS = [15, 11, 8];
+
+/** La 1re semaine seule : 1 $ retiré seulement à 15, 11 ou 8 $ ; sinon c'est le tarif. */
+export function sansBonusPremiere(tarif: number): { tarif: number; retire: boolean } {
+  return PREMIERES_AVEC_BONUS.includes(arrondi(tarif)) ? { tarif: arrondi(tarif - 1), retire: true } : { tarif, retire: false };
+}
 
 /** « Week 44 (2 acc) » → 2 ; « Week 44- 2 accounts » → 2 ; sinon 1. */
 export function comptesDuNom(nom: string): number {
@@ -88,10 +98,11 @@ export function deduireTarif(jalonsBruts: JalonUpwork[], comptesActifs = 1): Tar
     const comptes = parActifs ? comptesActifs : duNom;
     let tarif = arrondi(j.depot / comptes);
     let raison = comptes > 1 ? `${j.nom} : ${j.depot} $ pour ${comptes} comptes${parActifs ? " actifs" : ""}` : `${j.nom} : ${j.depot} $`;
-    // Une seule semaine, 1re milestone du contrat : la 1re semaine est à +1 $.
+    // Une seule semaine, 1re milestone du contrat : 1 $ retiré seulement à 15, 11 ou 8 $ (ancien tarif + bonus).
     if (semaines.length === 1 && jalons[0].id === j.id && (PREMIERE.test(j.nom) || jalons.length === 1)) {
-      tarif = arrondi(tarif - 1);
-      raison += " (1re semaine, +1 $ retiré)";
+      const b = sansBonusPremiere(tarif);
+      tarif = b.tarif;
+      raison += b.retire ? " (1re semaine, +1 $ retiré)" : " (1re semaine, déjà au tarif)";
     } else if (semaines.length >= 2) {
       // La 1re semaine (+1 $) ne compte pas : comparée à la semaine d'après.
       const autres = semaines.filter((x) => x.id !== j.id && x.depot !== null).map((x) => arrondi(x.depot! / comptesDuNom(x.nom)));
@@ -129,11 +140,11 @@ export function deduireTarif(jalonsBruts: JalonUpwork[], comptesActifs = 1): Tar
     const j = jalons[0];
     if (j.depot === null) return aVerifier(`${j.nom || "milestone"} : montant illisible`, j);
     if (j.depot <= TARIF_COMPTE_MAX + 1 && !MENSUEL.test(j.nom)) {
-      const tarif = arrondi(j.depot - 1);
-      if (tarif >= TARIF_COMPTE_MIN) {
+      const b = sansBonusPremiere(j.depot);
+      if (b.tarif >= TARIF_COMPTE_MIN && b.tarif <= TARIF_COMPTE_MAX) {
         return {
-          rythme: "hebdo", montant: tarif, comptes: 1, tarif_compte: tarif, periode_jours: 7, courant: vue(j),
-          raison: `${j.nom || "milestone"} : ${j.depot} $, 1re semaine (+1 $ retiré)`,
+          rythme: "hebdo", montant: b.tarif, comptes: 1, tarif_compte: b.tarif, periode_jours: 7, courant: vue(j),
+          raison: `${j.nom || "milestone"} : ${j.depot} $, 1re semaine${b.retire ? " (+1 $ retiré)" : " (déjà au tarif)"}`,
         };
       }
     }

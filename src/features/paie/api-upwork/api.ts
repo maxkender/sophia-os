@@ -160,6 +160,10 @@ export interface SimulationPaie {
   depasse_plafond_jour: boolean;
   milestones_lues_le: string | null;
   needs_you: { poster: string; contrat: string | null; lien: string | null; montant: number; raison: string }[];
+  /** Plus de comptes actifs que la milestone financée de la semaine n'en couvre (affiché, rien n'est changé). */
+  ecarts_comptes?: { poster: string; contrat: string | null; comptes_actifs: number; comptes_finances: number; milestone: string; depot: number }[];
+  /** Les profils hors Upwork (pas de contrat, comptes en France) : jamais payés par l'API, jamais dans Needs you. */
+  hors_upwork?: string[];
   lance_at?: string;
 }
 

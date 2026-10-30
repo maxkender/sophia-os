@@ -1,0 +1,320 @@
+{
+ "id": "fa-017",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7690948590805519638",
+  "vues": 817700,
+  "accroche": "5 Ways To Be Unrecognisable In 1 Month"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 1 Month",
+  "de": "5 Wege, in 1 Monat nicht wiederzuerkennen",
+  "pt": "5 formas de ficar irreconhecível em 1 mês"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 1 Month #selfimprovement #learnontiktok #selfmastery",
+  "de": "5 Wege, in 1 Monat nicht wiederzuerkennen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "pt": "5 formas de ficar irreconhecível em 1 mês #desenvolvimentopessoal #aprendernotiktok #autoconhecimento"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Variante de l'accroche de fa-001 (826 k), « in 1 month » comme sa propre reprise (191 k). cta B. Sophia à l'étape 3 « LEARN ONE NEW THING A DAY ». Pas d'UnSwipe. Autres étapes (posture, méditation, étirements, lecture), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 1 MONTH"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE"
+      }
+     ],
+     "IN 1 MONAT",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 1 MÊS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FIX YOUR POSTURE"
+    ],
+    "video": {
+     "id": "cC5pPsiXO7s",
+     "titre": "How to Finally \"Fix\" Your Posture",
+     "chaine": "Hybrid Calisthenics",
+     "vues": "1.7M views",
+     "date": "3 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHDTeNbNPLCIuChuhtXjCMZ6S6UQ6nPhDKewcrZj5i1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "VERBESSERE",
+     "DEINE HALTUNG"
+    ],
+    "video": {
+     "id": "H6Bt13jzORs",
+     "titre": "Haltung verbessern - DAS musst du wissen + 3 Übungen",
+     "chaine": "StrongandFlexTV",
+     "vues": "81.995 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLR-HaITJvBivKbAxn5thpnHCXkmgqOXDopHHBvB0gBtI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CORRIGE",
+     "A TUA POSTURA"
+    ],
+    "video": {
+     "id": "iuPjxeHgFFw",
+     "titre": "Como melhorar a postura! 4 melhores soluções",
+     "chaine": "Fisioterapia com Kelwin Juan",
+     "vues": "92 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/Wot6xw5LRVjzuehC1cAKiJWa7GOEs_G2r0sg2pD91chkw-FLYceR3ThTTyKxWTOQ9wqsbBDO=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MEDITATE"
+    ],
+    "video": {
+     "id": "JslvBcIVtDg",
+     "titre": "How To Meditate For Beginners (Animated)",
+     "chaine": "Mitch Manly",
+     "vues": "2.2M views",
+     "date": "6 years ago",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwiB5Ji4n19kCVY4Rtd-fODRSperExvoniNy6YDex5Peo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MEDITIERE"
+    ],
+    "video": {
+     "id": "RSpc9GH_OSQ",
+     "titre": "Richtig Meditieren Lernen In 4 Minuten (einfach erklärt)",
+     "chaine": "Robin Fübbeker",
+     "vues": "134.263 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/UM36K7GbLmK5DbcLphrX3ANtu_QNuU35VS-9TPRY9e8auAN791kRu0nyCAb4oxohRHCHgeJ6gQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "MEDITA"
+    ],
+    "video": {
+     "id": "1MrQPZuSs7A",
+     "titre": "Como meditar pela primeira vez? | Meditação de 5 minutos",
+     "chaine": "Eurekka",
+     "vues": "425 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/-OGsuHW-7cVvYgKV_QrtCCi4P9ChZDldJxt4yxjhypdeQ8yGfdv1OAn8eAPAae_6IMFYZl9TEes=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN ONE NEW",
+     "THING A DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UMA COISA",
+     "NOVA POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "STRETCH EVERY",
+     "MORNING"
+    ],
+    "video": {
+     "id": "t2jel6q1GRk",
+     "titre": "Quick Morning Stretching Routine For Flexibility, Mobility, And Stiffness!",
+     "chaine": "Tone and Tighten",
+     "vues": "6.1M views",
+     "date": "3 years ago",
+     "duree": "9:11",
+     "avatar": "https://yt3.ggpht.com/MqS1eOa9aCfguqQC7J8Z3WEr-jwaEuI6rSaLuop6p8KSxU2HVFzeWOFF74xrrczWxcJs--1R9UQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DEHN DICH",
+     "JEDEN MORGEN"
+    ],
+    "video": {
+     "id": "uu7ICIXWqJs",
+     "titre": "Morgenroutine für Anfänger | Den ganzen Körper Dehnen & Mobilisieren (Übungen zum Mitmachen)",
+     "chaine": "Liebscher & Bracht | Die Schmerzspezialisten",
+     "vues": "3,3 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:16",
+     "avatar": "https://yt3.ggpht.com/MOahju_wgrrre052CsVF5BZ3lJ1NOXwcg3GHQvoLIWBMq8kEL2xMh72Hld4fqUZms6Lnpcva7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ALONGA-TE",
+     "TODAS AS MANHÃS"
+    ],
+    "video": {
+     "id": "yl_n7wK7ElU",
+     "titre": "ALONGAMENTOS PARA FAZER AO ACORDAR  - Fisioprev com Guilherme Stellbrink",
+     "chaine": "Guilherme Stellbrink I FisioPrev",
+     "vues": "399 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/yHyj9sxRKmNw-ncExznUTqW1juHqxWKwpiZfsqMUnw5fhc-cgIwiMvSm6s5EhYZkJC-X1meUzw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "EVERY NIGHT"
+    ],
+    "video": {
+     "id": "hPhH5qXWOi4",
+     "titre": "How the brain learns to read",
+     "chaine": "Harvard University",
+     "vues": "238K views",
+     "date": "5 years ago",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDxwGcmWyN_4-5PHivuBqMkPzA-wyK9pEguA-Ut3nWf3Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES",
+     "JEDEN ABEND"
+    ],
+    "video": {
+     "id": "uOlN6yE_neM",
+     "titre": "Wie Lesen dein Gehirn verändert (7 erstaunliche Effekte) 🧠📚",
+     "chaine": "shribe! - master your studies",
+     "vues": "5436 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/VxDvZppAf1oq-LhGfyaTSL2_mGksOgZae7QVSrBjLk6GVI8Yt-acFjFfzLmYdc74vbRkk2ruVw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LÊ TODAS",
+     "AS NOITES"
+    ],
+    "video": {
+     "id": "uOujdWwLmEo",
+     "titre": "Como a Leitura Muda Seu Cérebro",
+     "chaine": "Neurociência Descomplicada",
+     "vues": "493 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/zHnVGG1p76__2THo0NGbNcxkaIRY971fqDF1YBZDsBY3OOfp5xinANfpQr1eU2oYbcHjfeNMiqc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

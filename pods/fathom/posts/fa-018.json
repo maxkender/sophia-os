@@ -1,0 +1,315 @@
+{
+ "id": "fa-018",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7682785966410485014",
+  "vues": 589000,
+  "publie_le": "2026-09-07",
+  "accroche": "10/10 Skills To Learn Before You Are 30"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn Before You Are 30",
+  "de": "10/10 Skills, die du vor 30 lernen solltest",
+  "pt": "10/10 habilidades para aprender antes dos 30"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn Before You Are 30 #skills #learnontiktok #selfimprovement",
+  "de": "10/10 Skills, die du vor 30 lernen solltest #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para aprender antes dos 30 #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
+ },
+ "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "BEFORE YOU ARE 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE DU VOR 30",
+     [
+      {
+       "t": "LERNEN SOLLTEST",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA APRENDER",
+     [
+      {
+       "t": "ANTES DOS 30",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUDGET",
+     "YOUR MONEY"
+    ],
+    "video": {
+     "id": "IIKr2915l2g",
+     "titre": "Do This EVERY Time You Get Paid (Paycheck Routine)",
+     "chaine": "Vincent Chan",
+     "vues": "3.9M views",
+     "date": "3 years ago",
+     "duree": "14:05",
+     "avatar": "https://yt3.ggpht.com/0xC6gHMfwgPUcgYpHrs9AQYCF0KRS6zKWnsIsGiemgBplOVXWi_tmtzgTHtzsdm09hAKE4pyIUo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "PLANE DEIN",
+     "BUDGET"
+    ],
+    "video": {
+     "id": "AWhyrpdKdBE",
+     "titre": "10.000€ in einem Jahr sparen | Spartipps für kleine Budgets (wenig Einkommen)",
+     "chaine": "Dr. Armin Pszola",
+     "vues": "73.365 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/aav5_NW05ueI6AFk5XtE3nqh3V9_C-E0tFYiYDgqMGAOK5XSign73QHbQCwYXJAnhnhzLphF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZ UM",
+     "ORÇAMENTO"
+    ],
+    "video": {
+     "id": "NbD9f4ntR8s",
+     "titre": "Como fazer um ORÇAMENTO MENSAL simples",
+     "chaine": "Gabi Teixeira",
+     "vues": "83 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "17:11",
+     "avatar": "https://yt3.ggpht.com/LCo8H61PK3qrfIMmUE91k1OcicVSuuzOI5siABT7fM24LEw7H-WcsAHptk4PnbQ_uhK7vB6S=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SPEAK IN",
+     "PUBLIC"
+    ],
+    "video": {
+     "id": "5m-C5mwpmxU",
+     "titre": "The 3-2-1 Speaking Trick That Forces You To Stop Rambling!",
+     "chaine": "Vinh Giang",
+     "vues": "8M views",
+     "date": "1 year ago",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FREI",
+     "SPRECHEN"
+    ],
+    "video": {
+     "id": "UGbo8X-rXqo",
+     "titre": "Frei sprechen lernen - Übungen, um unendlich lange am Stück locker reden zu können",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "228.472 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "11:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FALAR EM",
+     "PÚBLICO"
+    ],
+    "video": {
+     "id": "_RfY0eH7u-c",
+     "titre": "Exercícios para treinar oratória e falar bem em público",
+     "chaine": "ÓHQUEMFALA! Comunicação e Oratória",
+     "vues": "271 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/rP1nk5acSTAZ_39dY9GnRIOx6fr5SdhHvXmcFMhx6lAkQrjRT6zbt0g14fSno3cWgsUcQXvCJZA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "SOMETHING NEW",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "ALGO NOVO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO CPR"
+    ],
+    "video": {
+     "id": "hizBdM1Ob68",
+     "titre": "Learn How To Do CPR",
+     "chaine": "HealthSketch",
+     "vues": "3.8M views",
+     "date": "10 years ago",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNR6bRmxAipx0fBF3sjtD0giSRwA3XQXyd_zdQUjzERg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "HERZDRUCK-",
+     "MASSAGE"
+    ],
+    "video": {
+     "id": "dwk4xbAGYWM",
+     "titre": "Erste Hilfe: So funktioniert eine Herzdruckmassage",
+     "chaine": "Bayerisches Innenministerium",
+     "vues": "50.757 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/8PMw7yzFiyyWr5AdQTSkV1QrUD-tsfntiecKirgI3XZmcftHN-2Rj8TrAxmejlVAGoJqCzNUnEg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "MASSAGEM",
+     "CARDÍACA"
+    ],
+    "video": {
+     "id": "LquiiQVKqKE",
+     "titre": "Como fazer massagem cardíaca em crianças e adultos | Primeiros Socorros",
+     "chaine": "Einstein Hospital Israelita",
+     "vues": "187 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:57",
+     "avatar": "https://yt3.ggpht.com/EMv__pRqzJOLGZT7CtGn45GegIgQsAlqe7UqSKqt4BjWvbS_ZMXkNVdQtVr_FiCes-GXRfTomg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MANAGE",
+     "YOUR TIME"
+    ],
+    "video": {
+     "id": "iDbdXTMnOmE",
+     "titre": "How to manage your time more effectively (according to machines) - Brian Christian",
+     "chaine": "TED-Ed",
+     "vues": "7.9M views",
+     "date": "8 years ago",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ZEIT-",
+     "MANAGEMENT"
+    ],
+    "video": {
+     "id": "1Zn1cXR-7ZQ",
+     "titre": "Für alles Zeit haben ist ultra einfach.",
+     "chaine": "ultra einfach.",
+     "vues": "273.355 Aufrufe",
+     "date": "vor 11 Monaten",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/O1mQt-nDXa3IR0IgvPhGJINb4PX9mkf3HknvV3yqFd_Igd-sduKrLcwXA3ih1z4_gCCyEAcFXTA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "GERE O",
+     "TEU TEMPO"
+    ],
+    "video": {
+     "id": "PzUZsoyMXuY",
+     "titre": "Gestão de tempo e planejamento",
+     "chaine": "Gabriela Affonso",
+     "vues": "932 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "13:30",
+     "avatar": "https://yt3.ggpht.com/VAGYYfpqzCkK4XpDK5hxeXF6j2avmLDEt1DQq1crCE_FsG4qBW0atILMpKq2FGbmHGarejbtjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

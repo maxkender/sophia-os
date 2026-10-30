@@ -5,6 +5,8 @@
 import { assert, assertEquals, assertThrows } from "jsr:@std/assert@1";
 
 import {
+  lireFinContrat,
+  orgDeLOs,
   abregerPourJournal,
   aRenouveler,
   avecRetry,
@@ -148,4 +150,10 @@ Deno.test("F1 : la 1re milestone financée et non payée, quel que soit son nom"
 Deno.test("contratFerme : seulement un statut lu et clairement terminé (décisions finales)", () => {
   for (const s of ["CLOSED", "Closed", "ENDED", "TERMINATED", "CANCELLED"]) assertEquals(contratFerme(s), true, s);
   for (const s of ["ACTIVE", "Active", "PAUSED", "SUSPENDED", "PENDING", "", null, undefined, "OTHER"]) assertEquals(contratFerme(s), false, String(s));
+});
+
+Deno.test("31/10 : VIk Studios (et Micabo) seulement ; fin de contrat : date et qui", () => {
+  assertEquals([orgDeLOs("2074065383597823773"), orgDeLOs("1990051114607612379"), orgDeLOs("1908160914854122444"), orgDeLOs("1113124273601449984"), orgDeLOs(null)], [true, true, false, false, false]);
+  assertEquals(lireFinContrat({ endDate: "2026-10-29T10:00:00Z", freelancer: { id: "F1" }, endedBy: { id: "F1" } }), { fin: "2026-10-29", par: "freelance" });
+  assertEquals(lireFinContrat({ endDate: null, freelancer: { id: "F1" }, endedBy: { id: "C9" } }), { fin: null, par: "nous" });
 });

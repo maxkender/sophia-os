@@ -101,10 +101,17 @@ export function deduireTarif(jalonsBruts: JalonUpwork[], comptesActifs = 1): Tar
       } else if (parActifs) {
         // Divisé par les comptes actifs : une autre semaine doit valoir ce tarif par compte (à 1 $ près, ancien bonus),
         // qu'elle ait payé un compte ou tous.
-        const proches = semaines.filter((x) => x.id !== j.id && x.depot !== null)
-          .some((x) => [x.depot! / comptesDuNom(x.nom), x.depot! / comptesActifs].some((t) => Math.abs(t - tarif) <= 1 + 1e-9));
-        if (autres.length && !proches) {
+        const candidats = semaines.filter((x) => x.id !== j.id && x.depot !== null)
+          .flatMap((x) => [x.depot! / comptesDuNom(x.nom), x.depot! / comptesActifs])
+          .filter((t) => Math.abs(t - tarif) <= 1 + 1e-9)
+          .sort((a, b) => Math.abs(a - tarif) - Math.abs(b - tarif));
+        if (autres.length && candidats.length === 0) {
           return aVerifier(`${raison} : ${tarif} $ par compte, mais les autres semaines valent ${[...new Set(autres)].join(", ")} $ par compte`, j);
+        }
+        // 29 $ = 14 + 15 (ancien bonus de 1re semaine) : le tarif est celui des autres semaines (14 $).
+        if (candidats.length && arrondi(candidats[0]) !== tarif) {
+          raison += ` (${tarif} $ par compte avec le bonus ; les autres semaines valent ${arrondi(candidats[0])} $)`;
+          tarif = arrondi(candidats[0]);
         }
       } else if (autres.length && !autres.some((t) => t === tarif || t === tarif + 1)) {
         raison += ` (les autres semaines valent ${[...new Set(autres)].join(", ")} $)`;

@@ -1,0 +1,50 @@
+{
+ "source_id": "am-o029",
+ "schema_id": "habits-that",
+ "titre": "5 daily habits that will improve your life #habits #selfimprovement #men #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7586224589437422350",
+ "inspirations": [
+  "8f63c67e-7c61-4f42-a3cb-0255a0249d3b"
+ ],
+ "notes": "cta A. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Routine d'avant BLEO (npm run boite : « podz sur BLEO : pas encore ») ; famille repérée dans la boîte pour information. Schéma habits-that (r 4,33, 8f63c67e). La famille « 5 daily habits that will improved your life » fait r 2,95 en el (64bdc851, boîte du 30/10) ; je la reprends avec la faute corrigée et d'autres habitudes, ROUTINE §4.7. Accroches écrites : « 5 daily habits that will improve your life » (retenue : l'accroche gagnante), « small daily habits that change everything » (écartée : plus vague), « 5 habits I do every day » (écartée : sans preuve). Habitudes neuves (vérifié dans donnees/label.json, dans le parent et dans mes originaux) ; écartées car déjà présentes : faire son lit, journal, 30 minutes de sport, une chose difficile tôt, la lumière du matin, l'eau avant le café. Images : la banque du label ; célébrités en illustration acceptées depuis le 28/10, jamais sur la slide Sophia. Slide Sophia sur un salon au bord d'une piscine sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cbbc9b28",
+   "texte_overlay": "5 daily habits that will\nimprove your life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cc33eb63",
+   "texte_overlay": "1. Walk 10 minutes after dinner\nIt helps digestion\nand clears your head\nbefore the evening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cc3686b0",
+   "texte_overlay": "2. Call someone you care about\nOne real voice a day\nbeats a hundred likes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cbf1e39c",
+   "texte_overlay": "3. Write one sentence\nabout your day\nIn a year, you'll have\na book about your life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cd21d663",
+   "texte_overlay": "4. Take the stairs\nSmall effort, every day.\nIt adds up faster\nthan you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cc1a355d",
+   "texte_overlay": "5. Learn one new thing\nA fact, an idea, a story.\nA curious mind\nnever gets dull.",
+   "texte_sophia": "5. Learn one new thing\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/6.jpg"
+  }
+ ]
+}

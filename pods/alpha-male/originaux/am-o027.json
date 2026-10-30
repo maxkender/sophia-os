@@ -1,0 +1,56 @@
+{
+ "source_id": "am-o027",
+ "schema_id": "psychology-facts",
+ "titre": "Dangerous psychological tricks people use on you #psychology #men #mindset #selfimprovement #facts",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7352519992614587179",
+ "inspirations": [
+  "3e256ebd-c0a6-43cb-bfb9-18eeef24272a"
+ ],
+ "notes": "cta B. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Routine d'avant BLEO (npm run boite : « podz sur BLEO : pas encore ») ; famille repérée dans la boîte pour information. Schéma psychology-facts. La famille « dangerous psychological tricks » fait r 12,77 et 13 k vues en hr (7ea70051, boîte du 30/10) ; je la reprends avec un angle défensif, sans manipulation (garde-fou), ROUTINE §4.7. Accroches écrites : « Dangerous psychological tricks people use on you » (retenue : garde l'accroche gagnante et la retourne en protection), « Dangerous psychological tricks » (écartée : copie exacte, items de manipulation), « Psychological tricks salesmen use on you » (écartée : plus étroit). Biais connus et formulés prudemment : ancrage, pied dans la porte, fausse rareté, réciprocité du cadeau, preuve sociale. Rien de manipulateur à appliquer. Images : la banque du label ; célébrités en illustration acceptées depuis le 28/10, jamais sur la slide Sophia. Couverture : Jason Statham bras croisés. Slide Sophia sur une table et une lampe sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "09805d27",
+   "texte_overlay": "Dangerous psychological tricks\npeople use on you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "64a1adc5",
+   "texte_overlay": "1. The anchor\nThe first price you hear\nbecomes your \"normal.\"\nAlways ask for a second number.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "23b6b3e8",
+   "texte_overlay": "2. The foot in the door\nA tiny yes makes the big yes\neasier. Notice when small\nasks keep growing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "649fef56",
+   "texte_overlay": "3. Fake scarcity\n\"Only 2 left\" makes you rush.\nA real deal survives\na night of thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "64a9b04c",
+   "texte_overlay": "4. The free gift\nSomething free makes you\nfeel you owe them.\nYou don't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "239e5a63",
+   "texte_overlay": "5. Social proof\n\"Everyone's buying it\"\nswitches off your judgment.\nCrowds are often wrong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "65016bf0",
+   "texte_overlay": "6. Your best defense\nKnow how your own mind works.\nRead a little psychology\nevery week.",
+   "texte_sophia": "6. Your best defense\nI swap my morning scroll for\n5 minutes on the Sophia app.\nA bit of psychology, history\nand science every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/8.jpg"
+  }
+ ]
+}

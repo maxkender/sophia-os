@@ -12,6 +12,8 @@ import { BoutonsTest } from "@/features/auto/test/ContratsTest";
 import { reporterRecrue } from "@/features/cohortes/api";
 import { demanderArretSamedi } from "@/features/ckd/decisions/semaineComptes";
 import { envoyerSurUpwork } from "@/features/pipeline/api";
+import { type Conversation, useConversations, conversationDe } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
 
@@ -44,7 +46,7 @@ function useFormats() {
 }
 
 /** Une recrue : qui, son contrat, ses étapes, ses messages, la prochaine relance, et les boutons. */
-function CarteRecrue({ r, releve, recus = [] }: { r: RecrueOnboarding; releve?: ReleveRecrue; recus?: MessageRecu[] }) {
+function CarteRecrue({ r, releve, recus = [], conv }: { r: RecrueOnboarding; releve?: ReleveRecrue; recus?: MessageRecu[]; conv?: Conversation }) {
   const { t } = useTranslation();
   const { le, jour } = useFormats();
   const admin = useAuth().role === "admin";
@@ -92,7 +94,10 @@ function CarteRecrue({ r, releve, recus = [] }: { r: RecrueOnboarding; releve?: 
         <dl className="grid gap-x-4 gap-y-1 text-xs sm:grid-cols-[max-content_1fr]">
           <dt className="text-muted-foreground">{t("onboardingPosters.contrat")}</dt>
           <dd>
-            {contrat ? (
+            {/* 0469 : la conversation Upwork et le contrat. */}
+            {conv ? (
+              <LienConversation c={conv.contrat_id ? conv : { contrat_id: r.contrat_id ?? null, room_id: null }} />
+            ) : contrat ? (
               <a className="underline" href={contrat} target="_blank" rel="noreferrer">
                 {r.contrat_id ?? contrat}
               </a>
@@ -277,6 +282,7 @@ export function PageOnboarding() {
   const ids = (lu.data ?? []).map((r) => r.poster_id);
   const releves = useQuery({ queryKey: ["onboarding-releves", ids], queryFn: () => lireDerniersReleves(ids), enabled: ids.length > 0 });
   const recus = useQuery({ queryKey: ["onboarding-recus", ids], queryFn: () => lireMessagesRecus(ids), enabled: ids.length > 0 });
+  const conv = useConversations(ids, (lu.data ?? []).map((r) => r.contrat_id));
   const [f, setF] = React.useState<FiltresOnboarding>({ hm: "", cohorte: "", etape: "" });
   const tous = lu.data ?? [];
   const liste = filtrerOnboarding(tous, f);
@@ -321,7 +327,13 @@ export function PageOnboarding() {
       {lu.data && liste.length === 0 && <p className="text-sm text-muted-foreground">{t("onboardingPosters.vide")}</p>}
       <div className="grid gap-3 lg:grid-cols-2">
         {liste.map((r) => (
-          <CarteRecrue key={r.poster_id} r={r} releve={releves.data?.get(r.poster_id)} recus={recus.data?.get(r.poster_id)} />
+          <CarteRecrue
+            key={r.poster_id}
+            r={r}
+            releve={releves.data?.get(r.poster_id)}
+            recus={recus.data?.get(r.poster_id)}
+            conv={conversationDe(conv.data, { posteur: r.poster_id, contrat: r.contrat_id })}
+          />
         ))}
       </div>
     </section>

@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { lienCapture } from "@/features/onboarding/warmupApi";
 import { CAS_REPONSE } from "@/features/reponses/api";
+import { type Conversations, conversationDe, contratDuLien, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 import { cn } from "@/lib/utils";
 
 import {
@@ -42,6 +44,8 @@ export function PageNeedsYou() {
   const [f, setF] = React.useState<Filtres>(() => ({ ...FILTRES_VIDES, type: params.get("type") ?? "" }));
   const tous = lu.data ?? [];
   const visibles = trier(filtrer(tous, f));
+  // 0469 : la conversation Upwork de chaque carte (posteur, ou contrat du lien).
+  const conv = useConversations(visibles.map((c) => c.poster_id), visibles.map((c) => contratDuLien(c.lien)));
   const o = options(tous);
   const compte = parCategorie(tous);
   const maj = (champ: keyof Filtres) => (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => setF({ ...f, [champ]: e.target.value });
@@ -94,13 +98,13 @@ export function PageNeedsYou() {
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
       {lu.data && visibles.length === 0 && <p className="text-sm text-muted-foreground">{t("needsYou.vide")}</p>}
       <div className="space-y-2">
-        {visibles.map((c) => <LigneCas key={c.cle} c={c} />)}
+        {visibles.map((c) => <LigneCas key={c.cle} c={c} conv={conv.data} />)}
       </div>
     </div>
   );
 }
 
-function LigneCas({ c }: { c: CasNeedsYou }) {
+function LigneCas({ c, conv }: { c: CasNeedsYou; conv?: Conversations }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [valeur, setValeur] = React.useState(c.valeur ?? "");
@@ -148,6 +152,10 @@ function LigneCas({ c }: { c: CasNeedsYou }) {
         <p>
           <span className="font-medium">{nom}</span>
           {qui && <span className="text-muted-foreground"> · {qui}</span>}
+          {/* 0469 : la conversation Upwork du posteur (ou du contrat de la carte), et le contrat. */}
+          {(c.poster_id || contratDuLien(c.lien)) && (
+            <LienConversation className="ml-2" c={conversationDe(conv, { posteur: c.poster_id, contrat: contratDuLien(c.lien) })} />
+          )}
           {c.contestation && (
             <Link to="/admin/retours-contestes" className="ml-2 text-xs font-medium text-destructive underline" data-testid="contestation">
               {t("needsYou.contestation")}

@@ -32,6 +32,8 @@ import {
 } from "./api";
 import { bilanPosts, compterOnglets, enRetard, filtrerOnglet, ligneDue, ONGLETS, proposerVerdict, reponseProposee, type Onglet } from "./logique";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
+import { type Conversation, conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 
 const quand = (iso: string | null | undefined, langue: string) =>
   iso ? new Intl.DateTimeFormat(langue, { dateStyle: "short", timeStyle: "short", timeZone: "Europe/Paris" }).format(new Date(iso)) : "—";
@@ -50,6 +52,8 @@ export function PageDisputes() {
   const tous = lu.data ?? [];
   const compte = compterOnglets(tous);
   const visibles = filtrerOnglet(tous, onglet).sort((a, b) => a.recu_at.localeCompare(b.recu_at));
+  // 0469 : la conversation Upwork de chaque posteur.
+  const conv = useConversations(visibles.map((c) => c.poster_id));
   const choisir = (o: Onglet) => {
     const next = new URLSearchParams();
     next.set("onglet", o);
@@ -71,7 +75,7 @@ export function PageDisputes() {
         <>
           {lu.data && visibles.length === 0 && <p className="text-sm text-muted-foreground">{t("disputes.vide")}</p>}
           <div className="space-y-3">
-            {visibles.map((c) => <CarteContestation key={c.id} c={c} />)}
+            {visibles.map((c) => <CarteContestation key={c.id} c={c} conv={conversationDe(conv.data, { posteur: c.poster_id })} />)}
           </div>
           {onglet === "ouvertes" && <TextesContestation />}
         </>
@@ -92,7 +96,7 @@ function RaisonKillSansPaie({ posterId }: { posterId: string }) {
   );
 }
 
-function CarteContestation({ c }: { c: Contestation }) {
+function CarteContestation({ c, conv }: { c: Contestation; conv?: Conversation }) {
   const { t, i18n } = useTranslation();
   const [ouverte, setOuverte] = React.useState(false);
   const rouge = enRetard(c);
@@ -109,6 +113,7 @@ function CarteContestation({ c }: { c: Contestation }) {
           {c.statut === "fermee" && <Badge variant="secondary">{t(`disputes.verdicts.${c.verdict ?? "aucun"}`)}</Badge>}
           <span className="ml-auto text-xs text-muted-foreground">{quand(c.recu_at, i18n.language)}</span>
         </div>
+        <LienConversation c={conv} />
         <p className="whitespace-pre-wrap break-words">
           <span className="font-medium">{t("disputes.ditLePosteur")} </span>
           {c.texte ?? "—"}

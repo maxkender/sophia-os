@@ -1,5 +1,12 @@
 export const fr = {
   translation: {
+    // 0469 : le lien de la conversation Upwork (libellés demandés en anglais).
+    conversation: {
+      ouvrir: "Open Upwork conversation",
+      contrat: "Contract {{contrat}}",
+      pasEncore: "No conversation yet",
+      sansContrat: "No Upwork contract",
+    },
     app: {
       name: "Sophia",
     },

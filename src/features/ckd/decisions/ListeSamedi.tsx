@@ -11,6 +11,8 @@ import { deciderCkd, recreerShadowban } from "@/features/ckd/api";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 import { arreterRecrueSamedi, reporterRecrue } from "@/features/cohortes/api";
 import { invoke } from "@/features/moteur/api";
+import { conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
@@ -223,6 +225,10 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const principaux = visibles.filter((c) => (tous ? force(c) || e(c).statut !== "vert" : aTraiter(c)));
   const confiance = visibles.filter((c) => e(c).statut === "vert" && !force(c));
   const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
+  // 0469 : la conversation Upwork de chaque posteur (liste, recrues, toujours montrés).
+  const conv = useConversations([
+    ...liste.map((c) => c.poster_id), ...(recrues.data ?? []).map((r) => r.poster_id), ...[...(forces.data?.keys() ?? [])],
+  ]);
   const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres) : null;
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
   const nbCol = jours.length + 8;
@@ -424,6 +430,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             <CelluleCompte c={c} />
             <BadgesPosteur e={ev} x={ex} />
             <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
+            <LienConversation className="mt-1" c={conversationDe(conv.data, { posteur: c.poster_id })} />
             <button
               type="button"
               className="mt-1 block text-[11px] text-primary underline"
@@ -570,6 +577,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                   <Badge variant="warning">{t(`autoOnglets.decisions.liste.recrues.manque.${manqueRecrue(r)}`, { n: Math.max(0, 5 - (r.abonnements ?? 0)) })}</Badge>
                   {demandeDe.get(r.poster_id) && <BadgeDemande d={demandeDe.get(r.poster_id)!} />}
                   <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.relances", { n: r.relances })}</span>
+                  <LienConversation c={conversationDe(conv.data, { posteur: r.poster_id })} />
                 </li>
               ))}
             </ul>
@@ -596,6 +604,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
                   />
                   <span className="font-medium">{f.nom ?? "—"}</span>
                   <BadgesForces forces={f.forces} />
+                  <LienConversation c={conversationDe(conv.data, { posteur: f.poster_id })} />
                 </li>
               ))}
             </ul>

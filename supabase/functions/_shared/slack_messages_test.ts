@@ -13,7 +13,11 @@ Deno.test("l'historique d'un canal, avec les réponses dans les fils", async () 
   const faux = ((url: string) => {
     const corps = url.includes("conversations.history")
       ? { ok: true, messages: [{ user: "U1", ts: "100.1", text: "Question", reply_count: 1 }, { user: "U2", ts: "101.1", text: "Hello" }] }
-      : { ok: true, messages: [{ user: "U1", ts: "100.1", text: "Question" }, { user: "U9", ts: "100.2", text: "Answer", thread_ts: "100.1" }] };
+      : { ok: true, messages: [
+        { user: "U1", ts: "100.1", text: "Question" }, { user: "U9", ts: "100.2", text: "Answer", thread_ts: "100.1" },
+        // Envoyé aussi dans le canal : déjà vu dans l'historique, gardé une fois.
+        { user: "U2", ts: "101.1", text: "Hello", thread_ts: "100.1", subtype: "thread_broadcast" },
+      ] };
     return Promise.resolve(new Response(JSON.stringify(corps)));
   }) as unknown as typeof fetch;
   const r = await historiqueCanal("x", "C1", 0, faux);

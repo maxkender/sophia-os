@@ -205,6 +205,9 @@ Deno.serve(async (request) => {
         return json(await lireContrats(supabase, par));
       case "jalons":
         return json(await lireJalons(supabase, par));
+      case "offres":
+        // Prompt 27 (Needs you « No channel ») : toutes les offres, tous états, lecture seule.
+        return json(await lireOffres(supabase, par));
       case "accueil":
         // Prompt 21 : le cron passe toutes les 15 min ; « Welcome check » dit si c'est son tour.
         if (acces.userId === "cron" && !(await passageDu(supabase, "accueil"))) return json({ ok: true, ignore: "pas encore son tour (Overview → Switches)" });
@@ -628,6 +631,58 @@ async function lireContrats(supabase: Supabase, par: string | null) {
   }
   const desactives = await contratsFermes(supabase, par, fermes);
   return { ok: true, organisations: bilan, ...(desactives ? { desactives } : {}) };
+}
+
+/**
+ * Toutes les offres envoyées (tous états : en attente, acceptée, refusée,
+ * retirée…), lecture seule, dans `upwork_offres` : la carte Needs you « No
+ * channel to reach them » y cherche l'offre faite à un posteur sans contrat.
+ */
+const REQUETE_OFFRES = `query Offres($pagination: Pagination!) {
+  organization {
+    clientOffers(offerByClientFilter: {}, pagination: $pagination) {
+      totalCount
+      edges { cursor node { id title state startDateTime freelancer { id name } contractDetails { id status } } }
+      pageInfo { endCursor hasNextPage }
+    }
+  }
+}`;
+
+async function lireOffres(supabase: Supabase, par: string | null) {
+  const orgs = await organisations(supabase);
+  const bilan: Record<string, { lus: number; erreur: string | null }> = {};
+  for (const org of orgs) {
+    let apres: string | null = null;
+    let lus = 0;
+    let erreur: string | null = null;
+    for (let page = 0; page < 40; page++) {
+      const r = await lire(supabase, {
+        par, action: "offres", query: REQUETE_OFFRES,
+        variables: { pagination: { first: TAILLE_PAGE_OFFRES, ...(apres ? { after: apres } : {}) } }, tenant: org.organizationId,
+      });
+      const offres = r.data?.organization?.clientOffers;
+      if (!offres) {
+        erreur = r.erreur ?? "réponse sans clientOffers";
+        break;
+      }
+      // deno-lint-ignore no-explicit-any
+      const lignes = (offres.edges ?? []).map((e: any) => e?.node).filter((n: any) => n?.id).map((n: any) => ({
+        offre_id: String(n.id), organisation_id: org.organizationId, titre: n.title ?? null, etat: n.state ?? null,
+        debut_at: n.startDateTime ?? null, freelancer_nom: n.freelancer?.name ?? null,
+        contrat_id: n.contractDetails?.id ? String(n.contractDetails.id) : null, contrat_statut: n.contractDetails?.status ?? null,
+        lu_at: new Date().toISOString(),
+      }));
+      if (lignes.length) {
+        const { error } = await supabase.from("upwork_offres").upsert(lignes, { onConflict: "offre_id" });
+        if (error) throw error;
+      }
+      lus += lignes.length;
+      apres = curseurSuivant(offres);
+      if (!apres) break;
+    }
+    bilan[org.title?.trim() ?? org.organizationId] = { lus, erreur };
+  }
+  return { ok: Object.values(bilan).every((b) => !b.erreur), organisations: bilan };
 }
 
 /** Au-delà, une lecture qui fait tomber trop de contrats d'un coup est suspecte : rien n'est désactivé, Max est prévenu. */

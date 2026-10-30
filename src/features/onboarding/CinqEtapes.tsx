@@ -121,6 +121,15 @@ export function CinqEtapes({
           </li>
         ))}
       </ol>
+      {/* Bon à savoir : absent, arrêter, poser une question. */}
+      <div className="space-y-1 border-t pt-3 text-sm" data-testid="bon-a-savoir">
+        <p className="font-semibold">{t("calendrier.cinq.bonASavoir.titre")}</p>
+        <ul className="space-y-0.5 text-xs text-muted-foreground">
+          <li>• {t("calendrier.cinq.bonASavoir.absent")}</li>
+          <li>• {t("calendrier.cinq.bonASavoir.arreter")}</li>
+          <li>• {t("calendrier.cinq.bonASavoir.questions")}</li>
+        </ul>
+      </div>
     </section>
   );
 }

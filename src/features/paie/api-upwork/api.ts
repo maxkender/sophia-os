@@ -178,6 +178,24 @@ export async function lireDerniereSimulation(): Promise<SimulationPaie | null> {
 }
 
 /** Prompt 26 : « Pay this week » sur un contrat de test : la semaine approuvée, la suivante financée (pour de vrai). */
-export async function payerSemaineTest(contratId: string): Promise<{ ok: boolean; semaine?: string; resultat?: string; raison?: string | null; error?: string }> {
+export interface EtapePaieTest {
+  etape: string;
+  nom?: string;
+  jalon?: string | null;
+  montant?: number;
+  erreur?: string | null;
+  reponse?: unknown;
+}
+
+export async function payerSemaineTest(contratId: string): Promise<{
+  ok: boolean;
+  semaine?: string;
+  resultat?: string;
+  raison?: string | null;
+  error?: string;
+  etapes?: EtapePaieTest[];
+  droit_manquant?: string | null;
+  jalons?: { nom: string; etat: string; depot: number | null; echeance: string | null }[] | null;
+}> {
   return await invoke("upwork", { action: "paie_test_payer", contrat_id: contratId, confirmer: true });
 }

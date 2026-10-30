@@ -1088,6 +1088,30 @@ async function paieSimulation(supabase: Supabase, par: string | null, semaineDem
 }
 
 /** Le lundi de la semaine ISO `n`, la plus proche d'aujourd'hui (Paris). */
+/**
+ * L'échéance d'une milestone créée « Week n » : le dimanche de cette semaine.
+ * Le nom du champ est lu une fois dans le schéma d'Upwork (CreateMilestoneInput),
+ * jamais deviné : sans champ d'échéance, la milestone est créée sans.
+ */
+let champEcheance: { nom: string; dateTime: boolean } | null | undefined;
+async function echeanceJalon(supabase: Supabase, par: string | null, tenant: string | null, nom: string): Promise<Record<string, string>> {
+  const n = semaineDuNom(nom);
+  if (n === null) return {};
+  if (champEcheance === undefined) {
+    const r = await lire(supabase, {
+      par, action: "schema_jalon", tenant,
+      query: `query { __type(name: "CreateMilestoneInput") { inputFields { name type { name kind ofType { name } } } } }`,
+    });
+    // deno-lint-ignore no-explicit-any
+    const champs = (r.data?.__type?.inputFields ?? []) as any[];
+    const f = champs.find((x) => /due/i.test(String(x?.name ?? "")));
+    champEcheance = f ? { nom: String(f.name), dateTime: /time/i.test(`${f.name} ${f.type?.name ?? ""} ${f.type?.ofType?.name ?? ""}`) } : null;
+  }
+  if (!champEcheance) return {};
+  const dimanche = ajouterJours(lundiDeSemaine(n), 6);
+  return { [champEcheance.nom]: champEcheance.dateTime ? `${dimanche}T23:59:59Z` : dimanche };
+}
+
 function lundiDeSemaine(n: number, d = new Date()): string {
   const jour = maintenantParis(d).jour;
   const actuelle = semaineIsoDe(jour);
@@ -1141,7 +1165,16 @@ async function paieTestPayer(supabase: Supabase, par: string | null, contratId: 
   const plan = planPaiement(ligne, relu.jalons, semaine, r);
   if (plan.statut !== "pret") return { ok: false, error: plan.raison ?? plan.statut, plan };
   const issue = await executer(supabase, par, semaine, { ligne, tenant, jalons: relu.jalons, plan, bloque: null }, null);
-  return { ok: issue.resultat === "paye", semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan };
+  // Le détail de chaque étape (approuver, créer, financer…), avec la réponse d'Upwork, pour le tableau du test.
+  const { data: pa } = await supabase.from("paie_paiements_api").select("etapes, erreur").eq("paie_semaine_id", ligneLue.id)
+    .order("updated_at", { ascending: false }).limit(1).maybeSingle();
+  const etapes = (pa?.etapes ?? []) as { etape: string; erreur?: string | null }[];
+  const scope = [pa?.erreur, ...etapes.map((e) => e.erreur)].find((x) => x && /scope|permission|not authori[sz]ed|forbidden|access denied/i.test(String(x))) ?? null;
+  const apres = await relireJalons(supabase, par, contratId, tenant, "paie_test_relire");
+  return {
+    ok: issue.resultat === "paye", semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan, etapes,
+    droit_manquant: scope, jalons: apres.jalons?.map((j) => ({ nom: j.nom, etat: j.etat, depot: j.depot, echeance: j.echeance ?? null })) ?? null,
+  };
 }
 
 /** Les champs de fin de contrat qu'Upwork exige (introspection, lecture seule). */
@@ -1489,7 +1522,7 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       if (!jc) {
         const cree = await ecrire(supabase, {
           par, action: "paie_creer_complement", query: MUTATION_CREER_JALON, tenant, contrat, montant: c.montant,
-          variables: { input: { contractId: contrat, description: c.nom, depositAmount: centimes(c.montant) } },
+          variables: { input: { contractId: contrat, description: c.nom, depositAmount: centimes(c.montant), ...(await echeanceJalon(supabase, par, tenant, c.nom)) } },
         });
         jalonComplement = cree.data?.createMilestoneV2?.id ? String(cree.data.createMilestoneV2.id) : null;
         etapes.push({ etape: "creer_complement", jalon: jalonComplement, montant: c.montant, erreur: cree.erreur });
@@ -1550,10 +1583,10 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
   if (!jalonFinance) {
     const cree = await ecrire(supabase, {
       par, action: "paie_creer_jalon", query: MUTATION_CREER_JALON, tenant, contrat, montant: f.montant,
-      variables: { input: { contractId: contrat, description: f.nom, depositAmount: centimes(f.montant) } },
+      variables: { input: { contractId: contrat, description: f.nom, depositAmount: centimes(f.montant), ...(await echeanceJalon(supabase, par, tenant, f.nom)) } },
     });
     jalonFinance = cree.data?.createMilestoneV2?.id ? String(cree.data.createMilestoneV2.id) : null;
-    etapes.push({ etape: "creer", jalon: jalonFinance, montant: f.montant, erreur: cree.erreur });
+    etapes.push({ etape: "creer", jalon: jalonFinance, nom: f.nom, montant: f.montant, erreur: cree.erreur, reponse: cree.data ?? null });
     if (cree.erreur || !jalonFinance) return await echec(`payée ; création de ${f.nom} : ${cree.erreur ?? "réponse vide"}`, cree.erreur);
   }
   await maj({ jalon_finance: jalonFinance, montant_finance: f.montant });

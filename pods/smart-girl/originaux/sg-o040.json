@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o040",
+ "schema_id": "languages-doors",
+ "titre": "Latin phrases you use every day without knowing it #latin #languages #vocabulary #smartgirl #darkacademia",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7596392118562589470",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "essai (sg-o040, une livraison sur cinq). cta B. CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Format jamais fait chez nous : les expressions latines du quotidien, une par slide avec son sens littéral. Aucune dans le label (« latin » n'y apparaît pas comme sujet). Schéma languages-doors pour la preuve (9b8afb1c r 5,27 sur 16). Accroches écrites : « Latin phrases you use every day without knowing it » (retenue : promesse de surprise, comme les gagnants « words you… »), « Latin words that make you sound educated » (écartée : plus loin du gabarit), « dead language, alive in your mouth » (écartée : trop littéraire). Sens vérifiés au dictionnaire : et cetera (« and the rest »), vice versa (« the position turned »), status quo (« the state in which »), bona fide (« in good faith »), alma mater (« nourishing mother »), carpe diem (« seize the day », Horace, Odes). Sophia au milieu (cta B). Images : captures de la série et photos d'actrice de la banque (permises), aucune sur la slide Sophia (une main sur un carnet, sans visage).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "101b4c58",
+   "texte_overlay": "Latin phrases you use\nevery day without\nknowing it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "197014e3",
+   "texte_overlay": "1. Et cetera\nLiterally: \"and the rest\".\nThat's why we write \"etc.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "561e5309",
+   "texte_overlay": "2. Vice versa\nLiterally: \"the position\nturned\". The other way\naround.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "00c7db08",
+   "texte_overlay": "3. Status quo\nLiterally: \"the state in\nwhich\". Things as they are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "04454a82",
+   "texte_overlay": "Every word has a story.\nLearn one a day and English\nstarts to feel like a\ntreasure map.",
+   "texte_sophia": "Every word has a story.\nI learn one a day with a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0777402d",
+   "texte_overlay": "4. Bona fide\nLiterally: \"in good faith\".\nGenuine, real.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "16767d8f",
+   "texte_overlay": "5. Alma mater\nLiterally: \"nourishing mother\".\nThe school that raised you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4301f18d",
+   "texte_overlay": "6. Carpe diem\n\"Seize the day\", from the\npoet Horace, over 2,000\nyears ago.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "4dc733c4",
+   "texte_overlay": "Which one surprised you?\nFollow for more daily words.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/8.jpg"
+  }
+ ]
+}

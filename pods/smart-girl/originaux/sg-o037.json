@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o037",
+ "schema_id": "attractive-behaviours",
+ "titre": "quiet behaviours that make you look 10x more attractive (part 2) #selfimprovement #thatgirl #confidence #elegance #smartgirl",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/the-spins-6858383319357229057",
+ "inspirations": [
+  "34f68d36-92c7-487d-b087-3fc52239dc32",
+  "75afd92b-bfce-4365-84d8-a17aaf6d423d"
+ ],
+ "notes": "variante de sg-o002 (r 0,97, 2,35 et 4,1 ; le suivi demande de la décliner). cta B (sg-o002 était en cta A). CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Même accroche avec « (part 2) », même ton en minuscules, six comportements neufs face à sg-o002, sg-o011, sg-o027, sg-o036 et aux sources, tous de présence et de manières : s'excuser sans « mais », demander leur avis aux plus discrets, se réjouir vraiment des nouvelles des autres, dire « j'avais tort », raconter ce qu'on a appris (Sophia au milieu, cta B), rire facilement. Accroches écrites : « quiet behaviours that make you look 10x more attractive (part 2) » (retenue : la reprise de notre original qui marche), « more quiet behaviours of magnetic women » (écartée : perd les mots qui ont gagné), « behaviours that make people trust you instantly » (écartée : sans preuve). Images de la banque (bibliothèques, légendes), sans texte ni marque ; slide Sophia sur un carnet et un ordinateur, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1bb4eb11",
+   "texte_overlay": "quiet behaviours that make\nyou look 10x more attractive\n(part 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "346cee0e",
+   "texte_overlay": "1. apologising without \"but\".\n\"i'm sorry, that was unfair\nof me.\" full stop.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3489994f",
+   "texte_overlay": "2. asking the quietest person\nin the room what they think.\nand really listening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1946fbb9",
+   "texte_overlay": "3. sharing what you learned\nthis week.\na queen, a painting, a planet.\ncuriosity is contagious.",
+   "texte_sophia": "3. sharing what you learned\nthis week. i learn a little\nevery day with a micro-learning\napp like the sophia app, and\npeople love the stories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "47a7f7f6",
+   "texte_overlay": "4. being truly happy for\nother people's good news.\nno comparing, no \"me too\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "15b61897",
+   "texte_overlay": "5. saying \"i was wrong\".\nthree words most people\nnever manage.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0b6ab875",
+   "texte_overlay": "6. laughing easily.\nespecially at yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2020a2b1",
+   "texte_overlay": "which one are you\nstarting today?\nsave this for later",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/6.jpg"
+  }
+ ]
+}

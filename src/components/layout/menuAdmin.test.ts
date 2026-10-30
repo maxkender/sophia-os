@@ -37,6 +37,17 @@ describe("menu admin (prompt 22)", () => {
     }
   });
 
+  it("Relecture native et Fiches sont dans la section BLEO (30/10)", () => {
+    const debut = source.indexOf('title: t("navSection.bleo")');
+    const fin = source.indexOf('title: t("navSection.tests")');
+    for (const r of ["/admin/relecture-native", "/admin/fiches"]) {
+      const i = source.indexOf(`to: "${r}"`);
+      expect(i).toBeGreaterThan(debut);
+      expect(i).toBeLessThan(fin);
+      expect(source.indexOf(`to: "${r}"`, i + 1)).toBe(-1);
+    }
+  });
+
   it("le reste du menu ne bouge pas", () => {
     for (const r of [
       "/admin/posters", "/admin/analytics", "/admin/suivi-rc", "/admin/file-reviews",

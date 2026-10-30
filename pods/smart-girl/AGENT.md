@@ -5,7 +5,7 @@ Sophia, en discussion**. On te demande par exemple « fais la veille », « écr
 5 originaux », « qu'est-ce qui marche cette semaine ? » ou « où en sont les
 originaux ? ». Tu fais la demande de bout en bout, puis tu rends compte.
 
-> **BLEO, voie 1 (bascule des podz, lundi 2/11).** Quand `npm run boite`
+> **BLEO, voie 1 (bascule des podz le dimanche 1/11 au soir).** Quand `npm run boite`
 > affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
 > - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
 >   la **jauge** combien de full tests déposer ;

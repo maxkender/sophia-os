@@ -13,7 +13,8 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 - **Voie 2**, les podz de remakes (1, 6, 10 et 11) : ils suivent leur liste,
   comme avant (§5).
 
-> **Bascule des podz (lundi 2/11).** Podz de la voie 1 : lance d'abord
+> **Bascule des podz (dimanche 1/11 au soir : ta routine du lundi 2/11 est
+> la première sur BLEO).** Podz de la voie 1 : lance d'abord
 > `npm run boite`. S'il affiche « podz sur BLEO : pas encore », suis
 > `pods/ROUTINE-avant-bleo.md` aujourd'hui, à la place de ce fichier.
 
@@ -54,6 +55,14 @@ vues, ou r ≥ 2) entre dans ta **boîte** : c'est elle que tu déclines. Une
 accroche jamais faite chez nous est un **full test** : BLEO la teste, et si
 elle gagne, elle entre à son tour dans la boîte.
 
+**Images : toutes ont une légende.** Depuis le 30/10, chaque image de ta
+banque a une description en anglais (les nouvelles en reçoivent une à
+l'import). Cherche par mots plutôt que de feuilleter les planches :
+`npm run images -- --cherche "desk night"` (chaque mot doit apparaître ; les
+images les moins utilisées sortent d'abord). Les planches restent utiles pour
+juger l'image elle-même : la légende dit ce qu'il y a dessus, pas si elle est
+belle.
+
 ### 4.1 Lire la boîte
 
 `npm run boite` donne, dans l'ordre :
@@ -88,9 +97,8 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   `"parent_contenu_id": "<l'id complet de la boîte>"`. Ni `schema_id` ni
   preuve.
 - Images : `npm run images -- --depuis <8 premiers caractères du parent>`
-  pour voir celles du parent ; pioche aussi dans le reste de la banque,
-  par exemple `npm run images -- --cherche "desk night"` (les légendes des
-  images sont en anglais ; les moins utilisées sortent d'abord).
+  pour voir celles du parent ; pioche aussi dans le reste de la banque avec
+  `--cherche` (voir plus haut).
 
 ### 4.4 Écrire un full test
 
@@ -99,6 +107,8 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   une G2, pas un full test : prends la ligne de la boîte).
 - Les idées viennent de ton `AGENT.md`, de ton playbook et de ce qui perce
   chez les autres podz.
+- Images : `npm run images -- --cherche "…"` avec les mots de ton accroche
+  ou de chaque slide.
 - Dans `originaux/<id>.json` : `"type_bleo": "full_test"`, sans parent.
 
 ### 4.5 Tester les CTA, toujours

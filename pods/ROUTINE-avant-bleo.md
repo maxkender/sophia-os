@@ -1,6 +1,6 @@
 # La routine du matin des podz, avant BLEO
 
-> **Routine d'avant BLEO**, gardée pour la bascule des podz (lundi 2/11).
+> **Routine d'avant BLEO**, gardée pour la bascule des podz (dimanche 1/11 au soir).
 > Elle ne vaut que pour la **voie 1** (podz 2, 4, 5, 7, 8, 9 et 12) et seulement
 > tant que `npm run boite` affiche « podz sur BLEO : pas encore ». Sinon, suis
 > `pods/ROUTINE.md`. La voie 2 suit toujours `pods/ROUTINE.md`.

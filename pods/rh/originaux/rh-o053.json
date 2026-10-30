@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o053",
+ "schema_id": "boite-te-merite",
+ "titre": "comment je juge une boîte en une seule visite de ses bureaux #entretien #travail #carriere #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o048 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma boite-te-merite (r 6,66, 1fd9d1f3) : le rapport de force inversé. Famille d'accroche jamais faite : « en une seule visite ». Accroches écrites : celle-ci (retenue), « ce que je regarde dans les bureaux quand je passe un entretien » (écartée : plus faible), « les détails des bureaux qui trahissent une boîte » (écartée : trop négative). Indices, jamais des certitudes. Aucune reprise de rh-o013, rh-o019, rh-o025, rh-o035, rh-o046 ni des sources. CTA de fin jamais utilisé : dire quel détail on regarde, soi. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac5a9eb5",
+   "texte_overlay": "comment je juge une boîte\nen une seule visite\nde ses bureaux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "413b2a05",
+   "texte_overlay": "l'accueil\non t'attendait, ou on te découvre ?\nça dit comment ils préparent les arrivées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "425cad9e",
+   "texte_overlay": "les visages dans l'open space\nconcentrés, détendus, ou épuisés à 10 h du matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "454f3673",
+   "texte_overlay": "les bureaux vides\nun peu, c'est le télétravail. beaucoup, demande pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fd867341",
+   "texte_overlay": "ce qui est affiché aux murs\nmes 3 indices : les plannings, les mots d'équipe, et ce qu'on y apprend",
+   "texte_sophia": "ce qui est affiché aux murs\nmes 3 indices : les plannings, les mots d'équipe, et ce qu'on y apprend. moi j'apprends chaque matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "45b56255",
+   "texte_overlay": "comment ils parlent entre eux\nquand ils croient que tu n'écoutes pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "466fb362",
+   "texte_overlay": "si quelqu'un te dit au revoir\nà part la personne qui te reçoit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4750405d",
+   "texte_overlay": "et toi, tu regardes quoi\nquand tu entres dans des bureaux ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

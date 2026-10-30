@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o058",
+ "schema_id": "mentir-entretien",
+ "titre": "6 fois où j'ai « MENTI » à mon entretien de reconversion… et j'ai changé de métier #reconversion #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. variante de rh-o007 (56 k vues en el). Même schéma mentir-entretien (r 26,46, 496f8d72), même format « j'ai dit / la vérité », autre angle, autres questions : aucune reprise de rh-o001 à rh-o055 ni des sources. On recadre, rien d'inventé. Angle : la reconversion professionnelle, une cible jamais visée. On ne s'invente aucune compétence : on relie celles qu'on a. CTA de fin jamais utilisé : dire son ancien et son nouveau métier. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b923173a",
+   "texte_overlay": "6 fois où j'ai « MENTI »\nà mon entretien de reconversion…\net j'ai changé de métier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "828c0a8d",
+   "texte_overlay": "« vous n'avez aucune expérience dans le domaine ? »\nj'ai dit « pas en poste, mais je m'y forme depuis 6 mois »\nla vérité : c'était vrai, j'avais juste peur de le dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1968681a",
+   "texte_overlay": "« pourquoi quitter un métier stable ? »\nj'ai dit « pour utiliser ce que je sais faire sur un terrain qui me motive »\nla vérité : je m'ennuyais à mourir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "89c2ea06",
+   "texte_overlay": "« vous ne craignez pas de repartir de zéro ? »\nj'ai dit « je ne repars pas de zéro, j'emporte mon sens de l'organisation »\nla vérité : j'avais très peur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8beea57c",
+   "texte_overlay": "« qu'est-ce qui vous a donné envie ? »\nj'ai dit « un sujet découvert par hasard, que j'ai creusé »\nla vérité : un truc lu un matin",
+   "texte_sophia": "« qu'est-ce qui vous a donné envie ? »\nj'ai dit « un sujet découvert par hasard, que j'ai creusé »\nutilise l'appli Sophia 5 minutes par jour, c'est souvent comme ça que ça commence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8c725d70",
+   "texte_overlay": "« vous êtes prête à être junior à votre âge ? »\nj'ai dit « oui, et j'apprends vite »\nla vérité : c'était le plus dur à accepter\nmais c'était vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8d9ebb06",
+   "texte_overlay": "« et si ça ne marche pas ? »\nj'ai dit « j'aurai appris, et je saurai pourquoi »\nla vérité : j'y pensais tous les soirs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8e5c3c0d",
+   "texte_overlay": "ton ancien métier → ton nouveau métier\nécris-les en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

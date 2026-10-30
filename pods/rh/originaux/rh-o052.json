@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o052",
+ "schema_id": "job-toxique",
+ "titre": "ce que j'ai fait la semaine où j'ai décidé de quitter mon job toxique #travail #santementale #emploi #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o048 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma job-toxique (r 5,62, bf49b37f). Famille d'accroche jamais faite : « la semaine où j'ai décidé ». Accroches écrites : celle-ci (retenue : récit concret, jour par jour), « mes 7 jours pour préparer ma sortie » (écartée : promesse de délai), « le jour où j'ai décidé de partir » (écartée : moins d'actions). Rien de juridique précis : un juriste ou un syndicat est cité. Aucune reprise de rh-o012, rh-o016, rh-o027, rh-o031, rh-o045 ni de la source. CTA de fin jamais utilisé : envoyer un message de soutien. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abe8518b",
+   "texte_overlay": "ce que j'ai fait la semaine\noù j'ai décidé de quitter\nmon job toxique",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2c4d50ea",
+   "texte_overlay": "lundi : je l'ai dit à voix haute\nà une amie, pas au bureau.\nc'est devenu réel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3214ee63",
+   "texte_overlay": "mardi : j'ai rassemblé mes preuves de travail\nmes réussites, mes chiffres, mes retours positifs.\nça m'a rendu ma confiance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "39b363a2",
+   "texte_overlay": "mercredi : j'ai pris rendez-vous avec quelqu'un qui connaît le droit\nun juriste, un syndicat.\npour connaître mes options avant de bouger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3c93b1d5",
+   "texte_overlay": "jeudi : j'ai repris un truc qui était à moi\n5 minutes par jour, sans rapport avec le boulot",
+   "texte_sophia": "jeudi : j'ai repris un truc qui était à moi.\nutilise l'appli Sophia pour ça : 5 minutes d'histoire ou d'art, sans rapport avec le boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3ff11e0e",
+   "texte_overlay": "vendredi : j'ai mis à jour mon cv\net j'ai écrit à 3 anciens collègues, juste pour prendre des nouvelles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3ffe4ab3",
+   "texte_overlay": "le week-end : je n'ai pas ouvert mes mails\npour la première fois depuis des mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "406552c3",
+   "texte_overlay": "si tu connais quelqu'un qui en est là,\nenvoie-lui juste « je suis là »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

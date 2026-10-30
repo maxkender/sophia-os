@@ -1,0 +1,263 @@
+{
+ "post_id": "original-024",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "petits trucs pour passer pour un cerveau (sans forcer)"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(personne parle du n°4)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "develop opinions of your own"
+     ],
+     "fr": "forge-toi [[tes propres avis]]",
+     "texte": "pose [[une question de plus]]"
+    },
+    "T2": {
+     "en": [
+      "agreeing with everyone",
+      "might make you easy to",
+      "like, but it rarely makes you",
+      "memorable"
+     ],
+     "fr": "être d'accord avec tout le monde, ça te rend sympa, mais [[rarement mémorable]]",
+     "texte": "la plupart attendent leur tour de parler. un « et après ? » montre que [[t'écoutes vraiment]]"
+    },
+    "T3": {
+     "en": [
+      "form your own views,",
+      "explain why you believe",
+      "them, and disagree",
+      "without getting defensive"
+     ],
+     "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
+     "texte": "en plus l'autre te raconte son monde, et [[t'apprends un vrai truc]] en deux minutes"
+    },
+    "T4": {
+     "en": [
+      "charisma comes from having a personality people can",
+      "actually get a read on"
+     ],
+     "fr": "le charisme, c'est avoir une personnalité que les gens [[arrivent à cerner]]",
+     "texte": "on retient qui nous a fait sentir [[intéressants]], pas qui a le plus parlé"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES",
+     "texte": "[[tel posé]] à table"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "sans reel entre deux bouchées, [[tu captes chaque détail]] et t'as toujours une réponse"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
+     "texte": "si le réflexe est trop fort, vire les reels d'insta avec [[l'appli UnSwipe]]. tes messages restent, les pauses reviennent aux gens"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "T7",
+      "T8",
+      "T9",
+      "T10",
+      "I3",
+      "T11",
+      "T6"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "4": {
+   "scissions": {
+    "T1": 1
+   },
+   "textes": {
+    "T1a": {
+     "en": [
+      "be comfortable with yourself"
+     ],
+     "fr": "sois [[bien dans ta peau]]",
+     "texte": "retiens [[ce qu'on t'a dit]]"
+    },
+    "T1b": {
+     "en": [
+      "focus on yourself instead of the person in front of you"
+     ],
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "« alors, cet entretien ? » marque plus qu'un fun fact"
+    },
+    "T2": {
+     "en": [
+      "stop performing,",
+      "stop name-dropping,",
+      "stop trying to prove",
+      "how smart you are"
+     ],
+     "fr": "arrête de surjouer, de lâcher des noms, de [[vouloir prouver ton QI]]",
+     "texte": "son exam, le mariage de sa sœur, le voyage prévu : [[redemande-lui la fois d'après]]"
+    },
+    "T3": {
+     "en": [
+      "BE YOURSELF. confidence is being comfortable without",
+      "needing constant approval"
+     ],
+     "fr": "[[SOIS TOI-MÊME.]] la confiance, c'est être [[à l'aise]] sans avoir besoin qu'on te valide",
+     "texte": "[[ÉCOUTE VRAIMENT.]] une bonne mémoire passe pour un esprit vif, et franchement c'est mérité"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "ose dire « je sais pas, [[explique-moi]] »"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "faire semblant, [[ça se voit]]"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "hocher la tête sans suivre, ça se repère. demander, c'est [[vraiment comprendre]] après, et les gens adorent expliquer"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "la personne la plus brillante, c'est souvent celle qui [[pose la question basique]] que personne osait poser"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "saying yes to everything"
+     ],
+     "fr": "dire oui à [[tout]]",
+     "texte": "réponds [[pas tout de suite]]"
+    },
+    "T2": {
+     "en": [
+      "you agree to the plan, the",
+      "favor, the extra work. then",
+      "spend the week resenting it."
+     ],
+     "fr": "tu dis oui au plan, au service, au taf en plus. puis [[tu rumines toute la semaine]].",
+     "texte": "pas besoin de répondre du tac au tac. deux secondes de silence, [[ça fait réfléchi]]."
+    },
+    "T3": {
+     "en": [
+      "pause before you answer. a",
+      "simple “i can't this time”",
+      "saves you from a promise",
+      "you never wanted to make."
+     ],
+     "fr": "attends un peu avant de répondre. un petit “pas cette fois” t'évite une promesse dont tu voulais pas.",
+     "texte": "un petit « hm, bonne question » te laisse le temps, et ce qui suit est souvent plus clair que ton premier réflexe."
+    },
+    "T4": {
+     "en": [
+      "every automatic yes is",
+      "time you already gave",
+      "away."
+     ],
+     "fr": "chaque oui par réflexe, c'est [[du temps déjà donné]].",
+     "texte": "une réponse lente [[a l'air plus sûre d'elle]]."
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

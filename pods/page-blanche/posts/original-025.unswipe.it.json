@@ -1,0 +1,251 @@
+{
+ "post_id": "original-025",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "The anti-rot routine that",
+      "brought my life back >>>"
+     ],
+     "fr": "La routine anti-cerveau grillé qui m'a rendu ma vie >>>",
+     "texte": "fai queste 5 piccole cose ogni giorno"
+    },
+    "T2": {
+     "en": [
+      "as someone",
+      "who had a 12",
+      "hour screen",
+      "time"
+     ],
+     "fr": "moi qui faisais 12 h d'écran par jour",
+     "texte": "(e immagina dove sarai tra un anno)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "1. [[10 minuti]] prima del telefono"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "caffè, finestra, silenzio. i messaggi possono aspettare ancora un po'"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "10 minuti al giorno sembrano niente, ed è proprio per questo che duri"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "in un anno: [[circa 60 ore]] di mattine che iniziano come decidi tu"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "2. una passeggiata [[senza telefono]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "20 minuti fuori, niente podcast né musica, telefono a casa"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "il tuo cervello ha finalmente spazio per vagare, riordinare la giornata e avere idee sue"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "in un anno: [[circa 120 ore]] per pensare, cioè 5 giorni interi all'aria aperta"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "move your body every day"
+     ],
+     "fr": "bouge [[tous les jours]]",
+     "texte": "3. 15 minuti di [[movimento]]"
+    },
+    "T2": {
+     "en": [
+      "exercise does more than improve your physical health"
+     ],
+     "fr": "le sport fait bien plus que te garder en forme",
+     "texte": "camminare veloce, correre un po', allungarti sul pavimento"
+    },
+    "T3": {
+     "en": [
+      "regular movement",
+      "supports brain health,",
+      "memory, and the",
+      "ability to learn"
+     ],
+     "fr": "bouger souvent booste [[ton cerveau, ta mémoire et ta capacité d'apprendre]]",
+     "texte": "niente scheda da palestra perfetta, solo [[qualcosa che fai davvero]]"
+    },
+    "T4": {
+     "en": [
+      "walk briskly, lift",
+      "weights, or cycle.",
+      "you don't need a",
+      "perfect routine. you",
+      "need one you can",
+      "actually maintain"
+     ],
+     "fr": "marche vite, fais de la muscu ou du vélo. pas besoin d'une routine parfaite, juste d'une que [[tu tiens vraiment]]",
+     "texte": "in un anno: [[più di 90 ore]] di movimento. e 15 minuti sono così pochi che neanche i giorni pigri hanno scuse"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. read classic books"
+     ],
+     "fr": "3. lis des [[classiques]]",
+     "texte": "4. [[30 min]] senza scroll"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok",
+      "you saw 5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok d'il y a [[5 scrolls]] ?",
+     "texte": "in un anno: [[circa 180 ore]] indietro, più di una settimana"
+    },
+    "T3": {
+     "en": [
+      "exactly. read 20 pages",
+      "of a good book instead"
+     ],
+     "fr": "[[bah voilà]]. lis plutôt 20 pages d'un bon livre",
+     "texte": "per camminare, leggere, dormire, vedere amici"
+    },
+    "T4": {
+     "en": [
+      "books that survived 50–",
+      "100+ years usually",
+      "survived for a reason"
+     ],
+     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard",
+     "texte": "il trucco: togli i reels da instagram, messaggi e storie restano"
+    },
+    "T5": {
+     "en": [
+      "fix your attention span"
+     ],
+     "fr": "[[répare ta concentration]]",
+     "texte": "con [[l'app UnSwipe]] si fa"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "5. scrivi [[3 righe]] la sera"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "cosa è successo, cosa hai provato, una cosa imparata"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "bastano 2 minuti, e scrivere a mano aiuta la giornata a [[restarti in memoria]]"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "in un anno: [[più di 1.000 righe]], tutto il tuo anno in un quaderno"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

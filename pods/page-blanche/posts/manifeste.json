@@ -1059,7 +1059,8 @@
     "id": "7636068211729599264",
     "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta B"
   },
   {
    "post_id": "7698667830635400470",
@@ -1471,6 +1472,106 @@
     "6": "7680975889932225814_4"
    },
    "notes": "schéma journal (comme original-008); cta B"
+  },
+  {
+   "post_id": "original-025",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#dailyhabits #selfimprovement #oneyearfromnow",
+   "musique": {
+    "titre": "som original",
+    "auteur": "thegoodvibesplaylist",
+    "original": true,
+    "id": "7352555204486449925",
+    "url_tiktok": "https://www.tiktok.com/music/x-7352555204486449925"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683630825610513686_1",
+    "2": "7694340359056313632_6",
+    "3": "7692093201968090401_2",
+    "4": "7696836327026724128_6",
+    "5": "7684726544442346774_4",
+    "6": "7685340052989398275_6"
+   },
+   "notes": "essai (accroche de @gilmoreobssesed, 34,6k vues); cta C"
+  },
+  {
+   "post_id": "original-022",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#memory #studytips #neuroscience",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699386616988650774_1",
+    "2": "7685340052989398275_6",
+    "3": "7699386616988650774_2",
+    "4": "7680975889932225814_5",
+    "5": "7694778035337235744_5",
+    "6": "7690642292855672096_2"
+   },
+   "notes": "variante d'original-015 (habitudes bizarres, mémoire); cta C"
+  },
+  {
+   "post_id": "original-023",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#booktok #reading #readingtips",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699939278847085857_1",
+    "2": "7685340052989398275_3",
+    "3": "7694778035337235744_2",
+    "4": "7699386616988650774_6",
+    "5": "7681048823824649494_5",
+    "6": "7683630825610513686_6"
+   },
+   "notes": "nouvelle accroche (2 livres par mois); cta A"
+  },
+  {
+   "post_id": "original-024",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#smart #conversation #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691007701127564576_1",
+    "2": "7696527080426655009_6",
+    "3": "7683541501007252758_5",
+    "4": "7696527080426655009_2",
+    "5": "7689918962905124129_5",
+    "6": "7691336990419209505_5"
+   },
+   "notes": "nouvelle accroche (paraître plus intelligent); cta B"
   }
  ]
 }

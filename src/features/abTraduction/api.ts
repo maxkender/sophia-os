@@ -109,6 +109,22 @@ export function preparerDuel(langue: string, candidat: string) {
   });
 }
 
+export interface BilanCuisson {
+  ok: boolean;
+  ignore?: string;
+  jour?: string;
+  version?: string;
+  a_cuire?: number;
+  cuits?: number;
+  echecs?: Array<{ contenu_id: string; langue: string; raison: string }>;
+  restants?: number;
+}
+
+/** Cuit les decks du bras natif pour le plan BLEO de demain (ce que le budget d'un appel permet). */
+export function cuireDecksNatifs() {
+  return invoke<BilanCuisson>("ab-traduction", { action: "cuire" });
+}
+
 export async function listerDuels(langue: string, candidat: string, version: string): Promise<Duel[]> {
   const { data, error } = await supabase
     .from("ab_traduction_duels")

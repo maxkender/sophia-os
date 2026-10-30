@@ -193,6 +193,16 @@ export async function lireDeckNatif(
   }
 }
 
+/** Le deck natif a-t-il exactement les positions du deck qu'il remplace ? */
+export function deckNatifServable(
+  natif: Pick<DeckNatifServi, "slides">,
+  actuel: ReadonlyArray<{ position: number }>,
+): boolean {
+  const a = actuel.map((s) => Number(s.position)).sort((x, y) => x - y);
+  const n = natif.slides.map((s) => Number(s.position)).sort((x, y) => x - y);
+  return a.length > 0 && a.length === n.length && a.every((p, i) => p === n[i]);
+}
+
 /**
  * Les colonnes A/B d'un passage. `{}` hors A/B : l'objet inséré reste
  * exactement celui d'avant 0620.

@@ -3724,3 +3724,87 @@ Deno.test("BLEO ombre + suivrePlanBleo (répétition à blanc) : le plan est sui
     assertEquals(passage.bras, "bleo");
   });
 });
+
+// ── A/B traduction (0620) : le bras du post, le deck natif s'il est prêt ──────
+
+/** Une base d'essai avec l'A/B allumé en français ; presque tous les posts tombent en natif. */
+function baseAbTraduction(decksNatifs: Array<Record<string, unknown>> = []) {
+  const base = baseEssai({ liens: [{ label_id: "L1", application_id: ID_SOPHIA }] });
+  return {
+    ...base,
+    reglages: [{
+      cle: "ab_traduction",
+      valeur: { actif: true, langues: ["fr"], part_natif: 0.999999, graine: "essai", circuit_production: "natif-1" },
+    }],
+    decks_natifs: decksNatifs,
+  };
+}
+
+const DECK_NATIF = [{ position: 1, texte_overlay: "réécrit", position_sophia: true }];
+
+Deno.test("A/B traduction coupé : le passage est celui d'avant, aucune lecture des decks natifs", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseEssai({ liens: [{ label_id: "L1", application_id: ID_SOPHIA }] });
+    const { client, journal } = fauxMoteur(base);
+
+    await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    const [passage] = insertsPassages(journal);
+    for (const c of ["bras_traduction", "circuit", "deck_version", "voie_cta"]) assert(!(c in passage), `colonne ${c} écrite`);
+    assertEquals(journal.filter((o) => o.table === "decks_natifs"), []);
+  });
+});
+
+Deno.test("A/B traduction : un post natif part avec le deck natif prêt de la version en production", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const decks = Array.from({ length: 12 }, (_, i) => ({
+      contenu_id: idContenu(i),
+      langue: "fr",
+      application_id: ID_SOPHIA,
+      statut: "pret",
+      version: "natif-1",
+      version_fiche: 2,
+      voie_cta: "essai",
+      forme_cta: "astuce_perso",
+      slides: DECK_NATIF,
+      hashtags: "#natif",
+    }));
+    const base = baseAbTraduction(decks);
+    const { client, journal } = fauxMoteur(base);
+
+    await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.bras_traduction, "natif");
+    assertEquals(passage.circuit, "natif");
+    assertEquals(passage.deck_version, 2);
+    assertEquals(passage.voie_cta, "essai");
+    assertEquals(passage.forme_cta, "astuce_perso");
+    assertEquals(passage.slides, DECK_NATIF);
+    assert(String(passage.hashtags).includes("#natif"));
+    assertEquals(appels.sophia.length, 1, "le deck actuel est cuit quand même : il sert de repli");
+  });
+});
+
+Deno.test("A/B traduction : sans deck natif prêt (ou d'une autre version), le post natif part avec le deck actuel", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const autreVersion = Array.from({ length: 12 }, (_, i) => ({
+      contenu_id: idContenu(i),
+      langue: "fr",
+      application_id: ID_SOPHIA,
+      statut: "pret",
+      version: "natif-0",
+      slides: DECK_NATIF,
+    }));
+    const base = baseAbTraduction(autreVersion);
+    const { client, journal } = fauxMoteur(base);
+
+    await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.bras_traduction, "natif", "il reste compté dans son bras");
+    assertEquals(passage.circuit, "gemini");
+    assertEquals(passage.deck_version, null);
+    assertEquals(passage.slides, DECK);
+  });
+});

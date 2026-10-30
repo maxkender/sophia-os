@@ -14,7 +14,9 @@ import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { formaterNombre, formaterPart, formaterVues, messageErreur } from "@/features/bleo/format";
 
 import {
+  type BilanCuisson,
   choixDepuisCote,
+  cuireDecksNatifs,
   decksAffiches,
   type Duel,
   lireRapportAb,
@@ -61,6 +63,20 @@ function CarteProduction() {
     onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["ab-traduction", "rapport"] }),
   });
   const branche = Boolean(reglage?.circuit_production);
+  const [bilan, setBilan] = React.useState<BilanCuisson | null>(null);
+  const cuire = useMutation({
+    // Rappelée tant qu'il reste des decks (au plus 10 appels d'environ 100 s).
+    mutationFn: async () => {
+      let dernier: BilanCuisson | null = null;
+      for (let n = 0; n < 10; n++) {
+        dernier = await cuireDecksNatifs();
+        setBilan(dernier);
+        if (!dernier.ok || dernier.ignore || !dernier.restants) break;
+      }
+      return dernier;
+    },
+    onSettled: () => void queryClient.invalidateQueries({ queryKey: ["ab-traduction", "rapport"] }),
+  });
   const bras = rapport.data?.bras ?? {};
   const ecart = rapport.data?.ecart ?? null;
   const voies = Object.entries(rapport.data?.natif_par_voie ?? {});
@@ -112,11 +128,32 @@ function CarteProduction() {
           <Button type="submit" variant="outline" size="sm" disabled={regler.isPending || !reglage}>
             {t("common.save")}
           </Button>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            disabled={!reglage?.actif || cuire.isPending}
+            onClick={() => cuire.mutate()}
+          >
+            {cuire.isPending ? t("abTraduction.production.cuisson") : t("abTraduction.production.cuire")}
+          </Button>
         </form>
+        {bilan && (
+          <p className="text-xs text-muted-foreground">
+            {bilan.ignore ??
+              t("abTraduction.production.bilan", {
+                jour: bilan.jour,
+                cuits: bilan.cuits ?? 0,
+                aCuire: bilan.a_cuire ?? 0,
+                echecs: bilan.echecs?.length ?? 0,
+                restants: bilan.restants ?? 0,
+              })}
+          </p>
+        )}
 
-        {(rapport.error ?? regler.error) && (
+        {(rapport.error ?? regler.error ?? cuire.error) && (
           <p role="alert" className="text-xs text-destructive">
-            {messageErreur(rapport.error ?? regler.error)}
+            {messageErreur(rapport.error ?? regler.error ?? cuire.error)}
           </p>
         )}
 

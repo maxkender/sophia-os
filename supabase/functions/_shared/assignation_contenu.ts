@@ -17,6 +17,15 @@ import {
 } from "./deck_application.ts";
 import { ecartsDoublons, estEmpreinte, type PostRecent, type Signature } from "./doublons.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
+import {
+  AB_TRADUCTION_COUPE,
+  brasDuPost,
+  chargerReglageAbTraduction,
+  colonnesAbTraduction,
+  deckNatifServable,
+  lireDeckNatif,
+  type ReglageAbTraduction,
+} from "./ab_traduction.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
 import {
   ECART_MIN_JOURS_AUTRE_APPLICATION,
@@ -301,6 +310,8 @@ export interface MemoAssignation {
    * fois par lot ; `null` : pas de plan, l'assignation reste celle d'avant.
    */
   bleo?: Map<string, Promise<PlanBleoJour | null>>;
+  /** A/B traduction (0620) : le réglage, lu une fois par lot ; coupé s'il est illisible. */
+  abTraduction?: Promise<ReglageAbTraduction>;
 }
 
 export function creerMemoAssignation(): MemoAssignation {
@@ -797,6 +808,12 @@ export async function assignerCompteJour(
     }
   }
 
+  // A/B traduction (0620) : coupé tant que `reglages.ab_traduction` ne l'allume
+  // pas ; jamais en test ni en UGC. Une lecture ratée vaut « coupé ».
+  const abTraduction = estTest || ugcAi
+    ? AB_TRADUCTION_COUPE
+    : await (memo.abTraduction ?? (memo.abTraduction = chargerReglageAbTraduction(supabase)));
+
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [...(o.exclureContenus ?? [])];
   const maxTentatives = manquants + 8;
@@ -1088,6 +1105,32 @@ export async function assignerCompteJour(
       }
       log(`Deck prêt (${slides.length} slides) — matérialisation…`);
     }
+    // A/B traduction (0620) : un post tiré `natif` part avec le deck natif cuit
+    // l'après-midi s'il est prêt et aux mêmes positions ; sinon avec celui-ci,
+    // et il reste compté dans son bras.
+    const brasTraduction = brasDuPost(abTraduction, {
+      compteId: compte.id as string,
+      contenuId: choisi.contenuId,
+      jour,
+      langue,
+    });
+    let deckNatif = brasTraduction === "natif" && abTraduction.circuitProduction
+      ? await lireDeckNatif(supabase, {
+        contenuId: choisi.contenuId,
+        langue,
+        applicationId: appEffective.id,
+        version: abTraduction.circuitProduction,
+      })
+      : null;
+    if (deckNatif && !deckNatifServable(deckNatif, slides)) deckNatif = null;
+    if (deckNatif) {
+      slides = deckNatif.slides;
+      if (deckNatif.hashtags) hashtagsDeck = deckNatif.hashtags;
+      log(`A/B traduction : deck natif (${abTraduction.circuitProduction})`);
+    } else if (brasTraduction === "natif") {
+      log("A/B traduction : bras natif sans deck natif prêt — deck actuel");
+    }
+
     // Hashtags issus de la traduction si dispo, sinon jeu localisé de repli.
     // La mention publicitaire locale (turc : #Tanıtım) est posée ici, donc sur
     // le créneau ET sur le post pont matérialisé juste après.
@@ -1117,6 +1160,8 @@ export async function assignerCompteJour(
         ...(repartition.multi ? colonnesApplicationPassage(appEffective, repli) : {}),
         // BLEO : servi par le plan (`bleo`) ou rendu à la tierlist en mode actif (`temoin`).
         ...colonnesBleoPassage(lignePlan, Boolean(planJour)),
+        // A/B traduction : rien hors A/B.
+        ...colonnesAbTraduction(brasTraduction, deckNatif),
       })
       .select("id")
       .single();

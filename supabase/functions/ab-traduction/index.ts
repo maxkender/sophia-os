@@ -5,6 +5,7 @@ import {
   lireSourceContenu,
   type SourceContenu,
 } from "../_shared/ab_circuits.ts";
+import { cuireDecksNatifs } from "../_shared/ab_cuisson.ts";
 import type { SlideDeck } from "../_shared/deck_langue.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -21,8 +22,13 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *     range le duel : le deck parti contre celui du candidat, gauche ou droite
  *     tiré au sort. Un appel par duel : le candidat fait 2 à 4 appels modèle.
  *
+ *   { action: "cuire", jour? }
+ *       → bilan de la cuisson des decks du bras natif pour le plan BLEO du
+ *         lendemain (`_shared/ab_cuisson.ts`) ; à rappeler tant que
+ *         `restants > 0`. Ne fait rien tant que l'A/B est coupé.
+ *
  * Le vote s'écrit depuis la page (table `ab_traduction_duels`, RLS admin).
- * Rien ne part en production.
+ * Les duels ne partent jamais en production.
  */
 
 const JOURS = 30;
@@ -57,6 +63,11 @@ Deno.serve(async (request) => {
           applications: c.applications,
         })),
       });
+    }
+
+    if (action === "cuire") {
+      const jour = typeof body?.jour === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.jour) ? body.jour : undefined;
+      return json(await cuireDecksNatifs(supabase, { jour }));
     }
 
     if (action !== "duel_preparer") return json({ error: `action inconnue : ${action || "aucune"}` }, 400);

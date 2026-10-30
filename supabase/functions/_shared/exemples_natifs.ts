@@ -68,24 +68,48 @@ export function pseudoDuLien(url: string): string | null {
   return url.match(POST)?.[1]?.toLowerCase() ?? null;
 }
 
+/** L'identifiant TikTok d'un lien de post, `/photo/` ou `/video/`. */
+export function idPost(url: string): string | null {
+  return url.match(/\/(?:photo|video)\/(\d+)/)?.[1] ?? null;
+}
+
+export interface PostListe {
+  webVideoUrl: string;
+  createTime: number | null;
+  imageUrls?: string[];
+  stats?: { likes?: number };
+}
+
 /**
  * Les slideshows d'un compte à lire : les plus récents, puis les plus likés
- * parmi les autres. Seuls les liens `/photo/` comptent : un lien `/video/` peut
- * être un slideshow, mais sans télécharger on ne le sait pas, et on préfère ne
- * pas lire des vidéos.
+ * parmi les autres.
+ *
+ * Apify renvoie `webVideoUrl` en `/video/` même pour un slideshow, et sans
+ * téléchargement ses images peuvent manquer. Un post est donc un slideshow
+ * s'il a un lien `/photo/`, des images, ou si la page publique du compte le
+ * liste en `/photo/` (`idsPhoto`) : la même règle que l'import des comptes de
+ * référence. Si rien n'est reconnu, on prend quand même les posts candidats
+ * (`verifies: false`) : la lecture écarte ensuite les vidéos, une par une.
  */
 export function slideshowsDuCompte(
-  posts: ReadonlyArray<{ webVideoUrl: string; createTime: number | null; stats?: { likes?: number } }>,
+  posts: ReadonlyArray<PostListe>,
+  idsPhoto: ReadonlySet<string> = new Set(),
   recents = SLIDESHOWS_RECENTS,
   plusLikes = SLIDESHOWS_PLUS_LIKES,
-): string[] {
-  const slideshows = posts.filter((p) => /\/photo\/\d+/.test(p.webVideoUrl));
-  const parDate = [...slideshows].sort((a, b) => (b.createTime ?? 0) - (a.createTime ?? 0));
+): { urls: string[]; verifies: boolean } {
+  const estSlideshow = (p: PostListe) =>
+    /\/photo\/\d+/.test(p.webVideoUrl) ||
+    (p.imageUrls?.length ?? 0) > 0 ||
+    idsPhoto.has(idPost(p.webVideoUrl) ?? "");
+  const reconnus = posts.filter(estSlideshow);
+  const verifies = reconnus.length > 0;
+  const candidats = verifies ? reconnus : posts;
+  const parDate = [...candidats].sort((a, b) => (b.createTime ?? 0) - (a.createTime ?? 0));
   const choisis = parDate.slice(0, recents).map((p) => p.webVideoUrl);
   const parLikes = parDate
     .filter((p) => !choisis.includes(p.webVideoUrl))
     .sort((a, b) => (b.stats?.likes ?? 0) - (a.stats?.likes ?? 0));
-  return [...choisis, ...parLikes.slice(0, plusLikes).map((p) => p.webVideoUrl)];
+  return { urls: [...choisis, ...parLikes.slice(0, plusLikes).map((p) => p.webVideoUrl)], verifies };
 }
 
 export interface SlideExemple {

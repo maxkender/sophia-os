@@ -1,9 +1,12 @@
-import { listerPostsProfil, scrapePost } from "../_shared/apify.ts";
+import { listerDiaporamas, listerPostsProfil, scrapePost } from "../_shared/apify.ts";
 import {
+  idPost,
   lireLignes,
   MAX_COMPTES_PAR_APPEL,
   POSTS_LUS_PAR_COMPTE,
   motifRefus,
+  SLIDESHOWS_PLUS_LIKES,
+  SLIDESHOWS_RECENTS,
   pseudoDuLien,
   slideshowsDuCompte,
   slidesLues,
@@ -55,16 +58,30 @@ Deno.serve(async (request) => {
         return json({ error: `${MAX_COMPTES_PAR_APPEL} comptes au plus par appel.` }, 400);
       }
 
-      // Un compte donne ses slideshows les plus récents ; les comptes du
-      // paquet sont listés en parallèle.
+      // Un compte donne ses slideshows les plus récents et les plus likés ;
+      // les comptes du paquet sont listés en parallèle. La page publique du
+      // compte (gratuite) dit quels posts sont des slideshows, ce qu'Apify ne
+      // dit pas toujours sans télécharger.
       const comptes = await Promise.all(
         lues.comptes.map(async (pseudo) => {
-          try {
-            const trouves = slideshowsDuCompte(await listerPostsProfil(pseudo, POSTS_LUS_PAR_COMPTE));
-            return { pseudo, slideshows: trouves.length, trouves };
-          } catch (erreur) {
-            return { pseudo, slideshows: 0, trouves: [] as string[], erreur: messageErreur(erreur) };
+          const [page, liste] = await Promise.all([
+            listerDiaporamas(pseudo).catch(() => [] as string[]),
+            listerPostsProfil(pseudo, POSTS_LUS_PAR_COMPTE).catch((erreur) => erreur as Error),
+          ]);
+          if (liste instanceof Error) {
+            if (page.length === 0) {
+              return { pseudo, posts: 0, slideshows: 0, verifies: false, trouves: [] as string[], erreur: messageErreur(liste) };
+            }
+            // Apify en panne mais la page publique répond : ses slideshows suffisent.
+            const trouves = page.slice(0, SLIDESHOWS_RECENTS + SLIDESHOWS_PLUS_LIKES);
+            return { pseudo, posts: page.length, slideshows: trouves.length, verifies: true, trouves };
           }
+          const choix = slideshowsDuCompte(liste, new Set(page.map((u) => idPost(u) ?? "")));
+          console.log(
+            `exemples-natifs @${pseudo} : ${liste.length} posts Apify, ${page.length} slideshows sur la page, ` +
+              `${choix.urls.length} retenus${choix.verifies ? "" : " (type non reconnu, vérifié à la lecture)"}`,
+          );
+          return { pseudo, posts: liste.length, slideshows: choix.urls.length, verifies: choix.verifies, trouves: choix.urls };
         }),
       );
       const urls = [...lues.posts];
@@ -93,7 +110,13 @@ Deno.serve(async (request) => {
         ok: true,
         ajoutes: nouveaux.length,
         deja: deja.size,
-        comptes: comptes.map(({ pseudo, slideshows, erreur }) => ({ pseudo, slideshows, ...(erreur ? { erreur } : {}) })),
+        comptes: comptes.map(({ pseudo, posts, slideshows, verifies, erreur }) => ({
+          pseudo,
+          posts,
+          slideshows,
+          verifies,
+          ...(erreur ? { erreur } : {}),
+        })),
         ignorees: lues.ignorees,
       });
     }

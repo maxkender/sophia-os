@@ -1,6 +1,7 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
 import {
+  idPost,
   lireLignes,
   motifRefus,
   pseudoDuLien,
@@ -33,30 +34,58 @@ Deno.test("le pseudo d'un lien de post", () => {
 });
 
 Deno.test("un compte donne ses slideshows les plus récents, puis les plus likés, jamais ses vidéos", () => {
-  const post = (id: number, createTime: number | null, likes: number, type = "photo") => ({
-    webVideoUrl: `https://www.tiktok.com/@a/${type}/${id}`,
+  // Apify renvoie /video/ même pour un slideshow : ce sont les images, ou la
+  // page publique du compte, qui disent qu'un post est un slideshow.
+  const post = (id: number, createTime: number | null, likes: number, images = 0) => ({
+    webVideoUrl: `https://www.tiktok.com/@a/video/${id}`,
     createTime,
+    imageUrls: Array.from({ length: images }, (_, i) => `https://img/${id}/${i}`),
     stats: { likes },
   });
   const posts = [
-    post(1, 100, 900),
-    post(2, 300, 99_000, "video"),
-    post(3, 200, 10),
-    post(4, null, 50_000),
-    post(5, 150, 20),
-    post(6, 50, 70_000),
+    post(1, 100, 900, 6),
+    post(2, 300, 99_000), // une vidéo : ni images, ni page
+    post(3, 200, 10, 5),
+    post(4, null, 50_000), // slideshow seulement d'après la page publique
+    post(5, 150, 20, 7),
+    post(6, 50, 70_000, 4),
   ];
-  assertEquals(slideshowsDuCompte(posts, 2, 2), [
-    "https://www.tiktok.com/@a/photo/3",
-    "https://www.tiktok.com/@a/photo/5",
-    "https://www.tiktok.com/@a/photo/6",
-    "https://www.tiktok.com/@a/photo/4",
+  const r = slideshowsDuCompte(posts, new Set(["4"]), 2, 2);
+  assertEquals(r.verifies, true);
+  assertEquals(r.urls, [
+    "https://www.tiktok.com/@a/video/3",
+    "https://www.tiktok.com/@a/video/5",
+    "https://www.tiktok.com/@a/video/6",
+    "https://www.tiktok.com/@a/video/4",
   ]);
-  // Un compte avec peu de slideshows les donne tous, sans doublon.
-  assertEquals(slideshowsDuCompte(posts.slice(0, 3), 5, 5), [
-    "https://www.tiktok.com/@a/photo/3",
-    "https://www.tiktok.com/@a/photo/1",
+  // Un petit compte donne tout ce qu'il a, sans doublon.
+  assertEquals(slideshowsDuCompte(posts.slice(0, 3), new Set(), 5, 5).urls, [
+    "https://www.tiktok.com/@a/video/3",
+    "https://www.tiktok.com/@a/video/1",
   ]);
+  // Un lien /photo/ suffit.
+  assertEquals(
+    slideshowsDuCompte([{ webVideoUrl: "https://www.tiktok.com/@a/photo/9", createTime: 1 }]).urls,
+    ["https://www.tiktok.com/@a/photo/9"],
+  );
+});
+
+Deno.test("rien de reconnu : les posts candidats partent quand même, marqués non vérifiés", () => {
+  const posts = [
+    { webVideoUrl: "https://www.tiktok.com/@a/video/1", createTime: 1, stats: { likes: 5 } },
+    { webVideoUrl: "https://www.tiktok.com/@a/video/2", createTime: 2, stats: { likes: 1 } },
+  ];
+  assertEquals(slideshowsDuCompte(posts), {
+    urls: ["https://www.tiktok.com/@a/video/2", "https://www.tiktok.com/@a/video/1"],
+    verifies: false,
+  });
+  assertEquals(slideshowsDuCompte([]), { urls: [], verifies: false });
+});
+
+Deno.test("l'identifiant d'un post, /photo/ ou /video/", () => {
+  assertEquals(idPost("https://www.tiktok.com/@a/photo/123?x=1"), "123");
+  assertEquals(idPost("https://www.tiktok.com/@a/video/456"), "456");
+  assertEquals(idPost("https://www.tiktok.com/@a"), null);
 });
 
 Deno.test("les slides lues gardent leur position et perdent les slides vides", () => {

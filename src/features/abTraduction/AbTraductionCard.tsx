@@ -32,6 +32,7 @@ import {
   type VoteRelecteur,
   voterDuel,
 } from "./api";
+import { BlocLot } from "./BlocLot";
 import { TableDuel } from "./TableDuel";
 
 const selectClass =
@@ -45,7 +46,9 @@ const DUELS_PAR_LOT = 5;
  * nouveau circuit. Rien ne part en production (décision d'Adrien, 30/10).
  * Depuis 0626, l'admin peut envoyer un duel aux relecteurs natifs de la
  * langue, qui votent et notent depuis leur espace ; leurs votes et remarques
- * se lisent ici, et le candidat relit les remarques pour s'améliorer.
+ * se lisent ici, et le candidat relit les remarques pour s'améliorer. Depuis
+ * 0627, un lot commun de 15 slideshows (BlocLot) est préparé par le serveur
+ * pour chaque langue qui a un relecteur, et envoyé d'office.
  */
 export function AbTraductionCard() {
   return <CarteDuels />;
@@ -177,6 +180,8 @@ function CarteDuels() {
               })}
           {echecs > 0 && <span className="text-muted-foreground"> · {t("abTraduction.duels.echecs", { n: echecs })}</span>}
         </p>
+
+        <BlocLot onChange={rafraichir} />
 
         <BlocRelecteurs rapport={ligneRapport} nonEnvoyes={nonEnvoyes.length} envoyer={() => envoyerTous.mutate()} enCours={envoyerTous.isPending} />
 

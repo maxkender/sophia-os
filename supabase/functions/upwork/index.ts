@@ -12,6 +12,10 @@ import {
   REQUETE_JALONS,
   REQUETE_STATUT_CONTRAT,
   contratFerme,
+  lireFinContrat,
+  orgDeLOs,
+  ORGS_OS,
+  REQUETE_FIN_CONTRAT,
   jalonAApprouver,
   MUTATION_APPROUVER,
   MUTATION_CREER_JALON,
@@ -610,9 +614,10 @@ interface Organisation {
   organizationId: string;
 }
 
+/** Les organisations lues par l'OS : VIk Studios (et Micabo en attendant). Calyra et Louis Kender : jamais. */
 async function organisations(supabase: Supabase): Promise<Organisation[]> {
   const { data } = await supabase.from("upwork_connexion").select("organisations").eq("compte", COMPTE).maybeSingle();
-  return ((data?.organisations ?? []) as Organisation[]).filter((o) => o?.organizationId);
+  return ((data?.organisations ?? []) as Organisation[]).filter((o) => o?.organizationId && orgDeLOs(o.organizationId));
 }
 
 async function lireContrats(supabase: Supabase, par: string | null) {
@@ -725,7 +730,8 @@ async function lireOffres(supabase: Supabase, par: string | null) {
     }
     bilan[org.title?.trim() ?? org.organizationId] = { lus, erreur };
   }
-  return { ok: Object.values(bilan).every((b) => !b.erreur), organisations: bilan };
+  const termines = await terminesDepuisOffres(supabase, par).catch((e) => [`erreur : ${messageErreur(e)}`]);
+  return { ok: Object.values(bilan).every((b) => !b.erreur), organisations: bilan, termines };
 }
 
 /** Au-delà, une lecture qui fait tomber trop de contrats d'un coup est suspecte : rien n'est désactivé, Max est prévenu. */
@@ -749,19 +755,59 @@ async function contratsFermes(supabase: Supabase, par: string | null, fermes: { 
   const { data: relies } = await supabase.from("profiles").select("upwork_contract_id").eq("is_active", true)
     .in("upwork_contract_id", fermes.map((f) => f.contrat));
   const actifs = new Set((relies ?? []).map((p) => String(p.upwork_contract_id)));
-  const contrats: string[] = [];
+  const faits: string[] = [];
   for (const f of fermes.filter((x) => actifs.has(x.contrat))) {
-    const lu = await lire(supabase, { par, action: "contrat_statut", query: REQUETE_STATUT_CONTRAT, variables: { id: f.contrat }, tenant: f.tenant });
-    const statut = String(lu.data?.contractDetails?.status ?? "").toUpperCase();
-    if (!lu.erreur && contratFerme(statut)) contrats.push(f.contrat);
+    const r = await arreterContratTermine(supabase, par, f.contrat, f.tenant);
+    if (r) faits.push(r);
   }
-  if (contrats.length === 0) return null;
-  const { data, error } = await supabase.rpc("contrats_termines_desactiver", { p_contrats: contrats });
+  return faits.length ? faits : null;
+}
+
+/**
+ * 31/10 : un contrat VIk Studios terminé (Ended) chez Upwork, par le freelance
+ * ou par nous hors de l'OS : relu (statut, date, qui), puis
+ * `contrat_termine_arreter` (0472) : posteur et comptes désactivés, sortis de la
+ * masterlist, de Needs you, de la paie, de « To fund by hand » et des relances,
+ * ligne « To remove from Slack », trace « Contract ended by freelancer on … ».
+ * Aucun message.
+ */
+async function arreterContratTermine(supabase: Supabase, par: string | null, contrat: string, tenant: string | null): Promise<string | null> {
+  const lu = await lire(supabase, { par, action: "contrat_fin", query: REQUETE_FIN_CONTRAT, variables: { id: contrat }, tenant });
+  const c = lu.data?.contractDetails;
+  if (lu.erreur || !contratFerme(String(c?.status ?? "").toUpperCase())) return null;
+  const fin = lireFinContrat(c);
+  const { data, error } = await supabase.rpc("contrat_termine_arreter", { p_contrat: contrat, p_fin: fin.fin, p_par: fin.par });
   if (error) {
-    console.error("[upwork] contrats fermés", error.message);
+    console.error("[upwork] contrat terminé", contrat, error.message);
     return null;
   }
-  return ((data ?? []) as { nom: string | null; contrat_id: string }[]).map((d) => `${d.nom ?? "?"} (${d.contrat_id})`);
+  const d = ((data ?? []) as { nom: string | null }[])[0];
+  return d ? `${d.nom ?? "?"} (${contrat}, ${fin.par === "freelance" ? "par le freelance" : "par nous"}${fin.fin ? `, ${fin.fin}` : ""})` : null;
+}
+
+/**
+ * 31/10 : les offres terminées (Ended) de VIk Studios dont le contrat est
+ * encore relié à un posteur actif (un contrat qui n'a jamais été dans la liste
+ * des contrats actifs n'en sort pas) : même traitement.
+ */
+async function terminesDepuisOffres(supabase: Supabase, par: string | null): Promise<string[]> {
+  const { data: offres } = await supabase.from("upwork_offres").select("contrat_id, organisation_id")
+    .in("organisation_id", [...ORGS_OS]).not("contrat_id", "is", null)
+    .or("etat.eq.Ended,contrat_statut.eq.CLOSED,contrat_statut.eq.ENDED");
+  const tenantDe = new Map((offres ?? []).map((o) => [String(o.contrat_id), String(o.organisation_id)]));
+  if (tenantDe.size === 0) return [];
+  const { data: relies } = await supabase.from("profiles").select("upwork_contract_id").eq("is_active", true)
+    .in("upwork_contract_id", [...tenantDe.keys()]);
+  const faits: string[] = [];
+  for (const p of (relies ?? []).slice(0, MAX_FERMES_PAR_LECTURE)) {
+    const contrat = String(p.upwork_contract_id);
+    // Encore dans la liste des contrats actifs : pas terminé (une autre offre du même contrat).
+    const { data: actif } = await supabase.from("upwork_contrats").select("contrat_id").eq("contrat_id", contrat).eq("actif", true).limit(1);
+    if (actif?.length) continue;
+    const r = await arreterContratTermine(supabase, par, contrat, tenantDe.get(contrat) ?? null);
+    if (r) faits.push(r);
+  }
+  return faits;
 }
 
 // ---------------------------------------------------------------------------
@@ -2702,6 +2748,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
     .from("upwork_contrats")
     .select("contrat_id, organisation_id, offre_id, debut_at")
     .eq("actif", true)
+    .in("organisation_id", [...ORGS_OS])
     .not("contrat_id", "is", null)
     .gte("debut_at", depuis);
   if (error) throw error;

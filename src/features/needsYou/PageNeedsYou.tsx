@@ -35,6 +35,11 @@ const VARIANTE_URGENCE = { lundi: "error", paie: "warning", kill: "warning", rie
  * ou dont il n'est pas sûr. Chaque ligne dit qui, ce que l'OS a vu, ce qu'il
  * en pense, pourquoi c'est urgent, et se règle sur place (1 à 3 boutons).
  */
+/** 31/10 : le contrat d'une carte : celui de son lien, sinon sa référence quand c'est un n° de contrat (cartes « Contract to link », doublons, tarif). */
+function contratDeCarte(c: Pick<CasNeedsYou, "lien" | "ref">): string | null {
+  return contratDuLien(c.lien) ?? (c.ref && /^\d{7,10}$/.test(c.ref) ? c.ref : null);
+}
+
 export function PageNeedsYou() {
   const { t } = useTranslation();
   const lu = useQuery({ queryKey: ["needs-you", "liste"], queryFn: lireNeedsYou, refetchInterval: 60_000 });
@@ -44,7 +49,7 @@ export function PageNeedsYou() {
   const tous = lu.data ?? [];
   const visibles = trier(filtrer(tous, f));
   // 0469 : la conversation Upwork de chaque carte (posteur, ou contrat du lien).
-  const conv = useConversations(visibles.map((c) => c.poster_id), visibles.map((c) => contratDuLien(c.lien)));
+  const conv = useConversations(visibles.map((c) => c.poster_id), visibles.map(contratDeCarte));
   const o = options(tous);
   const compte = parCategorie(tous);
   const maj = (champ: keyof Filtres) => (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => setF({ ...f, [champ]: e.target.value });
@@ -152,8 +157,8 @@ function LigneCas({ c, conv }: { c: CasNeedsYou; conv?: Conversations }) {
           <span className="font-medium">{nom}</span>
           {qui && <span className="text-muted-foreground"> · {qui}</span>}
           {/* 0469 : la conversation Upwork du posteur (ou du contrat de la carte), et le contrat. */}
-          {(c.poster_id || contratDuLien(c.lien)) && (
-            <LienConversation className="ml-2" c={conversationDe(conv, { posteur: c.poster_id, contrat: contratDuLien(c.lien) })} />
+          {(c.poster_id || contratDeCarte(c)) && (
+            <LienConversation className="ml-2" c={conversationDe(conv, { posteur: c.poster_id, contrat: contratDeCarte(c) })} />
           )}
           {c.contestation && (
             <Link to="/admin/retours-contestes" className="ml-2 text-xs font-medium text-destructive underline" data-testid="contestation">

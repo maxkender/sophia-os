@@ -3135,6 +3135,15 @@ async function creerEtAccueillir(
   return { erreur: null };
 }
 
+/** Le posteur s'est-il déjà connecté à l'OS (auth.users.last_sign_in_at, ou une connexion notée) ? */
+async function dejaConnecte(supabase: Supabase, posterId: string): Promise<boolean> {
+  const { data } = await supabase.auth.admin.getUserById(posterId).catch(() => ({ data: null }));
+  if (data?.user?.last_sign_in_at) return true;
+  const { count } = await supabase.from("recrue_evenements").select("poster_id", { count: "exact", head: true })
+    .eq("poster_id", posterId).eq("type", "connexion");
+  return (count ?? 0) > 0;
+}
+
 /**
  * Prompt 25 MAJ : le profil existe déjà (créé par la HM, même contrat ou même
  * nom et même pays). Le contrat lui est relié (s'il n'en a pas), la bienvenue
@@ -3168,8 +3177,10 @@ async function accueillirExistant(
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", base.contrat_id);
   const texte = messageAccueil(modele, {
     prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
-    // Il a peut-être déjà changé son mot de passe : on ne lui en donne pas un faux.
-    mot_de_passe: p.must_change_password ? MOT_DE_PASSE_DEPART : "the one you chose", slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+    // 31/10 : jamais connecté → le mot de passe de départ (must_change_password est toujours faux à la création
+    // par la HM) ; déjà connecté → il a peut-être changé son mot de passe : on ne lui en donne pas un faux.
+    mot_de_passe: p.must_change_password || !(await dejaConnecte(supabase, posterId)) ? MOT_DE_PASSE_DEPART : "the one you chose",
+    slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
     handle: await handleACreer(supabase, posterId),
   });
   const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);

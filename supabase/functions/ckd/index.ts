@@ -22,6 +22,7 @@ import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
 import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
 import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } from "../_shared/slack_questions.ts";
+import { canauxDuBot, historiqueCanal } from "../_shared/slack_messages.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -158,6 +159,9 @@ Deno.serve(async (request) => {
         if (!h) return json({ ok: false, error: "@ invalide" }, 400);
         return json({ ok: true, handle: h, ...(await lireProfilTiktok(h)) });
       }
+      case "slack_messages_reprendre":
+        // Prompt 27 : les 30 derniers jours des canaux où est l'appli (lecture seule), pour la colonne Context.
+        return json(await reprendreMessagesSlack(supabase, Number(body.jours) || 30));
       case "questions_epingler":
         // Prompt 13 : le message épinglé de #questions, sur le bouton de l'admin seulement.
         if (cron || acces.role !== "admin") return json({ ok: false, error: "réservé à l'admin" }, 403);
@@ -176,6 +180,28 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+/** Prompt 27 : l'historique des canaux Slack (messages humains), gardé dans slack_messages. */
+async function reprendreMessagesSlack(supabase: Supabase, jours: number) {
+  const jeton = jetonSlack();
+  const depuis = Math.floor(Date.now() / 1000) - Math.min(Math.max(jours, 1), 90) * 86_400;
+  const canaux = await canauxDuBot(jeton);
+  let gardes = 0;
+  const erreurs: string[] = [];
+  for (const canal of canaux) {
+    try {
+      const lignes = await historiqueCanal(jeton, canal, depuis);
+      for (let i = 0; i < lignes.length; i += 500) {
+        const { error } = await supabase.from("slack_messages").upsert(lignes.slice(i, i + 500), { onConflict: "canal,ts" });
+        if (error) throw error;
+      }
+      gardes += lignes.length;
+    } catch (e) {
+      erreurs.push(messageErreur(e));
+    }
+  }
+  return { ok: erreurs.length === 0, canaux: canaux.length, gardes, erreurs: erreurs.slice(0, 10) };
+}
 
 /** Prompt 13 : poste et épingle dans #questions le texte du réglage `slack_questions_texte`. */
 async function epinglerMessageQuestions(supabase: Supabase, par: string) {

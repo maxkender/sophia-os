@@ -1277,34 +1277,7 @@ export const fr = {
     abTraduction: {
       title: "A/B traduction et placement",
       subtitle:
-        "L'ancien circuit (traduction puis placement de l'appli) contre la réécriture native. En duel à l'aveugle sur des slideshows déjà publiés, puis en production, langue par langue.",
-      production: {
-        titre: "A/B en production",
-        description:
-          "Un post sur deux de chaque langue en test, tiré au sort post par post, part avec le deck du nouveau circuit. Un post tiré en natif sans deck natif prêt part avec l'ancien deck et reste compté dans son bras.",
-        interrupteur: "Allumer l'A/B en production",
-        allume: "Allumé",
-        coupe: "Coupé",
-        circuit: "Circuit en production : {{version}}",
-        aucunCircuit: "Aucun circuit natif branché",
-        aideBrancher:
-          "L'interrupteur s'ouvre quand l'appel unique de la réécriture native est branché (reglages.ab_traduction.circuit_production) et a passé ses duels.",
-        part: "{{part}} des posts en natif",
-        langues: "Langues en test",
-        bras: "Bras",
-        bras_temoin: "Ancien circuit",
-        bras_natif: "Réécriture native",
-        publies: "Publiés",
-        mesures: "Mesurés (72 h)",
-        rMedian: "r médian",
-        part10k: "À 10 000 vues",
-        vuesParPost: "Vues par post",
-        servisNatif: "Servis en natif",
-        ecart: "Écart de la part à 10 000 vues : {{ecart}} points (marge à 95 % : ± {{marge}} points).",
-        aucunPost: "Aucun post dans l'A/B pour l'instant.",
-        parVoie: "Bras natif, par voie de CTA :",
-        voie: "{{voie}} {{publies}} posts, r {{r}}, {{part}} à 10 000 vues",
-      },
+        "L'ancien circuit (traduction puis placement de l'appli) contre la réécriture native, en duel à l'aveugle sur des slideshows déjà publiés. Rien ne part en production.",
       duels: {
         titre: "Duel à l'aveugle",
         description:

@@ -27,7 +27,7 @@
 - **Line breaks**: 87 to 99 % of native slides run over several lines; the hook breaks every 2 to 4 words.
 - **Capitals**: normal German. All-caps hook allowed in Discipline up to 6 words: « ZUFÄLLIGE FAKTEN ». One word in caps for emphasis in Fille cultivée and Études: « NICHT vor 12 uhr scrollen ». Under a lowercase hook, the slides stay lowercase.
 - **Punctuation**: full stop at the end of a slide: Discipline 58 %, Fille cultivée 43 %, Études 24 %, Carrière 21 %. "!!" and stretched vowels ("Soooo geil"): Fille cultivée and Études only; "!" almost absent in Discipline. German quotes „…“, never "…" nor « ». No dash of any length; a quote is signed by a line break then the name.
-- **Numbering**: "1." (32 % of Discipline slides); "1)" accepted; Never "#1".
+- **Numbering**: "1." (32 % of Discipline slides); "1)" accepted; never "#1".
 - **Emojis**: Discipline 2 % of slides; Fille cultivée 8 %, closing the post (💗 🤍 ✨); Études 14 % (😭 📚 ⚖️ 🫶), ending the hook or a line; Carrière 33 % (🚨 👀 👉 ✅ ❌), opening a line. Never mid-sentence, at most two per slide.
 
 ## Hooks (slide 1)

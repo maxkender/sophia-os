@@ -23,6 +23,7 @@ import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture
 import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
 import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } from "../_shared/slack_questions.ts";
 import { canauxDuBot, historiqueCanal } from "../_shared/slack_messages.ts";
+import { lireTout } from "../_shared/lots.ts";
 import { estLienCourt, handleDuLien, handleMajoritaire, handlesProches, resoudreLienCourt } from "../_shared/handle_liens.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -205,14 +206,17 @@ Deno.serve(async (request) => {
  */
 async function handlesDepuisLiens(supabase: Supabase, compteId: string | null) {
   const depuis = new Date(Date.now() - 21 * 86_400_000).toISOString().slice(0, 10);
-  let req = supabase.from("passages").select("compte_id, publie_url, comptes!inner(handle_tiktok, is_active, type_compte)")
-    .not("publie_url", "is", null).gte("date_publication_prevue", depuis).eq("comptes.is_active", true).eq("comptes.type_compte", "perso");
-  if (compteId) req = req.eq("compte_id", compteId);
-  const { data, error } = await req.limit(20000);
-  if (error) throw error;
+  // deno-lint-ignore no-explicit-any
+  const data = await lireTout<any>("Liens postés (21 jours)", (curseur, taille) => {
+    let q = supabase.from("passages").select("id, compte_id, publie_url, comptes!inner(handle_tiktok, is_active, type_compte)")
+      .not("publie_url", "is", null).gte("date_publication_prevue", depuis).eq("comptes.is_active", true).eq("comptes.type_compte", "perso");
+    if (compteId) q = q.eq("compte_id", compteId);
+    if (curseur) q = q.gt("id", curseur.id);
+    return q.order("id", { ascending: true }).limit(taille);
+  }, { ancre: (l) => String(l.id) });
   const parCompte = new Map<string, { handle: string; urls: string[] }>();
   // deno-lint-ignore no-explicit-any
-  for (const p of (data ?? []) as any[]) {
+  for (const p of data as any[]) {
     const c = parCompte.get(p.compte_id) ?? { handle: String(p.comptes?.handle_tiktok ?? "").toLowerCase(), urls: [] };
     c.urls.push(String(p.publie_url));
     parCompte.set(p.compte_id, c);

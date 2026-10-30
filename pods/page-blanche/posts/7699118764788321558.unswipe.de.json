@@ -1,0 +1,286 @@
+{
+ "post_id": "7699118764788321558",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits",
+      "to become your best self"
+     ],
+     "fr": "10/10 habitudes de neuroscientifiques pour te transformer",
+     "texte": "10/10 Gewohnheiten von Neuroforschern für dein bestes Ich"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(wissenschaftlich belegt)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "follow parkinson’s law"
+     ],
+     "fr": "suis [[la loi de parkinson]]",
+     "texte": "nutz [[Parkinsons Gesetz]]"
+    },
+    "T2": {
+     "en": [
+      "work expands to fill whatever time you give it"
+     ],
+     "fr": "une tâche prend [[tout le temps qu'on lui donne]]",
+     "texte": "Arbeit füllt [[jede Zeit, die du ihr gibst]]"
+    },
+    "T3": {
+     "en": [
+      "if you give yourself all",
+      "week for one task, it",
+      "takes all week. that's"
+     ],
+     "fr": "une semaine pour une tâche ? elle prendra toute la semaine.",
+     "texte": "gibst du dir eine Woche für eine Aufgabe, dauert sie eine Woche."
+    },
+    "T4": {
+     "en": [
+      "Too much time= waste of time",
+      "Too less time= frustration"
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "|"
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T6": {
+     "en": [
+      "until the last minute"
+     ],
+     "fr": "[[voilà pourquoi tu t'y mets à la dernière minute]]",
+     "texte": "[[deshalb schiebst du alles bis zur letzten Minute]]"
+    },
+    "T7": {
+     "en": [
+      "→"
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T8": {
+     "en": [
+      "The best time for",
+      "completion of a work"
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T9": {
+     "en": [
+      "Alloted Time"
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T10": {
+     "en": [
+      "work expands to fill",
+      "whatever time you",
+      "give it"
+     ],
+     "fr": "une tâche prend [[tout le temps qu'on lui donne]]",
+     "texte": "Arbeit füllt [[jede Zeit, die du ihr gibst]]"
+    }
+   },
+   "images": {
+    "I1": "supprimer",
+    "I2": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone",
+      "right after waking up"
+     ],
+     "fr": "arrête de regarder ton tel [[dès le réveil]]",
+     "texte": "kein Handy [[direkt nach dem Aufwachen]]"
+    },
+    "T2": {
+     "en": [
+      "if you scroll as soon as you wake up, you start",
+      "your whole day on cheap dopamine"
+     ],
+     "fr": "scroller dès que t'ouvres les yeux, c'est lancer ta journée à la [[dopamine facile]]",
+     "texte": "wenn du direkt nach dem Aufwachen scrollst, startest du den Tag mit [[billigem Dopamin]]"
+    },
+    "T3": {
+     "en": [
+      "everything after",
+      "that feels",
+      "boring, so it",
+      "gets way harder",
+      "to focus on",
+      "what actually",
+      "matters"
+     ],
+     "fr": "après, tout te paraît chiant, donc c'est [[bien plus dur de te concentrer]] sur ce qui compte vraiment",
+     "texte": "danach wirkt alles öde, und es fällt dir [[viel schwerer]], dich auf das Wichtige [[zu konzentrieren]]"
+    },
+    "T4": {
+     "en": [
+      "give yourself the first 30 minutes without",
+      "your phone"
+     ],
+     "fr": "garde les 30 premières minutes de ta journée sans tel",
+     "texte": "gönn dir die ersten 30 Minuten ohne Handy"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "lies Bücher [[statt zu scrollen]]"
+    },
+    "T2": {
+     "en": [
+      "your attention span has",
+      "been destroyed by",
+      "short-term content"
+     ],
+     "fr": "ta concentration a été [[flinguée par les contenus courts]]",
+     "texte": "deine Aufmerksamkeit wurde [[von kurzen Videos zerstört]]"
+    },
+    "T3": {
+     "en": [
+      "books rebuild your",
+      "attention span and teach",
+      "you delayed gratification"
+     ],
+     "fr": "les livres réparent ta [[concentration]] et t'apprennent [[la patience]]",
+     "texte": "Bücher bauen deine [[Konzentration]] wieder auf und lehren dich [[Geduld]]"
+    },
+    "T4": {
+     "en": [
+      "i used to scroll all day until",
+      "i found this which blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "[[avant je scrollais H24]]. ce matin j'ai ouvert [[l'appli Sophia]] à la place : en 5 min, pourquoi Camus imagine Sisyphe heureux",
+     "texte": "[[früher hab ich den ganzen Tag gescrollt]]. ohne Reels auf meinem Insta [[lese ich jetzt 30 Seiten am Stück]]. rausnehmen kannst du sie mit [[der UnSwipe-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start lifting weights"
+     ],
+     "fr": "mets-toi [[à la muscu]]",
+     "texte": "fang mit [[Krafttraining]] an"
+    },
+    "T2": {
+     "en": [
+      "it’s not just about looks"
+     ],
+     "fr": "y'a pas que le physique",
+     "texte": "nicht nur fürs Aussehen"
+    },
+    "T3": {
+     "en": [
+      "exercise boosts",
+      "dopamine, lowers",
+      "stress, and is one of",
+      "the best things you can",
+      "do for your brain"
+     ],
+     "fr": "le sport booste [[la dopamine]], [[fait chuter le stress]] et c'est le top pour [[ton cerveau]]",
+     "texte": "Sport pusht [[Dopamin]], [[senkt Stress]] und ist eins der besten Dinge für [[dein Gehirn]]"
+    },
+    "T4": {
+     "en": [
+      "and once you see your body change, you start",
+      "believing you can change other things too"
+     ],
+     "fr": "et quand tu vois ton corps changer, tu commences à croire que [[tu peux changer le reste aussi]]",
+     "texte": "und wenn sich dein Körper sichtbar verändert, glaubst du, [[auch anderes ändern zu können]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing",
+      "in the morning"
+     ],
+     "fr": "prends [[la lumière du jour]] dès le matin",
+     "texte": "hol dir [[Sonnenlicht]] gleich am Morgen"
+    },
+    "T2": {
+     "en": [
+      "go outside for 10 minutes right after you wake up"
+     ],
+     "fr": "sors [[10 minutes]] juste après ton réveil",
+     "texte": "geh direkt nach dem Aufstehen [[10 Minuten]] raus"
+    },
+    "T3": {
+     "en": [
+      "morning light sets",
+      "your body clock, so",
+      "you get energy in",
+      "the morning and",
+      "feel sleepy at night"
+     ],
+     "fr": "la lumière du matin règle ton horloge interne : t'as [[de l'énergie le matin]] et sommeil le soir",
+     "texte": "Morgenlicht stellt deine innere Uhr, so hast du [[morgens Energie]] und wirst abends müde"
+    },
+    "T4": {
+     "en": [
+      "better sleep is the easiest way to start turning",
+      "your life around, everything else gets easier"
+     ],
+     "fr": "bien dormir, c'est le plus simple pour [[reprendre ta vie en main]], tout le reste devient plus facile",
+     "texte": "besser schlafen ist der leichteste Weg, [[dein Leben umzukrempeln]], alles andere wird leichter"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

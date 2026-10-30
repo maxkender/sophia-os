@@ -1471,6 +1471,31 @@
     "6": "7680975889932225814_4"
    },
    "notes": "schéma journal (comme original-008); cta B"
+  },
+  {
+   "post_id": "original-025",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#dailyhabits #selfimprovement #oneyearfromnow",
+   "musique": {
+    "titre": "som original",
+    "auteur": "thegoodvibesplaylist",
+    "original": true,
+    "id": "7352555204486449925",
+    "url_tiktok": "https://www.tiktok.com/music/x-7352555204486449925"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683630825610513686_1",
+    "2": "7694340359056313632_6",
+    "3": "7692093201968090401_2",
+    "4": "7696836327026724128_6",
+    "5": "7684726544442346774_4",
+    "6": "7685340052989398275_6"
+   },
+   "notes": "essai (accroche de @gilmoreobssesed, 34,6k vues); cta C"
   }
  ]
 }

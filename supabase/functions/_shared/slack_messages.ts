@@ -77,5 +77,8 @@ export async function historiqueCanal(jeton: string, canal: string, depuis: numb
       if (l) lignes.push(l);
     }
   }
-  return lignes;
+  // Un message « also sent to channel » revient dans le canal et dans son fil : une seule ligne.
+  const vus = new Map<string, MessageSlack>();
+  for (const l of lignes) if (!vus.has(l.ts)) vus.set(l.ts, l);
+  return [...vus.values()];
 }

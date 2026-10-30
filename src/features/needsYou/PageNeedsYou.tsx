@@ -22,6 +22,7 @@ import {
   URGENCES,
   type CasNeedsYou,
 } from "./api";
+import { FicheSansCanal } from "./FicheSansCanal";
 import { estInterne, filtrer, FILTRES_VIDES, options, parCategorie, trier, type Filtres } from "./logique";
 
 const selectClass = "h-9 rounded-md border border-input bg-background px-2 text-sm";
@@ -162,6 +163,7 @@ function LigneCas({ c }: { c: CasNeedsYou }) {
           {c.pense}
           {c.confiance !== null && <span className="text-muted-foreground"> ({t("needsYou.confiance", { n: Math.round(c.confiance * 100) })})</span>}
         </p>
+        {c.type === "sans_canal" && c.poster_id && <FicheSansCanal posterId={c.poster_id} />}
         {saisie === "classer" && (
           <select className={selectClass} aria-label={t("needsYou.actions.classer")} value={valeur} onChange={(e) => setValeur(e.target.value)}>
             <option value="">—</option>

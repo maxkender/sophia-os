@@ -207,6 +207,7 @@ describe("AdminRelectureNativePage", () => {
       statut: "pret",
       erreur: null,
       created_at: "2026-10-29T10:00:00Z",
+      updated_at: "2026-10-29T10:05:00Z",
     };
     listerExemples.mockResolvedValue([pret, { ...pret, id: "e9", langue: "tr", label_id: null }]);
     rendre();
@@ -279,8 +280,12 @@ describe("AdminRelectureNativePage", () => {
 
     const suivi = within(section).getByTestId("suivi-exemples");
     await waitFor(() =>
-      expect(suivi).toHaveTextContent("2 compte(s) à chercher · 2 slideshow(s) à lire. Tu peux fermer la page."),
+      expect(suivi).toHaveTextContent(
+        "2 compte(s) à chercher · 2 slideshow(s) à lire, dont 1 en lecture en ce moment. Tu peux fermer la page.",
+      ),
     );
+    // La preuve que ça avance : l'heure de la dernière lecture finie.
+    expect(suivi).toHaveTextContent(/Dernier slideshow lu à \d{2}:\d{2}\./);
     expect(suivi).toHaveTextContent("@zitatxplorer : recherche en cours…");
     expect(suivi).toHaveTextContent("@attente : en attente");
     expect(suivi).toHaveTextContent("@motiversum : 60 posts lus, 10 slideshow(s) retenu(s), 8 nouveau(x) dans la banque");

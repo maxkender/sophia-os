@@ -207,6 +207,7 @@ export interface ExempleNatif {
   /** Pris par un passage du serveur : la lecture est en cours. */
   pris_le: string | null;
   created_at: string;
+  updated_at: string;
 }
 
 /** Un compte collé, cherché sur le serveur par la tâche planifiée (0618). */
@@ -245,7 +246,7 @@ export interface ResumeAjoutExemples {
 export async function listerExemplesNatifs(): Promise<ExempleNatif[]> {
   const { data, error } = await supabase
     .from("exemples_natifs")
-    .select("id, langue, source_url, handle, label_id, slides, vues, statut, erreur, pris_le, created_at")
+    .select("id, langue, source_url, handle, label_id, slides, vues, statut, erreur, pris_le, created_at, updated_at")
     .order("created_at", { ascending: false })
     .limit(2000);
   if (error) throw error;

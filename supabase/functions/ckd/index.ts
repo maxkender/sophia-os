@@ -23,6 +23,7 @@ import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture
 import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
 import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } from "../_shared/slack_questions.ts";
 import { canauxDuBot, historiqueCanal } from "../_shared/slack_messages.ts";
+import { estLienCourt, handleDuLien, handleMajoritaire, handlesProches, resoudreLienCourt } from "../_shared/handle_liens.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -159,6 +160,20 @@ Deno.serve(async (request) => {
         if (!h) return json({ ok: false, error: "@ invalide" }, 400);
         return json({ ok: true, handle: h, ...(await lireProfilTiktok(h)) });
       }
+      case "handles_depuis_liens":
+        // Le @ lu dans les liens postés : corrigé s'il est proche, sinon signalé (compte perso ?).
+        return json(await handlesDepuisLiens(supabase, typeof body.compte_id === "string" ? body.compte_id : null));
+      case "handle_utiliser": {
+        // « Use @x » (admin) : le @ des liens devient celui du compte, une fois vu sur TikTok.
+        if (cron) return json({ ok: false, error: "réservé à l'admin" }, 403);
+        const h = normaliserHandle(String(body.handle ?? ""));
+        if (!h || !body.compte_id) return json({ ok: false, error: "compte_id et handle requis" }, 400);
+        const profil = await lireProfilTiktok(h);
+        if (profil.existe !== true) return json({ ok: false, error: profil.existe === false ? `@${h} introuvable sur TikTok` : "TikTok illisible, réessayer" });
+        const { error } = await supabase.rpc("handle_corriger", { p_compte: String(body.compte_id), p_nouveau: h, p_source: "admin" });
+        if (error) return json({ ok: false, error: error.message });
+        return json({ ok: true, handle: h });
+      }
       case "slack_messages_reprendre":
         // Prompt 27 : les 30 derniers jours des canaux où est l'appli (lecture seule), pour la colonne Context.
         return json(await reprendreMessagesSlack(supabase, Number(body.jours) || 30));
@@ -180,6 +195,57 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+/**
+ * Le @ lu dans les liens postés (21 derniers jours ; liens courts résolus, 8 au
+ * plus par compte et par passage). Proche du @ du compte (chiffres de la fin) :
+ * le compte existe sur TikTok → le @ est remplacé partout (handle_corriger),
+ * les liens et les vues sont relus. Complètement différent : signalé
+ * (handles_autres), jamais corrigé tout seul.
+ */
+async function handlesDepuisLiens(supabase: Supabase, compteId: string | null) {
+  const depuis = new Date(Date.now() - 21 * 86_400_000).toISOString().slice(0, 10);
+  let req = supabase.from("passages").select("compte_id, publie_url, comptes!inner(handle_tiktok, is_active, type_compte)")
+    .not("publie_url", "is", null).gte("date_publication_prevue", depuis).eq("comptes.is_active", true).eq("comptes.type_compte", "perso");
+  if (compteId) req = req.eq("compte_id", compteId);
+  const { data, error } = await req.limit(20000);
+  if (error) throw error;
+  const parCompte = new Map<string, { handle: string; urls: string[] }>();
+  // deno-lint-ignore no-explicit-any
+  for (const p of (data ?? []) as any[]) {
+    const c = parCompte.get(p.compte_id) ?? { handle: String(p.comptes?.handle_tiktok ?? "").toLowerCase(), urls: [] };
+    c.urls.push(String(p.publie_url));
+    parCompte.set(p.compte_id, c);
+  }
+  const bilan = { comptes: parCompte.size, corriges: [] as string[], autres: [] as string[], introuvables: [] as string[] };
+  for (const [id, c] of parCompte) {
+    const handles: (string | null)[] = c.urls.map(handleDuLien);
+    const courts = c.urls.filter((u) => !handleDuLien(u) && estLienCourt(u)).slice(0, 8);
+    // Les liens courts ne sont résolus que s'il n'y a pas assez de liens complets.
+    if (handles.filter(Boolean).length < 3) for (const u of courts) handles.push(await resoudreLienCourt(u));
+    const maj = handleMajoritaire(handles);
+    if (!maj || !c.handle || maj.handle === c.handle) continue;
+    if (handlesProches(c.handle, maj.handle)) {
+      const profil = await lireProfilTiktok(maj.handle);
+      if (profil.existe !== true) {
+        bilan.introuvables.push(`@${c.handle} → @${maj.handle}`);
+        continue;
+      }
+      const { error: errC } = await supabase.rpc("handle_corriger", { p_compte: id, p_nouveau: maj.handle, p_source: "lien" });
+      if (errC) bilan.introuvables.push(`@${c.handle} → @${maj.handle} : ${errC.message}`);
+      else bilan.corriges.push(`@${c.handle} → @${maj.handle}`);
+    } else {
+      const { data: deja } = await supabase.from("handles_autres").select("handle_lien, regle_at").eq("compte_id", id).maybeSingle();
+      const nouveau = !deja || deja.handle_lien !== maj.handle;
+      await supabase.from("handles_autres").upsert({
+        compte_id: id, handle_lien: maj.handle, liens: maj.liens, vu_at: new Date().toISOString(),
+        ...(nouveau ? { regle_at: null } : {}),
+      }, { onConflict: "compte_id" });
+      bilan.autres.push(`@${c.handle} : liens de @${maj.handle}`);
+    }
+  }
+  return { ok: true, ...bilan };
+}
 
 /** Prompt 27 : l'historique des canaux Slack (messages humains), gardé dans slack_messages. */
 async function reprendreMessagesSlack(supabase: Supabase, jours: number) {
@@ -975,6 +1041,11 @@ async function handleProposer(supabase: Supabase, body: { handle?: unknown; comp
   const issue = await verifierHandlePropose(supabase, lireProfilTiktok, {
     id: ligne.id, poster_id: posteurId, compte_id: c.id, handle_propose: handle, handle_attendu: c.handle_tiktok,
   });
+  // Le @ remplacé : liens relus, « Ask for @ » répondu, carte « à valider » si le @ ne ressemble pas au nôtre.
+  if (issue === "trouve") {
+    const { error: errSuite } = await supabase.rpc("handle_corrige_suite", { p_proposition: ligne.id });
+    if (errSuite) console.error("[ckd] handle_corrige_suite", errSuite.message);
+  }
   const message = issue === "trouve"
     ? texteHandle(textes.trouve, { handle })
     : issue === "introuvable"

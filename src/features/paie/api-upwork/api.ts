@@ -189,10 +189,22 @@ export interface EtapePaieTest {
   montant?: number;
   erreur?: string | null;
   reponse?: unknown;
+  /** L'état relu chez Upwork (financer : Active attendu). */
+  etat?: string | null;
+}
+
+/** Les états d'une milestone financée chez Upwork (comme ETATS_FINANCES côté fonctions). */
+export const ETATS_FINANCES = ["Active", "Submitted", "Rejected"];
+
+/** 0467 : une étape n'est « OK » que sans erreur et, si un état a été relu, financé. */
+export function etapeOk(e: EtapePaieTest): boolean {
+  return !e.erreur && (e.etat === undefined || e.etat === null || ETATS_FINANCES.includes(e.etat));
 }
 
 export async function payerSemaineTest(contratId: string): Promise<{
   ok: boolean;
+  /** 0467 : la semaine est payée, la suivante est dans « To fund by hand ». */
+  a_financer?: boolean;
   semaine?: string;
   resultat?: string;
   raison?: string | null;
@@ -202,4 +214,48 @@ export async function payerSemaineTest(contratId: string): Promise<{
   jalons?: { nom: string; etat: string; depot: number | null; echeance: string | null }[] | null;
 }> {
   return await invoke("upwork", { action: "paie_test_payer", contrat_id: contratId, confirmer: true });
+}
+
+/** 0467 : les milestones à financer à la main sur Upwork (la paie n'a pas pu le faire par l'API). */
+export interface AFinancer {
+  id: string;
+  poster_id: string | null;
+  poster_nom: string | null;
+  contrat_id: string;
+  jalon_id: string;
+  nom: string | null;
+  montant: number | null;
+  semaine: string | null;
+  raison: string | null;
+  etat_lu: string | null;
+  relu_at: string | null;
+  cree_at: string;
+  lien: string;
+}
+
+export async function lireAFinancer(): Promise<AFinancer[]> {
+  const { data, error } = await supabase.rpc("paie_a_financer_liste");
+  if (error) throw error;
+  return (data ?? []) as AFinancer[];
+}
+
+export async function relireAFinancer(): Promise<{ ouvertes: number; financees: number }> {
+  const r = await invoke<{ ok: boolean; error?: string; ouvertes: number; financees: number }>("upwork", { action: "a_financer_relire" });
+  if (r.error) throw new Error(r.error);
+  return r;
+}
+
+/** 0467 : « Fund this milestone (test) » : seulement le financement, puis la relecture d'Upwork. */
+export interface FinancementTest {
+  ok: boolean;
+  error?: string;
+  jalon?: { id: string; nom: string | null; depot: number | null };
+  requete?: unknown;
+  reponse?: unknown;
+  erreur?: string | null;
+  etat_relu?: string | null;
+}
+
+export async function financerJalonTest(contratId: string): Promise<FinancementTest> {
+  return await invoke("upwork", { action: "paie_test_financer", contrat_id: contratId, confirmer: true });
 }

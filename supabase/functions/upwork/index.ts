@@ -227,6 +227,10 @@ Deno.serve(async (request) => {
       case "paie_simulation":
         // Prompt 26 : la paie d'une semaine, simulée (rien n'est payé ni financé).
         return json(await paieSimulation(supabase, par, typeof body.semaine === "string" ? body.semaine : null));
+      case "paie_test_financer":
+        // 0467 : « Fund this milestone (test) » : seulement le financement, puis la relecture.
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await paieTestFinancer(supabase, par, String(body.contrat_id ?? "")));
       case "paie_test_payer":
         // Prompt 26 : « Pay this week » sur un contrat de test (Overview → Test contracts).
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -262,6 +266,8 @@ Deno.serve(async (request) => {
         const passage = typeof body.passage === "string" ? body.passage : jour === 1 ? "lundi_soir" : jour === 2 ? "mardi_midi" : "manuel";
         return json(await verifierArrets(supabase, par, passage));
       }
+      case "a_financer_relire":
+        return json(await relireAFinancer(supabase, par));
       case "contrats_sans_posteur_lire":
         return json(await lireContratsSansPosteur(supabase, par));
       case "contrat_sans_posteur_fermer":
@@ -1214,8 +1220,51 @@ async function paieTestPayer(supabase: Supabase, par: string | null, contratId: 
   const scope = [pa?.erreur, ...etapes.map((e) => e.erreur)].find((x) => x && /scope|permission|not authori[sz]ed|forbidden|access denied/i.test(String(x))) ?? null;
   const apres = await relireJalons(supabase, par, contratId, tenant, "paie_test_relire");
   return {
-    ok: issue.resultat === "paye", semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan, etapes,
+    ok: issue.resultat === "paye", a_financer: issue.a_financer === true, semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan, etapes,
     droit_manquant: scope, jalons: apres.jalons?.map((j) => ({ nom: j.nom, etat: j.etat, depot: j.depot, echeance: j.echeance ?? null })) ?? null,
+  };
+}
+
+/**
+ * 0467 : « Fund this milestone (test) » sur un contrat de test : la 1re milestone
+ * NotFunded est financée (activateMilestone), rien d'autre. Upwork est relu tout
+ * de suite puis 10 s plus tard (le financement peut être asynchrone) : OK
+ * seulement si l'état relu est financé. La requête et la réponse complètes sont
+ * renvoyées et gardées dans les Logs.
+ */
+async function paieTestFinancer(supabase: Supabase, par: string | null, contratId: string) {
+  if (await bloquer(supabase, { fonction: "upwork", action: "paie_test_financer", cible: contratId })) return { ok: false, error: PAUSE };
+  if (!contratId) return { ok: false, error: "contrat_id requis" };
+  const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
+  if (!t) return { ok: false, error: "ce contrat n'est pas dans la liste « Test contracts »" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contratId).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  if (!tenant) return { ok: false, error: "contrat absent des contrats lus (Réglages → Upwork → Lire les contrats)" };
+  await jetonValide(supabase, par);
+  const avant = await relireJalons(supabase, par, contratId, tenant, "test_financer_jalons_avant");
+  if (!avant.jalons) return { ok: false, error: `milestones illisibles : ${avant.erreur}` };
+  const j = [...avant.jalons].sort((a, b) => a.sequence - b.sequence).find((x) => x.etat === "NotFunded");
+  if (!j) return { ok: false, error: "aucune milestone NotFunded sur ce contrat" };
+  const r = await reglagesPaieApi(supabase);
+  if (j.depot === null || !(j.depot > 0)) return { ok: false, error: `${j.nom || "milestone"} : montant illisible` };
+  if (j.depot > r.plafond_ligne) return { ok: false, error: `${j.depot} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)` };
+  const requete = { query: MUTATION_FINANCER_JALON, variables: { input: { id: j.id } } };
+  const active = await ecrire(supabase, { par, action: "test_financer_jalon", ...requete, tenant, contrat: contratId, montant: j.depot });
+  const lire1 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire");
+  let etat = lire1.jalons?.find((x) => x.id === j.id)?.etat ?? null;
+  if (!etat || !ETATS_FINANCES.includes(etat)) {
+    await new Promise((ok) => setTimeout(ok, 10_000));
+    const lire2 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire_10s");
+    etat = lire2.jalons?.find((x) => x.id === j.id)?.etat ?? etat;
+  }
+  const finance = Boolean(etat && ETATS_FINANCES.includes(etat));
+  return {
+    ok: finance,
+    jalon: { id: j.id, nom: j.nom, depot: j.depot },
+    requete,
+    reponse: active.data ?? null,
+    erreur: active.erreur ?? (finance ? null : pasFinancee(etat)),
+    etat_relu: etat,
   };
 }
 
@@ -1376,7 +1425,62 @@ interface Issue {
   type?: TypeErreur;
   jalon_finance?: string | null;
   plan?: PlanPaiement;
+  /** 0467 : la semaine est payée, la suivante reste à financer à la main sur Upwork. */
+  a_financer?: boolean;
 }
+
+/**
+ * 0467 : le compte client n'est pas « enterprise » : activateMilestone ouvre un
+ * paiement à confirmer sur Upwork (unified checkout) et la milestone reste
+ * « NotFunded / Needs funds ». Elle va dans « To fund by hand » (Payroll et
+ * Needs you), une fois ; jamais de nouvel essai.
+ */
+async function aFinancerALaMain(
+  supabase: Supabase,
+  o: { ligne: LigneAuto; contrat: string; semaine: string; jalon: { id: string; nom: string | null; etat: string }; montant: number; raison: string },
+) {
+  await supabase.from("paie_a_financer").upsert({
+    paie_semaine_id: o.ligne.ids[0] ?? null, poster_id: o.ligne.poster_id, contrat_id: o.contrat, jalon_id: o.jalon.id,
+    nom: o.jalon.nom, montant: o.montant, semaine: o.semaine, raison: o.raison, etat_lu: o.jalon.etat,
+  }, { onConflict: "contrat_id,jalon_id", ignoreDuplicates: true });
+}
+
+/**
+ * 0467 : les milestones « To fund by hand », relues sur Upwork (lecture seule).
+ * Financée (ou déjà payée) : sortie de la liste et de Needs you. Cron
+ * `a-financer-relire`, toutes les heures ; bouton « Re-read » de Payroll.
+ */
+async function relireAFinancer(supabase: Supabase, par: string | null) {
+  const { data, error } = await supabase.from("paie_a_financer").select("id, contrat_id, jalon_id").is("finance_at", null).limit(300);
+  if (error) throw error;
+  const liste = (data ?? []) as { id: string; contrat_id: string; jalon_id: string }[];
+  const bilan = { ouvertes: liste.length, financees: 0, erreurs: [] as string[] };
+  if (!liste.length) return { ok: true, ...bilan };
+  const contrats = [...new Set(liste.map((x) => x.contrat_id))];
+  const { data: orgs } = await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats);
+  const tenantDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), (o.organisation_id as string | null) ?? null]));
+  await jetonValide(supabase, par);
+  for (const contrat of contrats) {
+    const relu = await relireJalons(supabase, par, contrat, tenantDe.get(contrat) ?? null, "a_financer_relire");
+    if (!relu.jalons) {
+      bilan.erreurs.push(`${contrat} : ${relu.erreur}`);
+      continue;
+    }
+    for (const x of liste.filter((y) => y.contrat_id === contrat)) {
+      const j = relu.jalons.find((k) => k.id === x.jalon_id);
+      const fini = Boolean(j && (ETATS_FINANCES.includes(j.etat) || PAYEES.includes(j.etat)));
+      await supabase.from("paie_a_financer").update({
+        etat_lu: j?.etat ?? "introuvable", relu_at: new Date().toISOString(), ...(fini ? { finance_at: new Date().toISOString() } : {}),
+      }).eq("id", x.id);
+      if (fini) bilan.financees++;
+    }
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
+}
+
+/** Le message d'une milestone que l'API n'a pas pu financer. */
+const pasFinancee = (etat: string | null | undefined) =>
+  `Upwork : ${etat || "NotFunded"} (Needs funds) — compte non enterprise, le financement attend une confirmation sur Upwork : à financer à la main`;
 
 const COLONNES_PAIEMENT =
   "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, soumission_message_at, etapes, montant_approuve, updated_at";
@@ -1581,11 +1685,20 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
         // B5 : le montant relu, au cent près, avant de financer.
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} vaut ${jc.depot ?? "?"} $, attendu ${c.montant} $ : pas financée`, null, "autre");
         const active = await ecrire(supabase, { par, action: "paie_financer_complement", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: c.montant, variables: { input: { id: jc.id } } });
-        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: active.erreur });
-        if (active.erreur || !active.data?.activateMilestone) return await echec(`payée ; financement de ${c.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
+        if (active.erreur || !active.data?.activateMilestone) {
+          etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
+          return await echec(`payée ; financement de ${c.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
+        }
         const relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_complement");
         jc = relu.jalons?.find((j) => j.id === jalonComplement) ?? jc;
         if (relu.jalons) jalons = relu.jalons;
+        // 0467 : « OK » seulement si la relecture le confirme financé.
+        const fini = ETATS_FINANCES.includes(jc.etat);
+        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: fini ? null : pasFinancee(jc.etat), etat: jc.etat, reponse: active.data ?? null });
+        if (!fini) {
+          await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jc, montant: c.montant, raison: "2nd account: fund, then approve" });
+          return await echec(`payée ; ${c.nom} : ${pasFinancee(jc.etat)}`, null, "autre");
+        }
       }
       if (ETATS_FINANCES.includes(jc.etat)) {
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} financée à ${jc.depot ?? "?"} $, attendu ${c.montant} $`, null, "autre");
@@ -1658,19 +1771,25 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       par, action: "paie_financer_jalon", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: f.montant,
       variables: { input: { id: jalonFinance } },
     });
-    etapes.push({ etape: "financer", jalon: jalonFinance, erreur: active.erreur, etat: active.data?.activateMilestone?.state ?? null });
     if (active.erreur || !active.data?.activateMilestone) {
+      etapes.push({ etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
       await maj({ financement: "erreur" });
       return await echec(`payée ; financement de ${f.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
     }
-    // L'activation peut passer par un paiement Upwork (checkout) : on relit.
+    // L'activation peut passer par un paiement Upwork (checkout) : on relit. 0467 : « OK » seulement si la relecture le confirme.
     relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_jalons");
     jf = relu.jalons?.find((j) => j.id === jalonFinance) ?? jf;
-    etapes.push({ etape: "relire", jalon: jalonFinance, etat: jf.etat });
+    const fini = ETATS_FINANCES.includes(jf.etat);
+    etapes.push({
+      etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, etat: jf.etat,
+      erreur: fini ? null : pasFinancee(jf.etat), reponse: active.data ?? null,
+    });
   }
   if (!ETATS_FINANCES.includes(jf.etat)) {
-    await maj({ financement: "en_attente" });
-    return await echec(`payée ; ${f.nom} pas encore financée sur Upwork (état ${jf.etat || "inconnu"})`, "état inattendu");
+    // 0467 : la semaine est payée ; la suivante va dans « To fund by hand », sans nouvel essai.
+    await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jf, montant: f.montant, raison: "fund next week" });
+    await maj({ statut: "paye", financement: "a_la_main", erreur: null, reessai: false, prochain_essai: null });
+    return { resultat: "paye", jalon_finance: jalonFinance, plan, a_financer: true };
   }
   if (!montantConforme(jf, f.montant)) return await echec(`payée ; ${f.nom} financée à ${jf.depot ?? "?"} $, attendu ${f.montant} $`, null, "autre");
   await marquerLignes(supabase, ligne.ids, par, "suivante");

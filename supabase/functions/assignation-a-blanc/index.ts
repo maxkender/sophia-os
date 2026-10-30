@@ -77,6 +77,7 @@ Deno.serve((request) => {
     let compteId = "";
     let jour = "";
     let ia = false;
+    let bleo = false;
     let corps: Record<string, unknown> | null = null;
     try {
       const body = await request.json() as Record<string, unknown>;
@@ -86,6 +87,8 @@ Deno.serve((request) => {
       jour = typeof brut === "string" ? brut : "";
       // Strict : seule la valeur true active l'IA (« false » en texte ne compte pas).
       ia = body?.ia === true;
+      // BLEO : suivre le plan du tirage comme après la bascule (même stricte).
+      bleo = body?.bleo === true;
     } catch {
       return json({ error: "corps JSON attendu : { compteId, jour, ia }" }, 400);
     }
@@ -123,9 +126,10 @@ Deno.serve((request) => {
           try {
             log(
               `Test à BLANC · ${jour} · compte ${compteId.slice(0, 8)}` +
-                (ia ? " · IA autorisée (rien n'est enregistré)" : " · sans IA"),
+                (ia ? " · IA autorisée (rien n'est enregistré)" : " · sans IA") +
+                (bleo ? " · plan BLEO suivi" : ""),
             );
-            const r = await executerAssignationABlanc(serviceClient(), ctx, { compteId, jour, ia, onLog: log });
+            const r = await executerAssignationABlanc(serviceClient(), ctx, { compteId, jour, ia, bleo, onLog: log });
             const echec = Boolean(r.erreurRun) || (Boolean(r.resultat.erreur) && r.resultat.crees === 0);
             emettre({
               etape: "ready",

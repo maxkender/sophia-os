@@ -3609,3 +3609,118 @@ Deno.test("pods 0276 — créneau Sophia : inchangé, les decks d'application ne
     );
   });
 });
+
+// ── BLEO, bascule du 2/11 : minuit suit le plan du tirage de 14 h ─────────────
+
+/** Une base d'essai où BLEO est en `mode`, avec un run fini et le plan donné pour k1. */
+function baseBleo(
+  mode: "off" | "ombre" | "actif",
+  plan: Array<{ creneau: number; contenu_id: string; langue?: string; file_bleo?: string }>,
+  // deno-lint-ignore no-explicit-any
+  compte: Record<string, any> = {},
+) {
+  const base = baseEssai({ compte, liens: [{ label_id: "L1", application_id: ID_SOPHIA }] });
+  return {
+    ...base,
+    reglages: [{ cle: "bleo", valeur: { mode } }],
+    bleo_runs: [
+      // Un essai manuel en erreur, plus récent : jamais suivi.
+      { id: "run-essai", jour_vise: JOUR, demarre_le: `${JOUR}T00:00:00Z`, fini_le: null, erreur: "essai" },
+      { id: "run-1", jour_vise: JOUR, demarre_le: "2026-10-02T12:00:00Z", fini_le: "2026-10-02T12:00:20Z", erreur: null },
+    ],
+    bleo_ombre_passages: plan.map((l) => ({
+      run_id: "run-1",
+      compte_id: "k1",
+      creneau: l.creneau,
+      contenu_id: l.contenu_id,
+      langue: l.langue ?? "fr",
+      application_id: null,
+      file_bleo: l.file_bleo ?? "valeur",
+      categorie: "recolte",
+      valeur_tirage: 2.5,
+    })),
+  };
+}
+
+Deno.test("BLEO actif : le créneau du plan est servi tel quel, le suivant retombe sur la tierlist (témoin)", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseBleo("actif", [{ creneau: 1, contenu_id: idContenu(4) }], { posts_par_jour: 2 });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 2);
+    const [planifie, temoin] = insertsPassages(journal);
+    assertEquals(planifie.contenu_id, idContenu(4));
+    assertEquals(planifie.bras, "bleo");
+    assertEquals(planifie.bleo_run_id, "run-1", "le run fini, pas l'essai en erreur");
+    assertEquals(planifie.file_bleo, "valeur");
+    assertEquals(planifie.valeur_tirage, 2.5);
+    assertEquals(temoin.bras, "temoin");
+    assert(temoin.contenu_id !== idContenu(4), "la tierlist ne reprend pas le contenu du plan");
+    assertEquals(temoin.bleo_run_id, undefined);
+    assertEquals(appels.sophia[0], idContenu(4));
+  });
+});
+
+Deno.test("BLEO actif : un contenu du plan qui n'est plus servable rend le créneau à la tierlist", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseBleo("actif", [
+      { creneau: 1, contenu_id: "contenu-retire" },
+      { creneau: 2, contenu_id: idContenu(2), langue: "de" },
+    ]);
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.bras, "temoin");
+    assert(passage.contenu_id !== "contenu-retire");
+  });
+});
+
+Deno.test("BLEO actif : un deck du plan qui lève rend le créneau à la tierlist", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const sophia = decksAssignation.sophia;
+    decksAssignation.sophia = (s, contenuId, l) =>
+      contenuId === idContenu(4) ? Promise.reject(new Error("deck cassé")) : sophia(s, contenuId, l);
+    const base = baseBleo("actif", [{ creneau: 1, contenu_id: idContenu(4) }]);
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.bras, "temoin");
+    assert(passage.contenu_id !== idContenu(4));
+    assertEquals(appels.sophia.length, 1, "seul le deck de la tierlist passe par le circuit");
+  });
+});
+
+Deno.test("BLEO ombre : le plan n'est pas lu, le passage est celui d'avant", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseBleo("ombre", [{ creneau: 1, contenu_id: idContenu(4) }]);
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(journal.filter((o) => o.table === "bleo_runs" || o.table === "bleo_ombre_passages"), []);
+    const [passage] = insertsPassages(journal);
+    for (const c of ["bras", "file_bleo", "valeur_tirage", "bleo_run_id"]) assert(!(c in passage), `colonne ${c} écrite`);
+  });
+});
+
+Deno.test("BLEO ombre + suivrePlanBleo (répétition à blanc) : le plan est suivi", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseBleo("ombre", [{ creneau: 1, contenu_id: idContenu(4) }]);
+    const { client, journal } = fauxMoteur(base);
+
+    await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, { suivrePlanBleo: true });
+
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.contenu_id, idContenu(4));
+    assertEquals(passage.bras, "bleo");
+  });
+});

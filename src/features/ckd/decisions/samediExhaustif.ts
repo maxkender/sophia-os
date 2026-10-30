@@ -72,7 +72,7 @@ export interface ContratSansPosteur {
   salon_lu_at: string | null;
   finances: { nom: string | null; depot: number | null; etat: string }[];
   jalons_lus_at: string | null;
-  proposition: "hm" | "relier" | "ancien";
+  proposition: "hm" | "relier" | "ancien" | "autre";
   raison: string;
 }
 

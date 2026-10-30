@@ -373,7 +373,7 @@ export const en = {
             },
             sansPosteur: {
               titre: "Contracts with no poster ({{n}})",
-              aide: "Active VIk Studios contracts with no OS profile: {{relier}} to link, {{hm}} HM contracts, {{ancien}} former posters to close. Nothing is closed without your click.",
+              aide: "Active VIk Studios contracts with no OS profile: {{relier}} to link, {{hm}} HM contracts, {{ancien}} former posters to close, {{autre}} other jobs (not posting). Nothing is closed without your click.",
               relire: "Read on Upwork",
               relu: "{{contrats}} contracts · {{jalons}} milestones read · {{salons}} conversations read",
               colonnes: { nom: "Freelancer", debut: "Start", message: "Last message", finance: "Funded milestone", proposition: "Proposal" },
@@ -381,7 +381,7 @@ export const en = {
               aucunMessage: "no message",
               pasLu: "not read yet",
               rienFinance: "nothing funded",
-              propositions: { hm: "HM contract", relier: "To link", ancien: "Former poster: close" },
+              propositions: { hm: "HM contract", relier: "To link", ancien: "Former poster: close", autre: "Other job (not posting)" },
               fermer: "End contract",
               confirmer: "End the contract of {{nom}} on Upwork now? Only if nothing is funded and the closing test passed. No message is sent.",
             },

@@ -1,0 +1,959 @@
+{
+ "id": "yp-013",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "titre": {
+  "fr": "je note des astuces de révision : ça vaut le coup ou pas ?, partie 2",
+  "en": "rating study hacks: worth it or not worth it?, part 2",
+  "es": "puntúo trucos de estudio: ¿valen la pena o no?, parte 2",
+  "de": "ich bewerte Lern-Hacks: lohnt es sich oder nicht?, Teil 2",
+  "it": "do un voto ai trucchi di studio: ne vale la pena o no?, parte 2",
+  "pt": "avaliando truques de estudo: vale a pena ou não?, parte 2",
+  "tr": "ders çalışma taktiklerini puanlıyorum: değer mi, değmez mi?, bölüm 2"
+ },
+ "legendes": {
+  "fr": "partie 2 mes notes sur 10, sans filtre 📚 #revisions #studytok #astuces #methodedetravail #thatgirl",
+  "en": "part 2 my honest ratings out of 10 📚 #studytips #studytok #studyhacks #studying #thatgirl",
+  "es": "parte 2 mis notas del 0 al 10, sin filtro 📚 #estudiar #studytok #trucosdeestudio #tecnicasdeestudio #thatgirl",
+  "de": "Teil 2 meine Noten von 0 bis 10, ganz ehrlich 📚 #lernen #studytok #lerntipps #abitur #thatgirl",
+  "it": "parte 2 i miei voti da 0 a 10, senza filtri 📚 #studiare #studytok #metododistudio #consigli #thatgirl",
+  "pt": "parte 2 minhas notas de 0 a 10, sem filtro 📚 #estudos #studytok #dicasdeestudo #enem #thatgirl",
+  "tr": "bölüm 2 0'dan 10'a puanlarım, filtresiz 📚 #ders #studytok #dersçalışma #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7177490894231931654"
+ },
+ "fond": {
+  "media_id": "7d1257fb-360c-4da2-9275-bf5297db7219",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/741e7669-a63d-4fcc-af3d-7d065404d6aa/7.jpg?v=1792527243983",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-006 (« RATING STUDY HACKS », 12 k) : partie 2, autres hacks et autres photos. cta A : micabo dans le texte de la note « les quiz de 10 min par jour », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "JE NOTE",
+      "DES HACKS",
+      "D’ÉTUDE"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ça vaut le coup",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "ou pas ?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(partie 2)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RATING",
+      "STUDY",
+      "HACKS"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "worth it or not",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "worth it?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(part 2)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PUNTÚO",
+      "TRUCOS DE",
+      "ESTUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "¿valen la pena",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 2)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ICH BEWERTE",
+      "LERN-HACKS"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "lohnt es sich",
+       "x": 230,
+       "y": 1260
+      },
+      {
+       "texte": "oder nicht?",
+       "x": 430,
+       "y": 1360
+      },
+      {
+       "texte": "(Teil 2)",
+       "x": 470,
+       "y": 1470
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "VOTO I",
+      "TRUCCHI DI",
+      "STUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ne vale la pena",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 2)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AVALIANDO",
+      "TRUQUES DE",
+      "ESTUDO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "vale a pena",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "ou não?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 2)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS",
+      "TAKTİKLERİNİ",
+      "PUANLIYORUM"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "0’dan 10’a",
+       "x": 300,
+       "y": 1360
+      },
+      {
+       "texte": "puanlar",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(bölüm 2)",
+       "x": 510,
+       "y": 1570
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "47ae84d9-18a1-4a95-997b-b00941a77e3c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/607fe062-d6d2-43b2-a715-de2fd425f0f0/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "réviser au lit🛏️",
+      "texte": "2/10\nton cerveau associe le lit au sommeil. au bout de 20 min, tu dors à moitié.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studying in bed🛏️",
+      "texte": "2/10\nyour brain links your bed with sleep. after 20 minutes you’re half asleep.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudiar en la cama🛏️",
+      "texte": "2/10\ntu cerebro asocia la cama con dormir. a los 20 min ya estás medio dormida.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "im Bett lernen🛏️",
+      "texte": "2/10\ndein Gehirn verbindet das Bett mit Schlaf. nach 20 Min. schläfst du halb.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studiare a letto🛏️",
+      "texte": "2/10\nil cervello associa il letto al sonno. dopo 20 minuti sei già mezza addormentata.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudar na cama🛏️",
+      "texte": "2/10\nseu cérebro associa a cama ao sono. depois de 20 min você já está meio dormindo.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "yatakta ders çalışmak🛏️",
+      "texte": "2/10\nbeynin yatağı uykuyla eşleştirir. 20 dakika sonra yarı uykudasın.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "fa78d8af-04f1-43b4-8928-da4ca7d7f841",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0233b662-e12f-4816-b9ed-98797d70d816/4.jpg?v=1791726578370",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "la musique sans paroles🎧",
+      "texte": "9/10\nlofi ou classique, oui. avec des paroles, tu finis par chanter au lieu de lire.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "music without lyrics🎧",
+      "texte": "9/10\nlofi or classical, yes. with lyrics you end up singing instead of reading.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "música sin letra🎧",
+      "texte": "9/10\nlofi o clásica, sí. con letra acabas cantando en vez de leer.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Musik ohne Text🎧",
+      "texte": "9/10\nLofi oder Klassik, ja. mit Text singst du am Ende mit, statt zu lesen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "musica senza parole🎧",
+      "texte": "9/10\nlofi o classica, sì. con le parole finisci per cantare invece di leggere.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "música sem letra🎧",
+      "texte": "9/10\nlofi ou clássica, sim. com letra você acaba cantando em vez de ler.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "sözsüz müzik🎧",
+      "texte": "9/10\nlofi ya da klasik, evet. sözlü müzikte okumak yerine şarkı söylemeye başlarsın.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "dc44c3c2-e77f-4aa7-8220-5275d186cd29",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/27c0e81b-03b2-4c9c-bbb4-a0d587ccf2db/6.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "tout surligner🖍️",
+      "texte": "1/10\nsi toute la page est jaune, rien ne ressort. une idée par paragraphe, pas plus.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "highlighting everything🖍️",
+      "texte": "1/10\nif the whole page is yellow, nothing stands out. one idea per paragraph, max.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "subrayarlo todo🖍️",
+      "texte": "1/10\nsi toda la página es amarilla, nada destaca. una idea por párrafo, como mucho.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "alles markieren🖍️",
+      "texte": "1/10\nwenn die ganze Seite gelb ist, sticht nichts heraus. eine Idee pro Absatz, mehr nicht.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "evidenziare tutto🖍️",
+      "texte": "1/10\nse tutta la pagina è gialla, non risalta niente. un’idea per paragrafo, non di più.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "grifar tudo🖍️",
+      "texte": "1/10\nse a página inteira está amarela, nada se destaca. uma ideia por parágrafo, no máximo.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "her şeyin altını çizmek🖍️",
+      "texte": "1/10\nbütün sayfa sarıysa hiçbir şey öne çıkmaz. paragraf başına en fazla bir fikir.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "2983297b-2b35-495f-898f-b1f26614baef",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8fe0e67c-1700-46d6-868c-2a569fb38a63/4.jpg?v=1790607791382",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les quiz de 10 min par jour⚡",
+      "texte": "10/10\nle meilleur hack de la liste. je mets mes cours dans micabo et il m’en fait des quiz : 10 min par jour et je n’ai plus rien à rattraper avant l’exam.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "10-minute daily quizzes⚡",
+      "texte": "10/10\nthe best hack on this list. i put my lessons into micabo and it turns them into quizzes: 10 minutes a day and nothing left to catch up on before the exam.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "quiz de 10 min al día⚡",
+      "texte": "10/10\nel mejor truco de la lista. meto mis clases en micabo y me hace quiz: 10 min al día y nada que recuperar antes del examen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "10-Minuten-Quiz jeden Tag⚡",
+      "texte": "10/10\nder beste Hack der Liste. ich packe meinen Stoff in micabo und es macht Quiz daraus: 10 Min. am Tag und vor der Prüfung nichts mehr nachzuholen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "quiz di 10 minuti al giorno⚡",
+      "texte": "10/10\nil trucco migliore della lista. metto le lezioni su micabo e me le trasforma in quiz: 10 minuti al giorno e niente da recuperare prima dell’esame.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "quiz de 10 min por dia⚡",
+      "texte": "10/10\no melhor truque da lista. coloco minhas aulas no micabo e ele cria quizzes: 10 min por dia e nada pra correr atrás antes da prova.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "günde 10 dakikalık test⚡",
+      "texte": "10/10\nlistedeki en iyi taktik. derslerimi micabo’ya koyuyorum, o da test hazırlıyor: günde 10 dakika, sınavdan önce yetiştirecek hiçbir şey kalmıyor.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "10abf1de-145f-4bb9-b50d-d53be10a4c1a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2b0b9980-20a2-41a0-aceb-5c1cd98df4a1/5.jpg?v=1792601120345",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "refaire ses fiches au propre🗂️",
+      "texte": "3/10\njoli sur Pinterest, mais tu passes 2 h à décorer au lieu d’apprendre.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "rewriting your notes neatly🗂️",
+      "texte": "3/10\npretty on Pinterest, but you spend 2 hours decorating instead of learning.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pasar los apuntes a limpio🗂️",
+      "texte": "3/10\nqueda bonito en Pinterest, pero pasas 2 h decorando en vez de aprender.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Notizen schön abschreiben🗂️",
+      "texte": "3/10\nhübsch auf Pinterest, aber du verbringst 2 Std. mit Deko statt mit Lernen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ricopiare gli appunti in bella🗂️",
+      "texte": "3/10\ncarino su Pinterest, ma passi 2 ore a decorare invece di imparare.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "passar o resumo a limpo🗂️",
+      "texte": "3/10\nfica lindo no Pinterest, mas você passa 2 h decorando em vez de aprender.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "notları temize çekmek🗂️",
+      "texte": "3/10\nPinterest’te güzel duruyor ama öğrenmek yerine 2 saat süslemekle uğraşıyorsun.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a290bd67-7e91-4453-b6cd-7f7a4144ea45",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55692dc5-f02c-4a63-bc50-773e8a88bd99/5.jpg?v=1791727092749",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les pauses sans téléphone📵",
+      "texte": "10/10\n10 min à marcher ou à boire un verre d’eau. pas TikTok : 10 min deviennent vite 45.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "phone-free breaks📵",
+      "texte": "10/10\n10 minutes walking or drinking a glass of water. not TikTok: 10 minutes quickly turn into 45.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "descansos sin móvil📵",
+      "texte": "10/10\n10 min caminando o tomando un vaso de agua. no TikTok: 10 min se vuelven 45 enseguida.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Pausen ohne Handy📵",
+      "texte": "10/10\n10 Min. laufen oder ein Glas Wasser trinken. kein TikTok: aus 10 Min. werden schnell 45.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pause senza telefono📵",
+      "texte": "10/10\n10 minuti a camminare o a bere un bicchiere d’acqua. niente TikTok: 10 minuti diventano subito 45.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pausas sem celular📵",
+      "texte": "10/10\n10 min andando ou tomando um copo de água. nada de TikTok: 10 min viram 45 rapidinho.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "telefonsuz molalar📵",
+      "texte": "10/10\n10 dakika yürü ya da bir bardak su iç. TikTok değil: 10 dakika hemen 45 olur.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  }
+ ]
+}

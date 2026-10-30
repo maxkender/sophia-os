@@ -124,10 +124,28 @@ export function brasDuPost(
 }
 
 /**
+ * Le texte d'une slide sans les fautes de frappe mécaniques d'un modèle :
+ * espaces doublés, espaces en début ou en fin de ligne, plus d'une ligne vide
+ * de suite, gras Markdown (« **mot** »). Les espaces insécables (la ponctuation
+ * française) ne sont pas touchés. Le reste (fautes, accords) est dans la fiche CTA.
+ */
+export function nettoyerTexteSlide(texte: string): string {
+  return texte
+    .replace(/\r\n?/g, "\n")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .split("\n")
+    .map((ligne) => ligne.replace(/[ \t]{2,}/g, " ").replace(/^[ \t]+|[ \t]+$/g, ""))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+/**
  * Le deck écrit par un circuit, recalé sur le deck de référence (le deck
  * source ou le deck actuel) : mêmes positions, un texte là où il y en avait
- * un, une seule slide d'appli, jamais la couverture. Le circuit ne touche ni
- * aux images ni à l'ordre : seuls le texte et la slide d'appli changent.
+ * un, une seule slide d'appli, jamais la couverture, texte nettoyé
+ * (`nettoyerTexteSlide`). Le circuit ne touche ni aux images ni à l'ordre :
+ * seuls le texte et la slide d'appli changent.
  */
 export function recalerDeck(
   reference: ReadonlyArray<SlideDeck>,
@@ -142,7 +160,7 @@ export function recalerDeck(
 
   const slides: SlideDeck[] = reference.map((r) => {
     const e = parPosition.get(r.position)!;
-    const texte = (e.texte_overlay ?? "").trim();
+    const texte = nettoyerTexteSlide(e.texte_overlay ?? "");
     return { position: r.position, texte_overlay: texte || null, position_sophia: e.position_sophia === true };
   });
   const vides = reference

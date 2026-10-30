@@ -185,6 +185,7 @@ describe("AdminFichesPage", () => {
     expect(texte.startsWith("# CTA sheet")).toBe(true);
     expect(texte).toContain("Never before slide 4");
     expect(texte).toContain("## The hook stays as it is");
+    expect(texte).toContain("## Layout and typing (every slide you write)");
     expect(texte).toContain("## Never, in any language");
     expect(texte).not.toContain("Sophia");
     expect(texte).not.toMatch(/prouvee|essai|format_du_post/);

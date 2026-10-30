@@ -5,7 +5,6 @@ import { Link, useSearchParams } from "react-router-dom";
 import {
   AppWindow,
   BookOpen,
-  Calculator,
   CheckCircle2,
   Eye,
   FileText,
@@ -36,12 +35,13 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import {
-  calculerFichesLabel,
   CLE_FICHE_CTA,
   compterVersionsFiches,
   enregistrerFicheAppli,
   enregistrerFicheCta,
+  enregistrerFicheLabel,
   enregistrerFicheLangue,
+  type FicheVersionnee,
   lireFicheCta,
   listerExemplesNatifs,
   listerFichesAppli,
@@ -49,20 +49,20 @@ import {
   listerFichesLangue,
 } from "@/features/relectureNative/api";
 import type { Ton } from "@/features/relectureNative/apparence";
-import { modeleFicheAppli, modeleFicheCta, modeleFicheLangue } from "@/features/relectureNative/logique";
+import { modeleFicheAppli, modeleFicheCta, modeleFicheLabel, modeleFicheLangue } from "@/features/relectureNative/logique";
 import { messageErreur } from "@/features/relectureNative/messageErreur";
 import { MiniBarre, Puce, TuileIcone } from "@/features/relectureNative/Puces";
-import { SectionCta } from "@/features/relectureNative/SectionCta";
 import { CLE_REQUETE_EXEMPLES } from "@/features/relectureNative/SectionExemplesNatifs";
 import { cn } from "@/lib/utils";
 
-type Sorte = "appli" | "langue" | "label" | "cta";
+type Sorte = "cta" | "appli" | "langue" | "label";
 
+/** La fiche CTA d'abord : c'est l'intro, les règles communes à tous les decks. */
 const SORTES: ReadonlyArray<{ cle: Sorte; icone: LucideIcon; ton: Ton }> = [
+  { cle: "cta", icone: Megaphone, ton: "orange" },
   { cle: "appli", icone: AppWindow, ton: "violet" },
   { cle: "langue", icone: Languages, ton: "bleu" },
   { cle: "label", icone: Tags, ton: "vert" },
-  { cle: "cta", icone: Megaphone, ton: "orange" },
 ];
 
 /** Date et heure, sans les secondes. */
@@ -86,17 +86,17 @@ interface Entree {
 }
 
 /**
- * Les fiches que lit la réécriture native, au même endroit : la fiche de
- * l'appli (quoi dire), de la langue (comment le dire), du label (quel CTA
- * tirer) et la fiche CTA (comment écrire le CTA, commune à tous, 0623). Les
- * fiches appli, langue et CTA s'écrivent ici ; les fiches label sont calculées
- * chaque lundi (docs/cta.md).
+ * Les fiches que lit la réécriture native, au même endroit : la fiche CTA
+ * (l'intro commune : règle d'or, cohérence avec le deck, interdits, 0623), la
+ * fiche de l'appli (quoi dire), de la langue (comment le dire) et du label
+ * (où va l'appli dans ce type de deck, avec des exemples). Toutes s'écrivent
+ * ici, versionnées (docs/cta.md).
  */
 export function AdminFichesPage() {
   const { t, i18n } = useTranslation();
   const { applications } = useApplication();
   const [params, setParams] = useSearchParams();
-  const sorte: Sorte = (["appli", "langue", "label", "cta"] as const).find((s) => s === params.get("sorte")) ?? "appli";
+  const sorte: Sorte = SORTES.find((s) => s.cle === params.get("sorte"))?.cle ?? "cta";
   const [recherche, setRecherche] = React.useState("");
 
   const fichesAppli = useQuery({ queryKey: CLES.appli, queryFn: listerFichesAppli });
@@ -144,8 +144,8 @@ export function AdminFichesPage() {
         cle: l.nom,
         nom: l.nom,
         visuel: <Tag className="size-4 text-muted-foreground" aria-hidden />,
-        ecrite: Boolean(f),
-        detail: f ? t("fiches.metaCourte", { version: f.version, date: date(f.created_at) }) : t("fiches.pasCalculee"),
+        ecrite: Boolean(f?.contenu.trim()),
+        detail: f ? t("fiches.metaCourte", { version: f.version, date: date(f.created_at) }) : t("fiches.jamais"),
       };
     }),
     cta: [
@@ -306,10 +306,7 @@ export function AdminFichesPage() {
         ) : sorte === "label" ? (
           <FicheLabel key={choisie.cle} nom={choisie.cle} fiche={fichesLabel.data?.find((f) => f.cle === choisie.cle) ?? null} />
         ) : (
-          <div className="space-y-4">
-            <FicheCta fiche={ficheCta.data ?? null} />
-            <SectionCta />
-          </div>
+          <FicheCta fiche={ficheCta.data ?? null} />
         )}
       </div>
     </div>
@@ -562,18 +559,35 @@ function FicheAppli({
   );
 }
 
-function FicheLangue({
-  langue,
+/**
+ * Une fiche écrite à la main et versionnée (langue, label, CTA) : lue mise en
+ * forme, modifiée, ou écrite à partir de son modèle quand elle est vide.
+ */
+function FicheEcrite({
+  testId,
+  visuel,
+  titre,
   fiche,
-  exemples,
+  badges,
+  texteVide,
+  aide,
+  modele,
+  enregistrer: ecrire,
+  cleRequete,
 }: {
-  langue: string;
-  fiche: { contenu: string; version: number; created_at: string; versions: number } | null;
-  exemples: number;
+  testId: string;
+  visuel: React.ReactNode;
+  titre: string;
+  fiche: FicheVersionnee | null;
+  badges?: React.ReactNode;
+  texteVide: string;
+  aide: string;
+  modele: () => string;
+  enregistrer: (contenu: string) => Promise<void>;
+  cleRequete: readonly string[];
 }) {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
-  const nom = nomLangue(langue);
   const [contenu, setContenu] = React.useState(fiche?.contenu ?? "");
   const ecrite = Boolean(fiche?.contenu.trim());
   const [mode, setMode] = React.useState<Mode>(ecrite ? "lire" : "modifier");
@@ -583,12 +597,70 @@ function FicheLangue({
 
   const modifie = contenu !== (fiche?.contenu ?? "");
   const enregistrer = useMutation({
-    mutationFn: () => enregistrerFicheLangue(langue, contenu),
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: CLES.langue }),
+    mutationFn: () => ecrire(contenu),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: cleRequete }),
   });
 
   return (
     <CadreFiche
+      testId={testId}
+      visuel={visuel}
+      titre={titre}
+      meta={
+        fiche
+          ? t("fiches.metaVersion", {
+              version: fiche.version,
+              date: new Date(fiche.created_at).toLocaleString(i18n.language, HORODATAGE),
+              count: fiche.versions,
+            })
+          : t("fiches.jamais")
+      }
+      ecrite={ecrite}
+      badges={badges}
+      actions={ouverte ? <ChoixMode mode={mode} onChange={setMode} /> : undefined}
+    >
+      {!ouverte ? (
+        <FicheVide
+          texte={texteVide}
+          onEcrire={() => {
+            setContenu(modele());
+            setOuverte(true);
+            setMode("modifier");
+          }}
+        />
+      ) : mode === "lire" ? (
+        <MarkdownLeger texte={contenu} sansTitre />
+      ) : (
+        <div className="space-y-5">
+          <label className="block space-y-1.5">
+            <span className="text-sm font-medium">{t("fiches.contenu")}</span>
+            <span className="block text-xs text-muted-foreground">{aide}</span>
+            <Textarea
+              value={contenu}
+              onChange={(e) => setContenu(e.target.value)}
+              rows={26}
+              className="font-mono text-xs"
+              aria-label={t("fiches.contenu")}
+            />
+          </label>
+          <BarreEnregistrement
+            modifie={modifie}
+            enCours={enregistrer.isPending}
+            fait={enregistrer.isSuccess}
+            erreur={enregistrer.error}
+            onEnregistrer={() => enregistrer.mutate()}
+          />
+        </div>
+      )}
+    </CadreFiche>
+  );
+}
+
+function FicheLangue({ langue, fiche, exemples }: { langue: string; fiche: FicheVersionnee | null; exemples: number }) {
+  const { t, i18n } = useTranslation();
+  const nom = nomLangue(langue);
+  return (
+    <FicheEcrite
       testId={`fiche-langue-${langue}`}
       visuel={
         <span className="text-2xl leading-none" aria-hidden>
@@ -596,189 +668,52 @@ function FicheLangue({
         </span>
       }
       titre={t("fiches.titreLangue", { nom })}
-      meta={
-        fiche
-          ? t("fiches.metaVersion", {
-              version: fiche.version,
-              date: new Date(fiche.created_at).toLocaleString(i18n.language, HORODATAGE),
-              count: fiche.versions,
-            })
-          : t("fiches.jamais")
-      }
-      ecrite={ecrite}
+      fiche={fiche}
       badges={
         <Puce icone={BookOpen} ton={exemples > 0 ? "violet" : "neutre"}>
           {t("fiches.exemples", { count: exemples })}
         </Puce>
       }
-      actions={ouverte ? <ChoixMode mode={mode} onChange={setMode} /> : undefined}
-    >
-      {!ouverte ? (
-        <FicheVide
-          texte={t("fiches.videLangue", { nom })}
-          onEcrire={() => {
-            setContenu(modeleFicheLangue(i18n.getFixedT("en")(`langues.${langue}`), langue));
-            setOuverte(true);
-            setMode("modifier");
-          }}
-        />
-      ) : mode === "lire" ? (
-        <MarkdownLeger texte={contenu} sansTitre />
-      ) : (
-        <div className="space-y-5">
-          <label className="block space-y-1.5">
-            <span className="text-sm font-medium">{t("fiches.contenu")}</span>
-            <span className="block text-xs text-muted-foreground">{t("fiches.contenuAideLangue")}</span>
-            <Textarea
-              value={contenu}
-              onChange={(e) => setContenu(e.target.value)}
-              rows={26}
-              className="font-mono text-xs"
-              aria-label={t("fiches.contenu")}
-            />
-          </label>
-          <BarreEnregistrement
-            modifie={modifie}
-            enCours={enregistrer.isPending}
-            fait={enregistrer.isSuccess}
-            erreur={enregistrer.error}
-            onEnregistrer={() => enregistrer.mutate()}
-          />
-        </div>
-      )}
-    </CadreFiche>
+      texteVide={t("fiches.videLangue", { nom })}
+      aide={t("fiches.contenuAideLangue")}
+      modele={() => modeleFicheLangue(i18n.getFixedT("en")(`langues.${langue}`), langue)}
+      enregistrer={(contenu) => enregistrerFicheLangue(langue, contenu)}
+      cleRequete={CLES.langue}
+    />
   );
 }
 
-function FicheLabel({
-  nom,
-  fiche,
-}: {
-  nom: string;
-  fiche: { contenu: string; version: number; created_at: string; versions: number } | null;
-}) {
-  const { t, i18n } = useTranslation();
-  const queryClient = useQueryClient();
-  const calculer = useMutation({
-    mutationFn: calculerFichesLabel,
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: CLES.label }),
-  });
-  const bouton = (
-    <Button variant="outline" size="sm" disabled={calculer.isPending} onClick={() => calculer.mutate()}>
-      {calculer.isPending ? <Loader2 className="animate-spin" /> : <Calculator />}
-      {t("fiches.calculer")}
-    </Button>
-  );
-
+function FicheLabel({ nom, fiche }: { nom: string; fiche: FicheVersionnee | null }) {
+  const { t } = useTranslation();
   return (
-    <CadreFiche
+    <FicheEcrite
       testId={`fiche-label-${nom}`}
       visuel={<Tags className="size-5 text-muted-foreground" aria-hidden />}
       titre={t("fiches.titreLabel", { nom })}
-      meta={
-        fiche
-          ? t("fiches.metaVersion", {
-              version: fiche.version,
-              date: new Date(fiche.created_at).toLocaleString(i18n.language, HORODATAGE),
-              count: fiche.versions,
-            })
-          : t("fiches.pasCalculee")
-      }
-      ecrite={Boolean(fiche)}
-      actions={fiche ? bouton : undefined}
-    >
-      <div className="space-y-4">
-        {calculer.data && (
-          <p className="text-xs text-success-foreground">{t("fiches.calcule", { fiches: calculer.data.fiches })}</p>
-        )}
-        {calculer.error && (
-          <p role="alert" className="text-xs text-destructive">
-            {messageErreur(calculer.error)}
-          </p>
-        )}
-        {fiche ? (
-          <>
-            <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Sparkles className="size-3.5" aria-hidden />
-              {t("fiches.genereeAuto")}
-            </p>
-            <MarkdownLeger texte={fiche.contenu} sansTitre />
-          </>
-        ) : (
-          <FicheVide texte={t("fiches.videLabel", { nom })} action={bouton} />
-        )}
-      </div>
-    </CadreFiche>
+      fiche={fiche}
+      texteVide={t("fiches.videLabel", { nom })}
+      aide={t("fiches.contenuAideLabel")}
+      modele={() => modeleFicheLabel(nom)}
+      enregistrer={(contenu) => enregistrerFicheLabel(nom, contenu)}
+      cleRequete={CLES.label}
+    />
   );
 }
 
-/** La fiche CTA : les règles communes pour écrire le CTA, une seule fiche versionnée. */
-function FicheCta({ fiche }: { fiche: { contenu: string; version: number; created_at: string; versions: number } | null }) {
-  const { t, i18n } = useTranslation();
-  const queryClient = useQueryClient();
-  const [contenu, setContenu] = React.useState(fiche?.contenu ?? "");
-  const ecrite = Boolean(fiche?.contenu.trim());
-  const [mode, setMode] = React.useState<Mode>(ecrite ? "lire" : "modifier");
-  const [ouverte, setOuverte] = React.useState(ecrite);
-
-  React.useEffect(() => setContenu(fiche?.contenu ?? ""), [fiche?.contenu]);
-
-  const modifie = contenu !== (fiche?.contenu ?? "");
-  const enregistrer = useMutation({
-    mutationFn: () => enregistrerFicheCta(contenu),
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: CLES.cta }),
-  });
-
+/** La fiche CTA : l'intro commune à tous les decks, une seule fiche versionnée. */
+function FicheCta({ fiche }: { fiche: FicheVersionnee | null }) {
+  const { t } = useTranslation();
   return (
-    <CadreFiche
+    <FicheEcrite
       testId="fiche-cta"
       visuel={<Megaphone className="size-5 text-muted-foreground" aria-hidden />}
       titre={t("fiches.titreCta")}
-      meta={
-        fiche
-          ? t("fiches.metaVersion", {
-              version: fiche.version,
-              date: new Date(fiche.created_at).toLocaleString(i18n.language, HORODATAGE),
-              count: fiche.versions,
-            })
-          : t("fiches.jamais")
-      }
-      ecrite={ecrite}
-      actions={ouverte ? <ChoixMode mode={mode} onChange={setMode} /> : undefined}
-    >
-      {!ouverte ? (
-        <FicheVide
-          texte={t("fiches.videCta")}
-          onEcrire={() => {
-            setContenu(modeleFicheCta());
-            setOuverte(true);
-            setMode("modifier");
-          }}
-        />
-      ) : mode === "lire" ? (
-        <MarkdownLeger texte={contenu} sansTitre />
-      ) : (
-        <div className="space-y-5">
-          <label className="block space-y-1.5">
-            <span className="text-sm font-medium">{t("fiches.contenu")}</span>
-            <span className="block text-xs text-muted-foreground">{t("fiches.contenuAideCta")}</span>
-            <Textarea
-              value={contenu}
-              onChange={(e) => setContenu(e.target.value)}
-              rows={26}
-              className="font-mono text-xs"
-              aria-label={t("fiches.contenu")}
-            />
-          </label>
-          <BarreEnregistrement
-            modifie={modifie}
-            enCours={enregistrer.isPending}
-            fait={enregistrer.isSuccess}
-            erreur={enregistrer.error}
-            onEnregistrer={() => enregistrer.mutate()}
-          />
-        </div>
-      )}
-    </CadreFiche>
+      fiche={fiche}
+      texteVide={t("fiches.videCta")}
+      aide={t("fiches.contenuAideCta")}
+      modele={modeleFicheCta}
+      enregistrer={enregistrerFicheCta}
+      cleRequete={CLES.cta}
+    />
   );
 }

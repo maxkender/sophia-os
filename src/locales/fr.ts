@@ -1581,11 +1581,10 @@ export const fr = {
       titre: "Relecture native",
       voirFiches: "Fiches",
       description:
-        "Tout ce qu’il faut pour la réécriture native : les relecteurs, qui corrigeront les posts publiés, les exemples natifs de chaque langue et les formes de CTA. Les fiches (applis, langues, labels) sont dans la page Fiches. Rien ici ne touche la production.",
+        "Tout ce qu’il faut pour la réécriture native : les relecteurs, qui corrigeront les posts publiés, et les exemples natifs de chaque langue. Les fiches (CTA, applis, langues, labels) sont dans la page Fiches. Rien ici ne touche la production.",
       onglets: {
         relecteurs: "Relecteurs",
         exemples: "Exemples natifs",
-        cta: "CTA",
       },
       interrupteurs: {
         titre: "Interrupteurs",
@@ -1626,20 +1625,6 @@ export const fr = {
         confirmerRetrait:
           "Supprimer {{nom}} ? Pour l’écarter sans rien perdre, passe plutôt son statut à « Retiré ».",
       },
-      cta: {
-        titre: "Les formes de CTA",
-        aide:
-          "Une liste fixe de 7 formes : sans liste fixe, on ne peut rien compter. Chaque CTA publié est classé dans une forme, puis chaque lundi l’OS compare les formes, les slides et les voies à contenu égal et écrit la fiche label de chaque label, avec les poids du tirage. Rien ici ne change un post : le tirage s’en servira à l’étape 5.",
-        regleSlide:
-          "Décision du 30/10 : le CTA va n’importe où à partir de la slide {{n}}. La slide du CTA est déjà notée sur chaque post publié (sa slide d’appli) : pas de colonne à ajouter.",
-        classement: "Classement des CTA publiés",
-        avancement: "{{classes}} textes classés · {{reste}} à classer",
-        avancementAide:
-          "Les CTA publiés depuis 45 jours, classés par Gemini dans une des 7 formes, 360 toutes les 2 minutes. Un texte n’est classé qu’une fois.",
-        fichesAide:
-          "Chaque lundi matin, l’OS écrit la fiche de chaque label : tirage de la voie (prouvée 80 %, essai 20 %), formes classées par effet à contenu égal, slide du CTA. Elles sont dans la page Fiches.",
-        voirFichesLabel: "Voir les fiches label",
-      },
       chiffres: {
         relecteurs: "Relecteurs",
         relecteursDetail: "{{actifs}} actif(s) · {{invites}} invité(s)",
@@ -1666,7 +1651,7 @@ export const fr = {
     fiches: {
       titre: "Fiches",
       description:
-        "Ce que lit la réécriture native pour chaque deck : la fiche de l’appli dit quoi dire, la fiche de la langue comment le dire, la fiche du label quel CTA tirer, la fiche CTA comment l’écrire. Rien ne touche la production tant que la réécriture native n’est pas allumée.",
+        "Ce que lit la réécriture native pour chaque deck : la fiche CTA pose les règles communes, la fiche de l’appli dit quoi dire, la fiche de la langue comment le dire, la fiche du label où va l’appli dans ce type de deck. Rien ne touche la production tant que la réécriture native n’est pas allumée.",
       versRelecture: "Relecture native",
       sortes: "Sortes de fiches",
       sorte: {
@@ -1682,12 +1667,12 @@ export const fr = {
         },
         label: {
           titre: "Labels",
-          role: "Quel CTA tirer : les formes qui marchent pour chaque label, recalculées chaque lundi.",
-          compte: "calculées",
+          role: "Où va l’appli dans ce type de deck : le format, la place du CTA et des exemples de placements réussis.",
+          compte: "écrites",
         },
         cta: {
           titre: "CTA",
-          role: "Comment écrire le CTA : les règles communes à toutes les applis et toutes les langues, et les 7 formes.",
+          role: "L’intro : la règle d’or, la cohérence avec le deck et les interdits, communs à toutes les applis et toutes les langues.",
           compte: "écrite",
         },
       },
@@ -1696,7 +1681,6 @@ export const fr = {
       rien: "Rien à afficher.",
       ecrite: "Écrite",
       aEcrire: "À écrire",
-      pasCalculee: "Pas encore calculée",
       versions_one: "{{count}} version",
       versions_other: "{{count}} versions",
       exemples_zero: "Pas encore d’exemples natifs",
@@ -1721,24 +1705,23 @@ export const fr = {
       videLangue:
         "La fiche {{nom}} n’est pas encore écrite. Le modèle pose les rubriques du brief de rédaction (docs/fiches-langue-brief.md).",
       videLabel:
-        "La fiche de {{nom}} n’a pas encore été calculée. Elle s’écrit chaque lundi matin, ou maintenant avec « Calculer maintenant » une fois les CTA publiés classés (Relecture native → CTA).",
+        "La fiche de {{nom}} n’est pas encore écrite. Le modèle pose les rubriques : le format du deck, où va l’appli, des exemples réels de placements réussis, ce qu’il faut éviter.",
       videCta:
-        "La fiche CTA n’est pas encore écrite. Le modèle reprend les règles du prompt de placement de Sophia, sans ce qui va dans les fiches appli, langue et label : un vrai conseil, l’appli fondue dedans, le même moule que les slides voisines, la voie et la forme commandées par l’OS.",
+        "La fiche CTA n’est pas encore écrite. Le modèle, en anglais, reprend les règles du prompt de placement de Sophia sans ce qui va dans les fiches appli, langue et label : un vrai conseil, l’appli fondue dedans, le même moule que les slides voisines, les interdits.",
       contenu: "Fiche (Markdown)",
       contenuAideAppli:
         "Ce que fait l’appli, ce qu’on peut affirmer ou non, ses fonctionnalités, son nom par langue, ses concurrents.",
       contenuAideLangue:
         "En anglais, avec les mots, tournures et accroches natives cités tels quels dans la langue (« du », « dinge, die… »), sans slideshow complet. 1 200 à 2 000 mots au plus : elle part dans chaque appel.",
       contenuAideCta:
-        "Les règles communes pour écrire le CTA, pour toutes les applis et toutes les langues. Pas de fait sur une appli (fiche appli), pas de mot propre à une langue (fiche langue).",
+        "En anglais. Les règles communes pour amener l’appli, pour toutes les applis et toutes les langues. Pas de fait sur une appli (fiche appli), pas de mot propre à une langue (fiche langue), pas d’exemple propre à un format (fiche label).",
+      contenuAideLabel:
+        "En anglais, avec les exemples cités tels qu’ils ont été publiés : le format du deck, où va l’appli, 3 à 5 placements réussis (slide d’avant, slide de l’appli, pourquoi ça marche), ce qu’il faut éviter.",
       presentation: "Présentation pour les relecteurs",
       presentationAide: "Quelques lignes en anglais, montrées aux relecteurs (« What is {{nom}}? »).",
       enregistrer: "Enregistrer",
       nonEnregistre: "Modifications non enregistrées",
       enregistre: "Enregistré : une nouvelle version est gardée.",
-      calculer: "Calculer maintenant",
-      calcule: "{{fiches}} fiches label recalculées.",
-      genereeAuto: "Écrite par l’OS chaque lundi à partir des posts publiés : elle ne se modifie pas à la main.",
     },
     mesRetours: {
       titre: "Mes retours",

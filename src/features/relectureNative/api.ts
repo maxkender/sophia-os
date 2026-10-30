@@ -214,7 +214,7 @@ export function listerFichesLangue(): Promise<FicheVersionnee[]> {
 }
 
 /** Enregistre une nouvelle version d'une fiche écrite à la main ; les anciennes restent. */
-async function enregistrerFicheVersionnee(sorte: "langue" | "cta", cle: string, contenu: string): Promise<void> {
+async function enregistrerFicheVersionnee(sorte: "langue" | "label" | "cta", cle: string, contenu: string): Promise<void> {
   const { data: derniere, error: erreurLecture } = await supabase
     .from("bleo_fiches")
     .select("version")
@@ -256,28 +256,17 @@ export function enregistrerFicheCta(contenu: string): Promise<void> {
   return enregistrerFicheVersionnee("cta", CLE_FICHE_CTA, contenu);
 }
 
-/** Fiches label : écrites chaque lundi par `cta-formes` (0621). */
+/**
+ * Fiches label : comment l'appli entre dans ce type de deck, avec des exemples
+ * de placements réussis. Écrites à la main depuis 0624 (plus de calcul du lundi).
+ */
 export function listerFichesLabel(): Promise<FicheVersionnee[]> {
   return dernieresFiches("label");
 }
 
-export interface AvancementCta {
-  /** Textes de CTA publiés déjà classés dans une forme. */
-  classes: number;
-  /** Textes encore à classer (la tâche planifiée passe toutes les 2 minutes). */
-  a_classer: number;
-}
-
-export async function lireAvancementCta(): Promise<AvancementCta> {
-  const { data, error } = await supabase.rpc("cta_avancement");
-  if (error) throw error;
-  const a = (data ?? {}) as Partial<AvancementCta>;
-  return { classes: Number(a.classes ?? 0), a_classer: Number(a.a_classer ?? 0) };
-}
-
-/** Recalcule tout de suite les chiffres, les poids et les fiches label. */
-export function calculerFichesLabel(): Promise<{ semaine: string; fiches: number; lignes: number }> {
-  return invoke("cta-formes", { lundi: {} });
+/** Enregistre une nouvelle version de la fiche d'un label ; les anciennes restent. */
+export function enregistrerFicheLabel(label: string, contenu: string): Promise<void> {
+  return enregistrerFicheVersionnee("label", label, contenu);
 }
 
 // ---------------------------------------------------------------------------

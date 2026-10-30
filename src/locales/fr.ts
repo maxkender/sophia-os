@@ -4790,9 +4790,13 @@ export const fr = {
         lues: "Milestones lues le {{quand}}",
         needsYou: "Irait dans Needs you ({{n}})",
         sansContrat: "sans contrat",
+        horsUpwork: "Hors Upwork ({{n}}) : pas de contrat Upwork, jamais payés par l'API",
+        ecarts: "Écart de comptes ({{n}}) : plus de comptes actifs que la milestone financée n'en couvre",
+        ecartLigne: "{{actifs}} comptes actifs · {{milestone}} financée pour {{finances}} compte(s) ({{depot}} $)",
         categories: {
           payer: "Payer", double: "Double", rien: "Rien (0 post)", renommer: "0 post, milestone renommée", pause: "Pause (payée)",
           legacy: "Legacy", a_la_main: "À la main", kill: "Kill & pay", kill_sans_paie: "Kill & don't pay", annuler: "Jamais posté (remboursement)", warmup: "Semaine de warm-up",
+          hors_upwork: "Hors Upwork",
         },
       },
       auto: {

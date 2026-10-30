@@ -4782,9 +4782,13 @@ export const en = {
         lues: "Milestones read on {{quand}}",
         needsYou: "Would go to Needs you ({{n}})",
         sansContrat: "no contract",
+        horsUpwork: "Outside Upwork ({{n}}): no Upwork contract, never paid through the API",
+        ecarts: "Accounts gap ({{n}}): more active accounts than the funded milestone covers",
+        ecartLigne: "{{actifs}} active accounts · {{milestone}} funded for {{finances}} account(s) ({{depot}} $)",
         categories: {
           payer: "Pay", double: "Double", rien: "Nothing (0 post)", renommer: "0 post, milestone renamed", pause: "Pause (paid)",
           legacy: "Legacy", a_la_main: "By hand", kill: "Kill & pay", kill_sans_paie: "Kill & don't pay", annuler: "Never posted (refund)", warmup: "Warm-up week",
+          hors_upwork: "Outside Upwork",
         },
       },
       auto: {

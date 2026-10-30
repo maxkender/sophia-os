@@ -81,3 +81,15 @@ Deno.test("2 comptes actifs mais une milestone dans la fourchette pour un compte
   const premiere = deduireTarif([j("Week 45", 11, "Active")], 2);
   assertEquals([premiere.rythme, premiere.tarif_compte], ["hebdo", 10]);
 });
+
+Deno.test("1re milestone seule : 1 $ retiré seulement à 15, 11 ou 8 $ ; à 14, 10 ou 7 $, c'est le tarif", () => {
+  for (const [depot, tarif] of [[15, 14], [11, 10], [8, 7], [14, 14], [10, 10], [7, 7]]) {
+    assertEquals(deduireTarif([j("Week 44", depot, "Active")]).tarif_compte, tarif, `Week 44 à ${depot} $`);
+    assertEquals(deduireTarif([j("Trial week", depot, "Active")]).tarif_compte, tarif, `Trial week à ${depot} $`);
+    assertEquals(deduireTarif([j("TikTok slideshow posting", depot, "Active")]).tarif_compte, tarif, `sans « Week » à ${depot} $`);
+  }
+  // Les autres semaines passent avant : Week 1 à 10 $, Week 2 à 10 $ → 10 $.
+  assertEquals(deduireTarif([j("Week 44", 10, "Active"), j("Week 45", 10, "NotFunded")]).tarif_compte, 10);
+  // Un tarif à 9 $ n'est pas un bonus : 9 $.
+  assertEquals(deduireTarif([j("Week 44", 9, "Active")]).tarif_compte, 9);
+});

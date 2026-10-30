@@ -7,6 +7,8 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 import {
   centimes,
   dollarsUpwork,
+  ecartComptes,
+  estHorsUpwork,
   type JalonUpwork,
   type LignePaieApi,
   lireJalonsContrat,
@@ -183,4 +185,27 @@ Deno.test("0453 : plus de +1 $ ; une 1re milestone déjà financée à tarif + 1
   assertEquals([p.financer?.montant, p.financer?.editer], [14, true]);
   // Un autre écart reste à vérifier.
   assertEquals(planPaiement(ligne(), [j("m1", "Week 45", "Active", 1, 16)], S, R).statut, "refuse");
+});
+
+Deno.test("hors Upwork : pas de contrat et comptes en France → jamais payé par l'API, rien dans Needs you", () => {
+  assertEquals(estHorsUpwork(null, ["FR"]), true);
+  assertEquals(estHorsUpwork(null, ["FR", "fr"]), true);
+  // Une recrue sans contrat ailleurs qu'en France : à relier (Needs you), pas hors Upwork.
+  assertEquals(estHorsUpwork(null, ["ES"]), false);
+  assertEquals(estHorsUpwork(null, ["FR", "ES"]), false);
+  assertEquals(estHorsUpwork(null, []), false);
+  assertEquals(estHorsUpwork("c1", ["FR"]), false);
+  const p = planPaiement(ligne({ contrat_id: null, hors_upwork: true }), [], S, R);
+  assertEquals([p.statut, p.approuver, p.financer], ["rien", null, null]);
+  assertEquals(planPaiement(ligne({ contrat_id: null }), [], S, R).statut, "refuse");
+});
+
+Deno.test("écart de comptes : 2 comptes actifs, Week 45 financée pour 1 compte (14 $) → affiché", () => {
+  const jalons = [j("m1", "Week 45", "Active", 1, 14)];
+  assertEquals(ecartComptes(14, 2, jalons, S), { comptes_actifs: 2, comptes_finances: 1, milestone: "Week 45", depot: 14 });
+  assertEquals(ecartComptes(14, 2, [j("m1", "Week 45", "Active", 1, 28)], S), null);
+  assertEquals(ecartComptes(14, 2, [j("m1", "Week 45 (2 acc)", "Active", 1, 28)], S), null);
+  assertEquals(ecartComptes(14, 1, jalons, S), null);
+  // Rien de financé pour la semaine : rien à comparer.
+  assertEquals(ecartComptes(14, 2, [j("m1", "Week 45", "Paid", 1, 14)], S), null);
 });

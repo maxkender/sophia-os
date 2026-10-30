@@ -17,12 +17,12 @@ const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
  *
  * gemini-2.5-pro et gemini-2.5-flash sont volontairement absents : ils
  * apparaissent dans la liste des modèles mais renvoient 404 « no longer
- * available to new users ». Google en retire régulièrement : la chaîne compte
+ * available to new users ». gemini-2.0-flash aussi : 404 « no longer
+ * available » depuis le 29/10. Google en retire régulièrement : la chaîne compte
  * donc plusieurs familles, et un 503 passager sur l'une bascule sur la suivante.
  */
 export const TEXT_MODELS = [
   "gemini-3.5-flash",
-  "gemini-2.0-flash",
   "gemini-3.1-flash-lite",
 ];
 

@@ -55,7 +55,7 @@ const ESSAIS_GENERATION = 3;
 // Même ordre de repli que TEXT_MODELS (_shared/gemini.ts). Appel direct plutôt
 // qu'import : gemini.ts tire tout le pipeline image (16 fichiers, 200 Ko) dans
 // le paquet de la fonction, pour un seul appel texte.
-const MODELES_TEXTE = ["gemini-3.5-flash", "gemini-2.0-flash", "gemini-3.1-flash-lite"];
+const MODELES_TEXTE = ["gemini-3.5-flash", "gemini-3.1-flash-lite"];
 
 const APIFY = "https://api.apify.com/v2";
 const ACTEUR = "clockworks~tiktok-scraper";

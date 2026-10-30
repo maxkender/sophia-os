@@ -6,8 +6,15 @@
 
 /** Une vingtaine d'exemples par langue suffit à couvrir nos labels. */
 export const OBJECTIF_EXEMPLES = 20;
-/** Slideshows pris par compte collé (les plus récents). */
-export const SLIDESHOWS_PAR_COMPTE = 5;
+/**
+ * Pour chaque compte collé : ses 5 slideshows les plus récents (le ton
+ * d'aujourd'hui) et ses 5 plus likés (ce qui a plu à son public), pris parmi
+ * ses 60 derniers posts. Au-delà, les « plus likés » remontent à des posts
+ * vieux de plusieurs années, à l'argot daté.
+ */
+export const SLIDESHOWS_RECENTS = 5;
+export const SLIDESHOWS_PLUS_LIKES = 5;
+export const POSTS_LUS_PAR_COMPTE = 60;
 /**
  * Comptes listés par appel. Chaque compte coûte une recherche Apify (20 à 40 s)
  * et une fonction Edge s'arrête à 150 s : le navigateur envoie donc les lignes
@@ -62,19 +69,23 @@ export function pseudoDuLien(url: string): string | null {
 }
 
 /**
- * Les slideshows d'un compte : les liens `/photo/`, les plus récents d'abord.
- * Un lien `/video/` peut être un slideshow, mais sans télécharger on ne le sait
- * pas : on le laisse, plutôt que de lire des vidéos.
+ * Les slideshows d'un compte à lire : les plus récents, puis les plus likés
+ * parmi les autres. Seuls les liens `/photo/` comptent : un lien `/video/` peut
+ * être un slideshow, mais sans télécharger on ne le sait pas, et on préfère ne
+ * pas lire des vidéos.
  */
 export function slideshowsDuCompte(
-  posts: ReadonlyArray<{ webVideoUrl: string; createTime: number | null }>,
-  n = SLIDESHOWS_PAR_COMPTE,
+  posts: ReadonlyArray<{ webVideoUrl: string; createTime: number | null; stats?: { likes?: number } }>,
+  recents = SLIDESHOWS_RECENTS,
+  plusLikes = SLIDESHOWS_PLUS_LIKES,
 ): string[] {
-  return posts
-    .filter((p) => /\/photo\/\d+/.test(p.webVideoUrl))
-    .sort((a, b) => (b.createTime ?? 0) - (a.createTime ?? 0))
-    .map((p) => p.webVideoUrl)
-    .slice(0, n);
+  const slideshows = posts.filter((p) => /\/photo\/\d+/.test(p.webVideoUrl));
+  const parDate = [...slideshows].sort((a, b) => (b.createTime ?? 0) - (a.createTime ?? 0));
+  const choisis = parDate.slice(0, recents).map((p) => p.webVideoUrl);
+  const parLikes = parDate
+    .filter((p) => !choisis.includes(p.webVideoUrl))
+    .sort((a, b) => (b.stats?.likes ?? 0) - (a.stats?.likes ?? 0));
+  return [...choisis, ...parLikes.slice(0, plusLikes).map((p) => p.webVideoUrl)];
 }
 
 export interface SlideExemple {

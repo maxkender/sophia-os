@@ -2,6 +2,7 @@ import { listerPostsProfil, scrapePost } from "../_shared/apify.ts";
 import {
   lireLignes,
   MAX_COMPTES_PAR_APPEL,
+  POSTS_LUS_PAR_COMPTE,
   motifRefus,
   pseudoDuLien,
   slideshowsDuCompte,
@@ -18,7 +19,7 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   { ajouter: { langue, labelId?, texte } }
  *       Lit les liens et comptes collés (un par ligne, 4 comptes au plus : le
  *       navigateur découpe). Un compte donne ses 5 slideshows les plus
- *       récents. Crée une ligne « en_attente » par slideshow ; rien n'est
+ *       récents et ses 5 plus likés. Crée une ligne « en_attente » par slideshow ; rien n'est
  *       encore lu. → { ajoutes, deja, comptes, ignorees }
  *   { traiter: { id } }
  *       Récupère le slideshow (Apify) et lit le texte de chaque slide (OCR).
@@ -59,7 +60,7 @@ Deno.serve(async (request) => {
       const comptes = await Promise.all(
         lues.comptes.map(async (pseudo) => {
           try {
-            const trouves = slideshowsDuCompte(await listerPostsProfil(pseudo, 30));
+            const trouves = slideshowsDuCompte(await listerPostsProfil(pseudo, POSTS_LUS_PAR_COMPTE));
             return { pseudo, slideshows: trouves.length, trouves };
           } catch (erreur) {
             return { pseudo, slideshows: 0, trouves: [] as string[], erreur: messageErreur(erreur) };

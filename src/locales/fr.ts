@@ -1479,7 +1479,7 @@ export const fr = {
         couverture: "Couverture par label",
         sansLabel: "Sans label",
         coller: "Liens TikTok ou comptes",
-        collerAide: "Un par ligne : un lien de slideshow, ou un compte (@pseudo), dont l’OS prend les 5 slideshows les plus récents. Il récupère les slides et en lit le texte.",
+        collerAide: "Un par ligne : un lien de slideshow, ou un compte (@pseudo), dont l’OS prend 10 slideshows parmi ses 60 derniers posts, les 5 plus récents et les 5 plus likés. Il récupère les slides et en lit le texte.",
         label: "Label",
         labelExemple: "Label de l’exemple de @{{handle}}",
         ajouter: "Ajouter et lire",

@@ -44,6 +44,8 @@ export const CLE_REQUETE_EXEMPLES = ["exemples-natifs"] as const;
 export const OBJECTIF_EXEMPLES = 20;
 /** La traduction ancrée ne lit la banque d'une langue qu'à partir de ce nombre d'exemples prêts. */
 export const SEUIL_BANQUE = 5;
+/** Slideshows lus en même temps (chacun : un appel Apify et l'OCR de ses slides). */
+const LECTURES_EN_PARALLELE = 3;
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -74,20 +76,28 @@ export function SectionExemplesNatifs() {
 
   const rafraichir = () => void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_EXEMPLES });
 
-  // Un slideshow à la fois : chaque lecture tient dans une fonction Edge.
+  // Un slideshow par appel (chaque lecture tient dans une fonction Edge),
+  // LECTURES_EN_PARALLELE à la fois : 200 slideshows en une demi-heure environ.
   const lire = async (ids: string[]) => {
     if (!ids.length || lecture) return;
     setErreurLecture(null);
     setLecture({ fait: 0, total: ids.length });
-    for (const [i, id] of ids.entries()) {
-      try {
-        await lireExempleNatif(id);
-      } catch (erreur) {
-        setErreurLecture(messageErreur(erreur));
+    let suivant = 0;
+    let fait = 0;
+    const lecteur = async () => {
+      while (suivant < ids.length) {
+        const id = ids[suivant++];
+        try {
+          await lireExempleNatif(id);
+        } catch (erreur) {
+          setErreurLecture(messageErreur(erreur));
+        }
+        fait += 1;
+        setLecture({ fait, total: ids.length });
+        rafraichir();
       }
-      setLecture({ fait: i + 1, total: ids.length });
-      rafraichir();
-    }
+    };
+    await Promise.all(Array.from({ length: Math.min(LECTURES_EN_PARALLELE, ids.length) }, lecteur));
     setLecture(null);
   };
 

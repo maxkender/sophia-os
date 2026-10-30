@@ -32,14 +32,31 @@ Deno.test("le pseudo d'un lien de post", () => {
   assertEquals(pseudoDuLien("https://www.tiktok.com/@motiversum"), null);
 });
 
-Deno.test("un compte donne ses slideshows les plus récents, pas ses vidéos", () => {
+Deno.test("un compte donne ses slideshows les plus récents, puis les plus likés, jamais ses vidéos", () => {
+  const post = (id: number, createTime: number | null, likes: number, type = "photo") => ({
+    webVideoUrl: `https://www.tiktok.com/@a/${type}/${id}`,
+    createTime,
+    stats: { likes },
+  });
   const posts = [
-    { webVideoUrl: "https://www.tiktok.com/@a/photo/1", createTime: 100 },
-    { webVideoUrl: "https://www.tiktok.com/@a/video/2", createTime: 300 },
-    { webVideoUrl: "https://www.tiktok.com/@a/photo/3", createTime: 200 },
-    { webVideoUrl: "https://www.tiktok.com/@a/photo/4", createTime: null },
+    post(1, 100, 900),
+    post(2, 300, 99_000, "video"),
+    post(3, 200, 10),
+    post(4, null, 50_000),
+    post(5, 150, 20),
+    post(6, 50, 70_000),
   ];
-  assertEquals(slideshowsDuCompte(posts, 2), ["https://www.tiktok.com/@a/photo/3", "https://www.tiktok.com/@a/photo/1"]);
+  assertEquals(slideshowsDuCompte(posts, 2, 2), [
+    "https://www.tiktok.com/@a/photo/3",
+    "https://www.tiktok.com/@a/photo/5",
+    "https://www.tiktok.com/@a/photo/6",
+    "https://www.tiktok.com/@a/photo/4",
+  ]);
+  // Un compte avec peu de slideshows les donne tous, sans doublon.
+  assertEquals(slideshowsDuCompte(posts.slice(0, 3), 5, 5), [
+    "https://www.tiktok.com/@a/photo/3",
+    "https://www.tiktok.com/@a/photo/1",
+  ]);
 });
 
 Deno.test("les slides lues gardent leur position et perdent les slides vides", () => {

@@ -193,9 +193,21 @@ Ce qui reste de la spec et vaut toujours pour l'appel unique :
    `sansConcurrent`). Restent : liberté du CTA, plafond de dépense.
 4. Avant L3 : ajouter @sofiya.yussupova comme source de clean_study.
 
-## Bascule du lundi 2/11 (décision d'Adrien le 29/10 au soir)
+## Bascule du dimanche 1/11 au soir (décision d'Adrien le 29/10, avancée le 30/10)
 
-**Pas d'A/B.** Podz sur BLEO et bascule lundi, l'ancien système gardé en secours.
+**Avancée d'un jour (Adrien, 30/10 au soir).** Dimanche 1/11 au soir, après le
+tirage de 14 h du plan du 2/11 :
+- **l'assignation de minuit passe sur le plan BLEO** (`bleo.mode = 'actif'`,
+  « Passer en actif ») : le premier jour assigné par BLEO est le **lundi 2/11**
+  (et non plus le mardi 3/11) ;
+- **les podz basculent en entier** (`bleo.podz.type_obligatoire = true`, et les
+  prompts des 6 routines de la voie 1 qui parlent de preuve) : leurs routines du
+  lundi matin sont les premières sur la boîte ;
+- **seul l'agent de traduction et placement est progressif** : la réécriture
+  native remplacera l'ancien circuit au compte-gouttes, quand elle aura passé
+  ses duels de Tests (rien en production d'ici là).
+
+**Pas d'A/B.** Podz sur BLEO et bascule dimanche soir, l'ancien système gardé en secours.
 Ce qui change par rapport au plan de la spec :
 
 - **Pas de L6 (A/B) ni de L7 (decks l'après-midi).** BLEO ne crée pas de passages

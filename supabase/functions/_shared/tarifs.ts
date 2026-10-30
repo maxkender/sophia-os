@@ -82,8 +82,9 @@ export function deduireTarif(jalonsBruts: JalonUpwork[], comptesActifs = 1): Tar
     const j = enCours[enCours.length - 1] ?? semaines[semaines.length - 1];
     if (j.depot === null) return aVerifier(`${j.nom} : montant illisible`, j);
     const duNom = comptesDuNom(j.nom);
-    // Pas de nombre dans le nom : la milestone couvre tous les comptes actifs du posteur.
-    const parActifs = duNom === 1 && comptesActifs > 1;
+    // Pas de nombre dans le nom et plus de 20 $ pour un compte : la milestone couvre tous les comptes actifs du posteur.
+    // Dans la fourchette, un seul compte (un 2e profil actif sur le contrat peut être un doublon).
+    const parActifs = duNom === 1 && comptesActifs > 1 && j.depot > TARIF_COMPTE_MAX + 1;
     const comptes = parActifs ? comptesActifs : duNom;
     let tarif = arrondi(j.depot / comptes);
     let raison = comptes > 1 ? `${j.nom} : ${j.depot} $ pour ${comptes} comptes${parActifs ? " actifs" : ""}` : `${j.nom} : ${j.depot} $`;

@@ -74,3 +74,10 @@ Deno.test("2 comptes actifs mais les autres semaines valent 7 $ par compte : à 
   assertEquals(t.rythme, "a_verifier");
   assertEquals(t.raison.includes("14 $ par compte"), true);
 });
+
+Deno.test("2 comptes actifs mais une milestone dans la fourchette pour un compte : pas de division (doublon possible)", () => {
+  const t = deduireTarif([j("Week 44", 8), j("Week 45", 8, "Active")], 2);
+  assertEquals([t.rythme, t.tarif_compte, t.comptes], ["hebdo", 8, 1]);
+  const premiere = deduireTarif([j("Week 45", 11, "Active")], 2);
+  assertEquals([premiere.rythme, premiere.tarif_compte], ["hebdo", 10]);
+});

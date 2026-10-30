@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
-import { payerSemaineTest } from "@/features/paie/api-upwork/api";
+import { etapeOk, financerJalonTest, payerSemaineTest } from "@/features/paie/api-upwork/api";
 
 import {
   ajouterContratTest,
@@ -90,7 +90,9 @@ function PayerSemaineTest({ contratId }: { contratId: string }) {
       </Button>
       {r && (
         <span className={r.ok ? "text-xs text-success-foreground" : "text-xs text-destructive"} role="status">
-          {r.ok ? t("autoTest.paye", { semaine: r.semaine }) : t("autoTest.pasPaye", { raison: r.raison ?? r.error ?? r.resultat ?? "?" })}
+          {r.ok
+            ? t(r.a_financer ? "autoTest.payeAFinancer" : "autoTest.paye", { semaine: r.semaine })
+            : t("autoTest.pasPaye", { raison: r.raison ?? r.error ?? r.resultat ?? "?" })}
         </span>
       )}
       {payer.error && <span className="text-xs text-destructive">{(payer.error as Error).message}</span>}
@@ -101,9 +103,12 @@ function PayerSemaineTest({ contratId }: { contratId: string }) {
             {r.etapes.map((e, i) => (
               <tr key={i} className="border-t align-top">
                 <td className="py-0.5 pr-2 font-medium">{t(`autoTest.etapes.${e.etape}`, { defaultValue: e.etape })}</td>
-                <td className={cn("py-0.5 pr-2", e.erreur ? "text-destructive" : "text-success-foreground")}>{e.erreur ? t("autoTest.echecEtape") : "OK"}</td>
+                {/* 0467 : « OK » seulement si la relecture d'Upwork le confirme (financer : Active). */}
+                <td className={cn("py-0.5 pr-2", etapeOk(e) ? "text-success-foreground" : "text-destructive")}>{etapeOk(e) ? "OK" : t("autoTest.echecEtape")}</td>
                 <td className="py-0.5 pr-2">{[e.nom, e.montant !== undefined ? `${e.montant} $` : null].filter(Boolean).join(" · ")}</td>
-                <td className="py-0.5 break-all text-muted-foreground">{e.erreur ?? (e.reponse ? JSON.stringify(e.reponse).slice(0, 200) : "")}</td>
+                <td className="py-0.5 break-all text-muted-foreground">
+                  {[e.etat ? `state: ${e.etat}` : null, e.erreur ?? null, e.reponse ? JSON.stringify(e.reponse).slice(0, 200) : null].filter(Boolean).join(" · ")}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -114,6 +119,44 @@ function PayerSemaineTest({ contratId }: { contratId: string }) {
         <p className="w-full text-xs text-muted-foreground" data-testid="jalons-apres">
           {r.jalons.map((j) => `${j.nom} · ${j.etat} · ${j.depot ?? "?"} $${j.echeance ? ` · due ${j.echeance.slice(0, 10)}` : ""}`).join(" | ")}
         </p>
+      )}
+    </div>
+  );
+}
+
+/**
+ * 0467 : « Fund this milestone (test) » : seulement le financement de la
+ * milestone NotFunded, puis Upwork relu. OK seulement si l'état relu est
+ * financé (Active) ; sinon ÉCHEC avec la requête et la réponse d'Upwork.
+ */
+function FinancerJalonTest({ contratId }: { contratId: string }) {
+  const { t } = useTranslation();
+  const financer = useMutation({ mutationFn: () => financerJalonTest(contratId) });
+  const r = financer.data;
+  return (
+    <div className="flex flex-wrap items-center gap-2" data-testid="financer-jalon-test">
+      <Button
+        size="xs"
+        variant="outline"
+        loading={financer.isPending}
+        onClick={() => {
+          if (window.confirm(t("autoTest.financerConfirm", { contrat: contratId }))) financer.mutate();
+        }}
+      >
+        {t("autoTest.financer")}
+      </Button>
+      {r && (
+        <span className={r.ok ? "text-xs text-success-foreground" : "text-xs text-destructive"} role="status">
+          {r.ok
+            ? t("autoTest.finance", { nom: r.jalon?.nom ?? "?", etat: r.etat_relu ?? "?" })
+            : t("autoTest.pasFinance", { raison: r.erreur ?? r.error ?? "?", etat: r.etat_relu ?? "?" })}
+        </span>
+      )}
+      {financer.error && <span className="text-xs text-destructive">{(financer.error as Error).message}</span>}
+      {r?.requete !== undefined && (
+        <pre className="w-full overflow-x-auto rounded-md bg-muted/40 p-2 text-[11px]" data-testid="financer-reponse">
+          {`request: ${JSON.stringify(r.requete)}\nresponse: ${JSON.stringify(r.reponse)}`}
+        </pre>
       )}
     </div>
   );
@@ -210,6 +253,7 @@ function LigneContrat({ c }: { c: ContratTest }) {
       {actif ? (
         <>
           <BoutonsTest posterId={c.poster_id!} />
+          <FinancerJalonTest contratId={c.contrat_id} />
           <PayerSemaineTest contratId={c.contrat_id} />
           <FermerContratTest contratId={c.contrat_id} />
         </>

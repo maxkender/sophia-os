@@ -93,6 +93,12 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   changer, pas les mots).
 - **G2** (« accroche à REFORMULER ») : la même promesse, avec d'autres mots.
   Le parent est une G1 qui a gagné.
+- **Langue** : une déclinaison s'écrit **dans la langue de son parent** (celle
+  du post parent montré par la boîte), même si ton `AGENT.md` dit d'écrire dans
+  une autre langue. La boîte d'un label mélange des familles anglaises et
+  françaises ; une G1 traduite n'a plus l'accroche du parent mot pour mot et le
+  guichet la refuse (`accroche_differente`). L'OS traduit ensuite le post pour
+  chaque compte. Tes full tests restent dans ta langue habituelle.
 - Dans `originaux/<id>.json` : `"type_bleo": "declinaison"` et
   `"parent_contenu_id": "<l'id complet de la boîte>"`. Ni `schema_id` ni
   preuve.
@@ -111,18 +117,19 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   ou de chaque slide.
 - Dans `originaux/<id>.json` : `"type_bleo": "full_test"`, sans parent.
 
-### 4.5 Tester les CTA, toujours
+### 4.5 Varier les CTA
 
 Si tu écris toi-même la slide de l'appli, tiens **3 versions vraiment
 différentes** de cette slide (`cta A`, `cta B`, `cta C`) et alterne-les d'une
-livraison à l'autre. Elles diffèrent par :
+livraison à l'autre, pour que nos posts ne se ressemblent pas. Elles diffèrent par :
 - la phrase d'appel (pas toutes « a micro-learning app like… ») ;
 - la forme : capture d'écran de l'appli, avant/après, conseil à la
   1re personne, liste où l'appli est un item parmi d'autres… ;
 - la position dans le deck (pas toujours la même slide).
-Note la version dans `notes` (`cta A`…). **Chaque lundi, remplace la moins
-bonne version par une nouvelle idée.** Podz dont l'OS place l'appli (12) : pas
-concerné.
+Note la version dans `notes` (`cta A`…). Les vues ne jugent pas un CTA (décision d'Adrien du 30/10 : il arrive à la slide 4 ou plus loin, après que la vue est comptée) : ne compare pas tes
+versions à leurs vues et n'en remplace aucune pour ça. Change une version
+seulement si elle se répète d'un post à l'autre ou sonne pub (fiche CTA, page
+Fiches de l'OS). Podz dont l'OS place l'appli (12) : pas concerné.
 
 ### 4.6 Ce que le guichet refuse
 

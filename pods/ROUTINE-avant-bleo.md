@@ -70,7 +70,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    - Podz 1 : un post d'un autre compte au même format.
    - Podz 6, 10 et 11 : pas d'essai tant que la liste n'est pas finie.
 
-5. **Tester les CTA, toujours.** Si tu écris toi-même la slide de l'appli,
+5. **Varier les CTA.** Si tu écris toi-même la slide de l'appli,
    tiens **3 versions vraiment différentes** de cette slide (`cta A`, `cta B`,
    `cta C`) et alterne-les d'une livraison à l'autre. Elles diffèrent par :
    - la phrase d'appel (pas toutes « a micro-learning app like… ») ;
@@ -78,11 +78,9 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
      1re personne, liste où l'appli est un item parmi d'autres… ;
    - la position dans le deck (pas toujours la même slide).
    Note la version dans `notes` (`cta A`…), garde la même version sur toutes
-   les langues d'une livraison. **Chaque lundi, remplace la moins bonne
-   version par une nouvelle idée**, même si toutes marchent : il y a toujours
-   un CTA à tester. Le chef te dit aussi quand une version est nettement sous
-   les autres sur 20 passages mûrs. Podz dont l'OS place l'appli (12) : pas
-   concerné.
+   les langues d'une livraison. Les vues ne jugent pas un CTA (décision d'Adrien du 30/10 : il arrive à la slide 4 ou plus loin, après que la vue est comptée) : n'en remplace aucune
+   d'après ses vues ; change une version seulement si elle se répète ou sonne
+   pub. Podz dont l'OS place l'appli (12) : pas concerné.
 6. **Ne t'enferme pas dans ce qui marche.** Sur tes livraisons normales du
    jour, **au plus 1** reprend une famille d'accroche que tu as déjà livrée 3
    fois ou plus sur les 7 derniers jours. Les autres partent sur des angles ou

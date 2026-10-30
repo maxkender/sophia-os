@@ -169,8 +169,9 @@ const COMPTE = "principal";
  *       0470 : la HM du contrat (hiringManager / supervisor) et le pays du
  *       freelance (userDetails, talentProfile ou l'offre), lus et montrés. Rien
  *       n'est créé ni envoyé.
- *   { action: "accueil_creer", contrat_id, pays, hm_id, langue?, confirmer }  admin
+ *   { action: "accueil_creer", contrat_id, pays, hm_id, langue?, tarif?, confirmer }  admin
  *       0470 : carte « Contract to link » : posteur créé, relié, bienvenue envoyée.
+ *       Profil déjà créé par la HM (même contrat) : HM et tarif posés, bienvenue envoyée.
  *   { action: "annonces_amorcer" }           admin
  *       Système du 2 nov., partie A : remplit `annonces_pays` depuis les
  *       posteurs déjà embauchés (l'annonce de leur contrat, lue en lecture
@@ -306,11 +307,13 @@ Deno.serve(async (request) => {
         return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
       case "accueil_creer":
         // 0470 : carte « Contract to link » : un clic, le posteur créé et la bienvenue envoyée.
-        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        // Jamais par un cron planifié (aucun n'a cette action) ; un appel explicite, avec confirmer.
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
         return json(await creerAccueilMaintenant(supabase, par, {
           contrat: String(body.contrat_id ?? ""), pays: String(body.pays ?? ""),
           langue: typeof body.langue === "string" && body.langue ? body.langue : null,
           hm_id: typeof body.hm_id === "string" && body.hm_id ? body.hm_id : null,
+          tarif: Number(body.tarif) > 0 ? Number(body.tarif) : null,
         }));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
@@ -2933,7 +2936,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
 async function creerAccueilMaintenant(
   supabase: Supabase,
   par: string | null,
-  o: { contrat: string; pays: string; langue: string | null; hm_id: string | null },
+  o: { contrat: string; pays: string; langue: string | null; hm_id: string | null; tarif?: number | null },
 ): Promise<{ ok: boolean; error?: string; poster_id?: string | null; statut?: string; raison?: string | null }> {
   const pays = codePays(o.pays);
   if (!o.contrat || !pays) return { ok: false, error: "contrat et pays obligatoires" };
@@ -2942,18 +2945,38 @@ async function creerAccueilMaintenant(
   const { data: comptes } = await supabase.from("comptes").select("pays, langue").eq("pays", pays);
   const langue = o.langue || langueDePays(pays, (comptes ?? []) as { pays: string | null; langue: string | null }[]);
   if (!langue) return { ok: false, error: `aucune langue connue pour ${pays} : choisis la langue` };
-  const { data: deja } = await supabase.from("profiles").select("id, prenom, nom").eq("upwork_contract_id", o.contrat).limit(1).maybeSingle();
-  if (deja) return { ok: false, error: `contrat déjà relié à ${[deja.prenom, deja.nom].filter(Boolean).join(" ")}` };
-  // Le verrou : la ligne passe à « envoi » seulement depuis à relier, simulé, à créer ou erreur.
+  const tarif = o.tarif && o.tarif > 0 ? o.tarif : null;
+  // Le profil déjà créé par la HM (même contrat) : pas de 2e profil, la bienvenue part avec son login.
+  const { data: deja } = await supabase.from("profiles").select("id, prenom, nom, is_active").eq("upwork_contract_id", o.contrat)
+    .order("is_active", { ascending: false }).limit(1).maybeSingle();
+  if (deja && !deja.is_active) return { ok: false, error: `contrat relié à ${[deja.prenom, deja.nom].filter(Boolean).join(" ")}, profil inactif` };
+  // Le verrou : la ligne passe à « envoi » seulement depuis à relier, simulé, à créer, doublon ou erreur.
   const { data: verrou, error: errVerrou } = await supabase.from("accueils").update({
     pays, langue, hm_id: o.hm_id, relie_par: par, relie_at: new Date().toISOString(), pays_source: "main",
-    statut: "envoi", raison: "création en cours (clic)", updated_at: new Date().toISOString(),
-  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "erreur"]).select("*");
+    ...(tarif ? { tarif } : {}), statut: "envoi", raison: "création en cours (clic)", updated_at: new Date().toISOString(),
+  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "doublon", "erreur"]).select("*");
   if (errVerrou) return { ok: false, error: errVerrou.message };
   const a = verrou?.[0];
   if (!a) return { ok: false, error: "contrat introuvable ou déjà en cours de création" };
   const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["accueil_message_texte", "slack_lien_invitation"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
+  const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
+  if (deja) {
+    // La HM et le tarif choisis sur la carte, puis la bienvenue (accueillirExistant).
+    await supabase.from("profiles").update({ manager_id: o.hm_id, ...(tarif ? { tarif_hebdo: tarif } : {}) }).eq("id", deja.id);
+    const r = await accueillirExistant(
+      supabase,
+      par,
+      { contrat_id: o.contrat, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, pays, langue, hm_id: o.hm_id, tarif: tarif ?? a.tarif },
+      String(deja.id),
+      modele,
+      slack,
+    );
+    const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id").eq("contrat_id", o.contrat).maybeSingle();
+    if (r.erreur) return { ok: false, error: r.erreur, statut: apres?.statut, poster_id: apres?.poster_id ?? null };
+    return { ok: true, statut: apres?.statut, raison: apres?.raison ?? null, poster_id: apres?.poster_id ?? null };
+  }
   const { data: lundi } = await supabase.rpc("cohorte_lundi_de_pays", { p_at: new Date(a.debut_at ?? Date.now()).toISOString(), p_pays: null });
   const cohorte = String(lundi ?? "");
   await supabase.from("accueils").update({ cohorte_lundi: cohorte || null }).eq("contrat_id", o.contrat);
@@ -2962,10 +2985,10 @@ async function creerAccueilMaintenant(
     par,
     {
       contrat_id: o.contrat, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, debut_at: a.debut_at,
-      pays, langue, hm_id: o.hm_id, tarif: a.tarif === null ? null : Number(a.tarif), cohorte_lundi: cohorte,
+      pays, langue, hm_id: o.hm_id, tarif: tarif ?? (a.tarif === null ? null : Number(a.tarif)), cohorte_lundi: cohorte,
     },
-    typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "",
-    typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "",
+    modele,
+    slack,
   );
   const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id").eq("contrat_id", o.contrat).maybeSingle();
   if (r.erreur) return { ok: false, error: r.erreur, statut: apres?.statut, poster_id: apres?.poster_id ?? null };

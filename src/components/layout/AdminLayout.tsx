@@ -23,6 +23,7 @@ import {
   GitBranch,
   Images,
   Languages,
+  Library,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
@@ -329,6 +330,12 @@ export function AdminLayout() {
               label: t("nav.relectureNative"),
               icon: Languages,
               description: t("navDesc.relectureNative"),
+            },
+            {
+              to: "/admin/fiches",
+              label: t("nav.fiches"),
+              icon: Library,
+              description: t("navDesc.fiches"),
             },
             {
               to: "/admin/documents",

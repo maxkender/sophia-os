@@ -60,7 +60,10 @@ export function MiniBarre({ valeur, total, ton = "vert" }: { valeur: number; tot
   return (
     <span className="block h-1.5 w-full overflow-hidden rounded-full bg-muted" aria-hidden>
       <span
-        className={cn("block h-full rounded-full", ton === "vert" ? "bg-success" : ton === "bleu" ? "bg-info" : "bg-primary")}
+        className={cn(
+          "block h-full rounded-full",
+          ton === "vert" ? "bg-success" : ton === "bleu" ? "bg-info" : ton === "violet" ? "bg-violet-500" : "bg-primary",
+        )}
         style={{ width: `${pct}%` }}
       />
     </span>

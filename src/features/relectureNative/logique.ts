@@ -54,53 +54,58 @@ export function languesDuPoster(p: Pick<PosterProfil, "comptes" | "langues">): s
 /**
  * Les familles de ton d'une fiche langue : les labels qui s'écrivent pareil.
  * Un label sans exemple natif emprunte le ton de sa famille. Même liste que
- * le brief de rédaction (docs/fiches-langue-brief.md).
+ * le brief de rédaction (docs/fiches-langue-brief.md). Noms en anglais, comme
+ * la fiche.
  */
 export const FAMILLES_DE_TON: ReadonlyArray<{ nom: string; labels: ReadonlyArray<string> }> = [
-  { nom: "Discipline et psychologie", labels: ["alpha_male", "alpha_male_yellow", "alpha_male_film", "weird_alpha"] },
-  { nom: "Fille cultivée et élégante", labels: ["smart_girl", "beau_smart_girl", "white_bg"] },
-  { nom: "Études", labels: ["classic_study", "clean_study", "that_girl_study", "medical_study", "faceless_study"] },
-  { nom: "Carrière", labels: ["RH"] },
-  { nom: "Écrans et auto-amélioration", labels: ["mentalmaxxing", "Fathomly"] },
+  { nom: "Discipline & psychology", labels: ["alpha_male", "alpha_male_yellow", "alpha_male_film", "weird_alpha"] },
+  { nom: "Cultured & elegant girl", labels: ["smart_girl", "beau_smart_girl", "white_bg"] },
+  { nom: "Studies", labels: ["classic_study", "clean_study", "that_girl_study", "medical_study", "faceless_study"] },
+  { nom: "Career", labels: ["RH"] },
+  { nom: "Screens & self-improvement", labels: ["mentalmaxxing", "Fathomly"] },
 ];
 
-/** Modèle proposé quand la fiche d'une langue est encore vide (rubriques du brief). */
-export function modeleFicheLangue(nomLangue: string): string {
+/**
+ * Modèle proposé quand la fiche d'une langue est encore vide (rubriques du
+ * brief). La fiche est en anglais, avec les mots, tournures et accroches
+ * natives cités tels quels dans la langue (décision d'Adrien, 30/10).
+ */
+export function modeleFicheLangue(nomAnglais: string, code: string): string {
   return [
-    `# Fiche langue : ${nomLangue}`,
+    `# Language sheet: ${nomAnglais} (${code})`,
     "",
-    "> Variante visée : pays, orthographe. Sources : N slideshows natifs (banque de l'OS), M posts de l'OS, extraits le JJ/MM.",
+    `> Target variant: country, spelling. Sources: N native slideshows (OS bank), M of our posts, written on DD/MM. Rules in English; native words, phrases and hooks quoted verbatim in ${nomAnglais}.`,
     "",
-    "## L'essentiel en 8 règles",
+    "## The 8 rules that matter most",
     "1. ",
     "",
-    "## Registre et adresse",
+    "## Register and address",
     "- ",
     "",
-    "## Rythme et mise en page",
-    "- Longueur des phrases, retours à la ligne, mots par slide :",
-    "- Majuscules, ponctuation, numérotation :",
-    "- Émojis :",
+    "## Rhythm and layout",
+    "- Sentence length, line breaks, words per slide:",
+    "- Capitals, punctuation, numbering:",
+    "- Emojis:",
     "",
-    "## Accroches (slide 1)",
-    "- Structure : « extrait natif » (famille)",
+    "## Hooks (slide 1)",
+    "- Pattern: « native excerpt » (family)",
     "",
-    "## Vocabulaire",
-    "### Ce que disent les natifs",
+    "## Vocabulary",
+    "### What natives actually say",
     "- ",
-    "### À bannir (calques et tournures de traduction)",
-    "- « tournure à éviter » → « tournure native »",
+    "### Never write (translation calques)",
+    "- « calque to avoid » → « native phrasing »",
     "",
-    "## Fins de slideshow et transitions",
+    "## Endings and transitions",
     "- ",
     "",
-    "## Familles de ton",
+    "## Tone families",
     ...FAMILLES_DE_TON.flatMap((f) => [`### ${f.nom} (${f.labels.join(", ")})`, "- ", ""]),
-    "## Ce que notre traduction rate aujourd'hui",
-    "- Notre post : « … » → Comme un natif : « … » (la règle)",
+    "## What our translation gets wrong",
+    "- Our post: « … » → A native would write: « … » (the rule)",
     "",
-    "## Spécificités locales",
-    "- École et études, argent, unités, dates, références :",
+    "## Local specifics",
+    "- School and exams, money, units, dates, references:",
     "",
     "## Sources",
     "- ",

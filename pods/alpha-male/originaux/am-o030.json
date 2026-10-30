@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o030",
+ "schema_id": "signs-of-a-man",
+ "titre": "7 green flags in a man #men #greenflags #respect #selfimprovement #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [
+  "0685b2ff-4e1d-45f0-a0a5-8cde772f0b58",
+  "bb4502c1-13b8-4ef3-a0ac-b9645a9ae530"
+ ],
+ "notes": "essai (am-o030, une livraison sur cinq). cta C. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est au 4e signe sur 7, en « he ». Routine d'avant BLEO (npm run boite : « podz sur BLEO : pas encore ») ; famille repérée dans la boîte pour information. Format jamais fait chez nous : les « green flags » (aucun « green flag » ni « red flag » dans donnees/label.json). C'est un format très répandu sur TikTok. Rangé sous signs-of-a-man (0685b2ff, le plus vu du label), schéma actif qui porte la preuve : même mécanique, on se reconnaît dans chaque signe. Accroches écrites : « 7 green flags in a man » (retenue : forme courte du format), « green flags that make a man trustworthy » (écartée : plus longue), « 7 signs he's a good man » (écartée : déjà proche des signes faits). Signes neufs, rien de genré contre quiconque. Images : la banque du label ; célébrités en illustration acceptées depuis le 28/10, jamais sur la slide Sophia. Slide Sophia sur une pièce sombre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e9d6b99",
+   "texte_overlay": "7 green flags in a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ccd79f7c",
+   "texte_overlay": "1. He listens to answer,\nnot to reply.\nHe asks the second question.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cbff8170",
+   "texte_overlay": "2. He has friends\nhe's kept for 10 years.\nPeople stay because\nhe's worth staying for.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cc5702e8",
+   "texte_overlay": "3. He takes bad news calmly.\nHe deals with it first,\nreacts later.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6437b3b9",
+   "texte_overlay": "4. He's curious.\nHe reads things\nnobody asked him to.",
+   "texte_sophia": "4. He's curious.\nHe learns one thing a day\non the Sophia app: 5 minutes\nof history, science or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cbb6a9cf",
+   "texte_overlay": "5. He talks about his goals\nless than he works on them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ccc693e1",
+   "texte_overlay": "6. He respects a \"no\"\nthe first time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "23c9d143",
+   "texte_overlay": "7. He knows how\nto be alone.\nHe doesn't need noise\nto feel okay.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  }
+ ]
+}

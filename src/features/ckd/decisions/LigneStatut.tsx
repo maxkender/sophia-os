@@ -27,7 +27,7 @@ export function StatutCompte({ e, x }: { e: EvaluationCompte; x?: ExtrasCompte }
   const { t } = useTranslation();
   const phrase = e.signaux.length ? e.signaux.map((s) => phraseSignal(s, t)).join(" · ") : t(`${P}.rien`);
   return (
-    <div className="min-w-56 max-w-72 space-y-0.5 text-xs" data-statut={e.statut}>
+    <div className="min-w-44 max-w-56 space-y-0.5 text-xs" data-statut={e.statut}>
       <p className="flex items-center gap-1.5 font-medium">
         <span className={cn("inline-block size-2 shrink-0 rounded-full", COULEUR[e.statut])} aria-hidden />
         {t(`${P}.statuts.${e.statut}`)}

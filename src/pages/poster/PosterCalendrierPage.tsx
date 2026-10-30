@@ -27,6 +27,7 @@ import {
 import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
 import { MonCompteTiktok } from "@/features/onboarding/MonCompteTiktok";
 import { ConnecterSlack } from "@/features/onboarding/ConnecterSlack";
+import { BoutonAbsence } from "@/features/absences/BoutonAbsence";
 import { StartWarmupHandle } from "@/features/onboarding/StartWarmupHandle";
 import { WarmupFiniCapture } from "@/features/onboarding/WarmupFiniCapture";
 import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
@@ -521,6 +522,9 @@ export function PosterCalendrierPage() {
 
       {/* Prompt 25 MAJ, 7a : relier son Slack (l'étape 0 n'est cochée qu'une fois relié). */}
       {!debutRuul && <ConnecterSlack />}
+
+      {/* Prompt 27 : « I'll be away » (l'OS note l'absence ; rien ne part, rien n'est mis en pause). */}
+      {!debutRuul && <BoutonAbsence />}
 
       {debutRuul && <BandeauCohorteRuul />}
 

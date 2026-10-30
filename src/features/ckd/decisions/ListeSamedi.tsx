@@ -15,6 +15,8 @@ import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
 
+import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
+import { lireContexte, relireConversationsUpwork } from "./contexte";
 import { FicheSamedi } from "./FicheSamedi";
 import { BadgesPosteur, CellulesEtapes, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
@@ -145,6 +147,17 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const seuils = useQuery({ queryKey: ["masterlist-seuils"], queryFn: lireSeuilsConfiance });
   const recrues = useQuery({ queryKey: ["samedi-recrues", lundi], queryFn: () => lireRecruesSansReaction(lundi) });
   const demandes = useQuery({ queryKey: ["demandes-arret"], queryFn: lireDemandesArret });
+  // Prompt 27 : le contexte de chaque posteur (messages, connexion, dernier post, absence déclarée).
+  const posteursListe = React.useMemo(() => [...new Set((lu.data ?? []).map((c) => c.poster_id))].sort(), [lu.data]);
+  const contexte = useQuery({
+    queryKey: ["masterlist-contexte", lundi, posteursListe],
+    queryFn: () => lireContexte(lundi, posteursListe),
+    enabled: posteursListe.length > 0,
+  });
+  const relire = useMutation({
+    mutationFn: () => relireConversationsUpwork(posteursListe),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ["masterlist-contexte"] }),
+  });
   const [choix, setChoix] = React.useState<Record<string, ChoixSamedi>>({});
   const [raisons, setRaisons] = React.useState<Record<string, RaisonSaisie>>({});
   const [ouverts, setOuverts] = React.useState<Record<string, string | true | undefined>>({});
@@ -177,7 +190,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const principaux = visibles.filter((c) => (tous ? e(c).statut !== "vert" : aTraiter(c)));
   const confiance = visibles.filter((c) => e(c).statut === "vert");
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
-  const nbCol = jours.length + 9;
+  const nbCol = jours.length + 8;
   const compteurs = {
     rouge: visibles.filter((c) => e(c).statut === "rouge").length,
     orange: visibles.filter((c) => e(c).statut === "orange").length,
@@ -330,8 +343,6 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
               {t(ouvert ? "autoOnglets.decisions.liste.samedi.fiche.masquer" : "autoOnglets.decisions.liste.samedi.fiche.voir")}
             </button>
           </td>
-          <td className={`${TD} text-xs tabular-nums`}>{c.cohorte_lundi ? `${c.cohorte_lundi.slice(8, 10)}/${c.cohorte_lundi.slice(5, 7)}` : "—"}</td>
-          <td className={`${TD} text-xs`}>{c.pays ?? "—"}</td>
           {ev.recrue ? (
             <CellulesEtapes x={ex} colonnes={jours.length + 1} />
           ) : (
@@ -346,6 +357,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           <td className={`${TD} text-xs`}>
             {c.nudge_envoye_at ? <Badge variant="warning">{t("autoOnglets.decisions.liste.samedi.nudge")}</Badge> : <span className="text-muted-foreground">—</span>}
           </td>
+          <CelluleContexte c={contexte.data?.get(c.poster_id)} maintenant={maintenant} />
+          <CelluleAway c={contexte.data?.get(c.poster_id)} />
         </tr>
         {(np || ouvert) && (
           <tr className="border-b border-border/40 bg-muted/20" data-fiche={c.handle ?? c.compte_id}>
@@ -374,12 +387,12 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.choix")}</th>
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.statut")}</th>
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.compte")}</th>
-        <th className={TH}>{t("autoOnglets.decisions.liste.filtres.cohorte")}</th>
-        <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.pays")}</th>
         <EnTetesJours jours={jours} />
         <th className={`${TH} text-right`}>{t("autoOnglets.decisions.liste.colonnes.total")}</th>
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.vues")}</th>
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.jeudi")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.contexte.titre")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.contexte.awayTitre")}</th>
       </tr>
     </thead>
   );
@@ -411,6 +424,15 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
               {tous ? t("autoOnglets.decisions.liste.samedi.aTraiterSeulement") : t("autoOnglets.decisions.liste.samedi.tousLesComptes", { n: visibles.length })}
             </Button>
             <Button size="sm" variant="ghost" onClick={exporter}>{t("autoOnglets.decisions.liste.samedi.csv")}</Button>
+            {admin && (
+              <Button size="sm" variant="ghost" loading={relire.isPending} onClick={() => relire.mutate()} data-testid="relire-upwork">
+                {t("autoOnglets.decisions.liste.contexte.relire")}
+              </Button>
+            )}
+            {relire.data && (
+              <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.contexte.relu", { n: relire.data.lus, erreurs: relire.data.erreurs })}</span>
+            )}
+            {(contexte.error || relire.error) && <span className="text-xs text-destructive">{((contexte.error ?? relire.error) as Error).message}</span>}
           </div>
           <div className="relative overflow-x-auto">
             <table className="w-full border-collapse text-sm">

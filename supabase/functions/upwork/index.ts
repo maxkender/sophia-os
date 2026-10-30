@@ -44,6 +44,7 @@ import {
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { appelSlack, decrireRetrait, retirerDesCanaux } from "../_shared/slack_retrait.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
+import { derniersMessagesSalon } from "../_shared/contexte.ts";
 import { sansSuspendus } from "../_shared/contestations.ts";
 import {
   decrireJalons,
@@ -153,6 +154,8 @@ const COMPTE = "principal";
  *       semaine et ferme. Interrupteur `arret_auto` (off / test / on) : en
  *       test, rien ne part sur Upwork. Chaque action journalisée, un échec ne
  *       bloque pas les autres, jamais de nouvel essai.
+ *   { action: "contexte_upwork", posteurs?, max? }  cron `contexte-upwork`, toutes les 2 h ; admin (masterlist)
+ *       Prompt 27 : les conversations Upwork relues pour la colonne Context (lecture seule).
  *   { action: "reponses_lire", posteurs? }   cron `reponses-upwork`, toutes les heures à :05 ; recrues-check avant un Kill ; admin
  *       Système du 2 nov., partie E : les messages des posteurs ciblés
  *       (`reponses_cibles_upwork`) dans la conversation de leur contrat, plus
@@ -252,6 +255,11 @@ Deno.serve(async (request) => {
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
         return json(await traiterArrets(supabase, par));
+      case "contexte_upwork": {
+        // Prompt 27 : les conversations Upwork des posteurs actifs, relues (lecture seule) pour la masterlist.
+        const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
+        return json(await lireContexteUpwork(supabase, par, posteurs, Number(body.max) || 120));
+      }
       case "reponses_lire": {
         const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
         // Prompt 25 MAJ, point 8 : à chaque passage, les messages confiés aux HM sont vérifiés sur Upwork (lecture seule).
@@ -2699,6 +2707,57 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
     await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUne));
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/**
+ * Prompt 27 : la conversation Upwork de chaque contrat actif (masterlist,
+ * colonne Context). Lecture seule : les 10 derniers messages des deux côtés
+ * sont gardés dans `upwork_salons`, sans rien classer ni répondre. Le salon
+ * (room) est retenu après la 1re lecture : une seule requête ensuite.
+ */
+async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
+  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
+  if (error) throw error;
+  const liste = (data ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  const bilan = { cibles: liste.length, lus: 0, erreurs: [] as string[] };
+  const lireUn = async (c: (typeof liste)[number]) => {
+    const noter = async (champs: Record<string, unknown>) =>
+      await supabase.from("upwork_salons").upsert({ contrat_id: c.contrat_id, poster_id: c.poster_id, lu_at: new Date().toISOString(), ...champs });
+    try {
+      let room = c.room_id;
+      let freelance = c.freelance_id;
+      if (!room || !freelance) {
+        const salon = await lire(supabase, { par, action: "contexte_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+        room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
+        freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
+        if (!room || !freelance) {
+          await noter({ erreur: salon.erreur ?? "conversation introuvable" });
+          bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
+          return;
+        }
+      }
+      const msgs = await lire(supabase, { par, action: "contexte_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: c.organisation_id });
+      if (msgs.erreur) {
+        await noter({ room_id: room, freelance_id: freelance, erreur: msgs.erreur });
+        bilan.erreurs.push(`${c.contrat_id} : ${msgs.erreur}`);
+        return;
+      }
+      // deno-lint-ignore no-explicit-any
+      const derniers = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance);
+      await noter({
+        room_id: room, freelance_id: freelance, messages: derniers, erreur: null,
+        dernier_posteur_at: derniers.find((m) => m.de === "posteur")?.at ?? null,
+        dernier_nous_at: derniers.find((m) => m.de === "nous")?.at ?? null,
+      });
+      bilan.lus++;
+    } catch (e) {
+      bilan.erreurs.push(`${c.contrat_id} : ${messageErreur(e)}`);
+    }
+  };
+  for (let i = 0; i < liste.length; i += REPONSES_EN_PARALLELE) {
+    await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUn));
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
 }
 
 // ---------------------------------------------------------------------------

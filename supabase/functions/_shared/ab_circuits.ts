@@ -14,12 +14,13 @@
  * changement de prompt ou de fiche), l'ajouter à `CIRCUITS`, puis, quand le
  * duel est concluant, poser sa `version` dans `circuit_production`.
  *
- * Le CTA en 4 morceaux : la forme (liste fixe, poids par label dans la fiche
- * label) et la voie (tirée par l'OS à la commande) arrivent au circuit dans
- * `cta` ; ce qu'on dit de l'appli est dans la fiche appli ; la façon de le dire
- * dans la fiche langue. Le circuit suit la voie commandée, ou la refuse en
- * disant pourquoi et reprend le CTA de l'original (`cta.refus`). Le tirage se
- * branche dans `commanderCta` (étape 4 du plan, avec la fiche label).
+ * Le CTA (décision d'Adrien du 30/10, 0624) : l'OS ne tire ni forme ni voie
+ * `prouvee` / `essai`. Il n'impose que deux cas, dans `cta` : `reprise`
+ * (l'original cite un concurrent : sa slide porte l'appli) et `marquee` (le
+ * podz a marqué la slide). Sinon `cta` est null et le circuit choisit la slide
+ * et la tournure avec les quatre fiches : appli (quoi dire), langue (comment
+ * le dire), label (le format du deck, où va l'appli, des exemples) et CTA (les
+ * règles communes). Un refus de la voie imposée se note dans `cta.refus`.
  *
  * `ancree` est un candidat d'attente : la traduction ancrée sur les exemples
  * natifs (`traduction_native.ts`, servie jusqu'ici par `traduire-test` sur du
@@ -121,10 +122,10 @@ export async function lireSourceContenu(
 }
 
 /**
- * Le CTA commandé pour un deck (contenu × langue × appli) : la voie tirée au
- * sort selon les poids du label, et la forme pour `prouvee` et `essai`. Les
- * langues d'un même contenu reçoivent des voies différentes. Null tant que
- * l'étape 4 (fiche label, liste des formes) n'est pas faite.
+ * Le CTA imposé à un deck (contenu × langue × appli) : `reprise` quand
+ * l'original cite un concurrent, `marquee` quand le podz a marqué la slide,
+ * jamais de forme (0624). Null dans tous les autres cas, et pour l'instant
+ * toujours : le repérage des deux cas se branchera avec l'appel unique.
  */
 export function commanderCta(
   _supabase: Supabase,

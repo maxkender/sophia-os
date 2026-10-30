@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o040",
+ "schema_id": "jolie-et-interessante",
+ "titre": "ce que je garde toujours dans mon sac pour avoir quelque chose à raconter #pourtoi #culture #lecture #apprentissage",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "essai. cta A (avant / après sur le dernier item ; voir CTA.md). Routine du 30/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 6 sur 7 (le numéro finit par 0). L'essai : le format « ce qu'il y a dans mon sac » (dans le label, « what i kept in my backpack my freshman yr » est gagnant à 13,8 k vues et r 4 dans la boîte BLEO du 30/10), jamais fait par notre pod, sur la promesse « avoir quelque chose à raconter ». La preuve reste celle du schéma jolie-et-interessante (r 5,04, 675447a8). Accroches écrites : « ce que je garde toujours dans mon sac pour avoir quelque chose à raconter » (retenue : le format du gagnant et la promesse du label), « ce qu'il y a dans le sac d'une fille jolie ET cultivée » (écartée : plus long), « what's in my bag, version culture » (écartée : anglicisme). Items neufs. Le soin de soi reste simple (baume, barrette), aucune norme physique. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia. Inspirations : slides de 375ec54a sans appli (sa 6 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c216a3e2",
+   "texte_overlay": "ce que je garde toujours\ndans mon sac pour avoir\nquelque chose à raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c2572ff1",
+   "texte_overlay": "1. un livre de poche.\n\nassez petit pour tenir partout.\ndans une file d'attente, c'est dix pages de plus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c291193e",
+   "texte_overlay": "2. un carnet et un stylo.\n\npour noter un mot entendu, une idée, un titre de livre.\nmon téléphone, je l'oublie. mon carnet, jamais.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c33a1262",
+   "texte_overlay": "3. ma carte de bibliothèque.\n\nquand je passe devant, j'entre.\nje ressors toujours avec un livre que j'avais pas prévu.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c35e7402",
+   "texte_overlay": "4. un baume pour les lèvres et une barrette.\n\nprendre soin de moi en deux secondes.\nquand je me sens bien, je parle plus facilement.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4658bf3a",
+   "texte_overlay": "5. mon téléphone, mais pas pour scroller.\n\navant, je le sortais pour tuer le temps.\nmaintenant, j'y apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg",
+   "texte_sophia": "5. mon téléphone, mais pas pour scroller.\n\navant, je le sortais pour tuer le temps.\nmaintenant, j'y ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "c37686fd",
+   "texte_overlay": "et toi, c'est quoi l'objet\nqui ne quitte jamais ton sac ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

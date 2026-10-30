@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
@@ -43,7 +44,6 @@ vi.mock("@/features/relectureNative/api", () => ({
   effacerSuiviComptes: vi.fn(),
   listerFichesLangue: () => listerFichesLangue(),
   enregistrerFicheLangue: (...a: unknown[]) => enregistrerFicheLangue(...a),
-  compterVersionsFichesLangue: () => Promise.resolve({ de: 2 }),
   majLabelExemple: (...a: unknown[]) => majLabelExemple(...a),
   supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
@@ -78,7 +78,9 @@ function rendre() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={qc}>
-      <AdminRelectureNativePage />
+      <MemoryRouter>
+        <AdminRelectureNativePage />
+      </MemoryRouter>
     </QueryClientProvider>,
   );
 }
@@ -140,22 +142,6 @@ describe("AdminRelectureNativePage", () => {
     expect(await screen.findByRole("alert")).toHaveTextContent("n'est pas partagée");
     fireEvent.click(screen.getByRole("button", { name: "Mettre à jour Notion" }));
     expect(await screen.findByText("Table Notion à jour (2 ligne(s) réécrite(s)).")).toBeInTheDocument();
-  });
-
-  it("écrit une fiche appli à partir du modèle et l'enregistre", async () => {
-    rendre();
-    fireEvent.click(screen.getByRole("button", { name: "Fiches appli" }));
-    const carte = await screen.findByTestId(`fiche-appli-${MICABO}`);
-    fireEvent.click(within(carte).getByRole("button", { name: "Partir du modèle" }));
-    const contenu = within(carte).getByLabelText("Fiche complète (Markdown)") as HTMLTextAreaElement;
-    expect(contenu.value.startsWith("# micabo")).toBe(true);
-    fireEvent.change(within(carte).getByLabelText("Présentation pour les relecteurs"), {
-      target: { value: "micabo turns your notes into quizzes." },
-    });
-    fireEvent.click(within(carte).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() =>
-      expect(enregistrerFiche).toHaveBeenCalledWith(MICABO, contenu.value, "micabo turns your notes into quizzes."),
-    );
   });
 
   it("n'a plus ni questionnaire ni kit, et compte relecteurs, langues et exemples", async () => {
@@ -308,36 +294,11 @@ describe("AdminRelectureNativePage", () => {
     await waitFor(() => expect(relireExemple).toHaveBeenCalledWith("e4"));
   });
 
-  it("fiches langue : une par langue, partie du modèle, enregistrée", async () => {
-    listerFichesLangue.mockResolvedValue([
-      { langue: "tr", contenu: "# Fiche langue : Turc", updated_at: "2026-10-30T10:00:00Z" },
-    ]);
-    listerExemples.mockResolvedValue([
-      { id: "e1", langue: "de", statut: "pret" },
-      { id: "e2", langue: "de", statut: "en_attente" },
-    ]);
+  it("renvoie aux fiches, qui ont leur page : plus d'onglet de fiches ni de CTA ici", () => {
     rendre();
-    fireEvent.click(screen.getByRole("button", { name: "Fiches langue" }));
-    const fiche = await screen.findByTestId("fiche-langue-de");
-    expect(within(fiche).getByText("Fiche Allemand")).toBeInTheDocument();
-    expect(within(fiche).getByText("À écrire")).toBeInTheDocument();
-    await waitFor(() => expect(fiche).toHaveTextContent("1 exemples natifs prêts"));
-
-    fireEvent.click(within(fiche).getByRole("button", { name: "Partir du modèle" }));
-    const zone = within(fiche).getByRole("textbox", { name: "Fiche complète (Markdown)" });
-    expect((zone as HTMLTextAreaElement).value).toContain("# Fiche langue : Allemand");
-    expect((zone as HTMLTextAreaElement).value).toContain("### Études (");
-    fireEvent.click(within(fiche).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() =>
-      expect(enregistrerFicheLangue).toHaveBeenCalledWith("de", expect.stringContaining("## L'essentiel en 8 règles")),
-    );
-
-    // Une autre langue : sa propre fiche, déjà écrite.
-    fireEvent.change(within(screen.getByTestId("fiches-langue")).getByRole("combobox", { name: "Langue" }), {
-      target: { value: "tr" },
-    });
-    const turc = await screen.findByTestId("fiche-langue-tr");
-    expect(within(turc).getByText("Écrite")).toBeInTheDocument();
-    expect(within(turc).getByRole("textbox", { name: "Fiche complète (Markdown)" })).toHaveValue("# Fiche langue : Turc");
+    expect(screen.queryByRole("button", { name: "Fiches langue" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Fiches appli" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "CTA" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Fiches" })).toHaveAttribute("href", "/admin/fiches");
   });
 });

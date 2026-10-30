@@ -23,6 +23,7 @@ import {
   GitBranch,
   Images,
   Languages,
+  Library,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
@@ -215,6 +216,19 @@ export function AdminLayout() {
               icon: Scale,
               description: t("navDesc.repartition"),
             },
+            // Relecture native et Fiches (la réécriture native) : déplacées ici telles quelles (30/10).
+            {
+              to: "/admin/relecture-native",
+              label: t("nav.relectureNative"),
+              icon: Languages,
+              description: t("navDesc.relectureNative"),
+            },
+            {
+              to: "/admin/fiches",
+              label: t("nav.fiches"),
+              icon: Library,
+              description: t("navDesc.fiches"),
+            },
             {
               to: "/admin/bleo/reglages",
               label: t("nav.bleoReglages"),
@@ -323,12 +337,6 @@ export function AdminLayout() {
               label: t("nav.angles"),
               icon: Crosshair,
               description: t("navDesc.angles"),
-            },
-            {
-              to: "/admin/relecture-native",
-              label: t("nav.relectureNative"),
-              icon: Languages,
-              description: t("navDesc.relectureNative"),
             },
             {
               to: "/admin/documents",

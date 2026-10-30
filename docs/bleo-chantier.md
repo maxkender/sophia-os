@@ -141,6 +141,16 @@ elle part **après J14** de l'A/B BLEO, comme L3 et L4 (rien ne change pendant
 la mesure). Si on veut la lancer avant, elle doit tirer sa moitié au hasard
 **indépendamment du bras BLEO**, et le rapport A/B la compte par bras.
 
+**A/B traduction (30/10, demande d'Adrien).** Dans Tests seulement : **pas
+d'A/B dans l'assignation de minuit pour l'instant** (Adrien, 30/10).
+
+| Morceau | Où | État |
+| --- | --- | --- |
+| Duel à l'aveugle sur des slideshows déjà publiés : le deck parti contre celui du candidat, gauche ou droite au hasard, vote enregistré | `ab-traduction` (`duel_preparer`), `ab_traduction_duels`, page Tests « A/B traduction et placement » | en service ; candidat d'attente `ancree` (traduction ancrée + placement actuel, Sophia seulement). Premier duel le 30/10 (allemand, 7 slides, 70 s) |
+| Contrat d'un circuit : il reçoit le deck source, la langue, l'appli et, s'il y en a un, le **CTA imposé par l'OS** (`reprise` quand l'original cite un concurrent, `marquee` quand le podz a marqué la slide) ; il rend le deck aux mêmes positions, une slide d'appli, et le CTA écrit (ou son refus). Sinon il choisit la slide et la tournure avec les quatre fiches | `_shared/ab_circuits.ts` | prêt. L'appel unique s'y ajoute sous l'id `natif` ; le repérage des deux cas se branche dans `commanderCta`. Plus de forme ni de voie `prouvee` / `essai` tirées (décision d'Adrien du 30/10, 0624) |
+| **Fiche CTA** (0623) : les règles communes à toutes les applis et toutes les langues pour écrire le CTA (un vrai conseil, l'appli fondue dedans, le même moule que les voisines, le choix de la slide, la slide 4 au plus tôt, les interdits). Une seule fiche, `bleo_fiches` sorte `cta`, `cle = 'commune'`. Le modèle, en anglais, est tenu par la session de la réécriture native (#916) | Page Fiches, sorte « CTA » (la première) | à écrire par Adrien depuis le modèle (0 version au 30/10) ; lue par l'appel unique avec les fiches appli, langue et label. Les fiches label sont écrites (premier jet des 14 labels en 0625), plus calculées |
+| Pour plus tard, l'A/B en production : réglage `reglages.ab_traduction` (coupé, refuse de s'allumer sans circuit), tirage post par post (`_shared/ab_traduction.ts`), `decks_natifs`, `passages.bras_traduction`, `ab_traduction_rapport()` | 0620, en base, inutilisés | le branchement dans l'assignation et la cuisson de l'après-midi sont dans maxkender/sophia-os#908, **fermée sans fusion** ; à reprendre si on décide l'A/B en production |
+
 **L7 (decks l'après-midi)** reste dans BLEO : c'est là que tournera l'appel
 unique pour les decks du lendemain, avec dix heures de marge entre le tirage de
 14 h et minuit, pour que le circuit Gemini actuel ait le temps de reprendre un

@@ -58,6 +58,7 @@ import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
 import { SlackARelier } from "@/features/slack/SlackARelier";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
+import { AdminFichesPage } from "@/pages/admin/AdminFichesPage";
 import { AdminRelectureNativePage } from "@/pages/admin/AdminRelectureNativePage";
 import { AdminBleoPage } from "@/pages/admin/AdminBleoPage";
 import { AdminBleoPlanPage } from "@/pages/admin/AdminBleoPlanPage";
@@ -156,6 +157,7 @@ export function AppRouter() {
               <Route path="/admin/prompts" element={<AdminPromptsPage />} />
               <Route path="/admin/angles" element={<AdminAnglesPage />} />
               <Route path="/admin/relecture-native" element={<AdminRelectureNativePage />} />
+              <Route path="/admin/fiches" element={<AdminFichesPage />} />
               <Route path="/admin/labels" element={<AdminLabelsPage />} />
               {/* BLEO (docs/bleo.md), en lecture seule : la nuit, les plans, les familles, les podz. */}
               <Route path="/admin/bleo" element={<AdminBleoPage />} />

@@ -45,8 +45,15 @@ Ton accès à la base est en **lecture seule**. Tu n'écris rien en base.
 
 ## Format et contraintes
 
-- **Langues** : les règles sont en français, comme toutes les consignes de l'OS.
-  Les extraits natifs sont dans la langue, recopiés tels quels, entre « ».
+- **Langue de la fiche : l'anglais, avec les mots natifs dedans** (décision
+  d'Adrien, 30/10). Les règles sont écrites en anglais : Adrien les lit, les
+  relecteurs natifs recrutés aussi (ils pourront corriger la fiche de leur
+  langue), et c'est en anglais que le modèle suit le mieux une consigne. Chaque
+  mot, tournure ou accroche native est cité tel quel en allemand, entre « » :
+  c'est ce qui garde l'aspect natif. Exemples :
+  - *Address the reader with « du », never « Sie ».*
+  - *Hooks open lowercase, no full stop: « dinge, die dir keiner sagt ».*
+  - *Never « Benutze die Sophia-App », a native writes « nutz apps wie … ».*
 - **Longueur** : 1 200 à 2 000 mots. Phrases courtes, à l'impératif, sans
   théorie. Relis la fiche et coupe tout ce qui ne change pas la façon d'écrire.
 - **Extraits** :
@@ -68,34 +75,42 @@ Ton accès à la base est en **lecture seule**. Tu n'écris rien en base.
 
 ## La structure de la fiche (rubriques imposées, dans cet ordre)
 
-1. **En-tête** (une citation `>`) : la variante visée, puis les sources (nombre
+Les titres de la fiche sont en anglais, exactement comme dans le modèle de l'OS
+(bouton « Partir du modèle ») : ils sont donnés entre parenthèses ci-dessous.
+
+1. **En-tête** (`# Language sheet: German (de)`, puis une citation `>`) : la variante visée, puis les sources (nombre
    de slideshows natifs, nombre de nos posts, date).
-2. **L'essentiel en 8 règles** : les 8 règles qui changent le plus le résultat,
+2. **L'essentiel en 8 règles** (`## The 8 rules that matter most`) : les 8 règles qui changent le plus le résultat,
    de la plus importante à la moins importante.
-3. **Registre et adresse** :
+3. **Registre et adresse** (`## Register and address`) :
    - tutoiement (du / ihr) ou vouvoiement (Sie) ;
    - je ou tu ;
    - écriture inclusive ou non ;
    - à qui parle le créateur.
-4. **Rythme et mise en page** :
+4. **Rythme et mise en page** (`## Rhythm and layout`) :
    - longueur des phrases et nombre de mots par slide (médiane) ;
    - retours à la ligne ;
    - majuscules : les titres, les noms, l'usage TikTok tout en minuscules ;
    - ponctuation : point final, « … », « !! », parenthèses d'aparté ;
+   - espaces et guillemets propres à la langue : espace ou non avant « : ? ! » (une
+     espace insécable en français, aucune en allemand ou en anglais), guillemets
+     utilisés (« » en français, „ “ en allemand, " " en anglais). La fiche CTA y
+     renvoie ;
    - numérotation : « 1. », « 1) », « #1 » ;
    - émojis : combien, lesquels, où.
-5. **Accroches (slide 1)** : 8 à 12 structures. Pour chacune : 1 ou 2 extraits
+5. **Accroches** (`## Hooks (slide 1)`) : 8 à 12 structures. Pour chacune : 1 ou 2 extraits
    natifs et sa famille de ton.
-6. **Vocabulaire**, en deux parties :
-   - *Ce que disent les natifs* : expressions, argot et anglicismes réellement
+6. **Vocabulaire** (`## Vocabulary`), en deux parties :
+   - *Ce que disent les natifs* (`### What natives actually say`) : expressions, argot et anglicismes réellement
      employés, avec leur fréquence.
-   - *À bannir* : les calques et tournures de traduction relevés dans NOS posts,
+   - *À bannir* (`### Never write (translation calques)`) : les calques et tournures de traduction relevés dans NOS posts,
      chacun suivi de la tournure native (« à éviter » → « natif »).
-7. **Fins de slideshow et transitions**, avec les formules réelles :
+7. **Fins de slideshow et transitions** (`## Endings and transitions`), avec les
+   formules réelles :
    - comment les natifs enchaînent les points et concluent ;
    - comment ils recommandent un outil ou une ressource ;
    - comment ils invitent à commenter ou sauvegarder.
-8. **Familles de ton** : une sous-section par famille (liste ci-dessous), de 4 à
+8. **Familles de ton** (`## Tone families`) : une sous-section par famille (liste ci-dessous), de 4 à
    8 lignes, avec :
    - la voix : qui parle, à qui ;
    - 2 ou 3 accroches typiques ;
@@ -104,17 +119,17 @@ Ton accès à la base est en **lecture seule**. Tu n'écris rien en base.
 
    Pour une famille sans exemple natif, dis-le, et indique de quelle famille
    emprunter le ton.
-9. **Ce que notre traduction rate aujourd'hui** : 6 à 10 paires
-   « notre post : « … » → comme un natif : « … » », chacune suivie de la règle
+9. **Ce que notre traduction rate** (`## What our translation gets wrong`) :
+   6 à 10 paires « Our post: « … » → A native would write: « … » », chacune suivie de la règle
    qu'elle illustre. Prends-les dans nos posts allemands publiés : des mieux
    classés et des moins bien classés.
-10. **Spécificités locales** :
+10. **Spécificités locales** (`## Local specifics`) :
    - école et examens (Abitur, Klausur, notes de 1 à 6, Uni…) ;
    - argent (€), unités, dates, nombres (virgule décimale) ;
    - références culturelles et marques locales ;
    - ce qu'il ne faut jamais transposer des États-Unis ou de France (GPA, SAT,
      « high school », barèmes sur 20…).
-11. **Sources** :
+11. **Sources** (`## Sources`) :
     - le nombre de slideshows natifs lus, par famille ;
     - le nombre de nos posts lus ;
     - la période couverte ;
@@ -128,11 +143,11 @@ emprunte le ton de sa famille. Même liste que dans l'OS (`FAMILLES_DE_TON`,
 
 | Famille | Labels | De quoi ça parle | Natifs `de` prêts (30/10) |
 |---|---|---|---|
-| Discipline et psychologie | alpha_male, alpha_male_yellow, alpha_male_film, weird_alpha | règles d'homme, discipline, psychologie sociale, confiance | 64 |
-| Fille cultivée et élégante | smart_girl, beau_smart_girl, white_bg | culture, élégance, vocabulaire, lecture | 69 |
-| Études | classic_study, clean_study, that_girl_study, medical_study, faceless_study | méthodes de travail, examens, médecine | 69 |
-| Carrière | RH | embauche, CV, entretiens, travail | 27 |
-| Écrans et auto-amélioration | mentalmaxxing, Fathomly | scroller moins, listes « 5 ways to… » | 0 : emprunter à Discipline et psychologie |
+| Discipline & psychology | alpha_male, alpha_male_yellow, alpha_male_film, weird_alpha | règles d'homme, discipline, psychologie sociale, confiance | 64 |
+| Cultured & elegant girl | smart_girl, beau_smart_girl, white_bg | culture, élégance, vocabulaire, lecture | 69 |
+| Studies | classic_study, clean_study, that_girl_study, medical_study, faceless_study | méthodes de travail, examens, médecine | 69 |
+| Career | RH | embauche, CV, entretiens, travail | 27 |
+| Screens & self-improvement | mentalmaxxing, Fathomly | scroller moins, listes « 5 ways to… » | 0 : emprunter à Discipline & psychology |
 
 Il reste aussi 24 slideshows prêts « sans label ». Lis-les et range-les dans une
 famille si leur ton est clair.
@@ -246,7 +261,9 @@ Tu y verras ce que le modèle reçoit déjà. N'y répète pas ce qui y est.
 
 ## Avant de livrer, vérifie
 
-- [ ] Les 11 rubriques sont là, dans l'ordre.
+- [ ] La fiche est en anglais, et chaque mot ou tournure native est cité en
+  allemand, entre « ».
+- [ ] Les 11 rubriques sont là, dans l'ordre, avec les titres anglais du modèle.
 - [ ] La fiche fait entre 1 200 et 2 000 mots.
 - [ ] Chaque règle a un extrait réel, ou est marquée « (à vérifier) ».
 - [ ] Il n'y a aucun slideshow complet, aucun @compte, aucun nom de créateur.

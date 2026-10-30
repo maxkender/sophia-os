@@ -175,34 +175,98 @@ export async function compterVersionsFiches(): Promise<Record<string, number>> {
 }
 
 // ---------------------------------------------------------------------------
-// Fiches langue (admin, 0619)
+// Fiches langue et fiches label (admin) : `bleo_fiches`, une ligne par version
 // ---------------------------------------------------------------------------
 
-export interface FicheLangue {
-  langue: string;
+export interface FicheVersionnee {
+  /** La langue (fiche langue) ou le nom du label (fiche label). */
+  cle: string;
   contenu: string;
-  updated_at: string | null;
+  version: number;
+  auteur: string | null;
+  created_at: string;
+  /** Nombre de versions gardées. */
+  versions: number;
 }
 
-export async function listerFichesLangue(): Promise<FicheLangue[]> {
-  const { data, error } = await supabase.from("fiches_langue").select("langue, contenu, updated_at");
+/** La dernière version de chaque fiche d'une sorte, avec le nombre de versions. */
+async function dernieresFiches(sorte: "langue" | "label" | "cta"): Promise<FicheVersionnee[]> {
+  const { data, error } = await supabase
+    .from("bleo_fiches")
+    .select("cle, version, contenu, auteur, created_at")
+    .eq("sorte", sorte)
+    .order("cle", { ascending: true })
+    .order("version", { ascending: false })
+    .limit(5000);
   if (error) throw error;
-  return (data ?? []) as FicheLangue[];
+  const parCle = new Map<string, FicheVersionnee>();
+  for (const f of (data ?? []) as Omit<FicheVersionnee, "versions">[]) {
+    const deja = parCle.get(f.cle);
+    if (deja) deja.versions += 1;
+    else parCle.set(f.cle, { ...f, versions: 1 });
+  }
+  return [...parCle.values()];
 }
 
-/** Enregistre la fiche d'une langue ; la base garde une version si le texte change. */
-export async function enregistrerFicheLangue(langue: string, contenu: string): Promise<void> {
-  const { error } = await supabase.from("fiches_langue").upsert({ langue, contenu }, { onConflict: "langue" });
-  if (error) throw error;
+/** Fiches langue (0619, rangées dans `bleo_fiches` depuis 0621). */
+export function listerFichesLangue(): Promise<FicheVersionnee[]> {
+  return dernieresFiches("langue");
 }
 
-/** Nombre de versions enregistrées par langue. */
-export async function compterVersionsFichesLangue(): Promise<Record<string, number>> {
-  const { data, error } = await supabase.from("fiches_langue_versions").select("langue").limit(5000);
-  if (error) throw error;
-  const n: Record<string, number> = {};
-  for (const v of data ?? []) n[v.langue as string] = (n[v.langue as string] ?? 0) + 1;
-  return n;
+/** Enregistre une nouvelle version d'une fiche écrite à la main ; les anciennes restent. */
+async function enregistrerFicheVersionnee(sorte: "langue" | "label" | "cta", cle: string, contenu: string): Promise<void> {
+  const { data: derniere, error: erreurLecture } = await supabase
+    .from("bleo_fiches")
+    .select("version")
+    .eq("sorte", sorte)
+    .eq("cle", cle)
+    .order("version", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (erreurLecture) throw erreurLecture;
+  const { data: session } = await supabase.auth.getUser();
+  const { error } = await supabase.from("bleo_fiches").insert({
+    sorte,
+    cle,
+    version: ((derniere?.version as number | undefined) ?? 0) + 1,
+    contenu,
+    auteur: session.user?.email ?? "admin",
+  });
+  if (error) {
+    if (error.code === "23505") throw new Error("Une autre version vient d'être enregistrée : recharge la page.");
+    throw error;
+  }
+}
+
+/** Enregistre une nouvelle version de la fiche d'une langue ; les anciennes restent. */
+export function enregistrerFicheLangue(langue: string, contenu: string): Promise<void> {
+  return enregistrerFicheVersionnee("langue", langue, contenu);
+}
+
+/** La fiche CTA (0623) : une seule, commune à toutes les applis et toutes les langues. */
+export const CLE_FICHE_CTA = "commune";
+
+/** La fiche CTA, dernière version, ou null si elle n'a jamais été écrite. */
+export async function lireFicheCta(): Promise<FicheVersionnee | null> {
+  return (await dernieresFiches("cta")).find((f) => f.cle === CLE_FICHE_CTA) ?? null;
+}
+
+/** Enregistre une nouvelle version de la fiche CTA ; les anciennes restent. */
+export function enregistrerFicheCta(contenu: string): Promise<void> {
+  return enregistrerFicheVersionnee("cta", CLE_FICHE_CTA, contenu);
+}
+
+/**
+ * Fiches label : comment l'appli entre dans ce type de deck, avec des exemples
+ * de placements réussis. Écrites à la main depuis 0624 (plus de calcul du lundi).
+ */
+export function listerFichesLabel(): Promise<FicheVersionnee[]> {
+  return dernieresFiches("label");
+}
+
+/** Enregistre une nouvelle version de la fiche d'un label ; les anciennes restent. */
+export function enregistrerFicheLabel(label: string, contenu: string): Promise<void> {
+  return enregistrerFicheVersionnee("label", label, contenu);
 }
 
 // ---------------------------------------------------------------------------

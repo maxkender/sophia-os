@@ -39,6 +39,9 @@ enable_confirmations = false
 # `bruler-texte-test` (appelée depuis l'admin avec un JWT).
 # ---------------------------------------------------------------------------
 
+[functions.ab-traduction]
+verify_jwt = false
+
 [functions.ameliorer-review]
 verify_jwt = false
 
@@ -87,6 +90,9 @@ verify_jwt = false
 # Banque d'exemples natifs (0423) : appelée par l'admin, contrôle interne
 # (assertAuthorised).
 [functions.exemples-natifs]
+verify_jwt = false
+
+[functions.cta-formes]
 verify_jwt = false
 
 [functions.extraction]

@@ -227,6 +227,10 @@ Deno.serve(async (request) => {
       case "paie_simulation":
         // Prompt 26 : la paie d'une semaine, simulée (rien n'est payé ni financé).
         return json(await paieSimulation(supabase, par, typeof body.semaine === "string" ? body.semaine : null));
+      case "paie_test_financer":
+        // 0467 : « Fund this milestone (test) » : seulement le financement, puis la relecture.
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await paieTestFinancer(supabase, par, String(body.contrat_id ?? "")));
       case "paie_test_payer":
         // Prompt 26 : « Pay this week » sur un contrat de test (Overview → Test contracts).
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -256,6 +260,18 @@ Deno.serve(async (request) => {
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "arrets":
         return json(await traiterArrets(supabase, par));
+      case "arrets_verifier": {
+        // 0464 : lundi 20 h et mardi 12 h (Paris) ; le passage se lit dans le jour.
+        const jour = maintenantParis().isoJour;
+        const passage = typeof body.passage === "string" ? body.passage : jour === 1 ? "lundi_soir" : jour === 2 ? "mardi_midi" : "manuel";
+        return json(await verifierArrets(supabase, par, passage));
+      }
+      case "a_financer_relire":
+        return json(await relireAFinancer(supabase, par));
+      case "contrats_sans_posteur_lire":
+        return json(await lireContratsSansPosteur(supabase, par));
+      case "contrat_sans_posteur_fermer":
+        return json(await fermerContratSansPosteur(supabase, par, String(body.contrat_id ?? "")));
       case "contexte_upwork": {
         // Prompt 27 : les conversations Upwork des posteurs actifs, relues (lecture seule) pour la masterlist.
         const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
@@ -1204,8 +1220,51 @@ async function paieTestPayer(supabase: Supabase, par: string | null, contratId: 
   const scope = [pa?.erreur, ...etapes.map((e) => e.erreur)].find((x) => x && /scope|permission|not authori[sz]ed|forbidden|access denied/i.test(String(x))) ?? null;
   const apres = await relireJalons(supabase, par, contratId, tenant, "paie_test_relire");
   return {
-    ok: issue.resultat === "paye", semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan, etapes,
+    ok: issue.resultat === "paye", a_financer: issue.a_financer === true, semaine, resultat: issue.resultat, raison: issue.raison ?? null, plan, etapes,
     droit_manquant: scope, jalons: apres.jalons?.map((j) => ({ nom: j.nom, etat: j.etat, depot: j.depot, echeance: j.echeance ?? null })) ?? null,
+  };
+}
+
+/**
+ * 0467 : « Fund this milestone (test) » sur un contrat de test : la 1re milestone
+ * NotFunded est financée (activateMilestone), rien d'autre. Upwork est relu tout
+ * de suite puis 10 s plus tard (le financement peut être asynchrone) : OK
+ * seulement si l'état relu est financé. La requête et la réponse complètes sont
+ * renvoyées et gardées dans les Logs.
+ */
+async function paieTestFinancer(supabase: Supabase, par: string | null, contratId: string) {
+  if (await bloquer(supabase, { fonction: "upwork", action: "paie_test_financer", cible: contratId })) return { ok: false, error: PAUSE };
+  if (!contratId) return { ok: false, error: "contrat_id requis" };
+  const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
+  if (!t) return { ok: false, error: "ce contrat n'est pas dans la liste « Test contracts »" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contratId).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  if (!tenant) return { ok: false, error: "contrat absent des contrats lus (Réglages → Upwork → Lire les contrats)" };
+  await jetonValide(supabase, par);
+  const avant = await relireJalons(supabase, par, contratId, tenant, "test_financer_jalons_avant");
+  if (!avant.jalons) return { ok: false, error: `milestones illisibles : ${avant.erreur}` };
+  const j = [...avant.jalons].sort((a, b) => a.sequence - b.sequence).find((x) => x.etat === "NotFunded");
+  if (!j) return { ok: false, error: "aucune milestone NotFunded sur ce contrat" };
+  const r = await reglagesPaieApi(supabase);
+  if (j.depot === null || !(j.depot > 0)) return { ok: false, error: `${j.nom || "milestone"} : montant illisible` };
+  if (j.depot > r.plafond_ligne) return { ok: false, error: `${j.depot} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)` };
+  const requete = { query: MUTATION_FINANCER_JALON, variables: { input: { id: j.id } } };
+  const active = await ecrire(supabase, { par, action: "test_financer_jalon", ...requete, tenant, contrat: contratId, montant: j.depot });
+  const lire1 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire");
+  let etat = lire1.jalons?.find((x) => x.id === j.id)?.etat ?? null;
+  if (!etat || !ETATS_FINANCES.includes(etat)) {
+    await new Promise((ok) => setTimeout(ok, 10_000));
+    const lire2 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire_10s");
+    etat = lire2.jalons?.find((x) => x.id === j.id)?.etat ?? etat;
+  }
+  const finance = Boolean(etat && ETATS_FINANCES.includes(etat));
+  return {
+    ok: finance,
+    jalon: { id: j.id, nom: j.nom, depot: j.depot },
+    requete,
+    reponse: active.data ?? null,
+    erreur: active.erreur ?? (finance ? null : pasFinancee(etat)),
+    etat_relu: etat,
   };
 }
 
@@ -1366,7 +1425,62 @@ interface Issue {
   type?: TypeErreur;
   jalon_finance?: string | null;
   plan?: PlanPaiement;
+  /** 0467 : la semaine est payée, la suivante reste à financer à la main sur Upwork. */
+  a_financer?: boolean;
 }
+
+/**
+ * 0467 : le compte client n'est pas « enterprise » : activateMilestone ouvre un
+ * paiement à confirmer sur Upwork (unified checkout) et la milestone reste
+ * « NotFunded / Needs funds ». Elle va dans « To fund by hand » (Payroll et
+ * Needs you), une fois ; jamais de nouvel essai.
+ */
+async function aFinancerALaMain(
+  supabase: Supabase,
+  o: { ligne: LigneAuto; contrat: string; semaine: string; jalon: { id: string; nom: string | null; etat: string }; montant: number; raison: string },
+) {
+  await supabase.from("paie_a_financer").upsert({
+    paie_semaine_id: o.ligne.ids[0] ?? null, poster_id: o.ligne.poster_id, contrat_id: o.contrat, jalon_id: o.jalon.id,
+    nom: o.jalon.nom, montant: o.montant, semaine: o.semaine, raison: o.raison, etat_lu: o.jalon.etat,
+  }, { onConflict: "contrat_id,jalon_id", ignoreDuplicates: true });
+}
+
+/**
+ * 0467 : les milestones « To fund by hand », relues sur Upwork (lecture seule).
+ * Financée (ou déjà payée) : sortie de la liste et de Needs you. Cron
+ * `a-financer-relire`, toutes les heures ; bouton « Re-read » de Payroll.
+ */
+async function relireAFinancer(supabase: Supabase, par: string | null) {
+  const { data, error } = await supabase.from("paie_a_financer").select("id, contrat_id, jalon_id").is("finance_at", null).limit(300);
+  if (error) throw error;
+  const liste = (data ?? []) as { id: string; contrat_id: string; jalon_id: string }[];
+  const bilan = { ouvertes: liste.length, financees: 0, erreurs: [] as string[] };
+  if (!liste.length) return { ok: true, ...bilan };
+  const contrats = [...new Set(liste.map((x) => x.contrat_id))];
+  const { data: orgs } = await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats);
+  const tenantDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), (o.organisation_id as string | null) ?? null]));
+  await jetonValide(supabase, par);
+  for (const contrat of contrats) {
+    const relu = await relireJalons(supabase, par, contrat, tenantDe.get(contrat) ?? null, "a_financer_relire");
+    if (!relu.jalons) {
+      bilan.erreurs.push(`${contrat} : ${relu.erreur}`);
+      continue;
+    }
+    for (const x of liste.filter((y) => y.contrat_id === contrat)) {
+      const j = relu.jalons.find((k) => k.id === x.jalon_id);
+      const fini = Boolean(j && (ETATS_FINANCES.includes(j.etat) || PAYEES.includes(j.etat)));
+      await supabase.from("paie_a_financer").update({
+        etat_lu: j?.etat ?? "introuvable", relu_at: new Date().toISOString(), ...(fini ? { finance_at: new Date().toISOString() } : {}),
+      }).eq("id", x.id);
+      if (fini) bilan.financees++;
+    }
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
+}
+
+/** Le message d'une milestone que l'API n'a pas pu financer. */
+const pasFinancee = (etat: string | null | undefined) =>
+  `Upwork : ${etat || "NotFunded"} (Needs funds) — compte non enterprise, le financement attend une confirmation sur Upwork : à financer à la main`;
 
 const COLONNES_PAIEMENT =
   "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, soumission_message_at, etapes, montant_approuve, updated_at";
@@ -1571,11 +1685,20 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
         // B5 : le montant relu, au cent près, avant de financer.
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} vaut ${jc.depot ?? "?"} $, attendu ${c.montant} $ : pas financée`, null, "autre");
         const active = await ecrire(supabase, { par, action: "paie_financer_complement", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: c.montant, variables: { input: { id: jc.id } } });
-        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: active.erreur });
-        if (active.erreur || !active.data?.activateMilestone) return await echec(`payée ; financement de ${c.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
+        if (active.erreur || !active.data?.activateMilestone) {
+          etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
+          return await echec(`payée ; financement de ${c.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
+        }
         const relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_complement");
         jc = relu.jalons?.find((j) => j.id === jalonComplement) ?? jc;
         if (relu.jalons) jalons = relu.jalons;
+        // 0467 : « OK » seulement si la relecture le confirme financé.
+        const fini = ETATS_FINANCES.includes(jc.etat);
+        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: fini ? null : pasFinancee(jc.etat), etat: jc.etat, reponse: active.data ?? null });
+        if (!fini) {
+          await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jc, montant: c.montant, raison: "2nd account: fund, then approve" });
+          return await echec(`payée ; ${c.nom} : ${pasFinancee(jc.etat)}`, null, "autre");
+        }
       }
       if (ETATS_FINANCES.includes(jc.etat)) {
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} financée à ${jc.depot ?? "?"} $, attendu ${c.montant} $`, null, "autre");
@@ -1648,19 +1771,25 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       par, action: "paie_financer_jalon", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: f.montant,
       variables: { input: { id: jalonFinance } },
     });
-    etapes.push({ etape: "financer", jalon: jalonFinance, erreur: active.erreur, etat: active.data?.activateMilestone?.state ?? null });
     if (active.erreur || !active.data?.activateMilestone) {
+      etapes.push({ etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
       await maj({ financement: "erreur" });
       return await echec(`payée ; financement de ${f.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
     }
-    // L'activation peut passer par un paiement Upwork (checkout) : on relit.
+    // L'activation peut passer par un paiement Upwork (checkout) : on relit. 0467 : « OK » seulement si la relecture le confirme.
     relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_jalons");
     jf = relu.jalons?.find((j) => j.id === jalonFinance) ?? jf;
-    etapes.push({ etape: "relire", jalon: jalonFinance, etat: jf.etat });
+    const fini = ETATS_FINANCES.includes(jf.etat);
+    etapes.push({
+      etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, etat: jf.etat,
+      erreur: fini ? null : pasFinancee(jf.etat), reponse: active.data ?? null,
+    });
   }
   if (!ETATS_FINANCES.includes(jf.etat)) {
-    await maj({ financement: "en_attente" });
-    return await echec(`payée ; ${f.nom} pas encore financée sur Upwork (état ${jf.etat || "inconnu"})`, "état inattendu");
+    // 0467 : la semaine est payée ; la suivante va dans « To fund by hand », sans nouvel essai.
+    await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jf, montant: f.montant, raison: "fund next week" });
+    await maj({ statut: "paye", financement: "a_la_main", erreur: null, reessai: false, prochain_essai: null });
+    return { resultat: "paye", jalon_finance: jalonFinance, plan, a_financer: true };
   }
   if (!montantConforme(jf, f.montant)) return await echec(`payée ; ${f.nom} financée à ${jf.depot ?? "?"} $, attendu ${f.montant} $`, null, "autre");
   await marquerLignes(supabase, ligne.ids, par, "suivante");
@@ -2850,44 +2979,115 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
  * sont gardés dans `upwork_salons`, sans rien classer ni répondre. Le salon
  * (room) est retenu après la 1re lecture : une seule requête ensuite.
  */
+/** Les derniers messages de la conversation d'un contrat (lecture seule) → upwork_salons. null : lu. */
+async function lireSalon(
+  supabase: Supabase,
+  par: string | null,
+  c: { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null },
+): Promise<string | null> {
+  const noter = async (champs: Record<string, unknown>) =>
+    await supabase.from("upwork_salons").upsert({ contrat_id: c.contrat_id, poster_id: c.poster_id, lu_at: new Date().toISOString(), ...champs });
+  try {
+    let room = c.room_id;
+    let freelance = c.freelance_id;
+    if (!room || !freelance) {
+      const salon = await lire(supabase, { par, action: "contexte_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+      room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
+      freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
+      if (!room || !freelance) {
+        await noter({ erreur: salon.erreur ?? "conversation introuvable" });
+        return salon.erreur ?? "conversation introuvable";
+      }
+    }
+    const msgs = await lire(supabase, { par, action: "contexte_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: c.organisation_id });
+    if (msgs.erreur) {
+      await noter({ room_id: room, freelance_id: freelance, erreur: msgs.erreur });
+      return msgs.erreur;
+    }
+    // deno-lint-ignore no-explicit-any
+    const derniers = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance);
+    await noter({
+      room_id: room, freelance_id: freelance, messages: derniers, erreur: null,
+      dernier_posteur_at: derniers.find((m) => m.de === "posteur")?.at ?? null,
+      dernier_nous_at: derniers.find((m) => m.de === "nous")?.at ?? null,
+    });
+    return null;
+  } catch (e) {
+    return messageErreur(e);
+  }
+}
+
+/**
+ * 0464 : les contrats actifs de VIk Studios sans profil OS (masterlist du samedi,
+ * « Contracts with no poster ») : leurs milestones et leur conversation, relues
+ * (lecture seule). Cron `contrats-sans-posteur`, chaque jour ; admin.
+ */
+async function lireContratsSansPosteur(supabase: Supabase, par: string | null) {
+  const { data, error } = await supabase.rpc("contrats_sans_posteur");
+  if (error) throw error;
+  const liste = (data ?? []) as { contrat_id: string; organisation_id: string | null }[];
+  const { data: salons } = liste.length
+    ? await supabase.from("upwork_salons").select("contrat_id, room_id, freelance_id").in("contrat_id", liste.map((c) => c.contrat_id))
+    : { data: [] };
+  const salonDe = new Map((salons ?? []).map((x) => [String(x.contrat_id), x]));
+  await jetonValide(supabase, par);
+  const bilan = { contrats: liste.length, jalons: 0, salons: 0, erreurs: [] as string[] };
+  for (let i = 0; i < liste.length; i += 5) {
+    await Promise.all(liste.slice(i, i + 5).map(async (c) => {
+      const r = await lire(supabase, { par, action: "sans_posteur_jalons", query: REQUETE_JALONS, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+      const cd = r.data?.contractDetails;
+      await supabase.from("upwork_jalons").upsert({
+        contrat_id: c.contrat_id, organisation_id: c.organisation_id, ...jalonAApprouver(cd),
+        jalons: cd ? lireJalonsContrat(cd) : null, erreur: cd ? null : (r.erreur ?? "réponse sans contractDetails"), lu_at: new Date().toISOString(),
+      }, { onConflict: "contrat_id" });
+      if (cd) bilan.jalons++;
+      else bilan.erreurs.push(`${c.contrat_id} : ${r.erreur ?? "milestones illisibles"}`);
+      const s = salonDe.get(c.contrat_id);
+      const e = await lireSalon(supabase, par, {
+        poster_id: null, contrat_id: c.contrat_id, organisation_id: c.organisation_id,
+        room_id: (s?.room_id as string | null) ?? null, freelance_id: (s?.freelance_id as string | null) ?? null,
+      });
+      if (e) bilan.erreurs.push(`${c.contrat_id} : ${e}`);
+      else bilan.salons++;
+    }));
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
+}
+
+/**
+ * 0464 : fermer, sur un clic de l'admin (avec confirmation), un contrat de VIk
+ * Studios sans profil OS. Seulement si le test de fermeture est bon et s'il ne
+ * reste aucune milestone financée (relue juste avant) ; aucun message.
+ */
+async function fermerContratSansPosteur(supabase: Supabase, par: string | null, contratId: string) {
+  if (await bloquer(supabase, { fonction: "upwork", action: "contrat_sans_posteur_fermer", cible: contratId })) return { ok: false, error: PAUSE };
+  const { data, error } = await supabase.rpc("contrats_sans_posteur");
+  if (error) throw error;
+  const c = ((data ?? []) as { contrat_id: string; organisation_id: string | null }[]).find((x) => x.contrat_id === contratId);
+  if (!c) return { ok: false, error: "ce contrat n'est pas dans « Contracts with no poster »" };
+  if (!(await fermetureTestee(supabase))) return { ok: false, error: "le test de fermeture (Overview → Test contracts) n'a pas encore réussi" };
+  await jetonValide(supabase, par);
+  const r = await lire(supabase, { par, action: "sans_posteur_relire", query: REQUETE_JALONS, variables: { id: contratId }, tenant: c.organisation_id });
+  if (!r.data?.contractDetails) return { ok: false, error: `milestones illisibles : ${r.erreur ?? "réponse vide"}` };
+  const finances = lireJalonsContrat(r.data.contractDetails).filter((j) => ETATS_FINANCES.includes(j.etat));
+  if (finances.length) return { ok: false, error: `encore financé : ${decrireJalons(finances)} (payer ou rembourser d'abord)` };
+  const fe = await ecrire(supabase, {
+    par, action: "sans_posteur_fermer", query: MUTATION_FERMER_CONTRAT, tenant: c.organisation_id, contrat: contratId,
+    variables: { contractId: contratId, input: { reasonRef: await raisonFin(supabase) } },
+  });
+  if (fe.erreur || fe.data?.endContractByClient?.success !== true) return { ok: false, error: `fermeture : ${fe.erreur ?? "non confirmée par Upwork"}` };
+  return { ok: true, ferme: true };
+}
+
 async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
   const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
   if (error) throw error;
   const liste = (data ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
   const bilan = { cibles: liste.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
-    const noter = async (champs: Record<string, unknown>) =>
-      await supabase.from("upwork_salons").upsert({ contrat_id: c.contrat_id, poster_id: c.poster_id, lu_at: new Date().toISOString(), ...champs });
-    try {
-      let room = c.room_id;
-      let freelance = c.freelance_id;
-      if (!room || !freelance) {
-        const salon = await lire(supabase, { par, action: "contexte_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
-        room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
-        freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
-        if (!room || !freelance) {
-          await noter({ erreur: salon.erreur ?? "conversation introuvable" });
-          bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
-          return;
-        }
-      }
-      const msgs = await lire(supabase, { par, action: "contexte_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: c.organisation_id });
-      if (msgs.erreur) {
-        await noter({ room_id: room, freelance_id: freelance, erreur: msgs.erreur });
-        bilan.erreurs.push(`${c.contrat_id} : ${msgs.erreur}`);
-        return;
-      }
-      // deno-lint-ignore no-explicit-any
-      const derniers = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance);
-      await noter({
-        room_id: room, freelance_id: freelance, messages: derniers, erreur: null,
-        dernier_posteur_at: derniers.find((m) => m.de === "posteur")?.at ?? null,
-        dernier_nous_at: derniers.find((m) => m.de === "nous")?.at ?? null,
-      });
-      bilan.lus++;
-    } catch (e) {
-      bilan.erreurs.push(`${c.contrat_id} : ${messageErreur(e)}`);
-    }
+    const erreur = await lireSalon(supabase, par, c);
+    if (erreur) bilan.erreurs.push(`${c.contrat_id} : ${erreur}`);
+    else bilan.lus++;
   };
   for (let i = 0; i < liste.length; i += REPONSES_EN_PARALLELE) {
     await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUn));
@@ -3019,6 +3219,63 @@ async function fermetureTestee(supabase: Supabase): Promise<boolean> {
     .limit(1);
   const d = (data ?? [])[0] as { erreur: string | null; reponse: { bilan?: { contrat_ferme?: boolean } } | null } | undefined;
   return !!d && !d.erreur && d.reponse?.bilan?.contrat_ferme === true;
+}
+
+/**
+ * 0464 : le lundi 20 h et le mardi 12 h (Paris), chaque contrat tué ces 10
+ * derniers jours est relu sur Upwork (lecture seule). Pas fermé, ou une
+ * milestone encore financée sans remboursement demandé : une ligne
+ * `arrets_verifs` avec le problème → carte Needs you « arret_a_verifier ».
+ */
+async function verifierArrets(supabase: Supabase, par: string | null, passage: string) {
+  const depuis = new Date(Date.now() - 10 * 86_400_000).toISOString();
+  const { data: arrets, error } = await supabase.from("arrets").select("id, poster_id, etapes")
+    .in("statut", ["fait", "erreur"]).is("annule_at", null).gte("created_at", depuis);
+  if (error) throw error;
+  const liste = (arrets ?? []) as { id: string; poster_id: string; etapes: EtapeArret[] | null }[];
+  const { data: profils } = liste.length
+    ? await supabase.from("profiles").select("id, upwork_contract_id").in("id", liste.map((a) => a.poster_id))
+    : { data: [] };
+  const contratDe = new Map((profils ?? []).map((p) => [String(p.id), (p.upwork_contract_id as string | null) ?? null]));
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "arret_auto").maybeSingle();
+  const mode = lireModeAuto(regl?.valeur);
+  const testOk = liste.length ? await fermetureTestee(supabase) : false;
+  if (liste.length) await jetonValide(supabase, par);
+  const bilan = { arrets: liste.length, relus: 0, problemes: 0, erreurs: [] as string[] };
+  for (const a of liste) {
+    const contrat = contratDe.get(a.poster_id) ?? null;
+    if (!contrat || (await contratPartage(supabase, contrat, a.poster_id))) continue;
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+    const tenant = (uc?.organisation_id as string | null) ?? null;
+    const st = await lire(supabase, { par, action: "arret_verif_statut", query: REQUETE_STATUT_CONTRAT, variables: { id: contrat }, tenant });
+    const jl = await lire(supabase, { par, action: "arret_verif_jalons", query: REQUETE_JALONS, variables: { id: contrat }, tenant });
+    if (st.erreur || !jl.data?.contractDetails) {
+      bilan.erreurs.push(`${contrat} : ${st.erreur ?? jl.erreur ?? "illisible"}`);
+      continue;
+    }
+    const statut = (st.data?.contractDetails?.status as string | undefined) ?? null;
+    const ferme = contratFerme(statut);
+    const finances = lireJalonsContrat(jl.data.contractDetails).filter((j) => ETATS_FINANCES.includes(j.etat));
+    const etapes = a.etapes ?? [];
+    const rembourser = etapes.some((e) => e.action === "remboursement" && e.statut === "a_faire");
+    const problemes: string[] = [];
+    if (!ferme) {
+      const pourquoi = mode !== "on"
+        ? `Full stop is ${mode}`
+        : !testOk
+        ? "the contract-closing test has not passed"
+        : etapes.find((e) => e.action === "fermeture" && e.statut !== "fait")?.detail ?? "not closed by the OS yet";
+      problemes.push(`still open on Upwork (${statut ?? "?"}; ${pourquoi})`);
+    }
+    if (finances.length && !rembourser) problemes.push(`milestone still funded: ${decrireJalons(finances)}`);
+    await supabase.from("arrets_verifs").insert({
+      arret_id: a.id, poster_id: a.poster_id, contrat_id: contrat, passage, statut_contrat: statut, ferme,
+      finances: finances.map((j) => ({ nom: j.nom, depot: j.depot, etat: j.etat })), probleme: problemes.join(" · ") || null,
+    });
+    bilan.relus++;
+    if (problemes.length) bilan.problemes++;
+  }
+  return { ok: bilan.erreurs.length === 0, passage, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
 }
 
 /**

@@ -15,6 +15,7 @@ import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerChecklistPremierPostCard } from "@/features/onboarding/SimulerChecklistPremierPostCard";
 import { SimulerOnboardingCard } from "@/features/onboarding/SimulerOnboardingCard";
 import { SimulerRetourCard } from "@/features/reviews/SimulerRetourCard";
+import { AbTraductionCard } from "@/features/abTraduction/AbTraductionCard";
 import { AssignationABlancCard } from "@/features/moteur/AssignationABlancCard";
 import { ContenusABlancCard } from "@/features/moteur/ContenusABlancCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
@@ -334,6 +335,12 @@ const TESTS = [
   },
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },
+  {
+    value: "ab-traduction",
+    titreKey: "abTraduction.title",
+    descKey: "abTraduction.subtitle",
+    render: () => <AbTraductionCard />,
+  },
   {
     value: "stickers",
     titreKey: "tests.stickersTitre",

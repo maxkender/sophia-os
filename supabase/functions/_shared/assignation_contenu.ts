@@ -62,14 +62,18 @@ import {
 } from "./ugc_face_swap.ts";
 
 /** Comptes traités en parallèle. Gemini (trad + Sophia) est dans assurerDeck —
- *  trop large → 429 ; trop petit → assignation lente. */
-const LARGEUR_ASSIGNATION = 6;
+ *  trop large → 429 ; trop petit → assignation lente. 30/10 : 6 → 2, un lot
+ *  de 8 comptes 6 par 6 est coupé par « CPU Time exceeded » (deux fois à
+ *  8 h 38 et 8 h 45, Gemini rétabli). */
+const LARGEUR_ASSIGNATION = 2;
 
 export { LOT_IDS, lireParLots };
 
-/** Par invocation drain : assez petit pour finir avant timeout Edge / cron. */
-const DRAIN_BATCH = 8;
-const DRAIN_MAX_CHAIN = 40;
+/** Par invocation drain : assez petit pour finir avant timeout Edge / cron.
+ *  30/10 : 8 → 2 comptes par appel (limite de CPU), et une chaîne assez longue
+ *  pour toute la flotte (environ 250 comptes). */
+const DRAIN_BATCH = 2;
+const DRAIN_MAX_CHAIN = 200;
 
 /**
  * Contenus essayés pour UN créneau d'une application autre que Sophia avant de

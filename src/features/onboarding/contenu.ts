@@ -38,8 +38,7 @@ export const ATTENTE_WARMUP_S = 40;
 export const ATTENTE_TEXTE_S = 8;
 
 /** Le guide complet, pour toute question qui dépasse cet accueil. */
-export const LIEN_GUIDE =
-  "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
+export const LIEN_GUIDE = "https://star-water-a0e.notion.site/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
 /** Le salon où les posters posent leurs questions. */
 export const SALON_QUESTIONS = "#questions";

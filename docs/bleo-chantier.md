@@ -141,21 +141,14 @@ elle part **après J14** de l'A/B BLEO, comme L3 et L4 (rien ne change pendant
 la mesure). Si on veut la lancer avant, elle doit tirer sa moitié au hasard
 **indépendamment du bras BLEO**, et le rapport A/B la compte par bras.
 
-**A/B traduction (30/10, demande d'Adrien ; l'A/B BLEO n'a pas lieu, D du
-29/10).** La mécanique est prête et coupée (0620) :
+**A/B traduction (30/10, demande d'Adrien).** Dans Tests seulement : **pas
+d'A/B dans l'assignation de minuit pour l'instant** (Adrien, 30/10).
 
 | Morceau | Où | État |
 | --- | --- | --- |
-| Réglage `reglages.ab_traduction` : langues (`de`), part natif 0,5, graine, `circuit_production` | `ab_traduction_regler()`, page Tests | coupé ; refuse de s'allumer sans circuit de production |
-| Tirage **post par post** (hash de la graine, du compte, du contenu et du jour), indépendant du plan BLEO. Par post plutôt que par compte : l'allemand n'a qu'environ 30 comptes, et le tirage par post compare les bras dans chaque compte | `_shared/ab_traduction.ts` | prêt, testé |
+| Duel à l'aveugle sur des slideshows déjà publiés : le deck parti contre celui du candidat, gauche ou droite au hasard, vote enregistré | `ab-traduction` (`duel_preparer`), `ab_traduction_duels`, page Tests « A/B traduction et placement » | en service ; candidat d'attente `ancree` (traduction ancrée + placement actuel, Sophia seulement). Premier duel le 30/10 (allemand, 7 slides, 70 s) |
 | Contrat d'un circuit : il reçoit le deck source, la langue, l'appli et le **CTA commandé par l'OS** (voie, forme) ; il rend le deck aux mêmes positions, une slide d'appli, et le CTA écrit (ou son refus) | `_shared/ab_circuits.ts` | prêt. L'appel unique s'y ajoute sous l'id `natif` ; le tirage de la voie et de la forme se branche dans `commanderCta` (étape 4, avec la fiche label) |
-| Duel à l'aveugle en Tests, sur des slideshows déjà publiés : le deck parti contre celui du candidat, gauche ou droite au hasard, vote enregistré | `ab-traduction`, `ab_traduction_duels`, page Tests « A/B traduction et placement » | prêt ; candidat d'attente `ancree` (traduction ancrée + placement actuel, Sophia seulement) |
-| Decks du bras natif cuits l'après-midi, servis à minuit, trace sur le post (`bras_traduction`, `circuit`, `deck_version`, `voie_cta`, `forme_cta`) ; un post natif sans deck prêt part avec l'ancien et reste dans son bras | `decks_natifs` ; assignation et cuisson | table prête ; branchement dans l'assignation **après le contrôle de la nuit du 30/10** |
-| Rapport : les deux bras (r médian, part à 10 000 vues et sa marge à 95 %, servis en natif), le bras natif par voie, les duels | `ab_traduction_rapport()`, page Tests | prêt |
-
-Taille d'échantillon : l'allemand fait 48 posts par jour (24 par bras). Pour
-voir un doublement de la part à 10 000 vues (4,5 % → 9 %), il faut environ
-480 posts par bras, soit 3 semaines sur l'allemand seul.
+| Pour plus tard, l'A/B en production : réglage `reglages.ab_traduction` (coupé, refuse de s'allumer sans circuit), tirage post par post (`_shared/ab_traduction.ts`), `decks_natifs`, `passages.bras_traduction`, `ab_traduction_rapport()` | 0620, en base, inutilisés | le branchement dans l'assignation et la cuisson de l'après-midi sont dans maxkender/sophia-os#908, **fermée sans fusion** ; à reprendre si on décide l'A/B en production |
 
 **L7 (decks l'après-midi)** reste dans BLEO : c'est là que tournera l'appel
 unique pour les decks du lendemain, avec dix heures de marge entre le tirage de

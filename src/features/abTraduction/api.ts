@@ -1,7 +1,7 @@
-// A/B de la traduction et du placement (migration 0620, fonction `ab-traduction`).
-// Le réglage et le rapport en base ; les duels à l'aveugle de Tests : un
-// slideshow déjà publié, son deck parti (`actuel`) contre celui d'un nouveau
-// circuit (`candidat`), montrés à gauche ou à droite au hasard.
+// A/B de la traduction et du placement (migration 0620, fonction `ab-traduction`),
+// dans Tests seulement : les duels à l'aveugle. Un slideshow déjà publié, son
+// deck parti (`actuel`) contre celui d'un nouveau circuit (`candidat`), montrés
+// à gauche ou à droite au hasard. Rien ne part en production.
 
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
@@ -43,56 +43,6 @@ export interface CircuitAb {
   version: string;
   nom: string;
   applications: string[] | null;
-}
-
-export interface ReglageAb {
-  actif: boolean;
-  langues: string[];
-  part_natif: number;
-  graine: string;
-  circuit_production: string | null;
-}
-
-export interface BrasAb {
-  assignes: number;
-  publies: number;
-  mesures: number;
-  r_median: number | null;
-  part_10k: number | null;
-  vues_par_post: number | null;
-  servis_natif: number;
-}
-
-export interface DecompteDuels {
-  langue: string;
-  candidat: string;
-  version: string;
-  duels: number;
-  votes: number;
-  candidat_gagne: number;
-  actuel_gagne: number;
-  egal: number;
-}
-
-export interface RapportAb {
-  reglage: ReglageAb | null;
-  bras: Partial<Record<"temoin" | "natif", BrasAb>>;
-  ecart: { part_10k: number; marge_95: number } | null;
-  /** Le bras natif, voie de CTA par voie (posts servis en natif). */
-  natif_par_voie: Record<string, Pick<BrasAb, "publies" | "mesures" | "r_median" | "part_10k">>;
-  duels: DecompteDuels[];
-}
-
-export async function lireRapportAb(langue: string | null): Promise<RapportAb> {
-  const { data, error } = await supabase.rpc("ab_traduction_rapport", { p_langue: langue, p_depuis: null });
-  if (error) throw error;
-  return data as RapportAb;
-}
-
-export async function reglerAb(patch: Partial<Pick<ReglageAb, "actif" | "langues" | "part_natif">>): Promise<ReglageAb> {
-  const { data, error } = await supabase.rpc("ab_traduction_regler", { p_reglage: patch });
-  if (error) throw error;
-  return data as ReglageAb;
 }
 
 export async function listerCircuits(): Promise<CircuitAb[]> {

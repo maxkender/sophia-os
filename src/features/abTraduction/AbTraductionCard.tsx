@@ -2,26 +2,23 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Scale, Swords } from "lucide-react";
+import { Swords } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { formaterNombre, formaterPart, formaterVues, messageErreur } from "@/features/bleo/format";
+import { formaterVues, messageErreur } from "@/features/bleo/format";
 
 import {
   choixDepuisCote,
   decksAffiches,
   type Duel,
-  lireRapportAb,
   listerCircuits,
   listerDuels,
   preparerDuel,
-  reglerAb,
   type SlideDuel,
   voterDuel,
 } from "./api";
@@ -32,156 +29,12 @@ const selectClass =
 const DUELS_PAR_LOT = 5;
 
 /**
- * A/B de la traduction et du placement (0620). En haut, l'A/B en production :
- * coupé tant qu'aucun circuit natif n'est branché, langue par langue, et les
- * deux bras côte à côte. En bas, le duel à l'aveugle sur des slideshows déjà
- * publiés : le deck parti contre celui d'un nouveau circuit.
+ * A/B de la traduction et du placement (0620), dans Tests seulement : le duel
+ * à l'aveugle sur des slideshows déjà publiés, le deck parti contre celui d'un
+ * nouveau circuit. Rien ne part en production (décision d'Adrien, 30/10).
  */
 export function AbTraductionCard() {
-  return (
-    <div className="space-y-6">
-      <CarteProduction />
-      <CarteDuels />
-    </div>
-  );
-}
-
-function CarteProduction() {
-  const { t, i18n } = useTranslation();
-  const queryClient = useQueryClient();
-  const rapport = useQuery({ queryKey: ["ab-traduction", "rapport"], queryFn: () => lireRapportAb(null) });
-  const reglage = rapport.data?.reglage ?? null;
-  const [langues, setLangues] = React.useState("");
-  React.useEffect(() => {
-    if (reglage) setLangues(reglage.langues.join(", "));
-  }, [reglage]);
-
-  const regler = useMutation({
-    mutationFn: reglerAb,
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["ab-traduction", "rapport"] }),
-  });
-  const branche = Boolean(reglage?.circuit_production);
-  const bras = rapport.data?.bras ?? {};
-  const ecart = rapport.data?.ecart ?? null;
-  const voies = Object.entries(rapport.data?.natif_par_voie ?? {});
-
-  return (
-    <Card className="border-primary/30">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Scale className="size-4 text-primary" />
-          {t("abTraduction.production.titre")}
-        </CardTitle>
-        <CardDescription>{t("abTraduction.production.description")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="flex flex-wrap items-center gap-3">
-          <Switch
-            checked={reglage?.actif === true}
-            disabled={!reglage || !branche || regler.isPending}
-            onCheckedChange={(v) => regler.mutate({ actif: v === true })}
-            aria-label={t("abTraduction.production.interrupteur")}
-          />
-          <span className="text-sm font-medium">
-            {reglage?.actif ? t("abTraduction.production.allume") : t("abTraduction.production.coupe")}
-          </span>
-          <Badge variant={branche ? "success" : "outline"}>
-            {branche
-              ? t("abTraduction.production.circuit", { version: reglage?.circuit_production })
-              : t("abTraduction.production.aucunCircuit")}
-          </Badge>
-          {reglage && (
-            <span className="text-xs text-muted-foreground">
-              {t("abTraduction.production.part", { part: formaterPart(reglage.part_natif) })}
-            </span>
-          )}
-        </div>
-        {!branche && <p className="text-xs text-muted-foreground">{t("abTraduction.production.aideBrancher")}</p>}
-
-        <form
-          className="flex flex-wrap items-end gap-2"
-          onSubmit={(e) => {
-            e.preventDefault();
-            regler.mutate({ langues: langues.split(/[\s,;]+/).filter(Boolean) });
-          }}
-        >
-          <div className="space-y-1">
-            <Label htmlFor="abLangues">{t("abTraduction.production.langues")}</Label>
-            <Input id="abLangues" className="w-56" value={langues} onChange={(e) => setLangues(e.target.value)} />
-          </div>
-          <Button type="submit" variant="outline" size="sm" disabled={regler.isPending || !reglage}>
-            {t("common.save")}
-          </Button>
-        </form>
-
-        {(rapport.error ?? regler.error) && (
-          <p role="alert" className="text-xs text-destructive">
-            {messageErreur(rapport.error ?? regler.error)}
-          </p>
-        )}
-
-        {bras.temoin || bras.natif ? (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-left text-xs text-muted-foreground">
-                  <th className="py-1 pr-3 font-medium">{t("abTraduction.production.bras")}</th>
-                  <th className="py-1 pr-3 text-right font-medium">{t("abTraduction.production.publies")}</th>
-                  <th className="py-1 pr-3 text-right font-medium">{t("abTraduction.production.mesures")}</th>
-                  <th className="py-1 pr-3 text-right font-medium">{t("abTraduction.production.rMedian")}</th>
-                  <th className="py-1 pr-3 text-right font-medium">{t("abTraduction.production.part10k")}</th>
-                  <th className="py-1 pr-3 text-right font-medium">{t("abTraduction.production.vuesParPost")}</th>
-                  <th className="py-1 text-right font-medium">{t("abTraduction.production.servisNatif")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(["temoin", "natif"] as const).map((b) => {
-                  const l = bras[b];
-                  if (!l) return null;
-                  return (
-                    <tr key={b} className="border-t">
-                      <td className="py-1.5 pr-3">{t(`abTraduction.production.bras_${b}`)}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums">{l.publies}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums">{l.mesures}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums">{formaterNombre(l.r_median, 2)}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums">{formaterPart(l.part_10k)}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums">{formaterVues(l.vues_par_post, i18n.language)}</td>
-                      <td className="py-1.5 text-right tabular-nums">{b === "natif" ? l.servis_natif : "—"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            {ecart && (
-              <p className="mt-2 text-xs text-muted-foreground">
-                {t("abTraduction.production.ecart", {
-                  ecart: `${ecart.part_10k >= 0 ? "+" : "−"}${formaterNombre(Math.abs(ecart.part_10k) * 100, 1)}`,
-                  marge: formaterNombre(ecart.marge_95 * 100, 1),
-                })}
-              </p>
-            )}
-            {voies.length > 0 && (
-              <p className="mt-1 text-xs text-muted-foreground">
-                {t("abTraduction.production.parVoie")}{" "}
-                {voies
-                  .map(([voie, v]) =>
-                    t("abTraduction.production.voie", {
-                      voie,
-                      publies: v.publies,
-                      r: formaterNombre(v.r_median, 2),
-                      part: formaterPart(v.part_10k),
-                    })
-                  )
-                  .join(" · ")}
-              </p>
-            )}
-          </div>
-        ) : (
-          <p className="text-sm text-muted-foreground">{t("abTraduction.production.aucunPost")}</p>
-        )}
-      </CardContent>
-    </Card>
-  );
+  return <CarteDuels />;
 }
 
 function CarteDuels() {

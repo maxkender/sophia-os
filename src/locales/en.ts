@@ -1276,34 +1276,7 @@ export const en = {
     abTraduction: {
       title: "A/B translation and placement",
       subtitle:
-        "The old circuit (translation, then app placement) against the native rewrite. As a blind duel on slideshows already posted, then in production, language by language.",
-      production: {
-        titre: "A/B in production",
-        description:
-          "One post in two in each test language, drawn post by post, goes out with the new circuit's deck. A post drawn native without a ready native deck goes out with the old deck and still counts in its arm.",
-        interrupteur: "Turn on the A/B in production",
-        allume: "On",
-        coupe: "Off",
-        circuit: "Circuit in production: {{version}}",
-        aucunCircuit: "No native circuit plugged in",
-        aideBrancher:
-          "The switch opens once the native rewrite's single call is plugged in (reglages.ab_traduction.circuit_production) and has passed its duels.",
-        part: "{{part}} of posts native",
-        langues: "Test languages",
-        bras: "Arm",
-        bras_temoin: "Old circuit",
-        bras_natif: "Native rewrite",
-        publies: "Posted",
-        mesures: "Measured (72 h)",
-        rMedian: "Median r",
-        part10k: "At 10,000 views",
-        vuesParPost: "Views per post",
-        servisNatif: "Served native",
-        ecart: "Gap in the share at 10,000 views: {{ecart}} points (95% margin: ± {{marge}} points).",
-        aucunPost: "No post in the A/B yet.",
-        parVoie: "Native arm, by CTA path:",
-        voie: "{{voie}} {{publies}} posts, r {{r}}, {{part}} at 10,000 views",
-      },
+        "The old circuit (translation, then app placement) against the native rewrite, as a blind duel on slideshows already posted. Nothing goes to production.",
       duels: {
         titre: "Blind duel",
         description:

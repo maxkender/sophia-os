@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { derniersMessagesSalon } from "./contexte.ts";
+import { decoderHtml, derniersMessagesSalon } from "./contexte.ts";
 
 Deno.test("prompt 27 : les derniers messages d'une conversation Upwork, des deux côtés, triés", () => {
   const noeuds = [
@@ -13,4 +13,8 @@ Deno.test("prompt 27 : les derniers messages d'une conversation Upwork, des deux
   const r = derniersMessagesSalon(noeuds, "f1");
   assertEquals(r.map((m) => [m.id, m.de]), [["4", "nous"], ["2", "posteur"], ["1", "nous"]]);
   assertEquals(derniersMessagesSalon(noeuds, "f1", 1).length, 1);
+});
+
+Deno.test("le texte encodé en HTML par Upwork est décodé", () => {
+  assertEquals(decoderHtml("I&#39;m also wondering &amp; &quot;more&quot;"), 'I\'m also wondering & "more"');
 });

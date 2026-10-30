@@ -30,6 +30,7 @@ import {
 import { chargerModeSituations, colonnesSituation, situationSansRisque } from "../_shared/faq_situations_moteur.ts";
 import { relierNouveau } from "../_shared/slack_relier.ts";
 import { proposerLienSlack } from "../_shared/slack_connect.ts";
+import { messageAGarder } from "../_shared/slack_messages.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 
@@ -121,6 +122,18 @@ Deno.serve(async (request) => {
   // une réaction (plus de Kill) ; la suite (FAQ) continue comme avant.
   if (ev.type === "message" && ev.channel_type !== "im" && ev.user && !ev.bot_id && !ev.subtype) {
     const canal = (payload.event as unknown as { channel?: string }).channel ?? null;
+    // Prompt 27 : le message est gardé (colonne Context de la masterlist), sans rien classer ni répondre.
+    const garde = messageAGarder(canal, payload.event);
+    if (garde) {
+      const ecrit = Promise.resolve(serviceClient().from("slack_messages").upsert(garde, { onConflict: "canal,ts" }))
+        .then(({ error }) => {
+          if (error) console.error("[slack-faq] message gardé", error.message);
+        })
+        .catch((erreur) => console.error("[slack-faq] message gardé", messageErreur(erreur)));
+      const edgeG = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+      if (edgeG) edgeG.waitUntil(ecrit);
+      else await ecrit;
+    }
     const reaction = Promise.resolve(serviceClient().rpc("posteur_reaction_slack", { p_slack_user: ev.user, p_canal: canal }))
       .then(({ error }) => {
         if (error) console.error("[slack-faq] réaction", error.message);

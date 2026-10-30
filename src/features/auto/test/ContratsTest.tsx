@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
+import { cn } from "@/lib/utils";
 import { payerSemaineTest } from "@/features/paie/api-upwork/api";
 
 import {
@@ -93,6 +94,27 @@ function PayerSemaineTest({ contratId }: { contratId: string }) {
         </span>
       )}
       {payer.error && <span className="text-xs text-destructive">{(payer.error as Error).message}</span>}
+      {/* Chaque clic : la milestone financée payée, la suivante financée (créée si elle n'existe pas). */}
+      {r?.etapes && r.etapes.length > 0 && (
+        <table className="w-full text-xs" data-testid="etapes-paie-test">
+          <tbody>
+            {r.etapes.map((e, i) => (
+              <tr key={i} className="border-t align-top">
+                <td className="py-0.5 pr-2 font-medium">{t(`autoTest.etapes.${e.etape}`, { defaultValue: e.etape })}</td>
+                <td className={cn("py-0.5 pr-2", e.erreur ? "text-destructive" : "text-success-foreground")}>{e.erreur ? t("autoTest.echecEtape") : "OK"}</td>
+                <td className="py-0.5 pr-2">{[e.nom, e.montant !== undefined ? `${e.montant} $` : null].filter(Boolean).join(" · ")}</td>
+                <td className="py-0.5 break-all text-muted-foreground">{e.erreur ?? (e.reponse ? JSON.stringify(e.reponse).slice(0, 200) : "")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {r?.droit_manquant && <p className="w-full text-xs text-destructive">{t("autoTest.droitManquant", { erreur: r.droit_manquant })}</p>}
+      {r?.jalons && (
+        <p className="w-full text-xs text-muted-foreground" data-testid="jalons-apres">
+          {r.jalons.map((j) => `${j.nom} · ${j.etat} · ${j.depot ?? "?"} $${j.echeance ? ` · due ${j.echeance.slice(0, 10)}` : ""}`).join(" | ")}
+        </p>
+      )}
     </div>
   );
 }

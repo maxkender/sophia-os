@@ -24,8 +24,6 @@ const listerComptes = vi.fn();
 const relireExemple = vi.fn();
 const listerFichesLangue = vi.fn();
 const enregistrerFicheLangue = vi.fn();
-const listerFichesLabel = vi.fn();
-const calculerFichesLabel = vi.fn();
 const majLabelExemple = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
@@ -46,9 +44,6 @@ vi.mock("@/features/relectureNative/api", () => ({
   effacerSuiviComptes: vi.fn(),
   listerFichesLangue: () => listerFichesLangue(),
   enregistrerFicheLangue: (...a: unknown[]) => enregistrerFicheLangue(...a),
-  listerFichesLabel: () => listerFichesLabel(),
-  lireAvancementCta: () => Promise.resolve({ classes: 900, a_classer: 100 }),
-  calculerFichesLabel: () => calculerFichesLabel(),
   majLabelExemple: (...a: unknown[]) => majLabelExemple(...a),
   supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
@@ -107,8 +102,6 @@ describe("AdminRelectureNativePage", () => {
     relireExemple.mockResolvedValue(undefined);
     listerFichesLangue.mockResolvedValue([]);
     enregistrerFicheLangue.mockResolvedValue(undefined);
-    listerFichesLabel.mockResolvedValue([]);
-    calculerFichesLabel.mockResolvedValue({ semaine: "2026-11-02", fiches: 9, lignes: 400 });
     majLabelExemple.mockResolvedValue(undefined);
   });
 
@@ -301,24 +294,11 @@ describe("AdminRelectureNativePage", () => {
     await waitFor(() => expect(relireExemple).toHaveBeenCalledWith("e4"));
   });
 
-  it("CTA : les 7 formes, la règle de la slide, l'avancement, et le lien vers les fiches label", async () => {
+  it("renvoie aux fiches, qui ont leur page : plus d'onglet de fiches ni de CTA ici", () => {
     rendre();
-    // Les fiches ont leur page : plus d'onglet « Fiches langue » ni « Fiches appli » ici.
     expect(screen.queryByRole("button", { name: "Fiches langue" })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Fiches appli" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "CTA" })).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Fiches" })).toHaveAttribute("href", "/admin/fiches");
-
-    fireEvent.click(screen.getByRole("button", { name: "CTA" }));
-    const section = await screen.findByTestId("cta");
-    const formes = within(section).getByRole("list", { name: "Les formes de CTA" });
-    expect(within(formes).getAllByRole("listitem")).toHaveLength(7);
-    expect(formes).toHaveTextContent("1. Dans le format du post");
-    expect(formes).toHaveTextContent("7. Un point de la liste");
-    expect(section).toHaveTextContent("le CTA va n’importe où à partir de la slide 4");
-    await waitFor(() => expect(within(section).getByTestId("cta-avancement")).toHaveTextContent("900 textes classés · 100 à classer"));
-    expect(within(section).getByRole("link", { name: "Voir les fiches label" })).toHaveAttribute(
-      "href",
-      "/admin/fiches?sorte=label",
-    );
   });
 });

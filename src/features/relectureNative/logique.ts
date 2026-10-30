@@ -1,7 +1,5 @@
 import type { PosterProfil } from "@/features/moteur/types";
 
-import { FORMES_CTA, SLIDE_CTA_MIN } from "./formesCta";
-
 /** invite : choisi · actif : validé · pause · retire. */
 export const STATUTS_RELECTEUR = ["invite", "actif", "pause", "retire"] as const;
 export type StatutRelecteur = (typeof STATUTS_RELECTEUR)[number];
@@ -116,78 +114,105 @@ export function modeleFicheLangue(nomAnglais: string, code: string): string {
 }
 
 /**
- * Modèle de la fiche CTA (0623) : les règles communes à toutes les applis et
- * toutes les langues pour écrire le CTA, tirées du prompt `placement_sophia`.
- * Sans ce qui va ailleurs : les faits et le nom de l'appli (fiche appli), les
- * mots d'une langue (fiche langue), l'angle et les formes qui marchent (fiche
- * label), et les tirages déguisés du prompt (place au nombre de mots, voix au
- * nombre de mots du hook) : l'OS commande la voie et la forme de chaque deck.
+ * Modèle de la fiche CTA (0623) : l'intro commune à toutes les applis et
+ * toutes les langues pour amener l'appli dans le deck, tirée du prompt
+ * `placement_sophia`. En anglais, comme les fiches langue (décision d'Adrien,
+ * 30/10). Sans ce qui va ailleurs : les faits et le nom de l'appli (fiche
+ * appli), les mots d'une langue (fiche langue), le format du deck et les
+ * exemples de placement (fiche label). Plus de forme tirée par l'OS (0624).
  */
 export function modeleFicheCta(): string {
   return [
-    "# Fiche CTA",
+    "# CTA sheet",
     "",
-    "> Les règles pour amener l'appli dans le slideshow, les mêmes pour toutes les applis et toutes les langues. Ce que fait l'appli et comment la nommer : fiche appli. Comment un natif le dit : fiche langue. Quelle forme : commandée par l'OS pour chaque deck (fiche label).",
+    "> How the app enters a slideshow: the same rules for every app and every language. What the app does and how to name it: app sheet. How a native says it: language sheet. Where it usually goes in this kind of deck, with real examples: label sheet.",
     "",
-    "## Ce que le CTA doit produire",
-    "Une slide qui parle de l'appli sans jamais avoir l'air d'une pub, écrite exactement dans le même moule que les slides autour d'elle (même format, même longueur, même ton), comme si la même personne avait écrit tout le slideshow d'une traite. La slide donne un vrai conseil qui répond au problème du hook, et l'appli s'y fond comme le moyen logique de l'appliquer. Le lecteur ne sent jamais la couture.",
+    "## What the CTA slide must do",
+    "One slide talks about the app without ever looking like an ad. It is written in exactly the same mould as the slides around it (same layout, same length, same tone), as if the same person wrote the whole slideshow in one go. The slide gives a real piece of advice that answers the hook, and the app blends in as the obvious way to apply it. The reader never feels the seam.",
     "",
-    "## Toujours un CTA",
-    "Quel que soit le sujet, une slide porte l'appli : dans une slide existante, ou à la place d'une slide.",
+    "## Always one CTA",
+    "Whatever the topic, one slide carries the app: inside an existing slide, or in place of one.",
     "",
-    "## La règle d'or",
-    "1. Le titre est un vrai conseil, de même nature que les autres éléments de la liste, qui répond au problème du hook. Il tiendrait debout sans l'appli.",
-    "2. La slide a exactement le format des voisines (titre + ligne courte, titre + 2 phrases…) et leur longueur, à ±20 % près. Jamais un paragraphe en plus pour l'appli.",
-    "3. L'appli se fond dans l'explication : la même phrase dit pourquoi le conseil marche et comment on l'applique. Ce n'est pas une phrase de pub ajoutée à la fin.",
-    "4. Le lien est logique : l'appli est le moyen évident d'appliquer ce conseil-là. Sinon, prends une autre idée de la fiche appli.",
-    "5. Le fil du deck : dans un slideshow qui raconte une histoire, la slide reste un moment de cette histoire (même « je », même situation, même idée que la slide remplacée). L'appli arrive comme ce que la personne a fait à ce moment-là, jamais comme un nouveau sujet.",
+    "## The golden rule",
+    "1. The title is a real piece of advice, of the same kind as the other items of the list, that answers the hook. It would stand without the app.",
+    "2. The slide has exactly the layout of its neighbours (title + short line, title + 2 sentences…) and their length, within ±20 %. Never an extra paragraph for the app.",
+    "3. The app blends into the explanation: the same sentence says why the advice works and how to apply it. Never an ad sentence tacked on at the end.",
+    "4. The link is logical: the app is the obvious way to apply this advice. If not, take another idea from the app sheet.",
+    "5. The thread of the deck: in a slideshow that tells a story, the slide stays a moment of that story (same « I », same situation, same idea as the slide it replaces). The app arrives as what the person did at that moment, never as a new topic.",
     "",
-    "Test : lis la slide d'avant, la tienne et celle d'après d'une traite. Si l'histoire saute, ou si ta slide se repère comme la pub, recommence.",
+    "Test: read the slide before, yours and the slide after in one go. If the story jumps, or if your slide stands out as the ad, start again.",
     "",
-    "## Ce que l'OS commande pour chaque deck",
-    "- **La voie** :",
-    "  - `reprise` : l'original recommande une appli concurrente, et cette slide est imposée. Si l'outil sert à apprendre, garde le titre et l'idée de la slide, enlève seulement l'outil, et fais de l'appli le moyen d'appliquer ce conseil. Si l'outil n'a rien à voir (CV, notes, productivité…), garde le moment de l'histoire (la scène, la citation, le chiffre) et fais arriver l'appli comme sa suite logique ;",
-    "  - `marquee` : le podz a marqué la slide de l'appli ; c'est elle ;",
-    "  - `prouvee` ou `essai` : écris dans la forme commandée.",
-    "- **La forme** : une des formes ci-dessous. Suis-la. Si elle casse le post, reprends le CTA de l'original et dis pourquoi : le refus est noté.",
-    ...FORMES_CTA.map((f) => `  - ${f.nom} (\`${f.code}\`) : ${f.definition}`),
+    "## Global coherence with the deck",
+    "- Mode, read on at least two other slides: instructive (the slides speak to the reader) or confession (every slide in the first person). The CTA follows the dominant mode; with none, instructive. Same politeness as the neighbours.",
+    "- Voice: a first-person habit (« I… ») in a confession deck; the same « you » as the list in an instructive deck; « they » in a deck about what other people do. In a deck of very short, dry lines: never « I ».",
+    "- Gender: the persona line if given, otherwise the slides; with no clue, turn the sentence to avoid agreement.",
+    "- Number: the one written at the start of the replaced slide (« 3. », « 3) », « #3 »), never its position in the deck. If it has none, yours has none. Reread the whole list: no gap, no duplicate.",
+    "- Case, punctuation, line breaks and emojis: exactly those of the neighbours. Never a Title Case they do not use.",
+    "- No exam or school system the neighbouring slides do not already mention.",
     "",
-    "## Le choix de la slide",
-    `- Jamais avant la slide ${SLIDE_CTA_MIN}, jamais la couverture.`,
-    "- Hors voie `reprise` ou `marquee`, prends la slide qui ne casse rien : pas un pur CTA (« follow for more »), pas la conclusion qui clôt le slideshow, pas l'élément que le hook met en avant (« le n°1 »), pas une étape d'histoire ou d'avant / après, pas une slide vide.",
-    "- Énumération de savoir (mots, livres, faits, citations) : ne remplace jamais un élément ; garde-le et fonds l'appli dans son explication.",
-    "- Un @pseudo ou du texte d'interface dans la slide remplacée disparaît.",
+    "## Which slide",
+    "- Never before slide 4, never the cover.",
+    "- If the OS imposes the slide (the original recommended a competing app, or the pod marked the app slide), use that one: keep its title and idea, swap only the tool, and make the app the way to apply the advice.",
+    "- Otherwise, take the slide that breaks nothing: not a pure CTA (« follow for more »), not the conclusion that closes the deck, not the item the hook puts forward (« the #1 »), not a story or before/after step, not an empty slide.",
+    "- A list of knowledge (words, books, facts, quotes): never replace an item; keep it and blend the app into its explanation.",
+    "- An @handle or interface text on the replaced slide disappears.",
     "",
-    "## Mode, voix et genre",
-    "- Le mode du deck, lu sur au moins deux autres slides : instructif (la slide s'adresse au lecteur) ou confession (chaque slide à la 1re personne). Le titre suit le mode dominant ; sans dominante, instructif. Même politesse que les voisines.",
-    "- La voix de la phrase qui porte l'appli suit la forme commandée (mon habitude : je ; un point de la liste : tu ; ce que font les autres : ils). Deck en confession : je. Deck en lignes très courtes et sèches : jamais je.",
-    "- Le genre : la ligne persona si elle est fournie, sinon les slides ; sans indice, tourne la phrase pour éviter l'accord.",
+    "## Never, in any language",
+    "- Presenting the app as a brand (« the … app », « an app called … ») or any imperative with it (« use », « download », « try »).",
+    "- Ad words and their equivalents: download, try, test, subscribe, click, don't miss, enjoy, must-have, the best app, give it a try, check it out, 👀.",
+    "- The product page: describing the app like the App Store, « available on », « helps you… », « so you never… », two features in the same sentence.",
+    "- Aphorisms « X isn't Y, it's Z » and abstract words (ecosystem, paradigm, approach, process).",
+    "- The em dash « — », « – » or « -- », even once.",
+    "- More than one mention of the app; an @, a link or a hashtag on the slide.",
+    "- Robotic passive (« until a lesson is read ») and forced constructions (« your depth comes from… »): active voice, clear subject.",
+    "- Slang and bookish words: the most common everyday words (the language sheet lists them).",
     "",
-    "## La forme du texte",
-    "- Numéro : celui écrit au début du texte de la slide remplacée (« 3. », « 3) », « #3 »), jamais sa position dans le deck. Si elle n'en a pas, la tienne non plus. Relis toute la liste : elle se suit sans trou ni doublon.",
-    "- Casse, ponctuation, retours à la ligne et emojis : exactement ceux des voisines. Jamais de Title Case qu'elles n'ont pas.",
-    "- Aucun examen ni système scolaire que les slides voisines ne citent pas déjà.",
+    "## Before answering",
+    "- Is the title a real piece of advice that stands without the app?",
+    "- Same layout and length as the neighbours, with no extra paragraph?",
+    "- Is the app blended into the explanation, with an obvious link to the advice?",
+    "- Story deck: do the slide before, yours and the slide after read in one go?",
+    "- Slide 4 or later, or the slide the OS imposed?",
+    "- Number, case, mode, voice and gender identical to the neighbours?",
+    "- No forbidden word, no em dash, one single mention of the app?",
+    "- Read among the other slides, does the slide go unnoticed as an ad?",
     "",
-    "## Interdits, dans toutes les langues",
-    "- Présenter l'appli comme une marque (« the … app », « an app called … ») et tout impératif avec elle (« use », « download », « try »).",
-    "- Les mots de pub : télécharge, essaie, teste, abonne-toi, clique, ne rate pas, profite de, incontournable, la meilleure appli, give it a try, check it out, 👀.",
-    "- La fiche produit : décrire l'appli comme sur l'App Store, « available on », « help you… », « so you never… », deux fonctionnalités dans la même phrase.",
-    "- Les aphorismes « X n'est pas Y, c'est Z » et les mots abstraits (écosystème, paradigme, démarche, processus).",
-    "- Le tiret cadratin « — », « – » ou « -- », même une fois.",
-    "- Plus d'une mention de l'appli ; un @, un lien ou un hashtag dans la slide.",
-    "- Le passif robotique (« until a lesson is read ») et les constructions forcées (« your depth comes from… ») : voix active, sujet clair.",
-    "- L'argot et les mots de livre : les mots les plus courants de la vie de tous les jours (la fiche langue liste ceux de chaque langue).",
+  ].join("\n");
+}
+
+/**
+ * Modèle de la fiche d'un label (0624) : l'angle de placement de Maximilien
+ * (`angles_placement`, ce que l'appli apporte selon le sujet du post), puis où
+ * va l'appli dans ce type de deck, avec des exemples réels de placements
+ * réussis. Écrite, plus calculée : les vues ne jugent pas un CTA.
+ */
+export function modeleFicheLabel(label: string): string {
+  return [
+    `# Label sheet: ${label}`,
     "",
-    "## Avant de répondre",
-    "- Le titre est un vrai conseil qui tient sans l'appli ?",
-    "- Même format et même longueur que les voisines, sans paragraphe en plus ?",
-    "- L'appli est fondue dans l'explication, avec un lien évident avec le conseil ?",
-    "- Deck-histoire : la slide d'avant, la tienne et celle d'après se lisent d'une traite ?",
-    "- La voie et la forme commandées sont suivies, ou le refus est expliqué ?",
-    `- Slide ${SLIDE_CTA_MIN} ou plus, ou la slide imposée par la voie ?`,
-    "- Numéro, casse, mode et genre identiques aux voisines ?",
-    "- Aucun interdit, aucun tiret cadratin, une seule mention de l'appli ?",
-    "- Lue au milieu des autres slides, la slide passe inaperçue comme pub ?",
+    "> Apps: … How the app enters this kind of deck. Sources: our published posts and the placement angle (Admin → labels). The examples are real posts of ours, quoted as published; adapt the idea, never copy the sentence.",
+    "",
+    "## The deck",
+    "- Hooks:",
+    "- Slides (layout, length, voice):",
+    "",
+    "## The angle: what the app brings, by topic",
+    "- IF the post is about …: …",
+    "- OTHERWISE: …",
+    "- Tone:",
+    "- Persona:",
+    "",
+    "## Where the app goes",
+    "- ",
+    "",
+    "## Placement examples",
+    "### 1. « hook »",
+    "- Slide before: « … »",
+    "- App slide: « … »",
+    "- Why it works:",
+    "",
+    "## Avoid in this label",
+    "- ",
     "",
   ].join("\n");
 }

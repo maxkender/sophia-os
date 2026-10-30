@@ -1,30 +1,27 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { BookOpenText, Languages, Library, Megaphone, Users, type LucideIcon } from "lucide-react";
+import { BookOpenText, Languages, Library, Users, type LucideIcon } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Segments } from "@/components/ui/segments";
 import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteurs";
 import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
-import { SectionCta } from "@/features/relectureNative/SectionCta";
 import { SectionExemplesNatifs } from "@/features/relectureNative/SectionExemplesNatifs";
 import { SectionRelecteurs } from "@/features/relectureNative/SectionRelecteurs";
 
-type Onglet = "relecteurs" | "exemples" | "cta";
+type Onglet = "relecteurs" | "exemples";
 
 const ONGLETS: ReadonlyArray<{ cle: Onglet; icone: LucideIcon }> = [
   { cle: "relecteurs", icone: Users },
   { cle: "exemples", icone: BookOpenText },
-  { cle: "cta", icone: Megaphone },
 ];
 
 /**
- * Relecture native : les relecteurs (qui corrigeront les posts publiés), la
- * banque d'exemples natifs par langue et le CTA mesurable (formes, classement
- * des CTA publiés). Les fiches (applis, langues, labels) ont leur page,
- * /admin/fiches. La production reste coupée.
+ * Relecture native : les relecteurs (qui corrigeront les posts publiés) et la
+ * banque d'exemples natifs par langue. Les fiches (CTA, applis, langues,
+ * labels) ont leur page, /admin/fiches. La production reste coupée.
  */
 export function AdminRelectureNativePage() {
   const { t } = useTranslation();
@@ -68,7 +65,6 @@ export function AdminRelectureNativePage() {
 
       {onglet === "relecteurs" && <SectionRelecteurs />}
       {onglet === "exemples" && <SectionExemplesNatifs />}
-      {onglet === "cta" && <SectionCta />}
     </div>
   );
 }

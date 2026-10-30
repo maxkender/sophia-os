@@ -1580,11 +1580,10 @@ export const en = {
       titre: "Native review",
       voirFiches: "Sheets",
       description:
-        "Everything needed for native rewriting: the reviewers, who will correct the published posts, the native examples of each language and the CTA forms. The sheets (apps, languages, labels) are on the Sheets page. Nothing here touches production.",
+        "Everything needed for native rewriting: the reviewers, who will correct the published posts, and the native examples of each language. The sheets (CTA, apps, languages, labels) are on the Sheets page. Nothing here touches production.",
       onglets: {
         relecteurs: "Reviewers",
         exemples: "Native examples",
-        cta: "CTA",
       },
       interrupteurs: {
         titre: "Switches",
@@ -1623,20 +1622,6 @@ export const en = {
         confirmerRetrait:
           "Delete {{nom}}? To set them aside without losing anything, change their status to \"Removed\" instead.",
       },
-      cta: {
-        titre: "CTA forms",
-        aide:
-          "A fixed list of 7 forms: without a fixed list, nothing can be counted. Every published CTA is classified into a form, then every Monday the OS compares forms, slides and routes at equal content and writes each label's sheet, with the draw weights. Nothing here changes a post: the draw will use it at step 5.",
-        regleSlide:
-          "Decision of 30/10: the CTA can go anywhere from slide {{n}}. The CTA slide is already recorded on every published post (its app slide): no column to add.",
-        classement: "Classifying published CTAs",
-        avancement: "{{classes}} texts classified · {{reste}} to go",
-        avancementAide:
-          "CTAs published in the last 45 days, classified by Gemini into one of the 7 forms, 360 every 2 minutes. Each text is classified once.",
-        fichesAide:
-          "Every Monday morning, the OS writes each label's sheet: route draw (proven 80%, trial 20%), forms ranked by effect at equal content, CTA slide. They live on the Sheets page.",
-        voirFichesLabel: "See label sheets",
-      },
       chiffres: {
         relecteurs: "Reviewers",
         relecteursDetail: "{{actifs}} active · {{invites}} invited",
@@ -1663,7 +1648,7 @@ export const en = {
     fiches: {
       titre: "Sheets",
       description:
-        "What native rewriting reads for every deck: the app sheet says what to say, the language sheet how to say it, the label sheet which CTA to draw, the CTA sheet how to write it. Nothing touches production until native rewriting is switched on.",
+        "What native rewriting reads for every deck: the CTA sheet sets the shared rules, the app sheet says what to say, the language sheet how to say it, the label sheet where the app goes in this kind of deck. Nothing touches production until native rewriting is switched on.",
       versRelecture: "Native review",
       sortes: "Kinds of sheets",
       sorte: {
@@ -1679,12 +1664,12 @@ export const en = {
         },
         label: {
           titre: "Labels",
-          role: "Which CTA to draw: the forms that work for each label, recomputed every Monday.",
-          compte: "computed",
+          role: "Where the app goes in this kind of deck: the format, the CTA's place and examples of good placements.",
+          compte: "written",
         },
         cta: {
           titre: "CTA",
-          role: "How to write the CTA: the rules shared by every app and every language, and the 7 forms.",
+          role: "The intro: the golden rule, coherence with the deck and what's forbidden, shared by every app and every language.",
           compte: "written",
         },
       },
@@ -1693,7 +1678,6 @@ export const en = {
       rien: "Nothing to show.",
       ecrite: "Written",
       aEcrire: "To write",
-      pasCalculee: "Not computed yet",
       versions_one: "{{count}} version",
       versions_other: "{{count}} versions",
       exemples_zero: "No native examples yet",
@@ -1717,23 +1701,22 @@ export const en = {
       videAppli: "The {{nom}} sheet isn't written yet. The template sets the sections: what the app does, what we may or may not claim, its name in each language, its competitors.",
       videLangue: "The {{nom}} sheet isn't written yet. The template sets the sections of the writing brief (docs/fiches-langue-brief.md).",
       videLabel:
-        "The {{nom}} sheet hasn't been computed yet. It is written every Monday morning, or now with \"Compute now\" once published CTAs are classified (Native review → CTA).",
+        "The {{nom}} sheet isn't written yet. The template sets the sections: the deck format, where the app goes, real examples of good placements, what to avoid.",
       videCta:
-        "The CTA sheet is not written yet. The template takes the rules of the Sophia placement prompt, without what belongs in the app, language and label sheets: a real tip, the app blended into it, the same mould as the surrounding slides, the path and form ordered by the OS.",
+        "The CTA sheet is not written yet. The template, in English, takes the rules of the Sophia placement prompt without what belongs in the app, language and label sheets: a real tip, the app blended into it, the same mould as the surrounding slides, what's forbidden.",
       contenu: "Sheet (Markdown)",
       contenuAideAppli: "What the app does, what we may or may not claim, its features, its name per language, its competitors.",
       contenuAideLangue:
         "In English, with native words, phrases and hooks quoted verbatim in the language (« du », « dinge, die… »), no full slideshow. 1,200 to 2,000 words at most: it goes into every call.",
       contenuAideCta:
-        "The shared rules for writing the CTA, for every app and every language. No fact about an app (app sheet), no word specific to a language (language sheet).",
+        "In English. The shared rules for bringing in the app, for every app and every language. No fact about an app (app sheet), no word specific to a language (language sheet), no example specific to a format (label sheet).",
+      contenuAideLabel:
+        "In English, with examples quoted as published: the deck format, where the app goes, 3 to 5 good placements (slide before, app slide, why it works), what to avoid.",
       presentation: "Presentation for reviewers",
       presentationAide: "A few lines in English, shown to reviewers (\"What is {{nom}}?\").",
       enregistrer: "Save",
       nonEnregistre: "Unsaved changes",
       enregistre: "Saved: a new version is kept.",
-      calculer: "Compute now",
-      calcule: "{{fiches}} label sheets recomputed.",
-      genereeAuto: "Written by the OS every Monday from published posts: it isn't edited by hand.",
     },
     mesRetours: {
       titre: "My feedback",

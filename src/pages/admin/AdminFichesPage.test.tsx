@@ -13,7 +13,7 @@ const enregistrerFicheAppli = vi.fn();
 const listerFichesLangue = vi.fn();
 const enregistrerFicheLangue = vi.fn();
 const listerFichesLabel = vi.fn();
-const calculerFichesLabel = vi.fn();
+const enregistrerFicheLabel = vi.fn();
 const lireFicheCta = vi.fn();
 const enregistrerFicheCta = vi.fn();
 
@@ -24,11 +24,10 @@ vi.mock("@/features/relectureNative/api", () => ({
   listerFichesLangue: () => listerFichesLangue(),
   enregistrerFicheLangue: (...a: unknown[]) => enregistrerFicheLangue(...a),
   listerFichesLabel: () => listerFichesLabel(),
-  calculerFichesLabel: () => calculerFichesLabel(),
+  enregistrerFicheLabel: (...a: unknown[]) => enregistrerFicheLabel(...a),
   CLE_FICHE_CTA: "commune",
   lireFicheCta: () => lireFicheCta(),
   enregistrerFicheCta: (...a: unknown[]) => enregistrerFicheCta(...a),
-  lireAvancementCta: () => Promise.resolve({ classes: 120, a_classer: 0 }),
   listerExemplesNatifs: () =>
     Promise.resolve([
       { id: "e1", langue: "de", statut: "pret" },
@@ -85,9 +84,9 @@ describe("AdminFichesPage", () => {
     ]);
     enregistrerFicheLangue.mockResolvedValue(undefined);
     listerFichesLabel.mockResolvedValue([
-      { cle: "smart_girl", contenu: "# Fiche label : smart_girl\n\n## Sophia · 812 posts\n- **Prouvée** : Un point de la liste 80 %", version: 1, auteur: "cta-lundi", created_at: "2026-11-02T06:30:00Z", versions: 1 },
+      { cle: "smart_girl", contenu: "# Label sheet: smart_girl\n\n## Where the app goes\n- **Inside an item**, never as an extra item", version: 1, auteur: "premier-jet", created_at: "2026-10-30T16:00:00Z", versions: 1 },
     ]);
-    calculerFichesLabel.mockResolvedValue({ semaine: "2026-11-02", fiches: 9, lignes: 400 });
+    enregistrerFicheLabel.mockResolvedValue(undefined);
     lireFicheCta.mockResolvedValue(null);
     enregistrerFicheCta.mockResolvedValue(undefined);
   });
@@ -99,11 +98,13 @@ describe("AdminFichesPage", () => {
     expect(within(sortes).getByRole("button", { name: /Langues/ })).toHaveTextContent(/1 \/ \d+/);
     expect(within(sortes).getByRole("button", { name: /Labels/ })).toHaveTextContent("1 / 2");
     expect(within(sortes).getByRole("button", { name: /^CTA/ })).toHaveTextContent("0 / 1");
-    expect(within(sortes).getByRole("button", { name: /Applis/ })).toHaveAttribute("aria-pressed", "true");
+    // La fiche CTA d'abord : c'est l'intro.
+    expect(within(sortes).getAllByRole("button")[0]).toHaveAccessibleName(/^CTA/);
+    expect(within(sortes).getByRole("button", { name: /^CTA/ })).toHaveAttribute("aria-pressed", "true");
   });
 
   it("applis : la fiche se lit mise en forme, puis se modifie et s'enregistre", async () => {
-    rendre();
+    rendre("/admin/fiches?sorte=appli");
     const fiche = await screen.findByTestId(`fiche-appli-${SOPHIA}`);
     // Lecture : le Markdown est mis en forme.
     expect(within(fiche).getByRole("heading", { name: "Ce que fait l'appli" })).toBeInTheDocument();
@@ -126,7 +127,7 @@ describe("AdminFichesPage", () => {
   });
 
   it("une fiche appli vide s'écrit à partir du modèle", async () => {
-    rendre();
+    rendre("/admin/fiches?sorte=appli");
     fireEvent.click(await screen.findByRole("button", { name: /micabo/ }));
     const fiche = await screen.findByTestId(`fiche-appli-${MICABO}`);
     expect(within(fiche).getByText("À écrire")).toBeInTheDocument();
@@ -155,30 +156,39 @@ describe("AdminFichesPage", () => {
     );
   });
 
-  it("labels : la fiche du lundi se lit, se recalcule, et un label sans fiche le dit", async () => {
+  it("labels : la fiche se lit, se modifie, et un label sans fiche s'écrit depuis le modèle", async () => {
     rendre("/admin/fiches?sorte=label&cle=smart_girl");
     const fiche = await screen.findByTestId("fiche-label-smart_girl");
-    expect(within(fiche).getByRole("heading", { name: "Sophia · 812 posts" })).toBeInTheDocument();
-    expect(within(fiche).queryByRole("button", { name: "Modifier" })).not.toBeInTheDocument();
-    fireEvent.click(within(fiche).getByRole("button", { name: "Calculer maintenant" }));
-    expect(await within(fiche).findByText("9 fiches label recalculées.")).toBeInTheDocument();
+    expect(within(fiche).getByRole("heading", { name: "Where the app goes" })).toBeInTheDocument();
+    expect(within(fiche).queryByRole("button", { name: "Calculer maintenant" })).not.toBeInTheDocument();
+    fireEvent.click(within(fiche).getByRole("button", { name: "Modifier" }));
+    fireEvent.change(within(fiche).getByLabelText("Fiche (Markdown)"), { target: { value: "# Label sheet: smart_girl\n\nv2" } });
+    fireEvent.click(within(fiche).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() => expect(enregistrerFicheLabel).toHaveBeenCalledWith("smart_girl", "# Label sheet: smart_girl\n\nv2"));
 
     fireEvent.click(within(screen.getByRole("list", { name: "Labels" })).getByRole("button", { name: /alpha_male/ }));
     const vide = await screen.findByTestId("fiche-label-alpha_male");
-    expect(vide).toHaveTextContent("n’a pas encore été calculée");
+    expect(vide).toHaveTextContent("n’est pas encore écrite");
+    fireEvent.click(within(vide).getByRole("button", { name: "Écrire la fiche" }));
+    const texte = (within(vide).getByLabelText("Fiche (Markdown)") as HTMLTextAreaElement).value;
+    expect(texte.startsWith("# Label sheet: alpha_male")).toBe(true);
+    expect(texte).toContain("## The angle: what the app brings, by topic");
+    expect(texte).toContain("## Placement examples");
   });
 
-  it("CTA : la fiche commune s'écrit depuis le modèle, avec les formes en dessous", async () => {
-    rendre("/admin/fiches?sorte=cta");
+  it("CTA : l'intro commune s'écrit depuis le modèle, en anglais, sans forme tirée", async () => {
+    rendre();
     const fiche = await screen.findByTestId("fiche-cta");
     expect(fiche).toHaveTextContent("Jamais enregistrée");
     fireEvent.click(within(fiche).getByRole("button", { name: "Écrire la fiche" }));
     const texte = (within(fiche).getByLabelText("Fiche (Markdown)") as HTMLTextAreaElement).value;
-    expect(texte.startsWith("# Fiche CTA")).toBe(true);
-    expect(texte).toContain("Jamais avant la slide 4");
+    expect(texte.startsWith("# CTA sheet")).toBe(true);
+    expect(texte).toContain("Never before slide 4");
+    expect(texte).toContain("## Never, in any language");
     expect(texte).not.toContain("Sophia");
+    expect(texte).not.toMatch(/prouvee|essai|format_du_post/);
     fireEvent.click(within(fiche).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() => expect(enregistrerFicheCta).toHaveBeenCalledWith(expect.stringContaining("## La règle d'or")));
-    expect(await screen.findByTestId("cta")).toBeInTheDocument();
+    await waitFor(() => expect(enregistrerFicheCta).toHaveBeenCalledWith(expect.stringContaining("## The golden rule")));
+    expect(screen.queryByTestId("cta")).not.toBeInTheDocument();
   });
 });

@@ -1,0 +1,1071 @@
+{
+ "id": "yp-012",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7668360450555333910",
+  "vues": 77400,
+  "enregistrements": 3462,
+  "publie_le": "2026-07-30",
+  "titre": "OLDER SISTER ADVICE from a 20-year-old"
+ },
+ "titre": {
+  "fr": "conseils de grande sœur pour ta 1re année de fac",
+  "en": "older sister advice for your first year of uni",
+  "es": "consejos de hermana mayor para tu primer año de uni",
+  "de": "Rat deiner großen Schwester für dein erstes Unijahr",
+  "it": "consigli da sorella maggiore per il tuo primo anno di uni",
+  "pt": "conselhos de irmã mais velha para o seu primeiro ano de faculdade",
+  "tr": "üniversitedeki ilk yılın için abladan tavsiyeler"
+ },
+ "legendes": {
+  "fr": "ce que j’aurais aimé savoir en L1 🎓 #fac #etudiante #studytok #thatgirl #conseils",
+  "en": "what i wish i knew in first year 🎓 #uni #college #studytok #thatgirl #advice",
+  "es": "lo que me habría gustado saber en primero 🎓 #universidad #estudiante #studytok #thatgirl #consejos",
+  "de": "was ich im ersten Semester gern gewusst hätte 🎓 #uni #studium #studytok #thatgirl #tipps",
+  "it": "cosa avrei voluto sapere al primo anno 🎓 #università #studentessa #studytok #thatgirl #consigli",
+  "pt": "o que eu queria ter sabido no primeiro ano 🎓 #faculdade #universitária #studytok #thatgirl #dicas",
+  "tr": "üniversite birinci sınıfta bilmek istediklerim 🎓 #üniversite #öğrenci #studytok #thatgirl #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
+ },
+ "fond": {
+  "media_id": "0e8b057a-5bc1-40df-b5d9-ed8faa9d6643",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/00aec5bf-12e7-4902-a630-88e4f4afc5b0/5.jpg?v=1790606875691",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-009 (« OLDER SISTER ADVICE », 77 k) : 1re année de fac, autres conseils et autres photos. cta C : la mise en scène iPhone micabo en moitié basse d’un collage, conseil « révise un peu chaque jour » + micabo dans la sous-légende",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "2facd817-f81e-4daa-8735-5d2eb2912267",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e7189ca4-c47c-49b4-ab12-7d4735d6497d/5.jpg?v=1792602053779",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2f160592-dac1-4fad-b032-dede172886e2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fc6418b8-1549-44a8-bb43-b22c0e79ed59/3.jpg?v=1792602009468",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE GRANDE",
+      "SŒUR"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "pour ta 1re année de fac",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OLDER",
+      "SISTER",
+      "ADVICE"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "for your first year of uni",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE HERMANA",
+      "MAYOR"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "para tu primer año de uni",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RAT",
+      "DEINER GROSSEN",
+      "SCHWESTER"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "für dein erstes Unijahr",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "DA SORELLA",
+      "MAGGIORE"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "per il tuo primo anno di uni",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSELHOS",
+      "DE IRMÃ",
+      "MAIS VELHA"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "para o seu primeiro ano de faculdade",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABLADAN",
+      "TAVSİYELER"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "üniversitedeki ilk yılın için",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0b886b8c-7265-41d6-bb6d-a9e0a54e4dbe",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/01966ab8-853e-4a16-ba2f-b0048f4b389c/2.jpg?v=1790608167909",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2c1b0fe4-e35f-4b87-b426-53a7d7dad070",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f0b9f2be-82e6-479b-9ce3-f1fa98bc746e/5.jpg?v=1792602062454",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "va en cours, même en amphi de 8 h."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "les cours enregistrés, on ne les regarde jamais."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "go to class, even the 8am lecture."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "you never actually watch the recordings."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ve a clase, incluso a la de las 8."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "las clases grabadas nunca las ves."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "geh zur Vorlesung, auch um 8 Uhr."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "die Aufzeichnungen schaust du eh nie."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "vai a lezione, anche alle 8 del mattino."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "le lezioni registrate non le guardi mai."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "vá às aulas, até à de 8 da manhã."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "as aulas gravadas você nunca assiste."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "derse git, sabah 8’deki derse bile."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "kayıtlı dersleri asla izlemiyorsun."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "029bda48-e467-412e-9159-f3e5f2ca23d9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d0c63b00-37af-4e67-9205-49615aa515f4/5.jpg?v=1790679454798",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "révise un peu chaque jour."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "moi, je mets mes cours dans micabo :",
+      "10 min de quiz par jour, rien ne s’empile."
+     ],
+     "taille_sous": 26
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "study a little every day."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "i put my lectures into micabo:",
+      "10 minutes of quizzes a day, nothing piles up."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "estudia un poco cada día."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "yo meto mis clases en micabo:",
+      "10 min de quiz al día y nada se acumula."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern jeden Tag ein bisschen."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "ich packe meine Vorlesungen in micabo:",
+      "10 Min. Quiz am Tag, nichts stapelt sich."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "studia un po’ ogni giorno."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "io metto le lezioni su micabo:",
+      "10 minuti di quiz al giorno, niente si accumula."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "estude um pouco todo dia."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "eu coloco minhas aulas no micabo:",
+      "10 min de quiz por dia, nada acumula."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "her gün biraz çalış."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "derslerimi micabo’ya koyuyorum:",
+      "günde 10 dk test, hiçbir şey birikmiyor."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b8dd95af-4ba9-4225-ba04-bb360ee9d721",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/05fe26be-0c88-44d4-819b-9b72707a690f/2.jpg?v=1790608235255",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "d7620059-921a-4148-bf27-9f5f28b337db",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/70d375e7-41a1-4312-8cd6-59696a1c4936/8.jpg?v=1790609094606",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.2
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "trouve ton coin à la bibliothèque."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "même table, même heure : ton cerveau suit."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "find your spot at the library."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "same table, same time: your brain follows."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "encuentra tu rincón en la biblioteca."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "misma mesa, misma hora: tu cerebro te sigue."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "such dir deinen Platz in der Bibliothek."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "gleicher Tisch, gleiche Zeit: dein Kopf zieht mit."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "trova il tuo angolo in biblioteca."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "stesso tavolo, stessa ora: il cervello ti segue."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "ache seu cantinho na biblioteca."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "mesma mesa, mesmo horário: seu cérebro acompanha."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kütüphanede kendi köşeni bul."
+     ],
+     "x": 540,
+     "y": 1010,
+     "taille": 42,
+     "couleur": "brun",
+     "sous": [
+      "aynı masa, aynı saat: beynin de uyum sağlar."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b56960e4-afd2-43bf-9a5c-487d37f54779",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/24fbc82d-b2e6-4f9c-a324-387549a2414b/6.jpg?v=1791729164208",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "8d86cc9d-c512-4e1a-88e2-897929c62ad1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d0c63b00-37af-4e67-9205-49615aa515f4/3.jpg?v=1790679400736",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "apprends 3 plats simples."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "les pâtes tous les soirs, ça finit mal."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "learn 3 easy meals."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "pasta every night does not end well."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "aprende 3 platos fáciles."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "pasta todas las noches acaba mal."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern 3 einfache Gerichte."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "jeden Abend Nudeln endet nicht gut."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "impara 3 piatti facili."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "pasta tutte le sere finisce male."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "aprenda 3 pratos fáceis."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "macarrão toda noite não acaba bem."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "3 kolay yemek öğren."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "her akşam makarna iyi bitmiyor."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6e6e310c-c1d1-4c36-9144-89e2f525f6bb",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5900b734-b881-4536-be8e-77962db05c09/5.jpg?v=1790677474169",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "3752af39-e9b8-43c7-adaf-b7bec9c56b13",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/36988353-2c94-4c04-99fb-4e8d3435bb36/5.jpg?v=1790677674028",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "dis oui aux sorties,",
+      "mais pas à toutes."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "say yes to going out,",
+      "but not every time."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "di que sí a salir,",
+      "pero no siempre."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "sag ja zum Ausgehen,",
+      "aber nicht immer."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "di’ di sì alle uscite,",
+      "ma non a tutte."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "diga sim aos rolês,",
+      "mas não a todos."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "dışarı çıkmaya evet de,",
+      "ama her seferinde değil."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "e4989e64-3bc2-4bcb-a48c-3da247a5176c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ea23edf2-0945-42cb-b513-8b61ea1169fb/2.jpg?v=1792591540610",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "f462f3d1-cbcc-4eb1-9127-a1a0571bab01",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48cb2118-89c2-4510-b04e-8f80e77403aa/9.jpg?v=1789055698458",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "garde une soirée",
+      "rien que pour toi."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "keep one evening",
+      "just for you."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "guarda una noche",
+      "solo para ti."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "halt dir einen Abend",
+      "nur für dich frei."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "tieni una serata",
+      "solo per te."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "guarde uma noite",
+      "só pra você."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bir akşamı",
+      "sadece kendine ayır."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c767275f-59f2-4013-962a-ca2f3beae17c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/82048053-2cd3-46ee-a81c-9b8f9c429e6b/3.jpg?v=1791725367747",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "ca30fbf8-8d50-4367-8d5f-e7b95a2db800",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48cb2118-89c2-4510-b04e-8f80e77403aa/1.jpg?v=1789055481868",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "appelle tes parents."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "ils ne te le diront pas, mais tu leur manques."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "call your parents."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "they won’t say it, but they miss you."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "llama a tus padres."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "no te lo dirán, pero te echan de menos."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "ruf deine Eltern an."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "sie sagen es nicht, aber sie vermissen dich."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "chiama i tuoi genitori."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "non te lo diranno, ma gli manchi."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "ligue para os seus pais."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "eles não vão dizer, mas sentem sua falta."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "aileni ara."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "söylemezler ama seni özlüyorlar."
+     ],
+     "taille_sous": 28
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

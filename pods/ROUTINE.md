@@ -17,6 +17,13 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 > la première sur BLEO).** Podz de la voie 1 : lance d'abord
 > `npm run boite`. S'il affiche « podz sur BLEO : pas encore », suis
 > `pods/ROUTINE-avant-bleo.md` aujourd'hui, à la place de ce fichier.
+>
+> **Répétition des samedi 31/10 et dimanche 1/11 (demandée par Adrien) :**
+> les podz **8** (smart-girl) et **9** (alpha-male) suivent **ce fichier**
+> (§4, la boîte) même si `npm run boite` affiche « pas encore ». Chaque
+> original déclare `type_bleo` ; un refus du guichet se règle avec le tableau
+> du §4.6 et son code va dans le compte rendu. Ta consigne de routine parle
+> encore de « preuve » : ce fichier prime, il n'y en a plus.
 
 ## 1. Repartir propre
 

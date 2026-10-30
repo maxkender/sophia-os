@@ -1,8 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 import { Badge } from "@/components/ui/badge";
 
+import { IconeCanal } from "./ColonnesContexte";
+import { lireFil } from "./contexte";
 import { nomsConcordent } from "./statutCompte";
 import type { FicheSamedi as TFiche } from "./semaineComptes";
 import { useFicheSamedi } from "./useFicheSamedi";
@@ -35,13 +38,12 @@ function etatPaie(f: TFiche): "ok" | "tarif_manquant" | "aucune" | "bizarre" | "
 export function FicheSamedi({ posterId, lundi, jour = null }: { posterId: string; lundi: string; jour?: string | null }) {
   const { t } = useTranslation();
   const lu = useFicheSamedi(posterId, lundi, true);
+  const fil = useQuery({ queryKey: ["posteur-fil", posterId], queryFn: () => lireFil(posterId) });
   if (lu.isPending) return <p className="text-xs text-muted-foreground">{t("common.loading")}</p>;
   if (lu.error) return <p className="text-xs text-destructive">{(lu.error as Error).message}</p>;
   const f: TFiche = lu.data!;
   const p = "autoOnglets.decisions.liste.samedi.fiche";
   const posts = jour ? f.posts.filter((x) => x.jour === jour) : f.posts;
-  const recus = f.messages.filter((m) => m.sens === "recu");
-  const dernier = recus.length ? recus[recus.length - 1] : null;
   const paie = etatPaie(f);
   const aVerifier = !nomsConcordent(f.contrat.freelance, f.contrat.profil ?? null);
   return (
@@ -117,16 +119,18 @@ export function FicheSamedi({ posterId, lundi, jour = null }: { posterId: string
             </li>
           ))}
         </ul>
-        <p className="pt-1 font-medium">{t(`${p}.messages`, { n: f.messages.length })}</p>
-        {dernier && (
-          <p className="rounded bg-muted/50 px-2 py-1" data-testid="dernier-message">
-            {t(`${p}.dernier`, { quand: date(dernier.at), canal: dernier.canal ?? "—" })} {dernier.texte}
-          </p>
-        )}
-        <ul className="max-h-40 space-y-0.5 overflow-y-auto">
-          {f.messages.map((m, i) => (
+        {/* Prompt 27 : les 10 derniers messages des deux côtés, Slack et Upwork mélangés, avec leur canal. */}
+        <p className="pt-1 font-medium">{t(`${p}.fil`, { n: fil.data?.length ?? 0 })}</p>
+        {fil.error && <p className="text-destructive">{(fil.error as Error).message}</p>}
+        <ul className="max-h-60 space-y-1 overflow-y-auto" data-testid="fiche-fil">
+          {(fil.data ?? []).map((m, i) => (
             <li key={i} className={m.sens === "recu" ? "" : "text-muted-foreground"}>
-              <span className="tabular-nums">{date(m.at)}</span> · {t(`${p}.sens.${m.sens}`)} ({m.canal ?? "—"}) : {m.texte}
+              <span className="inline-flex items-center gap-1">
+                <IconeCanal canal={m.canal} />
+                <span className="tabular-nums">{date(m.at)}</span> · {t(`${p}.sens.${m.sens}`)}
+                {m.lien && <a className="text-primary underline" href={m.lien} target="_blank" rel="noreferrer">{t("autoOnglets.decisions.liste.contexte.ouvrir")}</a>}
+              </span>
+              <span className="block whitespace-pre-wrap break-words">{m.texte}</span>
             </li>
           ))}
         </ul>

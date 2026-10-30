@@ -383,7 +383,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
               valeur={autre ? "keep" : k}
               options={CHOIX}
               libelle={(o) => t(`autoOnglets.decisions.liste.samedi.choix.${o}`)}
-              desactives={[...(ex?.sans_contrat ? (["kill", "kill_np"] as const) : []), ...(ev.recrue ? (["double"] as const) : [])]}
+              // Pas de contrat : Kill bloqué, sauf un posteur toujours montré (No channel…) : le Kill le désactive dans l'OS.
+              desactives={[...(ex?.sans_contrat && !force(c) ? (["kill", "kill_np"] as const) : []), ...(ev.recrue ? (["double"] as const) : [])]}
               lecture={!admin || prise !== null}
               onChange={(o) => {
                 setChoix((v) => ({ ...v, [c.compte_id]: o }));

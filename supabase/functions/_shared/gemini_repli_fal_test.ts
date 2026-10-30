@@ -27,7 +27,7 @@ Deno.test("repli fal : Gemini à 402, la réponse vient de fal sans réessai", a
     return Promise.resolve(new Response(JSON.stringify({ output: "Hallo" }), { status: 200 }));
   }) as typeof fetch;
   try {
-    const parts = await callWithFallback(["gemini-3.5-flash", "gemini-2.0-flash"], [{ text: "Bonjour" }]);
+    const parts = await callWithFallback(["gemini-3.5-flash", "gemini-3.1-flash-lite"], [{ text: "Bonjour" }]);
     assertEquals(parts, [{ text: "Hallo" }]);
     assertEquals(appels.length, 2, "un appel Gemini, un appel fal");
     assertEquals(appels[1], "https://fal.run/fal-ai/any-llm");

@@ -1478,7 +1478,7 @@ export const en = {
         couverture: "Coverage by label",
         sansLabel: "No label",
         coller: "TikTok links or accounts",
-        collerAide: "One per line: a slideshow link, or an account (@handle), whose 5 most recent slideshows the OS takes. It fetches the slides and reads their text.",
+        collerAide: "One per line: a slideshow link, or an account (@handle), from whose last 60 posts the OS takes 10 slideshows, the 5 most recent and the 5 most liked. It fetches the slides and reads their text.",
         label: "Label",
         labelExemple: "Label of @{{handle}}'s example",
         ajouter: "Add and read",

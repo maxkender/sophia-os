@@ -21,6 +21,8 @@ const listerExemples = vi.fn();
 const ajouterExemples = vi.fn();
 const listerComptes = vi.fn();
 const relireExemple = vi.fn();
+const listerFichesLangue = vi.fn();
+const enregistrerFicheLangue = vi.fn();
 const majLabelExemple = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
@@ -39,6 +41,9 @@ vi.mock("@/features/relectureNative/api", () => ({
   listerComptesNatifs: () => listerComptes(),
   relireExempleNatif: (...a: unknown[]) => relireExemple(...a),
   effacerSuiviComptes: vi.fn(),
+  listerFichesLangue: () => listerFichesLangue(),
+  enregistrerFicheLangue: (...a: unknown[]) => enregistrerFicheLangue(...a),
+  compterVersionsFichesLangue: () => Promise.resolve({ de: 2 }),
   majLabelExemple: (...a: unknown[]) => majLabelExemple(...a),
   supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
@@ -93,6 +98,8 @@ describe("AdminRelectureNativePage", () => {
     listerExemples.mockResolvedValue([]);
     listerComptes.mockResolvedValue([]);
     relireExemple.mockResolvedValue(undefined);
+    listerFichesLangue.mockResolvedValue([]);
+    enregistrerFicheLangue.mockResolvedValue(undefined);
     majLabelExemple.mockResolvedValue(undefined);
   });
 
@@ -299,5 +306,38 @@ describe("AdminRelectureNativePage", () => {
     expect(within(screen.getByTestId("exemple-e3")).queryByRole("button", { name: "Relire" })).not.toBeInTheDocument();
     fireEvent.click(within(screen.getByTestId("exemple-e4")).getByRole("button", { name: "Relire" }));
     await waitFor(() => expect(relireExemple).toHaveBeenCalledWith("e4"));
+  });
+
+  it("fiches langue : une par langue, partie du modèle, enregistrée", async () => {
+    listerFichesLangue.mockResolvedValue([
+      { langue: "tr", contenu: "# Fiche langue : Turc", updated_at: "2026-10-30T10:00:00Z" },
+    ]);
+    listerExemples.mockResolvedValue([
+      { id: "e1", langue: "de", statut: "pret" },
+      { id: "e2", langue: "de", statut: "en_attente" },
+    ]);
+    rendre();
+    fireEvent.click(screen.getByRole("button", { name: "Fiches langue" }));
+    const fiche = await screen.findByTestId("fiche-langue-de");
+    expect(within(fiche).getByText("Fiche Allemand")).toBeInTheDocument();
+    expect(within(fiche).getByText("À écrire")).toBeInTheDocument();
+    await waitFor(() => expect(fiche).toHaveTextContent("1 exemples natifs prêts"));
+
+    fireEvent.click(within(fiche).getByRole("button", { name: "Partir du modèle" }));
+    const zone = within(fiche).getByRole("textbox", { name: "Fiche complète (Markdown)" });
+    expect((zone as HTMLTextAreaElement).value).toContain("# Fiche langue : Allemand");
+    expect((zone as HTMLTextAreaElement).value).toContain("### Études (");
+    fireEvent.click(within(fiche).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() =>
+      expect(enregistrerFicheLangue).toHaveBeenCalledWith("de", expect.stringContaining("## L'essentiel en 8 règles")),
+    );
+
+    // Une autre langue : sa propre fiche, déjà écrite.
+    fireEvent.change(within(screen.getByTestId("fiches-langue")).getByRole("combobox", { name: "Langue" }), {
+      target: { value: "tr" },
+    });
+    const turc = await screen.findByTestId("fiche-langue-tr");
+    expect(within(turc).getByText("Écrite")).toBeInTheDocument();
+    expect(within(turc).getByRole("textbox", { name: "Fiche complète (Markdown)" })).toHaveValue("# Fiche langue : Turc");
   });
 });

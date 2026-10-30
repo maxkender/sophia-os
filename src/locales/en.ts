@@ -991,7 +991,7 @@ export const en = {
       reglages: "Engine actions — cleaning, ELO, assignment",
       prompts: "Edit the AI prompts (translation, Sophia…)",
       angles: "One placement instruction per label and application, in test or active",
-      relectureNative: "Native reviewers, app sheets, questionnaire",
+      relectureNative: "Native reviewers, native examples, language sheets and app sheets",
       labelsApplications: "Create labels, their style, and the apps they serve",
       reviews: "Feedback to creators (pop-up on their login)",
       retoursContestes: "Feedback creators say is wrong: check it and answer them",
@@ -1540,10 +1540,11 @@ export const en = {
       },
       titre: "Native review",
       description:
-        "Everything needed for native rewriting: the reviewers, who will correct the published posts, the native examples of each language and the app sheets. Nothing here touches production.",
+        "Everything needed for native rewriting: the reviewers, who will correct the published posts, the native examples of each language, the language sheets and the app sheets. Nothing here touches production.",
       onglets: {
         relecteurs: "Reviewers",
         exemples: "Native examples",
+        langues: "Language sheets",
         fiches: "App sheets",
       },
       interrupteurs: {
@@ -1582,6 +1583,24 @@ export const en = {
         retirer: "Delete",
         confirmerRetrait:
           "Delete {{nom}}? To set them aside without losing anything, change their status to \"Removed\" instead.",
+      },
+      fichesLangue: {
+        aide:
+          "One sheet per language: how native creators write, condensed from the example bank (register, rhythm, hooks, vocabulary, tone families). Native rewriting will read the sheet, never the examples themselves. Nothing reads it yet. Writing brief: docs/fiches-langue-brief.md.",
+        langue: "Language",
+        titre: "{{nom}} sheet",
+        vide: "To write",
+        ecrite: "Written",
+        jamais: "Never saved.",
+        majLe: "Saved on {{date}} · {{versions}} version(s)",
+        banque: "{{n}} native examples ready",
+        contenu: "Full sheet (Markdown)",
+        contenuAide:
+          "Rules in French, native excerpts in the language, no full slideshow. 1,200 to 2,000 words at most: it goes into every call.",
+        partirDuModele: "Start from the template",
+        enregistrer: "Save",
+        nonEnregistre: "Unsaved changes",
+        enregistre: "Saved",
       },
       fiches: {
         aide:

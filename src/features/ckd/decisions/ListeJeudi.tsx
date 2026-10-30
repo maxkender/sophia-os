@@ -12,6 +12,8 @@ import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { cn } from "@/lib/utils";
 
 import { FicheSamedi } from "./FicheSamedi";
+import { lireEtatsHandle, marquerKillSamedi, phraseStatut } from "./handlesEtat";
+import { LigneHandle } from "./LigneHandle";
 import { BadgesPosteur, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
 import { evaluerCompte, lireExtras, ordreStatut } from "./statutCompte";
@@ -29,7 +31,7 @@ import {
 } from "./semaineComptes";
 import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, Signaux, TD, TH } from "./TableauComptes";
 
-const CHOIX: readonly ChoixJeudi[] = ["nudge", "recreate", "rien"];
+const CHOIX: readonly ChoixJeudi[] = ["nudge", "recreate", "kill_samedi", "rien"];
 
 /**
  * Prompt 25, partie 3 : Weekly decisions → Thursday. Tous les comptes actifs,
@@ -51,6 +53,17 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
   const lundi = lundiDeLaSemaine(aujourdhui);
   const lu = useQuery({ queryKey: ["semaine-comptes", lundi, aujourdhui], queryFn: () => lireSemaineComptes(lundi, aujourdhui) });
   const extras = useQuery({ queryKey: ["semaine-extras", lundi], queryFn: () => lireExtras(lundi) });
+  const comptesListe = React.useMemo(() => (lu.data ?? []).filter((c) => c.cohorte_lundi === lundi).map((c) => c.compte_id).sort(), [lu.data, lundi]);
+  const etats = useQuery({
+    queryKey: ["handles-etat", lundi, comptesListe],
+    queryFn: () => lireEtatsHandle(lundi, comptesListe),
+    enabled: comptesListe.length > 0,
+  });
+  // « Kill Saturday » : gardé tout de suite (rien ne part) ; une autre décision l'annule.
+  const kill = useMutation({
+    mutationFn: (v: { c: CompteSemaine; marquer: boolean }) => marquerKillSamedi(v.c.compte_id, lundi, phraseStatut(ev(v.c), t), v.marquer),
+    onSettled: () => void qc.invalidateQueries({ queryKey: ["handles-etat"] }),
+  });
   const [ouverts, setOuverts] = React.useState<Record<string, string | true | undefined>>({});
   const [choix, setChoix] = React.useState<Record<string, ChoixJeudi>>({});
   const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
@@ -63,7 +76,8 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
     lundi, aujourdhui, maintenant, page: "jeudi",
   })])), [liste, extras.data, lundi, aujourdhui, maintenant]);
   const ev = (c: CompteSemaine) => evals.get(c.compte_id)!;
-  const choixDe = (c: CompteSemaine) => choix[c.compte_id] ?? choixJeudiInitial(c);
+  const choixDe = (c: CompteSemaine): ChoixJeudi =>
+    choix[c.compte_id] ?? (etats.data?.get(c.compte_id)?.kill_jeudi_at ? "kill_samedi" : choixJeudiInitial(c));
   const nudges = liste.filter((c) => choixDe(c) === "nudge");
   const recreates = liste.filter((c) => choixDe(c) === "recreate" && c.recreer);
   const visibles = trierComptes(filtrerComptes(liste, filtres), tri).sort((a, b) => ordreStatut(ev(a), ev(b)));
@@ -111,7 +125,12 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                         ...(c.nudge_envoye_at || c.nudge_en_file ? (["nudge"] as const) : []),
                       ]}
                       lecture={!admin}
-                      onChange={(o) => setChoix((x) => ({ ...x, [c.compte_id]: o }))}
+                      onChange={(o) => {
+                        const avant = choixDe(c);
+                        setChoix((x) => ({ ...x, [c.compte_id]: o }));
+                        if (o === "kill_samedi") kill.mutate({ c, marquer: true });
+                        else if (avant === "kill_samedi") kill.mutate({ c, marquer: false });
+                      }}
                     />
                     {c.nudge_envoye_at && (
                       <p className="mt-1 text-[11px] text-muted-foreground">{t("autoOnglets.decisions.liste.jeudi.dejaNudge")}</p>
@@ -126,6 +145,7 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                   <td className={TD}>
                     <CelluleCompte c={c} />
                     <BadgesPosteur e={ev(c)} x={extras.data?.get(c.compte_id)} />
+                    <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
                     <button
                       type="button"
                       className="mt-1 block text-[11px] text-primary underline"

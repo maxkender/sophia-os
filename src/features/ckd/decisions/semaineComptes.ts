@@ -76,7 +76,7 @@ export const aManque = (c: Pick<CompteSemaine, "prevus_passes" | "lien_passes">)
 /** Les posts attendus « jusqu'ici » : les jours passés, plus ceux déjà postés aujourd'hui. */
 export const attendusJusquIci = (c: Pick<CompteSemaine, "prevus_passes" | "lien_aujourdhui">) => c.prevus_passes + c.lien_aujourdhui;
 
-export type ChoixJeudi = "nudge" | "recreate" | "rien";
+export type ChoixJeudi = "nudge" | "recreate" | "kill_samedi" | "rien";
 
 /**
  * Le choix pré-coché du jeudi : Recreate pour un shadowban supposé ou un compte

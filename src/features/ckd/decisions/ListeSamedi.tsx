@@ -18,6 +18,8 @@ import { cn } from "@/lib/utils";
 import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
 import { lireContexte, relireConversationsUpwork } from "./contexte";
 import { FicheSamedi } from "./FicheSamedi";
+import { lireEtatsHandle } from "./handlesEtat";
+import { LigneHandle } from "./LigneHandle";
 import { BadgesPosteur, CellulesEtapes, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
 import {
@@ -154,6 +156,15 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     queryFn: () => lireContexte(lundi, posteursListe),
     enabled: posteursListe.length > 0,
   });
+  const comptesListe = React.useMemo(() => [...new Set((lu.data ?? []).map((c) => c.compte_id))].sort(), [lu.data]);
+  const etats = useQuery({
+    queryKey: ["handles-etat", lundi, comptesListe],
+    queryFn: () => lireEtatsHandle(lundi, comptesListe),
+    enabled: comptesListe.length > 0,
+  });
+  const jeudi = ajouterJours(lundi, 3);
+  /** Posts avec lien depuis jeudi (vendredi → dimanche). */
+  const postsDepuisJeudi = (c: CompteSemaine) => c.jours.filter((j) => j.jour > jeudi).reduce((n, j) => n + j.lien, 0);
   const relire = useMutation({
     mutationFn: () => relireConversationsUpwork(posteursListe),
     onSuccess: () => void qc.invalidateQueries({ queryKey: ["masterlist-contexte"] }),
@@ -181,6 +192,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     const prise = decisionSamedi(c);
     if (prise) return prise;
     if (demandeCompte(c)) return "kill";
+    // « Kill Saturday » choisi jeudi : Kill & pay pré-sélectionné (Max valide toujours samedi).
+    if (etats.data?.get(c.compte_id)?.kill_jeudi_at) return "kill";
     return choixPropose(e(c));
   };
   const filtres_ = filtrerComptes(liste, filtres);
@@ -331,10 +344,22 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           </td>
           <td className={TD}>
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
+            {etats.data?.get(c.compte_id)?.kill_jeudi_at && (
+              <p className="mt-1 max-w-56 text-[11px]" data-testid="kill-jeudi">
+                {t("autoOnglets.decisions.liste.handle.killJeudi", {
+                  date: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "Europe/Paris" }).format(new Date(etats.data.get(c.compte_id)!.kill_jeudi_at!)),
+                  phrase: etats.data.get(c.compte_id)!.kill_jeudi_phrase ?? "—",
+                })}
+                {postsDepuisJeudi(c) > 0 && (
+                  <Badge variant="warning" className="ml-1">{t("autoOnglets.decisions.liste.handle.postesDepuis", { n: postsDepuisJeudi(c) })}</Badge>
+                )}
+              </p>
+            )}
           </td>
           <td className={TD}>
             <CelluleCompte c={c} />
             <BadgesPosteur e={ev} x={ex} />
+            <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
             <button
               type="button"
               className="mt-1 block text-[11px] text-primary underline"

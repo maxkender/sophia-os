@@ -16,6 +16,7 @@ import {
   type CleEtape,
   type EtatCinq,
 } from "./cinqEtapes";
+import { ChangerHandle } from "./ChangerHandle";
 import { lireMaPremiereSemaine } from "./cinqEtapesApi";
 import { formaterJour, partiesParis } from "./datesRuul";
 
@@ -43,11 +44,13 @@ function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
  */
 export function CinqEtapes({
   handle,
+  compteId = null,
   warmupStartedAt,
   warmupEndsAt,
   maintenant = new Date(),
 }: {
   handle: string | null;
+  compteId?: string | null;
   warmupStartedAt: string | null;
   warmupEndsAt: string | null;
   maintenant?: Date;
@@ -87,7 +90,13 @@ export function CinqEtapes({
     },
     tiktok: {
       titre: arobase ? t("calendrier.cinq.tiktok", { handle: arobase }) : t("calendrier.cinq.tiktokSansHandle"),
-      detail: <p>{t("calendrier.cinq.tiktokDetail")}</p>,
+      detail: (
+        <>
+          <p>{t("calendrier.cinq.tiktokDetail")}</p>
+          {/* Le @ donné est déjà pris : la recrue donne celui qu'elle a créé (lu sur TikTok avant d'être gardé). */}
+          {compteId && <ChangerHandle compteId={compteId} />}
+        </>
+      ),
     },
     warmup: {
       titre: t("calendrier.cinq.warmup", { dimanche: jour(dimancheAvant(premierPost)) }),

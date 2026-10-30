@@ -67,11 +67,9 @@ const LARGEUR_ASSIGNATION = 6;
 
 export { LOT_IDS, lireParLots };
 
-/** Par invocation drain : assez petit pour finir avant timeout Edge / cron.
- *  30/10 : chaîne portée de 40 à 200 lots pour finir le rattrapage du jour
- *  (les coupures de CPU venaient des réessais sur les 402 Gemini). */
+/** Par invocation drain : assez petit pour finir avant timeout Edge / cron. */
 const DRAIN_BATCH = 8;
-const DRAIN_MAX_CHAIN = 200;
+const DRAIN_MAX_CHAIN = 40;
 
 /**
  * Contenus essayés pour UN créneau d'une application autre que Sophia avant de

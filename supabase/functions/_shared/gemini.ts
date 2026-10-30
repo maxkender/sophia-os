@@ -136,7 +136,10 @@ async function call(model: string, parts: Part[], config?: GenConfig): Promise<P
     // doit pas passer pour passager, sinon callWithFallback réessaie 4 fois).
     if (response.status === 402 && !config?.responseModalities?.includes("IMAGE")) {
       try {
-        return await callViaFal(parts, config);
+        const repli = await callViaFal(parts, config);
+        // Trace : combien d'appels passent par fal (et donc sont facturés là).
+        console.warn(`[gemini] ${model} 402 crédits épuisés — repli fal ${MODELE_REPLI_FAL}`);
+        return repli;
       } catch (e) {
         throw new Error(`Gemini ${model} crédits épuisés (402), repli fal en échec : ${messageErreur(e)}`);
       }

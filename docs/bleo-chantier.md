@@ -143,8 +143,21 @@ la mesure). Si on veut la lancer avant, elle doit tirer sa moitié au hasard
 
 **L7 (decks l'après-midi)** reste dans BLEO : c'est là que tournera l'appel
 unique pour les decks du lendemain, avec dix heures de marge entre le tirage de
-14 h et minuit pour un appel cinq fois plus lourd (environ 10 000 tokens). Le
-plafond de dépense par jour va dans `reglages.bleo`.
+14 h et minuit, pour que le circuit Gemini actuel ait le temps de reprendre un
+deck raté. Le plafond de dépense par jour va dans `reglages.bleo`.
+
+Taille de l'appel, mesurée le 30/10 (l'estimation du 29/10, « cinq fois plus
+lourd », oubliait les prompts de l'admin) :
+
+| | Aujourd'hui, 2 appels | Appel unique |
+| --- | --- | --- |
+| Entrée | ≈ 8 000 tokens : traduction ≈ 3 500 (`traduction_de` 5 800 caractères, `localisation_scolaire` 5 400, slides) ; placement ≈ 4 500 (`placement_sophia` 16 700 caractères à lui seul) ; `corrections` vide | ≈ 10 000 à 15 000 tokens : fiches langue, label et appli (≈ 3 000), une dizaine d'exemples natifs (≈ 1 500 caractères chacun, ≈ 4 000), images en 540 × 960 (≈ 250 à 500 par slide), doctrine de placement si elle reste |
+| Appels | 2, à la suite | 1, plus le contrôle de fidélité |
+
+Soit 1,5 à 2 fois les tokens d'aujourd'hui, pas 5. Les tokens coûtent de
+l'attente, pas du CPU de la fonction ; le CPU, c'est la préparation des images
+(téléchargement, réduction) si la fonction la fait elle-même : à faire en
+amont, pas dans l'assignation de minuit.
 
 Ce qui reste de la spec et vaut toujours pour l'appel unique :
 

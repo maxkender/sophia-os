@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { lienCapture } from "@/features/onboarding/warmupApi";
 import { CAS_REPONSE } from "@/features/reponses/api";
 import { type Conversations, conversationDe, contratDuLien, useConversations } from "@/features/upwork/conversation";
 import { LienConversation } from "@/features/upwork/LienConversation";
@@ -197,23 +196,6 @@ function LigneCas({ c, conv }: { c: CasNeedsYou; conv?: Conversations }) {
               {t(`needsYou.actions.${a}`, { valeur: c.valeur ?? "" })}
             </Button>
           ))}
-          {c.type === "warmup_capture" && c.valeur && (
-            <Button
-              size="sm"
-              variant="ghost"
-              data-action="voir_capture"
-              onClick={() => {
-                // Prompt 25 MAJ, 7c : la capture du profil, par un lien signé (bucket privé).
-                const fenetre = window.open("", "_blank");
-                void lienCapture(c.valeur!).then((u) => {
-                  if (fenetre) fenetre.location.href = u;
-                  else window.open(u, "_blank");
-                });
-              }}
-            >
-              {t("needsYou.actions.voir_capture")}
-            </Button>
-          )}
           {c.lien && (
             estInterne(c.lien)
               ? <Button size="sm" variant="ghost" asChild><Link to={c.lien}>{t("needsYou.actions.ouvrir")}</Link></Button>

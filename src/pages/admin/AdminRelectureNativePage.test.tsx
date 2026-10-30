@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
@@ -82,7 +83,9 @@ function rendre() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={qc}>
-      <AdminRelectureNativePage />
+      <MemoryRouter>
+        <AdminRelectureNativePage />
+      </MemoryRouter>
     </QueryClientProvider>,
   );
 }
@@ -146,22 +149,6 @@ describe("AdminRelectureNativePage", () => {
     expect(await screen.findByRole("alert")).toHaveTextContent("n'est pas partagée");
     fireEvent.click(screen.getByRole("button", { name: "Mettre à jour Notion" }));
     expect(await screen.findByText("Table Notion à jour (2 ligne(s) réécrite(s)).")).toBeInTheDocument();
-  });
-
-  it("écrit une fiche appli à partir du modèle et l'enregistre", async () => {
-    rendre();
-    fireEvent.click(screen.getByRole("button", { name: "Fiches appli" }));
-    const carte = await screen.findByTestId(`fiche-appli-${MICABO}`);
-    fireEvent.click(within(carte).getByRole("button", { name: "Partir du modèle" }));
-    const contenu = within(carte).getByLabelText("Fiche complète (Markdown)") as HTMLTextAreaElement;
-    expect(contenu.value.startsWith("# micabo")).toBe(true);
-    fireEvent.change(within(carte).getByLabelText("Présentation pour les relecteurs"), {
-      target: { value: "micabo turns your notes into quizzes." },
-    });
-    fireEvent.click(within(carte).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() =>
-      expect(enregistrerFiche).toHaveBeenCalledWith(MICABO, contenu.value, "micabo turns your notes into quizzes."),
-    );
   });
 
   it("n'a plus ni questionnaire ni kit, et compte relecteurs, langues et exemples", async () => {
@@ -314,46 +301,13 @@ describe("AdminRelectureNativePage", () => {
     await waitFor(() => expect(relireExemple).toHaveBeenCalledWith("e4"));
   });
 
-  it("fiches langue : une par langue, partie du modèle, enregistrée", async () => {
-    listerFichesLangue.mockResolvedValue([
-      { cle: "tr", contenu: "# Fiche langue : Turc", version: 2, auteur: "a@x.io", created_at: "2026-10-30T10:00:00Z", versions: 2 },
-    ]);
-    listerExemples.mockResolvedValue([
-      { id: "e1", langue: "de", statut: "pret" },
-      { id: "e2", langue: "de", statut: "en_attente" },
-    ]);
+  it("CTA : les 7 formes, la règle de la slide, l'avancement, et le lien vers les fiches label", async () => {
     rendre();
-    fireEvent.click(screen.getByRole("button", { name: "Fiches langue" }));
-    const fiche = await screen.findByTestId("fiche-langue-de");
-    expect(within(fiche).getByText("Fiche Allemand")).toBeInTheDocument();
-    expect(within(fiche).getByText("À écrire")).toBeInTheDocument();
-    await waitFor(() => expect(fiche).toHaveTextContent("1 exemples natifs prêts"));
+    // Les fiches ont leur page : plus d'onglet « Fiches langue » ni « Fiches appli » ici.
+    expect(screen.queryByRole("button", { name: "Fiches langue" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Fiches appli" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Fiches" })).toHaveAttribute("href", "/admin/fiches");
 
-    fireEvent.click(within(fiche).getByRole("button", { name: "Partir du modèle" }));
-    const zone = within(fiche).getByRole("textbox", { name: "Fiche complète (Markdown)" });
-    expect((zone as HTMLTextAreaElement).value).toContain("# Fiche langue : Allemand");
-    expect((zone as HTMLTextAreaElement).value).toContain("### Études (");
-    fireEvent.click(within(fiche).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() =>
-      expect(enregistrerFicheLangue).toHaveBeenCalledWith("de", expect.stringContaining("## L'essentiel en 8 règles")),
-    );
-
-    // Une autre langue : sa propre fiche, déjà écrite.
-    fireEvent.change(within(screen.getByTestId("fiches-langue")).getByRole("combobox", { name: "Langue" }), {
-      target: { value: "tr" },
-    });
-    const turc = await screen.findByTestId("fiche-langue-tr");
-    expect(within(turc).getByText("Écrite")).toBeInTheDocument();
-    expect(turc).toHaveTextContent("2 version(s)");
-    expect(within(turc).getByRole("textbox", { name: "Fiche complète (Markdown)" })).toHaveValue("# Fiche langue : Turc");
-  });
-
-  it("CTA : les 7 formes, la règle de la slide, l'avancement et les fiches label", async () => {
-    listerFichesLabel.mockResolvedValue([
-      { cle: "alpha_male", contenu: "# Fiche label : alpha_male", version: 1, auteur: "cta-lundi", created_at: "2026-11-02T06:30:00Z", versions: 1 },
-      { cle: "smart_girl", contenu: "# Fiche label : smart_girl\n## Sophia · 812 posts", version: 3, auteur: "cta-lundi", created_at: "2026-11-02T06:30:00Z", versions: 3 },
-    ]);
-    rendre();
     fireEvent.click(screen.getByRole("button", { name: "CTA" }));
     const section = await screen.findByTestId("cta");
     const formes = within(section).getByRole("list", { name: "Les formes de CTA" });
@@ -362,16 +316,9 @@ describe("AdminRelectureNativePage", () => {
     expect(formes).toHaveTextContent("7. Un point de la liste");
     expect(section).toHaveTextContent("le CTA va n’importe où à partir de la slide 4");
     await waitFor(() => expect(within(section).getByTestId("cta-avancement")).toHaveTextContent("900 textes classés · 100 à classer"));
-
-    // Une fiche par label ; la première s'affiche, on passe à une autre.
-    expect(await within(section).findByTestId("fiche-label-alpha_male")).toHaveTextContent("# Fiche label : alpha_male");
-    fireEvent.change(within(section).getByRole("combobox", { name: "Label" }), { target: { value: "smart_girl" } });
-    const fiche = within(section).getByTestId("fiche-label-smart_girl");
-    expect(fiche).toHaveTextContent("Version 3");
-    expect(fiche).toHaveTextContent("## Sophia · 812 posts");
-
-    fireEvent.click(within(section).getByRole("button", { name: "Calculer maintenant" }));
-    expect(await within(section).findByText("9 fiches label écrites (400 lignes de chiffres).")).toBeInTheDocument();
-    expect(calculerFichesLabel).toHaveBeenCalledTimes(1);
+    expect(within(section).getByRole("link", { name: "Voir les fiches label" })).toHaveAttribute(
+      "href",
+      "/admin/fiches?sorte=label",
+    );
   });
 });

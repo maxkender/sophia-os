@@ -41,13 +41,14 @@ describe("modeleFicheAppli", () => {
 });
 
 describe("modeleFicheLangue", () => {
-  it("prépare les rubriques du brief, avec une section par famille de ton", () => {
-    const modele = modeleFicheLangue("Allemand");
-    expect(modele.startsWith("# Fiche langue : Allemand\n")).toBe(true);
-    expect(modele).toContain("## L'essentiel en 8 règles");
-    expect(modele).toContain("### À bannir (calques et tournures de traduction)");
-    expect(modele).toContain("### Carrière (RH)");
-    expect(modele).toContain("## Ce que notre traduction rate aujourd'hui");
+  it("prépare les rubriques du brief en anglais, avec une section par famille de ton", () => {
+    const modele = modeleFicheLangue("German", "de");
+    expect(modele.startsWith("# Language sheet: German (de)\n")).toBe(true);
+    expect(modele).toContain("native words, phrases and hooks quoted verbatim in German");
+    expect(modele).toContain("## The 8 rules that matter most");
+    expect(modele).toContain("### Never write (translation calques)");
+    expect(modele).toContain("### Career (RH)");
+    expect(modele).toContain("## What our translation gets wrong");
     for (const f of FAMILLES_DE_TON) expect(modele).toContain(`### ${f.nom} (${f.labels.join(", ")})`);
   });
 

@@ -1,32 +1,30 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { BookOpenText, FileText, Languages, Megaphone, ScrollText, Users, type LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import { BookOpenText, Languages, Library, Megaphone, Users, type LucideIcon } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
+import { Button } from "@/components/ui/button";
 import { Segments } from "@/components/ui/segments";
 import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteurs";
 import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
 import { SectionCta } from "@/features/relectureNative/SectionCta";
 import { SectionExemplesNatifs } from "@/features/relectureNative/SectionExemplesNatifs";
-import { SectionFichesAppli } from "@/features/relectureNative/SectionFichesAppli";
-import { SectionFichesLangue } from "@/features/relectureNative/SectionFichesLangue";
 import { SectionRelecteurs } from "@/features/relectureNative/SectionRelecteurs";
 
-type Onglet = "relecteurs" | "exemples" | "langues" | "cta" | "fiches";
+type Onglet = "relecteurs" | "exemples" | "cta";
 
 const ONGLETS: ReadonlyArray<{ cle: Onglet; icone: LucideIcon }> = [
   { cle: "relecteurs", icone: Users },
   { cle: "exemples", icone: BookOpenText },
-  { cle: "langues", icone: ScrollText },
   { cle: "cta", icone: Megaphone },
-  { cle: "fiches", icone: FileText },
 ];
 
 /**
  * Relecture native : les relecteurs (qui corrigeront les posts publiés), la
- * banque d'exemples natifs par langue, les fiches langue qui la condensent, le
- * CTA mesurable (formes, fiches label) et les fiches des applications. La
- * production reste coupée.
+ * banque d'exemples natifs par langue et le CTA mesurable (formes, classement
+ * des CTA publiés). Les fiches (applis, langues, labels) ont leur page,
+ * /admin/fiches. La production reste coupée.
  */
 export function AdminRelectureNativePage() {
   const { t } = useTranslation();
@@ -42,6 +40,12 @@ export function AdminRelectureNativePage() {
           </span>
         }
         description={t("relectureNative.description")}
+        actions={
+          <Button size="sm" variant="outline" render={<Link to="/admin/fiches" />}>
+            <Library />
+            {t("relectureNative.voirFiches")}
+          </Button>
+        }
       />
 
       <ChiffresRelecture />
@@ -64,9 +68,7 @@ export function AdminRelectureNativePage() {
 
       {onglet === "relecteurs" && <SectionRelecteurs />}
       {onglet === "exemples" && <SectionExemplesNatifs />}
-      {onglet === "langues" && <SectionFichesLangue />}
       {onglet === "cta" && <SectionCta />}
-      {onglet === "fiches" && <SectionFichesAppli />}
     </div>
   );
 }

@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o020",
+  "schema_id": "toxic-study-motivation",
+  "titre": "toxic exam season reminders that work a little TOO well #studytok #studytips #exams #studymotivation",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "bb2eeefa-d48f-4aab-9e65-405885ce9658",
+    "ceb6df00-1ca0-4a4e-b71e-2ca4723429d3"
+  ],
+  "notes": "essai. Routine du 30/10 (ROUTINE-avant-bleo, 4 livraisons). Angle jamais fait chez nous : le ton toxique appliqué à la saison des examens, dans le schéma prouvé toxic-study-motivation (r 3,17, bb2eeefa ; r 2,84, 5d957bad). Accroches écrites : « toxic exam season reminders that work a little TOO well » (retenue : la forme du gagnant, le twist de saison), « toxic thoughts to get you through exam season » (écartée : plus faible), « exam season motivation that is a little TOO honest » (écartée : perd le TOO well). Sept rappels neufs, rivalité avec soi-même seulement, aucun gros mot ; la santé reste positive (dormir, pas de nuit blanche). Place micabo : slide 4 (se tester) ; place UnSwipe : slide 6 (le scroll). Slides 4 et 6 sans personne. Écartées à l'aperçu : 70ca7fc0 (même plan que la slide 1), 7d1257fb (même photo que dans cs-o021). Puis : 7fd1b50b (marque lisible sur la calculatrice).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7914368d",
+      "texte_overlay": "toxic exam season reminders\nthat work a little TOO well",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0f4215fd",
+      "texte_overlay": "the exam date is not moving.\nyour start date is the ONLY thing you control.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0700beb0",
+      "texte_overlay": "you're not \"bad at maths\".\nyou did 3 exercises. do 30, then we'll talk.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f8e3040c",
+      "texte_overlay": "if you can't explain it without your notes,\nyou don't know it yet. test yourself. TONIGHT.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d38c24b3",
+      "texte_overlay": "being tired in exam season is normal.\nbeing tired AND unprepared is a choice.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "84b353cd",
+      "texte_overlay": "nobody ever said \"so glad i scrolled for 2 hours\"\nthe week before an exam. NOBODY.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9306d98a",
+      "texte_overlay": "the exam doesn't care how long you studied.\nit only checks what you REMEMBER.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "cca320cc",
+      "texte_overlay": "sleep tonight, do well tomorrow.\nan all-nighter is a trap, not a flex.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

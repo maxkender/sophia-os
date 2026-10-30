@@ -85,6 +85,7 @@ export function modeleFicheLangue(nomAnglais: string, code: string): string {
     "## Rhythm and layout",
     "- Sentence length, line breaks, words per slide:",
     "- Capitals, punctuation, numbering:",
+    "- Spacing around punctuation, quotation marks, apostrophes (the CTA sheet relies on this):",
     "- Emojis:",
     "",
     "## Hooks (slide 1)",

@@ -14,7 +14,10 @@ import type { RecrueOnboarding } from "@/features/onboarding/api";
 
 import { cohorteParDefautRecruits } from "./logique";
 
-const onboarding = vi.hoisted(() => ({ lireOnboarding: vi.fn<() => Promise<RecrueOnboarding[]>>(async () => []) }));
+const onboarding = vi.hoisted(() => ({
+  lireOnboarding: vi.fn<() => Promise<RecrueOnboarding[]>>(async () => []),
+  lireEcartsPays: vi.fn(async () => new Map([["p1", "Lives in Lithuania, job post Croatia"]])),
+}));
 vi.mock("@/features/onboarding/api", async (orig) => ({ ...(await orig<typeof import("@/features/onboarding/api")>()), ...onboarding }));
 const pipeline = vi.hoisted(() => ({
   envoyerSurUpwork: vi.fn<(p: string, t: string, type?: string | null) => Promise<void>>(async () => undefined),
@@ -97,6 +100,8 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     expect(within(carte).getByText(/On it!/)).toBeTruthy();
     expect(within(carte).getByTestId("prochaine").textContent).toMatch(/waiting in To approve/);
     expect(carte.getAttribute("data-etape")).toBe("slack");
+    // 0470 : créée avec le pays de l'annonce, vit ailleurs.
+    expect((await within(carte).findByTestId("ecart-pays")).textContent).toBe("Lives in Lithuania, job post Croatia");
   });
 
   it("filtres HM, cohorte et étape", async () => {

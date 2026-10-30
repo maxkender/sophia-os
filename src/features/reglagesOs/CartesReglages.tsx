@@ -78,10 +78,10 @@ function ChampTexte({
 }
 
 // ---------------------------------------------------------------------------
-// 1. Messages Upwork : bienvenue, arrêt complet, motif de fin
+// 1. Messages Upwork : bienvenue, motif de fin (0463 : aucun message à l'arrêt)
 // ---------------------------------------------------------------------------
 
-const CLES_UPWORK = ["accueil_message_texte", "arret_message_texte", "arret_raison_upwork"] as const;
+const CLES_UPWORK = ["accueil_message_texte", "arret_raison_upwork"] as const;
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
 export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "handle", "slack", "guide", "date"] as const;
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
@@ -104,12 +104,11 @@ export function CarteMessagesUpwork() {
   const { role } = useAuth();
   const admin = role === "admin";
   const { lu, enregistrer } = useReglages([...CLES_UPWORK, "slack_lien_invitation"]);
-  const [b, setB] = React.useState<{ accueil: string; arret: string; raison: string } | null>(null);
+  const [b, setB] = React.useState<{ accueil: string; raison: string } | null>(null);
   React.useEffect(() => {
     if (lu.data) {
       setB({
         accueil: texte(lu.data.accueil_message_texte),
-        arret: texte(lu.data.arret_message_texte),
         raison: texte(lu.data.arret_raison_upwork, "107"),
       });
     }
@@ -147,12 +146,6 @@ export function CarteMessagesUpwork() {
             {remplirVariables(b.accueil, vars)}
           </pre>
         </div>
-        <ChampTexte id="arret-texte" label={t("reglagesOs.upwork.arret")} valeur={b.arret} admin={admin} lignes={3}
-          onChange={(v) => setB({ ...b, arret: v })} />
-        <div className="space-y-1">
-          <p className="text-xs font-medium text-muted-foreground">{t("reglagesOs.apercu")}</p>
-          <pre className="whitespace-pre-wrap rounded-md border bg-muted/40 p-3 text-xs" data-testid="apercu-arret">{b.arret.trim()}</pre>
-        </div>
         <label className="block space-y-1 text-sm">
           <span className="font-medium">{t("reglagesOs.upwork.raison")}</span>
           <select
@@ -173,9 +166,9 @@ export function CarteMessagesUpwork() {
           admin={admin}
           enregistrer={enregistrer}
           cles={CLES_UPWORK}
-          desactive={!b.accueil.trim() || !b.arret.trim()}
+          desactive={!b.accueil.trim()}
           onSave={() =>
-            enregistrer.mutate({ accueil_message_texte: b.accueil, arret_message_texte: b.arret, arret_raison_upwork: b.raison })
+            enregistrer.mutate({ accueil_message_texte: b.accueil, arret_raison_upwork: b.raison })
           }
         />
       </CardContent>

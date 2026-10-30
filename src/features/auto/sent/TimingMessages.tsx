@@ -17,7 +17,7 @@ const SECTIONS: readonly { cle: string; champs: readonly Champ[] }[] = [
   { cle: "etapes", champs: ["connexion_message_h", "tiktok_message_h", "warmup_lance_message_h", "warmup_bien_fait_jour", "warmup_bien_fait_heure"] },
   { cle: "kill", champs: ["kill_h", "kill_annulation_h"] },
   { cle: "fenetre", champs: ["fenetre_debut", "fenetre_fin"] },
-  { cle: "semaine", champs: ["lundi_heure", "lundi_soir_heure", "jeudi_heure", "semaine_fin"] },
+  { cle: "semaine", champs: ["lundi_heure", "jeudi_heure", "semaine_fin"] },
   { cle: "double", champs: ["double_jour_iso"] },
   { cle: "upwork", champs: ["relances_upwork_max"] },
   { cle: "freins", champs: ["frein_plafond_heure", "frein_part_deja_faite"] },

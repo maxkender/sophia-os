@@ -147,6 +147,14 @@ export function planAccueil(
   return { statut: "a_creer", raison: null, ...choisi };
 }
 
+/** Les raisons d'un doublon qui est la recrue elle-même (profil créé par la HM), à accueillir sur On. */
+const RAISONS_PROFIL_HM = ["contrat déjà relié à un posteur", "même nom et même pays qu'un posteur actif"];
+
+/** Prompt 25, 16 : un « doublon » profil HM, noté avant On et jamais accueilli, est repris sur On. */
+export function bienvenueARattraper(connu: { statut: string; raison: string | null; message_at: string | null }, mode: string): boolean {
+  return mode === "on" && connu.statut === "doublon" && !connu.message_at && RAISONS_PROFIL_HM.includes(connu.raison ?? "");
+}
+
 /** « 2 November » : le texte dit déjà « Monday ». */
 export function dateAnglaise(jour: string): string {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "UTC" })

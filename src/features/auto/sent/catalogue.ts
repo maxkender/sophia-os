@@ -13,8 +13,6 @@ export const GROUPES_TEXTES = [
   "lundi_soir",
   "jeudi",
   "handle",
-  "kill",
-  "arret",
   "popups",
   "regularite",
   "lien1000",
@@ -67,9 +65,6 @@ export const TEXTES: readonly TexteCatalogue[] = [
   // Prompt 25 MAJ, 7a et 7d : le DM de liaison Slack, le lien de post introuvable.
   { id: "slack_lien_dm", groupe: "slack_lien", cle: "slack_lien_dm_texte", variables: ["lien"] },
   { id: "lien_introuvable", groupe: "lien_post", cle: "lien_introuvable_texte", variables: ["prenom", "lien"] },
-  { id: "kill", groupe: "kill", cle: "kill_message_texte", variables: ["prenom"] },
-  { id: "kill_moins6", groupe: "kill", cle: "kill_moins6_texte", variables: ["prenom", "n"] },
-  { id: "arret", groupe: "arret", cle: "arret_message_texte", variables: [] },
   { id: "double_popup", groupe: "popups", cle: "double_popup_texte", variables: ["prenom"] },
   { id: "recreer_popup", groupe: "popups", cle: "recreer_popup_texte", variables: ["prenom", "nouveau", "date"] },
   { id: "regularite", groupe: "regularite", cle: "nudge_regularite_texte", variables: ["prenom"] },

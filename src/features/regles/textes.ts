@@ -61,7 +61,7 @@ export const REGLES_PAIE_DEFAUT: ReglesPaie = { minimumPosts: 6 };
 /**
  * La carte « How you're paid » (prompt 21, C8), les règles du 2 nov. : le
  * minimum de la semaine, la fin de la collaboration en dessous (semaine
- * payée), puis lundi 20 h, jeudi et samedi. La règle du lien (le jour même)
+ * payée), puis lundi minuit (Paris), jeudi et samedi. La règle du lien (le jour même)
  * suit la carte, depuis son réglage.
  */
 export function phrasesPaie(r: ReglesPaie): string[] {
@@ -69,7 +69,7 @@ export function phrasesPaie(r: ReglesPaie): string[] {
   return [
     `Paid every Monday for the week just finished (Monday to Sunday): ${n} posts or more with their link = your full rate.`,
     `Below ${n} posts with link in a week, we stop our collaboration. That last week is still paid in full.`,
-    "Monday 8 pm, on your first day: no post with its link yet? We message you once.",
+    "End of your first Monday (midnight, Paris time): no post with its link yet? We message you once.",
     "Thursday: posts or links missing since Monday? You get one reminder with your count.",
     "Saturday: we review every account. An account can be stopped, or you can be offered a 2nd one.",
   ];

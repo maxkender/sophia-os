@@ -13,8 +13,6 @@ import {
 import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { identiteSlack, urlConnexionSlack } from "../_shared/slack_connect.ts";
-import { modeKillMessage } from "../_shared/arret.ts";
-import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktokFiable as lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
@@ -65,7 +63,7 @@ type Supabase = ReturnType<typeof serviceClient>;
  *   { action: "envoi_auto" }      cron, dimanche 12 h (heure de Paris)
  *       Pareil pour le contrôle du samedi. Prompt 25 v4 : plus de message de
  *       Kill le dimanche (le Kill du samedi part à Validate, sans message) ;
- *       `messages_kill` reste à la main.
+ *       0463 : plus aucun message au Kill (l'action messages_kill est retirée).
  *   { action: "rappel_lundi" }    cron, lundi 9 h (heure de Paris)
  *       Dans le fil du samedi : qui ne pas financer, qui passe à 2 comptes.
  *       Cron `ckd-rappel-lundi` en pause depuis le prompt 15 (les HMs ne
@@ -134,8 +132,6 @@ Deno.serve(async (request) => {
       }
       case "nudges_slack":
         return json({ ok: true, ignore: "prompt 17 : plus de nudge Slack le jeudi" });
-      case "messages_kill":
-        return json(await messagesKill(supabase, String(body.controle_id ?? "")));
       case "double_creer":
         return json(await doubleCreer(supabase, String(body.id ?? "")));
       case "recrutement":
@@ -503,87 +499,6 @@ async function creerDeuxieme(
     return { ok: true, compteId: cree.compteId };
   } catch (e) {
     return await noter(messageErreur(e));
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Kill : le message du dimanche 12 h (v3, 0382)
-// ---------------------------------------------------------------------------
-
-/**
- * Prompt 21, partie F (0414) : pour chaque Kill validé du contrôle, le message
- * part dans la conversation Upwork du contrat, pour tout le monde (Slack ou
- * pas) ; plus de DM Slack. La bannière du tableau de bord lit le même message
- * (`kill_message_creer`). Un seul message de Kill par posteur. Interrupteur
- * `kill_message_auto` : off rien, test noté dans le Pipeline sans rien créer
- * ni envoyer, on pour de vrai. Un échec d'envoi est noté, jamais relancé.
- */
-async function messagesKill(supabase: Supabase, controleId: string) {
-  if (!controleId) throw new Error("controle_id requis");
-  // Prompt 22 : en pause, aucun message de Kill (ni bannière ni Upwork) ; rien n'est créé.
-  if (await bloquer(supabase, { fonction: "ckd", action: "messages_kill", cible: controleId })) return { ok: true, ignore: PAUSE };
-  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "kill_message_auto").maybeSingle();
-  const mode = modeKillMessage(regl?.valeur);
-  if (mode === "off") return { ok: true, mode, ignore: "kill_message_auto = off" };
-  const { data: props, error } = await supabase
-    .from("ckd_propositions")
-    .select("id")
-    .eq("controle_id", controleId)
-    .eq("decision", "ne_pas_renouveler");
-  if (error) throw error;
-  const bilan = { mode, crees: 0, envoyes: 0, simules: 0, sans_contrat: 0, erreurs: 0 };
-  for (const p of props ?? []) {
-    const { data: prep, error: errPrep } = await supabase.rpc("kill_message_preparer", { p_id: p.id });
-    if (errPrep) throw errPrep;
-    const m = ((prep ?? []) as { poster_id: string; semaine: string; texte: string; contrat_id: string | null; deja: boolean }[])[0];
-    if (!m || m.deja) continue;
-    if (mode === "test") {
-      await supabase.from("recrue_evenements").upsert(
-        { poster_id: m.poster_id, type: "kill_message", at: new Date().toISOString(), detail: `test : ${m.texte}`, cle: `kill_message:${m.semaine}` },
-        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
-      );
-      bilan.simules++;
-      continue;
-    }
-    const { data: crees, error: errCree } = await supabase.rpc("kill_message_creer", { p_id: p.id });
-    if (errCree) throw errCree;
-    for (const cree of (crees ?? []) as { id: string; poster_id: string; texte: string }[]) {
-      bilan.crees++;
-      const erreur = m.contrat_id ? await envoyerUpwork(m.contrat_id, cree.texte) : "contrat Upwork non relié";
-      const statut = !m.contrat_id ? "sans_contrat" : erreur ? "erreur" : "envoye";
-      if (statut === "envoye") bilan.envoyes++;
-      else if (statut === "sans_contrat") bilan.sans_contrat++;
-      else bilan.erreurs++;
-      await supabase.from("posteur_messages").update({
-        upwork_statut: statut,
-        upwork_at: new Date().toISOString(),
-        upwork_erreur: erreur,
-      }).eq("id", cree.id);
-      await supabase.from("recrue_evenements").upsert(
-        { poster_id: cree.poster_id, type: "kill_message", at: new Date().toISOString(), detail: erreur ? `erreur : ${erreur}` : "envoyé sur Upwork", cle: `kill_message:${m.semaine}` },
-        { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
-      );
-    }
-  }
-  return { ok: true, ...bilan };
-}
-
-/** Par la fonction `upwork` (le seul endroit qui parle à Upwork), sans nouvel essai. */
-async function envoyerUpwork(contratId: string, texte: string): Promise<string | null> {
-  const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
-  if (!base || !secret) return "SUPABASE_URL ou CRON_SECRET absent";
-  try {
-    const r = await fetch(`${base}/functions/v1/upwork`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "message", contrat_id: contratId, texte }),
-    });
-    const corps = await r.json().catch(() => null);
-    if (!r.ok || !corps?.ok) return `upwork : ${corps?.error ?? `HTTP ${r.status}`}`;
-    return null;
-  } catch (e) {
-    return `upwork : ${messageErreur(e)}`;
   }
 }
 

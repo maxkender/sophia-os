@@ -30,6 +30,7 @@ import {
 } from "../_shared/upwork.ts";
 import {
   type Annonce,
+  bienvenueARattraper,
   type DetailsContrat,
   GUIDE_POSTER,
   lireDetailsContrat,
@@ -42,22 +43,18 @@ import {
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
-import { appelSlack, decrireRetrait, retirerDesCanaux } from "../_shared/slack_retrait.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { derniersMessagesSalon } from "../_shared/contexte.ts";
-import { sansSuspendus } from "../_shared/contestations.ts";
 import {
   decrireJalons,
   etape,
   type EtapeArret,
   etatSemaineKill,
-  MESSAGE_FIN_DEFAUT,
   MUTATION_FERMER_CONTRAT,
   MUTATION_SUPPRIMER_JALON,
   planFinContrat,
   planUpwork,
   RAISON_FIN_DEFAUT,
-  statutArret,
 } from "../_shared/arret.ts";
 import {
   ACTIONS_PAYEES,
@@ -146,14 +143,13 @@ const COMPTE = "principal";
  *       « Send on Upwork » : le texte dans la conversation du contrat du
  *       posteur, noté dans `nudges` (canal upwork, à la main).
  *   { action: "arrets" }                     cron `arrets`, minute 40 ; admin
- *       Système du 2 nov., partie C : l'arrêt complet des posteurs de la file
- *       `arrets` (Kill à 48 h, « je ne veux plus », Arrêter). Désactivé dans
- *       l'OS ; jamais posté : dernier message, milestones non financées
- *       supprimées, remboursement à demander (liste de paie), contrat fermé
- *       s'il ne reste rien de financé ; déjà posté : la paie de lundi paie la
- *       semaine et ferme. Interrupteur `arret_auto` (off / test / on) : en
- *       test, rien ne part sur Upwork. Chaque action journalisée, un échec ne
- *       bloque pas les autres, jamais de nouvel essai.
+ *       0463 : l'arrêt en deux temps, sans aucun message. Samedi, à Validate,
+ *       tout se fait dans la base (trigger arrets_immediat : désactivé, ligne
+ *       « To remove from Slack ») ; ici, une ligne restée « à faire » est
+ *       rattrapée. Lundi, après la paie (semaine payée ou à 0 $) : milestones
+ *       non financées supprimées et contrat fermé par l'API, seulement si
+ *       `arret_auto` = on et si le dernier test de fermeture a fermé le
+ *       contrat ; en test, simulé une fois. Jamais de nouvel essai.
  *   { action: "contexte_upwork", posteurs?, max? }  cron `contexte-upwork`, toutes les 2 h ; admin (masterlist)
  *       Prompt 27 : les conversations Upwork relues pour la colonne Context (lecture seule).
  *   { action: "reponses_lire", posteurs? }   cron `reponses-upwork`, toutes les heures à :05 ; recrues-check avant un Kill ; admin
@@ -2419,8 +2415,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
     // Le posteur TEST de ce contrat existe déjà (Overview → Test contracts) : rien à créer.
     if (test && testDe.get(contratId)) continue;
     const connu = connuDe.get(contratId);
-    // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur).
-    if (connu && ["cree", "envoi", "envoye", "doublon", "erreur"].includes(connu.statut)) continue;
+    // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur). Sauf (prompt 25, 16) :
+    // une recrue déjà créée par la HM, notée « doublon » avant le passage sur On, sans bienvenue :
+    // sur On, la bienvenue part quand même (accueillirExistant).
+    if (connu && ["cree", "envoi", "envoye", "doublon", "erreur"].includes(connu.statut) && !bienvenueARattraper(connu, mode)) continue;
     // À relier : le plan est refait à chaque passage (sans appel à Upwork) ; si
     // l'annonce a reçu son pays depuis, le contrat est accueilli.
 
@@ -2950,68 +2948,41 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
   const { data: regl } = await supabase
     .from("reglages")
     .select("cle, valeur")
-    .in("cle", ["arret_auto", "arret_message_texte", "arret_raison_upwork"]);
+    .in("cle", ["arret_auto", "arret_raison_upwork"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  // 0463 : samedi, à Validate, l'arrêt se fait dans la base (trigger arrets_immediat :
+  // désactivé, « To remove from Slack »), sans API. Une ligne restée « à faire » le rattrape ici.
+  const { data: restes } = await supabase.from("arrets").select("id").eq("statut", "a_faire").is("annule_at", null).limit(50);
+  for (const a of restes ?? []) await supabase.rpc("arret_immediat", { p_id: a.id });
   const mode = lireModeAuto(v.arret_auto);
-  if (mode === "off") return { ok: true, mode, ignore: "arret_auto = off" };
-  // Prompt 22 : en pause, aucun arrêt ; la file reste « à faire ».
+  if (mode === "off") return { ok: true, mode, rattrapes: restes?.length ?? 0, ignore: "arret_auto = off" };
+  // Prompt 22 : en pause, aucune fin de contrat ; la file reste.
   if (await automationEnPause(supabase)) {
     await noterBloquee(supabase, { fonction: "upwork", action: "arrets" });
     return { ok: true, mode, ignore: PAUSE };
   }
-  const texteFin = typeof v.arret_message_texte === "string" && v.arret_message_texte.trim()
-    ? v.arret_message_texte.trim()
-    : MESSAGE_FIN_DEFAUT;
   const raison = typeof v.arret_raison_upwork === "string" && v.arret_raison_upwork.trim()
     ? v.arret_raison_upwork.trim()
     : RAISON_FIN_DEFAUT;
-
-  const { data: lue, error } = await supabase
-    .from("arrets")
-    .select("id, poster_id, etapes")
-    .eq("statut", "a_faire")
-    .is("annule_at", null)
-    .order("created_at")
-    .limit(20);
-  if (error) throw error;
-  // Prompt 21, R7 : un Kill contesté (Disputes) attend : ni désactivation, ni Slack, ni fin de contrat.
-  const { data: contestes, error: errC } = await supabase.rpc("contestations_kill_ouvertes");
-  if (errC) throw errC;
-  const { garder: file, suspendus } = sansSuspendus((lue ?? []) as { id: string; poster_id: string; etapes: unknown }[], (contestes ?? []) as string[]);
-  const bilan = { mode, traites: 0, suspendus: suspendus.length, erreurs: [] as string[] };
-  for (const a of file) {
-    if (mode !== "on") {
-      // Prompt 21, F6 : en test, rien n'est désactivé ni envoyé ; le plan est noté
-      // une fois et la ligne reste « à faire » (elle partira pour de vrai sur « on »).
-      if (((a.etapes ?? []) as EtapeArret[]).some((e) => e.statut === "simule")) continue;
-      const etapesTest = await arreterUn(supabase, par, a.id, false, texteFin, raison)
-        .catch((e) => [etape("os", "erreur", `arrêt simulé interrompu : ${messageErreur(e)}`)]);
-      await supabase.from("arrets").update({ etapes: etapesTest, maj_at: new Date().toISOString() }).eq("id", a.id);
-      bilan.traites++;
-      continue;
-    }
-    // Un seul passage prend la ligne.
-    const { data: pris } = await supabase
-      .from("arrets")
-      .update({ statut: "en_cours", maj_at: new Date().toISOString() })
-      .eq("id", a.id)
-      .eq("statut", "a_faire")
-      .select("id");
-    if (!pris?.length) continue;
-    // Une exception ne laisse jamais la ligne « en cours » : elle passe en erreur.
-    const etapes = await arreterUn(supabase, par, a.id, mode === "on", texteFin, raison)
-      .catch((e) => [etape("os", "erreur", `arrêt interrompu : ${messageErreur(e)}`)]);
-    const statut = statutArret(etapes);
-    const erreur = etapes.filter((e) => e.statut === "erreur").map((e) => `${e.action} : ${e.detail}`).join(" · ") || null;
-    await supabase.from("arrets").update({ statut, etapes, erreur, maj_at: new Date().toISOString() }).eq("id", a.id);
-    bilan.traites++;
-    if (erreur) bilan.erreurs.push(erreur);
-  }
-  // Prompt 21, F : la dernière semaine payée (ou à 0 $), le contrat se termine.
+  // Lundi, après la paie : le contrat fermé par l'API, seulement si le test de fermeture est bon.
   const fins = await finsDeContrat(supabase, par, mode === "on", raison)
-    .catch((e) => ({ terminees: 0, attente: 0, bloquees: 0, simulees: 0, erreurs: [`fins de contrat : ${messageErreur(e)}`] }));
-  bilan.erreurs.push(...fins.erreurs);
-  return { ok: bilan.erreurs.length === 0, ...bilan, fins };
+    .catch((e) => ({ terminees: 0, attente: 0, bloquees: 0, simulees: 0, sans_test: 0, erreurs: [`fins de contrat : ${messageErreur(e)}`] }));
+  return { ok: fins.erreurs.length === 0, mode, rattrapes: restes?.length ?? 0, fins };
+}
+
+/**
+ * 0463 : le dernier test de fermeture (Overview → Test contracts) a-t-il fermé le
+ * contrat sans erreur ? Sinon, aucune fermeture par l'API.
+ */
+async function fermetureTestee(supabase: Supabase): Promise<boolean> {
+  const { data } = await supabase
+    .from("upwork_appels")
+    .select("erreur, reponse")
+    .eq("action", "test_fermeture_bilan")
+    .order("at", { ascending: false })
+    .limit(1);
+  const d = (data ?? [])[0] as { erreur: string | null; reponse: { bilan?: { contrat_ferme?: boolean } } | null } | undefined;
+  return !!d && !d.erreur && d.reponse?.bilan?.contrat_ferme === true;
 }
 
 /**
@@ -3026,12 +2997,24 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
 async function finsDeContrat(supabase: Supabase, par: string | null, reel: boolean, raison: string) {
   const { data, error } = await supabase.rpc("arrets_fins_a_faire");
   if (error) throw error;
-  const bilan = { terminees: 0, attente: 0, bloquees: 0, simulees: 0, erreurs: [] as string[] };
-  for (const f of (data ?? []) as { arret_id: string; poster_id: string; contrat_id: string | null; semaine: string; montant: number | string | null; paye_at: string | null; posts: number }[]) {
+  const bilan = { terminees: 0, attente: 0, bloquees: 0, simulees: 0, sans_test: 0, erreurs: [] as string[] };
+  const lignes = (data ?? []) as { arret_id: string; poster_id: string; contrat_id: string | null; semaine: string; montant: number | string | null; paye_at: string | null; posts: number }[];
+  const testOk = reel && lignes.length > 0 ? await fermetureTestee(supabase) : false;
+  for (const f of lignes) {
     const semaine = etatSemaineKill({ montant: f.montant === null ? null : Number(f.montant), paye_at: f.paye_at, posts: Number(f.posts ?? 0) });
     if (semaine === "attendre") {
       bilan.attente++;
       continue;
+    }
+    // 0463 : pas de test de fermeture réussi → rien chez Upwork, la ligne attend.
+    if (reel && !testOk) {
+      bilan.sans_test++;
+      continue;
+    }
+    if (!reel) {
+      // En test : simulé une fois ; la ligne reste dans la file (elle partira pour de vrai sur on).
+      const { data: deja } = await supabase.from("arrets").select("etapes").eq("id", f.arret_id).maybeSingle();
+      if (((deja?.etapes ?? []) as EtapeArret[]).some((e) => e.action === "fermeture" && e.statut === "simule")) continue;
     }
     const nouvelles: EtapeArret[] = [];
     let termine = false;
@@ -3087,147 +3070,12 @@ async function finsDeContrat(supabase: Supabase, par: string | null, reel: boole
     const { data: a } = await supabase.from("arrets").select("etapes").eq("id", f.arret_id).maybeSingle();
     const paie = semaine === "zero" ? "semaine à 0 $" : "dernière semaine payée";
     const etapes = [
-      ...((a?.etapes ?? []) as EtapeArret[]).map((e) => e.action === "paie" && e.statut === "a_faire" ? etape("paie", reel ? "fait" : "simule", paie) : e),
+      ...((a?.etapes ?? []) as EtapeArret[]).map((e) => reel && e.action === "paie" && e.statut === "a_faire" ? etape("paie", "fait", paie) : e),
       ...nouvelles,
     ];
     await supabase.from("arrets").update({ etapes, erreur, statut: erreur ? "erreur" : "fait", maj_at: new Date().toISOString() }).eq("id", f.arret_id);
   }
   return bilan;
-}
-
-/** Les actions d'un arrêt, dans l'ordre ; chacune journalisée, un échec n'arrête pas les autres. */
-async function arreterUn(
-  supabase: Supabase,
-  par: string | null,
-  id: string,
-  reel: boolean,
-  texteFin: string,
-  raison: string,
-): Promise<EtapeArret[]> {
-  const etapes: EtapeArret[] = [];
-  // Prompt 25 v4 : le Kill du samedi part sans aucun message (ni dernier message sur Upwork).
-  const { data: ligne } = await supabase.from("arrets").select("sans_message").eq("id", id).maybeSingle();
-  const sansMessage = ligne?.sans_message === true;
-  // 1. L'OS : désactivé (profil et comptes), plus de messages ni de posts.
-  // Prompt 21, F6 : en test, le posteur n'est PAS désactivé (lecture seule).
-  const { data: os, error: errOs } = await supabase.rpc(reel ? "arret_os" : "arret_lire", { p_id: id });
-  const p = (os ?? [])[0] as { poster_id: string; a_poste: boolean; contrat_id: string | null; slack_user_id: string | null } | undefined;
-  if (errOs || !p) {
-    etapes.push(etape("os", "erreur", errOs?.message ?? "posteur introuvable"));
-    return etapes;
-  }
-  etapes.push(reel ? etape("os", "fait", "posteur et comptes désactivés") : etape("os", "simule", "test : posteur et comptes pas désactivés"));
-
-  // Prompt 21, T : retiré de tous les canaux (sauf #general) ; le compte reste à
-  // désactiver à la main (liste « To remove from Slack » du lundi). En test : simulé.
-  const slack = p.slack_user_id ? await etapeSlack(p.slack_user_id, reel) : etape("slack", "sans_objet");
-
-  if (p.a_poste) {
-    // En cours de route : lundi, la liste de paie paie la semaine en cours, ne
-    // finance rien et ferme le contrat.
-    etapes.push(etape("paie", "a_faire", "lundi : payer la semaine en cours, ne rien financer, fermer le contrat"));
-    etapes.push(slack);
-    return etapes;
-  }
-
-  if (!p.contrat_id) {
-    for (const a of ["message", "jalons", "remboursement", "fermeture"] as const) {
-      etapes.push(etape(a, "erreur", "contrat Upwork non relié"));
-    }
-    etapes.push(slack);
-    return etapes;
-  }
-  // Un 2e compte du même posteur sur le même contrat : Upwork intact.
-  if (await contratPartage(supabase, p.contrat_id, p.poster_id)) {
-    for (const a of ["message", "jalons", "remboursement", "fermeture"] as const) {
-      etapes.push(etape(a, "sans_objet", "contrat partagé avec un autre compte actif du posteur"));
-    }
-    etapes.push(slack);
-    return etapes;
-  }
-  const { data: c } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", p.contrat_id).maybeSingle();
-  const tenant = (c?.organisation_id as string | undefined) ?? null;
-
-  // 2. Le dernier message (jamais pour le Kill du samedi).
-  if (sansMessage) {
-    etapes.push(etape("message", "sans_objet", "Kill du samedi : sans message"));
-  } else if (reel) {
-    const m = await envoyerMessage(supabase, par, p.contrat_id, texteFin);
-    etapes.push(m.ok ? etape("message", "fait", texteFin) : etape("message", "erreur", m.error ?? "message non envoyé"));
-  } else {
-    etapes.push(etape("message", "simule", texteFin));
-  }
-
-  // 3. Les milestones : lues, les non financées supprimées, les financées à rembourser.
-  const lu = await lire(supabase, { par, action: "arret_jalons", query: REQUETE_JALONS, variables: { id: p.contrat_id }, tenant });
-  if (lu.erreur || !lu.data?.contractDetails) {
-    etapes.push(etape("jalons", "erreur", lu.erreur ?? "contrat illisible"));
-    etapes.push(etape("remboursement", "erreur", "milestones illisibles"));
-    etapes.push(etape("fermeture", "erreur", "milestones illisibles"));
-    etapes.push(slack);
-    return etapes;
-  }
-  const jalons = lireJalonsContrat(lu.data.contractDetails);
-  if (jalons.length === 0) {
-    // Un contrat a toujours sa 1re semaine : une liste vide est une lecture ratée.
-    for (const x of ["jalons", "remboursement", "fermeture"] as const) etapes.push(etape(x, "erreur", "aucune milestone lue"));
-    etapes.push(slack);
-    return etapes;
-  }
-  const plan = planUpwork(jalons);
-  if (plan.supprimer.length === 0) {
-    etapes.push(etape("jalons", "sans_objet", "aucune milestone non financée"));
-  } else if (!reel) {
-    etapes.push(etape("jalons", "simule", `à supprimer : ${decrireJalons(plan.supprimer)}`));
-  } else {
-    const echecs: string[] = [];
-    for (const j of plan.supprimer) {
-      const r = await ecrire(supabase, {
-        par,
-        action: "arret_supprimer_jalon",
-        query: MUTATION_SUPPRIMER_JALON,
-        variables: { input: { id: j.id } },
-        tenant,
-        contrat: p.contrat_id,
-      });
-      if (r.erreur || r.data?.deleteMilestone !== true) echecs.push(`${j.nom ?? j.id} : ${r.erreur ?? "non confirmé"}`);
-    }
-    etapes.push(
-      echecs.length
-        ? etape("jalons", "erreur", echecs.join(" ; "))
-        : etape("jalons", "fait", `supprimées : ${decrireJalons(plan.supprimer)}`),
-    );
-  }
-
-  // 4. Le remboursement : l'API ne le permet pas → la liste de paie (« Ask for a refund »).
-  etapes.push(
-    plan.rembourser.length
-      ? etape("remboursement", "a_faire", `Ask for a refund : ${decrireJalons(plan.rembourser)} (liste de paie)`)
-      : etape("remboursement", "sans_objet", "rien de financé"),
-  );
-
-  // 5. La fermeture : seulement s'il ne reste rien de financé.
-  if (!plan.fermer) {
-    etapes.push(etape("fermeture", "a_faire", "après le remboursement (liste de paie : End the contract)"));
-  } else if (!reel) {
-    etapes.push(etape("fermeture", "simule", `endContractByClient, raison ${raison}`));
-  } else {
-    const fin = await fermerContrat(supabase, par, p.contrat_id, tenant, raison, p.poster_id);
-    etapes.push(fin.ferme ? etape("fermeture", "fait", "contrat fermé") : etape("fermeture", "erreur", fin.raison));
-  }
-  etapes.push(slack);
-  return etapes;
-}
-
-/** L'étape « slack » d'un arrêt complet : les canaux quittés, puis le compte à désactiver. */
-async function etapeSlack(slackUser: string, reel: boolean): Promise<EtapeArret> {
-  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
-  if (!jeton) return etape("slack", "a_faire", "SLACK_HM_BOT_TOKEN absent : à retirer de Slack à la main");
-  const b = await retirerDesCanaux(appelSlack(jeton), slackUser, reel).catch((e) => ({
-    retires: [], echecs: [], simules: [], erreur: messageErreur(e),
-  }));
-  // « a_faire » : le compte reste à désactiver (Cohorts, Logs & to do) ; un canal raté reste visible dans le détail.
-  return etape("slack", reel ? "a_faire" : "simule", decrireRetrait(b));
 }
 
 async function verifier(supabase: Supabase) {

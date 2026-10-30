@@ -2,13 +2,15 @@ import { listerDiaporamas, listerPostsProfil, scrapePosts, type ScrapedPost } fr
 import {
   apresEchec,
   BUDGET_PASSAGE_MS,
-  COMPTES_PAR_PASSAGE,
+  type Charge,
+  COMPTES_PAR_OUVRIER,
   idPost,
-  LECTURES_PAR_PASSAGE,
+  LECTURES_PAR_OUVRIER,
   lireLignes,
   MAX_LIGNES_PAR_ENVOI,
   motifRefus,
   OCR_EN_PARALLELE,
+  ouvriersALancer,
   POSTS_LUS_PAR_COMPTE,
   postDuLien,
   pseudoDuLien,
@@ -34,9 +36,13 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   { relire: { ids } }
  *       Remet des exemples en file de lecture. → { relances }
  *   { tourner: {} }
- *       Un passage (la tâche planifiée, chaque minute s'il reste du travail) :
- *       cherche quelques comptes (leurs 5 slideshows les plus récents et leurs
- *       5 plus likés) et lit quelques slideshows (Apify, puis OCR des slides).
+ *       La tâche planifiée (chaque minute s'il reste du travail) : lance des
+ *       ouvriers en parallèle, OUVRIERS_MAX au plus, et répond aussitôt.
+ *   { ouvrier: {} }
+ *       Un ouvrier répond aussitôt puis, en arrière-plan, cherche quelques
+ *       comptes (leurs 5 slideshows les plus récents et leurs 5 plus likés)
+ *       et lit quelques slideshows (Apify, puis OCR des slides). S'il reste
+ *       du travail, il lance un ouvrier pour prendre la suite.
  *
  * Rien n'est publié : ces slideshows ne deviennent jamais des contenus.
  */
@@ -67,6 +73,7 @@ Deno.serve(async (request) => {
       ajouter?: { langue?: string; labelId?: string | null; texte?: string };
       relire?: { ids?: string[] };
       tourner?: unknown;
+      ouvrier?: unknown;
     };
 
     if (body.ajouter) {
@@ -99,10 +106,8 @@ Deno.serve(async (request) => {
         if (error) return json({ error: error.message }, 500);
       }
 
-      // Démarrer sans attendre la prochaine minute, sauf si un passage tourne déjà.
-      if ((ajoutes > 0 || nouveaux.length > 0) && !(await passageEnCours(supabase))) {
-        enArrierePlan(passage(supabase));
-      }
+      // Démarrer sans attendre la prochaine minute.
+      if (ajoutes > 0 || nouveaux.length > 0) await lancerOuvriers(supabase);
       return json({
         ok: true,
         ajoutes,
@@ -122,15 +127,27 @@ Deno.serve(async (request) => {
         .in("id", ids)
         .select("id");
       if (error) return json({ error: error.message }, 500);
-      if (!(await passageEnCours(supabase))) enArrierePlan(passage(supabase));
+      await lancerOuvriers(supabase);
       return json({ ok: true, relances: data?.length ?? 0 });
     }
 
+    // Répondre vite : la tâche planifiée passe par pg_net, qui attend la fin
+    // de ses appels avant d'en envoyer d'autres.
     if (body.tourner) {
-      return json({ ok: true, ...(await passage(supabase)) });
+      return json({ ok: true, ouvriers: await lancerOuvriers(supabase) });
     }
 
-    return json({ error: "Demande inconnue : ajouter, relire ou tourner." }, 400);
+    if (body.ouvrier) {
+      enArrierePlan(
+        passage(supabase).then(async () => {
+          // Il reste du travail libre : un ouvrier prend la suite, sans attendre la minute.
+          if (ouvriersALancer(await charge(supabase)) > 0) lancerOuvrier();
+        }),
+      );
+      return json({ ok: true });
+    }
+
+    return json({ error: "Demande inconnue : ajouter, relire, tourner ou ouvrier." }, 400);
   } catch (erreur) {
     return json({ error: messageErreur(erreur) }, 500);
   }
@@ -143,14 +160,48 @@ function enArrierePlan(travail: Promise<unknown>) {
   if (edge) edge.waitUntil(suivi);
 }
 
-/** Une ligne prise il y a moins de 2 minutes : un passage tourne. */
-async function passageEnCours(supabase: Client): Promise<boolean> {
-  const depuis = new Date(Date.now() - 2 * 60_000).toISOString();
-  const [comptes, exemples] = await Promise.all([
-    supabase.from("exemples_natifs_comptes").select("id").eq("statut", "en_attente").gt("pris_le", depuis).limit(1),
-    supabase.from("exemples_natifs").select("id").eq("statut", "en_attente").gt("pris_le", depuis).limit(1),
+/** Le travail libre et le travail pris (il y a moins de 5 minutes, comme dans 0618). */
+async function charge(supabase: Client): Promise<Charge> {
+  const limite = new Date(Date.now() - 5 * 60_000).toISOString();
+  const compter = async (table: string, pris: boolean) => {
+    const base = supabase.from(table).select("id", { count: "exact", head: true }).eq("statut", "en_attente");
+    const { count, error } = await (pris
+      ? base.gt("pris_le", limite)
+      : base.or(`pris_le.is.null,pris_le.lt."${limite}"`));
+    if (error) throw new Error(error.message);
+    return count ?? 0;
+  };
+  const [comptesLibres, comptesPris, lecturesLibres, lecturesPrises] = await Promise.all([
+    compter("exemples_natifs_comptes", false),
+    compter("exemples_natifs_comptes", true),
+    compter("exemples_natifs", false),
+    compter("exemples_natifs", true),
   ]);
-  return Boolean(comptes.data?.length || exemples.data?.length);
+  return { comptesLibres, comptesPris, lecturesLibres, lecturesPrises };
+}
+
+/** Lance assez d'ouvriers pour le travail libre, OUVRIERS_MAX au plus avec ceux qui tournent. */
+async function lancerOuvriers(supabase: Client): Promise<number> {
+  const n = ouvriersALancer(await charge(supabase));
+  for (let i = 0; i < n; i += 1) lancerOuvrier();
+  return n;
+}
+
+/** Un ouvrier : un appel de la fonction à elle-même, qui répond aussitôt et travaille en arrière-plan. */
+function lancerOuvrier() {
+  const url = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("CRON_SECRET");
+  if (!url || !secret) {
+    console.error("exemples-natifs : SUPABASE_URL ou CRON_SECRET manquant, aucun ouvrier lancé");
+    return;
+  }
+  enArrierePlan(
+    fetch(`${url}/functions/v1/exemples-natifs`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": secret },
+      body: JSON.stringify({ ouvrier: {} }),
+    }).then((r) => r.body?.cancel()),
+  );
 }
 
 async function passage(supabase: Client) {
@@ -190,7 +241,7 @@ async function insererExemples(
 // ---------------------------------------------------------------------------
 
 async function chercherComptes(supabase: Client): Promise<number> {
-  const { data, error } = await supabase.rpc("exemples_natifs_prendre_comptes", { p_n: COMPTES_PAR_PASSAGE });
+  const { data, error } = await supabase.rpc("exemples_natifs_prendre_comptes", { p_n: COMPTES_PAR_OUVRIER });
   if (error) throw new Error(error.message);
   const pris = (data ?? []) as CompteEnFile[];
   await Promise.all(pris.map((c) => chercherCompte(supabase, c)));
@@ -245,7 +296,7 @@ async function chercherCompte(supabase: Client, c: CompteEnFile) {
 
 async function lireExemples(supabase: Client, debut: number) {
   const bilan = { prets: 0, erreurs: 0, reportes: 0 };
-  const { data, error } = await supabase.rpc("exemples_natifs_prendre_lectures", { p_n: LECTURES_PAR_PASSAGE });
+  const { data, error } = await supabase.rpc("exemples_natifs_prendre_lectures", { p_n: LECTURES_PAR_OUVRIER });
   if (error) throw new Error(error.message);
   const pris = (data ?? []) as ExempleEnFile[];
   if (!pris.length) return bilan;
@@ -271,9 +322,16 @@ async function lireExemples(supabase: Client, debut: number) {
   const lus = pris.map((e) => ({ exemple: e, post: postDuLien(e.source_url, posts) }));
   const slides = lus.flatMap((l, i) => (l.post?.imageUrls ?? []).map((url, j) => ({ i, j, url })));
   const textes = lus.map((l) => new Array<string | null>(l.post?.imageUrls.length ?? 0).fill(null));
+  // Une lecture ratée (Gemini saturé…) n'est pas une slide sans texte.
+  const echecsOcr = lus.map(() => null as string | null);
   await enParallele(slides, OCR_EN_PARALLELE, async ({ i, j, url }) => {
     if (Date.now() - debut > BUDGET_PASSAGE_MS) return;
-    textes[i][j] = await ocrFrame(url).catch(() => "");
+    try {
+      textes[i][j] = await ocrFrame(url);
+    } catch (erreur) {
+      textes[i][j] = "";
+      echecsOcr[i] = messageErreur(erreur);
+    }
   });
 
   // Au moins une slide lue : le passage a avancé, un slideshow coupé par le
@@ -298,6 +356,11 @@ async function lireExemples(supabase: Client, debut: number) {
       }
       const lues = slidesLues(textes[i] as string[]);
       const refus = motifRefus(post.imageUrls.length, lues);
+      if (refus && echecsOcr[i]) {
+        // Pas assez de texte parce que l'OCR a échoué : nouvel essai au passage suivant.
+        bilan.reportes += 1;
+        return await maj(e.id, apresEchec(e.tentatives, `OCR : ${echecsOcr[i]}`));
+      }
       if (refus) {
         bilan.erreurs += 1;
         return await maj(e.id, { statut: "erreur", erreur: refus });

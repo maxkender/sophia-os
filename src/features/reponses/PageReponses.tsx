@@ -27,6 +27,8 @@ import {
   type ReponsePosteur,
 } from "./api";
 import { killArretePar, listesReponses, ONGLETS_REPONSES, type OngletReponses } from "./listes";
+import { type Conversations, conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 
 const CLE = ["reponses-posteurs"] as const;
 
@@ -61,6 +63,8 @@ interface Contexte {
   envoyes: readonly MessageEnvoye[];
   kills: readonly KillArrete[];
   slack: ReadonlyMap<string, string>;
+  /** 0469 : la conversation Upwork de chaque posteur. */
+  conv?: Conversations;
 }
 
 /** Un message reçu : le texte, le cas, ce que l'OS a fait ; « Mauvais cas », « Lu » et le lien vers la conversation. */
@@ -97,6 +101,7 @@ function Ligne({ r, ctx }: { r: ReponsePosteur; ctx: Contexte }) {
         {r.corrige_cas && <span className="text-xs text-muted-foreground">{t("reponses.corrige", { ia: r.cas_ia ? t(`reponses.cas.${r.cas_ia}`) : "—" })}</span>}
         {r.confiance !== null && <span className="text-xs tabular-nums text-muted-foreground">{Math.round(r.confiance * 100)} %</span>}
         {r.lu_at && <Badge variant="secondary">{t("autoOnglets.received.dejaLu")}</Badge>}
+        <LienConversation c={conversationDe(ctx.conv, { posteur: r.poster_id })} />
         {kill && (
           <Badge variant="success" data-testid={`kill-arrete-${r.id}`}>
             {t("autoOnglets.received.killArrete")}
@@ -220,7 +225,8 @@ export function PageReponses() {
   const envoyes = useQuery({ queryKey: ["messages-envoyes", "reponses", depuisEnvois], queryFn: () => lireMessagesEnvoyes(depuisEnvois) });
   const kills = useQuery({ queryKey: [...CLE, "kills", posteurs], queryFn: () => lireKillsArretes(posteurs), enabled: posteurs.length > 0 });
   const slack = useQuery({ queryKey: [...CLE, "slack", posteurs], queryFn: () => lireSlackPosteurs(posteurs), enabled: posteurs.length > 0 });
-  const ctx: Contexte = { envoyes: envoyes.data ?? [], kills: kills.data ?? [], slack: slack.data ?? new Map() };
+  const conv = useConversations(posteurs);
+  const ctx: Contexte = { envoyes: envoyes.data ?? [], kills: kills.data ?? [], slack: slack.data ?? new Map(), conv: conv.data };
   const listes = listesReponses(toutes);
   return (
     <div className="space-y-6" data-testid="page-reponses">

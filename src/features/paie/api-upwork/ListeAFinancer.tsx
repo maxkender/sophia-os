@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
+import { conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 
 import { lireAFinancer, relireAFinancer } from "./api";
 
@@ -23,6 +25,8 @@ export function ListeAFinancer() {
     onSuccess: () => void qc.invalidateQueries({ queryKey: ["paie", "a-financer"] }),
   });
   const liste = lu.data ?? [];
+  // 0469 : la conversation Upwork de chaque contrat à financer.
+  const conv = useConversations([], liste.map((l) => l.contrat_id));
   if (!lu.isPending && liste.length === 0 && !lu.error) return null;
   const total = liste.reduce((n, l) => n + Number(l.montant ?? 0), 0);
   return (
@@ -48,9 +52,7 @@ export function ListeAFinancer() {
               <span className="font-medium">{l.poster_nom ?? "—"}</span>
               <span>{l.nom ?? "milestone"}</span>
               <span className="tabular-nums">{l.montant ?? "?"} $</span>
-              <a className="underline" href={l.lien} target="_blank" rel="noreferrer">
-                {t("paie.aFinancer.ouvrir", { contrat: l.contrat_id })}
-              </a>
+              <LienConversation c={conversationDe(conv.data, { contrat: l.contrat_id })} />
               <span className="text-xs text-muted-foreground">{t("paie.aFinancer.etat", { etat: l.etat_lu ?? "?" })}</span>
             </li>
           ))}

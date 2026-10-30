@@ -3082,7 +3082,8 @@ async function fermerContratSansPosteur(supabase: Supabase, par: string | null, 
 async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
   const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
   if (error) throw error;
-  const liste = (data ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  // 0469 : une room demandée par une page peut venir d'un contrat sans posteur (poster_id null).
+  const liste = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
   const bilan = { cibles: liste.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
     const erreur = await lireSalon(supabase, par, c);

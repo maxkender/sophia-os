@@ -4,6 +4,10 @@ import { assertEquals } from "jsr:@std/assert@1";
 import {
   type Annonce,
   bienvenueARattraper,
+  codePays,
+  hmDeNomUpwork,
+  type InfosApi,
+  langueDePays,
   lireDetailsContrat,
   lireModeAuto,
   messageAccueil,
@@ -42,16 +46,53 @@ Deno.test("le contrat : annonce, prénom, nom, début, HM Upwork", () => {
 });
 
 Deno.test("annonce connue → créer (pays, langue, HM, tarif de l'annonce)", () => {
-  assertEquals(planAccueil(d, annonce(), null, []), { statut: "a_creer", raison: null, pays: "PT", langue: "pt", hm_id: "hm1", tarif: 14 });
+  assertEquals(planAccueil(d, annonce(), null, []), { statut: "a_creer", raison: null, pays: "PT", langue: "pt", hm_id: "hm1", tarif: 14, source: "annonce" });
 });
 
 Deno.test("annonce inconnue ou générique → Contrats à relier ; pays choisi à la main → créer", () => {
   assertEquals(planAccueil(d, null, null, []).statut, "a_relier");
-  assertEquals(planAccueil(d, annonce({ generique: true, pays: null }), null, []).raison, "annonce générique");
+  assertEquals(planAccueil(d, annonce({ generique: true, pays: null }), null, []).raison, "annonce générique, pays du freelance illisible");
   const choisi = planAccueil(d, annonce({ generique: true, pays: null }), { statut: "a_creer", pays: "FR", langue: "fr", hm_id: "hm2" }, []);
   assertEquals([choisi.statut, choisi.pays, choisi.hm_id], ["a_creer", "FR", "hm2"]);
   // Pays sans langue : à relier.
   assertEquals(planAccueil(d, annonce({ langue: null }), null, []).statut, "a_relier");
+});
+
+const api = (o: Partial<InfosApi> = {}): InfosApi => ({ freelance_pays: "HR", freelance_langue: "hr", hm_id: "hmC", hm_nom: "Lucia D.", ...o });
+
+Deno.test("0470 : pays du freelance si l'annonce n'en a pas ; HM du contrat, pas celle de l'annonce", () => {
+  const p = planAccueil(d, annonce({ pays: null, langue: null }), null, [], api());
+  assertEquals([p.statut, p.pays, p.langue, p.hm_id, p.source], ["a_creer", "HR", "hr", "hmC", "freelance"]);
+  // L'annonce a un pays : il gagne ; la HM reste celle du contrat.
+  const a = planAccueil(d, annonce(), null, [], api({ freelance_pays: "PT" }));
+  assertEquals([a.pays, a.hm_id, a.source, a.ecart], ["PT", "hmC", "annonce", undefined]);
+  // Le freelance vit ailleurs : pays de l'annonce, l'écart est noté.
+  assertEquals(planAccueil(d, annonce(), null, [], api()).ecart, { vit: "HR", annonce: "PT" });
+  // Ni annonce ni pays du freelance : la carte.
+  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: null })).statut, "a_relier");
+  // Pays du freelance sans langue connue : la carte, avec la raison.
+  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: "IS", freelance_langue: null })).raison, "le freelance vit en IS, aucune langue connue pour ce pays");
+  // HM du contrat pas dans l'OS : la carte (pays gardé).
+  const sansHm = planAccueil(d, null, null, [], api({ hm_id: null, hm_nom: "Dzenita S." }));
+  assertEquals([sansHm.statut, sansHm.pays, sansHm.raison], ["a_relier", "HR", "HM du contrat (Dzenita S.) pas dans l'OS : choisis la HM"]);
+});
+
+Deno.test("0470 : un choix à la main reste après une simulation (statut simule, relie_at)", () => {
+  const p = planAccueil(d, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: "hmX", relie_at: "2026-10-30T10:00:00Z" }, [], api({ freelance_pays: null, hm_id: null }));
+  assertEquals([p.statut, p.pays, p.langue, p.hm_id, p.source], ["a_creer", "SK", "sk", "hmX", "main"]);
+  // Simulé par l'annonce (sans relie_at) : pas un choix à la main.
+  assertEquals(planAccueil(d, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: null }, [], api({ freelance_pays: null })).statut, "a_relier");
+});
+
+Deno.test("0470 : HM par le nom Upwork, langue d'un pays, code d'un pays", () => {
+  const hms = [{ id: "l", prenom: "Lucia", nom: "D" }, { id: "r", prenom: "Rana", nom: "Barakli" }, { id: "s", prenom: "Sara", nom: "B" }];
+  assertEquals(hmDeNomUpwork("Lucia D.", hms), "l");
+  assertEquals(hmDeNomUpwork("Rana B.", hms), "r");
+  assertEquals(hmDeNomUpwork("Dzenita S.", hms), null);
+  assertEquals(hmDeNomUpwork(null, hms), null);
+  assertEquals(langueDePays("IL", [{ pays: "IL", langue: "he" }, { pays: "IL", langue: "he" }, { pays: "IL", langue: "ar" }]), "he");
+  assertEquals(langueDePays("IS", [{ pays: "IL", langue: "he" }]), null);
+  assertEquals([codePays("Croatia"), codePays("Slovakia"), codePays("hr"), codePays("United States"), codePays("Atlantis")], ["HR", "SK", "HR", "US", null]);
 });
 
 Deno.test("doublon : contrat déjà relié, ou même nom et même pays actif → rien, signalé", () => {

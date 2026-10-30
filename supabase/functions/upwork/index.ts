@@ -31,12 +31,18 @@ import {
 import {
   type Annonce,
   bienvenueARattraper,
+  codePays,
   type DetailsContrat,
+  hmDeNomUpwork,
+  type InfosApi,
+  langueDePays,
+  REQUETES_LOCALISATION,
   GUIDE_POSTER,
   lireDetailsContrat,
   annoncesDepuisPosteurs,
   lireModeAuto,
   messageAccueil,
+  normaliserNom,
   type PosteurAnnonce,
   planAccueil,
   type PosteurExistant,
@@ -159,6 +165,12 @@ const COMPTE = "principal";
  *       (`reponses_cibles_upwork`) dans la conversation de leur contrat, plus
  *       récents que le dernier lu → `posteur_reponses` (canal upwork). Lecture
  *       seule ; le classement et la réponse viennent de recrues-check.
+ *   { action: "accueil_localiser", contrats? }  admin
+ *       0470 : la HM du contrat (hiringManager / supervisor) et le pays du
+ *       freelance (userDetails, talentProfile ou l'offre), lus et montrés. Rien
+ *       n'est créé ni envoyé.
+ *   { action: "accueil_creer", contrat_id, pays, hm_id, langue?, confirmer }  admin
+ *       0470 : carte « Contract to link » : posteur créé, relié, bienvenue envoyée.
  *   { action: "annonces_amorcer" }           admin
  *       Système du 2 nov., partie A : remplit `annonces_pays` depuis les
  *       posteurs déjà embauchés (l'annonce de leur contrat, lue en lecture
@@ -182,13 +194,13 @@ Deno.serve(async (request) => {
       return await retourUpwork(supabase, url);
     }
 
-    // La paie (prompt 14, point 3) : admin et Head of Ops ; le reste : admin.
+    // La paie (prompt 14, point 3) et la carte « Contract to link » (0470) : admin et Head of Ops ; le reste : admin.
     const acces = await assertRole(request, ["admin", "head_of_ops"]);
     if (acces instanceof Response) return acces;
     // deno-lint-ignore no-explicit-any
     const body: any = await request.json().catch(() => ({}));
     const par = acces.userId === "cron" ? null : acces.userId;
-    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation"].includes(body.action)) {
+    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation", "accueil_localiser", "accueil_creer"].includes(body.action)) {
       return json({ error: "forbidden" }, 403);
     }
 
@@ -289,6 +301,17 @@ Deno.serve(async (request) => {
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
+      case "accueil_localiser":
+        // 0470 : pays du freelance et HM du contrat, lus et montrés ; rien n'est créé ni envoyé.
+        return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "accueil_creer":
+        // 0470 : carte « Contract to link » : un clic, le posteur créé et la bienvenue envoyée.
+        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await creerAccueilMaintenant(supabase, par, {
+          contrat: String(body.contrat_id ?? ""), pays: String(body.pays ?? ""),
+          langue: typeof body.langue === "string" && body.langue ? body.langue : null,
+          hm_id: typeof body.hm_id === "string" && body.hm_id ? body.hm_id : null,
+        }));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -618,15 +641,18 @@ async function lireContrats(supabase: Supabase, par: string | null) {
       total = offres.totalCount ?? total;
       // deno-lint-ignore no-explicit-any
       const lignes = (offres.edges ?? []).map((e: any) => ({
-        ...lireContrat(e?.node),
+        // 0470 : le pays du freelance vient de lireLocalisation ; la relecture ne l'efface pas.
+        ...sansPaysVide(lireContrat(e?.node)),
         organisation_id: org.organizationId,
         organisation_nom: org.title?.trim() ?? null,
         actif: true,
         lu_at: new Date().toISOString(),
         brut: e?.node ?? null,
       })).filter((l: { offre_id: string }) => l.offre_id);
-      if (lignes.length > 0) {
-        const { error } = await supabase.from("upwork_contrats").upsert(lignes, { onConflict: "offre_id" });
+      // Deux envois aux colonnes identiques : un lot mêlé remettrait à null le pays des lignes qui ne l'ont pas.
+      for (const lot of [lignes.filter((l: object) => "freelancer_pays" in l), lignes.filter((l: object) => !("freelancer_pays" in l))]) {
+        if (lot.length === 0) continue;
+        const { error } = await supabase.from("upwork_contrats").upsert(lot, { onConflict: "offre_id" });
         if (error) throw error;
       }
       lus += lignes.length;
@@ -2521,6 +2547,128 @@ const MUTATION_AJOUT_SALON = `mutation AjoutSalon($roomId: ID!, $users: [RoomUse
 /** Le mot de passe de départ, comme sur /embauche ; le posteur le change à sa 1re connexion. */
 const MOT_DE_PASSE_DEPART = "12345678";
 
+/** 0470 : un pays absent de la liste des offres ne remplace pas celui lu sur le profil du freelance. */
+function sansPaysVide<T extends { freelancer_pays: string | null }>(c: T): Omit<T, "freelancer_pays"> | T {
+  if (c.freelancer_pays) return c;
+  const { freelancer_pays: _vide, ...reste } = c;
+  return reste;
+}
+
+/** 0470 : « Lives in Lithuania, job post Croatia ». */
+function ecartPays(e: { vit: string; annonce: string } | undefined): string | null {
+  if (!e) return null;
+  const nom = (c: string) => {
+    try {
+      return new Intl.DisplayNames(["en"], { type: "region" }).of(c) ?? c;
+    } catch {
+      return c;
+    }
+  };
+  return `Lives in ${nom(e.vit)}, job post ${nom(e.annonce)}`;
+}
+
+interface Localisation {
+  pays: string | null;
+  pays_brut: string | null;
+  ville: string | null;
+  requete: string | null;
+  essais: { requete: string; erreur: string | null; pays: string | null }[];
+}
+
+/**
+ * 0470 : où vit le freelance (lecture seule), avec l'id freelancer du contrat.
+ * Les requêtes de REQUETES_LOCALISATION, dans l'ordre ; la première qui rend un
+ * pays gagne. Rien n'est écrit sur Upwork.
+ */
+async function lireLocalisation(
+  supabase: Supabase,
+  par: string | null,
+  o: { contrat: string; freelancer: string | null; tenant: string | null },
+): Promise<Localisation> {
+  const essais: Localisation["essais"] = [];
+  for (const q of REQUETES_LOCALISATION) {
+    const id = q.variable === "contrat" ? o.contrat : o.freelancer;
+    if (!id) {
+      essais.push({ requete: q.nom, erreur: "id freelancer inconnu", pays: null });
+      continue;
+    }
+    const r = await lire(supabase, { par, action: "freelance_localisation", query: q.query, variables: { id }, tenant: o.tenant });
+    const l = r.data ? q.lire(r.data) : { pays: null, ville: null };
+    const code = codePays(l.pays);
+    essais.push({ requete: q.nom, erreur: r.erreur ?? (l.pays ? null : "aucun pays dans la réponse"), pays: code ?? l.pays });
+    if (code) return { pays: code, pays_brut: l.pays, ville: l.ville, requete: q.nom, essais };
+  }
+  return { pays: null, pays_brut: null, ville: null, requete: null, essais };
+}
+
+/** 0470 : les HM de l'OS (actives), pour relier la HM du contrat par son nom Upwork. */
+async function hmsDeLOs(supabase: Supabase): Promise<{ id: string; prenom: string | null; nom: string | null }[]> {
+  const { data: roles } = await supabase.from("user_roles").select("user_id").in("role", ["hiring_manager", "head_of_ops"]);
+  const ids = (roles ?? []).map((r) => String(r.user_id));
+  if (ids.length === 0) return [];
+  const { data } = await supabase.from("profiles").select("id, prenom, nom, is_active").in("id", ids).eq("is_active", true);
+  return (data ?? []).filter((p) => normaliserNom(p.prenom) !== "ruul").map((p) => ({ id: String(p.id), prenom: p.prenom, nom: p.nom }));
+}
+
+/** 0470 : la HM de l'OS du contrat : hiringManager, sinon supervisor ; une correspondance notée à la main (hm_upwork) d'abord. */
+function hmDuContrat(
+  d: { hm_upwork_id: string | null; hm_upwork_nom?: string | null; superviseur_upwork_id?: string | null; superviseur_upwork_nom?: string | null },
+  hms: { id: string; prenom: string | null; nom: string | null }[],
+  notees: Map<string, string>,
+): { hm_id: string | null; hm_nom: string | null } {
+  for (const [id, nom] of [[d.hm_upwork_id, d.hm_upwork_nom], [d.superviseur_upwork_id, d.superviseur_upwork_nom]] as const) {
+    const trouve = (id && notees.get(id)) || hmDeNomUpwork(nom, hms);
+    if (trouve) return { hm_id: trouve, hm_nom: nom ?? null };
+  }
+  return { hm_id: null, hm_nom: d.hm_upwork_nom ?? d.superviseur_upwork_nom ?? null };
+}
+
+/**
+ * 0470 : ce que l'API dit d'un contrat à accueillir : la HM (hiringManager /
+ * supervisor, avec leurs noms) et le pays du freelance. Lu une fois par
+ * contrat (accueils.freelance_lu_at), ou à nouveau sur demande (forcer).
+ */
+async function lireInfosContrat(
+  supabase: Supabase,
+  par: string | null,
+  c: { contrat_id: string; organisation_id: string | null },
+  // deno-lint-ignore no-explicit-any
+  connu: any | null,
+  forcer: boolean,
+): Promise<{ details: DetailsContrat | null; loc: Localisation | null; erreur: string | null }> {
+  if (connu?.freelance_lu_at && !forcer) return { details: null, loc: null, erreur: null };
+  const lu = await lire(supabase, {
+    par, action: "accueil_contrat", query: REQUETE_DETAILS_CONTRAT, variables: { id: c.contrat_id }, tenant: c.organisation_id,
+  });
+  const details = lireDetailsContrat(lu.data?.contractDetails);
+  if (!details) return { details: null, loc: null, erreur: lu.erreur ?? "contrat illisible" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("freelancer_id").eq("contrat_id", c.contrat_id).limit(1).maybeSingle();
+  const loc = await lireLocalisation(supabase, par, {
+    contrat: c.contrat_id, freelancer: details.freelancer_id ?? (uc?.freelancer_id as string | null) ?? null, tenant: c.organisation_id,
+  });
+  if (loc.pays) {
+    await supabase.from("upwork_contrats").update({ freelancer_pays: loc.pays, freelancer_ville: loc.ville }).eq("contrat_id", c.contrat_id);
+  }
+  return { details, loc, erreur: null };
+}
+
+/** Les champs 0470 d'un accueil, depuis ce qui vient d'être lu (ou ce qui était noté). */
+function champsInfos(
+  details: DetailsContrat | null,
+  loc: Localisation | null,
+): Record<string, unknown> {
+  if (!details || !loc) return {};
+  return {
+    hm_upwork_nom: details.hm_upwork_nom ?? null,
+    superviseur_upwork_id: details.superviseur_upwork_id ?? null,
+    superviseur_upwork_nom: details.superviseur_upwork_nom ?? null,
+    freelance_pays: loc.pays,
+    freelance_ville: loc.ville,
+    freelance_requete: loc.requete ?? `aucune : ${loc.essais.map((e) => `${e.requete} (${e.erreur ?? "?"})`).join(" ; ")}`.slice(0, 500),
+    freelance_lu_at: new Date().toISOString(),
+  };
+}
+
 async function accueillir(supabase: Supabase, par: string | null) {
   const { data: regl } = await supabase
     .from("reglages")
@@ -2559,10 +2707,16 @@ async function accueillir(supabase: Supabase, par: string | null) {
     ? await supabase.from("accueils").select("*").in("contrat_id", ids)
     : { data: [] };
   const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
-  const [{ data: profils }, { data: comptesPays }] = await Promise.all([
+  const [{ data: profils }, { data: comptesPays }, hms, { data: hmNotees }] = await Promise.all([
     supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
-    supabase.from("comptes").select("poster_id, pays").not("pays", "is", null),
+    supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
+    hmsDeLOs(supabase),
+    supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
   ]);
+  const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
+  const languesPays = (comptesPays ?? []).map((c) => ({ pays: c.pays as string | null, langue: c.langue as string | null }));
+  // 0470 : au plus 30 contrats relus à l'API par passage (HM et pays du freelance), les autres au suivant.
+  let lecturesApi = 0;
   const paysDe = new Map((comptesPays ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id,
@@ -2587,22 +2741,31 @@ async function accueillir(supabase: Supabase, par: string | null) {
     // À relier : le plan est refait à chaque passage (sans appel à Upwork) ; si
     // l'annonce a reçu son pays depuis, le contrat est accueilli.
 
-    let details: DetailsContrat | null = connu
-      ? {
+    // 0470 : la HM du contrat (hiringManager / supervisor) et le pays du freelance, lus une fois.
+    if (!connu?.freelance_lu_at && lecturesApi >= 30) continue;
+    if (!connu?.freelance_lu_at) lecturesApi++;
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: contratId, organisation_id: c.organisation_id }, connu ?? null, false);
+    if (infos.erreur) {
+      bilan.erreurs.push(`${contratId} : ${infos.erreur}`);
+      // Déjà connu : le plan est refait avec ce qui est noté (relu au passage suivant).
+      if (!connu) continue;
+    }
+    const lu0470 = champsInfos(infos.details, infos.loc);
+    const details: DetailsContrat = infos.details
+      ? { ...infos.details, prenom: infos.details.prenom ?? connu?.prenom ?? null, nom: infos.details.nom ?? connu?.nom ?? null }
+      : {
         contrat_id: contratId, offre_id: connu.offre_id, job_id: connu.job_id, job_titre: connu.job_titre,
         prenom: connu.prenom, nom: connu.nom, debut_at: connu.debut_at, hm_upwork_id: connu.hm_upwork_id, statut: null,
-      }
-      : null;
-    if (!details) {
-      const lu = await lire(supabase, {
-        par, action: "accueil_contrat", query: REQUETE_DETAILS_CONTRAT, variables: { id: contratId }, tenant: c.organisation_id,
-      });
-      details = lireDetailsContrat(lu.data?.contractDetails);
-      if (!details) {
-        bilan.erreurs.push(`${contratId} : ${lu.erreur ?? "contrat illisible"}`);
-        continue;
-      }
-    }
+        hm_upwork_nom: connu.hm_upwork_nom, superviseur_upwork_id: connu.superviseur_upwork_id, superviseur_upwork_nom: connu.superviseur_upwork_nom,
+      };
+    const freelancePays = (lu0470.freelance_pays as string | null | undefined) ?? connu?.freelance_pays ?? null;
+    const hmContrat = hmDuContrat(details, hms, notees);
+    const api: InfosApi = {
+      freelance_pays: freelancePays,
+      freelance_langue: langueDePays(freelancePays, languesPays),
+      hm_id: hmContrat.hm_id,
+      hm_nom: hmContrat.hm_nom,
+    };
     // L'annonce : vue pour la 1re fois → notée, pays à dire.
     let annonce: Annonce | null = null;
     let errAnnonce: string | null = null;
@@ -2618,12 +2781,19 @@ async function accueillir(supabase: Supabase, par: string | null) {
         if (errAnnonce) bilan.erreurs.push(`annonce ${details.job_id} : ${errAnnonce}`);
       }
     }
-    const plan = planAccueil(details, annonce, connu ? { statut: connu.statut, pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id } : null, posteurs);
+    const plan = planAccueil(
+      details,
+      annonce,
+      connu ? { statut: connu.statut, pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id, relie_at: connu.relie_at } : null,
+      posteurs,
+      api,
+    );
     if (errAnnonce && plan.raison) plan.raison = `${plan.raison} (annonce non notée : ${errAnnonce})`;
     const base = {
       contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
       job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
       hm_upwork_id: details.hm_upwork_id, pays: plan.pays, langue: plan.langue, hm_id: plan.hm_id, tarif: plan.tarif,
+      ...lu0470, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart),
       updated_at: new Date().toISOString(),
     };
     if (plan.statut === "doublon") {
@@ -2681,6 +2851,125 @@ async function accueillir(supabase: Supabase, par: string | null) {
     }
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/**
+ * 0470 : « Show the country found » : pour les contrats à relier (ou ceux
+ * donnés), relit à l'API la HM du contrat et le pays du freelance, les note
+ * dans accueils et upwork_contrats.freelancer_pays, et dit ce que l'OS ferait.
+ * Ne crée aucun posteur et n'envoie rien.
+ */
+async function localiserAccueils(supabase: Supabase, par: string | null, contrats: string[] | null) {
+  let q = supabase.from("accueils").select("*");
+  q = contrats?.length ? q.in("contrat_id", contrats) : q.in("statut", ["a_relier", "simule", "a_creer"]);
+  const { data: lignes, error } = await q;
+  if (error) throw error;
+  const [hms, { data: hmNotees }, { data: comptes }, { data: profils }, { data: orgs }] = await Promise.all([
+    hmsDeLOs(supabase),
+    supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
+    supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("upwork_contrats").select("contrat_id, organisation_id, organisation_nom").in("contrat_id", (lignes ?? []).map((l) => l.contrat_id)),
+  ]);
+  const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
+  const languesPays = (comptes ?? []).map((c) => ({ pays: c.pays as string | null, langue: c.langue as string | null }));
+  const paysDe = new Map((comptes ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
+  const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
+    id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id, pays: paysDe.get(p.id) ?? null,
+  }));
+  const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), o]));
+  const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
+  await jetonValide(supabase, par);
+  const resultats = [];
+  for (const a of lignes ?? []) {
+    const org = orgDe.get(String(a.contrat_id));
+    const tenant = (org?.organisation_id as string | null) ?? (a.organisation_id as string | null) ?? null;
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: String(a.contrat_id), organisation_id: tenant }, a, true);
+    if (infos.erreur || !infos.details || !infos.loc) {
+      resultats.push({ contrat_id: a.contrat_id, nom: [a.prenom, a.nom].filter(Boolean).join(" "), erreur: infos.erreur });
+      continue;
+    }
+    const champs = champsInfos(infos.details, infos.loc);
+    const hm = hmDuContrat(infos.details, hms, notees);
+    let annonce: Annonce | null = null;
+    if (a.job_id) {
+      const { data: an } = await supabase.from("annonces_pays").select("job_id, pays, langue, hm_id, tarif, generique").eq("job_id", a.job_id).maybeSingle();
+      if (an) annonce = { ...an, tarif: an.tarif === null ? null : Number(an.tarif) } as Annonce;
+    }
+    const plan = planAccueil(
+      { ...infos.details, prenom: infos.details.prenom ?? a.prenom, nom: infos.details.nom ?? a.nom },
+      annonce,
+      { statut: a.statut, pays: a.pays, langue: a.langue, hm_id: a.hm_id, relie_at: a.relie_at },
+      posteurs,
+      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom },
+    );
+    await supabase.from("accueils").update({
+      ...champs, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart), updated_at: new Date().toISOString(),
+    }).eq("contrat_id", a.contrat_id);
+    // Les noms des HM Upwork vus, pour la correspondance (une HM notée à la main n'est jamais changée).
+    for (const [id, nom] of [[infos.details.hm_upwork_id, infos.details.hm_upwork_nom], [infos.details.superviseur_upwork_id, infos.details.superviseur_upwork_nom]]) {
+      if (id) await supabase.from("hm_upwork").upsert({ upwork_id: id, nom: nom ?? null, vu_at: new Date().toISOString() }, { onConflict: "upwork_id" });
+    }
+    resultats.push({
+      contrat_id: a.contrat_id,
+      nom: [a.prenom, a.nom].filter(Boolean).join(" "),
+      equipe: org?.organisation_nom ?? null,
+      freelancer_id: infos.details.freelancer_id ?? null,
+      freelance: { pays: infos.loc.pays, ville: infos.loc.ville, requete: infos.loc.requete, essais: infos.loc.essais },
+      annonce: annonce ? { pays: annonce.pays, generique: annonce.generique } : null,
+      hm_contrat: { hiring_manager: infos.details.hm_upwork_nom ?? null, supervisor: infos.details.superviseur_upwork_nom ?? null, hm_os: hm.hm_id ? nomHm.get(hm.hm_id) ?? hm.hm_id : null },
+      plan: { statut: plan.statut, pays: plan.pays, langue: plan.langue, source: plan.source ?? null, hm: plan.hm_id ? nomHm.get(plan.hm_id) ?? plan.hm_id : null, raison: plan.raison, ecart: ecartPays(plan.ecart) },
+    });
+  }
+  return { ok: true, contrats: resultats.length, resultats };
+}
+
+/**
+ * 0470 : la carte « Contract to link » : pays et HM choisis pour le contrat, un
+ * clic : le posteur est créé, relié au contrat, la bienvenue part, la carte se
+ * ferme. Quel que soit accueil_auto (c'est un clic explicite). L'erreur est
+ * rendue telle quelle.
+ */
+async function creerAccueilMaintenant(
+  supabase: Supabase,
+  par: string | null,
+  o: { contrat: string; pays: string; langue: string | null; hm_id: string | null },
+): Promise<{ ok: boolean; error?: string; poster_id?: string | null; statut?: string; raison?: string | null }> {
+  const pays = codePays(o.pays);
+  if (!o.contrat || !pays) return { ok: false, error: "contrat et pays obligatoires" };
+  if (!o.hm_id) return { ok: false, error: "choisis la HM" };
+  if (await automationEnPause(supabase)) return { ok: false, error: PAUSE };
+  const { data: comptes } = await supabase.from("comptes").select("pays, langue").eq("pays", pays);
+  const langue = o.langue || langueDePays(pays, (comptes ?? []) as { pays: string | null; langue: string | null }[]);
+  if (!langue) return { ok: false, error: `aucune langue connue pour ${pays} : choisis la langue` };
+  const { data: deja } = await supabase.from("profiles").select("id, prenom, nom").eq("upwork_contract_id", o.contrat).limit(1).maybeSingle();
+  if (deja) return { ok: false, error: `contrat déjà relié à ${[deja.prenom, deja.nom].filter(Boolean).join(" ")}` };
+  // Le verrou : la ligne passe à « envoi » seulement depuis à relier, simulé, à créer ou erreur.
+  const { data: verrou, error: errVerrou } = await supabase.from("accueils").update({
+    pays, langue, hm_id: o.hm_id, relie_par: par, relie_at: new Date().toISOString(), pays_source: "main",
+    statut: "envoi", raison: "création en cours (clic)", updated_at: new Date().toISOString(),
+  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "erreur"]).select("*");
+  if (errVerrou) return { ok: false, error: errVerrou.message };
+  const a = verrou?.[0];
+  if (!a) return { ok: false, error: "contrat introuvable ou déjà en cours de création" };
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["accueil_message_texte", "slack_lien_invitation"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const { data: lundi } = await supabase.rpc("cohorte_lundi_de_pays", { p_at: new Date(a.debut_at ?? Date.now()).toISOString(), p_pays: null });
+  const cohorte = String(lundi ?? "");
+  await supabase.from("accueils").update({ cohorte_lundi: cohorte || null }).eq("contrat_id", o.contrat);
+  const r = await creerEtAccueillir(
+    supabase,
+    par,
+    {
+      contrat_id: o.contrat, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, debut_at: a.debut_at,
+      pays, langue, hm_id: o.hm_id, tarif: a.tarif === null ? null : Number(a.tarif), cohorte_lundi: cohorte,
+    },
+    typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "",
+    typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "",
+  );
+  const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id").eq("contrat_id", o.contrat).maybeSingle();
+  if (r.erreur) return { ok: false, error: r.erreur, statut: apres?.statut, poster_id: apres?.poster_id ?? null };
+  return { ok: true, statut: apres?.statut, raison: apres?.raison ?? null, poster_id: apres?.poster_id ?? null };
 }
 
 /** Prompt 13 : le @ TikTok que la recrue doit créer (son 1er compte perso, généré à la création). */

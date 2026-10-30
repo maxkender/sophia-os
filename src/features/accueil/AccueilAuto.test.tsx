@@ -7,6 +7,8 @@ import i18n from "@/locales";
 const api = vi.hoisted(() => ({
   lireAccueils: vi.fn(),
   relierAccueil: vi.fn(),
+  creerAccueil: vi.fn(),
+  localiserAccueils: vi.fn(async () => []),
   lireAnnonces: vi.fn(async () => []),
   enregistrerAnnonce: vi.fn(),
   amorcerAnnonces: vi.fn(async () => ({ ok: true, posteurs: 3, lus: 3, annonces: 2, avec_pays: 1, generiques: 1, deja_dites: 0, erreurs: [] })),
@@ -58,6 +60,31 @@ describe("système du 2 nov., partie A : l'accueil automatique", () => {
     expect(within(bloc).getByText("Simulé (test)")).toBeTruthy();
     expect(within(bloc).getByText("Doublon")).toBeTruthy();
     expect(within(bloc).getByText("Hi Bruno, welcome to Vik Studios!", { exact: false })).toBeTruthy();
+  });
+
+  it("0470 : la carte montre l'équipe, où vit le freelance, la HM du contrat ; pays + HM → créer, l'erreur s'affiche", async () => {
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    api.lireAccueils.mockResolvedValue([
+      accueil({
+        contrat_id: "44790806", prenom: "Gundika", nom: "Gundika", equipe: "Maximilien Kender", freelance_pays: "HR", freelance_ville: "Zagreb",
+        hm_upwork_nom: "Lucia D.", raison: "HM du contrat (Lucia D.) pas dans l'OS : choisis la HM", pays: "HR",
+      }),
+    ]);
+    api.creerAccueil.mockRejectedValueOnce(new Error("création du posteur : e-mail déjà pris"));
+    rendu();
+    const ligne = (await screen.findByText("Gundika Gundika")).closest("li") as HTMLElement;
+    const infos = within(ligne).getByTestId("infos-contrat");
+    expect(infos.textContent).toMatch(/Équipe : Maximilien Kender · hors VIk Studios/);
+    expect(infos.textContent).toMatch(/Vit à Zagreb, Croatie/);
+    expect(infos.textContent).toMatch(/HM du contrat : Lucia D\./);
+    const carte = within(ligne).getByTestId("creer-pour-contrat");
+    expect((within(carte).getByLabelText("Pays") as HTMLSelectElement).value).toBe("HR");
+    const bouton = within(carte).getByRole("button", { name: "Créer le posteur et envoyer le welcome" }) as HTMLButtonElement;
+    expect(bouton.disabled).toBe(true);
+    fireEvent.change(within(carte).getByLabelText("HM"), { target: { value: "hm1" } });
+    fireEvent.click(bouton);
+    await vi.waitFor(() => expect(api.creerAccueil).toHaveBeenCalledWith("44790806", "HR", "hm1"));
+    expect((await within(carte).findByRole("alert")).textContent).toBe("création du posteur : e-mail déjà pris");
   });
 
   it("côté HM : seulement les contrats à relier, rien s'il n'y en a pas", async () => {

@@ -5,7 +5,7 @@ const invoke = vi.fn();
 vi.mock("@/features/moteur/api", () => ({ invoke: (...a: unknown[]) => invoke(...a) }));
 vi.mock("@/lib/supabase/client", () => ({ supabase: {} }));
 
-import { choixDepuisCote, decksAffiches, decompteVotes, preparerDuel, verdictCandidat } from "./api";
+import { choixDepuisCote, couvertureLot, decksAffiches, decompteVotes, preparerDuel, servirLot, verdictCandidat } from "./api";
 
 const actuel = [{ position: 1, texte_overlay: "publié", position_sophia: false }];
 const candidat = [{ position: 1, texte_overlay: "nouveau", position_sophia: false }];
@@ -51,5 +51,23 @@ describe("votes des relecteurs (0626)", () => {
     expect(verdictCandidat({ part_candidat: 0.5, candidat_gagne: 5, actuel_gagne: 5 })).toBe("ecarte");
     expect(verdictCandidat({ part_candidat: 1, candidat_gagne: 3, actuel_gagne: 0 })).toBe("insuffisant");
     expect(verdictCandidat({ part_candidat: null, candidat_gagne: 0, actuel_gagne: 0 })).toBe("insuffisant");
+  });
+});
+
+describe("lot commun (0627)", () => {
+  beforeEach(() => invoke.mockReset());
+
+  it("la couverture compte les contenus par label, les plus fournis d'abord", () => {
+    expect(couvertureLot([{ label: "RH" }, { label: "smart_girl" }, { label: "RH" }, { label: null }])).toEqual([
+      { label: "RH", n: 2 },
+      { label: "smart_girl", n: 1 },
+      { label: "—", n: 1 },
+    ]);
+  });
+
+  it("un tour du serveur passe par l'action lot_servir", async () => {
+    invoke.mockResolvedValue({ ok: true, faits: [], restants: 0, langues: ["fr"], sans_circuit: [] });
+    await expect(servirLot()).resolves.toMatchObject({ ok: true, langues: ["fr"] });
+    expect(invoke).toHaveBeenCalledWith("ab-traduction", { action: "lot_servir" });
   });
 });

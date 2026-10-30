@@ -199,3 +199,77 @@ export function verdictCandidat(r: Pick<RapportVotes, "part_candidat" | "candida
   if (r.part_candidat == null || r.candidat_gagne + r.actuel_gagne < minimum) return "insuffisant";
   return r.part_candidat >= SEUIL_RETENUE ? "retenu" : "ecarte";
 }
+
+// ---------------------------------------------------------------------------
+// Le lot commun (0627)
+// ---------------------------------------------------------------------------
+
+export interface LotContenu {
+  position: number;
+  contenu_id: string;
+  titre: string | null;
+  label: string | null;
+  nb_langues: number | null;
+  r_med: number | null;
+  publies: number | null;
+  accroche: string | null;
+}
+
+export interface LotLangue {
+  langue: string;
+  relecteurs: number;
+  prets: number;
+  echecs: number;
+  votes: number;
+  dernier: string | null;
+}
+
+export interface LotEtat {
+  lot: { id: string; numero: number; nom: string; candidat: string; taille: number; statut: "actif" | "clos"; created_at: string };
+  contenus: LotContenu[];
+  langues: LotLangue[];
+  duels: number;
+}
+
+export const TAILLE_LOT = 15;
+
+/** L'état du lot : ses contenus et l'avancement par langue de relecteur. Null tant qu'il n'est pas composé. */
+export async function etatLot(numero = 1): Promise<LotEtat | null> {
+  const { data, error } = await supabase.rpc("ab_lot_etat", { p_numero: numero });
+  if (error) throw error;
+  return (data ?? null) as LotEtat | null;
+}
+
+/** Compose ou recompose le lot (tant qu'aucun duel n'y est attaché). */
+export async function composerLot(numero = 1, taille = TAILLE_LOT, candidat = "ancree"): Promise<LotEtat | null> {
+  const { data, error } = await supabase.rpc("ab_lot_composer", { p_numero: numero, p_taille: taille, p_candidat: candidat });
+  if (error) throw error;
+  return (data ?? null) as LotEtat | null;
+}
+
+export interface FaitLot {
+  lot: number;
+  langue: string;
+  contenu_id: string;
+  ok: boolean;
+  raison?: string;
+}
+
+/** Un tour du serveur, tout de suite (au plus 2 duels) ; le cron fait le reste. */
+export function servirLot() {
+  return invoke<{ ok: boolean; faits: FaitLot[]; restants: number; langues: string[]; sans_circuit: string[] }>("ab-traduction", {
+    action: "lot_servir",
+  });
+}
+
+/** Les labels du lot et combien de contenus chacun : la couverture visée. */
+export function couvertureLot(contenus: ReadonlyArray<Pick<LotContenu, "label">>): Array<{ label: string; n: number }> {
+  const parLabel = new Map<string, number>();
+  for (const c of contenus) {
+    const cle = c.label ?? "—";
+    parLabel.set(cle, (parLabel.get(cle) ?? 0) + 1);
+  }
+  return [...parLabel.entries()]
+    .map(([label, n]) => ({ label, n }))
+    .sort((a, b) => b.n - a.n || Number(a.label === "—") - Number(b.label === "—") || a.label.localeCompare(b.label));
+}

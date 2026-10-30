@@ -59,8 +59,9 @@ Deno.test("2 comptes actifs, la milestone couvre les deux : divisée par 2 (28 $
   const b = deduireTarif([j("7-days 10 (2 acc)", 30), j("Week 44", 30, "Active"), j("Week 45", 30, "NotFunded")], 2);
   assertEquals([b.rythme, b.tarif_compte], ["hebdo", 15]);
   // Week 43 pour un compte (14 $), Week 44 pour deux avec l'ancien bonus (29 $) : 14,5 $ par compte, à 1 $ près.
+  // Le tarif retenu est celui des autres semaines (14 $), pas 14,5 $.
   const c = deduireTarif([j("Week 43", 14), j("Week 44", 29, "Active")], 2);
-  assertEquals([c.rythme, c.tarif_compte], ["hebdo", 14.5]);
+  assertEquals([c.rythme, c.tarif_compte, c.montant], ["hebdo", 14, 28]);
   // « Week 44- 2 accounts » : le nombre est dans le nom.
   const d = deduireTarif([j("Week 43- 2 accounts", 28), j("Week 44- 2 accounts", 28, "Active")]);
   assertEquals([d.rythme, d.tarif_compte], ["hebdo", 14]);

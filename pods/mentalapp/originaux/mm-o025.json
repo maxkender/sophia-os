@@ -1,0 +1,213 @@
+{
+ "id": "mm-o025",
+ "format": "carrousel",
+ "titre": "Signs your brain is healing from brainrot",
+ "legendes": {
+  "en": "signs your brain is healing from brainrot #brainrot #mentalmaxxing #dopaminedetox #selfimprovement",
+  "fr": "les signes que ton cerveau guérit du brainrot #brainrot #mentalmaxxing #detoxdopamine #developpementpersonnel",
+  "de": "Zeichen, dass dein Gehirn vom Brainrot heilt #brainrot #mentalmaxxing #dopamindetox #selbstverbesserung",
+  "es": "señales de que tu cerebro se está curando del brainrot #brainrot #mentalmaxxing #detoxdedopamina #superacionpersonal",
+  "it": "segnali che il tuo cervello sta guarendo dal brainrot #brainrot #mentalmaxxing #detoxdopamina #crescitapersonale",
+  "tr": "beyninin brainrot’tan iyileştiğinin işaretleri #brainrot #mentalmaxxing #dopamindetoks #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7687663666392583432/1",
+   "boite": [
+    128,
+    498,
+    824,
+    450
+   ]
+  },
+  "frise": false,
+  "theme": {
+   "en": "Signs your brain",
+   "fr": "Signes que ton cerveau",
+   "de": "Zeichen, dass dein Gehirn",
+   "es": "Señales de que tu cerebro",
+   "it": "Segnali che il cervello",
+   "tr": "Beyninin iyileştiğinin"
+  },
+  "sous": {
+   "en": "is healing from brainrot",
+   "fr": "guérit du brainrot",
+   "de": "vom Brainrot heilt",
+   "es": "se cura del brainrot",
+   "it": "guarisce dal brainrot",
+   "tr": "brainrot’tan işaretleri"
+  }
+ },
+ "items": [
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "You wake up without your phone",
+    "fr": "Tu te réveilles sans ton téléphone",
+    "de": "Du wachst ohne Handy auf",
+    "es": "Te despiertas sin el móvil",
+    "it": "Ti svegli senza il telefono",
+    "tr": "Telefonsuz uyanıyorsun"
+   },
+   "texte": {
+    "en": "The first thing you see is the window, not a screen. Your mornings feel longer and calmer.",
+    "fr": "La première chose que tu vois, c’est la fenêtre, pas un écran. Tes matins semblent plus longs et plus calmes.",
+    "de": "Das Erste, was du siehst, ist das Fenster, kein Bildschirm. Deine Morgen fühlen sich länger und ruhiger an.",
+    "es": "Lo primero que ves es la ventana, no una pantalla. Tus mañanas parecen más largas y tranquilas.",
+    "it": "La prima cosa che vedi è la finestra, non uno schermo. Le mattine sembrano più lunghe e calme.",
+    "tr": "Gördüğün ilk şey ekran değil, pencere. Sabahların daha uzun ve sakin geçiyor."
+   }
+  },
+  {
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "You catch the reflex",
+    "fr": "Tu repères le réflexe",
+    "de": "Du bemerkst den Reflex",
+    "es": "Notas el reflejo",
+    "it": "Ti accorgi del riflesso",
+    "tr": "Refleksi fark ediyorsun"
+   },
+   "texte": {
+    "en": "You still pick up your phone sometimes. But now you notice it, and you put it back down.",
+    "fr": "Tu prends encore ton téléphone parfois. Mais maintenant tu le remarques, et tu le reposes.",
+    "de": "Du greifst manchmal noch zum Handy. Aber jetzt merkst du es und legst es wieder weg.",
+    "es": "A veces todavía coges el móvil. Pero ahora te das cuenta y lo vuelves a dejar.",
+    "it": "A volte prendi ancora il telefono. Ma ora te ne accorgi, e lo rimetti giù.",
+    "tr": "Bazen hâlâ telefonu eline alıyorsun. Ama artık fark ediyor ve geri bırakıyorsun."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "You fall asleep faster",
+    "fr": "Tu t’endors plus vite",
+    "de": "Du schläfst schneller ein",
+    "es": "Te duermes más rápido",
+    "it": "Ti addormenti prima",
+    "tr": "Daha çabuk uyuyorsun"
+   },
+   "texte": {
+    "en": "No more “one last video” at 1am. Your head is quiet when it hits the pillow.",
+    "fr": "Fini le « dernière vidéo » à 1h du matin. Ta tête est calme quand elle touche l’oreiller.",
+    "de": "Kein „nur noch ein Video“ um 1 Uhr mehr. Dein Kopf ist ruhig, wenn er das Kissen berührt.",
+    "es": "Se acabó el “un último vídeo” a la 1. Tu cabeza está tranquila al tocar la almohada.",
+    "it": "Basta con “un ultimo video” all’una. La testa è calma quando tocca il cuscino.",
+    "tr": "Gece 1’de “son bir video” yok artık. Başın yastığa değdiğinde sakin."
+   }
+  },
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Slow things feel good again",
+    "fr": "Les choses lentes te plaisent à nouveau",
+    "de": "Langsame Dinge machen wieder Spaß",
+    "es": "Lo lento vuelve a gustarte",
+    "it": "Le cose lente ti piacciono di nuovo",
+    "tr": "Yavaş şeyler yine keyif veriyor"
+   },
+   "texte": {
+    "en": "Cooking, a long talk, a full movie. You can enjoy something without needing the next hit.",
+    "fr": "Cuisiner, une longue discussion, un film entier. Tu profites sans avoir besoin du prochain shoot.",
+    "de": "Kochen, ein langes Gespräch, ein ganzer Film. Du genießt etwas, ohne den nächsten Kick zu brauchen.",
+    "es": "Cocinar, una charla larga, una peli entera. Disfrutas sin necesitar el siguiente chute.",
+    "it": "Cucinare, una lunga chiacchierata, un film intero. Ti godi qualcosa senza bisogno della prossima scarica.",
+    "tr": "Yemek yapmak, uzun bir sohbet, tam bir film. Bir sonraki vuruşa ihtiyaç duymadan keyif alıyorsun."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Walks without headphones",
+    "fr": "Marcher sans écouteurs",
+    "de": "Spazieren ohne Kopfhörer",
+    "es": "Caminar sin auriculares",
+    "it": "Camminare senza cuffie",
+    "tr": "Kulaklıksız yürüyüş"
+   },
+   "texte": {
+    "en": "Silence is no longer something to fill. You notice the street, the sky, your own thoughts.",
+    "fr": "Le silence n’est plus un vide à remplir. Tu remarques la rue, le ciel, tes propres pensées.",
+    "de": "Stille ist nichts mehr, was man füllen muss. Du bemerkst die Straße, den Himmel, deine eigenen Gedanken.",
+    "es": "El silencio ya no es algo que llenar. Te fijas en la calle, el cielo, tus propios pensamientos.",
+    "it": "Il silenzio non è più qualcosa da riempire. Noti la strada, il cielo, i tuoi pensieri.",
+    "tr": "Sessizlik artık doldurulacak bir şey değil. Sokağı, gökyüzünü, kendi düşüncelerini fark ediyorsun."
+   }
+  },
+  {
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "One tab at a time",
+    "fr": "Un onglet à la fois",
+    "de": "Ein Tab nach dem anderen",
+    "es": "Una pestaña a la vez",
+    "it": "Una scheda alla volta",
+    "tr": "Aynı anda tek sekme"
+   },
+   "texte": {
+    "en": "You stop jumping between apps every minute. One thing, until it is done.",
+    "fr": "Tu arrêtes de sauter d’une appli à l’autre chaque minute. Une seule chose, jusqu’au bout.",
+    "de": "Du springst nicht mehr jede Minute zwischen Apps. Eine Sache, bis sie fertig ist.",
+    "es": "Dejas de saltar entre apps cada minuto. Una sola cosa, hasta terminarla.",
+    "it": "Smetti di saltare tra le app ogni minuto. Una cosa sola, fino alla fine.",
+    "tr": "Her dakika uygulamalar arasında atlamayı bırakıyorsun. Tek bir iş, bitene kadar."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "What started it for me: I deleted short videos with UnSwipe. The first week was hard, then all of this showed up.",
+    "fr": "Ce qui a tout lancé pour moi : j’ai supprimé les vidéos courtes avec UnSwipe. La première semaine était dure, puis tout ça est arrivé.",
+    "de": "Was es bei mir ausgelöst hat: Ich habe Kurzvideos mit UnSwipe gelöscht. Die erste Woche war hart, dann kam all das.",
+    "es": "Lo que lo empezó todo para mí: borré los vídeos cortos con UnSwipe. La primera semana fue dura, luego llegó todo esto.",
+    "it": "Cosa ha dato il via per me: ho eliminato i video brevi con UnSwipe. La prima settimana è stata dura, poi è arrivato tutto questo.",
+    "tr": "Bende her şeyi başlatan: kısa videoları UnSwipe ile sildim. İlk hafta zordu, sonra bunların hepsi geldi."
+   }
+  }
+ ],
+ "notes": "routine du 30/10 : accroche jamais faite chez nous (« signs your brain is healing »), carrousel de leçons sans classement. cta C : élément UnSwipe en dernier item (slide 8), à la 1re personne."
+}

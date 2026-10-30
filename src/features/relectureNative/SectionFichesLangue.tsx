@@ -8,33 +8,26 @@ import { Card, CardDescription, CardHeader, CardPanel, CardTitle } from "@/compo
 import { Textarea } from "@/components/ui/textarea";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 
-import {
-  compterVersionsFichesLangue,
-  enregistrerFicheLangue,
-  listerExemplesNatifs,
-  listerFichesLangue,
-  type FicheLangue,
-} from "./api";
+import { enregistrerFicheLangue, listerExemplesNatifs, listerFichesLangue, type FicheVersionnee } from "./api";
 import { modeleFicheLangue } from "./logique";
 import { messageErreur } from "./messageErreur";
 import { Puce } from "./Puces";
 import { CLE_REQUETE_EXEMPLES } from "./SectionExemplesNatifs";
 
 const CLE_REQUETE_FICHES_LANGUE = ["fiches-langue"] as const;
-const CLE_REQUETE_VERSIONS_LANGUE = ["fiches-langue-versions"] as const;
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
 /**
- * Une fiche par langue (0619) : comment écrivent les natifs, condensé de la
- * banque d'exemples. La réécriture native lira la fiche, pas les exemples.
- * Brief de rédaction : docs/fiches-langue-brief.md.
+ * Une fiche par langue : comment écrivent les natifs, condensé de la banque
+ * d'exemples. La réécriture native lira la fiche, pas les exemples. Chaque
+ * enregistrement est une nouvelle version dans `bleo_fiches` (0621). Brief de
+ * rédaction : docs/fiches-langue-brief.md.
  */
 export function SectionFichesLangue() {
   const { t } = useTranslation();
   const fiches = useQuery({ queryKey: CLE_REQUETE_FICHES_LANGUE, queryFn: listerFichesLangue });
-  const versions = useQuery({ queryKey: CLE_REQUETE_VERSIONS_LANGUE, queryFn: compterVersionsFichesLangue });
   const exemples = useQuery({ queryKey: CLE_REQUETE_EXEMPLES, queryFn: listerExemplesNatifs });
   const [langue, setLangue] = React.useState("de");
 
@@ -49,7 +42,7 @@ export function SectionFichesLangue() {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
-  const ficheDe = (code: string) => fiches.data.find((f) => f.langue === code) ?? null;
+  const ficheDe = (code: string) => fiches.data.find((f) => f.cle === code) ?? null;
   const prets = (exemples.data ?? []).filter((e) => e.langue === langue && e.statut === "pret").length;
 
   return (
@@ -72,7 +65,6 @@ export function SectionFichesLangue() {
         key={langue}
         langue={langue}
         fiche={ficheDe(langue)}
-        versions={versions.data?.[langue] ?? 0}
         exemplesPrets={prets}
       />
     </div>
@@ -82,12 +74,10 @@ export function SectionFichesLangue() {
 function CarteFicheLangue({
   langue,
   fiche,
-  versions,
   exemplesPrets,
 }: {
   langue: string;
-  fiche: FicheLangue | null;
-  versions: number;
+  fiche: FicheVersionnee | null;
   exemplesPrets: number;
 }) {
   const { t, i18n } = useTranslation();
@@ -101,10 +91,7 @@ function CarteFicheLangue({
   const modifie = contenu !== (fiche?.contenu ?? "");
   const enregistrer = useMutation({
     mutationFn: () => enregistrerFicheLangue(langue, contenu),
-    onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_FICHES_LANGUE });
-      void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_VERSIONS_LANGUE });
-    },
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_FICHES_LANGUE }),
   });
 
   return (
@@ -118,10 +105,10 @@ function CarteFicheLangue({
             <CardTitle className="text-sm">{t("relectureNative.fichesLangue.titre", { nom })}</CardTitle>
             <CardDescription className="flex items-center gap-1.5">
               <History className="size-3.5" aria-hidden />
-              {fiche?.updated_at
+              {fiche
                 ? t("relectureNative.fichesLangue.majLe", {
-                    date: new Date(fiche.updated_at).toLocaleString(i18n.language),
-                    versions,
+                    date: new Date(fiche.created_at).toLocaleString(i18n.language),
+                    versions: fiche.versions,
                   })
                 : t("relectureNative.fichesLangue.jamais")}
             </CardDescription>

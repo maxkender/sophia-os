@@ -1610,6 +1610,7 @@ export const fr = {
         relecteurs: "Relecteurs",
         exemples: "Exemples natifs",
         langues: "Fiches langue",
+        cta: "CTA",
         fiches: "Fiches appli",
       },
       interrupteurs: {
@@ -1650,6 +1651,26 @@ export const fr = {
         retirer: "Supprimer",
         confirmerRetrait:
           "Supprimer {{nom}} ? Pour l’écarter sans rien perdre, passe plutôt son statut à « Retiré ».",
+      },
+      cta: {
+        titre: "Les formes de CTA",
+        aide:
+          "Une liste fixe de 7 formes : sans liste fixe, on ne peut rien compter. Chaque CTA publié est classé dans une forme, puis chaque lundi l’OS compare les formes, les slides et les voies à contenu égal et écrit la fiche label de chaque label, avec les poids du tirage. Rien ici ne change un post : le tirage s’en servira à l’étape 5.",
+        regleSlide:
+          "Décision du 30/10 : le CTA va n’importe où à partir de la slide {{n}}. La slide du CTA est déjà notée sur chaque post publié (sa slide d’appli) : pas de colonne à ajouter.",
+        classement: "Classement des CTA publiés",
+        avancement: "{{classes}} textes classés · {{reste}} à classer",
+        avancementAide:
+          "Les CTA publiés depuis 45 jours, classés par Gemini dans une des 7 formes, 360 toutes les 2 minutes. Un texte n’est classé qu’une fois.",
+        fiches: "Fiches label",
+        fichesAide:
+          "Écrites chaque lundi matin : tirage de la voie (prouvée 80 %, essai 20 %), formes classées par effet à contenu égal, slide du CTA, journal. Chaque calcul garde une version.",
+        label: "Label",
+        calculer: "Calculer maintenant",
+        calcule: "{{fiches}} fiches label écrites ({{lignes}} lignes de chiffres).",
+        aucuneFiche:
+          "Aucune fiche label pour l’instant. Elles seront écrites lundi, ou tout de suite avec « Calculer maintenant » une fois les CTA classés.",
+        version: "Version {{version}} · {{date}}",
       },
       fichesLangue: {
         aide:

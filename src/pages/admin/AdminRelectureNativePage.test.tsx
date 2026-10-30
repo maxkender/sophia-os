@@ -23,6 +23,8 @@ const listerComptes = vi.fn();
 const relireExemple = vi.fn();
 const listerFichesLangue = vi.fn();
 const enregistrerFicheLangue = vi.fn();
+const listerFichesLabel = vi.fn();
+const calculerFichesLabel = vi.fn();
 const majLabelExemple = vi.fn();
 
 vi.mock("@/features/relectureNative/api", () => ({
@@ -43,7 +45,9 @@ vi.mock("@/features/relectureNative/api", () => ({
   effacerSuiviComptes: vi.fn(),
   listerFichesLangue: () => listerFichesLangue(),
   enregistrerFicheLangue: (...a: unknown[]) => enregistrerFicheLangue(...a),
-  compterVersionsFichesLangue: () => Promise.resolve({ de: 2 }),
+  listerFichesLabel: () => listerFichesLabel(),
+  lireAvancementCta: () => Promise.resolve({ classes: 900, a_classer: 100 }),
+  calculerFichesLabel: () => calculerFichesLabel(),
   majLabelExemple: (...a: unknown[]) => majLabelExemple(...a),
   supprimerExempleNatif: vi.fn(),
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
@@ -100,6 +104,8 @@ describe("AdminRelectureNativePage", () => {
     relireExemple.mockResolvedValue(undefined);
     listerFichesLangue.mockResolvedValue([]);
     enregistrerFicheLangue.mockResolvedValue(undefined);
+    listerFichesLabel.mockResolvedValue([]);
+    calculerFichesLabel.mockResolvedValue({ semaine: "2026-11-02", fiches: 9, lignes: 400 });
     majLabelExemple.mockResolvedValue(undefined);
   });
 
@@ -310,7 +316,7 @@ describe("AdminRelectureNativePage", () => {
 
   it("fiches langue : une par langue, partie du modèle, enregistrée", async () => {
     listerFichesLangue.mockResolvedValue([
-      { langue: "tr", contenu: "# Fiche langue : Turc", updated_at: "2026-10-30T10:00:00Z" },
+      { cle: "tr", contenu: "# Fiche langue : Turc", version: 2, auteur: "a@x.io", created_at: "2026-10-30T10:00:00Z", versions: 2 },
     ]);
     listerExemples.mockResolvedValue([
       { id: "e1", langue: "de", statut: "pret" },
@@ -338,6 +344,34 @@ describe("AdminRelectureNativePage", () => {
     });
     const turc = await screen.findByTestId("fiche-langue-tr");
     expect(within(turc).getByText("Écrite")).toBeInTheDocument();
+    expect(turc).toHaveTextContent("2 version(s)");
     expect(within(turc).getByRole("textbox", { name: "Fiche complète (Markdown)" })).toHaveValue("# Fiche langue : Turc");
+  });
+
+  it("CTA : les 7 formes, la règle de la slide, l'avancement et les fiches label", async () => {
+    listerFichesLabel.mockResolvedValue([
+      { cle: "alpha_male", contenu: "# Fiche label : alpha_male", version: 1, auteur: "cta-lundi", created_at: "2026-11-02T06:30:00Z", versions: 1 },
+      { cle: "smart_girl", contenu: "# Fiche label : smart_girl\n## Sophia · 812 posts", version: 3, auteur: "cta-lundi", created_at: "2026-11-02T06:30:00Z", versions: 3 },
+    ]);
+    rendre();
+    fireEvent.click(screen.getByRole("button", { name: "CTA" }));
+    const section = await screen.findByTestId("cta");
+    const formes = within(section).getByRole("list", { name: "Les formes de CTA" });
+    expect(within(formes).getAllByRole("listitem")).toHaveLength(7);
+    expect(formes).toHaveTextContent("1. Dans le format du post");
+    expect(formes).toHaveTextContent("7. Un point de la liste");
+    expect(section).toHaveTextContent("le CTA va n’importe où à partir de la slide 4");
+    await waitFor(() => expect(within(section).getByTestId("cta-avancement")).toHaveTextContent("900 textes classés · 100 à classer"));
+
+    // Une fiche par label ; la première s'affiche, on passe à une autre.
+    expect(await within(section).findByTestId("fiche-label-alpha_male")).toHaveTextContent("# Fiche label : alpha_male");
+    fireEvent.change(within(section).getByRole("combobox", { name: "Label" }), { target: { value: "smart_girl" } });
+    const fiche = within(section).getByTestId("fiche-label-smart_girl");
+    expect(fiche).toHaveTextContent("Version 3");
+    expect(fiche).toHaveTextContent("## Sophia · 812 posts");
+
+    fireEvent.click(within(section).getByRole("button", { name: "Calculer maintenant" }));
+    expect(await within(section).findByText("9 fiches label écrites (400 lignes de chiffres).")).toBeInTheDocument();
+    expect(calculerFichesLabel).toHaveBeenCalledTimes(1);
   });
 });

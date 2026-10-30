@@ -92,6 +92,10 @@ Les titres de la fiche sont en anglais, exactement comme dans le modèle de l'OS
    - retours à la ligne ;
    - majuscules : les titres, les noms, l'usage TikTok tout en minuscules ;
    - ponctuation : point final, « … », « !! », parenthèses d'aparté ;
+   - espaces et guillemets propres à la langue : espace ou non avant « : ? ! » (une
+     espace insécable en français, aucune en allemand ou en anglais), guillemets
+     utilisés (« » en français, „ “ en allemand, " " en anglais). La fiche CTA y
+     renvoie ;
    - numérotation : « 1. », « 1) », « #1 » ;
    - émojis : combien, lesquels, où.
 5. **Accroches** (`## Hooks (slide 1)`) : 8 à 12 structures. Pour chacune : 1 ou 2 extraits

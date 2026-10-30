@@ -11,7 +11,7 @@ import { CLE_FAQ } from "./faqDonnees";
 
 /** Les deux guides Notion recopiés (guides-notion) : leur page racine. */
 const GUIDES: readonly { guide: PageGuideCopiee["guide"]; url: string }[] = [
-  { guide: "poster", url: "https://app.notion.com/p/3f4241308d6681f8ad41dc507f2c8505" },
+  { guide: "poster", url: "https://star-water-a0e.notion.site/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505" },
   { guide: "manager", url: "https://app.notion.com/p/3f4241308d66818c84f3c3eb514f140c" },
 ];
 

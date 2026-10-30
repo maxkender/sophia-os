@@ -33,7 +33,12 @@ Donc, depuis 0624 :
 - **la fiche label est écrite**, plus calculée. Le premier jet de chaque label
   (0625) part de deux sources : l'angle de placement actif de Maximilien
   (`angles_placement`), cité tel quel, et nos posts publiés des 60 derniers
-  jours. À relire et corriger dans la page Fiches.
+  jours. La version 2 (0626) y ajoute le savoir des pods qui écrivent les
+  originaux du label (pods/*/AGENT.md, ANALYSE.md, CTA.md, notes des
+  livraisons) : où ils placent l'appli, leurs versions de CTA et celles
+  qu'ils ont retirées, leurs meilleures slides d'appli, leurs règles, et ce
+  que la réécriture native ne reprend pas (slide avant la 4, impératif avec
+  l'appli). À relire et corriger dans la page Fiches.
 
 Attention, deux sources pour un même angle : `angles_placement` sert encore au
 prompt de placement actuel, et la fiche label en garde une copie. Quand un
@@ -74,3 +79,4 @@ avec la slide d'avant.
 - **0623** (30/10) : la fiche CTA commune (session de coordination).
 - **0624** (30/10) : plus de stats ni de tirage ; fiches label écrites.
 - **0625** (30/10) : premier jet des fiches label, tiré de nos posts publiés.
+- **0626** (30/10) : fiches label, version 2 : le savoir des pods (11 labels).

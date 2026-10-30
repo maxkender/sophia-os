@@ -92,6 +92,9 @@ verify_jwt = false
 [functions.exemples-natifs]
 verify_jwt = false
 
+[functions.cta-formes]
+verify_jwt = false
+
 [functions.extraction]
 verify_jwt = false
 

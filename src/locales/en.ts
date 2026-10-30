@@ -1609,6 +1609,7 @@ export const en = {
         relecteurs: "Reviewers",
         exemples: "Native examples",
         langues: "Language sheets",
+        cta: "CTA",
         fiches: "App sheets",
       },
       interrupteurs: {
@@ -1647,6 +1648,26 @@ export const en = {
         retirer: "Delete",
         confirmerRetrait:
           "Delete {{nom}}? To set them aside without losing anything, change their status to \"Removed\" instead.",
+      },
+      cta: {
+        titre: "CTA forms",
+        aide:
+          "A fixed list of 7 forms: without a fixed list, nothing can be counted. Every published CTA is classified into a form, then every Monday the OS compares forms, slides and routes at equal content and writes each label's sheet, with the draw weights. Nothing here changes a post: the draw will use it at step 5.",
+        regleSlide:
+          "Decision of 30/10: the CTA can go anywhere from slide {{n}}. The CTA slide is already recorded on every published post (its app slide): no column to add.",
+        classement: "Classifying published CTAs",
+        avancement: "{{classes}} texts classified · {{reste}} to go",
+        avancementAide:
+          "CTAs published in the last 45 days, classified by Gemini into one of the 7 forms, 360 every 2 minutes. Each text is classified once.",
+        fiches: "Label sheets",
+        fichesAide:
+          "Written every Monday morning: route draw (proven 80%, trial 20%), forms ranked by effect at equal content, CTA slide, log. Each run keeps a version.",
+        label: "Label",
+        calculer: "Compute now",
+        calcule: "{{fiches}} label sheets written ({{lignes}} rows of figures).",
+        aucuneFiche:
+          "No label sheet yet. They will be written on Monday, or right away with \"Compute now\" once the CTAs are classified.",
+        version: "Version {{version}} · {{date}}",
       },
       fichesLangue: {
         aide:

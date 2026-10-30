@@ -175,34 +175,91 @@ export async function compterVersionsFiches(): Promise<Record<string, number>> {
 }
 
 // ---------------------------------------------------------------------------
-// Fiches langue (admin, 0619)
+// Fiches langue et fiches label (admin) : `bleo_fiches`, une ligne par version
 // ---------------------------------------------------------------------------
 
-export interface FicheLangue {
-  langue: string;
+export interface FicheVersionnee {
+  /** La langue (fiche langue) ou le nom du label (fiche label). */
+  cle: string;
   contenu: string;
-  updated_at: string | null;
+  version: number;
+  auteur: string | null;
+  created_at: string;
+  /** Nombre de versions gardées. */
+  versions: number;
 }
 
-export async function listerFichesLangue(): Promise<FicheLangue[]> {
-  const { data, error } = await supabase.from("fiches_langue").select("langue, contenu, updated_at");
+/** La dernière version de chaque fiche d'une sorte, avec le nombre de versions. */
+async function dernieresFiches(sorte: "langue" | "label"): Promise<FicheVersionnee[]> {
+  const { data, error } = await supabase
+    .from("bleo_fiches")
+    .select("cle, version, contenu, auteur, created_at")
+    .eq("sorte", sorte)
+    .order("cle", { ascending: true })
+    .order("version", { ascending: false })
+    .limit(5000);
   if (error) throw error;
-  return (data ?? []) as FicheLangue[];
+  const parCle = new Map<string, FicheVersionnee>();
+  for (const f of (data ?? []) as Omit<FicheVersionnee, "versions">[]) {
+    const deja = parCle.get(f.cle);
+    if (deja) deja.versions += 1;
+    else parCle.set(f.cle, { ...f, versions: 1 });
+  }
+  return [...parCle.values()];
 }
 
-/** Enregistre la fiche d'une langue ; la base garde une version si le texte change. */
+/** Fiches langue (0619, rangées dans `bleo_fiches` depuis 0621). */
+export function listerFichesLangue(): Promise<FicheVersionnee[]> {
+  return dernieresFiches("langue");
+}
+
+/** Enregistre une nouvelle version de la fiche d'une langue ; les anciennes restent. */
 export async function enregistrerFicheLangue(langue: string, contenu: string): Promise<void> {
-  const { error } = await supabase.from("fiches_langue").upsert({ langue, contenu }, { onConflict: "langue" });
-  if (error) throw error;
+  const { data: derniere, error: erreurLecture } = await supabase
+    .from("bleo_fiches")
+    .select("version")
+    .eq("sorte", "langue")
+    .eq("cle", langue)
+    .order("version", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (erreurLecture) throw erreurLecture;
+  const { data: session } = await supabase.auth.getUser();
+  const { error } = await supabase.from("bleo_fiches").insert({
+    sorte: "langue",
+    cle: langue,
+    version: ((derniere?.version as number | undefined) ?? 0) + 1,
+    contenu,
+    auteur: session.user?.email ?? "admin",
+  });
+  if (error) {
+    if (error.code === "23505") throw new Error("Une autre version vient d'être enregistrée : recharge la page.");
+    throw error;
+  }
 }
 
-/** Nombre de versions enregistrées par langue. */
-export async function compterVersionsFichesLangue(): Promise<Record<string, number>> {
-  const { data, error } = await supabase.from("fiches_langue_versions").select("langue").limit(5000);
+/** Fiches label : écrites chaque lundi par `cta-formes` (0621). */
+export function listerFichesLabel(): Promise<FicheVersionnee[]> {
+  return dernieresFiches("label");
+}
+
+export interface AvancementCta {
+  /** Textes de CTA publiés déjà classés dans une forme. */
+  classes: number;
+  /** Textes encore à classer (la tâche planifiée passe toutes les 2 minutes). */
+  a_classer: number;
+}
+
+export async function lireAvancementCta(): Promise<AvancementCta> {
+  const { data, error } = await supabase.rpc("cta_avancement");
   if (error) throw error;
-  const n: Record<string, number> = {};
-  for (const v of data ?? []) n[v.langue as string] = (n[v.langue as string] ?? 0) + 1;
-  return n;
+  const a = (data ?? {}) as Partial<AvancementCta>;
+  return { classes: Number(a.classes ?? 0), a_classer: Number(a.a_classer ?? 0) };
+}
+
+/** Recalcule tout de suite les chiffres, les poids et les fiches label. */
+export function calculerFichesLabel(): Promise<{ semaine: string; fiches: number; lignes: number }> {
+  return invoke("cta-formes", { lundi: {} });
 }
 
 // ---------------------------------------------------------------------------

@@ -139,6 +139,11 @@ export function SectionExemplesNatifs() {
   const siens = tous.filter((e) => e.langue === langue);
   const prets = siens.filter((e) => e.statut === "pret");
   const aLire = siens.filter((e) => e.statut === "en_attente").length;
+  const enLecture = siens.filter((e) => e.statut === "en_attente" && e.pris_le).length;
+  // La dernière lecture finie (prêt ou écarté) : la preuve que le serveur avance.
+  const dernierLu = siens
+    .filter((e) => e.statut !== "en_attente")
+    .reduce<string | null>((max, e) => (!max || e.updated_at > max ? e.updated_at : max), null);
   const comptesLangue = (comptes.data ?? []).filter((c) => c.langue === langue);
   const aChercher = comptesLangue.filter((c) => c.statut === "en_attente").length;
   const parLangue = (code: string) => tous.filter((e) => e.langue === code && e.statut === "pret").length;
@@ -270,6 +275,8 @@ export function SectionExemplesNatifs() {
             comptes={comptesLangue}
             aChercher={aChercher}
             aLire={aLire}
+            enLecture={enLecture}
+            dernierLu={dernierLu}
             langue={langue}
             nomLabel={nomLabel}
             onEffacer={() => effacerSuivi.mutate(langue)}
@@ -329,6 +336,8 @@ function Suivi({
   comptes,
   aChercher,
   aLire,
+  enLecture,
+  dernierLu,
   langue,
   nomLabel,
   onEffacer,
@@ -336,6 +345,9 @@ function Suivi({
   comptes: ReadonlyArray<CompteNatif>;
   aChercher: number;
   aLire: number;
+  /** Slideshows pris par un passage du serveur, en cours de lecture. */
+  enLecture: number;
+  dernierLu: string | null;
   langue: string;
   nomLabel: ReadonlyMap<string, string>;
   onEffacer: () => void;
@@ -343,6 +355,7 @@ function Suivi({
   const { t, i18n } = useTranslation();
   const enCours = aChercher + aLire > 0;
   const termines = comptes.some((c) => c.statut !== "en_attente");
+  const heure = (iso: string) => new Date(iso).toLocaleTimeString(i18n.language, { hour: "2-digit", minute: "2-digit" });
   return (
     <div className="space-y-1.5" data-testid="suivi-exemples">
       <div className="flex items-center justify-between gap-2">
@@ -360,9 +373,15 @@ function Suivi({
           <CheckCircle2 className="size-4 shrink-0" aria-hidden />
         )}
         {enCours
-          ? t("relectureNative.exemples.suivi.enCours", { comptes: aChercher, lectures: aLire })
+          ? t("relectureNative.exemples.suivi.enCours", { comptes: aChercher, lectures: aLire, enLecture })
           : t("relectureNative.exemples.suivi.rien")}
       </p>
+      {enCours && (
+        <p className="text-xs text-muted-foreground">
+          {t("relectureNative.exemples.suivi.rythme")}
+          {dernierLu ? ` ${t("relectureNative.exemples.suivi.dernierLu", { heure: heure(dernierLu) })}` : ""}
+        </p>
+      )}
       {comptes.length === 0 ? (
         <p className="text-xs text-muted-foreground">{t("relectureNative.exemples.suivi.vide", { langue: nomLangue(langue) })}</p>
       ) : (
@@ -378,9 +397,7 @@ function Suivi({
                   ton === "ok" && "text-success-foreground",
                 )}
               >
-                <span className="text-muted-foreground tabular-nums">
-                  {new Date(c.created_at).toLocaleTimeString(i18n.language, { hour: "2-digit", minute: "2-digit" })}
-                </span>
+                <span className="text-muted-foreground tabular-nums">{heure(c.created_at)}</span>
                 <span className="break-words">{ligne}</span>
                 <span className="text-muted-foreground">
                   {(c.label_id && nomLabel.get(c.label_id)) || t("relectureNative.exemples.sansLabel")}

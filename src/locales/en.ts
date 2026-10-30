@@ -1508,7 +1508,10 @@ export const en = {
         },
         suivi: {
           titre: "On the server",
-          enCours: "{{comptes}} account(s) to search · {{lectures}} slideshow(s) to read. You can close the page.",
+          enCours:
+            "{{comptes}} account(s) to search · {{lectures}} slideshow(s) to read, {{enLecture}} being read right now. You can close the page.",
+          rythme: "The server reads 6 slideshows at a time; each pass takes 1 to 2 minutes.",
+          dernierLu: "Last slideshow read at {{heure}}.",
           rien: "Nothing running: everything pasted has been searched and read.",
           vide: "No account pasted in {{langue}} yet.",
           effacer: "Clear finished accounts",

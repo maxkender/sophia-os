@@ -96,11 +96,12 @@ export function ContenusABlancCard() {
   const [langue, setLangue] = React.useState("");
   const angles = useQuery({ queryKey: ["angles-placement"], queryFn: listerAnglesPlacement, retry: false });
   const anglesPaire = (angles.data ?? []).filter((a) => a.label_id === labelId && a.application_id === applicationId);
-  const angleActif = anglesPaire.find((a) => a.statut === "actif") ?? null;
+  // Plusieurs actifs (0354) : chaque slideshow en reçoit un, sa référence.
+  const anglesActifs = anglesPaire.filter((a) => a.statut === "actif");
   // Règle du moteur pour un slideshow de ce seul label : sans doublon ni copie
-  // de l'actif, au plus MAX (plusieurs labels : le résultat fait foi).
+  // d'un actif, au plus MAX (plusieurs labels : le résultat fait foi).
   const { compares: anglesTest, nonCompares } = anglesTestCompares(
-    angleActif,
+    anglesActifs,
     anglesPaire.filter((a) => a.statut === "test"),
   );
   const auDela = [...nonCompares.values()].filter((m) => m === "au_dela_max").length;
@@ -233,9 +234,11 @@ export function ContenusABlancCard() {
             ) : (
               <>
                 <p>
-                  {angleActif
-                    ? t("contenusABlanc.anglesReferenceActif", { angle: angleActif.texte })
-                    : t("contenusABlanc.anglesReferenceSans")}
+                  {anglesActifs.length === 1
+                    ? t("contenusABlanc.anglesReferenceActif", { angle: anglesActifs[0].texte })
+                    : anglesActifs.length > 1
+                      ? t("contenusABlanc.anglesReferenceActifs", { count: anglesActifs.length })
+                      : t("contenusABlanc.anglesReferenceSans")}
                 </p>
                 <p>
                   {anglesTest.length > 0

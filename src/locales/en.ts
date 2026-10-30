@@ -1197,6 +1197,9 @@ export const en = {
       etapePlacement: "2. {{app}} placement ({{langue}})",
       etapePlacementSeul: "{{app}} placement ({{langue}})",
       anglesReferenceActif: "For this label, reference: the active angle \"{{angle}}\" (what the night will do).",
+      anglesReferenceActifs_one: "For this label, reference: the active angle each slideshow gets (what the night will do).",
+      anglesReferenceActifs_other:
+        "For this label, reference: the one of the {{count}} active angles each slideshow gets (what the night will do).",
       anglesReferenceSans: "For this label, reference: no angle (no active angle).",
       anglesEnTest_one: "{{count}} test angle: each slideshow is also placed with it, to compare.",
       anglesEnTest_other: "{{count}} test angles: each slideshow is also placed with each of them, to compare.",
@@ -6313,7 +6316,7 @@ export const en = {
       description:
         "One instruction per label, added to the {{nom}} placement prompt for that label's slideshows (placement only, not relevance). Switch application with the sidebar selector.",
       regleActif:
-        "Active: used everywhere, all the time (deck preparation, night, assignment). At most one per label: activating another sends the previous one back to test.",
+        "Active: used everywhere, all the time (deck preparation, night, assignment). A label can have several: each slideshow gets ONE of them, always the same one in every language, and slideshows are split evenly between them. The deck keeps track of the angle it used.",
       regleTest:
         "In test: used ONLY by the \"contents\" dry run on the Tests page, never by the real placement. Each tested slideshow is placed once per test angle (at most {{max}}), next to the reference, to compare.",
       lienTests: "Open the tests",
@@ -6340,12 +6343,13 @@ export const en = {
       ajouterTest: "Add in test",
       ajouterActif: "Add as active",
       neSertPlus: "no longer serves {{nom}}: angles kept, unused",
-      resumeActif: "Active angle: used everywhere",
+      resumeActifs_one: "1 active angle: used everywhere",
+      resumeActifs_other: "{{count}} active angles: one per slideshow, split evenly",
       resumeSansActif: "No active angle: placement only",
       resumeTests_one: "{{count}} test angle",
       resumeTests_other: "{{count}} test angles",
       tropDeTests: "More than {{max}} test angles: the dry run only compares the {{max}} oldest.",
-      nonCompareIdentique: "same as the active one: not compared",
+      nonCompareIdentique: "same as an active one: not compared",
       nonCompareDoublon: "duplicate: not compared",
       nonCompareAuDela: "beyond {{max}}: not compared",
       existeDeja: "This angle already exists for this label.",

@@ -7,13 +7,12 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 
 import {
-  anglesPourApplication,
+  anglesActifsPourApplication,
   anglesTestPourApplication,
   blocConsignePlacement,
-  liensActifs,
+  choisirAngleActif,
   copieAngle,
   normaliserAngle,
-  texteAngle,
   variantesSansCopieAngle,
 } from "./angle_placement.ts";
 import { integrateSophia } from "./gemini.ts";
@@ -27,31 +26,6 @@ Deno.test("normaliserAngle : blancs de bord retirés, null et undefined = vide",
   assertEquals(normaliserAngle(null), "");
   assertEquals(normaliserAngle(undefined), "");
   assertEquals(normaliserAngle("   "), "");
-});
-
-Deno.test("anglesPourApplication : labels du contenu, cette application seulement, sans système ni doublon", () => {
-  const labels = [
-    { id: "weird", slug: "weird-alpha", nom: "weird_alpha" },
-    { id: "hook", slug: "hook", nom: "hook" },
-    { id: "study", slug: "faceless-study", nom: "faceless_study" },
-  ];
-  const liens = [
-    { label_id: "weird", application_id: UNSWIPE, angle: " côté discipline " },
-    { label_id: "weird", application_id: SOPHIA, angle: "angle Sophia" },
-    { label_id: "hook", application_id: UNSWIPE, angle: "jamais lu (label système)" },
-    { label_id: "study", application_id: UNSWIPE, angle: "côté discipline" },
-    { label_id: "autre", application_id: UNSWIPE, angle: "label d'un autre contenu" },
-  ];
-  assertEquals(anglesPourApplication(labels, liens, UNSWIPE), ["côté discipline"]);
-  assertEquals(anglesPourApplication(labels, liens, SOPHIA), ["angle Sophia"]);
-  assertEquals(anglesPourApplication(labels, [{ label_id: "weird", application_id: UNSWIPE }], UNSWIPE), []);
-});
-
-Deno.test("texteAngle : un seul angle tel quel, plusieurs en liste, aucun = vide", () => {
-  assertEquals(texteAngle([]), "");
-  assertEquals(texteAngle(["", "  "]), "");
-  assertEquals(texteAngle([" côté X "]), "côté X");
-  assertEquals(texteAngle(["côté X", "côté Y", "côté X"]), "- côté X\n- côté Y");
 });
 
 Deno.test("blocConsignePlacement : vide sans angle, sinon la consigne et ses limites, sans le mot « angle »", () => {
@@ -197,23 +171,54 @@ Deno.test("placement Sophia : une variante qui recopie l'angle hors français es
   }
 });
 
-Deno.test("liensActifs / anglesTestPourApplication : l'actif pour la nuit, les tests pour le test à blanc", () => {
+Deno.test("anglesActifsPourApplication / anglesTestPourApplication : les actifs pour la nuit, les tests pour le test à blanc", () => {
   const labels = [
     { id: "w", slug: "weird-alpha", nom: "weird_alpha" },
     { id: "h", slug: "hook", nom: "hook" },
   ];
   const angles = [
-    { id: "1", label_id: "w", application_id: UNSWIPE, texte: "actif", statut: "actif" },
+    { id: "9", label_id: "w", application_id: UNSWIPE, texte: "actif B", statut: "actif" },
+    { id: "1", label_id: "w", application_id: UNSWIPE, texte: " actif A ", statut: "actif" },
+    { id: "8", label_id: "w", application_id: UNSWIPE, texte: "actif A", statut: "actif" },
+    { id: "7", label_id: "h", application_id: UNSWIPE, texte: "actif système", statut: "actif" },
     { id: "2", label_id: "w", application_id: UNSWIPE, texte: " test A ", statut: "test" },
     { id: "3", label_id: "w", application_id: UNSWIPE, texte: "test A", statut: "test" },
     { id: "4", label_id: "w", application_id: SOPHIA, texte: "test Sophia", statut: "test" },
     { id: "5", label_id: "h", application_id: UNSWIPE, texte: "test système", statut: "test" },
     { id: "6", label_id: "w", application_id: UNSWIPE, texte: "test B", statut: "test" },
   ];
-  assertEquals(anglesPourApplication(labels, liensActifs(angles), UNSWIPE), ["actif"]);
+  // Rangés par id, sans doublon de texte (le premier reçu reste), sans label système.
+  assertEquals(anglesActifsPourApplication(labels, angles, UNSWIPE), [
+    { id: "1", texte: "actif A" },
+    { id: "9", texte: "actif B" },
+  ]);
+  assertEquals(anglesActifsPourApplication(labels, angles, SOPHIA), []);
   assertEquals(anglesTestPourApplication(labels, angles, UNSWIPE), [
     { id: "2", texte: "test A" },
     { id: "6", texte: "test B" },
   ]);
   assertEquals(anglesTestPourApplication(labels, angles, SOPHIA), [{ id: "4", texte: "test Sophia" }]);
+});
+
+Deno.test("choisirAngleActif : un seul angle par contenu, toujours le même, réparti entre les actifs", () => {
+  const actifs = [
+    { id: "a", texte: "côté A" },
+    { id: "b", texte: "côté B" },
+    { id: "c", texte: "côté C" },
+  ];
+  assertEquals(choisirAngleActif("contenu", []), null);
+  assertEquals(choisirAngleActif("contenu", [actifs[0]]), actifs[0]);
+  const contenu = "6f1c2a0e-1b2c-4d3e-8f90-123456789abc";
+  assertEquals(choisirAngleActif(contenu, actifs), choisirAngleActif(contenu, [...actifs]));
+  // 3 000 contenus : chaque angle en reçoit environ un tiers.
+  const parAngle = new Map<string, number>();
+  for (let i = 0; i < 3000; i += 1) {
+    const id = crypto.randomUUID();
+    const choisi = choisirAngleActif(id, actifs)!;
+    parAngle.set(choisi.id, (parAngle.get(choisi.id) ?? 0) + 1);
+  }
+  for (const a of actifs) {
+    const n = parAngle.get(a.id) ?? 0;
+    assert(n > 850 && n < 1150, `${a.id} : ${n} contenus sur 3000`);
+  }
 });

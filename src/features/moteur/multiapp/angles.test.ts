@@ -51,9 +51,9 @@ describe("angles de placement", () => {
 
   it("une carte par label qui sert l'application, système exclu, ceux qui servent d'abord puis par nom", () => {
     const g = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, []);
-    expect(g.map((x) => [x.nom, x.sert, x.actif, x.tests])).toEqual([
-      ["beau_smart_girl", true, null, []],
-      ["weird_alpha", true, null, []],
+    expect(g.map((x) => [x.nom, x.sert, x.actifs, x.tests])).toEqual([
+      ["beau_smart_girl", true, [], []],
+      ["weird_alpha", true, [], []],
     ]);
   });
 
@@ -64,18 +64,19 @@ describe("angles de placement", () => {
     ]);
   });
 
-  it("actif et tests rangés par paire, tests du plus ancien au plus récent, autres applications ignorées", () => {
+  it("actifs et tests rangés par paire, du plus ancien au plus récent, autres applications ignorées", () => {
     const angles = [
       angle("t2", "w", "test", 5),
+      angle("a2", "w", "actif", 4),
       angle("a", "w", "actif", 1),
       angle("t1", "w", "test", 2),
       angle("sophia", "w", "test", 0, SOPHIA),
       angle("b1", "b", "test", 3),
     ];
     const [b, w] = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, angles);
-    expect(w.actif?.id).toBe("a");
+    expect(w.actifs.map((x) => x.id)).toEqual(["a", "a2"]);
     expect(w.tests.map((x) => x.id)).toEqual(["t1", "t2"]);
-    expect(b.actif).toBeNull();
+    expect(b.actifs).toEqual([]);
     expect(b.tests.map((x) => x.id)).toEqual(["b1"]);
   });
 
@@ -86,7 +87,7 @@ describe("angles de placement", () => {
       ["weird_alpha", true],
       ["smart_girl", false],
     ]);
-    expect(g[2].actif?.id).toBe("x");
+    expect(g[2].actifs.map((x) => x.id)).toEqual(["x"]);
   });
 
   it("label inconnu ou système : jamais de carte, même avec des angles", () => {
@@ -94,11 +95,12 @@ describe("angles de placement", () => {
     expect(g.map((x) => x.nom)).toEqual(["beau_smart_girl", "weird_alpha"]);
   });
 
-  it("anglesTestCompares : même règle que le moteur — sans copie de l'actif, sans doublon, les plus anciens d'abord", () => {
+  it("anglesTestCompares : même règle que le moteur — sans copie d'un actif, sans doublon, les plus anciens d'abord", () => {
     const a = (id: string, texte: string) => ({ id, texte });
-    const actif = a("actif", "insister sur le temps");
+    const actifs = [a("actif", "insister sur le temps"), a("actif2", "parler du sommeil")];
     const tests = [
       a("t1", " insister sur le temps "),
+      a("t0", "parler du sommeil"),
       a("t2", "montrer la fierté"),
       a("t3", "montrer la fierté"),
       a("t4", "b"),
@@ -106,9 +108,14 @@ describe("angles de placement", () => {
       a("t6", "d"),
       a("t7", "e"),
     ];
-    const { compares, nonCompares } = anglesTestCompares(actif, tests);
+    const { compares, nonCompares } = anglesTestCompares(actifs, tests);
     expect(compares.map((x) => x.id)).toEqual(["t2", "t4", "t5", "t6"]);
-    expect(Object.fromEntries(nonCompares)).toEqual({ t1: "identique_actif", t3: "doublon", t7: "au_dela_max" });
-    expect(anglesTestCompares(null, [a("x", "y")]).compares.map((x) => x.id)).toEqual(["x"]);
+    expect(Object.fromEntries(nonCompares)).toEqual({
+      t1: "identique_actif",
+      t0: "identique_actif",
+      t3: "doublon",
+      t7: "au_dela_max",
+    });
+    expect(anglesTestCompares([], [a("x", "y")]).compares.map((x) => x.id)).toEqual(["x"]);
   });
 });

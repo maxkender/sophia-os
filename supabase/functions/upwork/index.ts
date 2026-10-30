@@ -53,6 +53,7 @@ import {
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
+import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { derniersMessagesSalon } from "../_shared/contexte.ts";
 import {
@@ -176,6 +177,8 @@ const COMPTE = "principal";
  *   { action: "accueil_creer", contrat_id, pays, hm_id, langue?, tarif?, confirmer }  admin
  *       0470 : carte « Contract to link » : posteur créé, relié, bienvenue envoyée.
  *       Profil déjà créé par la HM (même contrat) : HM et tarif posés, bienvenue envoyée.
+ *   { action: "warmup_check_decider", poster_id, lundi, decision, confirmer }  admin, Head of Ops
+ *       0474 : le check du warm-up du dimanche soir ; « pas_chaud » : posts mardi + message.
  *   { action: "annonces_amorcer" }           admin
  *       Système du 2 nov., partie A : remplit `annonces_pays` depuis les
  *       posteurs déjà embauchés (l'annonce de leur contrat, lue en lecture
@@ -205,7 +208,7 @@ Deno.serve(async (request) => {
     // deno-lint-ignore no-explicit-any
     const body: any = await request.json().catch(() => ({}));
     const par = acces.userId === "cron" ? null : acces.userId;
-    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation", "accueil_localiser", "accueil_creer"].includes(body.action)) {
+    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation", "accueil_localiser", "accueil_creer", "warmup_check_decider"].includes(body.action)) {
       return json({ error: "forbidden" }, 403);
     }
 
@@ -306,6 +309,10 @@ Deno.serve(async (request) => {
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
+      case "warmup_check_decider":
+        // 0474 : Weekly decisions → Sunday : « Warm-up OK » ou « Not warmed up » (un clic, jamais par un cron).
+        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await deciderWarmup(supabase, par, String(body.poster_id ?? ""), String(body.lundi ?? ""), body.decision === "pas_chaud" ? "pas_chaud" : "ok"));
       case "accueil_localiser":
         // 0470 : pays du freelance et HM du contrat, lus et montrés ; rien n'est créé ni envoyé.
         return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
@@ -3040,6 +3047,42 @@ async function creerAccueilMaintenant(
   const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id").eq("contrat_id", o.contrat).maybeSingle();
   if (r.erreur) return { ok: false, error: r.erreur, statut: apres?.statut, poster_id: apres?.poster_id ?? null };
   return { ok: true, statut: apres?.statut, raison: apres?.raison ?? null, poster_id: apres?.poster_id ?? null };
+}
+
+/** 0474 : le message « Not warmed up » (Slack, sinon Upwork). */
+const MESSAGE_PAS_CHAUD =
+  "You haven't warmed up your account enough. Warm it up tomorrow (Monday): scroll a few minutes, like and follow at least 5 accounts in the general knowledge niche. You start posting on Tuesday.";
+
+/**
+ * 0474 : le check du warm-up du dimanche soir. « ok » : rien ne part, elle
+ * commence lundi. « pas_chaud » : ses posts commencent mardi (warmup_ends_at),
+ * puis le message part sur Slack, sinon sur Upwork ; l'issue est notée.
+ */
+async function deciderWarmup(supabase: Supabase, par: string | null, posterId: string, lundi: string, decision: "ok" | "pas_chaud") {
+  if (!posterId || !/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, error: "poster_id et lundi requis" };
+  const { error } = await supabase.rpc("warmup_check_noter", { p_poster: posterId, p_lundi: lundi, p_decision: decision, p_par: par });
+  if (error) return { ok: false, error: error.message };
+  if (decision === "ok") return { ok: true, decision };
+  const { data: p } = await supabase.from("profiles").select("slack_user_id").eq("id", posterId).maybeSingle();
+  let canal = "slack";
+  let statut = "envoye";
+  let erreur: string | null = null;
+  if (p?.slack_user_id) {
+    const r = await ecrireAuPosteur(supabase, posterId, MESSAGE_PAS_CHAUD);
+    if (r.statut !== "envoye") {
+      statut = "erreur";
+      erreur = "erreur" in r ? r.erreur ?? r.statut : r.statut;
+    }
+  } else {
+    canal = "upwork";
+    const r = await messagePosteur(supabase, par, posterId, MESSAGE_PAS_CHAUD, "warmup_check");
+    if (!r.ok) {
+      statut = "erreur";
+      erreur = "error" in r ? String(r.error ?? "non envoyé") : "non envoyé";
+    }
+  }
+  await supabase.rpc("warmup_check_noter", { p_poster: posterId, p_lundi: lundi, p_decision: decision, p_par: par, p_canal: canal, p_statut: statut, p_erreur: erreur });
+  return { ok: statut === "envoye", decision, canal, ...(erreur ? { error: `posts à partir de mardi, mais message non parti : ${erreur}` } : {}) };
 }
 
 /** Prompt 13 : le @ TikTok que la recrue doit créer (son 1er compte perso, généré à la création). */

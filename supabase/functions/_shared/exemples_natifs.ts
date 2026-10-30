@@ -8,6 +8,13 @@
 export const OBJECTIF_EXEMPLES = 20;
 /** Slideshows pris par compte collé (les plus récents). */
 export const SLIDESHOWS_PAR_COMPTE = 5;
+/**
+ * Comptes listés par appel. Chaque compte coûte une recherche Apify (20 à 40 s)
+ * et une fonction Edge s'arrête à 150 s : le navigateur envoie donc les lignes
+ * collées par petits paquets, et la fonction liste les comptes d'un paquet en
+ * parallèle.
+ */
+export const MAX_COMPTES_PAR_APPEL = 4;
 /** En dessous, l'exemple n'apprend rien : c'est une image, pas un slideshow. */
 export const SLIDES_TEXTE_MIN = 3;
 

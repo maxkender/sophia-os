@@ -1,6 +1,7 @@
 import { listerPostsProfil, scrapePost } from "../_shared/apify.ts";
 import {
   lireLignes,
+  MAX_COMPTES_PAR_APPEL,
   motifRefus,
   pseudoDuLien,
   slideshowsDuCompte,
@@ -15,9 +16,10 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  * chaque langue, lus par la traduction ancrée.
  *
  *   { ajouter: { langue, labelId?, texte } }
- *       Lit les liens et comptes collés (un par ligne). Un compte donne ses
- *       5 slideshows les plus récents. Crée une ligne « en_attente » par
- *       slideshow ; rien n'est encore lu. → { ajoutes, deja, comptes, ignorees }
+ *       Lit les liens et comptes collés (un par ligne, 4 comptes au plus : le
+ *       navigateur découpe). Un compte donne ses 5 slideshows les plus
+ *       récents. Crée une ligne « en_attente » par slideshow ; rien n'est
+ *       encore lu. → { ajoutes, deja, comptes, ignorees }
  *   { traiter: { id } }
  *       Récupère le slideshow (Apify) et lit le texte de chaque slide (OCR).
  *       Un exemple par appel : le navigateur enchaîne, sans risquer le
@@ -43,22 +45,29 @@ Deno.serve(async (request) => {
       }
       const labelId = body.ajouter.labelId || null;
       const lues = lireLignes(String(body.ajouter.texte ?? ""));
+      // Rien de reconnu dans ce paquet : on le dit, sans erreur (le navigateur
+      // envoie les lignes par paquets et fait le compte à la fin).
       if (!lues.posts.length && !lues.comptes.length) {
-        return json({ error: "Aucun lien TikTok ni compte reconnu.", ignorees: lues.ignorees }, 400);
+        return json({ ok: true, ajoutes: 0, deja: 0, comptes: [], ignorees: lues.ignorees });
+      }
+      if (lues.comptes.length > MAX_COMPTES_PAR_APPEL) {
+        return json({ error: `${MAX_COMPTES_PAR_APPEL} comptes au plus par appel.` }, 400);
       }
 
-      // Un compte donne ses slideshows les plus récents.
-      const comptes: Array<{ pseudo: string; slideshows: number; erreur?: string }> = [];
+      // Un compte donne ses slideshows les plus récents ; les comptes du
+      // paquet sont listés en parallèle.
+      const comptes = await Promise.all(
+        lues.comptes.map(async (pseudo) => {
+          try {
+            const trouves = slideshowsDuCompte(await listerPostsProfil(pseudo, 30));
+            return { pseudo, slideshows: trouves.length, trouves };
+          } catch (erreur) {
+            return { pseudo, slideshows: 0, trouves: [] as string[], erreur: messageErreur(erreur) };
+          }
+        }),
+      );
       const urls = [...lues.posts];
-      for (const pseudo of lues.comptes) {
-        try {
-          const trouves = slideshowsDuCompte(await listerPostsProfil(pseudo, 30));
-          comptes.push({ pseudo, slideshows: trouves.length });
-          for (const u of trouves) if (!urls.includes(u)) urls.push(u);
-        } catch (erreur) {
-          comptes.push({ pseudo, slideshows: 0, erreur: messageErreur(erreur) });
-        }
-      }
+      for (const c of comptes) for (const u of c.trouves) if (!urls.includes(u)) urls.push(u);
 
       const { data: existants, error: erreurExistants } = await supabase
         .from("exemples_natifs")
@@ -79,7 +88,13 @@ Deno.serve(async (request) => {
         );
         if (error) return json({ error: error.message }, 500);
       }
-      return json({ ok: true, ajoutes: nouveaux.length, deja: deja.size, comptes, ignorees: lues.ignorees });
+      return json({
+        ok: true,
+        ajoutes: nouveaux.length,
+        deja: deja.size,
+        comptes: comptes.map(({ pseudo, slideshows, erreur }) => ({ pseudo, slideshows, ...(erreur ? { erreur } : {}) })),
+        ignorees: lues.ignorees,
+      });
     }
 
     if (body.traiter?.id) {

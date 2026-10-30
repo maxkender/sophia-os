@@ -86,8 +86,11 @@ belle.
 2. **Les full tests** : autant que la jauge en demande aujourd'hui (« Reste à
    faire »).
 3. **Les déclinaisons**, pour le reste de tes `par_jour`, dans l'ordre de la
-   boîte : la ligne 1, puis la 2, etc. Une ligne « au budget » se décline
-   quand même (ses posts partiront un peu plus tard).
+   boîte : la ligne 1, puis la 2, etc. La boîte n'a qu'**une ligne par
+   famille**, et une famille ne se décline **qu'une fois par jour** (le
+   guichet refuse la deuxième : `famille_du_jour`). Les familles « au budget »
+   (déjà très diffusées cette semaine) sont en fin de boîte : ne les prends que
+   s'il ne reste rien d'autre.
 4. **Boîte vide** : uniquement des full tests, et dis-le dans ton compte rendu.
 
 ### 4.3 Écrire une déclinaison
@@ -146,6 +149,7 @@ prends la ligne suivante de la boîte.
 | Code | Ce qu'il veut dire | Que faire |
 | --- | --- | --- |
 | `quota_atteint` | Ce parent a déjà ses 3 déclinaisons | La ligne suivante de la boîte |
+| `famille_du_jour` | Cette famille a déjà une déclinaison aujourd'hui (une par famille et par jour) | La ligne suivante de la boîte |
 | `famille_close`, `famille_non_gagnante` | La famille n'est plus dans la boîte | Relance `npm run boite`, la ligne suivante |
 | `famille_inconnue` | Le parent vient d'être validé, pas encore rattaché | Le décliner demain |
 | `generation_max`, `parent_non_gagnant` | Pas de G3, et une G2 se fait sur une G1 gagnante | Le parent de la ligne de la boîte, tel quel |

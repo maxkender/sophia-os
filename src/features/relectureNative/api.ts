@@ -399,3 +399,71 @@ export async function supprimerExempleNatif(id: string): Promise<void> {
   const { error } = await supabase.from("exemples_natifs").delete().eq("id", id);
   if (error) throw error;
 }
+
+// ---------------------------------------------------------------------------
+// Duels à l'aveugle envoyés aux relecteurs (0626)
+// ---------------------------------------------------------------------------
+
+export type CoteDuel = "gauche" | "droite" | "egal";
+export type CibleRemarque = "gauche" | "droite" | "les_deux";
+
+/** Les types d'erreur d'une remarque, la liste de `bleo_relectures`. */
+export const TYPES_ERREUR = ["tournure_anglaise", "registre", "vocabulaire", "cta_trop_pub", "cta_mal_place", "longueur", "autre"] as const;
+export type TypeErreur = (typeof TYPES_ERREUR)[number];
+
+export interface SlideDuelRelecteur {
+  position: number;
+  texte_overlay: string | null;
+  position_sophia: boolean;
+}
+
+/**
+ * Un duel tel que le relecteur le voit : la source et les deux versions dans
+ * l'ordre tiré, sans jamais savoir laquelle est la version publiée. Son vote
+ * s'il a voté, en côtés (gauche / droite), traduits côté serveur.
+ */
+export interface DuelRelecteur {
+  duel_id: string;
+  langue: string;
+  envoye_le: string;
+  slides_source: SlideDuelRelecteur[];
+  deck_gauche: SlideDuelRelecteur[];
+  deck_droite: SlideDuelRelecteur[];
+  mon_cote: CoteDuel | null;
+  ma_note_gauche: number | null;
+  ma_note_droite: number | null;
+  ma_remarque: string | null;
+  ma_remarque_sur: CibleRemarque | null;
+  mon_type_erreur: TypeErreur | null;
+  vote_le: string | null;
+}
+
+export interface VoteDuelRelecteur {
+  cote: CoteDuel;
+  noteGauche: number | null;
+  noteDroite: number | null;
+  remarque: string;
+  remarqueSur: CibleRemarque;
+  typeErreur: TypeErreur | null;
+}
+
+export async function mesDuelsRelecteur(): Promise<DuelRelecteur[]> {
+  const { data, error } = await supabase.rpc("mes_duels_relecteur");
+  if (error) throw error;
+  return (data ?? []) as DuelRelecteur[];
+}
+
+/** Le vote du relecteur connecté ; le serveur traduit le côté en version. Un vote par duel, modifiable. */
+export async function voterDuelRelecteur(duelId: string, vote: VoteDuelRelecteur): Promise<void> {
+  const remarque = vote.remarque.trim();
+  const { error } = await supabase.rpc("voter_duel_relecteur", {
+    p_duel: duelId,
+    p_cote: vote.cote,
+    p_note_gauche: vote.noteGauche,
+    p_note_droite: vote.noteDroite,
+    p_remarque: remarque || null,
+    p_remarque_sur: remarque ? vote.remarqueSur : null,
+    p_type_erreur: remarque ? vote.typeErreur : null,
+  });
+  if (error) throw error;
+}

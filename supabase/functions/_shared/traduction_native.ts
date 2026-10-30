@@ -194,6 +194,8 @@ export async function traduireAncre(input: {
   regles?: string;
   /** Remarques du contrôle de fidélité, pour une reprise. */
   reprises?: ReadonlyArray<ControleSlide>;
+  /** Écarts relevés par les relecteurs natifs sur des versions précédentes (duels, 0626). */
+  conseils?: ReadonlyArray<string>;
 }): Promise<
   { slides: Array<{ position: number; texte: string }>; hashtags: string }
 > {
@@ -232,6 +234,11 @@ fois pour tout le slideshow ; aucun produit tiers (une slide qui en cite un
 devient une action pure ; le seul produit qui existe ici est l'appli Sophia et
 ce n'est pas ton rôle de l'ajouter) ; URLs et sources citées gardées telles quelles.
 ${input.regles ? `\nRègles de la langue :\n${input.regles}\n` : ""}${
+    input.conseils?.length
+      ? `\nDes relecteurs natifs de cette langue ont relevé ces écarts dans des versions
+précédentes ; ne les reproduis pas :\n${input.conseils.map((c) => `- ${c}`).join("\n")}\n`
+      : ""
+  }${
     reprises.length
       ? `\nUn relecteur a trouvé ces écarts dans une première version ; corrige-les
 en restant fidèle :\n${
@@ -303,12 +310,15 @@ export async function ecrireNatif(input: {
   langue: string;
   ancres: ReadonlyArray<Ancre>;
   regles?: string;
+  /** Écarts relevés par les relecteurs natifs (duels, 0626), passés au modèle en consignes. */
+  conseils?: ReadonlyArray<string>;
 }): Promise<EcritureNative> {
   let rendu = await traduireAncre({
     slides: input.slides,
     langue: input.langue,
     ancres: input.ancres,
     regles: input.regles,
+    conseils: input.conseils,
   });
   let controle = await controlerFidelite(input.slides, rendu.slides);
   const reprises = controle.filter((c) => !c.fidele).map((c) => c.position);
@@ -318,6 +328,7 @@ export async function ecrireNatif(input: {
       langue: input.langue,
       ancres: input.ancres,
       regles: input.regles,
+      conseils: input.conseils,
       reprises: controle,
     });
     controle = await controlerFidelite(input.slides, rendu.slides);

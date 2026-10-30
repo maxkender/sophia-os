@@ -1,0 +1,213 @@
+{
+ "id": "mm-o024",
+ "format": "carrousel",
+ "titre": "Weird habits that 100% fix your focus",
+ "legendes": {
+  "en": "weird habits that actually fix your focus #focus #mentalmaxxing #brainrot #selfimprovement",
+  "fr": "des habitudes bizarres qui réparent vraiment ta concentration #concentration #mentalmaxxing #brainrot #developpementpersonnel",
+  "de": "seltsame Gewohnheiten, die deinen Fokus wirklich reparieren #fokus #mentalmaxxing #brainrot #selbstverbesserung",
+  "es": "hábitos raros que de verdad arreglan tu concentración #concentracion #mentalmaxxing #brainrot #superacionpersonal",
+  "it": "abitudini strane che sistemano davvero la tua concentrazione #concentrazione #mentalmaxxing #brainrot #crescitapersonale",
+  "tr": "odaklanmanı gerçekten düzelten tuhaf alışkanlıklar #odak #mentalmaxxing #brainrot #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7692811167261248775/1",
+   "boite": [
+    134,
+    280,
+    746,
+    588
+   ]
+  },
+  "frise": false,
+  "theme": {
+   "en": "Weird habits",
+   "fr": "Habitudes bizarres",
+   "de": "Seltsame Gewohnheiten",
+   "es": "Hábitos raros",
+   "it": "Abitudini strane",
+   "tr": "Tuhaf alışkanlıklar"
+  },
+  "sous": {
+   "en": "that 100% fix your focus",
+   "fr": "qui réparent ta concentration",
+   "de": "die deinen Fokus reparieren",
+   "es": "que arreglan tu concentración",
+   "it": "che sistemano la concentrazione",
+   "tr": "odağını %100 düzelten"
+  }
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Charge your phone in the kitchen",
+    "fr": "Charger ton téléphone à la cuisine",
+    "de": "Lade dein Handy in der Küche",
+    "es": "Carga el móvil en la cocina",
+    "it": "Carica il telefono in cucina",
+    "tr": "Telefonunu mutfakta şarj et"
+   },
+   "texte": {
+    "en": "Not next to your bed, not on your desk. Out of reach means out of mind.",
+    "fr": "Pas à côté du lit, pas sur ton bureau. Hors de portée, hors de ta tête.",
+    "de": "Nicht neben dem Bett, nicht auf dem Schreibtisch. Außer Reichweite heißt aus dem Kopf.",
+    "es": "Ni al lado de la cama ni en tu escritorio. Fuera de tu alcance, fuera de tu cabeza.",
+    "it": "Non accanto al letto, non sulla scrivania. Fuori portata, fuori dalla testa.",
+    "tr": "Yatağının yanında değil, masanda değil. Uzanamadığın şey aklından da çıkar."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Write the task before you start",
+    "fr": "Écrire la tâche avant de commencer",
+    "de": "Die Aufgabe vorher aufschreiben",
+    "es": "Escribe la tarea antes de empezar",
+    "it": "Scrivi il compito prima di iniziare",
+    "tr": "Başlamadan önce işi yaz"
+   },
+   "texte": {
+    "en": "One line on paper: what you are doing for the next 25 minutes. Your brain stops wandering.",
+    "fr": "Une ligne sur papier : ce que tu fais pendant les 25 prochaines minutes. Ton cerveau arrête de vagabonder.",
+    "de": "Eine Zeile auf Papier: was du die nächsten 25 Minuten machst. Dein Kopf hört auf abzuschweifen.",
+    "es": "Una línea en papel: lo que vas a hacer los próximos 25 minutos. Tu cabeza deja de divagar.",
+    "it": "Una riga su carta: cosa fai nei prossimi 25 minuti. La mente smette di vagare.",
+    "tr": "Kâğıda tek satır: önümüzdeki 25 dakikada ne yapacağın. Zihnin dağılmayı bırakır."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The weirdest one worked best for me: I deleted short videos with UnSwipe. My attention span came back in a few weeks.",
+    "fr": "La plus bizarre a le mieux marché pour moi : j’ai supprimé les vidéos courtes avec UnSwipe. Ma concentration est revenue en quelques semaines.",
+    "de": "Die seltsamste hat bei mir am besten funktioniert: Ich habe Kurzvideos mit UnSwipe gelöscht. Mein Fokus kam in ein paar Wochen zurück.",
+    "es": "La más rara fue la que mejor me funcionó: borré los vídeos cortos con UnSwipe. Mi concentración volvió en unas semanas.",
+    "it": "La più strana è quella che ha funzionato meglio: ho eliminato i video brevi con UnSwipe. La concentrazione è tornata in poche settimane.",
+    "tr": "En tuhafı bende en iyi işe yaradı: kısa videoları UnSwipe ile sildim. Odağım birkaç haftada geri geldi."
+   }
+  },
+  {
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "Wait 10 seconds before you check",
+    "fr": "Attendre 10 secondes avant de regarder",
+    "de": "10 Sekunden warten, bevor du schaust",
+    "es": "Espera 10 segundos antes de mirar",
+    "it": "Aspetta 10 secondi prima di guardare",
+    "tr": "Bakmadan önce 10 saniye bekle"
+   },
+   "texte": {
+    "en": "Feel the urge, count to ten, then decide. Most of the time, you will not even want it anymore.",
+    "fr": "Sens l’envie, compte jusqu’à dix, puis décide. La plupart du temps, tu n’en auras même plus envie.",
+    "de": "Spür den Drang, zähl bis zehn, dann entscheide. Meistens willst du es dann gar nicht mehr.",
+    "es": "Siente las ganas, cuenta hasta diez y luego decide. Casi siempre ya ni te apetecerá.",
+    "it": "Senti la voglia, conta fino a dieci, poi decidi. Il più delle volte non ti andrà nemmeno più.",
+    "tr": "İsteği hisset, ona kadar say, sonra karar ver. Çoğu zaman artık istemeyeceksin bile."
+   }
+  },
+  {
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cold water on your face",
+    "fr": "De l’eau froide sur le visage",
+    "de": "Kaltes Wasser ins Gesicht",
+    "es": "Agua fría en la cara",
+    "it": "Acqua fredda sul viso",
+    "tr": "Yüzüne soğuk su"
+   },
+   "texte": {
+    "en": "Feeling foggy at 3pm? Thirty seconds at the sink wakes you up better than a feed.",
+    "fr": "Le cerveau dans le brouillard à 15h ? Trente secondes au lavabo te réveillent mieux qu’un feed.",
+    "de": "Um 15 Uhr benebelt? Dreißig Sekunden am Waschbecken wecken dich besser als ein Feed.",
+    "es": "¿Cabeza nublada a las 3? Treinta segundos en el lavabo te despiertan mejor que un feed.",
+    "it": "Testa annebbiata alle 15? Trenta secondi al lavandino ti svegliano meglio di un feed.",
+    "tr": "Öğleden sonra kafan mı bulanık? Lavaboda otuz saniye seni akıştan daha iyi uyandırır."
+   }
+  },
+  {
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "Coffee after the first task",
+    "fr": "Le café après la première tâche",
+    "de": "Kaffee nach der ersten Aufgabe",
+    "es": "Café después de la primera tarea",
+    "it": "Il caffè dopo il primo compito",
+    "tr": "İlk işten sonra kahve"
+   },
+   "texte": {
+    "en": "Make it a reward, not a ritual. You start the day by doing, not by sipping and scrolling.",
+    "fr": "Fais-en une récompense, pas un rituel. Tu commences la journée en agissant, pas en sirotant devant ton écran.",
+    "de": "Mach ihn zur Belohnung, nicht zum Ritual. Du startest den Tag mit Tun, nicht mit Schlürfen und Scrollen.",
+    "es": "Que sea un premio, no un ritual. Empiezas el día haciendo, no bebiendo y haciendo scroll.",
+    "it": "Fanne una ricompensa, non un rito. Inizi la giornata facendo, non sorseggiando e scrollando.",
+    "tr": "Onu ritüel değil ödül yap. Güne yudumlayıp kaydırarak değil, bir şey yaparak başlarsın."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Read on paper",
+    "fr": "Lire sur papier",
+    "de": "Auf Papier lesen",
+    "es": "Leer en papel",
+    "it": "Leggere su carta",
+    "tr": "Kâğıttan oku"
+   },
+   "texte": {
+    "en": "No links, no notifications, nothing to tap. Twenty pages rebuild the focus your feed broke.",
+    "fr": "Pas de liens, pas de notifs, rien à toucher. Vingt pages reconstruisent la concentration que ton feed a cassée.",
+    "de": "Keine Links, keine Benachrichtigungen, nichts zum Tippen. Zwanzig Seiten bauen den Fokus wieder auf, den dein Feed kaputt gemacht hat.",
+    "es": "Sin enlaces, sin notificaciones, nada que tocar. Veinte páginas reconstruyen la concentración que rompió tu feed.",
+    "it": "Niente link, niente notifiche, niente da toccare. Venti pagine ricostruiscono la concentrazione che il feed ha rotto.",
+    "tr": "Bağlantı yok, bildirim yok, dokunacak bir şey yok. Yirmi sayfa akışın bozduğu odağı yeniden kurar."
+   }
+  }
+ ],
+ "notes": "routine du 30/10 : reprise de l’accroche de mm-o010 (« weird habits that 100% fix your focus », livrée une fois en tier list) au format carrousel de leçons, autres items et autre couverture (point 7). cta C : élément UnSwipe en item à lui seul, 3e item (slide 4), à la 1re personne."
+}

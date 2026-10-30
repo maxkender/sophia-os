@@ -89,6 +89,7 @@ import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin
 import { CarteSeuilsConfiance } from "@/features/ckd/decisions/CarteSeuilsConfiance";
 import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
 import { ListeSamedi } from "@/features/ckd/decisions/ListeSamedi";
+import { CheckWarmup } from "@/features/ckd/decisions/CheckWarmup";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
 import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
 import { useOnglet } from "@/features/auto/useOnglet";
@@ -125,7 +126,7 @@ const POINT_ACTION: Record<ActionCkd, string> = {
  * jeudi), Saturday (Kill / Double), Dead accounts (Recreate et Shadowban),
  * Settings (les seuils). Les anciennes vues (`?vue=`) ouvrent le bon onglet.
  */
-const ONGLETS = ["jeudi", "samedi", "reglages"] as const;
+const ONGLETS = ["jeudi", "samedi", "dimanche", "reglages"] as const;
 type Onglet = (typeof ONGLETS)[number];
 /** Prompt 25 : « Dead accounts » est fusionné dans Thursday. */
 const ANCIENNES_VUES: Readonly<Record<string, Onglet>> = {
@@ -136,10 +137,10 @@ const ANCIENNES_VUES: Readonly<Record<string, Onglet>> = {
   morts: "jeudi",
 };
 
-/** L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), sinon Saturday. */
+/** L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), Sunday le dimanche (0474), sinon Saturday. */
 function ongletDuJour(maintenant = new Date()): Onglet {
   const jour = new Intl.DateTimeFormat("en-GB", { weekday: "short", timeZone: "Europe/Paris" }).format(maintenant);
-  return jour === "Thu" || jour === "Fri" ? "jeudi" : "samedi";
+  return jour === "Thu" || jour === "Fri" ? "jeudi" : jour === "Sun" ? "dimanche" : "samedi";
 }
 
 function messageErreur(err: unknown): string {
@@ -252,6 +253,9 @@ export function AdminCheckKillDoublePage() {
               </div>
             </details>
           </>
+        ) : onglet === "dimanche" ? (
+          // 0474 : le check du warm-up, dimanche 20:00 ; rien ne part sans clic.
+          <CheckWarmup />
         ) : (
           <VueReglages />
         )}

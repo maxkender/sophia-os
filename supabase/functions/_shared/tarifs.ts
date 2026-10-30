@@ -5,8 +5,11 @@
  * le réseau.
  *
  * - « Week NN » (hebdomadaire) : le montant de la dernière, divisé par le
- *   nombre de comptes du nom (« (2 acc) ») ; une seule milestone, la 1re du
- *   contrat : c'est la 1re semaine, à +1 $ ;
+ *   nombre de comptes du nom (« (2 acc) », « - 2 accounts ») ; sans nombre
+ *   dans le nom, par le nombre de comptes actifs du posteur (une milestone
+ *   couvre tous ses comptes : 28 $ = 2 × 14 $), et ce tarif par compte doit
+ *   alors rejoindre celui des autres semaines (à 1 $ près), sinon à vérifier ;
+ *   une seule milestone, la 1re du contrat : c'est la 1re semaine, à +1 $ ;
  * - mensuel (« Month », « mois », « Monthly ») ou une période ≥ 3 semaines
  *   entre deux échéances : contrat Legacy, payé à la fin de sa période ;
  * - sinon (montants incohérents, rien en cours, tarif hors de 5 à 20 $ par
@@ -40,9 +43,9 @@ const PREMIERE = /\b(trial|first|1st|premi[eè]re|warm ?-?up)\b/i;
 
 const arrondi = (n: number) => Math.round(n * 100) / 100;
 
-/** « Week 44 (2 acc) » → 2 ; « (4 acc) » → 4 ; sinon 1. */
+/** « Week 44 (2 acc) » → 2 ; « Week 44- 2 accounts » → 2 ; sinon 1. */
 export function comptesDuNom(nom: string): number {
-  const m = nom.match(/\((\d+)\s*acc/i);
+  const m = nom.match(/(\d+)\s*acc/i);
   const n = m ? Number(m[1]) : 1;
   return n >= 1 && n <= 9 ? n : 1;
 }
@@ -68,7 +71,7 @@ function periodeEcheances(jalons: JalonUpwork[]): number | null {
   return utiles.length ? utiles[Math.floor(utiles.length / 2)] : null;
 }
 
-export function deduireTarif(jalonsBruts: JalonUpwork[]): TarifContrat {
+export function deduireTarif(jalonsBruts: JalonUpwork[], comptesActifs = 1): TarifContrat {
   const jalons = [...jalonsBruts].sort((a, b) => a.sequence - b.sequence);
   if (jalons.length === 0) return aVerifier("aucune milestone lue", null);
 
@@ -78,9 +81,12 @@ export function deduireTarif(jalonsBruts: JalonUpwork[]): TarifContrat {
     const enCours = semaines.filter((j) => ETATS_FINANCES.includes(j.etat));
     const j = enCours[enCours.length - 1] ?? semaines[semaines.length - 1];
     if (j.depot === null) return aVerifier(`${j.nom} : montant illisible`, j);
-    const comptes = comptesDuNom(j.nom);
+    const duNom = comptesDuNom(j.nom);
+    // Pas de nombre dans le nom : la milestone couvre tous les comptes actifs du posteur.
+    const parActifs = duNom === 1 && comptesActifs > 1;
+    const comptes = parActifs ? comptesActifs : duNom;
     let tarif = arrondi(j.depot / comptes);
-    let raison = comptes > 1 ? `${j.nom} : ${j.depot} $ pour ${comptes} comptes` : `${j.nom} : ${j.depot} $`;
+    let raison = comptes > 1 ? `${j.nom} : ${j.depot} $ pour ${comptes} comptes${parActifs ? " actifs" : ""}` : `${j.nom} : ${j.depot} $`;
     // Une seule semaine, 1re milestone du contrat : la 1re semaine est à +1 $.
     if (semaines.length === 1 && jalons[0].id === j.id && (PREMIERE.test(j.nom) || jalons.length === 1)) {
       tarif = arrondi(tarif - 1);
@@ -92,6 +98,14 @@ export function deduireTarif(jalonsBruts: JalonUpwork[]): TarifContrat {
         // La semaine en cours est la 1re, à +1 $ : le tarif est celui des suivantes.
         tarif = arrondi(tarif - 1);
         raison += ` (1re semaine à +1 $ ; les suivantes valent ${tarif} $)`;
+      } else if (parActifs) {
+        // Divisé par les comptes actifs : une autre semaine doit valoir ce tarif par compte (à 1 $ près, ancien bonus),
+        // qu'elle ait payé un compte ou tous.
+        const proches = semaines.filter((x) => x.id !== j.id && x.depot !== null)
+          .some((x) => [x.depot! / comptesDuNom(x.nom), x.depot! / comptesActifs].some((t) => Math.abs(t - tarif) <= 1 + 1e-9));
+        if (autres.length && !proches) {
+          return aVerifier(`${raison} : ${tarif} $ par compte, mais les autres semaines valent ${[...new Set(autres)].join(", ")} $ par compte`, j);
+        }
       } else if (autres.length && !autres.some((t) => t === tarif || t === tarif + 1)) {
         raison += ` (les autres semaines valent ${[...new Set(autres)].join(", ")} $)`;
       }

@@ -225,9 +225,36 @@ export async function listerExemplesNatifs(): Promise<ExempleNatif[]> {
   return (data ?? []) as ExempleNatif[];
 }
 
+/**
+ * Lignes envoyées par appel. Chaque compte coûte une recherche Apify et une
+ * fonction Edge s'arrête à 150 s : 20 comptes collés d'un coup partent en 5
+ * paquets, l'un après l'autre.
+ */
+export const LIGNES_PAR_APPEL = 4;
+
 /** Ajoute des liens ou des comptes collés ; rien n'est encore lu. */
-export function ajouterExemplesNatifs(langue: string, labelId: string | null, texte: string): Promise<ResumeAjoutExemples> {
-  return invoke<ResumeAjoutExemples>("exemples-natifs", { ajouter: { langue, labelId, texte } });
+export async function ajouterExemplesNatifs(
+  langue: string,
+  labelId: string | null,
+  texte: string,
+): Promise<ResumeAjoutExemples> {
+  const lignes = texte
+    .split(/[\n,;]+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const total: ResumeAjoutExemples = { ajoutes: 0, deja: 0, comptes: [], ignorees: [] };
+  for (let i = 0; i < lignes.length; i += LIGNES_PAR_APPEL) {
+    const paquet = lignes.slice(i, i + LIGNES_PAR_APPEL).join("\n");
+    const r = await invoke<ResumeAjoutExemples>("exemples-natifs", { ajouter: { langue, labelId, texte: paquet } });
+    total.ajoutes += r.ajoutes;
+    total.deja += r.deja;
+    total.comptes.push(...r.comptes);
+    total.ignorees.push(...r.ignorees);
+  }
+  if (total.ajoutes + total.deja === 0 && total.comptes.length === 0) {
+    throw new Error("Aucun lien TikTok ni compte reconnu.");
+  }
+  return total;
 }
 
 /** Récupère un slideshow et lit le texte de ses slides. */

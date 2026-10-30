@@ -51,3 +51,25 @@ Deno.test("impossible à déduire : à vérifier", () => {
   assertEquals(deduireTarif([j("Week 43", 14), j("Week 44", 29, "Active")]).rythme, "a_verifier");
   assertEquals(deduireTarif([j("Week 44", null, "Active")]).rythme, "a_verifier");
 });
+
+Deno.test("2 comptes actifs, la milestone couvre les deux : divisée par 2 (28 $ = 2 × 14 $, 30 $ = 2 × 15 $, 29 $ = 14 + 15)", () => {
+  assertEquals(comptesDuNom("Week 44- 2 accounts"), 2);
+  const a = deduireTarif([j("Week 43", 28), j("Week 44", 28, "Active"), j("Week 45", 28, "NotFunded")], 2);
+  assertEquals([a.rythme, a.comptes, a.tarif_compte, a.montant], ["hebdo", 2, 14, 28]);
+  const b = deduireTarif([j("7-days 10 (2 acc)", 30), j("Week 44", 30, "Active"), j("Week 45", 30, "NotFunded")], 2);
+  assertEquals([b.rythme, b.tarif_compte], ["hebdo", 15]);
+  // Week 43 pour un compte (14 $), Week 44 pour deux avec l'ancien bonus (29 $) : 14,5 $ par compte, à 1 $ près.
+  const c = deduireTarif([j("Week 43", 14), j("Week 44", 29, "Active")], 2);
+  assertEquals([c.rythme, c.tarif_compte], ["hebdo", 14.5]);
+  // « Week 44- 2 accounts » : le nombre est dans le nom.
+  const d = deduireTarif([j("Week 43- 2 accounts", 28), j("Week 44- 2 accounts", 28, "Active")]);
+  assertEquals([d.rythme, d.tarif_compte], ["hebdo", 14]);
+  // Un seul compte actif : 28 $ reste hors bornes.
+  assertEquals(deduireTarif([j("Week 43", 28), j("Week 44", 28, "Active")], 1).rythme, "a_verifier");
+});
+
+Deno.test("2 comptes actifs mais les autres semaines valent 7 $ par compte : à vérifier (cas gardé)", () => {
+  const t = deduireTarif([j("warm up + trial week", 15), j("30-days 01", 60), j("Week 43 (2 acc)", 14), j("week 44", 28, "Active")], 2);
+  assertEquals(t.rythme, "a_verifier");
+  assertEquals(t.raison.includes("14 $ par compte"), true);
+});

@@ -674,11 +674,24 @@ async function lireJalons(supabase: Supabase, par: string | null) {
   // Les contrats actifs lus (action « contrats ») et reliés à un posteur actif.
   const [{ data: contrats, error: e1 }, { data: posteurs, error: e2 }] = await Promise.all([
     supabase.from("upwork_contrats").select("contrat_id, organisation_id").eq("actif", true).not("contrat_id", "is", null),
-    supabase.from("profiles").select("upwork_contract_id").eq("is_active", true).not("upwork_contract_id", "is", null),
+    supabase.from("profiles").select("id, upwork_contract_id").eq("is_active", true).not("upwork_contract_id", "is", null),
   ]);
   if (e1) throw e1;
   if (e2) throw e2;
   const relies = new Set((posteurs ?? []).map((p) => String(p.upwork_contract_id)));
+  // Les comptes perso actifs de chaque contrat : une milestone sans nombre dans son nom les couvre tous.
+  const contratDe = new Map((posteurs ?? []).map((p) => [String(p.id), String(p.upwork_contract_id)]));
+  const comptesActifs = new Map<string, number>();
+  const ids = [...contratDe.keys()];
+  for (let i = 0; i < ids.length; i += 200) {
+    const { data: comptes, error: e3 } = await supabase.from("comptes").select("poster_id")
+      .eq("is_active", true).eq("type_compte", "perso").in("poster_id", ids.slice(i, i + 200));
+    if (e3) throw e3;
+    for (const c of comptes ?? []) {
+      const k = contratDe.get(String(c.poster_id));
+      if (k) comptesActifs.set(k, (comptesActifs.get(k) ?? 0) + 1);
+    }
+  }
   const aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)));
   if (aLire.length === 0) return { ok: false, error: "aucun contrat actif relié : lancer d'abord l'action contrats" };
 
@@ -710,7 +723,7 @@ async function lireJalons(supabase: Supabase, par: string | null) {
     if (error) throw error;
     // Le tarif et le rythme de chaque contrat lu (jamais sur une lecture ratée).
     const tarifs = lignes.filter((l) => !l.erreur && l.jalons).map((l) => {
-      const t = deduireTarif(l.jalons!);
+      const t = deduireTarif(l.jalons!, comptesActifs.get(l.contrat_id) ?? 1);
       return {
         contrat_id: l.contrat_id, rythme: t.rythme, montant: t.montant, comptes: t.comptes, tarif_compte: t.tarif_compte,
         periode_jours: t.periode_jours, courant: t.courant, raison: t.raison, lu_at: new Date().toISOString(),

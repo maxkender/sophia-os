@@ -207,10 +207,20 @@ export interface ExempleNatif {
   created_at: string;
 }
 
+export interface CompteAjoute {
+  pseudo: string;
+  /** Posts listés par Apify (ou slideshows de la page publique, si Apify a échoué). */
+  posts?: number;
+  slideshows: number;
+  /** Faux quand aucun post n'a été reconnu comme slideshow : la lecture fera le tri. */
+  verifies?: boolean;
+  erreur?: string;
+}
+
 export interface ResumeAjoutExemples {
   ajoutes: number;
   deja: number;
-  comptes: Array<{ pseudo: string; slideshows: number; erreur?: string }>;
+  comptes: CompteAjoute[];
   ignorees: string[];
 }
 
@@ -232,11 +242,16 @@ export async function listerExemplesNatifs(): Promise<ExempleNatif[]> {
  */
 export const LIGNES_PAR_APPEL = 4;
 
-/** Ajoute des liens ou des comptes collés ; rien n'est encore lu. */
+/**
+ * Ajoute des liens ou des comptes collés ; rien n'est encore lu. `onPaquet`
+ * reçoit le résumé de chaque paquet dès qu'il revient, pour le journal et pour
+ * lancer la lecture sans attendre les paquets suivants.
+ */
 export async function ajouterExemplesNatifs(
   langue: string,
   labelId: string | null,
   texte: string,
+  onPaquet?: (resume: ResumeAjoutExemples) => void,
 ): Promise<ResumeAjoutExemples> {
   const lignes = texte
     .split(/[\n,;]+/)
@@ -250,6 +265,7 @@ export async function ajouterExemplesNatifs(
     total.deja += r.deja;
     total.comptes.push(...r.comptes);
     total.ignorees.push(...r.ignorees);
+    onPaquet?.(r);
   }
   if (total.ajoutes + total.deja === 0 && total.comptes.length === 0) {
     throw new Error("Aucun lien TikTok ni compte reconnu.");
@@ -257,9 +273,16 @@ export async function ajouterExemplesNatifs(
   return total;
 }
 
+export interface LectureExemple {
+  statut: StatutExempleNatif;
+  erreur?: string;
+  /** Slides avec du texte, quand l'exemple est prêt. */
+  slides?: number;
+}
+
 /** Récupère un slideshow et lit le texte de ses slides. */
-export function lireExempleNatif(id: string): Promise<{ statut: StatutExempleNatif; erreur?: string }> {
-  return invoke<{ statut: StatutExempleNatif; erreur?: string }>("exemples-natifs", { traiter: { id } });
+export function lireExempleNatif(id: string): Promise<LectureExemple> {
+  return invoke<LectureExemple>("exemples-natifs", { traiter: { id } });
 }
 
 export async function majLabelExemple(id: string, labelId: string | null): Promise<void> {

@@ -21,7 +21,12 @@ describe("ajouterExemplesNatifs", () => {
       });
     });
     const comptes = Array.from({ length: 10 }, (_, i) => `@compte${i + 1}`);
-    const r = await ajouterExemplesNatifs("de", "l1", `${comptes.slice(0, 9).join("\n")}\n\n${comptes[9]}, `);
+    const paquets: number[] = [];
+    const r = await ajouterExemplesNatifs("de", "l1", `${comptes.slice(0, 9).join("\n")}\n\n${comptes[9]}, `, (p) =>
+      paquets.push(p.comptes.length),
+    );
+    // Chaque paquet est remonté dès son retour, pour le journal et la lecture.
+    expect(paquets).toEqual([4, 4, 2]);
 
     expect(LIGNES_PAR_APPEL).toBe(4);
     expect(invoke).toHaveBeenCalledTimes(3);

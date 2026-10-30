@@ -219,26 +219,56 @@ describe("AdminRelectureNativePage", () => {
     fireEvent.click(within(ligne).getByRole("button", { name: "Texte" }));
     expect(within(ligne).getByText("1. Sie hören zu")).toBeInTheDocument();
 
-    // Ajout : la fonction crée les lignes en attente, puis l'OS les lit une par une.
-    ajouterExemples.mockResolvedValue({
+    // Ajout : chaque paquet revient au fil de l'eau, s'écrit au journal et
+    // lance sa lecture ; le formulaire reste libre pour la niche suivante.
+    const resume = {
       ajoutes: 2,
       deja: 0,
-      comptes: [{ pseudo: "zitatxplorer", slideshows: 1 }],
+      comptes: [
+        { pseudo: "zitatxplorer", posts: 60, slideshows: 1, verifies: true },
+        { pseudo: "videos.only", posts: 30, slideshows: 10, verifies: false },
+        { pseudo: "prive", posts: 0, slideshows: 0, erreur: "Profil privé" },
+      ],
       ignorees: ["n'importe quoi"],
-    });
+    };
+    ajouterExemples.mockImplementation(
+      (_l: string, _label: string | null, _texte: string, onPaquet?: (r: typeof resume) => void) => {
+        onPaquet?.(resume);
+        return Promise.resolve(resume);
+      },
+    );
+    lireExemple.mockImplementation((id: string) =>
+      Promise.resolve(id === "e3" ? { statut: "erreur", erreur: "Pas un slideshow (aucune image) : c'est sans doute une vidéo." } : { statut: "pret", slides: 7 }),
+    );
     const attente = (id: string) => ({ ...pret, id, statut: "en_attente", slides: [], vues: null, label_id: "l-alpha" });
     listerExemples.mockResolvedValue([pret, attente("e2"), attente("e3")]);
     fireEvent.change(within(section).getByRole("combobox", { name: "Label" }), { target: { value: "l-alpha" } });
-    fireEvent.change(within(section).getByRole("textbox"), {
-      target: { value: "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi" },
-    });
+    const zone = within(section).getByRole("textbox");
+    fireEvent.change(zone, { target: { value: "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi" } });
     fireEvent.click(within(section).getByRole("button", { name: "Ajouter et lire" }));
     await waitFor(() =>
-      expect(ajouterExemples).toHaveBeenCalledWith("de", "l-alpha", "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi"),
+      expect(ajouterExemples).toHaveBeenCalledWith(
+        "de",
+        "l-alpha",
+        "https://www.tiktok.com/@x/photo/2\n@zitatxplorer\nn'importe quoi",
+        expect.any(Function),
+      ),
     );
-    expect(await within(section).findByTestId("resume-ajout")).toHaveTextContent("2 ajouté(s), 0 déjà dans la banque.");
-    expect(within(section).getByTestId("resume-ajout")).toHaveTextContent("@zitatxplorer : 1 slideshow(s) trouvé(s)");
+    // Le champ se vide et reste disponible pour l'envoi suivant.
+    expect(zone).toHaveValue("");
+    fireEvent.change(zone, { target: { value: "@suivant" } });
+    expect(within(section).getByRole("button", { name: "Ajouter et lire" })).toBeEnabled();
+
+    const journal = within(section).getByTestId("journal-exemples");
+    expect(journal).toHaveTextContent("alpha_male · 3 ligne(s) envoyée(s) en Allemand");
+    expect(journal).toHaveTextContent("@zitatxplorer : 60 posts lus, 1 slideshow(s) retenu(s)");
+    expect(journal).toHaveTextContent("@videos.only : 30 posts lus, aucun reconnu comme slideshow d’avance.");
+    expect(journal).toHaveTextContent("@prive : Profil privé");
+    expect(journal).toHaveTextContent("Lignes non reconnues : n'importe quoi");
     await waitFor(() => expect(lireExemple).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(journal).toHaveTextContent("Lecture terminée : 1 prêt(s), 1 écarté(s) ou en erreur"));
+    expect(journal).toHaveTextContent("slideshow lu, 7 slides avec du texte");
+    expect(journal).toHaveTextContent("Pas un slideshow (aucune image)");
     expect(lireExemple.mock.calls.map((c) => c[0]).sort()).toEqual(["e2", "e3"]);
   });
 });

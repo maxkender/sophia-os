@@ -308,18 +308,8 @@ function ReglagesRelancesCarte() {
                 ))}
               </select>
             </label>
-            <label className="space-y-1 text-xs text-muted-foreground">
-              <span className="block">{t("nudges.reglages.lundi_soir_heure")}</span>
-              <Input
-                type="number"
-                min={0}
-                max={23}
-                value={String(r.lundiSoirHeure)}
-                disabled={!admin}
-                aria-label={t("nudges.reglages.lundi_soir_heure")}
-                onChange={(ev) => setR({ ...r, lundiSoirHeure: Number(ev.target.value) })}
-              />
-            </label>
+            {/* Prompt 25 MAJ, 15 : le check du lundi soir part à minuit, heure de Paris (plus d'heure à régler). */}
+            <p className="space-y-1 text-xs text-muted-foreground">{t("nudges.reglages.lundi_soir_heure")}</p>
           </div>
           {killTropCourt && <p className="text-xs text-destructive">{t("nudges.reglages.killMin", { n: KILL_H_MIN })}</p>}
           {!admin && <p className="text-xs text-muted-foreground">{t("reglagesOs.adminSeulement")}</p>}

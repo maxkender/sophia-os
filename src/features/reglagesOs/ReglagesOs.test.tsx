@@ -51,6 +51,8 @@ describe("Partie E : les réglages de l'OS", () => {
     rendu(<CarteMessagesUpwork />);
     const apercu = await screen.findByTestId("apercu-accueil");
     expect(apercu).toHaveTextContent("Hi Ana, log in: anas@sophia.com {inconnue}");
+    // 0463 : aucun message à l'arrêt, plus de champ « Your contract has ended… ».
+    expect(screen.queryByTestId("apercu-arret")).toBeNull();
     expect(screen.getByText(/Variables inconnues.*\{inconnue\}/)).toBeInTheDocument();
     expect(await screen.findByText(/Dernière modification : Max Kender/)).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("Motif de fin de contrat Upwork"), { target: { value: "236" } });
@@ -58,7 +60,6 @@ describe("Partie E : les réglages de l'OS", () => {
     await waitFor(() =>
       expect(api.ecrireReglages).toHaveBeenCalledWith({
         accueil_message_texte: "Hi {prenom}, log in: {email} {inconnue}",
-        arret_message_texte: "Your contract has ended.",
         arret_raison_upwork: "236",
       }),
     );

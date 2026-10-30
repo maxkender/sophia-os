@@ -180,7 +180,6 @@ async function reglages(supabase: Supabase) {
       "semaine_heures",
       "lundi_soir_auto",
       "lundi_soir_texte",
-      "lundi_soir_heure",
       "rappels_reprise_le",
       "slack_boutons",
       "etape_texte_tiktok_verifier",
@@ -253,7 +252,6 @@ async function reglages(supabase: Supabase) {
     texteLundiSoir: texte("lundi_soir_texte"),
     boutons: lireLibellesBoutons(v.slack_boutons),
     repriseRappels: typeof v.rappels_reprise_le === "string" ? (v.rappels_reprise_le as string) : null,
-    heureLundiSoir: Number.isFinite(Number(v.lundi_soir_heure)) && v.lundi_soir_heure !== null ? Number(v.lundi_soir_heure) : 20,
     // Prompt 25 MAJ : les freins (plafond par type et par heure ; part des destinataires qui avaient déjà fait l'étape).
     freins: lireFreins(v.freins_envoi),
     // Prompt 25 MAJ, 7d : « We can't find this post on your profile » (off par défaut).
@@ -466,7 +464,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     });
   }
 
-  // Lundi 20 h (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
+  // Lundi soir, à minuit heure de Paris (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
   for (const x of recrues) {
     if (x.deuxieme || x.cohorte_lundi !== prochain || !x.contrat_id) continue;
     const dest = { poster_id: x.poster_id, slack_user_id: null, contrat_id: x.contrat_id };
@@ -475,7 +473,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     ajouter("lundi_soir", {
       poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null, canaux: doublon ? [] : ["upwork"], doublon,
       variante: "si_aucun_post_lundi", texte: texteLundiSoir(r.texteLundiSoir, x.prenom),
-      donnees: { cohorte: x.cohorte_lundi, condition: `seulement si aucun post avec lien publié le lundi à ${r.heureLundiSoir} h (heure du pays)` },
+      donnees: { cohorte: x.cohorte_lundi, condition: "seulement si aucun post avec lien publié le lundi, check à minuit (heure de Paris)" },
     });
   }
   return {
@@ -2116,7 +2114,7 @@ async function repondreUpwork(supabase: Supabase, posterId: string, texte: strin
 // ---------------------------------------------------------------------------
 
 /**
- * Chaque lundi, 20 h heure du pays : la nouvelle cohorte et les 2es comptes
+ * Chaque lundi, à minuit heure de Paris (prompt 25 MAJ, 15) : la nouvelle cohorte et les 2es comptes
  * qui démarrent, sans aucun post publié avec son lien ce jour-là → un seul
  * message sur Upwork (`lundi_soir_auto`). Décisions finales : plus de Kill
  * automatique ensuite ; le samedi, Max décide (masterlist).
@@ -2146,11 +2144,11 @@ async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bila
         bilan.killsAnnules++;
         continue;
       }
-      if (l === lundi && lundiSoirDu(p, l, maintenant, r.heureLundiSoir, test)) {
+      if (l === lundi && lundiSoirDu(p, l, maintenant, test)) {
         if (!bilan.prevuesConnues?.has(clePrevue(p.poster_id, "lundi_soir", l)) || test) await envoyerLundiSoir(supabase, r, p, l, test, bilan);
         continue;
       }
-      // Décisions finales : plus de Kill 48 h après le lundi 20 h.
+      // Décisions finales : plus de Kill 48 h après le check du lundi soir.
     }
   }
 }
@@ -2166,7 +2164,8 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
   const texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
   const donneesSoir = {
     cohorte: lundi, deuxieme_compte: p.deuxieme, posts_avec_lien_lundi: p.publies_lundi, contrat: p.contrat_id,
-    heure_locale: `${r.heureLundiSoir}:00 (${p.fuseau})`,
+    heure: "minuit (Europe/Paris)",
+    fuseau: p.fuseau,
   };
   // Un seul message par personne : un autre profil sur le même contrat l'a déjà reçu (ou préparé).
   if (canalPour(bilan, { poster_id: p.poster_id, slack_user_id: null, contrat_id: p.contrat_id }, "lundi_soir", lundi).doublon) {
@@ -2180,7 +2179,7 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
   }
   // Prompt 25 MAJ : dû avant le passage sur « on » → ne part pas (jamais de rattrapage).
   if (!(await peutPartir(supabase, r, bilan, {
-    cle, du: instantLocal(lundi, r.heureLundiSoir, p.fuseau), onDepuis: bilan.onDepuis?.lundiSoir ?? null, canaux: ["upwork"], texte,
+    cle, du: instantLocal(ajouterJoursIso(lundi, 1), 0, "Europe/Paris"), onDepuis: bilan.onDepuis?.lundiSoir ?? null, canaux: ["upwork"], texte,
   }))) return;
   const { data: ligne, error: errIns } = await supabase
     .from("nudges")
@@ -2226,7 +2225,7 @@ const LIBELLES_MAIN: Record<string, string> = {
   accueil: "Welcome",
   relance: "Step reminder",
   lundi: "Monday message",
-  lundi_soir: "Monday 8 pm",
+  lundi_soir: "Monday, midnight Paris",
   jeudi: "Thursday nudge",
   reponse: "Reply to their question",
 };

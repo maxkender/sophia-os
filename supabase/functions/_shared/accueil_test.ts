@@ -3,6 +3,7 @@ import { assertEquals } from "jsr:@std/assert@1";
 
 import {
   type Annonce,
+  bienvenueARattraper,
   lireDetailsContrat,
   lireModeAuto,
   messageAccueil,
@@ -96,4 +97,16 @@ Deno.test("annonces déduites des posteurs déjà embauchés", async () => {
   assertEquals(de("j1"), { job_id: "j1", titre: "Job j1", pays: "TR", langue: "tr", hm_id: "h1", tarif: 30, generique: false, posteurs: 3 });
   assertEquals([de("j2").generique, de("j2").pays, de("j2").tarif], [true, null, null]);
   assertEquals([de("j3").generique, de("j3").pays], [false, null]);
+});
+
+Deno.test("prompt 25, 16 : recrue déjà créée par la HM, notée doublon avant On → la bienvenue part sur On, une fois", () => {
+  const d = { statut: "doublon", raison: "contrat déjà relié à un posteur", message_at: null };
+  assertEquals(bienvenueARattraper(d, "on"), true);
+  assertEquals(bienvenueARattraper({ ...d, raison: "même nom et même pays qu'un posteur actif" }, "on"), true);
+  // Pas sur Test ou Approve, jamais deux fois, jamais un profil relié à un autre contrat.
+  assertEquals(bienvenueARattraper(d, "approve"), false);
+  assertEquals(bienvenueARattraper(d, "test"), false);
+  assertEquals(bienvenueARattraper({ ...d, message_at: "2026-10-30T10:00:00Z" }, "on"), false);
+  assertEquals(bienvenueARattraper({ ...d, raison: "profil existant inactif ou relié à un autre contrat" }, "on"), false);
+  assertEquals(bienvenueARattraper({ ...d, statut: "envoye" }, "on"), false);
 });

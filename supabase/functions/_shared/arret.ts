@@ -1,18 +1,16 @@
 /**
- * Système du 2 nov., partie C : l'arrêt complet d'un posteur. Rien ici ne
- * touche la base ni le réseau : le plan des actions et le journal.
+ * L'arrêt complet d'un posteur, en deux temps (0463), sans aucun message.
+ * Rien ici ne touche la base ni le réseau : le plan des actions et le journal.
  *
- * Jamais posté (pendant l'accueil) :
+ * Samedi, à Validate (base, trigger arrets_immediat, sans API) :
  *   os            désactivé dans l'OS (plus de messages ni de posts)
- *   message       dernier message sur Upwork (« Your contract has ended… »)
+ *   slack         liste « To remove from Slack » (Logs & to do), tout de suite
+ * Lundi, après la paie (fonction upwork, si le test de fermeture est bon) :
  *   jalons        milestones non financées supprimées
- *   remboursement milestone financée : l'API ne rembourse pas → « Ask for a
- *                 refund » dans la liste de paie (comme 0395)
- *   fermeture     contrat fermé par l'API s'il ne reste rien de financé,
- *                 sinon après le remboursement (liste de paie)
- *   slack         le retirer de Slack : liste « À retirer de Slack »
- * Déjà posté (en cours de route) : désactivé ; lundi, la liste de paie paie
- * la semaine en cours, ne finance rien et ferme le contrat (« paie »).
+ *   remboursement milestone financée d'une semaine à 0 $ : « Ask for a
+ *                 refund » dans la liste de paie
+ *   fermeture     contrat fermé par l'API
+ * « message » ne sert plus qu'aux anciens arrêts (aucun message au Kill).
  *
  * Un échec ne bloque pas les autres actions ; chacune est journalisée.
  */
@@ -54,7 +52,6 @@ export function planUpwork(jalons: JalonUpwork[]): PlanUpwork {
 /** Les états de milestone lus chez Upwork (29/10) ; tout autre bloque la fermeture. */
 export const ETATS_CONNUS = ["NotFunded", "Active", "Submitted", "Rejected", "Paid", "PaidByUpwork", "PaidBySystem"];
 
-export const MESSAGE_FIN_DEFAUT = "Your contract has ended. Thank you for your time.";
 /** « Job canceled for other reasons » (reasons(reasonType: CONTRACT_END_FIXED), lu le 28/10). */
 export const RAISON_FIN_DEFAUT = "107";
 

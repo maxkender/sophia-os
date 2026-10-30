@@ -62,7 +62,7 @@ describe("Overview → Test contracts (prompt 25 v4)", () => {
     rendu();
     const boutons = await screen.findByTestId("boutons-test");
     expect([...boutons.querySelectorAll("[data-lancer]")].map((b) => b.textContent)).toEqual([
-      "Welcome", "Step 0 (Slack)", "Step 1 (login)", "Step 2 (TikTok)", "Step 3 (warm-up started)", "Step 4 (warm-up done)", "Monday 8 pm",
+      "Welcome", "Step 0 (Slack)", "Step 1 (login)", "Step 2 (TikTok)", "Step 3 (warm-up started)", "Step 4 (warm-up done)", "Monday, midnight (Paris)",
       "Message from the fallback account", "Reset test poster",
     ]);
     fireEvent.click(within(boutons).getByRole("button", { name: "Step 2 (TikTok)" }));

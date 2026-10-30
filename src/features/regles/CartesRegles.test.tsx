@@ -25,7 +25,7 @@ describe("les règles aux posteurs (28 oct.)", () => {
     expect(
       within(carte).getByText("Below 6 posts with link in a week, we stop our collaboration. That last week is still paid in full."),
     ).toBeInTheDocument();
-    expect(within(carte).getByText(/Monday 8 pm/)).toBeInTheDocument();
+    expect(within(carte).getByText(/End of your first Monday \(midnight, Paris time\)/)).toBeInTheDocument();
     expect(within(carte).getByText(/^Thursday:/)).toBeInTheDocument();
     expect(within(carte).getByText(/^Saturday:/)).toBeInTheDocument();
     expect(carte.textContent).not.toMatch(/tolerated|\$1 off|Wednesday|Friday/);

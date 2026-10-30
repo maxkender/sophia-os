@@ -157,12 +157,14 @@ describe("le catalogue des textes, les délais et le journal (sans base)", () =>
   it("tous les textes d'un message envoyé, une seule fois chacun", () => {
     expect(new Set(TEXTES.map((x) => x.id)).size).toBe(TEXTES.length);
     for (const cle of ["accueil_message_texte", "relance_texte_cadre", "relance_texte_connexion", "lundi_texte_tous", "lundi_soir_texte",
-      "jeudi_nudge_texte", "kill_message_texte", "arret_message_texte", "double_popup_texte", "recreer_popup_texte",
+      "jeudi_nudge_texte", "double_popup_texte", "recreer_popup_texte",
       "nudge_regularite_texte", "lien_1000", "reponse_texte_upwork", "reponse_texte_augmentation", "reponse_texte_propre_compte",
       "reponse_texte_absent"]) {
       expect(CLES_TEXTES).toContain(cle);
     }
     expect(TEXTES.filter((x) => x.groupe === "reponses")).toHaveLength(4);
+    // 0463 : aucun message au Kill ni à l'arrêt.
+    for (const cle of ["kill_message_texte", "kill_moins6_texte", "arret_message_texte"]) expect(CLES_TEXTES).not.toContain(cle);
   });
 
   it("lire et écrire un champ de réglage objet", () => {

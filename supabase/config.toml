@@ -39,6 +39,9 @@ enable_confirmations = false
 # `bruler-texte-test` (appelée depuis l'admin avec un JWT).
 # ---------------------------------------------------------------------------
 
+[functions.ab-traduction]
+verify_jwt = false
+
 [functions.ameliorer-review]
 verify_jwt = false
 

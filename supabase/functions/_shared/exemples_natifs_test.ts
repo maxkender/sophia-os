@@ -5,6 +5,8 @@ import {
   idPost,
   lireLignes,
   motifRefus,
+  ouvriersALancer,
+  OUVRIERS_MAX,
   postDuLien,
   pseudoDuLien,
   slideshowsDuCompte,
@@ -105,6 +107,24 @@ Deno.test("le post d'Apify d'un lien de la banque, /photo/ ou /video/", () => {
 Deno.test("un échec retourne en file, sauf au dernier essai", () => {
   assertEquals(apresEchec(1, "Apify : 502"), { statut: "en_attente", erreur: "Apify : 502" });
   assertEquals(apresEchec(TENTATIVES_MAX, "Apify : 502"), { statut: "erreur", erreur: "Apify : 502" });
+});
+
+Deno.test("assez d'ouvriers pour le travail libre, jamais plus de OUVRIERS_MAX en tout", () => {
+  const charge = (lecturesLibres: number, lecturesPrises = 0, comptesLibres = 0, comptesPris = 0) => ({
+    lecturesLibres,
+    lecturesPrises,
+    comptesLibres,
+    comptesPris,
+  });
+  assertEquals(ouvriersALancer(charge(0)), 0);
+  assertEquals(ouvriersALancer(charge(7)), 2);
+  assertEquals(ouvriersALancer(charge(300)), OUVRIERS_MAX);
+  // 4 ouvriers déjà en lecture (24 slideshows pris) : 2 de plus.
+  assertEquals(ouvriersALancer(charge(300, 24)), 2);
+  assertEquals(ouvriersALancer(charge(300, 40)), 0);
+  // 37 comptes collés : de quoi en chercher 12 à la fois.
+  assertEquals(ouvriersALancer(charge(0, 0, 37)), OUVRIERS_MAX);
+  assertEquals(ouvriersALancer(charge(0, 0, 3, 2)), 2);
 });
 
 Deno.test("les slides lues gardent leur position et perdent les slides vides", () => {

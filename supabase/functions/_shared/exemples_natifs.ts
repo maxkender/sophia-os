@@ -17,13 +17,18 @@ export const SLIDESHOWS_PLUS_LIKES = 5;
 export const POSTS_LUS_PAR_COMPTE = 60;
 /**
  * Le travail tourne sur le serveur (0618) : l'admin colle et peut fermer la
- * page ; la tâche planifiée passe chaque minute. Une fonction Edge s'arrête à
- * 150 s, d'où des passages courts : quelques comptes (une recherche Apify de
- * 20 à 40 s chacun, en parallèle) et quelques slideshows (un seul run Apify
- * pour tous, puis l'OCR de leurs slides).
+ * page. Des ouvriers (un appel de la fonction chacun, en parallèle) prennent
+ * chacun quelques comptes (une recherche Apify de 20 à 40 s par compte, en
+ * parallèle) et quelques slideshows (un seul run Apify pour tous, puis l'OCR
+ * de leurs slides). Une fonction Edge s'arrête à 150 s, d'où des lots courts.
  */
-export const COMPTES_PAR_PASSAGE = 4;
-export const LECTURES_PAR_PASSAGE = 6;
+export const COMPTES_PAR_OUVRIER = 2;
+export const LECTURES_PAR_OUVRIER = 6;
+/**
+ * Ouvriers au plus en même temps : 36 slideshows lus à la fois. Au-delà,
+ * Apify (mémoire) et l'OCR (débit) saturent.
+ */
+export const OUVRIERS_MAX = 6;
 /** Slides lues en même temps par l'OCR. */
 export const OCR_EN_PARALLELE = 8;
 /**
@@ -33,6 +38,31 @@ export const OCR_EN_PARALLELE = 8;
 export const BUDGET_PASSAGE_MS = 115_000;
 /** Un compte ou un slideshow pris trois fois sans aboutir est abandonné (0618). */
 export const TENTATIVES_MAX = 3;
+/** Ce qui reste à faire et ce qui est pris par un ouvrier (pris il y a moins de 5 minutes). */
+export interface Charge {
+  comptesLibres: number;
+  comptesPris: number;
+  lecturesLibres: number;
+  lecturesPrises: number;
+}
+
+/**
+ * Combien d'ouvriers lancer : de quoi prendre tout le travail libre, sans
+ * dépasser OUVRIERS_MAX avec ceux qui tournent déjà (estimés d'après les
+ * lignes prises).
+ */
+export function ouvriersALancer(c: Charge): number {
+  const enCours = Math.max(
+    Math.ceil(c.lecturesPrises / LECTURES_PAR_OUVRIER),
+    Math.ceil(c.comptesPris / COMPTES_PAR_OUVRIER),
+  );
+  const besoin = Math.max(
+    Math.ceil(c.lecturesLibres / LECTURES_PAR_OUVRIER),
+    Math.ceil(c.comptesLibres / COMPTES_PAR_OUVRIER),
+  );
+  return Math.max(0, Math.min(besoin, OUVRIERS_MAX - enCours));
+}
+
 /** Lignes acceptées par envoi : au-delà, coller en plusieurs fois. */
 export const MAX_LIGNES_PAR_ENVOI = 200;
 /** En dessous, l'exemple n'apprend rien : c'est une image, pas un slideshow. */

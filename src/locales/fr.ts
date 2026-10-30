@@ -1511,7 +1511,7 @@ export const fr = {
           titre: "Sur le serveur",
           enCours:
             "{{comptes}} compte(s) à chercher · {{lectures}} slideshow(s) à lire, dont {{enLecture}} en lecture en ce moment. Tu peux fermer la page.",
-          rythme: "Le serveur lit 6 slideshows à la fois, chaque passage prend 1 à 2 minutes.",
+          rythme: "Le serveur lit jusqu’à 36 slideshows à la fois, par lots de 6 ; un lot prend 1 à 2 minutes.",
           dernierLu: "Dernier slideshow lu à {{heure}}.",
           rien: "Rien en cours : tout ce qui a été collé est cherché et lu.",
           vide: "Aucun compte collé en {{langue}} pour l’instant.",

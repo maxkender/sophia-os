@@ -27,13 +27,14 @@ type Supabase = ReturnType<typeof serviceClient>;
 export type BrasTraduction = "temoin" | "natif";
 
 /**
- * La voie du CTA d'un deck (colonnes `voie_cta` de 0600), tirée par l'OS à la
- * commande, jamais par le modèle : `reprise` (le CTA de l'original), `prouvee`
- * (une forme qui a fait ses preuves dans le label), `essai` (une forme neuve).
+ * La voie du CTA d'un deck (colonnes `voie_cta` de 0600). Depuis 0624, l'OS
+ * n'impose que `reprise` (l'original cite un concurrent) et `marquee` (le podz
+ * a marqué la slide) ; `prouvee` et `essai` restent permis par les colonnes
+ * mais ne sont plus tirés.
  */
 export type VoieCta = "reprise" | "prouvee" | "essai" | "marquee" | "concurrent";
 
-/** Le CTA commandé à un circuit : la voie tirée et, pour `prouvee` ou `essai`, la forme. */
+/** Le CTA imposé à un circuit : la voie, et une forme seulement si un jour on en impose une (null depuis 0624). */
 export interface CommandeCta {
   voie: VoieCta;
   forme: string | null;

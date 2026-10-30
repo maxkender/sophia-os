@@ -30,7 +30,6 @@ import { ConnecterSlack } from "@/features/onboarding/ConnecterSlack";
 import { BoutonAbsence } from "@/features/absences/BoutonAbsence";
 import { DemandeHandle } from "@/features/onboarding/DemandeHandle";
 import { StartWarmupHandle } from "@/features/onboarding/StartWarmupHandle";
-import { WarmupFiniCapture } from "@/features/onboarding/WarmupFiniCapture";
 import { lireMaPremiereSemaine } from "@/features/onboarding/cinqEtapesApi";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
@@ -516,7 +515,6 @@ export function PosterCalendrierPage() {
             {demandeHandle && (
               <StartWarmupHandle compteId={compte.id} handle={compte.handle_tiktok} onFerme={() => setDemandeHandle(false)} />
             )}
-            {compte.warmup_started_at && user?.id && <WarmupFiniCapture compteId={compte.id} uid={user.id} />}
           </div>
         )}
       </div>

@@ -110,6 +110,9 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | D40 | Le r moyen affiché dans l'OS comptait r = 20 pour chaque passage publié sans r (`least(NULL, 20)` rend 20 en Postgres) : famille « hobbies that will make you disgustingly confident » à 5,3 au lieu de 1,93 | Corrigé (0611) : la moyenne ne lit que les r mesurés. Seul l'affichage était faux : fermeture, forme et tirage filtrent déjà `r is not null`. Les chiffres des reposts (D39) sont refaits sans ce biais : inchangés | fait (0611) |
 | D41 | La fatigue ne s'oublie jamais : `n_post` et `n_accroche` comptent tous les passages depuis toujours, et aussi les passages restés `assigne` des semaines après leur date (jamais publiés). Exemple : la meilleure accroche de weird_alpha (433 k vues) vaut 0,005 en allemand (22 passages de la famille, dont 4 jamais publiés) contre 2,69 en français | Ne compter que les passages des 60 derniers jours, et les `assigne` seulement jusqu'à 3 jours après leur date | fait (0612), décision d'Adrien le 29/10 ; dans l'exemple, la famille passe de 22 à 18 passages comptés en allemand |
 | D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) | à décider |
+| D42 | La boîte liste des parents : une famille dont plusieurs G1 ont gagné y avait une ligne de G2 par G1, à la suite depuis D35 (weird_alpha : 3 G2 de « hobbies that will make you dangerously confident » aux rangs 1 à 3, famille déjà au budget de diffusion). Rien ne limitait la production d'une famille par jour | **Tranché le 30/10 par Adrien** : une ligne par famille, familles au budget en fin de boîte, une déclinaison par famille et par jour (refus `famille_du_jour`) | fait (0628) |
+| D43 | La boîte d'un label mélange des familles anglaises et françaises (beau_smart_girl : 85 lignes anglaises sur 123, alors que le podz 7 écrit en français) : une G1 traduite perd l'accroche mot pour mot et le guichet la refuse | Une déclinaison s'écrit dans la langue de son parent ; l'OS la traduit ensuite pour chaque compte | fait (ROUTINE.md §4.3, 30/10) |
+| D44 | Les consignes des routines des podz (« livraisons du jour avec leur preuve ») ne se changent que depuis la conversation de chaque podz, pas depuis la coordination | La routine commune prime ; les podz sont prévenus par message à la bascule ; à Adrien de les changer s'il le souhaite | contourné |
 
 ### Colonne langue : la réécriture native (plan du 29/10, remplace L9 à L11)
 
@@ -260,7 +263,7 @@ la preuve n'est plus demandée. Codes de refus : `type_bleo_invalide`,
 famille de son parent tout de suite (même règle que A2 a). Le nombre de full
 tests du jour suit la part de la jauge sans hasard (cumul arrondi). Sans
 `type_bleo`, le dépôt suit le chemin d'avant (preuve comprise) : les outils des
-podz passent à `type_bleo` avec les routines (lundi), puis
+podz passent à `type_bleo` avec les routines (bascule du dimanche 1/11 au soir), puis
 `type_obligatoire = true`. D30 (accroche à peine reformulée d'une famille
 gagnante) reste à décider : pas encore de refus.
 
@@ -271,7 +274,7 @@ G2, un full test ; que faire de chaque refus du guichet) et voie 2 inchangée
 (D25). L'ancienne routine est gardée dans `pods/ROUTINE-avant-bleo.md`. **La
 bascule des podz est un réglage** : tant que `reglages.bleo.podz.type_obligatoire`
 est faux, `npm run boite` affiche « podz sur BLEO : pas encore » et la voie 1
-suit la routine d'avant ; le passer à vrai lundi 2/11 avant 6 h fait passer les
+suit la routine d'avant ; le passer à vrai le dimanche 1/11 au soir fait passer les
 7 podz sur la boîte (et le guichet refuse alors un dépôt sans `type_bleo`).
 Retour en arrière : le repasser à faux. Les 7 `AGENT.md` de la voie 1 ont un
 encadré qui dit ce qui ne vaut plus (preuve, veille, variantes, essais) ; le
@@ -291,8 +294,8 @@ après la bascule » sur la vue d'ensemble BLEO : 21 jours, jours pas encore
 mesurés en grisé (le r d'un post se calcule 72 h après sa publication ; en
 pratique 3 à 4 jours de retard), et l'alerte en rouge quand le r médian des 3
 derniers jours mesurés baisse de plus de 15 % par rapport aux 14 jours d'avant.
-Le premier jour assigné par BLEO (3/11) entre dans l'alerte vers le 7/11 ; elle
-ne compare BLEO seul à l'ancien système qu'à partir du 9/11 environ.
+Le premier jour assigné par BLEO (2/11) entre dans l'alerte vers le 6/11 ; elle
+ne compare BLEO seul à l'ancien système qu'à partir du 8/11 environ.
 
 **Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
 en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
@@ -300,29 +303,18 @@ rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine
 assignation de minuit. Sans l'interrupteur, le tirage aurait cessé en mode
 actif (corrigé par 0614).
 
+**Calendrier (à jour le 30/10 au soir).**
+
 | Quand | Quoi |
 | --- | --- |
-| Ven 30/10 | L4 : guichet (`boite`, dépôt BLEO, refus D30, D35), outils `boite` et `deposer` des 7 podz de la voie 1, routines, chef. Code de bascule (plan suivi à minuit, interrupteur de mode). Légendes d'images (10 h à 19 h 30) |
-| Sam 31/10 | Tests : guichet et outils, assignation de quelques comptes en `dryRun` sur le plan du 1/11 |
-| Dim 1/11 | Répétition générale en `dryRun` sur tous les comptes ; relecture avec Adrien |
-| Lun 2/11 | Merge le matin : les podz passent sur BLEO. 14 h : plan du mardi. 22 h : feu vert ou non (rapport et porte « BLEO tourne »), `bleo.mode = actif` |
-| Mar 3/11 | **Premier jour assigné par BLEO** (assignation de minuit du lundi au mardi) |
+| Ven 30/10 | L4 fini (guichet, outils, routines, chef), légendes d'images (13 418, fini à 20 h 27), une ligne par famille et une déclinaison par famille et par jour (0628) |
+| Sam 31/10 | 6 h 10 : contrôle de la nuit. Podz 8 et 9 : premiers dépôts par la boîte. 15 h 20 : répétition (servabilité du plan du 1/11, assignation à blanc, dépôts 8 et 9) |
+| Dim 1/11 | 15 h 20 : répétition générale sur le plan du 2/11. **20 h 20 : bascule complète** si tout est vert (mode `actif`, podz sur la boîte, messages aux podz) |
+| Lun 2/11 | **Premier jour assigné par BLEO.** 6 h 10 : contrôle de la nuit ; 7 h 17 – 7 h 47 : premières routines des podz sur la boîte ; 8 h 40 : contrôle des dépôts ; 22 h 08 : bilan du premier jour |
 | ~Lun 9/11 | D39 : déclinaison G1 du hit à la place du repost |
 | ~Lun 16/11 | Fin de la tierlist (L8) si 14 jours stables |
 
-
-| Quand | Lot | Remarque |
-| --- | --- | --- |
-| Ven 30/10 | L0 · Instrumenter | Migration 0416 appliquée avant le merge (D7) |
-| 31/10 – 2/11 | L1 · Remplir l'existant ; L7 · Decks l'après-midi (en parallèle) | L1 dépend du script des notes (D12) |
-| 2/11 – 4/11 | L2 · `bleo-nuit`, cron 05 h 15 | Puis 3 nuits sans erreur |
-| 4/11 – 8/11 | L5 · Tirage à blanc ; L3 et L4 si prêts | L3/L4 avant J1 ou après J14, jamais pendant |
-| **Lun 9/11** | J1 : `bleo.mode = ombre` à 9 h | Repli : lun 16/11 |
-| Jeu 12/11 | J4 : porte « BLEO tourne », premier tirage A/B | |
-| Dim 22/11 | J14 : décision | |
-| Lun 23/11 | J15 : bascule | |
-| Mer 25/11 | J17 : confirmation | |
-| ~9/12 | L8 : suppression de la tierlist | 14 jours stables après J17 |
+Le calendrier A/B de la spec (J1 le 9/11, J14 le 22/11, L8 le 9/12) est caduc : pas d'A/B.
 
 La colonne langue suit le plan « Réécriture native » du 29/10 (voir plus haut) :
 fiches et comparateur tout de suite, production 50/50 sur l'allemand après J14.
@@ -351,6 +343,11 @@ modifié, aucune fonction Edge redéployée) :
 | `0615_bleo_guichet` | L4 : `bleo_verifier_depot(label, type_bleo, parent, accroche_norm, livraison)` juge un dépôt de podz (13 codes de refus, voir plus bas) ; `reglages.bleo.podz.type_obligatoire` (faux jusqu'à la bascule des podz) | Appliquée le 29/10, testée sur les données réelles (chaque code) |
 | `0616_bleo_jauge_jours` | La jauge des podz photographiée chaque jour à 5 h 40 (`bleo_jauge_jours`, cron `bleo-jauge-photo`) : la règle de baisse du chef (14 jours sous 1 semaine) et le suivi avant/après en ont besoin | Appliquée le 29/10, première photo prise |
 | `0617_bleo_suivi` | Suivi avant/après : vue `bleo_suivi_jours` (r médian, part à 10 000 vues, vues par post, part du plan BLEO, par jour) et `bleo_suivi_alerte()` (r médian des 3 derniers jours mesurés contre les 14 d'avant, alerte au-delà de 15 %, `reglages.bleo.suivi`) | Appliquée le 29/10 ; au 25/10 : 0,96 contre 1,00 (−4 %), pas d'alerte |
+| `0620_ab_traduction` | A/B traduction et placement : duels à l'aveugle en Tests (`ab_traduction_duels`), et, coupés, le réglage, `decks_natifs`, `passages.bras_traduction`, le rapport | Appliquée le 30/10 ; A/B **seulement dans Tests** (Adrien, 30/10) |
+| `0623_fiche_cta` | `bleo_fiches` accepte la sorte `cta` : la fiche CTA commune | Appliquée le 30/10 ; version 3 (le hook ne change pas, la mise en page et la frappe) |
+| `0628_bleo_boite_une_famille_par_jour` | Une ligne par famille dans la boîte (G2 d'abord, puis le parent le moins décliné), familles au budget en fin de boîte ; le guichet refuse une 2e déclinaison de la même famille le même jour (`famille_du_jour`) | Appliquée le 30/10, testée (refus après un dépôt du jour, annulé) |
+
+Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -462,3 +459,6 @@ recalculée à la main, rejouabilité, derniers plans).
   (0613) au lieu de la description TikTok.
 - **29/10, 19 h** : décision d'Adrien : pas d'A/B, podz sur BLEO et bascule lundi,
   ancien système en secours. Plan ci-dessus (section « Bascule du lundi 2/11 »).
+- **30/10** : nuit du 30/10 sans posts au réveil (crédits Gemini épuisés, 402, réessais qui saturent le CPU du drain) ; repli fal (#884), rattrapage complet (490 posts). Plan BLEO rebranché dans minuit (#900). Interrupteur, guichet, outils et routines des podz, suivi avant/après (L4 fini).
+- **30/10, après-midi** : A/B traduction préparé (0620), puis limité à Tests sur décision d'Adrien (#908 fermée). Fiche CTA (0623) ; le CTA sans stats ni forme tirée (0624, session de la relecture native). Relecture native et Fiches rangées dans la section BLEO du menu.
+- **30/10, soir** : bascule avancée au **dimanche 1/11 au soir** (Adrien) ; répétition des podz 8 et 9 sur la boîte samedi et dimanche ; légendes finies (13 418, 0 échec ; 820 images restent « aucune » d'un passage plus ancien) ; D42 et D43 tranchés (0628, routine) ; plus de CTA jugé aux vues dans les consignes des podz ; spec mise à jour (section « État au 30/10 »).

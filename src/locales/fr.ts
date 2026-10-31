@@ -249,6 +249,24 @@ export const fr = {
       decisions: {
         onglets: { jeudi: "Jeudi", samedi: "Samedi", dimanche: "Dimanche : warm-up", reglages: "Réglages" },
         dimanche: {
+          choix: { keep: "Keep", mardi: "Start Tuesday", reporter: "Postpone" },
+          confirmerChoix: {
+            mardi: "Start Tuesday pour {{nom}} ? Ses posts commencent mardi (lundi n'est pas attendu). Le message part sur {{canal}} si Step reminders est sur On, et s'affiche sur son dashboard.",
+            reporter: "Reporter {{nom}} au lundi suivant ? Rien n'est envoyé.",
+          },
+          prevu: {
+            keep: "Prête : commence lundi",
+            mardi: "Pas prête : Start Tuesday automatique à 22:45 (Paris) si tu ne choisis pas",
+            reporter: "Reportée",
+          },
+          source: {
+            manuel: "Choisi le {{date}}",
+            auto_dimanche: "Start Tuesday mis automatiquement le {{date}}",
+            auto_lundi: "Pas de Start warmup avant lundi midi : reportée automatiquement le {{date}}",
+          },
+          messagePartiSur: "Message parti sur {{canal}}",
+          messageCoupe: "Step reminders est sur Off : aucun message (affiché sur le dashboard)",
+          recapChoix: "Pas prêtes : Keep {{keep}} · Start Tuesday {{mardi}} · Postpone {{reporter}}",
           titre: "Check du warm-up, cohorte du {{date}}",
           aide: "Dimanche 20:00 : les recrues de la cohorte du lendemain qui ont cliqué Start warmup, relevées à 18:00 (page TikTok, puis Apify). À risque : moins de 5 abonnements, un post pendant le warm-up, ou introuvable par les 2 méthodes. Rien ne part sans clic.",
           cohorte: "Cohorte (lundi)",
@@ -256,7 +274,7 @@ export const fr = {
           aRisque: "À risque ({{n}})",
           autres: "Semblent OK ({{n}})",
           illisibles: "Illisibles par les 2 méthodes ({{n}})",
-          reportes: "Pas de compte ou pas de Start warmup : reportées d'une semaine ({{n}})",
+          reportes: "Sans compte ou sans Start warmup ({{n}})",
           rien: "Personne à risque.",
           sansCompte: "pas de compte",
           demarre: "Start warmup {{date}}",

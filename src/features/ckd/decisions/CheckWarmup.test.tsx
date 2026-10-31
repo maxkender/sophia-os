@@ -6,7 +6,8 @@ import i18n from "@/locales";
 
 const api = vi.hoisted(() => ({
   lireCheckWarmup: vi.fn(),
-  deciderWarmup: vi.fn(async () => ({ canal: "slack" })),
+  choisirDebut: vi.fn(async () => ({ canal: "slack", statut: "pas_envoye" })),
+  lireChoixDebut: vi.fn(async () => new Map()),
 }));
 vi.mock("./checkWarmup", async (orig) => ({ ...(await orig<typeof import("./checkWarmup")>()), ...api }));
 vi.mock("@/features/upwork/conversation", async (orig) => ({
@@ -38,7 +39,7 @@ describe("0474 : le check du warm-up du dimanche soir", () => {
     expect(lienTiktok(null)).toBeNull();
   });
 
-  it("à risque en haut avec ses relevés ; OK : rien ne part ; Not warmed up : après confirmation", async () => {
+  it("1/11 : Keep / Start Tuesday / Postpone ; pas prête : Start Tuesday prévu ; le récap", async () => {
     api.lireCheckWarmup.mockResolvedValue([
       ligne({}),
       ligne({ poster_id: "p2", nom: "Bruno Lima", risques: [], groupe: "ok", abonnements: 9 }),
@@ -55,11 +56,18 @@ describe("0474 : le check du warm-up du dimanche soir", () => {
     expect(within(ligneAna).getByText("Under 5 follows")).toBeTruthy();
     expect(within(ligneAna).getByText(/2 follows · 0 posts/)).toBeTruthy();
     expect(screen.getByTestId("compteur-warmup").textContent).toBe("1 at risk · 0 unreadable · 1 look OK · 1 postponed · 0 decided");
-    fireEvent.click(within(ligneAna).getByRole("button", { name: "Not warmed up" }));
+    expect(screen.getByTestId("recap-debut").textContent).toBe("Not ready: Keep 0 · Start Tuesday 2 · Postpone 0");
+    // Pas prête : Start Tuesday prévu (22:45), pas encore choisi.
+    expect(within(ligneAna).getByTestId("choix-etat").textContent).toContain("Start Tuesday automatically at 22:45");
+    fireEvent.click(within(ligneAna).getByRole("button", { name: "Start Tuesday" }));
     expect(confirmer).toHaveBeenCalled();
-    await vi.waitFor(() => expect(api.deciderWarmup).toHaveBeenCalledWith("p1", expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), "pas_chaud"));
-    // Report : pas de bouton, « postponed one week ».
+    await vi.waitFor(() => expect(api.choisirDebut).toHaveBeenCalledWith("p1", expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), "mardi"));
+    // Sans compte : les 3 choix aussi ; Postpone après confirmation.
     const ligneCarla = screen.getByText("Carla Dias").closest("tr") as HTMLElement;
-    expect(within(ligneCarla).queryByRole("button")).toBeNull();
+    fireEvent.click(within(ligneCarla).getByRole("button", { name: "Postpone" }));
+    await vi.waitFor(() => expect(api.choisirDebut).toHaveBeenCalledWith("p3", expect.any(String), "reporter"));
+    // Prête : Keep, sans confirmation.
+    const ligneBruno = screen.getByText("Bruno Lima").closest("tr") as HTMLElement;
+    expect(within(ligneBruno).getByTestId("choix-etat").textContent).toBe("Ready: starts Monday");
   });
 });

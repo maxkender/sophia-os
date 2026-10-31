@@ -259,6 +259,42 @@ export function codePays(v: string | null | undefined): string | null {
 }
 
 /**
+ * 1/11 : le pays nommé dans un texte (titre d'annonce « (GREECE) … », « in Spain »,
+ * réponse « I live in Greece »), s'il n'y en a qu'un ; sinon null.
+ */
+export function paysDansTexte(texte: string | null | undefined): string | null {
+  const t = ` ${normaliserNom(texte)} `;
+  if (!t.trim()) return null;
+  const trouves = new Set<string>();
+  for (const [nom, code] of CODES_PAYS) {
+    // « uk » / « usa » seulement comme mots ; les noms d'au moins 4 lettres partout.
+    if ((nom.length >= 4 || ["uk", "usa"].includes(nom)) && t.includes(` ${nom} `)) trouves.add(code);
+  }
+  return trouves.size === 1 ? [...trouves][0] : null;
+}
+
+/**
+ * 1/11 : la réponse du freelance à « Which country do you live in? » dans la
+ * conversation (messages du plus récent au plus ancien, comme upwork_salons).
+ */
+export function paysDeReponse(messages: { de?: string | null; texte?: string | null }[] | null | undefined): string | null {
+  const ordre = [...(messages ?? [])].reverse();
+  const i = ordre.findIndex((m) => m.de === "nous" && /which country|what country|where do you live/i.test(m.texte ?? ""));
+  if (i < 0) return null;
+  for (const m of ordre.slice(i + 1)) {
+    if (m.de === "nous") continue;
+    const brut = (m.texte ?? "").trim();
+    return codePays(brut.replace(/[.!]+$/, "")) ?? paysDansTexte(brut);
+  }
+  return null;
+}
+
+/** 1/11 : la cohorte d'une recrue reliée maintenant : celle du contrat, jamais avant le prochain lundi. */
+export function cohorteRecrue(cohorteDuContrat: string | null, prochainLundi: string): string {
+  return cohorteDuContrat && cohorteDuContrat > prochainLundi ? cohorteDuContrat : prochainLundi;
+}
+
+/**
  * 0470 : où vit le freelance, par l'API (lecture seule), avec l'id freelancer du
  * contrat. Plusieurs requêtes du schéma, essayées dans l'ordre ; la première qui
  * rend un pays gagne (et le journal upwork_appels dit laquelle). 30/10 :

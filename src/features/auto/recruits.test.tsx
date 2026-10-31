@@ -23,10 +23,17 @@ const pipeline = vi.hoisted(() => ({
   envoyerSurUpwork: vi.fn<(p: string, t: string, type?: string | null) => Promise<void>>(async () => undefined),
 }));
 vi.mock("@/features/pipeline/api", () => pipeline);
-const samedi = vi.hoisted(() => ({ demanderArretSamedi: vi.fn<(p: string, r: string | null) => Promise<boolean>>(async () => true) }));
+const samedi = vi.hoisted(() => ({
+  lireDemandesArret: vi.fn(async () => [{ poster_id: "p1", source: "message" as const, raison: "STOP", demande_at: "2026-10-30T12:00:00Z" }]),
+}));
 vi.mock("@/features/ckd/decisions/semaineComptes", async (orig) => ({ ...(await orig<typeof import("@/features/ckd/decisions/semaineComptes")>()), ...samedi }));
-const cohortes = vi.hoisted(() => ({ reporterRecrue: vi.fn<(p: string) => Promise<string>>(async () => "2026-11-09") }));
+const cohortes = vi.hoisted(() => ({
+  reporterRecrue: vi.fn<(p: string) => Promise<string>>(async () => "2026-11-09"),
+  arreterRecrueSamedi: vi.fn<(p: string) => Promise<void>>(async () => undefined),
+}));
 vi.mock("@/features/cohortes/api", () => cohortes);
+const moteur = vi.hoisted(() => ({ invoke: vi.fn(async () => ({})) }));
+vi.mock("@/features/moteur/api", async (orig) => ({ ...(await orig<typeof import("@/features/moteur/api")>()), ...moteur }));
 vi.mock("@/features/auto/test/ContratsTest", () => ({ BoutonsTest: () => <div data-testid="boutons-test" /> }));
 vi.mock("@/features/accueil/AccueilAuto", () => ({ AccueilAuto: () => <section data-testid="accueil-auto">Contracts to link (2)</section> }));
 vi.mock("@/features/cohortes/Arrets", () => ({ Arrets: () => <section data-testid="arrets-complets" /> }));
@@ -131,7 +138,7 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     expect(visibles()).toEqual(["p3"]);
   });
 
-  it("Send a message, Postpone, Kill on Saturday (confirmés, rien n'est arrêté) ; le posteur de test a ses boutons « Run now »", async () => {
+  it("Send a message, Postpone, Kill (confirmés) ; la demande d'arrêt se voit ici ; le posteur de test a ses boutons « Run now »", async () => {
     rendu();
     await screen.findByText("Ana Silva");
     const carte = document.querySelector<HTMLElement>('[data-recrue="p1"]')!;
@@ -141,8 +148,11 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     await waitFor(() => expect(pipeline.envoyerSurUpwork).toHaveBeenCalledWith("p1", "Hello", "onboarding"));
     fireEvent.click(within(carte).getByRole("button", { name: "Postpone" }));
     await waitFor(() => expect(cohortes.reporterRecrue).toHaveBeenCalledWith("p1"));
-    fireEvent.click(within(carte).getByRole("button", { name: "Kill on Saturday" }));
-    await waitFor(() => expect(samedi.demanderArretSamedi).toHaveBeenCalledWith("p1", null));
+    // 31/10 : la cohorte qui arrive ne passe plus par le samedi : sa demande d'arrêt et le Kill sont ici.
+    expect(within(carte).getByText("« STOP »")).toBeTruthy();
+    fireEvent.click(within(carte).getByRole("button", { name: "Kill" }));
+    await waitFor(() => expect(cohortes.arreterRecrueSamedi).toHaveBeenCalledWith("p1"));
+    await waitFor(() => expect(moteur.invoke).toHaveBeenCalledWith("upwork", { action: "arrets" }));
     const test = document.querySelector<HTMLElement>('[data-recrue="p3"]')!;
     expect(within(test).getByTestId("boutons-test")).toBeTruthy();
     expect(within(test).getByText("TEST")).toBeTruthy();

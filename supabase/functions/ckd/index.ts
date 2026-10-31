@@ -16,7 +16,7 @@ import { identiteSlack, urlConnexionSlack } from "../_shared/slack_connect.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktokFiable as lireProfilTiktok, lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
 import { lireProfilApify } from "../_shared/apify.ts";
-import { generateTextFast } from "../_shared/gemini.ts";
+import { generateTextFast, ocrFrame } from "../_shared/gemini.ts";
 import { estAnglais, lireTraduction, type PostQc, promptTraduction } from "../_shared/qc_traduction.ts";
 import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
@@ -96,6 +96,25 @@ type Supabase = ReturnType<typeof serviceClient>;
  * Le bouton Done des messages arrive dans `slack-interactions`.
  * Secrets : SLACK_HM_BOT_TOKEN (le bot « Sophia OS »), CRON_SECRET.
  */
+/** Le texte de chaque slide d'un deck rendu, lu dans l'image (OCR), 4 à la fois. */
+async function lireTexteImages(supabase: Supabase, passageId: string, slides: { texte?: string; ocr?: boolean }[]) {
+  const { data: pa } = await supabase.from("passages").select("slides").eq("id", passageId).maybeSingle();
+  const brutes = (Array.isArray(pa?.slides) ? pa.slides : []) as { position?: number | string; media_id?: string | null }[];
+  const triees = [...brutes].sort((a, b) => Number(a.position ?? 0) - Number(b.position ?? 0));
+  const ids = triees.map((x) => x.media_id).filter((x): x is string => !!x);
+  const { data: medias } = ids.length ? await supabase.from("media_library").select("id, url").in("id", ids) : { data: [] };
+  const urls = new Map((medias ?? []).map((m) => [m.id as string, m.url as string | null]));
+  const sortie = slides.map((s) => ({ ...s, ocr: true }));
+  for (let i = 0; i < triees.length; i += 4) {
+    await Promise.all(triees.slice(i, i + 4).map(async (x, k) => {
+      const url = x.media_id ? urls.get(x.media_id) : null;
+      if (!url || !sortie[i + k]) return;
+      sortie[i + k].texte = await ocrFrame(url).catch(() => "");
+    }));
+  }
+  return sortie;
+}
+
 /**
  * 31/10 — Quality Control : tire les 10 posts par label du jour (qc_tirer,
  * une seule fois) puis traduit en anglais ceux qui ne le sont pas, un appel
@@ -106,15 +125,31 @@ async function traduireQc(supabase: Supabase, jour: string) {
   const { data: tires, error: e1 } = await supabase.rpc("qc_tirer", { p_jour: jour });
   if (e1) return { ok: false, error: e1.message };
   const { data, error } = await supabase.from("qc_echantillons")
-    .select("id, label_nom, langue, textes_orig").eq("jour", jour).is("textes_en", null).order("label_nom");
+    .select("id, label_nom, langue, passage_id, textes_orig").eq("jour", jour).is("textes_en", null).order("label_nom");
   if (error) return { ok: false, error: error.message };
-  const lignes = (data ?? []) as { id: string; label_nom: string | null; langue: string | null; textes_orig: { texte?: string }[] }[];
+  const lignes = (data ?? []) as {
+    id: string; label_nom: string | null; langue: string | null; passage_id: string; textes_orig: { texte?: string; ocr?: boolean }[];
+  }[];
   const debut = Date.now();
   let traduits = 0;
   const erreurs: string[] = [];
+  // Decks rendus (pods) : le texte est dans l'image ; il est lu (OCR) une fois, puis traduit comme les autres.
+  for (const l of lignes) {
+    if (Date.now() - debut > 60_000) break;
+    const vides = (l.textes_orig ?? []).every((s) => !String(s?.texte ?? "").trim());
+    if (!vides || (l.textes_orig ?? []).some((s) => s?.ocr)) continue;
+    try {
+      l.textes_orig = await lireTexteImages(supabase, l.passage_id, l.textes_orig ?? []);
+      await supabase.from("qc_echantillons").update({ textes_orig: l.textes_orig }).eq("id", l.id);
+    } catch (e) {
+      erreurs.push(`OCR ${l.label_nom ?? "?"} : ${messageErreur(e)}`);
+    }
+  }
   const lots = new Map<string, PostQc[]>();
   for (const l of lignes) {
     const post: PostQc = { id: l.id, langue: l.langue, slides: (l.textes_orig ?? []).map((s) => ({ texte: String(s?.texte ?? "") })) };
+    // Pas encore lu par l'OCR (budget du passage) : attend le passage suivant.
+    if (post.slides.every((s) => !s.texte.trim()) && !(l.textes_orig ?? []).some((s) => s?.ocr)) continue;
     if (estAnglais(l.langue) || post.slides.every((s) => !s.texte.trim())) {
       await supabase.from("qc_echantillons").update({ textes_en: post.slides.map((s) => s.texte), traduit_at: new Date().toISOString(), erreur: null }).eq("id", l.id);
       traduits++;

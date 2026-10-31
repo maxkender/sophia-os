@@ -10,6 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BoutonsTest } from "@/features/auto/test/ContratsTest";
 import { reporterRecrue } from "@/features/cohortes/api";
+import { ResumeContexte } from "@/features/ckd/decisions/ResumeContexte";
+import { type EvenementFil, resumer } from "@/features/ckd/decisions/resumeContexte";
 import { demanderArretSamedi } from "@/features/ckd/decisions/semaineComptes";
 import { envoyerSurUpwork } from "@/features/pipeline/api";
 import { useReglages } from "@/features/reglagesOs/useReglages";
@@ -46,6 +48,25 @@ function useFormats() {
     le: (iso: string | null) => (iso ? heure.format(new Date(iso)) : "—"),
     jour: (d: string) => jour.format(new Date(`${d}T12:00:00Z`)),
   };
+}
+
+/** Le fil d'une recrue : nos messages (et ses réponses), et ce qu'elle a écrit (Slack, Upwork, dashboard). */
+function filRecrue(r: RecrueOnboarding, recus: MessageRecu[]): EvenementFil[] {
+  const vus = new Set<string>();
+  const fil: EvenementFil[] = [];
+  const ajouter = (e: EvenementFil) => {
+    const cle = `${e.sens}:${e.at.slice(0, 16)}:${(e.texte ?? "").slice(0, 20)}`;
+    if (!vus.has(cle)) {
+      vus.add(cle);
+      fil.push(e);
+    }
+  };
+  for (const m of r.messages) {
+    if (m.statut !== "erreur" && m.at) ajouter({ sens: "envoye", at: m.at, canal: (m.canaux?.length ? m.canaux.join("+") : m.canal) ?? null, texte: m.texte });
+    if (m.reponse?.at) ajouter({ sens: "recu", at: m.reponse.at, canal: m.reponse.canal ?? null, texte: m.reponse.texte ?? null });
+  }
+  for (const m of recus) if (m.recu_at) ajouter({ sens: "recu", at: m.recu_at, canal: m.canal ?? null, texte: m.texte ?? null, cas: m.cas ?? null });
+  return fil;
 }
 
 /** Une recrue : qui, son contrat, ses étapes, ses messages, la prochaine relance, et les boutons. */
@@ -171,6 +192,9 @@ function CarteRecrue({
             </>
           )}
         </dl>
+
+        {/* Le contexte : ce qui s'est dit avec la HM ou le bot, et s'il ne répond pas, depuis quand. */}
+        <ResumeContexte r={resumer(filRecrue(r, recus))} derniereConnexion={r.connexion_at} />
 
         <ol className="grid gap-1 text-xs sm:grid-cols-5" data-testid="etapes">
           {etapesRecrue(r).map((e, i) => (

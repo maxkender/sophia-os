@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "disputes" | "payroll" | "faq" | "logs";
+export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "faq" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
@@ -16,6 +16,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "received", to: "/admin/auto/received" },
   // Prompt 21, U : tout ce que l'OS n'a pas pu faire, ou dont il n'est pas sûr (juste avant Disputes).
   { cle: "needs", to: "/admin/auto/needs-you" },
+  // Seulement les alertes graves (messages bloqués, trop d'appels à l'API, panne), avec une piste de débogage.
+  { cle: "problems", to: "/admin/auto/problems" },
   // Prompt 21, R : quand un posteur dit que l'OS s'est trompé (entre Messages received et Payroll).
   { cle: "disputes", to: "/admin/auto/disputes" },
   { cle: "payroll", to: "/admin/auto/payroll" },

@@ -88,7 +88,10 @@ belle.
 3. **Les déclinaisons**, pour le reste de tes `par_jour`, dans l'ordre de la
    boîte : la ligne 1, puis la 2, etc. La boîte n'a qu'**une ligne par
    famille**, et une famille ne se décline **qu'une fois par jour** (le
-   guichet refuse la deuxième : `famille_du_jour`). Les familles « au budget »
+   guichet refuse la deuxième : `famille_du_jour`). Deux familles au hook
+   presque pareil (« 6 hobbies that make you unexpectedly smarter » et « 6
+   hobbies that make you smarter without actually studying ») comptent comme
+   une : la seconde est refusée le même jour (`accroche_voisine`). Les familles « au budget »
    (déjà très diffusées cette semaine) sont en fin de boîte : ne les prends que
    s'il ne reste rien d'autre.
 4. **Boîte vide** : uniquement des full tests, et dis-le dans ton compte rendu.
@@ -150,6 +153,7 @@ prends la ligne suivante de la boîte.
 | --- | --- | --- |
 | `quota_atteint` | Ce parent a déjà ses 3 déclinaisons | La ligne suivante de la boîte |
 | `famille_du_jour` | Cette famille a déjà une déclinaison aujourd'hui (une par famille et par jour) | La ligne suivante de la boîte |
+| `accroche_voisine` | Une livraison du jour de ton label a déjà un hook presque pareil (mêmes mots pour l'essentiel) | La ligne suivante de la boîte |
 | `famille_close`, `famille_non_gagnante` | La famille n'est plus dans la boîte | Relance `npm run boite`, la ligne suivante |
 | `famille_inconnue` | Le parent vient d'être validé, pas encore rattaché | Le décliner demain |
 | `generation_max`, `parent_non_gagnant` | Pas de G3, et une G2 se fait sur une G1 gagnante | Le parent de la ligne de la boîte, tel quel |

@@ -232,7 +232,7 @@ La famille est propre à un label : la même accroche dans deux labels fait deux
 
 Un dépôt de déclinaison est refusé si : la famille n'est pas gagnante, la famille est close, le parent est de génération 2, ou le quota de **3** déclinaisons du parent est atteint (A9).
 
-*30/10 :* refusé aussi si la famille a déjà une déclinaison déposée le même jour (`famille_du_jour`, 0628), si une G1 n'a pas l'accroche du parent mot pour mot (`accroche_differente`) ou si une G2 la garde telle quelle (`accroche_identique`) (D35). Le guichet (`bleo_verifier_depot`, 0615) rend un code par refus.
+*30/10 :* refusé aussi si la famille a déjà une déclinaison déposée le même jour (`famille_du_jour`, 0628 ; et, depuis le 31/10, si une livraison du jour du label a un hook voisin : `accroche_voisine`, 0631), si une G1 n'a pas l'accroche du parent mot pour mot (`accroche_differente`) ou si une G2 la garde telle quelle (`accroche_identique`) (D35). Le guichet (`bleo_verifier_depot`, 0615) rend un code par refus.
 
 ### A3 · Verdict d'accroche (chaque nuit, après A1)
 
@@ -328,6 +328,7 @@ Ordre de la boîte : les familles jamais déclinées d'abord, puis par `verdict_
 - **une seule ligne par famille** : sa G2 d'abord, sinon le parent qui a le moins de déclinaisons. Une famille dont plusieurs G1 ont gagné avait autant de lignes de G2, à la suite : 3 posts de la même accroche le même jour ;
 - **ordre** : les familles qui ne sont pas au budget d'abord ; parmi elles, les G2 en tête, puis les familles jamais déclinées, puis `verdict_le` du plus récent au plus ancien. Les familles au budget passent en fin de boîte : leurs posts ne seraient pas servis avant des jours ;
 - **une déclinaison par famille et par jour** (jour de Paris), tous parents confondus : le guichet refuse la deuxième (`famille_du_jour`) ;
+- *31/10 (D45, 0631) :* **pas deux déclinaisons au hook voisin le même jour dans un label** : une famille, c'est un hook exact, et des familles quasi identiques (« 6 hobbies that make you unexpectedly smarter » / « … smarter without actually studying ») partaient le même jour. Le guichet refuse la seconde (`accroche_voisine`) : au moins 2 mots en commun et 60 % des mots du hook le plus court (`boite.voisine_mots_min`, `boite.voisine_seuil`). Le regroupement de ces familles en un thème, pour la fatigue et la boîte, vient après la bascule (avec D30) ;
 - **G1** : l'accroche du parent mot pour mot ; **G2** : la même promesse, reformulée. Une déclinaison s'écrit dans la langue de son parent : la boîte d'un label mélange des familles anglaises et françaises, et l'OS traduit ensuite pour chaque compte.
 
 **Fermeture** : une famille est close quand le r médian des passages mûrs de sa dernière génération passe sous **1**, mesuré sur au moins **4** passages. Ses contenus restent dans le tirage ; elle ne reçoit plus de déclinaison.

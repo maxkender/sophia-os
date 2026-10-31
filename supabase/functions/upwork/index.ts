@@ -337,8 +337,7 @@ Deno.serve(async (request) => {
         return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
       case "relier_contrats":
         // 1/11 : les contrats « To link » (VIk Studios) : pays, HM, cohorte ; sans confirmer, l'aperçu seul.
-        // Avec confirmer (un clic, jamais un cron) : profil créé et relié, aucun welcome (il attend On).
-        if (body.confirmer === true && acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        // Avec confirmer (aucun cron n'a cette action) : profil créé et relié, aucun welcome (il attend On).
         return json(await relierContrats(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null, body.confirmer === true));
       case "accueil_creer":
         // 0470 : carte « Contract to link » : un clic, le posteur créé et la bienvenue envoyée.

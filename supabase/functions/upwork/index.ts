@@ -35,6 +35,9 @@ import {
 import {
   type Annonce,
   bienvenueARattraper,
+  cohorteRecrue,
+  paysDansTexte,
+  paysDeReponse,
   codePays,
   type DetailsContrat,
   hmDeNomUpwork,
@@ -332,6 +335,11 @@ Deno.serve(async (request) => {
       case "accueil_localiser":
         // 0470 : pays du freelance et HM du contrat, lus et montrés ; rien n'est créé ni envoyé.
         return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "relier_contrats":
+        // 1/11 : les contrats « To link » (VIk Studios) : pays, HM, cohorte ; sans confirmer, l'aperçu seul.
+        // Avec confirmer (un clic, jamais un cron) : profil créé et relié, aucun welcome (il attend On).
+        if (body.confirmer === true && acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await relierContrats(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null, body.confirmer === true));
       case "accueil_creer":
         // 0470 : carte « Contract to link » : un clic, le posteur créé et la bienvenue envoyée.
         // Jamais par un cron planifié (aucun n'a cette action) ; un appel explicite, avec confirmer.
@@ -2768,6 +2776,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
   // Prompt 21, C8 : un seul lien Slack, le réglage slack_lien_invitation (plus de lien écrit en dur).
   const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
+  // 1/11 : sur On, les recrues créées sans welcome (accueil_auto était sur Off) le reçoivent d'abord.
+  const enAttente = mode === "on" ? await envoyerBienvenuesEnAttente(supabase, par, modele, slack) : null;
 
   const { data: nouveaux, error } = await supabase
     .from("upwork_contrats")
@@ -2875,6 +2885,12 @@ async function accueillir(supabase: Supabase, par: string | null) {
       // Prompt 25 MAJ : la recrue déjà créée par la HM. Jamais un 2e profil : le contrat est relié au sien
       // et la bienvenue part quand même (un message en double n'est pas grave).
       if (plan.poster_id && (mode === "on" || test)) {
+        // 1/11 : créée par la HM et déjà connectée (logins donnés par la HM) : relié, pas de welcome en double.
+        if (!test && await dejaConnecte(supabase, plan.poster_id)) {
+          await supabase.from("accueils").upsert({ ...base, statut: "doublon", poster_id: plan.poster_id, raison: RAISON_DEJA_CONNECTE });
+          bilan.doublons++;
+          continue;
+        }
         const r = await accueillirExistant(supabase, par, base, plan.poster_id, modele, slack);
         if (r.erreur) bilan.erreurs.push(`${contratId} : ${r.erreur}`);
         else bilan.crees++;
@@ -2925,7 +2941,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
       if (a?.poster_id) await supabase.from("contrats_test").update({ poster_id: a.poster_id }).eq("contrat_id", contratId);
     }
   }
-  return { ok: bilan.erreurs.length === 0, ...bilan };
+  return { ok: bilan.erreurs.length === 0, ...bilan, ...(enAttente ? { bienvenues_en_attente: enAttente } : {}) };
 }
 
 /**
@@ -3239,10 +3255,11 @@ async function creerEtAccueillir(
   },
   modele: string,
   slack: string,
+  opts: { sansBienvenue?: boolean } = {},
 ): Promise<{ erreur: string | null }> {
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", a.contrat_id);
-  if (await bienvenueCoupee(supabase, a.contrat_id)) {
+  if (!opts.sansBienvenue && await bienvenueCoupee(supabase, a.contrat_id)) {
     return { erreur: "Welcome off (accueil_auto = off): the HM creates the poster from the hiring form and gives the logins. The OS links the contract." };
   }
   const base = Deno.env.get("SUPABASE_URL");
@@ -3279,6 +3296,10 @@ async function creerEtAccueillir(
     // 31/10 : un seul profil par contrat. La HM l'a déjà créé : l'OS ne crée
     // rien, il relie le contrat à ce profil et envoie son welcome.
     const existant = posteurExistantDeErreur(cree?.error);
+    if (r.status === 409 && existant && opts.sansBienvenue) {
+      await fin({ statut: "doublon", raison: "profil déjà créé pour ce contrat : rien créé (1/11)", poster_id: existant });
+      return { erreur: null };
+    }
     if (r.status === 409 && existant) {
       return await accueillirExistant(
         supabase, par,
@@ -3304,6 +3325,11 @@ async function creerEtAccueillir(
     ...(a.tarif ? { tarif_hebdo: a.tarif } : {}),
   }).eq("id", cree.userId);
   await fin({ statut: "cree", raison: null, poster_id: cree.userId, email: cree.email ?? null });
+  // 1/11 : créé et relié sans welcome ; il part quand Automatic onboarding passe sur On.
+  if (opts.sansBienvenue) {
+    await fin({ statut: "cree", raison: RAISON_BIENVENUE_ATTENTE, bienvenue_attente: true });
+    return { erreur: null };
+  }
   // 3. Le message de bienvenue, une seule fois (accueils.message_at).
   const texte = messageAccueil(modele, {
     prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: cree.password ?? MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
@@ -3328,6 +3354,132 @@ async function creerEtAccueillir(
   }
   await fin({ statut: "envoye", message_texte: texte, message_at: new Date().toISOString() });
   return { erreur: null };
+}
+
+const RAISON_DEJA_CONNECTE = "créée par la HM et déjà connectée à l'OS (logins de la HM) : pas de welcome de l'OS";
+
+const RAISON_BIENVENUE_ATTENTE =
+  "créé et relié sans welcome (Automatic onboarding sur Off) : le welcome part au passage sur On";
+
+/** Le lundi qui suit aujourd'hui (heure de Paris) : la prochaine cohorte. */
+function prochainLundiParis(d = new Date()): string {
+  const { jour, isoJour } = maintenantParis(d);
+  return ajouterJours(jour, 8 - isoJour);
+}
+
+/**
+ * 1/11 : les contrats « To link » (VIk Studios, sans profil) : pays = où vit le
+ * freelance (API, lecture seule), sinon sa réponse à « Which country do you live
+ * in? », sinon le pays du titre de l'annonce ; HM = celle qui a envoyé l'offre ;
+ * cohorte = celle du contrat, jamais avant le prochain lundi. Sans confirmer :
+ * l'aperçu seul. Avec confirmer : le profil est créé et relié comme l'accueil
+ * automatique (un seul par contrat), sans aucun message : le welcome attend On.
+ */
+async function relierContrats(supabase: Supabase, par: string | null, contrats: string[] | null, confirmer: boolean) {
+  const { data: liste, error } = await supabase.rpc("contrats_sans_posteur");
+  if (error) return { ok: false, error: error.message };
+  type Ligne = { contrat_id: string; organisation_id: string | null; nom: string | null; titre: string | null; debut_at: string | null; proposition: string };
+  const cibles = ((liste ?? []) as Ligne[]).filter((c) => c.proposition === "relier" && (!contrats || contrats.includes(String(c.contrat_id))));
+  if (confirmer && await automationEnPause(supabase)) return { ok: false, error: PAUSE };
+  const [hms, { data: hmNotees }, { data: comptesPays }] = await Promise.all([
+    hmsDeLOs(supabase),
+    supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
+    supabase.from("comptes").select("pays, langue").not("pays", "is", null),
+  ]);
+  const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
+  const languesPays = (comptesPays ?? []) as { pays: string | null; langue: string | null }[];
+  const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
+  const prochain = prochainLundiParis();
+  const lignes: Record<string, unknown>[] = [];
+  for (const c of cibles) {
+    const contrat = String(c.contrat_id);
+    const ligne: Record<string, unknown> = { contrat_id: contrat, nom: c.nom, titre: c.titre };
+    lignes.push(ligne);
+    const { data: deja } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contrat).limit(1);
+    if ((deja ?? []).length) {
+      ligne.erreur = "un profil est déjà relié à ce contrat : rien créé";
+      continue;
+    }
+    const { data: connu } = await supabase.from("accueils").select("*").eq("contrat_id", contrat).maybeSingle();
+    ligne.avant = connu
+      ? { statut: connu.statut, pays: connu.pays, hm: connu.hm_id ? nomHm.get(String(connu.hm_id)) ?? connu.hm_id : null, cohorte: connu.cohorte_lundi }
+      : null;
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: contrat, organisation_id: c.organisation_id }, connu ?? null, true);
+    const details = infos.details;
+    if (!details) {
+      ligne.erreur = infos.erreur ?? "contrat illisible";
+      continue;
+    }
+    const { data: salon } = await supabase.from("upwork_salons").select("messages").eq("contrat_id", contrat).maybeSingle();
+    let pays = infos.loc?.pays ?? null;
+    let source: string | null = pays ? "lieu Upwork" : null;
+    if (!pays) {
+      pays = paysDeReponse(Array.isArray(salon?.messages) ? salon.messages : null);
+      if (pays) source = "réponse « Which country »";
+    }
+    if (!pays) {
+      pays = paysDansTexte(details.job_titre ?? c.titre);
+      if (pays) source = "titre de l'annonce";
+    }
+    const hm = hmDuContrat(details, hms, notees);
+    const debut = details.debut_at ?? c.debut_at;
+    const { data: lundiContrat } = await supabase.rpc("cohorte_lundi_de_pays", { p_at: new Date(debut ?? Date.now()).toISOString(), p_pays: null });
+    const cohorte = cohorteRecrue(lundiContrat ? String(lundiContrat) : null, prochain);
+    const langue = langueDePays(pays, languesPays);
+    const manque = [!pays && "pays", !hm.hm_id && `HM (offre de ${hm.hm_nom ?? "?"})`, pays && !langue && "langue"].filter(Boolean);
+    ligne.apres = { pays, source, hm: hm.hm_id ? nomHm.get(hm.hm_id) ?? hm.hm_nom : null, hm_upwork: hm.hm_nom, cohorte, langue, accepte_le: debut };
+    if (manque.length) ligne.manque = manque;
+    if (!confirmer || manque.length) continue;
+    if (connu && !["a_relier", "simule", "a_creer", "erreur"].includes(String(connu.statut))) {
+      ligne.erreur = `accueil déjà « ${connu.statut} » : rien créé`;
+      continue;
+    }
+    const maintenant = new Date().toISOString();
+    const { error: errVerrou } = await supabase.from("accueils").upsert({
+      contrat_id: contrat, organisation_id: c.organisation_id, offre_id: details.offre_id, job_id: details.job_id,
+      job_titre: details.job_titre, prenom: details.prenom ?? connu?.prenom ?? null, nom: details.nom ?? connu?.nom ?? null,
+      debut_at: debut, hm_upwork_id: details.hm_upwork_id, pays, langue, hm_id: hm.hm_id, ...champsInfos(details, infos.loc),
+      pays_source: source, cohorte_lundi: cohorte, relie_par: par, relie_at: maintenant,
+      statut: "envoi", raison: "création en cours (relier sans welcome)", updated_at: maintenant,
+    });
+    if (errVerrou) {
+      ligne.erreur = errVerrou.message;
+      continue;
+    }
+    const r = await creerEtAccueillir(
+      supabase, par,
+      {
+        contrat_id: contrat, organisation_id: c.organisation_id, prenom: details.prenom ?? connu?.prenom ?? null,
+        nom: details.nom ?? connu?.nom ?? null, debut_at: debut, pays, langue, hm_id: hm.hm_id, tarif: null, cohorte_lundi: cohorte,
+      },
+      "", "", { sansBienvenue: true },
+    );
+    const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id, email").eq("contrat_id", contrat).maybeSingle();
+    ligne.resultat = { statut: apres?.statut ?? null, poster_id: apres?.poster_id ?? null, email: apres?.email ?? null, raison: apres?.raison ?? null };
+    if (r.erreur) ligne.erreur = r.erreur;
+  }
+  return { ok: lignes.every((l) => !l.erreur), confirmer, prochain_lundi: prochain, lignes };
+}
+
+/** 1/11 : sur On, le welcome des recrues créées sans welcome (au plus 20 par passage). */
+async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null, modele: string, slack: string) {
+  const { data } = await supabase.from("accueils").select("contrat_id, organisation_id, prenom, nom, hm_id, poster_id")
+    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null).limit(20);
+  const bilan = { envoyes: 0, erreurs: [] as string[] };
+  for (const a of data ?? []) {
+    const r = await accueillirExistant(
+      supabase, par,
+      { contrat_id: String(a.contrat_id), organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, hm_id: a.hm_id },
+      String(a.poster_id), modele, slack,
+    );
+    if (r.erreur) {
+      bilan.erreurs.push(`${a.contrat_id} : ${r.erreur}`);
+      continue;
+    }
+    await supabase.from("accueils").update({ bienvenue_attente: false }).eq("contrat_id", a.contrat_id);
+    bilan.envoyes++;
+  }
+  return bilan;
 }
 
 /** Le posteur s'est-il déjà connecté à l'OS (auth.users.last_sign_in_at, ou une connexion notée) ? */

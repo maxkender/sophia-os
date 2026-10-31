@@ -30,7 +30,18 @@ import {
   trierFile,
   upworkAccorde,
 } from "../_shared/garde_fous.ts";
-import { type ElementRelance, planRelance, type TextesRelance, TEXTES_RELANCE_DEFAUT, texteRelance } from "../_shared/relance_jour.ts";
+import {
+  avecLigneStop,
+  choisirRelance,
+  type DejaRelance,
+  type ElementRelance,
+  historiqueRelances,
+  type PlanRelance,
+  planRelance,
+  type TextesRelance,
+  TEXTES_RELANCE_DEFAUT,
+  texteRelance,
+} from "../_shared/relance_jour.ts";
 import {
   ceQuiManqueRecrue,
   lundiDu,
@@ -349,6 +360,8 @@ interface Bilan {
   contratsTest?: Set<string>;
   /** Interne (prompt 25 MAJ) : dernière relance sur Slack il y a 24 h ou plus, sans réaction. */
   slackSansReaction?: Set<string>;
+  /** Interne (1/11) : par recrue, par étape, l'heure de la relance Slack et de la relance Upwork déjà parties. */
+  historique?: Map<string, Map<string, DejaRelance>>;
   /** Interne (0444) : Start warmup cliqué, @ introuvable deux fois de suite, par compte. */
   handles?: Map<string, HandleIntrouvable>;
   /** Interne (0444) : les textes « we can't find your TikTok account ». */
@@ -405,6 +418,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     preparees: new Map<string, string>(),
     relancesUpwork: await lireRelancesUpwork(supabase),
     slackSansReaction: await lireSlackSansReaction(supabase, o.demain ? new Date(maintenant.getTime() + 86_400_000) : maintenant),
+    historique: await lireHistoriqueRelances(supabase, maintenant),
   } as Bilan;
   const lundi = lundiParis(maintenant);
   const prochain = ajouterJoursIso(lundi, 7);
@@ -431,19 +445,33 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
   // La relance du jour : une par recrue, avec ce qui lui manque.
   for (const x of recrues) {
     if (killEnCours(x) || enPause.has(x.poster_id) || instant >= debutCohorte(x)) continue;
-    const plan = planRelance(x, etatsAccueil(x, r.etapes), instant, r.etapes, { slack: Boolean(r.slackLien) });
-    if (plan.needsYou) needsYou.push({ poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, handle: x.handle, start_warmup: x.warmup_started_at });
-    if (!plan.element) continue;
+    const planComplet = planRelance(x, etatsAccueil(x, r.etapes), instant, r.etapes, { slack: Boolean(r.slackLien) });
+    if (planComplet.needsYou) needsYou.push({ poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, handle: x.handle, start_warmup: x.warmup_started_at });
+    if (!planComplet.element) continue;
     const jour = partiesLocales(instant, x.fuseau).date;
     if (dejaParties.has(`${x.poster_id}|${jour}`)) continue;
-    const texte = texteRelancePour(r, x, plan);
+    // 1/11 : l'étape et le canal (Slack d'abord, Upwork une fois 24 h après ; pas sur Slack : Upwork une fois).
+    const choisie = relanceChoisie(r, x, planComplet, bilanVide, instant);
+    if (!choisie.plan) {
+      if (choisie.choix.upwork_prevu_at) {
+        ajouter("relance_attente_upwork", {
+          poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null,
+          canaux: [], doublon: false, variante: planComplet.elements.join("+"), texte: "",
+          donnees: { upwork_prevu_at: choisie.choix.upwork_prevu_at },
+        });
+      }
+      continue;
+    }
+    const plan = choisie.plan;
+    const texte = choisie.texte;
     if (!texte) continue;
-    const { canaux, doublon } = canauxPour(bilanVide, x, "relance", jour, { upwork: upworkPourRelance(r, bilanVide, x.poster_id, Boolean(x.slack_user_id)) });
+    const upwork = choisie.choix.canal === "upwork" && (bilanVide.relancesUpwork?.get(x.poster_id) ?? 0) < r.relancesUpworkMax;
+    const { canaux, doublon } = canauxPour(bilanVide, x, "relance", jour, { slack: choisie.choix.canal === "slack", upwork });
     if (!doublon && canaux.length) noterPrepare(bilanVide, x, "relance", jour);
-    ajouter("relance", {
+    ajouter(canaux.includes("slack") ? "relance_slack" : canaux.includes("upwork") ? "relance_upwork" : "relance_bloquee", {
       poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null,
       canaux, doublon, variante: plan.elements.join("+"), texte,
-      donnees: { ...donneesRelance(x, plan, bilanVide), jour },
+      donnees: { ...donneesRelance(x, plan, bilanVide), jour, canal_relance: choisie.choix.canal },
     });
   }
 
@@ -550,6 +578,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   await ajouterPreparees(supabase, bilan);
   bilan.relancesUpwork = await lireRelancesUpwork(supabase);
   bilan.slackSansReaction = await lireSlackSansReaction(supabase, maintenant);
+  bilan.historique = await lireHistoriqueRelances(supabase, maintenant);
   bilan.contratsTest = await lireContratsTest(supabase);
   // Prompt 25 : les relances d'hier pas approuvées ne partent plus (jamais de rattrapage) ; la bienvenue, elle, attend.
   await supabase.from("relances_prevues").update({ statut: "expire", maj_at: new Date().toISOString() })
@@ -708,7 +737,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
 /** Le bilan rendu, sans les champs internes. */
 function nettoyer(bilan: Bilan): Bilan {
-  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, relancesUpwork: _w, contratsTest: _t, handles: _h, textesHandle: _x, slackSansReaction: _ss, ...reste } = bilan;
+  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, relancesUpwork: _w, contratsTest: _t, handles: _h, textesHandle: _x, slackSansReaction: _ss, historique: _hi, ...reste } = bilan;
   return reste;
 }
 
@@ -812,6 +841,33 @@ async function lireSlackSansReaction(supabase: Supabase, maintenant: Date): Prom
     }
   }
   return sans;
+}
+
+/** 1/11 : les relances parties depuis 30 jours, par recrue et par étape (Slack, Upwork). */
+async function lireHistoriqueRelances(supabase: Supabase, maintenant: Date): Promise<Map<string, Map<string, DejaRelance>>> {
+  const depuis = new Date(maintenant.getTime() - 30 * 86_400_000).toISOString();
+  const { data } = await supabase.from("nudges").select("poster_id, donnees, canaux, envoye_at")
+    .eq("type", "relance").gte("envoye_at", depuis).not("envoye_at", "is", null).limit(20000);
+  const parPosteur = new Map<string, { donnees: Record<string, unknown> | null; canaux: string[] | null; envoye_at: string }[]>();
+  for (const n of data ?? []) {
+    const l = parPosteur.get(n.poster_id as string) ?? [];
+    l.push({ donnees: n.donnees as Record<string, unknown> | null, canaux: n.canaux as string[] | null, envoye_at: n.envoye_at as string });
+    parPosteur.set(n.poster_id as string, l);
+  }
+  return new Map([...parPosteur].map(([p, l]) => [p, historiqueRelances(l)]));
+}
+
+/**
+ * 1/11 : la relance d'une recrue : l'étape et le canal (Slack d'abord, Upwork
+ * une fois 24 h après ; pas sur Slack : Upwork une fois), le plan réduit à cette
+ * étape et le texte (sur Upwork, la ligne STOP à la fin).
+ */
+function relanceChoisie(r: Reglages, x: RecrueAccueil, plan: PlanRelance, bilan: Bilan, maintenant: Date) {
+  const choix = choisirRelance(plan, Boolean(x.slack_user_id), bilan.historique?.get(x.poster_id), maintenant);
+  if (!choix.element || !choix.canal) return { choix, plan: null, texte: "" };
+  const un: PlanRelance = { ...plan, element: choix.element, elements: [choix.element] };
+  const brut = texteRelancePour(r, x, un);
+  return { choix, plan: un, texte: brut && choix.canal === "upwork" ? avecLigneStop(brut) : brut };
 }
 
 /** Les relances déjà parties sur Upwork, par recrue. */
@@ -941,7 +997,8 @@ function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof
     lien_etapes: r.lienEtapes || OS_URL,
     cohorte_lundi: x.cohorte_lundi,
     email: x.email,
-    mot_de_passe: MOT_DE_PASSE_DEPART,
+    // 1/11 : chaque recrue a son propre mot de passe (welcome de l'OS ou de la HM) : jamais 12345678.
+    mot_de_passe: "the one in your welcome message",
     slack: r.slackLien,
   });
 }
@@ -986,9 +1043,13 @@ async function relanceDuJour(
 ) {
   if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
   if (maintenant >= debutCohorte(x)) return;
-  const plan = planRelance(x, etats, maintenant, r.etapes, { slack: Boolean(r.slackLien) });
-  if (plan.needsYou) bilan.needsYou++;
-  if (!plan.element || !dansFenetre(maintenant, x.fuseau, r.etapes as unknown as Delais)) return;
+  const planComplet = planRelance(x, etats, maintenant, r.etapes, { slack: Boolean(r.slackLien) });
+  if (planComplet.needsYou) bilan.needsYou++;
+  if (!planComplet.element || !dansFenetre(maintenant, x.fuseau, r.etapes as unknown as Delais)) return;
+  // 1/11 : une relance par étape et par canal ; rien de dû (déjà relancée, ou Slack qui attend ses 24 h) : rien.
+  const choisie = relanceChoisie(r, x, planComplet, bilan, maintenant);
+  if (!choisie.plan) return;
+  const plan = choisie.plan;
   const jour = partiesLocales(maintenant, x.fuseau).date;
   const cle = { poster_id: x.poster_id, type: "relance", periode: jour };
   if (bilan.relancesFaites?.has(`${x.poster_id}|${jour}`)) return;
@@ -998,9 +1059,9 @@ async function relanceDuJour(
     await noterBloquee(supabase, { fonction: "recrues-check", action: "relance", poster_id: x.poster_id });
     return;
   }
-  // Prompt 25 v4 : Slack (s'il y est) ET Upwork (jusqu'au plafond par recrue), le même texte.
-  const upwork = upworkPourRelance(r, bilan, x.poster_id, Boolean(x.slack_user_id));
-  const { canaux, doublon } = canauxPour(bilan, x, "relance", jour, { upwork });
+  // 1/11 : un seul canal : Slack, ou Upwork (une fois par étape, sous le plafond par recrue).
+  const upwork = choisie.choix.canal === "upwork" && (bilan.relancesUpwork?.get(x.poster_id) ?? 0) < r.relancesUpworkMax;
+  const { canaux, doublon } = canauxPour(bilan, x, "relance", jour, { slack: choisie.choix.canal === "slack", upwork });
   if (doublon) {
     bilan.doublons++;
     return;
@@ -1012,9 +1073,13 @@ async function relanceDuJour(
     bilan.bloques++;
     return;
   }
-  const texte = texteRelancePour(r, x, plan);
+  const texte = choisie.texte;
   if (!texte) return;
-  const ligne = { ...cle, statut: "prevu", canal: libelleCanaux(canaux), texte, donnees: donneesRelance(x, plan, bilan), maj_at: new Date().toISOString() };
+  const ligne = {
+    ...cle, statut: "prevu", canal: libelleCanaux(canaux), texte,
+    donnees: { ...donneesRelance(x, plan, bilan), canal_relance: choisie.choix.canal },
+    maj_at: new Date().toISOString(),
+  };
   // Prompt 25 v4 : un contrat de test reçoit sa relance pour de vrai, même sur Test ou Approve.
   const test = Boolean(x.contrat_id && bilan.contratsTest?.has(x.contrat_id));
   if (r.mode === "simulation" && !test) {
@@ -1478,10 +1543,15 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
     }
     // Un seul message par personne : un autre profil sur le même Slack ou le même contrat.
     const personne = { poster_id: l.poster_id, slack_user_id: p.slack_user_id, contrat_id: contrat };
-    const slack = ["relance", "jeudi", "lundi", "handle", "handle_excuse", "lien_introuvable"].includes(l.type) && Boolean(p.slack_user_id);
+    let slack = ["relance", "jeudi", "lundi", "handle", "handle_excuse", "lien_introuvable"].includes(l.type) && Boolean(p.slack_user_id);
     // 0444 : le @ introuvable et l'excuse : Slack s'il y est, sinon Upwork ; le 2e message : Upwork seulement.
     let upworkVoulu = Boolean(contrat) && (!["lundi", "handle", "handle_excuse", "lien_introuvable"].includes(l.type) || !slack);
-    if (l.type === "relance" && !upworkPourRelance(r, bilan, l.poster_id, Boolean(p.slack_user_id))) upworkVoulu = false;
+    // 1/11 : le canal choisi à la préparation (Slack, ou Upwork une fois), jamais les deux.
+    const canalRelance = l.type === "relance" ? (l.donnees?.canal_relance as string | undefined) : undefined;
+    if (canalRelance) {
+      slack = canalRelance === "slack" && Boolean(p.slack_user_id);
+      upworkVoulu = canalRelance === "upwork" && Boolean(contrat) && (bilan.relancesUpwork?.get(l.poster_id) ?? 0) < r.relancesUpworkMax;
+    } else if (l.type === "relance" && !upworkPourRelance(r, bilan, l.poster_id, Boolean(p.slack_user_id))) upworkVoulu = false;
     // Prompt 25 MAJ : le nudge du jeudi part sur Slack seulement.
     if (l.type === "jeudi") upworkVoulu = false;
     const { canaux: possibles, doublon } = canauxPour(bilan, personne, l.type, l.periode, { slack, upwork: upworkVoulu });

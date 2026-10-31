@@ -39,6 +39,7 @@ import {
 } from "./api";
 import { type Canal, CLE_NUDGES, composerNudge, envoyerNudge, joignable, lireNudges, situation } from "./nudges";
 import { aVerifier, confirmerPays, lirePaysRecrues, type PaysRecrue } from "./paysRecrue";
+import { lireCompteurRelances, lireRelances, type RelanceRecrue } from "./relances";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -124,10 +125,13 @@ function CarteRecrue({
   modeles,
   lienSlack = "",
   demande,
+  relance,
 }: {
   r: RecrueOnboarding;
   /** 31/10 : une demande d'arrêt ouverte (STOP, message, bouton) : elle se traite ici, plus le samedi. */
   demande?: DemandeArret;
+  /** 1/11 : la dernière relance (étape, canal, heure, Upwork prévu). */
+  relance?: RelanceRecrue;
   /** 31/10 (0482) : le pays vérifié (HM, lieu du freelance, annonce). */
   pays?: PaysRecrue;
   releve?: ReleveRecrue;
@@ -225,6 +229,23 @@ function CarteRecrue({
               <dd><LignePays p={pays} /></dd>
             </>
           )}
+          <dt className="text-muted-foreground">{t("onboardingPosters.relance.titre")}</dt>
+          <dd data-testid="relance-recrue">
+            {relance ? (
+              <>
+                {t("onboardingPosters.relance.ligne", {
+                  etape: t(`onboardingPosters.relance.etapes.${relance.etape ?? "autre"}`, { defaultValue: relance.etape ?? "—" }),
+                  canal: t(`onboardingPosters.relance.canaux.${relance.canal}`),
+                  heure: le(relance.envoye_at),
+                })}
+                {relance.upwork_prevu_at && (
+                  <span className="ml-1 text-muted-foreground">· {t("onboardingPosters.relance.upworkPrevu", { heure: le(relance.upwork_prevu_at) })}</span>
+                )}
+              </>
+            ) : (
+              t("onboardingPosters.relance.aucune")
+            )}
+          </dd>
           <dt className="text-muted-foreground">{t("onboardingPosters.login")}</dt>
           <dd>{r.email ?? "—"}</dd>
           <dt className="text-muted-foreground">{t("onboardingPosters.slack")}</dt>
@@ -528,6 +549,8 @@ export function PageOnboarding() {
   const ecarts = useQuery({ queryKey: ["onboarding-ecarts-pays"], queryFn: lireEcartsPays });
   // 31/10 (0482) : le pays de chaque recrue ; « Country to check » filtrable.
   const pays = useQuery({ queryKey: ["onboarding-pays"], queryFn: lirePaysRecrues, refetchInterval: 5 * 60_000 });
+  const relances = useQuery({ queryKey: ["onboarding-relances"], queryFn: lireRelances, refetchInterval: 5 * 60_000 });
+  const compteurRelances = useQuery({ queryKey: ["onboarding-relances-jour"], queryFn: lireCompteurRelances, refetchInterval: 5 * 60_000 });
   const demandes = useQuery({
     queryKey: ["demandes-arret"],
     queryFn: async () => new Map((await lireDemandesArret()).map((d) => [d.poster_id, d])),
@@ -544,6 +567,11 @@ export function PageOnboarding() {
     <section className="space-y-3" data-testid="page-onboarding">
       <div className="flex flex-wrap items-center gap-3 text-sm" data-testid="filtres-onboarding">
         <span className="font-semibold">{t("onboardingPosters.titre", { n: liste.length })}</span>
+        {compteurRelances.data && (
+          <span className="text-xs text-muted-foreground" data-testid="compteur-relances">
+            {t("onboardingPosters.relance.compteur", compteurRelances.data)}
+          </span>
+        )}
         <select className={selectClass} value={f.hm} aria-label={t("onboardingPosters.filtres.hm")} onChange={(e) => setF({ ...f, hm: e.target.value })}>
           <option value="">{t("onboardingPosters.filtres.tousHm")}</option>
           {hms.map(([id, nom]) => (
@@ -604,6 +632,7 @@ export function PageOnboarding() {
             modeles={modeles}
             lienSlack={lienSlack}
             demande={demandes.data?.get(r.poster_id)}
+            relance={relances.data?.get(r.poster_id)}
           />
         ))}
       </div>

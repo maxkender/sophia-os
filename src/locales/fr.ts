@@ -101,6 +101,15 @@ export const fr = {
       envoye: "Nous :",
     },
     onboardingPosters: {
+      relance: {
+        titre: "Relance",
+        ligne: "{{etape}} · {{canal}} · {{heure}}",
+        upworkPrevu: "Upwork prévu à {{heure}}",
+        aucune: "Aucune relance pour l'instant",
+        compteur: "Relances du jour : Slack {{slack}} · Upwork {{upwork}}",
+        canaux: { slack: "Slack", upwork: "Upwork" },
+        etapes: { slack: "Rejoindre Slack", connexion: "Connexion", tiktok: "Compte TikTok", warmup: "Start warmup", follows: "Warm-up (abonnements)", autre: "—" },
+      },
       pays: {
         titre: "Pays",
         zone: "zone {{zone}}",

@@ -1,7 +1,15 @@
 import { assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 
 import { DELAIS_ACCUEIL_DEFAUT, etatsAccueil, type RecrueAccueil } from "./etapes.ts";
-import { planRelance, TEXTES_RELANCE_DEFAUT, texteRelance } from "./relance_jour.ts";
+import {
+  avecLigneStop,
+  choisirRelance,
+  historiqueRelances,
+  LIGNE_STOP_UPWORK,
+  planRelance,
+  TEXTES_RELANCE_DEFAUT,
+  texteRelance,
+} from "./relance_jour.ts";
 
 const base: RecrueAccueil = {
   poster_id: "p1",
@@ -98,4 +106,33 @@ Deno.test("v4 : sans lien Slack, l'étape 0 est laissée de côté ; Start warmu
   assertEquals(texteSlack(base, "2026-10-27T11:00:00Z", "").includes("Slack"), false);
   const clique = { ...base, premiere_connexion_at: "2026-10-27T08:00:00Z", warmup_started_at: "2026-10-28T08:00:00Z" };
   assertEquals(planSlack(clique, "2026-10-29T09:00:00Z"), { element: null, elements: [], needsYou: true, follows: 0 });
+});
+
+Deno.test("1/11 : canal des relances : Slack d'abord, Upwork une fois 24 h après ; pas sur Slack : Upwork une fois", () => {
+  const t0 = new Date("2026-11-01T10:00:00Z");
+  const plus = (h: number) => new Date(t0.getTime() + h * 3_600_000);
+  // Sur Slack, rien encore : Slack.
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, new Map(), t0), { element: "connexion", canal: "slack", upwork_prevu_at: null });
+  // Slack parti il y a 10 h : on attend, Upwork prévu à +24 h.
+  const slack = new Map([["connexion", { slack_at: t0.toISOString() }]]);
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(10)), { element: null, canal: null, upwork_prevu_at: plus(24).toISOString() });
+  // 24 h après : Upwork, une fois.
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(24)).canal, "upwork");
+  const lesDeux = new Map([["connexion", { slack_at: t0.toISOString(), upwork_at: plus(25).toISOString() }]]);
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, lesDeux, plus(72)).canal, null);
+  // Pas sur Slack : Upwork directement, une fois ; puis l'étape suivante.
+  assertEquals(choisirRelance({ elements: ["slack", "connexion"] }, false, new Map(), t0), { element: "slack", canal: "upwork", upwork_prevu_at: null });
+  const slackFait = new Map([["slack", { upwork_at: t0.toISOString() }]]);
+  assertEquals(choisirRelance({ elements: ["slack", "connexion"] }, false, slackFait, plus(30)).element, "connexion");
+  assertEquals(choisirRelance({ elements: ["slack"] }, false, slackFait, plus(30)).canal, null);
+  // La ligne STOP, une seule fois, sur Upwork.
+  assertEquals(avecLigneStop("Hi Ana."), `Hi Ana.\n\n${LIGNE_STOP_UPWORK}`);
+  assertEquals(avecLigneStop(avecLigneStop("Hi Ana.")), `Hi Ana.\n\n${LIGNE_STOP_UPWORK}`);
+  // L'historique : la 1re relance de chaque étape et de chaque canal.
+  const h = historiqueRelances([
+    { donnees: { elements: ["slack", "connexion"] }, canaux: ["upwork"], envoye_at: "2026-10-30T10:00:00Z" },
+    { donnees: { element: "tiktok" }, canaux: ["slack"], envoye_at: "2026-10-31T10:00:00Z" },
+  ]);
+  assertEquals(h.get("connexion"), { upwork_at: "2026-10-30T10:00:00Z" });
+  assertEquals(h.get("tiktok"), { slack_at: "2026-10-31T10:00:00Z" });
 });

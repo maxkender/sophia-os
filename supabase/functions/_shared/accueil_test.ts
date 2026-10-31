@@ -116,16 +116,28 @@ Deno.test("doublon : contrat déjà relié, ou même nom et même pays actif →
 });
 
 Deno.test("le message de bienvenue, rempli, en anglais", () => {
-  const m = messageAccueil("Hi {prenom}! {url} · {email} · {mot_de_passe} · {slack} · {guide} · Monday {date} · {inconnu}", {
-    prenom: "Ana", url: "https://os", email: "ana@vik.co", mot_de_passe: "12345678", slack: "https://slack", guide: "https://guide",
-    cohorte_lundi: "2026-11-02",
+  const m = messageAccueil("Hi {prenom}! {url} · {email} · {slack} · Monday {date} · {lien_mot_de_passe} · {inconnu}", {
+    prenom: "Ana", url: "https://os", email: "ana@vik.co", slack: "https://slack", cohorte_lundi: "2026-11-02",
   });
-  assertEquals(m, "Hi Ana! https://os · ana@vik.co · 12345678 · https://slack · https://guide · Monday 2 November · {inconnu}");
+  // Le lien « Set my password » n'est pas donné : la variable reste, remplacée à l'envoi.
+  assertEquals(m, "Hi Ana! https://os · ana@vik.co · https://slack · Monday 2 November · {lien_mot_de_passe} · {inconnu}");
+  assertEquals(
+    messageAccueil("Set: {lien_mot_de_passe}", { prenom: "Ana", url: "u", email: "e", slack: "s", cohorte_lundi: "2026-11-02", lien_mot_de_passe: "https://os/set-password?t=abc" }),
+    "Set: https://os/set-password?t=abc",
+  );
+});
+
+Deno.test("1/11 : jamais de mot de passe ni de guide : les lignes d'un ancien texte qui les citent sont retirées", () => {
+  const modele = "Hi {prenom}\n• Login: {email} · Password: {mot_de_passe}\n• Our guide: {guide}\n• Set your password: {lien_mot_de_passe}";
+  assertEquals(
+    messageAccueil(modele, { prenom: "Ana", url: "u", email: "a@b", slack: "s", cohorte_lundi: "2026-11-02", lien_mot_de_passe: "L" }),
+    "Hi Ana\n• Set your password: L",
+  );
 });
 
 Deno.test("prompt 13 : le @ TikTok à créer, ou la ligne retirée s'il n'est pas connu", () => {
   const modele = "Hi {prenom}\n• Login: {email}\n• Your TikTok account to create: @{handle} (use exactly this name)\n• Slack: {slack}";
-  const v = { prenom: "Ana", url: "u", email: "a@b", mot_de_passe: "x", slack: "s", guide: "g", cohorte_lundi: "2026-11-02" };
+  const v = { prenom: "Ana", url: "u", email: "a@b", slack: "s", cohorte_lundi: "2026-11-02" };
   assertEquals(
     messageAccueil(modele, { ...v, handle: "@ana.studies" }),
     "Hi Ana\n• Login: a@b\n• Your TikTok account to create: @ana.studies (use exactly this name)\n• Slack: s",

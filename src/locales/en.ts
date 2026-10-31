@@ -906,6 +906,25 @@ export const en = {
       emailPersoAide: "The one you'll use on Slack: we link you automatically.",
       mismatch: "The two passwords don't match.",
       save: "Save and continue",
+      setPassword: {
+        bouton: "Set my password",
+        titre: "Set my password",
+        lecture: "Checking your link…",
+        intro: "Hi {{prenom}}, choose your password. You'll use it with the login below.",
+        login: "Your login",
+        loginAide: "Keep it: it's the login of your dashboard.",
+        valider: "Save my password and log in",
+        aide:
+          "First time? Open the personal « Set my password » link in your welcome message on Upwork: it works once, for 14 days. Lost it or expired? Ask your hiring manager on Upwork, or on Slack in #questions, for a new link.",
+        connexionAPart: "Your password is saved. Log in with your login and this password.",
+        versConnexion: "Go to the login page",
+        etat: {
+          sansLien: "This page needs your personal link.",
+          utilise: "This link was already used: your password is set. Log in with it.",
+          expire: "This link has expired.",
+          inconnu: "This link isn't valid.",
+        },
+      },
     },
     nav: {
       bleo: "Overview",

@@ -369,27 +369,37 @@ export function dateAnglaise(jour: string): string {
 /** Le guide du posteur, dans la bienvenue : le lien public (les posteurs n'ont pas accès à app.notion.com). */
 export const GUIDE_POSTER = GUIDE_POSTER_PUBLIC;
 
-/** Le message de bienvenue, depuis le réglage ; une variable inconnue reste telle quelle. */
+/**
+ * Le message de bienvenue, depuis le réglage ; une variable inconnue reste telle quelle.
+ * 1/11 : jamais de mot de passe ni de guide dans le welcome (Upwork). Une ligne
+ * qui cite encore {mot_de_passe} ou {guide} (ancien texte) est retirée ;
+ * {lien_mot_de_passe} : le lien « Set my password », créé à l'envoi (laissé tel
+ * quel s'il n'est pas donné).
+ */
 export function messageAccueil(
   modele: string,
   v: {
-    prenom: string | null; url: string; email: string; mot_de_passe: string; slack: string; guide: string; cohorte_lundi: string;
+    prenom: string | null; url: string; email: string; slack: string; cohorte_lundi: string;
+    /** Le lien « Set my password » ; absent : {lien_mot_de_passe} reste, remplacé à l'envoi. */
+    lien_mot_de_passe?: string | null;
     /** Prompt 13 : le @ TikTok à créer ; inconnu → la ligne qui le cite est retirée. */
     handle?: string | null;
   },
 ): string {
   const handle = (v.handle ?? "").trim().replace(/^@+/, "");
+  const lien = (v.lien_mot_de_passe ?? "").trim();
   const vars: Record<string, string> = {
     prenom: (v.prenom ?? "").trim() || "there",
     url: v.url,
     email: v.email,
-    mot_de_passe: v.mot_de_passe,
     slack: v.slack,
-    guide: v.guide,
     date: dateAnglaise(v.cohorte_lundi),
     ...(handle ? { handle } : {}),
+    ...(lien ? { lien_mot_de_passe: lien } : {}),
   };
-  const lignes = handle ? modele : modele.split("\n").filter((l) => !l.includes("{handle}")).join("\n");
+  const lignes = modele.split("\n")
+    .filter((l) => !l.includes("{mot_de_passe}") && !l.includes("{guide}") && (handle || !l.includes("{handle}")))
+    .join("\n");
   return lignes.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout)).trim();
 }
 

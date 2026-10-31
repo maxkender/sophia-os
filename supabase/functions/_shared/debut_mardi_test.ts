@@ -10,7 +10,7 @@ const base: RecrueAccueil = {
   warmup_started_at: null, tiktok_existe: false, tiktok_vu_at: null, abonnements: null, videos: null,
   messages: [], prevues: [], repondu_at: null, kill: null,
 } as RecrueAccueil;
-const o = { url: "https://os.example", lien_etapes: "https://guide.example", mot_de_passe: "the one in your welcome message" };
+const o = { url: "https://os.example", lien_etapes: "https://guide.example" };
 
 Deno.test("Start Tuesday : ce qui manque, le message et la date de mardi", () => {
   const x = { ...base, email: "ana@sophia.com" } as RecrueAccueil;

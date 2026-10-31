@@ -3,7 +3,6 @@ import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
 import {
   libelleCanaux,
-  MOT_DE_PASSE_DEPART,
   envoiEtape,
   type EtapeAccueil,
   type EtatAccueil,
@@ -16,7 +15,8 @@ import {
   nuitDuRouge,
   type RecrueAccueil,
 } from "../_shared/etapes.ts";
-import { GUIDE_POSTER, lireModeAuto, messageAccueil, type ModeAuto } from "../_shared/accueil.ts";
+import { lireModeAuto, messageAccueil, type ModeAuto } from "../_shared/accueil.ts";
+import { avecLienMotDePasse, refusMotDePasseUpwork, refusPaiementUpwork, VAR_LIEN_MOT_DE_PASSE } from "../_shared/lien_mot_de_passe.ts";
 import { liensPublics } from "../_shared/guide_public.ts";
 import {
   type Canal,
@@ -1008,8 +1008,7 @@ function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof
     lien_etapes: r.lienEtapes || OS_URL,
     cohorte_lundi: x.cohorte_lundi,
     email: x.email,
-    // 1/11 : chaque recrue a son propre mot de passe (welcome de l'OS ou de la HM) : jamais 12345678.
-    mot_de_passe: "the one in your welcome message",
+    // 1/11 : jamais de mot de passe : {lien_mot_de_passe} (« Set my password ») est créé à l'envoi.
     slack: r.slackLien,
   });
 }
@@ -1572,6 +1571,28 @@ async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccue
       sortir();
       continue;
     }
+    // 1/11 : relances Upwork : aucune mention de paiement (sauf la phrase admise), jamais de mot de passe.
+    if (l.type === "relance" && possibles.includes("upwork")) {
+      const t = l.texte ?? "";
+      const refus = refusPaiementUpwork(t) ?? refusMotDePasseUpwork(t.split(VAR_LIEN_MOT_DE_PASSE).join(""));
+      if (refus) {
+        await marquer(l, "bloque", refus);
+        bilan.erreurs.push(`file ${l.type} ${l.poster_id} : ${refus}`);
+        bilan.bloques++;
+        sortir();
+        continue;
+      }
+    }
+    // 1/11 : le lien « Set my password » personnel, créé maintenant (jamais de mot de passe dans le texte).
+    if (l.texte?.includes(VAR_LIEN_MOT_DE_PASSE)) {
+      const lien = await avecLienMotDePasse(supabase, l.poster_id, l.texte, OS_URL, `recrues-check:${l.type}`);
+      if (lien.erreur) {
+        bilan.erreurs.push(`file ${l.type} ${l.poster_id} : ${lien.erreur}`);
+        sortir();
+        continue;
+      }
+      l.texte = lien.texte;
+    }
     const upwork = possibles.includes("upwork") && upworkAccorde({
       priorite,
       deja: budget.ecrits.has(contrat!),
@@ -1784,7 +1805,7 @@ async function choisirDebut(
   const lundi = x.cohorte_lundi;
   const texte = choix === "mardi"
     ? texteDebutMardi(r.textesRelance, x, etatsAccueil(x, r.etapes), {
-      url: OS_URL, lien_etapes: r.lienEtapes || OS_URL, mot_de_passe: "the one in your welcome message",
+      url: OS_URL, lien_etapes: r.lienEtapes || OS_URL,
     }) || null
     : null;
   const { error } = await supabase.rpc("debut_choix_noter", {
@@ -1799,7 +1820,8 @@ async function choisirDebut(
   }
   if (choix !== "mardi" || !texte) return { erreur: null };
   await supabase.from("posteur_annonces").upsert(
-    { poster_id: x.poster_id, cle: `debut_mardi:${lundi}`, texte },
+    // Le pop-up : la recrue est déjà connectée, le lien personnel n'y sert pas.
+    { poster_id: x.poster_id, cle: `debut_mardi:${lundi}`, texte: texte.split(VAR_LIEN_MOT_DE_PASSE).join(`${OS_URL}/set-password`) },
     { onConflict: "poster_id,cle", ignoreDuplicates: true },
   );
   // Step reminders sur Off (ou Test) : rien ne part.
@@ -1809,12 +1831,15 @@ async function choisirDebut(
   }
   let canal: string | null = null;
   let erreur: string | null = null;
-  if (x.slack_user_id) {
+  const lien = await avecLienMotDePasse(supabase, x.poster_id, texte, OS_URL, "debut_mardi");
+  if (lien.erreur) {
+    erreur = lien.erreur;
+  } else if (x.slack_user_id) {
     canal = "slack";
-    erreur = await envoyerSlack(supabase, x.poster_id, texte);
+    erreur = await envoyerSlack(supabase, x.poster_id, lien.texte);
   } else if (x.contrat_id) {
     canal = "upwork";
-    const u = await envoyerUpwork(x.contrat_id, avecLigneStop(texte), { prioritaire: false });
+    const u = await envoyerUpwork(x.contrat_id, avecLigneStop(lien.texte), { prioritaire: false });
     erreur = u.erreur;
   } else {
     erreur = "ni Slack ni contrat Upwork";
@@ -2622,7 +2647,7 @@ async function creerPosteurTest(supabase: Supabase, contrat: string, prenom: str
     method: "POST",
     headers: { "content-type": "application/json", "x-cron-secret": secret, ...(cle ? { authorization: `Bearer ${cle}`, apikey: cle } : {}) },
     body: JSON.stringify({
-      action: "create", prenom: nom, nom: "", password: MOT_DE_PASSE_DEPART, langue: "en", type_compte: "perso", posts_par_jour: 2,
+      action: "create", prenom: nom, nom: "", password: "auto", langue: "en", type_compte: "perso", posts_par_jour: 2,
       upwork_contrat_url: contratUrl,
     }),
   });
@@ -2671,8 +2696,8 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
   let slack = false;
   if (quoi === "accueil") {
     texte = messageAccueil(r.texteAccueil, {
-      prenom: p.prenom, url: OS_URL, email: (p.email as string | null) ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack: r.slackLien,
-      guide: GUIDE_POSTER, cohorte_lundi: cohorte, handle: (compte?.handle_tiktok as string | null) ?? null,
+      prenom: p.prenom, url: OS_URL, email: (p.email as string | null) ?? "", slack: r.slackLien,
+      cohorte_lundi: cohorte, handle: (compte?.handle_tiktok as string | null) ?? null,
     });
   } else if (quoi === "lundi_soir") {
     texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
@@ -2683,13 +2708,17 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
     const element = ELEMENTS_TEST[quoi]!;
     texte = texteRelance(r.textesRelance, { element, elements: [element], needsYou: false, follows: 3 }, {
       prenom: p.prenom, handle: (compte?.handle_tiktok as string | null) ?? null, url: OS_URL, lien_etapes: r.lienEtapes || OS_URL,
-      cohorte_lundi: cohorte, email: p.email as string | null, mot_de_passe: MOT_DE_PASSE_DEPART, slack: r.slackLien,
+      cohorte_lundi: cohorte, email: p.email as string | null, slack: r.slackLien,
     });
     slack = Boolean(p.slack_user_id);
   } else {
     return { ok: false, error: `« ${quoi} » inconnu` };
   }
   if (!texte.trim()) return { ok: false, error: "texte vide (réglage vide, ou lien Slack / e-mail manquant)" };
+  // 1/11 : le lien « Set my password » du posteur de test, créé maintenant.
+  const lien = await avecLienMotDePasse(supabase, posterId, texte, OS_URL, `test_${quoi}`);
+  if (lien.erreur) return { ok: false, error: lien.erreur };
+  texte = lien.texte;
   const canaux: Canal[] = slack ? ["slack", "upwork"] : ["upwork"];
   const compteForce = quoi === "secours" ? "secours" : undefined;
   const { data: ligne, error: errIns } = await supabase.from("nudges")

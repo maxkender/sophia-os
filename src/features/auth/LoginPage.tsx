@@ -15,6 +15,7 @@ import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { SophiaLogo } from "@/components/brand/SophiaLogo";
 import { signInWithPassword } from "./api";
+import { AideSetPassword } from "./SetPasswordPage";
 
 type AccessKey = "admin" | "headOfOps" | "manager" | "creator";
 
@@ -44,6 +45,8 @@ export function LoginPage() {
   const [password, setPassword] = React.useState("");
   const [submitting, setSubmitting] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
+  // 1/11 : plus de mot de passe dans le welcome : « Set my password » explique le lien personnel.
+  const [aideMdp, setAideMdp] = React.useState(false);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -156,6 +159,12 @@ export function LoginPage() {
                   {submitting ? t("auth.submitting") : t("auth.submit")}
                 </Button>
               </form>
+              <div className="mt-4 space-y-2 border-t pt-4">
+                <Button type="button" variant="outline" className="w-full" onClick={() => setAideMdp((v) => !v)}>
+                  {t("auth.setPassword.bouton")}
+                </Button>
+                {aideMdp && <AideSetPassword />}
+              </div>
             </CardPanel>
           </Card>
         </div>

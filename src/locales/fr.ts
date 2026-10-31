@@ -175,9 +175,9 @@ export const fr = {
       reporter: "Postpone",
       confirmReporter: "Reporter {{nom}} à la cohorte de la semaine suivante ?",
       reporte: "Reportée à la cohorte du {{date}}.",
-      arreter: "Kill samedi",
-      confirmArreter: "Mettre {{nom}} dans la masterlist du samedi, Kill pré-coché ? Les relances s'arrêtent tout de suite ; rien n'est désactivé avant Validate samedi.",
-      arrete: "Dans la masterlist du samedi, Kill pré-coché. Relances coupées.",
+      arreter: "Kill",
+      confirmArreter: "Kill {{nom}} maintenant ? Aucun message : désactivé dans l'OS et ajouté à « To remove from Slack » ; le contrat est fermé lundi après la paie (si Full stop est sur On).",
+      arrete: "Kill fait : désactivé dans l'OS, relances coupées.",
       demande: "Demande d'arrêt",
       filtres: {
         hm: "HM",
@@ -381,7 +381,7 @@ export const fr = {
               titre: "Récap : {{recap}}",
               confirm: "Valider : {{recap}} ? Les Kill partent sans message : désactivés dans l'OS et retirés de Slack tout de suite ; contrats fermés lundi après la paie.",
               rien: "rien à valider",
-              recrues: "recrues arrêtées",
+              recrues: "arrêtés (sans compte dans la liste)",
             },
             groupes: { premiere: "2. Première semaine de posts ({{n}})", anciens: "3. Anciens posteurs ({{n}})" },
             demande: {

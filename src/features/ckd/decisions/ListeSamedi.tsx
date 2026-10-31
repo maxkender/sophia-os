@@ -8,7 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/features/auth/AuthContext";
 import { deciderCkd, recreerShadowban } from "@/features/ckd/api";
-import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 import { arreterRecrueSamedi, reporterRecrue } from "@/features/cohortes/api";
 import { invoke } from "@/features/moteur/api";
 import { conversationDe, useConversations } from "@/features/upwork/conversation";
@@ -45,14 +44,11 @@ import {
   garderMalgreDemande,
   lireDemandesArret,
   lireFicheSamedi,
-  lireRecruesSansReaction,
   lireSemaineComptes,
-  manqueRecrue,
   noterKillSansPaie,
   planSamedi,
   RAISONS_SANS_PAIE,
   type RaisonSansPaie,
-  type RecrueSansReaction,
   type Tri,
   trierComptes,
 } from "./semaineComptes";
@@ -66,15 +62,15 @@ import {
   type Onglet,
   ongletDe,
   ordreStatut,
+  semaineCommencee,
 } from "./statutCompte";
 import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, TD, TH } from "./TableauComptes";
 import { useFicheSamedi } from "./useFicheSamedi";
 
 const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre"];
 const AUTRES: readonly ChoixSamedi[] = ["recreate", "pause", "reporter"];
-const ONGLETS: readonly Onglet[] = ["recrues", "premiere", "anciens", "tous"];
-const CHOIX_RECRUE = ["kill", "reporter", "rien"] as const;
-type ChoixRecrue = (typeof CHOIX_RECRUE)[number];
+// 31/10 : plus d'onglet « recrues » : la cohorte qui arrive n'est pas traitée le samedi.
+const ONGLETS: readonly Onglet[] = ["premiere", "anciens", "tous"];
 
 type RaisonSaisie = { code: RaisonSansPaie | ""; detail: string };
 /** La raison d'un Kill & don't pay, en clair (Disputes la montre si le freelance conteste). */
@@ -158,7 +154,6 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const lu = useQuery({ queryKey: ["semaine-comptes", lundi, jusqu], queryFn: () => lireSemaineComptes(lundi, jusqu) });
   const extras = useQuery({ queryKey: ["semaine-extras", lundi], queryFn: () => lireExtras(lundi) });
   const seuils = useQuery({ queryKey: ["masterlist-seuils"], queryFn: lireSeuilsConfiance });
-  const recrues = useQuery({ queryKey: ["samedi-recrues", lundi], queryFn: () => lireRecruesSansReaction(lundi) });
   const demandes = useQuery({ queryKey: ["demandes-arret"], queryFn: lireDemandesArret });
   // 0464 : la couverture, les posteurs toujours montrés, le mode de Full stop (Test : Validate simule).
   const couverture = useQuery({ queryKey: ["samedi-couverture", lundi], queryFn: () => lireCouverture(lundi) });
@@ -188,14 +183,15 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const [choix, setChoix] = React.useState<Record<string, ChoixSamedi>>({});
   const [raisons, setRaisons] = React.useState<Record<string, RaisonSaisie>>({});
   const [ouverts, setOuverts] = React.useState<Record<string, string | true | undefined>>({});
-  const [choixRecrues, setChoixRecrues] = React.useState<Record<string, ChoixRecrue>>({});
   const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
   const [tri, setTri] = React.useState<Tri>("posts_asc");
   const [onglet, setOnglet] = React.useState<Onglet>("tous");
   const [tous, setTous] = React.useState(false);
   const [bilan, setBilan] = React.useState<string | null>(null);
 
-  const liste = React.useMemo(() => lu.data ?? [], [lu.data]);
+  // 31/10 : seulement les posteurs qui ont eu une semaine de posting. La cohorte qui arrive
+  // (cohorte_lundi après ce lundi) reste à Onboarding posters et au check warm-up du dimanche soir.
+  const liste = React.useMemo(() => (lu.data ?? []).filter((c) => semaineCommencee(c.cohorte_lundi, lundi)), [lu.data, lundi]);
   const x = (c: CompteSemaine) => extras.data?.get(c.compte_id);
   const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
     lundi, aujourdhui, maintenant, page: "samedi", seuils: seuils.data,
@@ -225,10 +221,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const principaux = visibles.filter((c) => (tous ? force(c) || e(c).statut !== "vert" : aTraiter(c)));
   const confiance = visibles.filter((c) => e(c).statut === "vert" && !force(c));
   const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
-  // 0469 : la conversation Upwork de chaque posteur (liste, recrues, toujours montrés).
-  const conv = useConversations([
-    ...liste.map((c) => c.poster_id), ...(recrues.data ?? []).map((r) => r.poster_id), ...[...(forces.data?.keys() ?? [])],
-  ]);
+  // 0469 : la conversation Upwork de chaque posteur (liste, toujours montrés).
+  const conv = useConversations([...liste.map((c) => c.poster_id), ...[...(forces.data?.keys() ?? [])]]);
   const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres) : null;
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
   const nbCol = jours.length + 8;
@@ -241,24 +235,20 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const nbChoix = (k: ChoixSamedi) => aDecider.filter((c) => choixDe(c) === k).length;
   const sansPaie = aDecider.filter((c) => choixDe(c) === "kill_np");
   const libelleRaison = (r: RaisonSansPaie) => t(`autoOnglets.decisions.liste.samedi.sansPaie.raisons.${r}`);
-  // Les recrues sans compte (pas dans la liste des comptes) restent dans leur carte.
-  const recruesSansCompte = (recrues.data ?? []).filter((r) => !r.compte_id);
-  // 0464 : un posteur toujours montré sans compte dans la liste ni dans les recrues : sa carte, Kill proposé.
-  const dejaRecrues = new Set(recruesSansCompte.map((r) => r.poster_id));
+  // 0464 : un posteur toujours montré sans compte dans la liste : sa carte, Kill proposé.
   const forcesSansCompte = [...(forces.data?.entries() ?? [])]
-    .filter(([p]) => !posteursMontres.has(p) && !dejaRecrues.has(p))
+    .filter(([p]) => !posteursMontres.has(p))
     .map(([p, f]) => ({ poster_id: p, forces: f, nom: couverture.data?.find((l) => l.poster_id === p)?.nom ?? null }));
   const [choixForces, setChoixForces] = React.useState<Record<string, "kill" | "rien">>({});
   const choixForceDe = (p: string) => choixForces[p] ?? "kill";
-  const choixRecrueDe = (r: RecrueSansReaction) => choixRecrues[r.poster_id] ?? (demandeDe.has(r.poster_id) ? "kill" : "rien");
 
   const recap = () => {
     const parties = (["kill", "kill_np", "double", "recreate", "pause", "reporter"] as const)
       .map((k) => ({ k, n: nbChoix(k) }))
       .filter((p) => p.n > 0)
       .map((p) => `${p.n} ${t(`autoOnglets.decisions.liste.samedi.choix.${p.k}`)}`);
-    const recruesKill = recruesSansCompte.filter((r) => choixRecrueDe(r) === "kill").length;
-    if (recruesKill) parties.push(`${recruesKill} ${t("autoOnglets.decisions.liste.samedi.recap.recrues")}`);
+    const forcesKill = forcesSansCompte.filter((f) => choixForceDe(f.poster_id) === "kill").length;
+    if (forcesKill) parties.push(`${forcesKill} ${t("autoOnglets.decisions.liste.samedi.recap.recrues")}`);
     return parties.length ? parties.join(", ") : t("autoOnglets.decisions.liste.samedi.recap.rien");
   };
 
@@ -267,7 +257,6 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     const kills = [
       ...aDecider.filter((c) => ["kill", "kill_np"].includes(choixDe(c)))
         .map((c) => ({ poster_id: c.poster_id, compte_id: c.compte_id, choix: choixDe(c) as "kill" | "kill_np" })),
-      ...recruesSansCompte.filter((r) => choixRecrueDe(r) === "kill").map((r) => ({ poster_id: r.poster_id, compte_id: null, choix: "kill" as const })),
       ...forcesSansCompte.filter((f) => choixForceDe(f.poster_id) === "kill").map((f) => ({ poster_id: f.poster_id, compte_id: null, choix: "kill" as const })),
     ];
     const autres = (["double", "recreate", "pause", "reporter"] as const)
@@ -312,27 +301,12 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           erreurs.push(`@${c.handle ?? "?"} : ${(err as Error).message}`);
         }
       }
-      const recruesKill = recruesSansCompte.filter((r) => choixRecrueDe(r) === "kill");
-      const recruesReport = recruesSansCompte.filter((r) => choixRecrueDe(r) === "reporter");
-      for (const r of recruesKill) {
-        try {
-          await arreterRecrueSamedi(r.poster_id);
-        } catch (err) {
-          erreurs.push(`${r.nom ?? "?"} : ${(err as Error).message}`);
-        }
-      }
-      for (const f of forcesSansCompte.filter((x) => choixForceDe(x.poster_id) === "kill")) {
+      const forcesKill = forcesSansCompte.filter((x) => choixForceDe(x.poster_id) === "kill");
+      for (const f of forcesKill) {
         try {
           await arreterRecrueSamedi(f.poster_id);
         } catch (err) {
           erreurs.push(`${f.nom ?? "?"} : ${(err as Error).message}`);
-        }
-      }
-      for (const r of recruesReport) {
-        try {
-          await reporterRecrue(r.poster_id);
-        } catch (err) {
-          erreurs.push(`${r.nom ?? "?"} : ${(err as Error).message}`);
         }
       }
       // Décisions finales : une demande d'arrêt pas suivie d'un Kill est classée « garder » (les relances reprennent).
@@ -344,8 +318,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           erreurs.push((err as Error).message);
         }
       }
-      if (decides > 0 || recruesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
-      return { decides, kills: recruesKill.length, reports: recruesReport.length, erreurs, simulation: false };
+      if (decides > 0 || forcesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
+      return { decides, kills: forcesKill.length, reports: 0, erreurs, simulation: false };
     },
     onSuccess: (r) => {
       if (r.simulation) {
@@ -354,9 +328,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       }
       setChoix({});
       setRaisons({});
-      setChoixRecrues({});
       setBilan(t("autoOnglets.decisions.liste.samedi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
-      for (const k of ["semaine-comptes", "semaine-extras", "samedi-recrues", "demandes-arret", "ckd", "samedi-forces", "samedi-couverture"]) {
+      for (const k of ["semaine-comptes", "semaine-extras", "demandes-arret", "ckd", "samedi-forces", "samedi-couverture"]) {
         void qc.invalidateQueries({ queryKey: [k] });
       }
     },
@@ -554,36 +527,6 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           )}
         </CardContent>
       </Card>
-
-      {recruesSansCompte.length > 0 && (
-        <Card data-testid="samedi-recrues">
-          <CardHeader>
-            <CardTitle className="text-base">{t("autoOnglets.decisions.liste.recrues.titre", { n: recruesSansCompte.length })}</CardTitle>
-            <CardDescription>{t("autoOnglets.decisions.liste.recrues.aide")}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm">
-            <ul className="divide-y rounded-md border">
-              {recruesSansCompte.map((r) => (
-                <li key={r.poster_id} className="flex flex-wrap items-center gap-3 p-2" data-recrue={r.poster_id}>
-                  <Choix
-                    valeur={choixRecrueDe(r)}
-                    options={CHOIX_RECRUE}
-                    libelle={(o) => t(`autoOnglets.decisions.liste.recrues.choix.${o}`)}
-                    lecture={!admin}
-                    onChange={(o) => setChoixRecrues((v) => ({ ...v, [r.poster_id]: o }))}
-                  />
-                  <span className="font-medium">{r.nom ?? "—"}</span>
-                  {r.handle && <HandleTiktok handle={r.handle} pays={r.pays} className="text-xs font-normal" />}
-                  <Badge variant="warning">{t(`autoOnglets.decisions.liste.recrues.manque.${manqueRecrue(r)}`, { n: Math.max(0, 5 - (r.abonnements ?? 0)) })}</Badge>
-                  {demandeDe.get(r.poster_id) && <BadgeDemande d={demandeDe.get(r.poster_id)!} />}
-                  <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.recrues.relances", { n: r.relances })}</span>
-                  <LienConversation c={conversationDe(conv.data, { posteur: r.poster_id })} />
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      )}
 
       {forcesSansCompte.length > 0 && (
         <Card data-testid="forces-sans-compte">

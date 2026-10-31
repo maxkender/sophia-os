@@ -878,6 +878,8 @@ export const fr = {
       poster: "Poster",
       pilotage: "Pilotage",
       analytics: "Analytics",
+      postsLiens: "Posts & links",
+      qualityFeedback: "Quality feedback",
       qualite: "Quality Control",
       suiviRc: "Suivi metrics RC",
       posts: "Posts",
@@ -1089,6 +1091,8 @@ export const fr = {
       creation: "Slideshow semi-manuel : hook, texte IA, images du label",
       pods: "Livraisons des pods à valider",
       analytics: "Performances par compte et par post",
+      postsLiens: "Contestations sur les posts et les liens (posts manquants, lien introuvable)",
+      qualityFeedback: "Retours sur la qualité des posts contestés, à vérifier et trancher",
       qualite: "10 posts au hasard par label d'hier, en anglais, pour signaler les problèmes",
       suiviRc: "Conversion paywall, trials et pays (RevenueCat)",
       posts: "Tous les posts générés",
@@ -4763,7 +4767,7 @@ export const fr = {
     },
     // Prompt 21, partie R : la page « Disputes ».
     disputes: {
-      onglets: { libelle: "Onglets", ouvertes: "Ouvertes", paie: "Paie", kill: "Kill et arrêts", posts: "Posts et liens", feedback: "Retours", fermees: "Fermées" },
+      onglets: { libelle: "Onglets", ouvertes: "Ouvertes", paie: "Paie", kill: "Kill et arrêts", posts: "Posts et liens", feedback: "Retours", fermees: "Fermées", posts_fermees: "Fermées" },
       vide: "Aucune contestation ici.",
       types: { paie: "Paie", kill: "Kill", posts: "Posts", lien: "Lien", message: "Message", autre: "Autre", feedback: "Retour" },
       canaux: { slack: "Slack", upwork: "Upwork", bouton: "Bouton Slack", tableau: "Tableau de bord", os: "L'OS (paie)" },

@@ -48,6 +48,7 @@ import { AdminLabelsPage } from "@/pages/admin/AdminLabelsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
 import { PageQualite } from "@/features/qualite/PageQualite";
+import { PagePostsLiens, PageQualityFeedback } from "@/features/disputes/PagesTracking";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
 import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
 import { AdminReferralsPage } from "@/pages/admin/AdminReferralsPage";
@@ -128,6 +129,8 @@ export function AppRouter() {
             {/* L'espace du Head of Ops. */}
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
+            <Route path="/admin/posts-links" element={<PagePostsLiens />} />
+            <Route path="/admin/quality-feedback" element={<PageQualityFeedback />} />
             <Route path="/admin/file-reviews" element={<AdminFileReviewsPage />} />
             <Route path="/admin/parrainages" element={<AdminReferralsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />

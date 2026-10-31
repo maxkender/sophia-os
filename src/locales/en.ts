@@ -877,6 +877,8 @@ export const en = {
       poster: "Poster",
       pilotage: "Dashboard",
       analytics: "Analytics",
+      postsLiens: "Posts & links",
+      qualityFeedback: "Quality feedback",
       qualite: "Quality Control",
       suiviRc: "RC metrics",
       posts: "Posts",
@@ -1088,6 +1090,8 @@ export const en = {
       creation: "Semi-manual slideshow: hook, AI copy, label library images",
       pods: "Pod deliveries to review",
       analytics: "Performance by account and post",
+      postsLiens: "Disputes about posts and links (missing posts, link not found)",
+      qualityFeedback: "Disputed feedback on post quality, to check and decide",
       qualite: "10 random posts per label from yesterday, in English, to report problems",
       suiviRc: "Paywall conversion, trials and countries (RevenueCat)",
       posts: "All generated posts",
@@ -4754,7 +4758,7 @@ export const en = {
     },
     // Prompt 21, part R: the "Disputes" page.
     disputes: {
-      onglets: { libelle: "Tabs", ouvertes: "Open", paie: "Pay", kill: "Kill & stops", posts: "Posts & links", feedback: "Feedback", fermees: "Closed" },
+      onglets: { libelle: "Tabs", ouvertes: "Open", paie: "Pay", kill: "Kill & stops", posts: "Posts & links", feedback: "Feedback", fermees: "Closed", posts_fermees: "Closed" },
       vide: "No dispute here.",
       types: { paie: "Pay", kill: "Kill", posts: "Posts", lien: "Link", message: "Message", autre: "Other", feedback: "Feedback" },
       canaux: { slack: "Slack", upwork: "Upwork", bouton: "Slack button", tableau: "Dashboard", os: "The OS (pay)" },

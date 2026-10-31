@@ -400,6 +400,8 @@ export function HiringPosterPage() {
     prenom: string;
     persona: boolean;
     type: PremierCompte;
+    /** 31/10 : le mot de passe unique de la recrue, rendu par la création. */
+    password: string;
   } | null>(null);
   // Application du premier compte : c'est le créateur qui est associé à une
   // application, son recruteur choisit pour lui (le label, lui, est tiré de la
@@ -444,6 +446,7 @@ export function HiringPosterPage() {
         prenom: separerNomComplet(nomComplet).prenom ?? "",
         persona: Boolean(r.compte?.persona),
         type: premierCompte,
+        password: r.password ?? MOT_DE_PASSE,
       });
       setNomComplet("");
       setPaysCompte("");
@@ -558,7 +561,7 @@ export function HiringPosterPage() {
               </p>
               <p className="text-sm">
                 <span className="text-muted-foreground">{t("posters.password")} : </span>
-                <code className="rounded bg-muted px-1">{MOT_DE_PASSE}</code>
+                <code className="rounded bg-muted px-1">{cree.password}</code>
               </p>
               {cree.type === "cm" ? (
                 <p className="pt-1 text-xs text-muted-foreground">{t("posters.creeCm")}</p>
@@ -570,7 +573,7 @@ export function HiringPosterPage() {
                   <p className="text-xs text-muted-foreground">{t("warmup.apresCreation")}</p>
                 </>
               )}
-              <MessageBienvenue prenom={cree.prenom} email={cree.email} password={MOT_DE_PASSE} />
+              <MessageBienvenue prenom={cree.prenom} email={cree.email} password={cree.password} />
             </div>
           )}
         </CardContent>

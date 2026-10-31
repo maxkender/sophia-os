@@ -147,6 +147,7 @@ export function CheckWarmup() {
   const conv = useConversations(liste.map((l) => l.poster_id), liste.map((l) => l.contrat_id));
   const risque = liste.filter((l) => l.groupe === "risque");
   const ok = liste.filter((l) => l.groupe === "ok");
+  const illisibles = liste.filter((l) => l.groupe === "illisible");
   const report = liste.filter((l) => l.groupe === "report");
   const decides = liste.filter((l) => l.decision).length;
   return (
@@ -162,7 +163,7 @@ export function CheckWarmup() {
             <Input type="date" className="h-8 w-40" value={lundi} onChange={(e) => e.target.value && setLundi(e.target.value)} />
           </label>
           <span className="text-xs text-muted-foreground" data-testid="compteur-warmup">
-            {t(`${P}.compteur`, { risque: risque.length, ok: ok.length, report: report.length, decides })}
+            {t(`${P}.compteur`, { risque: risque.length, illisible: illisibles.length, ok: ok.length, report: report.length, decides })}
           </span>
         </div>
         {lu.error && <p className="text-destructive">{(lu.error as Error).message}</p>}
@@ -170,6 +171,10 @@ export function CheckWarmup() {
           <h3 className="font-medium">{t(`${P}.aRisque`, { n: risque.length })}</h3>
           {risque.length ? <Tableau lignes={risque} lundi={lundi} conv={conv.data} /> : <p className="text-xs text-muted-foreground">{t(`${P}.rien`)}</p>}
         </section>
+        <details className="rounded-md border px-3 py-2" data-testid="warmup-illisible">
+          <summary className="cursor-pointer font-medium">{t(`${P}.illisibles`, { n: illisibles.length })}</summary>
+          <div className="mt-2">{illisibles.length ? <Tableau lignes={illisibles} lundi={lundi} conv={conv.data} /> : null}</div>
+        </details>
         <details className="rounded-md border px-3 py-2" data-testid="warmup-ok">
           <summary className="cursor-pointer font-medium">{t(`${P}.autres`, { n: ok.length })}</summary>
           <div className="mt-2">{ok.length ? <Tableau lignes={ok} lundi={lundi} conv={conv.data} /> : null}</div>

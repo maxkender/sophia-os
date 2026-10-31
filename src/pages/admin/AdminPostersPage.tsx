@@ -988,7 +988,8 @@ export function AdminPostersPage() {
       });
     },
     onSuccess: (r) => {
-      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password, type: ugcVideo ? "ugc_video" : premierCompte });
+      // 31/10 : la création renvoie le mot de passe unique de la recrue (12345678 est remplacé).
+      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password: r.password ?? password, type: ugcVideo ? "ugc_video" : premierCompte });
       choixAppsPoster.reinitialiser();
       setNomComplet("");
       setContact(CONTACT_POSTER_VIDE);

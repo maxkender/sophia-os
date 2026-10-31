@@ -54,6 +54,7 @@ import {
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { derniersMessagesSalon } from "../_shared/contexte.ts";
 import {
@@ -177,6 +178,10 @@ const COMPTE = "principal";
  *   { action: "accueil_creer", contrat_id, pays, hm_id, langue?, tarif?, confirmer }  admin
  *       0470 : carte « Contract to link » : posteur créé, relié, bienvenue envoyée.
  *       Profil déjà créé par la HM (même contrat) : HM et tarif posés, bienvenue envoyée.
+ *   { action: "jalon_creer", contrat_id, nom, montant, confirmer }  admin
+ *       31/10 : une milestone créée sans être financée, notée dans « To fund by hand ».
+ *   { action: "welcomes_envoyer", poster_ids, confirmer }  admin
+ *       31/10 : la bienvenue de recrues créées par la HM, jamais accueillies (Adrien, puis Max, puis la HM).
  *   { action: "warmup_check_decider", poster_id, lundi, decision, confirmer }  admin, Head of Ops
  *       0474 : le check du warm-up du dimanche soir ; « pas_chaud » : posts mardi + message.
  *   { action: "annonces_amorcer" }           admin
@@ -309,6 +314,16 @@ Deno.serve(async (request) => {
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
+      case "jalon_creer":
+        // 31/10 : créer une milestone sans la financer (un clic explicite) ; elle va dans « To fund by hand ».
+        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await creerJalonSeul(supabase, par, String(body.contrat_id ?? ""), String(body.nom ?? ""), Number(body.montant)));
+      case "welcomes_envoyer": {
+        // 31/10 : la bienvenue des recrues créées par la HM et jamais accueillies (un clic : liste donnée, confirmer).
+        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        const ids = Array.isArray(body.poster_ids) ? body.poster_ids.map(String) : [];
+        return json(await envoyerWelcomes(supabase, par, ids));
+      }
       case "warmup_check_decider":
         // 0474 : Weekly decisions → Sunday : « Warm-up OK » ou « Not warmed up » (un clic, jamais par un cron).
         if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -3085,6 +3100,79 @@ async function deciderWarmup(supabase: Supabase, par: string | null, posterId: s
   return { ok: statut === "envoye", decision, canal, ...(erreur ? { error: `posts à partir de mardi, mais message non parti : ${erreur}` } : {}) };
 }
 
+/**
+ * 31/10 : la bienvenue de recrues déjà créées (par la HM), jamais accueillies :
+ * le compte d'Adrien d'abord, puis celui de Max, dans la limite du jour ; au-delà,
+ * la HM l'envoie à la main (To send by hand). Mot de passe unique si jamais connecté.
+ */
+async function envoyerWelcomes(supabase: Supabase, par: string | null, ids: string[]) {
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["accueil_message_texte", "slack_lien_invitation"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
+  const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
+  const bilan = { ok: true, envoyes: [] as string[], a_la_main: [] as string[], erreurs: [] as string[], restants: [] as string[] };
+  const debut = Date.now();
+  for (const id of ids) {
+    if (Date.now() - debut > 110_000) {
+      bilan.restants.push(id);
+      continue;
+    }
+    const { data: p } = await supabase.from("profiles").select("id, prenom, nom, manager_id, upwork_contract_id, is_active").eq("id", id).maybeSingle();
+    const nom = [p?.prenom, p?.nom].filter(Boolean).join(" ") || id;
+    if (!p?.is_active || !p.upwork_contract_id) {
+      bilan.erreurs.push(`${nom} : profil inactif ou sans contrat`);
+      continue;
+    }
+    const { data: deja } = await supabase.from("accueils").select("message_at").eq("contrat_id", p.upwork_contract_id).not("message_at", "is", null).maybeSingle();
+    if (deja) {
+      bilan.erreurs.push(`${nom} : bienvenue déjà envoyée`);
+      continue;
+    }
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", p.upwork_contract_id).limit(1).maybeSingle();
+    const r = await accueillirExistant(
+      supabase, par,
+      { contrat_id: String(p.upwork_contract_id), organisation_id: uc?.organisation_id ?? null, prenom: p.prenom, nom: p.nom, hm_id: p.manager_id ?? null },
+      id, modele, slack,
+    );
+    const { data: a } = await supabase.from("accueils").select("statut, message_at").eq("contrat_id", p.upwork_contract_id).maybeSingle();
+    if (r.erreur) bilan.erreurs.push(`${nom} : ${r.erreur}`);
+    else if (a?.message_at) bilan.envoyes.push(nom);
+    else bilan.a_la_main.push(nom);
+  }
+  return bilan;
+}
+
+/**
+ * 31/10 : une milestone créée sans être financée (createMilestoneV2, échéance
+ * au dimanche de la semaine). Aucun argent ne part : elle est notée dans
+ * « To fund by hand ». Jamais de nouvel essai ; une milestone du même nom
+ * déjà présente n'est pas recréée.
+ */
+async function creerJalonSeul(supabase: Supabase, par: string | null, contrat: string, nom: string, montant: number) {
+  if (!contrat || !nom.trim() || !(montant > 0) || montant > 100) return { ok: false, error: "contrat_id, nom et montant (1 à 100 $) requis" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).limit(1).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  const lus = await lire(supabase, { par, action: "jalon_creer_lecture", query: REQUETE_JALONS, variables: { id: contrat }, tenant });
+  // deno-lint-ignore no-explicit-any
+  const existants = ((lus.data?.contractDetails?.terms?.fixedPriceTerms?.milestones ?? []) as any[]);
+  if (lus.erreur) return { ok: false, error: `milestones illisibles : ${lus.erreur}` };
+  if (existants.some((j) => String(j?.description ?? "").trim().toLowerCase() === nom.trim().toLowerCase())) {
+    return { ok: false, error: `une milestone « ${nom} » existe déjà` };
+  }
+  const cree = await ecrire(supabase, {
+    par, action: "jalon_creer", query: MUTATION_CREER_JALON, tenant, contrat, montant,
+    variables: { input: { contractId: contrat, description: nom.trim(), depositAmount: centimes(montant), ...(await echeanceJalon(supabase, par, tenant, nom.trim())) } },
+  });
+  const id = cree.data?.createMilestoneV2?.id ? String(cree.data.createMilestoneV2.id) : null;
+  if (cree.erreur || !id) return { ok: false, error: cree.erreur ?? "réponse vide" };
+  const { data: p } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contrat).eq("is_active", true).limit(1).maybeSingle();
+  await supabase.from("paie_a_financer").upsert({
+    poster_id: p?.id ?? null, contrat_id: contrat, jalon_id: id, nom: nom.trim(), montant,
+    raison: "créée sans financement (31/10, demande de Max)", etat_lu: cree.data?.createMilestoneV2?.state ?? null,
+  }, { onConflict: "contrat_id,jalon_id" });
+  return { ok: true, jalon_id: id, etat: cree.data?.createMilestoneV2?.state ?? null };
+}
+
 /** Prompt 13 : le @ TikTok que la recrue doit créer (son 1er compte perso, généré à la création). */
 async function handleACreer(supabase: Supabase, posterId: string): Promise<string | null> {
   const { data } = await supabase.from("comptes").select("handle_tiktok").eq("poster_id", posterId).eq("type_compte", "perso")
@@ -3114,7 +3202,7 @@ async function creerEtAccueillir(
   }
   const contratUrl = `https://www.upwork.com/nx/wm/workroom/${a.contrat_id}/overview`;
   // 1. Le posteur, comme sur /embauche : 2 posts par jour, identité générée.
-  let cree: { userId?: string; email?: string; error?: string } | null = null;
+  let cree: { userId?: string; email?: string; password?: string; error?: string } | null = null;
   try {
     const r = await fetch(`${base}/functions/v1/manage-users`, {
       method: "POST",
@@ -3127,7 +3215,7 @@ async function creerEtAccueillir(
         action: "create",
         prenom: a.prenom ?? "",
         nom: a.nom ?? "",
-        password: MOT_DE_PASSE_DEPART,
+        password: "auto",
         langue: a.langue,
         ...(a.pays ? { pays: a.pays } : {}),
         type_compte: "perso",
@@ -3154,7 +3242,7 @@ async function creerEtAccueillir(
   await fin({ statut: "cree", raison: null, poster_id: cree.userId, email: cree.email ?? null });
   // 3. Le message de bienvenue, une seule fois (accueils.message_at).
   const texte = messageAccueil(modele, {
-    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
+    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: cree.password ?? MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
     cohorte_lundi: a.cohorte_lundi, handle: await handleACreer(supabase, cree.userId),
   });
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
@@ -3218,11 +3306,18 @@ async function accueillirExistant(
   });
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", base.contrat_id);
+  // 31/10 : jamais connecté → un mot de passe unique (plus 12345678 pour tous), à changer à la 1re connexion ;
+  // déjà connecté → il a peut-être changé son mot de passe : on ne lui en donne pas un faux.
+  let motDePasse = "the one you chose";
+  if (!(await dejaConnecte(supabase, posterId))) {
+    const neuf = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(posterId, { password: neuf });
+    motDePasse = errMdp ? MOT_DE_PASSE_DEPART : neuf;
+    await supabase.from("profiles").update({ must_change_password: true }).eq("id", posterId);
+  }
   const texte = messageAccueil(modele, {
     prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
-    // 31/10 : jamais connecté → le mot de passe de départ (must_change_password est toujours faux à la création
-    // par la HM) ; déjà connecté → il a peut-être changé son mot de passe : on ne lui en donne pas un faux.
-    mot_de_passe: p.must_change_password || !(await dejaConnecte(supabase, posterId)) ? MOT_DE_PASSE_DEPART : "the one you chose",
+    mot_de_passe: motDePasse,
     slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
     handle: await handleACreer(supabase, posterId),
   });

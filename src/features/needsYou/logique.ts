@@ -55,3 +55,27 @@ export function parCategorie(cas: CasNeedsYou[]): Record<Categorie, number> {
 
 /** Un lien interne de l'OS (ouvert dans l'onglet) ou externe (TikTok, Slack). */
 export const estInterne = (lien: string) => lien.startsWith("/");
+
+/**
+ * 31/10 : qui traite quelle carte. Lucia (Head of Ops) : posteurs, HM, paie,
+ * Slack, décisions ; Max (admin) : technique, contrats, connexions. Un type
+ * inconnu va à Max.
+ */
+export type Personne = "lucia" | "max";
+const POUR_LUCIA = new Set([
+  "question_paie", "message_a_lire", "reponse_peu_sure", "question_faq", "question_hm",
+  "retirer_slack", "slack_non_lie", "pause_non_relie", "sans_canal",
+  "paiement", "paiement_urgent", "a_payer_avant_fermeture", "remboursement", "a_financer_main", "jalon_soumis", "kill_incomplet",
+  "envoi_main_6h", "envoi_main_introuvable", "contestation_24h", "samedi_non_valide", "arret_a_verifier",
+  "handle_a_valider", "handle_probable", "warmup_introuvable", "compte_introuvable",
+]);
+export const personneDe = (type: string): Personne => (POUR_LUCIA.has(type) ? "lucia" : "max");
+
+export function parPersonne(cas: Pick<CasNeedsYou, "type">[]): Record<Personne, number> {
+  const r: Record<Personne, number> = { lucia: 0, max: 0 };
+  for (const c of cas) r[personneDe(c.type)]++;
+  return r;
+}
+
+/** 31/10 : les questions des HM (au bot FAQ) sont à part. */
+export const estQuestionHm = (c: Pick<CasNeedsYou, "type">) => c.type === "question_hm";

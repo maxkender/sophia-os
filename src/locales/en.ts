@@ -57,7 +57,7 @@ export const en = {
       droitManquant: "Missing Upwork permission (scope)? {{erreur}}",
       payerConfirm: "Pay this week on test contract {{contrat}}, for real: approve the funded milestone and fund the next week (same amount, within the caps)?",
       paye: "Paid (week of {{semaine}}), next week funded.",
-      payeAFinancer: "Paid (week of {{semaine}}). Next week NOT funded: Upwork needs funding confirmed on Upwork — added to “To fund by hand”.",
+      payeAFinancer: "Paid (week of {{semaine}}). Next week NOT funded: Upwork needs funding confirmed on Upwork — added to “Who to fund”.",
       financer: "Fund this milestone (test)",
       financerConfirm: "Fund the NotFunded milestone of test contract {{contrat}}, for real (escrow, within the caps)? Nothing else is done.",
       finance: "OK: {{nom}} is {{etat}} on Upwork (re-read).",
@@ -4836,6 +4836,8 @@ export const en = {
       resumeRetard: "{{n}} for over 24 h",
     },
     needsYou: {
+      parPersonne: "Lucia: {{lucia}} · Max: {{max}}",
+      questionsHm: "HM questions ({{n}})",
       sansCanal: {
         connu: "Created by {{hm}} on {{date}} · {{connexion}} · cohort {{cohorte}}",
         derniere: "last login {{date}}",
@@ -4877,6 +4879,7 @@ export const en = {
         reponse_peu_sure: "Message sorted without certainty",
         question_paie: "Pay question",
         contestation_24h: "Dispute open for over 24 h",
+        question_hm: "HM question (to the FAQ bot)",
         question_faq: "Question the FAQ doesn't cover",
         paiement: "Payment to check",
         paiement_urgent: "Payment problem",
@@ -4885,7 +4888,7 @@ export const en = {
         pause_non_relie: "Message in #poster-pause (not linked)",
         sans_canal: "No channel to reach them",
         arret_a_verifier: "Killed contract still open or funded",
-        a_financer_main: "Milestone to fund by hand",
+        a_financer_main: "Milestone still not funded (Tuesday 12:00)",
         contrat_a_relier: "Contract to link",
         contrat_hors_vik: "Poster contract outside VIk Studios",
         doublon: "Possible duplicate",
@@ -4907,7 +4910,7 @@ export const en = {
         slack_non_lie: "Slack member linked to no profile (24 h)",
         jalon_soumis: "Milestone submitted for over 7 days",
         a_payer_avant_fermeture: "Pay or refund before closing",
-        samedi_non_valide: "Saturday decision not validated",
+        samedi_non_valide: "Saturday decisions to validate",
         upwork_limite: "Upwork is rate-limiting (429)",
       },
       actions: {
@@ -5122,7 +5125,7 @@ export const en = {
         paye: "Paid by hand ({{nom}})",
       },
       aFinancer: {
-        titre: "To fund by hand ({{n}} · {{total}} $)",
+        titre: "Who to fund ({{n}} · {{total}} $)",
         aide: "The week is paid through the API, but Upwork does not fund the next milestone through the API (non-enterprise account: funding waits for a confirmation on Upwork). Fund each one on Upwork; the OS re-reads them every hour and removes them once funded.",
         relire: "Re-read on Upwork",
         relu: "{{ouvertes}} read · {{financees}} now funded",

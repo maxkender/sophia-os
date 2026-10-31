@@ -149,3 +149,74 @@ export function texteRelance(
   if (morceaux.length === 0) return "";
   return remplir(t.cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
 }
+
+// ---------------------------------------------------------------------------
+// 1/11 : le canal de chaque relance (Slack d'abord, Upwork une fois 24 h après)
+// ---------------------------------------------------------------------------
+
+/** La dernière ligne de toute relance envoyée sur Upwork (jamais sur Slack). */
+export const LIGNE_STOP_UPWORK = "If you don't wish to continue, just reply STOP here.";
+
+export function avecLigneStop(texte: string): string {
+  const t = texte.trimEnd();
+  return t.endsWith(LIGNE_STOP_UPWORK) ? t : `${t}\n\n${LIGNE_STOP_UPWORK}`;
+}
+
+/** Ce qui est déjà parti pour une étape : l'heure de la relance Slack, de la relance Upwork. */
+export interface DejaRelance {
+  slack_at?: string | null;
+  upwork_at?: string | null;
+}
+
+export interface ChoixRelance {
+  element: ElementRelance | null;
+  canal: "slack" | "upwork" | null;
+  /** La relance Slack attend ses 24 h : l'heure à laquelle Upwork partira. */
+  upwork_prevu_at: string | null;
+}
+
+/**
+ * 1/11 : une seule relance par étape et par canal. Sur Slack : la relance part
+ * en DM Slack, jamais sur Upwork ; l'étape toujours pas faite 24 h après : une
+ * seule relance Upwork. Pas sur Slack (ou l'étape « rejoindre Slack ») : une
+ * seule relance Upwork, directement. Le 1er élément dû qui a encore un canal.
+ */
+export function choisirRelance(
+  plan: Pick<PlanRelance, "elements">,
+  surSlack: boolean,
+  deja: ReadonlyMap<string, DejaRelance> | undefined,
+  maintenant: Date,
+): ChoixRelance {
+  let attente: string | null = null;
+  for (const e of plan.elements) {
+    const d = deja?.get(e) ?? {};
+    if (surSlack && e !== "slack") {
+      if (!d.slack_at) return { element: e, canal: "slack", upwork_prevu_at: null };
+      if (d.upwork_at) continue;
+      const due = new Date(new Date(d.slack_at).getTime() + 24 * H);
+      if (maintenant >= due) return { element: e, canal: "upwork", upwork_prevu_at: null };
+      attente ??= due.toISOString();
+      continue;
+    }
+    if (!d.upwork_at) return { element: e, canal: "upwork", upwork_prevu_at: null };
+  }
+  return { element: null, canal: null, upwork_prevu_at: attente };
+}
+
+/** L'historique des relances parties (nudges) : par étape, l'heure de la 1re sur Slack et sur Upwork. */
+export function historiqueRelances(
+  envois: readonly { donnees?: { element?: unknown; elements?: unknown } | null; canaux?: string[] | null; envoye_at: string }[],
+): Map<string, DejaRelance> {
+  const h = new Map<string, DejaRelance>();
+  for (const n of [...envois].sort((a, b) => a.envoye_at.localeCompare(b.envoye_at))) {
+    const els = Array.isArray(n.donnees?.elements) ? (n.donnees!.elements as unknown[]).map(String)
+      : n.donnees?.element ? [String(n.donnees.element)] : [];
+    for (const e of els) {
+      const d = h.get(e) ?? {};
+      if ((n.canaux ?? []).includes("slack")) d.slack_at ??= n.envoye_at;
+      if ((n.canaux ?? []).includes("upwork")) d.upwork_at ??= n.envoye_at;
+      h.set(e, d);
+    }
+  }
+  return h;
+}

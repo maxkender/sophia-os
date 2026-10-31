@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o049",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie #pourtoi #culture #lecture",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+ ],
+ "notes": "cta B (l'anecdote du jour en item 3). Fait vérifié le 31/10 sur https://fr.wikipedia.org/wiki/Le_Petit_Prince : « Il est publié en anglais le 6 avril 1943 à New York […] alors que la version originale en français paraît une quinzaine de jours après. » Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 8 sur 8. Seule livraison normale du jour sur une famille déjà livrée 3 fois en 7 jours (vole-habitudes), comme le permet ROUTINE-avant-bleo §4.6. Preuve : schéma vole-habitudes (r 7,58, 83ef5e79 ; chez nous, bsg-o005 à 29,5 k vues). Accroches écrites : « les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie » (retenue : le gabarit du gagnant, une personne nouvelle), « ce que mon grand-père lecteur m'a appris sans le savoir » (écartée : sans « volées »), « les règles de lecture de mon grand-père » (écartée : plus faible). Items neufs. Le grand-père reste anonyme. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "de3388bf",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à mon grand-père\nqui a lu toute sa vie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "de93e8c1",
+   "texte_overlay": "1. il écrivait la date sur la première page de chaque livre.\n\nsa bibliothèque, c'était le journal de sa vie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "deb91ea6",
+   "texte_overlay": "2. il lisait le dictionnaire comme un roman.\n\nquelques pages au hasard, avec son café.\nil connaissait des mots que personne ne connaissait.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6780bd2b",
+   "texte_overlay": "3. il racontait une histoire vraie à chaque repas.\n\nla dernière fois, il m'a appris que le petit prince est d'abord paru à new york, en 1943, en anglais.\non attendait le dessert pour la suite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg",
+   "texte_sophia": "3. il racontait une histoire vraie à chaque repas.\n\nmoi, maintenant, c'est l'appli Sophia qui me les apprend. ce matin : le petit prince est d'abord paru à new york, en 1943, en anglais."
+  },
+  {
+   "position": 5,
+   "media_id": "df17f944",
+   "texte_overlay": "4. il relisait ses livres préférés à voix haute.\n\npour lui, un bon livre s'écoute autant qu'il se lit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "df3d0fb4",
+   "texte_overlay": "5. il ne prêtait jamais un livre sans dire pourquoi.\n\n« lis celui-là, tu vas aimer le passage du chapitre trois. »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "df728451",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/3.jpg"
+  }
+ ]
+}

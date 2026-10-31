@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o052",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment je suis devenue la fille qu'on trouve « vraiment intéressante » (partie 2) #pourtoi #culture #apprentissage",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "variante de bsg-o012 (« comment je suis devenue la fille qu'on trouve « vraiment intéressante » (sans être la plus populaire) », 36,9 k vues, r 42,22 sur son premier passage). Même schéma jolie-et-interessante (preuve r 5,04, 675447a8), autre angle, autres items. Les variantes s'ajoutent aux 8 livraisons du jour (ROUTINE-avant-bleo §4.2). cta C. Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), variante 3 sur 3. Angle : la suite directe, « partie 2 », du post qui a percé. Accroches écrites : « comment je suis devenue la fille qu'on trouve « vraiment intéressante » (partie 2) » (retenue : la suite attendue par ceux qui ont aimé), « encore plus de façons de devenir vraiment intéressante » (écartée : moins clair), « la fille vraiment intéressante, la suite » (écartée : sans promesse). Items neufs (rien de repris de bsg-o012 : pas de « je sais pas », de sujet à soi, de récit, de questions bizarres). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35038c20",
+   "texte_overlay": "comment je suis devenue la fille\nqu'on trouve « vraiment intéressante »\n(partie 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "692a12cb",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "2c90ff26",
+   "texte_overlay": "1. j'ai une opinion sur l'actualité.\n\npas forcément tranchée. mais réfléchie.\nj'ai lu plus que le titre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d76282ee",
+   "texte_overlay": "2. j'ai des passions qui n'ont rien à voir entre elles.\n\nla botanique et le rap, l'histoire et la mode.\nc'est le mélange qui rend unique.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fbeb14b7",
+   "texte_overlay": "3. je partage ce que j'apprends, sans faire la leçon.\n\n« tu savais que… ? » et un sourire.\njamais\n« t'aurais dû savoir ».",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c2ec961",
+   "texte_overlay": "4. je reste curieuse des autres.\n\nleur métier, leur ville, leur enfance.\ntout le monde a une histoire à raconter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "11238a77",
+   "texte_overlay": "et dis-moi s'il te faut\nune partie 3 !",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

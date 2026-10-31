@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o045",
+ "schema_id": "jolie-et-interessante",
+ "titre": "les green flags d'une fille vraiment cultivée #pourtoi #culture #greenflags #apprentissage",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "essai. cta A. Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 4 sur 8 (le numéro finit par 5). L'essai : le format « green flags », très courant sur TikTok, jamais fait chez nous, appliqué à la fille cultivée. Preuve : schéma jolie-et-interessante (r 5,04, 675447a8 ; chez nous, bsg-o012 vient de faire 36,9 k vues). Accroches écrites : « les green flags d'une fille vraiment cultivée » (retenue : format reconnu, promesse d'identité), « les signes qui montrent que tu es une fille cultivée » (écartée : plus fade), « green flags : la fille qui lit » (écartée : trop étroit). Items neufs. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4589b8dd",
+   "texte_overlay": "les green flags\nd'une fille vraiment cultivée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "464f6635",
+   "texte_overlay": "1. elle dit\n« je sais pas, explique-moi ».\n\nsans honte. et elle écoute vraiment la réponse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "67d75edd",
+   "texte_overlay": "2. elle a toujours un livre en cours.\n\npas pour le montrer. juste parce qu'elle a envie de savoir la suite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "468d937e",
+   "texte_overlay": "3. elle recommande sans juger.\n\nun film, un podcast, une expo.\njamais\n« quoi, tu connais pas ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "46965537",
+   "texte_overlay": "4. elle change d'avis quand on lui montre qu'elle a tort.\n\net elle te remercie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "459171e2",
+   "texte_overlay": "5. elle apprend un truc nouveau chaque jour.\n\navant, je pensais qu'être cultivée, c'était pour les autres.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg",
+   "texte_sophia": "5. elle apprend un truc nouveau chaque jour.\n\navant, je pensais qu'être cultivée, c'était pour les autres.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "675424f1",
+   "texte_overlay": "lequel tu coches déjà ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

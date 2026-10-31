@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o051",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment je suis devenue « la fille qui sait toujours un truc » (sans être une intello) #pourtoi #culture #apprentissage",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "variante de bsg-o012 (« comment je suis devenue la fille qu'on trouve « vraiment intéressante » (sans être la plus populaire) », 36,9 k vues, r 42,22 sur son premier passage). Même schéma jolie-et-interessante (preuve r 5,04, 675447a8), autre angle, autres items. Les variantes s'ajoutent aux 8 livraisons du jour (ROUTINE-avant-bleo §4.2). cta A. Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), variante 2 sur 3. Angle : savoir des choses sans être « l'intello ». Accroches écrites : « comment je suis devenue « la fille qui sait toujours un truc » (sans être une intello) » (retenue : la structure du post qui a percé, avec les guillemets), « comment j'ai fini par toujours avoir une anecdote » (écartée : plus fade), « la fille qui sait tout sans réviser » (écartée : promesse fausse). Items neufs. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8e6367d4",
+   "texte_overlay": "comment je suis devenue\n« la fille qui sait\ntoujours un truc »\n(sans être une intello)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c3a828da",
+   "texte_overlay": "1. je retiens une chose par conversation.\n\nun mot, un lieu, un nom.\nle soir, je cherche ce que c'était.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8ca08330",
+   "texte_overlay": "2. je lis la page d'histoire des endroits où je vais.\n\nun café, un parc, une gare.\ncinq minutes avant d'y aller.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "341e2c09",
+   "texte_overlay": "3. je regarde des documentaires courts.\n\nvingt minutes, pas deux heures.\nun par semaine, ça fait cinquante sujets par an.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c1f4813b",
+   "texte_overlay": "4. je pose des questions sans peur d'avoir l'air bête.\n\ncelle qui pose la question est souvent celle qui apprend.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "67e5edfb",
+   "texte_overlay": "5. j'ai arrêté de me cacher derrière\n« je suis pas intello ».\n\navant, je disais\n« j'y connais rien » dès qu'on parlait d'art.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg",
+   "texte_sophia": "5. j'ai arrêté de me cacher derrière\n« je suis pas intello ».\n\navant, je disais\n« j'y connais rien » dès qu'on parlait d'art.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "3476f6c1",
+   "texte_overlay": "laquelle tu voles\nen premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

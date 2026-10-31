@@ -5726,6 +5726,9 @@ export const fr = {
       qualite: { good: "GOOD", poor_views: "POOR VIEWS", shadowban: "SHADOWBAN" },
     },
     hiring: {
+      posterExistant: "This contract already has a poster. Rien n'a été créé.",
+      posterEnCours: "Un posteur est en cours de création pour ce contrat. Rien n'a été créé : attends une minute, puis regarde la liste ci-dessous.",
+      voirFiche: "Ouvrir sa fiche",
       title: "Créer un poster",
       subtitle:
         "Un créateur = un login, et son premier compte TikTok. Le lien du contrat Upwork et l'email perso sont obligatoires.",

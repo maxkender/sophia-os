@@ -2755,7 +2755,9 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const lecture = await lireContrats(supabase, par);
   const { data: relies, error: errRelier } = await supabase.rpc("contrats_relier");
   const reliage = { relies: (relies ?? []).length, erreur_relier: errRelier?.message ?? null };
-  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off", ...reliage };
+  // 31/10 : le pays des nouvelles recrues est vérifié même sur off (lieu du freelance, 10 contrats par passage).
+  const localisation = await localiserRecrues(supabase, par).catch((e) => ({ lus: 0, erreur: messageErreur(e) }));
+  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off", ...reliage, localisation };
   // Prompt 22 : en pause, ni posteur créé ni bienvenue envoyée ; repris au passage suivant.
   if (await automationEnPause(supabase)) {
     await noterBloquee(supabase, { fonction: "upwork", action: "accueil" });
@@ -2932,6 +2934,40 @@ async function accueillir(supabase: Supabase, par: string | null) {
  * dans accueils et upwork_contrats.freelancer_pays, et dit ce que l'OS ferait.
  * Ne crée aucun posteur et n'envoie rien.
  */
+/**
+ * 31/10 : où vit chaque nouvelle recrue (Onboarding posters → « Country to
+ * check »). Les contrats « en lecture » (onboarding_pays), au plus `max` par
+ * passage, chacun une fois toutes les 12 h au plus. Lecture seule chez Upwork.
+ */
+async function localiserRecrues(supabase: Supabase, par: string | null, max = 10) {
+  const { data, error } = await supabase.rpc("onboarding_pays");
+  if (error) return { lus: 0, erreur: error.message };
+  const candidats = [...new Set(((data ?? []) as { verdict: string; contrat_id: string | null }[])
+    .filter((r) => r.verdict === "en_lecture" && r.contrat_id).map((r) => String(r.contrat_id)))];
+  if (!candidats.length) return { lus: 0 };
+  const { data: essais } = await supabase.from("localisations_essais").select("contrat_id, essaye_at").in("contrat_id", candidats);
+  const recents = new Set((essais ?? []).filter((e) => Date.now() - new Date(String(e.essaye_at)).getTime() < 12 * 3600_000).map((e) => String(e.contrat_id)));
+  const lot = candidats.filter((c) => !recents.has(c)).slice(0, max);
+  if (!lot.length) return { lus: 0 };
+  await jetonValide(supabase, par);
+  const { data: orgs } = await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", lot);
+  const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), (o.organisation_id as string | null) ?? null]));
+  let trouves = 0;
+  for (const contrat of lot) {
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: contrat, organisation_id: orgDe.get(contrat) ?? null }, null, true);
+    const pays = infos.loc?.pays ?? null;
+    if (pays) trouves++;
+    await supabase.from("localisations_essais").upsert({
+      contrat_id: contrat, essaye_at: new Date().toISOString(), resultat: pays ?? infos.erreur ?? "lieu illisible",
+    });
+    if (pays) {
+      await supabase.from("accueils").update({ freelance_pays: pays, freelance_ville: infos.loc?.ville ?? null, freelance_lu_at: new Date().toISOString() })
+        .eq("contrat_id", contrat);
+    }
+  }
+  return { lus: lot.length, trouves, restants: candidats.length - lot.length };
+}
+
 async function localiserAccueils(supabase: Supabase, par: string | null, contrats: string[] | null) {
   let q = supabase.from("accueils").select("*");
   q = contrats?.length ? q.in("contrat_id", contrats) : q.in("statut", ["a_relier", "simule", "a_creer"]);

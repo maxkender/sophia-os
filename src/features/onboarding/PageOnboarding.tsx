@@ -36,6 +36,7 @@ import {
   type ReleveRecrue,
 } from "./api";
 import { type Canal, CLE_NUDGES, composerNudge, envoyerNudge, joignable, lireNudges, situation } from "./nudges";
+import { aVerifier, confirmerPays, lirePaysRecrues, type PaysRecrue } from "./paysRecrue";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -70,16 +71,60 @@ function filRecrue(r: RecrueOnboarding, recus: MessageRecu[]): EvenementFil[] {
 }
 
 /** Une recrue : qui, son contrat, ses étapes, ses messages, la prochaine relance, et les boutons. */
+/** 31/10 (0482) : le pays de la recrue : OK, en lecture, confirmé, ou « Country to check » avec la raison. */
+function LignePays({ p }: { p: PaysRecrue }) {
+  const { t } = useTranslation();
+  const { role } = useAuth();
+  const qc = useQueryClient();
+  const confirmer = useMutation({
+    mutationFn: () => confirmerPays(p.poster_id),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ["onboarding-pays"] }),
+  });
+  const base = [p.pays_hm ?? "—", p.zone_hm ? t("onboardingPosters.pays.zone", { zone: p.zone_hm }) : null].filter(Boolean).join(" · ");
+  const vit = p.pays_vit ? t("onboardingPosters.pays.vit", { pays: [p.ville, p.pays_vit].filter(Boolean).join(", ") }) : null;
+  const annonce = p.annonce_zone
+    ? t("onboardingPosters.pays.annonceZone", { zone: p.annonce_zone })
+    : p.annonce_pays ? t("onboardingPosters.pays.annoncePays", { pays: p.annonce_pays }) : null;
+  return (
+    <div className="space-y-1" data-pays={p.verdict}>
+      <p>
+        <span className="font-medium">{base}</span>
+        {[vit, annonce].filter(Boolean).map((x) => <span key={x} className="text-muted-foreground"> · {x}</span>)}
+        {p.verdict === "ok" && <Badge variant="success" className="ml-2">{t("onboardingPosters.pays.ok")}</Badge>}
+        {p.verdict === "en_lecture" && <span className="ml-2 text-muted-foreground">{t("onboardingPosters.pays.lecture")}</span>}
+        {p.verdict === "confirme" && (
+          <Badge variant="success" className="ml-2">{t("onboardingPosters.pays.confirme", { nom: p.confirme_par_nom ?? "?" })}</Badge>
+        )}
+      </p>
+      {p.verdict === "a_verifier" && (
+        <div className="flex flex-wrap items-center gap-2" data-testid="pays-a-verifier">
+          <Badge variant="warning">{t("onboardingPosters.pays.aVerifier")}</Badge>
+          <span className="text-warning-foreground">{p.raisons.join(" · ")}</span>
+          {(role === "admin" || role === "head_of_ops") && p.pays_hm && (
+            <Button size="xs" variant="outline" loading={confirmer.isPending} onClick={() => confirmer.mutate()}>
+              {t("onboardingPosters.pays.confirmer", { pays: p.pays_hm })}
+            </Button>
+          )}
+        </div>
+      )}
+      {confirmer.error && <p className="text-destructive">{(confirmer.error as Error).message}</p>}
+    </div>
+  );
+}
+
 function CarteRecrue({
   r,
   releve,
   recus = [],
   conv,
   ecart,
+  pays,
   modeles,
   lienSlack = "",
 }: {
   r: RecrueOnboarding;
+  /** 31/10 (0482) : le pays vérifié (HM, lieu du freelance, annonce). */
+  pays?: PaysRecrue;
   releve?: ReleveRecrue;
   recus?: MessageRecu[];
   conv?: Conversation;
@@ -164,6 +209,12 @@ function CarteRecrue({
               "—"
             )}
           </dd>
+          {pays && (
+            <>
+              <dt className="text-muted-foreground">{t("onboardingPosters.pays.titre")}</dt>
+              <dd><LignePays p={pays} /></dd>
+            </>
+          )}
           <dt className="text-muted-foreground">{t("onboardingPosters.login")}</dt>
           <dd>{r.email ?? "—"}</dd>
           <dt className="text-muted-foreground">{t("onboardingPosters.slack")}</dt>
@@ -465,9 +516,13 @@ export function PageOnboarding() {
   const modeles = lireNudges(reglages.data?.[CLE_NUDGES]);
   const lienSlack = typeof reglages.data?.slack_lien_invitation === "string" ? reglages.data.slack_lien_invitation.trim() : "";
   const ecarts = useQuery({ queryKey: ["onboarding-ecarts-pays"], queryFn: lireEcartsPays });
+  // 31/10 (0482) : le pays de chaque recrue ; « Country to check » filtrable.
+  const pays = useQuery({ queryKey: ["onboarding-pays"], queryFn: lirePaysRecrues, refetchInterval: 5 * 60_000 });
+  const [seulementPays, setSeulementPays] = React.useState(false);
   const [f, setF] = React.useState<FiltresOnboarding>({ hm: "", cohorte: "", etape: "" });
   const tous = lu.data ?? [];
-  const liste = filtrerOnboarding(tous, f);
+  const liste = filtrerOnboarding(tous, f).filter((r) => !seulementPays || aVerifier(pays.data?.get(r.poster_id)));
+  const nbPays = tous.filter((r) => aVerifier(pays.data?.get(r.poster_id))).length;
   const hms = [...new Map(tous.filter((r) => r.hm_id).map((r) => [r.hm_id!, r.hm_nom ?? r.hm_id!])).entries()]
     .sort((a, b) => a[1].localeCompare(b[1]));
   const cohortes = [...new Set(tous.map((r) => r.cohorte_lundi))].sort();
@@ -496,6 +551,15 @@ export function PageOnboarding() {
             </option>
           ))}
         </select>
+        <Button
+          size="sm"
+          variant={seulementPays ? "default" : "outline"}
+          aria-pressed={seulementPays}
+          data-testid="filtre-pays"
+          onClick={() => setSeulementPays(!seulementPays)}
+        >
+          {t("onboardingPosters.pays.filtre", { n: nbPays })}
+        </Button>
         <select className={selectClass} value={f.etape} aria-label={t("onboardingPosters.filtres.etape")} onChange={(e) => setF({ ...f, etape: e.target.value })}>
           <option value="">{t("onboardingPosters.filtres.toutesEtapes")}</option>
           {[...ETAPES_ONBOARDING, "fini" as const].map((e, i) => (
@@ -522,6 +586,7 @@ export function PageOnboarding() {
             recus={recus.data?.get(r.poster_id)}
             conv={conversationDe(conv.data, { posteur: r.poster_id, contrat: r.contrat_id })}
             ecart={ecarts.data?.get(r.poster_id)}
+            pays={pays.data?.get(r.poster_id)}
             modeles={modeles}
             lienSlack={lienSlack}
           />

@@ -101,7 +101,7 @@ import {
   semaineDuNom,
 } from "../_shared/paiement.ts";
 import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_shared/ckd.ts";
-import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, lireCompte } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
@@ -2082,7 +2082,7 @@ async function prendreVerrou(supabase: Supabase, semaine: string, par: string | 
 /** Relance la fonction (cron secret), sans attendre sa réponse. */
 function enchainer(action: string) {
   const url = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   if (!url || !secret) return;
   const appel = fetch(`${url}/functions/v1/upwork`, {
     method: "POST",
@@ -3194,7 +3194,7 @@ async function creerEtAccueillir(
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", a.contrat_id);
   const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const cle = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   if (!base || !secret) {
     await fin({ statut: "erreur", raison: "SUPABASE_URL ou CRON_SECRET absent" });

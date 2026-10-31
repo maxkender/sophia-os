@@ -22,7 +22,7 @@ import {
 import { ocrFrame } from "../_shared/gemini.ts";
 import { LANGUES_CIBLES } from "../_shared/langues_cibles.ts";
 import { enParallele } from "../_shared/nettoyage_stickers.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Banque d'exemples natifs (0423, sur le serveur depuis 0618) : des slideshows
@@ -190,7 +190,7 @@ async function lancerOuvriers(supabase: Client): Promise<number> {
 /** Un ouvrier : un appel de la fonction à elle-même, qui répond aussitôt et travaille en arrière-plan. */
 function lancerOuvrier() {
   const url = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   if (!url || !secret) {
     console.error("exemples-natifs : SUPABASE_URL ou CRON_SECRET manquant, aucun ouvrier lancé");
     return;

@@ -28,7 +28,7 @@ import {
   lireMajSourcesRun,
   tickMajSources,
 } from "../_shared/maj_sources.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Import pré-calculé v-next — orchestration serveur :
@@ -428,7 +428,7 @@ const AMORCE_WORKERS = 3;
 function kickWorkers(request: Request, n: number): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = {
     "content-type": "application/json",

@@ -1,0 +1,194 @@
+{
+ "id": "mm-o031",
+ "format": "carrousel",
+ "titre": "Quietly disciplined pt2",
+ "legendes": {
+  "en": "things that make you quietly disciplined, part 2 #discipline #mentalmaxxing #selfimprovement #habits",
+  "fr": "ce qui te rend discrètement discipliné, partie 2 #discipline #mentalmaxxing #developpementpersonnel #habitudes",
+  "de": "Dinge, die dich still diszipliniert machen, Teil 2 #disziplin #mentalmaxxing #selbstverbesserung #gewohnheiten",
+  "es": "cosas que te hacen disciplinado en silencio, parte 2 #disciplina #mentalmaxxing #superacionpersonal #habitos",
+  "it": "cose che ti rendono disciplinato in silenzio, parte 2 #disciplina #mentalmaxxing #crescitapersonale #abitudini",
+  "tr": "seni sessizce disiplinli yapan şeyler, 2. bölüm #disiplin #mentalmaxxing #kişiselgelişim #alışkanlıklar"
+ },
+ "couverture": {
+  "image": {
+   "src": "7699644186470976786/1",
+   "boite": [
+    198,
+    378,
+    684,
+    738
+   ]
+  },
+  "theme": {
+   "en": "Quietly disciplined",
+   "fr": "Discipliné en silence",
+   "de": "Still diszipliniert",
+   "es": "Disciplina silenciosa",
+   "it": "Disciplina silenziosa",
+   "tr": "Sessiz disiplin"
+  },
+  "sous": {
+   "en": "ranked pt2",
+   "fr": "classé partie 2",
+   "de": "Ranking Teil 2",
+   "es": "ranking parte 2",
+   "it": "classifica parte 2",
+   "tr": "sıralama 2. bölüm"
+  },
+  "frise": true
+ },
+ "items": [
+  {
+   "rang": "S+",
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Keeping small promises",
+    "fr": "Tenir les petites promesses",
+    "de": "Kleine Versprechen halten",
+    "es": "Cumplir promesas pequeñas",
+    "it": "Mantenere piccole promesse",
+    "tr": "Küçük sözleri tutmak"
+   },
+   "texte": {
+    "en": "Said you would read ten pages? You read ten pages. Trust in yourself is built in tiny steps.",
+    "fr": "Tu as dit dix pages ? Tu lis dix pages. La confiance en soi se construit à petits pas.",
+    "de": "Zehn Seiten versprochen? Du liest zehn Seiten. Selbstvertrauen entsteht in winzigen Schritten.",
+    "es": "¿Dijiste diez páginas? Lees diez páginas. La confianza en ti se construye a pasos pequeños.",
+    "it": "Hai detto dieci pagine? Leggi dieci pagine. La fiducia in te stesso si costruisce a piccoli passi.",
+    "tr": "On sayfa mı dedin? On sayfa okursun. Kendine güven küçük adımlarla kurulur."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Same breakfast most days",
+    "fr": "Le même petit-déj presque tous les jours",
+    "de": "Fast jeden Tag dasselbe Frühstück",
+    "es": "El mismo desayuno casi siempre",
+    "it": "La stessa colazione quasi ogni giorno",
+    "tr": "Çoğu gün aynı kahvaltı"
+   },
+   "texte": {
+    "en": "One less decision every morning. You save your energy for the choices that matter.",
+    "fr": "Une décision de moins chaque matin. Tu gardes ton énergie pour les choix qui comptent.",
+    "de": "Eine Entscheidung weniger jeden Morgen. Du sparst Energie für die Entscheidungen, die zählen.",
+    "es": "Una decisión menos cada mañana. Guardas tu energía para lo que importa.",
+    "it": "Una decisione in meno ogni mattina. Risparmi energia per le scelte che contano.",
+    "tr": "Her sabah bir karar eksik. Enerjini önemli seçimlere saklarsın."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Mine was simple: I deleted short videos with UnSwipe. Nobody noticed, but I got two hours back every day.",
+    "fr": "Le mien était simple : j’ai supprimé les vidéos courtes avec UnSwipe. Personne ne l’a remarqué, mais j’ai récupéré deux heures par jour.",
+    "de": "Meins war einfach: Ich habe Kurzvideos mit UnSwipe gelöscht. Niemand hat es gemerkt, aber ich habe jeden Tag zwei Stunden zurück.",
+    "es": "Lo mío fue simple: borré los vídeos cortos con UnSwipe. Nadie se dio cuenta, pero recuperé dos horas al día.",
+    "it": "Il mio è stato semplice: ho eliminato i video brevi con UnSwipe. Nessuno se n’è accorto, ma ho recuperato due ore al giorno.",
+    "tr": "Benimki basitti: kısa videoları UnSwipe ile sildim. Kimse fark etmedi ama her gün iki saatimi geri aldım."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Training on bad days",
+    "fr": "S’entraîner les mauvais jours",
+    "de": "An schlechten Tagen trainieren",
+    "es": "Entrenar en días malos",
+    "it": "Allenarsi nei giorni no",
+    "tr": "Kötü günlerde antrenman"
+   },
+   "texte": {
+    "en": "A short, light session still counts. The habit matters more than the workout.",
+    "fr": "Une séance courte et légère compte quand même. L’habitude compte plus que la séance.",
+    "de": "Eine kurze, leichte Einheit zählt trotzdem. Die Gewohnheit zählt mehr als das Training.",
+    "es": "Una sesión corta y ligera también cuenta. El hábito importa más que el entrenamiento.",
+    "it": "Una sessione breve e leggera conta comunque. L’abitudine conta più dell’allenamento.",
+    "tr": "Kısa ve hafif bir antrenman da sayılır. Alışkanlık antrenmandan daha önemli."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Finishing before starting",
+    "fr": "Finir avant de commencer",
+    "de": "Fertig machen, bevor du anfängst",
+    "es": "Terminar antes de empezar",
+    "it": "Finire prima di iniziare",
+    "tr": "Başlamadan önce bitirmek"
+   },
+   "texte": {
+    "en": "One task done before the next one opens. No pile of half-finished things.",
+    "fr": "Une tâche finie avant d’en ouvrir une autre. Pas de pile de trucs à moitié faits.",
+    "de": "Eine Aufgabe fertig, bevor die nächste beginnt. Kein Stapel halbfertiger Dinge.",
+    "es": "Una tarea terminada antes de abrir la siguiente. Sin montón de cosas a medias.",
+    "it": "Un compito finito prima di aprirne un altro. Niente pila di cose a metà.",
+    "tr": "Bir sonrakini açmadan önce bir iş bitmiş olur. Yarım kalmış işler yığını yok."
+   }
+  },
+  {
+   "rang": "C",
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "Coffee without a screen",
+    "fr": "Le café sans écran",
+    "de": "Kaffee ohne Bildschirm",
+    "es": "Café sin pantalla",
+    "it": "Caffè senza schermo",
+    "tr": "Ekransız kahve"
+   },
+   "texte": {
+    "en": "Five quiet minutes before the day starts. Small, but it is the first win of the morning.",
+    "fr": "Cinq minutes calmes avant que la journée commence. Petit, mais c’est la première victoire du matin.",
+    "de": "Fünf ruhige Minuten, bevor der Tag beginnt. Klein, aber der erste Sieg des Morgens.",
+    "es": "Cinco minutos tranquilos antes de empezar el día. Poca cosa, pero es la primera victoria de la mañana.",
+    "it": "Cinque minuti tranquilli prima che inizi la giornata. Piccolo, ma è la prima vittoria del mattino.",
+    "tr": "Gün başlamadan önce beş sessiz dakika. Küçük ama sabahın ilk kazancı."
+   }
+  }
+ ],
+ "notes": "routine du 31/10 : reprise de mm-o018 (« Things that make you quietly disciplined », livrée une fois) en pt2, autres items, autre couverture (point 7). cta C : élément UnSwipe en 3e item (slide 4), à la 1re personne."
+}

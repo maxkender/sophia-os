@@ -10,7 +10,17 @@ import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { conversationDe, type Conversations, useConversations } from "@/features/upwork/conversation";
 import { LienConversation } from "@/features/upwork/LienConversation";
 
-import { deciderWarmup, lienTiktok, type LigneWarmup, lireCheckWarmup, prochainLundi } from "./checkWarmup";
+import {
+  type ChoixDebut,
+  type ChoixDebutLigne,
+  choisirDebut,
+  choixDe,
+  lienTiktok,
+  type LigneWarmup,
+  lireCheckWarmup,
+  lireChoixDebut,
+  prochainLundi,
+} from "./checkWarmup";
 import { TD, TH } from "./TableauComptes";
 
 const P = "autoOnglets.decisions.dimanche";
@@ -20,14 +30,20 @@ const jourHeure = (iso: string | null | undefined) =>
     ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" }).format(new Date(iso))
     : "—";
 
-/** Une recrue : @, profil TikTok, derniers relevés, conversation Upwork, et les deux boutons. */
-function Ligne({ l, lundi, conv }: { l: LigneWarmup; lundi: string; conv: Conversations | undefined }) {
+const CHOIX: readonly ChoixDebut[] = ["keep", "mardi", "reporter"];
+
+/** Une recrue : @, profil TikTok, derniers relevés, conversation Upwork, et Keep / Start Tuesday / Postpone. */
+function Ligne({ l, lundi, conv, c }: { l: LigneWarmup; lundi: string; conv: Conversations | undefined; c: ChoixDebutLigne | undefined }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const decider = useMutation({
-    mutationFn: (d: "ok" | "pas_chaud") => deciderWarmup(l.poster_id, lundi, d),
-    onSettled: () => void qc.invalidateQueries({ queryKey: ["check-warmup", lundi] }),
+    mutationFn: (d: ChoixDebut) => choisirDebut(l.poster_id, lundi, d),
+    onSettled: () => {
+      void qc.invalidateQueries({ queryKey: ["check-warmup", lundi] });
+      void qc.invalidateQueries({ queryKey: ["debut-choix", lundi] });
+    },
   });
+  const { choix, prevu } = choixDe(l, c);
   const tiktok = lienTiktok(l.handle);
   return (
     <tr className="border-b border-border/40 align-top" data-warmup={l.poster_id}>
@@ -74,35 +90,38 @@ function Ligne({ l, lundi, conv }: { l: LigneWarmup; lundi: string; conv: Conver
         </div>
       </td>
       <td className={TD}>
-        {l.decision ? (
-          <div className="space-y-0.5">
-            <Badge variant={l.decision === "ok" ? "success" : "warning"} data-decision={l.decision}>
-              {t(`${P}.decisions.${l.decision}`)}
-            </Badge>
-            {l.decision === "pas_chaud" && (
-              <p className={l.message_statut === "envoye" ? "text-muted-foreground" : "text-destructive"}>
-                {l.message_statut === "envoye" ? t(`${P}.messageParti`) : t(`${P}.messagePasParti`, { erreur: l.message_erreur ?? "?" })}
-              </p>
-            )}
-          </div>
-        ) : l.groupe === "report" ? (
-          <span className="text-muted-foreground">{t(`${P}.reporte`)}</span>
-        ) : (
-          <div className="flex flex-wrap gap-1">
-            <Button size="sm" variant="outline" loading={decider.isPending && decider.variables === "ok"} onClick={() => decider.mutate("ok")}>
-              {t(`${P}.ok`)}
-            </Button>
+        <div className="flex flex-wrap gap-1" data-choix={choix} data-prevu={String(prevu)}>
+          {CHOIX.map((k) => (
             <Button
+              key={k}
               size="sm"
-              variant="outline"
-              loading={decider.isPending && decider.variables === "pas_chaud"}
+              variant={choix === k ? (prevu ? "secondary" : "default") : "outline"}
+              aria-pressed={choix === k}
+              loading={decider.isPending && decider.variables === k}
+              disabled={decider.isPending || (!prevu && choix === k)}
               onClick={() => {
-                if (window.confirm(t(`${P}.confirmer`, { nom: l.nom ?? "", canal: l.slack ? "Slack" : "Upwork" }))) decider.mutate("pas_chaud");
+                if (k === "keep" || window.confirm(t(`${P}.confirmerChoix.${k}`, { nom: l.nom ?? "", canal: l.slack ? "Slack" : "Upwork" }))) {
+                  decider.mutate(k);
+                }
               }}
             >
-              {t(`${P}.pasChaud`)}
+              {t(`${P}.choix.${k}`)}
             </Button>
-          </div>
+          ))}
+        </div>
+        <p className="mt-1 text-muted-foreground" data-testid="choix-etat">
+          {prevu
+            ? t(`${P}.prevu.${choix}`)
+            : t(`${P}.source.${c?.source ?? "manuel"}`, { date: jourHeure(c?.decide_at ?? l.decide_at) })}
+        </p>
+        {c?.choix === "mardi" && c.message_statut && (
+          <p className={c.message_statut === "envoye" ? "text-muted-foreground" : "text-destructive"}>
+            {c.message_statut === "envoye"
+              ? t(`${P}.messagePartiSur`, { canal: c.message_canal === "slack" ? "Slack" : "Upwork" })
+              : c.message_statut === "pas_envoye"
+              ? t(`${P}.messageCoupe`)
+              : t(`${P}.messagePasParti`, { erreur: c.message_erreur ?? "?" })}
+          </p>
         )}
         {decider.error && <p className="text-destructive" role="alert">{(decider.error as Error).message}</p>}
       </td>
@@ -110,7 +129,7 @@ function Ligne({ l, lundi, conv }: { l: LigneWarmup; lundi: string; conv: Conver
   );
 }
 
-function Tableau({ lignes, lundi, conv }: { lignes: LigneWarmup[]; lundi: string; conv: Conversations | undefined }) {
+function Tableau({ lignes, lundi, conv, choix }: { lignes: LigneWarmup[]; lundi: string; conv: Conversations | undefined; choix: Map<string, ChoixDebutLigne> | undefined }) {
   const { t } = useTranslation();
   return (
     <div className="overflow-x-auto">
@@ -126,7 +145,7 @@ function Tableau({ lignes, lundi, conv }: { lignes: LigneWarmup[]; lundi: string
         </thead>
         <tbody>
           {lignes.map((l) => (
-            <Ligne key={l.poster_id} l={l} lundi={lundi} conv={conv} />
+            <Ligne key={l.poster_id} l={l} lundi={lundi} conv={conv} c={choix?.get(l.poster_id)} />
           ))}
         </tbody>
       </table>
@@ -143,13 +162,18 @@ export function CheckWarmup() {
   const { t } = useTranslation();
   const [lundi, setLundi] = React.useState(() => prochainLundi(aujourdhuiParis()));
   const lu = useQuery({ queryKey: ["check-warmup", lundi], queryFn: () => lireCheckWarmup(lundi) });
+  const choix = useQuery({ queryKey: ["debut-choix", lundi], queryFn: () => lireChoixDebut(lundi) });
   const liste = lu.data ?? [];
   const conv = useConversations(liste.map((l) => l.poster_id), liste.map((l) => l.contrat_id));
   const risque = liste.filter((l) => l.groupe === "risque");
   const ok = liste.filter((l) => l.groupe === "ok");
   const illisibles = liste.filter((l) => l.groupe === "illisible");
   const report = liste.filter((l) => l.groupe === "report");
-  const decides = liste.filter((l) => l.decision).length;
+  const decides = liste.filter((l) => l.decision || choix.data?.has(l.poster_id)).length;
+  // 1/11 : le récap Keep / Start Tuesday / Postpone (choisis ou prévus) des recrues pas prêtes.
+  const pasPretes = liste.filter((l) => l.groupe !== "ok");
+  const recap = { keep: 0, mardi: 0, reporter: 0 };
+  for (const l of pasPretes) recap[choixDe(l, choix.data?.get(l.poster_id)).choix]++;
   return (
     <Card data-testid="check-warmup">
       <CardHeader>
@@ -166,22 +190,23 @@ export function CheckWarmup() {
             {t(`${P}.compteur`, { risque: risque.length, illisible: illisibles.length, ok: ok.length, report: report.length, decides })}
           </span>
         </div>
+        <p className="text-sm font-medium" data-testid="recap-debut">{t(`${P}.recapChoix`, recap)}</p>
         {lu.error && <p className="text-destructive">{(lu.error as Error).message}</p>}
         <section className="space-y-1">
           <h3 className="font-medium">{t(`${P}.aRisque`, { n: risque.length })}</h3>
-          {risque.length ? <Tableau lignes={risque} lundi={lundi} conv={conv.data} /> : <p className="text-xs text-muted-foreground">{t(`${P}.rien`)}</p>}
+          {risque.length ? <Tableau lignes={risque} lundi={lundi} conv={conv.data} choix={choix.data} /> : <p className="text-xs text-muted-foreground">{t(`${P}.rien`)}</p>}
         </section>
         <details className="rounded-md border px-3 py-2" data-testid="warmup-illisible">
           <summary className="cursor-pointer font-medium">{t(`${P}.illisibles`, { n: illisibles.length })}</summary>
-          <div className="mt-2">{illisibles.length ? <Tableau lignes={illisibles} lundi={lundi} conv={conv.data} /> : null}</div>
+          <div className="mt-2">{illisibles.length ? <Tableau lignes={illisibles} lundi={lundi} conv={conv.data} choix={choix.data} /> : null}</div>
         </details>
         <details className="rounded-md border px-3 py-2" data-testid="warmup-ok">
           <summary className="cursor-pointer font-medium">{t(`${P}.autres`, { n: ok.length })}</summary>
-          <div className="mt-2">{ok.length ? <Tableau lignes={ok} lundi={lundi} conv={conv.data} /> : null}</div>
+          <div className="mt-2">{ok.length ? <Tableau lignes={ok} lundi={lundi} conv={conv.data} choix={choix.data} /> : null}</div>
         </details>
         <details className="rounded-md border px-3 py-2" data-testid="warmup-report">
           <summary className="cursor-pointer font-medium">{t(`${P}.reportes`, { n: report.length })}</summary>
-          <div className="mt-2">{report.length ? <Tableau lignes={report} lundi={lundi} conv={conv.data} /> : null}</div>
+          <div className="mt-2">{report.length ? <Tableau lignes={report} lundi={lundi} conv={conv.data} choix={choix.data} /> : null}</div>
         </details>
       </CardContent>
     </Card>

@@ -30,6 +30,7 @@ import {
   trierFile,
   upworkAccorde,
 } from "../_shared/garde_fous.ts";
+import { type ChoixDebut, momentChoixAuto, momentReportLundi, texteDebutMardi } from "../_shared/debut_mardi.ts";
 import {
   avecLigneStop,
   choisirRelance,
@@ -147,6 +148,11 @@ Deno.serve(async (request) => {
       return json(await creerPosteurTest(serviceClient(), String(body.contrat_id ?? ""), String(body.prenom ?? ""), acces.userId));
     }
     if (body.action === "test_lancer") return json(await lancerTest(serviceClient(), String(body.poster_id ?? ""), String(body.quoi ?? "")));
+    // 1/11 : Weekly decisions → Sunday : Keep / Start Tuesday / Postpone (un clic de l'admin).
+    if (body.action === "debut_choisir") {
+      const b = body as { poster_id?: string; lundi?: string; choix?: string };
+      return json(await choisirDebutAdmin(serviceClient(), String(b.poster_id ?? ""), String(b.lundi ?? ""), String(b.choix ?? ""), acces.userId));
+    }
     if (body.action === "reponses") {
       const maintenant = new Date();
       // 0444 : un @ TikTok dans une réponse (recrue introuvable) est lu avant le classement, même sur off.
@@ -362,6 +368,8 @@ interface Bilan {
   slackSansReaction?: Set<string>;
   /** Interne (1/11) : par recrue, par étape, l'heure de la relance Slack et de la relance Upwork déjà parties. */
   historique?: Map<string, Map<string, DejaRelance>>;
+  /** Interne (1/11) : les choix du dimanche (Keep / Start Tuesday / Postpone), par « recrue|lundi ». */
+  choixDebut?: Map<string, ChoixDebut>;
   /** Interne (0444) : Start warmup cliqué, @ introuvable deux fois de suite, par compte. */
   handles?: Map<string, HandleIntrouvable>;
   /** Interne (0444) : les textes « we can't find your TikTok account ». */
@@ -605,6 +613,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
       if (x.deuxieme) continue;
       await rougeDimanche(supabase, r, maintenant >= debutCohorte(x) ? { ...x, videos: null } : x, maintenant, bilan);
     }
+    await reportsDuLundi(supabase, maintenant, bilan);
     // Les messages validés à la main (Thursday, To approve) partent quand même, peu à peu.
     await envoyerFile(supabase, r, null, maintenant, bilan);
     await prevenirHms(supabase, maintenant).catch((e) => bilan.erreurs.push(`HM : ${messageErreur(e)}`));
@@ -703,6 +712,8 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
     // Le 2e compte d'un Double ne reporte jamais la cohorte du posteur.
     if (!x.deuxieme) await rougeDimanche(supabase, r, x, maintenant, bilan);
   }
+  // 1/11 : lundi 23:59 : les « Start Tuesday » sans Start warmup avant midi passent au lundi suivant.
+  await reportsDuLundi(supabase, maintenant, bilan);
 
   // Prompt 25 MAJ, point 7b : un @ toujours introuvable, les @ proches (1 compte par passage).
   if (etapesDues && bilan.handles?.size) {
@@ -737,7 +748,7 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
 
 /** Le bilan rendu, sans les champs internes. */
 function nettoyer(bilan: Bilan): Bilan {
-  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, relancesUpwork: _w, contratsTest: _t, handles: _h, textesHandle: _x, slackSansReaction: _ss, historique: _hi, ...reste } = bilan;
+  const { prevuesConnues: _p, valides: _v, servis: _s, onDepuis: _o, relancesFaites: _r, relanceEnFile: _f, pauses: _z, preparees: _q, upworkPlein: _u, relancesUpwork: _w, contratsTest: _t, handles: _h, textesHandle: _x, slackSansReaction: _ss, historique: _hi, choixDebut: _cd, ...reste } = bilan;
   return reste;
 }
 
@@ -1707,6 +1718,16 @@ async function upworkPossible(supabase: Supabase, contratId: string): Promise<bo
  */
 async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, maintenant: Date, bilan: Bilan) {
   const etape = etapeRouge(x, r.etapes);
+  // 1/11 : pas prête dimanche 22:45 (Paris), aucun choix : « Start Tuesday » (avant l'assignation de lundi, 23:00).
+  if (etape !== null && momentChoixAuto(maintenant, x.cohorte_lundi)) {
+    bilan.choixDebut ??= await lireChoixDebut(supabase);
+    if (!bilan.choixDebut.has(`${x.poster_id}|${x.cohorte_lundi}`)) {
+      const res = await choisirDebut(supabase, r, x, "mardi", "auto_dimanche", null);
+      if (res.erreur) bilan.erreurs.push(`start tuesday ${x.poster_id} : ${res.erreur}`);
+      else bilan.choixDebut.set(`${x.poster_id}|${x.cohorte_lundi}`, "mardi");
+    }
+    return;
+  }
   if (etape === null) {
     await supabase.from("recrues_rouges").delete()
       .eq("poster_id", x.poster_id)
@@ -1716,11 +1737,110 @@ async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, 
     return;
   }
   if (!nuitDuRouge(x, maintenant)) return;
-  // Prompt 21, A1 : pas prête dimanche minuit (heure du pays) → reportée seule au
-  // lundi suivant (0413) ; ses posts n'arrivent pas, les étapes et le Kill continuent.
-  const { error } = await supabase.rpc("cohorte_reporter_auto", { p_poster: x.poster_id, p_etape: etape, p_periode: x.cohorte_lundi });
-  if (error) bilan.erreurs.push(`report ${x.poster_id} : ${error.message}`);
-  else bilan.rouges++;
+  // 1/11 : le report automatique de dimanche minuit devient « Start Tuesday » (s'il n'y a aucun choix :
+  // le passage de 22:45 a été manqué). Keep, Start Tuesday ou Postpone déjà choisis : rien.
+  bilan.choixDebut ??= await lireChoixDebut(supabase);
+  if (bilan.choixDebut.has(`${x.poster_id}|${x.cohorte_lundi}`)) return;
+  const res = await choisirDebut(supabase, r, x, "mardi", "auto_dimanche", null);
+  if (res.erreur) bilan.erreurs.push(`start tuesday ${x.poster_id} : ${res.erreur}`);
+  else {
+    bilan.choixDebut.set(`${x.poster_id}|${x.cohorte_lundi}`, "mardi");
+    bilan.rouges++;
+  }
+}
+
+/** 1/11 : le choix de l'admin pour une recrue de la cohorte (Sunday: warm-up). */
+async function choisirDebutAdmin(supabase: Supabase, posterId: string, lundi: string, choix: string, par: string | null) {
+  if (!posterId || !/^\d{4}-\d{2}-\d{2}$/.test(lundi) || !["keep", "mardi", "reporter"].includes(choix)) {
+    return { ok: false, error: "poster_id, lundi et choix (keep, mardi, reporter) requis" };
+  }
+  const r = await reglages(supabase);
+  const x = (await lireRecrues(supabase)).find((y) => y.poster_id === posterId && !y.deuxieme);
+  if (!x || x.cohorte_lundi !== lundi) return { ok: false, error: "recrue introuvable dans cette cohorte" };
+  const res = await choisirDebut(supabase, r, x, choix as ChoixDebut, "manuel", par === "cron" ? null : par);
+  return { ok: !res.erreur, ...res };
+}
+
+/** 1/11 : les choix du dimanche des 2 dernières semaines (et à venir). */
+async function lireChoixDebut(supabase: Supabase): Promise<Map<string, ChoixDebut>> {
+  const depuis = ajouterJoursIso(partiesLocales(new Date(), "Europe/Paris").date, -14);
+  const { data } = await supabase.from("debut_choix").select("poster_id, lundi, choix").gte("lundi", depuis);
+  return new Map((data ?? []).map((d) => [`${d.poster_id}|${d.lundi}`, d.choix as ChoixDebut]));
+}
+
+/**
+ * 1/11 : Keep, Start Tuesday ou Postpone pour une recrue de la cohorte. Start
+ * Tuesday : le pop-up de son dashboard et le message (Slack s'il y est, sinon
+ * Upwork avec la ligne STOP), seulement si Step reminders est sur On.
+ */
+async function choisirDebut(
+  supabase: Supabase,
+  r: Reglages,
+  x: RecrueAccueil,
+  choix: ChoixDebut,
+  source: "manuel" | "auto_dimanche" | "auto_lundi",
+  par: string | null,
+): Promise<{ erreur: string | null; canal?: string | null; statut?: string | null; texte?: string | null }> {
+  const lundi = x.cohorte_lundi;
+  const texte = choix === "mardi"
+    ? texteDebutMardi(r.textesRelance, x, etatsAccueil(x, r.etapes), {
+      url: OS_URL, lien_etapes: r.lienEtapes || OS_URL, mot_de_passe: "the one in your welcome message",
+    }) || null
+    : null;
+  const { error } = await supabase.rpc("debut_choix_noter", {
+    p_poster: x.poster_id, p_lundi: lundi, p_choix: choix, p_source: source, p_par: par, p_texte: texte,
+  });
+  if (error) return { erreur: error.message };
+  if (choix === "reporter") {
+    const { error: errRep } = await supabase.rpc("cohorte_reporter_auto", {
+      p_poster: x.poster_id, p_etape: etapeRouge(x, r.etapes) ?? "warmup", p_periode: lundi,
+    });
+    return { erreur: errRep?.message ?? null };
+  }
+  if (choix !== "mardi" || !texte) return { erreur: null };
+  await supabase.from("posteur_annonces").upsert(
+    { poster_id: x.poster_id, cle: `debut_mardi:${lundi}`, texte },
+    { onConflict: "poster_id,cle", ignoreDuplicates: true },
+  );
+  // Step reminders sur Off (ou Test) : rien ne part.
+  if (r.mode !== "on") {
+    await supabase.rpc("debut_choix_message", { p_poster: x.poster_id, p_lundi: lundi, p_canal: null, p_statut: "pas_envoye", p_erreur: `Step reminders : ${r.mode}` });
+    return { erreur: null, canal: null, statut: "pas_envoye", texte };
+  }
+  let canal: string | null = null;
+  let erreur: string | null = null;
+  if (x.slack_user_id) {
+    canal = "slack";
+    erreur = await envoyerSlack(supabase, x.poster_id, texte);
+  } else if (x.contrat_id) {
+    canal = "upwork";
+    const u = await envoyerUpwork(x.contrat_id, avecLigneStop(texte), { prioritaire: false });
+    erreur = u.erreur;
+  } else {
+    erreur = "ni Slack ni contrat Upwork";
+  }
+  const statut = erreur ? "erreur" : "envoye";
+  await supabase.rpc("debut_choix_message", { p_poster: x.poster_id, p_lundi: lundi, p_canal: canal, p_statut: statut, p_erreur: erreur });
+  return { erreur: null, canal, statut, texte };
+}
+
+/** 1/11 : lundi 23:59 (Paris) : les « Start Tuesday » sans Start warmup avant lundi 12:00 passent au lundi suivant. */
+async function reportsDuLundi(supabase: Supabase, maintenant: Date, bilan: Bilan) {
+  const lundi = lundiParis(maintenant);
+  if (!momentReportLundi(maintenant, lundi)) return;
+  const { data, error } = await supabase.rpc("debut_mardi_echus", { p_lundi: lundi });
+  if (error) {
+    bilan.erreurs.push(`report lundi : ${error.message}`);
+    return;
+  }
+  for (const { poster_id } of (data ?? []) as { poster_id: string }[]) {
+    const { error: errNote } = await supabase.rpc("debut_choix_noter", {
+      p_poster: poster_id, p_lundi: lundi, p_choix: "reporter", p_source: "auto_lundi", p_par: null, p_texte: null,
+    });
+    const { error: errRep } = await supabase.rpc("cohorte_reporter_auto", { p_poster: poster_id, p_etape: "warmup", p_periode: lundi });
+    if (errNote || errRep) bilan.erreurs.push(`report lundi ${poster_id} : ${(errNote ?? errRep)!.message}`);
+    else bilan.rouges++;
+  }
 }
 
 async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[]): Promise<string | null> {

@@ -64,3 +64,42 @@ export function lienTiktok(handle: string | null): string | null {
   const h = (handle ?? "").replace(/^@/, "").trim();
   return h ? `https://www.tiktok.com/@${h}` : null;
 }
+
+/** 1/11 : Keep (lundi), Start Tuesday (posts à partir de mardi), Postpone (lundi suivant). */
+export type ChoixDebut = "keep" | "mardi" | "reporter";
+
+export interface ChoixDebutLigne {
+  poster_id: string;
+  choix: ChoixDebut;
+  source: "manuel" | "auto_dimanche" | "auto_lundi";
+  decide_at: string;
+  texte: string | null;
+  message_canal: string | null;
+  message_statut: string | null;
+  message_erreur: string | null;
+}
+
+export async function lireChoixDebut(lundi: string): Promise<Map<string, ChoixDebutLigne>> {
+  const { data, error } = await supabase.rpc("debut_choix_liste", { p_lundi: lundi });
+  if (error) throw error;
+  return new Map(((data ?? []) as ChoixDebutLigne[]).map((c) => [c.poster_id, c]));
+}
+
+export async function choisirDebut(posterId: string, lundi: string, choix: ChoixDebut): Promise<{ canal?: string | null; statut?: string | null }> {
+  const r = await invoke<{ ok: boolean; error?: string; erreur?: string | null; canal?: string | null; statut?: string | null }>("recrues-check", {
+    action: "debut_choisir", poster_id: posterId, lundi, choix,
+  });
+  if (!r.ok) throw new Error(r.error ?? r.erreur ?? "choix refusé");
+  return r;
+}
+
+/**
+ * Le choix d'une recrue : celui noté (clic ou auto), sinon l'ancienne décision
+ * (Warm-up OK → Keep, Not warmed up → Start Tuesday), sinon ce que l'OS fera :
+ * prête → Keep ; pas prête → Start Tuesday à 22:45.
+ */
+export function choixDe(l: Pick<LigneWarmup, "groupe" | "decision">, c: ChoixDebutLigne | undefined): { choix: ChoixDebut; prevu: boolean } {
+  if (c) return { choix: c.choix, prevu: false };
+  if (l.decision) return { choix: l.decision === "ok" ? "keep" : "mardi", prevu: false };
+  return { choix: l.groupe === "ok" ? "keep" : "mardi", prevu: true };
+}

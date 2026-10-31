@@ -8,6 +8,7 @@ import { BoutonGuideNotion, GUIDE_NOTION_POSTER } from "@/features/documents/Bou
 import { lireCohorteAccueil } from "@/features/moteur/api";
 import { NudgePopup } from "@/features/moteur/NudgePopup";
 import { PopupMessagesPosteur } from "@/features/messagesPosteurs/PopupMessagesPosteur";
+import { AnnoncesPopup } from "@/features/annonces/AnnoncesPopup";
 import { ReviewPopup } from "@/features/reviews/ReviewPopup";
 import { OnboardingPopup } from "@/features/onboarding/OnboardingPopup";
 import { useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
@@ -49,6 +50,7 @@ export function PosterLayout() {
       <ReviewPopup />
       <NudgePopup />
       <PopupMessagesPosteur />
+      <AnnoncesPopup />
       <Outlet />
     </AppShell>
   );

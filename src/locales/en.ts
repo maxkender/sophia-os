@@ -249,6 +249,24 @@ export const en = {
       decisions: {
         onglets: { jeudi: "Thursday", samedi: "Saturday", dimanche: "Sunday: warm-up", reglages: "Settings" },
         dimanche: {
+          choix: { keep: "Keep", mardi: "Start Tuesday", reporter: "Postpone" },
+          confirmerChoix: {
+            mardi: "Start Tuesday for {{nom}}? Posts start on Tuesday (Monday is not expected). The message goes on {{canal}} if Step reminders is on, and shows on the dashboard.",
+            reporter: "Postpone {{nom}} to the following Monday? Nothing is sent.",
+          },
+          prevu: {
+            keep: "Ready: starts Monday",
+            mardi: "Not ready: Start Tuesday automatically at 22:45 (Paris) unless you choose",
+            reporter: "Postponed",
+          },
+          source: {
+            manuel: "Chosen {{date}}",
+            auto_dimanche: "Start Tuesday set automatically {{date}}",
+            auto_lundi: "No Start warmup before Monday noon: postponed automatically {{date}}",
+          },
+          messagePartiSur: "Message sent on {{canal}}",
+          messageCoupe: "Step reminders is off: no message sent (shown on the dashboard)",
+          recapChoix: "Not ready: Keep {{keep}} · Start Tuesday {{mardi}} · Postpone {{reporter}}",
           titre: "Warm-up check, cohort of {{date}}",
           aide: "Sunday 20:00: the recruits of tomorrow's cohort who clicked Start warmup, read again at 18:00 (TikTok page, then Apify). At risk: under 5 follows, a post during the warm-up, or not found by both methods. Nothing is sent without a click.",
           cohorte: "Cohort (Monday)",
@@ -256,7 +274,7 @@ export const en = {
           aRisque: "At risk ({{n}})",
           autres: "Look OK ({{n}})",
           illisibles: "Unreadable by both methods ({{n}})",
-          reportes: "No account or no Start warmup: postponed one week ({{n}})",
+          reportes: "No account or no Start warmup ({{n}})",
           rien: "Nobody at risk.",
           sansCompte: "no account",
           demarre: "Start warmup {{date}}",

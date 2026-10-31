@@ -1,0 +1,289 @@
+{
+ "id": "fa-022",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7687989471857462550",
+  "vues": 154000,
+  "accroche": "How To Step Outside Of Your Comfort Zone"
+ },
+ "titre": {
+  "en": "How To Step Outside Of Your Comfort Zone",
+  "de": "Wie du deine Komfortzone verlässt",
+  "pt": "Como sair da tua zona de conforto"
+ },
+ "legendes": {
+  "en": "How To Step Outside Of Your Comfort Zone #comfortzone #selfimprovement #learnontiktok",
+  "de": "Wie du deine Komfortzone verlässt #komfortzone #selbstverbesserung #lernenmittiktok",
+  "pt": "Como sair da tua zona de conforto #zonadeconforto #desenvolvimentopessoal #aprendernotiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7435207007541480224"
+ },
+ "notes": "Variante de fa-008. cta A. Double intégration : UnSwipe à l'étape 2 « GO A WEEK WITHOUT REELS », Sophia à l'étape 4 « PICK A TOPIC YOU KNOW NOTHING ABOUT ». Autres étapes (douche froide, danse, natation adulte), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "HOW TO",
+       "bronze": true
+      }
+     ],
+     "STEP OUTSIDE OF",
+     "YOUR COMFORT ZONE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "WIE DU DEINE",
+       "bronze": true
+      }
+     ],
+     "KOMFORTZONE",
+     "VERLÄSST"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "COMO SAIR",
+       "bronze": true
+      }
+     ],
+     "DA TUA ZONA",
+     "DE CONFORTO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TAKE COLD SHOWERS"
+    ],
+    "video": {
+     "id": "HsonXuJs8-s",
+     "titre": "Can Cold Showers Actually Change Your Life?",
+     "chaine": "SciShow",
+     "vues": "1.5M views",
+     "date": "8 years ago",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/PeTBgposs2PwFQ9w75vPgEzKGZqHQb6slgisyh3dcF61uLD3y-tczPRhaH0s_AOSovMjtiBy1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DUSCH KALT"
+    ],
+    "video": {
+     "id": "Fu0KiFumy8g",
+     "titre": "Kälte-Schock: Ist es gesund, kalt zu duschen? Dr. Johannes Wimmer",
+     "chaine": "Die Techniker",
+     "vues": "87.048 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TOMA BANHOS FRIOS"
+    ],
+    "video": {
+     "id": "d1PFcjJi41Y",
+     "titre": "Wim Hof e os 10 Benefícios do Banho Gelado | Exposição ao frio | Imersão no Gelo",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "33 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "GO A WEEK",
+     "WITHOUT REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "EINE WOCHE",
+     "OHNE REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UMA SEMANA",
+     "SEM REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO DANCE"
+    ],
+    "video": {
+     "id": "C62596gVnT8",
+     "titre": "Ultimate Guide To Learning Dance For Beginners | STEEZY.CO",
+     "chaine": "STEEZY",
+     "vues": "582K views",
+     "date": "5 years ago",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lotDwDe7qoi-uqA7rrB4t4EkRUVcHTodOCQr0pYnESHxk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN TANZEN"
+    ],
+    "video": {
+     "id": "vxIsCKHhlpQ",
+     "titre": "Tanzen für Anfänger #1 | Grundschritte / Basics | Tanzen lernen mit Zcham",
+     "chaine": "Tanz Tutorial Tv",
+     "vues": "1,3 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0Ye_f_3OOmtxN06aqrK-8ikGorqlmsUVmPkfDit_u1f4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A DANÇAR"
+    ],
+    "video": {
+     "id": "Fr-BObxEuUE",
+     "titre": "Aula de Dança - O básico para quem não dança começar a dançar!",
+     "chaine": "Dance Tudo - Rodrigo Scherer",
+     "vues": "803 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "25:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l__mQwM1JikEklXVBxvgWgsfUVNujkTgovZACahgxff3k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "PICK A TOPIC YOU",
+     "KNOW NOTHING ABOUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "NIMM EIN THEMA, VON",
+     "DEM DU NICHTS WEISST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "ESCOLHE UM TEMA DE",
+     "QUE NÃO SABES NADA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO SWIM",
+     "AS AN ADULT"
+    ],
+    "video": {
+     "id": "xVeXGKPOH58",
+     "titre": "The Only Beginner Swim Guide You Will EVER Need",
+     "chaine": "enduranceID",
+     "vues": "914K views",
+     "date": "1 year ago",
+     "duree": "11:49",
+     "avatar": "https://yt3.ggpht.com/5O1jIQcRwEo9iSILqvwMIFFAypQpwaLqdt9pdAw4ZPSMlbmfpZiP_BLXl_m92pnoKXVqOYTEn7E=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN SCHWIMMEN",
+     "ALS ERWACHSENER"
+    ],
+    "video": {
+     "id": "0caZgO9XLsw",
+     "titre": "Einfach schwimmen lernen 1",
+     "chaine": "Schneller Schwimmen - Swim Performance",
+     "vues": "140.963 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjNelunVNQSeJp4pu_3zim5YOqIeFP_mPX7Tf-Ple2bg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A NADAR",
+     "EM ADULTO"
+    ],
+    "video": {
+     "id": "CcHF1rt_O1Q",
+     "titre": "COMO ADULTOS PODEM APRENDER A NADAR - CANAL NADA MAIS",
+     "chaine": "Canal Nada Mais",
+     "vues": "280 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lCY-o5sBdxIZ3JMCRGrx_jiz0T6-GSoOPwbfBGUiYHlD8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

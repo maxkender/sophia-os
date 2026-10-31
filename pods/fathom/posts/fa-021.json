@@ -1,0 +1,294 @@
+{
+ "id": "fa-021",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683561775752645910",
+  "vues": 266900,
+  "accroche": "S Tier YouTube Videos You Need To Watch"
+ },
+ "titre": {
+  "en": "S Tier YouTube Videos You Need To Watch",
+  "de": "S-Tier-YouTube-Videos, die du sehen musst",
+  "pt": "Vídeos do YouTube de nível S que tens de ver"
+ },
+ "legendes": {
+  "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement",
+  "de": "S-Tier-YouTube-Videos, die du sehen musst #youtube #lernenmittiktok #selbstverbesserung",
+  "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Variante de fa-006. cta C (1re personne). Sophia à l'étape 2 « IF YOU ONLY HAVE 5 MINUTES ». Pas d'UnSwipe. Autres vidéos (Kurzgesagt, Veritasium), le titre de la vidéo en titre d'étape comme les siennes. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE VIDEOS",
+     "YOU NEED TO WATCH"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE-VIDEOS",
+     "DIE DU SEHEN MUSST"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "VÍDEOS DO YOUTUBE",
+     "QUE TENS DE VER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHAT IS LIFE?"
+    ],
+    "video": {
+     "id": "QOCaacO8wus",
+     "titre": "What Is Life? Is Death Real?",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "14M views",
+     "date": "11 years ago",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WAS IST LEBEN?"
+    ],
+    "video": {
+     "id": "b9TiWLDAPqk",
+     "titre": "Was ist Leben? Ist der Tod real?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "1,9 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O QUE É A VIDA?"
+    ],
+    "video": {
+     "id": "vPHKFVgMw5s",
+     "titre": "O que é a vida? A morte é real?",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "663 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "IF YOU ONLY",
+     "HAVE 5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WENN DU NUR",
+     "5 MINUTEN HAST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SE SÓ TENS 5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHEN THIS NUMBER",
+     "HITS 5200"
+    ],
+    "video": {
+     "id": "JXeJANDKwDc",
+     "titre": "When This Number Hits 5200 - You Will be Dead",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "12M views",
+     "date": "5 years ago",
+     "duree": "9:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WAS MACHST DU MIT",
+     "DEINEM LEBEN?"
+    ],
+    "video": {
+     "id": "w9J6D4r30HY",
+     "titre": "Was machst du mit deinem Leben? Eine Perspektive",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "6 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O QUE FAZES COM",
+     "A TUA VIDA?"
+    ],
+    "video": {
+     "id": "7WGaMAb-ivs",
+     "titre": "O Que Você Está Fazendo com a Sua Vida? A Parte Final",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "668 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO YOU HAVE",
+     "A FREE WILL?"
+    ],
+    "video": {
+     "id": "UebSfjmQNvs",
+     "titre": "Do You Have a Free Will?",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "6.5M views",
+     "date": "2 years ago",
+     "duree": "12:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "HAST DU EINEN",
+     "FREIEN WILLEN?"
+    ],
+    "video": {
+     "id": "C7YSy-Mr-d8",
+     "titre": "Hast du einen freien Willen?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "777.595 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O QUE ÉS?"
+    ],
+    "video": {
+     "id": "PKnr2GemDS0",
+     "titre": "O Que Você É?",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "810 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "GAME THEORY"
+    ],
+    "video": {
+     "id": "mScpHTIi-kM",
+     "titre": "Once you understand game theory, you understand the world.",
+     "chaine": "Veritasium",
+     "vues": "26M views",
+     "date": "2 years ago",
+     "duree": "27:19",
+     "avatar": "https://yt3.ggpht.com/7vCbvtCqtjQ3YLgsJt7Y952MQV1sBvhllSCSxHP8_sVZdcPCBrITfhkN2RdyCuwPnsByq-1GoA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DER GRÖSSTE IRRTUM",
+     "DER PHYSIK"
+    ],
+    "video": {
+     "id": "2cKelSnfKI4",
+     "titre": "Der größte Irrtum der Physik – das glaubt jeder falsch!",
+     "chaine": "Veritasium auf Deutsch",
+     "vues": "177.966 Aufrufe",
+     "date": "vor 9 Monaten",
+     "duree": "26:34",
+     "avatar": "https://yt3.ggpht.com/YWJLgYlvOXPlPGAF--WdKgSSVN2sm3ghMsMtZcPhJuxLDxhWd4VJrkgdWqbu_jGC-1sE3jXq3A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O PARADOXO",
+     "DOS 50/50"
+    ],
+    "video": {
+     "id": "IkxS65KPAMI",
+     "titre": "Esse paradoxo divide até os mais inteligentes em 50/50",
+     "chaine": "Veritasium em Português",
+     "vues": "94 mil visualizações",
+     "date": "há 7 meses",
+     "duree": "23:07",
+     "avatar": "https://yt3.ggpht.com/XYVOuyuIUVBEzjDrMJnK-mEyb0SYnu8nBJt0cvplTpiJkUeaP3BVYjfvZwW3MX-bQIAn2QyyhA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

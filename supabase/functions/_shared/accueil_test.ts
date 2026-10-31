@@ -4,6 +4,7 @@ import { assertEquals } from "jsr:@std/assert@1";
 import {
   type Annonce,
   bienvenueARattraper,
+  cohorteRecrue,
   codePays,
   hmDeNomUpwork,
   type InfosApi,
@@ -12,6 +13,8 @@ import {
   lireModeAuto,
   messageAccueil,
   normaliserNom,
+  paysDansTexte,
+  paysDeReponse,
   planAccueil,
   type PosteurExistant,
 } from "./accueil.ts";
@@ -155,4 +158,22 @@ Deno.test("prompt 25, 16 : recrue déjà créée par la HM, notée doublon avant
   assertEquals(bienvenueARattraper({ ...d, message_at: "2026-10-30T10:00:00Z" }, "on"), false);
   assertEquals(bienvenueARattraper({ ...d, raison: "profil existant inactif ou relié à un autre contrat" }, "on"), false);
   assertEquals(bienvenueARattraper({ ...d, statut: "envoye" }, "on"), false);
+});
+
+Deno.test("1/11 : pays d'un titre d'annonce ou d'une réponse ; cohorte jamais avant le prochain lundi", () => {
+  assertEquals(paysDansTexte("(GREECE)🌍📱 Turn 10 Minutes a Day Into Weekly Pay: Post Ready-Made TikToks"), "GR");
+  assertEquals(paysDansTexte("TikTok Content Posting for Slideshows —Spanish speaker/ in Spain"), "ES");
+  assertEquals(paysDansTexte("TikTok Content Posting for Slideshows —  Israel (ISRAEL)"), "IL");
+  assertEquals(paysDansTexte("TikTok Content Posting for Slideshows —Spanish speaker"), null);
+  assertEquals(paysDansTexte("🌍📱 Turn 10 Minutes a Day Into Weekly Pay"), null);
+  assertEquals(paysDeReponse([
+    { de: "posteur", texte: "Greece." },
+    { de: "nous", texte: "Hi! Which country do you live in?" },
+    { de: "posteur", texte: "Hello" },
+  ]), "GR");
+  assertEquals(paysDeReponse([{ de: "posteur", texte: "I live in Spain" }, { de: "nous", texte: "Which country do you live in?" }]), "ES");
+  assertEquals(paysDeReponse([{ de: "posteur", texte: "Hello" }]), null);
+  assertEquals(cohorteRecrue("2026-10-26", "2026-11-02"), "2026-11-02");
+  assertEquals(cohorteRecrue("2026-11-09", "2026-11-02"), "2026-11-09");
+  assertEquals(cohorteRecrue(null, "2026-11-02"), "2026-11-02");
 });

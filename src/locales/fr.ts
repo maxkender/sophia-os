@@ -5785,6 +5785,15 @@ export const fr = {
       qualite: { good: "GOOD", poor_views: "POOR VIEWS", shadowban: "SHADOWBAN" },
     },
     hiring: {
+      creationCoupee: {
+        titre: "Créer un posteur",
+        message: "You don't create posters anymore. The OS creates the poster and sends the welcome automatically when the offer is accepted. Your recruit is probably already created: check My cohort.",
+        chercher: "Lien du contrat Upwork ou nom de la recrue",
+        trouver: "Trouver ma recrue",
+        aucun: "Aucun posteur pour ce contrat ou ce nom pour l'instant. L'OS le crée quand l'offre est acceptée.",
+        ligne: "cohorte {{cohorte}} · HM {{hm}}",
+        votreRecrue: "Ta recrue : {{nom}} (cohorte {{cohorte}})",
+      },
       posterExistant: "This contract already has a poster. Rien n'a été créé.",
       posterEnCours: "Un posteur est en cours de création pour ce contrat. Rien n'a été créé : attends une minute, puis regarde la liste ci-dessous.",
       voirFiche: "Ouvrir sa fiche",

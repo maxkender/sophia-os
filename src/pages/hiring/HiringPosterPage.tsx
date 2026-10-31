@@ -21,6 +21,8 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { compteActif, repartirArchive } from "@/features/archive/archive";
 import { SectionArchive } from "@/features/archive/SectionArchive";
 import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
+import { CreationCoupee } from "@/features/hiring/CreationCoupee";
+import { creationCoupeePour } from "@/features/hiring/creationCoupee";
 import {
   activerPoster,
   contactCreationComplet,
@@ -369,7 +371,14 @@ function LignePoster({
  * Écran unique du hiring manager : créer un login créateur, puis le premier
  * compte TikTok (perso = identité générée, ou CM = identifiants existants).
  */
+/** 1/11 : une HM (ou une DM) ne crée plus de posteur : le message, et « My cohort ». */
 export function HiringPosterPage() {
+  const { role } = useAuth();
+  if (creationCoupeePour(role)) return <CreationCoupee />;
+  return <FormulairePosteurs />;
+}
+
+function FormulairePosteurs() {
   const { t } = useTranslation();
   const { role, profil } = useAuth();
   // Prompt 15, point 1 et prompt 21, A5 : la HM et le DM n'ajoutent pas de compte et ne réactivent pas.

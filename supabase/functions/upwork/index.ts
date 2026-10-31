@@ -36,6 +36,9 @@ import {
   type Annonce,
   bienvenueARattraper,
   cohorteRecrue,
+  loginDejaDonne,
+  MOT_DE_PASSE_HM,
+  RAISON_WELCOME_HM,
   paysDansTexte,
   paysDeReponse,
   codePays,
@@ -335,6 +338,9 @@ Deno.serve(async (request) => {
       case "accueil_localiser":
         // 0470 : pays du freelance et HM du contrat, lus et montrés ; rien n'est créé ni envoyé.
         return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "bienvenues_apercu":
+        // 1/11 : la liste des welcomes en attente, triée (l'OS envoie / déjà fait par la HM). Lecture seule.
+        return json(await apercuBienvenues(supabase, par));
       case "relier_contrats":
         // 1/11 : les contrats « To link » (VIk Studios) : pays, HM, cohorte ; sans confirmer, l'aperçu seul.
         // Avec confirmer (aucun cron n'a cette action) : profil créé et relié, aucun welcome (il attend On).
@@ -3460,6 +3466,66 @@ async function relierContrats(supabase: Supabase, par: string | null, contrats: 
   return { ok: lignes.every((l) => !l.erreur), confirmer, prochain_lundi: prochain, lignes };
 }
 
+/**
+ * 1/11 : la HM a-t-elle déjà donné le login dans la conversation Upwork du
+ * contrat (login @sophia.com, email du posteur ou lien du dashboard, envoyé de
+ * notre côté) ? Lecture seule ; toute la conversation lue, pas seulement les 10
+ * derniers messages.
+ */
+async function hmADonneLeLogin(
+  supabase: Supabase,
+  par: string | null,
+  contrat: string,
+  organisation: string | null,
+  email: string | null,
+): Promise<{ deja: boolean; extrait: string | null; erreur: string | null }> {
+  try {
+    const { data: s } = await supabase.from("upwork_salons").select("room_id, freelance_id").eq("contrat_id", contrat).maybeSingle();
+    let room = (s?.room_id as string | null) ?? null;
+    let freelance = (s?.freelance_id as string | null) ?? null;
+    if (!room || !freelance) {
+      const salon = await lire(supabase, { par, action: "contexte_salon", query: REQUETE_SALON_POSTEUR, variables: { id: contrat }, tenant: organisation });
+      room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
+      freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
+      if (!room || !freelance) return { deja: false, extrait: null, erreur: salon.erreur ?? "conversation introuvable" };
+    }
+    const msgs = await lire(supabase, { par, action: "contexte_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: organisation });
+    if (msgs.erreur) return { deja: false, extrait: null, erreur: msgs.erreur };
+    // deno-lint-ignore no-explicit-any
+    const tous = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance, 1000);
+    const m = loginDejaDonne(tous, email, new URL(OS_URL).host);
+    return { deja: m !== null, extrait: m ? `${m.at.slice(0, 10)} : ${m.texte.slice(0, 120)}` : null, erreur: null };
+  } catch (e) {
+    return { deja: false, extrait: null, erreur: messageErreur(e) };
+  }
+}
+
+/**
+ * 1/11 : qui recevra un welcome au passage sur On (bienvenues_a_envoyer), et
+ * pour un profil créé par la HM, si elle a déjà donné le login dans la
+ * conversation. Lecture seule : rien n'est envoyé ni changé.
+ */
+async function apercuBienvenues(supabase: Supabase, par: string | null) {
+  const { data, error } = await supabase.rpc("bienvenues_a_envoyer");
+  if (error) return { ok: false, error: error.message };
+  const lignes: Record<string, unknown>[] = [];
+  for (const b of (data ?? []) as { contrat_id: string; poster_id: string; nom: string | null; hm_nom: string | null; pays: string | null; cas: string }[]) {
+    const ligne: Record<string, unknown> = { ...b };
+    lignes.push(ligne);
+    if (b.cas === "os_sans_welcome") {
+      ligne.verdict = "os_envoie";
+      continue;
+    }
+    const { data: p } = await supabase.from("profiles").select("email").eq("id", b.poster_id).maybeSingle();
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", b.contrat_id).limit(1).maybeSingle();
+    const lu = await hmADonneLeLogin(supabase, par, b.contrat_id, (uc?.organisation_id as string | null) ?? null, (p?.email as string | null) ?? null);
+    ligne.verdict = lu.erreur ? "illisible" : lu.deja ? "deja_hm" : p?.email ? "os_envoie_login_existant" : "pas_de_login";
+    ligne.extrait = lu.extrait;
+    ligne.erreur = lu.erreur;
+  }
+  return { ok: true, lignes };
+}
+
 /** 1/11 : sur On, le welcome des recrues créées sans welcome (au plus 20 par passage). */
 async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null, modele: string, slack: string) {
   const { data } = await supabase.from("accueils").select("contrat_id, organisation_id, prenom, nom, hm_id, poster_id")
@@ -3469,7 +3535,7 @@ async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null
     const r = await accueillirExistant(
       supabase, par,
       { contrat_id: String(a.contrat_id), organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, hm_id: a.hm_id },
-      String(a.poster_id), modele, slack,
+      String(a.poster_id), modele, slack, { creePar: "os" },
     );
     if (r.erreur) {
       bilan.erreurs.push(`${a.contrat_id} : ${r.erreur}`);
@@ -3502,7 +3568,10 @@ async function accueillirExistant(
   posterId: string,
   modele: string,
   slack: string,
+  opts: { creePar?: "hm" | "os" } = {},
 ): Promise<{ erreur: string | null }> {
+  // 1/11 : par défaut, un profil existant a été créé par la HM ; « os » : créé par l'OS sans welcome (relier_contrats).
+  const creeParHm = (opts.creePar ?? "hm") === "hm";
   const { data: p } = await supabase.from("profiles")
     .select("id, prenom, email, cohorte_lundi, upwork_contract_id, must_change_password, is_active")
     .eq("id", posterId).maybeSingle();
@@ -3523,16 +3592,38 @@ async function accueillirExistant(
     });
     return { erreur: null };
   }
+  if (creeParHm) {
+    // 1/11 : la HM a-t-elle déjà donné le login dans la conversation Upwork ? Alors pas de welcome en double.
+    const lu = await hmADonneLeLogin(supabase, par, base.contrat_id, (base.organisation_id as string | null) ?? null, (p.email as string | null) ?? null);
+    if (lu.erreur) return { erreur: `conversation Upwork illisible, welcome non envoyé (repris au prochain passage) : ${lu.erreur}` };
+    if (lu.deja) {
+      await supabase.from("accueils").upsert({
+        ...base, statut: "doublon", poster_id: posterId, cohorte_lundi: cohorte || null, raison: RAISON_WELCOME_HM,
+        relie_at: new Date().toISOString(), bienvenue_attente: false,
+      });
+      return { erreur: null };
+    }
+    // Pas de login connu : pas de welcome (on ne crée jamais un mot de passe pour un posteur de la HM).
+    if (!p.email) {
+      await supabase.from("accueils").upsert({
+        ...base, statut: "doublon", poster_id: posterId, cohorte_lundi: cohorte || null,
+        raison: "créée par la HM, aucun login connu : pas de welcome de l'OS", relie_at: new Date().toISOString(),
+      });
+      return { erreur: null };
+    }
+  }
   await supabase.from("accueils").upsert({
     ...base, statut: "envoi", poster_id: posterId, cohorte_lundi: cohorte || null,
-    raison: "recrue déjà créée par la HM : contrat relié, bienvenue envoyée", relie_at: new Date().toISOString(),
+    raison: creeParHm ? "recrue déjà créée par la HM : contrat relié, bienvenue envoyée (login existant)" : "créée par l'OS : bienvenue envoyée",
+    relie_at: new Date().toISOString(),
   });
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", base.contrat_id);
   // 31/10 : jamais connecté → un mot de passe unique (plus 12345678 pour tous), à changer à la 1re connexion ;
   // déjà connecté → il a peut-être changé son mot de passe : on ne lui en donne pas un faux.
-  let motDePasse = "the one you chose";
-  if (!(await dejaConnecte(supabase, posterId))) {
+  // 1/11 : le mot de passe d'un posteur créé par la HM n'est JAMAIS changé ; le welcome renvoie à celui de la HM.
+  let motDePasse = creeParHm ? MOT_DE_PASSE_HM : "the one you chose";
+  if (!creeParHm && !(await dejaConnecte(supabase, posterId))) {
     const neuf = motDePasseRecrue();
     const { error: errMdp } = await supabase.auth.admin.updateUserById(posterId, { password: neuf });
     motDePasse = errMdp ? MOT_DE_PASSE_DEPART : neuf;

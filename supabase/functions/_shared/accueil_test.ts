@@ -11,6 +11,7 @@ import {
   langueDePays,
   lireDetailsContrat,
   lireModeAuto,
+  loginDejaDonne,
   messageAccueil,
   normaliserNom,
   paysDansTexte,
@@ -176,4 +177,14 @@ Deno.test("1/11 : pays d'un titre d'annonce ou d'une réponse ; cohorte jamais a
   assertEquals(cohorteRecrue("2026-10-26", "2026-11-02"), "2026-11-02");
   assertEquals(cohorteRecrue("2026-11-09", "2026-11-02"), "2026-11-09");
   assertEquals(cohorteRecrue(null, "2026-11-02"), "2026-11-02");
+});
+
+Deno.test("1/11 : login déjà donné par la HM dans la conversation (@sophia.com, email du posteur ou lien du dashboard)", () => {
+  const hm = (texte: string) => ({ de: "nous", texte });
+  assertEquals(loginDejaDonne([{ de: "posteur", texte: "my mail is ana@sophia.com?" }]), null);
+  assertEquals(loginDejaDonne([hm("Hi! Your login: anas@sophia.com, password 12345678")])?.texte.includes("anas@"), true);
+  assertEquals(loginDejaDonne([hm("Go to https://sophia-marketing-orga.vercel.app and log in")]) !== null, true);
+  assertEquals(loginDejaDonne([hm("Login: ana.s@vikmail.com")], "ana.s@vikmail.com") !== null, true);
+  assertEquals(loginDejaDonne([hm("Hi, thanks for signing! Join our Slack: https://join.slack.com/t/x")]), null);
+  assertEquals(loginDejaDonne([]), null);
 });

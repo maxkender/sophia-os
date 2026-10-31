@@ -5776,6 +5776,15 @@ export const en = {
       qualite: { good: "GOOD", poor_views: "POOR VIEWS", shadowban: "SHADOWBAN" },
     },
     hiring: {
+      creationCoupee: {
+        titre: "Create a poster",
+        message: "You don't create posters anymore. The OS creates the poster and sends the welcome automatically when the offer is accepted. Your recruit is probably already created: check My cohort.",
+        chercher: "Upwork contract link or recruit's name",
+        trouver: "Find my recruit",
+        aucun: "No poster found for this contract or name yet. The OS creates it when the offer is accepted.",
+        ligne: "cohort {{cohorte}} · HM {{hm}}",
+        votreRecrue: "Your recruit: {{nom}} (cohort {{cohorte}})",
+      },
       posterExistant: "This contract already has a poster. Nothing was created.",
       posterEnCours: "A poster is being created for this contract right now. Nothing was created: wait a minute, then check the list below.",
       voirFiche: "Open their card",

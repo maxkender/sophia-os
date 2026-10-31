@@ -194,6 +194,11 @@ async function gererRequete(request: Request): Promise<Response> {
     return json({ error: "corps JSON attendu" }, 400);
   }
 
+  // 1/11 : « Set my password » (page publique /set-password) : le lien personnel du welcome, sans session.
+  if (body.action === "lien_mot_de_passe_lire" || body.action === "lien_mot_de_passe_definir") {
+    return await lienMotDePasse(supabase, body);
+  }
+
   // Start warmup : le créateur lui-même (ou admin). Plus le HM.
   if (body.action === "start_warmup") {
     const acces = await assertRole(request, ["admin", "poster"]);
@@ -2324,4 +2329,33 @@ async function referenceLibre(
     (a, b) => rang(a) - rang(b) || String(a.created_at).localeCompare(String(b.created_at)),
   );
   return libres[0].id;
+}
+
+/**
+ * 1/11 : le lien « Set my password » (migration 0491), sans session : le jeton
+ * du lien est la preuve. lire : le login du lien et son état. definir : le mot
+ * de passe choisi (8 caractères au moins) et l'email perso (Slack), puis le lien
+ * est marqué utilisé (une seule fois). Jamais un mot de passe dans un message.
+ * Les refus répondent 200 avec ok: false (la page les affiche).
+ */
+// deno-lint-ignore no-explicit-any
+async function lienMotDePasse(supabase: Supabase, body: any): Promise<Response> {
+  const jeton = String(body.jeton ?? "").trim();
+  if (!/^[0-9a-f]{48}$/.test(jeton)) return json({ ok: false, statut: "inconnu" });
+  const { data: lu, error } = await supabase.rpc("mot_de_passe_lien_lire", { p_jeton: jeton });
+  if (error) return json({ ok: false, error: error.message }, 500);
+  const l = ((lu ?? []) as { statut: string; poster_id: string | null; email: string | null; prenom: string | null }[])[0];
+  if (!l || l.statut !== "ok" || !l.poster_id || !l.email) return json({ ok: false, statut: l?.statut ?? "inconnu" });
+  if (body.action === "lien_mot_de_passe_lire") return json({ ok: true, statut: "ok", email: l.email, prenom: l.prenom });
+  const motDePasse = String(body.password ?? "");
+  if (motDePasse.length < 8 || motDePasse.length > 72) return json({ ok: false, error: "8 characters minimum" });
+  const emailPerso = String(body.email_perso ?? "").trim().toLowerCase();
+  if (emailPerso && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailPerso)) return json({ ok: false, error: "invalid email" });
+  const { error: errMdp } = await supabase.auth.admin.updateUserById(l.poster_id, { password: motDePasse });
+  if (errMdp) return json({ ok: false, error: errMdp.message });
+  await supabase.rpc("mot_de_passe_lien_utiliser", { p_jeton: jeton });
+  await supabase.from("profiles")
+    .update(emailPerso ? { must_change_password: false, email_perso: emailPerso } : { must_change_password: false })
+    .eq("id", l.poster_id);
+  return json({ ok: true, email: l.email });
 }

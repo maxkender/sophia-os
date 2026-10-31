@@ -37,14 +37,16 @@ const plan = (x: RecrueAccueil, iso: string) => planRelance(x, etatsAccueil(x, D
 const texte = (x: RecrueAccueil, iso: string) =>
   texteRelance(TEXTES_RELANCE_DEFAUT, plan(x, iso), {
     prenom: x.prenom, handle: x.handle, url: "https://os", lien_etapes: "https://guide", cohorte_lundi: x.cohorte_lundi,
-    email: x.email, mot_de_passe: "12345678",
+    email: x.email,
   });
 
 Deno.test("pas connecté : rien avant 24 h, puis les identifiants (jamais « first message »)", () => {
   assertEquals(plan(base, "2026-10-27T09:00:00Z").element, null);
   assertEquals(plan(base, "2026-10-27T11:00:00Z").element, "connexion");
   const t = texte(base, "2026-10-27T11:00:00Z");
-  assertStringIncludes(t, "login: anaa@sophia.com, password: 12345678");
+  // 1/11 : jamais de mot de passe : le lien « Set my password », créé à l'envoi.
+  assertStringIncludes(t, "with your login anaa@sophia.com (first time: set your password with your personal link {lien_mot_de_passe})");
+  assertEquals(/password\s*:/i.test(t), false);
   assertEquals(t.includes("first message"), false);
   // Sans e-mail connu : rien ne part.
   assertEquals(texte({ ...base, email: null }, "2026-10-27T11:00:00Z"), "");
@@ -83,7 +85,7 @@ const planSlack = (x: RecrueAccueil, iso: string) =>
 const texteSlack = (x: RecrueAccueil, iso: string, slack = "https://join.slack/x") =>
   texteRelance(TEXTES_RELANCE_DEFAUT, planSlack(x, iso), {
     prenom: x.prenom, handle: x.handle, url: "https://os", lien_etapes: "https://guide", cohorte_lundi: x.cohorte_lundi,
-    email: x.email, mot_de_passe: "12345678", slack,
+    email: x.email, slack,
   });
 
 Deno.test("v4, étape 0 : pas sur Slack, « join our Slack » avec la prochaine étape, dans le même message", () => {
@@ -135,4 +137,12 @@ Deno.test("1/11 : canal des relances : Slack d'abord, Upwork une fois 24 h aprè
   ]);
   assertEquals(h.get("connexion"), { upwork_at: "2026-10-30T10:00:00Z" });
   assertEquals(h.get("tiktok"), { slack_at: "2026-10-31T10:00:00Z" });
+});
+
+Deno.test("1/11 : un ancien texte « log in » qui donne un mot de passe est remplacé par le texte par défaut", () => {
+  const t = texteRelance({ ...TEXTES_RELANCE_DEFAUT, connexion: "log in: {url} (login: {email}, password: {mot_de_passe})" }, plan(base, "2026-10-27T11:00:00Z"), {
+    prenom: base.prenom, handle: base.handle, url: "https://os", lien_etapes: "https://guide", cohorte_lundi: base.cohorte_lundi, email: base.email,
+  });
+  assertEquals(t.includes("{mot_de_passe}"), false);
+  assertStringIncludes(t, "{lien_mot_de_passe}");
 });

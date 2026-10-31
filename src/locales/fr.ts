@@ -907,6 +907,25 @@ export const fr = {
       emailPersoAide: "Celui que tu utiliseras sur Slack : on te relie tout seul.",
       mismatch: "Les deux mots de passe ne correspondent pas.",
       save: "Enregistrer et continuer",
+      setPassword: {
+        bouton: "Set my password",
+        titre: "Choisir mon mot de passe",
+        lecture: "Vérification du lien…",
+        intro: "Bonjour {{prenom}}, choisis ton mot de passe. Il va avec le login ci-dessous.",
+        login: "Ton login",
+        loginAide: "Garde-le : c'est le login de ton dashboard.",
+        valider: "Enregistrer et me connecter",
+        aide:
+          "Première fois ? Ouvre le lien personnel « Set my password » de ton message de bienvenue sur Upwork : il sert une fois, pendant 14 jours. Perdu ou expiré ? Demande un nouveau lien à ta hiring manager sur Upwork, ou sur Slack dans #questions.",
+        connexionAPart: "Ton mot de passe est enregistré. Connecte-toi avec ton login et ce mot de passe.",
+        versConnexion: "Aller à la connexion",
+        etat: {
+          sansLien: "Cette page a besoin de ton lien personnel.",
+          utilise: "Ce lien a déjà servi : ton mot de passe est choisi. Connecte-toi avec.",
+          expire: "Ce lien a expiré.",
+          inconnu: "Ce lien n'est pas valable.",
+        },
+      },
     },
     nav: {
       bleo: "Vue d'ensemble",

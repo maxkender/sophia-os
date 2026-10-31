@@ -83,9 +83,9 @@ function ChampTexte({
 
 const CLES_UPWORK = ["accueil_message_texte", "arret_raison_upwork"] as const;
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
-export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "handle", "slack", "guide", "date"] as const;
+/** 1/11 : plus de mot de passe ni de guide (Upwork) : le lien « Set my password », créé à l'envoi. */
+export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "lien_mot_de_passe", "handle", "slack", "date"] as const;
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
-const GUIDE_POSTER = "https://star-water-a0e.notion.site/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
 /** Le lundi qui suit aujourd'hui (Paris), pour l'aperçu. */
 function prochainLundi(): string {
@@ -118,10 +118,9 @@ export function CarteMessagesUpwork() {
     prenom: "Ana",
     url: OS_URL,
     email: "anas@sophia.com",
-    mot_de_passe: "12345678",
+    lien_mot_de_passe: `${OS_URL}/set-password?t=…`,
     handle: "ana.studies",
     slack: texte(lu.data?.slack_lien_invitation) || "https://join.slack.com/…",
-    guide: GUIDE_POSTER,
     date: dateAnglaise(prochainLundi()),
   };
   const inconnues = variablesInconnues(b.accueil, VARIABLES_ACCUEIL);

@@ -99,7 +99,8 @@ export interface TextesRelance {
 export const TEXTES_RELANCE_DEFAUT: TextesRelance = {
   cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. If something is blocking you, just reply here.",
   slack: "join our Slack: {slack}",
-  connexion: "log in to your dashboard: {url} (login: {email}, password: {mot_de_passe}; you can change it once logged in)",
+  // 1/11 : jamais de mot de passe (Upwork) : le lien personnel « Set my password », créé à l'envoi.
+  connexion: "log in to your dashboard: {url} with your login {email} (first time: set your password with your personal link {lien_mot_de_passe})",
   tiktok: "create your TikTok account @{handle} (how-to: {lien_etapes}), then click Start warmup on your dashboard and follow 5 accounts",
   warmup: "click Start warmup on your dashboard ({url}), then follow 5 accounts with @{handle}",
   follows: "follow {follows} with @{handle} (Start warmup is done)",
@@ -125,7 +126,6 @@ export function texteRelance(
     lien_etapes: string;
     cohorte_lundi: string;
     email: string | null | undefined;
-    mot_de_passe: string;
     /** Le lien d'invitation Slack (étape 0). */
     slack?: string;
   },
@@ -139,12 +139,12 @@ export function texteRelance(
     date: dateAnglaise(o.cohorte_lundi),
     follows: `${plan.follows} more account${plan.follows > 1 ? "s" : ""}`,
     ...(o.email ? { email: o.email } : {}),
-    mot_de_passe: o.mot_de_passe,
     slack: (o.slack ?? "").trim(),
   };
   const morceaux = plan.elements
     .filter((e) => !(e === "connexion" && !o.email) && !(e === "slack" && !vars.slack))
-    .map((e) => remplir((t[e] ?? "").trim(), vars))
+    // 1/11 : un ancien texte qui donne encore un mot de passe : le texte par défaut (lien « Set my password »).
+    .map((e) => remplir(((t[e] ?? "").includes("{mot_de_passe}") ? TEXTES_RELANCE_DEFAUT[e] : t[e] ?? "").trim(), vars))
     .filter(Boolean);
   if (morceaux.length === 0) return "";
   return remplir(t.cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();

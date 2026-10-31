@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import { SetPasswordPage } from "@/features/auth/SetPasswordPage";
 import { LoginPage } from "@/features/auth/LoginPage";
 import { ProtectedRoute } from "@/features/auth/ProtectedRoute";
 import { PublicOnlyRoute } from "@/features/auth/PublicOnlyRoute";
@@ -95,6 +96,8 @@ export function AppRouter() {
       <Route element={<PublicOnlyRoute />}>
         <Route path="/login" element={<LoginPage />} />
       </Route>
+      {/* 1/11 : le lien « Set my password » du welcome, connecté ou non. */}
+      <Route path="/set-password" element={<SetPasswordPage />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />

@@ -37,7 +37,6 @@ import {
   bienvenueARattraper,
   cohorteRecrue,
   loginDejaDonne,
-  MOT_DE_PASSE_HM,
   RAISON_WELCOME_HM,
   paysDansTexte,
   paysDeReponse,
@@ -47,7 +46,6 @@ import {
   type InfosApi,
   langueDePays,
   REQUETES_LOCALISATION,
-  GUIDE_POSTER,
   lireDetailsContrat,
   annoncesDepuisPosteurs,
   lireModeAuto,
@@ -60,7 +58,7 @@ import {
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
-import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
+import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { derniersMessagesSalon } from "../_shared/contexte.ts";
 import {
@@ -2561,6 +2559,9 @@ async function envoyerMessage(
   o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
 ): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
+  const refus = refusMotDePasseUpwork(texte);
+  if (refus) return { ok: false, error: refus };
   // Run now (contrat de test) : le compte de secours, forcé ; sinon Adrien d'abord, puis Max (prompt 25 MAJ).
   const choix = o.forcer ? { compte: o.forcer, erreur: null } : await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
   if (choix.compte === null) return { ok: false, error: choix.erreur, budget: true };
@@ -2629,8 +2630,6 @@ const MUTATION_AJOUT_SALON = `mutation AjoutSalon($roomId: ID!, $users: [RoomUse
 // Système du 2 nov., partie A : l'accueil automatique
 // ---------------------------------------------------------------------------
 
-/** Le mot de passe de départ, comme sur /embauche ; le posteur le change à sa 1re connexion. */
-const MOT_DE_PASSE_DEPART = "12345678";
 
 /** 0470 : un pays absent de la liste des offres ne remplace pas celui lu sur le profil du freelance. */
 function sansPaysVide<T extends { freelancer_pays: string | null }>(c: T): Omit<T, "freelancer_pays"> | T {
@@ -2925,8 +2924,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
       await supabase.from("accueils").upsert({
         ...base, statut: "simule", raison: "test : rien n'est créé ni envoyé", cohorte_lundi: cohorte || null,
         message_texte: messageAccueil(modele, {
-          prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", mot_de_passe: MOT_DE_PASSE_DEPART,
-          slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte, handle: "(@ généré à la création)",
+          prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", lien_mot_de_passe: LIEN_APERCU,
+          slack, cohorte_lundi: cohorte, handle: "(@ généré à la création)",
         }),
       });
       bilan.simules++;
@@ -3335,11 +3334,17 @@ async function creerEtAccueillir(
     await fin({ statut: "cree", raison: RAISON_BIENVENUE_ATTENTE, bienvenue_attente: true });
     return { erreur: null };
   }
-  // 3. Le message de bienvenue, une seule fois (accueils.message_at).
-  const texte = messageAccueil(modele, {
-    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: cree.password ?? MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
+  // 3. Le message de bienvenue, une seule fois (accueils.message_at). 1/11 : sans mot de passe, avec le lien « Set my password ».
+  const pret = await texteBienvenue(supabase, cree.userId, messageAccueil(modele, {
+    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", slack,
     cohorte_lundi: a.cohorte_lundi, handle: await handleACreer(supabase, cree.userId),
-  });
+  }));
+  if (pret.erreur) {
+    const erreur = `message de bienvenue : ${pret.erreur}`;
+    await fin({ statut: "erreur", raison: erreur });
+    return { erreur };
+  }
+  const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
     // Prompt 25 v4 (0442) : Upwork plein (Max et Adrien) : la HM envoie la bienvenue à la main aujourd'hui.
@@ -3359,6 +3364,18 @@ async function creerEtAccueillir(
   }
   await fin({ statut: "envoye", message_texte: texte, message_at: new Date().toISOString() });
   return { erreur: null };
+}
+
+/**
+ * 1/11 : le welcome prêt à partir : aucune mention de paiement (sauf la phrase
+ * admise), puis le lien « Set my password » créé, et jamais de mot de passe.
+ */
+async function texteBienvenue(supabase: Supabase, posterId: string, brut: string): Promise<{ texte: string; erreur: string | null }> {
+  const paiement = refusPaiementUpwork(brut);
+  if (paiement) return { texte: brut, erreur: paiement };
+  const lien = await avecLienMotDePasse(supabase, posterId, brut, OS_URL, "accueil");
+  if (lien.erreur) return lien;
+  return { texte: lien.texte, erreur: refusMotDePasseUpwork(lien.texte) };
 }
 
 const RAISON_DEJA_CONNECTE = "créée par la HM et déjà connectée à l'OS (logins de la HM) : pas de welcome de l'OS";
@@ -3614,27 +3631,24 @@ async function accueillirExistant(
   }
   await supabase.from("accueils").upsert({
     ...base, statut: "envoi", poster_id: posterId, cohorte_lundi: cohorte || null,
-    raison: creeParHm ? "recrue déjà créée par la HM : contrat relié, bienvenue envoyée (login existant)" : "créée par l'OS : bienvenue envoyée",
+    raison: creeParHm ? "recrue déjà créée par la HM : contrat relié, bienvenue envoyée (login existant, lien Set my password)" : "créée par l'OS : bienvenue envoyée",
     relie_at: new Date().toISOString(),
   });
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", base.contrat_id);
-  // 31/10 : jamais connecté → un mot de passe unique (plus 12345678 pour tous), à changer à la 1re connexion ;
-  // déjà connecté → il a peut-être changé son mot de passe : on ne lui en donne pas un faux.
-  // 1/11 : le mot de passe d'un posteur créé par la HM n'est JAMAIS changé ; le welcome renvoie à celui de la HM.
-  let motDePasse = creeParHm ? MOT_DE_PASSE_HM : "the one you chose";
-  if (!creeParHm && !(await dejaConnecte(supabase, posterId))) {
-    const neuf = motDePasseRecrue();
-    const { error: errMdp } = await supabase.auth.admin.updateUserById(posterId, { password: neuf });
-    motDePasse = errMdp ? MOT_DE_PASSE_DEPART : neuf;
-    await supabase.from("profiles").update({ must_change_password: true }).eq("id", posterId);
-  }
-  const texte = messageAccueil(modele, {
+  // 1/11 : aucun mot de passe n'est changé ni écrit (Upwork) : le welcome donne le login et le lien
+  // « Set my password » (usage unique, 14 jours) ; la recrue choisit son mot de passe.
+  const pret = await texteBienvenue(supabase, posterId, messageAccueil(modele, {
     prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
-    mot_de_passe: motDePasse,
-    slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+    slack, cohorte_lundi: cohorte,
     handle: await handleACreer(supabase, posterId),
-  });
+  }));
+  if (pret.erreur) {
+    const erreur = `message de bienvenue : ${pret.erreur}`;
+    await fin({ statut: "erreur", raison: erreur });
+    return { erreur };
+  }
+  const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
     const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());

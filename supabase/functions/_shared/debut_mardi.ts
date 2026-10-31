@@ -35,7 +35,7 @@ export function texteDebutMardi(
   textes: TextesRelance,
   x: Pick<RecrueAccueil, "prenom" | "handle" | "cohorte_lundi" | "email" | "abonnements" | "warmup_started_at" | "tiktok_existe">,
   etats: readonly EtatAccueil[],
-  o: { url: string; lien_etapes: string; mot_de_passe: string },
+  o: { url: string; lien_etapes: string },
   modele = TEXTE_DEBUT_MARDI,
 ): string {
   const elements = elementsManquants(x, etats);
@@ -43,7 +43,7 @@ export function texteDebutMardi(
   const follows = Math.max(0, FOLLOWS_MIN - (x.abonnements ?? 0));
   const ceQuiManque = texteRelance({ ...textes, cadre: "{ce_qui_manque}" }, { element: elements[0], elements, needsYou: false, follows }, {
     prenom: x.prenom, handle: x.handle, url: o.url, lien_etapes: o.lien_etapes, cohorte_lundi: x.cohorte_lundi,
-    email: x.email, mot_de_passe: o.mot_de_passe,
+    email: x.email,
   });
   return modele
     .replace(/\{prenom\}/g, (x.prenom ?? "").trim() || "there")

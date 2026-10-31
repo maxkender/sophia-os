@@ -37,9 +37,9 @@ export interface TexteCatalogue {
 }
 
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
-const VARIABLES_ACCUEIL = ["prenom", "url", "email", "mot_de_passe", "handle", "slack", "guide", "date"] as const;
+const VARIABLES_ACCUEIL = ["prenom", "url", "email", "lien_mot_de_passe", "handle", "slack", "date"] as const;
 /** Les variables d'un morceau de la relance du jour (_shared/relance_jour.ts, texteRelance). */
-const VARIABLES_RELANCE = ["prenom", "handle", "url", "lien_etapes", "date", "email", "mot_de_passe", "follows", "slack"] as const;
+const VARIABLES_RELANCE = ["prenom", "handle", "url", "lien_etapes", "date", "email", "lien_mot_de_passe", "follows", "slack"] as const;
 
 export const TEXTES: readonly TexteCatalogue[] = [
   { id: "accueil", groupe: "accueil", cle: "accueil_message_texte", variables: VARIABLES_ACCUEIL },
@@ -96,9 +96,9 @@ export function exemples(reglages: Record<string, unknown>): Record<string, stri
     handle: "ana.studies",
     url: OS_URL,
     email: "ana@sophia.com",
-    mot_de_passe: "12345678",
+    // 1/11 : jamais de mot de passe : le lien personnel « Set my password », créé à l'envoi.
+    lien_mot_de_passe: `${OS_URL}/set-password?t=…`,
     slack: texte(reglages.slack_lien_invitation) || "https://join.slack.com/…",
-    guide: GUIDE_POSTER,
     lien_etapes: texte(reglages.lien_etapes_tiktok) || GUIDE_POSTER,
     date: "2 November",
     ce_qui_manque: "follow 5 accounts",

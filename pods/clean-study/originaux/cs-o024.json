@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o024",
+  "schema_id": "methods-per-subject",
+  "titre": "if you study for hours and your grades don't move, read this #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "Routine du 31/10 (ROUTINE-avant-bleo, 5 livraisons). Schéma methods-per-subject (@studyy.hackz : 771 k le 06/10, 447 k le 10/10, valable jusqu'au 5/11). Famille d'accroche neuve chez nous (la plainte change à chaque livraison ; cs-o001 « same way for every subject » est à r 5,47, cs-o003 à r 0,11 sur un passage). Accroches écrites : « “I study for hours and my grades don't move” » (retenue : la plainte entre guillemets, concrète, sur le temps perdu), « “I spend all weekend studying and still get a C” » (écartée : la note C n'existe pas partout une fois traduite), « “studying longer isn't working anymore” » (écartée : plus faible). Six méthodes neuves, aucune déjà dans cs-o001 à cs-o019 : partir des sujets d'examen passés, le plan de dissertation en 10 minutes, les cartes question/réponse triées (place micabo, slide 5), une page par chapitre, refaire ses erreurs deux jours après, le chrono et le téléphone dans une autre pièce (place UnSwipe, slide 8). Slides 5 et 8 sans personne. Écartées à l'aperçu : 0088e5f9, 06e4eb95 (écran lisible ou personne sur une slide d'appli, marque lisible, ou photo déjà prise ailleurs).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "008401d5",
+      "texte_overlay": "“I study for hours\nand my grades don't move”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "075e1180",
+      "texte_overlay": "hours don't count. what you do in them does.\nhere's what each subject actually rewards...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "086be0a9",
+      "texte_overlay": "Past exam papers 📄\nBest for: Maths, Physics, Chemistry\nstart from real exam questions, not the textbook. you learn what's actually asked.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "113d5f6f",
+      "texte_overlay": "10-minute essay plans ✍️\nBest for: History, Literature, Philosophy\nfor 5 likely questions, write only the plan: thesis, 3 parts, one example each.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6006ae42",
+      "texte_overlay": "Question → answer cards 🃏\nBest for: Biology, Geography, Languages\nquestion on one side, answer on the other. sort them into \"knew it\" and \"didn't\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "135304a7",
+      "texte_overlay": "One page per chapter 📃\nBest for: Economics, History\nif it doesn't fit on one page, you haven't found what matters yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "16818a92",
+      "texte_overlay": "Redo your wrong answers 🔁\nBest for: Maths, Physics\nevery exercise you got wrong gets redone two days later, without looking at the correction.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "82f6ec79",
+      "texte_overlay": "Timer on, phone away 📵\nBest for: every single subject\n45 focused minutes with your phone in another room beat 3 hours with it on the desk.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

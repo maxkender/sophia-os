@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o026",
+  "schema_id": "toxic-study-motivation",
+  "titre": "toxic reminders for when you want to skip studying today #studytok #studytips #school #studymotivation",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "bb2eeefa-d48f-4aab-9e65-405885ce9658",
+    "ceb6df00-1ca0-4a4e-b71e-2ca4723429d3"
+  ],
+  "notes": "Schéma du label toxic-study-motivation (r 3,17 sur 3 passages, bb2eeefa ; r 2,84, 5d957bad). Famille d'accroche neuve : le moment précis où l'on veut sauter la séance (cs-o014, cs-o017, cs-o020, cs-o023 avaient d'autres accroches). Accroches écrites : « toxic reminders for when you want to skip studying today » (retenue : le moment où l'on décroche, qu'on enregistre pour plus tard), « toxic study motivation for lazy days » (écartée : « lazy » juge), « things i tell myself when i don't want to study » (écartée : perd le ton toxique). Sept pensées neuves, rivalité avec soi-même seulement, aucun gros mot, aucun mépris des autres. Place micabo : slide 4 (10 minutes à se tester) ; place UnSwipe : slide 6 (le scroll). Slides 4 et 6 sans personne. Écartées à l'aperçu : 2f217fba, 30219e0a (écran lisible ou personne sur une slide d'appli, marque lisible, ou photo déjà prise ailleurs).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4197506b",
+      "texte_overlay": "toxic reminders for when\nyou want to skip studying today",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "424a6b53",
+      "texte_overlay": "\"i'll do double tomorrow\"\nyou said that yesterday. tomorrow-you is ALREADY tired.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "48d2e89a",
+      "texte_overlay": "you don't have to feel like it.\nyou have to sit down. the rest follows.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "48319d1c",
+      "texte_overlay": "just 10 minutes of testing yourself.\nif you still want to stop after that, fine. you WON'T.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4a04349e",
+      "texte_overlay": "skipping today is easy.\nexplaining the grade in 3 weeks is NOT.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5f52f425",
+      "texte_overlay": "you have time to watch other people study on your phone\nbut not time to study? interesting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4d8617b1",
+      "texte_overlay": "the girl you want to be next semester\nis built on boring days like THIS one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "59787c1e",
+      "texte_overlay": "open the notes. that's the whole task right now. GO.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

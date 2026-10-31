@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o025",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "failing my first test of the year and what actually fixed it #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "essai. Schéma relatable-struggle-fix (@sofiya.yussupova : 341 k vues le 21/10, valable jusqu'au 20/11), sous une forme jamais faite chez nous : l'échec raconté en une phrase, puis ce qui a changé ensuite, en « i » (avant / après), au lieu d'une galère du quotidien. Accroches écrites : « failing my first test of the year even though i \"studied\" » (retenue : l'échec que beaucoup vivent en début d'année, les guillemets sur « studied » font sourire), « getting my worst grade ever after studying all week » (écartée : plus dramatique), « realizing rereading my notes isn't studying » (écartée : la fin dans l'accroche). Cinq gestes vrais : savoir pourquoi on a raté chaque question, se tester au lieu de relire (place micabo, slide 4), réviser en plusieurs fois, le téléphone dans le sac (place UnSwipe, slide 6), demander au prof ce qui était attendu. Slides 4 et 6 sans personne. Écartées à l'aperçu : 1c27487f, 2c473303, 2ed97ff1, 2c8d464c (écran lisible ou personne sur une slide d'appli, marque lisible, ou photo déjà prise ailleurs).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5cb11c75",
+      "texte_overlay": "failing my first test of the year even though i \"studied\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "250d1958",
+      "texte_overlay": "what i changed after:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "297aef80",
+      "texte_overlay": "i went through every wrong answer and wrote WHY it was wrong.\nnot just the right answer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ba5f8522",
+      "texte_overlay": "i stopped rereading. now i close my notes and test myself.\nrereading only felt like studying.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f10cf66f",
+      "texte_overlay": "i studied a little every day instead of the whole thing the night before.\nsame hours, way more stuck.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f2f9b014",
+      "texte_overlay": "my phone stays in my bag while i study.\nturns out i was \"studying\" with breaks every 3 minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "35b23695",
+      "texte_overlay": "i asked my teacher what a full-mark answer looks like.\nshe actually showed me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "39914ee3",
+      "texte_overlay": "next test: best grade i've had this year",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

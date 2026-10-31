@@ -3181,6 +3181,18 @@ async function handleACreer(supabase: Supabase, posterId: string): Promise<strin
   return (data?.handle_tiktok as string | null) ?? null;
 }
 
+/**
+ * 31/10 : accueil_auto = off → les HM créent leurs posteurs et donnent les
+ * logins elles-mêmes : l'OS ne crée personne et n'envoie aucun welcome, même
+ * sur un clic (carte « Contract to link »). Les contrats de test passent toujours.
+ */
+async function bienvenueCoupee(supabase: Supabase, contrat: string): Promise<boolean> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "accueil_auto").maybeSingle();
+  if (lireModeAuto(data?.valeur) !== "off") return false;
+  const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contrat).is("retire_at", null).limit(1);
+  return !(t ?? []).length;
+}
+
 /** Crée le posteur comme /embauche (manage-users), le relie, puis envoie le message de bienvenue (une fois). */
 async function creerEtAccueillir(
   supabase: Supabase,
@@ -3194,6 +3206,9 @@ async function creerEtAccueillir(
 ): Promise<{ erreur: string | null }> {
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", a.contrat_id);
+  if (await bienvenueCoupee(supabase, a.contrat_id)) {
+    return { erreur: "Welcome off (accueil_auto = off): the HM creates the poster from the hiring form and gives the logins. The OS links the contract." };
+  }
   const base = Deno.env.get("SUPABASE_URL");
   const secret = secretCronConnu();
   const cle = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -3313,6 +3328,14 @@ async function accueillirExistant(
     if (error) return { erreur: `liaison du contrat : ${error.message}` };
   }
   const cohorte = String(p.cohorte_lundi ?? "");
+  // 31/10 : welcome coupé : le contrat est relié, rien n'est envoyé, le mot de passe ne change pas (la HM a donné les logins).
+  if (await bienvenueCoupee(supabase, base.contrat_id)) {
+    await supabase.from("accueils").upsert({
+      ...base, statut: "cree", poster_id: posterId, cohorte_lundi: cohorte || null,
+      raison: "accueil_auto = off : recrue créée par la HM, contrat relié, pas de welcome de l'OS", relie_at: new Date().toISOString(),
+    });
+    return { erreur: null };
+  }
   await supabase.from("accueils").upsert({
     ...base, statut: "envoi", poster_id: posterId, cohorte_lundi: cohorte || null,
     raison: "recrue déjà créée par la HM : contrat relié, bienvenue envoyée", relie_at: new Date().toISOString(),

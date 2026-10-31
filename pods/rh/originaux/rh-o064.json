@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o064",
+ "schema_id": "insider-rh",
+ "titre": "ex-rh : ce qui se dit dans la salle juste après ton entretien #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma insider-rh (r 3,68, d3d9cd2f). Famille d'accroche jamais faite : « juste après ton entretien ». Accroches écrites : celle-ci (retenue), « ce qu'on dit de toi quand tu as fermé la porte » (écartée : anxiogène), « le débrief après ton entretien » (écartée : plate). Phrases-types d'une ex-rh, sans vraie entreprise ni vraie personne. CTA de fin jamais utilisé : dire ce qu'on aimerait qu'on dise de soi. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d18fd799",
+   "texte_overlay": "ex-rh :\nce qui se dit dans la salle\njuste après ton entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "baafa748",
+   "texte_overlay": "« elle a posé une bonne question »\nla phrase qui revient le plus souvent chez les candidats retenus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "14497ba9",
+   "texte_overlay": "« je la vois bien avec l'équipe »\nça se joue souvent sur 5 minutes de discussion hors sujet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "67416bea",
+   "texte_overlay": "« elle a parlé de son ancien boss pendant 10 minutes »\net là, c'est rarement bon signe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a1bc50ff",
+   "texte_overlay": "« elle avait toujours un exemple »\nun fait, une date, un résultat.\nça rassure tout le monde",
+   "texte_sophia": "« elle avait toujours un exemple »\nun fait, une date, une anecdote.\nutilise l'appli Sophia 5 minutes par jour, et t'as toujours de quoi raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b18e0aa2",
+   "texte_overlay": "« elle a dit qu'elle ne savait pas, puis elle a réfléchi à voix haute »\non adore ça.\nbien plus qu'une réponse récitée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bace0ae7",
+   "texte_overlay": "« on la rappelle quand ? »\nle meilleur signe de tous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "15a76c43",
+   "texte_overlay": "qu'est-ce que t'aimerais qu'on dise de toi\naprès ton prochain entretien ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

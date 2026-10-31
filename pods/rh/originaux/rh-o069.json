@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o069",
+ "schema_id": "copie-habitudes",
+ "titre": "je suis devenue manager et j'ai ARRÊTÉ 5 habitudes de la pire manager que j'ai eue #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 4. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. variante de rh-o038 (35,3 k vues en fr). Même schéma copie-habitudes (r 7,45, 63ffa170), même format « je suis devenue X et j'ai copié 5 habitudes de… », autre angle, autres habitudes : aucune reprise de rh-o038 ni des autres originaux. Habitudes observées, aucune vraie personne ni vraie entreprise. Angle inversé : les habitudes qu'on refuse de reproduire. CTA de fin jamais utilisé : l'habitude de manager qu'on ne veut plus voir. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1d47a57",
+   "texte_overlay": "je suis devenue manager\net j'ai ARRÊTÉ 5 habitudes\nde la pire manager que j'ai eue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c038c28f",
+   "texte_overlay": "les messages à 22 h\n« c'est pas urgent, mais… ».\nmoi, j'envoie à 9 h. ça peut attendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "399627fb",
+   "texte_overlay": "les retours seulement quand ça va mal\nmaintenant je dis aussi quand c'est bien.\net je dis pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c6cdb904",
+   "texte_overlay": "faire semblant de tout savoir\nmoi je dis « je me renseigne ».\nperso, 5 minutes par jour à apprendre, et je n'ai plus peur de ne pas savoir",
+   "texte_sophia": "faire semblant de tout savoir\nmoi je dis « je me renseigne ». perso, 5 minutes par jour sur l'appli Sophia, et je n'ai plus peur de ne pas savoir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a80de8a5",
+   "texte_overlay": "prendre les idées de l'équipe pour les siennes\nmaintenant je dis le prénom de qui a eu l'idée.\ndevant tout le monde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b39912ea",
+   "texte_overlay": "annuler les points individuels\nle mien a lieu même en rush.\nsurtout en rush",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c06a094b",
+   "texte_overlay": "l'habitude de manager que tu ne veux plus jamais voir,\nécris-la ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

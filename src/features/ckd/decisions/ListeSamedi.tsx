@@ -34,9 +34,11 @@ import { BadgesPosteur, CellulesEtapes, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
 import {
   attendusJusquIci,
+  type BrouillonSamedi,
   type ChoixSamedi,
   choisirSamedi,
   type CompteSemaine,
+  decisionPreparee,
   decisionSamedi,
   type DemandeArret,
   FILTRES_VIDES,
@@ -73,6 +75,9 @@ const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "rep
 // Lundi 2/11 : le samedi ne reporte plus personne (les reports se décident le dimanche soir).
 const AUTRES: readonly ChoixSamedi[] = ["recreate", "pause"];
 const ONGLETS: readonly Onglet[] = ["tous", "recrues", "premiere", "anciens"];
+/** 0492 : filtrer la liste par décision (celle qui est cochée), ou les décisions préparées. */
+const FILTRES_DECISION: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre", "recreate", "pause"];
+type FiltreDecision = "" | "preparee" | ChoixSamedi;
 
 type RaisonSaisie = { code: RaisonSansPaie | ""; detail: string };
 /** La raison d'un Kill & don't pay, en clair (Disputes la montre si le freelance conteste). */
@@ -117,6 +122,23 @@ function RaisonSansPaieSaisie({ posterId, lundi, valeur, onChange }: { posterId:
         <Input className="h-8 max-w-md" aria-label={t(`${p}.detail`)} placeholder={t(`${p}.detail`)} value={valeur.detail}
           onChange={(e) => onChange({ ...valeur, detail: e.target.value })} />
       </div>
+    </div>
+  );
+}
+
+/** 0492 : la décision préparée avant samedi (fiche Posters), par qui, quand, et sa note. */
+function BadgePreparee({ b }: { b: BrouillonSamedi }) {
+  const { t } = useTranslation();
+  const quand = b.maj_at
+    ? new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }).format(new Date(b.maj_at))
+    : "—";
+  return (
+    <div className="mt-1 max-w-64 space-y-0.5 text-xs" data-testid="decision-preparee">
+      <Badge variant={b.choix.startsWith("kill") ? "error" : "info"}>
+        {t("autoOnglets.decisions.liste.samedi.preparee", { choix: t(`autoOnglets.decisions.liste.samedi.choix.${b.choix}`) })}
+      </Badge>
+      <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.prepareePar", { par: b.par_nom ?? "—", date: quand })}</p>
+      {b.raison?.note && <p className="line-clamp-3 text-muted-foreground">« {b.raison.note} »</p>}
     </div>
   );
 }
@@ -193,7 +215,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   }, [brouillons.data, choixLocaux]);
   const raisons = React.useMemo(() => {
     const m: Record<string, RaisonSaisie> = {};
-    for (const [id, b] of brouillons.data ?? []) if (b.raison) m[id] = { code: b.raison.code as RaisonSansPaie | "", detail: b.raison.detail ?? "" };
+    for (const [id, b] of brouillons.data ?? []) if (b.raison) m[id] = { code: (b.raison.code ?? "") as RaisonSansPaie | "", detail: b.raison.detail ?? "" };
     return { ...m, ...raisonsLocales };
   }, [brouillons.data, raisonsLocales]);
   const enregistrer = (compteId: string, k: ChoixSamedi, r: RaisonSaisie | null = null) => {
@@ -243,10 +265,18 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const duOnglet = (o: Onglet) => filtres_.filter((c) => o === "tous" || ongletDe(c, lundi) === o);
   // 0464 : un posteur « toujours montré » (demande d'arrêt, reporté 2 fois, Kill Saturday, No channel) est à traiter.
   const force = (c: CompteSemaine) => forcesDe(c.poster_id).length > 0 || Boolean(demandeCompte(c));
-  const aTraiter = (c: CompteSemaine) => force(c) || e(c).statut === "rouge" || e(c).statut === "orange";
-  const visibles = trierComptes(duOnglet(onglet), tri).sort((a, b) => Number(force(b)) - Number(force(a)) || ordreStatut(e(a), e(b)));
-  const principaux = tous ? visibles : visibles.filter(aTraiter);
-  const confiance = visibles.filter((c) => e(c).statut === "vert" && !force(c));
+  // 0492 : une décision préparée (fiche Posters, ou un choix déjà noté) autre que Keep : « To handle ».
+  const preparee = (c: CompteSemaine) => !aVenir(c) && !decisionSamedi(c) && decisionPreparee(brouillons.data?.get(c.compte_id));
+  const aTraiter = (c: CompteSemaine) => force(c) || preparee(c) || e(c).statut === "rouge" || e(c).statut === "orange";
+  const [filtreDecision, setFiltreDecision] = React.useState<FiltreDecision>("");
+  const duFiltreDecision = (c: CompteSemaine) =>
+    !filtreDecision || (filtreDecision === "preparee" ? preparee(c) : choixDe(c) === filtreDecision);
+  const visibles = trierComptes(duOnglet(onglet), tri).sort(
+    (a, b) => Number(force(b)) - Number(force(a)) || Number(preparee(b)) - Number(preparee(a)) || ordreStatut(e(a), e(b)),
+  );
+  const montres = visibles.filter(duFiltreDecision);
+  const principaux = tous ? montres : montres.filter(aTraiter);
+  const confiance = montres.filter((c) => e(c).statut === "vert" && !force(c) && !preparee(c));
   const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
   // 0469 : la conversation Upwork de chaque posteur (liste, toujours montrés).
   const conv = useConversations([...liste.map((c) => c.poster_id), ...[...(forces.data?.keys() ?? [])]]);
@@ -414,6 +444,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           </td>
           <td className={TD}>
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
+            {preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
             {!prise && forcesDe(c.poster_id).some((f) => f.raison === "reporte_2" || f.raison === "sans_canal") && (
               <BadgesForces forces={forcesDe(c.poster_id).filter((f) => f.raison === "reporte_2" || f.raison === "sans_canal")} />
             )}
@@ -532,6 +563,21 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             <Button size="sm" variant="outline" onClick={() => setTous((v) => !v)} data-testid="tous-les-comptes">
               {tous ? t("autoOnglets.decisions.liste.samedi.aTraiterSeulement") : t("autoOnglets.decisions.liste.samedi.tousLesComptes", { n: visibles.length })}
             </Button>
+            <select
+              className="h-8 rounded-md border bg-background px-2 text-sm"
+              aria-label={t("autoOnglets.decisions.liste.samedi.filtreDecision.titre")}
+              data-testid="filtre-decision"
+              value={filtreDecision}
+              onChange={(ev) => setFiltreDecision(ev.target.value as FiltreDecision)}
+            >
+              <option value="">{t("autoOnglets.decisions.liste.samedi.filtreDecision.toutes")}</option>
+              <option value="preparee">{t("autoOnglets.decisions.liste.samedi.filtreDecision.preparees", { n: visibles.filter(preparee).length })}</option>
+              {FILTRES_DECISION.map((k) => (
+                <option key={k} value={k}>
+                  {t(`autoOnglets.decisions.liste.samedi.choix.${k}`)} ({visibles.filter((c) => choixDe(c) === k).length})
+                </option>
+              ))}
+            </select>
             <Button size="sm" variant="ghost" onClick={exporter}>{t("autoOnglets.decisions.liste.samedi.csv")}</Button>
             {admin && (
               <Button size="sm" variant="ghost" loading={relire.isPending} onClick={() => relire.mutate()} data-testid="relire-upwork">

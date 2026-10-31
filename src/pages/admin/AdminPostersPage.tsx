@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DecisionPreparee } from "@/features/ckd/decisions/DecisionPreparee";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
@@ -2480,6 +2481,15 @@ export function AdminPostersPage() {
               />
 
               {fiche.role === "poster" && role === "admin" && <TarifPoster key={`tarif-${fiche.id}`} posterId={fiche.id} />}
+
+              {/* 0492 : préparer la décision du samedi (brouillon de Weekly decisions → Saturday). */}
+              {fiche.role === "poster" && role === "admin" && (
+                <DecisionPreparee
+                  key={`decision-${fiche.id}`}
+                  comptes={ficheComptes.filter((c) => c.is_active)}
+                  cohorteLundi={fiche.cohorte_lundi}
+                />
+              )}
 
               <div className="space-y-2">
                 <div className="flex items-baseline justify-between gap-2">

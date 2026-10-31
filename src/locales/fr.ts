@@ -101,6 +101,19 @@ export const fr = {
       envoye: "Nous :",
     },
     onboardingPosters: {
+      pays: {
+        titre: "Pays",
+        zone: "zone {{zone}}",
+        vit: "vit à {{pays}}",
+        annonceZone: "annonce zone {{zone}}",
+        annoncePays: "annonce {{pays}}",
+        ok: "Vérifié",
+        lecture: "lecture du lieu sur Upwork…",
+        confirme: "Vérifié par {{nom}}",
+        aVerifier: "Country to check",
+        confirmer: "{{pays}} est bon",
+        filtre: "Pays à vérifier ({{n}})",
+      },
       nudges: {
         upwork: "Nudge on Upwork",
         slack: "Nudge on Slack",

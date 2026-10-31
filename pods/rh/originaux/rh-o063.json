@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o063",
+ "schema_id": "boite-te-merite",
+ "titre": "ce que je regarde dans une offre d'emploi avant même de postuler (la boîte doit me mériter) #rechercheemploi #emploi #candidature #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 4. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma boite-te-merite (r 4,06, 1fd9d1f3) : le rapport de force inversé. Famille d'accroche jamais faite : « avant même de postuler ». Accroches écrites : celle-ci (retenue), « les offres d'emploi que je ne lis même plus en entier » (écartée : négative), « comment décoder une offre d'emploi » (écartée : générique). Indices, jamais des certitudes. Aucune vraie entreprise. CTA de fin jamais utilisé : partager le pire mot vu dans une offre. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cff6f9d8",
+   "texte_overlay": "ce que je regarde dans une offre d'emploi\navant même de postuler\n(la boîte doit me mériter)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ba979a1",
+   "texte_overlay": "le salaire, ou au moins une fourchette\nsi rien n'apparaît, je le demande au premier échange",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "afdb4950",
+   "texte_overlay": "le nombre de missions\n12 missions pour un seul poste, c'est souvent 3 postes en un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ba8a425d",
+   "texte_overlay": "les mots qui reviennent\nmes 3 alertes : « polyvalente », « résistante au stress », et « disponible »",
+   "texte_sophia": "les mots qui reviennent\nmes 3 alertes : « polyvalente », « résistante au stress », « disponible ». et mes 3 forces : mon réseau, ma rigueur, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "07985b7c",
+   "texte_overlay": "depuis quand l'offre est en ligne\nune offre republiée tous les mois, je me demande pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cb17a47b",
+   "texte_overlay": "ce qu'ils promettent pour apprendre\nformation, accompagnement, évolution.\nsi rien n'est dit, je pose la question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9dec9a18",
+   "texte_overlay": "ce que disent ceux qui y travaillent\nplusieurs avis, pas un seul.\net je relativise toujours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b117c19d",
+   "texte_overlay": "le pire mot que t'as vu dans une offre d'emploi ?\nje commence : « famille »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

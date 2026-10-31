@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o067",
+ "schema_id": "job-toxique",
+ "titre": "ce que j'aurais aimé qu'on me dise avant d'accepter mon job toxique #travail #santementale #premierjob #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma job-toxique (r 5,29, bf49b37f). Famille d'accroche jamais faite : « ce que j'aurais aimé qu'on me dise avant ». Accroches écrites : celle-ci (retenue), « lettre à moi d'avant mon job toxique » (écartée : moins claire), « les conseils que je donne à ma petite sœur avant son premier job » (écartée : longue). Rien de juridique précis : se renseigner auprès des bons interlocuteurs. CTA de fin jamais utilisé : envoyer à quelqu'un qui commence un job. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d548da50",
+   "texte_overlay": "ce que j'aurais aimé qu'on me dise\navant d'accepter\nmon job toxique",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "24bbe2ff",
+   "texte_overlay": "ton contrat, c'est la base\npas ce qu'on t'a promis à l'oral.\nrelis-le avant de signer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6809de87",
+   "texte_overlay": "la période d'essai marche dans les deux sens\nt'as aussi le droit de partir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a68ba05c",
+   "texte_overlay": "garde ta vie en dehors\nun sport, des amis, un truc qui t'apprend autre chose.\nc'est ton filet",
+   "texte_sophia": "garde ta vie en dehors\nun sport, des amis, et un truc qui t'apprend autre chose. utilise l'appli Sophia 5 minutes par jour : c'est ton filet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b259f4d2",
+   "texte_overlay": "« tout le monde reste tard » n'est pas une règle\nc'est une habitude. tu peux ne pas la prendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bd9613f9",
+   "texte_overlay": "note ce qui te met mal à l'aise\ndate, faits, sans commentaire.\nsi un jour t'en as besoin, c'est là",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "36a2856a",
+   "texte_overlay": "partir n'est pas un échec\nrester trop longtemps, parfois si",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6e1263ef",
+   "texte_overlay": "envoie ça à quelqu'un\nqui commence un nouveau job lundi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

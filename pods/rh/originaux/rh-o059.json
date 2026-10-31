@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o059",
+ "schema_id": "mentir-entretien",
+ "titre": "les questions d'entretien où la vérité brute te coûte le poste (et comment la dire autrement) #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 4. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma mentir-entretien (r 23,7, 496f8d72). Famille d'accroche jamais faite : « la vérité brute te coûte le poste ». Accroches écrites : celle-ci (retenue), « dire la vérité en entretien, oui, mais pas comme ça » (écartée : moins claire), « 5 vérités à reformuler en entretien » (écartée : plate). Chaque réponse reste vraie, seule la forme change. Aucune reprise de questions déjà faites. CTA de fin jamais utilisé : choisir la plus dure à reformuler. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c9747b19",
+   "texte_overlay": "les questions d'entretien\noù la vérité brute te coûte le poste\n(et comment la dire autrement)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "00733be1",
+   "texte_overlay": "« pourquoi vous partez ? »\nla vérité brute : « je m'ennuie »\ndis-la autrement : « j'ai fait le tour de mes missions et je veux apprendre X »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5c4bd6cd",
+   "texte_overlay": "« vous avez été licenciée ? »\nla vérité brute : « oui, et c'était injuste »\ndis-la autrement : « oui, le poste a changé. voilà ce que j'en retiens »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "91441cd1",
+   "texte_overlay": "« vous connaissez bien notre marché ? »\nla vérité brute : « pas vraiment »\ndis-la autrement : « les bases, et je me renseigne vite »",
+   "texte_sophia": "« vous connaissez bien notre marché ? »\nla vérité : pas vraiment. perso, j'ai dit « les bases » et le soir j'ai ouvert l'appli Sophia 5 minutes pour m'y mettre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "abb99871",
+   "texte_overlay": "« pourquoi un trou de 8 mois sur le cv ? »\nla vérité brute : « j'étais perdue »\ndis-la autrement : « j'ai pris le temps de choisir ce que je voulais vraiment faire »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b881e350",
+   "texte_overlay": "« vous êtes à l'aise avec ce logiciel ? »\nla vérité brute : « jamais utilisé »\ndis-la autrement : « pas encore, j'ai commencé à me former cette semaine »\net fais-le vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "02108ec4",
+   "texte_overlay": "« c'est quoi votre plus grand échec ? »\nla vérité brute : un drame en 10 minutes\ndis-la autrement : les faits, ce que t'as changé, en 3 phrases",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5ec9b22d",
+   "texte_overlay": "laquelle t'as le plus de mal à dire autrement ?\nréponds par son numéro",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

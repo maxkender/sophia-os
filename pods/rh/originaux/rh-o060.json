@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o060",
+ "schema_id": "insider-rh",
+ "titre": "vrai ou faux : ce que les candidats croient sur le recrutement (une ex-rh répond) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. essai (rh-o060 finit par 0) : format « vrai ou faux », jamais fait chez nous. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma insider-rh (r 3,68, d3d9cd2f) : les coulisses du recrutement. Accroches écrites : celle-ci (retenue), « les mythes du recrutement auxquels tu crois encore » (écartée : moins de jeu), « ex-rh, je démêle le vrai du faux » (écartée : vague). Réponses nuancées, sans chiffre inventé, sans vraie entreprise. CTA de fin jamais utilisé : proposer le prochain vrai ou faux. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cc4e9969",
+   "texte_overlay": "vrai ou faux :\nce que les candidats croient sur le recrutement\n(une ex-rh répond)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "91e84bb6",
+   "texte_overlay": "« le recruteur lit tout ton cv »\nfaux.\nle premier tri se fait en quelques secondes. ton haut de page compte plus que tout le reste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "acc62048",
+   "texte_overlay": "« une lettre de motivation, personne ne la lit »\nça dépend.\nquand deux profils se valent, c'est souvent elle qui départage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b8dd95af",
+   "texte_overlay": "« relancer, ça fait désespérée »\nfaux.\nune relance polie au bon moment montre que t'es organisée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0454f47e",
+   "texte_overlay": "« ce qu'ils retiennent, c'est ta personnalité »\nvrai.\nmes 3 souvenirs de candidats : une question maligne, une anecdote, et une vraie culture générale",
+   "texte_sophia": "« ce qu'ils retiennent, c'est ta personnalité »\nvrai. mes 3 souvenirs : une question maligne, une anecdote, et une vraie culture générale. pour ça, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6009907d",
+   "texte_overlay": "« si t'as pas toutes les compétences, postule pas »\nfaux.\nles annonces décrivent souvent la personne idéale, pas la personne qu'ils prennent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "952260cf",
+   "texte_overlay": "« le salaire, on en parle à la fin »\nça dépend.\nmais connais ta fourchette avant le premier appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ad36b20c",
+   "texte_overlay": "t'en as un autre, vrai ou faux ?\nécris-le, je réponds au prochain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

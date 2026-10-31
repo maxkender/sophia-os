@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o070",
+ "schema_id": "copie-habitudes",
+ "titre": "j'ai changé d'équipe et j'ai copié 5 habitudes de la manager chez qui tout le monde voulait aller #manager #travail #equipe #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. variante de rh-o038 (35,3 k vues en fr). Même schéma copie-habitudes (r 7,45, 63ffa170), même format « je suis devenue X et j'ai copié 5 habitudes de… », autre angle, autres habitudes : aucune reprise de rh-o038 ni des autres originaux. Habitudes observées, aucune vraie personne ni vraie entreprise. Angle : la manager qui attire, vue d'une collègue qui la rejoint. CTA de fin jamais utilisé : dire si on aimerait travailler pour soi. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f12795b7",
+   "texte_overlay": "j'ai changé d'équipe\net j'ai copié 5 habitudes de la manager\nchez qui tout le monde voulait aller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3dcc3c62",
+   "texte_overlay": "le premier jour, elle avait préparé mon arrivée\nun planning, un binôme, un premier dossier simple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "771f747e",
+   "texte_overlay": "elle demandait « tu veux apprendre quoi cette année ? »\net elle s'en souvenait en décembre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a888339d",
+   "texte_overlay": "elle disait non à la place de l'équipe\nquand une demande tombait le vendredi à 17 h",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b39d7e3d",
+   "texte_overlay": "elle racontait toujours une histoire en réunion\nun truc lu, rien à voir avec le boulot.\non l'écoutait jusqu'au bout",
+   "texte_sophia": "elle racontait toujours une histoire en réunion\nun truc lu, rien à voir avec le boulot.\nutilise l'appli Sophia 5 minutes par jour et fais pareil",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c1e10d7a",
+   "texte_overlay": "elle partait à l'heure\net du coup, nous aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "42bba6b1",
+   "texte_overlay": "si tu étais ta propre manager,\ntu voudrais travailler pour toi ?\noui, non, ça dépend des jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

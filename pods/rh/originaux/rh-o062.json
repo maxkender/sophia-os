@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o062",
+ "schema_id": "job-toxique",
+ "titre": "les phrases de manager que j'aurais dû reconnaître plus tôt #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 6. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma job-toxique (r 5,29, bf49b37f). Famille d'accroche jamais faite : « les phrases de manager ». Accroches écrites : celle-ci (retenue), « 6 phrases qui disent que ton manager t'use » (écartée : accusatrice), « ce que mon ancien manager disait et que je trouvais normal » (écartée : longue). Phrases présentées comme des indices à répétition, jamais une preuve à elles seules. Rien de juridique. Aucune reprise de rh-o012 à rh-o052. CTA de fin jamais utilisé : partager la phrase entendue. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cea4abf5",
+   "texte_overlay": "les phrases de manager\nque j'aurais dû reconnaître\nplus tôt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "061d6833",
+   "texte_overlay": "« ici on est une famille »\nsouvent juste avant de te demander de rester tard.\nune équipe, c'est déjà bien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6276e043",
+   "texte_overlay": "« tu le prends trop à cœur »\nquand tu signales un vrai problème.\nle problème n'est pas ta sensibilité",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9951a58b",
+   "texte_overlay": "« je t'avais dit autre chose »\nalors que t'as son message écrit.\ngarde tes échanges, toujours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ae882298",
+   "texte_overlay": "« c'est pas le moment de parler de ça »\npour la 4e fois sur le même sujet.\nle moment ne viendra pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b962a1fd",
+   "texte_overlay": "« tout le monde y arrive, pourquoi pas toi ? »\nla comparaison qui te rend petite.\nperso, j'ai repris confiance avec un truc à moi : 5 minutes par jour à apprendre",
+   "texte_sophia": "« tout le monde y arrive, pourquoi pas toi ? »\nperso, j'ai repris confiance avec un truc à moi : 5 minutes par jour sur l'appli Sophia, rien à voir avec le boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "06806ef8",
+   "texte_overlay": "une phrase seule, ça arrive à tout le monde.\nc'est la répétition qui doit t'alerter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "63dd5ef6",
+   "texte_overlay": "c'était quoi, la phrase que tu entendais ?\nécris-la, tu n'es pas seule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

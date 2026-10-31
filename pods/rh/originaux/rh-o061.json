@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o061",
+ "schema_id": "copie-habitudes",
+ "titre": "les gens les plus calmes au bureau font tous ces 5 choses (j'ai mis un an à comprendre) #travail #stress #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 3. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma copie-habitudes (r 7,45, 63ffa170) : des habitudes concrètes observées chez d'autres. Famille d'accroche jamais faite : « les gens les plus calmes ». Accroches écrites : celle-ci (retenue), « comment ma collègue reste zen en plein rush » (écartée : trop proche de « j'ai copié »), « les secrets des gens jamais stressés » (écartée : promesse). Rien de médical. Aucune reprise des items de rh-o011 à rh-o051. CTA de fin jamais utilisé : identifier la personne calme de son équipe. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cdad7a39",
+   "texte_overlay": "les gens les plus calmes au bureau\nfont tous ces 5 choses\n(j'ai mis un an à comprendre)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b936b9fd",
+   "texte_overlay": "ils répondent « je te dis ça à 15 h »\nau lieu de « oui » tout de suite.\nils se laissent le temps de réfléchir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0584e674",
+   "texte_overlay": "ils ont une coupure qui n'a rien à voir avec le boulot\n5 minutes à apprendre autre chose.\nleur tête sort du dossier",
+   "texte_sophia": "ils ont une coupure qui n'a rien à voir avec le boulot.\nutilise l'appli Sophia pour ça : 5 minutes d'histoire ou d'art, et ta tête sort du dossier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "617ad328",
+   "texte_overlay": "ils écrivent tout\nune liste, pas leur mémoire.\nrien ne les réveille à 3 h du matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "98d6c670",
+   "texte_overlay": "ils séparent l'urgent du bruyant\nla personne qui crie le plus fort ne passe pas forcément en premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "adf0d129",
+   "texte_overlay": "ils ferment leur ordinateur à une heure fixe\npas toujours.\nmais assez souvent pour que ce soit normal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b94e543e",
+   "texte_overlay": "tague la personne la plus calme de ton équipe\nou celle qui en aurait besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

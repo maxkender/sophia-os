@@ -1623,6 +1623,31 @@
     "6": "7690642292855672096_6"
    },
    "notes": "nouvelle accroche (signes); cta B"
+  },
+  {
+   "post_id": "original-030",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#attentionspan #focus #challenge",
+   "musique": {
+    "titre": "retire (final)",
+    "auteur": "Alvedon",
+    "original": false,
+    "id": "6991133033583609857",
+    "url_tiktok": "https://www.tiktok.com/music/x-6991133033583609857"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685736268617059616_1",
+    "2": "7699523873712164128_6",
+    "3": "7696527080426655009_5",
+    "4": "7697728269335924001_6",
+    "5": "7691336990419209505_4",
+    "6": "7699118764788321558_6"
+   },
+   "notes": "essai (accroche défi d'attention de @rewired.mind); cta C"
   }
  ]
 }

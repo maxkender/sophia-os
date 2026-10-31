@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o089",
+ "titre": "questions smart people ask themselves every day #selfimprovement #intelligence #mindset #reflection #questions",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "4bf7bb01-c2a8-4def-a0fa-b223461e6936"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 4bf7bb01). format « questions » (images du label : r 1,49). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42b3daf5-bf8e-4704-bb22-6ff1f4e356a2",
+   "texte_overlay": "questions smart people ask\nthemselves every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658691188190416141/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9e85ba4a-5063-4464-928e-041bf3796a30",
+   "texte_overlay": "what did i learn today\n\nthey end each day by naming one thing they learned. a day where you can't answer this question is a sign to change something about tomorrow, even something small.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658691188190416141/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ffe6f53d-8f6d-4fdb-8d22-6e3526ddf549",
+   "texte_overlay": "what am i assuming\n\nbefore a big decision, they ask what they're taking for granted. most bad choices come from assumptions nobody checked, not from a lack of information.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658691188190416141/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "797b77e4-5a51-4242-95fc-02057ab9aca6",
+   "texte_overlay": "what don't i know yet\n\nthey spend 5 minutes a day learning about something they know nothing about: art, science, history. asking what you don't know yet is how your world keeps getting bigger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658691188190416141/3.jpg",
+   "texte_sophia": "what don't i know yet\n\ni spend 5 minutes a day on something i know nothing about: art, science, history. i do it with the Sophia app, one lesson a day, and my world keeps getting bigger."
+  },
+  {
+   "position": 5,
+   "media_id": "3ceb74b3-25d5-46b9-9d36-a1498811d25e",
+   "texte_overlay": "who could teach me this\n\nwhen they're stuck, they ask who already knows the answer. there's almost always someone who solved your problem before, and most people love being asked.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658691188190416141/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "948b9929-b9c5-4d73-80df-aafac8c23c02",
+   "texte_overlay": "what would i tell a friend\n\nwhen they're hard on themselves, they ask what they'd say to a friend in the same place. it's the fastest way to swap panic for a calm, useful answer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658691188190416141/6.jpg"
+  }
+ ]
+}

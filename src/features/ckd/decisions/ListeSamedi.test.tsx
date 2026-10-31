@@ -299,4 +299,29 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     expect(moteur.invoke).not.toHaveBeenCalledWith("upwork", { action: "arrets" });
     expect(screen.getByText("Test : rien n'a été fait. Passe Full stop sur On, puis Validate pour de vrai.")).toBeInTheDocument();
   });
+
+  it("0492 : une décision préparée depuis Posters est pré-cochée, dans « To handle », et le filtre par décision", async () => {
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map([
+      ["c", { choix: "kill" as ChoixSamedi, raison: { note: "posted twice in 2 weeks" }, par_nom: "Max K", maj_at: "2026-10-28T09:00:00Z" }],
+    ]) as never);
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="calme"]')).not.toBeNull());
+    expect(presse("calme", "Kill & pay")).toBe("true");
+    const badge = within(ligne("calme")).getByTestId("decision-preparee");
+    expect(badge.textContent).toContain("Préparée : Kill & pay");
+    expect(badge.textContent).toContain("Max K");
+    expect(badge.textContent).toContain("posted twice in 2 weeks");
+    // « To handle only » : le compte de confiance préparé reste dans la liste principale.
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    expect(document.querySelector('[data-compte="calme"]')).not.toBeNull();
+    expect(screen.queryByTestId("section-confiance")?.textContent ?? "").not.toContain("calme");
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    // Filtre : les préparées seulement, puis Double seulement.
+    fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "preparee" } });
+    expect(document.querySelector('[data-compte="calme"]')).not.toBeNull();
+    expect(document.querySelector('[data-compte="bon"]')).toBeNull();
+    fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "double" } });
+    expect(document.querySelector('[data-compte="calme"]')).toBeNull();
+    expect(document.querySelector('[data-compte="bon"]')).not.toBeNull();
+  });
 });

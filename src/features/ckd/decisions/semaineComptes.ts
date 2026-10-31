@@ -331,14 +331,34 @@ export async function noterKillSansPaie(posterId: string, lundi: string, raison:
 /** 0484 : le brouillon du samedi (un choix par compte et par semaine, enregistré au clic). */
 export interface BrouillonSamedi {
   choix: ChoixSamedi;
-  raison: { code: string; detail: string } | null;
+  /** Kill & don't pay : code et détail ; 0492 : la note d'une décision préparée (fiche Posters). */
+  raison: { code?: string; detail?: string; note?: string | null } | null;
+  par_nom?: string | null;
+  maj_at?: string | null;
 }
 
 export async function lireBrouillonsSamedi(lundi: string): Promise<Map<string, BrouillonSamedi>> {
   const { data, error } = await supabase.rpc("samedi_brouillons_lire", { p_lundi: lundi });
   if (error) throw error;
-  const rows = (data ?? []) as { compte_id: string; choix: ChoixSamedi; raison: BrouillonSamedi["raison"] }[];
-  return new Map(rows.map((b) => [b.compte_id, { choix: b.choix, raison: b.raison ?? null }]));
+  const rows = (data ?? []) as { compte_id: string; choix: ChoixSamedi; raison: BrouillonSamedi["raison"]; par_nom?: string | null; maj_at?: string | null }[];
+  return new Map(rows.map((b) => [b.compte_id, { choix: b.choix, raison: b.raison ?? null, par_nom: b.par_nom ?? null, maj_at: b.maj_at ?? null }]));
+}
+
+/**
+ * 0492 : le lundi de la semaine du prochain samedi (Paris) : celui de la semaine
+ * en cours du lundi au samedi, celui de la semaine suivante le dimanche.
+ */
+export function lundiDuProchainSamedi(aujourdhui: string): string {
+  const d = new Date(`${aujourdhui}T12:00:00Z`);
+  const isodow = ((d.getUTCDay() + 6) % 7) + 1;
+  const lundi = new Date(d);
+  lundi.setUTCDate(d.getUTCDate() + 1 - isodow + (isodow === 7 ? 7 : 0));
+  return lundi.toISOString().slice(0, 10);
+}
+
+/** 0492 : une décision préparée (autre que Keep) met le compte dans « To handle ». */
+export function decisionPreparee(b: BrouillonSamedi | undefined | null): boolean {
+  return Boolean(b && b.choix !== "keep");
 }
 
 export async function noterBrouillonSamedi(

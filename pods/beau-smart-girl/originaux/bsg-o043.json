@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o043",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment maîtriser l'art de la petite conversation #pourtoi #culture #conversation #apprentissage",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "cta B (l'anecdote du jour en item 3). Fait vérifié le 31/10 sur https://fr.wikipedia.org/wiki/Les_Nymph%C3%A9as : « Les Nymphéas est une série d'environ 250 peintures à l'huile impressionnistes élaborées par le peintre français Claude Monet ». Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 2 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6 : au plus 1 livraison normale sur une famille déjà livrée 3 fois en 7 jours). Accroche inspirée d'une famille gagnante du label (« how to master the art of small talk », r 10,38 en turc, boîte BLEO du 31/10), jamais faite par notre pod. Preuve : schéma jolie-et-interessante (r 5,04, 675447a8). Accroches écrites : « comment maîtriser l'art de la petite conversation » (retenue : la traduction du gagnant), « comment parler à n'importe qui sans malaise » (écartée : plus vague), « les secrets des filles qui savent parler à tout le monde » (écartée : plus long). Items neufs (rien de repris de la source : pas de méthode F.O.R.D., pas de tennis). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4498e2ff",
+   "texte_overlay": "comment maîtriser l'art\nde la petite conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "44a2ddab",
+   "texte_overlay": "1. commence par ce que tu vois.\n\nle livre qu'elle tient, la musique du café, la pluie.\nun détail partagé, et la glace est brisée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dd745ab2",
+   "texte_overlay": "2. aie trois sujets prêts.\n\nun livre, une expo, une anecdote.\nquand le silence arrive, tu as toujours une porte de sortie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg",
+   "texte_sophia": "3. une anecdote par jour.\n\nce matin, l'appli Sophia m'a appris que monet a peint environ 250 tableaux de nymphéas.\nje l'ai placée trois fois dans la journée."
+  },
+  {
+   "position": 4,
+   "media_id": "44bfa498",
+   "texte_overlay": "3. une anecdote par jour.\n\nce matin, j'ai appris que monet a peint environ 250 tableaux de nymphéas.\nje l'ai placée trois fois dans la journée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "45103356",
+   "texte_overlay": "4. pose une question ouverte.\n\npas\n« ça va ? » mais\n« qu'est-ce qui t'a fait rire cette semaine ? »\nla réponse, c'est une conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4589abe8",
+   "texte_overlay": "5. retiens un détail et ressors-le plus tard.\n\nson chat, son examen, son voyage.\nles gens adorent qu'on se souvienne d'eux.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4592a459",
+   "texte_overlay": "laquelle tu testes\nau prochain café ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

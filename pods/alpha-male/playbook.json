@@ -1,5 +1,5 @@
 {
-  "maj_le": "2026-10-30",
+  "maj_le": "2026-10-31",
   "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Un schéma « en attente » a des contenus du label qui marchent mais pas encore 3 passages mûrs : `npm run playbook -- --mesurer` chaque jour, il s'active tout seul quand son r passe 2.",
   "schemas": [
     {
@@ -30,14 +30,14 @@
           "contenu_id": "ffa5e1d4-830b-4eba-8ad9-44218026db3a",
           "r_median": 10.21,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "3d553a29-a71e-4428-9636-e429d2234e12",
-          "r_median": 7.83,
+          "r_median": 7.8,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -68,44 +68,44 @@
         {
           "type": "os",
           "contenu_id": "7eca8678-2dc5-4616-bed4-bd4df168bfbe",
-          "r_median": 7.26,
+          "r_median": 7.31,
           "publies": 8,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "47946fb4-f8bc-4d38-b565-196df3cf3778",
           "r_median": 3.14,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "1b611913-05bf-4d25-80ff-c024968be03a",
-          "r_median": 3.47,
+          "r_median": 3.5,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "44a49ec6-3fce-4286-9293-690e57cebb79",
-          "r_median": 2.48,
+          "r_median": 2.59,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "95376aa0-36d4-45a9-8fee-30134cff0a17",
           "r_median": 2.54,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "fec63a1d-2627-4ada-84a1-83e997bf5746",
-          "r_median": 1.54,
+          "r_median": 1.53,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -143,9 +143,9 @@
         {
           "type": "os",
           "contenu_id": "a776694b-f434-4371-b4ba-14ce13361bcd",
-          "r_median": 5.15,
-          "publies": 4,
-          "releve_le": "2026-10-30"
+          "r_median": 4.8,
+          "publies": 5,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -178,21 +178,21 @@
           "contenu_id": "0685b2ff-4e1d-45f0-a0a5-8cde772f0b58",
           "r_median": 17.52,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "a03c91aa-030f-42af-a300-8d615f45d057",
-          "r_median": 5.1,
+          "r_median": 5.15,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "bb4502c1-13b8-4ef3-a0ac-b9645a9ae530",
-          "r_median": 2.52,
+          "r_median": 2.58,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -223,23 +223,23 @@
         {
           "type": "os",
           "contenu_id": "5ff64648-8872-4c3e-90ff-e6e34b637fcc",
-          "r_median": 8.07,
-          "publies": 5,
-          "releve_le": "2026-10-30"
+          "r_median": 6.62,
+          "publies": 6,
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "3fb5b408-dcdd-42ec-bd25-df8db178ea62",
           "r_median": 1.86,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "c08fe825-4a39-4fd9-a9b9-1ead4a30d39b",
-          "r_median": 3.28,
+          "r_median": 3.21,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -269,16 +269,16 @@
         {
           "type": "os",
           "contenu_id": "7f1ed494-8b7c-4f74-ad06-2e7fbfd11f2b",
-          "r_median": 10.27,
+          "r_median": 10.28,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "a3f52054-09b8-4715-9822-76dd588f7660",
-          "r_median": 2.84,
-          "publies": 3,
-          "releve_le": "2026-10-30"
+          "r_median": 2.18,
+          "publies": 4,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -309,37 +309,37 @@
         {
           "type": "os",
           "contenu_id": "3e256ebd-c0a6-43cb-bfb9-18eeef24272a",
-          "r_median": 8.62,
-          "publies": 4,
-          "releve_le": "2026-10-30"
+          "r_median": 8.98,
+          "publies": 5,
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "d7e41fdf-74f2-451e-9d20-34b63b7cca11",
-          "r_median": 6.19,
+          "r_median": 6.09,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "eef9200b-3093-4b4f-a207-7b43e5e4e871",
-          "r_median": 2.08,
+          "r_median": 2.06,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "13c7bffe-85c5-4221-a2c5-82653ac975e0",
           "r_median": 1.46,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "aa678c2d-eb45-4d0c-9505-a2ab366570e9",
-          "r_median": 1.66,
+          "r_median": 1.67,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -370,65 +370,65 @@
         {
           "type": "os",
           "contenu_id": "ae2468dc-63df-4f02-bc59-99c375d82a5a",
-          "r_median": 4.41,
+          "r_median": 4.48,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "8f63c67e-7c61-4f42-a3cb-0255a0249d3b",
-          "r_median": 4.3,
+          "r_median": 4.29,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "02bf6ce3-45e0-4185-b6e9-37c4da824eb7",
-          "r_median": 2.11,
+          "r_median": 2.19,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "ef4c7b48-53f3-46f9-9ea5-4d07377d48fd",
           "r_median": 4.35,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "acaf28fb-2ca0-46b7-ac30-dc72fd25be52",
-          "r_median": 1.48,
+          "r_median": 1.53,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "e9d12fd7-3b1c-4659-b043-594543b8732b",
-          "r_median": 2.56,
-          "publies": 4,
-          "releve_le": "2026-10-30"
+          "r_median": 2.7,
+          "publies": 5,
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "d29267a4-e4fa-4b7b-95dd-5b64c8eee02f",
-          "r_median": 2.29,
+          "r_median": 2.3,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "64c4b5d5-dfff-4979-b70b-f99effe3733e",
-          "r_median": 2.08,
+          "r_median": 2.03,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "d214acf7-6e87-47ee-9a42-b35123288217",
-          "r_median": 1.67,
+          "r_median": 1.69,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -459,51 +459,51 @@
         {
           "type": "os",
           "contenu_id": "3ec6e577-14dc-41e4-b512-88a4ef8f0bef",
-          "r_median": 3.98,
+          "r_median": 3.97,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "cdb23bdd-87af-42f5-bd91-61986616039f",
-          "r_median": 3.49,
-          "publies": 4,
-          "releve_le": "2026-10-30"
+          "r_median": 1.65,
+          "publies": 5,
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "2b3336c7-7c61-40dc-a8f6-4c8a2a5d53a6",
-          "r_median": 2.91,
+          "r_median": 2.95,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "def0f156-4e9d-4186-8ad7-2dda78244d42",
-          "r_median": 3.08,
+          "r_median": 3.1,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "f679e9f9-659d-47ee-88d0-43fe40b9380a",
-          "r_median": 2.13,
+          "r_median": 2.16,
           "publies": 8,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "51913784-219b-422f-a939-6e78ab700721",
-          "r_median": 2.09,
+          "r_median": 2.17,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "54cd95df-e2e7-43e4-a594-6cec1b8712b3",
-          "r_median": 2.02,
-          "publies": 3,
-          "releve_le": "2026-10-30"
+          "r_median": 1.72,
+          "publies": 4,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -533,16 +533,16 @@
         {
           "type": "os",
           "contenu_id": "a907426b-88b6-4242-892f-39ddc8b97451",
-          "r_median": 2.46,
+          "r_median": 2.49,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "cec26bfa-ce3f-404e-8311-26db1cab8c25",
           "r_median": 2.36,
-          "publies": 3,
-          "releve_le": "2026-10-30"
+          "publies": 5,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -573,30 +573,30 @@
         {
           "type": "os",
           "contenu_id": "d35caa00-ab8d-4b28-bb54-e6bdda3b7392",
-          "r_median": 2.69,
+          "r_median": 2.74,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "c125e084-ee9a-43e2-b4f2-899d2a855663",
-          "r_median": 2.41,
+          "r_median": 2.5,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "60b67399-d7b4-49e5-9193-047bbac8ccd1",
-          "r_median": 2.63,
+          "r_median": 2.7,
           "publies": 8,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "aa32fa09-5436-4d7c-b454-5a645f6ae313",
           "r_median": 1.82,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -626,16 +626,16 @@
         {
           "type": "os",
           "contenu_id": "ffc8aff6-ad7b-4e9f-b8ab-8e547e2810e5",
-          "r_median": 5.25,
+          "r_median": 5.45,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "6f0501e2-e87a-41cf-a789-5d651b3ea70c",
-          "r_median": 2.47,
+          "r_median": 2.57,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     }
@@ -650,35 +650,35 @@
           "contenu_id": "0f765ea1-826c-4363-94cd-242b74cc9c02",
           "r_median": 0.45,
           "publies": 8,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "aeb30fd3-e823-4fae-80fe-dec80fe926df",
-          "r_median": 0.27,
+          "r_median": 0.28,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "6660a91d-9f13-4e5d-89ae-3cd5242b2991",
-          "r_median": 0.41,
+          "r_median": 0.43,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "be54b13a-06f1-4f24-adfc-ef68c4552776",
           "r_median": 0.46,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "e8e7439d-5004-40d6-9517-07de7f51d17c",
           "r_median": 0.37,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -691,28 +691,28 @@
           "contenu_id": "b4d1e13e-0e9a-4760-9cac-90120f883be2",
           "r_median": 0.13,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "4b6701ce-55d1-4e7d-83c0-3aad9fe31ba7",
-          "r_median": 0.33,
+          "r_median": 0.43,
           "publies": 5,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "2aa907b0-76d3-420a-9ae0-c9b131ea4921",
           "r_median": 0.3,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "984fdcb8-3800-4153-90fc-6d164737abff",
           "r_median": 0.34,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -725,28 +725,28 @@
           "contenu_id": "42d0ac10-e245-4ff8-8d14-2aae1c8bde42",
           "r_median": 0.65,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "c3f301f5-794f-4094-89a2-c5133011c29e",
-          "r_median": 0.56,
+          "r_median": 0.57,
           "publies": 6,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "d3398fb0-e9ed-4b7a-831d-9f1d226647e0",
           "r_median": 0.46,
           "publies": 3,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "39ddeba1-43f7-4838-a670-01c0c40c8a23",
           "r_median": 0.42,
           "publies": 4,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     }

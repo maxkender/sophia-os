@@ -1835,6 +1835,7 @@ export function AdminPostersPage() {
                   compact
                   compte={c}
                   applications={applicationsCompte(c)}
+                  labels={labelsComptes.data?.get(c.id) ?? []}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
                       {estCompteCm(c) ? (

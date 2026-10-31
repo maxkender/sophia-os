@@ -289,6 +289,30 @@ export function paysDeReponse(messages: { de?: string | null; texte?: string | n
   return null;
 }
 
+/** 1/11 : la raison notée quand la HM a déjà donné le login dans la conversation (jamais reprise). */
+export const RAISON_WELCOME_HM = "welcome déjà envoyé par la HM";
+
+/** 1/11 : le mot de passe d'un posteur créé par la HM n'est jamais changé ; le welcome renvoie à celui de la HM. */
+export const MOT_DE_PASSE_HM = "the one your hiring manager gave you";
+
+/**
+ * 1/11 : la HM a-t-elle déjà donné le login dans la conversation Upwork ? Un
+ * message de notre côté qui contient un login @sophia.com (ou l'email du
+ * posteur) ou le lien du dashboard. Rend ce message, sinon null.
+ */
+export function loginDejaDonne<T extends { de?: string | null; texte?: string | null }>(
+  messages: readonly T[] | null | undefined,
+  email: string | null = null,
+  dashboard = "sophia-marketing-orga.vercel.app",
+): T | null {
+  const mail = (email ?? "").trim().toLowerCase();
+  return (messages ?? []).find((m) => {
+    if (m.de !== "nous") return false;
+    const t = (m.texte ?? "").toLowerCase();
+    return /[a-z0-9._%+-]+@sophia\.com/.test(t) || (mail !== "" && t.includes(mail)) || t.includes(dashboard.toLowerCase());
+  }) ?? null;
+}
+
 /** 1/11 : la cohorte d'une recrue reliée maintenant : celle du contrat, jamais avant le prochain lundi. */
 export function cohorteRecrue(cohorteDuContrat: string | null, prochainLundi: string): string {
   return cohorteDuContrat && cohorteDuContrat > prochainLundi ? cohorteDuContrat : prochainLundi;

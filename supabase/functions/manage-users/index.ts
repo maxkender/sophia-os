@@ -52,7 +52,14 @@ import { lireTout } from "../_shared/lots.ts";
 import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
-import { estRoleManager, rattachementNouvelHm, refuseAuHm, roleACreer } from "../_shared/roles.ts";
+import {
+  creationPosteurCoupee,
+  estRoleManager,
+  MESSAGE_HM_NE_CREE_PLUS,
+  rattachementNouvelHm,
+  refuseAuHm,
+  roleACreer,
+} from "../_shared/roles.ts";
 import {
   assertRole,
   corsHeaders,
@@ -311,6 +318,24 @@ async function gererRequete(request: Request): Promise<Response> {
     "head_of_ops",
   ]);
   if (acces instanceof Response) return acces;
+  // 1/11 : une HM (ou une DM) ne crée plus de posteur : l'OS le crée à l'offre acceptée.
+  // La base refuse aussi (poster_creation_reserver, statut refuse_hm) ; on rend le posteur
+  // qui existe déjà pour ce contrat ou ce nom, pour le lien « My cohort ».
+  if (creationPosteurCoupee(acces.role, body.action)) {
+    const contrat = contratDeUrl(typeof body.upwork_contrat_url === "string" ? body.upwork_contrat_url : null);
+    const { data: resa } = await supabase.rpc("poster_creation_reserver", { p_contrat: contrat, p_par: `${acces.role}:${acces.userId}` });
+    const r = resa as { poster_id?: string | null; nom?: string | null } | null;
+    let existant = r?.poster_id ? { id: r.poster_id, nom: r.nom ?? "" } : null;
+    const prenom = String(body.prenom ?? "").trim();
+    const nom = String(body.nom ?? "").trim();
+    if (!existant && prenom) {
+      let q = supabase.from("profiles").select("id, prenom, nom").eq("is_active", true).ilike("prenom", prenom);
+      if (nom) q = q.ilike("nom", nom);
+      const { data: memes } = await q.limit(1);
+      if (memes?.[0]) existant = { id: String(memes[0].id), nom: [memes[0].prenom, memes[0].nom].filter(Boolean).join(" ") };
+    }
+    return json({ error: `HM_NE_CREE_PLUS|${existant?.id ?? ""}|${existant?.nom ?? ""}`, message: MESSAGE_HM_NE_CREE_PLUS }, 403);
+  }
   // Prompt 15, point 1 : ajouter un compte, (dés)activer un posteur et créer
   // un hiring manager sont retirés aux HMs (admin et Head of Ops les gardent).
   if (refuseAuHm(acces.role, body.action, body.role)) {

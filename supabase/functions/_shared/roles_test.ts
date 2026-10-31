@@ -6,7 +6,7 @@
  */
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { estRoleManager, rattachementNouvelHm, refuseAuHm, roleACreer } from "./roles.ts";
+import { creationPosteurCoupee, estRoleManager, rattachementNouvelHm, refuseAuHm, roleACreer } from "./roles.ts";
 
 Deno.test("estRoleManager couvre les trois rôles de l'espace recrutement", () => {
   for (const r of ["hiring_manager", "directing_manager", "head_of_ops"]) {
@@ -90,4 +90,12 @@ Deno.test("refuseAuHm : le DM est bloqué comme une HM (prompt 21, A5)", () => {
   }
   assertEquals(refuseAuHm("directing_manager", "create", "hiring_manager"), true);
   assertEquals(refuseAuHm("directing_manager", "create", "poster"), false);
+});
+
+Deno.test("1/11 : les HM et les DM ne créent plus de posteurs ; l'admin et le Head of Ops oui", () => {
+  assertEquals(creationPosteurCoupee("hiring_manager", "create"), true);
+  assertEquals(creationPosteurCoupee("directing_manager", "create"), true);
+  assertEquals(creationPosteurCoupee("admin", "create"), false);
+  assertEquals(creationPosteurCoupee("head_of_ops", "create"), false);
+  assertEquals(creationPosteurCoupee("hiring_manager", "renommer"), false);
 });

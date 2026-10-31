@@ -29,8 +29,11 @@ export interface LigneWarmup {
   erreur_releve: string | null;
   releves: { at: string; existe: boolean | null; abonnements: number | null; videos: number | null; erreur: string | null }[];
   risques: RisqueWarmup[];
-  /** risque : en haut ; ok : replié en bas ; report : pas de compte ou pas de Start warmup (report d'une semaine). */
-  groupe: "risque" | "ok" | "report";
+  /**
+   * risque : en haut (moins de 5 abonnements, un post, ou introuvable par les 2 méthodes) ;
+   * illisible : pas lu par les 2 méthodes ; ok : replié ; report : pas de compte ou pas de Start warmup.
+   */
+  groupe: "risque" | "illisible" | "ok" | "report";
   decision: "ok" | "pas_chaud" | null;
   decide_at: string | null;
   message_statut: string | null;

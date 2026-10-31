@@ -54,7 +54,7 @@ describe("0474 : le check du warm-up du dimanche soir", () => {
     expect(within(ligneAna).getByTestId("lien-tiktok").getAttribute("href")).toBe("https://www.tiktok.com/@ana.livros12");
     expect(within(ligneAna).getByText("Under 5 follows")).toBeTruthy();
     expect(within(ligneAna).getByText(/2 follows · 0 posts/)).toBeTruthy();
-    expect(screen.getByTestId("compteur-warmup").textContent).toBe("1 at risk · 1 look OK · 1 postponed · 0 decided");
+    expect(screen.getByTestId("compteur-warmup").textContent).toBe("1 at risk · 0 unreadable · 1 look OK · 1 postponed · 0 decided");
     fireEvent.click(within(ligneAna).getByRole("button", { name: "Not warmed up" }));
     expect(confirmer).toHaveBeenCalled();
     await vi.waitFor(() => expect(api.deciderWarmup).toHaveBeenCalledWith("p1", expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), "pas_chaud"));

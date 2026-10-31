@@ -1945,6 +1945,8 @@ export function creerPoster(input: {
   return invoke<{
     userId: string;
     email: string;
+    /** 31/10 : le mot de passe unique de la recrue (rendu par la création). */
+    password?: string;
     type_compte?: TypeCompte | null;
     compte: {
       id: string;

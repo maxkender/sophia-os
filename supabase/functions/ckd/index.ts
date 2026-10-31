@@ -14,7 +14,8 @@ import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { identiteSlack, urlConnexionSlack } from "../_shared/slack_connect.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
-import { lireProfilTiktokFiable as lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import { lireProfilTiktokFiable as lireProfilTiktok, lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
+import { lireProfilApify } from "../_shared/apify.ts";
 import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
@@ -180,6 +181,13 @@ Deno.serve(async (request) => {
         return json(await epinglerMessageQuestions(supabase, acces.userId));
       case "needs_you_alerte":
         return json(await alerteNeedsYou(supabase));
+      case "releve_cohorte": {
+        // 31/10 : dimanche 18:00 (Paris), avant le check du warm-up : toutes les recrues de la cohorte du lendemain.
+        const p = maintenantParis();
+        // Toutes les 5 min de 18:00 à 19:55 (Paris) : chaque passage relève ce qui ne l'a pas été depuis 1 h.
+        if (cron && !body.force && !(p.isoJour === 7 && (p.heure === 18 || p.heure === 19))) return json({ ok: true, ignore: "pas dimanche 18-20 h" });
+        return json(await releverCohorte(supabase, typeof body.lundi === "string" ? body.lundi : null));
+      }
       case "releve_warmup_planifie": {
         const p = maintenantParis();
         if (!body.force && p.heure !== 8 && p.heure !== 20) return json({ ok: true, ignore: "pas 8 h ni 20 h" });
@@ -917,6 +925,65 @@ async function releverWarmup(supabase: Supabase) {
     introuvables: lignes.filter((l) => l.existe === false).length,
     illisibles: lignes.filter((l) => l.existe === null).length,
   };
+}
+
+/**
+ * 31/10 : le relevé du dimanche 18:00 : chaque recrue de la cohorte du
+ * lendemain qui a cliqué Start warmup. 1re méthode : la page TikTok (lue deux
+ * fois) ; si elle est illisible ou dit « introuvable » : 2e méthode, Apify.
+ * Introuvable seulement si la page le dit ET qu'Apify ne rend rien.
+ */
+async function releverCohorte(supabase: Supabase, lundiDemande: string | null) {
+  const p = maintenantParis();
+  const lundi = lundiDemande ?? ajouterJours(p.jour, 8 - p.isoJour);
+  const { data: profils, error } = await supabase.from("profiles").select("id").eq("is_active", true).eq("cohorte_lundi", lundi);
+  if (error) throw error;
+  const ids = (profils ?? []).map((x) => String(x.id));
+  if (ids.length === 0) return { ok: true, lundi, comptes: 0 };
+  const { data: comptes, error: errC } = await supabase.from("comptes").select("id, handle_tiktok")
+    .in("poster_id", ids).eq("is_active", true).not("warmup_started_at", "is", null).not("handle_tiktok", "is", null);
+  if (errC) throw errC;
+  // Relevés en plusieurs passages (cron toutes les 10 min pendant l'heure) : un compte relevé il y a moins d'1 h est sauté,
+  // et un passage s'arrête avant la limite de 150 s des fonctions.
+  const tous = (comptes ?? []) as { id: string; handle_tiktok: string }[];
+  const { data: recents } = tous.length
+    ? await supabase.from("ckd_warmup_releves").select("compte_id").in("compte_id", tous.map((c) => c.id))
+      .gte("releve_at", new Date(Date.now() - 60 * 60_000).toISOString())
+    : { data: [] };
+  const deja = new Set((recents ?? []).map((r) => String(r.compte_id)));
+  const liste = tous.filter((c) => !deja.has(c.id));
+  const debut = Date.now();
+  const bilan = { ok: true, lundi, comptes: 0, page: 0, apify: 0, introuvables: 0, illisibles: 0, deja: deja.size, restants: 0 };
+  for (let i = 0; i < liste.length; i += PAGES_EN_PARALLELE) {
+    if (Date.now() - debut > 90_000) {
+      bilan.restants = liste.length - i;
+      break;
+    }
+    const lot = liste.slice(i, i + PAGES_EN_PARALLELE);
+    const lignes = await Promise.all(lot.map(async (c) => {
+      const page = await lireProfilTiktokFiable(c.handle_tiktok);
+      if (page.existe === true) {
+        bilan.page++;
+        return { compte_id: c.id, handle: c.handle_tiktok, existe: true, cree_tiktok_at: page.creeLe, abonnements: page.abonnements, likes: page.likes, abonnes: page.abonnes, videos: page.videos, erreur: null };
+      }
+      const apify = await lireProfilApify(c.handle_tiktok);
+      if (apify.existe === true) {
+        bilan.apify++;
+        return { compte_id: c.id, handle: c.handle_tiktok, existe: true, cree_tiktok_at: null, abonnements: apify.abonnements, likes: null, abonnes: apify.abonnes, videos: apify.videos, erreur: "méthode 2 (Apify)" };
+      }
+      const introuvable = page.existe === false;
+      if (introuvable) bilan.introuvables++;
+      else bilan.illisibles++;
+      return {
+        compte_id: c.id, handle: c.handle_tiktok, existe: introuvable ? false : null, cree_tiktok_at: null, abonnements: null, likes: null, abonnes: null, videos: null,
+        erreur: `page : ${introuvable ? "introuvable" : page.erreur ?? "illisible"} · Apify : ${apify.erreur ?? "rien"}`.slice(0, 300),
+      };
+    }));
+    bilan.comptes += lignes.length;
+    const { error: errIns } = await supabase.from("ckd_warmup_releves").insert(lignes);
+    if (errIns) throw errIns;
+  }
+  return bilan;
 }
 
 /**

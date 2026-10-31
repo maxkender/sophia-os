@@ -1,3 +1,4 @@
+import { motDePasseCreation } from "../_shared/mot_de_passe.ts";
 import {
   applicationParId,
   applicationSophia,
@@ -300,7 +301,6 @@ async function gererRequete(request: Request): Promise<Response> {
   if (body.action === "create") {
     const prenom = String(body.prenom ?? "").trim();
     const nom = String(body.nom ?? "").trim();
-    const password = String(body.password ?? "");
     const langue = canoniserLangue(body.langue as string | null | undefined);
     const typePremier = resoudrePremierCompte(body.type_compte, langue);
     const languesRecues = Array.isArray(body.langues)
@@ -314,6 +314,8 @@ async function gererRequete(request: Request): Promise<Response> {
     const roleVoulu = roleACreer(body.role, acces.role);
     const creerCm = roleVoulu === "poster" && typePremier === "cm";
     const creerPerso = roleVoulu === "poster" && typePremier === "perso";
+    // 31/10 : un posteur a son propre mot de passe (plus 12345678 pour tous), à changer à la 1re connexion.
+    const password = roleVoulu === "poster" ? motDePasseCreation(body.password as string | undefined) : String(body.password ?? "");
 
     if (!prenom || password.length < 8) {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
@@ -435,7 +437,7 @@ async function gererRequete(request: Request): Promise<Response> {
           prenom,
           nom: nom || null,
           is_active: true,
-          must_change_password: false,
+          must_change_password: roleVoulu === "poster",
           ...lectureContact.contact,
         })
         .eq("id", data.user.id);
@@ -540,6 +542,8 @@ async function gererRequete(request: Request): Promise<Response> {
       ok: true,
       userId: data.user?.id,
       email,
+      // Le mot de passe de départ, montré une fois (bienvenue, écran de création).
+      password,
       compte,
       type_compte: creerCm ? "cm" : creerPerso ? "perso" : null,
       role: roleVoulu,

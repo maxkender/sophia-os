@@ -175,9 +175,9 @@ export const en = {
       reporter: "Postpone",
       confirmReporter: "Postpone {{nom}} to next week's cohort?",
       reporte: "Postponed to the cohort of {{date}}.",
-      arreter: "Kill on Saturday",
-      confirmArreter: "Send {{nom}} to the Saturday masterlist with Kill pre-selected? Reminders stop now; nothing is deactivated until you Validate on Saturday.",
-      arrete: "In the Saturday masterlist, Kill pre-selected. Reminders stopped.",
+      arreter: "Kill",
+      confirmArreter: "Kill {{nom}} now? No message is sent: deactivated in the OS and added to « To remove from Slack »; the contract is closed on Monday after the pay (if Full stop is on).",
+      arrete: "Killed: deactivated in the OS, reminders stopped.",
       demande: "Asked to stop",
       filtres: {
         hm: "HM",
@@ -381,7 +381,7 @@ export const en = {
               titre: "Recap: {{recap}}",
               confirm: "Validate: {{recap}}? Kills happen with no message: deactivated in the OS and removed from Slack right away; contracts closed on Monday after the pay.",
               rien: "nothing to validate",
-              recrues: "recruits stopped",
+              recrues: "stopped (no account in the list)",
             },
             groupes: { premiere: "2. First week of posts ({{n}})", anciens: "3. Older posters ({{n}})" },
             demande: {

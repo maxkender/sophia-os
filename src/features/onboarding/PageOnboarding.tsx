@@ -9,10 +9,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BoutonsTest } from "@/features/auto/test/ContratsTest";
-import { reporterRecrue } from "@/features/cohortes/api";
+import { arreterRecrueSamedi, reporterRecrue } from "@/features/cohortes/api";
 import { ResumeContexte } from "@/features/ckd/decisions/ResumeContexte";
 import { type EvenementFil, resumer } from "@/features/ckd/decisions/resumeContexte";
-import { demanderArretSamedi } from "@/features/ckd/decisions/semaineComptes";
+import { BadgeDemande } from "@/features/ckd/decisions/ListeSamedi";
+import { type DemandeArret, lireDemandesArret } from "@/features/ckd/decisions/semaineComptes";
+import { invoke } from "@/features/moteur/api";
 import { envoyerSurUpwork } from "@/features/pipeline/api";
 import { useReglages } from "@/features/reglagesOs/useReglages";
 import { type Conversation, useConversations, conversationDe } from "@/features/upwork/conversation";
@@ -121,8 +123,11 @@ function CarteRecrue({
   pays,
   modeles,
   lienSlack = "",
+  demande,
 }: {
   r: RecrueOnboarding;
+  /** 31/10 : une demande d'arrêt ouverte (STOP, message, bouton) : elle se traite ici, plus le samedi. */
+  demande?: DemandeArret;
   /** 31/10 (0482) : le pays vérifié (HM, lieu du freelance, annonce). */
   pays?: PaysRecrue;
   releve?: ReleveRecrue;
@@ -175,8 +180,12 @@ function CarteRecrue({
     },
   });
   const arreter = useMutation({
-    // Décisions finales : rien ne s'arrête ici ; la personne va au samedi, Kill pré-coché.
-    mutationFn: () => demanderArretSamedi(r.poster_id, null),
+    // 31/10 : la cohorte qui arrive ne passe plus par le samedi : le Kill se fait ici, au clic,
+    // comme Validate le samedi (sans message ; contrat fermé lundi après la paie, selon Full stop).
+    mutationFn: async () => {
+      await arreterRecrueSamedi(r.poster_id);
+      await invoke("upwork", { action: "arrets" }).catch(() => undefined);
+    },
     onSuccess: () => {
       setBilan(t("onboardingPosters.arrete"));
       recharger();
@@ -195,6 +204,7 @@ function CarteRecrue({
           </span>
           {ecart && <Badge variant="warning" data-testid="ecart-pays">{ecart}</Badge>}
         </div>
+        {demande && <BadgeDemande d={demande} />}
         <dl className="grid gap-x-4 gap-y-1 text-xs sm:grid-cols-[max-content_1fr]">
           <dt className="text-muted-foreground">{t("onboardingPosters.contrat")}</dt>
           <dd>
@@ -518,6 +528,10 @@ export function PageOnboarding() {
   const ecarts = useQuery({ queryKey: ["onboarding-ecarts-pays"], queryFn: lireEcartsPays });
   // 31/10 (0482) : le pays de chaque recrue ; « Country to check » filtrable.
   const pays = useQuery({ queryKey: ["onboarding-pays"], queryFn: lirePaysRecrues, refetchInterval: 5 * 60_000 });
+  const demandes = useQuery({
+    queryKey: ["demandes-arret"],
+    queryFn: async () => new Map((await lireDemandesArret()).map((d) => [d.poster_id, d])),
+  });
   const [seulementPays, setSeulementPays] = React.useState(false);
   const [f, setF] = React.useState<FiltresOnboarding>({ hm: "", cohorte: "", etape: "" });
   const tous = lu.data ?? [];
@@ -589,6 +603,7 @@ export function PageOnboarding() {
             pays={pays.data?.get(r.poster_id)}
             modeles={modeles}
             lienSlack={lienSlack}
+            demande={demandes.data?.get(r.poster_id)}
           />
         ))}
       </div>

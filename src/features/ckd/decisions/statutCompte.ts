@@ -203,6 +203,15 @@ export function ordreStatut(a: EvaluationCompte, b: EvaluationCompte): number {
 
 export type Onglet = "recrues" | "premiere" | "anciens" | "tous";
 
+/**
+ * 31/10 : la 1re semaine de posting a-t-elle commencé ? Non pour la cohorte qui arrive
+ * (cohorte_lundi après le lundi de la semaine) : ces recrues ne passent pas par le samedi,
+ * seulement par Onboarding posters et le check warm-up du dimanche soir.
+ */
+export function semaineCommencee(cohorteLundi: string | null | undefined, lundi: string): boolean {
+  return !cohorteLundi || cohorteLundi <= lundi;
+}
+
 export function ongletDe(c: CompteSemaine, lundi: string): Exclude<Onglet, "tous"> {
   if (c.cohorte_lundi && c.cohorte_lundi > lundi) return "recrues";
   if (c.cohorte_lundi === lundi) return "premiere";

@@ -315,12 +315,12 @@ Deno.serve(async (request) => {
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
       case "jalon_creer":
-        // 31/10 : créer une milestone sans la financer (un clic explicite) ; elle va dans « To fund by hand ».
-        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        // 31/10 : créer une milestone sans la financer (confirmer explicite, aucun cron ne l'envoie) ; elle va dans « To fund by hand ».
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
         return json(await creerJalonSeul(supabase, par, String(body.contrat_id ?? ""), String(body.nom ?? ""), Number(body.montant)));
       case "welcomes_envoyer": {
-        // 31/10 : la bienvenue des recrues créées par la HM et jamais accueillies (un clic : liste donnée, confirmer).
-        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        // 31/10 : la bienvenue des recrues créées par la HM et jamais accueillies (liste donnée, confirmer explicite, aucun cron ne l'envoie).
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
         const ids = Array.isArray(body.poster_ids) ? body.poster_ids.map(String) : [];
         return json(await envoyerWelcomes(supabase, par, ids));
       }

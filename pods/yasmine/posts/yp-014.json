@@ -1,0 +1,733 @@
+{
+ "id": "yp-014",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "titre": {
+  "fr": "petit guide pour réviser sans procrastiner",
+  "en": "a guide to studying without procrastinating",
+  "es": "guía para estudiar sin procrastinar",
+  "de": "Anleitung zum Lernen ohne Aufschieben",
+  "it": "guida per studiare senza procrastinare",
+  "pt": "guia para estudar sem procrastinar",
+  "tr": "ertelemeden ders çalışmak için küçük bir rehber"
+ },
+ "legendes": {
+  "fr": "mes 5 règles anti-procrastination 📚 #procrastination #studytok #revisions #productivite #thatgirl",
+  "en": "my 5 anti-procrastination rules 📚 #procrastination #studytok #studying #productivity #thatgirl",
+  "es": "mis 5 reglas contra la procrastinación 📚 #procrastinacion #studytok #estudiar #productividad #thatgirl",
+  "de": "meine 5 Regeln gegen Aufschieben 📚 #prokrastination #studytok #lernen #produktivität #thatgirl",
+  "it": "le mie 5 regole anti-procrastinazione 📚 #procrastinazione #studytok #studiare #produttività #thatgirl",
+  "pt": "minhas 5 regras contra a procrastinação 📚 #procrastinacao #studytok #estudos #produtividade #thatgirl",
+  "tr": "ertelemeye karşı 5 kuralım 📚 #erteleme #studytok #ders #verimlilik #thatgirl"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "385d9ed6-d19f-4501-ade5-18498cff1a25",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/94f1d20c-318a-4c32-aefc-a4d1d0ce6c89/2.jpg?v=1790681119287",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-007 (« a guide to a DIGITAL DECLUTTER », 73 k) : même format guide en notes iOS, angle procrastination. cta B : la mise en scène iPhone micabo (a83da81b) en photo de l’étape « commence par 10 minutes faciles », micabo dans le texte de la note",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "petit guide pour",
+     "lignes": [
+      "RÉVISER",
+      "SANS",
+      "PROCRASTINER"
+     ],
+     "taille": 114,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a guide to",
+     "lignes": [
+      "STUDYING",
+      "WITHOUT",
+      "PROCRASTINATING"
+     ],
+     "taille": 94,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guía para",
+     "lignes": [
+      "ESTUDIAR",
+      "SIN",
+      "PROCRASTINAR"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "Anleitung zum",
+     "lignes": [
+      "LERNEN",
+      "OHNE",
+      "AUFSCHIEBEN"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guida per",
+     "lignes": [
+      "STUDIARE",
+      "SENZA",
+      "PROCRASTINARE"
+     ],
+     "taille": 106,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guia para",
+     "lignes": [
+      "ESTUDAR",
+      "SEM",
+      "PROCRASTINAR"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "küçük bir rehber:",
+     "lignes": [
+      "ERTELEMEDEN",
+      "DERS",
+      "ÇALIŞMAK"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 760,
+     "taille_script": 84
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3b4f7ba2-0e21-4e39-b624-5d41dff24763",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/49f3846f-59d9-4820-89d8-d019d25abb24/3.jpg?v=1791725686676",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prépare ton bureau la veille.",
+     "texte": "le matin, tu t’assois et tu commences. pas 20 min à chercher ton surligneur.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "set up your desk the night before.",
+     "texte": "in the morning you sit down and start. no 20 minutes looking for your highlighter.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prepara tu escritorio la noche antes.",
+     "texte": "por la mañana te sientas y empiezas. nada de 20 min buscando el subrayador.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "richte deinen Schreibtisch am Vorabend her.",
+     "texte": "morgens setzt du dich hin und legst los. keine 20 Min. Suche nach dem Textmarker.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prepara la scrivania la sera prima.",
+     "texte": "la mattina ti siedi e inizi. niente 20 minuti a cercare l’evidenziatore.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "arrume a mesa na noite anterior.",
+     "texte": "de manhã você senta e começa. nada de 20 min procurando o marca-texto.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "masanı bir gece önceden hazırla.",
+     "texte": "sabah oturur ve başlarsın. fosforlu kalemi aramakla 20 dakika kaybetmezsin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "commence par 10 minutes faciles.",
+     "texte": "le plus dur, c’est de s’y mettre. moi, je lance un quiz micabo : 10 min, et je suis lancée.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "start with 10 easy minutes.",
+     "texte": "the hardest part is getting started. i open a micabo quiz: 10 minutes and i’m in the zone.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "empieza con 10 minutos fáciles.",
+     "texte": "lo más difícil es arrancar. yo abro un quiz de micabo: 10 min y ya estoy en marcha.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "fang mit 10 leichten Minuten an.",
+     "texte": "das Schwerste ist der Anfang. ich starte ein micabo-Quiz: 10 Min. und ich bin drin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "inizia con 10 minuti facili.",
+     "texte": "la parte più difficile è iniziare. io apro un quiz su micabo: 10 minuti e sono già partita.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "comece com 10 minutos fáceis.",
+     "texte": "o mais difícil é começar. eu abro um quiz no micabo: 10 min e já engatei.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "10 kolay dakikayla başla.",
+     "texte": "en zoru başlamak. ben bir micabo testi açıyorum: 10 dakika ve işe girmiş oluyorum.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0e53e654-e6f9-4304-a8fc-c11c1f9ec8ed",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fa52517d-0492-4f40-a3db-effe2aee09f8/5.jpg?v=1791725456591",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "découpe en petites tâches.",
+     "texte": "« réviser la bio » fait peur. « faire les flashcards du chapitre 3 », ça se fait.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "break it into small tasks.",
+     "texte": "“study biology” is scary. “do the chapter 3 flashcards” is doable.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "divídelo en tareas pequeñas.",
+     "texte": "«estudiar biología» da miedo. «hacer las flashcards del tema 3» se puede.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "teil alles in kleine Aufgaben.",
+     "texte": "„Bio lernen“ macht Angst. „die Karteikarten von Kapitel 3“ ist machbar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "dividi tutto in piccoli compiti.",
+     "texte": "“studiare biologia” fa paura. “fare le flashcard del capitolo 3” si può fare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "divida em tarefas pequenas.",
+     "texte": "“estudar biologia” assusta. “fazer os flashcards do capítulo 3” dá pra fazer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "işi küçük parçalara böl.",
+     "texte": "“biyoloji çalış” korkutur. “3. ünitenin bilgi kartlarını yap” yapılabilir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0fae1159-d0c1-40c0-8dfc-a8f72b79f8fa",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/16adc545-27f3-4dbc-aeca-8ab141e4fa75/1.jpg?v=1791726620642",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "écris tes distractions sur un post-it.",
+     "texte": "une idée te vient en plein milieu ? note-la et reviens à ton cours. tu t’en occuperas à la pause.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "write your distractions on a sticky note.",
+     "texte": "a random thought pops up? write it down and get back to work. deal with it on your break.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "apunta tus distracciones en un pósit.",
+     "texte": "¿te viene una idea en mitad del estudio? apúntala y sigue. ya te ocuparás en el descanso.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "schreib Ablenkungen auf einen Post-it.",
+     "texte": "dir fällt mittendrin etwas ein? schreib es auf und mach weiter. in der Pause kümmerst du dich darum.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "scrivi le distrazioni su un post-it.",
+     "texte": "ti viene in mente qualcosa a metà? scrivilo e torna a studiare. ci pensi durante la pausa.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "anote suas distrações num post-it.",
+     "texte": "surgiu uma ideia no meio do estudo? anote e volte pra matéria. resolve no intervalo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "dikkatini dağıtanları bir yapışkan nota yaz.",
+     "texte": "aklına bir şey mi geldi? not al ve derse dön. molada ilgilenirsin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "106877b4-a800-414e-bfac-193fc47f0e3a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/eea9bb9f-5001-4994-872e-9c2055582dde/3.jpg?v=1791725590785",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prévois une récompense.",
+     "texte": "un épisode, un goûter, une balade. ton cerveau bosse mieux quand il sait ce qui l’attend.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "plan a reward.",
+     "texte": "an episode, a snack, a walk. your brain works better when it knows what’s coming.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "planea una recompensa.",
+     "texte": "un capítulo, un snack, un paseo. tu cerebro rinde más cuando sabe lo que le espera.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "plan eine Belohnung ein.",
+     "texte": "eine Folge, ein Snack, ein Spaziergang. dein Gehirn arbeitet besser, wenn es weiß, was kommt.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prevedi una ricompensa.",
+     "texte": "un episodio, uno snack, una passeggiata. il cervello lavora meglio quando sa cosa lo aspetta.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "planeje uma recompensa.",
+     "texte": "um episódio, um lanche, uma caminhada. seu cérebro rende mais quando sabe o que vem depois.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "kendine bir ödül planla.",
+     "texte": "bir bölüm dizi, bir atıştırmalık, bir yürüyüş. beynin ne beklediğini bilince daha iyi çalışır.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

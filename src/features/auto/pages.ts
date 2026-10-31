@@ -46,7 +46,8 @@ export const ANCIENNES_ADRESSES: Readonly<Record<string, string>> = {
   "/admin/paie": "/admin/auto/payroll",
   "/admin/assistant": "/admin/auto/faq",
   // Prompt 21, R : Disputed feedback devient l'onglet « Feedback » de Disputes.
-  "/admin/reviews": "/admin/auto/disputes?onglet=feedback",
-  "/admin/retours-contestes": "/admin/auto/disputes?onglet=feedback",
+  // 31/10 : le feedback a sa page dans Tracking.
+  "/admin/reviews": "/admin/quality-feedback",
+  "/admin/retours-contestes": "/admin/quality-feedback",
   "/admin/surveillance": "/admin/auto",
 };

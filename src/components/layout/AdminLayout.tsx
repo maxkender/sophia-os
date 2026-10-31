@@ -5,6 +5,8 @@ import {
   Siren,
   CircleAlert,
   ClipboardCheck,
+  Link2,
+  MessageSquareWarning,
   AtSign,
   BarChart3,
   BookOpen,
@@ -271,6 +273,19 @@ export function AdminLayout() {
               label: t("nav.qualite"),
               icon: ClipboardCheck,
               description: t("navDesc.qualite"),
+            },
+            // 31/10 : sortis de Recruitment Automation → Disputes.
+            {
+              to: "/admin/posts-links",
+              label: t("nav.postsLiens"),
+              icon: Link2,
+              description: t("navDesc.postsLiens"),
+            },
+            {
+              to: "/admin/quality-feedback",
+              label: t("nav.qualityFeedback"),
+              icon: MessageSquareWarning,
+              description: t("navDesc.qualityFeedback"),
             },
             {
               to: "/admin/suivi-rc",

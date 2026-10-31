@@ -1079,7 +1079,8 @@
     "id": "7637192209691560722",
     "url_tiktok": "https://www.tiktok.com/music/x-7637192209691560722"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta A"
   },
   {
    "post_id": "7697728269335924001",
@@ -1572,6 +1573,131 @@
     "6": "7691336990419209505_5"
    },
    "notes": "nouvelle accroche (paraître plus intelligent); cta B"
+  },
+  {
+   "post_id": "original-028",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#nightroutine #screentimehacks #sleep",
+   "musique": {
+    "titre": "escape",
+    "auteur": "Kilgore Doubtfire",
+    "original": true,
+    "id": "6966304045443107589",
+    "url_tiktok": "https://www.tiktok.com/music/x-6966304045443107589"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7692093201968090401_1",
+    "2": "7697728269335924001_2",
+    "3": "7684726544442346774_6",
+    "4": "7686189452963712288_3",
+    "5": "7699118764788321558_4",
+    "6": "7699939278847085857_6"
+   },
+   "notes": "nouvelle accroche (23h au lieu de scroller); cta A"
+  },
+  {
+   "post_id": "original-029",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainbreak #phoneaddiction #attentionspan",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699118764788321558_1",
+    "2": "7689509565536177441_2",
+    "3": "7691336990419209505_6",
+    "4": "7692093201968090401_4",
+    "5": "7691336990419209505_3",
+    "6": "7690642292855672096_6"
+   },
+   "notes": "nouvelle accroche (signes); cta B"
+  },
+  {
+   "post_id": "original-030",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#attentionspan #focus #challenge",
+   "musique": {
+    "titre": "retire (final)",
+    "auteur": "Alvedon",
+    "original": false,
+    "id": "6991133033583609857",
+    "url_tiktok": "https://www.tiktok.com/music/x-6991133033583609857"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685736268617059616_1",
+    "2": "7699523873712164128_6",
+    "3": "7696527080426655009_5",
+    "4": "7697728269335924001_6",
+    "5": "7691336990419209505_4",
+    "6": "7699118764788321558_6"
+   },
+   "notes": "essai (accroche défi d'attention de @rewired.mind); cta C"
+  },
+  {
+   "post_id": "original-027",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #studytips #neuroscience",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7694778035337235744_1",
+    "2": "7689509565536177441_2",
+    "3": "7699386616988650774_4",
+    "4": "7684726544442346774_7",
+    "5": "7684726544442346774_3",
+    "6": "7689509565536177441_3"
+   },
+   "notes": "variante d'original-015 (habitudes bizarres, concentration); cta C"
+  },
+  {
+   "post_id": "original-026",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#screentime #phoneaddiction #experiment",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699118764788321558_1",
+    "2": "7699386616988650774_5",
+    "3": "7699118764788321558_3",
+    "4": "7696527080426655009_4",
+    "5": "7697728269335924001_6",
+    "6": "7699118764788321558_6"
+   },
+   "notes": "schéma journal (comme original-008); cta B"
   }
  ]
 }

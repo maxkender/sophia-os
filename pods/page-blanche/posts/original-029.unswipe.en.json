@@ -1,0 +1,245 @@
+{
+ "post_id": "original-029",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits",
+      "to become your best self"
+     ],
+     "fr": "10/10 habitudes de neuroscientifiques pour te transformer",
+     "texte": "signs your brain needs a break from your phone"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(#2 was me every day)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "you reread [[the same line]]"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "you reach the end of the paragraph and [[nothing went in]], so you start over"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "your brain got used to something new [[every 10 seconds]]"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "tiny fix: read with your phone in another room, even [[just for one chapter]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "you need [[a second screen]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "you put on a movie you actually wanted to watch, and 10 minutes in [[you're scrolling on your phone]] while it plays"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "one screen [[stopped feeling like enough]] for your brain"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "tiny fix: phone on the other side of the room [[until the credits roll]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "one DM, [[40 min gone]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "you open instagram to answer a message and end up [[deep in reels]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "your thumb [[knows the way]] long before your brain does"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "tiny fix: put reels more than one swipe away. then [[you reply and you're out]]"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "the UnSwipe app removes reels from instagram, [[your messages and stories stay]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "seeking approval from everyone"
+     ],
+     "fr": "vouloir plaire à tout le monde",
+     "texte": "you're [[tired after doing nothing]]"
+    },
+    "T2": {
+     "en": [
+      "if every decision has to make your friends, family,",
+      "or strangers online happy, you’ll slowly build a life",
+      "that doesn’t even feel like yours"
+     ],
+     "fr": "si chaque choix doit plaire à tes potes, ta famille ou [[des inconnus sur internet]], tu vas finir avec une vie [[qui te ressemble même pas]]",
+     "texte": "you spent sunday on the couch scrolling, no plans, no effort, and somehow you [[have less energy than after a long workday]]"
+    },
+    "T3": {
+     "en": [
+      "learn to",
+      "disappoint",
+      "people",
+      "sometimes"
+     ],
+     "fr": "accepte de [[décevoir des gens]]",
+     "texte": "your brain [[never actually rested]]"
+    },
+    "T4": {
+     "en": [
+      "your 20s are for figuring out what you actually",
+      "want, not performing for everyone else"
+     ],
+     "fr": "tes 20 ans, c'est pour savoir [[ce que toi tu veux]], pas pour jouer un rôle devant les autres",
+     "texte": "tiny fix: give it 20 minutes of [[real nothing]]. a walk, a window, a shower, no screen"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "fr": "ils sont obsédés par [[l'effet de levier]]",
+     "texte": "phone in hand, [[no idea why]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
+     "texte": "you grabbed it to check the weather, and 15 min later [[you're still scrolling, no weather]]"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
+     "texte": "picking it up became [[a reflex]], not a real decision"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
+     "texte": "tiny fix: say out loud why [[before you unlock it]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

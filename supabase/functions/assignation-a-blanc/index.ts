@@ -1,4 +1,5 @@
 import { etatInstallation } from "./installer.ts";
+import { estSecretCronParEmpreinte } from "./auth.ts";
 import {
   creerContexteABlanc,
   executerDansContexte,
@@ -62,7 +63,12 @@ Deno.serve((request) => {
   // Contexte « auth » : lectures seules (le rôle admin, via user_roles), puis fermé.
   const auth = creerContexteABlanc({ nature: "auth", ia: false });
   return executerDansContexte(auth, async () => {
-    const refus = await assertAuthorised(request);
+    // Le secret des crons par son empreinte (0634) : le Vault n'est pas joignable d'ici.
+    const parEmpreinte = await estSecretCronParEmpreinte(request.headers.get("x-cron-secret"), async () => {
+      const { data } = await serviceClient().from("cron_secret_empreinte").select("empreinte").maybeSingle();
+      return typeof data?.empreinte === "string" ? data.empreinte : null;
+    });
+    const refus = parEmpreinte ? null : await assertAuthorised(request);
     auth.etat.ferme = true;
     if (refus) return refus;
     if (request.method !== "POST") return json({ error: "POST attendu" }, 405);

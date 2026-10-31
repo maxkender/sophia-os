@@ -74,7 +74,7 @@ import {
 import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { construirePromptContestation, lireContestation, texteAccuse } from "../_shared/contestations.ts";
-import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -1682,7 +1682,7 @@ async function envoyerUpwork(
   o: { prioritaire?: boolean; compte?: string } = {},
 ): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean; compte?: string | null }> {
   const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   if (!base || !secret) return { erreur: "SUPABASE_URL ou CRON_SECRET absent", budget: false };
   try {
     const r = await fetch(`${base}/functions/v1/upwork`, {
@@ -2081,7 +2081,7 @@ async function repondreContestation(supabase: Supabase, id: string, texte: strin
 /** Prompt 21, P3 : la fonction upwork regarde (et règle, si elle le peut) la paie du posteur. */
 async function questionPaie(posterId: string, simuler: boolean): Promise<{ cas: string; texte: string | null }> {
   const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   if (!base || !secret) return { cas: "attente", texte: null };
   try {
     const r = await fetch(`${base}/functions/v1/upwork`, {
@@ -2423,7 +2423,7 @@ async function creerPosteurTest(supabase: Supabase, contrat: string, prenom: str
   const { data: reel } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contratId).eq("is_active", true).limit(1);
   if ((reel ?? []).some((x) => x.id !== t.poster_id)) return { ok: false, error: "ce contrat est relié à un vrai posteur actif" };
   const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const cle = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   if (!base || !secret) return { ok: false, error: "SUPABASE_URL ou CRON_SECRET absent" };
   const nom = `TEST ${prenom.trim() || "poster"}`;

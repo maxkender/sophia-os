@@ -14,7 +14,7 @@ import {
   titreCourt,
 } from "../_shared/nettoyage_stickers.ts";
 import { slideshowsDuLabel } from "../_shared/nettoyage_stickers_label.ts";
-import { assertRole, aujourdhuiParis, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, aujourdhuiParis, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Nettoyage stickers d'un label, mené par le serveur (migrations 0317, 0318) :
@@ -125,7 +125,7 @@ async function compteurs(supabase: Client, nettoyageId: string) {
 /** Relance un passage tout de suite, sans attendre le cron (appel non attendu). */
 function relancer() {
   const url = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   if (!url || !secret) return;
   const p = fetch(`${url}/functions/v1/nettoyer-stickers`, {
     method: "POST",
@@ -390,7 +390,7 @@ async function remplacerPost(supabase: Client, post: LignePost) {
 
   try {
     const url = Deno.env.get("SUPABASE_URL");
-    const secret = Deno.env.get("CRON_SECRET");
+    const secret = secretCronConnu();
     if (!url || !secret) throw new Error("SUPABASE_URL / CRON_SECRET absents");
     const res = await fetch(`${url}/functions/v1/revoquer-post`, {
       method: "POST",

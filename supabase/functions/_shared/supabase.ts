@@ -342,6 +342,51 @@ export function serviceClient() {
 }
 
 /**
+ * 31/10 — Le secret des crons (en-tête x-cron-secret) vit dans le Vault de la
+ * base (nom « cron_secret », lu par la RPC cron_secret_lire, service_role
+ * seulement) : les crons le lisent au moment de partir, les fonctions ici. Le
+ * tourner (cron_secret_tourner) ne demande ni redéploiement ni copier-coller,
+ * et la valeur n'apparaît nulle part. CRON_SECRET (variable d'env) ne sert plus
+ * que de repli quand le Vault ne répond pas avant la première lecture.
+ */
+let secretCronCache: { valeur: string; lu: number } | null = null;
+const SECRET_CRON_TTL_MS = 60_000;
+
+export async function secretCron(forcer = false): Promise<string | null> {
+  if (!forcer && secretCronCache && Date.now() - secretCronCache.lu < SECRET_CRON_TTL_MS) return secretCronCache.valeur;
+  const url = Deno.env.get("SUPABASE_URL");
+  const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (url && key) {
+    try {
+      const client = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+      const { data, error } = await client.rpc("cron_secret_lire");
+      if (!error && typeof data === "string" && data.length >= 16) {
+        secretCronCache = { valeur: data, lu: Date.now() };
+        return data;
+      }
+    } catch {
+      // Vault injoignable : la dernière valeur lue, sinon la variable d'env.
+    }
+  }
+  return secretCronCache?.valeur ?? Deno.env.get("CRON_SECRET") ?? null;
+}
+
+/** Pour les appels de fonction à fonction (synchrones) : la valeur lue à l'entrée de la requête. */
+export function secretCronConnu(): string | undefined {
+  return secretCronCache?.valeur ?? Deno.env.get("CRON_SECRET") ?? undefined;
+}
+
+/** L'en-tête présenté est-il le secret des crons ? Relit le Vault une fois en cas d'écart (rotation récente). */
+export async function estSecretCron(fourni: string | null | undefined): Promise<boolean> {
+  if (!fourni) return false;
+  const attendu = await secretCron();
+  if (attendu && fourni === attendu) return true;
+  if (secretCronCache && Date.now() - secretCronCache.lu < 2_000) return false;
+  const relu = await secretCron(true);
+  return !!relu && fourni === relu;
+}
+
+/**
  * Deux appelants légitimes, deux preuves différentes :
  *
  * - pg_cron n'a pas de session utilisateur, il présente un secret partagé
@@ -357,12 +402,12 @@ export async function assertAuthorised(request: Request): Promise<Response | nul
     return new Response(null, { status: 204, headers: corsHeaders });
   }
 
-  const expected = Deno.env.get("CRON_SECRET");
+  const expected = await secretCron();
   if (!expected) {
     return json({ error: "CRON_SECRET non configuré" }, 500);
   }
 
-  if (request.headers.get("x-cron-secret") === expected) return null;
+  if (await estSecretCron(request.headers.get("x-cron-secret"))) return null;
 
   // Secret de TEST séparé (facultatif) : même pouvoir que CRON_SECRET, mais
   // distinct, pour déclencher les fonctions à la main pendant les tests sans
@@ -431,8 +476,9 @@ export async function assertRole(
     return new Response(null, { status: 204, headers: corsHeaders });
   }
 
-  const expected = Deno.env.get("CRON_SECRET");
-  if (expected && request.headers.get("x-cron-secret") === expected) {
+  // Lu à chaque requête (cache 60 s) : les appels de fonction à fonction qui suivent en ont besoin.
+  await secretCron();
+  if (await estSecretCron(request.headers.get("x-cron-secret"))) {
     return { userId: "cron", role: "admin" };
   }
   const testSecret = Deno.env.get("TEST_SECRET");

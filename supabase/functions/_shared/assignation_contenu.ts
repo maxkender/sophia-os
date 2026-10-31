@@ -50,7 +50,7 @@ import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
 import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
-import { serviceClient } from "./supabase.ts";
+import { secretCronConnu, serviceClient } from "./supabase.ts";
 import {
   BANDES_AVANT_DERNIER_RECOURS,
   bandesDeTirage,
@@ -3092,7 +3092,7 @@ export function kickAssignationDrain(
 ): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = {
     "content-type": "application/json",

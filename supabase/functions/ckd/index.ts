@@ -26,7 +26,7 @@ import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } fro
 import { canauxDuBot, historiqueCanal } from "../_shared/slack_messages.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { estLienCourt, handleDuLien, handleMajoritaire, handlesProches, resoudreLienCourt } from "../_shared/handle_liens.ts";
-import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -732,7 +732,7 @@ async function appelerManageUsers(
   corps: Record<string, unknown>,
 ): Promise<{ ok: true; compteId: string } | { ok: false; incertain: boolean; error: string }> {
   const url = Deno.env.get("SUPABASE_URL");
-  const cron = Deno.env.get("CRON_SECRET");
+  const cron = secretCronConnu();
   if (!url || !cron) return { ok: false, incertain: false, error: "SUPABASE_URL ou CRON_SECRET manquant" };
   let reponse: Response;
   try {

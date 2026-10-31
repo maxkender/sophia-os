@@ -20,7 +20,7 @@ import {
   performancePassage,
   type Supabase,
 } from "./scoring.ts";
-import { aujourdhuiParis } from "./supabase.ts";
+import { aujourdhuiParis, secretCronConnu } from "./supabase.ts";
 
 export const RATTRAPAGE_JOURS_DEFAUT = 4;
 /** Profil TikTok scrapé — garder bas pour rester sous le timeout Edge 150s / compte. */
@@ -1223,7 +1223,7 @@ export function kickRattrapageElo(
     console.error("[rattrapage-elo] kick: SUPABASE_URL manquant");
     return;
   }
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = {
     "content-type": "application/json",

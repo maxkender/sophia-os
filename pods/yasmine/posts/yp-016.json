@@ -1,0 +1,578 @@
+{
+ "id": "yp-016",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7664208221808135446",
+  "vues": 122200,
+  "enregistrements": 6415,
+  "publie_le": "2026-07-19",
+  "titre": "things i do to SMASH EVERY EXAM part 1"
+ },
+ "titre": {
+  "fr": "ce que je fais pour réussir tous mes exams, partie 3",
+  "en": "things i do to smash every exam, part 3",
+  "es": "lo que hago para aprobar todos mis exámenes, parte 3",
+  "de": "was ich tue, um jede Prüfung zu rocken, Teil 3",
+  "it": "cosa faccio per superare ogni esame, parte 3",
+  "pt": "o que eu faço para arrasar em todas as provas, parte 3",
+  "tr": "her sınavda başarılı olmak için yaptıklarım, bölüm 3"
+ },
+ "legendes": {
+  "fr": "partie 3 : mes habitudes avant chaque exam 📚 #revisions #studytok #examens #bac #thatgirl",
+  "en": "part 3: my habits before every exam 📚 #studytok #studytips #exams #studying #thatgirl",
+  "es": "parte 3: mis hábitos antes de cada examen 📚 #estudiar #studytok #examenes #selectividad #thatgirl",
+  "de": "Teil 3: meine Routine vor jeder Prüfung 📚 #lernen #studytok #prüfung #abitur #thatgirl",
+  "it": "parte 3: le mie abitudini prima di ogni esame 📚 #studiare #studytok #esami #maturità #thatgirl",
+  "pt": "parte 3: meus hábitos antes de cada prova 📚 #estudos #studytok #provas #enem #thatgirl",
+  "tr": "bölüm 3: her sınavdan önceki alışkanlıklarım 📚 #ders #studytok #sınav #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7575815280899656462"
+ },
+ "fond": {
+  "media_id": "9955d119-ab6f-49c0-8823-b2a897dd6577",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ec916a86-710a-41c4-85a0-1235d90e5fad/4.jpg?v=1790611482554",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-004 (« things i do to SMASH EVERY EXAM », 122 k) : partie 3, 5 nouveaux conseils, autres photos. cta B : la mise en scène iPhone micabo (a83da81b) en photo du conseil « révise dans les transports », micabo dans le texte de la note",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais pour",
+     "lignes": [
+      "RÉUSSIR",
+      "TOUS MES",
+      "EXAMS"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "partie 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 28
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "things i do to",
+     "lignes": [
+      "SMASH",
+      "EVERY",
+      "EXAM"
+     ],
+     "taille": 190,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "part 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "lo que hago para",
+     "lignes": [
+      "APROBAR",
+      "TODOS MIS",
+      "EXÁMENES"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "was ich tue, um",
+     "lignes": [
+      "JEDE",
+      "PRÜFUNG",
+      "ZU ROCKEN"
+     ],
+     "taille": 168,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "Teil 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0,
+     "interligne": 1.1
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cosa faccio per",
+     "lignes": [
+      "SUPERARE",
+      "OGNI",
+      "ESAME"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "o que eu faço para",
+     "lignes": [
+      "ARRASAR",
+      "EM TODAS",
+      "AS PROVAS"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "5 tavsiye",
+     "lignes": [
+      "SINAVLARDA",
+      "BAŞARILI",
+      "OLMAK İÇİN"
+     ],
+     "taille": 140,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "bölüm 3",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 22,
+     "interligne": 1.12
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "43e87503-a455-4820-825b-6c29d9ebc70d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/31ed426f-6c4b-4302-ae33-b0b7ea6cba98/4.jpg?v=1791726283949",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "fais un planning de révisions.🗓️",
+     "texte": "une matière par créneau, écrit noir sur blanc. quand c’est prévu, tu ne te demandes plus par quoi commencer."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "make a revision schedule.🗓️",
+     "texte": "one subject per time slot, written down. when it’s planned, you stop wondering where to start."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "haz un calendario de estudio.🗓️",
+     "texte": "una asignatura por franja, por escrito. cuando está planeado, ya no te preguntas por dónde empezar."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "mach einen Lernplan.🗓️",
+     "texte": "ein Fach pro Zeitfenster, schwarz auf weiß. wenn es geplant ist, fragst du dich nicht mehr, womit du anfängst."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "fai un piano di ripasso.🗓️",
+     "texte": "una materia per fascia oraria, scritta nero su bianco. quando è tutto previsto, non ti chiedi più da dove iniziare."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "monte um cronograma de estudos.🗓️",
+     "texte": "uma matéria por horário, tudo escrito. quando está planejado, você não fica pensando por onde começar."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "bir çalışma programı yap.🗓️",
+     "texte": "her zaman dilimine bir ders, yazılı olarak. planlandığında nereden başlayacağını düşünmezsin."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "révise dans les transports.🚌",
+     "texte": "15 min de bus, c’est un quiz entier. j’ouvre micabo au lieu de TikTok, et ça fait 1 h de révision en plus par semaine."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "study on the commute.🚌",
+     "texte": "a 15-minute bus ride is a whole quiz. i open micabo instead of TikTok, and that’s an extra hour of revision a week."
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "estudia en el transporte.🚌",
+     "texte": "15 min de bus son un quiz entero. abro micabo en vez de TikTok y son 1 h más de estudio a la semana."
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "lern unterwegs.🚌",
+     "texte": "15 Min. Busfahrt sind ein ganzes Quiz. ich öffne micabo statt TikTok, und das ist 1 Std. mehr Lernen pro Woche."
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "ripassa sui mezzi.🚌",
+     "texte": "15 minuti di autobus sono un quiz intero. apro micabo invece di TikTok, ed è 1 ora di ripasso in più a settimana."
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "estude no transporte.🚌",
+     "texte": "15 min de ônibus são um quiz inteiro. abro o micabo em vez do TikTok, e é 1 h a mais de estudo por semana."
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "yolda çalış.🚌",
+     "texte": "15 dakikalık otobüs yolu koca bir test eder. TikTok yerine micabo’yu açıyorum, haftada 1 saat fazladan tekrar."
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2a775c2f-69a4-48f5-ba31-d8977c7de8e0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/67928145-d056-4797-8b41-855840be1819/1.jpg?v=1791725458389",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "commence par la matière que tu détestes.😤",
+     "texte": "le matin, tu as le plus d’énergie. garde ce que tu aimes pour la fin de journée."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "start with the subject you hate.😤",
+     "texte": "you have the most energy in the morning. keep the one you love for later in the day."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "empieza por la asignatura que odias.😤",
+     "texte": "por la mañana tienes más energía. deja la que te gusta para el final del día."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "fang mit dem Fach an, das du hasst.😤",
+     "texte": "morgens hast du die meiste Energie. heb dir dein Lieblingsfach für später auf."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "inizia dalla materia che odi.😤",
+     "texte": "la mattina hai più energia. tieni quella che ami per la fine della giornata."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "comece pela matéria que você odeia.😤",
+     "texte": "de manhã você tem mais energia. deixe a que você ama pro fim do dia."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "sevmediğin dersle başla.😤",
+     "texte": "sabah enerjin en yüksek seviyede. sevdiğin dersi günün sonuna sakla."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "51792f13-87aa-4fc8-89b4-b83ed83a56fc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/975980bd-9777-4148-8f85-7d156a9ea118/1.jpg?v=1791725755423",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "bois de l’eau, pas 4 cafés.💧",
+     "texte": "trop de café, c’est le cœur qui s’emballe le jour de l’exam. une grande bouteille sur le bureau, c’est tout."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "drink water, not 4 coffees.💧",
+     "texte": "too much coffee means a racing heart on exam day. one big bottle on your desk, that’s it."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "bebe agua, no 4 cafés.💧",
+     "texte": "demasiado café es el corazón a mil el día del examen. una botella grande en la mesa y listo."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "trink Wasser, nicht 4 Kaffee.💧",
+     "texte": "zu viel Kaffee heißt Herzrasen am Prüfungstag. eine große Flasche auf dem Schreibtisch, mehr nicht."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "bevi acqua, non 4 caffè.💧",
+     "texte": "troppo caffè vuol dire cuore a mille il giorno dell’esame. una bottiglia grande sulla scrivania e basta."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "beba água, não 4 cafés.💧",
+     "texte": "café demais é coração disparado no dia da prova. uma garrafa grande na mesa e pronto."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "4 kahve değil, su iç.💧",
+     "texte": "fazla kahve, sınav günü kalp çarpıntısı demek. masanda büyük bir şişe su, o kadar."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "05389a52-88a8-4221-a449-e61b816991cd",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8a49f80b-a800-41b7-822b-fe32dd4b4c3b/1.jpg?v=1791726160609",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "arrête de réviser la veille à 20 h.🛑",
+     "texte": "relis tes fiches une fois, prépare ton sac et va te coucher. ce que tu ne sais pas à 20 h, tu ne l’apprendras pas à minuit."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "stop studying at 8pm the night before.🛑",
+     "texte": "skim your notes once, pack your bag and go to bed. what you don’t know at 8pm, you won’t learn by midnight."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "deja de estudiar a las 20 h la noche antes.🛑",
+     "texte": "repasa tus apuntes una vez, prepara la mochila y a dormir. lo que no sabes a las 8, no lo aprenderás a medianoche."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "hör am Vorabend um 20 Uhr auf.🛑",
+     "texte": "lies deine Notizen einmal durch, pack deine Tasche und geh ins Bett. was du um 20 Uhr nicht kannst, lernst du bis Mitternacht auch nicht."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "smetti di studiare alle 20 la sera prima.🛑",
+     "texte": "rileggi gli appunti una volta, prepara lo zaino e vai a letto. quello che non sai alle 20, non lo imparerai a mezzanotte."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "pare de estudar às 20 h na véspera.🛑",
+     "texte": "releia o resumo uma vez, arrume a mochila e vá dormir. o que você não sabe às 20 h, não vai aprender até a meia-noite."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 200,
+     "titre": "sınavdan önceki akşam 20.00’de bırak.🛑",
+     "texte": "notlarına bir kez göz at, çantanı hazırla ve yat. saat 20.00’de bilmediğini gece yarısına kadar öğrenemezsin."
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed"
+ ]
+}

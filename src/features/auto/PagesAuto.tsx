@@ -20,6 +20,7 @@ import { PageAuto } from "./PageAuto";
 import { PageLogs } from "./PageLogs";
 import { PageProblemes } from "./PageProblemes";
 import { PageRecruits } from "./PageRecruits";
+import { PretLundi } from "./pret/PretLundi";
 import { ContratsTest } from "./test/ContratsTest";
 
 /**
@@ -37,6 +38,8 @@ export function OverviewPage() {
   return (
     <PageAuto cle="overview">
       <GrandInterrupteur />
+      {/* Lundi 2/11 : tout est-il prêt pour lundi ? (vert / rouge, avec la page qui corrige) */}
+      <PretLundi />
       {/* Prompt 25 MAJ : un type de message en pause (frein) se voit tout de suite, avec « Resume ». */}
       <FreinsEnvoi />
       <ResumeNeedsYou />

@@ -43,6 +43,10 @@ export type Transcription = {
   /** Bloc détecté d'un seul tenant alors qu'il en contient deux (titre collé à
    * son paragraphe) : { "T1": 1 } coupe T1 après sa 1re ligne en T1a et T1b. */
   scissions?: Record<string, number>;
+  /** Détection fausse sans autre remède (capture collée à la fiche App Store
+   * qui avale le texte voisin) : éléments de géométrie relevés à la main, qui
+   * REMPLACENT ceux de la détection pour cette slide. */
+  geometrie?: ElementGeo[];
 };
 
 /** Applique les scissions demandées à la géométrie (nouveaux blocs a / b). */
@@ -101,6 +105,7 @@ export async function rendreSlide(
   tr: Transcription,
   options: { ressources?: RessourcesApp; variante?: number } = {},
 ): Promise<{ jpeg: Buffer; rapport: RapportSlide }> {
+  if (tr.geometrie?.length) geo = { ...geo, elements: tr.geometrie };
   geo = appliquerScissions(geo, tr);
   const capture = options.ressources?.captures.length
     ? options.ressources.captures[(options.variante ?? 0) % options.ressources.captures.length]

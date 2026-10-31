@@ -1,0 +1,240 @@
+{
+ "post_id": "original-027",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "5 abitudini strane che aiutano la concentrazione"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(confermato dalla scienza)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "scegli [[una cosa sola]] prima"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "se apri prima il portatile, sono mail e schede a [[decidere per te]]"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "scrivila su un post-it e apri [[solo quello che serve]]"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "secondo gli studi, ogni cambio di attività [[ti costa concentrazione]]. una cosa sola, meno cambi"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "living on cheap dopamine"
+     ],
+     "fr": "vivre de [[dopamine facile]]",
+     "texte": "rendi il telefono [[noioso]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling, youtube, snacks, games, your brain gets",
+      "rewarded all day for doing nothing"
+     ],
+     "fr": "scroll, youtube, grignotage, jeux : ton cerveau est [[récompensé toute la journée]] pour rien",
+     "texte": "i video veloci abituano il cervello a volere [[qualcosa di nuovo di continuo]], tutto il giorno"
+    },
+    "T3": {
+     "en": [
+      "so hard things start feeling",
+      "impossible"
+     ],
+     "fr": "du coup l'effort te paraît [[impossible]]",
+     "texte": "e gli studi lo legano a [[meno attenzione]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with this until i",
+      "found this thing that blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "avant je [[scrollais H24]], maintenant quitte à être sur mon tel, je fais [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "cosa ha sostituito il mio feed: podcast quando cammino, un libro in bus e [[l'app Sophia]] se prendo comunque il telefono"
+    },
+    "T5": {
+     "en": [
+      "earn your dopamine!!"
+     ],
+     "fr": "[[mérite ta dopamine !!]]",
+     "texte": "[[telefono lento, mente lucida!!]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "nascondi il telefono [[pure a te]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "a faccia in giù sulla scrivania non basta. secondo gli studi, [[averlo vicino]] ti ruba già concentrazione"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "borsa, cassetto, altra stanza: [[occhio non vede…]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "tieni una lista [[«dopo»]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "ogni pensiero random nel mezzo del lavoro (un messaggio, una commissione…) [[ti tira fuori]]"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "scrivilo e vai avanti. secondo gli studi, scriverlo aiuta il cervello a [[lasciarlo andare]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "e la riguardi solo [[a lavoro finito]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn how money actually works"
+     ],
+     "fr": "comprends l'argent, [[pour de vrai]]",
+     "texte": "fissa qualcosa [[lontanissimo]]"
+    },
+    "T2": {
+     "en": [
+      "understand investing,",
+      "cash flow, debt, and",
+      "compound growth",
+      "before you start earning",
+      "serious money"
+     ],
+     "fr": "comprends l'investissement, le cash-flow, les dettes et [[les intérêts composés]] avant de [[gagner gros]]",
+     "texte": "più o meno ogni ora, guarda fuori dalla finestra: il cielo, gli alberi, la fine della strada, [[per un minuto intero]]"
+    },
+    "T3": {
+     "en": [
+      "making more helps, but",
+      "keeping and allocating it",
+      "properly is what stops",
+      "you from being broke"
+     ],
+     "fr": "gagner plus, ça aide, mais ce qui [[t'empêche d'être à sec]], c'est de bien le garder et le placer",
+     "texte": "secondo gli studi, anche uno sguardo breve al verde aiuta l'attenzione a [[ricaricarsi]]"
+    },
+    "T4": {
+     "en": [
+      "you can't save your way to wealth,",
+      "you have to earn your way there!"
+     ],
+     "fr": "[[on devient pas riche en épargnant, on devient riche en gagnant plus !]]",
+     "texte": "[[sembra che tu stia perdendo tempo, ma la concentrazione torna più nitida]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

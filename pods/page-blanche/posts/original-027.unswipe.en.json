@@ -1,0 +1,241 @@
+{
+ "post_id": "original-027",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "5 weird habits that are secretly good for your focus"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(backed by science)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "decide your [[one task]] first"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "if you open the laptop first, emails and tabs [[decide for you]]"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "write it on a sticky note, then open [[only what it needs]]"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "research on task switching shows every jump [[costs you focus]]. one task means fewer jumps"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "living on cheap dopamine"
+     ],
+     "fr": "vivre de [[dopamine facile]]",
+     "texte": "make your phone [[boring]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling, youtube, snacks, games, your brain gets",
+      "rewarded all day for doing nothing"
+     ],
+     "fr": "scroll, youtube, grignotage, jeux : ton cerveau est [[récompensé toute la journée]] pour rien",
+     "texte": "fast clips train your brain to expect [[something new every few seconds]], all day"
+    },
+    "T3": {
+     "en": [
+      "so hard things start feeling",
+      "impossible"
+     ],
+     "fr": "du coup l'effort te paraît [[impossible]]",
+     "texte": "and studies link that to [[weaker attention]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with this until i",
+      "found this thing that blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "avant je [[scrollais H24]], maintenant quitte à être sur mon tel, je fais [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "the trick: tiktok blocked, instagram [[without reels]] (messages and stories stay), all with the UnSwipe app"
+    },
+    "T5": {
+     "en": [
+      "earn your dopamine!!"
+     ],
+     "fr": "[[mérite ta dopamine !!]]",
+     "texte": "[[slow phone, sharp mind!!]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "hide your phone [[from yourself]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "face down on the desk isn't enough. studies suggest just [[having it nearby]] quietly drains your focus"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "bag, drawer, other room: [[out of sight, out of mind]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "keep a [[\"later\" list]] nearby"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "every random thought mid-task (a text, an errand, a question) [[pulls you out]]"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "jot it down, get back to work. studies suggest writing it down helps your brain [[let it go]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "and only check it [[when you're done]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn how money actually works"
+     ],
+     "fr": "comprends l'argent, [[pour de vrai]]",
+     "texte": "stare at something [[far away]]"
+    },
+    "T2": {
+     "en": [
+      "understand investing,",
+      "cash flow, debt, and",
+      "compound growth",
+      "before you start earning",
+      "serious money"
+     ],
+     "fr": "comprends l'investissement, le cash-flow, les dettes et [[les intérêts composés]] avant de [[gagner gros]]",
+     "texte": "every hour or so, look out the window at the sky, the trees, the end of the street, for [[a full minute]]"
+    },
+    "T3": {
+     "en": [
+      "making more helps, but",
+      "keeping and allocating it",
+      "properly is what stops",
+      "you from being broke"
+     ],
+     "fr": "gagner plus, ça aide, mais ce qui [[t'empêche d'être à sec]], c'est de bien le garder et le placer",
+     "texte": "studies on nature and attention suggest even a short look at greenery helps your focus [[bounce back]]"
+    },
+    "T4": {
+     "en": [
+      "you can't save your way to wealth,",
+      "you have to earn your way there!"
+     ],
+     "fr": "[[on devient pas riche en épargnant, on devient riche en gagnant plus !]]",
+     "texte": "[[it looks like slacking off, but your focus comes back sharper]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

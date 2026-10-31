@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o047",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "81db09d8-4761-4088-a640-c10585af7b3b",
+ "titre": "6 hobbies that make you unexpectedly smarter #hobbies #smartgirl #selfimprovement #slowliving #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e"
+ ],
+ "notes": "cta A. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 4 de la boîte (parent 81db09d8, anglais) : accroche du parent mot pour mot, « 6 hobbies that make you unexpectedly smarter ». Le parent avait : une langue, les échecs, apprendre des sujets variés (appli), cuisiner sans recette, les biographies, les puzzles. Six hobbies neufs face au parent et à nos sg-o003, sg-o019, sg-o032, sg-o038 : jardiner, apprendre un morceau de piano, la danse de salon, les cartes anciennes, tenir un herbier, une chose nouvelle chaque matin (Sophia, cta A). Images : jardins, piano, cafés (photos d'une actrice permises, jamais sur la slide Sophia) ; slide Sophia sur un café et un livre, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2211cfd7",
+   "texte_overlay": "6 hobbies that make you\nunexpectedly smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59cd67d9",
+   "texte_overlay": "1. gardening\nyou learn patience, seasons,\nand a little botany\nwithout noticing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0d736710",
+   "texte_overlay": "2. learning one piano piece\nreading music trains memory\nand both hands at once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8d228cbe",
+   "texte_overlay": "3. ballroom dancing\nsteps, rhythm and a partner\nto read. great for memory.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8c600ff8",
+   "texte_overlay": "4. collecting old maps\nevery map is a lesson in\nhistory and geography.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "317fd978",
+   "texte_overlay": "5. pressing flowers\nyou end up learning every\nflower's name and story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "42fcbbf5",
+   "texte_overlay": "6. one new thing every\nmorning\na little history, art or\nscience with your coffee.",
+   "texte_sophia": "6. one new thing every\nmorning\ni learn mine with a\nmicro-learning app like\nthe sophia app, 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2810e185",
+   "texte_overlay": "which one are you\ntrying first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  }
+ ]
+}

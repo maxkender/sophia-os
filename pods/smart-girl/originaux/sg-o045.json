@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o045",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "577c5837-a060-4ed7-9e5f-fbc0232ca96e",
+ "titre": "habits that will make you disgustingly intelligent #selfeducation #smartgirl #darkacademia #learning #studytok",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "2db2f497-45b2-49ec-8faa-559f06aa0780"
+ ],
+ "notes": "cta B. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 2 de la boîte (parent 577c5837, anglais) : accroche du parent mot pour mot, « habits that will make you disgustingly intelligent ». Le parent (espagnol à la diffusion, anglais à la source) avait : lire au-dessus de son niveau, comprendre le contexte (appli), expliquer simplement, avoir des avis sans s'y accrocher. Six habitudes neuves : lire les notes en bas de page, demander « pourquoi » trois fois, garder un carnet d'idées, lire les deux camps d'un débat, apprendre le contexte historique d'une actualité (Sophia au milieu, cta B), relire ses notes avant de dormir. Images de la banque (cafés, intérieurs), sans texte ; slide Sophia sur un tourne-disque, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "417e1c48",
+   "texte_overlay": "habits that will make you\ndisgustingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9346f7ef",
+   "texte_overlay": "1. read the footnotes.\nthe most interesting\ndetails hide at the bottom\nof the page.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "991aea05",
+   "texte_overlay": "2. ask \"why\" three times.\nthe third answer is where\nreal understanding starts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3e576d1c",
+   "texte_overlay": "3. learn the history behind\nthe news.\nevery headline makes sense\nonce you know what\ncame before.",
+   "texte_sophia": "3. learn the history behind\nthe news. i read one short\nlesson a day with a\nmicro-learning app like\nthe sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ec0dec79",
+   "texte_overlay": "4. read both sides of\na debate.\nbefore you pick one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eb6f4dc1",
+   "texte_overlay": "5. keep an ideas notebook.\nevery thought you write\ndown is one you keep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c11e8116",
+   "texte_overlay": "6. reread your notes\nbefore sleep.\nyour brain sorts them\novernight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "afebaf74",
+   "texte_overlay": "which one are you\nstarting tonight?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/8.jpg"
+  }
+ ]
+}

@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 
-import type { CompteSemaine, DemandeArret, RecrueSansReaction } from "./semaineComptes";
+import type { ChoixSamedi, CompteSemaine, DemandeArret, RecrueSansReaction } from "./semaineComptes";
 import { compte } from "./semaineComptes.test";
 import type { ExtrasCompte } from "./statutCompte";
 
@@ -21,6 +21,8 @@ const api = vi.hoisted(() => ({
     semaine: { faits: 3, prevus: 6, montant: 14, action: "payer", raison: null },
   })),
   noterKillSansPaie: vi.fn<(p: string, l: string, r: string, m: number | null) => Promise<void>>(async () => undefined),
+  lireBrouillonsSamedi: vi.fn(async () => new Map<string, { choix: ChoixSamedi; raison: { code: string; detail: string } | null }>()),
+  noterBrouillonSamedi: vi.fn<(l: string, c: string, k: ChoixSamedi, r: unknown) => Promise<void>>(async () => undefined),
 }));
 vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./semaineComptes")>()), ...api }));
 const ckd = vi.hoisted(() => ({
@@ -93,6 +95,7 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     exhaustif.lireModeArret.mockResolvedValue("on");
     exhaustif.lireCouverture.mockResolvedValue([]);
     exhaustif.lireForces.mockResolvedValue(new Map());
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map());
     await i18n.changeLanguage("fr");
     api.lireSemaineComptes.mockResolvedValue([
       compte({ compte_id: "a", handle: "absent", jours: vides, prevus_passes: 6, lien_passes: 0, lien_total: 0,
@@ -120,20 +123,28 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     // Pas de contrat : badge, Kill bloqué.
     expect(within(ligne("hussein")).getByText("Pas de contrat")).toBeInTheDocument();
     expect(within(ligne("hussein")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
-    // 31/10 : la cohorte qui arrive (02/11) n'est pas dans le samedi (Onboarding posters + check du dimanche soir).
-    expect(document.querySelector('[data-compte="recrue1"]')).toBeNull();
-    // De confiance : dans la section fermée, sur Keep.
+    // Lundi 2/11 : la cohorte qui arrive (02/11) est visible, en Keep, sans autre choix (vérifiée dimanche soir).
+    expect(presse("recrue1", "Keep")).toBe("true");
+    expect(within(ligne("recrue1")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
+    expect(within(ligne("recrue1")).getByTestId("a-venir")).toBeInTheDocument();
+    // Par défaut, tous les comptes (de confiance compris) ; « À traiter seulement » range les comptes de confiance.
+    expect(document.querySelector('[data-compte="calme"]')).not.toBeNull();
+    expect(screen.queryByTestId("section-confiance")).toBeNull();
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
     const section = screen.getByTestId("section-confiance");
     expect(section).toHaveTextContent("De confiance : rien à vérifier (1)");
     expect(within(section).getByRole("button", { name: "Keep" })).toBeInTheDocument();
     expect(screen.getByTestId("compteurs-statut")).toHaveTextContent("2 à traiter · 2 à surveiller · 1 de confiance");
     // Déjà décidé : figé.
     expect(within(ligne("fait")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
-    // Les onglets : plus d'onglet « cohorte qui arrive » ; même « Tous » ne la montre pas.
-    expect(screen.queryByRole("tab", { name: /cohorte qui arrive/ })).toBeNull();
-    fireEvent.click(screen.getByRole("tab", { name: /^Tous/ }));
-    expect(document.querySelector('[data-compte="recrue1"]')).toBeNull();
+    // Les onglets : la cohorte qui arrive a le sien (rien à traiter).
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    fireEvent.click(screen.getByRole("tab", { name: "Recrues de la cohorte qui arrive (0)" }));
+    expect(document.querySelector('[data-compte="absent"]')).toBeNull();
+    expect(document.querySelector('[data-compte="recrue1"]')).not.toBeNull();
     expect(screen.queryByTestId("samedi-recrues")).toBeNull();
+    // Plus jamais « Reporter » au samedi.
+    expect(within(ligne("recrue1")).queryByRole("option", { name: "Reporter" })).toBeNull();
   });
 
   it("Validate : le récap d'abord ; Kill et Double décidés, Keep refuse, Autre → Recreate ; la cohorte qui arrive jamais touchée", async () => {
@@ -155,6 +166,20 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     expect(api.choisirSamedi).not.toHaveBeenCalledWith("r", expect.anything());
     expect(cohortes.reporterRecrue).not.toHaveBeenCalled();
     expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
+    // Chaque clic est enregistré (brouillon de la semaine).
+    expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-10-26", "b", "keep", null);
+    expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-10-26", "h", "recreate", null);
+  });
+
+  it("0484 : les choix enregistrés reviennent après un rechargement", async () => {
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map([
+      ["c", { choix: "kill" as ChoixSamedi, raison: null }],
+      ["a", { choix: "keep" as ChoixSamedi, raison: null }],
+    ]));
+    rendu();
+    await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
+    expect(presse("absent", "Keep")).toBe("true");
+    expect(screen.getByTestId("recap-samedi")).toHaveTextContent("Récap : 1 Kill & pay, 1 Double");
   });
 
   it("décisions finales : une demande d'arrêt arrive Kill pré-coché avec sa raison ; Keep la classe « garder »", async () => {
@@ -237,7 +262,8 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     // Vert mais « No channel » : dans la liste principale, Kill & pay pré-sélectionné, la raison.
     await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
     expect(within(ligne("calme")).getByText("Aucun canal")).toBeInTheDocument();
-    expect(within(screen.getByTestId("section-confiance")).queryByText("calme")).toBeNull();
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    expect(screen.queryByTestId("section-confiance")?.textContent ?? "").not.toContain("calme");
     // Reporté 2 fois sans compte : sa carte, Kill proposé.
     const sansCompte = await screen.findByTestId("forces-sans-compte");
     expect(sansCompte).toHaveTextContent("Xavi");

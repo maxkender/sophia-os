@@ -358,7 +358,7 @@ export const en = {
             propositions: { kill: "Kill", keep: "Keep", double: "Double", recreate: "Recreate", repondre: "Reply", reporter: "Postpone" },
             raisons: {
               rien: "nothing to change", double: "good views (Saturday check)", recrue_sans_reaction: "no reaction to the reminders",
-              recrue_etapes: "not ready: postpone by one week", zero_post: "no post this week", jours_manques_kill: "2 posts or fewer",
+              recrue_etapes: "not ready: postpone by one week", recrue_dimanche: "incoming cohort: checked Sunday evening", zero_post: "no post this week", jours_manques_kill: "2 posts or fewer",
               jours_manques_keep: "posts despite the gaps", shadowban: "suspected shadowban", mort: "dead account",
               liens_introuvables: "check the links with the poster", sans_contrat: "link the contract first (Kill blocked)",
               message_recu: "answer the message", surveiller: "small signal, nothing to do", confiance: "trusted",
@@ -372,6 +372,8 @@ export const en = {
             autre: "Other…",
             onglets: { recrues: "Incoming cohort recruits ({{n}})", premiere: "1st week ({{n}})", anciens: "Older ({{n}})", tous: "All ({{n}})" },
             tousLesComptes: "All accounts ({{n}})",
+            aVenir: "Incoming cohort: Keep. Its warm-up is checked on Sunday evening (Sunday: warm-up); Validate doesn't touch it.",
+            brouillonErreur: "Your choice could not be saved ({{erreur}}). It stays on this screen until you reload.",
             aTraiterSeulement: "To handle only",
             csv: "Export CSV",
             rienATraiter: "Nothing to handle here.",

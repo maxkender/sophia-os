@@ -327,3 +327,26 @@ export async function noterKillSansPaie(posterId: string, lundi: string, raison:
   const { error } = await supabase.rpc("kill_sans_paie_noter", { p_poster: posterId, p_semaine: lundi, p_raison: raison, p_montant: montant });
   if (error) throw error;
 }
+
+/** 0484 : le brouillon du samedi (un choix par compte et par semaine, enregistré au clic). */
+export interface BrouillonSamedi {
+  choix: ChoixSamedi;
+  raison: { code: string; detail: string } | null;
+}
+
+export async function lireBrouillonsSamedi(lundi: string): Promise<Map<string, BrouillonSamedi>> {
+  const { data, error } = await supabase.rpc("samedi_brouillons_lire", { p_lundi: lundi });
+  if (error) throw error;
+  const rows = (data ?? []) as { compte_id: string; choix: ChoixSamedi; raison: BrouillonSamedi["raison"] }[];
+  return new Map(rows.map((b) => [b.compte_id, { choix: b.choix, raison: b.raison ?? null }]));
+}
+
+export async function noterBrouillonSamedi(
+  lundi: string,
+  compteId: string,
+  choix: ChoixSamedi,
+  raison: BrouillonSamedi["raison"] = null,
+): Promise<void> {
+  const { error } = await supabase.rpc("samedi_brouillon_noter", { p_lundi: lundi, p_compte: compteId, p_choix: choix, p_raison: raison });
+  if (error) throw error;
+}

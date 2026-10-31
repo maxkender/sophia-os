@@ -125,7 +125,9 @@ export function evaluerCompte(
   const recrue = Boolean(c.cohorte_lundi && c.cohorte_lundi > o.lundi);
   const signaux: Signal[] = [];
   const nudge = Boolean(c.nudge_envoye_at);
-  if (recrue) {
+  if (recrue && o.page === "samedi") {
+    // Lundi 2/11 : le samedi ne juge pas la cohorte qui arrive (vérifiée le dimanche soir).
+  } else if (recrue) {
     // La cohorte qui arrive : ses étapes, ses relances, sa dernière réaction.
     const pret = Boolean(x && x.connecte && x.tiktok_trouve && x.start_warmup && (x.abonnements ?? 0) >= 5);
     const sansReaction = Boolean(x && x.relances > 0 && !x.derniere_reaction_at && !pret);
@@ -167,7 +169,9 @@ export function evaluerCompte(
     proposition = "double";
     raison = "double";
   } else if (recrue) {
-    if (premier === "recrue_sans_reaction") [proposition, raison] = ["kill", "recrue_sans_reaction"];
+    // Lundi 2/11 : le samedi ne propose rien pour la cohorte qui arrive (Keep) ; le jeudi garde sa règle.
+    if (o.page === "samedi") [proposition, raison] = ["keep", "recrue_dimanche"];
+    else if (premier === "recrue_sans_reaction") [proposition, raison] = ["kill", "recrue_sans_reaction"];
     else if (premier === "recrue_etapes") [proposition, raison] = ["reporter", "recrue_etapes"];
   } else if (premier === "zero_post") [proposition, raison] = ["kill", "zero_post"];
   else if (premier === "jours_manques") {

@@ -358,7 +358,7 @@ export const fr = {
             propositions: { kill: "Kill", keep: "Keep", double: "Double", recreate: "Recreate", repondre: "Répondre", reporter: "Reporter" },
             raisons: {
               rien: "rien à changer", double: "bonnes vues (contrôle du samedi)", recrue_sans_reaction: "aucune réaction aux relances",
-              recrue_etapes: "pas prête : reporter d'une semaine", zero_post: "aucun post cette semaine", jours_manques_kill: "2 posts ou moins",
+              recrue_etapes: "pas prête : reporter d'une semaine", recrue_dimanche: "cohorte qui arrive : vérifiée dimanche soir", zero_post: "aucun post cette semaine", jours_manques_kill: "2 posts ou moins",
               jours_manques_keep: "poste malgré les trous", shadowban: "shadowban supposé", mort: "compte mort",
               liens_introuvables: "vérifier les liens avec le posteur", sans_contrat: "relier le contrat d'abord (Kill bloqué)",
               message_recu: "répondre au message", surveiller: "petit signal, rien à faire", confiance: "de confiance",
@@ -372,6 +372,8 @@ export const fr = {
             autre: "Autre…",
             onglets: { recrues: "Recrues de la cohorte qui arrive ({{n}})", premiere: "1re semaine ({{n}})", anciens: "Anciens ({{n}})", tous: "Tous ({{n}})" },
             tousLesComptes: "Tous les comptes ({{n}})",
+            aVenir: "Cohorte qui arrive : Keep. Son warm-up est vérifié le dimanche soir (Sunday: warm-up) ; Validate n'y touche pas.",
+            brouillonErreur: "Ton choix n'a pas pu être enregistré ({{erreur}}). Il reste à l'écran jusqu'au rechargement.",
             aTraiterSeulement: "À traiter seulement",
             csv: "Export CSV",
             rienATraiter: "Rien à traiter ici.",

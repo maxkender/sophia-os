@@ -53,11 +53,13 @@ describe("prompts 12 et 14 : le statut et la proposition, en direct", () => {
     expect(evaluerCompte(bon, extras({ message_recu_at: "2026-10-30T10:00:00Z" }), O).statut).toBe("orange");
   });
 
-  it("recrues de la cohorte qui arrive : sans réaction → Kill ; étapes manquantes → Reporter", () => {
+  it("recrues de la cohorte qui arrive : le samedi, Keep sans signal ; le jeudi, sans réaction → Kill, étapes manquantes → Reporter", () => {
     const r = compte({ cohorte_lundi: "2026-11-02", jours: [], prevus_passes: 0, lien_passes: 0, lien_total: 0 });
     expect(ongletDe(r, O.lundi)).toBe("recrues");
-    expect(evaluerCompte(r, extras({ connecte: false, relances: 3 }), O)).toMatchObject({ statut: "rouge", proposition: "kill", recrue: true });
-    expect(evaluerCompte(r, extras({ start_warmup: false, relances: 1, derniere_reaction_at: "2026-10-29T10:00:00Z" }), O))
+    expect(evaluerCompte(r, extras({ connecte: false, relances: 3 }), O)).toMatchObject({ statut: "ok", proposition: "keep", recrue: true });
+    const J = { ...O, page: "jeudi" as const };
+    expect(evaluerCompte(r, extras({ connecte: false, relances: 3 }), J)).toMatchObject({ statut: "rouge", proposition: "kill", recrue: true });
+    expect(evaluerCompte(r, extras({ start_warmup: false, relances: 1, derniere_reaction_at: "2026-10-29T10:00:00Z" }), J))
       .toMatchObject({ statut: "orange", proposition: "reporter" });
   });
 

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import {
   Siren,
   CircleAlert,
+  ClipboardCheck,
   AtSign,
   BarChart3,
   BookOpen,
@@ -264,6 +265,12 @@ export function AdminLayout() {
               label: t("nav.analytics"),
               icon: BarChart3,
               description: t("navDesc.analytics"),
+            },
+            {
+              to: "/admin/quality-control",
+              label: t("nav.qualite"),
+              icon: ClipboardCheck,
+              description: t("navDesc.qualite"),
             },
             {
               to: "/admin/suivi-rc",

@@ -16,6 +16,8 @@ import { identiteSlack, urlConnexionSlack } from "../_shared/slack_connect.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
 import { lireProfilTiktokFiable as lireProfilTiktok, lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
 import { lireProfilApify } from "../_shared/apify.ts";
+import { generateTextFast } from "../_shared/gemini.ts";
+import { estAnglais, lireTraduction, type PostQc, promptTraduction } from "../_shared/qc_traduction.ts";
 import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
@@ -94,6 +96,57 @@ type Supabase = ReturnType<typeof serviceClient>;
  * Le bouton Done des messages arrive dans `slack-interactions`.
  * Secrets : SLACK_HM_BOT_TOKEN (le bot « Sophia OS »), CRON_SECRET.
  */
+/**
+ * 31/10 — Quality Control : tire les 10 posts par label du jour (qc_tirer,
+ * une seule fois) puis traduit en anglais ceux qui ne le sont pas, un appel
+ * par label et par lot de 10, dans un budget de 100 s (la page rappelle tant
+ * qu'il en reste). Anglais d'origine : repris tel quel.
+ */
+async function traduireQc(supabase: Supabase, jour: string) {
+  const { data: tires, error: e1 } = await supabase.rpc("qc_tirer", { p_jour: jour });
+  if (e1) return { ok: false, error: e1.message };
+  const { data, error } = await supabase.from("qc_echantillons")
+    .select("id, label_nom, langue, textes_orig").eq("jour", jour).is("textes_en", null).order("label_nom");
+  if (error) return { ok: false, error: error.message };
+  const lignes = (data ?? []) as { id: string; label_nom: string | null; langue: string | null; textes_orig: { texte?: string }[] }[];
+  const debut = Date.now();
+  let traduits = 0;
+  const erreurs: string[] = [];
+  const lots = new Map<string, PostQc[]>();
+  for (const l of lignes) {
+    const post: PostQc = { id: l.id, langue: l.langue, slides: (l.textes_orig ?? []).map((s) => ({ texte: String(s?.texte ?? "") })) };
+    if (estAnglais(l.langue) || post.slides.every((s) => !s.texte.trim())) {
+      await supabase.from("qc_echantillons").update({ textes_en: post.slides.map((s) => s.texte), traduit_at: new Date().toISOString(), erreur: null }).eq("id", l.id);
+      traduits++;
+      continue;
+    }
+    const cle = l.label_nom ?? "?";
+    lots.set(cle, [...(lots.get(cle) ?? []), post]);
+  }
+  for (const [label, posts] of lots) {
+    for (let i = 0; i < posts.length; i += 10) {
+      if (Date.now() - debut > 100_000) break;
+      const lot = posts.slice(i, i + 10);
+      try {
+        const lu = lireTraduction(await generateTextFast(promptTraduction(lot)), lot);
+        for (const post of lot) {
+          const en = lu.get(post.id);
+          if (en) {
+            await supabase.from("qc_echantillons").update({ textes_en: en, traduit_at: new Date().toISOString(), erreur: null }).eq("id", post.id);
+            traduits++;
+          } else {
+            await supabase.from("qc_echantillons").update({ erreur: "traduction illisible, réessayée au prochain passage" }).eq("id", post.id);
+          }
+        }
+      } catch (e) {
+        erreurs.push(`${label} : ${messageErreur(e)}`);
+      }
+    }
+  }
+  const { count } = await supabase.from("qc_echantillons").select("id", { count: "exact", head: true }).eq("jour", jour).is("textes_en", null);
+  return { ok: true, jour, tires: tires ?? 0, traduits, restants: count ?? 0, erreurs };
+}
+
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   try {
@@ -187,6 +240,12 @@ Deno.serve(async (request) => {
         // Toutes les 5 min de 18:00 à 19:55 (Paris) : chaque passage relève ce qui ne l'a pas été depuis 1 h.
         if (cron && !body.force && !(p.isoJour === 7 && (p.heure === 18 || p.heure === 19))) return json({ ok: true, ignore: "pas dimanche 18-20 h" });
         return json(await releverCohorte(supabase, typeof body.lundi === "string" ? body.lundi : null));
+      }
+      case "qc_traduire": {
+        // 31/10 : Quality Control. Le cron (5-7 h Paris) tire et traduit la veille ; la page peut aussi le lancer.
+        const p = maintenantParis();
+        const jour = typeof body.jour === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.jour) ? body.jour : ajouterJours(p.jour, -1);
+        return json(await traduireQc(supabase, jour));
       }
       case "releve_warmup_planifie": {
         const p = maintenantParis();

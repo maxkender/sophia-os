@@ -47,6 +47,7 @@ import { AdminAnglesPage } from "@/pages/admin/AdminAnglesPage";
 import { AdminLabelsPage } from "@/pages/admin/AdminLabelsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
+import { PageQualite } from "@/features/qualite/PageQualite";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
 import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
 import { AdminReferralsPage } from "@/pages/admin/AdminReferralsPage";
@@ -143,6 +144,7 @@ export function AppRouter() {
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
               <Route path="/admin/suivi-rc" element={<AdminSuiviRcPage />} />
+              <Route path="/admin/quality-control" element={<PageQualite />} />
               <Route path="/admin/sources" element={<AdminSourcesPage />} />
               <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />

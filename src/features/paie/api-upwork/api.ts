@@ -259,3 +259,30 @@ export interface FinancementTest {
 export async function financerJalonTest(contratId: string): Promise<FinancementTest> {
   return await invoke("upwork", { action: "paie_test_financer", contrat_id: contratId, confirmer: true });
 }
+
+/** 31/10 (0476) : un paiement à faire à la main, avec son détail ; « Mark as paid » le note payé (rien ne part de l'OS). */
+export interface PaiementManuel {
+  id: string;
+  poster_id: string | null;
+  poster_nom: string | null;
+  contrat_id: string | null;
+  montant: number;
+  lignes: { libelle: string; montant: number }[];
+  note: string | null;
+  semaine: string | null;
+  cree_at: string;
+  fait_at: string | null;
+  fait_par_nom: string | null;
+  lien: string | null;
+}
+
+export async function lirePaiementsManuels(): Promise<PaiementManuel[]> {
+  const { data, error } = await supabase.rpc("paie_manuels_liste");
+  if (error) throw error;
+  return (data ?? []) as PaiementManuel[];
+}
+
+export async function noterPaiementManuelFait(id: string): Promise<void> {
+  const { error } = await supabase.rpc("paie_manuel_fait", { p_id: id });
+  if (error) throw error;
+}

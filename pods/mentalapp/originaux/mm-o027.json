@@ -1,0 +1,551 @@
+{
+ "id": "mm-o027",
+ "titre": "tier list of Dopamine detox moves pt2",
+ "position_app": 2,
+ "legendes": {
+  "en": "dopamine detox moves, ranked again #dopaminedetox #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les moves de détox dopamine, reclassés #detoxdopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Dopamin-Detox-Moves, neu sortiert #dopamindetox #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "movimientos de detox de dopamina, otra vez #detoxdedopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "mosse di detox da dopamina, di nuovo #detoxdopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "dopamin detoksu hamleleri, yeniden #dopamindetoks #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690401294120389889/1",
+   "boite": [
+    280,
+    50,
+    520,
+    430
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "moves de",
+   "de": "Dopamin-",
+   "es": "detox de",
+   "it": "mosse detox",
+   "tr": "dopamin"
+  },
+  "bas": {
+   "en": "detox moves pt2",
+   "fr": "détox dopamine 2",
+   "de": "Detox-Moves 2",
+   "es": "dopamina pt2",
+   "it": "da dopamina 2",
+   "tr": "detoksu 2"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "which one actually worked for you?",
+  "fr": "lequel a vraiment marché pour toi ?",
+  "de": "was hat bei dir wirklich geklappt?",
+  "es": "¿cuál te funcionó de verdad?",
+  "it": "quale ha funzionato davvero per te?",
+  "tr": "sende hangisi gerçekten işe yaradı?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "resets you",
+    "fr": "te remet à zéro",
+    "de": "setzt dich zurück",
+    "es": "te resetea",
+    "it": "ti resetta",
+    "tr": "seni sıfırlar"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "a day|without phone",
+      "fr": "une journée|sans téléphone",
+      "de": "ein Tag|ohne Handy",
+      "es": "un día|sin móvil",
+      "it": "un giorno|senza telefono",
+      "tr": "telefonsuz|bir gün"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      766,
+      394,
+      110,
+      110
+     ],
+     "t": {
+      "en": "a long walk|outside",
+      "fr": "une longue|marche dehors",
+      "de": "ein langer|Spaziergang",
+      "es": "un paseo|largo",
+      "it": "una lunga|passeggiata",
+      "tr": "uzun bir|yürüyüş"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "a real book",
+      "fr": "un vrai livre",
+      "de": "ein echtes Buch",
+      "es": "un libro de verdad",
+      "it": "un libro vero",
+      "tr": "gerçek bir kitap"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "lifting",
+      "fr": "muscu",
+      "de": "Krafttraining",
+      "es": "pesas",
+      "it": "pesi",
+      "tr": "ağırlık"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "10 min|of silence",
+      "fr": "10 min|de silence",
+      "de": "10 Min.|Stille",
+      "es": "10 min|de silencio",
+      "it": "10 min|di silenzio",
+      "tr": "10 dk|sessizlik"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      452,
+      245,
+      154,
+      154
+     ],
+     "t": {
+      "en": "morning|sunlight",
+      "fr": "soleil|du matin",
+      "de": "Morgen-|sonne",
+      "es": "sol de|la mañana",
+      "it": "sole del|mattino",
+      "tr": "sabah|güneşi"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "Kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "an early night",
+      "fr": "se coucher tôt",
+      "de": "früh schlafen",
+      "es": "acostarse pronto",
+      "it": "andare a letto presto",
+      "tr": "erken yatmak"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "drinking|water",
+      "fr": "boire|de l’eau",
+      "de": "Wasser|trinken",
+      "es": "beber|agua",
+      "it": "bere|acqua",
+      "tr": "su|içmek"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "half a fix",
+    "fr": "à moitié",
+    "de": "halbe Lösung",
+    "es": "a medias",
+    "it": "a metà",
+    "tr": "yarım çözüm"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "screen time|limits",
+      "fr": "limites de|temps d’écran",
+      "de": "Bildschirmzeit-|limits",
+      "es": "límites de|tiempo de pantalla",
+      "it": "limiti di|tempo schermo",
+      "tr": "ekran süresi|sınırı"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "music|while working",
+      "fr": "musique|en bossant",
+      "de": "Musik|beim Arbeiten",
+      "es": "música|trabajando",
+      "it": "musica|lavorando",
+      "tr": "çalışırken|müzik"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "one coffee|only",
+      "fr": "un seul café",
+      "de": "nur ein Kaffee",
+      "es": "un solo café",
+      "it": "un solo caffè",
+      "tr": "tek kahve"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      273,
+      691,
+      62,
+      114
+     ],
+     "t": {
+      "en": "phone in|a drawer",
+      "fr": "téléphone|dans un tiroir",
+      "de": "Handy in|die Schublade",
+      "es": "móvil en|un cajón",
+      "it": "telefono in|un cassetto",
+      "tr": "telefon|çekmecede"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "barely helps",
+    "fr": "aide à peine",
+    "de": "hilft kaum",
+    "es": "apenas ayuda",
+    "it": "aiuta poco",
+    "tr": "az işe yarar"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "sleeping in",
+      "fr": "faire la grasse mat",
+      "de": "ausschlafen",
+      "es": "dormir hasta tarde",
+      "it": "dormire fino a tardi",
+      "tr": "geç uyanmak"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      416,
+      850,
+      116,
+      86
+     ],
+     "t": {
+      "en": "cheat meals",
+      "fr": "cheat meals",
+      "de": "Cheat Meals",
+      "es": "cheat meals",
+      "it": "cheat meal",
+      "tr": "kaçamak öğün"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "“just one hour”|of gaming",
+      "fr": "« juste une heure »|de jeu",
+      "de": "„nur eine Stunde“|zocken",
+      "es": "“solo una hora”|de juego",
+      "it": "“solo un’ora”|di gioco",
+      "tr": "“sadece bir saat”|oyun"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "long videos|instead",
+      "fr": "des vidéos longues|à la place",
+      "de": "lange Videos|stattdessen",
+      "es": "vídeos largos|en su lugar",
+      "it": "video lunghi|invece",
+      "tr": "yerine|uzun videolar"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "fake detox",
+   "fr": "fausse détox",
+   "de": "Fake-Detox",
+   "es": "falso detox",
+   "it": "finto detox",
+   "tr": "sahte detoks"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "detox,|then binge",
+     "fr": "détox,|puis rechute",
+     "de": "Detox,|dann Rückfall",
+     "es": "detox|y luego atracón",
+     "it": "detox,|poi abbuffata",
+     "tr": "detoks,|sonra tıkınma"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     272,
+     853,
+     90,
+     94
+    ],
+    "t": {
+     "en": "scrolling|another app",
+     "fr": "scroller|une autre appli",
+     "de": "in einer anderen|App scrollen",
+     "es": "scroll en|otra app",
+     "it": "scrollare|un’altra app",
+     "tr": "başka uygulamada|kaydırmak"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling|“for news”",
+     "fr": "doomscroller|« pour les infos »",
+     "de": "Doomscrolling|„für News“",
+     "es": "doomscrolling|“por las noticias”",
+     "it": "doomscrolling|“per le notizie”",
+     "tr": "“haber için”|doomscroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 31/10 : la seule livraison du jour sur la famille tier list (point 6). Reprise de mm-o002 (« Dopamine detox moves », 2 964 vues en es) en pt2 : autres items, autre couverture (l’émoji qui pleure). cta B : élément UnSwipe en dernière case du S+."
+}

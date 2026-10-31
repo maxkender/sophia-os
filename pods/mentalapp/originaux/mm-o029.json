@@ -1,0 +1,188 @@
+{
+ "id": "mm-o029",
+ "format": "carrousel",
+ "titre": "Rules I follow to protect my attention",
+ "legendes": {
+  "en": "rules I follow to protect my attention #focus #mentalmaxxing #attentionspan #selfimprovement",
+  "fr": "les règles que je suis pour protéger mon attention #concentration #mentalmaxxing #attention #developpementpersonnel",
+  "de": "Regeln, mit denen ich meine Aufmerksamkeit schütze #fokus #mentalmaxxing #aufmerksamkeit #selbstverbesserung",
+  "es": "reglas que sigo para proteger mi atención #concentracion #mentalmaxxing #atencion #superacionpersonal",
+  "it": "regole che seguo per proteggere la mia attenzione #concentrazione #mentalmaxxing #attenzione #crescitapersonale",
+  "tr": "dikkatimi korumak için uyduğum kurallar #odak #mentalmaxxing #dikkat #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7698939556371975431/1",
+   "boite": [
+    252,
+    402,
+    606,
+    726
+   ]
+  },
+  "theme": {
+   "en": "Rules I follow",
+   "fr": "Mes règles",
+   "de": "Meine Regeln",
+   "es": "Reglas que sigo",
+   "it": "Regole che seguo",
+   "tr": "Uyduğum kurallar"
+  },
+  "sous": {
+   "en": "to protect my attention",
+   "fr": "pour protéger mon attention",
+   "de": "für meine Aufmerksamkeit",
+   "es": "para proteger mi atención",
+   "it": "per proteggere l’attenzione",
+   "tr": "dikkatimi korumak için"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "No phone for the first hour",
+    "fr": "Pas de téléphone la première heure",
+    "de": "Kein Handy in der ersten Stunde",
+    "es": "Nada de móvil la primera hora",
+    "it": "Niente telefono la prima ora",
+    "tr": "İlk saat telefon yok"
+   },
+   "texte": {
+    "en": "The morning sets the tone. If the first thing I see is a feed, my brain chases it all day.",
+    "fr": "Le matin donne le ton. Si la première chose que je vois est un feed, mon cerveau le poursuit toute la journée.",
+    "de": "Der Morgen gibt den Ton an. Wenn ich zuerst einen Feed sehe, jagt mein Gehirn ihm den ganzen Tag hinterher.",
+    "es": "La mañana marca el tono. Si lo primero que veo es un feed, mi cerebro lo persigue todo el día.",
+    "it": "La mattina dà il tono. Se la prima cosa che vedo è un feed, il cervello lo insegue tutto il giorno.",
+    "tr": "Sabah günün tonunu belirler. İlk gördüğüm şey akışsa, beynim bütün gün onun peşinden koşar."
+   }
+  },
+  {
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Notifications off, all of them",
+    "fr": "Notifications coupées, toutes",
+    "de": "Alle Benachrichtigungen aus",
+    "es": "Notificaciones fuera, todas",
+    "it": "Notifiche spente, tutte",
+    "tr": "Bildirimler kapalı, hepsi"
+   },
+   "texte": {
+    "en": "Calls from family stay on. Everything else can wait until I decide to check.",
+    "fr": "Les appels de la famille restent activés. Tout le reste peut attendre que je décide de regarder.",
+    "de": "Anrufe von der Familie bleiben an. Alles andere wartet, bis ich entscheide nachzusehen.",
+    "es": "Las llamadas de la familia se quedan. Todo lo demás espera a que yo decida mirar.",
+    "it": "Le chiamate della famiglia restano attive. Tutto il resto aspetta che io decida di guardare.",
+    "tr": "Aile aramaları açık kalır. Gerisi bakmaya karar verene kadar bekleyebilir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Rule number three: no short-video apps on my phone. I deleted them with UnSwipe, so there is no daily fight.",
+    "fr": "Règle numéro trois : pas d’applis de vidéos courtes sur mon téléphone. Je les ai supprimées avec UnSwipe, donc plus de combat chaque jour.",
+    "de": "Regel Nummer drei: keine Kurzvideo-Apps auf meinem Handy. Ich habe sie mit UnSwipe gelöscht, also kein täglicher Kampf mehr.",
+    "es": "Regla número tres: nada de apps de vídeos cortos en mi móvil. Las borré con UnSwipe, así que no hay pelea diaria.",
+    "it": "Regola numero tre: niente app di video brevi sul telefono. Le ho eliminate con UnSwipe, quindi niente lotta ogni giorno.",
+    "tr": "Üçüncü kural: telefonumda kısa video uygulaması yok. UnSwipe ile sildim, her gün savaş yok."
+   }
+  },
+  {
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "One screen at a time",
+    "fr": "Un seul écran à la fois",
+    "de": "Ein Bildschirm auf einmal",
+    "es": "Una pantalla a la vez",
+    "it": "Uno schermo alla volta",
+    "tr": "Aynı anda tek ekran"
+   },
+   "texte": {
+    "en": "No phone while I watch a movie, no TV while I work. Split attention is no attention.",
+    "fr": "Pas de téléphone devant un film, pas de télé quand je bosse. Une attention divisée, c’est zéro attention.",
+    "de": "Kein Handy beim Film, kein Fernseher beim Arbeiten. Geteilte Aufmerksamkeit ist keine Aufmerksamkeit.",
+    "es": "Nada de móvil viendo una peli, nada de tele trabajando. Atención dividida es cero atención.",
+    "it": "Niente telefono durante un film, niente TV mentre lavoro. Attenzione divisa è zero attenzione.",
+    "tr": "Film izlerken telefon yok, çalışırken televizyon yok. Bölünmüş dikkat, dikkat değildir."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Bored? Walk",
+    "fr": "Ennuyé ? Marche",
+    "de": "Langeweile? Geh los",
+    "es": "¿Aburrido? Camina",
+    "it": "Annoiato? Cammina",
+    "tr": "Sıkıldın mı? Yürü"
+   },
+   "texte": {
+    "en": "When I feel the urge to scroll, I take a ten-minute walk instead. It works almost every time.",
+    "fr": "Quand j’ai envie de scroller, je fais dix minutes de marche à la place. Ça marche presque à chaque fois.",
+    "de": "Wenn ich scrollen will, gehe ich stattdessen zehn Minuten spazieren. Klappt fast jedes Mal.",
+    "es": "Cuando me entran ganas de hacer scroll, camino diez minutos. Funciona casi siempre.",
+    "it": "Quando mi viene voglia di scrollare, faccio dieci minuti a piedi. Funziona quasi sempre.",
+    "tr": "Kaydırma isteği gelince on dakika yürüyorum. Neredeyse her seferinde işe yarıyor."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "The phone sleeps outside the bedroom",
+    "fr": "Le téléphone dort hors de la chambre",
+    "de": "Das Handy schläft außerhalb",
+    "es": "El móvil duerme fuera del cuarto",
+    "it": "Il telefono dorme fuori dalla camera",
+    "tr": "Telefon yatak odası dışında uyur"
+   },
+   "texte": {
+    "en": "A cheap alarm clock changed my nights. I fall asleep faster and wake up without a feed.",
+    "fr": "Un réveil pas cher a changé mes nuits. Je m’endors plus vite et je me réveille sans feed.",
+    "de": "Ein billiger Wecker hat meine Nächte verändert. Ich schlafe schneller ein und wache ohne Feed auf.",
+    "es": "Un despertador barato cambió mis noches. Me duermo antes y me despierto sin feed.",
+    "it": "Una sveglia economica ha cambiato le mie notti. Mi addormento prima e mi sveglio senza feed.",
+    "tr": "Ucuz bir çalar saat gecelerimi değiştirdi. Daha çabuk uyuyorum ve akışsız uyanıyorum."
+   }
+  }
+ ],
+ "notes": "routine du 31/10 : accroche jamais faite chez nous (« rules I follow to protect my attention »), carrousel de règles à la 1re personne. cta C : élément UnSwipe en 3e item (slide 4), à la 1re personne."
+}

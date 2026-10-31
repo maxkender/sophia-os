@@ -102,6 +102,7 @@ import {
 } from "../_shared/paiement.ts";
 import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_shared/ckd.ts";
 import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
+import { posteurExistantDeErreur } from "../_shared/contrat_unique.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, lireCompte } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
@@ -3224,6 +3225,18 @@ async function creerEtAccueillir(
       }),
     });
     cree = await r.json().catch(() => null);
+    // 31/10 : un seul profil par contrat. La HM l'a déjà créé : l'OS ne crée
+    // rien, il relie le contrat à ce profil et envoie son welcome.
+    const existant = posteurExistantDeErreur(cree?.error);
+    if (r.status === 409 && existant) {
+      return await accueillirExistant(
+        supabase, par,
+        { contrat_id: a.contrat_id, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, hm_id: a.hm_id },
+        existant, modele, slack,
+      );
+    }
+    // Une création du même contrat est en cours (formulaire HM) : rien n'est fait, reprise au prochain passage.
+    if (r.status === 409 && cree?.error === "POSTER_EN_COURS") return { erreur: "création du même contrat en cours (formulaire HM) : reprise au prochain passage" };
     if (!r.ok || !cree?.userId) throw new Error(cree?.error ?? `HTTP ${r.status}`);
   } catch (e) {
     const erreur = `création du posteur : ${messageErreur(e)}`;

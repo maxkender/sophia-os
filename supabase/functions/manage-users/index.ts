@@ -1,4 +1,5 @@
 import { motDePasseCreation } from "../_shared/mot_de_passe.ts";
+import { contratDeUrl, erreurPosteurExistant } from "../_shared/contrat_unique.ts";
 import {
   applicationParId,
   applicationSophia,
@@ -144,6 +145,24 @@ function resoudrePremierCompte(
  * label sans application cochée ne sert personne), jamais la colonne historique
  * `labels.application_id`.
  */
+/** 31/10 : le posteur actif qui a déjà ce contrat (n° relié, ou dans l'URL saisie). */
+async function posteurDuContrat(
+  supabase: ReturnType<typeof serviceClient>,
+  contratId: string,
+): Promise<{ id: string; nom: string | null; email: string | null } | null> {
+  const { data } = await supabase.from("profiles")
+    .select("id, prenom, nom, email, created_at")
+    .eq("is_active", true)
+    .or(`upwork_contract_id.eq.${contratId},upwork_contrat_url.ilike.%/${contratId}/%,upwork_contrat_url.ilike.%/${contratId}`)
+    .order("created_at", { ascending: true })
+    .limit(5);
+  for (const p of (data ?? []) as { id: string; prenom: string | null; nom: string | null; email: string | null }[]) {
+    const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", p.id).eq("role", "poster").maybeSingle();
+    if (role) return { id: p.id, nom: [p.prenom, p.nom].filter(Boolean).join(" ") || null, email: p.email };
+  }
+  return null;
+}
+
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
   // navigateur bloque avec « Failed to send a request to the Edge Function ».
@@ -332,6 +351,13 @@ async function gererRequete(request: Request): Promise<Response> {
       if (errAuto) return json({ error: `accueil_contrat_auto : ${errAuto.message}` }, 500);
       if (auto === true) return json({ error: "ACCUEIL_AUTO" }, 409);
     }
+    // 31/10 : un seul profil par contrat Upwork, vérifié en base, avant de
+    // consommer quoi que ce soit (formulaire HM comme onboarding de l'OS).
+    const contratId = contratDeUrl(lectureContact.contact.upwork_contrat_url);
+    if (contratId) {
+      const existant = await posteurDuContrat(supabase, contratId);
+      if (existant) return json({ error: erreurPosteurExistant(existant) }, 409);
+    }
 
     // Label / répartition imposés par le recruteur. `null` = chemin historique.
     const lecture = lireChoixCompte(body, acces.role);
@@ -415,6 +441,27 @@ async function gererRequete(request: Request): Promise<Response> {
       referenceId = await referenceLibre(supabase, langue, application.id);
     }
 
+    // 31/10 : la réservation du contrat, en base et sous verrou : deux créations
+    // simultanées du même contrat passent l'une après l'autre, la 2e est refusée.
+    if (contratId) {
+      const { data: resa, error: errResa } = await supabase.rpc("poster_creation_reserver", {
+        p_contrat: contratId,
+        p_par: acces.userId === "cron" ? "os" : `${acces.role}:${acces.userId}`,
+      });
+      const r = resa as { statut?: string; poster_id?: string; nom?: string | null; email?: string | null } | null;
+      if (errResa || r?.statut !== "ok") {
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        if (errResa) return json({ error: `poster_creation_reserver : ${errResa.message}` }, 500);
+        if (r?.statut === "existe" && r.poster_id) {
+          return json({ error: erreurPosteurExistant({ id: r.poster_id, nom: r.nom ?? null, email: r.email ?? null }) }, 409);
+        }
+        return json({ error: "POSTER_EN_COURS" }, 409);
+      }
+    }
+    const libererContrat = async (posterId: string | null) => {
+      if (contratId) await supabase.rpc("poster_creation_terminer", { p_contrat: contratId, p_poster: posterId });
+    };
+
     const email = await emailDisponible(supabase, prenom, nom);
 
     const { data, error } = await supabase.auth.admin.createUser({
@@ -425,6 +472,7 @@ async function gererRequete(request: Request): Promise<Response> {
     });
 
     if (error) {
+      await libererContrat(null);
       if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
       const detail = [error.message, error.code, error.status].filter(Boolean).join(" · ");
       return json({ error: detail || `Création refusée pour ${email}` }, 400);
@@ -439,8 +487,11 @@ async function gererRequete(request: Request): Promise<Response> {
           is_active: true,
           must_change_password: roleVoulu === "poster",
           ...lectureContact.contact,
+          // 31/10 : relié au contrat tout de suite (plus d'attente de contrats_relier).
+          ...(contratId ? { upwork_contract_id: contratId } : {}),
         })
         .eq("id", data.user.id);
+      await libererContrat(data.user.id);
 
       if (roleVoulu === "hiring_manager") {
         await supabase.from("user_roles").delete().eq("user_id", data.user.id);

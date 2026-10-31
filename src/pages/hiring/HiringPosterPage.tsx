@@ -1,4 +1,5 @@
 import * as React from "react";
+import { posteurExistant } from "@/features/hiring/posteurExistant";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check, Pencil, Power, Trash2, UserPlus, X } from "lucide-react";
@@ -129,6 +130,18 @@ function ContactPosterHm({ poster }: { poster: PosterProfil }) {
   );
 }
 
+/** Ce contrat a déjà un posteur : rien n'est créé, lien vers sa fiche. */
+function PosteurExistant({ info }: { info: { id: string; nom: string; email: string } }) {
+  const { t } = useTranslation();
+  return (
+    <div className="mt-2 space-y-1 rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm" role="alert" data-testid="poster-existant">
+      <p className="font-medium">{t("hiring.posterExistant")}</p>
+      <p className="text-muted-foreground">{[info.nom, info.email].filter(Boolean).join(" · ")}</p>
+      <a className="underline" href={`#poster-${info.id}`}>{t("hiring.voirFiche")}</a>
+    </div>
+  );
+}
+
 function LignePoster({
   poster: p,
   createurs,
@@ -190,7 +203,7 @@ function LignePoster({
   });
 
   return (
-    <div className="space-y-3 rounded-lg border p-3">
+    <div className="space-y-3 rounded-lg border p-3" id={`poster-${p.id}`}>
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -424,6 +437,8 @@ export function HiringPosterPage() {
     setLangue((actuel) => langueInitiale(languesChoix, actuel));
   }, [languesChoix]);
 
+  // 31/10 : un seul envoi à la fois, même sur un double-clic plus rapide que le rendu.
+  const envoiEnCours = React.useRef(false);
   const creer = useMutation({
     mutationFn: () =>
       creerPoster({
@@ -482,8 +497,10 @@ export function HiringPosterPage() {
               if (!choixApps.verifier()) return;
               // Contrat Upwork obligatoire ; email perso facultatif (29 oct.).
               if (!contactCreationComplet(contact)) return;
+              if (envoiEnCours.current || creer.isPending) return;
+              envoiEnCours.current = true;
               setCree(null);
-              creer.mutate();
+              creer.mutate(undefined, { onSettled: () => { envoiEnCours.current = false; } });
             }}
             className="grid gap-4 sm:grid-cols-2"
           >
@@ -534,9 +551,13 @@ export function HiringPosterPage() {
                   label={t("hiring.progressIdentite")}
                 />
               )}
-              {creer.isError && (
+              {creer.isError && posteurExistant((creer.error as Error).message) ? (
+                <PosteurExistant info={posteurExistant((creer.error as Error).message)!} />
+              ) : creer.isError && (
                 <p className="mt-2 text-sm text-destructive">
-                  {(creer.error as Error).message === "NO_FREE_REFERENCE"
+                  {(creer.error as Error).message === "POSTER_EN_COURS"
+                    ? t("hiring.posterEnCours")
+                    : (creer.error as Error).message === "NO_FREE_REFERENCE"
                     ? t("posters.creationRefusee")
                     : (creer.error as Error).message === "NO_LABELS"
                       ? t("warmup.aucunLabel")

@@ -24,7 +24,7 @@ import {
   type CasNeedsYou,
 } from "./api";
 import { FicheSansCanal } from "./FicheSansCanal";
-import { estInterne, filtrer, FILTRES_VIDES, options, parCategorie, trier, type Filtres } from "./logique";
+import { estInterne, estQuestionHm, filtrer, FILTRES_VIDES, options, parCategorie, parPersonne, trier, type Filtres } from "./logique";
 
 const selectClass = "h-9 rounded-md border border-input bg-background px-2 text-sm";
 
@@ -47,7 +47,10 @@ export function PageNeedsYou() {
   const [params] = useSearchParams();
   const [f, setF] = React.useState<Filtres>(() => ({ ...FILTRES_VIDES, type: params.get("type") ?? "" }));
   const tous = lu.data ?? [];
-  const visibles = trier(filtrer(tous, f));
+  // 31/10 : les questions des HM ont leur section ; le reste est la liste principale.
+  const questionsHm = trier(filtrer(tous.filter(estQuestionHm), f));
+  const visibles = trier(filtrer(tous.filter((c) => !estQuestionHm(c)), f));
+  const personnes = parPersonne(tous);
   // 0469 : la conversation Upwork de chaque carte (posteur, ou contrat du lien).
   const conv = useConversations(visibles.map((c) => c.poster_id), visibles.map(contratDeCarte));
   const o = options(tous);
@@ -56,6 +59,10 @@ export function PageNeedsYou() {
 
   return (
     <div className="space-y-4" data-testid="needs-you">
+      {/* 31/10 : combien de cartes pour chacun, d'après le type de carte. */}
+      <p className="text-sm font-medium" data-testid="par-personne">
+        {t("needsYou.parPersonne", { lucia: personnes.lucia, max: personnes.max })}
+      </p>
       <div className="flex flex-wrap gap-2" role="group" aria-label={t("needsYou.categories")}>
         {CATEGORIES.map((c) => (
           <Button
@@ -104,6 +111,12 @@ export function PageNeedsYou() {
       <div className="space-y-2">
         {visibles.map((c) => <LigneCas key={c.cle} c={c} conv={conv.data} />)}
       </div>
+      {questionsHm.length > 0 && (
+        <section className="space-y-2" data-testid="questions-hm">
+          <h2 className="text-base font-semibold">{t("needsYou.questionsHm", { n: questionsHm.length })}</h2>
+          {questionsHm.map((c) => <LigneCas key={c.cle} c={c} conv={conv.data} />)}
+        </section>
+      )}
     </div>
   );
 }
@@ -115,7 +128,7 @@ function LigneCas({ c, conv }: { c: CasNeedsYou; conv?: Conversations }) {
   const [ok, setOk] = React.useState<string | null>(null);
   const action = useMutation({
     mutationFn: async (a: string) => {
-      if (c.type === "question_faq") {
+      if (c.type === "question_faq" || c.type === "question_hm") {
         const ids = (c.ref ?? "").split(",").filter(Boolean);
         if (a === "repondre") await repondreQuestions(ids, valeur.trim());
         else await ignorerQuestions(ids);

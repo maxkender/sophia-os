@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o050",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39b663a8-b87a-41f1-8402-b06828bc3354",
+ "titre": "6 hobbies that make you smarter without actually studying #hobbies #smartgirl #learning #selfimprovement #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "c4229613-5ba2-4376-a464-771bd6474c65"
+ ],
+ "notes": "cta B. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 7 de la boîte (parent 39b663a8, anglais) : accroche du parent mot pour mot, « 6 hobbies that make you smarter without actually studying ». Le parent avait : comprendre les objets du quotidien, un pays par semaine, quelques minutes de leçon (appli), les biais cognitifs, écouter des débats, chercher les mots inconnus. Six hobbies neufs face au parent et à sg-o047 : les visites guidées gratuites, les audioguides de musée, regarder des documentaires en version originale, les jeux de culture générale entre amis, observer les étoiles avec une appli de ciel (sans nom), une leçon de culture en 5 minutes (Sophia au milieu, cta B). Faits sans chiffre inventé. Images : cafés, jardins, salles (photos d'une actrice permises, jamais sur la slide Sophia) ; slide Sophia sur un café et un livre fermé, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1934fc5c",
+   "texte_overlay": "6 hobbies that make you\nsmarter without actually\nstudying",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "55cd211e",
+   "texte_overlay": "1. free walking tours\nlocal guides turn every street\ninto a history lesson.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "766014c6",
+   "texte_overlay": "2. museum audio guides\nthe stories behind the art\nstick far better than\nthe labels.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "95916b7a",
+   "texte_overlay": "3. a 5-minute culture lesson\na painting, a war, a planet.\nit adds up to real general\nknowledge.",
+   "texte_sophia": "3. a 5-minute culture lesson\ni do one a day with a\nmicro-learning app like the\nsophia app, with my coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2b7d7f03",
+   "texte_overlay": "4. trivia nights with friends\nyou'll never forget an answer\nyou got wrong in public.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "16ca446f",
+   "texte_overlay": "5. documentaries in the\noriginal language\nhistory and a new language\nat the same time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a289feac",
+   "texte_overlay": "6. stargazing\nlearn five constellations and\nthe myths behind them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "099757fe",
+   "texte_overlay": "which one are you\ntrying this weekend?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/8.jpg"
+  }
+ ]
+}

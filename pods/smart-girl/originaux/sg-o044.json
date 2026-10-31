@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o044",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4db6a868-3eb2-4e1d-9730-5c95cf9225f7",
+ "titre": "6 everyday words with surprising origins (part 2) #vocabulary #etymology #wordoftheday #englishwords #smartgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "95348884-2ea7-4305-abd6-17b6522424a1"
+ ],
+ "notes": "cta A. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 1 de la boîte (parent 4db6a868, anglais) : accroche du parent mot pour mot, « 6 everyday words with surprising origins ». Le parent est notre sg-o010. Six autres mots, étymologies établies (dictionnaires étymologiques) : goodbye (contraction de « God be with ye », XVIe s.), candidate (latin candidatus, « vêtu de blanc » : les candidats romains portaient une toge blanchie), window (vieux norrois vindauga, « œil du vent »), alarm (italien all'arme, « aux armes »), trivia (latin trivium, « carrefour de trois routes »), school (grec scholē, « loisir »). Aucun mot du parent repris. Images : bibliothèque, café et jardin, autres que celles du parent ; slide Sophia sur un salon avec un tableau et des fleurs, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0636c749",
+   "texte_overlay": "6 everyday words with\nsurprising origins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "060f9bde",
+   "texte_overlay": "Goodbye\n(good-BYE)\n\nA contraction of\n\"God be with ye\".\nCenturies of shortening\ngave us one short word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2000c985",
+   "texte_overlay": "Candidate\n(KAN-di-dayt)\n\nFrom Latin \"candidatus\":\ndressed in white.\nRoman candidates wore\nbright white togas.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "09fef3aa",
+   "texte_overlay": "Window\n(WIN-doh)\n\nFrom Old Norse \"vindauga\":\nthe wind's eye.\nA hole in the wall\nfor air and light.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "536e2785",
+   "texte_overlay": "Alarm\n(uh-LAHRM)\n\nFrom Italian \"all'arme\":\nto arms!\nOnce a cry to grab\nyour weapons.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6c01a4b2",
+   "texte_overlay": "Trivia\n(TRIV-ee-uh)\n\nFrom Latin \"trivium\":\nwhere three roads meet.\nA crossroads where people\nstopped to chat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "05053822",
+   "texte_overlay": "School\n(SKOOL)\n\nFrom Greek \"scholē\":\nleisure. Learning was\nwhat you did with\nyour free time.\nCollect one story like\nthis every day.",
+   "texte_sophia": "School\n(SKOOL)\n\nFrom Greek \"scholē\":\nleisure. Learning was\nwhat you did with\nyour free time. I learn\nstories like this 5 minutes\na day with a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "72c139cc",
+   "texte_overlay": "follow for more word stories\nwhich one surprised you most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/7.jpg"
+  }
+ ]
+}

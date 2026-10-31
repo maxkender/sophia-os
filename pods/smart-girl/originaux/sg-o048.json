@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o048",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "aef92ef0-4aa1-4cd5-b9da-820b561165f2",
+ "titre": "6 things that make you quietly smarter than most people #selfimprovement #smartgirl #learning #studytok #thatgirl",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta C. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 5 de la boîte (parent aef92ef0, anglais) : accroche du parent mot pour mot, « 6 things that make you quietly smarter than most people ». Le parent avait : curiosité, lire hors de ses goûts, micro-apprentissage (appli), temps sans information, changer d'avis, interroger les gens sur leur domaine. Six choses neuves : poser des questions bêtes sans honte, lire lentement, écrire pour comprendre, apprendre les mots d'un métier, regarder les choses de près (musée, nature), remplacer le scroll par une leçon (cta C). Images de la banque (cafés, intérieurs), sans texte ; slide Sophia sur une tasse de café, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "37fd15d4",
+   "texte_overlay": "6 things that make you\nquietly smarter than\nmost people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "547d9e22",
+   "texte_overlay": "1. asking the \"silly\" question.\nmost people don't know\neither. they're just\ntoo shy to ask.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5b53e327",
+   "texte_overlay": "2. reading slowly.\none page understood beats\nten pages skimmed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4c1fface",
+   "texte_overlay": "3. swapping the scroll for\none short lesson.\na painting, an empire,\na planet. 5 minutes a day.",
+   "texte_sophia": "3. swapping the scroll for\none short lesson. i open\nan app like sophia instead\nof the feed: art, history,\nscience, 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6fff7893",
+   "texte_overlay": "4. writing to understand.\nif you can write it simply,\nyou really know it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3f751743",
+   "texte_overlay": "5. learning the words of\nother people's jobs.\na nurse, a chef, a pilot.\nevery field is a new world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5522cfbe",
+   "texte_overlay": "6. looking closely.\nat a painting, a leaf,\na building. details\nteach you everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5d3f3118",
+   "texte_overlay": "which one do you\nalready do?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  }
+ ]
+}

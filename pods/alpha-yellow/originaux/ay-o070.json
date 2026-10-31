@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o070",
+ "schema_id": "ridiculously-social",
+ "titre": "How to become ridiculously easy to like #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "01aa698a-d0d2-45c3-9000-79b61a138ea7"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture neuve 50a4e1a0. essai (numéro en 0). Deuxième passage du schéma ridiculously-social (01aa698a r 2,16), sur l'angle « être apprécié » plutôt que « être sociable ». Accroches écrites : « How to become ridiculously easy to like » (retenue : promesse universelle, se traduit bien), « How to become ridiculously likeable at any party » (écartée : trop proche d'ay-o036), « How to make anyone like you in five minutes » (écartée : sonne manipulateur). Items neufs, sans reprendre ceux d'ay-o065.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50a4e1a0",
+   "texte_overlay": "How to become ridiculously\neasy to like",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688481645472664864/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Be glad to see people. A real smile, their name, \"Good to see you.\" It sounds simple, but people can feel when you're actually happy they showed up, and they love you for it.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Talk about them more than about you. Ask, listen, ask again. People walk away from a chat where they did most of the talking thinking you're one of the best people they've met.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Laugh easily, including at yourself. Spilled drink, wrong name, bad joke. Laugh it off. Easygoing people make everyone around them relax, and relaxed people like whoever caused it.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Share what you learn. I do five minutes a day of history, art or science, and I always have a fun fact for whoever I'm with. People like the guy who makes their day a bit more interesting.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a fun fact for whoever I'm with, and people like the guy who makes their day interesting.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Say nice things about people behind their back. \"Tom is honestly the most reliable guy I know.\" It always gets back to them, and everyone trusts the guy who never talks badly about others.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Offer help before you're asked. Carry a bag, hold a door, lend a charger. Small, quick, no big deal. Kindness that doesn't wait to be asked is one of the most likeable things there is.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Don't complain. Not about the weather, the queue, the traffic. Light, positive energy is magnetic, and the guy who stays upbeat is the one everyone wants around.",
+   "media_id": "26e760de"
+  }
+ ]
+}

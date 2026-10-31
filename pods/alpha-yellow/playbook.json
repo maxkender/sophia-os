@@ -1,5 +1,5 @@
 {
-  "maj_le": "2026-10-30",
+  "maj_le": "2026-10-31",
   "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Une accroche ne s'écrit que sur un schéma actif.",
   "schemas": [
     {
@@ -32,23 +32,23 @@
         {
           "type": "os",
           "contenu_id": "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
-          "r_median": 1.89,
-          "publies": 23,
-          "releve_le": "2026-10-30"
+          "r_median": 1.8,
+          "publies": 25,
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708",
           "r_median": 1.54,
           "publies": 13,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "561faa99-1dc0-4976-8643-66149e6b40b9",
-          "r_median": 2.3,
+          "r_median": 2.24,
           "publies": 6,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "note": "original du pod ay-o001"
         }
       ]
@@ -81,9 +81,9 @@
         {
           "type": "os",
           "contenu_id": "4674dd61-a5d0-4e34-b63a-d2b8ccf331a5",
-          "r_median": 2.26,
+          "r_median": 2,
           "publies": 17,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "note": "original du pod ay-o003"
         }
       ]
@@ -116,16 +116,16 @@
         {
           "type": "os",
           "contenu_id": "ee79c00a-c7d9-4754-87bd-4c21798a3161",
-          "r_median": 2.2,
+          "r_median": 2.22,
           "publies": 12,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "dde4847b-7b0c-4a50-9646-2f224c6e0a8e",
-          "r_median": 4.58,
-          "publies": 10,
-          "releve_le": "2026-10-30",
+          "r_median": 2.53,
+          "publies": 11,
+          "releve_le": "2026-10-31",
           "note": "original du pod ay-o004"
         }
       ]
@@ -174,9 +174,9 @@
         {
           "type": "os",
           "contenu_id": "7f1b3e18-7b9b-4fc0-866a-100a70a7bc68",
-          "r_median": 4.4,
-          "publies": 6,
-          "releve_le": "2026-10-30",
+          "r_median": 4.35,
+          "publies": 7,
+          "releve_le": "2026-10-31",
           "note": "original du pod ay-o005"
         }
       ]
@@ -217,9 +217,9 @@
         {
           "type": "os",
           "contenu_id": "7c5066c9-2762-49cf-81a3-b00caabf5fde",
-          "r_median": 1.77,
-          "publies": 13,
-          "releve_le": "2026-10-30",
+          "r_median": 2.18,
+          "publies": 14,
+          "releve_le": "2026-10-31",
           "note": "original du pod ay-o006"
         }
       ]
@@ -256,23 +256,23 @@
         {
           "type": "os",
           "contenu_id": "51759eba-2baa-40c2-90dc-2ab9d65273db",
-          "r_median": 4.48,
+          "r_median": 4.4,
           "publies": 24,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "114f61ce-f972-4879-b886-01694a747522",
           "r_median": 4.6,
           "publies": 21,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "409a91e1-6766-4163-afbd-e39949f78261",
-          "r_median": 2.02,
-          "publies": 22,
-          "releve_le": "2026-10-30"
+          "r_median": 1.42,
+          "publies": 25,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -295,30 +295,30 @@
         {
           "type": "os",
           "contenu_id": "7ecc8796-4f49-4b3e-abbc-3a111dee2030",
-          "r_median": 1.53,
+          "r_median": 1.57,
           "publies": 14,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "5d42b2c3-cb27-427a-b7fa-0397ca7f68c9",
-          "r_median": 1.43,
+          "r_median": 1.41,
           "publies": 16,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "4b1c178e-a684-4cde-878a-208022731b43",
-          "r_median": 2.03,
-          "publies": 19,
-          "releve_le": "2026-10-30"
+          "r_median": 1.65,
+          "publies": 22,
+          "releve_le": "2026-10-31"
         },
         {
           "type": "os",
           "contenu_id": "35ee3b67-4a34-44e5-bd97-bc66a82764dd",
           "r_median": 2.02,
           "publies": 15,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -337,9 +337,9 @@
         {
           "type": "os",
           "contenu_id": "5490f976-0b6e-404f-b6f1-ae7d41b7901e",
-          "r_median": 1.59,
+          "r_median": 1.58,
           "publies": 25,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -404,9 +404,9 @@
         {
           "type": "os",
           "contenu_id": "b4a1d805-b744-4f4a-ad38-38977aae7f91",
-          "r_median": 2.49,
-          "publies": 24,
-          "releve_le": "2026-10-30"
+          "r_median": 3.01,
+          "publies": 25,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -426,9 +426,9 @@
         {
           "type": "os",
           "contenu_id": "df13ebcb-80f6-4648-9668-aa95ef699f53",
-          "r_median": 4.44,
-          "publies": 17,
-          "releve_le": "2026-10-30"
+          "r_median": 3.57,
+          "publies": 19,
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -449,7 +449,7 @@
           "contenu_id": "31f54402-9562-43a3-a934-85631ea2f0ed",
           "r_median": 1.79,
           "publies": 24,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -470,7 +470,7 @@
           "contenu_id": "40a51d1d-49d3-4231-ac5f-31f01177641c",
           "r_median": 2.12,
           "publies": 15,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -489,9 +489,9 @@
         {
           "type": "os",
           "contenu_id": "411606fc-9da8-4979-808a-0a7eed69ab35",
-          "r_median": 2.13,
+          "r_median": 2.17,
           "publies": 15,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -510,9 +510,9 @@
         {
           "type": "os",
           "contenu_id": "036a6e38-4fd5-412f-a724-4cce3e802284",
-          "r_median": 2.21,
+          "r_median": 2.02,
           "publies": 16,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -531,9 +531,9 @@
         {
           "type": "os",
           "contenu_id": "a1a86f6f-83a2-4adc-8b83-10b6556f4a52",
-          "r_median": 2.44,
+          "r_median": 2.43,
           "publies": 12,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
         }
       ]
     },
@@ -552,9 +552,72 @@
         {
           "type": "os",
           "contenu_id": "bb4d1fa4-e515-47ed-8b18-b5319efeec8a",
-          "r_median": 2.18,
+          "r_median": 2.17,
           "publies": 7,
-          "releve_le": "2026-10-30"
+          "releve_le": "2026-10-31"
+        }
+      ]
+    },
+    {
+      "id": "ridiculously-social",
+      "schema": "How to become ridiculously social",
+      "exemples": [
+        "how to become rodiculously social"
+      ],
+      "pourquoi": "r 2,16 sur 3 passages chez nous (01aa698a, @_thecharismacode), famille gagnante de la boîte BLEO. Gestes sociaux concrets, ton positif.",
+      "inspiration_contenus": [
+        "01aa698a-d0d2-45c3-9000-79b61a138ea7"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "01aa698a-d0d2-45c3-9000-79b61a138ea7",
+          "r_median": 2.16,
+          "publies": 3,
+          "releve_le": "2026-10-31"
+        }
+      ]
+    },
+    {
+      "id": "attractive-habits",
+      "schema": "N habits that make you more attractive",
+      "exemples": [
+        "5 habbits that make you more attractive"
+      ],
+      "pourquoi": "r 2,15 sur 8 passages chez nous (27300774, @rockyjune00). Habitudes concrètes, soin de soi et attitude, jamais de manipulation.",
+      "inspiration_contenus": [
+        "27300774-f99e-40b5-b520-e5cf85b0b7e4"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "27300774-f99e-40b5-b520-e5cf85b0b7e4",
+          "r_median": 1.98,
+          "publies": 8,
+          "releve_le": "2026-10-31"
+        }
+      ]
+    },
+    {
+      "id": "messy-life-routine",
+      "schema": "The routine that fixes a messy life",
+      "exemples": [
+        "the routine that fixed my messy life (save and try)"
+      ],
+      "pourquoi": "r 2,07 sur 9 passages chez nous (9990132c, @rockyjune00). Une routine concrète à enregistrer. On écrit à la 2e personne pour ne pas faire parler la star de la photo.",
+      "inspiration_contenus": [
+        "9990132c-e99b-42fb-bc3d-b40d42e99b3f"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "9990132c-e99b-42fb-bc3d-b40d42e99b3f",
+          "r_median": 1.96,
+          "publies": 9,
+          "releve_le": "2026-10-31"
         }
       ]
     }
@@ -568,28 +631,28 @@
           "type": "os",
           "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
           "r_median": 0.28,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "publies": 5
         },
         {
           "type": "os",
           "contenu_id": "a186bf8f-9a90-4438-b3ee-e1a5e2b81c14",
           "r_median": 0.29,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "publies": 10
         },
         {
           "type": "os",
           "contenu_id": "3e9988c3-bd5e-48d8-95d9-c1948b920d59",
           "r_median": 0.59,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "publies": 6
         },
         {
           "type": "os",
           "contenu_id": "63d2a455-b017-452e-912c-1fc7c7548942",
           "r_median": 0.45,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "publies": 12
         }
       ]
@@ -624,7 +687,7 @@
           "type": "os",
           "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
           "r_median": 0.28,
-          "releve_le": "2026-10-30",
+          "releve_le": "2026-10-31",
           "publies": 5
         }
       ]

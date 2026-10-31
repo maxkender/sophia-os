@@ -18,6 +18,7 @@ import { GrandInterrupteur } from "./GrandInterrupteur";
 import { CarteAujourdhui, CarteSemaine, SanteAuto } from "./Overview";
 import { PageAuto } from "./PageAuto";
 import { PageLogs } from "./PageLogs";
+import { PageProblemes } from "./PageProblemes";
 import { PageRecruits } from "./PageRecruits";
 import { ContratsTest } from "./test/ContratsTest";
 
@@ -99,6 +100,14 @@ export function NeedsYouPage() {
   return (
     <PageAuto cle="needs">
       <PageNeedsYou />
+    </PageAuto>
+  );
+}
+
+export function ProblemsPage() {
+  return (
+    <PageAuto cle="problems">
+      <PageProblemes />
     </PageAuto>
   );
 }

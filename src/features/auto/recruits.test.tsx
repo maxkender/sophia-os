@@ -100,9 +100,11 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     expect(within(carte).getByText("anas@sophia.com")).toBeTruthy();
     expect(within(carte).getByText("not on Slack")).toBeTruthy();
     expect([...carte.querySelectorAll("[data-etape-faite]")].map((e) => e.getAttribute("data-etape-faite"))).toEqual(["false", "true", "false", "false", "false"]);
-    expect(within(carte).getByText(/On it!/)).toBeTruthy();
+    expect(within(within(carte).getByTestId("messages")).getByText(/On it!/)).toBeTruthy();
     expect(within(carte).getByTestId("prochaine").textContent).toMatch(/waiting in To approve/);
     expect(carte.getAttribute("data-etape")).toBe("slack");
+    // Le contexte en une ligne : il a répondu le 28 Oct.
+    expect(within(carte).getByTestId("resume-contexte").textContent).toMatch(/Replied.*Replied on 28 Oct \(upwork\): “On it!”/);
     // Le compte TikTok dans un nouvel onglet ; Nudge on Upwork : le message de sa situation (pas sur Slack → le lien Slack).
     const tiktok = within(carte).getByTestId("lien-tiktok");
     expect([tiktok.getAttribute("href"), tiktok.getAttribute("target")]).toEqual(["https://www.tiktok.com/@ana.pt", "_blank"]);

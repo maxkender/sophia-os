@@ -13,6 +13,7 @@ import {
   FaqPage,
   LogsPage,
   NeedsYouPage,
+  ProblemsPage,
   DisputesPage,
   OverviewPage,
   PayrollPage,
@@ -113,6 +114,7 @@ export function AppRouter() {
             <Route path="/admin/auto/sent" element={<SentPage />} />
             <Route path="/admin/auto/received" element={<ReceivedPage />} />
             <Route path="/admin/auto/needs-you" element={<NeedsYouPage />} />
+            <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />

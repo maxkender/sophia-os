@@ -12,6 +12,7 @@ import { BoutonsTest } from "@/features/auto/test/ContratsTest";
 import { reporterRecrue } from "@/features/cohortes/api";
 import { demanderArretSamedi } from "@/features/ckd/decisions/semaineComptes";
 import { envoyerSurUpwork } from "@/features/pipeline/api";
+import { useReglages } from "@/features/reglagesOs/useReglages";
 import { type Conversation, useConversations, conversationDe } from "@/features/upwork/conversation";
 import { LienConversation } from "@/features/upwork/LienConversation";
 import { localeDate } from "@/locales/localeDate";
@@ -32,6 +33,7 @@ import {
   type RecrueOnboarding,
   type ReleveRecrue,
 } from "./api";
+import { type Canal, CLE_NUDGES, composerNudge, envoyerNudge, joignable, lireNudges, situation } from "./nudges";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -53,6 +55,8 @@ function CarteRecrue({
   recus = [],
   conv,
   ecart,
+  modeles,
+  lienSlack = "",
 }: {
   r: RecrueOnboarding;
   releve?: ReleveRecrue;
@@ -60,6 +64,10 @@ function CarteRecrue({
   conv?: Conversation;
   /** 0470 : « Lives in X, job post Y » (créé avec le pays de l'annonce). */
   ecart?: string;
+  /** Les messages par situation (réglage onboarding_nudges). */
+  modeles?: Record<string, string>;
+  /** Le lien d'invitation Slack (réglage slack_lien_invitation). */
+  lienSlack?: string;
 }) {
   const { t } = useTranslation();
   const { le, jour } = useFormats();
@@ -68,6 +76,21 @@ function CarteRecrue({
   const [ecrire, setEcrire] = React.useState(false);
   const [texte, setTexte] = React.useState("");
   const [bilan, setBilan] = React.useState<string | null>(null);
+  // Nudge on Upwork / Nudge on Slack : le message de sa situation, modifiable avant l'envoi.
+  const [nudge, setNudge] = React.useState<Canal | null>(null);
+  const [texteNudge, setTexteNudge] = React.useState("");
+  const ouvrirNudge = (canal: Canal) => {
+    setNudge(canal);
+    setTexteNudge(composerNudge((modeles ?? lireNudges(null))[situation(r)], r, canal, lienSlack));
+  };
+  const envoyerLeNudge = useMutation({
+    mutationFn: () => envoyerNudge(r.poster_id, nudge!, texteNudge.trim()),
+    onSuccess: () => {
+      setBilan(t(nudge === "slack" ? "onboardingPosters.nudges.parti_slack" : "onboardingPosters.nudges.parti_upwork"));
+      setNudge(null);
+      recharger();
+    },
+  });
   const recharger = () => void qc.invalidateQueries({ queryKey: ["onboarding"] });
   const envoyer = useMutation({
     mutationFn: () => envoyerSurUpwork(r.poster_id, texte.trim(), "onboarding"),
@@ -94,7 +117,7 @@ function CarteRecrue({
     },
   });
   const contrat = r.contrat_url ?? (r.contrat_id ? `https://www.upwork.com/nx/wm/workroom/${r.contrat_id}/overview` : null);
-  const erreur = envoyer.error ?? reporter.error ?? arreter.error;
+  const erreur = envoyer.error ?? envoyerLeNudge.error ?? reporter.error ?? arreter.error;
   return (
     <Card id={`recrue-${r.poster_id}`} data-recrue={r.poster_id} data-etape={etapeCourante(r)}>
       <CardContent className="space-y-3 p-4 text-sm">
@@ -127,7 +150,12 @@ function CarteRecrue({
           {r.handle && (
             <>
               <dt className="text-muted-foreground">{t("onboardingPosters.handle")}</dt>
-              <dd>@{r.handle}</dd>
+              <dd>
+                {/* Le compte TikTok, dans un nouvel onglet. */}
+                <a className="underline" href={`https://www.tiktok.com/@${r.handle}`} target="_blank" rel="noreferrer" data-testid="lien-tiktok">
+                  @{r.handle}
+                </a>
+              </dd>
             </>
           )}
           {/* Prompt 25 MAJ, 7b : l'âge du dernier relevé lisible (une relance sur le compte n'en utilise qu'un de moins de 12 h). */}
@@ -232,6 +260,12 @@ function CarteRecrue({
 
         {admin && (
           <div className="flex flex-wrap gap-2 border-t pt-2">
+            <Button size="xs" variant="secondary" disabled={!joignable(r, "upwork")} onClick={() => ouvrirNudge("upwork")} data-testid="nudge-upwork">
+              {t("onboardingPosters.nudges.upwork")}
+            </Button>
+            <Button size="xs" variant="secondary" disabled={!joignable(r, "slack")} onClick={() => ouvrirNudge("slack")} data-testid="nudge-slack">
+              {t("onboardingPosters.nudges.slack")}
+            </Button>
             <Button size="xs" variant="secondary" onClick={() => setEcrire((x) => !x)}>
               {t("onboardingPosters.ecrire")}
             </Button>
@@ -255,6 +289,27 @@ function CarteRecrue({
             >
               {t("onboardingPosters.arreter")}
             </Button>
+          </div>
+        )}
+        {nudge && (
+          <div className="space-y-2" data-testid="nudge-texte">
+            <p className="text-xs text-muted-foreground">
+              {t("onboardingPosters.nudges.situation", { etape: t(`onboardingPosters.nudges.situations.${situation(r)}`) })}
+            </p>
+            <Textarea
+              className="min-h-24 text-xs"
+              value={texteNudge}
+              aria-label={t("onboardingPosters.nudges.texte", { nom: r.nom ?? "?" })}
+              onChange={(e) => setTexteNudge(e.target.value)}
+            />
+            <div className="flex gap-2">
+              <Button size="xs" disabled={!texteNudge.trim()} loading={envoyerLeNudge.isPending} onClick={() => envoyerLeNudge.mutate()}>
+                {t(nudge === "slack" ? "onboardingPosters.nudges.envoyer_slack" : "onboardingPosters.nudges.envoyer_upwork")}
+              </Button>
+              <Button size="xs" variant="ghost" onClick={() => setNudge(null)}>
+                {t("common.cancel")}
+              </Button>
+            </div>
           </div>
         )}
         {ecrire && (
@@ -284,6 +339,88 @@ function CarteRecrue({
 }
 
 /**
+ * « Nudge all on Slack » / « Nudge all on Upwork » : chaque recrue affichée
+ * (pas finie, joignable sur ce canal) reçoit le message de sa situation.
+ * Après confirmation, un par un ; le bilan s'affiche.
+ */
+function NudgeAll({ liste, modeles, lienSlack }: { liste: RecrueOnboarding[]; modeles: Record<string, string>; lienSlack: string }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [bilan, setBilan] = React.useState<string | null>(null);
+  const cibles = (canal: Canal) => liste.filter((r) => etapeCourante(r) !== "fini" && joignable(r, canal));
+  const tous = useMutation({
+    mutationFn: async (canal: Canal) => {
+      let ok = 0;
+      const erreurs: string[] = [];
+      for (const r of cibles(canal)) {
+        try {
+          await envoyerNudge(r.poster_id, canal, composerNudge(modeles[situation(r)] ?? "", r, canal, lienSlack));
+          ok++;
+        } catch (e) {
+          erreurs.push(`${r.nom ?? r.poster_id} : ${(e as Error).message}`);
+        }
+      }
+      return { ok, erreurs };
+    },
+    onSuccess: (b) => {
+      setBilan(t("onboardingPosters.nudges.bilan", { ok: b.ok, erreurs: b.erreurs.length }) + (b.erreurs.length ? ` (${b.erreurs.slice(0, 5).join(" · ")})` : ""));
+      void qc.invalidateQueries({ queryKey: ["onboarding"] });
+    },
+  });
+  return (
+    <div className="flex flex-wrap items-center gap-2" data-testid="nudge-all">
+      {(["slack", "upwork"] as const).map((canal) => {
+        const n = cibles(canal).length;
+        return (
+          <Button
+            key={canal}
+            size="sm"
+            variant="outline"
+            disabled={n === 0 || tous.isPending}
+            loading={tous.isPending && tous.variables === canal}
+            onClick={() => {
+              if (window.confirm(t("onboardingPosters.nudges.confirmerTous", { n, canal: canal === "slack" ? "Slack" : "Upwork" }))) tous.mutate(canal);
+            }}
+          >
+            {t(canal === "slack" ? "onboardingPosters.nudges.tousSlack" : "onboardingPosters.nudges.tousUpwork", { n })}
+          </Button>
+        );
+      })}
+      {bilan && <span className="text-xs" data-testid="bilan-nudges">{bilan}</span>}
+    </div>
+  );
+}
+
+/** Le message de chaque situation (modifiable, réglage onboarding_nudges). */
+function MessagesSituations({ modeles, enregistrer }: { modeles: Record<string, string>; enregistrer: (v: Record<string, string>) => Promise<void> }) {
+  const { t } = useTranslation();
+  const [v, setV] = React.useState(modeles);
+  React.useEffect(() => setV(modeles), [modeles]);
+  const sauver = useMutation({ mutationFn: () => enregistrer(v) });
+  return (
+    <details className="rounded-md border px-3 py-2 text-sm" data-testid="messages-situations">
+      <summary className="cursor-pointer font-medium">{t("onboardingPosters.nudges.messagesTitre")}</summary>
+      <p className="mt-1 text-xs text-muted-foreground">{t("onboardingPosters.nudges.messagesAide")}</p>
+      <div className="mt-2 grid gap-2 lg:grid-cols-2">
+        {ETAPES_ONBOARDING.map((e) => (
+          <label key={e} className="space-y-1 text-xs">
+            <span className="font-medium">{t(`onboardingPosters.nudges.situations.${e}`)}</span>
+            <Textarea className="min-h-20 text-xs" value={v[e] ?? ""} onChange={(ev) => setV({ ...v, [e]: ev.target.value })} />
+          </label>
+        ))}
+      </div>
+      <div className="mt-2 flex items-center gap-2">
+        <Button size="sm" loading={sauver.isPending} onClick={() => sauver.mutate()}>
+          {t("common.save")}
+        </Button>
+        {sauver.isSuccess && <span className="text-xs text-muted-foreground">{t("onboardingPosters.nudges.enregistre")}</span>}
+        {sauver.error && <span className="text-xs text-destructive">{(sauver.error as Error).message}</span>}
+      </div>
+    </details>
+  );
+}
+
+/**
  * Prompt 25 v4 : Onboarding posters (Recruitment Automation). Une carte par
  * recrue : HM, pays, cohorte, contrat Upwork, e-mail de connexion, Slack ou
  * pas, chaque étape avec sa date, tous les messages envoyés (date, canal,
@@ -298,6 +435,11 @@ export function PageOnboarding() {
   const releves = useQuery({ queryKey: ["onboarding-releves", ids], queryFn: () => lireDerniersReleves(ids), enabled: ids.length > 0 });
   const recus = useQuery({ queryKey: ["onboarding-recus", ids], queryFn: () => lireMessagesRecus(ids), enabled: ids.length > 0 });
   const conv = useConversations(ids, (lu.data ?? []).map((r) => r.contrat_id));
+  const admin = useAuth().role === "admin";
+  // Les messages par situation et le lien Slack (réglages, modifiables dans l'OS).
+  const { lu: reglages, enregistrer } = useReglages([CLE_NUDGES, "slack_lien_invitation"]);
+  const modeles = lireNudges(reglages.data?.[CLE_NUDGES]);
+  const lienSlack = typeof reglages.data?.slack_lien_invitation === "string" ? reglages.data.slack_lien_invitation.trim() : "";
   const ecarts = useQuery({ queryKey: ["onboarding-ecarts-pays"], queryFn: lireEcartsPays });
   const [f, setF] = React.useState<FiltresOnboarding>({ hm: "", cohorte: "", etape: "" });
   const tous = lu.data ?? [];
@@ -339,6 +481,12 @@ export function PageOnboarding() {
           ))}
         </select>
       </div>
+      {admin && (
+        <div className="space-y-2">
+          <NudgeAll liste={liste} modeles={modeles} lienSlack={lienSlack} />
+          <MessagesSituations modeles={modeles} enregistrer={(v) => enregistrer.mutateAsync({ [CLE_NUDGES]: v })} />
+        </div>
+      )}
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
       {lu.data && liste.length === 0 && <p className="text-sm text-muted-foreground">{t("onboardingPosters.vide")}</p>}
       <div className="grid gap-3 lg:grid-cols-2">
@@ -350,6 +498,8 @@ export function PageOnboarding() {
             recus={recus.data?.get(r.poster_id)}
             conv={conversationDe(conv.data, { posteur: r.poster_id, contrat: r.contrat_id })}
             ecart={ecarts.data?.get(r.poster_id)}
+            modeles={modeles}
+            lienSlack={lienSlack}
           />
         ))}
       </div>

@@ -32,6 +32,9 @@ vi.mock("@/features/accueil/AccueilAuto", () => ({ AccueilAuto: () => <section d
 vi.mock("@/features/cohortes/Arrets", () => ({ Arrets: () => <section data-testid="arrets-complets" /> }));
 vi.mock("@/features/cohortes/PageCohortes", () => ({ TableauParHm: () => <section data-testid="tableau-hm" /> }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: "admin" }) }));
+vi.mock("@/features/reglagesOs/useReglages", () => ({
+  useReglages: () => ({ lu: { data: { slack_lien_invitation: "https://join.slack.com/x" } }, enregistrer: { mutateAsync: vi.fn() } }),
+}));
 
 import { PageRecruits } from "./PageRecruits";
 
@@ -100,6 +103,15 @@ describe("Onboarding posters (prompt 25 v4)", () => {
     expect(within(carte).getByText(/On it!/)).toBeTruthy();
     expect(within(carte).getByTestId("prochaine").textContent).toMatch(/waiting in To approve/);
     expect(carte.getAttribute("data-etape")).toBe("slack");
+    // Le compte TikTok dans un nouvel onglet ; Nudge on Upwork : le message de sa situation (pas sur Slack → le lien Slack).
+    const tiktok = within(carte).getByTestId("lien-tiktok");
+    expect([tiktok.getAttribute("href"), tiktok.getAttribute("target")]).toEqual(["https://www.tiktok.com/@ana.pt", "_blank"]);
+    expect((within(carte).getByTestId("nudge-slack") as HTMLButtonElement).disabled).toBe(true);
+    fireEvent.click(within(carte).getByTestId("nudge-upwork"));
+    const texte = within(within(carte).getByTestId("nudge-texte")).getByRole("textbox") as HTMLTextAreaElement;
+    expect(texte.value).toContain("Hi Ana, you're not on our Slack yet. Join now: https://join.slack.com/x");
+    expect(screen.getByRole("button", { name: "Nudge all on Slack (1)" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Nudge all on Upwork (2)" })).toBeTruthy();
     // 0470 : créée avec le pays de l'annonce, vit ailleurs.
     expect((await within(carte).findByTestId("ecart-pays")).textContent).toBe("Lives in Lithuania, job post Croatia");
   });

@@ -17,14 +17,18 @@
 --     elle est remplacée par une outro neutre dans la langue (« follow for
 --     more ») ; sauf la slide de l'appli, dont on retire seulement le handle ;
 --   - ailleurs, le handle est retiré du texte.
--- Les triggers de `contenu_langues` (slides, slides_base) appliquent la règle à
--- chaque écriture ; celui de `post_slides` retire les handles en filet (il ne
+-- Les triggers de `contenu_langues` (slides, slides_base) et de
+-- `contenu_langue_decks` (decks des autres applis) appliquent la règle à chaque
+-- écriture ; celui de `post_slides` retire les handles en filet (il ne
 -- sait pas quelle slide est la dernière d'un post en cours d'écriture).
 --
--- Nettoyés ici une fois : tous les decks de `contenu_langues`, et les slides des
--- posts pas encore publiés. Les posts publiés restent tels quels (déjà en ligne).
+-- Nettoyés ici une fois : tous les decks de `contenu_langues` et de
+-- `contenu_langue_decks`, et les slides des posts pas encore publiés. Les posts publiés restent tels quels (déjà en ligne).
 --
--- Retour arrière : supprimer les deux triggers ; les textes nettoyés ne
+-- Appliquée en plusieurs fois le 31/10 (les 12 posts du jour d'abord, par
+-- execute_sql : apply_migration attendait une confirmation qui n'arrivait pas).
+--
+-- Retour arrière : supprimer les trois triggers ; les textes nettoyés ne
 -- reviennent pas (aucun n'était voulu).
 
 set lock_timeout = '5s';
@@ -178,6 +182,22 @@ begin
 end;
 $function$;
 
+create or replace function public.contenu_langue_decks_sans_handle_tiers()
+returns trigger
+language plpgsql
+set search_path to 'public'
+as $function$
+begin
+  new.slides := public.slides_sans_handle_tiers(new.slides, new.langue);
+  return new;
+end;
+$function$;
+
+drop trigger if exists contenu_langue_decks_sans_handle_tiers on public.contenu_langue_decks;
+create trigger contenu_langue_decks_sans_handle_tiers
+  before insert or update of slides on public.contenu_langue_decks
+  for each row execute function public.contenu_langue_decks_sans_handle_tiers();
+
 drop trigger if exists post_slides_sans_handle_tiers on public.post_slides;
 create trigger post_slides_sans_handle_tiers
   before insert or update of texte_overlay on public.post_slides
@@ -206,3 +226,7 @@ update contenu_langues
    set slides = public.slides_sans_handle_tiers(slides, langue),
        slides_base = public.slides_sans_handle_tiers(slides_base, langue)
  where position('@' in coalesce(slides::text, '') || coalesce(slides_base::text, '')) > 0;
+
+update contenu_langue_decks
+   set slides = public.slides_sans_handle_tiers(slides, langue)
+ where position('@' in coalesce(slides::text, '')) > 0;

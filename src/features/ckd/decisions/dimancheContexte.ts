@@ -24,6 +24,8 @@ export interface LectureTiktok {
 }
 
 export interface ContexteRecrue {
+  /** 0501 : pour la section « Killed » (la recrue n'est plus dans la liste). */
+  nom?: string | null;
   offre_acceptee_le: string | null;
   contrat_id: string | null;
   actif: boolean;
@@ -35,6 +37,9 @@ export interface ContexteRecrue {
   abonnements: number | null;
   videos: number | null;
   relances: { n: number; derniere_at: string | null; canal: string | null } | null;
+  /** 0499 : les relances parties (8 dernières) et celles encore prévues. */
+  relances_envoyees?: { at: string; canal: string; type: string }[];
+  relances_prevues?: { at: string; canal: string | null; etape: string | null }[];
   recu: { at: string; texte: string; canal: "upwork" | "slack" } | null;
   envoye: { at: string; texte: string; canal: string } | null;
   jalon: { nom: string | null; depot: string | null; etat: string | null } | null;

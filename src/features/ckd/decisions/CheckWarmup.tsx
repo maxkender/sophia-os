@@ -63,6 +63,12 @@ function statutDe(l: LigneWarmup, c: LigneContexte | undefined): StatutDimanche 
   return l.groupe === "illisible" ? "a_verifier" : l.groupe;
 }
 
+/** « slack+upwork » → « Slack + Upwork ». */
+function canalLisible(c: string | null | undefined): string {
+  if (!c) return "?";
+  return c.split("+").map((x) => (x === "slack" ? "Slack" : x === "upwork" ? "Upwork" : x)).join(" + ");
+}
+
 /** Le contexte d'une recrue : offre, welcome, étapes, relances, messages, milestone. */
 function Contexte({ x }: { x: ContexteRecrue | undefined }) {
   const { t } = useTranslation();
@@ -87,11 +93,25 @@ function Contexte({ x }: { x: ContexteRecrue | undefined }) {
         <span>{t(`${P}.v2.follows`, { n: x.abonnements ?? "?" })}</span>
         <span className={(x.videos ?? 0) > 0 ? "text-destructive" : undefined}>{t(`${P}.v2.posts`, { n: x.videos ?? "?" })}</span>
       </p>
-      <p className="text-muted-foreground">
-        {x.relances?.n
-          ? t(`${P}.v2.relances`, { n: x.relances.n, date: jourHeure(x.relances.derniere_at), canal: x.relances.canal ?? "?" })
-          : t(`${P}.v2.aucuneRelance`)}
-      </p>
+      {/* 0499 : chaque relance partie (date, canal) et chaque relance prévue. */}
+      <div className="text-muted-foreground" data-testid="relances">
+        {(x.relances_envoyees?.length ?? 0) > 0 ? (
+          <p>
+            {t(`${P}.v2.relancesEnvoyees`)}{" "}
+            {x.relances_envoyees!.map((r) => `${jourHeure(r.at)} (${canalLisible(r.canal)})`).join(" · ")}
+          </p>
+        ) : x.relances?.n ? (
+          <p>{t(`${P}.v2.relances`, { n: x.relances.n, date: jourHeure(x.relances.derniere_at), canal: x.relances.canal ?? "?" })}</p>
+        ) : (
+          <p>{t(`${P}.v2.aucuneRelance`)}</p>
+        )}
+        {(x.relances_prevues?.length ?? 0) > 0 && (
+          <p data-testid="relances-prevues">
+            {t(`${P}.v2.relancesPrevues`)}{" "}
+            {x.relances_prevues!.map((r) => `${r.etape ?? "?"} · ${canalLisible(r.canal)} · ${t(`${P}.v2.depuis`, { date: jourHeure(r.at) })}`).join(" · ")}
+          </p>
+        )}
+      </div>
       {x.recu && (
         <p data-testid="dernier-recu">
           <span className="text-muted-foreground">{t(`${P}.v2.recu`, { canal: x.recu.canal === "slack" ? "Slack" : "Upwork", date: jourHeure(x.recu.at) })} </span>
@@ -100,7 +120,7 @@ function Contexte({ x }: { x: ContexteRecrue | undefined }) {
       )}
       {x.envoye && (
         <p className="text-muted-foreground">
-          {t(`${P}.v2.envoye`, { date: jourHeure(x.envoye.at) })} « {x.envoye.texte.slice(0, 80)} »
+          {t(`${P}.v2.envoyeCanal`, { date: jourHeure(x.envoye.at), canal: canalLisible(x.envoye.canal) })} « {x.envoye.texte.slice(0, 80)} »
         </p>
       )}
       <p className="text-muted-foreground">
@@ -192,7 +212,7 @@ function Ligne({
   const { choix: enregistre, prevu } = choixDe(l, c);
   const change = b.choix !== enregistre || (prevu && b.choix !== enregistre);
   return (
-    <tr className={cn("border-b border-border/40 align-top", x?.retrait && "bg-destructive/5")} data-warmup={l.poster_id} data-statut={statut}>
+    <tr className={cn("border-b border-border/40 align-top", x?.retrait && "border-l-4 border-l-destructive bg-destructive/10")} data-warmup={l.poster_id} data-statut={statut}>
       <td className={TD}>
         <p className="font-medium">{l.nom ?? "—"}</p>
         <p className="text-muted-foreground">{l.hm_nom ?? "—"}{l.pays ? ` · ${l.pays}` : ""}</p>
@@ -393,8 +413,9 @@ export function CheckWarmup() {
             <summary className="cursor-pointer font-medium">{t(`${P}.v2.tues`, { n: tues.length })}</summary>
             <ul className="mt-1 space-y-0.5 text-xs">
               {tues.map((x) => (
-                <li key={x.poster_id}>
-                  {t(`${P}.v2.codes.${x.ctx.kill!.code}`)}{x.ctx.kill!.detail ? ` : ${x.ctx.kill!.detail}` : ""} · {jourHeure(x.ctx.kill!.at)}
+                <li key={x.poster_id} data-tue={x.poster_id}>
+                  <span className="font-medium">{x.ctx.nom ?? "—"}</span>
+                  {x.ctx.contrat_id ? ` · ${t(`${P}.v2.contrat`, { id: x.ctx.contrat_id })}` : ""} · {t(`${P}.v2.codes.${x.ctx.kill!.code}`)}{x.ctx.kill!.detail ? ` : ${x.ctx.kill!.detail}` : ""} · {jourHeure(x.ctx.kill!.at)}
                   {x.ctx.kill!.montant ? ` · ${t(`${P}.v2.rembourser`, { montant: x.ctx.kill!.montant })}` : ""}
                 </li>
               ))}

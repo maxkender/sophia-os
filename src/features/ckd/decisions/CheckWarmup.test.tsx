@@ -62,7 +62,12 @@ describe("0474 : le check du warm-up du dimanche soir", () => {
     });
     ctxApi.lireContexteDimanche.mockResolvedValue(new Map([
       ["p1", { poster_id: "p1", statut: "risque", ctx: ctx({}) }],
-      ["p2", { poster_id: "p2", statut: "ok", ctx: ctx({ abonnements: 9 }) }],
+      ["p2", { poster_id: "p2", statut: "ok", ctx: ctx({
+        abonnements: 9,
+        relances_envoyees: [{ at: "2026-10-31T10:00:00Z", canal: "slack+upwork", type: "relance" }],
+        relances_prevues: [{ at: "2026-11-01T09:15:00Z", canal: "upwork", etape: "slack" }],
+        envoye: { at: "2026-10-31T10:00:00Z", texte: "Quick reminder", canal: "slack" },
+      }) }],
       ["p3", { poster_id: "p3", statut: "report", ctx: ctx({ start_warmup: null }) }],
       ["p4", { poster_id: "p4", statut: "a_verifier", ctx: ctx({ retrait: { source: "message", texte: "STOP", at: "2026-10-31T14:18:00Z" } }) }],
     ]) as never);
@@ -84,6 +89,15 @@ describe("0474 : le check du warm-up du dimanche soir", () => {
     const ligneAna = screen.getByText("Ana Silva").closest("tr") as HTMLElement;
     expect(within(ligneAna).getByTestId("contexte").textContent).toContain("Milestone: Week 45 · $15.00 · Active");
     expect(within(ligneAna).getByTestId("lectures").textContent).toContain("page");
+    // Kill sur toutes les lignes, quelle que soit la section.
+    for (const tr of document.querySelectorAll("tr[data-warmup]")) {
+      expect(within(tr as HTMLElement).getByRole("button", { name: "Kill" })).toBeTruthy();
+    }
+    // 0499 : relances envoyées et prévues (date, canal), notre dernier message avec son canal.
+    const ligneBruno = screen.getByText("Bruno Lima").closest("tr") as HTMLElement;
+    expect(within(ligneBruno).getByTestId("relances").textContent).toContain("(Slack + Upwork)");
+    expect(within(ligneBruno).getByTestId("relances-prevues").textContent).toContain("slack · Upwork · since");
+    expect(within(ligneBruno).getByTestId("contexte").textContent).toContain("Our last message (Slack)");
     // Un clic ne fait rien avant Validate.
     fireEvent.click(within(ligneAna).getByRole("button", { name: "Postpone" }));
     expect(api.choisirDebut).not.toHaveBeenCalled();

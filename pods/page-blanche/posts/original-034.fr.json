@@ -1,0 +1,261 @@
+{
+ "post_id": "original-034",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "comment faire pour [[retenir vraiment ce que tu lis]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(et pas l'oublier mardi)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "[[une seule phrase]] par chapitre"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "ferme le livre et résume le chapitre en une seule phrase, pas plus"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "si t'arrives pas à le résumer, c'est que [[t'as pas vraiment compris]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "ça prend deux minutes et d'un coup, ta lecture devient [[un truc qui reste]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "entraîne ta mémoire sur [[des petites leçons]]"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "un livre entier, c'est beaucoup à retenir. une idée courte par jour, tu peux [[te la repasser dans la tête]]"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "plus tu t'entraînes sur des petits trucs, [[plus les gros livres restent]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "mes 5 min du jour sur [[l'appli Sophia]] : camus et le mythe de sisyphe. court, donc facile à raconter"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "et quand tu lis, laisse ton tel dans une autre pièce"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "[[raconte-le à quelqu'un]] le jour même"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "à voix haute, pas dans ta tête"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "en l'expliquant à un pote, tu vois [[ce que t'as vraiment compris]] et ce que t'as lu en diagonale"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "pas besoin que ce soit brillant. un « j'ai lu un truc aujourd'hui » au dîner suffit pour [[que ça reste]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "souligne moins, [[écris dans la marge]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "tout surligner, ça donne l'impression de bosser. [[c'est faux]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "une petite note avec tes mots à toi [[t'oblige à réfléchir]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "une question, un « n'importe quoi », un lien avec autre chose. [[c'est ça qui reste]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "[[relie-le]] à ce que tu sais"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "une idée nouvelle qui s'accroche à rien [[ressort aussi vite]]"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "demande-toi : je l'ai déjà vu où ? un film, un cours, [[un truc de ma propre vie]] ?"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "plus elle a de liens, [[plus t'as de chemins pour la retrouver]]"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "on retient pas vraiment les livres. [[on retient ce à quoi on les a reliés]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

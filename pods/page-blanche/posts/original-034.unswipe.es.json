@@ -1,0 +1,262 @@
+{
+ "post_id": "original-034",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "cómo hacer para [[recordar de verdad lo que lees]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(y no olvidarlo el martes)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "[[una sola frase]] por capítulo"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "cierra el libro y resume ese capítulo en una sola frase, nada más"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "si no puedes resumirlo en una línea, es que [[todavía no lo has entendido]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "te lleva un minuto y hace que lo que lees se convierta en [[algo que se queda]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "[[no abras los reels]] justo al cerrar el libro"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "si cierras el libro y te vas directo a los reels, los vídeos siguientes [[tapan lo que acabas de leer]]"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "date unos minutos tranquilos después. ahí es cuando [[el capítulo se asienta]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "sin reels en instagram, cerrar el libro [[ya no te arrastra]]. los mensajes y las stories siguen"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "[[la app UnSwipe]] los quita y también puede bloquear tiktok"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "[[cuéntaselo a alguien]] el mismo día que lo lees"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "en voz alta, no en tu cabeza"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "al explicárselo a un amigo te das cuenta de [[qué partes entendiste de verdad]] y cuáles leíste por encima"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "no hace falta que suene inteligente. un «hoy he leído una cosa» en la cena basta para [[que se te quede]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "subraya menos, [[escribe en el margen]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "subrayar la página entera parece productivo. [[no lo es]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "una nota corta con tus palabras [[te obliga a pensar]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "una pregunta, un «qué dices», una conexión con otra cosa. [[eso es lo que recuerdas]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "[[conéctalo]] con lo que sabes"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "una idea nueva que no se engancha a nada [[se escapa igual de rápido]]"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "pregúntate: ¿dónde he visto esto antes? ¿una peli, una clase, [[algo de mi propia vida]]?"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "cuantas más conexiones, [[más caminos para volver a encontrarla]]"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "no recordamos los libros. [[recordamos aquello con lo que los conectamos]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

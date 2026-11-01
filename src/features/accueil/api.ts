@@ -30,6 +30,9 @@ export interface Accueil {
   ecart_pays?: string | null;
   /** L'équipe Upwork du contrat (upwork_contrats.organisation_nom). */
   equipe?: string | null;
+  /** 0493 : « hm » (contrat de HM) ou « autre_activite » (autre équipe que VIk Studios) : jamais à relier. */
+  classement?: "hm" | "autre_activite" | null;
+  classement_raison?: string | null;
 }
 
 export async function lireAccueils(): Promise<Accueil[]> {

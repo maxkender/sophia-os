@@ -5154,6 +5154,7 @@ export const fr = {
       },
       aRelier: "Contrats à relier ({{n}})",
       rienARelier: "Aucun contrat à relier.",
+      classes: { titre: "Pas des recrues ({{n}}) : contrats de HM et autres activités, ignorés", hm: "Contrat de HM", autre_activite: "Autre activité (ignoré)" },
       langue: "Langue",
       hm: "HM",
       tarif: "Tarif ($)",

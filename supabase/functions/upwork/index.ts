@@ -2823,6 +2823,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
     // Le posteur TEST de ce contrat existe déjà (Overview → Test contracts) : rien à créer.
     if (test && testDe.get(contratId)) continue;
     const connu = connuDe.get(contratId);
+    // 1/11 (0493) : classé (autre activité, contrat de HM) : jamais repris, ni profil ni welcome.
+    if (connu?.classement) continue;
     // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur). Sauf (prompt 25, 16) :
     // une recrue déjà créée par la HM, notée « doublon » avant le passage sur On, sans bienvenue :
     // sur On, la bienvenue part quand même (accueillirExistant).
@@ -2989,7 +2991,8 @@ async function localiserRecrues(supabase: Supabase, par: string | null, max = 10
 }
 
 async function localiserAccueils(supabase: Supabase, par: string | null, contrats: string[] | null) {
-  let q = supabase.from("accueils").select("*");
+  // 0493 : jamais un contrat classé (autre activité, contrat de HM) : aucune lecture à l'API pour lui.
+  let q = supabase.from("accueils").select("*").is("classement", null);
   q = contrats?.length ? q.in("contrat_id", contrats) : q.in("statut", ["a_relier", "simule", "a_creer"]);
   const { data: lignes, error } = await q;
   if (error) throw error;
@@ -3080,7 +3083,7 @@ async function creerAccueilMaintenant(
   const { data: verrou, error: errVerrou } = await supabase.from("accueils").update({
     pays, langue, hm_id: o.hm_id, relie_par: par, relie_at: new Date().toISOString(), pays_source: "main",
     ...(tarif ? { tarif } : {}), statut: "envoi", raison: "création en cours (clic)", updated_at: new Date().toISOString(),
-  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "doublon", "erreur"]).select("*");
+  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "doublon", "erreur"]).is("classement", null).select("*");
   if (errVerrou) return { ok: false, error: errVerrou.message };
   const a = verrou?.[0];
   if (!a) return { ok: false, error: "contrat introuvable ou déjà en cours de création" };
@@ -3454,6 +3457,10 @@ async function relierContrats(supabase: Supabase, par: string | null, contrats: 
     if (!confirmer || manque.length) continue;
     if (connu && !["a_relier", "simule", "a_creer", "erreur"].includes(String(connu.statut))) {
       ligne.erreur = `accueil déjà « ${connu.statut} » : rien créé`;
+      continue;
+    }
+    if (connu?.classement) {
+      ligne.erreur = `classé « ${connu.classement} » (${connu.classement_raison ?? "—"}) : rien créé`;
       continue;
     }
     const maintenant = new Date().toISOString();

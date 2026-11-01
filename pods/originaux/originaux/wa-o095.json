@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o095",
+ "titre": "what i'd tell my 20 year old self about learning #learning #lifeadvice #selfimprovement #20s #growth",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "59645e83-0d92-4383-b60f-fe2b172394a1"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 59645e83). essai : format « lettre à soi à 20 ans » (images du label : r 1,22). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5444fbca-3b52-4fc4-a068-5c58b0017424",
+   "texte_overlay": "what i'd tell my 20 year old\nself about learning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666112917439253773/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b22765a9-0bad-411f-a973-7e92af6b71ec",
+   "texte_overlay": "school isn't the end\n\nthe day you stop studying for exams is the day real learning can begin. nobody grades you anymore, so you can finally learn things just because they fascinate you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666112917439253773/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "62f53b62-4da2-4ebb-af49-51226a121074",
+   "texte_overlay": "boring is a skill\n\nlearn to sit with a book that's slow at first. the best ideas rarely arrive in the first ten pages, and patience is what separates people who understand from those who skim.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666112917439253773/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a80a9113-2b37-4db5-bbe9-30d52f9219eb",
+   "texte_overlay": "ask the stupid question\n\nask it out loud, early, and often. pretending to understand cost me years, while asking took ten seconds and usually helped someone else in the room too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666112917439253773/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ba7c3ce2-0806-4fe5-a1cb-fd256db6c489",
+   "texte_overlay": "small beats big\n\nstop waiting for a free month to learn something. 5 minutes a day on one subject, history, art, science, will take you further than any big plan you never start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666112917439253773/5.jpg",
+   "texte_sophia": "small beats big\n\nstop waiting for a free month to learn something. the Sophia app turns it into one short lesson a day, and 5 minutes daily takes you further than any big plan you never start."
+  },
+  {
+   "position": 6,
+   "media_id": "3d373edb-c5d6-46bc-be0c-2532bf51e0a4",
+   "texte_overlay": "teach what you learn\n\nexplain everything you learn to a friend, even badly. teaching is the fastest way to discover what you really understand and what you only thought you did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666112917439253773/6.jpg"
+  }
+ ]
+}

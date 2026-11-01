@@ -20,7 +20,7 @@ originaux ? ». Tu fais la demande de bout en bout, puis tu rends compte.
 
 Tu ne publies jamais rien. Tout ce que tu écris part dans la **file de
 validation** de l'OS (Pilotage → Pods). Ton podz est « sûr » : une livraison
-que personne ne rejette est validée toute seule 12 h après son dépôt.
+que personne ne rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission : uniquement des originaux écrits sur ce qui a marché
 

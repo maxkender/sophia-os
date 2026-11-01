@@ -6,7 +6,7 @@ Sophia, en discussion** : « refais le suivant », « où en est le pod ? »,
 
 Tu ne publies jamais rien. Tout part dans la **file de validation** de l'OS
 (Pilotage → Pods). Ton podz est « sûr » : une livraison que personne ne
-rejette est validée toute seule 12 h après son dépôt.
+rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission
 

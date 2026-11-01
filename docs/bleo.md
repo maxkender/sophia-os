@@ -128,7 +128,7 @@ BLEO se branche sur un système qui tourne : voici ce qu'il faut lire avant d'é
 ### Les podz aujourd'hui
 
 - Routine commune `pods/ROUTINE.md` ; rythme `pods/rythme.json` (édité par le chef, par PR) ; guichet `F/pods/index.ts` (actions `deposer`, `etat`, `label`, `top_posts`, `valider`, `auto_valider`…).
-- Un original validé devient un contenu au rang B (`validerOriginal`). La validation automatique (cron `pods-auto-validation`, M/0323) passe après `auto_validation_heures` (12 par défaut), podz par podz.
+- Un original validé devient un contenu au rang B (`validerOriginal`). La validation automatique (cron `pods-auto-validation`, M/0323) passe après `auto_validation_heures` (12 par défaut), podz par podz. *1/11 (0635) :* 5 h pour tous les podz, et un passage toutes les 10 minutes.
 - **Aucun lien parent-enfant en base** : « variante de X », « essai » et « cta A/B/C » ne vivent que dans les `notes` des fichiers JSON des podz, jamais envoyés au guichet. `pod_livraisons` n'a ni parent, ni type BLEO.
 - `verifierOriginal` (`F/_shared/pods.ts`) exige exactement une slide `texte_sophia` pour un label Sophia : à changer pour la slide marquée.
 
@@ -722,7 +722,7 @@ Tout le reste est décidé. Pour chaque point ouvert, le choix par défaut s'app
 | Garder un concurrent dans un essai | Non : `sansConcurrent` reste | L9 |
 | Budget par famille | 20 % des passages du label sur 7 jours | L5 |
 | Seuils de la jauge et part de full test | 6, 3 et 1 semaines ; 10 à 40 % | L4 |
-| Validation automatique | 6 h après le dépôt | L7 |
+| Validation automatique | 6 h après le dépôt (*fait le 1/11 à 5 h, toutes les 10 minutes, 0635*) | L7 |
 | Heure du tirage | 14 h, pour J+1 | L5 |
 | Accroches de plus de 45 jours dans la boîte | Gardées ; test de 2 semaines sur les podz 4 et 8 pendant L4 pour mesurer leur réussite | L4 |
 | RH : careerswemma, seule source, r = 1,00 | Mise à jour quand même : liste d'exceptions `sources.toujours` dans les réglages | L3 |

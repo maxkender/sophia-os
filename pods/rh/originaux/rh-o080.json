@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o080",
+ "schema_id": "job-toxique",
+ "titre": "lettre à la moi qui venait d'accepter ce job #travail #santementale #carriere #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 6. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. essai (rh-o080 finit par 0) : format « lettre à moi-même », jamais fait chez nous. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma job-toxique (r 3,11, bf49b37f). Accroches écrites : celle-ci (retenue), « ce que je dirais à moi il y a 2 ans » (écartée : connue), « chère moi du premier jour » (écartée : moins claire). Récit inventé, aucune vraie entreprise, rien de juridique. CTA de fin jamais utilisé. (écrire une ligne à son soi d'avant) Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d7266563",
+   "texte_overlay": "lettre à la moi\nqui venait d'accepter ce job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bb7fef7f",
+   "texte_overlay": "chère moi,\ntu vas croire que rester tard prouve que t'es sérieuse.\nce n'est pas vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "be90e0ea",
+   "texte_overlay": "tu vas mettre ta vie entre parenthèses\nle sport, les amis, les livres.\nreprends-les dès la première semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c186d0f0",
+   "texte_overlay": "tu vas t'excuser de demander de l'aide\narrête. c'est comme ça qu'on apprend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c3a9ef74",
+   "texte_overlay": "tu vas croire que c'est toi le problème\nnote les faits. relis-les dans un mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c3ba46ba",
+   "texte_overlay": "tu vas oublier ce qui te rendait curieuse\nmes 3 bouées : mes amis, le sport, et 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "tu vas oublier ce qui te rendait curieuse.\nmes 3 bouées : mes amis, le sport, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c4a66a5e",
+   "texte_overlay": "et un jour tu partiras\net tu seras fière de l'avoir fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c58a68fe",
+   "texte_overlay": "écris une ligne à la toi d'avant\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

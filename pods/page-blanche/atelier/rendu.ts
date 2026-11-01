@@ -7,7 +7,7 @@
 
 import { GlobalFonts, createCanvas, loadImage, type SKRSContext2D, type Image } from "@napi-rs/canvas";
 import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { dirname, isAbsolute, join } from "node:path";
 import type { Boite, ElementGeo, GeometrieSlide } from "./geometrie.ts";
 
 const ICI = dirname(fileURLToPath(import.meta.url));
@@ -19,7 +19,11 @@ const INTERLIGNE_DEFAUT = 1.21; // pas / taille, mesuré sur les blocs multi-lig
 const RETRAIT_MAX = 0.84; // on ne rétrécit jamais le texte sous 84 % de la taille d'origine
 
 /** Ce qu'on fait d'une image de la source. */
-export type ActionImage = "garder" | "sophia_capture" | "sophia_appstore" | "supprimer";
+export type ActionImage = "garder" | "sophia_capture" | "sophia_appstore" | "supprimer" | ImageRemplacee;
+
+/** Autre photo à mettre dans la zone : `boite` [x, y, l, h] découpée dans
+ * `source` (chemin relatif au dossier du pod), recadrée pour couvrir la zone. */
+export type ImageRemplacee = { remplacer: { source: string; boite: [number, number, number, number] } };
 
 export type TexteSlide = {
   /** Lignes d'origine telles qu'on les lit (anglais) : servent à calibrer la taille. */
@@ -161,6 +165,11 @@ export async function rendreSlide(
     if (action === "garder") dessinerRecadrage(ctx, imgSource, e.boite);
     else if (action === "sophia_capture") poserCapture(e.boite);
     else if (action === "sophia_appstore") poserFiche(e.boite);
+    else if (typeof action === "object" && action.remplacer) {
+      const { source: chemin, boite: [x, y, l, h] } = action.remplacer;
+      const autre = await loadImage(isAbsolute(chemin) ? chemin : join(ICI, "..", chemin));
+      dessinerCouverture(ctx, autre, { x, y, l, h }, e.boite);
+    }
   }
 
   const geoTexte: GeometrieSlide = { ...geo, elements: [...geo.elements.filter((e) => !fusionnes.has(e.id)), ...unions] };
@@ -185,6 +194,15 @@ export async function rendreSlide(
 
 function dessinerRecadrage(ctx: SKRSContext2D, source: Image, b: Boite) {
   ctx.drawImage(source, b.x, b.y, b.l, b.h, b.x, b.y, b.l, b.h);
+}
+
+/** Découpe `src` (dans `img`) au ratio de `cible`, centrée, et la pose dans `cible`. */
+function dessinerCouverture(ctx: SKRSContext2D, img: Image, src: Boite, cible: Boite) {
+  const ratio = cible.l / cible.h;
+  let { x, y, l, h } = src;
+  if (l / h > ratio) { const nl = h * ratio; x += (l - nl) / 2; l = nl; }
+  else { const nh = l / ratio; y += (h - nh) / 2; h = nh; }
+  ctx.drawImage(img, x, y, l, h, cible.x, cible.y, cible.l, cible.h);
 }
 
 /** Part de la capture retirée : barre d'état (haut) et marges (chaque côté). */

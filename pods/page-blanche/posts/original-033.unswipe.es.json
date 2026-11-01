@@ -1,0 +1,235 @@
+{
+ "post_id": "original-033",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "la regla de los 2 minutos que curó mi procrastinación"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(así de simple)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "la regla: [[empieza lo que sea 2 minutos]]"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "no terminarlo, no hacerlo bien. [[solo empezar]], 2 minutos"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "a los 2 minutos tienes permiso para parar. [[casi nunca lo haces]]"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "[[empezar es lo difícil]]. una vez dentro, seguir es mucho más fácil de lo que parecía desde el sofá"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "deberes: [[abre el doc]]"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "solo me prometo el título y una frase. lo difícil nunca fue el trabajo, [[era abrirlo]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "inspire-toi des [[classiques]]",
+     "texte": "móvil: [[espera 2 min]]"
+    },
+    "T2": {
+     "en": [
+      "people have faced ambition, failure, and hard choices",
+      "for centuries"
+     ],
+     "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]",
+     "texte": "antes de abrir una app, espero 2 minutos. móvil en mano, sin hacer nada"
+    },
+    "T3": {
+     "en": [
+      "people are more illiterate",
+      "than ever and attention",
+      "spans across the world are",
+      "being destroyed by",
+      "short-form content"
+     ],
+     "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]",
+     "texte": "casi siempre las ganas se pasan solas. y desde entonces, de verdad, [[mis tardes son mucho más largas]]"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "reading long books but i",
+      "found this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "j'arrivais plus à me concentrer, puis j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "y cuando no se pasan: ya no hay reels en mi instagram y tiktok está bloqueado. eso fue [[la app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "leer: [[solo 2 minutos con el libro]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "el libro llevaba meses en mi mesita de noche. ahora solo me prometo una página"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[una página nunca es una página]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "abrirlo siempre fue el problema. una vez dentro de la historia, 2 minutos se vuelven un capítulo entero"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "y ahora [[por fin vuelvo a terminar libros]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start lifting weights"
+     ],
+     "fr": "mets-toi [[à la muscu]]",
+     "texte": "el gym: [[solo 2 minutos]]"
+    },
+    "T2": {
+     "en": [
+      "it’s not just about looks"
+     ],
+     "fr": "y'a pas que le physique",
+     "texte": "trato: zapatillas puestas"
+    },
+    "T3": {
+     "en": [
+      "exercise boosts",
+      "dopamine, lowers",
+      "stress, and is one of",
+      "the best things you can",
+      "do for your brain"
+     ],
+     "fr": "le sport booste [[la dopamine]], [[fait chuter le stress]] et c'est le top pour [[ton cerveau]]",
+     "texte": "lo más duro nunca fue entrenar, [[era salir de casa]]. así que solo me comprometo a ir y a calentar"
+    },
+    "T4": {
+     "en": [
+      "and once you see your body change, you start",
+      "believing you can change other things too"
+     ],
+     "fr": "et quand tu vois ton corps changer, tu commences à croire que [[tu peux changer le reste aussi]]",
+     "texte": "nunca me he dado la vuelta después de los 2 minutos. [[empezar era toda la batalla]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

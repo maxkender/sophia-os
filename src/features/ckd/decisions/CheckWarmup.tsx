@@ -286,7 +286,8 @@ export function CheckWarmup() {
     if (brouillons[l.poster_id]) return brouillons[l.poster_id]!;
     const r = ctx(l.poster_id)?.ctx.retrait ?? null;
     const enregistre = choisirLigne(l);
-    if (r && !choix.data?.has(l.poster_id)) return { choix: "kill", code: codeRetrait(r) ?? "", detail: r.texte.slice(0, 120) };
+    // STOP / retrait : Kill pré-coché (même avec le Keep « garde-fou » noté pour bloquer le Start Tuesday automatique).
+    if (r) return { choix: "kill", code: codeRetrait(r) ?? "", detail: r.texte.slice(0, 120) };
     return { choix: enregistre.choix, code: "", detail: "" };
   };
   const choisirLigne = (l: LigneWarmup) => choixDe(l, choix.data?.get(l.poster_id));

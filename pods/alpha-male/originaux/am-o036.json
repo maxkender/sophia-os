@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o036",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2b34b47e-f4d3-4284-afd6-3afe031eb2fb",
+ "titre": "6 ways to be disgustingly manly #men #respect #selfimprovement #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7607192688017885974",
+ "inspirations": [
+  "2b34b47e-f4d3-4284-afd6-3afe031eb2fb"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». Ici Sophia est au 3e moyen sur 6. Répétition BLEO du 1/11 (ROUTINE.md, exception podz 8 et 9). Déclinaison G1 de la ligne 2 de la boîte (parent 2b34b47e, en, @millyjhino ; meilleur passage pl 15,6 k vues, r 3,49). Accroche du parent mot pour mot. Format du parent : un titre « X: », des lignes courtes, une phrase de sens. Moyens neufs, aucun du parent (s'asseoir avec tout le monde, donner, être mauvais, porter, conduire, s'interposer) ni du label (vérifié). Images : la banque, sans visage ; slide Sophia sur une bibliothèque sans personne. reference_url du parent (sa slide 1 manque : 400, remplacée par la 2), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "02867b09",
+   "texte_overlay": "6 ways to be disgustingly manly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1232db26",
+   "texte_overlay": "1. Rerack Your Weights:\n\nEvery plate. Every dumbbell.\nThe next man shouldn't\nclean up after you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4e1b89a3",
+   "texte_overlay": "2. Show Up For\nThe Hard Days:\n\nThe funeral. The hospital.\nThe moving day.\nAnyone can come to the party.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5109dbca",
+   "texte_overlay": "3. Know A Little\nAbout Everything:\n\nHistory, science, art.\nLearn a little every day.\nA man who knows things\nis easy to trust.",
+   "texte_sophia": "3. Know A Little\nAbout Everything:\n\nLearn one thing a day\non the Sophia app: 5 minutes\nof history, science or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "22228ad9",
+   "texte_overlay": "4. Remember The Names\nOf People Who Serve You:\n\nThe barista. The guard.\nThe cleaner.\nRespect doesn't check titles.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12812cb9",
+   "texte_overlay": "5. Carry A Spare\nFor Someone Else:\n\nA charger. Some cash.\nA plaster.\nBe the man who has it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0c8c66a3",
+   "texte_overlay": "6. Call Your Grandparents:\n\nNot on their birthday.\nOn a Tuesday.\nThey won't be there forever.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

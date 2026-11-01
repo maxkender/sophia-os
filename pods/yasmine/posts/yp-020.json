@@ -1,0 +1,785 @@
+{
+ "id": "yp-020",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "titre": {
+  "fr": "conseils de lycée d’une jeune bachelière, partie 3",
+  "en": "school tips from a high school graduate, part 3",
+  "es": "consejos de instituto de una recién graduada, parte 3",
+  "de": "Schultipps von einer frischen Abiturientin, Teil 3",
+  "it": "consigli per il liceo da una neodiplomata, parte 3",
+  "pt": "dicas de escola de uma recém-formada, parte 3",
+  "tr": "yeni bir mezundan okul tavsiyeleri, bölüm 3"
+ },
+ "legendes": {
+  "fr": "partie 3 : ce que j’aurais aimé savoir avant 📚 #conseils #studytok #lycee #revisions #thatgirl",
+  "en": "part 3: what i wish i knew earlier 📚 #studytips #studytok #highschool #school #thatgirl",
+  "es": "parte 3: lo que me habría gustado saber antes 📚 #consejos #studytok #instituto #estudiar #thatgirl",
+  "de": "Teil 3: was ich gern früher gewusst hätte 📚 #lerntipps #studytok #schule #abitur #thatgirl",
+  "it": "parte 3: quello che avrei voluto sapere prima 📚 #consigli #studytok #liceo #studiare #thatgirl",
+  "pt": "parte 3: o que eu queria ter sabido antes 📚 #dicas #studytok #ensinomedio #estudos #thatgirl",
+  "tr": "bölüm 3: keşke daha önce bilseydim dediklerim 📚 #dersçalışma #studytok #lise #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "young folks nightcore",
+  "url": "https://www.tiktok.com/music/young-folks-nightcore-7070641315155757826"
+ },
+ "fond": {
+  "media_id": "1050d4c0-4740-4724-8b24-059be8593d09",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/883292ed-5a6d-4e40-9ea5-f7349559c811/4-upscale.jpg?v=1785625018722",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-005 (« SCHOOL TIPS from a highschool graduate », 54 k) : partie 3, 6 autres conseils, autres photos. cta A : micabo dans le texte du conseil « relis ton cours le soir même », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE LYCÉE"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "d’une jeune",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "bachelière",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(partie 3)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHOOL",
+      "TIPS"
+     ],
+     "taille": 190,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "from a highschool",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "graduate",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(part 3)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE INSTI"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de una recién",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "graduada",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 3)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHUL-",
+      "TIPPS"
+     ],
+     "taille": 190,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "von einer frischen",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "Abiturientin",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(Teil 3)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "PER IL LICEO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "da una",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "neodiplomata",
+       "x": 380,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 3)",
+       "x": 410,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DICAS",
+      "DE ESCOLA"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de uma",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "recém-formada",
+       "x": 300,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 3)",
+       "x": 330,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OKUL",
+      "TAVSİYELERİ"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "yeni bir",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "mezundan",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(bölüm 3)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1946fbb9-032c-4469-8dd1-bb3e00402c85",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7683e80e-4390-4392-a48e-367f6a9d295e/4.jpg?v=1789048326762",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "garde un agenda📒",
+      "texte": "tout ce que tu notes, tu n’as plus à t’en souvenir. ta tête sert à apprendre, pas à se rappeler les dates.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "keep a planner📒",
+      "texte": "everything you write down, you don’t have to remember. your head is for learning, not for keeping track of dates.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "usa una agenda📒",
+      "texte": "lo que apuntas ya no tienes que recordarlo. tu cabeza es para aprender, no para acordarse de fechas.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "führ einen Planer📒",
+      "texte": "was du aufschreibst, musst du dir nicht merken. dein Kopf ist zum Lernen da, nicht für Termine.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "tieni un’agenda📒",
+      "texte": "quello che scrivi non devi più ricordarlo. la testa serve a imparare, non a ricordare le date.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "use uma agenda📒",
+      "texte": "o que você anota, não precisa lembrar. sua cabeça é pra aprender, não pra guardar datas.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "bir ajanda tut📒",
+      "texte": "yazdığın her şeyi hatırlamak zorunda kalmazsın. kafan öğrenmek içindir, tarihleri akılda tutmak için değil.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "283a4b9d-147d-4f61-bd0a-90d1f7e9ae83",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/70b16da6-615d-4967-891c-7f432f2a6a7a/6.jpg?v=1790607386633",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "prépare ton sac la veille🎒",
+      "texte": "le matin tu oublies toujours quelque chose. 5 min le soir, et tu pars sereine.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "pack your bag the night before🎒",
+      "texte": "in the morning you always forget something. 5 minutes in the evening and you leave stress-free.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "prepara la mochila la noche antes🎒",
+      "texte": "por la mañana siempre se te olvida algo. 5 min por la noche y sales tranquila.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "pack deine Tasche am Vorabend🎒",
+      "texte": "morgens vergisst du immer etwas. 5 Min. am Abend und du gehst entspannt los.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "prepara lo zaino la sera prima🎒",
+      "texte": "la mattina dimentichi sempre qualcosa. 5 minuti la sera e esci serena.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "arrume a mochila na noite anterior🎒",
+      "texte": "de manhã você sempre esquece alguma coisa. 5 min à noite e você sai tranquila.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "çantanı bir gece önceden hazırla🎒",
+      "texte": "sabah hep bir şey unutursun. akşam 5 dakika ayır, sakin çık.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "22ba6664-d4f5-4c51-8ba2-80cca770e8e7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8a43b55b-54f8-46e9-8bc6-e2555acb82a8/1.jpg?v=1791725797133",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "relis ton cours le soir même🔁",
+      "texte": "juste 10 min. moi, je le mets dans micabo et je fais le quiz du chapitre : le lendemain, je me souviens de tout.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "go over the lesson that same evening🔁",
+      "texte": "just 10 minutes. i put it into micabo and do the chapter quiz: the next day, i remember everything.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "repasa la clase esa misma noche🔁",
+      "texte": "solo 10 min. yo la meto en micabo y hago el quiz del tema: al día siguiente me acuerdo de todo.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "geh den Stoff am selben Abend durch🔁",
+      "texte": "nur 10 Min. ich packe ihn in micabo und mache das Quiz zum Kapitel: am nächsten Tag weiß ich noch alles.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ripassa la lezione la sera stessa🔁",
+      "texte": "bastano 10 minuti. io la metto su micabo e faccio il quiz del capitolo: il giorno dopo ricordo tutto.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "revise a aula na mesma noite🔁",
+      "texte": "só 10 min. eu coloco no micabo e faço o quiz do capítulo: no dia seguinte, lembro de tudo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "dersi aynı akşam tekrar et🔁",
+      "texte": "sadece 10 dakika. micabo’ya koyup ünite testini çözüyorum: ertesi gün her şeyi hatırlıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4b396e84-8302-4e9e-8904-e440432d0990",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fa52517d-0492-4f40-a3db-effe2aee09f8/1.jpg?v=1791725298012",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ne laisse pas un 8 te démoraliser📉",
+      "texte": "regarde tes erreurs une par une. c’est la copie ratée qui t’apprend le plus.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "don’t let one bad grade crush you📉",
+      "texte": "go through your mistakes one by one. the failed test is the one that teaches you the most.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "que un mal examen no te hunda📉",
+      "texte": "revisa tus errores uno por uno. el examen suspendido es el que más te enseña.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "lass dich von einer schlechten Note nicht runterziehen📉",
+      "texte": "geh deine Fehler einzeln durch. die verhauene Arbeit bringt dir am meisten bei.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "non farti abbattere da un brutto voto📉",
+      "texte": "guarda i tuoi errori uno per uno. è la verifica andata male che ti insegna di più.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "não deixe uma nota ruim te derrubar📉",
+      "texte": "olhe seus erros um por um. a prova que deu errado é a que mais te ensina.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "kötü bir not seni yıkmasın📉",
+      "texte": "hatalarını tek tek incele. en çok şeyi kötü geçen sınav öğretir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "222408d9-4dec-481a-a724-bedb971d29f3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8eeeac6e-f658-42fb-8378-2860155dc1cb/4.jpg?v=1790608967376",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "un bureau rangé, une tête rangée🧹",
+      "texte": "2 min pour tout ranger avant de commencer. tu ne cherches plus rien et tu restes concentrée.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "tidy desk, tidy mind🧹",
+      "texte": "2 minutes to clear everything before you start. you stop looking for stuff and stay focused.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "escritorio ordenado, cabeza ordenada🧹",
+      "texte": "2 min para ordenar antes de empezar. dejas de buscar cosas y te concentras.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "aufgeräumter Tisch, klarer Kopf🧹",
+      "texte": "2 Min. aufräumen, bevor du anfängst. du suchst nichts mehr und bleibst konzentriert.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "scrivania in ordine, testa in ordine🧹",
+      "texte": "2 minuti per sistemare prima di iniziare. non cerchi più niente e resti concentrata.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "mesa arrumada, cabeça arrumada🧹",
+      "texte": "2 min pra arrumar tudo antes de começar. você para de procurar coisas e fica focada.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "düzenli masa, düzenli zihin🧹",
+      "texte": "başlamadan önce her şeyi toplamak için 2 dakika. hiçbir şey aramazsın ve odaklı kalırsın.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "fd49a459-e41a-43f5-ba49-c6c66ea8dbbc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a6464591-1e49-465a-bef1-2047471a7c50/3.jpg?v=1790606948401",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fais-toi des pauses sans écran☕",
+      "texte": "10 min avec un thé, pas avec ton téléphone. tu reviens avec la tête vraiment reposée.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "take screen-free breaks☕",
+      "texte": "10 minutes with a cup of tea, not your phone. you come back with a properly rested brain.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "haz descansos sin pantallas☕",
+      "texte": "10 min con un té, no con el móvil. vuelves con la cabeza descansada de verdad.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "mach Pausen ohne Bildschirm☕",
+      "texte": "10 Min. mit einem Tee, nicht mit dem Handy. du kommst wirklich erholt zurück.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fai pause senza schermi☕",
+      "texte": "10 minuti con un tè, non col telefono. torni con la testa davvero riposata.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "faça pausas sem tela☕",
+      "texte": "10 min com um chá, não com o celular. você volta com a cabeça descansada de verdade.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ekransız molalar ver☕",
+      "texte": "telefonla değil, bir çayla 10 dakika. kafan gerçekten dinlenmiş olarak dönersin.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

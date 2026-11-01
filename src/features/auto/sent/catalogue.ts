@@ -20,6 +20,7 @@ export const GROUPES_TEXTES = [
   "paie",
   "slack_lien",
   "lien_post",
+  "debut",
 ] as const;
 export type GroupeTexte = (typeof GROUPES_TEXTES)[number];
 
@@ -67,6 +68,13 @@ export const TEXTES: readonly TexteCatalogue[] = [
   { id: "lien_introuvable", groupe: "lien_post", cle: "lien_introuvable_texte", variables: ["prenom", "lien"] },
   { id: "double_popup", groupe: "popups", cle: "double_popup_texte", variables: ["prenom"] },
   { id: "recreer_popup", groupe: "popups", cle: "recreer_popup_texte", variables: ["prenom", "nouveau", "date"] },
+  // 0494 : le pop-up Start Tuesday / Postpone du dashboard, calculé en direct (« ; » entre les morceaux).
+  { id: "debut_mardi", groupe: "debut", cle: "debut_popup_mardi", variables: ["ce_qui_manque", "date"] },
+  { id: "debut_reporter", groupe: "debut", cle: "debut_popup_reporter", variables: ["ce_qui_manque", "date"] },
+  { id: "debut_introuvable", groupe: "debut", cle: "debut_popup_introuvable", variables: ["handle"] },
+  { id: "debut_start", groupe: "debut", cle: "debut_popup_start", variables: [] },
+  { id: "debut_follows", groupe: "debut", cle: "debut_popup_follows", variables: ["n", "handle", "x"] },
+  { id: "debut_posts", groupe: "debut", cle: "debut_popup_posts", variables: [] },
   { id: "regularite", groupe: "regularite", cle: "nudge_regularite_texte", variables: ["prenom"] },
   { id: "lien1000", groupe: "lien1000", cle: "lien_1000", chemin: "message", variables: ["handle", "lien"] },
   { id: "lien1000_relance", groupe: "lien1000", cle: "lien_1000", chemin: "message_relance", variables: ["handle", "lien"] },

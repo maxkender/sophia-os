@@ -15,8 +15,8 @@ const ham=(a,b)=>{let n=0;for(let i=0;i<64;i++)if(a[i]!==b[i])n++;return n};
 const usedH=[...usedHook].map(id=>H[id]).filter(Boolean);
 const hooks=B.filter(x=>x.est_hook&&H[x.id]);
 // clusters
-const reps=[];for(const x of hooks){if(!reps.some(r=>ham(r,H[x.id])<=10))reps.push(H[x.id])}
-const libres=hooks.filter(x=>!usedHook.has(x.id)&&!usedH.some(u=>ham(u,H[x.id])<=10));
-const lr=[];for(const x of libres){if(!lr.some(r=>ham(H[r.id],H[x.id])<=10))lr.push(x)}
+const reps=[];for(const x of hooks){if(!reps.some(r=>ham(r,H[x.id])<=18))reps.push(H[x.id])}
+const libres=hooks.filter(x=>!usedHook.has(x.id)&&!usedH.some(u=>ham(u,H[x.id])<=18));
+const lr=[];for(const x of libres){if(!lr.some(r=>ham(H[r.id],H[x.id])<=18))lr.push(x)}
 console.log("hashées",k,"| accroches",hooks.length,"visuellement distinctes",reps.length,"| déjà utilisées",usedHook.size,"| distinctes jamais vues chez nous",lr.length);
 fs.writeFileSync("sortie/accroches-libres.txt",lr.map(x=>x.id).join("\n"));

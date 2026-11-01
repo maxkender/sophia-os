@@ -51,3 +51,6 @@ morceaux s'appellent alors `T1a` et `T1b` dans `textes`.
 ## Bloc vert qui n'est pas du texte (ajout)
 Barre de recherche, morceau de logo… détecté comme texte : `"garder": true`
 dans son entrée `textes` → recopié tel quel depuis la source.
+
+## Photo à remplacer (ajout)
+Photo qui montre une autre appli : `"I1": { "remplacer": { "source": "sources/<post>_<n>.jpg", "boite": [x, y, l, h] } }` découpe cette boîte (photo d'une autre slide de `sources/`) et la recadre pour couvrir la zone.

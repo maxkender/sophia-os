@@ -300,6 +300,18 @@ describe("MesRecrues (accueil HM, lecture seule)", () => {
     api.lireRecrues.mockResolvedValue([ANA, BO]);
   });
 
+  it("les recrues arrêtées sont archivées : hors du tableau, visibles avec « Archivées »", async () => {
+    api.lireRecrues.mockImplementation(async () => [
+      recrue({ poster_id: "a1", nom: "Active Example" }),
+      recrue({ poster_id: "s1", nom: "Stopped Example", is_active: false }),
+    ]);
+    rendu(<PageCohortes maintenant={MERCREDI} />);
+    expect(await screen.findByText("Active Example")).toBeInTheDocument();
+    expect(screen.queryByText("Stopped Example")).toBeNull();
+    fireEvent.click(screen.getByTestId("voir-archivees"));
+    expect(await screen.findByText("Stopped Example")).toBeInTheDocument();
+  });
+
   it("une HM : ses recrues seulement, sans bouton (ni Postpone, ni Stop, ni Link)", async () => {
     rendu(<MesRecrues hm="hm-lucia" />);
     const bloc = await screen.findByTestId("mes-recrues");

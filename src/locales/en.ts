@@ -4159,6 +4159,8 @@ export const en = {
         tousPays: "All countries",
       },
       nbLignes: "{{n}} recruit(s)",
+      archivees: "Archived ({{n}}): stopped recruits",
+      masquerArchivees: "Hide archived",
       col: {
         recrue: "Recruit",
         offre: "Offer accepted",

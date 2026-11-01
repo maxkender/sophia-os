@@ -4168,6 +4168,8 @@ export const fr = {
         tousPays: "Tous les pays",
       },
       nbLignes: "{{n}} recrue(s)",
+      archivees: "Archivées ({{n}}) : recrues arrêtées",
+      masquerArchivees: "Masquer les archivées",
       col: {
         recrue: "Recrue",
         offre: "Offre acceptée",

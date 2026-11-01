@@ -1,0 +1,250 @@
+{
+ "post_id": "original-032",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 habitudes pour avoir un cerveau redoutable",
+     "texte": "cose che avrei voluto sapere al primo anno di uni"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(di focus, non di feste)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "explique ce que t'apprends [[à voix haute]]",
+     "texte": "vai a lezione [[senza telefono]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "simply, you probably don't",
+      "understand it yet"
+     ],
+     "fr": "si tu sais pas expliquer une idée simplement, [[tu l'as pas encore comprise]]",
+     "texte": "prima ascoltavo a metà mentre scrollavo, e all'uscita non ricordavo niente"
+    },
+    "T3": {
+     "en": [
+      "after reading or studying,",
+      "spend 5 minutes teaching it",
+      "from memory"
+     ],
+     "fr": "après avoir lu ou révisé, prends [[5 minutes]] pour tout réexpliquer de tête",
+     "texte": "ora il telefono resta nello zaino e [[seguo davvero il ragionamento]]"
+    },
+    "T4": {
+     "en": [
+      "the gaps become painfully",
+      "obvious very quickly"
+     ],
+     "fr": "les trous te sautent aux yeux direct, et ça pique",
+     "texte": "appunti più corti, [[domande molto migliori]]"
+    },
+    "T5": {
+     "en": [
+      "it's also scientifically proven to be one of the best",
+      "ways to learn!"
+     ],
+     "fr": "et c'est prouvé : c'est une des meilleures façons d'apprendre !",
+     "texte": "una lezione seguita al 100% vale più di tre registrazioni a 2x"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "test yourself instead of",
+      "rereading"
+     ],
+     "fr": "teste-toi [[au lieu de relire]]",
+     "texte": "rileggi meno, [[mettiti alla prova]]"
+    },
+    "T2": {
+     "en": [
+      "rereading notes feels",
+      "productive, but mostly it just",
+      "makes things look familiar"
+     ],
+     "fr": "relire tes fiches donne l'impression de bosser, mais ça les rend juste familières",
+     "texte": "al primo anno sottolineavo tutto e rileggevo, e mi sembrava di studiare"
+    },
+    "T3": {
+     "en": [
+      "close the book, write down",
+      "everything you remember,",
+      "then check what you missed"
+     ],
+     "fr": "ferme le livre, écris tout ce dont tu te souviens, puis vérifie ce que t'as oublié",
+     "texte": "ora chiudo gli appunti, [[scrivo tutto quello che ricordo]] e poi controllo i buchi"
+    },
+    "T4": {
+     "en": [
+      "recall is the workout"
+     ],
+     "fr": "réciter, c'est la muscu",
+     "texte": "[[i buchi sono il punto]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "la biblioteca [[batte il letto]]"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "per il tuo cervello il letto è sonno e scroll, non studio"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "a un tavolo in biblioteca, con gente che studia intorno, [[comincio prima]]"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "e quando la sessione finisce, me ne vado. casa torna a essere riposo, [[non senso di colpa]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "fai [[pause vere]] mentre studi"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "10 minuti di reel e [[la concentrazione non tornava più]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "ora le mie pause [[finiscono in orario]] e torno con la testa libera"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "cos'è cambiato: due passi, acqua e un insta senza reel. [[l'app UnSwipe]] li toglie"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop sacrificing sleep"
+     ],
+     "fr": "sacrifie plus [[ton sommeil]]",
+     "texte": "[[dormi]] prima degli esami"
+    },
+    "T2": {
+     "en": [
+      "your brain strengthens",
+      "memories and clears",
+      "out metabolic waste",
+      "while you sleep"
+     ],
+     "fr": "ton cerveau [[consolide tes souvenirs]] et fait le ménage pendant que tu dors",
+     "texte": "le notti in bianco sembravano eroiche. la mattina dopo, metà era sparita"
+    },
+    "T3": {
+     "en": [
+      "consistently getting",
+      "too little makes it",
+      "harder to focus, learn,",
+      "and make decisions"
+     ],
+     "fr": "en manque de sommeil, t'as plus de mal à te concentrer, à apprendre et à décider",
+     "texte": "il cervello fissa quello che hai studiato mentre dormi, quindi [[dormire è ripasso]]"
+    },
+    "T4": {
+     "en": [
+      "if you want to think sharper, stop treating sleep like",
+      "optional downtime"
+     ],
+     "fr": "pour avoir l'esprit vif, arrête de traiter le sommeil comme [[une option]]",
+     "texte": "chiudi gli appunti a un'ora fissa e [[fidati del lavoro già fatto]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

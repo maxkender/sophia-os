@@ -7883,7 +7883,8 @@ export const en = {
         connexion: "1. Log in",
         slack: "2. Join Slack",
         recommande: "(recommended)",
-        slackPasVu: "We can't see you on Slack yet: use your full name.",
+        slackPasVu: "Join our Slack with your FULL NAME and your personal email. We link your account automatically within the hour.",
+        slackRelie: "Slack linked",
         declarer: {
           slack: "I've joined",
           fait: "I did this step",

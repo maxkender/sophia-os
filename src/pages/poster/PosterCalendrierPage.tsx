@@ -521,7 +521,7 @@ export function PosterCalendrierPage() {
       )}
 
       {/* Prompt 25 MAJ, 7a : relier son Slack (l'étape 0 n'est cochée qu'une fois relié). */}
-      {!debutRuul && <ConnecterSlack />}
+      {!debutRuul && <ConnecterSlack masquer={Boolean(debutUpwork && compte)} />}
 
       {/* « Ask for @ » : une fenêtre bloquante tant que le posteur n'a pas donné son @. */}
       {!debutRuul && <DemandeHandle />}

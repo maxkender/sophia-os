@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 
@@ -21,8 +20,8 @@ import {
   type EtatCinq,
 } from "./cinqEtapes";
 import { ChangerHandle } from "./ChangerHandle";
+import { BoutonDeclarer } from "./BoutonDeclarer";
 import {
-  declarerEtape,
   lireMaPremiereSemaine,
   lireMesDeclarations,
   lireMesTextesDebut,
@@ -49,40 +48,6 @@ function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
 /** Le conseil « TikTok limite les follows » (0498), modifiable dans Settings. */
 export const CONSEIL_FOLLOWS_DEFAUT =
   "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then tell us in #questions.";
-
-/**
- * « I did this step » / « I've joined » : au cas où l'OS se trompe (0497). Slack
- * est relié tout de suite quand on retrouve la personne ; sinon l'équipe confirme.
- */
-function BoutonDeclarer({ etape, libelle }: { etape: EtapeDeclarable; libelle: string }) {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const [resultat, setResultat] = React.useState<"relie" | "en_attente" | null>(null);
-  const declarer = useMutation({
-    mutationFn: () => declarerEtape(etape),
-    onSuccess: (r) => {
-      setResultat(r);
-      void qc.invalidateQueries({ queryKey: ["ma-premiere-semaine"] });
-      void qc.invalidateQueries({ queryKey: ["mes-declarations"] });
-    },
-  });
-  return (
-    <span className="inline-flex flex-wrap items-center gap-2">
-      <Button
-        size="sm"
-        variant="outline"
-        className="mt-1 h-7"
-        disabled={declarer.isPending}
-        onClick={() => declarer.mutate()}
-        data-testid={`declarer-${etape}`}
-      >
-        {libelle}
-      </Button>
-      {resultat === "relie" && <span className="text-success text-xs">{t("calendrier.cinq.declarer.relie")}</span>}
-      {declarer.isError && <span className="text-destructive text-xs">{t("calendrier.cinq.declarer.erreur")}</span>}
-    </span>
-  );
-}
 
 /**
  * La première semaine en 5 étapes, sur l'accueil du posteur (chantier du
@@ -215,6 +180,9 @@ export function CinqEtapes({
                 {contenu[cle].titre}
                 {etats[cle] === "recommande" && (
                   <span className="ml-2 font-normal text-muted-foreground text-xs">{t("calendrier.cinq.recommande")}</span>
+                )}
+                {cle === "slack" && profil.data.slackLie && (
+                  <span className="ml-2 font-normal text-success text-xs" data-testid="slack-relie">{t("calendrier.cinq.slackRelie")}</span>
                 )}
                 {etats[cle] === "fait" && enVerification(cle) && (
                   <span className="ml-2 font-normal text-muted-foreground text-xs" data-testid={`verification-${cle}`}>

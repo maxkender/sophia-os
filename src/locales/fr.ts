@@ -7890,7 +7890,8 @@ export const fr = {
         connexion: "1. Se connecter",
         slack: "2. Rejoindre Slack",
         recommande: "(recommandé)",
-        slackPasVu: "On ne te voit pas encore sur Slack : utilise ton nom complet.",
+        slackPasVu: "Rejoins notre Slack avec ton NOM COMPLET et ton email perso. On relie ton compte automatiquement dans l'heure.",
+        slackRelie: "Slack relié",
         declarer: {
           slack: "J'ai rejoint",
           fait: "J'ai fait cette étape",

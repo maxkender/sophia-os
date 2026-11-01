@@ -60,6 +60,7 @@ describe("0497 : le dashboard des 5 étapes", () => {
     afficher();
     await waitFor(() => expect(etape("warmup")?.getAttribute("data-etat")).toBe("fait"));
     expect(etape("slack")?.getAttribute("data-etat")).toBe("fait");
+    expect(screen.getByTestId("slack-relie").textContent).toBe("Slack linked");
     expect(screen.getByTestId("heure-premier-post").textContent).toBe(
       "Your first post will be available on Monday 2 November at 08:00 (JST).",
     );
@@ -67,7 +68,8 @@ describe("0497 : le dashboard des 5 étapes", () => {
 
   it("Slack pas vu : le message, Join Slack et « I've joined » qui relance la vérification", async () => {
     afficher();
-    await screen.findByText("We can't see you on Slack yet: use your full name.");
+    await screen.findByText("Join our Slack with your FULL NAME and your personal email. We link your account automatically within the hour.");
+    expect(etape("slack")?.textContent).not.toMatch(/bot/i);
     fireEvent.click(screen.getByTestId("declarer-slack"));
     await waitFor(() => expect(api.declarer).toHaveBeenCalledWith("slack"));
   });

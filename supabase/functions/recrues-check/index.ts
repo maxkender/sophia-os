@@ -760,7 +760,7 @@ function nettoyer(bilan: Bilan): Bilan {
 async function ajouterPreparees(supabase: Supabase, bilan: Bilan) {
   bilan.preparees = new Map();
   const { data } = await supabase.from("relances_prevues")
-    .select("poster_id, type, periode, raison, profiles(slack_user_id, upwork_contract_id)")
+    .select("poster_id, type, periode, raison, profiles!relances_prevues_poster_id_fkey(slack_user_id, upwork_contract_id)")
     .in("statut", ["prevu", "ecarte", "main"]).neq("raison", "simulation");
   for (const x of data ?? []) {
     const p = (x as unknown as { profiles: { slack_user_id: string | null; upwork_contract_id: string | null } | null }).profiles;
@@ -1431,7 +1431,7 @@ async function lireBudgetFile(supabase: Supabase, maintenant: Date): Promise<Bud
 async function envoyerFile(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[] | null, maintenant: Date, bilan: Bilan) {
   if (bilan.automationPause) return;
   const { data, error } = await supabase.from("relances_prevues")
-    .select("poster_id, type, periode, texte, premier_at, donnees, profiles(prenom, slack_user_id, upwork_contract_id, is_active)")
+    .select("poster_id, type, periode, texte, premier_at, donnees, profiles!relances_prevues_poster_id_fkey(prenom, slack_user_id, upwork_contract_id, is_active)")
     .eq("statut", "prevu").not("valide_at", "is", null)
     .order("periode").order("premier_at")
     .limit(300);
@@ -2486,7 +2486,7 @@ async function prevenirHms(supabase: Supabase, maintenant: Date) {
   const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (!jeton) return;
   const { data, error } = await supabase.from("relances_prevues")
-    .select("poster_id, type, periode, texte, main_at, main_slack_at, main_hm_id, profiles(prenom, nom, manager_id, upwork_contract_id)")
+    .select("poster_id, type, periode, texte, main_at, main_slack_at, main_hm_id, profiles!relances_prevues_poster_id_fkey(prenom, nom, manager_id, upwork_contract_id)")
     .eq("statut", "main").order("main_at").limit(500);
   if (error) throw error;
   const parHm = new Map<string, LigneMain[]>();
@@ -2531,7 +2531,7 @@ async function prevenirHms(supabase: Supabase, maintenant: Date) {
 async function rappelerHms(supabase: Supabase, jeton: string, maintenant: Date) {
   const limite = new Date(maintenant.getTime() - 3 * 3_600_000).toISOString();
   const { data } = await supabase.from("relances_prevues")
-    .select("poster_id, type, periode, main_at, main_hm_id, profiles(prenom, nom, manager_id)")
+    .select("poster_id, type, periode, main_at, main_hm_id, profiles!relances_prevues_poster_id_fkey(prenom, nom, manager_id)")
     .eq("statut", "main").is("main_rappel_at", null).lt("main_at", limite).limit(500);
   const parHm = new Map<string, { poster_id: string; type: string; periode: string; nom: string }[]>();
   for (const l of (data ?? []) as unknown as (LigneMain & { profiles: { prenom: string | null; nom: string | null; manager_id: string | null } | null })[]) {

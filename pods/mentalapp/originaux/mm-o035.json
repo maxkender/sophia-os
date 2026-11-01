@@ -1,0 +1,188 @@
+{
+ "id": "mm-o035",
+ "format": "carrousel",
+ "titre": "Signs you have a dopamine problem",
+ "legendes": {
+  "en": "signs you have a dopamine problem #dopamine #brainrot #mentalmaxxing #selfimprovement",
+  "fr": "les signes que tu as un problème de dopamine #dopamine #brainrot #mentalmaxxing #developpementpersonnel",
+  "de": "Zeichen, dass du ein Dopamin-Problem hast #dopamin #brainrot #mentalmaxxing #selbstverbesserung",
+  "es": "señales de que tienes un problema de dopamina #dopamina #brainrot #mentalmaxxing #superacionpersonal",
+  "it": "segnali che hai un problema di dopamina #dopamina #brainrot #mentalmaxxing #crescitapersonale",
+  "tr": "dopamin sorunun olduğunun işaretleri #dopamin #brainrot #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7697820355800370448/1",
+   "boite": [
+    222,
+    402,
+    636,
+    756
+   ]
+  },
+  "theme": {
+   "en": "Signs you have",
+   "fr": "Les signes que tu as",
+   "de": "Zeichen für",
+   "es": "Señales de que tienes",
+   "it": "Segnali che hai",
+   "tr": "Dopamin sorunun"
+  },
+  "sous": {
+   "en": "a dopamine problem",
+   "fr": "un problème de dopamine",
+   "de": "ein Dopamin-Problem",
+   "es": "un problema de dopamina",
+   "it": "un problema di dopamina",
+   "tr": "olduğunun işaretleri"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "You can’t eat without a screen",
+    "fr": "Tu ne peux pas manger sans écran",
+    "de": "Du kannst nicht ohne Bildschirm essen",
+    "es": "No puedes comer sin pantalla",
+    "it": "Non riesci a mangiare senza schermo",
+    "tr": "Ekransız yemek yiyemiyorsun"
+   },
+   "texte": {
+    "en": "Every meal needs a video. Eating alone with your thoughts feels strange now.",
+    "fr": "Chaque repas a besoin d’une vidéo. Manger seul avec tes pensées te paraît bizarre.",
+    "de": "Jede Mahlzeit braucht ein Video. Allein mit deinen Gedanken zu essen fühlt sich seltsam an.",
+    "es": "Cada comida necesita un vídeo. Comer a solas con tus pensamientos te resulta raro.",
+    "it": "Ogni pasto ha bisogno di un video. Mangiare da solo con i tuoi pensieri ti sembra strano.",
+    "tr": "Her öğün bir video istiyor. Düşüncelerinle baş başa yemek artık garip geliyor."
+   }
+  },
+  {
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "You scroll to fall asleep",
+    "fr": "Tu scrolles pour t’endormir",
+    "de": "Du scrollst zum Einschlafen",
+    "es": "Haces scroll para dormirte",
+    "it": "Scrolli per addormentarti",
+    "tr": "Uyumak için kaydırıyorsun"
+   },
+   "texte": {
+    "en": "Then it is 2am and you are more awake than when you started.",
+    "fr": "Puis il est 2h du matin et tu es plus réveillé qu’au début.",
+    "de": "Dann ist es 2 Uhr und du bist wacher als vorher.",
+    "es": "Y de repente son las 2 y estás más despierto que al empezar.",
+    "it": "Poi sono le 2 e sei più sveglio di quando hai iniziato.",
+    "tr": "Sonra saat gece 2 olur ve başladığından daha uyanıksın."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "You skip every song",
+    "fr": "Tu zappes chaque son",
+    "de": "Du skippst jeden Song",
+    "es": "Saltas todas las canciones",
+    "it": "Salti ogni canzone",
+    "tr": "Her şarkıyı geçiyorsun"
+   },
+   "texte": {
+    "en": "Thirty seconds and you need the next one. Even music has become a feed.",
+    "fr": "Trente secondes et il te faut la suivante. Même la musique est devenue un feed.",
+    "de": "Dreißig Sekunden und du brauchst den nächsten. Sogar Musik ist ein Feed geworden.",
+    "es": "Treinta segundos y necesitas la siguiente. Hasta la música se ha vuelto un feed.",
+    "it": "Trenta secondi e ti serve la prossima. Anche la musica è diventata un feed.",
+    "tr": "Otuz saniye sonra bir sonrakine ihtiyaç duyuyorsun. Müzik bile bir akışa dönüştü."
+   }
+  },
+  {
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "Boredom feels unbearable",
+    "fr": "L’ennui te paraît insupportable",
+    "de": "Langeweile fühlt sich unerträglich an",
+    "es": "El aburrimiento se te hace insoportable",
+    "it": "La noia ti sembra insopportabile",
+    "tr": "Can sıkıntısı dayanılmaz geliyor"
+   },
+   "texte": {
+    "en": "Waiting two minutes without your phone feels like a punishment.",
+    "fr": "Attendre deux minutes sans ton téléphone ressemble à une punition.",
+    "de": "Zwei Minuten ohne Handy zu warten fühlt sich wie eine Strafe an.",
+    "es": "Esperar dos minutos sin el móvil parece un castigo.",
+    "it": "Aspettare due minuti senza telefono sembra una punizione.",
+    "tr": "Telefonsuz iki dakika beklemek ceza gibi geliyor."
+   }
+  },
+  {
+   "src": "7697820355800370448/2",
+   "boite": [
+    312,
+    438,
+    456,
+    450
+   ],
+   "titre": {
+    "en": "Games feel better than real life",
+    "fr": "Les jeux te paraissent mieux que la vraie vie",
+    "de": "Spiele fühlen sich besser an als das echte Leben",
+    "es": "Los juegos te parecen mejores que la vida real",
+    "it": "I giochi ti sembrano meglio della vita vera",
+    "tr": "Oyunlar gerçek hayattan daha iyi geliyor"
+   },
+   "texte": {
+    "en": "Real goals feel slow and boring because games reward you every few seconds.",
+    "fr": "Les vrais objectifs semblent lents et ennuyeux parce que les jeux te récompensent toutes les deux secondes.",
+    "de": "Echte Ziele wirken langsam und langweilig, weil Spiele dich alle paar Sekunden belohnen.",
+    "es": "Las metas reales parecen lentas y aburridas porque los juegos te premian cada pocos segundos.",
+    "it": "Gli obiettivi veri sembrano lenti e noiosi perché i giochi ti premiano ogni pochi secondi.",
+    "tr": "Oyunlar seni birkaç saniyede bir ödüllendirdiği için gerçek hedefler yavaş ve sıkıcı geliyor."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "If you saw yourself here, start with the biggest one. I deleted short videos with UnSwipe, and the rest got easier.",
+    "fr": "Si tu t’es reconnu, commence par le plus gros. J’ai supprimé les vidéos courtes avec UnSwipe, et le reste est devenu plus facile.",
+    "de": "Wenn du dich wiedererkannt hast, fang mit dem Größten an. Ich habe Kurzvideos mit UnSwipe gelöscht, der Rest wurde leichter.",
+    "es": "Si te has visto aquí, empieza por lo más grande. Borré los vídeos cortos con UnSwipe y lo demás se volvió más fácil.",
+    "it": "Se ti sei riconosciuto, inizia dal più grande. Ho eliminato i video brevi con UnSwipe, e il resto è diventato più facile.",
+    "tr": "Kendini burada gördüysen en büyüğünden başla. Kısa videoları UnSwipe ile sildim, gerisi kolaylaştı."
+   }
+  }
+ ],
+ "notes": "routine du 01/11 : accroche jamais faite chez nous (« signs you have a dopamine problem »). cta C : élément UnSwipe en dernier item (slide 7), à la 1re personne."
+}

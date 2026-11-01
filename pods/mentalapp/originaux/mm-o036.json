@@ -1,0 +1,188 @@
+{
+ "id": "mm-o036",
+ "format": "carrousel",
+ "titre": "It took me 3 years to understand this about focus pt2",
+ "legendes": {
+  "en": "it took me 3 years to understand this about focus, part 2 #focus #attentionspan #mentalmaxxing #selfimprovement",
+  "fr": "il m’a fallu 3 ans pour comprendre ça sur la concentration, partie 2 #concentration #attention #mentalmaxxing #developpementpersonnel",
+  "de": "ich habe 3 Jahre gebraucht, um das über Fokus zu verstehen, Teil 2 #fokus #aufmerksamkeit #mentalmaxxing #selbstverbesserung",
+  "es": "me costó 3 años entender esto sobre la concentración, parte 2 #concentracion #atencion #mentalmaxxing #superacionpersonal",
+  "it": "ci ho messo 3 anni a capire questo sulla concentrazione, parte 2 #concentrazione #attenzione #mentalmaxxing #crescitapersonale",
+  "tr": "odak hakkında bunu anlamam 3 yıl sürdü, 2. bölüm #odak #dikkat #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "theme": {
+   "en": "It took me 3 years",
+   "fr": "Il m’a fallu 3 ans",
+   "de": "Ich brauchte 3 Jahre",
+   "es": "Me costó 3 años",
+   "it": "Ci ho messo 3 anni",
+   "tr": "3 yılımı aldı"
+  },
+  "sous": {
+   "en": "to understand this pt2",
+   "fr": "pour comprendre ça (2)",
+   "de": "um das zu verstehen (2)",
+   "es": "entender esto (2)",
+   "it": "per capire questo (2)",
+   "tr": "bunu anlamak (2)"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Focus is a muscle",
+    "fr": "La concentration est un muscle",
+    "de": "Fokus ist ein Muskel",
+    "es": "La concentración es un músculo",
+    "it": "La concentrazione è un muscolo",
+    "tr": "Odak bir kastır"
+   },
+   "texte": {
+    "en": "Start with 20 minutes and add five each week. Nobody lifts 100 kg on day one.",
+    "fr": "Commence par 20 minutes et ajoute cinq par semaine. Personne ne soulève 100 kg le premier jour.",
+    "de": "Fang mit 20 Minuten an und leg jede Woche fünf drauf. Niemand hebt am ersten Tag 100 kg.",
+    "es": "Empieza con 20 minutos y suma cinco cada semana. Nadie levanta 100 kg el primer día.",
+    "it": "Inizia con 20 minuti e aggiungine cinque ogni settimana. Nessuno solleva 100 kg il primo giorno.",
+    "tr": "20 dakikayla başla, her hafta beş ekle. Kimse ilk gün 100 kilo kaldırmaz."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Your environment wins",
+    "fr": "Ton environnement gagne",
+    "de": "Deine Umgebung gewinnt",
+    "es": "Tu entorno gana",
+    "it": "Il tuo ambiente vince",
+    "tr": "Çevren kazanır"
+   },
+   "texte": {
+    "en": "If the phone is on the desk, you will pick it up. Change the room, not your willpower.",
+    "fr": "Si le téléphone est sur le bureau, tu le prendras. Change la pièce, pas ta volonté.",
+    "de": "Liegt das Handy auf dem Tisch, greifst du danach. Ändere den Raum, nicht deine Willenskraft.",
+    "es": "Si el móvil está en la mesa, lo cogerás. Cambia la habitación, no tu fuerza de voluntad.",
+    "it": "Se il telefono è sulla scrivania, lo prenderai. Cambia la stanza, non la forza di volontà.",
+    "tr": "Telefon masadaysa eline alırsın. İradeni değil, odayı değiştir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The change that mattered most: I deleted short videos with UnSwipe. My focus stopped leaking out all day.",
+    "fr": "Le changement qui a le plus compté : j’ai supprimé les vidéos courtes avec UnSwipe. Ma concentration a arrêté de fuir toute la journée.",
+    "de": "Die Änderung, die am meisten zählte: Ich habe Kurzvideos mit UnSwipe gelöscht. Mein Fokus versickerte nicht mehr den ganzen Tag.",
+    "es": "El cambio que más importó: borré los vídeos cortos con UnSwipe. Mi concentración dejó de escaparse todo el día.",
+    "it": "Il cambiamento che ha contato di più: ho eliminato i video brevi con UnSwipe. La concentrazione ha smesso di sfuggirmi tutto il giorno.",
+    "tr": "En çok önemli olan değişiklik: kısa videoları UnSwipe ile sildim. Odağım bütün gün sızmayı bıraktı."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Sleep is the cheat code",
+    "fr": "Le sommeil est le code de triche",
+    "de": "Schlaf ist der Cheat-Code",
+    "es": "Dormir es el truco",
+    "it": "Il sonno è il trucco",
+    "tr": "Uyku hile kodudur"
+   },
+   "texte": {
+    "en": "No trick beats eight hours. A tired brain looks for the easiest hit it can find.",
+    "fr": "Aucune astuce ne bat huit heures. Un cerveau fatigué cherche le shoot le plus facile.",
+    "de": "Kein Trick schlägt acht Stunden. Ein müdes Gehirn sucht den einfachsten Kick.",
+    "es": "Ningún truco supera ocho horas. Un cerebro cansado busca el chute más fácil.",
+    "it": "Nessun trucco batte otto ore. Un cervello stanco cerca la scarica più facile.",
+    "tr": "Hiçbir hile sekiz saati yenemez. Yorgun beyin en kolay vuruşu arar."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Rest is part of the work",
+    "fr": "Le repos fait partie du travail",
+    "de": "Pause gehört zur Arbeit",
+    "es": "Descansar es parte del trabajo",
+    "it": "Il riposo fa parte del lavoro",
+    "tr": "Dinlenmek işin parçasıdır"
+   },
+   "texte": {
+    "en": "Real rest means no screen: a window, a walk, a coffee. Scrolling is not a break.",
+    "fr": "Le vrai repos, c’est sans écran : une fenêtre, une marche, un café. Scroller n’est pas une pause.",
+    "de": "Echte Pause heißt ohne Bildschirm: ein Fenster, ein Spaziergang, ein Kaffee. Scrollen ist keine Pause.",
+    "es": "Descansar de verdad es sin pantalla: una ventana, un paseo, un café. Hacer scroll no es un descanso.",
+    "it": "Il vero riposo è senza schermo: una finestra, una passeggiata, un caffè. Scrollare non è una pausa.",
+    "tr": "Gerçek dinlenme ekransızdır: bir pencere, bir yürüyüş, bir kahve. Kaydırmak mola değildir."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Small wins compound",
+    "fr": "Les petites victoires s’additionnent",
+    "de": "Kleine Siege summieren sich",
+    "es": "Las pequeñas victorias se suman",
+    "it": "Le piccole vittorie si sommano",
+    "tr": "Küçük kazanımlar birikir"
+   },
+   "texte": {
+    "en": "One focused hour a day is 365 hours a year. That is how people quietly get ahead.",
+    "fr": "Une heure concentrée par jour, c’est 365 heures par an. C’est comme ça qu’on prend de l’avance sans bruit.",
+    "de": "Eine fokussierte Stunde am Tag sind 365 Stunden im Jahr. So kommt man still voran.",
+    "es": "Una hora concentrada al día son 365 horas al año. Así se avanza en silencio.",
+    "it": "Un’ora concentrata al giorno sono 365 ore l’anno. È così che si va avanti in silenzio.",
+    "tr": "Günde bir odaklı saat, yılda 365 saat eder. İnsanlar sessizce böyle öne geçer."
+   }
+  }
+ ],
+ "notes": "routine du 01/11 : reprise de mm-o019 (« It took me 3 years to understand this about focus », 1 003 vues en es) en pt2, autres leçons, autre couverture (le guerrier) (point 7). cta C : élément UnSwipe en 3e item (slide 4), à la 1re personne."
+}

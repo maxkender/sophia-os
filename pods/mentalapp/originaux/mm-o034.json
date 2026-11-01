@@ -1,0 +1,188 @@
+{
+ "id": "mm-o034",
+ "format": "carrousel",
+ "titre": "Things that feel productive but aren't",
+ "legendes": {
+  "en": "things that feel productive but aren't #productivity #focus #mentalmaxxing #selfimprovement",
+  "fr": "ce qui donne l’impression d’être productif mais ne l’est pas #productivite #concentration #mentalmaxxing #developpementpersonnel",
+  "de": "Dinge, die sich produktiv anfühlen, es aber nicht sind #produktivität #fokus #mentalmaxxing #selbstverbesserung",
+  "es": "cosas que parecen productivas pero no lo son #productividad #concentracion #mentalmaxxing #superacionpersonal",
+  "it": "cose che sembrano produttive ma non lo sono #produttività #concentrazione #mentalmaxxing #crescitapersonale",
+  "tr": "üretken hissettiren ama olmayan şeyler #verimlilik #odak #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7698939556371975431/1",
+   "boite": [
+    252,
+    402,
+    606,
+    726
+   ]
+  },
+  "theme": {
+   "en": "Feels productive",
+   "fr": "Ça a l’air productif",
+   "de": "Fühlt sich produktiv an",
+   "es": "Parece productivo",
+   "it": "Sembra produttivo",
+   "tr": "Üretken gibi"
+  },
+  "sous": {
+   "en": "but it isn’t",
+   "fr": "mais ça ne l’est pas",
+   "de": "ist es aber nicht",
+   "es": "pero no lo es",
+   "it": "ma non lo è",
+   "tr": "ama değil"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Watching productivity videos",
+    "fr": "Regarder des vidéos de productivité",
+    "de": "Produktivitätsvideos schauen",
+    "es": "Ver vídeos de productividad",
+    "it": "Guardare video sulla produttività",
+    "tr": "Verimlilik videoları izlemek"
+   },
+   "texte": {
+    "en": "Ten tips in sixty seconds, zero applied. Watching someone work is not working.",
+    "fr": "Dix astuces en soixante secondes, zéro appliquée. Regarder quelqu’un bosser, ce n’est pas bosser.",
+    "de": "Zehn Tipps in sechzig Sekunden, null umgesetzt. Jemandem beim Arbeiten zuzusehen ist keine Arbeit.",
+    "es": "Diez trucos en sesenta segundos, cero aplicados. Ver a alguien trabajar no es trabajar.",
+    "it": "Dieci consigli in sessanta secondi, zero applicati. Guardare qualcuno lavorare non è lavorare.",
+    "tr": "Altmış saniyede on ipucu, sıfır uygulama. Birinin çalışmasını izlemek çalışmak değildir."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Rewriting your to-do list",
+    "fr": "Réécrire ta to-do list",
+    "de": "Die To-do-Liste neu schreiben",
+    "es": "Reescribir tu lista de tareas",
+    "it": "Riscrivere la lista delle cose da fare",
+    "tr": "Yapılacaklar listesini yeniden yazmak"
+   },
+   "texte": {
+    "en": "A prettier list is still an unfinished list. Pick the first task and start.",
+    "fr": "Une liste plus jolie reste une liste pas faite. Prends la première tâche et commence.",
+    "de": "Eine schönere Liste ist immer noch unerledigt. Nimm die erste Aufgabe und fang an.",
+    "es": "Una lista más bonita sigue sin hacerse. Elige la primera tarea y empieza.",
+    "it": "Una lista più bella resta una lista non fatta. Prendi il primo compito e inizia.",
+    "tr": "Daha güzel bir liste yine de bitmemiş bir listedir. İlk işi seç ve başla."
+   }
+  },
+  {
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "Doing five things at once",
+    "fr": "Faire cinq choses à la fois",
+    "de": "Fünf Dinge gleichzeitig tun",
+    "es": "Hacer cinco cosas a la vez",
+    "it": "Fare cinque cose insieme",
+    "tr": "Aynı anda beş iş yapmak"
+   },
+   "texte": {
+    "en": "It feels busy, so it feels productive. In reality nothing gets your full brain.",
+    "fr": "Ça donne l’air occupé, donc productif. En vrai, rien n’a ton cerveau en entier.",
+    "de": "Es fühlt sich beschäftigt an, also produktiv. In Wahrheit bekommt nichts dein ganzes Gehirn.",
+    "es": "Parece que estás ocupado, así que parece productivo. En realidad nada tiene tu cerebro entero.",
+    "it": "Sembra impegnato, quindi produttivo. In realtà niente ha tutto il tuo cervello.",
+    "tr": "Meşgul hissettirir, o yüzden üretken gibi. Aslında hiçbir şey beyninin tamamını almaz."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Buying new gym gear",
+    "fr": "Acheter du nouveau matos de sport",
+    "de": "Neues Fitness-Equipment kaufen",
+    "es": "Comprar ropa de gimnasio nueva",
+    "it": "Comprare nuova attrezzatura da palestra",
+    "tr": "Yeni spor ekipmanı almak"
+   },
+   "texte": {
+    "en": "Shopping gives you the feeling of progress without the effort. The old shoes still work.",
+    "fr": "Acheter donne la sensation de progrès sans l’effort. Les vieilles baskets marchent encore.",
+    "de": "Shoppen gibt dir das Gefühl von Fortschritt ohne Anstrengung. Die alten Schuhe tun es noch.",
+    "es": "Comprar te da la sensación de progreso sin el esfuerzo. Las zapatillas viejas aún sirven.",
+    "it": "Comprare ti dà la sensazione di progresso senza la fatica. Le scarpe vecchie vanno ancora.",
+    "tr": "Alışveriş, çaba olmadan ilerleme hissi verir. Eski ayakkabılar hâlâ iş görür."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "What was actually productive for me: I deleted short videos with UnSwipe. Two hours a day came back for the real work.",
+    "fr": "Ce qui a vraiment été productif pour moi : j’ai supprimé les vidéos courtes avec UnSwipe. Deux heures par jour sont revenues pour le vrai travail.",
+    "de": "Was für mich wirklich produktiv war: Ich habe Kurzvideos mit UnSwipe gelöscht. Zwei Stunden am Tag kamen für die echte Arbeit zurück.",
+    "es": "Lo que de verdad fue productivo para mí: borré los vídeos cortos con UnSwipe. Recuperé dos horas al día para el trabajo real.",
+    "it": "Ciò che è stato davvero produttivo per me: ho eliminato i video brevi con UnSwipe. Due ore al giorno sono tornate per il vero lavoro.",
+    "tr": "Benim için gerçekten üretken olan: kısa videoları UnSwipe ile sildim. Gerçek iş için günde iki saat geri geldi."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Reading summaries instead of books",
+    "fr": "Lire des résumés au lieu des livres",
+    "de": "Zusammenfassungen statt Bücher lesen",
+    "es": "Leer resúmenes en vez de libros",
+    "it": "Leggere riassunti invece dei libri",
+    "tr": "Kitap yerine özet okumak"
+   },
+   "texte": {
+    "en": "You get the idea, but not the thinking. The slow part is where you actually learn.",
+    "fr": "Tu as l’idée, mais pas la réflexion. La partie lente, c’est là que tu apprends vraiment.",
+    "de": "Du bekommst die Idee, aber nicht das Denken. Im langsamen Teil lernst du wirklich.",
+    "es": "Te quedas con la idea, pero no con el pensamiento. En la parte lenta es donde aprendes.",
+    "it": "Prendi l’idea, ma non il ragionamento. È nella parte lenta che impari davvero.",
+    "tr": "Fikri alırsın ama düşünmeyi değil. Asıl öğrenme yavaş kısımda olur."
+   }
+  }
+ ],
+ "notes": "routine du 01/11 : accroche jamais faite chez nous (« things that feel productive but aren’t »). cta C : élément UnSwipe en 5e item (slide 6), à la 1re personne."
+}

@@ -8,7 +8,7 @@ Les décisions d'Adrien des 29 et 30/10 l'emportent sur le reste du document. Le
 
 | Sujet | Avant (rédaction du 28/10) | Maintenant | Section |
 | --- | --- | --- | --- |
-| Mesure | À blanc puis A/B de 11 jours (W1 à W4) | **Pas d'A/B** (29/10). À blanc du 29/10 au 1/11, puis bascule ; à la place de l'A/B, un suivi avant/après (r médian, part à 10 000 vues) et une alerte si le r médian des 3 derniers jours mesurés baisse de plus de 15 % (0617) | W0 à W4 |
+| Mesure | À blanc puis A/B de 11 jours (W1 à W4) | **Pas d'A/B** (29/10). À blanc du 29/10 au 1/11, puis bascule ; à la place de l'A/B, un suivi avant/après (r médian, part à 10 000 vues) et une alerte si le r médian des 3 derniers jours mesurés baisse de plus de 15 % (0617) | W0 à W4 | **Basculé le 1/11 à 20 h 22** : mode `actif`, podz sur la boîte ; premier jour assigné par BLEO le 2/11.
 | Bascule | J15, sur décision W3 | **Dimanche 1/11 au soir** (décision du 30/10) : `bleo.mode = actif` et les podz sur la boîte ; premier jour assigné par BLEO : lundi 2/11. Retour : « Revenir à l'ancien système » (mode `ombre`) et `bleo.podz.type_obligatoire` à faux | W4, P1 |
 | Tirage | BLEO crée les passages à 14 h, decks l'après-midi | Le tirage de 14 h reste un **plan** (`bleo_ombre_passages`) ; l'assignation de minuit le suit créneau par créneau ; un créneau non servable repart sur la tierlist (`bras = 'temoin'`). La tierlist reste en secours jusqu'à L8 | A7, D1, L6, L7 |
 | Fonctions | Fonctions Edge `bleo-nuit`, `bleo-assignation`… | Fonctions SQL appelées par pg_cron (`bleo_nuit`, `bleo_tirage`, `bleo_rapport`, `bleo_jauge_photo`) ; migrations dans la plage 06xx | Planning |

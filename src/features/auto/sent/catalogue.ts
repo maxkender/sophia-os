@@ -75,6 +75,7 @@ export const TEXTES: readonly TexteCatalogue[] = [
   { id: "debut_start", groupe: "debut", cle: "debut_popup_start", variables: [] },
   { id: "debut_follows", groupe: "debut", cle: "debut_popup_follows", variables: ["n", "handle", "x"] },
   { id: "debut_posts", groupe: "debut", cle: "debut_popup_posts", variables: [] },
+  { id: "debut_follows_bloque", groupe: "debut", cle: "debut_popup_follows_bloque", variables: [] },
   { id: "regularite", groupe: "regularite", cle: "nudge_regularite_texte", variables: ["prenom"] },
   { id: "lien1000", groupe: "lien1000", cle: "lien_1000", chemin: "message", variables: ["handle", "lien"] },
   { id: "lien1000_relance", groupe: "lien1000", cle: "lien_1000", chemin: "message_relance", variables: ["handle", "lien"] },

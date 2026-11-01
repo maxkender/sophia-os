@@ -28,4 +28,15 @@ describe("0494 : le pop-up Start Tuesday, calculé d'après le dernier relevé",
     expect(texteDebut({ ...base, abonnements: 5 })).toBeNull();
     expect(texteDebut({ ...base, textes: { debut_popup_follows: "follow {n} more" } })).toContain("You can't post yet: follow 3 more.");
   });
+  it("0498 : 0 follow plus de 24 h après Start warmup : le conseil « TikTok limite les comptes neufs » en paragraphe à part", () => {
+    const maintenant = new Date("2026-11-01T20:00:00Z");
+    const texte = texteDebut({ ...base, abonnements: 0 }, maintenant)!;
+    expect(texte).toContain("you have 0/5). Do it before Monday 12:00");
+    expect(texte).toContain("\n\nTikTok sometimes limits new accounts.");
+    // Moins de 24 h, ou des follows lus : pas de conseil.
+    expect(texteDebut({ ...base, abonnements: 0, warmup_started_at: "2026-11-01T10:00:00Z" }, maintenant)).not.toContain("TikTok sometimes");
+    expect(texteDebut({ ...base, abonnements: 2 }, maintenant)).not.toContain("TikTok sometimes");
+    // Le texte modifié dans Settings l'emporte.
+    expect(texteDebut({ ...base, abonnements: 0, textes: { debut_popup_follows_bloque: "Custom tip." } }, maintenant)).toMatch(/\n\nCustom tip\.$/);
+  });
 });

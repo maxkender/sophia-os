@@ -27,7 +27,16 @@ export const TEXTES_DEBUT: Record<string, string> = {
   debut_popup_start: "click Start warmup on your dashboard",
   debut_popup_follows: "you still need to follow {n} more accounts with @{handle} (you have {x}/5)",
   debut_popup_posts: "you posted during the warm-up: delete those posts and don't post before your start date",
+  // 0498 : 0 follow plus de 24 h après Start warmup (remonté le 1er nov.) : un paragraphe à part.
+  debut_popup_follows_bloque:
+    "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then tell us in #questions.",
 };
+
+/** TikTok bloque les follows : compte trouvé, 0 follow, Start warmup il y a plus de 24 h. */
+export function followsBloquesDebut(e: EtatDebut, maintenant: Date = new Date()): boolean {
+  if (!e.warmup_started_at || e.existe !== true || (e.abonnements ?? 0) > 0) return false;
+  return maintenant.getTime() - new Date(e.warmup_started_at).getTime() > 24 * 3600_000;
+}
 
 const remplir = (modele: string, vars: Record<string, string>) =>
   modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout));
@@ -48,7 +57,7 @@ export function manquesDebut(e: EtatDebut): ("introuvable" | "start" | "follows"
 }
 
 /** Le texte du pop-up, ou null quand tout est fait. */
-export function texteDebut(e: EtatDebut): string | null {
+export function texteDebut(e: EtatDebut, maintenant: Date = new Date()): string | null {
   const manques = manquesDebut(e);
   if (manques.length === 0) return null;
   const t = { ...TEXTES_DEBUT, ...(e.textes ?? {}) };
@@ -57,7 +66,9 @@ export function texteDebut(e: EtatDebut): string | null {
   const vars = { handle, n: String(Math.max(0, FOLLOWS_MIN - x)), x: String(Math.min(x, FOLLOWS_MIN)) };
   const morceaux = manques.map((k) => remplir(t[`debut_popup_${k}`] ?? TEXTES_DEBUT[`debut_popup_${k}`]!, vars).trim()).filter(Boolean);
   const cadre = t[e.cas === "mardi" ? "debut_popup_mardi" : "debut_popup_reporter"]!;
-  return remplir(cadre, { ...vars, ce_qui_manque: morceaux.join("; "), date: dateAnglaise(e.debut) }).trim();
+  const texte = remplir(cadre, { ...vars, ce_qui_manque: morceaux.join("; "), date: dateAnglaise(e.debut) }).trim();
+  const conseil = followsBloquesDebut(e, maintenant) ? (t.debut_popup_follows_bloque ?? "").trim() : "";
+  return conseil ? `${texte}\n\n${conseil}` : texte;
 }
 
 export async function lireMonDebut(): Promise<EtatDebut | null> {

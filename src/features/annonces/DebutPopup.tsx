@@ -38,7 +38,7 @@ export function DebutPopup({ maintenant }: { maintenant?: Date }) {
 function Debut({ maintenant }: { maintenant?: Date }) {
   const { pathname } = useLocation();
   const lu = useQuery({ queryKey: ["mon-debut"], queryFn: lireMonDebut, refetchInterval: 10 * 60_000 });
-  const texte = lu.data ? texteDebut(lu.data) : null;
+  const texte = lu.data ? texteDebut(lu.data, maintenant) : null;
   const jour = aujourdhuiParis(maintenant ?? new Date());
   const lundi = new Date(`${jour}T12:00:00Z`).getUTCDay() === 1;
   const ecranPosts = pathname.startsWith("/calendrier");

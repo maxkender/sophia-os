@@ -64,3 +64,31 @@ export async function relierSlack(profileId: string, slackUserId: string | null)
 export async function synchroniserSlackPosteurs(simuler = false): Promise<ResultatSynchroSlack> {
   return await invoke<ResultatSynchroSlack>("slack-relier", { action: "synchro", simuler });
 }
+
+/** 0497 : « I've joined » / « I did this step » envoyés par les recrues, à confirmer. */
+export interface DeclarationEtape {
+  poster_id: string;
+  nom: string | null;
+  cohorte_lundi: string | null;
+  etape: "slack" | "tiktok" | "warmup";
+  note: string | null;
+  declare_at: string;
+  statut: string;
+  candidats: { slack_user_id: string; nom: string | null; vu: string | null }[] | null;
+}
+
+export async function lireDeclarationsEtapes(): Promise<DeclarationEtape[]> {
+  const { data, error } = await supabase.rpc("etape_declarations_liste");
+  if (error) throw error;
+  return (data ?? []) as DeclarationEtape[];
+}
+
+export async function deciderDeclaration(posterId: string, etape: string, valide: boolean, slack?: string | null): Promise<void> {
+  const { error } = await supabase.rpc("etape_declaration_decider", {
+    p_poster: posterId,
+    p_etape: etape,
+    p_valide: valide,
+    p_slack: slack ?? null,
+  });
+  if (error) throw error;
+}

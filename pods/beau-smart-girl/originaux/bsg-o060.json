@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o060",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "mon cerveau avant / après 30 jours à apprendre un truc par jour #pourtoi #culture #avantapres",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "essai. cta C. Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 8 sur 8 (le numéro finit par 0). L'essai : le format « avant / après » sur tout le deck (une slide avant, une slide après pour chaque situation), jamais fait chez nous. Récit en « je », sans promesse scientifique. Preuve : schéma dangereusement-cultivee (r 2,96, 2e2ef1c3). Accroches écrites : « mon cerveau avant / après 30 jours à apprendre un truc par jour » (retenue : format visuel, promesse concrète), « 30 jours de culture générale : ce qui a changé » (écartée : plus fade), « avant / après : un mois à me cultiver chaque matin » (écartée : moins direct). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ba61c330",
+   "texte_overlay": "mon cerveau avant / après\n30 jours à apprendre\nun truc par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67cb1a44",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "ba7f0b54",
+   "texte_overlay": "au dîner\n\navant : je hochais la tête.\naprès : je raconte l'histoire de la tour de pise, et tout le monde écoute.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bac2a1e3",
+   "texte_overlay": "au musée\n\navant : 40 salles, zéro souvenir.\naprès : trois œuvres, et je sais pourquoi elles sont là.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bae80cc6",
+   "texte_overlay": "dans le métro\n\navant : scroll, scroll, scroll.\naprès : une anecdote, et le trajet passe plus vite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bb0105b1",
+   "texte_overlay": "face à un mot inconnu\n\navant : je faisais semblant.\naprès : je demande, et je le replace le lendemain.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b9301bef",
+   "texte_overlay": "et toi, tu tentes les 30 jours ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

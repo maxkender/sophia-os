@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o085",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR à ton entretien annuel #entretienannuel #travail #carriere #manager #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. variante de rh-o021 (35,4 k vues en hu). Même schéma mentir-entretien (r 15,22, 496f8d72), même format « tu DOIS MENTIR… jamais / tu dis », autre angle, autres questions : aucune reprise de rh-o001 à rh-o083 ni des sources. Recadrage vrai, aucune fausse contre-offre. Angle : l'entretien annuel avec son manager. CTA de fin jamais utilisé (dire si son entretien annuel approche). Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0b36e8c",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR\nà ton entretien annuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d3495aab",
+   "texte_overlay": "1\n« ton année s'est bien passée ? »\njamais « bof »\ntu dis tes 3 réussites, puis ce qui t'a freinée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d360c2a7",
+   "texte_overlay": "2\n« des difficultés avec l'équipe ? »\njamais un règlement de comptes\ntu dis un fait et une proposition",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "acc62048",
+   "texte_overlay": "3\n« tu veux évoluer ? »\njamais « on verra »\ntu dis vers quoi, et ce qui te manque pour y aller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ab744209",
+   "texte_overlay": "4\n« tu t'es formée cette année ? »\njamais « pas eu le temps »\nmes 3 réponses : une formation, mes lectures, et ce que j'apprends chaque jour",
+   "texte_sophia": "4\n« tu t'es formée cette année ? »\nmes 3 réponses : une formation, mes lectures, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b18e0aa2",
+   "texte_overlay": "5\n« t'es satisfaite de ton salaire ? »\njamais « oui oui » par réflexe\ntu dis « j'aimerais en parler, voilà mes arguments »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d4ff7cf4",
+   "texte_overlay": "6\n« un mot pour finir ? »\ntu dis ce que t'attends de ton manager cette année",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d514188b",
+   "texte_overlay": "ton entretien annuel, c'est quand ?\ncette semaine, ce mois, ou t'en as jamais eu ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

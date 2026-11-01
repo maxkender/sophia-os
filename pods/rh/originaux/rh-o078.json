@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o078",
+ "schema_id": "mentir-entretien",
+ "titre": "les petits mensonges d'entretien qui te grillent à coup sûr (et la version vraie qui passe) #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 3. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma mentir-entretien (r 15,22, 496f8d72), recadrage. Famille d'accroche jamais faite : « ça te grille ». Chaque version proposée est vraie : on ne ment pas, on choisit ses mots. CTA de fin jamais utilisé. (avouer celui qu'on a déjà dit) Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d08df46c",
+   "texte_overlay": "les petits mensonges d'entretien\nqui te grillent à coup sûr\n(et la version vraie qui passe)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b158f85b",
+   "texte_overlay": "« je parle couramment anglais »\nalors que non. ils te testent en 30 secondes.\nla version vraie : « je le lis bien, et je travaille l'oral »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b2f2ba50",
+   "texte_overlay": "« j'ai lu ce livre »\nalors que non. ils te demandent ce que t'en as pensé.\nperso, je cite seulement ce que j'ai vraiment lu ou appris",
+   "texte_sophia": "« j'ai lu ce livre »\nalors que non. perso, je cite seulement ce que j'ai vraiment appris, souvent en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b3ef2f24",
+   "texte_overlay": "« je maîtrise ce logiciel »\nla version vraie : « je l'ai utilisé sur X, je progresse vite »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b472bd31",
+   "texte_overlay": "« j'étais responsable du projet »\nalors que t'y participais.\nla version vraie : ton rôle exact, et ce qu'il a changé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b57278c0",
+   "texte_overlay": "« je n'ai pas d'autres pistes »\nla version vraie : « j'en ai, mais celle-ci est ma préférée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b59d8a1a",
+   "texte_overlay": "lequel t'as déjà dit ?\navoue, personne ne te juge",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

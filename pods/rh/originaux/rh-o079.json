@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o079",
+ "schema_id": "insider-rh",
+ "titre": "entretien en visio : ce que le recruteur remarque avant que tu dises un mot #entretien #visio #recrutement #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma insider-rh (r 3,49, d3d9cd2f). Famille d'accroche jamais faite : « l'entretien en visio ». Aucune appli de visio nommée. CTA de fin jamais utilisé. (dire si on préfère visio ou sur place) Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d2427888",
+   "texte_overlay": "entretien en visio :\nce que le recruteur remarque\navant que tu dises un mot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b62e34ae",
+   "texte_overlay": "si t'es connectée 2 minutes avant\nou s'il t'attend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b8dd95af",
+   "texte_overlay": "la lumière sur ton visage\nface à une fenêtre, pas dos à elle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b6ed5840",
+   "texte_overlay": "ce qu'il y a derrière toi\nun mur simple ou une étagère rangée suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b6f49e80",
+   "texte_overlay": "ton regard\nla caméra, pas ta propre image",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b74c6b55",
+   "texte_overlay": "si t'as une feuille de notes\nc'est bien vu. un sujet ou deux à raconter aussi.\nutilise l'appli Sophia 5 minutes la veille, t'en auras un",
+   "texte_sophia": "si t'as une feuille de notes, c'est bien vu. un sujet à raconter aussi.\nutilise l'appli Sophia 5 minutes la veille, t'en auras un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b848e340",
+   "texte_overlay": "ton son\nun casque simple change tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b8657045",
+   "texte_overlay": "tu préfères l'entretien en visio\nou en vrai ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o075",
+ "schema_id": "signaux-recruteur",
+ "titre": "green flags et red flags d'un recruteur, dès le premier appel #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 6. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. essai (rh-o075 finit par 5) : format « green flag / red flag », jamais fait chez nous. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma signaux-recruteur (r 2,56, d9f07ab9). Accroches écrites : celle-ci (retenue), « ce que le premier appel t'apprend sur la boîte » (écartée : moins visuelle), « les signes qu'un recruteur te respecte » (écartée : vague). Indices, jamais des certitudes. CTA de fin jamais utilisé. (raconter son pire premier appel) Inspirations : sans les slides 4 et 5 de d9f07ab9 (une vraie entreprise citée, une appli concurrente) ni la 6 de e33deadc (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c6324f58",
+   "texte_overlay": "green flags et red flags\nd'un recruteur,\ndès le premier appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8d307d82",
+   "texte_overlay": "green flag : il te donne la fourchette de salaire sans que tu demandes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a1bc50ff",
+   "texte_overlay": "red flag : il ne sait pas dire qui sera ton manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "956e5938",
+   "texte_overlay": "green flag : il t'explique toutes les étapes et leurs délais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a8f98d95",
+   "texte_overlay": "red flag : « on cherche quelqu'un qui ne compte pas ses heures »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9bae2d70",
+   "texte_overlay": "green flag : il te demande ce que tu veux apprendre\nperso, j'avais ma réponse : l'histoire, 5 minutes par jour, et je sais en parler",
+   "texte_sophia": "green flag : il te demande ce que tu veux apprendre.\nperso, j'avais ma réponse : l'histoire, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9d17c0ef",
+   "texte_overlay": "red flag : il te presse de répondre avant ce soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9d26ce69",
+   "texte_overlay": "c'était quoi ton pire premier appel ?\nraconte en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

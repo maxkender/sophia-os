@@ -116,7 +116,7 @@ Tu ne postes rien sur Slack : le chef des podz fait le point dans #podz.
 - **Tu ne publies jamais rien** : tout passe par la file de validation
   (Pilotage → Pods).
 - **Ton podz est « sûr »** (sauf la vidéo) : une livraison est validée toute
-  seule 12 h après son dépôt si personne ne la rejette. Relis-la comme si
+  seule 5 h après son dépôt si personne ne la rejette. Relis-la comme si
   personne d'autre ne la relisait : faits vrais, aucune autre appli, aucune
   personne réelle sur la slide de l'app, chaque slide regardée.
 - **Un outil échoue deux fois**, le budget Apify est atteint, ou une règle de

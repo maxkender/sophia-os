@@ -1,0 +1,188 @@
+{
+ "id": "mm-o033",
+ "format": "carrousel",
+ "titre": "Habits that quietly make you smarter",
+ "legendes": {
+  "en": "habits that quietly make you smarter #smarter #habits #mentalmaxxing #selfimprovement",
+  "fr": "des habitudes qui te rendent plus intelligent sans bruit #intelligence #habitudes #mentalmaxxing #developpementpersonnel",
+  "de": "Gewohnheiten, die dich still klüger machen #klüger #gewohnheiten #mentalmaxxing #selbstverbesserung",
+  "es": "hábitos que te hacen más listo sin ruido #inteligencia #habitos #mentalmaxxing #superacionpersonal",
+  "it": "abitudini che ti rendono più intelligente in silenzio #intelligenza #abitudini #mentalmaxxing #crescitapersonale",
+  "tr": "seni sessizce daha zeki yapan alışkanlıklar #zeka #alışkanlıklar #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/1",
+   "boite": [
+    300,
+    318,
+    610,
+    600
+   ]
+  },
+  "theme": {
+   "en": "Habits that quietly",
+   "fr": "Les habitudes qui",
+   "de": "Gewohnheiten, die",
+   "es": "Hábitos que en silencio",
+   "it": "Abitudini che in silenzio",
+   "tr": "Seni sessizce"
+  },
+  "sous": {
+   "en": "make you smarter",
+   "fr": "te rendent plus malin",
+   "de": "dich klüger machen",
+   "es": "te hacen más listo",
+   "it": "ti rendono più sveglio",
+   "tr": "daha zeki yapanlar"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Reading before bed",
+    "fr": "Lire avant de dormir",
+    "de": "Lesen vor dem Schlafen",
+    "es": "Leer antes de dormir",
+    "it": "Leggere prima di dormire",
+    "tr": "Yatmadan önce okumak"
+   },
+   "texte": {
+    "en": "Ten pages a night is about fifteen books a year. Quietly, that changes how you think.",
+    "fr": "Dix pages par soir, c’est environ quinze livres par an. Sans bruit, ça change ta façon de penser.",
+    "de": "Zehn Seiten pro Abend sind etwa fünfzehn Bücher im Jahr. Still und leise verändert das dein Denken.",
+    "es": "Diez páginas por noche son unos quince libros al año. En silencio, eso cambia cómo piensas.",
+    "it": "Dieci pagine a sera sono circa quindici libri l’anno. In silenzio, cambia il tuo modo di pensare.",
+    "tr": "Gecede on sayfa, yılda yaklaşık on beş kitap eder. Sessizce düşünme şeklini değiştirir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The one that made the biggest difference for me: I deleted short videos with UnSwipe. My brain had room to think again.",
+    "fr": "Celle qui a tout changé pour moi : j’ai supprimé les vidéos courtes avec UnSwipe. Mon cerveau avait à nouveau de la place pour penser.",
+    "de": "Die, die bei mir am meisten verändert hat: Ich habe Kurzvideos mit UnSwipe gelöscht. Mein Kopf hatte wieder Platz zum Denken.",
+    "es": "La que más cambió las cosas para mí: borré los vídeos cortos con UnSwipe. Mi cerebro volvió a tener espacio para pensar.",
+    "it": "Quella che ha fatto più differenza per me: ho eliminato i video brevi con UnSwipe. Il cervello aveva di nuovo spazio per pensare.",
+    "tr": "Bende en çok fark yaratan: kısa videoları UnSwipe ile sildim. Beynimde yeniden düşünecek yer oldu."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Walking without headphones",
+    "fr": "Marcher sans écouteurs",
+    "de": "Gehen ohne Kopfhörer",
+    "es": "Caminar sin auriculares",
+    "it": "Camminare senza cuffie",
+    "tr": "Kulaklıksız yürümek"
+   },
+   "texte": {
+    "en": "Your best ideas show up when nothing is playing. Give them a chance to arrive.",
+    "fr": "Tes meilleures idées arrivent quand rien ne tourne dans tes oreilles. Laisse-leur une chance.",
+    "de": "Deine besten Ideen kommen, wenn nichts läuft. Gib ihnen eine Chance.",
+    "es": "Tus mejores ideas llegan cuando no suena nada. Dales una oportunidad.",
+    "it": "Le idee migliori arrivano quando non suona niente. Dagli una possibilità.",
+    "tr": "En iyi fikirlerin hiçbir şey çalmazken gelir. Onlara bir şans ver."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Writing things down",
+    "fr": "Écrire les choses",
+    "de": "Dinge aufschreiben",
+    "es": "Escribir las cosas",
+    "it": "Scrivere le cose",
+    "tr": "Bir şeyleri yazmak"
+   },
+   "texte": {
+    "en": "A notebook for ideas and questions. Writing forces you to understand what you think.",
+    "fr": "Un carnet pour les idées et les questions. Écrire t’oblige à comprendre ce que tu penses.",
+    "de": "Ein Notizbuch für Ideen und Fragen. Schreiben zwingt dich zu verstehen, was du denkst.",
+    "es": "Una libreta para ideas y preguntas. Escribir te obliga a entender lo que piensas.",
+    "it": "Un quaderno per idee e domande. Scrivere ti obbliga a capire cosa pensi.",
+    "tr": "Fikirler ve sorular için bir defter. Yazmak, ne düşündüğünü anlamaya zorlar."
+   }
+  },
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Learning a real skill",
+    "fr": "Apprendre une vraie compétence",
+    "de": "Eine echte Fähigkeit lernen",
+    "es": "Aprender una habilidad real",
+    "it": "Imparare una vera abilità",
+    "tr": "Gerçek bir beceri öğrenmek"
+   },
+   "texte": {
+    "en": "Cooking, an instrument, a language. Hard things build a brain that can handle hard things.",
+    "fr": "Cuisine, instrument, langue. Les choses difficiles construisent un cerveau capable de les gérer.",
+    "de": "Kochen, ein Instrument, eine Sprache. Schweres baut ein Gehirn, das Schweres schafft.",
+    "es": "Cocinar, un instrumento, un idioma. Lo difícil construye un cerebro capaz de lo difícil.",
+    "it": "Cucina, uno strumento, una lingua. Le cose difficili costruiscono un cervello che le regge.",
+    "tr": "Yemek, bir enstrüman, bir dil. Zor şeyler, zora dayanabilen bir beyin inşa eder."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Sleeping eight hours",
+    "fr": "Dormir huit heures",
+    "de": "Acht Stunden schlafen",
+    "es": "Dormir ocho horas",
+    "it": "Dormire otto ore",
+    "tr": "Sekiz saat uyumak"
+   },
+   "texte": {
+    "en": "Your brain sorts what you learned while you sleep. Skip sleep and you lose half of it.",
+    "fr": "Ton cerveau range ce que tu as appris pendant ton sommeil. Moins de sommeil, et tu en perds la moitié.",
+    "de": "Dein Gehirn sortiert im Schlaf, was du gelernt hast. Weniger Schlaf, und du verlierst die Hälfte.",
+    "es": "Tu cerebro ordena lo aprendido mientras duermes. Duerme poco y pierdes la mitad.",
+    "it": "Il cervello riordina ciò che hai imparato mentre dormi. Dormi poco e ne perdi metà.",
+    "tr": "Beynin öğrendiklerini uykuda düzenler. Uykuyu kısarsan yarısını kaybedersin."
+   }
+  }
+ ],
+ "notes": "routine du 01/11 : accroche jamais faite chez nous (« habits that quietly make you smarter »). cta C : élément UnSwipe en 2e item (slide 3), à la 1re personne."
+}

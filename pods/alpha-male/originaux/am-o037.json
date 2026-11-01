@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o037",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4f1ebbf1-3b46-4d50-b961-c1bc9d45c5b3",
+ "titre": "6 ways to gain true confidence #confidence #men #selfimprovement #mindset #discipline",
+ "musique_titre": "Chasing Cities",
+ "musique_url": "https://www.tiktok.com/music/chasing-cities-7372670225664051216",
+ "inspirations": [
+  "4f1ebbf1-3b46-4d50-b961-c1bc9d45c5b3"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». Répétition BLEO du 1/11 (ROUTINE.md, exception podz 8 et 9). Déclinaison G1 de la ligne 3 de la boîte (parent 4f1ebbf1, en, @millyjhino ; meilleur passage tr 5,8 k vues, r 4,84). Accroche du parent mot pour mot. Format du parent : une phrase ferme en titre, puis 2 ou 3 lignes. Moyens neufs, aucun du parent (ton histoire, ton corps, arrêter d'impressionner, une compétence, parler, tenir parole) ni du label (vérifié). Images : la banque, sans visage ; slide Sophia sur une salle de sport vide. reference_url du parent, vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "05951cc7",
+   "texte_overlay": "6 ways to gain true confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7528795001648598328/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10d2f1f0",
+   "texte_overlay": "Dress for the man\nyou're becoming.\nClean, fitted, simple.\nYou carry yourself\nlike what you wear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7528795001648598328/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0ad0a319",
+   "texte_overlay": "Do one thing that scares you\nevery week.\nSmall fears, faced often,\nbecome big courage.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7528795001648598328/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "12c69193",
+   "texte_overlay": "Stop apologizing for\ntaking up space.\nNot \"sorry to bother you.\"\nJust \"quick question.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7528795001648598328/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4193cfd0",
+   "texte_overlay": "Get comfortable with silence.\nYou don't have to fill\nevery pause.\nCalm men let it breathe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7528795001648598328/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0e7fb5ac",
+   "texte_overlay": "Know things.\nThe more you learn,\nthe less you fear\nany conversation.",
+   "texte_sophia": "Know things.\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7528795001648598328/6.jpg"
+  }
+ ]
+}

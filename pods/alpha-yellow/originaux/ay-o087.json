@@ -1,62 +1,62 @@
 {
  "source_id": "ay-o087",
  "schema_id": "stop-awkward",
- "titre": "How to stop feeling awkward at the gym (and finally relax) #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "titre": "How to stop feeling awkward eating alone in public (and actually enjoy it) #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
  "musique_titre": "ENDO SMOKE",
  "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
  "inspirations": [
   "dde4847b-7b0c-4a50-9646-2f224c6e0a8e"
  ],
- "notes": "cta C : défi « 30 jours », slide 8, sur une image sans visage. Couverture neuve adab61f8. Schéma stop-awkward (ee79c00a r 2,23, dde4847b r 2,48 chez nous), deuxième passage du jour, scène neuve. Accroches écrites : « How to stop feeling awkward at the gym (and finally relax) » (retenue : le gabarit exact sur une scène que la cible vit chaque semaine), « Gym anxiety tips for beginners » (écartée : perd le gabarit), « How to feel confident at the gym » (écartée : sans la seconde partie). Items neufs.",
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture neuve adab61f8. Schéma stop-awkward (ee79c00a r 2,23, dde4847b r 2,48 chez nous), deuxième passage du jour. Scène jamais faite chez nous (voir ay-o081 pour la liste des scènes déjà faites). Accroches écrites : « How to stop feeling awkward eating alone in public (and actually enjoy it) » (retenue : le gabarit exact sur un moment que tout le monde vit), « How to enjoy your own company » (écartée : vire au contemplatif, à éviter dans le playbook), « Why eating alone is a power move » (écartée : perd le gabarit). Items neufs.",
  "slides": [
   {
    "position": 1,
    "media_id": "adab61f8",
-   "texte_overlay": "How to stop feeling awkward\nat the gym (and finally relax)",
+   "texte_overlay": "How to stop feeling awkward\neating alone in public\n(and actually enjoy it)",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689885995193486600/1.jpg"
   },
   {
    "position": 2,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
-   "texte_overlay": "Go with a written plan. Four exercises, sets and reps on your phone. Knowing exactly what you'll do next stops the wandering around that makes you feel everyone is watching you.",
+   "texte_overlay": "Pick the right seat. A spot at the bar or a table by the window. Watching the street or the kitchen gives your eyes somewhere to go, and you instantly feel less on display.",
    "media_id": "3be6dd87"
   },
   {
    "position": 3,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
-   "texte_overlay": "Remember nobody is looking at you. Everyone is focused on their own set, their own music, their own reflection. The gym is the one place where people care least about you.",
+   "texte_overlay": "Order with confidence. \"Just me tonight, thanks.\" Said with a smile, it sounds relaxed, not lonely. Staff love solo diners who are easy and friendly, and you often get better service.",
    "media_id": "f4bd619d"
   },
   {
    "position": 4,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
-   "texte_overlay": "Start at quieter hours. Early morning or mid-afternoon. Fewer people means less pressure, and by the time you go at peak hours, the machines already feel familiar.",
+   "texte_overlay": "Remember nobody is thinking about you. The couple next to you is talking about their week. Everyone in a restaurant is far more focused on their own plate than on your table.",
    "media_id": "3fff1b1f"
   },
   {
    "position": 5,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
-   "texte_overlay": "Ask someone how a machine works. \"Sorry, how do you set this one up?\" Regulars love helping, and that one question often turns a stranger into a friendly face you see every week.",
+   "texte_overlay": "Chat with the staff. Ask what they recommend or what's good today. A short friendly exchange with the waiter makes the meal feel social, even when you came alone.",
    "media_id": "4ee6e05d"
   },
   {
    "position": 6,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
-   "texte_overlay": "Learn basic gym manners. Wipe the bench, rerack the weights, don't sit on a machine scrolling. Knowing the unwritten rules removes the fear of doing something wrong.",
-   "media_id": "e1140173"
+   "texte_overlay": "Bring something to feed your mind. I do five minutes of history, art or science while I wait for my food, and it turns a solo meal into the best part of my day.",
+   "texte_sophia": "I do five minutes on a micro-learning app like the Sophia app while I wait for my food. History, art, science. A solo meal turns into the best part of my day.",
+   "media_id": "4446546e"
   },
   {
    "position": 7,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
-   "texte_overlay": "Track your progress. Write down every weight you lift. Watching the numbers go up week after week builds a quiet confidence that no amount of positive thinking can match.",
-   "media_id": "79e0e876"
+   "texte_overlay": "Put the phone down for the meal itself. Taste the food, look around, enjoy the noise of the room. Eating without scrolling is how a lonely moment becomes a calm one.",
+   "media_id": "e1140173"
   },
   {
    "position": 8,
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
-   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science between sets. A busy, curious mind leaves less room for the worry that everyone is judging you.",
-   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious mind leaves less room for worrying what people think.",
-   "media_id": "4446546e"
+   "texte_overlay": "Start small, then go bigger. Coffee alone first, then lunch, then a proper dinner. Each step feels easier, and soon going out alone feels like a treat instead of a test.",
+   "media_id": "79e0e876"
   }
  ]
 }

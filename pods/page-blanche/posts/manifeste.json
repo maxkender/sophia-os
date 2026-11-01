@@ -1792,6 +1792,56 @@
     "6": "7686189452963712288_2"
    },
    "notes": "nouvelle accroche (retenir ce qu'on lit); cta B"
+  },
+  {
+   "post_id": "original-033",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#procrastination #productivity #studytips",
+   "musique": {
+    "titre": "Solace",
+    "auteur": "Txmy",
+    "original": false,
+    "id": "7629352188019509265",
+    "url_tiktok": "https://www.tiktok.com/music/x-7629352188019509265"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7697728269335924001_1",
+    "2": "7694340359056313632_3",
+    "3": "7680975889932225814_6",
+    "4": "7694778035337235744_4",
+    "5": "7685340052989398275_3",
+    "6": "7699118764788321558_5"
+   },
+   "notes": "nouvelle accroche (règle des 2 minutes); cta A"
+  },
+  {
+   "post_id": "original-035",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reading #booktok #brain",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7695416366886604064_1",
+    "2": "7686189452963712288_5",
+    "3": "7698667830635400470_5",
+    "4": "7695416366886604064_6",
+    "5": "7695416366886604064_4",
+    "6": "7696527080426655009_3"
+   },
+   "notes": "essai (format avant/après de @lavienycole); cta C"
   }
  ]
 }

@@ -1,0 +1,307 @@
+{
+  "id": "fa-026",
+  "source": {
+    "url": "https://www.tiktok.com/@fathom0g/video/7688720210521574678",
+    "vues": 28500,
+    "accroche": "5 Ways To Become Extremely Capable"
+  },
+  "titre": {
+    "en": "5 Ways To Become Extremely Capable",
+    "de": "5 Wege, extrem fähig zu werden",
+    "pt": "5 formas de te tornares extremamente capaz"
+  },
+  "legendes": {
+    "en": "5 Ways To Become Extremely Capable #skills #learnontiktok #selfimprovement",
+    "de": "5 Wege, extrem fähig zu werden #skills #lernenmittiktok #selbstverbesserung",
+    "pt": "5 formas de te tornares extremamente capaz #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  },
+  "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7325536799944690474"
+  },
+  "notes": "cta B. Double intégration : UnSwipe à l'étape 3 « GET YOUR TIME BACK », Sophia à l'étape 4 « KNOW A BIT ABOUT EVERYTHING ». Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+  "slides": [
+    {
+      "type": "couverture",
+      "statue": "assets/statues/hercule-lion.webp",
+      "en": {
+        "lignes": [
+          [
+            {
+              "t": "5 WAYS",
+              "bronze": true
+            }
+          ],
+          "TO BECOME",
+          [
+            {
+              "t": "EXTREMELY CAPABLE",
+              "bronze": true
+            }
+          ]
+        ]
+      },
+      "de": {
+        "lignes": [
+          [
+            {
+              "t": "5 WEGE",
+              "bronze": true
+            }
+          ],
+          "EXTREM FÄHIG",
+          [
+            {
+              "t": "ZU WERDEN",
+              "bronze": true
+            }
+          ]
+        ]
+      },
+      "pt": {
+        "lignes": [
+          [
+            {
+              "t": "5 FORMAS",
+              "bronze": true
+            }
+          ],
+          "DE TE TORNARES",
+          [
+            {
+              "t": "EXTREMAMENTE CAPAZ",
+              "bronze": true
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "FIX THINGS",
+          "YOURSELF"
+        ],
+        "video": {
+          "id": "SYPFon69vKs",
+          "titre": "How to Fix a Leaky Faucet | The Home Depot",
+          "chaine": "The Home Depot",
+          "vues": "1.7M views",
+          "date": "8 years ago",
+          "duree": "1:45",
+          "avatar": "https://yt3.ggpht.com/zb-CeccQq1pm8B_zvan3SZ5LGJ1EATwU6EeLye35F8wjG3nClyIzhNPA53xoUjGA4BEk6mYLmRg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "REPARIER",
+          "SELBST"
+        ],
+        "video": {
+          "id": "hA_GtpurrWM",
+          "titre": "Tipps gegen tropfenden Wasserhahn | ToolTown Heimwerken",
+          "chaine": "ToolTown - Home of Heimwerken",
+          "vues": "300.403 Aufrufe",
+          "date": "vor 12 Jahren",
+          "duree": "3:44",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKBPxEgR34Phezhbu_lUO-xO7wlMbq2h9qOF2hpaBNFQ=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "CONSERTA AS",
+          "COISAS SOZINHO"
+        ],
+        "video": {
+          "id": "SN_5gkpNhW0",
+          "titre": "TORNEIRA PINGANDO COMO CONSERTAR SEM GASTAR NADA OU GASTANDO MUITO POUCO",
+          "chaine": "Guilherme Trindade",
+          "vues": "128 mil visualizações",
+          "date": "há 4 anos",
+          "duree": "3:09",
+          "avatar": "https://yt3.ggpht.com/eG3HA4z_dU4VwqeqhZDnXZQWijmeY7BCImI4rLks8Wfk9k14bgNEzVcXnhVkbzHd-TNfvyhK3g=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "READ FASTER"
+        ],
+        "video": {
+          "id": "xiTK523Ot5U",
+          "titre": "Learn How To Speed Read - Best Speed Reading Techniques",
+          "chaine": "Ron White Memory Expert - Memory Training & Brain Training",
+          "vues": "1.3M views",
+          "date": "10 years ago",
+          "duree": "4:46",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nw8c0VMj8E_xfwYPZdw9reBaHZpBbS0D-bfnjVNKnfnQ=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "LIES SCHNELLER"
+        ],
+        "video": {
+          "id": "uAyvjBuSmbQ",
+          "titre": "2x schneller lesen in 2 Tagen Trick - Speedreading | Selbstexperiment",
+          "chaine": "Tomary",
+          "vues": "509.515 Aufrufe",
+          "date": "vor 5 Jahren",
+          "duree": "10:07",
+          "avatar": "https://yt3.ggpht.com/gxG8Y9l8Dfg0hOL42zFA2g2c2NsmvFHun4_DpPjAHMGT7uKHRC2meCAM0EhEYPgucJPB8V70cvk=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "LÊ MAIS RÁPIDO"
+        ],
+        "video": {
+          "id": "4M-0255Pe4U",
+          "titre": "Aprenda LEITURA DINÂMICA em 10 minutos",
+          "chaine": "Susane Ribeiro",
+          "vues": "2 mi visualizações",
+          "date": "há 4 anos",
+          "duree": "9:51",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcJZnDpPpRmbcBHm8FQzEWMIrhTjJK5WR3HuL7PCU8bMAW=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "app": "unswipe",
+      "en": {
+        "titre": [
+          "GET YOUR",
+          "TIME BACK"
+        ],
+        "carte": {
+          "nom": "UNSWIPE",
+          "texte": [
+            "Instagram without the Reels.",
+            "messages and stories stay."
+          ]
+        }
+      },
+      "de": {
+        "titre": [
+          "HOL DIR DEINE",
+          "ZEIT ZURÜCK"
+        ],
+        "carte": {
+          "nom": "UNSWIPE",
+          "texte": [
+            "Instagram ohne die Reels.",
+            "Nachrichten und Storys bleiben."
+          ]
+        }
+      },
+      "pt": {
+        "titre": [
+          "RECUPERA",
+          "O TEU TEMPO"
+        ],
+        "carte": {
+          "nom": "UNSWIPE",
+          "texte": [
+            "o Instagram sem os Reels.",
+            "as mensagens e as stories ficam."
+          ]
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "app": "sophia",
+      "en": {
+        "titre": [
+          "KNOW A BIT",
+          "ABOUT EVERYTHING"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "5 minutes a day",
+            "to know a bit about everything."
+          ]
+        }
+      },
+      "de": {
+        "titre": [
+          "VON ALLEM",
+          "ETWAS WISSEN"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "5 Minuten am Tag,",
+            "um von allem etwas zu wissen."
+          ]
+        }
+      },
+      "pt": {
+        "titre": [
+          "SABER UM POUCO",
+          "DE TUDO"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "5 minutos por dia",
+            "para saber um pouco de tudo."
+          ]
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "LEARN TO",
+          "SAY NO"
+        ],
+        "video": {
+          "id": "FtPRrn5nwAo",
+          "titre": "The Art of Saying No: Kenny Nguyen at TEDxLSU",
+          "chaine": "TEDx Talks",
+          "vues": "436K views",
+          "date": "13 years ago",
+          "duree": "10:56",
+          "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "LERN NEIN",
+          "ZU SAGEN"
+        ],
+        "video": {
+          "id": "R1-2gqgP3PI",
+          "titre": "Nein sagen lernen & sympathisch bleiben (mit Beispielen) 🚀 I Traumjob",
+          "chaine": "StepUp! Coaching & Karrieretipps",
+          "vues": "24.953 Aufrufe",
+          "date": "vor 7 Jahren",
+          "duree": "6:17",
+          "avatar": "https://yt3.ggpht.com/qlWWHJRFiM8CDsMlJHrMULhyGkEIODG6yb402QR8Q_t8dP_qLs7e59t3GDphhaUJ5ITDXkJ9Ew=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "APRENDE A",
+          "DIZER NÃO"
+        ],
+        "video": {
+          "id": "4iQFm2X-Wew",
+          "titre": "7 MODOS EFICAZES de dizer NÃO | Aprenda com o ESSENCIALISMO",
+          "chaine": "SejaUmaPessoaMelhor",
+          "vues": "362 mil visualizações",
+          "date": "há 9 anos",
+          "duree": "7:35",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    }
+  ]
+}

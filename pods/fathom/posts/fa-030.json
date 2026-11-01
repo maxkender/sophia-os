@@ -1,0 +1,291 @@
+{
+  "id": "fa-030",
+  "source": {
+    "url": "https://www.tiktok.com/@fathom0g/video/7681638568468565270",
+    "vues": 31600,
+    "accroche": "Skills you didn’t know you could learn"
+  },
+  "titre": {
+    "en": "Skills You Didn’t Know You Could Learn",
+    "de": "Skills, von denen du nicht wusstest, dass du sie lernen kannst",
+    "pt": "Habilidades que não sabias que podias aprender"
+  },
+  "legendes": {
+    "en": "Skills You Didn’t Know You Could Learn #skills #learnontiktok #selfimprovement",
+    "de": "Skills, von denen du nicht wusstest, dass du sie lernen kannst #skills #lernenmittiktok #selbstverbesserung",
+    "pt": "Habilidades que não sabias que podias aprender #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  },
+  "musique": {
+    "titre": "suara asli - hitsonglyrics_1",
+    "url": "https://www.tiktok.com/music/suara-asli-hitsonglyrics-1-7659357830186060565"
+  },
+  "notes": "cta C (1re personne). Sophia en carte d'appli à l'étape 4 « ANY TOPIC IN 5 MINUTES ». Pas d'UnSwipe. Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+  "slides": [
+    {
+      "type": "couverture",
+      "statue": "assets/statues/hercule-lion.webp",
+      "en": {
+        "lignes": [
+          "SKILLS YOU",
+          [
+            {
+              "t": "DIDN’T KNOW",
+              "bronze": true
+            }
+          ],
+          "YOU COULD LEARN"
+        ]
+      },
+      "de": {
+        "lignes": [
+          "ÜBERRASCHENDE",
+          [
+            {
+              "t": "SKILLS",
+              "bronze": true
+            }
+          ],
+          "ZUM LERNEN"
+        ]
+      },
+      "pt": {
+        "lignes": [
+          "HABILIDADES QUE",
+          [
+            {
+              "t": "NÃO SABIAS",
+              "bronze": true
+            }
+          ],
+          "QUE PODIAS APRENDER"
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "CALLIGRAPHY"
+        ],
+        "video": {
+          "id": "pDfj_xR20Dg",
+          "titre": "Calligraphy for Absolute Beginners: The Only Video You Need!",
+          "chaine": "The Happy Ever Crafter",
+          "vues": "501K views",
+          "date": "1 year ago",
+          "duree": "4:52",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTQFZosd67U0dTysNTbgd1H3Sj00bnPfkGCiHh0l85VC0=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "KALLIGRAFIE"
+        ],
+        "video": {
+          "id": "1rmTUZdKaOA",
+          "titre": "Kalligrafie lernen für Einsteiger",
+          "chaine": "Alexander Flemming",
+          "vues": "212.503 Aufrufe",
+          "date": "vor 7 Jahren",
+          "duree": "10:08",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_l-jswkPbU06RbEpZpHBzY--y2jwLsHhTFpK_MFnVpoPw=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "CALIGRAFIA"
+        ],
+        "video": {
+          "id": "DZ-6R3pW5uA",
+          "titre": "[Passo a Passo] Como melhorar a Caligrafia FÁCiL E Rápido",
+          "chaine": "Caligrafia da Miza",
+          "vues": "2,9 mi visualizações",
+          "date": "há 4 anos",
+          "duree": "9:51",
+          "avatar": "https://yt3.ggpht.com/MQZS9EdUpgNSCY17idST_YFRlMMSYBRHGm_FXBDRrEvdxSSIjvqQ1yE1xs69DIwqEq4jBuZBocI=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "SIGN",
+          "LANGUAGE"
+        ],
+        "video": {
+          "id": "0FcwzMq4iWg",
+          "titre": "25 ASL Signs You Need to Know | ASL Basics | American Sign Language for Beginners",
+          "chaine": "Learn How to Sign",
+          "vues": "13M views",
+          "date": "5 years ago",
+          "duree": "6:34",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjylWENsAjiqg9Ctp5NmnDOSyEtVO0KV44Mfk_XOBh1n8=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "GEBÄRDEN-",
+          "SPRACHE"
+        ],
+        "video": {
+          "id": "72VdMpLDgac",
+          "titre": "10 Gebärden, die jeder kennen sollte",
+          "chaine": "Heiko Burak",
+          "vues": "133.168 Aufrufe",
+          "date": "vor 4 Jahren",
+          "duree": "3:26",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_n_MiZrw0ru0o9Pn2dz3MVeIhCbK0wtLCffqEnIPKPXwN4=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "LÍNGUA",
+          "DE SINAIS"
+        ],
+        "video": {
+          "id": "-ZDkdbPqUZg",
+          "titre": "COMO APRENDER LIBRAS SOZINHO DO ZERO (PASSO A PASSO) - Libras para iniciantes",
+          "chaine": "Academia de Libras",
+          "vues": "2,5 mi visualizações",
+          "date": "há 3 anos",
+          "duree": "17:07",
+          "avatar": "https://yt3.ggpht.com/-O7D3m6yUves44hAXuJDHAK3q0V-34uIbZOiy_btTLFy7VqKFr42z1q6S5XL7rg-mKolzSURZA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "MORSE CODE"
+        ],
+        "video": {
+          "id": "D8tPkb98Fkk",
+          "titre": "LEARN MORSE CODE from a MEMORY CHAMP (in 15 minutes)",
+          "chaine": "Nelson Dellis",
+          "vues": "10M views",
+          "date": "7 years ago",
+          "duree": "15:11",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nS0O7OXvAbyGxVeXbWLbajNRw78ziPM-PBhKkehHLzObo=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "MORSECODE"
+        ],
+        "video": {
+          "id": "QAd2Weqz1fk",
+          "titre": "Wie ich in 10 MINUTEN MORSE-CODE lernte | schnell lernen",
+          "chaine": "Felbify",
+          "vues": "831.521 Aufrufe",
+          "date": "vor 5 Jahren",
+          "duree": "3:52",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_k8xMBaS-6TPaB0MGQmNGma8DSRpJ5xcRng9KFttdZKcg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "CÓDIGO MORSE"
+        ],
+        "video": {
+          "id": "EC1xj0jAoqI",
+          "titre": "Como aprendi CÓDIGO MORSE EM 1 DIA!",
+          "chaine": "FELIJAO",
+          "vues": "878 mil visualizações",
+          "date": "há 4 anos",
+          "duree": "9:19",
+          "avatar": "https://yt3.ggpht.com/gNuv8IFbrxGoISet4nU0bzVz-nYvXINLPugdukDj2Hqsy_b3BV97Iz-PShjAcNm87jc7Rm7STg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "app": "sophia",
+      "en": {
+        "titre": [
+          "ANY TOPIC",
+          "IN 5 MINUTES"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "what I open",
+            "instead of scrolling."
+          ]
+        }
+      },
+      "de": {
+        "titre": [
+          "JEDES THEMA",
+          "IN 5 MINUTEN"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "was ich öffne,",
+            "statt zu scrollen."
+          ]
+        }
+      },
+      "pt": {
+        "titre": [
+          "QUALQUER TEMA",
+          "EM 5 MINUTOS"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "o que eu abro",
+            "em vez de fazer scroll."
+          ]
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "SLACKLINING"
+        ],
+        "video": {
+          "id": "hxyAYxIAG6A",
+          "titre": "How to slackline for beginners",
+          "chaine": "HowNOT2",
+          "vues": "579K views",
+          "date": "8 years ago",
+          "duree": "4:55",
+          "avatar": "https://yt3.ggpht.com/YMAVpxtbFFdQiL1cVNh22JzGvJxuMbfLnbm2Jy5oQNw-inRo3FXXiyqNdB-3RwWSZEZ6k1sX=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "SLACKLINE"
+        ],
+        "video": {
+          "id": "7T_kcWW7lyI",
+          "titre": "Slackline Basics für Anfänger Tutorial",
+          "chaine": "Trainingslab",
+          "vues": "45.413 Aufrufe",
+          "date": "vor 9 Jahren",
+          "duree": "4:11",
+          "avatar": "https://yt3.ggpht.com/B_vqrWDAfdqCoh-Rw3NPXwGIlkNOUdUmIDU8OksKO2k1A8K8alaVXis-vDbtxCm3UxKzLNOm2OM=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "SLACKLINE"
+        ],
+        "video": {
+          "id": "m-VmqH2q1E8",
+          "titre": "Slackline para iniciantes | Manual de Slackline | Canal OFF",
+          "chaine": "Canal OFF",
+          "vues": "72 mil visualizações",
+          "date": "há 7 anos",
+          "duree": "2:56",
+          "avatar": "https://yt3.ggpht.com/Q9xhEy-uUd80qXjvOm9oz7UKm0oXY9bu50cZBiz5rfvCZK5LqgHcIYXmSLMCMfnQbCCf-qFYrg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    }
+  ]
+}

@@ -751,6 +751,7 @@ export const en = {
           accueil: "Welcome message",
           relance_cadre: "The reminder ({ce_qui_manque} = the missing part below)",
           relance_slack: "Missing: join Slack (step 0, added to the next step; {slack} = the invitation link)",
+          relance_signature: "Signature at the end of every reminder (before the STOP line on Upwork)",
           relance_connexion: "Missing: log in (email and password in the message)",
           relance_tiktok: "Missing: TikTok account (Start warmup not clicked)",
           relance_warmup: "Missing: Start warmup",

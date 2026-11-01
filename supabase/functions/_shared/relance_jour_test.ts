@@ -3,6 +3,8 @@ import { assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 import { DELAIS_ACCUEIL_DEFAUT, etatsAccueil, type RecrueAccueil } from "./etapes.ts";
 import {
   avecLigneStop,
+  messageDeRetrait,
+  signerRelance,
   choisirRelance,
   historiqueRelances,
   LIGNE_STOP_UPWORK,
@@ -88,11 +90,13 @@ const texteSlack = (x: RecrueAccueil, iso: string, slack = "https://join.slack/x
     email: x.email, slack,
   });
 
-Deno.test("v4, étape 0 : pas sur Slack, « join our Slack » avec la prochaine étape, dans le même message", () => {
+Deno.test("1/11 : pas sur Slack, « join our Slack » vient APRÈS l'étape la plus importante (dashboard > TikTok > Start warmup > Slack)", () => {
   assertEquals(planSlack(base, "2026-10-27T09:00:00Z").elements, []);
-  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["slack", "connexion"]);
+  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["connexion", "slack"]);
+  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").element, "connexion");
   const t = texteSlack(base, "2026-10-27T11:00:00Z");
-  assertStringIncludes(t, "you still need to join our Slack: https://join.slack/x and log in to your dashboard: https://os");
+  assertStringIncludes(t, "you still need to log in to your dashboard: https://os");
+  assertStringIncludes(t, "and join our Slack: https://join.slack/x");
   // Sur Slack : plus d'étape 0.
   assertEquals(planSlack({ ...base, slack_user_id: "U1" }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
   // Le 2e compte d'un Double : jamais d'étape 0.
@@ -146,3 +150,28 @@ Deno.test("1/11 : un ancien texte « log in » qui donne un mot de passe est rem
   assertEquals(t.includes("{mot_de_passe}"), false);
   assertStringIncludes(t, "{lien_mot_de_passe}");
 });
+
+Deno.test("1/11 : la relance est signée « Vik Studios team » une seule fois, la ligne STOP reste la dernière", () => {
+  const t = signerRelance("Hi Ana, please join our Slack.", "Vik Studios team");
+  assertEquals(t, "Hi Ana, please join our Slack.\n\nVik Studios team");
+  assertEquals(signerRelance(t, "Vik Studios team"), t);
+  assertEquals(avecLigneStop(t).endsWith("If you don't wish to continue, just reply STOP here."), true);
+  assertEquals(signerRelance("", "Vik Studios team"), "");
+});
+
+Deno.test("1/11 : un STOP (même dans une phrase) ou un retrait arrête les relances ; « stop » en minuscules dans une phrase, non", () => {
+  assertEquals(messageDeRetrait("STOP"), true);
+  assertEquals(messageDeRetrait("hi, unfortunatly i will have to STOP here"), true);
+  assertEquals(messageDeRetrait("I do not wish to proceed. Thank you"), true);
+  assertEquals(messageDeRetrait("I can't stop watching TikTok, done with the follows!"), false);
+  assertEquals(messageDeRetrait(null), false);
+});
+
+Deno.test("1/11 : Start Tuesday : la relance annonce mardi 3 November, pas lundi", () => {
+  const plan = { element: "tiktok" as const, elements: ["tiktok" as const], needsYou: false, follows: 0 };
+  const t = texteRelance({ ...TEXTES_RELANCE_DEFAUT, cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}." }, plan, {
+    prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-02", email: "a@x", mardi: true,
+  });
+  assertStringIncludes(t, "to start posting on Tuesday 3 November");
+});
+

@@ -751,6 +751,7 @@ export const fr = {
           accueil: "Message de bienvenue",
           relance_cadre: "La relance ({ce_qui_manque} = le morceau qui manque, ci-dessous)",
           relance_slack: "Manque : rejoindre Slack (étape 0, ajoutée à la prochaine étape ; {slack} = le lien d'invitation)",
+          relance_signature: "Signature à la fin de chaque relance (avant la ligne STOP sur Upwork)",
           relance_connexion: "Manque : se connecter (e-mail et mot de passe dans le message)",
           relance_tiktok: "Manque : compte TikTok (Start warmup pas cliqué)",
           relance_warmup: "Manque : Start warmup",

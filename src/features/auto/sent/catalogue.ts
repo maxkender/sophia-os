@@ -48,6 +48,8 @@ export const TEXTES: readonly TexteCatalogue[] = [
   { id: "relance_cadre", groupe: "relance", cle: "relance_texte_cadre", variables: ["prenom", "date", "ce_qui_manque"] },
   // Prompt 25 v4 : l'étape 0, rejoindre Slack (avec la prochaine étape, dans le même message).
   { id: "relance_slack", groupe: "relance", cle: "relance_texte_slack", variables: VARIABLES_RELANCE },
+  // 1/11 : la signature de chaque relance (jamais de bot), avant la ligne STOP d'Upwork.
+  { id: "relance_signature", groupe: "relance", cle: "relance_signature", variables: [] },
   { id: "relance_connexion", groupe: "relance", cle: "relance_texte_connexion", variables: VARIABLES_RELANCE },
   { id: "relance_tiktok", groupe: "relance", cle: "relance_texte_compte_tiktok", variables: VARIABLES_RELANCE },
   { id: "relance_warmup", groupe: "relance", cle: "relance_texte_start_warmup", variables: VARIABLES_RELANCE },

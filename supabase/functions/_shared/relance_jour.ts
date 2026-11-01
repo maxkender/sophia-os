@@ -48,7 +48,8 @@ export function planRelance(
   // L'étape 0 : pas sur Slack (lien d'invitation connu), le même délai que la connexion.
   const slack = o.slack === true && !x.deuxieme && !x.slack_user_id && Boolean(x.bienvenue_at) &&
     maintenant.getTime() >= new Date(x.bienvenue_at!).getTime() + (d.connexion_message_h ?? 24) * H;
-  const elements: ElementRelance[] = [...(slack ? ["slack" as const] : []), ...(etape.element ? [etape.element] : [])];
+  // 1/11 : l'étape la plus importante d'abord (dashboard > TikTok > Start warmup > follows), Slack en dernier.
+  const elements: ElementRelance[] = [...(etape.element ? [etape.element] : []), ...(slack ? ["slack" as const] : [])];
   return { element: elements[0] ?? null, elements, needsYou: false, follows: etape.follows };
 }
 
@@ -128,15 +129,18 @@ export function texteRelance(
     email: string | null | undefined;
     /** Le lien d'invitation Slack (étape 0). */
     slack?: string;
+    /** 1/11 : « Start Tuesday » : le début est le mardi (« Tuesday {date} »), pas le lundi. */
+    mardi?: boolean;
   },
 ): string {
   if (!t.cadre.trim()) return "";
+  const cadre = o.mardi ? t.cadre.replace(/\bMonday(\s+\{date\})/g, "Tuesday$1") : t.cadre;
   const vars: Record<string, string> = {
     prenom: (o.prenom ?? "").trim() || "there",
     handle: (o.handle ?? "").replace(/^@/, ""),
     url: o.url,
     lien_etapes: o.lien_etapes,
-    date: dateAnglaise(o.cohorte_lundi),
+    date: dateAnglaise(o.mardi ? lendemain(o.cohorte_lundi) : o.cohorte_lundi),
     follows: `${plan.follows} more account${plan.follows > 1 ? "s" : ""}`,
     ...(o.email ? { email: o.email } : {}),
     slack: (o.slack ?? "").trim(),
@@ -147,7 +151,13 @@ export function texteRelance(
     .map((e) => remplir(((t[e] ?? "").includes("{mot_de_passe}") ? TEXTES_RELANCE_DEFAUT[e] : t[e] ?? "").trim(), vars))
     .filter(Boolean);
   if (morceaux.length === 0) return "";
-  return remplir(t.cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+  return remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+}
+
+function lendemain(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
 }
 
 // ---------------------------------------------------------------------------
@@ -219,4 +229,24 @@ export function historiqueRelances(
     }
   }
   return h;
+}
+
+/** 1/11 : chaque relance est signée (jamais de bot) ; le réglage `relance_signature` la change. */
+export const SIGNATURE_RELANCE_DEFAUT = "Vik Studios team";
+
+/** La relance signée (une seule fois), avant la ligne STOP d'Upwork. */
+export function signerRelance(texte: string, signature: string): string {
+  const t = texte.trimEnd();
+  if (!signature || !t || t.endsWith(signature)) return t;
+  return `${t}\n\n${signature}`;
+}
+
+/** Le même motif que l'onglet Sunday (0500) : STOP en majuscules, ou un retrait écrit en clair. */
+const STOP_MAJUSCULES = /\bSTOP\b/;
+const RETRAIT_ECRIT =
+  /^\s*stop\s*$|have to stop|withdraw|do not wish to (proceed|continue)|don't wish to (proceed|continue)|not be able to work|won't be able to work|no longer (interested|available)|cancel (the|my) contract/im;
+
+/** Le dernier message reçu dit STOP, ou que la recrue se retire : plus aucune relance. */
+export function messageDeRetrait(texte: string | null | undefined): boolean {
+  return Boolean(texte && (STOP_MAJUSCULES.test(texte) || RETRAIT_ECRIT.test(texte)));
 }

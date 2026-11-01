@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o053",
+ "schema_id": "je-note-tout",
+ "titre": "je note TOUTES les choses les plus folles que j'ai faites pour arrêter de scroller #pourtoi #culture #scroll",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "cta B (anecdote notée en item 4). Fait vérifié le 1/11 sur https://fr.wikipedia.org/wiki/Tour_de_Pise : « Dès la fin de l'ajout du troisième étage vers 1178, la tour avait commencé à pencher ». Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 1 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6). Accroche inspirée d'une famille gagnante du label (« les choses les plus folles que j'ai fait pour arrêter de scroller », boîte BLEO du 1/11), jamais faite par notre pod (bsg-o010 notait des astuces sages, celle-ci des choses folles). Preuve : schéma je-note-tout (r 7,45, d61696f9 ; chez nous, bsg-o010 à r 7,54 sur son 2e passage). Accroches écrites : « je note TOUTES les choses les plus folles que j'ai faites pour arrêter de scroller » (retenue : le gagnant du label plus le TOUTES crié), « les trucs les plus extrêmes que j'ai testés contre le scroll » (écartée : moins naturel), « j'ai tout essayé pour arrêter de scroller, même ça » (écartée : sans la note). Items neufs (rien de repris de bsg-o010 ni de la source). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7b7dcebd",
+   "texte_overlay": "je note TOUTES les choses\nles plus folles que j'ai faites\npour arrêter de scroller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7b925b3d",
+   "texte_overlay": "1. donner mon téléphone à ma colocataire le soir\n\n6/10\nelle me le rendait à 7 h. elle a fini par me demander une rançon : un café.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7b92f9da",
+   "texte_overlay": "2. mettre un élastique autour du téléphone\n\n4/10\nça m'arrêtait une seconde. une seule.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7c02e50f",
+   "texte_overlay": "3. écrire une question sur mon fond d'écran\n\n7/10\n« qu'est-ce que tu cherches vraiment ? »\nune fois sur deux, je reposais le téléphone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b992a374",
+   "texte_overlay": "4. remplacer le scroll par une anecdote\n\n10/10\nce matin : la tour de pise a commencé à pencher pendant sa construction, au xiie siècle.\nmême geste, mais j'en ressors avec quelque chose.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg",
+   "texte_sophia": "4. remplacer le scroll par l'appli Sophia\n\n10/10\nce matin, elle m'a appris que la tour de pise a commencé à pencher pendant sa construction, au xiie siècle.\nmême geste, mais j'en ressors avec quelque chose."
+  },
+  {
+   "position": 6,
+   "media_id": "7c0937bd",
+   "texte_overlay": "5. laisser le téléphone dans le couloir pour dormir\n\n9/10\nle réveil, c'est un vieux réveil. et je lis enfin avant de dormir.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7c23bbc1",
+   "texte_overlay": "et toi, c'est quoi la chose la plus folle\nque t'as faite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

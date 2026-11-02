@@ -23,6 +23,8 @@ export interface LigneRcPays {
 
 /** Noms RevenueCat que Intl ne rend pas à l'identique. */
 const NOMS_SPECIAUX: Record<string, string> = {
+  // Intl rend aussi « France » pour FX (France métropolitaine) : FR, toujours.
+  "france": "FR",
   "türkiye": "TR",
   "turkey": "TR",
   "congo, the democratic republic of the": "CD",
@@ -54,6 +56,9 @@ const NOMS_SPECIAUX: Record<string, string> = {
   "kosovo": "XK",
 };
 
+/** Codes historiques ou non standard qu'Intl nomme comme un vrai pays (DD « Germany », FX « France »…). */
+const CODES_HISTORIQUES = new Set(["AN", "BU", "CS", "DD", "EU", "EZ", "FX", "NT", "QO", "SU", "TP", "UN", "YD", "YU", "ZR", "ZZ"]);
+
 let indexNoms: Map<string, string> | null = null;
 
 function normaliser(nom: string): string {
@@ -80,7 +85,7 @@ export function codePays(nom: string | null | undefined): string | null {
           } catch {
             affiche = undefined;
           }
-          if (affiche && affiche !== code) indexNoms.set(normaliser(affiche), code);
+          if (affiche && affiche !== code && !CODES_HISTORIQUES.has(code) && !indexNoms.has(normaliser(affiche))) indexNoms.set(normaliser(affiche), code);
         }
       }
     } catch {

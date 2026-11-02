@@ -1017,6 +1017,8 @@ async function suivreEtape(
 function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof planRelance>, mardi = false): string {
   return texteRelance(r.textesRelance, plan, {
     mardi,
+    // 2/11 : après lundi 12:00 (Paris), la vraie date de début (le lundi suivant).
+    maintenant: new Date(),
     prenom: x.prenom,
     handle: x.handle,
     url: OS_URL,

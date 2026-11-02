@@ -27,6 +27,12 @@ export interface JalonUpwork {
   paye: number | null;
   /** dueDateTime (ISO), si Upwork le donne. */
   echeance?: string | null;
+  /**
+   * 0515 : la semaine (numéro ISO) pour laquelle ce milestone compte, quand
+   * elle diffère de son nom (payé ou financé à la main sous le nom d'une autre
+   * semaine). Absent : la semaine de son nom.
+   */
+  semaine?: number | null;
 }
 
 /** Un montant Upwork : displayValue en dollars, sinon rawValue en centimes (vérifié le 28/10). */
@@ -76,6 +82,17 @@ const arrondi = (n: number) => Math.round(n * 100) / 100;
 export function semaineDuNom(nom: string): number | null {
   const m = nom.match(/week\s*(\d{1,2})\b/i);
   return m ? Number(m[1]) : null;
+}
+
+/** 0515 : la semaine d'un milestone : celle fixée à la main (paie_jalons_semaine), sinon celle de son nom. */
+export function semaineDe(j: Pick<JalonUpwork, "nom" | "semaine">): number | null {
+  return j.semaine !== undefined && j.semaine !== null ? j.semaine : semaineDuNom(j.nom);
+}
+
+/** 0515 : applique les semaines fixées à la main (jalon_id → lundi de la semaine comptée). */
+export function avecSemainesFixees(jalons: JalonUpwork[], fixees: ReadonlyMap<string, string>): JalonUpwork[] {
+  if (fixees.size === 0) return jalons;
+  return jalons.map((j) => (fixees.has(j.id) ? { ...j, semaine: semaineIso(fixees.get(j.id)!) } : j));
 }
 
 export interface ReglagesPaieApi {
@@ -152,7 +169,7 @@ export function ecartComptes(
   semaine: string,
 ): { comptes_actifs: number; comptes_finances: number; milestone: string; depot: number } | null {
   const w = semaineIso(semaine);
-  const a = jalons.find((j) => ETATS_FINANCES.includes(j.etat) && semaineDuNom(j.nom) === w);
+  const a = jalons.find((j) => ETATS_FINANCES.includes(j.etat) && semaineDe(j) === w);
   if (!a || a.depot === null || comptesActifs < 2) return null;
   const duNom = Number(a.nom.match(/(\d+)\s*acc/i)?.[1] ?? 0);
   const finances = duNom >= 1 ? duNom : tarif && tarif > 0 ? Math.max(1, Math.round(a.depot / tarif)) : 1;
@@ -227,7 +244,7 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
 
   const finances = jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
   if (finances.length === 0) {
-    const payee = [...jalons].reverse().find((j) => PAYEES.includes(j.etat) && semaineDuNom(j.nom) === w);
+    const payee = [...jalons].reverse().find((j) => PAYEES.includes(j.etat) && semaineDe(j) === w);
     if (payee) {
       return vide("deja_payee", `${payee.nom} déjà payée sur Upwork`, { montant_trouve: payee.paye ?? payee.depot });
     }
@@ -235,8 +252,8 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   }
   // Prompt 26 : la milestone de LA semaine payée (« Week 44 »), ou la seule financée sans numéro.
   // Financée pour une autre semaine, ou deux possibles : Needs you, rien ne part.
-  const deLaSemaine = finances.filter((x) => semaineDuNom(x.nom) === w);
-  const sansNumero = finances.filter((x) => semaineDuNom(x.nom) === null);
+  const deLaSemaine = finances.filter((x) => semaineDe(x) === w);
+  const sansNumero = finances.filter((x) => semaineDe(x) === null);
   if (deLaSemaine.length > 1) return vide("refuse", `${deLaSemaine.length} milestones « Week ${w} » financées : laquelle approuver ? à vérifier`);
   const a = deLaSemaine[0] ?? (sansNumero.length === 1 ? sansNumero[0] : null);
   if (!a) {
@@ -245,8 +262,8 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
       : vide("refuse", `milestone financée pour une autre semaine (${finances.map((x) => x.nom || x.id).join(", ")}), attendu Week ${w}`);
   }
   // La semaine suivante peut déjà être financée ; toute autre milestone financée : à vérifier.
-  const suivanteFinancee = finances.filter((x) => x !== a && semaineDuNom(x.nom) === n);
-  const autres = finances.filter((x) => x !== a && semaineDuNom(x.nom) !== n);
+  const suivanteFinancee = finances.filter((x) => x !== a && semaineDe(x) === n);
+  const autres = finances.filter((x) => x !== a && semaineDe(x) !== n);
   if (autres.length > 0 || suivanteFinancee.length > 1) {
     return vide("refuse", `${finances.length} milestones financées et non payées (${finances.map((x) => x.nom || x.id).join(", ")}) : laquelle approuver ? à vérifier`);
   }
@@ -302,7 +319,7 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
         return vide("refuse", `Week ${n} : ${montant} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)`);
       }
       const nom = double ? `Week ${n} (${l.suivante_comptes ?? 2} acc)` : `Week ${n}`;
-      const candidates = jalons.filter((j) => j.etat === "NotFunded" && j.sequence > a.sequence && semaineDuNom(j.nom) === n);
+      const candidates = jalons.filter((j) => j.etat === "NotFunded" && j.sequence > a.sequence && semaineDe(j) === n);
       if (candidates.length > 1) return vide("refuse", `${candidates.length} milestones « Week ${n} » non financées : à vérifier`);
       const existante = candidates[0];
       financer = existante
@@ -339,13 +356,13 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
  */
 export function planRenommer(jalons: JalonUpwork[], w: number, n: number): PlanPaiement {
   const finances = jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
-  const cible = finances.filter((j) => semaineDuNom(j.nom) === w);
+  const cible = finances.filter((j) => semaineDe(j) === w);
   if (cible.length === 1) {
     const c = cible[0];
     return { ...vide("renommer", null), renommer: { jalon_id: c.id, de: c.nom, vers: c.nom.replace(/week\s*\d{1,2}/i, `Week ${n}`) } };
   }
   if (cible.length > 1) return vide("refuse", `0 post : ${cible.length} milestones « Week ${w} » financées, laquelle renommer ? à vérifier`);
-  if (finances.some((j) => semaineDuNom(j.nom) === n)) return vide("rien", `0 post : Week ${n} déjà financée, rien à renommer`);
+  if (finances.some((j) => semaineDe(j) === n)) return vide("rien", `0 post : Week ${n} déjà financée, rien à renommer`);
   if (finances.length === 0) return vide("rien", "0 post : aucune milestone financée, rien à renommer");
   return vide("refuse", `0 post : milestone financée « ${finances.map((j) => j.nom || j.id).join(", ")} » à renommer en Week ${n} à la main`);
 }

@@ -19,6 +19,7 @@
  * la bienvenue), s'ajoute à la prochaine étape dans le même message.
  */
 import { dateAnglaise, type DelaisAccueil, type EtatAccueil, FOLLOWS_MIN, type RecrueAccueil } from "./etapes.ts";
+import { instantLocal } from "./relances.ts";
 
 export type ElementRelance = "slack" | "connexion" | "tiktok" | "warmup" | "follows";
 
@@ -131,16 +132,24 @@ export function texteRelance(
     slack?: string;
     /** 1/11 : « Start Tuesday » : le début est le mardi (« Tuesday {date} »), pas le lundi. */
     mardi?: boolean;
+    /**
+     * 2/11 : l'heure de l'envoi. Après le lundi de la cohorte 12:00 (Paris),
+     * une recrue pas prête ne commence plus cette semaine : le texte donne la
+     * vraie date de début, le lundi suivant (jamais « Tuesday »).
+     */
+    maintenant?: Date;
   },
 ): string {
   if (!t.cadre.trim()) return "";
-  const cadre = o.mardi ? t.cadre.replace(/\bMonday(\s+\{date\})/g, "Tuesday$1") : t.cadre;
+  const lundi = debutReel(o.cohorte_lundi, o.maintenant);
+  const mardi = Boolean(o.mardi) && lundi === o.cohorte_lundi;
+  const cadre = mardi ? t.cadre.replace(/\bMonday(\s+\{date\})/g, "Tuesday$1") : t.cadre;
   const vars: Record<string, string> = {
     prenom: (o.prenom ?? "").trim() || "there",
     handle: (o.handle ?? "").replace(/^@/, ""),
     url: o.url,
     lien_etapes: o.lien_etapes,
-    date: dateAnglaise(o.mardi ? lendemain(o.cohorte_lundi) : o.cohorte_lundi),
+    date: dateAnglaise(mardi ? lendemain(lundi) : lundi),
     follows: `${plan.follows} more account${plan.follows > 1 ? "s" : ""}`,
     ...(o.email ? { email: o.email } : {}),
     slack: (o.slack ?? "").trim(),
@@ -152,6 +161,16 @@ export function texteRelance(
     .filter(Boolean);
   if (morceaux.length === 0) return "";
   return remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+}
+
+/** 2/11 : le lundi où la recrue commence vraiment : celui de sa cohorte, ou le suivant après le lundi 12:00 (Paris). */
+export function debutReel(cohorteLundi: string, maintenant?: Date): string {
+  if (!maintenant || !/^\d{4}-\d{2}-\d{2}$/.test(cohorteLundi)) return cohorteLundi;
+  const midi = instantLocal(cohorteLundi, 12, "Europe/Paris");
+  if (maintenant.getTime() < midi.getTime()) return cohorteLundi;
+  const d = new Date(`${cohorteLundi}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 7);
+  return d.toISOString().slice(0, 10);
 }
 
 function lendemain(jour: string): string {

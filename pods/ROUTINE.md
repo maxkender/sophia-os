@@ -102,12 +102,15 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   changer, pas les mots).
 - **G2** (« accroche à REFORMULER ») : la même promesse, avec d'autres mots.
   Le parent est une G1 qui a gagné.
-- **Langue** : une déclinaison s'écrit **dans la langue de son parent** (celle
-  du post parent montré par la boîte), même si ton `AGENT.md` dit d'écrire dans
-  une autre langue. La boîte d'un label mélange des familles anglaises et
-  françaises ; une G1 traduite n'a plus l'accroche du parent mot pour mot et le
-  guichet la refuse (`accroche_differente`). L'OS traduit ensuite le post pour
-  chaque compte. Tes full tests restent dans ta langue habituelle.
+- **Langue** : une déclinaison s'écrit **dans la langue source de son parent**
+  (`parent.langue_source` dans la boîte), même si ton `AGENT.md` dit d'écrire
+  dans une autre langue. Attention : le post montré par la boîte est le passage
+  du parent qui a le mieux marché, souvent une **traduction** (fr, pl, es…) ;
+  sa langue n'est pas celle du parent. La G1 reprend l'accroche de la colonne
+  « accroche » de la boîte, mot pour mot ; traduite, le guichet la refuse
+  (`accroche_differente`). La boîte d'un label mélange des familles anglaises et
+  françaises ; l'OS traduit ensuite le post pour chaque compte. Tes full tests
+  restent dans ta langue habituelle.
 - Dans `originaux/<id>.json` : `"type_bleo": "declinaison"` et
   `"parent_contenu_id": "<l'id complet de la boîte>"`. Ni `schema_id` ni
   preuve.

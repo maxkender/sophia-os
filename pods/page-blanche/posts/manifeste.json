@@ -2018,6 +2018,56 @@
     "6": "7698667830635400470_5"
    },
    "notes": "nouvelle accroche (compétences sous-cotées); cta C"
+  },
+  {
+   "post_id": "original-042",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#eveningroutine #slowliving #screentimehacks",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7683541501007252758_3",
+    "3": "7685071416466607382_5",
+    "4": "7683630825610513686_4",
+    "5": "7691007701127564576_3",
+    "6": "7684726544442346774_5"
+   },
+   "notes": "nouvelle accroche (soirées plus longues); cta A"
+  },
+  {
+   "post_id": "original-043",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#booktok #bookrecommendations #reading",
+   "musique": {
+    "titre": "kagefumi",
+    "auteur": "-",
+    "original": true,
+    "id": "7402610556690860833",
+    "url_tiktok": "https://www.tiktok.com/music/x-7402610556690860833"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7684726544442346774_2",
+    "3": "7698667830635400470_6",
+    "4": "7691007701127564576_6",
+    "5": "7689509565536177441_4",
+    "6": "7685340052989398275_3"
+   },
+   "notes": "nouvelle accroche (5 livres pour non-lecteurs); cta B"
   }
  ]
 }

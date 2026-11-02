@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o113",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0a264b4f-1004-4494-b8aa-5e353ba9fcfe",
+ "titre": "5 strange hobbies to make you disguistingly intelligent #selfimprovement #intelligence #learning #hobbies #curiosity",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "ef1bd8b0-e067-41e9-9f67-1bed9ec7fb5e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, ef1bd8b0). déclinaison G1 de « 5 strange hobbies to make you disguistingly intelligent » (parent 0a264b4f, 72 300 vues en tr), accroche reprise mot pour mot avec sa faute. cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "624b15c4-024a-4a6e-9f59-9fd749618ac5",
+   "texte_overlay": "5 strange hobbies to make you\ndisguistingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653954093609717005/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f3072a64-a308-4c90-be82-79690a0f034e",
+   "texte_overlay": "reading old letters\n\nread published letters from famous people in history. private letters show how great minds actually thought, doubted and changed their opinions over time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653954093609717005/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e044c03f-638f-4886-ae13-2c605ef77239",
+   "texte_overlay": "identifying clouds\n\nlearn the names of ten cloud types and spot them on your walks. it trains your eye for patterns and turns every look at the sky into a small science lesson.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653954093609717005/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "52e4944e-7aa3-4dc3-b297-ce3fbc5ef7da",
+   "texte_overlay": "translating songs\n\ntranslate the lyrics of a song in a language you don't speak. you learn words, grammar and culture at once, and you'll never hear that song the same way again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653954093609717005/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f039f60b-5f49-4ee5-8932-d5a9d079d8ac",
+   "texte_overlay": "a lesson a day\n\nspend 5 minutes a day on one lesson in a subject you've never touched: astronomy, philosophy, architecture. strange subjects stretch your brain in new directions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653954093609717005/5.jpg",
+   "texte_sophia": "a lesson a day\n\ni used to only learn about my own field. now i spend 5 minutes a day on one lesson in the Sophia app: astronomy, philosophy, architecture. strange subjects stretch the brain."
+  },
+  {
+   "position": 6,
+   "media_id": "dad7c26a-bb29-4577-a805-6cc0269be5a8",
+   "texte_overlay": "building puzzles in your head\n\nbefore sleep, mentally walk through your home and place every object. it sounds odd, but it's one of the oldest memory exercises and it works surprisingly well.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653954093609717005/6.jpg"
+  }
+ ]
+}

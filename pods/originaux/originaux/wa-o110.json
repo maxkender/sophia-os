@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o110",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a07b373e-9cd9-45e5-9a69-5ea8b2709e52",
+ "titre": "bizarre habits to make you the most magnetic person in the room #selfimprovement #magnetic #charisma #mindset #psychology",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "34768d0a-2dae-4e19-bcd5-abc61b573949"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 34768d0a). déclinaison G1 de « bizarre habits to make you the most magnetic person in the room » (parent a07b373e, 30 700 vues en tr). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d14c97a-b3f0-4f9d-84af-52304fcacb8c",
+   "texte_overlay": "bizarre habits to make you the\nmost magnetic person in the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663886318815989006/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "91479bb2-99dd-4057-b18e-d407b2a05859",
+   "texte_overlay": "the second hello\n\nsay hello twice: once when you arrive and once again later, by name. the second greeting feels personal, and people walk away feeling genuinely noticed by you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663886318815989006/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6a184cb2-d254-4d5a-96f2-fea4f9db3f23",
+   "texte_overlay": "the curious follow up\n\ntext someone the next day about something they mentioned: how did the interview go. tiny follow ups are so rare that people remember them, and you, for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663886318815989006/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "441cd9df-eeed-46ce-a14f-9309214e1924",
+   "texte_overlay": "the relaxed shoulders\n\nbefore walking into any room, drop your shoulders and slow your breathing. tension is visible from across a room, and so is the calm that replaces it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663886318815989006/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "469748ca-015a-4bcf-84e4-57a962625fc7",
+   "texte_overlay": "the odd fact\n\nspend 5 minutes a day learning one odd fact: why the sky is blue, how octopuses think. a single strange fact is the easiest way into any group conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663886318815989006/5.jpg",
+   "texte_sophia": "the odd fact\n\ni used to stand at the edge of conversations. now i spend 5 minutes a day on one lesson in the Sophia app, like how octopuses think. one odd fact gets me into any group."
+  },
+  {
+   "position": 6,
+   "media_id": "0e698f1f-f0da-4bce-9da8-91060054483b",
+   "texte_overlay": "the slow exit\n\nwhen you leave, stop, smile and say a proper goodbye to each person. rushed exits are forgettable, and a warm one is the last thing people remember about you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663886318815989006/3.jpg"
+  }
+ ]
+}

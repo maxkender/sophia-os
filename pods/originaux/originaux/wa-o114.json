@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o114",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "326f7e92-1dc9-404f-a48f-9b7f05ccc424",
+ "titre": "cheat codes for your 20s (that will help you get dangerously ahead) #20s #lifeadvice #selfimprovement #growth #cheatcodes",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "200d1da7-1fb7-44de-9ee1-3c3c799e5f61"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 200d1da7). déclinaison G1 de « cheat codes for your 20s that will help you get dangerously ahead » (parent 326f7e92). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "37926dd7-1f0b-4aa4-a2e5-de6932f7abfa",
+   "texte_overlay": "cheat codes for your 20s (that\nwill help you get dangerously ahead)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661746922025192717/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cdeae0d6-d999-4041-8ccc-02259b221dfb",
+   "texte_overlay": "say yes to the hard project\n\nvolunteer for the work nobody wants at your first jobs. hard projects teach you more in three months than easy ones do in three years, and people notice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661746922025192717/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d190b7ea-74b6-48c5-9820-d0570a011658",
+   "texte_overlay": "build one real friendship a year\n\ninvest in one new deep friendship every year. by thirty you'll have a circle that knows you, supports you, and opens doors you didn't even know existed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661746922025192717/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "293d3192-ee7c-4e10-b1ab-9ac7bb932413",
+   "texte_overlay": "save before you spend\n\nput a small amount aside the day you get paid, before anything else. the habit matters far more than the amount, and your future self will thank you every month.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661746922025192717/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b34c835c-16fa-4b52-8cf1-68c0c0f71836",
+   "texte_overlay": "learn outside your job\n\nspend 5 minutes a day learning about the world beyond your work: history, art, science. people who know a bit about everything become the most interesting in any room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661746922025192717/5.jpg",
+   "texte_sophia": "learn outside your job\n\nspend 5 minutes a day learning beyond your work: history, art, science. the Sophia app turns it into one short lesson a day, and knowing a bit of everything makes you interesting."
+  },
+  {
+   "position": 6,
+   "media_id": "1f43a214-544f-4617-ba7a-509deeab52bc",
+   "texte_overlay": "move your body daily\n\nwalk, run or train every day, even for twenty minutes. the energy, sleep and mood you build in your twenties are the foundation for everything that comes after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661746922025192717/6.jpg"
+  }
+ ]
+}

@@ -15,6 +15,14 @@ import {
   totaux,
   marcheDe,
   regrouperParLangue,
+  aFaireSemaine,
+  annoncesActives,
+  drapeau,
+  statutCompte,
+  tableauHm,
+  topFlopRoi,
+  totauxPeriode,
+  variation,
 } from "./logique";
 
 const sem = (pays: string, semaine: string, o: Partial<SemainePays> = {}): SemainePays => ({
@@ -131,7 +139,7 @@ describe("Page Pays : lignes, ROI et recommandation", () => {
 
   it("les objectifs préparés par HM, selon les zones", () => {
     const t = tableau({ semaines: semaines("DE", 400, 100, 100_000), pays: [info("DE", { comptes_actifs: 10, premier_post: "2026-07-27" })] });
-    const { cibles, sansHm } = ciblesParHm(lignesPays(regrouperParLangue(t), "28j"), [{ id: "h1", nom: "Regina", zone: "Germany + Norway" }]);
+    const { cibles, sansHm } = ciblesParHm(lignesPays(t, "28j"), [{ id: "h1", nom: "Regina", zone: "Germany + Norway" }]);
     expect(cibles).toHaveLength(1);
     expect(cibles[0].total).toBe(3);
     expect(sansHm).toEqual([]);
@@ -156,5 +164,80 @@ describe("Page Pays : un marché par langue (Espagne et LATAM à part)", () => {
     expect([s.vues, s.proceeds, s.cout_reel]).toEqual([150, 40, 5]);
     expect(t.pays.find((p) => p.pays === "es-419")!.membres).toEqual(["CO", "MX"]);
     expect(t.pays.find((p) => p.pays === "es")!.comptes_actifs).toBe(17);
+  });
+});
+
+describe("Page Pays (refonte) : un pays par ligne, cartes, à faire, recrutement", () => {
+  it("ROI élevé avec assez de recrues en route : maintenir, pas réduire", () => {
+    const t0 = tableau({
+      semaines: semainesCompletes("2026-11-02", 8).map((w) => sem("NO", w, { proceeds: 400, cout_reel: 100, vues: 100_000, comptes: 3 })),
+      pays: [info("NO", { comptes_actifs: 3, cohorte_en_cours: 2, premier_post: "2026-07-27" })],
+    });
+    const [l] = lignesPays(t0, "28j");
+    expect(l.objectif).toBe(4);
+    expect(l.manque).toBe(-1);
+    expect(l.recommandation).toBe("maintenir");
+  });
+
+  const semaines = (pays: string, proceeds: number, cout: number, vues: number) =>
+    semainesCompletes("2026-11-02", 8).map((w) => sem(pays, w, { proceeds, cout_reel: cout, vues, comptes: 10, sous_seuil: 2 }));
+  const t = tableau({
+    semaines: [
+      ...semaines("DE", 400, 100, 100_000),
+      ...semaines("TR", 20, 100, 100_000),
+      ...semaines("MX", 300, 0, 0).map((s) => ({ ...s, cout_reel: null, comptes: 0, sous_seuil: 0 })),
+    ],
+    pays: [
+      info("DE", { comptes_actifs: 10, premier_post: "2026-07-27" }),
+      info("TR", { comptes_actifs: 10, premier_post: "2026-07-27" }),
+      info("MX", { premier_post: null }),
+    ],
+  });
+  const lignes = lignesPays(t, "28j");
+
+  it("ROI global = Σ incrémental ÷ Σ paie, sans les pays sans posteur", () => {
+    const tot = totauxPeriode(lignes);
+    expect(tot.cout).toBe(800);
+    expect(tot.incremental).toBe(1680);
+    expect(tot.roi).toBe(2.1);
+    expect(tot.sans_posteurs).toBe(1200);
+    expect(tot.proceeds).toBe(2880);
+  });
+
+  it("variation en % vs la période d'avant", () => {
+    expect(variation(120, 100)).toBe(20);
+    expect(variation(80, 100)).toBe(-20);
+    expect(variation(10, 0)).toBeNull();
+  });
+
+  it("à faire : arrêter le pays à ROI < 0,5, recruter ailleurs ; top / flop par ROI", () => {
+    const faire = aFaireSemaine(lignes, lignes);
+    expect(faire[0]).toEqual({ type: "arreter", pays: "TR" });
+    expect(faire.find((a) => a.type === "recruter")?.pays).toBe("DE");
+    expect(faire.length).toBeLessThanOrEqual(5);
+    const { top, flop } = topFlopRoi(lignes);
+    expect(top[0].pays).toBe("DE");
+    expect(flop[0].pays).toBe("TR");
+    expect(top.some((l) => l.pays === "MX")).toBe(false);
+  });
+
+  it("annonce active si elle a amené un contrat dans les 21 jours ; tableau par HM", () => {
+    const actives = annoncesActives(
+      [
+        { titre: "TikTok poster (Germany)", pays: "DE", generique: false, vue_at: "2026-10-28T10:00:00Z", contrats_21j: 2 },
+        { titre: "TikTok poster (Turkey)", pays: "TR", generique: false, vue_at: "2026-10-28T10:00:00Z", contrats_21j: 0 },
+      ],
+    );
+    expect([...actives]).toEqual(["DE"]);
+    const hm = tableauHm(lignes, [{ id: "h1", nom: "Regina", zone: "Germany + Turkey" }], actives);
+    expect(hm.map((h) => [h.pays, h.manque > 0, h.annonce])).toEqual([["DE", true, true], ["TR", false, false]]);
+  });
+
+  it("statut d'un compte et drapeau", () => {
+    expect(statutCompte(2000, 1000)).toBe("bon");
+    expect(statutCompte(1000, 1000)).toBe("moyen");
+    expect(statutCompte(999, 1000)).toBe("sous_seuil");
+    expect(drapeau("DE")).toBe("🇩🇪");
+    expect(drapeau("de")).toBe("");
   });
 });

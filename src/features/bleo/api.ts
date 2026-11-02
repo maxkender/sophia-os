@@ -127,6 +127,14 @@ export interface FamilleBleo {
   dernier_passage: string | null;
   /** r moyen des passages publiés, chaque r plafonné à 20 (la mesure qui ferme une famille, D36). */
   r_moyen: number | null;
+  /**
+   * Le thème (0642) : la famille en tête des familles quasi identiques du label
+   * (elle-même pour une tête). Fatigue, garde-fous, budget et boîte se lisent au thème.
+   */
+  theme_id: string;
+  theme_accroche: string | null;
+  /** Nombre de familles du thème (1 : la famille est seule). */
+  theme_familles: number;
 }
 
 export interface ContenuBleo {

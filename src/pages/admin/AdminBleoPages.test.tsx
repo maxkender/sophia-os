@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { beforeAll, describe, expect, it, vi } from "vitest";
@@ -157,6 +157,9 @@ vi.mock("@/features/bleo/api", async (original) => ({
       r_median: 2.1,
       dernier_passage: "2026-10-20T14:11:04Z",
       r_moyen: 2.4,
+      theme_id: "f-tete",
+      theme_accroche: "6 erreurs qui m ont gardee au chomage",
+      theme_familles: 3,
     }),
   listerContenusFamille: () =>
     Promise.resolve([
@@ -343,6 +346,10 @@ describe("section BLEO de l'OS", () => {
     expect(await screen.findByText("@lea.etudes")).toBeInTheDocument();
     expect(await screen.findByText("Valeur par langue")).toBeInTheDocument();
     expect((await screen.findByText("1,08")).closest("td")).toHaveAttribute("title", expect.stringContaining("0,6^3"));
+    // 0642 : la famille appartient à un thème de 3 familles quasi identiques, avec un lien vers sa tête.
+    const theme = screen.getByTestId("famille-theme");
+    expect(theme).toHaveTextContent("thème de 3 familles");
+    expect(within(theme).getByRole("link")).toHaveAttribute("href", "/admin/bleo/familles/f-tete");
   });
 
   it("boîte des podz (en bas de Pods) : jauge, boîte, 2ᵉ déclinaison en tête avec accroche reformulée", async () => {

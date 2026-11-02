@@ -3210,7 +3210,10 @@ export const en = {
           "What BLEO expects from each content in each language of the label's accounts. In green, the content it prefers in that language. Hover a cell for the computation.",
         valeursLe: "Computed by the night run of {{quand}}.",
         valeurDetail:
-          "Form {{forme}} × 0.6^{{post}} × 0.75^{{acc}} × {{age}} = {{valeur}}. {{post}} post(s) of this content in the language, {{acc}} of the same hook (other contents of the family).",
+          "Form {{forme}} × 0.6^{{post}} × 0.75^{{acc}} × {{age}} = {{valeur}}. {{post}} post(s) of this content in the language, {{acc}} of the same theme (other contents of the family and of near-identical families).",
+        themeTete:
+          "Heads a theme of {{n}} near-identical families: fatigue, guardrails, budget and box count the whole theme.",
+        themeMembre: "Part of a theme of {{n}} near-identical families (fatigue, guardrails, budget and box per theme), led by",
         prefere: "Preferred in this language",
         aucuneValeur: "No value: no content of the family is a candidate (content withdrawn, or no active account in one of the label's languages).",
       },

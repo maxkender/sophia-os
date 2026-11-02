@@ -1,0 +1,188 @@
+{
+ "id": "mm-o044",
+ "format": "carrousel",
+ "titre": "Habits of people with insane focus",
+ "legendes": {
+  "en": "habits of people with insane focus #focus #discipline #mentalmaxxing #selfimprovement",
+  "fr": "les habitudes des gens ultra concentrés #concentration #discipline #mentalmaxxing #developpementpersonnel",
+  "de": "Gewohnheiten von Menschen mit krassem Fokus #fokus #disziplin #mentalmaxxing #selbstverbesserung",
+  "es": "hábitos de la gente con un foco brutal #concentracion #disciplina #mentalmaxxing #superacionpersonal",
+  "it": "abitudini delle persone super concentrate #concentrazione #disciplina #mentalmaxxing #crescitapersonale",
+  "tr": "inanılmaz odaklı insanların alışkanlıkları #odak #disiplin #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7691308606603447559/1",
+   "boite": [
+    250,
+    300,
+    630,
+    516
+   ]
+  },
+  "theme": {
+   "en": "Habits of people",
+   "fr": "Les habitudes des gens",
+   "de": "Gewohnheiten von Leuten",
+   "es": "Hábitos de la gente",
+   "it": "Abitudini delle persone",
+   "tr": "İnanılmaz odaklı"
+  },
+  "sous": {
+   "en": "with insane focus",
+   "fr": "ultra concentrés",
+   "de": "mit krassem Fokus",
+   "es": "con un foco brutal",
+   "it": "super concentrate",
+   "tr": "insanların alışkanlıkları"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "One thing at a time",
+    "fr": "Une chose à la fois",
+    "de": "Eins nach dem anderen",
+    "es": "Una cosa a la vez",
+    "it": "Una cosa alla volta",
+    "tr": "Aynı anda tek iş"
+   },
+   "texte": {
+    "en": "No tabs, no music videos, no second screen. One task until it is done.",
+    "fr": "Pas d’onglets, pas de clips, pas de deuxième écran. Une tâche jusqu’au bout.",
+    "de": "Keine Tabs, keine Musikvideos, kein zweiter Bildschirm. Eine Aufgabe, bis sie fertig ist.",
+    "es": "Sin pestañas, sin videoclips, sin segunda pantalla. Una tarea hasta terminarla.",
+    "it": "Niente schede, niente videoclip, niente secondo schermo. Un compito fino alla fine.",
+    "tr": "Sekme yok, klip yok, ikinci ekran yok. Bitene kadar tek iş."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "They decide the night before",
+    "fr": "Ils décident la veille",
+    "de": "Sie entscheiden am Vorabend",
+    "es": "Deciden la noche anterior",
+    "it": "Decidono la sera prima",
+    "tr": "Bir gece önceden karar verirler"
+   },
+   "texte": {
+    "en": "They wake up knowing the first task. No time lost choosing.",
+    "fr": "Ils se réveillent en connaissant la première tâche. Aucun temps perdu à choisir.",
+    "de": "Sie wachen auf und kennen die erste Aufgabe. Keine Zeit verloren mit Wählen.",
+    "es": "Se despiertan sabiendo la primera tarea. Sin perder tiempo eligiendo.",
+    "it": "Si svegliano sapendo il primo compito. Nessun tempo perso a scegliere.",
+    "tr": "İlk işi bilerek uyanırlar. Seçmekle zaman kaybetmezler."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "They train",
+    "fr": "Ils s’entraînent",
+    "de": "Sie trainieren",
+    "es": "Entrenan",
+    "it": "Si allenano",
+    "tr": "Antrenman yaparlar"
+   },
+   "texte": {
+    "en": "Hard workouts teach you to stay with discomfort. Focus is the same skill.",
+    "fr": "Les séances dures t’apprennent à rester dans l’inconfort. La concentration, c’est la même compétence.",
+    "de": "Harte Workouts lehren dich, Unbehagen auszuhalten. Fokus ist dieselbe Fähigkeit.",
+    "es": "Los entrenamientos duros te enseñan a aguantar la incomodidad. El foco es la misma habilidad.",
+    "it": "Gli allenamenti duri ti insegnano a restare nel disagio. La concentrazione è la stessa abilità.",
+    "tr": "Zor antrenmanlar rahatsızlıkta kalmayı öğretir. Odak da aynı beceridir."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "They protect their sleep",
+    "fr": "Ils protègent leur sommeil",
+    "de": "Sie schützen ihren Schlaf",
+    "es": "Protegen su sueño",
+    "it": "Proteggono il sonno",
+    "tr": "Uykularını korurlar"
+   },
+   "texte": {
+    "en": "Seven to eight hours, almost every night. Focus is built in bed.",
+    "fr": "Sept à huit heures, presque toutes les nuits. La concentration se construit au lit.",
+    "de": "Sieben bis acht Stunden, fast jede Nacht. Fokus entsteht im Bett.",
+    "es": "De siete a ocho horas, casi todas las noches. El foco se construye en la cama.",
+    "it": "Da sette a otto ore, quasi ogni notte. La concentrazione si costruisce a letto.",
+    "tr": "Neredeyse her gece yedi sekiz saat. Odak yatakta inşa edilir."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "They are okay with boredom",
+    "fr": "L’ennui ne leur fait pas peur",
+    "de": "Langeweile macht ihnen nichts",
+    "es": "No les asusta aburrirse",
+    "it": "La noia non li spaventa",
+    "tr": "Can sıkıntısından korkmazlar"
+   },
+   "texte": {
+    "en": "A walk without headphones, a wait without a phone. Their brain gets used to quiet.",
+    "fr": "Une marche sans écouteurs, une attente sans téléphone. Leur cerveau s’habitue au calme.",
+    "de": "Ein Spaziergang ohne Kopfhörer, Warten ohne Handy. Ihr Gehirn gewöhnt sich an Ruhe.",
+    "es": "Un paseo sin auriculares, una espera sin móvil. Su cerebro se acostumbra a la calma.",
+    "it": "Una passeggiata senza cuffie, un’attesa senza telefono. Il cervello si abitua alla calma.",
+    "tr": "Kulaklıksız bir yürüyüş, telefonsuz bir bekleyiş. Beyinleri sessizliğe alışır."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: I checked my phone every six minutes. After deleting short videos with UnSwipe: one check an hour, and real work in between.",
+    "fr": "Avant : je regardais mon téléphone toutes les six minutes. Après avoir supprimé les vidéos courtes avec UnSwipe : un coup d’œil par heure, et du vrai travail entre les deux.",
+    "de": "Vorher: Ich schaute alle sechs Minuten aufs Handy. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: einmal pro Stunde, und dazwischen echte Arbeit.",
+    "es": "Antes: miraba el móvil cada seis minutos. Después de borrar los vídeos cortos con UnSwipe: una vez por hora, y trabajo de verdad en medio.",
+    "it": "Prima: guardavo il telefono ogni sei minuti. Dopo aver eliminato i video brevi con UnSwipe: una volta all’ora, e lavoro vero nel mezzo.",
+    "tr": "Önce: her altı dakikada bir telefona bakıyordum. Kısa videoları UnSwipe ile sildikten sonra: saatte bir bakış ve arada gerçek iş."
+   }
+  }
+ ],
+ "notes": "routine du 02/11 : accroche jamais faite chez nous (« habits of people with insane focus »). cta C (avant/après) : élément UnSwipe en dernier item (slide 7)."
+}

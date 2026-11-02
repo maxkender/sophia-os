@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o101",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "32f55e42-6d42-43a5-ad27-051af5ae40ff",
+ "titre": "How to make people respect you without raising your voice #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "32f55e42-6d42-43a5-ad27-051af5ae40ff"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture a75b8832. déclinaison G1 de la ligne 10 de la boîte (32f55e42, hu 6,1 k r 5,24) : accroche du parent mot pour mot. Items neufs, angle de la vie quotidienne (colocation, amis, travail), couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a75b8832",
+   "texte_overlay": "How to make people respect you\nwithout raising your voice",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Say what you mean in fewer words. Long explanations sound like apologies. \"I can't do Saturday\" is far stronger than five minutes of reasons and excuses nobody asked for.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Hold eye contact a second longer. When you make a point, don't look away straight after. A steady, calm look tells people you stand behind what you just said.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Name the problem, not the person. \"The dishes keep piling up\" works better than \"You never clean.\" People respect the guy who solves problems without attacking anyone.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Be consistent. Same rules on Monday and Friday, same tone with your boss and your friends. People respect what they can predict, and they test what they can't.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: losing every argument because I got flustered. After: five minutes a day of history, art or science, and a calmer, clearer head when things get tense.",
+   "texte_sophia": "Before: losing every argument because I got flustered. After: five minutes a day on a micro-learning app like the Sophia app. A calmer, clearer head when things get tense.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep small promises. If you said you'd call back at five, call at five. Respect is built in tiny moments of reliability, long before any big moment arrives.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Walk away from disrespect calmly. \"I'm not going to continue this if we're shouting.\" Then leave. Calmly refusing to play the game earns more respect than winning it.",
+   "media_id": "f4bd619d"
+  }
+ ]
+}

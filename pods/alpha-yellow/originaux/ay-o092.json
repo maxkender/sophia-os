@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o092",
+ "type_bleo": "full_test",
+ "titre": "Skills that make you the friend everyone calls in a crisis #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "647dbb39-8006-4255-b8bc-0674e2f2f0d5"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5ee16989. full test. Accroche jamais faite chez nous, dans la veine des « skills that will make you unforgettable » qui gagnent (647dbb39 r 3,45), mais avec une promesse neuve : être l'ami sur qui on compte. Accroches écrites : « Skills that make you the friend everyone calls in a crisis » (retenue), « How to be a reliable friend » (écartée : plat), « Skills every dependable man has » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ee16989",
+   "texte_overlay": "Skills that make you the friend\neveryone calls in a crisis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Basic first aid. A weekend course teaches you CPR, how to stop bleeding and what to do when someone faints. It's the one skill you hope never to use and will never regret having.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Staying calm on the phone. When a friend calls panicking, lower your voice and slow down. \"Okay, tell me exactly what happened.\" Your calm becomes their calm within seconds.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Knowing how to change a tyre and jump a car. Friends stuck on the side of the road at night will remember forever the guy who showed up and fixed it in twenty minutes.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Listening without fixing straight away. Sometimes a friend in crisis just needs to talk. Ask \"Do you want advice or do you just need me to listen?\" and respect the answer.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: no idea what to say when things went wrong. After: five minutes a day of history, art or science, a calmer head and a wider view to help friends think clearly.",
+   "texte_sophia": "Before: no idea what to say when things went wrong. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A calmer head to help friends.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keeping some money aside. A small emergency fund means you can cover a train ticket, a night in a hotel or a meal for a friend who's had the worst week of their life.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Following up after the storm. A message a week later, \"How are you holding up?\" Most people disappear once the crisis is over. Real friends check in when it's quiet again.",
+   "media_id": "215bd88e"
+  }
+ ]
+}

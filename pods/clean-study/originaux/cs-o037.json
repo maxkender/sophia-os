@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o037",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "486929b9-7d52-4b42-8ef5-48fa02d7297f",
+  "titre": "small habits that make you smarter and give you an advantage at school at the same time #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "486929b9-7d52-4b42-8ef5-48fa02d7297f"
+  ],
+  "notes": "Déclinaison G1 de 486929b9 (r 3,25 en turc), ligne 1 de la boîte. Accroche du parent mot pour mot (sans ses symboles). Items neufs, aucun du parent (nouveaux mots, moins d'écran, lire, journal, révision intelligente) : poser une question par cours, résumer à voix haute en rentrant, se tester sur les cours de la semaine (place micabo, slide 4), regarder un documentaire au lieu de scroller (place UnSwipe, slide 5), relier chaque cours à un exemple réel, faire les devoirs le jour même. Slides 4 et 5 sans personne. Slides d'appli : certaines reprennent une photo d'objet d'un original de plus d'une semaine (la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : b112f97d, f94e726b, ce2a8d90 (écran ou marque lisible sur une slide d'appli, couverture de livre lisible, ou photo déjà prise dans le lot). Puis : 9a7063ad (écran sur la slide UnSwipe). Accroche avec les symboles « θ९ » du parent : le guichet les compte comme des mots (refus accroche_differente sans eux).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b47d6cb3",
+      "texte_overlay": "θ९ small habits that make you smarter\nand give you an advantage at school at the same time",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b5cd4c8e",
+      "texte_overlay": "1. one question per class\nyou listen differently when you're looking for something to ask.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bc7cc8c5",
+      "texte_overlay": "2. explain your day's lesson out loud on the way home\nif you can't, you know what to review.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8701d90a",
+      "texte_overlay": "3. test yourself on the week's lessons every sunday\n15 minutes. by exam time, it's all already there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8e1ac696",
+      "texte_overlay": "4. a documentary instead of scrolling\nsame screen time. you actually learn something.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c00821a6",
+      "texte_overlay": "5. link every lesson to something real\na formula, a date, a word: where do you see it in real life?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "11569323",
+      "texte_overlay": "6. homework the same day it's given\nit's easier while the lesson is still fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

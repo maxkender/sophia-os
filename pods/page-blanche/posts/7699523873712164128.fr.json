@@ -1,0 +1,242 @@
+{
+ "post_id": "7699523873712164128",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 habitudes pour retrouver ton cerveau"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(prouvé par les neurosciences)",
+     "texte": "(prouvé par les neurosciences)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop asking chatg",
+      "for everything"
+     ],
+     "fr": "arrête de [[tout filer à chatgpt]]",
+     "texte": "arrête de [[tout filer à chatgpt]]"
+    },
+    "T2": {
+     "en": [
+      "pt"
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "homework, emails, even what to text back"
+     ],
+     "fr": "devoirs, mails, même [[quoi répondre à un message]]",
+     "texte": "devoirs, mails, même [[quoi répondre à un message]]"
+    },
+    "T4": {
+     "en": [
+      "every time you",
+      "hand it a problem,",
+      "your brain skips the",
+      "hard part"
+     ],
+     "fr": "chaque fois que tu lui refiles un problème, ton cerveau [[zappe le plus dur]]",
+     "texte": "chaque fois que tu lui refiles un problème, ton cerveau [[zappe le plus dur]]"
+    },
+    "T5": {
+     "en": [
+      "try it yourself first, then use AI to check it.",
+      "that’s how you actually learn something"
+     ],
+     "fr": "essaie d'abord par toi-même, puis vérifie avec l'IA. c'est comme ça que tu [[apprends vraiment]] un truc",
+     "texte": "essaie d'abord par toi-même, puis vérifie avec l'IA. c'est comme ça que tu [[apprends vraiment]] un truc"
+    }
+   },
+   "images": {
+    "I1": "supprimer",
+    "I2": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "écris dans un [[journal]] [[tous les jours]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "lis des livres [[au lieu de scroller]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "les vidéos courtes [[te grillent la concentration]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "only reading the headings",
+      "of these slides"
+     ],
+     "fr": "lire que [[les titres]] de ces slides",
+     "texte": "lire que [[les titres]] de ces slides"
+    },
+    "T2": {
+     "en": [
+      "YOU! most people swipe through slideshows like",
+      "this and never read the actual text"
+     ],
+     "fr": "TOI ! la plupart des gens font défiler ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "TOI ! la plupart des gens font défiler ce genre de slides et [[lisent jamais le vrai texte]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[choper le titre et passer à autre chose]]",
+     "texte": "tout survoler apprend à ton cerveau à [[choper le titre et passer à autre chose]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration bat celle de la plupart des gens]]",
+     "texte": "si tu lis encore ça, [[ta concentration bat celle de la plupart des gens]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "apprends [[un instrument difficile]]"
+    },
+    "T2": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "piano, guitare, batterie, peu importe"
+    },
+    "T3": {
+     "en": [
+      "playing uses your hands,",
+      "ears, memory and focus",
+      "all at the same time"
+     ],
+     "fr": "jouer fait bosser mains, oreilles, mémoire et concentration [[en même temps]]",
+     "texte": "jouer fait bosser mains, oreilles, mémoire et concentration [[en même temps]]"
+    },
+    "T4": {
+     "en": [
+      "you’ll be bad at it for a while, but you have to get",
+      "used to trying and failing, and trying again"
+     ],
+     "fr": "au début tu vas galérer un moment, mais faut t'habituer à [[essayer, rater]], et [[recommencer]]",
+     "texte": "au début tu vas galérer un moment, mais faut t'habituer à [[essayer, rater]], et [[recommencer]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -41,3 +41,16 @@ export function dateDepuisErreurLienDejaUtilise(erreur: unknown): string | null 
   const m = /LIEN_DEJA_UTILISE:([^—]+?)\s*(?:—|$)/.exec(messageDErreur(erreur));
   return m ? m[1].trim() : null;
 }
+
+/**
+ * Prompt 25 MAJ, 7d : le @ d'un lien de post qui n'est pas celui du compte
+ * (« This link is from @x, not your account @y. »). null : même compte, ou un
+ * lien qui ne dit pas son @ (lien court pas résolu).
+ */
+export function handleAutreCompte(lien: string | null | undefined, handleCompte: string | null | undefined): string | null {
+  const m = String(lien ?? "").match(/tiktok\.com\/@([A-Za-z0-9._]+)/i);
+  const duLien = m?.[1]?.toLowerCase() ?? null;
+  const attendu = String(handleCompte ?? "").replace(/^@/, "").trim().toLowerCase();
+  if (!duLien || !attendu) return null;
+  return duLien === attendu ? null : duLien;
+}

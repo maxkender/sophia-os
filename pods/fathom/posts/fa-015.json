@@ -1,0 +1,311 @@
+{
+ "id": "fa-015",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683154739575475478",
+  "vues": 29400,
+  "accroche": "10/10 Skills You Can Learn Based On Your ScreenTime"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn Based On Your ScreenTime",
+  "de": "10/10 Skills, die du mit deiner Bildschirmzeit lernen kannst",
+  "pt": "10/10 habilidades que podes aprender com o teu tempo de ecrã"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn Based On Your ScreenTime #screentime #skills #learnontiktok",
+  "de": "10/10 Skills, die du mit deiner Bildschirmzeit lernen kannst #bildschirmzeit #skills #lernenmittiktok",
+  "pt": "10/10 habilidades que podes aprender com o teu tempo de ecrã #tempodeecra #habilidades #aprendernotiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
+ },
+ "notes": "cta C (1re personne). Double intégration : UnSwipe à l'étape 1 « FIRST, CUT THE REELS », Sophia à l'étape 3 « 5 MIN → A NEW TOPIC ». Chaque étape donne un temps d'écran quotidien et la compétence qu'il paie. Ses slides n'étaient pas en cache : format de ses « 10/10 Skills » déjà mesuré. en, de et pt (Portugal), vidéos natives.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN LEARN",
+     "BASED ON YOUR",
+     [
+      {
+       "t": "SCREENTIME",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS FÜR DEINE",
+     [
+      {
+       "t": "BILDSCHIRMZEIT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "O TEU TEMPO DE ECRÃ",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "FIRST,",
+     "CUT THE REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "ZUERST:",
+     "WEG MIT DEN REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "PRIMEIRO,",
+     "CORTA OS REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "30 MIN A DAY:",
+     "TOUCH TYPING"
+    ],
+    "video": {
+     "id": "QAb3ATOpBpE",
+     "titre": "How To Type Faster (Tips for every stage 0  - 50 - 100 - 150 WPM)",
+     "chaine": "Mr Chops",
+     "vues": "3.8M views",
+     "date": "3 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/KUH-ABz1GGHM2AE4B4z5fwmBtP3I1zpx0dZAWoh8eWHuOv8GX9S0w66mbK2qg-B5-mS6LfKr7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "30 MIN AM TAG:",
+     "10-FINGER-SYSTEM"
+    ],
+    "video": {
+     "id": "PaUcSv5DJi8",
+     "titre": "10 Fingersystem Tutorial (Deutsch) – Schnell tippen lernen",
+     "chaine": "simplexstudy",
+     "vues": "227.810 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "7:18",
+     "avatar": "https://yt3.ggpht.com/AzjRjSU5rqcGZmMibIzuytzLVXsYzChugntqegJZTjNneYwIIe_Avs7DM6RSS_8EaPhnfxGNKmM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "30 MIN POR DIA:",
+     "DIGITAR RÁPIDO"
+    ],
+    "video": {
+     "id": "sr4jyau1jzE",
+     "titre": "💡 COMO DIGITAR RÁPIDO em 3 passos simples!",
+     "chaine": "TutorialMaster_org",
+     "vues": "717 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "2:48",
+     "avatar": "https://yt3.ggpht.com/r0kzB1Zg3SXUXnUolWQSRCbR0Y6QeI0RKnULEwZtzAhMktmHn3iccsLJ6PtGAZknts0AatVc8w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "5 MIN A DAY:",
+     "A NEW TOPIC"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "5 MIN AM TAG:",
+     "EIN NEUES THEMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "5 MIN POR DIA:",
+     "UM TEMA NOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "1 HOUR A DAY:",
+     "A NEW LANGUAGE"
+    ],
+    "video": {
+     "id": "E6588DlZW-c",
+     "titre": "learning a new language is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "4.1M views",
+     "date": "2 years ago",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "1 STUNDE AM TAG:",
+     "EINE NEUE SPRACHE"
+    ],
+    "video": {
+     "id": "lSz8I2JFSCg",
+     "titre": "Wie du schnell jede Sprache lernst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "220.520 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:10",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "1 HORA POR DIA:",
+     "UMA NOVA LÍNGUA"
+    ],
+    "video": {
+     "id": "c3CP17KK6sc",
+     "titre": "COMO APRENDER QUALQUER IDIOMA SOZINHO - OS 4 PILARES DA FLUÊNCIA",
+     "chaine": "Juliana de Camargo",
+     "vues": "579 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/pkyiqtNoUeQSTHFXIAIk-IIZ4VTPp18Zc6NIZgE4FB3dku3uoGiCw7rcbjh5xKX8oxM_yCak=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "2 HOURS A DAY:",
+     "CODING"
+    ],
+    "video": {
+     "id": "I-k-iTUMQAY",
+     "titre": "basics of CODING in 10 minutes",
+     "chaine": "The StudyTube Project",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "15:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUFc-266KgB0hZRVR8FIP7kpGfbdKj2uhLPggNqs8CeQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "2 STUNDEN AM TAG:",
+     "PROGRAMMIEREN"
+    ],
+    "video": {
+     "id": "JG-gofSMWGw",
+     "titre": "PROGRAMMIEREN LERNEN - So startest du!",
+     "chaine": "Programmieren lernen",
+     "vues": "414.889 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh1hKt9hjsPwNfCgE_3EPrrXuBOJwvL_Kftar4JqIiFw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "2 HORAS POR DIA:",
+     "PROGRAMAR"
+    ],
+    "video": {
+     "id": "T5yCLbXCFdU",
+     "titre": "Como eu aprendi programação sozinho (mesmo sendo burro)",
+     "chaine": "lore",
+     "vues": "222 mil visualizações",
+     "date": "há 4 meses",
+     "duree": "4:28",
+     "avatar": "https://yt3.ggpht.com/GVCWRSSOA7dwNolC-3-GC-4eEGGdloZW4zUrfCpk_YGPYSO455T_nh9Zas6YiqW3dSs1xwhc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

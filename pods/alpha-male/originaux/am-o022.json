@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o022",
+ "schema_id": "habits-that",
+ "titre": "5 habits that quietly kill your discipline #discipline #habits #men #selfimprovement #mindset",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "8f63c67e-7c61-4f42-a3cb-0255a0249d3b",
+  "02bf6ce3-45e0-4185-b6e9-37c4da824eb7"
+ ],
+ "notes": "cta C. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est en 3e position sur 5. Schéma habits-that (r 4,33, 8f63c67e). Nouvel angle pour moi : les habitudes à arrêter (am-o009 portait sur celles à prendre). Accroches écrites : « 5 habits that quietly kill your discipline » (retenue : forme « N habits that… » du schéma, angle négatif comme « secretly making you weak »), « 5 habits that are secretly making you weak » (écartée : existe déjà dans le label), « habits that keep you average » (écartée : sans preuve). Format : l'habitude, puis son effet en une ligne. Habitudes neuves (vérifié dans donnees/label.json) ; écartées car déjà présentes : se plaindre, snooze, téléphone au réveil. Images : la banque du label, sans visage ; slide Sophia sur une salle de bain sombre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e5804f5d",
+   "texte_overlay": "5 habits that quietly\nkill your discipline",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "149cecc8",
+   "texte_overlay": "1. Saying \"I'll start Monday\"\nMonday never decides for you.\nStart today's version,\neven if it's small.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e4f69b74",
+   "texte_overlay": "2. Eating every meal\nin front of a screen\nYou stop noticing what\nyou eat and how you feel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e57db521",
+   "texte_overlay": "3. Never learning anything\noutside work\nYour world shrinks a little\nevery year. Learn one\nnew thing a day.",
+   "texte_sophia": "3. Never learning anything\noutside work\nLearn one thing a day\non the Sophia app:\n5 minutes of history,\nscience or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e4561d70",
+   "texte_overlay": "4. \"Just one more episode\"\nYou trade tomorrow's\ndiscipline for\ntonight's comfort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "15864b0e",
+   "texte_overlay": "5. Agreeing to everything\nPeople stop asking\nwhat you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/6.jpg"
+  }
+ ]
+}

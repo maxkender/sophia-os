@@ -2,6 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
+  Siren,
+  CircleAlert,
+  ClipboardCheck,
+  Link2,
+  MessageSquareWarning,
   AtSign,
   BarChart3,
   BookOpen,
@@ -13,45 +18,79 @@ import {
   Gavel,
   Gauge,
   LineChart,
+  Inbox,
+  LayoutDashboard,
   ListChecks,
+  ListTodo,
+  type LucideIcon,
   Gift,
+  GitBranch,
   Images,
+  Languages,
+  Library,
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
   MessagesSquare,
+  Workflow,
+  ChartColumn,
   MoonStar,
   PenLine,
   Boxes,
+  Radar,
   Scale,
+  Send,
   Settings,
+  Shuffle,
+  SlidersHorizontal,
   Tags,
-  ShieldAlert,
   Users,
   UserPlus,
+  Wallet,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
+import { BandePause } from "@/features/auto/BandePause";
+import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
+import { useProblemes } from "@/features/auto/useProblemes";
 import { useAuth } from "@/features/auth/AuthContext";
-import { compterContestationsAVerifier } from "@/features/moteur/api";
+import { compterContestations } from "@/features/disputes/api";
+import { lireCompteNeedsYou } from "@/features/needsYou/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 import type { NavGroup } from "./Sidebar";
+import { useParrainageActif } from "@/features/bonus/parrainageActif";
+
+/** Les icônes des pages de Recruitment Automation (prompt 22). */
+const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
+  overview: LayoutDashboard,
+  recruits: Workflow,
+  cohorts: ChartColumn,
+  decisions: Gavel,
+  sent: Send,
+  received: Inbox,
+  needs: CircleAlert,
+  problems: Siren,
+  disputes: Flag,
+  payroll: Wallet,
+  faq: MessageCircle,
+  logs: ListTodo,
+};
 
 export function AdminLayout() {
   const { t } = useTranslation();
   const { role } = useAuth();
   const { applications, slug, setSlug, application } = useApplication();
   const estHo = role === "head_of_ops";
+  const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
-  const contestations = useQuery({
-    queryKey: ["contestations-a-verifier"],
-    queryFn: compterContestationsAVerifier,
-    refetchInterval: 5 * 60_000,
-  });
+  const needsYou = useQuery({ queryKey: ["needs-you", "compte"], queryFn: lireCompteNeedsYou, refetchInterval: 5 * 60_000 });
+  // Le badge de Problems : seulement pour l'admin et la Head of Ops (Health leur est réservé).
+  const problemes = useProblemes(role === "admin" || role === "head_of_ops");
+  const contestations = useQuery({ queryKey: ["disputes", "compte"], queryFn: compterContestations, refetchInterval: 5 * 60_000 });
 
   /**
    * Le Head of Ops partage la coquille de l'admin mais n'a droit qu'aux
@@ -152,16 +191,57 @@ export function AdminLayout() {
               description: t("navDesc.creation"),
             },
             {
+              to: "/admin/bibliotheque",
+              label: t("nav.bibliotheque"),
+              icon: Images,
+              description: t("navDesc.bibliotheque"),
+            },
+          ],
+        },
+        // BLEO (docs/bleo.md) : la nouvelle distribution, à blanc. Admin seulement.
+        {
+          title: t("navSection.bleo"),
+          items: [
+            { to: "/admin/bleo", label: t("nav.bleo"), icon: Radar, description: t("navDesc.bleo") },
+            { to: "/admin/bleo/plan", label: t("nav.bleoPlan"), icon: Shuffle, description: t("navDesc.bleoPlan") },
+            {
+              to: "/admin/bleo/familles",
+              label: t("nav.bleoFamilles"),
+              icon: GitBranch,
+              description: t("navDesc.bleoFamilles"),
+              end: false,
+            },
+            // Pods (avec la boîte des podz en bas) et Allocation : déplacées ici telles quelles.
+            {
               to: "/admin/pods",
               label: t("nav.pods"),
               icon: Boxes,
               description: t("navDesc.pods"),
             },
             {
-              to: "/admin/bibliotheque",
-              label: t("nav.bibliotheque"),
-              icon: Images,
-              description: t("navDesc.bibliotheque"),
+              to: "/admin/repartition",
+              label: t("nav.repartition"),
+              icon: Scale,
+              description: t("navDesc.repartition"),
+            },
+            // Relecture native et Fiches (la réécriture native) : déplacées ici telles quelles (30/10).
+            {
+              to: "/admin/relecture-native",
+              label: t("nav.relectureNative"),
+              icon: Languages,
+              description: t("navDesc.relectureNative"),
+            },
+            {
+              to: "/admin/fiches",
+              label: t("nav.fiches"),
+              icon: Library,
+              description: t("navDesc.fiches"),
+            },
+            {
+              to: "/admin/bleo/reglages",
+              label: t("nav.bleoReglages"),
+              icon: SlidersHorizontal,
+              description: t("navDesc.bleoReglages"),
             },
           ],
         },
@@ -174,6 +254,14 @@ export function AdminLayout() {
         {
           title: t("navSection.suivi"),
           items: [
+            // 28 oct. (partie E) : le suivi dans cet ordre, Cohorts · Posters ·
+            // Decisions · Recruiting · Payroll · Follow-ups. Inactifs et Slack
+            // à relier sortent du menu (routes gardées) : les inactifs sont dans
+            // Decisions et dans un filtre de Posters, Slack se relie dans la
+            // fiche du posteur.
+            { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
+            // Account watch, Recruiting, Reviews, Cohorts, Follow-ups, Replies, Payroll, Pipeline,
+            // Decisions : dans Recruitment Automation ou retirés (prompt 22), anciennes adresses redirigées.
             {
               to: "/admin/analytics",
               label: t("nav.analytics"),
@@ -181,45 +269,29 @@ export function AdminLayout() {
               description: t("navDesc.analytics"),
             },
             {
+              to: "/admin/quality-control",
+              label: t("nav.qualite"),
+              icon: ClipboardCheck,
+              description: t("navDesc.qualite"),
+            },
+            // 31/10 : sortis de Recruitment Automation → Disputes.
+            {
+              to: "/admin/posts-links",
+              label: t("nav.postsLiens"),
+              icon: Link2,
+              description: t("navDesc.postsLiens"),
+            },
+            {
+              to: "/admin/quality-feedback",
+              label: t("nav.qualityFeedback"),
+              icon: MessageSquareWarning,
+              description: t("navDesc.qualityFeedback"),
+            },
+            {
               to: "/admin/suivi-rc",
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
-            },
-            { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
-            {
-              to: "/admin/surveillance",
-              label: t("nav.surveillance"),
-              icon: ShieldAlert,
-              description: t("navDesc.surveillance"),
-            },
-            {
-              to: "/admin/check-kill-double",
-              label: t("nav.checkKillDouble"),
-              icon: Gavel,
-              description: t("navDesc.checkKillDouble"),
-            },
-            // Toujours visible : le recrutement relève de l'identité des
-            // comptes, qui reste Sophia quelle que soit l'application choisie.
-            {
-              to: "/admin/recrutements",
-              label: t("nav.recrutements"),
-              icon: UserPlus,
-              description: t("navDesc.recrutements"),
-              end: false,
-            },
-            {
-              to: "/admin/reviews",
-              label: t("nav.reviews"),
-              icon: MessageSquareQuote,
-              description: t("navDesc.reviews"),
-            },
-            {
-              to: "/admin/retours-contestes",
-              label: t("nav.retoursContestes"),
-              icon: Flag,
-              description: t("navDesc.retoursContestes"),
-              badge: contestations.data ?? 0,
             },
             {
               to: "/admin/file-reviews",
@@ -233,12 +305,17 @@ export function AdminLayout() {
               icon: ListChecks,
               description: t("navDesc.bancRelecture"),
             },
-            {
-              to: "/admin/parrainages",
-              label: t("nav.referral"),
-              icon: Gift,
-              description: t("navDesc.referral"),
-            },
+            // Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause (la route reste).
+            ...(parrainage
+              ? [
+                  {
+                    to: "/admin/parrainages",
+                    label: t("nav.referral"),
+                    icon: Gift,
+                    description: t("navDesc.referral"),
+                  },
+                ]
+              : []),
             {
               to: "/admin/comment-masters",
               label: t("nav.commentMasters"),
@@ -246,6 +323,22 @@ export function AdminLayout() {
               description: t("navDesc.commentMasters"),
             },
           ],
+        },
+        // Prompt 22 : tout le système du 2 nov. en une section, sous « Tracking ».
+        {
+          title: t("auto.section"),
+          items: PAGES_AUTO.map((p) => ({
+            to: p.to,
+            label: t(`auto.pages.${p.cle}.titre`),
+            icon: ICONES_AUTO[p.cle],
+            description: t(`auto.phrases.${p.cle}`),
+            // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
+            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
+            // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
+            ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
+            // Les problèmes graves de l'automatisation.
+            ...(p.cle === "problems" ? { badge: problemes.problemes.filter((x) => x.gravite === "grave").length } : {}),
+          })),
         },
         {
           title: t("navSection.config"),
@@ -261,12 +354,6 @@ export function AdminLayout() {
               label: t("nav.reglages"),
               icon: Settings,
               description: t("navDesc.reglages"),
-            },
-            {
-              to: "/admin/repartition",
-              label: t("nav.repartition"),
-              icon: Scale,
-              description: t("navDesc.repartition"),
             },
             {
               to: "/admin/prompts",
@@ -286,16 +373,11 @@ export function AdminLayout() {
               icon: BookOpen,
               description: t("documents.navDesc"),
             },
-            {
-              to: "/admin/assistant",
-              label: t("chatbot.nav"),
-              icon: MessageCircle,
-              description: t("chatbot.navDesc"),
-            },
           ],
         },
       ])}
     >
+      <BandePause />
       <Outlet />
     </AppShell>
   );

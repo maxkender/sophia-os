@@ -56,6 +56,10 @@ interface ApifyItem {
     avatarThumb?: string;
     originalAvatarUrl?: string;
     fans?: number;
+    /** Abonnements, cœurs reçus, vidéos (le profil, répété sur chaque post). */
+    following?: number;
+    heart?: number;
+    video?: number;
     /** Chaîne, ou objet `{ link }` selon les versions de l'acteur. */
     bioLink?: unknown;
   };
@@ -495,6 +499,15 @@ export function scrapePost(url: string) {
 }
 
 /**
+ * Plusieurs posts par leurs liens, en UN run, images des slideshows comprises.
+ * Les vidéos reviennent aussi (sans images) : à l'appelant de les écarter.
+ * `webVideoUrl` revient en /video/ même pour un post photo : comparer sur l'ID.
+ */
+export function scrapePosts(urls: string[]) {
+  return runActor({ postURLs: urls, resultsPerPage: 1 }, false);
+}
+
+/**
  * Scrape une vidéo TikTok et télécharge le fichier (add-on Apify).
  * Renvoie l’URL KV / CDN du MP4 — à rapatrier via `downloadMedia` avant expiration.
  */
@@ -554,4 +567,33 @@ export async function scrapeVideoPost(url: string): Promise<ScrapedVideo> {
       partages: item.shareCount ?? 0,
     },
   };
+}
+
+/**
+ * 2e méthode de relevé d'un profil (31/10) : l'acteur Apify, quand la page
+ * TikTok est illisible ou dit « introuvable ». Le profil vient de `authorMeta`
+ * (abonnements, abonnés, vidéos). Aucun élément : illisible (jamais
+ * « introuvable » : un compte sans vidéo peut ne rien rendre).
+ */
+export async function lireProfilApify(handle: string): Promise<{
+  existe: boolean | null; abonnements: number | null; abonnes: number | null; videos: number | null; likes: number | null; erreur: string | null;
+}> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) return { existe: null, abonnements: null, abonnes: null, videos: null, likes: null, erreur: "APIFY_TOKEN manquant" };
+  try {
+    const response = await fetch(`https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profiles: [handle.replace(/^@+/, "")], resultsPerPage: 1, shouldDownloadVideos: false, shouldDownloadCovers: false, shouldDownloadSlideshowImages: false }),
+      signal: AbortSignal.timeout(90_000),
+    });
+    if (!response.ok) return { existe: null, abonnements: null, abonnes: null, videos: null, likes: null, erreur: `Apify ${response.status}` };
+    const items = (await response.json()) as ApifyItem[];
+    const meta = items.find((i) => i.authorMeta)?.authorMeta;
+    if (!meta) return { existe: null, abonnements: null, abonnes: null, videos: null, likes: null, erreur: "Apify : aucun profil rendu" };
+    const n = (v: unknown) => (typeof v === "number" ? v : null);
+    return { existe: true, abonnements: n(meta.following), abonnes: n(meta.fans), videos: n(meta.video), likes: null, erreur: null };
+  } catch (e) {
+    return { existe: null, abonnements: null, abonnes: null, videos: null, likes: null, erreur: `Apify : ${e instanceof Error ? e.message.slice(0, 120) : String(e)}` };
+  }
 }

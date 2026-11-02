@@ -31,8 +31,28 @@ function json(corps: unknown, status = 200): Response {
   });
 }
 
+/** 31/10 : le secret des crons est dans le Vault (RPC cron_secret_lire) ; CRON_SECRET n'est qu'un repli. */
+async function secretVault(): Promise<string | undefined> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (url && key) {
+    try {
+      const r = await fetch(`${url}/rest/v1/rpc/cron_secret_lire`, {
+        method: "POST",
+        headers: { apikey: key, Authorization: `Bearer ${key}`, "content-type": "application/json" },
+        body: "{}",
+      });
+      const v = r.ok ? await r.json() : null;
+      if (typeof v === "string" && v.length >= 16) return v;
+    } catch {
+      // repli ci-dessous
+    }
+  }
+  return Deno.env.get("CRON_SECRET");
+}
+
 Deno.serve(async (request) => {
-  const attendu = Deno.env.get("CRON_SECRET");
+  const attendu = await secretVault();
   const test = Deno.env.get("TEST_SECRET");
   const fourni = request.headers.get("x-cron-secret");
   if (!attendu) return json({ error: "CRON_SECRET non configuré" }, 500);

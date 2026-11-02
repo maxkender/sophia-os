@@ -1,0 +1,244 @@
+{
+ "post_id": "original-042",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "so fühlen sich deine Abende länger an"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(mit genug Schlaf)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "iss zu Abend [[ganz ohne Bildschirm]]"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "wenn du vor einer Serie isst, ist das Essen vorbei, bevor du es merkst, und dein halber Abend gleich mit"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "20 Minuten nur essen und reden fühlen sich [[lang an, im guten Sinn]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "[[kein]] Sofa-Scrollen mehr"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration",
+     "texte": "du gehst um 20 Uhr „kurz“ auf tiktok, schaust hoch und es ist [[plötzlich 22:30]]. diese Stunden sind einfach weg"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "früher hab ich so jeden Abend verloren. jetzt, wenn ich eh am Handy bin, mache ich [[5 Min in der Sophia-App]]"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "deviens pas inculte !!",
+     "texte": "mein Abend [[gehört mir]]!!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "geh nach dem Essen [[kurz spazieren]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "auf dem Sofa verschwimmt der ganze Abend"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "schon [[15 Minuten um den Block]], ohne Ziel, ohne Podcast"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "der Ortswechsel teilt den Abend in zwei: wenn du heimkommst, fühlt es sich an, als würde [[ein zweiter Abend beginnen]]"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[das Sofa kann 15 Min warten!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "eine Stunde für [[ein echtes Hobby]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "Gitarre, Zeichnen, Kochen, Puzzeln, [[alles, was deine Hände beschäftigt]]"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "Zeit, in der du [[was machst]], wirkt länger als Zeit vorm Bildschirm, weil du dich dran erinnerst"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "eine Stunde Gitarre fühlt sich wie ein ganzer Abend an. eine Stunde Zuschauen [[wie zehn Minuten]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "Handy um 21 Uhr [[ans Ladekabel]]"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "in der Küche, [[nicht direkt neben dem Bett]]"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "die letzte Stunde des Abends"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "wird zu einem Buch, einer langen Dusche oder [[einem echten Gespräch]]"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "[[und sie ist die längste von allen!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

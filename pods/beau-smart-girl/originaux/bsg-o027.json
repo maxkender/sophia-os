@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o027",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les habitudes des filles dangereusement cultivées (que personne ne remarque) #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "variante de bsg-o004 (« les habitudes pour devenir dangereusement cultivée (et en finir avec le brain rot) », r 3,56 sur 3 passages, max 14 k vues, rang A ; le suivi du 28/10 dit DÉCLINER). Même schéma dangereusement-cultivee (preuve r 2,96, 2e2ef1c3), autre angle, autres items. cta C (le défi en premier item ; voir CTA.md). Routine du 28/10, livraison 4 sur 5. Angle : les habitudes discrètes, racontées en « elles ». Accroches écrites : « les habitudes des filles dangereusement cultivées (que personne ne remarque) » (retenue : l'excès du schéma plus le secret), « ce que font en silence les filles dangereusement cultivées » (écartée : plus faible), « les petites habitudes invisibles des filles cultivées » (écartée : sans l'excès). Items neufs (rien de repris de bsg-o004, bsg-o013, bsg-o017, bsg-o020, bsg-o024 ni des sources) : les plaques des rues, les billets de musée en marque-page, la date des œuvres, le carnet de mots. Aucun fait. Images de la banque, sans célébrité ni texte. Inspirations : slides de 2e2ef1c3 et 1a941e8c sans appli. Après relecture de l'aperçu : une image trop claire ou un visage douteux remplacé par une image sombre.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "43c38d23",
+   "texte_overlay": "les habitudes des filles\ndangereusement cultivées\n(que personne ne remarque)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67e5edfb",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "691570cb",
+   "texte_overlay": "1. elles lisent les plaques des rues.\n\nqui était ce général, cette poétesse, ce savant ?\nchaque balade devient une petite leçon d'histoire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9ed6694a",
+   "texte_overlay": "2. elles gardent leurs billets de musée dans leurs livres.\n\nun marque-page qui rappelle une œuvre.\nà chaque page tournée, un souvenir revient.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "df772cea",
+   "texte_overlay": "3. elles cherchent la date de chaque œuvre qu'elles aiment.\n\nun tableau, une chanson, un bâtiment.\npetit à petit, toute l'histoire se range dans leur tête.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0f9a85a4",
+   "texte_overlay": "4. elles notent les mots qu'elles ne connaissent pas.\n\nun carnet, un mot, une phrase où le replacer.\nleur vocabulaire grandit sans effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a0869d05",
+   "texte_overlay": "vole-leur une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

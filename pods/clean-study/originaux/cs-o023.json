@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o023",
+  "schema_id": "toxic-study-motivation",
+  "titre": "toxic academic habits i REFUSE to give up #studytok #studytips #school #studymotivation",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "bb2eeefa-d48f-4aab-9e65-405885ce9658",
+    "ceb6df00-1ca0-4a4e-b71e-2ca4723429d3"
+  ],
+  "notes": "Famille d'accroche « toxic academic habits » (5d957bad, @renaraise : r 2,84 sur 3 passages, preuve du schéma toxic-study-motivation), jamais déclinée par nous. Accroches écrites : « toxic academic habits i REFUSE to give up » (retenue : la forme du gagnant, sans recopier « unfortunately NOT giving up »), « academic habits that are a little TOO intense » (écartée : plus faible), « toxic study habits my friends think are crazy » (écartée : met les autres en scène). Six habitudes neuves, aucune reprise de 5d957bad (note immédiate, Bycat, la rivale, les compliments, se faire prendre deux fois, la classe impossible). Rivalité avec soi-même seulement, aucun gros mot. Place micabo : slide 4 (battre son propre score aux quiz) ; place UnSwipe : slide 6 (les réseaux pendant les examens). Slides 4 et 6 sans personne. Écartées à l'aperçu : 622b6d44 (écran lisible sur la slide micabo), aaea8743 (couverture de livre lisible), 965b610b (écran lisible sur la slide UnSwipe).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c56422bb",
+      "texte_overlay": "toxic academic habits\ni REFUSE to give up",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d6ea18fe",
+      "texte_overlay": "redoing a test i already passed\nbecause i got ONE question wrong and need to know why.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9f09f659",
+      "texte_overlay": "reading the next chapter before class\nso the lesson feels like a rerun, not a surprise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "11b6d69f",
+      "texte_overlay": "quizzing myself until i beat my own score.\n7/10 yesterday? today it's 8. MINIMUM.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7217d5a7",
+      "texte_overlay": "a list of every word i didn't know\nand i learn it before the week ends.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9552acc2",
+      "texte_overlay": "social apps off my phone during exam weeks.\nthey'll survive without me. my grades won't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ef100db1",
+      "texte_overlay": "asking \"why?\" until it actually makes sense.\nmemorizing without understanding is NOT studying.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

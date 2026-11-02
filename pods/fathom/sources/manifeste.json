@@ -1,6 +1,6 @@
 {
  "compte": "fathom0g",
- "maj_le": "2026-10-23",
+ "maj_le": "2026-11-02",
  "note": "Ses 60 derniers diaporamas (31/07 → 20/10), un par accroche : la meilleure version, et combien de fois il l'a refaite (`versions`). Ordre de travail : les `a_faire` dans l'ordre de leur motif, puis les variantes des formats déjà faits.",
  "posts": [
   {
@@ -19,7 +19,7 @@
    },
    "legende": "10/10 Skills You Can Learn In A Day! #learnontiktok #learning #selfmastery",
    "statut": "fait",
-   "motif": "fa-002, livraison 0e82dbbd (23/10, redéposée) : quatre compétences à nous (nuages, jour de la semaine, Rubik's Cube, perspective) et Sophia au milieu (« ANSWER RANDOM QUESTIONS »), titres en affiche à mot-clé coloré, pas d'UnSwipe"
+   "motif": "fa-002, livraison 0e82dbbd (23/10, redéposée) : quatre compétences à nous (nuages, jour de la semaine, Rubik's Cube, perspective) et Sophia au milieu (« ANSWER RANDOM QUESTIONS »), titres en affiche à mot-clé coloré, pas d'UnSwipe ; variante fa-020 (67005aa8) le 31/10"
   },
   {
    "id": "7672019241062747425",
@@ -37,7 +37,7 @@
    },
    "legende": "5 Pointless Skills That Make You Instantly Cooler! #learnontiktok #goviral #learning",
    "statut": "fait",
-   "motif": "fa-003, livraison 3295d574 (24/10) : jongler, faire tourner un stylo, grue en papier, beatbox ; Sophia au milieu (« DROP A FUN FACT ON ANY TOPIC »), pas d'UnSwipe"
+   "motif": "fa-003, livraison 3295d574 (24/10) : jongler, faire tourner un stylo, grue en papier, beatbox ; Sophia au milieu (« DROP A FUN FACT ON ANY TOPIC »), pas d'UnSwipe ; variante fa-019 (6b46243d) le 31/10"
   },
   {
    "id": "7690948590805519638",
@@ -55,7 +55,7 @@
    },
    "legende": "5 Ways To Be Unrecognisable In 6 Months #learnontiktok #skills",
    "statut": "fait",
-   "motif": "fa-001, livraison dd1e29ea (23/10, redéposée) : UnSwipe sur « QUIT SHORT VIDEOS » (leur « DELETE SOCIAL MEDIA »), Sophia au milieu sur « LEARN NEW TOPICS »"
+   "motif": "fa-001, livraison dd1e29ea (23/10, redéposée) : UnSwipe sur « QUIT SHORT VIDEOS » (leur « DELETE SOCIAL MEDIA »), Sophia au milieu sur « LEARN NEW TOPICS » ; variante fa-017 « In 1 Month » (bcae1924) le 30/10"
   },
   {
    "id": "7682785966410485014",
@@ -73,7 +73,7 @@
    },
    "legende": "10/10 Skills To Learn Before You Are 25 #learn #learnontiktok #skills",
    "statut": "fait",
-   "motif": "fa-004, livraison 096a2f4f (24/10, 6 langues d'un coup) : argent, parler à n'importe qui, premiers secours, cuisine ; Sophia au milieu (« LEARN A BIT OF EVERYTHING ») ; ses titres en bandeau"
+   "motif": "fa-004, livraison 096a2f4f (24/10, 6 langues d'un coup) : argent, parler à n'importe qui, premiers secours, cuisine ; Sophia au milieu (« LEARN A BIT OF EVERYTHING ») ; ses titres en bandeau ; variante fa-018 « Before You Are 30 » (2195fdc2) le 30/10"
   },
   {
    "id": "7682795024026766614",
@@ -90,8 +90,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7513258213266279199"
    },
    "legende": "5 Skills 99% Of People Don’t Have #learn #learnontiktok #skills",
-   "statut": "a_faire",
-   "motif": "4e : 572 k ; Sophia à la place de leur slide Fathomly"
+   "statut": "fait",
+   "motif": "fa-005, livraison 40c407d4 (25/10, 6 langues, cta B) : palais mental, taper sans regarder, calcul mental, langage corporel ; Sophia au milieu (« KNOW A BIT ABOUT EVERYTHING »)"
   },
   {
    "id": "7686588998436818198",
@@ -108,8 +108,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7172341092501768965"
    },
    "legende": "10/10 Skills To Learn Before 25 #learnontiktok #selfmastery #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-032, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7687625113646288150",
@@ -126,8 +126,8 @@
     "url": "https://www.tiktok.com/music/som-original-7301096396756290309"
    },
    "legende": "3 Ways To Be Unrecognisable In 6 Months #learnontiktok #selfmastery #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-033, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7683561775752645910",
@@ -144,8 +144,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "S Tier YouTube Videos You Need To Watch #learnontiktok #skills #selfmastery",
-   "statut": "a_faire",
-   "motif": "6e : 267 k (refait 3 fois) ; Sophia à la fin"
+   "statut": "fait",
+   "motif": "6e : 267 k (refait 3 fois) ; fa-006 (en) livré le 26/10, livraison 389b4783, cta C ; variante fa-021 (45eda8ae) le 31/10"
   },
   {
    "id": "7684191394503609633",
@@ -162,8 +162,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "5 Ways To Be Unrecognisable In 3 Months #learnontiktok #selfmastery #skills",
-   "statut": "a_faire",
-   "motif": "9e : variante de fa-001 (262 k ; aussi « in 1 month » 191 k, « 3 ways » 272 k) : autres étapes, autres vidéos"
+   "statut": "fait",
+   "motif": "9e : variante de fa-001 (262 k ; aussi « in 1 month » 191 k, « 3 ways » 272 k) : autres étapes, autres vidéos ; fa-007 (en) livré le 27/10, livraison ff146f3e, cta A, double intégration"
   },
   {
    "id": "7683911301252517142",
@@ -198,8 +198,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7435207007541480224"
    },
    "legende": "How To Step Outside Of Your Comfort Zone #learnontiktok #selfmastery",
-   "statut": "a_faire",
-   "motif": "10e : 154 k ; Sophia à la fin, UnSwipe seulement si une étape s'y prête"
+   "statut": "fait",
+   "motif": "10e : 154 k ; Sophia à la fin, UnSwipe seulement si une étape s'y prête ; fa-008, livraison c2f6cb17, cta B (en, de, pt) livré le 28/10 ; variante fa-022 (0a88b4f8) le 31/10"
   },
   {
    "id": "7686155261505211670",
@@ -234,8 +234,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
    },
    "legende": "10/10 Skills You Can Learn In A Week #learnontiktok #selfmastery #skills",
-   "statut": "a_faire",
-   "motif": "12e : 113 k ; Sophia à la fin"
+   "statut": "fait",
+   "motif": "12e : 113 k ; Sophia à la fin ; fa-009, livraison 9021cba9, cta C (en, de, pt) livré le 28/10"
   },
   {
    "id": "7687626392879713539",
@@ -252,8 +252,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "10/10 Skills Rich People Learn Early #learnontiktok #selfmastery #skills",
-   "statut": "a_faire",
-   "motif": "11e : 111 k et 8,3 % d'enregistrements ; Sophia à la fin"
+   "statut": "fait",
+   "motif": "11e : 111 k et 8,3 % d'enregistrements ; Sophia à la fin ; fa-014, livraison 399a7397, cta B (en, de, pt) livré le 30/10"
   },
   {
    "id": "7686070623206280470",
@@ -270,8 +270,8 @@
     "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
    },
    "legende": "5 Ways to Build Peak Intelligence PS: Fathomly is now live on the AppStore😉 #skills #learnontiktok #goviral",
-   "statut": "a_faire",
-   "motif": "5e : 97 k et 8,1 % d'enregistrements ; double intégration naturelle (UnSwipe : protéger son attention, Sophia : l'intelligence)"
+   "statut": "fait",
+   "motif": "5e : 97 k et 8,1 % d'enregistrements ; double intégration naturelle (UnSwipe : protéger son attention, Sophia : l'intelligence) ; fa-010, livraison 66bda4ec, cta A (en, de, pt) livré le 28/10 ; variante fa-024 (023361c9) le 31/10"
   },
   {
    "id": "7680894744079142166",
@@ -288,8 +288,8 @@
     "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
    },
    "legende": "5 Rabbit Holes Worth Going Down #learning #fyp #learnontiktok",
-   "statut": "a_faire",
-   "motif": "7e : 95 k ; la culture générale, le cœur de Sophia"
+   "statut": "fait",
+   "motif": "7e : 95 k ; la culture générale, le cœur de Sophia ; fa-011, livraison 9f275582, cta B (en, de, pt) livré le 29/10 ; variante fa-023 (4f5486f3) le 31/10"
   },
   {
    "id": "7692804200308296982",
@@ -306,8 +306,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
    },
    "legende": "10/10 YouTube Videos To Watch Instead Of Scrolling #youtube #goviral",
-   "statut": "a_faire",
-   "motif": "8e : 78 k ; double intégration naturelle (UnSwipe sur « instead of scrolling », Sophia à la fin)"
+   "statut": "fait",
+   "motif": "8e : 78 k ; double intégration naturelle (UnSwipe sur « instead of scrolling », Sophia à la fin) ; fa-012, livraison b202d197, cta C (en, de, pt) livré le 29/10"
   },
   {
    "id": "7696547871994219798",
@@ -324,8 +324,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
    },
    "legende": "5 Ways To Glow Up Before Christmas #selfmastery #fyp #learnontiktok",
-   "statut": "a_faire",
-   "motif": "13e : saisonnier, à livrer avant décembre (73 k) ; garder des étapes d'esprit (lecture, langue) pour que Sophia s'y place"
+   "statut": "fait",
+   "motif": "13e : saisonnier, à livrer avant décembre (73 k) ; garder des étapes d'esprit (lecture, langue) pour que Sophia s'y place ; fa-013, livraison 17c9af4e, cta A (en, de, pt) livré le 29/10"
   },
   {
    "id": "7690268559347322134",
@@ -342,8 +342,8 @@
     "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
    },
    "legende": "10/10 Skills To Learn Before 2027 #learnontiktok #goviral #skills",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-034, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7685018360404266262",
@@ -360,8 +360,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "10/10 Skills You Can Learn In A Month #skills #learnontiktok #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-035, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7683084099820555542",
@@ -378,8 +378,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
    },
    "legende": "5 Skills That Only 1% Of People Have #learnontiktok #skills #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-037, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7686862943912332566",
@@ -414,8 +414,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7541284794651527966"
    },
    "legende": "10/10 Hobbies To Build Intelligence! #learnontiktok #goviral #selfmastery",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-025, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7692078458653953302",
@@ -468,8 +468,8 @@
     "url": "https://www.tiktok.com/music/suara-asli-hitsonglyrics-1-7659357830186060565"
    },
    "legende": "Skills you didn’t know you could learn #learnontiktok #goviral #skills",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-030, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7683154739575475478",
@@ -486,8 +486,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
    },
    "legende": "10/10 Skills You Can Learn Based On Your ScreenTime #goviral #skills #selfmastery",
-   "statut": "a_faire",
-   "motif": "14e : double intégration naturelle (UnSwipe : le temps d'écran, Sophia à la fin)"
+   "statut": "fait",
+   "motif": "14e : double intégration naturelle (UnSwipe : le temps d'écran, Sophia à la fin) ; fa-015, livraison b414865f, cta C (en, de, pt) livré le 30/10"
   },
   {
    "id": "7688720210521574678",
@@ -504,8 +504,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7325536799944690474"
    },
    "legende": "5 Ways To Become Extremely Capable #fyp #learnontiktok #skills",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-026, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7696540601835097366",
@@ -522,8 +522,8 @@
     "url": "https://www.tiktok.com/music/let-it-happen-bro-7315156165092330246"
    },
    "legende": "4 Ways To Change Your Life In 6 Months #selfmastery #learnontiktok #fyp",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-027, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7684282864464137494",
@@ -540,8 +540,8 @@
     "url": "https://www.tiktok.com/music/sonido-original-7637325514269838098"
    },
    "legende": "10/10 Topics To Learn Niche Edition #selfmastery #goviral #learnontiktok",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-028, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7688752732458470678",
@@ -594,8 +594,8 @@
     "url": "https://www.tiktok.com/music/som-original-7301096396756290309"
    },
    "legende": "5 Ways To Stop Being Average #fyp #learnontiktok #selfmastery",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-029, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7681307634158308630",
@@ -648,8 +648,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7446895419589348118"
    },
    "legende": "10/10 Topics You Should Educate Yourself On #goviral #learnontiktok #selfmastery",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-038, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7688731180086070550",
@@ -702,8 +702,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
    },
    "legende": "10/10 Skills That Could Save Somebody’s Life #selfmastery #fyp #learnontiktok",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-031, livré le 01/11 en en, de, pt"
   },
   {
    "id": "7690157802941074710",
@@ -756,8 +756,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "5 Skills You Can Learn Instead Of Scrolling #skills #selfmastery #learnontiktok",
-   "statut": "a_faire",
-   "motif": "15e : double intégration naturelle (UnSwipe : au lieu de scroller, Sophia à la fin)"
+   "statut": "fait",
+   "motif": "15e : double intégration naturelle (UnSwipe : au lieu de scroller, Sophia à la fin) ; fa-016, livraison fedd5e8e, cta A (en, de, pt) livré le 30/10"
   },
   {
    "id": "7688369823562108182",
@@ -792,8 +792,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "5 Ways To Be Unrecognisable This Winter #learnontiktok #selfmastery #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-039, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7680842828377001238",
@@ -866,6 +866,24 @@
    "legende": "What Are You Learning On Fathomly? #fyp #fathomly #fyp",
    "statut": "exclu",
    "motif": "leur pub Fathomly (une slide)"
+  },
+  {
+   "id": "7702484759204678934",
+   "url": "https://www.tiktok.com/@fathom0g/video/7702484759204678934",
+   "publie_le": "2026-10-30",
+   "accroche": "10/10 Skills To Learn In Your 20s",
+   "vues": 41200,
+   "enregistrements": 3572,
+   "partages": 359,
+   "slides": 7,
+   "versions": 1,
+   "musique": {
+    "titre": "Alejandro",
+    "url": "https://www.tiktok.com/music/alejandro-7309690378487483142"
+   },
+   "legende": "10/10 Skills To Learn In Your 20s #learning #selfmastery #learnontiktok ",
+   "statut": "fait",
+   "motif": "veille du 02/11 ; fa-036, livré le 02/11 en en, de, pt"
   }
  ]
 }

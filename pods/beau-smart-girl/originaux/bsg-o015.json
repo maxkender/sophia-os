@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o015",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes inconnues que j'ai volées aux filles qui ont toujours l'air parfaites #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "essai. cta C. CTA du pod (règle du 25/10) : cta A = Sophia sur le dernier item, « avec l'appli Sophia » ; cta B = Sophia au milieu du deck, noté comme un truc testé ; cta C = Sophia en premier item, juste après l'accroche. Routine du 25/10, livraison 3 sur 3 (le numéro finit par 5). L'essai : l'angle « filles toujours parfaites », au pluriel, vu dans la veille (@studyavec_lea, « les habitudes inconnues que j'ai volées aux filles toujours parfaites », 70 k vues le 12/10), jamais fait chez nous. Jusqu'ici, nos vole-habitudes volaient à une seule personne. La preuve reste celle du schéma vole-habitudes (r 7,58 sur 11 passages, 83ef5e79 ; chez nous, bsg-o001 à r 3,03 sur son premier passage). Accroches écrites : « les habitudes inconnues que j'ai volées aux filles qui ont toujours l'air parfaites » (retenue : la forme exacte du post à 70 k), « ce que les filles toujours parfaites font en secret pour être cultivées » (écartée : sans « volées »), « les petites habitudes des filles parfaites que j'ai copiées pendant un mois » (écartée : plus longue). Récit « elles », items neufs : apprendre un truc avant d'ouvrir ses messages (Sophia en premier item pour la cta C), un carnet toujours dans le sac, la tenue ET le livre préparés la veille, un album écouté en entier, se coucher avec un livre. Rien de repris des sources ni de bsg-o001, bsg-o005 et bsg-o011. Aucun fait à vérifier, aucune personne réelle. Images de la banque, sans célébrité ni texte : la fille de dos devant les étagères (accroche), le bureau dans le noir, la main sur les vieux livres, la balade de dos, les piles de livres, la lecture au lit, la vallée. Inspirations : slides 1 à 5 de 83ef5e79, 2 et 7 de 5a0fa56c.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "33a34b77",
+   "texte_overlay": "les habitudes inconnues\nque j'ai volées aux filles\nqui ont toujours l'air parfaites",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "33f0731c",
+   "texte_overlay": "1. elles apprennent un truc nouveau avant même d'ouvrir leurs messages.\n\n5 minutes d'histoire, d'art ou de sciences au réveil.\nla journée commence par une anecdote, pas par une notif.",
+   "texte_sophia": "1. elles ouvrent l'appli Sophia avant leurs messages.\n\n5 minutes d'histoire, d'art ou de sciences au réveil.\nla journée commence par une anecdote, pas par une notif.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1024fce5",
+   "texte_overlay": "2. elles ont toujours un carnet dans leur sac.\n\nune phrase lue, une idée, le nom d'un livre entendu à la radio.\nrien ne se perd.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "215955c7",
+   "texte_overlay": "3. elles préparent leur tenue ET leur livre la veille.\n\nle livre des transports est déjà posé sur le sac.\nle matin, zéro hésitation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "32367806",
+   "texte_overlay": "4. elles écoutent un album en entier.\n\ndans l'ordre, de la première à la dernière chanson, sans zapper.\nelles comprennent pourquoi certains sont devenus cultes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "34326607",
+   "texte_overlay": "5. elles se couchent avec un livre, pas avec leur téléphone.\n\ndix pages, et la lumière s'éteint.\nleur journée finit sur une histoire, pas sur un écran.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "11043be4",
+   "texte_overlay": "vole-leur une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

@@ -1,4 +1,5 @@
-// Original à 100 % (décision du 17/10) : une tier list neuve composée dans le
+// Original à 100 % (décision du 17/10), format tier list (le carrousel est dans
+// carrousel.ts) : une tier list neuve composée dans le
 // style du compte (fond gris-vert, Inter Tight très fine, tableau S+ à F),
 // avec des images recadrées dans les slides @mentalapp déjà relevées
 // (sources/<id>/<n>.jpg). Couverture + tableau, une version par langue ;

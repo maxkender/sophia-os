@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o054",
+ "schema_id": "erreurs-chomage",
+ "titre": "ce que j'ai fait le premier jour de mon chômage (et que je referais) #chomage #rechercheemploi #emploi #santementale #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 6. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o048 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma erreurs-chomage (r 3,69, 4adc261e) : l'échec puis le rebond. Famille d'accroche jamais faite : « le premier jour ». Accroches écrites : celle-ci (retenue), « mon premier jour sans travail, heure par heure » (écartée : trop proche de rh-o047), « ce qu'on ne te dit pas le jour où tu perds ton job » (écartée : vague). Rien sur les droits ni les démarches précises : on renvoie à se renseigner. Aucune reprise de rh-o014, rh-o020, rh-o026, rh-o030, rh-o047 ni de la source. CTA de fin jamais utilisé : partager un conseil pour le premier jour. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aff37674",
+   "texte_overlay": "ce que j'ai fait le premier jour\nde mon chômage\n(et que je referais)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4eca24bd",
+   "texte_overlay": "j'ai dormi\npas de culpabilité. j'en avais besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fb7646f1",
+   "texte_overlay": "j'ai noté ce que j'avais aimé dans mon ancien poste\net ce que je ne voulais plus jamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fa912be5",
+   "texte_overlay": "je me suis renseignée sur mes démarches\nauprès des bons interlocuteurs, sans paniquer.\nchaque situation est différente",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5bdfdd29",
+   "texte_overlay": "je l'ai dit à mes proches\nle jour même. pas de secret à porter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fa8c9a2a",
+   "texte_overlay": "j'ai prévu 5 minutes par jour pour apprendre un truc\nde l'histoire, de l'art, peu importe.\nma tête avait besoin d'autre chose",
+   "texte_sophia": "j'ai prévu 5 minutes par jour pour apprendre un truc.\nperso, l'appli Sophia : de l'histoire, de l'art. ma tête avait besoin d'autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5ee35d0e",
+   "texte_overlay": "j'ai fixé une heure de début pour le lendemain\npas pour tout faire. juste pour commencer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5faceae9",
+   "texte_overlay": "t'as un conseil pour le premier jour ?\nlaisse-le en commentaire pour celles qui y sont",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

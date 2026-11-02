@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o011",
+ "schema_id": "keep-private",
+ "titre": "6 things a man should keep private #men #discipline #selfimprovement #mindset #privacy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7578402604141611831",
+ "inspirations": [
+  "cec26bfa-ce3f-404e-8311-26db1cab8c25",
+  "a907426b-88b6-4242-892f-39ddc8b97451"
+ ],
+ "notes": "cta C. cta A : Sophia sur le dernier item, « history, science or art in 5 minutes ». cta B : dernier item, angle « stop wasting your screen time ». cta C : Sophia au milieu du deck. Ici Sophia est au 3e item sur 6 (test de la place dans le deck). Schéma keep-private (r 2,48 sur 6 passages, a907426b ; r 2,37, cec26bfa). Accroches écrites : « 6 things a man should keep private » (retenue : la forme exacte du gagnant « N things you must keep private », adressée à l'homme), « Things you must keep private (part 2) » (écartée : trop proche), « Move in silence: 6 things nobody needs to know » (écartée : plus loin). Format du gagnant : la chose en titre, puis une ligne de pourquoi. Six choses neuves (vérifié dans donnees/label.json) ; écartées car dans la source ou le label : revenus, prochain coup, vie amoureuse, faiblesses, objectifs, bonnes actions. Images : la banque du label, sans visage reconnaissable ; slide Sophia sur une chambre sombre sans personne (écartées : l'image du hangar avec « FOLLOW ME » lisible, et la salle avec un portrait peint). reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e4cef739",
+   "texte_overlay": "6 things a man\nshould keep private",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fd4a86a7",
+   "texte_overlay": "1. Your progress,\nuntil it shows\nLet people notice the change\nbefore you announce it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f5a9b8ce",
+   "texte_overlay": "2. Who you're angry at\nVenting spreads it.\nHandle it directly\nor let it go.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cdc68ec1",
+   "texte_overlay": "3. What you're learning\nRead, study, get sharper\nin silence. Let people be\nsurprised by what you know.",
+   "texte_sophia": "3. What you're learning\nLearn a little every day\nwith a micro-learning app\nlike the Sophia app.\nLet people be surprised\nby what you know.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f67bb935",
+   "texte_overlay": "4. Your arguments at home\nFix it inside your walls,\nnot in front of friends\nor online.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "11087857",
+   "texte_overlay": "5. Your big purchases\nBuy it. Don't announce it.\nQuiet wins don't\ninvite comparison.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a5955a97",
+   "texte_overlay": "6. Your daily routine\nShare the results,\nnot the schedule.\nA routine explained\nis a routine judged.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  }
+ ]
+}

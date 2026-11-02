@@ -18,6 +18,7 @@ import {
   paysAEnvoyer,
   type Recruteur,
   reservationPerimee,
+  hmDuPays,
   resoudreAffectation,
   secretValide,
 } from "./hub_posteurs.ts";
@@ -54,6 +55,10 @@ Deno.test("chaque zone de la master list est entièrement comprise", () => {
   assertEquals(codesDeZone("Australia + NZ + Ireland").codes, ["AU", "NZ", "IE"]);
   assertEquals(codesDeZone("Estonia + Finland + Russian-speaking").codes, ["EE", "FI", "RU", "BY", "KZ"]);
   assertEquals(codesDeZone("Turkey + Israel").codes, ["TR", "IL"]);
+  const latam = codesDeZone("Spain + Romania + Kazakhstan + Latin America + Portugal");
+  assertEquals(latam.inconnus, []);
+  assertEquals(latam.codes.length, 22);
+  assert(latam.codes.includes("MX") && latam.codes.includes("AR") && !latam.codes.includes("BR"));
 });
 
 Deno.test("un morceau inconnu est rendu, pas avalé", () => {
@@ -175,4 +180,16 @@ Deno.test("cohorte Ruul : l'id vient du réglage, sinon retour au HM de la zone"
   assertEquals(idCohorteRuul({ cohorte_ruul_id: "pas-un-uuid" }), null);
   assertEquals(idCohorteRuul({}), null);
   assertEquals(idCohorteRuul(null), null);
+});
+
+Deno.test("« À recruter » du samedi : la HM du pays, même si sa langue n'est pas encore gérée (0364)", () => {
+  const it = resoudreAffectation("IT", HMS);
+  assert(it.ok);
+  assertEquals(hmDuPays("IT", HMS), it.hm.id);
+  assertEquals(hmDuPays("CO", HMS), null);
+  for (const code of ["IT", "PL", "BY", "GB", "AT"]) {
+    const a = resoudreAffectation(code, HMS);
+    const attendu = a.ok || a.raison === "langue_non_geree" ? a.hm.id : null;
+    assertEquals(hmDuPays(code, HMS), attendu, code);
+  }
 });

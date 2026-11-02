@@ -1,0 +1,253 @@
+{
+ "post_id": "original-011",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "ce que personne te dit pour te muscler le cerveau"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(à savoir dès 18 ans)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never finishing a thought"
+     ],
+     "fr": "[[lâcher une idée en route]]",
+     "texte": "[[bloquer]], c'est apprendre"
+    },
+    "T2": {
+     "en": [
+      "you get an idea, hit one difficult point, then",
+      "instantly google it, ask AI, or open another tab"
+     ],
+     "fr": "t'as une idée, tu bloques sur un point, [[direct tu googles ou tu demandes à l'IA]], ou un autre onglet",
+     "texte": "le moment où plus rien n'a de sens, c'est là que ton cerveau [[construit vraiment un truc]]"
+    },
+    "T3": {
+     "en": [
+      "your brain never",
+      "gets practice",
+      "staying with",
+      "confusion long",
+      "enough to work",
+      "something out"
+     ],
+     "fr": "ton cerveau s'entraîne jamais à rester dans le flou assez longtemps pour trouver tout seul",
+     "texte": "si tu googles ou demandes à l'IA dès que ça coince, [[tu sautes la partie qui reste]]"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T5": {
+     "en": [
+      "attention gets stronger when you stop escaping the",
+      "hard part"
+     ],
+     "fr": "ton attention se muscle quand t'arrêtes de fuir ce qui est dur",
+     "texte": "galère encore quelques minutes avant de [[chercher la réponse]]"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder",
+    "I4": "garder",
+    "I5": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "[[t'oublies]] presque tout"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "lu une fois, c'est quasi parti [[en quelques jours]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "ce qui fait que ça reste, c'est d'y revenir : [[une relecture rapide]], deux lignes de tête"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "une fois, ça suffit pas. [[la deuxième fois]], c'est là que ça s'ancre"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "lire [[lentement]] vaut mieux que lire beaucoup"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens font défiler ce genre de slides sans [[jamais lire le texte]]",
+     "texte": "finir 30 livres par an, ça sert à rien si [[t'en retiens pas un seul]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
+     "texte": "survoler apprend à ton cerveau à [[choper l'idée en gros et zapper]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[t'as plus de concentration que la plupart des gens]]",
+     "texte": "un chapitre que tu peux [[expliquer à quelqu'un]] vaut plus que dix survolés"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "ton tel peut aussi [[te cultiver]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could"
+     ],
+     "fr": "une heure de scroll, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "c'est pas l'écran, c'est [[ce que t'ouvres dessus]]"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "[[un podcast en marchant]], un trou noir wikipédia le soir"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
+     "texte": "et quand je le prends par réflexe, [[5 min de leçon sur l'appli Sophia]]"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'ouvre l'appli Sophia et j'apprends un truc en 5 min",
+     "texte": "même tel, mêmes 10 minutes, sauf qu'à la fin [[je retiens vraiment un truc]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "keeping stimulation within reach"
+     ],
+     "fr": "avoir des distractions [[sous la main]]",
+     "texte": "dormir [[fait partie des révisions]]"
+    },
+    "T2": {
+     "en": [
+      "your phone is on the desk,",
+      "youtube is one tab away,",
+      "and every distracting app",
+      "is already logged in"
+     ],
+     "fr": "ton tel est sur le bureau, youtube est à un onglet, et toutes tes applis à distraction sont déjà connectées",
+     "texte": "ton cerveau trie et range ce que t'as appris [[pendant que tu dors]], pas pendant que tu bachotes"
+    },
+    "T3": {
+     "en": [
+      "you’re forcing yourself to",
+      "resist temptation hundreds",
+      "of times a day"
+     ],
+     "fr": "tu t'obliges à résister à la tentation [[des centaines de fois par jour]]",
+     "texte": "une nuit blanche avant l'exam, en général [[t'en retiens moins]]"
+    },
+    "T4": {
+     "en": [
+      "make distraction inconvenient before trying to become",
+      "more disciplined"
+     ],
+     "fr": "complique-toi l'accès aux distractions avant de chercher plus de discipline",
+     "texte": "ferme le bouquin, couche-toi à l'heure et [[laisse ton cerveau finir le boulot]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

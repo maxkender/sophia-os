@@ -1,0 +1,315 @@
+{
+ "id": "fa-038",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7689121017653923094",
+  "vues": 20900,
+  "accroche": "10/10 Topics You Should Educate Yourself On"
+ },
+ "titre": {
+  "en": "10/10 Topics You Should Educate Yourself On",
+  "de": "10/10 Themen zum Selbststudium",
+  "pt": "10/10 temas para te instruíres"
+ },
+ "legendes": {
+  "en": "10/10 Topics You Should Educate Yourself On #skills #learnontiktok #selfmastery",
+  "de": "10/10 Themen zum Selbststudium #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 temas para te instruíres #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7446895419589348118"
+ },
+ "notes": "cta B. Ses slides n'étaient pas en cache : son format de thèmes, nos thèmes (aucun commun avec fa-028). Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TOPICS TO",
+     [
+      {
+       "t": "EDUCATE YOURSELF ON",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "THEMEN ZUM",
+     [
+      {
+       "t": "SELBSTSTUDIUM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TEMAS PARA",
+     [
+      {
+       "t": "TE INSTRUÍRES",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "ANCIENT",
+     "ROME"
+    ],
+    "video": {
+     "id": "zxKPjD8urG4",
+     "titre": "The Rise of the Roman Empire (Full Episode) | Drain the Oceans",
+     "chaine": "National Geographic",
+     "vues": "3.1M views",
+     "date": "2 years ago",
+     "duree": "47:23",
+     "avatar": "https://yt3.ggpht.com/4o29ZduZnGmxuRtqNf50bJtzmUtWaeh4W4cYuEXvQBz887R75UMRboX4zbNe71EO4hGgwwnr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS ALTE",
+     "ROM"
+    ],
+    "video": {
+     "id": "O7LH4JmmRV8",
+     "titre": "Antikes Rom I Geschichte Römisches Reich",
+     "chaine": "MrWissen2go Geschichte | Terra X",
+     "vues": "2 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "15:20",
+     "avatar": "https://yt3.ggpht.com/FJ5ZVGDLX7teEkJhha2MsLRD1FyM1PFeh1BZGkluBiQdiyDRdK0I29x8fvwdvee_nmWuko6F=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "A ROMA",
+     "ANTIGA"
+    ],
+    "video": {
+     "id": "ERYdnVQL9Vw",
+     "titre": "A História do Império Romano",
+     "chaine": "Impérios AD",
+     "vues": "1,9 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "8:28",
+     "avatar": "https://yt3.ggpht.com/0X8NCoeV_pj6HdZP5SaYVrjVSVEp7MACEyH5dCQHIvoAdUaSfHC8cj03ksnbSpc_muXfu5lIRzk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW THE",
+     "INTERNET WORKS"
+    ],
+    "video": {
+     "id": "x3c1ih2NJEg",
+     "titre": "How does the INTERNET work? | ICT #2",
+     "chaine": "Sabin Civil Engineering",
+     "vues": "9.5M views",
+     "date": "7 years ago",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/uI3J9rcN5QvBD5rPMj5SaDUp41PIvTergbOWIKam39L7xxpzBT99zqcMiLrJ0qXalORqg0hKjA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE DAS INTERNET",
+     "FUNKTIONIERT"
+    ],
+    "video": {
+     "id": "cyROBOQ6Ybg",
+     "titre": "So funktioniert das Internet wirklich!",
+     "chaine": "tomatolix",
+     "vues": "1,3 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "17:34",
+     "avatar": "https://yt3.ggpht.com/eeIkr8bSxZSipki-zg8roL21XVJPhCESWgPYPsZ9-CFc8jladWczIU8OY6CbIuMnObkBopb8Bw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO FUNCIONA",
+     "A INTERNET"
+    ],
+    "video": {
+     "id": "HNQD0qJ0TC4",
+     "titre": "Como funciona a Internet? Parte 1: O protocolo IP",
+     "chaine": "NICbrvideos",
+     "vues": "607 mil visualizações",
+     "date": "há 12 anos",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lifM4RosvjyzcFmTSZ5yWbr7qijZygxwqODVjJPKm0UZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ONE TOPIC",
+     "A DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "EIN THEMA",
+     "PRO TAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM TEMA",
+     "POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "YOUR",
+     "BRAIN"
+    ],
+    "video": {
+     "id": "pRFXSjkpKWA",
+     "titre": "Brain 101 | National Geographic",
+     "chaine": "National Geographic",
+     "vues": "3.2M views",
+     "date": "9 years ago",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/4o29ZduZnGmxuRtqNf50bJtzmUtWaeh4W4cYuEXvQBz887R75UMRboX4zbNe71EO4hGgwwnr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DEIN",
+     "GEHIRN"
+    ],
+    "video": {
+     "id": "KU62jMxA5oc",
+     "titre": "Das Gehirn - Zentrales Nervensystem (ZNS)",
+     "chaine": "Biologie - simpleclub",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "7:01",
+     "avatar": "https://yt3.ggpht.com/vLa7jE7epztQHETM5MR_OpSQMuJy7fJR0QiPp2Df-pB2mEoodJGAEYGOCdFjj3bOWiIZzsd7Uw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O TEU",
+     "CÉREBRO"
+    ],
+    "video": {
+     "id": "c-RUQPw9rss",
+     "titre": "Como funciona o cérebro? | Parte 1: Neurônios | PEDRO CALABREZ | NeuroVox 009",
+     "chaine": "NeuroVox",
+     "vues": "1,3 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "10:10",
+     "avatar": "https://yt3.ggpht.com/hasznWvl5jlIRO9EMpuWMadRMPKCoC2gdL7Qf67WTLwZd4maJVfgYRzISQggarHbQmqs7xmHU4s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BLACK",
+     "HOLES"
+    ],
+    "video": {
+     "id": "e-P5IFTqB98",
+     "titre": "Black Holes Explained – From Birth to Death",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "29M views",
+     "date": "10 years ago",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHWARZE",
+     "LÖCHER"
+    ],
+    "video": {
+     "id": "3IpcM5gqRM4",
+     "titre": "Schwarze Löcher Erklärt - Von der Geburt bis zum Tod",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "4,8 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "BURACOS",
+     "NEGROS"
+    ],
+    "video": {
+     "id": "GbJJRsS6OR4",
+     "titre": "Buracos Negros Explicados",
+     "chaine": "Ciência Todo Dia",
+     "vues": "1,4 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

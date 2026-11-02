@@ -54,6 +54,7 @@ import {
 import { SignalementsTexteCard } from "@/features/moteur/SignalementsTexteCard";
 import { CapturesOnglet, IntegrateursOnglet, MisesEnSceneOnglet } from "@/features/misesEnScene/BanqueOnglets";
 import type { Media } from "@/features/moteur/types";
+import { aujourdhuiEnLettres } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:w-64";
@@ -386,6 +387,8 @@ function BibliothequePhotos() {
 
   /** Nettoie tous les visuels à texte via un pool d'agents parallèles. */
   async function nettoyerTout() {
+    // Prompt 15, point 1 : la date et le coût avant chaque action de masse.
+    if (!window.confirm(t("bibliotheque.confirmNettoyerTout", { count: aNettoyerListe.length, date: aujourdhuiEnLettres() }))) return;
     setLot({ fait: 0, total: aNettoyerListe.length });
     setEtapesLot(
       Object.fromEntries(aNettoyerListe.map((m) => [m.id, etapesInitiales(premier)])),
@@ -430,6 +433,7 @@ function BibliothequePhotos() {
   async function stripC2paTout() {
     const liste = affichees;
     if (liste.length === 0) return;
+    if (!window.confirm(t("bibliotheque.confirmC2pa", { count: liste.length, date: aujourdhuiEnLettres() }))) return;
     setC2pa({ fait: 0, total: liste.length });
     setC2paLogs([t("bibliotheque.c2paDebut", { count: liste.length })]);
     let retires = 0;
@@ -484,7 +488,7 @@ function BibliothequePhotos() {
         : t("bibliotheque.upscaleRealesrgan");
     if (
       !window.confirm(
-        t("bibliotheque.upscaleConfirm", { count: liste.length, modele: labelModele }),
+        t("bibliotheque.upscaleConfirm", { count: liste.length, modele: labelModele, date: aujourdhuiEnLettres() }),
       )
     ) {
       return;
@@ -571,6 +575,7 @@ function BibliothequePhotos() {
 
   /** Rattrapage serveur : survit à la fermeture de l’onglet. */
   async function rattraperCaptions() {
+    if (!window.confirm(t("bibliotheque.confirmRattraper", { date: aujourdhuiEnLettres() }))) return;
     try {
       await demarrerRattrapageCaption();
       rafraichir();

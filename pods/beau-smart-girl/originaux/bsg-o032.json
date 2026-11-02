@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o032",
+ "schema_id": "habitudes-chelous",
+ "titre": "les habitudes chelous que j'ai adoptées cette année et que je garderai toute ma vie #pourtoi #habitudes #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7638500399523056397",
+ "inspirations": [
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "cta B (l'anecdote du jour en item 2 ; voir CTA.md). Fait vérifié le 29/10 sur https://fr.wikipedia.org/wiki/Tour_Eiffel : « Repeinte en moyenne tous les sept ans, la tour Eiffel devrait connaître ses prochains travaux en 2030. » Routine du 29/10, livraison 4 sur 6. Schéma habitudes-chelous (r 3,01, 5a0fa56c ; chez nous, bsg-o006 à r 0,42 sur un passage, à surveiller). Accroches écrites : « les habitudes chelous que j'ai adoptées cette année et que je garderai toute ma vie » (retenue : l'accroche du gagnant, prolongée par une promesse durable), « les habitudes bizarres qui me suivent depuis un an » (écartée : moins de promesse), « mes habitudes chelous préférées de l'année » (écartée : plus faible). Règles en « je », items neufs (rien de repris de bsg-o006, bsg-o018 ni des sources) : visiter sa ville en touriste, une anecdote chaque matin (Sophia), dessiner au café, un pot de questions, une lettre à soi dans un an. Les deux questions du pot restent des questions, sans réponse affirmée. Images de la banque (célébrités permises depuis la décision d'Adrien du 28/10, aucune personne sur la slide Sophia), assez sombres pour le texte blanc. Inspirations : slides 1, 2, 4, 6, 7 de 5a0fa56c (sa 3 montre une capture d'appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ddf407fb",
+   "texte_overlay": "les habitudes chelous\nque j'ai adoptées cette année\net que je garderai toute ma vie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dcd468e6",
+   "texte_overlay": "je visite ma ville comme une touriste.\n\nun dimanche par mois, avec un plan et un vrai guide.\nje connais enfin l'histoire des rues où je passe tous les jours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "692a12cb",
+   "texte_overlay": "j'apprends une anecdote chaque matin.\n\nce matin, j'ai appris que la tour eiffel est repeinte en moyenne tous les sept ans.\nje l'ai racontée trois fois dans la journée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg",
+   "texte_sophia": "j'apprends une anecdote chaque matin avec l'appli Sophia.\n\nce matin : la tour eiffel est repeinte en moyenne tous les sept ans.\nje l'ai racontée trois fois dans la journée."
+  },
+  {
+   "position": 4,
+   "media_id": "8ca08330",
+   "texte_overlay": "je dessine ce que je vois au café.\n\nmal, vite, sans gomme.\nje remarque mille détails que je ratais avant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "341e2c09",
+   "texte_overlay": "je garde un pot rempli de questions.\n\n« pourquoi le ciel est bleu ? », « qui a inventé l'imprimerie ? »\nle dimanche, j'en tire une et je cherche.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c1f4813b",
+   "texte_overlay": "je m'écris une lettre à ouvrir dans un an.\n\nce que je lis, ce que j'apprends, ce que j'espère.\nl'an dernier, j'ai été surprise de tout ce que j'avais appris.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "df968206",
+   "texte_overlay": "vole-moi une habitude ;)\nenregistre pour la tester.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

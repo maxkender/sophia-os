@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o031",
+  "schema_id": "toxic-study-motivation",
+  "titre": "toxic reminders for when everyone's out and you have a test monday #studytok #studytips #school #studymotivation",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "bb2eeefa-d48f-4aab-9e65-405885ce9658",
+    "ceb6df00-1ca0-4a4e-b71e-2ca4723429d3"
+  ],
+  "notes": "Schéma du label toxic-study-motivation (r 3,17 sur 3 passages, bb2eeefa). Famille d'accroche neuve : le week-end où les autres sortent. Rivalité avec soi-même seulement : on ne juge jamais les amis qui sortent. Accroches écrites : « toxic reminders for when everyone's out and you have a test monday » (retenue : le moment précis, très partagé), « toxic weekend study motivation » (écartée : trop large), « toxic things i tell myself on saturday nights » (écartée : flou). Sept pensées neuves, aucun gros mot. Place micabo : slide 4 (se tester) ; place UnSwipe : slide 6 (les stories). Slides 4 et 6 sans personne. Slides d'appli : la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise d'une photo d'objet d'un original de plus d'une semaine (ROUTINE §4.7 : reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8ce21716",
+      "texte_overlay": "toxic reminders for when everyone's out\nand you have a test monday",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8fcbb1c1",
+      "texte_overlay": "they'll have other saturdays.\nyou'll have this grade on your report. FOREVER.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "96b434c1",
+      "texte_overlay": "you're not missing out.\nyou're choosing. that's different.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3efbe9fb",
+      "texte_overlay": "2 hours of testing yourself tonight\n= sunday completely free. do the MATH.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a1173e2f",
+      "texte_overlay": "monday-you will either thank you or blame you.\nthere's no third option.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3347a655",
+      "texte_overlay": "watching their stories won't make you feel better.\nput the phone DOWN.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a6786f06",
+      "texte_overlay": "study now, go out next weekend\nwith zero guilt. that's the real plan.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "a844e80c",
+      "texte_overlay": "nobody remembers one saturday.\nyou'll remember this test. DO IT.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

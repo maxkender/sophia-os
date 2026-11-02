@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+  keepPreviousData,
   useMutation,
   useQuery,
   useQueryClient,
@@ -9,19 +10,21 @@ import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 import { Check, ImageUp, PenLine, RefreshCw, ScanText, Sparkles, Trash2, X } from "lucide-react";
 
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  EmptyState,
-} from "@/components/ui/card";
+import { MICRO_LABEL } from "@/components/ui/micro-label";
+import { Segments } from "@/components/ui/segments";
+import { StatGroup, StatTile } from "@/components/ui/stat";
+import { Card, CardContent, EmptyState } from "@/components/ui/card";
+import { Replie } from "@/components/ui/replie";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
+import { listerInfosBleoContenus, type InfosBleoContenu } from "@/features/bleo/api";
+import { BlocBleoContenu } from "@/features/bleo/BlocBleoContenu";
+import { ETATS_BLEO, VERDICTS_CONTENU, formaterValeur, formaterVues, messageErreur } from "@/features/bleo/format";
+import { BadgeEtat, BadgeVerdict, Generation } from "@/features/bleo/ui";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import { NettoyageStickersLabelCard } from "@/features/moteur/NettoyageStickersLabelCard";
 import {
@@ -52,6 +55,7 @@ import {
   type ContenuListe,
   type JobReimportPhoto,
   type SlideshowDetail,
+  type StatsCompteSlideshows,
 } from "@/features/moteur/api";
 import {
   appliquerEvenement,
@@ -66,6 +70,17 @@ import {
   TiersApplications,
 } from "@/features/moteur/repartition/ApplicationsContenu";
 import { ID_SOPHIA } from "@/features/moteur/multiApp";
+import { BarreRepartition } from "@/features/moteur/repartition/graphes";
+import { repartitionBleo, totauxSlideshows, type RepartitionBleo } from "@/features/moteur/resumeSlideshows";
+import {
+  TRIS_SLIDESHOWS,
+  filtrerParBleo,
+  handleDuContenu,
+  trierSlideshows,
+  type FiltreEtatBleo,
+  type FiltreVerdictBleo,
+  type TriSlideshow,
+} from "@/features/moteur/triSlideshows";
 import {
   contenuHorsSophia,
   nomApplicationPromue,
@@ -126,29 +141,18 @@ function etatRequalif(
   };
 }
 
-/** Couleur par rang — un S+ doit sauter aux yeux dans la grille. */
+/**
+ * Un rang par intensité, comme la page Allocation : du gris clair (D) au noir
+ * plein (S+). Ne sert plus qu'aux boutons de l'ancien système, dans le détail.
+ */
 const CLASSE_TIER: Record<Tier, string> = {
-  D: "border-muted-foreground/30 bg-muted text-muted-foreground",
-  C: "border-slate-300 bg-slate-100 text-slate-700",
-  B: "border-sky-300 bg-sky-100 text-sky-800",
-  A: "border-emerald-300 bg-emerald-100 text-emerald-800",
-  S: "border-amber-300 bg-amber-100 text-amber-900",
-  "S+": "border-fuchsia-300 bg-fuchsia-100 text-fuchsia-900",
+  D: "border-transparent bg-muted text-muted-foreground",
+  C: "border-border bg-background text-muted-foreground",
+  B: "border-border bg-background text-foreground",
+  A: "border-foreground/50 bg-background text-foreground",
+  S: "border-foreground/80 bg-foreground/80 text-background",
+  "S+": "border-foreground bg-foreground text-background",
 };
-
-function BadgeTier({ tier, className }: { tier: Tier; className?: string }) {
-  return (
-    <span
-      className={cn(
-        "rounded border px-1.5 py-0.5 text-[10px] font-bold tracking-wide",
-        CLASSE_TIER[tier] ?? CLASSE_TIER.D,
-        className,
-      )}
-    >
-      {tier}
-    </span>
-  );
-}
 
 function slideshowDepuisListe(c: ContenuListe): SlideshowDetail {
   return ugcVisages.appliquerOptimistic({
@@ -270,18 +274,11 @@ function vignette(c: ContenuListe): string | null {
   return first?.raw_url ?? first?.reference_url ?? null;
 }
 
-type TriSlideshow = "recent" | "tier" | "posts" | "compte";
 /** null = tous ; "__none__" = sans label ; sinon id label */
 type FiltreLabel = string | null;
 /** null = tous ; "__none__" = source oubliée ; sinon id compte_reference */
 type FiltreCompte = string | null;
 type FiltreUgc = "tous" | "oui" | "non";
-
-/** Rang d'un contenu en valeur triable (D = 0 … S+ = 5). */
-function rangTier(c: ContenuListe): number {
-  const idx = TIERS.indexOf(c.tier);
-  return idx < 0 ? -1 : idx;
-}
 
 function filtreSlideshows(
   liste: ContenuListe[],
@@ -298,79 +295,6 @@ function filtreSlideshows(
     }
     return true;
   });
-}
-
-function handleDuContenu(
-  c: ContenuListe,
-  handleParId: Map<string, string>,
-): string {
-  if (!c.compte_reference_id) return "";
-  return handleParId.get(c.compte_reference_id) ?? "";
-}
-
-function trierSlideshows(
-  liste: ContenuListe[],
-  tri: TriSlideshow,
-  handleParId: Map<string, string>,
-): ContenuListe[] {
-  const arr = [...liste];
-  const parDate = (a: ContenuListe, b: ContenuListe) =>
-    b.created_at.localeCompare(a.created_at);
-  switch (tri) {
-    case "tier":
-      return arr.sort((a, b) => {
-        const diff = rangTier(b) - rangTier(a);
-        if (diff !== 0) return diff;
-        // À rang égal, celui qui a le plus de passages à faire d'abord.
-        const restants =
-          (b.tierEtat?.restants ?? 0) - (a.tierEtat?.restants ?? 0);
-        return restants !== 0 ? restants : parDate(a, b);
-      });
-    case "posts":
-      return arr.sort((a, b) => {
-        const diff = (b.nb_posts ?? 0) - (a.nb_posts ?? 0);
-        return diff !== 0 ? diff : parDate(a, b);
-      });
-    case "compte":
-      return arr.sort((a, b) => {
-        const ha = handleDuContenu(a, handleParId);
-        const hb = handleDuContenu(b, handleParId);
-        const cmp = ha.localeCompare(hb, undefined, { sensitivity: "base" });
-        if (cmp !== 0) return cmp;
-        if (!a.compte_reference_id && b.compte_reference_id) return 1;
-        if (a.compte_reference_id && !b.compte_reference_id) return -1;
-        return parDate(a, b);
-      });
-    default:
-      return arr.sort(parDate);
-  }
-}
-
-function Chip({
-  actif,
-  onClick,
-  children,
-  style,
-}: {
-  actif: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      style={style}
-      className={
-        actif
-          ? "rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
-          : "rounded-md border px-2.5 py-1 text-xs hover:bg-muted"
-      }
-    >
-      {children}
-    </button>
-  );
 }
 
 const DeckLangue = React.memo(function DeckLangue({
@@ -1258,17 +1182,10 @@ function DetailSlideshow({
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <Badge
-                variant={
-                  d.statut === "valide"
-                    ? "success"
-                    : d.statut === "rejete"
-                      ? "destructive"
-                      : "secondary"
-                }
-              >
-                {d.statut}
-              </Badge>
+              <span className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium">
+                <span className={cn("size-1.5 rounded-full", POINT_STATUT[d.statut] ?? "bg-muted-foreground")} aria-hidden />
+                {t(`slideshows.statuts.${d.statut}`, { defaultValue: d.statut })}
+              </span>
               <Badge variant="outline">{d.import_statut}</Badge>
               {d.import_etape && <Badge variant="outline">{d.import_etape}</Badge>}
               {d.creation_mode === "manuel" && (
@@ -1302,6 +1219,9 @@ function DetailSlideshow({
                   : t("slideshows.reimportUn")}
               </Button>
             </div>
+
+            {/* Depuis le 1/11, BLEO assigne les posts : ce qu'il en sait passe en premier. */}
+            <BlocBleoContenu contenuId={d.id} />
 
             <section className="space-y-2 rounded border p-3">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -1471,124 +1391,129 @@ function DetailSlideshow({
                 hors Sophia vivent dans les tables de 0256 ; chaque bloc gère
                 sa propre erreur sans toucher au reste de la fiche. */}
             <PertinencesApplications contenuId={d.id} sophia={resumeSophia} />
-            {/* 0270 : tier, budget et cycle PROPRES à chaque autre application.
-                Rien n'est rendu sans ligne non-Sophia ou sans la migration. */}
-            <TiersApplications
-              contenuId={d.id}
-              tierlist={reglagesDetail?.tierlist}
-              sophia={resumeSophia}
-            />
             <DecksApplications contenuId={d.id} />
 
-            <section className="space-y-2">
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.tierlist")}
-              </h3>
-              {horsSophia ? (
-                // 0270 : aucun label ne sert Sophia — pas de rang Sophia à
-                // régler ici (le tier de chaque application est plus haut).
-                <p className="text-xs text-muted-foreground">
-                  {t("slideshows.horsSophia", {
-                    labels: (d.labels ?? []).map((l) => l.nom).join(", ") || "—",
-                  })}
-                </p>
-              ) : (
-              <div className="flex flex-wrap gap-1.5">
-                {TIERS.map((tier) => (
-                  <button
-                    key={tier}
-                    type="button"
-                    disabled={changerTier.isPending}
-                    onClick={() => changerTier.mutate(tier)}
-                    className={cn(
-                      "rounded-md border px-2.5 py-1 text-xs font-bold disabled:opacity-50",
-                      d.tier === tier
-                        ? CLASSE_TIER[tier]
-                        : "bg-background text-muted-foreground hover:bg-muted",
-                    )}
-                    title={t("slideshows.tierPassages", {
-                      count: PASSAGES_PAR_TIER[tier],
+            {/* L'ancien système : la tierlist ne sert plus que de secours, quand
+                un créneau du plan BLEO ne peut pas être servi, jusqu'à son
+                retrait vers le 16/11. Tout y reste fonctionnel, mais replié. */}
+            <Replie titre={t("slideshows.ancienSysteme")} aide={t("slideshows.ancienSystemeAide")}>
+              {/* 0270 : tier, budget et cycle PROPRES à chaque autre application.
+                  Rien n'est rendu sans ligne non-Sophia ou sans la migration. */}
+              <TiersApplications
+                contenuId={d.id}
+                tierlist={reglagesDetail?.tierlist}
+                sophia={resumeSophia}
+              />
+              <section className="space-y-2">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {t("slideshows.tierlist")}
+                </h3>
+                {horsSophia ? (
+                  // 0270 : aucun label ne sert Sophia — pas de rang Sophia à
+                  // régler ici (le tier de chaque application est plus haut).
+                  <p className="text-xs text-muted-foreground">
+                    {t("slideshows.horsSophia", {
+                      labels: (d.labels ?? []).map((l) => l.nom).join(", ") || "—",
                     })}
-                  >
-                    {tier}
-                  </button>
-                ))}
-              </div>
-              )}
-              <dl className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
-                <dt className="text-muted-foreground">{t("slideshows.passages")}</dt>
-                <dd className="tabular-nums">
-                  {t("slideshows.passagesDetail", {
-                    publies: d.tierEtat?.publies ?? 0,
-                    prevus: d.tierEtat?.passages_prevus ?? d.passages_prevus,
-                    envol: d.tierEtat?.en_vol ?? 0,
-                  })}
-                </dd>
-                <dt className="text-muted-foreground">{t("slideshows.moyenneVues")}</dt>
-                <dd className="tabular-nums">
-                  {d.tierEtat?.moyenne_vues != null
-                    ? Math.round(d.tierEtat.moyenne_vues).toLocaleString()
-                    : "—"}
-                </dd>
-                <dt className="text-muted-foreground">{t("slideshows.meilleurPassage")}</dt>
-                <dd className="tabular-nums">
-                  {d.tierEtat?.max_vues != null
-                    ? d.tierEtat.max_vues.toLocaleString()
-                    : "—"}
-                </dd>
-              </dl>
-              {(() => {
-                const etat = etatRequalif(d.tierEtat, reglagesDetail?.tierlist);
-                if (!etat) return null;
-                return (
-                  <div
-                    className={cn(
-                      "space-y-1.5 rounded border p-2",
-                      etat.alerte && "border-amber-500/40 bg-amber-500/5",
-                    )}
-                  >
-                    <p className="text-xs">
-                      {t(`slideshows.requalif.${etat.cle}`, {
-                        mesures: d.tierEtat?.mesures ?? 0,
-                        publies: d.tierEtat?.publies ?? 0,
-                        introuvables: d.tierEtat?.introuvables ?? 0,
-                        attente: d.tierEtat?.en_attente_mesure ?? 0,
-                        jours: reglagesDetail?.tierlist.requalif_max_jours ?? 3,
+                  </p>
+                ) : (
+                <div className="flex flex-wrap gap-1.5">
+                  {TIERS.map((tier) => (
+                    <button
+                      key={tier}
+                      type="button"
+                      disabled={changerTier.isPending}
+                      onClick={() => changerTier.mutate(tier)}
+                      className={cn(
+                        "rounded-md border px-2.5 py-1 text-xs font-bold disabled:opacity-50",
+                        d.tier === tier
+                          ? CLASSE_TIER[tier]
+                          : "bg-background text-muted-foreground hover:bg-muted",
+                      )}
+                      title={t("slideshows.tierPassages", {
+                        count: PASSAGES_PAR_TIER[tier],
                       })}
-                      {etat.echeance
-                        ? ` ${t("slideshows.requalifEcheance", { date: etat.echeance })}`
-                        : null}
-                    </p>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="h-7 text-xs"
-                      disabled={relancerRequalif.isPending}
-                      onClick={() => relancerRequalif.mutate()}
                     >
-                      {relancerRequalif.isPending
-                        ? t("common.loading")
-                        : t("slideshows.requalifMaintenant")}
-                    </Button>
-                    {relancerRequalif.isError ? (
-                      <p className="text-xs text-destructive">
-                        {(relancerRequalif.error as Error).message}
+                      {tier}
+                    </button>
+                  ))}
+                </div>
+                )}
+                <dl className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                  <dt className="text-muted-foreground">{t("slideshows.passages")}</dt>
+                  <dd className="tabular-nums">
+                    {t("slideshows.passagesDetail", {
+                      publies: d.tierEtat?.publies ?? 0,
+                      prevus: d.tierEtat?.passages_prevus ?? d.passages_prevus,
+                      envol: d.tierEtat?.en_vol ?? 0,
+                    })}
+                  </dd>
+                  <dt className="text-muted-foreground">{t("slideshows.moyenneVues")}</dt>
+                  <dd className="tabular-nums">
+                    {d.tierEtat?.moyenne_vues != null
+                      ? Math.round(d.tierEtat.moyenne_vues).toLocaleString()
+                      : "—"}
+                  </dd>
+                  <dt className="text-muted-foreground">{t("slideshows.meilleurPassage")}</dt>
+                  <dd className="tabular-nums">
+                    {d.tierEtat?.max_vues != null
+                      ? d.tierEtat.max_vues.toLocaleString()
+                      : "—"}
+                  </dd>
+                </dl>
+                {(() => {
+                  const etat = etatRequalif(d.tierEtat, reglagesDetail?.tierlist);
+                  if (!etat) return null;
+                  return (
+                    <div
+                      className={cn(
+                        "space-y-1.5 rounded border p-2",
+                        etat.alerte && "border-amber-500/40 bg-amber-500/5",
+                      )}
+                    >
+                      <p className="text-xs">
+                        {t(`slideshows.requalif.${etat.cle}`, {
+                          mesures: d.tierEtat?.mesures ?? 0,
+                          publies: d.tierEtat?.publies ?? 0,
+                          introuvables: d.tierEtat?.introuvables ?? 0,
+                          attente: d.tierEtat?.en_attente_mesure ?? 0,
+                          jours: reglagesDetail?.tierlist.requalif_max_jours ?? 3,
+                        })}
+                        {etat.echeance
+                          ? ` ${t("slideshows.requalifEcheance", { date: etat.echeance })}`
+                          : null}
                       </p>
-                    ) : null}
-                  </div>
-                );
-              })()}
-              {d.tier_rapport?.regle ? (
-                <p className="text-xs text-muted-foreground">
-                  {t("slideshows.derniereRequalif", {
-                    avant: d.tier_rapport.avant ?? "—",
-                    apres: d.tier_rapport.apres ?? d.tier,
-                    regle: d.tier_rapport.regle,
-                  })}
-                </p>
-              ) : null}
-              <p className="text-xs text-muted-foreground">{t("slideshows.tierlistAide")}</p>
-            </section>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-7 text-xs"
+                        disabled={relancerRequalif.isPending}
+                        onClick={() => relancerRequalif.mutate()}
+                      >
+                        {relancerRequalif.isPending
+                          ? t("common.loading")
+                          : t("slideshows.requalifMaintenant")}
+                      </Button>
+                      {relancerRequalif.isError ? (
+                        <p className="text-xs text-destructive">
+                          {(relancerRequalif.error as Error).message}
+                        </p>
+                      ) : null}
+                    </div>
+                  );
+                })()}
+                {d.tier_rapport?.regle ? (
+                  <p className="text-xs text-muted-foreground">
+                    {t("slideshows.derniereRequalif", {
+                      avant: d.tier_rapport.avant ?? "—",
+                      apres: d.tier_rapport.apres ?? d.tier,
+                      regle: d.tier_rapport.regle,
+                    })}
+                  </p>
+                ) : null}
+                <p className="text-xs text-muted-foreground">{t("slideshows.tierlistAide")}</p>
+              </section>
+            </Replie>
 
             <section className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -1799,6 +1724,307 @@ function DetailSlideshow({
   );
 }
 
+/** La couleur de chaque statut ; le texte reste neutre. */
+const POINT_STATUT: Record<string, string> = {
+  valide: "bg-success",
+  rejete: "bg-destructive",
+  brouillon: "bg-muted-foreground",
+};
+
+/** Les verdicts : gagnant en vert, non gagnant en orange, l'attente et le hors BLEO en gris. */
+const COULEUR_VERDICT: Record<(typeof VERDICTS_CONTENU)[number] | "hors", string> = {
+  gagnant: "var(--success)",
+  en_attente: "color-mix(in srgb, var(--muted-foreground) 45%, transparent)",
+  non_gagnant: "var(--warning)",
+  hors: "color-mix(in srgb, var(--muted-foreground) 15%, transparent)",
+};
+
+/** Les états, du plus clair (à juger) au plus franc (en test) ; jugé repasse en gris. */
+const COULEUR_ETAT_BLEO: Record<(typeof ETATS_BLEO)[number], string> = {
+  a_juger: "color-mix(in srgb, var(--info) 35%, transparent)",
+  en_test: "var(--info)",
+  juge: "color-mix(in srgb, var(--muted-foreground) 45%, transparent)",
+};
+
+/** Les quatre chiffres du haut : gardés, rejetés, en cours (tous comptes), et les gagnants BLEO affichés. */
+function ChiffresSlideshows({
+  stats,
+  affiches,
+  repartition,
+}: {
+  stats: StatsCompteSlideshows[];
+  affiches: number;
+  /** null tant que les infos BLEO ne sont pas lues. */
+  repartition: RepartitionBleo | null;
+}) {
+  const { t } = useTranslation();
+  const tot = totauxSlideshows(stats);
+  return (
+    <StatGroup>
+      <StatTile
+        label={t("slideshows.chiffres.gardes")}
+        value={tot.gardes.toLocaleString()}
+        detail={
+          tot.partGardes === null
+            ? undefined
+            : t("slideshows.chiffres.gardesDetail", { pct: tot.partGardes, importes: tot.importes.toLocaleString() })
+        }
+      />
+      <StatTile label={t("slideshows.chiffres.rejetes")} value={tot.rejetes.toLocaleString()} />
+      <StatTile
+        label={t("slideshows.chiffres.encours")}
+        value={tot.encours.toLocaleString()}
+        detail={t("slideshows.chiffres.encoursDetail")}
+      />
+      <StatTile
+        label={t("slideshows.chiffres.gagnants")}
+        value={repartition ? repartition.verdicts.gagnant.toLocaleString() : "—"}
+        detail={t("slideshows.chiffres.gagnantsDetail", { n: affiches })}
+      />
+    </StatGroup>
+  );
+}
+
+/** Une barre de la répartition BLEO, son intitulé et sa légende chiffrée. */
+function BarreBleo({
+  titre,
+  segments,
+}: {
+  titre: string;
+  segments: Array<{ cle: string; valeur: number; couleur: string; libelle: string }>;
+}) {
+  return (
+    <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1.5">
+      <span className={MICRO_LABEL}>{titre}</span>
+      <div className="w-32 shrink-0">
+        <BarreRepartition
+          hauteur="sm"
+          aria-label={titre}
+          segments={segments.map((s) => ({ ...s, valeurAffichee: String(s.valeur) }))}
+        />
+      </div>
+      <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
+        {segments
+          .filter((s) => s.valeur > 0)
+          .map((s) => (
+            <li key={s.cle} className="inline-flex items-center gap-1 tabular-nums">
+              <span className="inline-block size-2 rounded-[2px]" style={{ background: s.couleur }} aria-hidden />
+              <span className="font-medium text-foreground">{s.libelle}</span> {s.valeur}
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
+}
+
+/** La répartition BLEO des slideshows affichés : une barre par verdict, une par état. */
+function RepartitionBleoAffiches({ repartition }: { repartition: RepartitionBleo }) {
+  const { t } = useTranslation();
+  return (
+    <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-6 gap-y-2">
+      <BarreBleo
+        titre={t("slideshows.bleo.repartitionVerdicts")}
+        segments={[
+          ...VERDICTS_CONTENU.map((v) => ({
+            cle: v,
+            valeur: repartition.verdicts[v],
+            couleur: COULEUR_VERDICT[v],
+            libelle: t(`bleo.verdicts.${v}`),
+          })),
+          {
+            cle: "hors",
+            valeur: repartition.horsBleo,
+            couleur: COULEUR_VERDICT.hors,
+            libelle: t("slideshows.bleo.horsBleo"),
+          },
+        ]}
+      />
+      <BarreBleo
+        titre={t("slideshows.bleo.repartitionEtats")}
+        segments={ETATS_BLEO.map((e) => ({
+          cle: e,
+          valeur: repartition.etats[e],
+          couleur: COULEUR_ETAT_BLEO[e],
+          libelle: t(`bleo.etats.${e}`),
+        }))}
+      />
+    </div>
+  );
+}
+
+/** Un filtre de la barre : son intitulé en petites capitales, puis le contrôle. */
+function Filtre({ libelle, htmlFor, children }: { libelle: string; htmlFor?: string; children: React.ReactNode }) {
+  return (
+    <div className="min-w-0 space-y-1.5">
+      {htmlFor ? (
+        <label htmlFor={htmlFor} className={cn(MICRO_LABEL, "block")}>
+          {libelle}
+        </label>
+      ) : (
+        <p className={MICRO_LABEL}>{libelle}</p>
+      )}
+      {children}
+    </div>
+  );
+}
+
+const selectFiltre =
+  "h-8 w-full max-w-64 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
+/**
+ * Le verdict BLEO en haut à gauche de la vignette, lien vers la famille ;
+ * « — » pour un slideshow hors BLEO, rien tant que BLEO n'est pas lu.
+ */
+function VerdictCarte({ bleo }: { bleo: InfosBleoContenu | null | undefined }) {
+  const { t } = useTranslation();
+  if (bleo === undefined) return null;
+  if (bleo === null) {
+    return (
+      <span
+        className="rounded border bg-background/90 px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground"
+        title={t("slideshows.bleo.horsCourt")}
+      >
+        —
+      </span>
+    );
+  }
+  return (
+    <Link
+      to={`/admin/bleo/familles/${bleo.famille_id}`}
+      title={t("slideshows.bleo.voirFamille")}
+      className="inline-flex rounded-sm bg-background/90 shadow-sm transition hover:ring-1 hover:ring-foreground/40 focus-visible:outline-2 focus-visible:outline-ring"
+    >
+      <BadgeVerdict verdict={bleo.verdict} />
+    </Link>
+  );
+}
+
+/** La ligne BLEO de la carte : état, génération, valeur max et vues moyennes. */
+function LigneBleoCarte({ bleo }: { bleo: InfosBleoContenu | null | undefined }) {
+  const { t, i18n } = useTranslation();
+  if (bleo === undefined) return null;
+  if (bleo === null) {
+    return (
+      <span className="text-muted-foreground" title={t("slideshows.bleo.horsCourt")}>
+        —
+      </span>
+    );
+  }
+  return (
+    <>
+      <BadgeEtat etat={bleo.etat_bleo} />
+      <Generation g={bleo.generation} />
+      <span className="font-medium text-foreground" title={t("slideshows.bleo.valeurMaxAide")}>
+        {t("slideshows.bleo.valeurCourt", { v: formaterValeur(bleo.valeur_max, i18n.language) })}
+      </span>
+      <span title={t("slideshows.bleo.vuesMoyennes")}>
+        {t("slideshows.bleo.vuesCourt", { v: formaterVues(bleo.vues_moyenne, i18n.language) })}
+      </span>
+    </>
+  );
+}
+
+function CarteSlideshow({
+  c,
+  handle,
+  bleo,
+  requalifEnAttente,
+  onOuvrir,
+  onLabel,
+}: {
+  c: ContenuListe;
+  handle: string;
+  /** Sa ligne BLEO ; null = hors BLEO ; undefined = pas encore lue. */
+  bleo: InfosBleoContenu | null | undefined;
+  requalifEnAttente: boolean;
+  onOuvrir: () => void;
+  onLabel: (id: string) => void;
+}) {
+  const { t } = useTranslation();
+  const img = vignette(c);
+  const labels = (c.labels ?? []).slice().sort((a, b) => a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }));
+  return (
+    // Le lien du verdict vit à côté du bouton de la carte, pas dedans : un lien
+    // dans un bouton n'est pas du HTML valide (et perdrait le clic milieu).
+    <div
+      className={cn(
+        "group relative overflow-hidden rounded-xl border bg-card transition hover:border-foreground/30 hover:shadow-sm",
+        c.statut === "rejete" && "opacity-70",
+      )}
+    >
+      <button
+        type="button"
+        onClick={onOuvrir}
+        className="block w-full text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
+      >
+        <div className="relative">
+          {img ? (
+            <img src={img} alt="" loading="lazy" className="aspect-[3/4] w-full object-cover" />
+          ) : (
+            <div className="flex aspect-[3/4] items-center justify-center bg-muted text-xs text-muted-foreground">
+              {t("slideshows.sansImage")}
+            </div>
+          )}
+          {c.ugc_compatible && (
+            <span className="absolute right-2 top-2 inline-flex items-center gap-0.5 rounded bg-background/90 px-1.5 py-0.5 text-[10px] font-medium">
+              <Check className="size-2.5" aria-hidden />
+              {t("slideshows.ugcBadge")}
+            </span>
+          )}
+        </div>
+        <div className="space-y-1.5 p-3">
+          <p className="line-clamp-2 text-sm font-medium leading-snug">{c.titre || t("contenus.sansTitre")}</p>
+          <p className="truncate text-xs text-muted-foreground">{handle ? `@${handle}` : t("slideshows.sansCompte")}</p>
+          <div className="flex flex-wrap gap-x-2 gap-y-0.5">
+            {labels.length === 0 ? (
+              <span className="text-[11px] text-muted-foreground">{t("slideshows.sansLabel")}</span>
+            ) : (
+              labels.slice(0, 3).map((l) => (
+                <span
+                  key={l.id}
+                  role="button"
+                  tabIndex={0}
+                  title={t("slideshows.filtreLabel")}
+                  className="font-mono text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onLabel(l.id);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onLabel(l.id);
+                    }
+                  }}
+                >
+                  {l.nom}
+                </span>
+              ))
+            )}
+            {labels.length > 3 && <span className="text-[11px] text-muted-foreground">+{labels.length - 3}</span>}
+          </div>
+          <div className="flex min-h-6 flex-wrap items-center gap-x-2 gap-y-0.5 border-t pt-1.5 text-[11px] tabular-nums text-muted-foreground">
+            <LigneBleoCarte bleo={bleo} />
+          </div>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]">
+            <span className="inline-flex items-center gap-1">
+              <span className={cn("size-1.5 rounded-full", POINT_STATUT[c.statut] ?? "bg-muted-foreground")} aria-hidden />
+              {t(`slideshows.statuts.${c.statut}`, { defaultValue: c.statut })}
+            </span>
+            {c.creation_mode === "manuel" && <span className="text-muted-foreground">{t("slideshows.manuelBadge")}</span>}
+            {requalifEnAttente && <span className="font-medium text-warning-foreground">{t("slideshows.requalifBloquee")}</span>}
+            <span className="ml-auto tabular-nums text-muted-foreground">{t("slideshows.nbPosts", { count: c.nb_posts ?? 0 })}</span>
+          </div>
+        </div>
+      </button>
+      <span className="absolute left-2 top-2">
+        <VerdictCarte bleo={bleo} />
+      </span>
+    </div>
+  );
+}
+
 export function AdminSlideshowsPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -1807,7 +2033,10 @@ export function AdminSlideshowsPage() {
   const [filtreLabel, setFiltreLabel] = React.useState<FiltreLabel>(null);
   const [filtreCompte, setFiltreCompte] = React.useState<FiltreCompte>(null);
   const [filtreUgc, setFiltreUgc] = React.useState<FiltreUgc>("tous");
-  const [tri, setTri] = React.useState<TriSlideshow>("recent");
+  const [filtreVerdict, setFiltreVerdict] = React.useState<FiltreVerdictBleo>("tous");
+  const [filtreEtat, setFiltreEtat] = React.useState<FiltreEtatBleo>("tous");
+  // Par défaut, ce que BLEO attend le plus d'abord (il assigne les posts depuis le 1/11).
+  const [tri, setTri] = React.useState<TriSlideshow>("valeur");
   const [ouvert, setOuvert] = React.useState<string | null>(
     searchParams.get("id"),
   );
@@ -1821,12 +2050,6 @@ export function AdminSlideshowsPage() {
     const id = searchParams.get("id");
     if (id) setOuvert(id);
   }, [searchParams]);
-
-  // 0270 : un contenu dont aucun label ne sert Sophia n'a pas de rang Sophia —
-  // la grille affiche « — » au lieu d'un D trompeur. Liens illisibles :
-  // affichage d'avant. Tri et nombre de posts inchangés.
-  const liensLabelsListe = useLiensLabels();
-  const liensLisibles = liensLabelsListe.isSuccess ? liensLabelsListe.data : undefined;
 
   // Plus de filtre par application : un contenu sert toutes les applications
   // de ses labels (sa pertinence par application se lit dans le détail).
@@ -1844,6 +2067,32 @@ export function AdminSlideshowsPage() {
         sansCompte: filtreCompte === "__none__",
       }),
   });
+
+  // BLEO : seulement les slideshows chargés (déjà filtrés côté serveur, 500 au
+  // plus), lus par lots dans `bleo_contenus_ui`. Ids triés : un simple
+  // réordonnancement ne relit rien. Pendant qu'un nouveau filtre se charge, on
+  // garde les lignes déjà lues.
+  const idsCharges = React.useMemo(
+    () => [...new Set((contenus.data ?? []).map((c) => c.id))].sort(),
+    [contenus.data],
+  );
+  const infosBleo = useQuery({
+    queryKey: ["bleo", "slideshows", idsCharges],
+    queryFn: () => listerInfosBleoContenus(idsCharges),
+    enabled: idsCharges.length > 0,
+    staleTime: 60_000,
+    placeholderData: keepPreviousData,
+  });
+  const bleoParId = React.useMemo(
+    () => new Map((infosBleo.data ?? []).map((b) => [b.id, b] as const)),
+    [infosBleo.data],
+  );
+  // Une ligne absente ne veut dire « hors BLEO » que si la lecture de CES ids est finie.
+  const bleoLu = infosBleo.isSuccess && !infosBleo.isPlaceholderData;
+  const bleoDe = React.useCallback(
+    (id: string): InfosBleoContenu | null | undefined => bleoParId.get(id) ?? (bleoLu ? null : undefined),
+    [bleoParId, bleoLu],
+  );
 
   const sources = useQuery({
     queryKey: ["sources"],
@@ -1895,20 +2144,28 @@ export function AdminSlideshowsPage() {
   }, [sources.data]);
 
   const contenusTries = React.useMemo(() => {
-    // Label / compte déjà filtrés côté serveur ; UGC reste client.
-    const filtres = filtreSlideshows(contenus.data ?? [], {
-      labelId: null,
-      ugc: filtreUgc,
-    });
-    return trierSlideshows(filtres, tri, handleParId);
-  }, [contenus.data, filtreUgc, tri, handleParId]);
+    // Label / compte déjà filtrés côté serveur ; UGC et BLEO restent client.
+    const filtres = filtrerParBleo(
+      filtreSlideshows(contenus.data ?? [], { labelId: null, ugc: filtreUgc }),
+      { verdict: filtreVerdict, etat: filtreEtat },
+      bleoParId,
+    );
+    return trierSlideshows(filtres, tri, { handleParId, bleoParId });
+  }, [contenus.data, filtreUgc, filtreVerdict, filtreEtat, tri, handleParId, bleoParId]);
+
+  // Le résumé BLEO des slideshows affichés, une fois leurs lignes lues.
+  const repartition = React.useMemo(
+    () => (bleoLu ? repartitionBleo(contenusTries.map((c) => bleoParId.get(c.id) ?? null)) : null),
+    [bleoLu, contenusTries, bleoParId],
+  );
 
   const statsActives = statsComptes.data ?? [];
-  const statsFiltre = statsActives.find((s) =>
-    filtreCompte === "__none__"
-      ? s.compteReferenceId === null
-      : s.compteReferenceId === filtreCompte,
-  );
+  // Sans filtre de compte, pas de résumé : `null` tomberait sur les orphelins.
+  const statsFiltre = filtreCompte
+    ? statsActives.find((s) =>
+        filtreCompte === "__none__" ? s.compteReferenceId === null : s.compteReferenceId === filtreCompte,
+      )
+    : undefined;
 
   const groupesCompte = React.useMemo(() => {
     if (tri !== "compte" || filtreCompte) return null;
@@ -1994,24 +2251,32 @@ export function AdminSlideshowsPage() {
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
   }
 
+  const ouvrir = (id: string) => {
+    seedSlideshowDetail(queryClient, id);
+    setOuvert(id);
+    setSearchParams({ id }, { replace: true });
+  };
+  const filtreBleoActif = filtreVerdict !== "tous" || filtreEtat !== "tous";
+  const filtreActif = Boolean(
+    filtreLabel || filtreCompte || filtreUgc !== "tous" || filtre !== "tous" || filtreBleoActif,
+  );
+  // Un filtre BLEO posé avant que BLEO soit lu : on attend au lieu d'afficher « aucun ».
+  const attenteBleo = filtreBleoActif && infosBleo.isPending && idsCharges.length > 0;
+
   return (
-    <div className="space-y-4">
-      <Card>
-        <CardHeader>
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <div>
-              <CardTitle>{t("slideshows.title")}</CardTitle>
-              <CardDescription>{t("slideshows.subtitle")}</CardDescription>
-            </div>
-            <div className="flex flex-wrap gap-2">
-            <Button size="sm" variant="outline" asChild>
+    <div className="space-y-6">
+      <PageHeader
+        title={t("slideshows.title")}
+        description={t("slideshows.subtitle")}
+        actions={
+          <>
+            <Button variant="outline" asChild>
               <Link to="/admin/creation">
                 <PenLine className="size-4" />
                 {t("labels.creerPost")}
               </Link>
             </Button>
             <Button
-              size="sm"
               variant="outline"
               disabled={reimport !== null}
               onClick={() => void reimporterPhotosValides()}
@@ -2025,371 +2290,202 @@ export function AdminSlideshowsPage() {
                   })
                 : t("slideshows.reimportPhotos")}
             </Button>
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {reimportLogs.length > 0 && (
-            <div className="max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
-              {reimportLogs.map((l, i) => (
-                <div
-                  key={`reimp-${i}-${l.slice(0, 16)}`}
-                  className="break-words text-muted-foreground"
-                >
-                  {l}
-                </div>
-              ))}
-            </div>
-          )}
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-1.5">
-              {(["tous", "valide", "rejete"] as const).map((f) => (
-                <Chip key={f} actif={filtre === f} onClick={() => setFiltre(f)}>
-                  {t(`contenus.filtre.${f}`)}
-                </Chip>
-              ))}
-            </div>
+          </>
+        }
+      />
 
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.filtreCompte")}
+      {reimportLogs.length > 0 && (
+        <div className="max-h-40 space-y-0.5 overflow-y-auto rounded-lg border bg-muted/30 px-3 py-2 font-mono text-[11px] leading-relaxed">
+          {reimportLogs.map((l, i) => (
+            <div key={`reimp-${i}-${l.slice(0, 16)}`} className="break-words text-muted-foreground">
+              {l}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {statsActives.length > 0 && (
+        <ChiffresSlideshows stats={statsActives} affiches={contenusTries.length} repartition={repartition} />
+      )}
+
+      <Card>
+        <CardContent className="space-y-5 pt-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end lg:gap-x-6">
+            <Filtre libelle={t("slideshows.filtres.statut")}>
+              <Segments
+                libelle={t("slideshows.filtres.statut")}
+                actif={filtre}
+                onChange={setFiltre}
+                options={(["tous", "valide", "rejete"] as const).map((f) => ({ cle: f, contenu: t(`contenus.filtre.${f}`) }))}
+              />
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.compte")} htmlFor="filtre-compte">
+              <select
+                id="filtre-compte"
+                className={selectFiltre}
+                value={filtreCompte ?? ""}
+                onChange={(e) => setFiltreCompte(e.target.value || null)}
+              >
+                <option value="">{t("slideshows.filtreComptesTous")}</option>
+                {statsActives.map((s) => (
+                  <option key={s.compteReferenceId ?? "__none__"} value={s.compteReferenceId ?? "__none__"}>
+                    {s.compteReferenceId
+                      ? t("slideshows.compteOption", { handle: s.handle, gardes: s.gardes, importes: s.importes })
+                      : t("slideshows.sansCompte")}
+                  </option>
+                ))}
+              </select>
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.label")} htmlFor="filtre-label">
+              <select
+                id="filtre-label"
+                className={selectFiltre}
+                value={filtreLabel ?? ""}
+                onChange={(e) => setFiltreLabel(e.target.value || null)}
+              >
+                <option value="">{t("slideshows.filtreLabelsTous")}</option>
+                <option value="__none__">{t("slideshows.sansLabel")}</option>
+                {labelsDisponibles.map((l) => (
+                  <option key={l.id} value={l.id}>
+                    {l.nom}
+                  </option>
+                ))}
+              </select>
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.ugc")}>
+              <Segments
+                libelle={t("slideshows.filtres.ugc")}
+                actif={filtreUgc}
+                onChange={setFiltreUgc}
+                options={(
+                  [
+                    ["tous", "filtreUgcTous"],
+                    ["oui", "filtreUgcOui"],
+                    ["non", "filtreUgcNon"],
+                  ] as const
+                ).map(([k, cle]) => ({ cle: k, contenu: t(`slideshows.${cle}`) }))}
+              />
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.verdict")}>
+              <Segments
+                libelle={t("slideshows.filtres.verdict")}
+                actif={filtreVerdict}
+                onChange={setFiltreVerdict}
+                options={(["tous", ...VERDICTS_CONTENU] as const).map((v) => ({
+                  cle: v,
+                  contenu: v === "tous" ? t("slideshows.bleo.tous") : t(`bleo.verdicts.${v}`),
+                }))}
+              />
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.etat")}>
+              <Segments
+                libelle={t("slideshows.filtres.etat")}
+                actif={filtreEtat}
+                onChange={setFiltreEtat}
+                options={(["tous", ...ETATS_BLEO] as const).map((e) => ({
+                  cle: e,
+                  contenu: e === "tous" ? t("slideshows.bleo.tous") : t(`bleo.etats.${e}`),
+                }))}
+              />
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.tri")}>
+              <Segments
+                libelle={t("slideshows.filtres.tri")}
+                actif={tri}
+                onChange={setTri}
+                options={TRIS_SLIDESHOWS.map((k) => ({ cle: k, contenu: t(`slideshows.tri.${k}`) }))}
+              />
+            </Filtre>
+          </div>
+
+          {statsFiltre && (
+            <p className="text-xs text-muted-foreground">
+              {statsFiltre.compteReferenceId
+                ? t("slideshows.compteResume", {
+                    handle: statsFiltre.handle,
+                    importes: statsFiltre.importes,
+                    gardes: statsFiltre.gardes,
+                    rejetes: statsFiltre.rejetes,
+                    encours: statsFiltre.encours,
+                  })
+                : `${t("slideshows.sansCompte")} — ${t("slideshows.compteStats", {
+                    importes: statsFiltre.importes,
+                    gardes: statsFiltre.gardes,
+                    rejetes: statsFiltre.rejetes,
+                    encours: statsFiltre.encours,
+                  })}`}
+            </p>
+          )}
+
+          {!contenus.isPending && (
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t pt-4">
+              <p className="text-sm font-medium tabular-nums">
+                {t("slideshows.resultatFiltre", { count: contenusTries.length })}
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                <Chip
-                  actif={filtreCompte === null}
-                  onClick={() => setFiltreCompte(null)}
-                >
-                  {t("slideshows.filtreComptesTous")}
-                </Chip>
-                {statsActives.map((s) => {
-                  const cle = s.compteReferenceId ?? "__none__";
-                  const label = s.compteReferenceId
-                    ? `@${s.handle}`
-                    : t("slideshows.sansCompte");
-                  return (
-                    <Chip
-                      key={cle}
-                      actif={filtreCompte === cle}
-                      onClick={() =>
-                        setFiltreCompte(filtreCompte === cle ? null : cle)
-                      }
-                    >
-                      <span className="flex flex-col items-start gap-0.5 text-left leading-tight">
-                        <span>{label}</span>
-                        <span className="font-normal opacity-80">
-                          {t("slideshows.compteChip", {
-                            gardes: s.gardes,
-                            importes: s.importes,
-                          })}
-                          {s.rejetes > 0 || s.encours > 0
-                            ? ` · ${t("slideshows.compteChipSuite", {
-                                rejetes: s.rejetes,
-                                encours: s.encours,
-                              })}`
-                            : ""}
-                        </span>
-                      </span>
-                    </Chip>
-                  );
-                })}
-              </div>
-              {statsFiltre && (
-                <p className="text-[11px] text-muted-foreground">
-                  {statsFiltre.compteReferenceId
-                    ? t("slideshows.compteResume", {
-                        handle: statsFiltre.handle,
-                        importes: statsFiltre.importes,
-                        gardes: statsFiltre.gardes,
-                        rejetes: statsFiltre.rejetes,
-                        encours: statsFiltre.encours,
-                      })
-                    : `${t("slideshows.sansCompte")} — ${t("slideshows.compteStats", {
-                        importes: statsFiltre.importes,
-                        gardes: statsFiltre.gardes,
-                        rejetes: statsFiltre.rejetes,
-                        encours: statsFiltre.encours,
-                      })}`}
+              {repartition && contenusTries.length > 0 && <RepartitionBleoAffiches repartition={repartition} />}
+              {infosBleo.isError && (
+                <p role="alert" className="text-xs text-destructive">
+                  {t("slideshows.bleo.erreur", { message: messageErreur(infosBleo.error) })}
                 </p>
               )}
             </div>
+          )}
 
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.filtreLabel")}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                <Chip
-                  actif={filtreLabel === null}
-                  onClick={() => setFiltreLabel(null)}
-                >
-                  {t("slideshows.filtreLabelsTous")}
-                </Chip>
-                <Chip
-                  actif={filtreLabel === "__none__"}
-                  onClick={() => setFiltreLabel("__none__")}
-                >
-                  {t("slideshows.sansLabel")}
-                </Chip>
-                {labelsDisponibles.map((l) => (
-                  <Chip
-                    key={l.id}
-                    actif={filtreLabel === l.id}
-                    onClick={() =>
-                      setFiltreLabel(filtreLabel === l.id ? null : l.id)
-                    }
-                    style={
-                      filtreLabel === l.id || !l.couleur
-                        ? undefined
-                        : { borderColor: l.couleur, color: l.couleur }
-                    }
-                  >
-                    {l.nom}
-                  </Chip>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-end justify-between gap-3">
-              <div className="space-y-1.5">
-                <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                  {t("slideshows.filtreUgc")}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {(
-                    [
-                      ["tous", "filtreUgcTous"],
-                      ["oui", "filtreUgcOui"],
-                      ["non", "filtreUgcNon"],
-                    ] as const
-                  ).map(([k, cle]) => (
-                    <Chip
-                      key={k}
-                      actif={filtreUgc === k}
-                      onClick={() => setFiltreUgc(k)}
-                    >
-                      {t(`slideshows.${cle}`)}
-                    </Chip>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                  {t("slideshows.triLabel")}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {(["recent", "tier", "posts", "compte"] as const).map((k) => (
-                    <Chip key={k} actif={tri === k} onClick={() => setTri(k)}>
-                      {t(`slideshows.tri.${k}`)}
-                    </Chip>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {!contenus.isPending && (
-              <p className="text-[11px] text-muted-foreground">
-                {t("slideshows.resultatFiltre", { count: contenusTries.length })}
-              </p>
-            )}
-          </div>
-
-          {contenus.isPending && (
+          {(contenus.isPending || attenteBleo) && (
             <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
           )}
-          {!contenus.isPending && contenusTries.length === 0 && (
-            <EmptyState
-              title={
-                filtreLabel ||
-                  filtreCompte ||
-                  filtreUgc !== "tous" ||
-                  filtre !== "tous"
-                  ? t("slideshows.emptyFiltre")
-                  : t("slideshows.empty")
-              }
-            />
+          {!contenus.isPending && !attenteBleo && contenusTries.length === 0 && (
+            <EmptyState title={filtreActif ? t("slideshows.emptyFiltre") : t("slideshows.empty")} />
           )}
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {(groupesCompte ?? [{ key: "flat", handle: "", items: contenusTries }]).flatMap(
-              (groupe) => {
-                const header =
-                  groupesCompte &&
-                  (() => {
-                    const st = statsActives.find((s) =>
-                      groupe.key === "__none__"
-                        ? s.compteReferenceId === null
-                        : s.compteReferenceId === groupe.key,
-                    );
-                    return (
-                      <div
-                        key={`h-${groupe.key}`}
-                        className="col-span-2 flex flex-wrap items-baseline justify-between gap-2 border-b pb-1 sm:col-span-3 lg:col-span-4"
-                      >
-                        <p className="text-sm font-medium">
-                          {groupe.handle
-                            ? `@${groupe.handle}`
-                            : t("slideshows.sansCompte")}
-                        </p>
-                        {st && (
-                          <p className="text-[11px] text-muted-foreground">
-                            {t("slideshows.compteStats", {
-                              importes: st.importes,
-                              gardes: st.gardes,
-                              rejetes: st.rejetes,
-                              encours: st.encours,
-                            })}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })();
-                return [
-                  ...(header ? [header] : []),
-                  ...groupe.items.map((c) => {
-              const img = vignette(c);
-              const labels = (c.labels ?? [])
-                .slice()
-                .sort((a, b) =>
-                  a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }),
-                );
-              return (
-                <button
-                  key={c.id}
-                  type="button"
-                  onClick={() => {
-                    seedSlideshowDetail(queryClient, c.id);
-                    setOuvert(c.id);
-                    setSearchParams({ id: c.id }, { replace: true });
-                  }}
-                  className={cn(
-                    "overflow-hidden rounded-lg border text-left transition hover:ring-2 hover:ring-primary",
-                    c.statut === "rejete" && "opacity-70",
-                  )}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {(groupesCompte ?? [{ key: "flat", handle: "", items: contenusTries }]).flatMap((groupe) => {
+              const st = groupesCompte
+                ? statsActives.find((s) =>
+                    groupe.key === "__none__" ? s.compteReferenceId === null : s.compteReferenceId === groupe.key,
+                  )
+                : undefined;
+              const entete = groupesCompte ? (
+                <div
+                  key={`h-${groupe.key}`}
+                  className="col-span-full flex flex-wrap items-baseline justify-between gap-2 border-b pb-1.5 pt-2 first:pt-0"
                 >
-                  {img ? (
-                    <img src={img} alt="" className="aspect-[3/4] w-full object-cover" />
-                  ) : (
-                    <div className="flex aspect-[3/4] items-center justify-center bg-muted text-xs text-muted-foreground">
-                      {t("slideshows.sansImage")}
-                    </div>
-                  )}
-                  <div className="space-y-1 p-2">
-                    <p className="line-clamp-2 text-xs font-medium">
-                      {c.titre || t("contenus.sansTitre")}
+                  <p className="text-sm font-medium">{groupe.handle ? `@${groupe.handle}` : t("slideshows.sansCompte")}</p>
+                  {st && (
+                    <p className="text-xs text-muted-foreground">
+                      {t("slideshows.compteStats", {
+                        importes: st.importes,
+                        gardes: st.gardes,
+                        rejetes: st.rejetes,
+                        encours: st.encours,
+                      })}
                     </p>
-                    {handleDuContenu(c, handleParId) ? (
-                      <p className="text-[10px] text-muted-foreground">
-                        @{handleDuContenu(c, handleParId)}
-                      </p>
-                    ) : (
-                      <p className="text-[10px] text-muted-foreground">
-                        {t("slideshows.sansCompte")}
-                      </p>
-                    )}
-                    <div className="flex flex-wrap gap-1">
-                      {labels.length === 0 ? (
-                        <span className="text-[10px] text-muted-foreground">
-                          {t("slideshows.sansLabel")}
-                        </span>
-                      ) : (
-                        labels.slice(0, 3).map((l) => (
-                          <span
-                            key={l.id}
-                            role="button"
-                            tabIndex={0}
-                            className="rounded border px-1 py-0.5 text-[10px] hover:bg-muted"
-                            style={
-                              l.couleur
-                                ? { borderColor: l.couleur, color: l.couleur }
-                                : undefined
-                            }
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setFiltreLabel(l.id);
-                            }}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                setFiltreLabel(l.id);
-                              }
-                            }}
-                          >
-                            {l.nom}
-                          </span>
-                        ))
-                      )}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-1">
-                      {c.tier === "D" && contenuHorsSophia(c.labels ?? [], liensLisibles) ? (
-                        <span
-                          className="px-1.5 text-[10px] font-bold text-muted-foreground"
-                          title={t("slideshows.horsSophiaCourt")}
-                        >
-                          —
-                        </span>
-                      ) : (
-                        <BadgeTier tier={c.tier} />
-                      )}
-                      <span
-                        className="text-[10px] tabular-nums text-muted-foreground"
-                        title={t("slideshows.passagesRestants", {
-                          restants: c.tierEtat?.restants ?? 0,
-                          prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
-                        })}
-                      >
-                        {t("slideshows.passagesPublies", {
-                          publies: c.tierEtat?.publies ?? 0,
-                          prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
-                        })}
-                      </span>
-                      {etatRequalif(c.tierEtat, reglages.data?.tierlist)?.alerte ? (
-                        <Badge variant="outline" className="text-[10px] text-amber-600">
-                          {t("slideshows.requalifBloquee")}
-                        </Badge>
-                      ) : null}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-1">
-                      <Badge
-                        variant={
-                          c.statut === "valide"
-                            ? "success"
-                            : c.statut === "rejete"
-                              ? "destructive"
-                              : "secondary"
-                        }
-                        className="text-[10px]"
-                      >
-                        {c.statut}
-                      </Badge>
-                      {c.creation_mode === "manuel" && (
-                        <Badge variant="outline" className="text-[10px]">
-                          {t("slideshows.manuelBadge")}
-                        </Badge>
-                      )}
-                      {c.ugc_compatible && (
-                        <Badge variant="success" className="gap-0.5 text-[10px]">
-                          <Check className="size-2.5" />
-                          {t("slideshows.ugcBadge")}
-                        </Badge>
-                      )}
-                      <span className="text-[10px] tabular-nums text-muted-foreground">
-                        {t("slideshows.nbPosts", { count: c.nb_posts ?? 0 })}
-                      </span>
-                    </div>
-                  </div>
-                </button>
-              );
-                  }),
-                ];
-              },
-            )}
+                  )}
+                </div>
+              ) : null;
+              return [
+                ...(entete ? [entete] : []),
+                ...groupe.items.map((c) => (
+                  <CarteSlideshow
+                    key={c.id}
+                    c={c}
+                    handle={handleDuContenu(c, handleParId)}
+                    bleo={bleoDe(c.id)}
+                    requalifEnAttente={Boolean(etatRequalif(c.tierEtat, reglages.data?.tierlist)?.alerte)}
+                    onOuvrir={() => ouvrir(c.id)}
+                    onLabel={setFiltreLabel}
+                  />
+                )),
+              ];
+            })}
           </div>
         </CardContent>
       </Card>
 
-      <NettoyageStickersLabelCard />
+      <section className="space-y-3">
+        <h2 className={MICRO_LABEL}>{t("slideshows.outils")}</h2>
+        <NettoyageStickersLabelCard />
+      </section>
 
       {ouvert && <DetailSlideshow id={ouvert} onFermer={fermerDetail} />}
     </div>

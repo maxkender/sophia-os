@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, ChevronRight, ExternalLink, RefreshCw, Send } from "lucide-react";
+import { Check, ChevronRight, ExternalLink, RefreshCw } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -23,7 +23,6 @@ import {
   enregistrerCanalSlack,
   enregistrerSlackHm,
   enregistrerTextesNudges,
-  envoyerAuxHm,
   envoyerNudgesCkd,
   type ChiffresCkd,
   type DecisionCkd,
@@ -36,6 +35,7 @@ import {
   lireTextesNudges,
   listerArrets,
   listerHandles,
+  listerSlackRecreations,
   listerManques,
   type ManqueCkd,
   MOTIFS_NUDGE,
@@ -61,7 +61,8 @@ import {
   aEnvoyer,
   annulable,
   boutonDeLaDecision,
-  BOUTONS_PAR_REGLE,
+  boutonPropose,
+  boutonsPour,
   compterActions,
   creeUnCompte,
   DECISION_DU_BOUTON,
@@ -84,10 +85,23 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
+import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
+import { CarteSeuilsConfiance } from "@/features/ckd/decisions/CarteSeuilsConfiance";
+import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
+import { ListeSamedi } from "@/features/ckd/decisions/ListeSamedi";
+import { CheckWarmup } from "@/features/ckd/decisions/CheckWarmup";
+import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
+import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
+import { useOnglet } from "@/features/auto/useOnglet";
+import { SemaineDecisions } from "@/features/ckd/decisions/SemaineDecisions";
+import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
+import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
+import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
+import { HandleTiktok } from "@/features/ckd/cohorte/liens";
 
 const CLE = ["ckd"] as const;
 
@@ -107,11 +121,27 @@ const POINT_ACTION: Record<ActionCkd, string> = {
   nudge: "bg-info",
 };
 
-const ONGLETS = ["samedi", "jeudi", "historique", "reglages"] as const;
+/**
+ * Prompt 22, partie 5 : les onglets de Weekly decisions. Thursday (le nudge du
+ * jeudi), Saturday (Kill / Double), Dead accounts (Recreate et Shadowban),
+ * Settings (les seuils). Les anciennes vues (`?vue=`) ouvrent le bon onglet.
+ */
+const ONGLETS = ["jeudi", "samedi", "dimanche", "reglages"] as const;
 type Onglet = (typeof ONGLETS)[number];
+/** Prompt 25 : « Dead accounts » est fusionné dans Thursday. */
+const ANCIENNES_VUES: Readonly<Record<string, Onglet>> = {
+  decisions: "samedi",
+  historique: "samedi",
+  shadowban: "jeudi",
+  recreer: "jeudi",
+  morts: "jeudi",
+};
 
-/** La semaine du contrôle, dans l'ordre : ce qui tourne, qui décide, quand ça part. */
-const ETAPES = ["jeudi", "samedi", "decision", "envoi"] as const;
+/** L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), Sunday le dimanche (0474), sinon Saturday. */
+function ongletDuJour(maintenant = new Date()): Onglet {
+  const jour = new Intl.DateTimeFormat("en-GB", { weekday: "short", timeZone: "Europe/Paris" }).format(maintenant);
+  return jour === "Thu" || jour === "Fri" ? "jeudi" : jour === "Sun" ? "dimanche" : "samedi";
+}
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -137,119 +167,115 @@ function useDate() {
   );
 }
 
+/** Les comptes d'une cohorte et le jour de son contrôle : la vue cohorte ne montre qu'eux (0356). */
+interface FiltreCohorte {
+  jour: string;
+  comptes: ReadonlySet<string>;
+}
+
 /**
- * Admin → Check, Kill or Double (PROMPT 5, migration 0326). Le jeudi 6 h, les
- * nudges proposés aux comptes dans leur première semaine ; le samedi 6 h, les
- * comptes à tuer (recréer, ne pas renouveler) et les posteurs à doubler. L'admin
- * décide ligne par ligne (0328) ; les décisions partent aux HMs dans
- * #managers-hq (bouton, ou tout seul le dimanche à 12 h).
+ * Admin → Weekly decisions (ex Decisions, ex Check, Kill or Double). Prompt
+ * 22, partie 5 : trois onglets et les réglages.
+ * - Thursday : la liste du nudge du jeudi (prompt 21, C7), ce qui est parti ;
+ * - Saturday : Kill / Double, une carte par compte, une phrase et 2 boutons,
+ *   rien n'est coché par défaut ; le détail du contrôle et l'historique en
+ *   dessous, repliés ;
+ * - Dead accounts : Recreate (cartes, puis le détail du contrôle du jeudi) et
+ *   Shadowban ;
+ * - Settings : les seuils.
+ * L'étape « Wed 12:00 » n'existe plus. Les textes (Kill, pop-ups, nudges)
+ * sont dans Messages sent → Texts. `?vue=cohorte` renvoie vers Recruits.
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
-  const [onglet, setOnglet] = React.useState<Onglet>("samedi");
+  const [params] = useSearchParams();
+  const [onglet, choisir] = useOnglet(ONGLETS, ongletDuJour(), ANCIENNES_VUES);
+  const aDeciderSamedi = useNombreADecider(GROUPES_SAMEDI);
+
+  if (params.get("vue") === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
   return (
     <div className="space-y-6" data-testid="page-ckd">
       <PageHeader
         title={
           <span className="inline-flex items-center gap-2">
-            {t("ckd.titre")}
-            <Aide libelle={t("ckd.titre")}>
-              <ul className="list-disc space-y-1 pl-4">
-                <li>{t("ckd.calendrierJeudi")}</li>
-                <li>{t("ckd.calendrierSamedi")}</li>
-                <li>{t("ckd.calendrierVues")}</li>
-              </ul>
-              <p className="mt-1.5">{t("ckd.circuit")}</p>
+            {t("decisions.titre")}
+            <Aide libelle={t("decisions.titre")}>
+              <p>{t("ckd.circuit")}</p>
             </Aide>
           </span>
         }
-        description={t("ckd.description")}
+        description={t("decisions.description")}
       />
 
-      <Semaine />
+      <OngletsAuto
+        id="decisions"
+        libelle={t("ckd.ongletsAria")}
+        onglets={ONGLETS.map((o) => ({ cle: o, titre: t(`autoOnglets.decisions.onglets.${o}`) }))}
+        actif={onglet}
+        onChange={choisir}
+        compteurs={{ samedi: aDeciderSamedi }}
+        alerte={["samedi"]}
+      />
 
-      <Onglets actif={onglet} onChange={setOnglet} />
-
-      <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
-        {onglet === "reglages" ? (
-          <VueReglages />
-        ) : onglet === "historique" ? (
-          <VueHistorique />
+      <PanneauOnglet id="decisions" actif={onglet}>
+        {onglet === "jeudi" ? (
+          <>
+            {/* Prompt 25 : tous les comptes actifs, Nudge / Recreate / rien, rien ne part avant Send. */}
+            <ListeJeudi />
+            {/* Ex « Dead accounts » : le détail du contrôle du jeudi et la page Shadowban. */}
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailJeudi")}</summary>
+              <div className="mt-4 space-y-6">
+                <VueControles type="jeudi" />
+                <VueShadowban />
+              </div>
+            </details>
+          </>
+        ) : onglet === "samedi" ? (
+          <>
+            <SemaineDecisions />
+            {/* Prompt 25 : la masterlist, tous les comptes, Kill / Double / Keep, rien sans Validate. */}
+            <ListeSamedi />
+            {/* Prompt 21, D : le samedi, la cible de recrutement par pays (avec recrutés et écart). */}
+            <CiblesRecrutementAdmin />
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailSamedi")}</summary>
+              <div className="mt-4 space-y-6">
+                <VueControles type="samedi" />
+                <SuiviMessages admin />
+              </div>
+            </details>
+            <details className="space-y-4 rounded-xl border p-4">
+              <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.historique")}</summary>
+              <div className="mt-4">
+                <VueHistorique />
+              </div>
+            </details>
+          </>
+        ) : onglet === "dimanche" ? (
+          // 0474 : le check du warm-up, dimanche 20:00 ; rien ne part sans clic.
+          <CheckWarmup />
         ) : (
-          <VueControles key={onglet} type={onglet} />
+          <VueReglages />
         )}
-      </div>
+      </PanneauOnglet>
     </div>
   );
 }
 
-/** Les quatre temps de la semaine, en une bande : remplace le pavé d'explications. */
-function Semaine() {
-  const { t } = useTranslation();
-  return (
-    <ol className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border bg-border/70 sm:grid-cols-2 lg:grid-cols-4">
-      {ETAPES.map((e) => (
-        <li key={e} className="min-w-0 bg-card px-4 py-3">
-          <p className={MICRO_LABEL}>{t(`ckd.semaine.${e}Quand`)}</p>
-          <p className="mt-0.5 text-sm font-medium">{t(`ckd.semaine.${e}`)}</p>
-          <p className="text-xs text-muted-foreground">{t(`ckd.semaine.${e}Detail`)}</p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-/** Les onglets de la page Allocation : flèches, Début et Fin pour passer de l'un à l'autre. */
-function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => void }) {
-  const { t } = useTranslation();
-  return (
-    <div
-      role="tablist"
-      aria-label={t("ckd.ongletsAria")}
-      className="inline-flex w-fit max-w-full flex-wrap gap-1 rounded-lg border bg-muted/40 p-1"
-      onKeyDown={(ev) => {
-        const i = ONGLETS.indexOf(actif);
-        const n = ONGLETS.length;
-        const vers =
-          ev.key === "ArrowRight" ? (i + 1) % n
-          : ev.key === "ArrowLeft" ? (i - 1 + n) % n
-          : ev.key === "Home" ? 0
-          : ev.key === "End" ? n - 1
-          : -1;
-        if (vers < 0) return;
-        ev.preventDefault();
-        onChange(ONGLETS[vers]!);
-        document.getElementById(`onglet-ckd-${ONGLETS[vers]}`)?.focus();
-      }}
-    >
-      {ONGLETS.map((o) => (
-        <button
-          key={o}
-          id={`onglet-ckd-${o}`}
-          type="button"
-          role="tab"
-          aria-selected={o === actif}
-          aria-controls="panneau-ckd"
-          tabIndex={o === actif ? 0 : -1}
-          onClick={() => onChange(o)}
-          className={cn(
-            "rounded-md px-2.5 py-1 text-sm transition-colors",
-            o === actif ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
-          )}
-        >
-          {t(`ckd.onglets.${o}`)}
-        </button>
-      ))}
-    </div>
-  );
-}
+const GROUPES_SAMEDI = ["kill", "double"] as const;
 
 // ---------------------------------------------------------------------------
 // Propositions (samedi) et nudges (jeudi)
 // ---------------------------------------------------------------------------
 
-function VueControles({ type }: { type: TypeControle }) {
+/**
+ * Les propositions d'un contrôle. Avec `cohorte` (vue cohorte, 0356) : le
+ * contrôle de ce jour-là seulement, réduit aux comptes de la cohorte, sans les
+ * boutons qui agissent sur tout le contrôle (recalcul, envois aux HM).
+ */
+function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreCohorte }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const date = useDate();
@@ -260,7 +286,9 @@ function VueControles({ type }: { type: TypeControle }) {
     [controles.data, type],
   );
   const [choisi, setChoisi] = React.useState<string | null>(null);
-  const controle: ControleCkd | undefined = duType.find((c) => c.id === choisi) ?? duType[0];
+  const controle: ControleCkd | undefined = cohorte
+    ? duType.find((c) => c.jour === cohorte.jour)
+    : (duType.find((c) => c.id === choisi) ?? duType[0]);
 
   const propositions = useQuery({
     queryKey: [...CLE, "propositions", controle?.id],
@@ -268,11 +296,14 @@ function VueControles({ type }: { type: TypeControle }) {
     enabled: Boolean(controle),
   });
   // Le samedi, les posts manqués de la semaine (pour info, sous les propositions).
-  const manques = useQuery({
+  const manquesBruts = useQuery({
     queryKey: [...CLE, "manques", controle?.jour],
     queryFn: () => listerManques(controle!.jour),
     enabled: type === "samedi" && Boolean(controle),
   });
+  const manques = {
+    data: cohorte ? manquesBruts.data?.filter((m) => cohorte.comptes.has(m.compte_id)) : manquesBruts.data,
+  };
   const ids = React.useMemo(() => {
     const s = new Set<string>();
     for (const p of [...(propositions.data ?? []), ...(manques.data ?? [])]) {
@@ -300,6 +331,16 @@ function VueControles({ type }: { type: TypeControle }) {
     queryFn: () => listerHandles(nouveauxIds),
     enabled: nouveauxIds.length > 0,
   });
+  // Recréations : le message Slack au posteur est-il parti ? (0368)
+  const recreesIds = React.useMemo(
+    () => (propositions.data ?? []).filter((p) => p.decision === "recreer" && p.nouveau_compte_id).map((p) => p.id).sort(),
+    [propositions.data],
+  );
+  const slackRecreations = useQuery({
+    queryKey: [...CLE, "slack-recreations", recreesIds],
+    queryFn: () => listerSlackRecreations(recreesIds),
+    enabled: recreesIds.length > 0,
+  });
   const personnes = useQuery({
     queryKey: [...CLE, "personnes", ids],
     queryFn: () => listerPersonnes(ids),
@@ -313,10 +354,6 @@ function VueControles({ type }: { type: TypeControle }) {
   });
   const envoyerNudges = useMutation({
     mutationFn: () => envoyerNudgesCkd(controle!.id),
-    onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
-  });
-  const envoyerHm = useMutation({
-    mutationFn: () => envoyerAuxHm(controle!.id),
     onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
   });
 
@@ -336,66 +373,64 @@ function VueControles({ type }: { type: TypeControle }) {
     () => new Map((nouveaux.data ?? []).map((c) => [c.id, c.handle_tiktok] as const)),
     [nouveaux.data],
   );
-  const liste = propositions.data ?? [];
+  const toutes = propositions.data ?? [];
+  const liste = cohorte ? toutes.filter((p) => cohorte.comptes.has(p.compte_id)) : toutes;
   const groupes = grouperParHm(liste);
   const nudgesEnAttente = liste.filter((p) => p.action === "nudge" && !p.decision).length;
-  const prets = liste.filter(aEnvoyer).length;
-  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error ?? envoyerHm.error;
+  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error;
 
   return (
     <div className="space-y-5" data-testid={`vue-${type}`}>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2" data-testid="barre-envoi">
-        {duType.length > 0 && (
-          <select
-            className={selectClass}
-            aria-label={t("ckd.controle")}
-            value={controle?.id ?? ""}
-            onChange={(e) => setChoisi(e.target.value)}
-          >
-            {duType.map((c) => (
-              <option key={c.id} value={c.id}>
-                {t("ckd.controleDu", { date: date(c.jour, { weekday: "long", day: "numeric", month: "long" }) })}
-              </option>
-            ))}
-          </select>
-        )}
-        {controle && (
-          <span className="text-xs text-muted-foreground">
+      {cohorte ? (
+        controle && (
+          <p className="text-xs text-muted-foreground" data-testid="barre-cohorte">
             {t("ckd.calculeLe", { date: date(controle.lance_at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
-          </span>
-        )}
-        <div className="ml-auto flex flex-wrap items-center gap-2">
-          <Button size="sm" variant="outline" loading={recalculer.isPending} onClick={() => recalculer.mutate()}>
-            <RefreshCw />
-            {controle ? t("ckd.recalculer") : t("ckd.calculer")}
-          </Button>
-          {controle && liste.length > 0 && type === "jeudi" && nudgesEnAttente > 0 && (
-            <Button
-              size="sm"
-              variant="outline"
-              loading={envoyerNudges.isPending}
-              onClick={() => {
-                if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
-              }}
+            {" · "}
+            {t("ckd.cohorte.focus.envoiGlobal")}
+          </p>
+        )
+      ) : (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2" data-testid="barre-envoi">
+          {duType.length > 0 && (
+            <select
+              className={selectClass}
+              aria-label={t("ckd.controle")}
+              value={controle?.id ?? ""}
+              onChange={(e) => setChoisi(e.target.value)}
             >
-              {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
-            </Button>
+              {duType.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {t("ckd.controleDu", { date: date(c.jour, { weekday: "long", day: "numeric", month: "long" }) })}
+                </option>
+              ))}
+            </select>
           )}
-          {controle && liste.length > 0 && (
-            <Button
-              size="sm"
-              disabled={prets === 0}
-              loading={envoyerHm.isPending}
-              onClick={() => {
-                if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
-              }}
-            >
-              <Send />
-              {t("ckd.envoyerHm", { n: prets })}
-            </Button>
+          {controle && (
+            <span className="text-xs text-muted-foreground">
+              {t("ckd.calculeLe", { date: date(controle.lance_at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
+            </span>
           )}
+          <div className="ml-auto flex flex-wrap items-center gap-2">
+            <Button size="sm" variant="outline" loading={recalculer.isPending} onClick={() => recalculer.mutate()}>
+              <RefreshCw />
+              {controle ? t("ckd.recalculer") : t("ckd.calculer")}
+            </Button>
+            {controle && liste.length > 0 && type === "jeudi" && nudgesEnAttente > 0 && (
+              <Button
+                size="sm"
+                variant="outline"
+                loading={envoyerNudges.isPending}
+                onClick={() => {
+                  if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
+                }}
+              >
+                {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
+              </Button>
+            )}
+            {/* « Envoyer aux HM » retiré (prompt 15, point 3) : ce qui est décidé part le dimanche à 12 h, en récap à Max. */}
+          </div>
         </div>
-      </div>
+      )}
 
       {erreur && (
         <p role="alert" className="text-sm text-destructive">
@@ -407,21 +442,18 @@ function VueControles({ type }: { type: TypeControle }) {
           {t("ckd.erreurSlack", { erreur: controle.slack_erreur })}
         </p>
       )}
-      {envoyerHm.data && (
-        <p role="status" className="text-sm text-muted-foreground">
-          {t("ckd.envoyees", { n: envoyerHm.data.envoyees })}
-        </p>
-      )}
+
+      {/* La grille « To recruit » est partie dans Recruiting (28 oct., partie D). */}
 
       {controles.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
       ) : !controle ? (
-        <EmptyState title={t(`ckd.aucunControle.${type}`)} />
+        <EmptyState title={t(cohorte ? `ckd.cohorte.focus.pasDeControle.${type}` : `ckd.aucunControle.${type}`)} />
       ) : liste.length === 0 ? (
         propositions.isPending ? (
           <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
         ) : (
-          <EmptyState title={t(`ckd.vide.${type}`)} />
+          <EmptyState title={t(cohorte ? `ckd.cohorte.focus.vide.${type}` : `ckd.vide.${type}`)} />
         )
       ) : (
         <>
@@ -447,6 +479,7 @@ function VueControles({ type }: { type: TypeControle }) {
                       decideur={p.decision_par ? parId.get(p.decision_par) : undefined}
                       arret={arretDe.get(p.compte_id)}
                       nouveauHandle={p.nouveau_compte_id ? handleDe.get(p.nouveau_compte_id) ?? null : null}
+                      slackPosteur={slackRecreations.data?.get(p.id)}
                     />
                   ))}
                 </CardContent>
@@ -597,8 +630,9 @@ function CarteManques({
             {lignes.map((m) => (
               <tr key={m.compte_id} className={LIGNE} data-testid={`manque-${m.handle}`}>
                 <td className={TD}>
-                  <Link to={`/admin/createurs/${m.compte_id}`} className="whitespace-nowrap underline-offset-2 hover:underline">
-                    {drapeauPays(m.pays)} @{m.handle}
+                  <HandleTiktok handle={m.handle} pays={m.pays} className="whitespace-nowrap font-normal" />
+                  <Link to={`/admin/createurs/${m.compte_id}`} title={t("ckd.ficheCompte")} className="ml-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
+                    OS
                   </Link>
                 </td>
                 <td className={cn(TD, "whitespace-nowrap text-muted-foreground")}>
@@ -710,6 +744,7 @@ function LigneProposition({
   decideur,
   arret,
   nouveauHandle,
+  slackPosteur,
 }: {
   p: PropositionCkd;
   type: TypeControle;
@@ -718,6 +753,7 @@ function LigneProposition({
   decideur?: PersonneCkd;
   arret?: ArretCkd;
   nouveauHandle: string | null;
+  slackPosteur?: string | null;
 }) {
   const { t } = useTranslation();
   const date = useDate();
@@ -770,6 +806,8 @@ function LigneProposition({
           <span className="text-xs tabular-nums text-muted-foreground">{t("ckd.abonnes", { n: d.abonnes.toLocaleString() })}</span>
         )}
       </div>
+
+      <DiagnosticCompte diagnostic={p.diagnostic} />
 
       <p className="text-sm">
         {t(`ckd.regles.${p.regle}`)}
@@ -848,9 +886,13 @@ function LigneProposition({
               {d.autres_comptes.map((c, i) => (
                 <React.Fragment key={c.id}>
                   {i > 0 && ", "}
-                  <Link to={`/admin/createurs/${c.id}`} className={cn("underline-offset-2 hover:underline", !c.actif && "line-through")}>
-                    @{c.handle ?? "?"}
-                  </Link>
+                  {c.handle ? (
+                    <HandleTiktok handle={c.handle} className={cn("font-normal", !c.actif && "line-through")} />
+                  ) : (
+                    <Link to={`/admin/createurs/${c.id}`} className={cn("underline-offset-2 hover:underline", !c.actif && "line-through")}>
+                      @?
+                    </Link>
+                  )}
                 </React.Fragment>
               ))}
             </p>
@@ -869,7 +911,14 @@ function LigneProposition({
         </div>
       </details>
 
-      <BlocDecision p={p} type={type} decideur={decideur} arret={arret} nouveauHandle={nouveauHandle} />
+      <BlocDecision
+        p={p}
+        type={type}
+        decideur={decideur}
+        arret={arret}
+        nouveauHandle={nouveauHandle}
+        slackPosteur={slackPosteur}
+      />
     </div>
   );
 }
@@ -886,17 +935,20 @@ function BlocDecision({
   decideur,
   arret,
   nouveauHandle,
+  slackPosteur,
 }: {
   p: PropositionCkd;
   type: TypeControle;
   decideur?: PersonneCkd;
   arret?: ArretCkd;
   nouveauHandle: string | null;
+  slackPosteur?: string | null;
 }) {
   const { t } = useTranslation();
   const date = useDate();
   const queryClient = useQueryClient();
-  const [choix, setChoix] = React.useState<string | null>(null);
+  // Le jeudi, « Recréer » proposé est choisi d'avance (0368) : reste à confirmer.
+  const [choix, setChoix] = React.useState<string | null>(() => boutonPropose(p));
   const [note, setNote] = React.useState("");
   const nudge = choix !== null && DECISION_DU_BOUTON[choix] === "nudge";
   const perso = usePersonnalisationNudge(p, nudge);
@@ -924,7 +976,7 @@ function BlocDecision({
     return (
       <div className="space-y-2" data-testid={`decision-${p.donnees.handle}`}>
         <div className="flex flex-wrap items-center gap-1.5">
-          {BOUTONS_PAR_REGLE[p.regle].map((b) => (
+          {boutonsPour(p.regle, type).map((b) => (
             <Button
               key={b}
               size="sm"
@@ -984,6 +1036,9 @@ function BlocDecision({
   const statut: string[] = [];
   if (creeUnCompte(p.decision)) {
     statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.compteAttente"));
+  } else if (p.decision === "doubler") {
+    // v3 (0382) : une offre au posteur ; le compte n'existe que s'il a dit oui.
+    statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.offreDouble"));
   }
   if (arret && !arret.annule_at) {
     statut.push(
@@ -992,8 +1047,13 @@ function BlocDecision({
         : t("ckd.statut.arretPrevu", { date: date(arret.prevu_at, heure) }),
     );
   }
+  if (p.decision === "recreer" && p.nouveau_compte_id) {
+    if (slackPosteur === "envoye") statut.push(t("ckd.statut.slackEnvoye"));
+    else if (slackPosteur === "introuvable") statut.push(t("ckd.statut.slackIntrouvable"));
+    else if (slackPosteur === "erreur") statut.push(t("ckd.statut.slackErreur"));
+    if (type === "jeudi") statut.push(t("ckd.statut.hmNonNotifiee"));
+  }
   if (p.envoye_at) statut.push(t("ckd.statut.envoye", { date: date(p.envoye_at, heure) }));
-  else if (p.decision === "nudge" && p.hm_suivi === false) statut.push(t("ckd.statut.sansSuiviHm"));
   else if (aEnvoyer(p)) statut.push(t("ckd.statut.aEnvoyer"));
   if (p.fait_at) statut.push(t("ckd.statut.fait", { date: date(p.fait_at, heure) }));
 
@@ -1038,7 +1098,8 @@ function BlocDecision({
 function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
   const [popup, setPopup] = React.useState<TexteNudge | null>(null);
   const [hm, setHm] = React.useState<string | null>(null);
-  const [suiviHm, setSuiviHm] = React.useState(true);
+  // Prompt 15, point 3 : plus rien dans #managers-hq, le suivi HM est désactivé par défaut.
+  const [suiviHm, setSuiviHm] = React.useState(false);
   const apercuPopup = useQuery({
     queryKey: [...CLE, "apercu-nudge", p.id],
     queryFn: () => apercuNudgeCkd(p.id),
@@ -1048,7 +1109,7 @@ function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
   const apercuHm = useQuery({
     queryKey: [...CLE, "apercu-hm", p.id],
     queryFn: () => apercuHmCkd(p.id),
-    enabled: actif && !p.decision,
+    enabled: actif && !p.decision && suiviHm,
     staleTime: Infinity,
   });
   const popupAffiche = popup ?? apercuPopup.data ?? null;
@@ -1081,7 +1142,7 @@ function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
     reinitialiser: () => {
       setPopup(null);
       setHm(null);
-      setSuiviHm(true);
+      setSuiviHm(false);
     },
   };
 }
@@ -1132,45 +1193,7 @@ function PanneauNudge({ handle, perso }: { handle: string | null | undefined; pe
         )}
       </div>
 
-      <div className="min-w-0 space-y-1.5 rounded-md border bg-background p-2.5" data-testid={`message-hm-${handle}`}>
-        <label className="flex items-center gap-2 font-medium">
-          <input type="checkbox" checked={perso.suiviHm} onChange={(e) => perso.setSuiviHm(e.target.checked)} />
-          {t("ckd.messageHm.suivi")}
-        </label>
-        {!perso.suiviHm ? (
-          <p className="text-muted-foreground">{t("ckd.messageHm.sansSuivi")}</p>
-        ) : (
-          <>
-            <p className="text-muted-foreground">{t("ckd.messageHm.aide", { handle })}</p>
-            {perso.apercuHm.isLoading ? (
-              <p className="text-muted-foreground">{t("common.loading")}</p>
-            ) : perso.apercuHm.error ? (
-              <p role="alert" className="text-destructive">
-                {t("ckd.messageHm.erreur", { erreur: messageErreur(perso.apercuHm.error) })}
-              </p>
-            ) : (
-              <>
-                <textarea
-                  className={cn(champ, "min-h-20")}
-                  aria-label={t("ckd.messageHm.champ")}
-                  maxLength={2000}
-                  value={perso.hmAffiche ?? ""}
-                  onChange={(e) => perso.setHm(e.target.value)}
-                />
-                <div className="flex flex-wrap items-center gap-2">
-                  {perso.hmModifie && <Badge variant="outline">{t("ckd.messageHm.modifie")}</Badge>}
-                  {perso.hmModifie && (
-                    <Button size="xs" variant="ghost" onClick={() => perso.setHm(null)}>
-                      {t("ckd.messageHm.retablir")}
-                    </Button>
-                  )}
-                  {perso.hmVide && <span className="text-destructive">{t("ckd.messageHm.vide")}</span>}
-                </div>
-              </>
-            )}
-          </>
-        )}
-      </div>
+      {/* Le message au HM et son suivi dans #managers-hq : retirés au prompt 15, point 3. */}
     </>
   );
 }
@@ -1372,8 +1395,9 @@ function LigneHistorique({ h, poster, decideur }: { h: HistoriqueCkd; poster?: P
         {h.note && <div className="text-muted-foreground italic">{h.note}</div>}
       </td>
       <td className={TD}>
-        <Link to={`/admin/createurs/${h.compte_id}`} className="whitespace-nowrap text-sm underline-offset-2 hover:underline">
-          {drapeauPays(h.pays)} @{h.handle}
+        <HandleTiktok handle={h.handle} pays={h.pays} className="whitespace-nowrap text-sm font-normal" />
+        <Link to={`/admin/createurs/${h.compte_id}`} title={t("ckd.ficheCompte")} className="ml-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
+          OS
         </Link>
         <div className="text-muted-foreground">
           {[nomPersonne(poster), t(`ckd.reglesCourtes.${h.regle}`)].filter(Boolean).join(" · ")}
@@ -1466,6 +1490,7 @@ function VueReglages() {
         <CartePays reglages={reglages.data} pays={pays} />
         <CarteExceptions reglages={reglages.data} labels={labels.data ?? []} pays={pays} />
         <CartePartBons />
+        <CarteSeuilsConfiance />
       </section>
       <section className="space-y-4">
         <h2 className={MICRO_LABEL}>{t("ckd.sections.slack")}</h2>

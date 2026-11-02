@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { dateDepuisErreurLienDejaUtilise, lienPourEnregistrement } from "./lienPublication";
+import { dateDepuisErreurLienDejaUtilise, handleAutreCompte, lienPourEnregistrement } from "./lienPublication";
 
 describe("lienPublication", () => {
   it("remplace un lien court par le lien complet du post, sans les paramètres de partage", async () => {
@@ -37,5 +37,14 @@ describe("lienPublication", () => {
       }),
     ).toBe("15/10 01:11");
     expect(dateDepuisErreurLienDejaUtilise(new Error("DELAI_ENTRE_PUBLICATIONS:12"))).toBeNull();
+  });
+});
+
+describe("prompt 25 MAJ, 7d : un lien d'un autre compte", () => {
+  it("le @ du lien s'il n'est pas celui du compte ; rien si c'est le même, ou sans @", () => {
+    expect(handleAutreCompte("https://www.tiktok.com/@Ana.Other/photo/123", "ana.studies")).toBe("ana.other");
+    expect(handleAutreCompte("https://www.tiktok.com/@ana.studies/photo/123", "@Ana.Studies")).toBeNull();
+    expect(handleAutreCompte("https://vm.tiktok.com/ZMabc/", "ana.studies")).toBeNull();
+    expect(handleAutreCompte("https://www.tiktok.com/@x/video/1", null)).toBeNull();
   });
 });

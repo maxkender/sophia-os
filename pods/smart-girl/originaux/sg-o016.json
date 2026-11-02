@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o016",
+ "schema_id": "vocabulary-words",
+ "titre": "5 words that will make you sound more eloquent #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "95348884-2ea7-4305-abd6-17b6522424a1",
+  "46118b58-708c-4012-b3d2-143b20410565"
+ ],
+ "notes": "cta A. Versions de la slide Sophia au 26/10 (règle « tester les CTA », renouvelée ce lundi) : cta A = dernier item, conseil à la première personne (« I learn … with a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C (nouvelle, remplace la version « the easy way » de sg-o012, aucun passage mûr pour comparer) = un rituel de la liste où l'appli remplace le scroll (« an app like Sophia instead of the feed »). Schéma vocabulary-words (95348884 r 9,96 ; a7697985 r 4,44 ; notre sg-o001 : r 1,52 et 2,45). Seule livraison du jour sur une famille déjà livrée 3 fois ou plus en 7 jours (règle « ne t'enferme pas »). Accroches écrites : « 5 words that will make you sound more eloquent » (retenue : le gabarit « 5 words that… » avec une promesse d'éloquence, proche de « words that make you sound dangerously well spoken », r 3,15), « 5 words to help expand your vocabulary » (écartée : déjà pris par sg-o012), « 5 words every well-read woman knows » (écartée : promesse non prouvée). Cinq mots absents des contenus du label (vérifié dans donnees/label.json) : ardent, diligent, debonair, felicity, sapient. Définitions et prononciations au sens courant du dictionnaire. Sophia sur le dernier mot (sapient), cta A, avec la formule « a micro-learning app like the Sophia app ». Images : captures de la série autres que celles des originaux précédents ; slide Sophia sur un piano et des partitions, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ecab1cd5",
+   "texte_overlay": "5 words that will make\nyou sound more eloquent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3bbb66e9",
+   "texte_overlay": "Ardent:\nvery passionate\nand enthusiastic\n(AHR-dnt)\n\nExample:\nShe was an ardent reader\nof Russian novels.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8ec5caf7",
+   "texte_overlay": "Diligent:\ncareful and\nhardworking\n(DIL-i-juhnt)\n\nExample:\nShe was diligent and\nfinished every chapter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a82afda4",
+   "texte_overlay": "Debonair:\nconfident, stylish\nand charming\n(deb-uh-NAIR)\n\nExample:\nHe walked in with a\ndebonair smile.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2c9e662",
+   "texte_overlay": "Felicity:\ngreat happiness\n(fuh-LIS-i-tee)\n\nExample:\nThe quiet Sunday filled\nher with felicity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "20dc7598",
+   "texte_overlay": "Sapient:\nwise, with deep\nknowledge\n(SAY-pee-uhnt)\n\nExample:\nShe grew more sapient\nwith every book she read.",
+   "texte_sophia": "Sapient:\nwise, with deep\nknowledge\n(SAY-pee-uhnt)\n\nExample:\nI grow a little more sapient\nevery day with a micro-\nlearning app like the\nSophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "007f9d4a",
+   "texte_overlay": "follow for more daily words\nwhich one will you use first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/7.jpg"
+  }
+ ]
+}

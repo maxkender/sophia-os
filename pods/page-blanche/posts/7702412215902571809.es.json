@@ -1,0 +1,251 @@
+{
+ "post_id": "7702412215902571809",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that make you",
+      "disgustingly attractive"
+     ],
+     "fr": "10/10 habitudes qui te rendent follement irrésistible",
+     "texte": "10/10 hábitos que te hacen descaradamente irresistible"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(edición nicho)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start working out"
+     ],
+     "fr": "mets-toi [[au sport]]",
+     "texte": "empieza a [[hacer ejercicio]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. the gym,",
+      "running, pilates, whatever you'll stick to"
+     ],
+     "fr": "JE SAIS, tout le monde le dit, mais c'est vrai. la salle, la course, le pilates, [[ce que tu tiendras sur la durée]]",
+     "texte": "YA SÉ que todo el mundo lo dice, pero es verdad. el gym, correr, pilates, [[lo que vayas a mantener]]"
+    },
+    "T3": {
+     "en": [
+      "exercise is proven to",
+      "boost your mood and",
+      "confidence, not just",
+      "how you look"
+     ],
+     "fr": "c'est [[prouvé]] : le sport booste ton [[moral et ta confiance]], pas juste ton physique",
+     "texte": "está [[demostrado]] que el ejercicio mejora tu [[ánimo y tu confianza]], no solo tu físico"
+    },
+    "T4": {
+     "en": [
+      "you have more energy, more confidence, and",
+      "that is what makes you attractive"
+     ],
+     "fr": "t'as plus d'énergie, [[plus confiance en toi]], et [[c'est exactement ça qui attire]]",
+     "texte": "tienes más energía, [[más confianza]], y [[eso es justo lo que atrae]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself instead of AI"
+     ],
+     "fr": "fais marcher ta tête, [[pas l'IA]]",
+     "texte": "piensa por tu cuenta, [[no con la IA]]"
+    },
+    "T2": {
+     "en": [
+      "seeing someone not think for themselves and",
+      "always ask AI for everything is so unattractive"
+     ],
+     "fr": "voir quelqu'un [[incapable de réfléchir seul]] qui demande tout à l'IA, c'est [[tellement pas attirant]]",
+     "texte": "ver a alguien [[que no piensa por sí mismo]] y le pregunta todo a la IA es [[cero atractivo]]"
+    },
+    "T3": {
+     "en": [
+      "at the very least try to",
+      "work it out yourself",
+      "first, then use AI to",
+      "check it"
+     ],
+     "fr": "[[au minimum]], essaie de trouver [[toi-même d'abord]], puis vérifie avec l'IA",
+     "texte": "[[como mínimo]] intenta resolverlo [[tú primero]], y luego usa la IA para comprobarlo"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "having your own thoughts and opinions is way",
+      "more attractive"
+     ],
+     "fr": "avoir [[tes propres idées et opinions]], c'est [[mille fois plus attirant]]",
+     "texte": "tener [[tus propias ideas y opiniones]] es [[mucho más atractivo]]"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[tous les jours]]",
+     "texte": "lee un libro [[cada día]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, you run out",
+      "of things to talk about"
+     ],
+     "fr": "si tu consommes que des vidéos courtes, [[t'as vite plus rien à raconter]]",
+     "texte": "si solo consumes vídeos cortos, [[te quedas sin temas de conversación]]"
+    },
+    "T3": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[scrollais tous les soirs]], maintenant si je prends mon tel, c'est pour [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "antes hacía [[doomscroll]] cada noche, ahora si igual estoy con el móvil, hago [[una lección de 5 min en la app Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "books are proven to make",
+      "you smarter and more",
+      "empathetic, and people can",
+      "feel that"
+     ],
+     "fr": "c'est [[prouvé]] : lire [[muscle ton cerveau]] et rend [[plus empathique]], et ça se sent",
+     "texte": "leer te hace [[más inteligente]] y te da [[más empatía]], está [[demostrado]], y la gente lo nota"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a second language"
+     ],
+     "fr": "apprends [[une deuxième langue]]",
+     "texte": "aprende un [[segundo idioma]]"
+    },
+    "T2": {
+     "en": [
+      "hearing someone switch into another language",
+      "is instantly attractive"
+     ],
+     "fr": "entendre quelqu'un passer d'une langue à l'autre, c'est [[instantanément attirant]]",
+     "texte": "oír a alguien cambiar a otro idioma es [[atractivo al instante]]"
+    },
+    "T3": {
+     "en": [
+      "duolingo, shows",
+      "with subtitles,",
+      "talking to people,",
+      "whatever works",
+      "for you"
+     ],
+     "fr": "une appli de langues, des séries sous-titrées, parler aux gens, ce qui te va",
+     "texte": "una app de idiomas, series con subtítulos, hablar con gente, lo que te funcione"
+    },
+    "T4": {
+     "en": [
+      "and you get to talk to more people, which makes",
+      "you way more interesting"
+     ],
+     "fr": "et tu peux parler à [[plus de monde]], du coup t'as [[bien plus de conversation]]",
+     "texte": "y puedes hablar con [[más gente]], lo que te hace [[mucho más interesante]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685340052989398275_6.jpg",
+      "boite": [
+       563,
+       465,
+       454,
+       479
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn an instrument"
+     ],
+     "fr": "apprends [[un instrument]]",
+     "texte": "aprende un [[instrumento]]"
+    },
+    "T2": {
+     "en": [
+      "everyone stops to listen when someone can",
+      "actually play"
+     ],
+     "fr": "tout le monde écoute quand quelqu'un [[sait vraiment jouer]]",
+     "texte": "todos se paran a escuchar si alguien [[sabe tocar de verdad]]"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever. you'll be bad",
+      "at it for months, and",
+      "most people quit"
+     ],
+     "fr": "piano, guitare, batterie, peu importe. tu vas [[galérer pendant des mois]], et la plupart abandonnent",
+     "texte": "piano, guitarra, batería, lo que sea. vas a [[tocar fatal durante meses]], y casi todos lo dejan"
+    },
+    "T4": {
+     "en": [
+      "so when you can play, it shows patience and a passion",
+      "of your own, and that's really attractive"
+     ],
+     "fr": "alors quand tu sais jouer, ça montre [[ta patience]] et [[une vraie passion à toi]], et ça c'est [[ultra attirant]]",
+     "texte": "así que cuando sabes tocar, demuestra [[paciencia]] y [[una pasión propia]], y eso es [[superatractivo]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

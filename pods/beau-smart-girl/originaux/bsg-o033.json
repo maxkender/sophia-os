@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o033",
+ "schema_id": "independante",
+ "titre": "les choses que j'ai appris à faire seule cette année et qui m'ont rendue libre #pourtoi #independance #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7434388289938492206",
+ "inspirations": [
+  "71ef7d85-19b2-46c0-a4cc-97313387e592"
+ ],
+ "notes": "cta C (le défi en premier item ; voir CTA.md). Routine du 29/10, livraison 5 sur 6. Schéma independante (r 2,1, 71ef7d85, rang S). Accroches écrites : « les choses que j'ai appris à faire seule cette année et qui m'ont rendue libre » (retenue : le gabarit du gagnant, avec « libre »), « ce que j'ai appris à faire sans personne cette année » (écartée : plus fade), « les choses que je fais seule maintenant et que je n'osais pas avant » (écartée : plus long). Items neufs (rien de repris de bsg-o008, bsg-o021 ni de la source) : voyager seule, lire un contrat, un concert seule, « je vais me renseigner ». Aucun fait, aucun conseil financier ni juridique précis. Images de la banque (célébrités permises depuis la décision d'Adrien du 28/10, aucune personne sur la slide Sophia), assez sombres pour le texte blanc. Inspirations : slides 1, 2, 3, 4, 8 de 71ef7d85 (ses 5 et 6 montrent un écran).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8d1af3a0",
+   "texte_overlay": "les choses que j'ai appris\nà faire seule cette année\net qui m'ont rendue libre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0f9a85a4",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "11d7ece5",
+   "texte_overlay": "voyager seule, une fois.\n\njuste deux jours, dans une ville à quelques heures.\nje suis revenue avec la certitude que je savais me débrouiller.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3520f1fb",
+   "texte_overlay": "lire un contrat avant de le signer.\n\nlentement, avec un crayon.\net poser les questions qui me gênaient avant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5589a75a",
+   "texte_overlay": "aller à un concert seule.\n\npersonne à surveiller, personne à attendre.\nj'écoute vraiment la musique.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/8.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a0b03e11",
+   "texte_overlay": "dire\n« je sais pas, je vais me renseigner ».\n\nsans honte.\net le lendemain, je sais.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9f779d13",
+   "texte_overlay": "et toi, c'est quoi la chose\nque t'as appris à faire seule ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/8.jpg"
+  }
+ ]
+}

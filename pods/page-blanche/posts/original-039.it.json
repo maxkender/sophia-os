@@ -1,0 +1,251 @@
+{
+ "post_id": "original-039",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that make you",
+      "disgustingly attractive"
+     ],
+     "fr": "10/10 habitudes qui te rendent follement irrésistible",
+     "texte": "piccoli lussi gratis [[meglio di un'ora di scroll]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(gratis, ma sanno di lusso)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "camminare al [[tramonto]]"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "esci un'ora prima del tramonto, quando la luce diventa calda e dorata e tutto sembra [[la scena di un film]]"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "nessuna meta, niente cuffie, solo [[le strade che diventano arancioni]]"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "20 minuti così e la giornata si addolcisce, qualsiasi cosa sia successa. [[la testa finalmente rallenta]]"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "la vista più bella della città, [[gratis ogni sera]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "imparare qualcosa [[per piacere]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "niente esami, niente voti, [[solo curiosità]]"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "una cosa al giorno, perché è caduta roma, perché monet dipingeva covoni a ripetizione, e vai a letto [[con qualcosa di nuovo in testa]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "prima facevo doomscrolling a letto, ora col telefono faccio [[5 min di lezione sull'app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "rileggere [[un libro amato]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs te file [[un shot de dopamine]] avant d'avoir fait quoi que ce soit",
+     "texte": "quello che adoravi a 15 anni, ancora sullo scaffale, [[con gli angoli piegati]] e le pagine ingiallite"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kif de l'ambition]], les compliments, tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "sai già come finisce, quindi zero pressione. ci [[sprofondi dentro]] come in un vecchio maglione"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "e noti cose che ti erano sfuggite, perché [[non sei più la stessa persona]] che l'ha letto allora"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "sdraiarsi sul prato [[senza fare niente]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "un parco, la giacca sotto la testa, [[nessun programma per la prossima ora]]"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "guardi le nuvole che passano, ascolti il vento, e lasci che la mente [[vaghi dove le pare]]"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "per cinque minuti sembra pigrizia, poi è [[la cosa più riposante della settimana]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "tisana [[al buio]]"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "luci spente.\nqualcosa di caldo tra le mani.\nla città che brilla fuori."
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "niente schermo, niente rumore, solo le finestre di fronte [[che si spengono una a una]]"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "dieci minuti così, in silenzio, e [[dormi davvero molto meglio]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

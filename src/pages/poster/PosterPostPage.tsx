@@ -27,7 +27,7 @@ import {
   minutesDepuisErreurPublication,
 } from "@/features/moteur/delaiPublication";
 import { echeancePublication, publicationOuverte } from "@/features/moteur/echeancePublication";
-import { dateDepuisErreurLienDejaUtilise, lienPourEnregistrement } from "@/features/moteur/lienPublication";
+import { dateDepuisErreurLienDejaUtilise, handleAutreCompte, lienPourEnregistrement } from "@/features/moteur/lienPublication";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { Badge } from "@/components/ui/badge";
@@ -47,6 +47,7 @@ import {
   majPost,
   podDuPost,
   autrePostAvecLien,
+  handleDuCompte,
   paysDuCompte,
   rechargerPostCreateur,
   renettoyerSlide,
@@ -74,6 +75,7 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
+import { RegleTexte } from "@/features/regles/CartesRegles";
 import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
 import { localeDate } from "@/locales/localeDate";
 
@@ -487,6 +489,12 @@ export function PosterPostPage() {
     enabled: Boolean(compteIdDuPost),
     staleTime: Infinity,
   });
+  // Prompt 25 MAJ, 7d : le lien doit venir du compte du post.
+  const handleCompte = useQuery({
+    queryKey: ["handle-compte", compteIdDuPost],
+    queryFn: () => handleDuCompte(compteIdDuPost!),
+    enabled: Boolean(compteIdDuPost),
+  });
   const peutForcer = role === "admin" || role === "head_of_ops";
   const datePost = post.data?.date_publication_prevue ?? null;
   const ouverte = peutForcer || publicationOuverte(datePost, paysCompte.data ?? null);
@@ -758,8 +766,12 @@ export function PosterPostPage() {
       {/* Rappel : coller le lien de SON TikTok après publication — c'est ce qui
           alimente les stats. Visible tant que le post n'est pas publié. */}
       {!estAdmin && !publie && (
-        <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-base font-bold text-destructive">
-          {t("posts.rappelLien")}
+        <div className="space-y-2">
+          <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-base font-bold text-destructive">
+            {t("posts.rappelLien")}
+          </div>
+          {/* La règle du lien (0304), écrite là où on colle le lien (28 oct.). */}
+          <RegleTexte regle="lien" />
         </div>
       )}
 
@@ -873,7 +885,8 @@ export function PosterPostPage() {
                     <Badge>{t("multiAppPosts.appPromue", { app: nomApp })}</Badge>
                   )}
                 </span>
-                {!publie && (
+                {/* Prompt 15, point 6e : réordonner les slides, réservé à l'admin. */}
+                {!publie && estAdmin && (
                   <div className="flex gap-1">
                     <Button
                       size="icon"
@@ -1044,6 +1057,11 @@ export function PosterPostPage() {
                   {donnees.publie_url}
                 </a>
               )}
+              {donnees.publie_url && handleAutreCompte(donnees.publie_url, handleCompte.data) && (
+                <p className="text-sm font-medium text-warning" role="alert" data-testid="lien-autre-compte">
+                  {t("posts.lienAutreCompte", { lien: handleAutreCompte(donnees.publie_url, handleCompte.data), compte: handleCompte.data })}
+                </p>
+              )}
               {editionLien ? (
                 <div className="space-y-2">
                   <Input
@@ -1189,7 +1207,8 @@ function texteComplet(post: Post, slides: PostSlide[]): string {
   const lignes = slides
     .filter((s) => s.texte_overlay)
     .map((s) => `Slide ${s.position}\n${s.texte_overlay}`);
-  if (post.hashtags) lignes.push(`Description :\n${post.hashtags}`);
-  if (post.musique_url) lignes.push(`Musique : ${post.musique_url}`);
+  // Prompt 15, point 6d : en anglais, comme tout ce que voit un posteur.
+  if (post.hashtags) lignes.push(`Caption:\n${post.hashtags}`);
+  if (post.musique_url) lignes.push(`Sound: ${post.musique_url}`);
   return lignes.join("\n\n");
 }

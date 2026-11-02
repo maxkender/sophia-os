@@ -1,0 +1,49 @@
+{
+ "source_id": "wa-o083",
+ "titre": "small daily habits of quietly brilliant people #habits #intelligence #selfimprovement #learning #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "cc369ddc-d2b4-4734-9b0e-d1bc1ed5eaa0"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, cc369ddc). format « small daily habits » (images du label : r 1,57, compte @mentoridaily). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "38285a95-a4fe-4264-a346-46d9b24d8ae3",
+   "texte_overlay": "small daily habits of\nquietly brilliant people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658609159847316758/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2a16d422-e23f-4139-b6ee-2ca9e58914b1",
+   "texte_overlay": "a walk to think\n\nthey take a short walk with no headphones when they're stuck on a problem. moving your body and leaving your mind free is where most good ideas quietly arrive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658609159847316758/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bf097906-7071-4e7a-bf47-bb2240f43bbc",
+   "texte_overlay": "writing it out\n\nthey write their thoughts down before making a big decision. putting a messy problem on paper makes it smaller and clearer than it ever is when it stays in your head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658609159847316758/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9605489c-4339-4d15-9b77-d40a473968a3",
+   "texte_overlay": "a daily lesson\n\nthey spend 5 minutes a day learning something new on purpose: a scientific idea, a famous artwork, a moment in history. tiny daily inputs add up to a brilliant mind over time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658609159847316758/4.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day learning something new on purpose: a scientific idea, an artwork. i do it with the Sophia app, one lesson a day, and tiny daily inputs really add up."
+  },
+  {
+   "position": 5,
+   "media_id": "e11de083-80c9-4a1e-b321-407d11f6dec2",
+   "texte_overlay": "reading the original\n\nthey read the actual book or study instead of only the summary. going to the source is slower, but it gives you all the nuance that everyone else missed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658609159847316758/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "984459ee-d8b5-485f-91f7-9bdc985e3577",
+   "texte_overlay": "early to bed\n\nthey protect their sleep like an important appointment. a rested brain learns, remembers and solves problems far better than a tired one, and they know it's not a luxury.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658609159847316758/6.jpg"
+  }
+ ]
+}

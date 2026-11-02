@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o022",
+ "schema_id": "prouve-par-la-science",
+ "titre": "3 trucs prouvés par la science pour retenir les mots nouveaux (sources à la fin) #pourtoi #vocabulaire #apprentissage #education",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+ "inspirations": [
+  "5d279e37-6a3d-443d-be7a-95b95c715510",
+  "54d238cb-f9a8-4ed6-b1cf-a39452b50e29"
+ ],
+ "notes": "cta A (avant / après sur le dernier item ; voir CTA.md). Routine du 27/10, livraison 4 sur 5. Schéma prouve-par-la-science (r 4,07, « new words to add to your vocabulary backed by science », 5d279e37 ; r 2,71, 54d238cb), sur un sujet précis jamais fait chez nous : retenir les mots. Accroches écrites : « 3 trucs prouvés par la science pour retenir les mots nouveaux (sources à la fin) » (retenue : le sujet du gagnant à r 4,07 et le gabarit de bsg-o009), « pourquoi tu oublies les mots que tu apprends (et 3 façons d'y remédier) » (écartée : plus longue), « comment retenir le vocabulaire sans y passer des heures » (écartée : promesse vague). Sources ouvertes sur Europe PMC le 27/10, chacune dit ce que dit la slide : (1) MacLeod, Ozubko, Hourihan & Major, Memory 2022, doi 10.1080/09658211.2022.2069270 : « Production at encoding dependably adds information to the memory record » ; et Pritchard et al., Child Development 2020 : « Recognition for words read aloud was better than for those read silently » ; (2) Wammes, Meade & Fernandes, QJEP 2016, doi 10.1080/17470218.2015.1094494 : dans 7 expériences, les mots dessinés sont mieux rappelés que les mots écrits ; (3) Richland, Kornell & Kao, Journal of Experimental Psychology: Applied 2009, doi 10.1037/a0016496 : « Posttest performance was better in the test condition than in the extended study condition in all experiments ». L'item 4 (Sophia) ne fait aucune promesse scientifique. Images de la banque, sans célébrité ni texte. Inspirations : slides 2, 3, 6, 7 de 54d238cb (5d279e37 et ses autres slides montrent des célébrités). Images claires ou en double remplacées par des images sombres après relecture de l'aperçu.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6e0ebd64",
+   "texte_overlay": "3 trucs prouvés par la science\npour retenir les mots nouveaux\n(sources à la fin)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/3.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "97aa7503",
+   "texte_overlay": "1. lis-le à voix haute.\n\nles mots lus à voix haute sont mieux retenus que ceux lus en silence.\nles chercheurs appellent ça l'effet de production. (1)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d6c47950",
+   "texte_overlay": "2. dessine-le.\n\ndans 7 expériences, les mots dessinés étaient mieux retenus que les mots écrits.\nun croquis rapide suffit. (2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "11d6140a",
+   "texte_overlay": "3. essaie de deviner avant d'apprendre.\n\nchercher une réponse, même sans la trouver, aide à mieux la retenir quand tu l'apprends ensuite. (3)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0c2ec961",
+   "texte_overlay": "4. un mot par jour, pas vingt d'un coup.\n\navant, je notais des listes de mots que j'oubliais.\nmaintenant, j'apprends un truc chaque matin. et je le replace dans la journée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/6.jpg",
+   "texte_sophia": "4. un mot par jour, pas vingt d'un coup.\n\navant, je notais des listes de mots que j'oubliais.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je replace ce que j'ai appris dans la journée."
+  },
+  {
+   "position": 6,
+   "media_id": "783307e7",
+   "texte_overlay": "sources\n\n(1) macleod et al., memory, 2022\n(2) wammes, meade & fernandes, quarterly journal of experimental psychology, 2016\n(3) richland, kornell & kao, journal of experimental psychology: applied, 2009",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2c90ff26",
+   "texte_overlay": "lequel tu testes\navec ton prochain mot ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/2.jpg"
+  }
+ ]
+}

@@ -1,14 +1,23 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, CheckCircle2, Clock, Loader2, RefreshCw, Search, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronDown, Clock, Loader2, RefreshCw, Search, XCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { annulerMajSourcesServeur, demarrerMajSourcesServeur, lireMajSourcesRun } from "@/features/moteur/api";
+import {
+  annulerMajSourcesServeur,
+  contenusParSource,
+  demarrerMajSourcesServeur,
+  lireMajSourcesRun,
+  performanceSources,
+} from "@/features/moteur/api";
+import { sourcePerformante } from "@/features/moteur/perfSource";
+import { RSource, RVsLabel } from "@/features/moteur/RSource";
 import { syncMajJobDepuisRun } from "@/features/moteur/importJobs";
 import { nomLangue } from "@/features/moteur/langues";
 import {
+  finDuRun,
   joursDepuis,
   sourcesMettables,
   suiviParSource,
@@ -18,10 +27,12 @@ import {
 } from "@/features/moteur/majSourcesVue";
 import type { CompteReference } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
-import { localeDate } from "@/locales/localeDate";
+import { aujourdhuiEnLettres, localeDate } from "@/locales/localeDate";
 
 /** Au-delà, la source est « ancienne » : la date passe en orange. */
 const JOURS_ANCIENNE = 7;
+/** Une séquence finie depuis moins longtemps garde son détail ouvert. */
+const RECENTE_MS = 3_600_000;
 
 /**
  * « Mettre à jour les sources », SOURCE PAR SOURCE.
@@ -32,27 +43,45 @@ const JOURS_ANCIENNE = 7;
  * file d'import est vide. Chaque source enfile ses slideshows manquants comme
  * un import classique (même file, même historique). Le suivi dit, pour chaque
  * source, où elle en est et ce qu'elle a donné.
+ *
+ * La dernière séquence reste affichée une fois finie, AVEC SA DATE : sans
+ * elle, un bilan de deux mois se lisait comme celui du jour. À côté de chaque
+ * source, le nombre de slideshows importés depuis elle (pas le « stock » de
+ * sujets reproductibles de la page, qui compte autre chose).
  */
-export function MajSourcesPanel({
-  sources,
-  stock,
-}: {
-  sources: CompteReference[];
-  /** Slideshows en stock par source. */
-  stock: Record<string, number>;
-}) {
+export function MajSourcesPanel({ sources }: { sources: CompteReference[] }) {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const [choix, setChoix] = React.useState<Set<string>>(new Set());
   const [message, setMessage] = React.useState<string | null>(null);
+  /** Détail de la séquence ouvert ou fermé ; `null` = selon son âge. */
+  const [ouvert, setOuvert] = React.useState<boolean | null>(null);
 
   const mettables = React.useMemo(() => sourcesMettables(sources), [sources]);
   const run = useQuery({ queryKey: ["maj-sources-run"], queryFn: lireMajSourcesRun, refetchInterval: 4_000 });
+  const importes = useQuery({ queryKey: ["contenus-par-source"], queryFn: contenusParSource });
+  const perf = useQuery({ queryKey: ["performance-sources"], queryFn: performanceSources });
   React.useEffect(() => {
     syncMajJobDepuisRun(run.data ?? null);
   }, [run.data]);
 
+  // Chaque source passée change sa date de mise à jour et son nombre
+  // d'importés : on relit la liste au lieu de garder les chiffres d'avant.
+  const avancement = run.data ? `${run.data.statut}:${run.data.faits}` : null;
+  const avancementPrecedent = React.useRef(avancement);
+  React.useEffect(() => {
+    if (avancementPrecedent.current === avancement) return;
+    avancementPrecedent.current = avancement;
+    void queryClient.invalidateQueries({ queryKey: ["sources"] });
+    void queryClient.invalidateQueries({ queryKey: ["contenus-par-source"] });
+  }, [avancement, queryClient]);
+
   const enCours = run.data?.statut === "running";
+  // Une nouvelle séquence (lancée d'ici, d'un autre onglet ou par le serveur)
+  // repart sans le choix ouvert/fermé fait sur la précédente.
+  React.useEffect(() => {
+    if (enCours) setOuvert(null);
+  }, [enCours]);
   const suivi = React.useMemo(() => suiviParSource(run.data ?? null), [run.data]);
 
   const rafraichir = async (etat: Parameters<typeof syncMajJobDepuisRun>[0]) => {
@@ -71,6 +100,7 @@ export function MajSourcesPanel({
       await rafraichir(r.etat);
       setMessage(r.deja ? t("sources.majDeja") : null);
       setChoix(new Set());
+      setOuvert(null);
     },
     onError: (e) => setMessage((e as Error).message),
   });
@@ -96,9 +126,14 @@ export function MajSourcesPanel({
     });
 
   const passees = suivi.filter((s) => s.statut === "fait").length;
+  const fin = finDuRun(run.data ?? null);
+  // Calculé quand la séquence bouge, pas à chaque rendu : un clic sans rapport
+  // ne doit pas replier le détail parce que l'heure vient de passer.
+  const recente = React.useMemo(() => fin !== null && Date.now() - Date.parse(fin) < RECENTE_MS, [fin]);
+  const detailOuvert = enCours || (ouvert ?? recente);
 
   return (
-    <section className="space-y-3 rounded-lg border border-primary/30 bg-primary/5 p-3" data-testid="maj-sources">
+    <section className="space-y-3 rounded-xl border bg-card p-4" data-testid="maj-sources">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 space-y-1">
           <h3 className="text-sm font-medium">{t("sources.majTitre")}</h3>
@@ -109,7 +144,13 @@ export function MajSourcesPanel({
             {t("sources.majStop")}
           </Button>
         ) : (
-          <Button disabled={choix.size === 0 || lancer.isPending} onClick={() => lancer.mutate()}>
+          <Button
+            disabled={choix.size === 0 || lancer.isPending}
+            onClick={() => {
+              // Prompt 15, point 1 : la date et le coût avant de lancer.
+              if (window.confirm(t("sources.confirmMaj", { count: choix.size, date: aujourdhuiEnLettres() }))) lancer.mutate();
+            }}
+          >
             <RefreshCw className="size-3.5" />
             {t("sources.majGo", { count: choix.size })}
           </Button>
@@ -128,14 +169,34 @@ export function MajSourcesPanel({
             {enCours && run.data.restant > 0 && (
               <span className="text-xs text-muted-foreground">{t("sources.majFile", { count: run.data.restant })}</span>
             )}
+            {!enCours && fin && (
+              <span className="text-xs text-muted-foreground" data-testid="maj-suivi-date">
+                {t("sources.majLe", { quand: quand(fin) })}
+              </span>
+            )}
           </div>
           {enCours && <Progress value={(100 * passees) / suivi.length} />}
-          <ol className="space-y-1">
-            {suivi.map((s) => (
-              <LigneSuivi key={`${s.rang}-${s.compte.id}`} suivi={s} restant={run.data?.restant ?? 0} />
-            ))}
-          </ol>
-          <p className="text-[11px] text-muted-foreground">{t("sources.majVoirImports")}</p>
+          {!enCours && (
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+              aria-expanded={detailOuvert}
+              onClick={() => setOuvert(!detailOuvert)}
+            >
+              <ChevronDown className={cn("size-3.5 transition-transform", detailOuvert && "rotate-180")} aria-hidden />
+              {detailOuvert ? t("sources.majMasquer") : t("sources.majVoirDetail", { count: suivi.length })}
+            </button>
+          )}
+          {detailOuvert && (
+            <>
+              <ol className="space-y-1">
+                {suivi.map((s) => (
+                  <LigneSuivi key={`${s.rang}-${s.compte.id}`} suivi={s} restant={run.data?.restant ?? 0} />
+                ))}
+              </ol>
+              <p className="text-[11px] text-muted-foreground">{t("sources.majVoirImports")}</p>
+            </>
+          )}
         </div>
       )}
 
@@ -159,6 +220,14 @@ export function MajSourcesPanel({
                 >
                   {t("sources.majAnciennes", { jours: JOURS_ANCIENNE })}
                 </Button>
+                <Button
+                  size="xs"
+                  variant="outline"
+                  title={t("sources.majPerformantesAide")}
+                  onClick={() => setChoix(new Set(mettables.filter((s) => sourcePerformante(perf.data?.[s.id])).map((s) => s.id)))}
+                >
+                  {t("sources.majPerformantes")}
+                </Button>
                 <Button size="xs" variant="ghost" onClick={() => setChoix(new Set())}>
                   {t("sources.majAucune")}
                 </Button>
@@ -166,6 +235,7 @@ export function MajSourcesPanel({
               <ul className="max-h-80 space-y-0.5 overflow-auto rounded-md border bg-background p-1" aria-label={t("sources.majTitre")}>
                 {mettables.map((s) => {
                   const jours = joursDepuis(s.dernier_scrape_at) ?? 0;
+                  const n = importes.data?.[s.id] ?? { importes: 0, valides: 0 };
                   return (
                     <li key={s.id}>
                       <label className="flex cursor-pointer flex-wrap items-center gap-x-3 gap-y-0.5 rounded px-2 py-1.5 hover:bg-muted/60">
@@ -178,6 +248,12 @@ export function MajSourcesPanel({
                         />
                         <span className="font-mono text-sm">@{s.handle_tiktok}</span>
                         <span className="text-xs text-muted-foreground">{nomLangue(s.langue)}</span>
+                        <span data-testid={`maj-r-${s.handle_tiktok}`}>
+                          <RSource perf={perf.data?.[s.id]} compact />
+                        </span>
+                        <span data-testid={`maj-vs-label-${s.handle_tiktok}`}>
+                          <RVsLabel perf={perf.data?.[s.id]} compact />
+                        </span>
                         <span
                           className={cn(
                             "ml-auto text-xs tabular-nums",
@@ -187,8 +263,12 @@ export function MajSourcesPanel({
                         >
                           {t("sources.majDernier", { quand: quand(s.dernier_scrape_at) })}
                         </span>
-                        <span className="w-24 text-right text-xs tabular-nums text-muted-foreground">
-                          {t("sources.majStock", { count: stock[s.id] ?? 0 })}
+                        <span
+                          className="w-28 text-right text-xs tabular-nums text-muted-foreground"
+                          title={t("sources.majImportesTitre", { importes: n.importes, valides: n.valides })}
+                          data-testid={`maj-importes-${s.handle_tiktok}`}
+                        >
+                          {importes.data ? t("sources.majImportes", { count: n.importes }) : "…"}
                         </span>
                       </label>
                     </li>

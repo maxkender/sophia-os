@@ -1,10 +1,12 @@
 // Usage : POD_JETON=… node atelier/cli-deposer.ts <source_id|all> [--essai]
+// BLEO : un original qui déclare "type_bleo" (et "parent_contenu_id" pour une
+// déclinaison, voir npm run boite) part sans schéma ni preuve.
 // Dépose un ou tous les originaux (originaux/<id>.json) dans la file de
 // validation de l'OS. Un original en attente est remplacé ; un original déjà
 // validé ou rejeté est refusé par l'OS (créer un nouvel id).
 // Les préfixes d'images (8 caractères) sont résolus en ids complets.
 import { readdirSync, readFileSync } from "node:fs";
-import { appelPod, type Original } from "./api.ts";
+import { appelPod, declarationBleo, type Original } from "./api.ts";
 
 const [cible] = process.argv.slice(2);
 if (!cible) throw new Error("usage : deposer <source_id|all> [--essai]");
@@ -14,6 +16,13 @@ const fichiers = readdirSync("originaux").filter((f) => f.endsWith(".json") && (
 if (!fichiers.length) throw new Error(`aucun original « ${cible} »`);
 for (const f of fichiers) {
   const o = JSON.parse(readFileSync(`originaux/${f}`, "utf8")) as Original;
+  // BLEO (L4) : un original déclaré (type_bleo, voir npm run boite) part sans
+  // schéma ni preuve ; l'OS le juge sur la boîte (famille, génération, quota, accroche).
+  const bleo = declarationBleo(o);
+  if ("erreur" in bleo) {
+    console.log(`${o.source_id} : REFUSÉ ${bleo.erreur}`);
+    continue;
+  }
   const slides = o.slides.map((s) => {
     const im = r.images.find((i) => i.id === s.media_id || i.id.startsWith(s.media_id));
     if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque`);
@@ -26,7 +35,7 @@ for (const f of fichiers) {
     };
   });
   if (process.argv.includes("--essai")) {
-    console.log(`${o.source_id} : ${slides.length} slides, prêt`);
+    console.log(`${o.source_id} : ${slides.length} slides, ${bleo.resume}, prêt`);
     continue;
   }
   const d = await appelPod<{ id: string }>({
@@ -38,6 +47,7 @@ for (const f of fichiers) {
     musique_titre: o.musique_titre ?? null,
     musique_url: o.musique_url ?? null,
     inspirations: o.inspirations ?? [],
+    ...bleo.champs,
     slides,
   });
   console.log(`${o.source_id} : ${d.ok ? `déposé (${d.id})` : `REFUSÉ ${d.error}`}`);

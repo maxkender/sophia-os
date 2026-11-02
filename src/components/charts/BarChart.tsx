@@ -13,6 +13,10 @@ export interface PointBarre {
   tooltipTitle: string;
   /** `null` = pas de relevé ce jour-là : un trou, pas un zéro. */
   value: number | null;
+  /** Chiffre encore en mouvement : barre en clair, contour pointillé. */
+  provisional?: boolean;
+  /** Ligne de plus dans l'infobulle (« 421 posts · 4 450 vues/post »). */
+  detail?: string;
 }
 
 /**
@@ -26,6 +30,7 @@ export function BarChart({
   average,
   averageLabel,
   valueLabel,
+  provisionalLabel,
   height = 200,
   formatTick,
   formatValue,
@@ -35,6 +40,8 @@ export function BarChart({
   average?: ReadonlyArray<number | null>;
   averageLabel?: string;
   valueLabel: string;
+  /** Mention de l'infobulle pour une barre provisoire (« encore relevé »). */
+  provisionalLabel?: string;
   height?: number;
   formatTick: (n: number) => string;
   formatValue: (n: number) => string;
@@ -107,14 +114,17 @@ export function BarChart({
             <path
               key={p.key}
               d={d}
+              strokeDasharray={p.provisional ? "3 2" : undefined}
               className={cn(
                 !haut
                   ? "fill-destructive/70"
-                  : actif === i
-                    ? "fill-foreground/70"
-                    : i === dernier
-                      ? "fill-foreground"
-                      : "fill-muted-foreground/30",
+                  : p.provisional
+                    ? cn("stroke-muted-foreground/60", actif === i ? "fill-muted-foreground/30" : "fill-muted-foreground/10")
+                    : actif === i
+                      ? "fill-foreground/70"
+                      : i === dernier
+                        ? "fill-foreground"
+                        : "fill-muted-foreground/30",
               )}
             />
           );
@@ -171,7 +181,9 @@ export function BarChart({
           <p className="font-medium">{pointActif.tooltipTitle}</p>
           <p className="tabular-nums text-muted-foreground">
             {valueLabel} : {pointActif.value === null ? "—" : formatValue(pointActif.value)}
+            {pointActif.provisional && provisionalLabel ? ` (${provisionalLabel})` : ""}
           </p>
+          {pointActif.detail && <p className="tabular-nums text-muted-foreground">{pointActif.detail}</p>}
           {average && average[actif] != null && averageLabel && (
             <p className="tabular-nums text-muted-foreground">
               {averageLabel} : {formatValue(average[actif]!)}
@@ -195,7 +207,10 @@ export function BarChart({
             {points.map((p, i) => (
               <tr key={p.key}>
                 <th scope="row">{p.tooltipTitle}</th>
-                <td>{p.value === null ? "—" : formatValue(p.value)}</td>
+                <td>
+                  {p.value === null ? "—" : formatValue(p.value)}
+                  {p.provisional && provisionalLabel ? ` (${provisionalLabel})` : ""}
+                </td>
                 {average && averageLabel ? <td>{average[i] == null ? "—" : formatValue(average[i]!)}</td> : null}
               </tr>
             ))}

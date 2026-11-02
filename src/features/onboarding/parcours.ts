@@ -85,11 +85,14 @@ export interface CorrectionQuiz {
 
 /**
  * Corrige le quiz. Une seule faute suffit à renvoyer lire : l'enjeu n'est pas
- * une note, c'est que les quatre points soient sus.
+ * une note, c'est que tous les points soient sus.
  */
-export function corrigerQuiz(reponses: Record<string, number | undefined>): CorrectionQuiz {
-  const complet = QUESTIONS.every((q) => typeof reponses[q.cle] === "number");
-  const fausses = QUESTIONS.filter((q) => reponses[q.cle] !== q.bonne);
+export function corrigerQuiz(
+  reponses: Record<string, number | undefined>,
+  questions: readonly Question[] = QUESTIONS,
+): CorrectionQuiz {
+  const complet = questions.every((q) => typeof reponses[q.cle] === "number");
+  const fausses = questions.filter((q) => reponses[q.cle] !== q.bonne);
   return {
     complet,
     fausses,

@@ -1,7 +1,8 @@
 import * as React from "react";
+import { DecisionPreparee } from "@/features/ckd/decisions/DecisionPreparee";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { HelpCircle, MapPin, Plus, Search, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +17,7 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
-import { messageErreur } from "@/lib/utils";
+import { cn, messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
 import { AvatarProfil } from "@/features/hiring/AvatarProfil";
@@ -34,6 +35,15 @@ import {
   type GroupeZone,
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
+import { ChampsContactPoster } from "@/features/moteur/ChampsContactPoster";
+import { MessageBienvenue } from "@/features/regles/MessageBienvenue";
+import { TarifPoster } from "@/features/paie/TarifPoster";
+import { nomCompletDe, separerNomComplet } from "@/features/moteur/nomComplet";
+import {
+  CONTACT_POSTER_VIDE,
+  valeursContactDe,
+  type ValeursContactPoster,
+} from "@/features/moteur/contactPoster";
 import { estCompteCm } from "@/features/moteur/comptesCm";
 import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
@@ -73,7 +83,10 @@ import {
   premiersJoursComptes,
   majLanguesRecruteur,
   majRecruteur,
-  majUpwork,
+  contactCreationComplet,
+  emailPersoValide,
+  majContactPoster,
+  renommerPoster,
   majZoneRecruteur,
   setLabelsCompte,
   supprimerPoster,
@@ -96,6 +109,13 @@ import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, estCodePays, nomPaysIso, paysTries } from "@/features/moteur/pays";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
+import { EtapeBadge, QualiteBadge } from "@/features/moteur/EtapeBadge";
+import { compterEtapes, ETAPES, etapeCompte, qualiteAffichee, type Etape, type EtatEtape } from "@/features/moteur/etapes";
+import { lireEtapesComptes } from "@/features/moteur/etapesApi";
+import { compteActif, repartirArchive } from "@/features/archive/archive";
+import { SectionArchive, type LigneArchive } from "@/features/archive/SectionArchive";
+import { lireInactifs } from "@/features/inactifs/api";
+import { lirePosteursAyantPoste } from "@/features/onboarding/api";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
   Classement,
@@ -104,6 +124,7 @@ import type {
   PosterProfil,
 } from "@/features/moteur/types";
 import { localeDate } from "@/locales/localeDate";
+import { BoutonDelierSlack } from "@/features/slack/BoutonDelierSlack";
 
 // Carte des zones : d3-geo et le fond de carte dans un morceau à part.
 const CarteZones = React.lazy(() => import("@/features/hiring/CarteZones"));
@@ -208,11 +229,11 @@ function AidePosters() {
         <span className="mb-2 block">{t("posters.aideAcces")}</span>
         <span className="mb-2 block">{t("posters.aideZones")}</span>
         <span className="mb-2 block">{t("posters.labelsAide")}</span>
-        <span className="mb-1.5 block">{t("warmup.phasesLegende")}</span>
+        <span className="mb-1.5 block">{t("etapes.legende")}</span>
         <span className="flex flex-wrap gap-1.5">
-          <Badge variant="outline">{t("warmup.phasePasCree")}</Badge>
-          <Badge variant="warning">{t("warmup.phaseWarmupAttente")}</Badge>
-          <Badge variant="success">{t("warmup.phaseActif")}</Badge>
+          {ETAPES.map((e) => (
+            <EtapeBadge key={e} etat={{ etape: e, semaine: e === "posting" ? 1 : null }} />
+          ))}
         </span>
       </span>
     </span>
@@ -263,54 +284,70 @@ function ModalFiche({
   );
 }
 
-/** Upwork seulement (plus de compte référence / publications). */
-function CreateurUpwork({
+/** Le nom complet du poster, modifiable après sa création (l'email de connexion ne change pas). */
+function EditeurNomComplet({
+  poster,
+  enCours,
+  erreur,
+  onSave,
+}: {
+  poster: PosterProfil;
+  enCours: boolean;
+  erreur: string | null;
+  onSave: (nomComplet: string) => void;
+}) {
+  const { t } = useTranslation();
+  const initial = nomCompletDe(poster);
+  const [valeur, setValeur] = React.useState(initial);
+  React.useEffect(() => setValeur(initial), [initial]);
+  const propre = valeur.trim().replace(/\s+/g, " ");
+  const modifie = Boolean(propre) && propre !== initial;
+  return (
+    <div className="space-y-1">
+      <Label htmlFor={`fiche-${poster.id}-nom`} className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("posters.nomComplet")}
+      </Label>
+      <div className="flex gap-2">
+        <Input
+          id={`fiche-${poster.id}-nom`}
+          value={valeur}
+          onChange={(e) => setValeur(e.target.value)}
+          className="h-8 max-w-sm text-sm"
+        />
+        {modifie && (
+          <Button size="sm" className="h-8" disabled={enCours} onClick={() => onSave(propre)}>
+            {enCours ? t("common.saving") : t("common.save")}
+          </Button>
+        )}
+      </div>
+      {erreur && <p className="text-xs text-destructive">{erreur}</p>}
+    </div>
+  );
+}
+
+/** Liens Upwork (profil, contrat) et email perso du poster (0358). */
+function CreateurContact({
   poster,
   onSave,
 }: {
   poster: PosterProfil;
-  onSave: (url: string) => void;
+  onSave: (valeurs: ValeursContactPoster) => void;
 }) {
   const { t } = useTranslation();
   const [edit, setEdit] = React.useState(false);
-  const [url, setUrl] = React.useState(poster.upwork_url ?? "");
-  return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-      {!edit && poster.upwork_url && (
-        <a
-          href={poster.upwork_url}
-          target="_blank"
-          rel="noreferrer"
-          className="underline underline-offset-2"
-        >
-          Upwork ↗
-        </a>
-      )}
-      {!edit && (
-        <button
-          type="button"
-          onClick={() => {
-            setUrl(poster.upwork_url ?? "");
-            setEdit(true);
-          }}
-          className="text-muted-foreground underline underline-offset-2"
-        >
-          {poster.upwork_url ? t("posters.upworkModifier") : t("posters.upworkAjouter")}
-        </button>
-      )}
-      {edit && (
-        <span className="inline-flex items-center gap-1">
-          <Input
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://www.upwork.com/…"
-            className="h-7 w-56 text-xs"
-          />
+  const [valeurs, setValeurs] = React.useState(() => valeursContactDe(poster));
+  const rempli = Boolean(poster.upwork_url || poster.upwork_contrat_url || poster.email_perso);
+  if (edit) {
+    return (
+      <div className="space-y-2 rounded-md border p-3">
+        <ChampsContactPoster valeurs={valeurs} onChange={setValeurs} idPrefixe={`fiche-${poster.id}`} />
+        <div className="flex gap-2">
           <Button
             size="sm"
             className="h-7"
+            disabled={!emailPersoValide(valeurs.email_perso)}
             onClick={() => {
-              onSave(url);
+              onSave(valeurs);
               setEdit(false);
             }}
           >
@@ -319,8 +356,38 @@ function CreateurUpwork({
           <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
             {t("common.cancel")}
           </Button>
-        </span>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+      {poster.upwork_url && (
+        <a href={poster.upwork_url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+          {t("posters.contact.lienProfil")}
+        </a>
       )}
+      {poster.upwork_contrat_url && (
+        <a
+          href={poster.upwork_contrat_url}
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-2"
+        >
+          {t("posters.contact.lienContrat")}
+        </a>
+      )}
+      {poster.email_perso && <span className="select-all">{poster.email_perso}</span>}
+      <button
+        type="button"
+        onClick={() => {
+          setValeurs(valeursContactDe(poster));
+          setEdit(true);
+        }}
+        className="text-muted-foreground underline underline-offset-2"
+      >
+        {rempli ? t("posters.upworkModifier") : t("posters.upworkAjouter")}
+      </button>
     </div>
   );
 }
@@ -681,7 +748,8 @@ export function AdminPostersPage() {
   });
 
   // Défaut « tous » : les nouveaux (warmup pas démarré) restent visibles.
-  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
+  // Étapes choisies (plusieurs à la fois) ; vide = toutes.
+  const [filtreEtapes, setFiltreEtapes] = React.useState<ReadonlySet<Etape>>(() => new Set());
   const [filtreLangue, setFiltreLangue] = React.useState("");
   // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
   const [filtrePays, setFiltrePays] = React.useState("");
@@ -689,6 +757,13 @@ export function AdminPostersPage() {
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
   const [filtreRuul, setFiltreRuul] = React.useState(false);
+  // 28 oct. (partie E) : les inactifs (0385), plus dans le menu, se filtrent ici.
+  const [filtreInactifs, setFiltreInactifs] = React.useState(false);
+  const inactifs = useQuery({ queryKey: ["posters", "inactifs"], queryFn: lireInactifs, enabled: filtreInactifs });
+  // Prompt 25 v4 : Posters ne montre que les posteurs qui ont publié (1er post avec lien) ;
+  // les recrues sont sur Recruitment Automation → Onboarding posters.
+  const ayantPoste = useQuery({ queryKey: ["posters", "ayant-poste"], queryFn: lirePosteursAyantPoste });
+  const idsInactifs = React.useMemo(() => new Set((inactifs.data ?? []).map((i) => i.poster_id)), [inactifs.data]);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
   // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
@@ -747,6 +822,45 @@ export function AdminPostersPage() {
   // prévu, sinon fin du warm-up), et pour le posteur le plus ancien de ses
   // comptes, sommeil compris (un posteur recréé ou doublé garde sa cohorte).
   const premiersJours = useQuery({ queryKey: ["comptes-premier-jour"], queryFn: premiersJoursComptes });
+
+  // Un seul tag d'étape par compte (0363), les mêmes mots que le dashboard HM
+  // et Cohort tracking. Sans les données (migration absente) : étape tirée du
+  // seul warm-up.
+  const etapes = useQuery({ queryKey: ["etapes-comptes"], queryFn: lireEtapesComptes });
+  const aujourdhuiEtapes = aujourdhuiParis();
+  const etatCompte = React.useCallback(
+    (c: { id: string; is_active?: boolean | null; warmup_started_at: string | null; warmup_ends_at: string | null }): EtatEtape => {
+      const d = etapes.data?.get(c.id);
+      return etapeCompte(
+        {
+          compteId: c.id,
+          isActive: c.is_active,
+          arrete: d?.arrete,
+          warmupStartedAt: c.warmup_started_at,
+          warmupEndsAt: c.warmup_ends_at,
+          tiktokExiste: d?.tiktokExiste,
+          premierJour: d?.premierJour ?? premiersJours.data?.get(c.id) ?? null,
+          // « Inactive » : seulement quand on connaît le dernier post publié.
+          dernierPublie: d ? d.dernierPublie : undefined,
+        },
+        aujourdhuiEtapes,
+      );
+    },
+    [etapes.data, premiersJours.data, aujourdhuiEtapes],
+  );
+  /** L'étape d'un créateur : celle de son compte principal, actif d'abord. */
+  const etatCreateur = React.useCallback(
+    (p: PosterProfil): EtatEtape => {
+      const tousSiens = comptesParPoster.get(p.id) ?? [];
+      const actifs = tousSiens.filter(compteActif);
+      const liste = actifs.length > 0 ? actifs : tousSiens;
+      const principal = liste.find((c) => c.id === p.compte_id) ?? liste[0];
+      return principal ? etatCompte(principal) : { etape: "not_created", semaine: null };
+    },
+    [comptesParPoster, etatCompte],
+  );
+  /** Filtre d'étape choisi en cliquant un compteur, par recruteur. */
+  const [etapeParHm, setEtapeParHm] = React.useState<Record<string, readonly Etape[] | undefined>>({});
   const lundiParCompte = React.useMemo(() => {
     const m = new Map<string, string | null>();
     for (const c of comptes.data ?? []) {
@@ -754,10 +868,17 @@ export function AdminPostersPage() {
     }
     return m;
   }, [comptes.data, premiersJours.data]);
+  // Prompt 17 (0391) : la cohorte est celle du profil, fixée dès l'offre
+  // acceptée ; le calcul par les comptes reste pour qui n'en a pas.
+  const cohorteProfil = React.useMemo(
+    () => new Map((posters.data ?? []).map((p) => [p.id, p.cohorte_lundi ?? null])),
+    [posters.data],
+  );
   const cohorteDe = React.useCallback(
     (posterId: string) =>
+      cohorteProfil.get(posterId) ??
       cohortePosteur((comptesParPoster.get(posterId) ?? []).map((c) => lundiParCompte.get(c.id) ?? null)),
-    [comptesParPoster, lundiParCompte],
+    [cohorteProfil, comptesParPoster, lundiParCompte],
   );
   const aujourdhui = aujourdhuiParis();
   const dateCourte = (jour: string) =>
@@ -797,8 +918,9 @@ export function AdminPostersPage() {
 
   const [ajout, setAjout] = React.useState<"ferme" | "poster" | "recruteur">("ferme");
 
-  const [prenom, setPrenom] = React.useState("");
-  const [nom, setNom] = React.useState("");
+  // Un seul champ « Full name » : premier mot = prénom, le reste = nom.
+  const [nomComplet, setNomComplet] = React.useState("");
+  const [contact, setContact] = React.useState<ValeursContactPoster>(CONTACT_POSTER_VIDE);
   const [langue, setLangue] = React.useState("");
   React.useEffect(() => {
     const liste = langues.data ?? [];
@@ -811,7 +933,6 @@ export function AdminPostersPage() {
   React.useEffect(() => {
     setPaysCompte("");
   }, [langue]);
-  const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   // Compte UGC vidéo (pod 3) : login seul côté manage-users, puis le compte
   // vidéos uniquement créé ici — ni label ni persona de la file.
@@ -827,6 +948,7 @@ export function AdminPostersPage() {
   );
   const [cree, setCree] = React.useState<{
     email: string;
+    prenom: string;
     password: string;
     type: PremierCompte | "ugc_video";
   } | null>(null);
@@ -835,8 +957,9 @@ export function AdminPostersPage() {
 
   const creer = useMutation({
     mutationFn: async () => {
+      const { prenom, nom } = separerNomComplet(nomComplet);
       if (ugcVideo) {
-        const r = await creerPoster({ prenom, nom, password, type_compte: "aucun" });
+        const r = await creerPoster({ prenom, nom, password, type_compte: "aucun", contact });
         await creerCompteUgcVideo({
           posterId: r.userId,
           langue,
@@ -853,9 +976,11 @@ export function AdminPostersPage() {
         prenom,
         nom,
         password,
+        contact,
         langue: premierCompte === "aucun" ? undefined : langue || undefined,
         type_compte: premierCompte,
-        posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
+        // Prompt 15, point 7 : toujours 2 posts par jour, plus de choix.
+        posts_par_jour: premierCompte === "perso" ? 2 : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
         ...(paysAEnvoyer(langue, paysCompte)
           ? { pays: paysAEnvoyer(langue, paysCompte)! }
@@ -864,14 +989,14 @@ export function AdminPostersPage() {
       });
     },
     onSuccess: (r) => {
-      setCree({ email: r.email, password, type: ugcVideo ? "ugc_video" : premierCompte });
+      // 31/10 : la création renvoie le mot de passe unique de la recrue (12345678 est remplacé).
+      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password: r.password ?? password, type: ugcVideo ? "ugc_video" : premierCompte });
       choixAppsPoster.reinitialiser();
-      setPrenom("");
-      setNom("");
+      setNomComplet("");
+      setContact(CONTACT_POSTER_VIDE);
       setHandleTiktok("");
       setHandleInstagram("");
       setPaysCompte("");
-      setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
@@ -963,8 +1088,13 @@ export function AdminPostersPage() {
       rafraichir();
     },
   });
-  const enregistrerUpwork = useMutation({
-    mutationFn: (input: { id: string; url: string }) => majUpwork(input.id, input.url),
+  const renommer = useMutation({
+    mutationFn: (input: { id: string; nomComplet: string }) => renommerPoster(input.id, input.nomComplet),
+    onSuccess: rafraichir,
+  });
+  const enregistrerContact = useMutation({
+    mutationFn: (input: { id: string; valeurs: ValeursContactPoster }) =>
+      majContactPoster(input.id, input.valeurs),
     onSuccess: rafraichir,
   });
 
@@ -990,24 +1120,24 @@ export function AdminPostersPage() {
             e.preventDefault();
             // Application du compte non choisie : le bloc le dit, rien ne part.
             if (!choixAppsPoster.verifier()) return;
+            // Contrat Upwork obligatoire ; email perso facultatif (29 oct.).
+            if (!contactCreationComplet(contact)) return;
             setCree(null);
             creer.mutate();
           }}
           className="grid gap-4 sm:grid-cols-2"
         >
-          <div className="space-y-2">
-            <Label htmlFor="prenom">{t("posters.prenom")}</Label>
+          <div className="space-y-2 sm:col-span-2">
+            <Label htmlFor="nom-complet">{t("posters.nomComplet")}</Label>
             <Input
-              id="prenom"
+              id="nom-complet"
               required
-              value={prenom}
-              onChange={(e) => setPrenom(e.target.value)}
+              value={nomComplet}
+              placeholder={t("posters.nomCompletExemple")}
+              onChange={(e) => setNomComplet(e.target.value)}
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="nom">{t("posters.nom")}</Label>
-            <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
-          </div>
+          <ChampsContactPoster valeurs={contact} onChange={setContact} idPrefixe="creation" obligatoires />
           <label className="flex items-start gap-2 text-sm sm:col-span-2">
             <input
               type="checkbox"
@@ -1038,8 +1168,6 @@ export function AdminPostersPage() {
             onLangue={setLangue}
             pays={paysCompte}
             onPays={setPaysCompte}
-            postsParJour={ugcVideo ? undefined : postsParJour}
-            onPostsParJour={ugcVideo ? undefined : setPostsParJour}
             handle={handleTiktok}
             onHandle={setHandleTiktok}
           />
@@ -1130,6 +1258,7 @@ export function AdminPostersPage() {
                   ? t("posters.creeAucun")
                   : t("warmup.apresCreation")}
             </p>
+            {cree.type !== "ugc_video" && <MessageBienvenue prenom={cree.prenom} email={cree.email} password={cree.password} />}
           </div>
         )}
       </CardContent>
@@ -1241,13 +1370,9 @@ export function AdminPostersPage() {
 
   const rechercheNormalisee = sansAccents(recherche.trim());
   const matchCreateur = (p: PosterProfil) => {
-    const phase = phaseCreateur({
-      compteId: p.compte_id,
-      warmup_started_at: p.warmup_started_at,
-      warmup_ends_at: p.warmup_ends_at,
-    });
-    if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
+    if (filtreEtapes.size > 0 && !filtreEtapes.has(etatCreateur(p).etape)) return false;
     if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
+    if (filtreInactifs && !idsInactifs.has(p.id)) return false;
     if (filtreCohorte && (cohorteDe(p.id) ?? COHORTE_PAS_DEMARRE) !== filtreCohorte) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
@@ -1322,6 +1447,7 @@ export function AdminPostersPage() {
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
     filtreRuul ||
+    filtreInactifs ||
     Boolean(filtreCohorte) ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
@@ -1361,19 +1487,49 @@ export function AdminPostersPage() {
           <option value={CLE_SANS_ZONE}>{t("posters.sansZone")}</option>
         </select>
       </div>
-      <div className="space-y-1">
-        <Label htmlFor="filtrePhase">{t("posters.filtrePhase")}</Label>
-        <select
-          id="filtrePhase"
-          className={selectClass}
-          value={filtrePhase}
-          onChange={(e) => setFiltrePhase(e.target.value as "tous" | PhaseCreateur)}
-        >
-          <option value="tous">{t("posters.filtreTous")}</option>
-          <option value="pas_cree">{t("warmup.phasePasCree")}</option>
-          <option value="warmup">{t("posters.filtreWarmup")}</option>
-          <option value="actif">{t("warmup.phaseActif")}</option>
-        </select>
+      <div className="space-y-1.5 sm:col-span-2 lg:col-span-6">
+        <span className="flex flex-wrap items-baseline gap-2">
+          <Label>{t("etapes.filtre")}</Label>
+          <span className="text-[11px] text-muted-foreground">{t("etapes.filtreMultiAide")}</span>
+        </span>
+        <div role="group" aria-label={t("etapes.filtre")} className="flex flex-wrap gap-1.5">
+          {ETAPES.map((e) => {
+            const coche = filtreEtapes.has(e);
+            return (
+              <label
+                key={e}
+                className={cn(
+                  "flex cursor-pointer items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-colors",
+                  coche ? "border-primary bg-primary/10 font-medium text-foreground" : "text-muted-foreground hover:bg-muted",
+                )}
+              >
+                <input
+                  type="checkbox"
+                  className="size-3.5 accent-[var(--color-primary)]"
+                  checked={coche}
+                  onChange={() =>
+                    setFiltreEtapes((avant) => {
+                      const apres = new Set(avant);
+                      if (apres.has(e)) apres.delete(e);
+                      else apres.add(e);
+                      return apres;
+                    })
+                  }
+                />
+                {t(`etapes.${e}`)}
+              </label>
+            );
+          })}
+          {filtreEtapes.size > 0 && (
+            <button
+              type="button"
+              className="px-1.5 text-xs text-muted-foreground underline-offset-2 hover:underline"
+              onClick={() => setFiltreEtapes(new Set())}
+            >
+              {t("posters.filtreTous")}
+            </button>
+          )}
+        </div>
       </div>
       <div className="space-y-1">
         <Label htmlFor="filtreLangue">{t("posters.filtreLangue")}</Label>
@@ -1485,15 +1641,59 @@ export function AdminPostersPage() {
         />
         {t("posters.filtreRuul", { n: zonesCohorteRuul?.size ?? 0 })}
       </label>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={filtreInactifs}
+          onChange={(e) => setFiltreInactifs(e.target.checked)}
+        />
+        {t("posters.filtreInactifs")}
+        {filtreInactifs && inactifs.data && <span className="text-muted-foreground">· {inactifs.data.length}</span>}
+      </label>
     </div>
   );
 
   const tous = posters.data ?? [];
   const admins = tous.filter((p) => p.role === "admin");
   const tousCreateurs = tous.filter((p) => p.role === "poster");
+  // L'Archive (0366) : posteurs désactivés ou sans compte actif, et comptes
+  // dormants. Hors des listes, compteurs, carte et équipes ; en bas de page,
+  // par HM, fermée par défaut.
+  const { actifs: createursEnPlace, archive } = repartirArchive(tousCreateurs, comptes.data);
+  // Prompt 25 v4 : sans la liste (pas encore lue, ou vide), personne n'est caché.
+  const createursActifs = ayantPoste.data?.size ? createursEnPlace.filter((p) => ayantPoste.data.has(p.id)) : createursEnPlace;
+  const idsCreateursActifs = new Set(createursActifs.map((p) => p.id));
+  const tousHorsArchive = tous.filter((p) => p.role !== "poster" || idsCreateursActifs.has(p.id));
+  // Filtrer sur Dormant ou Stopped va chercher dans l'Archive.
+  const avecArchive = filtreEtapes.has("dormant") || filtreEtapes.has("stopped");
+  const archiveParHm = new Map<string, LigneArchive[]>();
+  for (const e of archive) {
+    const cle = e.posteur.manager_id ?? "";
+    archiveParHm.set(cle, [
+      ...(archiveParHm.get(cle) ?? []),
+      {
+        posteurId: e.posteur.id,
+        nom: nomAffiche(e.posteur),
+        desactive: !e.posteur.is_active,
+        comptes: e.comptes.map((c) => ({
+          id: c.id,
+          handle: c.handle_tiktok,
+          pays: c.pays,
+          actif: compteActif(c),
+        })),
+      },
+    ]);
+  }
+  const blocsArchive = [...archiveParHm.entries()]
+    .map(([hmId, lignes]) => {
+      const hm = tous.find((p) => p.id === hmId);
+      return { hmId, titre: hm ? nomAffiche(hm) : t("posters.sansRecruteur"), lignes };
+    })
+    .sort((a, b) => a.titre.localeCompare(b.titre, "fr"));
   // Zone → recruteur → créateurs. La zone est celle du RECRUTEUR (master list
   // Notion), dont ses créateurs héritent — pas la langue des comptes.
-  const parZone = regrouperParZone(tous, {
+  const parZone = regrouperParZone(avecArchive ? tous : tousHorsArchive, {
     garderCreateur: matchCreateur,
     filtreActif: filtreListe,
     garderRecruteur: recruteurCherche,
@@ -1502,7 +1702,7 @@ export function AdminPostersPage() {
   });
   // Carte : toutes les zones, filtres ignorés — un filtre ne repeint pas la
   // carte, il ne fait que mettre sa zone en avant.
-  const zonesCarte: ZoneCarte[] = regrouperParZone(tous, { zonesCohorteRuul }).zones.map((g) => ({
+  const zonesCarte: ZoneCarte[] = regrouperParZone(tousHorsArchive, { zonesCohorteRuul }).zones.map((g) => ({
     cle: g.cle,
     zone: g.zone ?? "",
     compteurs: g.compteurs,
@@ -1517,7 +1717,7 @@ export function AdminPostersPage() {
   }));
   // Équipe d'un DM (ses créateurs + ceux de ses HM), filtres ignorés : le
   // résumé que l'ancien arbre DM → HM donnait en tête de chaque DM.
-  const equipeDm = new Map<string, EquipeDm>(equipesParDm(tous).map((e) => [e.dm.id, e]));
+  const equipeDm = new Map<string, EquipeDm>(equipesParDm(tousHorsArchive).map((e) => [e.dm.id, e]));
   const groupesZone: GroupeZone[] = [
     ...parZone.zones,
     ...(parZone.sansZone ? [parZone.sansZone] : []),
@@ -1525,7 +1725,7 @@ export function AdminPostersPage() {
 
   /** Part des créateurs du recruteur en BIEN ou STAR (null s'il n'en a aucun). */
   const partBienRecruteur = (recId: string): number | null => {
-    const cases = tousCreateurs
+    const cases = createursActifs
       .filter((c) => c.manager_id === recId && c.classement != null)
       .map((c) => c.classement as Classement);
     if (cases.length === 0) return null;
@@ -1538,9 +1738,9 @@ export function AdminPostersPage() {
 
   /** Pays des comptes de ses créateurs directs ; les langues seulement s'il n'en a aucun. */
   const drapeauxRecruteur = (poster: PosterProfil) => {
-    const pays = tousCreateurs
+    const pays = createursActifs
       .filter((c) => c.manager_id === poster.id)
-      .flatMap((c) => (comptesParPoster.get(c.id) ?? []).map((x) => x.pays ?? ""));
+      .flatMap((c) => (comptesParPoster.get(c.id) ?? []).filter(compteActif).map((x) => x.pays ?? ""));
     return pays.some((c) => estCodePays(c))
       ? <DrapeauxPays codes={pays} />
       : <DrapeauxLangues codes={languesRecruteur(poster)} />;
@@ -1577,7 +1777,10 @@ export function AdminPostersPage() {
   };
 
   const carteCreateur = (poster: PosterProfil) => {
-    const liste = comptesParPoster.get(poster.id) ?? [];
+    // Les comptes dormants sont dans l'Archive, pas sur la carte (sauf un
+    // posteur de l'Archive, montré par le filtre Dormant / Stopped).
+    const siens = comptesParPoster.get(poster.id) ?? [];
+    const liste = idsCreateursActifs.has(poster.id) ? siens.filter(compteActif) : siens;
     const cohorte = cohorteDe(poster.id);
     const semaine = cohorte ? semaineDansCohorte(cohorte, aujourdhui) : null;
     return (
@@ -1632,19 +1835,22 @@ export function AdminPostersPage() {
                   compact
                   compte={c}
                   applications={applicationsCompte(c)}
+                  labels={labelsComptes.data?.get(c.id) ?? []}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
-                      {!c.is_active && <BadgeDormant />}
-                      <BadgeClassement classement={c.classement} size="sm" />
+                      {estCompteCm(c) ? (
+                        !c.is_active && <BadgeDormant />
+                      ) : (
+                        <>
+                          <EtapeBadge etat={etatCompte(c)} />
+                          <QualiteBadge qualite={qualiteAffichee(etatCompte(c), etapes.data?.get(c.id)?.qualite)} />
+                        </>
+                      )}
+                      {!(c.classement === "inactif" && etatCompte(c).etape === "inactive") && (
+                        <BadgeClassement classement={c.classement} size="sm" />
+                      )}
                       {liste.length > 1 && lundiParCompte.get(c.id) && (
                         <span>{t("posters.departCompte", { date: dateCourte(lundiParCompte.get(c.id)!) })}</span>
-                      )}
-                      {c.is_active && !estCompteCm(c) && (
-                        <WarmupBadge
-                          compteId={c.id}
-                          startedAt={c.warmup_started_at}
-                          endsAt={c.warmup_ends_at}
-                        />
                       )}
                     </div>
                   }
@@ -1695,7 +1901,37 @@ export function AdminPostersPage() {
     const equipe = r.role === "directing_manager" ? equipeDm.get(r.id) : undefined;
     // Un filtre de créateurs réduit la liste : dire combien sont affichés,
     // les compteurs restant ceux de toute l'équipe.
-    const filtre = bloc.createurs.length !== bloc.compteursEquipe.total;
+    const etapesChoisies = etapeParHm[r.id] ?? [];
+    const compteursEtapes = compterEtapes(bloc.equipe.map(etatCreateur));
+    const createursAffiches = etapesChoisies.length > 0
+      ? bloc.createurs.filter((p) => etapesChoisies.includes(etatCreateur(p).etape))
+      : bloc.createurs;
+    const filtre = createursAffiches.length !== bloc.compteursEquipe.total;
+    const puces = (
+      <span className="flex flex-wrap items-center gap-1" title={t("etapes.filtreAide")}>
+        {ETAPES.filter((e) => compteursEtapes[e] > 0).map((e) => (
+          <button
+            key={e}
+            type="button"
+            aria-pressed={etapesChoisies.includes(e)}
+            onClick={() =>
+              setEtapeParHm((m) => {
+                const avant = m[r.id] ?? [];
+                return { ...m, [r.id]: avant.includes(e) ? avant.filter((x) => x !== e) : [...avant, e] };
+              })
+            }
+            className={cn(
+              "rounded-full border px-2 py-0.5 text-[11px] tabular-nums transition-colors",
+              etapesChoisies.includes(e)
+                ? "border-primary bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+            )}
+          >
+            {t(`etapes.compteurs.${e}`, { n: compteursEtapes[e] })}
+          </button>
+        ))}
+      </span>
+    );
     return (
       <div key={r.id} className="space-y-2">
         <div className="flex flex-wrap items-center gap-2">
@@ -1729,26 +1965,21 @@ export function AdminPostersPage() {
                 })}
               </span>
             )}
-            <span>
+            <span className="flex flex-wrap items-center gap-1 sm:justify-end">
               {equipe && `${t("posters.createursDuDm")} · `}
-              {t("posters.equipeHoResume", {
-                total: bloc.compteursEquipe.total,
-                pasCree: bloc.compteursEquipe.pasCree,
-                warmup: bloc.compteursEquipe.warmup,
-                actif: bloc.compteursEquipe.actif,
-              })}
+              {puces}
             </span>
             {filtre && (
-              <span>{t("posters.nbAffiches", { n: bloc.createurs.length })}</span>
+              <span>{t("posters.nbAffiches", { n: createursAffiches.length })}</span>
             )}
           </span>
         </div>
-        {bloc.createurs.length === 0 && bloc.compteursEquipe.total > 0 ? (
+        {createursAffiches.length === 0 && bloc.compteursEquipe.total > 0 ? (
           <p className="text-xs text-muted-foreground">
             {t("posters.aucunCreateurFiltre", { n: bloc.compteursEquipe.total })}
           </p>
         ) : (
-          grille(bloc.createurs, "createur")
+          grille(createursAffiches, "createur")
         )}
       </div>
     );
@@ -1800,7 +2031,7 @@ export function AdminPostersPage() {
     // Admins : mêmes règles qu'avant les zones (masqués par un filtre de phase,
     // de langue ou de label), et hors de toute zone.
     const adminsVisibles =
-      filtrePhase === "tous" && !filtreListe && !filtreZoneEffectif && admins.length > 0;
+      filtreEtapes.size === 0 && !filtreListe && !filtreZoneEffectif && admins.length > 0;
 
     // Puces : une par zone, plus « Sans zone » qui compte aussi les créateurs
     // sans recruteur (le clic les montre). La zone filtrée garde sa puce même
@@ -1889,6 +2120,27 @@ export function AdminPostersPage() {
           </details>
         )}
         {adminsVisibles && section(t("nav.admin"), admins.length, admins, "createur")}
+        {blocsArchive.length > 0 && (
+          <section className="space-y-2">
+            <div className="flex flex-wrap items-baseline gap-2 border-b pb-1.5">
+              <h2 className="text-sm font-semibold">{t("archive.titre")}</h2>
+              <span className="text-xs tabular-nums text-muted-foreground">
+                {t("archive.resume", {
+                  posteurs: archive.length,
+                  comptes: archive.reduce((n, e) => n + e.comptes.length, 0),
+                })}
+              </span>
+            </div>
+            {blocsArchive.map((b) => (
+              <SectionArchive
+                key={b.hmId || "sans-hm"}
+                titre={b.titre}
+                lignes={b.lignes}
+                onOuvrir={(id) => ouvrirFiche(id)}
+              />
+            ))}
+          </section>
+        )}
       </div>
     );
   })();
@@ -1922,6 +2174,14 @@ export function AdminPostersPage() {
 
   return (
     <div className="space-y-6">
+      {ayantPoste.data?.size ? (
+        <p className="text-sm text-muted-foreground" data-testid="posters-onboarding">
+          {t("posters.seulementActifs", { n: createursEnPlace.length - createursActifs.length })}{" "}
+          <Link className="underline" to="/admin/auto/recruits">
+            {t("posters.voirOnboarding")}
+          </Link>
+        </p>
+      ) : null}
       {erreurChargement && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
           <span>{t("posters.erreurChargement", { msg: messageErreur(erreurChargement) })}</span>
@@ -1988,6 +2248,15 @@ export function AdminPostersPage() {
           onClose={() => setFicheId(null)}
         >
           <p className="text-sm text-muted-foreground">{fiche.email}</p>
+          {fiche.role === "poster" && (
+            <EditeurNomComplet
+              key={fiche.id}
+              poster={fiche}
+              enCours={renommer.isPending}
+              erreur={renommer.error ? messageErreur(renommer.error) : null}
+              onSave={(nomComplet) => renommer.mutate({ id: fiche.id, nomComplet })}
+            />
+          )}
 
           {estRoleManager(fiche.role) && (
             <>
@@ -2183,6 +2452,7 @@ export function AdminPostersPage() {
               <div className="flex flex-wrap items-center gap-2">
                 {!fiche.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
               </div>
+              <BoutonDelierSlack posterId={fiche.id} nom={nomAffiche(fiche)} />
 
               <p className="flex flex-wrap items-center gap-x-1.5 text-xs text-muted-foreground">
                 <span>{t("posters.recruteur")} :</span>
@@ -2205,10 +2475,22 @@ export function AdminPostersPage() {
                 <ChoixRecruteur poster={fiche} recruteurs={recruteursPossibles} />
               )}
 
-              <CreateurUpwork
+              <CreateurContact
+                key={fiche.id}
                 poster={fiche}
-                onSave={(url) => enregistrerUpwork.mutate({ id: fiche.id, url })}
+                onSave={(valeurs) => enregistrerContact.mutate({ id: fiche.id, valeurs })}
               />
+
+              {fiche.role === "poster" && role === "admin" && <TarifPoster key={`tarif-${fiche.id}`} posterId={fiche.id} />}
+
+              {/* 0492 : préparer la décision du samedi (brouillon de Weekly decisions → Saturday). */}
+              {fiche.role === "poster" && role === "admin" && (
+                <DecisionPreparee
+                  key={`decision-${fiche.id}`}
+                  comptes={ficheComptes.filter((c) => c.is_active)}
+                  cohorteLundi={fiche.cohorte_lundi}
+                />
+              )}
 
               <div className="space-y-2">
                 <div className="flex items-baseline justify-between gap-2">
@@ -2415,12 +2697,18 @@ export function AdminPostersPage() {
                       {t("hiring.promote")}
                     </Button>
                   )}
+                  {/* Prompt 21, C2 : Deactivate = l'arrêt complet (comme un Kill), confirmé. */}
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() =>
-                      basculer.mutate({ id: fiche.id, actif: !fiche.is_active })
-                    }
+                    disabled={basculer.isPending}
+                    onClick={() => {
+                      if (
+                        !fiche.is_active ||
+                        window.confirm(t("hiring.confirmDesactiver", { nom: nomAffiche(fiche) }))
+                      )
+                        basculer.mutate({ id: fiche.id, actif: !fiche.is_active });
+                    }}
                   >
                     {fiche.is_active ? t("posters.disable") : t("posters.enable")}
                   </Button>

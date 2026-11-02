@@ -170,6 +170,22 @@ const NOMS_PAR_LANGUE: Record<string, JeuDeNoms> = {
     prenomsF: ["maria", "elena", "viktoria", "gabriela", "nikol", "teodora", "elitsa", "yoana", "raya", "kalina", "mila", "dariya", "lora", "sofia"],
     noms: ["ivanov", "georgiev", "dimitrov", "petrov", "nikolov", "stoyanov", "todorov", "hristov", "angelov", "marinov"],
   },
+  lt: {
+    prenomsH: ["lukas", "matas", "jonas", "dominykas", "nojus", "benas", "kajus", "joris", "herkus", "markas", "tomas", "mantas", "paulius", "rokas"],
+    prenomsF: ["emilija", "ieva", "sofija", "gabija", "austeja", "kamile", "lukne", "ugne", "migle", "greta", "urte", "liepa", "egle", "rugile"],
+    noms: ["kazlauskas", "jankauskas", "petrauskas", "stankevicius", "vasiliauskas", "zukauskas", "butkus", "paulauskas", "urbonas", "kavaliauskas"],
+  },
+  lv: {
+    prenomsH: ["roberts", "markuss", "gustavs", "kristaps", "emils", "davis", "rihards", "martins", "janis", "edgars", "toms", "arturs", "niklavs", "ralfs"],
+    prenomsF: ["sofija", "alise", "emilija", "anna", "marta", "elizabete", "keita", "paula", "laura", "liene", "ieva", "katrina", "madara", "linda"],
+    noms: ["berzins", "kalnins", "ozolins", "jansons", "ozols", "liepins", "krumins", "balodis", "eglitis", "zarins"],
+  },
+  // Japonais : @ en romaji, TikTok n'accepte pas les kana ni les kanji.
+  ja: {
+    prenomsH: ["haruto", "sota", "yuto", "riku", "hinata", "minato", "ren", "kaito", "sora", "takumi", "yuki", "daiki", "kenta", "shota"],
+    prenomsF: ["yui", "hina", "sakura", "mei", "rin", "aoi", "yuna", "mio", "koharu", "akari", "nanami", "miyu", "saki", "ema"],
+    noms: ["sato", "suzuki", "takahashi", "tanaka", "watanabe", "ito", "yamamoto", "nakamura", "kobayashi", "kato"],
+  },
 };
 
 /** Mots du @ par thème × langue (sans accents, minuscules). */
@@ -203,6 +219,9 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     fi: ["kuri", "fokus", "kunnianhimo", "voima", "tahto", "taso", "kasvu", "johtaja", "sisu", "edistys"],
     et: ["distsipliin", "fookus", "ambitsioon", "joud", "tahe", "tase", "kasv", "liider", "tahejoud", "edasiminek"],
     bg: ["distsiplina", "fokus", "ambitsiya", "sila", "volya", "nivo", "rastezh", "lider", "stremezh", "napredak"],
+    lt: ["disciplina", "fokusas", "ambicija", "jega", "valia", "lygis", "augimas", "lyderis", "siekis", "pazanga"],
+    lv: ["disciplina", "fokuss", "ambicijas", "speks", "griba", "limenis", "izaugsme", "lideris", "merkis", "progress"],
+    ja: ["kiritsu", "shuchu", "yashin", "chikara", "ishi", "level", "seicho", "leader", "doryoku", "shinpo"],
   },
   smart_girl: {
     fr: ["cultive", "savoir", "lit", "apprend", "inspire", "curiosite", "eclaire", "pense", "ideas", "livres"],
@@ -233,6 +252,9 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     fi: ["utelias", "lukee", "oppii", "alykas", "kirjat", "ideat", "ajattelee", "tieto", "opiskelu", "viisaus"],
     et: ["uudishimulik", "loeb", "opib", "tark", "raamatud", "ideed", "motleb", "teadmine", "ope", "tarkus"],
     bg: ["lyuboznatelna", "chete", "uchi", "umna", "knigi", "idei", "misli", "znanie", "ucheba", "mudrost"],
+    lt: ["smalsi", "skaito", "mokosi", "protinga", "knygos", "ideos", "ismintis", "galvoja", "zinios", "studijos"],
+    lv: ["zinkariga", "lasa", "macas", "gudra", "gramatas", "idejas", "gudriba", "doma", "zinasanas", "studijas"],
+    ja: ["kouki", "dokusho", "manabi", "kashikoi", "hon", "idea", "chie", "kangaeru", "chishiki", "benkyo"],
   },
   clean_girl: {
     fr: ["douce", "naturel", "glow", "simple", "calme", "soft", "pure", "zen", "fresh", "light"],
@@ -263,6 +285,9 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     fi: ["pehmea", "luonnollinen", "glow", "yksinkertainen", "rauhallinen", "raikas", "puhdas", "kevyt", "soft", "clean"],
     et: ["pehme", "loomulik", "glow", "lihtne", "rahulik", "varske", "puhas", "kerge", "soft", "clean"],
     bg: ["nezhna", "estestvena", "glow", "prosta", "spokoyna", "svezha", "chista", "leka", "soft", "clean"],
+    lt: ["svelni", "naturali", "glow", "paprasta", "rami", "gaivi", "tyra", "lengva", "soft", "clean"],
+    lv: ["maiga", "dabiska", "glow", "vienkarsa", "mieriga", "svaiga", "tira", "viegla", "soft", "clean"],
+    ja: ["yawaraka", "shizen", "glow", "simple", "odayaka", "sawayaka", "junsui", "karui", "soft", "clean"],
   },
   cinema: {
     fr: ["cinema", "scene", "film", "plan", "ecran", "cadre", "story", "take", "reel", "cut"],
@@ -293,6 +318,9 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     fi: ["elokuva", "kohtaus", "filmi", "kuva", "kangas", "tarina", "take", "leikkaus", "shot", "reel"],
     et: ["kino", "stseen", "film", "kaader", "ekraan", "lugu", "take", "loige", "shot", "reel"],
     bg: ["kino", "stsena", "film", "kadar", "ekran", "istoriya", "take", "montazh", "shot", "reel"],
+    lt: ["kinas", "scena", "filmas", "kadras", "ekranas", "istorija", "take", "montazas", "shot", "reel"],
+    lv: ["kino", "aina", "filma", "kadrs", "ekrans", "stasts", "take", "montaza", "shot", "reel"],
+    ja: ["eiga", "scene", "film", "koma", "screen", "monogatari", "take", "henshu", "shot", "reel"],
   },
   anciens: {
     fr: ["histoire", "antique", "mythe", "legende", "savoir", "epoque", "relique", "ancien", "memoire", "heritage"],
@@ -323,6 +351,9 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     fi: ["historia", "antiikki", "myytti", "legenda", "reliikki", "kausi", "perinto", "muisto", "klassikko", "menneisyys"],
     et: ["ajalugu", "antiik", "muut", "legend", "reliikvia", "ajastu", "parand", "malu", "klassika", "minevik"],
     bg: ["istoriya", "antichnost", "mit", "legenda", "relikva", "epoha", "nasledstvo", "pamet", "klasika", "minalo"],
+    lt: ["istorija", "antika", "mitas", "legenda", "relikvija", "epocha", "paveldas", "atmintis", "klasika", "praeitis"],
+    lv: ["vesture", "antika", "mits", "legenda", "relikvija", "laikmets", "mantojums", "atmina", "klasika", "pagatne"],
+    ja: ["rekishi", "kodai", "shinwa", "densetsu", "ibutsu", "jidai", "isan", "kioku", "koten", "mukashi"],
   },
   default: {
     fr: ["cultive", "savoir", "culture", "evolue", "grandit", "apprend", "progresse", "developpe", "inspire", "eclaire"],
@@ -353,6 +384,9 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     fi: ["kulttuuri", "kasvu", "tieto", "kehittyy", "oppii", "ajattelu", "kehitys", "innostaa", "parantaa", "viisaus"],
     et: ["kultuur", "kasv", "teadmine", "areneb", "opib", "moistmine", "areng", "inspireerib", "parandab", "tarkus"],
     bg: ["kultura", "rastezh", "znanie", "razviva", "uchi", "mislene", "razvitie", "vdahnovyava", "podobryava", "mudrost"],
+    lt: ["kultura", "augimas", "zinios", "tobulina", "mokosi", "mastymas", "raida", "ikvepia", "gerina", "ismintis"],
+    lv: ["kultura", "izaugsme", "zinasanas", "attistas", "macas", "domasana", "attistiba", "iedvesmo", "uzlabo", "gudriba"],
+    ja: ["kyoyo", "seicho", "chishiki", "shinka", "manabu", "shiko", "hatten", "inspire", "kaizen", "chie"],
   },
 };
 

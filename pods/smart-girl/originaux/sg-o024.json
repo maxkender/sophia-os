@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o024",
+ "schema_id": "magnetic-speaking",
+ "titre": "stop saying \"sad\": words to describe your feelings like a writer #vocabulary #speakbetter #eloquence #smartgirl #englishwords",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a"
+ ],
+ "notes": "variante de sg-o005. cta C. Variante de sg-o005 (« stop saying \"very\" », rang S, 80 k vues en français le 25/10 selon le chef des podz) : même schéma magnetic-speaking (d9fe736b r 4,12 ; 322dd035 r 6,05 ; 229c66cb r 3,15), même format « instead of … say … » en minuscules, un autre mot faible à remplacer. CTA au 27/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C = l'appli comme un item ou un rituel de la liste (« an app like Sophia » à la place du scroll ou d'une activité). Mot remplacé : « sad ». Paires au sens courant du dictionnaire : wistful, nostalgic, heartbroken, melancholy, disheartened, weary. Accroches écrites : « stop saying \"sad\": words to describe your feelings like a writer » (retenue : le format de sg-o005, un angle émotions qui se traduit bien), « words for feelings you can't explain » (écartée : proche de « 12 emotions that don't exist in English », déjà dans le label), « stop saying \"sad\": words that make you sound dangerously well spoken » (écartée : trop proche de sg-o022). Sophia en rituel (cta C : l'appli à la place du scroll). Images de la banque (sources @b3tteryou et @speakbetter14), sans texte ni marque ; slide Sophia sur un livre ouvert, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "31f11bae",
+   "texte_overlay": "stop saying \"sad\"\nwords to describe your\nfeelings like a writer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "be92791b",
+   "texte_overlay": "instead of \"a little sad\"\nsay \"wistful\"\n\ninstead of \"sad about the past\"\nsay \"nostalgic\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2a2b2352",
+   "texte_overlay": "instead of \"very sad\"\nsay \"heartbroken\"\n\ninstead of \"quietly sad\"\nsay \"melancholy\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "61d82975",
+   "texte_overlay": "instead of \"sad and let down\"\nsay \"disheartened\"\n\ninstead of \"sad and tired\"\nsay \"weary\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "75d77488",
+   "texte_overlay": "naming a feeling precisely\nhelps you understand it,\nand helps others\nunderstand you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b7fe2c11",
+   "texte_overlay": "where do writers find\nwords like these?\nthey read a little\nevery single day.",
+   "texte_sophia": "where do writers find\nwords like these? i swap\n5 minutes of scrolling for\nan app like sophia: one\nlesson of art or history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eb03ed0f",
+   "texte_overlay": "save this for the days\nwords fail you\nwhich one feels like you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/8.jpg"
+  }
+ ]
+}

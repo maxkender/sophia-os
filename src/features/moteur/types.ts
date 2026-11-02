@@ -274,6 +274,12 @@ export interface PosterProfil {
   langues: string[];
   nationalite: string | null;
   upwork_url: string | null;
+  /** Lien du contrat Upwork (0358). */
+  upwork_contrat_url?: string | null;
+  /** Email personnel, celui de Slack (0358). */
+  email_perso?: string | null;
+  /** Le lundi de sa cohorte (0391), changé seulement par « Reporter » (page Cohortes). */
+  cohorte_lundi?: string | null;
   cout_mensuel: number | null;
   compte_id: string | null;
   handle_tiktok: string | null;
@@ -394,6 +400,11 @@ export interface ReglagesTierlist {
   repechage_passages: number;
   /** Jours minimum avant qu'un contenu puisse repasser sur le même compte. */
   ecart_min_meme_contenu: number;
+  /**
+   * Jours minimum entre deux posts d'un compte à la même accroche ou à la même
+   * image de couverture, même venant de deux contenus différents (0 désactive).
+   */
+  ecart_min_meme_accroche: number;
   /** Jours d'attente d'une mesure avant de relancer le cycle au même rang. */
   requalif_max_jours: number;
   /** Vues qu'un passage d'un B doit atteindre pour qu'il reste en B (0 désactive). */
@@ -425,6 +436,11 @@ export interface ReglagesScoring {
    * Faible = l'écart 1k vs 20k vues reste visible. Défaut 1.
    */
   elo_regularisation_k: number;
+  /**
+   * Vues TikTok à partir desquelles le slideshow entre même sous le seuil
+   * (note planchée au seuil, comme « Forcer »). 0 = jamais. Défaut 40000.
+   */
+  elo_vues_force_import: number;
 }
 
 export interface ReglagesPaiement {
@@ -465,11 +481,6 @@ export interface ReglagesFileLabels {
   par_application?: Record<string, FileLabelsApplication>;
 }
 
-export interface ReglagesWarmup {
-  /** Durée du warmup en heures (défaut 24). */
-  heures: number;
-}
-
 export interface Reglages {
   repartition: { recycle: number; remanie: number; nouveau: number };
   frequence: { posts_par_jour: number };
@@ -493,7 +504,6 @@ export interface Reglages {
   assignation_auto: { actif: boolean };
   nettoyage: ReglagesNettoyage;
   file_labels_comptes: ReglagesFileLabels;
-  warmup: ReglagesWarmup;
 }
 
 export interface StatsCompte {

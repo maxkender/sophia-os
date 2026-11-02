@@ -69,6 +69,19 @@ export function fond(ctx: Ctx, img: Image, cadrage: Cadrage = {}, assombrir = 0)
   }
 }
 
+/** Une photo qui remplit une bande horizontale de la slide (collage haut / bas, « older sister advice »). */
+export function fondBande(ctx: Ctx, img: Image, y: number, h: number, cadrage: Cadrage = {}) {
+  const s = Math.max(L / img.width, h / img.height) * (cadrage.zoom ?? 1);
+  const lw = img.width * s;
+  const lh = img.height * s;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, y, L, h);
+  ctx.clip();
+  ctx.drawImage(img, (L - lw) * (cadrage.x ?? 0.5), y + (h - lh) * (cadrage.y ?? 0.5), lw, lh);
+  ctx.restore();
+}
+
 /** Ombre douce des textes jaunes, comme sur ses slides. */
 function ombreTexte(ctx: Ctx) {
   ctx.shadowColor = "rgba(0,0,0,0.42)";

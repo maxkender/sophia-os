@@ -44,6 +44,9 @@ export const HASHTAGS_PAR_LANGUE: Record<string, string[]> = {
   fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#opiTikTokissa", "#motivaatio", "#faktat", "#kulttuuri", "#fyp", "#vinkit", "#alykas"],
   et: ["#oppimine", "#eneseareng", "#booktok", "#sinule", "#teadmised", "#opitiktokis", "#motivatsioon", "#faktid", "#kultuur", "#fyp", "#nipid", "#nutikas"],
   bg: ["#учене", "#саморазвитие", "#booktok", "#затебе", "#знание", "#ученевтикток", "#мотивация", "#факти", "#култура", "#fyp", "#съвети", "#умно"],
+  lt: ["#mokymasis", "#saviugda", "#booktok", "#tau", "#zinios", "#mokykistiktok", "#motyvacija", "#faktai", "#kultura", "#fyp", "#patarimai", "#protinga"],
+  lv: ["#macibas", "#pasattistiba", "#booktok", "#tev", "#zinasanas", "#macitiestiktoka", "#motivacija", "#fakti", "#kultura", "#fyp", "#padomi", "#gudri"],
+  ja: ["#勉強", "#自己啓発", "#booktok", "#おすすめ", "#知識", "#勉強垢", "#モチベーション", "#雑学", "#教養", "#fyp", "#豆知識", "#ライフハック"],
 };
 
 /**

@@ -5,9 +5,23 @@ en discussion**. On te demande par exemple « écris 2 originaux », « qu'est-c
 qui marche cette semaine ? » ou « où en sont les originaux ? ». Tu fais la
 demande de bout en bout, puis tu rends compte.
 
+> **BLEO, voie 1 (bascule des podz le dimanche 1/11 au soir).** Quand `npm run boite`
+> affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
+> - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
+>   la **jauge** combien de full tests déposer ;
+> - chaque original déclare `"type_bleo"` : `"declinaison"` avec
+>   `"parent_contenu_id"`, ou `"full_test"` ; ni `schema_id` ni preuve ;
+> - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
+>   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
+>   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - une G1 reprend aussi les symboles de l'accroche du parent qui sont des lettres ou des chiffres (« θ९ », « ૮૩ ») : le guichet les compte comme des mots (`accroche_differente` sinon) ; seuls les vrais symboles (♡, 𓆩, ✦) peuvent tomber ;
+> - le reste vaut toujours : le ton, le format, la recette, les images, les
+>   applis concurrentes et les personnes réelles, le playbook comme mémoire
+>   (`npm run playbook -- --mesurer`).
+
 Tu ne publies jamais rien. Tout ce que tu écris part dans la **file de
 validation** de l'OS (Pilotage → Pods). Ton podz est « sûr » : une livraison
-que personne ne rejette est validée toute seule 12 h après son dépôt.
+que personne ne rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission : uniquement des originaux écrits sur ce qui a marché
 
@@ -62,6 +76,7 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 | `npm run label -- --slides <id8>` | Donne les slides d'un contenu, position par position : `media_id` (image propre) et `reference_url` (slide d'inspiration). |
 | `npm run images -- --depuis <id8,id8…>` | Fait une planche des images propres de ces contenus, chaque vignette avec son id (★ = accroche). |
 | `npm run top-posts -- --compte renaraise` | Liste nos posts publiés les plus vus, tels que postés, avec leur slide d'appli (micabo ou UnSwipe). |
+| `npm run doublons -- <source_id…>` | Signale un titre de slide 1 ou une photo de couverture (même sous un autre `media_id`) déjà pris par un autre original. Une reprise est permise (§4.3 de `pods/ROUTINE.md`, §4.7 avant BLEO), à condition de changer quelque chose : items, angle, image ou CTA. Seule une copie identique (mêmes images, mêmes textes sur toutes les slides) est refusée. |
 | `npm run apercu -- <source_id\|all>` | Fait l'aperçu d'un original : texte posé sur les images, puis les slides d'inspiration. Les émojis y sortent en ▯ (police de l'aperçu) : c'est normal. |
 | `npm run deposer -- <source_id\|all> [--essai]` | Dépose dans la file avec la preuve du schéma. `--essai` fait les contrôles locaux seulement. |
 | `npm run etat` | Montre la file, les rangs, les vues et le r de chaque passage de tes originaux. |
@@ -103,7 +118,9 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	Ils sont concrets et **neufs** : jamais un item de la source recopié. Vérifie dans `donnees/label.json` que l'idée n'y est pas déjà.
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : bureaux, cahiers, ordinateurs, cafés, bibliothèques, filles de dos.
-	- **Jamais un visage reconnaissable** : on ne prête pas un conseil, ni une appli, à une personne réelle.
+	- Pas une image déjà prise par un autre original : les mêmes comptes publient tous les posts du label. Regarde `used_count` dans `donnees/images.json` et les `media_id` de `originaux/`.
+	- Les photos de la banque où l'on voit une célébrité (acteurs et actrices de films et de séries) sont acceptées (décision d'Adrien du 28/10).
+	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
 - **Musique** : celle du schéma.

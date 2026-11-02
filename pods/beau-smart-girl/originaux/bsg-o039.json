@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o039",
+ "schema_id": "habitudes-chelous",
+ "titre": "les habitudes chelous que je fais chaque soir et qui ont tout changé #pourtoi #habitudes #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7638500399523056397",
+ "inspirations": [
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "cta C (le défi en premier item ; voir CTA.md). Routine du 30/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 5 sur 7. Schéma habitudes-chelous (r 3,01, 5a0fa56c ; chez nous, bsg-o006 remonte à r 1,28 sur son 2e passage). Angle neuf : le soir. Accroches écrites : « les habitudes chelous que je fais chaque soir et qui ont tout changé » (retenue : l'accroche du gagnant, plus un moment précis), « mes habitudes chelous du soir » (écartée : sans promesse), « ce que je fais chaque soir pour me cultiver sans effort » (écartée : plus loin du gagnant). Items neufs en « je » (rien de repris de bsg-o006, bsg-o018, bsg-o032 ni de la source). Le calcul « un chapitre par soir, une vingtaine de livres par an » suppose environ 18 chapitres par livre, ordre de grandeur courant. Aucun conseil médical (la lumière du soir reste une ambiance). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia. Inspirations : slides 1, 2, 4, 6, 7 de 5a0fa56c (sa 3 montre une capture d'appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9ecfec7a",
+   "texte_overlay": "les habitudes chelous\nque je fais chaque soir\net qui ont tout changé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9f0d7628",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "9f53b6c3",
+   "texte_overlay": "j'éteins le plafonnier, j'allume une lampe.\n\nà 21 h, juste une petite lumière chaude.\nmon cerveau comprend que la journée se finit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9fdff800",
+   "texte_overlay": "je lis un chapitre avant 22 h.\n\npas un livre entier, un chapitre.\nça fait une vingtaine de livres par an.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a071d09c",
+   "texte_overlay": "je note une question pour demain.\n\nun truc que je me suis demandé dans la journée.\nle matin, je cherche la réponse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c13155b3",
+   "texte_overlay": "je prépare demain en cinq minutes.\n\nle sac, la tenue, le livre du trajet.\nle matin, plus rien à décider.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c1b5d650",
+   "texte_overlay": "vole-moi une habitude ;)\nenregistre pour ce soir.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

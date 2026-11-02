@@ -1,0 +1,242 @@
+{
+ "post_id": "original-018",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "starter pack: tornare [[a leggere]]"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(niente scaffale perfetto da booktok)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "un libro [[che ti piace davvero]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "non quello che «dovresti» leggere. quello che [[non riesci a mollare]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "un thriller finito vale più di [[un classico mollato a pagina 12]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "finire un libro [[ti fa venire voglia del prossimo]]. parti facile, al resto pensi dopo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "una [[matita]] nel libro"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "quello che sottolinei [[ti resta]]"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "la frase che ti ha colpito, la parola che non conoscevi, il pezzo che ti fa arrabbiare. [[il libro diventa tuo]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "e quando lo riapri anni dopo, ci ritrovi [[chi eri]] la prima volta che l'hai letto, riga per riga"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "un tascabile che [[vive nella tua borsa]]"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "per il treno, la sala d'attesa, ogni fila infinita"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "intorno a te scrollano tutti. tu invece [[leggi dieci pagine in più]]"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "bonus:"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "quei 10 minuti rubati qua e là [[si sommano più in fretta di quanto pensi]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "un telefono [[un po' noioso apposta]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "il tempo per leggere [[torna da solo, giuro]]"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "senza reels in cui cadere a mezzanotte, il libro sul comodino finalmente vince. [[la mezz'ora prima di dormire]] torna alle pagine"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "togli i reels da instagram (messaggi e storie restano) e blocca tiktok, [[l'app UnSwipe]] fa proprio questo"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "fr": "méfie-toi de [[tes propres biais]]",
+     "texte": "un [[club del libro in due]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "fr": "ton cerveau adore tout ce qui confirme [[ce que tu penses déjà]]",
+     "texte": "raccontare un capitolo a qualcuno è [[metà del divertimento]]"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "fr": "va chercher exprès [[le meilleur argument contre]] ton avis",
+     "texte": "scambiatevi libri e mandatevi [[le frasi che avete sottolineato]]"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "fr": "être plus intelligente, c'est surtout mieux voir [[quand ton raisonnement est faux]]",
+     "texte": "e all'improvviso leggere non è più una cosa da fare in camera tua, [[è una cosa da condividere]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -11,8 +11,8 @@ const compte = (id: string, nom: string) => ({ compte_id: id, nom, handle: nom.t
 
 const DASH: PilotageDashboard = {
   vuesSerie: [
-    { jour: "2026-10-22", vues_totales: 1000, vues_delta: 100, nb_comptes: 3 },
-    { jour: "2026-10-23", vues_totales: 1150, vues_delta: 150, nb_comptes: 3 },
+    { jour: "2026-10-22", vues: 100, posts: 4, comptes: 3, provisoire: false },
+    { jour: "2026-10-23", vues: 150, posts: 5, comptes: 3, provisoire: true },
   ],
   recruteurs: [{ id: "r1", nom: "Camille Roux", partBien: 0.5, nbCreateurs: 4 }],
   postsVeille: [

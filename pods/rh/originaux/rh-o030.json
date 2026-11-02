@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o030",
+ "schema_id": "erreurs-chomage",
+ "titre": "vrai ou faux : 6 idées reçues qui m'ont gardée au chômage #chomage #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 3. Routine du 27/10 (4 livraisons par jour). Règle §4.6 : seule rh-o028 reprend une famille d'accroche faite 3 fois en 7 jours (« quand j'étais rh »). rh-o027 est sur job-toxique (2 fois en 7 jours), rh-o029 et rh-o030 ouvrent des familles d'accroche jamais faites (« j'ai arrêté », « vrai ou faux »). essai (rh-o030 finit par 0) : format « vrai ou faux », jamais fait chez nous. Schéma erreurs-chomage (r 3,28 sur 5 passages, 4adc261e) : l'échec raconté puis réparé, ici idée reçue par idée reçue. Accroches écrites : « vrai ou faux : 6 idées reçues qui m'ont gardée au chômage » (retenue), « les mythes de la recherche d'emploi auxquels j'ai cru » (écartée : sans le jeu), « teste-toi : tu crois encore à ça ? » (écartée : vague). Aucun chiffre présenté comme une statistique générale. Rien sur les droits au chômage. CTA de fin jamais utilisé : son score sur 6. Inspirations : sans les slides 4 et 5 de la source (autres applis citées).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4274c341",
+   "texte_overlay": "vrai ou faux :\n6 idées reçues qui m'ont gardée\nau chômage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59d6d36a",
+   "texte_overlay": "« il faut cocher toutes les cases de l'annonce »\nFAUX\nl'annonce décrit un idéal. si tu coches l'essentiel, postule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "59fb19d8",
+   "texte_overlay": "« un trou dans le cv, c'est éliminatoire »\nFAUX\nce qui pose problème, c'est de ne pas savoir l'expliquer. prépare ta phrase",
+   "texte_sophia": "« un trou dans le cv, c'est éliminatoire »\nFAUX\nprépare ta phrase. la mienne : « j'en ai profité pour apprendre », 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5a1f4cf0",
+   "texte_overlay": "« relancer, c'est insister »\nFAUX\nun mail court une semaine après, c'est juste montrer que t'es intéressée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5b221e10",
+   "texte_overlay": "« en recherche, il faut y passer ses journées »\nFAUX\n2 heures bien faites valent mieux que 8 heures de scroll d'annonces",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5b5333f7",
+   "texte_overlay": "« les petites boîtes, c'est moins bien »\nFAUX\nmoins de candidats, plus de responsabilités, et t'apprends vite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5bbdf998",
+   "texte_overlay": "« si je suis refusée, c'est que je suis nulle »\nFAUX\nsouvent, c'est un autre profil déjà en tête. ça dit rien de toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5c452c26",
+   "texte_overlay": "t'en avais combien de bonnes ?\nréponds ton score sur 6",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

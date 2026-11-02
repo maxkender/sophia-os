@@ -37,6 +37,23 @@ export interface DecisionSlack {
   /** Le message au HM modifié sur la page pour ce posteur (0339) : remplace la consigne par défaut d'un nudge. */
   texteHm: string | null;
   fait: { par: string; heure: string } | null;
+  /** Le diagnostic du compte (0362, colonne calculée `diagnostic`). */
+  diagnostic?: DiagnosticCkd | null;
+}
+
+/** Le diagnostic d'un compte, calculé par `ckd_diagnostic` (0362). */
+export interface DiagnosticCkd {
+  badge: "ok" | "posts_manquants" | "vues_basses" | "shadowban";
+  attendus: number;
+  publies: number;
+  liens_manquants: string[];
+  mediane: number | null;
+  mediane_ref: number | null;
+  morts: number;
+  seuil_mort: number;
+  shadowban: boolean;
+  derniers_morts?: number | null;
+  derniers_max?: number | null;
 }
 
 export interface ZoneSlack {
@@ -112,6 +129,46 @@ function lienTiktok(handle: string | null): string {
   return handle ? ` · <https://www.tiktok.com/@${handle}|TikTok>` : "";
 }
 
+const BADGE_SLACK: Record<DiagnosticCkd["badge"], string> = {
+  ok: ":large_green_circle: OK",
+  posts_manquants: ":large_orange_circle: Missing posts",
+  vues_basses: ":large_yellow_circle: Low views",
+  shadowban: ":red_circle: Shadowban",
+};
+
+const VERDICT_SLACK: Record<DiagnosticCkd["badge"], string> = {
+  ok: "OK",
+  posts_manquants: "missing posts → make sure they publish everything and paste each link",
+  vues_basses: "views far below the country → go through their posts with them",
+  shadowban: "probable shadowban → new account",
+};
+
+function nombre(n: number | null | undefined): string {
+  return n === null || n === undefined ? "—" : Math.round(n).toLocaleString("en-US");
+}
+
+/** « 17, 18, 20, 21 Oct » */
+function joursSlack(jours: string[]): string {
+  if (jours.length === 0) return "";
+  const mois = new Date(`${jours[jours.length - 1]}T12:00:00Z`).toLocaleString("en-US", { month: "short", timeZone: "UTC" });
+  return `${jours.map((j) => Number(j.slice(8, 10))).join(", ")} ${mois}`;
+}
+
+/** Le diagnostic en 3 lignes, en haut du message : posts, vues, verdict (0362). */
+export function lignesDiagnosticSlack(d: DiagnosticCkd): string[] {
+  const manquants = Math.max(0, d.attendus - d.publies);
+  const liens = d.liens_manquants ?? [];
+  const posts = `Posts: ${d.publies} published out of ${d.attendus} expected` +
+    (manquants > 0 ? `, ${manquants} link${manquants > 1 ? "s" : ""} missing${liens.length ? ` (${joursSlack(liens)})` : ""}` : "");
+  const vues = `Views: median ${nombre(d.mediane)} (country: ${nombre(d.mediane_ref)})` +
+    (d.morts > 0 ? `, ${d.morts} dead post${d.morts > 1 ? "s" : ""} (< ${nombre(d.seuil_mort)} views)` : "");
+  return [`${BADGE_SLACK[d.badge]} · ${posts}`, vues, `Verdict: ${VERDICT_SLACK[d.badge]}`];
+}
+
+function diagnosticEnTete(d: DecisionSlack): string[] {
+  return d.diagnostic ? lignesDiagnosticSlack(d.diagnostic).map((l) => `> ${l}`) : [];
+}
+
 function quiHm(z: ZoneSlack, mention: boolean): string {
   if (z.slackId && mention) return `<@${z.slackId}>`;
   if (!z.hmId) return "No HM";
@@ -167,13 +224,22 @@ function consigneEnvoyee(d: DecisionSlack): string {
   return modifiee ? echapperSlack(modifiee) : consigneNudge(d);
 }
 
-/** Le texte d'une décision dans le fil de sa zone (samedi). */
-export function texteDecision(d: DecisionSlack, semaine: number): string {
+/** « 9 Nov » : le lundi de démarrage d'un 2ᵉ compte, en anglais. */
+function jourAnglais(jour: string): string {
+  return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" })
+    .format(new Date(`${jour}T12:00:00Z`));
+}
+
+/**
+ * Le texte d'une décision dans le fil de sa zone (samedi). `lundiDouble` : le
+ * lundi où démarre le 2ᵉ compte d'un Double (samedi + 9 jours, 0369).
+ */
+export function texteDecision(d: DecisionSlack, semaine: number, lundiDouble?: string): string {
   const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
   const lignes: string[] = [];
   if (d.decision === "ne_pas_renouveler") {
     lignes.push(`:no_entry: *Don't renew* ${qui}`);
-    lignes.push("The account stops Sunday night. Don't fund their next milestone.");
+    lignes.push("Stops Sunday night: don't fund the next milestone.");
     if (d.autresComptes.length > 0) {
       lignes.push(`They keep ${d.autresComptes.map((h) => `@${h}`).join(", ")}: next milestone for 1 account less.`);
     }
@@ -181,18 +247,39 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
     lignes.push(`:repeat: *Recreate* ${qui}`);
     lignes.push(
       `New account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to start ` +
-        "the warm-up in the OS before Sunday midnight. The old account stops Sunday night; the milestone doesn't change.",
+        "the warm-up in the OS before Sunday midnight. The old account is already stopped (moved to the Archive); the milestone doesn't change.",
+    );
+  } else if (d.decision === "doubler" && !d.nouveauHandle) {
+    // v3 (0382) : le posteur reçoit l'offre dans l'OS et répond lui-même. Pour la HM, de l'information.
+    lignes.push(`:heavy_plus_sign: *Double offered* ${qui}`);
+    lignes.push(
+      "The poster gets a pop-up in the OS from Sunday (Yes / No, until Wednesday night). " +
+        (lundiDouble
+          ? `If they say yes, their 2nd account starts on Monday ${jourAnglais(lundiDouble)}` +
+            ` (milestone "Week ${semaineIso(lundiDouble)} (2 acc)" from then on). `
+          : "") +
+        "Nothing to do for you.",
     );
   } else if (d.decision === "doubler") {
     lignes.push(`:heavy_plus_sign: *Double* ${qui}`);
-    lignes.push(
-      `Second account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to ` +
-        `start the warm-up in the OS before Sunday midnight. Next milestone: "Week ${semaine} (2 acc)".`,
-    );
+    if (lundiDouble) {
+      lignes.push(
+        `2nd account *${compte(d.nouveauHandle)}*, starts on Monday ${jourAnglais(lundiDouble)}. ` +
+          `From that week on: milestone "Week ${semaineIso(lundiDouble)} (2 acc)", pay × 2. ` +
+          "The poster creates it on TikTok and starts the warm-up in the OS the week before.",
+      );
+    } else {
+      lignes.push(
+        `Second account ready in the OS: *${compte(d.nouveauHandle)}*. Ask the poster to create it on TikTok and to ` +
+          `start the warm-up in the OS before Sunday midnight. Next milestone: "Week ${semaine} (2 acc)".`,
+      );
+    }
   } else {
     lignes.push(`:speech_balloon: *Follow up* ${qui}`);
     lignes.push(consigneEnvoyee(d));
   }
+  // Le diagnostic juste sous le titre, avant le détail.
+  lignes.splice(1, 0, ...diagnosticEnTete(d));
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
 }
@@ -200,7 +287,7 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
 /** Le texte d'un nouveau posteur à relancer (jeudi) : quoi vérifier avec lui. */
 export function texteSuiviJeudi(d: DecisionSlack): string {
   const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
-  const lignes = [`:eyes: *Follow up* ${qui}`, consigneEnvoyee(d)];
+  const lignes = [`:eyes: *Follow up* ${qui}`, ...diagnosticEnTete(d), consigneEnvoyee(d)];
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
 }
@@ -221,7 +308,7 @@ function boutonDone(d: DecisionSlack): Bloc {
 }
 
 /** Le message d'une zone, le samedi : une section et un bouton Done par décision. */
-export function blocsZoneSamedi(z: ZoneSlack, semaine: number): Bloc[] {
+export function blocsZoneSamedi(z: ZoneSlack, semaine: number, lundiDouble?: string): Bloc[] {
   const blocs: Bloc[] = [{
     type: "section",
     text: {
@@ -231,7 +318,7 @@ export function blocsZoneSamedi(z: ZoneSlack, semaine: number): Bloc[] {
   }];
   for (const d of z.decisions) {
     blocs.push({ type: "divider" });
-    blocs.push({ type: "section", text: { type: "mrkdwn", text: texteDecision(d, semaine) } });
+    blocs.push({ type: "section", text: { type: "mrkdwn", text: texteDecision(d, semaine, lundiDouble) } });
     blocs.push(boutonDone(d));
   }
   return blocs;
@@ -260,7 +347,9 @@ export function blocsZoneJeudi(z: ZoneSlack): Bloc[] {
 
 /** Le message d'une zone selon le contrôle. */
 export function blocsZone(type: "jeudi" | "samedi", z: ZoneSlack, jour: string): Bloc[] {
-  return type === "samedi" ? blocsZoneSamedi(z, semaineDesDecisions(jour)) : blocsZoneJeudi(z);
+  return type === "samedi"
+    ? blocsZoneSamedi(z, semaineDesDecisions(jour), ajouterJours(jour, 9))
+    : blocsZoneJeudi(z);
 }
 
 function comptes(type: "jeudi" | "samedi", z: ZoneSlack): string {
@@ -311,12 +400,47 @@ export function texteRappel(jour: string, zones: ZoneSlack[]): string | null {
     const morceaux: string[] = [];
     if (kills.length > 0) morceaux.push(`don't fund ${kills.map((d) => `${compte(d.handle)} (${d.poster})`).join(", ")}`);
     if (doubles.length > 0) {
-      morceaux.push(`fund "Week ${semaine} (2 acc)" for ${doubles.map((d) => `${compte(d.handle)} (${d.poster})`).join(", ")}`);
+      // Le 2ᵉ compte d'un Double démarre le lundi J+9 (0369) : × 2 à partir de là.
+      const lundi = ajouterJours(jour, 9);
+      morceaux.push(
+        `fund 1 account this week, then "Week ${semaineIso(lundi)} (2 acc)" from Monday ${jourAnglais(lundi)} for ` +
+          doubles.map((d) => `${compte(d.handle)} (${d.poster})`).join(", "),
+      );
     }
     lignes.push(`• ${titreZone(z, true)}: ${morceaux.join(" · ")}`);
   }
   if (lignes.length === 0) return null;
   return `:moneybag: *Before funding this week's milestones (week ${semaine})*\n${lignes.join("\n")}`;
+}
+
+const DECISION_MAX: Record<DecisionEnvoyee, string> = {
+  ne_pas_renouveler: "Kill",
+  recreer: "New account",
+  doubler: "Double offered",
+  nudge: "Nudge",
+};
+
+/**
+ * Le récap pour Max en message privé (prompt 15, point 3) : plus de fil par
+ * zone dans #managers-hq. Par HM, chaque décision envoyée, sans mention (rien
+ * à faire pour la HM). `null` s'il n'y a rien.
+ */
+export function texteRecapMax(type: "jeudi" | "samedi", jour: string, zones: ZoneSlack[]): string | null {
+  const lignes: string[] = [];
+  for (const z of zones) {
+    if (z.decisions.length === 0) continue;
+    lignes.push(`*${quiHm(z, false)}${z.zone ? ` · ${z.zone}` : ""}*`);
+    for (const d of z.decisions) {
+      const nouveau = d.nouveauHandle ? ` → @${d.nouveauHandle}` : "";
+      lignes.push(`• ${DECISION_MAX[d.decision]}: ${compte(d.handle)} (${d.poster})${nouveau}`);
+    }
+  }
+  if (lignes.length === 0) return null;
+  const n = zones.reduce((t, z) => t + z.decisions.length, 0);
+  const titre = type === "samedi"
+    ? `:clipboard: *Check, Kill or Double · week ${semaineDesDecisions(jour)}* (${jourCourt(jour)}): ${n} decision${n > 1 ? "s" : ""}`
+    : `:clipboard: *Check, Kill or Double · Thursday follow-ups* (${jourCourt(jour)}): ${n} decision${n > 1 ? "s" : ""}`;
+  return `${titre}\n${lignes.join("\n")}\n_Nothing was posted in #managers-hq. HMs see Kill / Double / New account on their dashboard._`;
 }
 
 // ---------------------------------------------------------------------------
@@ -340,10 +464,11 @@ export interface PropositionSlack {
   fait_at: string | null;
   fait_par: string | null;
   slack_ts: string | null;
+  diagnostic?: DiagnosticCkd | null;
 }
 
 export const COLONNES_PROPOSITION =
-  "id, controle_id, regle, decision, compte_id, poster_id, hm_id, pays, donnees, note, hm_texte, nouveau_compte_id, envoye_at, fait_at, fait_par, slack_ts";
+  "id, controle_id, regle, decision, compte_id, poster_id, hm_id, pays, donnees, note, hm_texte, nouveau_compte_id, envoye_at, fait_at, fait_par, slack_ts, diagnostic";
 
 function nom(p: { prenom: string | null; nom: string | null } | undefined): string {
   return [p?.prenom, p?.nom].filter(Boolean).join(" ").trim();
@@ -413,6 +538,7 @@ export async function zonesDe(supabase: Supabase, props: PropositionSlack[]): Pr
       note: p.note,
       texteHm: p.hm_texte ?? null,
       fait: p.fait_at && p.fait_par ? { par: p.fait_par, heure: heureCourteParis(p.fait_at) } : null,
+      diagnostic: p.diagnostic ?? null,
     });
   }
   const ordre = (d: DecisionSlack) => DECISIONS_ENVOYEES.indexOf(d.decision);

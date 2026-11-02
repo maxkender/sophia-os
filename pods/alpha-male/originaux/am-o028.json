@@ -1,0 +1,62 @@
+{
+ "source_id": "am-o028",
+ "schema_id": "took-me-years",
+ "titre": "7 things I wish I knew at a young age #lifelessons #men #mindset #selfimprovement #advice",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [
+  "ffc8aff6-ad7b-4e9f-b8ab-8e547e2810e5"
+ ],
+ "notes": "cta C. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est en 3e leçon sur 7. Routine d'avant BLEO (npm run boite : « podz sur BLEO : pas encore ») ; famille repérée dans la boîte pour information. Schéma took-me-years (r 5,35, ffc8aff6). La famille « 10 things i wish i knew at a young age » fait r 3,43 en nl (002290bb, boîte du 30/10) ; je la reprends avec 7 leçons neuves, ROUTINE §4.7. Accroches écrites : « 7 things I wish I knew at a young age » (retenue : l'accroche gagnante, un autre nombre), « What I'd tell my 18-year-old self » (écartée : sans preuve), « Lessons I learned too late » (écartée : plus vague). Leçons neuves (vérifié dans donnees/label.json et dans le post parent : clout, argent, cercle, flex, douleur). Pas de conseil d'argent précis. Images : la banque du label ; célébrités en illustration acceptées depuis le 28/10, jamais sur la slide Sophia. Couverture : Matthew McConaughey en costume. Slide Sophia sur une chambre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cbe197df",
+   "texte_overlay": "7 things I wish I knew\nat a young age",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ccd7e2f4",
+   "texte_overlay": "1. Your friends' habits\nbecome yours.\nChoose the habits,\nnot just the people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "243d8af0",
+   "texte_overlay": "2. Being broke at 20 is normal.\nStaying broke because of\nbad habits isn't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "64f1fe10",
+   "texte_overlay": "3. School ends.\nLearning shouldn't.\nOne new thing a day\nchanges who you are by 30.",
+   "texte_sophia": "3. School ends.\nLearning shouldn't.\nLearn one thing a day\non the Sophia app: 5 minutes\nof history, science or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6431c056",
+   "texte_overlay": "4. Your parents were\nfiguring it out too.\nForgive them sooner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cd1192b6",
+   "texte_overlay": "5. Sleep is a tool,\nnot a luxury.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cd1423c9",
+   "texte_overlay": "6. The gym fixes more\nthan your body.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "cc4580c3",
+   "texte_overlay": "7. Saying no is a skill.\nPractise it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/8.jpg"
+  }
+ ]
+}

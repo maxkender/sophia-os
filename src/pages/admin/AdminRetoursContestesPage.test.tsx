@@ -20,6 +20,7 @@ vi.mock("@/features/moteur/api", () => ({
   enregistrerAvisRelecture: (a: unknown) => enregistrerAvisRelecture(a),
   supprimerAvisRelecture: (id: string) => supprimerAvisRelecture(id),
   trancherContestation: (id: string, v: string, r: string) => trancherContestation(id, v, r),
+  ameliorerReview: (texte: string) => Promise.resolve({ texte: `EN: ${texte}` }),
   resoudreTiktok: vi.fn().mockResolvedValue({ url: "", id: null, thumbnail: null }),
 }));
 
@@ -137,8 +138,16 @@ describe("AdminRetoursContestesPage", () => {
     fireEvent.change(await screen.findByRole("textbox", { name: /Réponse au créateur|Answer to the creator/ }), {
       target: { value: "You were right, sorry!" },
     });
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValueOnce(false).mockReturnValueOnce(true);
     fireEvent.click(screen.getByRole("button", { name: /Le créateur a raison|The creator is right/ }));
-    await waitFor(() => expect(trancherContestation).toHaveBeenCalledWith("rev-agent", "fondee", "You were right, sorry!"));
+    // Prompt 15, point 1 : le texte anglais final est montré ; refusé, rien ne part.
+    await waitFor(() => expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("EN: You were right, sorry!")));
+    expect(trancherContestation).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: /Le créateur a raison|The creator is right/ }));
+    await waitFor(() =>
+      expect(trancherContestation).toHaveBeenCalledWith("rev-agent", "fondee", "EN: EN: You were right, sorry!"),
+    );
+    confirmer.mockRestore();
   });
 
   it("les traités gardent leur décision", async () => {

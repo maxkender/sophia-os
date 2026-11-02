@@ -1,0 +1,213 @@
+{
+ "id": "mm-o026",
+ "format": "carrousel",
+ "titre": "Things I stopped doing to get my focus back",
+ "legendes": {
+  "en": "things I stopped doing to get my focus back #focus #mentalmaxxing #brainrot #selfimprovement",
+  "fr": "ce que j’ai arrêté de faire pour retrouver ma concentration #concentration #mentalmaxxing #brainrot #developpementpersonnel",
+  "de": "Dinge, mit denen ich aufgehört habe, um meinen Fokus zurückzubekommen #fokus #mentalmaxxing #brainrot #selbstverbesserung",
+  "es": "cosas que dejé de hacer para recuperar mi concentración #concentracion #mentalmaxxing #brainrot #superacionpersonal",
+  "it": "cose che ho smesso di fare per ritrovare la concentrazione #concentrazione #mentalmaxxing #brainrot #crescitapersonale",
+  "tr": "odağımı geri kazanmak için bıraktığım şeyler #odak #mentalmaxxing #brainrot #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7693198322500259090/1",
+   "boite": [
+    265,
+    425,
+    580,
+    815
+   ]
+  },
+  "frise": false,
+  "theme": {
+   "en": "Things I stopped",
+   "fr": "Ce que j’ai arrêté",
+   "de": "Womit ich aufhörte",
+   "es": "Lo que dejé de hacer",
+   "it": "Cosa ho smesso di fare",
+   "tr": "Bıraktığım şeyler"
+  },
+  "sous": {
+   "en": "to get my focus back",
+   "fr": "pour retrouver ma concentration",
+   "de": "für meinen Fokus",
+   "es": "para recuperar el foco",
+   "it": "per ritrovare la concentrazione",
+   "tr": "odağımı geri kazanmak için"
+  }
+ },
+ "items": [
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The first thing I stopped: short videos. I deleted them with UnSwipe and got my evenings back.",
+    "fr": "La première chose que j’ai arrêtée : les vidéos courtes. Je les ai supprimées avec UnSwipe et j’ai retrouvé mes soirées.",
+    "de": "Als Erstes habe ich mit Kurzvideos aufgehört. Ich habe sie mit UnSwipe gelöscht und meine Abende zurückbekommen.",
+    "es": "Lo primero que dejé: los vídeos cortos. Los borré con UnSwipe y recuperé mis noches.",
+    "it": "La prima cosa che ho smesso: i video brevi. Li ho eliminati con UnSwipe e ho ritrovato le mie serate.",
+    "tr": "Bıraktığım ilk şey: kısa videolar. UnSwipe ile sildim ve akşamlarımı geri aldım."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Eating in front of a screen",
+    "fr": "Manger devant un écran",
+    "de": "Essen vor dem Bildschirm",
+    "es": "Comer delante de una pantalla",
+    "it": "Mangiare davanti a uno schermo",
+    "tr": "Ekran karşısında yemek"
+   },
+   "texte": {
+    "en": "Now I just eat. I taste the food, and I actually feel when I am full.",
+    "fr": "Maintenant je mange, c’est tout. Je sens le goût, et je sens vraiment quand j’ai assez mangé.",
+    "de": "Jetzt esse ich einfach. Ich schmecke das Essen und merke wirklich, wann ich satt bin.",
+    "es": "Ahora solo como. Saboreo la comida y noto de verdad cuando estoy lleno.",
+    "it": "Ora mangio e basta. Sento il sapore, e capisco davvero quando sono sazio.",
+    "tr": "Artık sadece yiyorum. Tadını alıyorum ve doyduğumu gerçekten hissediyorum."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Skipping songs after 10 seconds",
+    "fr": "Zapper les sons au bout de 10 secondes",
+    "de": "Songs nach 10 Sekunden skippen",
+    "es": "Saltar canciones a los 10 segundos",
+    "it": "Saltare le canzoni dopo 10 secondi",
+    "tr": "Şarkıları 10 saniyede geçmek"
+   },
+   "texte": {
+    "en": "I let whole albums play now. It sounds small, but it taught me to stay with one thing.",
+    "fr": "Maintenant je laisse tourner des albums entiers. Ça paraît petit, mais ça m’a appris à rester sur une chose.",
+    "de": "Jetzt lasse ich ganze Alben laufen. Klingt klein, aber so habe ich gelernt, bei einer Sache zu bleiben.",
+    "es": "Ahora dejo sonar álbumes enteros. Parece poco, pero me enseñó a quedarme en una sola cosa.",
+    "it": "Ora lascio andare album interi. Sembra poco, ma mi ha insegnato a restare su una cosa sola.",
+    "tr": "Artık albümlerin tamamını dinliyorum. Küçük görünüyor ama tek bir şeyde kalmayı öğretti."
+   }
+  },
+  {
+   "src": "7697820355800370448/2",
+   "boite": [
+    312,
+    438,
+    456,
+    450
+   ],
+   "titre": {
+    "en": "Gaming until 2am",
+    "fr": "Jouer jusqu’à 2h du matin",
+    "de": "Zocken bis 2 Uhr",
+    "es": "Jugar hasta las 2",
+    "it": "Giocare fino alle 2",
+    "tr": "Gece 2’ye kadar oyun"
+   },
+   "texte": {
+    "en": "I still play, but I stop at 11. The next morning is worth more than one more match.",
+    "fr": "Je joue encore, mais j’arrête à 23h. Le lendemain matin vaut plus qu’une partie de plus.",
+    "de": "Ich zocke noch, aber um 23 Uhr ist Schluss. Der nächste Morgen ist mehr wert als noch eine Runde.",
+    "es": "Sigo jugando, pero paro a las 11. La mañana siguiente vale más que una partida más.",
+    "it": "Gioco ancora, ma smetto alle 23. La mattina dopo vale più di una partita in più.",
+    "tr": "Hâlâ oynuyorum ama 23.00’te bırakıyorum. Ertesi sabah bir maçtan daha değerli."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Doing three things at once",
+    "fr": "Faire trois choses à la fois",
+    "de": "Drei Dinge gleichzeitig tun",
+    "es": "Hacer tres cosas a la vez",
+    "it": "Fare tre cose insieme",
+    "tr": "Aynı anda üç iş yapmak"
+   },
+   "texte": {
+    "en": "One task, one window, one timer. I get more done in two hours than I used to in a day.",
+    "fr": "Une tâche, une fenêtre, un minuteur. J’en fais plus en deux heures qu’avant en une journée.",
+    "de": "Eine Aufgabe, ein Fenster, ein Timer. Ich schaffe in zwei Stunden mehr als früher an einem Tag.",
+    "es": "Una tarea, una ventana, un temporizador. Hago más en dos horas que antes en un día.",
+    "it": "Un compito, una finestra, un timer. Faccio di più in due ore che prima in un giorno.",
+    "tr": "Tek iş, tek pencere, tek zamanlayıcı. Eskiden bir günde yaptığımdan fazlasını iki saatte yapıyorum."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Reaching for my phone in every pause",
+    "fr": "Prendre mon téléphone à chaque pause",
+    "de": "Bei jeder Pause zum Handy greifen",
+    "es": "Coger el móvil en cada pausa",
+    "it": "Prendere il telefono a ogni pausa",
+    "tr": "Her arada telefona uzanmak"
+   },
+   "texte": {
+    "en": "Elevator, red light, waiting for coffee. I leave those moments empty now, and my head feels lighter.",
+    "fr": "Ascenseur, feu rouge, attente du café. Je laisse ces moments vides, et ma tête est plus légère.",
+    "de": "Aufzug, rote Ampel, Warten auf Kaffee. Ich lasse diese Momente jetzt leer, und mein Kopf fühlt sich leichter an.",
+    "es": "Ascensor, semáforo, esperar el café. Ahora dejo esos momentos vacíos, y mi cabeza está más ligera.",
+    "it": "Ascensore, semaforo rosso, attesa del caffè. Ora lascio quei momenti vuoti, e la testa è più leggera.",
+    "tr": "Asansör, kırmızı ışık, kahve beklerken. Artık o anları boş bırakıyorum ve kafam daha hafif."
+   }
+  },
+  {
+   "src": "7698939556371975431/5",
+   "boite": [
+    336,
+    486,
+    456,
+    486
+   ],
+   "titre": {
+    "en": "Training only when motivated",
+    "fr": "M’entraîner seulement quand j’étais motivé",
+    "de": "Nur mit Motivation trainieren",
+    "es": "Entrenar solo con motivación",
+    "it": "Allenarmi solo quando ero motivato",
+    "tr": "Sadece motiveyken antrenman"
+   },
+   "texte": {
+    "en": "Now it is on the calendar, three times a week. Motivation shows up after I start, not before.",
+    "fr": "Maintenant c’est dans l’agenda, trois fois par semaine. La motivation arrive une fois lancé, pas avant.",
+    "de": "Jetzt steht es im Kalender, dreimal pro Woche. Die Motivation kommt, wenn ich anfange, nicht vorher.",
+    "es": "Ahora está en el calendario, tres veces por semana. La motivación llega al empezar, no antes.",
+    "it": "Ora è in agenda, tre volte a settimana. La motivazione arriva dopo che inizio, non prima.",
+    "tr": "Artık takvimde, haftada üç kez. Motivasyon başladıktan sonra geliyor, önce değil."
+   }
+  }
+ ],
+ "notes": "routine du 30/10 : accroche jamais faite chez nous (« things I stopped doing to get my focus back »), carrousel à la 1re personne. cta C : élément UnSwipe en 1er item (slide 2), à la 1re personne."
+}

@@ -1,0 +1,107 @@
+import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { Check } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { drapeauPays } from "@/features/moteur/pays";
+import { semaineIso } from "@/features/moteur/cohortes";
+import { ajouterJours } from "@/features/onboarding/datesRuul";
+import { CiblesRecrutementHm } from "@/features/recrutementCibles/CiblesHm";
+import { localeDate } from "@/locales/localeDate";
+
+import { listerDecisionsHm, type DecisionHm } from "./api";
+import { DiagnosticCompte } from "./DiagnosticCompte";
+
+const CLE = ["accueil-hm", "samedi"] as const;
+
+function LigneDecision({ d }: { d: DecisionHm }) {
+  const { t, i18n } = useTranslation();
+  // Double (0369) : le 2ᵉ compte démarre le lundi J+9 du samedi du contrôle.
+  const lundiDouble = ajouterJours(d.jour, 9);
+  const consigne = t(`ckd.decisionsHm.consignes.${d.decision}`, {
+    handle: d.nouveau_handle ?? "?",
+    date: new Intl.DateTimeFormat(localeDate(i18n.language), { day: "numeric", month: "long", timeZone: "UTC" })
+      .format(new Date(`${lundiDouble}T12:00:00Z`)),
+    semaine: semaineIso(lundiDouble),
+  });
+  return (
+    <div className="space-y-2 py-3 first:pt-0 last:pb-0" data-testid={`decision-hm-${d.handle}`}>
+      <div className="flex flex-wrap items-center gap-2 text-sm">
+        <Badge variant={d.decision === "doubler" ? "success" : d.decision === "recreer" ? "info" : "error"}>
+          {t(`ckd.decisionsHm.decisions.${d.decision}`)}
+        </Badge>
+        {d.handle && (
+          <a
+            href={`https://www.tiktok.com/@${d.handle}`}
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-primary underline-offset-2 hover:underline"
+          >
+            {drapeauPays(d.pays)} @{d.handle}
+          </a>
+        )}
+        {d.nouveau_handle && (
+          <span className="text-muted-foreground">{t("ckd.decisionsHm.nouveau", { handle: d.nouveau_handle })}</span>
+        )}
+        {/* v3 point 8 : la HM voit, elle ne valide plus (le « Done » de Slack reste affiché). */}
+        {d.fait_at && (
+          <span className="ml-auto">
+            <Badge variant="success">
+              <Check className="size-3" />
+              {t("ckd.decisionsHm.fait")}
+            </Badge>
+          </span>
+        )}
+      </div>
+      <p className="text-xs text-muted-foreground">{consigne}</p>
+      {d.note && <p className="text-xs italic text-muted-foreground">{d.note}</p>}
+      <DiagnosticCompte diagnostic={d.diagnostic} />
+    </div>
+  );
+}
+
+/**
+ * Dashboard HM : les décisions du samedi, pour information (v3 point 8 : les
+ * messages au posteur partent de l'OS), et la liste de recrutement (0364).
+ *
+ * Prompt 21, D : la liste de recrutement montre la cible, les recrutés et
+ * l'écart par pays (0425). `decisions = false` : seulement la liste (en haut
+ * de « My cohort » : le 28 oct., les décisions ont quitté l'accueil des HMs).
+ * `prochaines` : seulement les cohortes à venir.
+ */
+export function SectionsSamediHm({ decisions = true, prochaines = false }: { decisions?: boolean; prochaines?: boolean }) {
+  const { t } = useTranslation();
+  const donnees = useQuery({
+    queryKey: CLE,
+    queryFn: async () => ({ decisions: await listerDecisionsHm() }),
+    enabled: decisions,
+  });
+
+  return (
+    <>
+      {decisions && (
+        <Card>
+          <CardHeader>
+            <CardTitle>{t("ckd.decisionsHm.titre")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {donnees.error ? (
+              <p className="text-sm text-destructive">{(donnees.error as Error).message}</p>
+            ) : (donnees.data?.decisions.length ?? 0) === 0 ? (
+              <p className="text-sm text-muted-foreground">{t("ckd.decisionsHm.vide")}</p>
+            ) : (
+              <div className="divide-y">
+                {donnees.data!.decisions.map((d) => (
+                  <LigneDecision key={d.id} d={d} />
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      <CiblesRecrutementHm prochaines={prochaines} />
+    </>
+  );
+}

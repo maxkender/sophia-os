@@ -1,0 +1,310 @@
+{
+  "id": "fa-029",
+  "source": {
+    "url": "https://www.tiktok.com/@fathom0g/video/7688367025139305750",
+    "vues": 22800,
+    "accroche": "5 Ways To Stop Being Average"
+  },
+  "titre": {
+    "en": "5 Ways To Stop Being Average",
+    "de": "5 Wege, nicht mehr durchschnittlich zu sein",
+    "pt": "5 formas de deixares de ser mediano"
+  },
+  "legendes": {
+    "en": "5 Ways To Stop Being Average #skills #learnontiktok #selfimprovement",
+    "de": "5 Wege, nicht mehr durchschnittlich zu sein #skills #lernenmittiktok #selbstverbesserung",
+    "pt": "5 formas de deixares de ser mediano #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  },
+  "musique": {
+    "titre": "som original",
+    "url": "https://www.tiktok.com/music/som-original-7301096396756290309"
+  },
+  "notes": "cta B. Double intégration : UnSwipe à l'étape 2 « STOP FEEDING THE SCROLL », Sophia à l'étape 4 « KNOW MORE THAN MOST PEOPLE ». Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+  "slides": [
+    {
+      "type": "couverture",
+      "statue": "assets/statues/hercule-lion.webp",
+      "en": {
+        "lignes": [
+          [
+            {
+              "t": "5 WAYS",
+              "bronze": true
+            }
+          ],
+          "TO STOP BEING",
+          [
+            {
+              "t": "AVERAGE",
+              "bronze": true
+            }
+          ]
+        ]
+      },
+      "de": {
+        "lignes": [
+          [
+            {
+              "t": "5 WEGE",
+              "bronze": true
+            }
+          ],
+          "RAUS AUS DEM",
+          [
+            {
+              "t": "DURCHSCHNITT",
+              "bronze": true
+            }
+          ]
+        ]
+      },
+      "pt": {
+        "lignes": [
+          [
+            {
+              "t": "5 FORMAS",
+              "bronze": true
+            }
+          ],
+          "DE DEIXARES",
+          [
+            {
+              "t": "DE SER MEDIANO",
+              "bronze": true
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "STOP",
+          "PROCRASTINATING"
+        ],
+        "video": {
+          "id": "ROK_7zDkQeg",
+          "titre": "How To Stop Procrastinating",
+          "chaine": "Psych2Go",
+          "vues": "282K views",
+          "date": "3 years ago",
+          "duree": "5:32",
+          "avatar": "https://yt3.ggpht.com/PABMv0Tbz1G47ZIdC87y7KgSJ3IyehptRBY9jfp3BZbsP8TRnslVdjFYG0mjtls2U5-1LyeofA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "HÖR AUF",
+          "AUFZUSCHIEBEN"
+        ],
+        "video": {
+          "id": "QNyKtYJ-e7Y",
+          "titre": "Prokrastination – Warum schieben wir so viel auf? | Quarks Dimension Ralph",
+          "chaine": "Quarks Dimension Ralph",
+          "vues": "363.698 Aufrufe",
+          "date": "vor 3 Jahren",
+          "duree": "9:46",
+          "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "PARA DE",
+          "PROCRASTINAR"
+        ],
+        "video": {
+          "id": "WIS3PzNJEdU",
+          "titre": "Como parar de PROCRASTINAR?",
+          "chaine": "Ciência Todo Dia",
+          "vues": "1,4 mi visualizações",
+          "date": "há 1 ano",
+          "duree": "15:42",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "app": "unswipe",
+      "en": {
+        "titre": [
+          "STOP FEEDING",
+          "THE SCROLL"
+        ],
+        "carte": {
+          "nom": "UNSWIPE",
+          "texte": [
+            "Instagram without the Reels.",
+            "messages and stories stay."
+          ]
+        }
+      },
+      "de": {
+        "titre": [
+          "SCHLUSS MIT",
+          "ENDLOSEM SCROLLEN"
+        ],
+        "carte": {
+          "nom": "UNSWIPE",
+          "texte": [
+            "Instagram ohne die Reels.",
+            "Nachrichten und Storys bleiben."
+          ]
+        }
+      },
+      "pt": {
+        "titre": [
+          "CHEGA DE",
+          "SCROLL INFINITO"
+        ],
+        "carte": {
+          "nom": "UNSWIPE",
+          "texte": [
+            "o Instagram sem os Reels.",
+            "as mensagens e as stories ficam."
+          ]
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "BUILD",
+          "DISCIPLINE"
+        ],
+        "video": {
+          "id": "nCjUj0-zLC8",
+          "titre": "how to actually become disciplined in 9 minutes",
+          "chaine": "StickFigure Explains",
+          "vues": "1.5M views",
+          "date": "2 years ago",
+          "duree": "8:52",
+          "avatar": "https://yt3.ggpht.com/W61mRDLZM2h36sqricDoI6n76cOHx7vgdS-bKDiiERvqIm6LN6Ns3E_BDlTSEnNZGg4PNpZMRA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "WERDE",
+          "DISZIPLINIERT"
+        ],
+        "video": {
+          "id": "3h7mph0TfIU",
+          "titre": "Disziplin aufbauen & Aufschieben stoppen: Schritt für Schritt Anleitung",
+          "chaine": "Dominik Lebersorger",
+          "vues": "132.846 Aufrufe",
+          "date": "vor 3 Jahren",
+          "duree": "11:20",
+          "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "GANHA",
+          "DISCIPLINA"
+        ],
+        "video": {
+          "id": "O1dJ_cFQStk",
+          "titre": "Neurocientista REVELA: A MELHOR técnica para ter disciplina (que atrofia como músculo)",
+          "chaine": "Psicólogo Clínico e PhD em Neurociência",
+          "vues": "368 mil visualizações",
+          "date": "há 5 meses",
+          "duree": "18:51",
+          "avatar": "https://yt3.ggpht.com/j2t7VYJ3TwsFVFjPO-rmKL_izZtB6MvCn0QT_jH0Et3zGTBsqbKuRGBbPqNyDJonqA9UMidEr4M=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "app": "sophia",
+      "en": {
+        "titre": [
+          "KNOW MORE THAN",
+          "MOST PEOPLE"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "5 minutes a day",
+            "to know a bit about everything."
+          ]
+        }
+      },
+      "de": {
+        "titre": [
+          "WISSE MEHR",
+          "ALS DIE MEISTEN"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "5 Minuten am Tag,",
+            "um von allem etwas zu wissen."
+          ]
+        }
+      },
+      "pt": {
+        "titre": [
+          "SABE MAIS DO QUE",
+          "A MAIORIA"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "5 minutos por dia",
+            "para saber um pouco de tudo."
+          ]
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "LEARN TO",
+          "WRITE WELL"
+        ],
+        "video": {
+          "id": "izS48xjdDOs",
+          "titre": "How to Improve writing",
+          "chaine": "The English Class",
+          "vues": "176K views",
+          "date": "11 months ago",
+          "duree": "4:21",
+          "avatar": "https://yt3.ggpht.com/gd0QXpl8M76LgODOugPa7c3Aa0N8XOry5eg99KNiFEmrl3TsADX4phigd6wN8qpW4BF7Ffnh=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "SCHREIB",
+          "BESSER"
+        ],
+        "video": {
+          "id": "Izi9aHrfeLg",
+          "titre": "Texte hochwertiger, flüssiger, in besserer Sprache & stilistisch perfekt schreiben - Tipps & Tricks",
+          "chaine": "Die Merkhilfe",
+          "vues": "323.518 Aufrufe",
+          "date": "vor 6 Jahren",
+          "duree": "7:24",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kw33EWZ1Ng_P08gJY9P6tbxlShiIa8WjwKSu3hN_31trk=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "APRENDE A",
+          "ESCREVER BEM"
+        ],
+        "video": {
+          "id": "SglqczaEPHk",
+          "titre": "Como ESCREVER Bem? Veja as 7 Dicas INFALÍVEIS Para Escrever Bem!",
+          "chaine": "Português sem Enrolação - Professora Lis",
+          "vues": "1,5 mi visualizações",
+          "date": "há 5 anos",
+          "duree": "9:41",
+          "avatar": "https://yt3.ggpht.com/LXeZonb02xGj54_7-La-16lUVPxFCELxIbq6NCY7lhTVAxF5t9NVO_nQErnrSnCOUWLIoQB_QA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    }
+  ]
+}

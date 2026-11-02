@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o089",
+ "schema_id": "talk-to-anyone",
+ "titre": "How to master the art of talking to strangers #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "cc2b7953-2f3f-4dba-a6cd-c5969690f817"
+ ],
+ "notes": "cta B : avant/après, slide 8, sur une image sans visage. Couverture neuve 9639491b. Schéma talk-to-anyone (cc2b7953 r 4,57, 4fecf912 r 3,84 chez nous), troisième passage du jour, sur les inconnus. Accroches écrites : « How to master the art of talking to strangers » (retenue : le gabarit avec une promesse précise), « How to start a conversation with a stranger » (écartée : perd le gabarit), « How to talk to strangers without being weird » (écartée : négatif). Items neufs, sans reprendre ceux d'ay-o080.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9639491b",
+   "texte_overlay": "How to master the art of\ntalking to strangers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start where waiting happens. Queues, waiting rooms, train platforms. People are bored and open to a chat. \"Is it always this slow here?\" is often all it takes to get talking.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ask for a small recommendation. \"Have you tried anything good on this menu?\" Asking for advice is the most natural opener there is, because it makes the other person feel helpful.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keep your body language open. Phone away, headphones off, a small smile. You look approachable, and you'll be surprised how often strangers start the conversation for you.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Give a specific compliment. \"That's a great camera, do you shoot film?\" Noticing something real shows genuine interest and gives the other person an easy topic to talk about.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Read the signals and respect them. Short answers and looking away mean they're busy. Smile, wish them a good day, and move on. Respecting that is part of the art.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Make it a habit, not a performance. One small chat with a stranger every day. After a month, talking to people you don't know stops feeling scary and starts feeling fun.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Before: nothing to say to people I didn't know. After: five minutes a day of history, art or science, and an endless supply of things to ask and share with strangers.",
+   "texte_sophia": "Before: nothing to say to people I didn't know. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now strangers are easy to talk to.",
+   "media_id": "2e21bae8"
+  }
+ ]
+}

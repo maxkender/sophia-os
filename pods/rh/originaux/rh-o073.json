@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o073",
+ "schema_id": "mentir-entretien",
+ "titre": "les phrases que je NE DIS PLUS jamais en entretien (et ce que je dis à la place) #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma mentir-entretien (r 15,22, 496f8d72). Famille d'accroche jamais faite : « je ne dis plus jamais ». Accroches écrites : celle-ci (retenue), « mes phrases d'entretien bannies » (écartée : sans promesse), « ce que j'ai arrêté de dire en entretien » (écartée : plus faible). Chaque phrase de remplacement reste vraie. CTA de fin jamais utilisé. (bannir une phrase en commentaire) Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bb3c0ed7",
+   "texte_overlay": "les phrases que je NE DIS PLUS\njamais en entretien\n(et ce que je dis à la place)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "40b12dd3",
+   "texte_overlay": "« je suis motivée »\nà la place : ce qui m'a fait cliquer sur leur annonce, en une phrase",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "43da5456",
+   "texte_overlay": "« je n'ai pas d'expérience »\nà la place : « voilà ce que j'ai déjà fait qui s'en rapproche »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5c4bd6cd",
+   "texte_overlay": "« mon ancien boss était compliqué »\nà la place : « j'ai appris à travailler avec des styles très différents »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5cf59444",
+   "texte_overlay": "« je ne sais pas trop »\nà la place : « je n'ai pas de réponse toute prête, je réfléchis à voix haute »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "67416bea",
+   "texte_overlay": "« je lis pas beaucoup »\nà la place : ce que j'apprends en ce moment, même 5 minutes par jour",
+   "texte_sophia": "« je lis pas beaucoup »\nà la place : ce que j'apprends en ce moment.\nutilise l'appli Sophia 5 minutes par jour, et t'as toujours une vraie réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "676d2e0d",
+   "texte_overlay": "« ça me va, n'importe quel salaire »\nà la place : ma fourchette, calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "91441cd1",
+   "texte_overlay": "la phrase que tu bannis à partir d'aujourd'hui,\nécris-la ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

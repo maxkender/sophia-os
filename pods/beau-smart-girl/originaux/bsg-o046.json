@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o046",
+ "schema_id": "je-note-tout",
+ "titre": "je note TOUS les endroits gratuits où je vais pour me cultiver #pourtoi #culture #gratuit #apprentissage",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "cta B (l'anecdote du jour en item 3, notée). Fait vérifié le 31/10 sur https://fr.wikipedia.org/wiki/Fl%C3%A8che_de_Notre-Dame_de_Paris : la flèche « construite par Eugène Viollet-le-Duc et inaugurée en août 1859, s'effondre en avril 2019 ». Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 5 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6 : au plus 1 livraison normale sur une famille déjà livrée 3 fois en 7 jours). Preuve : schéma je-note-tout (r 7,45, d61696f9). Accroches écrites : « je note TOUS les endroits gratuits où je vais pour me cultiver » (retenue : le TOUS crié, et le gratuit qui fait enregistrer), « les endroits gratuits pour te cultiver, notés sur 10 » (écartée : sans le récit), « je teste tous les lieux gratuits de ma ville » (écartée : plus long). Aucun lieu, horaire ou tarif précis : tout reste général. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4611ab5f",
+   "texte_overlay": "je note TOUS les endroits gratuits\noù je vais pour me cultiver",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9e1d65aa",
+   "texte_overlay": "1. les conférences de la mairie\n\n5/10\nparfois passionnant, parfois je m'endors. mais c'est gratuit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9e68ca05",
+   "texte_overlay": "2. la bibliothèque municipale\n\n10/10\ndes livres, des magazines, des films. et le calme. je comprends pas pourquoi j'y allais jamais.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9f0d7628",
+   "texte_overlay": "3. une anecdote chaque matin\n\n9/10\nce matin, j'ai appris que la flèche de notre-dame détruite en 2019 avait été construite par viollet-le-duc, au xixe siècle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg",
+   "texte_sophia": "3. l'appli Sophia chaque matin\n\n9/10\nce matin, elle m'a appris que la flèche de notre-dame détruite en 2019 avait été construite par viollet-le-duc, au xixe siècle."
+  },
+  {
+   "position": 5,
+   "media_id": "9e6b5ecc",
+   "texte_overlay": "4. les visites des vieilles églises\n\n8/10\nles vitraux, les tableaux, les histoires des pierres. et souvent personne.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9eb9e846",
+   "texte_overlay": "5. les musées les jours gratuits\n\n10/10\nrenseigne-toi sur ceux de ta ville. j'y vais avec une seule œuvre en tête.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9f4204a7",
+   "texte_overlay": "et toi, c'est quoi ton endroit\ngratuit préféré ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

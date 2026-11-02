@@ -1,0 +1,303 @@
+{
+ "id": "fa-016",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683573765434838294",
+  "vues": 13300,
+  "accroche": "5 Skills You Can Learn Instead Of Scrolling"
+ },
+ "titre": {
+  "en": "5 Skills You Can Learn Instead Of Scrolling",
+  "de": "5 Skills, die du statt Scrollen lernen kannst",
+  "pt": "5 habilidades para aprender em vez de fazer scroll"
+ },
+ "legendes": {
+  "en": "5 Skills You Can Learn Instead Of Scrolling #skills #learnontiktok #selfimprovement",
+  "de": "5 Skills, die du statt Scrollen lernen kannst #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "5 habilidades para aprender em vez de fazer scroll #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta A. Double intégration : UnSwipe à l'étape 2 « STOP THE SCROLL » (sans rien supprimer), Sophia à l'étape 4 « LEARN A NEW TOPIC ». Ses slides n'étaient pas en cache : format de ses « 5 Skills » déjà mesuré. en, de et pt (Portugal), vidéos natives.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "YOU CAN LEARN",
+     [
+      {
+       "t": "INSTEAD OF SCROLLING",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE DU LERNEN KANNST",
+     [
+      {
+       "t": "STATT ZU SCROLLEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "PARA APRENDER",
+     [
+      {
+       "t": "EM VEZ DE FAZER SCROLL",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN CHESS"
+    ],
+    "video": {
+     "id": "IU6k-4rKf-g",
+     "titre": "Learn How to Play Chess for Beginners in Less Than 8 Minutes",
+     "chaine": "Mr.Animate",
+     "vues": "2.9M views",
+     "date": "6 years ago",
+     "duree": "7:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_keErs7KSaKWnjurcbpK6B2b7EN2kIeVMZYJe4SKDw1=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN SCHACH"
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "761.139 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE XADREZ"
+    ],
+    "video": {
+     "id": "rrx7CCLQip4",
+     "titre": "TODAS AS REGRAS BÁSICAS DO XADREZ EM 8 MINUTOS",
+     "chaine": "Xeque!",
+     "vues": "296 mil visualizações",
+     "date": "há 6 meses",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/EFv1gM7pRjSKk05WYH8VjpDerCsTTce3w0b9kGHaIQW_50fHOOIQeVPk00rTYDPBk86XbOFMlv8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "STOP THE SCROLL"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "keep Instagram, lose the Reels.",
+      "no need to delete anything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "STOPP DAS SCROLLEN"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "behalte Instagram, ohne die Reels.",
+      "du musst nichts löschen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "PARA O SCROLL"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "fica com o Instagram, sem os Reels.",
+      "sem apagar nada."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "101M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖSE DEN",
+     "ZAUBERWÜRFEL"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "RESOLVE O",
+     "CUBO MÁGICO"
+    ],
+    "video": {
+     "id": "ZwbFLyesbOU",
+     "titre": "Como RESOLVER o Cubo Mágico EM 10 MINUTOS!",
+     "chaine": "Ercs",
+     "vues": "2,1 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:59",
+     "avatar": "https://yt3.ggpht.com/6OxdXZjA_wTTZE0QmGPTAToR02Nn0gCeuQvNAI0B8Bi8c7dHXfh5dRtk4h8PjjHFCasBM-wB=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A",
+     "NEW TOPIC"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE EIN",
+     "NEUES THEMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UM",
+     "TEMA NOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START DRAWING"
+    ],
+    "video": {
+     "id": "VtgB2pCC73M",
+     "titre": "How to ACTUALLY Start Drawing? (for beginners)",
+     "chaine": "KeshArt",
+     "vues": "2M views",
+     "date": "2 years ago",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/I03q427bkVV7QWuyaozTRx4g-6CfGXJmQSnMPDhcXLqj2I1qHTy-FD455ETklJfzxWNhcd54yg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU ZEICHNEN"
+    ],
+    "video": {
+     "id": "_P0miJyVt4E",
+     "titre": "Zeichnen lernen für Anfänger - Zeichnen Grundlagen",
+     "chaine": "Simon Gillmeister",
+     "vues": "49.392 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:10",
+     "avatar": "https://yt3.ggpht.com/0UolUpHHEcHhJ5LDjctd_3nyDsovUzFDsN38b4lVSgPWBPWltP-64czV9X6VviMdQHlQbERsIg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMEÇA",
+     "A DESENHAR"
+    ],
+    "video": {
+     "id": "vJuvo7BbrNs",
+     "titre": "Desenho para Iniciantes Como Evoluir 5 Anos em 5 Meses",
+     "chaine": "Ricardo Yamaguchi",
+     "vues": "377 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "10:51",
+     "avatar": "https://yt3.ggpht.com/LoIN77vSH_dLOIRRZbHC2kkCsWbXrndkTvNEx6gkI3cjPEyjSChGUc4p0glJk1Tt_jx47is_Pp0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

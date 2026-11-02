@@ -1,0 +1,396 @@
+{
+ "post_id": "7698667830635400470",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 habitudes pour avoir un cerveau redoutable",
+     "texte": "10/10 habits to become dangerously intelligent"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(neuroscience approved)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "surround yourself with smarter",
+      "people"
+     ],
+     "fr": "entoure-toi de [[gens plus calés que toi]]",
+     "texte": "surround yourself with [[smarter people]]"
+    },
+    "T2": {
+     "en": [
+      "you absorb the room",
+      "you’re in"
+     ],
+     "fr": "tu [[deviens ton entourage]]",
+     "texte": "you [[absorb the room you’re in]]"
+    },
+    "T3": {
+     "en": [
+      "smart people push back",
+      "on weak takes and make",
+      "you explain what you",
+      "actually mean"
+     ],
+     "fr": "les gens calés démontent tes avis bancals et t'obligent à [[préciser ta pensée]]",
+     "texte": "smart people push back on weak takes and make you [[explain what you actually mean]]"
+    },
+    "T4": {
+     "en": [
+      "seek out people who know more than you and ask",
+      "them questions, not people who just agree with you"
+     ],
+     "fr": "va vers ceux [[qui en savent plus que toi]] et questionne-les, [[pas ceux qui te disent toujours oui]]",
+     "texte": "seek out people who [[know more than you]] and ask them questions, [[not people who just agree with you]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "guess the answer before",
+      "you ask AI"
+     ],
+     "fr": "devine [[avant]] de demander à l'IA",
+     "texte": "guess the answer [[before]] you ask AI"
+    },
+    "T1b": {
+     "en": [
+      "write your guess down, then check it with AI and",
+      "look at exactly where you were wrong"
+     ],
+     "fr": "écris ta réponse, vérifie-la avec l'IA et regarde [[exactement où]] t'avais faux",
+     "texte": "write your guess down, then check it with AI and look at [[exactly where]] you were wrong"
+    },
+    "T2": {
+     "en": [
+      "make a real",
+      "attempt at the",
+      "answer first"
+     ],
+     "fr": "tente vraiment [[une réponse]] d'abord",
+     "texte": "make a real attempt at [[the answer]] first"
+    },
+    "T3": {
+     "en": [
+      "the struggle is what makes the answer stick",
+      "instead of vanishing by tomorrow"
+     ],
+     "fr": "c'est en galérant que [[la réponse s'imprime]], au lieu de [[s'envoler dès demain]]",
+     "texte": "the struggle is what [[makes the answer stick]] instead of [[vanishing by tomorrow]]"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   },
+   "scissions": {
+    "T1": 2
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des [[livres au lieu de scroller]]",
+     "texte": "read [[books instead of scrolling]]"
+    },
+    "T2": {
+     "en": [
+      "a book makes you follow one idea for pages.",
+      "scrolling trains that out of your head"
+     ],
+     "fr": "un livre t'oblige à [[suivre une idée]] sur des pages. le scroll [[te désapprend ça]]",
+     "texte": "a book makes you [[follow one idea]] for pages. scrolling [[trains that out]] of your head"
+    },
+    "T3": {
+     "en": [
+      "if you want to think",
+      "deeper, give your brain",
+      "something long before",
+      "anything short"
+     ],
+     "fr": "pour penser plus loin, donne d'abord [[un truc long]] à ton cerveau, le court après",
+     "texte": "if you want to think deeper, give your brain [[something long]] before anything short"
+    },
+    "T4": {
+     "en": [
+      "i use readup which blocks",
+      "my apps until i read for 20",
+      "minutes, which stopps me",
+      "from scrolling"
+     ],
+     "fr": "avant je [[scrollais dès que j'avais 2 min]], maintenant quand je prends mon tel, c'est [[5 min de leçon sur l'appli Sophia]]",
+     "texte": "[[pages get easy again]] once short videos are gone. take reels off insta with [[the UnSwipe app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 217,
+      "l": 832,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 217,
+       "l": 832,
+       "h": 62,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 331,
+      "l": 801,
+      "h": 90
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 331,
+       "l": 801,
+       "h": 41,
+       "base": 369
+      },
+      {
+       "x": 37,
+       "y": 379,
+       "l": 650,
+       "h": 42,
+       "base": 417
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 496,
+      "l": 416,
+      "h": 186
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 496,
+       "l": 344,
+       "h": 40,
+       "base": 527
+      },
+      {
+       "x": 47,
+       "y": 545,
+       "l": 411,
+       "h": 40,
+       "base": 575
+      },
+      {
+       "x": 42,
+       "y": 592,
+       "l": 411,
+       "h": 41,
+       "base": 631
+      },
+      {
+       "x": 46,
+       "y": 642,
+       "l": 262,
+       "h": 40,
+       "base": 672
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 762,
+      "l": 474,
+      "h": 185
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 762,
+       "l": 469,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 41,
+       "y": 808,
+       "l": 472,
+       "h": 42,
+       "base": 847
+      },
+      {
+       "x": 40,
+       "y": 858,
+       "l": 474,
+       "h": 40,
+       "base": 896
+      },
+      {
+       "x": 41,
+       "y": 904,
+       "l": 243,
+       "h": 43,
+       "base": 937
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 541,
+      "y": 438,
+      "l": 434,
+      "h": 820
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 243,
+      "y": 1195,
+      "l": 292,
+      "h": 127
+     }
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "let yourself [[get bored every day]]"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "leave [[one part of your day]] with no podcast, no music, and no phone"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "boredom is when your brain sorts what it took in and [[links ideas together]] on its own"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "that’s where your [[best ideas]] actually [[show up]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "test yourself instead of",
+      "rereading"
+     ],
+     "fr": "teste-toi [[au lieu de relire]]",
+     "texte": "test yourself [[instead of rereading]]"
+    },
+    "T2": {
+     "en": [
+      "rereading notes feels",
+      "productive, but mostly it just",
+      "makes things look familiar"
+     ],
+     "fr": "relire tes fiches donne l'impression de bosser, mais ça les rend juste familières",
+     "texte": "rereading notes feels productive, but mostly it just makes things look familiar"
+    },
+    "T3": {
+     "en": [
+      "close the book, write down",
+      "everything you remember,",
+      "then check what you missed"
+     ],
+     "fr": "ferme le livre, écris tout ce dont tu te souviens, puis vérifie ce que t'as oublié",
+     "texte": "close the book, write down everything you remember, then check what you missed"
+    },
+    "T4": {
+     "en": [
+      "recall is the workout"
+     ],
+     "fr": "réciter, c'est la muscu",
+     "texte": "recall is the workout"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

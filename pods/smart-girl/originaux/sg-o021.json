@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o021",
+ "schema_id": "disgustingly-educated",
+ "titre": "Things to study when you're bored (to get ahead) #selfeducation #smartgirl #darkacademia #learning #mythology",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "e7f3ee20-28ce-4874-add5-2eb99452face",
+  "2db2f497-45b2-49ec-8faa-559f06aa0780"
+ ],
+ "notes": "cta B. CTA au 27/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C = l'appli comme un item ou un rituel de la liste (« an app like Sophia » à la place du scroll ou d'une activité). Schéma disgustingly-educated (2db2f497 r 9,13 ; e7f3ee20 r 2,42 sur 8 ; 9ae86482 r 2,75). Accroche neuve chez nous (sg-o004 était « Free ways to become disgustingly educated », rang C). Accroches écrites : « Things to study when you're bored (to get ahead) » (retenue : le gagnant e7f3ee20, sans la faute « a head »), « subjects that make you sound educated in any room » (écartée : sans preuve), « what to learn instead of scrolling » (écartée : plus vague). Six sujets neufs face à la source (IA, sophismes, théorie des jeux, micro-expressions, rhétorique, psychologie) avec des faits vrais : la mythologie grecque (talon d'Achille, boîte de Pandore, narcissique), l'histoire d'une ville, l'histoire du monde en petites doses (Sophia au milieu, cta B), l'astronomie (la lumière de certaines étoiles est partie avant notre naissance), les mouvements artistiques, les usages d'autres cultures (au Japon, planter ses baguettes droites dans le riz évoque les funérailles). Images de la banque (sources @richgirlacadmy_1, accroche en capture de la série), sans texte (3905c610 et c3efb230 écartées : texte lisible) ; slide Sophia sur un ciel de nuit, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7f9acc40",
+   "texte_overlay": "Things to study when\nyou're bored\n(to get ahead)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d7de8beb",
+   "texte_overlay": "1. Greek Mythology\nAchilles' heel, Pandora's box,\na narcissist. Half our\nexpressions come from it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1ed62563",
+   "texte_overlay": "2. The History of One City\nPick a city you love.\nEvery street becomes\na story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fe2392c4",
+   "texte_overlay": "3. World History in Small\nBites\nOne empire, one invention,\none queen at a time.",
+   "texte_sophia": "3. World History in Small\nBites\nI study 5 minutes a day\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d827c971",
+   "texte_overlay": "4. Basic Astronomy\nThe light of some stars you\nsee tonight left them\nbefore you were born.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "be7a8a75",
+   "texte_overlay": "5. Art Movements\nKnow impressionism from\ncubism and every museum\nopens up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c4cd2b3f",
+   "texte_overlay": "6. Etiquette Around\nthe World\nIn Japan, chopsticks stuck\nupright in rice evoke\nfunerals. Never do it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3b1f5770",
+   "texte_overlay": "Save this for your\nnext bored evening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/8.jpg"
+  }
+ ]
+}

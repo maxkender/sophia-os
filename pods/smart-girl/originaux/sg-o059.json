@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o059",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7e947f3d-0e16-4214-8c41-144d6341185c",
+ "titre": "7 habits that quietly make you smarter #selfimprovement #smartgirl #learning #studytok #thatgirl",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta C. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 8 de la boîte (parent 7e947f3d, anglais) : accroche du parent mot pour mot, « 7 habits that quietly make you smarter ». Le parent (allemand à la diffusion) avait : jeux de logique, instrument, liste de questions, films étrangers, remplacer le scroll (appli), cartes, expliquer. Sept habitudes neuves : les longs articles du week-end, les racines des mots, une seule salle de musée par visite, copier une belle phrase par jour, une leçon par jour (Sophia, cta C au milieu), demander à un ami de raconter son métier, dormir sur un problème difficile. Images de la banque (thé, échecs, lecture), sans texte ; slide Sophia sur un thé et un roman ouvert, sans visage. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eca220f6",
+   "texte_overlay": "7 habits that quietly make\nyou smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fed8d989",
+   "texte_overlay": "1. reading one long article\nevery weekend.\nslow reading builds\ndeep thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ea4d453b",
+   "texte_overlay": "2. learning word roots.\n\"bio\" means life, \"graph\"\nmeans writing. now you\nknow biography.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "19b7a1e9",
+   "texte_overlay": "3. one museum room per visit.\nyou'll remember it far better\nthan a whole museum rushed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "05ac991d",
+   "texte_overlay": "4. swapping ten minutes of\nscrolling for one short lesson.\nhistory, art, science.",
+   "texte_sophia": "4. swapping the scroll for\nan app like sophia: one\n5-minute lesson of history,\nart or science a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12c5d705",
+   "texte_overlay": "5. copying one beautiful\nsentence a day.\nyour own book of the best\nlines you've read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a735eb3e",
+   "texte_overlay": "6. asking a friend to explain\ntheir job.\nevery field is a new world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0381c793",
+   "texte_overlay": "7. sleeping on hard problems.\nwrite the question down,\nlook again in the morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "47a97e2a",
+   "texte_overlay": "which one will you\nstart tonight?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  }
+ ]
+}

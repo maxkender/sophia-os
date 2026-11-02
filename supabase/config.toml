@@ -39,6 +39,9 @@ enable_confirmations = false
 # `bruler-texte-test` (appelée depuis l'admin avec un JWT).
 # ---------------------------------------------------------------------------
 
+[functions.ab-traduction]
+verify_jwt = false
+
 [functions.ameliorer-review]
 verify_jwt = false
 
@@ -78,6 +81,18 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.creation-manuelle]
+verify_jwt = false
+
+# Doublons d'accroche et de couverture (0388) : cron toutes les 10 minutes.
+[functions.empreintes]
+verify_jwt = false
+
+# Banque d'exemples natifs (0423) : appelée par l'admin, contrôle interne
+# (assertAuthorised).
+[functions.exemples-natifs]
+verify_jwt = false
+
+[functions.cta-formes]
 verify_jwt = false
 
 [functions.extraction]
@@ -126,6 +141,11 @@ verify_jwt = false
 # Appelée par pg_cron, qui n'envoie que x-cron-secret : un JWT exigé par la
 # passerelle la rendrait inappelable. Le contrôle est interne (assertAuthorised).
 [functions.notion-hired]
+verify_jwt = false
+
+# Appelée depuis l'OS (admin, ou relecteur après son questionnaire ou un post
+# du kit). Le contrôle d'accès est interne (assertRole + relecteur invité/actif).
+[functions.notion-relecteurs]
 verify_jwt = false
 
 [functions.oublier-source]
@@ -189,6 +209,21 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.slack-interactions]
+verify_jwt = false
+
+[functions.slack-relier]
+verify_jwt = false
+
+[functions.nudges]
+verify_jwt = false
+
+[functions.upwork]
+verify_jwt = false
+
+[functions.recrues-check]
+verify_jwt = false
+
+[functions.upwork-callback]
 verify_jwt = false
 
 [functions.strip-c2pa]

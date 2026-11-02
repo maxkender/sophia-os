@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o031",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à ma prof d'histoire de l'art (partie 2) #pourtoi #culture #art #apprentissage",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+ ],
+ "notes": "variante de bsg-o005 (« les habitudes insolites que j'ai volées à ma prof d'histoire de l'art », 29,5 k vues sur son premier passage mûr, r 13,47, rang A). Même schéma vole-habitudes (preuve r 7,58, 83ef5e79), autre angle, autres items. cta A (avant / après sur le dernier item ; voir CTA.md). Routine du 29/10, livraison 3 sur 6. Angle : la suite directe, « partie 2 », de l'original à 29,5 k vues. Accroches écrites : « les habitudes insolites que j'ai volées à ma prof d'histoire de l'art (partie 2) » (retenue : la suite du post qui a percé, la forme la plus simple pour ceux qui l'ont aimé), « encore plus d'habitudes volées à ma prof d'histoire de l'art » (écartée : moins clair), « ma prof d'histoire de l'art, la suite » (écartée : sans promesse). Items neufs (rien de repris de bsg-o005 ni des sources) : chaque tableau deux fois, « qu'est-ce que tu vois ? », le siècle aux vêtements, les vitraux des églises. Aucun fait précis, aucune personne réelle nommée. Images de la banque (célébrités permises depuis la décision d'Adrien du 28/10, aucune personne sur la slide Sophia), assez sombres pour le texte blanc. Inspirations : slides 1 à 5 de 83ef5e79, 2 et 3 de d1970d80.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "563f3c72",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à ma prof\nd'histoire de l'art (partie 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "57209b27",
+   "texte_overlay": "1. elle regardait chaque tableau deux fois.\n\nde loin d'abord, pour l'ensemble.\npuis de tout près, pour les détails que personne ne voit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5782d6a3",
+   "texte_overlay": "2. elle demandait\n« qu'est-ce que tu vois ? »\navant d'expliquer.\n\non devait chercher d'abord.\ndu coup, on se souvenait de ce qu'on avait trouvé.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "58a47206",
+   "texte_overlay": "3. elle devinait le siècle aux vêtements des personnages.\n\nles cols, les manches, les coiffures.\nun jeu qu'on a fini par faire à chaque visite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9fce6e47",
+   "texte_overlay": "4. elle entrait dans les églises pour les vitraux.\n\nmême pas croyante. juste pour la lumière et les histoires qu'ils racontent.\nles musées gratuits les plus anciens de la ville.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9ed6694a",
+   "texte_overlay": "5. elle avait toujours une histoire à raconter sur l'art.\n\navant, je regardais un tableau sans rien voir.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/2.jpg",
+   "texte_sophia": "5. elle avait toujours une histoire à raconter sur l'art.\n\navant, je regardais un tableau sans rien voir.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "8f439228",
+   "texte_overlay": "vole-lui une habitude.\net dis-moi s'il te faut une partie 3.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/3.jpg"
+  }
+ ]
+}

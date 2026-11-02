@@ -1,0 +1,63 @@
+{
+ "source_id": "bsg-o019",
+ "schema_id": "confiance-incassable",
+ "titre": "7 règles silencieuses des filles tellement sûres d'elles que personne ne peut les briser #pourtoi #confiance #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7623077459746933534",
+ "inspirations": [
+  "47161282-1c77-482c-9fc3-2ed4d2752b38",
+  "4284f474-242f-4cf5-b7ff-46eed200076b"
+ ],
+ "notes": "cta A (avant / après sur le dernier item ; voir CTA.md). Routine du 27/10, livraison 1 sur 5. Schéma confiance-incassable (r 3,07, 47161282 ; r 2,76, 4284f474), sur un angle neuf chez nous : les règles « silencieuses », racontées à la 3e personne du pluriel. Accroches écrites : « 7 règles silencieuses des filles tellement sûres d'elles que personne ne peut les briser » (retenue : la promesse du gagnant, « que personne ne peut te briser », avec le secret des règles silencieuses), « les règles que je suis pour que plus personne ne me déstabilise » (écartée : plus faible), « 5 conseils pour avoir tellement confiance en toi que personne ne peut te briser, partie 2 » (écartée : déjà fait avec bsg-o007). Items neufs (rien de repris des sources ni de bsg-o007) : ne pas s'excuser d'exister, prendre son temps face à une critique, un endroit à soi, dire non sans se justifier, un carnet de ses réussites, une histoire à raconter. Aucun fait, aucune personne réelle. Images de la banque, sans célébrité ni texte. Inspirations : slides 1, 2, 3, 4, 6 de 47161282, 5 de 4284f474. Images claires ou en double remplacées par des images sombres après relecture de l'aperçu.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "51b47800",
+   "texte_overlay": "7 règles silencieuses des filles\ntellement sûres d'elles\nque personne ne peut les briser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2fe8e8f0",
+   "texte_overlay": "1. elles ne s'excusent pas d'exister.\n\npas de\n« désolée de déranger »\nà chaque phrase. un bonjour et une question suffisent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4d107d19",
+   "texte_overlay": "2. elles prennent leur temps pour répondre à une critique.\n\n« je vais y réfléchir. »\net elles y réfléchissent vraiment, au calme.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7447dc62",
+   "texte_overlay": "3. elles ont un endroit à elles.\n\nun café, un banc, une bibliothèque où elles vont seules.\nun lieu où personne n'attend rien d'elles.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a735581e",
+   "texte_overlay": "4. elles disent non sans se justifier.\n\n« non, merci. » point.\npas besoin d'une excuse en trois paragraphes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "35038c20",
+   "texte_overlay": "5. elles gardent un carnet de ce qu'elles ont réussi.\n\nun examen, une conversation difficile, un livre fini.\nles jours de doute, elles le relisent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670224423655394582/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8c4397ee",
+   "texte_overlay": "6. elles ont toujours une histoire à raconter.\n\navant, je me taisais quand on parlait d'histoire ou d'art.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qu'on écoute.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/2.jpg",
+   "texte_sophia": "6. elles ont toujours une histoire à raconter.\n\navant, je me taisais quand on parlait d'histoire ou d'art.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qu'on écoute."
+  },
+  {
+   "position": 8,
+   "media_id": "2b7900be",
+   "texte_overlay": "laquelle tu appliques\ndès demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/1.jpg"
+  }
+ ]
+}

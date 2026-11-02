@@ -6,7 +6,7 @@ import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
 import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
-import { falHebergerOctets } from "./fal_queue.ts";
+import { falAuthHeaders, falHebergerOctets, falKey, falQueueAwaitJson, falQueueSubmit } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
@@ -17,12 +17,12 @@ const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
  *
  * gemini-2.5-pro et gemini-2.5-flash sont volontairement absents : ils
  * apparaissent dans la liste des modèles mais renvoient 404 « no longer
- * available to new users ». Google en retire régulièrement : la chaîne compte
+ * available to new users ». gemini-2.0-flash aussi : 404 « no longer
+ * available » depuis le 29/10. Google en retire régulièrement : la chaîne compte
  * donc plusieurs familles, et un 503 passager sur l'une bascule sur la suivante.
  */
 export const TEXT_MODELS = [
   "gemini-3.5-flash",
-  "gemini-2.0-flash",
   "gemini-3.1-flash-lite",
 ];
 
@@ -69,6 +69,57 @@ interface GenConfig {
   responseModalities?: string[];
 }
 
+/**
+ * Repli quand Gemini refuse pour crédits épuisés (HTTP 402, 30/10) : le même
+ * appel texte part chez fal (`fal-ai/any-llm`, modèle Gemini au tarif standard),
+ * facturé sur le compte fal. Les images d'entrée passent en data URI (variante
+ * vision). Jamais pour un appel qui doit RENDRE une image : fal n'en rend pas.
+ */
+export const MODELE_REPLI_FAL = "google/gemini-2.5-flash";
+const FAL_LLM = "fal-ai/any-llm";
+const FAL_LLM_VISION = "fal-ai/any-llm/vision";
+
+/** Le corps de la requête fal pour ces `parts` (exporté pour les tests). */
+export function corpsRepliFal(parts: Part[], config?: GenConfig): { modelId: string; body: Record<string, unknown> } {
+  const prompt = parts.map((p) => p.text ?? "").filter(Boolean).join("\n\n");
+  const images = parts.flatMap((p) => {
+    const mime = p.inline_data?.mime_type ?? p.inlineData?.mimeType;
+    const data = p.inline_data?.data ?? p.inlineData?.data;
+    return mime && data ? [`data:${mime};base64,${data}`] : [];
+  });
+  return {
+    modelId: images.length ? FAL_LLM_VISION : FAL_LLM,
+    body: {
+      prompt,
+      model: MODELE_REPLI_FAL,
+      ...(config?.temperature != null ? { temperature: config.temperature } : {}),
+      ...(images.length ? { image_urls: images } : {}),
+    },
+  };
+}
+
+async function callViaFal(parts: Part[], config?: GenConfig): Promise<Part[]> {
+  const key = falKey();
+  if (!key) throw new Error("FAL_KEY manquant");
+  const { modelId, body } = corpsRepliFal(parts, config);
+  let data: Record<string, unknown>;
+  const sync = await fetch(`https://fal.run/${modelId}`, {
+    method: "POST",
+    headers: falAuthHeaders(key),
+    body: JSON.stringify(body),
+  });
+  if (sync.ok) {
+    data = await sync.json();
+  } else {
+    const queued = await falQueueSubmit(modelId, body);
+    data = await falQueueAwaitJson(modelId, queued, undefined, 120_000);
+  }
+  if (data.error) throw new Error(`fal ${modelId} : ${String(data.error).slice(0, 200)}`);
+  const output = typeof data.output === "string" ? data.output : "";
+  if (!output.trim()) throw new Error(`fal ${modelId} : réponse vide`);
+  return [{ text: output }];
+}
+
 async function call(model: string, parts: Part[], config?: GenConfig): Promise<Part[]> {
   const response = await fetch(`${BASE}/${model}:generateContent?key=${apiKey()}`, {
     method: "POST",
@@ -80,7 +131,20 @@ async function call(model: string, parts: Part[], config?: GenConfig): Promise<P
   });
 
   if (!response.ok) {
-    throw new Error(`Gemini ${model} ${response.status}: ${(await response.text()).slice(0, 300)}`);
+    const corps = (await response.text()).slice(0, 300);
+    // Crédits Gemini épuisés : repli fal pour le texte (le message d'échec ne
+    // doit pas passer pour passager, sinon callWithFallback réessaie 4 fois).
+    if (response.status === 402 && !config?.responseModalities?.includes("IMAGE")) {
+      try {
+        const repli = await callViaFal(parts, config);
+        // Trace : combien d'appels passent par fal (et donc sont facturés là).
+        console.warn(`[gemini] ${model} 402 crédits épuisés — repli fal ${MODELE_REPLI_FAL}`);
+        return repli;
+      } catch (e) {
+        throw new Error(`Gemini ${model} crédits épuisés (402), repli fal en échec : ${messageErreur(e)}`);
+      }
+    }
+    throw new Error(`Gemini ${model} ${response.status}: ${corps}`);
   }
 
   const data = await response.json();
@@ -348,6 +412,9 @@ export const LANGUES: Record<string, string> = {
   fi: "finnois",
   et: "estonien",
   bg: "bulgare",
+  lt: "lituanien",
+  lv: "letton",
+  ja: "japonais",
 };
 
 export type TraductionSlideshow = {

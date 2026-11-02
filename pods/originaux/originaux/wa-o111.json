@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o111",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "017e8149-705a-4f4d-abba-55c728b81a7b",
+ "titre": "hobbies that will make you disgustingly disciplined #discipline #selfimprovement #habits #mindset #hobbies",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "b0b5c4fc-f3b5-467a-8829-dbd249ae67c4"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, b0b5c4fc). déclinaison G1 de « hobbies that will make you disgustingly disciplined » (parent 017e8149, 15 100 vues en el). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42d45e5b-a010-4923-adf6-2efb40293b47",
+   "texte_overlay": "hobbies that will make you\ndisgustingly disciplined",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662860170401238285/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9a1c8b73-85d5-4517-ad07-e4ff4a482065",
+   "texte_overlay": "early swims\n\nswim at the pool when it opens, three mornings a week. getting into cold water before sunrise teaches your mind that comfort is optional and effort is normal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662860170401238285/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9be91a77-5af0-4027-9947-1d4f3aff9fe3",
+   "texte_overlay": "learning an instrument\n\npractise an instrument for fifteen minutes every day, no matter how badly it sounds. daily practice with slow progress is the purest discipline training there is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662860170401238285/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "23cc9741-128a-41e9-910e-7f26ad46d0c0",
+   "texte_overlay": "meal prep sundays\n\ncook all your lunches for the week every sunday. planning ahead turns a hundred small daily decisions into one, and that freedom makes discipline feel effortless.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662860170401238285/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "766094a0-8598-47c1-a930-38e000c85a28",
+   "texte_overlay": "a daily lesson streak\n\nkeep a streak of 5 minutes of learning every single day: a word, a fact, a painting. protecting a streak is how discipline becomes something you actually enjoy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662860170401238285/5.jpg",
+   "texte_sophia": "a daily lesson streak\n\nkeep a streak of 5 minutes of learning every day: a word, a fact, a painting. the Sophia app turns it into one short lesson a day, and protecting a streak makes discipline fun."
+  },
+  {
+   "position": 6,
+   "media_id": "5e169b07-7784-4722-b1d5-fdc5d3f2db18",
+   "texte_overlay": "long distance walking\n\nwalk ten thousand steps a day, rain or shine. it's not hard, it's just relentless, and doing something relentless every day changes who you think you are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662860170401238285/6.jpg"
+  }
+ ]
+}

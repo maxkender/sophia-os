@@ -1,0 +1,785 @@
+{
+ "id": "yp-015",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "titre": {
+  "fr": "conseils de lycée d’une jeune bachelière, partie 2",
+  "en": "school tips from a high school graduate, part 2",
+  "es": "consejos de instituto de una recién graduada, parte 2",
+  "de": "Schultipps von einer frischen Abiturientin, Teil 2",
+  "it": "consigli per il liceo da una neodiplomata, parte 2",
+  "pt": "dicas de escola de uma recém-formada, parte 2",
+  "tr": "yeni bir mezundan okul tavsiyeleri, bölüm 2"
+ },
+ "legendes": {
+  "fr": "partie 2 : ce que j’aurais aimé savoir avant 📚 #conseils #studytok #lycee #revisions #thatgirl",
+  "en": "part 2: what i wish i knew earlier 📚 #studytips #studytok #highschool #school #thatgirl",
+  "es": "parte 2: lo que me habría gustado saber antes 📚 #consejos #studytok #instituto #estudiar #thatgirl",
+  "de": "Teil 2: was ich gern früher gewusst hätte 📚 #lerntipps #studytok #schule #abitur #thatgirl",
+  "it": "parte 2: quello che avrei voluto sapere prima 📚 #consigli #studytok #liceo #studiare #thatgirl",
+  "pt": "parte 2: o que eu queria ter sabido antes 📚 #dicas #studytok #ensinomedio #estudos #thatgirl",
+  "tr": "bölüm 2: keşke daha önce bilseydim dediklerim 📚 #dersçalışma #studytok #lise #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "young folks nightcore",
+  "url": "https://www.tiktok.com/music/young-folks-nightcore-7070641315155757826"
+ },
+ "fond": {
+  "media_id": "48319d1c-ffac-426f-98d4-86042cdc2077",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bb2eeefa-d48f-4aab-9e65-405885ce9658/8.jpg?v=1792527255748",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-005 (« SCHOOL TIPS from a highschool graduate », 54 k) : partie 2, 6 autres conseils, autres photos. cta A : micabo dans le texte du conseil « révise un peu chaque soir », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE LYCÉE"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "d’une jeune",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "bachelière",
+       "x": 470,
+       "y": 1040
+      },
+      {
+       "texte": "(partie 2)",
+       "x": 500,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHOOL",
+      "TIPS"
+     ],
+     "taille": 190,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "from a highschool",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "graduate",
+       "x": 470,
+       "y": 1040
+      },
+      {
+       "texte": "(part 2)",
+       "x": 500,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE INSTI"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de una recién",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "graduada",
+       "x": 470,
+       "y": 1040
+      },
+      {
+       "texte": "(parte 2)",
+       "x": 500,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHUL-",
+      "TIPPS"
+     ],
+     "taille": 190,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "von einer frischen",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "Abiturientin",
+       "x": 470,
+       "y": 1040
+      },
+      {
+       "texte": "(Teil 2)",
+       "x": 500,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "PER IL LICEO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "da una",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "neodiplomata",
+       "x": 380,
+       "y": 1040
+      },
+      {
+       "texte": "(parte 2)",
+       "x": 410,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DICAS",
+      "DE ESCOLA"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de uma",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "recém-formada",
+       "x": 300,
+       "y": 1040
+      },
+      {
+       "texte": "(parte 2)",
+       "x": 330,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OKUL",
+      "TAVSİYELERİ"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "yeni bir",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "mezundan",
+       "x": 470,
+       "y": 1040
+      },
+      {
+       "texte": "(bölüm 2)",
+       "x": 500,
+       "y": 1150
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1d9ab0b7-8132-4ac6-8c0d-e06a3fd443f7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/105487ea-fdd5-4f40-8c5d-00c4b3df1fbc/5.jpg?v=1790608235869",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "assieds-toi devant🪑",
+      "texte": "tu décroches moins, tu entends mieux, et ton prof retient ton prénom.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "sit at the front🪑",
+      "texte": "you zone out less, you hear better, and your teacher remembers your name.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "siéntate delante🪑",
+      "texte": "te distraes menos, oyes mejor y tu profe se acuerda de tu nombre.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "setz dich nach vorne🪑",
+      "texte": "du schweifst weniger ab, hörst besser, und deine Lehrkraft merkt sich deinen Namen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "siediti davanti🪑",
+      "texte": "ti distrai meno, senti meglio e il prof si ricorda il tuo nome.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "sente na frente🪑",
+      "texte": "você se distrai menos, ouve melhor e o professor lembra do seu nome.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "önde otur🪑",
+      "texte": "daha az dalarsın, daha iyi duyarsın ve öğretmenin adını hatırlar.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9a7063ad-b219-4cd5-b793-95093ac087c5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/360f7583-bc56-47b2-abd7-a2d8b9f1a68f/6.jpg?v=1791729157230",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fais tes devoirs le jour même📒",
+      "texte": "le cours est encore frais : 20 min le soir, au lieu de 2 h la veille du contrôle.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "do your homework the same day📒",
+      "texte": "the lesson is still fresh: 20 minutes that evening instead of 2 hours the night before the test.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "haz los deberes el mismo día📒",
+      "texte": "la clase aún está fresca: 20 min por la tarde en vez de 2 h la noche antes del examen.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "mach Hausaufgaben am selben Tag📒",
+      "texte": "der Stoff ist noch frisch: 20 Min. am Abend statt 2 Std. am Abend vor der Klausur.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fai i compiti il giorno stesso📒",
+      "texte": "la lezione è ancora fresca: 20 minuti la sera invece di 2 ore la sera prima della verifica.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "faça a lição no mesmo dia📒",
+      "texte": "a aula ainda está fresca: 20 min à noite em vez de 2 h na véspera da prova.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ödevini aynı gün yap📒",
+      "texte": "ders hâlâ tazeyken: sınavdan önceki gece 2 saat yerine o akşam 20 dakika.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3f02ccfd-875e-4d3a-b392-4e294a0e63f7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8a49f80b-a800-41b7-822b-fe32dd4b4c3b/5.jpg?v=1791726306321",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fais les annales📄",
+      "texte": "les sujets des années d’avant, c’est le meilleur entraînement. les mêmes questions reviennent tout le temps.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "do past papers📄",
+      "texte": "old exams are the best practice there is. the same questions come up again and again.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "haz exámenes de otros años📄",
+      "texte": "los exámenes antiguos son el mejor entrenamiento. las mismas preguntas salen una y otra vez.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "mach alte Prüfungen📄",
+      "texte": "alte Klausuren sind das beste Training. dieselben Fragen kommen immer wieder.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fai le prove degli anni passati📄",
+      "texte": "i vecchi esami sono il miglior allenamento. le stesse domande tornano sempre.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "faça provas antigas📄",
+      "texte": "provas de anos anteriores são o melhor treino. as mesmas perguntas caem sempre.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "çıkmış soruları çöz📄",
+      "texte": "geçmiş yılların sınavları en iyi antrenmandır. aynı sorular hep tekrar gelir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "50cd8682-50b1-4a8e-8267-fcf9b7d32f58",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dccee3d8-0480-4ab8-8d53-0da85eba27e5/4.jpg?v=1791726948962",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "révise un peu chaque soir🌙",
+      "texte": "pas besoin de 3 h. moi, je mets mes cours dans micabo et je fais 10 min de quiz après le dîner. le jour du contrôle, je n’ai rien à rattraper.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "review a little every evening🌙",
+      "texte": "you don’t need 3 hours. i put my lessons into micabo and do 10 minutes of quizzes after dinner. on test day, there’s nothing left to catch up on.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "repasa un poco cada noche🌙",
+      "texte": "no hacen falta 3 h. yo meto mis clases en micabo y hago 10 min de quiz después de cenar. el día del examen no tengo nada que recuperar.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "wiederhol jeden Abend ein bisschen🌙",
+      "texte": "du brauchst keine 3 Std. ich packe meinen Stoff in micabo und mache nach dem Essen 10 Min. Quiz. am Tag der Klausur muss ich nichts nachholen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ripassa un po’ ogni sera🌙",
+      "texte": "non servono 3 ore. io metto le lezioni su micabo e faccio 10 minuti di quiz dopo cena. il giorno della verifica non ho niente da recuperare.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "revise um pouco toda noite🌙",
+      "texte": "não precisa de 3 h. eu coloco minhas aulas no micabo e faço 10 min de quiz depois do jantar. no dia da prova, não tenho nada pra correr atrás.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "her akşam biraz tekrar yap🌙",
+      "texte": "3 saate gerek yok. derslerimi micabo’ya koyup akşam yemeğinden sonra 10 dakika test çözüyorum. sınav günü yetiştirecek hiçbir şey kalmıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0a3ccd6c-98cc-4efa-8d33-a543c5b350bc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5081e4a3-c69b-4053-b4ac-49f6fa55d408/5.jpg?v=1792601465983",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "pose tes questions❓",
+      "texte": "si tu n’as pas compris, la moitié de la classe non plus. personne ne te jugera.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ask your questions❓",
+      "texte": "if you didn’t get it, half the class didn’t either. nobody will judge you.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "haz tus preguntas❓",
+      "texte": "si no lo has entendido, media clase tampoco. nadie te va a juzgar.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "stell deine Fragen❓",
+      "texte": "wenn du es nicht verstanden hast, die halbe Klasse auch nicht. niemand wird dich verurteilen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "fai le tue domande❓",
+      "texte": "se non hai capito tu, non ha capito mezza classe. nessuno ti giudicherà.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "tire suas dúvidas❓",
+      "texte": "se você não entendeu, metade da turma também não. ninguém vai te julgar.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "sorularını sor❓",
+      "texte": "sen anlamadıysan sınıfın yarısı da anlamamıştır. kimse seni yargılamaz.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1fbd312c-6418-4b51-8def-c7c5b4421e43",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/89eda4c1-e4a2-465e-a7b8-f1caf204194f/5.jpg?v=1792601239414",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "dors avant minuit😴",
+      "texte": "rien de ce que tu révises à 2 h du matin ne reste. le sommeil, c’est là que tout se range.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "sleep before midnight😴",
+      "texte": "nothing you study at 2am sticks. sleep is where everything gets filed away.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "duerme antes de medianoche😴",
+      "texte": "nada de lo que estudias a las 2 de la mañana se queda. dormir es lo que lo ordena todo.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "schlaf vor Mitternacht😴",
+      "texte": "nichts, was du um 2 Uhr nachts lernst, bleibt hängen. im Schlaf wird alles sortiert.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "dormi prima di mezzanotte😴",
+      "texte": "niente di quello che studi alle 2 di notte resta. è nel sonno che tutto si mette in ordine.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "durma antes da meia-noite😴",
+      "texte": "nada do que você estuda às 2 da manhã fica. é dormindo que tudo se organiza.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "gece yarısından önce uyu😴",
+      "texte": "gece 2’de çalıştığın hiçbir şey kalmaz. her şey uykuda yerine oturur.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

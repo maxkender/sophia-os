@@ -1,0 +1,300 @@
+{
+ "id": "fa-011",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7680894744079142166",
+  "vues": 95000,
+  "accroche": "5 Rabbit Holes Worth Going Down"
+ },
+ "titre": {
+  "en": "5 Rabbit Holes Worth Going Down",
+  "de": "5 Rabbit Holes, die sich lohnen",
+  "pt": "5 temas para explorar a fundo"
+ },
+ "legendes": {
+  "en": "5 Rabbit Holes Worth Going Down #rabbithole #learnontiktok #curiosity",
+  "de": "5 Rabbit Holes, die sich lohnen #rabbithole #lernenmittiktok #wissen",
+  "pt": "5 temas para explorar a fundo #curiosidades #aprendernotiktok #conhecimento"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta B. Sophia en carte d'appli à l'étape 3 « A NEW RABBIT HOLE EVERY DAY ». Pas d'UnSwipe. Son « HOW THE INTERNET PHYSICALLY WORKS » tombe. en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 RABBIT HOLES",
+       "bronze": true
+      }
+     ],
+     "WORTH",
+     "GOING DOWN"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 RABBIT HOLES,",
+       "bronze": true
+      }
+     ],
+     "DIE SICH",
+     "LOHNEN"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "PARA EXPLORAR",
+     "A FUNDO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHAT HAPPENS",
+     "WHEN WE SLEEP"
+    ],
+    "video": {
+     "id": "eTgNgGO_bLs",
+     "titre": "What happens when we sleep?",
+     "chaine": "The Economist",
+     "vues": "10M views",
+     "date": "7 years ago",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/pBw3GOKlTYBarIE0qE5-cNoIHMNbPGsER61kuJC5MSI6HzqV16fcaQZQlUSxlJMUFi0_-S9VAw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WAS IM SCHLAF",
+     "PASSIERT"
+    ],
+    "video": {
+     "id": "kqMjoXb4eq8",
+     "titre": "Was macht das Gehirn, wenn wir träumen und schlafen? | Ralphs Universum | Quarks",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "506.233 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:07",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O QUE ACONTECE",
+     "QUANDO DORMIMOS"
+    ],
+    "video": {
+     "id": "gOcX-S36cLc",
+     "titre": "8 COISAS QUE ACONTECEM ENQUANTO DORMIMOS",
+     "chaine": "Você Sabia?",
+     "vues": "9,5 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "10:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdYOUtp16eJsT8yUlmbU2sDUP8ESohkDlSLW9KDUXwJQI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW A COMPUTER",
+     "CHIP IS MADE"
+    ],
+    "video": {
+     "id": "IkRXpFIRUl4",
+     "titre": "How are microchips made? - George Zaidan and Sajan Saini",
+     "chaine": "TED-Ed",
+     "vues": "1.1M views",
+     "date": "1 year ago",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE EIN",
+     "MIKROCHIP ENTSTEHT"
+    ],
+    "video": {
+     "id": "_Kj58yQ67KI",
+     "titre": "Mikrochip-Herstellung - Wie entsteht ein Chip? | Infineon",
+     "chaine": "Infineon Technologies",
+     "vues": "478.020 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kD7RZo_-Fqc2GUU21POH1b4PrlGJb0rTDvvjMghIBiSA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO SE FAZ",
+     "UM MICROCHIP"
+    ],
+    "video": {
+     "id": "AI_lG2Ouc3E",
+     "titre": "Como são Feitos os Microprocessadores– O Incrível Processo por trás dos Micro Chips de Silício",
+     "chaine": "Tudo Tech HD",
+     "vues": "69 mil visualizações",
+     "date": "há 6 meses",
+     "duree": "14:39",
+     "avatar": "https://yt3.ggpht.com/r2QVtLAdG7_1IwlR9O7HKqCHJtXJobZ0uSEymBBU3pmtmPUSrk5MagvP6ja120SvaAg76akMWQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "A NEW RABBIT HOLE",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG EIN",
+     "NEUES RABBIT HOLE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM TEMA NOVO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW MONEY IS",
+     "ACTUALLY CREATED"
+    ],
+    "video": {
+     "id": "mzoX7zEZ6h4",
+     "titre": "How is Money Created? – Everything You Need to Know",
+     "chaine": "ColdFusion",
+     "vues": "5.8M views",
+     "date": "6 years ago",
+     "duree": "29:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kJwvwnCgY68LsHj4YSaut8tOgK_RzFsiwaOhN13FWrwb8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE GELD",
+     "WIRKLICH ENTSTEHT"
+    ],
+    "video": {
+     "id": "HEczigs7w_U",
+     "titre": "Kann Geld aus dem Nichts entstehen? | 42 - Die Antwort auf fast alles Reupload | ARTE",
+     "chaine": "ARTEde",
+     "vues": "250.333 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "30:13",
+     "avatar": "https://yt3.ggpht.com/7z7StiBmKsojbvZli6D7CwmIDjdiCg_pmmWalRmKSq-mW9r3Gl72xGDmNXyAu7ILILKKGLk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO O DINHEIRO",
+     "É CRIADO"
+    ],
+    "video": {
+     "id": "eASuQ9Uyvyk",
+     "titre": "Os BANCOS criam DINHEIRO enquanto você se ENDIVIDA",
+     "chaine": "Fernando Ulrich",
+     "vues": "201 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "16:43",
+     "avatar": "https://yt3.ggpht.com/JRPTkRBiuqw4gUTNDcqU_RGRTTnAm7-pqfvly0qSusVIR9I97Osx0Gv8zEjgMiJrGDicMDsO=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW THE IMMUNE",
+     "SYSTEM WORKS"
+    ],
+    "video": {
+     "id": "lXfEK8G8CUI",
+     "titre": "How The Immune System ACTUALLY Works – IMMUNE",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "26M views",
+     "date": "5 years ago",
+     "duree": "10:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE DAS IMMUN-",
+     "SYSTEM FUNKTIONIERT"
+    ],
+    "video": {
+     "id": "nek0lyV8D9o",
+     "titre": "Das Immunsystem erklärt",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "2,2 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO FUNCIONA",
+     "O SISTEMA IMUNITÁRIO"
+    ],
+    "video": {
+     "id": "pA-99WNabfw",
+     "titre": "Como funciona o sistema imunológico? - Universo Explicado [ANIMAÇÃO]",
+     "chaine": "Universo Explicado",
+     "vues": "296 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "9:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkDcCgDU5gfcPjzZzuUv57BGBJ7CfkuYjj3y_E0C3jZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

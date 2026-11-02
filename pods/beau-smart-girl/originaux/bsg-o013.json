@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o013",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les habitudes pour devenir scandaleusement cultivée (sans passer ta vie à lire) #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "cta A. CTA du pod (règle du 25/10) : cta A = Sophia sur le dernier item, « avec l'appli Sophia » ; cta B = Sophia au milieu du deck, noté comme un truc testé ; cta C = Sophia en premier item, juste après l'accroche. Routine du 25/10, livraison 1 sur 3. Schéma dangereusement-cultivee (r 2,96, 2e2ef1c3 ; chez nous, bsg-o004 au rang A, premier passage à r 3,41). Accroches écrites : « les habitudes pour devenir scandaleusement cultivée (sans passer ta vie à lire) » (retenue : l'excès du schéma, et la parenthèse lève l'objection du temps), « comment devenir dangereusement intelligente en restant une fille normale » (écartée : plus vague), « les habitudes des filles dangereusement cultivées que personne ne remarque » (écartée : sans promesse claire). Habitudes en « tu », cinq items neufs : lire les journaux d'il y a cent ans, reconnaître trois styles d'architecture, un film par mois d'un pays inconnu, une liste « à comprendre un jour », 5 minutes d'apprentissage au lieu du scroll. Rien de repris des sources ni de bsg-o004. Faits : roman, gothique et haussmannien sont bien trois styles d'architecture. Aucune personne réelle. Images de la banque, sans célébrité ni texte : la fille de dos en librairie (accroche), la lectrice dans la pénombre, la pièce au tableau, la bougie, les mains qui écrivent, le vieux carnet, le paysage de montagne. Inspirations : slides 1, 2, 3, 5, 6, 7 de 2e2ef1c3, 2 et 5 de 1a941e8c.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "104c297f",
+   "texte_overlay": "les habitudes pour devenir\nscandaleusement cultivée\n(sans passer ta vie à lire)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10b41935",
+   "texte_overlay": "1. lis les journaux d'il y a cent ans.\n\nbeaucoup d'archives de vieux journaux sont en ligne, gratuites.\nc'est drôle, bizarre, et tu comprends une époque mieux qu'avec un manuel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1e7341fb",
+   "texte_overlay": "2. apprends à reconnaître trois styles d'architecture.\n\nroman, gothique, haussmannien.\nau bout d'une semaine, chaque balade en ville devient un jeu.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2095774b",
+   "texte_overlay": "3. regarde un film par mois d'un pays où t'es jamais allée.\n\nen version originale, sous-titré.\ntu voyages, et t'as un avis que personne d'autre n'a.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "215e5f87",
+   "texte_overlay": "4. garde une liste\n« à comprendre un jour ».\n\nles marées, l'inflation, le cubisme, peu importe.\nchaque dimanche, tu en coches une.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4c009fd7",
+   "texte_overlay": "5. remplace 5 minutes de scroll par 5 minutes d'apprentissage.\n\nde l'histoire, de l'art ou des sciences, en petites doses.\nau bout d'un mois, t'as trente anecdotes de plus.",
+   "texte_sophia": "5. remplace 5 minutes de scroll par l'appli Sophia.\n\nde l'histoire, de l'art ou des sciences, en petites doses.\nau bout d'un mois, t'as trente anecdotes de plus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1e90b86f",
+   "texte_overlay": "vole-moi une habitude, enregistre.\nlaquelle tu testes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o045",
+ "schema_id": "job-toxique",
+ "titre": "le test du dimanche soir : 6 questions pour savoir si ton job t'use #travail #santementale #dimanchesoir #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 3. Routine du 29/10 (6 livraisons). essai (rh-o045 finit par 5) : format « test », jamais fait chez nous. Règle §4.6 : seule rh-o043 reprend une famille d'accroche faite 3 fois en 7 jours (« DOIS MENTIR, partie N »). Les 5 autres ouvrent des familles jamais faites chez nous (« signaux », « questions pièges », « test », « je négocie », « ma routine »). Schéma job-toxique (r 5,88 sur 6 passages, bf49b37f). Accroches écrites : celle-ci (retenue : moment universel + format test), « 6 signes que ton job te vide (et que c'est pas toi le problème) » (écartée : proche de rh-o016), « ton job t'use si tu coches ces cases » (écartée : plate). Sujet sensible : pas de diagnostic, aucun conseil médical ni juridique. La fin renvoie vers un proche, la médecine du travail ou un juriste. CTA de fin jamais utilisé : refaire le test dans un mois. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c374adee",
+   "texte_overlay": "le test du dimanche soir :\n6 questions pour savoir\nsi ton job t'use",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "95534d48",
+   "texte_overlay": "1. le dimanche soir, t'as la boule au ventre\navant même d'ouvrir ton agenda ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "957b65f9",
+   "texte_overlay": "2. t'as arrêté ce que tu aimais à côté ?\nle sport, les sorties, la lecture.\nplus d'énergie pour rien après le boulot",
+   "texte_sophia": "2. t'as arrêté ce que tu aimais à côté ?\nreprends petit : perso, 5 minutes par jour sur l'appli Sophia, de l'histoire ou de l'art. c'est un début",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bb338b7d",
+   "texte_overlay": "3. t'as peur d'ouvrir tes mails ?\nmême en vacances, même le soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "95a429ad",
+   "texte_overlay": "4. tu caches ce que tu ressens à tes collègues ?\ntu fais « ça va » en souriant, tous les jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "96f2b3f7",
+   "texte_overlay": "5. tu te souviens plus de ce qui t'a plu dans ce poste ?\nle jour où t'as signé, il y avait une raison",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "986d5496",
+   "texte_overlay": "6. tu comptes les jours jusqu'aux prochaines vacances ?\ndès le lendemain du retour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bd4213df",
+   "texte_overlay": "si t'as répondu oui à plusieurs\nparles-en : à un proche, à la médecine du travail, à un juriste si besoin\net refais le test dans un mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

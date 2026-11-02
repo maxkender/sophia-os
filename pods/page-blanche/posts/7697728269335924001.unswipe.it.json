@@ -1,0 +1,248 @@
+{
+ "application": "unswipe",
+ "post_id": "7697728269335924001",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 abitudini per avere una disciplina assurda"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(versione niche)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "non annunciare [[i tuoi piani]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs te file [[un shot de dopamine]] avant d'avoir fait quoi que ce soit",
+     "texte": "dire a tutti i tuoi obiettivi ti dà [[una botta di dopamina]] prima di aver fatto qualcosa"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kif de l'ambition]], les compliments, tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "[[provi l'ambizione]], ricevi complimenti e immagini il risultato [[senza fare il lavoro]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "smetti di parlare di quello che farai. sparisci, testa bassa, e [[lascia parlare i risultati]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "smetti di voler [[vincere ogni giorno]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "punta a [[5 giorni su 7]] e accetta che [[2 giorni possano essere un casino]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "non servono [[7 giorni perfetti a settimana]] per avere disciplina"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "una brutta giornata è normale\nfarne [[una brutta settimana è una scelta]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "leggi libri [[invece di scrollare]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could"
+     ],
+     "fr": "une heure de scroll, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "ogni ora passata a scrollare è un'ora in meno per [[allenare la mente]]"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "[[leggi 10 pagine al giorno]], anche quando non ti va"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
+     "texte": "dici che [[vuoi leggere di più]], ma [[l'algoritmo]] ti risucchia ogni volta"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'ouvre l'appli Sophia et j'apprends un truc en 5 min",
+     "texte": "leggo molto di più da quando non ho più i reel su insta. puoi toglierli con l'app UnSwipe"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build a life where discipline is the",
+      "default"
+     ],
+     "fr": "construis une vie où [[la discipline va de soi]]",
+     "texte": "costruisci una vita dove [[la disciplina è la norma]]"
+    },
+    "T2": {
+     "en": [
+      "stop relying on motivation to do basic things"
+     ],
+     "fr": "arrête de miser sur la motivation pour les bases",
+     "texte": "smetti di contare sulla motivazione per le basi"
+    },
+    "T3": {
+     "en": [
+      "put your phone in another",
+      "room, lay out your gym",
+      "clothes the night before,",
+      "and keep distractions out",
+      "of reach"
+     ],
+     "fr": "mets ton tel dans une autre pièce, [[prépare tes affaires de sport la veille]] et garde les distractions hors de portée",
+     "texte": "metti il telefono in un'altra stanza, [[prepara i vestiti della palestra la sera prima]] e tieni lontane le distrazioni"
+    },
+    "T4": {
+     "en": [
+      "the less you have to fight",
+      "yourself to do the right",
+      "thing"
+     ],
+     "fr": "moins t'as à te battre contre toi-même pour bien faire",
+     "texte": "meno devi lottare contro di te per fare la cosa giusta"
+    },
+    "T5": {
+     "en": [
+      "the more friction you remove, the more consistent",
+      "you'll become"
+     ],
+     "fr": "plus tu retires de friction, [[plus tu gagnes en régularité]]",
+     "texte": "più attrito togli, [[più diventi costante]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never miss twice"
+     ],
+     "fr": "[[jamais 2 fois de suite]]",
+     "texte": "[[mai saltare due volte]]"
+    },
+    "T2": {
+     "en": [
+      "missed the gym today? fine. ate badly? move on.",
+      "wasted three hours scrolling? don't waste the next",
+      "three."
+     ],
+     "fr": "pas de sport aujourd'hui ? ok. mal mangé ? on oublie. [[3h perdues à scroller ? perds pas les 3 suivantes.]]",
+     "texte": "saltata la palestra? ok. mangiato male? vai avanti. [[3 ore perse a scrollare? non perdere le prossime 3.]]"
+    },
+    "T3": {
+     "en": [
+      "the real damage isn't",
+      "making a mistake."
+     ],
+     "fr": "le vrai problème, c'est pas l'erreur.",
+     "texte": "il vero danno non è sbagliare."
+    },
+    "T4": {
+     "en": [
+      "it's using that mistake as",
+      "permission to keep going."
+     ],
+     "fr": "c'est de s'en servir comme [[excuse pour continuer.]]",
+     "texte": "è usare quell'errore come [[scusa per continuare.]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

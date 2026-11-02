@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
+import { useAuth } from "@/features/auth/AuthContext";
 import { drapeauLangue } from "@/features/moteur/langues";
 import {
   ACTIONS_ENVOYEES,
@@ -47,6 +48,8 @@ function messageErreur(err: unknown): string {
  */
 export function Lien1000Card() {
   const { t, i18n } = useTranslation();
+  // L'envoi automatique (réglage lien_1000) : admin seulement (0411).
+  const admin = useAuth().role === "admin";
   const queryClient = useQueryClient();
   const liste = useQuery({ queryKey: [...CLE, "liste"], queryFn: listerLien1000 });
   const envoiAuto = useQuery({ queryKey: [...CLE, "auto"], queryFn: lireEnvoiAutoLien1000 });
@@ -77,7 +80,7 @@ export function Lien1000Card() {
             <span>{t("lien1000.envoiAuto")}</span>
             <Switch
               checked={envoiAuto.data === true}
-              disabled={envoiAuto.isPending || basculer.isPending}
+              disabled={!admin || envoiAuto.isPending || basculer.isPending}
               onCheckedChange={(v) => basculer.mutate(v === true)}
               aria-label={t("lien1000.envoiAuto")}
             />

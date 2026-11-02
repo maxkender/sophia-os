@@ -1,0 +1,551 @@
+{
+ "id": "mm-o008",
+ "titre": "tier list of Productivity hacks",
+ "position_app": 2,
+ "legendes": {
+  "en": "productivity hacks, ranked #productivity #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les hacks de productivité, classés #productivite #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Produktivitäts-Hacks im Ranking #produktivität #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "trucos de productividad, en ranking #productividad #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "trucchi di produttività, in classifica #produttivita #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "verimlilik taktikleri sıralaması #verimlilik #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7693198322500259090/1",
+   "boite": [
+    265,
+    425,
+    580,
+    815
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list dei",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Productivity",
+   "fr": "hacks",
+   "de": "Produktivitäts-",
+   "es": "trucos",
+   "it": "trucchi",
+   "tr": "verimlilik"
+  },
+  "bas": {
+   "en": "hacks",
+   "fr": "de productivité",
+   "de": "Hacks",
+   "es": "de productividad",
+   "it": "di produttività",
+   "tr": "taktikleri"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate this ranking",
+  "fr": "note ce classement",
+  "de": "bewerte das Ranking",
+  "es": "puntúa este ranking",
+  "it": "vota questa classifica",
+  "tr": "bu sıralamayı puanla"
+ },
+ "pied": {
+  "en": "what doubled your output?",
+  "fr": "qu’est-ce qui a doublé ta prod ?",
+  "de": "was hat deine Leistung verdoppelt?",
+  "es": "¿qué duplicó tu productividad?",
+  "it": "cosa ha raddoppiato il tuo lavoro?",
+  "tr": "verimini ne ikiye katladı?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "game changer",
+    "fr": "change tout",
+    "de": "Game Changer",
+    "es": "lo cambia todo",
+    "it": "cambia tutto",
+    "tr": "oyunu değiştirir"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "deep work|blocks",
+      "fr": "blocs de|travail profond",
+      "de": "Deep-Work-|Blöcke",
+      "es": "bloques de|trabajo profundo",
+      "it": "blocchi di|deep work",
+      "tr": "derin çalışma|blokları"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|another room",
+      "fr": "téléphone dans|une autre pièce",
+      "de": "Handy im|anderen Raum",
+      "es": "móvil en|otra habitación",
+      "it": "telefono in|un’altra stanza",
+      "tr": "telefon|başka odada"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "fr": "8h de sommeil",
+      "de": "8h Schlaf",
+      "es": "8h de sueño",
+      "it": "8 ore di sonno",
+      "tr": "8 saat uyku"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "one goal|a day",
+      "fr": "un objectif|par jour",
+      "de": "ein Ziel|pro Tag",
+      "es": "una meta|al día",
+      "it": "un obiettivo|al giorno",
+      "tr": "günde|bir hedef"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "morning|workout",
+      "fr": "séance|du matin",
+      "de": "Training|am Morgen",
+      "es": "entreno|de mañana",
+      "it": "allenamento|mattutino",
+      "tr": "sabah|antrenmanı"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      742,
+      739,
+      230,
+      94
+     ],
+     "t": {
+      "en": "focus mode",
+      "fr": "mode focus",
+      "de": "Fokus-Modus",
+      "es": "modo concentración",
+      "it": "modalità focus",
+      "tr": "odak modu"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "walking breaks",
+      "fr": "pauses marche",
+      "de": "Gehpausen",
+      "es": "pausas caminando",
+      "it": "pause camminando",
+      "tr": "yürüyüş molası"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "timers",
+      "fr": "minuteurs",
+      "de": "Timer",
+      "es": "temporizadores",
+      "it": "timer",
+      "tr": "zamanlayıcı"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "water",
+      "fr": "boire de l’eau",
+      "de": "Wasser trinken",
+      "es": "beber agua",
+      "it": "bere acqua",
+      "tr": "su içmek"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "real food",
+      "fr": "vraie bouffe",
+      "de": "echtes Essen",
+      "es": "comida real",
+      "it": "cibo vero",
+      "tr": "gerçek yemek"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee / tea",
+      "fr": "café / thé",
+      "de": "Kaffee / Tee",
+      "es": "café / té",
+      "it": "caffè / tè",
+      "tr": "kahve / çay"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "lofi",
+      "fr": "lofi",
+      "de": "Lofi",
+      "es": "lofi",
+      "it": "lofi",
+      "tr": "lofi"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "no-lyrics|playlist",
+      "fr": "playlist|sans paroles",
+      "de": "Playlist|ohne Text",
+      "es": "playlist|sin letra",
+      "it": "playlist|senza testo",
+      "tr": "sözsüz|liste"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "power nap",
+      "fr": "micro-sieste",
+      "de": "Powernap",
+      "es": "siesta corta",
+      "it": "pisolino",
+      "tr": "kısa şekerleme"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake productive",
+    "fr": "faux productif",
+    "de": "fake produktiv",
+    "es": "falso productivo",
+    "it": "finto produttivo",
+    "tr": "sahte verimli"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "productivity|youtube",
+      "fr": "youtube|productivité",
+      "de": "Produktivitäts-|YouTube",
+      "es": "youtube de|productividad",
+      "it": "youtube sulla|produttività",
+      "tr": "verimlilik|youtube’u"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "buying|a planner",
+      "fr": "acheter|un agenda",
+      "de": "Planer|kaufen",
+      "es": "comprar|una agenda",
+      "it": "comprare|un’agenda",
+      "tr": "ajanda|almak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "posting|your desk",
+      "fr": "poster|ton bureau",
+      "de": "den Schreibtisch|posten",
+      "es": "postear|tu escritorio",
+      "it": "postare|la scrivania",
+      "tr": "masanı|paylaşmak"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "supplements",
+      "fr": "compléments",
+      "de": "Supplements",
+      "es": "suplementos",
+      "it": "integratori",
+      "tr": "takviyeler"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills output",
+   "fr": "tue ta prod",
+   "de": "killt die Leistung",
+   "es": "mata la productividad",
+   "it": "uccide il lavoro",
+   "tr": "verimi öldürür"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     764,
+     860,
+     124,
+     92
+    ],
+    "t": {
+     "en": "gaming|“breaks”",
+     "fr": "« pauses »|gaming",
+     "de": "Gaming-|„Pausen“",
+     "es": "“pausas”|de gaming",
+     "it": "“pause”|gaming",
+     "tr": "oyun|“molası”"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 25/10 : original sur le schéma tier list 2 slides, sujet productivité. cta B : élément UnSwipe en dernière case du S+ (cta A = première case du S+). Couverture : l'homme au fauteuil de la banque."
+}

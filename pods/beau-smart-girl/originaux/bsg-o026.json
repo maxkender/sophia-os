@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o026",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment être jolie ET avoir toujours quelque chose à dire #pourtoi #culture #apprentissage #education",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "variante de bsg-o002 (« comment être jolie ET vraiment intéressante en même temps », r 3,08 sur 3 passages, max 7,4 k vues ; le suivi du 28/10 dit DÉCLINER). Même schéma jolie-et-interessante (preuve r 5,04, 675447a8), autre angle, autres items. cta B (l'anecdote du jour en item 2 ; voir CTA.md). Fait vérifié le 28/10 sur https://fr.wikipedia.org/wiki/Vol_de_La_Joconde : vol « survenu le 21 août 1911 au musée du Louvre », tableau « retrouvé en 1913 après que le voleur a tenté d'approcher un marchand d'art de Florence ». Routine du 28/10, livraison 3 sur 5. Angle : avoir toujours quelque chose à dire. Accroches écrites : « comment être jolie ET avoir toujours quelque chose à dire » (retenue : la structure exacte de bsg-o002, un seul mot changé de promesse), « comment être jolie ET la fille avec qui on parle des heures » (écartée : plus longue), « jolie ET jamais à court de sujets : mes habitudes » (écartée : moins de rythme). Items neufs (rien de repris de bsg-o002, bsg-o012, bsg-o016 ni des sources) : rituel du matin, une anecdote par jour, trois sujets en poche, les titres d'un journal, un livre à recommander. Jolie = prendre soin de soi, aucune norme physique. Images de la banque, sans célébrité ni texte. Inspirations : slides de 375ec54a sans appli (sa 6 cite une appli). Après relecture de l'aperçu : une image trop claire ou un visage douteux remplacé par une image sombre.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "68c048f4",
+   "texte_overlay": "comment être jolie\nET avoir toujours\nquelque chose à dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "68ec90c2",
+   "texte_overlay": "1. un rituel le matin, rien que pour toi.\n\nta crème, tes cheveux, ta tenue.\net pendant ce temps, quelque chose qui t'apprend un truc dans les oreilles.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1f6871d7",
+   "texte_overlay": "2. une anecdote par jour.\n\nce matin, j'ai appris que la joconde a été volée au louvre en 1911. on l'a retrouvée deux ans plus tard, à florence.\nje l'ai racontée trois fois dans la journée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg",
+   "texte_sophia": "2. une anecdote par jour.\n\nce matin, l'appli Sophia m'a appris que la joconde a été volée au louvre en 1911. on l'a retrouvée deux ans plus tard, à florence.\nje l'ai racontée trois fois dans la journée."
+  },
+  {
+   "position": 4,
+   "media_id": "467153e0",
+   "texte_overlay": "3. garde trois sujets dans ta poche.\n\nun livre, une expo, une question que tu te poses.\nplus jamais de blanc gênant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "de2b4d47",
+   "texte_overlay": "4. lis les titres d'un vrai journal.\n\ncinq minutes, pas plus.\ntu sais de quoi tout le monde parle, et t'as ton avis.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "434364e0",
+   "texte_overlay": "5. aie toujours un livre à recommander.\n\n« t'as lu un truc bien récemment ? »\nla question tombe toujours. sois celle qui a la réponse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a068c2f6",
+   "texte_overlay": "jolie, ça se voit.\nintéressante, ça s'entend.\nlaquelle tu commences ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

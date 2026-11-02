@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o053",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d8b0e326-8bdf-4651-a563-0ccafd1bb475",
+ "titre": "6 small things that make you smarter every week #selfimprovement #smartgirl #learning #studytok #thatgirl",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta A. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 2 de la boîte (parent d8b0e326, anglais) : accroche du parent mot pour mot, « 6 small things that make you smarter every week ». Le parent (français à la diffusion) avait : finir un article, un domaine nouveau, une idée par jour (appli), se demander ce qui manque, résumer en une phrase, expliquer. Six petites choses neuves, au rythme de la semaine : une longue marche sans téléphone, un endroit nouveau, un chapitre d'un classique, chercher chaque mot inconnu, cinq courtes leçons (Sophia, cta A en dernier), une vraie conversation. Écrit en anglais comme la famille (parent en). Images de la banque, sans texte ; slide Sophia sur un échiquier et un café, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1ff6149a",
+   "texte_overlay": "6 small things that make\nyou smarter every week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "088ad524",
+   "texte_overlay": "1. one long walk without\nyour phone.\nthat's when ideas finally\nhave room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2cd6ba91",
+   "texte_overlay": "2. one new place.\na museum room, a library,\na street you've never taken.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "38aa8b39",
+   "texte_overlay": "3. one chapter of a classic.\nslowly. no skimming.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "33da4def",
+   "texte_overlay": "4. look up every word\nyou don't know.\nsame day, no exceptions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "27232958",
+   "texte_overlay": "5. one real conversation.\nphone away, curious\nquestions, real answers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "00984af7",
+   "texte_overlay": "6. five short lessons.\none a day, five minutes.\nhistory, art, science.",
+   "texte_sophia": "6. five short lessons.\ni do one a day with a\nmicro-learning app like\nthe sophia app. 5 minutes,\nwith my coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2ed9f04f",
+   "texte_overlay": "save this and start\non monday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/7.jpg"
+  }
+ ]
+}

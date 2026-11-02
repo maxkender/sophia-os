@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase/client";
 import { DELAI_PUBLICATION_MIN_DEFAUT } from "@/features/moteur/delaiPublication";
 import { canoniserLangue, LANGUES_CIBLES } from "@/features/moteur/langues";
+import { serieVuesParJour } from "@/features/moteur/pilotage";
 import {
   estCompteSlideshowAssigne,
   isoBornesJourParis,
@@ -23,6 +24,7 @@ import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
+import type { PerfSource } from "@/features/moteur/perfSource";
 import type { ContexteAccueil } from "@/features/onboarding/contenu";
 import type {
   Compte,
@@ -303,19 +305,34 @@ export async function creerSource(input: {
   return data as CompteReference;
 }
 
-/** Stock de slideshows reproductibles PAR source (compte de référence). Le front
- *  agrège par groupe (principal + conjoints) pour flaguer un groupe épuisé. */
-export async function stockParSource(): Promise<Record<string, number>> {
-  const { data, error } = await supabase
-    .from("sujets")
-    .select("compte_reference_id")
-    .eq("preparation_statut", "done")
-    .in("statut", ["retenu", "utilise"]);
+/** Slideshows importés par source (tous statuts) et validés prêts (0355). */
+export async function contenusParSource(): Promise<Record<string, { importes: number; valides: number }>> {
+  const { data, error } = await supabase.from("source_contenus_stats").select("compte_reference_id, importes, valides");
   if (error) throw error;
-  const m: Record<string, number> = {};
-  for (const s of data ?? []) {
-    const k = s.compte_reference_id as string | null;
-    if (k) m[k] = (m[k] ?? 0) + 1;
+  const m: Record<string, { importes: number; valides: number }> = {};
+  for (const r of data ?? []) {
+    m[r.compte_reference_id as string] = { importes: Number(r.importes), valides: Number(r.valides) };
+  }
+  return m;
+}
+
+/** Le r médian de chaque source sur 30 jours, et rapporté à son label (0356, 0357). */
+export async function performanceSources(): Promise<Record<string, PerfSource>> {
+  const { data, error } = await supabase
+    .from("source_performance")
+    .select("compte_reference_id, posts, r_mediane, vues_mediane, label_nom, r_label, posts_label, r_vs_label");
+  if (error) throw error;
+  const m: Record<string, PerfSource> = {};
+  for (const l of data ?? []) {
+    m[l.compte_reference_id as string] = {
+      posts: Number(l.posts),
+      r: l.r_mediane === null ? null : Number(l.r_mediane),
+      vuesMediane: l.vues_mediane === null ? null : Number(l.vues_mediane),
+      labelNom: (l.label_nom as string | null) ?? null,
+      rLabel: l.r_label === null ? null : Number(l.r_label),
+      postsLabel: Number(l.posts_label ?? 0),
+      rVsLabel: l.r_vs_label === null ? null : Number(l.r_vs_label),
+    };
   }
   return m;
 }
@@ -652,7 +669,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, upwork_contrat_url, email_perso, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url, cohorte_lundi",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -1171,6 +1188,31 @@ export async function ecrireEnvoiAutoRelecture(actif: boolean): Promise<void> {
   await ecrireReglage("relecture_envoi_auto", { actif });
 }
 
+/**
+ * Les créateurs qu'une nuit d'envoi automatique toucherait : ceux qui ont un
+ * brouillon de l'agent la dernière nuit de relecture (un retour chacun au plus).
+ */
+export async function compterPosteursRelecture(): Promise<number> {
+  const { data: dernier, error: errJour } = await supabase
+    .from("relectures_auto")
+    .select("jour")
+    .eq("origine", "cron")
+    .order("jour", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (errJour) throw errJour;
+  if (!dernier) return 0;
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("poster_id")
+    .eq("jour", dernier.jour)
+    .eq("origine", "cron")
+    .eq("statut", "fait")
+    .not("brouillon", "is", null);
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => r.poster_id as string | null).filter(Boolean)).size;
+}
+
 /** Les jours qui ont des relectures de l'agent, le plus récent d'abord. */
 export async function listerJoursRelecture(): Promise<string[]> {
   const { data, error } = await supabase
@@ -1479,6 +1521,83 @@ export async function majUpwork(userId: string, url: string): Promise<void> {
     .update({ upwork_url: url.trim() || null })
     .eq("id", userId);
   if (error) throw error;
+}
+
+/** Change le nom complet d'un poster (premier mot = prénom, le reste = nom). L'email de connexion ne change pas. */
+export function renommerPoster(userId: string, nomComplet: string) {
+  return invoke<{ ok: boolean; prenom: string; nom: string }>("manage-users", {
+    action: "renommer",
+    userId,
+    nom_complet: nomComplet,
+  });
+}
+
+/** Liens Upwork et email perso d'un poster (0358), saisis à sa création ou dans sa fiche. */
+export interface ContactPoster {
+  upwork_url: string | null;
+  upwork_contrat_url: string | null;
+  email_perso: string | null;
+}
+
+/** Même contrôle que le serveur (`contact_poster.ts`) et la contrainte `profiles_email_perso_format`. */
+export function emailPersoValide(email: string): boolean {
+  const e = email.trim();
+  return !e || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+}
+
+/** Le lien du contrat : vide, ou un lien upwork.com (même contrôle que poster_maj_contact, 0400). */
+/** Prompt 21, A5 : accueil automatique sur « on » et ce contrat déjà accueilli → l'OS crée le posteur lui-même. */
+export async function contratAccueilliAuto(url: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("accueil_contrat_auto", { p_url: url });
+  if (error) throw error;
+  return data === true;
+}
+
+export function contratUpworkValide(url: string): boolean {
+  const u = url.trim();
+  return !u || /^https?:\/\/([a-z0-9-]+\.)*upwork\.com\//i.test(u);
+}
+
+/** À la création : le lien du contrat obligatoire ; l'email perso facultatif, mais lisible s'il est rempli (29 oct.). */
+export function contactCreationComplet(c: { upwork_contrat_url: string; email_perso: string }): boolean {
+  return (
+    Boolean(c.upwork_contrat_url.trim()) &&
+    contratUpworkValide(c.upwork_contrat_url) &&
+    emailPersoValide(c.email_perso)
+  );
+}
+
+/** Contact d'un poster par sa HM (ou l'admin, le Head of Ops) : poster_maj_contact (0400). */
+export async function majContactPosterHm(posterId: string, c: { upwork_url: string; upwork_contrat_url: string; email_perso: string }): Promise<void> {
+  const { error } = await supabase.rpc("poster_maj_contact", {
+    p_poster: posterId,
+    p_upwork_url: c.upwork_url,
+    p_contrat_url: c.upwork_contrat_url,
+    p_email_perso: c.email_perso,
+  });
+  if (error) throw error;
+}
+
+/** Enregistre les liens Upwork et l'email perso d'un poster (fiche admin). Vide = effacé. */
+export async function majContactPoster(userId: string, contact: Partial<ContactPoster>): Promise<void> {
+  const patch: Partial<ContactPoster> = {};
+  for (const [cle, valeur] of Object.entries(contact) as Array<[keyof ContactPoster, string | null]>) {
+    const v = (valeur ?? "").trim();
+    patch[cle] = v ? (cle === "email_perso" ? v.toLowerCase() : v) : null;
+  }
+  if (!Object.keys(patch).length) return;
+  const { error } = await supabase.from("profiles").update(patch).eq("id", userId);
+  if (error) throw error;
+}
+
+/** Les champs de contact remplis, pour le corps de `manage-users` (create). */
+export function corpsContactPoster(contact: Partial<ContactPoster>): Partial<ContactPoster> {
+  const corps: Partial<ContactPoster> = {};
+  for (const [cle, valeur] of Object.entries(contact) as Array<[keyof ContactPoster, string | null]>) {
+    const v = (valeur ?? "").trim();
+    if (v) corps[cle] = v;
+  }
+  return corps;
 }
 
 /**
@@ -1821,10 +1940,14 @@ export function creerPoster(input: {
   tiktok_2fa_note?: string;
   /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
   pays?: string;
+  /** Liens Upwork et email perso (0358) : envoyés seulement s'ils sont remplis. */
+  contact?: Partial<ContactPoster>;
 } & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
     email: string;
+    /** 31/10 : le mot de passe unique de la recrue (rendu par la création). */
+    password?: string;
     type_compte?: TypeCompte | null;
     compte: {
       id: string;
@@ -1850,21 +1973,31 @@ export function creerPoster(input: {
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     ...(input.pays ? { pays: input.pays } : {}),
+    ...corpsContactPoster(input.contact ?? {}),
     ...corpsApplicationsCompte(input),
   });
 }
 
-/** Démarre le warmup d'un compte (créateur sur son compte, ou admin). */
-export function demarrerWarmup(compteId: string) {
+/**
+ * Démarre le warmup d'un compte (créateur sur son compte, ou admin). Prompt 25
+ * MAJ : avec `handle` (le @ tapé par la recrue), l'OS le lit d'abord sur
+ * TikTok ; introuvable → `{ ok: false, error: "compte_introuvable" }` et le
+ * warm-up ne démarre pas.
+ */
+export function demarrerWarmup(compteId: string, handle?: string) {
   return invoke<{
     ok: boolean;
+    error?: "compte_introuvable" | "handle_invalide" | string;
+    handle?: string;
     deja?: boolean;
-    warmup_started_at: string;
-    warmup_ends_at: string;
+    warmup_started_at?: string;
+    warmup_ends_at?: string;
     heures?: number;
+    verification?: { statut: "trouve" | "illisible"; handle: string };
   }>("manage-users", {
     action: "start_warmup",
     compteId,
+    ...(handle !== undefined ? { handle } : {}),
   });
 }
 
@@ -2565,11 +2698,17 @@ export async function statsComptes(): Promise<StatsCompte[]> {
 }
 
 export type PilotageDashboard = {
+  /**
+   * Vues des posts publiés chaque jour (0640), jusqu'à hier, jour par jour :
+   * un jour sans post vaut `null` (un trou, pas un zéro).
+   */
   vuesSerie: Array<{
     jour: string;
-    vues_totales: number;
-    vues_delta: number | null;
-    nb_comptes: number;
+    vues: number | null;
+    posts: number;
+    comptes: number;
+    /** Encore relu par le rattrapage de minuit : le chiffre monte encore. */
+    provisoire: boolean;
   }>;
   recruteurs: Array<{
     id: string;
@@ -2643,13 +2782,13 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     { data: profils, error: errProfils },
     { data: postsVeille, error: errPosts },
   ] = await Promise.all([
-    // Les 90 DERNIERS relevés : trié croissant avec un plafond, on aurait eu
-    // les plus anciens, et la courbe se serait figée une fois le plafond atteint.
+    // Les 90 derniers jours jusqu'à hier : aujourd'hui n'a pas encore de vues.
     supabase
-      .from("vues_globales_jour")
-      .select("jour, vues_totales, vues_delta, nb_comptes")
-      .order("jour", { ascending: false })
-      .limit(90),
+      .from("vues_par_jour_publication")
+      .select("jour, vues, posts_mesures, nb_comptes")
+      .gte("jour", ajouterJoursParisCalendaire(auj, -JOURS_VUES_PILOTAGE))
+      .lte("jour", veille)
+      .order("jour", { ascending: true }),
     supabase
       .from("comptes")
       .select(
@@ -2832,13 +2971,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   }));
 
   return {
-    // Lu du plus récent au plus ancien (voir la requête) : remis dans l'ordre du temps.
-    vuesSerie: [...(serie ?? [])].sort((a, b) => String(a.jour).localeCompare(String(b.jour))).map((s) => ({
-      jour: s.jour as string,
-      vues_totales: Number(s.vues_totales),
-      vues_delta: s.vues_delta == null ? null : Number(s.vues_delta),
-      nb_comptes: Number(s.nb_comptes ?? 0),
-    })),
+    vuesSerie: serieVuesParJour(serie ?? [], veille),
     recruteurs,
     postsVeille: postsVeilleMapped,
     classementTop: casesListe
@@ -2865,6 +2998,9 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     postsJours,
   };
 }
+
+/** Jours de vues lus pour le Pilotage (le graphique en montre 90 au plus). */
+const JOURS_VUES_PILOTAGE = 90;
 
 /**
  * Posts prévus / publiés par jour, de `du` à `au` inclus. Paginé : sur 14 jours
@@ -3131,6 +3267,13 @@ export async function paysDuCompte(compteId: string): Promise<string | null> {
   const { data, error } = await supabase.from("comptes").select("pays").eq("id", compteId).maybeSingle();
   if (error) throw error;
   return (data?.pays as string | null) ?? null;
+}
+
+/** Prompt 25 MAJ, 7d : le @ TikTok du compte, pour vérifier le lien d'un post. */
+export async function handleDuCompte(compteId: string): Promise<string | null> {
+  const { data, error } = await supabase.from("comptes").select("handle_tiktok").eq("id", compteId).maybeSingle();
+  if (error) throw error;
+  return (data?.handle_tiktok as string | null) ?? null;
 }
 
 export interface CompteCreateurDetail {
@@ -4176,6 +4319,7 @@ export async function lireReglages(): Promise<Reglages> {
       elo_poids_vues: 0.7,
       elo_vues_plafond: 80_000,
       elo_regularisation_k: 1,
+      elo_vues_force_import: 40_000,
       ...((map.get("scoring") as Partial<Reglages["scoring"]> | undefined) ?? {}),
     },
     tierlist: {
@@ -4187,6 +4331,7 @@ export async function lireReglages(): Promise<Reglages> {
       repechage_passages: 1,
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
+      ecart_min_meme_accroche: 10,
       plancher_b: 3_000,
       fatigue_passages: 8,
       fatigue_plafond: 10_000,
@@ -4209,10 +4354,6 @@ export async function lireReglages(): Promise<Reglages> {
       ...((map.get("nettoyage") as Partial<Reglages["nettoyage"]> | undefined) ?? {}),
     },
     file_labels_comptes: normaliserFileLabels(map.get("file_labels_comptes")),
-    warmup: {
-      heures: 24,
-      ...((map.get("warmup") as Partial<Reglages["warmup"]> | undefined) ?? {}),
-    },
   };
 }
 
@@ -5508,8 +5649,10 @@ export async function lancerAssignationABlanc(
   compteId: string,
   ia: boolean,
   onLog?: (ligne: AssignationABlancLog) => void,
+  /** BLEO : suivre le plan du tirage comme après la bascule. */
+  bleo = false,
 ): Promise<AssignationABlancResultat> {
-  const fin = await posterFluxABlanc({ date, compteId, ia }, onLog);
+  const fin = await posterFluxABlanc({ date, compteId, ia, bleo }, onLog);
   return fin.resultat as AssignationABlancResultat;
 }
 
@@ -7541,6 +7684,8 @@ export interface LigneSurveillance {
   surveillance_skip_jusqu: string | null;
   non_renouveler: boolean;
   non_renouveler_at: string | null;
+  /** « ckd:<règle> » : arrêté par un Kill de Check, Kill or Double (0328). */
+  non_renouveler_raison?: string | null;
   non_renouveler_hm_demande: boolean;
   non_renouveler_hm_demande_at: string | null;
   /** Dernier nudge envoyé à ce compte. */
@@ -7557,7 +7702,7 @@ export async function listerSurveillanceComptes(): Promise<LigneSurveillance[]> 
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
+      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_raison, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
     )
     .eq("is_active", true)
     .neq("type_compte", "cm")

@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o076",
+ "schema_id": "job-toxique",
+ "titre": "ce que j'ai arrêté de faire pour ne plus ramener le boulot à la maison #travail #santementale #equilibre #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma job-toxique (r 3,11, bf49b37f). Famille d'accroche jamais faite : « ramener le boulot à la maison ». Rien de médical ni de juridique. CTA de fin jamais utilisé. (dire à quelle heure on ferme son ordi) Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cc9ef925",
+   "texte_overlay": "ce que j'ai arrêté de faire\npour ne plus ramener le boulot\nà la maison",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a165ff0b",
+   "texte_overlay": "lire mes mails dans le métro du retour\nils seront là demain matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a3367de7",
+   "texte_overlay": "garder l'appli de messagerie pro sur mon téléphone perso\nje l'ai retirée. rien n'a explosé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a35df11c",
+   "texte_overlay": "finir ma journée sans liste\nmaintenant, 3 lignes pour demain, et je ferme",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b1db3a02",
+   "texte_overlay": "passer de l'écran du boulot à l'écran du canapé\nentre les deux : 5 minutes à apprendre un truc qui n'a rien à voir",
+   "texte_sophia": "passer de l'écran du boulot à l'écran du canapé.\nentre les deux, utilise l'appli Sophia : 5 minutes à apprendre un truc qui n'a rien à voir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a914f623",
+   "texte_overlay": "raconter ma journée pendant tout le dîner\n10 minutes, puis on parle d'autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a99be253",
+   "texte_overlay": "dire « je regarde vite fait ce soir »\nça ne reste jamais vite fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "aa085c0c",
+   "texte_overlay": "tu fermes ton ordi à quelle heure ?\nsois honnête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

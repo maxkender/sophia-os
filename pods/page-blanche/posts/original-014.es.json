@@ -1,0 +1,228 @@
+{
+ "post_id": "original-014",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "mis reglas con el móvil [[que sí funcionaron]]"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(después de fracasar en cada detox)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "mi móvil tiene que [[enseñarme algo]]"
+    },
+    "T2": {
+     "en": [
+      "endless scrolling is conditioning your brain to crave",
+      "instant gratification"
+     ],
+     "fr": "le scroll sans fin habitue ton cerveau à vouloir [[tout, tout de suite]]",
+     "texte": "sé que lo voy a coger igual, así que dejé de engañarme y le di [[un trabajo mejor]]"
+    },
+    "T3": {
+     "en": [
+      "we are entering a literary",
+      "crisis, scrolling tiktok is",
+      "rotting your brain and books",
+      "are being tossed aside"
+     ],
+     "fr": "on entre dans une [[crise de la lecture]], tiktok [[te grille le cerveau]] et les livres finissent au placard",
+     "texte": "todos mis detox acababan igual: tres días de fuerza de voluntad y luego [[tiktok a la 1 de la mañana]]"
+    },
+    "T4": {
+     "en": [
+      "my tip: i always said i",
+      "wanted to read but would",
+      "just scroll tiktok, i found this",
+      "thing that blocks apps until i",
+      "read and it changed my life"
+     ],
+     "fr": "mon astuce ? aujourd'hui, mes 5 min sur [[l'appli Sophia]], c'était [[pourquoi Camus imagine Sisyphe heureux]]. mieux qu'une heure de tiktok",
+     "texte": "antes hacía scroll todo el día. ahora, cuando estoy con el móvil igualmente, hago [[una lección de 5 min en la app Sophia]]. historia, arte, ciencia, filosofía"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone first thing",
+      "in the morning"
+     ],
+     "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "el móvil se queda boca abajo [[hasta después del café]]"
+    },
+    "T2": {
+     "en": [
+      "the first thing you see sets the tone, and right",
+      "now it’s notifications and other people’s lives"
+     ],
+     "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
+     "texte": "antes leía correos y stories ajenas antes de incorporarme, y a las 8 [[ya iba con el día cuesta arriba]]"
+    },
+    "T3": {
+     "en": [
+      "give yourself the",
+      "first 30 minutes",
+      "without your phone"
+     ],
+     "fr": "passe [[les 30 premières minutes]] sans ton tel",
+     "texte": "café, ventana, [[diez minutos tranquilos]] solo para mí"
+    },
+    "T4": {
+     "en": [
+      "you start the day doing what you chose, instead of",
+      "reacting to whatever your phone throws at you"
+     ],
+     "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
+     "texte": "parece una tontería, pero mi día empieza con [[mis propios pensamientos]], no con los de los demás"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. i leave my phone"
+     ],
+     "fr": "3. je laisse mon tel",
+     "texte": "mi móvil se carga"
+    },
+    "T2": {
+     "en": [
+      "on my desk with an alarm"
+     ],
+     "fr": "sur mon bureau avec l'alarme",
+     "texte": "[[en la otra punta]] del cuarto"
+    },
+    "T3": {
+     "en": [
+      "i used to keep it by my",
+      "bed but would just turn",
+      "it off and scroll for",
+      "hours"
+     ],
+     "fr": "avant il était à côté du lit : je coupais l'alarme et je scrollais des heures",
+     "texte": "junto a la cama era un vídeo más hasta las 2, y luego [[una mañana medio zombi]]"
+    },
+    "T4": {
+     "en": [
+      "moving it to",
+      "somewhere i have to",
+      "stand up and walk to",
+      "wakes me up properly"
+     ],
+     "fr": "devoir me lever et marcher jusqu'à lui, ça me réveille pour de vrai",
+     "texte": "ahora uso un despertador barato, y lo último que veo de noche [[ya no es una pantalla]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "nada de móvil en la mesa, [[ni a solas]]"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "comer sin nada que ver al principio era rarísimo. ahora son [[los 15 minutos más tranquilos de mi día]]"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "y por fin noto cuándo ya no tengo hambre, algo que [[nunca pasaba haciendo scroll]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "désactive toutes tes notifs sur ton tel",
+     "texte": "mi móvil solo vibra por [[personas reales]]"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "j'ai pas de notifs pour le moindre truc dans chaque appli,",
+     "texte": "ni likes, ni noticias, ni apps reclamándome. solo llamadas y mensajes,"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "t'as pas besoin de répondre direct, c'est ok",
+     "texte": "así que cuando vibra, [[es alguien de verdad]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

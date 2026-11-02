@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o039",
+ "schema_id": "mentir-entretien",
+ "titre": "ce que je répondais en entretien quand j'étais stressée vs maintenant (j'ai appris à MENTIR… un peu) #entretien #stress #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 5. Routine du 28/10 (5 livraisons + 6 variantes). variante de rh-o009 (39,4 k vues en el le 26/10). Même schéma mentir-entretien (r 29,23 sur 4 passages, 496f8d72) et même format avant/maintenant, autre angle, autres questions : aucune reprise de rh-o001 à rh-o032 ni des sources. Angle : le stress. Accroches écrites : celle-ci (retenue), « mes réponses d'entretien en panique vs posée » (écartée : moins clair), « le stress m'a coûté 3 entretiens, voilà ce que je dis maintenant » (écartée : chiffre de récit superflu). CTA de fin jamais utilisé : faire une capture d'une slide. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a057ed2b",
+   "texte_overlay": "ce que je répondais en entretien\nquand j'étais stressée vs maintenant\n(j'ai appris à MENTIR… un peu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8302d1a3",
+   "texte_overlay": "« comment vous allez aujourd'hui ? »\nstressée : « super stressée, désolée »\nmaintenant : « contente d'être là, et concentrée »\nles deux sont vrais. choisis lequel tu dis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "830c8e48",
+   "texte_overlay": "« vous voulez un verre d'eau ? »\nstressée : « non non, ça va »\nmaintenant : « oui, avec plaisir »\nça te donne 30 secondes pour respirer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "83514421",
+   "texte_overlay": "« résumez votre parcours en 2 minutes »\nstressée : 10 minutes en partant du lycée\nmaintenant : 3 étapes, et la dernière, c'est leur poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "838f4420",
+   "texte_overlay": "« vous avez vu notre actualité ? »\nstressée : « euh… non »\nmaintenant : « oui, et ça m'a fait penser à X »\nun lien, même petit, et tu sors du lot",
+   "texte_sophia": "« vous avez vu notre actualité ? »\nmaintenant : « oui, et ça m'a fait penser à X »\nperso, 5 minutes par jour sur l'appli Sophia, et j'ai toujours un lien à faire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "83d07ba1",
+   "texte_overlay": "« une dernière chose à ajouter ? »\nstressée : « non, c'est bon »\nmaintenant : pourquoi ce poste me motive, en une phrase\nla dernière impression compte double",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "83fb1fc6",
+   "texte_overlay": "fais une capture de la n°3\net relis-la juste avant ton prochain entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

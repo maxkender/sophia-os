@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o024",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les habitudes pour devenir dangereusement cultivée en 10 minutes par jour #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "variante de bsg-o004 (« les habitudes pour devenir dangereusement cultivée (et en finir avec le brain rot) », r 3,56 sur 3 passages, max 14 k vues, rang A ; le suivi du 28/10 dit DÉCLINER). Même schéma dangereusement-cultivee (preuve r 2,96, 2e2ef1c3), autre angle, autres items. cta C (le défi en premier item ; voir CTA.md). Routine du 28/10, livraison 1 sur 5. Angle : le temps court (10 minutes par jour). Accroches écrites : « les habitudes pour devenir dangereusement cultivée en 10 minutes par jour » (retenue : la promesse de bsg-o004, et une contrainte qui rassure), « les habitudes de 10 minutes qui m'ont rendue dangereusement cultivée » (écartée : moins claire), « comment devenir dangereusement cultivée sans y passer tes soirées » (écartée : plus vague). Items neufs (rien de repris de bsg-o004, bsg-o013, bsg-o017, bsg-o020 ni des sources) : une chanson dans une langue inconnue, la carte avant l'article, un poème le soir, trois pourquoi. Aucun fait. Images de la banque, sans célébrité ni texte. Inspirations : slides de 2e2ef1c3 et 1a941e8c sans appli.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "459171e2",
+   "texte_overlay": "les habitudes pour devenir\ndangereusement cultivée\nen 10 minutes par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "442e4a73",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "454beedf",
+   "texte_overlay": "1. écoute une chanson dans une langue que tu parles pas.\n\npuis cherche la traduction des paroles.\nune chanson, c'est un pays en trois minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6780bd2b",
+   "texte_overlay": "2. regarde une carte avant de lire sur un pays.\n\nsavoir où il est, ses voisins, sa mer.\nl'actualité devient enfin logique.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9f8072ce",
+   "texte_overlay": "3. lis un poème avant de dormir.\n\nun seul, court, à voix basse.\nau bout d'un mois, t'en connais quelques-uns par cœur sans l'avoir cherché.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4658bf3a",
+   "texte_overlay": "4. demande\n« pourquoi » trois fois.\n\nsur n'importe quel sujet.\nau troisième pourquoi, tu sais plus de choses que la plupart des gens.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "46117a60",
+   "texte_overlay": "vole-moi une habitude, enregistre.\nlaquelle tu testes ce soir ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

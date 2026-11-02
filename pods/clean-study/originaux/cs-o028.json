@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o028",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "if your notes are gorgeous but you still don't know anything… #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "La seule reprise du jour d'une famille livrée 3 fois ou plus en 7 jours (ROUTINE point 6) : relatable-struggle-fix, avec une galère neuve. Accroches écrites : « spending an hour making my notes pretty and 10 minutes actually learning them » (retenue : la galère studytok par excellence, en minuscules), « having the most aesthetic notes in class and the worst grades » (écartée : se moque de soi trop durement), « color coding everything and remembering nothing » (écartée : proche de « highlight after » de cs-o006). Cinq gestes : des notes rapides en cours, le temps gagné sert à se tester (place micabo, slide 4), une couleur au plus, des questions à la place des phrases recopiées, le téléphone hors du bureau pendant la mise au propre (place UnSwipe, slide 7). Slides 4 et 7 sans personne. Écartées à l'aperçu : 3a448ea1, 70ca7fc0, 789d4a59, 430a8823 (écran lisible ou personne sur une slide d'appli, marque lisible, ou photo déjà prise ailleurs).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6e395487",
+      "texte_overlay": "spending an hour making my notes pretty and 10 minutes actually learning them",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6e43a704",
+      "texte_overlay": "how i fixed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6fe9c405",
+      "texte_overlay": "in class, i take fast messy notes.\nthe pretty version was never the point.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cf457095",
+      "texte_overlay": "the time i save goes into testing myself.\nthat's where the learning happens.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d989fbe6",
+      "texte_overlay": "one highlighter. one color.\nonly for what i'll get asked on the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e2c8a371",
+      "texte_overlay": "instead of copying sentences, i write questions.\nlater i answer them without looking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f2b352bd",
+      "texte_overlay": "my phone stays off the desk while i rewrite.\notherwise one hour turns into three.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "790732b8",
+      "texte_overlay": "my notes are a little uglier now. my grades aren't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

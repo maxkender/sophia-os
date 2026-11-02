@@ -15,12 +15,11 @@ import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerChecklistPremierPostCard } from "@/features/onboarding/SimulerChecklistPremierPostCard";
 import { SimulerOnboardingCard } from "@/features/onboarding/SimulerOnboardingCard";
 import { SimulerRetourCard } from "@/features/reviews/SimulerRetourCard";
+import { AbTraductionCard } from "@/features/abTraduction/AbTraductionCard";
 import { AssignationABlancCard } from "@/features/moteur/AssignationABlancCard";
 import { ContenusABlancCard } from "@/features/moteur/ContenusABlancCard";
-import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
 import { TestBrulerTexteCard } from "@/features/moteur/TestBrulerTexteCard";
-import { TestCompletCard } from "@/features/moteur/TestCompletCard";
 import { TestStickersCard } from "@/features/moteur/TestStickersCard";
 
 const selectClass =
@@ -317,8 +316,10 @@ function TestsRecents() {
 
 // Catalogue des tests : on choisit d'abord ici (chacun est expliqué), puis le
 // test choisi s'affiche seul en dessous — plus de mur de cartes empilées.
+// Retirés du catalogue (prompt 15, point 1) : « Simuler minuit » (lançait la
+// vraie assignation de tous les posteurs) et « Test complet » (ancien circuit).
+// Les cartes restent dans le code.
 const TESTS = [
-  { value: "minuit", titreKey: "simMinuit.title", descKey: "simMinuit.subtitle", render: () => <SimulerMinuitCard /> },
   {
     value: "minuit-compte",
     titreKey: "simMinuitCompte.title",
@@ -335,6 +336,12 @@ const TESTS = [
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },
   {
+    value: "ab-traduction",
+    titreKey: "abTraduction.title",
+    descKey: "abTraduction.subtitle",
+    render: () => <AbTraductionCard />,
+  },
+  {
     value: "stickers",
     titreKey: "tests.stickersTitre",
     descKey: "tests.stickersDesc",
@@ -346,7 +353,6 @@ const TESTS = [
     descKey: "tests.brulerDesc",
     render: () => <TestBrulerTexteCard />,
   },
-  { value: "complet", titreKey: "tests.completTitre", descKey: "tests.completDesc", render: () => <TestCompletCard /> },
   {
     value: "onboarding",
     titreKey: "tests.onboardingTitre",

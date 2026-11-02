@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o038",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment être jolie ET la fille la plus intéressante du dîner #pourtoi #culture #apprentissage #education",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "variante de bsg-o002 (r 3,26 sur 3 passages ; le suivi du 30/10 dit DÉCLINER), 3e et dernière variante après bsg-o026 et bsg-o028. Même schéma jolie-et-interessante (preuve r 5,04, 675447a8), autre angle (le dîner), autres items. cta B (l'anecdote du jour en item 2 ; voir CTA.md). Fait vérifié le 30/10 sur https://fr.wikipedia.org/wiki/Ch%C3%A2teau_de_Versailles : « Le roi, la cour et le gouvernement y résidèrent de façon permanente du 6 mai 1682 au 6 octobre 1789 ». Routine du 30/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 4 sur 7. Accroches écrites : « comment être jolie ET la fille la plus intéressante du dîner » (retenue : la structure exacte de bsg-o002, un moment précis), « jolie ET intéressante : mes règles pour les dîners » (écartée : plus faible), « comment devenir la fille dont tout le monde parle après le dîner » (écartée : sans le ET). Items neufs. Jolie = prendre soin de soi, aucune norme physique. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia. Inspirations : slides de 375ec54a sans appli (sa 6 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8d273c48",
+   "texte_overlay": "comment être jolie\nET la fille la plus intéressante\ndu dîner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8d839a04",
+   "texte_overlay": "1. une tenue qui te ressemble, une histoire qui te ressemble.\n\nles deux se préparent la veille.\nles deux font qu'on se souvient de toi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6780bd2b",
+   "texte_overlay": "2. une anecdote par jour.\n\nce matin, j'ai appris que la cour de louis xiv s'est installée à versailles en 1682.\nje l'ai racontée au dîner. tout le monde voulait la suite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg",
+   "texte_sophia": "2. une anecdote par jour.\n\nce matin, l'appli Sophia m'a appris que la cour de louis xiv s'est installée à versailles en 1682.\nje l'ai racontée au dîner. tout le monde voulait la suite."
+  },
+  {
+   "position": 4,
+   "media_id": "8d869c8a",
+   "texte_overlay": "3. pose la question que personne ne pose.\n\n« et toi, qu'est-ce qui te passionne en ce moment ? »\nla conversation change d'un coup.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8dd6004b",
+   "texte_overlay": "4. renseigne-toi sur le lieu.\n\nle restaurant, le quartier, l'immeuble.\nil y a toujours une petite histoire à raconter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9e3cd448",
+   "texte_overlay": "5. laisse parler les autres. vraiment.\n\nla fille la plus intéressante, c'est aussi celle qui écoute le mieux.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9e946de2",
+   "texte_overlay": "laquelle tu testes\nau prochain dîner ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

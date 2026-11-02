@@ -1,0 +1,363 @@
+{
+  "id": "fa-031",
+  "source": {
+    "url": "https://www.tiktok.com/@fathom0g/video/7698058688103288086",
+    "vues": 15400,
+    "accroche": "10/10 Skills That Could Save Somebody’s Life"
+  },
+  "titre": {
+    "en": "10/10 Skills That Could Save Somebody’s Life",
+    "de": "10/10 Skills, die ein Leben retten können",
+    "pt": "10/10 habilidades que podem salvar uma vida"
+  },
+  "legendes": {
+    "en": "10/10 Skills That Could Save Somebody’s Life #firstaid #skills #learnontiktok",
+    "de": "10/10 Skills, die ein Leben retten können #ersthilfe #skills #lernenmittiktok",
+    "pt": "10/10 habilidades que podem salvar uma vida #primeirossocorros #habilidades #aprendernotiktok"
+  },
+  "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+  },
+  "notes": "cta A. Sophia en carte d'appli à l'étape 4 « KNOW A LITTLE ABOUT EVERYTHING ». Pas d'UnSwipe. Gestes de secours de sources officielles (Croix-Rouge, St John, Mayo Clinic, hôpitaux, INEM pour le pt). Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+  "slides": [
+    {
+      "type": "couverture",
+      "statue": "assets/statues/hercule-lion.webp",
+      "en": {
+        "lignes": [
+          [
+            {
+              "t": "10/10",
+              "bronze": true
+            }
+          ],
+          "SKILLS THAT COULD",
+          [
+            {
+              "t": "SAVE SOMEBODY’S LIFE",
+              "bronze": true
+            }
+          ]
+        ]
+      },
+      "de": {
+        "lignes": [
+          [
+            {
+              "t": "10/10",
+              "bronze": true
+            }
+          ],
+          "LEBENSRETTENDE",
+          [
+            {
+              "t": "SKILLS",
+              "bronze": true
+            }
+          ]
+        ]
+      },
+      "pt": {
+        "lignes": [
+          [
+            {
+              "t": "10/10",
+              "bronze": true
+            }
+          ],
+          "HABILIDADES QUE PODEM",
+          [
+            {
+              "t": "SALVAR UMA VIDA",
+              "bronze": true
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "HANDS-ONLY",
+          "CPR"
+        ],
+        "video": {
+          "id": "6eRwgM2Pa4o",
+          "titre": "How to Perform Hands-Only CPR",
+          "chaine": "American Red Cross",
+          "vues": "864K views",
+          "date": "3 years ago",
+          "duree": "2:50",
+          "avatar": "https://yt3.ggpht.com/H0otazbVlYKLvh70k8g_LZ53ALaDbLjS9_IVeq6fHYA3z9RONtTexgcQAC8U0wPIcCNNKFSE=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "HERZDRUCK-",
+          "MASSAGE"
+        ],
+        "video": {
+          "id": "L_bLsEAy87c",
+          "titre": "Herz-Lungen-Wiederbelebung - so macht ihr es richtig | Dr. Johannes Wimmer",
+          "chaine": "Die Techniker",
+          "vues": "773.998 Aufrufe",
+          "date": "vor 7 Jahren",
+          "duree": "6:03",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "COMPRESSÕES",
+          "TORÁCICAS"
+        ],
+        "video": {
+          "id": "gGE18Z2IaBk",
+          "titre": "(RCP) Ressuscitação cardiopulmonar em adultos: o que fazer? - Primeiros Socorros",
+          "chaine": "Sírio-Libanês",
+          "vues": "72 mil visualizações",
+          "date": "há 2 anos",
+          "duree": "2:46",
+          "avatar": "https://yt3.ggpht.com/YPHVK847HqLym_3jpg43iMOO_ISj3BUw4RAlg2q_m0ePR5x_PSmtTJZ-XWEIAf-wnycNSg6fqw=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "THE HEIMLICH",
+          "MANOEUVRE"
+        ],
+        "video": {
+          "id": "7CgtIgSyAiU",
+          "titre": "How to Give the Heimlich Maneuver | First Aid Training",
+          "chaine": "Howcast",
+          "vues": "3.5M views",
+          "date": "14 years ago",
+          "duree": "2:20",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNH2pDkz9-fE3Xkix_Vcz_ijlYXBIy-y03Ei1yaHhTujA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "DER",
+          "HEIMLICH-GRIFF"
+        ],
+        "video": {
+          "id": "J_8rotr_UIs",
+          "titre": "Der Heimlich-Griff - wenn man sich verschluckt hat und zu ersticken droht | Dr. Johannes Wimmer",
+          "chaine": "Die Techniker",
+          "vues": "3,7 Mio. Aufrufe",
+          "date": "vor 8 Jahren",
+          "duree": "2:26",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "A MANOBRA",
+          "DE HEIMLICH"
+        ],
+        "video": {
+          "id": "PyMq2iDMEkI",
+          "titre": "SAMU 192: Adulto engasgado? Veja como realizar a manobra de Heimlich",
+          "chaine": "Ministério da Saúde",
+          "vues": "510 mil visualizações",
+          "date": "há 2 anos",
+          "duree": "3:15",
+          "avatar": "https://yt3.ggpht.com/smS7kZ5RWHe4dsL2wodGLHR5XFoOXwNxg7fGXytGt4sDAulDsHPs-PBrpiNd0D7PZxih9PRHNg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "THE RECOVERY",
+          "POSITION"
+        ],
+        "video": {
+          "id": "GmqXqwSV3bo",
+          "titre": "The Recovery Position - First Aid Training - St John Ambulance",
+          "chaine": "St John Ambulance",
+          "vues": "2.4M views",
+          "date": "10 years ago",
+          "duree": "2:32",
+          "avatar": "https://yt3.ggpht.com/3_EKVZ4cYtPnl5RtfXgOGkN4w3KpDelNVlEs1qjcyfyxDLDIt8km0jA5Iq6J7FxewSsN1LVVtA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "DIE STABILE",
+          "SEITENLAGE"
+        ],
+        "video": {
+          "id": "dwaP16MvMKo",
+          "titre": "Erste Hilfe: Stabile Seitenlage",
+          "chaine": "Uniklinik RWTH Aachen",
+          "vues": "129.299 Aufrufe",
+          "date": "vor 4 Jahren",
+          "duree": "2:15",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFalmmPS9u5P-NRxNXtDh0ic5v9fyF1vpvOJCUbj78L8o=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "A POSIÇÃO LATERAL",
+          "DE SEGURANÇA"
+        ],
+        "video": {
+          "id": "R2zQxYIqias",
+          "titre": "Posição Lateral de Segurança",
+          "chaine": "INEM",
+          "vues": "242 mil visualizações",
+          "date": "há 14 anos",
+          "duree": "1:26",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lY4qzeoBk7v1J2xiksmTBnOEJ8j8M82Wre3JoE6Z7paQ=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "app": "sophia",
+      "en": {
+        "titre": [
+          "KNOW A LITTLE",
+          "ABOUT EVERYTHING"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "learn something new every day,",
+            "in 5 minutes."
+          ]
+        }
+      },
+      "de": {
+        "titre": [
+          "VON ALLEM",
+          "EIN BISSCHEN WISSEN"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "lerne jeden Tag etwas Neues,",
+            "in 5 Minuten."
+          ]
+        }
+      },
+      "pt": {
+        "titre": [
+          "SABER UM POUCO",
+          "DE TUDO"
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "aprende algo novo todos os dias,",
+            "em 5 minutos."
+          ]
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "STOP SEVERE",
+          "BLEEDING"
+        ],
+        "video": {
+          "id": "NxO5LvgqZe0",
+          "titre": "How to Treat Severe Bleeding - First Aid Training - St John Ambulance",
+          "chaine": "St John Ambulance",
+          "vues": "1.2M views",
+          "date": "10 years ago",
+          "duree": "4:28",
+          "avatar": "https://yt3.ggpht.com/3_EKVZ4cYtPnl5RtfXgOGkN4w3KpDelNVlEs1qjcyfyxDLDIt8km0jA5Iq6J7FxewSsN1LVVtA=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "STARKE BLUTUNG",
+          "STOPPEN"
+        ],
+        "video": {
+          "id": "yzLP2GiQ0cs",
+          "titre": "Stärkere Blutung stoppen: So kannst du mit Hilfsmitteln einen Druckverband anlegen!",
+          "chaine": "gesundheitsinformation.de",
+          "vues": "30.944 Aufrufe",
+          "date": "vor 3 Jahren",
+          "duree": "1:35",
+          "avatar": "https://yt3.ggpht.com/lE3DDKMv6fTxOWq5GXLmJ9wfCon2BOCD58MoVxPgkqSjuirmq96JSTMKl80IjPq9ytllk8nRvQ=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "ESTANCAR UMA",
+          "HEMORRAGIA"
+        ],
+        "video": {
+          "id": "9VRcB00d99U",
+          "titre": "Sangramento: como estancar em emergências | Primeiros Socorros",
+          "chaine": "Einstein Hospital Israelita",
+          "vues": "33 mil visualizações",
+          "date": "há 2 anos",
+          "duree": "1:32",
+          "avatar": "https://yt3.ggpht.com/EMv__pRqzJOLGZT7CtGn45GegIgQsAlqe7UqSKqt4BjWvbS_ZMXkNVdQtVr_FiCes-GXRfTomg=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    },
+    {
+      "type": "etape",
+      "en": {
+        "titre": [
+          "SPOT A STROKE",
+          "FAST"
+        ],
+        "video": {
+          "id": "mkpbbWZvYmw",
+          "titre": "Recognize the Signs and Symptoms of Stroke",
+          "chaine": "Centers for Disease Control and Prevention (CDC)",
+          "vues": "488K views",
+          "date": "11 years ago",
+          "duree": "2:31",
+          "avatar": "https://yt3.ggpht.com/R9PJB3tDxvsHEzZ4DDWslsM9YJvFZGiFkxYUNOtGkmppNQVhYe6wdO1-jASR0IrksD81zYcIWBQ=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "de": {
+        "titre": [
+          "EINEN SCHLAGANFALL",
+          "ERKENNEN"
+        ],
+        "video": {
+          "id": "agMOq4VtdS0",
+          "titre": "Schlaganfall erkennen & richtig handeln",
+          "chaine": "Universitätsklinikum Freiburg",
+          "vues": "10.653 Aufrufe",
+          "date": "vor 1 Jahr",
+          "duree": "2:17",
+          "avatar": "https://yt3.ggpht.com/bcvYJbL3OrqHG6nCSMG_vAIWolUvEKdeBlvuQQNbPAKPpzlLMqtTnG_SS_s3atZiYJSZmPScfc8=s176-c-k-c0x00ffffff-no-rj"
+        }
+      },
+      "pt": {
+        "titre": [
+          "RECONHECER",
+          "UM AVC"
+        ],
+        "video": {
+          "id": "dJwmD36zWe0",
+          "titre": "Como identificar um AVC?",
+          "chaine": "Canal do Dr. Kalil",
+          "vues": "16 mil visualizações",
+          "date": "há 7 anos",
+          "duree": "2:08",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQy7LwWEwEC46Qr46PTUPcjvLjqtjDBMgfhrA3Lmyh5Q=s176-c-k-c0x00ffffff-no-rj"
+        }
+      }
+    }
+  ]
+}

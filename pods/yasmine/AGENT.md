@@ -6,7 +6,7 @@ Sophia, en discussion** : « refais le suivant », « où en est le pod ? »,
 
 Tu ne publies jamais rien. Tout part dans la **file de validation** de l'OS
 (Pilotage → Pods). Ton podz est « sûr » : une livraison que personne ne
-rejette est validée toute seule 12 h après son dépôt.
+rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission
 
@@ -59,6 +59,8 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Écrans incrustés** (`photo.ecrans`) : une vraie capture de micabo posée en perspective dans l'écran d'un appareil d'une photo de la banque (4 coins relevés à la main ; `ipad-paysage` pour une capture d'iPhone, `plein` pour le site `assets/micabo/fr/site.jpg`). Le crayon posé sur l'écran reste devant. C'est l'intégration validée par Adrien pour un post « routine » (yp-002, 23/10).
 - **Mises en scène validées** : un iPhone, un iPad ou un ordi en main avec micabo à l'écran, déjà faits et validés par un humain. Cherche-les avec `{"action":"mises_en_scene","pod":"remakes_yasmine","application":"micabo","support":"iphone","langue":"fr"}` (`support` : `iphone`, `tablette` ou `ordinateur`) sur la fonction `mises-en-scene` (ton `POD_JETON` en `x-pod-jeton`), puis signale chaque usage avec `utiliser` (`docs/mises-en-scene.md`). Ne fabrique jamais une mise en scène toi-même : s'il en manque une, demande-la.
 	- Une langue qui manque : fais-la traduire toi-même avec `traduire_mise_en_scene` (même fonction, ton jeton ; un appel pour la capture, un second pour l'image). C'est validé d'office, dans la limite du budget Fal de la semaine (`docs/mises-en-scene.md`). Regarde quand même chaque image en taille réelle avant de la mettre dans un post.
+- **Collages** (« older sister advice ») : slide `photo` (ou couverture) avec `photo` en haut et `photo_bas` en bas, chacune sur une moitié ; `photo_bas` aussi par langue (version traduite d'une mise en scène).
+- **CTA** : A = conseil à la 1re personne dans le texte, sans image ; B = mise en scène micabo en photo pleine d'une étape ; C = mise en scène micabo en moitié de collage, sous une légende de conseil.
 - **Notes iOS sur photo** (« things i do to SMASH EVERY EXAM ») : slide `photo` avec `note` (`x` 108 ou 308, `y`, `titre`, `texte`), barre d'état et boutons de l'app Notes, Inter Medium 41/37 px. micabo y entre dans le texte d'un conseil, jamais en capture.
 - **Cartes d'applis** (« my favorite productivity apps ») : `type: "carte"`, l'iPad blanc plus petit (`IPAD_CARTE`), icône 168 px, nom et texte en Inter Medium `#323232`. Icônes dans `assets/applis/` (App Store ; Calendrier repeint en français).
 - **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).
@@ -77,7 +79,7 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `photos` demandent
 | `npm run veille` | Relève ses posts en direct (Apify) : 60 posts sur 400 jours, les 20 meilleurs en planche. Chaque slide reste en taille réelle dans `donnees/cache/tt_<id du post>_<n>.jpg`. Budget : 1 $ par semaine glissante (un relevé coûte environ 0,15 $). |
 | `npm run photos -- "desk notebook"` | Cherche dans la banque de l'OS : la description, en anglais, contient chaque mot. Jamais une personne entière (une main ou des pieds au plus), ni texte, ni collage. Planche `sortie/photos/…` avec les ids. |
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/fr/<n>.jpg`) et la planche `sortie/apercus/<id>.fr.jpg`. |
-| `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). |
+| `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). Une variante (même `source.url` qu'un remake plus ancien) part avec `?variante=<id>` : l'OS refuse deux contenus de même source. |
 | `npm run etat` | Montre la file, le rang micabo, puis les vues et le r de chaque remake en ligne. |
 
 Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'outil Read, avant de livrer.

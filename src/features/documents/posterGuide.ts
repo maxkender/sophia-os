@@ -169,6 +169,7 @@ const ZONE_A = new Set([
   "japan",
   "japon",
   "japanese",
+  "ja",
   "sg",
   "singapore",
   "singapour",

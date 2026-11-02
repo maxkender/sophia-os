@@ -1,0 +1,551 @@
+{
+ "id": "mm-o021",
+ "titre": "tier list of Dopamine hits",
+ "position_app": 2,
+ "legendes": {
+  "en": "dopamine hits, from real to cheap #dopamine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les shoots de dopamine, du vrai au toc #dopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Dopamin-Kicks, von echt bis billig #dopamin #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "chutes de dopamina, de lo real a lo barato #dopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "scariche di dopamina, dal vero al finto #dopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "dopamin vuruşları, gerçekten ucuza #dopamin #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7688926567183027474/1",
+   "boite": [
+    328,
+    300,
+    424,
+    490
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de los",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "shoots de",
+   "de": "Dopamin-",
+   "es": "chutes de",
+   "it": "scariche di",
+   "tr": "dopamin"
+  },
+  "bas": {
+   "en": "hits",
+   "fr": "dopamine",
+   "de": "Kicks",
+   "es": "dopamina",
+   "it": "dopamina",
+   "tr": "vuruşları"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what’s your cheapest hit?",
+  "fr": "c’est quoi ton shoot le plus toc ?",
+  "de": "was ist dein billigster Kick?",
+  "es": "¿cuál es tu chute más barato?",
+  "it": "qual è la tua scarica più finta?",
+  "tr": "en ucuz vuruşun ne?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "earned, lasts",
+    "fr": "mérité, durable",
+    "de": "verdient, bleibt",
+    "es": "ganado, dura",
+    "it": "meritato, dura",
+    "tr": "hak edilmiş, kalıcı"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      662,
+      239,
+      102,
+      99
+     ],
+     "t": {
+      "en": "beating|your PR",
+      "fr": "battre|ton record",
+      "de": "Rekord|brechen",
+      "es": "superar|tu récord",
+      "it": "battere|il record",
+      "tr": "rekorunu|kırmak"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "finishing|a book",
+      "fr": "finir|un livre",
+      "de": "ein Buch|beenden",
+      "es": "terminar|un libro",
+      "it": "finire|un libro",
+      "tr": "kitap|bitirmek"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "a day|outside",
+      "fr": "une journée|dehors",
+      "de": "ein Tag|draußen",
+      "es": "un día|fuera",
+      "it": "una giornata|fuori",
+      "tr": "dışarıda|bir gün"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking|a real meal",
+      "fr": "cuisiner|un vrai repas",
+      "de": "richtig|kochen",
+      "es": "cocinar|de verdad",
+      "it": "cucinare|davvero",
+      "tr": "gerçek yemek|yapmak"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "winning|at chess",
+      "fr": "gagner|aux échecs",
+      "de": "im Schach|gewinnen",
+      "es": "ganar|al ajedrez",
+      "it": "vincere|a scacchi",
+      "tr": "satrançta|kazanmak"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "deep work",
+      "fr": "travail profond",
+      "de": "Deep Work",
+      "es": "trabajo profundo",
+      "it": "deep work",
+      "tr": "derin çalışma"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "a full album",
+      "fr": "un album entier",
+      "de": "ein ganzes Album",
+      "es": "un álbum entero",
+      "it": "un album intero",
+      "tr": "tam bir albüm"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      452,
+      245,
+      154,
+      154
+     ],
+     "t": {
+      "en": "sunlight",
+      "fr": "soleil",
+      "de": "Sonne",
+      "es": "sol",
+      "it": "sole",
+      "tr": "güneş"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|dem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "good sleep",
+      "fr": "bien dormir",
+      "de": "guter Schlaf",
+      "es": "dormir bien",
+      "it": "dormire bene",
+      "tr": "iyi uyku"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "borrowed",
+    "fr": "emprunté",
+    "de": "geliehen",
+    "es": "prestado",
+    "it": "in prestito",
+    "tr": "ödünç"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee",
+      "fr": "café",
+      "de": "Kaffee",
+      "es": "café",
+      "it": "caffè",
+      "tr": "kahve"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a movie",
+      "fr": "un film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "bir film"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping",
+      "de": "Shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "pre-workout|pills",
+      "fr": "pilules|pré-séance",
+      "de": "Pre-Workout-|Pillen",
+      "es": "pastillas|pre-entreno",
+      "it": "pillole|pre-allenamento",
+      "tr": "antrenman öncesi|hap"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "cheap",
+    "fr": "toc",
+    "de": "billig",
+    "es": "barato",
+    "it": "finto",
+    "tr": "ucuz"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "likes",
+      "fr": "les likes",
+      "de": "Likes",
+      "es": "likes",
+      "it": "like",
+      "tr": "beğeniler"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming",
+      "fr": "gaming",
+      "de": "Gaming",
+      "es": "gaming",
+      "it": "gaming",
+      "tr": "oyun"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "autoplay",
+      "fr": "autoplay",
+      "de": "Autoplay",
+      "es": "reproducción|automática",
+      "it": "autoplay",
+      "tr": "otomatik|oynatma"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "drains you",
+   "fr": "te vide",
+   "de": "saugt dich aus",
+   "es": "te drena",
+   "it": "ti svuota",
+   "tr": "seni tüketir"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h",
+     "de": "Scrollen um 3",
+     "es": "scroll a las 3",
+     "it": "scrollare alle 3",
+     "tr": "gece 3’te scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 29/10 : la seule livraison du jour sur la famille tier list (point 6), thème dopamine (le remake « Dopamine sources pt3 » est à 5 915 vues en es). cta B : élément UnSwipe en dernière case du S+. Couverture : le scanner de cerveau violet de la banque."
+}

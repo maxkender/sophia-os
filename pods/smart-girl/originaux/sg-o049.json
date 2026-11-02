@@ -1,0 +1,75 @@
+{
+ "source_id": "sg-o049",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "163b346f-ca7f-46bf-b5a7-cefb39b88984",
+ "titre": "skills of a dangerous woman nobody wants to know #elegance #confidence #smartgirl #selfimprovement #darkacademia",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "f6b8b58a-5eb4-4c4c-bff4-267b991dd343"
+ ],
+ "notes": "cta A. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 6 de la boîte (parent 163b346f, anglais) : accroche du parent mot pour mot, « skills of a dangerous woman nobody wants to know ». Le parent (25,7 k vues en grec, r 3,34) parlait de silence, d'écoute, de calme, de vie privée, de regard et de limites. Neuf compétences neuves, élégantes et jamais manipulatrices : parler cinq minutes de n'importe quel sujet (Sophia, cta A), se souvenir de chaque détail que tu lui as confié pour te faire plaisir, perdre un débat avec grâce, citer un livre au bon moment, savoir quand quitter une fête, rester polie sous la pression, apprendre vite une compétence nouvelle, dire « je ne sais pas, apprends-moi », changer d'avis devant une preuve. Images : piano, soirées, bibliothèques (photos d'actrices permises, jamais sur la slide Sophia) ; slide Sophia sur une partition et des bougies, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "640e8ed3",
+   "texte_overlay": "skills of a dangerous woman\nnobody wants to know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6682d478",
+   "texte_overlay": "1. She remembers everything\nyou told her.\nAnd uses it to surprise you\nwith kindness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7cdb0632",
+   "texte_overlay": "2. She can lose an argument\ngracefully.\n\"You're right, I hadn't\nthought of that.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "54fd3cc6",
+   "texte_overlay": "3. She quotes the right book\nat the right moment.\nNever to show off. Just\nwhen it fits.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "39e2d4d5",
+   "texte_overlay": "4. She knows when to leave\nthe party.\nAt the best moment, while\neveryone still wants more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4e4616e3",
+   "texte_overlay": "5. She stays polite under\npressure.\nCalm voice, clear words,\nno drama.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "44289331",
+   "texte_overlay": "6. She learns new skills fast.\nA language, an instrument,\na craft. Nothing scares her.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "62d2abd2",
+   "texte_overlay": "7. She says \"I don't know,\nteach me.\"\nCuriosity is her\nsuperpower.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "77d26719",
+   "texte_overlay": "8. She can talk about\nanything for five minutes.\nHistory, art, science.\nShe learns a little\nevery day.",
+   "texte_sophia": "8. She can talk about\nanything for five minutes.\nI learn a little every day\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "0560025c",
+   "texte_overlay": "Follow for more\nWhich one do you have?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594056678132174100/9.jpg"
+  }
+ ]
+}

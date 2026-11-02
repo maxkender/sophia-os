@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o009",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "if this is you every single study session… #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "Nouveau schéma relatable-struggle-fix, prouvé par la veille du 26/10 (@sofiya.yussupova : 291 k vues le 21/10). Jamais fait chez nous. Accroches écrites : « opening my notes to study and somehow being on my phone 40 minutes later » (retenue : la galère la plus partagée, en une phrase, en minuscules comme le gagnant), « sitting at my desk for 3 hours and doing 20 minutes of actual work » (écartée : chiffres moins crédibles), « planning to study all day and doing nothing all day » (écartée : trop vague). Cinq gestes neufs, absents du label et de nos originaux (« phone in another room » existe déjà, écarté) : décider la tâche précise avant de s'asseoir, commencer par 5 minutes faciles, enlever les applis de réseaux de l'écran d'accueil (place UnSwipe, slide 5), la liste « plus tard », 5 questions sans notes à la fin (place micabo, slide 7). Images jamais prises, sans visage ; slides 5 et 7 sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "72564da1",
+      "texte_overlay": "opening my notes to study and somehow being on my phone 40 minutes later",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6fbff747",
+      "texte_overlay": "how i finally fixed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "40e230d0",
+      "texte_overlay": "i decide what i'm studying BEFORE i sit down.\n\"chapter 4, questions 1 to 10\", not just \"biology\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "42cfffb6",
+      "texte_overlay": "the first 5 minutes are for something easy:\nrewriting the title, one exercise i already know. it gets me going.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6bce7551",
+      "texte_overlay": "social apps are off my home screen while i study.\nif i can't see them, my thumb doesn't go there on its own.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "53a22fee",
+      "texte_overlay": "i keep a \"later\" list next to me.\nevery random thought goes on the paper, not into my phone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "489692c7",
+      "texte_overlay": "at the end, 5 questions on what i just did. no notes.\nif i can't answer, i know what tomorrow starts with.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "6197252e",
+      "texte_overlay": "now my 1 hour of studying is actually 1 hour",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

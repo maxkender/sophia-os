@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o034",
+  "schema_id": "best-student",
+  "titre": "what the BEST student in class does after a bad grade #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
+  ],
+  "notes": "Schéma du label best-student (r 2,15 sur 4 passages, 602efb01). Famille d'accroche neuve : après une mauvaise note. Accroches écrites : « what the BEST student in class does after a bad grade » (retenue : un moment que tout le monde vit, et qui surprend venant d'elle), « the BEST student in class gets bad grades too. here's what she does » (écartée : longue), « how the BEST student bounces back » (écartée : vague). Six gestes vrais, sans mépris de soi : laisser passer la journée, lire chaque correction, classer les erreurs, se retester sur ce qui manquait (place micabo, slide 5), demander au prof, pas de comparaison sur les réseaux (place UnSwipe, slide 7). La santé reste générale. Slides 5 et 7 sans personne. Slides d'appli : la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise d'une photo d'objet d'un original de plus d'une semaine (ROUTINE §4.7 : reprise permise, le texte change). Écartées à l'aperçu : c00821a6, c265f0c9, ce2a8d90 (logo de marque, écran de jeu, couverture de livre lisible ou photo déjà prise dans le lot). Puis : e1b0eab0, 1dbfd2f5 (même photo qu'une autre slide du lot).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0cc82b66",
+      "texte_overlay": "what the BEST student in class does\nafter a bad grade",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c0c62d29",
+      "texte_overlay": "she lets herself be disappointed for one evening.\nthen it's data, not drama.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0c1d76e6",
+      "texte_overlay": "she reads every correction, line by line.\nnot just the number at the top.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c488c8fa",
+      "texte_overlay": "she sorts her mistakes:\ndidn't know it, misread it, or ran out of time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1ae57e29",
+      "texte_overlay": "she quizzes herself again on what she missed.\nuntil she gets it right without looking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "18b7692e",
+      "texte_overlay": "she asks the teacher one precise question.\n\"how should i have answered number 3?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "37ca0afe",
+      "texte_overlay": "she doesn't scroll to see everyone else's grades.\nher only competition is her last test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

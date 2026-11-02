@@ -176,5 +176,10 @@ describe("stats 10 j", () => {
     expect(messageAccesOs({ prenom: "Remi", email: "remim@sophia.com", fr: true })).toContain(
       "12345678",
     );
+    // Prompt 21, C8 : le lien Slack vient du réglage ; sans lui, pas de ligne Slack.
+    expect(messageAccesOs({ prenom: "Remi", email: "r@x", fr: false, slack: "https://join.slack.com/t/x" })).toContain(
+      "Please join Slack as well: https://join.slack.com/t/x",
+    );
+    expect(messageAccesOs({ prenom: "Remi", email: "r@x", fr: false })).not.toMatch(/slack/i);
   });
 });

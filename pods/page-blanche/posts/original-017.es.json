@@ -1,0 +1,252 @@
+{
+ "post_id": "original-017",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "un domingo sin vídeos cortos, hora a hora"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(iba a aburrirme)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "9:00 [[café y cero móvil]]"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at it's peak in the morning, and how",
+      "you begin your day sets the mood for the rest of it"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], et comment tu démarres ta journée [[conditionne tout le reste]]",
+     "texte": "al despertar, mi mano fue directa al móvil. costumbre. lo dejé [[en modo avión]] en la cocina, lejos de mí"
+    },
+    "T3": {
+     "en": [
+      "working out helps",
+      "you practice delayed",
+      "gratification, in a",
+      "world that runs on",
+      "short-form content"
+     ],
+     "fr": "le sport t'apprend [[à attendre ta récompense]], à l'époque des [[vidéos de 10 secondes]]",
+     "texte": "10 minutos estirando junto a la ventana. curiosamente, la mañana se hizo [[el doble de larga]]"
+    },
+    "T4": {
+     "en": [
+      "discipline gets easier when discomfort becomes part",
+      "of the routine"
+     ],
+     "fr": "la discipline vient toute seule quand [[l'inconfort]] devient [[la routine]]",
+     "texte": "la primera hora fue la peor, [[mi pulgar buscaba una pantalla]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "11:30 [[un paseo largo, sin plan]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "fui al mercado sin auriculares, sin nada"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "vi [[tiendas por las que paso desde hace dos años]] sin verlas"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "hacia el minuto 20 se me pasaron las ganas de mirar algo y mi cabeza quedó [[lo bastante tranquila para pensar]]"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[la mejor hora de mi semana]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "14:00 [[bajón de sofá]]"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "después de comer agarré el móvil [[por puro reflejo]]"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, commence surtout pas à [[lire]], laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "así que hice mis 5 min de hoy en [[la app Sophia]]: por qué el cielo es azul (y no violeta)"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "en la cena todavía se lo estaba contando a todos. [[ningún reel me ha hecho eso]]"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "mismo móvil, [[una tarde totalmente distinta]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "17:00 [[la guitarra olvidada]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "por fin saqué la guitarra que [[llevaba más de un año ignorando]]"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "me dolían los dedos y solo me acordaba de [[dos acordes]], pero los toqué una hora entera"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "no sé dónde se fue el tiempo. primera vez en toda la semana que [[no estaba mirando nada]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "22:00 [[una libreta en la cama]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "normalmente scrolleo en la cama hasta la 1. esta noche escribí [[mi día]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "la verdad, [[fue un día bastante bueno]], y no había grabado nada"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "me dormí antes de las 11, con [[la cabeza más ligera]] que en muchas semanas"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

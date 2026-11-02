@@ -1,0 +1,713 @@
+import * as React from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { useAuth } from "@/features/auth/AuthContext";
+import { deciderCkd, recreerShadowban } from "@/features/ckd/api";
+import { arreterRecrueSamedi } from "@/features/cohortes/api";
+import { invoke } from "@/features/moteur/api";
+import { conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
+import { aujourdhuiParis } from "@/features/moteur/cohortes";
+import { ajouterJours } from "@/features/onboarding/datesRuul";
+import { cn } from "@/lib/utils";
+
+import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
+import { lireContexte, relireConversationsUpwork } from "./contexte";
+import { FicheSamedi } from "./FicheSamedi";
+import { lireEtatsHandle } from "./handlesEtat";
+import {
+  calculerCouverture,
+  type LigneSimulation,
+  lireCouverture,
+  lireForces,
+  lireModeArret,
+  simulerValidate,
+} from "./samediExhaustif";
+import { BadgesForces, CompteurCouverture, ContratsSansPosteur, ResultatSimulation } from "./SectionsSamedi";
+import { LigneHandle } from "./LigneHandle";
+import { BadgesPosteur, CellulesEtapes, StatutCompte } from "./LigneStatut";
+import { lundiDeLaSemaine } from "./logique";
+import {
+  attendusJusquIci,
+  type BrouillonSamedi,
+  type ChoixSamedi,
+  choisirSamedi,
+  type CompteSemaine,
+  decisionPreparee,
+  decisionSamedi,
+  type DemandeArret,
+  FILTRES_VIDES,
+  filtrerComptes,
+  garderMalgreDemande,
+  lireBrouillonsSamedi,
+  lireDemandesArret,
+  lireReportsSamedi,
+  raisonJamaisDemarre,
+  type ReportsPosteur,
+  noterBrouillonSamedi,
+  lireFicheSamedi,
+  lireSemaineComptes,
+  noterKillSansPaie,
+  planSamedi,
+  RAISONS_SANS_PAIE,
+  type RaisonSansPaie,
+  type Tri,
+  trierComptes,
+} from "./semaineComptes";
+import {
+  csvMasterlist,
+  type EvaluationCompte,
+  evaluerCompte,
+  lireExtras,
+  lireSeuilsConfiance,
+  noterPause,
+  type Onglet,
+  ongletDe,
+  ordreStatut,
+  semaineCommencee,
+} from "./statutCompte";
+import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, TD, TH } from "./TableauComptes";
+import { useFicheSamedi } from "./useFicheSamedi";
+
+const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre"];
+// Lundi 2/11 : le samedi ne reporte plus personne (les reports se décident le dimanche soir).
+const AUTRES: readonly ChoixSamedi[] = ["recreate", "pause"];
+const ONGLETS: readonly Onglet[] = ["tous", "recrues", "premiere", "anciens"];
+/** 0492 : filtrer la liste par décision (celle qui est cochée), ou les décisions préparées. */
+const FILTRES_DECISION: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre", "recreate", "pause"];
+type FiltreDecision = "" | "preparee" | "jamais" | ChoixSamedi;
+
+type RaisonSaisie = { code: RaisonSansPaie | ""; detail: string };
+/** La raison d'un Kill & don't pay, en clair (Disputes la montre si le freelance conteste). */
+const texteRaison = (r: RaisonSaisie | undefined, libelle: (c: RaisonSansPaie) => string) =>
+  r?.code ? [libelle(r.code), r.detail.trim()].filter(Boolean).join(" : ") : "";
+const raisonComplete = (r: RaisonSaisie | undefined) => Boolean(r?.code && (r.code !== "autre" || r.detail.trim()));
+
+/** La proposition de l'OS en choix pré-coché (Je réponds : Keep, la ligne reste à traiter). */
+function choixPropose(e: EvaluationCompte): ChoixSamedi {
+  switch (e.proposition) {
+    case "kill":
+    case "double":
+    case "recreate":
+      return e.proposition;
+    default:
+      return "keep";
+  }
+}
+
+/**
+ * Prompt 26 : Kill & don't pay : la raison obligatoire, le montant en jeu et
+ * l'avertissement (le freelance a 7 jours pour accepter le remboursement).
+ */
+function RaisonSansPaieSaisie({ posterId, lundi, valeur, onChange }: { posterId: string; lundi: string; valeur: RaisonSaisie; onChange: (r: RaisonSaisie) => void }) {
+  const { t } = useTranslation();
+  const fiche = useFicheSamedi(posterId, lundi, true);
+  const p = "autoOnglets.decisions.liste.samedi.sansPaie";
+  return (
+    <div className="space-y-1.5 rounded-md border border-destructive/40 bg-destructive/5 p-2 text-xs" data-testid="raison-sans-paie">
+      <p className="font-medium">{t(`${p}.enJeu`, { montant: fiche.data?.semaine?.montant ?? "…" })}</p>
+      <p className="text-destructive">{t(`${p}.avertissement`)}</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <select
+          className="h-8 rounded-md border bg-background px-2"
+          aria-label={t(`${p}.raison`)}
+          value={valeur.code}
+          onChange={(e) => onChange({ ...valeur, code: e.target.value as RaisonSaisie["code"] })}
+        >
+          <option value="">{t(`${p}.choisir`)}</option>
+          {RAISONS_SANS_PAIE.map((r) => <option key={r} value={r}>{t(`${p}.raisons.${r}`)}</option>)}
+        </select>
+        <Input className="h-8 max-w-md" aria-label={t(`${p}.detail`)} placeholder={t(`${p}.detail`)} value={valeur.detail}
+          onChange={(e) => onChange({ ...valeur, detail: e.target.value })} />
+      </div>
+    </div>
+  );
+}
+
+/** 0494 : les reports du posteur (Postpone, Start Tuesday), sa première cohorte ; rouge quand la règle propose Kill & don't pay. */
+function CelluleReports({ r }: { r: ReportsPosteur | undefined }) {
+  const { t } = useTranslation();
+  if (!r) return <span className="text-xs text-muted-foreground">—</span>;
+  const date = r.premiere_cohorte
+    ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${r.premiere_cohorte}T12:00:00Z`))
+    : "—";
+  return (
+    <div className="max-w-48 space-y-0.5 text-xs" data-testid="reports" data-regle={r.regle ? "oui" : "non"}>
+      <p className={r.regle ? "font-medium text-destructive" : undefined}>
+        {t("autoOnglets.decisions.liste.samedi.reports.compte", { reports: r.nb_reports, mardi: r.nb_mardi })}
+      </p>
+      <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.reports.premiere", { date, posts: r.posts })}</p>
+      {r.regle && <Badge variant="error">{t(r.jamais_commence ? "autoOnglets.decisions.liste.samedi.reports.jamais" : "autoOnglets.decisions.liste.samedi.reports.deuxFois")}</Badge>}
+    </div>
+  );
+}
+
+/** 0492 : la décision préparée avant samedi (fiche Posters), par qui, quand, et sa note. */
+function BadgePreparee({ b }: { b: BrouillonSamedi }) {
+  const { t } = useTranslation();
+  const quand = b.maj_at
+    ? new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }).format(new Date(b.maj_at))
+    : "—";
+  return (
+    <div className="mt-1 max-w-64 space-y-0.5 text-xs" data-testid="decision-preparee">
+      <Badge variant={b.choix.startsWith("kill") ? "error" : "info"}>
+        {t("autoOnglets.decisions.liste.samedi.preparee", { choix: t(`autoOnglets.decisions.liste.samedi.choix.${b.choix}`) })}
+      </Badge>
+      <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.prepareePar", { par: b.par_nom ?? "—", date: quand })}</p>
+      {b.raison?.note && <p className="line-clamp-3 text-muted-foreground">« {b.raison.note} »</p>}
+    </div>
+  );
+}
+
+/** Décisions finales : la demande d'arrêt (Kill pré-coché) et sa raison. */
+export function BadgeDemande({ d }: { d: DemandeArret }) {
+  const { t } = useTranslation();
+  return (
+    <div className="max-w-64 space-y-0.5 text-xs" data-demande-arret={d.source}>
+      <Badge variant="error">{t(`autoOnglets.decisions.liste.samedi.demande.${d.source}`)}</Badge>
+      {d.raison && <p className="line-clamp-3 text-muted-foreground">« {d.raison} »</p>}
+    </div>
+  );
+}
+
+/**
+ * Prompts 12 et 14 : Weekly decisions → Saturday, la masterlist v2. Chaque
+ * compte reçoit un statut calculé en direct (rouge « À traiter », orange « À
+ * surveiller », vert « De confiance », sinon « Rien à signaler »), le problème
+ * en une phrase et la proposition de l'OS avec sa raison. Onglets : la cohorte
+ * qui arrive, la 1re semaine, les anciens, tous ; « À traiter » d'abord ; les
+ * comptes de confiance regroupés en bas, fermés, sur Keep d'office. Un clic
+ * sur la ligne (ou une case jour) ouvre le détail. Boutons : Kill & pay, Kill
+ * & don't pay, Double, Keep, Je réponds, Autre (Recreate, pause) ; jamais de report ;
+ * pas de contrat : Kill bloqué. Rien sans le récap et Validate.
+ */
+export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) {
+  const { t } = useTranslation();
+  const { role } = useAuth();
+  const admin = role === "admin";
+  const qc = useQueryClient();
+  const aujourdhui = aujourdhuiParis(maintenant);
+  const lundi = lundiDeLaSemaine(aujourdhui);
+  const samedi = ajouterJours(lundi, 5);
+  const jusqu = aujourdhui < samedi ? aujourdhui : samedi;
+  const lu = useQuery({ queryKey: ["semaine-comptes", lundi, jusqu], queryFn: () => lireSemaineComptes(lundi, jusqu) });
+  const extras = useQuery({ queryKey: ["semaine-extras", lundi], queryFn: () => lireExtras(lundi) });
+  const seuils = useQuery({ queryKey: ["masterlist-seuils"], queryFn: lireSeuilsConfiance });
+  const demandes = useQuery({ queryKey: ["demandes-arret"], queryFn: lireDemandesArret });
+  // 0464 : la couverture, les posteurs toujours montrés, le mode de Full stop (Test : Validate simule).
+  const couverture = useQuery({ queryKey: ["samedi-couverture", lundi], queryFn: () => lireCouverture(lundi) });
+  const forces = useQuery({ queryKey: ["samedi-forces", lundi], queryFn: () => lireForces(lundi) });
+  const modeArret = useQuery({ queryKey: ["reglage-arret-auto"], queryFn: lireModeArret });
+  const [simulation, setSimulation] = React.useState<{ lignes: LigneSimulation[]; autres: string[] } | null>(null);
+  // Prompt 27 : le contexte de chaque posteur (messages, connexion, dernier post, absence déclarée).
+  const posteursListe = React.useMemo(() => [...new Set((lu.data ?? []).map((c) => c.poster_id))].sort(), [lu.data]);
+  const contexte = useQuery({
+    queryKey: ["masterlist-contexte", lundi, posteursListe],
+    queryFn: () => lireContexte(lundi, posteursListe),
+    enabled: posteursListe.length > 0,
+  });
+  const comptesListe = React.useMemo(() => [...new Set((lu.data ?? []).map((c) => c.compte_id))].sort(), [lu.data]);
+  const etats = useQuery({
+    queryKey: ["handles-etat", lundi, comptesListe],
+    queryFn: () => lireEtatsHandle(lundi, comptesListe),
+    enabled: comptesListe.length > 0,
+  });
+  const jeudi = ajouterJours(lundi, 3);
+  /** Posts avec lien depuis jeudi (vendredi → dimanche). */
+  const postsDepuisJeudi = (c: CompteSemaine) => c.jours.filter((j) => j.jour > jeudi).reduce((n, j) => n + j.lien, 0);
+  const relire = useMutation({
+    mutationFn: () => relireConversationsUpwork(posteursListe),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ["masterlist-contexte"] }),
+  });
+  // 0484 : chaque choix est enregistré au clic (brouillon de la semaine) ; un rechargement le reprend.
+  const brouillons = useQuery({ queryKey: ["samedi-brouillons", lundi], queryFn: () => lireBrouillonsSamedi(lundi) });
+  // 0494 : les reports (Start Tuesday, Postpone) et la règle « ne démarre jamais ».
+  const reports = useQuery({ queryKey: ["samedi-reports", lundi], queryFn: () => lireReportsSamedi(lundi) });
+  const reportsDe = (posterId: string): ReportsPosteur | undefined => reports.data?.get(posterId);
+  const jamais = (c: CompteSemaine) => Boolean(reportsDe(c.poster_id)?.regle);
+  const [choixLocaux, setChoix] = React.useState<Record<string, ChoixSamedi>>({});
+  const [raisonsLocales, setRaisons] = React.useState<Record<string, RaisonSaisie>>({});
+  const [erreurBrouillon, setErreurBrouillon] = React.useState<string | null>(null);
+  const choix = React.useMemo(() => {
+    const m: Record<string, ChoixSamedi> = {};
+    for (const [id, b] of brouillons.data ?? []) m[id] = b.choix;
+    return { ...m, ...choixLocaux };
+  }, [brouillons.data, choixLocaux]);
+  const raisons = React.useMemo(() => {
+    const m: Record<string, RaisonSaisie> = {};
+    // 0494 : ne démarre jamais : Kill & don't pay pré-rempli (0 post, « never started, postponed N times »).
+    for (const c of lu.data ?? []) {
+      const r = reports.data?.get(c.poster_id);
+      if (r?.regle) m[c.compte_id] = { code: "zero_post", detail: raisonJamaisDemarre(r) };
+    }
+    for (const [id, b] of brouillons.data ?? []) {
+      if (b.raison?.code) m[id] = { code: b.raison.code as RaisonSansPaie | "", detail: b.raison.detail ?? "" };
+      else if (b.raison && !m[id]) m[id] = { code: "", detail: b.raison.detail ?? "" };
+    }
+    return { ...m, ...raisonsLocales };
+  }, [brouillons.data, raisonsLocales, lu.data, reports.data]);
+  const enregistrer = (compteId: string, k: ChoixSamedi, r: RaisonSaisie | null = null) => {
+    if (!admin) return;
+    noterBrouillonSamedi(lundi, compteId, k, r ? { code: r.code, detail: r.detail } : null)
+      .then(() => setErreurBrouillon(null))
+      .catch((err: Error) => setErreurBrouillon(err.message));
+  };
+  const choisir = (compteId: string, k: ChoixSamedi) => {
+    setChoix((v) => ({ ...v, [compteId]: k }));
+    enregistrer(compteId, k, raisons[compteId] ?? null);
+  };
+  const [ouverts, setOuverts] = React.useState<Record<string, string | true | undefined>>({});
+  const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
+  const [tri, setTri] = React.useState<Tri>("posts_asc");
+  const [onglet, setOnglet] = React.useState<Onglet>("tous");
+  // Lundi 2/11 : par défaut, tous les comptes actifs (de confiance compris) ; « To handle only » en filtre.
+  const [tous, setTous] = React.useState(true);
+  const [bilan, setBilan] = React.useState<string | null>(null);
+
+  const liste = React.useMemo(() => lu.data ?? [], [lu.data]);
+  // La cohorte qui arrive : visible, en Keep, sans autre choix ; Validate ne la touche pas
+  // (ses reports se décident le dimanche soir, onglet « Sunday: warm-up »).
+  // 0494 : sauf un posteur qui ne démarre jamais (reporté 2 fois ou plus) : il se décide samedi.
+  const aVenir = (c: CompteSemaine) => !semaineCommencee(c.cohorte_lundi, lundi) && !jamais(c);
+  const x = (c: CompteSemaine) => extras.data?.get(c.compte_id);
+  const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
+    lundi, aujourdhui, maintenant, page: "samedi", seuils: seuils.data,
+  })])), [liste, extras.data, seuils.data, lundi, aujourdhui, maintenant]);
+  const e = (c: CompteSemaine) => evals.get(c.compte_id)!;
+  const demandeDe = new Map((demandes.data ?? []).map((d) => [d.poster_id, d]));
+  // 0464 : quelle que soit la cohorte.
+  const demandeCompte = (c: CompteSemaine) => demandeDe.get(c.poster_id) ?? null;
+  const forcesDe = (posterId: string) => forces.data?.get(posterId) ?? [];
+  const choixDe = (c: CompteSemaine): ChoixSamedi => {
+    if (aVenir(c)) return "keep";
+    if (choix[c.compte_id]) return choix[c.compte_id];
+    const prise = decisionSamedi(c);
+    if (prise) return prise;
+    // 0494 : reporté 2 fois ou plus, ou toujours 0 post après sa première semaine : Kill & don't pay proposé.
+    if (jamais(c)) return "kill_np";
+    if (demandeCompte(c)) return "kill";
+    // « Kill Saturday » choisi jeudi : Kill & pay pré-sélectionné (Max valide toujours samedi).
+    if (etats.data?.get(c.compte_id)?.kill_jeudi_at) return "kill";
+    // 0464 : reporté 2 fois, No channel (et les autres raisons) : Kill & pay proposé.
+    if (forcesDe(c.poster_id).length) return "kill";
+    return choixPropose(e(c));
+  };
+  const filtres_ = filtrerComptes(liste, filtres);
+  const duOnglet = (o: Onglet) => filtres_.filter((c) => o === "tous" || ongletDe(c, lundi) === o);
+  // 0464 : un posteur « toujours montré » (demande d'arrêt, reporté 2 fois, Kill Saturday, No channel) est à traiter.
+  const force = (c: CompteSemaine) => forcesDe(c.poster_id).length > 0 || Boolean(demandeCompte(c));
+  // 0492 : une décision préparée (fiche Posters, ou un choix déjà noté) autre que Keep : « To handle ».
+  const preparee = (c: CompteSemaine) => !aVenir(c) && !decisionSamedi(c) && decisionPreparee(brouillons.data?.get(c.compte_id));
+  const aTraiter = (c: CompteSemaine) => jamais(c) || force(c) || preparee(c) || e(c).statut === "rouge" || e(c).statut === "orange";
+  const [filtreDecision, setFiltreDecision] = React.useState<FiltreDecision>("");
+  const duFiltreDecision = (c: CompteSemaine) =>
+    !filtreDecision || (filtreDecision === "preparee" ? preparee(c) : filtreDecision === "jamais" ? jamais(c) : choixDe(c) === filtreDecision);
+  const visibles = trierComptes(duOnglet(onglet), tri).sort(
+    (a, b) => Number(jamais(b)) - Number(jamais(a)) || Number(force(b)) - Number(force(a)) || Number(preparee(b)) - Number(preparee(a)) || ordreStatut(e(a), e(b)),
+  );
+  const montres = visibles.filter(duFiltreDecision);
+  const principaux = tous ? montres : montres.filter(aTraiter);
+  const confiance = montres.filter((c) => e(c).statut === "vert" && !force(c) && !preparee(c) && !jamais(c));
+  const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
+  // 0469 : la conversation Upwork de chaque posteur (liste, toujours montrés).
+  const conv = useConversations([...liste.map((c) => c.poster_id), ...[...(forces.data?.keys() ?? [])]]);
+  const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres) : null;
+  const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
+  const nbCol = jours.length + 9;
+  const compteurs = {
+    rouge: visibles.filter((c) => e(c).statut === "rouge").length,
+    orange: visibles.filter((c) => e(c).statut === "orange").length,
+    vert: confiance.length,
+  };
+  const aDecider = liste.filter((c) => !decisionSamedi(c) && !aVenir(c));
+  const nbChoix = (k: ChoixSamedi) => aDecider.filter((c) => choixDe(c) === k).length;
+  const sansPaie = aDecider.filter((c) => choixDe(c) === "kill_np");
+  const libelleRaison = (r: RaisonSansPaie) => t(`autoOnglets.decisions.liste.samedi.sansPaie.raisons.${r}`);
+  // 0464 : un posteur toujours montré sans compte dans la liste : sa carte, Kill proposé.
+  const forcesSansCompte = [...(forces.data?.entries() ?? [])]
+    .filter(([p]) => !posteursMontres.has(p))
+    .map(([p, f]) => ({ poster_id: p, forces: f, nom: couverture.data?.find((l) => l.poster_id === p)?.nom ?? null }));
+  const [choixForces, setChoixForces] = React.useState<Record<string, "kill" | "rien">>({});
+  const choixForceDe = (p: string) => choixForces[p] ?? "kill";
+
+  const recap = () => {
+    const parties = (["kill", "kill_np", "double", "recreate", "pause"] as const)
+      .map((k) => ({ k, n: nbChoix(k) }))
+      .filter((p) => p.n > 0)
+      .map((p) => `${p.n} ${t(`autoOnglets.decisions.liste.samedi.choix.${p.k}`)}`);
+    const forcesKill = forcesSansCompte.filter((f) => choixForceDe(f.poster_id) === "kill").length;
+    if (forcesKill) parties.push(`${forcesKill} ${t("autoOnglets.decisions.liste.samedi.recap.recrues")}`);
+    return parties.length ? parties.join(", ") : t("autoOnglets.decisions.liste.samedi.recap.rien");
+  };
+
+  /** 0464 : Full stop sur Test : ce que ferait Validate, ligne par ligne ; rien n'est écrit. */
+  const simuler = async () => {
+    const kills = [
+      ...aDecider.filter((c) => ["kill", "kill_np"].includes(choixDe(c)))
+        .map((c) => ({ poster_id: c.poster_id, compte_id: c.compte_id, choix: choixDe(c) as "kill" | "kill_np" })),
+      ...forcesSansCompte.filter((f) => choixForceDe(f.poster_id) === "kill").map((f) => ({ poster_id: f.poster_id, compte_id: null, choix: "kill" as const })),
+    ];
+    const autres = (["double", "recreate", "pause"] as const)
+      .map((k) => ({ k, n: nbChoix(k) }))
+      .filter((p) => p.n > 0)
+      .map((p) => `${p.n} ${t(`autoOnglets.decisions.liste.samedi.choix.${p.k}`)}`);
+    setSimulation({ lignes: await simulerValidate(lundi, kills), autres });
+    return { decides: 0, kills: 0, reports: 0, erreurs: [] as string[], simulation: true };
+  };
+
+  const valider = useMutation({
+    mutationFn: async () => {
+      if (modeArret.data === "test") return await simuler();
+      setSimulation(null);
+      const erreurs: string[] = [];
+      let decides = 0;
+      const montants = new Map<string, number | null>();
+      for (const c of sansPaie) {
+        const f = await qc.fetchQuery({ queryKey: ["samedi-fiche", c.poster_id, lundi], queryFn: () => lireFicheSamedi(c.poster_id, lundi) });
+        montants.set(c.compte_id, f.semaine?.montant ?? null);
+      }
+      if (sansPaie.length > 0) {
+        const total = [...montants.values()].reduce<number>((s, m) => s + Number(m ?? 0), 0);
+        if (!window.confirm(t("autoOnglets.decisions.liste.samedi.sansPaie.confirm", { n: sansPaie.length, total }))) {
+          return { decides: 0, kills: 0, reports: 0, erreurs: [t("autoOnglets.decisions.liste.samedi.sansPaie.annule")], simulation: false };
+        }
+      }
+      for (const c of aDecider) {
+        const k = choixDe(c);
+        const etapes = planSamedi(c, k);
+        try {
+          for (const et of etapes) {
+            if (et.op === "decider") await deciderCkd(et.id, et.decision, null);
+            else await deciderCkd(await choisirSamedi(c.compte_id, et.action), et.action, null);
+          }
+          if (k === "kill_np") await noterKillSansPaie(c.poster_id, lundi, texteRaison(raisons[c.compte_id], libelleRaison), montants.get(c.compte_id) ?? null);
+          if (k === "recreate") await recreerShadowban(c.compte_id);
+          if (k === "pause") await noterPause(c.poster_id, 7, t("autoOnglets.decisions.liste.samedi.pauseRaison"));
+          if (etapes.length || ["recreate", "pause"].includes(k)) decides++;
+        } catch (err) {
+          erreurs.push(`@${c.handle ?? "?"} : ${(err as Error).message}`);
+        }
+      }
+      const forcesKill = forcesSansCompte.filter((x) => choixForceDe(x.poster_id) === "kill");
+      for (const f of forcesKill) {
+        try {
+          await arreterRecrueSamedi(f.poster_id);
+        } catch (err) {
+          erreurs.push(`${f.nom ?? "?"} : ${(err as Error).message}`);
+        }
+      }
+      // Décisions finales : une demande d'arrêt pas suivie d'un Kill est classée « garder » (les relances reprennent).
+      const gardes = new Set(aDecider.filter((c) => demandeCompte(c) && !["kill", "kill_np"].includes(choixDe(c))).map((c) => c.poster_id));
+      for (const p of gardes) {
+        try {
+          await garderMalgreDemande(p);
+        } catch (err) {
+          erreurs.push((err as Error).message);
+        }
+      }
+      if (decides > 0 || forcesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
+      return { decides, kills: forcesKill.length, reports: 0, erreurs, simulation: false };
+    },
+    onSuccess: (r) => {
+      if (r.simulation) {
+        setBilan(t("autoOnglets.decisions.liste.samedi.simulation.bilan"));
+        return;
+      }
+      setChoix({});
+      setRaisons({});
+      void qc.invalidateQueries({ queryKey: ["samedi-brouillons"] });
+      setBilan(t("autoOnglets.decisions.liste.samedi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
+      for (const k of ["semaine-comptes", "semaine-extras", "demandes-arret", "ckd", "samedi-forces", "samedi-couverture"]) {
+        void qc.invalidateQueries({ queryKey: [k] });
+      }
+    },
+  });
+
+  const exporter = () => {
+    const lignes = visibles.map((c) => ({ c, e: e(c), choix: choixDe(c), phrase: e(c).signaux.map((s) => s.cle).join(" + ") || "ok" }));
+    const blob = new Blob([csvMasterlist(lignes)], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `masterlist_${lundi}_${onglet}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
+  const ligne = (c: CompteSemaine) => {
+    const ev = e(c);
+    const ex = x(c);
+    const prise = decisionSamedi(c);
+    const k = choixDe(c);
+    const np = !prise && k === "kill_np";
+    const ouvert = ouverts[c.compte_id];
+    const autre = AUTRES.includes(k);
+    const contratUrl = ex?.contrat_id ? `https://www.upwork.com/nx/wm/workroom/${ex.contrat_id}/overview` : null;
+    return (
+      <React.Fragment key={c.compte_id}>
+        <tr className={cn("border-b border-border/40", ev.statut === "rouge" && "bg-destructive/5")} data-compte={c.handle ?? c.compte_id}>
+          <td className={TD}>
+            <Choix
+              valeur={autre ? "keep" : k}
+              options={CHOIX}
+              libelle={(o) => t(`autoOnglets.decisions.liste.samedi.choix.${o}`)}
+              // Pas de contrat : Kill bloqué, sauf un posteur toujours montré (No channel…) : le Kill le désactive dans l'OS.
+              desactives={[...(ex?.sans_contrat && !force(c) ? (["kill", "kill_np"] as const) : []), ...(ev.recrue ? (["double"] as const) : [])]}
+              lecture={!admin || prise !== null || aVenir(c)}
+              onChange={(o) => {
+                choisir(c.compte_id, o);
+                if (o === "repondre" && contratUrl) window.open(contratUrl, "_blank", "noopener");
+              }}
+            />
+            <select
+              className={cn("mt-1 block h-7 rounded-md border bg-background px-1 text-xs", autre && "border-primary")}
+              aria-label={t("autoOnglets.decisions.liste.samedi.autre")}
+              disabled={!admin || prise !== null || aVenir(c)}
+              value={autre ? k : ""}
+              onChange={(ev2) => choisir(c.compte_id, (ev2.target.value || "keep") as ChoixSamedi)}
+            >
+              <option value="">{t("autoOnglets.decisions.liste.samedi.autre")}</option>
+              {AUTRES.map((o) => <option key={o} value={o}>{t(`autoOnglets.decisions.liste.samedi.choix.${o}`)}</option>)}
+            </select>
+            {prise && <p className="mt-1 text-[11px] text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.dejaDecide")}</p>}
+            {!prise && aVenir(c) && (
+              <p className="mt-1 max-w-48 text-[11px] text-muted-foreground" data-testid="a-venir">{t("autoOnglets.decisions.liste.samedi.aVenir")}</p>
+            )}
+          </td>
+          <td className={TD}>
+            {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
+            {preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
+            {!prise && forcesDe(c.poster_id).some((f) => f.raison === "reporte_2" || f.raison === "sans_canal") && (
+              <BadgesForces forces={forcesDe(c.poster_id).filter((f) => f.raison === "reporte_2" || f.raison === "sans_canal")} />
+            )}
+            {etats.data?.get(c.compte_id)?.kill_jeudi_at && (
+              <p className="mt-1 max-w-56 text-[11px]" data-testid="kill-jeudi">
+                {t("autoOnglets.decisions.liste.handle.killJeudi", {
+                  date: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "Europe/Paris" }).format(new Date(etats.data.get(c.compte_id)!.kill_jeudi_at!)),
+                  phrase: etats.data.get(c.compte_id)!.kill_jeudi_phrase ?? "—",
+                })}
+                {postsDepuisJeudi(c) > 0 && (
+                  <Badge variant="warning" className="ml-1">{t("autoOnglets.decisions.liste.handle.postesDepuis", { n: postsDepuisJeudi(c) })}</Badge>
+                )}
+              </p>
+            )}
+          </td>
+          <td className={TD}>
+            <CelluleReports r={reportsDe(c.poster_id)} />
+          </td>
+          <td className={TD}>
+            <CelluleCompte c={c} />
+            <BadgesPosteur e={ev} x={ex} />
+            <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
+            <LienConversation className="mt-1" c={conversationDe(conv.data, { posteur: c.poster_id })} />
+            <button
+              type="button"
+              className="mt-1 block text-[11px] text-primary underline"
+              onClick={() => setOuverts((v) => ({ ...v, [c.compte_id]: v[c.compte_id] ? undefined : true }))}
+            >
+              {t(ouvert ? "autoOnglets.decisions.liste.samedi.fiche.masquer" : "autoOnglets.decisions.liste.samedi.fiche.voir")}
+            </button>
+          </td>
+          {ev.recrue ? (
+            <CellulesEtapes x={ex} colonnes={jours.length + 1} />
+          ) : (
+            <>
+              <CellulesJours c={c} aujourdhui={jusqu} onJour={(j) => setOuverts((v) => ({ ...v, [c.compte_id]: j }))} />
+              <td className={`${TD} text-right tabular-nums`}>{c.lien_total}/{attendusJusquIci(c)}</td>
+            </>
+          )}
+          <td className={TD}>
+            <CelluleVues c={c} />
+          </td>
+          <td className={`${TD} text-xs`}>
+            {c.nudge_envoye_at ? <Badge variant="warning">{t("autoOnglets.decisions.liste.samedi.nudge")}</Badge> : <span className="text-muted-foreground">—</span>}
+          </td>
+          <CelluleContexte c={contexte.data?.get(c.poster_id)} maintenant={maintenant} />
+          <CelluleAway c={contexte.data?.get(c.poster_id)} />
+        </tr>
+        {(np || ouvert) && (
+          <tr className="border-b border-border/40 bg-muted/20" data-fiche={c.handle ?? c.compte_id}>
+            <td className={TD} colSpan={nbCol}>
+              <div className="space-y-2">
+                {np && (
+                  <RaisonSansPaieSaisie
+                    posterId={c.poster_id}
+                    lundi={lundi}
+                    valeur={raisons[c.compte_id] ?? { code: "", detail: "" }}
+                    onChange={(r) => {
+                      setRaisons((v) => ({ ...v, [c.compte_id]: r }));
+                      enregistrer(c.compte_id, "kill_np", r);
+                    }}
+                  />
+                )}
+                {ouvert && <FicheSamedi posterId={c.poster_id} lundi={lundi} jour={typeof ouvert === "string" ? ouvert : null} />}
+              </div>
+            </td>
+          </tr>
+        )}
+      </React.Fragment>
+    );
+  };
+
+  const entetes = (
+    <thead>
+      <tr className="border-b">
+        <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.choix")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.statut")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.samedi.reports.titre")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.compte")}</th>
+        <EnTetesJours jours={jours} />
+        <th className={`${TH} text-right`}>{t("autoOnglets.decisions.liste.colonnes.total")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.vues")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.jeudi")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.contexte.titre")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.contexte.awayTitre")}</th>
+      </tr>
+    </thead>
+  );
+
+  return (
+    <div className="space-y-4">
+      <Card data-testid="liste-samedi">
+        <CardHeader>
+          <CardTitle>{t("autoOnglets.decisions.liste.samedi.titre", { n: liste.length })}</CardTitle>
+          <CardDescription>{t("autoOnglets.decisions.liste.samedi.aide")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {cover && <CompteurCouverture c={cover} />}
+          {(couverture.error || forces.error) && <p className="text-sm text-destructive">{((couverture.error ?? forces.error) as Error).message}</p>}
+          {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
+          {(erreurBrouillon || brouillons.error) && (
+            <p className="text-sm text-destructive" data-testid="erreur-brouillon">
+              {t("autoOnglets.decisions.liste.samedi.brouillonErreur", { erreur: erreurBrouillon ?? (brouillons.error as Error).message })}
+            </p>
+          )}
+          {extras.error && <p className="text-sm text-destructive">{(extras.error as Error).message}</p>}
+          {lu.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
+          <div className="flex flex-wrap gap-1" role="tablist" data-testid="onglets-samedi">
+            {ONGLETS.map((o) => (
+              <Button key={o} size="sm" variant={onglet === o ? "default" : "outline"} role="tab" aria-selected={onglet === o} data-onglet={o} onClick={() => setOnglet(o)}>
+                {t(`autoOnglets.decisions.liste.samedi.onglets.${o}`, { n: duOnglet(o).filter(aTraiter).length })}
+              </Button>
+            ))}
+          </div>
+          <p className="text-sm font-medium" data-testid="compteurs-statut">
+            {t("autoOnglets.decisions.liste.statut.compteurs", compteurs)}
+          </p>
+          <BarreFiltres liste={liste} filtres={filtres} setFiltres={setFiltres} tri={tri} setTri={setTri} />
+          <div className="flex flex-wrap items-center gap-2">
+            <Button size="sm" variant="outline" onClick={() => setTous((v) => !v)} data-testid="tous-les-comptes">
+              {tous ? t("autoOnglets.decisions.liste.samedi.aTraiterSeulement") : t("autoOnglets.decisions.liste.samedi.tousLesComptes", { n: visibles.length })}
+            </Button>
+            <select
+              className="h-8 rounded-md border bg-background px-2 text-sm"
+              aria-label={t("autoOnglets.decisions.liste.samedi.filtreDecision.titre")}
+              data-testid="filtre-decision"
+              value={filtreDecision}
+              onChange={(ev) => setFiltreDecision(ev.target.value as FiltreDecision)}
+            >
+              <option value="">{t("autoOnglets.decisions.liste.samedi.filtreDecision.toutes")}</option>
+              <option value="preparee">{t("autoOnglets.decisions.liste.samedi.filtreDecision.preparees", { n: visibles.filter(preparee).length })}</option>
+              <option value="jamais">{t("autoOnglets.decisions.liste.samedi.reports.filtre", { n: visibles.filter(jamais).length })}</option>
+              {FILTRES_DECISION.map((k) => (
+                <option key={k} value={k}>
+                  {t(`autoOnglets.decisions.liste.samedi.choix.${k}`)} ({visibles.filter((c) => choixDe(c) === k).length})
+                </option>
+              ))}
+            </select>
+            <Button size="sm" variant="ghost" onClick={exporter}>{t("autoOnglets.decisions.liste.samedi.csv")}</Button>
+            {admin && (
+              <Button size="sm" variant="ghost" loading={relire.isPending} onClick={() => relire.mutate()} data-testid="relire-upwork">
+                {t("autoOnglets.decisions.liste.contexte.relire")}
+              </Button>
+            )}
+            {relire.data && (
+              <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.contexte.relu", { n: relire.data.lus, erreurs: relire.data.erreurs })}</span>
+            )}
+            {(contexte.error || relire.error) && <span className="text-xs text-destructive">{((contexte.error ?? relire.error) as Error).message}</span>}
+          </div>
+          <div className="relative overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              {entetes}
+              <tbody>{principaux.map(ligne)}</tbody>
+            </table>
+            {principaux.length === 0 && <p className="py-3 text-sm text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.rienATraiter")}</p>}
+          </div>
+          {!tous && confiance.length > 0 && (
+            <details className="rounded-md border" data-testid="section-confiance">
+              <summary className="cursor-pointer px-3 py-2 text-sm font-medium">
+                {t("autoOnglets.decisions.liste.samedi.confiance", { n: confiance.length })}
+              </summary>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-sm">
+                  {entetes}
+                  <tbody>{confiance.map(ligne)}</tbody>
+                </table>
+              </div>
+            </details>
+          )}
+        </CardContent>
+      </Card>
+
+      {forcesSansCompte.length > 0 && (
+        <Card data-testid="forces-sans-compte">
+          <CardHeader>
+            <CardTitle className="text-base">{t("autoOnglets.decisions.liste.samedi.forces.titre", { n: forcesSansCompte.length })}</CardTitle>
+            <CardDescription>{t("autoOnglets.decisions.liste.samedi.forces.aide")}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="divide-y rounded-md border text-sm">
+              {forcesSansCompte.map((f) => (
+                <li key={f.poster_id} className="flex flex-wrap items-center gap-3 p-2" data-force-poster={f.poster_id}>
+                  <Choix
+                    valeur={choixForceDe(f.poster_id)}
+                    options={["kill", "rien"] as const}
+                    libelle={(o) => t(`autoOnglets.decisions.liste.recrues.choix.${o}`)}
+                    lecture={!admin}
+                    onChange={(o) => setChoixForces((v) => ({ ...v, [f.poster_id]: o }))}
+                  />
+                  <span className="font-medium">{f.nom ?? "—"}</span>
+                  <BadgesForces forces={f.forces} />
+                  <LienConversation c={conversationDe(conv.data, { posteur: f.poster_id })} />
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      )}
+
+      <ContratsSansPosteur admin={admin} />
+
+      {simulation && <ResultatSimulation lignes={simulation.lignes} autres={simulation.autres} />}
+
+      <div className="sticky bottom-0 flex flex-wrap items-center gap-3 border-t bg-background py-3">
+        {modeArret.data === "test" && (
+          <Badge variant="warning" data-testid="validate-test">{t("autoOnglets.decisions.liste.samedi.simulation.bandeau")}</Badge>
+        )}
+        <Badge variant="info" data-testid="recap-samedi">{t("autoOnglets.decisions.liste.samedi.recap.titre", { recap: recap() })}</Badge>
+        {admin && sansPaie.some((c) => !raisonComplete(raisons[c.compte_id])) && (
+          <span className="text-xs text-destructive">{t("autoOnglets.decisions.liste.samedi.sansPaie.manque")}</span>
+        )}
+        {admin && (
+          <Button
+            data-action="valider-samedi"
+            loading={valider.isPending}
+            disabled={sansPaie.some((c) => !raisonComplete(raisons[c.compte_id]))}
+            onClick={() => {
+              if (modeArret.data === "test" || window.confirm(t("autoOnglets.decisions.liste.samedi.recap.confirm", { recap: recap() }))) valider.mutate();
+            }}
+          >
+            {t("autoOnglets.decisions.liste.samedi.valider")}
+          </Button>
+        )}
+        <span className="text-xs text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.quand")}</span>
+      </div>
+      {bilan && <p className="text-sm">{bilan}</p>}
+      {valider.error && <p className="text-sm text-destructive">{(valider.error as Error).message}</p>}
+    </div>
+  );
+}

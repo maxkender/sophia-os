@@ -25,6 +25,8 @@ import {
   type StatutReferral,
 } from "@/features/referral/referral";
 import { localeDate } from "@/locales/localeDate";
+import { Navigate } from "react-router-dom";
+import { lireParrainageActif } from "@/features/bonus/parrainageActif";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -47,6 +49,14 @@ function badgeStatut(statut: StatutReferral): "warning" | "success" | "destructi
 }
 
 export function PosterReferralPage() {
+  // Prompt 15, point 2 : en pause, la page renvoie à l'accueil.
+  const actif = useQuery({ queryKey: ["reglages", "parrainage-actif"], queryFn: lireParrainageActif, staleTime: 5 * 60_000 });
+  if (actif.isPending) return null;
+  if (actif.data !== true) return <Navigate to="/calendrier" replace />;
+  return <PageParrainage />;
+}
+
+function PageParrainage() {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const [form, setForm] = React.useState<ReferralPayload>(formulaireVide);

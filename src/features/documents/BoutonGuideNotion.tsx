@@ -7,8 +7,8 @@ import { BookOpen, ExternalLink } from "lucide-react";
  */
 export const GUIDE_NOTION_HM =
   "https://app.notion.com/p/Vik-Studios-Hiring-Manager-Guide-3f4241308d66818c84f3c3eb514f140c?source=copy_link";
-export const GUIDE_NOTION_POSTER =
-  "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505?source=copy_link";
+/** Le Poster Guide : le lien public (les posteurs n'ont pas accès à app.notion.com). */
+export const GUIDE_NOTION_POSTER = "https://star-water-a0e.notion.site/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
 /** Le bouton du bas de la barre latérale qui ouvre le guide Notion. */
 export function BoutonGuideNotion({ url, titre, sousTitre }: { url: string; titre: string; sousTitre: string }) {

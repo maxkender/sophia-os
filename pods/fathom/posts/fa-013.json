@@ -1,0 +1,306 @@
+{
+ "id": "fa-013",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7696547871994219798",
+  "vues": 73200,
+  "accroche": "5 Ways To Glow Up Before Christmas"
+ },
+ "titre": {
+  "en": "5 Ways To Glow Up Before Christmas",
+  "de": "5 Wege zum Glow-up vor Weihnachten",
+  "pt": "5 formas de dar um glow up antes do Natal"
+ },
+ "legendes": {
+  "en": "5 Ways To Glow Up Before Christmas #glowup #selfimprovement #learnontiktok",
+  "de": "5 Wege zum Glow-up vor Weihnachten #glowup #selbstverbesserung #lernenmittiktok",
+  "pt": "5 formas de dar um glow up antes do Natal #glowup #desenvolvimentopessoal #aprendernotiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "cta A. Double intégration : UnSwipe à l'étape 1 « QUIT REELS FOR A MONTH » (son « DELETE SOCIAL MEDIA FOR A MONTH », sans rien supprimer), Sophia à l'étape 2 « LEARN NEW THINGS ». Son « MOUTH TAPE AT NIGHT » (science fragile) devient « LEARN TO COOK ». Saisonnier : à publier avant décembre. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO GLOW UP",
+     [
+      {
+       "t": "BEFORE CHRISTMAS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZUM GLOW-UP",
+     [
+      {
+       "t": "VOR WEIHNACHTEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 FORMAS",
+       "bronze": true
+      }
+     ],
+     "DE DAR UM GLOW UP",
+     [
+      {
+       "t": "ANTES DO NATAL",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "QUIT REELS",
+     "FOR A MONTH"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "keep Instagram, lose the Reels.",
+      "no need to delete anything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "EINEN MONAT",
+     "OHNE REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "behalte Instagram, ohne die Reels.",
+      "du musst nichts löschen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM MÊS",
+     "SEM REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "fica com o Instagram, sem os Reels.",
+      "sem apagar nada."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN",
+     "NEW THINGS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE",
+     "NEUE DINGE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "COISAS NOVAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WALK DAILY"
+    ],
+    "video": {
+     "id": "eEWa7cpiyD8",
+     "titre": "Do you really need to take 10,000 steps a day? - Shannon Odell",
+     "chaine": "TED-Ed",
+     "vues": "10M views",
+     "date": "1 year ago",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GEH TÄGLICH",
+     "SPAZIEREN"
+    ],
+    "video": {
+     "id": "M37QUSYEB3Q",
+     "titre": "Das passiert, wenn du täglich 30 Minuten spazieren gehst",
+     "chaine": "DoktorWeigl",
+     "vues": "403.082 Aufrufe",
+     "date": "vor 1 Monat",
+     "duree": "22:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CAMINHA",
+     "TODOS OS DIAS"
+    ],
+    "video": {
+     "id": "19AYoJe4ZAA",
+     "titre": "6 BENEFÍCIOS EXTREMOS de CAMINHAR todos os dias!",
+     "chaine": "Dr. Roberto Yano",
+     "vues": "2,4 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/q0b_V_OoWf-_sRW_3NXGxP4aIbLrEE7vqI4C50y-FBScyjQXQiFz2Rr0Zb1nc0wvTahvlzrR=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "JOURNAL DAILY"
+    ],
+    "video": {
+     "id": "5DqXHg52H1g",
+     "titre": "How to Journal (Like a Philosopher)",
+     "chaine": "Jared Henderson",
+     "vues": "2.3M views",
+     "date": "3 years ago",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/hD3OORvL4-7g-In9kHhX9xSR_SjVP2ikCovuHaVqPNZhmhjPxvq1O8AT2yLqrjSVI-F8rNd9zQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHREIB",
+     "TAGEBUCH"
+    ],
+    "video": {
+     "id": "N5cTc0SlccI",
+     "titre": "100 Tage Journaling | Selbstexperiment",
+     "chaine": "Dominik Lebersorger",
+     "vues": "81.179 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ESCREVE",
+     "UM DIÁRIO"
+    ],
+    "video": {
+     "id": "sCMz5ZjWkTY",
+     "titre": "Dez motivos para escrever um diário",
+     "chaine": "Rodrigo Gurgel",
+     "vues": "149 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "21:54",
+     "avatar": "https://yt3.ggpht.com/Xacx0HJuLn1UogmN_a5ycN4igFgWI--RJQTg7l5GdL2Xyct4IbcFRWbFh9Y8xmxpjOUWSci6sq8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO COOK"
+    ],
+    "video": {
+     "id": "bS9fPyaqg0U",
+     "titre": "cooking is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "213K views",
+     "date": "1 year ago",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN KOCHEN"
+    ],
+    "video": {
+     "id": "lyzbdZFpSr0",
+     "titre": "Ich habe in 7 Tagen kochen gelernt",
+     "chaine": "Dominik Lebersorger",
+     "vues": "104.035 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A COZINHAR"
+    ],
+    "video": {
+     "id": "OtAYrT3fxz8",
+     "titre": "COZINHAR é bem fácil, na real",
+     "chaine": "Bem fácil, na real",
+     "vues": "61 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/9Di17we_tt8FDIN4JxbvI27PsqOxmZUMWCfbtdfnxscxZsW8_PG1LooXGPJyTTpNMXaP_zS1Vg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

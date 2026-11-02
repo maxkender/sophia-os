@@ -1,0 +1,1032 @@
+{
+ "id": "yp-010",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7666878168279584002",
+  "vues": 835200,
+  "enregistrements": 46857,
+  "publie_le": "2026-07-26",
+  "titre": "the perfect AFTER SCHOOL ROUTINE for a peaceful life"
+ },
+ "titre": {
+  "fr": "la routine parfaite avant les cours",
+  "en": "the perfect before school routine",
+  "es": "la rutina perfecta antes de clase",
+  "de": "die perfekte Routine vor der Schule",
+  "it": "la routine perfetta prima della scuola",
+  "pt": "a rotina perfeita antes da escola",
+  "tr": "mükemmel okul öncesi rutini"
+ },
+ "legendes": {
+  "fr": "ma routine du matin avant les cours ☀️ #routine #routinedumatin #studytok #thatgirl #revisions",
+  "en": "my morning routine before school ☀️ #routine #morningroutine #studytok #thatgirl #studying",
+  "es": "mi rutina de mañana antes de clase ☀️ #rutina #rutinademañana #studytok #thatgirl #estudiar",
+  "de": "meine Morgenroutine vor der Schule ☀️ #routine #morgenroutine #studytok #thatgirl #lernen",
+  "it": "la mia routine del mattino prima della scuola ☀️ #routine #routinemattutina #studytok #thatgirl #studiare",
+  "pt": "minha rotina da manhã antes da escola ☀️ #rotina #rotinadamanha #studytok #thatgirl #estudos",
+  "tr": "okul öncesi sabah rutinim ☀️ #rutin #sabahrutini #studytok #thatgirl #ders"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "2022773e-d56f-4ff8-b9ed-e45361999c29",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e480fe7f-e2c0-4d2b-863c-fe306d4eaae8/9.jpg?v=1790677912286",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-002 (format « after school routine », 835 k) : la routine du matin. cta B : la mise en scène iPhone micabo (a83da81b) en photo pleine de l’étape « 10 min de révision »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la routine parfaite",
+     "lignes": [
+      "AVANT",
+      "LES",
+      "COURS"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "pour bien commencer ta journée☀️"
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "the perfect",
+     "lignes": [
+      "BEFORE",
+      "SCHOOL",
+      "ROUTINE"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "for a calm morning☀️"
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la rutina perfecta",
+     "lignes": [
+      "ANTES",
+      "DE",
+      "CLASE"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "para empezar bien el día☀️"
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "die perfekte",
+     "lignes": [
+      "ROUTINE",
+      "VOR DER",
+      "SCHULE"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "für einen ruhigen Morgen☀️"
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la routine perfetta",
+     "lignes": [
+      "PRIMA",
+      "DELLA",
+      "SCUOLA"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "per iniziare bene la giornata☀️"
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a rotina perfeita",
+     "lignes": [
+      "ANTES",
+      "DA",
+      "ESCOLA"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "para começar bem o dia☀️"
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mükemmel",
+     "lignes": [
+      "OKUL",
+      "ÖNCESİ",
+      "RUTİNİ"
+     ],
+     "taille": 170,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "güne güzel başlamak için☀️"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d4f07cbb-9f18-4def-9980-af21306d5211",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/100f7526-0160-4485-ab0a-eaa1512c7d8a/6.jpg?v=1792601524075",
+    "cadrage": {
+     "x": 0.6,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "lève-toi sans snoozer⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "get up without snoozing⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "levántate sin posponer⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "steh ohne Snooze auf⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "alzati senza posticipare⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "levante sem apertar soneca⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "ertelemeden kalk⏰"
+     ],
+     "x": 540,
+     "y": 400,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2d72557c-c5dc-495e-a066-bdc136718ad1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/892148cf-9517-4001-8f47-281d4453e41c/3.jpg?v=1792926532445",
+    "cadrage": {
+     "x": 0.78,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ouvre les rideaux🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "open the curtains🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "abre las cortinas🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "öffne die Vorhänge🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "apri le tende🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "abra as cortinas🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "perdeleri aç🌤️"
+     ],
+     "x": 620,
+     "y": 1100,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "76bf2322-d793-4765-b35c-2730408e82c7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b6724cda-ef68-421b-920f-6debafec7eeb/4.jpg?v=1790677942067",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fais ton lit🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "make your bed🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "haz tu cama🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach dein Bett🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "rifai il letto🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "arrume a cama🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yatağını topla🛏️"
+     ],
+     "x": 540,
+     "y": 1480,
+     "taille": 60,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "084843d8-c25c-46bb-a175-2c7240c7c862",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2f3248a3-2916-4a9a-bf42-6b19dafe4b83/6.jpg?v=1790611519528",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "skincare express🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "quick skincare🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "skincare exprés🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "schnelle Skincare🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "skincare veloce🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "skincare rápido🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hızlı cilt bakımı🧴"
+     ],
+     "x": 540,
+     "y": 1680,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "605b8545-48ee-4818-ae69-1b8bdd7a6793",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b193c51a-1924-4fef-a918-e62b096a73d6/6.jpg?v=1792591625425",
+    "cadrage": {
+     "x": 0.4,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "un vrai petit-déj🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "et un grand verre d’eau💧"
+     ]
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a real breakfast🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "and a big glass of water💧"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "un desayuno de verdad🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "y un buen vaso de agua💧"
+     ]
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "ein richtiges Frühstück🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "und ein großes Glas Wasser💧"
+     ]
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "una vera colazione🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "e un bel bicchiere d’acqua💧"
+     ]
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "um café da manhã de verdade🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "e um copão de água💧"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "doyurucu bir kahvaltı🥣"
+     ],
+     "x": 540,
+     "y": 360,
+     "taille": 54,
+     "couleur": "jaune",
+     "sous": [
+      "ve büyük bir bardak su💧"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "10 min de révision📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "une étape de ton parcours⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "10-minute review📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "one step of your study path⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "10 min de repaso📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "un paso de tu ruta⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "10 Min. Wiederholung📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "ein Schritt deines Lernpfads⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "10 min di ripasso📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "una tappa del tuo percorso⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "10 min de revisão📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "uma etapa da sua trilha⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "10 dk tekrar📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "çalışma yolunda bir adım⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2299e49d-cbc9-4b1e-ae47-1bc29701834a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/002290bb-fbad-48f2-b407-9174bf90a8e1/9.jpg?v=1790682140330",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "pars 10 min en avance👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "leave 10 min early👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "sal 10 min antes👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "geh 10 Min. früher los👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "esci 10 minuti prima👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "saia 10 min antes👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "10 dk erken çık👟"
+     ],
+     "x": 540,
+     "y": 330,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "16be2f21-3496-42c0-a443-cd0549e80925",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/27dcba49-bc29-4f77-8fac-eebdd21208cf/5.jpg?v=1790609092526",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "arrive en cours sereine🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "get to class feeling calm🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "llega a clase tranquila🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "komm entspannt im Unterricht an🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "arriva a lezione serena🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "chegue na aula tranquila🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "derse huzurla gir🌿"
+     ],
+     "x": 540,
+     "y": 420,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

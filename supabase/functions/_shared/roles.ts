@@ -49,3 +49,29 @@ export function roleACreer(
   const peutCreerHm = roleCreateur === "admin" || estRoleManager(roleCreateur);
   return roleDemande === "hiring_manager" && peutCreerHm ? "hiring_manager" : "poster";
 }
+
+/**
+ * Prompt 15, point 1 : ce qu'une HM ne fait plus, côté serveur comme dans
+ * l'interface — ajouter un compte, activer / désactiver un posteur, créer un
+ * hiring manager. L'admin et le Head of Ops gardent ces droits (le DM non,
+ * prompt 21 A5) ;
+ * l'appel interne (cron, Check, Kill or Double) passe en admin.
+ */
+export function refuseAuHm(roleAppelant: string, action: unknown, roleDemande?: unknown): boolean {
+  // Prompt 21, A5 : le DM est bloqué comme une HM.
+  if (roleAppelant !== "hiring_manager" && roleAppelant !== "directing_manager") return false;
+  if (action === "ajouter_compte" || action === "ajouter_compte_perso" || action === "activer") return true;
+  return action === "create" && roleDemande === "hiring_manager";
+}
+
+/** 1/11 : le message montré à une HM qui veut créer un posteur (interface et serveur). */
+export const MESSAGE_HM_NE_CREE_PLUS =
+  "You don't create posters anymore. The OS creates the poster and sends the welcome automatically when the offer is accepted. Your recruit is probably already created: check My cohort.";
+
+/**
+ * 1/11 : les HM (et les DM, bloquées comme elles) ne créent plus de posteurs :
+ * l'OS les crée quand l'offre est acceptée. L'admin et le Head of Ops gardent la création.
+ */
+export function creationPosteurCoupee(roleAppelant: string, action: unknown): boolean {
+  return (roleAppelant === "hiring_manager" || roleAppelant === "directing_manager") && action === "create";
+}

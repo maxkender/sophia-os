@@ -6,6 +6,7 @@ import {
   type ScrapedPost,
 } from "../_shared/apify.ts";
 import { scoreRelevance } from "../_shared/gemini.ts";
+import { couperTexte, texteBienFormeOuNull } from "../_shared/texte_sur.ts";
 import {
   assertAuthorised,
   chargerPrompt,
@@ -117,7 +118,7 @@ Deno.serve(async (request) => {
           const pert = await noterTheme(p);
           return {
             url: p.webVideoUrl,
-            texte: p.text.slice(0, 80),
+            texte: couperTexte(p.text, 80),
             photos: p.imageUrls.length,
             vues: p.stats.vues,
             likes: p.stats.likes,
@@ -363,12 +364,12 @@ async function creerSujet(
   const { data: sujet, error } = await supabase
     .from("sujets")
     .insert({
-      titre: post.text.slice(0, 160) || "Sans titre",
+      titre: couperTexte(post.text, 160) || "Sans titre",
       structure_slides: slides,
       compte_reference_id: compteReferenceId,
       source_url: post.webVideoUrl,
       musique_url: post.musicUrl,
-      musique_titre: post.musicTitle,
+      musique_titre: texteBienFormeOuNull(post.musicTitle),
       // Vues du TikTok d'origine : signal de « ça a bien marché » pour la page
       // Posts reproduisibles (tri + affichage).
       vues: post.stats?.vues ?? null,

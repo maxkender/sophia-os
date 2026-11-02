@@ -16,7 +16,7 @@
  * d'accueil (voir `contenu.ts`).
  */
 
-export type CleQuestion = "warmup" | "follow" | "scroll" | "commentaires" | "repost";
+export type CleQuestion = "warmup" | "follow" | "scroll" | "commentaires";
 export type Reponse = "oui" | "non";
 export type Reponses = Partial<Record<CleQuestion, Reponse>>;
 
@@ -40,7 +40,6 @@ export const QUESTIONS_PREMIER_POST: readonly QuestionPremierPost[] = [
     question: "Did you comment on at least 3 posts in the niche you're going to post in?",
     action: "Comment on at least 3 posts in the niche you're going to post in",
   },
-  { cle: "repost", question: "Did you repost at least 1 post?", action: "Repost at least 1 post" },
 ];
 
 export const TEXTES_PREMIER_POST = {

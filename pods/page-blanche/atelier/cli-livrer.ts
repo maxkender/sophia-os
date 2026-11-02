@@ -66,7 +66,7 @@ function texteSlide(t: Transcription): string {
 }
 
 const estSlideApp = (t: Transcription) =>
-  Object.values(t.images ?? {}).some((a) => a.startsWith("sophia_")) || (t.zones ?? []).length > 0;
+  Object.values(t.images ?? {}).some((a) => typeof a === "string" && a.startsWith("sophia_")) || (t.zones ?? []).length > 0;
 
 type SlideApp = { position: number; reprendre?: true; position_app?: true; jpeg_base64?: string };
 

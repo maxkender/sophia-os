@@ -10,7 +10,7 @@ import {
   type UpscaleProgress,
 } from "./replicate_realesrgan_upscale.ts";
 import { lireTout } from "./lots.ts";
-import { serviceClient } from "./supabase.ts";
+import { secretCronConnu, serviceClient } from "./supabase.ts";
 
 const BUCKET = "medias";
 
@@ -263,7 +263,7 @@ export function kickUpscaleAssignes(
 ): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = {
     "content-type": "application/json",

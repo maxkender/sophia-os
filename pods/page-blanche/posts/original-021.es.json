@@ -1,0 +1,231 @@
+{
+ "post_id": "original-021",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "cosas que parecen productivas [[pero no lo son]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(las he hecho todas)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
+     "alignement": "gauche",
+     "texte": "pasar tus apuntes a limpio [[con colores bonitos]]"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
+     "texte": "parece que estudias, pero solo estás copiando. cierra los apuntes y [[ponte a prueba]]!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "ver [[tiktoks de productividad]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "te motivan un montón y luego [[no haces nada]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "ver la rutina de otra persona te da la recompensa [[sin hacer el trabajo]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "antes los veía durante horas, ahora cuando cojo el móvil hago [[una lección de 5 min en la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "contarle a todos [[tu nueva rutina]]"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "decirlo en voz alta ya te da esa satisfacción [[de haber empezado de verdad]]"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "los halagos llegan antes que el trabajo, y a los pocos días el plan [[pierde su urgencia]]"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "guárdatelo para ti un tiempo y [[deja que los resultados hablen solos]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "podcasts a 2x [[haciendo mil cosas]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "cocinar, contestar mensajes, recoger, todo con un podcast, y sientes que [[aprendes el doble]]"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "pero tu atención está repartida por todas partes, así que [[casi nada se queda]]"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "un solo episodio [[bien escuchado]] vale más que tres a 2x"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "ponerte vídeos de [[study with me]]"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "pones un vídeo larguísimo de alguien que estudia en silencio y lo llamas [[entrar en modo estudio]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "veinte minutos después sigues mirando, y [[tus apuntes siguen cerrados]]"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "pon un temporizador, deja el móvil en otra habitación y empieza. la única persona que tiene que [[estudiar eres tú]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

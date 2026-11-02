@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o065",
+ "schema_id": "mentir-entretien",
+ "titre": "ce que tu dis en entretien vs ce que le recruteur entend vraiment #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 5. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. essai (rh-o065 finit par 5) : format « tu dis / il entend / dis plutôt », jamais fait chez nous. Règle §4.6 : seule rh-o068 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« DOIS MENTIR, partie N »). Les 9 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma mentir-entretien (r 23,7, 496f8d72), recadrage. Accroches écrites : celle-ci (retenue), « le dictionnaire du recruteur » (écartée : vague), « tes phrases d'entretien traduites » (écartée : moins directe). Rien d'inventé : la phrase proposée reste vraie. CTA de fin jamais utilisé : avouer la phrase qu'on dit tout le temps. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d352b2e0",
+   "texte_overlay": "ce que tu dis en entretien\nvs ce que le recruteur entend vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67480cba",
+   "texte_overlay": "tu dis : « je suis polyvalente »\nil entend : « elle ne sait pas ce qu'elle veut »\ndis plutôt : les 2 choses que tu fais le mieux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a20e56e6",
+   "texte_overlay": "tu dis : « je travaille bien en équipe »\nil entend : « comme tout le monde »\ndis plutôt : un projet, ton rôle, le résultat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b1db3a02",
+   "texte_overlay": "tu dis : « j'ai pas trop d'expérience »\nil entend : « elle doute d'elle »\ndis plutôt : « j'ai fait X en stage, et j'apprends vite »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bb13a285",
+   "texte_overlay": "tu dis : « je lis pas trop »\nil entend : « pas curieuse »\ndis plutôt : ce que tu apprends en ce moment.\nmoi, c'était l'histoire, 5 minutes par jour",
+   "texte_sophia": "tu dis : « je lis pas trop »\nil entend : « pas curieuse »\nperso, je dis ce que j'apprends en ce moment : l'histoire, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "19cb288c",
+   "texte_overlay": "tu dis : « c'est négociable »\nil entend : « elle prendra le minimum »\ndis plutôt : ta fourchette, calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "676d2e0d",
+   "texte_overlay": "tu dis : « non, pas de question »\nil entend : « pas si motivée »\ndis plutôt : une question sur l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a377d1da",
+   "texte_overlay": "la phrase que tu dis à chaque entretien,\navoue-la en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o041",
+ "schema_id": "independante",
+ "titre": "les choses que j'ai arrêté de demander aux autres et qui m'ont rendue indépendante #pourtoi #independance #culture",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7434388289938492206",
+ "inspirations": [
+  "71ef7d85-19b2-46c0-a4cc-97313387e592"
+ ],
+ "notes": "cta C (le défi en premier item ; voir CTA.md ; je n'avais pas de 3e fait vérifié pour une cta B, celui sur la quarantaine n'est pas confirmé par la page Wikipédia). Routine du 30/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 7 sur 7. Schéma independante (r 2,1, 71ef7d85). Angle neuf : ce qu'on arrête de demander. Accroches écrites : « les choses que j'ai arrêté de demander aux autres et qui m'ont rendue indépendante » (retenue : le gabarit du gagnant, retourné), « ce que je ne demande plus à personne » (écartée : sans la promesse), « les permissions que j'ai arrêté de demander » (écartée : plus flou). Items neufs (rien de repris de bsg-o008, bsg-o021, bsg-o033 ni de la source). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia. Inspirations : slides 1, 2, 3, 4, 8 de 71ef7d85.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c39d718d",
+   "texte_overlay": "les choses que j'ai arrêté\nde demander aux autres\net qui m'ont rendue indépendante",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67e5edfb",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "dc628918",
+   "texte_overlay": "mon avis sur un film.\n\nje le regarde, je décide ce que j'en pense.\nensuite seulement, je lis les critiques.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dc848003",
+   "texte_overlay": "le chemin.\n\nje regarde la carte avant de partir.\nje me perds parfois. et je découvre des rues que j'aurais jamais vues.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "dcd924f6",
+   "texte_overlay": "la permission de partir.\n\nune soirée m'ennuie ? je dis au revoir, simplement.\nmon temps m'appartient.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/8.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ddab0277",
+   "texte_overlay": "quoi lire ensuite.\n\nje choisis seule, en librairie, à la couverture ou à la première page.\nmes goûts sont enfin à moi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dde037a4",
+   "texte_overlay": "et toi, qu'est-ce que t'as arrêté\nde demander ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/8.jpg"
+  }
+ ]
+}

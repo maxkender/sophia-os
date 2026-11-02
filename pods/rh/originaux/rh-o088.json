@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o088",
+ "schema_id": "job-toxique",
+ "titre": "les phrases pour poser une limite en télétravail sans te griller #teletravail #travail #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. variante de rh-o027 (36,6 k vues en bg). Même schéma job-toxique (r 3,11, bf49b37f), même format « les phrases pour poser une limite… sans te griller », autre interlocuteur, autres phrases : aucune reprise de rh-o027. Rien de juridique. Angle : le télétravail. Aucune appli de messagerie nommée. CTA de fin jamais utilisé (dire combien de jours on télétravaille). Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f87c6169",
+   "texte_overlay": "les phrases pour poser une limite\nen télétravail\nsans te griller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e044c53f",
+   "texte_overlay": "1. quand on attend une réponse en 2 minutes\n« je réponds aux messages à 10 h, 14 h et 17 h. pour l'urgent, appelle-moi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d924eba0",
+   "texte_overlay": "2. quand les réunions s'enchaînent\n« je garde le mardi matin sans réunion pour avancer »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d9f50770",
+   "texte_overlay": "3. quand on te soupçonne de ne rien faire\n« je t'envoie un point chaque vendredi sur ce que j'ai livré »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "da6c5683",
+   "texte_overlay": "4. quand on t'appelle à l'heure du déjeuner\n« je te rappelle à 14 h »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e0172a3a",
+   "texte_overlay": "5. quand ta journée ne finit jamais\n« je coupe à 18 h. demain je commence par ça »\nensuite, 5 minutes à apprendre autre chose pour décrocher",
+   "texte_sophia": "5. quand ta journée ne finit jamais\n« je coupe à 18 h »\nensuite, utilise l'appli Sophia 5 minutes pour décrocher vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "db64b0ae",
+   "texte_overlay": "6. quand on veut ta caméra allumée tout le temps\n« je l'allume pour les réunions d'équipe, pas pour les points rapides »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e08d67bb",
+   "texte_overlay": "tu télétravailles combien de jours par semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,309 @@
+{
+ "id": "fa-025",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7681673342369221910",
+  "vues": 38000,
+  "accroche": "10/10 Hobbies To Build Intelligence!"
+ },
+ "titre": {
+  "en": "10/10 Hobbies To Build Intelligence!",
+  "de": "10/10 Hobbys für mehr Intelligenz!",
+  "pt": "10/10 passatempos para ficar mais inteligente!"
+ },
+ "legendes": {
+  "en": "10/10 Hobbies To Build Intelligence! #skills #learnontiktok #selfimprovement",
+  "de": "10/10 Hobbys für mehr Intelligenz! #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 passatempos para ficar mais inteligente! #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7541284794651527966"
+ },
+ "notes": "cta A. Sophia en carte d'appli à l'étape 4 « LEARN A FUN FACT A DAY ». Pas d'UnSwipe. Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBIES TO BUILD",
+     [
+      {
+       "t": "INTELLIGENCE!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBYS FÜR MEHR",
+     [
+      {
+       "t": "INTELLIGENZ!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "PASSATEMPOS PARA FICAR",
+     [
+      {
+       "t": "MAIS INTELIGENTE!",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY CHESS"
+    ],
+    "video": {
+     "id": "fGFl4GjVvrA",
+     "titre": "10 Chess Tips To CRUSH Everyone",
+     "chaine": "GothamChess",
+     "vues": "3.9M views",
+     "date": "5 years ago",
+     "duree": "47:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJ4RQwl-WnWQ_3AgLxvPrLkVdfLHPCRKMxUtLJnjUkhkg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL SCHACH"
+    ],
+    "video": {
+     "id": "pdKBE8rw8n8",
+     "titre": "Wie man BESSER Schach spielt || Fünf ultimative Tipps",
+     "chaine": "The Big Greek",
+     "vues": "470.682 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "21:01",
+     "avatar": "https://yt3.ggpht.com/SooOyxZKqUTa8LFT-PTLutLm94rplAjGQCbsfV2YQyyyDVJ5_pn9mEeyaT6UWWRBtdhhbZM87_o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "JOGA XADREZ"
+    ],
+    "video": {
+     "id": "XiRXBnyjxjs",
+     "titre": "Como ficar BOM no Xadrez - Iniciante",
+     "chaine": "Rentune",
+     "vues": "782 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/ODlsXL3Se_c3MwckYNG0EpmkHLwYjrp3z3MUhnkecJ6_grs_yuQ7WIF_8jgz-nGdRSaquNw0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN THE",
+     "NIGHT SKY"
+    ],
+    "video": {
+     "id": "XUbG8jboh4M",
+     "titre": "Getting oriented to better learn the night sky: Stargazing Basics 1 of 3",
+     "chaine": "Eyes on the Sky",
+     "vues": "853K views",
+     "date": "14 years ago",
+     "duree": "5:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_luiP2AsWM7Pr_7qVuszyco4yMkRZhNGV9aLeiIDXWpiNY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN DEN",
+     "STERNENHIMMEL"
+    ],
+    "video": {
+     "id": "IsMOGCmI92A",
+     "titre": "Astronomie für TOTALE Anfänger | Mit Teleskop, Fernglas und den bloßen Augen beobachten",
+     "chaine": "Astrofotografie aus Norddeutschland",
+     "vues": "24.100 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "32:41",
+     "avatar": "https://yt3.ggpht.com/tZaBqqkoHppbicCA1guoQEAbT0wWKnvNJcrcnTbPvuBG19kLYfTit7cPMHnQaiXgKCyV5BwvDQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CONHECE AS",
+     "CONSTELAÇÕES"
+    ],
+    "video": {
+     "id": "5-cNSQt-BMA",
+     "titre": "Astrolab | O que são as constelações? Confira na #tvunesp",
+     "chaine": "TV Unesp",
+     "vues": "432 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/w-PplslLaCFe1cZ_3U7B022m5MC1fPgUCl7rYYVcokc7w3AlK8Crkm3DxXX00H69evOiWmMDw0U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE SUDOKU"
+    ],
+    "video": {
+     "id": "kvU9_MVAiE0",
+     "titre": "How to Play Sudoku for Absolute Beginners",
+     "chaine": "Learn Something",
+     "vues": "2.8M views",
+     "date": "8 years ago",
+     "duree": "8:00",
+     "avatar": "https://yt3.ggpht.com/WnNfcfe-7CU9iowL8UDJDxlVt8V6L3cMvZ0Dn0TvR1S_yGEr2aotV6tLUrxvyDaBp0eF6NXc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖSE SUDOKUS"
+    ],
+    "video": {
+     "id": "VV6ux8NQDt0",
+     "titre": "SUDOKU - einfach erklärt auf Deutsch | Raetsel - Channel",
+     "chaine": "Raetsel Channel",
+     "vues": "54.137 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/eK77ZGWeZIt7NDe_JdHWrhZUyiYbTCkPN04fQ2ARWF9hTvI78MWJTkCnlyX8uDLT3YaH9AVTyg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "RESOLVE SUDOKUS"
+    ],
+    "video": {
+     "id": "VLUonaGzq9E",
+     "titre": "Como Jogar Sudoku do Zero (Passo a Passo)",
+     "chaine": "Treine Sua Mente",
+     "vues": "183 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/G8GSR8YWKvXG5P9iYVyIyKyaiwR-cvnVjUaBS_y_gm2yjIp65JAmdiqqRzR12_cmgMIsD7p4KA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A FUN",
+     "FACT A DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG EIN",
+     "NEUER FUN FACT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UMA CURIOSIDADE",
+     "POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN A",
+     "LANGUAGE"
+    ],
+    "video": {
+     "id": "h1DTZlLu17o",
+     "titre": "How polyglots learn languages | The book that changed my life",
+     "chaine": "Saniiat",
+     "vues": "1M views",
+     "date": "1 year ago",
+     "duree": "20:49",
+     "avatar": "https://yt3.ggpht.com/G-TrD7WrqIMlsVQvMVHhOBYe9pgwTti0y-NyKoyprDCi7IGn9-LYDK0NBlsutzxWxtzROxEDMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN EINE",
+     "SPRACHE"
+    ],
+    "video": {
+     "id": "ap-68UPP7U4",
+     "titre": "So SCHNELL kannst Du eine Sprache lernen | Die 7 Faktoren erklärt",
+     "chaine": "Gabriel Gelman | Sprachheld",
+     "vues": "30.754 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "12:40",
+     "avatar": "https://yt3.ggpht.com/qe4eJHCIklBRICGkvS3OgdUY1959YKguLyOwl8Rqo8kEsOJ4EYNWw234t3-uYCtRqRRlr5VOxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "UMA LÍNGUA"
+    ],
+    "video": {
+     "id": "B088CDK34Wg",
+     "titre": "Como VIRAR POLIGLOTA em 4 PASSOS - DICAS para falar vários IDOMAS RÁPIDO | PEDRO MAIA",
+     "chaine": "Pedro Maia pelo mundo",
+     "vues": "38 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "13:55",
+     "avatar": "https://yt3.ggpht.com/uN-ar75YFL1PNYV3V-DoL7eL9DHdlU7gixsIbvBS-XZSSzI74czQvcuC1VAqLvT5BxUYwMRqdx0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

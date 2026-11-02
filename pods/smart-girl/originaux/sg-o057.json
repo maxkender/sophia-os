@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o057",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0bf8c90b-9242-40c4-8bfb-5e6f79eb074f",
+ "titre": "how do you sound so educated? the quiet habits behind an impressive mind #selfeducation #smartgirl #darkacademia #learning #eloquence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "2db2f497-45b2-49ec-8faa-559f06aa0780"
+ ],
+ "notes": "cta A. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 19 de la boîte (parent 0bf8c90b, anglais) : accroche du parent mot pour mot, « how do you sound so educated the quiet habits behind an impressive mind ». Le parent n'est pas dans le label local (accroche « how do you sound so educated the quiet habits behind an impressive mind »). Sept habitudes neuves : lire de vieux livres, apprendre l'origine des mots, connaître la frise de l'histoire, poser de bonnes questions, une leçon chaque matin (Sophia au milieu, cta A formulé en « I »), dire moins mais juste, avouer ce qu'on ne sait pas. Images de la banque (lecture, bibliothèque), sans texte ; slide Sophia sur une tasse de thé au citron, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "143a6b86",
+   "texte_overlay": "how do you sound so educated?\nthe quiet habits behind\nan impressive mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "170e6c9d",
+   "texte_overlay": "1. reading old books,\nnot just new ones.\nthe classics shaped how\nwe still speak.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5a45067c",
+   "texte_overlay": "2. learning where words\ncome from.\nonce you know the root,\nyou never forget the word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6e4343af",
+   "texte_overlay": "3. knowing the timeline\nof history.\nwhat came first, what came\nafter. everything connects.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "26d975bf",
+   "texte_overlay": "4. one lesson every morning.\nart, history, science,\n5 minutes with your tea.",
+   "texte_sophia": "4. one lesson every morning.\ni learn mine with a\nmicro-learning app like the\nsophia app, 5 minutes\nwith my tea.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "84cd45b1",
+   "texte_overlay": "5. asking better questions.\n\"why do you think that\nhappened?\" beats\n\"really?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1f9ba059",
+   "texte_overlay": "6. saying less, but\nmeaning it.\nshort sentences sound sure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a0646b6d",
+   "texte_overlay": "7. admitting what you\ndon't know.\n\"i've never read it.\ntell me?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "ac77c665",
+   "texte_overlay": "which one do you\nalready do?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/9.jpg"
+  }
+ ]
+}

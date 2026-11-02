@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o094",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "00a9144c-3c5d-4aeb-8127-a851df56ae76",
+ "titre": "Little habits that make you look effortlessly classy #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "00a9144c-3c5d-4aeb-8127-a851df56ae76"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture bdf15e02. déclinaison G2 de la ligne 1 de la boîte (00a9144c, « Small things that make you quietly sophisticated », es 26,9 k r 6,01). Même promesse, autres mots. Accroches écrites : « Little habits that make you look effortlessly classy » (retenue), « Small details that make you look refined » (écartée : « refined » se traduit mal), « Quiet habits of classy men » (écartée : trop court). Items neufs, aucun repris du parent (vin, carte écrite, table, voyages, repas). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bdf15e02",
+   "texte_overlay": "Little habits that make you\nlook effortlessly classy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Keep your shoes clean. Not new, just clean. People look at shoes far more than you think, and a quick wipe before you leave the house says you pay attention to details.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn to tie a proper knot. A tie, a scarf, even your shoelaces. Knowing two or three classic knots makes simple outfits look deliberate instead of thrown together.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Speak a little softer than the room. Classy men rarely need to raise their voice. A calm, slightly lower volume makes people lean in and actually listen to what you say.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Know a little about the things around you. I do five minutes a day of history, art or science, and it makes museums, menus and old buildings far more interesting to talk about.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Museums, menus and old buildings become far more interesting to talk about.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Hold doors and let people go first. Small courtesies cost nothing. Doing them without making a show of it is one of the most elegant habits a man can have.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Own one good coat. Dark, well cut, the right size. A great coat lifts everything you wear underneath and makes even jeans and a sweater look put together all winter.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Put your phone away at the table. Out of sight, not face down. Giving people your full attention during a meal is rarer and more elegant than any watch or brand.",
+   "media_id": "c7b88a0b"
+  }
+ ]
+}

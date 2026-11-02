@@ -1,0 +1,288 @@
+import { invoke } from "@/features/moteur/api";
+import { supabase } from "@/lib/supabase/client";
+
+/**
+ * Prompt 14, point 3 : payer depuis la liste de paie, par l'API Upwork. Tout
+ * passe par la fonction `upwork` (actions paie_apercu et paie_payer) ; ici,
+ * seulement les appels et les réglages.
+ */
+export interface PlanLigne {
+  id: string;
+  poster_id: string;
+  poster_nom: string | null;
+  action: string;
+  contrat_id: string | null;
+  statut: "pret" | "rien" | "lien" | "deja_payee" | "refuse";
+  raison: string | null;
+  approuver: { jalon_id: string; nom: string; montant: number; depot: number; sous_paiement: string | null } | null;
+  financer: { mode: "existant" | "creer"; jalon_id: string | null; nom: string; montant: number; editer: boolean } | null;
+  lien: "fermer" | "rembourser" | null;
+  total: number;
+  montant_trouve: number | null;
+  /** Le mode (éteint, test, date) bloque l'envoi de cette ligne : la raison. */
+  bloque: string | null;
+  /** Après « Confirmer » : ce qui s'est passé. */
+  resultat?: "paye" | "a_verifier" | "reessai" | "deja_payee" | "refuse" | "rien" | "lien" | "pret";
+}
+
+export interface Apercu {
+  mode: "off" | "test" | "on";
+  plafond_ligne: number;
+  plafond_jour: number;
+  lignes: PlanLigne[];
+  total: number;
+}
+
+export async function apercuPaiement(semaine: string, ids: string[]): Promise<Apercu> {
+  const r = await invoke<Apercu & { ok: boolean; error?: string }>("upwork", { action: "paie_apercu", semaine, ids });
+  if (!r.ok) throw new Error(r.error ?? "aperçu impossible");
+  return r;
+}
+
+export async function payer(semaine: string, ids: string[]): Promise<PlanLigne[]> {
+  const r = await invoke<{ ok: boolean; lignes?: PlanLigne[]; error?: string }>("upwork", {
+    action: "paie_payer",
+    semaine,
+    ids,
+    confirmer: true,
+  });
+  if (!r.ok || !r.lignes) throw new Error(r.error ?? "paiement impossible");
+  return r.lignes;
+}
+
+export interface EtatPaiementApi {
+  id: string;
+  paie_semaine_id: string;
+  poster_id: string;
+  statut: "en_cours" | "paye" | "a_verifier" | "deja_payee";
+  jalon_approuve: string | null;
+  montant_approuve: number | null;
+  jalon_finance: string | null;
+  montant_finance: number | null;
+  financement: string | null;
+  erreur: string | null;
+  par_nom: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+/** Les paiements API de la semaine, par ligne de paie. */
+export async function lireEtatPaiementsApi(semaine: string): Promise<Map<string, EtatPaiementApi>> {
+  const { data, error } = await supabase.rpc("paie_api_etat", { p_lundi: semaine });
+  if (error) throw error;
+  return new Map(((data ?? []) as EtatPaiementApi[]).map((e) => [e.paie_semaine_id, e]));
+}
+
+/** Après vérification à la main sur Upwork : libère une ligne « à vérifier » (admin). */
+export async function libererPaiementApi(id: string, raison: string): Promise<void> {
+  const { error } = await supabase.rpc("paie_api_liberer", { p_id: id, p_raison: raison });
+  if (error) throw error;
+}
+
+export interface ReglagesPaiementApi {
+  mode: "off" | "test" | "on";
+  contrats_test: string[];
+  test_des: string;
+  tous_des: string;
+  plafond_ligne: number;
+  plafond_jour: number;
+}
+
+export async function lireReglagesPaiementApi(): Promise<ReglagesPaiementApi> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("cle, valeur")
+    .in("cle", ["paie_api", "paie_plafond_ligne", "paie_plafond_jour"]);
+  if (error) throw error;
+  const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
+  const api = (v.paie_api ?? {}) as Partial<ReglagesPaiementApi>;
+  return {
+    mode: api.mode === "test" || api.mode === "on" ? api.mode : "off",
+    contrats_test: Array.isArray(api.contrats_test) ? api.contrats_test.map(String) : [],
+    test_des: api.test_des ?? "2026-11-02",
+    tous_des: api.tous_des ?? "2026-11-09",
+    plafond_ligne: Number(v.paie_plafond_ligne ?? 30),
+    plafond_jour: Number(v.paie_plafond_jour ?? 5000),
+  };
+}
+
+export async function enregistrerReglagesPaiementApi(r: ReglagesPaiementApi): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const par = { updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() };
+  const { error } = await supabase.from("reglages").upsert([
+    {
+      cle: "paie_api",
+      valeur: { mode: r.mode, contrats_test: r.contrats_test, test_des: r.test_des, tous_des: r.tous_des },
+      ...par,
+    },
+    { cle: "paie_plafond_ligne", valeur: r.plafond_ligne, ...par },
+    { cle: "paie_plafond_jour", valeur: r.plafond_jour, ...par },
+  ]);
+  if (error) throw error;
+}
+
+/** Prompt 21, B3-B6 : la paie automatique d'une semaine (table paie_auto, 0416). */
+export interface EtatPaieAuto {
+  semaine: string;
+  statut: "attente" | "en_cours" | "fini" | "arrete";
+  lance_at: string | null;
+  canari_ok: boolean | null;
+  canari_detail: { poster?: string | null; contrat?: string | null; ecarts?: string[]; aucun?: string } | null;
+  arret_raison: string | null;
+  dernier_bilan: { payees?: number; reessais?: number; a_verifier?: number; refusees?: number } | null;
+  maj_at: string;
+}
+
+export async function lireEtatPaieAuto(semaine: string): Promise<EtatPaieAuto | null> {
+  const { data, error } = await supabase.from("paie_auto").select("*").eq("semaine", semaine).maybeSingle();
+  if (error) throw error;
+  return (data as EtatPaieAuto | null) ?? null;
+}
+
+/** « Pay now » : la paie automatique part tout de suite (canari d'abord), si paie_api est sur « on ». */
+export async function lancerPaieAuto(): Promise<{ ignore?: string; payees?: number; canari?: unknown }> {
+  const r = await invoke<{ ok: boolean; error?: string; ignore?: string; payees?: number; canari?: unknown }>("upwork", {
+    action: "paie_auto_lancer",
+    confirmer: true,
+  });
+  if (!r.ok && r.error) throw new Error(r.error);
+  return r;
+}
+
+/** Prompt 26 : la simulation d'une paie (rien n'est payé ni financé). */
+export interface SimulationPaie {
+  id?: string | null;
+  semaine: string;
+  lignes: number;
+  par_categorie: Record<string, number>;
+  total: { approuve: number; finance: number; total: number };
+  plafonds: { ligne: number; jour: number };
+  depasse_plafond_jour: boolean;
+  milestones_lues_le: string | null;
+  needs_you: { poster: string; contrat: string | null; lien: string | null; montant: number; raison: string }[];
+  /** Plus de comptes actifs que la milestone financée de la semaine n'en couvre (affiché, rien n'est changé). */
+  ecarts_comptes?: { poster: string; contrat: string | null; comptes_actifs: number; comptes_finances: number; milestone: string; depot: number }[];
+  /** Les profils hors Upwork (pas de contrat, comptes en France) : jamais payés par l'API, jamais dans Needs you. */
+  hors_upwork?: string[];
+  lance_at?: string;
+}
+
+export async function simulerPaie(semaine?: string): Promise<SimulationPaie> {
+  const r = await invoke<{ ok: boolean; error?: string } & SimulationPaie>("upwork", { action: "paie_simulation", ...(semaine ? { semaine } : {}) });
+  if (!r.ok) throw new Error(r.error ?? "simulation impossible");
+  return r;
+}
+
+export async function lireDerniereSimulation(): Promise<SimulationPaie | null> {
+  const { data, error } = await supabase.from("paie_simulations").select("id, semaine, resultat, lance_at")
+    .eq("statut", "fini").order("lance_at", { ascending: false }).limit(1).maybeSingle();
+  if (error) throw error;
+  if (!data?.resultat) return null;
+  return { ...(data.resultat as SimulationPaie), id: data.id as string, lance_at: data.lance_at as string };
+}
+
+/** Prompt 26 : « Pay this week » sur un contrat de test : la semaine approuvée, la suivante financée (pour de vrai). */
+export interface EtapePaieTest {
+  etape: string;
+  nom?: string;
+  jalon?: string | null;
+  montant?: number;
+  erreur?: string | null;
+  reponse?: unknown;
+  /** L'état relu chez Upwork (financer : Active attendu). */
+  etat?: string | null;
+}
+
+/** Les états d'une milestone financée chez Upwork (comme ETATS_FINANCES côté fonctions). */
+export const ETATS_FINANCES = ["Active", "Submitted", "Rejected"];
+
+/** 0467 : une étape n'est « OK » que sans erreur et, si un état a été relu, financé. */
+export function etapeOk(e: EtapePaieTest): boolean {
+  return !e.erreur && (e.etat === undefined || e.etat === null || ETATS_FINANCES.includes(e.etat));
+}
+
+export async function payerSemaineTest(contratId: string): Promise<{
+  ok: boolean;
+  /** 0467 : la semaine est payée, la suivante est dans « To fund by hand ». */
+  a_financer?: boolean;
+  semaine?: string;
+  resultat?: string;
+  raison?: string | null;
+  error?: string;
+  etapes?: EtapePaieTest[];
+  droit_manquant?: string | null;
+  jalons?: { nom: string; etat: string; depot: number | null; echeance: string | null }[] | null;
+}> {
+  return await invoke("upwork", { action: "paie_test_payer", contrat_id: contratId, confirmer: true });
+}
+
+/** 0467 : les milestones à financer à la main sur Upwork (la paie n'a pas pu le faire par l'API). */
+export interface AFinancer {
+  id: string;
+  poster_id: string | null;
+  poster_nom: string | null;
+  contrat_id: string;
+  jalon_id: string;
+  nom: string | null;
+  montant: number | null;
+  semaine: string | null;
+  raison: string | null;
+  etat_lu: string | null;
+  relu_at: string | null;
+  cree_at: string;
+  lien: string;
+}
+
+export async function lireAFinancer(): Promise<AFinancer[]> {
+  const { data, error } = await supabase.rpc("paie_a_financer_liste");
+  if (error) throw error;
+  return (data ?? []) as AFinancer[];
+}
+
+export async function relireAFinancer(): Promise<{ ouvertes: number; financees: number }> {
+  const r = await invoke<{ ok: boolean; error?: string; ouvertes: number; financees: number }>("upwork", { action: "a_financer_relire" });
+  if (r.error) throw new Error(r.error);
+  return r;
+}
+
+/** 0467 : « Fund this milestone (test) » : seulement le financement, puis la relecture d'Upwork. */
+export interface FinancementTest {
+  ok: boolean;
+  error?: string;
+  jalon?: { id: string; nom: string | null; depot: number | null };
+  requete?: unknown;
+  reponse?: unknown;
+  erreur?: string | null;
+  etat_relu?: string | null;
+}
+
+export async function financerJalonTest(contratId: string): Promise<FinancementTest> {
+  return await invoke("upwork", { action: "paie_test_financer", contrat_id: contratId, confirmer: true });
+}
+
+/** 31/10 (0476) : un paiement à faire à la main, avec son détail ; « Mark as paid » le note payé (rien ne part de l'OS). */
+export interface PaiementManuel {
+  id: string;
+  poster_id: string | null;
+  poster_nom: string | null;
+  contrat_id: string | null;
+  montant: number;
+  lignes: { libelle: string; montant: number }[];
+  note: string | null;
+  semaine: string | null;
+  cree_at: string;
+  fait_at: string | null;
+  fait_par_nom: string | null;
+  lien: string | null;
+}
+
+export async function lirePaiementsManuels(): Promise<PaiementManuel[]> {
+  const { data, error } = await supabase.rpc("paie_manuels_liste");
+  if (error) throw error;
+  return (data ?? []) as PaiementManuel[];
+}
+
+export async function noterPaiementManuelFait(id: string): Promise<void> {
+  const { error } = await supabase.rpc("paie_manuel_fait", { p_id: id });
+  if (error) throw error;
+}

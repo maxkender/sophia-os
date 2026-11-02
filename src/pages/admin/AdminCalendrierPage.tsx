@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { useAuth } from "@/features/auth/AuthContext";
+import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -55,6 +57,7 @@ function estPoste(post: PostCalendrierAdmin): boolean {
 }
 
 export function AdminCalendrierPage() {
+  const { role } = useAuth();
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const [date, setDate] = React.useState(aujourdhui);
@@ -315,6 +318,8 @@ export function AdminCalendrierPage() {
 
   return (
     <div className="space-y-6">
+      {/* Prompt 25 MAJ, point 8 : sur la page de Lucia (Head of Ops), les messages confiés aux HM. */}
+      {role === "head_of_ops" && <CompteursHm />}
       <Card>
         <CardHeader className="gap-4 space-y-0 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-1.5">

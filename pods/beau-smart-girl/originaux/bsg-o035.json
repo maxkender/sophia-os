@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o035",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "5 façons infaillibles de rester inculte toute ta vie (ça va piquer) #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "essai. cta B (l'anecdote du jour au milieu du deck, dite par l'ironie ; voir CTA.md). Fait vérifié le 30/10 sur https://fr.wikipedia.org/wiki/Statue_de_la_Libert%C3%A9 : « Inauguration 28 octobre 1886 » (infobox). Routine du 30/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 1 sur 7 (le numéro finit par 5). L'essai : la liste ironique « façons de gâcher » (dans le label, « top 5 façons de gâcher ta vingtaine (ça va piquer) » est gagnante à r 4,69 dans la boîte BLEO du 30/10), jamais faite par notre pod. La preuve reste celle du schéma dangereusement-cultivee (r 2,96, 2e2ef1c3 ; chez nous, bsg-o004 à r 3,56). Accroches écrites : « 5 façons infaillibles de rester inculte toute ta vie (ça va piquer) » (retenue : l'ironie et la parenthèse du gagnant, sur la culture), « comment rester inculte en 5 étapes faciles » (écartée : moins mordant), « les habitudes parfaites pour ne jamais devenir cultivée » (écartée : trop proche de nos accroches). Items neufs. Le musée « gratuit certains jours » reste général, sans lieu ni jour précis. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia. Inspirations : slides de 2e2ef1c3 et 1a941e8c sans appli.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "31b79f2f",
+   "texte_overlay": "5 façons infaillibles\nde rester inculte toute ta vie\n(ça va piquer)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1eee2f6b",
+   "texte_overlay": "1. ne lis jamais plus loin que le titre.\n\nun article ? le titre suffit.\nun livre ? la quatrième de couverture, maximum.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2095774b",
+   "texte_overlay": "2. surtout, n'apprends jamais une anecdote par jour.\n\npar exemple, ne retiens pas que la statue de la liberté a été inaugurée en 1886.\nça risquerait de te rendre intéressante.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg",
+   "texte_sophia": "2. surtout, n'ouvre jamais l'appli Sophia le matin.\n\npar exemple, ne retiens pas que la statue de la liberté a été inaugurée en 1886.\nça risquerait de te rendre intéressante."
+  },
+  {
+   "position": 4,
+   "media_id": "205ce864",
+   "texte_overlay": "3. ne demande jamais\n« pourquoi ? »\n\nhoche la tête, souris, change de sujet.\npersonne ne verra rien. enfin presque.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "22f73716",
+   "texte_overlay": "4. reste bien dans ton algorithme.\n\nles mêmes vidéos, les mêmes avis, les mêmes sujets.\nle monde est grand, mais ton fil est confortable.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3241d62b",
+   "texte_overlay": "5. ne mets jamais les pieds dans un musée.\n\nc'est pour les autres, c'est ennuyeux, c'est loin.\nsurtout ne vérifie pas : beaucoup sont gratuits certains jours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "324a37c3",
+   "texte_overlay": "t'en fais combien ?\nsois honnête en commentaire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

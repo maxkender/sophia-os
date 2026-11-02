@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o021",
+ "schema_id": "man-to-man",
+ "titre": "Man to man, this is how you rebuild after a hard year #men #selfimprovement #discipline #mindset #reset",
+ "musique_titre": "Why I do em Like that (feat. Billie Essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "7f1ed494-8b7c-4f74-ad06-2e7fbfd11f2b",
+  "a3f52054-09b8-4715-9822-76dd588f7660"
+ ],
+ "notes": "cta A. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Schéma man-to-man (r 10,21, 7f1ed494). Nouvel angle pour moi : se relever d'une année difficile, et pas d'une rupture (am-o007). Accroches écrites : « Man to man, this is how you rebuild after a hard year » (retenue : forme exacte « Man to man, this is how you… » du gagnant), « Man to man: what to do when life knocks you down » (écartée : plus vague), « Man to man, this is how you reset properly » (écartée : trop proche d'am-o007). Ton ferme mais bienveillant. Aucun conseil médical, au plus « someone you trust ». Étapes neuves (vérifié dans donnees/label.json) ; écartées car déjà dans le label : « stop replaying », les petites victoires. Images : la banque du label, sans visage ; slide Sophia sur une pièce sombre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e4ecade8",
+   "texte_overlay": "Man to man, this is how\nyou rebuild after\na hard year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e50dea34",
+   "texte_overlay": "1. Close the chapter\nWrite down what the year\ntaught you. Then shut\nthe notebook. Lessons kept,\nweight dropped.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1543356e",
+   "texte_overlay": "2. Shrink the goal\nNot \"fix my life.\"\nFix your mornings first.\nThen your week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e530749b",
+   "texte_overlay": "3. Move every day\nA walk counts.\nYour mood often follows\nyour body.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e527dbcf",
+   "texte_overlay": "4. Ask for help once\nA friend, a brother,\nsomeone you trust.\nStrong men ask.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e524f913",
+   "texte_overlay": "5. Set a starting line\nPick a day this month\nand mark it.\nA fresh start needs\na start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "153dd6bd",
+   "texte_overlay": "6. Give your mind\nsomething new\nLearn one thing a day that has\nnothing to do with your problems.\nThe world is bigger\nthan this year.",
+   "texte_sophia": "6. Give your mind\nsomething new\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/2.jpg"
+  }
+ ]
+}

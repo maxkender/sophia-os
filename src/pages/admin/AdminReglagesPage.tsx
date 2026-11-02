@@ -22,6 +22,8 @@ import {
 } from "@/features/moteur/pipelinesSchema";
 import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { CarteUpwork } from "@/features/upwork/CarteUpwork";
+import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPaie, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
 
 function ChampNombre({
   id,
@@ -197,9 +199,9 @@ export function AdminReglagesPage() {
 
   const enregistrer = useMutation({
     mutationFn: async (r: Reglages) => {
-      await ecrireReglage("repartition", r.repartition);
+      // Prompt 21, C8 : la carte Legacy (répartition, semaine 1) est retirée ;
+      // ses réglages ne sont plus réécrits d'ici (leurs valeurs restent en base).
       await ecrireReglage("frequence", r.frequence);
-      await ecrireReglage("semaine1", r.semaine1);
       await ecrireReglage("scoring", r.scoring);
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
       await ecrireReglage("assignation_auto", r.assignation_auto);
@@ -210,7 +212,7 @@ export function AdminReglagesPage() {
       // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
       // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
       // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
-      await ecrireReglage("warmup", r.warmup);
+      // « warmup.heures » est retiré (prompt 21, C8) : la fin du warm-up suit le lundi (0301) et la cohorte (0413).
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -230,9 +232,6 @@ export function AdminReglagesPage() {
   const majClassement = (patch: Partial<Reglages["classement_comptes"]>) =>
     maj({ classement_comptes: { ...reglages.classement_comptes, ...patch } });
   const majModeles = (modeles: ModeleNudge[]) => maj({ nudges: { modeles } });
-  const total =
-    reglages.repartition.recycle + reglages.repartition.remanie + reglages.repartition.nouveau;
-  const totalValide = total === 100;
   const cleaningSchema = schemaCleaning(reglages.nettoyage.provider_principal);
 
   return (
@@ -241,6 +240,22 @@ export function AdminReglagesPage() {
         <h1 className="text-lg font-semibold tracking-tight">{t("reglages.title")}</h1>
         <p className="text-sm text-muted-foreground">{t("reglages.subtitleActions")}</p>
       </div>
+
+      {/* Prompt 22, partie 3 : les interrupteurs sont déplacés dans Overview → Switches. */}
+      <p className="rounded-md border px-3 py-2 text-sm" data-testid="interrupteurs-deplaces">
+        {t("auto.switchesDeplaces")}{" "}
+        <Link to="/admin/auto#interrupteurs" className="text-primary underline-offset-2 hover:underline">
+          {t("auto.pages.overview.titre")}
+        </Link>
+      </p>
+
+      <CarteUpwork />
+
+      {/* Partie E (0411) : messages Upwork, cohorte et accueil, textes aux posteurs. */}
+      <CarteMessagesUpwork />
+      <CarteCohorteAccueil />
+      <CarteTextesPosteurs />
+      <CarteTextesPaie />
 
       {/* ── Cleaning ── */}
       <Card>
@@ -324,6 +339,14 @@ export function AdminReglagesPage() {
                 step={10_000}
                 valeur={reglages.scoring.elo_vues_plafond}
                 onChange={(n) => majScoring({ elo_vues_plafond: n })}
+              />
+              <ChampNombre
+                id="eloForce"
+                label={t("reglages.eloVuesForce")}
+                min={0}
+                step={10_000}
+                valeur={reglages.scoring.elo_vues_force_import}
+                onChange={(n) => majScoring({ elo_vues_force_import: Math.max(0, n) })}
               />
               <ChampNombre
                 id="eloK"
@@ -425,6 +448,13 @@ export function AdminReglagesPage() {
                 min={0}
                 valeur={reglages.tierlist.ecart_min_meme_contenu}
                 onChange={(n) => majTierlist({ ecart_min_meme_contenu: n })}
+              />
+              <ChampNombre
+                id="ecartMemeAccroche"
+                label={t("reglages.ecartMinMemeAccroche")}
+                min={0}
+                valeur={reglages.tierlist.ecart_min_meme_accroche}
+                onChange={(n) => majTierlist({ ecart_min_meme_accroche: n })}
               />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.assignationParamsAide")}</p>
@@ -705,18 +735,6 @@ export function AdminReglagesPage() {
           <CardDescription>{t("warmup.settingsDesc")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-5">
-          <section className="space-y-3 sm:max-w-xs">
-            <ChampNombre
-              id="warmupH"
-              label={t("warmup.heures")}
-              min={1}
-              max={168}
-              valeur={reglages.warmup.heures}
-              onChange={(n) => maj({ warmup: { heures: n } })}
-            />
-            <p className="text-xs text-muted-foreground">{t("warmup.heuresAide")}</p>
-          </section>
-
           {/* La File a déménagé sur la page Allocation : décider où va la
               prochaine recrue et forcer la main au moteur sont la même
               conversation, et elles se lisent mieux côte à côte. On laisse le
@@ -733,90 +751,9 @@ export function AdminReglagesPage() {
         </CardContent>
       </Card>
 
-      {/* ── Legacy ── */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("reglages.legacyTitle")}</CardTitle>
-          <CardDescription>{t("reglages.legacySubtitle")}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.repartition")}</h3>
-            <div className="grid gap-4 sm:grid-cols-3">
-              <ChampNombre
-                id="recycle"
-                label={t("reglages.recycle")}
-                valeur={reglages.repartition.recycle}
-                onChange={(n) => maj({ repartition: { ...reglages.repartition, recycle: n } })}
-              />
-              <ChampNombre
-                id="remanie"
-                label={t("reglages.remanie")}
-                valeur={reglages.repartition.remanie}
-                onChange={(n) => maj({ repartition: { ...reglages.repartition, remanie: n } })}
-              />
-              <ChampNombre
-                id="nouveau"
-                label={t("reglages.nouveau")}
-                valeur={reglages.repartition.nouveau}
-                onChange={(n) => maj({ repartition: { ...reglages.repartition, nouveau: n } })}
-              />
-            </div>
-            <p className={totalValide ? "text-xs text-muted-foreground" : "text-xs text-destructive"}>
-              {totalValide ? t("reglages.total", { total }) : t("reglages.totalInvalide")}
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.semaine1")}</h3>
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={reglages.semaine1.actif}
-                onChange={(e) =>
-                  maj({ semaine1: { ...reglages.semaine1, actif: e.target.checked } })
-                }
-              />
-              {t("reglages.semaine1Actif")}
-            </label>
-            {reglages.semaine1.actif && (
-              <div className="grid gap-4 sm:grid-cols-3">
-                <ChampNombre
-                  id="s1jours"
-                  label={t("reglages.semaine1Jours")}
-                  min={1}
-                  valeur={reglages.semaine1.jours}
-                  onChange={(n) => maj({ semaine1: { ...reglages.semaine1, jours: n } })}
-                />
-                <ChampNombre
-                  id="s1posts"
-                  label={t("reglages.semaine1Posts")}
-                  min={1}
-                  max={3}
-                  valeur={reglages.semaine1.posts_par_jour}
-                  onChange={(n) =>
-                    maj({ semaine1: { ...reglages.semaine1, posts_par_jour: n } })
-                  }
-                />
-                <label className="flex items-end gap-2 pb-2 text-sm">
-                  <input
-                    type="checkbox"
-                    checked={reglages.semaine1.tout_recycle}
-                    onChange={(e) =>
-                      maj({ semaine1: { ...reglages.semaine1, tout_recycle: e.target.checked } })
-                    }
-                  />
-                  {t("reglages.semaine1Recycle")}
-                </label>
-              </div>
-            )}
-          </section>
-        </CardContent>
-      </Card>
-
       <div className="flex items-center gap-3">
         <Button
-          disabled={!brouillon || !totalValide || enregistrer.isPending}
+          disabled={!brouillon || enregistrer.isPending}
           onClick={() => enregistrer.mutate(reglages)}
         >
           {enregistrer.isPending ? t("common.saving") : t("common.save")}

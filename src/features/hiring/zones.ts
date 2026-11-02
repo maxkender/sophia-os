@@ -60,6 +60,8 @@ export interface BlocRecruteur {
    * phase ne doit pas faire lire « 0 créateur » sous un recruteur qui en a.
    */
   compteursEquipe: CompteursPhase;
+  /** TOUS ses créateurs directs, filtres ignorés (compteurs d'étapes cliquables). */
+  equipe: PosterProfil[];
 }
 
 export interface GroupeZone {
@@ -220,6 +222,7 @@ export function regrouperParZone(
       createurs,
       compteurs: compteursDuBloc(createurs),
       compteursEquipe: compteursDuBloc(equipe),
+      equipe,
     });
     groupes.set(cle, groupe);
   }
@@ -238,6 +241,7 @@ export function regrouperParZone(
       createurs: trier(b.createurs),
       compteurs: compteursDuBloc(b.createurs),
       compteursEquipe: compteursDuBloc(b.equipe),
+      equipe: b.equipe,
     });
     groupes.set(b.cle, groupe);
   }

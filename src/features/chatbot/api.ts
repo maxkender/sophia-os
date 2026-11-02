@@ -143,6 +143,10 @@ export interface QuestionFaq {
   /** Bug : où en est l'IT guy, d'après son « on it » et sa réponse dans le fil. */
   it_statut: "pris_en_charge" | "repondu" | null;
   it_maj_at: string | null;
+  /** Prompt 21, Q (0424) : la situation de la personne, l'entrée reconnue, la réponse par situation. */
+  situation?: string | null;
+  faq_entree_id?: string | null;
+  reponse_situation?: string | null;
   created_at: string;
   profiles: { prenom: string | null; nom: string | null; email: string | null } | null;
 }
@@ -165,7 +169,7 @@ export interface BilanCopieGuides {
 const COLONNES_FAQ =
   "id, source, role, question, reponse, reponse_faq, section_guide, etat, test, envoye_at, slack_canal, slack_ts, " +
   "slack_nom, slack_user_id, reponse_humaine, reponse_humaine_par, reponse_admin, ajoute_base_at, erreur, it_statut, " +
-  "it_maj_at, created_at, " +
+  "it_maj_at, created_at, situation, faq_entree_id, reponse_situation, " +
   "profiles!chatbot_questions_user_id_fkey(prenom, nom, email)";
 
 function avecProfil(lignes: unknown[]): QuestionFaq[] {
@@ -187,10 +191,14 @@ export async function lireReglagesFaqAdmin(): Promise<ReglagesFaq> {
 }
 
 export async function ecrireReglagesFaq(reglages: ReglagesFaq): Promise<void> {
+  // Prompt 21, Q : les clés que cette carte ne connaît pas (`situations`, le
+  // mode de la FAQ par situation) restent telles quelles.
+  const { data: actuel } = await supabase.from("reglages").select("valeur").eq("cle", "faq_automatique").maybeSingle();
+  const autres = (actuel?.valeur && typeof actuel.valeur === "object" ? actuel.valeur : {}) as Record<string, unknown>;
   const { error } = await supabase
     .from("reglages")
     .upsert(
-      { cle: "faq_automatique", valeur: reglages, updated_at: new Date().toISOString() },
+      { cle: "faq_automatique", valeur: { ...autres, ...reglages }, updated_at: new Date().toISOString() },
       { onConflict: "cle" },
     );
   if (error) throw error;

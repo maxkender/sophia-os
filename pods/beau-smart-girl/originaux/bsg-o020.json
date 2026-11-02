@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o020",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les choses que j'ai ARRÊTÉ de faire et qui m'ont rendue scandaleusement cultivée #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "essai. cta B (l'anecdote du jour au milieu du deck ; voir CTA.md). Fait vérifié le 27/10 sur https://fr.wikipedia.org/wiki/Vasistas : « vasistas » est un emprunt à l'allemand, de la question « Was ist das? ». Routine du 27/10, livraison 2 sur 5 (le numéro finit par 0). L'essai : la liste « ce que j'ai ARRÊTÉ de faire », un format inversé courant dans la niche et jamais fait chez nous, où toutes nos listes disent quoi faire. La preuve reste celle du schéma dangereusement-cultivee (r 2,96, 2e2ef1c3 ; chez nous, bsg-o004 à r 22,53 et 3,48). Accroches écrites : « les choses que j'ai ARRÊTÉ de faire et qui m'ont rendue scandaleusement cultivée » (retenue : l'excès du schéma, et le mot crié du label), « ce que j'ai arrêté de faire pour devenir dangereusement intelligente » (écartée : sans le mot crié), « les mauvaises habitudes que j'ai lâchées pour me cultiver » (écartée : plus fade). Items neufs en « je » : abandonner un livre qu'on n'aime pas, les notifs du matin (la place de Sophia), les séries en fond, seulement des nouveautés, « je suis nulle en histoire ». Images de la banque, sans célébrité ni texte. Inspirations : slides 1, 2, 3, 5, 6, 7 de 2e2ef1c3, 2 de 1a941e8c. Images claires ou en double remplacées par des images sombres après relecture de l'aperçu.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "75be1754",
+   "texte_overlay": "les choses que j'ai ARRÊTÉ de faire\net qui m'ont rendue\nscandaleusement cultivée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a0d03c7",
+   "texte_overlay": "1. j'ai arrêté de finir les livres que j'aime pas.\n\n50 pages, et si ça prend pas, je passe au suivant.\nj'ai lu deux fois plus cette année.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "39abd761",
+   "texte_overlay": "2. j'ai arrêté de commencer ma journée par mes notifs.\n\nà la place, j'apprends un truc.\nce matin : « vasistas » vient de l'allemand « was ist das ? », « qu'est-ce que c'est ? ».\nje l'ai raconté trois fois dans la journée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg",
+   "texte_sophia": "2. j'ai arrêté de commencer ma journée par mes notifs.\n\nà la place, j'ouvre l'appli Sophia.\nce matin : « vasistas » vient de l'allemand « was ist das ? », « qu'est-ce que c'est ? ».\nje l'ai raconté trois fois dans la journée."
+  },
+  {
+   "position": 4,
+   "media_id": "8ba75f58",
+   "texte_overlay": "3. j'ai arrêté de regarder les séries en fond.\n\nun épisode, je le regarde vraiment. sinon, rien.\nje retiens enfin ce que je vois.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f159d918",
+   "texte_overlay": "4. j'ai arrêté de lire seulement des nouveautés.\n\nun classique sur trois livres.\nun livre qui a survécu cent ans, il y a souvent une raison.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7acba2ee",
+   "texte_overlay": "5. j'ai arrêté de dire\n« je suis nulle en histoire ».\n\npersonne n'est nul, on a juste pas commencé.\nune date par jour, et ça finit par faire une frise.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "53f99a6f",
+   "texte_overlay": "lequel tu arrêtes\nen premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o012",
+ "schema_id": "vocabulary-words",
+ "titre": "5 words to help expand your vocabulary #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "95348884-2ea7-4305-abd6-17b6522424a1",
+  "367627d1-175c-4fe0-8fff-45c923d6906d"
+ ],
+ "notes": "cta C. Versions de la slide Sophia (règle « tester les CTA ») : cta A = dernier item, à la première personne (« I learn … with a micro-learning app like the Sophia app ») ; cta B = Sophia au milieu du deck, sur l'item « always have something to talk about » ; cta C = dernier item, formulé par le bénéfice (« the easy way: a micro-learning app like the Sophia app »). sg-o001 à sg-o010 sont tous en cta A. Schéma vocabulary-words (95348884 r 9,96 ; 46118b58 r 4,39 ; a7697985 r 4,44 ; notre sg-o001 : r 1,52 et 2,45). Accroches écrites : « 5 words to help expand your vocabulary » (retenue : le titre exact des gagnants de @gilmoreobssesed, 95348884 et 46118b58, le plus régulier du label), « 5 words that will instantly expand your vocabulary » (écartée : déjà prise par sg-o001), « words that will make you sound like a main character » (écartée : promesse non prouvée). Cinq mots absents des contenus du label (vérifié dans donnees/label.json) : vivacious, urbane, droll, placid, raconteur. Définitions et prononciations au sens courant du dictionnaire. Sophia sur le dernier mot (raconteur), formulé par le bénéfice (cta C), avec la formule « a micro-learning app like the Sophia app ». Images : captures de la série (style @gilmoreobssesed) autres que celles des originaux précédents ; slide Sophia sur une machine à café, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1165ecb0",
+   "texte_overlay": "5 words to help\nexpand your vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11f2c74f",
+   "texte_overlay": "Vivacious:\nlively and full of\ncharm\n(vi-VAY-shuhs)\n\nExample:\nHer vivacious laugh made\nthe whole table smile.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "71908db2",
+   "texte_overlay": "Urbane:\npolished, courteous\nand refined\n(ur-BAYN)\n\nExample:\nHe was urbane and knew\nwhat to say to everyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4e104416",
+   "texte_overlay": "Droll:\nfunny in a dry,\nunexpected way\n(DROHL)\n\nExample:\nShe made a droll remark\nand the room went quiet,\nthen laughed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c0086b41",
+   "texte_overlay": "Placid:\ncalm and not easily\nupset\n(PLAS-id)\n\nExample:\nShe stayed placid while\neveryone else panicked.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7ef93eea",
+   "texte_overlay": "Raconteur:\nsomeone who tells\nstories brilliantly\n(rak-on-TUR)\n\nExample:\nShe became a true\nraconteur, with a new story\nfrom history or art for\nevery dinner.",
+   "texte_sophia": "Raconteur:\nsomeone who tells\nstories brilliantly\n(rak-on-TUR)\n\nExample:\nThe easy way to become one?\nA micro-learning app like\nthe Sophia app: one\n5-minute story a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ee023e11",
+   "texte_overlay": "follow for more daily words\nwhich one is your favourite?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/7.jpg"
+  }
+ ]
+}

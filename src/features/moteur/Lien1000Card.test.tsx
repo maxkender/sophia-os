@@ -16,6 +16,7 @@ const envoyer = vi.fn();
 const lireAuto = vi.fn();
 const ecrireAuto = vi.fn();
 
+vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: "admin" }) }));
 vi.mock("@/features/moteur/lien1000", async (importer) => ({
   ...(await importer<typeof import("./lien1000")>()),
   listerLien1000: () => lister(),

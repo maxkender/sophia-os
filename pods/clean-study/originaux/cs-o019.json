@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o019",
+  "schema_id": "methods-per-subject",
+  "titre": "the method each subject actually wants from you #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "La seule reprise du jour d'une famille déjà livrée 3 fois en 7 jours (ROUTINE point 6), dans l'esprit de cs-o001 (r 5,33 sur son premier passage mûr, 7,7 k vues). Schéma methods-per-subject (@studyy.hackz : 737 k le 06/10, 420 k le 10/10, valable jusqu'au 9/11). Autre plainte et six méthodes neuves, aucune dans cs-o001, cs-o003, cs-o005, cs-o007, cs-o008 ni dans le label. Accroches écrites : « “I study every subject like it's a vocab test” » (retenue : la cause du problème, entre guillemets comme le gagnant), « “I don't know how to study for maths, only for history” » (écartée : deux matières seulement), « “my study method works for nothing except memorizing” » (écartée : lourde). Méthodes vraies : exercices mélangés (interleaving), chaînes causes-conséquences, la carte ou le schéma de mémoire sur une page blanche (place micabo, slide 5), le shadowing en langues, un paragraphe d'analyse par jour, le mode avion pour la séance (place UnSwipe, slide 8). Images sans visage ; slides 5 et 8 sans personne. Écartée à l'aperçu : 6993b6c8 (même fille que la slide 6 de cs-o018).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "17d63c3a",
+      "texte_overlay": "“I study every subject\nlike it's a vocab test”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6a568cf2",
+      "texte_overlay": "that's exactly the problem.\nhere's what each subject actually wants from you...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "fc87c488",
+      "texte_overlay": "Mixed problem sets ➗\nBest for: Maths, Physics, Chemistry\nmix exercises from different chapters. on the test, nothing tells you which method to use.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "168ff23e",
+      "texte_overlay": "Cause → consequence chains 🔗\nBest for: History, Economics\nfor every event, write what caused it and what it caused. a chain is easier to remember than a list.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1a952b44",
+      "texte_overlay": "Blank page recall 🗺️\nBest for: Geography, Biology diagrams\nredraw the map or the diagram from memory on a blank page, then compare with the real one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "76e8e0f2",
+      "texte_overlay": "Shadowing 🎧\nBest for: Languages\nplay a short audio and repeat right after it, out loud. your listening and your accent both improve.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ff9291b8",
+      "texte_overlay": "One paragraph a day ✍️\nBest for: Literature, Philosophy\nan idea, a quote, your analysis. 20 minutes, not a full essay.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "164bc93d",
+      "texte_overlay": "Airplane mode 📵\nBest for: every single subject\nswitch it on for the whole session. no notifications, no \"just one second\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

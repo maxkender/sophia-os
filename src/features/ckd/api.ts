@@ -1,6 +1,8 @@
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
 
+import type { DiagnosticCkd } from "./diagnostic";
+
 /**
  * Check, Kill or Double (migrations 0326 à 0328). Le calcul vit en SQL : le
  * jeudi 6 h (nudges des nouveaux comptes) et le samedi 6 h (kill, recréer,
@@ -10,7 +12,7 @@ import { invoke } from "@/features/moteur/api";
  */
 
 export type TypeControle = "jeudi" | "samedi";
-export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler" | "absent";
+export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler" | "absent" | "inactif";
 export type ActionCkd = "nudge" | "recreer" | "ne_pas_renouveler" | "doubler";
 export type DecisionCkd = ActionCkd | "garder" | "pas_maintenant" | "rien";
 export type SourceReglage = "defaut" | "pays" | "label" | "pays_label";
@@ -88,6 +90,8 @@ export interface PropositionCkd {
   erreur: string | null;
   /** Faux : la décision ne part pas dans #managers-hq (0339). */
   hm_suivi?: boolean;
+  /** Le diagnostic en 3 lignes (0362, colonne calculée). */
+  diagnostic?: DiagnosticCkd | null;
 }
 
 export interface PersonneCkd {
@@ -154,7 +158,7 @@ export async function listerPropositions(controleId: string): Promise<Propositio
   const { data, error } = await supabase
     .from("ckd_propositions")
     .select(
-      "id, controle_id, type, jour, regle, action, compte_id, poster_id, hm_id, pays, langue, label_id, application, donnees, decision, decision_par, decision_at, note, nouveau_compte_id, envoye_at, fait_at, erreur, hm_suivi",
+      "id, controle_id, type, jour, regle, action, compte_id, poster_id, hm_id, pays, langue, label_id, application, donnees, decision, decision_par, decision_at, note, nouveau_compte_id, envoye_at, fait_at, erreur, hm_suivi, diagnostic",
     )
     .eq("controle_id", controleId);
   if (error) throw error;
@@ -303,6 +307,14 @@ export async function deciderCkd(
       })
       : await supabase.rpc("ckd_decider", { p_id: id, p_decision: decision, p_note: note });
   if (error) throw error;
+  // Le Nudge du jeudi part aussi au posteur sur Slack (0383). Un échec Slack
+  // n'annule pas le nudge : la page de suivi le montre.
+  if (decision === "nudge") await nudgesSlack({ id }).catch(() => undefined);
+}
+
+/** Nudge du jeudi : le message Slack au posteur (fonction `ckd`, 0383), une fois par semaine. */
+export async function nudgesSlack(cible: { id: string } | { controle_id: string }): Promise<void> {
+  await invoke<{ ok: boolean }>("ckd", { action: "nudges_slack", ...cible });
 }
 
 /** La consigne par défaut d'un nudge pour le HM, pour ce posteur (fonction `ckd`, 0339). */
@@ -329,6 +341,7 @@ export async function annulerCkd(id: string): Promise<void> {
 export async function envoyerNudgesCkd(controleId: string): Promise<number> {
   const { data, error } = await supabase.rpc("ckd_envoyer_nudges", { p_controle: controleId });
   if (error) throw error;
+  await nudgesSlack({ controle_id: controleId }).catch(() => undefined);
   return Number(data ?? 0);
 }
 
@@ -366,6 +379,17 @@ export async function listerArrets(compteIds: string[]): Promise<ArretCkd[]> {
     .in("compte_id", compteIds);
   if (error) throw error;
   return (data ?? []) as ArretCkd[];
+}
+
+/** Le message Slack au posteur de chaque recréation (0368), par proposition. */
+export async function listerSlackRecreations(propositionIds: string[]): Promise<Map<string, string | null>> {
+  if (propositionIds.length === 0) return new Map();
+  const { data, error } = await supabase
+    .from("ckd_recreations")
+    .select("proposition_id, slack_statut")
+    .in("proposition_id", propositionIds);
+  if (error) throw error;
+  return new Map((data ?? []).map((r) => [r.proposition_id as string, (r.slack_statut as string | null) ?? null]));
 }
 
 export async function listerHandles(compteIds: string[]): Promise<{ id: string; handle_tiktok: string | null }[]> {
@@ -458,4 +482,141 @@ export async function listerHistorique(semaines = 12): Promise<HistoriqueCkd[]> 
     ...h,
     mediane_ref: h.mediane_ref === null ? null : Number(h.mediane_ref),
   }));
+}
+
+// ---------------------------------------------------------------------------
+// Shadowban (0362)
+// ---------------------------------------------------------------------------
+
+export interface ShadowbanCkd {
+  compte_id: string;
+  type: "shadowban" | "vues_basses";
+  depuis: string;
+  poster_id: string;
+  hm_id: string | null;
+  pays: string | null;
+  handle: string | null;
+  application: string | null;
+  donnees: { derniers?: { jour: string; vues: number | null; mesure: boolean }[] };
+  calcule_at: string;
+  recreation_at: string | null;
+  nouveau_compte_id: string | null;
+  erreur: string | null;
+  diagnostic: DiagnosticCkd | null;
+}
+
+/** Les comptes signalés (la RLS ne rend à une HM que les siens). */
+export async function listerShadowban(): Promise<ShadowbanCkd[]> {
+  const { data, error } = await supabase
+    .from("ckd_shadowban")
+    .select(
+      "compte_id, type, depuis, poster_id, hm_id, pays, handle, application, donnees, calcule_at, recreation_at, nouveau_compte_id, erreur, diagnostic",
+    )
+    .order("type")
+    .order("depuis");
+  if (error) throw error;
+  return (data ?? []) as ShadowbanCkd[];
+}
+
+/** Recalcule la liste tout de suite (sinon : chaque matin à 6 h). */
+export async function rafraichirShadowban(): Promise<number> {
+  const { data, error } = await supabase.rpc("ckd_shadowban_rafraichir");
+  if (error) throw error;
+  return Number(data ?? 0);
+}
+
+/** « Ignorer 7 jours ». */
+export async function ignorerShadowban(compteId: string): Promise<void> {
+  const { error } = await supabase.rpc("ckd_shadowban_ignorer", { p_compte: compteId });
+  if (error) throw error;
+}
+
+/** « Nouveau compte » : même création que Recréer (fonction ckd). */
+export async function recreerShadowban(compteId: string): Promise<{ id: string; handle_tiktok?: string | null }> {
+  const r = await invoke<{ ok: boolean; compte: { id: string; handle_tiktok?: string | null } }>("ckd", {
+    action: "recreer_shadowban",
+    compte_id: compteId,
+  });
+  return r.compte;
+}
+
+// ---------------------------------------------------------------------------
+// Recrutement du samedi et décisions côté HM (0364)
+// ---------------------------------------------------------------------------
+
+export interface RecrutementCkd {
+  id: string;
+  controle_id: string;
+  pays: string;
+  hm_id: string | null;
+  nombre: number;
+  cohorte: string;
+  envoye_at: string | null;
+}
+
+const COLONNES_RECRUTEMENT = "id, controle_id, pays, hm_id, nombre, cohorte, envoye_at";
+
+/** Les lignes « À recruter » d'un contrôle du samedi (admin). */
+export async function listerRecrutement(controleId: string): Promise<RecrutementCkd[]> {
+  const { data, error } = await supabase
+    .from("ckd_recrutement")
+    .select(COLONNES_RECRUTEMENT)
+    .eq("controle_id", controleId)
+    .order("pays");
+  if (error) throw error;
+  return (data ?? []) as RecrutementCkd[];
+}
+
+/** Les pays où des comptes actifs postent : ceux qu'on propose pour « À recruter ». */
+export async function listerPaysActifs(): Promise<string[]> {
+  const { data, error } = await supabase.from("comptes").select("pays").eq("is_active", true).not("pays", "is", null);
+  if (error) throw error;
+  return [...new Set((data ?? []).map((c) => String(c.pays).toUpperCase()))].sort();
+}
+
+/** « À recruter » : la HM est déduite de la zone de recrutement, côté serveur. 0 retire la ligne. */
+export async function enregistrerRecrutement(controleId: string, pays: string, nombre: number) {
+  return await invoke<{ ok: boolean }>("ckd", { action: "recrutement", controle_id: controleId, pays, nombre });
+}
+
+/** La liste de recrutement de la HM : ses lignes envoyées (la base filtre). */
+export async function listerRecrutementHm(): Promise<RecrutementCkd[]> {
+  const { data, error } = await supabase
+    .from("ckd_recrutement")
+    .select(COLONNES_RECRUTEMENT)
+    .not("envoye_at", "is", null)
+    .order("cohorte", { ascending: false })
+    .order("pays")
+    .limit(100);
+  if (error) throw error;
+  return (data ?? []) as RecrutementCkd[];
+}
+
+export interface DecisionHm {
+  id: string;
+  jour: string;
+  decision: "ne_pas_renouveler" | "doubler" | "recreer";
+  compte_id: string;
+  poster_id: string;
+  handle: string | null;
+  pays: string | null;
+  nouveau_handle: string | null;
+  note: string | null;
+  envoye_at: string;
+  fait_at: string | null;
+  fait_par: string | null;
+  diagnostic: DiagnosticCkd | null;
+}
+
+/** Les décisions du samedi envoyées pour les posteurs de la HM. */
+export async function listerDecisionsHm(): Promise<DecisionHm[]> {
+  const { data, error } = await supabase.rpc("ckd_decisions_hm");
+  if (error) throw error;
+  return (data ?? []) as DecisionHm[];
+}
+
+/** « Fait », comme le bouton Done de Slack. */
+export async function marquerFaitHm(id: string): Promise<void> {
+  const { error } = await supabase.rpc("ckd_fait_hm", { p_id: id });
+  if (error) throw error;
 }

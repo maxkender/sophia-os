@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o051",
+ "type_bleo": "full_test",
+ "titre": "questions to ask instead of \"how was your day?\" #conversation #socialskills #smartgirl #relationships #selfimprovement",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "d9fe736b-b658-4ee8-af05-1385bba263e5"
+ ],
+ "notes": "cta B. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Full test (la jauge en demande 1 aujourd'hui) : accroche jamais faite chez nous (« how was your day » n'apparaît dans aucune accroche du label, vérifié dans donnees/label.json). Accroches écrites : « questions to ask instead of \"how was your day?\" » (retenue : format « instead of » qui a percé avec sg-o005, appliqué aux questions), « questions that make people talk to you for hours » (écartée : promesse non tenue), « the art of asking better questions » (écartée : vague). Sept questions simples qui se traduisent bien ; Sophia au milieu, sur la question « what did you learn today? » (cta B). Images de la banque (cafés, amis), sans texte ; slide Sophia sur un café et un journal ouvert, sans personne. CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2a6b9d3e",
+   "texte_overlay": "questions to ask instead of\n\"how was your day?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "03e49e07",
+   "texte_overlay": "\"what was the best part\nof your day?\"\npeople relive the good\nmoment as they tell it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "01825226",
+   "texte_overlay": "\"what made you laugh\ntoday?\"\nthe answer is always\na story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5f23e254",
+   "texte_overlay": "\"what did you learn today?\"\nand have your own answer\nready: a fact, a painting,\na piece of history.",
+   "texte_sophia": "\"what did you learn today?\"\nmine always has an answer.\ni learn one thing a day with\na micro-learning app like\nthe sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6fae06d1",
+   "texte_overlay": "\"what are you looking\nforward to this week?\"\nhope is easy to talk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1979b9cf",
+   "texte_overlay": "\"who did you meet today?\"\nnew faces bring the best\nstories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "14c38c40",
+   "texte_overlay": "\"what's been on your\nmind lately?\"\nfor the people you're\nclose to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "44ab5846",
+   "texte_overlay": "save this for your\nnext dinner\nwhich one will you try?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606319750125276436/5.jpg"
+  }
+ ]
+}

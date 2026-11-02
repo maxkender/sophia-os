@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 import type { HistoriqueCkd, PropositionCkd, ReglageCkd } from "./api";
 import {
   aEnvoyer,
+  boutonPropose,
+  boutonsPour,
   annulable,
   BOUTONS_PAR_REGLE,
   compterActions,
@@ -148,8 +150,8 @@ describe("propositions", () => {
 });
 
 describe("décisions", () => {
-  it("les boutons de chaque règle sont exactement les décisions permises en base (0328)", () => {
-    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0328_ckd_decisions.sql"), "utf8");
+  it("les boutons de chaque règle sont exactement les décisions permises en base (0385, qui reprend 0369)", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0385_inactifs.sql"), "utf8");
     for (const [regle, boutons] of Object.entries(BOUTONS_PAR_REGLE)) {
       const ligne = sql.match(new RegExp(`when '${regle}'\\s+then array\\[([^\\]]*)\\]`))?.[1] ?? "";
       const permises = [...ligne.matchAll(/'([a-z_]+)'/g)].map((m) => m[1]);
@@ -161,6 +163,8 @@ describe("décisions", () => {
     expect(aEnvoyer(proposition({ action: "ne_pas_renouveler", decision: "ne_pas_renouveler" }))).toBe(true);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer", nouveau_compte_id: "n" }))).toBe(true);
+    // v3 (0382) : Doubler est une offre au posteur, elle part sans compte.
+    expect(aEnvoyer(proposition({ action: "doubler", regle: "doubler", decision: "doubler" }))).toBe(true);
     expect(aEnvoyer(proposition({ action: "recreer", decision: "garder" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge", envoye_at: "2026-10-24T10:00:00Z" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge" }))).toBe(false);
@@ -248,5 +252,45 @@ describe("historique", () => {
     expect(r.map((x) => x.decision)).toEqual(["garder", "doubler"]);
     expect(r[0]).toEqual({ decision: "garder", total: 3, complets: 2, hausse: 1, stable: 0, baisse: 1 });
     expect(r[1]).toMatchObject({ total: 1, complets: 1, hausse: 1 });
+  });
+});
+
+describe("jeudi : Recréer directement (0368)", () => {
+  it("le jeudi propose Nudge, Recréer, Rien ; « Recréer » choisi d'avance quand il est proposé", () => {
+    expect(boutonsPour("jeudi", "jeudi")).toEqual(["envoyerNudge", "recreer", "rien"]);
+    expect(boutonPropose(proposition({ type: "jeudi", regle: "jeudi", action: "recreer" }))).toBe("recreer");
+    expect(boutonPropose(proposition({ type: "jeudi", regle: "jeudi", action: "nudge" }))).toBeNull();
+    expect(boutonPropose(proposition({ type: "samedi", regle: "anciens", action: "recreer" }))).toBeNull();
+  });
+
+  it("anciens : le jeudi seulement Recréer (pas d'arrêt), le samedi Kill reste possible", () => {
+    expect(boutonsPour("anciens", "jeudi")).not.toContain("nePasRenouveler");
+    expect(boutonsPour("anciens", "jeudi")).toContain("recreer");
+    expect(boutonsPour("anciens", "samedi")).toContain("nePasRenouveler");
+  });
+
+  it("samedi (0369) : seulement Kill ou Double, plus de Recréer ni de Nudge", () => {
+    for (const regle of ["premiere_semaine", "absent", "anciens"] as const) {
+      expect(boutonsPour(regle, "samedi"), regle).not.toContain("recreer");
+      expect(boutonsPour(regle, "samedi"), regle).not.toContain("envoyerNudge");
+      expect(boutonsPour(regle, "samedi"), regle).toContain("nePasRenouveler");
+    }
+    expect(boutonsPour("doubler", "samedi")).toEqual(["doubler", "pasMaintenant"]);
+  });
+
+  it("une recréation du jeudi ne part pas aux HMs ; celle du samedi oui", () => {
+    const recree = { action: "recreer" as const, decision: "recreer" as const, nouveau_compte_id: "n" };
+    expect(aEnvoyer(proposition({ ...recree, type: "jeudi", regle: "jeudi" }))).toBe(false);
+    expect(aEnvoyer(proposition({ ...recree, type: "samedi" }))).toBe(true);
+  });
+
+  it("la règle SQL : jeudi = nudge, recreer, rien ; posteur déjà recréé = jamais Recréer ; anciens Kill seulement le samedi", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0368_ckd_jeudi_recreer.sql"), "utf8");
+    expect(sql).toMatch(/when 'jeudi'\s+then array\['nudge', 'recreer', 'rien'\]/);
+    expect(sql).toContain("perform public.ckd_retirer_posts_a_venir(p.compte_id)");
+    expect(sql).toContain("not exists (select 1 from recrees r where r.poster_id = c.poster_id)");
+    expect(sql).toMatch(/when p_type = 'samedi'\s+and exists \(select 1 from recrees r where r.poster_id = c.poster_id\)\s+then 'ne_pas_renouveler'/);
+    // Les posts à venir de l'ancien compte sont retirés à la recréation.
+    expect(sql.match(/perform public\.ckd_retirer_posts_a_venir/g)).toHaveLength(2);
   });
 });

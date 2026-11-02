@@ -12,11 +12,13 @@ import {
   blocsZoneSamedi,
   consigneNudge,
   type DecisionSlack,
+  lignesDiagnosticSlack,
   maintenantParis,
   semaineDesDecisions,
   semaineIso,
   texteDecision,
   texteRappel,
+  texteRecapMax,
   texteSuiviJeudi,
   type ZoneSlack,
 } from "./ckd.ts";
@@ -68,7 +70,7 @@ Deno.test("maintenantParis : heure d'été et d'hiver", () => {
 Deno.test("texteDecision : ce que le HM doit faire, décision par décision", () => {
   const kill = texteDecision(decision({ autresComptes: ["emma.two"] }), 44);
   assert(kill.includes("*Don't renew* @emma.vyvija827 (Emma V 🇸🇰)"));
-  assert(kill.includes("Don't fund their next milestone"));
+  assert(kill.includes("Stops Sunday night: don't fund the next milestone."));
   assert(kill.includes("They keep @emma.two"));
 
   const recreer = texteDecision(decision({ decision: "recreer", regle: "anciens", nouveauHandle: "new.one" }), 44);
@@ -78,6 +80,18 @@ Deno.test("texteDecision : ce que le HM doit faire, décision par décision", ()
 
   const doubler = texteDecision(decision({ decision: "doubler", regle: "doubler", nouveauHandle: "second.one" }), 44);
   assert(doubler.includes('"Week 44 (2 acc)"'));
+
+  // Double décidé le samedi 31/10 : le 2ᵉ compte démarre le lundi 9/11 (J+9), semaine 46.
+  const double9 = texteDecision(decision({ decision: "doubler", regle: "doubler", nouveauHandle: "second.one" }), 45, "2026-11-09");
+  assert(double9.includes("2nd account *@second.one*, starts on Monday 9 Nov"));
+  assert(double9.includes('milestone "Week 46 (2 acc)", pay × 2'));
+
+  // v3 (0382) : Doubler sans compte = offre au posteur, de l'information pour la HM.
+  const offre = texteDecision(decision({ decision: "doubler", regle: "doubler" }), 45, "2026-11-09");
+  assert(offre.includes("*Double offered*"));
+  assert(offre.includes("pop-up in the OS from Sunday"));
+  assert(offre.includes("starts on Monday 9 Nov"));
+  assert(offre.includes("Nothing to do for you."));
 
   const nudge = texteDecision(decision({ decision: "nudge", publies: 3, attendus: 10, note: "parle-lui" }), 44);
   assert(nudge.includes("*Follow up*"));
@@ -149,7 +163,8 @@ Deno.test("texteRappel : qui ne pas financer, qui passe à 2 comptes ; rien sino
   const t = texteRappel("2026-10-24", [z])!;
   assert(t.includes("<@U0C61CLD82E>"));
   assert(t.includes("don't fund @a.one (A)"));
-  assert(t.includes('fund "Week 44 (2 acc)" for @b.one (B)'));
+  // Double du samedi 24/10 : 2ᵉ compte le lundi 2/11 (J+9), semaine 45.
+  assert(t.includes('fund 1 account this week, then "Week 45 (2 acc)" from Monday 2 Nov for @b.one (B)'));
   assert(!t.includes("c.one"));
   assertEquals(texteRappel("2026-10-24", [zone([decision({ decision: "recreer" })])]), null);
 });
@@ -178,4 +193,63 @@ Deno.test("consigne d'un nudge : par défaut, ou le message modifié sur la page
   assert(!absentModifie.includes("Posted 3/10"));
   // Vide : la consigne par défaut.
   assert(texteDecision({ ...absent, texteHm: "   " }, 44).includes("Posted 3/10 this week."));
+});
+
+Deno.test("diagnostic Slack : 3 lignes en mots simples, badge en tête (0362)", () => {
+  const d = {
+    badge: "shadowban" as const,
+    attendus: 10,
+    publies: 4,
+    liens_manquants: ["2026-10-17", "2026-10-18", "2026-10-20", "2026-10-21"],
+    mediane: 0,
+    mediane_ref: 1353,
+    morts: 4,
+    seuil_mort: 50,
+    shadowban: true,
+  };
+  assertEquals(lignesDiagnosticSlack(d), [
+    ":red_circle: Shadowban · Posts: 4 published out of 10 expected, 6 links missing (17, 18, 20, 21 Oct)",
+    "Views: median 0 (country: 1,353), 4 dead posts (< 50 views)",
+    "Verdict: probable shadowban → new account",
+  ]);
+  const ok = lignesDiagnosticSlack({ ...d, badge: "ok", publies: 10, liens_manquants: [], mediane: 1500, morts: 0, shadowban: false });
+  assertEquals(ok[0], ":large_green_circle: OK · Posts: 10 published out of 10 expected");
+  assertEquals(ok[1], "Views: median 1,500 (country: 1,353)");
+});
+
+Deno.test("diagnostic Slack : juste sous le titre, avant la consigne ; absent sans diagnostic", () => {
+  const diagnostic = {
+    badge: "posts_manquants" as const,
+    attendus: 6,
+    publies: 4,
+    liens_manquants: ["2026-10-20", "2026-10-21"],
+    mediane: 800,
+    mediane_ref: 1000,
+    morts: 0,
+    seuil_mort: 50,
+    shadowban: false,
+  };
+  const avec = texteSuiviJeudi(decision({ regle: "jeudi", decision: "nudge", motifs: ["discipline"], diagnostic })).split("\n");
+  assert(avec[0].includes("*Follow up*"));
+  assert(avec[1].startsWith("> :large_orange_circle: Missing posts"));
+  assert(avec[3].startsWith("> Verdict: missing posts"));
+  const sans = texteSuiviJeudi(decision({ regle: "jeudi", decision: "nudge", motifs: ["discipline"] })).split("\n");
+  assert(!sans[1].startsWith(">"));
+});
+
+Deno.test("texteRecapMax : par HM, sans mention, chaque décision ; rien sinon", () => {
+  const z = zone([
+    decision({ handle: "a.one", poster: "A" }),
+    decision({ decision: "doubler", handle: "b.one", poster: "B" }),
+    decision({ decision: "recreer", handle: "c.one", poster: "C", nouveauHandle: "c.two" }),
+  ]);
+  const t = texteRecapMax("samedi", "2026-10-24", [z])!;
+  assert(t.includes("week 44"));
+  assert(t.includes("3 decisions"));
+  assert(!t.includes("<@"));
+  assert(t.includes("• Kill: @a.one (A)"));
+  assert(t.includes("• Double offered: @b.one (B)"));
+  assert(t.includes("• New account: @c.one (C) → @c.two"));
+  assert(t.includes("Nothing was posted in #managers-hq"));
+  assertEquals(texteRecapMax("samedi", "2026-10-24", [zone([])]), null);
 });

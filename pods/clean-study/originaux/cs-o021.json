@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o021",
+  "schema_id": "best-student",
+  "titre": "things the BEST student in class never says #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
+  ],
+  "notes": "Schéma du label best-student (r 2,15 sur 4 passages, 602efb01), 3e livraison (cs-o015, cs-o018). Format neuf chez nous : la phrase qu'elle ne dit jamais, puis ce qu'elle fait à la place. Accroches écrites : « things the BEST student in class never says » (retenue : le gagnant + une forme « never says » qui accroche), « what the BEST student in class does instead of panicking » (écartée : plus vague), « red flags the BEST student in class doesn't have » (écartée : ton de jugement). Six phrases, aucune reprise de nos originaux. Place micabo : slide 4 (se tester sans notes) ; place UnSwipe : slide 6 (le téléphone). Slides 4 et 6 sans personne. Écartées à l'aperçu : bda29c6e (même plan que cs-o020), 63f757c1 (même photo qu'ailleurs dans le lot), 9487c6c1 (même photo qu'ailleurs dans le lot). Puis : 34b3c676 (écran avec une personne), f7537bdd (titres de livres lisibles sur la slide UnSwipe).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9e6e47c4",
+      "texte_overlay": "things the BEST student in class\nnever says",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "34f8bfa0",
+      "texte_overlay": "\"i'll ask about it later\"\nshe asks right after class, while it's still fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "aede46b6",
+      "texte_overlay": "\"i'll just read it over\"\nshe solves one exercise first. reading comes after.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9a4bd0a5",
+      "texte_overlay": "\"i studied, i swear\"\nshe tests herself without notes, so she KNOWS she studied.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1477c1a9",
+      "texte_overlay": "\"the teacher never explained that\"\nshe checks the textbook before saying it wasn't covered.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a1876b29",
+      "texte_overlay": "\"i'll put my phone away in a minute\"\nit's already in her bag. that minute never comes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "870e38c8",
+      "texte_overlay": "\"i don't need to write it down, i'll remember\"\nevery due date goes in one list, the day she hears it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

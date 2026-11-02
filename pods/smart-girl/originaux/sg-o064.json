@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o064",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "73b18441-46bb-447e-bf83-458b3baed5e9",
+ "titre": "6 hobbies that make you dangerously brilliant #hobbies #smartgirl #selfimprovement #learning #darkacademia",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 5 de la boîte (parent 73b18441, en polonais) : accroche du parent mot pour mot. Lignes 3 et 4 écartées (faute « dangerously confidence », nom de compte dans l'accroche). Six hobbies neufs face au parent (échecs, musique classique avec son histoire, bases d'une langue, carnet de citations, conférences ouvertes, leçon du soir). Sophia en cta C (rituel à la place du scroll). Rédigé en anglais : le premier dépôt en langue du parent a été refusé (accroche_differente), le guichet demande l'accroche anglaise de la famille mot pour mot. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e33b269",
+   "texte_overlay": "6 hobbies that make you\ndangerously brilliant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "27c117e1",
+   "texte_overlay": "1. playing chess\n\nit teaches you to think\nseveral moves ahead",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "145c5ea0",
+   "texte_overlay": "2. listening to classical music\n\nwith the story behind it.\nevery symphony has one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "16e2ad1a",
+   "texte_overlay": "3. learning the basics\nof a new language\n\neven 10 words a week\nmakes a difference",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d7002977",
+   "texte_overlay": "4. keeping a quote journal\n\nwrite down the sentences\nthat moved you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c016f9f7",
+   "texte_overlay": "5. going to open lectures\n\nmuseums and libraries\nhost them for free",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b2e6da5d",
+   "texte_overlay": "6. an evening lesson\ninstead of scrolling\n\n5 minutes on art,\nhistory or science",
+   "texte_sophia": "6. an evening lesson\ninstead of scrolling\n\n5 minutes on an app like\nSophia: art, history,\nscience",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3529b93d",
+   "texte_overlay": "save this and pick one\nfor this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  }
+ ]
+}

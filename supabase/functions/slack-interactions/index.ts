@@ -7,6 +7,8 @@ import {
   type PropositionSlack,
   zonesDe,
 } from "../_shared/ckd.ts";
+import { BOUTONS, libelleBouton, lireLibellesBoutons } from "../_shared/reponses.ts";
+import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -15,7 +17,10 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *     chaque post à commenter ;
  *   * « Sophia OS » (SLACK_HM_SIGNING_SECRET) : le bouton « ✅ Done » sous
  *     chaque décision Check, Kill or Double (samedi) et chaque posteur à
- *     relancer (jeudi), dans le fil de la zone du HM.
+ *     relancer (jeudi), dans le fil de la zone du HM ; et, sous chaque message
+ *     de l'OS à un posteur (partie E, 0406), « Done » / « I need help » /
+ *     « I want to stop » → `posteur_reponses` (canal bouton) ; et le raccourci
+ *     de message « Send to OS » (prompt 13) → To read.
  *
  * Appelée par Slack, pas par un cron ni par l'OS : pas de x-cron-secret ni de
  * JWT, c'est la signature Slack qui authentifie (l'un ou l'autre secret).
@@ -45,8 +50,19 @@ Deno.serve(async (request) => {
   try {
     const payload = JSON.parse(new URLSearchParams(corps).get("payload") ?? "{}");
     const action = payload?.actions?.[0];
+    // Prompt 13 : le raccourci de message « Send to OS » (une HM, sur le DM d'un posteur).
+    if (payload?.type === "message_action" && payload?.callback_id === RACCOURCI_ENVOYER_OS) {
+      const travail = envoyerVersOs(payload).catch((e) => console.error("slack-interactions send_to_os", messageErreur(e)));
+      // deno-lint-ignore no-explicit-any
+      const edge = (globalThis as any).EdgeRuntime;
+      if (edge?.waitUntil) edge.waitUntil(travail);
+      else await travail;
+      return new Response("", { status: 200 });
+    }
     if (payload?.type !== "block_actions") return new Response("", { status: 200 });
     if (action?.action_id === "comment_fait") await commentFait(payload, action);
+    else if (action?.action_id === "envoi_main_fait") await envoiMainFait(payload, action);
+    else if (action?.action_id && action.action_id in BOUTONS) await boutonPosteur(payload, action);
     else if (action?.action_id === ACTION_DONE) {
       // Plusieurs lectures et deux écritures Slack : on répond d'abord à Slack
       // (3 s max), la suite tourne derrière.
@@ -65,6 +81,112 @@ Deno.serve(async (request) => {
   }
 });
 
+/**
+ * Prompt 13 : « Send to OS » (raccourci de message, callback_id send_to_os).
+ * Une HM (ou un admin relié dans hm_slack) le lance sur un message d'un
+ * posteur : le message entre dans To read (posteur_reponses, liste a_lire,
+ * sans réponse automatique), avec le nom du posteur et le lien du message.
+ * La HM voit la réponse en message éphémère.
+ */
+// deno-lint-ignore no-explicit-any
+async function envoyerVersOs(payload: any) {
+  const supabase = serviceClient();
+  const dire = async (texte: string) => {
+    if (!payload.response_url) return;
+    await fetch(payload.response_url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ response_type: "ephemeral", replace_original: false, text: texte }),
+    }).catch(() => undefined);
+  };
+  const { data: hm } = await supabase.from("hm_slack").select("profile_id").eq("slack_user_id", String(payload?.user?.id ?? "")).maybeSingle();
+  if (!hm?.profile_id) return await dire("Only a hiring manager linked in the OS can send a message to the OS.");
+  const auteur = String(payload?.message?.user ?? "");
+  const ts = String(payload?.message?.ts ?? "");
+  const canal = String(payload?.channel?.id ?? "");
+  if (!auteur || !ts || !canal) return await dire("This message has no author: nothing was sent.");
+  const { data: posteur } = await supabase.from("profiles").select("id, prenom, nom").eq("slack_user_id", auteur).maybeSingle();
+  if (!posteur?.id) return await dire("This message isn't from a poster linked to Slack in the OS: nothing was sent.");
+  const nom = [posteur.prenom, posteur.nom].filter(Boolean).join(" ") || "poster";
+  const { error } = await supabase.from("posteur_reponses").insert({
+    poster_id: posteur.id,
+    canal: "slack",
+    source_id: `os:${canal}:${ts}`,
+    texte: String(payload?.message?.text ?? ""),
+    statut: "classe",
+    cas: "a_lire",
+    liste: "a_lire",
+    traite_at: new Date().toISOString(),
+    lien: lienMessageSlack(payload?.team?.domain, canal, ts),
+    transmis_par: hm.profile_id,
+  });
+  if (error && error.code === "23505") return await dire(`Already in the OS (To read) for ${nom}.`);
+  if (error) throw error;
+  await dire(`Sent to the OS: To read, ${nom}.`);
+}
+
+/**
+ * Un bouton sous un message de l'OS : une ligne `posteur_reponses` (canal
+ * bouton, un clic par message et par bouton), classée sans IA par
+ * recrues-check. Le message garde son texte, les boutons laissent place à
+ * « Thanks, noted. » (libellés du réglage `slack_boutons`).
+ */
+// deno-lint-ignore no-explicit-any
+async function boutonPosteur(payload: any, action: any) {
+  const supabase = serviceClient();
+  const userId = String(payload?.user?.id ?? "");
+  const ts = String(payload?.message?.ts ?? payload?.container?.message_ts ?? "");
+  const { data: profil } = await supabase.from("profiles").select("id").eq("slack_user_id", userId).maybeSingle();
+  if (!profil?.id || !ts) return;
+  const { error } = await supabase.from("posteur_reponses").insert({
+    poster_id: profil.id,
+    canal: "bouton",
+    source_id: `${ts}:${action.action_id}`,
+    texte: BOUTONS[action.action_id]!.texte,
+  });
+  if (error && error.code !== "23505") throw error;
+  if (payload.response_url) {
+    // Les libellés du réglage `slack_boutons` (0411).
+    const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "slack_boutons").maybeSingle();
+    const l = lireLibellesBoutons(regl?.valeur);
+    // deno-lint-ignore no-explicit-any
+    const section = (payload.message?.blocks ?? []).filter((b: any) => b?.type === "section");
+    await fetch(payload.response_url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        replace_original: true,
+        text: payload.message?.text ?? "",
+        blocks: [...section, { type: "context", elements: [{ type: "mrkdwn", text: `✅ ${libelleBouton(action.action_id, l)} · ${l.merci}` }] }],
+      }),
+    }).catch(() => undefined);
+  }
+}
+
+/**
+ * Prompt 25 v4 (0442) : « Sent » sous un message à envoyer à la main (DM à la
+ * HM, Upwork plein) : le message est noté parti (Upwork, par la HM) ; la ligne
+ * du DM devient « ✅ Sent ».
+ */
+// deno-lint-ignore no-explicit-any
+async function envoiMainFait(payload: any, action: any) {
+  const supabase = serviceClient();
+  const v = JSON.parse(String(action.value ?? "{}")) as { p?: string; t?: string; d?: string };
+  const { data: hm } = await supabase.from("hm_slack").select("profile_id").eq("slack_user_id", String(payload?.user?.id ?? "")).maybeSingle();
+  const { error } = await supabase.rpc("envoi_main_fait", { p_poster: v.p, p_type: v.t, p_periode: v.d, p_par: hm?.profile_id ?? null });
+  if (!payload.response_url) return;
+  const note = error ? `⚠️ Not logged: ${error.message}` : "✅ Sent, logged in the OS";
+  // deno-lint-ignore no-explicit-any
+  const blocks = (payload.message?.blocks ?? []).map((b: any) =>
+    b?.block_id === action.block_id ? { type: "context", elements: [{ type: "mrkdwn", text: note }] } : b
+  );
+  await fetch(payload.response_url, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ replace_original: true, text: payload.message?.text ?? "", blocks }),
+  }).catch(() => undefined);
+}
+
 // deno-lint-ignore no-explicit-any
 async function commentFait(payload: any, action: any) {
   const supabase = serviceClient();
@@ -72,7 +194,14 @@ async function commentFait(payload: any, action: any) {
   // `is fait_at null` : un double clic ne réécrit pas l'heure du premier.
   await supabase
     .from("comment_master_demandes")
-    .update({ fait_at: new Date().toISOString(), fait_par: utilisateur.username ?? utilisateur.name ?? utilisateur.id })
+    .update({
+      fait_at: new Date().toISOString(),
+      fait_par: utilisateur.username ?? utilisateur.name ?? utilisateur.id,
+      // Comment Masters · suivi (0373) : d'où vient le Done, et qui l'a fait.
+      fait_slack_id: utilisateur.id ?? null,
+      fait_source: "bouton",
+      fait_mode: "bouton",
+    })
     .eq("id", action.value)
     .is("fait_at", null);
 

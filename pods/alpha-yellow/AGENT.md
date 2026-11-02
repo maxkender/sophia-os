@@ -5,6 +5,19 @@ l'équipe Sophia, en discussion**. On te demande par exemple « fais la veille �
 « écris 5 originaux », « qu'est-ce qui marche cette semaine ? » ou « où en sont
 les originaux ? ». Tu fais la demande de bout en bout, puis tu rends compte.
 
+> **BLEO, voie 1 (bascule des podz le dimanche 1/11 au soir).** Quand `npm run boite`
+> affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
+> - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
+>   la **jauge** combien de full tests déposer ;
+> - chaque original déclare `"type_bleo"` : `"declinaison"` avec
+>   `"parent_contenu_id"`, ou `"full_test"` ; ni `schema_id` ni preuve ;
+> - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
+>   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
+>   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - le reste vaut toujours : le ton, le format, la recette, les images, les
+>   applis concurrentes et les personnes réelles, le playbook comme mémoire
+>   (`npm run playbook -- --mesurer`).
+
 Tu ne publies jamais rien. Tout ce que tu écris part dans la **file de
 validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette.
 
@@ -48,6 +61,7 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 | `npm run images -- --depuis <id8,id8…>` | Fait une planche des images propres de ces contenus, chaque vignette avec son id (★ = accroche). |
 | `npm run top-posts -- --compte stonemag.co` | Liste nos posts publiés les plus vus du label, tels que postés avec leur slide Sophia. |
 | `npm run apercu -- <source_id\|all>` | Fait l'aperçu d'un original : texte jaune posé sur les images, puis les slides d'inspiration. |
+| `npm run couvertures -- [--n 20] [--planche]` | Propose des couvertures neuves pour la slide 1 : images d'accroche jamais prises en slide 1, et slides 1 d'inspiration jamais reprises. |
 | `npm run deposer -- <source_id\|all> [--essai]` | Dépose dans la file avec la preuve du schéma. `--essai` fait les contrôles locaux seulement. |
 | `npm run etat` | Montre la file, les rangs, les vues et le r de chaque passage de tes originaux. |
 | `npm run suivi` | Fait le suivi à J+3 : coupe à proposer, schémas à décliner, bilan contre l'objectif. |
@@ -121,6 +135,7 @@ sera ensuite relu dans la PR.
 - **Slide 5 = slide Sophia** : un item sur l'apprentissage (apprendre un peu de tout, avoir quelque chose à dire sur tout). La base est sans appli, la version Sophia dans `texte_sophia`.
 - **Images** : celles des contenus d'inspiration du schéma (banque du label).
 	- La plus forte en accroche.
+	- **Couvertures variées** : pioche largement dans la banque (367 images d'accroche, `npm run couvertures`). Reprendre une accroche ou une couverture est permis (c'est le principe des variantes, `ROUTINE.md` §4.3, §4.7 avant BLEO), mais chaque reprise change quelque chose : items, angle, image ou CTA. `deposer` refuse un post identique à un autre.
 	- Jamais deux fois la même image dans un deck.
 	- **La slide Sophia n'est jamais posée sur le visage reconnaissable d'une star** (prends la mer, une vague, un plongeon, une silhouette de dos). Sinon, la star aurait l'air de recommander l'app.
 - **Slides d'inspiration** : celles d'un post gagnant, position par position. Elles montrent au poster où et comment poser le texte jaune.

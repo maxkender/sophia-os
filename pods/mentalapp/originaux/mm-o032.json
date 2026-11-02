@@ -1,0 +1,551 @@
+{
+ "id": "mm-o032",
+ "titre": "tier list of things to do instead of scrolling",
+ "position_app": 2,
+ "legendes": {
+  "en": "what to do instead of scrolling, ranked #tierlist #dopamine #mentalmaxxing #selfimprovement",
+  "fr": "quoi faire au lieu de scroller, classé #tierlist #dopamine #mentalmaxxing #developpementpersonnel",
+  "de": "was du statt Scrollen tun kannst, sortiert #tierlist #dopamin #mentalmaxxing #selbstverbesserung",
+  "es": "qué hacer en vez de hacer scroll, clasificado #tierlist #dopamina #mentalmaxxing #superacionpersonal",
+  "it": "cosa fare invece di scrollare, in classifica #tierlist #dopamina #mentalmaxxing #crescitapersonale",
+  "tr": "scroll yerine ne yapmalı, sıralı #tierlist #dopamin #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7689665265591799048/1",
+   "boite": [
+    290,
+    246,
+    402,
+    616
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list :",
+   "de": "Tierlist:",
+   "es": "tier list:",
+   "it": "tier list:",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "instead of",
+   "fr": "au lieu de",
+   "de": "statt zu",
+   "es": "en vez de",
+   "it": "invece di",
+   "tr": "scroll"
+  },
+  "bas": {
+   "en": "scrolling",
+   "fr": "scroller",
+   "de": "scrollen",
+   "es": "hacer scroll",
+   "it": "scrollare",
+   "tr": "yerine"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what do you do instead?",
+  "fr": "tu fais quoi à la place ?",
+  "de": "was machst du stattdessen?",
+  "es": "¿qué haces tú en su lugar?",
+  "it": "tu cosa fai invece?",
+  "tr": "sen yerine ne yapıyorsun?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "best swap",
+    "fr": "meilleur échange",
+    "de": "bester Tausch",
+    "es": "mejor cambio",
+    "it": "scambio migliore",
+    "tr": "en iyi takas"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "a 10 min walk",
+      "fr": "10 min de marche",
+      "de": "10 Min. gehen",
+      "es": "caminar 10 min",
+      "it": "10 min a piedi",
+      "tr": "10 dk yürüyüş"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "ten pages|of a book",
+      "fr": "dix pages|d’un livre",
+      "de": "zehn Seiten|lesen",
+      "es": "diez páginas|de un libro",
+      "it": "dieci pagine|di un libro",
+      "tr": "bir kitaptan|on sayfa"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      255,
+      630,
+      185,
+      175
+     ],
+     "t": {
+      "en": "20 push-ups",
+      "fr": "20 pompes",
+      "de": "20 Liegestütze",
+      "es": "20 flexiones",
+      "it": "20 flessioni",
+      "tr": "20 şınav"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "great",
+    "fr": "top",
+    "de": "super",
+    "es": "genial",
+    "it": "ottimo",
+    "tr": "harika"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "Kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "5 min|of breathing",
+      "fr": "5 min|de respiration",
+      "de": "5 Min.|Atmen",
+      "es": "5 min|de respiración",
+      "it": "5 min|di respiro",
+      "tr": "5 dk|nefes"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "a shower",
+      "fr": "une douche",
+      "de": "duschen",
+      "es": "una ducha",
+      "it": "una doccia",
+      "tr": "duş almak"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      432,
+      392,
+      80,
+      86
+     ],
+     "t": {
+      "en": "climbing|or sport",
+      "fr": "escalade|ou sport",
+      "de": "Klettern|oder Sport",
+      "es": "escalar|o deporte",
+      "it": "arrampicata|o sport",
+      "tr": "tırmanış|veya spor"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "a full album",
+      "fr": "un album entier",
+      "de": "ein ganzes Album",
+      "es": "un álbum entero",
+      "it": "un album intero",
+      "tr": "tam bir albüm"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|dem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "tidying|your desk",
+      "fr": "ranger|ton bureau",
+      "de": "Schreibtisch|aufräumen",
+      "es": "ordenar|tu mesa",
+      "it": "sistemare|la scrivania",
+      "tr": "masanı|toplamak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "okay",
+    "fr": "ça passe",
+    "de": "geht so",
+    "es": "pasable",
+    "it": "così così",
+    "tr": "idare eder"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a movie",
+      "fr": "un film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "bir film"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste",
+      "de": "ein Nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "a podcast",
+      "fr": "un podcast",
+      "de": "ein Podcast",
+      "es": "un pódcast",
+      "it": "un podcast",
+      "tr": "podcast"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "a coffee",
+      "fr": "un café",
+      "de": "ein Kaffee",
+      "es": "un café",
+      "it": "un caffè",
+      "tr": "bir kahve"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "not really",
+    "fr": "pas vraiment",
+    "de": "nicht wirklich",
+    "es": "no mucho",
+    "it": "non proprio",
+    "tr": "pek değil"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming",
+      "fr": "gaming",
+      "de": "Gaming",
+      "es": "gaming",
+      "it": "gaming",
+      "tr": "oyun"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "snacking",
+      "fr": "grignoter",
+      "de": "Snacken",
+      "es": "picotear",
+      "it": "sgranocchiare",
+      "tr": "atıştırmak"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "online|shopping",
+      "fr": "shopping|en ligne",
+      "de": "Online-|Shopping",
+      "es": "compras|online",
+      "it": "shopping|online",
+      "tr": "online|alışveriş"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "autoplay",
+      "fr": "autoplay",
+      "de": "Autoplay",
+      "es": "reproducción|automática",
+      "it": "autoplay",
+      "tr": "otomatik|oynatma"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "same thing",
+   "fr": "pareil",
+   "de": "dasselbe",
+   "es": "lo mismo",
+   "it": "uguale",
+   "tr": "aynı şey"
+  },
+  "cases": [
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     272,
+     853,
+     90,
+     94
+    ],
+    "t": {
+     "en": "switching|apps",
+     "fr": "changer|d’appli",
+     "de": "App|wechseln",
+     "es": "cambiar|de app",
+     "it": "cambiare|app",
+     "tr": "uygulama|değiştirmek"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     421,
+     863,
+     91,
+     84
+    ],
+    "t": {
+     "en": "“just one|more” reel",
+     "fr": "« encore un »|reel",
+     "de": "„nur noch ein“|Reel",
+     "es": "“solo un reel|más”",
+     "it": "“ancora un”|reel",
+     "tr": "“bir tane|daha” reels"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 01/11 : seule livraison du jour sur la famille tier list (point 6). Reprise de l’accroche de mm-o015 (« instead of scrolling », 5 344 vues en es) au format tableau, autres items, autre couverture (le chien). cta A : élément UnSwipe en première case du S+."
+}

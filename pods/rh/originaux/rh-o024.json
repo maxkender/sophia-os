@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o024",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu DOIS « mentir » à ton entretien annuel #entretienannuel #travail #carriere #salaire #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta D, nouvelle version du lundi 26/10 qui remplace la C (l'appli est un item d'une liste de réflexes, pas la chute), slide Sophia en position 5. Routine du 26/10 (lundi, 3 livraisons). Règle §4.6 : seule rh-o024 reprend une famille déjà faite 3 fois en 7 jours (mentir-entretien), les deux autres partent sur des angles jamais faits chez nous. Schéma mentir-entretien (r 21,24 sur 4 passages, 496f8d72). Angle jamais fait : l'entretien annuel avec son manager, et non plus l'entretien d'embauche. Accroches écrites : « les trucs sur lesquels tu DOIS « mentir » à ton entretien annuel » (retenue : gabarit gagnant + contexte neuf), « ce que tu dis à ton entretien annuel vs ce que tu penses » (écartée : proche de rh-o002), « ton entretien annuel, c'est pas un bilan, c'est une négo » (écartée : sans mentir). Six questions neuves. Salaire : on ouvre la discussion, jamais de fausse contre-offre ni de chiffre inventé. CTA de fin jamais utilisé : donner le mois de son entretien. Inspirations : sans la slide 5 de chaque source (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a78d6a4",
+   "texte_overlay": "les trucs sur lesquels tu DOIS « mentir »\nà ton entretien annuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "486add33",
+   "texte_overlay": "1\n« comment s'est passée ton année ? »\njamais « bien »\ntu dis « 3 choses que j'ai livrées : X, Y et Z »\nton manager se souvient pas de tout. toi, si, si tu notes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4914044f",
+   "texte_overlay": "2\n« qu'est-ce que t'aurais pu mieux faire ? »\ntu réponds\n« alerter plus tôt sur X. maintenant je le fais dès que ça coince »\nun vrai point faible, déjà réglé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "494f2b36",
+   "texte_overlay": "3\n« t'es heureuse dans ton poste ? »\njamais « oui, tout va bien » si c'est faux\ntu dis « j'aime X, et j'aimerais plus de Y »\nc'est le seul moment prévu pour en parler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4ad09ffc",
+   "texte_overlay": "4\n« comment tu veux évoluer ? »\ntu réponds\n« monter en compétence sur X, et je m'y mets déjà »\nmes 3 réflexes : je note mes réussites le vendredi, je demande du feedback, et je lis un peu chaque jour",
+   "texte_sophia": "4\n« comment tu veux évoluer ? »\nmes 3 réflexes pour avoir la réponse : je note mes réussites le vendredi, je demande du feedback, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4c2c30db",
+   "texte_overlay": "5\n« et côté salaire ? »\njamais « comme vous voulez »\ntu dis « vu ce que j'ai livré cette année, j'aimerais qu'on parle d'une évolution »\npas de chiffre inventé, juste la porte ouverte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4cb00c20",
+   "texte_overlay": "6\n« des projets pour l'an prochain ? »\ntu réponds\n« oui : X. et pour le faire, j'aurais besoin de Y »\ndemande les moyens maintenant, pas en mars",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "516b176e",
+   "texte_overlay": "ton entretien annuel, c'est quand ?\nécris le mois en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

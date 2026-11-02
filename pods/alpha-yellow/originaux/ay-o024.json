@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o024",
+ "schema_id": "japanese-habits",
+ "titre": "7 japanese habits that quietly destroy laziness #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7558033004002642704",
+ "inspirations": [
+  "5490f976-0b6e-404f-b6f1-ae7d41b7901e"
+ ],
+ "notes": "cta A (« A micro-learning app like the Sophia app gives you five minutes a day… », au milieu de l'item). Schéma japanese-habits, jamais fait chez nous : r 3,09 sur 17 passages (5490f976). Accroches écrites : « 7 japanese habits that quietly destroy laziness » (retenue : le gagnant, sans le « I » qui ferait parler la star de la photo), « Japanese habits that make you dangerously disciplined » (écartée : mélange deux gabarits), « 7 japanese words that fix your laziness » (écartée : moins concret). Le gagnant n'a qu'un mot et une phrase par slide : on garde la recette maison, un concept plus une scène. Aucun concept repris de 5490f976 (kaizen, ikigai, seiri, kintsugi, wabi-sabi). Faits : hara hachi bu vient d'Okinawa, les études japonaises sur le shinrin-yoku mesurent une baisse du stress, shoshin est un terme zen. Images : moines de la banque du contenu d'origine, aucune star. Sophia en 5 sur le plongeon 001d31ba (aucun visage).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e429f48f",
+   "texte_overlay": "7 japanese habits that\nquietly destroy laziness",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7fbbd702",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/2.jpg",
+   "texte_overlay": "Hara hachi bu. Stop eating when you're about 80 percent full. It's an old habit from Okinawa, and it kills that heavy, sleepy feeling after lunch that ruins the afternoon you planned to be productive."
+  },
+  {
+   "position": 3,
+   "media_id": "533a26fa",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/3.jpg",
+   "texte_overlay": "Shinrin-yoku, or forest bathing. Twenty minutes walking among trees, no phone, no goal. Japanese studies link it to lower stress. Your head clears, and the drive you couldn't find indoors comes back."
+  },
+  {
+   "position": 4,
+   "media_id": "9e66209e",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/4.jpg",
+   "texte_overlay": "Hansei. Every evening, ask yourself one honest question. \"What could I have done better today?\" No beating yourself up. Just one small fix for tomorrow, every single day. It adds up fast."
+  },
+  {
+   "position": 5,
+   "media_id": "001d31ba",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/5.jpg",
+   "texte_overlay": "Shoshin, the beginner's mind. Learn something you know nothing about. Five minutes a day of history, art or science. Staying curious is the opposite of lazy, and it keeps your brain switched on.",
+   "texte_sophia": "Shoshin, the beginner's mind. A micro-learning app like the Sophia app gives you five minutes a day of history, art or science. Staying curious is the opposite of lazy, and it keeps you sharp."
+  },
+  {
+   "position": 6,
+   "media_id": "38041cfe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/6.jpg",
+   "texte_overlay": "Shokunin. Take pride in doing one thing really well, even the boring task. Do it the way a craftsman would. When you care about the quality, you stop looking for ways to get out of the work."
+  },
+  {
+   "position": 7,
+   "media_id": "673333db",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/7.jpg",
+   "texte_overlay": "Kakeibo. Write every expense in a little notebook and review it at the end of the month. Seeing where your money really goes is the fastest way to stop wasting it, and it takes a few minutes each evening."
+  },
+  {
+   "position": 8,
+   "media_id": "3fda06e5",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688296523783736583/8.jpg",
+   "texte_overlay": "Ichigo ichie. One time, one meeting. Treat every moment like it won't happen again. It's hard to waste a whole evening on the couch when you remember today is a day you'll never get back."
+  }
+ ]
+}

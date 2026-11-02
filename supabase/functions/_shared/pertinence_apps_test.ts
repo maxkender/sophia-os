@@ -667,6 +667,17 @@ Deno.test("étape 4 : note par application, lignes déjà notées laissées tell
   });
   assertEquals(r4.unswipe, { score: 80, note: 62, eligible: true });
   assertEquals(tierInitialDepuisNote(r4.unswipe.note), tierImport(Math.max(1, 62), 62), "B des deux côtés");
+
+  // Ligne déjà notée SANS forçage, puis import forcé (vues au-delà du réglage,
+  // 25/10) : planchée depuis SA note, éligibilité refaite ; puis plus rien.
+  const ligne = base.table("contenu_pertinences")[1];
+  ligne.note = 40;
+  ligne.eligible = false;
+  const r5 = await majNotesPertinences(base.client(), "c1", { noteDe: () => 1, seuil: 62, force: true });
+  assertEquals(r5.unswipe, { score: 80, note: 62, eligible: true });
+  assertEquals([ligne.note, ligne.eligible], [62, true]);
+  const r6 = await majNotesPertinences(base.client(), "c1", { noteDe: () => 99, seuil: 62, force: true });
+  assertEquals(r6.unswipe, { score: 80, note: 62, eligible: true }, "idempotent : pas recalculée depuis le score");
 });
 
 Deno.test("étape 4 : pertinence hors Sophia sous 50 → non éligible malgré une note haute ; Sophia sans plancher", async () => {

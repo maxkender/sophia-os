@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o050",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment je suis devenue la fille qu'on écoute vraiment (sans parler plus fort) #pourtoi #culture #conversation",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "variante de bsg-o012 (« comment je suis devenue la fille qu'on trouve « vraiment intéressante » (sans être la plus populaire) », 36,9 k vues, r 42,22 sur son premier passage). Même schéma jolie-et-interessante (preuve r 5,04, 675447a8), autre angle, autres items. Les variantes s'ajoutent aux 8 livraisons du jour (ROUTINE-avant-bleo §4.2). cta C. Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), variante 1 sur 3. Angle : être écoutée. Accroches écrites : « comment je suis devenue la fille qu'on écoute vraiment (sans parler plus fort) » (retenue : la structure exacte du post qui a percé), « comment j'ai appris à me faire écouter » (écartée : sans le récit), « la fille qu'on écoute : mes habitudes » (écartée : plus faible). Items neufs. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e5c6ee8b",
+   "texte_overlay": "comment je suis devenue\nla fille qu'on écoute vraiment\n(sans parler plus fort)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9f0d7628",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "ee0f9525",
+   "texte_overlay": "1. j'ai arrêté de couper la parole.\n\nj'attends que l'autre finisse. ensuite, c'est mon tour, et on m'écoute en retour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2004f076",
+   "texte_overlay": "2. je parle de ce que je connais vraiment.\n\nmoins de phrases, plus de fond.\nles gens sentent quand tu sais de quoi tu parles.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c6ad32b9",
+   "texte_overlay": "3. je raconte avec des détails.\n\npas\n« c'était bien », mais le moment précis qui m'a marquée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "10f52e2c",
+   "texte_overlay": "4. j'ose les silences.\n\ndeux secondes avant de répondre.\nma réponse a plus de poids.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "aa3681f6",
+   "texte_overlay": "laquelle tu testes\ndemain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

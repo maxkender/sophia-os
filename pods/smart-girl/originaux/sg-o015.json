@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o015",
+ "schema_id": "magnetic-speaking",
+ "titre": "5 topics that make you better at almost any conversation #conversation #socialskills #smartgirl #gilmoregirls #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "95348884-2ea7-4305-abd6-17b6522424a1",
+  "d9fe736b-b658-4ee8-af05-1385bba263e5"
+ ],
+ "notes": "essai (sg-o015, une livraison sur cinq). cta B. Versions de la slide Sophia au 26/10 (règle « tester les CTA », renouvelée ce lundi) : cta A = dernier item, conseil à la première personne (« I learn … with a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C (nouvelle, remplace la version « the easy way » de sg-o012, aucun passage mûr pour comparer) = un rituel de la liste où l'appli remplace le scroll (« an app like Sophia instead of the feed »). Format vu à la veille du 26/10 : « 5 topics that make you better at almost any conversation » (@gilmoreobssesed, 17/10, 28 k vues et 5,7 % d'enregistrements, captures de la série), jamais fait dans le label (aucune accroche « topics » dans donnees/label.json). Schéma magnetic-speaking pour la preuve (d9fe736b r 4,12 sur 16 ; 322dd035 r 6,05 sur 10). Accroches écrites : « 5 topics that make you better at almost any conversation » (retenue : la forme du post vu en veille, avec ses captures), « questions that make people talk to you for hours » (écartée : sans preuve), « what to talk about when you have nothing to say » (écartée : plus vague). Cinq sujets neufs face à la source (passions, enfance, opinions impopulaires, voyages, hypothèses) : ce qu'on a appris récemment, les livres ou films réconfort, un fait étonnant (Sophia au milieu, cta B), les traditions de famille, les petites joies de la semaine. Fait vérifié : Cléopâtre (69-30 av. J.-C.) a vécu plus près de nous que de la construction de la grande pyramide de Khéops (vers 2560 av. J.-C.). Images : captures de la série, autres que celles des originaux précédents ; slide Sophia sur des lettres manuscrites, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "46ad2660",
+   "texte_overlay": "5 topics that make you\nbetter at almost any\nconversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8d3add3d",
+   "texte_overlay": "1. Something they learned\nrecently.\nAsk \"what's something you\nlearned this year that\nsurprised you?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3ea0ca93",
+   "texte_overlay": "2. Their comfort books\nand films.\nAsk what they reread or\nrewatch when life gets\nheavy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "110c51e2",
+   "texte_overlay": "3. A surprising fact.\nCleopatra lived closer in\ntime to us than to the\nbuilding of the Great\nPyramid. Watch faces light up.",
+   "texte_sophia": "3. A surprising fact.\nCleopatra lived closer in\ntime to us than to the\nGreat Pyramid. I collect facts\nlike this with a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a223020a",
+   "texte_overlay": "4. Family traditions.\nAsk \"what does your family\ndo that other families\nfind strange?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9544b7a5",
+   "texte_overlay": "5. Small wins.\nAsk \"what made you happy\nthis week?\" People love\nto relive good moments.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f6316261",
+   "texte_overlay": "Follow for more daily tips\nWhich one will you try?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600088592924282134/7.jpg"
+  }
+ ]
+}

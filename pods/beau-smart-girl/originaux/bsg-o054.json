@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o054",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les vérités que personne ne te dit sur les filles cultivées #pourtoi #culture #apprentissage",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "cta C. Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 2 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6). Accroche du format « vérités / reality checks » (famille gagnante du label « reality checks you might need », boîte BLEO du 1/11), jamais faite par notre pod. Preuve : schéma dangereusement-cultivee (r 2,96, 2e2ef1c3). Accroches écrites : « les vérités que personne ne te dit sur les filles cultivées » (retenue : promesse de secret, identité du label), « ce qu'on ne te dit pas quand tu deviens cultivée » (écartée : plus vague), « les reality checks des filles cultivées » (écartée : anglicisme). Items neufs, aucun fait affirmé. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7c61e14c",
+   "texte_overlay": "les vérités que personne\nne te dit sur les filles\ncultivées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ed6694a",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "7c666350",
+   "texte_overlay": "1. elles ne savent pas tout.\n\nelles savent surtout chercher.\net elles adorent dire\n« je sais pas, attends ».",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7c928a3f",
+   "texte_overlay": "2. elles ont commencé tard, comme toi.\n\npersonne ne naît en connaissant les impressionnistes.\nelles ont juste commencé un jour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7c98f96b",
+   "texte_overlay": "3. elles oublient aussi.\n\nla différence, c'est qu'elles notent, relisent, racontent.\nce qu'on raconte reste.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7d540cbe",
+   "texte_overlay": "4. elles ne lisent pas que des classiques.\n\ndes romans faciles, des bd, des magazines.\nla curiosité n'a pas de snobisme.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7dc6c4f2",
+   "texte_overlay": "laquelle t'a surprise ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

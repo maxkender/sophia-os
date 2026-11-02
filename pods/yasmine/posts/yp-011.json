@@ -1,0 +1,510 @@
+{
+ "id": "yp-011",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7664208221808135446",
+  "vues": 122200,
+  "enregistrements": 6415,
+  "publie_le": "2026-07-19",
+  "titre": "things i do to SMASH EVERY EXAM part 1"
+ },
+ "titre": {
+  "fr": "ce que je fais pour réussir tous mes exams, partie 2",
+  "en": "things i do to smash every exam, part 2",
+  "es": "lo que hago para aprobar todos mis exámenes, parte 2",
+  "de": "was ich tue, um jede Prüfung zu rocken, Teil 2",
+  "it": "cosa faccio per superare ogni esame, parte 2",
+  "pt": "o que eu faço para arrasar em todas as provas, parte 2",
+  "tr": "her sınavda başarılı olmak için yaptıklarım, bölüm 2"
+ },
+ "legendes": {
+  "fr": "partie 2 : mes habitudes avant chaque exam 📚 #revisions #studytok #examens #bac #thatgirl",
+  "en": "part 2: my habits before every exam 📚 #studying #studytok #exams #studytips #thatgirl",
+  "es": "parte 2: mis hábitos antes de cada examen 📚 #estudiar #studytok #examenes #tipsdeestudio #thatgirl",
+  "de": "Teil 2: meine Gewohnheiten vor jeder Prüfung 📚 #lernen #studytok #prüfungen #lerntipps #thatgirl",
+  "it": "parte 2: le mie abitudini prima di ogni esame 📚 #studiare #studytok #esami #consiglidistudio #thatgirl",
+  "pt": "parte 2: meus hábitos antes de cada prova 📚 #estudos #studytok #provas #dicasdeestudo #thatgirl",
+  "tr": "bölüm 2: her sınavdan önceki alışkanlıklarım 📚 #ders #studytok #sınav #dersçalışma #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7575815280899656462"
+ },
+ "fond": {
+  "media_id": "5e280ef3-1495-4786-8f4d-f6b12157fb5d",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/49f3846f-59d9-4820-89d8-d019d25abb24/5.jpg?v=1791725779210",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-004 (« things i do to SMASH EVERY EXAM », 122 k) : partie 2, autres conseils et autres photos. cta A : micabo dans le texte du conseil « teste-toi au lieu de relire », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais pour",
+     "lignes": [
+      "RÉUSSIR",
+      "TOUS MES",
+      "EXAMS"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "partie 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 28
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "things i do to",
+     "lignes": [
+      "SMASH",
+      "EVERY",
+      "EXAM"
+     ],
+     "taille": 190,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "part 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "lo que hago para",
+     "lignes": [
+      "APROBAR",
+      "TODOS MIS",
+      "EXÁMENES"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "was ich tue, um",
+     "lignes": [
+      "JEDE",
+      "PRÜFUNG",
+      "ZU ROCKEN"
+     ],
+     "taille": 168,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "Teil 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0,
+     "interligne": 1.1
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cosa faccio per",
+     "lignes": [
+      "SUPERARE",
+      "OGNI",
+      "ESAME"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "o que eu faço para",
+     "lignes": [
+      "ARRASAR",
+      "EM TODAS",
+      "AS PROVAS"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "5 tavsiye",
+     "lignes": [
+      "SINAVLARDA",
+      "BAŞARILI",
+      "OLMAK İÇİN"
+     ],
+     "taille": 140,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "bölüm 2",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 22,
+     "interligne": 1.12
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9214a9e1-95a3-4d16-b1e1-527d1efdaa9a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/10a5b622-7530-4861-92d7-4f9be502c21c/1.jpg?v=1791725938672",
+    "cadrage": {
+     "x": 0.62,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "range ton téléphone dans une autre pièce.📵",
+     "texte": "pas en mode avion sur le bureau : dans une autre pièce. 2 h sans notifs, c’est 2 h vraiment utiles."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "keep your phone in another room.📵",
+     "texte": "not on airplane mode on your desk: in another room. 2 hours without notifications are 2 hours that actually count."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "deja el móvil en otra habitación.📵",
+     "texte": "no en modo avión sobre la mesa: en otra habitación. 2 h sin notificaciones son 2 h que de verdad cuentan."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "lass dein Handy in einem anderen Zimmer.📵",
+     "texte": "nicht im Flugmodus auf dem Schreibtisch, sondern in einem anderen Zimmer. 2 Std. ohne Benachrichtigungen sind 2 Std., die wirklich zählen."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "lascia il telefono in un’altra stanza.📵",
+     "texte": "non in modalità aereo sulla scrivania: in un’altra stanza. 2 ore senza notifiche sono 2 ore che contano davvero."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "deixe o celular em outro cômodo.📵",
+     "texte": "nada de modo avião em cima da mesa: em outro cômodo. 2 h sem notificações são 2 h que valem de verdade."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 700,
+     "titre": "telefonunu başka bir odaya bırak.📵",
+     "texte": "masanın üstünde uçak modunda değil, başka bir odada. bildirimsiz 2 saat, gerçekten işe yarayan 2 saattir."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1670b510-9da9-4c0a-8431-9f96f44c9080",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9620f8f0-e4c3-49d7-a045-d40efce7aee8/4.jpg?v=1790607910251",
+    "cadrage": {
+     "x": 0.58,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "révise par blocs de 50 min.⏱️",
+     "texte": "50 min à fond, 10 min de pause. je lance un minuteur et je ne fais rien d’autre jusqu’à la sonnerie."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "study in 50-minute blocks.⏱️",
+     "texte": "50 minutes of focus, 10 minutes of break. i set a timer and do nothing else until it rings."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "estudia en bloques de 50 min.⏱️",
+     "texte": "50 min a tope, 10 min de descanso. pongo un temporizador y no hago nada más hasta que suena."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "lerne in 50-Minuten-Blöcken.⏱️",
+     "texte": "50 Min. voll konzentriert, 10 Min. Pause. ich stelle einen Timer und mache nichts anderes, bis er klingelt."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "studia a blocchi di 50 minuti.⏱️",
+     "texte": "50 minuti di concentrazione, 10 di pausa. metto un timer e non faccio nient’altro finché non suona."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "estude em blocos de 50 min.⏱️",
+     "texte": "50 min de foco total, 10 min de pausa. coloco um timer e não faço mais nada até ele tocar."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 860,
+     "titre": "50 dakikalık bloklarla çalış.⏱️",
+     "texte": "50 dakika tam odak, 10 dakika mola. bir zamanlayıcı kurarım ve çalana kadar başka hiçbir şey yapmam."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "94cb615d-e9b6-45b0-9e73-b407c9d502c8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c650882c-1815-4518-b418-b3e04d8223db/4.jpg?v=1790608189389",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "teste-toi au lieu de relire.🧠",
+     "texte": "relire ses fiches donne l’impression de savoir. moi, je mets mes cours dans micabo et je fais ses quiz : je vois tout de suite ce que je ne sais pas encore."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "test yourself instead of rereading.🧠",
+     "texte": "rereading your notes makes you feel like you know it. i put my lessons into micabo and do its quizzes: i see right away what i don’t know yet."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "ponte a prueba en vez de releer.🧠",
+     "texte": "releer los apuntes da la sensación de saberlo. yo meto mis clases en micabo y hago sus quiz: veo enseguida lo que aún no sé."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "frag dich ab, statt nur zu lesen.🧠",
+     "texte": "Notizen nochmal lesen fühlt sich an wie Wissen. ich packe meinen Stoff in micabo und mache die Quiz: so sehe ich sofort, was ich noch nicht kann."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "mettiti alla prova invece di rileggere.🧠",
+     "texte": "rileggere gli appunti ti dà l’impressione di sapere. io metto le mie lezioni su micabo e faccio i suoi quiz: vedo subito cosa non so ancora."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "teste-se em vez de reler.🧠",
+     "texte": "reler o resumo dá a sensação de que você sabe. eu coloco minhas aulas no micabo e faço os quizzes: vejo na hora o que ainda não sei."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "tekrar okumak yerine kendini test et.🧠",
+     "texte": "notlarını tekrar okumak, biliyormuşsun hissi verir. ben derslerimi micabo’ya koyup testlerini çözüyorum: neyi henüz bilmediğimi hemen görüyorum."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c532b816-e7f3-4b36-9dd7-fc95d754006e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/08df14d4-d8ec-4641-bbe1-4b54094b0109/7.jpg?v=1792600352122",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "explique ton cours à voix haute.🗣️",
+     "texte": "si tu n’arrives pas à l’expliquer simplement, c’est que tu ne l’as pas encore compris. ta peluche fera très bien l’affaire."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "explain the lesson out loud.🗣️",
+     "texte": "if you can’t explain it simply, you don’t understand it yet. your teddy bear makes a great audience."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "explica la lección en voz alta.🗣️",
+     "texte": "si no sabes explicarlo de forma sencilla, es que aún no lo has entendido. tu peluche es el público perfecto."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "erklär den Stoff laut.🗣️",
+     "texte": "wenn du es nicht einfach erklären kannst, hast du es noch nicht verstanden. dein Kuscheltier ist das perfekte Publikum."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "spiega la lezione ad alta voce.🗣️",
+     "texte": "se non riesci a spiegarla in modo semplice, non l’hai ancora capita. il tuo peluche è il pubblico perfetto."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "explique a matéria em voz alta.🗣️",
+     "texte": "se você não consegue explicar de forma simples, é porque ainda não entendeu. seu bichinho de pelúcia é a plateia perfeita."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 1250,
+     "titre": "dersi yüksek sesle anlat.🗣️",
+     "texte": "basitçe anlatamıyorsan henüz anlamamışsındır. oyuncak ayın mükemmel bir dinleyici."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "db5b6f63-7a07-4d70-9ca5-8ad164d3225f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1b15f90a-ad18-43ae-899c-a8986536f16e/4.jpg?v=1790611440284",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "dors au moins 8 h la veille.😴",
+     "texte": "une nuit blanche, c’est la moitié de tes révisions qui s’envole. ton cerveau range tout ce que tu as appris pendant que tu dors."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "sleep at least 8 hours the night before.😴",
+     "texte": "pulling an all-nighter wipes out half your revision. your brain files away everything you learned while you sleep."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "duerme al menos 8 h la noche anterior.😴",
+     "texte": "pasar la noche en vela es perder la mitad de lo que estudiaste. tu cerebro ordena todo lo aprendido mientras duermes."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "schlaf in der Nacht davor mindestens 8 Std.😴",
+     "texte": "eine durchgemachte Nacht löscht die Hälfte deines Lernens. dein Gehirn sortiert alles Gelernte, während du schläfst."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "dormi almeno 8 ore la notte prima.😴",
+     "texte": "una notte in bianco ti fa perdere metà del ripasso. il tuo cervello mette in ordine tutto quello che hai imparato mentre dormi."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "durma pelo menos 8 h na noite anterior.😴",
+     "texte": "virar a noite é perder metade do que você estudou. seu cérebro organiza tudo o que aprendeu enquanto você dorme."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "sınavdan önceki gece en az 8 saat uyu.😴",
+     "texte": "sabahlamak, çalıştıklarının yarısını uçurur. sen uyurken beynin öğrendiğin her şeyi yerine yerleştirir."
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,260 @@
+{
+ "post_id": "original-023",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "come leggo davvero 2 libri al mese con l'agenda piena"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(senza svegliarmi alle 5)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "ho [[sempre un libro nello zaino]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "tascabile o kindle, è uguale. sala d'attesa, pausa pranzo, i 10 minuti prima di una call"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[ogni attesa diventa tempo di lettura]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "qualche buco corto al giorno e fai un capitolo, senza mai dover cercare una serata libera"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "e poi, [[un libro non si scarica mai!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "[[audiolibri]] per le faccende noiose"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "piatti, bucato, la strada a piedi, riordinare, tutto ciò che tiene occupate le mani ma [[lascia libera la testa]]"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "per questo scelgo roba leggera, romanzi o memoir, e [[tengo i libri tosti per la carta]]"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[anche un libro ascoltato conta come letto]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "too many small decisions"
+     ],
+     "fr": "trop de [[petites décisions]]",
+     "texte": "[[mollo i libri pesanti]]"
+    },
+    "T2": {
+     "en": [
+      "what to wear, what to eat,",
+      "when to start, every",
+      "choice uses up willpower"
+     ],
+     "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
+     "texte": "se un libro mi annoia ancora dopo 50 pagine, lo chiudo, [[zero sensi di colpa]]"
+    },
+    "T3": {
+     "en": [
+      "this is called decision",
+      "fatigue"
+     ],
+     "fr": "ça s'appelle la [[fatigue décisionnelle]]",
+     "texte": "forzarsi porta [[dritto al blocco]]"
+    },
+    "T4": {
+     "en": [
+      "plan tomorrow the night",
+      "before, so in the",
+      "morning you just start"
+     ],
+     "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
+     "texte": "e il prossimo di solito è uno che [[non riesco a mollare]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "quando non c'è spazio per un libro"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "in metro piena scrollavo e basta, ora se sono comunque al telefono faccio [[una lezione di 5 min sull'app Sophia]]"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "[[10 pagine]] prima del telefono"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[senza eccezioni]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "il libro mi aspetta sul cuscino. 10 pagine sono così poche che non le salto mai, nemmeno dopo una giornata lunga"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "spesso diventano 30 e [[mi addormento più facilmente]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

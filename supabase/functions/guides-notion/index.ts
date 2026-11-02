@@ -7,6 +7,7 @@ import {
   type PageRecopiee,
   type PageVisitee,
 } from "../_shared/notion_guides.ts";
+import { liensPublics } from "../_shared/guide_public.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -118,6 +119,10 @@ async function enregistrer(
   db: ReturnType<typeof serviceClient>,
   page: PageRecopiee | PageVisitee,
 ): Promise<void> {
-  const { error } = await db.from("guides_notion").upsert(page, { onConflict: "page_id" });
+  // Le Poster Guide : liens et adresse de page vers le site public (les posteurs n'ont pas accès à app.notion.com).
+  const publique = page.guide === "poster"
+    ? { ...page, url: liensPublics(page.url), ...("texte" in page && typeof page.texte === "string" ? { texte: liensPublics(page.texte) } : {}) }
+    : page;
+  const { error } = await db.from("guides_notion").upsert(publique, { onConflict: "page_id" });
   if (error) throw new Error(`guides_notion (${page.chemin}) : ${messageErreur(error)}`);
 }

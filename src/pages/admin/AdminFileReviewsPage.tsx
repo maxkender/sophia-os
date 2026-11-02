@@ -414,6 +414,9 @@ export function AdminFileReviewsPage() {
       const anglais = estBrouillonIntact(texte, relectures.data?.[courant.id]?.brouillon)
         ? texte.trim()
         : (await ameliorerReview(texte)).texte;
+      // Prompt 15, point 1 : le texte anglais final, tel que le créateur le
+      // lira, et « Envoyer ». Refusé : rien ne part, le texte final reste à l'écran.
+      if (!window.confirm(t("fileReviews.confirmEnvoi", { texte: anglais }))) return { id: null, anglais };
       await envoyerReview(courant.poster_id, anglais, {
         post_id: courant.id,
         publie_url: courant.publie_url,
@@ -424,9 +427,13 @@ export function AdminFileReviewsPage() {
         videos,
         remarques: remarquesUtilisees,
       });
-      return courant.id;
+      return { id: courant.id, anglais };
     },
-    onSuccess: (id) => {
+    onSuccess: ({ id, anglais }) => {
+      if (!id) {
+        setTexte(anglais);
+        return;
+      }
       setTexte("");
       setVideos([]);
       setRemarquesUtilisees([]);

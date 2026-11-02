@@ -1,0 +1,213 @@
+{
+ "id": "mm-o039",
+ "format": "carrousel",
+ "titre": "Everything you need to be locked in",
+ "legendes": {
+  "en": "everything you need to be locked in #lockedin #focus #mentalmaxxing #selfimprovement",
+  "fr": "tout ce qu’il te faut pour être locked in #lockedin #concentration #mentalmaxxing #developpementpersonnel",
+  "de": "alles, was du brauchst, um locked in zu sein #lockedin #fokus #mentalmaxxing #selbstverbesserung",
+  "es": "todo lo que necesitas para estar locked in #lockedin #concentracion #mentalmaxxing #superacionpersonal",
+  "it": "tutto ciò che ti serve per essere locked in #lockedin #concentrazione #mentalmaxxing #crescitapersonale",
+  "tr": "locked in olmak için gereken her şey #lockedin #odak #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7701153376846826760/1",
+   "boite": [
+    320,
+    345,
+    455,
+    545
+   ]
+  },
+  "theme": {
+   "en": "Locked in",
+   "fr": "Locked in",
+   "de": "Locked in",
+   "es": "Locked in",
+   "it": "Locked in",
+   "tr": "Locked in"
+  },
+  "sous": {
+   "en": "everything you need",
+   "fr": "tout ce qu’il te faut",
+   "de": "alles, was du brauchst",
+   "es": "todo lo que necesitas",
+   "it": "tutto ciò che ti serve",
+   "tr": "gereken her şey"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "7+ hours of sleep",
+    "fr": "7 h de sommeil ou plus",
+    "de": "7+ Stunden Schlaf",
+    "es": "7 horas de sueño o más",
+    "it": "7+ ore di sonno",
+    "tr": "7+ saat uyku"
+   },
+   "texte": {
+    "en": "Everything else on this list gets easier after a full night. Nothing replaces it.",
+    "fr": "Tout le reste de la liste devient plus facile après une vraie nuit. Rien ne la remplace.",
+    "de": "Alles andere auf der Liste wird nach einer vollen Nacht leichter. Nichts ersetzt sie.",
+    "es": "Todo lo demás de la lista es más fácil tras una noche completa. Nada la sustituye.",
+    "it": "Tutto il resto della lista diventa più facile dopo una notte intera. Niente la sostituisce.",
+    "tr": "Tam bir gecenin ardından listedeki her şey kolaylaşır. Hiçbir şey onun yerini tutmaz."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Morning sunlight",
+    "fr": "Le soleil du matin",
+    "de": "Morgensonne",
+    "es": "Sol de la mañana",
+    "it": "Sole del mattino",
+    "tr": "Sabah güneşi"
+   },
+   "texte": {
+    "en": "Ten minutes of daylight before any screen. Your body knows the day has started.",
+    "fr": "Dix minutes de lumière avant tout écran. Ton corps sait que la journée a commencé.",
+    "de": "Zehn Minuten Tageslicht vor jedem Bildschirm. Dein Körper weiß, dass der Tag begonnen hat.",
+    "es": "Diez minutos de luz antes de cualquier pantalla. Tu cuerpo sabe que el día ha empezado.",
+    "it": "Dieci minuti di luce prima di qualsiasi schermo. Il corpo sa che la giornata è iniziata.",
+    "tr": "Herhangi bir ekrandan önce on dakika gün ışığı. Vücudun günün başladığını bilir."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Real food",
+    "fr": "Une vraie assiette",
+    "de": "Echtes Essen",
+    "es": "Comida real",
+    "it": "Cibo vero",
+    "tr": "Gerçek yemek"
+   },
+   "texte": {
+    "en": "Protein, fruit, vegetables. Steady energy instead of a sugar crash at 3pm.",
+    "fr": "Protéines, fruits, légumes. Une énergie stable au lieu d’un coup de barre à 15h.",
+    "de": "Protein, Obst, Gemüse. Stabile Energie statt Zuckertief um 15 Uhr.",
+    "es": "Proteína, fruta, verdura. Energía estable en vez de un bajón a las 3.",
+    "it": "Proteine, frutta, verdura. Energia stabile invece del calo alle 15.",
+    "tr": "Protein, meyve, sebze. Öğleden sonra çöküş yerine dengeli enerji."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Training",
+    "fr": "S’entraîner",
+    "de": "Training",
+    "es": "Entrenar",
+    "it": "Allenarsi",
+    "tr": "Antrenman"
+   },
+   "texte": {
+    "en": "Three sessions a week. A tired body is the easiest way to a calm mind.",
+    "fr": "Trois séances par semaine. Un corps fatigué, c’est le chemin le plus court vers un esprit calme.",
+    "de": "Drei Einheiten pro Woche. Ein müder Körper ist der kürzeste Weg zu einem ruhigen Kopf.",
+    "es": "Tres sesiones a la semana. Un cuerpo cansado es el camino más corto a una mente tranquila.",
+    "it": "Tre sessioni a settimana. Un corpo stanco è la via più breve per una mente calma.",
+    "tr": "Haftada üç antrenman. Yorgun bir beden, sakin bir zihne giden en kısa yoldur."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "10k steps",
+    "fr": "10 000 pas",
+    "de": "10.000 Schritte",
+    "es": "10.000 pasos",
+    "it": "10.000 passi",
+    "tr": "10 bin adım"
+   },
+   "texte": {
+    "en": "Walk your calls, walk after meals. Your head clears while your legs move.",
+    "fr": "Marche pendant tes appels, après les repas. Ta tête se vide pendant que tes jambes bougent.",
+    "de": "Telefoniere im Gehen, geh nach dem Essen. Dein Kopf wird frei, während deine Beine laufen.",
+    "es": "Camina en tus llamadas y después de comer. Tu cabeza se despeja mientras tus piernas se mueven.",
+    "it": "Cammina durante le chiamate e dopo i pasti. La testa si svuota mentre le gambe si muovono.",
+    "tr": "Telefonda konuşurken, yemekten sonra yürü. Bacakların hareket ederken kafan boşalır."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: three hours a day of short videos and no focus left. After deleting them with UnSwipe: locked in by 9am.",
+    "fr": "Avant : trois heures par jour de vidéos courtes et plus aucune concentration. Après les avoir supprimées avec UnSwipe : locked in dès 9h.",
+    "de": "Vorher: drei Stunden Kurzvideos am Tag und kein Fokus mehr. Nachdem ich sie mit UnSwipe gelöscht habe: locked in ab 9 Uhr.",
+    "es": "Antes: tres horas al día de vídeos cortos y cero concentración. Después de borrarlos con UnSwipe: locked in a las 9.",
+    "it": "Prima: tre ore al giorno di video brevi e zero concentrazione. Dopo averli eliminati con UnSwipe: locked in dalle 9.",
+    "tr": "Önce: günde üç saat kısa video ve sıfır odak. UnSwipe ile sildikten sonra: sabah 9’da locked in."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Music without a feed",
+    "fr": "De la musique sans feed",
+    "de": "Musik ohne Feed",
+    "es": "Música sin feed",
+    "it": "Musica senza feed",
+    "tr": "Akışsız müzik"
+   },
+   "texte": {
+    "en": "One album, start to finish, while you work. No skipping, no scrolling.",
+    "fr": "Un album, du début à la fin, pendant que tu bosses. Pas de zapping, pas de scroll.",
+    "de": "Ein Album, von Anfang bis Ende, während du arbeitest. Kein Skippen, kein Scrollen.",
+    "es": "Un álbum, de principio a fin, mientras trabajas. Sin saltar, sin scroll.",
+    "it": "Un album, dall’inizio alla fine, mentre lavori. Niente salti, niente scroll.",
+    "tr": "Çalışırken baştan sona tek bir albüm. Atlamak yok, kaydırmak yok."
+   }
+  }
+ ],
+ "notes": "routine du 02/11 : accroche « locked in » du nouveau post de @mentalapp (109 k vues, une seule slide) en carrousel, couverture recadrée dans ce post. cta C (avant/après, nouvelle version du 02/11) : élément UnSwipe en 6e item (slide 7)."
+}

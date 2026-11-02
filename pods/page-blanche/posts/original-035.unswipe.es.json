@@ -1,0 +1,266 @@
+{
+ "post_id": "original-035",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te bousillent la concentration",
+     "texte": "lo que 2 meses leyendo le hicieron a mi cerebro"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(semana 1 vs 8)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "fr": "mets-toi aux échecs",
+     "texte": "mi [[concentración]]"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "fr": "aux échecs, tu dois anticiper, repérer des schémas et te demander sans arrêt « je rate quoi ? »",
+     "texte": "semana 1: releía cada párrafo dos veces y agarraba el móvil en cada página, [[sin darme cuenta]]"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "fr": "joue pas juste pour jouer, [[décortique tes parties]] après",
+     "texte": "semana 8: [[termino un capítulo de un tirón]] y quiero más"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "fr": "même [[20 à 30 min par jour]] entraînent ton cerveau à [[résoudre des problèmes]], c'est prouvé",
+     "texte": "el móvil olvidado en el sofá. nada de golpe, un día levanté la vista y [[había pasado una hora]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "cómo llevo [[el aburrimiento]] ahora"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "semana 1: cinco minutos en una fila y la mano ya estaba [[en el bolsillo]]"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "semana 8: espero el tren y solo miro alrededor. mi cabeza [[divaga sola, sin pantalla]]"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "ahí es donde ahora me llegan [[las mejores ideas]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "keeping stimulation within reach"
+     ],
+     "fr": "avoir des distractions [[sous la main]]",
+     "texte": "cómo me [[duermo]] por las noches"
+    },
+    "T2": {
+     "en": [
+      "your phone is on the desk,",
+      "youtube is one tab away,",
+      "and every distracting app",
+      "is already logged in"
+     ],
+     "fr": "ton tel est sur le bureau, youtube est à un onglet, et toutes tes applis à distraction sont déjà connectées",
+     "texte": "semana 1: móvil en la cama hasta la 1, un video más, y luego la cabeza [[a mil]] en la oscuridad"
+    },
+    "T3": {
+     "en": [
+      "you’re forcing yourself to",
+      "resist temptation hundreds",
+      "of times a day"
+     ],
+     "fr": "tu t'obliges à résister à la tentation [[des centaines de fois par jour]]",
+     "texte": "semana 8: [[diez páginas]] en la cama y se me cierran los ojos solos"
+    },
+    "T4": {
+     "en": [
+      "make distraction inconvenient before trying to become",
+      "more disciplined"
+     ],
+     "fr": "complique-toi l'accès aux distractions avant de chercher plus de discipline",
+     "texte": "no duermo más horas, pero [[me despierto con la cabeza despejada]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "ne [[plus lire de livres]]",
+     "texte": "mi [[reflejo del móvil]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu consommes surtout des posts courts, des clips et des titres, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "semana 1: en cada pausa sacaba el móvil [[sin siquiera decidirlo]] y abría el mismo feed en piloto automático"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[un livre t'oblige à suivre une idée sur des pages]], à retenir le contexte et à résister à l'envie d'autre chose",
+     "texte": "semana 8: todavía lo agarro por costumbre, la verdad. pero [[lo suelto al minuto]] y sigo con mi día"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors tant qu'à être sur mon tel, je fais 5 min de leçon sur [[l'appli Sophia]]",
+     "texte": "lo que me ayudó: un libro en la mochila, paseos largos e instagram sin reels. [[la app UnSwipe]] los quita"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "cómo [[escucho]] en una conversación"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "semana 1: asentía pensando en mi respuesta, [[con la cabeza en el móvil]]"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "semana 8: sigo una historia larga sin desconectar, hago una pregunta de verdad y [[me acuerdo de la respuesta]]"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "dos meses, ningún plan. solo [[páginas en vez de swipes]], y mi cerebro vuelve a ser mío"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o024",
+ "schema_id": "keep-private",
+ "titre": "6 things you should keep to yourself #men #discipline #privacy #mindset #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "cec26bfa-ce3f-404e-8311-26db1cab8c25",
+  "a907426b-88b6-4242-892f-39ddc8b97451"
+ ],
+ "notes": "cta B. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Schéma keep-private (r 2,48, a907426b). Nouvel angle pour moi : le travail en cours et l'effort (am-o011 : progrès, colère, achats). Accroches écrites : « 6 things you should keep to yourself » (retenue : forme du gagnant, en « you » pour garder le mode du CTA à la 1re personne), « things a man should never explain » (écartée : autre promesse), « 5 things you must keep private (part 2) » (écartée : trop proche). Choses neuves (vérifié dans donnees/label.json et dans mes originaux) ; écartées car déjà présentes : revenus, prochain coup, vie amoureuse, faiblesses, objectifs, bonnes actions, peurs, confidences, faveurs, sacrifices, santé. Images : la banque du label ; célébrités acceptées en illustration depuis le 28/10 (AGENT.md), jamais sur la slide Sophia. Slide Sophia sur un salon sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a0d06ef9",
+   "texte_overlay": "6 things you should\nkeep to yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "55dd3263",
+   "texte_overlay": "1. Your first draft\nShow the finished thing.\nUnfinished work invites\nopinions you don't need.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a0c655af",
+   "texte_overlay": "2. The hours you put in\nLet the results show the work.\nTalking about the grind\nisn't the grind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "563d7d96",
+   "texte_overlay": "3. Who you're interviewing with\nJob hunts leak fast.\nTell people once it's signed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a1233bbb",
+   "texte_overlay": "4. Your opinion of people\nyou barely know\nFirst impressions are often wrong.\nKeep them until they're earned.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "55b5bfe0",
+   "texte_overlay": "5. How little you slept\nBragging about no sleep\nisn't discipline.\nIt's bad planning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a23c8a33",
+   "texte_overlay": "6. How you're getting smarter\nRead quietly.\nPeople will notice.\nYou won't need to tell them.",
+   "texte_sophia": "6. How you're getting smarter\nI swap my morning scroll for\n5 minutes on the Sophia app.\nNobody needs to know.\nThey just notice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  }
+ ]
+}

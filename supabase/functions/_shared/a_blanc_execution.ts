@@ -425,7 +425,7 @@ async function enrichirAffichage(supabase: Supabase, r: ResultatABlanc): Promise
 export async function executerAssignationABlanc(
   supabase: Supabase,
   ctx: ContexteABlanc,
-  args: { compteId: string; jour: string; ia: boolean; onLog?: (detail: string) => void },
+  args: { compteId: string; jour: string; ia: boolean; bleo?: boolean; onLog?: (detail: string) => void },
 ): Promise<ResultatABlanc> {
   const debut = Date.now();
   const etat = ctx.etat;
@@ -541,6 +541,7 @@ export async function executerAssignationABlanc(
       ignorerWarmup: true,
       echeance: Date.now() + BUDGET_DECKS_APPLICATION_MS,
       onLog: log,
+      suivrePlanBleo: Boolean(args.bleo),
     });
   } catch (e) {
     erreurRun = messageErreur(e);

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o046",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7f9986c7-78fa-4cf8-8646-6259d4eca67d",
+ "titre": "5 words that will make you sound more eloquent (part 2) #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "46118b58-708c-4012-b3d2-143b20410565"
+ ],
+ "notes": "cta C. Répétition BLEO du 31/10 (pods/ROUTINE.md §4, demandée par Adrien pour les podz 8 et 9) : pas de schéma ni de preuve. Déclinaison G1 de la ligne 3 de la boîte (parent 7f9986c7, anglais) : accroche du parent mot pour mot, « 5 words that will make you sound more eloquent ». Le parent est notre sg-o016 (ardent, diligent, debonair, felicity, sapient). Cinq autres mots, absents des contenus du label (vérifié dans donnees/label.json) : jovial, affable, succinct, cordial, cogent ; définitions et prononciations au sens courant du dictionnaire. Sophia sur le dernier mot (cogent), formulé par le bénéfice. Images : piano et bibliothèque, autres que celles du parent ; slide Sophia sur un clavier de piano et une partition (une main, sans visage). CTA : cta A = dernier item, à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "51db9d8e",
+   "texte_overlay": "5 words that will make\nyou sound more eloquent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "53a08409",
+   "texte_overlay": "Jovial:\ncheerful and\nfriendly\n(JOH-vee-uhl)\n\nExample:\nHer jovial laugh filled\nthe little café.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25857638",
+   "texte_overlay": "Affable:\neasy and pleasant\nto talk to\n(AF-uh-buhl)\n\nExample:\nShe was affable with\neveryone she met.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4cf16f47",
+   "texte_overlay": "Succinct:\nclear and brief\n(suhk-SINGKT)\n\nExample:\nHer answer was succinct\nand perfect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2c15cb1b",
+   "texte_overlay": "Cordial:\nwarm and polite\n(KAWR-juhl)\n\nExample:\nThey had a cordial\nchat after the concert.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "74c2cf09",
+   "texte_overlay": "Cogent:\nclear, logical\nand convincing\n(KOH-juhnt)\n\nExample:\nShe made a cogent case\nfor reading more history.",
+   "texte_sophia": "Cogent:\nclear, logical\nand convincing\n(KOH-juhnt)\n\nExample:\nThe secret to cogent ideas?\nA micro-learning app like\nthe Sophia app, one\n5-minute lesson a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3613db65",
+   "texte_overlay": "follow for more daily words\nwhich one will you use first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/7.jpg"
+  }
+ ]
+}

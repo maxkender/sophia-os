@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o056",
+ "schema_id": "prouve-par-la-science",
+ "titre": "3 trucs prouvés par la science pour retenir les dates et les noms (sources à la fin) #pourtoi #memoire #histoire",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+ "inspirations": [
+  "54d238cb-f9a8-4ed6-b1cf-a39452b50e29"
+ ],
+ "notes": "cta B (l'anecdote du jour en item 4, sans promesse scientifique). Fait vérifié le 1/11 : https://fr.wikipedia.org/wiki/Pyramide_de_Kh%C3%A9ops donne une construction « vers 2560 av. J.-C. » et https://fr.wikipedia.org/wiki/Cl%C3%A9op%C3%A2tre_VII une mort « le 12 août 30 av. J.-C. » ; environ 2 530 ans séparent les deux, contre environ 2 056 ans entre Cléopâtre et 2026. Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 4 sur 8. Sujet précis jamais fait chez nous (les dates et les noms). Preuve : schéma prouve-par-la-science (r 4,07, 5d279e37 ; r 2,71, 54d238cb). Sources, toutes ouvertes sur Europe PMC (les 23 et 27/10) et qui disent ce que dit la slide : (1) Roediger & Karpicke, Psychological Science 2006 (se tester bat relire aux tests différés) ; (2) Cepeda et al., Psychological Bulletin 2006 (méta-analyse de l'apprentissage espacé, 317 expériences) ; (3) MacLeod, Ozubko, Hourihan & Major, Memory 2022 (l'effet de production : dire à voix haute ajoute à la trace en mémoire). Accroches écrites : « 3 trucs prouvés par la science pour retenir les dates et les noms (sources à la fin) » (retenue : sujet précis, gabarit gagnant), « comment enfin retenir les dates d'histoire » (écartée : sans la science), « la science pour une mémoire de dingue en histoire » (écartée : promesse trop forte). Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7eaf9c6b",
+   "texte_overlay": "3 trucs prouvés par la science\npour retenir les dates et les noms\n(sources à la fin)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/3.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7f27f0dc",
+   "texte_overlay": "1. teste-toi au lieu de relire.\n\ncache la date, essaie de la retrouver.\nceux qui se testent retiennent bien mieux quelques jours plus tard. (1)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7f370761",
+   "texte_overlay": "2. espace tes révisions.\n\nun peu aujourd'hui, un peu dans trois jours.\nune synthèse de 317 expériences le confirme. (2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7f3e490e",
+   "texte_overlay": "3. dis-le à voix haute.\n\nles mots dits à voix haute laissent une trace plus forte que ceux lus en silence. (3)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "801f2654",
+   "texte_overlay": "4. une anecdote par jour.\n\nce matin, j'ai appris que cléopâtre a vécu plus près de nous que de la construction de la pyramide de khéops.\nune date qui surprend, on ne l'oublie plus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/6.jpg",
+   "texte_sophia": "4. une anecdote par jour.\n\nce matin, l'appli Sophia m'a appris que cléopâtre a vécu plus près de nous que de la construction de la pyramide de khéops.\nune date qui surprend, on ne l'oublie plus."
+  },
+  {
+   "position": 6,
+   "media_id": "7fc4dc02",
+   "texte_overlay": "sources\n\n(1) roediger & karpicke, psychological science, 2006\n(2) cepeda et al., psychological bulletin, 2006\n(3) macleod et al., memory, 2022",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7ffc4718",
+   "texte_overlay": "lequel tu testes\npour ton prochain contrôle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/2.jpg"
+  }
+ ]
+}

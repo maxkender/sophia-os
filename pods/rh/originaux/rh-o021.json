@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o021",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien, partie 2 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession : « perso, j'ouvre l'appli Sophia… »). Routine du 25/10 (3 livraisons par jour). Schéma mentir-entretien (r 21,24 sur 4 passages, 496f8d72). Accroches écrites : « les trucs sur lesquels tu DOIS MENTIR en entretien, partie 2 » (retenue : le gabarit gagnant mot pour mot, et « partie 2 » jamais utilisé), « les questions où la vérité brute t'élimine en entretien » (écartée : perd le mot mentir), « encore 6 trucs sur lesquels tu dois mentir en entretien » (écartée : plus faible). Six questions neuves, aucune reprise de rh-o001 à rh-o020 ni des sources. Une question méta (« vous avez déjà menti au travail ? ») qui assume le jeu du titre, avec une réponse vraie. CTA de fin jamais utilisé : demander la question qui bloque. Sophia en 5 sur la conversation avec un client. Inspirations : sans la slide 5 de chaque source (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "030b2633",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\npartie 2",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3bd975f6",
+   "texte_overlay": "1\n« en combien de temps vous êtes opérationnelle ? »\njamais « tout de suite »\ntu dis « autonome sur X en 2 semaines, et je vous fais un point à 1 mois sur le reste »\nun délai précis rassure plus qu'une promesse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3d210f96",
+   "texte_overlay": "2\n« vous faites quoi quand vous n'êtes pas d'accord avec une décision ? »\ntu réponds\n« je le dis une fois, avec mes arguments. si la décision reste, je l'applique à fond »\nils veulent quelqu'un qui ose, pas qui bloque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3ddf8d5e",
+   "texte_overlay": "3\n« vous êtes plutôt créative ou rigoureuse ? »\njamais l'un ou l'autre\ntu dis « rigoureuse sur l'exécution, créative sur les solutions »\nc'est un faux choix. réponds aux deux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3e21a801",
+   "texte_overlay": "4\n« vous êtes à l'aise pour lancer la conversation avec un client ? »\ntu réponds\n« oui, j'ai toujours un sujet pour briser la glace »\nles 2 premières minutes font la moitié du rendez-vous",
+   "texte_sophia": "4\n« vous êtes à l'aise pour lancer la conversation avec un client ? »\nperso, j'ouvre l'appli Sophia 5 minutes chaque matin, et j'ai toujours une anecdote pour briser la glace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3ea6204c",
+   "texte_overlay": "5\n« vous avez déjà menti au travail ? »\njamais « jamais »\ntu dis « j'ai déjà arrondi un délai pour rassurer un client. depuis, j'annonce le vrai dès le départ »\n« jamais », personne y croit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "407973bc",
+   "texte_overlay": "6\n« qu'est-ce qui vous ferait partir d'ici ? »\ntu réponds\n« le jour où j'apprendrais plus rien »\nc'est vrai pour tout le monde, et ça sonne ambitieux, pas instable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2ddc9f09",
+   "texte_overlay": "tu veux la partie 3 ?\ndis-moi en commentaire\nla question qui te bloque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

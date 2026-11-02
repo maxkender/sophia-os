@@ -1,6 +1,6 @@
 {
  "compte": "yasminespixels",
- "maj_le": "2026-10-23",
+ "maj_le": "2026-11-02",
  "note": "Les posts de @yasminespixels relevés le 23/10 (Apify, 90 jours). statut : fait, a_faire (dans l'ordre du motif), a_voir, exclu, plus_tard. On ne refait que ses posts à 50 k vues ou plus avec un vrai angle études, puis des variantes des formats déjà rendus.",
  "posts": [
   {
@@ -18,7 +18,7 @@
    },
    "legende": "#thatgirl #phoneorganization #customized #iphone #thatgirltips",
    "statut": "a_faire",
-   "motif": "2e : micabo sur l'écran d'accueil puis son écran ; il faut l'icône micabo en fichier (assets/micabo/icone.png)"
+   "motif": "2e : 5 écrans iOS à dessiner (verrouillage, accueil à widgets, vue Aujourd'hui, centre de contrôle, concentration) ; l'icône existe ; trop lourd pour une routine, à faire en session"
   },
   {
    "id": "7666878168279584002",
@@ -85,8 +85,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
    },
    "legende": "glad to have figured this out myself. #advice #selfgrowth #LifeAdvice #girlhood #thatgirl",
-   "statut": "a_voir",
-   "motif": "5e : lire ses slides, garder si un conseil d'études porte micabo naturellement"
+   "statut": "fait",
+   "motif": "yp-009 (27/10) : collages haut/bas à petites légendes ; cta C (mise en scène micabo en moitié basse + « débrouille-toi seule ») ; 7 langues"
   },
   {
    "id": "7670179482493308182",
@@ -102,8 +102,8 @@
     "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
    },
    "legende": "#thatgirl #digitalplanning #digitaldeclutter #declutteryourlife #productivity",
-   "statut": "a_faire",
-   "motif": "6e : cartes « Notes » ; micabo sur « 10 min de révision au lieu du scroll »"
+   "statut": "fait",
+   "motif": "yp-007 (25/10) : notes iOS sur photos ; cta B (mise en scène iPhone micabo + texte) ; 7 langues"
   },
   {
    "id": "7669329047675030806",
@@ -119,8 +119,8 @@
     "url": "https://www.tiktok.com/music/life-will-be-7288041310028302338"
    },
    "legende": "#sundayreset #thatgirl #thatgirlaesthetic #cleaningroutine #selfcaretips",
-   "statut": "a_faire",
-   "motif": "7e : le dimanche de l'élève ; micabo sur « je fais mes quiz de la semaine »"
+   "statut": "fait",
+   "motif": "yp-008 (26/10) : photos à petites légendes, 17 slides ; cta A (micabo dans la sous-légende de « révisions du matin ») ; 7 langues"
   },
   {
    "id": "7667147856670706966",
@@ -359,6 +359,125 @@
    "legende": "#productivity #studytok #studytips #thatgirl #studying",
    "statut": "fait",
    "motif": "yp-004, livraison 40a32f49 (23/10, demande d'Adrien) : notes iOS sur photo, micabo dans le conseil « révise tôt »"
+  },
+  {
+   "id": "7663427458737114390",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7663427458737114390",
+   "publie_le": "2026-07-17",
+   "accroche": "",
+   "vues": 593500,
+   "enregistrements": 32095,
+   "partages": 1663,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7335942451062606634"
+   },
+   "legende": "#thatgirl #glowup #glowuptips #thatgirlaesthetic #thatgirltips ",
+   "statut": "exclu",
+   "motif": "« how to be THAT GIRL part 6 » : planche de vêtements à acheter, pas d’angle études"
+  },
+  {
+   "id": "7664284558279445782",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7664284558279445782",
+   "publie_le": "2026-07-19",
+   "accroche": "",
+   "vues": 354600,
+   "enregistrements": 12612,
+   "partages": 509,
+   "slides": 5,
+   "musique": {
+    "titre": "Ray Mysterio (Instrumental)",
+    "url": "https://www.tiktok.com/music/ray-mysterio-instrumental-6757174996944029697"
+   },
+   "legende": "#thatgirl #thatgirlaesthetic #wellness #glowup #glowuptips ",
+   "statut": "exclu",
+   "motif": "« how to be THAT GIRL part 7 » : planches d’objets (sacs), pas d’angle études"
+  },
+  {
+   "id": "7663536748386929942",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7663536748386929942",
+   "publie_le": "2026-07-17",
+   "accroche": "",
+   "vues": 181200,
+   "enregistrements": 10185,
+   "partages": 1068,
+   "slides": 9,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7658077577667480334"
+   },
+   "legende": "#thatgirl #thatgirlaesthetic #wellness #glowup #wellnessjourney ",
+   "statut": "a_faire",
+   "motif": "« PROTECT MY PEACE, habits that actually helped me » : photos à petites légendes (format yp-002), micabo sur l’étape du téléphone"
+  },
+  {
+   "id": "7666097749867252995",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7666097749867252995",
+   "publie_le": "2026-07-24",
+   "accroche": "",
+   "vues": 151200,
+   "enregistrements": 3166,
+   "partages": 145,
+   "slides": 4,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7623467906226981645"
+   },
+   "legende": "#thatgirl #thatgirlaesthetic #glowup #glowuptips #thatgirltips ",
+   "statut": "exclu",
+   "motif": "« how to be THAT GIRL part 8 » : planches d’objets à acheter"
+  },
+  {
+   "id": "7661914414513245462",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7661914414513245462",
+   "publie_le": "2026-07-13",
+   "accroche": "",
+   "vues": 149300,
+   "enregistrements": 5082,
+   "partages": 352,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7456457094292458262"
+   },
+   "legende": "#hobby #glowup #productivity #thatgirl #thatgirlaesthetic ",
+   "statut": "plus_tard",
+   "motif": "« HOBBIES I’VE STARTED instead of doomscrolling » : collages notés /10 ; hobbies hors études, micabo y serait plaqué"
+  },
+  {
+   "id": "7664896629480197398",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7664896629480197398",
+   "publie_le": "2026-07-21",
+   "accroche": "",
+   "vues": 113800,
+   "enregistrements": 1486,
+   "partages": 121,
+   "slides": 7,
+   "musique": {
+    "titre": "the american dawn",
+    "url": "https://www.tiktok.com/music/the-american-dawn-7423045556513703952"
+   },
+   "legende": "#thatgirl #morningroutine #routine #thatgirlaesthetic #wellness ",
+   "statut": "fait",
+   "motif": "« THAT GIRL MORNING ROUTINE » : déjà couvert par yp-010 (routine du matin avant les cours)"
+  },
+  {
+   "id": "7664659261598731542",
+   "url": "https://www.tiktok.com/@yasminespixels/video/7664659261598731542",
+   "publie_le": "2026-07-20",
+   "accroche": "",
+   "vues": 73600,
+   "enregistrements": 3753,
+   "partages": 264,
+   "slides": 11,
+   "musique": {
+    "titre": "original sound - jacal",
+    "url": "https://www.tiktok.com/music/original-sound-jacal-7590956810832595725"
+   },
+   "legende": "#thatgirl #glowup #thatgirlaesthetic #productivity #studytok ",
+   "statut": "plus_tard",
+   "motif": "« THAT GIRL GUIDE to planning » : 10 pages d’agenda iPad à dessiner ; trop lourd pour une routine"
   }
  ]
 }

@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o026",
+ "schema_id": "erreurs-chomage",
+ "titre": "j'ai envoyé 100 candidatures en 2 mois, voilà ce qui a vraiment marché #rechercheemploi #candidature #emploi #chomage #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Routine du 26/10 (lundi, 3 livraisons). Règle §4.6 : seule rh-o024 reprend une famille déjà faite 3 fois en 7 jours (mentir-entretien), les deux autres partent sur des angles jamais faits chez nous. Schéma erreurs-chomage (r 2,02 sur 4 passages, 4adc261e) : l'échec raconté puis réparé. Angle jamais fait : le bilan d'une expérience chiffrée à la première personne (100 candidatures), pas une liste d'erreurs. Accroches écrites : « j'ai envoyé 100 candidatures en 2 mois, voilà ce qui a vraiment marché » (retenue : récit + promesse concrète), « mes 100 candidatures passées au crible » (écartée : froide), « 100 candidatures, 6 entretiens : ce que j'en ai appris » (écartée : chiffres de résultat non vérifiables). Les chiffres restent ceux du récit personnel, jamais présentés comme une statistique générale. Six constats neufs, aucune reprise de rh-o014, rh-o020 ni de la source. CTA de fin jamais utilisé : « moi aussi » en commentaire pour se soutenir. Inspirations : sans les slides 4 et 5 de la source (autres applis citées).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "521c58df",
+   "texte_overlay": "j'ai envoyé 100 candidatures en 2 mois\nvoilà ce qui a vraiment marché",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5111582a",
+   "texte_overlay": "les 30 premières, envoyées en une semaine\nzéro réponse.\nla quantité sans tri, c'est juste du bruit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5138cc15",
+   "texte_overlay": "les réponses venaient des offres toutes fraîches\nles annonces de plus de 2 semaines, presque jamais.\nmaintenant je postule dans les 3 jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "52b43067",
+   "texte_overlay": "celles où j'avais écrit à quelqu'un de l'équipe avant\nun message court, sans rien demander.\nc'est de là que sont venus mes entretiens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "530aff9f",
+   "texte_overlay": "les postes où je cochais pas toutes les cases\nj'en remplissais 60 %, j'ai eu des entretiens quand même.\npostule, c'est eux qui décident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5324786c",
+   "texte_overlay": "les entretiens où on a parlé d'autre chose que de mon cv\nc'est là que ça a accroché.\naie toujours un sujet qui sort du cv",
+   "texte_sophia": "les entretiens où on a parlé d'autre chose que de mon cv\nc'est là que ça a accroché.\nutilise l'appli Sophia 5 minutes par jour, et t'auras toujours un sujet qui sort du cv",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "53e10c81",
+   "texte_overlay": "les lettres écrites à 23 h\nles pires. vraiment.\nrelis le lendemain matin avant d'envoyer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "619fb75d",
+   "texte_overlay": "si t'es en pleine recherche en ce moment\nécris « moi aussi » en commentaire\non se soutient",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

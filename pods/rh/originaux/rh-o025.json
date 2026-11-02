@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o025",
+ "schema_id": "boite-te-merite",
+ "titre": "le dictionnaire secret des offres d'emploi (ce qu'elles veulent VRAIMENT dire) #offredemploi #rechercheemploi #travail #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "cta A (confession à la 1re personne : « perso, j'ouvre l'appli Sophia… »), slide Sophia en position 3. Routine du 26/10 (lundi, 3 livraisons). Règle §4.6 : seule rh-o024 reprend une famille déjà faite 3 fois en 7 jours (mentir-entretien), les deux autres partent sur des angles jamais faits chez nous. essai (rh-o025 finit par 5) : format « dictionnaire », jamais fait chez nous. Schéma boite-te-merite (r 5,69 sur 4 passages, 1fd9d1f3), rapport de force inversé : c'est toi qui décodes l'offre. Accroches écrites : « le dictionnaire secret des offres d'emploi (ce qu'elles veulent VRAIMENT dire) » (retenue : format neuf, promesse d'initiée), « ce que « poste évolutif » veut dire dans une offre d'emploi » (écartée : un seul item), « traduction des offres d'emploi, du corporate au français » (écartée : moins de tension). Chaque expression est suivie de la question à poser en entretien pour vérifier : on vérifie, on ne présume pas. Aucune entreprise réelle. CTA de fin jamais utilisé : la communauté ajoute une entrée au dictionnaire. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "670630fb",
+   "texte_overlay": "le dictionnaire secret des offres d'emploi\n(ce qu'elles veulent VRAIMENT dire)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4e318a14",
+   "texte_overlay": "« poste évolutif »\n= tes missions vont grossir. ton salaire, à voir.\nen entretien : « comment a évolué la personne d'avant ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4ea3979c",
+   "texte_overlay": "« on cherche quelqu'un de curieux »\n= tu vas devoir apprendre seule, vite.\nen entretien, prouve-le avec le dernier truc que t'as appris",
+   "texte_sophia": "« on cherche quelqu'un de curieux »\n= tu vas devoir apprendre seule, vite.\nperso, j'ouvre l'appli Sophia 5 minutes chaque matin : histoire, art. mon exemple est toujours prêt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4f5824bc",
+   "texte_overlay": "« environnement dynamique »\n= les priorités changent souvent.\nen entretien : « qu'est-ce qui a changé de priorité ce mois-ci ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4fdb0056",
+   "texte_overlay": "« grande autonomie »\n= personne aura le temps de te former.\nen entretien : « comment se passe le premier mois ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "50acef26",
+   "texte_overlay": "« horaires flexibles »\n= flexibles dans quel sens ?\nen entretien : « à quelle heure part l'équipe en général ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "510c0490",
+   "texte_overlay": "« package attractif »\n= rien de précis pour l'instant.\nen entretien : « est-ce que je peux avoir le détail par écrit ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "66b8a36a",
+   "texte_overlay": "ajoute une expression au dictionnaire\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

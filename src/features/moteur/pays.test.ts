@@ -95,6 +95,9 @@ describe("pays déduit de la langue", () => {
     expect(paysParDefaut("pt-BR")).toBe("BR");
     expect(paysParDefaut("es")).toBe("ES");
     expect(paysParDefaut("bg")).toBe("BG");
+    expect(paysParDefaut("lt")).toBe("LT");
+    expect(paysParDefaut("lv")).toBe("LV");
+    expect(paysParDefaut("ja")).toBe("JP");
     expect(paysParDefaut(null)).toBeNull();
   });
 

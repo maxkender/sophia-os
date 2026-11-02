@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o006",
+  "schema_id": "study-hacks-earlier",
+  "titre": "study hacks i wish i knew before exam season #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound - ⌖",
+  "musique_url": "https://www.tiktok.com/music/original-sound-⌖-7667011973359635218",
+  "inspirations": [
+    "55376335-ad2b-47dc-8aa1-03b3d6241fce",
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "Schéma study-hacks-earlier (@katy._.studies : 1,1 M vues le 28/09, relue par la veille du 25/10, valable jusqu'au 28/10). Accroches écrites : « study hacks i wish i knew earlier (exam edition) » (retenue : la forme exacte du gagnant, avec un twist de saison), « exam hacks nobody tells you » (écartée : s'éloigne du gagnant), « study hacks i wish i knew earlier pt. 3 » (écartée : cs-o004 est déjà pt. 2, pas encore mesuré). Six astuces neuves, aucune dans cs-o002, cs-o004 ni donnees/label.json : commencer l'épreuve par la question la plus sûre, se retester 3 jours plus tard (place micabo, slide 3), la matière la plus dure à son meilleur moment, surligner après avoir lu, se déconnecter des réseaux sur l'ordinateur (place UnSwipe, slide 6), écrire ses inquiétudes avant l'épreuve. Aucun chiffre ni « studies show ». Images jamais prises par nos originaux, sans visage ; slides 3 et 6 sans personne. Écartée à l'aperçu : 325104bd (logo de marque sur une tasse).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f8af60d",
+      "texte_overlay": "study hacks i wish i knew earlier\n(exam edition)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "37962e2f",
+      "texte_overlay": "on the test, read every question first and start with the one you're surest about.\neasy points first = less panic.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "29773e9c",
+      "texte_overlay": "test yourself again 3 days later, not just right after studying.\nif you still know it then, it's actually learned.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1ad91bf4",
+      "texte_overlay": "put your hardest subject at the time of day you focus best.\nnot at 10pm when you're already tired.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "185be545",
+      "texte_overlay": "highlight AFTER you finish a section, not while you read it.\notherwise the whole page ends up yellow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "038e8184",
+      "texte_overlay": "log out of social media on your laptop.\nif getting back in takes effort, you won't open it on autopilot.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "29151e1f",
+      "texte_overlay": "nervous before a test? take a few minutes to write down what worries you.\nit gets it out of your head and onto the paper.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0fdf2682",
+      "texte_overlay": "try these now and thank me later",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

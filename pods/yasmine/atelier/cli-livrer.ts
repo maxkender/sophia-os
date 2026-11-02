@@ -12,7 +12,7 @@
 // Environnement : POD_JETON. --essai écrit le corps de la requête sur disque
 // au lieu de l'envoyer.
 
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { appelPod, LANGUE_SOURCE, LANGUES, POD } from "./api.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
@@ -61,10 +61,18 @@ const textes = [
   }),
 ].filter(Boolean);
 
+// Une variante refait le même post qu'un remake plus ancien : l'OS refuse deux
+// contenus de même source_url, on la distingue par « ?variante=<id> » (le compte
+// et l'id TikTok restent lisibles dans l'URL).
+const anterieurs = readdirSync(join(RACINE, "posts"))
+  .filter((f) => /^yp-\d+\.json$/.test(f) && f < `${id}.json`)
+  .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
+const sourceUrl = anterieurs.some((p) => p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source.url;
+
 const corps = {
   action: "deposer",
   pod: POD,
-  source_url: post.source.url,
+  source_url: sourceUrl,
   source_id: post.id,
   source_vues: post.source.vues,
   titre: post.titre[LANGUE_SOURCE].slice(0, 160),
@@ -86,7 +94,11 @@ if (essai) {
   // Les mises en scène de l'OS utilisées dans ce post : leur compteur d'usage monte d'un cran,
   // une seule fois par post (un redépôt ne recompte pas : posts/<id>.json garde la liste).
   const notees = new Set(post.mises_en_scene_notees ?? []);
-  const photos = post.slides.flatMap((s) => [s.photo, ...langues.map((l) => (typeof s[l] === "object" ? (s[l] as ContenuSlide).photo : undefined))]);
+  const photos = post.slides.flatMap((s) => [
+    s.photo,
+    s.photo_bas,
+    ...langues.flatMap((l) => (typeof s[l] === "object" ? [(s[l] as ContenuSlide).photo, (s[l] as ContenuSlide).photo_bas] : [])),
+  ]);
   for (const m of new Set(photos.flatMap((p) => (p?.mise_en_scene ? [p.mise_en_scene] : [])))) {
     if (notees.has(m)) {
       console.log(`  mise en scène ${m.slice(0, 8)} : usage déjà noté pour ce post`);

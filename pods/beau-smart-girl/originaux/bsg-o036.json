@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o036",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à la bibliothécaire de mon quartier #pourtoi #culture #lecture #apprentissage",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+ ],
+ "notes": "variante de bsg-o005 (29,5 k vues, r 3,09 sur 3 passages ; le suivi du 30/10 dit DÉCLINER), 3e et dernière variante après bsg-o029 et bsg-o031. Même schéma vole-habitudes (preuve r 7,58, 83ef5e79), autre personne admirée, autres items. cta C (le défi en premier item ; voir CTA.md). Routine du 30/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 2 sur 7. Accroches écrites : « les habitudes insolites que j'ai volées à la bibliothécaire de mon quartier pour me cultiver sans m'en rendre compte » (retenue : le gabarit exact du gagnant, une personne admirée inattendue), « ce que la bibliothécaire de mon quartier m'a appris sans le savoir » (écartée : sans « volées »), « les secrets de la bibliothécaire la plus cultivée que je connaisse » (écartée : plus loin du gagnant). Items neufs : un livre de chaque rayon, les dédicaces, le livre d'à côté, les questions des lecteurs. Les deux dédicaces citées sont génériques, attribuées à personne. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia. Inspirations : slides 1 à 5 de 83ef5e79, 2 et 3 de d1970d80.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "32d91462",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à la bibliothécaire\nde mon quartier pour me cultiver\nsans m'en rendre compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8c7767e8",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "345580dc",
+   "texte_overlay": "1. elle lisait un livre de chaque rayon.\n\nun de science, un de voyage, un de poésie, un de cuisine.\nen un an, elle savait parler de tout.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "44dd35f4",
+   "texte_overlay": "2. elle lisait toutes les dédicaces.\n\n« à ma mère », « à celle qui m'a appris à lire ».\nchaque livre commençait par une petite histoire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "45601814",
+   "texte_overlay": "3. elle recommandait le livre d'à côté.\n\non venait chercher un titre, on repartait avec un autre.\nle hasard faisait le reste.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4633bdba",
+   "texte_overlay": "4. elle gardait une liste des questions des lecteurs.\n\nchaque semaine, elle cherchait les réponses.\nelle apprenait grâce à la curiosité des autres.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5619835e",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/3.jpg"
+  }
+ ]
+}

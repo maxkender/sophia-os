@@ -75,7 +75,7 @@ describe("AssignationABlancCard", () => {
     fireEvent.click(screen.getByRole("button", { name: /dry-run test|test à blanc/i }));
 
     await screen.findByTestId("resultat-a-blanc");
-    expect(lancer).toHaveBeenCalledWith("2026-10-10", "0000000a-0000-4000-8000-000000000001", false, expect.any(Function));
+    expect(lancer).toHaveBeenCalledWith("2026-10-10", "0000000a-0000-4000-8000-000000000001", false, expect.any(Function), false);
     expect(screen.getByText("Évité · INSERT passages (1)")).toBeInTheDocument();
     expect(screen.getAllByTestId("creneau-a-blanc")).toHaveLength(1);
     expect(screen.getByText("Trois habitudes")).toBeInTheDocument();

@@ -1,0 +1,1078 @@
+{
+ "id": "yp-018",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7668360450555333910",
+  "vues": 77400,
+  "enregistrements": 3462,
+  "publie_le": "2026-07-30",
+  "titre": "OLDER SISTER ADVICE from a 20-year-old"
+ },
+ "titre": {
+  "fr": "conseils de grande sœur pour ton année de bac",
+  "en": "older sister advice for your final year of school",
+  "es": "consejos de hermana mayor para tu año de selectividad",
+  "de": "Rat deiner großen Schwester für dein Abi-Jahr",
+  "it": "consigli da sorella maggiore per il tuo anno di maturità",
+  "pt": "conselhos de irmã mais velha para o seu ano de vestibular",
+  "tr": "sınav yılın için abladan tavsiyeler"
+ },
+ "legendes": {
+  "fr": "ce que j’aurais aimé savoir l’année du bac 🎓 #bac #terminale #studytok #thatgirl #conseils",
+  "en": "what i wish i knew in my final year 🎓 #finalyear #exams #studytok #thatgirl #advice",
+  "es": "lo que me habría gustado saber el año de selectividad 🎓 #selectividad #bachillerato #studytok #thatgirl #consejos",
+  "de": "was ich im Abi-Jahr gern gewusst hätte 🎓 #abitur #abi #studytok #thatgirl #tipps",
+  "it": "cosa avrei voluto sapere l’anno della maturità 🎓 #maturità #quintoanno #studytok #thatgirl #consigli",
+  "pt": "o que eu queria ter sabido no ano do vestibular 🎓 #vestibular #enem #studytok #thatgirl #dicas",
+  "tr": "sınav yılımda bilmek istediklerim 🎓 #yks #sınav #studytok #thatgirl #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
+ },
+ "fond": {
+  "media_id": "07e65dd2-47af-420e-8c22-43e6fa6d96b0",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7513ad2e-f361-42f9-81b7-9de62eed1c48/4.jpg?v=1790606901003",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-009 (« OLDER SISTER ADVICE », 77 k) : année du bac, autres conseils et autres photos. cta C : la mise en scène iPhone micabo en moitié basse d’un collage, conseil « fais les annales » + micabo dans la sous-légende",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "0287798e-db49-4503-a321-94702f09b1bd",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3a98e007-46f6-4307-a312-593093bdba6f/3.jpg?v=1790679599401",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "1d335504-8f1d-47d9-9db7-158eb59326db",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ed095e16-adc1-4bb3-a1e7-b2752a53e9dd/1.jpg?v=1791725301049",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE GRANDE",
+      "SŒUR"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "pour ton année de bac",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OLDER",
+      "SISTER",
+      "ADVICE"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "for your final year of school",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE HERMANA",
+      "MAYOR"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "para tu año de selectividad",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RAT",
+      "DEINER GROSSEN",
+      "SCHWESTER"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "für dein Abi-Jahr",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "DA SORELLA",
+      "MAGGIORE"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "per il tuo anno di maturità",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSELHOS",
+      "DE IRMÃ",
+      "MAIS VELHA"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "para o seu ano de vestibular",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABLADAN",
+      "TAVSİYELER"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "sınav yılın için",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "92e35d31-8355-4c7c-aaf7-2b7f01084b46",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d8e99424-2b6b-4312-8e3d-19e6b65b43ba/3.jpg?v=1791726621630",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "308d085d-4991-421d-abdc-7e5a582f6ff5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/da5cc540-ac82-4d07-8ba0-13df8e4002d6/1.jpg?v=1791726808813",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "commence à réviser en janvier,",
+      "pas en mai."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 mois de petites révisions battent 3 semaines de panique."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "start revising in january,",
+      "not in may."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 months of small sessions beat 3 weeks of panic."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "empieza a estudiar en enero,",
+      "no en mayo."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 meses de repasos cortos ganan a 3 semanas de pánico."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "fang im Januar an zu lernen,",
+      "nicht im Mai."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 Monate kleine Einheiten schlagen 3 Wochen Panik."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "inizia a ripassare a gennaio,",
+      "non a maggio."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 mesi di piccoli ripassi battono 3 settimane di panico."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "comece a revisar em janeiro,",
+      "não em maio."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 meses de revisões curtas vencem 3 semanas de pânico."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "çalışmaya ocakta başla,",
+      "mayısta değil."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "5 ay boyunca az az çalışmak, 3 haftalık paniği yener."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "1c6694f8-f7d1-4b70-94ab-8d0ba23a350b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ee0c597a-af8d-4306-bd18-befb43ddd57a/1.jpg?v=1791725405350",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fais les annales, encore et encore."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "et pour le cours, je le mets dans micabo :",
+      "il me pose les questions à ma place."
+     ],
+     "taille_sous": 26
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "do past papers, again and again."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "for the lessons, i put them into micabo:",
+      "it asks me the questions for me."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "haz exámenes antiguos, una y otra vez."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "y las clases las meto en micabo:",
+      "me hace las preguntas por mí."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach alte Prüfungen, immer wieder."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "den Stoff packe ich in micabo:",
+      "es stellt mir die Fragen."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "fai le prove passate, ancora e ancora."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "e le lezioni le metto su micabo:",
+      "mi fa le domande al posto mio."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "faça provas antigas, de novo e de novo."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "e as aulas eu coloco no micabo:",
+      "ele me faz as perguntas."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "çıkmış soruları tekrar tekrar çöz."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "dersleri de micabo’ya koyuyorum:",
+      "soruları benim yerime o soruyor."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "bc92fccc-d782-4bd6-8ee1-6b9a40f4f461",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bf0fbfc9-a6ca-4e2f-a34a-bad77bb57abc/7.jpg?v=1790678053030",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "39ea7e4a-7384-4841-94cd-a0411339c65e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/752ba489-e608-4025-afdc-215ced55bb6c/3.jpg?v=1790612510948",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ne compare pas tes notes",
+      "à celles des autres."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "don’t compare your grades",
+      "to everyone else’s."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "no compares tus notas",
+      "con las de los demás."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "vergleich deine Noten",
+      "nicht mit anderen."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "non confrontare i tuoi voti",
+      "con quelli degli altri."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "não compare suas notas",
+      "com as dos outros."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "notlarını başkalarınınkiyle",
+      "karşılaştırma."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ba7039c7-9e9b-4fd5-894d-a0adac9989c8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6e308872-c85d-4a88-be19-f02c212e3105/3.jpg?v=1790678560716",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "dd1f7dad-e215-4e95-a2ee-18e3f0303bd7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8ed2270b-74ec-45c4-a10c-8dff3c57e313/7.jpg?v=1791729052403",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "garde ton sport, même en mai."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 h par semaine m’ont gardée sereine."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "keep up your workouts, even in may."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 hours a week kept me sane."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "no dejes el deporte, ni en mayo."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 h a la semana me mantuvieron tranquila."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "bleib beim Sport, auch im Mai."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 Std. pro Woche haben mich ruhig gehalten."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "non mollare lo sport, nemmeno a maggio."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 ore a settimana mi hanno tenuta serena."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "não largue o treino, nem em maio."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 h por semana me mantiveram tranquila."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "mayısta bile sporu bırakma."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "haftada 2 saat spor beni sakin tuttu."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "50449937-7e5f-428a-a8a6-2420898495db",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/66a59f33-b0ce-46ee-ac28-627c9e37885c/2.jpg?v=1790681279463",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "aa2997d0-f40b-43f7-8916-b5da9b969464",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/577cae13-0359-486e-ac83-6c2d0d347df6/4.jpg?v=1790612384246",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "le bac n’est pas toute ta vie."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "dans 2 ans, personne ne te demandera ta note."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "your final exams aren’t your whole life."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "in 2 years, nobody will ask about your grade."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "la selectividad no es toda tu vida."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "dentro de 2 años nadie te preguntará la nota."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "das Abi ist nicht dein ganzes Leben."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "in 2 Jahren fragt niemand nach deiner Note."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "la maturità non è tutta la tua vita."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "fra 2 anni nessuno ti chiederà il voto."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "o vestibular não é a sua vida inteira."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "daqui a 2 anos, ninguém vai perguntar sua nota."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sınav senin bütün hayatın değil."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "2 yıl sonra kimse puanını sormayacak."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "03a8c2c9-517d-4193-99be-34657e732bde",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/11e26f73-5708-4a78-8b74-d748f77120e2/9.jpg?v=1790679708609",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "b2b3942d-6504-4eff-9d61-63afdb983cce",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dd6aff92-e477-4602-81f9-fc57c9a56fa0/2-upscale.jpg?v=1785883526879",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "dors vraiment",
+      "la semaine des épreuves."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "actually sleep",
+      "during exam week."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "duerme de verdad",
+      "la semana de exámenes."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "schlaf richtig",
+      "in der Prüfungswoche."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "dormi davvero",
+      "la settimana degli esami."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "durma de verdade",
+      "na semana das provas."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sınav haftası",
+      "gerçekten uyu."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "175e44ec-8568-4871-bf54-23c5ef9e57c2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ef405631-e93f-45a3-9954-74b3bfb5d863/6.jpg?v=1790607933574",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "75b192c1-df81-4fcd-b3ee-699b2adfaef2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0e74d886-b12e-4ae1-acbe-585842d2e070/7.jpg?v=1790679270135",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "demande de l’aide avant d’être perdue."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un prof, un ami, ta grande sœur. c’est fait pour ça."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "ask for help before you’re lost."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "a teacher, a friend, your big sister. that’s what we’re here for."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "pide ayuda antes de perderte."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un profe, una amiga, tu hermana mayor. para eso estamos."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "frag nach Hilfe, bevor du den Faden verlierst."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "Lehrkraft, Freundin, große Schwester. dafür sind wir da."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "chiedi aiuto prima di perderti."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un prof, un’amica, tua sorella maggiore. siamo qui per questo."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "peça ajuda antes de se perder."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "um professor, uma amiga, sua irmã mais velha. é pra isso que a gente existe."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kaybolmadan önce yardım iste."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "bir öğretmen, bir arkadaş, ablan. biz bunun için varız."
+     ],
+     "taille_sous": 28
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

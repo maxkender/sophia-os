@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o043",
+ "schema_id": "high-status-woman",
+ "titre": "Museum Etiquette Every Elegant Woman Knows #museum #arthistory #etiquette #smartgirl #elegance",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "f6b8b58a-5eb4-4c4c-bff4-267b991dd343",
+  "2db2f497-45b2-49ec-8faa-559f06aa0780"
+ ],
+ "notes": "cta B. CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Schéma high-status-woman (4950b76f r 8,72 ; f6b8b58a r 4,23), angle culture : l'élégance au musée. Accroche jamais faite chez nous. Accroches écrites : « Museum Etiquette Every Elegant Woman Knows » (retenue : forme « … every woman should own/learn » des gagnants), « how to look cultured in a museum » (écartée : promesse de paraître, pas d'être), « things not to do in an art museum » (écartée : négatif). Règles courantes des musées, sans chiffre inventé : regarder avant de lire le cartel, reculer pour laisser voir, ne jamais toucher, pas de flash, parler bas, choisir quelques œuvres plutôt que tout voir, apprendre l'histoire d'un tableau avant d'y aller (Sophia au milieu, cta B). Images de la banque (musées, universités, bibliothèques), sans texte lisible ; slide Sophia sur une bougie à la fenêtre, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b10fe621",
+   "texte_overlay": "Museum Etiquette Every\nElegant Woman Knows",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9e64a088",
+   "texte_overlay": "1. Look first, read after\nGive the painting a minute\nbefore you read the label.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f8c4c2ab",
+   "texte_overlay": "2. Step back for others\nGreat art needs distance,\nand everyone deserves\nthe view.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ca30fbf8",
+   "texte_overlay": "3. Know one story before\nyou go\nWho painted it, and why.\nThe painting will speak\nto you.",
+   "texte_sophia": "3. Know one story before\nyou go. I learn the story\nbehind one painting a day\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8e622c07",
+   "texte_overlay": "4. Never touch, no flash\nThe oils on your fingers and\nbright light damage old works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2f8a32b8",
+   "texte_overlay": "5. Speak softly\nA museum is a library\nfor the eyes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5502bcc3",
+   "texte_overlay": "6. Choose five works,\nnot fifty\nYou'll remember them\nfor years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9e38b6a1",
+   "texte_overlay": "Save this for your next\nmuseum visit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/8.jpg"
+  }
+ ]
+}

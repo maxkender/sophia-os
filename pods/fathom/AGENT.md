@@ -6,7 +6,7 @@ Sophia, en discussion** : « refais le suivant », « où en est le pod ? »,
 
 Tu ne publies jamais rien. Tout part dans la **file de validation** de l'OS
 (Pilotage → Pods). Ton podz est « sûr » : une livraison que personne ne
-rejette est validée toute seule 12 h après son dépôt.
+rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission
 
@@ -20,6 +20,9 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Jamais plaquée : une liste de compétences ou de vidéos à regarder n'a pas d'étape UnSwipe.
 - **Le label** : `Fathomly`, qui sert **Sophia seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes Sophia anglais.
 - **En six langues** : l'anglais d'abord, puis fr, es, de, it et pt (`LANGUES` dans `atelier/api.ts`). Chaque langue a ses propres vidéos YouTube, cherchées dans cette langue (`npm run youtube -- "…" --langue fr`), avec un titre natif : si YouTube renvoie le titre traduit d'une chaîne, passe `--recherche "<titre natif>"` ou change de vidéo.
+- **Liste finie (30/10)** : les 16 posts du manifeste sont faits. Suite : des variantes de ses accroches qui ont marché (autres étapes, autres vidéos, autre CTA ; ROUTINE § 5.3 et 5.7, au plus 1 par jour sur une famille déjà livrée 3 fois en 7 jours), et la veille du lundi pour ses nouveaux posts. Sur une couverture, coupe la ligne à la virgule plutôt que de la garder en bout de ligne : sa queue écarte la ligne suivante.
+- **Reprises et `source_url`** : l'OS refuse deux contenus de même `source_url`. `npm run livrer` ajoute tout seul `?variante=<id>` quand un post plus ancien a la même source (31/10, comme le podz 10).
+- **Les comptes du label (27/10)** : @jakob.staerke637 (de) et @margarida.aprende717 (pt du Portugal), à 2 posts par jour chacun. Chaque livraison part donc d'abord en **de et pt**, puis dans les autres langues. Le pt s'écrit pour le Portugal (« tu », vocabulaire pt-PT). Un deck livré seulement en anglais ne nourrit aucun de ces comptes : complète-le avec une livraison `~langues`.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake
@@ -36,7 +39,10 @@ rejette est validée toute seule 12 h après son dépôt.
 - **La slide Sophia** : une seule par deck, **une étape native au milieu de la liste**, en carte d'appli comme UnSwipe (`"type": "etape", "app": "sophia"`, avec `carte`, que l'OS marque `position_sophia`). Décision du 23/10 : plus de slide d'appli à la fin.
 	- Le titre est une vraie étape de la liste, dans son style : « LEARN NEW TOPICS » (une liste « 5 Ways »), « ANSWER RANDOM QUESTIONS » (une liste de compétences).
 	- Elle remplace une étape : on garde son nombre d'étapes (« 5 Ways » = 5 étapes, Sophia et UnSwipe comprises), donc une slide de moins que lui quand il avait une slide d'appli.
-	- La carte : « SOPHIA » et la phrase de son positionnement (« learn something new every day, », « in 5 minutes. »).
+	- La carte : « SOPHIA » et une phrase de son positionnement, en versions qu'on alterne d'une livraison à l'autre (ROUTINE.md § 4.5), notées dans `notes` et identiques sur toutes les langues :
+		- `cta A` : « learn something new every day, » / « in 5 minutes. » (fa-001 à fa-004, fa-007) ;
+		- `cta B` : « 5 minutes a day » / « to know a bit about everything. » (fa-005) ;
+		- `cta C` : « what I open » / « instead of scrolling. », conseil à la 1re personne, en 2e position (fa-006). Les vues ne jugent pas un CTA (30/10, ROUTINE.md § 4.5) : une version ne se change que si elle se répète ou sonne pub.
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».
 - **La carte UnSwipe** (`"type": "etape", "app": "unswipe"`, avec `carte`) : « UNSWIPE » et une ou deux lignes.
 	- Ce qu'elle fait vraiment : Instagram sans les Reels (on garde les messages, les stories et les posts des amis), les autres applis sans les vidéos courtes ni le scroll infini, une appli comme TikTok bloquée en entier. « no need to delete anything ».
@@ -55,7 +61,8 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Étapes en bandeau** (ses « 10/10 Skills To Learn Before You Are 25 ») : `"bandeau": true`, une ligne en Inter Black (capitale 59 px, y 410), la carte à y 585. Un titre traduit trop long se resserre puis rapetisse : raccourcis-le plutôt.
 - **Carte d'appli** : icône 380 px, nom en Anton à la couleur de l'appli, une ou deux lignes en Inter Medium.
 - **Carte Sophia** : la même carte d'appli qu'UnSwipe (icône 380 px, « SOPHIA » en rose). L'ancienne slide de fin (`type: "app"`) reste dans l'atelier mais ne sert plus.
-- **Pas encore dans l'atelier** : ses cartes YouTube sans titre (« S Tier YouTube Videos »), ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.
+- **Ses « S Tier YouTube Videos »** : l'étape normale, sans numéro (le titre de la vidéo en titre géant, sa carte 17 px dessous). Mesuré sur ses slides le 26/10 (fa-006).
+- **Pas encore dans l'atelier** : ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.
 
 ## Tes outils (dans `pods/fathom/`)
 

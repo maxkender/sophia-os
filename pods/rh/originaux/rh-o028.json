@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o028",
+ "schema_id": "insider-rh",
+ "titre": "quand j'étais rh, voilà ce que je notais pendant ton premier appel de 15 minutes #entretien #rechercheemploi #recrutement #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Routine du 27/10 (4 livraisons par jour). Règle §4.6 : seule rh-o028 reprend une famille d'accroche faite 3 fois en 7 jours (« quand j'étais rh »). rh-o027 est sur job-toxique (2 fois en 7 jours), rh-o029 et rh-o030 ouvrent des familles d'accroche jamais faites (« j'ai arrêté », « vrai ou faux »). Schéma insider-rh (r 2,91 sur 7 passages, d3d9cd2f). Angle jamais fait : le premier appel téléphonique de présélection, avant l'entretien. Accroches écrites : « quand j'étais rh, voilà ce que je notais pendant ton premier appel de 15 minutes » (retenue), « l'appel de 15 minutes qui décide si tu passes en entretien » (écartée : sans la confession), « ce qui se joue au téléphone avant ton entretien » (écartée : plate). Six notes neuves, aucune reprise de rh-o005, rh-o010, rh-o018, rh-o022 ni des sources. Salaire : on donne une fourchette vraie, rien d'inventé. CTA de fin jamais utilisé : envoyer le post à quelqu'un qui attend un appel. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50da26fc",
+   "texte_overlay": "quand j'étais rh, voilà ce que je notais\npendant ton premier appel\nde 15 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4ee2e82e",
+   "texte_overlay": "1. si tu décrochais en sachant qui j'étais\n« bonjour, oui, c'est pour le poste de X ! »\nnote les boîtes où t'as postulé, à côté de ton téléphone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "508b3246",
+   "texte_overlay": "2. si tu résumais ton parcours en moins d'une minute\nau-delà, je décrochais un peu.\nprépare 4 phrases, pas plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5b406ec9",
+   "texte_overlay": "3. ta fourchette de salaire\n« je ne sais pas » me mettait mal à l'aise.\nune fourchette vraie, réfléchie avant, et c'est réglé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5399490e",
+   "texte_overlay": "4. ta date de disponibilité\nflou = je passais au suivant.\nconnais ton préavis avant l'appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "53dd5953",
+   "texte_overlay": "5. ta voix, plus que tes mots\nsouriante ou fatiguée, ça s'entend.\nappelle debout, au calme, avec un verre d'eau",
+   "texte_sophia": "5. ta voix, plus que tes mots\nsouriante ou fatiguée, ça s'entend.\navant l'appel, utilise l'appli Sophia 5 minutes : une anecdote, et tu décroches détendue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "54b3bd07",
+   "texte_overlay": "6. si tu me posais UNE question\n« comment se passe la suite ? » suffisait.\nzéro question, c'était noté « peu motivée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "55341c00",
+   "texte_overlay": "envoie ça à quelqu'un\nqui attend un appel de recruteur\ncette semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

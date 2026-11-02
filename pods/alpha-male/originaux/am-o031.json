@@ -1,0 +1,69 @@
+{
+ "source_id": "am-o031",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "068ba114-126a-4f9c-80cc-721bd5ded6dd",
+ "titre": "8 silent battles men must win to be great #men #discipline #selfimprovement #mindset #growth",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7360418078004267809",
+ "inspirations": [
+  "068ba114-126a-4f9c-80cc-721bd5ded6dd"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». Répétition BLEO du 31/10 (ROUTINE.md, exception podz 8 et 9). Déclinaison G1 de la ligne 1 de la boîte (parent 068ba114, en ; meilleur passage fr 5,2 k vues, r 4,31). Accroche du parent mot pour mot : « 8 Silent battles men must win to be GREAT ». Huit combats neufs ; aucun ne reprend ceux du parent (douleur, solitude, désir, ego, régularité, patience, identité, discipline) ni le label (aucun « battle of … » ci-dessous dans donnees/label.json). Images : la banque (--cherche), sans visage ; slide Sophia sur une chambre sans personne. reference_url du parent, vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "02e09376",
+   "texte_overlay": "8 Silent battles men must win\nto be GREAT",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "12c69193",
+   "texte_overlay": "The battle of comfort.\nThe warm bed, the easy night,\nthe safe choice. Comfort feels\nlike rest until it becomes a cage.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22e08b8d",
+   "texte_overlay": "The battle of distraction.\nYour phone is designed to win.\nEvery hour you take back\nis an hour you build with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0a60706f",
+   "texte_overlay": "The battle of anger.\nAnyone can explode.\nThe strong man feels it,\nwaits, then speaks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "18a7046b",
+   "texte_overlay": "The battle of comparison.\nTheir highlight reel isn't\nyour race. Look at who you\nwere last year instead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c938189",
+   "texte_overlay": "The battle of fear.\nMost of what you're afraid of\nnever happens. Do it scared.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "04e5c4f4",
+   "texte_overlay": "The battle of the past.\nYou can learn from it\nwithout living in it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "29cccdce",
+   "texte_overlay": "The battle of rest.\nKnowing when to stop\nis also discipline.\nTired men make bad decisions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "13c204d3",
+   "texte_overlay": "The battle of curiosity.\nThe day you stop learning,\nyou start shrinking.\nFeed your mind every day.",
+   "texte_sophia": "The battle of curiosity.\nThe day you stop learning,\nyou start shrinking. Use a\nmicro-learning app like the\nSophia app: 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/9.jpg"
+  }
+ ]
+}

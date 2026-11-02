@@ -47,11 +47,11 @@ const valider = (c: ChoixCreation, langue: string | null = "fr", liens = LIENS, 
   validerChoixCreation({ choix: c, applications: APPS, liens, labels, langue });
 
 describe("peutChoisirApplicationsCompte", () => {
-  it("tous les rôles qui créent des comptes de créateurs", () => {
+  it("l'admin et le Head of Ops seulement : HM et DM laissent la répartition choisir", () => {
     expect(peutChoisirApplicationsCompte("admin")).toBe(true);
     expect(peutChoisirApplicationsCompte("head_of_ops")).toBe(true);
-    expect(peutChoisirApplicationsCompte("hiring_manager")).toBe(true);
-    expect(peutChoisirApplicationsCompte("directing_manager")).toBe(true);
+    expect(peutChoisirApplicationsCompte("hiring_manager")).toBe(false);
+    expect(peutChoisirApplicationsCompte("directing_manager")).toBe(false);
     expect(peutChoisirApplicationsCompte("poster")).toBe(false);
     expect(peutChoisirApplicationsCompte(null)).toBe(false);
   });

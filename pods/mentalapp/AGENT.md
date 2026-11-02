@@ -102,6 +102,16 @@ Décision du 17/10 : une tier list neuve de 2 slides dans le style du compte.
 - **Textes** : par langue ; `|` force un retour à la ligne, sinon une légende trop large se coupe seule. Mêmes règles que `posts/CONSIGNES.md`.
 - **Id** : `mm-o` + numéro, jamais réutilisé une fois validé ou rejeté.
 - **Flux** : `npm run original -- <id>`, relis la planche, montre-la à l'humain, puis `--deposer`. Validé, l'original entre au rang original.
+- **Deux formats** :
+  - tier list (2 slides, `atelier/original.ts`) ;
+  - carrousel (`"format": "carrousel"`, `atelier/carrousel.ts`) : une couverture « <Thème> tier list », puis un item par slide (badge du rang, titre, photo, deux phrases).
+    - C'est le format de @mentalapp depuis le 18/10.
+    - L'élément UnSwipe y est un item à lui seul (`{ "rang": "S+", "app": true, "texte": … }`), en avant/après (`cta C`).
+- **CTA** (ROUTINE.md §4.5) : la légende « delete short-videos (UnSwipe app) » est fixe, donc les versions varient par la forme et la place.
+  - `cta A` : première case du S+ d'une tier list.
+  - `cta B` : dernière case du S+.
+  - `cta C` : item d'un carrousel en **avant/après** (« Before: … After deleting them with UnSwipe: … »), depuis le 02/11. Remplace l'ancien `cta C` (conseil à la 1re personne), la moins bonne version au relevé du lundi 02/11 : carrousels en moyenne 1 484 vues (médiane ~900) contre 2 448 pour `cta A` et 2 080 pour `cta B`.
+  - Alterne-les et note la version dans `notes`.
 
 ## La routine du matin
 

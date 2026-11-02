@@ -183,12 +183,29 @@ export function grouperParHm(propositions: PropositionCkd[]): GroupeHm[] {
  * nouveau compte.
  */
 export const BOUTONS_PAR_REGLE: Record<RegleCkd, readonly string[]> = {
-  jeudi: ["envoyerNudge", "rien"],
-  absent: ["nePasRenouveler", "envoyerNudge", "garder"],
-  premiere_semaine: ["nePasRenouveler", "recreer", "garder"],
+  jeudi: ["envoyerNudge", "recreer", "rien"],
+  absent: ["nePasRenouveler", "garder"],
+  inactif: ["nePasRenouveler", "garder"],
+  premiere_semaine: ["nePasRenouveler", "garder"],
   anciens: ["recreer", "nePasRenouveler", "garder"],
   doubler: ["doubler", "pasMaintenant"],
 };
+
+/**
+ * Les boutons d'une proposition, selon le jour du contrôle : le jeudi ne fait
+ * aucun arrêt (0368), le samedi ne recrée plus (0369) — Kill ou Double.
+ */
+export function boutonsPour(regle: RegleCkd, type: TypeControle): readonly string[] {
+  const boutons = BOUTONS_PAR_REGLE[regle];
+  return type === "jeudi"
+    ? boutons.filter((b) => b !== "nePasRenouveler")
+    : boutons.filter((b) => b !== "recreer");
+}
+
+/** Le bouton choisi d'avance : « Recréer » quand le jeudi le propose. */
+export function boutonPropose(p: Pick<PropositionCkd, "action" | "type">): string | null {
+  return p.type === "jeudi" && p.action === "recreer" ? "recreer" : null;
+}
 
 /** La décision enregistrée pour chaque bouton (même liste que `ckd_decisions_permises`). */
 export const DECISION_DU_BOUTON: Record<string, DecisionCkd> = {
@@ -206,9 +223,13 @@ export function boutonDeLaDecision(decision: DecisionCkd): string {
   return Object.keys(DECISION_DU_BOUTON).find((b) => DECISION_DU_BOUTON[b] === decision) ?? decision;
 }
 
-/** Ces décisions créent un compte : confirmation, et pas d'annulation. */
+/**
+ * Ces décisions créent un compte tout de suite : pas d'annulation, et elles ne
+ * partent aux HMs qu'avec le nouveau compte. Doubler n'en fait plus partie
+ * (v3, 0382) : c'est une offre au posteur, qui part tout de suite.
+ */
 export function creeUnCompte(decision: DecisionCkd): boolean {
-  return decision === "recreer" || decision === "doubler";
+  return decision === "recreer";
 }
 
 /** Les décisions qui partent aux HMs (les autres sont seulement notées). */
@@ -219,6 +240,8 @@ export function aEnvoyer(p: PropositionCkd): boolean {
   if (!p.decision || p.envoye_at || !DECISIONS_ENVOYEES.includes(p.decision)) return false;
   // Suivi du HM désactivé (0339) : rien ne part dans #managers-hq.
   if (p.hm_suivi === false) return false;
+  // Recréation du jeudi : la HM n'est pas notifiée, le posteur l'est (0368).
+  if (p.type === "jeudi" && p.decision === "recreer") return false;
   return !creeUnCompte(p.decision) || Boolean(p.nouveau_compte_id);
 }
 

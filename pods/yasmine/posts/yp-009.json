@@ -1,0 +1,1073 @@
+{
+ "id": "yp-009",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7668360450555333910",
+  "vues": 77400,
+  "enregistrements": 3462,
+  "publie_le": "2026-07-30",
+  "titre": "OLDER SISTER ADVICE from a 20-year-old"
+ },
+ "titre": {
+  "fr": "conseils de grande sœur d’une fille de 20 ans",
+  "en": "older sister advice from a 20-year-old",
+  "es": "consejos de hermana mayor de una chica de 20 años",
+  "de": "Ratschläge einer großen Schwester mit 20",
+  "it": "consigli da sorella maggiore di una ventenne",
+  "pt": "conselhos de irmã mais velha de uma garota de 20 anos",
+  "tr": "20 yaşındaki bir ablanın tavsiyeleri"
+ },
+ "legendes": {
+  "fr": "ce que j’aurais aimé qu’on me dise 🤍 #conseils #grandesoeur #studytok #vie #thatgirl",
+  "en": "things i wish someone told me 🤍 #advice #oldersister #studytok #lifeadvice #thatgirl",
+  "es": "lo que me habría gustado que me dijeran 🤍 #consejos #hermanamayor #studytok #vida #thatgirl",
+  "de": "was ich gern früher gehört hätte 🤍 #ratschläge #großeschwester #studytok #leben #thatgirl",
+  "it": "quello che avrei voluto sentirmi dire 🤍 #consigli #sorellamaggiore #studytok #vita #thatgirl",
+  "pt": "o que eu queria que tivessem me dito 🤍 #conselhos #irmamaisvelha #studytok #vida #thatgirl",
+  "tr": "keşke biri bana söyleseydi dediklerim 🤍 #tavsiye #abla #studytok #hayat #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
+ },
+ "fond": {
+  "media_id": "7d463f3e-4bd2-47da-ad64-fd80b0a38b8f",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1ab9f383-5c9e-4b3d-870b-e60791633d72/5-upscale.jpg?v=1785579438182",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "cta C : la mise en scène iPhone micabo en moitié basse d'un collage, conseil « débrouille-toi seule » + micabo dans la sous-légende",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "7d463f3e-4bd2-47da-ad64-fd80b0a38b8f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1ab9f383-5c9e-4b3d-870b-e60791633d72/5-upscale.jpg?v=1785579438182",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "0e8823f4-41db-45b5-8a63-f30450a6c690",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/741645ec-a2c8-4b97-9203-7288b15f4428/4.jpg?v=1789050248569",
+    "cadrage": {
+     "x": 0,
+     "y": 0.9
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE GRANDE",
+      "SŒUR"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "d’une fille de 20 ans",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OLDER",
+      "SISTER",
+      "ADVICE"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "from a 20-year-old",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE HERMANA",
+      "MAYOR"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "de una chica de 20 años",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RAT-",
+      "SCHLÄGE",
+      "VON DER",
+      "GROSSEN",
+      "SCHWESTER"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 380,
+     "texte_bas": "mit 20",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "DA SORELLA",
+      "MAGGIORE"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "di una ventenne",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSELHOS",
+      "DE IRMÃ",
+      "MAIS VELHA"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "de uma garota de 20 anos",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABLA",
+      "TAVSİYELERİ"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "20 yaşında birinden",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9883ad48-fac9-48ab-9ce4-b8f42c467e7e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fc6418b8-1549-44a8-bb43-b22c0e79ed59/4.jpg?v=1792602037837",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "15a76c43-8b2c-402e-9e47-4a0910ea67b7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9179b83d-20d7-480d-89c3-3de31916ea98/8.jpg?v=1790607973593",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "n’attends pas qu’on te serve",
+      "tout sur un plateau."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "tu dis que tu ne sais pas faire,",
+      "mais tu as au moins essayé ?"
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "don’t expect everything to be",
+      "handed to you on a silver platter."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "you say you don’t know how,",
+      "but have you even tried?"
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "no esperes que te lo den",
+      "todo en bandeja."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "dices que no sabes hacerlo,",
+      "pero ¿lo has intentado siquiera?"
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "erwarte nicht, dass dir alles",
+      "auf dem Silbertablett serviert wird."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "du sagst, du weißt nicht wie,",
+      "aber hast du es überhaupt versucht?"
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "non aspettarti che ti servano",
+      "tutto su un piatto d’argento."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "dici che non sai come fare,",
+      "ma almeno ci hai provato?"
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "não espere que te entreguem",
+      "tudo de bandeja."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "você diz que não sabe fazer,",
+      "mas pelo menos tentou?"
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "her şeyin sana gümüş tepside",
+      "sunulmasını bekleme."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "nasıl yapacağını bilmediğini söylüyorsun,",
+      "ama hiç denedin mi?"
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "61496c45-9d88-4428-a411-7c5f1949dcca",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b193c51a-1924-4fef-a918-e62b096a73d6/2.jpg?v=1792591438830",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.75
+    }
+   },
+   "photo_bas": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "apprends à te débrouiller seule."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "moi, je révise avec micabo : je me teste",
+      "au lieu d’attendre qu’on m’explique."
+     ],
+     "taille_sous": 26
+    }
+   },
+   "app": true,
+   "en": {
+    "legende": {
+     "lignes": [
+      "learn to figure things out on your own."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "i study with micabo: i test myself",
+      "instead of waiting for someone to explain."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "aprende a apañártelas sola."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "yo estudio con micabo: me pongo a prueba",
+      "en vez de esperar a que me lo expliquen."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern, dir selbst zu helfen."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "ich lerne mit micabo: ich frage mich selbst ab,",
+      "statt zu warten, dass es mir jemand erklärt."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "impara a cavartela da sola."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "io studio con micabo: mi metto alla prova",
+      "invece di aspettare che qualcuno mi spieghi."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "aprenda a se virar sozinha."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "eu estudo com o micabo: me testo",
+      "em vez de esperar alguém me explicar."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendi başının çaresine bakmayı öğren."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "ben micabo ile çalışıyorum: biri bana",
+      "açıklasın diye beklemek yerine kendimi test ediyorum."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2ce3c5b8-5aa1-4e7e-9200-12d8824cadc4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/7.jpg?v=1790606894713",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "04b6c542-df00-44ed-9456-a7ea9dbd4e06",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fa81a15f-51a4-4e1c-9a8d-a0866f7b0302/4.jpg?v=1790606927155",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "parfois, être dans la moyenne, ça va."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "les notes comptent, mais tu n’as pas",
+      "besoin d’avoir 20/20 partout."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "sometimes, being average is okay."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "grades are important, but you don’t",
+      "have to have straight As."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "a veces, ser del montón está bien."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "las notas importan, pero no hace",
+      "falta sacar un 10 en todo."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "manchmal ist Durchschnitt okay."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "Noten sind wichtig, aber du musst",
+      "nicht überall eine Eins haben."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "a volte, essere nella media va bene."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "i voti contano, ma non devi",
+      "avere 10 in tutto."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "às vezes, ficar na média tudo bem."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "as notas importam, mas você não",
+      "precisa tirar 10 em tudo."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bazen ortalama olmak sorun değil."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "notlar önemli ama her dersten",
+      "tam not almak zorunda değilsin."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2b10e71d-e198-4584-be00-098822d23277",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0b1fb13a-c891-4b67-97b3-dc97d80dfef3/7.jpg?v=1790608994388",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "a0ccd97f-e1fb-4cb1-8256-d58baca9e85a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a7081430-d2ec-4e30-9fe3-36d409f6f45d/1.jpg?v=1790678475207",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "crée des souvenirs."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "make memories."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "crea recuerdos."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "sammle Erinnerungen."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "crea ricordi."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "crie memórias."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "anılar biriktir."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "89eff8b9-0dd3-4f74-8964-48c2a0308d64",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e3b0c9b6-76ef-43f8-9366-5ec469213072/6.jpg?v=1787159421938",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2ac44bad-9aea-4a84-9740-fcba973588b4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/375ec54a-c305-4083-bf9c-2a47f0957e40/8.jpg?v=1790680634894",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "les gens changent.",
+      "et les amis s’éloignent."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "people change.",
+      "and friends drift apart."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "la gente cambia.",
+      "y los amigos se alejan."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Menschen ändern sich.",
+      "und Freunde leben sich auseinander."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "le persone cambiano.",
+      "e gli amici si allontanano."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "as pessoas mudam.",
+      "e os amigos se afastam."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "insanlar değişir.",
+      "ve arkadaşlar uzaklaşır."
+     ],
+     "x": 540,
+     "y": 860,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "18369f4e-d21a-4aa3-9b26-7cd584e2dad1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3ef0457a-db0b-4764-a6fc-15251c88ece0/3.jpg?v=1790612069381",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "5cbb4645-8d26-4bf1-80ca-077a0b59f1c6",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dfe42aac-3f4a-4c4f-84d8-5af8d41bbe4f/7.jpg?v=1792600998310",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "apprends à être bien avec toi-même."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "c’est dur d’aimer quelqu’un",
+      "qui ne s’aime pas lui-même."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "learn to be okay with yourself."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "it’s hard to love someone",
+      "who doesn’t love themselves."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "aprende a estar bien contigo misma."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "es difícil querer a alguien",
+      "que no se quiere a sí mismo."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern, mit dir selbst klarzukommen."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "es ist schwer, jemanden zu lieben,",
+      "der sich selbst nicht liebt."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "impara a stare bene con te stessa."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "è difficile amare qualcuno",
+      "che non ama se stesso."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "aprenda a ficar bem consigo mesma."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "é difícil amar alguém",
+      "que não ama a si mesmo."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendinle barışık olmayı öğren."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "kendini sevmeyen birini",
+      "sevmek zordur."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0363af98-a33e-4b09-8a57-c5eeb1e1ff6f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1f2a12ee-4cd1-4732-a680-873b79c3a657/6.jpg?v=1791725576364",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "1150c4ad-7662-4af6-9659-ec953bf55f69",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b1796999-ac7a-426c-95db-cc2800b17c54/4.jpg?v=1789048598723",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ne vis pas une vie pleine d’insécurités.",
+      "libère-toi."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "don’t live an insecurity-ridden life.",
+      "free yourself."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "no vivas una vida llena de inseguridades.",
+      "libérate."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "leb kein Leben voller Unsicherheiten.",
+      "befrei dich."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "non vivere una vita piena di insicurezze.",
+      "liberati."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "não viva uma vida cheia de inseguranças.",
+      "liberte-se."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "güvensizliklerle dolu bir hayat yaşama.",
+      "özgür ol."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

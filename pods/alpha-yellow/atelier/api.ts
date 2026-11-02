@@ -61,14 +61,18 @@ export type Playbook = {
 export type Original = {
   source_id: string;
   titre: string;
-  /** Le schéma du playbook sur lequel l'accroche est écrite : sa preuve part avec le dépôt. */
-  schema_id: string;
+  /** Chemin d'avant BLEO : le schéma du playbook, dont la preuve part avec le dépôt. Pas pour un dépôt BLEO. */
+  schema_id?: string;
   musique_titre?: string | null;
   musique_url?: string | null;
   /** Contenus du label dont l'original s'inspire (ids). */
   inspirations?: string[];
   /** Notes de l'agent : angle, accroches écartées, ce qui est testé. */
   notes?: string;
+  /** BLEO (L4) : « full_test » (accroche neuve) ou « declinaison » (famille de la boîte, avec son parent). */
+  type_bleo?: "full_test" | "declinaison";
+  /** BLEO : pour une déclinaison, l'id complet du parent (colonne parent_contenu_id de npm run boite). */
+  parent_contenu_id?: string;
   slides: SlideOriginale[];
 };
 
@@ -98,4 +102,29 @@ export function preuveDuSchema(s: Schema, jour = aujourdhui()) {
         : { type: "os", contenu_id: r.contenu_id },
     ),
   };
+}
+
+/**
+ * BLEO (L4) : ce que l'original déclare (voir npm run boite). `full_test` : une
+ * accroche neuve pour le label, sans parent. `declinaison` : une famille de la
+ * boîte, avec son `parent_contenu_id` complet. Sans `type_bleo` : le chemin
+ * d'avant BLEO.
+ */
+export function declarationBleo(o: { type_bleo?: string; parent_contenu_id?: string }):
+  | { type_bleo: null; champs: Record<string, never>; resume: string }
+  | { type_bleo: "full_test" | "declinaison"; champs: { type_bleo: string; parent_contenu_id: string | null }; resume: string }
+  | { erreur: string } {
+  if (!o.type_bleo) return { type_bleo: null, champs: {}, resume: "sans type_bleo" };
+  if (o.type_bleo !== "full_test" && o.type_bleo !== "declinaison") {
+    return { erreur: `type_bleo « ${o.type_bleo} » : « full_test » ou « declinaison »` };
+  }
+  if (o.type_bleo === "full_test") {
+    if (o.parent_contenu_id) return { erreur: "full test : pas de parent_contenu_id (sinon type_bleo « declinaison »)" };
+    return { type_bleo: "full_test", champs: { type_bleo: "full_test", parent_contenu_id: null }, resume: "full test" };
+  }
+  const parent = (o.parent_contenu_id ?? "").trim().toLowerCase();
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(parent)) {
+    return { erreur: "déclinaison : parent_contenu_id complet (36 caractères), copié de npm run boite" };
+  }
+  return { type_bleo: "declinaison", champs: { type_bleo: "declinaison", parent_contenu_id: parent }, resume: `déclinaison de ${parent.slice(0, 8)}` };
 }

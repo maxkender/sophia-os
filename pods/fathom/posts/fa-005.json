@@ -1,0 +1,562 @@
+{
+ "id": "fa-005",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7682795024026766614",
+  "vues": 572200,
+  "publie_le": "2026-09-07",
+  "accroche": "5 Skills 99% Of People Don’t Have"
+ },
+ "titre": {
+  "en": "5 Skills 99% Of People Don’t Have",
+  "fr": "5 compétences que 99 % des gens n’ont pas",
+  "es": "5 habilidades que el 99 % no tiene",
+  "de": "5 Skills, die 99 % nicht haben",
+  "it": "5 abilità che il 99% non ha",
+  "pt": "5 habilidades que 99% das pessoas não têm"
+ },
+ "legendes": {
+  "en": "5 Skills 99% Of People Don’t Have #selfimprovement #learnontiktok #selfmastery",
+  "fr": "5 compétences que 99 % des gens n’ont pas #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "es": "5 habilidades que el 99 % no tiene #desarrollopersonal #aprendeentiktok #superacionpersonal",
+  "de": "5 Skills, die 99 % nicht haben #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "5 abilità che il 99% non ha #crescitapersonale #imparacontiktok #miglioramentopersonale",
+  "pt": "5 habilidades que 99% das pessoas não têm #desenvolvimentopessoal #aprendanotiktok #autoconhecimento"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7513258213266279199"
+ },
+ "notes": "cta B (« 5 minutes a day to know a bit about everything. ») sur toutes les langues. Sophia en carte d'appli à l'étape 3 « KNOW A BIT ABOUT EVERYTHING », au milieu des 5 compétences (leur slide Fathomly de fin disparaît). Pas d'UnSwipe. Ses titres en bandeau ; quatre compétences à nous, une vraie vidéo par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "99% OF PEOPLE",
+     "DON'T HAVE"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 COMPÉTENCES",
+       "bronze": true
+      }
+     ],
+     "QUE 99 % DES GENS",
+     "N'ONT PAS"
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE EL 99 %",
+     "NO TIENE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS,",
+       "bronze": true
+      }
+     ],
+     "DIE 99 %",
+     "NICHT HABEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "CHE IL 99%",
+     "NON HA"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE 99% DAS PESSOAS",
+     "NÃO TÊM"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUILD A MEMORY PALACE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "p9IOqd1LpkA",
+     "titre": "The Memory Palace : Can You Do It?",
+     "chaine": "Sprouts",
+     "vues": "692K views",
+     "date": "9 years ago",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "CRÉER UN PALAIS MENTAL"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "N9fz_071WX8",
+     "titre": "Le « palais mental », une des méthodes les plus efficaces pour développer sa mémoire",
+     "chaine": "Nat Geo France",
+     "vues": "139 k vues",
+     "date": "il y a 11 ans",
+     "duree": "2:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_Pc9OED3ZyWK0Ylw1rx9Cyu7RznxDgsMMDP8qWfv6DYA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CREAR UN PALACIO MENTAL"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "X_URHlAJ7aA",
+     "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
+     "chaine": "Sprouts Español",
+     "vues": "93 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "EIN GEDÄCHTNISPALAST"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "6Y9K66nu3C4",
+     "titre": "Ein Gedächtnis wie Sherlock Holmes (Loci Methode und Gedächtnispalast)",
+     "chaine": "Logical Lemon",
+     "vues": "417.936 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "6:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IL PALAZZO DELLA MEMORIA"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "LC0JO1a3DA8",
+     "titre": "IL PALAZZO DELLA MEMORIA🏰 spiegato dal CAMPIONE DEL MONDO",
+     "chaine": "Andrea Muzii",
+     "vues": "500K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CRIAR UM PALÁCIO MENTAL"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "IRMNnl7ou50",
+     "titre": "COMO CRIAR UM PALÁCIO DA MEMÓRIA [ TÉCNICA DE MEMORIZAÇÃO ]",
+     "chaine": "Renato Alves Memorização",
+     "vues": "72 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TYPE WITHOUT LOOKING"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "gfFHkqJZ7so",
+     "titre": "Touch Typing: Home Row Essentials (Lesson 1)",
+     "chaine": "Anson Alexander",
+     "vues": "633K views",
+     "date": "3 years ago",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/pDdeplfgeL1Vo6CYam0B_s-_XLyTz594lhzrK9_wKzUwYPGzdCpLKlP2snVDrJifNq-vqbi4PQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "TAPER SANS REGARDER"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "AyfbTvVwLdU",
+     "titre": "Leçon 1 : Comment placer les doigts sur le clavier. Cours Gratuit de Dactylographie.",
+     "chaine": "interDidactica",
+     "vues": "910 k vues",
+     "date": "il y a 5 ans",
+     "duree": "9:32",
+     "avatar": "https://yt3.ggpht.com/hLIfYw9QRWIcRijMorLUAiY2AhccNs1bHy_Bl1p4XV6AjHOmELPSZaXBLM5bUKviBYT5lyOr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ESCRIBIR SIN MIRAR"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "lcxkRC1kTvQ",
+     "titre": "Lección 1: Cómo colocar los dedos en el teclado. Curso Gratis de Mecanografía.",
+     "chaine": "interDidactica",
+     "vues": "959 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "8:40",
+     "avatar": "https://yt3.ggpht.com/hLIfYw9QRWIcRijMorLUAiY2AhccNs1bHy_Bl1p4XV6AjHOmELPSZaXBLM5bUKviBYT5lyOr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BLIND TIPPEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "PaUcSv5DJi8",
+     "titre": "10 Fingersystem Tutorial (Deutsch) – Schnell tippen lernen",
+     "chaine": "simplexstudy",
+     "vues": "227.480 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "7:18",
+     "avatar": "https://yt3.ggpht.com/AzjRjSU5rqcGZmMibIzuytzLVXsYzChugntqegJZTjNneYwIIe_Avs7DM6RSS_8EaPhnfxGNKmM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SCRIVERE SENZA GUARDARE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "y7f0QkW0gcc",
+     "titre": "Lezione 1: Come posizionare le dita sulla tastiera. Corso Gratis di Dattilografia.",
+     "chaine": "interDidactica",
+     "vues": "46K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:06",
+     "avatar": "https://yt3.ggpht.com/hLIfYw9QRWIcRijMorLUAiY2AhccNs1bHy_Bl1p4XV6AjHOmELPSZaXBLM5bUKviBYT5lyOr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "DIGITAR SEM OLHAR"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "AnnrutHbUb8",
+     "titre": "Como Digitar Sem Olhar e Mais Rápido — Parte I",
+     "chaine": "Philippe Fanaro",
+     "vues": "244 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/e85b7pdCyazbscC4DZSP52hBxV5Ev6j2opR0jEC0eqvDwzZYbTTPwOUSOTRYgdMc83eS6Mw1tw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT ABOUT EVERYTHING"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR UN PEU DE TOUT"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SABER UN POCO DE TODO"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM ETWAS WISSEN"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPERE UN PO' DI TUTTO"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SABER UM POUCO DE TUDO"
+    ],
+    "bandeau": true,
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO MATHS IN YOUR HEAD"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "1wAr2Kbe-GM",
+     "titre": "How to Calculate Faster than a Calculator - Mental Math #1",
+     "chaine": "Brain Station",
+     "vues": "7.4M views",
+     "date": "1 year ago",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/_Q8DnNm6nXHjLtNGWuhMlvqt1G9BilcflliJv28jFQcsjtUtfUWvRo6FNTWkhRXno84QkJOPQw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "CALCULER DE TÊTE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "d2dkUmochGM",
+     "titre": "Calcul mental rapide sans calculatrice et d'autres astuces mathématiques avec les chiffres",
+     "chaine": "L'astucerie",
+     "vues": "192 k vues",
+     "date": "il y a 6 ans",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mx3lILLNxDiSeEEkGJ2klPHs8NMyiUm42UknbU7ePKs1Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CALCULAR DE CABEZA"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "L7iRlOnEdZc",
+     "titre": "Calcula Más Rápido que una Calculadora 🧮",
+     "chaine": "Matemáticas con Juan",
+     "vues": "1,6 M de visualizaciones",
+     "date": "hace 1 año",
+     "duree": "12:14",
+     "avatar": "https://yt3.ggpht.com/Fyjo8CIATVw9DU0cWweSMWObo47mpxvOlrc_jw9fWM8DiSDTyG8glEOvsAwHwkV85HXIOHZP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHNELL KOPFRECHNEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "PCcK92FAzwo",
+     "titre": "Kopfrechnen - superschnell - genialer Rechentrick | Lehrerschmidt",
+     "chaine": "Lehrerschmidt",
+     "vues": "5,9 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CALCOLARE A MENTE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "hbpdH9gfTV8",
+     "titre": "Calcolo Mentale Rapido - Moltiplicazioni e Quadrati di Numeri di Due Cifre",
+     "chaine": "Luigi Manca",
+     "vues": "53K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:36",
+     "avatar": "https://yt3.ggpht.com/NkJAVDX0NxKjaWBQLlwbnBVS7FR3iTCWPmPGFlwxEi_vthjAVJ-uptIz9Jssd-eTNlZbt8Y-Iw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZER CONTAS DE CABEÇA"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "oQjEa0QXpfc",
+     "titre": "COMO FAZER CONTAS DE CABEÇA E MAIS RÁPIDO - Matemática Básica Super (Aula 1.4)",
+     "chaine": "Matemática Absoluta - Ryo",
+     "vues": "239 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "15:10",
+     "avatar": "https://yt3.ggpht.com/XVJPEED2WUwQU_oWpar5dubweYMJF0PrXJAbnHN4YTetjxE74nIgis87-cCUOGlfzgViSUYbwUo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ BODY LANGUAGE"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "eOoCe3An4VE",
+     "titre": "How to read people: Decode 7 body language cues",
+     "chaine": "Vanessa Van Edwards",
+     "vues": "350K views",
+     "date": "6 years ago",
+     "duree": "9:01",
+     "avatar": "https://yt3.ggpht.com/UibvtC7PDQITwvPfJScV5kZrs9kLsblugpVrn0O8OfGBDdJ4OHOuOj_g3dGKGgtSQt6BpDvm3Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LIRE LE LANGAGE CORPOREL"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "Enf-yOJUxs0",
+     "titre": "19 choses que ton LANGAGE CORPOREL révèle sur toi",
+     "chaine": "Psych2Go - Français",
+     "vues": "324 k vues",
+     "date": "il y a 4 ans",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/SWqGXSCQ2evfM1jRjkL1Zk8LKVFY_iF6145uAAUQ4d16xmUovUbUH1tPvbcFJ6LDeNr-X-QLrw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "LEER EL LENGUAJE CORPORAL"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "3-A2i8a9ugw",
+     "titre": "Cómo LEER a Cualquier PERSONA RÁPIDAMENTE",
+     "chaine": "La Píldora Mágica",
+     "vues": "707 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "15:22",
+     "avatar": "https://yt3.ggpht.com/mbvY1PpASlEGdtBb6rCSXf5WnBQ4DOUG-vdyEKKVvB6zyNbvY0Br9NNpcdbTe0Z9aS0Rx9hg1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KÖRPERSPRACHE LESEN"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "YOOZ8jttiA8",
+     "titre": "Sehen, was Andere denken (Körpersprache lesen) | Teil 1",
+     "chaine": "Logical Lemon",
+     "vues": "2,5 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LEGGERE IL CORPO"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "qnndSxIgeJY",
+     "titre": "L'immenso potere del linguaggio del corpo (che tutti sottovalutano)",
+     "chaine": "Marco Montemagno",
+     "vues": "28K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LER LINGUAGEM CORPORAL"
+    ],
+    "bandeau": true,
+    "video": {
+     "id": "XhsTRiChouc",
+     "titre": "Como LER as PESSOAS? (em 5 minutos)",
+     "chaine": "Duo",
+     "vues": "279 mil visualizações",
+     "date": "há 4 meses",
+     "duree": "5:33",
+     "avatar": "https://yt3.ggpht.com/AslfWRZCzEx4-Ate0tSoXgtCbXqtYiTPdRkmTnjx03urkW5GKQEn2ci0GYjAtHms0T9QBPBoEl4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

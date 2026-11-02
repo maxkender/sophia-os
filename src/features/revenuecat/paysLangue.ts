@@ -76,6 +76,9 @@ const CODES_ISO_PAYS: Record<string, string> = {
   fi: "fi",
   ee: "et", // Estonie ; ET = Éthiopie, hors marché
   bg: "bg", // Bulgarie ; BG est à la fois le pays et la langue, aucune collision
+  lt: "lt", // Lituanie
+  lv: "lv", // Lettonie
+  jp: "ja", // Japon ; JA n'est pas un code pays
 };
 
 /** Nom de pays (normalisé) → langue OS. Inclut les abréviations non-ISO. */
@@ -143,6 +146,13 @@ const NOMS_PAYS: Record<string, string> = {
   estonia: "et",
   bulgaria: "bg",
   balgariya: "bg",
+  lithuania: "lt",
+  lietuva: "lt",
+  latvia: "lv",
+  latvija: "lv",
+  japan: "ja",
+  nippon: "ja",
+  nihon: "ja",
 };
 
 /**
@@ -156,6 +166,7 @@ const CODES_LANGUE_SANS_COLLISION: Record<string, string> = {
   el: "el",
   da: "da",
   he: "he",
+  ja: "ja",
 };
 
 const LANGUES = new Set<string>(LANGUES_CIBLES);

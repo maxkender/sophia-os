@@ -26,6 +26,10 @@ const CODES_ISO =
  * `ALIAS` de src/features/hiring/carteZones.ts (la carte des zones), qui
  * travaille en noms du fond de carte : un pays qui s'ajoute là s'ajoute ici.
  */
+const AMERIQUE_LATINE = [
+  "MX", "GT", "HN", "SV", "NI", "CR", "PA", "CU", "DO", "CO", "VE", "EC", "PE", "BO", "PY", "CL", "AR", "UY",
+] as const;
+
 const ALIAS_ISO: Record<string, readonly string[]> = {
   us: ["US"],
   usa: ["US"],
@@ -50,6 +54,11 @@ const ALIAS_ISO: Record<string, readonly string[]> = {
   "russian speaking": ["RU", "BY", "KZ"],
   russophone: ["RU", "BY", "KZ"],
   russophones: ["RU", "BY", "KZ"],
+  // L'Amérique latine hispanophone (es-419), sans le Brésil : même liste que
+  // la carte.
+  "latin america": AMERIQUE_LATINE,
+  "amerique latine": AMERIQUE_LATINE,
+  latam: AMERIQUE_LATINE,
 };
 
 /**
@@ -72,6 +81,7 @@ export const LANGUE_PAR_PAYS: Readonly<Record<string, string>> = {
   TR: "tr", IL: "he", AE: "ar", SA: "ar", EG: "ar",
   RU: "ru", BY: "ru", KZ: "ru", UA: "uk",
   US: "en", GB: "en", IE: "en", AU: "en", NZ: "en", CA: "en",
+  JP: "ja",
 };
 
 /** Minuscules, sans accents ni ponctuation : « Russian-speaking » → « russian speaking ». */
@@ -179,6 +189,15 @@ export function resoudreAffectation(paysCode: string, recruteurs: Recruteur[]): 
   return { ok: true, hm: gere, langue };
 }
 
+/**
+ * La HM qui recrute dans ce pays (« À recruter » du samedi, 0364) : celle du
+ * routage du site, même si la langue du pays n'y est pas encore gérée.
+ */
+export function hmDuPays(paysCode: string, recruteurs: Recruteur[]): string | null {
+  const a = resoudreAffectation(paysCode, recruteurs);
+  return a.ok || a.raison === "langue_non_geree" ? a.hm.id : null;
+}
+
 /** Pays couverts par au moins un HM, ouverts ou non (langue pas gérée), pour le bouton « Accepter » du site. */
 export function carteDesZones(recruteurs: Recruteur[]): {
   ouverts: { pays_code: string; langue: string; hm_id: string }[];
@@ -236,6 +255,7 @@ export function idCohorteRuul(valeur: unknown): string | null {
 const LANGUES_UN_SEUL_MARCHE = new Set([
   "fr", "de", "it", "es", "pt", "pt-BR", "cs", "nl", "el", "hu", "pl", "ro",
   "sv", "tr", "da", "no", "hr", "sl", "sk", "sr", "he", "fi", "et", "bg",
+  "lt", "lv", "ja",
 ]);
 
 /**

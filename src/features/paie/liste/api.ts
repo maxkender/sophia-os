@@ -1,0 +1,228 @@
+import { invoke } from "@/features/moteur/api";
+import { supabase } from "@/lib/supabase/client";
+
+/**
+ * La liste de paie du lundi (0380), pour l'admin et le Head of Ops : une
+ * ligne par posteur, regroupée par équipe (une HM et sa zone).
+ */
+export type ActionPaie = "payer" | "payer_moins" | "kill" | "modifier" | "annuler" | "rien" | "legacy" | "a_verifier";
+
+export type SuivantePaie =
+  | "financer"
+  | "financer_double"
+  | "financer_normal"
+  | "ne_pas_financer"
+  | "deja_financee"
+  | "a_voir";
+
+export interface CompteDetailPaie {
+  compte_id: string;
+  handle: string | null;
+  attendus: number;
+  faits: number;
+  rates: number;
+  retenue: number;
+  montant: number;
+  warmup: boolean;
+}
+
+export interface LigneListePaie {
+  id: string;
+  poster_id: string;
+  poster_nom: string | null;
+  hm_id: string | null;
+  hm_prenom: string | null;
+  equipe: string | null;
+  contrat_url: string | null;
+  nb_comptes: number;
+  comptes_payes: number;
+  prevus: number;
+  faits: number;
+  tarif: number | null;
+  retenue: number;
+  /** Le montant de la règle ; `montant` est celui à payer (corrigé par Lucia s'il l'a été). */
+  montant_calcule: number;
+  montant: number;
+  montant_corrige: number | null;
+  raison_correction: string | null;
+  statut: "ok" | "a_voir";
+  raison: string | null;
+  action: ActionPaie;
+  detail_comptes: CompteDetailPaie[];
+  exclu: boolean;
+  exclu_raison: string | null;
+  paye_at: string | null;
+  semaine_suivante_faite_at: string | null;
+  /** 1re semaine de posts du posteur (0388) : `bonus` ajouté au montant à approuver. */
+  premiere_semaine: boolean;
+  bonus: number;
+  /** La milestone de la semaine d'après (0369, 0388). */
+  suivante_action: SuivantePaie | null;
+  suivante_comptes: number | null;
+  suivante_montant: number | null;
+  suivante_raison: string | null;
+  /** Vik Studios / compte perso / Micabo : vide tant que les contrats ne sont pas reliés (prompt 14). */
+  upwork_compte: string | null;
+  /**
+   * Arrêtée depuis Cohorts sans avoir jamais posté (0395) : la milestone de sa
+   * 1re semaine, financée à l'embauche, à rembourser (lundi de sa cohorte, montant).
+   */
+  remboursement_semaine?: string | null;
+  remboursement_montant?: number | null;
+  /** La milestone à approuver, relue chez Upwork (0398) ; absente tant qu'elle n'est pas lue. */
+  jalon?: JalonPaie | null;
+}
+
+/** La 1re milestone financée et non payée du contrat (chantier du 28 oct., F1). */
+export interface JalonPaie {
+  jalon_id: string | null;
+  nom: string | null;
+  montant: number | null;
+  etat: string | null;
+  /** Milestones financées et non payées sur le contrat (0 : rien à approuver chez Upwork). */
+  nb_finances: number;
+  erreur: string | null;
+  lu_at: string;
+}
+
+/** Les milestones à approuver des posteurs de la liste (0398), par posteur. */
+export async function lireJalonsPaie(posterIds: readonly string[]): Promise<Map<string, JalonPaie>> {
+  if (posterIds.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("paie_jalons", { p_posters: [...posterIds] });
+  if (error) throw error;
+  return new Map(
+    ((data ?? []) as (JalonPaie & { poster_id: string })[]).map((j) => [
+      j.poster_id,
+      { ...j, montant: j.montant === null ? null : Number(j.montant), nb_finances: Number(j.nb_finances ?? 0) },
+    ]),
+  );
+}
+
+/** Relit chez Upwork la milestone à approuver de chaque contrat actif relié (lecture seule). */
+export async function relireJalonsUpwork(): Promise<{ contrats: number; lus: number; erreurs: number }> {
+  const r = await invoke<{ ok: boolean; contrats?: number; lus?: number; erreurs?: number; error?: string }>("upwork", {
+    action: "jalons",
+  });
+  if (!r.ok) throw new Error(r.error ?? "lecture des milestones impossible");
+  return { contrats: r.contrats ?? 0, lus: r.lus ?? 0, erreurs: r.erreurs ?? 0 };
+}
+
+const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
+
+/**
+ * La liste enregistrée du lundi, ou `simulation` : la même calculée avec les
+ * règles v3 sur les données d'aujourd'hui, sans rien enregistrer (0380), avec
+ * la 1re semaine et la milestone de la semaine d'après (0388).
+ */
+export async function lireListePaie(lundi: string, simulation = false): Promise<LigneListePaie[]> {
+  const { data, error } = await supabase.rpc("paie_liste_v2", { p_lundi: lundi, p_simulation: simulation });
+  if (error) throw error;
+  return ((data ?? []) as LigneListePaie[]).map((l, i) => ({
+    ...l,
+    // Une ligne simulée n'a pas d'id en base.
+    id: l.id ?? `simulation-${l.poster_id}-${i}`,
+    tarif: num(l.tarif),
+    retenue: Number(l.retenue),
+    montant_calcule: Number(l.montant_calcule),
+    montant: Number(l.montant),
+    montant_corrige: num(l.montant_corrige),
+    bonus: Number(l.bonus ?? 0),
+    premiere_semaine: Boolean(l.premiere_semaine),
+    suivante_montant: num(l.suivante_montant),
+    remboursement_semaine: l.remboursement_semaine ?? null,
+    remboursement_montant: num(l.remboursement_montant),
+    detail_comptes: (l.detail_comptes ?? []).map((c) => ({ ...c, retenue: Number(c.retenue), montant: Number(c.montant) })),
+  }));
+}
+
+/** Corriger le montant (raison obligatoire) ; null : revenir au montant calculé. */
+export async function corrigerPaie(id: string, montant: number | null, raison: string): Promise<void> {
+  const { error } = await supabase.rpc("paie_corriger", { p_id: id, p_montant: montant, p_raison: raison });
+  if (error) throw error;
+}
+
+/** Retirer de la liste (raison obligatoire), ou remettre. */
+export async function exclurePaie(id: string, exclu: boolean, raison: string): Promise<void> {
+  const { error } = await supabase.rpc("paie_exclure", { p_id: id, p_exclu: exclu, p_raison: raison });
+  if (error) throw error;
+}
+
+export interface ReglagesPaie {
+  /** Ancienne règle « 10 posts sur 14 = plein » : plus lue depuis la semaine du 2 nov. (0393), gardée. */
+  seuil_posts_complets: number;
+  retenue_par_post: number;
+  /** Posts manqués tolérés par compte et par semaine avant la retenue (0393). */
+  manques_toleres: number;
+}
+
+export async function lireReglagesPaie(): Promise<{
+  paie: ReglagesPaie;
+  parrainageActif: boolean;
+  /** 1re semaine de posts : tarif + ce bonus (0388). */
+  bonusPremiereSemaine: number;
+}> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("cle, valeur")
+    .in("cle", ["paie", "bonus_parrainage_actif", "paie_bonus_premiere_semaine"]);
+  if (error) throw error;
+  const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
+  const paie = (v.paie ?? {}) as Partial<ReglagesPaie>;
+  return {
+    paie: {
+      seuil_posts_complets: Number(paie.seuil_posts_complets ?? 10),
+      retenue_par_post: Number(paie.retenue_par_post ?? 1),
+      manques_toleres: Number(paie.manques_toleres ?? 1),
+    },
+    parrainageActif: v.bonus_parrainage_actif === true,
+    bonusPremiereSemaine: Number(v.paie_bonus_premiere_semaine ?? 1),
+  };
+}
+
+export async function enregistrerReglagesPaie(
+  paie: ReglagesPaie,
+  parrainageActif: boolean,
+  bonusPremiereSemaine: number,
+): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const par = { updated_by: auth.user?.id ?? null, updated_at: new Date().toISOString() };
+  const { error } = await supabase.from("reglages").upsert([
+    { cle: "paie", valeur: paie, ...par },
+    { cle: "bonus_parrainage_actif", valeur: parrainageActif, ...par },
+    { cle: "paie_bonus_premiere_semaine", valeur: bonusPremiereSemaine, ...par },
+  ]);
+  if (error) throw error;
+}
+
+/** Prompt 21, S (0415) : le tarif du contrat Upwork à côté du tarif de zone. */
+export interface TarifPaie {
+  poster_id: string;
+  contrat_id: string | null;
+  tarif_zone: number | null;
+  tarif_contrat: number | null;
+  rythme: "hebdo" | "legacy" | "a_verifier" | null;
+  montant: number | null;
+  comptes: number | null;
+  periode_jours: number | null;
+  raison: string | null;
+  force: boolean;
+}
+
+export async function lireTarifsPaie(posterIds: string[]): Promise<Map<string, TarifPaie>> {
+  if (posterIds.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("paie_tarifs", { p_posters: posterIds });
+  if (error) throw error;
+  const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
+  return new Map(
+    ((data ?? []) as TarifPaie[]).map((t) => [
+      t.poster_id,
+      { ...t, tarif_zone: num(t.tarif_zone), tarif_contrat: num(t.tarif_contrat), montant: num(t.montant), comptes: num(t.comptes), periode_jours: num(t.periode_jours) },
+    ]),
+  );
+}
+
+/** Le tarif d'un contrat impossible à déduire, fixé par l'admin (par compte et par semaine). */
+export async function fixerTarifContrat(contratId: string, tarif: number | null): Promise<void> {
+  const { error } = await supabase.rpc("contrat_tarif_fixer", { p_contrat: contratId, p_tarif: tarif });
+  if (error) throw error;
+}

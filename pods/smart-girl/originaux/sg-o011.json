@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o011",
+ "schema_id": "attractive-behaviours",
+ "titre": "elegant habits that make you look 10x more attractive #selfimprovement #thatgirl #elegance #confidence #smartgirl",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/the-spins-6858383319357229057",
+ "inspirations": [
+  "75afd92b-bfce-4365-84d8-a17aaf6d423d",
+  "9b2b4e11-6b7c-4ee3-8810-397fe3d34766"
+ ],
+ "notes": "cta B. Versions de la slide Sophia (règle « tester les CTA ») : cta A = dernier item, à la première personne (« I learn … with a micro-learning app like the Sophia app ») ; cta B = Sophia au milieu du deck, sur l'item « always have something to talk about » ; cta C = dernier item, formulé par le bénéfice (« the easy way: a micro-learning app like the Sophia app »). sg-o001 à sg-o010 sont tous en cta A. Schéma attractive-behaviours (75afd92b r 3,95 sur 13 ; 34f68d36 r 3,72 sur 18 ; notre sg-o002 sur ce schéma : r 2,35, le meilleur passage de nos originaux). Accroches écrites : « elegant habits that make you look 10x more attractive » (retenue : « Subtle habits that make you look 10x more attractive » de 75afd92b avec « elegant » en twist), « things that make a woman 10x more magnetic without saying a word » (écartée : plus loin du gabarit), « habits i stole from the most attractive women i know » (écartée : bf377b0e n'a que 3 passages). Minuscules comme @b3tteryou. Six habitudes de présence, neuves face à sg-o002 et aux sources (aucune sur le corps) : dire bonjour la première, rire de ses propres erreurs, avoir toujours de quoi parler (Sophia, au milieu), dire du bien des absents, des mains calmes, être à l'heure. Images de la banque (sources @b3tteryou), sans texte ni écran lisible ; capture d'actrice 30b31689 écartée ; slide Sophia sur une plante et une lampe, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d2c06b96",
+   "texte_overlay": "elegant habits that make\nyou look 10x more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4b46dd74",
+   "texte_overlay": "1. saying hello first.\ngreeting people warmly\nbefore they greet you\nshows ease, not need.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "60ad844c",
+   "texte_overlay": "2. laughing at your own\nmistakes.\nnot taking yourself too\nseriously is quietly\nmagnetic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ac7e014b",
+   "texte_overlay": "3. always having something\nto talk about.\na book, a painting, a piece\nof history. learn one new\nthing every day.",
+   "texte_sophia": "3. always having something\nto talk about.\ni learn one new thing a day\nwith a micro-learning app\nlike the sophia app, so i\nnever run out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "65b2c420",
+   "texte_overlay": "4. speaking well of people\nwho aren't in the room.\nit tells everyone you're\nsafe to trust.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d3d55cfa",
+   "texte_overlay": "5. keeping your hands calm.\nno fidgeting while you talk.\nstillness reads as\nconfidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6e53b49f",
+   "texte_overlay": "6. being on time.\npunctuality says\n\"i respect you\" before\nyou even speak.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650916011872423188/2.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "29a035e6",
+   "texte_overlay": "which one are you\nstarting today?\nsave this for later",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650916011872423188/6.jpg"
+  }
+ ]
+}

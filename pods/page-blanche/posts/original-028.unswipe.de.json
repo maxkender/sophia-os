@@ -1,0 +1,242 @@
+{
+ "post_id": "original-028",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "Dinge für 23 Uhr statt zu scrollen"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(dein 2-Uhr-Ich wird dir danken)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "lies [[10 Seiten]] in einem Buch"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs te file [[un shot de dopamine]] avant d'avoir fait quoi que ce soit",
+     "texte": "kein ganzes Kapitel, kein Ziel. nur 10 Seiten von etwas, das du wirklich lesen willst"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kif de l'ambition]], les compliments, tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "Papier leuchtet nicht und spielt nichts automatisch ab, also [[werden die Augen von selbst schwer]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "meistens höre ich nach 10 auf. manchmal schaue ich hoch und es waren [[40 Seiten und eine Stunde]] ohne Handy"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "fr": "5. commence par [[le plus dur]]",
+     "texte": "schreib [[3 Aufgaben für morgen]] auf"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "fr": "ton [[cortex préfrontal]] gère l'organisation, le focus et la volonté",
+     "texte": "das halbe Wachliegen ist dein Kopf, der [[die To-do-Liste wiederholt]]"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "fr": "[[gâche pas]] ta tête fraîche pour des mails et des bricoles",
+     "texte": "einmal auf Papier, [[hört sie auf, im Kopf zu kreisen]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "fr": "passe [[les 60-90 premières minutes]] sur ce que t'aurais envie d'esquiver",
+     "texte": "nur 3, die wichtigen. morgen wachst du auf und [[weißt schon, wo du anfängst]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "dehn dich [[10 Minuten]] auf dem Boden"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "kein Training, kein Plan, nur du:"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "Hüften, unterer Rücken, Nacken, die Schultern, die den ganzen Tag über einem Bildschirm hingen. langsam, [[mit gedimmtem Licht]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "dein Körper kapiert, dass [[der Tag vorbei ist]], bevor es dein Kopf tut"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "mach dein Handy abends [[langweilig]]"
+    },
+    "T2": {
+     "en": [
+      "your attention span has",
+      "been destroyed by",
+      "short-term content"
+     ],
+     "fr": "ta concentration a été [[flinguée par les contenus courts]]",
+     "texte": "das Scrollen um 23 Uhr ist nie nur 5 Minuten, sondern [[eine Stunde]]"
+    },
+    "T3": {
+     "en": [
+      "books rebuild your",
+      "attention span and teach",
+      "you delayed gratification"
+     ],
+     "fr": "les livres réparent ta [[concentration]] et t'apprennent [[la patience]]",
+     "texte": "ohne Reels zum Versinken legst du es weg und [[wirst endlich müde]]"
+    },
+    "T4": {
+     "en": [
+      "i used to scroll all day until",
+      "i found this which blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "[[avant je scrollais H24]]. ce matin j'ai ouvert [[l'appli Sophia]] à la place : en 5 min, pourquoi Camus imagine Sisyphe heureux",
+     "texte": "der Trick: Reels raus aus Instagram, TikTok blockiert. [[die UnSwipe-App]] kann beides"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "meditate for 10 minutes"
+     ],
+     "fr": "[[médite]] 10 minutes",
+     "texte": "[[heiße Dusche]], nur Lampen"
+    },
+    "T2": {
+     "en": [
+      "most people can’t sit alone with their thoughts for",
+      "a few minutes without grabbing their phone"
+     ],
+     "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
+     "texte": "mach das große Licht aus, dusch lange und heiß und lass die Wohnung [[ruhig und dunkel]] werden"
+    },
+    "T3": {
+     "en": [
+      "meditation is proven to",
+      "strengthen your",
+      "prefrontal cortex"
+     ],
+     "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
+     "texte": "ein einfaches Signal an deinen Körper: [[jetzt ist Nacht]]"
+    },
+    "T4": {
+     "en": [
+      "the part of your brain",
+      "behind focus and",
+      "self-control"
+     ],
+     "fr": "celle qui gère [[ta concentration et ton self-control]]",
+     "texte": "und das Bett fühlt sich [[zehnmal besser]] an als ein Video"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

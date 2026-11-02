@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o052",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "46e6752c-12cf-400f-b5fd-c17f657545f4",
+ "titre": "6 hobbies that quietly make you more intelligent #hobbies #smartgirl #selfimprovement #booktok #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e"
+ ],
+ "notes": "cta B. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 1 de la boîte (parent 46e6752c, anglais) : accroche du parent mot pour mot, « 6 hobbies that quietly make you more intelligent ». Le parent avait : romans historiques, une langue, micro-apprentissage (appli), expositions, échecs, journal. Six hobbies neufs : les films classiques, reconnaître les styles d'architecture, une leçon de culture par jour (Sophia au milieu, cta B), reconnaître les chants d'oiseaux, les bases de la langue des signes, dessiner des bâtiments. Faits sans chiffre. Images : lecture et rues (photos d'actrice permises, jamais sur la slide Sophia) ; slide Sophia sur un thé et un carnet, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c215efc",
+   "texte_overlay": "6 hobbies that quietly make\nyou more intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "19992812",
+   "texte_overlay": "1. watching classic films\nold films are history lessons:\nhow people spoke, dressed\nand lived.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "366c7bdc",
+   "texte_overlay": "2. learning architecture styles\ngothic arches, baroque curls,\nart deco lines. every street\nbecomes a museum.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3b1fcedf",
+   "texte_overlay": "3. one culture lesson a day\na painting, an empire,\na planet. small lessons\nadd up fast.",
+   "texte_sophia": "3. one culture lesson a day\ni read one 5-minute lesson\nwith a micro-learning app\nlike the sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "16829fe6",
+   "texte_overlay": "4. learning bird songs\nyour walks turn into a\nquiet listening game.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d4f131f",
+   "texte_overlay": "5. basic sign language\na new way to think about\nlanguage, and to connect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2e7a5e34",
+   "texte_overlay": "6. sketching buildings\nyou'll notice details you\nwalked past for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1cbea05f",
+   "texte_overlay": "which one are you\nstarting this week?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  }
+ ]
+}

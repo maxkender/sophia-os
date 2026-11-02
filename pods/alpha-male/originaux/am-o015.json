@@ -1,0 +1,50 @@
+{
+ "source_id": "am-o015",
+ "schema_id": "become-unrecognizable",
+ "titre": "How to start your life (again) #selfimprovement #men #discipline #mindset #reset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7564143750901959455",
+ "inspirations": [
+  "5ff64648-8872-4c3e-90ff-e6e34b637fcc"
+ ],
+ "notes": "essai (am-o015, une livraison sur cinq). cta A. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Veille du 25/10 : « How to start your life (again): » de @selfsculpt_ (20/10) fait 16 k vues mais 5,4 % d'enregistrements, le meilleur taux du relevé. Accroche jamais faite chez nous (vérifié dans donnees/label.json). Elle est rangée sous become-unrecognizable (transformation, r 18,87 sur 5ff64648), schéma actif qui porte la preuve. Accroches écrites : « How to start your life (again): » (retenue : l'accroche exacte au meilleur taux d'enregistrement), « How to restart your life in 30 days » (écartée : échéance non prouvée), « How to rebuild yourself from zero » (écartée : plus loin). Format de la source : « 0X Titre » puis un court paragraphe. Étapes neuves, aucune reprise de la source (clean up, own it, decide who you're becoming, routine, start creating). Images : la banque du label, sans visage ; slide Sophia sur une chambre sombre sans personne (écarté : un salon avec un cadre au mur qui pouvait être un portrait). reference_url prises sur 5ff64648, vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c02175f2",
+   "texte_overlay": "How to start your life\n(again):",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "810ee4e8",
+   "texte_overlay": "01 Unfollow what makes\nyou feel behind\n\nMute the accounts and chats\nthat drain you.\nYour attention is the first\nthing you get back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "827775d4",
+   "texte_overlay": "02 Choose one goal\n\nNot five. One.\nThe thing that would change\nthe most if you got it right\nthis year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c000e7c8",
+   "texte_overlay": "03 Rebuild your body first\n\nSleep, walk, train.\nWhen your body feels stronger,\nevery other decision\ngets easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c01df239",
+   "texte_overlay": "04 Rejoin the world\n\nCall the friend you've ignored.\nSay yes to one plan a week.\nHiding feels safe,\nbut it keeps you stuck.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cdc68ec1",
+   "texte_overlay": "05 Feed your mind daily\n\nOne new idea every day.\nA mind that keeps learning\nnever stays stuck for long.",
+   "texte_sophia": "05 Feed your mind daily\n\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/6.jpg"
+  }
+ ]
+}

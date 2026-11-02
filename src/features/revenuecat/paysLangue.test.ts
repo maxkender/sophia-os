@@ -37,7 +37,7 @@ describe("langueDepuisPays", () => {
   it("ignore Other / Total / inconnu", () => {
     expect(langueDepuisPays("Other")).toBeNull();
     expect(langueDepuisPays("Total")).toBeNull();
-    expect(langueDepuisPays("Japan")).toBeNull();
+    expect(langueDepuisPays("Narnia")).toBeNull();
   });
 });
 
@@ -128,6 +128,16 @@ describe("noms de pays", () => {
   it("résout la Bulgarie, dont le code pays et le code langue coïncident", () => {
     expect(langueDepuisPays("BG")).toBe("bg");
     expect(langueDepuisPays("Bulgaria")).toBe("bg");
+  });
+
+  it("résout la Lituanie, la Lettonie et le Japon (JP est le pays, ja la langue)", () => {
+    expect(langueDepuisPays("LT")).toBe("lt");
+    expect(langueDepuisPays("Lithuania")).toBe("lt");
+    expect(langueDepuisPays("LV")).toBe("lv");
+    expect(langueDepuisPays("Latvia")).toBe("lv");
+    expect(langueDepuisPays("JP")).toBe("ja");
+    expect(langueDepuisPays("Japan")).toBe("ja");
+    expect(langueDepuisPays("ja")).toBe("ja");
   });
 
   it("garde la règle majoritaire assumée sur les pays multilingues", () => {

@@ -84,6 +84,17 @@ describe("paysDeZone", () => {
     ]);
   });
 
+  it("« Latin America » : les 18 pays hispanophones, sans le Brésil", () => {
+    const { pays, inconnus } = paysDeZone("Kazakhstan + Latin America", NOMS_CARTE);
+    expect(inconnus).toEqual([]);
+    expect(pays[0]).toBe("Kazakhstan");
+    expect(pays).toContain("Mexico");
+    expect(pays).toContain("Argentina");
+    expect(pays).toContain("Dominican Rep.");
+    expect(pays).not.toContain("Brazil");
+    expect(pays).toHaveLength(19);
+  });
+
   it("noms français et accents", () => {
     expect(paysDeZone("Turquie + Tchéquie", NOMS_CARTE).pays).toEqual(["Turkey", "Czechia"]);
   });

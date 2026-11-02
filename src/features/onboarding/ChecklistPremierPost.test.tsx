@@ -45,7 +45,6 @@ const QUESTIONS = [
   "Did you follow at least 5 people on this account?",
   "Did you scroll for at least 3 minutes?",
   "Did you comment on at least 3 posts in the niche you're going to post in?",
-  "Did you repost at least 1 post?",
 ];
 
 describe("ChecklistPremierPost", () => {

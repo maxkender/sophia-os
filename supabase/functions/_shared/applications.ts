@@ -92,6 +92,9 @@ export function placementParDefaut(langue: string): string {
     fi: "Haluatko oppia jotain uutta joka päivä? Sophia-sovellus opettaa sinulle huikeaa yleissivistystä muutamassa minuutissa. Kokeile 👀",
     et: "Tahad iga päev midagi uut õppida? Sophia äpp annab sulle mõne minutiga vägevaid üldteadmisi. Proovi järele 👀",
     bg: "Искаш да научаваш нещо ново всеки ден? Приложението Sophia ти дава страхотна обща култура за няколко минути. Пробвай го 👀",
+    lt: "Nori kasdien išmokti ką nors naujo? Programėlė Sophia per kelias minutes suteiks tau nerealių bendrųjų žinių. Išbandyk 👀",
+    lv: "Gribi katru dienu uzzināt ko jaunu? Lietotne Sophia dažās minūtēs iemācīs tev traki labu vispārējo erudīciju. Izmēģini 👀",
+    ja: "毎日なにか新しいことを学びたい？Sophiaアプリなら数分ですごい教養が身につくよ。試してみて 👀",
   };
   return par[langue] ?? par.en;
 }

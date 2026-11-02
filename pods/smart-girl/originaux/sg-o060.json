@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o060",
+ "type_bleo": "full_test",
+ "titre": "5 history facts that sound fake but are true #history #funfacts #smartgirl #darkacademia #learning",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "2db2f497-45b2-49ec-8faa-559f06aa0780"
+ ],
+ "notes": "cta B. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Full test (la jauge en demande 1) : accroche jamais faite chez nous (« sound fake », « mammoth », « nintendo », « viking » n'apparaissent nulle part dans donnees/label.json). Accroches écrites : « 5 history facts that sound fake but are true » (retenue : promesse de surprise vérifiable, très partageable), « history facts they never taught you at school » (écartée : la vie scolaire flop), « facts that will make you rethink history » (écartée : vague). Faits vérifiés : l'université d'Oxford enseignait déjà vers 1096, l'empire aztèque n'est fondé qu'avec Tenochtitlan en 1325 ; des mammouths laineux vivaient encore sur l'île Wrangel vers 2000 av. J.-C., après la grande pyramide (vers 2560 av. J.-C.) ; le premier brevet de télécopie (Alexander Bain, 1843) précède le téléphone (1876) ; Nintendo est fondé en 1889 et vendait des cartes à jouer ; aucun casque viking à cornes n'a été retrouvé, ils viennent des costumes d'opéra du XIXe siècle. Sophia au milieu (cta B). Images de la banque (lecture, villes), sans texte ; slide Sophia sur un ciel de coucher de soleil, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "00736c3e",
+   "texte_overlay": "5 history facts that sound\nfake but are true",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0d28f7d4",
+   "texte_overlay": "1. Oxford University is older\nthan the Aztec Empire.\nTeaching began there around\n1096. Tenochtitlan was\nfounded in 1325.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0278531a",
+   "texte_overlay": "2. Woolly mammoths were still\nalive when the Great Pyramid\nwas built, on a small Arctic\nisland.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "06a57bd2",
+   "texte_overlay": "Every era hides a story\nlike this. Learn one a day\nand history stops being\nboring.",
+   "texte_sophia": "Every era hides a story like\nthis. I learn one a day with\na micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "031b1d05",
+   "texte_overlay": "3. The fax machine is older\nthan the telephone.\nFirst patent: 1843.\nThe telephone: 1876.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "03299b03",
+   "texte_overlay": "4. Nintendo was founded in\n1889, selling playing cards.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1336da3b",
+   "texte_overlay": "5. Vikings never wore horned\nhelmets. The horns came from\n19th-century opera costumes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2605dea9",
+   "texte_overlay": "Which one surprised you?\nFollow for more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666779718229789972/8.jpg"
+  }
+ ]
+}

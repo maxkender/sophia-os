@@ -23,8 +23,12 @@ const RACINE = resolve(process.cwd(), "supabase/functions");
  * GitHub (voir `boot.ts` et `scripts/build-*-bundle.sh`). Un `functions deploy`
  * générique n'y changerait rien — il faut reconstruire le bundle et republier
  * le loader avec le nouveau SHA.
+ *
+ * 31/10 : manage-users n'y est plus. La version en ligne (v92) est un
+ * déploiement direct de son index.ts, pas le loader : exclue d'ici, ses
+ * changements ne partaient plus (mot de passe unique du 31/10 resté en local).
  */
-const HORS_DEPLOY_GENERIQUE = new Set(["manage-users", "papier-cm"]);
+const HORS_DEPLOY_GENERIQUE = new Set(["papier-cm"]);
 
 const importsDe = (fichier) => {
   const src = readFileSync(fichier, "utf8");

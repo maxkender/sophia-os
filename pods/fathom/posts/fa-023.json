@@ -1,0 +1,300 @@
+{
+ "id": "fa-023",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7680894744079142166",
+  "vues": 95000,
+  "accroche": "5 Rabbit Holes Worth Going Down"
+ },
+ "titre": {
+  "en": "5 Rabbit Holes Worth Going Down",
+  "de": "5 Rabbit Holes, die sich lohnen",
+  "pt": "5 temas para explorar a fundo"
+ },
+ "legendes": {
+  "en": "5 Rabbit Holes Worth Going Down #rabbithole #learnontiktok #curiosity",
+  "de": "5 Rabbit Holes, die sich lohnen #rabbithole #lernenmittiktok #wissen",
+  "pt": "5 temas para explorar a fundo #curiosidades #aprendernotiktok #conhecimento"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "Variante de fa-011. cta B. Sophia à l'étape 3 « A NEW RABBIT HOLE EVERY DAY ». Pas d'UnSwipe. Autres sujets (GPS, internet, avion, paradoxe de Fermi), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 RABBIT HOLES",
+       "bronze": true
+      }
+     ],
+     "WORTH",
+     "GOING DOWN"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 RABBIT HOLES",
+       "bronze": true
+      }
+     ],
+     "DIE SICH",
+     "LOHNEN"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "PARA EXPLORAR",
+     "A FUNDO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW GPS",
+     "KNOWS WHERE YOU ARE"
+    ],
+    "video": {
+     "id": "IoRQiNFzT0k",
+     "titre": "How GPS Works",
+     "chaine": "Seeker",
+     "vues": "953K views",
+     "date": "13 years ago",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ISrwFFrNnE6f33anVJpM3pKDA9CpPMAXLFW81j8oyTCtUdfdWAqVm8OmIslNDZ3rMNLIw5pp_0Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE GPS",
+     "DICH FINDET"
+    ],
+    "video": {
+     "id": "9i789CqPLWM",
+     "titre": "Wie funktioniert GPS?",
+     "chaine": "Physik - simpleclub",
+     "vues": "120.288 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/MxwaLg6VCMgcO2tIDH23QJyTwAEbiDI7P416b4SNkgAqVZcR3PP6WhxsxXGj8LLeHCRA5FjT=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO O GPS SABE",
+     "ONDE ESTÁS"
+    ],
+    "video": {
+     "id": "nHaglY53Lak",
+     "titre": "Como o GPS Funciona?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "211 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW THE INTERNET",
+     "ACTUALLY WORKS"
+    ],
+    "video": {
+     "id": "x3c1ih2NJEg",
+     "titre": "How does the INTERNET work? | ICT #2",
+     "chaine": "Sabin Civil Engineering",
+     "vues": "9.5M views",
+     "date": "7 years ago",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/uI3J9rcN5QvBD5rPMj5SaDUp41PIvTergbOWIKam39L7xxpzBT99zqcMiLrJ0qXalORqg0hKjA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE DAS INTERNET",
+     "WIRKLICH FUNKTIONIERT"
+    ],
+    "video": {
+     "id": "l_aSMNjx_Fw",
+     "titre": "Wie funktioniert das Internet?",
+     "chaine": "JAES Company Deutsch",
+     "vues": "364.249 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "9:13",
+     "avatar": "https://yt3.ggpht.com/rXOzP6c9z0QzZhww0uC4bFqirmDCYYEA-NE4fqL9uoZ0kiNgnRuzgyO40q7sywiKWt62dMPW=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO A INTERNET",
+     "FUNCIONA MESMO"
+    ],
+    "video": {
+     "id": "PaOOO2VdBoc",
+     "titre": "Como funciona a INTERNET",
+     "chaine": "Refatorando",
+     "vues": "70 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "8:47",
+     "avatar": "https://yt3.ggpht.com/LgI0iE_H7BWOuEXhrgIIdyCVSrd2bmdRC3v7JmVYo6Zluq9DxZM4ikt8lBuvukTskOwyvOFO=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "A NEW RABBIT HOLE",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG EIN",
+     "NEUES RABBIT HOLE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM TEMA NOVO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW PLANES",
+     "ACTUALLY FLY"
+    ],
+    "video": {
+     "id": "p4VHMsIuPmk",
+     "titre": "How do airplanes actually fly? - Raymond Adkins",
+     "chaine": "TED-Ed",
+     "vues": "2.5M views",
+     "date": "3 years ago",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE EIN FLUGZEUG",
+     "FLIEGT"
+    ],
+    "video": {
+     "id": "XR3ThfCGSOU",
+     "titre": "Wie fliegt ein FLUGZEUG?",
+     "chaine": "Physik - simpleclub",
+     "vues": "321.880 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/MxwaLg6VCMgcO2tIDH23QJyTwAEbiDI7P416b4SNkgAqVZcR3PP6WhxsxXGj8LLeHCRA5FjT=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMO OS AVIÕES",
+     "VOAM"
+    ],
+    "video": {
+     "id": "h1S7HShy-54",
+     "titre": "Como Aviões Voam?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "424 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "7:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHERE ARE",
+     "ALL THE ALIENS?"
+    ],
+    "video": {
+     "id": "sNhhvQGsMEc",
+     "titre": "The Fermi Paradox — Where Are All The Aliens? (1/2)",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "35M views",
+     "date": "11 years ago",
+     "duree": "6:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WO SIND",
+     "ALL DIE ALIENS?"
+    ],
+    "video": {
+     "id": "wWSJYr1Lr0E",
+     "titre": "Wo sind all die Aliens? Das Fermi Paradoxon (1/2)",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "3 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ONDE ESTÃO OS",
+     "EXTRATERRESTRES?"
+    ],
+    "video": {
+     "id": "4ycuZqKuKa8",
+     "titre": "O Paradoxo de Fermi — Soluções e Ideias — Onde estão todos os alienígenas? (2/2)",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "317 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,6 +1,16 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, ArrowRight, BadgeCheck, BookOpen, IdCard, Lock, PartyPopper, Sparkles } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BadgeCheck,
+  BookOpen,
+  IdCard,
+  Lock,
+  PartyPopper,
+  Sparkles,
+  TriangleAlert,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogPopup } from "@/components/ui/dialog";
@@ -12,10 +22,18 @@ import {
   enregistrerOnboardingEtape,
   lireCohorteAccueil,
   marquerOnboardingVu,
+  mesComptes,
 } from "@/features/moteur/api";
+import { comptePrincipal } from "@/features/moteur/comptesCm";
+import { partiesParis } from "@/features/onboarding/datesRuul";
 
 import { Mico, type EtatMico } from "./Mico";
-import { ecransPour, QUESTIONS, type Bloc, type ContexteAccueil } from "./contenu";
+import { useRegles } from "@/features/regles/api";
+import { RegleTexte } from "@/features/regles/CartesRegles";
+
+import { jourAnglais, premierPostLe } from "./cinqEtapes";
+import { lireMaPremiereSemaine } from "./cinqEtapesApi";
+import { ecransPour, questionsPour, type Bloc, type ContexteAccueil, type Question } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -31,17 +49,29 @@ import {
 /** Les blocs entrent les uns après les autres, pas tous d'un coup. */
 const DECALAGE_MS = 70;
 
+/** Un texte du parcours : les passages en **double étoile** sont en gras. */
+function Riche({ texte }: { texte: string }) {
+  const morceaux = texte.split(/\*\*(.+?)\*\*/g);
+  return (
+    <>
+      {morceaux.map((m, i) =>
+        i % 2 === 1 ? <strong key={i} className="font-semibold">{m}</strong> : <React.Fragment key={i}>{m}</React.Fragment>,
+      )}
+    </>
+  );
+}
+
 function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
   const anime = "animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-backwards";
   const style = { animationDelay: `${rang * DECALAGE_MS}ms` };
 
   switch (bloc.type) {
     case "p":
-      return <p className={cn("text-sm leading-relaxed", anime)} style={style}>{bloc.texte}</p>;
+      return <p className={cn("text-sm leading-relaxed", anime)} style={style}><Riche texte={bloc.texte} /></p>;
     case "titre":
       return (
         <h3 className={cn("pt-1 font-semibold text-sm tracking-tight", anime)} style={style}>
-          {bloc.texte}
+          <Riche texte={bloc.texte} />
         </h3>
       );
     case "liste":
@@ -50,7 +80,7 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
           {bloc.items.map((i) => (
             <li key={i} className="flex gap-2">
               <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-primary/60" />
-              <span>{i}</span>
+              <span><Riche texte={i} /></span>
             </li>
           ))}
         </ul>
@@ -66,44 +96,86 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
               >
                 {n + 1}
               </span>
-              <span className="pt-px">{i}</span>
+              <span className="pt-px"><Riche texte={i} /></span>
             </li>
           ))}
         </ol>
       );
-    case "alerte":
+    case "alerte": {
+      const vif = bloc.ton === "vif";
       return (
         <div
           className={cn(
             "rounded-xl border p-3 text-sm leading-relaxed shadow-sm",
-            bloc.ton === "rouge"
-              ? "border-destructive/50 bg-destructive/10"
-              : "border-warning/50 bg-warning/10",
+            vif && "border-red-700 bg-red-600 p-4 text-base text-white shadow-lg ring-4 ring-red-600/25",
+            bloc.ton === "rouge" && "border-destructive/50 bg-destructive/10",
+            bloc.ton === "orange" && "border-warning/50 bg-warning/10",
             anime,
           )}
           style={style}
         >
           {bloc.titre && (
-            <p className="mb-1.5 flex items-center gap-1.5 font-semibold">
-              <Sparkles className="size-3.5" />
-              {bloc.titre}
+            <p className={cn("mb-1.5 flex items-center gap-1.5 font-semibold", vif && "mb-2 items-start gap-2 text-lg leading-snug tracking-tight")}>
+              {vif ? <TriangleAlert className="mt-0.5 size-5 shrink-0" /> : <Sparkles className="size-3.5 shrink-0" />}
+              <Riche texte={bloc.titre} />
             </p>
           )}
           {bloc.items.length === 1
-            ? <p className="font-medium">{bloc.items[0]}</p>
+            ? <p className={cn("font-medium", vif && "text-center font-bold text-lg tracking-tight")}><Riche texte={bloc.items[0]!} /></p>
             : (
-              <ul className="space-y-1">
+              <ul className={cn("space-y-1", vif && "space-y-1.5")}>
                 {bloc.items.map((i) => (
                   <li key={i} className="flex gap-2">
                     <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-current opacity-50" />
-                    <span>{i}</span>
+                    <span><Riche texte={i} /></span>
                   </li>
                 ))}
               </ul>
             )}
         </div>
       );
+    }
+    case "frise":
+      return (
+        <ol className={cn("relative space-y-4 pl-1", anime)} style={style}>
+          {bloc.items.map((etape, n) => (
+            <li key={etape.titre} className="relative flex gap-3">
+              {n < bloc.items.length - 1 && (
+                <span aria-hidden className="absolute top-7 bottom-[-1rem] left-[0.8125rem] w-0.5 bg-primary/25" />
+              )}
+              <span
+                aria-hidden
+                className="relative z-10 flex size-7 shrink-0 items-center justify-center rounded-full bg-primary font-semibold text-primary-foreground text-xs tabular-nums shadow-sm"
+              >
+                {n + 1}
+              </span>
+              <div className="min-w-0 space-y-0.5 pt-0.5">
+                <p className="font-semibold text-[11px] text-primary uppercase tracking-wide">{etape.quand}</p>
+                <p className="font-semibold text-sm">{etape.titre}</p>
+                {etape.texte && (
+                  <p className="text-muted-foreground text-sm leading-relaxed"><Riche texte={etape.texte} /></p>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      );
     case "video":
+      if (bloc.fichier) {
+        return (
+          <div className={cn("flex justify-center", anime)} style={style}>
+            <video
+              src={bloc.src}
+              poster={bloc.image}
+              title={bloc.titre}
+              controls
+              playsInline
+              preload="metadata"
+              className="aspect-[9/16] max-h-[70vh] w-full max-w-xs rounded-xl border bg-black shadow-lifted"
+            />
+          </div>
+        );
+      }
       return (
         <div
           className={cn("aspect-video w-full overflow-hidden rounded-xl border bg-black shadow-lifted", anime)}
@@ -115,7 +187,7 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
     case "lien":
       return (
         <p className={cn("text-sm leading-relaxed", anime)} style={style}>
-          {bloc.avant && <span className="text-muted-foreground">{bloc.avant} </span>}
+          {bloc.avant && <span className="text-muted-foreground"><Riche texte={bloc.avant} /> </span>}
           <a
             href={bloc.href}
             target="_blank"
@@ -127,9 +199,34 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
           </a>
         </p>
       );
+    case "regle":
+      return (
+        <div className={anime} style={style}>
+          <RegleTexte regle={bloc.regle} />
+        </div>
+      );
+    case "rejoindreSlack":
+      return (
+        <div className={anime} style={style}>
+          <RejoindreSlack />
+        </div>
+      );
     case "identite":
       return null; // rendu par le parcours, qui tient l'état du formulaire
   }
+}
+
+/** « Join Slack » : recommandé, pas obligatoire (chantier du 28 oct.). Sans lien dans le réglage, rien. */
+function RejoindreSlack() {
+  const { slack } = useRegles();
+  if (!slack) return null;
+  return (
+    <Button asChild>
+      <a href={slack} target="_blank" rel="noreferrer">
+        Join Slack
+      </a>
+    </Button>
+  );
 }
 
 /**
@@ -228,10 +325,12 @@ function Pastilles({ etape }: { etape: number }) {
 }
 
 function Quiz({
+  questions,
   reponses,
   onRepondre,
   verdict,
 }: {
+  questions: Question[];
   reponses: Record<string, number | undefined>;
   onRepondre: (cle: string, index: number) => void;
   verdict: CorrectionQuiz | null;
@@ -240,9 +339,10 @@ function Quiz({
   return (
     <div className="space-y-5">
       <p className="text-muted-foreground text-sm leading-relaxed">
-        Four quick questions, to be sure nothing important was missed. You need all four right.
+        {questions.length} quick questions, to be sure nothing important was missed. You need
+        {" "}<strong className="font-semibold text-foreground">all of them right</strong>.
       </p>
-      {QUESTIONS.map((q, n) => (
+      {questions.map((q, n) => (
         <fieldset
           key={q.cle}
           className="animate-in fade-in slide-in-from-bottom-2 space-y-2 fill-mode-backwards duration-500"
@@ -280,7 +380,7 @@ function Quiz({
 }
 
 /**
- * Le parcours d'accueil d'un créateur slideshow : huit écrans, puis un quiz.
+ * Le parcours d'accueil d'un créateur slideshow : neuf écrans, puis un quiz.
  *
  * Il ne se ferme pas : ni croix, ni Échap, ni clic à côté. « Next » reste
  * verrouillé tant que l'écran n'a pas été déroulé jusqu'en bas ET que son
@@ -322,8 +422,24 @@ export function OnboardingParcours({
     enabled: !simulation,
     staleTime: Infinity,
   });
-  const contexte = simulation ? contexteSimule : cohorte.data;
+  // Les 5 étapes (28 oct., G) : le @ à créer et le lundi du 1er post.
+  const comptes = useQuery({ queryKey: ["mes-comptes"], queryFn: mesComptes, enabled: !simulation });
+  const semaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, enabled: !simulation });
+  const contexte = React.useMemo<ContexteAccueil | null | undefined>(() => {
+    if (simulation) return contexteSimule;
+    if (!cohorte.data || cohorte.data.cohorteRuul) return cohorte.data;
+    const compte = comptePrincipal(comptes.data ?? []);
+    const maintenant = new Date();
+    const premier = premierPostLe({
+      warmupEndsAt: compte?.warmup_ends_at ?? null,
+      cohorteLundi: semaine.data?.cohorteLundi ?? null,
+      maintenant,
+      aujourdhui: partiesParis(maintenant).date,
+    });
+    return { ...cohorte.data, handle: compte?.handle_tiktok ?? null, premierPost: jourAnglais(premier) };
+  }, [simulation, contexteSimule, cohorte.data, comptes.data, semaine.data]);
   const ecrans = ecransPour(contexte);
+  const questions = questionsPour(contexte);
 
   const surQuiz = etape >= INDEX_QUIZ;
   const ecran = surQuiz ? null : ecrans[etape];
@@ -384,7 +500,7 @@ export function OnboardingParcours({
   const remplissage = attente > 0 ? Math.min(100, (ecoulees / attente) * 100) : 100;
 
   const valider = () => {
-    const resultat = corrigerQuiz(reponses);
+    const resultat = corrigerQuiz(reponses, questions);
     setVerdict(resultat);
     if (!resultat.reussi) return;
     setTermine(true);
@@ -457,6 +573,7 @@ export function OnboardingParcours({
                 {surQuiz
                   ? (
                     <Quiz
+                      questions={questions}
                       reponses={reponses}
                       onRepondre={(cle, i) => {
                         setReponses((r) => ({ ...r, [cle]: i }));
@@ -480,7 +597,7 @@ export function OnboardingParcours({
 
                 {surQuiz && verdict && !verdict.complet && (
                   <p className="animate-in fade-in text-destructive text-sm">
-                    Please answer all four questions.
+                    Please answer every question.
                   </p>
                 )}
                 {surQuiz && verdict?.complet && !verdict.reussi && (

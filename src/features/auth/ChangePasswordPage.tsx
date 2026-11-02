@@ -9,10 +9,16 @@ import { supabase } from "@/lib/supabase/client";
 import { AuthLayout } from "./AuthLayout";
 import { useAuth } from "./AuthContext";
 
-/** Première connexion : le mot de passe vient de l'admin, le poster choisit le sien. */
+/**
+ * Première connexion : le mot de passe vient de l'admin, le poster choisit le
+ * sien. Le posteur donne aussi son email perso (chantier du 28 oct.) : c'est
+ * celui de Slack, la liaison se fait toute seule avec (`slack_relier`).
+ */
 export function ChangePasswordPage() {
   const { t } = useTranslation();
-  const { user, refresh } = useAuth();
+  const { user, role, refresh } = useAuth();
+  const posteur = role === "poster";
+  const [emailPerso, setEmailPerso] = React.useState("");
   const [motDePasse, setMotDePasse] = React.useState("");
   const [confirmation, setConfirmation] = React.useState("");
   const [enCours, setEnCours] = React.useState(false);
@@ -36,10 +42,16 @@ export function ChangePasswordPage() {
       return;
     }
 
-    await supabase
+    const email = emailPerso.trim().toLowerCase();
+    const { error: errProfil } = await supabase
       .from("profiles")
-      .update({ must_change_password: false })
+      .update(posteur && email ? { must_change_password: false, email_perso: email } : { must_change_password: false })
       .eq("id", user!.id);
+    if (errProfil) {
+      setEnCours(false);
+      setErreur(errProfil.message);
+      return;
+    }
 
     setEnCours(false);
     refresh();
@@ -48,6 +60,20 @@ export function ChangePasswordPage() {
   return (
     <AuthLayout title={t("auth.changeTitle")} description={t("auth.changeBody")}>
       <form onSubmit={soumettre} className="space-y-4">
+        {posteur && (
+          <Field>
+            <FieldLabel htmlFor="email-perso">{t("auth.emailPerso")}</FieldLabel>
+            <Input
+              id="email-perso"
+              type="email"
+              required
+              autoComplete="email"
+              value={emailPerso}
+              onChange={(e) => setEmailPerso(e.target.value)}
+            />
+            <p className="text-xs text-muted-foreground">{t("auth.emailPersoAide")}</p>
+          </Field>
+        )}
         <Field>
           <FieldLabel htmlFor="mdp">{t("auth.newPassword")}</FieldLabel>
           <Input

@@ -5,9 +5,22 @@ Sophia, en discussion**. On te demande par exemple « fais la veille », « écr
 5 originaux », « qu'est-ce qui marche cette semaine ? » ou « où en sont les
 originaux ? ». Tu fais la demande de bout en bout, puis tu rends compte.
 
+> **BLEO, voie 1 (bascule des podz le dimanche 1/11 au soir).** Quand `npm run boite`
+> affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
+> - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
+>   la **jauge** combien de full tests déposer ;
+> - chaque original déclare `"type_bleo"` : `"declinaison"` avec
+>   `"parent_contenu_id"`, ou `"full_test"` ; ni `schema_id` ni preuve ;
+> - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
+>   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
+>   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - le reste vaut toujours : le ton, le format, la recette, les images, les
+>   applis concurrentes et les personnes réelles, le playbook comme mémoire
+>   (`npm run playbook -- --mesurer`).
+
 Tu ne publies jamais rien. Tout ce que tu écris part dans la **file de
 validation** de l'OS (Pilotage → Pods). Ton podz est « sûr » : une livraison
-que personne ne rejette est validée toute seule 12 h après son dépôt.
+que personne ne rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission : uniquement des originaux écrits sur ce qui a marché
 
@@ -97,7 +110,7 @@ Le pilote `originaux/am-o001.json` est l'exemple complet. Les champs :
 	Ils sont concrets et **neufs** : jamais un item de la source recopié. Vérifie dans `donnees/label.json` que l'idée n'y est pas déjà.
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : intérieurs sombres, voitures, villes la nuit, paysages, hommes de dos.
-	- **Jamais une célébrité ni un visage reconnaissable** (sportif, acteur, chanteur) : on ne prête pas un conseil à une personne réelle.
+	- **Les photos de célébrités sont acceptées** (sportif, acteur, chanteur), en illustration (décision d'Adrien, 28/10). Jamais sur la slide Sophia.
 	- La slide Sophia : une image **sans personne** (salon, bureau, bibliothèque, paysage).
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
 - **Musique** : celle du schéma.

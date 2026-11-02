@@ -27,7 +27,8 @@ atelier/
   cli-livrer.ts     rendu + dépôt dans la file de validation
   cli-etat.ts       file, rangs, vues et r
   original.ts       original à 100 % : couverture + tableau composés avec les images des slides relevées
-  cli-original.ts   rendu d'un original, planche, dépôt (sans source : rang original)
+  carrousel.ts      original au format carrousel : couverture + un item par slide (format @mentalapp du 18/10)
+  cli-original.ts   rendu d'un original (tier list ou carrousel), planche, dépôt (sans source : rang original)
 assets/unswipe_icone.jpg   icône App Store d'UnSwipe
 polices/                   Inter Tight ExtraLight / Light / Regular / SemiBold (SIL OFL)
 posts/<id>.json            transcriptions et traductions (versionnées)

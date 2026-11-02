@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o009",
+ "schema_id": "habits-that",
+ "titre": "Rewire your brain: 6 habits that kill laziness #discipline #selfimprovement #men #mindset #habits",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "8f63c67e-7c61-4f42-a3cb-0255a0249d3b",
+  "02bf6ce3-45e0-4185-b6e9-37c4da824eb7"
+ ],
+ "notes": "cta A. cta A : Sophia sur le dernier item, « history, science or art in 5 minutes ». cta B : dernier item, angle « stop wasting your screen time ». cta C : Sophia au milieu du deck. Schéma habits-that (r 4,33 sur 6 passages et 46 k vues, 8f63c67e ; r 3,67, 02bf6ce3). Accroches écrites : « Rewire your brain: 6 habits that kill laziness » (retenue : l'accroche du gagnant, un item de plus), « 5 habits that are secretly making you weak » (écartée : négative, pas de preuve chez nous), « Habits that make people respect you » (écartée : déjà faite par 02bf6ce3, moins vue). Format du gagnant : l'habitude en titre, puis une ligne de pourquoi. Six habitudes neuves (vérifié dans donnees/label.json) ; écartés car dans la source ou dans mes originaux : silence du matin, minuteurs, dopamine fast, miroir, blocs de 30 et 45 minutes, téléphone dans une autre pièce, habits préparés la veille. Sophia sur la dernière habitude. Images : la banque du label, sans visage reconnaissable ; slide Sophia sur un brasero sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "298a94eb",
+   "texte_overlay": "Rewire your brain:\n6 habits that kill laziness",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1a09f58c",
+   "texte_overlay": "1. Start with the smallest version\nNo time for 30 minutes?\nDo 2. Starting is the hard part,\nnot continuing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b0989e45",
+   "texte_overlay": "2. Put your gym bag\nby the door at night\nOne less step between you\nand the workout.\nLess friction, fewer excuses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4e9a2456",
+   "texte_overlay": "3. Never sit back down\nafter you wake up\nFeet on the floor,\nstraight to the shower.\nThe bed wins every negotiation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bdf7a242",
+   "texte_overlay": "4. If it takes under\n2 minutes, do it now\nThe reply, the dishes,\nthe call. Small tasks\npile up into heavy days.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "81ff1745",
+   "texte_overlay": "5. Do the hard task while\nyour coffee is still hot\nThe longer you wait,\nthe bigger it gets\nin your head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a9660d4e",
+   "texte_overlay": "6. Replace one scroll\nwith one lesson\nSwap 10 minutes of scrolling\nfor something that teaches you.\nSame break, sharper mind.",
+   "texte_sophia": "6. Replace one scroll\nwith one lesson\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  }
+ ]
+}

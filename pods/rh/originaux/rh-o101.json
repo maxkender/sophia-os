@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o101",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5a26288e-efdf-4e72-a63a-ee48492828d5",
+ "titre": "les phrases pour poser une limite à ton manager sans te griller #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 8 (parent 5a26288e, 44,7 k vues en bg) : accroche mot pour mot, autres situations que le parent (rh-o027). Rien de juridique. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01da1eaf",
+   "texte_overlay": "les phrases pour poser une limite\nà ton manager\nsans te griller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "061d6833",
+   "texte_overlay": "1. quand il t'appelle pendant tes congés\nrien pendant. au retour : « j'ai vu ton appel, on fait le point ce matin ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "06762ece",
+   "texte_overlay": "2. quand il change les priorités tous les jours\n« on fixe les 3 priorités de la semaine lundi ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "067cba61",
+   "texte_overlay": "3. quand il te demande de mentir à un client\n« je préfère lui dire qu'on a du retard, avec une date »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1670b510",
+   "texte_overlay": "4. quand il refuse toute formation\n« je me forme déjà seule, 5 minutes par jour. je peux en parler en réunion ? »",
+   "texte_sophia": "4. quand il refuse toute formation\n« je me forme déjà seule, 5 minutes par jour sur l'appli Sophia. je peux en parler en réunion ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "074f09e6",
+   "texte_overlay": "5. quand il te compare à un collègue\n« dis-moi ce que t'attends de moi, précisément »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "07985b7c",
+   "texte_overlay": "6. quand il oublie ce qu'il t'a promis\n« je t'envoie un mail récap après chaque point, ça t'aide ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "07e65dd2",
+   "texte_overlay": "laquelle t'aurais voulu connaître plus tôt ?\nréponds le numéro",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

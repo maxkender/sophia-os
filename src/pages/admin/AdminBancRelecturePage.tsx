@@ -24,6 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  compterPosteursRelecture,
   ecrireEnvoiAutoRelecture,
   enregistrerAvisRelecture,
   listerAvisRelecture,
@@ -832,7 +833,12 @@ function EnvoiAuto() {
       <Switch
         checked={actif}
         disabled={basculer.isPending}
-        onCheckedChange={(v) => basculer.mutate(v === true)}
+        onCheckedChange={async (v) => {
+          if (v !== true) return basculer.mutate(false);
+          // Prompt 15, point 1 : ouvrir l'envoi demande une confirmation avec le nombre de créateurs touchés.
+          const n = await compterPosteursRelecture().catch(() => null);
+          if (window.confirm(t("banc.envoiAutoConfirm", { n: n ?? "?" }))) basculer.mutate(true);
+        }}
         aria-label={t("banc.envoiAuto")}
       />
       <span className="font-medium">{actif ? t("banc.envoiAutoActif") : t("banc.envoiAutoInactif")}</span>

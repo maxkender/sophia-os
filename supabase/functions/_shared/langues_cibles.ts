@@ -31,6 +31,9 @@ export const LANGUES_CIBLES = [
   "fi",
   "et",
   "bg",
+  "lt",
+  "lv",
+  "ja",
 ] as const;
 
 /**

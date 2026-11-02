@@ -7,6 +7,19 @@ tu les fais de bout en bout et tu rends compte. Tu ne publies jamais rien : tout
 ce que tu écris part dans la **file de validation** de l'OS (Pilotage → Pods),
 où un humain valide ou rejette.
 
+> **BLEO, voie 1 (bascule des podz le dimanche 1/11 au soir).** Quand `npm run boite`
+> affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
+> - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
+>   la **jauge** combien de full tests déposer ;
+> - chaque original déclare `"type_bleo"` : `"declinaison"` avec
+>   `"parent_contenu_id"`, ou `"full_test"` ; ni `schema_id` ni preuve ;
+> - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
+>   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
+>   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - le reste vaut toujours : le ton, le format, la recette, les images, les
+>   applis concurrentes et les personnes réelles, le playbook comme mémoire
+>   (`npm run playbook -- --mesurer`).
+
 ## Ce que fait le pod
 - **Label** : `weird_alpha`, le meilleur label du catalogue. Ses contenus viennent
   de 3 comptes source ; **@mentoridaily** est celui qui marche le mieux chez nous :
@@ -76,6 +89,24 @@ ou de déposer.
   (16 du top 20). Variantes testées : `disgustingly intelligent`,
   `habits that will make you unreasonably confident`. Pas de dating, pas d'ironie,
   pas de « in the age of ai », rien de vulgaire.
+- **Varier les schémas (consigne du chef, 25 et 27/10)** : la famille à limiter
+  est tout le schéma « hobbies / habits that (will) make you X », quel que soit
+  X. Sur les livraisons normales du jour, **au plus 1** dans ce schéma. Les
+  autres sur d'autres formats : « how to… », « things that… », « rules i
+  follow… », « microhabits… », récit à la 1re personne (« small dares that
+  rebuilt my confidence »), avant/après. Les variantes des percées gardent le
+  fond de l'original mais prennent aussi une accroche hors de ce schéma.
+  Jamais deux fois la même accroche ni la même image d'accroche dans un lot.
+- **Reprises (Adrien, 28/10, `pods/ROUTINE.md` §4.3, §4.7 avant BLEO)** : reprendre un titre de
+  slide 1 ou une couverture est permis, c'est le principe des variantes. Seule
+  règle : **jamais deux posts identiques**, chaque reprise change quelque chose
+  (autres items, autre angle, autre image ou autre CTA). Varie quand même :
+  nouveaux schémas, nouvelles accroches, nouvelles images (la banque contient
+  beaucoup de doublons visuels sous des `media_id` différents). Avant
+  `deposer` : `npm run accroches` (empreintes visuelles, couvertures neuves dans
+  `sortie/accroches-libres.txt`), puis `npm run unicite -- <ids>`, qui signale
+  les reprises et refuse un post identique. Éviter qu'un compte reçoive deux
+  fois la même chose relève de l'assignation, côté OS.
 - **Item** : `titre (2 à 4 mots)\n\n` puis 2 phrases, **150 à 200 caractères** :
   une consigne concrète et chiffrée (durée, fréquence), puis une chute
   introspective (« most people… », « the avoidance costs more than… »).
@@ -86,6 +117,16 @@ ou de déposer.
   minutes » (art, histoire, sciences). Base sans appli dans `texte_overlay`, et
   sa version avec « the Sophia app » dans `texte_sophia`. C'est exactement le
   format de nos posts à plus de 300k vues (`npm run top-posts`).
+- **Test CTA (`pods/ROUTINE.md` §4.5)** : 3 versions vraiment différentes de
+  la slide Sophia, alternées d'une livraison à l'autre, notées `cta A/B/C`
+  dans `notes` :
+  - `cta A` (depuis le 26/10, remplace « a micro-learning app like the Sophia app
+    makes it easy », trop usée) : slide 5, avant/après à la 1re personne,
+    « i used to scroll for an hour every night. now i spend 5 minutes on one
+    lesson in the Sophia app instead… ».
+  - `cta B` : slide 5, « the Sophia app turns it into one short lesson a day ».
+  - `cta C` : slide 4, autre phrase : « i do it with the Sophia app, one lesson
+    a day, five minutes ».
 - **Pas de tiret long (—)** ni de point-virgule : la traduction les interdit.
 - **Images et inspiration** : les images ET les slides d'inspiration d'un même
   post du top (position par position). Un post d'inspiration différent pour
@@ -109,12 +150,20 @@ marche, abandonner ce qui ne marche pas.
 
 ## La routine du matin
 
+**Percées** : `npm run etat` peut afficher « 0 publié » pour un original qui
+tourne (wa-o031 : 37 700 vues en pl, invisible dans `etat` le 26/10). Vérifie
+les vues max par original dans la table `passages` (via `pod_livraisons`) avant
+de conclure qu'aucun post n'a passé 30 k.
+
 Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
 (combien livrer, dans quel ordre, un essai une fois sur cinq). Ta livraison
 normale : un original, comme « Écris N originaux » avec N = 1.
 
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
+- **Personnes sur les images** : les photos de la banque où l'on voit des
+  célébrités (acteurs, actrices) sont acceptées (Adrien, 28/10). Seule limite :
+  jamais de personne réelle sur la slide Sophia (`pods/ROUTINE.md`).
 - **Versions** : commite avant de réécrire un fichier existant.
 - **Git** : travaille sur ta branche, PR vers `main` limitée à `pods/originaux/`,
   merge-la. Tout changement hors de ce dossier : propose-le, ne le merge pas.

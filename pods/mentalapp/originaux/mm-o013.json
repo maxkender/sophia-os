@@ -1,0 +1,551 @@
+{
+ "id": "mm-o013",
+ "titre": "tier list of Weekend habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "weekend habits, ranked #weekend #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes du week-end, classées #weekend #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Wochenendgewohnheiten im Ranking #wochenende #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hábitos de fin de semana, en ranking #findesemana #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "abitudini del weekend, in classifica #weekend #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "hafta sonu alışkanlıkları #haftasonu #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7697820355800370448/1",
+   "boite": [
+    222,
+    402,
+    636,
+    756
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Weekend",
+   "fr": "habitudes",
+   "de": "Wochenend-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "hafta sonu"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "du week-end",
+   "de": "gewohnheiten",
+   "es": "de fin de semana",
+   "it": "del weekend",
+   "tr": "alışkanlıkları"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my weekend",
+  "fr": "note mon week-end",
+  "de": "bewerte mein Wochenende",
+  "es": "puntúa mi finde",
+  "it": "vota il mio weekend",
+  "tr": "hafta sonumu puanla"
+ },
+ "pied": {
+  "en": "how do you spend sunday?",
+  "fr": "tu fais quoi le dimanche ?",
+  "de": "was machst du sonntags?",
+  "es": "¿qué haces el domingo?",
+  "it": "cosa fai la domenica?",
+  "tr": "pazar günü ne yaparsın?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "recharges you",
+    "fr": "te recharge",
+    "de": "lädt dich auf",
+    "es": "te recarga",
+    "it": "ti ricarica",
+    "tr": "şarj eder"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "day in nature",
+      "fr": "journée nature",
+      "de": "Tag in der Natur",
+      "es": "día en la naturaleza",
+      "it": "giornata nella natura",
+      "tr": "doğada bir gün"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "long workout",
+      "fr": "grosse séance",
+      "de": "langes Training",
+      "es": "entreno largo",
+      "it": "allenamento lungo",
+      "tr": "uzun antrenman"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "finishing|a book",
+      "fr": "finir un livre",
+      "de": "ein Buch|beenden",
+      "es": "terminar|un libro",
+      "it": "finire|un libro",
+      "tr": "kitap|bitirmek"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking|for friends",
+      "fr": "cuisiner|pour des potes",
+      "de": "für Freunde|kochen",
+      "es": "cocinar|para amigos",
+      "it": "cucinare|per gli amici",
+      "tr": "arkadaşlara|yemek"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      766,
+      394,
+      110,
+      110
+     ],
+     "t": {
+      "en": "long walk",
+      "fr": "longue marche",
+      "de": "langer Spaziergang",
+      "es": "paseo largo",
+      "it": "lunga passeggiata",
+      "tr": "uzun yürüyüş"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "board games",
+      "fr": "jeux de société",
+      "de": "Brettspiele",
+      "es": "juegos de mesa",
+      "it": "giochi da tavolo",
+      "tr": "kutu oyunları"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|dem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "planning|the week",
+      "fr": "planifier|la semaine",
+      "de": "die Woche|planen",
+      "es": "planear|la semana",
+      "it": "pianificare|la settimana",
+      "tr": "haftayı|planlamak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "sleeping in",
+      "fr": "grasse mat’",
+      "de": "ausschlafen",
+      "es": "dormir de más",
+      "it": "dormire tanto",
+      "tr": "geç kalkmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      273,
+      691,
+      62,
+      114
+     ],
+     "t": {
+      "en": "road trip",
+      "fr": "road trip",
+      "de": "Roadtrip",
+      "es": "road trip",
+      "it": "road trip",
+      "tr": "yolculuk"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "movie night",
+      "fr": "soirée film",
+      "de": "Filmabend",
+      "es": "noche de peli",
+      "it": "serata film",
+      "tr": "film gecesi"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "café brunch",
+      "fr": "brunch au café",
+      "de": "Café-Brunch",
+      "es": "brunch",
+      "it": "brunch al bar",
+      "tr": "kafede brunch"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      265,
+      692,
+      112,
+      108
+     ],
+     "t": {
+      "en": "new album",
+      "fr": "nouvel album",
+      "de": "neues Album",
+      "es": "álbum nuevo",
+      "it": "album nuovo",
+      "tr": "yeni albüm"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "afternoon nap",
+      "fr": "sieste",
+      "de": "Mittagsschlaf",
+      "es": "siesta",
+      "it": "pisolino",
+      "tr": "öğle uykusu"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake rest",
+    "fr": "faux repos",
+    "de": "Fake-Erholung",
+    "es": "falso descanso",
+    "it": "finto riposo",
+    "tr": "sahte dinlenme"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|all afternoon",
+      "fr": "youtube|tout l’aprèm",
+      "de": "YouTube den|ganzen Nachmittag",
+      "es": "youtube toda|la tarde",
+      "it": "youtube tutto|il pomeriggio",
+      "tr": "bütün öğleden sonra|youtube"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping|to feel better",
+      "fr": "shopping|pour aller mieux",
+      "de": "Shopping|zum Trostpflaster",
+      "es": "compras|para animarte",
+      "it": "shopping|per tirarsi su",
+      "tr": "moral için|alışveriş"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "gaming|all day",
+      "fr": "gaming|toute la journée",
+      "de": "Gaming|den ganzen Tag",
+      "es": "gaming|todo el día",
+      "it": "gaming|tutto il giorno",
+      "tr": "bütün gün|oyun"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "wastes it",
+   "fr": "le gâche",
+   "de": "verschwendet es",
+   "es": "lo desperdicia",
+   "it": "lo spreca",
+   "tr": "boşa harcar"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "scrolling|till 3am",
+     "fr": "scroller|jusqu’à 3h",
+     "de": "Scrollen|bis 3 Uhr",
+     "es": "scroll hasta|las 3",
+     "it": "scrollare|fino alle 3",
+     "tr": "gece 3’e kadar|scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 26/10 : la seule livraison du jour sur la famille tier list (point 6 de ROUTINE.md), sujet week-end. cta A : élément UnSwipe en première case du S+. Couverture : l’homme au téléphone de la banque."
+}

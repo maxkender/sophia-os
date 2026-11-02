@@ -101,8 +101,16 @@ jobs:
           fi
           # --use-api : bundle côté serveur, pas de Docker sur le runner.
           # verify_jwt vient de supabase/config.toml, jamais d'un flag.
-          supabase functions deploy ${{ steps.choix.outputs.liste }} \
-            --project-ref "$PROJECT_REF" --use-api
+          # Quand le bundler de Supabase n'arrive pas à joindre jsr.io
+          # (« Fetch 'https://jsr.io/...' timed out after 10s »), on rebundle
+          # ici avec Docker (présent sur ubuntu-latest) : c'est le runner qui
+          # télécharge alors les imports. Redéployer est sans effet de bord.
+          if ! supabase functions deploy ${{ steps.choix.outputs.liste }} \
+            --project-ref "$PROJECT_REF" --use-api; then
+            echo "::warning::bundle côté serveur en échec — nouvel essai avec Docker sur le runner"
+            supabase functions deploy ${{ steps.choix.outputs.liste }} \
+              --project-ref "$PROJECT_REF"
+          fi
 
       - name: Vérifier que les fonctions démarrent
         if: steps.choix.outputs.liste != ''

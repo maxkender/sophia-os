@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o071",
+ "schema_id": "copie-habitudes",
+ "titre": "je suis devenue cheffe de projet sans être manager et j'ai copié 5 habitudes de celle qu'on suivait sans qu'elle ait le titre #cheffedeprojet #travail #leadership #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 3. Routine du 31/10 (10 livraisons + 3 variantes de rh-o038), ROUTINE-avant-bleo. variante de rh-o038 (35,3 k vues en fr). Même schéma copie-habitudes (r 7,45, 63ffa170), même format « je suis devenue X et j'ai copié 5 habitudes de… », autre angle, autres habitudes : aucune reprise de rh-o038 ni des autres originaux. Habitudes observées, aucune vraie personne ni vraie entreprise. Angle : l'influence sans titre de manager, une cible jamais visée. CTA de fin jamais utilisé : taguer la personne qu'on suit sans qu'elle ait le titre. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f26e376d",
+   "texte_overlay": "cheffe de projet sans être manager,\nj'ai copié 5 habitudes de celle\nqu'on suivait sans qu'elle ait le titre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7cd24ee0",
+   "texte_overlay": "elle arrivait en réunion avec une proposition\npas avec une question ouverte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a8d71d1e",
+   "texte_overlay": "elle avait 3 sources d'idées\nses lectures, ses collègues d'autres services, et ce qu'elle apprenait chaque jour",
+   "texte_sophia": "elle avait 3 sources d'idées\nses lectures, ses collègues d'autres services, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b3b81753",
+   "texte_overlay": "elle disait « on » quand ça marchait\net « je » quand ça ratait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c2bb68d3",
+   "texte_overlay": "elle demandait l'avis du plus discret\nen premier.\ndu coup, tout le monde parlait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "45979057",
+   "texte_overlay": "elle tenait ses délais\nou elle prévenait la veille, jamais le jour même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7ecfa33b",
+   "texte_overlay": "tague la personne que tout le monde suit\nsans qu'elle ait le titre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

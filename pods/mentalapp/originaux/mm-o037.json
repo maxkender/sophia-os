@@ -1,0 +1,213 @@
+{
+ "id": "mm-o037",
+ "format": "carrousel",
+ "titre": "My morning routine that fixed my brain fog",
+ "legendes": {
+  "en": "the morning routine that fixed my brain fog #morningroutine #brainfog #mentalmaxxing #selfimprovement",
+  "fr": "la routine du matin qui a réglé mon brouillard mental #routinedumatin #brouillardmental #mentalmaxxing #developpementpersonnel",
+  "de": "die Morgenroutine, die meinen Brain Fog beendet hat #morgenroutine #brainfog #mentalmaxxing #selbstverbesserung",
+  "es": "la rutina de mañana que acabó con mi niebla mental #rutinademañana #nieblamental #mentalmaxxing #superacionpersonal",
+  "it": "la routine mattutina che ha sistemato la mia nebbia mentale #routinemattutina #nebbiamentale #mentalmaxxing #crescitapersonale",
+  "tr": "beyin sisimi düzelten sabah rutinim #sabahrutini #beyinsisi #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7692811167261248775/1",
+   "boite": [
+    134,
+    280,
+    746,
+    588
+   ]
+  },
+  "theme": {
+   "en": "My morning routine",
+   "fr": "Ma routine du matin",
+   "de": "Meine Morgenroutine",
+   "es": "Mi rutina de mañana",
+   "it": "La mia routine del mattino",
+   "tr": "Sabah rutinim"
+  },
+  "sous": {
+   "en": "that fixed my brain fog",
+   "fr": "contre le brouillard mental",
+   "de": "gegen Brain Fog",
+   "es": "contra la niebla mental",
+   "it": "contro la nebbia mentale",
+   "tr": "beyin sisine karşı"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Step zero: nothing to scroll when I wake up. I deleted short videos with UnSwipe, so the morning starts clean.",
+    "fr": "Étape zéro : rien à scroller au réveil. J’ai supprimé les vidéos courtes avec UnSwipe, donc le matin démarre propre.",
+    "de": "Schritt null: nichts zum Scrollen beim Aufwachen. Ich habe Kurzvideos mit UnSwipe gelöscht, der Morgen startet sauber.",
+    "es": "Paso cero: nada que mirar al despertar. Borré los vídeos cortos con UnSwipe, así que la mañana empieza limpia.",
+    "it": "Passo zero: niente da scrollare al risveglio. Ho eliminato i video brevi con UnSwipe, così la mattina parte pulita.",
+    "tr": "Sıfırıncı adım: uyanınca kaydıracak bir şey yok. Kısa videoları UnSwipe ile sildim, sabah temiz başlıyor."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "6:30, light first",
+    "fr": "6h30, la lumière d’abord",
+    "de": "6:30, zuerst Licht",
+    "es": "6:30, primero luz",
+    "it": "6:30, prima la luce",
+    "tr": "6.30, önce ışık"
+   },
+   "texte": {
+    "en": "Curtains open, phone stays away. Daylight tells your brain the day has started.",
+    "fr": "Rideaux ouverts, téléphone loin. La lumière du jour dit à ton cerveau que la journée commence.",
+    "de": "Vorhänge auf, Handy bleibt weg. Tageslicht sagt deinem Gehirn, dass der Tag beginnt.",
+    "es": "Cortinas abiertas, móvil lejos. La luz del día le dice a tu cerebro que empieza el día.",
+    "it": "Tende aperte, telefono lontano. La luce dice al cervello che la giornata è iniziata.",
+    "tr": "Perdeler açık, telefon uzakta. Gün ışığı beynine günün başladığını söyler."
+   }
+  },
+  {
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "6:40, cold water",
+    "fr": "6h40, eau froide",
+    "de": "6:40, kaltes Wasser",
+    "es": "6:40, agua fría",
+    "it": "6:40, acqua fredda",
+    "tr": "6.40, soğuk su"
+   },
+   "texte": {
+    "en": "Thirty seconds of cold at the end of the shower. Awake in a way coffee never managed.",
+    "fr": "Trente secondes de froid en fin de douche. Réveillé comme le café n’y est jamais arrivé.",
+    "de": "Dreißig Sekunden kalt am Ende der Dusche. Wach, wie es Kaffee nie geschafft hat.",
+    "es": "Treinta segundos de frío al final de la ducha. Despierto como el café nunca consiguió.",
+    "it": "Trenta secondi di freddo a fine doccia. Sveglio come il caffè non è mai riuscito.",
+    "tr": "Duşun sonunda otuz saniye soğuk. Kahvenin hiç yapamadığı kadar uyanık."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "6:50, a short walk",
+    "fr": "6h50, une courte marche",
+    "de": "6:50, ein kurzer Spaziergang",
+    "es": "6:50, un paseo corto",
+    "it": "6:50, una breve passeggiata",
+    "tr": "6.50, kısa bir yürüyüş"
+   },
+   "texte": {
+    "en": "Ten minutes around the block, no headphones. My head clears before the day asks anything.",
+    "fr": "Dix minutes autour du pâté, sans écouteurs. Ma tête s’éclaircit avant que la journée demande quoi que ce soit.",
+    "de": "Zehn Minuten um den Block, ohne Kopfhörer. Mein Kopf wird klar, bevor der Tag etwas will.",
+    "es": "Diez minutos a la manzana, sin auriculares. Mi cabeza se aclara antes de que el día pida nada.",
+    "it": "Dieci minuti intorno all’isolato, senza cuffie. La testa si schiarisce prima che la giornata chieda qualcosa.",
+    "tr": "Kulaklıksız on dakika mahalle turu. Gün bir şey istemeden kafam açılıyor."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "7:10, a real breakfast",
+    "fr": "7h10, un vrai petit-déj",
+    "de": "7:10, ein echtes Frühstück",
+    "es": "7:10, un desayuno de verdad",
+    "it": "7:10, una vera colazione",
+    "tr": "7.10, gerçek bir kahvaltı"
+   },
+   "texte": {
+    "en": "Protein, fruit, water. No sugar crash at 10am, no brain fog at noon.",
+    "fr": "Protéines, fruits, eau. Pas de coup de barre à 10h, pas de brouillard à midi.",
+    "de": "Protein, Obst, Wasser. Kein Zuckertief um 10, kein Nebel am Mittag.",
+    "es": "Proteína, fruta, agua. Sin bajón de azúcar a las 10 ni niebla al mediodía.",
+    "it": "Proteine, frutta, acqua. Niente calo di zuccheri alle 10, niente nebbia a mezzogiorno.",
+    "tr": "Protein, meyve, su. Saat 10’da şeker düşüşü yok, öğlen sis yok."
+   }
+  },
+  {
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "7:30, coffee and ten pages",
+    "fr": "7h30, café et dix pages",
+    "de": "7:30, Kaffee und zehn Seiten",
+    "es": "7:30, café y diez páginas",
+    "it": "7:30, caffè e dieci pagine",
+    "tr": "7.30, kahve ve on sayfa"
+   },
+   "texte": {
+    "en": "The coffee comes with a book, not a feed. My brain warms up on something slow.",
+    "fr": "Le café vient avec un livre, pas un feed. Mon cerveau s’échauffe sur quelque chose de lent.",
+    "de": "Der Kaffee kommt mit einem Buch, nicht mit einem Feed. Mein Gehirn wärmt sich langsam auf.",
+    "es": "El café va con un libro, no con un feed. Mi cerebro calienta con algo lento.",
+    "it": "Il caffè arriva con un libro, non con un feed. Il cervello si scalda con qualcosa di lento.",
+    "tr": "Kahve bir akışla değil, bir kitapla geliyor. Beynim yavaş bir şeyle ısınıyor."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "8:00, the hardest task first",
+    "fr": "8h00, la tâche la plus dure d’abord",
+    "de": "8:00, die schwerste Aufgabe zuerst",
+    "es": "8:00, la tarea más difícil primero",
+    "it": "8:00, prima il compito più difficile",
+    "tr": "8.00, önce en zor iş"
+   },
+   "texte": {
+    "en": "Before messages, before email. One hour of deep work while my head is still clear.",
+    "fr": "Avant les messages, avant les mails. Une heure de travail profond tant que ma tête est encore claire.",
+    "de": "Vor Nachrichten, vor E-Mails. Eine Stunde Deep Work, solange mein Kopf noch klar ist.",
+    "es": "Antes de los mensajes y del correo. Una hora de trabajo profundo con la cabeza aún clara.",
+    "it": "Prima dei messaggi, prima delle mail. Un’ora di lavoro profondo finché la testa è lucida.",
+    "tr": "Mesajlardan, e-postalardan önce. Kafam hâlâ berrakken bir saat derin çalışma."
+   }
+  }
+ ],
+ "notes": "routine du 01/11 : accroche jamais faite chez nous (« my morning routine that fixed my brain fog »), routine heure par heure à la 1re personne. cta C : élément UnSwipe en 1er item (slide 2), étape zéro."
+}

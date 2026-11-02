@@ -1,0 +1,551 @@
+{
+ "id": "mm-o023",
+ "titre": "tier list of Evening habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "evening habits, ranked by what they do to your tomorrow #mentalmaxxing #eveningroutine #tierlist #selfimprovement",
+  "fr": "les habitudes du soir, classées selon ce qu’elles font à ton lendemain #mentalmaxxing #routinedusoir #tierlist #developpementpersonnel",
+  "de": "Abendgewohnheiten, sortiert nach dem, was sie mit deinem Morgen machen #mentalmaxxing #abendroutine #tierlist #selbstverbesserung",
+  "es": "hábitos de noche, según lo que le hacen a tu mañana #mentalmaxxing #rutinadenoche #tierlist #superacionpersonal",
+  "it": "abitudini serali, in base a cosa fanno al tuo domani #mentalmaxxing #routineserale #tierlist #crescitapersonale",
+  "tr": "akşam alışkanlıkları, yarınına ne yaptıklarına göre #mentalmaxxing #akşamrutini #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Evening",
+   "fr": "habitudes",
+   "de": "Abend-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "akşam"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "du soir",
+   "de": "gewohnheiten",
+   "es": "de noche",
+   "it": "serali",
+   "tr": "alışkanlıkları"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what’s your last hour like?",
+  "fr": "ta dernière heure, c’est quoi ?",
+  "de": "wie sieht deine letzte Stunde aus?",
+  "es": "¿cómo es tu última hora?",
+  "it": "com’è la tua ultima ora?",
+  "tr": "son saatin nasıl geçiyor?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "protects tomorrow",
+    "fr": "protège demain",
+    "de": "schützt morgen",
+    "es": "protege tu mañana",
+    "it": "protegge domani",
+    "tr": "yarını korur"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading|before bed",
+      "fr": "lire avant|de dormir",
+      "de": "Lesen vor|dem Schlafen",
+      "es": "leer antes|de dormir",
+      "it": "leggere prima|di dormire",
+      "tr": "yatmadan önce|okumak"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone out|of the room",
+      "fr": "téléphone|hors chambre",
+      "de": "Handy raus|aus dem Zimmer",
+      "es": "móvil fuera|del cuarto",
+      "it": "telefono fuori|dalla stanza",
+      "tr": "telefon|odanın dışında"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "setting|tomorrow’s goal",
+      "fr": "fixer l’objectif|de demain",
+      "de": "Ziel für|morgen setzen",
+      "es": "fijar la meta|de mañana",
+      "it": "fissare l’obiettivo|di domani",
+      "tr": "yarının hedefini|koymak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "evening walk",
+      "fr": "balade du soir",
+      "de": "Abendspaziergang",
+      "es": "paseo nocturno",
+      "it": "passeggiata serale",
+      "tr": "akşam yürüyüşü"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "hot shower",
+      "fr": "douche chaude",
+      "de": "warme Dusche",
+      "es": "ducha caliente",
+      "it": "doccia calda",
+      "tr": "sıcak duş"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      896,
+      866,
+      164,
+      126
+     ],
+     "t": {
+      "en": "herbal tea",
+      "fr": "tisane",
+      "de": "Kräutertee",
+      "es": "infusión",
+      "it": "tisana",
+      "tr": "bitki çayı"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking|dinner",
+      "fr": "cuisiner|le dîner",
+      "de": "Abendessen|kochen",
+      "es": "cocinar|la cena",
+      "it": "cucinare|la cena",
+      "tr": "akşam yemeği|yapmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "a full album",
+      "fr": "un album entier",
+      "de": "ein ganzes Album",
+      "es": "un álbum entero",
+      "it": "un album intero",
+      "tr": "tam bir albüm"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|dem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "a game|of chess",
+      "fr": "une partie|d’échecs",
+      "de": "eine Partie|Schach",
+      "es": "una partida|de ajedrez",
+      "it": "una partita|a scacchi",
+      "tr": "bir el|satranç"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "it depends",
+    "fr": "ça dépend",
+    "de": "kommt drauf an",
+    "es": "depende",
+    "it": "dipende",
+    "tr": "duruma göre"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "one movie",
+      "fr": "un film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "bir film"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "evening nap",
+      "fr": "sieste du soir",
+      "de": "Abendnickerchen",
+      "es": "siesta de tarde",
+      "it": "pisolino serale",
+      "tr": "akşam şekerlemesi"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "late snack",
+      "fr": "grignotage tardif",
+      "de": "später Snack",
+      "es": "picoteo tardío",
+      "it": "spuntino tardivo",
+      "tr": "gece atıştırması"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "old playlists",
+      "fr": "vieilles playlists",
+      "de": "alte Playlists",
+      "es": "playlists viejas",
+      "it": "vecchie playlist",
+      "tr": "eski çalma listeleri"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "costs you",
+    "fr": "te coûte",
+    "de": "kostet dich",
+    "es": "te cuesta",
+    "it": "ti costa",
+    "tr": "sana pahalıya"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "coffee|after 5pm",
+      "fr": "café|après 17h",
+      "de": "Kaffee|nach 17 Uhr",
+      "es": "café|después de las 5",
+      "it": "caffè|dopo le 17",
+      "tr": "17.00’den sonra|kahve"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "gaming|till 2am",
+      "fr": "gaming|jusqu’à 2h",
+      "de": "Gaming|bis 2 Uhr",
+      "es": "gaming|hasta las 2",
+      "it": "gaming|fino alle 2",
+      "tr": "gece 2’ye|kadar oyun"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|in bed",
+      "fr": "youtube|au lit",
+      "de": "YouTube|im Bett",
+      "es": "youtube|en la cama",
+      "it": "youtube|a letto",
+      "tr": "yatakta|youtube"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "ruins tomorrow",
+   "fr": "ruine demain",
+   "de": "ruiniert morgen",
+   "es": "arruina tu mañana",
+   "it": "rovina domani",
+   "tr": "yarını mahveder"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     421,
+     863,
+     91,
+     84
+    ],
+    "t": {
+     "en": "reels in bed",
+     "fr": "reels au lit",
+     "de": "Reels im Bett",
+     "es": "reels en la cama",
+     "it": "reel a letto",
+     "tr": "yatakta reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "Doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 30/10 : la seule livraison du jour sur la famille tier list (point 6 de ROUTINE.md). cta A : élément UnSwipe en première case du S+. Couverture : le cerveau scotché de la banque."
+}

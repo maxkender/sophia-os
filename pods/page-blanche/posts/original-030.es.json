@@ -1,0 +1,245 @@
+{
+ "post_id": "original-030",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "la mayoría de la gente no llegará a [[la última slide]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(y de eso se trata, sigue deslizando)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "¿sigues aquí? bien, [[eso es raro]]"
+    },
+    "T2": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "la mayoría ya pasó de largo"
+    },
+    "T3": {
+     "en": [
+      "playing uses your hands,",
+      "ears, memory and focus",
+      "all at the same time"
+     ],
+     "fr": "jouer fait bosser mains, oreilles, mémoire et concentration [[en même temps]]",
+     "texte": "los vídeos cortos acostumbran a tu cerebro a [[algo nuevo cada pocos segundos]]"
+    },
+    "T4": {
+     "en": [
+      "you’ll be bad at it for a while, but you have to get",
+      "used to trying and failing, and trying again"
+     ],
+     "fr": "au début tu vas galérer un moment, mais faut t'habituer à [[essayer, rater]], et [[recommencer]]",
+     "texte": "así que todo lo más lento, un libro, una clase, esta slide, [[aburre antes de empezar]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get comfortable with silence"
+     ],
+     "fr": "sois à l'aise avec [[les silences]]",
+     "texte": "¿esas [[ganas de deslizar]] ahora?"
+    },
+    "T2": {
+     "en": [
+      "stop rushing to fill",
+      "every pause in a",
+      "conversation"
+     ],
+     "fr": "arrête de vouloir combler [[chaque blanc]] dans la discussion",
+     "texte": "no es aburrimiento, es tu cerebro [[pidiendo otra dosis]]"
+    },
+    "T3": {
+     "en": [
+      "speak slower, finish",
+      "your sentences, and",
+      "let your words land",
+      "before adding more"
+     ],
+     "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
+     "texte": "[[aguanta 10 segundos]]. sube, y luego baja, como cualquier antojo que no alimentas"
+    },
+    "T4": {
+     "en": [
+      "people who seem comfortable with silence often",
+      "come across as more confident because they aren’t",
+      "desperately chasing approval"
+     ],
+     "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
+     "texte": "cada vez que no deslizas, el tirón se debilita un poco. cada vez que lo haces, se refuerza. [[de un modo u otro, lo estás entrenando]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never miss twice"
+     ],
+     "fr": "[[jamais 2 fois de suite]]",
+     "texte": "[[vas por la mitad]]"
+    },
+    "T2": {
+     "en": [
+      "missed the gym today? fine. ate badly? move on.",
+      "wasted three hours scrolling? don't waste the next",
+      "three."
+     ],
+     "fr": "pas de sport aujourd'hui ? ok. mal mangé ? on oublie. [[3h perdues à scroller ? perds pas les 3 suivantes.]]",
+     "texte": "si tu mente se fue en la slide anterior, es normal. le pasa a todo el mundo. [[la clave es darte cuenta y volver.]]"
+    },
+    "T3": {
+     "en": [
+      "the real damage isn't",
+      "making a mistake."
+     ],
+     "fr": "le vrai problème, c'est pas l'erreur.",
+     "texte": "una mente que divaga no está rota."
+    },
+    "T4": {
+     "en": [
+      "it's using that mistake as",
+      "permission to keep going."
+     ],
+     "fr": "c'est de s'en servir comme [[excuse pour continuer.]]",
+     "texte": "traerla de vuelta, una y otra vez, [[es el entrenamiento.]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "la atención es [[un músculo, no magia]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "se debilita cuando cada segundo libre se va en vídeos cortos, y [[se fortalece cuando sigues con una cosa]] un poco más"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "así que [[entrénala cada día]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "lo mío: un libro en la mochila, paseos sin cascos y 5 min de lección en [[la app Sophia]] cuando cojo el móvil igual"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "nada de esto es difícil. solo que [[no tiene botón para deslizar]]."
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing",
+      "in the morning"
+     ],
+     "fr": "prends [[la lumière du jour]] dès le matin",
+     "texte": "si todavía lees esto, [[enhorabuena]]"
+    },
+    "T2": {
+     "en": [
+      "go outside for 10 minutes right after you wake up"
+     ],
+     "fr": "sors [[10 minutes]] juste après ton réveil",
+     "texte": "tu atención no está rota. [[así es como la mantienes]]"
+    },
+    "T3": {
+     "en": [
+      "morning light sets",
+      "your body clock, so",
+      "you get energy in",
+      "the morning and",
+      "feel sleepy at night"
+     ],
+     "fr": "la lumière du matin règle ton horloge interne : t'as [[de l'énergie le matin]] et sommeil le soir",
+     "texte": "una cosa cada vez, el móvil lejos cuando importa, y [[un poco de aburrimiento cada día]]"
+    },
+    "T4": {
+     "en": [
+      "better sleep is the easiest way to start turning",
+      "your life around, everything else gets easier"
+     ],
+     "fr": "bien dormir, c'est le plus simple pour [[reprendre ta vie en main]], tout le reste devient plus facile",
+     "texte": "y si saltaste directo aquí desde la slide 1, [[sin juzgar]]. sube y vuelve a intentarlo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o057",
+ "schema_id": "mentir-entretien",
+ "titre": "6 fois où j'ai « MENTI » à ma manager… et elle m'a remerciée #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 5. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. variante de rh-o007 (56 k vues en el). Même schéma mentir-entretien (r 26,46, 496f8d72), même format « j'ai dit / la vérité », autre angle, autres questions : aucune reprise de rh-o001 à rh-o055 ni des sources. On recadre, rien d'inventé. Angle : le quotidien avec sa manager, plus l'entretien. Le recadrage reste honnête : on choisit ses mots, on ne cache aucun fait. CTA de fin jamais utilisé : la phrase qu'on aurait voulu dire à sa manager. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b6ed3f3f",
+   "texte_overlay": "6 fois où j'ai « MENTI » à ma manager…\net elle m'a remerciée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04164759",
+   "texte_overlay": "« tu peux prendre ce dossier en plus ? »\nj'ai dit « oui, si on décale X à la semaine prochaine »\nla vérité : j'étais débordée\nj'ai juste montré le coût",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f9263626",
+   "texte_overlay": "« ça va, ta charge en ce moment ? »\nj'ai dit « c'est intense, voilà ce qui m'aiderait »\nla vérité : j'étais à bout\nune demande précise, pas une plainte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7959b572",
+   "texte_overlay": "« t'as aimé la réunion ? »\nj'ai dit « oui, et une idée pour gagner 15 minutes la prochaine fois »\nla vérité : elle était trop longue\nt'apportes une solution, pas un reproche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "18ac5b25",
+   "texte_overlay": "« tu connaissais ce sujet ? »\nj'ai dit « un peu, je me renseigne d'ici demain »\nla vérité : pas du tout\nmais le lendemain, je savais",
+   "texte_sophia": "« tu connaissais ce sujet ? »\nj'ai dit « un peu, je me renseigne d'ici demain »\nperso, 5 minutes sur l'appli Sophia et je n'arrive plus jamais les mains vides",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "79afd16f",
+   "texte_overlay": "« tu peux finir pour ce soir ? »\nj'ai dit « je te livre X ce soir et Y demain matin »\nla vérité : impossible de tout finir\nune promesse tenable vaut mieux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "826b1524",
+   "texte_overlay": "« des retours sur mon management ? »\nj'ai dit « j'aime quand tu fais X, ça m'aiderait que tu fasses Y »\nla vérité : j'avais beaucoup à dire\nun point à la fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "828a0516",
+   "texte_overlay": "la phrase que t'aurais voulu dire à ta manager,\nécris-la ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

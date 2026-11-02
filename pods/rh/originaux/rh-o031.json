@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o031",
+ "schema_id": "job-toxique",
+ "titre": "ce que j'aurais aimé entendre le jour où j'ai compris que mon job était toxique #travail #santementale #emploi #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Routine du 28/10 (5 livraisons + 6 variantes). Livraison normale. Schéma job-toxique (r 5,97 sur 6 passages, bf49b37f). Famille d'accroche jamais faite : « ce que j'aurais aimé entendre ». Accroches écrites : celle-ci (retenue : intime, soutien), « 6 vérités sur les jobs toxiques que personne te dit » (écartée : générique), « si tu redoutes chaque dimanche soir, lis ça » (écartée : injonction). Items neufs, aucune reprise de rh-o012, rh-o016 ni rh-o027. Rien de juridique précis : on renvoie vers un juriste, un syndicat ou les rh. CTA de fin jamais utilisé : écrire « courage » pour celles qui y sont encore. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6a293ebc",
+   "texte_overlay": "ce que j'aurais aimé entendre\nle jour où j'ai compris\nque mon job était toxique",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6a6f79c5",
+   "texte_overlay": "« t'exagères pas »\nsi tu te poses la question chaque dimanche soir,\nc'est déjà une réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6a732198",
+   "texte_overlay": "« t'as pas à tout porter seule »\nparles-en à une personne de confiance, hors du boulot.\nrien que le dire à voix haute, ça change tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6abdd9a5",
+   "texte_overlay": "« arrête d'attendre son approbation »\nton travail vaut quelque chose,\nmême s'il te le dit jamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6ac64d87",
+   "texte_overlay": "« garde un truc qui t'appartient »\n5 minutes par jour, rien qu'à toi, sans rapport avec le boulot.\nc'est ta part qui reste intacte",
+   "texte_sophia": "« garde un truc qui t'appartient »\n5 minutes par jour, rien qu'à toi. utilise l'appli Sophia : un peu d'histoire ou d'art, et ta tête sort du bureau",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6aeee230",
+   "texte_overlay": "« renseigne-toi avant de bouger »\nun juriste, un syndicat ou les rh peuvent t'expliquer tes options.\nchaque situation est différente",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6b0a47a3",
+   "texte_overlay": "« t'es pas coincée pour toujours »\nun petit pas par semaine vers la sortie,\nc'est déjà partir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6b312b00",
+   "texte_overlay": "écris « courage » en commentaire\npour celles qui y sont encore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

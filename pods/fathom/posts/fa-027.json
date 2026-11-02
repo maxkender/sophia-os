@@ -1,0 +1,262 @@
+{
+ "id": "fa-027",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7696540601835097366",
+  "vues": 27800,
+  "accroche": "4 Ways To Change Your Life In 6 Months"
+ },
+ "titre": {
+  "en": "4 Ways To Change Your Life In 6 Months",
+  "de": "4 Wege, dein Leben in 6 Monaten zu ändern",
+  "pt": "4 formas de mudar a tua vida em 6 meses"
+ },
+ "legendes": {
+  "en": "4 Ways To Change Your Life In 6 Months #skills #learnontiktok #selfimprovement",
+  "de": "4 Wege, dein Leben in 6 Monaten zu ändern #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "4 formas de mudar a tua vida em 6 meses #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "let it happen bro",
+  "url": "https://www.tiktok.com/music/let-it-happen-bro-7315156165092330246"
+ },
+ "notes": "cta C (1re personne). Double intégration : UnSwipe à l'étape 2 « QUIT SHORT VIDEOS », Sophia à l'étape 3 « LEARN SOMETHING EVERY DAY ». 4 étapes comme les siennes. Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "4 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO CHANGE YOUR LIFE",
+     [
+      {
+       "t": "IN 6 MONTHS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "4 WEGE",
+       "bronze": true
+      }
+     ],
+     "DEIN LEBEN ZU ÄNDERN",
+     [
+      {
+       "t": "IN 6 MONATEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "4 FORMAS",
+       "bronze": true
+      }
+     ],
+     "DE MUDAR A TUA VIDA",
+     [
+      {
+       "t": "EM 6 MESES",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUILD TINY",
+     "HABITS"
+    ],
+    "video": {
+     "id": "1gdkBt9it84",
+     "titre": "ATOMIC HABITS - Tiny Changes that Create Remarkable Results - James Clear",
+     "chaine": "After Skool",
+     "vues": "1.6M views",
+     "date": "3 years ago",
+     "duree": "9:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLOvoCDsmlUy1HOCk5kQASKch1NDCNqDx3KNR_cV9m3F4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BAU KLEINE",
+     "GEWOHNHEITEN AUF"
+    ],
+    "video": {
+     "id": "7MCvBPpsNDg",
+     "titre": "Gewohnheiten aufbauen: Die 1% Methode (Atomic Habits) - James Clear - Zusammenfassung",
+     "chaine": "Simon Josef Eckert",
+     "vues": "49.815 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "16:11",
+     "avatar": "https://yt3.ggpht.com/8re7U3yntMzrqZNhvlT7m_JmFT_ML9LlBU_2SZPaWFx2IqWLpAKE2CKBf1jTMZRs827dwyrOcQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CRIA PEQUENOS",
+     "HÁBITOS"
+    ],
+    "video": {
+     "id": "xjkHcFKUkKY",
+     "titre": "HÁBITOS ATÔMICOS | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "334 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "QUIT SHORT",
+     "VIDEOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLUSS MIT",
+     "KURZVIDEOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "DEIXA OS",
+     "VÍDEOS CURTOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START",
+     "RUNNING"
+    ],
+    "video": {
+     "id": "twuSS9Uu2p0",
+     "titre": "Beginner’s Guide to Running: The Tips I Wish I Knew Starting Out •",
+     "chaine": "Doc Lyss Fitness",
+     "vues": "131K views",
+     "date": "1 year ago",
+     "duree": "8:44",
+     "avatar": "https://yt3.ggpht.com/34fEuWLMcl9I2N-jiOnH2kzcP8ZzMJ1c06K1Zwx0j2RTINCnN3dDaGPvkgqQHbEtOOE4knbTOw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU LAUFEN"
+    ],
+    "video": {
+     "id": "lhEwMUCPyk0",
+     "titre": "Joggen für Anfänger: So gelingt der Einstieg ins Lauftraining - Tipps, Trainingsplan & Fallstricke",
+     "chaine": "DoktorWeigl",
+     "vues": "202.808 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMEÇA",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "5FJoqhlszTI",
+     "titre": "Corrida para iniciantes: como começar a correr?",
+     "chaine": "Drauzio Varella",
+     "vues": "184 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/eKO6HupEds-Nnin2SJBUqojJww8qz6k76qWrKVZGJ3wYxBvRmtmjtfhd8UfFTyoYFgL99xr8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

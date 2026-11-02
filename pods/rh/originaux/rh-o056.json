@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o056",
+ "schema_id": "mentir-entretien",
+ "titre": "6 fois où j'ai « MENTI » à mon entretien de stage… et ils m'ont rappelée #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 30/10 (8 livraisons + 3 variantes de rh-o007), ROUTINE-avant-bleo. variante de rh-o007 (56 k vues en el). Même schéma mentir-entretien (r 26,46, 496f8d72), même format « j'ai dit / la vérité », autre angle, autres questions : aucune reprise de rh-o001 à rh-o055 ni des sources. On recadre, rien d'inventé. Angle : l'entretien de stage. CTA de fin jamais utilisé : dire en quelle année d'études on est. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b65f1afc",
+   "texte_overlay": "6 fois où j'ai « MENTI »\nà mon entretien de stage…\net ils m'ont rappelée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "66b33650",
+   "texte_overlay": "« vous connaissez notre secteur ? »\nj'ai dit « j'ai suivi votre actualité ce mois-ci »\nla vérité : je l'avais lue la veille\nça compte quand même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "68bb90a5",
+   "texte_overlay": "« pourquoi un stage chez nous ? »\nj'ai dit « pour apprendre X avec des gens qui le font bien »\nla vérité : j'avais postulé partout\nmais j'avais choisi ma raison pour eux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "68f477ce",
+   "texte_overlay": "« vous savez utiliser un tableur ? »\nj'ai dit « les bases, et j'apprends vite »\nla vérité : j'avais fait un tuto le week-end\nc'était vrai, du coup",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7332bf71",
+   "texte_overlay": "« qu'est-ce qui vous intéresse en dehors des cours ? »\nj'ai dit « l'histoire, je m'y mets chaque jour »\nla vérité : depuis 2 semaines seulement\nmes 3 sources : podcasts, musées, et ce que j'apprends",
+   "texte_sophia": "« qu'est-ce qui vous intéresse en dehors des cours ? »\nj'ai dit « l'histoire »\nmes 3 sources : podcasts, musées, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fa163991",
+   "texte_overlay": "« vous êtes à l'aise à l'oral ? »\nj'ai dit « de plus en plus, je m'entraîne »\nla vérité : je tremblais\nmais je m'entraînais vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f972d4f7",
+   "texte_overlay": "« vous avez d'autres stages en vue ? »\nj'ai dit « oui, mais vous êtes mon premier choix »\nla vérité : c'était vrai, et ça se voyait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "77a8c1dc",
+   "texte_overlay": "t'es en quelle année d'études ?\nécris-la en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

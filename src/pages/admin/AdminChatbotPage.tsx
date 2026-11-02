@@ -29,7 +29,10 @@ import {
   type ChatbotContexte,
   type QuestionFaq,
 } from "@/features/chatbot/api";
+import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
+import { ONGLETS_FAQ_EN_PLUS } from "@/features/auto/faqEmplacements";
 import { BoiteATraiter, EtatBot, JournalFaq, ReglagesFaqCarte } from "@/features/chatbot/FaqAdmin";
+import { SourcesFaq } from "@/features/chatbot/SourcesFaq";
 import { useQuestionsFaq } from "@/features/chatbot/faqDonnees";
 import type { AudienceSnippet } from "@/features/chatbot/prompt";
 import { ilYA, ISSUES, nomsCourts, statsFaq, type Issue } from "@/features/chatbot/statsFaq";
@@ -37,7 +40,6 @@ import { ilYA, ISSUES, nomsCourts, statsFaq, type Issue } from "@/features/chatb
 import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import type { Segment } from "@/features/moteur/repartition/segments";
 import { Tableau } from "@/features/moteur/repartition/Tableau";
-import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
 function labelAudience(aud: AudienceSnippet, t: (k: string) => string): string {
@@ -241,73 +243,12 @@ function ReponsesValidees({
   );
 }
 
-const ONGLETS = ["aTraiter", "journal", "reponses"] as const;
-type Onglet = (typeof ONGLETS)[number];
-
-/** Les onglets, au motif ARIA de la page Allocation (flèches, Début, Fin). */
-function Onglets({
-  actif,
-  onChange,
-  compteurs,
-}: {
-  actif: Onglet;
-  onChange: (o: Onglet) => void;
-  compteurs: Record<Onglet, number | undefined>;
-}) {
-  const { t } = useTranslation();
-  return (
-    <div
-      role="tablist"
-      aria-label={t("chatbot.ongletsAria")}
-      className="inline-flex w-fit flex-wrap gap-1 rounded-lg border bg-muted/40 p-1"
-      onKeyDown={(ev) => {
-        const i = ONGLETS.indexOf(actif);
-        const n = ONGLETS.length;
-        const vers =
-          ev.key === "ArrowRight" ? (i + 1) % n
-          : ev.key === "ArrowLeft" ? (i - 1 + n) % n
-          : ev.key === "Home" ? 0
-          : ev.key === "End" ? n - 1
-          : -1;
-        if (vers < 0) return;
-        ev.preventDefault();
-        onChange(ONGLETS[vers]!);
-        document.getElementById(`onglet-assistant-${ONGLETS[vers]}`)?.focus();
-      }}
-    >
-      {ONGLETS.map((o) => (
-        <button
-          key={o}
-          id={`onglet-assistant-${o}`}
-          type="button"
-          role="tab"
-          aria-selected={o === actif}
-          aria-controls="panneau-assistant"
-          tabIndex={o === actif ? 0 : -1}
-          onClick={() => onChange(o)}
-          className={cn(
-            "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-sm transition-colors",
-            o === actif ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
-          )}
-        >
-          {t(`chatbot.onglets.${o}`)}
-          {compteurs[o] !== undefined && (
-            <span
-              className={cn(
-                "rounded-full px-1.5 text-[11px] tabular-nums",
-                o === "aTraiter" && (compteurs[o] ?? 0) > 0
-                  ? "bg-warning/15 text-warning-foreground"
-                  : "bg-muted text-muted-foreground",
-              )}
-            >
-              {compteurs[o]}
-            </span>
-          )}
-        </button>
-      ))}
-    </div>
-  );
-}
+/**
+ * Prompt 22, partie 9 : trois onglets (Questions to handle · Validated answers
+ * · Sources), plus ceux qui se branchent dans ONGLETS_FAQ_EN_PLUS (la FAQ par
+ * situation). Le journal reste, replié sous la file à traiter.
+ */
+const ONGLETS_BASE = ["aTraiter", "reponses", "sources"] as const;
 
 /**
  * Assistant — les questions de Slack et de la bulle d'aide, et ce que le bot
@@ -321,7 +262,7 @@ export function AdminChatbotPage() {
   const langue = i18n.language;
   const { aTraiter, journal } = useQuestionsFaq();
   const contexte = useQuery({ queryKey: ["chatbot-contexte"], queryFn: listerChatbotContexte });
-  const [onglet, setOnglet] = React.useState<Onglet>("aTraiter");
+  const [onglet, setOnglet] = React.useState<string>("aTraiter");
   const [brouillon, setBrouillon] = React.useState<{
     titre: string;
     contenu: string;
@@ -492,33 +433,52 @@ export function AdminChatbotPage() {
       </div>
 
       <Card>
-        <CardHeader>
-          <Onglets
+        <CardHeader className="space-y-3">
+          <p className="text-sm text-muted-foreground" data-testid="faq-phrase">{t("autoOnglets.faq.phrase")}</p>
+          <OngletsAuto
+            id="assistant"
+            libelle={t("chatbot.ongletsAria")}
+            onglets={[
+              ...ONGLETS_BASE.map((o) => ({ cle: o as string, titre: t(`autoOnglets.faq.onglets.${o}`) })),
+              ...ONGLETS_FAQ_EN_PLUS.map((o) => ({ cle: o.cle, titre: t(o.titre) })),
+            ]}
             actif={onglet}
             onChange={setOnglet}
-            compteurs={{
-              aTraiter: aTraiter.data?.length,
-              journal: journal.data?.length,
-              reponses: contexte.data?.length,
-            }}
+            compteurs={{ aTraiter: aTraiter.data?.length, reponses: contexte.data?.length }}
+            alerte={["aTraiter"]}
           />
         </CardHeader>
-        <CardContent id="panneau-assistant" role="tabpanel" aria-labelledby={`onglet-assistant-${onglet}`}>
-          {onglet === "aTraiter" &&
-            (aTraiter.isPending ? (
-              <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-            ) : (
-              <BoiteATraiter questions={file} />
+        <CardContent>
+          <PanneauOnglet id="assistant" actif={onglet}>
+            {onglet === "aTraiter" && (
+              <>
+                {aTraiter.isPending ? (
+                  <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+                ) : (
+                  <BoiteATraiter questions={file} />
+                )}
+                <details className="rounded-lg border p-3">
+                  <summary className="cursor-pointer text-sm font-medium">
+                    {t("autoOnglets.faq.journal", { n: journal.data?.length ?? 0 })}
+                  </summary>
+                  <div className="mt-3">
+                    {journal.isPending ? (
+                      <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+                    ) : (
+                      <JournalFaq questions={journal.data ?? []} onAjouterReponse={ajouterDepuisQuestion} />
+                    )}
+                  </div>
+                </details>
+              </>
+            )}
+            {onglet === "reponses" && (
+              <ReponsesValidees key={brouillon?.titre ?? "liste"} brouillon={brouillon} onFini={() => setBrouillon(null)} />
+            )}
+            {onglet === "sources" && <SourcesFaq />}
+            {ONGLETS_FAQ_EN_PLUS.filter((o) => o.cle === onglet).map((o) => (
+              <o.Composant key={o.cle} />
             ))}
-          {onglet === "journal" &&
-            (journal.isPending ? (
-              <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-            ) : (
-              <JournalFaq questions={journal.data ?? []} onAjouterReponse={ajouterDepuisQuestion} />
-            ))}
-          {onglet === "reponses" && (
-            <ReponsesValidees key={brouillon?.titre ?? "liste"} brouillon={brouillon} onFini={() => setBrouillon(null)} />
-          )}
+          </PanneauOnglet>
         </CardContent>
       </Card>
 

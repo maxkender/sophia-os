@@ -1,0 +1,213 @@
+{
+ "id": "mm-o020",
+ "format": "carrousel",
+ "titre": "Japanese habits that destroy brainrot",
+ "legendes": {
+  "en": "japanese habits that destroy brainrot #japanesehabits #mentalmaxxing #brainrot #selfimprovement",
+  "fr": "les habitudes japonaises qui détruisent le brainrot #habitudesjaponaises #mentalmaxxing #brainrot #developpementpersonnel",
+  "de": "japanische Gewohnheiten gegen Brainrot #japanischegewohnheiten #mentalmaxxing #brainrot #selbstverbesserung",
+  "es": "hábitos japoneses que destruyen el brainrot #habitosjaponeses #mentalmaxxing #brainrot #superacionpersonal",
+  "it": "abitudini giapponesi che distruggono il brainrot #abitudinigiapponesi #mentalmaxxing #brainrot #crescitapersonale",
+  "tr": "brainrot’u yok eden japon alışkanlıkları #japonalışkanlıkları #mentalmaxxing #brainrot #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "frise": false,
+  "theme": {
+   "en": "Japanese habits",
+   "fr": "Habitudes japonaises",
+   "de": "Japanische Gewohnheiten",
+   "es": "Hábitos japoneses",
+   "it": "Abitudini giapponesi",
+   "tr": "Japon alışkanlıkları"
+  },
+  "sous": {
+   "en": "that destroy brainrot",
+   "fr": "qui détruisent le brainrot",
+   "de": "gegen Brainrot",
+   "es": "que destruyen el brainrot",
+   "it": "che distruggono il brainrot",
+   "tr": "brainrot’u yok eden"
+  }
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Kaizen",
+    "fr": "Kaizen",
+    "de": "Kaizen",
+    "es": "Kaizen",
+    "it": "Kaizen",
+    "tr": "Kaizen"
+   },
+   "texte": {
+    "en": "Get 1% better every day. Ten push-ups, one page, five focused minutes. Small wins replace cheap ones.",
+    "fr": "Progresse de 1 % chaque jour. Dix pompes, une page, cinq minutes de focus. Les petites victoires remplacent les faciles.",
+    "de": "Werde jeden Tag 1 % besser. Zehn Liegestütze, eine Seite, fünf Minuten Fokus. Kleine Siege ersetzen billige.",
+    "es": "Mejora un 1 % cada día. Diez flexiones, una página, cinco minutos de foco. Las pequeñas victorias sustituyen a las fáciles.",
+    "it": "Migliora dell’1 % ogni giorno. Dieci flessioni, una pagina, cinque minuti di concentrazione. Le piccole vittorie sostituiscono quelle facili.",
+    "tr": "Her gün %1 daha iyi ol. On şınav, bir sayfa, beş dakika odak. Küçük kazanımlar ucuz olanların yerini alır."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Shinrin-yoku",
+    "fr": "Shinrin-yoku",
+    "de": "Shinrin-yoku",
+    "es": "Shinrin-yoku",
+    "it": "Shinrin-yoku",
+    "tr": "Shinrin-yoku"
+   },
+   "texte": {
+    "en": "“Forest bathing”: slow walks among trees, no phone. Your nervous system finally gets a break.",
+    "fr": "Le « bain de forêt » : marcher lentement parmi les arbres, sans téléphone. Ton système nerveux souffle enfin.",
+    "de": "„Waldbaden“: langsam zwischen Bäumen gehen, ohne Handy. Dein Nervensystem bekommt endlich eine Pause.",
+    "es": "El “baño de bosque”: caminar despacio entre árboles, sin móvil. Tu sistema nervioso por fin descansa.",
+    "it": "Il “bagno nella foresta”: camminare piano tra gli alberi, senza telefono. Il sistema nervoso finalmente respira.",
+    "tr": "“Orman banyosu”: ağaçların arasında telefonsuz, yavaş yürüyüş. Sinir sistemin sonunda dinlenir."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Hara hachi bu",
+    "fr": "Hara hachi bu",
+    "de": "Hara hachi bu",
+    "es": "Hara hachi bu",
+    "it": "Hara hachi bu",
+    "tr": "Hara hachi bu"
+   },
+   "texte": {
+    "en": "Stop eating when you are 80% full. No food coma, steady energy, a clear head all afternoon.",
+    "fr": "Arrête de manger à 80 % de satiété. Pas de coup de barre, une énergie stable, la tête claire tout l’après-midi.",
+    "de": "Hör auf zu essen, wenn du zu 80 % satt bist. Kein Suppenkoma, stabile Energie, klarer Kopf am Nachmittag.",
+    "es": "Deja de comer al 80 % de saciedad. Sin bajón, energía estable y la cabeza clara toda la tarde.",
+    "it": "Smetti di mangiare quando sei sazio all’80 %. Niente abbiocco, energia stabile, testa lucida tutto il pomeriggio.",
+    "tr": "%80 doyduğunda yemeyi bırak. Rehavet yok, dengeli enerji, öğleden sonra boyunca berrak bir zihin."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "My own version of these: I deleted short videos with UnSwipe. Less noise, so the slow habits finally stick.",
+    "fr": "Ma version perso : j’ai supprimé les vidéos courtes avec UnSwipe. Moins de bruit, et les habitudes lentes tiennent enfin.",
+    "de": "Meine eigene Version davon: Ich habe Kurzvideos mit UnSwipe gelöscht. Weniger Lärm, und die langsamen Gewohnheiten bleiben endlich.",
+    "es": "Mi propia versión: borré los vídeos cortos con UnSwipe. Menos ruido, y los hábitos lentos por fin se quedan.",
+    "it": "La mia versione: ho eliminato i video brevi con UnSwipe. Meno rumore, e le abitudini lente finalmente restano.",
+    "tr": "Benim versiyonum: kısa videoları UnSwipe ile sildim. Daha az gürültü, yavaş alışkanlıklar sonunda tutunuyor."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Ikigai",
+    "fr": "Ikigai",
+    "de": "Ikigai",
+    "es": "Ikigai",
+    "it": "Ikigai",
+    "tr": "Ikigai"
+   },
+   "texte": {
+    "en": "A reason to get up in the morning. When your day has a purpose, the feed loses its pull.",
+    "fr": "Une raison de te lever le matin. Quand ta journée a un sens, le feed perd son attrait.",
+    "de": "Ein Grund, morgens aufzustehen. Wenn dein Tag einen Sinn hat, verliert der Feed seinen Sog.",
+    "es": "Una razón para levantarte por la mañana. Cuando tu día tiene un sentido, el feed pierde su atracción.",
+    "it": "Un motivo per alzarti la mattina. Quando la giornata ha uno scopo, il feed perde il suo richiamo.",
+    "tr": "Sabah kalkmak için bir neden. Günün bir amacı olunca akış çekiciliğini kaybeder."
+   }
+  },
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Shokunin",
+    "fr": "Shokunin",
+    "de": "Shokunin",
+    "es": "Shokunin",
+    "it": "Shokunin",
+    "tr": "Shokunin"
+   },
+   "texte": {
+    "en": "The craftsman spirit: doing one thing again and again until you master it. Depth over novelty.",
+    "fr": "L’esprit de l’artisan : refaire une même chose jusqu’à la maîtriser. La profondeur plutôt que la nouveauté.",
+    "de": "Der Geist des Handwerkers: eine Sache immer wieder tun, bis du sie meisterst. Tiefe statt Neuheit.",
+    "es": "El espíritu del artesano: repetir una cosa una y otra vez hasta dominarla. Profundidad antes que novedad.",
+    "it": "Lo spirito dell’artigiano: rifare una cosa finché non la padroneggi. Profondità invece di novità.",
+    "tr": "Zanaatkâr ruhu: bir şeyi ustalaşana kadar tekrar tekrar yapmak. Yenilik yerine derinlik."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Ma",
+    "fr": "Ma",
+    "de": "Ma",
+    "es": "Ma",
+    "it": "Ma",
+    "tr": "Ma"
+   },
+   "texte": {
+    "en": "The beauty of empty space. Leave a few minutes in your day with nothing to fill them.",
+    "fr": "La beauté de l’espace vide. Garde quelques minutes par jour sans rien pour les remplir.",
+    "de": "Die Schönheit des leeren Raums. Lass dir täglich ein paar Minuten, die du mit nichts füllst.",
+    "es": "La belleza del espacio vacío. Deja unos minutos al día sin nada con qué llenarlos.",
+    "it": "La bellezza dello spazio vuoto. Lascia qualche minuto al giorno senza niente con cui riempirli.",
+    "tr": "Boşluğun güzelliği. Gününde hiçbir şeyle doldurmadığın birkaç dakika bırak."
+   }
+  }
+ ],
+ "notes": "essai (routine du 29/10, original n° 20) : accroche « N japanese habits I use to destroy laziness » (schéma japanese-habits du playbook du pod 4), jamais faite chez nous, en carrousel de leçons. cta C : élément UnSwipe en item à lui seul (4e), à la 1re personne. Concepts japonais réels (kaizen, shinrin-yoku, hara hachi bu, ikigai, shokunin, ma)."
+}

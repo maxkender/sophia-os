@@ -1,0 +1,219 @@
+{
+ "id": "mm-o011",
+ "format": "carrousel",
+ "titre": "Dopamine reset tier list",
+ "legendes": {
+  "en": "dopamine reset tier list, what actually works #dopamine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "tier list du reset dopamine, ce qui marche vraiment #dopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Dopamin-Reset Tierlist, was wirklich wirkt #dopamin #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "tier list del reset de dopamina, lo que de verdad funciona #dopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "tier list del reset di dopamina, cosa funziona davvero #dopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "dopamin reset tier list, gerçekten işe yarayanlar #dopamin #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7698939556371975431/1",
+   "boite": [
+    252,
+    402,
+    606,
+    726
+   ]
+  },
+  "theme": {
+   "en": "Dopamine reset",
+   "fr": "Reset dopamine",
+   "de": "Dopamin-Reset",
+   "es": "Reset de dopamina",
+   "it": "Reset di dopamina",
+   "tr": "Dopamin reset"
+  },
+  "sous": {
+   "en": "tier list",
+   "fr": "tier list",
+   "de": "Tierlist",
+   "es": "tier list",
+   "it": "tier list",
+   "tr": "tier list"
+  }
+ },
+ "items": [
+  {
+   "rang": "S+",
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Consistent sleep",
+    "fr": "Sommeil régulier",
+    "de": "Fester Schlaf",
+    "es": "Sueño constante",
+    "it": "Sonno regolare",
+    "tr": "Düzenli uyku"
+   },
+   "texte": {
+    "en": "Same bedtime, same wake-up. Your brain stops craving quick hits when it is not running on empty.",
+    "fr": "Même heure de coucher, même réveil. Ton cerveau arrête de réclamer des shoots rapides quand il n’est plus à plat.",
+    "de": "Gleiche Schlafenszeit, gleiches Aufstehen. Dein Gehirn will keine schnellen Kicks mehr, wenn es nicht auf Reserve läuft.",
+    "es": "Misma hora de dormir, misma hora de despertar. Tu cerebro deja de pedir chutes rápidos cuando no va en reserva.",
+    "it": "Stessa ora per dormire, stessa sveglia. Il cervello smette di cercare scariche veloci quando non è a secco.",
+    "tr": "Aynı saatte yat, aynı saatte kalk. Beynin boşta çalışmadığında hızlı dopamin aramayı bırakır."
+   }
+  },
+  {
+   "rang": "F",
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Doomscrolling",
+    "fr": "Scroller sans fin",
+    "de": "Doomscrolling",
+    "es": "Scroll infinito",
+    "it": "Doomscrolling",
+    "tr": "Sonsuz scroll"
+   },
+   "texte": {
+    "en": "Every swipe is a tiny reward. After an hour your baseline is so high that real life feels boring.",
+    "fr": "Chaque swipe est une mini récompense. Au bout d’une heure ton seuil est si haut que la vraie vie paraît fade.",
+    "de": "Jeder Swipe ist eine kleine Belohnung. Nach einer Stunde ist dein Level so hoch, dass das echte Leben langweilig wirkt.",
+    "es": "Cada swipe es una mini recompensa. Tras una hora tu nivel está tan alto que la vida real parece aburrida.",
+    "it": "Ogni swipe è una piccola ricompensa. Dopo un’ora la soglia è così alta che la vita vera sembra noiosa.",
+    "tr": "Her kaydırma küçük bir ödül. Bir saat sonra eşiğin öyle yükselir ki gerçek hayat sıkıcı gelir."
+   }
+  },
+  {
+   "rang": "A",
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Morning sunlight",
+    "fr": "Soleil du matin",
+    "de": "Morgensonne",
+    "es": "Sol de la mañana",
+    "it": "Sole del mattino",
+    "tr": "Sabah güneşi"
+   },
+   "texte": {
+    "en": "Ten minutes outside before any screen. It sets your clock and gives you calm energy for hours.",
+    "fr": "Dix minutes dehors avant le moindre écran. Ça cale ton horloge et te donne une énergie calme pour des heures.",
+    "de": "Zehn Minuten draußen vor jedem Bildschirm. Das stellt deine innere Uhr und gibt dir stundenlang ruhige Energie.",
+    "es": "Diez minutos fuera antes de cualquier pantalla. Ajusta tu reloj y te da energía tranquila durante horas.",
+    "it": "Dieci minuti fuori prima di qualsiasi schermo. Regola l’orologio interno e ti dà energia calma per ore.",
+    "tr": "Ekrana bakmadan önce on dakika dışarıda. Saatini ayarlar ve saatlerce sakin enerji verir."
+   }
+  },
+  {
+   "rang": "S+",
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "I deleted short videos with UnSwipe. Two weeks later, books, workouts and long talks felt good again.",
+    "fr": "J’ai supprimé les vidéos courtes avec UnSwipe. Deux semaines après, les livres, le sport et les longues discussions me faisaient de nouveau du bien.",
+    "de": "Ich habe Kurzvideos mit UnSwipe gelöscht. Zwei Wochen später machten Bücher, Training und lange Gespräche wieder Spaß.",
+    "es": "Borré los vídeos cortos con UnSwipe. Dos semanas después, los libros, el gym y las charlas largas volvían a sentarme bien.",
+    "it": "Ho eliminato i video brevi con UnSwipe. Due settimane dopo libri, allenamento e lunghe chiacchierate mi facevano di nuovo stare bene.",
+    "tr": "Kısa videoları UnSwipe ile sildim. İki hafta sonra kitaplar, spor ve uzun sohbetler yeniden keyif vermeye başladı."
+   }
+  },
+  {
+   "rang": "B",
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cooking at home",
+    "fr": "Cuisiner chez soi",
+    "de": "Selbst kochen",
+    "es": "Cocinar en casa",
+    "it": "Cucinare a casa",
+    "tr": "Evde yemek yapmak"
+   },
+   "texte": {
+    "en": "Slow, hands-on and rewarding at the end. The opposite of a feed, and you eat better too.",
+    "fr": "Lent, manuel et gratifiant à la fin. L’inverse d’un feed, et en plus tu manges mieux.",
+    "de": "Langsam, mit den Händen und am Ende belohnend. Das Gegenteil eines Feeds, und du isst besser.",
+    "es": "Lento, manual y gratificante al final. Lo contrario de un feed, y además comes mejor.",
+    "it": "Lento, manuale e gratificante alla fine. L’opposto di un feed, e mangi pure meglio.",
+    "tr": "Yavaş, elle yapılan ve sonunda tatmin eden bir iş. Akışın tam tersi, üstelik daha iyi beslenirsin."
+   }
+  },
+  {
+   "rang": "C",
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "Caffeine",
+    "fr": "Caféine",
+    "de": "Koffein",
+    "es": "Cafeína",
+    "it": "Caffeina",
+    "tr": "Kafein"
+   },
+   "texte": {
+    "en": "Fine in the morning. After 2pm it wrecks your sleep, and bad sleep brings the cravings back.",
+    "fr": "Ok le matin. Après 14h elle casse ton sommeil, et un mauvais sommeil fait revenir les envies.",
+    "de": "Morgens okay. Nach 14 Uhr ruiniert es deinen Schlaf, und schlechter Schlaf bringt das Verlangen zurück.",
+    "es": "Bien por la mañana. Después de las 14h arruina tu sueño, y dormir mal trae de vuelta los antojos.",
+    "it": "Ok la mattina. Dopo le 14 ti rovina il sonno, e dormire male riporta le voglie.",
+    "tr": "Sabah sorun değil. Öğleden sonra 2’den sonra uykunu bozar, kötü uyku da istekleri geri getirir."
+   }
+  },
+  {
+   "rang": "D",
+   "src": "7697820355800370448/2",
+   "boite": [
+    312,
+    438,
+    456,
+    450
+   ],
+   "titre": {
+    "en": "Gaming breaks",
+    "fr": "Pauses gaming",
+    "de": "Gaming-Pausen",
+    "es": "Pausas de gaming",
+    "it": "Pause gaming",
+    "tr": "Oyun molası"
+   },
+   "texte": {
+    "en": "Feels like rest, but it is one more fast reward loop. Ten minutes turns into two hours.",
+    "fr": "Ça ressemble à du repos, mais c’est encore une boucle de récompense rapide. Dix minutes deviennent deux heures.",
+    "de": "Fühlt sich wie Pause an, ist aber nur eine weitere schnelle Belohnungsschleife. Aus zehn Minuten werden zwei Stunden.",
+    "es": "Parece descanso, pero es otro bucle de recompensa rápida. Diez minutos se vuelven dos horas.",
+    "it": "Sembra riposo, ma è un altro ciclo di ricompensa veloce. Dieci minuti diventano due ore.",
+    "tr": "Dinlenme gibi gelir ama yine hızlı bir ödül döngüsüdür. On dakika iki saate dönüşür."
+   }
+  }
+ ],
+ "notes": "routine du 26/10 : original au format carrousel (couverture + un item par slide, le format de @mentalapp depuis le 18/10, jamais fait chez nous), sujet reset dopamine. cta C : élément UnSwipe en item à lui seul (4e item), conseil à la 1re personne. Images : slides des posts 7697820355800370448, 7698939556371975431, 7699644186470976786 (exclus pour pub Journey, utilisés comme banque)."
+}

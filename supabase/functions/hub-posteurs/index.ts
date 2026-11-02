@@ -54,7 +54,7 @@ import {
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
-import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 const VERSION = "2026-10-22";
 const POSTS_PAR_JOUR = 2;
@@ -363,7 +363,7 @@ type ResultatCreation =
 
 async function appelerManageUsers(corps: Record<string, unknown>): Promise<ResultatCreation> {
   const url = Deno.env.get("SUPABASE_URL");
-  const cron = Deno.env.get("CRON_SECRET");
+  const cron = await secretCron();
   if (!url || !cron) return { ok: false, incertain: false, error: "SUPABASE_URL ou CRON_SECRET manquant" };
 
   let reponse: Response;

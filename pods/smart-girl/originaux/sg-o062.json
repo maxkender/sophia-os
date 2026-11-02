@@ -1,0 +1,75 @@
+{
+ "source_id": "sg-o062",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7b49575f-a593-40d0-ba6a-63bef4494f3b",
+ "titre": "10/10 uncomfortable things to do alone (but it gets easier) #confidence #selfimprovement #smartgirl #solodate #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "c464c730-0eff-45bc-a507-c6458343b7a8"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 1 de la boîte (parent 7b49575f, en français, notre version FR de sg-o020) : accroche du parent mot pour mot. Autres items (cinéma seule, restaurant seule, désaccord calme, ville seule, conférence gratuite, balade sans écouteurs, demander de l'aide), autres images, Sophia sur le dernier item à la première personne (cta A). Rédigé en anglais : le premier dépôt en langue du parent a été refusé (accroche_differente), le guichet demande l'accroche anglaise de la famille mot pour mot. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3542f739",
+   "texte_overlay": "10/10 uncomfortable things\nto do alone\n(but it gets easier)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9400dbb2",
+   "texte_overlay": "1. go to the cinema alone.\npick your film, your seat.\nno one to ask \"did you like it?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "138f91e3",
+   "texte_overlay": "2. have dinner alone\nin a restaurant.\nno phone. look around, listen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34ee9dc4",
+   "texte_overlay": "3. raise your hand and say\n\"i don't agree\".\ncalmly. once is enough\nfor it to feel natural.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "130692f7",
+   "texte_overlay": "4. explore a city alone\nfor a day.\nwalk at your own pace,\nstop wherever you want.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fb0cec9d",
+   "texte_overlay": "5. go to a free talk.\nlibrary, museum, university.\nand sit in the front row.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "22012ea9",
+   "texte_overlay": "6. take a walk with no music,\nno headphones.\njust you and your thoughts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1a18805e",
+   "texte_overlay": "7. ask for help when you\ndon't understand.\npeople love explaining\nwhat they know.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "007ca065",
+   "texte_overlay": "8. learn something new every\nnight, just for you.\na story about art, a moment\nin history. no grades.",
+   "texte_sophia": "8. learn something new every\nnight, just for me.\ni open a micro-learning app\nlike the sophia app:\n5 minutes of art or history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "20298198",
+   "texte_overlay": "save this and pick one\nfor this week ;)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/10.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o074",
+ "schema_id": "insider-rh",
+ "titre": "les candidatures dont on parlait encore à la pause café (en bien) #recrutement #candidature #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 4. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma insider-rh (r 3,49, d3d9cd2f) : les coulisses du recrutement. Famille d'accroche jamais faite : « on en parlait à la pause café ». Exemples inventés et anonymes, aucune vraie entreprise. CTA de fin jamais utilisé. (dire ce qui rend sa candidature unique) Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bc379b45",
+   "texte_overlay": "les candidatures dont on parlait encore\nà la pause café\n(en bien)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7a4f217c",
+   "texte_overlay": "celle qui avait lu notre dernière actualité\net posait une question dessus dès la première ligne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "80b3d370",
+   "texte_overlay": "celle qui expliquait son trou de cv en une phrase calme\nsans s'excuser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "82030cf3",
+   "texte_overlay": "celle qui avait un centre d'intérêt précis\nmes 3 souvenirs : l'escalade, le piano, et une passion pour l'histoire de l'art",
+   "texte_sophia": "celle qui avait un centre d'intérêt précis\nmes 3 souvenirs : l'escalade, le piano, et l'histoire de l'art apprise 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "854f2c04",
+   "texte_overlay": "celle qui avait relu son mail\nzéro faute, le bon nom du poste. ça paraît évident, c'était rare",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8a807545",
+   "texte_overlay": "celle qui a relancé une fois, poliment\navec une info en plus. on l'a rappelée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8caae407",
+   "texte_overlay": "et toi, qu'est-ce qui rend ta candidature\nimpossible à oublier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

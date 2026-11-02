@@ -1,0 +1,726 @@
+{
+ "id": "yp-019",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "titre": {
+  "fr": "petit guide pour réviser à la bibliothèque",
+  "en": "a guide to studying at the library",
+  "es": "guía para estudiar en la biblioteca",
+  "de": "Anleitung zum Lernen in der Bibliothek",
+  "it": "guida per studiare in biblioteca",
+  "pt": "guia para estudar na biblioteca",
+  "tr": "kütüphanede ders çalışmak için küçük bir rehber"
+ },
+ "legendes": {
+  "fr": "mes règles pour une vraie journée à la bu 📚 #bibliotheque #studytok #revisions #etudiante #thatgirl",
+  "en": "my rules for a real library day 📚 #library #studytok #studying #student #thatgirl",
+  "es": "mis reglas para un día de biblioteca de verdad 📚 #biblioteca #studytok #estudiar #estudiante #thatgirl",
+  "de": "meine Regeln für einen echten Bibliothekstag 📚 #bibliothek #studytok #lernen #studentin #thatgirl",
+  "it": "le mie regole per una vera giornata in biblioteca 📚 #biblioteca #studytok #studiare #studentessa #thatgirl",
+  "pt": "minhas regras pra um dia de biblioteca de verdade 📚 #biblioteca #studytok #estudos #estudante #thatgirl",
+  "tr": "gerçek bir kütüphane günü için kurallarım 📚 #kütüphane #studytok #ders #öğrenci #thatgirl"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "0715c5b7-b7fd-4617-ad87-6228ef27e8ca",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/78dde83b-23d1-49ff-ac79-d37f34481a3e/5.jpg?v=1791727027390",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-007 (« a guide to a DIGITAL DECLUTTER », 73 k) : même format guide en notes iOS, angle bibliothèque. cta B : la mise en scène iPhone micabo (a83da81b) en photo de l’étape « ne prends que ce qu’il faut », micabo dans le texte de la note",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "petit guide pour",
+     "lignes": [
+      "RÉVISER À LA",
+      "BIBLIOTHÈQUE"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a guide to",
+     "lignes": [
+      "STUDYING AT",
+      "THE LIBRARY"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guía para",
+     "lignes": [
+      "ESTUDIAR EN",
+      "LA BIBLIOTECA"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "Anleitung zum",
+     "lignes": [
+      "LERNEN IN DER",
+      "BIBLIOTHEK"
+     ],
+     "taille": 112,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guida per",
+     "lignes": [
+      "STUDIARE IN",
+      "BIBLIOTECA"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guia para",
+     "lignes": [
+      "ESTUDAR NA",
+      "BIBLIOTECA"
+     ],
+     "taille": 136,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "küçük bir rehber:",
+     "lignes": [
+      "KÜTÜPHANEDE",
+      "DERS ÇALIŞMAK"
+     ],
+     "taille": 108,
+     "interligne": 1,
+     "y": 1500,
+     "taille_script": 84
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b472bd31-66b7-4967-a6a8-409ce0fb86d7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5bbc5ac3-0ba6-4a5e-ae13-f9a1f329bb65/2.jpg?v=1790607941464",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "choisis ta place avec soin.",
+     "texte": "loin de l’entrée et des imprimantes, dos au passage. moins tu vois de monde, moins tu lèves la tête.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "pick your seat carefully.",
+     "texte": "away from the entrance and the printers, back to the walkway. the fewer people you see, the less you look up.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "elige bien tu sitio.",
+     "texte": "lejos de la entrada y de las impresoras, de espaldas al pasillo. cuanta menos gente veas, menos levantas la cabeza.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "such deinen Platz mit Bedacht aus.",
+     "texte": "weg vom Eingang und den Druckern, mit dem Rücken zum Gang. je weniger Leute du siehst, desto seltener schaust du auf.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "scegli bene il posto.",
+     "texte": "lontano dall’ingresso e dalle stampanti, di spalle al passaggio. meno gente vedi, meno alzi la testa.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "escolha bem o seu lugar.",
+     "texte": "longe da entrada e das impressoras, de costas pro corredor. quanto menos gente você vê, menos levanta a cabeça.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 30,
+     "y": 330,
+     "titre": "yerini dikkatle seç.",
+     "texte": "girişten ve yazıcılardan uzak, sırtın koridora dönük. ne kadar az insan görürsen o kadar az başını kaldırırsın.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c796f976-804d-43d8-b231-469a70f01395",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/da5cc540-ac82-4d07-8ba0-13df8e4002d6/3.jpg?v=1791726976231",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "arrive avec une liste.",
+     "texte": "3 tâches précises écrites avant de t’asseoir. sinon tu passes 30 min à te demander par quoi commencer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "show up with a list.",
+     "texte": "3 specific tasks written down before you sit. otherwise you spend 30 minutes wondering where to start.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "llega con una lista.",
+     "texte": "3 tareas concretas escritas antes de sentarte. si no, pasas 30 min pensando por dónde empezar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "komm mit einer Liste.",
+     "texte": "3 konkrete Aufgaben, bevor du dich hinsetzt. sonst verbringst du 30 Min. damit, zu überlegen, womit du anfängst.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "arriva con una lista.",
+     "texte": "3 compiti precisi scritti prima di sederti. altrimenti passi 30 minuti a chiederti da dove iniziare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "chegue com uma lista.",
+     "texte": "3 tarefas específicas anotadas antes de sentar. senão você passa 30 min pensando por onde começar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "bir listeyle gel.",
+     "texte": "oturmadan önce 3 net görev yaz. yoksa 30 dakikayı nereden başlayacağını düşünerek geçirirsin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "ne prends que ce qu’il faut.",
+     "texte": "pas de pc si tu n’en as pas besoin. tes fiches, un stylo et micabo sur ton téléphone pour te tester entre deux chapitres.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "only bring what you need.",
+     "texte": "no laptop if you don’t need it. your notes, a pen and micabo on your phone to test yourself between chapters.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "lleva solo lo necesario.",
+     "texte": "nada de portátil si no lo necesitas. tus apuntes, un boli y micabo en el móvil para ponerte a prueba entre temas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "nimm nur mit, was du brauchst.",
+     "texte": "kein Laptop, wenn du ihn nicht brauchst. deine Notizen, ein Stift und micabo auf dem Handy, um dich zwischen den Kapiteln abzufragen.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "porta solo quello che serve.",
+     "texte": "niente pc se non ti serve. i tuoi appunti, una penna e micabo sul telefono per metterti alla prova tra un capitolo e l’altro.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "leve só o necessário.",
+     "texte": "nada de notebook se não precisar. seu resumo, uma caneta e o micabo no celular pra se testar entre os capítulos.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "sadece gerekeni götür.",
+     "texte": "ihtiyacın yoksa bilgisayar yok. notların, bir kalem ve üniteler arasında kendini test etmek için telefonunda micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1138ada9-e786-4cd1-9fbe-9151ecb2a8c2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b7cf2471-5d0c-4563-9856-b1fe99ba804a/6.jpg?v=1791725529043",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "laisse tes écouteurs sans musique.",
+     "texte": "juste pour couper le bruit. avec de la musique, tu finis par choisir des playlists au lieu de réviser.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "wear your earbuds without music.",
+     "texte": "just to block the noise. with music, you end up picking playlists instead of studying.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ponte los cascos sin música.",
+     "texte": "solo para aislarte del ruido. con música acabas eligiendo playlists en vez de estudiar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "trag deine Kopfhörer ohne Musik.",
+     "texte": "nur gegen den Lärm. mit Musik suchst du am Ende Playlists aus, statt zu lernen.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "metti le cuffie senza musica.",
+     "texte": "solo per isolarti dal rumore. con la musica finisci a scegliere playlist invece di studiare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "use os fones sem música.",
+     "texte": "só pra abafar o barulho. com música, você acaba escolhendo playlist em vez de estudar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "kulaklığını müziksiz tak.",
+     "texte": "sadece gürültüyü kesmek için. müzik açarsan çalışmak yerine çalma listesi seçersin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0382dd24-cc7e-4fbd-bdd4-8f760341c669",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/29579bba-1463-4cfd-9e92-1d7b649d4de5/5.jpg?v=1791725454211",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pars à une heure fixe.",
+     "texte": "décide en arrivant à quelle heure tu t’en vas. avoir une fin, c’est ce qui te fait travailler vraiment.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "leave at a set time.",
+     "texte": "decide when you’ll leave as soon as you arrive. having an end is what makes you actually work.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vete a una hora fija.",
+     "texte": "decide al llegar a qué hora te vas. tener un final es lo que te hace trabajar de verdad.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "geh zu einer festen Uhrzeit.",
+     "texte": "entscheide beim Ankommen, wann du gehst. ein festes Ende bringt dich dazu, wirklich zu arbeiten.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vattene a un’ora fissa.",
+     "texte": "decidi appena arrivi a che ora te ne vai. avere una fine è quello che ti fa lavorare davvero.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vá embora num horário fixo.",
+     "texte": "decida ao chegar que horas vai sair. ter um fim é o que faz você trabalhar de verdade.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "belirli bir saatte çık.",
+     "texte": "geldiğin anda ne zaman çıkacağına karar ver. bir bitiş saati olması seni gerçekten çalıştırır.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

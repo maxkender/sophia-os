@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o038",
+ "schema_id": "hobbies-smarter",
+ "titre": "Free hobbies that make you effortlessly cultured #hobbies #smartgirl #museum #selfeducation #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "c4229613-5ba2-4376-a464-771bd6474c65",
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e"
+ ],
+ "notes": "cta B. CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Schéma hobbies-smarter (1ab301c9 r 7,06 ; c4229613 r 4,95 sur 13). Accroche neuve chez nous : l'angle gratuit des hobbies. Accroches écrites : « Free hobbies that make you effortlessly cultured » (retenue : gabarit « hobbies that make you … » avec la promesse gratuite qui a porté 2db2f497, r 9,13), « hobbies that cost nothing but make you smarter » (écartée : plus long), « cheap hobbies of cultured women » (écartée : l'argent est hors label). Six hobbies gratuits neufs face à sg-o003, sg-o019, sg-o032 et aux sources : dessiner dans un musée, emprunter un livre par semaine à la bibliothèque, apprendre un poème par cœur, écouter une symphonie entière sans téléphone, une minute d'histoire de l'art par jour (Sophia au milieu, cta B), visiter sa propre ville comme une touriste. Images de la banque (musées et bibliothèques), sans texte ; slide Sophia sur un bureau à la bougie, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c79404cc",
+   "texte_overlay": "Free hobbies that make\nyou effortlessly cultured",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6a2d3f4d",
+   "texte_overlay": "1. Sketching in museums\nBring a pencil and a small\nnotebook. You'll look at art\nten times longer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "17f636d9",
+   "texte_overlay": "2. One library book a week\nFree, endless, and the\nbest habit you'll ever build.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1a1f603c",
+   "texte_overlay": "3. A little art history\nevery day\nOne painting, one artist,\none story. It adds up fast.",
+   "texte_sophia": "3. A little art history\nevery day\nI learn one painting a day\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0d760124",
+   "texte_overlay": "4. Learning a poem by heart\nOne stanza a day. Your\nmemory will thank you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "102e16bb",
+   "texte_overlay": "5. Listening to a whole\nsymphony\nNo phone, no skipping.\nJust the music, start\nto finish.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "21309c15",
+   "texte_overlay": "6. Being a tourist in your\nown city\nVisit the old church, read\nthe plaques, learn its story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0e96c545",
+   "texte_overlay": "Follow for more daily tips\nWhich one is free for\nyou this week?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/8.jpg"
+  }
+ ]
+}

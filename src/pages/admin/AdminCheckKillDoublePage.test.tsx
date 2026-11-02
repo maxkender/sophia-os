@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
@@ -37,6 +37,27 @@ const api = vi.hoisted(() => ({
   MOTIFS_NUDGE: ["reveil", "surveiller", "discipline", "absent"],
 }));
 vi.mock("@/features/ckd/api", () => api);
+
+const cohorteApi = vi.hoisted(() => ({
+  lireCohorte: vi.fn(),
+  releverWarmup: vi.fn(),
+}));
+vi.mock("@/features/ckd/cohorte/api", () => cohorteApi);
+const decisionsApi = vi.hoisted(() => ({
+  lireADecider: vi.fn(async () => []),
+  lireSemaine: vi.fn(async () => ({
+    mercredi: { envoyes: 0 },
+    jeudi: { calcule: false, propositions: 0, a_decider: 0 },
+    samedi: { calcule: false, propositions: 0, a_decider: 0 },
+    dimanche: { prevus: 0, faits: 0 },
+    lundi: { lignes: 0, payees: 0 },
+  })),
+}));
+vi.mock("@/features/ckd/decisions/api", () => decisionsApi);
+// Prompt 25 : Dead accounts est fusionné dans Thursday (la liste, puis le détail du contrôle et Shadowban).
+vi.mock("@/features/ckd/shadowban/VueShadowban", () => ({ VueShadowban: () => <div data-testid="vue-shadowban" /> }));
+vi.mock("@/features/ckd/decisions/ListeJeudi", () => ({ ListeJeudi: () => <div data-testid="liste-jeudi" /> }));
+vi.mock("@/features/ckd/decisions/ListeSamedi", () => ({ ListeSamedi: () => <div data-testid="liste-samedi" /> }));
 
 import { AdminCheckKillDoublePage } from "./AdminCheckKillDoublePage";
 
@@ -101,11 +122,12 @@ function chiffre(intitule: string): HTMLElement {
   return within(screen.getByTestId("chiffres-ckd")).getByText(intitule).closest("div") as HTMLElement;
 }
 
-function rendre() {
+/** Le suivi global (la vue par défaut depuis la page Cohortes, prompt 17). */
+function rendre(entree = "/?onglet=samedi") {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <MemoryRouter>
+      <MemoryRouter initialEntries={[entree]}>
         <TooltipProvider>
           <AdminCheckKillDoublePage />
         </TooltipProvider>
@@ -235,14 +257,15 @@ describe("AdminCheckKillDoublePage", () => {
     ]);
   });
 
-  it("propose Kill, Nudge ou Garder pour un absent, et liste les autres posts manqués pour info", async () => {
+  it("samedi (0369) : Kill ou Garder pour un absent, et liste les autres posts manqués pour info", async () => {
     rendre();
     const ionut = await screen.findByTestId("proposition-ionut.mentalitate346");
     expect(within(ionut).getAllByText("Kill (ne pas renouveler)").length).toBeGreaterThan(0);
     expect(within(ionut).getByText(/Absent : trop de posts manqués/)).toBeInTheDocument();
-    for (const nom of ["Kill", "Envoyer le nudge", "Garder"]) {
+    for (const nom of ["Kill", "Garder"]) {
       expect(within(ionut).getByRole("button", { name: nom })).toBeEnabled();
     }
+    expect(within(ionut).queryByRole("button", { name: "Envoyer le nudge" })).toBeNull();
     const carte = await screen.findByTestId("carte-manques");
     expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("7/10");
     expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("13/10, 14/10, 15/10");
@@ -263,7 +286,9 @@ describe("AdminCheckKillDoublePage", () => {
       "href",
       "https://www.tiktok.com/@clara/photo/2",
     );
-    expect(within(clara).getByRole("button", { name: "Recréer le compte" })).toBeEnabled();
+    // Le samedi ne recrée plus (0369) : Kill ou Garder.
+    expect(within(clara).queryByRole("button", { name: "Recréer le compte" })).toBeNull();
+    expect(within(clara).getByRole("button", { name: "Kill" })).toBeEnabled();
     // Sans HM : en dernier.
     expect(screen.getByTestId("groupe-hm-aucun")).toBeInTheDocument();
     expect(screen.getByTestId("proposition-katerina.exelissetai333")).toBeInTheDocument();
@@ -280,13 +305,32 @@ describe("AdminCheckKillDoublePage", () => {
     await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p4", "ne_pas_renouveler", "a posté sans lien ?"));
   });
 
-  it("Recréer passe par la confirmation, sans note", async () => {
+  it("jeudi (0368) : « Recréer » proposé est choisi d'avance, et passe par la confirmation", async () => {
+    const avant = api.listerPropositions.getMockImplementation()!;
+    api.listerPropositions.mockImplementation(async (id: string) =>
+      id === "ctrl-jeudi"
+        ? [
+          proposition({
+            id: "p5",
+            controle_id: "ctrl-jeudi",
+            type: "jeudi",
+            jour: "2026-10-22",
+            regle: "jeudi",
+            action: "recreer",
+            donnees: { ...proposition({}).donnees, handle: "bruno.reveil101", motifs: ["reveil"] },
+          }),
+        ]
+        : avant(id),
+    );
     rendre();
-    const clara = await screen.findByTestId("proposition-clara.eclaire390");
-    fireEvent.click(within(clara).getByRole("button", { name: "Recréer le compte" }));
-    expect(within(clara).getByText(/Un nouveau compte est créé tout de suite/)).toBeInTheDocument();
-    fireEvent.click(within(clara).getByRole("button", { name: "Confirmer : Recréer le compte" }));
-    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p1", "recreer", null));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
+    const bruno = await screen.findByTestId("proposition-bruno.reveil101");
+    for (const nom of ["Envoyer le nudge", "Recréer le compte", "Rien"]) {
+      expect(within(bruno).getByRole("button", { name: nom })).toBeEnabled();
+    }
+    expect(within(bruno).getByText(/Un nouveau compte est créé tout de suite/)).toBeInTheDocument();
+    fireEvent.click(within(bruno).getByRole("button", { name: "Confirmer : Recréer le compte" }));
+    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p5", "recreer", null));
   });
 
   it("montre une décision prise, son arrêt prévu, et l'annule tant que rien n'est parti", async () => {
@@ -314,12 +358,12 @@ describe("AdminCheckKillDoublePage", () => {
     expect(within(decision).getByText(/pas encore envoyé au HM/)).toBeInTheDocument();
     expect(within(decision).getByText("Note : vérifier ses liens")).toBeInTheDocument();
     expect(chiffre("Sans décision")).toHaveTextContent(/^Sans décision0/);
-    expect(chiffre("À envoyer aux HM")).toHaveTextContent(/^À envoyer aux HM1/);
+    expect(chiffre("À envoyer (dimanche 12 h)")).toHaveTextContent(/^À envoyer \(dimanche 12 h\)1/);
     fireEvent.click(within(decision).getByRole("button", { name: "Annuler la décision" }));
     await waitFor(() => expect(api.annulerCkd).toHaveBeenCalledWith("p4"));
   });
 
-  it("envoie aux HM les décisions prêtes, après confirmation", async () => {
+  it("prompt 15 : plus de bouton « Envoyer aux HM », les décisions prêtes partent le dimanche", async () => {
     api.listerPropositions.mockResolvedValue([
       proposition({ decision: "recreer", decision_par: "admin-1", decision_at: "2026-10-24T08:00:00Z" }),
       proposition({
@@ -334,17 +378,16 @@ describe("AdminCheckKillDoublePage", () => {
     api.listerHandles.mockResolvedValue([{ id: "nouveau-1", handle_tiktok: "katerina.nea" }]);
     rendre();
     // Recréer sans compte créé ne part pas : 1 seule décision prête.
-    const bouton = await screen.findByRole("button", { name: "Envoyer aux HM (1)" });
     expect(await screen.findByText(/compte créé : @katerina.nea/)).toBeInTheDocument();
     expect(screen.getByText(/compte pas encore confirmé/)).toBeInTheDocument();
-    fireEvent.click(bouton);
-    await waitFor(() => expect(api.envoyerAuxHm).toHaveBeenCalledWith("ctrl-samedi"));
-    expect(window.confirm).toHaveBeenCalled();
+    expect(chiffre("À envoyer (dimanche 12 h)")).toHaveTextContent(/1/);
+    expect(screen.queryByRole("button", { name: /Envoyer aux HM/ })).toBeNull();
+    expect(api.envoyerAuxHm).not.toHaveBeenCalled();
   });
 
   it("le jeudi, envoie tous les nudges encore sans décision", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     fireEvent.click(await screen.findByRole("button", { name: "Envoyer les nudges (1)" }));
     await waitFor(() => expect(api.envoyerNudgesCkd).toHaveBeenCalledWith("ctrl-jeudi"));
   });
@@ -370,7 +413,6 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("l'historique : les décisions, avant et après 2 semaines, la tendance et le résumé", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Historique" }));
     const clara = await screen.findByTestId("historique-clara.eclaire390");
     expect(within(clara).getByText("Garder")).toBeInTheDocument();
     expect(within(clara).getByText(/méd\. 609 · 55\/56 publiés/)).toBeInTheDocument();
@@ -400,7 +442,6 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("un clic sur une ligne du résumé filtre l'historique, un second clic le vide", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Historique" }));
     await screen.findByTestId("historique-clara.eclaire390");
     const resume = screen.getByTestId("resume-historique");
     fireEvent.click(within(resume).getByText("Doubler"));
@@ -419,7 +460,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("le nudge d'un posteur : texte de Réglages pré-rempli, modifiable pour lui seul", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const titre = await within(alice).findByRole("textbox", { name: "Titre du pop-up" });
@@ -435,44 +476,20 @@ describe("AdminCheckKillDoublePage", () => {
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
         popup: { titre: "Some posts are missing", corps: "Your first day was Sunday: post every day from now on." },
         hm: null,
-        suiviHm: true,
+        suiviHm: false,
       }),
     );
   });
 
-  it("le message au HM : consigne par défaut pré-remplie, modifiable, et pas de note à part", async () => {
+  it("prompt 15 : plus de message au HM ni de suivi dans #managers-hq, la décision part sans suivi", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
-    const message = await within(alice).findByRole("textbox", { name: "Message au HM" });
-    expect(message).toHaveValue("• Some posts are missing or have no link in the OS. (2/4 published)");
-    expect(api.apercuHmCkd).toHaveBeenCalledWith("p3");
-    expect(within(alice).queryByRole("textbox", { name: "Note" })).toBeNull();
-    expect(within(alice).getByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeChecked();
-
-    fireEvent.change(message, { target: { value: " Her 2 missing posts are from Sunday, her first day. " } });
-    expect(within(alice).getByText("modifié pour ce posteur")).toBeInTheDocument();
-    fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
-    await waitFor(() =>
-      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
-        popup: null,
-        hm: "Her 2 missing posts are from Sunday, her first day.",
-        suiviHm: true,
-      }),
-    );
-  });
-
-  it("suivi du HM décoché : seul le pop-up part, et la décision ne compte pas dans « Envoyer aux HM »", async () => {
-    rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
-    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
-    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
-    const suivi = await within(alice).findByRole("checkbox", { name: "Suivi du HM dans #managers-hq" });
-    await within(alice).findByRole("textbox", { name: "Message au HM" });
-    fireEvent.click(suivi);
+    await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
     expect(within(alice).queryByRole("textbox", { name: "Message au HM" })).toBeNull();
-    expect(within(alice).getByText(/seul le pop-up part/)).toBeInTheDocument();
+    expect(within(alice).queryByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeNull();
+    expect(api.apercuHmCkd).not.toHaveBeenCalled();
     fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
     await waitFor(() =>
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
@@ -481,7 +498,7 @@ describe("AdminCheckKillDoublePage", () => {
 
   it("nudge sans retouche : le texte de Réglages, et un texte vidé bloque la confirmation", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
     const corps = await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
@@ -495,10 +512,12 @@ describe("AdminCheckKillDoublePage", () => {
     expect(corps).toHaveValue("Some posts planned for @alice.utvecklas492 were not published.");
     expect(confirmer).toBeEnabled();
     fireEvent.click(confirmer);
-    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null));
+    await waitFor(() =>
+      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
+    );
   });
 
-  it("un nudge décidé sans suivi du HM : affiché comme tel, jamais à envoyer aux HM", async () => {
+  it("un nudge décidé sans suivi du HM : jamais à envoyer aux HM", async () => {
     const avant = api.listerPropositions.getMockImplementation()!;
     api.listerPropositions.mockImplementation(async (id: string) =>
       id === "ctrl-jeudi"
@@ -520,16 +539,15 @@ describe("AdminCheckKillDoublePage", () => {
         : avant(id),
     );
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
-    expect(await within(alice).findByText(/sans suivi HM/)).toBeInTheDocument();
+    expect(await within(alice).findByText(/par /)).toBeInTheDocument();
     expect(within(alice).queryByText(/pas encore envoyé au HM/)).toBeNull();
-    expect(screen.getByRole("button", { name: "Envoyer aux HM (0)" })).toBeDisabled();
   });
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi" }));
     const alice = await screen.findByTestId("proposition-alice.utvecklas492");
     expect(within(alice).getByText("à surveiller")).toBeInTheDocument();
     expect(within(alice).getByText("discipline")).toBeInTheDocument();
@@ -572,5 +590,83 @@ describe("AdminCheckKillDoublePage", () => {
     fireEvent.change(saisie, { target: { value: "u0bst9hkkbq" } });
     fireEvent.click(within(saisie.closest("tr")!).getByRole("button", { name: "Enregistrer" }));
     await waitFor(() => expect(api.enregistrerSlackHm).toHaveBeenCalledWith("sara", "U0BST9HKKBQ"));
+  });
+
+  describe("suivi cohorte → page Cohortes (prompt 17, partie B)", () => {
+    function rendreAvecRoutes(entree: string) {
+      const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+      return render(
+        <QueryClientProvider client={client}>
+          <MemoryRouter initialEntries={[entree]}>
+            <TooltipProvider>
+              <Routes>
+                <Route path="/" element={<AdminCheckKillDoublePage />} />
+                <Route path="/admin/auto/recruits" element={<p>page cohortes</p>} />
+              </Routes>
+            </TooltipProvider>
+          </MemoryRouter>
+        </QueryClientProvider>,
+      );
+    }
+
+    it("les onglets 1re semaine / warm-up sont retirés : ?vue=cohorte renvoie vers Cohortes", async () => {
+      rendreAvecRoutes("/?vue=cohorte");
+      expect(await screen.findByText("page cohortes")).toBeInTheDocument();
+      expect(cohorteApi.lireCohorte).not.toHaveBeenCalled();
+    });
+
+    it("prompt 25 : Weekly decisions, Thursday, Saturday et Settings ; l'ancienne vue « décisions » ouvre Saturday ; plus de mercredi", async () => {
+      rendreAvecRoutes("/?vue=decisions");
+      expect(await screen.findByRole("heading", { name: /Décisions/ })).toBeInTheDocument();
+      const onglets = screen.getAllByRole("tablist")[0]!;
+      expect(within(onglets).getAllByRole("tab").map((o) => o.textContent?.replace(/\d+$/, ""))).toEqual([
+        "Jeudi",
+        "Samedi",
+        "Dimanche : warm-up",
+        "Réglages",
+      ]);
+      expect(within(onglets).getByRole("tab", { name: /^Samedi/ })).toHaveAttribute("aria-selected", "true");
+      const semaine = await screen.findByTestId("semaine-decisions");
+      expect(semaine.querySelector('[data-moment="mercredi"]')).toBeNull();
+      expect(screen.getByTestId("liste-samedi")).toBeInTheDocument();
+      // Plus de « Tout valider » coché d'avance.
+      expect(screen.queryByTestId("a-decider")).toBeNull();
+      expect(screen.queryByRole("link", { name: "Cohortes" })).toBeNull();
+      // Prompt 21, D : la cible de recrutement par pays revient le samedi.
+      expect(await screen.findByTestId("carte-recrutement")).toBeInTheDocument();
+    });
+  });
+
+  describe("prompt 22, partie 5 : une carte par compte, 2 boutons, rien de coché", () => {
+    const aDecider = (p: Record<string, unknown>) => ({
+      id: "a1", type: "samedi", jour: "2026-10-31", regle: "absent", action: "ne_pas_renouveler",
+      compte_id: "c1", handle: "ionut.mentalitate346", poster_id: "poster-ionut", poster_nom: "Ionut P",
+      hm_prenom: "Lucia", pays: "RO", donnees: { periode: { attendus: 14, publies: 3 } }, mercredi_at: null, ...p,
+    });
+
+    beforeEach(() => {
+      decisionsApi.lireADecider.mockResolvedValue([
+        aDecider({}),
+        aDecider({ id: "a2", regle: "doubler", action: "doubler", handle: "katerina.exelissetai333", poster_nom: "Katerina",
+          donnees: { periode: { bons: 4 }, seuil_bon_post: { valeur: 8000 } } }),
+        aDecider({ id: "a3", type: "jeudi", regle: "jeudi", action: "recreer", handle: "bruno.reveil101", poster_nom: "Bruno",
+          donnees: { motifs: ["reveil"] } }),
+      ] as never);
+    });
+
+    it("prompt 25 : Saturday montre la masterlist (plus de cartes) ; le compteur de l'onglet reste", async () => {
+      rendre("/?onglet=samedi");
+      expect(await screen.findByTestId("liste-samedi")).toBeInTheDocument();
+      expect(screen.queryByTestId("cartes-samedi")).toBeNull();
+      await waitFor(() => expect(screen.getByRole("tab", { name: /^Samedi/ }).textContent).toBe("Samedi2"));
+    });
+
+    it("prompt 25 : l'ancien onglet Dead accounts ouvre Thursday : la liste de tous les comptes, puis le contrôle du jeudi et Shadowban", async () => {
+      rendre("/?onglet=morts");
+      expect(await screen.findByTestId("liste-jeudi")).toBeInTheDocument();
+      expect(screen.getByRole("tab", { name: /^Jeudi/ })).toHaveAttribute("aria-selected", "true");
+      expect(screen.getByTestId("vue-shadowban")).toBeInTheDocument();
+      expect(screen.queryByTestId("cartes-recreer")).toBeNull();
+    });
   });
 });

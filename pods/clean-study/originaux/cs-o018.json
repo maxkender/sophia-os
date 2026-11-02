@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o018",
+  "schema_id": "best-student",
+  "titre": "habits of the BEST student in class (the ones nobody sees) #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
+  ],
+  "notes": "Schéma du label best-student (r 2,15 sur 4 passages, 602efb01), 2e livraison après cs-o015. Accroches écrites : « habits of the BEST student in class (the ones nobody sees) » (retenue : la forme du gagnant, angle neuf : ce qui se passe en coulisses), « how to be the BEST student in your class part 2 » (écartée : nos comptes n'ont pas la part 1 partout), « what the BEST student in your class does after school » (écartée : plus étroit). Six habitudes neuves, aucune dans cs-o015, la source ou le label (« start assignments the day you get them » existe déjà, écartée) : questions dans la marge, lire la grille de notation, se placer dans la moitié avant de la salle, se tester le soir même sur les notes du jour (place micabo, slide 5), demander ce qui ferait un A, téléphone dans le sac jusqu'à la fin des devoirs (place UnSwipe, slide 7). Couverture et slides 2, 4 : photos de séries (célébrités acceptées le 28/10) ; slides 5 et 7 sans personne. Écartée à l'aperçu : 51a15578 (écrans lisibles sur la slide micabo), e4d67a35 (logo de marque sur un gobelet), 6ad8bb4a (une personne sur la slide micabo).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1f8ab374",
+      "texte_overlay": "habits of the BEST student in class\n(the ones nobody sees)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1fb44a78",
+      "texte_overlay": "she writes questions in the margin during class.\nlater, they become her revision list.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "fae58376",
+      "texte_overlay": "she reads the grading criteria before writing anything.\nshe knows exactly where the points are.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1543209f",
+      "texte_overlay": "she sits in the front half of the room.\nnot to be seen. to actually hear and see everything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d0e567ec",
+      "texte_overlay": "the same evening, 10 minutes testing herself on today's notes.\nby exam week, it's already in her head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1693f654",
+      "texte_overlay": "she asks \"what would make this an A?\"\nnot just \"what did i get?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "69383339",
+      "texte_overlay": "her phone stays in her bag until the homework is done.\nno \"quick check\" in between.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

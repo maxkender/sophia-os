@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o107",
+ "type_bleo": "full_test",
+ "titre": "the tiny rule that makes you smarter every single month #learning #selfimprovement #habits #growth #rules",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "a84c5a7f-8386-43f6-a405-a8994db40460"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, a84c5a7f). full test BLEO : accroche jamais faite (format « une règle »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "41e98b81-90b3-4924-8474-2eb8828a2b29",
+   "texte_overlay": "the tiny rule that makes you\nsmarter every single month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653866966368767245/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "384a0877-fadb-4148-9b77-31404575600e",
+   "texte_overlay": "learn before you scroll\n\nthe rule is simple: learn one real thing before you allow yourself any feed. five minutes of learning first quietly turns every day into a small step forward.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653866966368767245/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7182b70e-27d5-44be-ae4f-515c8ba6e355",
+   "texte_overlay": "write it in one line\n\nafter you learn it, write it down in one sentence. if you can't fit it in one line, you haven't understood it yet, and that's the part worth going back to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653866966368767245/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f8c8e3eb-16cd-4c60-8f02-7fae87372c7c",
+   "texte_overlay": "tell someone about it\n\nshare what you learned with one person the same day. teaching it once is what moves an idea from short term memory into something you'll still know in a year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653866966368767245/2.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e5dfa4c-c4f1-440b-b3c0-d610da137bc7",
+   "texte_overlay": "stack it daily\n\ndo it every day for a month with a short lesson on history, art or science. thirty tiny lessons is more new knowledge than most people pick up in an entire year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653866966368767245/3.jpg",
+   "texte_sophia": "stack it daily\n\ndo it every day with one short lesson on history, art or science. the Sophia app turns it into one short lesson a day, and thirty lessons beat what most people learn in a year."
+  },
+  {
+   "position": 6,
+   "media_id": "3a980cc7-5d8e-4393-99b0-a3f3b9a28224",
+   "texte_overlay": "review on sundays\n\nevery sunday, reread your one line notes from the week. a two minute review is the whole difference between learning something and actually remembering it later.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653866966368767245/6.jpg"
+  }
+ ]
+}

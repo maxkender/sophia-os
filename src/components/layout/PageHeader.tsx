@@ -1,4 +1,6 @@
-import type React from "react";
+import * as React from "react";
+
+import { EnteteMasquee } from "./enteteMasquee";
 
 /**
  * En-tête de page, sur le modèle de la page Allocation : un titre, une ligne
@@ -14,6 +16,8 @@ export function PageHeader({
   description?: React.ReactNode;
   actions?: React.ReactNode;
 }) {
+  const masquee = React.useContext(EnteteMasquee);
+  if (masquee) return actions ? <div className="flex flex-wrap items-center justify-end gap-2">{actions}</div> : null;
   return (
     <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
       <div className="min-w-0 space-y-2">

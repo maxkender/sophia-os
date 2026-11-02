@@ -1,0 +1,285 @@
+{
+ "id": "fa-009",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7684273449522531606",
+  "vues": 113000,
+  "accroche": "10/10 Skills You Can Learn In A Week."
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In A Week.",
+  "de": "10/10 Skills, die du in einer Woche lernen kannst.",
+  "pt": "10/10 habilidades que podes aprender numa semana."
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In A Week. #skills #learnontiktok #selfimprovement",
+  "de": "10/10 Skills, die du in einer Woche lernen kannst. #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades que podes aprender numa semana. #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
+ },
+ "notes": "cta C (« what I open / instead of scrolling. », 1re personne, 2e position). Sophia en carte d'appli à l'étape 2 « LEARN RANDOM FACTS ». Pas d'UnSwipe. Son « CHANGE YOUR VOCAL TONE » tombe (déjà la voix dans fa-007). en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN",
+     "LEARN IN A WEEK."
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS, DIE DU IN",
+     "EINER WOCHE LERNST."
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE PODES",
+     "APRENDER NUMA SEMANA."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO USE A COMPASS"
+    ],
+    "video": {
+     "id": "0cF0ovA3FtY",
+     "titre": "How to Use a Compass || REI",
+     "chaine": "REI",
+     "vues": "3.5M views",
+     "date": "9 years ago",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUHsFlWaQfLNKhYHZLgGcKJi5KSUr85H6SVO7smUbsrng=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN, EINEN KOMPASS ZU LESEN"
+    ],
+    "video": {
+     "id": "-HU01qV9Big",
+     "titre": "Wie benutze ich einen Kompass mit Karte? [Anfänger-Guide]",
+     "chaine": "Survival Kompass",
+     "vues": "112.810 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kErE-vsGkZKgXuvMePAkFyZQC5jwcUNj2b26bSygPzaEk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A USAR UMA BÚSSOLA"
+    ],
+    "video": {
+     "id": "cA6EmPBsLfQ",
+     "titre": "Aprender o básico da bússola | Trilha",
+     "chaine": "SIKANA Brasil / Português",
+     "vues": "136 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/oqZFmzqld8wW78m05lcwT-CYINr-DSau83nJ3OPbY36q52qDiwQ8s2eMKCS1A6kheUKZJf0L2g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN RANDOM FACTS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE SPANNENDE FAKTEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE FACTOS CURIOSOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN ORIGAMI"
+    ],
+    "video": {
+     "id": "GC_Szxdqh2Y",
+     "titre": "How To Make a Paper Crane - Origami Crane Easy - Step by Step Tutorial",
+     "chaine": "Easy Paper Origami",
+     "vues": "8.2M views",
+     "date": "5 years ago",
+     "duree": "6:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGp-GWu8LkHNkzKa6QTz9iOqiFa8wuO_TJ8J1UCAH-MUM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE ORIGAMI"
+    ],
+    "video": {
+     "id": "NyrQDdHCXMs",
+     "titre": "Origami-Anleitung: Kranich",
+     "chaine": "Tavins Origami-Anleitungen",
+     "vues": "2 Mio. Aufrufe",
+     "date": "vor 16 Jahren",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkCf0gfFaEzevZxd82GOYZ2-a5UhsYrIZNi3hitLvLwA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ORIGAMI"
+    ],
+    "video": {
+     "id": "pzS0ToWZ9DA",
+     "titre": "Origami: Tsuru - Instruções em Português BR",
+     "chaine": "Easy Origami",
+     "vues": "10 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/XWJAkif4NMjuBV1RnyUbjdn-KDC4outbCycA1rlgLTR7r3U5AyyPaS4ZZpB8AIh93UjFdVX2bOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN BASIC ELECTRONICS"
+    ],
+    "video": {
+     "id": "uXr4lXYjXuU",
+     "titre": "Basic Electronics For Beginners",
+     "chaine": "The Organic Chemistry Tutor",
+     "vues": "2.7M views",
+     "date": "5 years ago",
+     "duree": "30:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOQikQsmqQS3dG9VBvbJ03Eqqw7NshUvDNorj5UAZL6M0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE ELEKTRONIK-GRUNDLAGEN"
+    ],
+    "video": {
+     "id": "irh9kFv68sA",
+     "titre": "Stromstärke & Spannung Grundlagen - REMAKE",
+     "chaine": "Physik - simpleclub",
+     "vues": "1,4 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:18",
+     "avatar": "https://yt3.ggpht.com/MxwaLg6VCMgcO2tIDH23QJyTwAEbiDI7P416b4SNkgAqVZcR3PP6WhxsxXGj8LLeHCRA5FjT=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ELETRÓNICA BÁSICA"
+    ],
+    "video": {
+     "id": "sEltu4swmAM",
+     "titre": "Eletrônica Básica para Iniciantes - Aula 01 - Como a Eletricidade Funciona?",
+     "chaine": "Maike Tech",
+     "vues": "175 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mzftP5795LwkXjCa3AYXfzHrdP6s9CAsR5dniT-LWrQp4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO DRAW"
+    ],
+    "video": {
+     "id": "1jjmOF1hQqI",
+     "titre": "LEARN TO DRAW FROM 0 to 100! | Roadmap| DrawlikeaSir",
+     "chaine": "Draw like a Sir",
+     "vues": "8.4M views",
+     "date": "3 years ago",
+     "duree": "22:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mF7OI1EyJ-nQKUxgLfzuzBDKFV8O1suy5I25nL9LbYEA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE ZEICHNEN"
+    ],
+    "video": {
+     "id": "DSkqMdGsb-c",
+     "titre": "Von 0 bis 100 Zeichnen lernen | Roadmap | DrawinglikeaSir",
+     "chaine": "Drawinglikeasir",
+     "vues": "395.338 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "19:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZbkCqLeD02-0cFZWNhoiKBKJGZ7cLImfpN-MWQr_6miY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A DESENHAR"
+    ],
+    "video": {
+     "id": "r4H9tbtWsv4",
+     "titre": "COMO APRENDER A DESENHAR DO ZERO",
+     "chaine": "Vick Arts",
+     "vues": "337 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:26",
+     "avatar": "https://yt3.ggpht.com/4jDnBBRZLoPCW4D2dg4aau1D8sASjYbEMJV9Octxn7PXp9HJ1QtA-y3dyQCODAuRHxRrLQ1jyf8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

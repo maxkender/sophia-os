@@ -13,3 +13,16 @@ export function localeDate(langue: string | undefined = i18next.language): strin
   if (!langue) return "fr-FR";
   return langue.startsWith("en") ? "en-GB" : langue;
 }
+
+/**
+ * Aujourd'hui en toutes lettres (heure de Paris) : « mercredi 28 octobre ».
+ * Pour les confirmations qui annoncent la date et le coût (prompt 15, point 1).
+ */
+export function aujourdhuiEnLettres(langue: string | undefined = i18next.language, maintenant = new Date()): string {
+  return maintenant.toLocaleDateString(localeDate(langue), {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    timeZone: "Europe/Paris",
+  });
+}

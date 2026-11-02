@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o019",
+ "schema_id": "psychology-facts",
+ "titre": "6 psychology facts about first impressions #psychology #facts #men #mindset #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7352519992614587179",
+ "inspirations": [
+  "3e256ebd-c0a6-43cb-bfb9-18eeef24272a",
+  "d7e41fdf-74f2-451e-9d20-34b63b7cca11"
+ ],
+ "notes": "cta C. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est au 4e fait sur 6. Schéma psychology-facts (r 8,44, 3e256ebd). Nouvel angle pour moi : les premières impressions (am-o008 portait sur des faits généraux). Accroches écrites : « 6 psychology facts about first impressions » (retenue : forme « N psychological facts » du gagnant, sujet précis), « 6 Psychological tricks to be more likeable » (écartée : existe déjà dans le label), « How you master small talk » (écartée : déjà dans le label). Faits connus et formulés prudemment : jugements en quelques secondes (thin slicing, Ambady), la chaleur jugée avant la compétence (Fiske), l'imitation discrète augmente la sympathie (Chartrand et Bargh 1999), le sourire « Duchenne » perçu comme plus sincère, on aime ceux qui nous apprécient (réciprocité). Écartés car déjà dans le label : les questions de relance, les compliments. Images : la banque du label, sans visage ; slide Sophia sur un salon fleuri sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1496ab0d",
+   "texte_overlay": "6 psychology facts about\nfirst impressions:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "149226d7",
+   "texte_overlay": "1. People form an impression\nof you within seconds.\nSlow down your entrance.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "14cbb02a",
+   "texte_overlay": "2. We judge warmth before\ncompetence. Kind first,\nimpressive second.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "14e21dc2",
+   "texte_overlay": "3. Subtly matching someone's\npace and posture tends to\nmake them like you more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "150ddebb",
+   "texte_overlay": "4. Curious people are easier\nto talk to. Read one\ninteresting thing a day\nand you never run dry.",
+   "texte_sophia": "4. Curious people are easier\nto talk to. Learn one thing\na day on the Sophia app:\n5 minutes of history,\nscience or art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "14e36bd6",
+   "texte_overlay": "5. A smile that reaches\nyour eyes reads as warmer\nthan a polite one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "15336130",
+   "texte_overlay": "6. We tend to like people\nwho seem to like us.\nShow interest first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/8.jpg"
+  }
+ ]
+}

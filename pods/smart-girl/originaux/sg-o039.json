@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o039",
+ "schema_id": "laws-of-influence",
+ "titre": "People will start treating you differently when you master these 7 laws of the dinner table #etiquette #elegance #tablemanners #smartgirl #classy",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "407f4a4f-a84f-4812-a089-f75ee96f2f0a",
+  "62da2c91-ec27-458d-bf14-926d7b2b18dc"
+ ],
+ "notes": "cta C. CTA au 30/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel de la liste, à la place du scroll (« an app like Sophia »). Routine d'avant BLEO (npm run boite : « pas encore »). Familles usées sur 7 jours : magnetic-speaking, calm-mind-7-days, disgustingly-educated, vocabulaire et attractive-behaviours ; seule sg-o037 en reprend une (attractive-behaviours, variante de sg-o002 que le suivi demande de décliner). Images choisies avec npm run images -- --cherche (légendes), aucune reprise d'un original précédent. Schéma laws-of-influence (62da2c91 r 5,32 ; 407f4a4f r 5,95 ; nos sg-o008, r 1,65 et 2,17, et sg-o028). Troisième angle : la table. Accroches écrites : « … these 7 laws of the dinner table » (retenue : le gagnant mot pour mot, des lois précises et polies), « table manners that make you look instantly elegant » (écartée : sans la promesse de changement), « dinner etiquette nobody teaches you » (écartée : plus vague). Title Case. Sept lois d'étiquette courantes (guides d'étiquette anglo-saxons), sans manipulation : la serviette sur les genoux dès qu'on s'assoit, faire passer les plats vers la droite, attendre que tout le monde soit servi, poser couverts et téléphone, inclure tout le monde dans la conversation, remercier l'hôte deux fois, avoir une histoire à raconter (cta C : l'appli à la place du scroll). Images de la banque (sources @richgirlacadmy_1), sans texte lisible ; slide Sophia sur un verre et une bougie, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9da224b9",
+   "texte_overlay": "People will start treating\nyou differently when you\nmaster these 7 laws\nof the dinner table.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "798dab90",
+   "texte_overlay": "1. The Law of the Napkin\nIt goes on your lap as soon\nas you sit down, and on\nyour chair if you step away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "68e43897",
+   "texte_overlay": "2. The Law of the Pass\nDishes travel to the right.\nOffer before you serve\nyourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "53b96173",
+   "texte_overlay": "3. The Law of Patience\nWait until everyone is served,\nor the host begins, before\nyou start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "92904419",
+   "texte_overlay": "4. The Law of the Open Table\nNo private jokes. Bring the\nquietest guest into the\nconversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d70d41b",
+   "texte_overlay": "5. The Law of the Good Story\nA painting, a queen, a strange\nfact. Interesting guests are\ninvited back.",
+   "texte_sophia": "5. The Law of the Good Story\nInteresting guests are invited\nback. I swapped the scroll for\nan app like Sophia: one story\nof history or art a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "90d34121",
+   "texte_overlay": "6. The Law of the Quiet Phone\nNot face down. Not on the table.\nIn your bag.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8ca0385f",
+   "texte_overlay": "7. The Law of Double Thanks\nThank the host when you leave,\nand again the next day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "2084ad1a",
+   "texte_overlay": "Which law do you\nalready live by?\nSave this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7619011671637429525/9.jpg"
+  }
+ ]
+}

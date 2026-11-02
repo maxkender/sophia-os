@@ -1,0 +1,307 @@
+{
+ "id": "fa-014",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7687626392879713539",
+  "vues": 111200,
+  "accroche": "10/10 Skills Rich People Learn Early"
+ },
+ "titre": {
+  "en": "10/10 Skills Rich People Learn Early",
+  "de": "10/10 Skills, die Reiche früh lernen",
+  "pt": "10/10 habilidades que os ricos aprendem cedo"
+ },
+ "legendes": {
+  "en": "10/10 Skills Rich People Learn Early #money #learnontiktok #selfimprovement",
+  "de": "10/10 Skills, die Reiche früh lernen #geld #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades que os ricos aprendem cedo #dinheiro #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta B. Sophia en carte d'appli à l'étape 3 « KNOW A BIT OF EVERYTHING ». Pas d'UnSwipe. Ses « SPOT OPPORTUNITIES » (TEDx) et « USE LEVERAGE » (Rich Dad, promesse d'argent) deviennent « UNDERSTAND COMPOUND INTEREST » et Sophia. en, de et pt (Portugal), vidéos natives.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS RICH PEOPLE",
+     [
+      {
+       "t": "LEARN EARLY",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE REICHE",
+     [
+      {
+       "t": "FRÜH LERNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE OS RICOS",
+     [
+      {
+       "t": "APRENDEM CEDO",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "NETWORKING"
+    ],
+    "video": {
+     "id": "5BesUAyNvFY",
+     "titre": "How to Master Networking in 14 Minutes",
+     "chaine": "jayhoovy",
+     "vues": "836K views",
+     "date": "1 year ago",
+     "duree": "14:48",
+     "avatar": "https://yt3.ggpht.com/SwVhX-G7RzP35sYObHx36Y-5BRTF3DIgGAWtRja8V-EVjMLy5QknvFDOzIkce3uvXFKj20l7=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "NETZWERKEN"
+    ],
+    "video": {
+     "id": "0lbnoL0BBGo",
+     "titre": "Perfekt Netzwerken lernen 💬 Anleitung",
+     "chaine": "Oliver Schumacher - Dein Verkaufstrainer",
+     "vues": "4156 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "11:24",
+     "avatar": "https://yt3.ggpht.com/2Rl2mfBEcJemLalLS6aUv-q0xwBQGNadgG-aq76adMLgthj_VtMg01vToehsk3esoLpmEP2mci4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "NETWORKING"
+    ],
+    "video": {
+     "id": "-p0qhk_1J7A",
+     "titre": "Como fazer networking -  4 passos para fazer networking",
+     "chaine": "Gislene Isquierdo - UAU TV",
+     "vues": "43 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/0i3ZE5Zvzb8Ay3O2Z3-ADyYJliw01ffjFZUyZSNvz2Z52pRVAaZ77RTcRYa3UZNNvatoIjB28Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "NEGOTIATION"
+    ],
+    "video": {
+     "id": "90svIa07ilQ",
+     "titre": "Every Negotiation Tactic & How To Use Them Yourself, Explained",
+     "chaine": "EverythingProfessor",
+     "vues": "772K views",
+     "date": "7 months ago",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/PVwMkne1VXtCkmz8p-yHAxfLWi1TPu9lXeInYatfa6sr_nN5Q4gnIQSteRjMn4VrrSMalZcF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "VERHANDELN"
+    ],
+    "video": {
+     "id": "e2HOjBJpmIQ",
+     "titre": "Die 5 SCHRITTE jeder VERHANDLUNG - So gehen wir beim NASHER Verhandlungsinstitut vor | NASHER",
+     "chaine": "Jack Nasher",
+     "vues": "308.026 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzK3M6hew3BuZK_cqdWt4Jm4HJJwY8WE1gYf79dCAye-o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "NEGOCIAR"
+    ],
+    "video": {
+     "id": "aO9fN8regY8",
+     "titre": "Todas as táticas de negociação e como usá-las você mesmo, explicadas.",
+     "chaine": "Thiago Concer",
+     "vues": "200 mil visualizações",
+     "date": "há 3 meses",
+     "duree": "13:42",
+     "avatar": "https://yt3.ggpht.com/6H6oVgDpRxsSo84s5qfLWD76wYgj43LOpv5hNfnc2bI-0rR_SXsN9XNzgLHbkT9L4meXC0CHt6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT",
+     "OF EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM",
+     "ETWAS WISSEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SABER UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "COMPOUND",
+     "INTEREST"
+    ],
+    "video": {
+     "id": "wf91rEGw88Q",
+     "titre": "What Is Compound Interest? | Investopedia",
+     "chaine": "Investopedia",
+     "vues": "2.1M views",
+     "date": "13 years ago",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCZDgY285VwOSZiiFRNPUqcFAtA7qXu7QXHvD1YSnzoOU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ZINSESZINS"
+    ],
+    "video": {
+     "id": "kyYguppNaqE",
+     "titre": "Reich durch Zinseszins? Zinseszinseffekt einfach erklärt! | Finanzfluss",
+     "chaine": "Finanzfluss",
+     "vues": "603.955 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "JUROS",
+     "COMPOSTOS"
+    ],
+    "video": {
+     "id": "SpyWH9U15Ek",
+     "titre": "Como funcionam os juros compostos? - Aula obrigatória para qualquer investidor!",
+     "chaine": "Investidor Sardinha l Raul Sena",
+     "vues": "273 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/q6bgR6BvYXgq3u9GF_MP_YrVW4myeX_ETDwgM68vUA4XkahJUCoxnFy-MnELZPd5n875FDi5Fw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DELAYED",
+     "GRATIFICATION"
+    ],
+    "video": {
+     "id": "2xMgHKxukr0",
+     "titre": "The Marshmallow Test (Stanford Experiment + Truth)",
+     "chaine": "Practical Psychology",
+     "vues": "207K views",
+     "date": "5 years ago",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/C-POj_q22w8Zux8FCpDUq_RhP9ct0cyAj4r-nfuNgALqSAWdImYv0qCzG6uOmYwSF5UKQ72_aNg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BELOHNUNGS-",
+     "AUFSCHUB"
+    ],
+    "video": {
+     "id": "P_xq2PCm0us",
+     "titre": "Süßigkeiten-Experiment: Welche Kinder können widerstehen? | Quarks",
+     "chaine": "Quarks",
+     "vues": "120.300 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4bDvezc36i3vmptDIlmT9_Hc_kYlyVJg3zlJmsjBf1_M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "AUTOCONTROLO"
+    ],
+    "video": {
+     "id": "eES4QM2qIGw",
+     "titre": "AUTOCONTROLE E O TESTE DO MARSHMALLOW | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "122 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "5:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

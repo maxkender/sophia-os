@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o036",
+  "type_bleo": "full_test",
+  "titre": "signs you're studying wrong (and what to do instead) #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous. Accroches écrites : « signs you're studying wrong (and what to do instead) » (retenue : le diagnostic intrigue, la parenthèse promet la solution), « you're not bad at school, you're studying wrong » (écartée : trop proche de la réponse de cs-o001), « red flags in your study routine » (écartée : vague). Six signes vrais, chacun avec la correction : relire au lieu de se tester (place micabo, slide 3), surligner tout, réviser seulement la veille, étudier avec les notifications (place UnSwipe, slide 5), sauter les exercices, ne jamais refaire ses erreurs. Slides 3 et 5 sans personne. Slides d'appli : certaines reprennent une photo d'objet d'un original de plus d'une semaine (la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : a1e4ce89, 365870da, 95ccb363, aaea8743 (écran ou marque lisible sur une slide d'appli, couverture de livre lisible, ou photo déjà prise dans le lot). Puis : 76dbdaee (écran sur la slide UnSwipe).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8c2f83a2",
+      "texte_overlay": "signs you're studying wrong\n(and what to do instead)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0bf19a3f",
+      "texte_overlay": "you reread your notes 3 times.\ninstead: close them and write what you remember.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "489692c7",
+      "texte_overlay": "you feel ready but you've never tested yourself.\ninstead: quiz yourself before the test does.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a6365362",
+      "texte_overlay": "your whole page is highlighted.\ninstead: highlight only what could be a question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a75be43d",
+      "texte_overlay": "your notifications are on while you study.\ninstead: phone in another room for the whole session.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a9f94460",
+      "texte_overlay": "you only study the night before.\ninstead: 20 minutes a day, starting a week early.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0e8b3d73",
+      "texte_overlay": "you read the corrections but never redo the exercise.\ninstead: redo it 2 days later, alone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+ "source_id": "am-o023",
+ "schema_id": "situational-rules",
+ "titre": "Unspoken rules at work every man should know #men #work #respect #career #mindset",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "a776694b-f434-4371-b4ba-14ce13361bcd"
+ ],
+ "notes": "cta A. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Seule livraison du jour sur situational-rules (famille à 3 en 7 jours, ROUTINE §4.6), choisie parce qu'am-o003 (« Unspoken rules every man should know ») fait r 3,6 sur son premier passage mûr. Nouvel angle : le travail. Accroches écrites : « Unspoken rules at work every man should know » (retenue : reprend l'accroche d'am-o003 qui marche, avec un angle neuf, ROUTINE §4.7), « 5 office rules nobody tells you » (écartée : plus loin), « Unspoken rules you should know (part 2) » (écartée : trop proche). Règles neuves (vérifié dans donnees/label.json) ; écartées car déjà présentes : avouer son erreur, accueillir le nouveau, « take the blame, share the credit » (reformulé ici en partage du mérite devant le chef). Images : la banque du label ; célébrités acceptées en illustration depuis le 28/10 (AGENT.md), jamais sur la slide Sophia. Couverture : Al Pacino en marche, en illustration (écartée : l'image Peaky Blinders, qui portait un filigrane SELFSCULPT). Slide Sophia sur une chambre sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a13d938c",
+   "texte_overlay": "Unspoken rules at work\nevery man should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5603a6a8",
+   "texte_overlay": "1. If the Boss Praises You\nin a Meeting... Name Who Helped:\n\nOne sentence is enough.\nIt costs you nothing.\nPeople work harder for the man\nwho shares the win.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "55dd8391",
+   "texte_overlay": "2. If You Disagree With\na Decision... Say It Once,\nin Private:\n\nMake your case.\nThen commit fully.\nArguing in public makes you\nlook small, not right.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "55e04438",
+   "texte_overlay": "3. If You Promise Something\nin a Meeting... Write It Down:\n\nBefore you leave the room.\nDeliver before the deadline.\nReliability is the quietest\npromotion.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a1ae18d2",
+   "texte_overlay": "4. If You Finish Early...\nDon't Look Busy, Ask:\n\n\"Need a hand with anything?\"\nInitiative gets noticed\nfaster than hours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "560f51be",
+   "texte_overlay": "5. If You Get an Angry Email...\nWait Before You Reply:\n\nWrite it. Don't send it.\nRead it again tomorrow.\nCalm replies win\nlong arguments.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "56dedd61",
+   "texte_overlay": "6. If You Have a Long\nCommute... Learn Something:\n\nNot another scroll.\nOne new idea a day\nadds up to a sharper man.",
+   "texte_sophia": "6. If You Have a Long\nCommute... Learn Something:\n\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

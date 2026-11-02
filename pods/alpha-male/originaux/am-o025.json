@@ -1,0 +1,56 @@
+{
+ "source_id": "am-o025",
+ "schema_id": "habits-that",
+ "titre": "Discipline habits tier list #discipline #habits #men #selfimprovement #tierlist",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "8f63c67e-7c61-4f42-a3cb-0255a0249d3b"
+ ],
+ "notes": "essai (am-o025, une livraison sur cinq). cta C. Jeu de CTA (depuis le 26/10) : cta A = conseil « use a micro-learning app like the Sophia app », dernier item ; cta B = témoignage à la 1re personne, dernier item ; cta C = l'appli comme un item parmi d'autres, au milieu du deck, phrase « on the Sophia app ». Ici Sophia est en rang A, au 4e slide. Format jamais fait chez nous : la tier list (aucun « tier list » ni « ranked » dans donnees/label.json). Elle marche ailleurs : @mentalapp, podz 6, 55 k vues médianes, une tier list à 1 M. Écartés car déjà dans le label : « moments that force a man to grow », « By age 25 » et les « N sentences » de la veille du 25/10. Rangée sous habits-that (r 4,33, 8f63c67e), schéma actif qui porte la preuve. Accroches écrites : « Discipline habits tier list » (retenue : la forme courte des tier lists de @mentalapp), « Ranking the habits that make you disciplined » (écartée : plus longue), « S tier habits every man needs » (écartée : ne montre qu'un rang). Une habitude par slide avec son rang et une ligne de pourquoi. Faits prudents (douche froide « nice, not magic », sommeil avant le réveil à 5 h). Images : la banque du label ; célébrités acceptées en illustration depuis le 28/10 (AGENT.md), jamais sur la slide Sophia. Slide Sophia sur un salon aux bougies sans personne. reference_url vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "57142aa7",
+   "texte_overlay": "Discipline habits\ntier list",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "568a1370",
+   "texte_overlay": "S TIER\nKeeping your word\n\nOn small things too.\nEvery other habit is built on it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5657e84c",
+   "texte_overlay": "S TIER\nTraining 3x a week\n\nIt lifts everything else:\nmood, sleep, focus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a0ccd97f",
+   "texte_overlay": "A TIER\nLearning one new thing a day\n\nSmall, but it compounds.",
+   "texte_sophia": "A TIER\nLearning one thing a day\non the Sophia app\n\n5 minutes of history,\nscience or art. Small,\nbut it compounds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5713190f",
+   "texte_overlay": "B TIER\nCold showers\n\nGood practice for doing\nhard things. Not magic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "560ccb78",
+   "texte_overlay": "C TIER\nWaking up at 5am\n\nOnly works if you sleep early.\nSleep beats the alarm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "55cd35d1",
+   "texte_overlay": "D TIER\nWatching motivation videos\n\nFeels like progress.\nUsually isn't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  }
+ ]
+}

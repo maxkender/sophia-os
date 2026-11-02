@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o040",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "2d10d2ea-38e4-492f-a5ae-68789d2ab38b",
+  "titre": "me when we have to analyze characters in class #studytok #school #booktok",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "2d10d2ea-38e4-492f-a5ae-68789d2ab38b"
+  ],
+  "notes": "Déclinaison G1 de 2d10d2ea (r 3,25 en français), ligne 4 de la boîte. Accroche du parent mot pour mot. Format mème : une réaction par slide, avec des photos de séries (célébrités acceptées le 28/10) sauf sur les slides d'appli. Items neufs, aucun du parent (lire un livre, types de textes, rimes, interprétations, contexte historique) : le prof demande le symbole de la couleur, la question « qu'a voulu dire l'auteur », le résumé de 200 mots, l'oral sur le livre, se tester sur ses fiches la veille (place micabo, slide 6), le téléphone rangé et le livre fini en une soirée (place UnSwipe, slide 7). Ton bienveillant, aucun mépris des profs. Slides d'appli : certaines reprennent une photo d'objet d'un original de plus d'une semaine (la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "00b9a45b",
+      "texte_overlay": "me when we have to analyze characters in class",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02f95a37",
+      "texte_overlay": "me when the teacher asks what the blue curtains symbolize",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "04272416",
+      "texte_overlay": "me when someone asks \"but what did the author REALLY mean?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0a6c56e6",
+      "texte_overlay": "me when the summary has to be exactly 200 words",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0d28ab14",
+      "texte_overlay": "me when i realize the oral on the book is tomorrow",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4882610f",
+      "texte_overlay": "me the night before, quizzing myself on all my notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "61cf576b",
+      "texte_overlay": "me when i finally put my phone away and finish the book in one evening",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

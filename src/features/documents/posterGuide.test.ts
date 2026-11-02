@@ -59,6 +59,12 @@ describe("posterGuideCle — nouveaux posters, codes OS", () => {
       expect(cle({ compteLangues: [l] })).toBe("guide_poster_zone_c");
     }
   });
+
+  it("lituanien et letton en zone B, japonais en zone A", () => {
+    expect(cle({ compteLangues: ["lt"] })).toBe("guide_poster_zone_b");
+    expect(cle({ compteLangues: ["lv"] })).toBe("guide_poster_zone_b");
+    expect(cle({ compteLangues: ["ja"] })).toBe("guide_poster_zone_a");
+  });
 });
 
 describe("resoudreZonePoster — tous les pays du PDF", () => {

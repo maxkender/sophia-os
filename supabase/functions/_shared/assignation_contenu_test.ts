@@ -1643,6 +1643,114 @@ Deno.test("0271 — un passage PROGRAMMÉ pour demain compte aussi comme récent
   });
 });
 
+/** Règle du 28/10 allumée : 10 jours sans la même accroche ni la même couverture. */
+const REGLAGES_DOUBLONS = { ...REGLAGES, ecartMinMemeAccroche: 10 };
+const ACCROCHE = "hobbies that will make you dangerously confident";
+const COUVERTURE = "195272597968aec6";
+
+/**
+ * Un B neuf (idContenu(0)) qui porte `sig`, un C neuf (idContenu(1)) sans
+ * rapport, et un post d'un AUTRE contenu, hors du pool (autre label), à
+ * l'accroche et à la couverture connues, publié `il_y_a` jours avant JOUR.
+ */
+function baseDoublons(sig: { accroche?: string | null; empreinte?: string | null }, ilYa = 3) {
+  const base = baseEssai({ n: 2 });
+  base.contenu_tier_etat = [
+    { contenu_id: idContenu(0), tier: "B", tier_cycle: 1, passages_prevus: 2, restants: 2 },
+    { contenu_id: idContenu(1), tier: "C", tier_cycle: 1, passages_prevus: 1, restants: 1 },
+  ];
+  // deno-lint-ignore no-explicit-any
+  const contenus = base.contenus as any[];
+  Object.assign(contenus[0], { accroche_norm: sig.accroche ?? null, couverture_empreinte: sig.empreinte ?? null });
+  Object.assign(contenus[1], { accroche_norm: "une tout autre accroche", couverture_empreinte: "e6ae687959725219" });
+  contenus.push({
+    ...contenus[1],
+    id: "autre-label",
+    accroche_norm: ACCROCHE,
+    couverture_empreinte: COUVERTURE,
+  });
+  const jour = new Date(Date.parse(`${JOUR}T00:00:00Z`) - ilYa * 86_400_000).toISOString().slice(0, 10);
+  base.passages.push({
+    id: "vu-doublon",
+    compte_id: "k1",
+    contenu_id: "autre-label",
+    date_publication_prevue: jour,
+    created_at: `${jour}T01:00:00Z`,
+    application_id: ID_SOPHIA,
+    post_id: "post-vu-doublon",
+    posts: { est_test: false },
+  });
+  base.posts.push({ id: "post-vu-doublon", compte_id: "k1", est_test: false });
+  return base;
+}
+
+Deno.test("28/10 — même accroche qu'un autre contenu posté il y a 3 jours : relégué derrière un C neuf", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDoublons({ accroche: ACCROCHE });
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES_DOUBLONS, {});
+
+    assertEquals(detail.ids.length, 1, "le créneau est servi");
+    assertEquals(appels.sophia, [idContenu(1)], "le C à l'accroche neuve passe devant le B à l'accroche déjà vue");
+  });
+});
+
+Deno.test("28/10 — même couverture (empreinte à 1 bit) sous un autre identifiant : relégué aussi", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDoublons({ accroche: "une accroche neuve", empreinte: "195272597968aec7" });
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES_DOUBLONS, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, [idContenu(1)], "même image de couverture : le B cède sa place");
+  });
+});
+
+Deno.test("28/10 — doublon posté il y a 12 jours : hors fenêtre, le rang reprend la main", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDoublons({ accroche: ACCROCHE }, 12);
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES_DOUBLONS, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, [idContenu(0)]);
+  });
+});
+
+Deno.test("28/10 — règle éteinte (réglage absent) : comportement d'avant, aucune lecture de plus", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDoublons({ accroche: ACCROCHE });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, [idContenu(0)], "sans la règle, le B gagne comme avant");
+    assertEquals(
+      journal.some((o) => o.table === "passages" && o.filtres.some(([c, op]) => c === "date_publication_prevue" && op === "gte")),
+      false,
+      "pas de lecture des posts récents",
+    );
+  });
+});
+
+Deno.test("28/10 — seul contenu du pool et doublon d'accroche : SERVI quand même (relégué, jamais écarté)", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDoublons({ accroche: ACCROCHE });
+    base.contenu_tier_etat = base.contenu_tier_etat.filter((e) => e.contenu_id === idContenu(0));
+    base.contenu_labels = base.contenu_labels.filter((l) => l.contenu_id === idContenu(0));
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES_DOUBLONS, {});
+
+    assertEquals(detail.ids.length, 1, "aucun créneau perdu à cause de la règle");
+    assertEquals(appels.sophia, [idContenu(0)]);
+  });
+});
+
 Deno.test("multi-app — pool Sophia : seule une ligne Sophia EXPLICITEMENT non éligible exclut", async () => {
   oublierSondeMultiApp();
   const base = baseEssai({
@@ -2804,6 +2912,19 @@ Deno.test("0271 — chargerAssignationReglages : défaut 14, valeur lue, bornes"
   assertEquals((await lire({ repechage_passages: 3 })).repechagePassages, 3);
 });
 
+Deno.test("28/10 — chargerAssignationReglages : doublons d'accroche, défaut 10 jours, 0 éteint", async () => {
+  const lire = async (tierlist: Record<string, unknown> | null) => {
+    const { client } = fauxMoteur({
+      reglages: tierlist ? [{ cle: "tierlist", valeur: tierlist }] : [],
+    });
+    return await chargerAssignationReglages(client);
+  };
+  assertEquals((await lire(null)).ecartMinMemeAccroche, 10, "clé tierlist absente");
+  assertEquals((await lire({ ecart_min_meme_accroche: 7 })).ecartMinMemeAccroche, 7);
+  assertEquals((await lire({ ecart_min_meme_accroche: 0 })).ecartMinMemeAccroche, 0, "0 éteint la règle");
+  assertEquals((await lire({ ecart_min_meme_accroche: -3 })).ecartMinMemeAccroche, 0, "borné à 0");
+});
+
 Deno.test("0271 — repêchage Sophia : le dormant RÉCENT est tenté en dernier", async () => {
   // La mise en queue à l'intérieur du repêchage. Sans elle, on pouvait
   // réveiller le dormant que le compte vient de poster alors qu'un autre
@@ -3486,5 +3607,120 @@ Deno.test("pods 0276 — créneau Sophia : inchangé, les decks d'application ne
       [],
       "aucune lecture des decks d'application",
     );
+  });
+});
+
+// ── BLEO, bascule du 2/11 : minuit suit le plan du tirage de 14 h ─────────────
+
+/** Une base d'essai où BLEO est en `mode`, avec un run fini et le plan donné pour k1. */
+function baseBleo(
+  mode: "off" | "ombre" | "actif",
+  plan: Array<{ creneau: number; contenu_id: string; langue?: string; file_bleo?: string }>,
+  // deno-lint-ignore no-explicit-any
+  compte: Record<string, any> = {},
+) {
+  const base = baseEssai({ compte, liens: [{ label_id: "L1", application_id: ID_SOPHIA }] });
+  return {
+    ...base,
+    reglages: [{ cle: "bleo", valeur: { mode } }],
+    bleo_runs: [
+      // Un essai manuel en erreur, plus récent : jamais suivi.
+      { id: "run-essai", jour_vise: JOUR, demarre_le: `${JOUR}T00:00:00Z`, fini_le: null, erreur: "essai" },
+      { id: "run-1", jour_vise: JOUR, demarre_le: "2026-10-02T12:00:00Z", fini_le: "2026-10-02T12:00:20Z", erreur: null },
+    ],
+    bleo_ombre_passages: plan.map((l) => ({
+      run_id: "run-1",
+      compte_id: "k1",
+      creneau: l.creneau,
+      contenu_id: l.contenu_id,
+      langue: l.langue ?? "fr",
+      application_id: null,
+      file_bleo: l.file_bleo ?? "valeur",
+      categorie: "recolte",
+      valeur_tirage: 2.5,
+    })),
+  };
+}
+
+Deno.test("BLEO actif : le créneau du plan est servi tel quel, le suivant retombe sur la tierlist (témoin)", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseBleo("actif", [{ creneau: 1, contenu_id: idContenu(4) }], { posts_par_jour: 2 });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 2);
+    const [planifie, temoin] = insertsPassages(journal);
+    assertEquals(planifie.contenu_id, idContenu(4));
+    assertEquals(planifie.bras, "bleo");
+    assertEquals(planifie.bleo_run_id, "run-1", "le run fini, pas l'essai en erreur");
+    assertEquals(planifie.file_bleo, "valeur");
+    assertEquals(planifie.valeur_tirage, 2.5);
+    assertEquals(temoin.bras, "temoin");
+    assert(temoin.contenu_id !== idContenu(4), "la tierlist ne reprend pas le contenu du plan");
+    assertEquals(temoin.bleo_run_id, undefined);
+    assertEquals(appels.sophia[0], idContenu(4));
+  });
+});
+
+Deno.test("BLEO actif : un contenu du plan qui n'est plus servable rend le créneau à la tierlist", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseBleo("actif", [
+      { creneau: 1, contenu_id: "contenu-retire" },
+      { creneau: 2, contenu_id: idContenu(2), langue: "de" },
+    ]);
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.bras, "temoin");
+    assert(passage.contenu_id !== "contenu-retire");
+  });
+});
+
+Deno.test("BLEO actif : un deck du plan qui lève rend le créneau à la tierlist", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const sophia = decksAssignation.sophia;
+    decksAssignation.sophia = (s, contenuId, l) =>
+      contenuId === idContenu(4) ? Promise.reject(new Error("deck cassé")) : sophia(s, contenuId, l);
+    const base = baseBleo("actif", [{ creneau: 1, contenu_id: idContenu(4) }]);
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.bras, "temoin");
+    assert(passage.contenu_id !== idContenu(4));
+    assertEquals(appels.sophia.length, 1, "seul le deck de la tierlist passe par le circuit");
+  });
+});
+
+Deno.test("BLEO ombre : le plan n'est pas lu, le passage est celui d'avant", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseBleo("ombre", [{ creneau: 1, contenu_id: idContenu(4) }]);
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(journal.filter((o) => o.table === "bleo_runs" || o.table === "bleo_ombre_passages"), []);
+    const [passage] = insertsPassages(journal);
+    for (const c of ["bras", "file_bleo", "valeur_tirage", "bleo_run_id"]) assert(!(c in passage), `colonne ${c} écrite`);
+  });
+});
+
+Deno.test("BLEO ombre + suivrePlanBleo (répétition à blanc) : le plan est suivi", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseBleo("ombre", [{ creneau: 1, contenu_id: idContenu(4) }]);
+    const { client, journal } = fauxMoteur(base);
+
+    await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, { suivrePlanBleo: true });
+
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.contenu_id, idContenu(4));
+    assertEquals(passage.bras, "bleo");
   });
 });

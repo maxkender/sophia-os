@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o028",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment je suis devenue la fille jolie ET cultivée dont on se souvient #pourtoi #culture #apprentissage #education",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "variante de bsg-o002 (« comment être jolie ET vraiment intéressante en même temps », r 3,08 sur 3 passages, max 7,4 k vues ; le suivi du 28/10 dit DÉCLINER). Même schéma jolie-et-interessante (preuve r 5,04, 675447a8), autre angle, autres items. cta A (avant / après sur le dernier item ; voir CTA.md). Routine du 28/10, livraison 5 sur 5. Angle : le récit en « je » et la fille dont on se souvient. Accroches écrites : « comment je suis devenue la fille jolie ET cultivée dont on se souvient » (retenue : le ET crié de bsg-o002, plus le récit en « je » du gagnant 375ec54a), « la fille jolie ET cultivée : comment je le suis devenue » (écartée : moins fluide), « comment être jolie ET cultivée sans faire d'effort » (écartée : promesse fausse). Items neufs (rien de repris de bsg-o002, bsg-o012, bsg-o016, bsg-o026 ni des sources) : un parfum et une anecdote à soi, soin le matin et culture le soir, s'habiller et lire pour soi, ne plus faire semblant de savoir. Jolie = prendre soin de soi, aucune norme physique. Images de la banque, sans célébrité ni texte. Inspirations : slides de 375ec54a sans appli (sa 6 cite une appli). Après relecture de l'aperçu : une image trop claire ou un visage douteux remplacé par une image sombre.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a0aa3378",
+   "texte_overlay": "comment je suis devenue\nla fille jolie ET cultivée\ndont on se souvient",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "68c29ec8",
+   "texte_overlay": "1. j'ai un parfum à moi. et une anecdote à moi.\n\nles deux restent quand je suis partie.\nles gens s'en souviennent plus que de ma tenue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "43610b72",
+   "texte_overlay": "2. je prends soin de moi le matin, je me cultive le soir.\n\nle matin pour me sentir bien.\nle soir, vingt pages d'un livre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ddd9e319",
+   "texte_overlay": "3. je m'habille pour moi. je lis pour moi.\n\npas pour les tendances, pas pour les likes.\nça se sent, et ça rend unique.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "353833c9",
+   "texte_overlay": "4. j'ai arrêté de faire semblant de savoir.\n\n« je connais pas, raconte ! »\nles gens adorent t'expliquer. et toi, t'apprends.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "dd745ab2",
+   "texte_overlay": "5. j'ai toujours une histoire à raconter.\n\navant, je restais en retrait quand on parlait d'histoire ou d'art.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qu'on écoute.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg",
+   "texte_sophia": "5. j'ai toujours une histoire à raconter.\n\navant, je restais en retrait quand on parlait d'histoire ou d'art.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qu'on écoute."
+  },
+  {
+   "position": 7,
+   "media_id": "9f25e965",
+   "texte_overlay": "laquelle tu voles\nen premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

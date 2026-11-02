@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o067",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "07dfb7c9-bb71-42ef-bab3-6c26b29b989f",
+ "titre": "trends i refuse to do in 2026 and the quiet reasons why #2026 #slowliving #smartgirl #selfimprovement #intentionalliving",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "07dfb7c9-bb71-42ef-bab3-6c26b29b989f"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 12 de la boîte (parent 07dfb7c9, en polonais) : accroche du parent mot pour mot. Ligne 11 écartée (voisine de la ligne 5 du jour). Tendances neuves face au parent (séries en vitesse x2, faire semblant de tout savoir, routines matinales de 3 h, ragots, ne lire que les titres, téléphone au réveil, esthétique au lieu du fond). Ni argent ni achats. Sophia en cta C (à la place du scroll du réveil). Rédigé en anglais : le premier dépôt en langue du parent a été refusé (accroche_differente), le guichet demande l'accroche anglaise de la famille mot pour mot. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2814449b",
+   "texte_overlay": "trends i refuse to do in 2026\nand the quiet reasons why",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1c55c400",
+   "texte_overlay": "1. watching shows at 2x speed\ni'd rather watch less\nand actually feel it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4a3d5781",
+   "texte_overlay": "2. pretending to know everything\n\"i don't know, tell me\"\nis one of my favourite\nsentences.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "029bda48",
+   "texte_overlay": "3. 3-hour morning routines\nmy morning is water, a window\nand ten minutes of quiet.\nthat's enough.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02213e75",
+   "texte_overlay": "4. gossip as conversation\ntalking about ideas is more\ninteresting than talking\nabout people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0adaafd0",
+   "texte_overlay": "5. reading only headlines\nif a topic matters,\ni read the whole article.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1bc2b734",
+   "texte_overlay": "6. my phone the second i wake up\ninstead of scrolling, i learn\nsomething short: a painting,\na moment in history, a word.",
+   "texte_sophia": "6. my phone the second i wake up\ninstead of scrolling, i open\nan app like Sophia:\n5 minutes of art or history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "04ae1908",
+   "texte_overlay": "7. aesthetics over substance\na pretty desk photo\nwon't replace an hour\nof studying.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "0798131b",
+   "texte_overlay": "save this if you're skipping\nthese trends too",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/9.jpg"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "source_id": "bsg-o064",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "dd81b7d5-e05d-4bfc-bb32-c10c9e1506fd",
+ "titre": "les habitudes que j'ai volées à la fille la plus intelligente que je connais #pourtoi #culture #apprentissage",
+ "inspirations": [
+  "dd81b7d5-e05d-4bfc-bb32-c10c9e1506fd"
+ ],
+ "notes": "G1, déclinaison de dd81b7d5 (« les habitudes que j'ai volées à la fille la plus intelligente que je connais », 37,7 k vues, r 13,35 en turc), en français. cta C (le défi en premier item). Items neufs (rien de repris du parent : 10 pages par jour…, ni de nos vole-habitudes), récit « elle », aucune personne réelle. Routine du 2/11, première sur BLEO (`npm run boite` : « oui »). Jauge : 1 full test et 7 déclinaisons. J'ai sauté la ligne 3 de la boîte (837491f7, « jobs for people who love enterimarnt ») : son accroche porte une faute de frappe qu'une G1 devrait recopier mot pour mot, et ses slides donnent des salaires que je ne peux pas vérifier. Images de la banque, assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bc9765dc",
+   "texte_overlay": "les habitudes que j'ai volées\nà la fille la plus intelligente\nque je connais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "02d3e38d",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "06b64a24",
+   "texte_overlay": "1. elle résume chaque livre en trois phrases.\n\ndans un carnet, juste après la dernière page.\ndes années plus tard, elle se souvient de tout.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3615b305",
+   "texte_overlay": "2. elle pose ses questions à la fin du cours.\n\nseule avec le prof, sans public.\nelle obtient de vraies réponses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "41a74286",
+   "texte_overlay": "3. elle explique ce qu'elle apprend à sa petite sœur.\n\nsi elle n'arrive pas à l'expliquer simplement, c'est qu'elle n'a pas encore compris.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "114ca47c",
+   "texte_overlay": "4. elle range son bureau avant de travailler.\n\ncinq minutes. ensuite, plus rien ne la distrait.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "05383fbb",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  }
+ ]
+}

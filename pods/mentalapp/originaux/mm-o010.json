@@ -1,0 +1,551 @@
+{
+ "id": "mm-o010",
+ "titre": "weird habits that 100% fix your focus",
+ "position_app": 2,
+ "legendes": {
+  "en": "weird habits that 100% fix your focus #focus #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes bizarres qui réparent ta concentration à 100 % #concentration #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "seltsame Gewohnheiten, die deinen Fokus 100 % reparieren #fokus #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hábitos raros que arreglan tu concentración al 100 % #concentracion #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "abitudini strane che sistemano la concentrazione al 100 % #concentrazione #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "odağını %100 düzelten garip alışkanlıklar #odak #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686216051712970002/1",
+   "boite": [
+    140,
+    322,
+    790,
+    418
+   ]
+  },
+  "haut": {
+   "en": "weird habits that",
+   "fr": "habitudes bizarres",
+   "de": "seltsame Gewohnheiten,",
+   "es": "hábitos raros",
+   "it": "abitudini strane",
+   "tr": "odağını %100"
+  },
+  "gros": {
+   "en": "100%",
+   "fr": "100 %",
+   "de": "100 %",
+   "es": "100 %",
+   "it": "100 %",
+   "tr": "düzelten"
+  },
+  "bas": {
+   "en": "fix your focus",
+   "fr": "qui réparent ta concentration",
+   "de": "die deinen Fokus reparieren",
+   "es": "que arreglan tu concentración",
+   "it": "che sistemano la concentrazione",
+   "tr": "garip alışkanlıklar"
+  }
+ },
+ "titre_tableau": {
+  "en": "ranked by how well they work",
+  "fr": "classées par efficacité",
+  "de": "nach Wirkung gerankt",
+  "es": "según lo bien que funcionan",
+  "it": "in ordine di efficacia",
+  "tr": "etkisine göre sıralı"
+ },
+ "pied": {
+  "en": "which one would you try?",
+  "fr": "tu testerais laquelle ?",
+  "de": "welche würdest du testen?",
+  "es": "¿cuál probarías?",
+  "it": "quale proveresti?",
+  "tr": "hangisini denerdin?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "works instantly",
+    "fr": "marche direct",
+    "de": "wirkt sofort",
+    "es": "funciona al instante",
+    "it": "funziona subito",
+    "tr": "anında işe yarar"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "10 min of|doing nothing",
+      "fr": "10 min à|ne rien faire",
+      "de": "10 Min.|nichts tun",
+      "es": "10 min sin|hacer nada",
+      "it": "10 min senza|fare niente",
+      "tr": "10 dk hiçbir şey|yapmamak"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "walking|with no music",
+      "fr": "marcher|sans musique",
+      "de": "Gehen|ohne Musik",
+      "es": "caminar|sin música",
+      "it": "camminare|senza musica",
+      "tr": "müziksiz|yürümek"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|the fridge",
+      "fr": "téléphone|au frigo",
+      "de": "Handy in|den Kühlschrank",
+      "es": "móvil|en la nevera",
+      "it": "telefono|in frigo",
+      "tr": "telefon|buzdolabında"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "weird but works",
+    "fr": "bizarre mais efficace",
+    "de": "seltsam, aber wirkt",
+    "es": "raro pero funciona",
+    "it": "strano ma funziona",
+    "tr": "garip ama işe yarar"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold water|on your face",
+      "fr": "eau froide|sur le visage",
+      "de": "kaltes Wasser|ins Gesicht",
+      "es": "agua fría|en la cara",
+      "it": "acqua fredda|in faccia",
+      "tr": "yüzüne|soğuk su"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "studying|standing up",
+      "fr": "bosser debout",
+      "de": "im Stehen|lernen",
+      "es": "estudiar|de pie",
+      "it": "studiare|in piedi",
+      "tr": "ayakta|çalışmak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "writing the task|by hand",
+      "fr": "écrire la tâche|à la main",
+      "de": "die Aufgabe|von Hand schreiben",
+      "es": "escribir la tarea|a mano",
+      "it": "scrivere il compito|a mano",
+      "tr": "görevi elle|yazmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "a 5-min|timer",
+      "fr": "minuteur|5 min",
+      "de": "5-Min-|Timer",
+      "es": "temporizador|de 5 min",
+      "it": "timer|da 5 min",
+      "tr": "5 dakikalık|zamanlayıcı"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess puzzles",
+      "fr": "puzzles d’échecs",
+      "de": "Schachrätsel",
+      "es": "problemas de ajedrez",
+      "it": "problemi di scacchi",
+      "tr": "satranç bulmacası"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "box breathing",
+      "fr": "respiration carrée",
+      "de": "Box Breathing",
+      "es": "respiración cuadrada",
+      "it": "respirazione quadrata",
+      "tr": "kutu nefesi"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "ice water",
+      "fr": "eau glacée",
+      "de": "Eiswasser",
+      "es": "agua helada",
+      "it": "acqua ghiacciata",
+      "tr": "buzlu su"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "same song|on repeat",
+      "fr": "même son|en boucle",
+      "de": "gleicher Song|in Dauerschleife",
+      "es": "misma canción|en bucle",
+      "it": "stessa canzone|in loop",
+      "tr": "aynı şarkı|tekrar tekrar"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "situational",
+    "fr": "ça dépend",
+    "de": "kommt drauf an",
+    "es": "depende",
+    "it": "dipende",
+    "tr": "duruma göre"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee|nap",
+      "fr": "café|puis sieste",
+      "de": "Kaffee-|Nickerchen",
+      "es": "café|y siesta",
+      "it": "caffè|e pisolino",
+      "tr": "kahve|şekerlemesi"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "brown noise",
+      "fr": "bruit brun",
+      "de": "Brown Noise",
+      "es": "ruido marrón",
+      "it": "rumore marrone",
+      "tr": "kahverengi gürültü"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "no sugar|till noon",
+      "fr": "zéro sucre|avant midi",
+      "de": "kein Zucker|bis mittags",
+      "es": "sin azúcar|hasta mediodía",
+      "it": "niente zucchero|fino a pranzo",
+      "tr": "öğlene kadar|şeker yok"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "noise-cancelling|headphones",
+      "fr": "casque|antibruit",
+      "de": "Noise-Cancelling-|Kopfhörer",
+      "es": "auriculares|con cancelación",
+      "it": "cuffie|antirumore",
+      "tr": "gürültü önleyici|kulaklık"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "sounds smart, isn’t",
+    "fr": "a l’air malin, l’est pas",
+    "de": "klingt schlau, ist es nicht",
+    "es": "suena listo, no lo es",
+    "it": "sembra furbo, non lo è",
+    "tr": "akıllıca görünür, değil"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "“focus music”|on youtube",
+      "fr": "« musique focus »|sur youtube",
+      "de": "„Fokus-Musik“|auf YouTube",
+      "es": "“música focus”|en youtube",
+      "it": "“musica focus”|su youtube",
+      "tr": "youtube’da|“odak müziği”"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "supplements",
+      "fr": "compléments",
+      "de": "Supplements",
+      "es": "suplementos",
+      "it": "integratori",
+      "tr": "takviyeler"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "new planner|every week",
+      "fr": "nouvel agenda|chaque semaine",
+      "de": "jede Woche|ein neuer Planer",
+      "es": "agenda nueva|cada semana",
+      "it": "agenda nuova|ogni settimana",
+      "tr": "her hafta|yeni ajanda"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "“study with me”|lives",
+      "fr": "lives|« study with me »",
+      "de": "„Study with me“-|Lives",
+      "es": "directos|“study with me”",
+      "it": "live|“study with me”",
+      "tr": "“study with me”|yayınları"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "ruins focus",
+   "fr": "ruine le focus",
+   "de": "ruiniert den Fokus",
+   "es": "arruina el foco",
+   "it": "rovina il focus",
+   "tr": "odağı mahveder"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     764,
+     860,
+     124,
+     92
+    ],
+    "t": {
+     "en": "gaming|“to reset”",
+     "fr": "gaming « pour|se reposer »",
+     "de": "Gaming „zum|Abschalten“",
+     "es": "gaming “para|resetear”",
+     "it": "gaming “per|ricaricarsi”",
+     "tr": "“kafa dağıtmak|için” oyun"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "essai (routine du 25/10, original n° 10) : accroche « Weird advice that 100% works » (r 7,39 sur 6 passages, label alpha_male, playbook du pod 9) adaptée en tier list mentalmaxxing « weird habits that 100% fix your focus ». cta B : élément UnSwipe en dernière case du S+. Couverture : l’émoji à lunettes de la banque."
+}

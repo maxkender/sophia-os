@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o026",
+ "schema_id": "vocabulary-words",
+ "titre": "5 words that will instantly expand your vocabulary (part 2) #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "367627d1-175c-4fe0-8fff-45c923d6906d"
+ ],
+ "notes": "variante de sg-o001 (r 2,45 sur 3 passages, 4,9 k vues médianes ; le suivi demande de la décliner). cta A, comme sg-o001. CTA au 28/10 : cta A = dernier item, conseil à la première personne (« a micro-learning app like the Sophia app ») ; cta B = au milieu du deck, sur un fait ou une histoire à raconter ; cta C = l'appli comme un rituel de la liste, à la place du scroll (« an app like Sophia »). Règle « ne t'enferme pas » : vocabulaire, magnetic-speaking et high-status-woman sont des familles usées (3 livraisons ou plus en 7 jours) ; seule sg-o026 en reprend une (vocabulaire, variante de sg-o001 que le suivi demande de décliner). Même schéma vocabulary-words, même format et même accroche avec « (part 2) ». Accroches écrites : « 5 words that will instantly expand your vocabulary (part 2) » (retenue : la reprise exacte de notre original qui marche), « 5 more words that will instantly expand your vocabulary » (écartée : « part 2 » est la forme des gagnants de @gilmoreobssesed), « 5 words that sound expensive » (écartée : l'argent est hors label). Cinq mots absents des contenus du label (vérifié dans donnees/label.json) : convivial, beguiling, steadfast, scintillating, ingenious. Définitions et prononciations au sens courant du dictionnaire. Sophia sur le dernier mot (ingenious). Images : captures de la série jamais utilisées par nos originaux ; slide Sophia sur des cartes et des lettres anciennes, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "07db7bcb",
+   "texte_overlay": "5 words that will\ninstantly expand\nyour vocabulary\n(part 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "19afa822",
+   "texte_overlay": "Convivial: friendly, lively\nand welcoming\n(kuhn-VIV-ee-uhl)\n\nExample:\nThe dinner was long,\nwarm and convivial.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "217df059",
+   "texte_overlay": "Beguiling: charming in a way\nthat draws you in\n(bih-GY-ling)\n\nExample:\nShe told the story with\na beguiling smile.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "25f1eca0",
+   "texte_overlay": "Steadfast: loyal and\nunwavering\n(STED-fast)\n\nExample:\nShe stayed a steadfast\nfriend for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3ae32e53",
+   "texte_overlay": "Scintillating: brilliantly clever\nand lively\n(SIN-tl-ay-ting)\n\nExample:\nTheir conversation was\nscintillating until 2 am.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "60a18cb4",
+   "texte_overlay": "Ingenious: very clever\nand original\n(in-JEEN-yuhs)\n\nExample:\nShe had an ingenious way\nof explaining history.",
+   "texte_sophia": "Ingenious: very clever\nand original\n(in-JEEN-yuhs)\n\nExample:\nShe got her ingenious ideas\nfrom a micro-learning app\nlike the Sophia app,\n5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dd88ba26",
+   "texte_overlay": "follow for more daily words\nwhich one are you using today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/7.jpg"
+  }
+ ]
+}

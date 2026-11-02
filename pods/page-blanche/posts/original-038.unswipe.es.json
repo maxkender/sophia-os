@@ -6,19 +6,19 @@
    "textes": {
     "T1": {
      "en": [
-      "10/10 habits to become smart",
-      "again"
+      "10/10 habits to become",
+      "smart again"
      ],
      "fr": "10/10 habitudes pour retrouver ton cerveau",
      "texte": "mis preguntas antes de abrir tiktok"
     },
     "T2": {
      "en": [
-      "(niche edition #2)"
+      "(science-backed sources)"
      ],
-     "fr": "(version niche #2)",
+     "fr": "(prouvé par la science)",
      "alignement": "droite",
-     "texte": "(me ahorra horas)"
+     "texte": "(me ahorra muchas horas)"
     }
    },
    "images": {
@@ -167,7 +167,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "la respuesta sincera suele ser [[mejor que el siguiente vídeo]]"
+     "texte": "suele ser [[mejor que un vídeo]]"
     },
     "T3": {
      "en": [
@@ -176,7 +176,7 @@
       "nature, and the world"
      ],
      "fr": "plus tu comprends les gens, la nature humaine et le monde",
-     "texte": "leería, llamaría a alguien, saldría a la calle. nada de eso necesita reels"
+     "texte": "leería, llamaría a alguien, saldría. nada de eso necesita reels"
     },
     "T4": {
      "en": [
@@ -184,7 +184,7 @@
       "contribute to a conversation"
      ],
      "fr": "plus t'as de quoi [[nourrir une conversation]]",
-     "texte": "así que los reels [[ya no me quedan a mano]]"
+     "texte": "así que los reels [[ya no me quedan tan a mano]]"
     },
     "T5": {
      "en": [
@@ -243,7 +243,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "así que lo bloqueo y [[hago algo real primero]]"
+     "texte": "así que lo bloqueo, lo dejo y [[hago algo real primero]]"
     }
    },
    "images": {

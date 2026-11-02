@@ -6,19 +6,19 @@
    "textes": {
     "T1": {
      "en": [
-      "10/10 habits to become smart",
-      "again"
+      "10/10 habits to become",
+      "smart again"
      ],
      "fr": "10/10 habitudes pour retrouver ton cerveau",
      "texte": "le domande prima di aprire tiktok"
     },
     "T2": {
      "en": [
-      "(niche edition #2)"
+      "(science-backed sources)"
      ],
-     "fr": "(version niche #2)",
+     "fr": "(prouvé par la science)",
      "alignement": "droite",
-     "texte": "(mi ha salvato ore)"
+     "texte": "(mi ha salvato tante ore)"
     }
    },
    "images": {
@@ -32,7 +32,7 @@
       "too many small decisions"
      ],
      "fr": "trop de [[petites décisions]]",
-     "texte": "[[perché]] l'ho aperto?"
+     "texte": "[[perché]] l'ho aperto ora?"
     },
     "T2": {
      "en": [
@@ -49,7 +49,7 @@
       "fatigue"
      ],
      "fr": "ça s'appelle la [[fatigue décisionnelle]]",
-     "texte": "niente risposta? [[lo poso]]"
+     "texte": "nessuna risposta? [[lo metto giù]]"
     },
     "T4": {
      "en": [
@@ -121,7 +121,7 @@
       "with input now"
      ],
      "fr": "[[chaque]] file d'attente, balade, pause pipi : on remplit tout",
-     "texte": "sinceramente: so nominare [[un solo video]] visto ieri?"
+     "texte": "sinceramente: so nominare [[anche solo un video]] visto ieri?"
     },
     "T3": {
      "en": [
@@ -146,7 +146,7 @@
       "listen to your thoughts"
      ],
      "fr": "[[écoute tes pensées]]",
-     "texte": "[[ora è il mio filtro]]"
+     "texte": "[[adesso è il mio filtro]]"
     }
    },
    "images": {
@@ -167,7 +167,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "la risposta sincera è quasi sempre [[meglio del prossimo video]]"
+     "texte": "quasi sempre [[meglio di un video]]"
     },
     "T3": {
      "en": [

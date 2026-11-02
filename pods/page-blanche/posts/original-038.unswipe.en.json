@@ -6,19 +6,19 @@
    "textes": {
     "T1": {
      "en": [
-      "10/10 habits to become smart",
-      "again"
+      "10/10 habits to become",
+      "smart again"
      ],
      "fr": "10/10 habitudes pour retrouver ton cerveau",
      "texte": "questions i ask before opening tiktok"
     },
     "T2": {
      "en": [
-      "(niche edition #2)"
+      "(science-backed sources)"
      ],
-     "fr": "(version niche #2)",
+     "fr": "(prouvé par la science)",
      "alignement": "droite",
-     "texte": "(it saved me hours)"
+     "texte": "(it saved me so many hours)"
     }
    },
    "images": {
@@ -121,7 +121,7 @@
       "with input now"
      ],
      "fr": "[[chaque]] file d'attente, balade, pause pipi : on remplit tout",
-     "texte": "honestly, can i name [[one video]] i watched yesterday?"
+     "texte": "honestly, can i name [[even one video]] i watched yesterday?"
     },
     "T3": {
      "en": [
@@ -160,14 +160,14 @@
       "read books that expand your mind"
      ],
      "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
-     "texte": "what if my phone [[was dead]]?"
+     "texte": "what if my phone [[died right now]]?"
     },
     "T2": {
      "en": [
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "the honest answer is usually [[better than the next video]]"
+     "texte": "the answer [[beats the next video]]"
     },
     "T3": {
      "en": [
@@ -243,7 +243,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "so i lock it and [[do one real thing first]]"
+     "texte": "so i lock it, put it down and [[do one real thing first]]"
     }
    },
    "images": {

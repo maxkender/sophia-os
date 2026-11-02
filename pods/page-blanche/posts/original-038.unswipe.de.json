@@ -6,19 +6,19 @@
    "textes": {
     "T1": {
      "en": [
-      "10/10 habits to become smart",
-      "again"
+      "10/10 habits to become",
+      "smart again"
      ],
      "fr": "10/10 habitudes pour retrouver ton cerveau",
      "texte": "meine fragen, bevor ich tiktok öffne"
     },
     "T2": {
      "en": [
-      "(niche edition #2)"
+      "(science-backed sources)"
      ],
-     "fr": "(version niche #2)",
+     "fr": "(prouvé par la science)",
      "alignement": "droite",
-     "texte": "(spart mir stunden)"
+     "texte": "(spart mir echt stunden)"
     }
    },
    "images": {
@@ -167,7 +167,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "die ehrliche antwort ist meist [[besser als das nächste video]]"
+     "texte": "meist [[besser als ein video]]"
     },
     "T3": {
      "en": [
@@ -235,7 +235,7 @@
       "“5 minutes” turns into 45"
      ],
      "fr": "le fil est sans fin, rien ne t'arrête, du coup [[« 5 min » ça devient 45]]",
-     "texte": "beim zehnten mal gibt's keinen grund mehr, nur [[meinen daumen auf autopilot]]"
+     "texte": "beim zehnten mal gibt's keinen grund mehr, nur noch [[autopilot]]"
     },
     "T4": {
      "en": [
@@ -243,7 +243,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "also sperr ich es und [[mach zuerst was echtes]]"
+     "texte": "also sperr ich es, leg es weg und [[mach zuerst was echtes]]"
     }
    },
    "images": {

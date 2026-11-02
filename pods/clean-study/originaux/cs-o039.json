@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o039",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "d8ec6911-85c1-480c-85b8-96cf8be7a3b4",
+  "titre": "quotes that actually motivate me to study and stop being lazy #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "d8ec6911-85c1-480c-85b8-96cf8be7a3b4"
+  ],
+  "notes": "Déclinaison G1 de d8ec6911 (r 8,08 en français, 12 k vues), ligne 3 de la boîte. Accroche du parent mot pour mot. Citations neuves, sans auteur (aucune attribuée à une personne réelle), aucune reprise du parent. Place micabo : slide 5 (se tester) ; place UnSwipe : slide 6 (le scroll). Slides 5 et 6 sans personne. Slides d'appli : certaines reprennent une photo d'objet d'un original de plus d'une semaine (la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : eab89942 (écran ou marque lisible sur une slide d'appli, couverture de livre lisible, ou photo déjà prise dans le lot).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "12714368",
+      "texte_overlay": "quotes that actually motivate me\nto study and stop being lazy",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ead0d925",
+      "texte_overlay": "\"the exam doesn't care how you felt today\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "eb4f19e5",
+      "texte_overlay": "\"future you is watching. make her proud\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ec9a66c8",
+      "texte_overlay": "\"10 minutes now saves 2 hours of panic later\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "23b38f8b",
+      "texte_overlay": "\"if you can't explain it without your notes, you don't know it yet\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1801f7ea",
+      "texte_overlay": "\"the scroll can wait. your grades can't\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f4a3e1c8",
+      "texte_overlay": "\"start before you feel ready\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

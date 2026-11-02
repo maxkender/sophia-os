@@ -1520,7 +1520,7 @@ async function aFinancerALaMain(
  * `a-financer-relire`, toutes les heures ; bouton « Re-read » de Payroll.
  */
 async function relireAFinancer(supabase: Supabase, par: string | null) {
-  const { data, error } = await supabase.from("paie_a_financer").select("id, contrat_id, jalon_id").is("finance_at", null).limit(300);
+  const { data, error } = await supabase.from("paie_a_financer").select("id, contrat_id, jalon_id").is("finance_at", null).is("retire_at", null).limit(300);
   if (error) throw error;
   const liste = (data ?? []) as { id: string; contrat_id: string; jalon_id: string }[];
   const bilan = { ouvertes: liste.length, financees: 0, erreurs: [] as string[] };

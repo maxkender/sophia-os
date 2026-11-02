@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o039",
+ "type_bleo": "full_test",
+ "titre": "Signs you're quietly winning in life #men #selfimprovement #mindset #growth #discipline",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 1er jour (2/11). Full test du jour (jauge : 1 sur 4). Accroche jamais faite chez nous (aucun « quietly winning » ni « winning » dans donnees/label.json). C'est la mécanique des signes, la plus forte du label, en version positive et tournée vers soi. Accroches écrites : « Signs you're quietly winning in life » (retenue), « Signs you're doing better than you think » (écartée : plus molle), « You're winning if… » (écartée : sans liste claire). Images : la banque (--cherche), sans visage ; slide Sophia sur un salon sans personne. reference_url : une slide de signs-of-a-man (même mise en page), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "276ba909",
+   "texte_overlay": "Signs you're quietly\nwinning in life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1f4c407c",
+   "texte_overlay": "1. Drama bores you now.\nYou'd rather go home\nthan argue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "034c14d6",
+   "texte_overlay": "2. Your circle got smaller,\nbut better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2c9e27cd",
+   "texte_overlay": "3. You like your mornings.\nNobody forced you to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "19153f8c",
+   "texte_overlay": "4. You don't check\nif people noticed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "18a7046b",
+   "texte_overlay": "5. You sleep well.\nYour conscience is quiet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1e0f2eda",
+   "texte_overlay": "6. You're learning something\njust for fun.\nNot for a grade.\nNot for anyone.",
+   "texte_sophia": "6. You're learning something\njust for fun.\nI swap my morning scroll for\n5 minutes on the Sophia app.\nHistory, science, art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

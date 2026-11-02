@@ -105,11 +105,13 @@ jobs:
           # (« Fetch 'https://jsr.io/...' timed out after 10s »), on rebundle
           # ici avec Docker (présent sur ubuntu-latest) : c'est le runner qui
           # télécharge alors les imports. Redéployer est sans effet de bord.
+          # 2/11 : le CLI demande une confirmation qu'un runner ne peut pas donner
+          # (« Re-run with --yes to confirm ») : --yes.
           if ! supabase functions deploy ${{ steps.choix.outputs.liste }} \
-            --project-ref "$PROJECT_REF" --use-api; then
+            --project-ref "$PROJECT_REF" --use-api --yes; then
             echo "::warning::bundle côté serveur en échec — nouvel essai avec Docker sur le runner"
             supabase functions deploy ${{ steps.choix.outputs.liste }} \
-              --project-ref "$PROJECT_REF"
+              --project-ref "$PROJECT_REF" --yes
           fi
 
       - name: Vérifier que les fonctions démarrent

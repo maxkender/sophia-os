@@ -50,6 +50,6 @@ describe("PageDecisionPays", () => {
     fireEvent.click(screen.getAllByRole("button").find((b) => /HM/.test(b.textContent ?? ""))!);
     const cibles = await screen.findByTestId("cibles-hm");
     expect(cibles.textContent).toContain("Regina N");
-    expect(cibles.textContent).toContain("DE +3");
+    expect(cibles.textContent).toMatch(/\+3/);
   });
 });

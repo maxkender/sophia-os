@@ -13,6 +13,8 @@ import {
   semainesCompletes,
   type TableauPays,
   totaux,
+  marcheDe,
+  regrouperParLangue,
 } from "./logique";
 
 const sem = (pays: string, semaine: string, o: Partial<SemainePays> = {}): SemainePays => ({
@@ -129,9 +131,30 @@ describe("Page Pays : lignes, ROI et recommandation", () => {
 
   it("les objectifs préparés par HM, selon les zones", () => {
     const t = tableau({ semaines: semaines("DE", 400, 100, 100_000), pays: [info("DE", { comptes_actifs: 10, premier_post: "2026-07-27" })] });
-    const { cibles, sansHm } = ciblesParHm(lignesPays(t, "28j"), [{ id: "h1", nom: "Regina", zone: "Germany + Norway" }]);
+    const { cibles, sansHm } = ciblesParHm(lignesPays(regrouperParLangue(t), "28j"), [{ id: "h1", nom: "Regina", zone: "Germany + Norway" }]);
     expect(cibles).toHaveLength(1);
     expect(cibles[0].total).toBe(3);
     expect(sansHm).toEqual([]);
+  });
+});
+
+describe("Page Pays : un marché par langue (Espagne et LATAM à part)", () => {
+  it("regroupe DE/AT/CH, sépare ES et LATAM, laisse un pays seul tel quel", () => {
+    expect([marcheDe("DE"), marcheDe("AT"), marcheDe("CH")]).toEqual(["de", "de", "de"]);
+    expect([marcheDe("ES"), marcheDe("MX"), marcheDe("CO")]).toEqual(["es", "es-419", "es-419"]);
+    expect(marcheDe("TR")).toBe("TR");
+    const t = regrouperParLangue(tableau({
+      semaines: [sem("DE", "2026-10-26", { vues: 100, proceeds: 10, cout_reel: 5 }), sem("AT", "2026-10-26", { vues: 50, proceeds: 30, cout_reel: null }),
+        sem("MX", "2026-10-26", { proceeds: 40 }), sem("ES", "2026-10-26", { proceeds: 7 })],
+      pays: [info("DE", { comptes_actifs: 20, premier_post: "2026-07-27" }), info("AT", { comptes_actifs: 1, zone: "A", premier_post: "2026-10-20" }),
+        info("MX", { premier_post: null, zone: "C" }), info("CO", { comptes_actifs: 5, zone: "C" }), info("ES", { comptes_actifs: 17, zone: "B" }),
+        info("de", { objectif: 30, zone: null, premier_post: null })],
+    }));
+    const de = t.pays.find((p) => p.pays === "de")!;
+    expect([de.comptes_actifs, de.objectif, de.premier_post, de.membres]).toEqual([21, 30, "2026-07-27", ["AT", "DE"]]);
+    const s = t.semaines.find((x) => x.pays === "de")!;
+    expect([s.vues, s.proceeds, s.cout_reel]).toEqual([150, 40, 5]);
+    expect(t.pays.find((p) => p.pays === "es-419")!.membres).toEqual(["CO", "MX"]);
+    expect(t.pays.find((p) => p.pays === "es")!.comptes_actifs).toBe(17);
   });
 });

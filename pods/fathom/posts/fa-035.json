@@ -1,0 +1,315 @@
+{
+ "id": "fa-035",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7685018360404266262",
+  "vues": 44000,
+  "accroche": "10/10 Skills You Can Learn In A Month"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In A Month",
+  "de": "10/10 Skills, die du in einem Monat lernst",
+  "pt": "10/10 habilidades para aprender num mês"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In A Month #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills, die du in einem Monat lernst #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para aprender num mês #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta B. Ses étapes (freestyle, soudure, skate, poterie), Sophia à l'étape 3 à la place de ses portraits. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN LEARN",
+     [
+      {
+       "t": "IN A MONTH",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS IN",
+     [
+      {
+       "t": "EINEM MONAT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "APRENDER NUM MÊS",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FREESTYLE",
+     "FOOTBALL"
+    ],
+    "video": {
+     "id": "Xim8-lUZnsA",
+     "titre": "15 EASY SKILL MOVES for BEGINNERS",
+     "chaine": "AllAttack",
+     "vues": "8.3M views",
+     "date": "3 years ago",
+     "duree": "8:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmqQt8yOlN5A8DFkGdnedC6CuZQwH5eG9Bum4lFMafYoI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FREESTYLE",
+     "FUSSBALL"
+    ],
+    "video": {
+     "id": "ALyed1qmCgg",
+     "titre": "Die 4 besten Freestyle Show Tricks für Beginner!!",
+     "chaine": "Camill Hauser",
+     "vues": "20.151 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8vdB6tXrIf0aTGrDKeZnxg9_BBgBUF3I4ILu1MJNogIjM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FUTEBOL",
+     "FREESTYLE"
+    ],
+    "video": {
+     "id": "8iSmn1N8nIE",
+     "titre": "APRENDA 9 MANOBRAS PARA INICIANTES DO FUTEBOL FREESTYLE",
+     "chaine": "Dida footz",
+     "vues": "90 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/jw24kdJ940BNYETTL2G0E2HNzFUmTXZryoBYarB-aJh9z2bf9DC52tWbZp9qN05Mki9hAC8y6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO WELD"
+    ],
+    "video": {
+     "id": "OWThL97tq3k",
+     "titre": "Welding Basics for Beginners",
+     "chaine": "Miller Welders",
+     "vues": "3.6M views",
+     "date": "8 years ago",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnTDF0vvgv1rVn65lce9xSup2JjiFpmrftBWQxOEWcWaA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "SCHWEISSEN"
+    ],
+    "video": {
+     "id": "rEq3Zu9RXCE",
+     "titre": "Wie schweißt man Elektrode | Tutorial für absolute Beginner | Igor Welder",
+     "chaine": "Igor Welder",
+     "vues": "242.757 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "21:06",
+     "avatar": "https://yt3.ggpht.com/rZglWjb-OO1yNt5hhmVkx7AOA01qzbq14_A4tv0Jf9bXpjByWfH3PRt-n5njDPZB6lJJpBHlSw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A SOLDAR"
+    ],
+    "video": {
+     "id": "KPEGExALP5s",
+     "titre": "Aprenda a Soldar em 5 minutos com Eletrodo Revestido",
+     "chaine": "Mike Almeida | Instituto de Soldagem",
+     "vues": "485 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/DIGLxUYa05Akaq3XxjPViXDXh7HtQI-izZf_Y-V1qPGNpGTjBpLo9Bd4zD7NPneafmS6WcAOtw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A BIT",
+     "OF EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN VON",
+     "ALLEM ETWAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UM",
+     "POUCO DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO",
+     "SKATEBOARD"
+    ],
+    "video": {
+     "id": "p3NXd3DhH08",
+     "titre": "HOW TO SKATEBOARD FOR BEGINNERS | HOW TO SKATEBOARD EPISODE 1",
+     "chaine": "Braille Skateboarding",
+     "vues": "18M views",
+     "date": "11 years ago",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFlvVtwzdQv9YAoGyA32hkHC_iTWR1ecYv6T65wl5NRA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "SKATEBOARDEN"
+    ],
+    "video": {
+     "id": "NYqdWiM-5gc",
+     "titre": "Der Einfachste Weg den Ollie zu lernen! | Skate Tutorial | FriiDon",
+     "chaine": "FRIIDON'T",
+     "vues": "543.398 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/Y1uspcUbR2rQGHfWOPHqS6rZMrll594dNx_GvmdxX5imYEoCaKjzRbVnIYJb8aB1sdYBOmL3jg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ANDA",
+     "DE SKATE"
+    ],
+    "video": {
+     "id": "2jGYLrqoPxA",
+     "titre": "APRENDA A ANDAR DE SKATE: AULA BÁSICA!",
+     "chaine": "Natan por Aí",
+     "vues": "2,6 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/IZzK9T0YHjOBEwmdWlCoLW3uB5Eqx1ZYFUzpeqHUSoL-iIKfA5JsLQOG6V3lqFULewa9MO8D=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "POTTERY"
+    ],
+    "video": {
+     "id": "PUAwDPUNyrs",
+     "titre": "How to Center Clay and Throw Pots on the Pottery Wheel",
+     "chaine": "Florian Gadsby",
+     "vues": "1.3M views",
+     "date": "5 years ago",
+     "duree": "24:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nF0FzNrOlfLSknfnm1mVEEiVuIYrrVzZFRzu6sh7IVP60=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "TÖPFERN"
+    ],
+    "video": {
+     "id": "LP6FwUl48ZU",
+     "titre": "Töpfern auf der Scheibe in 8 Schritten",
+     "chaine": "voHang",
+     "vues": "169.014 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "16:48",
+     "avatar": "https://yt3.ggpht.com/pnMMQQCxPgSRsbc12Ub8I42lMJGs_Hi_OI-rRYmpIqNUFmc2NpMVTNssHG4NFAwo8Z9Bdy9e=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "CERÂMICA"
+    ],
+    "video": {
+     "id": "qRXW4Vr1Kwo",
+     "titre": "Noções Básicas de Torno | Tutorial de Cerâmica",
+     "chaine": "Cada Coisa Ateliê",
+     "vues": "38 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "21:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1JzDA_foaH3sJjYuRLKGFli_qpNlSfOWhjE7-d7tvxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

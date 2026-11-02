@@ -1,0 +1,267 @@
+{
+ "id": "fa-036",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7702484759204678934",
+  "vues": 41200,
+  "accroche": "10/10 Skills To Learn In Your 20s"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn In Your 20s",
+  "de": "10/10 Skills für deine 20er",
+  "pt": "10/10 habilidades para os teus 20"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn In Your 20s #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills für deine 20er #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para os teus 20 #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "Alejandro",
+  "url": "https://www.tiktok.com/music/alejandro-7309690378487483142"
+ },
+ "notes": "cta C. Accroche nouvelle de la veille du 02/11 (41 k vues en 3 jours). Ses étapes langage corporel, arnaques et nuages, Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "IN YOUR 20S",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS FÜR",
+     [
+      {
+       "t": "DEINE 20ER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "OS TEUS 20",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ BODY",
+     "LANGUAGE"
+    ],
+    "video": {
+     "id": "r9l1lIHctLA",
+     "titre": "How to Read Eyes - How to Read Body Language",
+     "chaine": "FreeMedEducation",
+     "vues": "476K views",
+     "date": "6 years ago",
+     "duree": "2:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kuysJ-eTLf96gmXckItHaN5V64JycBkGU1vmIWc0DTvWQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES",
+     "KÖRPERSPRACHE"
+    ],
+    "video": {
+     "id": "YOOZ8jttiA8",
+     "titre": "Sehen, was Andere denken (Körpersprache lesen) | Teil 1",
+     "chaine": "Logical Lemon",
+     "vues": "2,5 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LÊ A LINGUAGEM",
+     "CORPORAL"
+    ],
+    "video": {
+     "id": "eynhahgXpk8",
+     "titre": "Tipos de Gestos em Linguagem Corporal (Metaforando)",
+     "chaine": "Metaforando",
+     "vues": "314 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "6:21",
+     "avatar": "https://yt3.ggpht.com/uI1P-w-eK6bsq07E8A_w3e5oXc0gruzQ3sGM5hLJK1HYr2e6CgwSmdG-A6TMYOkTnE3cUyezEmg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SPOT A",
+     "SCAM"
+    ],
+    "video": {
+     "id": "KAbp_ajsCco",
+     "titre": "How to spot and avoid scam websites",
+     "chaine": "Which?",
+     "vues": "167K views",
+     "date": "8 years ago",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/4Bp_9g_X_-F_lXdXEzBvEt4zXY-7ensUogftuGhH5mJCVsrH9OamROD_gPEof0tGzS_X8T5Rng=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ERKENNE",
+     "PHISHING"
+    ],
+    "video": {
+     "id": "XgF42Jb8jxo",
+     "titre": "Phishing-E-Mails enttarnen! | BSI",
+     "chaine": "Bundesamt für Sicherheit in der Informationstechnik",
+     "vues": "108.576 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPKjyATqbGbJUgvirVuEVSkAm5AnBfPkoMF4Ljxg2toTI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "DETETA UM",
+     "SITE FALSO"
+    ],
+    "video": {
+     "id": "SxeifEtpYQs",
+     "titre": "Como saber se um site é falso e evitar de cair em golpes",
+     "chaine": "Gui Cassiri",
+     "vues": "199 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/vHCJfB5UKfgUWYvSalHIgxXPMv0UOkynBn5BUmItUbfGRMJAUyiRsDrncE-wvLv7-Qj7Era8qA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "TRAIN YOUR",
+     "BRAIN DAILY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "TRAINIER DEIN",
+     "GEHIRN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "TREINA O",
+     "TEU CÉREBRO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ THE",
+     "CLOUDS"
+    ],
+    "video": {
+     "id": "I00vcHLJXCc",
+     "titre": "How To Predict The Weather By Looking At The Clouds",
+     "chaine": "ZoneA",
+     "vues": "1.6M views",
+     "date": "9 years ago",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nTFRoLT0pyRLNXVTgATr2_Hiasoc8K0xsyH6M9g4a4nZY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES DIE",
+     "WOLKEN"
+    ],
+    "video": {
+     "id": "-TrjkSxWL-g",
+     "titre": "Der Wolken-Check | Reportage für Kinder | Checker Tobi",
+     "chaine": "CHECKER WELT",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "24:22",
+     "avatar": "https://yt3.ggpht.com/sCzAf46bJ2DnJevYsMDQLEQvceJGbUBK8cl4vshgcG6vvNChiKGHF6l8n4m0qEi_wSU8YiDg9g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LÊ AS",
+     "NUVENS"
+    ],
+    "video": {
+     "id": "sM52W25-IyY",
+     "titre": "Explicando o Tempo - Conheça os 10 tipos de nuvens!",
+     "chaine": "Climatempo",
+     "vues": "412 mil visualizações",
+     "date": "há 12 anos",
+     "duree": "4:04",
+     "avatar": "https://yt3.ggpht.com/gTCOW5AN0x8aynnmFEvMkAsBLs2xgPF2-DV1-TSYxifANp1Y95hIbmTjY7SVdWFEQLIBGj7jYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

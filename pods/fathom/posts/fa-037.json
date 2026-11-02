@@ -1,0 +1,315 @@
+{
+ "id": "fa-037",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683084099820555542",
+  "vues": 41500,
+  "accroche": "5 Skills That Only 1% Of People Have"
+ },
+ "titre": {
+  "en": "5 Skills That Only 1% Of People Have",
+  "de": "5 Skills, die nur 1 % beherrschen",
+  "pt": "5 habilidades que só 1% das pessoas têm"
+ },
+ "legendes": {
+  "en": "5 Skills That Only 1% Of People Have #skills #learnontiktok #selfmastery",
+  "de": "5 Skills, die nur 1 % beherrschen #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "5 habilidades que só 1% das pessoas têm #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
+ },
+ "notes": "cta A. Ses slides n'étaient pas en cache : son format de liste, nos étapes, aucune commune avec fa-005. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "ONLY 1% OF",
+     [
+      {
+       "t": "PEOPLE HAVE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE NUR 1 %",
+     [
+      {
+       "t": "BEHERRSCHEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE SÓ 1% DAS",
+     [
+      {
+       "t": "PESSOAS TÊM",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "JUGGLE",
+     "3 BALLS"
+    ],
+    "video": {
+     "id": "p4_IUMS4yc8",
+     "titre": "How to Juggle 3 Balls IN TWO MINUTES (Step by Step Tutorial)",
+     "chaine": "Juggleboy",
+     "vues": "1.3M views",
+     "date": "8 years ago",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJbpfGIvh7brJHJrAh0QtK9rWmml7BnKXGTCAa0vYs_tw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "JONGLIER MIT",
+     "3 BÄLLEN"
+    ],
+    "video": {
+     "id": "N4y6P6P2T5o",
+     "titre": "Jonglieren lernen mit 3 Bällen in 3 Minuten 💡 Jonglieren Tutorial",
+     "chaine": "Der Schlaumacher | Geniale Fakten, Tipps & Lifehacks",
+     "vues": "855.515 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfTS9KM2CJ-tY3C1k3_sRqukgW7aWFBjRUyuiQdUzLJmw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "MALABARISMO",
+     "COM 3 BOLAS"
+    ],
+    "video": {
+     "id": "9pi9ZctiGu0",
+     "titre": "Como fazer malabarismo com 3 bolinhas em 3 passos",
+     "chaine": "Manual do Mundo",
+     "vues": "1,2 mi visualizações",
+     "date": "há 14 anos",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHISTLE WITH",
+     "YOUR FINGERS"
+    ],
+    "video": {
+     "id": "FCVDBmISkb0",
+     "titre": "Learn How To Whistle With Your Fingers Correctly In One Minute",
+     "chaine": "Cleverly",
+     "vues": "6.2M views",
+     "date": "9 years ago",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGARwanznO9v7FNvqNU3Y-rCazCyf3MdPkpPSRMx-w-g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "PFEIF MIT",
+     "DEN FINGERN"
+    ],
+    "video": {
+     "id": "wplrsLNlcCQ",
+     "titre": "Finger Pfeifen lernen in 1 Minute: Ganz einfacher Trick!",
+     "chaine": "Geniale Tricks",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdBmeG7-5-th3cc0TKCNATjhyWimQJmHiR-B3S2EyoZR0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ASSOBIA",
+     "COM OS DEDOS"
+    ],
+    "video": {
+     "id": "gRSrb5sW6Uc",
+     "titre": "Em 1 minuto: aprenda a assobiar bem alto usando os dedos",
+     "chaine": "O Sagaz",
+     "vues": "2,8 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrL4829IFdJvK796drsGOg6c65AZLN8D6cHvgsPpovtg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "BE GENUINELY",
+     "INTERESTING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "SEI WIRKLICH",
+     "INTERESSANT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SÊ MESMO",
+     "INTERESSANTE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "102M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖS DEN",
+     "ZAUBERWÜRFEL"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "RESOLVE O",
+     "CUBO MÁGICO"
+    ],
+    "video": {
+     "id": "ZwbFLyesbOU",
+     "titre": "Como RESOLVER o Cubo Mágico EM 10 MINUTOS!",
+     "chaine": "Ercs",
+     "vues": "2,2 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:59",
+     "avatar": "https://yt3.ggpht.com/6OxdXZjA_wTTZE0QmGPTAToR02Nn0gCeuQvNAI0B8Bi8c7dHXfh5dRtk4h8PjjHFCasBM-wB=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SPIN",
+     "A PEN"
+    ],
+    "video": {
+     "id": "S6Fh9JTLb1k",
+     "titre": "4 Pen Spinning tricks for beginners and basic combo",
+     "chaine": "Pen Stock",
+     "vues": "300K views",
+     "date": "7 years ago",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k45NuxVazA8lKxYkfDL-ZBEJ3wlsNzUDLSfIesYwStNUY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "PEN",
+     "SPINNING"
+    ],
+    "video": {
+     "id": "wg-gIKKr8jY",
+     "titre": "Pen Spinning Tutorial [1/2] [German] für Rechtshänder (Anfänger)",
+     "chaine": "HalfblindTV",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 14 Jahren",
+     "duree": "14:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nokGV_wKS3zfx1BfPd5SFOjEKXyITigsnfnE2n70o1KyA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "GIRA A",
+     "CANETA"
+    ],
+    "video": {
+     "id": "UKzBP2GANHc",
+     "titre": "Aprendendo a fazer PEN SPINNING do zero!",
+     "chaine": "FELIJAO",
+     "vues": "3,6 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/gNuv8IFbrxGoISet4nU0bzVz-nYvXINLPugdukDj2Hqsy_b3BV97Iz-PShjAcNm87jc7Rm7STg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

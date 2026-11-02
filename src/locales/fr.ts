@@ -3153,7 +3153,7 @@ export const fr = {
       plan: {
         titre: "Plan du jour",
         description:
-          "Ce que BLEO aurait donné à chaque compte, tiré à 14 h pour le lendemain, à côté de ce que minuit a vraiment assigné. Rien n'est publié.",
+          "Ce que BLEO donne à chaque compte : tiré à 14 h pour le lendemain, assigné à minuit. La colonne « Minuit » montre ce qui a vraiment été posté ; elle diffère du plan seulement quand un créneau n'a pas pu être servi et a été rendu à l'ancien système (secours).",
         tirage: "Tirage",
         option: "{{jour}} (tiré le {{quand}})",
         aucun: "Aucun tirage pour l'instant.",

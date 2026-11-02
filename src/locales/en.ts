@@ -3147,7 +3147,7 @@ export const en = {
       plan: {
         titre: "Daily plan",
         description:
-          "What BLEO would have given each account, drawn at 2 pm for the next day, next to what midnight actually assigned. Nothing is published.",
+          "What BLEO gives each account: drawn at 2 pm for the next day, assigned at midnight. The « Midnight » column shows what was actually posted; it differs from the plan only when a slot could not be served and went back to the old system (fallback).",
         tirage: "Draw",
         option: "{{jour}} (drawn on {{quand}})",
         aucun: "No draw yet.",

@@ -87,6 +87,21 @@ export function AdminBleoFamillePage() {
             }
           />
 
+          {Number(f.theme_familles) > 1 && (
+            <p className="text-sm text-muted-foreground" data-testid="famille-theme">
+              {f.theme_id === f.id ? (
+                t("bleo.famille.themeTete", { n: Number(f.theme_familles) })
+              ) : (
+                <>
+                  {t("bleo.famille.themeMembre", { n: Number(f.theme_familles) })}{" "}
+                  <Link to={`/admin/bleo/familles/${f.theme_id}`} className="underline underline-offset-2 hover:text-foreground">
+                    « {f.theme_accroche ?? "—"} »
+                  </Link>
+                </>
+              )}
+            </p>
+          )}
+
           <StatGroup>
             <StatTile
               label={t("bleo.colonnes.contenus")}

@@ -15,6 +15,17 @@ import {
   totaux,
   marcheDe,
   regrouperParLangue,
+  aFaireSemaine,
+  cohorteEnCours,
+  lignesCohorte,
+  totauxHm,
+  annoncesActives,
+  drapeau,
+  statutCompte,
+  tableauHm,
+  topFlopRoi,
+  totauxPeriode,
+  variation,
 } from "./logique";
 
 const sem = (pays: string, semaine: string, o: Partial<SemainePays> = {}): SemainePays => ({
@@ -131,7 +142,7 @@ describe("Page Pays : lignes, ROI et recommandation", () => {
 
   it("les objectifs préparés par HM, selon les zones", () => {
     const t = tableau({ semaines: semaines("DE", 400, 100, 100_000), pays: [info("DE", { comptes_actifs: 10, premier_post: "2026-07-27" })] });
-    const { cibles, sansHm } = ciblesParHm(lignesPays(regrouperParLangue(t), "28j"), [{ id: "h1", nom: "Regina", zone: "Germany + Norway" }]);
+    const { cibles, sansHm } = ciblesParHm(lignesPays(t, "28j"), [{ id: "h1", nom: "Regina", zone: "Germany + Norway" }]);
     expect(cibles).toHaveLength(1);
     expect(cibles[0].total).toBe(3);
     expect(sansHm).toEqual([]);
@@ -156,5 +167,116 @@ describe("Page Pays : un marché par langue (Espagne et LATAM à part)", () => {
     expect([s.vues, s.proceeds, s.cout_reel]).toEqual([150, 40, 5]);
     expect(t.pays.find((p) => p.pays === "es-419")!.membres).toEqual(["CO", "MX"]);
     expect(t.pays.find((p) => p.pays === "es")!.comptes_actifs).toBe(17);
+  });
+});
+
+describe("Page Pays (refonte) : un pays par ligne, cartes, à faire, recrutement", () => {
+  it("ROI élevé avec assez de recrues en route : maintenir, pas réduire", () => {
+    const t0 = tableau({
+      semaines: semainesCompletes("2026-11-02", 8).map((w) => sem("NO", w, { proceeds: 400, cout_reel: 100, vues: 100_000, comptes: 3 })),
+      pays: [info("NO", { comptes_actifs: 3, cohorte_en_cours: 2, premier_post: "2026-07-27" })],
+    });
+    const [l] = lignesPays(t0, "28j");
+    expect(l.objectif).toBe(4);
+    expect(l.manque).toBe(-1);
+    expect(l.recommandation).toBe("maintenir");
+  });
+
+  const semaines = (pays: string, proceeds: number, cout: number, vues: number) =>
+    semainesCompletes("2026-11-02", 8).map((w) => sem(pays, w, { proceeds, cout_reel: cout, vues, comptes: 10, sous_seuil: 2 }));
+  const t = tableau({
+    semaines: [
+      ...semaines("DE", 400, 100, 100_000),
+      ...semaines("TR", 20, 100, 100_000),
+      ...semaines("MX", 300, 0, 0).map((s) => ({ ...s, cout_reel: null, comptes: 0, sous_seuil: 0 })),
+    ],
+    pays: [
+      info("DE", { comptes_actifs: 10, premier_post: "2026-07-27" }),
+      info("TR", { comptes_actifs: 10, premier_post: "2026-07-27" }),
+      info("MX", { premier_post: null }),
+    ],
+  });
+  const lignes = lignesPays(t, "28j");
+
+  it("ROI global = Σ incrémental ÷ Σ paie, sans les pays sans posteur", () => {
+    const tot = totauxPeriode(lignes);
+    expect(tot.cout).toBe(800);
+    expect(tot.incremental).toBe(1680);
+    expect(tot.roi).toBe(2.1);
+    expect(tot.sans_posteurs).toBe(1200);
+    expect(tot.proceeds).toBe(2880);
+  });
+
+  it("variation en % vs la période d'avant", () => {
+    expect(variation(120, 100)).toBe(20);
+    expect(variation(80, 100)).toBe(-20);
+    expect(variation(10, 0)).toBeNull();
+  });
+
+  it("à faire : arrêter le pays à ROI < 0,5, recruter ailleurs ; top / flop par ROI", () => {
+    const faire = aFaireSemaine(lignes, lignes);
+    expect(faire[0]).toEqual({ type: "arreter", pays: "TR" });
+    expect(faire.find((a) => a.type === "recruter")?.pays).toBe("DE");
+    expect(faire.length).toBeLessThanOrEqual(5);
+    const { top, flop } = topFlopRoi(lignes);
+    expect(top[0].pays).toBe("DE");
+    expect(flop[0].pays).toBe("TR");
+    expect(top.some((l) => l.pays === "MX")).toBe(false);
+  });
+
+  it("annonce active si elle a amené un contrat dans les 21 jours ; tableau par HM", () => {
+    const actives = annoncesActives(
+      [
+        { titre: "TikTok poster (Germany)", pays: "DE", generique: false, vue_at: "2026-10-28T10:00:00Z", contrats_21j: 2 },
+        { titre: "TikTok poster (Turkey)", pays: "TR", generique: false, vue_at: "2026-10-28T10:00:00Z", contrats_21j: 0 },
+      ],
+    );
+    expect([...actives]).toEqual(["DE"]);
+    const hm = tableauHm(lignes, [{ id: "h1", nom: "Regina", zone: "Germany + Turkey" }], actives);
+    expect(hm.map((h) => [h.pays, h.manque > 0, h.annonce])).toEqual([["DE", true, true], ["TR", false, false]]);
+  });
+
+  it("statut d'un compte et drapeau", () => {
+    expect(statutCompte(2000, 1000)).toBe("bon");
+    expect(statutCompte(1000, 1000)).toBe("moyen");
+    expect(statutCompte(999, 1000)).toBe("sous_seuil");
+    expect(drapeau("DE")).toBe("🇩🇪");
+    expect(drapeau("de")).toBe("");
+  });
+});
+
+describe("0516 : cohorte du lundi (objectif / envoyées / acceptées / restant)", () => {
+  it("la cohorte en cours : le lundi suivant ; le dimanche, celui d'après", () => {
+    expect(cohorteEnCours("2026-11-02")).toBe("2026-11-09");
+    expect(cohorteEnCours("2026-11-07")).toBe("2026-11-09");
+    expect(cohorteEnCours("2026-11-08")).toBe("2026-11-16");
+  });
+
+  it("par pays et par HM ; une offre en attente compte comme envoyée", () => {
+    const lignes = lignesCohorte({
+      lundi: "2026-11-09",
+      objectifs: [{ pays: "DE", nombre: 5 }, { pays: "NZ", nombre: 2 }, { pays: "RS", nombre: 2 }],
+      hm_pays: [
+        { pays: "DE", hm_id: "r", hm_nom: "Regina", zone: "A" },
+        { pays: "NZ", hm_id: "a", hm_nom: "Rana", zone: "A" },
+        { pays: "RS", hm_id: null, hm_nom: "Erla", zone: "C" },
+      ],
+      acceptees: [
+        { contrat_id: "1", pays: "DE", hm_id: "r", hm_nom: "Regina", debut_at: null },
+        { contrat_id: "2", pays: "DE", hm_id: "r", hm_nom: "Regina", debut_at: null },
+      ],
+      en_attente: [
+        { offre_id: "o1", titre: "TikTok Content Posting (based in Germany)", debut_at: null },
+        { offre_id: "o2", titre: "TikTok Slideshow Creator (Based in New Zealand)", debut_at: null },
+        { offre_id: "o3", titre: "German speaker (Based in Switzerland)", debut_at: null },
+      ],
+      offres_lues_at: null,
+      alertes: [],
+    });
+    const de = lignes.find((l) => l.pays === "DE")!;
+    expect([de.objectif, de.acceptees, de.en_attente, de.envoyees, de.restant]).toEqual([5, 2, 1, 3, 2]);
+    expect(lignes.find((l) => l.pays === "NZ")!.restant).toBe(1);
+    expect(lignes.find((l) => l.pays === "CH")!.hm).toBe("—");
+    expect(totauxHm(lignes).find((h) => h.hm === "Erla")).toEqual({ hm: "Erla", objectif: 2, envoyees: 0, acceptees: 0, restant: 2 });
   });
 });

@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import "@/locales/index";
+import i18n from "@/locales/index";
 
 import { PageDecisionPays } from "./PageDecisionPays";
 import type { TableauPays } from "./logique";
@@ -30,6 +30,26 @@ vi.mock("./api", () => ({
   lireTableauPays: vi.fn(async () => tableau),
   lireComptesPays: vi.fn(async () => []),
   fixerObjectifPays: vi.fn(),
+  lireMetaPays: vi.fn(async () => ({
+    releve_posts: "2026-11-02T00:18:00Z", releve_comptes: "2026-11-02T00:18:00Z", releve_post_metrics: "2026-10-20T18:00:00Z", jalons: null,
+    annonces: [{ titre: "TikTok poster - Germany", pays: "DE", generique: false, vue_at: "2026-10-30T10:00:00Z", contrats_21j: 2 }],
+  })),
+  lireRecrutementCohorte: vi.fn(async () => ({
+    lundi: "2026-11-09",
+    objectifs: [{ pays: "DE", nombre: 5 }],
+    hm_pays: [{ pays: "DE", hm_id: "h1", hm_nom: "Regina N", zone: "A" }],
+    acceptees: [{ contrat_id: "c9", pays: "DE", hm_id: "h1", hm_nom: "Regina N", debut_at: "2026-11-03T10:00:00Z" }],
+    en_attente: [],
+    offres_lues_at: "2026-11-02T04:50:00Z",
+    alertes: [{ contrat_id: "c9", offre_id: null, hm_nom: "Regina N", pays: "DE", motif: "nom_1er", detail: "1er milestone « Week 45 »", created_at: "2026-11-02T20:00:00Z" }],
+  })),
+  lireDetailPays: vi.fn(async () => ({
+    comptes: [
+      { compte_id: "c1", handle: "compte_a", poster: "Poster A", actif: true, vues_7j: 5000, mediane_post: 800, posts_28j: 20 },
+      { compte_id: "c2", handle: "compte_b", poster: "Poster B", actif: true, vues_7j: 300, mediane_post: 40, posts_28j: 12 },
+    ],
+    top_posts: [{ passage_id: "p1", url: "https://www.tiktok.com/@compte_a/photo/1", vues: 42000, date: "2026-10-20", handle: "compte_a", app: "Sophia", j1: 1200, j3: 9000, j7: null }],
+  })),
 }));
 
 function rendre() {
@@ -42,14 +62,33 @@ function rendre() {
 }
 
 describe("PageDecisionPays", () => {
-  it("affiche le tableau, la recommandation et les objectifs préparés par HM (sans envoi)", async () => {
+  it("4 onglets : vue d'ensemble, pays (6 colonnes), recrutement (objectifs préparés, sans envoi), détail", async () => {
+    await i18n.changeLanguage("fr");
     rendre();
-    expect(await screen.findByTestId("tableau-pays")).toBeTruthy();
-    expect(screen.getByText("DE")).toBeTruthy();
-    expect(screen.getByText("MX")).toBeTruthy();
-    fireEvent.click(screen.getAllByRole("button").find((b) => /HM/.test(b.textContent ?? ""))!);
+    expect(await screen.findByTestId("a-faire")).toBeTruthy();
+    expect(screen.getAllByRole("tab")).toHaveLength(4);
+
+    fireEvent.click(screen.getByRole("tab", { name: "Pays" }));
+    const table = await screen.findByTestId("tableau-pays");
+    expect(table.querySelectorAll("thead th")).toHaveLength(6);
+    expect(table.textContent).toContain("Allemagne");
+    expect(table.textContent).toContain("Mexique");
+
+    fireEvent.click(screen.getByRole("tab", { name: "Recrutement" }));
+    const cohorte = await screen.findByTestId("cohorte-pays");
+    expect(cohorte.textContent).toContain("Regina N");
+    expect((await screen.findByTestId("alertes-offres")).textContent).toContain("Nom du 1er milestone");
+    fireEvent.click(await screen.findByRole("button", { name: /Préparer les objectifs/ }));
     const cibles = await screen.findByTestId("cibles-hm");
     expect(cibles.textContent).toContain("Regina N");
     expect(cibles.textContent).toMatch(/\+3/);
+
+    fireEvent.click(screen.getByRole("tab", { name: "Détail pays" }));
+    await screen.findAllByText("@compte_a");
+    const comptes = screen.getByTestId("comptes-pays");
+    expect(comptes.textContent).toContain("@compte_a");
+    expect(comptes.textContent).toContain("Bon");
+    expect(comptes.textContent).toContain("Sous le seuil");
+    expect((await screen.findByTestId("top-posts")).textContent).toContain("Sophia");
   });
 });

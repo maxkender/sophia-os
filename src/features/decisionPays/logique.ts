@@ -83,6 +83,8 @@ export interface LignePays {
   rpm_new: number | null;
   baseline: number | null;
   incremental: number | null;
+  /** Proceeds qui ne viennent pas de nous : baseline × semaines, ou tout le revenu d'un pays sans posteur. */
+  sans_posteurs: number;
   rpm_incremental: number | null;
   cout: number | null;
   cout_estime: boolean;
@@ -120,9 +122,9 @@ export function lundiDe(iso: string): string {
   return ajouterJours(iso, 1 - isodow);
 }
 
-/** Les lundis des n dernières semaines complètes, du plus ancien au plus récent. */
-export function semainesCompletes(lundiCourant: string, n: number): string[] {
-  return Array.from({ length: n }, (_, i) => ajouterJours(lundiCourant, -7 * (n - i)));
+/** Les lundis des n dernières semaines complètes (décalées de `decalage` semaines), du plus ancien au plus récent. */
+export function semainesCompletes(lundiCourant: string, n: number, decalage = 0): string[] {
+  return Array.from({ length: n }, (_, i) => ajouterJours(lundiCourant, -7 * (n - i + decalage)));
 }
 
 const arrondi = (n: number, d = 2) => Math.round(n * 10 ** d) / 10 ** d;
@@ -151,6 +153,8 @@ export function objectifSuggere(base: number, roi: number | null, roi4s: number 
 }
 
 const MOTS_PAYS: [RegExp, string][] = [
+  // 2/11 : avant « german » (« German speaker based in Switzerland » = CH).
+  [/switzerland|swiss/i, "CH"], [/new zealand/i, "NZ"], [/canada/i, "CA"], [/ireland/i, "IE"],
   [/hungar/i, "HU"], [/israel/i, "IL"], [/gree(ce|k)/i, "GR"], [/bulgar/i, "BG"], [/finn|finland/i, "FI"],
   [/denmark|danish/i, "DK"], [/\bspain\b|spanish speaker\/ in spain/i, "ES"], [/german/i, "DE"], [/france|french/i, "FR"],
   [/ital/i, "IT"], [/poland|polish/i, "PL"], [/turk|türk/i, "TR"], [/roman/i, "RO"], [/czech/i, "CZ"], [/sloven/i, "SI"],
@@ -212,11 +216,11 @@ export function nomVersCode(nom: string): string | null {
 }
 
 /** Toutes les lignes du tableau, pour une période. */
-export function lignesPays(t: TableauPays, periode: Periode): LignePays[] {
+export function lignesPays(t: TableauPays, periode: Periode, decalage = 0): LignePays[] {
   const taux = Number(t.reglages.taux_usd_eur ?? 0.86);
   const lundi = t.lundi;
-  const fenetre = new Set(semainesCompletes(lundi, SEMAINES_PERIODE[periode]));
-  const fenetre4 = new Set(semainesCompletes(lundi, 4));
+  const fenetre = new Set(semainesCompletes(lundi, SEMAINES_PERIODE[periode], decalage));
+  const fenetre4 = new Set(semainesCompletes(lundi, 4, decalage));
   const huit = semainesCompletes(lundi, 8);
   const parPays = new Map<string, SemainePays[]>();
   for (const s of t.semaines) {
@@ -227,7 +231,7 @@ export function lignesPays(t: TableauPays, periode: Periode): LignePays[] {
   const offresPays = new Map<string, number>();
   for (const o of t.offres) {
     const p = paysDeTitre(o.titre);
-    if (p) offresPays.set(marcheDe(p), (offresPays.get(marcheDe(p)) ?? 0) + 1);
+    if (p) offresPays.set(p, (offresPays.get(p) ?? 0) + 1);
   }
 
   const calcul = (semaines: SemainePays[], fen: Set<string>, base: number | null) => {
@@ -279,9 +283,14 @@ export function lignesPays(t: TableauPays, periode: Periode): LignePays[] {
       } else if (manque > 0) {
         recommandation = "recruter";
         raison = `objectif ${objectif} comptes, ${pipeline} en place ou en route${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
-      } else if (manque < 0) {
+      } else if (objectif < actifs) {
+        // Réduire seulement si l'objectif passe sous les comptes actifs ; des
+        // cohortes ou offres en route au-delà de l'objectif, c'est « maintenir ».
         recommandation = "reduire";
-        raison = `${pipeline} comptes en place ou en route pour un objectif de ${objectif}${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
+        raison = `${actifs} comptes actifs pour un objectif de ${objectif}${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
+      } else if (manque < 0) {
+        recommandation = "maintenir";
+        raison = `objectif ${objectif} couvert : ${pipeline} en place ou en route${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
       } else {
         recommandation = "maintenir";
         raison = roi !== null ? `ROI ${arrondi(roi, 1)}, objectif atteint` : "objectif atteint";
@@ -296,6 +305,7 @@ export function lignesPays(t: TableauPays, periode: Periode): LignePays[] {
         rpm_new: p.proceedsNew === null || !p.vues ? null : arrondi((p.proceedsNew / p.vues) * 1000, 3),
         baseline: base === null ? null : arrondi(base),
         incremental: arrondi(p.incremental),
+        sans_posteurs: arrondi(sansPosteurs ? p.proceeds : Math.max(0, p.proceeds - p.incremental)),
         rpm_incremental: p.vues ? arrondi((p.incremental / p.vues) * 1000, 3) : null,
         cout: p.cout === null ? null : arrondi(p.cout),
         cout_estime: p.estime,
@@ -357,7 +367,7 @@ export interface CibleHm {
  * HM restent dans « sans HM ».
  */
 export function ciblesParHm(lignes: LignePays[], hms: HmZone[]): { cibles: CibleHm[]; sansHm: { pays: string; nombre: number }[] } {
-  const zones = hms.map((hm) => ({ hm, pays: new Set(paysDeZone(hm.zone, nomVersCode).map(marcheDe)) }));
+  const zones = hms.map((hm) => ({ hm, pays: new Set(paysDeZone(hm.zone, nomVersCode)) }));
   const cibles = new Map<string, CibleHm>();
   const sansHm: { pays: string; nombre: number }[] = [];
   for (const l of lignes) {
@@ -463,4 +473,273 @@ export function libelleMarche(cle: string, langue: string): string {
   } catch {
     return cle;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Refonte (2/11) : vue d'ensemble, à faire, top / flop, recrutement, comptes.
+// ---------------------------------------------------------------------------
+
+export interface TotauxPeriode {
+  proceeds: number;
+  cout: number;
+  roi: number | null;
+  rpm: number | null;
+  vues: number;
+  sans_posteurs: number;
+  incremental: number;
+}
+
+/**
+ * Les totaux d'une période. ROI global = Σ proceeds incrémentaux ÷ Σ paie, sur
+ * les pays qui ont une paie ; « sans posteurs » = baseline des pays où l'on
+ * poste + tout le revenu des pays sans posteur.
+ */
+export function totauxPeriode(lignes: LignePays[]): TotauxPeriode {
+  const avecPaie = lignes.filter((l) => l.cout !== null && l.cout > 0 && !l.revenu_sans_posteurs);
+  const proceeds = lignes.reduce((n, l) => n + l.proceeds, 0);
+  const vues = lignes.reduce((n, l) => n + l.vues, 0);
+  const cout = avecPaie.reduce((n, l) => n + (l.cout ?? 0), 0);
+  const incremental = avecPaie.reduce((n, l) => n + (l.incremental ?? 0), 0);
+  return {
+    proceeds: arrondi(proceeds),
+    cout: arrondi(cout),
+    roi: cout ? arrondi(incremental / cout, 1) : null,
+    rpm: vues ? arrondi((proceeds / vues) * 1000, 2) : null,
+    vues,
+    sans_posteurs: arrondi(lignes.reduce((n, l) => n + l.sans_posteurs, 0)),
+    incremental: arrondi(incremental),
+  };
+}
+
+/** Variation en % (null si la période d'avant est vide). */
+export function variation(maintenant: number | null, avant: number | null): number | null {
+  if (maintenant === null || avant === null || avant === 0) return null;
+  return Math.round(((maintenant - avant) / Math.abs(avant)) * 100);
+}
+
+export interface SemaineTotale {
+  semaine: string;
+  proceeds: number;
+  cout: number;
+  vues: number;
+}
+
+/** Les n dernières semaines complètes, tous pays : proceeds, paie (EUR), vues. */
+export function serieHebdo(t: TableauPays, n = 8): SemaineTotale[] {
+  const taux = Number(t.reglages.taux_usd_eur ?? 0.86);
+  return semainesCompletes(t.lundi, n).map((w) => {
+    const dans = t.semaines.filter((s) => s.semaine === w);
+    return {
+      semaine: w,
+      proceeds: arrondi(dans.reduce((x, s) => x + s.proceeds, 0)),
+      cout: arrondi(dans.reduce((x, s) => x + (s.cout_reel ?? s.cout_estime ?? 0), 0) * taux),
+      vues: dans.reduce((x, s) => x + s.vues, 0),
+    };
+  });
+}
+
+/** La série d'un pays sur n semaines : proceeds, vues, RPM. */
+export function seriePays(t: TableauPays, pays: string, n = 8): { semaine: string; proceeds: number; vues: number; rpm: number | null }[] {
+  return semainesCompletes(t.lundi, n).map((w) => {
+    const s = t.semaines.find((x) => x.pays === pays && x.semaine === w);
+    const proceeds = s?.proceeds ?? 0;
+    const vues = s?.vues ?? 0;
+    return { semaine: w, proceeds, vues, rpm: vues ? arrondi((proceeds / vues) * 1000, 2) : null };
+  });
+}
+
+export type TypeAFaire = "recruter" | "arreter" | "reduire" | "surveiller";
+export interface AFaire {
+  type: TypeAFaire;
+  pays: string;
+  nombre?: number;
+  detail?: string;
+}
+
+/**
+ * « À faire cette semaine », 5 lignes au plus : arrêter (pays retiré ou ROI
+ * < 0,5 sur 4 semaines), recruter (les plus gros manques, meilleur ROI d'abord),
+ * surveiller (RPM en baisse de plus de 30 % vs les 4 semaines d'avant, à plus
+ * de 50 000 vues), réduire.
+ */
+export function aFaireSemaine(lignes: LignePays[], avant: LignePays[], max = 5): AFaire[] {
+  const prec = new Map(avant.map((l) => [l.pays, l]));
+  const decision = lignes.filter((l) => !l.revenu_sans_posteurs);
+  const arreter = decision
+    .filter((l) => l.recommandation === "arreter" && (l.actifs > 0 || l.pipeline > 0))
+    .map((l): AFaire => ({ type: "arreter", pays: l.pays }));
+  const recruter = decision
+    .filter((l) => l.recommandation === "recruter" && l.manque > 0)
+    .sort((a, b) => b.manque - a.manque || (b.roi ?? 0) - (a.roi ?? 0))
+    .map((l): AFaire => ({ type: "recruter", pays: l.pays, nombre: l.manque }));
+  const surveiller = decision
+    .filter((l) => {
+      const p = prec.get(l.pays);
+      return l.vues >= 50_000 && l.rpm !== null && p?.rpm && l.rpm < p.rpm * 0.7;
+    })
+    .map((l): AFaire => ({ type: "surveiller", pays: l.pays, detail: "rpm" }));
+  const reduire = decision.filter((l) => l.recommandation === "reduire").map((l): AFaire => ({ type: "reduire", pays: l.pays, nombre: l.actifs - l.objectif }));
+  return [...arreter.slice(0, 1), ...recruter.slice(0, 3), ...surveiller.slice(0, 1), ...arreter.slice(1), ...recruter.slice(3), ...reduire].slice(0, max);
+}
+
+/** Top et flop par ROI (pays avec une paie et des proceeds). */
+export function topFlopRoi(lignes: LignePays[], n = 5): { top: LignePays[]; flop: LignePays[] } {
+  const notes = lignes.filter((l) => l.roi !== null && !l.revenu_sans_posteurs && (l.cout ?? 0) > 0);
+  const tries = [...notes].sort((a, b) => (b.roi ?? 0) - (a.roi ?? 0));
+  return { top: tries.slice(0, n), flop: tries.slice(-n).reverse() };
+}
+
+export interface AnnonceUpwork {
+  titre: string | null;
+  pays: string | null;
+  generique: boolean | null;
+  vue_at: string | null;
+  contrats_21j: number;
+}
+
+/**
+ * Une annonce est active pour un pays si elle a amené un contrat dans les 21
+ * derniers jours. (vue_at ne dit pas qu'elle est ouverte : toutes les annonces
+ * ont été « vues » le 28/10, à l'amorçage depuis les contrats.)
+ */
+export function annoncesActives(annonces: AnnonceUpwork[]): Set<string> {
+  const actifs = new Set<string>();
+  for (const a of annonces) {
+    const p = a.pays ?? paysDeTitre(a.titre);
+    if (!p) continue;
+    if (a.contrats_21j > 0) actifs.add(p);
+  }
+  return actifs;
+}
+
+export interface LigneHm {
+  hm: string;
+  pays: string;
+  manque: number;
+  offres: number;
+  annonce: boolean;
+}
+
+/** Le tableau par HM (selon sa zone de recrutement) : pays, manque, offres en attente, annonce active. */
+export function tableauHm(lignes: LignePays[], hms: HmZone[], actives: Set<string>): LigneHm[] {
+  const parPays = new Map(lignes.map((l) => [l.pays, l]));
+  const out: LigneHm[] = [];
+  for (const hm of hms) {
+    for (const p of paysDeZone(hm.zone, nomVersCode)) {
+      const l = parPays.get(p);
+      out.push({ hm: hm.nom ?? hm.id, pays: p, manque: l ? Math.max(0, l.manque) : 0, offres: l?.offres ?? 0, annonce: actives.has(p) });
+    }
+  }
+  return out.sort((a, b) => a.hm.localeCompare(b.hm) || b.manque - a.manque);
+}
+
+export type StatutCompte = "bon" | "moyen" | "sous_seuil";
+
+/** Statut d'un compte sur ses vues des 7 derniers jours : bon ≥ 2 × seuil, moyen ≥ seuil, sinon sous le seuil. */
+export function statutCompte(vues7j: number, seuil: number): StatutCompte {
+  if (vues7j >= seuil * 2) return "bon";
+  if (vues7j >= seuil) return "moyen";
+  return "sous_seuil";
+}
+
+/** Le drapeau d'un code pays (🇩🇪), vide sinon. */
+export function drapeau(code: string): string {
+  if (!/^[A-Z]{2}$/.test(code)) return "";
+  return String.fromCodePoint(...[...code].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65));
+}
+
+/** Le nom d'un pays dans la langue de l'écran. */
+export function nomPays(code: string, langue: string): string {
+  if (!/^[A-Z]{2}$/.test(code)) return code;
+  try {
+    return new Intl.DisplayNames([langue], { type: "region" }).of(code) ?? code;
+  } catch {
+    return code;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 0516 (2/11) : la cohorte du lundi : objectif / offres envoyées / acceptées /
+// restant, par pays et par HM (la HM des nouvelles recrues de chaque pays).
+// ---------------------------------------------------------------------------
+
+export interface HmPays {
+  pays: string;
+  hm_id: string | null;
+  hm_nom: string;
+  zone: "A" | "B" | "C";
+}
+
+export interface AlerteOffre {
+  contrat_id: string | null;
+  offre_id: string | null;
+  hm_nom: string | null;
+  pays: string | null;
+  motif: "hors_vik" | "nb_milestones" | "montant" | "nom_1er" | "echeance_1er" | "plusieurs_finances";
+  detail: string | null;
+  created_at: string;
+}
+
+export interface RecrutementCohorte {
+  lundi: string;
+  objectifs: { pays: string; nombre: number }[];
+  hm_pays: HmPays[];
+  acceptees: { contrat_id: string; pays: string | null; hm_id: string | null; hm_nom: string | null; debut_at: string | null }[];
+  en_attente: { offre_id: string; titre: string | null; debut_at: string | null }[];
+  offres_lues_at: string | null;
+  alertes: AlerteOffre[];
+}
+
+export interface LigneCohorte {
+  pays: string;
+  hm: string;
+  zone: string | null;
+  objectif: number;
+  acceptees: number;
+  en_attente: number;
+  /** Offres envoyées = acceptées + en attente. */
+  envoyees: number;
+  /** Ce qu'il reste à envoyer : objectif − envoyées, jamais négatif. */
+  restant: number;
+}
+
+/** La cohorte en cours : le lundi qui suit (une offre acceptée le dimanche compte pour le lundi d'après), comme cohorte_lundi_de. */
+export function cohorteEnCours(aujourdhui: string): string {
+  const d = new Date(`${aujourdhui}T12:00:00Z`);
+  const iso = d.getUTCDay() === 0 ? 7 : d.getUTCDay();
+  return ajouterJours(aujourdhui, iso === 7 ? 8 : 8 - iso);
+}
+
+/** Une ligne par pays qui a un objectif, une offre ou une recrue cette cohorte ; triée par HM puis par restant. */
+export function lignesCohorte(c: RecrutementCohorte): LigneCohorte[] {
+  const hmDe = new Map(c.hm_pays.map((h) => [h.pays, h]));
+  const objectif = new Map(c.objectifs.map((o) => [o.pays, Number(o.nombre ?? 0)]));
+  const acc = new Map<string, number>();
+  for (const a of c.acceptees) if (a.pays) acc.set(a.pays, (acc.get(a.pays) ?? 0) + 1);
+  const att = new Map<string, number>();
+  for (const o of c.en_attente) {
+    const p = paysDeTitre(o.titre);
+    if (p) att.set(p, (att.get(p) ?? 0) + 1);
+  }
+  const pays = new Set([...objectif.keys(), ...acc.keys(), ...att.keys()]);
+  return [...pays].map((p): LigneCohorte => {
+    const o = objectif.get(p) ?? 0;
+    const a = acc.get(p) ?? 0;
+    const e = att.get(p) ?? 0;
+    return { pays: p, hm: hmDe.get(p)?.hm_nom ?? "—", zone: hmDe.get(p)?.zone ?? null, objectif: o, acceptees: a, en_attente: e, envoyees: a + e, restant: Math.max(0, o - a - e) };
+  }).sort((x, y) => x.hm.localeCompare(y.hm) || y.restant - x.restant || y.objectif - x.objectif || x.pays.localeCompare(y.pays));
+}
+
+/** Les totaux par HM (objectif, envoyées, acceptées, restant). */
+export function totauxHm(lignes: LigneCohorte[]): { hm: string; objectif: number; envoyees: number; acceptees: number; restant: number }[] {
+  const m = new Map<string, { hm: string; objectif: number; envoyees: number; acceptees: number; restant: number }>();
+  for (const l of lignes) {
+    const t = m.get(l.hm) ?? { hm: l.hm, objectif: 0, envoyees: 0, acceptees: 0, restant: 0 };
+    t.objectif += l.objectif;
+    t.envoyees += l.envoyees;
+    t.acceptees += l.acceptees;
+    t.restant += l.restant;
+    m.set(l.hm, t);
+  }
+  return [...m.values()].sort((a, b) => b.restant - a.restant || a.hm.localeCompare(b.hm));
 }

@@ -1868,6 +1868,31 @@
     "6": "7696527080426655009_6"
    },
    "notes": "nouvelle accroche (semaine notée); cta A"
+  },
+  {
+   "post_id": "original-040",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #attentionspan #overstimulated",
+   "musique": {
+    "titre": "escape",
+    "auteur": "Kilgore Doubtfire",
+    "original": true,
+    "id": "6966304045443107589",
+    "url_tiktok": "https://www.tiktok.com/music/x-6966304045443107589"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7692093201968090401_1",
+    "2": "7685736268617059616_3",
+    "3": "7684726544442346774_2",
+    "4": "7699386616988650774_4",
+    "5": "7699939278847085857_6",
+    "6": "7683541501007252758_6"
+   },
+   "notes": "essai (recadrage de @gabe.rothh); cta B"
   }
  ]
 }

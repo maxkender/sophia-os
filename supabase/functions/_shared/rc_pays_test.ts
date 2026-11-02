@@ -11,6 +11,7 @@ Deno.test("Pays : la semaine RevenueCat (dimanche UTC) va sous le lundi de l'OS"
 
 Deno.test("Pays : noms RevenueCat → codes ISO", () => {
   assertEquals(codePays("Germany"), "DE");
+  assertEquals(codePays("France"), "FR");
   assertEquals(codePays("Türkiye"), "TR");
   assertEquals(codePays("United States"), "US");
   assertEquals(codePays("United Kingdom"), "GB");

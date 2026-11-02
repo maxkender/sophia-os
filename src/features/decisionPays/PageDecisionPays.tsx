@@ -12,11 +12,13 @@ import { localeDate } from "@/locales/localeDate";
 import { fixerObjectifPays, lireComptesPays, lireTableauPays } from "./api";
 import {
   ciblesParHm,
+  libelleMarche,
   type LignePays,
   lignesPays,
   type Periode,
   PERIODES,
   type Recommandation,
+  regrouperParLangue,
   semainesCompletes,
   type TableauPays,
   totaux,
@@ -71,7 +73,11 @@ function DetailPays({ ligne, t: tab, devise }: { ligne: LignePays; t: TableauPay
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
   const qc = useQueryClient();
-  const comptes = useQuery({ queryKey: ["decision-pays", "comptes", ligne.pays], queryFn: () => lireComptesPays(ligne.pays) });
+  const membres = ligne.info.membres?.length ? ligne.info.membres : [ligne.pays];
+  const comptes = useQuery({
+    queryKey: ["decision-pays", "comptes", ...membres],
+    queryFn: async () => (await Promise.all(membres.map((p) => lireComptesPays(p)))).flat(),
+  });
   const [objectif, setObjectif] = React.useState<string>(ligne.objectif_manuel ? String(ligne.objectif) : "");
   const enregistrer = useMutation({
     mutationFn: () => fixerObjectifPays(ligne.pays, objectif.trim() === "" ? null : Math.max(0, Math.round(Number(objectif))), ligne.info.note),
@@ -87,7 +93,7 @@ function DetailPays({ ligne, t: tab, devise }: { ligne: LignePays; t: TableauPay
   return (
     <Card data-testid="detail-pays">
       <CardHeader>
-        <CardTitle className="text-base">{t("decisionPays.detail.titre", { pays: ligne.pays })}</CardTitle>
+        <CardTitle className="text-base">{t("decisionPays.detail.titre", { pays: `${libelleMarche(ligne.pays, langue)} (${membres.join(", ")})` })}</CardTitle>
         <CardDescription>{ligne.raison}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -187,7 +193,8 @@ export function PageDecisionPays() {
   if (lu.isLoading) return <p className="text-sm text-muted-foreground">{t("decisionPays.chargement")}</p>;
   if (lu.error || !lu.data) return <p className="text-sm text-destructive">{(lu.error as Error | undefined)?.message ?? "—"}</p>;
 
-  const tab = lu.data;
+  // 2/11 : un marché par langue (Espagne et LATAM à part).
+  const tab = regrouperParLangue(lu.data);
   const devise = tab.devise ?? "EUR";
   const toutes = lignesPays(tab, periode);
   const lignes = toutes
@@ -202,8 +209,8 @@ export function PageDecisionPays() {
   const detail = choisi ? toutes.find((l) => l.pays === choisi) ?? null : null;
   const prep = ciblesParHm(lignes, tab.hms);
   const texteCibles = [
-    ...prep.cibles.map((c) => `${c.hm.nom ?? c.hm.id} : ${c.lignes.map((l) => `${l.pays} +${l.nombre}`).join(", ")} (${c.total})`),
-    ...(prep.sansHm.length ? [`${t("decisionPays.cibles.sansHm")} : ${prep.sansHm.map((l) => `${l.pays} +${l.nombre}`).join(", ")}`] : []),
+    ...prep.cibles.map((c) => `${c.hm.nom ?? c.hm.id} : ${c.lignes.map((l) => `${libelleMarche(l.pays, langue)} +${l.nombre}`).join(", ")} (${c.total})`),
+    ...(prep.sansHm.length ? [`${t("decisionPays.cibles.sansHm")} : ${prep.sansHm.map((l) => `${libelleMarche(l.pays, langue)} +${l.nombre}`).join(", ")}`] : []),
   ].join("\n");
 
   return (
@@ -280,7 +287,13 @@ export function PageDecisionPays() {
               {lignes.map((l) => (
                 <tr key={l.pays} onClick={() => setChoisi(l.pays === choisi ? null : l.pays)}
                   className={cn("cursor-pointer border-t hover:bg-muted/30", l.revenu_sans_posteurs && "text-muted-foreground", choisi === l.pays && "bg-muted/40")}>
-                  <td className="whitespace-nowrap px-2 py-1.5 font-medium">{l.pays}{l.zone ? <span className="ml-1 text-xs text-muted-foreground">{l.zone}</span> : null}</td>
+                  <td className="whitespace-nowrap px-2 py-1.5 font-medium" title={(l.info.membres ?? []).join(", ")}>
+                    {libelleMarche(l.pays, langue)}
+                    {l.info.membres && l.info.membres.length > 0 && l.info.membres.join("") !== l.pays && (
+                      <span className="ml-1 text-xs text-muted-foreground">{l.info.membres.slice(0, 4).join(" ")}{l.info.membres.length > 4 ? "…" : ""}</span>
+                    )}
+                    {l.zone ? <span className="ml-1 text-xs text-muted-foreground">· {l.zone}</span> : null}
+                  </td>
                   <td className="px-2 py-1.5 text-right tabular-nums">{nombre(l.vues, langue)}</td>
                   <td className="px-2 py-1.5 text-right tabular-nums">{euros(l.proceeds, langue, devise)}</td>
                   <td className="px-2 py-1.5 text-right tabular-nums">{nombre(l.rpm, langue, 2)}</td>

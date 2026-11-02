@@ -43,6 +43,8 @@ export interface InfoPays {
   cohorte_suivante: number;
   start_tuesday: number;
   postpone: number;
+  /** Marché de langue : les pays regroupés (regrouperParLangue). */
+  membres?: string[];
 }
 
 export interface OffreAttente {
@@ -225,7 +227,7 @@ export function lignesPays(t: TableauPays, periode: Periode): LignePays[] {
   const offresPays = new Map<string, number>();
   for (const o of t.offres) {
     const p = paysDeTitre(o.titre);
-    if (p) offresPays.set(p, (offresPays.get(p) ?? 0) + 1);
+    if (p) offresPays.set(marcheDe(p), (offresPays.get(marcheDe(p)) ?? 0) + 1);
   }
 
   const calcul = (semaines: SemainePays[], fen: Set<string>, base: number | null) => {
@@ -355,7 +357,7 @@ export interface CibleHm {
  * HM restent dans « sans HM ».
  */
 export function ciblesParHm(lignes: LignePays[], hms: HmZone[]): { cibles: CibleHm[]; sansHm: { pays: string; nombre: number }[] } {
-  const zones = hms.map((hm) => ({ hm, pays: new Set(paysDeZone(hm.zone, nomVersCode)) }));
+  const zones = hms.map((hm) => ({ hm, pays: new Set(paysDeZone(hm.zone, nomVersCode).map(marcheDe)) }));
   const cibles = new Map<string, CibleHm>();
   const sansHm: { pays: string; nombre: number }[] = [];
   for (const l of lignes) {
@@ -371,4 +373,94 @@ export function ciblesParHm(lignes: LignePays[], hms: HmZone[]): { cibles: Cible
     cibles.set(z.hm.id, c);
   }
   return { cibles: [...cibles.values()].sort((a, b) => b.total - a.total), sansHm };
+}
+
+/**
+ * 2/11 (Max) : les pays de même langue comptent comme un seul marché, sauf
+ * l'espagnol, décliné en Espagne (es) et LATAM (es-419), comme les langues de
+ * l'OS (pt et pt-BR restent aussi distincts). Un pays absent de la liste reste
+ * seul (TR, HU, IT…).
+ */
+const LANGUE_PAYS: Record<string, string[]> = {
+  de: ["DE", "AT", "CH", "LI"],
+  fr: ["FR", "BE", "LU", "MC", "RE", "GP", "MQ", "GF", "YT", "NC", "PF"],
+  en: ["US", "GB", "CA", "AU", "NZ", "IE"],
+  es: ["ES"],
+  "es-419": ["MX", "CO", "AR", "CL", "PE", "EC", "VE", "UY", "PY", "BO", "CR", "DO", "GT", "HN", "SV", "NI", "PA", "CU", "PR"],
+  pt: ["PT"],
+  "pt-BR": ["BR"],
+  el: ["GR", "CY"],
+  ar: ["AE", "SA", "QA", "OM", "KW", "BH", "EG", "MA", "DZ", "TN", "JO", "LB", "IQ"],
+  ru: ["RU", "BY", "KZ"],
+};
+const MARCHE_DE_PAYS = new Map(Object.entries(LANGUE_PAYS).flatMap(([l, ps]) => ps.map((p) => [p, l] as const)));
+
+/** Le marché d'un pays : le code de langue (« de », « es-419 »), ou le pays lui-même. */
+export function marcheDe(pays: string): string {
+  return MARCHE_DE_PAYS.get(pays) ?? pays;
+}
+
+/** Le tableau, regroupé par marché de langue (mêmes champs, `pays` = le marché). */
+export function regrouperParLangue(t: TableauPays): TableauPays {
+  const somme = (a: number | null, b: number | null) => (a === null && b === null ? null : (a ?? 0) + (b ?? 0));
+  const semaines = new Map<string, SemainePays>();
+  for (const s of t.semaines) {
+    const m = marcheDe(s.pays);
+    const cle = `${m}|${s.semaine}`;
+    const x = semaines.get(cle);
+    if (!x) {
+      semaines.set(cle, { ...s, pays: m });
+      continue;
+    }
+    x.vues += s.vues;
+    x.comptes += s.comptes;
+    x.sous_seuil += s.sous_seuil;
+    x.proceeds += s.proceeds;
+    x.proceeds_new = somme(x.proceeds_new, s.proceeds_new);
+    x.transactions += s.transactions;
+    x.incomplet = x.incomplet || s.incomplet;
+    x.cout_reel = somme(x.cout_reel, s.cout_reel);
+    x.cout_estime = somme(x.cout_estime, s.cout_estime);
+    x.comptes_publies += s.comptes_publies;
+  }
+  const groupes = new Map<string, InfoPays[]>();
+  for (const p of t.pays) {
+    const m = marcheDe(p.pays);
+    groupes.set(m, [...(groupes.get(m) ?? []), p]);
+  }
+  const pays = [...groupes.entries()].map(([m, membres]): InfoPays => {
+    const principal = [...membres].filter((p) => p.zone).sort((a, b) => b.comptes_actifs - a.comptes_actifs)[0] ?? membres[0];
+    const propre = membres.find((p) => p.pays === m);
+    const posts = membres.map((p) => p.premier_post).filter((d): d is string => Boolean(d)).sort();
+    const total = (k: "posteurs_actifs" | "comptes_actifs" | "cohorte_en_cours" | "cohorte_suivante" | "start_tuesday" | "postpone") =>
+      membres.reduce((n, p) => n + (p[k] ?? 0), 0);
+    return {
+      pays: m,
+      zone: principal.zone,
+      zone_retiree: membres.every((p) => p.zone_retiree),
+      tarif: principal.tarif,
+      objectif: propre?.objectif ?? null,
+      note: propre?.note ?? null,
+      premier_post: posts[0] ?? null,
+      posteurs_actifs: total("posteurs_actifs"),
+      comptes_actifs: total("comptes_actifs"),
+      cohorte_en_cours: total("cohorte_en_cours"),
+      cohorte_suivante: total("cohorte_suivante"),
+      start_tuesday: total("start_tuesday"),
+      postpone: total("postpone"),
+      membres: membres.map((p) => p.pays).filter((p) => /^[A-Z]{2}$/.test(p)).sort(),
+    };
+  });
+  return { ...t, semaines: [...semaines.values()], pays };
+}
+
+/** « Allemand », « Espagnol d'Amérique latine »… ; un pays seul garde son code. */
+export function libelleMarche(cle: string, langue: string): string {
+  if (/^[A-Z]{2}$/.test(cle)) return cle;
+  try {
+    const nom = new Intl.DisplayNames([langue], { type: "language" }).of(cle);
+    return nom ? nom.charAt(0).toUpperCase() + nom.slice(1) : cle;
+  } catch {
+    return cle;
+  }
 }

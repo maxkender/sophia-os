@@ -47,6 +47,7 @@ import {
   Users,
   UserPlus,
   Wallet,
+  Globe2,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
@@ -292,6 +293,13 @@ export function AdminLayout() {
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
+            },
+            // 2/11 : la page Pays (décision par marché de langue).
+            {
+              to: "/admin/pays",
+              label: t("nav.pays"),
+              icon: Globe2,
+              description: t("navDesc.pays"),
             },
             {
               to: "/admin/file-reviews",

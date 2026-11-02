@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o093",
+ "type_bleo": "full_test",
+ "titre": "ce que j'aurais voulu savoir avant mon premier jour dans une grande boîte #premierjob #travail #carriere #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous. Aucune vraie entreprise nommée, conseils généraux. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ef994503",
+   "texte_overlay": "ce que j'aurais voulu savoir\navant mon premier jour\ndans une grande boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ea65edfa",
+   "texte_overlay": "personne ne lit les mails de plus de 5 lignes\nécris court, la demande en premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ea715590",
+   "texte_overlay": "ton n+2 compte autant que ton manager\nsache ce qu'il attend de ton équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ea73b049",
+   "texte_overlay": "les décisions se prennent souvent avant la réunion\nparle aux gens avant, pas seulement pendant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eac46308",
+   "texte_overlay": "les process sont lents\nça ne veut pas dire que t'es mauvaise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12fc9cd0",
+   "texte_overlay": "tout le monde a l'air de tout savoir\nperso, j'ai rattrapé mon retard avec 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "tout le monde a l'air de tout savoir\nperso, j'ai rattrapé mon retard avec 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ebef3cfc",
+   "texte_overlay": "trouve une personne qui connaît la maison\net invite-la à déjeuner la 1re semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ec2f9acd",
+   "texte_overlay": "tu commences bientôt ?\ndis-nous dans quel métier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o094",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39b4b04c-a132-45bc-b7bf-71eb613bdeb0",
+ "titre": "6 réponses d'entretien « pas tout à fait vraies »… et j'ai eu le poste #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G2 de la ligne 1 (parent 39b4b04c, 68 k vues en el) : même promesse, autres mots. Autres questions, même format question / j'ai dit / la vérité. Recadrage vrai, rien d'inventé. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f117020c",
+   "texte_overlay": "6 réponses d'entretien\n« pas tout à fait vraies »…\net j'ai eu le poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ecdfa3da",
+   "texte_overlay": "« vous connaissez notre outil ? »\nj'ai dit « pas encore, je l'apprends cette semaine »\nla vérité : je ne le connaissais pas du tout. le soir même, j'ai commencé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ed29d0a5",
+   "texte_overlay": "« pourquoi ce secteur ? »\nj'ai dit « parce que vos sujets me parlent depuis longtemps »\nla vérité : depuis un an. ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "edec7607",
+   "texte_overlay": "« vous lisez quoi ? »\nj'ai dit « des trucs d'histoire, un peu chaque jour »\nla vérité : 5 minutes par jour, pas plus. mais vrai",
+   "texte_sophia": "« vous lisez quoi ? »\nj'ai dit « des trucs d'histoire, un peu chaque jour »\nla vérité : 5 minutes par jour sur l'appli Sophia. mais vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "edf600cc",
+   "texte_overlay": "« vous êtes organisée ? »\nj'ai dit « j'ai une méthode, je vous la montre »\nla vérité : une simple liste sur papier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ee2511a8",
+   "texte_overlay": "« vous gérez bien le stress ? »\nj'ai dit « je prépare, et ça se passe mieux »\nla vérité : j'avais préparé cet entretien 3 jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eeb77022",
+   "texte_overlay": "« pourquoi vous ? »\nj'ai dit « parce que je suis déjà en train d'apprendre ce qui me manque »\nla vérité : c'était exactement ça",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "eed00746",
+   "texte_overlay": "je n'ai rien inventé.\nj'ai choisi comment dire la vérité. et toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

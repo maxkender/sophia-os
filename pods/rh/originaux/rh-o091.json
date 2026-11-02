@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o091",
+ "type_bleo": "full_test",
+ "titre": "j'ai passé 30 entretiens en 2 mois : ce qui a changé entre le 1er et le 30e #entretien #rechercheemploi #emploi #confiance #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (« 30 entretiens »). Récit à la 1re personne, rien d'inventé sur un parcours réel, aucune entreprise citée. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee804502",
+   "texte_overlay": "j'ai passé 30 entretiens en 2 mois :\nce qui a changé\nentre le 1er et le 30e",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e2427126",
+   "texte_overlay": "au 1er, je récitais mon cv\nau 30e, je racontais 3 histoires. une par compétence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e33bbcef",
+   "texte_overlay": "au 1er, je disais oui à tout\nau 30e, je demandais « qu'est-ce qui vous ferait dire que c'est une réussite ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e3ef0d0d",
+   "texte_overlay": "au 1er, je stressais sur les questions pièges\nau 30e, je savais qu'il y en a 10, toujours les mêmes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0d9e3856",
+   "texte_overlay": "au 1er, je n'avais rien à dire sur moi\nau 30e, j'avais un sujet à moi. 5 minutes par jour à apprendre un truc, et t'en as un aussi",
+   "texte_sophia": "au 1er, je n'avais rien à dire sur moi\nau 30e, j'avais un sujet à moi. utilise l'appli Sophia 5 minutes par jour, et t'en as un aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e521e20b",
+   "texte_overlay": "au 1er, je partais sans question\nau 30e, j'en avais 2, notées sur une feuille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e5de51b5",
+   "texte_overlay": "au 30e, j'ai eu le poste\npas parce que j'étais meilleure. parce que j'étais prête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e5ef05b4",
+   "texte_overlay": "t'en es à combien d'entretiens ?\nécris ton numéro",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

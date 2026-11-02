@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o092",
+ "type_bleo": "full_test",
+ "titre": "les compétences que t'as déjà mais que tu n'oses pas mettre sur ton cv #cv #competences #candidature #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 3. Full test : accroche jamais faite chez nous. On ne s'invente aucune compétence : on nomme celles qu'on a vraiment, avec une preuve. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ef60ae98",
+   "texte_overlay": "les compétences que t'as déjà\nmais que tu n'oses pas mettre\nsur ton cv",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e66002e9",
+   "texte_overlay": "gérer un budget\nt'as organisé un voyage de groupe ou un événement d'asso ? c'en est un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e6a64220",
+   "texte_overlay": "apprendre vite\nmes 3 preuves : une formation en ligne finie, une langue commencée, et ce que j'apprends chaque jour",
+   "texte_sophia": "apprendre vite\nmes 3 preuves : une formation en ligne finie, une langue commencée, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e6e276e1",
+   "texte_overlay": "gérer un client difficile\nun job d'été en caisse, ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e727652e",
+   "texte_overlay": "former quelqu'un\nt'as expliqué ton poste au nouveau ? écris-le",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0e8b057a",
+   "texte_overlay": "tenir des délais\nun mémoire rendu à l'heure, un projet bouclé à temps",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e9ba7148",
+   "texte_overlay": "seulement si c'est vrai\net avec un exemple prêt pour l'entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ea386751",
+   "texte_overlay": "laquelle t'as oublié de mettre ?\nréponds par son nom",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,510 @@
+{
+ "id": "yp-022",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7664208221808135446",
+  "vues": 122200,
+  "enregistrements": 6415,
+  "publie_le": "2026-07-19",
+  "titre": "things i do to SMASH EVERY EXAM part 1"
+ },
+ "titre": {
+  "fr": "ce que je fais pour réussir tous mes exams, partie 4",
+  "en": "things i do to smash every exam, part 4",
+  "es": "lo que hago para aprobar todos mis exámenes, parte 4",
+  "de": "was ich tue, um jede Prüfung zu rocken, Teil 4",
+  "it": "cosa faccio per superare ogni esame, parte 4",
+  "pt": "o que eu faço para arrasar em todas as provas, parte 4",
+  "tr": "her sınavda başarılı olmak için yaptıklarım, bölüm 4"
+ },
+ "legendes": {
+  "fr": "partie 2 : mes habitudes avant chaque exam 📚 #revisions #studytok #examens #bac #thatgirl",
+  "en": "part 4: my habits before every exam 📚 #studying #studytok #exams #studytips #thatgirl",
+  "es": "parte 4: mis hábitos antes de cada examen 📚 #estudiar #studytok #examenes #tipsdeestudio #thatgirl",
+  "de": "Teil 4: meine Gewohnheiten vor jeder Prüfung 📚 #lernen #studytok #prüfungen #lerntipps #thatgirl",
+  "it": "parte 4: le mie abitudini prima di ogni esame 📚 #studiare #studytok #esami #consiglidistudio #thatgirl",
+  "pt": "parte 4: meus hábitos antes de cada prova 📚 #estudos #studytok #provas #dicasdeestudo #thatgirl",
+  "tr": "bölüm 4: her sınavdan önceki alışkanlıklarım 📚 #ders #studytok #sınav #dersçalışma #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7575815280899656462"
+ },
+ "fond": {
+  "media_id": "65354c3a-00aa-4e86-a982-daea7dff7caa",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f74d074d-6736-4cc9-b011-502395d88d54/6.jpg?v=1792601999984",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-004 (« things i do to SMASH EVERY EXAM », 122 k) : partie 4, 5 nouveaux conseils, autres photos. cta A : micabo dans le texte du conseil « fais-toi interroger tous les jours », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais pour",
+     "lignes": [
+      "RÉUSSIR",
+      "TOUS MES",
+      "EXAMS"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "partie 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 28
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "things i do to",
+     "lignes": [
+      "SMASH",
+      "EVERY",
+      "EXAM"
+     ],
+     "taille": 190,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "part 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "lo que hago para",
+     "lignes": [
+      "APROBAR",
+      "TODOS MIS",
+      "EXÁMENES"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "was ich tue, um",
+     "lignes": [
+      "JEDE",
+      "PRÜFUNG",
+      "ZU ROCKEN"
+     ],
+     "taille": 168,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "Teil 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0,
+     "interligne": 1.1
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cosa faccio per",
+     "lignes": [
+      "SUPERARE",
+      "OGNI",
+      "ESAME"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "o que eu faço para",
+     "lignes": [
+      "ARRASAR",
+      "EM TODAS",
+      "AS PROVAS"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "5 tavsiye",
+     "lignes": [
+      "SINAVLARDA",
+      "BAŞARILI",
+      "OLMAK İÇİN"
+     ],
+     "taille": 140,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "bölüm 4",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 22,
+     "interligne": 1.12
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ae13ca04-a48b-4119-be44-c98d419e6445",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ea6bfa57-1e2b-4878-b806-4e2c9e981335/5.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "révise en te promenant.🚶‍♀️",
+     "texte": "relis tes fiches à voix haute en marchant dans ta chambre. bouger aide ton cerveau à retenir."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "study while walking.🚶‍♀️",
+     "texte": "read your notes out loud while pacing your room. moving helps your brain remember."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "estudia caminando.🚶‍♀️",
+     "texte": "lee tus apuntes en voz alta mientras caminas por tu cuarto. moverte ayuda a tu cerebro a recordar."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "lern im Gehen.🚶‍♀️",
+     "texte": "lies deine Notizen laut vor, während du durchs Zimmer läufst. Bewegung hilft deinem Gehirn, sich Dinge zu merken."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "ripassa camminando.🚶‍♀️",
+     "texte": "leggi gli appunti ad alta voce mentre cammini per la stanza. muoverti aiuta il cervello a ricordare."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "estude andando.🚶‍♀️",
+     "texte": "leia o resumo em voz alta andando pelo quarto. se mexer ajuda o cérebro a guardar."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "yürürken çalış.🚶‍♀️",
+     "texte": "odanda dolaşırken notlarını yüksek sesle oku. hareket etmek beyninin hatırlamasına yardım eder."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0e53949d-f758-415f-8f58-b995de02a62f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d0d9a93a-ceb1-4a59-a99c-f1880e3f0a2d/5.jpg?v=1791725576926",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "mélange les matières.🔀",
+     "texte": "2 chapitres de maths puis 1 d’histoire, au lieu de 4 h de maths. ton cerveau reste réveillé."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "mix your subjects.🔀",
+     "texte": "2 chapters of math then 1 of history, instead of 4 hours of math. your brain stays awake."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "mezcla las asignaturas.🔀",
+     "texte": "2 temas de mates y luego 1 de historia, en vez de 4 h de mates. tu cerebro sigue despierto."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "misch die Fächer.🔀",
+     "texte": "2 Kapitel Mathe, dann 1 Geschichte, statt 4 Std. Mathe am Stück. dein Kopf bleibt wach."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "alterna le materie.🔀",
+     "texte": "2 capitoli di matematica e poi 1 di storia, invece di 4 ore di matematica. il cervello resta sveglio."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "misture as matérias.🔀",
+     "texte": "2 capítulos de matemática e depois 1 de história, em vez de 4 h de matemática. seu cérebro fica acordado."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 1150,
+     "titre": "dersleri karıştır.🔀",
+     "texte": "4 saat matematik yerine 2 ünite matematik, sonra 1 ünite tarih. beynin uyanık kalır."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c8447c72-f6d8-4b5b-be6c-ba9b85f8ea7f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9f0753c8-af66-4cf5-8cb7-125febde54ce/1.jpg?v=1791725541940",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "note tes erreurs dans un carnet.📕",
+     "texte": "chaque faute en contrôle va dans le carnet. la veille de l’exam, c’est la seule chose que je relis."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "keep a mistakes notebook.📕",
+     "texte": "every mistake from a test goes in the notebook. the night before the exam, it’s the only thing i reread."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "apunta tus errores en una libreta.📕",
+     "texte": "cada fallo de un examen va a la libreta. la noche antes del examen, es lo único que repaso."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "führ ein Fehlerheft.📕",
+     "texte": "jeder Fehler aus einer Arbeit kommt ins Heft. am Abend vor der Prüfung lese ich nur das."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "tieni un quaderno degli errori.📕",
+     "texte": "ogni errore di una verifica finisce nel quaderno. la sera prima dell’esame è l’unica cosa che rileggo."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "tenha um caderno de erros.📕",
+     "texte": "cada erro de prova vai pro caderno. na véspera da prova, é a única coisa que eu releio."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "bir hata defteri tut.📕",
+     "texte": "sınavdaki her hata deftere gider. sınavdan önceki akşam sadece onu tekrar okurum."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "03374b2e-ed56-48b3-9593-a2a107eafbc9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8cdf6dcc-9f7a-4ee3-87c2-e31a0c55276d/4.jpg?v=1791726237990",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "fais-toi interroger tous les jours.🧠",
+     "texte": "pas besoin d’attendre quelqu’un. je mets mes cours dans micabo et il me pose 10 min de questions chaque matin. ce que je rate revient le lendemain."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "get quizzed every day.🧠",
+     "texte": "no need to wait for someone: i put my lessons into micabo and it asks me 10 minutes of questions every morning. what i miss comes back the next day."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "que te pregunten cada día.🧠",
+     "texte": "no hace falta esperar a nadie: meto mis clases en micabo y me hace 10 min de preguntas cada mañana. lo que fallo vuelve al día siguiente."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "lass dich jeden Tag abfragen.🧠",
+     "texte": "du musst auf niemanden warten: ich packe meinen Stoff in micabo und es fragt mich jeden Morgen 10 Min. ab. was ich falsch habe, kommt am nächsten Tag wieder."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "fatti interrogare ogni giorno.🧠",
+     "texte": "non serve aspettare nessuno: metto le lezioni su micabo e mi fa 10 minuti di domande ogni mattina. quello che sbaglio torna il giorno dopo."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "se faça perguntas todo dia.🧠",
+     "texte": "não precisa esperar ninguém: coloco minhas aulas no micabo e ele me faz 10 min de perguntas toda manhã. o que eu erro volta no dia seguinte."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 308,
+     "y": 1080,
+     "titre": "her gün kendini sınattır.🧠",
+     "texte": "kimseyi beklemene gerek yok: derslerimi micabo’ya koyuyorum, her sabah 10 dakika soru soruyor. yanlış yaptıklarım ertesi gün geri geliyor."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a93ac413-3a08-43c2-b691-2eface73b0f7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55376335-ad2b-47dc-8aa1-03b3d6241fce/2.jpg?v=1791725327896",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "prépare ta tenue d’exam la veille.👟",
+     "texte": "quelque chose de confortable, des couches, une montre. le matin, zéro décision à prendre."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "lay out your exam outfit the night before.👟",
+     "texte": "something comfy, layers, a watch. zero decisions to make in the morning."
+    }
+   },
+   "es": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "prepara tu ropa de examen la noche antes.👟",
+     "texte": "algo cómodo, capas, un reloj. por la mañana, cero decisiones."
+    }
+   },
+   "de": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "leg dein Prüfungsoutfit am Vorabend raus.👟",
+     "texte": "etwas Bequemes, Schichten, eine Uhr. morgens null Entscheidungen."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "prepara il look dell’esame la sera prima.👟",
+     "texte": "qualcosa di comodo, a strati, un orologio. la mattina, zero decisioni da prendere."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "separe a roupa da prova na véspera.👟",
+     "texte": "algo confortável, em camadas, um relógio. de manhã, zero decisões."
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 108,
+     "y": 200,
+     "titre": "sınav kıyafetini bir gece önceden hazırla.👟",
+     "texte": "rahat bir şey, katmanlar, bir saat. sabah hiçbir karar vermene gerek kalmaz."
+    }
+   }
+  }
+ ]
+}

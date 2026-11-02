@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o096",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39aca053-70fa-4237-a68d-992abe096fa6",
+ "titre": "j'ai copié 5 habitudes de la personne la plus calme de mon équipe pendant un mois (et mon stress a fondu) #travail #stress #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 3 (parent 39aca053, 25,6 k vues en el) : accroche mot pour mot, autres habitudes que le parent. Rien de médical. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f2eedb64",
+   "texte_overlay": "j'ai copié 5 habitudes de la personne la plus calme de mon équipe\npendant un mois\n(et mon stress a fondu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f2fe6c8e",
+   "texte_overlay": "elle préparait sa journée la veille\n3 tâches, pas 15. le matin, elle savait par où commencer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f3988857",
+   "texte_overlay": "elle ne répondait pas aux messages pendant une tâche\nelle les lisait toutes les heures",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f3a2875b",
+   "texte_overlay": "elle déjeunait loin de son écran\nmême 20 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "13c083ac",
+   "texte_overlay": "elle apprenait un truc sans rapport avec le boulot chaque jour\n5 minutes, et sa tête sortait du dossier",
+   "texte_sophia": "elle apprenait un truc sans rapport avec le boulot chaque jour\nutilise l'appli Sophia 5 minutes, ta tête sort du dossier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f437cdf9",
+   "texte_overlay": "elle disait « je ne sais pas encore »\nsans paniquer. et elle cherchait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f49d6042",
+   "texte_overlay": "et toi, t'es la personne calme de ton équipe ?\noui, non, j'essaie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -635,12 +635,18 @@ export async function assignerCompteJour(
   // calendrier ni le quota de minuit réel. Bornée elle aussi par (compte, jour).
   const { data: existants } = await supabase
     .from("passages")
-    .select("id, posts!inner(est_test)")
+    .select("id, contenu_id, posts!inner(est_test)")
     .eq("compte_id", compte.id)
     .eq("date_publication_prevue", jour)
     .eq("posts.est_test", estTest);
 
   const dejaLa = existants?.length ?? 0;
+  // Les contenus déjà posés ce jour sur ce compte : ni le plan BLEO ni la
+  // tierlist ne les reprennent (rattrapage du 2/11 : le créneau 1 du plan,
+  // déjà posé la nuit, avait été resservi à 309 comptes).
+  const contenusDuJour = (existants ?? [])
+    .map((e: { contenu_id?: string | null }) => e.contenu_id)
+    .filter((c): c is string => typeof c === "string");
   // Non-écrasement : on ne touche pas aux passages déjà là, on complète
   // seulement jusqu'au quota (1–3) du compte.
   const manquants = forcer ? 1 : Math.max(0, quota - dejaLa);
@@ -798,7 +804,7 @@ export async function assignerCompteJour(
   }
 
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
-  const contenusSession: string[] = [...(o.exclureContenus ?? [])];
+  const contenusSession: string[] = [...(o.exclureContenus ?? []), ...contenusDuJour];
   const maxTentatives = manquants + 8;
   const finir = (detail: AssignationCompteDetail): AssignationCompteDetail =>
     replis.length > 0 ? { ...detail, replis } : detail;

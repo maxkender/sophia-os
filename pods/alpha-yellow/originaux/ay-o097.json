@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o097",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "647dbb39-8006-4255-b8bc-0674e2f2f0d5",
+ "titre": "People skills that make everyone remember you #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "647dbb39-8006-4255-b8bc-0674e2f2f0d5"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 1e97e219. déclinaison G2 de la ligne 4 de la boîte (647dbb39, « Social skills that will make you unforgettable », tr 23,8 k r 5,3, en 16,4 k r 3,45). Même promesse, autres mots. Accroches écrites : « People skills that make everyone remember you » (retenue), « Social skills people never forget » (écartée : trop proche), « How to be the guy people remember » (écartée : quitte la liste de skills). Items neufs, aucun repris du parent (inclure le plus discret…).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e97e219",
+   "texte_overlay": "People skills that make\neveryone remember you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Introducing people to each other well. \"Sam, meet Leo, you both just got back from Japan.\" Giving two strangers something in common makes you the host everyone remembers.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Remembering what matters to people. Their sister's wedding, their exam, their new puppy. Asking about it a month later shows you actually care, and people never forget that.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Giving specific compliments. Not \"nice shirt\" but \"that colour really suits you.\" Precise praise feels sincere, and sincere praise stays with people for years.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Bring something new to every conversation. I do five minutes a day of history, art or science, and I always have a fun fact that makes people say \"wait, really?\"",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a fun fact that makes people stop and say \"wait, really?\"",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Making people feel welcome in a group. Notice the new person standing alone and pull them in. \"Come join us, we're arguing about pizza toppings.\" That kindness is unforgettable.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keeping your word on small things. If you say you'll send the link, send it today. Reliable people are rare, and everyone remembers the guy who always does what he says.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Saying goodbye properly. Find the host, thank them, say goodbye to the people you met. Leaving warmly is the last impression you make, and it's the one that sticks.",
+   "media_id": "a75b8832"
+  }
+ ]
+}

@@ -14,6 +14,7 @@ demande de bout en bout, puis tu rends compte.
 > - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
 >   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
 >   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - une G1 reprend aussi les symboles de l'accroche du parent qui sont des lettres ou des chiffres (« θ९ », « ૮૩ ») : le guichet les compte comme des mots (`accroche_differente` sinon) ; seuls les vrais symboles (♡, 𓆩, ✦) peuvent tomber ;
 > - le reste vaut toujours : le ton, le format, la recette, les images, les
 >   applis concurrentes et les personnes réelles, le playbook comme mémoire
 >   (`npm run playbook -- --mesurer`).

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o068",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "097288bb-c184-40b1-ba78-1259def921ce",
+ "titre": "how to have beauty and brains (because we don't gatekeep here) #beautyandbrains #smartgirl #thatgirl #selfimprovement #glowup",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "097288bb-c184-40b1-ba78-1259def921ce"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 13 de la boîte (parent 097288bb, en roumain) : accroche du parent mot pour mot. Conseils neufs face au parent (parler plus lentement, 10 pages par jour, bonnes questions, sommeil, musée seule, une chose apprise chaque soir). Présence, jamais corps ni régime. Sophia sur le dernier conseil à la première personne (cta A). Rédigé en anglais : le premier dépôt en langue du parent a été refusé (accroche_differente), le guichet demande l'accroche anglaise de la famille mot pour mot. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3adb6c2e",
+   "texte_overlay": "how to have beauty and brains\n(because we don't gatekeep here)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4c66aeb3",
+   "texte_overlay": "watch the way you speak\n\nspeak slower, in clear sentences.\na calm voice says more\nthan any accessory.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22aa3bfd",
+   "texte_overlay": "read 10 pages a day\n\nin a few months you'll finish\nmore books than you thought.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "49dd176d",
+   "texte_overlay": "ask good questions\n\nsmart people don't know everything.\nthey know how to ask\n\"why?\" and \"how?\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1df07ae0",
+   "texte_overlay": "get enough sleep\n\nthe simplest beauty secret,\nand it helps your brain keep\nwhat you learned.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "41e2827a",
+   "texte_overlay": "go to a museum alone\n\npick one room and look slowly.\nyou'll see details\nothers miss.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "153677ff",
+   "texte_overlay": "learn something new\nevery evening\n\na painting, a story from history,\na strange fact. 5 minutes\nis enough.",
+   "texte_sophia": "learn something new\nevery evening\n\ni use a micro-learning app\nlike the Sophia app: 5 minutes\nof art or history before bed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1c7a3a17",
+   "texte_overlay": "save this and start\nwith one small step 🤍",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601293978675318036/7.jpg"
+  }
+ ]
+}

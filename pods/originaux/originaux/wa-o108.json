@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o108",
+ "type_bleo": "full_test",
+ "titre": "things people with a rich inner life do differently #innerlife #selfimprovement #mindset #introvert #growth",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "21d5bace-28c0-432b-bca4-0836a91b828b"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 21d5bace). full test BLEO : accroche jamais faite (format « things people … do differently »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3cc4446d-335c-4bf5-b5de-8e1f0c7cecbe",
+   "texte_overlay": "things people with a rich\ninner life do differently",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483563061153038/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ec8316b8-b399-40d9-9511-5e64616ef31c",
+   "texte_overlay": "they enjoy their own company\n\nthey can spend an evening alone without feeling lonely. their own thoughts are interesting enough to keep them company, and that makes them calm everywhere.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483563061153038/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f8fffd61-4af7-4741-a49f-951ff35555c9",
+   "texte_overlay": "they notice small beauty\n\nthey stop for a nice sky, a strange building, a good sentence in a book. noticing small beautiful things is a skill, and it makes ordinary days feel full.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483563061153038/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0e60483f-cb06-433c-a310-a5629759b411",
+   "texte_overlay": "they keep learning\n\nthey spend 5 minutes a day learning something new: a myth, an artist, how the stars move. a mind full of ideas is never empty, even on the quietest days.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483563061153038/3.jpg",
+   "texte_sophia": "they keep learning\n\ni spend 5 minutes a day learning something new: a myth, an artist, the stars. i do it with the Sophia app, one lesson a day, and a mind full of ideas is never empty."
+  },
+  {
+   "position": 5,
+   "media_id": "61f39613-a797-4d49-993a-ffbe3d562e10",
+   "texte_overlay": "they write things down\n\nthey keep a notebook for thoughts, quotes and questions. writing gives their mind a place to go, and rereading it later shows them how much they've grown.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483563061153038/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2dde5c47-8356-4d17-8e14-3f5f6405ad24",
+   "texte_overlay": "they don't need constant noise\n\nthey walk, cook and travel without filling every second with sound. silence isn't empty for them, it's where their best ideas and calmest moments live.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483563061153038/6.jpg"
+  }
+ ]
+}

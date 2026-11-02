@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o069",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0bee9744-e678-4aa1-a70c-18fc5938845f",
+ "titre": "easy habits i wish i knew before starting university to be that girl #university #unilife #smartgirl #thatgirl #studytips",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "0bee9744-e678-4aa1-a70c-18fc5938845f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 14 de la boîte (parent 0bee9744, en turc) : accroche du parent mot pour mot (trois lignes). Habitudes neuves face au parent (arriver 10 minutes en avance, recopier ses notes le jour même, apprendre une petite chose par jour, téléphone dans une autre pièce, événements gratuits du campus, sommeil). Sophia au milieu (cta B). Rédigé en anglais : le premier dépôt en langue du parent a été refusé (accroche_differente), le guichet demande l'accroche anglaise de la famille mot pour mot. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "25594848",
+   "texte_overlay": "easy habits i wish i knew\nbefore starting university\nto be that girl\n(as a uni student who's in her 2nd year)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1f585d34",
+   "texte_overlay": "arriving 10 minutes early\n\ni sit in the front rows and my\nprofessors know me. asking\nquestions is so much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "032ce839",
+   "texte_overlay": "rewriting my notes the same day\n\n15 minutes in the evening.\nexam week, everything is ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7f72d967",
+   "texte_overlay": "learning one small thing a day\n\na painting, a moment in history,\na new word. i always have\nsomething to talk about.",
+   "texte_sophia": "learning one small thing a day\n\n5 minutes of art or history a day\nwith a micro-learning app like\nsophia. i always have\nsomething to talk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0023cd6f",
+   "texte_overlay": "leaving my phone in\nanother room\n\njust having it on the desk\nused to distract me.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "509dbec1",
+   "texte_overlay": "going to free campus events\n\ntalks, clubs, concerts.\ni met my best friends there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "039268be",
+   "texte_overlay": "never skipping sleep\n\ninstead of all-nighters,\ni go to bed early. what i learn\nsticks while i sleep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0a3ccd6c",
+   "texte_overlay": "save this and try one\nthis semester :)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602792431200783637/5.jpg"
+  }
+ ]
+}

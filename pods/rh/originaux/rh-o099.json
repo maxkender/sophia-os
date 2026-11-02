@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o099",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8eeeac6e-f658-42fb-8378-2860155dc1cb",
+ "titre": "j'ai été promue 6 fois en 8 ans, voici mes secrets #promotion #carriere #travail #salaire #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 6 (parent 8eeeac6e, 10,7 k vues en de) : accroche mot pour mot, autres conseils que le parent. Aucun chiffre de salaire inventé. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fdf90695",
+   "texte_overlay": "j'ai été promue 6 fois en 8 ans,\nvoici mes secrets",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "008c05fe",
+   "texte_overlay": "je disais à voix haute ce que je voulais\n« dans 2 ans, je veux encadrer une équipe »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "01057092",
+   "texte_overlay": "je prenais les projets transverses\nceux où on rencontre d'autres services",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "012ed24e",
+   "texte_overlay": "je demandais un retour tous les 3 mois\npas une fois par an",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02b9abc1",
+   "texte_overlay": "j'apprenais hors de mon métier\n5 minutes par jour : t'arrives en réunion avec des idées que personne n'a",
+   "texte_sophia": "j'apprenais hors de mon métier\nutilise l'appli Sophia 5 minutes par jour : t'arrives en réunion avec des idées que personne n'a",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "03193bd4",
+   "texte_overlay": "je formais ma remplaçante\nsi personne ne peut te remplacer, personne ne te fait monter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "03349b82",
+   "texte_overlay": "je changeais de poste quand j'arrêtais d'apprendre\nmême dans la même boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "03d2dd1c",
+   "texte_overlay": "lequel tu commences cette semaine ?\nréponds par son numéro",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

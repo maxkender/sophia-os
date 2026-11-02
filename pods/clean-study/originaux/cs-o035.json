@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o035",
+  "type_bleo": "full_test",
+  "titre": "study habits that are boring but actually work #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 2/11 : 2 full tests sur 6). Accroche jamais faite chez nous (ni « boring but » dans donnees/label.json). Accroches écrites : « study habits that are boring but actually work » (retenue : l'aveu « boring » rend la promesse crédible, très enregistrable), « unsexy study habits that changed my grades » (écartée : mot ambigu traduit), « the least aesthetic study habits that work the best » (écartée : longue). Six habitudes vraies, en minuscules : le même horaire chaque jour, refaire les exercices ratés, se tester chaque soir 10 minutes (place micabo, slide 4), relire la consigne deux fois, ranger le bureau la veille, le téléphone dans une autre pièce (place UnSwipe, slide 7). Slides 4 et 7 sans personne. Slides d'appli : certaines reprennent une photo d'objet d'un original de plus d'une semaine (la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "02fc0100",
+      "texte_overlay": "study habits that are boring\nbut actually work",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2205c388",
+      "texte_overlay": "studying at the same time every day.\nno motivation needed when it's just what you do at 5pm.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4db8fcf0",
+      "texte_overlay": "redoing the exercises i got wrong.\nnot reading the correction. redoing them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06e4eb95",
+      "texte_overlay": "10 minutes every evening testing myself on today's classes.\nboring. works every single time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "72675f94",
+      "texte_overlay": "reading the question twice before answering.\nhalf my lost points were misread questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7744fda5",
+      "texte_overlay": "clearing my desk the night before.\nsitting down to a clean desk = starting faster.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2c8d464c",
+      "texte_overlay": "phone in another room. every session.\nthe most boring rule. the biggest difference.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

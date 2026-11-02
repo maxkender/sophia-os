@@ -1,0 +1,55 @@
+{
+ "source_id": "bsg-o068",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cb9209eb-9464-4125-8924-ef773cff6ecb",
+ "titre": "jobs for people who love psychology #psychology #career",
+ "inspirations": [
+  "cb9209eb-9464-4125-8924-ef773cff6ecb"
+ ],
+ "notes": "G1, déclinaison de cb9209eb (« jobs for people who love psychology », 29,6 k vues, r 22,93 en allemand), en anglais. cta A (avant / après sur l'avant-dernière slide). Métiers décrits en une phrase, sans salaire ni conseil de santé : je ne donne aucun chiffre que je ne peux pas vérifier. Items neufs : métiers différents du parent (ni clinique, ni neuropsychologie, ni psychiatrie…). Routine du 2/11, première sur BLEO (`npm run boite` : « oui »). Jauge : 1 full test et 7 déclinaisons. J'ai sauté la ligne 3 de la boîte (837491f7, « jobs for people who love enterimarnt ») : son accroche porte une faute de frappe qu'une G1 devrait recopier mot pour mot, et ses slides donnent des salaires que je ne peux pas vérifier. Images de la banque, assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "000d7460",
+   "texte_overlay": "jobs for people who love\npsychology",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "00ac4de9",
+   "texte_overlay": "1. ux researcher\n\nstudy how people use apps and websites, and help make them easier to use.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "057091a3",
+   "texte_overlay": "2. sports psychologist\n\nhelp athletes handle pressure, focus and confidence before big competitions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "05383fbb",
+   "texte_overlay": "3. consumer researcher\n\nfigure out why people buy what they buy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0030ce92",
+   "texte_overlay": "4. speech therapist\n\nhelp children and adults communicate more easily.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0acb5ff4",
+   "texte_overlay": "5. you don't need a degree to start learning\n\nbefore, i nodded along when people talked about art or history.\nnow i learn one thing about the world every morning. and i'm the one telling the stories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+   "texte_sophia": "5. you don't need a degree to start learning\n\nbefore, i nodded along when people talked about art or history.\nnow i open the Sophia app every morning. and i'm the one telling the stories."
+  },
+  {
+   "position": 7,
+   "media_id": "01be1362",
+   "texte_overlay": "which one would you pick?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  }
+ ]
+}

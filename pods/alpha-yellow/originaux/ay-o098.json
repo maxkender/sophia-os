@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o098",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "918ea991-9285-47dd-ad73-f8c49464cfbb",
+ "titre": "7 office social tricks that feel almost unfair #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "918ea991-9285-47dd-ad73-f8c49464cfbb"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 6ef6edb6. déclinaison G2 de la ligne 5 de la boîte (918ea991, « 7 social hacks that feel like cheating at work », it 9,2 k r 8,04). Même promesse, autres mots. Accroches écrites : « 7 office social tricks that feel almost unfair » (retenue), « 7 work social hacks that feel illegal » (écartée : trop proche de la famille illegal), « Social tricks for the office » (écartée : sans tension). Items neufs, aucun repris du parent ni d'ay-o010.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6ef6edb6",
+   "texte_overlay": "7 office social tricks that\nfeel almost unfair",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn the names of the people who keep the building running. Reception, security, cleaners. \"Morning, Ahmed.\" They know everything, and they help the people who treat them well.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Send a short recap after every meeting. Three lines, who does what by when. People start seeing you as the organised one, even if you said the least in the room.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Praise colleagues to their manager. \"Julia saved the project last week.\" It costs you nothing, it makes their day, and everyone wants to work with the guy who shares credit.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ask for advice instead of help. \"How would you approach this?\" makes people feel respected, and they end up helping you far more than if you'd simply asked for a favour.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: nothing to say at the coffee machine. After: five minutes a day of history, art or science, and a fun story ready for every awkward break with colleagues.",
+   "texte_sophia": "Before: nothing to say at the coffee machine. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now I've got a story for every break.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Answer messages fast, even with \"Got it, I'll come back to you Friday.\" Quick acknowledgements make you look reliable, even when the real answer takes a few days.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Bring something back from your holidays. A box of local sweets on the office kitchen table. Tiny gesture, and the whole floor suddenly knows your name and smiles at you.",
+   "media_id": "4ee6e05d"
+  }
+ ]
+}

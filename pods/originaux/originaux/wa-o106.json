@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o106",
+ "type_bleo": "full_test",
+ "titre": "signs you're secretly a polymath #polymath #curiosity #learning #selfimprovement #signs",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "d2f5c237-2ef7-464e-96f9-adf5249a1e99"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, d2f5c237). full test BLEO : accroche jamais faite (format « signs »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4f10c5d6-ecd1-47d6-a361-2f7f3d5d6343",
+   "texte_overlay": "signs you're secretly\na polymath",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651112468470697230/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "62316005-2f93-47f2-94c1-495be913df0f",
+   "texte_overlay": "you have too many tabs\n\nyour browser is full of tabs on totally unrelated topics: volcanoes, jazz, roman law. that restless curiosity is exactly how every polymath in history started out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651112468470697230/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4dbfb560-4593-4931-b235-e717af947971",
+   "texte_overlay": "you connect odd things\n\nyou notice how cooking is like chemistry or how music is like maths. linking ideas across fields is the rarest kind of intelligence, and you do it without trying.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651112468470697230/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0e401b1e-8513-4195-a83e-0b3d1e09cf7e",
+   "texte_overlay": "you get bored of mastery\n\nonce you're decent at something, you crave the next thing to learn. that isn't a lack of focus, it's the engine that builds a mind with range instead of one track.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651112468470697230/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a6419c71-717a-4644-b069-454bc962e859",
+   "texte_overlay": "you learn a bit every day\n\nyou squeeze small lessons into your day: a painting at breakfast, a planet on the bus. polymaths aren't geniuses, they just never stop feeding their curiosity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651112468470697230/5.jpg",
+   "texte_sophia": "you learn a bit every day\n\ni used to feel scattered for liking everything. now i spend 5 minutes a day on one lesson in the Sophia app: a painting, a planet. polymaths just never stop feeding curiosity."
+  },
+  {
+   "position": 6,
+   "media_id": "8a089a66-7b42-4ffa-869e-421986d0d639",
+   "texte_overlay": "people ask you random questions\n\nfriends ask you about history, science and art because you always seem to know a little. being the person people ask is the quiet reward of a curious mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651112468470697230/6.jpg"
+  }
+ ]
+}

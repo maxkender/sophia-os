@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o099",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b86f215d-1cb9-44bc-a413-d2e14621c328",
+ "titre": "Things you should stop doing as a friend #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "b86f215d-1cb9-44bc-a413-d2e14621c328"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 3be6dd87. déclinaison G1 de la ligne 6 de la boîte (b86f215d, hu 2,8 k r 2,38) : accroche du parent mot pour mot. Items neufs, autre angle (petites habitudes du quotidien plutôt que les grands manquements), couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3be6dd87",
+   "texte_overlay": "Things you should stop\ndoing as a friend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop only texting when you need something. A random \"Saw this and thought of you\" means more than you think. Friendships die from silence, not from big fights.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stop cancelling at the last minute. Once is life. Every week is a message. If you can't make it, say so early, and suggest another date in the same message.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Stop turning every story into your story. When a friend shares something, ask a second question before you share yours. Being heard is the rarest gift you can give.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stop keeping score. Who paid last, who called last, who invited who. Good friendships aren't a balance sheet. Give a little more than you take and stop counting.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. You'll bring new stories to every catch-up, and your friends will notice the difference.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. You'll bring new stories to every catch-up with friends.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Stop staying quiet when they're making a mistake. A real friend says \"I'm not sure that's a good idea\" once, kindly. Then respects their choice whatever happens.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stop forgetting the big days. Birthdays, new jobs, anniversaries of hard moments. Put them in your calendar. Showing up on the days that matter is what real friends do.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

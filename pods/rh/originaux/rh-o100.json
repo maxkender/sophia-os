@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o100",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ff737a94-5b37-424e-993a-a98a7ed3d1f2",
+ "titre": "ce que ma première manager m'a appris sans jamais me le dire #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G1 de la ligne 7 (parent ff737a94, 26,6 k vues en fr) : accroche mot pour mot, autres leçons que le parent (rh-o034). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "011d5f64",
+   "texte_overlay": "ce que ma première manager\nm'a appris\nsans jamais me le dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04164759",
+   "texte_overlay": "elle arrivait à l'heure en réunion\nune minute avant. jamais pendant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0454f47e",
+   "texte_overlay": "elle répondait « bonne question » et elle cherchait\nmême quand elle ne savait pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "04b6c542",
+   "texte_overlay": "elle protégeait l'équipe des urgences inutiles\nelle les filtrait avant qu'elles arrivent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "04e46e61",
+   "texte_overlay": "elle demandait « tu veux un conseil ou juste que j'écoute ? »\navant de répondre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0572127c",
+   "texte_overlay": "elle avait 3 sujets de discussion pour la pause\nun livre, un film, et un truc appris le matin même",
+   "texte_sophia": "elle avait 3 sujets de discussion pour la pause\nun livre, un film, et un truc appris le matin même sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "057a2a14",
+   "texte_overlay": "elle partait à l'heure le vendredi\net on osait le faire aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0584e674",
+   "texte_overlay": "c'était quoi, la leçon de ta première manager ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

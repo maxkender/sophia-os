@@ -1,0 +1,228 @@
+{
+ "id": "fa-033",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7687625113646288150",
+  "vues": 271700,
+  "accroche": "3 Ways To Be Unrecognisable In 6 Months"
+ },
+ "titre": {
+  "en": "3 Ways To Be Unrecognisable In 6 Months",
+  "de": "3 Wege, in 6 Monaten nicht wiederzuerkennen",
+  "pt": "3 formas de ficar irreconhecível em 6 meses"
+ },
+ "legendes": {
+  "en": "3 Ways To Be Unrecognisable In 6 Months #skills #learnontiktok #selfmastery",
+  "de": "3 Wege, in 6 Monaten nicht wiederzuerkennen #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "3 formas de ficar irreconhecível em 6 meses #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "som original",
+  "url": "https://www.tiktok.com/music/som-original-7301096396756290309"
+ },
+ "notes": "cta C. Son format en 3 étapes : parler, Sophia au milieu (étape 2 « GET CURIOUS AGAIN ») à la place de son dessin, une langue. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 6 MONTHS"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE"
+      }
+     ],
+     "IN 6 MONATEN",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "3 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 6 MESES"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "CHANGE HOW",
+     "YOU SPEAK"
+    ],
+    "video": {
+     "id": "9IEys7g2YFc",
+     "titre": "Speak More Clearly | Daily Practice",
+     "chaine": "Improve Your Voice",
+     "vues": "2.6M views",
+     "date": "7 years ago",
+     "duree": "6:32",
+     "avatar": "https://yt3.ggpht.com/ia0jgWlaQiJXWljC2xpcPWDHGp5quqUTTl4ggJ27H147hFFEOBuMeoiyGQEG1CfMDWt3qRpO8w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPRICH",
+     "DEUTLICHER"
+    ],
+    "video": {
+     "id": "oiPHLGN23P8",
+     "titre": "Übungen für eine klare Aussprache – Sprechen wie die Profis",
+     "chaine": "Sprechen wie die Profis",
+     "vues": "173.646 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlPbWZKzkALdnY9tNTN9Z9JP02UnuGAZpIz4gnYutCHg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "MUDA A FORMA",
+     "COMO FALAS"
+    ],
+    "video": {
+     "id": "73wo6vFD99s",
+     "titre": "Como articular suas ideias com mais clareza",
+     "chaine": "Luana Carolina",
+     "vues": "988 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "18:26",
+     "avatar": "https://yt3.ggpht.com/4vGTVCv2qLBUE6dbG1JOeMIwS_K_VaRK6KVktHIHlKRlaNi8ltBNS0b6lbzrWAZ4NMldT87V6A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "GET CURIOUS",
+     "AGAIN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WERD WIEDER",
+     "NEUGIERIG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "VOLTA A SER",
+     "CURIOSO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN A",
+     "LANGUAGE"
+    ],
+    "video": {
+     "id": "E6588DlZW-c",
+     "titre": "learning a new language is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "4.2M views",
+     "date": "2 years ago",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN EINE",
+     "SPRACHE"
+    ],
+    "video": {
+     "id": "_HReakGyxmY",
+     "titre": "SO WIRST DU ZUM POLYGLOT | Warum Sprachen lernen in der Schule oft nicht funktioniert",
+     "chaine": "Polyglot Akademie - Sprachen lernen",
+     "vues": "21.576 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lqM5Iii184dYjqhHAQ_oc0_0wHFs9iRTznsNDZhkaViz4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UMA",
+     "LÍNGUA"
+    ],
+    "video": {
+     "id": "c3CP17KK6sc",
+     "titre": "COMO APRENDER QUALQUER IDIOMA SOZINHO - OS 4 PILARES DA FLUÊNCIA",
+     "chaine": "Juliana de Camargo",
+     "vues": "579 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/pkyiqtNoUeQSTHFXIAIk-IIZ4VTPp18Zc6NIZgE4FB3dku3uoGiCw7rcbjh5xKX8oxM_yCak=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

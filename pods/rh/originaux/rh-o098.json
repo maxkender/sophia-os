@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o098",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8dde3a2b-c451-4c1f-abe2-23878f613f67",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien, partie 2 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 2/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 5 (parent 8dde3a2b, 35,4 k vues en hu) : accroche mot pour mot, six questions neuves (aucune reprise du parent ni des autres parties). Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fb2ee127",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\npartie 2",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f8112da2",
+   "texte_overlay": "1\n« vous avez été malade souvent ? »\nt'as pas à détailler ta santé\ntu dis « rien qui m'empêche de faire ce poste »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f8174f78",
+   "texte_overlay": "2\n« vous êtes en couple ? »\nça ne les regarde pas\ntu dis « ma vie perso est organisée, je suis disponible pour ce poste »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f9afa8b3",
+   "texte_overlay": "3\n« pourquoi pas une boîte plus grande ? »\njamais « personne ne m'a prise »\ntu dis ce que tu aimes dans leur taille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "15ad3237",
+   "texte_overlay": "4\n« vous avez un modèle ? »\njamais « non »\ntu cites une personne qui t'inspire vraiment et pourquoi.\nperso, j'en ai trouvé en apprenant un peu d'histoire chaque jour",
+   "texte_sophia": "4\n« vous avez un modèle ? »\njamais « non »\nperso, j'en ai trouvé en apprenant 5 minutes d'histoire par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fae6a270",
+   "texte_overlay": "5\n« vous êtes à l'aise à l'oral ? »\njamais « pas du tout »\ntu dis « je m'entraîne, et ça progresse »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fc34cc5e",
+   "texte_overlay": "6\n« vous partiriez pour plus d'argent ? »\njamais « oui direct »\ntu dis « l'argent compte, mais ce qui me fait rester, c'est d'apprendre »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "00733be1",
+   "texte_overlay": "tu veux la partie 3 ?\nécris la question qui te bloque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

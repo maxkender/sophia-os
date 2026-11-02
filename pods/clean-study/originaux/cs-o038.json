@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o038",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "82b2ce3c-55d4-4a0d-a8d7-5d0c6beb3dbc",
+  "titre": "things that i learned from other straight a students that made me realize i wasn't using my full potential #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82b2ce3c-55d4-4a0d-a8d7-5d0c6beb3dbc"
+  ],
+  "notes": "Déclinaison G1 de 82b2ce3c (r 3,34 en allemand), ligne 2 de la boîte. Accroche du parent mot pour mot (l'apostrophe de « wasn't » rétablie). Items neufs, aucun du parent (ponctualité, résumé à l'avance, dire qu'on ne comprend pas, questions difficiles, se tester, présentation) : elles commencent les devoirs le jour même, elles relisent les commentaires du prof, elles se testent sur les vieux chapitres (place micabo, slide 4), elles savent dire non à une sortie la veille d'un examen, leur téléphone n'est jamais sur le bureau (place UnSwipe, slide 6), elles dorment. Pas de comparaison méprisante. Slides 4 et 6 sans personne. Slides d'appli : certaines reprennent une photo d'objet d'un original de plus d'une semaine (la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : dcd5fbe3 (écran ou marque lisible sur une slide d'appli, couverture de livre lisible, ou photo déjà prise dans le lot).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cf478bb1",
+      "texte_overlay": "things that i learned from other straight a students that made me realize i wasn't using my full potential",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "cfc79a56",
+      "texte_overlay": "1) they start homework the day they get it\nnot the night before it's due.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "db2d28b2",
+      "texte_overlay": "2) they actually read the teacher's comments\nand fix exactly that on the next test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f3529380",
+      "texte_overlay": "3) they quiz themselves on OLD chapters too\nthe final exam covers everything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "116c92b6",
+      "texte_overlay": "4) they say no to plans the night before a test\nwithout feeling guilty about it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2d411e2f",
+      "texte_overlay": "5) their phone is never on the desk while they study\nnot even face down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e1b0eab0",
+      "texte_overlay": "6) they sleep\nno all-nighters. they just started earlier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

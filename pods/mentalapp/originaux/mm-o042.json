@@ -1,0 +1,188 @@
+{
+ "id": "mm-o042",
+ "format": "carrousel",
+ "titre": "Why you should be bored more often",
+ "legendes": {
+  "en": "why you should be bored more often #boredom #brainrot #mentalmaxxing #selfimprovement",
+  "fr": "pourquoi tu devrais t’ennuyer plus souvent #ennui #brainrot #mentalmaxxing #developpementpersonnel",
+  "de": "warum du dich öfter langweilen solltest #langeweile #brainrot #mentalmaxxing #selbstverbesserung",
+  "es": "por qué deberías aburrirte más a menudo #aburrimiento #brainrot #mentalmaxxing #superacionpersonal",
+  "it": "perché dovresti annoiarti più spesso #noia #brainrot #mentalmaxxing #crescitapersonale",
+  "tr": "neden daha sık sıkılmalısın #cansıkıntısı #brainrot #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "theme": {
+   "en": "Why you should",
+   "fr": "Pourquoi tu devrais",
+   "de": "Warum du dich",
+   "es": "Por qué deberías",
+   "it": "Perché dovresti",
+   "tr": "Neden daha sık"
+  },
+  "sous": {
+   "en": "be bored more often",
+   "fr": "t’ennuyer plus souvent",
+   "de": "öfter langweilen solltest",
+   "es": "aburrirte más a menudo",
+   "it": "annoiarti più spesso",
+   "tr": "sıkılmalısın"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Ideas need empty time",
+    "fr": "Les idées ont besoin de vide",
+    "de": "Ideen brauchen Leerlauf",
+    "es": "Las ideas necesitan tiempo vacío",
+    "it": "Le idee hanno bisogno di vuoto",
+    "tr": "Fikirlerin boş zamana ihtiyacı var"
+   },
+   "texte": {
+    "en": "Your best thoughts show up on walks, in the shower, in line. Not in a feed.",
+    "fr": "Tes meilleures pensées arrivent en marchant, sous la douche, dans la queue. Pas dans un feed.",
+    "de": "Deine besten Gedanken kommen beim Gehen, unter der Dusche, in der Schlange. Nicht im Feed.",
+    "es": "Tus mejores ideas llegan caminando, en la ducha, en la cola. No en un feed.",
+    "it": "I pensieri migliori arrivano camminando, sotto la doccia, in fila. Non in un feed.",
+    "tr": "En iyi düşüncelerin yürürken, duşta, sırada gelir. Akışta değil."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: I filled every quiet second with a short video. After deleting them with UnSwipe: boredom came back, and so did my ideas.",
+    "fr": "Avant : je remplissais chaque seconde de calme avec une vidéo courte. Après les avoir supprimées avec UnSwipe : l’ennui est revenu, et mes idées aussi.",
+    "de": "Vorher: Ich füllte jede ruhige Sekunde mit einem Kurzvideo. Nachdem ich sie mit UnSwipe gelöscht habe: Die Langeweile kam zurück, und meine Ideen auch.",
+    "es": "Antes: llenaba cada segundo tranquilo con un vídeo corto. Después de borrarlos con UnSwipe: volvió el aburrimiento, y mis ideas también.",
+    "it": "Prima: riempivo ogni secondo di calma con un video breve. Dopo averli eliminati con UnSwipe: è tornata la noia, e anche le idee.",
+    "tr": "Önce: her sessiz saniyeyi kısa bir videoyla dolduruyordum. UnSwipe ile sildikten sonra: can sıkıntısı geri geldi, fikirlerim de."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Your brain resets",
+    "fr": "Ton cerveau se remet à zéro",
+    "de": "Dein Gehirn setzt sich zurück",
+    "es": "Tu cerebro se reinicia",
+    "it": "Il cervello si resetta",
+    "tr": "Beynin sıfırlanır"
+   },
+   "texte": {
+    "en": "Doing nothing for ten minutes is rest. Scrolling for ten minutes is more input.",
+    "fr": "Ne rien faire dix minutes, c’est du repos. Scroller dix minutes, c’est encore de l’info à traiter.",
+    "de": "Zehn Minuten nichts tun ist Erholung. Zehn Minuten scrollen ist noch mehr Input.",
+    "es": "No hacer nada diez minutos es descanso. Hacer scroll diez minutos es más información.",
+    "it": "Non fare nulla per dieci minuti è riposo. Scrollare dieci minuti è altro input.",
+    "tr": "On dakika hiçbir şey yapmamak dinlenmektir. On dakika kaydırmak daha fazla bilgi yüküdür."
+   }
+  },
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Slow things get fun again",
+    "fr": "Les choses lentes redeviennent fun",
+    "de": "Langsame Dinge machen wieder Spaß",
+    "es": "Lo lento vuelve a ser divertido",
+    "it": "Le cose lente tornano divertenti",
+    "tr": "Yavaş şeyler yine eğlenceli olur"
+   },
+   "texte": {
+    "en": "Once your brain stops expecting a hit every second, cooking or reading feels good again.",
+    "fr": "Quand ton cerveau n’attend plus un shoot chaque seconde, cuisiner ou lire redevient agréable.",
+    "de": "Wenn dein Gehirn nicht mehr jede Sekunde einen Kick erwartet, machen Kochen und Lesen wieder Spaß.",
+    "es": "Cuando tu cerebro deja de esperar un chute cada segundo, cocinar o leer vuelve a gustar.",
+    "it": "Quando il cervello smette di aspettarsi una scarica ogni secondo, cucinare o leggere torna piacevole.",
+    "tr": "Beynin her saniye bir vuruş beklemeyi bırakınca yemek yapmak ya da okumak yine keyifli olur."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "You sleep better",
+    "fr": "Tu dors mieux",
+    "de": "Du schläfst besser",
+    "es": "Duermes mejor",
+    "it": "Dormi meglio",
+    "tr": "Daha iyi uyursun"
+   },
+   "texte": {
+    "en": "A quiet mind at night falls asleep faster than one that just watched forty videos.",
+    "fr": "Un esprit calme le soir s’endort plus vite qu’un esprit qui vient de regarder quarante vidéos.",
+    "de": "Ein ruhiger Kopf schläft schneller ein als einer, der gerade vierzig Videos gesehen hat.",
+    "es": "Una mente tranquila se duerme antes que una que acaba de ver cuarenta vídeos.",
+    "it": "Una mente calma si addormenta prima di una che ha appena visto quaranta video.",
+    "tr": "Sakin bir zihin, kırk video izlemiş bir zihinden daha çabuk uyur."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Deep focus becomes possible",
+    "fr": "Le focus profond redevient possible",
+    "de": "Tiefer Fokus wird möglich",
+    "es": "El foco profundo vuelve a ser posible",
+    "it": "La concentrazione profonda torna possibile",
+    "tr": "Derin odak mümkün olur"
+   },
+   "texte": {
+    "en": "If you can sit with boredom, you can sit with a hard task for an hour.",
+    "fr": "Si tu sais rester avec l’ennui, tu sais rester une heure sur une tâche difficile.",
+    "de": "Wenn du Langeweile aushältst, hältst du auch eine Stunde an einer schweren Aufgabe aus.",
+    "es": "Si aguantas el aburrimiento, aguantas una hora con una tarea difícil.",
+    "it": "Se sai stare con la noia, sai stare un’ora su un compito difficile.",
+    "tr": "Can sıkıntısına dayanabiliyorsan, zor bir işe de bir saat dayanabilirsin."
+   }
+  }
+ ],
+ "notes": "routine du 02/11 : accroche jamais faite chez nous (« why you should be bored more often »), reprend l’idée « boredommaxxing » du nouveau post de @mentalapp. cta C (avant/après) : élément UnSwipe en 2e item (slide 3)."
+}

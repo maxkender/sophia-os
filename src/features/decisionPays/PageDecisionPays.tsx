@@ -9,14 +9,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
-import { fixerObjectifPays, lireDetailPays, lireMetaPays, lireTableauPays, type MetaPays } from "./api";
+import { fixerObjectifPays, lireDetailPays, lireMetaPays, lireRecrutementCohorte, lireTableauPays, type MetaPays } from "./api";
 import { BarresDoubles, BarresEmpilees, BarresEtCourbe, Courbe, InfoBulle } from "./Graphiques";
 import {
   aFaireSemaine,
   annoncesActives,
   ciblesParHm,
+  cohorteEnCours,
   drapeau,
   libelleMarche,
+  lignesCohorte,
   type LignePays,
   lignesPays,
   marcheDe,
@@ -28,6 +30,7 @@ import {
   type TableauPays,
   tableauHm,
   topFlopRoi,
+  totauxHm,
   totauxPeriode,
   variation,
 } from "./logique";
@@ -251,6 +254,100 @@ function Classement({ lignes, ouvrir }: { lignes: LignePays[]; ouvrir: (p: strin
   );
 }
 
+/** 0516 : la cohorte du lundi : objectif / envoyées / acceptées / restant par pays et par HM, et les alertes d'offres. */
+function Cohorte({ aujourdhui, ouvrir }: { aujourdhui: string; ouvrir: (p: string) => void }) {
+  const { t } = useTranslation();
+  const f = useFormats();
+  const lundi = cohorteEnCours(aujourdhui);
+  const lu = useQuery({ queryKey: ["decision-pays", "cohorte", lundi], queryFn: () => lireRecrutementCohorte(lundi) });
+  if (lu.isLoading) return <p className="text-sm text-muted-foreground">{t("decisionPays.chargement")}</p>;
+  if (lu.error || !lu.data) return <p className="text-sm text-destructive">{(lu.error as Error | undefined)?.message ?? "—"}</p>;
+  const lignes = lignesCohorte(lu.data);
+  const parHm = totauxHm(lignes);
+  const total = parHm.reduce((n, h) => ({ objectif: n.objectif + h.objectif, envoyees: n.envoyees + h.envoyees, acceptees: n.acceptees + h.acceptees, restant: n.restant + h.restant }),
+    { objectif: 0, envoyees: 0, acceptees: 0, restant: 0 });
+  return (
+    <div className="space-y-4">
+      {lu.data.alertes.length > 0 && (
+        <Card className="border-destructive/50" data-testid="alertes-offres">
+          <CardHeader className="pb-1">
+            <CardTitle className="flex items-center gap-1 text-sm text-destructive">
+              {t("decisionPays.cohorte.alertes", { n: lu.data.alertes.length })} <InfoBulle texte={t("decisionPays.aide.alertes")} />
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-1 text-sm">
+              {lu.data.alertes.map((a) => (
+                <li key={`${a.contrat_id ?? a.offre_id}-${a.motif}`} className="flex flex-wrap items-baseline gap-x-2">
+                  <Badge variant="destructive">{t(`decisionPays.motif.${a.motif}`)}</Badge>
+                  <span className="font-medium">{a.hm_nom ?? "—"}</span>
+                  {a.pays && <span>{drapeau(a.pays)} {nomPays(a.pays, f.langue)}</span>}
+                  <span className="text-muted-foreground">{a.contrat_id ? t("decisionPays.cohorte.contrat", { id: a.contrat_id }) : ""} {a.detail}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      )}
+      <div className="grid gap-3 sm:grid-cols-4">
+        {(["objectif", "envoyees", "acceptees", "restant"] as const).map((k) => (
+          <Card key={k}>
+            <CardContent className="space-y-1 p-4">
+              <p className="flex items-center gap-1 text-xs text-muted-foreground">{t(`decisionPays.cohorte.${k}`)} <InfoBulle texte={t(`decisionPays.aide.cohorte_${k}`)} /></p>
+              <p className={cn("text-3xl font-semibold tabular-nums", k === "restant" && total.restant > 0 && "text-amber-600")}>{total[k]}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <Card>
+        <CardHeader className="pb-1">
+          <CardTitle className="text-sm">{t("decisionPays.cohorte.titre", { lundi: f.jour(lundi) })}</CardTitle>
+          <p className="text-xs text-muted-foreground">{t("decisionPays.cohorte.sous", { lu: f.quand(lu.data.offres_lues_at) })}</p>
+        </CardHeader>
+        <CardContent className="p-0">
+          <table className="w-full table-fixed text-sm" data-testid="cohorte-pays">
+            <colgroup><col className="w-[28%]" /><col className="w-[24%]" /><col className="w-[12%]" /><col className="w-[12%]" /><col className="w-[12%]" /><col className="w-[12%]" /></colgroup>
+            <thead className="bg-muted/40 text-left text-xs text-muted-foreground">
+              <tr>
+                <th className="px-2 py-2 font-medium">{t("decisionPays.col.pays")}</th>
+                <th className="px-2 py-2 font-medium">HM</th>
+                <th className="px-2 py-2 text-right font-medium">{t("decisionPays.cohorte.objectif")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("decisionPays.cohorte.envoyees")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("decisionPays.cohorte.acceptees")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("decisionPays.cohorte.restant")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lignes.map((l) => (
+                <tr key={l.pays} className="border-t">
+                  <td className="px-2 py-1.5"><button type="button" className="hover:underline" onClick={() => ouvrir(l.pays)}><Pays code={l.pays} zone={l.zone} /></button></td>
+                  <td className="truncate px-2 py-1.5">{l.hm}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{l.objectif}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{l.envoyees}{l.en_attente > 0 && <span className="whitespace-nowrap text-xs text-muted-foreground"> ({t("decisionPays.cohorte.dontAttente", { n: l.en_attente })})</span>}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{l.acceptees}</td>
+                  <td className={cn("px-2 py-1.5 text-right font-semibold tabular-nums", l.restant > 0 ? "text-amber-600" : "text-emerald-600")}>{l.restant}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot className="border-t bg-muted/20 text-xs">
+              {parHm.map((h) => (
+                <tr key={h.hm}>
+                  <td className="px-2 py-1 text-muted-foreground">{t("decisionPays.cohorte.totalHm")}</td>
+                  <td className="truncate px-2 py-1 font-medium">{h.hm}</td>
+                  <td className="px-2 py-1 text-right tabular-nums">{h.objectif}</td>
+                  <td className="px-2 py-1 text-right tabular-nums">{h.envoyees}</td>
+                  <td className="px-2 py-1 text-right tabular-nums">{h.acceptees}</td>
+                  <td className={cn("px-2 py-1 text-right font-semibold tabular-nums", h.restant > 0 && "text-amber-600")}>{h.restant}</td>
+                </tr>
+              ))}
+            </tfoot>
+          </table>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
 function Recrutement({ tab, lignes, meta, ouvrir }: { tab: TableauPays; lignes: LignePays[]; meta: MetaPays | undefined; ouvrir: (p: string) => void }) {
   const { t } = useTranslation();
   const f = useFormats();
@@ -271,6 +368,7 @@ function Recrutement({ tab, lignes, meta, ouvrir }: { tab: TableauPays; lignes: 
   };
   return (
     <div className="space-y-4">
+      <Cohorte aujourdhui={tab.aujourdhui} ouvrir={ouvrir} />
       <Card>
         <CardHeader className="pb-1"><CardTitle className="flex items-center gap-1 text-sm">{t("decisionPays.recrutement.titre")} <InfoBulle texte={t("decisionPays.aide.pipeline")} /></CardTitle></CardHeader>
         <CardContent>

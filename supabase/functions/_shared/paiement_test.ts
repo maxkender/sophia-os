@@ -5,6 +5,8 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
+  avecSemainesFixees,
+  semaineDe,
   centimes,
   dollarsUpwork,
   ecartComptes,
@@ -208,4 +210,20 @@ Deno.test("écart de comptes : 2 comptes actifs, Week 45 financée pour 1 compte
   assertEquals(ecartComptes(14, 1, jalons, S), null);
   // Rien de financé pour la semaine : rien à comparer.
   assertEquals(ecartComptes(14, 2, [j("m1", "Week 45", "Paid", 1, 14)], S), null);
+});
+
+Deno.test("0515 : un milestone compté pour une autre semaine que son nom", () => {
+  // « Week 45 » payée à la main pour la semaine du 26/10 (Week 44) : elle ne rend pas la semaine du 2/11 « déjà payée ».
+  const fixees = new Map([["m1", "2026-10-26"]]);
+  const sans = planPaiement(ligne(), [j("m1", "Week 45", "Paid", 1, 14, 14), j("m2", "Week 46", "NotFunded", 2)], S, R);
+  assertEquals(sans.statut, "deja_payee");
+  const avec = planPaiement(ligne(), avecSemainesFixees([j("m1", "Week 45", "Paid", 1, 14, 14), j("m2", "Week 46", "NotFunded", 2)], fixees), S, R);
+  assertEquals(avec.statut, "refuse");
+  assert(avec.raison?.includes("aucune milestone financée"));
+  // « Week 46 » financée qui compte pour la semaine du 2/11 (Week 45) : elle est approuvée.
+  const alina = avecSemainesFixees([j("m5", "Week 46", "Active", 5, 7), j("m6", "Week 47", "NotFunded", 6, 7)], new Map([["m5", "2026-11-02"]]));
+  const p = planPaiement(ligne({ montant: 7, montant_calcule: 7, tarif: 7, suivante_action: "ne_pas_financer" }), alina, S, R);
+  assertEquals([p.statut, p.approuver?.jalon_id], ["pret", "m5"]);
+  assertEquals(semaineDe(alina[0]), 45);
+  assertEquals(semaineDe(alina[1]), 47);
 });

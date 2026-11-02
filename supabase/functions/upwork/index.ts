@@ -90,6 +90,7 @@ import {
   type TypeErreur,
 } from "../_shared/paie_auto.ts";
 import {
+  avecSemainesFixees,
   centimes,
   ecartComptes,
   estHorsUpwork,
@@ -101,6 +102,7 @@ import {
   planPaiement,
   type ReglagesPaieApi,
   refusMode,
+  semaineDe,
   semaineDuNom,
 } from "../_shared/paiement.ts";
 import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_shared/ckd.ts";
@@ -1050,6 +1052,23 @@ async function chargerLignes(
   return { lignes, tenantDe, raisonDe, comptesDe };
 }
 
+/**
+ * 0515 : les milestones comptés pour une autre semaine que leur nom (payés ou
+ * financés à la main sous le nom d'une autre semaine), par contrat :
+ * jalon_id → lundi de la semaine comptée.
+ */
+async function semainesFixees(supabase: Supabase, contrats: string[]): Promise<Map<string, string>> {
+  const m = new Map<string, string>();
+  if (contrats.length === 0) return m;
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data, error } = await supabase.from("paie_jalons_semaine").select("jalon_id, semaine")
+      .in("contrat_id", contrats.slice(i, i + 200)).is("annule_at", null);
+    if (error) throw error;
+    for (const x of data ?? []) m.set(String(x.jalon_id), String(x.semaine));
+  }
+  return m;
+}
+
 /** Le plan d'une ligne : ses milestones lues chez Upwork (seulement si elle paie). */
 async function planLigne(
   supabase: Supabase,
@@ -1085,7 +1104,7 @@ async function planLigne(
       bloque: null,
     };
   }
-  const jalons = lireJalonsContrat(lu.data.contractDetails);
+  const jalons = avecSemainesFixees(lireJalonsContrat(lu.data.contractDetails), await semainesFixees(supabase, [ligne.contrat_id!]));
   const plan = planPaiement(ligne, jalons, semaine, r);
   // Le mode (off / test / on) ne bloque que ce qui partirait vraiment.
   const bloque = ["pret", "deja_payee", "renommer"].includes(plan.statut) ? refusMode(r, ligne.contrat_id!, aujourdhuiParis()) : null;
@@ -1183,6 +1202,9 @@ async function paieSimulation(supabase: Supabase, par: string | null, semaineDem
       jalonsDe.set(String(j.contrat_id), { jalons: Array.isArray(j.jalons) ? (j.jalons as JalonUpwork[]) : [], lu_at: (j.lu_at as string | null) ?? null });
     }
   }
+  // 0515 : les milestones comptés pour une autre semaine que leur nom.
+  const fixees = await semainesFixees(supabase, contrats);
+  for (const [c, v] of jalonsDe) jalonsDe.set(c, { ...v, jalons: avecSemainesFixees(v.jalons, fixees) });
   const compte: Record<CategorieSimulation, number> = {
     payer: 0, double: 0, rien: 0, pause: 0, legacy: 0, a_la_main: 0, kill: 0, kill_sans_paie: 0, annuler: 0, warmup: 0, renommer: 0,
     hors_upwork: 0,
@@ -2124,7 +2146,7 @@ async function reconcilier(supabase: Supabase, par: string | null, semaine: stri
         bilan.ecarts.push(`${nom} : milestones illisibles`);
         return;
       }
-      const ecarts = ecartsReconciliation(l, v ?? null, relu.jalons, semaine);
+      const ecarts = ecartsReconciliation(l, v ?? null, avecSemainesFixees(relu.jalons, await semainesFixees(supabase, [l.contrat_id!])), semaine);
       if (ecarts.length === 0) return;
       bilan.ecarts.push(`${nom} : ${ecarts.join(" · ")}`);
       bilan.a_faire++;
@@ -2219,11 +2241,12 @@ async function semaineVueSurUpwork(
   const relu = await relireJalons(supabase, par, contrat, tenant, "paie_question_jalons");
   if (!relu.jalons) return null;
   const w = numeroSemaine(semaine);
-  const payee = relu.jalons.find((j) => semaineDuNom(j.nom) === w && PAYEES.includes(j.etat));
+  const jalons = avecSemainesFixees(relu.jalons, await semainesFixees(supabase, [contrat]));
+  const payee = jalons.find((j) => semaineDe(j) === w && PAYEES.includes(j.etat));
   const montant = Number(payee?.paye ?? payee?.depot ?? 0);
   if (payee && montant > 0) return { cas: "payee", montant };
   const n = numeroSemaine(ajouterJours(semaine, 7));
-  if (relu.jalons.some((j) => semaineDuNom(j.nom) === n && ETATS_FINANCES.includes(j.etat))) return { cas: "financee" };
+  if (jalons.some((j) => semaineDe(j) === n && ETATS_FINANCES.includes(j.etat))) return { cas: "financee" };
   return null;
 }
 

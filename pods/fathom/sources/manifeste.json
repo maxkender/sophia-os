@@ -1,6 +1,6 @@
 {
  "compte": "fathom0g",
- "maj_le": "2026-11-01",
+ "maj_le": "2026-11-02",
  "note": "Ses 60 derniers diaporamas (31/07 → 20/10), un par accroche : la meilleure version, et combien de fois il l'a refaite (`versions`). Ordre de travail : les `a_faire` dans l'ordre de leur motif, puis les variantes des formats déjà faits.",
  "posts": [
   {
@@ -108,8 +108,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7172341092501768965"
    },
    "legende": "10/10 Skills To Learn Before 25 #learnontiktok #selfmastery #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-032, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7687625113646288150",
@@ -126,8 +126,8 @@
     "url": "https://www.tiktok.com/music/som-original-7301096396756290309"
    },
    "legende": "3 Ways To Be Unrecognisable In 6 Months #learnontiktok #selfmastery #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-033, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7683561775752645910",
@@ -342,8 +342,8 @@
     "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
    },
    "legende": "10/10 Skills To Learn Before 2027 #learnontiktok #goviral #skills",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-034, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7685018360404266262",
@@ -360,8 +360,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "10/10 Skills You Can Learn In A Month #skills #learnontiktok #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-035, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7683084099820555542",
@@ -378,8 +378,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
    },
    "legende": "5 Skills That Only 1% Of People Have #learnontiktok #skills #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-037, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7686862943912332566",
@@ -648,8 +648,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7446895419589348118"
    },
    "legende": "10/10 Topics You Should Educate Yourself On #goviral #learnontiktok #selfmastery",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-038, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7688731180086070550",
@@ -792,8 +792,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
    },
    "legende": "5 Ways To Be Unrecognisable This Winter #learnontiktok #selfmastery #goviral",
-   "statut": "plus_tard",
-   "motif": ""
+   "statut": "fait",
+   "motif": "fa-039, livré le 02/11 en en, de, pt"
   },
   {
    "id": "7680842828377001238",
@@ -866,6 +866,24 @@
    "legende": "What Are You Learning On Fathomly? #fyp #fathomly #fyp",
    "statut": "exclu",
    "motif": "leur pub Fathomly (une slide)"
+  },
+  {
+   "id": "7702484759204678934",
+   "url": "https://www.tiktok.com/@fathom0g/video/7702484759204678934",
+   "publie_le": "2026-10-30",
+   "accroche": "10/10 Skills To Learn In Your 20s",
+   "vues": 41200,
+   "enregistrements": 3572,
+   "partages": 359,
+   "slides": 7,
+   "versions": 1,
+   "musique": {
+    "titre": "Alejandro",
+    "url": "https://www.tiktok.com/music/alejandro-7309690378487483142"
+   },
+   "legende": "10/10 Skills To Learn In Your 20s #learning #selfmastery #learnontiktok ",
+   "statut": "fait",
+   "motif": "veille du 02/11 ; fa-036, livré le 02/11 en en, de, pt"
   }
  ]
 }

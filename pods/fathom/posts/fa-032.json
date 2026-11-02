@@ -1,0 +1,315 @@
+{
+ "id": "fa-032",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686588998436818198",
+  "vues": 281700,
+  "accroche": "10/10 Skills To Learn Before 25"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn Before 25",
+  "de": "10/10 Skills für unter 25",
+  "pt": "10/10 habilidades antes dos 25"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn Before 25 #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills für unter 25 #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades antes dos 25 #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7172341092501768965"
+ },
+ "notes": "cta B. Reprise de l'accroche de fa-004 avec ses étapes à lui (routine, potager, voiture) et une couture à la main, aucune étape commune avec fa-004. Sophia à l'étape 3 « EDUCATE YOURSELF ». en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "BEFORE 25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS FÜR",
+     [
+      {
+       "t": "UNTER 25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES ANTES",
+     [
+      {
+       "t": "DOS 25",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUILD A",
+     "ROUTINE"
+    ],
+    "video": {
+     "id": "ueZne-LKdNw",
+     "titre": "The PERFECT Daily Routine for Students  📚 (You’re Doing It Wrong! ❌)",
+     "chaine": "Time For Growth",
+     "vues": "3M views",
+     "date": "1 year ago",
+     "duree": "12:26",
+     "avatar": "https://yt3.ggpht.com/Lg2EsHVwwPgSuj-poIFSfollwyXn-_N-yO_LoaLslFg7CATtomAfpW_luWd5hMA1YK1UFT2Z=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FINDE DEINE",
+     "ROUTINE"
+    ],
+    "video": {
+     "id": "OSk0AUT4_8o",
+     "titre": "So krempelst du dein Leben um!",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "4,2 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CRIA UMA",
+     "ROTINA"
+    ],
+    "video": {
+     "id": "21Tb736RgH4",
+     "titre": "Como criar uma ROTINA que você CONSEGUE seguir!",
+     "chaine": "Gabi Teixeira",
+     "vues": "20 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/LCo8H61PK3qrfIMmUE91k1OcicVSuuzOI5siABT7fM24LEw7H-WcsAHptk4PnbQ_uhK7vB6S=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "GROW YOUR",
+     "OWN FOOD"
+    ],
+    "video": {
+     "id": "NlS_dTDsHHQ",
+     "titre": "New Vegetable Garden: How To Get Started",
+     "chaine": "GrowVeg",
+     "vues": "1.4M views",
+     "date": "4 years ago",
+     "duree": "18:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYSOY3Tstu8-Ou1ZqEAWleFxrlqVgzUNiRbmgtQT5vw7y-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BAU DEIN",
+     "GEMÜSE AN"
+    ],
+    "video": {
+     "id": "tTWAUADXAWM",
+     "titre": "Gemüse anbauen für Dummies: Schritt für Schritt zum eigenen Gemüsegarten!",
+     "chaine": "Wurzelwerk",
+     "vues": "534.989 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "18:19",
+     "avatar": "https://yt3.ggpht.com/qS3Vcj4S3tSOWTrcRXlIM3FCV6n6y8nTvvZvvUSsF1gPNbpQRcxMtjL6FpiHMqssVQNrmd9FsK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CULTIVA A TUA",
+     "COMIDA"
+    ],
+    "video": {
+     "id": "GUppN-HvaBk",
+     "titre": "COMO FAZER UMA HORTA EM CASA (EM 1 MINUTO PASSO A PASSO)",
+     "chaine": "Victor Horta na Varanda",
+     "vues": "2,9 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "8:47",
+     "avatar": "https://yt3.ggpht.com/trkH0GkRBKtN8nAT3l-U5syfe-O2bw-0EWszStAvoUKvSE6XAAOw0dmjhWV1KWAZIYgECGDnRhU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "EDUCATE",
+     "YOURSELF"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "BILDE DICH",
+     "SELBST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE POR",
+     "CONTA PRÓPRIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BASIC CAR",
+     "MAINTENANCE"
+    ],
+    "video": {
+     "id": "BjX79GsALd8",
+     "titre": "Car Maintenance: 10 Things Every Car Owner Should Know - The Short List",
+     "chaine": "AutoGuide.com",
+     "vues": "1.7M views",
+     "date": "7 years ago",
+     "duree": "9:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mmEGazdv-6zzmAkjjcoqfgOq3OdFBuV4xuFcpQfulQgjM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "CHECK DEIN",
+     "AUTO SELBST"
+    ],
+    "video": {
+     "id": "7cNPlFTWhLI",
+     "titre": "Ölstand richtig messen: Was Ihr alles wissen solltet | Einfach. Selber. Machen.",
+     "chaine": "ADAC",
+     "vues": "122.941 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CUIDA DO",
+     "TEU CARRO"
+    ],
+    "video": {
+     "id": "R5UK8zQnH3s",
+     "titre": "Como conferir o nível do óleo do motor? Tem algumas regrinhas!",
+     "chaine": "AutoPapo",
+     "vues": "1,7 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "3:03",
+     "avatar": "https://yt3.ggpht.com/H8VEo0gkhhLs5UzOvVJ-wFdosX2q6ZLsk38xQF4rHKljFd758GBhcqQ7ZR9liblAsB7ZzCTJAw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SEW",
+     "BY HAND"
+    ],
+    "video": {
+     "id": "QhZTc1x1-pM",
+     "titre": "How to Sew by Hand for BEGINNERS!",
+     "chaine": "Cutesy Crafts",
+     "vues": "1.8M views",
+     "date": "4 years ago",
+     "duree": "22:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k2a8l_pqF-k1ze7z2XRTuBrZ6zWo7iBKHPeWJqn_3xKw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "NÄH",
+     "VON HAND"
+    ],
+    "video": {
+     "id": "XCiY9E_lcro",
+     "titre": "#21 - Handnaht - Steppstich mit Hand nähen, fast so perfekt wie mit der Nähmaschine",
+     "chaine": "congabaeren",
+     "vues": "873.609 Aufrufe",
+     "date": "vor 15 Jahren",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mD0PBgV3eNk-E-Ruw_OPMU-0US-peC5UQavDRY2dSUKg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COSE",
+     "À MÃO"
+    ],
+    "video": {
+     "id": "6kZMl7A7XWQ",
+     "titre": "Costura à Mão para INICIANTE. Passo a Passo de Como Aprender COSTURAR à MÃO.",
+     "chaine": "Costura do Dia com a Tina e Tina Costura do Dia: Consertos e Ajustes",
+     "vues": "801 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/YUtr-T_naNv-qtSVceiSNqyNJLL_FYNMpduA9jQpFjBpGfvUPsKVkuwDS5npdgl3p3vF176qyA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,319 @@
+{
+ "id": "fa-039",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686550606013615382",
+  "vues": 11800,
+  "accroche": "5 Ways To Be Unrecognisable This Winter"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable This Winter",
+  "de": "5 Wege, diesen Winter nicht wiederzuerkennen",
+  "pt": "5 formas de ficar irreconhecível este inverno"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable This Winter #skills #learnontiktok #selfmastery",
+  "de": "5 Wege, diesen Winter nicht wiederzuerkennen #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "5 formas de ficar irreconhecível este inverno #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta C. La seule reprise du jour d'une famille livrée 3 fois en 7 jours (Unrecognisable, §5.6) : étapes d'hiver, aucune commune avec fa-007 ou fa-017, carte UnSwipe dans sa 2e version. Double intégration : UnSwipe à l'étape 2 « SKIP THE REELS », Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "THIS WINTER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE"
+      }
+     ],
+     "DIESEN WINTER",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "ESTE INVERNO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO KNIT"
+    ],
+    "video": {
+     "id": "p_R1UDsNOMk",
+     "titre": "How to Knit: Easy for Beginners",
+     "chaine": "RJ Knits",
+     "vues": "15M views",
+     "date": "7 years ago",
+     "duree": "21:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVA5BHLRcC_N2a1_e9sAHeT2wACDKoXF74o70koaZkQU0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "STRICKEN"
+    ],
+    "video": {
+     "id": "HeWNTGWHRcA",
+     "titre": "Stricken lernen für Anfänger #1 Maschen aufnehmen",
+     "chaine": "KREATiVictoria",
+     "vues": "917.360 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "7:28",
+     "avatar": "https://yt3.ggpht.com/4M5MwmTjR1qEHODSacfZ1jpIm8nTvVmISFO3_xbp3ep0u3upfAlyiucPF9vykyw022M9Izr3mw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A TRICOTAR"
+    ],
+    "video": {
+     "id": "4Ph_eDei5C4",
+     "titre": "Aprendendo: Tricô para inciantes ~ colocar e tirar da agulha, ponto meia e tricô",
+     "chaine": "Marie Castro",
+     "vues": "1,5 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "6:03",
+     "avatar": "https://yt3.ggpht.com/sBZBsu4Dal0P6Wye-pdTh5FPgIr9TgzYneFplveldzrxO5hR91GmA3dL4KJ-iq1Ql4LFDObIVQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "SKIP THE",
+     "REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "keep Instagram, lose the Reels.",
+      "no need to delete anything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LASS DIE",
+     "REELS WEG"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "behalte Instagram, ohne die Reels.",
+      "du musst nichts löschen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "LARGA",
+     "OS REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "fica com o Instagram, sem os Reels.",
+      "sem apagar nada."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "STAY CURIOUS",
+     "ALL WINTER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "BLEIB DEN WINTER",
+     "NEUGIERIG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "FICA CURIOSO",
+     "TODO O INVERNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WORK OUT",
+     "AT HOME"
+    ],
+    "video": {
+     "id": "IT94xC35u6k",
+     "titre": "20 min Fat Burning Workout for TOTAL BEGINNERS (Achievable, No Equipment)",
+     "chaine": "MadFit",
+     "vues": "41M views",
+     "date": "4 years ago",
+     "duree": "22:18",
+     "avatar": "https://yt3.ggpht.com/IpjXoqLDSLHidmD_gnmeBkak922B5OaLkc8MiTI3KUlKiFKwGNeZZMOikbyMnnuk0f5uL3UY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "TRAINIER",
+     "ZUHAUSE"
+    ],
+    "video": {
+     "id": "2r2pSjrfx5Y",
+     "titre": "15 MIN Ganzkörper BEGINNER Workout / Anfänger, ohne springen | GET STARTED CHALLENGE | Tina Halder",
+     "chaine": "Tina Halder",
+     "vues": "2,8 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:10",
+     "avatar": "https://yt3.ggpht.com/oB86BswghG7JMmoSBCLJJh2F_uEoGmsNxe86sOzKCBhiYanRIxJWJuPRIxbdaPsp6Xh51mBnPg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TREINA",
+     "EM CASA"
+    ],
+    "video": {
+     "id": "NXonOboOmBo",
+     "titre": "Treino iniciantes em casa  - sem equipamentos zero impacto - Carol Borba",
+     "chaine": "Carol Borba",
+     "vues": "388 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "14:43",
+     "avatar": "https://yt3.ggpht.com/Nj4WO2suLbginPREoeyAZlPRrevlV1wCGb0dUtkX9xxzUsyWSfGTTviuuIsF4ocqczRttCWN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TRY COLD",
+     "SHOWERS"
+    ],
+    "video": {
+     "id": "HsonXuJs8-s",
+     "titre": "Can Cold Showers Actually Change Your Life?",
+     "chaine": "SciShow",
+     "vues": "1.5M views",
+     "date": "8 years ago",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/PeTBgposs2PwFQ9w75vPgEzKGZqHQb6slgisyh3dcF61uLD3y-tczPRhaH0s_AOSovMjtiBy1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DUSCH",
+     "KALT"
+    ],
+    "video": {
+     "id": "Fu0KiFumy8g",
+     "titre": "Kälte-Schock: Ist es gesund, kalt zu duschen? Dr. Johannes Wimmer",
+     "chaine": "Die Techniker",
+     "vues": "87.086 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "EXPERIMENTA",
+     "O BANHO FRIO"
+    ],
+    "video": {
+     "id": "HQ8A9z5JKFQ",
+     "titre": "Banho frio é saudável? Benefícios de um bom banho!",
+     "chaine": "Angela Xavier",
+     "vues": "68 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/1XyL4V3Jml4_ZOferM8DoYwCF0zVnd8BBryuaDA3sFn0BTJ7-jEud8zTYza1OO7CYjQIallE1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

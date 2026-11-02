@@ -229,6 +229,9 @@ verify_jwt = false
 [functions.strip-c2pa]
 verify_jwt = false
 
+[functions.rc-pays]
+verify_jwt = false
+
 [functions.suivi-rc]
 verify_jwt = false
 

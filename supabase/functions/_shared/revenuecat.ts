@@ -61,6 +61,8 @@ export async function fetchChart(opts: {
   segment: string;
   limit: number;
   selectors?: Record<string, string>;
+  /** Page Pays (2/11) : filtres RevenueCat, ex. [{ name: "transaction_type", values: ["new"] }]. */
+  filters?: { name: string; values: string[] }[];
 }): Promise<unknown> {
   const url = new URL(`${RC_API}/projects/${opts.projectId}/charts/${opts.chart}`);
   url.searchParams.set("start_date", opts.start);
@@ -71,6 +73,7 @@ export async function fetchChart(opts: {
   url.searchParams.set("realtime", "true");
   url.searchParams.set("currency", "EUR");
   if (opts.selectors) url.searchParams.set("selectors", JSON.stringify(opts.selectors));
+  if (opts.filters?.length) url.searchParams.set("filters", JSON.stringify(opts.filters));
 
   const res = await fetch(url, {
     headers: {
@@ -129,4 +132,17 @@ export async function fetchChartsSophia(key: string, projectId: string) {
   ]);
 
   return { trials_new, trial_conversion_rate, initial_conversion };
+}
+
+/** Les options d'un graphique (segments, filtres, sélecteurs) : lecture seule. */
+export async function fetchOptionsChart(opts: { key: string; projectId: string; chart: string }): Promise<unknown> {
+  const url = `${RC_API}/projects/${opts.projectId}/charts/${opts.chart}/options`;
+  const res = await fetch(url, { headers: { Authorization: `Bearer ${opts.key}`, Accept: "application/json" } });
+  const texte = await res.text();
+  if (!res.ok) throw new Error(`RevenueCat options ${opts.chart} ${res.status}: ${texte.slice(0, 280)}`);
+  try {
+    return JSON.parse(texte) as unknown;
+  } catch {
+    throw new Error(`RevenueCat options ${opts.chart}: réponse non-JSON`);
+  }
 }

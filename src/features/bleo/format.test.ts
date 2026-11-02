@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { runOfficiel, type RunBleo } from "./api";
-import { formaterJour, formaterPart, formaterVues, part } from "./format";
+import { formaterJour, formaterPart, formaterValeur, formaterVues, part } from "./format";
 
 describe("BLEO, mise en forme", () => {
   it("vues en court", () => {
@@ -10,6 +10,14 @@ describe("BLEO, mise en forme", () => {
     expect(formaterVues(1234)).toBe("1,2 k");
     expect(formaterVues(13840)).toBe("14 k");
     expect(formaterVues(1_400_000)).toBe("1,4 M");
+  });
+
+  it("valeur et r à deux décimales fixes, selon la langue", () => {
+    expect(formaterValeur(1.2)).toBe("1,20");
+    expect(formaterValeur(0.456)).toBe("0,46");
+    expect(formaterValeur(3, "en")).toBe("3.00");
+    expect(formaterValeur(null)).toBe("—");
+    expect(formaterValeur(Number.NaN)).toBe("—");
   });
 
   it("parts et pourcentages", () => {

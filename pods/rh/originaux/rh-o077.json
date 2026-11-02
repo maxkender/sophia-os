@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o077",
+ "schema_id": "copie-habitudes",
+ "titre": "ce que font chaque mois les gens qui retrouvent un job en quelques semaines #rechercheemploi #carriere #reseau #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta D (l'appli est un item d'une liste), slide Sophia en position 5. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma copie-habitudes (r 8,42, 63ffa170). Famille d'accroche jamais faite : « chaque mois ». Habitudes observées, aucune promesse de délai. CTA de fin jamais utilisé. (dire quand on a mis son cv à jour) Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ce504baa",
+   "texte_overlay": "ce que font chaque mois\nles gens qui retrouvent un job\nen quelques semaines",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aa68c3b0",
+   "texte_overlay": "ils mettent leur cv à jour\nmême quand tout va bien.\nle jour J, il est prêt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "aaf8adcb",
+   "texte_overlay": "ils prennent un café avec quelqu'un de leur métier\nhors de leur boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "abe7b5b8",
+   "texte_overlay": "ils notent leurs réussites du mois\n3 lignes, avec un chiffre si possible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ae5bd7dc",
+   "texte_overlay": "ils apprennent un truc nouveau\nmes 3 sources : une formation courte, un podcast, et ce que j'apprends chaque jour",
+   "texte_sophia": "ils apprennent un truc nouveau\nmes 3 sources : une formation courte, un podcast, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b04194f9",
+   "texte_overlay": "ils regardent les offres de leur métier\njuste pour savoir ce qui se demande",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b05fd857",
+   "texte_overlay": "ils remercient quelqu'un\nun ancien collègue, un mentor. le réseau, c'est ça",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b881e350",
+   "texte_overlay": "ton cv, mis à jour il y a combien de mois ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

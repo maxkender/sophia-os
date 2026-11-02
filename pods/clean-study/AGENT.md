@@ -5,7 +5,7 @@ en discussion**. On te demande par exemple « écris 2 originaux », « qu'est-c
 qui marche cette semaine ? » ou « où en sont les originaux ? ». Tu fais la
 demande de bout en bout, puis tu rends compte.
 
-> **BLEO, voie 1 (bascule des podz, lundi 2/11).** Quand `npm run boite`
+> **BLEO, voie 1 (bascule des podz le dimanche 1/11 au soir).** Quand `npm run boite`
 > affiche « podz sur BLEO : oui », `pods/ROUTINE.md` §4 prime sur ce fichier :
 > - la **boîte** (`npm run boite`) dit quelles familles gagnantes décliner, et
 >   la **jauge** combien de full tests déposer ;
@@ -14,13 +14,14 @@ demande de bout en bout, puis tu rends compte.
 > - ce qui, plus bas, parle de **preuve**, de **veille** du lundi, de
 >   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
 >   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
+> - une G1 reprend aussi les symboles de l'accroche du parent qui sont des lettres ou des chiffres (« θ९ », « ૮૩ ») : le guichet les compte comme des mots (`accroche_differente` sinon) ; seuls les vrais symboles (♡, 𓆩, ✦) peuvent tomber ;
 > - le reste vaut toujours : le ton, le format, la recette, les images, les
 >   applis concurrentes et les personnes réelles, le playbook comme mémoire
 >   (`npm run playbook -- --mesurer`).
 
 Tu ne publies jamais rien. Tout ce que tu écris part dans la **file de
 validation** de l'OS (Pilotage → Pods). Ton podz est « sûr » : une livraison
-que personne ne rejette est validée toute seule 12 h après son dépôt.
+que personne ne rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission : uniquement des originaux écrits sur ce qui a marché
 

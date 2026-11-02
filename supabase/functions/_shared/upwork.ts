@@ -228,6 +228,37 @@ export const REQUETE_STATUT_CONTRAT = `query StatutContrat($id: ID!) {
 }`;
 
 /**
+ * 31/10 : la connexion (compte de Max) voit 4 organisations. 2/11 (0510) :
+ * l'OS ne lit et n'agit QUE sur « VIk Studios » : accueil, Contracts to link,
+ * relances, paie, Who to fund. « Micabo », « Maximilien Kender » (Calyra) et
+ * « Louis Kender » sont ignorées : ni lecture, ni posteur, ni message, ni paie, ni carte.
+ */
+export const ORG_VIK = "2074065383597823773";
+export const ORG_MICABO = "1990051114607612379";
+export const ORGS_OS: readonly string[] = [ORG_VIK];
+
+export function orgDeLOs(id: string | null | undefined): boolean {
+  return Boolean(id) && ORGS_OS.includes(String(id));
+}
+
+/** Fin d'un contrat : la date et qui l'a terminé (le freelance ou nous). Lecture seule. */
+export const REQUETE_FIN_CONTRAT = `query FinContrat($id: ID!) {
+  contractDetails(id: $id) { id status endDate freelancer { id } endedBy { id name } }
+}`;
+
+/** « freelance » si celui qui a terminé est le freelance, « nous » sinon (inconnu : « nous »). */
+// deno-lint-ignore no-explicit-any
+export function lireFinContrat(c: any): { fin: string | null; par: "freelance" | "nous" } {
+  const fin = c?.endDate ? new Date(isNaN(Number(c.endDate)) ? c.endDate : Number(c.endDate)) : null;
+  const freelance = c?.freelancer?.id ? String(c.freelancer.id) : null;
+  const termine = c?.endedBy?.id ? String(c.endedBy.id) : null;
+  return {
+    fin: fin && !isNaN(fin.getTime()) ? fin.toISOString().slice(0, 10) : null,
+    par: freelance && termine && freelance === termine ? "freelance" : "nous",
+  };
+}
+
+/**
  * Le contrat est-il fermé ? Seulement un statut lu et clairement terminé :
  * actif, en pause, suspendu ou vide → non (jamais de désactivation sur un doute).
  */

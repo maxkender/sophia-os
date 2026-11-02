@@ -1,0 +1,290 @@
+{
+ "id": "fa-024",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686070623206280470",
+  "vues": 97100,
+  "accroche": "5 Ways to Build Peak Intelligence"
+ },
+ "titre": {
+  "en": "5 Ways to Build Peak Intelligence",
+  "de": "5 Wege zu maximaler Intelligenz",
+  "pt": "5 formas de chegar ao teu máximo de inteligência"
+ },
+ "legendes": {
+  "en": "5 Ways to Build Peak Intelligence #intelligence #learnontiktok #selfimprovement",
+  "de": "5 Wege zu maximaler Intelligenz #intelligenz #lernenmittiktok #selbstverbesserung",
+  "pt": "5 formas de chegar ao teu máximo de inteligência #inteligencia #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "Variante de fa-010. cta C (1re personne). Double intégration : UnSwipe à l'étape 2 « CUT THE REELS », Sophia à l'étape 4 « LEARN SOMETHING EVERY DAY ». Autres étapes (palais de mémoire, instrument, calcul mental), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO BUILD PEAK",
+     "INTELLIGENCE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZU MAXIMALER",
+     "INTELLIGENZ"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 FORMAS",
+       "bronze": true
+      }
+     ],
+     "DE CHEGAR AO TEU",
+     "MÁXIMO DE INTELIGÊNCIA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUILD A",
+     "MEMORY PALACE"
+    ],
+    "video": {
+     "id": "PIbz_gKw0XY",
+     "titre": "Mind Palace (Simple Guide) - 5 Steps to Remember Things With a Memory Palace",
+     "chaine": "Practical Psychology",
+     "vues": "606K views",
+     "date": "6 years ago",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/C-POj_q22w8Zux8FCpDUq_RhP9ct0cyAj4r-nfuNgALqSAWdImYv0qCzG6uOmYwSF5UKQ72_aNg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BAU DIR EINEN",
+     "GEDÄCHTNISPALAST"
+    ],
+    "video": {
+     "id": "6Y9K66nu3C4",
+     "titre": "Ein Gedächtnis wie Sherlock Holmes (Loci Methode und Gedächtnispalast)",
+     "chaine": "Logical Lemon",
+     "vues": "418.138 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "6:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CONSTRÓI UM",
+     "PALÁCIO DA MEMÓRIA"
+    ],
+    "video": {
+     "id": "IRMNnl7ou50",
+     "titre": "COMO CRIAR UM PALÁCIO DA MEMÓRIA [ TÉCNICA DE MEMORIZAÇÃO ]",
+     "chaine": "Renato Alves Memorização",
+     "vues": "73 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "CUT THE REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WEG MIT DEN REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "CORTA OS REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY AN",
+     "INSTRUMENT"
+    ],
+    "video": {
+     "id": "R0JKCYZ8hng",
+     "titre": "How playing an instrument benefits your brain - Anita Collins",
+     "chaine": "TED-Ed",
+     "vues": "15M views",
+     "date": "12 years ago",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL EIN",
+     "INSTRUMENT"
+    ],
+    "video": {
+     "id": "RSpOxUyyxcU",
+     "titre": "Wie das Spielen eines Instruments dem Gehirn nutzt – Anita Collins",
+     "chaine": "Bleib neugierig — TED-Ed",
+     "vues": "12.421 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/7PXZmYddF8Wu0-9i5SUaeI9VBQyP_7f8uhbFZ_yXo5UgxpGuLQypVUFary-WHsxr9yzoHfZxig=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TOCA UM",
+     "INSTRUMENTO"
+    ],
+    "video": {
+     "id": "fQzWnlyj6zo",
+     "titre": "COMO APRENDER UM INSTRUMENTO DEPOIS DE ADULTO?",
+     "chaine": "Como a Mente Funciona",
+     "vues": "4 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "11:29",
+     "avatar": "https://yt3.ggpht.com/3BtGCntzHpFm7TgBUwV1T6UZo8vgq5WG226pTchdvZC9v5EDvz78OeRPfunw_2vPFUNvRCHHOqs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO MENTAL MATH"
+    ],
+    "video": {
+     "id": "cZZ4feDHYLI",
+     "titre": "How to Calculate Extremely FAST (In Your Head!)",
+     "chaine": "Mr. Beano",
+     "vues": "229K views",
+     "date": "9 months ago",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/2uU7aCZawVSkFT3ZfXo8M8mtlYf8-MHDXxtpI-gWU4Ea65YgUgRNdavQ8KMrFI15Hqs1V1YV=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RECHNE IM KOPF"
+    ],
+    "video": {
+     "id": "x6uEFwe9ilo",
+     "titre": "Super SCHNELL Kopfrechnen – Genialer Trick",
+     "chaine": "MathemaTrick",
+     "vues": "690.239 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ugyuS-QZor_23jIe3iTM7zBQD80i8pDIES7gam-yVES2m-kUnzoQLTOpcBAFrqsrk0qlRw8Psw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZ CONTAS",
+     "DE CABEÇA"
+    ],
+    "video": {
+     "id": "6O5zYJ7N-6g",
+     "titre": "DICAS e MACETES de CÁLCULO MENTAL",
+     "chaine": "Maike Anthony",
+     "vues": "49 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "22:10",
+     "avatar": "https://yt3.ggpht.com/-0nhfCAj9OBaqeBLYhlIxAWX_Vqtg_PBU1GY1aPYRlA-THQJrD5IYmglfKCSSTF8Yj1PcMgHFPo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o085",
+ "schema_id": "talk-to-anyone",
+ "titre": "How to master the art of a first impression #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "4fecf912-d03d-44d0-a8a1-8a910dc87752"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 8, sur une image sans visage. Couverture neuve b116c6cd. essai (numéro en 5). Gabarit « How to master the art of » du schéma talk-to-anyone (cc2b7953 r 4,57, 4fecf912 r 3,84 chez nous), sur un sujet jamais fait chez nous : la première impression. Accroches écrites : « How to master the art of a first impression » (retenue : même promesse, enjeu universel), « How to make a great first impression on anyone » (écartée : perd le gabarit), « The art of being remembered after one meeting » (écartée : trop proche d'unforgettable). Items neufs.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b116c6cd",
+   "texte_overlay": "How to master the art of\na first impression",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Arrive a few minutes early. Rushing in late and out of breath is the worst start. Being calm and settled when people arrive makes you look in control before you say a word.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stand up when you're introduced. Look them in the eye, smile, say their name back. \"Nice to meet you, Clara.\" It's old school, and it instantly sets you apart from everyone else.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Lead with curiosity, not your CV. Skip listing your achievements. Ask about them first. People decide they like you based on how you make them feel, not on what you've done.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Give a firm, short handshake. Not a crusher, not a dead fish. Two seconds, steady grip, eye contact. A good handshake is a tiny detail people remember for a surprisingly long time.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Dress for the room, plus a little. Clean shoes, clothes that fit, nothing wrinkled. Looking put together tells people you take them and the moment seriously.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Remember one detail and use it later. Their dog's name, their trip, their new job. Bringing it up at the end of the conversation shows you were truly listening the whole time.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Bring something interesting into the room. I do five minutes a day of history, art or science, and I've always got a light, fun topic to break the ice with someone new.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I've always got a light, fun topic to break the ice with someone new.",
+   "media_id": "5a171e9b"
+  }
+ ]
+}

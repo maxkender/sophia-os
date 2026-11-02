@@ -98,7 +98,8 @@ export interface ZonesPaie {
 export async function lireZonesPaie(): Promise<ZonesPaie> {
   const [z, p, c] = await Promise.all([
     supabase.from("zones_paie").select("zone, tarif").order("zone"),
-    supabase.from("zones_paie_pays").select("pays, zone").order("pays"),
+    // 0508 : un pays retiré (ex. Portugal, 02/11) n'est plus éligible : hors de la liste.
+    supabase.from("zones_paie_pays").select("pays, zone").is("retire_at", null).order("pays"),
     supabase.from("comptes").select("pays").eq("is_active", true).not("pays", "is", null),
   ]);
   if (z.error) throw z.error;
@@ -117,7 +118,10 @@ export async function enregistrerTarifZone(zone: string, tarif: number): Promise
 }
 
 export async function enregistrerZonePays(pays: string, zone: string): Promise<void> {
-  const { error } = await supabase.from("zones_paie_pays").upsert({ pays: pays.toUpperCase(), zone }, { onConflict: "pays" });
+  // Choisir une zone (re)rend le pays éligible (0508 : retire_at remis à vide).
+  const { error } = await supabase
+    .from("zones_paie_pays")
+    .upsert({ pays: pays.toUpperCase(), zone, retire_at: null, retire_raison: null }, { onConflict: "pays" });
   if (error) throw error;
 }
 

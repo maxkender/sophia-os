@@ -29,7 +29,7 @@ import { nomLangue } from "@/features/moteur/langues";
 const PAR_PAGE = TAILLE_PAGE * 2;
 
 /**
- * BLEO, plan du jour : ce que le tirage de 14 h aurait donné à chaque compte
+ * BLEO, plan du jour : ce que le tirage de 14 h donne à chaque compte
  * pour J+1 (mode ombre, rien n'est publié), à côté de ce que minuit a
  * réellement assigné. Un tirage se choisit dans la liste (`?run=`).
  */

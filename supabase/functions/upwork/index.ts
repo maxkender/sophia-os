@@ -12,11 +12,14 @@ import {
   REQUETE_JALONS,
   REQUETE_STATUT_CONTRAT,
   contratFerme,
+  lireFinContrat,
+  orgDeLOs,
+  ORGS_OS,
+  REQUETE_FIN_CONTRAT,
   jalonAApprouver,
   MUTATION_APPROUVER,
   MUTATION_CREER_JALON,
   MUTATION_EDITER_JALON,
-  MUTATION_FINANCER_JALON,
   MUTATION_MESSAGE,
   REQUETE_SALON,
   requeteContrats,
@@ -31,20 +34,32 @@ import {
 import {
   type Annonce,
   bienvenueARattraper,
+  cohorteRecrue,
+  loginDejaDonne,
+  RAISON_WELCOME_HM,
+  paysDansTexte,
+  paysDeReponse,
+  codePays,
   type DetailsContrat,
-  GUIDE_POSTER,
+  hmDeNomUpwork,
+  type InfosApi,
+  langueDePays,
+  REQUETES_LOCALISATION,
   lireDetailsContrat,
   annoncesDepuisPosteurs,
   lireModeAuto,
   messageAccueil,
+  normaliserNom,
   type PosteurAnnonce,
   planAccueil,
   type PosteurExistant,
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
+import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
-import { derniersMessagesSalon } from "../_shared/contexte.ts";
+import { decoderHtml, derniersMessagesSalon } from "../_shared/contexte.ts";
 import {
   decrireJalons,
   etape,
@@ -89,7 +104,8 @@ import {
   semaineDuNom,
 } from "../_shared/paiement.ts";
 import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_shared/ckd.ts";
-import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
+import { posteurExistantDeErreur } from "../_shared/contrat_unique.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, lireCompte } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
@@ -159,6 +175,19 @@ const COMPTE = "principal";
  *       (`reponses_cibles_upwork`) dans la conversation de leur contrat, plus
  *       récents que le dernier lu → `posteur_reponses` (canal upwork). Lecture
  *       seule ; le classement et la réponse viennent de recrues-check.
+ *   { action: "accueil_localiser", contrats? }  admin
+ *       0470 : la HM du contrat (hiringManager / supervisor) et le pays du
+ *       freelance (userDetails, talentProfile ou l'offre), lus et montrés. Rien
+ *       n'est créé ni envoyé.
+ *   { action: "accueil_creer", contrat_id, pays, hm_id, langue?, tarif?, confirmer }  admin
+ *       0470 : carte « Contract to link » : posteur créé, relié, bienvenue envoyée.
+ *       Profil déjà créé par la HM (même contrat) : HM et tarif posés, bienvenue envoyée.
+ *   { action: "jalon_creer", contrat_id, nom, montant, confirmer }  admin
+ *       31/10 : une milestone créée sans être financée, notée dans « To fund by hand ».
+ *   { action: "welcomes_envoyer", poster_ids, confirmer }  admin
+ *       31/10 : la bienvenue de recrues créées par la HM, jamais accueillies (Adrien, puis Max, puis la HM).
+ *   { action: "warmup_check_decider", poster_id, lundi, decision, confirmer }  admin, Head of Ops
+ *       0474 : le check du warm-up du dimanche soir ; « pas_chaud » : posts mardi + message.
  *   { action: "annonces_amorcer" }           admin
  *       Système du 2 nov., partie A : remplit `annonces_pays` depuis les
  *       posteurs déjà embauchés (l'annonce de leur contrat, lue en lecture
@@ -182,13 +211,13 @@ Deno.serve(async (request) => {
       return await retourUpwork(supabase, url);
     }
 
-    // La paie (prompt 14, point 3) : admin et Head of Ops ; le reste : admin.
+    // La paie (prompt 14, point 3) et la carte « Contract to link » (0470) : admin et Head of Ops ; le reste : admin.
     const acces = await assertRole(request, ["admin", "head_of_ops"]);
     if (acces instanceof Response) return acces;
     // deno-lint-ignore no-explicit-any
     const body: any = await request.json().catch(() => ({}));
     const par = acces.userId === "cron" ? null : acces.userId;
-    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation"].includes(body.action)) {
+    if (acces.role !== "admin" && !["paie_apercu", "paie_payer", "paie_auto_lancer", "message_posteur", "paie_simulation", "accueil_localiser", "accueil_creer", "warmup_check_decider"].includes(body.action)) {
       return json({ error: "forbidden" }, 403);
     }
 
@@ -230,7 +259,8 @@ Deno.serve(async (request) => {
       case "paie_test_financer":
         // 0467 : « Fund this milestone (test) » : seulement le financement, puis la relecture.
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
-        return json(await paieTestFinancer(supabase, par, String(body.contrat_id ?? "")));
+        // 2/11 : jamais de financement par l'API ; on finance à la main sur Upwork.
+        return json({ ok: false, error: "Financement par l'API désactivé : finance la milestone à la main sur Upwork (Who to fund)." });
       case "paie_test_payer":
         // Prompt 26 : « Pay this week » sur un contrat de test (Overview → Test contracts).
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -258,6 +288,9 @@ Deno.serve(async (request) => {
       }
       case "message_posteur":
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
+      case "reprise_conversations":
+        // 0504 : l'historique complet des conversations jamais lues, quelques-unes par passage, la nuit.
+        return json(await repriseConversations(supabase, par));
       case "arrets":
         return json(await traiterArrets(supabase, par));
       case "arrets_verifier": {
@@ -289,6 +322,40 @@ Deno.serve(async (request) => {
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
+      case "jalon_creer":
+        // 31/10 : créer une milestone sans la financer (confirmer explicite, aucun cron ne l'envoie) ; elle va dans « To fund by hand ».
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await creerJalonSeul(supabase, par, String(body.contrat_id ?? ""), String(body.nom ?? ""), Number(body.montant)));
+      case "welcomes_envoyer": {
+        // 31/10 : la bienvenue des recrues créées par la HM et jamais accueillies (liste donnée, confirmer explicite, aucun cron ne l'envoie).
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
+        const ids = Array.isArray(body.poster_ids) ? body.poster_ids.map(String) : [];
+        return json(await envoyerWelcomes(supabase, par, ids));
+      }
+      case "warmup_check_decider":
+        // 0474 : Weekly decisions → Sunday : « Warm-up OK » ou « Not warmed up » (un clic, jamais par un cron).
+        if (body.confirmer !== true || acces.userId === "cron") return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await deciderWarmup(supabase, par, String(body.poster_id ?? ""), String(body.lundi ?? ""), body.decision === "pas_chaud" ? "pas_chaud" : "ok"));
+      case "accueil_localiser":
+        // 0470 : pays du freelance et HM du contrat, lus et montrés ; rien n'est créé ni envoyé.
+        return json(await localiserAccueils(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "bienvenues_apercu":
+        // 1/11 : la liste des welcomes en attente, triée (l'OS envoie / déjà fait par la HM). Lecture seule.
+        return json(await apercuBienvenues(supabase, par));
+      case "relier_contrats":
+        // 1/11 : les contrats « To link » (VIk Studios) : pays, HM, cohorte ; sans confirmer, l'aperçu seul.
+        // Avec confirmer (aucun cron n'a cette action) : profil créé et relié, aucun welcome (il attend On).
+        return json(await relierContrats(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null, body.confirmer === true));
+      case "accueil_creer":
+        // 0470 : carte « Contract to link » : un clic, le posteur créé et la bienvenue envoyée.
+        // Jamais par un cron planifié (aucun n'a cette action) ; un appel explicite, avec confirmer.
+        if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
+        return json(await creerAccueilMaintenant(supabase, par, {
+          contrat: String(body.contrat_id ?? ""), pays: String(body.pays ?? ""),
+          langue: typeof body.langue === "string" && body.langue ? body.langue : null,
+          hm_id: typeof body.hm_id === "string" && body.hm_id ? body.hm_id : null,
+          tarif: Number(body.tarif) > 0 ? Number(body.tarif) : null,
+        }));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -584,9 +651,10 @@ interface Organisation {
   organizationId: string;
 }
 
+/** Les organisations lues par l'OS : VIk Studios (et Micabo en attendant). Calyra et Louis Kender : jamais. */
 async function organisations(supabase: Supabase): Promise<Organisation[]> {
   const { data } = await supabase.from("upwork_connexion").select("organisations").eq("compte", COMPTE).maybeSingle();
-  return ((data?.organisations ?? []) as Organisation[]).filter((o) => o?.organizationId);
+  return ((data?.organisations ?? []) as Organisation[]).filter((o) => o?.organizationId && orgDeLOs(o.organizationId));
 }
 
 async function lireContrats(supabase: Supabase, par: string | null) {
@@ -618,15 +686,18 @@ async function lireContrats(supabase: Supabase, par: string | null) {
       total = offres.totalCount ?? total;
       // deno-lint-ignore no-explicit-any
       const lignes = (offres.edges ?? []).map((e: any) => ({
-        ...lireContrat(e?.node),
+        // 0470 : le pays du freelance vient de lireLocalisation ; la relecture ne l'efface pas.
+        ...sansPaysVide(lireContrat(e?.node)),
         organisation_id: org.organizationId,
         organisation_nom: org.title?.trim() ?? null,
         actif: true,
         lu_at: new Date().toISOString(),
         brut: e?.node ?? null,
       })).filter((l: { offre_id: string }) => l.offre_id);
-      if (lignes.length > 0) {
-        const { error } = await supabase.from("upwork_contrats").upsert(lignes, { onConflict: "offre_id" });
+      // Deux envois aux colonnes identiques : un lot mêlé remettrait à null le pays des lignes qui ne l'ont pas.
+      for (const lot of [lignes.filter((l: object) => "freelancer_pays" in l), lignes.filter((l: object) => !("freelancer_pays" in l))]) {
+        if (lot.length === 0) continue;
+        const { error } = await supabase.from("upwork_contrats").upsert(lot, { onConflict: "offre_id" });
         if (error) throw error;
       }
       lus += lignes.length;
@@ -696,7 +767,8 @@ async function lireOffres(supabase: Supabase, par: string | null) {
     }
     bilan[org.title?.trim() ?? org.organizationId] = { lus, erreur };
   }
-  return { ok: Object.values(bilan).every((b) => !b.erreur), organisations: bilan };
+  const termines = await terminesDepuisOffres(supabase, par).catch((e) => [`erreur : ${messageErreur(e)}`]);
+  return { ok: Object.values(bilan).every((b) => !b.erreur), organisations: bilan, termines };
 }
 
 /** Au-delà, une lecture qui fait tomber trop de contrats d'un coup est suspecte : rien n'est désactivé, Max est prévenu. */
@@ -720,19 +792,59 @@ async function contratsFermes(supabase: Supabase, par: string | null, fermes: { 
   const { data: relies } = await supabase.from("profiles").select("upwork_contract_id").eq("is_active", true)
     .in("upwork_contract_id", fermes.map((f) => f.contrat));
   const actifs = new Set((relies ?? []).map((p) => String(p.upwork_contract_id)));
-  const contrats: string[] = [];
+  const faits: string[] = [];
   for (const f of fermes.filter((x) => actifs.has(x.contrat))) {
-    const lu = await lire(supabase, { par, action: "contrat_statut", query: REQUETE_STATUT_CONTRAT, variables: { id: f.contrat }, tenant: f.tenant });
-    const statut = String(lu.data?.contractDetails?.status ?? "").toUpperCase();
-    if (!lu.erreur && contratFerme(statut)) contrats.push(f.contrat);
+    const r = await arreterContratTermine(supabase, par, f.contrat, f.tenant);
+    if (r) faits.push(r);
   }
-  if (contrats.length === 0) return null;
-  const { data, error } = await supabase.rpc("contrats_termines_desactiver", { p_contrats: contrats });
+  return faits.length ? faits : null;
+}
+
+/**
+ * 31/10 : un contrat VIk Studios terminé (Ended) chez Upwork, par le freelance
+ * ou par nous hors de l'OS : relu (statut, date, qui), puis
+ * `contrat_termine_arreter` (0472) : posteur et comptes désactivés, sortis de la
+ * masterlist, de Needs you, de la paie, de « To fund by hand » et des relances,
+ * ligne « To remove from Slack », trace « Contract ended by freelancer on … ».
+ * Aucun message.
+ */
+async function arreterContratTermine(supabase: Supabase, par: string | null, contrat: string, tenant: string | null): Promise<string | null> {
+  const lu = await lire(supabase, { par, action: "contrat_fin", query: REQUETE_FIN_CONTRAT, variables: { id: contrat }, tenant });
+  const c = lu.data?.contractDetails;
+  if (lu.erreur || !contratFerme(String(c?.status ?? "").toUpperCase())) return null;
+  const fin = lireFinContrat(c);
+  const { data, error } = await supabase.rpc("contrat_termine_arreter", { p_contrat: contrat, p_fin: fin.fin, p_par: fin.par });
   if (error) {
-    console.error("[upwork] contrats fermés", error.message);
+    console.error("[upwork] contrat terminé", contrat, error.message);
     return null;
   }
-  return ((data ?? []) as { nom: string | null; contrat_id: string }[]).map((d) => `${d.nom ?? "?"} (${d.contrat_id})`);
+  const d = ((data ?? []) as { nom: string | null }[])[0];
+  return d ? `${d.nom ?? "?"} (${contrat}, ${fin.par === "freelance" ? "par le freelance" : "par nous"}${fin.fin ? `, ${fin.fin}` : ""})` : null;
+}
+
+/**
+ * 31/10 : les offres terminées (Ended) de VIk Studios dont le contrat est
+ * encore relié à un posteur actif (un contrat qui n'a jamais été dans la liste
+ * des contrats actifs n'en sort pas) : même traitement.
+ */
+async function terminesDepuisOffres(supabase: Supabase, par: string | null): Promise<string[]> {
+  const { data: offres } = await supabase.from("upwork_offres").select("contrat_id, organisation_id")
+    .in("organisation_id", [...ORGS_OS]).not("contrat_id", "is", null)
+    .or("etat.eq.Ended,contrat_statut.eq.CLOSED,contrat_statut.eq.ENDED");
+  const tenantDe = new Map((offres ?? []).map((o) => [String(o.contrat_id), String(o.organisation_id)]));
+  if (tenantDe.size === 0) return [];
+  const { data: relies } = await supabase.from("profiles").select("upwork_contract_id").eq("is_active", true)
+    .in("upwork_contract_id", [...tenantDe.keys()]);
+  const faits: string[] = [];
+  for (const p of (relies ?? []).slice(0, MAX_FERMES_PAR_LECTURE)) {
+    const contrat = String(p.upwork_contract_id);
+    // Encore dans la liste des contrats actifs : pas terminé (une autre offre du même contrat).
+    const { data: actif } = await supabase.from("upwork_contrats").select("contrat_id").eq("contrat_id", contrat).eq("actif", true).limit(1);
+    if (actif?.length) continue;
+    const r = await arreterContratTermine(supabase, par, contrat, tenantDe.get(contrat) ?? null);
+    if (r) faits.push(r);
+  }
+  return faits;
 }
 
 // ---------------------------------------------------------------------------
@@ -954,6 +1066,14 @@ async function planLigne(
     return {
       ligne, tenant, jalons: [],
       plan: { ...planPaiement(ligne, [], semaine, r), statut: "refuse", raison: "contrat absent des contrats actifs lus (Réglages → Upwork → Lire les contrats)" },
+      bloque: null,
+    };
+  }
+  // 2/11 (0510) : jamais de paie sur un contrat hors VIk Studios (Calyra, Micabo…).
+  if (!orgDeLOs(tenant)) {
+    return {
+      ligne, tenant, jalons: [],
+      plan: { ...planPaiement(ligne, [], semaine, r), statut: "refuse", raison: `contrat hors VIk Studios (organisation ${tenant}) : jamais payé par l'OS` },
       bloque: null,
     };
   }
@@ -1225,49 +1345,6 @@ async function paieTestPayer(supabase: Supabase, par: string | null, contratId: 
   };
 }
 
-/**
- * 0467 : « Fund this milestone (test) » sur un contrat de test : la 1re milestone
- * NotFunded est financée (activateMilestone), rien d'autre. Upwork est relu tout
- * de suite puis 10 s plus tard (le financement peut être asynchrone) : OK
- * seulement si l'état relu est financé. La requête et la réponse complètes sont
- * renvoyées et gardées dans les Logs.
- */
-async function paieTestFinancer(supabase: Supabase, par: string | null, contratId: string) {
-  if (await bloquer(supabase, { fonction: "upwork", action: "paie_test_financer", cible: contratId })) return { ok: false, error: PAUSE };
-  if (!contratId) return { ok: false, error: "contrat_id requis" };
-  const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
-  if (!t) return { ok: false, error: "ce contrat n'est pas dans la liste « Test contracts »" };
-  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contratId).maybeSingle();
-  const tenant = (uc?.organisation_id as string | null) ?? null;
-  if (!tenant) return { ok: false, error: "contrat absent des contrats lus (Réglages → Upwork → Lire les contrats)" };
-  await jetonValide(supabase, par);
-  const avant = await relireJalons(supabase, par, contratId, tenant, "test_financer_jalons_avant");
-  if (!avant.jalons) return { ok: false, error: `milestones illisibles : ${avant.erreur}` };
-  const j = [...avant.jalons].sort((a, b) => a.sequence - b.sequence).find((x) => x.etat === "NotFunded");
-  if (!j) return { ok: false, error: "aucune milestone NotFunded sur ce contrat" };
-  const r = await reglagesPaieApi(supabase);
-  if (j.depot === null || !(j.depot > 0)) return { ok: false, error: `${j.nom || "milestone"} : montant illisible` };
-  if (j.depot > r.plafond_ligne) return { ok: false, error: `${j.depot} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)` };
-  const requete = { query: MUTATION_FINANCER_JALON, variables: { input: { id: j.id } } };
-  const active = await ecrire(supabase, { par, action: "test_financer_jalon", ...requete, tenant, contrat: contratId, montant: j.depot });
-  const lire1 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire");
-  let etat = lire1.jalons?.find((x) => x.id === j.id)?.etat ?? null;
-  if (!etat || !ETATS_FINANCES.includes(etat)) {
-    await new Promise((ok) => setTimeout(ok, 10_000));
-    const lire2 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire_10s");
-    etat = lire2.jalons?.find((x) => x.id === j.id)?.etat ?? etat;
-  }
-  const finance = Boolean(etat && ETATS_FINANCES.includes(etat));
-  return {
-    ok: finance,
-    jalon: { id: j.id, nom: j.nom, depot: j.depot },
-    requete,
-    reponse: active.data ?? null,
-    erreur: active.erreur ?? (finance ? null : pasFinancee(etat)),
-    etat_relu: etat,
-  };
-}
-
 /** Les champs de fin de contrat qu'Upwork exige (introspection, lecture seule). */
 const REQUETE_CHAMPS_FIN = `query ChampsFin {
   __type(name: "EndContractInput") { inputFields { name type { kind name ofType { kind name } } } }
@@ -1451,7 +1528,7 @@ async function aFinancerALaMain(
  * `a-financer-relire`, toutes les heures ; bouton « Re-read » de Payroll.
  */
 async function relireAFinancer(supabase: Supabase, par: string | null) {
-  const { data, error } = await supabase.from("paie_a_financer").select("id, contrat_id, jalon_id").is("finance_at", null).limit(300);
+  const { data, error } = await supabase.from("paie_a_financer").select("id, contrat_id, jalon_id").is("finance_at", null).is("retire_at", null).limit(300);
   if (error) throw error;
   const liste = (data ?? []) as { id: string; contrat_id: string; jalon_id: string }[];
   const bilan = { ouvertes: liste.length, financees: 0, erreurs: [] as string[] };
@@ -1477,10 +1554,6 @@ async function relireAFinancer(supabase: Supabase, par: string | null) {
   }
   return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
 }
-
-/** Le message d'une milestone que l'API n'a pas pu financer. */
-const pasFinancee = (etat: string | null | undefined) =>
-  `Upwork : ${etat || "NotFunded"} (Needs funds) — compte non enterprise, le financement attend une confirmation sur Upwork : à financer à la main`;
 
 const COLONNES_PAIEMENT =
   "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, soumission_message_at, etapes, montant_approuve, updated_at";
@@ -1684,21 +1757,10 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       if (jc.etat === "NotFunded") {
         // B5 : le montant relu, au cent près, avant de financer.
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} vaut ${jc.depot ?? "?"} $, attendu ${c.montant} $ : pas financée`, null, "autre");
-        const active = await ecrire(supabase, { par, action: "paie_financer_complement", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: c.montant, variables: { input: { id: jc.id } } });
-        if (active.erreur || !active.data?.activateMilestone) {
-          etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
-          return await echec(`payée ; financement de ${c.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
-        }
-        const relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_complement");
-        jc = relu.jalons?.find((j) => j.id === jalonComplement) ?? jc;
-        if (relu.jalons) jalons = relu.jalons;
-        // 0467 : « OK » seulement si la relecture le confirme financé.
-        const fini = ETATS_FINANCES.includes(jc.etat);
-        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: fini ? null : pasFinancee(jc.etat), etat: jc.etat, reponse: active.data ?? null });
-        if (!fini) {
-          await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jc, montant: c.montant, raison: "2nd account: fund, then approve" });
-          return await echec(`payée ; ${c.nom} : ${pasFinancee(jc.etat)}`, null, "autre");
-        }
+        // 2/11 : jamais de financement par l'API (activateMilestone reste NotFunded) : Max finance à la main.
+        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: null, etat: jc.etat, a_financer: true });
+        await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jc, montant: c.montant, raison: "2nd account: fund, then approve" });
+        return await echec(`payée ; ${c.nom} : à financer à la main (Who to fund), puis à approuver`, null, "autre");
       }
       if (ETATS_FINANCES.includes(jc.etat)) {
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} financée à ${jc.depot ?? "?"} $, attendu ${c.montant} $`, null, "autre");
@@ -1767,23 +1829,9 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       etapes.push({ etape: "garde_fou_montant", jalon: jalonFinance, relu: jf.depot, attendu: f.montant });
       return await echec(`payée ; ${f.nom} relue à ${jf.depot ?? "?"} $, attendu ${f.montant} $ : pas financée`, null, "autre");
     }
-    const active = await ecrire(supabase, {
-      par, action: "paie_financer_jalon", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: f.montant,
-      variables: { input: { id: jalonFinance } },
-    });
-    if (active.erreur || !active.data?.activateMilestone) {
-      etapes.push({ etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
-      await maj({ financement: "erreur" });
-      return await echec(`payée ; financement de ${f.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
-    }
-    // L'activation peut passer par un paiement Upwork (checkout) : on relit. 0467 : « OK » seulement si la relecture le confirme.
-    relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_jalons");
-    jf = relu.jalons?.find((j) => j.id === jalonFinance) ?? jf;
-    const fini = ETATS_FINANCES.includes(jf.etat);
-    etapes.push({
-      etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, etat: jf.etat,
-      erreur: fini ? null : pasFinancee(jf.etat), reponse: active.data ?? null,
-    });
+    // 2/11 : jamais de financement par l'API (activateMilestone reste NotFunded) : la milestone
+    // reste NotFunded et va dans « Who to fund » ; Max la finance à la main.
+    etapes.push({ etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, etat: jf.etat, erreur: null, a_financer: true });
   }
   if (!ETATS_FINANCES.includes(jf.etat)) {
     // 0467 : la semaine est payée ; la suivante va dans « To fund by hand », sans nouvel essai.
@@ -1856,7 +1904,12 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
         if (issue.resultat !== "paye") ecarts = [`${issue.resultat} : ${issue.raison ?? "?"}`];
         else {
           const relu = await relireJalons(supabase, par, c.contrat_id!, tenant(c), "paie_canari_relire");
-          ecarts = relu.jalons ? ecartsCanari(issue.plan ?? p.plan, issue.jalon_finance ?? null, relu.jalons) : [`relecture impossible : ${relu.erreur}`];
+          // 2/11 : la suivante est attendue NotFunded et dans « Who to fund » (jamais financée par l'API).
+          const jf = issue.jalon_finance ?? null;
+          const { data: af } = jf
+            ? await supabase.from("paie_a_financer").select("id").eq("contrat_id", c.contrat_id!).eq("jalon_id", jf).is("finance_at", null).maybeSingle()
+            : { data: null };
+          ecarts = relu.jalons ? ecartsCanari(issue.plan ?? p.plan, jf, relu.jalons, Boolean(af)) : [`relecture impossible : ${relu.erreur}`];
         }
         const detail = { ligne: c.ids[0], poster: c.poster_nom, contrat: c.contrat_id, resultat: issue.resultat, ecarts };
         if (ecarts.length) {
@@ -1985,7 +2038,7 @@ async function prendreVerrou(supabase: Supabase, semaine: string, par: string | 
 /** Relance la fonction (cron secret), sans attendre sa réponse. */
 function enchainer(action: string) {
   const url = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   if (!url || !secret) return;
   const appel = fetch(`${url}/functions/v1/upwork`, {
     method: "POST",
@@ -2450,6 +2503,9 @@ async function envoyerMessage(
   o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
 ): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
+  const refus = refusMotDePasseUpwork(texte);
+  if (refus) return { ok: false, error: refus };
   // Run now (contrat de test) : le compte de secours, forcé ; sinon Adrien d'abord, puis Max (prompt 25 MAJ).
   const choix = o.forcer ? { compte: o.forcer, erreur: null } : await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
   if (choix.compte === null) return { ok: false, error: choix.erreur, budget: true };
@@ -2518,8 +2574,128 @@ const MUTATION_AJOUT_SALON = `mutation AjoutSalon($roomId: ID!, $users: [RoomUse
 // Système du 2 nov., partie A : l'accueil automatique
 // ---------------------------------------------------------------------------
 
-/** Le mot de passe de départ, comme sur /embauche ; le posteur le change à sa 1re connexion. */
-const MOT_DE_PASSE_DEPART = "12345678";
+
+/** 0470 : un pays absent de la liste des offres ne remplace pas celui lu sur le profil du freelance. */
+function sansPaysVide<T extends { freelancer_pays: string | null }>(c: T): Omit<T, "freelancer_pays"> | T {
+  if (c.freelancer_pays) return c;
+  const { freelancer_pays: _vide, ...reste } = c;
+  return reste;
+}
+
+/** 0470 : « Lives in Lithuania, job post Croatia ». */
+function ecartPays(e: { vit: string; annonce: string } | undefined): string | null {
+  if (!e) return null;
+  const nom = (c: string) => {
+    try {
+      return new Intl.DisplayNames(["en"], { type: "region" }).of(c) ?? c;
+    } catch {
+      return c;
+    }
+  };
+  return `Lives in ${nom(e.vit)}, job post ${nom(e.annonce)}`;
+}
+
+interface Localisation {
+  pays: string | null;
+  pays_brut: string | null;
+  ville: string | null;
+  requete: string | null;
+  essais: { requete: string; erreur: string | null; pays: string | null }[];
+}
+
+/**
+ * 0470 : où vit le freelance (lecture seule), avec l'id freelancer du contrat.
+ * Les requêtes de REQUETES_LOCALISATION, dans l'ordre ; la première qui rend un
+ * pays gagne. Rien n'est écrit sur Upwork.
+ */
+async function lireLocalisation(
+  supabase: Supabase,
+  par: string | null,
+  o: { contrat: string; freelancer: string | null; tenant: string | null },
+): Promise<Localisation> {
+  const essais: Localisation["essais"] = [];
+  for (const q of REQUETES_LOCALISATION) {
+    const id = q.variable === "contrat" ? o.contrat : o.freelancer;
+    if (!id) {
+      essais.push({ requete: q.nom, erreur: "id freelancer inconnu", pays: null });
+      continue;
+    }
+    const r = await lire(supabase, { par, action: "freelance_localisation", query: q.query, variables: { id }, tenant: o.tenant });
+    const l = r.data ? q.lire(r.data) : { pays: null, ville: null };
+    const code = codePays(l.pays);
+    essais.push({ requete: q.nom, erreur: r.erreur ?? (l.pays ? null : "aucun pays dans la réponse"), pays: code ?? l.pays });
+    if (code) return { pays: code, pays_brut: l.pays, ville: l.ville, requete: q.nom, essais };
+  }
+  return { pays: null, pays_brut: null, ville: null, requete: null, essais };
+}
+
+/** 0470 : les HM de l'OS (actives), pour relier la HM du contrat par son nom Upwork. */
+async function hmsDeLOs(supabase: Supabase): Promise<{ id: string; prenom: string | null; nom: string | null }[]> {
+  const { data: roles } = await supabase.from("user_roles").select("user_id").in("role", ["hiring_manager", "head_of_ops"]);
+  const ids = (roles ?? []).map((r) => String(r.user_id));
+  if (ids.length === 0) return [];
+  const { data } = await supabase.from("profiles").select("id, prenom, nom, is_active").in("id", ids).eq("is_active", true);
+  return (data ?? []).filter((p) => normaliserNom(p.prenom) !== "ruul").map((p) => ({ id: String(p.id), prenom: p.prenom, nom: p.nom }));
+}
+
+/** 0470 : la HM de l'OS du contrat : hiringManager, sinon supervisor ; une correspondance notée à la main (hm_upwork) d'abord. */
+function hmDuContrat(
+  d: { hm_upwork_id: string | null; hm_upwork_nom?: string | null; superviseur_upwork_id?: string | null; superviseur_upwork_nom?: string | null },
+  hms: { id: string; prenom: string | null; nom: string | null }[],
+  notees: Map<string, string>,
+): { hm_id: string | null; hm_nom: string | null } {
+  for (const [id, nom] of [[d.hm_upwork_id, d.hm_upwork_nom], [d.superviseur_upwork_id, d.superviseur_upwork_nom]] as const) {
+    const trouve = (id && notees.get(id)) || hmDeNomUpwork(nom, hms);
+    if (trouve) return { hm_id: trouve, hm_nom: nom ?? null };
+  }
+  return { hm_id: null, hm_nom: d.hm_upwork_nom ?? d.superviseur_upwork_nom ?? null };
+}
+
+/**
+ * 0470 : ce que l'API dit d'un contrat à accueillir : la HM (hiringManager /
+ * supervisor, avec leurs noms) et le pays du freelance. Lu une fois par
+ * contrat (accueils.freelance_lu_at), ou à nouveau sur demande (forcer).
+ */
+async function lireInfosContrat(
+  supabase: Supabase,
+  par: string | null,
+  c: { contrat_id: string; organisation_id: string | null },
+  // deno-lint-ignore no-explicit-any
+  connu: any | null,
+  forcer: boolean,
+): Promise<{ details: DetailsContrat | null; loc: Localisation | null; erreur: string | null }> {
+  if (connu?.freelance_lu_at && !forcer) return { details: null, loc: null, erreur: null };
+  const lu = await lire(supabase, {
+    par, action: "accueil_contrat", query: REQUETE_DETAILS_CONTRAT, variables: { id: c.contrat_id }, tenant: c.organisation_id,
+  });
+  const details = lireDetailsContrat(lu.data?.contractDetails);
+  if (!details) return { details: null, loc: null, erreur: lu.erreur ?? "contrat illisible" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("freelancer_id").eq("contrat_id", c.contrat_id).limit(1).maybeSingle();
+  const loc = await lireLocalisation(supabase, par, {
+    contrat: c.contrat_id, freelancer: details.freelancer_id ?? (uc?.freelancer_id as string | null) ?? null, tenant: c.organisation_id,
+  });
+  if (loc.pays) {
+    await supabase.from("upwork_contrats").update({ freelancer_pays: loc.pays, freelancer_ville: loc.ville }).eq("contrat_id", c.contrat_id);
+  }
+  return { details, loc, erreur: null };
+}
+
+/** Les champs 0470 d'un accueil, depuis ce qui vient d'être lu (ou ce qui était noté). */
+function champsInfos(
+  details: DetailsContrat | null,
+  loc: Localisation | null,
+): Record<string, unknown> {
+  if (!details || !loc) return {};
+  return {
+    hm_upwork_nom: details.hm_upwork_nom ?? null,
+    superviseur_upwork_id: details.superviseur_upwork_id ?? null,
+    superviseur_upwork_nom: details.superviseur_upwork_nom ?? null,
+    freelance_pays: loc.pays,
+    freelance_ville: loc.ville,
+    freelance_requete: loc.requete ?? `aucune : ${loc.essais.map((e) => `${e.requete} (${e.erreur ?? "?"})`).join(" ; ")}`.slice(0, 500),
+    freelance_lu_at: new Date().toISOString(),
+  };
+}
 
 async function accueillir(supabase: Supabase, par: string | null) {
   const { data: regl } = await supabase
@@ -2535,7 +2711,9 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const lecture = await lireContrats(supabase, par);
   const { data: relies, error: errRelier } = await supabase.rpc("contrats_relier");
   const reliage = { relies: (relies ?? []).length, erreur_relier: errRelier?.message ?? null };
-  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off", ...reliage };
+  // 31/10 : le pays des nouvelles recrues est vérifié même sur off (lieu du freelance, 10 contrats par passage).
+  const localisation = await localiserRecrues(supabase, par).catch((e) => ({ lus: 0, erreur: messageErreur(e) }));
+  if (mode === "off") return { ok: true, mode, ignore: "accueil_auto = off", ...reliage, localisation };
   // Prompt 22 : en pause, ni posteur créé ni bienvenue envoyée ; repris au passage suivant.
   if (await automationEnPause(supabase)) {
     await noterBloquee(supabase, { fonction: "upwork", action: "accueil" });
@@ -2546,11 +2724,14 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
   // Prompt 21, C8 : un seul lien Slack, le réglage slack_lien_invitation (plus de lien écrit en dur).
   const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
+  // 1/11 : sur On, les recrues créées sans welcome (accueil_auto était sur Off) le reçoivent d'abord.
+  const enAttente = mode === "on" ? await envoyerBienvenuesEnAttente(supabase, par, modele, slack) : null;
 
   const { data: nouveaux, error } = await supabase
     .from("upwork_contrats")
     .select("contrat_id, organisation_id, offre_id, debut_at")
     .eq("actif", true)
+    .in("organisation_id", [...ORGS_OS])
     .not("contrat_id", "is", null)
     .gte("debut_at", depuis);
   if (error) throw error;
@@ -2559,10 +2740,16 @@ async function accueillir(supabase: Supabase, par: string | null) {
     ? await supabase.from("accueils").select("*").in("contrat_id", ids)
     : { data: [] };
   const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
-  const [{ data: profils }, { data: comptesPays }] = await Promise.all([
+  const [{ data: profils }, { data: comptesPays }, hms, { data: hmNotees }] = await Promise.all([
     supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
-    supabase.from("comptes").select("poster_id, pays").not("pays", "is", null),
+    supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
+    hmsDeLOs(supabase),
+    supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
   ]);
+  const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
+  const languesPays = (comptesPays ?? []).map((c) => ({ pays: c.pays as string | null, langue: c.langue as string | null }));
+  // 0470 : au plus 30 contrats relus à l'API par passage (HM et pays du freelance), les autres au suivant.
+  let lecturesApi = 0;
   const paysDe = new Map((comptesPays ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id,
@@ -2580,6 +2767,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
     // Le posteur TEST de ce contrat existe déjà (Overview → Test contracts) : rien à créer.
     if (test && testDe.get(contratId)) continue;
     const connu = connuDe.get(contratId);
+    // 1/11 (0493) : classé (autre activité, contrat de HM) : jamais repris, ni profil ni welcome.
+    if (connu?.classement) continue;
     // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur). Sauf (prompt 25, 16) :
     // une recrue déjà créée par la HM, notée « doublon » avant le passage sur On, sans bienvenue :
     // sur On, la bienvenue part quand même (accueillirExistant).
@@ -2587,22 +2776,31 @@ async function accueillir(supabase: Supabase, par: string | null) {
     // À relier : le plan est refait à chaque passage (sans appel à Upwork) ; si
     // l'annonce a reçu son pays depuis, le contrat est accueilli.
 
-    let details: DetailsContrat | null = connu
-      ? {
+    // 0470 : la HM du contrat (hiringManager / supervisor) et le pays du freelance, lus une fois.
+    if (!connu?.freelance_lu_at && lecturesApi >= 30) continue;
+    if (!connu?.freelance_lu_at) lecturesApi++;
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: contratId, organisation_id: c.organisation_id }, connu ?? null, false);
+    if (infos.erreur) {
+      bilan.erreurs.push(`${contratId} : ${infos.erreur}`);
+      // Déjà connu : le plan est refait avec ce qui est noté (relu au passage suivant).
+      if (!connu) continue;
+    }
+    const lu0470 = champsInfos(infos.details, infos.loc);
+    const details: DetailsContrat = infos.details
+      ? { ...infos.details, prenom: infos.details.prenom ?? connu?.prenom ?? null, nom: infos.details.nom ?? connu?.nom ?? null }
+      : {
         contrat_id: contratId, offre_id: connu.offre_id, job_id: connu.job_id, job_titre: connu.job_titre,
         prenom: connu.prenom, nom: connu.nom, debut_at: connu.debut_at, hm_upwork_id: connu.hm_upwork_id, statut: null,
-      }
-      : null;
-    if (!details) {
-      const lu = await lire(supabase, {
-        par, action: "accueil_contrat", query: REQUETE_DETAILS_CONTRAT, variables: { id: contratId }, tenant: c.organisation_id,
-      });
-      details = lireDetailsContrat(lu.data?.contractDetails);
-      if (!details) {
-        bilan.erreurs.push(`${contratId} : ${lu.erreur ?? "contrat illisible"}`);
-        continue;
-      }
-    }
+        hm_upwork_nom: connu.hm_upwork_nom, superviseur_upwork_id: connu.superviseur_upwork_id, superviseur_upwork_nom: connu.superviseur_upwork_nom,
+      };
+    const freelancePays = (lu0470.freelance_pays as string | null | undefined) ?? connu?.freelance_pays ?? null;
+    const hmContrat = hmDuContrat(details, hms, notees);
+    const api: InfosApi = {
+      freelance_pays: freelancePays,
+      freelance_langue: langueDePays(freelancePays, languesPays),
+      hm_id: hmContrat.hm_id,
+      hm_nom: hmContrat.hm_nom,
+    };
     // L'annonce : vue pour la 1re fois → notée, pays à dire.
     let annonce: Annonce | null = null;
     let errAnnonce: string | null = null;
@@ -2618,18 +2816,31 @@ async function accueillir(supabase: Supabase, par: string | null) {
         if (errAnnonce) bilan.erreurs.push(`annonce ${details.job_id} : ${errAnnonce}`);
       }
     }
-    const plan = planAccueil(details, annonce, connu ? { statut: connu.statut, pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id } : null, posteurs);
+    const plan = planAccueil(
+      details,
+      annonce,
+      connu ? { statut: connu.statut, pays: connu.pays, langue: connu.langue, hm_id: connu.hm_id, relie_at: connu.relie_at } : null,
+      posteurs,
+      api,
+    );
     if (errAnnonce && plan.raison) plan.raison = `${plan.raison} (annonce non notée : ${errAnnonce})`;
     const base = {
       contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
       job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
       hm_upwork_id: details.hm_upwork_id, pays: plan.pays, langue: plan.langue, hm_id: plan.hm_id, tarif: plan.tarif,
+      ...lu0470, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart),
       updated_at: new Date().toISOString(),
     };
     if (plan.statut === "doublon") {
       // Prompt 25 MAJ : la recrue déjà créée par la HM. Jamais un 2e profil : le contrat est relié au sien
       // et la bienvenue part quand même (un message en double n'est pas grave).
       if (plan.poster_id && (mode === "on" || test)) {
+        // 1/11 : créée par la HM et déjà connectée (logins donnés par la HM) : relié, pas de welcome en double.
+        if (!test && await dejaConnecte(supabase, plan.poster_id)) {
+          await supabase.from("accueils").upsert({ ...base, statut: "doublon", poster_id: plan.poster_id, raison: RAISON_DEJA_CONNECTE });
+          bilan.doublons++;
+          continue;
+        }
         const r = await accueillirExistant(supabase, par, base, plan.poster_id, modele, slack);
         if (r.erreur) bilan.erreurs.push(`${contratId} : ${r.erreur}`);
         else bilan.crees++;
@@ -2659,8 +2870,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
       await supabase.from("accueils").upsert({
         ...base, statut: "simule", raison: "test : rien n'est créé ni envoyé", cohorte_lundi: cohorte || null,
         message_texte: messageAccueil(modele, {
-          prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", mot_de_passe: MOT_DE_PASSE_DEPART,
-          slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte, handle: "(@ généré à la création)",
+          prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", lien_mot_de_passe: LIEN_APERCU,
+          slack, cohorte_lundi: cohorte, handle: "(@ généré à la création)",
         }),
       });
       bilan.simules++;
@@ -2680,7 +2891,290 @@ async function accueillir(supabase: Supabase, par: string | null) {
       if (a?.poster_id) await supabase.from("contrats_test").update({ poster_id: a.poster_id }).eq("contrat_id", contratId);
     }
   }
-  return { ok: bilan.erreurs.length === 0, ...bilan };
+  return { ok: bilan.erreurs.length === 0, ...bilan, ...(enAttente ? { bienvenues_en_attente: enAttente } : {}) };
+}
+
+/**
+ * 0470 : « Show the country found » : pour les contrats à relier (ou ceux
+ * donnés), relit à l'API la HM du contrat et le pays du freelance, les note
+ * dans accueils et upwork_contrats.freelancer_pays, et dit ce que l'OS ferait.
+ * Ne crée aucun posteur et n'envoie rien.
+ */
+/**
+ * 31/10 : où vit chaque nouvelle recrue (Onboarding posters → « Country to
+ * check »). Les contrats « en lecture » (onboarding_pays), au plus `max` par
+ * passage, chacun une fois toutes les 12 h au plus. Lecture seule chez Upwork.
+ */
+async function localiserRecrues(supabase: Supabase, par: string | null, max = 10) {
+  const { data, error } = await supabase.rpc("onboarding_pays");
+  if (error) return { lus: 0, erreur: error.message };
+  const candidats = [...new Set(((data ?? []) as { verdict: string; contrat_id: string | null }[])
+    .filter((r) => r.verdict === "en_lecture" && r.contrat_id).map((r) => String(r.contrat_id)))];
+  if (!candidats.length) return { lus: 0 };
+  const { data: essais } = await supabase.from("localisations_essais").select("contrat_id, essaye_at").in("contrat_id", candidats);
+  const recents = new Set((essais ?? []).filter((e) => Date.now() - new Date(String(e.essaye_at)).getTime() < 12 * 3600_000).map((e) => String(e.contrat_id)));
+  const lot = candidats.filter((c) => !recents.has(c)).slice(0, max);
+  if (!lot.length) return { lus: 0 };
+  await jetonValide(supabase, par);
+  const { data: orgs } = await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", lot);
+  const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), (o.organisation_id as string | null) ?? null]));
+  let trouves = 0;
+  for (const contrat of lot) {
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: contrat, organisation_id: orgDe.get(contrat) ?? null }, null, true);
+    const pays = infos.loc?.pays ?? null;
+    if (pays) trouves++;
+    await supabase.from("localisations_essais").upsert({
+      contrat_id: contrat, essaye_at: new Date().toISOString(), resultat: pays ?? infos.erreur ?? "lieu illisible",
+    });
+    if (pays) {
+      await supabase.from("accueils").update({ freelance_pays: pays, freelance_ville: infos.loc?.ville ?? null, freelance_lu_at: new Date().toISOString() })
+        .eq("contrat_id", contrat);
+    }
+  }
+  return { lus: lot.length, trouves, restants: candidats.length - lot.length };
+}
+
+async function localiserAccueils(supabase: Supabase, par: string | null, contrats: string[] | null) {
+  // 0493 : jamais un contrat classé (autre activité, contrat de HM) : aucune lecture à l'API pour lui.
+  let q = supabase.from("accueils").select("*").is("classement", null);
+  q = contrats?.length ? q.in("contrat_id", contrats) : q.in("statut", ["a_relier", "simule", "a_creer"]);
+  const { data: lignes, error } = await q;
+  if (error) throw error;
+  const [hms, { data: hmNotees }, { data: comptes }, { data: profils }, { data: orgs }] = await Promise.all([
+    hmsDeLOs(supabase),
+    supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
+    supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("upwork_contrats").select("contrat_id, organisation_id, organisation_nom").in("contrat_id", (lignes ?? []).map((l) => l.contrat_id)),
+  ]);
+  const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
+  const languesPays = (comptes ?? []).map((c) => ({ pays: c.pays as string | null, langue: c.langue as string | null }));
+  const paysDe = new Map((comptes ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
+  const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
+    id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id, pays: paysDe.get(p.id) ?? null,
+  }));
+  const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), o]));
+  const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
+  await jetonValide(supabase, par);
+  const resultats = [];
+  for (const a of lignes ?? []) {
+    const org = orgDe.get(String(a.contrat_id));
+    const tenant = (org?.organisation_id as string | null) ?? (a.organisation_id as string | null) ?? null;
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: String(a.contrat_id), organisation_id: tenant }, a, true);
+    if (infos.erreur || !infos.details || !infos.loc) {
+      resultats.push({ contrat_id: a.contrat_id, nom: [a.prenom, a.nom].filter(Boolean).join(" "), erreur: infos.erreur });
+      continue;
+    }
+    const champs = champsInfos(infos.details, infos.loc);
+    const hm = hmDuContrat(infos.details, hms, notees);
+    let annonce: Annonce | null = null;
+    if (a.job_id) {
+      const { data: an } = await supabase.from("annonces_pays").select("job_id, pays, langue, hm_id, tarif, generique").eq("job_id", a.job_id).maybeSingle();
+      if (an) annonce = { ...an, tarif: an.tarif === null ? null : Number(an.tarif) } as Annonce;
+    }
+    const plan = planAccueil(
+      { ...infos.details, prenom: infos.details.prenom ?? a.prenom, nom: infos.details.nom ?? a.nom },
+      annonce,
+      { statut: a.statut, pays: a.pays, langue: a.langue, hm_id: a.hm_id, relie_at: a.relie_at },
+      posteurs,
+      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom },
+    );
+    await supabase.from("accueils").update({
+      ...champs, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart), updated_at: new Date().toISOString(),
+    }).eq("contrat_id", a.contrat_id);
+    // Les noms des HM Upwork vus, pour la correspondance (une HM notée à la main n'est jamais changée).
+    for (const [id, nom] of [[infos.details.hm_upwork_id, infos.details.hm_upwork_nom], [infos.details.superviseur_upwork_id, infos.details.superviseur_upwork_nom]]) {
+      if (id) await supabase.from("hm_upwork").upsert({ upwork_id: id, nom: nom ?? null, vu_at: new Date().toISOString() }, { onConflict: "upwork_id" });
+    }
+    resultats.push({
+      contrat_id: a.contrat_id,
+      nom: [a.prenom, a.nom].filter(Boolean).join(" "),
+      equipe: org?.organisation_nom ?? null,
+      freelancer_id: infos.details.freelancer_id ?? null,
+      freelance: { pays: infos.loc.pays, ville: infos.loc.ville, requete: infos.loc.requete, essais: infos.loc.essais },
+      annonce: annonce ? { pays: annonce.pays, generique: annonce.generique } : null,
+      hm_contrat: { hiring_manager: infos.details.hm_upwork_nom ?? null, supervisor: infos.details.superviseur_upwork_nom ?? null, hm_os: hm.hm_id ? nomHm.get(hm.hm_id) ?? hm.hm_id : null },
+      plan: { statut: plan.statut, pays: plan.pays, langue: plan.langue, source: plan.source ?? null, hm: plan.hm_id ? nomHm.get(plan.hm_id) ?? plan.hm_id : null, raison: plan.raison, ecart: ecartPays(plan.ecart) },
+    });
+  }
+  return { ok: true, contrats: resultats.length, resultats };
+}
+
+/**
+ * 0470 : la carte « Contract to link » : pays et HM choisis pour le contrat, un
+ * clic : le posteur est créé, relié au contrat, la bienvenue part, la carte se
+ * ferme. Quel que soit accueil_auto (c'est un clic explicite). L'erreur est
+ * rendue telle quelle.
+ */
+async function creerAccueilMaintenant(
+  supabase: Supabase,
+  par: string | null,
+  o: { contrat: string; pays: string; langue: string | null; hm_id: string | null; tarif?: number | null },
+): Promise<{ ok: boolean; error?: string; poster_id?: string | null; statut?: string; raison?: string | null }> {
+  const pays = codePays(o.pays);
+  if (!o.contrat || !pays) return { ok: false, error: "contrat et pays obligatoires" };
+  if (!o.hm_id) return { ok: false, error: "choisis la HM" };
+  if (await automationEnPause(supabase)) return { ok: false, error: PAUSE };
+  const { data: comptes } = await supabase.from("comptes").select("pays, langue").eq("pays", pays);
+  const langue = o.langue || langueDePays(pays, (comptes ?? []) as { pays: string | null; langue: string | null }[]);
+  if (!langue) return { ok: false, error: `aucune langue connue pour ${pays} : choisis la langue` };
+  const tarif = o.tarif && o.tarif > 0 ? o.tarif : null;
+  // Le profil déjà créé par la HM (même contrat) : pas de 2e profil, la bienvenue part avec son login.
+  const { data: deja } = await supabase.from("profiles").select("id, prenom, nom, is_active").eq("upwork_contract_id", o.contrat)
+    .order("is_active", { ascending: false }).limit(1).maybeSingle();
+  if (deja && !deja.is_active) return { ok: false, error: `contrat relié à ${[deja.prenom, deja.nom].filter(Boolean).join(" ")}, profil inactif` };
+  // Le verrou : la ligne passe à « envoi » seulement depuis à relier, simulé, à créer, doublon ou erreur.
+  const { data: verrou, error: errVerrou } = await supabase.from("accueils").update({
+    pays, langue, hm_id: o.hm_id, relie_par: par, relie_at: new Date().toISOString(), pays_source: "main",
+    ...(tarif ? { tarif } : {}), statut: "envoi", raison: "création en cours (clic)", updated_at: new Date().toISOString(),
+  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "doublon", "erreur"]).is("classement", null).select("*");
+  if (errVerrou) return { ok: false, error: errVerrou.message };
+  const a = verrou?.[0];
+  if (!a) return { ok: false, error: "contrat introuvable ou déjà en cours de création" };
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["accueil_message_texte", "slack_lien_invitation"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
+  const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
+  if (deja) {
+    // La HM et le tarif choisis sur la carte, puis la bienvenue (accueillirExistant).
+    await supabase.from("profiles").update({ manager_id: o.hm_id, ...(tarif ? { tarif_hebdo: tarif } : {}) }).eq("id", deja.id);
+    const r = await accueillirExistant(
+      supabase,
+      par,
+      { contrat_id: o.contrat, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, pays, langue, hm_id: o.hm_id, tarif: tarif ?? a.tarif },
+      String(deja.id),
+      modele,
+      slack,
+    );
+    const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id").eq("contrat_id", o.contrat).maybeSingle();
+    if (r.erreur) return { ok: false, error: r.erreur, statut: apres?.statut, poster_id: apres?.poster_id ?? null };
+    return { ok: true, statut: apres?.statut, raison: apres?.raison ?? null, poster_id: apres?.poster_id ?? null };
+  }
+  const { data: lundi } = await supabase.rpc("cohorte_lundi_de_pays", { p_at: new Date(a.debut_at ?? Date.now()).toISOString(), p_pays: null });
+  const cohorte = String(lundi ?? "");
+  await supabase.from("accueils").update({ cohorte_lundi: cohorte || null }).eq("contrat_id", o.contrat);
+  const r = await creerEtAccueillir(
+    supabase,
+    par,
+    {
+      contrat_id: o.contrat, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, debut_at: a.debut_at,
+      pays, langue, hm_id: o.hm_id, tarif: tarif ?? (a.tarif === null ? null : Number(a.tarif)), cohorte_lundi: cohorte,
+    },
+    modele,
+    slack,
+  );
+  const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id").eq("contrat_id", o.contrat).maybeSingle();
+  if (r.erreur) return { ok: false, error: r.erreur, statut: apres?.statut, poster_id: apres?.poster_id ?? null };
+  return { ok: true, statut: apres?.statut, raison: apres?.raison ?? null, poster_id: apres?.poster_id ?? null };
+}
+
+/** 0474 : le message « Not warmed up » (Slack, sinon Upwork). */
+const MESSAGE_PAS_CHAUD =
+  "You haven't warmed up your account enough. Warm it up tomorrow (Monday): scroll a few minutes, like and follow at least 5 accounts in the general knowledge niche. You start posting on Tuesday.";
+
+/**
+ * 0474 : le check du warm-up du dimanche soir. « ok » : rien ne part, elle
+ * commence lundi. « pas_chaud » : ses posts commencent mardi (warmup_ends_at),
+ * puis le message part sur Slack, sinon sur Upwork ; l'issue est notée.
+ */
+async function deciderWarmup(supabase: Supabase, par: string | null, posterId: string, lundi: string, decision: "ok" | "pas_chaud") {
+  if (!posterId || !/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, error: "poster_id et lundi requis" };
+  const { error } = await supabase.rpc("warmup_check_noter", { p_poster: posterId, p_lundi: lundi, p_decision: decision, p_par: par });
+  if (error) return { ok: false, error: error.message };
+  if (decision === "ok") return { ok: true, decision };
+  const { data: p } = await supabase.from("profiles").select("slack_user_id").eq("id", posterId).maybeSingle();
+  let canal = "slack";
+  let statut = "envoye";
+  let erreur: string | null = null;
+  if (p?.slack_user_id) {
+    const r = await ecrireAuPosteur(supabase, posterId, MESSAGE_PAS_CHAUD);
+    if (r.statut !== "envoye") {
+      statut = "erreur";
+      erreur = "erreur" in r ? r.erreur ?? r.statut : r.statut;
+    }
+  } else {
+    canal = "upwork";
+    const r = await messagePosteur(supabase, par, posterId, MESSAGE_PAS_CHAUD, "warmup_check");
+    if (!r.ok) {
+      statut = "erreur";
+      erreur = "error" in r ? String(r.error ?? "non envoyé") : "non envoyé";
+    }
+  }
+  await supabase.rpc("warmup_check_noter", { p_poster: posterId, p_lundi: lundi, p_decision: decision, p_par: par, p_canal: canal, p_statut: statut, p_erreur: erreur });
+  return { ok: statut === "envoye", decision, canal, ...(erreur ? { error: `posts à partir de mardi, mais message non parti : ${erreur}` } : {}) };
+}
+
+/**
+ * 31/10 : la bienvenue de recrues déjà créées (par la HM), jamais accueillies :
+ * le compte d'Adrien d'abord, puis celui de Max, dans la limite du jour ; au-delà,
+ * la HM l'envoie à la main (To send by hand). Mot de passe unique si jamais connecté.
+ */
+async function envoyerWelcomes(supabase: Supabase, par: string | null, ids: string[]) {
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["accueil_message_texte", "slack_lien_invitation"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const modele = typeof v.accueil_message_texte === "string" ? v.accueil_message_texte : "";
+  const slack = typeof v.slack_lien_invitation === "string" ? v.slack_lien_invitation.trim() : "";
+  const bilan = { ok: true, envoyes: [] as string[], a_la_main: [] as string[], erreurs: [] as string[], restants: [] as string[] };
+  const debut = Date.now();
+  for (const id of ids) {
+    if (Date.now() - debut > 110_000) {
+      bilan.restants.push(id);
+      continue;
+    }
+    const { data: p } = await supabase.from("profiles").select("id, prenom, nom, manager_id, upwork_contract_id, is_active").eq("id", id).maybeSingle();
+    const nom = [p?.prenom, p?.nom].filter(Boolean).join(" ") || id;
+    if (!p?.is_active || !p.upwork_contract_id) {
+      bilan.erreurs.push(`${nom} : profil inactif ou sans contrat`);
+      continue;
+    }
+    const { data: deja } = await supabase.from("accueils").select("message_at").eq("contrat_id", p.upwork_contract_id).not("message_at", "is", null).maybeSingle();
+    if (deja) {
+      bilan.erreurs.push(`${nom} : bienvenue déjà envoyée`);
+      continue;
+    }
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", p.upwork_contract_id).limit(1).maybeSingle();
+    const r = await accueillirExistant(
+      supabase, par,
+      { contrat_id: String(p.upwork_contract_id), organisation_id: uc?.organisation_id ?? null, prenom: p.prenom, nom: p.nom, hm_id: p.manager_id ?? null },
+      id, modele, slack,
+    );
+    const { data: a } = await supabase.from("accueils").select("statut, message_at").eq("contrat_id", p.upwork_contract_id).maybeSingle();
+    if (r.erreur) bilan.erreurs.push(`${nom} : ${r.erreur}`);
+    else if (a?.message_at) bilan.envoyes.push(nom);
+    else bilan.a_la_main.push(nom);
+  }
+  return bilan;
+}
+
+/**
+ * 31/10 : une milestone créée sans être financée (createMilestoneV2, échéance
+ * au dimanche de la semaine). Aucun argent ne part : elle est notée dans
+ * « To fund by hand ». Jamais de nouvel essai ; une milestone du même nom
+ * déjà présente n'est pas recréée.
+ */
+async function creerJalonSeul(supabase: Supabase, par: string | null, contrat: string, nom: string, montant: number) {
+  if (!contrat || !nom.trim() || !(montant > 0) || montant > 100) return { ok: false, error: "contrat_id, nom et montant (1 à 100 $) requis" };
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).limit(1).maybeSingle();
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  const lus = await lire(supabase, { par, action: "jalon_creer_lecture", query: REQUETE_JALONS, variables: { id: contrat }, tenant });
+  // deno-lint-ignore no-explicit-any
+  const existants = ((lus.data?.contractDetails?.terms?.fixedPriceTerms?.milestones ?? []) as any[]);
+  if (lus.erreur) return { ok: false, error: `milestones illisibles : ${lus.erreur}` };
+  if (existants.some((j) => String(j?.description ?? "").trim().toLowerCase() === nom.trim().toLowerCase())) {
+    return { ok: false, error: `une milestone « ${nom} » existe déjà` };
+  }
+  const cree = await ecrire(supabase, {
+    par, action: "jalon_creer", query: MUTATION_CREER_JALON, tenant, contrat, montant,
+    variables: { input: { contractId: contrat, description: nom.trim(), depositAmount: centimes(montant), ...(await echeanceJalon(supabase, par, tenant, nom.trim())) } },
+  });
+  const id = cree.data?.createMilestoneV2?.id ? String(cree.data.createMilestoneV2.id) : null;
+  if (cree.erreur || !id) return { ok: false, error: cree.erreur ?? "réponse vide" };
+  const { data: p } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contrat).eq("is_active", true).limit(1).maybeSingle();
+  await supabase.from("paie_a_financer").upsert({
+    poster_id: p?.id ?? null, contrat_id: contrat, jalon_id: id, nom: nom.trim(), montant,
+    raison: "créée sans financement (31/10, demande de Max)", etat_lu: cree.data?.createMilestoneV2?.state ?? null,
+  }, { onConflict: "contrat_id,jalon_id" });
+  return { ok: true, jalon_id: id, etat: cree.data?.createMilestoneV2?.state ?? null };
 }
 
 /** Prompt 13 : le @ TikTok que la recrue doit créer (son 1er compte perso, généré à la création). */
@@ -2688,6 +3182,18 @@ async function handleACreer(supabase: Supabase, posterId: string): Promise<strin
   const { data } = await supabase.from("comptes").select("handle_tiktok").eq("poster_id", posterId).eq("type_compte", "perso")
     .eq("is_active", true).order("created_at").limit(1).maybeSingle();
   return (data?.handle_tiktok as string | null) ?? null;
+}
+
+/**
+ * 31/10 : accueil_auto = off → les HM créent leurs posteurs et donnent les
+ * logins elles-mêmes : l'OS ne crée personne et n'envoie aucun welcome, même
+ * sur un clic (carte « Contract to link »). Les contrats de test passent toujours.
+ */
+async function bienvenueCoupee(supabase: Supabase, contrat: string): Promise<boolean> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "accueil_auto").maybeSingle();
+  if (lireModeAuto(data?.valeur) !== "off") return false;
+  const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contrat).is("retire_at", null).limit(1);
+  return !(t ?? []).length;
 }
 
 /** Crée le posteur comme /embauche (manage-users), le relie, puis envoie le message de bienvenue (une fois). */
@@ -2700,11 +3206,15 @@ async function creerEtAccueillir(
   },
   modele: string,
   slack: string,
+  opts: { sansBienvenue?: boolean } = {},
 ): Promise<{ erreur: string | null }> {
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", a.contrat_id);
+  if (!opts.sansBienvenue && await bienvenueCoupee(supabase, a.contrat_id)) {
+    return { erreur: "Welcome off (accueil_auto = off): the HM creates the poster from the hiring form and gives the logins. The OS links the contract." };
+  }
   const base = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const cle = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   if (!base || !secret) {
     await fin({ statut: "erreur", raison: "SUPABASE_URL ou CRON_SECRET absent" });
@@ -2712,7 +3222,7 @@ async function creerEtAccueillir(
   }
   const contratUrl = `https://www.upwork.com/nx/wm/workroom/${a.contrat_id}/overview`;
   // 1. Le posteur, comme sur /embauche : 2 posts par jour, identité générée.
-  let cree: { userId?: string; email?: string; error?: string } | null = null;
+  let cree: { userId?: string; email?: string; password?: string; error?: string } | null = null;
   try {
     const r = await fetch(`${base}/functions/v1/manage-users`, {
       method: "POST",
@@ -2725,7 +3235,7 @@ async function creerEtAccueillir(
         action: "create",
         prenom: a.prenom ?? "",
         nom: a.nom ?? "",
-        password: MOT_DE_PASSE_DEPART,
+        password: "auto",
         langue: a.langue,
         ...(a.pays ? { pays: a.pays } : {}),
         type_compte: "perso",
@@ -2734,6 +3244,22 @@ async function creerEtAccueillir(
       }),
     });
     cree = await r.json().catch(() => null);
+    // 31/10 : un seul profil par contrat. La HM l'a déjà créé : l'OS ne crée
+    // rien, il relie le contrat à ce profil et envoie son welcome.
+    const existant = posteurExistantDeErreur(cree?.error);
+    if (r.status === 409 && existant && opts.sansBienvenue) {
+      await fin({ statut: "doublon", raison: "profil déjà créé pour ce contrat : rien créé (1/11)", poster_id: existant });
+      return { erreur: null };
+    }
+    if (r.status === 409 && existant) {
+      return await accueillirExistant(
+        supabase, par,
+        { contrat_id: a.contrat_id, organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, hm_id: a.hm_id },
+        existant, modele, slack,
+      );
+    }
+    // Une création du même contrat est en cours (formulaire HM) : rien n'est fait, reprise au prochain passage.
+    if (r.status === 409 && cree?.error === "POSTER_EN_COURS") return { erreur: "création du même contrat en cours (formulaire HM) : reprise au prochain passage" };
     if (!r.ok || !cree?.userId) throw new Error(cree?.error ?? `HTTP ${r.status}`);
   } catch (e) {
     const erreur = `création du posteur : ${messageErreur(e)}`;
@@ -2750,11 +3276,22 @@ async function creerEtAccueillir(
     ...(a.tarif ? { tarif_hebdo: a.tarif } : {}),
   }).eq("id", cree.userId);
   await fin({ statut: "cree", raison: null, poster_id: cree.userId, email: cree.email ?? null });
-  // 3. Le message de bienvenue, une seule fois (accueils.message_at).
-  const texte = messageAccueil(modele, {
-    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", mot_de_passe: MOT_DE_PASSE_DEPART, slack, guide: GUIDE_POSTER,
+  // 1/11 : créé et relié sans welcome ; il part quand Automatic onboarding passe sur On.
+  if (opts.sansBienvenue) {
+    await fin({ statut: "cree", raison: RAISON_BIENVENUE_ATTENTE, bienvenue_attente: true });
+    return { erreur: null };
+  }
+  // 3. Le message de bienvenue, une seule fois (accueils.message_at). 1/11 : sans mot de passe, avec le lien « Set my password ».
+  const pret = await texteBienvenue(supabase, cree.userId, messageAccueil(modele, {
+    prenom: a.prenom, url: OS_URL, email: cree.email ?? "", slack,
     cohorte_lundi: a.cohorte_lundi, handle: await handleACreer(supabase, cree.userId),
-  });
+  }));
+  if (pret.erreur) {
+    const erreur = `message de bienvenue : ${pret.erreur}`;
+    await fin({ statut: "erreur", raison: erreur });
+    return { erreur };
+  }
+  const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
     // Prompt 25 v4 (0442) : Upwork plein (Max et Adrien) : la HM envoie la bienvenue à la main aujourd'hui.
@@ -2777,6 +3314,217 @@ async function creerEtAccueillir(
 }
 
 /**
+ * 1/11 : le welcome prêt à partir : aucune mention de paiement (sauf la phrase
+ * admise), puis le lien « Set my password » créé, et jamais de mot de passe.
+ */
+async function texteBienvenue(supabase: Supabase, posterId: string, brut: string): Promise<{ texte: string; erreur: string | null }> {
+  const paiement = refusPaiementUpwork(brut);
+  if (paiement) return { texte: brut, erreur: paiement };
+  const lien = await avecLienMotDePasse(supabase, posterId, brut, OS_URL, "accueil");
+  if (lien.erreur) return lien;
+  return { texte: lien.texte, erreur: refusMotDePasseUpwork(lien.texte) };
+}
+
+const RAISON_DEJA_CONNECTE = "créée par la HM et déjà connectée à l'OS (logins de la HM) : pas de welcome de l'OS";
+
+const RAISON_BIENVENUE_ATTENTE =
+  "créé et relié sans welcome (Automatic onboarding sur Off) : le welcome part au passage sur On";
+
+/** Le lundi qui suit aujourd'hui (heure de Paris) : la prochaine cohorte. */
+function prochainLundiParis(d = new Date()): string {
+  const { jour, isoJour } = maintenantParis(d);
+  return ajouterJours(jour, 8 - isoJour);
+}
+
+/**
+ * 1/11 : les contrats « To link » (VIk Studios, sans profil) : pays = où vit le
+ * freelance (API, lecture seule), sinon sa réponse à « Which country do you live
+ * in? », sinon le pays du titre de l'annonce ; HM = celle qui a envoyé l'offre ;
+ * cohorte = celle du contrat, jamais avant le prochain lundi. Sans confirmer :
+ * l'aperçu seul. Avec confirmer : le profil est créé et relié comme l'accueil
+ * automatique (un seul par contrat), sans aucun message : le welcome attend On.
+ */
+async function relierContrats(supabase: Supabase, par: string | null, contrats: string[] | null, confirmer: boolean) {
+  const { data: liste, error } = await supabase.rpc("contrats_sans_posteur");
+  if (error) return { ok: false, error: error.message };
+  type Ligne = { contrat_id: string; organisation_id: string | null; nom: string | null; titre: string | null; debut_at: string | null; proposition: string };
+  const cibles = ((liste ?? []) as Ligne[]).filter((c) => c.proposition === "relier" && (!contrats || contrats.includes(String(c.contrat_id))));
+  if (confirmer && await automationEnPause(supabase)) return { ok: false, error: PAUSE };
+  const [hms, { data: hmNotees }, { data: comptesPays }] = await Promise.all([
+    hmsDeLOs(supabase),
+    supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
+    supabase.from("comptes").select("pays, langue").not("pays", "is", null),
+  ]);
+  const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
+  const languesPays = (comptesPays ?? []) as { pays: string | null; langue: string | null }[];
+  const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
+  const prochain = prochainLundiParis();
+  const lignes: Record<string, unknown>[] = [];
+  for (const c of cibles) {
+    const contrat = String(c.contrat_id);
+    const ligne: Record<string, unknown> = { contrat_id: contrat, nom: c.nom, titre: c.titre };
+    lignes.push(ligne);
+    const { data: deja } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contrat).limit(1);
+    if ((deja ?? []).length) {
+      ligne.erreur = "un profil est déjà relié à ce contrat : rien créé";
+      continue;
+    }
+    const { data: connu } = await supabase.from("accueils").select("*").eq("contrat_id", contrat).maybeSingle();
+    ligne.avant = connu
+      ? { statut: connu.statut, pays: connu.pays, hm: connu.hm_id ? nomHm.get(String(connu.hm_id)) ?? connu.hm_id : null, cohorte: connu.cohorte_lundi }
+      : null;
+    const infos = await lireInfosContrat(supabase, par, { contrat_id: contrat, organisation_id: c.organisation_id }, connu ?? null, true);
+    const details = infos.details;
+    if (!details) {
+      ligne.erreur = infos.erreur ?? "contrat illisible";
+      continue;
+    }
+    const { data: salon } = await supabase.from("upwork_salons").select("messages").eq("contrat_id", contrat).maybeSingle();
+    let pays = infos.loc?.pays ?? null;
+    let source: string | null = pays ? "lieu Upwork" : null;
+    if (!pays) {
+      pays = paysDeReponse(Array.isArray(salon?.messages) ? salon.messages : null);
+      if (pays) source = "réponse « Which country »";
+    }
+    if (!pays) {
+      pays = paysDansTexte(details.job_titre ?? c.titre);
+      if (pays) source = "titre de l'annonce";
+    }
+    const hm = hmDuContrat(details, hms, notees);
+    const debut = details.debut_at ?? c.debut_at;
+    const { data: lundiContrat } = await supabase.rpc("cohorte_lundi_de_pays", { p_at: new Date(debut ?? Date.now()).toISOString(), p_pays: null });
+    const cohorte = cohorteRecrue(lundiContrat ? String(lundiContrat) : null, prochain);
+    const langue = langueDePays(pays, languesPays);
+    const manque = [!pays && "pays", !hm.hm_id && `HM (offre de ${hm.hm_nom ?? "?"})`, pays && !langue && "langue"].filter(Boolean);
+    ligne.apres = { pays, source, hm: hm.hm_id ? nomHm.get(hm.hm_id) ?? hm.hm_nom : null, hm_upwork: hm.hm_nom, cohorte, langue, accepte_le: debut };
+    if (manque.length) ligne.manque = manque;
+    if (!confirmer || manque.length) continue;
+    if (connu && !["a_relier", "simule", "a_creer", "erreur"].includes(String(connu.statut))) {
+      ligne.erreur = `accueil déjà « ${connu.statut} » : rien créé`;
+      continue;
+    }
+    if (connu?.classement) {
+      ligne.erreur = `classé « ${connu.classement} » (${connu.classement_raison ?? "—"}) : rien créé`;
+      continue;
+    }
+    const maintenant = new Date().toISOString();
+    const { error: errVerrou } = await supabase.from("accueils").upsert({
+      contrat_id: contrat, organisation_id: c.organisation_id, offre_id: details.offre_id, job_id: details.job_id,
+      job_titre: details.job_titre, prenom: details.prenom ?? connu?.prenom ?? null, nom: details.nom ?? connu?.nom ?? null,
+      debut_at: debut, hm_upwork_id: details.hm_upwork_id, pays, langue, hm_id: hm.hm_id, ...champsInfos(details, infos.loc),
+      pays_source: source, cohorte_lundi: cohorte, relie_par: par, relie_at: maintenant,
+      statut: "envoi", raison: "création en cours (relier sans welcome)", updated_at: maintenant,
+    });
+    if (errVerrou) {
+      ligne.erreur = errVerrou.message;
+      continue;
+    }
+    const r = await creerEtAccueillir(
+      supabase, par,
+      {
+        contrat_id: contrat, organisation_id: c.organisation_id, prenom: details.prenom ?? connu?.prenom ?? null,
+        nom: details.nom ?? connu?.nom ?? null, debut_at: debut, pays, langue, hm_id: hm.hm_id, tarif: null, cohorte_lundi: cohorte,
+      },
+      "", "", { sansBienvenue: true },
+    );
+    const { data: apres } = await supabase.from("accueils").select("statut, raison, poster_id, email").eq("contrat_id", contrat).maybeSingle();
+    ligne.resultat = { statut: apres?.statut ?? null, poster_id: apres?.poster_id ?? null, email: apres?.email ?? null, raison: apres?.raison ?? null };
+    if (r.erreur) ligne.erreur = r.erreur;
+  }
+  return { ok: lignes.every((l) => !l.erreur), confirmer, prochain_lundi: prochain, lignes };
+}
+
+/**
+ * 1/11 : la HM a-t-elle déjà donné le login dans la conversation Upwork du
+ * contrat (login @sophia.com, email du posteur ou lien du dashboard, envoyé de
+ * notre côté) ? Lecture seule ; toute la conversation lue, pas seulement les 10
+ * derniers messages.
+ */
+async function hmADonneLeLogin(
+  supabase: Supabase,
+  par: string | null,
+  contrat: string,
+  organisation: string | null,
+  email: string | null,
+): Promise<{ deja: boolean; extrait: string | null; erreur: string | null }> {
+  try {
+    const { data: s } = await supabase.from("upwork_salons").select("room_id, freelance_id").eq("contrat_id", contrat).maybeSingle();
+    let room = (s?.room_id as string | null) ?? null;
+    let freelance = (s?.freelance_id as string | null) ?? null;
+    if (!room || !freelance) {
+      const salon = await lire(supabase, { par, action: "contexte_salon", query: REQUETE_SALON_POSTEUR, variables: { id: contrat }, tenant: organisation });
+      room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
+      freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
+      if (!room || !freelance) return { deja: false, extrait: null, erreur: salon.erreur ?? "conversation introuvable" };
+    }
+    const msgs = await lire(supabase, { par, action: "contexte_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: organisation });
+    if (msgs.erreur) return { deja: false, extrait: null, erreur: msgs.erreur };
+    // deno-lint-ignore no-explicit-any
+    const tous = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance, 1000);
+    const m = loginDejaDonne(tous, email, new URL(OS_URL).host);
+    return { deja: m !== null, extrait: m ? `${m.at.slice(0, 10)} : ${m.texte.slice(0, 120)}` : null, erreur: null };
+  } catch (e) {
+    return { deja: false, extrait: null, erreur: messageErreur(e) };
+  }
+}
+
+/**
+ * 1/11 : qui recevra un welcome au passage sur On (bienvenues_a_envoyer), et
+ * pour un profil créé par la HM, si elle a déjà donné le login dans la
+ * conversation. Lecture seule : rien n'est envoyé ni changé.
+ */
+async function apercuBienvenues(supabase: Supabase, par: string | null) {
+  const { data, error } = await supabase.rpc("bienvenues_a_envoyer");
+  if (error) return { ok: false, error: error.message };
+  const lignes: Record<string, unknown>[] = [];
+  for (const b of (data ?? []) as { contrat_id: string; poster_id: string; nom: string | null; hm_nom: string | null; pays: string | null; cas: string }[]) {
+    const ligne: Record<string, unknown> = { ...b };
+    lignes.push(ligne);
+    if (b.cas === "os_sans_welcome") {
+      ligne.verdict = "os_envoie";
+      continue;
+    }
+    const { data: p } = await supabase.from("profiles").select("email").eq("id", b.poster_id).maybeSingle();
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", b.contrat_id).limit(1).maybeSingle();
+    const lu = await hmADonneLeLogin(supabase, par, b.contrat_id, (uc?.organisation_id as string | null) ?? null, (p?.email as string | null) ?? null);
+    ligne.verdict = lu.erreur ? "illisible" : lu.deja ? "deja_hm" : p?.email ? "os_envoie_login_existant" : "pas_de_login";
+    ligne.extrait = lu.extrait;
+    ligne.erreur = lu.erreur;
+  }
+  return { ok: true, lignes };
+}
+
+/** 1/11 : sur On, le welcome des recrues créées sans welcome (au plus 20 par passage). */
+async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null, modele: string, slack: string) {
+  const { data } = await supabase.from("accueils").select("contrat_id, organisation_id, prenom, nom, hm_id, poster_id")
+    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null).limit(20);
+  const bilan = { envoyes: 0, erreurs: [] as string[] };
+  for (const a of data ?? []) {
+    const r = await accueillirExistant(
+      supabase, par,
+      { contrat_id: String(a.contrat_id), organisation_id: a.organisation_id, prenom: a.prenom, nom: a.nom, hm_id: a.hm_id },
+      String(a.poster_id), modele, slack, { creePar: "os" },
+    );
+    if (r.erreur) {
+      bilan.erreurs.push(`${a.contrat_id} : ${r.erreur}`);
+      continue;
+    }
+    await supabase.from("accueils").update({ bienvenue_attente: false }).eq("contrat_id", a.contrat_id);
+    bilan.envoyes++;
+  }
+  return bilan;
+}
+
+/** Le posteur s'est-il déjà connecté à l'OS (auth.users.last_sign_in_at, ou une connexion notée) ? */
+async function dejaConnecte(supabase: Supabase, posterId: string): Promise<boolean> {
+  const { data } = await supabase.auth.admin.getUserById(posterId).catch(() => ({ data: null }));
+  if (data?.user?.last_sign_in_at) return true;
+  const { count } = await supabase.from("recrue_evenements").select("poster_id", { count: "exact", head: true })
+    .eq("poster_id", posterId).eq("type", "connexion");
+  return (count ?? 0) > 0;
+}
+
+/**
  * Prompt 25 MAJ : le profil existe déjà (créé par la HM, même contrat ou même
  * nom et même pays). Le contrat lui est relié (s'il n'en a pas), la bienvenue
  * part avec son login. Un profil relié à un autre contrat : rien (doublon).
@@ -2788,7 +3536,10 @@ async function accueillirExistant(
   posterId: string,
   modele: string,
   slack: string,
+  opts: { creePar?: "hm" | "os" } = {},
 ): Promise<{ erreur: string | null }> {
+  // 1/11 : par défaut, un profil existant a été créé par la HM ; « os » : créé par l'OS sans welcome (relier_contrats).
+  const creeParHm = (opts.creePar ?? "hm") === "hm";
   const { data: p } = await supabase.from("profiles")
     .select("id, prenom, email, cohorte_lundi, upwork_contract_id, must_change_password, is_active")
     .eq("id", posterId).maybeSingle();
@@ -2801,18 +3552,54 @@ async function accueillirExistant(
     if (error) return { erreur: `liaison du contrat : ${error.message}` };
   }
   const cohorte = String(p.cohorte_lundi ?? "");
+  // 31/10 : welcome coupé : le contrat est relié, rien n'est envoyé, le mot de passe ne change pas (la HM a donné les logins).
+  if (await bienvenueCoupee(supabase, base.contrat_id)) {
+    await supabase.from("accueils").upsert({
+      ...base, statut: "cree", poster_id: posterId, cohorte_lundi: cohorte || null,
+      raison: "accueil_auto = off : recrue créée par la HM, contrat relié, pas de welcome de l'OS", relie_at: new Date().toISOString(),
+    });
+    return { erreur: null };
+  }
+  if (creeParHm) {
+    // 1/11 : la HM a-t-elle déjà donné le login dans la conversation Upwork ? Alors pas de welcome en double.
+    const lu = await hmADonneLeLogin(supabase, par, base.contrat_id, (base.organisation_id as string | null) ?? null, (p.email as string | null) ?? null);
+    if (lu.erreur) return { erreur: `conversation Upwork illisible, welcome non envoyé (repris au prochain passage) : ${lu.erreur}` };
+    if (lu.deja) {
+      await supabase.from("accueils").upsert({
+        ...base, statut: "doublon", poster_id: posterId, cohorte_lundi: cohorte || null, raison: RAISON_WELCOME_HM,
+        relie_at: new Date().toISOString(), bienvenue_attente: false,
+      });
+      return { erreur: null };
+    }
+    // Pas de login connu : pas de welcome (on ne crée jamais un mot de passe pour un posteur de la HM).
+    if (!p.email) {
+      await supabase.from("accueils").upsert({
+        ...base, statut: "doublon", poster_id: posterId, cohorte_lundi: cohorte || null,
+        raison: "créée par la HM, aucun login connu : pas de welcome de l'OS", relie_at: new Date().toISOString(),
+      });
+      return { erreur: null };
+    }
+  }
   await supabase.from("accueils").upsert({
     ...base, statut: "envoi", poster_id: posterId, cohorte_lundi: cohorte || null,
-    raison: "recrue déjà créée par la HM : contrat relié, bienvenue envoyée", relie_at: new Date().toISOString(),
+    raison: creeParHm ? "recrue déjà créée par la HM : contrat relié, bienvenue envoyée (login existant, lien Set my password)" : "créée par l'OS : bienvenue envoyée",
+    relie_at: new Date().toISOString(),
   });
   const fin = async (champs: Record<string, unknown>) =>
     await supabase.from("accueils").update({ ...champs, updated_at: new Date().toISOString() }).eq("contrat_id", base.contrat_id);
-  const texte = messageAccueil(modele, {
+  // 1/11 : aucun mot de passe n'est changé ni écrit (Upwork) : le welcome donne le login et le lien
+  // « Set my password » (usage unique, 14 jours) ; la recrue choisit son mot de passe.
+  const pret = await texteBienvenue(supabase, posterId, messageAccueil(modele, {
     prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
-    // Il a peut-être déjà changé son mot de passe : on ne lui en donne pas un faux.
-    mot_de_passe: p.must_change_password ? MOT_DE_PASSE_DEPART : "the one you chose", slack, guide: GUIDE_POSTER, cohorte_lundi: cohorte,
+    slack, cohorte_lundi: cohorte,
     handle: await handleACreer(supabase, posterId),
-  });
+  }));
+  if (pret.erreur) {
+    const erreur = `message de bienvenue : ${pret.erreur}`;
+    await fin({ statut: "erreur", raison: erreur });
+    return { erreur };
+  }
+  const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
     const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
@@ -2922,6 +3709,85 @@ const REQUETE_MESSAGES_SALON = `query MessagesSalon($r: ID!) {
   roomStories(filter: { roomId_eq: $r }) { edges { node { id createdDateTime message user { id } } } }
 }`;
 
+/**
+ * 0503 : toute la conversation que l'OS vient de lire → upwork_messages (les
+ * deux sens, l'auteur Upwork), sans aucun appel de plus. La base filtre (VIk
+ * Studios seulement, depuis le 1er octobre et le début du contrat) et masque
+ * les mots de passe. Une erreur ici ne bloque jamais la lecture.
+ */
+async function garderConversation(
+  supabase: Supabase,
+  c: { contrat_id: string; poster_id: string | null },
+  room: string,
+  freelance: string,
+  // deno-lint-ignore no-explicit-any
+  noeuds: any[],
+  source: string,
+): Promise<void> {
+  const messages = noeuds
+    .filter((n) => n?.id && String(n.message ?? "").trim() && !Number.isNaN(Date.parse(n.createdDateTime)))
+    .map((n) => ({
+      id: String(n.id),
+      at: new Date(n.createdDateTime).toISOString(),
+      texte: decoderHtml(String(n.message).trim()).slice(0, 4000),
+      de: n.user?.id === freelance ? "posteur" : "nous",
+      auteur_id: n.user?.id ? String(n.user.id) : null,
+    }));
+  if (messages.length === 0) return;
+  const { error } = await supabase.rpc("upwork_messages_garder", {
+    p_contrat: c.contrat_id, p_poster: c.poster_id, p_room: room, p_messages: messages, p_source: source,
+  });
+  if (error) console.error("[upwork] garder conversation", c.contrat_id, error.message);
+}
+
+/**
+ * 0504 : la reprise de l'historique, une seule fois par conversation : au plus
+ * `upwork_reprise_par_passage` conversations VIk Studios jamais lues en entier,
+ * une à la fois (2 appels de lecture au plus chacune), la nuit (cron), jamais
+ * en pause, et on s'arrête à la 1re limite d'Upwork. Aucun message n'est envoyé.
+ */
+async function repriseConversations(supabase: Supabase, par: string | null) {
+  if (await automationEnPause(supabase)) return { ok: true, ignore: PAUSE };
+  const heure = Number(new Intl.DateTimeFormat("en-GB", { hour: "numeric", hour12: false, timeZone: "Europe/Paris" }).format(new Date()));
+  if (heure < 1 || heure >= 5) return { ok: true, ignore: "la reprise ne tourne que la nuit (01:00–05:00, Paris)" };
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "upwork_reprise_par_passage").maybeSingle();
+  const max = Number.isFinite(Number(regl?.valeur)) ? Math.max(0, Math.min(50, Number(regl?.valeur))) : 20;
+  const { data, error } = await supabase.rpc("upwork_reprise_a_faire", { p_limite: max });
+  if (error) throw error;
+  const liste = (data ?? []) as { contrat_id: string; poster_id: string | null; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  const bilan = { a_lire: liste.length, lues: 0, erreurs: [] as string[], arret: null as string | null };
+  for (const c of liste) {
+    const noterErreur = async (e: string) => {
+      const { data: r } = await supabase.from("upwork_reprise").select("essais").eq("contrat_id", c.contrat_id).maybeSingle();
+      await supabase.from("upwork_reprise").upsert({ contrat_id: c.contrat_id, erreur: e.slice(0, 500), essais: Number(r?.essais ?? 0) + 1 });
+      bilan.erreurs.push(`${c.contrat_id} : ${e}`);
+    };
+    let room = c.room_id;
+    let freelance = c.freelance_id;
+    if (!room || !freelance) {
+      const salon = await lire(supabase, { par, action: "reprise_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+      room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
+      freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
+      if (!room || !freelance) {
+        await noterErreur(salon.erreur ?? "conversation introuvable");
+        if (salon.erreur && /limit|429|too many/i.test(salon.erreur)) { bilan.arret = salon.erreur; break; }
+        continue;
+      }
+    }
+    const msgs = await lire(supabase, { par, action: "reprise_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: c.organisation_id });
+    if (msgs.erreur) {
+      await noterErreur(msgs.erreur);
+      if (/limit|429|too many/i.test(msgs.erreur)) { bilan.arret = msgs.erreur; break; }
+      continue;
+    }
+    // deno-lint-ignore no-explicit-any
+    await garderConversation(supabase, c, room, freelance, ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), "reprise");
+    await supabase.from("upwork_reprise").upsert({ contrat_id: c.contrat_id, lu_at: new Date().toISOString(), source: "reprise", erreur: null });
+    bilan.lues++;
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
+}
+
 /** Prompt 21, A2 : 5 conversations à la fois au plus (Upwork : 10 requêtes par seconde). */
 const REPONSES_EN_PARALLELE = 5;
 
@@ -2946,6 +3812,8 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
         return;
       }
       const depuis = new Date(c.depuis).getTime();
+      // deno-lint-ignore no-explicit-any
+      await garderConversation(supabase, c, roomId, freelancer, ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), "reponses");
       // deno-lint-ignore no-explicit-any
       const nouveaux = ((msgs.data?.roomStories?.edges ?? []) as any[])
         .map((e) => e?.node)
@@ -3005,7 +3873,9 @@ async function lireSalon(
       return msgs.erreur;
     }
     // deno-lint-ignore no-explicit-any
-    const derniers = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance);
+    const noeuds = ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node);
+    await garderConversation(supabase, c, room, freelance, noeuds, "salon");
+    const derniers = derniersMessagesSalon(noeuds, freelance);
     await noter({
       room_id: room, freelance_id: freelance, messages: derniers, erreur: null,
       dernier_posteur_at: derniers.find((m) => m.de === "posteur")?.at ?? null,
@@ -3082,7 +3952,8 @@ async function fermerContratSansPosteur(supabase: Supabase, par: string | null, 
 async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
   const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
   if (error) throw error;
-  const liste = (data ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  // 0469 : une room demandée par une page peut venir d'un contrat sans posteur (poster_id null).
+  const liste = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
   const bilan = { cibles: liste.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
     const erreur = await lireSalon(supabase, par, c);

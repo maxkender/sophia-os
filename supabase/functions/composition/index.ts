@@ -1,5 +1,5 @@
 import { avancerPost, creerPost } from "../_shared/composer.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Fait avancer un post en cours de fabrication d'une étape, puis rend la main.
@@ -73,7 +73,7 @@ Deno.serve(async (request) => {
 function kickComposition(request: Request, n: number): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = { "content-type": "application/json" };
   if (secret) headers["x-cron-secret"] = secret;

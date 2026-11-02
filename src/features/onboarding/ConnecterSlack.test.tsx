@@ -11,7 +11,9 @@ const api = vi.hoisted(() => ({
   lierParJeton: vi.fn(),
   finirConnexionSlack: vi.fn(),
   urlConnecterSlack: vi.fn(),
+  lienDmSlackActif: vi.fn<() => Promise<boolean>>(),
 }));
+vi.mock("./cinqEtapesApi", () => ({ declarerEtape: vi.fn(async () => "en_attente") }));
 vi.mock("./slackApi", () => api);
 vi.mock("@/features/onboarding/slackApi", () => api);
 
@@ -37,8 +39,28 @@ describe("Connect my Slack", () => {
     await i18n.changeLanguage("en");
   });
 
-  it("pas relié : le bouton ; relié : rien", async () => {
+  it("slack_lien_dm_auto off : nom complet + email perso, « I've joined », aucun bot ni lien de DM", async () => {
     api.monSlackRelie.mockResolvedValue(false);
+    api.lienDmSlackActif.mockResolvedValue(false);
+    rendu(<ConnecterSlack />);
+    const bloc = await screen.findByTestId("connecter-slack");
+    expect(bloc.textContent).toContain("Join our Slack with your FULL NAME and your personal email. We link your account automatically within the hour.");
+    expect(screen.getByRole("button", { name: "I've joined" })).toBeInTheDocument();
+    expect(bloc.textContent).not.toMatch(/bot/i);
+    expect(screen.queryByRole("button", { name: "Connect my Slack" })).toBeNull();
+  });
+
+  it("les 5 étapes affichées : rien en double", async () => {
+    api.monSlackRelie.mockResolvedValue(false);
+    api.lienDmSlackActif.mockResolvedValue(false);
+    rendu(<ConnecterSlack masquer />);
+    await vi.waitFor(() => expect(api.monSlackRelie).toHaveBeenCalled());
+    expect(screen.queryByTestId("connecter-slack")).toBeNull();
+  });
+
+  it("pas relié, DM de liaison sur on : le bouton ; relié : rien", async () => {
+    api.monSlackRelie.mockResolvedValue(false);
+    api.lienDmSlackActif.mockResolvedValue(true);
     rendu(<ConnecterSlack />);
     expect(await screen.findByRole("button", { name: "Connect my Slack" })).toBeInTheDocument();
   });

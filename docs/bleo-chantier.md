@@ -109,7 +109,14 @@ corriger dans `docs/bleo.md` et le doc Claude).
 | D39 | **Tranché le 29/10 par Adrien.** Le rappel J+7 rejoue le même post sur le même compte : sur 147 rappels mesurés, r médian 1,32 (post normal du compte : 1,00), mais 5,4 % seulement battent le post d'origine (vues médianes 5 300 contre 80 500). Le même contenu sur d'autres comptes (r médian 1,62) et une déclinaison G1 (1,66, 65 posts) font mieux | Pour chaque hit à 50 000 vues, le compte reçoit une **déclinaison G1 du hit** à la place du repost : la famille du hit passe en tête de la boîte du podz (commande urgente, à livrer avant J+7), puis l'assignation donne au compte une G1 qu'il n'a pas encore postée. Repli quand aucune G1 n'est prête, ou quand le label n'a pas de podz de la voie 1 (medical_study, white_bg) : le repost actuel. Volume : environ 27 hits par semaine, environ 20 contenus distincts (smart_girl 9,5 hits par semaine, alpha_yellow 4,8, alpha_male 3,3, weird_alpha 3, RH 3) | L4 (commande dans la boîte) ; **assignation à la bascule** (décision d'Adrien le 29/10 : on attend la bascule) |
 | D40 | Le r moyen affiché dans l'OS comptait r = 20 pour chaque passage publié sans r (`least(NULL, 20)` rend 20 en Postgres) : famille « hobbies that will make you disgustingly confident » à 5,3 au lieu de 1,93 | Corrigé (0611) : la moyenne ne lit que les r mesurés. Seul l'affichage était faux : fermeture, forme et tirage filtrent déjà `r is not null`. Les chiffres des reposts (D39) sont refaits sans ce biais : inchangés | fait (0611) |
 | D41 | La fatigue ne s'oublie jamais : `n_post` et `n_accroche` comptent tous les passages depuis toujours, et aussi les passages restés `assigne` des semaines après leur date (jamais publiés). Exemple : la meilleure accroche de weird_alpha (433 k vues) vaut 0,005 en allemand (22 passages de la famille, dont 4 jamais publiés) contre 2,69 en français | Ne compter que les passages des 60 derniers jours, et les `assigne` seulement jusqu'à 3 jours après leur date | fait (0612), décision d'Adrien le 29/10 ; dans l'exemple, la famille passe de 22 à 18 passages comptés en allemand |
-| D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) | à décider |
+| D30 | Une déclinaison doit garder l'accroche, mais rien n'empêche un podz de déposer en full test une accroche gagnante à peine reformulée (nouvelle famille, défaut 2,7, 2 tests) | Refus au guichet si l'accroche est trop proche d'une famille gagnante du label (seuil à caler) ; la mesure de proximité existe depuis 0631 (`bleo_mots_accroche`, D45) | à décider, avec le regroupement en thèmes (D45) |
+| D42 | La boîte liste des parents : une famille dont plusieurs G1 ont gagné y avait une ligne de G2 par G1, à la suite depuis D35 (weird_alpha : 3 G2 de « hobbies that will make you dangerously confident » aux rangs 1 à 3, famille déjà au budget de diffusion). Rien ne limitait la production d'une famille par jour | **Tranché le 30/10 par Adrien** : une ligne par famille, familles au budget en fin de boîte, une déclinaison par famille et par jour (refus `famille_du_jour`) | fait (0628) |
+| D43 | La boîte d'un label mélange des familles anglaises et françaises (beau_smart_girl : 85 lignes anglaises sur 123, alors que le podz 7 écrit en français) : une G1 traduite perd l'accroche mot pour mot et le guichet la refuse | Une déclinaison s'écrit dans la langue de son parent ; l'OS la traduit ensuite pour chaque compte | fait (ROUTINE.md §4.3, 30/10) |
+| D44 | Les consignes des routines des podz (« livraisons du jour avec leur preuve ») ne se changent que depuis la conversation de chaque podz, pas depuis la coordination | La routine commune prime ; les podz sont prévenus par message à la bascule ; à Adrien de les changer s'il le souhaite | contourné |
+| D45 | Une famille, c'est un hook exact : des familles quasi identiques comptent à part. smart_girl a 86 familles « hobbies » (116 contenus) ; le 31/10 le pod 8 en a décliné deux le même jour. Le thème s'use : 28 passages par semaine à la mi-septembre, 173 la semaine du 19/10, médiane des vues de 4 091 à 1 572 (le reste du label stable vers 1 400). La fatigue ne voit que le même post et la même famille | **Tranché le 31/10 par Adrien** : avant la bascule, le guichet refuse une 2e déclinaison au hook voisin le même jour dans le label (`accroche_voisine`, 0631) ; après la bascule, avec D30, regrouper les familles quasi identiques en un thème pour la fatigue et la boîte | guichet fait (0631) ; thèmes après la bascule |
+| D46 | Les remakes gardaient l'outro du compte copié : en octobre, 862 passages (148 contenus) ont affiché « follow @richgirlacadmy… », parfois avec son guide « dans la bio » ; 1 115 slides dans 25 langues portent un handle tiers, dont 1 068 en dernière slide. Le 31/10 au matin, 14 posts du jour l'avaient encore | **Tranché le 31/10 par Adrien** : nettoyer et bloquer à la source. 0632 : en base, un handle qui n'est pas à nous est retiré ; la dernière slide qui en portait un devient une outro neutre de la langue ; triggers sur `contenu_langues` et `post_slides` ; nettoyage des decks et des posts pas encore publiés | fait (0632, le 31/10 au soir) : 12 posts du jour, 1 093 decks, 3 triggers |
+| D47 | Le dernier repli du tirage (« tout ») peut mettre le même contenu sur les 2 créneaux d'un compte : 1 compte par jour au plus, sur les petits labels 100 % podz (Fathomly le 31/10 et le 1/11, mentalmaxxing le 2/11). Le rapport ne le compte pas en infraction (relâche déclarée). À minuit, `prochaineLignePlan` saute le doublon et le créneau retombe sur la tierlist : rien de publié deux fois | Même au dernier repli, jamais deux fois le même contenu sur un compte le même jour (dans `bleo_tirage`) | fait (0637, le 2/11 : au repli, jamais le même jour ; plan d'essai du 3/11 sans doublon) |
+| D48 | Première nuit en mode actif (2/11) : l'index `passages_bleo_compte_jour_uidx` (0600, D20 : un passage BLEO par compte et par jour, pensé pour l'A/B) a refusé le 2e passage BLEO de chaque compte (614 « duplicate key »). 333 passages au lieu de ~668 : 309 comptes à 1 post, 63 à 0 ; le rattrapage de 5 h a échoué pareil (« [object Object] », l'erreur PostgREST relancée telle quelle). Les tests à blanc ne pouvaient pas le voir (aucune écriture) | Index supprimé (0636) le 2/11 à 8 h 24, rattrapage relancé (Adrien) ; le rattrapage relancé a resservi le créneau 1 (déjà posé) à 309 comptes : même contenu deux fois le même jour ; correctif : l'assignation exclut les contenus déjà posés ce jour sur le compte (plan BLEO et tierlist). À faire : que l'assignation écrive le message de l'erreur (pas « [object Object] »), et qu'une répétition écrive un vrai passage sur un compte de test | index supprimé ; suite à faire |
 
 ### Colonne langue : la réécriture native (plan du 29/10, remplace L9 à L11)
 
@@ -194,9 +201,21 @@ Ce qui reste de la spec et vaut toujours pour l'appel unique :
    `sansConcurrent`). Restent : liberté du CTA, plafond de dépense.
 4. Avant L3 : ajouter @sofiya.yussupova comme source de clean_study.
 
-## Bascule du lundi 2/11 (décision d'Adrien le 29/10 au soir)
+## Bascule du dimanche 1/11 au soir (décision d'Adrien le 29/10, avancée le 30/10)
 
-**Pas d'A/B.** Podz sur BLEO et bascule lundi, l'ancien système gardé en secours.
+**Avancée d'un jour (Adrien, 30/10 au soir).** Dimanche 1/11 au soir, après le
+tirage de 14 h du plan du 2/11 :
+- **l'assignation de minuit passe sur le plan BLEO** (`bleo.mode = 'actif'`,
+  « Passer en actif ») : le premier jour assigné par BLEO est le **lundi 2/11**
+  (et non plus le mardi 3/11) ;
+- **les podz basculent en entier** (`bleo.podz.type_obligatoire = true`, et les
+  prompts des 6 routines de la voie 1 qui parlent de preuve) : leurs routines du
+  lundi matin sont les premières sur la boîte ;
+- **seul l'agent de traduction et placement est progressif** : la réécriture
+  native remplacera l'ancien circuit au compte-gouttes, quand elle aura passé
+  ses duels de Tests (rien en production d'ici là).
+
+**Pas d'A/B.** Podz sur BLEO et bascule dimanche soir, l'ancien système gardé en secours.
 Ce qui change par rapport au plan de la spec :
 
 - **Pas de L6 (A/B) ni de L7 (decks l'après-midi).** BLEO ne crée pas de passages
@@ -249,7 +268,7 @@ la preuve n'est plus demandée. Codes de refus : `type_bleo_invalide`,
 famille de son parent tout de suite (même règle que A2 a). Le nombre de full
 tests du jour suit la part de la jauge sans hasard (cumul arrondi). Sans
 `type_bleo`, le dépôt suit le chemin d'avant (preuve comprise) : les outils des
-podz passent à `type_bleo` avec les routines (lundi), puis
+podz passent à `type_bleo` avec les routines (bascule du dimanche 1/11 au soir), puis
 `type_obligatoire = true`. D30 (accroche à peine reformulée d'une famille
 gagnante) reste à décider : pas encore de refus.
 
@@ -260,7 +279,7 @@ G2, un full test ; que faire de chaque refus du guichet) et voie 2 inchangée
 (D25). L'ancienne routine est gardée dans `pods/ROUTINE-avant-bleo.md`. **La
 bascule des podz est un réglage** : tant que `reglages.bleo.podz.type_obligatoire`
 est faux, `npm run boite` affiche « podz sur BLEO : pas encore » et la voie 1
-suit la routine d'avant ; le passer à vrai lundi 2/11 avant 6 h fait passer les
+suit la routine d'avant ; le passer à vrai le dimanche 1/11 au soir fait passer les
 7 podz sur la boîte (et le guichet refuse alors un dépôt sans `type_bleo`).
 Retour en arrière : le repasser à faux. Les 7 `AGENT.md` de la voie 1 ont un
 encadré qui dit ce qui ne vaut plus (preuve, veille, variantes, essais) ; le
@@ -280,8 +299,8 @@ après la bascule » sur la vue d'ensemble BLEO : 21 jours, jours pas encore
 mesurés en grisé (le r d'un post se calcule 72 h après sa publication ; en
 pratique 3 à 4 jours de retard), et l'alerte en rouge quand le r médian des 3
 derniers jours mesurés baisse de plus de 15 % par rapport aux 14 jours d'avant.
-Le premier jour assigné par BLEO (3/11) entre dans l'alerte vers le 7/11 ; elle
-ne compare BLEO seul à l'ancien système qu'à partir du 9/11 environ.
+Le premier jour assigné par BLEO (2/11) entre dans l'alerte vers le 6/11 ; elle
+ne compare BLEO seul à l'ancien système qu'à partir du 8/11 environ.
 
 **Interrupteur.** Vue d'ensemble BLEO (`/admin/bleo`), admin seulement : « Passer
 en actif » puis, en secours, « Revenir à l'ancien système ». Confirmation qui
@@ -289,29 +308,18 @@ rappelle le plan suivi (jour, créneaux). Le changement vaut pour la prochaine
 assignation de minuit. Sans l'interrupteur, le tirage aurait cessé en mode
 actif (corrigé par 0614).
 
+**Calendrier (à jour le 30/10 au soir).**
+
 | Quand | Quoi |
 | --- | --- |
-| Ven 30/10 | L4 : guichet (`boite`, dépôt BLEO, refus D30, D35), outils `boite` et `deposer` des 7 podz de la voie 1, routines, chef. Code de bascule (plan suivi à minuit, interrupteur de mode). Légendes d'images (10 h à 19 h 30) |
-| Sam 31/10 | Tests : guichet et outils, assignation de quelques comptes en `dryRun` sur le plan du 1/11 |
-| Dim 1/11 | Répétition générale en `dryRun` sur tous les comptes ; relecture avec Adrien |
-| Lun 2/11 | Merge le matin : les podz passent sur BLEO. 14 h : plan du mardi. 22 h : feu vert ou non (rapport et porte « BLEO tourne »), `bleo.mode = actif` |
-| Mar 3/11 | **Premier jour assigné par BLEO** (assignation de minuit du lundi au mardi) |
+| Ven 30/10 | L4 fini (guichet, outils, routines, chef), légendes d'images (13 418, fini à 20 h 27), une ligne par famille et une déclinaison par famille et par jour (0628) |
+| Sam 31/10 | 6 h 10 : contrôle de la nuit. Podz 8 et 9 : premiers dépôts par la boîte. 15 h 20 : répétition (servabilité du plan du 1/11, assignation à blanc, dépôts 8 et 9) |
+| Dim 1/11 | 15 h 20 : répétition générale sur le plan du 2/11. **20 h 20 : bascule complète** si tout est vert (mode `actif`, podz sur la boîte, messages aux podz) |
+| Lun 2/11 | **Premier jour assigné par BLEO.** 6 h 10 : contrôle de la nuit ; 7 h 17 – 7 h 47 : premières routines des podz sur la boîte ; 8 h 40 : contrôle des dépôts ; 22 h 08 : bilan du premier jour |
 | ~Lun 9/11 | D39 : déclinaison G1 du hit à la place du repost |
 | ~Lun 16/11 | Fin de la tierlist (L8) si 14 jours stables |
 
-
-| Quand | Lot | Remarque |
-| --- | --- | --- |
-| Ven 30/10 | L0 · Instrumenter | Migration 0416 appliquée avant le merge (D7) |
-| 31/10 – 2/11 | L1 · Remplir l'existant ; L7 · Decks l'après-midi (en parallèle) | L1 dépend du script des notes (D12) |
-| 2/11 – 4/11 | L2 · `bleo-nuit`, cron 05 h 15 | Puis 3 nuits sans erreur |
-| 4/11 – 8/11 | L5 · Tirage à blanc ; L3 et L4 si prêts | L3/L4 avant J1 ou après J14, jamais pendant |
-| **Lun 9/11** | J1 : `bleo.mode = ombre` à 9 h | Repli : lun 16/11 |
-| Jeu 12/11 | J4 : porte « BLEO tourne », premier tirage A/B | |
-| Dim 22/11 | J14 : décision | |
-| Lun 23/11 | J15 : bascule | |
-| Mer 25/11 | J17 : confirmation | |
-| ~9/12 | L8 : suppression de la tierlist | 14 jours stables après J17 |
+Le calendrier A/B de la spec (J1 le 9/11, J14 le 22/11, L8 le 9/12) est caduc : pas d'A/B.
 
 La colonne langue suit le plan « Réécriture native » du 29/10 (voir plus haut) :
 fiches et comparateur tout de suite, production 50/50 sur l'allemand après J14.
@@ -340,6 +348,22 @@ modifié, aucune fonction Edge redéployée) :
 | `0615_bleo_guichet` | L4 : `bleo_verifier_depot(label, type_bleo, parent, accroche_norm, livraison)` juge un dépôt de podz (13 codes de refus, voir plus bas) ; `reglages.bleo.podz.type_obligatoire` (faux jusqu'à la bascule des podz) | Appliquée le 29/10, testée sur les données réelles (chaque code) |
 | `0616_bleo_jauge_jours` | La jauge des podz photographiée chaque jour à 5 h 40 (`bleo_jauge_jours`, cron `bleo-jauge-photo`) : la règle de baisse du chef (14 jours sous 1 semaine) et le suivi avant/après en ont besoin | Appliquée le 29/10, première photo prise |
 | `0617_bleo_suivi` | Suivi avant/après : vue `bleo_suivi_jours` (r médian, part à 10 000 vues, vues par post, part du plan BLEO, par jour) et `bleo_suivi_alerte()` (r médian des 3 derniers jours mesurés contre les 14 d'avant, alerte au-delà de 15 %, `reglages.bleo.suivi`) | Appliquée le 29/10 ; au 25/10 : 0,96 contre 1,00 (−4 %), pas d'alerte |
+| `0620_ab_traduction` | A/B traduction et placement : duels à l'aveugle en Tests (`ab_traduction_duels`), et, coupés, le réglage, `decks_natifs`, `passages.bras_traduction`, le rapport | Appliquée le 30/10 ; A/B **seulement dans Tests** (Adrien, 30/10) |
+| `0623_fiche_cta` | `bleo_fiches` accepte la sorte `cta` : la fiche CTA commune | Appliquée le 30/10 ; version 3 (le hook ne change pas, la mise en page et la frappe) |
+| `0628_bleo_boite_une_famille_par_jour` | Une ligne par famille dans la boîte (G2 d'abord, puis le parent le moins décliné), familles au budget en fin de boîte ; le guichet refuse une 2e déclinaison de la même famille le même jour (`famille_du_jour`) | Appliquée le 30/10, testée (refus après un dépôt du jour, annulé) |
+| `0630_bleo_valeur_au_jour_fatigue_60j` | La valeur du rapport de 22 h compte la fatigue dans la fenêtre de D41 (60 jours ; un passage non publié 3 jours après sa date), comme la nuit et le tirage : elle la comptait depuis toujours | Appliquée le 30/10 ; rapport du 30/10 recalculé |
+| `0631_bleo_guichet_accroche_voisine` | Le guichet refuse une déclinaison dont le hook est voisin d'une livraison du jour du label (`accroche_voisine`, D45) : `bleo_mots_accroche`, `bleo_proximite_accroches`, `boite.voisine_seuil` 0,6 et `boite.voisine_mots_min` 2 | Appliquée le 31/10 ; testée sur les 7 déclinaisons du pod 8 (seules les deux « hobbies … smarter » se touchent) |
+| `0632_handles_tiers` | Plus aucun handle d'un autre compte dans nos slides (D46) : `texte_sans_handle_tiers`, `slides_sans_handle_tiers`, `outro_suivre` (outro neutre en 30 langues) ; triggers sur `contenu_langues`, `contenu_langue_decks` et `post_slides` | Appliquée le 31/10 par étapes avec `execute_sql` (`apply_migration` attendait une confirmation qui n'arrivait pas, le `drop trigger` la déclenchait) : 12 posts du jour, 1 091 decks Sophia et 2 d'applis nettoyés, 0 restant |
+| `0633_a_blanc_depuis_la_base` | `a_blanc_lancer(compte, jour, bleo)` lance `assignation-a-blanc` par pg_net avec l'en-tête des crons lu dans le Vault (jamais affiché) ; `a_blanc_lire(id)` rend la réponse (lignes « Plan BLEO … », résultat). Les répétitions n'ont plus besoin d'Adrien | Appliquée le 31/10 |
+| `0634_cron_secret_empreinte` | Vue de l'empreinte SHA-256 du secret des crons (service_role seulement) : le bac à sable du test à blanc bloque les RPC, donc la lecture du Vault, et la fonction comparait l'en-tête à `CRON_SECRET`, périmé depuis la rotation du 31/10 au matin (401). Elle compare maintenant les empreintes | Appliquée le 31/10 ; fonction redéployée à la merge |
+| `0635_auto_validation_5h` | Validation automatique des podz à 5 h après le dépôt (au lieu de 12), cron toutes les 10 minutes (au lieu de toutes les heures) | Appliquée le 1/11 à 10 h 20 |
+| `0636_bleo_deux_passages_par_compte` | Supprime `passages_bleo_compte_jour_uidx` (D20, A/B) : il refusait le 2e passage BLEO de chaque compte (D48) | Appliquée le 2/11 à 8 h 24, rattrapage relancé |
+| `0637_bleo_tirage_meme_jour` | Le dernier repli du tirage (« tout ») ne remet jamais le même contenu sur un compte le même jour (D47) | Appliquée le 2/11 ; tirage d'essai du 3/11 : 668 créneaux, 0 vide, 0 doublon |
+| `0638_bleo_nouveaux_avant_tirage` | Le tirage de 14 h rattache d'abord les contenus validés depuis la nuit et calcule la valeur de ceux qui n'en ont pas (`bleo_nouveaux_avant_tirage`, même formule que la nuit) : une livraison du matin est tirée le jour même et publiée à J+1 (« point 2 », Adrien). Un tirage d'essai lancé à une autre heure ne bloque plus le tirage officiel | Appliquée le 2/11 vers 10 h ; premier tirage concerné : 2/11 à 14 h |
+| `0639_bleo_tests_famille_couverture` | Les tests (file à juger) respectent aussi « même famille » (10 jours) et « même couverture » (10 jours, dHash à 8 bits) : le 2/11, 12 tests reprenaient une photo de couverture vue par le compte dans les 10 jours et 1 compte avait 2 tests de la même famille le même jour | Appliquée le 2/11 à 12 h 20 ; tirage d'essai du 3/11 : 194 tests placés comme avant, 0 couverture ni famille récente (11 avant) |
+| `0641_bleo_tirage_cron_trace_nouveaux` | Le tirage de 14 h écrit aussi dans `bleo_runs.resume` le compte du rattrapage d'avant tirage (`nouveaux_avant_tirage`, 0638) : pg_cron ne garde pas la valeur de retour, et au premier tirage officiel (2/11) ce compte n'était lisible nulle part | Appliquée le 2/11 à 14 h 37 ; effet au tirage du 3/11 (pour le 4/11) |
+
+Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
 `reglages.bleo.mode = 'ombre'` depuis le 29/10 à 12 h 20.
 
@@ -359,7 +383,7 @@ modifié, aucune fonction Edge redéployée) :
   capacité) plutôt qu'un créneau vide (voie 2 : that_girl_study, mentalmaxxing).
 - Un contenu à juger avec un passage à 10 000 vues est jugé (comme la sortie de J+2).
 - Le rapport compare plan et réel avec la même formule de valeur, fatigue
-  comptée sur les passages d'avant le jour.
+  comptée sur les passages d'avant le jour, dans la fenêtre de D41 (0630).
 
 Premier plan (30/10, essai de mise au point, 14,5 s) : 249 comptes, 498
 créneaux, 0 vide ; file à juger 40 %, récolte 36 %, non-gagnants 17 %,
@@ -378,6 +402,14 @@ Réglés le 29/10 avec Adrien, avant le premier tirage du cron :
 
 Plan du 30/10 après ces deux réglages (essai, 14,8 s) : file à juger 30 %,
 non-gagnants 14,5 %, récolte 48 %, 0 créneau vide.
+
+Premier rapport à blanc (30/10, réel de minuit contre le plan de 14 h le 29/10,
+recalculé après 0630) : 245 comptes comparés, valeur du plan 1 541 contre 975
+au réel (+58 %), 11 couples sur 486 identiques ; mélange du réel : à juger 187,
+récolte 166, gagnants servis 86, non-gagnants 48 (37 neufs, 11 servis) ;
+0 infraction, 5 relâches déclarées, 0 créneau vide, plan tiré en 17,8 s. Portes :
+toutes passent sauf les tests des contenus de moins de 3 jours (34 sur 62
+complets, point connu ci-dessous). Avant 0630 : 1 528 contre 952, même lecture.
 
 Reste connu avant les rapports :
 
@@ -451,3 +483,25 @@ recalculée à la main, rejouabilité, derniers plans).
   (0613) au lieu de la description TikTok.
 - **29/10, 19 h** : décision d'Adrien : pas d'A/B, podz sur BLEO et bascule lundi,
   ancien système en secours. Plan ci-dessus (section « Bascule du lundi 2/11 »).
+- **30/10** : nuit du 30/10 sans posts au réveil (crédits Gemini épuisés, 402, réessais qui saturent le CPU du drain) ; repli fal (#884), rattrapage complet (490 posts). Plan BLEO rebranché dans minuit (#900). Interrupteur, guichet, outils et routines des podz, suivi avant/après (L4 fini).
+- **30/10, après-midi** : A/B traduction préparé (0620), puis limité à Tests sur décision d'Adrien (#908 fermée). Fiche CTA (0623) ; le CTA sans stats ni forme tirée (0624, session de la relecture native). Relecture native et Fiches rangées dans la section BLEO du menu.
+- **30/10, soir** : bascule avancée au **dimanche 1/11 au soir** (Adrien) ; répétition des podz 8 et 9 sur la boîte samedi et dimanche ; légendes finies (13 418, 0 échec ; 820 images restent « aucune » d'un passage plus ancien) ; D42 et D43 tranchés (0628, routine) ; plus de CTA jugé aux vues dans les consignes des podz ; spec mise à jour (section « État au 30/10 »).
+- **30/10, 22 h** : premier rapport à blanc : plan +58 % de valeur sur le réel, 0 infraction, 0 créneau vide, toutes les portes sauf les tests récents des petits labels (connu). Biais corrigé : la valeur du rapport comptait la fatigue depuis toujours, le tirage dans la fenêtre de D41 (0630). Plan du 31/10 : 245 comptes, 490 créneaux, 0 vide, 18,5 s ; nuit du 30/10 sans erreur.
+- **31/10, matin** : nuit sans accroc (486 passages, 0 coupure, 0 repli fal). Répétition : podz 8 et 9 livrés par la boîte (8 et 4 livraisons, toutes typées). Deux familles « hobbies » quasi identiques déclinées le même jour : D45 tranché, refus `accroche_voisine` au guichet (0631). Handles d'un compte tiers (@richgirlacadmy) sur 862 passages d'octobre : D46.
+- **31/10, 15 h 20** : répétition. Plan du 1/11 (242 comptes, 484 créneaux, 0 vide, 18 s) servable à minuit à 99,8 % (479 sur 480 ; 1 deck UnSwipe refusé, weird_alpha) ; 379 decks à cuire, comme une nuit normale. Podz 8 et 9 : 12 livraisons typées, 0 refus du guichet, déclinaisons avec parent et dans sa langue ; aucune encore validée (rattachement pas vérifiable). Remarques des podz : parents d'autres podz sans images locales, `--cherche` pauvre sur certains mots ; l'erreur 400 du pod 9 vient de son outil (la boîte donne la bonne image, en `.png`). Handles tiers : 12 posts du jour corrigés ; triggers et nettoyage des decks en attente (confirmation du serveur sans réponse).
+- **31/10, 20 h 20** : 0632 appliquée en entier avant l'assignation de minuit : 1 093 decks nettoyés, 0 handle tiers restant, 3 triggers posés.
+- **31/10, 20 h 30** : Adrien : bascule dimanche soir sans lui (« Bascule »), et les tests à blanc ne doivent plus lui revenir. `assignation-a-blanc` refusait le secret des crons depuis sa rotation (le bac à sable ferme le Vault) : 0634 (empreinte) et 0633 (lancement depuis la base).
+- **31/10, 20 h 45** : tests à blanc lancés d'ici (`a_blanc_lancer`, plan du 1/11) sur 5 comptes (Sophia de et it, micabo fr, UnSwipe es et fr ; smart_girl, weird_alpha, beau_smart_girl, clean_study, mentalmaxxing) : 10 créneaux sur 10 suivent le plan (récolte, juger, gagnant servi, non-gagnant neuf), 0 repli, 3 à 6 s par compte ; outros nettoyées visibles. Tâches de dimanche (15 h 20, 20 h 20) réécrites : tests lancés d'ici, bascule sans Adrien si tout est vert.
+- **31/10, 22 h** : 2e rapport à blanc. Valeur du plan 1 553 contre 960 au réel (+62 %), 9 couples sur 483 identiques, 243 comptes ; réel : à juger 211, récolte 134, gagnants servis 76, non-gagnants 62. 0 infraction, 7 relâches, 0 créneau vide. Portes : toutes vertes sauf les tests récents des petits labels (connu). Nuit du 31/10 (10,7 s) et plan du 1/11 (18 s) sans erreur.
+- **1/11, 10 h 20** : il y a bien une validation automatique (12 h après le dépôt, une dizaine par heure) : les 12 livraisons de répétition de samedi ont été validées entre 23 h et 1 h 20, rattachées (famille, génération, valeur), et 8 posts en sont déjà sortis. Mais avec BLEO, un dépôt du matin n'entre au plan que le lendemain à 14 h (il faut la nuit pour la valeur) : publication à J+2 au lieu de J+1. Adrien : validation à 5 h et toutes les 10 minutes (0635). Le calcul des valeurs avant 14 h (sinon toujours J+2) n'est pas fait.
+- **1/11, 15 h 20** : répétition générale. Plan du 2/11 : 334 comptes (+92, la cohorte qui démarre lundi : 102 comptes n'ont jamais posté), 668 créneaux, 2 vides, 19 s ; servable à 99,8 % (657 sur 658, 1 deck UnSwipe refusé) ; 540 decks à cuire (une nuit normale : 385 à 412, pour ~240 comptes ; nuit estimée à 55-65 min contre 36-45). Tests à blanc d'ici sur 20 comptes (Sophia, micabo, UnSwipe ; 12 langues ; les 7 labels de la voie 1, white_bg, Fathomly, mentalmaxxing, classic_study, that_girl_study ; 6 comptes neufs) : 40 créneaux sur 40, 39 sur le plan, 1 rendu à la tierlist (doublon du plan, D47). Boîtes non vides (24 à 238 lignes), guichet ok (déclinaison et full test). Validation à 5 h (0635) : les 102 livraisons du jour validées entre 11 h 20 et 13 h 10 ; déclinaisons des podz 8 et 9 de samedi et dimanche rattachées. Gemini : 0 erreur 402. L'outil Supabase (MCP) a renvoyé des 502 ; l'API de gestion a pris le relais.
+- **1/11, 20 h 22 : bascule.** Contrôles verts : plan du 2/11 fini (668 créneaux), aucune chaîne d'assignation en cours, 0 erreur 402 dans l'heure, 7 boîtes non vides, guichet ok (déclinaison et full test), podz 8 et 9 : 22 déclinaisons validées et rattachées, 3 full tests validés (le dernier aura sa famille à la nuit). `bleo_changer_mode('actif')` (refusé sans jeton : appelé avec `request.jwt.claims` service_role, tracé dans `mode_historique`), puis `podz.type_obligatoire` à vrai. Encadré de répétition retiré de `pods/ROUTINE.md`. Les 7 podz de la voie 1 prévenus dans leur session (BLEO lundi, langue du parent, `accroche_voisine`, `--cherche`, plus de preuve, validation à 5 h). Minuit (lundi 2/11) assigne sur le plan BLEO.
+- **1/11, 22 h** : 3e et dernier rapport à blanc (plan contre l'ancien système, jour du 1/11). Valeur du plan 1 499 contre 916 (+64 %), 7 couples sur 456 identiques, 231 comptes ; 0 infraction, 9 relâches, 0 créneau vide ; à juger 29 %, récolte 49 %, non-gagnants 13 %. Sur les 3 rapports (30/10, 31/10, 1/11), toutes les portes de W1 passent chaque jour sauf « tests récents complets » (petits labels, connu, à trancher). Nuit 8 s, tirage du 2/11 19 s. Mode `actif` depuis 20 h 22.
+- **2/11, 6 h 10** : première nuit actif ratée à moitié : 333 passages sur ~668 (D48, index d'unicité BLEO hérité de l'A/B). Les passages créés sont bons (316 du plan BLEO, 7 rendus à la tierlist, 0 handle tiers). Adrien prévenu ; à 8 h 24, sur son accord, index supprimé (0636, par l'API de gestion : execute_sql attendait une confirmation) et rattrapage relancé.
+- **2/11, 8 h 33** : rattrapage fini (644 passages, chaque compte servable à 2), mais 309 comptes ont reçu deux fois le même contenu : le rattrapage reprend le créneau 1 du plan sans voir qu'il est déjà posé. Correctif de l'assignation (contenus du jour exclus). La suppression des 309 doublons (non publiés) a été bloquée par le garde-fou de sécurité : en attente d'Adrien.
+- **2/11, 8 h 40** : premiers dépôts sur la boîte : les 7 podz de la voie 1 ont déposé, 61 livraisons toutes typées (46 déclinaisons, toutes avec parent ; 15 full tests). Refus du guichet : smart_girl 6 `accroche_differente` (déclinaisons écrites dans la langue du post montré par la boîte, une traduction, au lieu de la langue source du parent ; réécrites en anglais, passées : consigne §4.3 corrigée), beau_smart_girl 1 (faute corrigée dans l'accroche), clean_study 1 (signes « θ९ » de l'accroche retirés), alpha_male 1 (Sophia citée dans le texte de base). Plusieurs podz ont sauté d'eux-mêmes des lignes au hook voisin. Remontées : banque d'images juste (RH, clean_study), captures d'applis concurrentes à retirer de la banque (RH : 76ee100a, bb4cf2e9, 7986ea17 ; beau_smart_girl : Actualize).
+- **2/11, 9 h 16** : réparé. 303 doublons non publiés sauvegardés (`sauvegarde_doublons_2_11`) puis supprimés, correctif de l'assignation déployé (contenus du jour exclus), rattrapage relancé à 9 h 08 : 644 passages, chaque compte servable à 2 posts distincts (625 du plan BLEO, 9 tierlist, 10 rappels), 0 erreur. Un compte a publié deux fois le même post avant la réparation (8ec8d1ad). Aussi : 0637 (D47) et le journal de l'assignation écrit désormais le vrai message d'erreur. Reste du 2/11 : 62 comptes actifs sans post, tous en warmup ou pas démarrés (normal) ; 13 d'entre eux étaient au plan (filtre du tirage plus large que celui de minuit, à aligner).
+- **2/11, 10 h** : point 2 fait (0638, Adrien) : les livraisons du matin, validées à 5 h (0635), entrent au tirage de 14 h, publication à J+1. En passant : l'essai de tirage de 9 h 11 (pour 0637) aurait fait sauter le tirage officiel du 3/11 (« déjà fait ») ; le garde ne compte plus que les tirages commencés à 14 h.
+- **2/11, 12 h 20** : contrôle des garde-fous sur les 636 posts du jour : même post à moins de 14 jours 7 (3 au dernier repli, 3 pile à 14 jours, 1 hors plan), même famille le même jour 1, même couverture à moins de 10 jours 13 (12 sur des tests). Les tests ne voyaient que la règle « même contenu » : 0639. Le tirage officiel du 3/11 (14 h) en profite.
+- **2/11, 12 h 30** : 6 livraisons du 29/10 (page blanche 4, mentalapp 2) restaient « Validation automatique impossible » depuis la panne de crédit Gemini (l'auto-validation ne retente pas un échec) : erreur effacée, l'auto-validation les reprend (Gemini répond, 0 erreur 402 aujourd'hui). Les deux tirages d'essai du 3/11 (9 h 11, 12 h 19) marqués « essai » (`erreur`), la convention des essais manuels : la page Plan les signale et minuit ne prend que le tirage de 14 h. Page Plan : texte au présent (BLEO actif).
+- **2/11, 14 h 35** : premier tirage officiel en actif (pour le 3/11) : lancé à 14 h 00, fini en 23 s, sans erreur ; les essais de 9 h 11 et 12 h 19 ne l'ont pas bloqué. 322 comptes (334 à l'essai du matin : 0508, arrêt Portugal), 644 créneaux, 0 vide, 0 doublon (compte, contenu). Point 2 vérifié : les 61 livraisons du matin (validées entre 11 h 40 et 13 h 21) ont famille et valeur, calculées à 14 h 00 juste avant le tirage ; 38 sont au plan du 3/11 (68 créneaux) : les 15 full tests (29 créneaux, file juger), 23 des 46 déclinaisons (39 créneaux, file valeur, récolte). Les 23 autres ont la même valeur (3,20) que celles tirées : tirage au sort pondéré, elles restent en lice demain. Le compte `nouveaux_avant_tirage` n'était gardé nulle part (valeur de retour du cron) : 0641. Aussi, ce midi : page Slideshows sur les infos BLEO à la place du tier (#1028).

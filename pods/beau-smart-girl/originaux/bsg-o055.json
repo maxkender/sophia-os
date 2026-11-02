@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o055",
+ "schema_id": "jolie-et-interessante",
+ "titre": "POV : tu deviens la fille qui connaît l'histoire de chaque tableau #pourtoi #art #culture #pov",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "375ec54a-c305-4083-bf9c-2a47f0957e40",
+  "675447a8-afc4-470d-b196-c7b30e600268"
+ ],
+ "notes": "essai. cta A. Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 3 sur 8 (le numéro finit par 5). L'essai : le format « POV » (point de vue en « tu »), très courant sur TikTok, jamais fait chez nous. Preuve : schéma jolie-et-interessante (r 5,04, 675447a8 ; chez nous, bsg-o012 à 36,9 k vues). Accroches écrites : « POV : tu deviens la fille qui connaît l'histoire de chaque tableau » (retenue : format POV, promesse d'identité), « POV : tu es la fille qui raconte le musée mieux que le guide » (écartée : plus long), « POV : ta copine te demande pourquoi ce tableau est célèbre » (écartée : moins d'identité). Items neufs, aucun fait précis. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7e00f2ba",
+   "texte_overlay": "POV : tu deviens la fille\nqui connaît l'histoire\nde chaque tableau",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7e2a7bdd",
+   "texte_overlay": "1. au musée, tes amis te suivent.\n\n« attends, raconte celui-là ! »\ntu ne fais pas la visite. tu la racontes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7e58df62",
+   "texte_overlay": "2. tu regardes les détails que personne ne voit.\n\nun chien dans un coin, une signature cachée, un fruit pourri.\nchaque tableau devient une enquête.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7e642219",
+   "texte_overlay": "3. tu sais pourquoi les gens sont habillés comme ça.\n\net donc à quelle époque ça se passe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7e6a1b92",
+   "texte_overlay": "4. tu as un tableau préféré, et tu sais dire pourquoi.\n\nc'est ta réponse quand on te demande\n« t'aimes l'art ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9e68ca05",
+   "texte_overlay": "5. tu as toujours une histoire à raconter.\n\navant, je passais devant les tableaux sans rien voir.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg",
+   "texte_sophia": "5. tu as toujours une histoire à raconter.\n\navant, je passais devant les tableaux sans rien voir.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "7e832a19",
+   "texte_overlay": "enregistre pour ta prochaine expo.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

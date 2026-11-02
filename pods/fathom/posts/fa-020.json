@@ -1,0 +1,501 @@
+{
+ "id": "fa-020",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7668724896284937494",
+  "vues": 3600000,
+  "accroche": "10/10 Skills You Can Learn In A Day!"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In A Day!",
+  "de": "10/10 Skills, die du an einem Tag lernst!",
+  "pt": "10/10 habilidades para aprender num dia!"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In A Day! #skills #learnontiktok #selfimprovement",
+  "de": "10/10 Skills, die du an einem Tag lernst! #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para aprender num dia! #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Variante de fa-002 (3,6 M). cta B. Sophia à l'étape 3 « KNOW A BIT ABOUT EVERYTHING ». Pas d'UnSwipe. Étapes en affiche comme les siennes, autres compétences (cravate, bouton, pneu, nœud de chaise), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN",
+     "LEARN IN A DAY!"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE DU AN EINEM",
+     "TAG LERNST!"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     "APRENDER NUM DIA!"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TIE A",
+     [
+      {
+       "t": "TIE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "IN UNDER A MINUTE"
+    ],
+    "tailles": [
+     104,
+     170,
+     84
+    ],
+    "video": {
+     "id": "X_3z7QneFOI",
+     "titre": "How to tie a tie EASY (Windsor knot)",
+     "chaine": "How to tie a tie",
+     "vues": "7.5M views",
+     "date": "5 years ago",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFUUnQj9xU7fdnvgnZ0fXXDyQ1Yz2eBMpdwR3GJWrkPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 minutes to learn."
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE",
+     [
+      {
+       "t": "KRAWATTE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "IN EINER MINUTE BINDEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "PMEs-kMf_7A",
+     "titre": "Krawattenknoten binden: Der einfache Knoten",
+     "chaine": "Modehaus Adelsberger",
+     "vues": "5,5 Mio. Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "1:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lryRa3xSbQj91bjLdJJNd2QGfI2G9xKJlsm15uy9Vsqvs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Minuten zum Lernen."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "DAR O NÓ",
+     [
+      {
+       "t": "DA GRAVATA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "EM MENOS DE UM MINUTO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "FImqvfl9EAw",
+     "titre": "Como dar Nó em Gravata. Muito fácil. Passo a Passo",
+     "chaine": "How to tie a tie",
+     "vues": "10 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFUUnQj9xU7fdnvgnZ0fXXDyQ1Yz2eBMpdwR3GJWrkPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 minutos para aprender."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SEW ON A",
+     [
+      {
+       "t": "BUTTON",
+       "couleur": "#e3161d"
+      }
+     ],
+     "THAT NEVER FALLS OFF"
+    ],
+    "tailles": [
+     104,
+     170,
+     84
+    ],
+    "video": {
+     "id": "Du6gq3ks0SQ",
+     "titre": "How to Sew a Button - for Absolute BEGINNERS",
+     "chaine": "Treasurie",
+     "vues": "1.3M views",
+     "date": "9 years ago",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nsm5h4ak8aGF1z7bMGczsEGHh55FlFXHf0OincGrMHNIE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 minutes to learn."
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN",
+     [
+      {
+       "t": "KNOPF",
+       "couleur": "#e3161d"
+      }
+     ],
+     "RICHTIG ANNÄHEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "34NZtWTYd7Y",
+     "titre": "Knopf annähen - So geht's ganz einfach!",
+     "chaine": "Karins Herzenssachen",
+     "vues": "256.702 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "2:22",
+     "avatar": "https://yt3.ggpht.com/bGxaV-gIsl-QQWMOlfs0MkdrFHpi3JMx-onK50kpjYqUOOKZss4CbbHhhNbmTlH9pgunB3OfTw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Minuten zum Lernen."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "PREGAR UM",
+     [
+      {
+       "t": "BOTÃO",
+       "couleur": "#e3161d"
+      }
+     ],
+     "QUE NUNCA CAI"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "yfpxiPbF1Lk",
+     "titre": "COMO PREGAR BOTÃO? - 4 formas simples de pregar botões",
+     "chaine": "Flávia Pinheiro Atelier",
+     "vues": "61 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:48",
+     "avatar": "https://yt3.ggpht.com/yJr0k2AorOe53gwG4gNqzBMbWb8mXcmxa23swor3z0X8HHkltQxGcOhtX22THX9q0mGaXhIh=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 minutos para aprender."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A",
+     [
+      {
+       "t": "BIT ABOUT",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   },
+   "de": {
+    "titre": [
+     "VON",
+     [
+      {
+       "t": "ALLEM",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "ETWAS WISSEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   },
+   "pt": {
+    "titre": [
+     "SABER UM",
+     [
+      {
+       "t": "POUCO",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "CHANGE A",
+     [
+      {
+       "t": "FLAT TIRE",
+       "couleur": "#4913cd"
+      }
+     ],
+     "WITHOUT CALLING ANYONE"
+    ],
+    "tailles": [
+     104,
+     170,
+     84
+    ],
+    "video": {
+     "id": "QjZ5ohr7sGA",
+     "titre": "How to Change a Tire: A Step-by-Step Guide— Cars.com",
+     "chaine": "Cars.com",
+     "vues": "721K views",
+     "date": "8 years ago",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/59K7QrUwW7byuE3QsK6NoAFnvSeEBYM9ZH8ucGMPh1cCBiyfGLOq8McL4VxzDhsBYNP4hyaULA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn."
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN",
+     [
+      {
+       "t": "REIFEN",
+       "couleur": "#4913cd"
+      }
+     ],
+     "SELBST WECHSELN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "kslFWiIcItg",
+     "titre": "Die fünf häufigsten Fehler beim Räder wechseln und wie ihr sie vermeidet | ADAC",
+     "chaine": "ADAC",
+     "vues": "426.180 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "7:19",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "TROCAR UM",
+     [
+      {
+       "t": "PNEU",
+       "couleur": "#4913cd"
+      }
+     ],
+     "SEM LIGAR A NINGUÉM"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "x0byqTuIKZI",
+     "titre": "Como trocar o pneu do carro?",
+     "chaine": "Autoesporte",
+     "vues": "370 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/6YnesnZ6p9o5vm5BCUwRQ4B_lUJlZTe-IDbtkPDmD9OT8qJW041K2VwmNG6Nj9CtfNVwLYfW-Yg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TIE THE",
+     [
+      {
+       "t": "BOWLINE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "THE KING OF KNOTS"
+    ],
+    "tailles": [
+     104,
+     170,
+     84
+    ],
+    "video": {
+     "id": "RhS9hFLQnu8",
+     "titre": "How to Tie The Bowline Knot - [For VISUAL Learners]",
+     "chaine": "The Bear Essentials",
+     "vues": "789K views",
+     "date": "3 years ago",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/zn1BVrUMfnPwfw9Ykw31BCtKNlk8NbG98U4VWSBhkX7kYEwbtKGGtX-kD8BTxuZSDdIMIIRWvco=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 minutes to learn."
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN",
+     [
+      {
+       "t": "PALSTEK",
+       "couleur": "#3256a0"
+      }
+     ],
+     "DEN KÖNIG DER KNOTEN"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "NpFb7nqA0Eg",
+     "titre": "Palstek | Seemannsknoten - Segeln lernen",
+     "chaine": "Kaepten Sailnator",
+     "vues": "560.597 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mj06jyMgA566pkPCkpLG1XDXV-nQFhCeD6_Dtgsc-THg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Minuten zum Lernen."
+    ]
+   },
+   "pt": {
+    "titre": [
+     "FAZER O",
+     [
+      {
+       "t": "LAIS DE GUIA",
+       "couleur": "#3256a0"
+      }
+     ],
+     "O REI DOS NÓS"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "ysmyT9ZbGrM",
+     "titre": "Nó Lais de Guia em duas maneiras",
+     "chaine": "Marinharia - Arte Marinheira",
+     "vues": "432 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "2:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIU6452MvfWLDsikvma7GIaABUeLx5Tu5zJGhFQUAKCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 minutos para aprender."
+    ]
+   }
+  }
+ ]
+}

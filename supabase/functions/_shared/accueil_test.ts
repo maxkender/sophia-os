@@ -4,10 +4,18 @@ import { assertEquals } from "jsr:@std/assert@1";
 import {
   type Annonce,
   bienvenueARattraper,
+  cohorteRecrue,
+  codePays,
+  hmDeNomUpwork,
+  type InfosApi,
+  langueDePays,
   lireDetailsContrat,
   lireModeAuto,
+  loginDejaDonne,
   messageAccueil,
   normaliserNom,
+  paysDansTexte,
+  paysDeReponse,
   planAccueil,
   type PosteurExistant,
 } from "./accueil.ts";
@@ -42,16 +50,58 @@ Deno.test("le contrat : annonce, prénom, nom, début, HM Upwork", () => {
 });
 
 Deno.test("annonce connue → créer (pays, langue, HM, tarif de l'annonce)", () => {
-  assertEquals(planAccueil(d, annonce(), null, []), { statut: "a_creer", raison: null, pays: "PT", langue: "pt", hm_id: "hm1", tarif: 14 });
+  assertEquals(planAccueil(d, annonce(), null, []), { statut: "a_creer", raison: null, pays: "PT", langue: "pt", hm_id: "hm1", tarif: 14, source: "annonce" });
 });
 
 Deno.test("annonce inconnue ou générique → Contrats à relier ; pays choisi à la main → créer", () => {
   assertEquals(planAccueil(d, null, null, []).statut, "a_relier");
-  assertEquals(planAccueil(d, annonce({ generique: true, pays: null }), null, []).raison, "annonce générique");
+  assertEquals(planAccueil(d, annonce({ generique: true, pays: null }), null, []).raison, "annonce générique, pays du freelance illisible");
   const choisi = planAccueil(d, annonce({ generique: true, pays: null }), { statut: "a_creer", pays: "FR", langue: "fr", hm_id: "hm2" }, []);
   assertEquals([choisi.statut, choisi.pays, choisi.hm_id], ["a_creer", "FR", "hm2"]);
   // Pays sans langue : à relier.
   assertEquals(planAccueil(d, annonce({ langue: null }), null, []).statut, "a_relier");
+});
+
+const api = (o: Partial<InfosApi> = {}): InfosApi => ({ freelance_pays: "HR", freelance_langue: "hr", hm_id: "hmC", hm_nom: "Lucia D.", ...o });
+
+Deno.test("0470 : pays du freelance si l'annonce n'en a pas ; HM du contrat, pas celle de l'annonce", () => {
+  const p = planAccueil(d, annonce({ pays: null, langue: null }), null, [], api());
+  assertEquals([p.statut, p.pays, p.langue, p.hm_id, p.source], ["a_creer", "HR", "hr", "hmC", "freelance"]);
+  // L'annonce a un pays : il gagne ; la HM reste celle du contrat.
+  const a = planAccueil(d, annonce(), null, [], api({ freelance_pays: "PT" }));
+  assertEquals([a.pays, a.hm_id, a.source, a.ecart], ["PT", "hmC", "annonce", undefined]);
+  // Le freelance vit ailleurs : pays de l'annonce, l'écart est noté.
+  assertEquals(planAccueil(d, annonce(), null, [], api()).ecart, { vit: "HR", annonce: "PT" });
+  // Ni annonce ni pays du freelance : la carte.
+  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: null })).statut, "a_relier");
+  // Pays du freelance sans langue connue : la carte, avec la raison.
+  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: "IS", freelance_langue: null })).raison, "le freelance vit en IS, aucune langue connue pour ce pays");
+  // HM du contrat pas dans l'OS : la carte (pays gardé).
+  const sansHm = planAccueil(d, null, null, [], api({ hm_id: null, hm_nom: "Dzenita S." }));
+  assertEquals([sansHm.statut, sansHm.pays, sansHm.raison], ["a_relier", "HR", "HM du contrat (Dzenita S.) pas dans l'OS : choisis la HM"]);
+});
+
+Deno.test("0470 : un choix à la main reste après une simulation (statut simule, relie_at)", () => {
+  const p = planAccueil(d, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: "hmX", relie_at: "2026-10-30T10:00:00Z" }, [], api({ freelance_pays: null, hm_id: null }));
+  assertEquals([p.statut, p.pays, p.langue, p.hm_id, p.source], ["a_creer", "SK", "sk", "hmX", "main"]);
+  // Simulé par l'annonce (sans relie_at) : pas un choix à la main.
+  assertEquals(planAccueil(d, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: null }, [], api({ freelance_pays: null })).statut, "a_relier");
+});
+
+Deno.test("0470 : HM par le nom Upwork, langue d'un pays, code d'un pays", () => {
+  const hms = [{ id: "l", prenom: "Lucia", nom: "D" }, { id: "r", prenom: "Rana", nom: "Barakli" }, { id: "s", prenom: "Sara", nom: "B" }];
+  assertEquals(hmDeNomUpwork("Lucia D.", hms), "l");
+  assertEquals(hmDeNomUpwork("Rana B.", hms), "r");
+  assertEquals(hmDeNomUpwork("Dzenita S.", hms), null);
+  assertEquals(hmDeNomUpwork(null, hms), null);
+  assertEquals(langueDePays("IL", [{ pays: "IL", langue: "he" }, { pays: "IL", langue: "he" }, { pays: "IL", langue: "ar" }]), "he");
+  assertEquals(langueDePays("IS", [{ pays: "IL", langue: "he" }]), null);
+  assertEquals([codePays("Croatia"), codePays("Slovakia"), codePays("hr"), codePays("United States"), codePays("Atlantis")], ["HR", "SK", "HR", "US", null]);
+  // Jamais un code retiré (FX, DD, SU, YU…).
+  assertEquals(
+    ["France", "FX", "Germany", "Lithuania", "Israel", "Russia", "Serbia", "Myanmar (Burma)", "United Kingdom", "Romania", "Slovakia"].map(codePays),
+    ["FR", "FR", "DE", "LT", "IL", "RU", "RS", "MM", "GB", "RO", "SK"],
+  );
 });
 
 Deno.test("doublon : contrat déjà relié, ou même nom et même pays actif → rien, signalé", () => {
@@ -66,16 +116,28 @@ Deno.test("doublon : contrat déjà relié, ou même nom et même pays actif →
 });
 
 Deno.test("le message de bienvenue, rempli, en anglais", () => {
-  const m = messageAccueil("Hi {prenom}! {url} · {email} · {mot_de_passe} · {slack} · {guide} · Monday {date} · {inconnu}", {
-    prenom: "Ana", url: "https://os", email: "ana@vik.co", mot_de_passe: "12345678", slack: "https://slack", guide: "https://guide",
-    cohorte_lundi: "2026-11-02",
+  const m = messageAccueil("Hi {prenom}! {url} · {email} · {slack} · Monday {date} · {lien_mot_de_passe} · {inconnu}", {
+    prenom: "Ana", url: "https://os", email: "ana@vik.co", slack: "https://slack", cohorte_lundi: "2026-11-02",
   });
-  assertEquals(m, "Hi Ana! https://os · ana@vik.co · 12345678 · https://slack · https://guide · Monday 2 November · {inconnu}");
+  // Le lien « Set my password » n'est pas donné : la variable reste, remplacée à l'envoi.
+  assertEquals(m, "Hi Ana! https://os · ana@vik.co · https://slack · Monday 2 November · {lien_mot_de_passe} · {inconnu}");
+  assertEquals(
+    messageAccueil("Set: {lien_mot_de_passe}", { prenom: "Ana", url: "u", email: "e", slack: "s", cohorte_lundi: "2026-11-02", lien_mot_de_passe: "https://os/set-password?t=abc" }),
+    "Set: https://os/set-password?t=abc",
+  );
+});
+
+Deno.test("1/11 : jamais de mot de passe ni de guide : les lignes d'un ancien texte qui les citent sont retirées", () => {
+  const modele = "Hi {prenom}\n• Login: {email} · Password: {mot_de_passe}\n• Our guide: {guide}\n• Set your password: {lien_mot_de_passe}";
+  assertEquals(
+    messageAccueil(modele, { prenom: "Ana", url: "u", email: "a@b", slack: "s", cohorte_lundi: "2026-11-02", lien_mot_de_passe: "L" }),
+    "Hi Ana\n• Set your password: L",
+  );
 });
 
 Deno.test("prompt 13 : le @ TikTok à créer, ou la ligne retirée s'il n'est pas connu", () => {
   const modele = "Hi {prenom}\n• Login: {email}\n• Your TikTok account to create: @{handle} (use exactly this name)\n• Slack: {slack}";
-  const v = { prenom: "Ana", url: "u", email: "a@b", mot_de_passe: "x", slack: "s", guide: "g", cohorte_lundi: "2026-11-02" };
+  const v = { prenom: "Ana", url: "u", email: "a@b", slack: "s", cohorte_lundi: "2026-11-02" };
   assertEquals(
     messageAccueil(modele, { ...v, handle: "@ana.studies" }),
     "Hi Ana\n• Login: a@b\n• Your TikTok account to create: @ana.studies (use exactly this name)\n• Slack: s",
@@ -109,4 +171,32 @@ Deno.test("prompt 25, 16 : recrue déjà créée par la HM, notée doublon avant
   assertEquals(bienvenueARattraper({ ...d, message_at: "2026-10-30T10:00:00Z" }, "on"), false);
   assertEquals(bienvenueARattraper({ ...d, raison: "profil existant inactif ou relié à un autre contrat" }, "on"), false);
   assertEquals(bienvenueARattraper({ ...d, statut: "envoye" }, "on"), false);
+});
+
+Deno.test("1/11 : pays d'un titre d'annonce ou d'une réponse ; cohorte jamais avant le prochain lundi", () => {
+  assertEquals(paysDansTexte("(GREECE)🌍📱 Turn 10 Minutes a Day Into Weekly Pay: Post Ready-Made TikToks"), "GR");
+  assertEquals(paysDansTexte("TikTok Content Posting for Slideshows —Spanish speaker/ in Spain"), "ES");
+  assertEquals(paysDansTexte("TikTok Content Posting for Slideshows —  Israel (ISRAEL)"), "IL");
+  assertEquals(paysDansTexte("TikTok Content Posting for Slideshows —Spanish speaker"), null);
+  assertEquals(paysDansTexte("🌍📱 Turn 10 Minutes a Day Into Weekly Pay"), null);
+  assertEquals(paysDeReponse([
+    { de: "posteur", texte: "Greece." },
+    { de: "nous", texte: "Hi! Which country do you live in?" },
+    { de: "posteur", texte: "Hello" },
+  ]), "GR");
+  assertEquals(paysDeReponse([{ de: "posteur", texte: "I live in Spain" }, { de: "nous", texte: "Which country do you live in?" }]), "ES");
+  assertEquals(paysDeReponse([{ de: "posteur", texte: "Hello" }]), null);
+  assertEquals(cohorteRecrue("2026-10-26", "2026-11-02"), "2026-11-02");
+  assertEquals(cohorteRecrue("2026-11-09", "2026-11-02"), "2026-11-09");
+  assertEquals(cohorteRecrue(null, "2026-11-02"), "2026-11-02");
+});
+
+Deno.test("1/11 : login déjà donné par la HM dans la conversation (@sophia.com, email du posteur ou lien du dashboard)", () => {
+  const hm = (texte: string) => ({ de: "nous", texte });
+  assertEquals(loginDejaDonne([{ de: "posteur", texte: "my mail is ana@sophia.com?" }]), null);
+  assertEquals(loginDejaDonne([hm("Hi! Your login: anas@sophia.com, password 12345678")])?.texte.includes("anas@"), true);
+  assertEquals(loginDejaDonne([hm("Go to https://sophia-marketing-orga.vercel.app and log in")]) !== null, true);
+  assertEquals(loginDejaDonne([hm("Login: ana.s@vikmail.com")], "ana.s@vikmail.com") !== null, true);
+  assertEquals(loginDejaDonne([hm("Hi, thanks for signing! Join our Slack: https://join.slack.com/t/x")]), null);
+  assertEquals(loginDejaDonne([]), null);
 });

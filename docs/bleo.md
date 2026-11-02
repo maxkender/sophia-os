@@ -1,6 +1,27 @@
 # Spécification d'implémentation de BLEO
 
-*Copie de l'onglet « Spécification d'implémentation » du doc Claude « BLEO », exportée le 29/10/2026. Le doc et ce fichier sont tenus à jour ensemble.*
+*Copie de l'onglet « Spécification d'implémentation » du doc Claude « BLEO », exportée le 29/10/2026. Le doc et ce fichier sont tenus à jour ensemble. Mise à jour le 30/10 : voir « État au 30/10 » juste dessous ; le journal détaillé est `docs/bleo-chantier.md`.*
+
+## État au 30/10 : ce qui a changé depuis la rédaction
+
+Les décisions d'Adrien des 29 et 30/10 l'emportent sur le reste du document. Les sections concernées sont annotées sur place ; la version d'origine reste lisible pour mémoire.
+
+| Sujet | Avant (rédaction du 28/10) | Maintenant | Section |
+| --- | --- | --- | --- |
+| Mesure | À blanc puis A/B de 11 jours (W1 à W4) | **Pas d'A/B** (29/10). À blanc du 29/10 au 1/11, puis bascule ; à la place de l'A/B, un suivi avant/après (r médian, part à 10 000 vues) et une alerte si le r médian des 3 derniers jours mesurés baisse de plus de 15 % (0617) | W0 à W4 | **Basculé le 1/11 à 20 h 22** : mode `actif`, podz sur la boîte ; premier jour assigné par BLEO le 2/11.
+| Bascule | J15, sur décision W3 | **Dimanche 1/11 au soir** (décision du 30/10) : `bleo.mode = actif` et les podz sur la boîte ; premier jour assigné par BLEO : lundi 2/11. Retour : « Revenir à l'ancien système » (mode `ombre`) et `bleo.podz.type_obligatoire` à faux | W4, P1 |
+| Tirage | BLEO crée les passages à 14 h, decks l'après-midi | Le tirage de 14 h reste un **plan** (`bleo_ombre_passages`) ; l'assignation de minuit le suit créneau par créneau ; un créneau non servable repart sur la tierlist (`bras = 'temoin'`). La tierlist reste en secours jusqu'à L8 | A7, D1, L6, L7 |
+| Fonctions | Fonctions Edge `bleo-nuit`, `bleo-assignation`… | Fonctions SQL appelées par pg_cron (`bleo_nuit`, `bleo_tirage`, `bleo_rapport`, `bleo_jauge_photo`) ; migrations dans la plage 06xx | Planning |
+| Réglages | `file_juger.part_max` 0,40 | 0,30 (29/10) | A7, Réglages |
+| Déclinaisons | Accroche non précisée ; G2 après les familles jamais déclinées | G1 : accroche du parent **mot pour mot** ; G2 : accroche **reformulée**, ouverte au verdict ; G2 en tête de la boîte (D35, 0606). Une déclinaison s'écrit **dans la langue de son parent**. **Une ligne par famille dans la boîte, une déclinaison par famille et par jour**, familles au budget en fin de boîte (0628) | A2, A9, P2 |
+| Fermeture | r médian de la dernière génération | r **moyen** plafonné à 20, recalculé chaque nuit dans les deux sens (D36, 0608) | A9 |
+| Fatigue | Tous les passages depuis toujours | Les 60 derniers jours ; un passage non publié ne compte que jusqu'à 3 jours après sa date (D41, 0612) | A5 |
+| Colonne langue | Agent de langue Claude par langue, banque des relecteurs, test 50/50 (L9 à L11) | **Réécriture native** : un appel par deck qui voit tout le post et lit **quatre fiches** (appli, langue, label, CTA, dans `bleo_fiches` et `fiches_appli`) ; banque = `exemples_natifs`. A/B **seulement dans Tests** (duels à l'aveugle, votes des relecteurs, 0620 et 0626), rien dans l'assignation de minuit (30/10) ; mise en production au compte-gouttes plus tard | Agent de langue, L9 à L11 |
+| CTA | Voie tirée (`prouvee` / `essai` selon les poids de la fiche label), forme notée, stats du lundi | **Plus de stats CTA ni de forme tirée** (0624) : les vues ne jugent pas un CTA. L'OS n'impose que `reprise` (l'original cite un concurrent) et `marquee` (slide marquée par le podz) ; sinon le modèle choisit avec les fiches. CTA **à partir de la slide 4**, jamais le hook (le hook ne change jamais). Fiche label **écrite** (format du deck, où va l'appli, exemples), fiche CTA commune (0623) | D2, D4, D5, D8 |
+| Podz | Preuve retirée en phase 3 ; CTA A/B/C jusqu'à la phase 5 | Preuve retirée à la bascule ; images cherchées par leur légende (toutes légendées le 30/10) ; CTA A/B/C gardés pour varier, plus jamais remplacés d'après leurs vues | P1, P2, P3 |
+| Garde-fous du tirage | Exclusion stricte | Exclusion, puis relâche plutôt qu'un créneau vide, chaque relâche comptée au rapport (proposition de D5, appliquée par défaut) ; dernier repli `hors_file` (un contenu à juger au-delà de la capacité) | A7, A8 |
+
+**Encore à construire** (voir « Lots de travail ») : L0 (enregistrements, modèle des decks, garde des colonnes), L3 (`bleo-lundi`, règle des sources), L7 (decks l'après-midi, validation automatique à 6 h), D39 (G1 du hit à la place du repost J+7), L8 (fin de la tierlist), et la mise en production de la réécriture native.
 
 ## Mode d'emploi
 
@@ -107,7 +128,7 @@ BLEO se branche sur un système qui tourne : voici ce qu'il faut lire avant d'é
 ### Les podz aujourd'hui
 
 - Routine commune `pods/ROUTINE.md` ; rythme `pods/rythme.json` (édité par le chef, par PR) ; guichet `F/pods/index.ts` (actions `deposer`, `etat`, `label`, `top_posts`, `valider`, `auto_valider`…).
-- Un original validé devient un contenu au rang B (`validerOriginal`). La validation automatique (cron `pods-auto-validation`, M/0323) passe après `auto_validation_heures` (12 par défaut), podz par podz.
+- Un original validé devient un contenu au rang B (`validerOriginal`). La validation automatique (cron `pods-auto-validation`, M/0323) passe après `auto_validation_heures` (12 par défaut), podz par podz. *1/11 (0635) :* 5 h pour tous les podz, et un passage toutes les 10 minutes.
 - **Aucun lien parent-enfant en base** : « variante de X », « essai » et « cta A/B/C » ne vivent que dans les `notes` des fichiers JSON des podz, jamais envoyés au guichet. `pod_livraisons` n'a ni parent, ni type BLEO.
 - `verifierOriginal` (`F/_shared/pods.ts`) exige exactement une slide `texte_sophia` pour un label Sophia : à changer pour la slide marquée.
 
@@ -211,6 +232,8 @@ La famille est propre à un label : la même accroche dans deux labels fait deux
 
 Un dépôt de déclinaison est refusé si : la famille n'est pas gagnante, la famille est close, le parent est de génération 2, ou le quota de **3** déclinaisons du parent est atteint (A9).
 
+*30/10 :* refusé aussi si la famille a déjà une déclinaison déposée le même jour (`famille_du_jour`, 0628 ; et, depuis le 31/10, si une livraison du jour du label a un hook voisin : `accroche_voisine`, 0631), si une G1 n'a pas l'accroche du parent mot pour mot (`accroche_differente`) ou si une G2 la garde telle quelle (`accroche_identique`) (D35). Le guichet (`bleo_verifier_depot`, 0615) rend un code par refus.
+
 ### A3 · Verdict d'accroche (chaque nuit, après A1)
 
 Pour chaque famille, sur tous les passages mûrs de ses contenus, rappels exclus :
@@ -241,6 +264,8 @@ forme(c)  = (k × défaut(c) + somme des min(r, 20)) / (k + n)
 valeur(c, L) = forme(c) × 0,6^n_post × 0,75^n_accroche × âge(c)
             n_post     = passages de c dans la langue L (assignés ou publiés)
             n_accroche = passages des autres contenus de sa famille dans L
+            (30/10, D41 : sur les 60 derniers jours seulement ; un passage
+             resté « assigné » ne compte que jusqu'à 3 jours après sa date)
             âge(c)     = 0,7 si c a plus de 45 jours (contenus.created_at), sinon 1
 ```
 
@@ -267,7 +292,7 @@ Le pool est celui d'aujourd'hui (mêmes fonctions d'éligibilité, voir l'exista
 Avant de tirer, `bleo-assignation` calcule A2, A4 et A5 pour les contenus validés depuis le dernier passage de `bleo-nuit` : un contenu validé à 13 h peut partir le lendemain.
 
 1. **Créneaux** : pour chaque compte retenu par les exclusions actuelles, `posts_par_jour` créneaux (2 aujourd'hui pour les 358 comptes actifs). Les rappels J+7 prennent leurs créneaux d'abord, comme aujourd'hui.
-2. **Taille de la file à juger**, par label : le nombre de passages de test encore à placer (2 par contenu `a_juger`, 1 par contenu `en_test` qui n'en a qu'un), au plus **40 %** des créneaux du label. Le reste va à la file valeur.
+2. **Taille de la file à juger**, par label : le nombre de passages de test encore à placer (2 par contenu `a_juger`, 1 par contenu `en_test` qui n'en a qu'un), au plus **40 %** des créneaux du label (0,30 depuis le 29/10, `file_juger.part_max`). Le reste va à la file valeur.
 3. **Placer les tests** : les contenus `a_juger` du plus récent au plus ancien, ceux de plus de **30** jours en dernier. Pour chacun, 2 comptes du label qui ont une médiane (sinon le r n'existe pas), de langues différentes, avec un créneau libre, en préférant les langues où la famille n'est pas encore passée. Égalité : tirage au sort graineé.
 4. **Remplir la file valeur**, compte par compte dans un ordre graineé. Pour chaque créneau :
    1. candidats = couples (contenu `juge`, langue du compte) du pool, après les garde-fous (A8) ;
@@ -299,7 +324,16 @@ Une famille du label entre dans la boîte quand elle est `gagnante` et pas close
 
 Ordre de la boîte : les familles jamais déclinées d'abord, puis par `verdict_le` du plus récent au plus ancien. Les familles au budget (A8) ce jour-là sont signalées mais restent listées.
 
+*Remplacé le 29 et le 30/10 (D35, 0606, 0628) :*
+- **une seule ligne par famille** : sa G2 d'abord, sinon le parent qui a le moins de déclinaisons. Une famille dont plusieurs G1 ont gagné avait autant de lignes de G2, à la suite : 3 posts de la même accroche le même jour ;
+- **ordre** : les familles qui ne sont pas au budget d'abord ; parmi elles, les G2 en tête, puis les familles jamais déclinées, puis `verdict_le` du plus récent au plus ancien. Les familles au budget passent en fin de boîte : leurs posts ne seraient pas servis avant des jours ;
+- **une déclinaison par famille et par jour** (jour de Paris), tous parents confondus : le guichet refuse la deuxième (`famille_du_jour`) ;
+- *31/10 (D45, 0631) :* **pas deux déclinaisons au hook voisin le même jour dans un label** : une famille, c'est un hook exact, et des familles quasi identiques (« 6 hobbies that make you unexpectedly smarter » / « … smarter without actually studying ») partaient le même jour. Le guichet refuse la seconde (`accroche_voisine`) : au moins 2 mots en commun et 60 % des mots du hook le plus court (`boite.voisine_mots_min`, `boite.voisine_seuil`). Le regroupement de ces familles en un thème, pour la fatigue et la boîte, vient après la bascule (avec D30) ;
+- **G1** : l'accroche du parent mot pour mot ; **G2** : la même promesse, reformulée. Une déclinaison s'écrit dans la langue de son parent : la boîte d'un label mélange des familles anglaises et françaises, et l'OS traduit ensuite pour chaque compte.
+
 **Fermeture** : une famille est close quand le r médian des passages mûrs de sa dernière génération passe sous **1**, mesuré sur au moins **4** passages. Ses contenus restent dans le tirage ; elle ne reçoit plus de déclinaison.
+
+*29/10 (D36, 0608) :* la fermeture lit le r **moyen** (chaque r plafonné à 20) et non le r médian : un post qui explose sauve la famille. Elle est recalculée chaque nuit dans les deux sens : une famille rouvre si sa moyenne repasse à 1.
 
 ### A10 · La jauge et la part de full test (chaque matin, avant les podz)
 
@@ -322,6 +356,12 @@ Pour chaque source active (`comptes_reference.is_active`), lire `source_performa
 Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le circuit d'import actuel. Chaque décision est écrite dans `bleo_sources_decisions`. Au 28/10, 23 sources sur 46 passent.
 
 ## L'agent de langue
+
+> **Remplacé le 29/10 par la réécriture native** (page Notion « Révolution placement/traduction », menée par la session de la relecture native). Ce qui vaut aujourd'hui :
+> - **Un appel par deck**, qui voit tout le post et fait traduction et placement d'une passe. Il lit quatre fiches : **appli** (quoi dire, `fiches_appli`), **langue** (comment le dire, `bleo_fiches` sorte `langue`), **label** (l'angle de placement de Maximilien, le format du deck, où va l'appli, des exemples, ce que le podz du label en sait ; écrite, plus calculée) et **CTA** (les règles communes : un vrai conseil, l'appli fondue dedans, le même moule que les voisines, le hook jamais modifié, la mise en page et la frappe ; `bleo_fiches` sorte `cta`). Pas de session Claude par langue, pas de banque des relecteurs : les exemples viennent d'`exemples_natifs` et sont résumés dans la fiche langue.
+> - **CTA** : l'OS n'impose que `reprise` et `marquee` (D2 ci-dessous, lignes 1 et 2) ; sinon l'appel choisit la slide, à partir de la slide 4, et la tournure. Plus de voie `prouvee` / `essai`, plus de forme tirée, plus de stats CTA (0624).
+> - **Mesure** : duels à l'aveugle en Tests, sur des slideshows déjà publiés (deck parti contre deck du nouveau circuit, votes de l'admin et des relecteurs, 0620 et 0626). Rien dans l'assignation de minuit tant qu'Adrien ne le décide pas ; ensuite, une mise en production au compte-gouttes (le branchement de minuit et la cuisson de l'après-midi existent dans maxkender/sophia-os#908, fermée sans fusion).
+> - **Gardé de D0 à D8** : les contrôles automatiques (D5, avec un deck recalé sur la source et nettoyé de ses espaces) et le secours par le circuit actuel (D6). Les fiches existent, mais pas comme D8 les décrit (voir l'encadré de D8). Le reste ci-dessous est la conception d'origine, pour mémoire.
 
 L'agent de langue remplace `translateSlideshow` + `integrateSophia` pour la voie 1. Il traite la file `bleo_decks_file` de 14 h à 20 h ; à 23 h, le circuit Gemini actuel prend tout ce qui reste. La publication n'attend jamais l'agent.
 
@@ -408,6 +448,12 @@ Un deck validé tel quel donne une ligne `valide`. Jusqu'à 50 decks par langue,
 
 ### D8 · Les fiches
 
+> **État au 30/10** : les fiches s'écrivent et se versionnent dans la page Fiches (Admin → Config → Fiches), rien n'est calculé chaque lundi.
+> - **Fiche label** : écrite. Version 1 (0625) : l'angle de placement actif de Maximilien, cité tel quel, et des exemples tirés de nos posts publiés ; version 2 (0626) : ce que le podz du label sait de la slide d'appli. Plus d'agent stats, plus de formes classées ni de poids, plus de seuil de 20 posts par forme : les vues ne jugent pas un CTA (0624, docs/cta.md).
+> - **Fiche appli** : celle d'Adrien, plus une rubrique « Ce que les pods en savent » (0627) ; les écarts avec la pratique des podz sont notés dans « À trancher ».
+> - **Fiche langue** : en anglais, avec les mots natifs cités tels quels, écrite d'après `docs/fiches-langue-brief.md`. La boucle du lundi (règles tirées des corrections, juge à 55 %) n'existe pas encore.
+> - **Fiche CTA** : une seule, commune (0623), version 3.
+
 - **Fiche appli** : écrite par Adrien, une par appli. Ce que fait l'appli, ce qu'on peut affirmer ou non, son nom dans chaque langue, ses concurrents.
 - **Fiche langue** : chaque lundi, l'agent de langue propose des règles tirées des erreurs qui reviennent environ 3 fois dans `bleo_banque`. La nouvelle version n'est gardée que si elle bat l'ancienne sur les decks du jeu `test` : un juge (modèle Claude) compare à l'aveugle les deux sorties à la version du natif, et la nouvelle doit gagner au moins **55 %** des duels.
 - **Fiche label** : chaque lundi, l'agent stats du label lit les passages mûrs du label sur 45 jours (hors rappels et comptes bridés par le contrôle CKD), compare les voies et les formes de CTA à contenu égal (percée, r, enregistrements pour 1 000 vues), et écrit une nouvelle version : ton, formes classées avec leur nombre de posts et leur confiance, poids des voies (essai ≥ 20 %), formes à éviter, journal. Une conclusion ne change qu'avec au moins **20** posts par forme.
@@ -417,6 +463,8 @@ Le détail des prompts et le choix du modèle appartiennent à l'autre agent ; c
 ## Les podz
 
 Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher des preuves, ils déclarent le type et le parent de chaque dépôt, et leur part de full test suit la jauge. La voie 2 garde son fonctionnement et reçoit des commandes de langue.
+
+> **30/10.** La bascule des podz est un réglage : `bleo.podz.type_obligatoire` (faux, puis vrai le dimanche 1/11 au soir). Tant qu'il est faux, `npm run boite` affiche « pas encore » et la voie 1 suit `pods/ROUTINE-avant-bleo.md` (sauf la répétition des podz 8 et 9 les 31/10 et 1/11). Ce qui a été construit (L4) : l'action `boite`, le dépôt déclaré et ses codes de refus, la recherche d'images par légende (`npm run images -- --cherche`), la routine en deux voies, le chef sur la jauge. Pas encore : `etat` et `label` sur r et `bleo_valeurs`, les commandes de langue de la voie 2, `slide_appli`, la validation à 6 h (L7). Les consignes des routines des podz ne se changent que depuis la conversation de chaque podz : la routine commune (`pods/ROUTINE.md`) prime sur elles.
 
 ### P1 · Le guichet (`F/pods/index.ts`)
 
@@ -441,7 +489,9 @@ Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher 
 6. Écrire, contrôler, déposer : `cli-deposer.ts` envoie `type_bleo`, `parent_contenu_id` et, en phase 5, `slide_appli`.
 7. Rendre compte en 3 lignes, plus : la jauge, les familles déclinées, les full tests.
 
-Règles supprimées : « 3 variantes en plus » après une percée à 30 k, l'essai une livraison sur cinq, la veille, la limite d'une livraison par jour d'une famille utilisée 3 fois en 7 jours (remplacée par le quota de 3 et le budget de famille), et, en phase 5, le test de CTA A/B/C. Les `AGENT.md` qui répètent ces règles (par exemple `alpha-yellow/AGENT.md` : « 2 ou 3 variantes » à r ≥ 2) sont à corriger dans la même PR.
+Règles supprimées : « 3 variantes en plus » après une percée à 30 k, l'essai une livraison sur cinq, la veille, la limite d'une livraison par jour d'une famille utilisée 3 fois en 7 jours (remplacée par le quota de 3 et le budget de famille), et, en phase 5, le test de CTA A/B/C.
+
+*30/10 :* la limite par famille revient sous une autre forme, côté boîte et guichet (une déclinaison par famille et par jour, A9). Les CTA A/B/C restent, pour varier les posts, mais ne sont plus jamais jugés ni remplacés d'après leurs vues (décision du 30/10) ; le point du chef n'a plus de ligne CTA. Les `AGENT.md` qui répètent ces règles (par exemple `alpha-yellow/AGENT.md` : « 2 ou 3 variantes » à r ≥ 2) sont à corriger dans la même PR.
 
 ### P3 · Le chef des podz (`pods/chef/AGENT.md`)
 
@@ -456,6 +506,8 @@ Règles supprimées : « 3 variantes en plus » après une percée à 30 k, l'es
 - Le tirage est celui de la voie 1, dans les pools de leurs labels. Petit label sans compte qui ait une médiane (Fathomly : 3 comptes, that\_girl\_study : 1) : les tests vont à n'importe quel compte du label, et le verdict ne lit que les 10 000 vues.
 
 ## Le planning des tâches
+
+> **30/10, ce qui tourne vraiment** (fonctions SQL, pg_cron) : `bleo-nuit` à 5 h 15 (A1 à A5, A9, A10), `bleo-jauge-photo` à 5 h 40, `bleo-tirage` à 14 h (plan du lendemain, en mode `ombre` comme `actif`), `bleo-rapport` à 22 h (plan contre réel, résumé à Adrien dans la session de coordination, pas dans `#podz`). Pas encore : `bleo-lundi` (L3), le secours de 23 h et les sessions de langue (colonne langue remplacée).
 
 Quatre fonctions neuves (`bleo-nuit`, `bleo-lundi`, `bleo-assignation`, `bleo-secours`) s'ajoutent aux crons existants. Chaque cron neuf suit le modèle de M/0302 : deux horaires UTC et une garde sur l'heure de Paris, pour tenir l'heure d'été comme l'heure d'hiver.
 
@@ -478,6 +530,8 @@ Quatre fonctions neuves (`bleo-nuit`, `bleo-lundi`, `bleo-assignation`, `bleo-se
 **Pendant l'A/B, les deux systèmes se partagent chaque compte.** À 14 h, `bleo-assignation` remplit un créneau du lendemain ; à minuit, `listerComptesSousQuota` voit le créneau manquant et le système actuel le remplit. `bleo-nuit` pose ensuite `bras = 'temoin'` sur ce passage.
 
 ## À blanc et A/B : les 14 jours
+
+> **Remplacé le 29/10 (pas d'A/B) et le 30/10 (bascule avancée).** À blanc du 29/10 au 1/11 : la nuit, le plan de 14 h et le rapport de 22 h (plan contre réel, portes de W1) tournent chaque jour ; la valeur du rapport compte la fatigue dans la fenêtre de D41, comme le tirage (0630). Premier rapport (30/10) : valeur du plan +58 % sur le réel, 0 infraction, 0 créneau vide. Répétitions le samedi 31/10 et le dimanche 1/11 (servabilité du plan sur tous les comptes, assignation à blanc qui suit le plan, dépôts des podz 8 et 9 par la boîte). **Dimanche 1/11 à 20 h 20** : si les contrôles sont verts, `bleo.mode = actif` et `bleo.podz.type_obligatoire = true` ; minuit assigne le lundi 2/11 sur le plan. À la place de la mesure A/B : le suivi avant/après (`bleo_suivi_jours`) et son alerte (`bleo_suivi_alerte`). La tierlist reste en secours ; L8 vers le 16/11 après 14 jours stables. La porte de W1 « chaque contenu servable validé depuis 3 jours a ses 2 tests » échoue chaque jour sur les petits labels (white_bg, clean_study, RH, Fathomly, mentalmaxxing, that_girl_study) : à trancher (part plus haute pour eux, ou critère limité aux labels qui ont la place). La suite de cette section est la conception d'origine, pour mémoire.
 
 BLEO est jugé en 14 jours : 3 jours à blanc pour vérifier qu'il fonctionne, puis 11 jours d'A/B où chaque compte publie chaque jour un post choisi par BLEO et un post choisi par le système actuel. La décision tombe le soir du jour 14.
 
@@ -581,6 +635,21 @@ Onze lots, chacun livrable seul, par une PR sur `main` avec ses tests. Un lot ne
 | L10 · Test 50/50 de l'agent | Par compte, dans les 3 langues : la moitié publie la version de l'agent ; slide d'appli marquée (`bleo.slide_marquee = true`) | L9 | Environ 460 posts par bras ; vues, percée (20 k) et enregistrements comparés à contenu égal → **porte « l'agent gagne »** |
 | L11 · Étendre | Langue par langue (`bleo.agent.langues_actives`) ; agents stats de label et fiches label ; fin du test de CTA A/B/C | L10 | Chaque langue ajoutée garde moins de 1 % de decks en secours sur une semaine |
 
+**État des lots au 30/10**
+
+| Lot | État |
+| --- | --- |
+| L0 | Modèle de données fait (0600). Pas encore : `enregistrements` (0 sur 3 290 posts publiés en 7 jours), `modele` et `cuit_le` des decks, garde des colonnes BLEO de `passages` (D10) |
+| L1 | Fait (0601) |
+| L2 | Fait (0602, 0604, 0608, 0612, 0616), en fonction SQL |
+| L3 | Pas commencé (`bleo-lundi`, A11, `bleo_classes` recalculé, alertes de jauge) |
+| L4 | Fait (0615, 0628, guichet, outils des 7 podz, routines, chef, légendes) ; bascule le 1/11 au soir |
+| L5 | Fait (0603, 0614), en fonction SQL ; rapports quotidiens |
+| L6 | Abandonné (pas d'A/B) ; remplacé par le suivi plan à minuit (bascule) et le suivi avant/après (0617) |
+| L7 | Pas commencé ; nécessaire avant la réécriture native en production |
+| L8 | Pas commencé ; vers le 16/11 (D23, D24) |
+| L9 à L11 | Remplacés par la réécriture native (fiches, duels en Tests ; l'appel unique en cours dans la session de la relecture native) |
+
 ## Réglages
 
 Tous les réglages vivent dans une seule ligne, `reglages` où `cle = 'bleo'`, à insérer telle quelle en L0. Le code lit cette ligne au démarrage de chaque fonction et n'a aucune valeur en dur.
@@ -640,6 +709,8 @@ Tout le reste est décidé. Pour chaque point ouvert, le choix par défaut s'app
 
 **Décidé le 28/10** : le nom BLEO ; la tierlist remplacée ; le tirage au cube ; × 0,6 par passage du contenu, × 0,75 par passage de la famille, × 0,7 après 45 jours ; 3 déclinaisons par parent ; la génération 2 au verdict, sans battre le parent ; pas de génération 3 ; les deux voies séparées ; la veille supprimée ; la règle des sources ; la boîte sans niveau ; la file à juger ; les deux colonnes de travail en parallèle ; une semaine à blanc puis l'A/B.
 
+**Tranché depuis le 29/10** : pas d'A/B ; bascule le dimanche 1/11 au soir ; place du CTA à partir de la slide 4, jamais le hook ; pas de concurrent en essai ; plus de stats CTA ni de forme tirée ; une déclinaison dans la langue de son parent, une par famille et par jour ; fermeture sur le r moyen ; fatigue sur 60 jours ; D1 à D4, D20 et D22 sans objet (pas d'A/B ; l'index de D20, resté en base, a cassé la première nuit actif le 2/11 : supprimé, 0636). Restent ouverts : D30 (full test trop proche d'une famille gagnante), D34 (réimports qui effacent les decks, pour L7), la porte des tests pour les petits labels, et l'angle de chaque label tenu à la fois dans `angles_placement` et dans la fiche label.
+
 | Point ouvert | Choix par défaut | Avant le lot |
 | --- | --- | --- |
 | Montant payé par micro-tâche de relecture | **Aucun : à fixer par Adrien** (bloquant) | L9 |
@@ -651,7 +722,7 @@ Tout le reste est décidé. Pour chaque point ouvert, le choix par défaut s'app
 | Garder un concurrent dans un essai | Non : `sansConcurrent` reste | L9 |
 | Budget par famille | 20 % des passages du label sur 7 jours | L5 |
 | Seuils de la jauge et part de full test | 6, 3 et 1 semaines ; 10 à 40 % | L4 |
-| Validation automatique | 6 h après le dépôt | L7 |
+| Validation automatique | 6 h après le dépôt (*fait le 1/11 à 5 h, toutes les 10 minutes, 0635 ; et le 2/11 les contenus du jour entrent au tirage de 14 h, 0638 : publication à J+1*) | L7 |
 | Heure du tirage | 14 h, pour J+1 | L5 |
 | Accroches de plus de 45 jours dans la boîte | Gardées ; test de 2 semaines sur les podz 4 et 8 pendant L4 pour mesurer leur réussite | L4 |
 | RH : careerswemma, seule source, r = 1,00 | Mise à jour quand même : liste d'exceptions `sources.toujours` dans les réglages | L3 |

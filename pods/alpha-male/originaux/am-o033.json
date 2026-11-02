@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o033",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "674bd227-3f7d-4d6c-a525-ff1e804ddd78",
+ "titre": "6 weird skills a dangerous man possesses (part 2) #men #skills #selfimprovement #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7652148333531663135",
+ "inspirations": [
+  "674bd227-3f7d-4d6c-a525-ff1e804ddd78"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». Ici Sophia est en 3e compétence sur 6. Répétition BLEO du 31/10 (ROUTINE.md, exception podz 8 et 9). Déclinaison G1 de la ligne 3 de la boîte (parent 674bd227 = mon am-o013, en ; meilleur passage cs 6,7 k vues, r 2,79). Accroche du parent mot pour mot. « Dangerous » = capable, jamais violent. Compétences neuves : aucune du parent (pneu, carte, réparations, feu, nage) ni de mon am-o026 ou du label (vérifié : rien sur câbles de démarrage, trouver le nord, bouton à recoudre, calcul mental de l'addition, garder son calme quand quelqu'un panique). Images : la banque, sans visage ; slide Sophia sur une bibliothèque sombre sans personne. reference_url du parent, vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0a60706f",
+   "texte_overlay": "6 weird skills a\ndangerous man possesses",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0170f55b",
+   "texte_overlay": "1. Jump-starting a car\nRed to red, black to metal.\nYou help the stranger\nin the parking lot.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1ff3853e",
+   "texte_overlay": "2. Finding north\nwithout a phone\nThe sun rises in the east\nand sets in the west.\nYou always know your way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8153c934",
+   "texte_overlay": "3. Knowing the story\nbehind things\nWhy that bridge was built,\nwho painted that picture.\nPeople lean in when you talk.",
+   "texte_sophia": "3. Knowing the story\nbehind things\nLearn one a day on the\nSophia app: history, science\nor art in 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "13c204d3",
+   "texte_overlay": "4. Sewing a button back on\nTwo minutes, needle and thread.\nYour shirt lives\nanother five years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "02f93f2c",
+   "texte_overlay": "5. Splitting the bill\nin your head\nQuick, fair, no phone out.\nSmall thing. People notice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "18a7046b",
+   "texte_overlay": "6. Staying calm when\nsomeone panics\nSlow voice, simple steps.\nYour calm becomes theirs.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/2.jpg"
+  }
+ ]
+}

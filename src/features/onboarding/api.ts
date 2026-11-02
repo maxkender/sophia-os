@@ -54,6 +54,13 @@ export async function lireOnboarding(): Promise<RecrueOnboarding[]> {
   return (data ?? []) as RecrueOnboarding[];
 }
 
+/** 0470 : « Lives in X, job post Y » : le posteur créé avec le pays de l'annonce vit ailleurs (pays lu à l'API). */
+export async function lireEcartsPays(): Promise<Map<string, string>> {
+  const { data, error } = await supabase.from("accueils").select("poster_id, ecart_pays").not("ecart_pays", "is", null).not("poster_id", "is", null);
+  if (error) throw error;
+  return new Map((data ?? []).map((a) => [String(a.poster_id), String(a.ecart_pays)]));
+}
+
 /** Posters : ceux qui ont publié au moins un post avec lien (les autres sont sur Onboarding posters). */
 export async function lirePosteursAyantPoste(): Promise<Set<string>> {
   const { data, error } = await supabase.rpc("posteurs_ayant_poste");

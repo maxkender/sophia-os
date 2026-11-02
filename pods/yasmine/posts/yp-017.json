@@ -1,0 +1,959 @@
+{
+ "id": "yp-017",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "titre": {
+  "fr": "je note des astuces de révision : ça vaut le coup ou pas ?, partie 3",
+  "en": "rating study hacks: worth it or not worth it?, part 3",
+  "es": "puntúo trucos de estudio: ¿valen la pena o no?, parte 3",
+  "de": "ich bewerte Lern-Hacks: lohnt es sich oder nicht?, Teil 3",
+  "it": "do un voto ai trucchi di studio: ne vale la pena o no?, parte 3",
+  "pt": "avaliando truques de estudo: vale a pena ou não?, parte 3",
+  "tr": "ders çalışma taktiklerini puanlıyorum: değer mi, değmez mi?, bölüm 3"
+ },
+ "legendes": {
+  "fr": "partie 3 mes notes sur 10, sans filtre 📚 #revisions #studytok #astuces #methodedetravail #thatgirl",
+  "en": "part 3 my honest ratings out of 10 📚 #studytips #studytok #studyhacks #studying #thatgirl",
+  "es": "parte 3 mis notas del 0 al 10, sin filtro 📚 #estudiar #studytok #trucosdeestudio #tecnicasdeestudio #thatgirl",
+  "de": "Teil 3 meine Noten von 0 bis 10, ganz ehrlich 📚 #lernen #studytok #lerntipps #abitur #thatgirl",
+  "it": "parte 3 i miei voti da 0 a 10, senza filtri 📚 #studiare #studytok #metododistudio #consigli #thatgirl",
+  "pt": "parte 3 minhas notas de 0 a 10, sem filtro 📚 #estudos #studytok #dicasdeestudo #enem #thatgirl",
+  "tr": "bölüm 3 0'dan 10'a puanlarım, filtresiz 📚 #ders #studytok #dersçalışma #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7177490894231931654"
+ },
+ "fond": {
+  "media_id": "0fb9f742-0958-431e-8698-761e6f658ad3",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/31ed426f-6c4b-4302-ae33-b0b7ea6cba98/5.jpg?v=1791726341868",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-006 (« RATING STUDY HACKS ») : partie 3, 6 autres hacks et autres photos. cta A : micabo dans le texte de la note « réviser avec une appli de quiz », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "JE NOTE",
+      "DES HACKS",
+      "D’ÉTUDE"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ça vaut le coup",
+       "x": 230,
+       "y": 940
+      },
+      {
+       "texte": "ou pas ?",
+       "x": 430,
+       "y": 1040
+      },
+      {
+       "texte": "(partie 3)",
+       "x": 470,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RATING",
+      "STUDY",
+      "HACKS"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "worth it or not",
+       "x": 230,
+       "y": 940
+      },
+      {
+       "texte": "worth it?",
+       "x": 430,
+       "y": 1040
+      },
+      {
+       "texte": "(part 3)",
+       "x": 470,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PUNTÚO",
+      "TRUCOS DE",
+      "ESTUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "¿valen la pena",
+       "x": 230,
+       "y": 940
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1040
+      },
+      {
+       "texte": "(parte 3)",
+       "x": 470,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ICH BEWERTE",
+      "LERN-HACKS"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "lohnt es sich",
+       "x": 230,
+       "y": 840
+      },
+      {
+       "texte": "oder nicht?",
+       "x": 430,
+       "y": 940
+      },
+      {
+       "texte": "(Teil 3)",
+       "x": 470,
+       "y": 1050
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "VOTO I",
+      "TRUCCHI DI",
+      "STUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ne vale la pena",
+       "x": 230,
+       "y": 940
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1040
+      },
+      {
+       "texte": "(parte 3)",
+       "x": 470,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AVALIANDO",
+      "TRUQUES DE",
+      "ESTUDO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "vale a pena",
+       "x": 230,
+       "y": 940
+      },
+      {
+       "texte": "ou não?",
+       "x": 430,
+       "y": 1040
+      },
+      {
+       "texte": "(parte 3)",
+       "x": 470,
+       "y": 1150
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS",
+      "TAKTİKLERİNİ",
+      "PUANLIYORUM"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 460,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "0’dan 10’a",
+       "x": 300,
+       "y": 940
+      },
+      {
+       "texte": "puanlar",
+       "x": 470,
+       "y": 1040
+      },
+      {
+       "texte": "(bölüm 3)",
+       "x": 510,
+       "y": 1150
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0d53a61f-686f-4967-9c0a-93876a9ef71b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7dea918f-741c-47fc-8f2c-d862b6020e71/1.jpg?v=1791726214350",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "se lever à 5 h🌅",
+      "texte": "4/10\nsi tu te couches à minuit, c’est juste dormir moins. l’heure compte moins que tes 8 h de sommeil.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "waking up at 5am🌅",
+      "texte": "4/10\nif you go to bed at midnight, you’re just sleeping less. the hour matters less than your 8 hours of sleep.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "levantarse a las 5🌅",
+      "texte": "4/10\nsi te acuestas a medianoche, solo duermes menos. la hora importa menos que tus 8 h de sueño.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "um 5 Uhr aufstehen🌅",
+      "texte": "4/10\nwenn du um Mitternacht ins Bett gehst, schläfst du einfach weniger. die Uhrzeit zählt weniger als deine 8 Std. Schlaf.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "svegliarsi alle 5🌅",
+      "texte": "4/10\nse vai a letto a mezzanotte, dormi solo di meno. l’ora conta meno delle tue 8 ore di sonno.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "acordar às 5h🌅",
+      "texte": "4/10\nse você dorme à meia-noite, só está dormindo menos. o horário importa menos que suas 8 h de sono.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "sabah 5’te kalkmak🌅",
+      "texte": "4/10\ngece yarısı yatıyorsan sadece daha az uyuyorsun. saatten çok 8 saatlik uykun önemli.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5bfef211-1f8b-4851-8f4a-6cd9e56f8c2a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2848bf1a-113e-4eb4-8247-b74010ae0397/2.jpg?v=1791725980871",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les fiches toutes faites d’internet📑",
+      "texte": "3/10\nlire les fiches de quelqu’un d’autre, ce n’est pas apprendre. c’est en les faisant que tu retiens.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ready-made notes from the internet📑",
+      "texte": "3/10\nreading someone else’s notes isn’t learning. making them yourself is what makes it stick.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "los apuntes ya hechos de internet📑",
+      "texte": "3/10\nleer los apuntes de otra persona no es aprender. lo que se queda es lo que haces tú.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "fertige Zusammenfassungen aus dem Netz📑",
+      "texte": "3/10\nfremde Notizen lesen ist kein Lernen. erst wenn du sie selbst machst, bleibt es hängen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "i riassunti già fatti di internet📑",
+      "texte": "3/10\nleggere gli appunti di qualcun altro non è imparare. è facendoli tu che ricordi.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "resumos prontos da internet📑",
+      "texte": "3/10\nler o resumo de outra pessoa não é aprender. é fazendo o seu que você fixa.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "internetten hazır özetler📑",
+      "texte": "3/10\nbaşkasının notlarını okumak öğrenmek değildir. kendin hazırlarken akılda kalır.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "7ac968e8-1e0e-4f12-8ccd-6fe49033c9cb",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/15d9ec74-163c-42b2-86e5-022ed42f7015/6.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "dessiner ce que tu apprends✏️",
+      "texte": "9/10\nun schéma moche que tu as fait toi-même vaut mieux qu’un joli paragraphe. surtout en svt et en histoire.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "drawing what you learn✏️",
+      "texte": "9/10\nan ugly diagram you made yourself beats a pretty paragraph. especially for biology and history.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "dibujar lo que aprendes✏️",
+      "texte": "9/10\nun esquema feo hecho por ti vale más que un párrafo bonito. sobre todo en biología e historia.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "zeichnen, was du lernst✏️",
+      "texte": "9/10\nein hässliches Schaubild, das du selbst gemacht hast, schlägt jeden schönen Absatz. vor allem in Bio und Geschichte.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "disegnare quello che impari✏️",
+      "texte": "9/10\nuno schema brutto fatto da te vale più di un bel paragrafo. soprattutto in scienze e storia.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "desenhar o que você aprende✏️",
+      "texte": "9/10\num esquema feio feito por você vale mais que um parágrafo bonito. principalmente em biologia e história.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "öğrendiğini çizmek✏️",
+      "texte": "9/10\nkendi yaptığın çirkin bir şema, güzel bir paragraftan iyidir. özellikle biyoloji ve tarihte.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "21d5e750-6f39-4526-a9d7-dd934713f8d0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4978cdf1-cf45-4668-b767-779d7ae0a7ec/2.jpg?v=1791725779619",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "réviser avec une appli de quiz🧠",
+      "texte": "10/10\nje mets mes cours dans micabo, il m’en fait des quiz et me repose ce que je rate. c’est le seul hack que je fais tous les jours.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studying with a quiz app🧠",
+      "texte": "10/10\ni put my lessons into micabo, it makes quizzes and asks me again what i get wrong. it’s the only hack i do every single day.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudiar con una app de quiz🧠",
+      "texte": "10/10\nmeto mis clases en micabo, me hace quiz y me vuelve a preguntar lo que fallo. es el único truco que hago todos los días.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "mit einer Quiz-App lernen🧠",
+      "texte": "10/10\nich packe meinen Stoff in micabo, es macht Quiz daraus und fragt mich nochmal, was ich falsch hatte. der einzige Hack, den ich jeden Tag mache.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studiare con un’app di quiz🧠",
+      "texte": "10/10\nmetto le lezioni su micabo, mi crea dei quiz e mi richiede quello che sbaglio. è l’unico trucco che faccio ogni giorno.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudar com um app de quiz🧠",
+      "texte": "10/10\ncoloco minhas aulas no micabo, ele cria quizzes e me pergunta de novo o que eu erro. é o único truque que faço todo dia.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "test uygulamasıyla çalışmak🧠",
+      "texte": "10/10\nderslerimi micabo’ya koyuyorum, testler hazırlıyor ve yanlış yaptıklarımı tekrar soruyor. her gün yaptığım tek taktik bu.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1f249554-510a-4f0c-91df-50b2a99ba6e4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/81f87361-1b5b-44e1-ae7d-90c30674253a/6.jpg?v=1790607980909",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les vidéos en accéléré x2⏩",
+      "texte": "6/10\nbien pour revoir un cours que tu connais déjà. pour un nouveau chapitre, tu ne retiens rien.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "watching lectures at 2x⏩",
+      "texte": "6/10\ngood for a lesson you already know. for a new chapter, nothing sticks.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ver las clases a x2⏩",
+      "texte": "6/10\nbien para repasar algo que ya sabes. para un tema nuevo, no se te queda nada.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Videos in doppelter Geschwindigkeit⏩",
+      "texte": "6/10\ngut für Stoff, den du schon kennst. bei einem neuen Kapitel bleibt nichts hängen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "guardare le lezioni a 2x⏩",
+      "texte": "6/10\nva bene per ripassare una lezione che conosci già. per un capitolo nuovo, non ti resta niente.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "ver as aulas em 2x⏩",
+      "texte": "6/10\nbom pra rever uma aula que você já sabe. pra um capítulo novo, não fica nada.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "dersleri 2x hızda izlemek⏩",
+      "texte": "6/10\nzaten bildiğin bir dersi tekrar etmek için iyi. yeni bir ünitede hiçbir şey akılda kalmaz.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a175a47d-1f7e-457c-bac9-f77714232894",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/33df201d-4ce1-4db3-a2bb-1097faf86c82/5.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "étudier à plusieurs👯",
+      "texte": "8/10\nà condition de se poser des questions, pas de raconter sa semaine. 1 h max, avec un objectif.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studying in a group👯",
+      "texte": "8/10\nas long as you quiz each other instead of catching up on gossip. 1 hour max, with a goal.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudiar en grupo👯",
+      "texte": "8/10\nsiempre que os hagáis preguntas y no os contéis la semana. 1 h máximo, con un objetivo.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "in der Gruppe lernen👯",
+      "texte": "8/10\nsolange ihr euch abfragt, statt über eure Woche zu reden. max. 1 Std., mit einem Ziel.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studiare in gruppo👯",
+      "texte": "8/10\na patto di farvi domande e non raccontarvi la settimana. 1 ora al massimo, con un obiettivo.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudar em grupo👯",
+      "texte": "8/10\ndesde que vocês se perguntem e não fiquem contando da semana. 1 h no máximo, com um objetivo.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "grupça çalışmak👯",
+      "texte": "8/10\nhaftanızı anlatmak yerine birbirinize soru sorduğunuz sürece. en fazla 1 saat, bir hedefle.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  }
+ ]
+}

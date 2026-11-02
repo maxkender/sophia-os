@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o061",
+ "type_bleo": "full_test",
+ "titre": "7 signs you're an old soul (and why it's a compliment) #oldsoul #smartgirl #darkacademia #selfimprovement #thatgirl",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "3de75259-9d95-4432-bf3f-ea6b021da44b"
+ ],
+ "notes": "cta C. Full test (la jauge en demande 1 sur 9) : accroche jamais faite chez nous (« old soul » et « raised by » n'apparaissent nulle part dans donnees/label.json). Accroches écrites : « 7 signs you're an old soul (and why it's a compliment) » (retenue : identité flatteuse, très partageable, cœur du label), « signs you were raised by books » (écartée : plus étroite), « things old souls do differently » (écartée : moins personnelle). Sophia en cta C (l'appli comme rituel à la place du scroll du soir). Images de la banque (musée, lecture, écriture), sans texte lisible. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "317dea25",
+   "texte_overlay": "7 signs you're an old soul\n(and why it's a compliment)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3bb4f482",
+   "texte_overlay": "1. you'd rather have one deep\ntalk than ten small ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5a822ca7",
+   "texte_overlay": "2. a museum on a rainy sunday\nsounds like the perfect plan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "57d9cdf8",
+   "texte_overlay": "3. you know the story behind\nyour favourite songs.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "045f1f7b",
+   "texte_overlay": "4. you still write by hand.\nlists, letters, quotes\nyou want to keep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4617d70f",
+   "texte_overlay": "5. old films don't bore you.\nyou notice the dialogue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5e1224ba",
+   "texte_overlay": "6. you trade the evening scroll\nfor something real.\na painting, a book,\na story from history.",
+   "texte_sophia": "6. you trade the evening scroll\nfor something real.\n5 minutes on an app like\nSophia: a story about art,\nhistory or science.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "23d30048",
+   "texte_overlay": "7. people come to you for\nadvice, even older ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "16e865cb",
+   "texte_overlay": "save this if you felt seen",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  }
+ ]
+}

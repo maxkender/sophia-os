@@ -9,8 +9,12 @@ import { envoyerFile } from "@/features/auto/sent/attenteApi";
 import { useAuth } from "@/features/auth/AuthContext";
 import { deciderCkd, recreerShadowban } from "@/features/ckd/api";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
+import { conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 import { cn } from "@/lib/utils";
 
+import { ContexteJeudi } from "./ContexteJeudi";
+import { lireContexte } from "./contexte";
 import { FicheSamedi } from "./FicheSamedi";
 import { lireEtatsHandle, marquerKillSamedi, phraseStatut } from "./handlesEtat";
 import { LigneHandle } from "./LigneHandle";
@@ -72,6 +76,15 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
 
   // Correction du prompt 12 : le jeudi, seulement la nouvelle cohorte (1re semaine de posts).
   const liste = React.useMemo(() => (lu.data ?? []).filter((c) => c.cohorte_lundi === lundi), [lu.data, lundi]);
+  // 0469 : la conversation Upwork de chaque posteur de la liste.
+  const conv = useConversations(liste.map((c) => c.poster_id));
+  // Le contexte de chaque posteur (dernier message des deux côtés, connexion, dernier post, stop, absence).
+  const posteursListe = React.useMemo(() => [...new Set(liste.map((c) => c.poster_id).filter(Boolean))].sort() as string[], [liste]);
+  const contexte = useQuery({
+    queryKey: ["contexte-jeudi", lundi, posteursListe],
+    queryFn: () => lireContexte(lundi, posteursListe),
+    enabled: posteursListe.length > 0,
+  });
   const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
     lundi, aujourdhui, maintenant, page: "jeudi",
   })])), [liste, extras.data, lundi, aujourdhui, maintenant]);
@@ -146,6 +159,12 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                     <CelluleCompte c={c} />
                     <BadgesPosteur e={ev(c)} x={extras.data?.get(c.compte_id)} />
                     <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
+                    <LienConversation className="mt-1" c={conversationDe(conv.data, { posteur: c.poster_id })} />
+                    {c.poster_id && (
+                      <div className="mt-1 max-w-80">
+                        <ContexteJeudi posterId={c.poster_id} c={contexte.data?.get(c.poster_id)} />
+                      </div>
+                    )}
                     <button
                       type="button"
                       className="mt-1 block text-[11px] text-primary underline"

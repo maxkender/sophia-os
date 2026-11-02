@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o058",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0f3736c9-2757-48c1-a4da-9d2cabdebad0",
+ "titre": "5 words that will expand your vocabulary #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "46118b58-708c-4012-b3d2-143b20410565"
+ ],
+ "notes": "cta B. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 22 de la boîte (parent 0f3736c9, anglais) : accroche du parent mot pour mot, « 5 words that will expand your vocabulary ». Cinq mots absents des contenus du label (vérifié dans donnees/label.json) : ubiquitous, tenacity, zealous, benevolent, intrepid ; définitions et prononciations au sens courant du dictionnaire. Sophia sur le dernier mot (intrepid), cta B formulé en « she ». Images : lecture au lit et à la bibliothèque (photos d'actrices permises, jamais sur la slide Sophia) ; slide Sophia sur une carte du monde et des fleurs, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "addd583e",
+   "texte_overlay": "5 words that will\nexpand your vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bd08dd60",
+   "texte_overlay": "Ubiquitous:\nfound everywhere\n(yoo-BIK-wi-tuhs)\n\nExample:\nCoffee shops are ubiquitous\nin this city.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9d28a536",
+   "texte_overlay": "Tenacity:\nthe quality of never\ngiving up\n(tuh-NAS-i-tee)\n\nExample:\nHer tenacity got her\nthrough every exam.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c71c5133",
+   "texte_overlay": "Zealous:\nfull of energy and\nenthusiasm for a cause\n(ZEL-uhs)\n\nExample:\nShe was a zealous\ndefender of libraries.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "49b20202",
+   "texte_overlay": "Benevolent:\nkind and generous\n(buh-NEV-uh-luhnt)\n\nExample:\nThe benevolent teacher\nstayed late for everyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3855e5d9",
+   "texte_overlay": "Intrepid:\nfearless and adventurous\n(in-TREP-id)\n\nExample:\nAn intrepid traveller,\nshe learned the history of\nevery city before visiting.",
+   "texte_sophia": "Intrepid:\nfearless and adventurous\n(in-TREP-id)\n\nExample:\nAn intrepid learner, she reads\none 5-minute lesson a day\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dfbd532b",
+   "texte_overlay": "follow for more daily words\nwhich one will you use first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/7.jpg"
+  }
+ ]
+}

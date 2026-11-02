@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { type Conversation, conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
@@ -42,6 +44,8 @@ export function JournalMessages() {
   const familles = [...new Set(tous.map((m) => familleType(m.type)))].sort();
   const canaux = [...new Set(tous.map((m) => m.canal))].sort();
   const lignes = filtrerMessages(tous, f);
+  // 0469 : la conversation Upwork de chaque posteur affiché.
+  const conv = useConversations(lignes.map((m) => m.poster_id));
   return (
     <Card data-testid="journal-messages">
       <CardHeader>
@@ -90,7 +94,7 @@ export function JournalMessages() {
           <ul className="divide-y rounded-xl border">
             {lignes.map((m) => (
               <Ligne key={`${m.source}-${m.ref}-${m.canal}-${m.at}`} m={m} quand={fmt.format(new Date(m.at))} admin={role === "admin"}
-                libelleType={libelleType} />
+                libelleType={libelleType} conv={conversationDe(conv.data, { posteur: m.poster_id })} />
             ))}
           </ul>
         )}
@@ -99,7 +103,9 @@ export function JournalMessages() {
   );
 }
 
-function Ligne({ m, quand, admin, libelleType }: { m: MessageEnvoye; quand: string; admin: boolean; libelleType: (t: string) => string }) {
+function Ligne({ m, quand, admin, libelleType, conv }: {
+  m: MessageEnvoye; quand: string; admin: boolean; libelleType: (t: string) => string; conv?: Conversation;
+}) {
   const { t } = useTranslation();
   return (
     <li className="space-y-1 p-3 text-sm" data-message={m.source} data-etat={m.etat}>
@@ -110,6 +116,7 @@ function Ligne({ m, quand, admin, libelleType }: { m: MessageEnvoye; quand: stri
         <span className="text-xs text-muted-foreground">{t(`autoOnglets.sent.canaux.${m.canal}`, { defaultValue: m.canal })}</span>
         <Badge variant={VARIANTE[m.etat]}>{t(`autoOnglets.sent.etats.${m.etat}`)}</Badge>
         {m.reaction && <Badge variant="info">{t(`autoOnglets.sent.reactions.${m.reaction}`, { defaultValue: m.reaction })}</Badge>}
+        <LienConversation className="ml-1" c={conv} />
       </p>
       {m.detail && <p className="text-xs text-muted-foreground">{m.detail}</p>}
       {m.texte && (

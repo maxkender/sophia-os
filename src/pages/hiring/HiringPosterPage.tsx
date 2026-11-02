@@ -1,4 +1,5 @@
 import * as React from "react";
+import { posteurExistant } from "@/features/hiring/posteurExistant";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check, Pencil, Power, Trash2, UserPlus, X } from "lucide-react";
@@ -20,6 +21,8 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { compteActif, repartirArchive } from "@/features/archive/archive";
 import { SectionArchive } from "@/features/archive/SectionArchive";
 import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
+import { CreationCoupee } from "@/features/hiring/CreationCoupee";
+import { creationCoupeePour } from "@/features/hiring/creationCoupee";
 import {
   activerPoster,
   contactCreationComplet,
@@ -129,6 +132,18 @@ function ContactPosterHm({ poster }: { poster: PosterProfil }) {
   );
 }
 
+/** Ce contrat a déjà un posteur : rien n'est créé, lien vers sa fiche. */
+function PosteurExistant({ info }: { info: { id: string; nom: string; email: string } }) {
+  const { t } = useTranslation();
+  return (
+    <div className="mt-2 space-y-1 rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm" role="alert" data-testid="poster-existant">
+      <p className="font-medium">{t("hiring.posterExistant")}</p>
+      <p className="text-muted-foreground">{[info.nom, info.email].filter(Boolean).join(" · ")}</p>
+      <a className="underline" href={`#poster-${info.id}`}>{t("hiring.voirFiche")}</a>
+    </div>
+  );
+}
+
 function LignePoster({
   poster: p,
   createurs,
@@ -190,7 +205,7 @@ function LignePoster({
   });
 
   return (
-    <div className="space-y-3 rounded-lg border p-3">
+    <div className="space-y-3 rounded-lg border p-3" id={`poster-${p.id}`}>
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -356,7 +371,14 @@ function LignePoster({
  * Écran unique du hiring manager : créer un login créateur, puis le premier
  * compte TikTok (perso = identité générée, ou CM = identifiants existants).
  */
+/** 1/11 : une HM (ou une DM) ne crée plus de posteur : le message, et « My cohort ». */
 export function HiringPosterPage() {
+  const { role } = useAuth();
+  if (creationCoupeePour(role)) return <CreationCoupee />;
+  return <FormulairePosteurs />;
+}
+
+function FormulairePosteurs() {
   const { t } = useTranslation();
   const { role, profil } = useAuth();
   // Prompt 15, point 1 et prompt 21, A5 : la HM et le DM n'ajoutent pas de compte et ne réactivent pas.
@@ -400,6 +422,8 @@ export function HiringPosterPage() {
     prenom: string;
     persona: boolean;
     type: PremierCompte;
+    /** 31/10 : le mot de passe unique de la recrue, rendu par la création. */
+    password: string;
   } | null>(null);
   // Application du premier compte : c'est le créateur qui est associé à une
   // application, son recruteur choisit pour lui (le label, lui, est tiré de la
@@ -422,6 +446,8 @@ export function HiringPosterPage() {
     setLangue((actuel) => langueInitiale(languesChoix, actuel));
   }, [languesChoix]);
 
+  // 31/10 : un seul envoi à la fois, même sur un double-clic plus rapide que le rendu.
+  const envoiEnCours = React.useRef(false);
   const creer = useMutation({
     mutationFn: () =>
       creerPoster({
@@ -444,6 +470,7 @@ export function HiringPosterPage() {
         prenom: separerNomComplet(nomComplet).prenom ?? "",
         persona: Boolean(r.compte?.persona),
         type: premierCompte,
+        password: r.password ?? MOT_DE_PASSE,
       });
       setNomComplet("");
       setPaysCompte("");
@@ -479,8 +506,10 @@ export function HiringPosterPage() {
               if (!choixApps.verifier()) return;
               // Contrat Upwork obligatoire ; email perso facultatif (29 oct.).
               if (!contactCreationComplet(contact)) return;
+              if (envoiEnCours.current || creer.isPending) return;
+              envoiEnCours.current = true;
               setCree(null);
-              creer.mutate();
+              creer.mutate(undefined, { onSettled: () => { envoiEnCours.current = false; } });
             }}
             className="grid gap-4 sm:grid-cols-2"
           >
@@ -531,9 +560,13 @@ export function HiringPosterPage() {
                   label={t("hiring.progressIdentite")}
                 />
               )}
-              {creer.isError && (
+              {creer.isError && posteurExistant((creer.error as Error).message) ? (
+                <PosteurExistant info={posteurExistant((creer.error as Error).message)!} />
+              ) : creer.isError && (
                 <p className="mt-2 text-sm text-destructive">
-                  {(creer.error as Error).message === "NO_FREE_REFERENCE"
+                  {(creer.error as Error).message === "POSTER_EN_COURS"
+                    ? t("hiring.posterEnCours")
+                    : (creer.error as Error).message === "NO_FREE_REFERENCE"
                     ? t("posters.creationRefusee")
                     : (creer.error as Error).message === "NO_LABELS"
                       ? t("warmup.aucunLabel")
@@ -558,7 +591,7 @@ export function HiringPosterPage() {
               </p>
               <p className="text-sm">
                 <span className="text-muted-foreground">{t("posters.password")} : </span>
-                <code className="rounded bg-muted px-1">{MOT_DE_PASSE}</code>
+                <code className="rounded bg-muted px-1">{cree.password}</code>
               </p>
               {cree.type === "cm" ? (
                 <p className="pt-1 text-xs text-muted-foreground">{t("posters.creeCm")}</p>
@@ -570,7 +603,7 @@ export function HiringPosterPage() {
                   <p className="text-xs text-muted-foreground">{t("warmup.apresCreation")}</p>
                 </>
               )}
-              <MessageBienvenue prenom={cree.prenom} email={cree.email} password={MOT_DE_PASSE} />
+              <MessageBienvenue prenom={cree.prenom} email={cree.email} password={cree.password} />
             </div>
           )}
         </CardContent>

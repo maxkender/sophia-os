@@ -30,12 +30,15 @@ const PAGES_DEMANDEES = [
   "/admin/auto/sent",
   "/admin/auto/received",
   "/admin/auto/needs-you",
+  "/admin/auto/problems",
   "/admin/auto/disputes",
   "/admin/auto/payroll",
   "/admin/auto/faq",
   "/admin/auto/logs",
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters
+  "/admin/posts-links", // Posts & links (31/10, sorti de Disputes)
+  "/admin/quality-feedback", // Quality feedback (31/10, sorti de Disputes)
   "/admin/file-reviews", // Today's queue
   "/admin/parrainages", // Referrals
   "/admin/documents", // Documents

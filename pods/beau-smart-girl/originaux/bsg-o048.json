@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o048",
+ "schema_id": "habitudes-chelous",
+ "titre": "les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée #pourtoi #dimanche #culture",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7638500399523056397",
+ "inspirations": [
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "cta A. Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 7 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6 : au plus 1 livraison normale sur une famille déjà livrée 3 fois en 7 jours). Preuve : schéma habitudes-chelous (r 3,01, 5a0fa56c). Accroches écrites : « les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée » (retenue : l'accroche du gagnant et un moment précis, différent du soir de bsg-o039), « mon dimanche de fille cultivée » (écartée : sans promesse), « mes rituels chelous du dimanche » (écartée : plus faible). Items neufs, aucun fait affirmé. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dc6cc593",
+   "texte_overlay": "les habitudes chelous que je fais\nle dimanche pour arriver\nlundi plus cultivée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dca0fbbf",
+   "texte_overlay": "je lis le journal en entier, papier.\n\nmême les pages que je saute d'habitude.\nc'est là que je trouve les sujets les plus inattendus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dce643ab",
+   "texte_overlay": "je regarde un vieux film.\n\nen noir et blanc, d'un pays que je connais pas.\nj'en ressors avec un avis que personne n'a.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dd2cc75e",
+   "texte_overlay": "je cuisine une recette d'un autre pays.\n\net je cherche son histoire pendant que ça cuit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ddaf5dc9",
+   "texte_overlay": "je choisis le livre de la semaine.\n\nposé sur mon sac, prêt pour le métro de lundi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9f0d7628",
+   "texte_overlay": "je finis le week-end avec une anecdote.\n\navant, le dimanche soir, je scrollais jusqu'à minuit.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg",
+   "texte_sophia": "je finis le week-end avec une anecdote.\n\navant, le dimanche soir, je scrollais jusqu'à minuit.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "de22aa81",
+   "texte_overlay": "vole-moi une habitude ;)\nenregistre pour dimanche.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

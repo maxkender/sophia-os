@@ -118,14 +118,30 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
   const [periode, setPeriode] = React.useState<Periode>(30);
 
   // Moyenne calculée sur toute la série puis coupée : le premier jour affiché
-  // a lui aussi sa fenêtre complète.
-  const moyenne = React.useMemo(() => moyenneGlissante(serie.map((s) => s.vues_delta), 7), [serie]);
+  // a lui aussi sa fenêtre complète. Les jours provisoires (vues qui montent
+  // encore) n'y entrent pas, et la courbe s'arrête au dernier jour figé.
+  const moyenne = React.useMemo(
+    () =>
+      moyenneGlissante(
+        serie.map((s) => (s.provisoire ? null : s.vues)),
+        7,
+      ).map((m, i) => (serie[i]!.provisoire ? null : m)),
+    [serie],
+  );
   const debut = Math.max(0, serie.length - periode);
   const points: PointBarre[] = serie.slice(debut).map((s) => ({
     key: s.jour,
     axisLabel: jourCourt(s.jour, langue),
     tooltipTitle: jourLong(s.jour, langue),
-    value: s.vues_delta,
+    value: s.vues,
+    provisional: s.provisoire,
+    detail:
+      s.vues !== null && s.posts > 0
+        ? t("pilotage.vuesDetail", {
+            posts: exact(s.posts, langue),
+            parPost: exact(Math.round(s.vues / s.posts), langue),
+          })
+        : undefined,
   }));
 
   return (
@@ -160,6 +176,10 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
                 {t("pilotage.vuesSerie")}
               </span>
               <span className="inline-flex items-center gap-1.5">
+                <span className="size-2.5 rounded-[3px] border border-dashed border-muted-foreground/60 bg-muted-foreground/10" aria-hidden />
+                {t("pilotage.vuesProvisoireLegende")}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
                 <span className="h-0.5 w-3.5 rounded-full bg-foreground" aria-hidden />
                 {t("pilotage.vuesMoyenne")}
               </span>
@@ -169,6 +189,7 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
               average={moyenne.slice(debut)}
               averageLabel={t("pilotage.vuesMoyenne")}
               valueLabel={t("pilotage.vuesSerie")}
+              provisionalLabel={t("pilotage.vuesProvisoire")}
               formatTick={(n) => abrege(n, langue)}
               formatValue={(n) => exact(n, langue)}
               ariaLabel={t("pilotage.vuesTitre")}
@@ -651,12 +672,12 @@ export function AdminPilotagePage() {
           <StatGroup>
             <StatTile
               label={t("pilotage.statVues")}
-              value={vues ? abrege(vues.delta, langue) : "—"}
+              value={vues ? abrege(vues.parJour, langue) : "—"}
               aide={<Aide libelle={t("pilotage.statVues")}>{t("pilotage.statVuesInfo")}</Aide>}
               detail={
                 vues
                   ? [
-                      t("pilotage.statVuesReleve", { date: jourCourt(vues.jour, langue) }),
+                      t("pilotage.statVuesPeriode", { du: jourCourt(vues.du, langue), au: jourCourt(vues.au, langue) }),
                       vues.ecart !== null
                         ? t("pilotage.statVuesEcart", {
                             ecart: new Intl.NumberFormat(localeDate(langue), {
@@ -671,7 +692,7 @@ export function AdminPilotagePage() {
                       .join(" · ")
                   : t("pilotage.vuesVide")
               }
-              trend={d.vuesSerie.slice(-14).map((s) => s.vues_delta)}
+              trend={d.vuesSerie.filter((s) => !s.provisoire).slice(-14).map((s) => s.vues)}
             />
             <StatTile
               label={t("pilotage.statPosts")}

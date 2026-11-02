@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o058",
+ "schema_id": "habitudes-chelous",
+ "titre": "les questions chelous que je me pose avant de dormir #pourtoi #habitudes #culture",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7638500399523056397",
+ "inspirations": [
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "cta A. Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 6 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6). Preuve : schéma habitudes-chelous (r 3,01, 5a0fa56c). Accroches écrites : « les questions chelous que je me pose avant de dormir » (retenue : le « chelous » du gagnant, format intime), « mes 5 questions du soir » (écartée : sans promesse), « les questions qui ont changé mes soirées » (écartée : plus vague). Items neufs, aucun conseil médical sur le sommeil. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b7e2c78d",
+   "texte_overlay": "les questions chelous\nque je me pose\navant de dormir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b7f0f0cd",
+   "texte_overlay": "qu'est-ce que j'ai appris aujourd'hui ?\n\nun mot, une date, un nom.\nsi je trouve rien, je cherche un truc dans mon lit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b887528c",
+   "texte_overlay": "à qui je pourrais le raconter demain ?\n\nune anecdote racontée, c'est une anecdote retenue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b8c3b594",
+   "texte_overlay": "qu'est-ce qui m'a rendue curieuse ?\n\nune chanson, un nom de rue, une question d'enfant.\nje le note pour demain.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b8e58957",
+   "texte_overlay": "qu'est-ce que je lis en ce moment ?\n\nsi la réponse est\n« rien », j'ouvre un livre. dix pages.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "692a12cb",
+   "texte_overlay": "la dernière : qu'est-ce que je vais apprendre demain matin ?\n\navant, je m'endormais devant une vidéo.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg",
+   "texte_sophia": "la dernière : qu'est-ce que je vais apprendre demain matin ?\n\navant, je m'endormais devant une vidéo.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "b9301bef",
+   "texte_overlay": "vole-moi une question ;)\nenregistre pour ce soir.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

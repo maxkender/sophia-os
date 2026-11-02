@@ -13,6 +13,8 @@ const TITRE_OS = "Message from the team";
  *       Recalcule l'aperçu (`nudge_cibles`) et relance les comptes cochés :
  *       DM Slack (bot « Sophia OS »), sinon pop-up dans l'OS (`compte_nudges`).
  *       Chaque envoi est noté dans `nudges`.
+ *   { action: "onboarding_slack", poster_id, texte }              admin, Head of Ops
+ *       Onboarding posters : le nudge d'une recrue, en DM Slack. Noté dans `nudges`.
  *   { action: "resolus" }                                          admin, cron
  *       Marque résolus les nudges dont le blocage a disparu.
  *   { action: "agent_matin", force? }        cron `agent-inactifs`, 7 h (Paris)
@@ -43,6 +45,11 @@ Deno.serve(async (request) => {
         const { data: inactifs, error: errInactifs } = await supabase.rpc("inactifs_marquer");
         if (errInactifs) throw errInactifs;
         return json({ ok: true, resolus, inactifs });
+      }
+      case "onboarding_slack": {
+        // Onboarding posters : « Nudge on Slack » (un clic, ou « Nudge all on Slack »), noté dans nudges.
+        if (acces.userId === "cron") return json({ ok: false, error: "réservé à un clic" }, 400);
+        return json(await onboardingSlack(supabase, String(body.poster_id ?? ""), String(body.texte ?? ""), acces.userId));
       }
       case "resolus": {
         const { data, error } = await supabase.rpc("nudges_maj_resolus");
@@ -110,4 +117,15 @@ async function envoyer(supabase: Supabase, body: any, par: string | null) {
     else bilan.os++;
   }
   return { ok: bilan.erreurs.length === 0, ...bilan };
+}
+
+/** Onboarding posters : un nudge en DM Slack (bot « Sophia OS »), noté dans `nudges`. */
+async function onboardingSlack(supabase: Supabase, posterId: string, texte: string, par: string) {
+  if (!posterId || !texte.trim()) return { ok: false, error: "poster_id et texte requis" };
+  const r = await ecrireAuPosteur(supabase, posterId, texte.trim());
+  if (r.statut !== "envoye") return { ok: false, error: r.statut === "erreur" ? r.erreur : "pas trouvé sur Slack" };
+  await supabase.from("nudges").insert({
+    poster_id: posterId, type: "onboarding_slack", canal: "slack", texte: texte.trim(), cible: "manuel", envoye_par: par,
+  });
+  return { ok: true };
 }

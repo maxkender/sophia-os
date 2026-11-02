@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o056",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "00ef8171-8281-428d-8d3a-24d3c5069750",
+ "titre": "my habits as an academic and active perfectionist #studytok #darkacademia #smartgirl #thatgirl #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "00ef8171-8281-428d-8d3a-24d3c5069750"
+ ],
+ "notes": "cta C. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 11 de la boîte (parent 00ef8171, anglais) : accroche du parent mot pour mot, « my habits as an academic and active perfectionist ». Le parent (46,4 k vues en turc, r 32,94) parle de pas comptés, de sucre et de réveil à 4 h 30 : aucun de ces rituels n'est repris (jamais le corps ni le régime). Le parent porte l'appli sur la marche (leçons au lieu de musique) : c'est la place de Sophia ici aussi (cta C). Sept habitudes neuves à la première personne, côté étude : planifier demain le soir, blocs de 50 minutes avec vraie pause, relire les notes le soir même, ne laisser passer aucun mot inconnu, des leçons d'histoire en marchant, lire avant de dormir, bureau parfait avant de commencer. Images de la banque (bureaux, lecture), sans texte lisible ; slide Sophia sur un ciel de coucher de soleil, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d90650e",
+   "texte_overlay": "my habits as an academic\nand active perfectionist",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3b873b70",
+   "texte_overlay": "I plan tomorrow tonight,\none list, never more\nthan three priorities",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "336e6206",
+   "texte_overlay": "I study in 50-minute blocks\nand take real breaks.\nno phone, a walk, water",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3bc5e8e6",
+   "texte_overlay": "I reread my notes the same\nevening, while they're\nstill fresh",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "34354a9e",
+   "texte_overlay": "I never let a word I don't\nknow slip by. I write it\ndown and look it up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1e99b5f4",
+   "texte_overlay": "on my walks I listen to\nhistory instead of random\nmusic. a myth, a war,\na painting",
+   "texte_sophia": "on my walks I swapped random\nmusic for an app like Sophia:\nmythology, science and art\nlessons. I learn something\nnew every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3ee26f7c",
+   "texte_overlay": "I read before bed.\nnever scroll",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2dee3daa",
+   "texte_overlay": "my desk is perfect before\nI start. one book,\none pen, one candle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "41bf2d0a",
+   "texte_overlay": "which one are you\nstealing first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669862258155064608/6.jpg"
+  }
+ ]
+}

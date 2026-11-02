@@ -186,3 +186,21 @@ describe("Disputes : la page", () => {
     await waitFor(() => expect(api.agirContestation).toHaveBeenCalledWith("c1", "fermer", { raison: "paid", verdict: "os_raison" }));
   });
 });
+
+describe("31/10 : Posts & links et Feedback sortis de Disputes", () => {
+  it("Disputes n'a plus ces onglets ; Open et Closed sans posts ni liens", async () => {
+    const { ONGLETS_DISPUTES, ONGLETS_POSTS, filtrerOnglet: f } = await import("./logique");
+    expect(ONGLETS_DISPUTES).toEqual(["ouvertes", "paie", "kill", "fermees"]);
+    expect(ONGLETS_POSTS).toEqual(["posts", "posts_fermees"]);
+    const l = [
+      contestation({ id: "a", type: "posts" }),
+      contestation({ id: "b", type: "lien", statut: "fermee" }),
+      contestation({ id: "c", type: "paie" }),
+      contestation({ id: "d", type: "kill", statut: "fermee" }),
+    ];
+    expect(f(l, "ouvertes").map((c) => c.id)).toEqual(["c"]);
+    expect(f(l, "fermees").map((c) => c.id)).toEqual(["d"]);
+    expect(f(l, "posts").map((c) => c.id)).toEqual(["a"]);
+    expect(f(l, "posts_fermees").map((c) => c.id)).toEqual(["b"]);
+  });
+});

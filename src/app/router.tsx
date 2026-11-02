@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import { SetPasswordPage } from "@/features/auth/SetPasswordPage";
 import { LoginPage } from "@/features/auth/LoginPage";
 import { ProtectedRoute } from "@/features/auth/ProtectedRoute";
 import { PublicOnlyRoute } from "@/features/auth/PublicOnlyRoute";
@@ -13,6 +14,7 @@ import {
   FaqPage,
   LogsPage,
   NeedsYouPage,
+  ProblemsPage,
   DisputesPage,
   OverviewPage,
   PayrollPage,
@@ -46,6 +48,9 @@ import { AdminAnglesPage } from "@/pages/admin/AdminAnglesPage";
 import { AdminLabelsPage } from "@/pages/admin/AdminLabelsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
+import { PageDecisionPays } from "@/features/decisionPays/PageDecisionPays";
+import { PageQualite } from "@/features/qualite/PageQualite";
+import { PagePostsLiens, PageQualityFeedback } from "@/features/disputes/PagesTracking";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
 import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
 import { AdminReferralsPage } from "@/pages/admin/AdminReferralsPage";
@@ -92,6 +97,8 @@ export function AppRouter() {
       <Route element={<PublicOnlyRoute />}>
         <Route path="/login" element={<LoginPage />} />
       </Route>
+      {/* 1/11 : le lien « Set my password » du welcome, connecté ou non. */}
+      <Route path="/set-password" element={<SetPasswordPage />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />
@@ -113,6 +120,7 @@ export function AppRouter() {
             <Route path="/admin/auto/sent" element={<SentPage />} />
             <Route path="/admin/auto/received" element={<ReceivedPage />} />
             <Route path="/admin/auto/needs-you" element={<NeedsYouPage />} />
+            <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
@@ -125,6 +133,8 @@ export function AppRouter() {
             {/* L'espace du Head of Ops. */}
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
+            <Route path="/admin/posts-links" element={<PagePostsLiens />} />
+            <Route path="/admin/quality-feedback" element={<PageQualityFeedback />} />
             <Route path="/admin/file-reviews" element={<AdminFileReviewsPage />} />
             <Route path="/admin/parrainages" element={<AdminReferralsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />
@@ -141,6 +151,9 @@ export function AppRouter() {
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
               <Route path="/admin/suivi-rc" element={<AdminSuiviRcPage />} />
+              {/* 2/11 : page Pays, hors menu tant qu'elle n'est pas validée. */}
+              <Route path="/admin/pays" element={<PageDecisionPays />} />
+              <Route path="/admin/quality-control" element={<PageQualite />} />
               <Route path="/admin/sources" element={<AdminSourcesPage />} />
               <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />

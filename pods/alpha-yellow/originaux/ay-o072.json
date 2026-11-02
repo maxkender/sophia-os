@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o072",
+ "schema_id": "get-what-you-want",
+ "titre": "How to say no and still get what you want #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "a1a86f6f-83a2-4adc-8b83-10b6556f4a52"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 7, sur une image sans visage. Couverture neuve 6703d7b4. Schéma get-what-you-want (a1a86f6f r 2,57 chez nous), troisième passage. Accroches écrites : « How to say no and still get what you want » (retenue : le gabarit sur le refus, angle neuf), « How to say no without feeling guilty » (écartée : sans la promesse du gain), « How to turn down anything politely » (écartée : moins d'enjeu). Items neufs, sans reprendre ceux d'ay-o032 (pushover).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6703d7b4",
+   "texte_overlay": "How to say no and still get\nwhat you want",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670514608590834977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Say no to the request, yes to the person. \"I can't help this weekend, but I'd love to grab lunch next week.\" They keep the relationship, and you keep your weekend.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Offer a smaller version. \"I can't do the whole project, but I can review the first draft.\" You stay helpful, you protect your time, and you decide exactly how much you give.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Give one honest reason, not five. \"I've promised myself to rest this weekend.\" One clear reason is respected. A pile of excuses sounds like you're hiding something.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Name what you'd need to say yes. \"If the deadline moves to Friday, I'm in.\" A no with clear conditions often turns into a yes that actually works for you, and nobody feels refused.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Don't reply on the spot to big asks. \"Let me check my week and get back to you tonight.\" Time lets you decide calmly instead of agreeing out of pressure and regretting it later.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A sharper, calmer head makes it easier to hold your ground kindly when everyone wants something from you.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A sharper, calmer head makes it easier to hold your ground kindly.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep your no short and warm, and don't take it back. \"No, but thanks for asking me.\" Then change the subject. Holding a kind no is how people learn your yes really means something.",
+   "media_id": "97b27cf0"
+  }
+ ]
+}

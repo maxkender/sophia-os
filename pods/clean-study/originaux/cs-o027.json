@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o027",
+  "schema_id": "best-student",
+  "titre": "what the BEST student in class does the night before a test #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7666132438048836383",
+  "inspirations": [
+    "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
+  ],
+  "notes": "Schéma du label best-student (r 2,15 sur 4 passages, 602efb01). Famille d'accroche neuve : la veille du contrôle (cs-o015, cs-o018, cs-o021 avaient d'autres moments). Accroches écrites : « what the BEST student in class does the night before a test » (retenue : un moment précis que tout le monde connaît), « the BEST student's routine before an exam » (écartée : trop large), « why the BEST student in class is never stressed before a test » (écartée : promesse trop forte). Six gestes vrais, aucun déjà dans nos originaux : rien de nouveau la veille, se tester sur ses points faibles (place micabo, slide 3), relire la page résumé, préparer le sac, pas de téléphone au lit (place UnSwipe, slide 6), dormir. La santé reste générale. Slides 3 et 6 sans personne. Écartées à l'aperçu : 365870da, 39b6502e, 6993b6c8 (écran lisible ou personne sur une slide d'appli, marque lisible, ou photo déjà prise ailleurs).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "59b17b56",
+      "texte_overlay": "what the BEST student in class\ndoes the night before a test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5b79b46e",
+      "texte_overlay": "she doesn't learn anything new.\nthe night before is for reviewing, not discovering.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e2cbe16a",
+      "texte_overlay": "she quizzes herself on her weak spots only.\nnot the parts she already knows by heart.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "67f7c237",
+      "texte_overlay": "she rereads her one-page summary once.\ncalm and short, not 3 hours of panic.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "692e4107",
+      "texte_overlay": "her bag is ready: pens, calculator, water.\nnothing to look for in the morning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a851561b",
+      "texte_overlay": "her phone stays out of her bed.\nno scrolling \"to relax\" until midnight.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9ea7d2dc",
+      "texte_overlay": "she stops at a set time and goes to sleep.\nsleep is part of the revision.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681333588268256544/7.jpg"
+    }
+  ]
+}

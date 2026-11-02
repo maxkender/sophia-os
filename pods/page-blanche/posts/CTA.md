@@ -33,7 +33,8 @@ podcasts en marchant, et [[l'appli Sophia]] quand je prends mon tel quand
 même »
 
 ## Suivi
-- Chaque lundi, remplace la version qui marche le moins bien par une idée
-  neuve (même si toutes marchent) et note le changement ici.
+- Les vues ne jugent pas un CTA (décision d'Adrien du 30/10) : ne remplace pas
+  une version d'après ses vues. Change-la seulement si elle se répète ou sonne
+  pub, et note le changement ici.
 - Historique : A pour toutes les livraisons jusqu'au 25/10 inclus. On démarre
   l'alternance avec B.

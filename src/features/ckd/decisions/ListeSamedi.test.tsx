@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
 
-import type { CompteSemaine, DemandeArret, RecrueSansReaction } from "./semaineComptes";
+import type { ChoixSamedi, CompteSemaine, DemandeArret, RecrueSansReaction } from "./semaineComptes";
 import { compte } from "./semaineComptes.test";
 import type { ExtrasCompte } from "./statutCompte";
 
@@ -21,6 +21,9 @@ const api = vi.hoisted(() => ({
     semaine: { faits: 3, prevus: 6, montant: 14, action: "payer", raison: null },
   })),
   noterKillSansPaie: vi.fn<(p: string, l: string, r: string, m: number | null) => Promise<void>>(async () => undefined),
+  lireBrouillonsSamedi: vi.fn(async () => new Map<string, { choix: ChoixSamedi; raison: { code: string; detail: string } | null }>()),
+  noterBrouillonSamedi: vi.fn<(l: string, c: string, k: ChoixSamedi, r: unknown) => Promise<void>>(async () => undefined),
+  lireReportsSamedi: vi.fn(async () => new Map<string, unknown>()),
 }));
 vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./semaineComptes")>()), ...api }));
 const ckd = vi.hoisted(() => ({
@@ -93,6 +96,8 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     exhaustif.lireModeArret.mockResolvedValue("on");
     exhaustif.lireCouverture.mockResolvedValue([]);
     exhaustif.lireForces.mockResolvedValue(new Map());
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map());
+    api.lireReportsSamedi.mockResolvedValue(new Map());
     await i18n.changeLanguage("fr");
     api.lireSemaineComptes.mockResolvedValue([
       compte({ compte_id: "a", handle: "absent", jours: vides, prevus_passes: 6, lien_passes: 0, lien_total: 0,
@@ -120,42 +125,63 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     // Pas de contrat : badge, Kill bloqué.
     expect(within(ligne("hussein")).getByText("Pas de contrat")).toBeInTheDocument();
     expect(within(ligne("hussein")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
-    // La recrue : ses étapes à la place des jours, Kill proposé (aucune réaction).
-    expect(within(ligne("recrue1")).getByTestId("etapes-recrue")).toHaveTextContent("3 relance(s) · aucune réaction");
-    expect(presse("recrue1", "Kill & pay")).toBe("true");
-    // De confiance : dans la section fermée, sur Keep.
+    // Lundi 2/11 : la cohorte qui arrive (02/11) est visible, en Keep, sans autre choix (vérifiée dimanche soir).
+    expect(presse("recrue1", "Keep")).toBe("true");
+    expect(within(ligne("recrue1")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
+    expect(within(ligne("recrue1")).getByTestId("a-venir")).toBeInTheDocument();
+    // Par défaut, tous les comptes (de confiance compris) ; « À traiter seulement » range les comptes de confiance.
+    expect(document.querySelector('[data-compte="calme"]')).not.toBeNull();
+    expect(screen.queryByTestId("section-confiance")).toBeNull();
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
     const section = screen.getByTestId("section-confiance");
     expect(section).toHaveTextContent("De confiance : rien à vérifier (1)");
     expect(within(section).getByRole("button", { name: "Keep" })).toBeInTheDocument();
-    expect(screen.getByTestId("compteurs-statut")).toHaveTextContent("3 à traiter · 2 à surveiller · 1 de confiance");
+    expect(screen.getByTestId("compteurs-statut")).toHaveTextContent("2 à traiter · 2 à surveiller · 1 de confiance");
     // Déjà décidé : figé.
     expect(within(ligne("fait")).getByRole("button", { name: "Kill & pay" })).toBeDisabled();
-    // Les onglets et leur nombre à traiter.
-    expect(screen.getByRole("tab", { name: "Recrues de la cohorte qui arrive (1)" })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("tab", { name: "Recrues de la cohorte qui arrive (1)" }));
+    // Les onglets : la cohorte qui arrive a le sien (rien à traiter).
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    fireEvent.click(screen.getByRole("tab", { name: "Recrues de la cohorte qui arrive (0)" }));
     expect(document.querySelector('[data-compte="absent"]')).toBeNull();
     expect(document.querySelector('[data-compte="recrue1"]')).not.toBeNull();
+    expect(screen.queryByTestId("samedi-recrues")).toBeNull();
+    // Plus jamais « Reporter » au samedi.
+    expect(within(ligne("recrue1")).queryByRole("option", { name: "Reporter" })).toBeNull();
   });
 
-  it("Validate : le récap d'abord ; Kill et Double décidés, Keep refuse, Autre → Recreate ; recrue sans compte reportée", async () => {
+  it("Validate : le récap d'abord ; Kill et Double décidés, Keep refuse, Autre → Recreate ; la cohorte qui arrive jamais touchée", async () => {
     const confirm = vi.spyOn(window, "confirm").mockReturnValue(true);
     rendu();
     await waitFor(() => expect(document.querySelector('[data-compte="absent"]')).not.toBeNull());
     expect(ckd.deciderCkd).not.toHaveBeenCalled();
     fireEvent.click(within(ligne("bon")).getByRole("button", { name: "Keep" }));
     fireEvent.change(within(ligne("hussein")).getByRole("combobox", { name: "Autre…" }), { target: { value: "recreate" } });
-    const ola = (await screen.findByTestId("samedi-recrues")).querySelector<HTMLElement>('[data-recrue="r2"]')!;
-    fireEvent.click(within(ola).getByRole("button", { name: "Reporter" }));
-    expect(screen.getByTestId("recap-samedi")).toHaveTextContent("Récap : 2 Kill & pay, 1 Recreate");
+    expect(screen.getByTestId("recap-samedi")).toHaveTextContent("Récap : 1 Kill & pay, 1 Recreate");
     fireEvent.click(screen.getByRole("button", { name: "Validate" }));
-    expect(confirm.mock.calls[0]![0]).toContain("2 Kill & pay, 1 Recreate");
-    await waitFor(() => expect(cohortes.reporterRecrue).toHaveBeenCalledWith("r2"));
+    expect(confirm.mock.calls[0]![0]).toContain("1 Kill & pay, 1 Recreate");
+    await waitFor(() => expect(moteur.invoke).toHaveBeenCalledWith("upwork", { action: "arrets" }));
     expect(ckd.deciderCkd).toHaveBeenCalledWith("s1", "ne_pas_renouveler", null);
     expect(ckd.deciderCkd).toHaveBeenCalledWith("s2", "pas_maintenant", null);
     expect(ckd.recreerShadowban).toHaveBeenCalledWith("h");
-    expect(api.choisirSamedi).toHaveBeenCalledWith("r", "ne_pas_renouveler");
     expect(ckd.deciderCkd).not.toHaveBeenCalledWith("s4", expect.anything(), null);
-    await waitFor(() => expect(moteur.invoke).toHaveBeenCalledWith("upwork", { action: "arrets" }));
+    // La recrue du 02/11 : ni Kill, ni report.
+    expect(api.choisirSamedi).not.toHaveBeenCalledWith("r", expect.anything());
+    expect(cohortes.reporterRecrue).not.toHaveBeenCalled();
+    expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
+    // Chaque clic est enregistré (brouillon de la semaine).
+    expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-10-26", "b", "keep", null);
+    expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-10-26", "h", "recreate", null);
+  });
+
+  it("0484 : les choix enregistrés reviennent après un rechargement", async () => {
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map([
+      ["c", { choix: "kill" as ChoixSamedi, raison: null }],
+      ["a", { choix: "keep" as ChoixSamedi, raison: null }],
+    ]));
+    rendu();
+    await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
+    expect(presse("absent", "Keep")).toBe("true");
+    expect(screen.getByTestId("recap-samedi")).toHaveTextContent("Récap : 1 Kill & pay, 1 Double");
   });
 
   it("décisions finales : une demande d'arrêt arrive Kill pré-coché avec sa raison ; Keep la classe « garder »", async () => {
@@ -165,7 +191,6 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
       compte({ compte_id: "e", handle: "envie", poster_id: "pe", cohorte_lundi: "2026-10-19", jours: complets }),
     ]);
     statut.lireExtras.mockResolvedValue(new Map([["c", extras("c", { poster_id: "pc" })], ["e", extras("e", { poster_id: "pe" })]]));
-    api.lireRecruesSansReaction.mockResolvedValue([recrue({ poster_id: "r3", nom: "Zoe K", compte_id: null, relances: 0 })]);
     api.lireDemandesArret.mockResolvedValue([
       { poster_id: "pc", source: "bouton", raison: "I want to stop (button)", demande_at: "2026-10-30T10:00:00Z" },
       { poster_id: "pe", source: "persona", raison: "I won't post this", demande_at: "2026-10-30T11:00:00Z" },
@@ -175,15 +200,14 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
     expect(presse("envie", "Kill & pay")).toBe("true");
     expect(within(ligne("envie")).getByText("Persona refusé")).toBeInTheDocument();
-    const zoe = (await screen.findByTestId("samedi-recrues")).querySelector<HTMLElement>('[data-recrue="r3"]')!;
-    expect(within(zoe).getByRole("button", { name: "Kill" }).getAttribute("aria-pressed")).toBe("true");
-    expect(within(zoe).getByText("Demande d'arrêt (message)")).toBeInTheDocument();
+    // La demande d'arrêt d'une recrue de la cohorte qui arrive se traite à Onboarding posters.
+    expect(screen.queryByTestId("samedi-recrues")).toBeNull();
     fireEvent.click(within(ligne("envie")).getByRole("button", { name: "Keep" }));
     fireEvent.click(screen.getByRole("button", { name: "Validate" }));
     await waitFor(() => expect(api.garderMalgreDemande).toHaveBeenCalledWith("pe"));
     expect(api.garderMalgreDemande).toHaveBeenCalledTimes(1);
     expect(api.choisirSamedi).toHaveBeenCalledWith("c", "ne_pas_renouveler");
-    expect(cohortes.arreterRecrueSamedi).toHaveBeenCalledWith("r3");
+    expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
   });
 
   it("prompt 26 : Kill & don't pay demande une raison, montre le montant en jeu, puis la note pour lundi", async () => {
@@ -240,7 +264,8 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     // Vert mais « No channel » : dans la liste principale, Kill & pay pré-sélectionné, la raison.
     await waitFor(() => expect(presse("calme", "Kill & pay")).toBe("true"));
     expect(within(ligne("calme")).getByText("Aucun canal")).toBeInTheDocument();
-    expect(within(screen.getByTestId("section-confiance")).queryByText("calme")).toBeNull();
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    expect(screen.queryByTestId("section-confiance")?.textContent ?? "").not.toContain("calme");
     // Reporté 2 fois sans compte : sa carte, Kill proposé.
     const sansCompte = await screen.findByTestId("forces-sans-compte");
     expect(sansCompte).toHaveTextContent("Xavi");
@@ -275,5 +300,55 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     expect(cohortes.arreterRecrueSamedi).not.toHaveBeenCalled();
     expect(moteur.invoke).not.toHaveBeenCalledWith("upwork", { action: "arrets" });
     expect(screen.getByText("Test : rien n'a été fait. Passe Full stop sur On, puis Validate pour de vrai.")).toBeInTheDocument();
+  });
+
+  it("0492 : une décision préparée depuis Posters est pré-cochée, dans « To handle », et le filtre par décision", async () => {
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map([
+      ["c", { choix: "kill" as ChoixSamedi, raison: { note: "posted twice in 2 weeks" }, par_nom: "Max K", maj_at: "2026-10-28T09:00:00Z" }],
+    ]) as never);
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="calme"]')).not.toBeNull());
+    expect(presse("calme", "Kill & pay")).toBe("true");
+    const badge = within(ligne("calme")).getByTestId("decision-preparee");
+    expect(badge.textContent).toContain("Préparée : Kill & pay");
+    expect(badge.textContent).toContain("Max K");
+    expect(badge.textContent).toContain("posted twice in 2 weeks");
+    // « To handle only » : le compte de confiance préparé reste dans la liste principale.
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    expect(document.querySelector('[data-compte="calme"]')).not.toBeNull();
+    expect(screen.queryByTestId("section-confiance")?.textContent ?? "").not.toContain("calme");
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    // Filtre : les préparées seulement, puis Double seulement.
+    fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "preparee" } });
+    expect(document.querySelector('[data-compte="calme"]')).not.toBeNull();
+    expect(document.querySelector('[data-compte="bon"]')).toBeNull();
+    fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "double" } });
+    expect(document.querySelector('[data-compte="calme"]')).toBeNull();
+    expect(document.querySelector('[data-compte="bon"]')).not.toBeNull();
+  });
+
+  it("0494 : reporté 2 fois (même cohorte à venir) : Kill & don't pay pré-rempli, en tête de « To handle », colonne Reports et filtre", async () => {
+    api.lireReportsSamedi.mockResolvedValue(new Map([
+      ["p9", { poster_id: "p9", nb_mardi: 1, nb_reports: 1, premiere_cohorte: "2026-10-19", posts: 0, jamais_commence: false, regle: true }],
+    ]) as never);
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "c", handle: "calme", jours: complets }),
+      compte({ compte_id: "r", poster_id: "p9", handle: "recrue1", cohorte_lundi: "2026-11-02", jours: [], prevus_passes: 0, lien_passes: 0, lien_total: 0 }),
+    ]);
+    statut.lireExtras.mockResolvedValue(new Map([["c", extras("c")], ["r", extras("r", { poster_id: "p9" })]]));
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="recrue1"] [data-testid="reports"]')).toBeTruthy());
+    expect(presse("recrue1", "Kill & don't pay")).toBe("true");
+    const raison = await screen.findByTestId("raison-sans-paie");
+    expect((within(raison).getByLabelText(/raison/i) as HTMLSelectElement).value).toBe("zero_post");
+    expect((raison.querySelector("input") as HTMLInputElement).value).toBe("never started, postponed 2 times");
+    expect(ligne("recrue1").querySelector('[data-testid="reports"]')?.textContent).toContain("1 Postpone · 1 Start Tuesday");
+    // En tête de « To handle ».
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    expect(document.querySelectorAll("tr[data-compte]")[0]?.getAttribute("data-compte")).toBe("recrue1");
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "jamais" } });
+    expect(document.querySelector('[data-compte="calme"]')).toBeNull();
+    expect(document.querySelector('[data-compte="recrue1"]')).not.toBeNull();
   });
 });

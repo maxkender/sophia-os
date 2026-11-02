@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o059",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à mon prof de philo #pourtoi #culture #philosophie",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+ ],
+ "notes": "cta B (l'anecdote du jour en item 3). Fait vérifié le 1/11 sur https://fr.wikipedia.org/wiki/Le_Penseur : la sculpture a été « initialement créée à Paris en 1880, en tant qu'élément de La Porte de l'Enfer de Rodin ». Routine du 1/11 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 7 sur 8. Seule livraison normale du jour sur une famille déjà livrée 3 fois en 7 jours (vole-habitudes), comme le permet ROUTINE-avant-bleo §4.6. Preuve : schéma vole-habitudes (r 7,58, 83ef5e79 ; chez nous, bsg-o005 à 29,5 k vues). Accroches écrites : « les habitudes insolites que j'ai volées à mon prof de philo » (retenue : le gabarit du gagnant, une personne nouvelle), « ce que mon prof de philo m'a appris sans le vouloir » (écartée : sans « volées »), « les règles de pensée de mon prof de philo » (écartée : plus froid). Items neufs. Le prof reste anonyme. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b9766826",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à mon prof\nde philo",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b9f3d35f",
+   "texte_overlay": "1. il répondait à une question par une autre question.\n\n« et toi, t'en penses quoi ? »\non finissait toujours par trouver nous-mêmes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ba146156",
+   "texte_overlay": "2. il défendait l'avis qu'il ne partageait pas.\n\npour comprendre l'autre camp.\nmaintenant, je le fais avant chaque débat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6780bd2b",
+   "texte_overlay": "3. il commençait par une image.\n\nla semaine dernière : le penseur de rodin a d'abord été créé, en 1880, pour sa porte de l'enfer.\npuis il nous demandait à quoi il pensait.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg",
+   "texte_sophia": "3. il commençait par une image.\n\nmoi, c'est l'appli Sophia qui me les donne. ce matin : le penseur de rodin a d'abord été créé, en 1880, pour sa porte de l'enfer."
+  },
+  {
+   "position": 5,
+   "media_id": "ba2888f3",
+   "texte_overlay": "4. il marchait pour réfléchir.\n\nun problème coincé ? un tour du pâté de maisons.\nça marche aussi pour les dissertations.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ba32b26b",
+   "texte_overlay": "5. il notait ses idées sur des fiches.\n\nune idée par fiche, jamais plus.\nà la fin de l'année, il en avait des centaines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ba51f5da",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/3.jpg"
+  }
+ ]
+}

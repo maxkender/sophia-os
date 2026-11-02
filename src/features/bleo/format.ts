@@ -2,6 +2,14 @@
 
 import { localeDate } from "@/locales/localeDate";
 
+import type { EtatBleo, VerdictContenu } from "./api";
+
+/** Les verdicts d'un contenu, du meilleur au moins bon. */
+export const VERDICTS_CONTENU = ["gagnant", "en_attente", "non_gagnant"] as const satisfies readonly VerdictContenu[];
+
+/** Les états BLEO d'un contenu, dans l'ordre de sa vie : à juger, en test, jugé. */
+export const ETATS_BLEO = ["a_juger", "en_test", "juge"] as const satisfies readonly EtatBleo[];
+
 /** Vues en court : 950, 12,3 k, 1,4 M. Rien → « — ». */
 export function formaterVues(n: number | null | undefined, langue?: string): string {
   if (n == null) return "—";
@@ -28,6 +36,15 @@ export function part(n: number | undefined, total: number | undefined): number |
 export function formaterNombre(n: number | null | undefined, decimales = 2): string {
   if (n == null) return "—";
   return n.toLocaleString("fr-FR", { maximumFractionDigits: decimales });
+}
+
+/** Une valeur ou un r à deux décimales fixes : « 1,20 » (« 1.20 » en anglais). Rien → « — ». */
+export function formaterValeur(n: number | null | undefined, langue?: string): string {
+  if (n == null || Number.isNaN(n)) return "—";
+  return n.toLocaleString(langue?.startsWith("en") ? "en-GB" : "fr-FR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }
 
 /** Date et heure courtes, heure de Paris. */

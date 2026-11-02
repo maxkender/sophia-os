@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o082",
+ "schema_id": "copie-habitudes",
+ "titre": "les gens qui réussissent leur période d'essai font tous ça les 30 premiers jours #periodedessai #nouveaujob #travail #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 5. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. Règle §4.6 : seule rh-o072 reprend une famille d'accroche faite 3 fois ou plus en 7 jours (« j'ai copié 5 habitudes de… »). Les 11 autres livraisons normales ouvrent des familles jamais faites chez nous. Schéma copie-habitudes (r 8,42, 63ffa170). Famille d'accroche jamais faite : « les 30 premiers jours ». Habitudes observées, rien de juridique sur la période d'essai. CTA de fin jamais utilisé. (dire quand on commence son nouveau job) Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dafacc9d",
+   "texte_overlay": "les gens qui réussissent leur période d'essai\nfont tous ça\nles 30 premiers jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ca73c784",
+   "texte_overlay": "ils demandent « à quoi je saurai que ça se passe bien ? »\ndès la première semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ca762cf5",
+   "texte_overlay": "ils notent les prénoms et les rôles\nun schéma de l'équipe, au crayon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ca9b2b14",
+   "texte_overlay": "ils posent leurs questions en lot\nune fois par jour, pas toutes les 10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b94e543e",
+   "texte_overlay": "ils ont un truc à raconter à la pause\nperso, j'avais toujours une anecdote : 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "ils ont un truc à raconter à la pause.\nperso, j'avais toujours une anecdote : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cc2535f4",
+   "texte_overlay": "ils livrent une petite victoire vite\nun truc simple, bien fait, avant la fin du mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cc818cbf",
+   "texte_overlay": "ils demandent un point à 30 jours\nau lieu d'attendre la fin de la période",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ba8a425d",
+   "texte_overlay": "tu commences un nouveau job quand ?\non te souhaite bonne chance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

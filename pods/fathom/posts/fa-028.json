@@ -1,0 +1,311 @@
+{
+ "id": "fa-028",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7684282864464137494",
+  "vues": 25300,
+  "accroche": "10/10 Topics To Learn Niche Edition"
+ },
+ "titre": {
+  "en": "10/10 Topics To Learn Niche Edition",
+  "de": "10/10 Themen zum Lernen: Nischen-Edition",
+  "pt": "10/10 temas para aprender: edição de nicho"
+ },
+ "legendes": {
+  "en": "10/10 Topics To Learn Niche Edition #learnontiktok #curiosity #knowledge",
+  "de": "10/10 Themen zum Lernen: Nischen-Edition #lernenmittiktok #wissen #neugier",
+  "pt": "10/10 temas para aprender: edição de nicho #aprendernotiktok #curiosidades #conhecimento"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7637325514269838098"
+ },
+ "notes": "cta A. Sophia en carte d'appli à l'étape 3 « A NEW NICHE TOPIC EVERY DAY ». Pas d'UnSwipe. Les titres des étapes sont les sujets. Ses slides n'étaient pas en cache : son format de liste déjà mesuré, nos étapes. en, de et pt (Portugal), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TOPICS TO LEARN",
+     [
+      {
+       "t": "NICHE EDITION",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "THEMEN ZUM LERNEN",
+     [
+      {
+       "t": "NISCHEN-EDITION",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TEMAS PARA APRENDER",
+     [
+      {
+       "t": "EDIÇÃO DE NICHO",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "COGNITIVE",
+     "BIASES"
+    ],
+    "video": {
+     "id": "wEwGBIr_RIw",
+     "titre": "12 Cognitive Biases Explained - How to Think Better and More Logically Removing Bias",
+     "chaine": "Practical Psychology",
+     "vues": "2.8M views",
+     "date": "9 years ago",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/C-POj_q22w8Zux8FCpDUq_RhP9ct0cyAj4r-nfuNgALqSAWdImYv0qCzG6uOmYwSF5UKQ72_aNg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KOGNITIVE",
+     "VERZERRUNGEN"
+    ],
+    "video": {
+     "id": "H4sTc6-Dtg8",
+     "titre": "BIASES erklärt (kognitive Verzerrungen)",
+     "chaine": "BiasedSkeptic",
+     "vues": "6629 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k-P3ROnJlNjQPgLWv0zvoIObSJ0FVRN93rPs9yGFKuTA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "VIESES",
+     "COGNITIVOS"
+    ],
+    "video": {
+     "id": "oxIjCo5w4xc",
+     "titre": "Viés Cognitivo | Como Seu Cérebro Te Leva a Decisões Erradas",
+     "chaine": "Você Top",
+     "vues": "40 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lqm3-Cm0RmiCrjhWzQ78soOZ5AWMskQ7PJsVX1t3M5agI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "YOUR",
+     "MICROBIOME"
+    ],
+    "video": {
+     "id": "VzPD009qTN4",
+     "titre": "How Bacteria Rule Over Your Body – The Microbiome",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "10M views",
+     "date": "9 years ago",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DEIN",
+     "MIKROBIOM"
+    ],
+    "video": {
+     "id": "_WP9Piwsexo",
+     "titre": "Wie Bakterien unseren Körper beherrschen – Das Mikrobiom",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "1,4 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O TEU",
+     "MICROBIOMA"
+    ],
+    "video": {
+     "id": "WPAgZgqDeQo",
+     "titre": "Como as bactérias dominam o nosso corpo – O microbioma",
+     "chaine": "Em Poucas Palavras – Kurzgesagt",
+     "vues": "313 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "8:14",
+     "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "A NEW NICHE TOPIC",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG EIN",
+     "NEUES NISCHENTHEMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM TEMA DE NICHO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "STOICISM"
+    ],
+    "video": {
+     "id": "R9OCA6UFE-0",
+     "titre": "The philosophy of Stoicism - Massimo Pigliucci",
+     "chaine": "TED-Ed",
+     "vues": "11M views",
+     "date": "9 years ago",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "STOIZISMUS"
+    ],
+    "video": {
+     "id": "DSjce2jZ3yw",
+     "titre": "Die Philosophie des Stoizismus – Massimo Pigliucci",
+     "chaine": "Bleib neugierig — TED-Ed",
+     "vues": "1190 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/7PXZmYddF8Wu0-9i5SUaeI9VBQyP_7f8uhbFZ_yXo5UgxpGuLQypVUFary-WHsxr9yzoHfZxig=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ESTOICISMO"
+    ],
+    "video": {
+     "id": "A3vsljr2Fx8",
+     "titre": "Entenda o que é o ESTOICISMO",
+     "chaine": "Toda Matéria",
+     "vues": "226 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "ANCIENT EGYPT"
+    ],
+    "video": {
+     "id": "hO1tzmi1V5g",
+     "titre": "Ancient Egypt 101 | National Geographic",
+     "chaine": "National Geographic",
+     "vues": "6.4M views",
+     "date": "8 years ago",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/4o29ZduZnGmxuRtqNf50bJtzmUtWaeh4W4cYuEXvQBz887R75UMRboX4zbNe71EO4hGgwwnr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS ALTE",
+     "ÄGYPTEN"
+    ],
+    "video": {
+     "id": "UXKvwL8Ox6k",
+     "titre": "Das Alte Ägypten: Hochkultur am Nil",
+     "chaine": "MrWissen2go Geschichte | Terra X",
+     "vues": "978.341 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:16",
+     "avatar": "https://yt3.ggpht.com/FJ5ZVGDLX7teEkJhha2MsLRD1FyM1PFeh1BZGkluBiQdiyDRdK0I29x8fvwdvee_nmWuko6F=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O ANTIGO",
+     "EGITO"
+    ],
+    "video": {
+     "id": "r0Fqg9Fot_g",
+     "titre": "História do Antigo Egito | Documentário Histórico (Em ordem cronológica)",
+     "chaine": "EconoSimples",
+     "vues": "138 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "51:49",
+     "avatar": "https://yt3.ggpht.com/L_D3_ANOTA3FYRRwD-oZznaJXETrz3XHcrvmtYPU7FqJ4rKr0N0GoFQrzzb1rTI2zVfTei1BTg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

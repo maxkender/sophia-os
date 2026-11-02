@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o063",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a3c1785e-d1e9-4fdc-a497-3f93e4b47eca",
+ "titre": "6 habits that make you unexpectedly smarter #smarter #habits #smartgirl #selfimprovement #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "b6047a52-7aa9-416b-b37d-36dcbd13718f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 2 de la boîte (parent a3c1785e, en anglais) : accroche du parent mot pour mot. Six habitudes neuves face au parent (expliquer ce qu'on a appris, un long article plutôt que cinquante posts, apprendre une petite chose chaque matin, une seule salle de musée, une note « things i didn't know », dormir avant l'examen). Fait vérifié : le sommeil consolide la mémoire. Sophia au milieu du deck (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "013fa660",
+   "texte_overlay": "6 habits that make you\nunexpectedly smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4ded1d71",
+   "texte_overlay": "1. explain what you learned\nto someone else\n\nif you can teach it,\nyou really understand it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "078a2890",
+   "texte_overlay": "2. read one long article\ninstead of fifty posts\n\ndepth beats speed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "68a04879",
+   "texte_overlay": "3. learn one small thing\nevery morning\n\na painting, a word, a moment\nin history. it adds up.",
+   "texte_sophia": "3. learn one small thing\nevery morning\n\na micro-learning app like\nthe Sophia app gives you a\n5-minute lesson on art,\nhistory or science.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "501b051b",
+   "texte_overlay": "4. visit a museum and pick\njust one room\n\nslow looking teaches more\nthan rushing past everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "039f892a",
+   "texte_overlay": "5. keep a \"things i didn't know\"\nnote on your phone\n\nreread it every sunday.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "06e99919",
+   "texte_overlay": "6. sleep before the exam,\nnot after\n\nyour brain stores what you\nlearned while you sleep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0fd5748a",
+   "texte_overlay": "save this and try one today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  }
+ ]
+}

@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { lienCapture } from "@/features/onboarding/warmupApi";
 import { CAS_REPONSE } from "@/features/reponses/api";
+import { type Conversations, conversationDe, contratDuLien, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 import { cn } from "@/lib/utils";
 
 import {
@@ -23,7 +24,7 @@ import {
   type CasNeedsYou,
 } from "./api";
 import { FicheSansCanal } from "./FicheSansCanal";
-import { estInterne, filtrer, FILTRES_VIDES, options, parCategorie, trier, type Filtres } from "./logique";
+import { estInterne, estQuestionHm, filtrer, FILTRES_VIDES, options, parCategorie, parPersonne, trier, type Filtres } from "./logique";
 
 const selectClass = "h-9 rounded-md border border-input bg-background px-2 text-sm";
 
@@ -34,6 +35,11 @@ const VARIANTE_URGENCE = { lundi: "error", paie: "warning", kill: "warning", rie
  * ou dont il n'est pas sûr. Chaque ligne dit qui, ce que l'OS a vu, ce qu'il
  * en pense, pourquoi c'est urgent, et se règle sur place (1 à 3 boutons).
  */
+/** 31/10 : le contrat d'une carte : celui de son lien, sinon sa référence quand c'est un n° de contrat (cartes « Contract to link », doublons, tarif). */
+function contratDeCarte(c: Pick<CasNeedsYou, "lien" | "ref">): string | null {
+  return contratDuLien(c.lien) ?? (c.ref && /^\d{7,10}$/.test(c.ref) ? c.ref : null);
+}
+
 export function PageNeedsYou() {
   const { t } = useTranslation();
   const lu = useQuery({ queryKey: ["needs-you", "liste"], queryFn: lireNeedsYou, refetchInterval: 60_000 });
@@ -41,13 +47,22 @@ export function PageNeedsYou() {
   const [params] = useSearchParams();
   const [f, setF] = React.useState<Filtres>(() => ({ ...FILTRES_VIDES, type: params.get("type") ?? "" }));
   const tous = lu.data ?? [];
-  const visibles = trier(filtrer(tous, f));
+  // 31/10 : les questions des HM ont leur section ; le reste est la liste principale.
+  const questionsHm = trier(filtrer(tous.filter(estQuestionHm), f));
+  const visibles = trier(filtrer(tous.filter((c) => !estQuestionHm(c)), f));
+  const personnes = parPersonne(tous);
+  // 0469 : la conversation Upwork de chaque carte (posteur, ou contrat du lien).
+  const conv = useConversations(visibles.map((c) => c.poster_id), visibles.map(contratDeCarte));
   const o = options(tous);
   const compte = parCategorie(tous);
   const maj = (champ: keyof Filtres) => (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => setF({ ...f, [champ]: e.target.value });
 
   return (
     <div className="space-y-4" data-testid="needs-you">
+      {/* 31/10 : combien de cartes pour chacun, d'après le type de carte. */}
+      <p className="text-sm font-medium" data-testid="par-personne">
+        {t("needsYou.parPersonne", { lucia: personnes.lucia, max: personnes.max })}
+      </p>
       <div className="flex flex-wrap gap-2" role="group" aria-label={t("needsYou.categories")}>
         {CATEGORIES.map((c) => (
           <Button
@@ -94,20 +109,26 @@ export function PageNeedsYou() {
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
       {lu.data && visibles.length === 0 && <p className="text-sm text-muted-foreground">{t("needsYou.vide")}</p>}
       <div className="space-y-2">
-        {visibles.map((c) => <LigneCas key={c.cle} c={c} />)}
+        {visibles.map((c) => <LigneCas key={c.cle} c={c} conv={conv.data} />)}
       </div>
+      {questionsHm.length > 0 && (
+        <section className="space-y-2" data-testid="questions-hm">
+          <h2 className="text-base font-semibold">{t("needsYou.questionsHm", { n: questionsHm.length })}</h2>
+          {questionsHm.map((c) => <LigneCas key={c.cle} c={c} conv={conv.data} />)}
+        </section>
+      )}
     </div>
   );
 }
 
-function LigneCas({ c }: { c: CasNeedsYou }) {
+function LigneCas({ c, conv }: { c: CasNeedsYou; conv?: Conversations }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [valeur, setValeur] = React.useState(c.valeur ?? "");
   const [ok, setOk] = React.useState<string | null>(null);
   const action = useMutation({
     mutationFn: async (a: string) => {
-      if (c.type === "question_faq") {
+      if (c.type === "question_faq" || c.type === "question_hm") {
         const ids = (c.ref ?? "").split(",").filter(Boolean);
         if (a === "repondre") await repondreQuestions(ids, valeur.trim());
         else await ignorerQuestions(ids);
@@ -148,6 +169,10 @@ function LigneCas({ c }: { c: CasNeedsYou }) {
         <p>
           <span className="font-medium">{nom}</span>
           {qui && <span className="text-muted-foreground"> · {qui}</span>}
+          {/* 0469 : la conversation Upwork du posteur (ou du contrat de la carte), et le contrat. */}
+          {(c.poster_id || contratDeCarte(c)) && (
+            <LienConversation className="ml-2" c={conversationDe(conv, { posteur: c.poster_id, contrat: contratDeCarte(c) })} />
+          )}
           {c.contestation && (
             <Link to="/admin/retours-contestes" className="ml-2 text-xs font-medium text-destructive underline" data-testid="contestation">
               {t("needsYou.contestation")}
@@ -189,23 +214,6 @@ function LigneCas({ c }: { c: CasNeedsYou }) {
               {t(`needsYou.actions.${a}`, { valeur: c.valeur ?? "" })}
             </Button>
           ))}
-          {c.type === "warmup_capture" && c.valeur && (
-            <Button
-              size="sm"
-              variant="ghost"
-              data-action="voir_capture"
-              onClick={() => {
-                // Prompt 25 MAJ, 7c : la capture du profil, par un lien signé (bucket privé).
-                const fenetre = window.open("", "_blank");
-                void lienCapture(c.valeur!).then((u) => {
-                  if (fenetre) fenetre.location.href = u;
-                  else window.open(u, "_blank");
-                });
-              }}
-            >
-              {t("needsYou.actions.voir_capture")}
-            </Button>
-          )}
           {c.lien && (
             estInterne(c.lien)
               ? <Button size="sm" variant="ghost" asChild><Link to={c.lien}>{t("needsYou.actions.ouvrir")}</Link></Button>

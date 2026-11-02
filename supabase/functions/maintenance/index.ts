@@ -1,6 +1,6 @@
 import { scrapePost } from "../_shared/apify.ts";
 import { preparerAvatarReference } from "../_shared/avatar.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Maintenance automatique (cron de nuit). À CHAQUE passage, elle répare un petit
@@ -20,7 +20,7 @@ Deno.serve(async (request) => {
   if (denied) return denied;
 
   const supabase = serviceClient();
-  const secret = Deno.env.get("CRON_SECRET") ?? "";
+  const secret = secretCronConnu() ?? "";
   const base = new URL(request.url);
   const rapport = { musique: 0, personas: 0, audits: 0, sales: 0, avatarsRef: 0 };
 

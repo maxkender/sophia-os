@@ -14,7 +14,10 @@ import { hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { identiteSlack, urlConnexionSlack } from "../_shared/slack_connect.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
-import { lireProfilTiktokFiable as lireProfilTiktok } from "../_shared/profil_tiktok.ts";
+import { lireProfilTiktokFiable as lireProfilTiktok, lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
+import { lireProfilApify } from "../_shared/apify.ts";
+import { generateTextFast, ocrFrame } from "../_shared/gemini.ts";
+import { estAnglais, lireTraduction, type PostQc, promptTraduction } from "../_shared/qc_traduction.ts";
 import { lireTextesHandle, normaliserHandle, texteHandle, verifierHandlePropose } from "../_shared/handle_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
@@ -23,7 +26,7 @@ import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } fro
 import { canauxDuBot, historiqueCanal } from "../_shared/slack_messages.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { estLienCourt, handleDuLien, handleMajoritaire, handlesProches, resoudreLienCourt } from "../_shared/handle_liens.ts";
-import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -93,6 +96,92 @@ type Supabase = ReturnType<typeof serviceClient>;
  * Le bouton Done des messages arrive dans `slack-interactions`.
  * Secrets : SLACK_HM_BOT_TOKEN (le bot « Sophia OS »), CRON_SECRET.
  */
+/** Le texte de chaque slide d'un deck rendu, lu dans l'image (OCR), 4 à la fois. */
+async function lireTexteImages(supabase: Supabase, passageId: string, slides: { texte?: string; ocr?: boolean }[]) {
+  const { data: pa } = await supabase.from("passages").select("slides").eq("id", passageId).maybeSingle();
+  const brutes = (Array.isArray(pa?.slides) ? pa.slides : []) as { position?: number | string; media_id?: string | null }[];
+  const triees = [...brutes].sort((a, b) => Number(a.position ?? 0) - Number(b.position ?? 0));
+  const ids = triees.map((x) => x.media_id).filter((x): x is string => !!x);
+  const { data: medias } = ids.length ? await supabase.from("media_library").select("id, url").in("id", ids) : { data: [] };
+  const urls = new Map((medias ?? []).map((m) => [m.id as string, m.url as string | null]));
+  const sortie = slides.map((s) => ({ ...s, ocr: true }));
+  for (let i = 0; i < triees.length; i += 4) {
+    await Promise.all(triees.slice(i, i + 4).map(async (x, k) => {
+      const url = x.media_id ? urls.get(x.media_id) : null;
+      if (!url || !sortie[i + k]) return;
+      sortie[i + k].texte = await ocrFrame(url).catch(() => "");
+    }));
+  }
+  return sortie;
+}
+
+/**
+ * 31/10 — Quality Control : tire les 10 posts par label du jour (qc_tirer,
+ * une seule fois) puis traduit en anglais ceux qui ne le sont pas, un appel
+ * par label et par lot de 10, dans un budget de 100 s (la page rappelle tant
+ * qu'il en reste). Anglais d'origine : repris tel quel.
+ */
+async function traduireQc(supabase: Supabase, jour: string) {
+  const { data: tires, error: e1 } = await supabase.rpc("qc_tirer", { p_jour: jour });
+  if (e1) return { ok: false, error: e1.message };
+  const { data, error } = await supabase.from("qc_echantillons")
+    .select("id, label_nom, langue, passage_id, textes_orig").eq("jour", jour).is("textes_en", null).order("label_nom");
+  if (error) return { ok: false, error: error.message };
+  const lignes = (data ?? []) as {
+    id: string; label_nom: string | null; langue: string | null; passage_id: string; textes_orig: { texte?: string; ocr?: boolean }[];
+  }[];
+  const debut = Date.now();
+  let traduits = 0;
+  const erreurs: string[] = [];
+  // Decks rendus (pods) : le texte est dans l'image ; il est lu (OCR) une fois, puis traduit comme les autres.
+  for (const l of lignes) {
+    if (Date.now() - debut > 60_000) break;
+    const vides = (l.textes_orig ?? []).every((s) => !String(s?.texte ?? "").trim());
+    if (!vides || (l.textes_orig ?? []).some((s) => s?.ocr)) continue;
+    try {
+      l.textes_orig = await lireTexteImages(supabase, l.passage_id, l.textes_orig ?? []);
+      await supabase.from("qc_echantillons").update({ textes_orig: l.textes_orig }).eq("id", l.id);
+    } catch (e) {
+      erreurs.push(`OCR ${l.label_nom ?? "?"} : ${messageErreur(e)}`);
+    }
+  }
+  const lots = new Map<string, PostQc[]>();
+  for (const l of lignes) {
+    const post: PostQc = { id: l.id, langue: l.langue, slides: (l.textes_orig ?? []).map((s) => ({ texte: String(s?.texte ?? "") })) };
+    // Pas encore lu par l'OCR (budget du passage) : attend le passage suivant.
+    if (post.slides.every((s) => !s.texte.trim()) && !(l.textes_orig ?? []).some((s) => s?.ocr)) continue;
+    if (estAnglais(l.langue) || post.slides.every((s) => !s.texte.trim())) {
+      await supabase.from("qc_echantillons").update({ textes_en: post.slides.map((s) => s.texte), traduit_at: new Date().toISOString(), erreur: null }).eq("id", l.id);
+      traduits++;
+      continue;
+    }
+    const cle = l.label_nom ?? "?";
+    lots.set(cle, [...(lots.get(cle) ?? []), post]);
+  }
+  for (const [label, posts] of lots) {
+    for (let i = 0; i < posts.length; i += 10) {
+      if (Date.now() - debut > 100_000) break;
+      const lot = posts.slice(i, i + 10);
+      try {
+        const lu = lireTraduction(await generateTextFast(promptTraduction(lot)), lot);
+        for (const post of lot) {
+          const en = lu.get(post.id);
+          if (en) {
+            await supabase.from("qc_echantillons").update({ textes_en: en, traduit_at: new Date().toISOString(), erreur: null }).eq("id", post.id);
+            traduits++;
+          } else {
+            await supabase.from("qc_echantillons").update({ erreur: "traduction illisible, réessayée au prochain passage" }).eq("id", post.id);
+          }
+        }
+      } catch (e) {
+        erreurs.push(`${label} : ${messageErreur(e)}`);
+      }
+    }
+  }
+  const { count } = await supabase.from("qc_echantillons").select("id", { count: "exact", head: true }).eq("jour", jour).is("textes_en", null);
+  return { ok: true, jour, tires: tires ?? 0, traduits, restants: count ?? 0, erreurs };
+}
+
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   try {
@@ -180,6 +269,19 @@ Deno.serve(async (request) => {
         return json(await epinglerMessageQuestions(supabase, acces.userId));
       case "needs_you_alerte":
         return json(await alerteNeedsYou(supabase));
+      case "releve_cohorte": {
+        // 31/10 : dimanche 18:00 (Paris), avant le check du warm-up : toutes les recrues de la cohorte du lendemain.
+        const p = maintenantParis();
+        // Toutes les 5 min de 18:00 à 19:55 (Paris) : chaque passage relève ce qui ne l'a pas été depuis 1 h.
+        if (cron && !body.force && !(p.isoJour === 7 && (p.heure === 18 || p.heure === 19))) return json({ ok: true, ignore: "pas dimanche 18-20 h" });
+        return json(await releverCohorte(supabase, typeof body.lundi === "string" ? body.lundi : null));
+      }
+      case "qc_traduire": {
+        // 31/10 : Quality Control. Le cron (5-7 h Paris) tire et traduit la veille ; la page peut aussi le lancer.
+        const p = maintenantParis();
+        const jour = typeof body.jour === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.jour) ? body.jour : ajouterJours(p.jour, -1);
+        return json(await traduireQc(supabase, jour));
+      }
       case "releve_warmup_planifie": {
         const p = maintenantParis();
         if (!body.force && p.heure !== 8 && p.heure !== 20) return json({ ok: true, ignore: "pas 8 h ni 20 h" });
@@ -665,7 +767,7 @@ async function appelerManageUsers(
   corps: Record<string, unknown>,
 ): Promise<{ ok: true; compteId: string } | { ok: false; incertain: boolean; error: string }> {
   const url = Deno.env.get("SUPABASE_URL");
-  const cron = Deno.env.get("CRON_SECRET");
+  const cron = secretCronConnu();
   if (!url || !cron) return { ok: false, incertain: false, error: "SUPABASE_URL ou CRON_SECRET manquant" };
   let reponse: Response;
   try {
@@ -917,6 +1019,65 @@ async function releverWarmup(supabase: Supabase) {
     introuvables: lignes.filter((l) => l.existe === false).length,
     illisibles: lignes.filter((l) => l.existe === null).length,
   };
+}
+
+/**
+ * 31/10 : le relevé du dimanche 18:00 : chaque recrue de la cohorte du
+ * lendemain qui a cliqué Start warmup. 1re méthode : la page TikTok (lue deux
+ * fois) ; si elle est illisible ou dit « introuvable » : 2e méthode, Apify.
+ * Introuvable seulement si la page le dit ET qu'Apify ne rend rien.
+ */
+async function releverCohorte(supabase: Supabase, lundiDemande: string | null) {
+  const p = maintenantParis();
+  const lundi = lundiDemande ?? ajouterJours(p.jour, 8 - p.isoJour);
+  const { data: profils, error } = await supabase.from("profiles").select("id").eq("is_active", true).eq("cohorte_lundi", lundi);
+  if (error) throw error;
+  const ids = (profils ?? []).map((x) => String(x.id));
+  if (ids.length === 0) return { ok: true, lundi, comptes: 0 };
+  const { data: comptes, error: errC } = await supabase.from("comptes").select("id, handle_tiktok")
+    .in("poster_id", ids).eq("is_active", true).not("warmup_started_at", "is", null).not("handle_tiktok", "is", null);
+  if (errC) throw errC;
+  // Relevés en plusieurs passages (cron toutes les 10 min pendant l'heure) : un compte relevé il y a moins d'1 h est sauté,
+  // et un passage s'arrête avant la limite de 150 s des fonctions.
+  const tous = (comptes ?? []) as { id: string; handle_tiktok: string }[];
+  const { data: recents } = tous.length
+    ? await supabase.from("ckd_warmup_releves").select("compte_id").in("compte_id", tous.map((c) => c.id))
+      .gte("releve_at", new Date(Date.now() - 60 * 60_000).toISOString())
+    : { data: [] };
+  const deja = new Set((recents ?? []).map((r) => String(r.compte_id)));
+  const liste = tous.filter((c) => !deja.has(c.id));
+  const debut = Date.now();
+  const bilan = { ok: true, lundi, comptes: 0, page: 0, apify: 0, introuvables: 0, illisibles: 0, deja: deja.size, restants: 0 };
+  for (let i = 0; i < liste.length; i += PAGES_EN_PARALLELE) {
+    if (Date.now() - debut > 90_000) {
+      bilan.restants = liste.length - i;
+      break;
+    }
+    const lot = liste.slice(i, i + PAGES_EN_PARALLELE);
+    const lignes = await Promise.all(lot.map(async (c) => {
+      const page = await lireProfilTiktokFiable(c.handle_tiktok);
+      if (page.existe === true) {
+        bilan.page++;
+        return { compte_id: c.id, handle: c.handle_tiktok, existe: true, cree_tiktok_at: page.creeLe, abonnements: page.abonnements, likes: page.likes, abonnes: page.abonnes, videos: page.videos, erreur: null };
+      }
+      const apify = await lireProfilApify(c.handle_tiktok);
+      if (apify.existe === true) {
+        bilan.apify++;
+        return { compte_id: c.id, handle: c.handle_tiktok, existe: true, cree_tiktok_at: null, abonnements: apify.abonnements, likes: null, abonnes: apify.abonnes, videos: apify.videos, erreur: "méthode 2 (Apify)" };
+      }
+      const introuvable = page.existe === false;
+      if (introuvable) bilan.introuvables++;
+      else bilan.illisibles++;
+      return {
+        compte_id: c.id, handle: c.handle_tiktok, existe: introuvable ? false : null, cree_tiktok_at: null, abonnements: null, likes: null, abonnes: null, videos: null,
+        erreur: `page : ${introuvable ? "introuvable" : page.erreur ?? "illisible"} · Apify : ${apify.erreur ?? "rien"}`.slice(0, 300),
+      };
+    }));
+    bilan.comptes += lignes.length;
+    const { error: errIns } = await supabase.from("ckd_warmup_releves").insert(lignes);
+    if (errIns) throw errIns;
+  }
+  return bilan;
 }
 
 /**

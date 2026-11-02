@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o066",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "58d921ca-fff3-4852-b7ce-a80044c0b28f",
+  "titre": "i'm going to college. i don't care if it ruins my career. i'd rather be smart than a movie star. #studytok #smartgirl",
+  "inspirations": [
+    "58d921ca-fff3-4852-b7ce-a80044c0b28f"
+  ],
+  "notes": "G1, déclinaison de 58d921ca (« i'm going to college i don't care if it ruins my career i'd rather be smart than a movie star »), en anglais. La phrase vient d'une actrice connue, mais la slide ne la nomme pas, et aucune slide ne lui attribue d'autre propos. cta B (l'anecdote en item 3). Fait vérifié le 31/10 sur https://fr.wikipedia.org/wiki/Le_Petit_Prince : « Il est publié en anglais le 6 avril 1943 à New York ». Items neufs : pourquoi choisir d'apprendre. Routine du 2/11, première sur BLEO (`npm run boite` : « oui »). Jauge : 1 full test et 7 déclinaisons. J'ai sauté la ligne 3 de la boîte (837491f7, « jobs for people who love enterimarnt ») : son accroche porte une faute de frappe qu'une G1 devrait recopier mot pour mot, et ses slides donnent des salaires que je ne peux pas vérifier. Images de la banque, assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "41a74286",
+      "texte_overlay": "i'm going to college.\ni don't care if it ruins my career.\ni'd rather be smart than a movie star.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d0719620",
+      "texte_overlay": "1. being smart lasts longer than being famous\n\nnobody can take away what you've learned.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "02d3e38d",
+      "texte_overlay": "2. curiosity makes you interesting at any age\n\nthe people we love talking to are the ones who keep learning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "3. one fun fact a day adds up\n\nthis morning i learned that the little prince was first published in new york, in 1943, in english.\n365 of those a year, and you can talk to anyone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "texte_sophia": "3. one fun fact a day adds up\n\nthis morning, the Sophia app taught me that the little prince was first published in new york, in 1943, in english.\n365 of those a year, and you can talk to anyone."
+    },
+    {
+      "position": 5,
+      "media_id": "09067fa3",
+      "texte_overlay": "4. knowledge is quiet confidence\n\nyou don't need to be the loudest in the room when you know what you're talking about.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "5. it's never too late to start\n\none book, one class, one question at a time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "smart or famous?\ntell me in the comments.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

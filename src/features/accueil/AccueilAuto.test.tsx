@@ -7,6 +7,8 @@ import i18n from "@/locales";
 const api = vi.hoisted(() => ({
   lireAccueils: vi.fn(),
   relierAccueil: vi.fn(),
+  creerAccueil: vi.fn(),
+  localiserAccueils: vi.fn(async () => []),
   lireAnnonces: vi.fn(async () => []),
   enregistrerAnnonce: vi.fn(),
   amorcerAnnonces: vi.fn(async () => ({ ok: true, posteurs: 3, lus: 3, annonces: 2, avec_pays: 1, generiques: 1, deja_dites: 0, erreurs: [] })),
@@ -58,6 +60,42 @@ describe("système du 2 nov., partie A : l'accueil automatique", () => {
     expect(within(bloc).getByText("Simulé (test)")).toBeTruthy();
     expect(within(bloc).getByText("Doublon")).toBeTruthy();
     expect(within(bloc).getByText("Hi Bruno, welcome to Vik Studios!", { exact: false })).toBeTruthy();
+  });
+
+  it("0470 : la carte montre l'équipe, où vit le freelance, la HM du contrat ; pays + HM → créer, l'erreur s'affiche", async () => {
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    api.lireAccueils.mockResolvedValue([
+      accueil({
+        contrat_id: "44790807", prenom: "Gundika", nom: "Gundika", equipe: "VIk Studios", freelance_pays: "HR", freelance_ville: "Zagreb",
+        hm_upwork_nom: "Lucia D.", raison: "HM du contrat (Lucia D.) pas dans l'OS : choisis la HM", pays: "HR",
+      }),
+      // 0493 : une autre équipe (Calyra) n'est jamais à relier, même non classée ; classée : listée à part.
+      accueil({ contrat_id: "44800558", prenom: "Edis", nom: "Krupinskas", equipe: "Maximilien Kender" }),
+      accueil({ contrat_id: "44801090", prenom: "Ausra", nom: "Simutiene", equipe: "Maximilien Kender", classement: "autre_activite", classement_raison: "autre activité (Calyra) : ignoré" }),
+      accueil({ contrat_id: "44805186", prenom: "Erla", nom: "Menaj", equipe: "VIk Studios", classement: "hm", classement_raison: "HM contract (Hiring Manager for TikTok Creators, hourly)" }),
+    ]);
+    api.creerAccueil.mockRejectedValueOnce(new Error("création du posteur : e-mail déjà pris"));
+    rendu();
+    const ligne = (await screen.findByText("Gundika Gundika")).closest("li") as HTMLElement;
+    expect(screen.getByText("Contrats à relier (1)", { exact: false })).toBeTruthy();
+    expect(screen.queryByText("Edis Krupinskas")).toBeNull();
+    const classes = screen.getByTestId("accueils-classes");
+    expect(classes.textContent).toContain("Ausra Simutiene");
+    expect(classes.textContent).toContain("Erla Menaj");
+    expect(classes.querySelector('[data-classe="hm"]')?.textContent).toContain("Contrat de HM");
+    const infos = within(ligne).getByTestId("infos-contrat");
+    expect(infos.textContent).toMatch(/Équipe : VIk Studios/);
+    expect(infos.textContent).not.toMatch(/hors VIk Studios/);
+    expect(infos.textContent).toMatch(/Vit à Zagreb, Croatie/);
+    expect(infos.textContent).toMatch(/HM du contrat : Lucia D\./);
+    const carte = within(ligne).getByTestId("creer-pour-contrat");
+    expect((within(carte).getByLabelText("Pays") as HTMLSelectElement).value).toBe("HR");
+    const bouton = within(carte).getByRole("button", { name: "Créer le posteur et envoyer le welcome" }) as HTMLButtonElement;
+    expect(bouton.disabled).toBe(true);
+    fireEvent.change(within(carte).getByLabelText("HM"), { target: { value: "hm1" } });
+    fireEvent.click(bouton);
+    await vi.waitFor(() => expect(api.creerAccueil).toHaveBeenCalledWith("44790807", "HR", "hm1"));
+    expect((await within(carte).findByRole("alert")).textContent).toBe("création du posteur : e-mail déjà pris");
   });
 
   it("côté HM : seulement les contrats à relier, rien s'il n'y en a pas", async () => {

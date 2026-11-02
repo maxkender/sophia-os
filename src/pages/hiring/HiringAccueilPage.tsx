@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import type { TFunction } from "i18next";
 
 import { Badge } from "@/components/ui/badge";
@@ -112,6 +113,33 @@ function Tableau({ entetes, children }: { entetes: string[]; children: React.Rea
  * Page d'accueil de la HM : sa cohorte, en 3 blocs. Mêmes données que Check,
  * Kill or Double → Cohort tracking, limitées à ses posteurs (0360).
  */
+/** 1/11 : « My cohort » ouverte depuis « Create a poster » (?posteur=…) : la recrue qui existe déjà, en tête. */
+function VotreRecrue() {
+  const { t } = useTranslation();
+  const [params] = useSearchParams();
+  const id = params.get("posteur");
+  const lu = useQuery({
+    queryKey: ["votre-recrue", id],
+    enabled: Boolean(id),
+    queryFn: async () => {
+      const { data, error } = await supabase.from("profiles").select("prenom, nom, cohorte_lundi").eq("id", id!).maybeSingle();
+      if (error) throw error;
+      return data as { prenom: string | null; nom: string | null; cohorte_lundi: string | null } | null;
+    },
+  });
+  if (!id || !lu.data) return null;
+  return (
+    <Card data-testid="votre-recrue" className="border-primary">
+      <CardContent className="p-3 text-sm font-medium">
+        {t("hiring.creationCoupee.votreRecrue", {
+          nom: [lu.data.prenom, lu.data.nom].filter(Boolean).join(" ") || "—",
+          cohorte: lu.data.cohorte_lundi ?? "—",
+        })}
+      </CardContent>
+    </Card>
+  );
+}
+
 export function HiringAccueilPage() {
   const { t } = useTranslation();
   const { user, role } = useAuth();
@@ -148,6 +176,7 @@ export function HiringAccueilPage() {
 
   return (
     <div className="space-y-6">
+      <VotreRecrue />
       <div className="flex flex-wrap items-start justify-between gap-2">
         <h1 className="text-lg font-semibold tracking-tight">{t("accueilHm.titre")}</h1>
         <BoutonExport hm={hm} />

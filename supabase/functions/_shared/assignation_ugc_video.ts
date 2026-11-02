@@ -20,7 +20,7 @@ import { falHebergerOctets } from "./fal_queue.ts";
 import { cleanImage, TEXT_MODELS } from "./gemini.ts";
 import { mapPool } from "./parallel.ts";
 import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
-import { chargerPrompt, serviceClient } from "./supabase.ts";
+import { chargerPrompt, secretCronConnu, serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -974,7 +974,7 @@ export function kickAssignationUgcVideo(
 ): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = {
     "content-type": "application/json",

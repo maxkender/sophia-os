@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o067",
+ "schema_id": "unusual-hobbies",
+ "titre": "Unusual hobbies that make you calmer and sharper #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "411606fc-9da8-4979-808a-0a7eed69ab35"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture neuve 42c60871. Schéma unusual-hobbies (411606fc r 2,13 chez nous), troisième passage de la semaine. Accroches écrites : « Unusual hobbies that make you calmer and sharper » (retenue : bénéfice précis, mental), « Hobbies that fix a stressed brain » (écartée : vire au médical), « Strange hobbies that make you smarter » (écartée : trop proche d'ay-o052). Hobbies neufs, aucun repris d'ay-o052 et d'ay-o061.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42c60871",
+   "texte_overlay": "Unusual hobbies that make you\ncalmer and sharper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn to sail. A beginner course over a few weekends. You read the wind, the water and the weather, and for a few hours your phone doesn't exist. Few hobbies clear your head like it.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Try woodworking. A small shelf, a cutting board. Measuring twice and cutting once teaches patience, and you end up with something real you made with your own hands.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn to juggle. Three balls, ten minutes a day. It trains focus and coordination, it's oddly calming, and after a few weeks it becomes the most fun party trick you have.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Feed your curiosity every morning. I do five minutes of history, art or science before I check any messages. My head feels calmer, and I start the day thinking instead of reacting.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app before checking any messages. History, art, science. My head feels calmer, and I start the day thinking, not reacting.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Take up swimming laps. No music, just your breathing and the line at the bottom of the pool. Thirty minutes three times a week and you'll sleep better and think more clearly.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Grow something. Herbs on a windowsill, tomatoes on a balcony. Caring for something slow teaches patience, and cooking with what you grew yourself never stops feeling good.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Learn to play go. An ancient board game with simple rules and endless depth. It trains you to think long term, stay calm under pressure and read what your opponent wants.",
+   "media_id": "fd95743f"
+  }
+ ]
+}

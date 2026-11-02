@@ -1,0 +1,188 @@
+{
+ "id": "mm-o028",
+ "format": "carrousel",
+ "titre": "Japanese habits that destroy brainrot pt2",
+ "legendes": {
+  "en": "more japanese habits that destroy brainrot #japanesehabits #mentalmaxxing #brainrot #selfimprovement",
+  "fr": "encore des habitudes japonaises qui détruisent le brainrot #habitudesjaponaises #mentalmaxxing #brainrot #developpementpersonnel",
+  "de": "noch mehr japanische Gewohnheiten gegen Brainrot #japanischegewohnheiten #mentalmaxxing #brainrot #selbstverbesserung",
+  "es": "más hábitos japoneses que destruyen el brainrot #habitosjaponeses #mentalmaxxing #brainrot #superacionpersonal",
+  "it": "altre abitudini giapponesi che distruggono il brainrot #abitudinigiapponesi #mentalmaxxing #brainrot #crescitapersonale",
+  "tr": "brainrot’u yok eden japon alışkanlıkları 2 #japonalışkanlıkları #mentalmaxxing #brainrot #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7685931101587623186/1",
+   "boite": [
+    330,
+    815,
+    445,
+    535
+   ]
+  },
+  "theme": {
+   "en": "Japanese habits",
+   "fr": "Habitudes japonaises",
+   "de": "Japanische Gewohnheiten",
+   "es": "Hábitos japoneses",
+   "it": "Abitudini giapponesi",
+   "tr": "Japon alışkanlıkları"
+  },
+  "sous": {
+   "en": "that destroy brainrot pt2",
+   "fr": "qui détruisent le brainrot 2",
+   "de": "gegen Brainrot Teil 2",
+   "es": "contra el brainrot parte 2",
+   "it": "contro il brainrot parte 2",
+   "tr": "brainrot’a karşı 2. bölüm"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Shoshin",
+    "fr": "Shoshin",
+    "de": "Shoshin",
+    "es": "Shoshin",
+    "it": "Shoshin",
+    "tr": "Shoshin"
+   },
+   "texte": {
+    "en": "“Beginner’s mind”: learn like you know nothing. Curiosity beats the cheap hit of a feed.",
+    "fr": "« L’esprit du débutant » : apprendre comme si tu ne savais rien. La curiosité bat le shoot facile du feed.",
+    "de": "„Anfängergeist“: lernen, als wüsstest du nichts. Neugier schlägt den billigen Kick des Feeds.",
+    "es": "“Mente de principiante”: aprende como si no supieras nada. La curiosidad gana al chute fácil del feed.",
+    "it": "“Mente del principiante”: impara come se non sapessi niente. La curiosità batte la scarica facile del feed.",
+    "tr": "“Acemi zihni”: hiçbir şey bilmiyormuş gibi öğren. Merak, akışın ucuz vuruşunu yener."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Gaman",
+    "fr": "Gaman",
+    "de": "Gaman",
+    "es": "Gaman",
+    "it": "Gaman",
+    "tr": "Gaman"
+   },
+   "texte": {
+    "en": "Enduring the hard part with patience. The boring rep, the slow page, the urge you do not follow.",
+    "fr": "Endurer la partie difficile avec patience. La répétition ennuyeuse, la page lente, l’envie que tu ne suis pas.",
+    "de": "Das Schwere mit Geduld aushalten. Die langweilige Wiederholung, die langsame Seite, der Drang, dem du nicht folgst.",
+    "es": "Aguantar lo difícil con paciencia. La repetición aburrida, la página lenta, las ganas que no sigues.",
+    "it": "Sopportare la parte difficile con pazienza. La ripetizione noiosa, la pagina lenta, la voglia che non segui.",
+    "tr": "Zor kısmı sabırla göğüslemek. Sıkıcı tekrar, yavaş sayfa, peşinden gitmediğin istek."
+   }
+  },
+  {
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Oubaitori",
+    "fr": "Oubaitori",
+    "de": "Oubaitori",
+    "es": "Oubaitori",
+    "it": "Oubaitori",
+    "tr": "Oubaitori"
+   },
+   "texte": {
+    "en": "Like cherry, plum and peach trees blooming at different times: stop comparing your life to other people’s highlights.",
+    "fr": "Comme les cerisiers, pruniers et pêchers qui fleurissent à des moments différents : arrête de comparer ta vie aux meilleurs moments des autres.",
+    "de": "Wie Kirsch-, Pflaumen- und Pfirsichbäume, die zu verschiedenen Zeiten blühen: Hör auf, dein Leben mit den Highlights anderer zu vergleichen.",
+    "es": "Como el cerezo, el ciruelo y el melocotonero que florecen en momentos distintos: deja de comparar tu vida con lo mejor de los demás.",
+    "it": "Come ciliegi, susini e peschi che fioriscono in momenti diversi: smetti di confrontare la tua vita con i momenti migliori degli altri.",
+    "tr": "Kiraz, erik ve şeftali ağaçlarının farklı zamanlarda çiçek açması gibi: hayatını başkalarının en iyi anlarıyla kıyaslamayı bırak."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "My own version of this list: I deleted short videos with UnSwipe. Fewer highlights to compare myself to, more time for the slow stuff.",
+    "fr": "Ma version de cette liste : j’ai supprimé les vidéos courtes avec UnSwipe. Moins de vies parfaites à qui me comparer, plus de temps pour les choses lentes.",
+    "de": "Meine Version dieser Liste: Ich habe Kurzvideos mit UnSwipe gelöscht. Weniger Highlights zum Vergleichen, mehr Zeit für langsame Dinge.",
+    "es": "Mi versión de esta lista: borré los vídeos cortos con UnSwipe. Menos vidas perfectas con las que compararme, más tiempo para lo lento.",
+    "it": "La mia versione di questa lista: ho eliminato i video brevi con UnSwipe. Meno vite perfette con cui confrontarmi, più tempo per le cose lente.",
+    "tr": "Bu listenin benim versiyonu: kısa videoları UnSwipe ile sildim. Kıyaslanacak daha az mükemmel hayat, yavaş şeylere daha çok zaman."
+   }
+  },
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Wabi-sabi",
+    "fr": "Wabi-sabi",
+    "de": "Wabi-sabi",
+    "es": "Wabi-sabi",
+    "it": "Wabi-sabi",
+    "tr": "Wabi-sabi"
+   },
+   "texte": {
+    "en": "Beauty in imperfect things. A messy first try is still a real try, unlike watching someone else do it.",
+    "fr": "La beauté des choses imparfaites. Un premier essai raté reste un vrai essai, pas comme regarder quelqu’un d’autre le faire.",
+    "de": "Schönheit im Unvollkommenen. Ein chaotischer erster Versuch ist ein echter Versuch, anders als jemandem dabei zuzusehen.",
+    "es": "La belleza de lo imperfecto. Un primer intento desastroso sigue siendo un intento real, no como ver a otro hacerlo.",
+    "it": "La bellezza delle cose imperfette. Un primo tentativo disordinato è comunque vero, non come guardare qualcun altro farlo.",
+    "tr": "Kusurlu şeylerdeki güzellik. Dağınık bir ilk deneme bile gerçek bir denemedir, başkasını izlemek gibi değil."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Seiri",
+    "fr": "Seiri",
+    "de": "Seiri",
+    "es": "Seiri",
+    "it": "Seiri",
+    "tr": "Seiri"
+   },
+   "texte": {
+    "en": "“Sort”: keep only what you use, remove the rest. Your desk, your home screen, your day.",
+    "fr": "« Trier » : garde ce que tu utilises, enlève le reste. Ton bureau, ton écran d’accueil, ta journée.",
+    "de": "„Sortieren“: Behalte nur, was du nutzt, entferne den Rest. Dein Schreibtisch, dein Homescreen, dein Tag.",
+    "es": "“Ordenar”: quédate solo con lo que usas y quita el resto. Tu mesa, tu pantalla de inicio, tu día.",
+    "it": "“Separare”: tieni solo ciò che usi, togli il resto. La scrivania, la schermata home, la giornata.",
+    "tr": "“Ayıkla”: sadece kullandığını tut, gerisini kaldır. Masan, ana ekranın, günün."
+   }
+  }
+ ],
+ "notes": "routine du 31/10 : reprise de mm-o020 (« Japanese habits », livrée une fois) en pt2, autres concepts (shoshin, gaman, oubaitori, wabi-sabi, seiri), autres images, autre couverture (point 7). cta C : élément UnSwipe en 4e item (slide 5), à la 1re personne."
+}

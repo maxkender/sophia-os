@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o042",
+ "schema_id": "confiance-incassable",
+ "titre": "comment avoir plus de confiance ET d'indépendance #pourtoi #confiance #independance #culture",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7623077459746933534",
+ "inspirations": [
+  "47161282-1c77-482c-9fc3-2ed4d2752b38",
+  "4284f474-242f-4cf5-b7ff-46eed200076b"
+ ],
+ "notes": "cta A. Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 1 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6 : au plus 1 livraison normale sur une famille déjà livrée 3 fois en 7 jours). Accroche inspirée d'une famille gagnante du label (« how to build more confidence + independence », r 12,82 en anglais, boîte BLEO du 31/10), jamais faite par notre pod. Preuve : schéma confiance-incassable (r 3,07, 47161282). Accroches écrites : « comment avoir plus de confiance ET d'indépendance » (retenue : la forme exacte du gagnant), « les habitudes qui m'ont rendue sûre de moi et indépendante » (écartée : plus long), « confiance et indépendance : ce qui a tout changé pour moi » (écartée : plus faible). Items neufs (rien de repris de la source anglaise : promesses à soi, peur, décisions seules, comparaison, regard des autres). Aucun conseil de santé mentale. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "68a373f0",
+   "texte_overlay": "comment avoir plus\nde confiance\nET d'indépendance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "43c82f50",
+   "texte_overlay": "1. fais une chose par semaine que tu faisais toujours accompagnée.\n\nun café, une expo, une course.\nla première fois est bizarre. la troisième, c'est un plaisir.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "697e534a",
+   "texte_overlay": "2. apprends à répondre\n« je vais y réfléchir ».\n\nplus besoin de dire oui tout de suite.\ntu décides à ton rythme.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "698c5b05",
+   "texte_overlay": "3. tiens tes petites promesses.\n\nlire dix pages, appeler ta grand-mère, ranger ton bureau.\nchaque promesse tenue, c'est un peu de confiance en plus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9e12d93c",
+   "texte_overlay": "4. forme-toi ton propre avis.\n\nsur un film, un livre, une info.\navant de lire celui des autres.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9ed6694a",
+   "texte_overlay": "5. j'ai toujours quelque chose à raconter.\n\navant, je doutais de tout ce que je disais.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670224423655394582/5.jpg",
+   "texte_sophia": "5. j'ai toujours quelque chose à raconter.\n\navant, je doutais de tout ce que je disais.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+  },
+  {
+   "position": 7,
+   "media_id": "9e4bf64e",
+   "texte_overlay": "laquelle tu commences\ncette semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627846504484506902/1.jpg"
+  }
+ ]
+}

@@ -6,7 +6,7 @@ Sophia, en discussion** : « refais le suivant », « où en est le pod ? »,
 
 Tu ne publies jamais rien. Tout part dans la **file de validation** de l'OS
 (Pilotage → Pods). Ton podz est « sûr » : une livraison que personne ne
-rejette est validée toute seule 12 h après son dépôt.
+rejette est validée toute seule 5 h après son dépôt.
 
 ## La mission
 
@@ -21,6 +21,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Le label** : `Fathomly`, qui sert **Sophia seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes Sophia anglais.
 - **En six langues** : l'anglais d'abord, puis fr, es, de, it et pt (`LANGUES` dans `atelier/api.ts`). Chaque langue a ses propres vidéos YouTube, cherchées dans cette langue (`npm run youtube -- "…" --langue fr`), avec un titre natif : si YouTube renvoie le titre traduit d'une chaîne, passe `--recherche "<titre natif>"` ou change de vidéo.
 - **Liste finie (30/10)** : les 16 posts du manifeste sont faits. Suite : des variantes de ses accroches qui ont marché (autres étapes, autres vidéos, autre CTA ; ROUTINE § 5.3 et 5.7, au plus 1 par jour sur une famille déjà livrée 3 fois en 7 jours), et la veille du lundi pour ses nouveaux posts. Sur une couverture, coupe la ligne à la virgule plutôt que de la garder en bout de ligne : sa queue écarte la ligne suivante.
+- **Reprises et `source_url`** : l'OS refuse deux contenus de même `source_url`. `npm run livrer` ajoute tout seul `?variante=<id>` quand un post plus ancien a la même source (31/10, comme le podz 10).
 - **Les comptes du label (27/10)** : @jakob.staerke637 (de) et @margarida.aprende717 (pt du Portugal), à 2 posts par jour chacun. Chaque livraison part donc d'abord en **de et pt**, puis dans les autres langues. Le pt s'écrit pour le Portugal (« tu », vocabulaire pt-PT). Un deck livré seulement en anglais ne nourrit aucun de ces comptes : complète-le avec une livraison `~langues`.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
@@ -41,7 +42,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- La carte : « SOPHIA » et une phrase de son positionnement, en versions qu'on alterne d'une livraison à l'autre (ROUTINE.md § 4.5), notées dans `notes` et identiques sur toutes les langues :
 		- `cta A` : « learn something new every day, » / « in 5 minutes. » (fa-001 à fa-004, fa-007) ;
 		- `cta B` : « 5 minutes a day » / « to know a bit about everything. » (fa-005) ;
-		- `cta C` : « what I open » / « instead of scrolling. », conseil à la 1re personne, en 2e position (fa-006). Chaque lundi, la moins bonne des trois cède sa place à une nouvelle idée (ROUTINE.md § 4.5).
+		- `cta C` : « what I open » / « instead of scrolling. », conseil à la 1re personne, en 2e position (fa-006). Les vues ne jugent pas un CTA (30/10, ROUTINE.md § 4.5) : une version ne se change que si elle se répète ou sonne pub.
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».
 - **La carte UnSwipe** (`"type": "etape", "app": "unswipe"`, avec `carte`) : « UNSWIPE » et une ou deux lignes.
 	- Ce qu'elle fait vraiment : Instagram sans les Reels (on garde les messages, les stories et les posts des amis), les autres applis sans les vidéos courtes ni le scroll infini, une appli comme TikTok bloquée en entier. « no need to delete anything ».

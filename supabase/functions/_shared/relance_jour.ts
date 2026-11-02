@@ -48,7 +48,8 @@ export function planRelance(
   // L'étape 0 : pas sur Slack (lien d'invitation connu), le même délai que la connexion.
   const slack = o.slack === true && !x.deuxieme && !x.slack_user_id && Boolean(x.bienvenue_at) &&
     maintenant.getTime() >= new Date(x.bienvenue_at!).getTime() + (d.connexion_message_h ?? 24) * H;
-  const elements: ElementRelance[] = [...(slack ? ["slack" as const] : []), ...(etape.element ? [etape.element] : [])];
+  // 1/11 : l'étape la plus importante d'abord (dashboard > TikTok > Start warmup > follows), Slack en dernier.
+  const elements: ElementRelance[] = [...(etape.element ? [etape.element] : []), ...(slack ? ["slack" as const] : [])];
   return { element: elements[0] ?? null, elements, needsYou: false, follows: etape.follows };
 }
 
@@ -99,7 +100,8 @@ export interface TextesRelance {
 export const TEXTES_RELANCE_DEFAUT: TextesRelance = {
   cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. If something is blocking you, just reply here.",
   slack: "join our Slack: {slack}",
-  connexion: "log in to your dashboard: {url} (login: {email}, password: {mot_de_passe}; you can change it once logged in)",
+  // 1/11 : jamais de mot de passe (Upwork) : le lien personnel « Set my password », créé à l'envoi.
+  connexion: "log in to your dashboard: {url} with your login {email} (first time: set your password with your personal link {lien_mot_de_passe})",
   tiktok: "create your TikTok account @{handle} (how-to: {lien_etapes}), then click Start warmup on your dashboard and follow 5 accounts",
   warmup: "click Start warmup on your dashboard ({url}), then follow 5 accounts with @{handle}",
   follows: "follow {follows} with @{handle} (Start warmup is done)",
@@ -125,27 +127,126 @@ export function texteRelance(
     lien_etapes: string;
     cohorte_lundi: string;
     email: string | null | undefined;
-    mot_de_passe: string;
     /** Le lien d'invitation Slack (étape 0). */
     slack?: string;
+    /** 1/11 : « Start Tuesday » : le début est le mardi (« Tuesday {date} »), pas le lundi. */
+    mardi?: boolean;
   },
 ): string {
   if (!t.cadre.trim()) return "";
+  const cadre = o.mardi ? t.cadre.replace(/\bMonday(\s+\{date\})/g, "Tuesday$1") : t.cadre;
   const vars: Record<string, string> = {
     prenom: (o.prenom ?? "").trim() || "there",
     handle: (o.handle ?? "").replace(/^@/, ""),
     url: o.url,
     lien_etapes: o.lien_etapes,
-    date: dateAnglaise(o.cohorte_lundi),
+    date: dateAnglaise(o.mardi ? lendemain(o.cohorte_lundi) : o.cohorte_lundi),
     follows: `${plan.follows} more account${plan.follows > 1 ? "s" : ""}`,
     ...(o.email ? { email: o.email } : {}),
-    mot_de_passe: o.mot_de_passe,
     slack: (o.slack ?? "").trim(),
   };
   const morceaux = plan.elements
     .filter((e) => !(e === "connexion" && !o.email) && !(e === "slack" && !vars.slack))
-    .map((e) => remplir((t[e] ?? "").trim(), vars))
+    // 1/11 : un ancien texte qui donne encore un mot de passe : le texte par défaut (lien « Set my password »).
+    .map((e) => remplir(((t[e] ?? "").includes("{mot_de_passe}") ? TEXTES_RELANCE_DEFAUT[e] : t[e] ?? "").trim(), vars))
     .filter(Boolean);
   if (morceaux.length === 0) return "";
-  return remplir(t.cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+  return remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+}
+
+function lendemain(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+// ---------------------------------------------------------------------------
+// 1/11 : le canal de chaque relance (Slack d'abord, Upwork une fois 24 h après)
+// ---------------------------------------------------------------------------
+
+/** La dernière ligne de toute relance envoyée sur Upwork (jamais sur Slack). */
+export const LIGNE_STOP_UPWORK = "If you don't wish to continue, just reply STOP here.";
+
+export function avecLigneStop(texte: string): string {
+  const t = texte.trimEnd();
+  return t.endsWith(LIGNE_STOP_UPWORK) ? t : `${t}\n\n${LIGNE_STOP_UPWORK}`;
+}
+
+/** Ce qui est déjà parti pour une étape : l'heure de la relance Slack, de la relance Upwork. */
+export interface DejaRelance {
+  slack_at?: string | null;
+  upwork_at?: string | null;
+}
+
+export interface ChoixRelance {
+  element: ElementRelance | null;
+  canal: "slack" | "upwork" | null;
+  /** La relance Slack attend ses 24 h : l'heure à laquelle Upwork partira. */
+  upwork_prevu_at: string | null;
+}
+
+/**
+ * 1/11 : une seule relance par étape et par canal. Sur Slack : la relance part
+ * en DM Slack, jamais sur Upwork ; l'étape toujours pas faite 24 h après : une
+ * seule relance Upwork. Pas sur Slack (ou l'étape « rejoindre Slack ») : une
+ * seule relance Upwork, directement. Le 1er élément dû qui a encore un canal.
+ */
+export function choisirRelance(
+  plan: Pick<PlanRelance, "elements">,
+  surSlack: boolean,
+  deja: ReadonlyMap<string, DejaRelance> | undefined,
+  maintenant: Date,
+): ChoixRelance {
+  let attente: string | null = null;
+  for (const e of plan.elements) {
+    const d = deja?.get(e) ?? {};
+    if (surSlack && e !== "slack") {
+      if (!d.slack_at) return { element: e, canal: "slack", upwork_prevu_at: null };
+      if (d.upwork_at) continue;
+      const due = new Date(new Date(d.slack_at).getTime() + 24 * H);
+      if (maintenant >= due) return { element: e, canal: "upwork", upwork_prevu_at: null };
+      attente ??= due.toISOString();
+      continue;
+    }
+    if (!d.upwork_at) return { element: e, canal: "upwork", upwork_prevu_at: null };
+  }
+  return { element: null, canal: null, upwork_prevu_at: attente };
+}
+
+/** L'historique des relances parties (nudges) : par étape, l'heure de la 1re sur Slack et sur Upwork. */
+export function historiqueRelances(
+  envois: readonly { donnees?: { element?: unknown; elements?: unknown } | null; canaux?: string[] | null; envoye_at: string }[],
+): Map<string, DejaRelance> {
+  const h = new Map<string, DejaRelance>();
+  for (const n of [...envois].sort((a, b) => a.envoye_at.localeCompare(b.envoye_at))) {
+    const els = Array.isArray(n.donnees?.elements) ? (n.donnees!.elements as unknown[]).map(String)
+      : n.donnees?.element ? [String(n.donnees.element)] : [];
+    for (const e of els) {
+      const d = h.get(e) ?? {};
+      if ((n.canaux ?? []).includes("slack")) d.slack_at ??= n.envoye_at;
+      if ((n.canaux ?? []).includes("upwork")) d.upwork_at ??= n.envoye_at;
+      h.set(e, d);
+    }
+  }
+  return h;
+}
+
+/** 1/11 : chaque relance est signée (jamais de bot) ; le réglage `relance_signature` la change. */
+export const SIGNATURE_RELANCE_DEFAUT = "Vik Studios team";
+
+/** La relance signée (une seule fois), avant la ligne STOP d'Upwork. */
+export function signerRelance(texte: string, signature: string): string {
+  const t = texte.trimEnd();
+  if (!signature || !t || t.endsWith(signature)) return t;
+  return `${t}\n\n${signature}`;
+}
+
+/** Le même motif que l'onglet Sunday (0500) : STOP en majuscules, ou un retrait écrit en clair. */
+const STOP_MAJUSCULES = /\bSTOP\b/;
+const RETRAIT_ECRIT =
+  /^\s*stop\s*$|have to stop|withdraw|do not wish to (proceed|continue)|don't wish to (proceed|continue)|not be able to work|won't be able to work|no longer (interested|available)|cancel (the|my) contract/im;
+
+/** Le dernier message reçu dit STOP, ou que la recrue se retire : plus aucune relance. */
+export function messageDeRetrait(texte: string | null | undefined): boolean {
+  return Boolean(texte && (STOP_MAJUSCULES.test(texte) || RETRAIT_ECRIT.test(texte)));
 }

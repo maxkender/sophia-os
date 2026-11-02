@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o096",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "465aec8c-40b4-4232-9600-766c831a5b1a",
+ "titre": "7 unsexy habits that make you seriously attractive in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "465aec8c-40b4-4232-9600-766c831a5b1a"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 8, sur une image sans visage. Couverture f4bd619d. déclinaison G2 de la ligne 3 de la boîte (465aec8c, « 7 boring habits that'll make you dangerously attractive in your 20s », hu 5,1 k r 3,68, es 11,8 k r 2,88). Même promesse, autres mots. Accroches écrites : « 7 unsexy habits that make you seriously attractive in your 20s » (retenue), « 7 dull habits that secretly make you attractive » (écartée : « secretly » sonne racoleur), « Boring routines that make men attractive » (écartée : trop proche du parent). Items neufs.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f4bd619d",
+   "texte_overlay": "7 unsexy habits that make you\nseriously attractive in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Cooking real meals. Not just pasta with sauce from a jar. A man who can cook a proper dinner for someone shows care, independence and patience in a single evening.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Going to bed on time. Good sleep shows on your skin, your mood and your energy. The guy who looks rested and sharp at nine in the morning is quietly impressive.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keeping a tidy place. Made bed, clean bathroom, dishes done. When someone comes over, your space tells them everything about how you take care of your life.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Saving a bit every month. Even a small amount. Being calm about money instead of stressed and broke every month is one of the most attractive kinds of stability.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Calling your family. A quick call to your parents or grandparents each week. How a man treats the people who raised him says a lot about how he'll treat others.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Drinking water instead of the fourth beer. Clear head, better skin, no wasted Sundays. Knowing when to stop is a lot more attractive than being the drunkest guy there.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Curious men are interesting men, and interesting is the most underrated kind of attractive.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Curious men are interesting men, and that's seriously attractive.",
+   "media_id": "5305ee58"
+  }
+ ]
+}

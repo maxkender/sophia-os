@@ -63,3 +63,15 @@ export function refuseAuHm(roleAppelant: string, action: unknown, roleDemande?: 
   if (action === "ajouter_compte" || action === "ajouter_compte_perso" || action === "activer") return true;
   return action === "create" && roleDemande === "hiring_manager";
 }
+
+/** 1/11 : le message montré à une HM qui veut créer un posteur (interface et serveur). */
+export const MESSAGE_HM_NE_CREE_PLUS =
+  "You don't create posters anymore. The OS creates the poster and sends the welcome automatically when the offer is accepted. Your recruit is probably already created: check My cohort.";
+
+/**
+ * 1/11 : les HM (et les DM, bloquées comme elles) ne créent plus de posteurs :
+ * l'OS les crée quand l'offre est acceptée. L'admin et le Head of Ops gardent la création.
+ */
+export function creationPosteurCoupee(roleAppelant: string, action: unknown): boolean {
+  return (roleAppelant === "hiring_manager" || roleAppelant === "directing_manager") && action === "create";
+}

@@ -1,0 +1,213 @@
+{
+ "id": "mm-o030",
+ "format": "carrousel",
+ "titre": "What 30 days without short videos did to my brain",
+ "legendes": {
+  "en": "what 30 days without short videos did to my brain #brainrot #mentalmaxxing #dopaminedetox #selfimprovement",
+  "fr": "ce que 30 jours sans vidéos courtes ont fait à mon cerveau #brainrot #mentalmaxxing #detoxdopamine #developpementpersonnel",
+  "de": "was 30 Tage ohne Kurzvideos mit meinem Gehirn gemacht haben #brainrot #mentalmaxxing #dopamindetox #selbstverbesserung",
+  "es": "lo que 30 días sin vídeos cortos le hicieron a mi cerebro #brainrot #mentalmaxxing #detoxdedopamina #superacionpersonal",
+  "it": "cosa hanno fatto al mio cervello 30 giorni senza video brevi #brainrot #mentalmaxxing #detoxdopamina #crescitapersonale",
+  "tr": "kısa videosuz 30 günün beynime yaptıkları #brainrot #mentalmaxxing #dopamindetoks #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7691308606603447559/1",
+   "boite": [
+    250,
+    300,
+    630,
+    516
+   ]
+  },
+  "theme": {
+   "en": "30 days",
+   "fr": "30 jours",
+   "de": "30 Tage",
+   "es": "30 días",
+   "it": "30 giorni",
+   "tr": "30 gün"
+  },
+  "sous": {
+   "en": "without short videos",
+   "fr": "sans vidéos courtes",
+   "de": "ohne Kurzvideos",
+   "es": "sin vídeos cortos",
+   "it": "senza video brevi",
+   "tr": "kısa videosuz"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "How it started: I deleted short videos with UnSwipe. Here is what happened to my brain, week by week.",
+    "fr": "Comment ça a commencé : j’ai supprimé les vidéos courtes avec UnSwipe. Voilà ce qui est arrivé à mon cerveau, semaine après semaine.",
+    "de": "So fing es an: Ich habe Kurzvideos mit UnSwipe gelöscht. Das ist mit meinem Gehirn passiert, Woche für Woche.",
+    "es": "Cómo empezó: borré los vídeos cortos con UnSwipe. Esto es lo que le pasó a mi cerebro, semana a semana.",
+    "it": "Come è iniziato: ho eliminato i video brevi con UnSwipe. Ecco cosa è successo al mio cervello, settimana dopo settimana.",
+    "tr": "Nasıl başladı: kısa videoları UnSwipe ile sildim. Haftadan haftaya beynime olanlar şunlar."
+   }
+  },
+  {
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "Day 1",
+    "fr": "Jour 1",
+    "de": "Tag 1",
+    "es": "Día 1",
+    "it": "Giorno 1",
+    "tr": "1. gün"
+   },
+   "texte": {
+    "en": "I picked up my phone every few minutes, opened it, and had nothing to watch. It felt strange.",
+    "fr": "Je prenais mon téléphone toutes les deux minutes, je l’ouvrais, et rien à regarder. C’était bizarre.",
+    "de": "Ich griff alle paar Minuten zum Handy, entsperrte es und hatte nichts zu schauen. Es fühlte sich seltsam an.",
+    "es": "Cogía el móvil cada pocos minutos, lo abría y no había nada que ver. Era raro.",
+    "it": "Prendevo il telefono ogni pochi minuti, lo aprivo e non c’era niente da guardare. Era strano.",
+    "tr": "Birkaç dakikada bir telefonu alıp açıyordum ve izleyecek bir şey yoktu. Garip hissettirdi."
+   }
+  },
+  {
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "Day 3",
+    "fr": "Jour 3",
+    "de": "Tag 3",
+    "es": "Día 3",
+    "it": "Giorno 3",
+    "tr": "3. gün"
+   },
+   "texte": {
+    "en": "The boredom hit hard. Evenings felt long. This is where most people give up.",
+    "fr": "L’ennui a frappé fort. Les soirées semblaient longues. C’est là que la plupart abandonnent.",
+    "de": "Die Langeweile schlug hart zu. Die Abende fühlten sich lang an. Hier geben die meisten auf.",
+    "es": "El aburrimiento golpeó fuerte. Las noches se hacían largas. Aquí es donde casi todos abandonan.",
+    "it": "La noia ha colpito forte. Le serate sembravano lunghe. È qui che quasi tutti mollano.",
+    "tr": "Can sıkıntısı sert vurdu. Akşamlar uzun geldi. Çoğu insan burada bırakır."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Week 1",
+    "fr": "Semaine 1",
+    "de": "Woche 1",
+    "es": "Semana 1",
+    "it": "Settimana 1",
+    "tr": "1. hafta"
+   },
+   "texte": {
+    "en": "I started falling asleep earlier. No more scrolling until 1am, so my mornings got easier.",
+    "fr": "J’ai commencé à m’endormir plus tôt. Plus de scroll jusqu’à 1h, donc des matins plus faciles.",
+    "de": "Ich bin früher eingeschlafen. Kein Scrollen mehr bis 1 Uhr, also leichtere Morgen.",
+    "es": "Empecé a dormirme antes. Sin scroll hasta la 1, las mañanas se hicieron más fáciles.",
+    "it": "Ho iniziato ad addormentarmi prima. Niente scroll fino all’una, quindi mattine più facili.",
+    "tr": "Daha erken uyumaya başladım. Gece 1’e kadar kaydırma yok, sabahlar kolaylaştı."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Week 2",
+    "fr": "Semaine 2",
+    "de": "Woche 2",
+    "es": "Semana 2",
+    "it": "Settimana 2",
+    "tr": "2. hafta"
+   },
+   "texte": {
+    "en": "I read twenty pages in one sitting for the first time in years. My attention was coming back.",
+    "fr": "J’ai lu vingt pages d’un coup pour la première fois depuis des années. Mon attention revenait.",
+    "de": "Ich habe zum ersten Mal seit Jahren zwanzig Seiten am Stück gelesen. Meine Aufmerksamkeit kam zurück.",
+    "es": "Leí veinte páginas seguidas por primera vez en años. Mi atención estaba volviendo.",
+    "it": "Ho letto venti pagine di fila per la prima volta da anni. L’attenzione stava tornando.",
+    "tr": "Yıllardır ilk kez bir oturuşta yirmi sayfa okudum. Dikkatim geri geliyordu."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Week 3",
+    "fr": "Semaine 3",
+    "de": "Woche 3",
+    "es": "Semana 3",
+    "it": "Settimana 3",
+    "tr": "3. hafta"
+   },
+   "texte": {
+    "en": "Slow things felt good again. A full album, a long talk, a walk with no headphones.",
+    "fr": "Les choses lentes me plaisaient à nouveau. Un album entier, une longue discussion, une marche sans écouteurs.",
+    "de": "Langsame Dinge fühlten sich wieder gut an. Ein ganzes Album, ein langes Gespräch, ein Spaziergang ohne Kopfhörer.",
+    "es": "Lo lento volvió a gustarme. Un álbum entero, una charla larga, un paseo sin auriculares.",
+    "it": "Le cose lente sono tornate a piacermi. Un album intero, una lunga chiacchierata, una camminata senza cuffie.",
+    "tr": "Yavaş şeyler yine keyif vermeye başladı. Tam bir albüm, uzun bir sohbet, kulaklıksız bir yürüyüş."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Day 30",
+    "fr": "Jour 30",
+    "de": "Tag 30",
+    "es": "Día 30",
+    "it": "Giorno 30",
+    "tr": "30. gün"
+   },
+   "texte": {
+    "en": "I can focus for an hour straight. I do not miss the feed, and I am not going back.",
+    "fr": "J’arrive à me concentrer une heure d’affilée. Le feed ne me manque pas, et je n’y retourne pas.",
+    "de": "Ich kann mich eine Stunde am Stück konzentrieren. Ich vermisse den Feed nicht und gehe nicht zurück.",
+    "es": "Puedo concentrarme una hora seguida. No echo de menos el feed y no pienso volver.",
+    "it": "Riesco a concentrarmi per un’ora di fila. Il feed non mi manca, e non torno indietro.",
+    "tr": "Bir saat aralıksız odaklanabiliyorum. Akışı özlemiyorum ve geri dönmeyeceğim."
+   }
+  }
+ ],
+ "notes": "routine du 31/10 : accroche jamais faite chez nous (« what 30 days without short videos did to my brain »), récit jour par jour à la 1re personne. cta C : élément UnSwipe en 1er item (slide 2), il lance le récit."
+}

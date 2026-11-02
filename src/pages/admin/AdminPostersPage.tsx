@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DecisionPreparee } from "@/features/ckd/decisions/DecisionPreparee";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
@@ -988,7 +989,8 @@ export function AdminPostersPage() {
       });
     },
     onSuccess: (r) => {
-      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password, type: ugcVideo ? "ugc_video" : premierCompte });
+      // 31/10 : la création renvoie le mot de passe unique de la recrue (12345678 est remplacé).
+      setCree({ email: r.email, prenom: separerNomComplet(nomComplet).prenom, password: r.password ?? password, type: ugcVideo ? "ugc_video" : premierCompte });
       choixAppsPoster.reinitialiser();
       setNomComplet("");
       setContact(CONTACT_POSTER_VIDE);
@@ -1833,6 +1835,7 @@ export function AdminPostersPage() {
                   compact
                   compte={c}
                   applications={applicationsCompte(c)}
+                  labels={labelsComptes.data?.get(c.id) ?? []}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
                       {estCompteCm(c) ? (
@@ -2479,6 +2482,15 @@ export function AdminPostersPage() {
               />
 
               {fiche.role === "poster" && role === "admin" && <TarifPoster key={`tarif-${fiche.id}`} posterId={fiche.id} />}
+
+              {/* 0492 : préparer la décision du samedi (brouillon de Weekly decisions → Saturday). */}
+              {fiche.role === "poster" && role === "admin" && (
+                <DecisionPreparee
+                  key={`decision-${fiche.id}`}
+                  comptes={ficheComptes.filter((c) => c.is_active)}
+                  cohorteLundi={fiche.cohorte_lundi}
+                />
+              )}
 
               <div className="space-y-2">
                 <div className="flex items-baseline justify-between gap-2">

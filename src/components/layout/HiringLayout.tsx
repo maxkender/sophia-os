@@ -39,12 +39,17 @@ export function HiringLayout() {
             },
             // Paiements : retiré du menu (prompt 15, doublon de Paie, où sont
             // aussi les bonus à venir) ; la route /manager/paiements reste.
-            {
-              to: "/embauche",
-              label: t("nav.embauche"),
-              icon: UserPlus,
-              description: t("navDesc.embauche"),
-            },
+            // 1/11 : les HM ne créent plus de posteurs (l'OS le fait) ; le Head of Ops garde la page.
+            ...(role === "head_of_ops"
+              ? [
+                  {
+                    to: "/embauche",
+                    label: t("nav.embauche"),
+                    icon: UserPlus,
+                    description: t("navDesc.embauche"),
+                  },
+                ]
+              : []),
             {
               to: "/manager/calendrier",
               label: t("hiring.calendrierNav"),

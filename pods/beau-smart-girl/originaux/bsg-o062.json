@@ -1,0 +1,55 @@
+{
+ "source_id": "bsg-o062",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2f565f08-201d-4918-84f8-7bf90079cc97",
+ "titre": "different places where you can use vaseline that you might not know yet #selfcare #thatgirl",
+ "inspirations": [
+  "2f565f08-201d-4918-84f8-7bf90079cc97"
+ ],
+ "notes": "G1, déclinaison de 2f565f08 (« different places where you can use vaseline that you might not know yet », 5,5 k vues, r 5,27 en tchèque), écrite en anglais, la langue de la famille (ROUTINE §4.3). cta A (avant / après sur l'avant-dernière slide). Items neufs (rien de repris du parent : cils, pommettes, mains, parfum), sans promesse de soin ni conseil médical : cuticules, lèvres avant le rouge, sourcils, talons le soir. La marque Vaseline est un produit, pas une appli. Routine du 2/11, première sur BLEO (`npm run boite` : « oui »). Jauge : 1 full test et 7 déclinaisons. J'ai sauté la ligne 3 de la boîte (837491f7, « jobs for people who love enterimarnt ») : son accroche porte une faute de frappe qu'une G1 devrait recopier mot pour mot, et ses slides donnent des salaires que je ne peux pas vérifier. Images de la banque, assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01ff5ba8",
+   "texte_overlay": "different places where you can use\nvaseline that you might not know yet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f7fd2055",
+   "texte_overlay": "1. your cuticles\n\na tiny bit on each nail before bed.\nyour hands look done even when they're not.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "07d4ebd9",
+   "texte_overlay": "2. under your lipstick\n\na thin layer first, then blot.\nthe colour goes on smoother.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "11238a77",
+   "texte_overlay": "3. your brows\n\na little on a clean spoolie.\nthey stay in place all day, no gel needed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e1746fcf",
+   "texte_overlay": "4. your heels at night\n\nput on cotton socks after.\nin the morning, you'll feel the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0acb5ff4",
+   "texte_overlay": "5. your mind? no, that one needs something else.\n\nbefore, i nodded along when people talked about art or history.\nnow i learn one thing about the world every morning. and i'm the one telling the stories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+   "texte_sophia": "5. your mind? no, that one needs something else.\n\nbefore, i nodded along when people talked about art or history.\nnow i open the Sophia app every morning. and i'm the one telling the stories."
+  },
+  {
+   "position": 7,
+   "media_id": "04645869",
+   "texte_overlay": "which one are you trying tonight?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  }
+ ]
+}

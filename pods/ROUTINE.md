@@ -13,9 +13,13 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 - **Voie 2**, les podz de remakes (1, 6, 10 et 11) : ils suivent leur liste,
   comme avant (§5).
 
-> **Bascule des podz (lundi 2/11).** Podz de la voie 1 : lance d'abord
-> `npm run boite`. S'il affiche « podz sur BLEO : pas encore », suis
-> `pods/ROUTINE-avant-bleo.md` aujourd'hui, à la place de ce fichier.
+> **Les podz de la voie 1 sont sur BLEO depuis le dimanche 1/11 au soir**
+> (ta routine du lundi 2/11 est la première). Lance d'abord `npm run boite` :
+> il affiche « podz sur BLEO : oui ». Chaque original déclare `type_bleo` ;
+> un refus du guichet se règle avec le tableau du §4.6 et son code va dans le
+> compte rendu. Ta consigne de routine parle peut-être encore de « preuve » :
+> ce fichier prime, il n'y en a plus. Si `npm run boite` affichait « pas
+> encore » (retour arrière), suis `pods/ROUTINE-avant-bleo.md`.
 
 ## 1. Repartir propre
 
@@ -54,6 +58,14 @@ vues, ou r ≥ 2) entre dans ta **boîte** : c'est elle que tu déclines. Une
 accroche jamais faite chez nous est un **full test** : BLEO la teste, et si
 elle gagne, elle entre à son tour dans la boîte.
 
+**Images : toutes ont une légende.** Depuis le 30/10, chaque image de ta
+banque a une description en anglais (les nouvelles en reçoivent une à
+l'import). Cherche par mots plutôt que de feuilleter les planches :
+`npm run images -- --cherche "desk night"` (chaque mot doit apparaître ; les
+images les moins utilisées sortent d'abord). Les planches restent utiles pour
+juger l'image elle-même : la légende dit ce qu'il y a dessus, pas si elle est
+belle.
+
 ### 4.1 Lire la boîte
 
 `npm run boite` donne, dans l'ordre :
@@ -70,8 +82,14 @@ elle gagne, elle entre à son tour dans la boîte.
 2. **Les full tests** : autant que la jauge en demande aujourd'hui (« Reste à
    faire »).
 3. **Les déclinaisons**, pour le reste de tes `par_jour`, dans l'ordre de la
-   boîte : la ligne 1, puis la 2, etc. Une ligne « au budget » se décline
-   quand même (ses posts partiront un peu plus tard).
+   boîte : la ligne 1, puis la 2, etc. La boîte n'a qu'**une ligne par
+   famille**, et une famille ne se décline **qu'une fois par jour** (le
+   guichet refuse la deuxième : `famille_du_jour`). Deux familles au hook
+   presque pareil (« 6 hobbies that make you unexpectedly smarter » et « 6
+   hobbies that make you smarter without actually studying ») comptent comme
+   une : la seconde est refusée le même jour (`accroche_voisine`). Les familles « au budget »
+   (déjà très diffusées cette semaine) sont en fin de boîte : ne les prends que
+   s'il ne reste rien d'autre.
 4. **Boîte vide** : uniquement des full tests, et dis-le dans ton compte rendu.
 
 ### 4.3 Écrire une déclinaison
@@ -84,13 +102,21 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   changer, pas les mots).
 - **G2** (« accroche à REFORMULER ») : la même promesse, avec d'autres mots.
   Le parent est une G1 qui a gagné.
+- **Langue** : une déclinaison s'écrit **dans la langue source de son parent**
+  (`parent.langue_source` dans la boîte), même si ton `AGENT.md` dit d'écrire
+  dans une autre langue. Attention : le post montré par la boîte est le passage
+  du parent qui a le mieux marché, souvent une **traduction** (fr, pl, es…) ;
+  sa langue n'est pas celle du parent. La G1 reprend l'accroche de la colonne
+  « accroche » de la boîte, mot pour mot ; traduite, le guichet la refuse
+  (`accroche_differente`). La boîte d'un label mélange des familles anglaises et
+  françaises ; l'OS traduit ensuite le post pour chaque compte. Tes full tests
+  restent dans ta langue habituelle.
 - Dans `originaux/<id>.json` : `"type_bleo": "declinaison"` et
   `"parent_contenu_id": "<l'id complet de la boîte>"`. Ni `schema_id` ni
   preuve.
 - Images : `npm run images -- --depuis <8 premiers caractères du parent>`
-  pour voir celles du parent ; pioche aussi dans le reste de la banque,
-  par exemple `npm run images -- --cherche "desk night"` (les légendes des
-  images sont en anglais ; les moins utilisées sortent d'abord).
+  pour voir celles du parent ; pioche aussi dans le reste de la banque avec
+  `--cherche` (voir plus haut).
 
 ### 4.4 Écrire un full test
 
@@ -99,20 +125,23 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
   une G2, pas un full test : prends la ligne de la boîte).
 - Les idées viennent de ton `AGENT.md`, de ton playbook et de ce qui perce
   chez les autres podz.
+- Images : `npm run images -- --cherche "…"` avec les mots de ton accroche
+  ou de chaque slide.
 - Dans `originaux/<id>.json` : `"type_bleo": "full_test"`, sans parent.
 
-### 4.5 Tester les CTA, toujours
+### 4.5 Varier les CTA
 
 Si tu écris toi-même la slide de l'appli, tiens **3 versions vraiment
 différentes** de cette slide (`cta A`, `cta B`, `cta C`) et alterne-les d'une
-livraison à l'autre. Elles diffèrent par :
+livraison à l'autre, pour que nos posts ne se ressemblent pas. Elles diffèrent par :
 - la phrase d'appel (pas toutes « a micro-learning app like… ») ;
 - la forme : capture d'écran de l'appli, avant/après, conseil à la
   1re personne, liste où l'appli est un item parmi d'autres… ;
 - la position dans le deck (pas toujours la même slide).
-Note la version dans `notes` (`cta A`…). **Chaque lundi, remplace la moins
-bonne version par une nouvelle idée.** Podz dont l'OS place l'appli (12) : pas
-concerné.
+Note la version dans `notes` (`cta A`…). Les vues ne jugent pas un CTA (décision d'Adrien du 30/10 : il arrive à la slide 4 ou plus loin, après que la vue est comptée) : ne compare pas tes
+versions à leurs vues et n'en remplace aucune pour ça. Change une version
+seulement si elle se répète d'un post à l'autre ou sonne pub (fiche CTA, page
+Fiches de l'OS). Podz dont l'OS place l'appli (12) : pas concerné.
 
 ### 4.6 Ce que le guichet refuse
 
@@ -122,6 +151,8 @@ prends la ligne suivante de la boîte.
 | Code | Ce qu'il veut dire | Que faire |
 | --- | --- | --- |
 | `quota_atteint` | Ce parent a déjà ses 3 déclinaisons | La ligne suivante de la boîte |
+| `famille_du_jour` | Cette famille a déjà une déclinaison aujourd'hui (une par famille et par jour) | La ligne suivante de la boîte |
+| `accroche_voisine` | Une livraison du jour de ton label a déjà un hook presque pareil (mêmes mots pour l'essentiel) | La ligne suivante de la boîte |
 | `famille_close`, `famille_non_gagnante` | La famille n'est plus dans la boîte | Relance `npm run boite`, la ligne suivante |
 | `famille_inconnue` | Le parent vient d'être validé, pas encore rattaché | Le décliner demain |
 | `generation_max`, `parent_non_gagnant` | Pas de G3, et une G2 se fait sur une G1 gagnante | Le parent de la ligne de la boîte, tel quel |
@@ -184,7 +215,7 @@ Tu ne postes rien sur Slack : le chef des podz fait le point dans #podz.
 - **Tu ne publies jamais rien** : tout passe par la file de validation
   (Pilotage → Pods).
 - **Ton podz est « sûr »** (sauf la vidéo) : une livraison est validée toute
-  seule 12 h après son dépôt si personne ne la rejette. Relis-la
+  seule 5 h après son dépôt si personne ne la rejette. Relis-la
   comme si personne d'autre ne la relisait : faits vrais, aucune autre appli,
   aucune personne réelle sur la slide de l'app, chaque slide regardée.
 - **Un outil échoue deux fois**, le budget Apify est atteint, ou une règle de

@@ -1,0 +1,315 @@
+{
+ "id": "fa-034",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7690268559347322134",
+  "vues": 52900,
+  "accroche": "10/10 Skills To Learn Before 2027"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn Before 2027",
+  "de": "10/10 Skills zum Lernen vor 2027",
+  "pt": "10/10 habilidades para aprender antes de 2027"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn Before 2027 #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills zum Lernen vor 2027 #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para aprender antes de 2027 #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta A. Ses étapes cuisine et croquis, puis guitare et natation à la place des échecs et de la voiture (déjà faits ailleurs). Sophia à l'étape 3 « GET SMARTER EVERY DAY ». en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "BEFORE 2027",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS ZUM LERNEN",
+     [
+      {
+       "t": "VOR 2027",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "ANTES DE 2027",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "COOK LIKE",
+     "A CHEF"
+    ],
+    "video": {
+     "id": "BHcyuzXRqLs",
+     "titre": "50 Cooking Tips With Gordon Ramsay | Part One",
+     "chaine": "Gordon Ramsay",
+     "vues": "15M views",
+     "date": "5 years ago",
+     "duree": "20:19",
+     "avatar": "https://yt3.ggpht.com/iu8M-gugkNvz-lHxC1sMEfAlL7ONWbP91c5SM9bb98oCJAcYUl0HIAMZFFR2Dd-soGag1Y1y8A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KOCH WIE",
+     "EIN PROFI"
+    ],
+    "video": {
+     "id": "O6w-_zfLv3c",
+     "titre": "Wie schneidet man richtig? | Schneiden wie ein Profi | Hensslers Anleitungen, Tipps & Tricks",
+     "chaine": "Hensslers Schnelle Nummer",
+     "vues": "220.417 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzFVEhUot0wKNVudbAJeBJl6DnH0pnbaocY3AIDgzTIKM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COZINHA",
+     "COMO UM CHEF"
+    ],
+    "video": {
+     "id": "ZfHQ6SpUqB8",
+     "titre": "Aprenda a cozinhar melhor com esses truques!",
+     "chaine": "Paola Carosella",
+     "vues": "1,5 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "41:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SKETCH",
+     "ANYTHING"
+    ],
+    "video": {
+     "id": "SDQEaJY291A",
+     "titre": "How To Sketch ANYTHING! | Urban Sketching Objects For Beginners",
+     "chaine": "Sketching Scottie",
+     "vues": "2.2M views",
+     "date": "1 year ago",
+     "duree": "20:22",
+     "avatar": "https://yt3.ggpht.com/Oep4OvFb2HPXDkt2V9jqPAh3Aqu_QQR2p0z--pCI40AaYXUTo7ZXV1jSMEd_SCiRVkel2wdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ZEICHNE",
+     "ALLES"
+    ],
+    "video": {
+     "id": "DSkqMdGsb-c",
+     "titre": "Von 0 bis 100 Zeichnen lernen | Roadmap | DrawinglikeaSir",
+     "chaine": "Drawinglikeasir",
+     "vues": "396.913 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "19:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZbkCqLeD02-0cFZWNhoiKBKJGZ7cLImfpN-MWQr_6miY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A",
+     "DESENHAR"
+    ],
+    "video": {
+     "id": "r4H9tbtWsv4",
+     "titre": "COMO APRENDER A DESENHAR DO ZERO",
+     "chaine": "Vick Arts",
+     "vues": "339 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:26",
+     "avatar": "https://yt3.ggpht.com/4jDnBBRZLoPCW4D2dg4aau1D8sASjYbEMJV9Octxn7PXp9HJ1QtA-y3dyQCODAuRHxRrLQ1jyf8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "GET SMARTER",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "KLÜGER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "MAIS SÁBIO",
+     "A CADA DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY THE",
+     "GUITAR"
+    ],
+    "video": {
+     "id": "BBz-Jyr23M4",
+     "titre": "Guitar Lesson 1 - Absolute Beginner? Start Here! [Free 10 Day Starter Course]",
+     "chaine": "Andy Guitar",
+     "vues": "39M views",
+     "date": "10 years ago",
+     "duree": "16:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3JrPpx35JfjrJ7I1Ta4Il7w7eLhwwIqpGFPKxz9jkrhy=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL",
+     "GITARRE"
+    ],
+    "video": {
+     "id": "fwJ7knXMLj4",
+     "titre": "Gitarre lernen für Anfänger - Deine erste Gitarrenstunde - einfach & auf Deutsch",
+     "chaine": "Gitarre lernen (werdemusiker.de)",
+     "vues": "3,3 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "35:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2oifu8pRIRvGh8eRjWF_FJVHNTfELGrPW7Y7zLBSImA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TOCA",
+     "GUITARRA"
+    ],
+    "video": {
+     "id": "2TD3u30oQtM",
+     "titre": "Primeira Aula de Violão Para Iniciantes 🎸 Aprenda do Zero Passo a Passo",
+     "chaine": "Paulo Sousa",
+     "vues": "1,1 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "17:42",
+     "avatar": "https://yt3.ggpht.com/hXgl0yTWda_MErjhr1vEoIwldCV-RMZTPrJ15qM-QZxi230Mwu9tC3-qsYY6VVYOtLC1upjJIlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO SWIM"
+    ],
+    "video": {
+     "id": "VNdUONyi2hU",
+     "titre": "How To Swim For Beginners",
+     "chaine": "Christian Wedoy",
+     "vues": "2.3M views",
+     "date": "3 years ago",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lStyIX03EPDOwwt25BfToa3A5V683OyNoj_OdzueRdya8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "SCHWIMMEN"
+    ],
+    "video": {
+     "id": "g2h_xpftixg",
+     "titre": "Richtig Brustschwimmen - #fitwoch mit Patric Heizmann",
+     "chaine": "10 Jahre Gesundheitscontent – DAK-Gesundheit",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/vTEBmQ5s0O7z-JJZ3BPpvbmOZ9xefySvIOmOHWyCawqv3ILZAYoVZs5Vbc7RsenXsqPgC3EeuV8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A NADAR"
+    ],
+    "video": {
+     "id": "gFmvq44tHUc",
+     "titre": "[PASSO A PASSO] APRENDA A NADAR DO ZERO-  AULA 1| NATAÇÃO PARA INICIANTES DE FORMA PRÁTICA E SIMPLES",
+     "chaine": "Nade com Bia e Edu",
+     "vues": "478 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/B4--cpJcIO2FHLq1hmzOdtK1ybe2bQ7D2l_2P5LOE74iOtlpk0Q-dIReUhsFqH3WJkuO3tXUHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

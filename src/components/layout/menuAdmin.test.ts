@@ -7,7 +7,7 @@ import { PAGES_AUTO } from "@/features/auto/pages";
 const source = fs.readFileSync(path.join(process.cwd(), "src/components/layout/AdminLayout.tsx"), "utf8");
 
 describe("menu admin (prompt 22)", () => {
-  it("Recruitment Automation sous Tracking, 11 pages dans l'ordre demandé", () => {
+  it("Recruitment Automation sous Tracking, 12 pages dans l'ordre demandé", () => {
     expect(PAGES_AUTO.map((p) => p.to)).toEqual([
       "/admin/auto",
       "/admin/auto/recruits",
@@ -16,6 +16,7 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/sent",
       "/admin/auto/received",
       "/admin/auto/needs-you",
+      "/admin/auto/problems",
       "/admin/auto/disputes",
       "/admin/auto/payroll",
       "/admin/auto/faq",

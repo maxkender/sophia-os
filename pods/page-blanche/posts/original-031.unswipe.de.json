@@ -1,0 +1,246 @@
+{
+ "post_id": "original-031",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "die öde morgenroutine, die meinen fokus rettete"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(kein 5 uhr, kein eisbad)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone first thing",
+      "in the morning"
+     ],
+     "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "1. mein handy [[schläft in der küche]], nicht neben mir"
+    },
+    "T2": {
+     "en": [
+      "the first thing you see sets the tone, and right",
+      "now it’s notifications and other people’s lives"
+     ],
+     "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
+     "texte": "früher war tiktok mein wecker. augen auf und ich war schon [[im morgen der anderen]], vor meinem eigenen"
+    },
+    "T3": {
+     "en": [
+      "give yourself the",
+      "first 30 minutes",
+      "without your phone"
+     ],
+     "fr": "passe [[les 30 premières minutes]] sans ton tel",
+     "texte": "ein billiger wecker weckt mich jetzt, [[kein feed]]"
+    },
+    "T4": {
+     "en": [
+      "you start the day doing what you chose, instead of",
+      "reacting to whatever your phone throws at you"
+     ],
+     "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
+     "texte": "das erste im kopf sind jetzt [[meine eigenen gedanken]], keine pushs. allein das verändert den tag"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "2. wasser, dann [[10 seiten zum kaffee]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "ein großes glas wasser am offenen fenster, während der kaffee durchläuft"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "dann 10 seiten aus einem echten buch, solange die tasse warm ist. kein ziel, kein tracking, nur [[10 seiten]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "mein kopf fährt [[langsam hoch]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "3. das handy [[im bus]]"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "im bus ist früher mein fokus gestorben, [[40 min reels]] vor 9 uhr"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found readup which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "jetzt schau ich raus, schreib freunden oder [[denk an meinen tag]]. ich komm mit ruhigem kopf an"
+    },
+    "T4": {
+     "en": [
+      "it builds patience, attention,",
+      "memory, and the ability to",
+      "keep going without constant",
+      "stimulation"
+     ],
+     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+     "texte": "insta hat noch nachrichten und storys von freunden, nur keine reels mehr. [[die UnSwipe-App]] nimmt sie raus"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "4. [[nur eine aufgabe]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "bevor ich laptop oder mails aufmache"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "ich schreib das eine ding auf, das den tag zum erfolg macht. keine to-do-liste, [[nur eine zeile]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "wenn der tag chaotisch wird, schau ich auf diese zeile und weiß, [[was wirklich zählt]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build a life where discipline is the",
+      "default"
+     ],
+     "fr": "construis une vie où [[la discipline va de soi]]",
+     "texte": "5. die erste stunde gehört [[dem schwersten]]"
+    },
+    "T2": {
+     "en": [
+      "stop relying on motivation to do basic things"
+     ],
+     "fr": "arrête de miser sur la motivation pour les bases",
+     "texte": "keine mails, keine chats, keine kleinen erfolge"
+    },
+    "T3": {
+     "en": [
+      "put your phone in another",
+      "room, lay out your gym",
+      "clothes the night before,",
+      "and keep distractions out",
+      "of reach"
+     ],
+     "fr": "mets ton tel dans une autre pièce, [[prépare tes affaires de sport la veille]] et garde les distractions hors de portée",
+     "texte": "mein kopf ist noch ruhig vom morgen, also mach ich jetzt das, was ich sonst [[auf 16 uhr schieben würde]]"
+    },
+    "T4": {
+     "en": [
+      "the less you have to fight",
+      "yourself to do the right",
+      "thing"
+     ],
+     "fr": "moins t'as à te battre contre toi-même pour bien faire",
+     "texte": "um 10 ist das schwerste des tages [[schon geschafft]]"
+    },
+    "T5": {
+     "en": [
+      "the more friction you remove, the more consistent",
+      "you'll become"
+     ],
+     "fr": "plus tu retires de friction, [[plus tu gagnes en régularité]]",
+     "texte": "nichts besonderes, nur [[jeden morgen dieselbe öde reihenfolge]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

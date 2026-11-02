@@ -8,8 +8,9 @@ import { ACCUEIL_HO } from "./pagesHeadOfOps";
 const ACCUEIL: Record<Role, string> = {
   admin: ACCUEIL_ADMIN,
   poster: "/calendrier",
-  hiring_manager: "/embauche",
-  directing_manager: "/embauche",
+  // 1/11 : les HM ne créent plus de posteurs : elles arrivent sur My cohort.
+  hiring_manager: "/manager/accueil",
+  directing_manager: "/manager/accueil",
   head_of_ops: ACCUEIL_HO,
 };
 

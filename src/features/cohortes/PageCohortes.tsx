@@ -15,6 +15,8 @@ import { drapeauPays } from "@/features/moteur/pays";
 import { lireReglagesRelances } from "@/features/nudges/api";
 import { localeDate } from "@/locales/localeDate";
 import { cn } from "@/lib/utils";
+import { type Conversation, conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 
 import { arreterRecrue, lireCohortes, lireRecrues, relierContrat, type RecrueCohorte } from "./api";
 import { AccueilAuto } from "@/features/accueil/AccueilAuto";
@@ -196,7 +198,7 @@ function LierContrat({ r }: { r: RecrueCohorte }) {
   );
 }
 
-function Recrue({ r, lectureSeule }: { r: RecrueCohorte; lectureSeule?: boolean }) {
+function Recrue({ r, lectureSeule, conv }: { r: RecrueCohorte; lectureSeule?: boolean; conv?: Conversation }) {
   const { t } = useTranslation();
   return (
     <div className="min-w-0 space-y-0.5">
@@ -214,6 +216,8 @@ function Recrue({ r, lectureSeule }: { r: RecrueCohorte; lectureSeule?: boolean 
           .filter(Boolean)
           .join(" · ")}
       </p>
+      {/* 0469 : la conversation Upwork et le contrat. */}
+      {r.contrat_id && <LienConversation c={conv ?? { contrat_id: r.contrat_id, room_id: null }} />}
       {!r.contrat_id && !lectureSeule && <LierContrat r={r} />}
     </div>
   );
@@ -263,6 +267,7 @@ export function TableauRecrues({
   };
 
   const lignes = trierRecrues(recrues, aujourdhui);
+  const conv = useConversations(lignes.map((r) => r.poster_id), lignes.map((r) => r.contrat_id));
   return (
     <div className="space-y-2">
       {erreur && <p className="text-sm text-destructive">{erreur.message}</p>}
@@ -288,7 +293,7 @@ export function TableauRecrues({
               return (
                 <tr key={r.poster_id} data-recrue={r.poster_id} data-rouge={rouge || undefined} className={cn(rouge && "bg-destructive/5")}>
                   <td className={TD}>
-                    <Recrue r={r} lectureSeule={lectureSeule} />
+                    <Recrue r={r} lectureSeule={lectureSeule} conv={conversationDe(conv.data, { posteur: r.poster_id, contrat: r.contrat_id })} />
                   </td>
                   {ETAPES_PREPA.map((e) => (
                     <td key={e} className={TD} data-case={e}>
@@ -477,6 +482,8 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
   const [anciennes, setAnciennes] = React.useState(false);
   const choisie = choix ?? cohorteParDefaut(lundis, aujourdhui);
   const [filtres, setFiltres] = React.useState<FiltresCohorte>(FILTRES_VIDES);
+  // Les recrues arrêtées (Kill, retrait, contrat fermé) sont archivées : hors du tableau, sauf à la demande.
+  const [archives, setArchives] = React.useState(false);
 
   const recrues = useQuery({
     queryKey: [...CLE, "recrues", choisie ? [choisie] : []],
@@ -490,7 +497,8 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
 
   const visibles = anciennes ? cohortes.data ?? [] : (cohortes.data ?? []).slice(0, 6);
   const toutes = recrues.data ?? [];
-  const lignes = filtrer(toutes, filtres);
+  const nbArchivees = toutes.filter((r) => !r.is_active).length;
+  const lignes = filtrer(archives ? toutes : toutes.filter((r) => r.is_active), filtres);
   const nbSansContrat = toutes.filter((r) => r.is_active && sansContrat(r)).length;
   const hms = [...new Map(toutes.filter((r) => r.hm_id).map((r) => [r.hm_id!, r.hm_prenom ?? "—"])).entries()].sort((a, b) =>
     a[1].localeCompare(b[1]),
@@ -604,6 +612,11 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
           ))}
         </select>
         <span className="text-muted-foreground">{t("cohortes.nbLignes", { n: lignes.length })}</span>
+        {nbArchivees > 0 && (
+          <Button size="sm" variant="ghost" aria-pressed={archives} data-testid="voir-archivees" onClick={() => setArchives((x) => !x)}>
+            {archives ? t("cohortes.masquerArchivees") : t("cohortes.archivees", { n: nbArchivees })}
+          </Button>
+        )}
         {filtre && (
           <Button size="sm" variant="ghost" onClick={() => setFiltres(FILTRES_VIDES)}>
             <Minus className="size-3" aria-hidden />

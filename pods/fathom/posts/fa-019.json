@@ -1,0 +1,324 @@
+{
+ "id": "fa-019",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7672019241062747425",
+  "vues": 2900000,
+  "accroche": "5 Pointless Skills That Make You Instantly Cooler"
+ },
+ "titre": {
+  "en": "5 Pointless Skills That Make You Instantly Cooler",
+  "de": "5 nutzlose Skills, die dich sofort cooler machen",
+  "pt": "5 habilidades inúteis que te tornam logo mais fixe"
+ },
+ "legendes": {
+  "en": "5 Pointless Skills That Make You Instantly Cooler #skills #learnontiktok #selfimprovement",
+  "de": "5 nutzlose Skills, die dich sofort cooler machen #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "5 habilidades inúteis que te tornam logo mais fixe #habilidades #aprendernotiktok #desenvolvimentopessoal"
+ },
+ "musique": {
+  "titre": "Cinderella (Instrumental)",
+  "url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864"
+ },
+ "notes": "Variante de fa-003 (sa reprise à 2,5 M, sans « ! »). cta A. Sophia à l'étape 3 « KNOW A FUN FACT FOR EVERY SITUATION ». Pas d'UnSwipe. Autres compétences (siffler avec les doigts, rouler une pièce, mélanger les cartes, moonwalk), autres vidéos. en, de et pt (Portugal).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "POINTLESS SKILLS",
+     "THAT MAKE YOU",
+     [
+      {
+       "t": "INSTANTLY ",
+       "bronze": true
+      },
+      {
+       "t": "COOLER"
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "NUTZLOSE SKILLS",
+     "DIE DICH SOFORT",
+     [
+      {
+       "t": "COOLER ",
+       "bronze": true
+      },
+      {
+       "t": "MACHEN"
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES INÚTEIS",
+     "QUE TE TORNAM",
+     [
+      {
+       "t": "LOGO ",
+       "bronze": true
+      },
+      {
+       "t": "MAIS FIXE"
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHISTLE WITH",
+     "YOUR FINGERS"
+    ],
+    "video": {
+     "id": "FCVDBmISkb0",
+     "titre": "Learn How To Whistle With Your Fingers Correctly In One Minute",
+     "chaine": "Cleverly",
+     "vues": "6.2M views",
+     "date": "9 years ago",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGARwanznO9v7FNvqNU3Y-rCazCyf3MdPkpPSRMx-w-g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MIT DEN FINGERN",
+     "PFEIFEN"
+    ],
+    "video": {
+     "id": "wplrsLNlcCQ",
+     "titre": "Finger Pfeifen lernen in 1 Minute: Ganz einfacher Trick!",
+     "chaine": "Geniale Tricks",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdBmeG7-5-th3cc0TKCNATjhyWimQJmHiR-B3S2EyoZR0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ASSOBIAR",
+     "COM OS DEDOS"
+    ],
+    "video": {
+     "id": "gRSrb5sW6Uc",
+     "titre": "Em 1 minuto: aprenda a assobiar bem alto usando os dedos",
+     "chaine": "O Sagaz",
+     "vues": "2,8 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrL4829IFdJvK796drsGOg6c65AZLN8D6cHvgsPpovtg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "ROLL A COIN",
+     "ACROSS YOUR KNUCKLES"
+    ],
+    "video": {
+     "id": "wbokdZh7_Gg",
+     "titre": "Coin Trick: How to Roll a Coin Across Your Knuckles [HD]",
+     "chaine": "52Kards",
+     "vues": "19M views",
+     "date": "14 years ago",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfl-uIm_qPFEB0SA6FhHFzyauPPp3b43uTq-nWsk7eo2k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "EINE MÜNZE ÜBER",
+     "DIE FINGER ROLLEN"
+    ],
+    "video": {
+     "id": "JKevQ-MPtvo",
+     "titre": "MÜNZE ÜBER FINGER ROLLEN LERNEN (Tutorial/ Erklärung) - COIN ROLL",
+     "chaine": "Soka Magic",
+     "vues": "68.805 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "3:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXK6KE9B9HoLrJB1YYZ44Il25GVY02Ls3oO-dqZKyQ-zA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ROLAR UMA MOEDA",
+     "ENTRE OS DEDOS"
+    ],
+    "video": {
+     "id": "TLhwGsRIuLM",
+     "titre": "Tutorial: Como rolar uma moeda entre os dedos - Coin Roll",
+     "chaine": "Pedro Martins",
+     "vues": "2,5 mi visualizações",
+     "date": "há 14 anos",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkfQYxBlSfFMcXw-s1vSVJBIsrBH1BvLWTD02V-ipUEQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A FUN FACT FOR",
+     "EVERY SITUATION"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FÜR JEDE LAGE",
+     "EINEN FUN FACT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UMA CURIOSIDADE",
+     "PARA CADA SITUAÇÃO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SHUFFLE CARDS",
+     "LIKE A DEALER"
+    ],
+    "video": {
+     "id": "NdCia_d1u5c",
+     "titre": "How to shuffle cards for beginners // Riffle Shuffle with Bridge in the hands tutorial",
+     "chaine": "Jason Parker",
+     "vues": "3.9M views",
+     "date": "7 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/cHunnVr-52XnDIdM3izDltpnOvykNKpbTeXQ880tofpzjPtfOBu1aX2aHIOkNwi8Z5_1ofZ-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KARTEN MISCHEN",
+     "WIE IM CASINO"
+    ],
+    "video": {
+     "id": "G2Axf9JeXdE",
+     "titre": "COOL Karten mischen lernen - in nur 3 Minuten!",
+     "chaine": "BRITTZZ TV",
+     "vues": "50.608 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/Hv7lK5z4CPAFKbhkjLXFk5RunKswzav0VX40_zSfq4F4ak9xxUR0IQ6rRc0LZX6nZjQoTw7cTLc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "BARALHAR CARTAS",
+     "COMO UM CROUPIER"
+    ],
+    "video": {
+     "id": "zhVZgARkMbA",
+     "titre": "Como embaralhar as cartas: 3 maneiras para iniciantes",
+     "chaine": "El King Cards",
+     "vues": "209 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/JcBzbW5nQdCvrxQWWOoWEaGEYJPfo4b1aDPcjU-NQo1x1u5qmFn0kKexL-nT2d1-y2Lii2J2=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MOONWALK"
+    ],
+    "video": {
+     "id": "QGm6v9-1ZBU",
+     "titre": "How to Moonwalk (Dance Moves Tutorial) | Mihran Kirakosian",
+     "chaine": "MihranTV",
+     "vues": "15M views",
+     "date": "9 years ago",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2ooSofRqRR5dqOeSdIZo_JGB3y15N-Gz2NoxMz1dXkw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MOONWALK"
+    ],
+    "video": {
+     "id": "JCfDQzMkENw",
+     "titre": "So lernt man den Moonwalk",
+     "chaine": "wikiHow",
+     "vues": "5,4 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "1:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAnt7otjj3Au0r0tPKfg6k8dLPTyIa3T5hAAia0EBjWrau=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "MOONWALK"
+    ],
+    "video": {
+     "id": "5coL6Aye56A",
+     "titre": "Como Fazer O Moonwalk",
+     "chaine": "wikiHow",
+     "vues": "685 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "1:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAnt7otjj3Au0r0tPKfg6k8dLPTyIa3T5hAAia0EBjWrau=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

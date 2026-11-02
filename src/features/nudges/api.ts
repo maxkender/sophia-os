@@ -79,7 +79,7 @@ export interface RelancePrevue {
 export async function lireRelancesPrevues(): Promise<RelancePrevue[]> {
   const { data, error } = await supabase
     .from("relances_prevues")
-    .select("poster_id, type, periode, statut, canal, texte, raison, maj_at, profiles(prenom, nom)")
+    .select("poster_id, type, periode, statut, canal, texte, raison, maj_at, profiles!relances_prevues_poster_id_fkey(prenom, nom)")
     // Prompt 25 : Planned = ce que le mode Test prévoit et ce qui est bloqué ; To approve et la file d'envoi sont ailleurs.
     .in("statut", ["prevu", "bloque"])
     .not("raison", "in", "(a_approuver,auto,en_attente,a_valider)")

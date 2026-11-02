@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o030",
+  "schema_id": "relatable-struggle-fix",
+  "titre": "this is your sign to stop studying in your bed #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+    "52f784f6-90e4-410f-a2d7-e2de72c461af"
+  ],
+  "notes": "essai. Forme jamais faite chez nous : « this is your sign to… », dans le schéma prouvé relatable-struggle-fix (@sofiya.yussupova : 341 k vues le 21/10, valable jusqu'au 20/11). La galère : réviser dans son lit et se réveiller sur ses notes. Accroches écrites : « this is your sign to stop studying in your bed » (retenue : la forme « your sign », la galère en filigrane), « studying in bed and waking up 2 hours later on my notes » (écartée : forme déjà faite chez nous), « why i can't study in my bed anymore » (écartée : plus faible). Cinq gestes vrais : un endroit pour travailler, le lit pour dormir, une lumière franche, se tester assise (place micabo, slide 5), le téléphone hors de la pièce (place UnSwipe, slide 6). Slides 5 et 6 sans personne. Slides d'appli : la banque n'a presque plus de photos sans personne, sans écran ni marque ; reprise d'une photo d'objet d'un original de plus d'une semaine (ROUTINE §4.7 : reprise permise, le texte change). Écartées à l'aperçu : da10f285 (logo de marque, écran de jeu, couverture de livre lisible ou photo déjà prise dans le lot). Puis : 1ae57e29 (même photo qu'une autre slide du lot).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7dcb01ab",
+      "texte_overlay": "this is your sign to stop studying in your bed",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7f7afe63",
+      "texte_overlay": "you know how it ends:\n\"just one more page\" → you wake up 2 hours later on your notes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "837605fc",
+      "texte_overlay": "your brain links places to what you do there.\nbed = sleep. desk = focus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "837c8be7",
+      "texte_overlay": "pick ONE study spot: a desk, the kitchen table, the library.\nalways the same one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "308e1ff1",
+      "texte_overlay": "sit up and test yourself instead of rereading lying down.\nit's way harder to drift off.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "6bce7551",
+      "texte_overlay": "phone in another room while you study.\nin bed it's always one scroll away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "85b6f53c",
+      "texte_overlay": "save your bed for sleeping.\nyou'll fall asleep faster too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "8a4be2e2",
+      "texte_overlay": "consider this your sign. get up. 💛",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

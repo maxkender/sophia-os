@@ -1,6 +1,6 @@
 # La routine du matin des podz, avant BLEO
 
-> **Routine d'avant BLEO**, gardée pour la bascule des podz (lundi 2/11).
+> **Routine d'avant BLEO**, gardée pour la bascule des podz (dimanche 1/11 au soir).
 > Elle ne vaut que pour la **voie 1** (podz 2, 4, 5, 7, 8, 9 et 12) et seulement
 > tant que `npm run boite` affiche « podz sur BLEO : pas encore ». Sinon, suis
 > `pods/ROUTINE.md`. La voie 2 suit toujours `pods/ROUTINE.md`.
@@ -70,7 +70,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    - Podz 1 : un post d'un autre compte au même format.
    - Podz 6, 10 et 11 : pas d'essai tant que la liste n'est pas finie.
 
-5. **Tester les CTA, toujours.** Si tu écris toi-même la slide de l'appli,
+5. **Varier les CTA.** Si tu écris toi-même la slide de l'appli,
    tiens **3 versions vraiment différentes** de cette slide (`cta A`, `cta B`,
    `cta C`) et alterne-les d'une livraison à l'autre. Elles diffèrent par :
    - la phrase d'appel (pas toutes « a micro-learning app like… ») ;
@@ -78,11 +78,9 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
      1re personne, liste où l'appli est un item parmi d'autres… ;
    - la position dans le deck (pas toujours la même slide).
    Note la version dans `notes` (`cta A`…), garde la même version sur toutes
-   les langues d'une livraison. **Chaque lundi, remplace la moins bonne
-   version par une nouvelle idée**, même si toutes marchent : il y a toujours
-   un CTA à tester. Le chef te dit aussi quand une version est nettement sous
-   les autres sur 20 passages mûrs. Podz dont l'OS place l'appli (12) : pas
-   concerné.
+   les langues d'une livraison. Les vues ne jugent pas un CTA (décision d'Adrien du 30/10 : il arrive à la slide 4 ou plus loin, après que la vue est comptée) : n'en remplace aucune
+   d'après ses vues ; change une version seulement si elle se répète ou sonne
+   pub. Podz dont l'OS place l'appli (12) : pas concerné.
 6. **Ne t'enferme pas dans ce qui marche.** Sur tes livraisons normales du
    jour, **au plus 1** reprend une famille d'accroche que tu as déjà livrée 3
    fois ou plus sur les 7 derniers jours. Les autres partent sur des angles ou
@@ -118,7 +116,7 @@ Tu ne postes rien sur Slack : le chef des podz fait le point dans #podz.
 - **Tu ne publies jamais rien** : tout passe par la file de validation
   (Pilotage → Pods).
 - **Ton podz est « sûr »** (sauf la vidéo) : une livraison est validée toute
-  seule 12 h après son dépôt si personne ne la rejette. Relis-la comme si
+  seule 5 h après son dépôt si personne ne la rejette. Relis-la comme si
   personne d'autre ne la relisait : faits vrais, aucune autre appli, aucune
   personne réelle sur la slide de l'app, chaque slide regardée.
 - **Un outil échoue deux fois**, le budget Apify est atteint, ou une règle de

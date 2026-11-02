@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o047",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les questions que je pose pour devenir plus cultivée sans ouvrir un livre #pourtoi #culture #curiosite",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "cta C (le défi en premier item). Routine du 31/10 (routine d'avant BLEO : `npm run boite` affiche « pas encore »), livraison 6 sur 8. Nouvelle famille d'accroche pour le pod (ROUTINE-avant-bleo §4.6 : au plus 1 livraison normale sur une famille déjà livrée 3 fois en 7 jours). Preuve : schéma dangereusement-cultivee (r 2,96, 2e2ef1c3). Accroches écrites : « les questions que je pose pour devenir plus cultivée sans ouvrir un livre » (retenue : promesse sans effort, format liste), « comment devenir cultivée juste en posant des questions » (écartée : moins concret), « les questions des gens cultivés » (écartée : plus vague). Items neufs, aucun fait affirmé. Images de la banque (célébrités permises depuis le 28/10), assez sombres pour le texte blanc ; aucune personne sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9f886f2b",
+   "texte_overlay": "les questions que je pose\npour devenir plus cultivée\nsans ouvrir un livre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67cb1a44",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "9fded08d",
+   "texte_overlay": "1.\n« pourquoi ça s'appelle comme ça ? »\n\nune rue, un plat, une ville.\nles noms cachent presque toujours une histoire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a0193581",
+   "texte_overlay": "2.\n« c'était comment, avant ? »\n\navant le téléphone, avant le métro, avant internet.\nles grands-parents adorent cette question.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a03aa822",
+   "texte_overlay": "3.\n« qui l'a inventé ? »\n\nle crayon, le café, les lunettes.\nchaque objet a un inventeur, et souvent une drôle d'histoire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a0a896fc",
+   "texte_overlay": "4.\n« qu'est-ce que tu lis en ce moment ? »\n\nla meilleure façon de trouver ton prochain livre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a124d074",
+   "texte_overlay": "laquelle tu poses\naujourd'hui ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

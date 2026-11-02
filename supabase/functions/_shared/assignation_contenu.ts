@@ -50,7 +50,7 @@ import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
 import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
-import { serviceClient } from "./supabase.ts";
+import { messageErreur, secretCronConnu, serviceClient } from "./supabase.ts";
 import {
   BANDES_AVANT_DERNIER_RECOURS,
   bandesDeTirage,
@@ -635,12 +635,18 @@ export async function assignerCompteJour(
   // calendrier ni le quota de minuit réel. Bornée elle aussi par (compte, jour).
   const { data: existants } = await supabase
     .from("passages")
-    .select("id, posts!inner(est_test)")
+    .select("id, contenu_id, posts!inner(est_test)")
     .eq("compte_id", compte.id)
     .eq("date_publication_prevue", jour)
     .eq("posts.est_test", estTest);
 
   const dejaLa = existants?.length ?? 0;
+  // Les contenus déjà posés ce jour sur ce compte : ni le plan BLEO ni la
+  // tierlist ne les reprennent (rattrapage du 2/11 : le créneau 1 du plan,
+  // déjà posé la nuit, avait été resservi à 309 comptes).
+  const contenusDuJour = (existants ?? [])
+    .map((e: { contenu_id?: string | null }) => e.contenu_id)
+    .filter((c): c is string => typeof c === "string");
   // Non-écrasement : on ne touche pas aux passages déjà là, on complète
   // seulement jusqu'au quota (1–3) du compte.
   const manquants = forcer ? 1 : Math.max(0, quota - dejaLa);
@@ -798,7 +804,7 @@ export async function assignerCompteJour(
   }
 
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
-  const contenusSession: string[] = [...(o.exclureContenus ?? [])];
+  const contenusSession: string[] = [...(o.exclureContenus ?? []), ...contenusDuJour];
   const maxTentatives = manquants + 8;
   const finir = (detail: AssignationCompteDetail): AssignationCompteDetail =>
     replis.length > 0 ? { ...detail, replis } : detail;
@@ -1143,7 +1149,7 @@ export async function assignerCompteJour(
     } catch (e) {
       // Pas de transaction multi-tables : nettoyer le passage pour ne pas
       // bloquer le quota, puis piocher un autre contenu.
-      log(`Matérialisation échouée : ${e instanceof Error ? e.message : String(e)}`);
+      log(`Matérialisation échouée : ${messageErreur(e)}`);
       await supabase.from("passages").delete().eq("id", passage.id);
       continue;
     }
@@ -3060,7 +3066,8 @@ export async function assignerDrainLot(
       return {
         compteId: compte.id as string,
         crees: 0,
-        erreur: e instanceof Error ? e.message : String(e),
+        // Une erreur PostgREST n'est pas une Error : String() donnait « [object Object] » (2/11).
+        erreur: messageErreur(e),
       };
     }
   });
@@ -3092,7 +3099,7 @@ export function kickAssignationDrain(
 ): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
-  const secret = Deno.env.get("CRON_SECRET");
+  const secret = secretCronConnu();
   const auth = request.headers.get("Authorization");
   const headers: Record<string, string> = {
     "content-type": "application/json",
@@ -3172,7 +3179,8 @@ export async function assignerTousComptes(
       return {
         compteId: compte.id as string,
         crees: 0,
-        erreur: e instanceof Error ? e.message : String(e),
+        // Une erreur PostgREST n'est pas une Error : String() donnait « [object Object] » (2/11).
+        erreur: messageErreur(e),
       };
     }
   });

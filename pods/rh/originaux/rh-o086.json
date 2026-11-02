@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o086",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR quand tu négocies ton salaire #salaire #negociation #entretien #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta A (confession à la 1re personne), slide Sophia en position 7. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. variante de rh-o021 (35,4 k vues en hu). Même schéma mentir-entretien (r 15,22, 496f8d72), même format « tu DOIS MENTIR… jamais / tu dis », autre angle, autres questions : aucune reprise de rh-o001 à rh-o083 ni des sources. Recadrage vrai, aucune fausse contre-offre. Angle : la négociation de salaire. Aucune fausse offre concurrente, aucun faux salaire actuel : on recadre seulement. Rien de juridique. CTA de fin jamais utilisé (dire si on a déjà négocié). Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0fc3c91",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR\nquand tu négocies ton salaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d53b6d55",
+   "texte_overlay": "1\n« vos prétentions ? »\njamais « ce que vous voulez »\ntu dis ta fourchette, calmement, et tu te tais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d53e1ca0",
+   "texte_overlay": "2\n« c'est au-dessus de notre budget »\njamais « ah, d'accord, tant pis »\ntu dis « qu'est-ce qui est possible, en dehors du salaire ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d5bee5f0",
+   "texte_overlay": "3\n« pourquoi ce montant ? »\njamais « j'en ai besoin »\ntu parles de ce que tu apportes et du marché",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d5dff13c",
+   "texte_overlay": "4\n« vous avez d'autres pistes ? »\njamais une offre inventée\ntu dis la vérité : « oui » ou « je cherche activement »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d67c1734",
+   "texte_overlay": "5\n« vous démarrez quand ? »\njamais « demain » si c'est faux\ntu donnes la vraie date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e0cd42f9",
+   "texte_overlay": "6\n« on vous rappelle »\ntu dis « avec plaisir, d'ici quand ? »\nperso, j'attends en apprenant un truc 5 minutes par jour, ça m'évite de stresser",
+   "texte_sophia": "6\n« on vous rappelle »\ntu dis « avec plaisir, d'ici quand ? »\nperso, j'attends avec l'appli Sophia, 5 minutes par jour, ça m'évite de stresser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d76a6f2c",
+   "texte_overlay": "t'as déjà négocié ton salaire ?\noui, non, j'ai pas osé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

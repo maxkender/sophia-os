@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 
+import { EtiquetteApplication } from "@/components/brand/LogoApplication";
 import { Badge } from "@/components/ui/badge";
 import { estCompteCm } from "@/features/moteur/comptesCm";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
@@ -102,6 +103,7 @@ export function EnteteCompte({
   compact,
   extra,
   applications,
+  labels,
 }: {
   compte: CompteVignette;
   compact?: boolean;
@@ -111,6 +113,8 @@ export function EnteteCompte({
    * elles : sa répartition explicite, sinon Sophia.
    */
   applications?: ApplicationAffichee[];
+  /** Les labels du compte (nom, couleur) : montrés sous le nom de la persona. */
+  labels?: readonly { id: string; nom: string; couleur?: string | null }[];
 }) {
   const { t } = useTranslation();
   const handle = (compte.handle_tiktok ?? "").trim().replace(/^@+/, "");
@@ -123,8 +127,9 @@ export function EnteteCompte({
         <div className="flex flex-wrap items-center gap-1.5">
           <BadgeTypeCompte compte={compte} />
           {apps.map((a) => (
-            <Badge key={a.slug} variant="secondary">
-              {a.part === null ? a.slug : `${a.slug} ${a.part} %`}
+            <Badge key={a.slug} variant="secondary" data-application={a.slug}>
+              <EtiquetteApplication slug={a.slug} taille="xs" />
+              {a.part !== null && <span className="tabular-nums">{a.part} %</span>}
             </Badge>
           ))}
           <DrapeauPaysCompte compte={compte} />
@@ -136,6 +141,20 @@ export function EnteteCompte({
         </div>
         {compte.persona_nom && (
           <p className="mt-0.5 truncate text-xs text-muted-foreground">{compte.persona_nom}</p>
+        )}
+        {labels && labels.length > 0 && (
+          <div className="mt-1 flex flex-wrap items-center gap-1" data-testid="labels-compte">
+            {labels.map((l) => (
+              <Badge key={l.id} variant="outline" className="gap-1 font-normal">
+                <span
+                  aria-hidden
+                  className="inline-block size-2 rounded-full bg-muted-foreground/40"
+                  style={l.couleur ? { background: l.couleur } : undefined}
+                />
+                {l.nom}
+              </Badge>
+            ))}
+          </div>
         )}
         {extra}
       </div>

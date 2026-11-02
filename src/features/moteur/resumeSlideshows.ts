@@ -1,7 +1,9 @@
-// Page Slideshows : les chiffres du haut et la répartition des rangs.
+// Page Slideshows : les chiffres du haut et la répartition BLEO (verdicts, états).
+
+import type { EtatBleo, InfosBleoContenu, VerdictContenu } from "@/features/bleo/api";
+import { ETATS_BLEO, VERDICTS_CONTENU } from "@/features/bleo/format";
 
 import type { StatsCompteSlideshows } from "./statsSlideshowsCompte";
-import { TIERS, type Tier } from "./types";
 
 export interface TotauxSlideshows {
   importes: number;
@@ -26,9 +28,33 @@ export function totauxSlideshows(stats: StatsCompteSlideshows[]): TotauxSlidesho
   return { ...t, partGardes: t.importes ? Math.round((100 * t.gardes) / t.importes) : null };
 }
 
-/** Combien de slideshows à chaque rang, de D à S+ (les rangs inconnus ne comptent pas). */
-export function repartitionTiers(contenus: ReadonlyArray<{ tier: Tier }>): Record<Tier, number> {
-  const n = Object.fromEntries(TIERS.map((t) => [t, 0])) as Record<Tier, number>;
-  for (const c of contenus) if (c.tier in n) n[c.tier] += 1;
-  return n;
+export interface RepartitionBleo {
+  /** Combien de slideshows à chaque verdict, de gagnant à non gagnant. */
+  verdicts: Record<VerdictContenu, number>;
+  /** Combien à chaque état : à juger, en test, jugé. */
+  etats: Record<EtatBleo, number>;
+  /** Slideshows sans ligne BLEO : rattachés à aucune famille. */
+  horsBleo: number;
+}
+
+/**
+ * La répartition BLEO des slideshows affichés : une entrée par slideshow, sa
+ * ligne BLEO ou `null` s'il n'est pas dans BLEO. Un verdict ou un état vide
+ * (ou inconnu) ne compte pas dans sa barre.
+ */
+export function repartitionBleo(
+  lignes: ReadonlyArray<Pick<InfosBleoContenu, "verdict" | "etat_bleo"> | null | undefined>,
+): RepartitionBleo {
+  const verdicts = Object.fromEntries(VERDICTS_CONTENU.map((v) => [v, 0])) as Record<VerdictContenu, number>;
+  const etats = Object.fromEntries(ETATS_BLEO.map((e) => [e, 0])) as Record<EtatBleo, number>;
+  let horsBleo = 0;
+  for (const l of lignes) {
+    if (!l) {
+      horsBleo += 1;
+      continue;
+    }
+    if (l.verdict && l.verdict in verdicts) verdicts[l.verdict] += 1;
+    if (l.etat_bleo && l.etat_bleo in etats) etats[l.etat_bleo] += 1;
+  }
+  return { verdicts, etats, horsBleo };
 }

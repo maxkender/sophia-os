@@ -21,7 +21,7 @@ for (const id of process.argv.slice(2)) {
   const titre = autres.filter((x) => norme(x.slides[0].texte_overlay) === norme(o.slides[0].texte_overlay)).map((x) => x.source_id);
   if (titre.length) console.log(id, "reprise du titre de", titre.length, "original(aux)");
   const h = H[o.slides[0].media_id];
-  const couv = h ? autres.filter((x) => H[x.slides[0].media_id] && ham(H[x.slides[0].media_id], h) <= 10).map((x) => x.source_id) : [];
+  const couv = h ? autres.filter((x) => H[x.slides[0].media_id] && ham(H[x.slides[0].media_id], h) <= 18).map((x) => x.source_id) : [];
   if (couv.length) console.log(id, "reprise de la couverture de", couv.join(","));
 }
 console.log(ko ? `${ko} problème(s)` : "ok");

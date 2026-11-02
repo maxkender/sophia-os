@@ -2,7 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
+  Siren,
   CircleAlert,
+  ClipboardCheck,
+  Link2,
+  MessageSquareWarning,
   AtSign,
   BarChart3,
   BookOpen,
@@ -43,11 +47,13 @@ import {
   Users,
   UserPlus,
   Wallet,
+  Globe2,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { BandePause } from "@/features/auto/BandePause";
 import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
+import { useProblemes } from "@/features/auto/useProblemes";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestations } from "@/features/disputes/api";
 import { lireCompteNeedsYou } from "@/features/needsYou/api";
@@ -68,6 +74,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   sent: Send,
   received: Inbox,
   needs: CircleAlert,
+  problems: Siren,
   disputes: Flag,
   payroll: Wallet,
   faq: MessageCircle,
@@ -82,6 +89,8 @@ export function AdminLayout() {
   const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
   const needsYou = useQuery({ queryKey: ["needs-you", "compte"], queryFn: lireCompteNeedsYou, refetchInterval: 5 * 60_000 });
+  // Le badge de Problems : seulement pour l'admin et la Head of Ops (Health leur est réservé).
+  const problemes = useProblemes(role === "admin" || role === "head_of_ops");
   const contestations = useQuery({ queryKey: ["disputes", "compte"], queryFn: compterContestations, refetchInterval: 5 * 60_000 });
 
   /**
@@ -261,10 +270,36 @@ export function AdminLayout() {
               description: t("navDesc.analytics"),
             },
             {
+              to: "/admin/quality-control",
+              label: t("nav.qualite"),
+              icon: ClipboardCheck,
+              description: t("navDesc.qualite"),
+            },
+            // 31/10 : sortis de Recruitment Automation → Disputes.
+            {
+              to: "/admin/posts-links",
+              label: t("nav.postsLiens"),
+              icon: Link2,
+              description: t("navDesc.postsLiens"),
+            },
+            {
+              to: "/admin/quality-feedback",
+              label: t("nav.qualityFeedback"),
+              icon: MessageSquareWarning,
+              description: t("navDesc.qualityFeedback"),
+            },
+            {
               to: "/admin/suivi-rc",
               label: t("nav.suiviRc"),
               icon: LineChart,
               description: t("navDesc.suiviRc"),
+            },
+            // 2/11 : la page Pays (décision par marché de langue).
+            {
+              to: "/admin/pays",
+              label: t("nav.pays"),
+              icon: Globe2,
+              description: t("navDesc.pays"),
             },
             {
               to: "/admin/file-reviews",
@@ -309,6 +344,8 @@ export function AdminLayout() {
             ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
             // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
             ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
+            // Les problèmes graves de l'automatisation.
+            ...(p.cle === "problems" ? { badge: problemes.problemes.filter((x) => x.gravite === "grave").length } : {}),
           })),
         },
         {

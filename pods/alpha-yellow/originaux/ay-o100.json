@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o100",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8dc9433e-67e6-4429-bb56-b4a01dfde2a3",
+ "titre": "Things that make you quietly impressive #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "8dc9433e-67e6-4429-bb56-b4a01dfde2a3"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 97b27cf0. déclinaison G1 de la ligne 9 de la boîte (8dc9433e, sr 5,8 k r 2,24) : accroche du parent mot pour mot. Les lignes 7 et 8 (stop doing as a boyfriend, as a man in your 20s) ont été sautées car leur hook est voisin de la ligne 6 (« Things you should stop doing as a … ») déjà déclinée aujourd'hui. Items neufs, couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "97b27cf0",
+   "texte_overlay": "Things that make you\nquietly impressive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Finishing what you start. The book, the course, the side project. Most people abandon things halfway. The guy who quietly finishes is the one people end up respecting.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Knowing one skill really well. Cooking, fixing bikes, drawing, a language. Deep skill in one thing earns a calm kind of respect that no amount of talking ever can.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Being early without mentioning it. You arrive, you're ready, you say nothing about it. People notice reliability long before they notice anything you say about yourself.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Knowing a bit about everything. I do five minutes a day of history, art or science, and I can join almost any conversation with something interesting to add.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I can join almost any conversation with something interesting to add.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Staying humble about your wins. Got promoted, ran a marathon, learned an instrument? Let others find out. Quiet achievements impress far more than loud announcements.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Treating waiters and strangers with real respect. How you speak to people who can do nothing for you shows your character better than any first impression ever will.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keeping your body strong. Training three times a week, without posting about it. Strength you never show off makes you look disciplined, healthy and steady.",
+   "media_id": "74b0526b"
+  }
+ ]
+}

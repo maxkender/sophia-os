@@ -142,3 +142,16 @@ describe("Needs you depuis Overview (prompt 22, partie 3)", () => {
     expect(document.querySelectorAll("[data-fix]")).toHaveLength(4);
   });
 });
+
+describe("31/10 : Needs you, moins de bruit", () => {
+  it("compteur par personne d'après le type ; questions des HM à part", async () => {
+    const { parPersonne, personneDe, estQuestionHm } = await import("./logique");
+    expect(personneDe("samedi_non_valide")).toBe("lucia");
+    expect(personneDe("question_hm")).toBe("lucia");
+    expect(personneDe("jeton_upwork")).toBe("max");
+    expect(personneDe("type_inconnu")).toBe("max");
+    expect(parPersonne([{ type: "retirer_slack" }, { type: "doublon" }, { type: "message_pas_parti" }])).toEqual({ lucia: 1, max: 2 });
+    expect(estQuestionHm({ type: "question_hm" })).toBe(true);
+    expect(estQuestionHm({ type: "question_faq" })).toBe(false);
+  });
+});

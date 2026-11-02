@@ -1,0 +1,188 @@
+{
+ "id": "mm-o043",
+ "format": "carrousel",
+ "titre": "Small habits that fixed my sleep",
+ "legendes": {
+  "en": "small habits that fixed my sleep #sleepmaxxing #sleep #mentalmaxxing #selfimprovement",
+  "fr": "les petites habitudes qui ont réparé mon sommeil #sleepmaxxing #sommeil #mentalmaxxing #developpementpersonnel",
+  "de": "kleine Gewohnheiten, die meinen Schlaf repariert haben #sleepmaxxing #schlaf #mentalmaxxing #selbstverbesserung",
+  "es": "pequeños hábitos que arreglaron mi sueño #sleepmaxxing #sueño #mentalmaxxing #superacionpersonal",
+  "it": "piccole abitudini che hanno sistemato il mio sonno #sleepmaxxing #sonno #mentalmaxxing #crescitapersonale",
+  "tr": "uykumu düzelten küçük alışkanlıklar #sleepmaxxing #uyku #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7699644186470976786/1",
+   "boite": [
+    198,
+    378,
+    684,
+    738
+   ]
+  },
+  "theme": {
+   "en": "Small habits",
+   "fr": "Petites habitudes",
+   "de": "Kleine Gewohnheiten",
+   "es": "Pequeños hábitos",
+   "it": "Piccole abitudini",
+   "tr": "Uykumu düzelten"
+  },
+  "sous": {
+   "en": "that fixed my sleep",
+   "fr": "qui ont réparé mon sommeil",
+   "de": "für besseren Schlaf",
+   "es": "que arreglaron mi sueño",
+   "it": "che hanno sistemato il sonno",
+   "tr": "küçük alışkanlıklar"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Same wake-up time",
+    "fr": "La même heure de réveil",
+    "de": "Immer gleiche Weckzeit",
+    "es": "La misma hora de despertar",
+    "it": "Stessa ora di sveglia",
+    "tr": "Aynı uyanma saati"
+   },
+   "texte": {
+    "en": "Even on weekends. After two weeks I was tired at the right time every night.",
+    "fr": "Même le week-end. Au bout de deux semaines, j’étais fatigué au bon moment chaque soir.",
+    "de": "Auch am Wochenende. Nach zwei Wochen war ich jeden Abend zur richtigen Zeit müde.",
+    "es": "Incluso el fin de semana. A las dos semanas tenía sueño a la hora correcta cada noche.",
+    "it": "Anche nel weekend. Dopo due settimane ero stanco all’ora giusta ogni sera.",
+    "tr": "Hafta sonu bile. İki hafta sonra her akşam doğru saatte yorgundum."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "No screens in bed",
+    "fr": "Pas d’écran au lit",
+    "de": "Keine Bildschirme im Bett",
+    "es": "Nada de pantallas en la cama",
+    "it": "Niente schermi a letto",
+    "tr": "Yatakta ekran yok"
+   },
+   "texte": {
+    "en": "The bed is for sleeping. My brain learned it fast once the phone stayed out.",
+    "fr": "Le lit, c’est pour dormir. Mon cerveau l’a vite compris une fois le téléphone dehors.",
+    "de": "Das Bett ist zum Schlafen. Mein Gehirn hat es schnell gelernt, als das Handy draußen blieb.",
+    "es": "La cama es para dormir. Mi cerebro lo aprendió rápido cuando el móvil se quedó fuera.",
+    "it": "Il letto è per dormire. Il cervello l’ha capito presto quando il telefono è rimasto fuori.",
+    "tr": "Yatak uyumak içindir. Telefon dışarıda kalınca beynim bunu çabucak öğrendi."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "A morning walk",
+    "fr": "Une marche le matin",
+    "de": "Ein Spaziergang am Morgen",
+    "es": "Un paseo por la mañana",
+    "it": "Una passeggiata al mattino",
+    "tr": "Sabah yürüyüşü"
+   },
+   "texte": {
+    "en": "Daylight in the morning made it easier to fall asleep at night.",
+    "fr": "La lumière du matin m’a aidé à m’endormir le soir.",
+    "de": "Tageslicht am Morgen hat mir abends das Einschlafen erleichtert.",
+    "es": "La luz de la mañana me ayudó a dormirme por la noche.",
+    "it": "La luce del mattino mi ha aiutato ad addormentarmi la sera.",
+    "tr": "Sabah ışığı akşam uykuya dalmamı kolaylaştırdı."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: one more video until 1am, every night. After deleting short videos with UnSwipe: asleep before midnight most nights.",
+    "fr": "Avant : encore une vidéo jusqu’à 1h, chaque soir. Après avoir supprimé les vidéos courtes avec UnSwipe : endormi avant minuit presque tous les soirs.",
+    "de": "Vorher: jeden Abend noch ein Video bis 1 Uhr. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: fast jeden Abend vor Mitternacht eingeschlafen.",
+    "es": "Antes: un vídeo más hasta la 1, cada noche. Después de borrar los vídeos cortos con UnSwipe: dormido antes de medianoche casi siempre.",
+    "it": "Prima: un altro video fino all’una, ogni sera. Dopo aver eliminato i video brevi con UnSwipe: addormentato prima di mezzanotte quasi sempre.",
+    "tr": "Önce: her gece 1’e kadar bir video daha. Kısa videoları UnSwipe ile sildikten sonra: çoğu gece gece yarısından önce uykuda."
+   }
+  },
+  {
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "Coffee before noon only",
+    "fr": "Café seulement avant midi",
+    "de": "Kaffee nur vor Mittag",
+    "es": "Café solo antes del mediodía",
+    "it": "Caffè solo prima di mezzogiorno",
+    "tr": "Kahve sadece öğleden önce"
+   },
+   "texte": {
+    "en": "I did not feel the afternoon coffee, but my sleep did.",
+    "fr": "Je ne sentais pas le café de l’après-midi, mais mon sommeil, si.",
+    "de": "Den Kaffee am Nachmittag habe ich nicht gespürt, mein Schlaf schon.",
+    "es": "Yo no notaba el café de la tarde, pero mi sueño sí.",
+    "it": "Io non sentivo il caffè del pomeriggio, ma il mio sonno sì.",
+    "tr": "Öğleden sonraki kahveyi ben hissetmiyordum ama uykum hissediyordu."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Ten pages instead",
+    "fr": "Dix pages à la place",
+    "de": "Zehn Seiten stattdessen",
+    "es": "Diez páginas en su lugar",
+    "it": "Dieci pagine invece",
+    "tr": "Onun yerine on sayfa"
+   },
+   "texte": {
+    "en": "A paper book before bed. My eyes get heavy around page eight.",
+    "fr": "Un livre papier avant de dormir. Mes yeux se ferment vers la page huit.",
+    "de": "Ein Papierbuch vor dem Schlafen. Meine Augen werden um Seite acht schwer.",
+    "es": "Un libro de papel antes de dormir. Se me cierran los ojos por la página ocho.",
+    "it": "Un libro di carta prima di dormire. Gli occhi si chiudono verso pagina otto.",
+    "tr": "Yatmadan önce kâğıt bir kitap. Gözlerim sekizinci sayfa civarında kapanıyor."
+   }
+  }
+ ],
+ "notes": "routine du 02/11 : accroche jamais faite chez nous (« small habits that fixed my sleep », thème sleepmaxxing, mm-o016 à 1 357 vues). cta C (avant/après) : élément UnSwipe en 4e item (slide 5)."
+}

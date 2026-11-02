@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 
 import {
   type ContratSansPosteur,
@@ -74,6 +76,8 @@ export function ContratsSansPosteur({ admin }: { admin: boolean }) {
     onSuccess: () => void qc.invalidateQueries({ queryKey: ["contrats-sans-posteur"] }),
   });
   const liste = lu.data ?? [];
+  // 0469 : la conversation Upwork de chaque contrat.
+  const conv = useConversations([], liste.map((c) => c.contrat_id));
   if (!lu.isPending && liste.length === 0 && !lu.error) return null;
   const parProposition = (p: ContratSansPosteur["proposition"]) => liste.filter((c) => c.proposition === p).length;
   return (
@@ -117,6 +121,7 @@ export function ContratsSansPosteur({ admin }: { admin: boolean }) {
                       {c.nom ?? c.contrat_id}
                     </a>
                     <p className="text-muted-foreground">{c.titre ?? "—"}</p>
+                    <LienConversation c={conversationDe(conv.data, { contrat: c.contrat_id })} />
                   </td>
                   <td className={`${TD} whitespace-nowrap`}>{date(c.debut_at)}</td>
                   <td className={`${TD} max-w-72`}>

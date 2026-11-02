@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o054",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "54e440d3-c378-4639-9053-ec0be7d6fbbe",
+ "titre": "elegant habits that make you look 10x more attractive (part 2) #selfimprovement #thatgirl #elegance #confidence #smartgirl",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/the-spins-6858383319357229057",
+ "inspirations": [
+  "9b2b4e11-6b7c-4ee3-8810-397fe3d34766"
+ ],
+ "notes": "cta C. Répétition BLEO du 01/11 (pods/ROUTINE.md §4, podz 8 et 9) : ni schéma ni preuve. Déclinaison G1 de la ligne 4 de la boîte (parent 54e440d3, anglais) : accroche du parent mot pour mot, « elegant habits that make you look 10x more attractive ». Le parent est notre sg-o011 (bonjour d'abord, rire de ses erreurs, avoir de quoi parler, dire du bien des absents, mains calmes, ponctualité). Six habitudes neuves de présence et de manières, jamais sur le corps : remercier le jour même, retenir le prénom des proches des autres, écouter jusqu'au bout, tenir les petites promesses, s'habiller un peu mieux que nécessaire (sans marque), savoir un peu de tout (cta C : l'appli à la place du scroll). Images de la banque, sans texte ni marque lisible ; slide Sophia sur un service à thé, sans personne. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1d38757d",
+   "texte_overlay": "elegant habits that make\nyou look 10x more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2755d013",
+   "texte_overlay": "1. thanking people the same day.\na short message, a kind word.\nit stays with them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1a5bfbf5",
+   "texte_overlay": "2. remembering the names of\nthe people they love.\n\"how is your sister emma?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "22d0e4ef",
+   "texte_overlay": "3. listening to the very end.\nno rushing to your turn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "282de328",
+   "texte_overlay": "4. keeping small promises.\nthe book you said you'd lend,\nthe call you said you'd make.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "32fb8158",
+   "texte_overlay": "5. dressing a little better\nthan the occasion asks.\nit's a quiet form of respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "84c155ba",
+   "texte_overlay": "6. knowing a little about\neverything.\nhistory, art, science.\nlearn something every day.",
+   "texte_sophia": "6. knowing a little about\neverything. i swapped the\nmorning scroll for an app\nlike sophia: one 5-minute\nlesson a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "43867f66",
+   "texte_overlay": "which one are you\nstarting today?\nsave this for later",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629594275952545045/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o084",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien de stage #stage #entretien #etudiant #alternance #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Routine du 1/11 (12 livraisons + 3 variantes de rh-o021 + 3 variantes de rh-o027), ROUTINE-avant-bleo. variante de rh-o021 (35,4 k vues en hu). Même schéma mentir-entretien (r 15,22, 496f8d72), même format « tu DOIS MENTIR… jamais / tu dis », autre angle, autres questions : aucune reprise de rh-o001 à rh-o083 ni des sources. Recadrage vrai, aucune fausse contre-offre. Angle : le stage et l'alternance. CTA de fin jamais utilisé (dire ce qu'on étudie). Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dedde7be",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR\nen entretien de stage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d01b3b2b",
+   "texte_overlay": "1\n« pourquoi ce stage ? »\njamais « il est obligatoire »\ntu dis ce que tu veux y apprendre, précisément",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d01cff6f",
+   "texte_overlay": "2\n« vous avez déjà travaillé ? »\njamais « non, jamais »\ntu cites ton job d'été, ton asso, ton projet de groupe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bace0ae7",
+   "texte_overlay": "3\n« vous lisez quoi en ce moment ? »\njamais « rien, j'ai pas le temps »\ntu dis un sujet que t'apprends, 5 minutes par jour, ça suffit",
+   "texte_sophia": "3\n« vous lisez quoi en ce moment ? »\njamais « rien »\nutilise l'appli Sophia 5 minutes par jour, et t'as toujours un vrai sujet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cb17a47b",
+   "texte_overlay": "4\n« vous vous voyez où après ? »\njamais « je sais pas »\ntu dis « dans ce métier, et c'est ce stage qui me le dira »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d1178fe4",
+   "texte_overlay": "5\n« vous avez des questions ? »\njamais « non »\ntu demandes « que font vos anciens stagiaires aujourd'hui ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d1c96831",
+   "texte_overlay": "t'étudies quoi ?\nécris-le, on t'aide pour ton prochain entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

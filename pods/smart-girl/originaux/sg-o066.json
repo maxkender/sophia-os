@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o066",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "02943068-4588-4b56-9de6-a148b48d78fe",
+ "titre": "13 small essentials every woman should keep in her bag #bagessentials #whatsinmybag #smartgirl #thatgirl #organized",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "02943068-4588-4b56-9de6-a148b48d78fe"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent 02943068, en espagnol) : accroche du parent mot pour mot. Autre forme : deux objets par slide au lieu d'un, et d'autres objets (livre de poche, carnet d'idées, marque-page, parapluie pliable…). Ni marque ni argent. Sophia au milieu (cta B), sur l'objet « algo que aprender mientras esperas ». Rédigé en anglais : le premier dépôt en langue du parent a été refusé (accroche_differente), le guichet demande l'accroche anglaise de la famille mot pour mot. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "811f35af",
+   "texte_overlay": "13 small essentials every woman\nshould keep in her bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4dedbc0d",
+   "texte_overlay": "1. a pocket book\n2. a pretty bookmark",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "521da163",
+   "texte_overlay": "3. a notebook for your ideas\n4. a pen you love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "225d7ab6",
+   "texte_overlay": "5. lip balm\n6. a mini mirror",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "03751c56",
+   "texte_overlay": "7. something to learn\nwhile you wait:\na history fact,\na new word",
+   "texte_sophia": "7. an app like Sophia\nto learn something new\nin 5 minutes while you wait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "016999d6",
+   "texte_overlay": "8. a water bottle\n9. a folding umbrella",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "795d6080",
+   "texte_overlay": "10. plasters\n11. a spare hair tie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4a719480",
+   "texte_overlay": "12. headphones\n13. a silk scarf\nfor windy days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "5efcf081",
+   "texte_overlay": "save this for your next\nbag switch",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641253525942570261/9.jpg"
+  }
+ ]
+}

@@ -6,24 +6,33 @@ import type { Contestation, Dossier, LignePaieDossier, Verdict } from "./api";
  * phrase. La raison est en anglais : elle remplit {raison} dans la réponse
  * au posteur.
  */
-export const ONGLETS = ["ouvertes", "paie", "kill", "posts", "feedback", "fermees"] as const;
+export const ONGLETS = ["ouvertes", "paie", "kill", "posts", "feedback", "fermees", "posts_fermees"] as const;
 export type Onglet = (typeof ONGLETS)[number];
+
+/** 31/10 : Disputes (Recruitment Automation) sans les posts et liens ni le feedback, qui passent dans Tracking. */
+export const ONGLETS_DISPUTES: readonly Onglet[] = ["ouvertes", "paie", "kill", "fermees"];
+/** Tracking → Posts & links : les contestations de posts et de liens. */
+export const ONGLETS_POSTS: readonly Onglet[] = ["posts", "posts_fermees"];
+
+const estPosts = (c: Contestation) => c.type === "posts" || c.type === "lien";
 
 export function filtrerOnglet(liste: Contestation[], onglet: Onglet): Contestation[] {
   const ouvertes = liste.filter((c) => c.statut === "ouverte");
   switch (onglet) {
     case "ouvertes":
-      return ouvertes.filter((c) => c.genre === "contestation");
+      return ouvertes.filter((c) => c.genre === "contestation" && !estPosts(c));
     case "paie":
       return ouvertes.filter((c) => c.type === "paie");
     case "kill":
       return ouvertes.filter((c) => c.type === "kill");
     case "posts":
-      return ouvertes.filter((c) => c.type === "posts" || c.type === "lien");
+      return ouvertes.filter(estPosts);
     case "feedback":
       return liste.filter((c) => c.genre === "retour");
     case "fermees":
-      return liste.filter((c) => c.statut === "fermee" && c.genre === "contestation");
+      return liste.filter((c) => c.statut === "fermee" && c.genre === "contestation" && !estPosts(c));
+    case "posts_fermees":
+      return liste.filter((c) => c.statut === "fermee" && c.genre === "contestation" && estPosts(c));
   }
 }
 

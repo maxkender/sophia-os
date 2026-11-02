@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o091",
+ "type_bleo": "full_test",
+ "titre": "How to become the calmest guy in any room #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "7c5066c9-2762-49cf-81a3-b00caabf5fde"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 23a7e2b7. full test. Accroche jamais faite chez nous, de la même veine que quietly confident (calme, présence, maîtrise) mais avec une promesse neuve : être le plus calme de la pièce. Accroches écrites : « How to become the calmest guy in any room » (retenue), « Habits of men who never panic » (écartée : négatif), « How to stay calm when everyone else is stressed » (écartée : plus long).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "23a7e2b7",
+   "texte_overlay": "How to become the calmest\nguy in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Slow everything down by ten percent. Your walk, your voice, the way you reach for your glass. When everyone around you rushes, a slightly slower pace reads as total control.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Breathe out longer than you breathe in. Four seconds in, six seconds out, twice. Nobody notices you doing it, and it calms your heart rate before a tense conversation starts.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Let others finish their sentences. Interrupting is a sign of nerves. Waiting until someone is fully done, then answering, makes you look like the steadiest person at the table.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Feed your mind something calm every day. I do five minutes of history, art or science each morning, and it gives my head a steady place to come back to when things get loud.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives my head a steady place to come back to when things get loud.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Keep your hands still. No tapping, no phone flipping, no fiddling with your keys. Relaxed, quiet hands are one of the clearest signs of a man who is comfortable where he is.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Don't react to the first emotion. When something annoys you, wait three seconds before you answer. That short pause turns most reactions into calm, thoughtful responses.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Sleep like it matters. Seven or eight hours, same time every night. Tired people overreact to everything. A rested mind handles pressure that would break a tired one.",
+   "media_id": "3fff1b1f"
+  }
+ ]
+}

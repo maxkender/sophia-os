@@ -1,0 +1,213 @@
+{
+ "id": "mm-o040",
+ "format": "carrousel",
+ "titre": "Things that destroy your attention span",
+ "legendes": {
+  "en": "things that destroy your attention span #attentionspan #brainrot #mentalmaxxing #selfimprovement",
+  "fr": "ce qui détruit ta capacité d’attention #attention #brainrot #mentalmaxxing #developpementpersonnel",
+  "de": "Dinge, die deine Aufmerksamkeitsspanne zerstören #aufmerksamkeit #brainrot #mentalmaxxing #selbstverbesserung",
+  "es": "cosas que destruyen tu capacidad de atención #atencion #brainrot #mentalmaxxing #superacionpersonal",
+  "it": "cose che distruggono la tua soglia di attenzione #attenzione #brainrot #mentalmaxxing #crescitapersonale",
+  "tr": "dikkat süreni yok eden şeyler #dikkat #brainrot #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686216051712970002/1",
+   "boite": [
+    140,
+    322,
+    790,
+    418
+   ]
+  },
+  "theme": {
+   "en": "Things that destroy",
+   "fr": "Ce qui détruit",
+   "de": "Was deine",
+   "es": "Lo que destruye",
+   "it": "Cosa distrugge",
+   "tr": "Dikkat süreni"
+  },
+  "sous": {
+   "en": "your attention span",
+   "fr": "ta capacité d’attention",
+   "de": "Aufmerksamkeit zerstört",
+   "es": "tu atención",
+   "it": "la tua attenzione",
+   "tr": "yok eden şeyler"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Autoplay",
+    "fr": "L’autoplay",
+    "de": "Autoplay",
+    "es": "La reproducción automática",
+    "it": "L’autoplay",
+    "tr": "Otomatik oynatma"
+   },
+   "texte": {
+    "en": "You never decide to keep watching. The next one just starts, and an hour is gone.",
+    "fr": "Tu ne décides jamais de continuer. La suivante démarre toute seule, et une heure est passée.",
+    "de": "Du entscheidest nie weiterzuschauen. Das Nächste startet einfach, und eine Stunde ist weg.",
+    "es": "Nunca decides seguir viendo. El siguiente empieza solo y se va una hora.",
+    "it": "Non decidi mai di continuare. Il prossimo parte da solo, e un’ora è sparita.",
+    "tr": "İzlemeye devam etmeye hiç karar vermezsin. Sıradaki kendiliğinden başlar ve bir saat gider."
+   }
+  },
+  {
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "Doing everything at once",
+    "fr": "Tout faire en même temps",
+    "de": "Alles gleichzeitig machen",
+    "es": "Hacerlo todo a la vez",
+    "it": "Fare tutto insieme",
+    "tr": "Her şeyi aynı anda yapmak"
+   },
+   "texte": {
+    "en": "Every switch costs you a few minutes of focus. Ten switches and the morning is gone.",
+    "fr": "Chaque changement te coûte quelques minutes de concentration. Dix changements et la matinée est perdue.",
+    "de": "Jeder Wechsel kostet dich ein paar Minuten Fokus. Zehn Wechsel und der Vormittag ist weg.",
+    "es": "Cada cambio te cuesta unos minutos de foco. Diez cambios y se va la mañana.",
+    "it": "Ogni cambio ti costa qualche minuto di concentrazione. Dieci cambi e la mattina è andata.",
+    "tr": "Her geçiş sana birkaç dakikalık odağa mal olur. On geçiş ve sabah biter."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Your phone on the desk",
+    "fr": "Le téléphone sur le bureau",
+    "de": "Das Handy auf dem Tisch",
+    "es": "El móvil en la mesa",
+    "it": "Il telefono sulla scrivania",
+    "tr": "Masadaki telefon"
+   },
+   "texte": {
+    "en": "Even face down, part of your brain keeps waiting for it to light up.",
+    "fr": "Même retourné, une partie de ton cerveau attend qu’il s’allume.",
+    "de": "Selbst umgedreht wartet ein Teil deines Gehirns darauf, dass es aufleuchtet.",
+    "es": "Incluso boca abajo, parte de tu cerebro espera a que se encienda.",
+    "it": "Anche girato, una parte del cervello aspetta che si accenda.",
+    "tr": "Ters çevrilmiş olsa bile beyninin bir kısmı onun yanmasını bekler."
+   }
+  },
+  {
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "Scrolling in bed",
+    "fr": "Scroller au lit",
+    "de": "Scrollen im Bett",
+    "es": "Hacer scroll en la cama",
+    "it": "Scrollare a letto",
+    "tr": "Yatakta kaydırmak"
+   },
+   "texte": {
+    "en": "Less sleep, a foggy morning, and a brain that wants more of the same.",
+    "fr": "Moins de sommeil, un matin dans le brouillard, et un cerveau qui en redemande.",
+    "de": "Weniger Schlaf, ein benebelter Morgen und ein Gehirn, das mehr davon will.",
+    "es": "Menos sueño, una mañana nublada y un cerebro que pide más.",
+    "it": "Meno sonno, una mattina annebbiata e un cervello che ne vuole ancora.",
+    "tr": "Daha az uyku, bulanık bir sabah ve daha fazlasını isteyen bir beyin."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Skipping every song",
+    "fr": "Zapper chaque son",
+    "de": "Jeden Song skippen",
+    "es": "Saltar cada canción",
+    "it": "Saltare ogni canzone",
+    "tr": "Her şarkıyı geçmek"
+   },
+   "texte": {
+    "en": "Ten seconds and you want the next one. You are training your brain to quit early.",
+    "fr": "Dix secondes et tu veux la suivante. Tu entraînes ton cerveau à lâcher tôt.",
+    "de": "Zehn Sekunden und du willst den nächsten. Du trainierst dein Gehirn, früh aufzugeben.",
+    "es": "Diez segundos y quieres la siguiente. Entrenas a tu cerebro para rendirse pronto.",
+    "it": "Dieci secondi e vuoi la prossima. Alleni il cervello a mollare presto.",
+    "tr": "On saniye sonra bir sonrakini istiyorsun. Beynini erken bırakmaya alıştırıyorsun."
+   }
+  },
+  {
+   "src": "7697820355800370448/2",
+   "boite": [
+    312,
+    438,
+    456,
+    450
+   ],
+   "titre": {
+    "en": "Gaming until 3am",
+    "fr": "Jouer jusqu’à 3h",
+    "de": "Zocken bis 3 Uhr",
+    "es": "Jugar hasta las 3",
+    "it": "Giocare fino alle 3",
+    "tr": "Gece 3’e kadar oyun"
+   },
+   "texte": {
+    "en": "Fast rewards all night make the real world feel slow the next day.",
+    "fr": "Des récompenses rapides toute la nuit, et le monde réel paraît lent le lendemain.",
+    "de": "Schnelle Belohnungen die ganze Nacht, und am nächsten Tag wirkt die echte Welt langsam.",
+    "es": "Recompensas rápidas toda la noche y al día siguiente el mundo real parece lento.",
+    "it": "Ricompense veloci tutta la notte, e il giorno dopo il mondo reale sembra lento.",
+    "tr": "Bütün gece hızlı ödüller, ertesi gün gerçek dünyayı yavaş gösterir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: I could not watch a movie without checking my phone. After deleting short videos with UnSwipe: two hours, no phone.",
+    "fr": "Avant : impossible de regarder un film sans checker mon téléphone. Après avoir supprimé les vidéos courtes avec UnSwipe : deux heures, sans téléphone.",
+    "de": "Vorher: Ich konnte keinen Film schauen, ohne aufs Handy zu sehen. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: zwei Stunden, kein Handy.",
+    "es": "Antes: no podía ver una peli sin mirar el móvil. Después de borrar los vídeos cortos con UnSwipe: dos horas, sin móvil.",
+    "it": "Prima: non riuscivo a guardare un film senza controllare il telefono. Dopo aver eliminato i video brevi con UnSwipe: due ore, senza telefono.",
+    "tr": "Önce: telefona bakmadan film izleyemiyordum. Kısa videoları UnSwipe ile sildikten sonra: iki saat, telefonsuz."
+   }
+  }
+ ],
+ "notes": "routine du 02/11 : accroche jamais faite chez nous (« things that destroy your attention span »). cta C (avant/après) : élément UnSwipe en dernier item (slide 8)."
+}

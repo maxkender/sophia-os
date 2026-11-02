@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o034",
+ "type_bleo": "full_test",
+ "titre": "Things that look weak but are actually strong #men #strength #mindset #selfimprovement #respect",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». Répétition BLEO du 31/10 (ROUTINE.md, exception podz 8 et 9). Full test du jour (jauge : 1 sur 4). Accroche jamais faite chez nous : aucun « look weak », « weak but » ni « actually strong » dans donnees/label.json. C'est le paradoxe qui marche sur le label (contre-intuitif, comme « weird advice »), appliqué à la force d'homme. Accroches écrites : « Things that look weak but are actually strong » (retenue : promesse claire et paradoxale), « Soft habits of strong men » (écartée : plus vague), « What real strength looks like » (écartée : abstraite, proche des flops). Une chose par slide, puis une ligne de pourquoi. Images : la banque, sans visage ; slide Sophia sur une salle à cheminée sans personne. reference_url : une slide de took-me-years (même mise en page), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "001cd438",
+   "texte_overlay": "Things that look weak\nbut are actually strong",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2de2e4cf",
+   "texte_overlay": "1. Walking away from a fight\nAnyone can swing.\nIt takes control to leave.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3a40f5d6",
+   "texte_overlay": "2. Apologizing first\nYour ego says wait.\nYour character doesn't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "054e31ce",
+   "texte_overlay": "3. Changing your mind\nwhen you're proven wrong\nStubborn isn't strong.\nIt's just stuck.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "25f7f656",
+   "texte_overlay": "4. Leaving the party early\nTomorrow you'll be the only one\nwho kept his promise to himself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "207ef742",
+   "texte_overlay": "5. Saying you need a break\nPushing through everything\nisn't toughness.\nKnowing your limits is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0c938189",
+   "texte_overlay": "6. Admitting you're\nstill learning\nThe man who thinks he knows\neverything has stopped growing.",
+   "texte_sophia": "6. Admitting you're\nstill learning\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

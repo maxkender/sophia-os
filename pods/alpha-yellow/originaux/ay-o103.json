@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o103",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a50138ba-6cf2-4f16-a433-2c66d3e33852",
+ "titre": "7 subtle behaviors that make people take you seriously #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "a50138ba-6cf2-4f16-a433-2c66d3e33852"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture e1140173. déclinaison G1 de la ligne 12 de la boîte (a50138ba, fr 4,2 k r 3, it 3,6 k r 2,92) : accroche du parent mot pour mot. Items neufs, autre couverture (celle du parent sert déjà à ay-o101 aujourd'hui).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1140173",
+   "texte_overlay": "7 subtle behaviors that make\npeople take you seriously",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Arriving prepared. Notes ready, question in mind, the document already read. Preparation shows before you speak, and people instantly treat you as someone who matters.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Saying \"I don't know, I'll find out.\" Pretending to know everything destroys trust. Admitting a gap and coming back with the answer builds credibility fast.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Writing clear, short messages. No walls of text, no five exclamation marks. A tidy three-line email makes you look like someone who thinks clearly and values people's time.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Speaking from real knowledge. I do five minutes a day of history, art or science, and having real facts instead of loud opinions makes people listen when I speak.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Having real facts instead of opinions makes people listen when I speak.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Not laughing at your own jokes before the end. Deliver it straight, let them laugh. Confidence in your own words, even small ones, signals that you're worth listening to.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keeping your appointments with yourself. The gym session, the study hour, the early night. People who respect their own commitments are taken seriously by others too.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Disagreeing calmly and with a reason. \"I see it differently, here's why.\" No sarcasm, no eye rolling. Calm disagreement is one of the clearest signs of a serious person.",
+   "media_id": "9879c45f"
+  }
+ ]
+}

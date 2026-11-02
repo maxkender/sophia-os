@@ -310,6 +310,65 @@ export async function listerContenusFamille(familleId: string): Promise<ContenuB
   return (data ?? []) as ContenuBleo[];
 }
 
+/**
+ * Ce que la page Slideshows montre de BLEO pour un contenu : une ligne de
+ * `bleo_contenus_ui` sans les textes ni l'image (la page a déjà les siens).
+ */
+export type InfosBleoContenu = Pick<
+  ContenuBleo,
+  | "id"
+  | "famille_id"
+  | "generation"
+  | "type_bleo"
+  | "etat_bleo"
+  | "verdict"
+  | "n_passages"
+  | "vues_max"
+  | "vues_moyenne"
+  | "r_median"
+  | "r_moyen"
+  | "valeur_max"
+  | "n_langues"
+  | "dernier_passage"
+>;
+
+const COLONNES_INFOS_BLEO =
+  "id, famille_id, generation, type_bleo, etat_bleo, verdict, n_passages, vues_max, vues_moyenne, r_median, r_moyen, valeur_max, n_langues, dernier_passage";
+
+/** Ids par requête `.in()`, comme ailleurs dans l'OS : l'URL PostgREST reste courte. */
+const LOT_IDS = 80;
+
+const nombreOuNull = (v: unknown): number | null => (v == null ? null : Number(v));
+
+/**
+ * Les infos BLEO de ces contenus, lues par lots de 80 ids (en parallèle).
+ * Un contenu rattaché à aucune famille n'a pas de ligne : il n'est pas dans
+ * la vue. Les colonnes `numeric` sont ramenées en nombres pour les tris.
+ */
+export async function listerInfosBleoContenus(contenuIds: readonly string[]): Promise<InfosBleoContenu[]> {
+  const ids = [...new Set(contenuIds)];
+  if (ids.length === 0) return [];
+  const lots: string[][] = [];
+  for (let i = 0; i < ids.length; i += LOT_IDS) lots.push(ids.slice(i, i + LOT_IDS));
+  const pages = await Promise.all(
+    lots.map(async (lot) => {
+      const { data, error } = await supabase.from("bleo_contenus_ui").select(COLONNES_INFOS_BLEO).in("id", lot);
+      if (error) throw error;
+      return (data ?? []) as InfosBleoContenu[];
+    }),
+  );
+  return pages.flat().map((c) => ({
+    ...c,
+    n_passages: Number(c.n_passages ?? 0),
+    n_langues: Number(c.n_langues ?? 0),
+    vues_max: nombreOuNull(c.vues_max),
+    vues_moyenne: nombreOuNull(c.vues_moyenne),
+    r_median: nombreOuNull(c.r_median),
+    r_moyen: nombreOuNull(c.r_moyen),
+    valeur_max: nombreOuNull(c.valeur_max),
+  }));
+}
+
 export async function listerPassagesFamille(contenuIds: string[], limite = 100): Promise<PassageFamille[]> {
   if (contenuIds.length === 0) return [];
   const { data, error } = await supabase

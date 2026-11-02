@@ -622,6 +622,7 @@ describe("AdminCheckKillDoublePage", () => {
       expect(within(onglets).getAllByRole("tab").map((o) => o.textContent?.replace(/\d+$/, ""))).toEqual([
         "Jeudi",
         "Samedi",
+        "Dimanche : warm-up",
         "Réglages",
       ]);
       expect(within(onglets).getByRole("tab", { name: /^Samedi/ })).toHaveAttribute("aria-selected", "true");

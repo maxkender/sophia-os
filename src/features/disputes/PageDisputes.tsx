@@ -11,7 +11,6 @@ import { Segments } from "@/components/ui/segments";
 import { Textarea } from "@/components/ui/textarea";
 import { DialogPaiement } from "@/features/paie/api-upwork/DialogPaiement";
 import { cn } from "@/lib/utils";
-import { AdminRetoursContestesPage } from "@/pages/admin/AdminRetoursContestesPage";
 
 import {
   agirContestation,
@@ -30,8 +29,10 @@ import {
   type Verdict,
   TYPES_MANUELS,
 } from "./api";
-import { bilanPosts, compterOnglets, enRetard, filtrerOnglet, ligneDue, ONGLETS, proposerVerdict, reponseProposee, type Onglet } from "./logique";
+import { bilanPosts, compterOnglets, enRetard, filtrerOnglet, ligneDue, ONGLETS_DISPUTES, proposerVerdict, reponseProposee, type Onglet } from "./logique";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
+import { type Conversation, conversationDe, useConversations } from "@/features/upwork/conversation";
+import { LienConversation } from "@/features/upwork/LienConversation";
 
 const quand = (iso: string | null | undefined, langue: string) =>
   iso ? new Intl.DateTimeFormat(langue, { dateStyle: "short", timeStyle: "short", timeZone: "Europe/Paris" }).format(new Date(iso)) : "—";
@@ -42,14 +43,17 @@ const quand = (iso: string | null | undefined, langue: string) =>
  * ce que l'OS a fait et pourquoi, le verdict proposé ; puis vérifier,
  * corriger, répondre. Toutes les actions sont confirmées et notées dans les Logs.
  */
-export function PageDisputes() {
+export function PageDisputes({ onglets = ONGLETS_DISPUTES }: { onglets?: readonly Onglet[] }) {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
-  const onglet = ONGLETS.find((o) => o === params.get("onglet")) ?? "ouvertes";
+  // 31/10 : Posts & links et Feedback ont leur page dans Tracking ; ici, seulement les onglets donnés.
+  const onglet = onglets.find((o) => o === params.get("onglet")) ?? onglets[0];
   const lu = useQuery({ queryKey: ["disputes", "liste"], queryFn: lireContestations, refetchInterval: 60_000 });
   const tous = lu.data ?? [];
   const compte = compterOnglets(tous);
   const visibles = filtrerOnglet(tous, onglet).sort((a, b) => a.recu_at.localeCompare(b.recu_at));
+  // 0469 : la conversation Upwork de chaque posteur.
+  const conv = useConversations(visibles.map((c) => c.poster_id));
   const choisir = (o: Onglet) => {
     const next = new URLSearchParams();
     next.set("onglet", o);
@@ -60,22 +64,16 @@ export function PageDisputes() {
     <div className="space-y-4" data-testid="disputes">
       <Segments
         libelle={t("disputes.onglets.libelle")}
-        options={ONGLETS.map((o) => ({ cle: o, contenu: <>{t(`disputes.onglets.${o}`)} ({compte[o]})</> }))}
+        options={onglets.map((o) => ({ cle: o, contenu: <>{t(`disputes.onglets.${o}`)} ({compte[o]})</> }))}
         actif={onglet}
         onChange={choisir}
       />
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
-      {onglet === "feedback" ? (
-        <AdminRetoursContestesPage />
-      ) : (
-        <>
-          {lu.data && visibles.length === 0 && <p className="text-sm text-muted-foreground">{t("disputes.vide")}</p>}
-          <div className="space-y-3">
-            {visibles.map((c) => <CarteContestation key={c.id} c={c} />)}
-          </div>
-          {onglet === "ouvertes" && <TextesContestation />}
-        </>
-      )}
+      {lu.data && visibles.length === 0 && <p className="text-sm text-muted-foreground">{t("disputes.vide")}</p>}
+      <div className="space-y-3">
+        {visibles.map((c) => <CarteContestation key={c.id} c={c} conv={conversationDe(conv.data, { posteur: c.poster_id })} />)}
+      </div>
+      {onglet === "ouvertes" && <TextesContestation />}
     </div>
   );
 }
@@ -92,7 +90,7 @@ function RaisonKillSansPaie({ posterId }: { posterId: string }) {
   );
 }
 
-function CarteContestation({ c }: { c: Contestation }) {
+function CarteContestation({ c, conv }: { c: Contestation; conv?: Conversation }) {
   const { t, i18n } = useTranslation();
   const [ouverte, setOuverte] = React.useState(false);
   const rouge = enRetard(c);
@@ -109,6 +107,7 @@ function CarteContestation({ c }: { c: Contestation }) {
           {c.statut === "fermee" && <Badge variant="secondary">{t(`disputes.verdicts.${c.verdict ?? "aucun"}`)}</Badge>}
           <span className="ml-auto text-xs text-muted-foreground">{quand(c.recu_at, i18n.language)}</span>
         </div>
+        <LienConversation c={conv} />
         <p className="whitespace-pre-wrap break-words">
           <span className="font-medium">{t("disputes.ditLePosteur")} </span>
           {c.texte ?? "—"}

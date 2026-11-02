@@ -33,8 +33,8 @@ describe("prompt 22 : les anciennes adresses redirigent", () => {
     ["/admin/paie", "/admin/auto/payroll"],
     ["/admin/recrutements", "/admin/auto/recruits"],
     ["/admin/recrutements/FR", "/admin/auto/recruits"],
-    ["/admin/reviews", "/admin/auto/disputes?onglet=feedback"],
-    ["/admin/retours-contestes", "/admin/auto/disputes?onglet=feedback"],
+    ["/admin/reviews", "/admin/quality-feedback"],
+    ["/admin/retours-contestes", "/admin/quality-feedback"],
     ["/admin/assistant", "/admin/auto/faq"],
     ["/admin/check-kill-double", "/admin/auto/decisions"],
   ])("%s → %s", (de, vers) => {

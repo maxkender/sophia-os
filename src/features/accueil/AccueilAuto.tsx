@@ -11,11 +11,22 @@ import { listerHms } from "@/features/ckd/api";
 import { lireInterrupteurs } from "@/features/interrupteurs/api";
 import { ChampPaysCompte } from "@/features/moteur/ChampPaysCompte";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { paysParDefaut } from "@/features/moteur/pays";
+import { nomPaysIso, paysParDefaut, paysTries } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
 
 import { LiaisonsContrats } from "./LiaisonsContrats";
-import { amorcerAnnonces, enregistrerAnnonce, lireAccueils, lireAnnonces, relierAccueil, type Accueil, type AnnoncePays } from "./api";
+import {
+  amorcerAnnonces,
+  creerAccueil,
+  enregistrerAnnonce,
+  lireAccueils,
+  lireAnnonces,
+  localiserAccueils,
+  relierAccueil,
+  type Accueil,
+  type AnnoncePays,
+} from "./api";
+import { estARelier } from "./aRelier";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -48,12 +59,26 @@ function LigneARelier({ a, hms, admin }: { a: Accueil; hms: { id: string; nom: s
     onSuccess: () => qc.invalidateQueries({ queryKey: ["accueils"] }),
   });
   const pret = Boolean(langue && paysDe(langue, pays));
+  const lieu = [a.freelance_ville, nomPaysIso(a.freelance_pays)].filter(Boolean).join(", ");
   return (
     <li className="space-y-2 px-3 py-2" data-a-relier={a.contrat_id}>
       <p className="text-sm">
         <span className="font-medium">{[a.prenom, a.nom].filter(Boolean).join(" ") || a.contrat_id}</span>
         <span className="text-muted-foreground"> · {a.job_titre ?? "—"}</span>
       </p>
+      {/* 0470 : l'équipe Upwork du contrat, où vit le freelance, la HM du contrat, la raison. */}
+      <p className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground" data-testid="infos-contrat">
+        {a.equipe && (
+          <Badge variant={/^vik studios$/i.test(a.equipe) ? "secondary" : "warning"} data-equipe={a.equipe}>
+            {t("accueil.api.equipe", { nom: a.equipe })}
+            {!/^vik studios$/i.test(a.equipe) && ` · ${t("accueil.api.horsVik")}`}
+          </Badge>
+        )}
+        <span>{lieu ? t("accueil.api.vit", { lieu }) : t("accueil.api.vitInconnu")}</span>
+        {a.hm_upwork_nom && <span>{t("accueil.api.hmContrat", { nom: a.hm_upwork_nom })}</span>}
+        {a.raison && <span>· {a.raison}</span>}
+      </p>
+      {admin && <CreerPourContrat a={a} hms={hms} />}
       <div className="flex flex-wrap items-end gap-2">
         <select className={selectClass} value={langue} onChange={(e) => { setLangue(e.target.value); setPays(""); }} aria-label={t("accueil.langue")}>
           <option value="">{t("accueil.langue")}</option>
@@ -84,6 +109,58 @@ function LigneARelier({ a, hms, admin }: { a: Accueil; hms: { id: string; nom: s
       </div>
       {relier.isError && <p className="text-xs text-destructive">{(relier.error as Error).message}</p>}
     </li>
+  );
+}
+
+/**
+ * 0470 : la carte « Contract to link » : pays et HM pour ce contrat, sans
+ * passer par l'annonce. Un clic : posteur créé, relié au contrat, welcome
+ * envoyé, carte fermée ; sinon l'erreur, telle quelle.
+ */
+function CreerPourContrat({ a, hms }: { a: Accueil; hms: { id: string; nom: string }[] }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [pays, setPays] = React.useState(a.pays ?? a.freelance_pays ?? "");
+  const [hm, setHm] = React.useState(a.hm_id ?? "");
+  const tous = React.useMemo(() => paysTries(), []);
+  const nom = [a.prenom, a.nom].filter(Boolean).join(" ") || a.contrat_id;
+  const creer = useMutation({
+    mutationFn: () => creerAccueil(a.contrat_id, pays, hm),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["accueils"] }),
+  });
+  return (
+    <div className="flex flex-wrap items-end gap-2" data-testid="creer-pour-contrat">
+      <select className={selectClass} value={pays} onChange={(e) => setPays(e.target.value)} aria-label={t("accueil.api.pays")}>
+        <option value="">{t("accueil.api.pays")}</option>
+        {tous.map((p) => (
+          <option key={p.code} value={p.code}>
+            {p.nom}
+          </option>
+        ))}
+      </select>
+      <select className={selectClass} value={hm} onChange={(e) => setHm(e.target.value)} aria-label={t("accueil.hm")}>
+        <option value="">{t("accueil.hm")}</option>
+        {hms.map((h) => (
+          <option key={h.id} value={h.id}>
+            {h.nom}
+          </option>
+        ))}
+      </select>
+      <Button
+        size="sm"
+        className="h-8"
+        disabled={!pays || !hm || creer.isPending}
+        loading={creer.isPending}
+        onClick={() => {
+          const hmNom = hms.find((h) => h.id === hm)?.nom ?? hm;
+          if (window.confirm(t("accueil.api.confirmer", { nom, pays: nomPaysIso(pays) || pays, hm: hmNom }))) creer.mutate();
+        }}
+      >
+        {t("accueil.api.creer")}
+      </Button>
+      {creer.isError && <p className="w-full text-xs text-destructive" role="alert">{(creer.error as Error).message}</p>}
+      {creer.data && <p className="w-full text-xs text-muted-foreground">{t("accueil.api.cree", { statut: t(`accueil.statuts.${creer.data.statut ?? "cree"}`) })}</p>}
+    </div>
   );
 }
 
@@ -170,8 +247,15 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
     onSuccess: () => qc.invalidateQueries({ queryKey: ["annonces"] }),
   });
   const liste = accueils.data ?? [];
-  const aRelier = liste.filter((a) => a.statut === "a_relier");
-  const autres = liste.filter((a) => a.statut !== "a_relier");
+  const aRelier = liste.filter(estARelier);
+  // 0493 : les contrats qui ne sont pas des recrues (contrat de HM, autre activité) : listés à part, jamais à relier.
+  const classes = liste.filter((a) => a.classement);
+  // 0470 : relire le pays du freelance et la HM du contrat (lecture seule).
+  const localiser = useMutation({
+    mutationFn: () => localiserAccueils(aRelier.map((a) => a.contrat_id)),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["accueils"] }),
+  });
+  const autres = liste.filter((a) => a.statut !== "a_relier" && !a.classement);
   const mode = interrupteurs.data?.accueil_auto ?? "test";
   const fmt = new Intl.DateTimeFormat(i18n.resolvedLanguage ?? "fr", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
   if (hmSeulement && aRelier.length === 0) return null;
@@ -186,7 +270,18 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
       {accueils.error && <p className="text-sm text-destructive">{(accueils.error as Error).message}</p>}
 
       <div className="space-y-1">
-        <p className="text-sm font-medium">{t("accueil.aRelier", { n: aRelier.length })}</p>
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="text-sm font-medium">{t("accueil.aRelier", { n: aRelier.length })}</p>
+          {admin && aRelier.length > 0 && (
+            <>
+              <Button size="sm" variant="outline" className="h-7" loading={localiser.isPending} onClick={() => localiser.mutate()} title={t("accueil.api.lireAide")}>
+                {t("accueil.api.lire")}
+              </Button>
+              {localiser.data && <span className="text-xs text-muted-foreground">{t("accueil.api.lu", { n: localiser.data.length })}</span>}
+              {localiser.error && <span className="text-xs text-destructive">{(localiser.error as Error).message}</span>}
+            </>
+          )}
+        </div>
         {aRelier.length === 0 ? (
           <p className="text-xs text-muted-foreground">{t("accueil.rienARelier")}</p>
         ) : (
@@ -197,6 +292,25 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
           </ul>
         )}
       </div>
+
+      {!hmSeulement && classes.length > 0 && (
+        <details className="group rounded-lg border" data-testid="accueils-classes">
+          <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2 text-sm font-medium">
+            <ChevronDown className="size-4 transition-transform group-[:not([open])]:-rotate-90" aria-hidden />
+            {t("accueil.classes.titre", { n: classes.length })}
+          </summary>
+          <ul className="divide-y border-t text-sm">
+            {classes.map((a) => (
+              <li key={a.contrat_id} className="flex flex-wrap items-center gap-2 px-3 py-2" data-classe={a.classement ?? ""}>
+                <span className="font-medium">{[a.prenom, a.nom].filter(Boolean).join(" ") || "—"}</span>
+                <span className="text-xs tabular-nums text-muted-foreground">{a.contrat_id}</span>
+                <Badge variant={a.classement === "hm" ? "info" : "secondary"}>{t(`accueil.classes.${a.classement}`)}</Badge>
+                {a.classement_raison && <span className="text-xs text-muted-foreground">{a.classement_raison}</span>}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
 
       {!hmSeulement && admin && <LiaisonsContrats />}
 

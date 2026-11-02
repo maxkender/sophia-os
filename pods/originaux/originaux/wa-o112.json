@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o112",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "03c8fe3a-e63b-4608-9b43-5691bf71dbd6",
+ "titre": "5 things that will pull you out of your dopamine addiction #dopaminedetox #selfimprovement #focus #mindset #screentime",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "f04a4689-2c4f-496a-b033-064e2a17f585"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, f04a4689). déclinaison G1 de « 5 things that will pull you out of your dopamine addiction » (parent 03c8fe3a, 98 300 vues en pl). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "37505443-1d76-46e2-9260-f634108fdbb4",
+   "texte_overlay": "5 things that will pull you out\nof your dopamine addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653583006610885901/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4a93c97e-d7cb-4ee3-a097-82682775e589",
+   "texte_overlay": "a phone free first hour\n\nkeep your phone in airplane mode for the first hour of the day. your brain starts the morning on its own terms instead of in a rush of other people's demands.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653583006610885901/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "851a7b08-82e8-4cb8-8437-d79e63ab1fe4",
+   "texte_overlay": "cooking without a screen\n\ncook dinner with no podcast, no video and no music. the smells, sounds and small decisions slowly teach your brain to enjoy one thing at a time again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653583006610885901/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0e86ab6d-de7d-421f-a6c8-e1b07ed4476d",
+   "texte_overlay": "learning slowly\n\nspend 5 minutes a day on a lesson that asks for attention: history, art, how the body works. slow rewards rebuild what fast hits have quietly worn down.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653583006610885901/3.jpg",
+   "texte_sophia": "learning slowly\n\ni spend 5 minutes a day on a lesson that asks for real attention: history, art, the body. i do it with the Sophia app, one lesson a day, and slow rewards feel good again."
+  },
+  {
+   "position": 5,
+   "media_id": "0029174e-3f21-49f5-83b3-193f572cda79",
+   "texte_overlay": "the ten minute rule\n\nwhen you crave a quick hit, wait ten minutes first and do nothing. most cravings fade before the timer ends, and your brain learns it doesn't need every one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653583006610885901/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "48c39f24-3775-4ba4-862e-c619eb773292",
+   "texte_overlay": "boring evenings\n\nplan one evening a week with no screens at all: a walk, a book, a long dinner. boredom feels awful for an hour, then your mind finally starts making its own fun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653583006610885901/6.jpg"
+  }
+ ]
+}

@@ -1,3 +1,5 @@
+import { motDePasseCreation } from "../_shared/mot_de_passe.ts";
+import { contratDeUrl, erreurPosteurExistant } from "../_shared/contrat_unique.ts";
 import {
   applicationParId,
   applicationSophia,
@@ -50,7 +52,14 @@ import { lireTout } from "../_shared/lots.ts";
 import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
-import { estRoleManager, rattachementNouvelHm, refuseAuHm, roleACreer } from "../_shared/roles.ts";
+import {
+  creationPosteurCoupee,
+  estRoleManager,
+  MESSAGE_HM_NE_CREE_PLUS,
+  rattachementNouvelHm,
+  refuseAuHm,
+  roleACreer,
+} from "../_shared/roles.ts";
 import {
   assertRole,
   corsHeaders,
@@ -143,6 +152,24 @@ function resoudrePremierCompte(
  * label sans application cochée ne sert personne), jamais la colonne historique
  * `labels.application_id`.
  */
+/** 31/10 : le posteur actif qui a déjà ce contrat (n° relié, ou dans l'URL saisie). */
+async function posteurDuContrat(
+  supabase: ReturnType<typeof serviceClient>,
+  contratId: string,
+): Promise<{ id: string; nom: string | null; email: string | null } | null> {
+  const { data } = await supabase.from("profiles")
+    .select("id, prenom, nom, email, created_at")
+    .eq("is_active", true)
+    .or(`upwork_contract_id.eq.${contratId},upwork_contrat_url.ilike.%/${contratId}/%,upwork_contrat_url.ilike.%/${contratId}`)
+    .order("created_at", { ascending: true })
+    .limit(5);
+  for (const p of (data ?? []) as { id: string; prenom: string | null; nom: string | null; email: string | null }[]) {
+    const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", p.id).eq("role", "poster").maybeSingle();
+    if (role) return { id: p.id, nom: [p.prenom, p.nom].filter(Boolean).join(" ") || null, email: p.email };
+  }
+  return null;
+}
+
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
   // navigateur bloque avec « Failed to send a request to the Edge Function ».
@@ -165,6 +192,11 @@ async function gererRequete(request: Request): Promise<Response> {
     body = await request.json();
   } catch {
     return json({ error: "corps JSON attendu" }, 400);
+  }
+
+  // 1/11 : « Set my password » (page publique /set-password) : le lien personnel du welcome, sans session.
+  if (body.action === "lien_mot_de_passe_lire" || body.action === "lien_mot_de_passe_definir") {
+    return await lienMotDePasse(supabase, body);
   }
 
   // Start warmup : le créateur lui-même (ou admin). Plus le HM.
@@ -291,6 +323,24 @@ async function gererRequete(request: Request): Promise<Response> {
     "head_of_ops",
   ]);
   if (acces instanceof Response) return acces;
+  // 1/11 : une HM (ou une DM) ne crée plus de posteur : l'OS le crée à l'offre acceptée.
+  // La base refuse aussi (poster_creation_reserver, statut refuse_hm) ; on rend le posteur
+  // qui existe déjà pour ce contrat ou ce nom, pour le lien « My cohort ».
+  if (creationPosteurCoupee(acces.role, body.action)) {
+    const contrat = contratDeUrl(typeof body.upwork_contrat_url === "string" ? body.upwork_contrat_url : null);
+    const { data: resa } = await supabase.rpc("poster_creation_reserver", { p_contrat: contrat, p_par: `${acces.role}:${acces.userId}` });
+    const r = resa as { poster_id?: string | null; nom?: string | null } | null;
+    let existant = r?.poster_id ? { id: r.poster_id, nom: r.nom ?? "" } : null;
+    const prenom = String(body.prenom ?? "").trim();
+    const nom = String(body.nom ?? "").trim();
+    if (!existant && prenom) {
+      let q = supabase.from("profiles").select("id, prenom, nom").eq("is_active", true).ilike("prenom", prenom);
+      if (nom) q = q.ilike("nom", nom);
+      const { data: memes } = await q.limit(1);
+      if (memes?.[0]) existant = { id: String(memes[0].id), nom: [memes[0].prenom, memes[0].nom].filter(Boolean).join(" ") };
+    }
+    return json({ error: `HM_NE_CREE_PLUS|${existant?.id ?? ""}|${existant?.nom ?? ""}`, message: MESSAGE_HM_NE_CREE_PLUS }, 403);
+  }
   // Prompt 15, point 1 : ajouter un compte, (dés)activer un posteur et créer
   // un hiring manager sont retirés aux HMs (admin et Head of Ops les gardent).
   if (refuseAuHm(acces.role, body.action, body.role)) {
@@ -300,7 +350,6 @@ async function gererRequete(request: Request): Promise<Response> {
   if (body.action === "create") {
     const prenom = String(body.prenom ?? "").trim();
     const nom = String(body.nom ?? "").trim();
-    const password = String(body.password ?? "");
     const langue = canoniserLangue(body.langue as string | null | undefined);
     const typePremier = resoudrePremierCompte(body.type_compte, langue);
     const languesRecues = Array.isArray(body.langues)
@@ -314,6 +363,8 @@ async function gererRequete(request: Request): Promise<Response> {
     const roleVoulu = roleACreer(body.role, acces.role);
     const creerCm = roleVoulu === "poster" && typePremier === "cm";
     const creerPerso = roleVoulu === "poster" && typePremier === "perso";
+    // 31/10 : un posteur a son propre mot de passe (plus 12345678 pour tous), à changer à la 1re connexion.
+    const password = roleVoulu === "poster" ? motDePasseCreation(body.password as string | undefined) : String(body.password ?? "");
 
     if (!prenom || password.length < 8) {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
@@ -329,6 +380,13 @@ async function gererRequete(request: Request): Promise<Response> {
       });
       if (errAuto) return json({ error: `accueil_contrat_auto : ${errAuto.message}` }, 500);
       if (auto === true) return json({ error: "ACCUEIL_AUTO" }, 409);
+    }
+    // 31/10 : un seul profil par contrat Upwork, vérifié en base, avant de
+    // consommer quoi que ce soit (formulaire HM comme onboarding de l'OS).
+    const contratId = contratDeUrl(lectureContact.contact.upwork_contrat_url);
+    if (contratId) {
+      const existant = await posteurDuContrat(supabase, contratId);
+      if (existant) return json({ error: erreurPosteurExistant(existant) }, 409);
     }
 
     // Label / répartition imposés par le recruteur. `null` = chemin historique.
@@ -413,6 +471,27 @@ async function gererRequete(request: Request): Promise<Response> {
       referenceId = await referenceLibre(supabase, langue, application.id);
     }
 
+    // 31/10 : la réservation du contrat, en base et sous verrou : deux créations
+    // simultanées du même contrat passent l'une après l'autre, la 2e est refusée.
+    if (contratId) {
+      const { data: resa, error: errResa } = await supabase.rpc("poster_creation_reserver", {
+        p_contrat: contratId,
+        p_par: acces.userId === "cron" ? "os" : `${acces.role}:${acces.userId}`,
+      });
+      const r = resa as { statut?: string; poster_id?: string; nom?: string | null; email?: string | null } | null;
+      if (errResa || r?.statut !== "ok") {
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        if (errResa) return json({ error: `poster_creation_reserver : ${errResa.message}` }, 500);
+        if (r?.statut === "existe" && r.poster_id) {
+          return json({ error: erreurPosteurExistant({ id: r.poster_id, nom: r.nom ?? null, email: r.email ?? null }) }, 409);
+        }
+        return json({ error: "POSTER_EN_COURS" }, 409);
+      }
+    }
+    const libererContrat = async (posterId: string | null) => {
+      if (contratId) await supabase.rpc("poster_creation_terminer", { p_contrat: contratId, p_poster: posterId });
+    };
+
     const email = await emailDisponible(supabase, prenom, nom);
 
     const { data, error } = await supabase.auth.admin.createUser({
@@ -423,6 +502,7 @@ async function gererRequete(request: Request): Promise<Response> {
     });
 
     if (error) {
+      await libererContrat(null);
       if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
       const detail = [error.message, error.code, error.status].filter(Boolean).join(" · ");
       return json({ error: detail || `Création refusée pour ${email}` }, 400);
@@ -435,10 +515,13 @@ async function gererRequete(request: Request): Promise<Response> {
           prenom,
           nom: nom || null,
           is_active: true,
-          must_change_password: false,
+          must_change_password: roleVoulu === "poster",
           ...lectureContact.contact,
+          // 31/10 : relié au contrat tout de suite (plus d'attente de contrats_relier).
+          ...(contratId ? { upwork_contract_id: contratId } : {}),
         })
         .eq("id", data.user.id);
+      await libererContrat(data.user.id);
 
       if (roleVoulu === "hiring_manager") {
         await supabase.from("user_roles").delete().eq("user_id", data.user.id);
@@ -540,6 +623,8 @@ async function gererRequete(request: Request): Promise<Response> {
       ok: true,
       userId: data.user?.id,
       email,
+      // Le mot de passe de départ, montré une fois (bienvenue, écran de création).
+      password,
       compte,
       type_compte: creerCm ? "cm" : creerPerso ? "perso" : null,
       role: roleVoulu,
@@ -2244,4 +2329,33 @@ async function referenceLibre(
     (a, b) => rang(a) - rang(b) || String(a.created_at).localeCompare(String(b.created_at)),
   );
   return libres[0].id;
+}
+
+/**
+ * 1/11 : le lien « Set my password » (migration 0491), sans session : le jeton
+ * du lien est la preuve. lire : le login du lien et son état. definir : le mot
+ * de passe choisi (8 caractères au moins) et l'email perso (Slack), puis le lien
+ * est marqué utilisé (une seule fois). Jamais un mot de passe dans un message.
+ * Les refus répondent 200 avec ok: false (la page les affiche).
+ */
+// deno-lint-ignore no-explicit-any
+async function lienMotDePasse(supabase: Supabase, body: any): Promise<Response> {
+  const jeton = String(body.jeton ?? "").trim();
+  if (!/^[0-9a-f]{48}$/.test(jeton)) return json({ ok: false, statut: "inconnu" });
+  const { data: lu, error } = await supabase.rpc("mot_de_passe_lien_lire", { p_jeton: jeton });
+  if (error) return json({ ok: false, error: error.message }, 500);
+  const l = ((lu ?? []) as { statut: string; poster_id: string | null; email: string | null; prenom: string | null }[])[0];
+  if (!l || l.statut !== "ok" || !l.poster_id || !l.email) return json({ ok: false, statut: l?.statut ?? "inconnu" });
+  if (body.action === "lien_mot_de_passe_lire") return json({ ok: true, statut: "ok", email: l.email, prenom: l.prenom });
+  const motDePasse = String(body.password ?? "");
+  if (motDePasse.length < 8 || motDePasse.length > 72) return json({ ok: false, error: "8 characters minimum" });
+  const emailPerso = String(body.email_perso ?? "").trim().toLowerCase();
+  if (emailPerso && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailPerso)) return json({ ok: false, error: "invalid email" });
+  const { error: errMdp } = await supabase.auth.admin.updateUserById(l.poster_id, { password: motDePasse });
+  if (errMdp) return json({ ok: false, error: errMdp.message });
+  await supabase.rpc("mot_de_passe_lien_utiliser", { p_jeton: jeton });
+  await supabase.from("profiles")
+    .update(emailPerso ? { must_change_password: false, email_perso: emailPerso } : { must_change_password: false })
+    .eq("id", l.poster_id);
+  return json({ ok: true, email: l.email });
 }

@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o065",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "370654c4-2456-47bb-b42b-062b35b6a924",
+  "titre": "les choses les plus folles que j'ai fait pour arrêter de scroller #pourtoi #scroll #culture",
+  "inspirations": [
+    "370654c4-2456-47bb-b42b-062b35b6a924"
+  ],
+  "notes": "G1, déclinaison de 370654c4 (« les choses les plus folles que j'ai fait pour arrêter de scroller »), en français ; slide 1 recopiée mot pour mot (« fait », sans accord) après un refus accroche_differente du guichet (§4.6). cta A (avant / après sur l'avant-dernière slide). Items neufs (rien de repris de bsg-o053 ni du parent). Routine du 2/11, première sur BLEO (`npm run boite` : « oui »). Jauge : 1 full test et 7 déclinaisons. J'ai sauté la ligne 3 de la boîte (837491f7, « jobs for people who love enterimarnt ») : son accroche porte une faute de frappe qu'une G1 devrait recopier mot pour mot, et ses slides donnent des salaires que je ne peux pas vérifier. Images de la banque, assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "79f09cec",
+      "texte_overlay": "les choses les plus folles\nque j'ai fait\npour arrêter de scroller",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. j'ai changé la langue de mon téléphone en italien\n\nje comprenais plus rien. du coup, je le posais.\nbonus : j'ai appris trois mots d'italien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. j'ai acheté un réveil à aiguilles\n\nplus de téléphone dans la chambre.\nle soir, il ne reste que le livre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "62e25601",
+      "texte_overlay": "3. j'ai caché mon chargeur dans la cuisine\n\npour recharger, il faut se lever.\nla moitié du temps, j'abandonne.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "4. j'ai mis un livre dans chaque pièce\n\ndès que je m'ennuie, il y en a un à portée de main.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "02d3e38d",
+      "texte_overlay": "5. j'ai remplacé le scroll du matin\n\navant, j'ouvrais mes réseaux avant même d'ouvrir les yeux.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "texte_sophia": "5. j'ai remplacé le scroll du matin\n\navant, j'ouvrais mes réseaux avant même d'ouvrir les yeux.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte."
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "c'est quoi le truc le plus fou\nque t'as testé ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

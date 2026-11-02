@@ -1,0 +1,55 @@
+{
+ "source_id": "bsg-o067",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8986d8d7-9378-4d07-89ca-e2a21f3ce709",
+ "titre": "je note tous les trucs bizarres que j'ai essayés pour me cultiver #pourtoi #culture #apprentissage",
+ "inspirations": [
+  "8986d8d7-9378-4d07-89ca-e2a21f3ce709"
+ ],
+ "notes": "G1, déclinaison de 8986d8d7 (« je note tous les trucs bizarres que j'ai essayés pour me cultiver », notre bsg-o003, r 4,58), en français. cta C (le défi en premier item). Items neufs (rien de repris de bsg-o003, bsg-o014, bsg-o023, bsg-o046 ni du parent). Routine du 2/11, première sur BLEO (`npm run boite` : « oui »). Jauge : 1 full test et 7 déclinaisons. J'ai sauté la ligne 3 de la boîte (837491f7, « jobs for people who love enterimarnt ») : son accroche porte une faute de frappe qu'une G1 devrait recopier mot pour mot, et ses slides donnent des salaires que je ne peux pas vérifier. Images de la banque, assez sombres pour le texte blanc ; aucune personne ni texte lisible sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0f057bec",
+   "texte_overlay": "je note tous les trucs bizarres\nque j'ai essayés\npour me cultiver",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "02d3e38d",
+   "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+   "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras."
+  },
+  {
+   "position": 3,
+   "media_id": "16a06d13",
+   "texte_overlay": "1. regarder des films sans sous-titres dans une langue inconnue\n\n2/10\nj'ai rien compris. mais j'ai adoré la musique de la langue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4c866843",
+   "texte_overlay": "2. lire un chapitre de dictionnaire par semaine\n\n5/10\nlong. mais j'ai trouvé des mots magnifiques.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "414511dc",
+   "texte_overlay": "3. visiter un cimetière célèbre\n\n8/10\ncalme, beau, et plein d'histoire. chaque tombe raconte une vie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "114ca47c",
+   "texte_overlay": "4. écrire une lettre à moi-même dans un an\n\n9/10\nrelire ce que je voulais apprendre l'an dernier, c'est fou.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "09dd6248",
+   "texte_overlay": "c'est quoi ton truc bizarre à toi ?\nje le teste et je le note.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  }
+ ]
+}

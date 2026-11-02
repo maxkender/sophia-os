@@ -49,7 +49,8 @@ describe("les phrases en haut des pages (prompt 22, partie 11)", () => {
     const t = i18n.getFixedT("en");
     for (const [cle, texte] of Object.entries(TEXTES_EN)) expect(t(`auto.phrases.${cle}`)).toBe(texte);
     expect(t("auto.phrases.logs")).toMatch(/Everything the automation did/);
-    expect(t("auto.phrases.needs")).toMatch(/What needs you and what's broken/);
+    // Bloc C (2/11) : Needs you devient Problems.
+    expect(t("auto.phrases.needs")).toMatch(/One problem per poster and per topic/);
   });
 
   it.each(PAGES_AUTO.map((p) => p.cle))("%s : le nom et la phrase en haut de la page", (cle) => {

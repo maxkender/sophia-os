@@ -15,7 +15,7 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/decisions",
       "/admin/auto/sent",
       "/admin/auto/received",
-      "/admin/auto/needs-you",
+      "/admin/auto/problemes",
       "/admin/auto/problems",
       "/admin/auto/disputes",
       "/admin/auto/payroll",

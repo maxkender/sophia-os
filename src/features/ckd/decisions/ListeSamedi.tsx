@@ -26,6 +26,7 @@ import {
   lireCouverture,
   lireForces,
   lireModeArret,
+  lirePriorites,
   simulerValidate,
 } from "./samediExhaustif";
 import { BadgesForces, CompteurCouverture, ContratsSansPosteur, ResultatSimulation } from "./SectionsSamedi";
@@ -202,6 +203,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   // 0464 : la couverture, les posteurs toujours montrés, le mode de Full stop (Test : Validate simule).
   const couverture = useQuery({ queryKey: ["samedi-couverture", lundi], queryFn: () => lireCouverture(lundi) });
   const forces = useQuery({ queryKey: ["samedi-forces", lundi], queryFn: () => lireForces(lundi) });
+  // 0513 : les recrues à voir en premier (décision de Max), sans décision proposée d'office.
+  const priorites = useQuery({ queryKey: ["samedi-priorites", lundi], queryFn: () => lirePriorites(lundi) });
   const modeArret = useQuery({ queryKey: ["reglage-arret-auto"], queryFn: lireModeArret });
   const [simulation, setSimulation] = React.useState<{ lignes: LigneSimulation[]; autres: string[] } | null>(null);
   // Prompt 27 : le contexte de chaque posteur (messages, connexion, dernier post, absence déclarée).
@@ -303,12 +306,16 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const force = (c: CompteSemaine) => forcesDe(c.poster_id).length > 0 || Boolean(demandeCompte(c));
   // 0492 : une décision préparée (fiche Posters, ou un choix déjà noté) autre que Keep : « To handle ».
   const preparee = (c: CompteSemaine) => !aVenir(c) && !decisionSamedi(c) && decisionPreparee(brouillons.data?.get(c.compte_id));
-  const aTraiter = (c: CompteSemaine) => jamais(c) || force(c) || preparee(c) || e(c).statut === "rouge" || e(c).statut === "orange";
+  const prioritaire = (c: CompteSemaine) => Boolean(priorites.data?.has(c.poster_id));
+  const aTraiter = (c: CompteSemaine) =>
+    prioritaire(c) || jamais(c) || force(c) || preparee(c) || e(c).statut === "rouge" || e(c).statut === "orange";
   const [filtreDecision, setFiltreDecision] = React.useState<FiltreDecision>("");
   const duFiltreDecision = (c: CompteSemaine) =>
     !filtreDecision || (filtreDecision === "preparee" ? preparee(c) : filtreDecision === "jamais" ? jamais(c) : choixDe(c) === filtreDecision);
   const visibles = trierComptes(duOnglet(onglet), tri).sort(
-    (a, b) => Number(jamais(b)) - Number(jamais(a)) || Number(force(b)) - Number(force(a)) || Number(preparee(b)) - Number(preparee(a)) || ordreStatut(e(a), e(b)),
+    (a, b) =>
+      Number(prioritaire(b)) - Number(prioritaire(a)) || Number(jamais(b)) - Number(jamais(a)) || Number(force(b)) - Number(force(a)) ||
+      Number(preparee(b)) - Number(preparee(a)) || ordreStatut(e(a), e(b)),
   );
   const montres = visibles.filter(duFiltreDecision);
   const principaux = tous ? montres : montres.filter(aTraiter);
@@ -481,6 +488,11 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           <td className={TD}>
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
             {preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
+            {prioritaire(c) && (
+              <p className="mt-1 max-w-56 text-[11px] font-medium text-warning-foreground" data-testid="priorite-samedi">
+                {t("autoOnglets.decisions.liste.samedi.priorite")} {priorites.data!.get(c.poster_id)}
+              </p>
+            )}
             {!prise && forcesDe(c.poster_id).some((f) => f.raison === "reporte_2" || f.raison === "sans_canal") && (
               <BadgesForces forces={forcesDe(c.poster_id).filter((f) => f.raison === "reporte_2" || f.raison === "sans_canal")} />
             )}

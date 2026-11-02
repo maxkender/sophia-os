@@ -280,6 +280,7 @@ declare
   v_bruit int := 0;
   v_fermes int := 0;
   v_avant int;
+  v_run uuid := gen_random_uuid();
 begin
   if coalesce(auth.role(), '') not in ('', 'service_role') and not public.is_admin() then
     raise exception 'problemes_passage : réservé à l''admin' using errcode = '42501';
@@ -288,15 +289,15 @@ begin
   -- needs_you() lit en service_role (même garde que le badge et l'alerte de 18 h).
   perform set_config('request.jwt.claims', '{"role":"service_role"}', true);
 
+  -- Une ligne par source et par passage (run) : jamais de truncate ni de delete.
   create temp table if not exists _src (
-    type text, ref text, poster_id uuid, contrat_id text, categorie text, resume text, texte text,
+    run uuid, type text, ref text, poster_id uuid, contrat_id text, categorie text, resume text, texte text,
     at timestamptz, lien text, canal text, etat boolean
   ) on commit drop;
-  truncate _src;
 
   -- a. Needs you actuel (a_faire, FAQ, Slack à relier, handles, fermeture, messages pas partis…)
   insert into _src
-  select 'needs_you', n.cle, n.poster_id, null,
+  select v_run, 'needs_you', n.cle, n.poster_id, null,
          case n.type
            when 'paiement' then 'paie' when 'a_payer_avant_fermeture' then 'paie'
            when 'arret_a_verifier' then 'stop'
@@ -312,19 +313,19 @@ begin
 
   -- b. Contestations ouvertes → paie
   insert into _src
-  select 'contestation', c.id::text, c.poster_id, null, 'paie', 'Dispute (' || c.type || ') : ' || left(coalesce(c.texte, ''), 120),
+  select v_run, 'contestation', c.id::text, c.poster_id, null, 'paie', 'Dispute (' || c.type || ') : ' || left(coalesce(c.texte, ''), 120),
          c.texte, c.recu_at, null, c.canal, true
     from public.contestations c where c.statut = 'ouverte';
 
   -- c. Demandes d'arrêt sans décision → stop
   insert into _src
-  select 'demande_arret', d.id::text, d.poster_id, null, 'stop',
+  select v_run, 'demande_arret', d.id::text, d.poster_id, null, 'stop',
          'Asked to stop (' || d.source || ')' || coalesce(' : ' || left(d.raison, 100), ''), d.raison, d.demande_at, null, null, true
     from public.demandes_arret d where d.decision is null;
 
   -- d. Accueils en erreur ou à relier (hors classés : HM, autre activité)
   insert into _src
-  select 'accueil', a.contrat_id, a.poster_id, a.contrat_id, 'accueil',
+  select v_run, 'accueil', a.contrat_id, a.poster_id, a.contrat_id, 'accueil',
          'Welcome ' || a.statut || ' : ' || coalesce(nullif(btrim(concat_ws(' ', a.prenom, a.nom)), ''), a.contrat_id) || coalesce(' (' || left(a.raison, 80) || ')', ''),
          a.raison, a.updated_at, null, null, true
     from public.accueils a
@@ -333,14 +334,14 @@ begin
 
   -- e. Relances bloquées (7 derniers jours)
   insert into _src
-  select 'relance_echec', rp.poster_id::text || ':' || rp.type || ':' || rp.periode, rp.poster_id, null, 'relance_echec',
+  select v_run, 'relance_echec', rp.poster_id::text || ':' || rp.type || ':' || rp.periode, rp.poster_id, null, 'relance_echec',
          'Reminder blocked (' || rp.type || ')' || coalesce(' : ' || left(rp.raison, 100), ''), rp.raison, rp.maj_at, null, rp.canal, true
     from public.relances_prevues rp
    where rp.statut = 'bloque' and rp.maj_at > now() - interval '7 days';
 
   -- f. Écarts de paie : paiements API « à vérifier » (14 derniers jours)
   insert into _src
-  select 'paie_api', pa.id::text, pa.poster_id, pa.contrat_id, 'paie',
+  select v_run, 'paie_api', pa.id::text, pa.poster_id, pa.contrat_id, 'paie',
          'Payroll API to check (week ' || to_char(pa.semaine, 'DD/MM') || ')' || coalesce(' : ' || left(pa.erreur, 100), ''),
          pa.erreur, pa.updated_at, null, null, true
     from public.paie_paiements_api pa
@@ -350,16 +351,16 @@ begin
   if to_regclass('public.offres_alertes') is not null then
     execute $q$
       insert into _src
-      select 'offre_alerte', o.id::text, o.poster_id, o.contrat_id, 'offre_hm_incorrecte',
+      select $1, 'offre_alerte', o.id::text, o.poster_id, o.contrat_id, 'offre_hm_incorrecte',
              'HM offer' || coalesce(' (' || o.hm_nom || ')', '') || ' : ' || o.motif || coalesce(' — ' || left(o.detail, 120), ''),
              o.detail, o.created_at, null, null, true
         from public.offres_alertes o where o.ferme_at is null
-    $q$;
+    $q$ using v_run;
   end if;
 
   -- h. Réponses des posteurs (Upwork VIk Studios, boutons) à classer
   insert into _src
-  select 'reponse', pr.id::text, pr.poster_id, null,
+  select v_run, 'reponse', pr.id::text, pr.poster_id, null,
          case when pr.canal = 'bouton' and pr.texte ~* 'help' then 'question_bloquante' else public.probleme_categorie_texte(pr.texte) end,
          left(regexp_replace(pr.texte, '\s+', ' ', 'g'), 140), pr.texte, pr.recu_at, pr.lien, pr.canal, false
     from public.posteur_reponses pr
@@ -370,7 +371,7 @@ begin
 
   -- i. Slack #questions et #poster-pause (7 jours, messages des posteurs, hors fils et hors réponses de la FAQ)
   insert into _src
-  select 'slack', sm.canal || ':' || sm.ts, p.id, null,
+  select v_run, 'slack', sm.canal || ':' || sm.ts, p.id, null,
          case when sm.canal = v_canal_pause then 'absence' else public.probleme_categorie_texte(sm.texte) end,
          left(regexp_replace(coalesce(sm.texte, ''), '\s+', ' ', 'g'), 140), sm.texte, sm.at, null, 'slack', false
     from public.slack_messages sm
@@ -384,7 +385,7 @@ begin
   -- Les nouvelles sources : bruit archivé, le reste rattaché (C2, C4)
   for r in
     select s.* from _src s
-     where not exists (select 1 from public.problemes_sources x where x.type = s.type and x.ref = s.ref)
+     where s.run = v_run and not exists (select 1 from public.problemes_sources x where x.type = s.type and x.ref = s.ref)
   loop
     if not r.etat and public.probleme_bruit(r.texte) then
       perform public.probleme_archiver(r.type, r.ref, r.poster_id, r.texte, r.at, 'bruit');
@@ -401,7 +402,7 @@ begin
     select p.id, p.categorie, p.created_at, pr.is_active, pr.premiere_connexion_at, pr.slack_user_id, pr.slack_lie_at, p.poster_id,
            (select max((s->>'at')::timestamptz) from jsonb_array_elements(p.sources) s where s->>'type' in ('reponse', 'slack')) as dernier_msg,
            exists (select 1 from jsonb_array_elements(p.sources) s where s->>'type' not in ('reponse', 'slack', 'bot')) as a_etat,
-           exists (select 1 from jsonb_array_elements(p.sources) s join _src x on x.type = s->>'type' and x.ref = s->>'ref' where x.etat) as etat_ouvert,
+           exists (select 1 from jsonb_array_elements(p.sources) s join _src x on x.run = v_run and x.type = s->>'type' and x.ref = s->>'ref' where x.etat) as etat_ouvert,
            exists (select 1 from jsonb_array_elements(p.sources) s where s->>'type' in ('reponse', 'slack', 'bot')) as a_msg
       from public.problemes p
       left join public.profiles pr on pr.id = p.poster_id
@@ -420,34 +421,34 @@ begin
       from base b
   ),
   decision as (
-    select r.id,
+    select rr.id,
       case
         -- posteur désactivé : tout fermé (sauf la paie et le retrait de Slack, qui restent à faire)
-        when r.poster_id is not null and r.is_active is false and r.categorie not in ('paie', 'retirer_slack', 'accueil')
-          then case when r.categorie = 'stop' then 'kill fait (posteur désactivé)' else 'posteur désactivé' end
-        when r.etat_ouvert then null
+        when rr.poster_id is not null and rr.is_active is false and rr.categorie not in ('paie', 'retirer_slack', 'accueil')
+          then case when rr.categorie = 'stop' then 'kill fait (posteur désactivé)' else 'posteur désactivé' end
+        when rr.etat_ouvert then null
         -- paie : payé ou financé après le dernier message
-        when r.categorie = 'paie' and r.a_msg and greatest(r.paye_at, r.finance_at) > r.dernier_msg
+        when rr.categorie = 'paie' and rr.a_msg and greatest(rr.paye_at, rr.finance_at) > rr.dernier_msg
           then 'paie : payé ou financé après le message'
         -- sources de l'OS toutes réglées, sans message du posteur
-        when r.a_etat and not r.a_msg then case r.categorie
+        when rr.a_etat and not rr.a_msg then case rr.categorie
             when 'paie' then 'paie : payé, financé ou remboursé (plus rien d''ouvert)'
-            when 'stop' then 'stop : décision prise (' || coalesce(r.decision_arret, '?') || ')'
+            when 'stop' then 'stop : décision prise (' || coalesce(rr.decision_arret, '?') || ')'
             when 'retirer_slack' then 'fait'
             when 'accueil' then 'accueil relié ou classé'
             else 'réglé dans l''OS' end
         -- étapes faites après le dernier message
-        when r.categorie = 'login' and r.premiere_connexion_at > coalesce(r.dernier_msg, r.created_at) then 'étape faite (connexion)'
-        when r.categorie = 'slack' and r.slack_user_id is not null and coalesce(r.slack_lie_at, r.created_at) >= coalesce(r.dernier_msg, r.created_at) - interval '1 minute'
+        when rr.categorie = 'login' and rr.premiere_connexion_at > coalesce(rr.dernier_msg, rr.created_at) then 'étape faite (connexion)'
+        when rr.categorie = 'slack' and rr.slack_user_id is not null and coalesce(rr.slack_lie_at, rr.created_at) >= coalesce(rr.dernier_msg, rr.created_at) - interval '1 minute'
           then 'étape faite (Slack relié)'
-        when r.categorie = 'tiktok_setup' and r.tiktok_trouve_at > coalesce(r.dernier_msg, r.created_at) then 'étape faite (TikTok trouvé)'
+        when rr.categorie = 'tiktok_setup' and rr.tiktok_trouve_at > coalesce(rr.dernier_msg, rr.created_at) then 'étape faite (TikTok trouvé)'
         -- question (et tout le non urgent) : répondu, pas de nouveau message sous 48 h
-        when public.probleme_niveau(r.categorie) <> 'urgent' and r.a_msg and r.repondu_at is not null
-             and r.repondu_at < now() - interval '48 hours'
-          then 'répondu le ' || to_char(r.repondu_at at time zone 'Europe/Paris', 'DD/MM HH24:MI') || ', pas de nouveau message sous 48 h'
+        when public.probleme_niveau(rr.categorie) <> 'urgent' and rr.a_msg and rr.repondu_at is not null
+             and rr.repondu_at < now() - interval '48 hours'
+          then 'répondu le ' || to_char(rr.repondu_at at time zone 'Europe/Paris', 'DD/MM HH24:MI') || ', pas de nouveau message sous 48 h'
         else null
       end as raison
-      from reponses r
+      from reponses rr
   )
   update public.problemes p
      set statut = 'ferme_auto', ferme_raison = d.raison, ferme_at = now(), maj_at = now()

@@ -108,14 +108,15 @@ export function BlocLot({ onChange }: { onChange?: () => void }) {
           ) : (
             <ul className="grid gap-1 text-xs sm:grid-cols-2">
               {etat.langues.map((l) => {
-                const complet = l.prets + l.echecs >= taille;
+                const attendus = l.attendus ?? taille;
+                const complet = l.prets + l.echecs >= attendus;
                 return (
                   <li key={l.langue} className="flex flex-wrap items-center gap-2 rounded border px-2 py-1">
                     <span>
                       {drapeauLangue(l.langue)} {nomLangue(l.langue)}
                     </span>
                     <Badge variant={complet ? "success" : l.prets > 0 ? "info" : "outline"}>
-                      {t("abTraduction.lot.avancement", { prets: l.prets, taille })}
+                      {t("abTraduction.lot.avancement", { prets: l.prets, taille: attendus })}
                     </Badge>
                     <span className="text-muted-foreground">
                       {t("abTraduction.lot.langueDetail", { relecteurs: l.relecteurs, votes: l.votes, echecs: l.echecs })}

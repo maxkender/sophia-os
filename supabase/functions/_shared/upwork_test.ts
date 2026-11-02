@@ -152,8 +152,8 @@ Deno.test("contratFerme : seulement un statut lu et clairement terminé (décisi
   for (const s of ["ACTIVE", "Active", "PAUSED", "SUSPENDED", "PENDING", "", null, undefined, "OTHER"]) assertEquals(contratFerme(s), false, String(s));
 });
 
-Deno.test("31/10 : VIk Studios (et Micabo) seulement ; fin de contrat : date et qui", () => {
-  assertEquals([orgDeLOs("2074065383597823773"), orgDeLOs("1990051114607612379"), orgDeLOs("1908160914854122444"), orgDeLOs("1113124273601449984"), orgDeLOs(null)], [true, true, false, false, false]);
+Deno.test("2/11 : VIk Studios seulement (Micabo et Calyra ignorées) ; fin de contrat : date et qui", () => {
+  assertEquals([orgDeLOs("2074065383597823773"), orgDeLOs("1990051114607612379"), orgDeLOs("1908160914854122444"), orgDeLOs("1113124273601449984"), orgDeLOs(null)], [true, false, false, false, false]);
   assertEquals(lireFinContrat({ endDate: "2026-10-29T10:00:00Z", freelancer: { id: "F1" }, endedBy: { id: "F1" } }), { fin: "2026-10-29", par: "freelance" });
   assertEquals(lireFinContrat({ endDate: null, freelancer: { id: "F1" }, endedBy: { id: "C9" } }), { fin: null, par: "nous" });
 });

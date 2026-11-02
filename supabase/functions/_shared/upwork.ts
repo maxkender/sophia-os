@@ -228,14 +228,14 @@ export const REQUETE_STATUT_CONTRAT = `query StatutContrat($id: ID!) {
 }`;
 
 /**
- * 31/10 : la connexion (compte de Max) voit 4 organisations. L'OS ne lit et
- * n'agit que sur « VIk Studios » ; « Micabo » (1 contrat, 1 posteur) reste en
- * attendant la décision de Max. « Maximilien Kender » (Calyra) et « Louis
- * Kender » sont ignorées : ni lecture, ni posteur, ni message, ni paie, ni carte.
+ * 31/10 : la connexion (compte de Max) voit 4 organisations. 2/11 (0510) :
+ * l'OS ne lit et n'agit QUE sur « VIk Studios » : accueil, Contracts to link,
+ * relances, paie, Who to fund. « Micabo », « Maximilien Kender » (Calyra) et
+ * « Louis Kender » sont ignorées : ni lecture, ni posteur, ni message, ni paie, ni carte.
  */
 export const ORG_VIK = "2074065383597823773";
 export const ORG_MICABO = "1990051114607612379";
-export const ORGS_OS: readonly string[] = [ORG_VIK, ORG_MICABO];
+export const ORGS_OS: readonly string[] = [ORG_VIK];
 
 export function orgDeLOs(id: string | null | undefined): boolean {
   return Boolean(id) && ORGS_OS.includes(String(id));

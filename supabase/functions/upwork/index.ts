@@ -1069,6 +1069,14 @@ async function planLigne(
       bloque: null,
     };
   }
+  // 2/11 (0510) : jamais de paie sur un contrat hors VIk Studios (Calyra, Micabo…).
+  if (!orgDeLOs(tenant)) {
+    return {
+      ligne, tenant, jalons: [],
+      plan: { ...planPaiement(ligne, [], semaine, r), statut: "refuse", raison: `contrat hors VIk Studios (organisation ${tenant}) : jamais payé par l'OS` },
+      bloque: null,
+    };
+  }
   const lu = await lire(supabase, { par, action: "paie_jalons", query: REQUETE_JALONS, variables: { id: ligne.contrat_id }, tenant });
   if (!lu.data?.contractDetails) {
     return {

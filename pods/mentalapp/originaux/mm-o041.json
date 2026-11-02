@@ -1,0 +1,188 @@
+{
+ "id": "mm-o041",
+ "format": "carrousel",
+ "titre": "How to stop scrolling at night",
+ "legendes": {
+  "en": "how to stop scrolling at night #sleep #scrolling #mentalmaxxing #selfimprovement",
+  "fr": "comment arrêter de scroller le soir #sommeil #scroll #mentalmaxxing #developpementpersonnel",
+  "de": "wie du abends mit dem Scrollen aufhörst #schlaf #scrollen #mentalmaxxing #selbstverbesserung",
+  "es": "cómo dejar de hacer scroll por la noche #sueño #scroll #mentalmaxxing #superacionpersonal",
+  "it": "come smettere di scrollare la sera #sonno #scroll #mentalmaxxing #crescitapersonale",
+  "tr": "gece kaydırmayı nasıl bırakırsın #uyku #scroll #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/2",
+   "boite": [
+    30,
+    792,
+    362,
+    380
+   ]
+  },
+  "theme": {
+   "en": "How to stop",
+   "fr": "Comment arrêter",
+   "de": "So hörst du auf",
+   "es": "Cómo dejar de",
+   "it": "Come smettere",
+   "tr": "Gece kaydırmayı"
+  },
+  "sous": {
+   "en": "scrolling at night",
+   "fr": "de scroller le soir",
+   "de": "abends zu scrollen",
+   "es": "hacer scroll de noche",
+   "it": "di scrollare la sera",
+   "tr": "nasıl bırakırsın"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "1. The phone sleeps outside",
+    "fr": "1. Le téléphone dort dehors",
+    "de": "1. Das Handy schläft draußen",
+    "es": "1. El móvil duerme fuera",
+    "it": "1. Il telefono dorme fuori",
+    "tr": "1. Telefon dışarıda uyur"
+   },
+   "texte": {
+    "en": "Charge it in the kitchen. If it is not within reach, you will not pick it up.",
+    "fr": "Charge-le dans la cuisine. S’il n’est pas à portée de main, tu ne le prendras pas.",
+    "de": "Lade es in der Küche. Wenn es nicht in Reichweite ist, greifst du nicht danach.",
+    "es": "Cárgalo en la cocina. Si no está a mano, no lo cogerás.",
+    "it": "Caricalo in cucina. Se non è a portata di mano, non lo prenderai.",
+    "tr": "Mutfakta şarj et. Uzanamayacağın yerdeyse eline almazsın."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "2. Buy a real alarm clock",
+    "fr": "2. Achète un vrai réveil",
+    "de": "2. Kauf einen echten Wecker",
+    "es": "2. Compra un despertador",
+    "it": "2. Compra una vera sveglia",
+    "tr": "2. Gerçek bir çalar saat al"
+   },
+   "texte": {
+    "en": "It is the excuse everyone uses. A cheap one removes it for good.",
+    "fr": "C’est l’excuse que tout le monde utilise. Un réveil pas cher la supprime pour de bon.",
+    "de": "Das ist die Ausrede, die alle benutzen. Ein billiger Wecker beseitigt sie für immer.",
+    "es": "Es la excusa de todos. Uno barato la elimina para siempre.",
+    "it": "È la scusa che usano tutti. Una sveglia economica la elimina per sempre.",
+    "tr": "Herkesin kullandığı bahane bu. Ucuz bir tanesi onu tamamen ortadan kaldırır."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "3. Remove the trap. Before: one hour of short videos every night. After deleting them with UnSwipe: asleep by 11.",
+    "fr": "3. Enlève le piège. Avant : une heure de vidéos courtes chaque soir. Après les avoir supprimées avec UnSwipe : endormi à 23h.",
+    "de": "3. Entferne die Falle. Vorher: jeden Abend eine Stunde Kurzvideos. Nachdem ich sie mit UnSwipe gelöscht habe: um 23 Uhr eingeschlafen.",
+    "es": "3. Quita la trampa. Antes: una hora de vídeos cortos cada noche. Después de borrarlos con UnSwipe: dormido a las 11.",
+    "it": "3. Togli la trappola. Prima: un’ora di video brevi ogni sera. Dopo averli eliminati con UnSwipe: addormentato alle 23.",
+    "tr": "3. Tuzağı kaldır. Önce: her gece bir saat kısa video. UnSwipe ile sildikten sonra: 23.00’te uykuda."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "4. A book on your pillow",
+    "fr": "4. Un livre sur l’oreiller",
+    "de": "4. Ein Buch aufs Kissen",
+    "es": "4. Un libro en la almohada",
+    "it": "4. Un libro sul cuscino",
+    "tr": "4. Yastığına bir kitap"
+   },
+   "texte": {
+    "en": "Your hands want something to hold. Give them pages instead of a screen.",
+    "fr": "Tes mains veulent quelque chose à tenir. Donne-leur des pages au lieu d’un écran.",
+    "de": "Deine Hände wollen etwas halten. Gib ihnen Seiten statt eines Bildschirms.",
+    "es": "Tus manos quieren algo que sostener. Dales páginas en vez de una pantalla.",
+    "it": "Le mani vogliono qualcosa da tenere. Dagli pagine invece di uno schermo.",
+    "tr": "Ellerin tutacak bir şey ister. Onlara ekran yerine sayfa ver."
+   }
+  },
+  {
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "5. No caffeine after 2pm",
+    "fr": "5. Pas de caféine après 14h",
+    "de": "5. Kein Koffein nach 14 Uhr",
+    "es": "5. Sin cafeína después de las 2",
+    "it": "5. Niente caffeina dopo le 14",
+    "tr": "5. 14.00’ten sonra kafein yok"
+   },
+   "texte": {
+    "en": "A wired brain at 11pm goes looking for something to do. Usually it is your phone.",
+    "fr": "Un cerveau surexcité à 23h cherche quelque chose à faire. En général, c’est ton téléphone.",
+    "de": "Ein aufgedrehtes Gehirn um 23 Uhr sucht Beschäftigung. Meistens ist es dein Handy.",
+    "es": "Un cerebro acelerado a las 11 busca algo que hacer. Casi siempre es el móvil.",
+    "it": "Un cervello agitato alle 23 cerca qualcosa da fare. Di solito è il telefono.",
+    "tr": "Gece 11’de gergin bir beyin yapacak bir şey arar. Genelde bu telefonundur."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "6. Write tomorrow’s plan",
+    "fr": "6. Écris le plan de demain",
+    "de": "6. Schreib den Plan für morgen",
+    "es": "6. Escribe el plan de mañana",
+    "it": "6. Scrivi il piano di domani",
+    "tr": "6. Yarının planını yaz"
+   },
+   "texte": {
+    "en": "Three tasks on paper. Your mind lets go of the day and stops looking for distractions.",
+    "fr": "Trois tâches sur papier. Ton esprit lâche la journée et arrête de chercher des distractions.",
+    "de": "Drei Aufgaben auf Papier. Dein Kopf lässt den Tag los und sucht keine Ablenkung mehr.",
+    "es": "Tres tareas en papel. Tu mente suelta el día y deja de buscar distracciones.",
+    "it": "Tre compiti su carta. La mente lascia andare la giornata e smette di cercare distrazioni.",
+    "tr": "Kâğıda üç iş. Zihnin günü bırakır ve dikkat dağıtacak şey aramayı keser."
+   }
+  }
+ ],
+ "notes": "routine du 02/11 : accroche jamais faite chez nous (« how to stop scrolling at night »), étapes numérotées. cta C (avant/après) : élément UnSwipe en 3e étape (slide 4)."
+}

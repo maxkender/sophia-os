@@ -1,0 +1,551 @@
+{
+ "id": "mm-o038",
+ "titre": "tier list of locked in habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "what actually gets you locked in #lockedin #tierlist #mentalmaxxing #selfimprovement",
+  "fr": "ce qui te rend vraiment locked in #lockedin #tierlist #mentalmaxxing #developpementpersonnel",
+  "de": "was dich wirklich locked in macht #lockedin #tierlist #mentalmaxxing #selbstverbesserung",
+  "es": "lo que de verdad te pone locked in #lockedin #tierlist #mentalmaxxing #superacionpersonal",
+  "it": "cosa ti rende davvero locked in #lockedin #tierlist #mentalmaxxing #crescitapersonale",
+  "tr": "seni gerçekten locked in yapan şeyler #lockedin #tierlist #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7701153376846826760/1",
+   "boite": [
+    320,
+    345,
+    455,
+    545
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "locked in",
+   "fr": "habitudes",
+   "de": "Locked-in-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "locked in"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "locked in",
+   "de": "Gewohnheiten",
+   "es": "locked in",
+   "it": "locked in",
+   "tr": "alışkanlıkları"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what keeps you locked in?",
+  "fr": "qu’est-ce qui te garde locked in ?",
+  "de": "was hält dich locked in?",
+  "es": "¿qué te mantiene locked in?",
+  "it": "cosa ti tiene locked in?",
+  "tr": "seni ne locked in tutuyor?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "locks you in",
+    "fr": "te verrouille",
+    "de": "hält dich drin",
+    "es": "te encierra",
+    "it": "ti blocca dentro",
+    "tr": "kilitler"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "7h+ sleep",
+      "fr": "7h+ de sommeil",
+      "de": "7 Std.+ Schlaf",
+      "es": "7h+ de sueño",
+      "it": "7h+ di sonno",
+      "tr": "7 saat+ uyku"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      360,
+      185,
+      155
+     ],
+     "t": {
+      "en": "morning|sunlight",
+      "fr": "soleil|du matin",
+      "de": "Morgen-|sonne",
+      "es": "sol de|la mañana",
+      "it": "sole del|mattino",
+      "tr": "sabah|güneşi"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "training",
+      "fr": "entraînement",
+      "de": "Training",
+      "es": "entrenar",
+      "it": "allenamento",
+      "tr": "antrenman"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      60,
+      840,
+      170,
+      160
+     ],
+     "t": {
+      "en": "real food",
+      "fr": "vraie bouffe",
+      "de": "echtes Essen",
+      "es": "comida real",
+      "it": "cibo vero",
+      "tr": "gerçek yemek"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      870,
+      85,
+      150,
+      130
+     ],
+     "t": {
+      "en": "10k steps",
+      "fr": "10k pas",
+      "de": "10.000 Schritte",
+      "es": "10k pasos",
+      "it": "10k passi",
+      "tr": "10 bin adım"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      365,
+      35,
+      125,
+      175
+     ],
+     "t": {
+      "en": "2l of water",
+      "fr": "2 L d’eau",
+      "de": "2 l Wasser",
+      "es": "2 l de agua",
+      "it": "2 l d’acqua",
+      "tr": "2 lt su"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      85,
+      1080,
+      115,
+      150
+     ],
+     "t": {
+      "en": "boredom|on purpose",
+      "fr": "s’ennuyer|exprès",
+      "de": "Langeweile|mit Absicht",
+      "es": "aburrirte|a propósito",
+      "it": "annoiarsi|apposta",
+      "tr": "bilerek|sıkılmak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      5,
+      185,
+      195
+     ],
+     "t": {
+      "en": "a good|breakfast",
+      "fr": "un bon|petit-déj",
+      "de": "ein gutes|Frühstück",
+      "es": "un buen|desayuno",
+      "it": "una buona|colazione",
+      "tr": "iyi bir|kahvaltı"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "one espresso",
+      "fr": "un espresso",
+      "de": "ein Espresso",
+      "es": "un espresso",
+      "it": "un espresso",
+      "tr": "bir espresso"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "house music",
+      "fr": "house music",
+      "de": "House Music",
+      "es": "música house",
+      "it": "musica house",
+      "tr": "house müzik"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      880,
+      1092,
+      120,
+      125
+     ],
+     "t": {
+      "en": "a nerdy hobby",
+      "fr": "un hobby|de nerd",
+      "de": "ein Nerd-|Hobby",
+      "es": "un hobby|friki",
+      "it": "un hobby|da nerd",
+      "tr": "inek|hobisi"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "it depends",
+    "fr": "ça dépend",
+    "de": "kommt drauf an",
+    "es": "depende",
+    "it": "dipende",
+    "tr": "duruma göre"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      630,
+      35,
+      145,
+      175
+     ],
+     "t": {
+      "en": "zero noise",
+      "fr": "zéro bruit",
+      "de": "null Lärm",
+      "es": "cero ruido",
+      "it": "zero rumore",
+      "tr": "sıfır gürültü"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste",
+      "de": "ein Nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a movie",
+      "fr": "un film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "bir film"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "a podcast",
+      "fr": "un podcast",
+      "de": "ein Podcast",
+      "es": "un pódcast",
+      "it": "un podcast",
+      "tr": "podcast"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "breaks focus",
+    "fr": "casse le focus",
+    "de": "bricht den Fokus",
+    "es": "rompe el foco",
+    "it": "rompe il focus",
+    "tr": "odağı bozar"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "coffee|after 5pm",
+      "fr": "café|après 17h",
+      "de": "Kaffee|nach 17 Uhr",
+      "es": "café|después de las 5",
+      "it": "caffè|dopo le 17",
+      "tr": "17.00’den sonra|kahve"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|all night",
+      "fr": "gaming|toute la nuit",
+      "de": "Gaming|die ganze Nacht",
+      "es": "gaming|toda la noche",
+      "it": "gaming|tutta la notte",
+      "tr": "bütün gece|oyun"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "autoplay",
+      "fr": "autoplay",
+      "de": "Autoplay",
+      "es": "reproducción|automática",
+      "it": "autoplay",
+      "tr": "otomatik|oynatma"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "unlocks you",
+   "fr": "te déverrouille",
+   "de": "wirft dich raus",
+   "es": "te desbloquea",
+   "it": "ti sblocca",
+   "tr": "kilidi açar"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "Doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 02/11 : seule livraison du jour sur la famille tier list (point 6). Accroche « locked in » du nouveau post de @mentalapp relevé ce lundi (7701153376846826760, 109 k vues, une seule slide donc exclu des remakes), en tier list à 2 slides, images recadrées dans ce post. cta A : élément UnSwipe en première case du S+."
+}

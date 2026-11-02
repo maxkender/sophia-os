@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase/client";
 import { DELAI_PUBLICATION_MIN_DEFAUT } from "@/features/moteur/delaiPublication";
 import { canoniserLangue, LANGUES_CIBLES } from "@/features/moteur/langues";
+import { serieVuesParJour } from "@/features/moteur/pilotage";
 import {
   estCompteSlideshowAssigne,
   isoBornesJourParis,
@@ -2697,11 +2698,17 @@ export async function statsComptes(): Promise<StatsCompte[]> {
 }
 
 export type PilotageDashboard = {
+  /**
+   * Vues des posts publiés chaque jour (0640), jusqu'à hier, jour par jour :
+   * un jour sans post vaut `null` (un trou, pas un zéro).
+   */
   vuesSerie: Array<{
     jour: string;
-    vues_totales: number;
-    vues_delta: number | null;
-    nb_comptes: number;
+    vues: number | null;
+    posts: number;
+    comptes: number;
+    /** Encore relu par le rattrapage de minuit : le chiffre monte encore. */
+    provisoire: boolean;
   }>;
   recruteurs: Array<{
     id: string;
@@ -2775,13 +2782,13 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     { data: profils, error: errProfils },
     { data: postsVeille, error: errPosts },
   ] = await Promise.all([
-    // Les 90 DERNIERS relevés : trié croissant avec un plafond, on aurait eu
-    // les plus anciens, et la courbe se serait figée une fois le plafond atteint.
+    // Les 90 derniers jours jusqu'à hier : aujourd'hui n'a pas encore de vues.
     supabase
-      .from("vues_globales_jour")
-      .select("jour, vues_totales, vues_delta, nb_comptes")
-      .order("jour", { ascending: false })
-      .limit(90),
+      .from("vues_par_jour_publication")
+      .select("jour, vues, posts_mesures, nb_comptes")
+      .gte("jour", ajouterJoursParisCalendaire(auj, -JOURS_VUES_PILOTAGE))
+      .lte("jour", veille)
+      .order("jour", { ascending: true }),
     supabase
       .from("comptes")
       .select(
@@ -2964,13 +2971,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   }));
 
   return {
-    // Lu du plus récent au plus ancien (voir la requête) : remis dans l'ordre du temps.
-    vuesSerie: [...(serie ?? [])].sort((a, b) => String(a.jour).localeCompare(String(b.jour))).map((s) => ({
-      jour: s.jour as string,
-      vues_totales: Number(s.vues_totales),
-      vues_delta: s.vues_delta == null ? null : Number(s.vues_delta),
-      nb_comptes: Number(s.nb_comptes ?? 0),
-    })),
+    vuesSerie: serieVuesParJour(serie ?? [], veille),
     recruteurs,
     postsVeille: postsVeilleMapped,
     classementTop: casesListe
@@ -2997,6 +2998,9 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     postsJours,
   };
 }
+
+/** Jours de vues lus pour le Pilotage (le graphique en montre 90 au plus). */
+const JOURS_VUES_PILOTAGE = 90;
 
 /**
  * Posts prévus / publiés par jour, de `du` à `au` inclus. Paginé : sur 14 jours

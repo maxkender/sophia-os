@@ -6,30 +6,84 @@ import type { PilotageDashboard } from "./api";
 /** Sous ce stock, un label s'affiche en rouge et part dans « À faire » (même seuil que l'Allocation). */
 export const SEUIL_STOCK_JOURS = 7;
 
-/** Combien de relevés précédents servent de référence au dernier. */
-const RELEVES_REFERENCE = 7;
+/**
+ * Le rattrapage de minuit relit les stats des posts des 4 derniers jours
+ * (RATTRAPAGE_JOURS_DEFAUT, jour courant compris) : hier et avant-hier seront
+ * encore relus, leurs vues montent encore.
+ */
+export const JOURS_VUES_PROVISOIRES = 2;
+
+/** YYYY-MM-DD + n jours, en jours de calendrier. */
+function plusJours(jour: string, n: number): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * La série du graphique « Vues par jour », jour par jour du premier jour lu
+ * jusqu'à `veille` : un jour absent de la vue (aucun post publié) devient un
+ * trou ; hier et avant-hier sont provisoires.
+ */
+export function serieVuesParJour(
+  lignes: ReadonlyArray<{ jour: unknown; vues: unknown; posts_mesures: unknown; nb_comptes: unknown }>,
+  veille: string,
+): PilotageDashboard["vuesSerie"] {
+  const parJour = new Map(lignes.map((l) => [String(l.jour), l]));
+  const premier = [...parJour.keys()].sort()[0];
+  if (!premier || premier > veille) return [];
+  const debutProvisoire = plusJours(veille, 1 - JOURS_VUES_PROVISOIRES);
+  const out: PilotageDashboard["vuesSerie"] = [];
+  for (let j = premier; j <= veille; j = plusJours(j, 1)) {
+    const l = parJour.get(j);
+    out.push({
+      jour: j,
+      vues: l?.vues == null ? null : Number(l.vues),
+      posts: Number(l?.posts_mesures ?? 0),
+      comptes: Number(l?.nb_comptes ?? 0),
+      provisoire: j >= debutProvisoire,
+    });
+  }
+  return out;
+}
+
+/** Jours figés comparés : les 7 derniers, contre les 7 d'avant. */
+const JOURS_REFERENCE = 7;
 
 export interface ResumeVues {
-  jour: string;
-  delta: number;
-  /** Moyenne des relevés d'avant ; `null` sans historique. */
+  /** Premier et dernier jour figés de la semaine résumée. */
+  du: string;
+  au: string;
+  /** Vues moyennes par jour sur ces jours (les jours sans post ne comptent pas). */
+  parJour: number;
+  /** La même moyenne sur les 7 jours figés d'avant ; `null` sans historique. */
   reference: number | null;
-  /** Écart relatif au relevé de référence (0,18 = +18 %) ; `null` si la référence est nulle ou absente. */
+  /** Écart relatif à la référence (0,18 = +18 %) ; `null` si la référence est nulle ou absente. */
   ecart: number | null;
 }
 
-/** Le dernier relevé de vues, comparé à la moyenne des 7 précédents. */
+const moyenne = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+
+/**
+ * Les vues par jour des 7 derniers jours figés (les jours encore relus, qui
+ * montent encore, sont laissés de côté), comparées aux 7 jours d'avant.
+ */
 export function resumeVues(serie: PilotageDashboard["vuesSerie"]): ResumeVues | null {
-  const avecDelta = serie.filter((s) => s.vues_delta !== null);
-  const dernier = avecDelta[avecDelta.length - 1];
-  if (!dernier) return null;
-  const avant = avecDelta.slice(-1 - RELEVES_REFERENCE, -1).map((s) => s.vues_delta as number);
-  const reference = avant.length ? avant.reduce((a, b) => a + b, 0) / avant.length : null;
+  const figes = serie.filter((s) => !s.provisoire);
+  const semaine = figes.slice(-JOURS_REFERENCE);
+  const valeurs = semaine.flatMap((s) => (s.vues === null ? [] : [s.vues]));
+  const parJour = moyenne(valeurs);
+  if (parJour === null) return null;
+  const avant = figes
+    .slice(-2 * JOURS_REFERENCE, -JOURS_REFERENCE)
+    .flatMap((s) => (s.vues === null ? [] : [s.vues]));
+  const reference = moyenne(avant);
   return {
-    jour: dernier.jour,
-    delta: dernier.vues_delta as number,
+    du: semaine[0]!.jour,
+    au: semaine[semaine.length - 1]!.jour,
+    parJour,
     reference,
-    ecart: reference && reference > 0 ? (dernier.vues_delta as number) / reference - 1 : null,
+    ecart: reference && reference > 0 ? parJour / reference - 1 : null,
   };
 }
 

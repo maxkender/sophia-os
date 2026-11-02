@@ -50,7 +50,7 @@ import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
 import { compteBloque, posteursEnRouge } from "./recrues_bloquees.ts";
-import { secretCronConnu, serviceClient } from "./supabase.ts";
+import { messageErreur, secretCronConnu, serviceClient } from "./supabase.ts";
 import {
   BANDES_AVANT_DERNIER_RECOURS,
   bandesDeTirage,
@@ -1149,7 +1149,7 @@ export async function assignerCompteJour(
     } catch (e) {
       // Pas de transaction multi-tables : nettoyer le passage pour ne pas
       // bloquer le quota, puis piocher un autre contenu.
-      log(`Matérialisation échouée : ${e instanceof Error ? e.message : String(e)}`);
+      log(`Matérialisation échouée : ${messageErreur(e)}`);
       await supabase.from("passages").delete().eq("id", passage.id);
       continue;
     }
@@ -3066,7 +3066,8 @@ export async function assignerDrainLot(
       return {
         compteId: compte.id as string,
         crees: 0,
-        erreur: e instanceof Error ? e.message : String(e),
+        // Une erreur PostgREST n'est pas une Error : String() donnait « [object Object] » (2/11).
+        erreur: messageErreur(e),
       };
     }
   });
@@ -3178,7 +3179,8 @@ export async function assignerTousComptes(
       return {
         compteId: compte.id as string,
         crees: 0,
-        erreur: e instanceof Error ? e.message : String(e),
+        // Une erreur PostgREST n'est pas une Error : String() donnait « [object Object] » (2/11).
+        erreur: messageErreur(e),
       };
     }
   });

@@ -454,7 +454,7 @@ export function coteDepuisNotes(noteGauche: number | null, noteDroite: number | 
 }
 
 /** Une remarque par slideshow, d'au moins ce nombre de mots, pour qu'elle serve à corriger. */
-export const MOTS_MIN_REMARQUE = 30;
+export const MOTS_MIN_REMARQUE = 50;
 
 export function compterMots(texte: string): number {
   return texte.trim().split(/\s+/).filter(Boolean).length;

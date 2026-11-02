@@ -80,9 +80,10 @@ describe("PosterRelecturePage", () => {
     expect(await screen.findByTestId("duels-vide")).toHaveTextContent(/No duel waiting/);
     expect(screen.getByTestId("relecture-bientot")).toHaveTextContent("German");
     expect(screen.queryByText(/Your country, part by part/)).not.toBeInTheDocument();
+    expect(screen.getByText(/50 words minimum/)).toBeInTheDocument();
   });
 
-  it("un duel envoyé : les deux versions sans la source ni dire laquelle est publiée ; le vote vient des notes, remarque de 30 mots", async () => {
+  it("un duel envoyé : les deux versions sans la source ni dire laquelle est publiée ; le vote vient des notes, remarque de 50 mots", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
     mesDuelsRelecteur.mockResolvedValue([DUEL]);
     renderPage();
@@ -90,7 +91,7 @@ describe("PosterRelecturePage", () => {
     expect(carte).toHaveTextContent("5 Regeln für Männer");
     expect(carte).toHaveTextContent("5 Regeln, die jeder Mann kennen sollte");
     expect(carte).not.toHaveTextContent("5 rules for men");
-    expect(carte).not.toHaveTextContent(/posted|old circuit|new circuit|kind of issue|sounds more native|tie/i);
+    expect(carte).not.toHaveTextContent(/posted|old circuit|new circuit|kind of issue|sounds more native|tie|remark is about/i);
     expect(screen.getByTestId("duel-progression")).toHaveTextContent("Duel 1 of 1");
 
     const envoyer = screen.getByRole("button", { name: "Send my vote" });
@@ -102,11 +103,14 @@ describe("PosterRelecturePage", () => {
     expect(envoyer).toBeDisabled();
     const remarque = screen.getByLabelText("Your remark on this slideshow");
     fireEvent.change(remarque, { target: { value: "Version 1 klingt übersetzt" } });
-    expect(screen.getByTestId("duel-mots")).toHaveTextContent("4 / 30 words");
+    expect(screen.getByTestId("duel-mots")).toHaveTextContent("4 / 50 words");
     expect(envoyer).toBeDisabled();
-    const longue = Array.from({ length: 30 }, (_, i) => `Wort${i + 1}`).join(" ");
+    const presque = Array.from({ length: 49 }, (_, i) => `Wort${i + 1}`).join(" ");
+    fireEvent.change(remarque, { target: { value: presque } });
+    expect(envoyer).toBeDisabled();
+    const longue = Array.from({ length: 50 }, (_, i) => `Wort${i + 1}`).join(" ");
     fireEvent.change(remarque, { target: { value: longue } });
-    expect(screen.getByTestId("duel-mots")).toHaveTextContent("30 / 30 words");
+    expect(screen.getByTestId("duel-mots")).toHaveTextContent("50 / 50 words");
     expect(envoyer).toBeEnabled();
     fireEvent.click(envoyer);
     await waitFor(() => expect(voterDuelRelecteur).toHaveBeenCalledTimes(1));

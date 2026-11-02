@@ -168,6 +168,17 @@ describe("Page Pays : un marché par langue (Espagne et LATAM à part)", () => {
 });
 
 describe("Page Pays (refonte) : un pays par ligne, cartes, à faire, recrutement", () => {
+  it("ROI élevé avec assez de recrues en route : maintenir, pas réduire", () => {
+    const t0 = tableau({
+      semaines: semainesCompletes("2026-11-02", 8).map((w) => sem("NO", w, { proceeds: 400, cout_reel: 100, vues: 100_000, comptes: 3 })),
+      pays: [info("NO", { comptes_actifs: 3, cohorte_en_cours: 2, premier_post: "2026-07-27" })],
+    });
+    const [l] = lignesPays(t0, "28j");
+    expect(l.objectif).toBe(4);
+    expect(l.manque).toBe(-1);
+    expect(l.recommandation).toBe("maintenir");
+  });
+
   const semaines = (pays: string, proceeds: number, cout: number, vues: number) =>
     semainesCompletes("2026-11-02", 8).map((w) => sem(pays, w, { proceeds, cout_reel: cout, vues, comptes: 10, sous_seuil: 2 }));
   const t = tableau({
@@ -210,13 +221,12 @@ describe("Page Pays (refonte) : un pays par ligne, cartes, à faire, recrutement
     expect(top.some((l) => l.pays === "MX")).toBe(false);
   });
 
-  it("annonce active si vue ou contrat dans les 21 jours ; tableau par HM", () => {
+  it("annonce active si elle a amené un contrat dans les 21 jours ; tableau par HM", () => {
     const actives = annoncesActives(
       [
-        { titre: "TikTok poster (Germany)", pays: "DE", generique: false, vue_at: "2026-10-30T10:00:00Z", contrats_21j: 0 },
-        { titre: "TikTok poster (Turkey)", pays: "TR", generique: false, vue_at: "2026-09-01T10:00:00Z", contrats_21j: 0 },
+        { titre: "TikTok poster (Germany)", pays: "DE", generique: false, vue_at: "2026-10-28T10:00:00Z", contrats_21j: 2 },
+        { titre: "TikTok poster (Turkey)", pays: "TR", generique: false, vue_at: "2026-10-28T10:00:00Z", contrats_21j: 0 },
       ],
-      "2026-11-02",
     );
     expect([...actives]).toEqual(["DE"]);
     const hm = tableauHm(lignes, [{ id: "h1", nom: "Regina", zone: "Germany + Turkey" }], actives);

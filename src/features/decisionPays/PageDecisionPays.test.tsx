@@ -72,7 +72,7 @@ describe("PageDecisionPays", () => {
     expect(cibles.textContent).toMatch(/\+3/);
 
     fireEvent.click(screen.getByRole("tab", { name: "Détail pays" }));
-    await screen.findByText("@compte_a");
+    await screen.findAllByText("@compte_a");
     const comptes = screen.getByTestId("comptes-pays");
     expect(comptes.textContent).toContain("@compte_a");
     expect(comptes.textContent).toContain("Bon");

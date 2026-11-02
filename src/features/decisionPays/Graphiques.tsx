@@ -99,7 +99,7 @@ export function Courbe({
         ))}
         {points.map((p, i) =>
           etiquette(i, points.length) ? (
-            <text key={p.label} x={x(i)} y={hauteur - 6} textAnchor="middle" className="fill-muted-foreground text-[10px]">{p.label}</text>
+            <text key={p.label} x={x(i)} y={hauteur - 6} textAnchor={i === 0 ? "start" : i === points.length - 1 ? "end" : "middle"} className="fill-muted-foreground text-[10px]">{p.label}</text>
           ) : null,
         )}
       </svg>

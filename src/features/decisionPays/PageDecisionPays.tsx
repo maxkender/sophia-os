@@ -50,6 +50,7 @@ function useFormats() {
   return {
     langue,
     eur: (n: number | null) => (n === null ? "—" : new Intl.NumberFormat(loc, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n)),
+    eur2: (n: number | null) => (n === null ? "—" : new Intl.NumberFormat(loc, { style: "currency", currency: "EUR", maximumFractionDigits: 2, minimumFractionDigits: 2 }).format(n)),
     nb: (n: number | null, d = 0) => (n === null ? "—" : new Intl.NumberFormat(loc, { maximumFractionDigits: d, minimumFractionDigits: d }).format(n)),
     court: (n: number) => new Intl.NumberFormat(loc, { notation: "compact", maximumFractionDigits: 1 }).format(n),
     jour: (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString(loc, { day: "numeric", month: "short" }),
@@ -125,7 +126,7 @@ function Apercu({ tab, lignes, avant, ouvrir }: { tab: TableauPays; lignes: Lign
         <Card>
           <CardHeader className="pb-1"><CardTitle className="flex items-center gap-1 text-sm">{t("decisionPays.graph.proceedsPaie")} <InfoBulle texte={t("decisionPays.aide.graphProceedsPaie")} /></CardTitle></CardHeader>
           <CardContent>
-            <BarresDoubles points={serie.map((s) => ({ label: f.jour(s.semaine), a: s.proceeds, b: s.cout }))} legendes={[t("decisionPays.kpi.proceeds"), t("decisionPays.kpi.paie")]} format={f.eur} />
+            <BarresDoubles points={serie.map((s) => ({ label: f.jour(s.semaine), a: s.proceeds, b: s.cout }))} legendes={[t("decisionPays.graph.legProceeds"), t("decisionPays.graph.legPaie")]} format={f.eur} />
           </CardContent>
         </Card>
         <Card>
@@ -254,7 +255,7 @@ function Recrutement({ tab, lignes, meta, ouvrir }: { tab: TableauPays; lignes: 
   const { t } = useTranslation();
   const f = useFormats();
   const [texte, setTexte] = React.useState<string | null>(null);
-  const actives = annoncesActives(meta?.annonces ?? [], tab.aujourdhui);
+  const actives = annoncesActives(meta?.annonces ?? []);
   const visibles = lignes
     .filter((l) => !l.revenu_sans_posteurs && (l.pipeline > 0 || l.objectif > 0))
     .sort((a, b) => b.manque - a.manque || b.objectif - a.objectif);
@@ -299,7 +300,7 @@ function Recrutement({ tab, lignes, meta, ouvrir }: { tab: TableauPays; lignes: 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between gap-2 pb-1">
           <CardTitle className="text-sm">{t("decisionPays.recrutement.parHm")}</CardTitle>
-          <Button size="sm" variant="outline" onClick={preparer}>{t("decisionPays.cibles.bouton")}</Button>
+          <Button size="sm" onClick={preparer}>{t("decisionPays.cibles.bouton")}</Button>
         </CardHeader>
         <CardContent className="space-y-3">
           {texte !== null && (
@@ -370,7 +371,7 @@ function Detail({ tab, lignes, pays, setPays }: { tab: TableauPays; lignes: Lign
           <Carte titre={t("decisionPays.kpi.rpm")} aide={t("decisionPays.aide.rpm")} valeur={f.nb(l.rpm, 2)} />
           <Carte titre={t("decisionPays.kpi.roi")} aide={t("decisionPays.aide.roiPays", { sans: f.eur(l.sans_posteurs) })} valeur={l.roi === null ? "—" : `${f.nb(l.roi, 1)}×`} />
           <Carte titre={t("decisionPays.kpi.posteurs")} aide={t("decisionPays.aide.posteurs")} valeur={`${l.actifs} → ${l.objectif}`} />
-          <Carte titre={t("decisionPays.kpi.cout1000")} aide={t("decisionPays.aide.cout1000")} valeur={l.cout_1000_vues === null ? "—" : f.eur(l.cout_1000_vues).replace(/[,.]00(?=\D|$)/, "")} />
+          <Carte titre={t("decisionPays.kpi.cout1000")} aide={t("decisionPays.aide.cout1000")} valeur={f.eur2(l.cout_1000_vues)} />
         </div>
       )}
       <div className="grid gap-4 lg:grid-cols-2">
@@ -379,7 +380,7 @@ function Detail({ tab, lignes, pays, setPays }: { tab: TableauPays; lignes: Lign
           <CardContent>
             <BarresEtCourbe
               points={serie.map((s) => ({ label: f.jour(s.semaine), barre: s.proceeds, courbe: s.vues }))}
-              legendes={[t("decisionPays.kpi.proceeds"), t("decisionPays.kpi.vues")]}
+              legendes={[t("decisionPays.graph.legProceeds"), t("decisionPays.kpi.vues")]}
               formatBarres={f.eur}
               formatCourbe={(n) => f.court(n)}
             />
@@ -440,7 +441,10 @@ function Detail({ tab, lignes, pays, setPays }: { tab: TableauPays; lignes: Lign
               <tbody>
                 {(detail.data?.top_posts ?? []).map((p) => (
                   <tr key={p.passage_id} className="border-t">
-                    <td className="truncate px-2 py-1.5"><a href={p.url} target="_blank" rel="noreferrer" className="hover:underline">@{p.handle ?? "—"} · {f.jour(p.date)}</a></td>
+                    <td className="px-2 py-1.5">
+                      <a href={p.url} target="_blank" rel="noreferrer" className="block truncate hover:underline">@{p.handle ?? "—"}</a>
+                      <span className="block text-xs text-muted-foreground">{f.jour(p.date)}</span>
+                    </td>
                     <td className="px-2 py-1.5 text-right font-semibold tabular-nums">{f.court(p.vues)}</td>
                     <td className="px-2 py-1.5 text-right text-xs tabular-nums text-muted-foreground">{[p.j1, p.j3, p.j7].map((v) => (v === null ? "—" : f.court(v))).join(" / ")}</td>
                     <td className="px-2 py-1.5 text-right">{p.app}</td>

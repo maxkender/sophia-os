@@ -281,9 +281,14 @@ export function lignesPays(t: TableauPays, periode: Periode, decalage = 0): Lign
       } else if (manque > 0) {
         recommandation = "recruter";
         raison = `objectif ${objectif} comptes, ${pipeline} en place ou en route${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
-      } else if (manque < 0) {
+      } else if (objectif < actifs) {
+        // Réduire seulement si l'objectif passe sous les comptes actifs ; des
+        // cohortes ou offres en route au-delà de l'objectif, c'est « maintenir ».
         recommandation = "reduire";
-        raison = `${pipeline} comptes en place ou en route pour un objectif de ${objectif}${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
+        raison = `${actifs} comptes actifs pour un objectif de ${objectif}${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
+      } else if (manque < 0) {
+        recommandation = "maintenir";
+        raison = `objectif ${objectif} couvert : ${pipeline} en place ou en route${roi !== null ? ` · ROI ${arrondi(roi, 1)}` : ""}`;
       } else {
         recommandation = "maintenir";
         raison = roi !== null ? `ROI ${arrondi(roi, 1)}, objectif atteint` : "objectif atteint";
@@ -571,7 +576,7 @@ export function aFaireSemaine(lignes: LignePays[], avant: LignePays[], max = 5):
       return l.vues >= 50_000 && l.rpm !== null && p?.rpm && l.rpm < p.rpm * 0.7;
     })
     .map((l): AFaire => ({ type: "surveiller", pays: l.pays, detail: "rpm" }));
-  const reduire = decision.filter((l) => l.recommandation === "reduire" && l.manque < -2).map((l): AFaire => ({ type: "reduire", pays: l.pays, nombre: -l.manque }));
+  const reduire = decision.filter((l) => l.recommandation === "reduire").map((l): AFaire => ({ type: "reduire", pays: l.pays, nombre: l.actifs - l.objectif }));
   return [...arreter.slice(0, 1), ...recruter.slice(0, 3), ...surveiller.slice(0, 1), ...arreter.slice(1), ...recruter.slice(3), ...reduire].slice(0, max);
 }
 
@@ -590,14 +595,17 @@ export interface AnnonceUpwork {
   contrats_21j: number;
 }
 
-/** Une annonce est active pour un pays si elle a été vue ou a amené un contrat dans les 21 derniers jours. */
-export function annoncesActives(annonces: AnnonceUpwork[], aujourdhui: string): Set<string> {
-  const limite = ajouterJours(aujourdhui, -21);
+/**
+ * Une annonce est active pour un pays si elle a amené un contrat dans les 21
+ * derniers jours. (vue_at ne dit pas qu'elle est ouverte : toutes les annonces
+ * ont été « vues » le 28/10, à l'amorçage depuis les contrats.)
+ */
+export function annoncesActives(annonces: AnnonceUpwork[]): Set<string> {
   const actifs = new Set<string>();
   for (const a of annonces) {
     const p = a.pays ?? paysDeTitre(a.titre);
     if (!p) continue;
-    if (a.contrats_21j > 0 || (a.vue_at && a.vue_at.slice(0, 10) >= limite)) actifs.add(p);
+    if (a.contrats_21j > 0) actifs.add(p);
   }
   return actifs;
 }

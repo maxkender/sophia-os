@@ -83,8 +83,10 @@ belle.
    faire »).
 3. **Les déclinaisons**, pour le reste de tes `par_jour`, dans l'ordre de la
    boîte : la ligne 1, puis la 2, etc. La boîte n'a qu'**une ligne par
-   famille**, et une famille ne se décline **qu'une fois par jour** (le
-   guichet refuse la deuxième : `famille_du_jour`). Deux familles au hook
+   thème** (une famille et ses familles quasi identiques : « hobbies that will
+   make you dangerously confident », « … disgustingly confident », « …
+   irreversibly confident »…), et un thème ne se décline **qu'une fois par
+   jour** (le guichet refuse la deuxième : `famille_du_jour`). Deux familles au hook
    presque pareil (« 6 hobbies that make you unexpectedly smarter » et « 6
    hobbies that make you smarter without actually studying ») comptent comme
    une : la seconde est refusée le même jour (`accroche_voisine`). Les familles « au budget »
@@ -151,7 +153,7 @@ prends la ligne suivante de la boîte.
 | Code | Ce qu'il veut dire | Que faire |
 | --- | --- | --- |
 | `quota_atteint` | Ce parent a déjà ses 3 déclinaisons | La ligne suivante de la boîte |
-| `famille_du_jour` | Cette famille a déjà une déclinaison aujourd'hui (une par famille et par jour) | La ligne suivante de la boîte |
+| `famille_du_jour` | Ce thème (cette famille ou une famille quasi identique) a déjà une déclinaison aujourd'hui : une par thème et par jour | La ligne suivante de la boîte |
 | `accroche_voisine` | Une livraison du jour de ton label a déjà un hook presque pareil (mêmes mots pour l'essentiel) | La ligne suivante de la boîte |
 | `famille_close`, `famille_non_gagnante` | La famille n'est plus dans la boîte | Relance `npm run boite`, la ligne suivante |
 | `famille_inconnue` | Le parent vient d'être validé, pas encore rattaché | Le décliner demain |
@@ -159,6 +161,7 @@ prends la ligne suivante de la boîte.
 | `accroche_differente` | G1 : l'accroche n'est pas celle du parent | Reprends-la mot pour mot |
 | `accroche_identique` | G2 : l'accroche n'a pas été reformulée | Reformule-la |
 | `accroche_existante` | Full test : cette accroche existe déjà chez nous (ou attend la validation) | Une autre accroche, ou la décliner si elle est dans la boîte |
+| `theme_gagnant` | Full test : l'accroche reprend, à quelques mots près, un thème qui a déjà gagné dans le label (« hobbies that will make you insanely confident ») | Une vraie idée neuve ; ou la décliner depuis la boîte si le thème y est |
 | `parent_introuvable`, `parent_requis`, `parent_interdit`, `type_bleo_requis` | Déclaration incomplète | `type_bleo` et `parent_contenu_id` comme en 4.3 et 4.4 |
 
 ## 5. Voie 2 : les remakes

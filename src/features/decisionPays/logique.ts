@@ -153,6 +153,8 @@ export function objectifSuggere(base: number, roi: number | null, roi4s: number 
 }
 
 const MOTS_PAYS: [RegExp, string][] = [
+  // 2/11 : avant « german » (« German speaker based in Switzerland » = CH).
+  [/switzerland|swiss/i, "CH"], [/new zealand/i, "NZ"], [/canada/i, "CA"], [/ireland/i, "IE"],
   [/hungar/i, "HU"], [/israel/i, "IL"], [/gree(ce|k)/i, "GR"], [/bulgar/i, "BG"], [/finn|finland/i, "FI"],
   [/denmark|danish/i, "DK"], [/\bspain\b|spanish speaker\/ in spain/i, "ES"], [/german/i, "DE"], [/france|french/i, "FR"],
   [/ital/i, "IT"], [/poland|polish/i, "PL"], [/turk|türk/i, "TR"], [/roman/i, "RO"], [/czech/i, "CZ"], [/sloven/i, "SI"],
@@ -654,4 +656,90 @@ export function nomPays(code: string, langue: string): string {
   } catch {
     return code;
   }
+}
+
+// ---------------------------------------------------------------------------
+// 0516 (2/11) : la cohorte du lundi : objectif / offres envoyées / acceptées /
+// restant, par pays et par HM (la HM des nouvelles recrues de chaque pays).
+// ---------------------------------------------------------------------------
+
+export interface HmPays {
+  pays: string;
+  hm_id: string | null;
+  hm_nom: string;
+  zone: "A" | "B" | "C";
+}
+
+export interface AlerteOffre {
+  contrat_id: string | null;
+  offre_id: string | null;
+  hm_nom: string | null;
+  pays: string | null;
+  motif: "hors_vik" | "nb_milestones" | "montant" | "nom_1er" | "echeance_1er" | "plusieurs_finances";
+  detail: string | null;
+  created_at: string;
+}
+
+export interface RecrutementCohorte {
+  lundi: string;
+  objectifs: { pays: string; nombre: number }[];
+  hm_pays: HmPays[];
+  acceptees: { contrat_id: string; pays: string | null; hm_id: string | null; hm_nom: string | null; debut_at: string | null }[];
+  en_attente: { offre_id: string; titre: string | null; debut_at: string | null }[];
+  offres_lues_at: string | null;
+  alertes: AlerteOffre[];
+}
+
+export interface LigneCohorte {
+  pays: string;
+  hm: string;
+  zone: string | null;
+  objectif: number;
+  acceptees: number;
+  en_attente: number;
+  /** Offres envoyées = acceptées + en attente. */
+  envoyees: number;
+  /** Ce qu'il reste à envoyer : objectif − envoyées, jamais négatif. */
+  restant: number;
+}
+
+/** La cohorte en cours : le lundi qui suit (une offre acceptée le dimanche compte pour le lundi d'après), comme cohorte_lundi_de. */
+export function cohorteEnCours(aujourdhui: string): string {
+  const d = new Date(`${aujourdhui}T12:00:00Z`);
+  const iso = d.getUTCDay() === 0 ? 7 : d.getUTCDay();
+  return ajouterJours(aujourdhui, iso === 7 ? 8 : 8 - iso);
+}
+
+/** Une ligne par pays qui a un objectif, une offre ou une recrue cette cohorte ; triée par HM puis par restant. */
+export function lignesCohorte(c: RecrutementCohorte): LigneCohorte[] {
+  const hmDe = new Map(c.hm_pays.map((h) => [h.pays, h]));
+  const objectif = new Map(c.objectifs.map((o) => [o.pays, Number(o.nombre ?? 0)]));
+  const acc = new Map<string, number>();
+  for (const a of c.acceptees) if (a.pays) acc.set(a.pays, (acc.get(a.pays) ?? 0) + 1);
+  const att = new Map<string, number>();
+  for (const o of c.en_attente) {
+    const p = paysDeTitre(o.titre);
+    if (p) att.set(p, (att.get(p) ?? 0) + 1);
+  }
+  const pays = new Set([...objectif.keys(), ...acc.keys(), ...att.keys()]);
+  return [...pays].map((p): LigneCohorte => {
+    const o = objectif.get(p) ?? 0;
+    const a = acc.get(p) ?? 0;
+    const e = att.get(p) ?? 0;
+    return { pays: p, hm: hmDe.get(p)?.hm_nom ?? "—", zone: hmDe.get(p)?.zone ?? null, objectif: o, acceptees: a, en_attente: e, envoyees: a + e, restant: Math.max(0, o - a - e) };
+  }).sort((x, y) => x.hm.localeCompare(y.hm) || y.restant - x.restant || y.objectif - x.objectif || x.pays.localeCompare(y.pays));
+}
+
+/** Les totaux par HM (objectif, envoyées, acceptées, restant). */
+export function totauxHm(lignes: LigneCohorte[]): { hm: string; objectif: number; envoyees: number; acceptees: number; restant: number }[] {
+  const m = new Map<string, { hm: string; objectif: number; envoyees: number; acceptees: number; restant: number }>();
+  for (const l of lignes) {
+    const t = m.get(l.hm) ?? { hm: l.hm, objectif: 0, envoyees: 0, acceptees: 0, restant: 0 };
+    t.objectif += l.objectif;
+    t.envoyees += l.envoyees;
+    t.acceptees += l.acceptees;
+    t.restant += l.restant;
+    m.set(l.hm, t);
+  }
+  return [...m.values()].sort((a, b) => b.restant - a.restant || a.hm.localeCompare(b.hm));
 }

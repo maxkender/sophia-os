@@ -16,6 +16,9 @@ import {
   marcheDe,
   regrouperParLangue,
   aFaireSemaine,
+  cohorteEnCours,
+  lignesCohorte,
+  totauxHm,
   annoncesActives,
   drapeau,
   statutCompte,
@@ -239,5 +242,41 @@ describe("Page Pays (refonte) : un pays par ligne, cartes, à faire, recrutement
     expect(statutCompte(999, 1000)).toBe("sous_seuil");
     expect(drapeau("DE")).toBe("🇩🇪");
     expect(drapeau("de")).toBe("");
+  });
+});
+
+describe("0516 : cohorte du lundi (objectif / envoyées / acceptées / restant)", () => {
+  it("la cohorte en cours : le lundi suivant ; le dimanche, celui d'après", () => {
+    expect(cohorteEnCours("2026-11-02")).toBe("2026-11-09");
+    expect(cohorteEnCours("2026-11-07")).toBe("2026-11-09");
+    expect(cohorteEnCours("2026-11-08")).toBe("2026-11-16");
+  });
+
+  it("par pays et par HM ; une offre en attente compte comme envoyée", () => {
+    const lignes = lignesCohorte({
+      lundi: "2026-11-09",
+      objectifs: [{ pays: "DE", nombre: 5 }, { pays: "NZ", nombre: 2 }, { pays: "RS", nombre: 2 }],
+      hm_pays: [
+        { pays: "DE", hm_id: "r", hm_nom: "Regina", zone: "A" },
+        { pays: "NZ", hm_id: "a", hm_nom: "Rana", zone: "A" },
+        { pays: "RS", hm_id: null, hm_nom: "Erla", zone: "C" },
+      ],
+      acceptees: [
+        { contrat_id: "1", pays: "DE", hm_id: "r", hm_nom: "Regina", debut_at: null },
+        { contrat_id: "2", pays: "DE", hm_id: "r", hm_nom: "Regina", debut_at: null },
+      ],
+      en_attente: [
+        { offre_id: "o1", titre: "TikTok Content Posting (based in Germany)", debut_at: null },
+        { offre_id: "o2", titre: "TikTok Slideshow Creator (Based in New Zealand)", debut_at: null },
+        { offre_id: "o3", titre: "German speaker (Based in Switzerland)", debut_at: null },
+      ],
+      offres_lues_at: null,
+      alertes: [],
+    });
+    const de = lignes.find((l) => l.pays === "DE")!;
+    expect([de.objectif, de.acceptees, de.en_attente, de.envoyees, de.restant]).toEqual([5, 2, 1, 3, 2]);
+    expect(lignes.find((l) => l.pays === "NZ")!.restant).toBe(1);
+    expect(lignes.find((l) => l.pays === "CH")!.hm).toBe("—");
+    expect(totauxHm(lignes).find((h) => h.hm === "Erla")).toEqual({ hm: "Erla", objectif: 2, envoyees: 0, acceptees: 0, restant: 2 });
   });
 });

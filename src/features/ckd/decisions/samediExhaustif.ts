@@ -62,6 +62,13 @@ export async function lireForces(lundi: string): Promise<Map<string, Force[]>> {
   return m;
 }
 
+/** 0513 : les recrues à voir en premier cette semaine (décision de Max), avec la raison. */
+export async function lirePriorites(lundi: string): Promise<Map<string, string>> {
+  const { data, error } = await supabase.rpc("samedi_priorites_liste", { p_lundi: lundi });
+  if (error) throw error;
+  return new Map(((data ?? []) as { poster_id: string; raison: string }[]).map((p) => [p.poster_id, p.raison]));
+}
+
 export interface ContratSansPosteur {
   contrat_id: string;
   nom: string | null;

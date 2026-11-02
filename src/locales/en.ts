@@ -531,6 +531,7 @@ export const en = {
               sansCompte: "{{n}} active poster(s) with no active account (not counted; recruits card).",
               raisons: { ruul: "RUUL cohort (excluded)", pas_perso: "no active personal account", sans_compte: "no active account", inconnue: "missing from the list: to check" },
             },
+            priorite: "First (Max):",
             forces: {
               titre: "Always in the list, no account ({{n}})",
               aide: "Stop request, postponed twice, Kill Saturday on Thursday or No channel: Kill & pay proposed.",

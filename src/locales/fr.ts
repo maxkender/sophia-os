@@ -531,6 +531,7 @@ export const fr = {
               sansCompte: "{{n}} posteur(s) actif(s) sans compte actif (pas comptés ; carte des recrues).",
               raisons: { ruul: "Cohorte RUUL (exclue)", pas_perso: "pas de compte perso actif", sans_compte: "pas de compte actif", inconnue: "absent de la liste : à vérifier" },
             },
+            priorite: "En tête (Max) :",
             forces: {
               titre: "Toujours dans la liste, sans compte ({{n}})",
               aide: "Demande d'arrêt, reporté 2 fois, Kill Saturday du jeudi ou No channel : Kill & pay proposé.",

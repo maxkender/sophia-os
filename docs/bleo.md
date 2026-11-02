@@ -722,7 +722,7 @@ Tout le reste est décidé. Pour chaque point ouvert, le choix par défaut s'app
 | Garder un concurrent dans un essai | Non : `sansConcurrent` reste | L9 |
 | Budget par famille | 20 % des passages du label sur 7 jours | L5 |
 | Seuils de la jauge et part de full test | 6, 3 et 1 semaines ; 10 à 40 % | L4 |
-| Validation automatique | 6 h après le dépôt (*fait le 1/11 à 5 h, toutes les 10 minutes, 0635*) | L7 |
+| Validation automatique | 6 h après le dépôt (*fait le 1/11 à 5 h, toutes les 10 minutes, 0635 ; et le 2/11 les contenus du jour entrent au tirage de 14 h, 0638 : publication à J+1*) | L7 |
 | Heure du tirage | 14 h, pour J+1 | L5 |
 | Accroches de plus de 45 jours dans la boîte | Gardées ; test de 2 semaines sur les podz 4 et 8 pendant L4 pour mesurer leur réussite | L4 |
 | RH : careerswemma, seule source, r = 1,00 | Mise à jour quand même : liste d'exceptions `sources.toujours` dans les réglages | L3 |

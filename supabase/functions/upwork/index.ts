@@ -20,7 +20,6 @@ import {
   MUTATION_APPROUVER,
   MUTATION_CREER_JALON,
   MUTATION_EDITER_JALON,
-  MUTATION_FINANCER_JALON,
   MUTATION_MESSAGE,
   REQUETE_SALON,
   requeteContrats,
@@ -260,7 +259,8 @@ Deno.serve(async (request) => {
       case "paie_test_financer":
         // 0467 : « Fund this milestone (test) » : seulement le financement, puis la relecture.
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
-        return json(await paieTestFinancer(supabase, par, String(body.contrat_id ?? "")));
+        // 2/11 : jamais de financement par l'API ; on finance à la main sur Upwork.
+        return json({ ok: false, error: "Financement par l'API désactivé : finance la milestone à la main sur Upwork (Who to fund)." });
       case "paie_test_payer":
         // Prompt 26 : « Pay this week » sur un contrat de test (Overview → Test contracts).
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -1337,49 +1337,6 @@ async function paieTestPayer(supabase: Supabase, par: string | null, contratId: 
   };
 }
 
-/**
- * 0467 : « Fund this milestone (test) » sur un contrat de test : la 1re milestone
- * NotFunded est financée (activateMilestone), rien d'autre. Upwork est relu tout
- * de suite puis 10 s plus tard (le financement peut être asynchrone) : OK
- * seulement si l'état relu est financé. La requête et la réponse complètes sont
- * renvoyées et gardées dans les Logs.
- */
-async function paieTestFinancer(supabase: Supabase, par: string | null, contratId: string) {
-  if (await bloquer(supabase, { fonction: "upwork", action: "paie_test_financer", cible: contratId })) return { ok: false, error: PAUSE };
-  if (!contratId) return { ok: false, error: "contrat_id requis" };
-  const { data: t } = await supabase.from("contrats_test").select("contrat_id").eq("contrat_id", contratId).is("retire_at", null).maybeSingle();
-  if (!t) return { ok: false, error: "ce contrat n'est pas dans la liste « Test contracts »" };
-  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contratId).maybeSingle();
-  const tenant = (uc?.organisation_id as string | null) ?? null;
-  if (!tenant) return { ok: false, error: "contrat absent des contrats lus (Réglages → Upwork → Lire les contrats)" };
-  await jetonValide(supabase, par);
-  const avant = await relireJalons(supabase, par, contratId, tenant, "test_financer_jalons_avant");
-  if (!avant.jalons) return { ok: false, error: `milestones illisibles : ${avant.erreur}` };
-  const j = [...avant.jalons].sort((a, b) => a.sequence - b.sequence).find((x) => x.etat === "NotFunded");
-  if (!j) return { ok: false, error: "aucune milestone NotFunded sur ce contrat" };
-  const r = await reglagesPaieApi(supabase);
-  if (j.depot === null || !(j.depot > 0)) return { ok: false, error: `${j.nom || "milestone"} : montant illisible` };
-  if (j.depot > r.plafond_ligne) return { ok: false, error: `${j.depot} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)` };
-  const requete = { query: MUTATION_FINANCER_JALON, variables: { input: { id: j.id } } };
-  const active = await ecrire(supabase, { par, action: "test_financer_jalon", ...requete, tenant, contrat: contratId, montant: j.depot });
-  const lire1 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire");
-  let etat = lire1.jalons?.find((x) => x.id === j.id)?.etat ?? null;
-  if (!etat || !ETATS_FINANCES.includes(etat)) {
-    await new Promise((ok) => setTimeout(ok, 10_000));
-    const lire2 = await relireJalons(supabase, par, contratId, tenant, "test_financer_relire_10s");
-    etat = lire2.jalons?.find((x) => x.id === j.id)?.etat ?? etat;
-  }
-  const finance = Boolean(etat && ETATS_FINANCES.includes(etat));
-  return {
-    ok: finance,
-    jalon: { id: j.id, nom: j.nom, depot: j.depot },
-    requete,
-    reponse: active.data ?? null,
-    erreur: active.erreur ?? (finance ? null : pasFinancee(etat)),
-    etat_relu: etat,
-  };
-}
-
 /** Les champs de fin de contrat qu'Upwork exige (introspection, lecture seule). */
 const REQUETE_CHAMPS_FIN = `query ChampsFin {
   __type(name: "EndContractInput") { inputFields { name type { kind name ofType { kind name } } } }
@@ -1590,10 +1547,6 @@ async function relireAFinancer(supabase: Supabase, par: string | null) {
   return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
 }
 
-/** Le message d'une milestone que l'API n'a pas pu financer. */
-const pasFinancee = (etat: string | null | undefined) =>
-  `Upwork : ${etat || "NotFunded"} (Needs funds) — compte non enterprise, le financement attend une confirmation sur Upwork : à financer à la main`;
-
 const COLONNES_PAIEMENT =
   "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, soumission_message_at, etapes, montant_approuve, updated_at";
 
@@ -1796,21 +1749,10 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       if (jc.etat === "NotFunded") {
         // B5 : le montant relu, au cent près, avant de financer.
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} vaut ${jc.depot ?? "?"} $, attendu ${c.montant} $ : pas financée`, null, "autre");
-        const active = await ecrire(supabase, { par, action: "paie_financer_complement", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: c.montant, variables: { input: { id: jc.id } } });
-        if (active.erreur || !active.data?.activateMilestone) {
-          etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
-          return await echec(`payée ; financement de ${c.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
-        }
-        const relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_complement");
-        jc = relu.jalons?.find((j) => j.id === jalonComplement) ?? jc;
-        if (relu.jalons) jalons = relu.jalons;
-        // 0467 : « OK » seulement si la relecture le confirme financé.
-        const fini = ETATS_FINANCES.includes(jc.etat);
-        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: fini ? null : pasFinancee(jc.etat), etat: jc.etat, reponse: active.data ?? null });
-        if (!fini) {
-          await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jc, montant: c.montant, raison: "2nd account: fund, then approve" });
-          return await echec(`payée ; ${c.nom} : ${pasFinancee(jc.etat)}`, null, "autre");
-        }
+        // 2/11 : jamais de financement par l'API (activateMilestone reste NotFunded) : Max finance à la main.
+        etapes.push({ etape: "financer_complement", jalon: jc.id, erreur: null, etat: jc.etat, a_financer: true });
+        await aFinancerALaMain(supabase, { ligne, contrat, semaine, jalon: jc, montant: c.montant, raison: "2nd account: fund, then approve" });
+        return await echec(`payée ; ${c.nom} : à financer à la main (Who to fund), puis à approuver`, null, "autre");
       }
       if (ETATS_FINANCES.includes(jc.etat)) {
         if (!montantConforme(jc, c.montant)) return await echec(`payée ; ${c.nom} financée à ${jc.depot ?? "?"} $, attendu ${c.montant} $`, null, "autre");
@@ -1879,23 +1821,9 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
       etapes.push({ etape: "garde_fou_montant", jalon: jalonFinance, relu: jf.depot, attendu: f.montant });
       return await echec(`payée ; ${f.nom} relue à ${jf.depot ?? "?"} $, attendu ${f.montant} $ : pas financée`, null, "autre");
     }
-    const active = await ecrire(supabase, {
-      par, action: "paie_financer_jalon", query: MUTATION_FINANCER_JALON, tenant, contrat, montant: f.montant,
-      variables: { input: { id: jalonFinance } },
-    });
-    if (active.erreur || !active.data?.activateMilestone) {
-      etapes.push({ etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, erreur: active.erreur ?? "réponse vide", reponse: active.data ?? null });
-      await maj({ financement: "erreur" });
-      return await echec(`payée ; financement de ${f.nom} : ${active.erreur ?? "réponse vide"}`, active.erreur);
-    }
-    // L'activation peut passer par un paiement Upwork (checkout) : on relit. 0467 : « OK » seulement si la relecture le confirme.
-    relu = await relireJalons(supabase, par, contrat, tenant, "paie_relire_jalons");
-    jf = relu.jalons?.find((j) => j.id === jalonFinance) ?? jf;
-    const fini = ETATS_FINANCES.includes(jf.etat);
-    etapes.push({
-      etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, etat: jf.etat,
-      erreur: fini ? null : pasFinancee(jf.etat), reponse: active.data ?? null,
-    });
+    // 2/11 : jamais de financement par l'API (activateMilestone reste NotFunded) : la milestone
+    // reste NotFunded et va dans « Who to fund » ; Max la finance à la main.
+    etapes.push({ etape: "financer", jalon: jalonFinance, nom: f.nom, montant: f.montant, etat: jf.etat, erreur: null, a_financer: true });
   }
   if (!ETATS_FINANCES.includes(jf.etat)) {
     // 0467 : la semaine est payée ; la suivante va dans « To fund by hand », sans nouvel essai.
@@ -1968,7 +1896,12 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
         if (issue.resultat !== "paye") ecarts = [`${issue.resultat} : ${issue.raison ?? "?"}`];
         else {
           const relu = await relireJalons(supabase, par, c.contrat_id!, tenant(c), "paie_canari_relire");
-          ecarts = relu.jalons ? ecartsCanari(issue.plan ?? p.plan, issue.jalon_finance ?? null, relu.jalons) : [`relecture impossible : ${relu.erreur}`];
+          // 2/11 : la suivante est attendue NotFunded et dans « Who to fund » (jamais financée par l'API).
+          const jf = issue.jalon_finance ?? null;
+          const { data: af } = jf
+            ? await supabase.from("paie_a_financer").select("id").eq("contrat_id", c.contrat_id!).eq("jalon_id", jf).is("finance_at", null).maybeSingle()
+            : { data: null };
+          ecarts = relu.jalons ? ecartsCanari(issue.plan ?? p.plan, jf, relu.jalons, Boolean(af)) : [`relecture impossible : ${relu.erreur}`];
         }
         const detail = { ligne: c.ids[0], poster: c.poster_nom, contrat: c.contrat_id, resultat: issue.resultat, ecarts };
         if (ecarts.length) {

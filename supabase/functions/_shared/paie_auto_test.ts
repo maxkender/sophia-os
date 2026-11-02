@@ -67,13 +67,18 @@ Deno.test("B4 : le canari est une ligne simple (1 compte, tarif plein, suite au 
   assertEquals(choisirCanari([]), null);
 });
 
-Deno.test("B4 : relecture du canari (payée au bon montant, suivante créée, financée, au bon montant)", () => {
+Deno.test("B4 : relecture du canari (payée au bon montant, suivante créée au bon montant, NotFunded dans Who to fund)", () => {
   const plan: PlanPaiement = {
     statut: "pret", raison: null, lien: null, total: 28, montant_trouve: null,
     approuver: { jalon_id: "m1", nom: "Week 45", montant: 14, depot: 14, sous_paiement: null },
     financer: { mode: "creer", jalon_id: null, nom: "Week 46", montant: 14, editer: false },
   };
+  // 2/11 : la suivante reste NotFunded (financée à la main) : OK si elle est dans « Who to fund ».
+  assertEquals(ecartsCanari(plan, "m2", [j("m1", "Week 45", "Paid", 1, 14, 14), j("m2", "Week 46", "NotFunded", 2, 14)], true), []);
+  assert(ecartsCanari(plan, "m2", [j("m1", "Week 45", "Paid", 1, 14, 14), j("m2", "Week 46", "NotFunded", 2, 14)], false)[0].includes("Who to fund"));
+  // Déjà financée à la main entre-temps : OK aussi.
   assertEquals(ecartsCanari(plan, "m2", [j("m1", "Week 45", "Paid", 1, 14, 14), j("m2", "Week 46", "Active", 2, 14)]), []);
+  assert(ecartsCanari(plan, "m2", [j("m1", "Week 45", "Paid", 1, 14, 14), j("m2", "Week 46", "CancelledByClient", 2, 14)], true)[0].includes("attendu NotFunded"));
   const mauvais = ecartsCanari(plan, "m2", [j("m1", "Week 45", "Active", 1, 14, null), j("m2", "Week 46", "NotFunded", 2, 1400)]);
   assertEquals(mauvais.length, 4);
   assert(mauvais.some((e) => e.includes("1400")));

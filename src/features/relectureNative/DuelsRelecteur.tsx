@@ -11,31 +11,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { TableDuel } from "@/features/abTraduction/TableDuel";
 import { cn } from "@/lib/utils";
 
-import {
-  type CibleRemarque,
-  compterMots,
-  type CoteDuel,
-  coteDepuisNotes,
-  type DuelRelecteur,
-  mesDuelsRelecteur,
-  MOTS_MIN_REMARQUE,
-  voterDuelRelecteur,
-} from "./api";
+import { compterMots, type CoteDuel, coteDepuisNotes, type DuelRelecteur, mesDuelsRelecteur, MOTS_MIN_REMARQUE, voterDuelRelecteur } from "./api";
 import { messageErreur } from "./messageErreur";
 import { TuileIcone } from "./Puces";
 
 export const CLE_REQUETE_MES_DUELS = ["mes-duels-relecteur"] as const;
 
-const selectClass =
-  "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
-
 /**
  * Les duels à l'aveugle envoyés au relecteur (0626) : deux versions d'un même
  * slideshow dans sa langue, sans la source et sans dire laquelle est partie.
  * Un duel à la fois : il note chaque version de 1 à 5 (la mieux notée gagne,
- * même note = égal) et laisse une remarque d'au moins 30 mots, une par
- * slideshow. Les côtés ne lui sont jamais révélés : le serveur traduit son
- * vote en version.
+ * même note = égal) et laisse une remarque d'au moins 50 mots, une par
+ * slideshow, qui vaut pour les deux versions. Les côtés ne lui sont jamais
+ * révélés : le serveur traduit son vote en version.
  */
 export function DuelsRelecteur({ langue }: { langue: string }) {
   const { t } = useTranslation();
@@ -103,7 +91,6 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
   const [noteGauche, setNoteGauche] = React.useState<number | null>(duel.ma_note_gauche);
   const [noteDroite, setNoteDroite] = React.useState<number | null>(duel.ma_note_droite);
   const [remarque, setRemarque] = React.useState(duel.ma_remarque ?? "");
-  const [remarqueSur, setRemarqueSur] = React.useState<CibleRemarque>(duel.ma_remarque_sur ?? "les_deux");
 
   const cote = coteDepuisNotes(noteGauche, noteDroite);
   const mots = compterMots(remarque);
@@ -116,7 +103,7 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
         noteGauche,
         noteDroite,
         remarque,
-        remarqueSur,
+        remarqueSur: "les_deux",
         typeErreur: null,
       }),
     onSuccess: () => {
@@ -127,8 +114,7 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
 
   const v1 = t("relectureNative.poster.duels.version1");
   const v2 = t("relectureNative.poster.duels.version2");
-  const nomCote = (c: CoteDuel | CibleRemarque) =>
-    c === "gauche" ? v1 : c === "droite" ? v2 : c === "egal" ? t("relectureNative.poster.duels.egal") : t("relectureNative.poster.duels.lesDeux");
+  const nomCote = (c: CoteDuel) => (c === "gauche" ? v1 : c === "droite" ? v2 : t("relectureNative.poster.duels.egal"));
 
   return (
     <Card data-testid="duel-relecteur">
@@ -176,16 +162,6 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
               <p className={cn("text-xs", mots >= MOTS_MIN_REMARQUE ? "text-muted-foreground" : "text-warning-foreground")} data-testid="duel-mots">
                 {t("relectureNative.poster.duels.mots", { n: mots, min: MOTS_MIN_REMARQUE })}
               </p>
-              <div className="space-y-1 sm:max-w-xs">
-                <Label htmlFor={`sur-${duel.duel_id}`}>{t("relectureNative.poster.duels.remarqueSur")}</Label>
-                <select id={`sur-${duel.duel_id}`} className={selectClass} value={remarqueSur} onChange={(e) => setRemarqueSur(e.target.value as CibleRemarque)}>
-                  {(["gauche", "droite", "les_deux"] as const).map((c) => (
-                    <option key={c} value={c}>
-                      {nomCote(c)}
-                    </option>
-                  ))}
-                </select>
-              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">

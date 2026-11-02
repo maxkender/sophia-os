@@ -142,9 +142,11 @@ export function choisirCanari(lignes: LigneAuto[]): LigneAuto | null {
 
 /**
  * B4 : relire le canari sur Upwork. Vide : tout correspond (montant payé,
- * milestone payée, semaine suivante créée au bon montant et financée).
+ * milestone payée = Paid, semaine suivante créée au bon montant).
+ * 2/11 : l'OS ne finance jamais par l'API : la suivante est attendue NotFunded
+ * et présente dans « Who to fund » (`dansAFinancer`) ; déjà financée à la main : OK aussi.
  */
-export function ecartsCanari(plan: PlanPaiement, jalonFinance: string | null, jalons: JalonUpwork[]): string[] {
+export function ecartsCanari(plan: PlanPaiement, jalonFinance: string | null, jalons: JalonUpwork[], dansAFinancer = false): string[] {
   const ecarts: string[] = [];
   const a = plan.approuver;
   if (!a) return ["rien à approuver"];
@@ -163,7 +165,11 @@ export function ecartsCanari(plan: PlanPaiement, jalonFinance: string | null, ja
       if (suiv.depot === null || Math.abs(suiv.depot - f.montant) > 0.009) {
         ecarts.push(`${f.nom} : ${suiv.depot ?? "?"} $, attendu ${f.montant} $`);
       }
-      if (!ETATS_FINANCES.includes(suiv.etat)) ecarts.push(`${f.nom} : état ${suiv.etat || "inconnu"}, attendu Active (financée)`);
+      if (suiv.etat === "NotFunded") {
+        if (!dansAFinancer) ecarts.push(`${f.nom} : NotFunded mais absente de « Who to fund »`);
+      } else if (!ETATS_FINANCES.includes(suiv.etat)) {
+        ecarts.push(`${f.nom} : état ${suiv.etat || "inconnu"}, attendu NotFunded (dans « Who to fund »)`);
+      }
     }
   }
   return ecarts;

@@ -23,6 +23,10 @@ vi.mock("@/features/moteur/api", async (importOriginal) => ({
 vi.mock("@/features/pods/VideosAPoster", () => ({ VideosAPoster: () => null }));
 vi.mock("@/features/onboarding/cinqEtapesApi", () => ({
   lireMaPremiereSemaine: async () => ({ cohorteLundi: null, slackLie: false }),
+  lireMonWarmup: async () => null,
+  lireMesDeclarations: async () => [],
+  lireMesTextesDebut: async () => ({}),
+  declarerEtape: async () => "en_attente",
 }));
 
 const postsMock = vi.hoisted(() => ({ liste: [] as unknown[] }));

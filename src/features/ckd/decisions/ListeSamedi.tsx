@@ -46,6 +46,9 @@ import {
   garderMalgreDemande,
   lireBrouillonsSamedi,
   lireDemandesArret,
+  lireReportsSamedi,
+  raisonJamaisDemarre,
+  type ReportsPosteur,
   noterBrouillonSamedi,
   lireFicheSamedi,
   lireSemaineComptes,
@@ -77,7 +80,7 @@ const AUTRES: readonly ChoixSamedi[] = ["recreate", "pause"];
 const ONGLETS: readonly Onglet[] = ["tous", "recrues", "premiere", "anciens"];
 /** 0492 : filtrer la liste par décision (celle qui est cochée), ou les décisions préparées. */
 const FILTRES_DECISION: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre", "recreate", "pause"];
-type FiltreDecision = "" | "preparee" | ChoixSamedi;
+type FiltreDecision = "" | "preparee" | "jamais" | ChoixSamedi;
 
 type RaisonSaisie = { code: RaisonSansPaie | ""; detail: string };
 /** La raison d'un Kill & don't pay, en clair (Disputes la montre si le freelance conteste). */
@@ -122,6 +125,24 @@ function RaisonSansPaieSaisie({ posterId, lundi, valeur, onChange }: { posterId:
         <Input className="h-8 max-w-md" aria-label={t(`${p}.detail`)} placeholder={t(`${p}.detail`)} value={valeur.detail}
           onChange={(e) => onChange({ ...valeur, detail: e.target.value })} />
       </div>
+    </div>
+  );
+}
+
+/** 0494 : les reports du posteur (Postpone, Start Tuesday), sa première cohorte ; rouge quand la règle propose Kill & don't pay. */
+function CelluleReports({ r }: { r: ReportsPosteur | undefined }) {
+  const { t } = useTranslation();
+  if (!r) return <span className="text-xs text-muted-foreground">—</span>;
+  const date = r.premiere_cohorte
+    ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${r.premiere_cohorte}T12:00:00Z`))
+    : "—";
+  return (
+    <div className="max-w-48 space-y-0.5 text-xs" data-testid="reports" data-regle={r.regle ? "oui" : "non"}>
+      <p className={r.regle ? "font-medium text-destructive" : undefined}>
+        {t("autoOnglets.decisions.liste.samedi.reports.compte", { reports: r.nb_reports, mardi: r.nb_mardi })}
+      </p>
+      <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.reports.premiere", { date, posts: r.posts })}</p>
+      {r.regle && <Badge variant="error">{t(r.jamais_commence ? "autoOnglets.decisions.liste.samedi.reports.jamais" : "autoOnglets.decisions.liste.samedi.reports.deuxFois")}</Badge>}
     </div>
   );
 }
@@ -205,6 +226,10 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   });
   // 0484 : chaque choix est enregistré au clic (brouillon de la semaine) ; un rechargement le reprend.
   const brouillons = useQuery({ queryKey: ["samedi-brouillons", lundi], queryFn: () => lireBrouillonsSamedi(lundi) });
+  // 0494 : les reports (Start Tuesday, Postpone) et la règle « ne démarre jamais ».
+  const reports = useQuery({ queryKey: ["samedi-reports", lundi], queryFn: () => lireReportsSamedi(lundi) });
+  const reportsDe = (posterId: string): ReportsPosteur | undefined => reports.data?.get(posterId);
+  const jamais = (c: CompteSemaine) => Boolean(reportsDe(c.poster_id)?.regle);
   const [choixLocaux, setChoix] = React.useState<Record<string, ChoixSamedi>>({});
   const [raisonsLocales, setRaisons] = React.useState<Record<string, RaisonSaisie>>({});
   const [erreurBrouillon, setErreurBrouillon] = React.useState<string | null>(null);
@@ -215,9 +240,17 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   }, [brouillons.data, choixLocaux]);
   const raisons = React.useMemo(() => {
     const m: Record<string, RaisonSaisie> = {};
-    for (const [id, b] of brouillons.data ?? []) if (b.raison) m[id] = { code: (b.raison.code ?? "") as RaisonSansPaie | "", detail: b.raison.detail ?? "" };
+    // 0494 : ne démarre jamais : Kill & don't pay pré-rempli (0 post, « never started, postponed N times »).
+    for (const c of lu.data ?? []) {
+      const r = reports.data?.get(c.poster_id);
+      if (r?.regle) m[c.compte_id] = { code: "zero_post", detail: raisonJamaisDemarre(r) };
+    }
+    for (const [id, b] of brouillons.data ?? []) {
+      if (b.raison?.code) m[id] = { code: b.raison.code as RaisonSansPaie | "", detail: b.raison.detail ?? "" };
+      else if (b.raison && !m[id]) m[id] = { code: "", detail: b.raison.detail ?? "" };
+    }
     return { ...m, ...raisonsLocales };
-  }, [brouillons.data, raisonsLocales]);
+  }, [brouillons.data, raisonsLocales, lu.data, reports.data]);
   const enregistrer = (compteId: string, k: ChoixSamedi, r: RaisonSaisie | null = null) => {
     if (!admin) return;
     noterBrouillonSamedi(lundi, compteId, k, r ? { code: r.code, detail: r.detail } : null)
@@ -239,7 +272,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const liste = React.useMemo(() => lu.data ?? [], [lu.data]);
   // La cohorte qui arrive : visible, en Keep, sans autre choix ; Validate ne la touche pas
   // (ses reports se décident le dimanche soir, onglet « Sunday: warm-up »).
-  const aVenir = (c: CompteSemaine) => !semaineCommencee(c.cohorte_lundi, lundi);
+  // 0494 : sauf un posteur qui ne démarre jamais (reporté 2 fois ou plus) : il se décide samedi.
+  const aVenir = (c: CompteSemaine) => !semaineCommencee(c.cohorte_lundi, lundi) && !jamais(c);
   const x = (c: CompteSemaine) => extras.data?.get(c.compte_id);
   const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
     lundi, aujourdhui, maintenant, page: "samedi", seuils: seuils.data,
@@ -254,6 +288,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     if (choix[c.compte_id]) return choix[c.compte_id];
     const prise = decisionSamedi(c);
     if (prise) return prise;
+    // 0494 : reporté 2 fois ou plus, ou toujours 0 post après sa première semaine : Kill & don't pay proposé.
+    if (jamais(c)) return "kill_np";
     if (demandeCompte(c)) return "kill";
     // « Kill Saturday » choisi jeudi : Kill & pay pré-sélectionné (Max valide toujours samedi).
     if (etats.data?.get(c.compte_id)?.kill_jeudi_at) return "kill";
@@ -267,22 +303,22 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const force = (c: CompteSemaine) => forcesDe(c.poster_id).length > 0 || Boolean(demandeCompte(c));
   // 0492 : une décision préparée (fiche Posters, ou un choix déjà noté) autre que Keep : « To handle ».
   const preparee = (c: CompteSemaine) => !aVenir(c) && !decisionSamedi(c) && decisionPreparee(brouillons.data?.get(c.compte_id));
-  const aTraiter = (c: CompteSemaine) => force(c) || preparee(c) || e(c).statut === "rouge" || e(c).statut === "orange";
+  const aTraiter = (c: CompteSemaine) => jamais(c) || force(c) || preparee(c) || e(c).statut === "rouge" || e(c).statut === "orange";
   const [filtreDecision, setFiltreDecision] = React.useState<FiltreDecision>("");
   const duFiltreDecision = (c: CompteSemaine) =>
-    !filtreDecision || (filtreDecision === "preparee" ? preparee(c) : choixDe(c) === filtreDecision);
+    !filtreDecision || (filtreDecision === "preparee" ? preparee(c) : filtreDecision === "jamais" ? jamais(c) : choixDe(c) === filtreDecision);
   const visibles = trierComptes(duOnglet(onglet), tri).sort(
-    (a, b) => Number(force(b)) - Number(force(a)) || Number(preparee(b)) - Number(preparee(a)) || ordreStatut(e(a), e(b)),
+    (a, b) => Number(jamais(b)) - Number(jamais(a)) || Number(force(b)) - Number(force(a)) || Number(preparee(b)) - Number(preparee(a)) || ordreStatut(e(a), e(b)),
   );
   const montres = visibles.filter(duFiltreDecision);
   const principaux = tous ? montres : montres.filter(aTraiter);
-  const confiance = montres.filter((c) => e(c).statut === "vert" && !force(c) && !preparee(c));
+  const confiance = montres.filter((c) => e(c).statut === "vert" && !force(c) && !preparee(c) && !jamais(c));
   const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
   // 0469 : la conversation Upwork de chaque posteur (liste, toujours montrés).
   const conv = useConversations([...liste.map((c) => c.poster_id), ...[...(forces.data?.keys() ?? [])]]);
   const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres) : null;
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
-  const nbCol = jours.length + 8;
+  const nbCol = jours.length + 9;
   const compteurs = {
     rouge: visibles.filter((c) => e(c).statut === "rouge").length,
     orange: visibles.filter((c) => e(c).statut === "orange").length,
@@ -461,6 +497,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             )}
           </td>
           <td className={TD}>
+            <CelluleReports r={reportsDe(c.poster_id)} />
+          </td>
+          <td className={TD}>
             <CelluleCompte c={c} />
             <BadgesPosteur e={ev} x={ex} />
             <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
@@ -519,6 +558,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       <tr className="border-b">
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.choix")}</th>
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.statut")}</th>
+        <th className={TH}>{t("autoOnglets.decisions.liste.samedi.reports.titre")}</th>
         <th className={TH}>{t("autoOnglets.decisions.liste.colonnes.compte")}</th>
         <EnTetesJours jours={jours} />
         <th className={`${TH} text-right`}>{t("autoOnglets.decisions.liste.colonnes.total")}</th>
@@ -572,6 +612,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             >
               <option value="">{t("autoOnglets.decisions.liste.samedi.filtreDecision.toutes")}</option>
               <option value="preparee">{t("autoOnglets.decisions.liste.samedi.filtreDecision.preparees", { n: visibles.filter(preparee).length })}</option>
+              <option value="jamais">{t("autoOnglets.decisions.liste.samedi.reports.filtre", { n: visibles.filter(jamais).length })}</option>
               {FILTRES_DECISION.map((k) => (
                 <option key={k} value={k}>
                   {t(`autoOnglets.decisions.liste.samedi.choix.${k}`)} ({visibles.filter((c) => choixDe(c) === k).length})

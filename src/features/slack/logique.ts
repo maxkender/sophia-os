@@ -37,3 +37,10 @@ export function suggestions(membres: MembreLibre[], nom: string | null, max = 3)
     .slice(0, max)
     .map((x) => x.m);
 }
+
+/** Un mot (3 lettres ou plus) en commun entre le nom Slack et le nom OS : candidat à montrer en premier. */
+export function slackMotsProches(slack: string | null | undefined, os: string | null | undefined): boolean {
+  const mots = (s: string | null | undefined) => sansAccents(s).split(/[^a-z]+/).filter((m) => m.length >= 3);
+  const o = mots(os);
+  return mots(slack).some((m) => o.some((x) => x.startsWith(m) || m.startsWith(x)));
+}

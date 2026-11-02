@@ -13,6 +13,8 @@ const api = vi.hoisted(() => ({
   lirePosteursARelier: vi.fn(),
   relierSlack: vi.fn(),
   synchroniserSlackPosteurs: vi.fn(),
+  lireDeclarationsEtapes: vi.fn(),
+  deciderDeclaration: vi.fn(),
 }));
 vi.mock("./api", () => api);
 const auth = vi.hoisted(() => ({ role: "hiring_manager" }));
@@ -61,6 +63,8 @@ describe("SlackARelier", () => {
       { id: "p1", nom: "José Perez", email_perso: null, email: null, hm_id: "hm", hm_prenom: "Kris", created_at: "2026-10-01" },
     ]);
     api.relierSlack.mockResolvedValue(undefined);
+    api.lireDeclarationsEtapes.mockResolvedValue([]);
+    api.deciderDeclaration.mockResolvedValue(undefined);
     vi.spyOn(window, "confirm").mockReturnValue(true);
   });
 
@@ -105,5 +109,31 @@ describe("SlackARelier", () => {
     rendu();
     fireEvent.click(await screen.findByRole("button", { name: /José Pérez/ }));
     expect(await screen.findByText(/déjà relié/)).toBeInTheDocument();
+  });
+
+  it("0497 : les étapes déclarées par les recrues : Slack relié au membre choisi, warm-up confirmé", async () => {
+    api.lireDeclarationsEtapes.mockResolvedValue([
+      {
+        poster_id: "p2", nom: "Mary Example", cohorte_lundi: "2026-11-02", etape: "slack", note: null,
+        declare_at: "2026-11-01T17:00:00Z", statut: "en_attente",
+        candidats: [
+          { slack_user_id: "UZZZZZZ1", nom: "Someone Else", vu: null },
+          { slack_user_id: "UMMMMMM1", nom: "Maria Example", vu: null },
+        ],
+      },
+      {
+        poster_id: "p3", nom: "Ken Test", cohorte_lundi: "2026-11-02", etape: "warmup", note: null,
+        declare_at: "2026-11-01T17:00:00Z", statut: "en_attente", candidats: null,
+      },
+    ]);
+    rendu();
+    const bloc = await screen.findByTestId("declarations-etapes");
+    // Le membre le plus proche du nom vient en premier.
+    const boutons = bloc.querySelectorAll('[data-declaration="slack"] button');
+    expect(boutons[0]?.textContent).toContain("Maria Example");
+    fireEvent.click(boutons[0]!);
+    await waitFor(() => expect(api.deciderDeclaration).toHaveBeenCalledWith("p2", "slack", true, "UMMMMMM1"));
+    fireEvent.click(screen.getByRole("button", { name: /Confirmer/ }));
+    await waitFor(() => expect(api.deciderDeclaration).toHaveBeenCalledWith("p3", "warmup", true, undefined));
   });
 });

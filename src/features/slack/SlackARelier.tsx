@@ -22,6 +22,7 @@ import {
   type PosteurARelier,
   type ResultatSynchroSlack,
 } from "./api";
+import { DeclarationsEtapes } from "./DeclarationsEtapes";
 import { filtrerMembres, libelleMembre, suggestions } from "./logique";
 
 const ID_SLACK = /^[UW][A-Z0-9]{6,}$/;
@@ -201,6 +202,7 @@ export function SlackARelier() {
       )}
       {dernier && <Resultat r={dernier.r} simulation={dernier.simulation} />}
       {erreur && <p className="text-sm text-destructive">{erreur}</p>}
+      <DeclarationsEtapes />
       <Card>
         <CardContent className="p-0">
           {(posteurs.isLoading || membres.isLoading) && <BarreChargement actif />}

@@ -5,6 +5,16 @@ import { supabase } from "@/lib/supabase/client";
 export const RETOUR_SLACK = "/lier-slack";
 const CLE_ETAT = "slack_connect_state";
 
+/**
+ * L'interrupteur « Slack: link DM on arrival » (slack_lien_dm_auto). Tant qu'il
+ * n'est pas sur on, aucun DM de liaison ne part : le dashboard n'en parle pas.
+ */
+export async function lienDmSlackActif(): Promise<boolean> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "slack_lien_dm_auto").maybeSingle();
+  if (error) throw error;
+  return data?.valeur === "on" || data?.valeur === true;
+}
+
 export async function monSlackRelie(): Promise<boolean> {
   const { data, error } = await supabase.rpc("mon_slack");
   if (error) throw error;

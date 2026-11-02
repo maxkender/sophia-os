@@ -482,6 +482,8 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
   const [anciennes, setAnciennes] = React.useState(false);
   const choisie = choix ?? cohorteParDefaut(lundis, aujourdhui);
   const [filtres, setFiltres] = React.useState<FiltresCohorte>(FILTRES_VIDES);
+  // Les recrues arrêtées (Kill, retrait, contrat fermé) sont archivées : hors du tableau, sauf à la demande.
+  const [archives, setArchives] = React.useState(false);
 
   const recrues = useQuery({
     queryKey: [...CLE, "recrues", choisie ? [choisie] : []],
@@ -495,7 +497,8 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
 
   const visibles = anciennes ? cohortes.data ?? [] : (cohortes.data ?? []).slice(0, 6);
   const toutes = recrues.data ?? [];
-  const lignes = filtrer(toutes, filtres);
+  const nbArchivees = toutes.filter((r) => !r.is_active).length;
+  const lignes = filtrer(archives ? toutes : toutes.filter((r) => r.is_active), filtres);
   const nbSansContrat = toutes.filter((r) => r.is_active && sansContrat(r)).length;
   const hms = [...new Map(toutes.filter((r) => r.hm_id).map((r) => [r.hm_id!, r.hm_prenom ?? "—"])).entries()].sort((a, b) =>
     a[1].localeCompare(b[1]),
@@ -609,6 +612,11 @@ export function PageCohortes({ maintenant: fixe }: { maintenant?: Date } = {}) {
           ))}
         </select>
         <span className="text-muted-foreground">{t("cohortes.nbLignes", { n: lignes.length })}</span>
+        {nbArchivees > 0 && (
+          <Button size="sm" variant="ghost" aria-pressed={archives} data-testid="voir-archivees" onClick={() => setArchives((x) => !x)}>
+            {archives ? t("cohortes.masquerArchivees") : t("cohortes.archivees", { n: nbArchivees })}
+          </Button>
+        )}
         {filtre && (
           <Button size="sm" variant="ghost" onClick={() => setFiltres(FILTRES_VIDES)}>
             <Minus className="size-3" aria-hidden />

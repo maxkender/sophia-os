@@ -22,7 +22,7 @@ export interface MessageAttente {
 export async function lireMessagesAttente(): Promise<MessageAttente[]> {
   const { data, error } = await supabase
     .from("relances_prevues")
-    .select("poster_id, type, periode, canal, texte, raison, valide_at, maj_at, profiles(prenom, nom)")
+    .select("poster_id, type, periode, canal, texte, raison, valide_at, maj_at, profiles!relances_prevues_poster_id_fkey(prenom, nom)")
     .eq("statut", "prevu")
     .in("raison", ["en_attente", "a_valider"])
     .order("maj_at", { ascending: false });

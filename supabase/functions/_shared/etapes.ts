@@ -348,6 +348,12 @@ export function debutCohorte(r: Pick<RecrueAccueil, "cohorte_lundi" | "fuseau">)
   return instantLocal(r.cohorte_lundi, 0, "Europe/Paris");
 }
 
+/** 1/11 : le vrai début : le lundi, ou le mardi 00:00 (Paris) pour « Start Tuesday » (Postpone a déjà changé le lundi). */
+export function debutAvecChoix(r: Pick<RecrueAccueil, "cohorte_lundi" | "fuseau">, choix: string | null | undefined): Date {
+  const lundi = debutCohorte(r);
+  return choix === "mardi" ? new Date(lundi.getTime() + 24 * 3_600_000) : lundi;
+}
+
 /**
  * La 1re étape pas faite, pour le rouge de dimanche minuit (heure du pays) :
  * la recrue ne commence pas lundi. Les vidéos relevées après le lundi ne

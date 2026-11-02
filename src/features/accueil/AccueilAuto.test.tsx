@@ -66,15 +66,26 @@ describe("système du 2 nov., partie A : l'accueil automatique", () => {
     vi.spyOn(window, "confirm").mockReturnValue(true);
     api.lireAccueils.mockResolvedValue([
       accueil({
-        contrat_id: "44790806", prenom: "Gundika", nom: "Gundika", equipe: "Maximilien Kender", freelance_pays: "HR", freelance_ville: "Zagreb",
+        contrat_id: "44790807", prenom: "Gundika", nom: "Gundika", equipe: "VIk Studios", freelance_pays: "HR", freelance_ville: "Zagreb",
         hm_upwork_nom: "Lucia D.", raison: "HM du contrat (Lucia D.) pas dans l'OS : choisis la HM", pays: "HR",
       }),
+      // 0493 : une autre équipe (Calyra) n'est jamais à relier, même non classée ; classée : listée à part.
+      accueil({ contrat_id: "44800558", prenom: "Edis", nom: "Krupinskas", equipe: "Maximilien Kender" }),
+      accueil({ contrat_id: "44801090", prenom: "Ausra", nom: "Simutiene", equipe: "Maximilien Kender", classement: "autre_activite", classement_raison: "autre activité (Calyra) : ignoré" }),
+      accueil({ contrat_id: "44805186", prenom: "Erla", nom: "Menaj", equipe: "VIk Studios", classement: "hm", classement_raison: "HM contract (Hiring Manager for TikTok Creators, hourly)" }),
     ]);
     api.creerAccueil.mockRejectedValueOnce(new Error("création du posteur : e-mail déjà pris"));
     rendu();
     const ligne = (await screen.findByText("Gundika Gundika")).closest("li") as HTMLElement;
+    expect(screen.getByText("Contrats à relier (1)", { exact: false })).toBeTruthy();
+    expect(screen.queryByText("Edis Krupinskas")).toBeNull();
+    const classes = screen.getByTestId("accueils-classes");
+    expect(classes.textContent).toContain("Ausra Simutiene");
+    expect(classes.textContent).toContain("Erla Menaj");
+    expect(classes.querySelector('[data-classe="hm"]')?.textContent).toContain("Contrat de HM");
     const infos = within(ligne).getByTestId("infos-contrat");
-    expect(infos.textContent).toMatch(/Équipe : Maximilien Kender · hors VIk Studios/);
+    expect(infos.textContent).toMatch(/Équipe : VIk Studios/);
+    expect(infos.textContent).not.toMatch(/hors VIk Studios/);
     expect(infos.textContent).toMatch(/Vit à Zagreb, Croatie/);
     expect(infos.textContent).toMatch(/HM du contrat : Lucia D\./);
     const carte = within(ligne).getByTestId("creer-pour-contrat");
@@ -83,7 +94,7 @@ describe("système du 2 nov., partie A : l'accueil automatique", () => {
     expect(bouton.disabled).toBe(true);
     fireEvent.change(within(carte).getByLabelText("HM"), { target: { value: "hm1" } });
     fireEvent.click(bouton);
-    await vi.waitFor(() => expect(api.creerAccueil).toHaveBeenCalledWith("44790806", "HR", "hm1"));
+    await vi.waitFor(() => expect(api.creerAccueil).toHaveBeenCalledWith("44790807", "HR", "hm1"));
     expect((await within(carte).findByRole("alert")).textContent).toBe("création du posteur : e-mail déjà pris");
   });
 

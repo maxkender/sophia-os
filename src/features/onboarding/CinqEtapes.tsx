@@ -11,13 +11,23 @@ import {
   CINQ_ETAPES,
   dimancheAvant,
   etatsCinqEtapes,
+  followsBloques,
+  heurePremierPost,
+  jourAnglais,
   premierPostLe,
   premiereSemaineFinie,
   type CleEtape,
   type EtatCinq,
 } from "./cinqEtapes";
 import { ChangerHandle } from "./ChangerHandle";
-import { lireMaPremiereSemaine } from "./cinqEtapesApi";
+import { BoutonDeclarer } from "./BoutonDeclarer";
+import {
+  lireMaPremiereSemaine,
+  lireMesDeclarations,
+  lireMesTextesDebut,
+  lireMonWarmup,
+  type EtapeDeclarable,
+} from "./cinqEtapesApi";
 import { formaterJour, partiesParis } from "./datesRuul";
 
 function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
@@ -34,6 +44,10 @@ function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
     </span>
   );
 }
+
+/** Le conseil « TikTok limite les follows » (0498), modifiable dans Settings. */
+export const CONSEIL_FOLLOWS_DEFAUT =
+  "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then tell us in #questions.";
 
 /**
  * La première semaine en 5 étapes, sur l'accueil du posteur (chantier du
@@ -58,6 +72,9 @@ export function CinqEtapes({
   const { t, i18n } = useTranslation();
   const { slack } = useRegles();
   const profil = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine });
+  const monWarmup = useQuery({ queryKey: ["mon-warmup"], queryFn: lireMonWarmup, refetchInterval: 10 * 60_000 });
+  const declarations = useQuery({ queryKey: ["mes-declarations"], queryFn: lireMesDeclarations });
+  const textes = useQuery({ queryKey: ["mes-textes-debut"], queryFn: lireMesTextesDebut, staleTime: 60 * 60_000 });
   if (!profil.data) return null;
   const aujourdhui = partiesParis(maintenant).date;
   const premierPost = premierPostLe({
@@ -67,7 +84,24 @@ export function CinqEtapes({
     aujourdhui,
   });
   if (premiereSemaineFinie(premierPost, aujourdhui)) return null;
-  const etats = etatsCinqEtapes({ slackLie: profil.data.slackLie, warmupStartedAt, premierPost, aujourdhui });
+  // Refusée par l'équipe : la déclaration ne compte plus.
+  const actives = (declarations.data ?? []).filter((d) => d.statut !== "refuse");
+  const declares = new Set(actives.map((d) => d.etape));
+  const aVerifier = new Set(actives.filter((d) => d.statut === "en_attente").map((d) => d.etape));
+  const etats = etatsCinqEtapes({
+    slackLie: profil.data.slackLie,
+    warmupStartedAt,
+    premierPost,
+    aujourdhui,
+    pret: monWarmup.data?.pret ?? false,
+    declares,
+  });
+  // Déclarée seulement (l'OS ne la voit pas encore) : « we'll check ».
+  const enVerification = (cle: CleEtape) =>
+    aVerifier.has(cle as EtapeDeclarable) && !(cle === "slack" && profil.data?.slackLie) && !(cle === "warmup" && monWarmup.data?.pret);
+  const arrivee = heurePremierPost(premierPost, monWarmup.data?.pays);
+  const bloque = followsBloques(monWarmup.data, maintenant);
+  const conseilFollows = textes.data?.debut_popup_follows_bloque?.trim() || CONSEIL_FOLLOWS_DEFAUT;
   const jour = (d: string) => formaterJour(d, i18n.language);
   const arobase = handle ? `@${handle.replace(/^@/, "")}` : null;
 
@@ -77,14 +111,17 @@ export function CinqEtapes({
       titre: t("calendrier.cinq.slack"),
       detail: (
         <>
-          <p>{t("calendrier.cinq.slackDetail")}</p>
-          {etats.slack !== "fait" && slack && (
-            <Button asChild size="sm" variant="outline" className="mt-1 h-7">
-              <a href={slack} target="_blank" rel="noreferrer">
-                {t("calendrier.cinq.rejoindreSlack")}
-              </a>
-            </Button>
-          )}
+          <p>{t("calendrier.cinq.slackPasVu")}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            {slack && (
+              <Button asChild size="sm" variant="outline" className="mt-1 h-7">
+                <a href={slack} target="_blank" rel="noreferrer">
+                  {t("calendrier.cinq.rejoindreSlack")}
+                </a>
+              </Button>
+            )}
+            <BoutonDeclarer etape="slack" libelle={t("calendrier.cinq.declarer.slack")} />
+          </div>
         </>
       ),
     },
@@ -95,16 +132,38 @@ export function CinqEtapes({
           <p>{t("calendrier.cinq.tiktokDetail")}</p>
           {/* Le @ donné est déjà pris : la recrue donne celui qu'elle a créé (lu sur TikTok avant d'être gardé). */}
           {compteId && <ChangerHandle compteId={compteId} />}
+          <BoutonDeclarer etape="tiktok" libelle={t("calendrier.cinq.declarer.fait")} />
         </>
       ),
     },
     warmup: {
       titre: t("calendrier.cinq.warmup", { dimanche: jour(dimancheAvant(premierPost)) }),
-      detail: <RegleTexte regle="warmup" className="mt-1 p-2 text-xs" />,
+      detail: (
+        <>
+          {/* 0 follow plus de 24 h après Start warmup : TikTok limite souvent les comptes neufs. */}
+          {bloque && (
+            <p className="mt-1 rounded-md border border-warning/50 bg-warning/10 p-2 text-foreground" data-testid="follows-bloques">
+              {conseilFollows}
+            </p>
+          )}
+          <RegleTexte regle="warmup" className="mt-1 p-2 text-xs" />
+          {warmupStartedAt && <BoutonDeclarer etape="warmup" libelle={t("calendrier.cinq.declarer.fait")} />}
+        </>
+      ),
     },
     post: {
       titre: t("calendrier.cinq.post", { lundi: jour(premierPost) }),
-      detail: <RegleTexte regle="lien" className="mt-1 p-2 text-xs" />,
+      detail: (
+        <>
+          {/* Les dates aux posteurs sont en anglais ; l'heure dans leur fuseau (JST au Japon). */}
+          <p className="font-medium text-foreground" data-testid="heure-premier-post">
+            {arrivee.fuseau
+              ? t("calendrier.cinq.disponible", { jour: jourAnglais(premierPost), heure: arrivee.heure, fuseau: arrivee.fuseau })
+              : t("calendrier.cinq.disponibleLocal", { jour: jourAnglais(premierPost), heure: arrivee.heure })}
+          </p>
+          <RegleTexte regle="lien" className="mt-1 p-2 text-xs" />
+        </>
+      ),
     },
   };
 
@@ -121,6 +180,14 @@ export function CinqEtapes({
                 {contenu[cle].titre}
                 {etats[cle] === "recommande" && (
                   <span className="ml-2 font-normal text-muted-foreground text-xs">{t("calendrier.cinq.recommande")}</span>
+                )}
+                {cle === "slack" && profil.data.slackLie && (
+                  <span className="ml-2 font-normal text-success text-xs" data-testid="slack-relie">{t("calendrier.cinq.slackRelie")}</span>
+                )}
+                {etats[cle] === "fait" && enVerification(cle) && (
+                  <span className="ml-2 font-normal text-muted-foreground text-xs" data-testid={`verification-${cle}`}>
+                    {t("calendrier.cinq.declarer.enVerification")}
+                  </span>
                 )}
               </p>
               {etats[cle] !== "fait" && contenu[cle].detail && (

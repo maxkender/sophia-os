@@ -60,7 +60,7 @@ import { deduireTarif } from "../_shared/tarifs.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
-import { derniersMessagesSalon } from "../_shared/contexte.ts";
+import { decoderHtml, derniersMessagesSalon } from "../_shared/contexte.ts";
 import {
   decrireJalons,
   etape,
@@ -288,6 +288,9 @@ Deno.serve(async (request) => {
       }
       case "message_posteur":
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
+      case "reprise_conversations":
+        // 0504 : l'historique complet des conversations jamais lues, quelques-unes par passage, la nuit.
+        return json(await repriseConversations(supabase, par));
       case "arrets":
         return json(await traiterArrets(supabase, par));
       case "arrets_verifier": {
@@ -2823,6 +2826,8 @@ async function accueillir(supabase: Supabase, par: string | null) {
     // Le posteur TEST de ce contrat existe déjà (Overview → Test contracts) : rien à créer.
     if (test && testDe.get(contratId)) continue;
     const connu = connuDe.get(contratId);
+    // 1/11 (0493) : classé (autre activité, contrat de HM) : jamais repris, ni profil ni welcome.
+    if (connu?.classement) continue;
     // Déjà traité : jamais repris (créé, envoi en cours ou fait, doublon, erreur). Sauf (prompt 25, 16) :
     // une recrue déjà créée par la HM, notée « doublon » avant le passage sur On, sans bienvenue :
     // sur On, la bienvenue part quand même (accueillirExistant).
@@ -2989,7 +2994,8 @@ async function localiserRecrues(supabase: Supabase, par: string | null, max = 10
 }
 
 async function localiserAccueils(supabase: Supabase, par: string | null, contrats: string[] | null) {
-  let q = supabase.from("accueils").select("*");
+  // 0493 : jamais un contrat classé (autre activité, contrat de HM) : aucune lecture à l'API pour lui.
+  let q = supabase.from("accueils").select("*").is("classement", null);
   q = contrats?.length ? q.in("contrat_id", contrats) : q.in("statut", ["a_relier", "simule", "a_creer"]);
   const { data: lignes, error } = await q;
   if (error) throw error;
@@ -3080,7 +3086,7 @@ async function creerAccueilMaintenant(
   const { data: verrou, error: errVerrou } = await supabase.from("accueils").update({
     pays, langue, hm_id: o.hm_id, relie_par: par, relie_at: new Date().toISOString(), pays_source: "main",
     ...(tarif ? { tarif } : {}), statut: "envoi", raison: "création en cours (clic)", updated_at: new Date().toISOString(),
-  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "doublon", "erreur"]).select("*");
+  }).eq("contrat_id", o.contrat).in("statut", ["a_relier", "simule", "a_creer", "doublon", "erreur"]).is("classement", null).select("*");
   if (errVerrou) return { ok: false, error: errVerrou.message };
   const a = verrou?.[0];
   if (!a) return { ok: false, error: "contrat introuvable ou déjà en cours de création" };
@@ -3456,6 +3462,10 @@ async function relierContrats(supabase: Supabase, par: string | null, contrats: 
       ligne.erreur = `accueil déjà « ${connu.statut} » : rien créé`;
       continue;
     }
+    if (connu?.classement) {
+      ligne.erreur = `classé « ${connu.classement} » (${connu.classement_raison ?? "—"}) : rien créé`;
+      continue;
+    }
     const maintenant = new Date().toISOString();
     const { error: errVerrou } = await supabase.from("accueils").upsert({
       contrat_id: contrat, organisation_id: c.organisation_id, offre_id: details.offre_id, job_id: details.job_id,
@@ -3758,6 +3768,85 @@ const REQUETE_MESSAGES_SALON = `query MessagesSalon($r: ID!) {
   roomStories(filter: { roomId_eq: $r }) { edges { node { id createdDateTime message user { id } } } }
 }`;
 
+/**
+ * 0503 : toute la conversation que l'OS vient de lire → upwork_messages (les
+ * deux sens, l'auteur Upwork), sans aucun appel de plus. La base filtre (VIk
+ * Studios seulement, depuis le 1er octobre et le début du contrat) et masque
+ * les mots de passe. Une erreur ici ne bloque jamais la lecture.
+ */
+async function garderConversation(
+  supabase: Supabase,
+  c: { contrat_id: string; poster_id: string | null },
+  room: string,
+  freelance: string,
+  // deno-lint-ignore no-explicit-any
+  noeuds: any[],
+  source: string,
+): Promise<void> {
+  const messages = noeuds
+    .filter((n) => n?.id && String(n.message ?? "").trim() && !Number.isNaN(Date.parse(n.createdDateTime)))
+    .map((n) => ({
+      id: String(n.id),
+      at: new Date(n.createdDateTime).toISOString(),
+      texte: decoderHtml(String(n.message).trim()).slice(0, 4000),
+      de: n.user?.id === freelance ? "posteur" : "nous",
+      auteur_id: n.user?.id ? String(n.user.id) : null,
+    }));
+  if (messages.length === 0) return;
+  const { error } = await supabase.rpc("upwork_messages_garder", {
+    p_contrat: c.contrat_id, p_poster: c.poster_id, p_room: room, p_messages: messages, p_source: source,
+  });
+  if (error) console.error("[upwork] garder conversation", c.contrat_id, error.message);
+}
+
+/**
+ * 0504 : la reprise de l'historique, une seule fois par conversation : au plus
+ * `upwork_reprise_par_passage` conversations VIk Studios jamais lues en entier,
+ * une à la fois (2 appels de lecture au plus chacune), la nuit (cron), jamais
+ * en pause, et on s'arrête à la 1re limite d'Upwork. Aucun message n'est envoyé.
+ */
+async function repriseConversations(supabase: Supabase, par: string | null) {
+  if (await automationEnPause(supabase)) return { ok: true, ignore: PAUSE };
+  const heure = Number(new Intl.DateTimeFormat("en-GB", { hour: "numeric", hour12: false, timeZone: "Europe/Paris" }).format(new Date()));
+  if (heure < 1 || heure >= 5) return { ok: true, ignore: "la reprise ne tourne que la nuit (01:00–05:00, Paris)" };
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "upwork_reprise_par_passage").maybeSingle();
+  const max = Number.isFinite(Number(regl?.valeur)) ? Math.max(0, Math.min(50, Number(regl?.valeur))) : 20;
+  const { data, error } = await supabase.rpc("upwork_reprise_a_faire", { p_limite: max });
+  if (error) throw error;
+  const liste = (data ?? []) as { contrat_id: string; poster_id: string | null; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  const bilan = { a_lire: liste.length, lues: 0, erreurs: [] as string[], arret: null as string | null };
+  for (const c of liste) {
+    const noterErreur = async (e: string) => {
+      const { data: r } = await supabase.from("upwork_reprise").select("essais").eq("contrat_id", c.contrat_id).maybeSingle();
+      await supabase.from("upwork_reprise").upsert({ contrat_id: c.contrat_id, erreur: e.slice(0, 500), essais: Number(r?.essais ?? 0) + 1 });
+      bilan.erreurs.push(`${c.contrat_id} : ${e}`);
+    };
+    let room = c.room_id;
+    let freelance = c.freelance_id;
+    if (!room || !freelance) {
+      const salon = await lire(supabase, { par, action: "reprise_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+      room = (salon.data?.contractRoom?.id as string | undefined) ?? null;
+      freelance = (salon.data?.contractDetails?.freelancer?.id as string | undefined) ?? null;
+      if (!room || !freelance) {
+        await noterErreur(salon.erreur ?? "conversation introuvable");
+        if (salon.erreur && /limit|429|too many/i.test(salon.erreur)) { bilan.arret = salon.erreur; break; }
+        continue;
+      }
+    }
+    const msgs = await lire(supabase, { par, action: "reprise_messages", query: REQUETE_MESSAGES_SALON, variables: { r: room }, tenant: c.organisation_id });
+    if (msgs.erreur) {
+      await noterErreur(msgs.erreur);
+      if (/limit|429|too many/i.test(msgs.erreur)) { bilan.arret = msgs.erreur; break; }
+      continue;
+    }
+    // deno-lint-ignore no-explicit-any
+    await garderConversation(supabase, c, room, freelance, ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), "reprise");
+    await supabase.from("upwork_reprise").upsert({ contrat_id: c.contrat_id, lu_at: new Date().toISOString(), source: "reprise", erreur: null });
+    bilan.lues++;
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
+}
+
 /** Prompt 21, A2 : 5 conversations à la fois au plus (Upwork : 10 requêtes par seconde). */
 const REPONSES_EN_PARALLELE = 5;
 
@@ -3782,6 +3871,8 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
         return;
       }
       const depuis = new Date(c.depuis).getTime();
+      // deno-lint-ignore no-explicit-any
+      await garderConversation(supabase, c, roomId, freelancer, ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), "reponses");
       // deno-lint-ignore no-explicit-any
       const nouveaux = ((msgs.data?.roomStories?.edges ?? []) as any[])
         .map((e) => e?.node)
@@ -3841,7 +3932,9 @@ async function lireSalon(
       return msgs.erreur;
     }
     // deno-lint-ignore no-explicit-any
-    const derniers = derniersMessagesSalon(((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), freelance);
+    const noeuds = ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node);
+    await garderConversation(supabase, c, room, freelance, noeuds, "salon");
+    const derniers = derniersMessagesSalon(noeuds, freelance);
     await noter({
       room_id: room, freelance_id: freelance, messages: derniers, erreur: null,
       dernier_posteur_at: derniers.find((m) => m.de === "posteur")?.at ?? null,

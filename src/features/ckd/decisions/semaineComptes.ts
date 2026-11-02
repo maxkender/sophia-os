@@ -370,3 +370,28 @@ export async function noterBrouillonSamedi(
   const { error } = await supabase.rpc("samedi_brouillon_noter", { p_lundi: lundi, p_compte: compteId, p_choix: choix, p_raison: raison });
   if (error) throw error;
 }
+
+/** 0494 : les reports d'un posteur depuis son offre (Weekly decisions → Saturday, colonne « Reports »). */
+export interface ReportsPosteur {
+  poster_id: string;
+  nb_mardi: number;
+  nb_reports: number;
+  premiere_cohorte: string | null;
+  posts: number;
+  jamais_commence: boolean;
+  /** Reporté 2 fois ou plus (Start Tuesday + Postpone), ou toujours 0 post après sa première semaine prévue. */
+  regle: boolean;
+}
+
+export async function lireReportsSamedi(lundi: string): Promise<Map<string, ReportsPosteur>> {
+  const { data, error } = await supabase.rpc("samedi_reports", { p_lundi: lundi });
+  if (error) throw error;
+  return new Map(((data ?? []) as ReportsPosteur[]).map((r) => [r.poster_id, r]));
+}
+
+/** La raison pré-remplie du Kill & don't pay d'un posteur qui ne démarre jamais. */
+export function raisonJamaisDemarre(r: ReportsPosteur): string {
+  const n = r.nb_reports + r.nb_mardi;
+  return n > 0 ? `never started, postponed ${n} times` : `never started: 0 post since the first cohort (${r.premiere_cohorte ?? "?"})`;
+}
+

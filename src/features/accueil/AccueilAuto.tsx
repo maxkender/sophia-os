@@ -26,6 +26,7 @@ import {
   type Accueil,
   type AnnoncePays,
 } from "./api";
+import { estARelier } from "./aRelier";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -246,13 +247,15 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
     onSuccess: () => qc.invalidateQueries({ queryKey: ["annonces"] }),
   });
   const liste = accueils.data ?? [];
-  const aRelier = liste.filter((a) => a.statut === "a_relier");
+  const aRelier = liste.filter(estARelier);
+  // 0493 : les contrats qui ne sont pas des recrues (contrat de HM, autre activité) : listés à part, jamais à relier.
+  const classes = liste.filter((a) => a.classement);
   // 0470 : relire le pays du freelance et la HM du contrat (lecture seule).
   const localiser = useMutation({
     mutationFn: () => localiserAccueils(aRelier.map((a) => a.contrat_id)),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["accueils"] }),
   });
-  const autres = liste.filter((a) => a.statut !== "a_relier");
+  const autres = liste.filter((a) => a.statut !== "a_relier" && !a.classement);
   const mode = interrupteurs.data?.accueil_auto ?? "test";
   const fmt = new Intl.DateTimeFormat(i18n.resolvedLanguage ?? "fr", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
   if (hmSeulement && aRelier.length === 0) return null;
@@ -289,6 +292,25 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
           </ul>
         )}
       </div>
+
+      {!hmSeulement && classes.length > 0 && (
+        <details className="group rounded-lg border" data-testid="accueils-classes">
+          <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2 text-sm font-medium">
+            <ChevronDown className="size-4 transition-transform group-[:not([open])]:-rotate-90" aria-hidden />
+            {t("accueil.classes.titre", { n: classes.length })}
+          </summary>
+          <ul className="divide-y border-t text-sm">
+            {classes.map((a) => (
+              <li key={a.contrat_id} className="flex flex-wrap items-center gap-2 px-3 py-2" data-classe={a.classement ?? ""}>
+                <span className="font-medium">{[a.prenom, a.nom].filter(Boolean).join(" ") || "—"}</span>
+                <span className="text-xs tabular-nums text-muted-foreground">{a.contrat_id}</span>
+                <Badge variant={a.classement === "hm" ? "info" : "secondary"}>{t(`accueil.classes.${a.classement}`)}</Badge>
+                {a.classement_raison && <span className="text-xs text-muted-foreground">{a.classement_raison}</span>}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
 
       {!hmSeulement && admin && <LiaisonsContrats />}
 

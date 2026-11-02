@@ -23,6 +23,7 @@ const api = vi.hoisted(() => ({
   noterKillSansPaie: vi.fn<(p: string, l: string, r: string, m: number | null) => Promise<void>>(async () => undefined),
   lireBrouillonsSamedi: vi.fn(async () => new Map<string, { choix: ChoixSamedi; raison: { code: string; detail: string } | null }>()),
   noterBrouillonSamedi: vi.fn<(l: string, c: string, k: ChoixSamedi, r: unknown) => Promise<void>>(async () => undefined),
+  lireReportsSamedi: vi.fn(async () => new Map<string, unknown>()),
 }));
 vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./semaineComptes")>()), ...api }));
 const ckd = vi.hoisted(() => ({
@@ -96,6 +97,7 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     exhaustif.lireCouverture.mockResolvedValue([]);
     exhaustif.lireForces.mockResolvedValue(new Map());
     api.lireBrouillonsSamedi.mockResolvedValue(new Map());
+    api.lireReportsSamedi.mockResolvedValue(new Map());
     await i18n.changeLanguage("fr");
     api.lireSemaineComptes.mockResolvedValue([
       compte({ compte_id: "a", handle: "absent", jours: vides, prevus_passes: 6, lien_passes: 0, lien_total: 0,
@@ -323,5 +325,30 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "double" } });
     expect(document.querySelector('[data-compte="calme"]')).toBeNull();
     expect(document.querySelector('[data-compte="bon"]')).not.toBeNull();
+  });
+
+  it("0494 : reporté 2 fois (même cohorte à venir) : Kill & don't pay pré-rempli, en tête de « To handle », colonne Reports et filtre", async () => {
+    api.lireReportsSamedi.mockResolvedValue(new Map([
+      ["p9", { poster_id: "p9", nb_mardi: 1, nb_reports: 1, premiere_cohorte: "2026-10-19", posts: 0, jamais_commence: false, regle: true }],
+    ]) as never);
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "c", handle: "calme", jours: complets }),
+      compte({ compte_id: "r", poster_id: "p9", handle: "recrue1", cohorte_lundi: "2026-11-02", jours: [], prevus_passes: 0, lien_passes: 0, lien_total: 0 }),
+    ]);
+    statut.lireExtras.mockResolvedValue(new Map([["c", extras("c")], ["r", extras("r", { poster_id: "p9" })]]));
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="recrue1"] [data-testid="reports"]')).toBeTruthy());
+    expect(presse("recrue1", "Kill & don't pay")).toBe("true");
+    const raison = await screen.findByTestId("raison-sans-paie");
+    expect((within(raison).getByLabelText(/raison/i) as HTMLSelectElement).value).toBe("zero_post");
+    expect((raison.querySelector("input") as HTMLInputElement).value).toBe("never started, postponed 2 times");
+    expect(ligne("recrue1").querySelector('[data-testid="reports"]')?.textContent).toContain("1 Postpone · 1 Start Tuesday");
+    // En tête de « To handle ».
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    expect(document.querySelectorAll("tr[data-compte]")[0]?.getAttribute("data-compte")).toBe("recrue1");
+    fireEvent.click(screen.getByTestId("tous-les-comptes"));
+    fireEvent.change(screen.getByTestId("filtre-decision"), { target: { value: "jamais" } });
+    expect(document.querySelector('[data-compte="calme"]')).toBeNull();
+    expect(document.querySelector('[data-compte="recrue1"]')).not.toBeNull();
   });
 });

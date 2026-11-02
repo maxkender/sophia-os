@@ -6,6 +6,7 @@ import {
   choisirModeleEtape,
   canauxEnvoi,
   libelleCanaux,
+  debutAvecChoix,
   debutCohorte,
   DELAIS_ACCUEIL_DEFAUT as D,
   deciderEtape,
@@ -183,3 +184,11 @@ Deno.test("le texte d'une étape : identifiants sans bienvenue de l'OS, bon @ ap
   assertEquals(choisirModeleEtape("tiktok", { warmup_started_at: null }, T).modele, "CREATE");
   assertEquals(choisirModeleEtape("warmup_lance", { deuxieme: true, warmup_started_at: null }, T).modele, "START 2");
 });
+
+Deno.test("1/11 : le début réel : lundi 00:00 (Paris), mardi 00:00 pour Start Tuesday", () => {
+  const r = { cohorte_lundi: "2026-11-02", fuseau: "Asia/Tokyo" };
+  assertEquals(debutAvecChoix(r, null).toISOString(), "2026-11-01T23:00:00.000Z");
+  assertEquals(debutAvecChoix(r, "keep").toISOString(), "2026-11-01T23:00:00.000Z");
+  assertEquals(debutAvecChoix(r, "mardi").toISOString(), "2026-11-02T23:00:00.000Z");
+});
+

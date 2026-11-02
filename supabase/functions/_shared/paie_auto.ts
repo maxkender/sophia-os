@@ -5,7 +5,7 @@
  * la relecture qui dit si un paiement s'est bien passé.
  */
 import { ajouterJours, maintenantParis, semaineIso } from "./ckd.ts";
-import { type JalonUpwork, type LignePaieApi, PAYEES, type PlanPaiement, semaineDuNom } from "./paiement.ts";
+import { type JalonUpwork, type LignePaieApi, PAYEES, type PlanPaiement, semaineDe } from "./paiement.ts";
 import { ETATS_FINANCES } from "./upwork.ts";
 
 /** Les actions de la liste qui paient une semaine. */
@@ -264,11 +264,11 @@ export function ecartsReconciliation(
     if (!j) ecarts.push(`milestone payée introuvable chez Upwork`);
     else if (!PAYEES.includes(j.etat)) ecarts.push(`${j.nom || j.id} : payée dans l'OS, état ${j.etat} chez Upwork`);
   } else {
-    const encore = jalons.find((x) => semaineDuNom(x.nom) === w && ETATS_FINANCES.includes(x.etat));
+    const encore = jalons.find((x) => semaineDe(x) === w && ETATS_FINANCES.includes(x.etat));
     if (encore) ecarts.push(`${encore.nom} cochée « Payé » mais encore financée et pas payée chez Upwork`);
   }
   if (l.action !== "kill" && FINANCER.includes(l.suivante_action ?? "") && l.suivante_montant !== null) {
-    const finances = jalons.filter((x) => ETATS_FINANCES.includes(x.etat) && semaineDuNom(x.nom) === n);
+    const finances = jalons.filter((x) => ETATS_FINANCES.includes(x.etat) && semaineDe(x) === n);
     if (finances.length === 0) ecarts.push(`Week ${n} pas financée`);
     else if (!finances.some((x) => montantConforme(x, l.suivante_montant!))) {
       ecarts.push(`Week ${n} financée à ${finances.map((x) => `${x.depot ?? "?"} $`).join(", ")}, attendu ${l.suivante_montant} $`);

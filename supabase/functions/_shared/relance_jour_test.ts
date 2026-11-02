@@ -2,6 +2,7 @@ import { assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 
 import { DELAIS_ACCUEIL_DEFAUT, etatsAccueil, type RecrueAccueil } from "./etapes.ts";
 import {
+  debutReel,
   avecLigneStop,
   messageDeRetrait,
   signerRelance,
@@ -175,3 +176,17 @@ Deno.test("1/11 : Start Tuesday : la relance annonce mardi 3 November, pas lundi
   assertStringIncludes(t, "to start posting on Tuesday 3 November");
 });
 
+
+Deno.test("2/11 : après lundi 12:00 (Paris), la relance donne la vraie date de début (le lundi suivant)", () => {
+  const plan = { element: "tiktok" as const, elements: ["tiktok" as const], needsYou: false, follows: 0 };
+  const cadre = { ...TEXTES_RELANCE_DEFAUT, cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}." };
+  const o = { prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-02", email: "a@x", mardi: true };
+  // Lundi 11:59 (Paris) : encore « Tuesday 3 November ».
+  assertStringIncludes(texteRelance(cadre, plan, { ...o, maintenant: new Date("2026-11-02T10:59:00Z") }), "on Tuesday 3 November");
+  // Lundi 12:00 (Paris) et après : « Monday 9 November », plus jamais « Tuesday ».
+  const apres = texteRelance(cadre, plan, { ...o, maintenant: new Date("2026-11-02T11:00:00Z") });
+  assertStringIncludes(apres, "to start posting on Monday 9 November");
+  assertEquals(apres.includes("Tuesday"), false);
+  assertEquals(debutReel("2026-11-02", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
+  assertEquals(debutReel("2026-11-09", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
+});

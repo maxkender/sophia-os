@@ -239,6 +239,13 @@ async function languesDesRelecteurs(supabase: Supabase): Promise<string[]> {
   return [...new Set((data ?? []).map((r) => String(r.langue).toLowerCase()))].sort();
 }
 
+function langueSourceDe(item: { contenus?: unknown }): string | null {
+  const c = item.contenus;
+  const src = Array.isArray(c) ? c[0] : c;
+  const valeur = (src as { langue_source?: unknown } | null | undefined)?.langue_source;
+  return typeof valeur === "string" && valeur.trim() ? valeur.trim().toLowerCase() : null;
+}
+
 async function servirLots(supabase: Supabase) {
   const debut = Date.now();
   const { data: lots, error } = await supabase
@@ -260,7 +267,7 @@ async function servirLots(supabase: Supabase) {
     }
     const { data: items, error: errI } = await supabase
       .from("ab_lot_contenus")
-      .select("contenu_id, position")
+      .select("contenu_id, position, contenus(langue_source)")
       .eq("lot_id", lot.id)
       .order("position");
     if (errI) throw errI;
@@ -277,6 +284,8 @@ async function servirLots(supabase: Supabase) {
       for (const item of items ?? []) {
         const contenuId = item.contenu_id as string;
         if (existants.has(`${langue}|${contenuId}`)) continue;
+        // Rien à traduire quand le relecteur lit la langue d'origine du contenu.
+        if (langueSourceDe(item) === langue) continue;
         if (faits.length >= LOT_MAX_PAR_APPEL || Date.now() - debut > LOT_BUDGET_MS) {
           restants++;
           continue;

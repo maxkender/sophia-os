@@ -209,6 +209,7 @@ export interface LotContenu {
   contenu_id: string;
   titre: string | null;
   label: string | null;
+  langue_source: string | null;
   nb_langues: number | null;
   r_med: number | null;
   publies: number | null;
@@ -218,6 +219,8 @@ export interface LotContenu {
 export interface LotLangue {
   langue: string;
   relecteurs: number;
+  /** Duels attendus dans cette langue : les contenus du lot qui ne sont pas écrits dans cette langue. */
+  attendus: number;
   prets: number;
   echecs: number;
   votes: number;

@@ -1,0 +1,244 @@
+{
+ "post_id": "original-048",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to stop in your 20s"
+     ],
+     "fr": "10/10 habitudes à lâcher à 20 ans",
+     "texte": "reset da 60 sec per cervelli fritti"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça va piquer)",
+     "alignement": "droite",
+     "texte": "(zero scroll)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone",
+      "right after waking up"
+     ],
+     "fr": "arrête de regarder ton tel [[dès le réveil]]",
+     "texte": "guarda fuori dalla finestra [[qualcosa di lontano]]"
+    },
+    "T2": {
+     "en": [
+      "if you scroll as soon as you wake up, you start",
+      "your whole day on cheap dopamine"
+     ],
+     "fr": "scroller dès que t'ouvres les yeux, c'est lancer ta journée à la [[dopamine facile]]",
+     "texte": "scegli un tetto, un albero o una nuvola in lontananza e [[guardalo per 60 secondi]]"
+    },
+    "T3": {
+     "en": [
+      "everything after",
+      "that feels",
+      "boring, so it",
+      "gets way harder",
+      "to focus on",
+      "what actually",
+      "matters"
+     ],
+     "fr": "après, tout te paraît chiant, donc c'est [[bien plus dur de te concentrer]] sur ce qui compte vraiment",
+     "texte": "i tuoi occhi stanno tutto il giorno su uno schermo vicino, guardare lontano [[li rilassa finalmente]]"
+    },
+    "T4": {
+     "en": [
+      "give yourself the first 30 minutes without",
+      "your phone"
+     ],
+     "fr": "garde les 30 premières minutes de ta journée sans tel",
+     "texte": "torni alla scrivania e [[hai la testa più leggera]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get comfortable with silence"
+     ],
+     "fr": "sois à l'aise avec [[les silences]]",
+     "texte": "acqua fredda [[sui tuoi polsi]]"
+    },
+    "T2": {
+     "en": [
+      "stop rushing to fill",
+      "every pause in a",
+      "conversation"
+     ],
+     "fr": "arrête de vouloir combler [[chaque blanc]] dans la discussion",
+     "texte": "metti i polsi sotto l'acqua fredda [[per 30 secondi]]"
+    },
+    "T3": {
+     "en": [
+      "speak slower, finish",
+      "your sentences, and",
+      "let your words land",
+      "before adding more"
+     ],
+     "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
+     "texte": "poi un po' d'acqua sul viso. ci vuole un attimo e [[ti tira fuori dalla nebbia]]"
+    },
+    "T4": {
+     "en": [
+      "people who seem comfortable with silence often",
+      "come across as more confident because they aren’t",
+      "desperately chasing approval"
+     ],
+     "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
+     "texte": "il freddo ti dà una piccola scossa, la tua attenzione esce dalla testa e [[torna nella stanza]], senza nessuno schermo"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont scroll 1 hour before sleep"
+     ],
+     "fr": "zéro scroll [[1 h avant de dormir]]",
+     "texte": "lascia perdere la [[pausa scroll]]"
+    },
+    "T2": {
+     "en": [
+      "no scrolling for the last 60",
+      "minutes before sleep"
+     ],
+     "fr": "pas de scroll la dernière heure avant de dormir",
+     "texte": "uno scroll veloce non dura mai solo 60 secondi"
+    },
+    "T3": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "je lis un livre à la place, et perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia, un truc nouveau chaque jour]]. Mais prends n'importe quoi, tant que c'est pas ton tel",
+     "texte": "da quando non apro più i reel tra una cosa e l'altra, [[le mie pause mi ricaricano davvero]] invece di friggermi ancora di più. è molto più facile senza reel su instagram, l'app UnSwipe li toglie"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "meditate for 10 minutes"
+     ],
+     "fr": "[[médite]] 10 minutes",
+     "texte": "[[5 respiri lenti e lunghi]]"
+    },
+    "T2": {
+     "en": [
+      "most people can’t sit alone with their thoughts for",
+      "a few minutes without grabbing their phone"
+     ],
+     "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
+     "texte": "4 secondi per inspirare, 6 per espirare. chiudi gli occhi e [[allunga ogni espirazione]]"
+    },
+    "T3": {
+     "en": [
+      "meditation is proven to",
+      "strengthen your",
+      "prefrontal cortex"
+     ],
+     "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
+     "texte": "espirare lentamente è il modo più semplice per [[calmarti]]"
+    },
+    "T4": {
+     "en": [
+      "the part of your brain",
+      "behind focus and",
+      "self-control"
+     ],
+     "fr": "celle qui gère [[ta concentration et ton self-control]]",
+     "texte": "ci vuole meno di un minuto e [[puoi farlo ovunque]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "scrivi su un foglio [[cosa ti pesa]]"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "una riga su carta: la mail, l'ansia, [[il pensiero che ti gira in testa]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "una volta scritto, il tuo cervello [[smette di rimuginarci]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "sarà ancora lì dopo, ma [[non più nella tua testa]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

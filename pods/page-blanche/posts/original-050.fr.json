@@ -1,0 +1,259 @@
+{
+ "post_id": "original-050",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "c'est ton signe pour [[te remettre à lire]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(même 5 pages, ça compte)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "[[relis]] le livre que t'adorais à 15 ans"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens font défiler ce genre de slides sans [[jamais lire le texte]]",
+     "texte": "celui que tu lisais sous la couette et que [[tu lâchais plus]], peu importe lequel"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
+     "texte": "tu sais déjà que tu l'aimes, donc [[zéro pression, zéro début chiant]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[t'as plus de concentration que la plupart des gens]]",
+     "texte": "ça te rappelle qu'à une époque, [[lire c'était ton truc préféré]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "garde toujours [[un livre dans ton sac]]"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "le métro, la salle d'attente, la queue à la boulangerie"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "les 10 minutes que tu passais à scroller deviennent [[20 pages sans forcer]]"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "bonus,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "un livre [[t'envoie jamais de notif]], donc tu finis vraiment ton chapitre"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "rends ton temps d'écran [[utile]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "y'aura des jours sans livre, [[et c'est ok]], le tel sortira quand même"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "mais 10 min de reels et 10 min à [[apprendre un vrai truc]], ça te laisse pas pareil"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "avant je scrollais H24, maintenant j'apprends un truc en 5 min sur [[l'appli Sophia]]"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "histoire, art, sciences, philo… et après [[j'ai envie de reprendre mon livre]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "scissions": {
+    "T1": 1
+   },
+   "textes": {
+    "T1a": {
+     "en": [
+      "be comfortable with yourself"
+     ],
+     "fr": "sois [[bien dans ta peau]]",
+     "texte": "lis [[avant de checker ton tel]]"
+    },
+    "T1b": {
+     "en": [
+      "focus on yourself instead of the person in front of you"
+     ],
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "5 pages avec ton café, avant que le monde rentre dans ta tête"
+    },
+    "T2": {
+     "en": [
+      "stop performing,",
+      "stop name-dropping,",
+      "stop trying to prove",
+      "how smart you are"
+     ],
+     "fr": "arrête de surjouer, de lâcher des noms, de [[vouloir prouver ton QI]]",
+     "texte": "tes premières pensées de la journée sont [[les tiennes]], pas celles des autres"
+    },
+    "T3": {
+     "en": [
+      "BE YOURSELF. confidence is being comfortable without",
+      "needing constant approval"
+     ],
+     "fr": "[[SOIS TOI-MÊME.]] la confiance, c'est être [[à l'aise]] sans avoir besoin qu'on te valide",
+     "texte": "tes notifs seront encore là dans 10 minutes, [[ton matin calme, lui, non]]"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "surround yourself with smarter",
+      "people"
+     ],
+     "fr": "entoure-toi de [[gens plus calés que toi]]",
+     "texte": "monte un [[club de lecture]] à deux"
+    },
+    "T2": {
+     "en": [
+      "you absorb the room",
+      "you’re in"
+     ],
+     "fr": "tu [[deviens ton entourage]]",
+     "texte": "un livre, une date, vous deux"
+    },
+    "T3": {
+     "en": [
+      "smart people push back",
+      "on weak takes and make",
+      "you explain what you",
+      "actually mean"
+     ],
+     "fr": "les gens calés démontent tes avis bancals et t'obligent à [[préciser ta pensée]]",
+     "texte": "savoir qu'un pote va te demander ton avis sur le chapitre 6, [[y'a pas meilleure motivation]]"
+    },
+    "T4": {
+     "en": [
+      "seek out people who know more than you and ask",
+      "them questions, not people who just agree with you"
+     ],
+     "fr": "va vers ceux [[qui en savent plus que toi]] et questionne-les, [[pas ceux qui te disent toujours oui]]",
+     "texte": "et en parler autour d'un café, ça fait que le livre [[te reste en tête des mois]], pas une semaine"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,237 @@
+{
+ "post_id": "original-052",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "lettera d'addio al mio telefono, scritta a mano"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(non sei tu, sono io. ok, sei tu)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "only reading the headings",
+      "of these slides"
+     ],
+     "fr": "lire que [[les titres]] de ces slides",
+     "texte": "alle 2 di notte [[c'eri sempre]] per me"
+    },
+    "T2": {
+     "en": [
+      "YOU! most people swipe through slideshows like",
+      "this and never read the actual text"
+     ],
+     "fr": "TOI ! la plupart des gens font défiler ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "ogni notte insonne, ogni attesa infinita, ogni silenzio imbarazzante a una festa, [[c'eri tu]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[choper le titre et passer à autre chose]]",
+     "texte": "e sinceramente, hai reso [[tante notti difficili]] meno solitarie"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration bat celle de la plupart des gens]]",
+     "texte": "ma a un certo punto [[hai iniziato a decidere le mie notti al posto mio]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
+     "alignement": "gauche",
+     "texte": "ma non mi hai mai fatto [[finire un libro]]"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
+     "texte": "due pagine, vibri, e di colpo è l'una e guardo [[uno sconosciuto che fa la pasta]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "le mie serate sono di nuovo mie"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "un libro la sera, passeggiate senza cuffie e tu, [[ma senza reels]]. l'app UnSwipe li toglie da instagram"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "da oggi dormi [[in cucina]]"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "non ti cancello, mi mancheresti. ma [[le mie notti sono per me e il mio cuscino]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "basta «un ultimo video» a mezzanotte, basta [[guardarti prima di aprire gli occhi]]"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "mi addormento prima, il risveglio è più calmo e tu [[ti carichi tutta la notte]]. vinciamo tutti"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "vediamo [[altre persone]]. tipo, persone vere"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "quelle che ridono con tutta la faccia e non hanno bisogno [[di una batteria per parlarmi]]"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "cene che non finiscono mai, chiacchierate che nessuno filma, amici che [[vedo davvero]]"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "ti risponderò ancora, solo [[un po' più lentamente]]. con affetto, io"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

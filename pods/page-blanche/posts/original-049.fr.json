@@ -1,0 +1,220 @@
+{
+ "post_id": "original-049",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "mes erreurs en voulant retrouver ma concentration"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(pour t'éviter de les faire)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop waiting to feel motivated"
+     ],
+     "fr": "arrête [[d'attendre la motivation]]",
+     "texte": "1. attendre [[que l'envie arrive]]"
+    },
+    "T2": {
+     "en": [
+      "motivation comes",
+      "after starting, not",
+      "before"
+     ],
+     "fr": "la motivation vient en faisant, pas avant",
+     "texte": "j'ai attendu [[le déclic]] des semaines. rien"
+    },
+    "T3": {
+     "en": [
+      "make yourself do just 10 minutes of the thing you're",
+      "avoiding. once you've crossed the initial resistance,",
+      "continuing is dramatically easier than starting from",
+      "zero."
+     ],
+     "fr": "force-toi à faire [[juste 10 minutes]] du truc que tu repousses. une fois le plus dur passé, continuer est mille fois plus facile que de partir de zéro.",
+     "texte": "ce qui a marché : [[10 minutes, envie ou pas]]. je m'assois, je lance un minuteur, je lis ou je bosse 10 min. la plupart du temps je continue bien après, et l'envie arrive en route."
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "fr": "apprends à [[supporter la routine chiante]]",
+     "texte": "2. copier les [[routines de 5 h du mat]]"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "fr": "réussir, c'est [[moins excitant]] que ça en a l'air",
+     "texte": "debout à 5 h, [[KO à 14 h]], à scroller à 22 h"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh",
+     "texte": "ce qui a marché : la même heure de réveil, et [[la première heure sans tel]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent",
+     "texte": "un réveil tranquille bat un réveil héroïque, et [[ma concentration tient]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer",
+     "texte": "3. finir des livres [[chiants]]"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les bonnes idées ont besoin d'espace pour pousser",
+     "texte": "à force de me farcir des pavés, [[j'ai arrêté de lire]]"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'as 2 min",
+     "texte": "maintenant je lis [[ce qui m'accroche]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "tout supprimer direct"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": "4."
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "tenu 3 jours, puis j'ai tout réinstallé. ce qui a vraiment remplacé mon scroll : un livre sur la table de nuit, des podcasts en marchant, et [[l'appli Sophia]] quand je prends mon tel quand même"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "procrastiner [[toute la journée]]",
+     "texte": "5. m'en vouloir à mort"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
+     "texte": "une journée ratée et je déclarais la semaine foutue, puis [[je scrollais encore plus]]"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
+     "texte": "un jour raté, c'est juste un jour. [[je reprends le lendemain]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

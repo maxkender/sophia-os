@@ -1,0 +1,247 @@
+{
+ "post_id": "original-047",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "Gesprächsthemen, bei denen es nicht ums Handy geht"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(fürs Abendessen)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "fr": "mets-toi aux échecs",
+     "texte": "wer warst du [[mit 10]]?"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "fr": "aux échecs, tu dois anticiper, repérer des schémas et te demander sans arrêt « je rate quoi ? »",
+     "texte": "jeder hat eine Antwort, und kaum jemand wird je gefragt. schau, wie die Leute beim Erinnern aufleben"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "fr": "joue pas juste pour jouer, [[décortique tes parties]] après",
+     "texte": "dann frag, [[warum sie aufgehört haben]]. da steckt alles drin"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "fr": "même [[20 à 30 min par jour]] entraînent ton cerveau à [[résoudre des problèmes]], c'est prouvé",
+     "texte": "du überspringst den Smalltalk über den Job und siehst in zwei Minuten, [[wer sie wirklich sind]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "was machst du [[mit 2 Stunden extra]]?"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "alle sagen dasselbe: reisen, Gitarre lernen, mehr lesen. dann frag, [[was sie davon abhält]]"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "meistens ist es das Handy. bei mir waren es [[2 Stunden Reels am Tag]], unbemerkt"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "meine Abende waren voller Reels. jetzt lese ich, und mein Insta hat keine mehr. [[die UnSwipe-App]] macht das"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn an instrument"
+     ],
+     "fr": "apprends [[un instrument]]",
+     "texte": "dein [[Geheimtalent]]?"
+    },
+    "T2": {
+     "en": [
+      "everyone stops to listen when someone can",
+      "actually play"
+     ],
+     "fr": "tout le monde écoute quand quelqu'un [[sait vraiment jouer]]",
+     "texte": "frag: „worin bist du [[komisch gut]]?“ jeder hat was"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever. you'll be bad",
+      "at it for months, and",
+      "most people quit"
+     ],
+     "fr": "piano, guitare, batterie, peu importe. tu vas [[galérer pendant des mois]], et la plupart abandonnent",
+     "texte": "einparken auf Anhieb, alle Geburtstage merken, das Filmende erraten. steht in keinem Lebenslauf"
+    },
+    "T4": {
+     "en": [
+      "so when you can play, it shows patience and a passion",
+      "of your own, and that's really attractive"
+     ],
+     "fr": "alors quand tu sais jouer, ça montre [[ta patience]] et [[une vraie passion à toi]], et ça c'est [[ultra attirant]]",
+     "texte": "und sie erklären es [[so stolz und ausführlich]], dass am Ende der ganze Tisch mit ihnen lacht"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "worüber [[denkst du heute anders]]?"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "ein Essen, ein Mensch, ein Lebensplan, etwas, das für sie mal klar war"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "du hörst, [[wie jemand denkt]], nicht nur was, und es wird nie zur Diskussion"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "die [[ehrlichste]] Antwort des ganzen Abends"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing",
+      "in the morning"
+     ],
+     "fr": "prends [[la lumière du jour]] dès le matin",
+     "texte": "worauf [[freust du dich]] gerade am meisten?"
+    },
+    "T2": {
+     "en": [
+      "go outside for 10 minutes right after you wake up"
+     ],
+     "fr": "sors [[10 minutes]] juste après ton réveil",
+     "texte": "ein Trip, ein Konzert oder einfach Freitagabend"
+    },
+    "T3": {
+     "en": [
+      "morning light sets",
+      "your body clock, so",
+      "you get energy in",
+      "the morning and",
+      "feel sleepy at night"
+     ],
+     "fr": "la lumière du matin règle ton horloge interne : t'as [[de l'énergie le matin]] et sommeil le soir",
+     "texte": "Leute antworten [[mit dem ganzen Gesicht]]. so siehst du am schnellsten, was jemandem wichtig ist"
+    },
+    "T4": {
+     "en": [
+      "better sleep is the easiest way to start turning",
+      "your life around, everything else gets easier"
+     ],
+     "fr": "bien dormir, c'est le plus simple pour [[reprendre ta vie en main]], tout le reste devient plus facile",
+     "texte": "beende den Abend damit, und alle [[gehen gut gelaunt nach Hause]], die Handys noch in der Tasche"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

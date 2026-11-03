@@ -22,8 +22,10 @@ describe("Problèmes : Valider", () => {
     expect(peutValiderCategorie("login")).toBe(true);
   });
 
-  it("kill et recréer ouvrent la fiche ; relire TikTok relit le compte ; sinon réponse ou fermeture", () => {
-    expect(gesteValider(p({ categorie: "stop", proposition_action: "kill" }))).toEqual({ type: "page", vers: "/admin/posters?poster=00000000-0000-0000-0000-000000000001" });
+  it("kill ouvre le formulaire de Kill (sans posteur : la fiche) ; relire TikTok relit le compte ; sinon réponse ou fermeture", () => {
+    expect(gesteValider(p({ categorie: "stop", proposition_action: "kill" }))).toEqual({ type: "kill" });
+    expect(gesteValider(p({ categorie: "stop", poster_id: null }))).toEqual({ type: "page", vers: "/admin/posters" });
+    expect(gesteValider(p({ categorie: "kill_contrat" }))).toEqual({ type: "page", vers: "/admin/auto/payroll" });
     expect(gesteValider(p({ categorie: "tiktok_setup", proposition_action: "reread_tiktok", compte_id: "c1" }))).toEqual({ type: "releve", compte_id: "c1" });
     expect(gesteValider(p({ proposition_reponse: "Hi, here is how…" }))).toEqual({ type: "reponse" });
     expect(gesteValider(p({}))).toEqual({ type: "fermer" });

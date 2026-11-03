@@ -14,6 +14,7 @@ import { localeDate } from "@/locales/localeDate";
 import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import { FeedbackBot, StatsBots } from "./FeedbackBot";
+import { BoutonKill } from "./KillProbleme";
 import {
   agirProbleme,
   dejaEcritAujourdhui,
@@ -219,6 +220,8 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
                 <a key={g.cle} href={g.url} target="_blank" rel="noreferrer" className="inline-flex h-8 items-center rounded-md border px-3 text-xs hover:bg-muted">
                   {t(`${P}.${g.cle}`)} ↗
                 </a>
+              ) : g.type === "kill" ? (
+                <BoutonKill key={g.cle} p={p} libelle={t(`${P}.${g.cle}`)} />
               ) : g.type === "page" ? (
                 <Button key={g.cle} size="sm" onClick={() => navigate(g.vers)}>{t(`${P}.${g.cle}`)}</Button>
               ) : (
@@ -245,9 +248,13 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           )}
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
-            ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
-          </Button>
+          {geste.type === "kill" ? (
+            <BoutonKill p={p} libelle={`✅ ${t(`${P}.kill.bouton`)}`} />
+          ) : (
+            <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
+              ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
+            </Button>
+          )}
           {edition ? (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("modifier")} disabled={agir.isPending}>💾 {t(`${P}.enregistrer`)}</Button>
           ) : (

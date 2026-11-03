@@ -114,6 +114,13 @@ const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
  * règles v3 sur les données d'aujourd'hui, sans rien enregistrer (0380), avec
  * la 1re semaine et la milestone de la semaine d'après (0388).
  */
+/** 0530 : la source des décisions qui touchent la paie d'une semaine (« Kill samedi 07/11 (décidé dans Problèmes le 03/11) »). */
+export async function lireSourcesDecisions(lundi: string): Promise<Map<string, string>> {
+  const { data, error } = await supabase.rpc("paie_decisions_sources", { p_lundi: lundi });
+  if (error) throw error;
+  return new Map(((data ?? []) as { poster_id: string; texte: string }[]).map((d) => [d.poster_id, d.texte]));
+}
+
 export async function lireListePaie(lundi: string, simulation = false): Promise<LigneListePaie[]> {
   const { data, error } = await supabase.rpc("paie_liste_v2", { p_lundi: lundi, p_simulation: simulation });
   if (error) throw error;

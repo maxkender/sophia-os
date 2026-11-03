@@ -332,7 +332,16 @@ export async function noterKillSansPaie(posterId: string, lundi: string, raison:
 export interface BrouillonSamedi {
   choix: ChoixSamedi;
   /** Kill & don't pay : code et détail ; 0492 : la note d'une décision préparée (fiche Posters). */
-  raison: { code?: string; detail?: string; note?: string | null } | null;
+  raison: {
+    code?: string;
+    detail?: string;
+    note?: string | null;
+    /** 0530 : décidé ailleurs (« problemes » : bouton Kill samedi d'une carte Problèmes), le jour, la carte. */
+    source?: string;
+    decide_le?: string;
+    probleme_id?: string;
+    annule_le?: string;
+  } | null;
   par_nom?: string | null;
   maj_at?: string | null;
 }
@@ -354,6 +363,11 @@ export function lundiDuProchainSamedi(aujourdhui: string): string {
   const lundi = new Date(d);
   lundi.setUTCDate(d.getUTCDate() + 1 - isodow + (isodow === 7 ? 7 : 0));
   return lundi.toISOString().slice(0, 10);
+}
+
+/** 0530 : Kill samedi décidé dans Problèmes (même annulé ensuite : la ligne reste à décider). */
+export function decideDansProblemes(b: BrouillonSamedi | undefined | null): boolean {
+  return b?.raison?.source === "problemes";
 }
 
 /** 0492 : une décision préparée (autre que Keep) met le compte dans « To handle ». */

@@ -443,6 +443,8 @@ export const en = {
             choix: { kill: "Kill & pay", kill_np: "Kill & don't pay", double: "Double", keep: "Keep", repondre: "I reply", recreate: "Recreate", pause: "Pause", reporter: "Postpone" },
             preparee: "Prepared: {{choix}}",
             prepareePar: "by {{par}} · {{date}}",
+            problemes: "Kill · decided on {{date}} in Problems",
+            problemesChange: "Changed on Saturday: {{choix}}",
             reports: {
               titre: "Reports",
               compte: "{{reports}} postpone(s) · {{mardi}} Start Tuesday",
@@ -5561,6 +5563,7 @@ export const en = {
         a_voir: "To check: 0 post and no decision",
         raisons: {
           kill: "stopped (Kill)",
+          kill_samedi: "Kill planned on Saturday",
           desactive: "deactivated",
           aucun_compte: "no account posts next week",
           zero_post: "0 post and no decision",
@@ -7637,7 +7640,7 @@ export const en = {
       geste: {
         payroll: "Open the Payroll line",
         whoToFund: "Open Who to fund",
-        kill: "Kill (pre-filled form)",
+        kill: "Kill Saturday",
         motDePasse: "Resend the password link",
         relierSlack: "Link Slack",
         relireTiktok: "Re-read TikTok now",
@@ -7710,6 +7713,9 @@ export const en = {
         dejaRegle: "Already a rule",
       },
       kill: {
+        samedi: "Kill Saturday",
+        prevu: "Kill planned Saturday {{date}}",
+        annuler: "Cancel",
         bouton: "Kill…",
         titre: "Kill — {{nom}}",
         os: "The OS account is deactivated (poster and accounts) and the kill is recorded. No message to the poster.",

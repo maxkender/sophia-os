@@ -39,6 +39,7 @@ import {
   type ChoixSamedi,
   choisirSamedi,
   type CompteSemaine,
+  decideDansProblemes,
   decisionPreparee,
   decisionSamedi,
   type DemandeArret,
@@ -165,6 +166,21 @@ function BadgePreparee({ b }: { b: BrouillonSamedi }) {
   );
 }
 
+/** 0530 : « Kill · décidé le 3/11 dans Problèmes » (Max n'a rien à refaire, il peut changer d'avis). */
+function BadgeProblemes({ b, choix }: { b: BrouillonSamedi; choix: ChoixSamedi }) {
+  const { t } = useTranslation();
+  const date = b.raison?.decide_le
+    ? new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "numeric", timeZone: "UTC" }).format(new Date(`${b.raison.decide_le}T12:00:00Z`))
+    : "—";
+  const kill = choix === "kill" || choix === "kill_np";
+  return (
+    <div className="mt-1 max-w-64 space-y-0.5 text-xs" data-testid="kill-problemes">
+      <Badge variant={kill ? "error" : "secondary"}>{t("autoOnglets.decisions.liste.samedi.problemes", { date })}</Badge>
+      {!kill && <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.problemesChange", { choix: t(`autoOnglets.decisions.liste.samedi.choix.${choix}`) })}</p>}
+    </div>
+  );
+}
+
 /** Décisions finales : la demande d'arrêt (Kill pré-coché) et sa raison. */
 export function BadgeDemande({ d }: { d: DemandeArret }) {
   const { t } = useTranslation();
@@ -276,7 +292,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   // La cohorte qui arrive : visible, en Keep, sans autre choix ; Validate ne la touche pas
   // (ses reports se décident le dimanche soir, onglet « Sunday: warm-up »).
   // 0494 : sauf un posteur qui ne démarre jamais (reporté 2 fois ou plus) : il se décide samedi.
-  const aVenir = (c: CompteSemaine) => !semaineCommencee(c.cohorte_lundi, lundi) && !jamais(c);
+  // 0530 : un Kill samedi décidé dans Problèmes se traite ce samedi, même pour la cohorte qui arrive.
+  const aVenir = (c: CompteSemaine) =>
+    !semaineCommencee(c.cohorte_lundi, lundi) && !jamais(c) && !decideDansProblemes(brouillons.data?.get(c.compte_id));
   const x = (c: CompteSemaine) => extras.data?.get(c.compte_id);
   const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
     lundi, aujourdhui, maintenant, page: "samedi", seuils: seuils.data,
@@ -487,7 +505,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           </td>
           <td className={TD}>
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
-            {preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
+            {decideDansProblemes(brouillons.data?.get(c.compte_id)) ? (
+              <BadgeProblemes b={brouillons.data!.get(c.compte_id)!} choix={choixDe(c)} />
+            ) : preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
             {prioritaire(c) && (
               <p className="mt-1 max-w-56 text-[11px] font-medium text-warning-foreground" data-testid="priorite-samedi">
                 {t("autoOnglets.decisions.liste.samedi.priorite")} {priorites.data!.get(c.poster_id)}

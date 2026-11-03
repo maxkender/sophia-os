@@ -93,6 +93,16 @@ export interface Probleme {
   hm_nom?: string | null;
   offre_lien?: string | null;
   destinataire?: "posteur" | "hm";
+  /** 0530 : Kill samedi préparé (le lundi de la semaine de ce samedi). */
+  kill_samedi_lundi?: string | null;
+  kill_samedi_at?: string | null;
+}
+
+/** 0530 : Kill samedi : rien n'est exécuté, la décision va à la revue du samedi ; annuler remet Keep. */
+export async function killSamedi(id: string, annuler = false): Promise<Record<string, unknown>> {
+  const { data, error } = await supabase.rpc("probleme_kill_samedi", { p_id: id, p_annuler: annuler });
+  if (error) throw error;
+  return (data ?? {}) as Record<string, unknown>;
 }
 
 /** 0528 : une option d'une carte « décision ». « paie » : le bouton ouvre le contrat Upwork, l'OS ne paie jamais. */

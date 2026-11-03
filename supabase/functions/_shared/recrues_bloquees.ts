@@ -23,7 +23,12 @@ export async function posteursEnRouge(supabase: Supabase): Promise<Set<string>> 
     console.warn(`recrues_rouges illisible, personne n'est bloqué : ${error.message}`);
     return new Set();
   }
-  return new Set((data ?? []).map((r) => r.poster_id as string));
+  const rouges = new Set((data ?? []).map((r) => r.poster_id as string));
+  // 3/11 : un posteur qui a dit STOP (demande d'arrêt ouverte, Kill prévu samedi) ne reçoit plus de posts.
+  const { data: stops, error: e2 } = await supabase.from("demandes_arret").select("poster_id").is("decision", null);
+  if (e2) console.warn(`demandes_arret illisible : ${e2.message}`);
+  for (const r of stops ?? []) rouges.add(r.poster_id as string);
+  return rouges;
 }
 
 /** Le compte n'est pas servi : son posteur est un rouge pas encore décidé. */

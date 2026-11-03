@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { releverCompte } from "@/features/needsYou/api";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 import {
   agirProbleme,
@@ -41,7 +42,20 @@ const selectClass = "h-9 rounded-md border border-input bg-background px-2 text-
 const VARIANTE: Record<Niveau, "destructive" | "warning" | "secondary"> = { urgent: "destructive", aujourdhui: "warning", samedi: "secondary" };
 
 function quand(iso: string | null | undefined): string {
-  return iso ? new Date(iso).toLocaleString(undefined, { dateStyle: "short", timeStyle: "short" }) : "—";
+  return iso ? new Date(iso).toLocaleString(localeDate(), { dateStyle: "short", timeStyle: "short" }) : "—";
+}
+
+/** La date d'une cohorte (« 2 nov. »), dans la langue de l'écran. */
+function jourCohorte(iso: string): string {
+  return new Date(`${iso}T12:00:00Z`).toLocaleDateString(localeDate(), { day: "numeric", month: "short" });
+}
+
+const MOTIFS_OFFRE = /\b(hors_vik|nb_milestones|montant|nom_1er|echeance_1er|plusieurs_finances)\b/;
+
+/** Le résumé, avec le motif d'une alerte d'offre en clair (« Pas 4 « Week NN » » plutôt que nb_milestones). */
+function resumeLisible(p: Pick<Probleme, "resume" | "categorie">, t: (k: string) => string): string {
+  if (p.categorie !== "offre_hm_incorrecte") return p.resume;
+  return p.resume.replace(MOTIFS_OFFRE, (m) => t(`decisionPays.motif.${m}`));
 }
 
 function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
@@ -87,12 +101,12 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-semibold">{p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`)}</span>
           {p.hm && <span className="text-muted-foreground">· {t(`${P}.hm`, { hm: p.hm })}</span>}
-          {p.cohorte && <span className="text-muted-foreground">· {t(`${P}.cohorte`, { date: p.cohorte })}</span>}
+          {p.cohorte && <span className="text-muted-foreground">· {t(`${P}.cohorte`, { date: jourCohorte(p.cohorte) })}</span>}
           <Badge variant={VARIANTE[p.niveau]}>{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</Badge>
           <Badge variant="outline">{t(`${P}.proprietaires.${p.proprietaire}`)}</Badge>
           {p.actif === false && <Badge variant="secondary">{t(`${P}.inactif`)}</Badge>}
         </div>
-        <p>{p.resume}</p>
+        <p>{resumeLisible(p, t)}</p>
         {(p.proposition_reponse || edition) && (
           <div className="space-y-1">
             <p className="text-xs text-muted-foreground">
@@ -227,7 +241,7 @@ export function PageProblemesPosteurs() {
             <li key={p.id} className="flex flex-wrap gap-2 border-b py-1">
               <span className="font-medium">{p.nom ?? p.contrat_id ?? "—"}</span>
               <span className="text-muted-foreground">{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</span>
-              <span>{p.resume}</span>
+              <span>{resumeLisible(p, t)}</span>
               <span className="text-muted-foreground">→ {p.ferme_raison ?? p.statut} · {quand(p.ferme_at)}</span>
             </li>
           ))}

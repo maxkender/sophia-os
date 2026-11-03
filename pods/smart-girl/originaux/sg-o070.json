@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o070",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "852eccee-3c90-4057-97c7-01d9dd34e98d",
+ "titre": "swap \"very\" for these words and sound effortlessly eloquent #vocabulary #wellspoken #smartgirl #englishwords #eloquence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 1 de la boîte (parent 852eccee, langue source en) : accroche reformulée (« stop saying very: words that make you sound dangerously well spoken » → « swap \"very\" for these words and sound effortlessly eloquent »), même promesse. Douze remplacements neufs face au parent (ravenous, elated, sorrowful, enormous, minuscule, ancient, exquisite, hushed, thunderous, fascinating…). Sophia sur la dernière slide à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3740018e",
+   "texte_overlay": "swap \"very\" for these words\nand sound effortlessly eloquent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0b217be2",
+   "texte_overlay": "very tired → exhausted\nvery hungry → ravenous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "45687603",
+   "texte_overlay": "very happy → elated\nvery sad → sorrowful",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "01bde28c",
+   "texte_overlay": "very big → enormous\nvery small → minuscule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1f02881c",
+   "texte_overlay": "very old → ancient\nvery beautiful → exquisite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "02d246a1",
+   "texte_overlay": "very quiet → hushed\nvery loud → thunderous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6b66beb4",
+   "texte_overlay": "very interesting → fascinating\n\nthe real secret? read a little\nevery day. the words stick.",
+   "texte_sophia": "very interesting → fascinating\n\nmy secret? 5 minutes a day\non a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0576788d",
+   "texte_overlay": "save this and replace one\n\"very\" today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  }
+ ]
+}

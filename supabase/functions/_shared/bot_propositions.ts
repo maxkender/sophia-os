@@ -17,8 +17,12 @@ export const GROUPES: readonly string[] = ["onboarding", "nouveaux_actifs", "act
 
 /** Les actions qu'un bot peut proposer (rien n'est exécuté sans un clic de l'admin). */
 export const ACTIONS_BOT: readonly string[] = [
-  "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "kill", "mark_read", "open_payroll", "open_who_to_fund", "close", "postpone", "none",
+  "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "postpone", "kill", "mark_read",
+  "pay_check", "open_payroll", "open_who_to_fund", "saturday", "close", "none", "decision",
 ];
+
+/** 0528 : une carte peut concerner un posteur, une HM ou une offre Upwork. */
+export const SUJETS: readonly string[] = ["posteur", "hm", "offre"];
 
 /** Quels secrets sont posés (oui / non), jamais leur valeur. */
 export function etatSecrets(secrets: Partial<Record<Bot, string | undefined>>): Record<Bot, boolean> {
@@ -48,6 +52,7 @@ export function botDuJeton(entete: string | null, secrets: Partial<Record<Bot, s
  * Le corps accepté : { action: "lire", probleme_id? } (ses problèmes ouverts avec leur contexte, ses règles,
  * ses feedbacks, les posteurs de son groupe ; un seul problème et 20 messages avec probleme_id) ; { action: "proposer", probleme_id, reponse?, canal?, action_proposee? (dont « none ») }
  * ou { action: "creer", poster_id | contrat_id, categorie, resume, texte?, lien?, reponse?, canal?, action_proposee? }.
+ * 0528 : + question et options (action_proposee « decision »), sujet (posteur, hm, offre), hm_id, hm_nom, offre_lien, offre_id.
  * Tout le reste est refusé (valider, envoyer, kill, payer…).
  */
 export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "creer"; args: Record<string, unknown> } | { erreur: string } {
@@ -70,17 +75,32 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
     action: texte("action_proposee", 40),
     diagnostic: texte("diagnostic", 300),
     groupe_suggere: groupe,
+    // 0528 : une question à Max (« decision ») : 2 à 4 options, la recommandée en premier (validées par la base).
+    question: texte("question", 300),
+    options: Array.isArray(c.options) ? (c.options as unknown[]).slice(0, 5) : undefined,
+    sujet: texte("sujet", 10),
+    hm_id: texte("hm_id", 40),
+    hm_nom: texte("hm_nom", 120),
+    offre_lien: texte("offre_lien", 500),
+    offre_id: texte("offre_id", 40),
   };
+  const sujet = (args.sujet as string | undefined) ?? "posteur";
+  if (!SUJETS.includes(sujet)) return { erreur: `sujet : ${SUJETS.join(", ")}` };
+  if (args.action === "decision" && (!args.question || !args.options)) return { erreur: "decision : question et options (2 à 4) obligatoires" };
+  if (args.hm_id && !/^[0-9a-f-]{36}$/i.test(args.hm_id as string)) return { erreur: "hm_id : uuid attendu" };
   if (c.action === "proposer") {
     const id = texte("probleme_id", 40);
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id (uuid) obligatoire" };
-    if (!args.reponse && !args.action && !args.diagnostic) return { erreur: "reponse, action_proposee ou diagnostic obligatoire" };
+    if (!args.reponse && !args.action && !args.diagnostic && !args.question) return { erreur: "reponse, action_proposee, diagnostic ou question obligatoire" };
     return { action: "proposer", args: { ...args, probleme_id: id } };
   }
   if (c.action === "creer") {
     const poster = texte("poster_id", 40);
     const contrat = texte("contrat_id", 20);
-    if (!poster && !contrat) return { erreur: "poster_id ou contrat_id obligatoire" };
+    if (sujet === "posteur" && !poster && !contrat) return { erreur: "poster_id ou contrat_id obligatoire" };
+    if (sujet !== "posteur" && !args.hm_id && !args.hm_nom && !args.offre_lien && !args.offre_id) {
+      return { erreur: `sujet ${sujet} : hm_id, hm_nom, offre_lien ou offre_id obligatoire` };
+    }
     if (poster && !/^[0-9a-f-]{36}$/i.test(poster)) return { erreur: "poster_id : uuid attendu" };
     if (!texte("categorie", 40) || !texte("resume", 200)) return { erreur: "categorie et resume obligatoires" };
     return {

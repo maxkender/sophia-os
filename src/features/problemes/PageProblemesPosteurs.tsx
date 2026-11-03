@@ -14,6 +14,7 @@ import { localeDate } from "@/locales/localeDate";
 import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import { FeedbackBot, StatsBots } from "./FeedbackBot";
+import { BlocDecision } from "./DecisionProbleme";
 import { BoutonKill } from "./KillProbleme";
 import {
   agirProbleme,
@@ -40,6 +41,7 @@ import {
   compterParGroupe,
   compterParNiveau,
   dansOnglet,
+  estDecision,
   etapesManquantes,
   GROUPES,
   groupeDe,
@@ -132,6 +134,8 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
   const phrase = phraseProbleme(p, localeDate());
   const liste = gestes(p);
   const groupe = groupeDe(p);
+  const decision = estDecision(p);
+  const sujet = p.sujet ?? "posteur";
 
   const agir = useMutation({
     mutationFn: async (action: "valider" | "ignorer" | "samedi" | "modifier" | "fermer") => {
@@ -175,7 +179,9 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
     <Card data-testid="carte-probleme">
       <CardContent className="space-y-2 p-4 text-sm">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span className="font-semibold">{p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`)}</span>
+          <span className="font-semibold">{sujet !== "posteur" && !p.poster_id ? (p.hm_nom ?? t(`${P}.sansPosteur`)) : (p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`))}</span>
+          {sujet !== "posteur" && <Badge variant="outline" data-testid="sujet">{t(`${P}.decision.sujet.${sujet}`)}</Badge>}
+          {p.offre_lien && <a href={p.offre_lien} target="_blank" rel="noreferrer" className="text-xs underline">{t(`${P}.decision.offre`)}</a>}
           {s?.pays && <span className="text-muted-foreground">· {drapeau(s.pays)} {nomPays(s.pays, i18nLangue())}</span>}
           {p.hm && <span className="text-muted-foreground">· {t(`${P}.hm`, { hm: p.hm })}</span>}
           {p.cohorte && <span className="text-muted-foreground">· {t(`${P}.cohorte`, { date: jourCohorte(p.cohorte) })}</span>}
@@ -188,12 +194,13 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           <p className="font-bold" data-testid="diagnostic">
             {p.diagnostic?.trim() ? p.diagnostic : phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : resumeLisible(p, t)}
           </p>
-          {p.diagnostic?.trim() && (p.diagnostic_par ?? p.propose_par) && (
+          {p.diagnostic?.trim() && p.diagnostic_par !== "decision" && (p.diagnostic_par ?? p.propose_par) && (
             <p className="text-[11px] text-muted-foreground" data-testid="diagnostic-par">
               {t(`${P}.diagPar`, { qui: t(`${P}.proprietaires.${p.diagnostic_par ?? p.propose_par}`, { defaultValue: p.diagnostic_par ?? p.propose_par ?? "" }) })}
             </p>
           )}
         </div>
+        {decision && <BlocDecision p={p} mode={mode} />}
         {s && (
           <div className="rounded-md bg-muted/30 p-2">
             <Titre>{t(`${P}.titres.situation`)}</Titre>
@@ -211,7 +218,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
         )}
         <div className="space-y-1">
           <Titre>{t(`${P}.titres.action`)}</Titre>
-          {p.proposition_action && (
+          {p.proposition_action && !decision && (
             <p className="text-xs">{t(`${P}.actionProposee`)} <span className="font-medium">{t(`${P}.actions.${p.proposition_action}`, { defaultValue: p.proposition_action })}</span></p>
           )}
           <div className="flex flex-wrap gap-2">
@@ -248,14 +255,14 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           )}
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
-          {geste.type === "kill" ? (
+          {decision ? null : geste.type === "kill" ? (
             <BoutonKill p={p} libelle={`✅ ${t(`${P}.kill.bouton`)}`} />
           ) : (
             <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
               ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
             </Button>
           )}
-          {edition ? (
+          {decision ? null : edition ? (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("modifier")} disabled={agir.isPending}>💾 {t(`${P}.enregistrer`)}</Button>
           ) : (
             <Button size="sm" variant="outline" onClick={() => setEdition(true)}>✏️ {t(`${P}.modifier`)}</Button>
@@ -264,7 +271,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           {p.niveau !== "samedi" && (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("samedi")} disabled={agir.isPending}>📅 {t(`${P}.samedi`)}</Button>
           )}
-          {p.proposition_action === "close" && (
+          {p.proposition_action === "close" && !decision && (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("fermer")} disabled={agir.isPending} data-testid="fermer">✔️ {t(`${P}.fermer`)}</Button>
           )}
         </div>

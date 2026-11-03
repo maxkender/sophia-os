@@ -82,6 +82,34 @@ export interface Probleme {
   /** 0524 : « os » (diagnostic écrit par l'OS à chaque passage) ou le bot qui l'a écrit. */
   diagnostic_par?: string | null;
   groupe_suggere?: Groupe | null;
+  /** 0528 : une question posée à Max (2 à 4 options, la 1re recommandée) ; le choix fait. */
+  question?: string | null;
+  options?: OptionDecision[] | null;
+  decision_choisie?: number | null;
+  decision_at?: string | null;
+  /** 0528 : la carte concerne un posteur, une HM ou une offre Upwork ; à qui part la réponse. */
+  sujet?: "posteur" | "hm" | "offre";
+  hm_id?: string | null;
+  hm_nom?: string | null;
+  offre_lien?: string | null;
+  destinataire?: "posteur" | "hm";
+}
+
+/** 0528 : une option d'une carte « décision ». « paie » : le bouton ouvre le contrat Upwork, l'OS ne paie jamais. */
+export interface OptionDecision {
+  libelle: string;
+  reponse?: string;
+  action?: string;
+  paie?: boolean;
+  lien?: string;
+  recommande?: boolean;
+}
+
+/** 0528 : Max choisit une option : la carte se ferme (ou revient samedi), le choix va dans bot_feedback. */
+export async function deciderProbleme(id: string, index: number, envoye: boolean): Promise<OptionDecision> {
+  const { data, error } = await supabase.rpc("probleme_decider", { p_id: id, p_index: index, p_envoye: envoye });
+  if (error) throw error;
+  return data as OptionDecision;
 }
 
 export interface Archive {

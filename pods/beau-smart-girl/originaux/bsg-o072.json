@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o072",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "21d975fb-bce0-46d2-a5b6-560212e97ebb",
+  "titre": "how to not feel exhausted every morning #morningroutine #thatgirl",
+  "inspirations": [
+    "21d975fb-bce0-46d2-a5b6-560212e97ebb"
+  ],
+  "notes": "G1, déclinaison de 21d975fb (« how to not feel exhausted every morning », génération 0 en anglais ; meilleur passage de 4 k vues, r 3,11), en anglais. cta C (le défi de 7 jours en slide 2). Conseils de bon sens, aucun conseil médical. Items neufs (rien de repris du parent). Routine du 3/11 sur BLEO : jauge 0 full test et 8 déclinaisons. J'ai encore sauté la ligne 2 de la boîte (837491f7, « jobs for people who love enterimarnt ») : faute de frappe dans l'accroche à recopier mot pour mot, et salaires invérifiables. Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "how to not feel exhausted\nevery morning",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one small thing about the world every morning instead of scrolling, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning instead of scrolling, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "08d5de00",
+      "texte_overlay": "1. open the curtains first\n\ndaylight is the clearest signal that the day has started.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0030ce92",
+      "texte_overlay": "2. keep a glass of water by the bed\n\ndrink it before you check anything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "057091a3",
+      "texte_overlay": "3. same wake-up time, even on weekends\n\nyour body loves a schedule more than a lie-in.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "4. put your alarm across the room\n\nby the time you turn it off,\nyou're already standing up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "00ac4de9",
+      "texte_overlay": "5. plan one thing to look forward to\n\na good breakfast, a new chapter,\na coffee by the window.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "09067fa3",
+      "texte_overlay": "save this for tomorrow morning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

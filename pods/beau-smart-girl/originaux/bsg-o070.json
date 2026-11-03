@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o070",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "ef47fcb3-1c64-42e7-b76f-b7634a73574f",
+  "titre": "les choses que j'ai commencé à faire seule et qui m'ont rendue indépendante #independante #pourtoi",
+  "inspirations": [
+    "ef47fcb3-1c64-42e7-b76f-b7634a73574f"
+  ],
+  "notes": "G1, déclinaison de ef47fcb3 (« les choses que j'ai commencé à faire seule et qui m'ont rendue indépendante », génération 0 en français ; meilleur passage nl 13 k vues), en français. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent). Routine du 3/11 sur BLEO : jauge 0 full test et 8 déclinaisons. J'ai encore sauté la ligne 2 de la boîte (837491f7, « jobs for people who love enterimarnt ») : faute de frappe dans l'accroche à recopier mot pour mot, et salaires invérifiables. Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "les choses que j'ai commencé\nà faire seule et qui m'ont\nrendue indépendante",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. aller au musée seule\n\nje reste vingt minutes devant un seul tableau si je veux.\npersonne ne me presse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. cuisiner un vrai plat juste pour moi\n\npas des pâtes au beurre.\nune vraie recette, une jolie assiette.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "3. réparer les petites choses moi-même\n\nun bouton recousu, une étagère montée.\navant, j'attendais que quelqu'un le fasse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. dîner seule au restaurant\n\nles cinq premières minutes sont gênantes.\naprès, c'est un des meilleurs moments de ma semaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. me faire mes propres avis\n\navant, quand on parlait d'art ou d'histoire, je répétais ce que j'avais entendu.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai mes propres avis.",
+      "texte_sophia": "5. me faire mes propres avis\n\navant, quand on parlait d'art ou d'histoire, je répétais ce que j'avais entendu.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai mes propres avis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "79f09cec",
+      "texte_overlay": "et toi, c'est quoi la première chose\nque tu as osé faire seule ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

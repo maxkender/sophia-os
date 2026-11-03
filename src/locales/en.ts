@@ -5263,6 +5263,9 @@ export const en = {
       description:
         "The OS connection to the Upwork API, with Max's account. Every call goes through the server and is logged; read-only for now.",
       statuts: { connecte: "Connected", deconnecte: "Not connected", erreur: "Connection error" },
+      compteConnecte: "Connected account: {{nom}} (id {{id}}), connected on {{date}}.",
+      compteOk: "✓ This is Max's account: automatic messages are sent from it.",
+      compteMauvais: "✗ This is not Max's account ({{id}}): no automatic message is sent. Reconnect with Maximilien Kender's account.",
       connectePar: "by {{nom}}, on {{date}}",
       dernierAppel: "Last call",
       appels24h: "Calls (24 h)",
@@ -7561,7 +7564,7 @@ export const en = {
         login: "Login", slack: "Slack", tiktok_setup: "TikTok setup", compte_bloque: "Account blocked", question_bloquante: "Blocking question",
         bug_dashboard: "Dashboard bug", contrat_hm: "HM contract", zero_post: "Zero post", demande_2e_compte: "2nd account request",
         avis_upwork: "Upwork review", low_views: "Low views", absence: "Absence", accueil: "Welcome", relance_echec: "Reminder failed",
-        retirer_slack: "Remove from Slack", autre: "Other",
+        retirer_slack: "Remove from Slack", upwork_mauvais_compte: "Upwork: wrong account", autre: "Other",
       },
       sources: {
         needs_you: "OS", contestation: "Dispute", demande_arret: "Stop request", accueil: "Welcome", relance_echec: "Reminder",

@@ -109,7 +109,7 @@ import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_s
 import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { posteurExistantDeErreur } from "../_shared/contrat_unique.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
-import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, lireCompte } from "../_shared/upwork_comptes.ts";
+import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -475,6 +475,16 @@ async function retourUpwork(supabase: Supabase, url: URL): Promise<Response> {
       duree: Date.now() - debut,
       compte,
     });
+    // 3/11 : la connexion principale doit être celle de Max (1908160914854122443). Sinon le jeton
+    // n'est PAS enregistré : l'ancienne connexion reste en place.
+    if (compte === COMPTE) {
+      const moi = await utilisateurDuJeton(jetons.access);
+      if (!estCompteDeMax(moi)) {
+        const qui = moi ? `${moi.name ?? "?"} (${moi.id ?? "id inconnu"})` : "compte illisible";
+        await noter(supabase, { par: etat.cree_par, action: "connexion_refusee", erreur: `mauvais compte : ${qui}`, compte, duree: Date.now() - debut });
+        return versReglages("erreur", `mauvais compte Upwork : ${qui}. Connecte-toi à Upwork avec le compte de Maximilien Kender (${UPWORK_USER_MAX}) puis recommence. L'ancienne connexion est gardée.`, compte);
+      }
+    }
     const { error: errJetons } = await supabase.rpc("upwork_jetons_ecrire", {
       p_compte: compte,
       p_access: jetons.access,
@@ -499,6 +509,34 @@ async function retourUpwork(supabase: Supabase, url: URL): Promise<Response> {
     });
     return versReglages("erreur", message, compte);
   }
+}
+
+/** 3/11 : qui est derrière un jeton d'accès (avant de l'enregistrer). */
+async function utilisateurDuJeton(access: string): Promise<{ id?: string; name?: string } | null> {
+  try {
+    const r = await fetch(UPWORK_GRAPHQL, {
+      method: "POST",
+      headers: { authorization: `Bearer ${access}`, "content-type": "application/json" },
+      body: JSON.stringify({ query: "query Moi { user { id nid name } }" }),
+    });
+    // deno-lint-ignore no-explicit-any
+    const v: any = await r.json().catch(() => null);
+    return (v?.data?.user as { id?: string; name?: string } | undefined) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 3/11 : garde-fou avant chaque message automatique : le compte principal doit être celui de Max.
+ * Rend null si c'est bon ; sinon l'erreur, et un problème urgent est ouvert (une fois par jour).
+ */
+async function verifierExpediteur(supabase: Supabase): Promise<string | null> {
+  const { data } = await supabase.from("upwork_connexion").select("utilisateur").eq("compte", COMPTE).maybeSingle();
+  const u = data?.utilisateur as { id?: string; name?: string } | null | undefined;
+  if (estCompteDeMax(u)) return null;
+  await supabase.rpc("probleme_upwork_mauvais_compte", { p_utilisateur: u ?? {} });
+  return `Upwork connecté avec le mauvais compte (${u?.name ?? "?"} ${u?.id ?? "id inconnu"}) : rien n'est envoyé. Reconnecte Upwork avec le compte de Maximilien Kender (${UPWORK_USER_MAX}).`;
 }
 
 /** Un jeton d'accès valide : renouvelé s'il expire dans moins de 2 h. */
@@ -2521,9 +2559,9 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
  * et l'arrêt. Écrire à une conversation déjà écrite aujourd'hui ne compte pas.
  * Après l'erreur de limite d'Upwork : plus rien sur ce compte jusqu'au
  * lendemain. 1 message par seconde au plus.
- * Prompt 25 v4 : Max d'abord, puis Adrien (« secours ») ; une personne garde
- * le même compte toute la journée (_shared/upwork_comptes.ts). Rend le compte,
- * ou l'erreur si rien ne peut partir aujourd'hui.
+ * 3/11 : le compte de Max seulement (_shared/upwork_comptes.ts ; Adrien ne sert
+ * plus qu'à « Run now » sur un contrat de test). Rend le compte, ou l'erreur si
+ * rien ne peut partir aujourd'hui.
  */
 async function compteDuMessage(
   supabase: Supabase,
@@ -2551,10 +2589,15 @@ async function envoyerMessage(
   // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
   const refus = refusMotDePasseUpwork(texte);
   if (refus) return { ok: false, error: refus };
-  // Run now (contrat de test) : le compte de secours, forcé ; sinon Adrien d'abord, puis Max (prompt 25 MAJ).
+  // Run now (contrat de test) : le compte de secours, forcé ; sinon (3/11) le compte de Max seulement.
   const choix = o.forcer ? { compte: o.forcer, erreur: null } : await compteDuMessage(supabase, contratId, o.prioritaire !== false, o.exclure);
   if (choix.compte === null) return { ok: false, error: choix.erreur, budget: true };
   const compte = choix.compte;
+  // 3/11 : garde-fou : un message part du compte principal seulement si c'est bien celui de Max.
+  if (compte === COMPTE) {
+    const mauvais = await verifierExpediteur(supabase);
+    if (mauvais) return { ok: false, error: mauvais, compte };
+  }
   const { data: c } = await supabase
     .from("upwork_contrats")
     .select("organisation_id")

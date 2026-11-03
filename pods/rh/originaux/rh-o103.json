@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o103",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais dans les 10 minutes avant un entretien (et ce que j'ai arrêté de faire) #entretien #stress #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 3. Full test : accroche jamais faite chez nous (les 10 minutes avant). Rien de médical. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "030b2633",
+   "texte_overlay": "ce que je fais dans les 10 minutes\navant un entretien\n(et ce que j'ai arrêté de faire)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0708e548",
+   "texte_overlay": "j'ai arrêté de relire tout mon cv\nje relis seulement mes 3 histoires",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0b99d1f1",
+   "texte_overlay": "je me raconte un truc que j'ai appris\nmes 3 sujets prêts : un livre, un voyage, une anecdote d'histoire",
+   "texte_sophia": "je me raconte un truc que j'ai appris\nmes 3 sujets prêts : un livre, un voyage, une anecdote apprise sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c323720",
+   "texte_overlay": "je relis le nom de la personne\net le titre exact du poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0d01a77c",
+   "texte_overlay": "j'ai arrêté de scroller mon téléphone\nje regarde autour de moi. je respire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0effc6ab",
+   "texte_overlay": "je prépare ma première phrase\n« merci de me recevoir, j'avais hâte d'en parler »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e08d67bb",
+   "texte_overlay": "j'arrive 5 minutes avant\npas 20. sinon le stress monte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "10cfc668",
+   "texte_overlay": "et toi, tu fais quoi juste avant ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

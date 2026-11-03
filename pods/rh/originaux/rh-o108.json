@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o108",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7ecc543d-fd39-4225-9ec6-50b65a8d73cb",
+ "titre": "quand j'étais rh, voilà ce qui rendait un candidat INOUBLIABLE (et c'était jamais le cv) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G1 de la ligne 4 (parent 7ecc543d) : accroche mot pour mot, autres exemples que le parent. Exemples inventés et anonymes. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e53bde4",
+   "texte_overlay": "quand j'étais rh, voilà ce qui rendait un candidat\nINOUBLIABLE\n(et c'était jamais le cv)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1d9ab0b7",
+   "texte_overlay": "« elle avait testé notre service avant l'entretien »\net elle nous a dit ce qu'elle améliorerait, poliment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1dc6f8bb",
+   "texte_overlay": "« il a avoué une faiblesse, avec ce qu'il faisait pour la corriger »\nça sonnait vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1e180a7f",
+   "texte_overlay": "« elle parlait de ses collègues avec respect »\nmême de ceux qui l'avaient agacée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1e85f8b6",
+   "texte_overlay": "« elle a posé une question sur nous, pas sur ses congés »\n« qu'est-ce qui vous plaît, à vous, ici ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a1bc50ff",
+   "texte_overlay": "« il avait une passion qu'il savait raconter »\nl'histoire, la musique, peu importe.\nça se travaille, 5 minutes par jour",
+   "texte_sophia": "« il avait une passion qu'il savait raconter »\nl'histoire, la musique, peu importe. utilise l'appli Sophia 5 minutes par jour, ça se travaille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2094aba8",
+   "texte_overlay": "« il a envoyé un merci le soir même »\n2 lignes. on en parlait encore le lendemain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2165c62a",
+   "texte_overlay": "le cv t'ouvre la porte.\nlaquelle tu feras à ton prochain entretien ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

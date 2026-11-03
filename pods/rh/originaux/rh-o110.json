@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o110",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0b1fb13a-c891-4b67-97b3-dc97d80dfef3",
+ "titre": "comment j'ai quitté un job toxique sans démissionner (pour faire valoir mes droits) #travail #santementale #emploi #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 6 (parent 0b1fb13a, 63,3 k vues en el) : accroche mot pour mot, autre récit que le parent. Rien de juridique précis : juriste, syndicat, conseil. Aucune vraie entreprise. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12a8a19c",
+   "texte_overlay": "comment j'ai quitté un job toxique\nsans démissionner\n(pour faire valoir mes droits)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "28714101",
+   "texte_overlay": "d'abord, j'ai arrêté de tout encaisser en silence\nj'ai noté les faits, avec les dates",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "28827c81",
+   "texte_overlay": "ensuite, je me suis renseignée\nauprès d'un syndicat et d'un juriste.\nchaque situation est différente",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28abc703",
+   "texte_overlay": "j'ai découvert qu'il existait d'autres options que la démission\net qu'il fallait les connaître avant de parler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "19cb288c",
+   "texte_overlay": "pendant ce temps, j'ai pris soin de ma tête\nle sport, mes amis, et 5 minutes par jour à apprendre autre chose",
+   "texte_sophia": "pendant ce temps, j'ai pris soin de ma tête\nle sport, mes amis, et 5 minutes par jour sur l'appli Sophia à apprendre autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "28d2ab12",
+   "texte_overlay": "j'ai demandé un rendez-vous, calmement\nsans accuser, avec une proposition",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2909a863",
+   "texte_overlay": "on s'est mis d'accord\net je suis partie la tête haute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "29194e70",
+   "texte_overlay": "si t'en es là, commence par te renseigner\nenvoie ça à quelqu'un qui en a besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

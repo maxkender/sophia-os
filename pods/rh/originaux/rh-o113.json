@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o113",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "243bb016-f7f4-45fe-a10a-75c9e621ec61",
+ "titre": "j'ai noté chaque compliment reçu au boulot pendant un an, mon entretien annuel a duré 20 minutes de moins que prévu #entretienannuel #travail #augmentation #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 11 (parent 243bb016, 27,5 k vues en de) : accroche mot pour mot, autre angle (comment tenir le fichier). La ligne 10 est écartée : son accroche met une vraie organisation dans une anecdote inventée. Aucun chiffre de salaire inventé. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15a5dc8b",
+   "texte_overlay": "j'ai noté chaque compliment reçu au boulot pendant un an,\nmon entretien annuel a duré 20 minutes de moins que prévu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "32cdf4a0",
+   "texte_overlay": "la règle : noter le jour même\nsinon on oublie. une ligne suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "338c0377",
+   "texte_overlay": "ce que je notais\nla phrase exacte, qui l'a dit, et pour quel travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34b9b6ab",
+   "texte_overlay": "ce que je notais aussi\nles problèmes que j'avais réglés, même petits",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "34cf1df0",
+   "texte_overlay": "chaque vendredi, 5 minutes\nje relisais la semaine. puis 5 minutes à apprendre un truc sans rapport, ça change la tête",
+   "texte_sophia": "chaque vendredi, 5 minutes\nje relisais la semaine. utilise l'appli Sophia 5 minutes après, ça te change la tête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "35520137",
+   "texte_overlay": "le jour de l'entretien\nj'ai lu 5 exemples. pas plus. ça suffisait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "367f375b",
+   "texte_overlay": "le résultat\nmoins de débat, plus de faits",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "36afaee2",
+   "texte_overlay": "ouvre une note aujourd'hui\net écris le dernier compliment qu'on t'a fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

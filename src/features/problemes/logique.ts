@@ -1,4 +1,4 @@
-import type { Groupe, Niveau, Probleme, Proprietaire, Situation } from "./api";
+import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Situation } from "./api";
 
 export const NIVEAUX: readonly Niveau[] = ["urgent", "aujourdhui", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
@@ -259,7 +259,9 @@ const SOURCES_MESSAGE = ["reponse", "slack", "bot"];
  * B2 : une carte n'est montrée que si elle a un diagnostic (celui du bot, la
  * phrase de l'OS, ou un constat de l'OS) ou une action (proposée, ou un geste).
  */
-export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "diagnostic_par" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id">): boolean {
+export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "diagnostic_par" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id"> & Partial<Pick<Probleme, "question">>): boolean {
+  // 0528 : une question posée à Max est toujours une carte.
+  if (p.question?.trim()) return true;
   // Le diagnostic d'un bot compte ; celui de l'OS est recalculé ci-dessous (phrase ou constat).
   if ((p.diagnostic?.trim() && p.diagnostic_par !== "os") || p.proposition_action || p.proposition_reponse?.trim()) return true;
   if (phraseProbleme(p)) return true;
@@ -304,3 +306,66 @@ export function regleDepuisFeedback(f: { id: string; bot: Proprietaire; raison: 
     active: true,
   };
 }
+
+// ---------------------------------------------------------------------------
+// 3/11 (0528) : la page Problèmes est le SEUL endroit où Max décide. Une carte
+// « décision » : une question, 2 à 4 options, la 1re recommandée.
+// ---------------------------------------------------------------------------
+
+export const estDecision = (p: Pick<Probleme, "question" | "options">): boolean => Boolean(p.question?.trim() && p.options?.length);
+
+/** Ce que fait le clic sur une option. Jamais d'argent : une option « paie » ouvre le contrat Upwork. */
+export interface PlanDecision {
+  /** Lien Upwork à ouvrir (paie). */
+  ouvrir: string | null;
+  /** Page de l'OS à ouvrir après le choix (Kill, recréer, reporter, Payroll…). */
+  page: string | null;
+  /** Mode « on » : le lien de mot de passe part à ce posteur. */
+  motDePasse: string | null;
+  /** Mode « on » : ce texte part sur Upwork au posteur (avec la ligne STOP). */
+  envoyer: string | null;
+  /** La réponse à l'HM : montrée pour être copiée (jamais envoyée par la page). */
+  aCopier: string | null;
+  /** « Vérifier samedi » : la carte revient samedi. */
+  samedi: boolean;
+}
+
+export function planDecision(
+  o: OptionDecision,
+  p: Pick<Probleme, "poster_id" | "contrat_id" | "destinataire">,
+  mode: "test" | "on",
+  texteLibre?: string,
+): PlanDecision {
+  const plan: PlanDecision = { ouvrir: null, page: null, motDePasse: null, envoyer: null, aCopier: null, samedi: false };
+  if (o.paie) {
+    plan.ouvrir = o.lien ?? (p.contrat_id ? urlContratUpwork(p.contrat_id) : null);
+    return plan;
+  }
+  const fiche = p.poster_id ? `/admin/posters?poster=${p.poster_id}` : "/admin/posters";
+  switch (o.action) {
+    case "resend_password_link":
+      if (mode === "on" && p.poster_id) plan.motDePasse = p.poster_id;
+      break;
+    case "kill": case "recreate": case "postpone": case "relink_slack":
+      plan.page = fiche;
+      break;
+    case "open_payroll": case "pay_check":
+      plan.page = "/admin/auto/payroll";
+      break;
+    case "open_who_to_fund":
+      plan.page = "/admin/auto/payroll?onglet=financer";
+      break;
+    case "saturday":
+      plan.samedi = true;
+      break;
+  }
+  const texte = (o.reponse ?? texteLibre ?? "").trim();
+  if (texte) {
+    if (p.destinataire === "hm") plan.aCopier = texte;
+    else if (mode === "on" && p.poster_id) plan.envoyer = avecLigneStop(texte);
+  }
+  return plan;
+}
+
+/** Une option sans réponse ni action (« Autre ») : Max écrit la réponse avant de confirmer. */
+export const optionLibre = (o: OptionDecision): boolean => !o.paie && !o.action && !o.reponse?.trim();

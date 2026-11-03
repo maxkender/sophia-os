@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
-import type { Probleme, Situation } from "./api";
+import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
+import type { OptionDecision, Probleme, Situation } from "./api";
 import {
-  aDiagnosticOuAction, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
+  aDiagnosticOuAction, estDecision, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
 const p = (o: Partial<Probleme>): Probleme => ({
@@ -161,5 +161,47 @@ describe("Feedback aux bots", () => {
     expect(pourcentJuste({ total: 3, justes: 2 })).toBe(67);
     expect(regleDepuisFeedback({ id: "f", bot: "control_bot", raison: " Pas un bug. ", diagnostic_du_bot: null, action_du_bot: "close", categorie: null }))
       .toEqual({ id: null, bot: "control_bot", regle: "Pas un bug.", exemple: "close", sources: ["f"], active: true });
+  });
+});
+
+describe("0528 : décisions", () => {
+  const opt = (o: Partial<OptionDecision>): OptionDecision => ({ libelle: "x", ...o });
+  const q = { poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: "44222098", destinataire: "posteur" as const };
+
+  it("une option paie n'ouvre que le contrat Upwork, rien d'autre", () => {
+    expect(planDecision(opt({ paie: true, reponse: "Hi" }), q, "on")).toMatchObject({ ouvrir: urlContratUpwork("44222098"), envoyer: null, motDePasse: null });
+  });
+
+  it("mode test : rien ne part ; mode on : réponse au posteur avec la ligne STOP, lien de mot de passe", () => {
+    expect(planDecision(opt({ reponse: "Hi", action: "resend_password_link" }), q, "test")).toMatchObject({ envoyer: null, motDePasse: null });
+    const on = planDecision(opt({ reponse: "Hi", action: "resend_password_link" }), q, "on");
+    expect(on.envoyer).toBe(avecLigneStop("Hi"));
+    expect(on.motDePasse).toBe(q.poster_id);
+    expect(planDecision(opt({ action: "saturday" }), q, "on").samedi).toBe(true);
+    expect(planDecision(opt({ action: "kill" }), q, "on").page).toBe(`/admin/posters?poster=${q.poster_id}`);
+  });
+
+  it("HM : la réponse est à copier, jamais envoyée ; option libre", () => {
+    expect(planDecision(opt({ reponse: "Hi HM" }), { ...q, destinataire: "hm" }, "on")).toMatchObject({ aCopier: "Hi HM", envoyer: null });
+    expect(optionLibre(opt({}))).toBe(true);
+    expect(optionLibre(opt({ paie: true }))).toBe(false);
+    expect(planDecision(opt({}), q, "on", " Mon texte ").envoyer).toBe(avecLigneStop("Mon texte"));
+  });
+
+  it("une question est toujours une carte", () => {
+    expect(estDecision({ question: "Q ?", options: [opt({}), opt({})] })).toBe(true);
+    expect(estDecision({ question: null, options: null })).toBe(false);
+    expect(aDiagnosticOuAction(p({ question: "Q ?", resume: "hello" }))).toBe(true);
+  });
+
+  it("bot_propositions : decision (question + options), sujet hm / offre sans posteur", () => {
+    const id = "00000000-0000-0000-0000-000000000009";
+    expect(lireCorps({ action: "proposer", probleme_id: id, action_proposee: "decision" })).toEqual({ erreur: "decision : question et options (2 à 4) obligatoires" });
+    expect(lireCorps({ action: "proposer", probleme_id: id, action_proposee: "decision", question: "Q ?", options: [{ libelle: "A" }, { libelle: "B" }] }))
+      .toMatchObject({ action: "proposer", args: { question: "Q ?", options: [{ libelle: "A" }, { libelle: "B" }] } });
+    expect(lireCorps({ action: "creer", sujet: "hm", categorie: "hm", resume: "r" })).toEqual({ erreur: "sujet hm : hm_id, hm_nom, offre_lien ou offre_id obligatoire" });
+    expect(lireCorps({ action: "creer", sujet: "offre", offre_id: "2116086859812462592", categorie: "offre", resume: "r" })).toMatchObject({ action: "creer", args: { sujet: "offre" } });
+    expect(lireCorps({ action: "creer", sujet: "vip", poster_id: id, categorie: "autre", resume: "r" })).toEqual({ erreur: "sujet : posteur, hm, offre" });
+    expect(ACTIONS_BOT).toEqual(expect.arrayContaining(["pay_check", "saturday", "decision", "close", "none"]));
   });
 });

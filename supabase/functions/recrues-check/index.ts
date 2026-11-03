@@ -2115,6 +2115,8 @@ async function semaine(supabase: Supabase, r: Reglages, recrues: RecrueAccueil[]
     if (!lundiDu(posteur, lundi, maintenant, { debut: r.heures.lundi_heure, fin: r.heures.fin })) continue;
     const x = recrue.get(p.poster_id);
     const nouvelle = p.cohorte_lundi === lundi;
+    // 3/11 : le message de démarrage ne part jamais à une cohorte future, un report, un Start Tuesday.
+    if (nouvelle && (await refusDemarrage(supabase, p.poster_id, lundi))) continue;
     const manque = nouvelle && x
       ? ceQuiManqueRecrue(etatsAccueil(x, r.etapes), { url: OS_URL, handle: x.handle, warmupClique: Boolean(x.warmup_started_at) })
       : null;
@@ -2541,9 +2543,32 @@ async function lundiSoir(supabase: Supabase, r: Reglages, maintenant: Date, bila
   }
 }
 
+/**
+ * 3/11 : jamais de message de démarrage (« You start posting today », « today
+ * is your first posting day ») à quelqu'un dont la cohorte est dans le futur,
+ * qui est reporté (Postpone), qui démarre mardi, ou désactivé. Relu en base
+ * juste avant l'envoi (un report peut arriver entre la préparation et l'envoi).
+ * Rend la raison du refus, ou null.
+ */
+async function refusDemarrage(supabase: Supabase, posterId: string, lundi: string): Promise<string | null> {
+  const { data: pr } = await supabase.from("profiles").select("cohorte_lundi, is_active").eq("id", posterId).maybeSingle();
+  if (!pr?.is_active) return "posteur désactivé";
+  if (pr.cohorte_lundi && String(pr.cohorte_lundi) > lundi) return `cohorte du ${pr.cohorte_lundi} (dans le futur)`;
+  const { data: d } = await supabase.from("debut_choix").select("choix").eq("poster_id", posterId).eq("lundi", lundi).maybeSingle();
+  if (d?.choix === "reporter") return "reporté (Postpone)";
+  if (d?.choix === "mardi") return "démarre mardi (Start Tuesday)";
+  return null;
+}
+
 /** Sur Upwork seulement (dans la conversation du contrat), une fois. */
 async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundiSoir, lundi: string, test: boolean, bilan: Bilan) {
   const cle = { poster_id: p.poster_id, type: "lundi_soir", periode: lundi };
+  const refus = await refusDemarrage(supabase, p.poster_id, lundi);
+  if (refus) {
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: `pas de démarrage : ${refus}`, maj_at: new Date().toISOString() });
+    bilan.bloques++;
+    return;
+  }
   if (!p.contrat_id) {
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison: "contrat_non_relie", maj_at: new Date().toISOString() });
     bilan.bloques++;

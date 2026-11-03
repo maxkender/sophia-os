@@ -1,0 +1,785 @@
+{
+ "id": "yp-027",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "titre": {
+  "fr": "conseils de lycée d’une jeune bachelière, partie 4",
+  "en": "school tips from a high school graduate, part 4",
+  "es": "consejos de instituto de una recién graduada, parte 4",
+  "de": "Schultipps von einer frischen Abiturientin, Teil 4",
+  "it": "consigli per il liceo da una neodiplomata, parte 4",
+  "pt": "dicas de escola de uma recém-formada, parte 4",
+  "tr": "yeni bir mezundan okul tavsiyeleri, bölüm 4"
+ },
+ "legendes": {
+  "fr": "partie 4 : ce que j’aurais aimé savoir avant 📚 #conseils #studytok #lycee #revisions #thatgirl",
+  "en": "part 4: what i wish i knew earlier 📚 #studytips #studytok #highschool #school #thatgirl",
+  "es": "parte 4: lo que me habría gustado saber antes 📚 #consejos #studytok #instituto #estudiar #thatgirl",
+  "de": "Teil 4: was ich gern früher gewusst hätte 📚 #lerntipps #studytok #schule #abitur #thatgirl",
+  "it": "parte 4: quello che avrei voluto sapere prima 📚 #consigli #studytok #liceo #studiare #thatgirl",
+  "pt": "parte 4: o que eu queria ter sabido antes 📚 #dicas #studytok #ensinomedio #estudos #thatgirl",
+  "tr": "bölüm 4: keşke daha önce bilseydim dediklerim 📚 #dersçalışma #studytok #lise #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "young folks nightcore",
+  "url": "https://www.tiktok.com/music/young-folks-nightcore-7070641315155757826"
+ },
+ "fond": {
+  "media_id": "18f0ff5f-1176-4e25-8a24-9e813136ab0d",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee43f06-d3c0-41cd-be10-d5ed8a4e6fa8/5.jpg?v=1791726797707",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-005 (« SCHOOL TIPS from a highschool graduate », 54 k) : partie 4, 6 autres conseils, autres photos. cta A : micabo dans le texte du conseil « transforme chaque cours en quiz », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE LYCÉE"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "d’une jeune",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "bachelière",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(partie 4)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHOOL",
+      "TIPS"
+     ],
+     "taille": 190,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "from a highschool",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "graduate",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(part 4)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE INSTI"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de una recién",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "graduada",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 4)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SCHUL-",
+      "TIPPS"
+     ],
+     "taille": 190,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "von einer frischen",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "Abiturientin",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(Teil 4)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "PER IL LICEO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "da una",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "neodiplomata",
+       "x": 380,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 4)",
+       "x": 410,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DICAS",
+      "DE ESCOLA"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "de uma",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "recém-formada",
+       "x": 300,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 4)",
+       "x": 330,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OKUL",
+      "TAVSİYELERİ"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 1040,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "yeni bir",
+       "x": 190,
+       "y": 1350
+      },
+      {
+       "texte": "mezundan",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(bölüm 4)",
+       "x": 500,
+       "y": 1570
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1e180a7f-f0c5-4a1f-a245-690bb2b1a34f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8e94a63f-09a9-4853-a008-3f7ca9015868/2.jpg?v=1790608130370",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "lis le chapitre avant le cours📖",
+      "texte": "juste 10 min la veille. en classe, tu comprends tout du premier coup.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "read the chapter before class📖",
+      "texte": "just 10 minutes the night before. in class, you get it the first time.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "lee el tema antes de clase📖",
+      "texte": "solo 10 min la noche antes. en clase lo entiendes a la primera.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "lies das Kapitel vor dem Unterricht📖",
+      "texte": "nur 10 Min. am Vorabend. im Unterricht verstehst du alles beim ersten Mal.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "leggi il capitolo prima della lezione📖",
+      "texte": "bastano 10 minuti la sera prima. in classe capisci tutto al primo colpo.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "leia o capítulo antes da aula📖",
+      "texte": "só 10 min na noite anterior. na aula, você entende de primeira.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "dersten önce üniteyi oku📖",
+      "texte": "bir gece önce sadece 10 dakika. derste her şeyi ilk seferde anlarsın.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d76a6f2c-5c4d-44fd-b2f6-ea67fefa8fd1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2ea58c05-bf8f-4ae3-812f-853dceb791c1/4.jpg?v=1790606868092",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "choisis bien ta place🪑",
+      "texte": "loin de tes amis bavards, près du tableau. ta moyenne te remerciera.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "choose your seat wisely🪑",
+      "texte": "away from your chatty friends, close to the board. your grades will thank you.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "elige bien tu sitio🪑",
+      "texte": "lejos de tus amigos charlatanes, cerca de la pizarra. tus notas te lo agradecerán.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "wähl deinen Platz gut🪑",
+      "texte": "weg von deinen quatschenden Freunden, nah an der Tafel. deine Noten danken es dir.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "scegli bene il posto🪑",
+      "texte": "lontano dagli amici chiacchieroni, vicino alla lavagna. i tuoi voti ringrazieranno.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "escolha bem o seu lugar🪑",
+      "texte": "longe dos amigos tagarelas, perto do quadro. suas notas vão agradecer.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "yerini iyi seç🪑",
+      "texte": "geveze arkadaşlarından uzak, tahtaya yakın. notların sana teşekkür edecek.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "1d99efaa-41ed-42f8-b07d-9a998f118d8e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fc399c78-07ab-4d0b-a207-fe4fcbd4aca3/6.jpg?v=1790608905193",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "transforme chaque cours en quiz🧠",
+      "texte": "le soir, je mets mon cours dans micabo et je fais son quiz en 10 min. au contrôle, j’ai déjà répondu à toutes les questions.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "turn every lesson into a quiz🧠",
+      "texte": "in the evening, i put my lesson into micabo and do its quiz in 10 minutes. on test day, i’ve already answered every question.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "convierte cada clase en un quiz🧠",
+      "texte": "por la noche meto la clase en micabo y hago su quiz en 10 min. en el examen ya he respondido a todas las preguntas.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "mach aus jeder Stunde ein Quiz🧠",
+      "texte": "abends packe ich den Stoff in micabo und mache das Quiz in 10 Min. in der Arbeit habe ich jede Frage schon beantwortet.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "trasforma ogni lezione in un quiz🧠",
+      "texte": "la sera metto la lezione su micabo e faccio il suo quiz in 10 minuti. alla verifica ho già risposto a tutte le domande.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "transforme cada aula num quiz🧠",
+      "texte": "à noite, coloco a aula no micabo e faço o quiz em 10 min. na prova, já respondi todas as perguntas.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "her dersi bir teste dönüştür🧠",
+      "texte": "akşam dersi micabo’ya koyup testini 10 dakikada çözüyorum. sınavda bütün soruları zaten cevaplamış oluyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "11fe40eb-76a2-4661-86bb-eafc5e65c104",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4211027a-df9f-40d5-b4ed-549199d77a4b/3.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "utilise 3 couleurs, pas 10🖍️",
+      "texte": "une pour les définitions, une pour les dates, une pour les exemples. le reste, c’est de la déco.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "use 3 colors, not 10🖍️",
+      "texte": "one for definitions, one for dates, one for examples. the rest is just decoration.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "usa 3 colores, no 10🖍️",
+      "texte": "uno para definiciones, uno para fechas, uno para ejemplos. lo demás es decoración.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "nimm 3 Farben, nicht 10🖍️",
+      "texte": "eine für Definitionen, eine für Daten, eine für Beispiele. der Rest ist Deko.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "usa 3 colori, non 10🖍️",
+      "texte": "uno per le definizioni, uno per le date, uno per gli esempi. il resto è decorazione.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "use 3 cores, não 10🖍️",
+      "texte": "uma pra definições, uma pra datas, uma pra exemplos. o resto é enfeite.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "10 değil, 3 renk kullan🖍️",
+      "texte": "biri tanımlar, biri tarihler, biri örnekler için. gerisi süs.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "666653b1-548b-4794-891d-047ad8fa540b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b7ce76db-7b69-40a0-baee-e8314d38b363/2.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ne laisse pas les devoirs s’empiler📚",
+      "texte": "un devoir non fait, c’est deux le lendemain. fais-les le jour où on te les donne.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "don’t let homework pile up📚",
+      "texte": "one assignment skipped is two tomorrow. do them the day you get them.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "no dejes que se acumulen los deberes📚",
+      "texte": "un deber sin hacer son dos al día siguiente. hazlos el día que te los mandan.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "lass Hausaufgaben nicht liegen📚",
+      "texte": "eine nicht gemachte Aufgabe sind morgen zwei. mach sie am Tag, an dem du sie bekommst.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "non lasciare accumulare i compiti📚",
+      "texte": "un compito non fatto sono due il giorno dopo. falli il giorno in cui te li danno.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "não deixe a lição acumular📚",
+      "texte": "uma lição não feita vira duas no dia seguinte. faça no dia em que passarem.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "ödevlerin birikmesine izin verme📚",
+      "texte": "yapılmamış bir ödev ertesi gün iki olur. verildiği gün yap.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1ad91bf4-03e7-4459-b552-48318d9c1c6c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/22856761-631a-4661-90f7-db5e581b2e41/6.jpg?v=1792527501369",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "garde du temps pour toi🌙",
+      "texte": "sport, amis, séries : un cerveau reposé apprend deux fois plus vite.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "keep time for yourself🌙",
+      "texte": "sports, friends, shows: a rested brain learns twice as fast.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "guarda tiempo para ti🌙",
+      "texte": "deporte, amigos, series: un cerebro descansado aprende el doble de rápido.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "nimm dir Zeit für dich🌙",
+      "texte": "Sport, Freunde, Serien: ein ausgeruhtes Gehirn lernt doppelt so schnell.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "tieni del tempo per te🌙",
+      "texte": "sport, amici, serie: un cervello riposato impara il doppio più in fretta.",
+      "grand": true
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "guarde tempo pra você🌙",
+      "texte": "esporte, amigos, séries: um cérebro descansado aprende duas vezes mais rápido.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 300,
+      "titre": "kendine zaman ayır🌙",
+      "texte": "spor, arkadaşlar, diziler: dinlenmiş bir beyin iki kat hızlı öğrenir.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

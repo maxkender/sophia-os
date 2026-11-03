@@ -86,3 +86,118 @@ export function debutJourParis(maintenant = new Date()): string {
   const hh = String(Math.abs(Number(h))).padStart(2, "0");
   return new Date(`${jour}T00:00:00${signe}${hh}:${(m ?? "00").padStart(2, "0")}`).toISOString();
 }
+
+// ---------------------------------------------------------------------------
+// 3/11 : une carte = un diagnostic. La phrase du problème et le geste exact,
+// calculés depuis la situation (0520) ; le tri ; le regroupement par catégorie.
+// ---------------------------------------------------------------------------
+
+/** Une phrase : une clé de traduction et ses valeurs. */
+export interface Phrase {
+  cle: string;
+  vars?: Record<string, string | number>;
+}
+
+export type Geste =
+  | { type: "lien"; cle: string; url: string }
+  | { type: "page"; cle: string; vers: string }
+  | { type: "releve"; cle: string; compte_id: string };
+
+const fmtJour = (iso: string | null | undefined, locale: string) =>
+  iso ? new Date(iso.length === 10 ? `${iso}T12:00:00Z` : iso).toLocaleDateString(locale, { day: "numeric", month: "short" }) : "—";
+
+export const urlContratUpwork = (contrat: string) => `https://www.upwork.com/nx/wm/workroom/${contrat}/overview`;
+
+/** Le problème en une phrase précise ; null : rien de précis à dire (la carte montre son résumé). */
+export function phraseProbleme(p: Pick<Probleme, "categorie" | "resume" | "situation">, locale = "fr-FR"): Phrase | null {
+  const s = p.situation;
+  if (!s) return null;
+  const pp = s.paie_passee;
+  switch (p.categorie) {
+    case "paie": {
+      if (!s.paye_passee) {
+        return { cle: "diag.paieNonPayee", vars: { semaine: fmtJour(pp.semaine, locale), montant: pp.montant ?? "?" } };
+      }
+      const paye = { semaine: fmtJour(pp.semaine, locale), montant: pp.montant ?? 0, date: fmtJour(pp.paye_at, locale), lundi: fmtJour(s.lundi, locale), attendu: s.attendu_semaine ?? "?" };
+      if (s.finances.length === 0) return { cle: "diag.paieRienFinance", vars: paye };
+      if (!s.finance_ok) {
+        const f = s.finances[0]!;
+        return { cle: "diag.paieMauvaisMontant", vars: { ...paye, nom: f.nom ?? "?", finance: f.montant ?? "?", comptes: s.comptes } };
+      }
+      return { cle: "diag.paieOk", vars: paye };
+    }
+    case "stop":
+      return { cle: "diag.stop", vars: { date: fmtJour(s.message?.at, locale) } };
+    case "login":
+      return s.etapes.login ? null : { cle: "diag.jamaisConnecte" };
+    case "slack":
+      return s.etapes.slack ? null : { cle: "diag.slackPasRelie" };
+    case "tiktok_setup":
+      if (!s.etapes.tiktok) return { cle: "diag.tiktokIntrouvable" };
+      if (!s.etapes.warmup) return { cle: "diag.warmupPasFini" };
+      return null;
+    default:
+      if (s.a_ecrit && s.message) return { cle: "diag.attendReponse", vars: { date: fmtJour(s.message.at, locale) } };
+      return null;
+  }
+}
+
+/** Les gestes de la carte, du plus utile au moins utile. Jamais d'argent exécuté ici : on ouvre la bonne page. */
+export function gestes(p: Pick<Probleme, "categorie" | "poster_id" | "compte_id" | "contrat_id" | "situation">): Geste[] {
+  const s = p.situation;
+  const fiche = p.poster_id ? `/admin/posters?poster=${p.poster_id}` : "/admin/posters";
+  const contrat = s?.contrat_id ?? p.contrat_id;
+  const g: Geste[] = [];
+  switch (p.categorie) {
+    case "paie":
+      g.push(s && !s.paye_passee
+        ? { type: "page", cle: "geste.payroll", vers: "/admin/auto/payroll" }
+        : { type: "page", cle: "geste.whoToFund", vers: "/admin/auto/payroll?onglet=financer" });
+      break;
+    case "stop":
+      g.push({ type: "page", cle: "geste.kill", vers: fiche });
+      break;
+    case "login":
+      g.push({ type: "page", cle: "geste.motDePasse", vers: fiche });
+      break;
+    case "slack":
+      g.push({ type: "page", cle: "geste.relierSlack", vers: fiche });
+      break;
+    case "tiktok_setup":
+      if (p.compte_id) g.push({ type: "releve", cle: "geste.relireTiktok", compte_id: p.compte_id });
+      g.push({ type: "page", cle: "geste.fiche", vers: fiche });
+      break;
+    case "offre_hm_incorrecte":
+      break;
+    default:
+      if (s?.bloque) g.push({ type: "page", cle: "geste.fiche", vers: fiche });
+  }
+  if (s?.message?.lien) g.push({ type: "lien", cle: "geste.conversation", url: s.message.lien });
+  if (contrat) g.push({ type: "lien", cle: "geste.contrat", url: urlContratUpwork(contrat) });
+  return g;
+}
+
+/** Le rang de tri (5) : d'abord qui a écrit et attend, puis qui est bloqué(e) et ne poste pas, puis le reste. */
+export function rang(p: Pick<Probleme, "situation">): number {
+  if (p.situation?.a_ecrit) return 0;
+  if (p.situation?.bloque) return 1;
+  return 2;
+}
+
+/** La date qui compte pour « plus vieux en premier » : son message, sinon l'ouverture de la carte. */
+export function depuis(p: Pick<Probleme, "situation" | "created_at">): string {
+  return p.situation?.a_ecrit && p.situation.message ? p.situation.message.at : p.created_at;
+}
+
+export function trier<T extends Pick<Probleme, "situation" | "created_at">>(liste: readonly T[]): T[] {
+  return [...liste].sort((a, b) => rang(a) - rang(b) || depuis(a).localeCompare(depuis(b)));
+}
+
+/** Les cartes d'un onglet, par catégorie (la catégorie la plus pressée d'abord), triées dans chaque groupe. */
+export function grouper<T extends Pick<Probleme, "categorie" | "situation" | "created_at">>(liste: readonly T[]): { categorie: string; cartes: T[] }[] {
+  const m = new Map<string, T[]>();
+  for (const p of liste) m.set(p.categorie, [...(m.get(p.categorie) ?? []), p]);
+  return [...m.entries()]
+    .map(([categorie, cartes]) => ({ categorie, cartes: trier(cartes) }))
+    .sort((a, b) => rang(a.cartes[0]!) - rang(b.cartes[0]!) || b.cartes.length - a.cartes.length || a.categorie.localeCompare(b.categorie));
+}

@@ -233,7 +233,10 @@ Deno.serve(async (request) => {
       case "contrats":
         return json(await lireContrats(supabase, par));
       case "jalons":
-        return json(await lireJalons(supabase, par));
+        return json(await lireJalons(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String).slice(0, 300) : null));
+      case "jalons_problemes":
+        // 3/11 : les milestones des contrats des cartes ouvertes de la page Problèmes (lecture seule).
+        return json(await lireJalons(supabase, par, await contratsProblemes(supabase)));
       case "offres":
         // Prompt 27 (Needs you « No channel ») : toutes les offres, tous états, lecture seule.
         return json(await lireOffres(supabase, par));
@@ -853,7 +856,7 @@ async function terminesDepuisOffres(supabase: Supabase, par: string | null): Pro
 // F1 (28 oct.) : la milestone à approuver de chaque contrat relié
 // ---------------------------------------------------------------------------
 
-async function lireJalons(supabase: Supabase, par: string | null) {
+async function lireJalons(supabase: Supabase, par: string | null, seulement: string[] | null = null) {
   // Les contrats actifs lus (action « contrats ») et reliés à un posteur actif.
   const [{ data: contrats, error: e1 }, { data: posteurs, error: e2 }] = await Promise.all([
     supabase.from("upwork_contrats").select("contrat_id, organisation_id").eq("actif", true).not("contrat_id", "is", null),
@@ -875,8 +878,12 @@ async function lireJalons(supabase: Supabase, par: string | null) {
       if (k) comptesActifs.set(k, (comptesActifs.get(k) ?? 0) + 1);
     }
   }
-  const aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)));
-  if (aLire.length === 0) return { ok: false, error: "aucun contrat actif relié : lancer d'abord l'action contrats" };
+  // 3/11 : la page Problèmes relit seulement les contrats de ses cartes (à l'ouverture et toutes les 30 min).
+  const voulus = seulement ? new Set(seulement.map(String)) : null;
+  const aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)) && (!voulus || voulus.has(String(c.contrat_id))));
+  if (aLire.length === 0) {
+    return voulus ? { ok: true, contrats: 0, lus: 0, erreurs: 0 } : { ok: false, error: "aucun contrat actif relié : lancer d'abord l'action contrats" };
+  }
 
   // Le jeton renouvelé une seule fois avant les appels en parallèle.
   await jetonValide(supabase, par);
@@ -925,6 +932,21 @@ async function lireJalons(supabase: Supabase, par: string | null) {
   // Prompt 21, S2 : le contrat gagne. tarif_hebdo corrigé, noté dans le Pipeline (Logs).
   const corriges = await corrigerTarifsHebdo(supabase).catch((e) => ({ erreur: messageErreur(e), corriges: 0 }));
   return { ok: true, contrats: aLire.length, lus, erreurs, tarifs: bilanTarifs, ...("erreur" in corriges ? { erreur_tarifs: corriges.erreur } : { corriges: corriges.corriges }) };
+}
+
+/** 3/11 : les contrats des posteurs qui ont une carte ouverte sur la page Problèmes. */
+async function contratsProblemes(supabase: Supabase): Promise<string[]> {
+  const { data, error } = await supabase.from("problemes").select("poster_id, contrat_id").eq("statut", "ouvert").limit(999);
+  if (error) throw error;
+  const contrats = new Set((data ?? []).map((p) => p.contrat_id as string | null).filter((c): c is string => Boolean(c)));
+  const posteurs = [...new Set((data ?? []).map((p) => p.poster_id as string | null).filter((c): c is string => Boolean(c)))];
+  for (let i = 0; i < posteurs.length; i += 200) {
+    const { data: pr, error: e2 } = await supabase.from("profiles").select("upwork_contract_id").in("id", posteurs.slice(i, i + 200))
+      .not("upwork_contract_id", "is", null);
+    if (e2) throw e2;
+    for (const x of pr ?? []) contrats.add(String(x.upwork_contract_id));
+  }
+  return [...contrats];
 }
 
 /**

@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -10,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { releverCompte } from "@/features/needsYou/api";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
+import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import {
   agirProbleme,
@@ -21,6 +23,7 @@ import {
   passerMaintenant,
   type Niveau,
   type Probleme,
+  type Situation,
   validerCategorie,
 } from "./api";
 import {
@@ -29,15 +32,19 @@ import {
   debutJourParis,
   FILTRES_VIDES,
   filtrer,
+  gestes,
   gesteValider,
+  grouper,
   NIVEAUX,
   options,
   peutValiderCategorie,
+  phraseProbleme,
   PROPRIETAIRES,
   type FiltresProblemes,
 } from "./logique";
 
 const P = "problemes";
+const i18nLangue = () => i18next.resolvedLanguage ?? "fr";
 const selectClass = "h-9 rounded-md border border-input bg-background px-2 text-sm";
 const VARIANTE: Record<Niveau, "destructive" | "warning" | "secondary"> = { urgent: "destructive", aujourdhui: "warning", samedi: "secondary" };
 
@@ -58,6 +65,40 @@ function resumeLisible(p: Pick<Probleme, "resume" | "categorie">, t: (k: string)
   return p.resume.replace(MOTIFS_OFFRE, (m) => t(`decisionPays.motif.${m}`));
 }
 
+function Coche({ ok, nom }: { ok: boolean; nom: string }) {
+  return <span className={ok ? "text-emerald-700 dark:text-emerald-400" : "font-medium text-red-600"}>{ok ? "✓" : "✗"} {nom}</span>;
+}
+
+/** La situation en une ligne, calculée par l'OS (0520). */
+function LigneSituation({ s }: { s: Situation }) {
+  const { t } = useTranslation();
+  const pp = s.paie_passee;
+  const finance = s.finances[0];
+  return (
+    <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs" data-testid="situation">
+      <span className={cn(s.bloque && "font-medium text-red-600")}>{t(`${P}.sit.posts`, { posts: s.posts, attendus: s.attendus })}</span>
+      <span className="space-x-2">
+        <Coche ok={s.etapes.login} nom={t(`${P}.sit.login`)} />
+        <Coche ok={s.etapes.slack} nom="Slack" />
+        <Coche ok={s.etapes.tiktok} nom="TikTok" />
+        <Coche ok={s.etapes.warmup} nom={t(`${P}.sit.warmup`)} />
+      </span>
+      <span>
+        {!pp.ligne
+          ? t(`${P}.sit.paieSansLigne`, { semaine: jourCohorte(pp.semaine) })
+          : s.paye_passee
+            ? t(`${P}.sit.paiePayee`, { semaine: jourCohorte(pp.semaine), montant: pp.montant ?? 0, date: pp.paye_at ? jourCohorte(pp.paye_at.slice(0, 10)) : "—" })
+            : <span className="font-medium text-red-600">{t(`${P}.sit.paieNonPayee`, { semaine: jourCohorte(pp.semaine), montant: pp.montant ?? 0 })}</span>}
+      </span>
+      <span className={cn(!s.finance_ok && s.actif && "font-medium text-amber-700")}>
+        {finance
+          ? t(`${P}.sit.finance`, { nom: finance.nom ?? "?", montant: finance.montant ?? "?", attendu: s.attendu_semaine ?? "?" })
+          : t(`${P}.sit.rienFinance`, { attendu: s.attendu_semaine ?? "?" })}
+      </span>
+    </p>
+  );
+}
+
 function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -67,6 +108,9 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
   const [message, setMessage] = React.useState<string | null>(null);
   const rafraichir = () => qc.invalidateQueries({ queryKey: ["problemes"] });
   const geste = gesteValider(p);
+  const s = p.situation ?? null;
+  const phrase = phraseProbleme(p, localeDate());
+  const liste = gestes(p);
 
   const agir = useMutation({
     mutationFn: async (action: "valider" | "ignorer" | "samedi" | "modifier") => {
@@ -94,48 +138,71 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
     onSuccess: rafraichir,
     onError: (e) => setMessage((e as Error).message),
   });
+  const relire = useMutation({
+    mutationFn: (compteId: string) => releverCompte(compteId),
+    onSuccess: rafraichir,
+    onError: (e) => setMessage((e as Error).message),
+  });
 
   return (
     <Card data-testid="carte-probleme">
       <CardContent className="space-y-2 p-4 text-sm">
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-semibold">{p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`)}</span>
+          {s?.pays && <span className="text-muted-foreground">· {drapeau(s.pays)} {nomPays(s.pays, i18nLangue())}</span>}
           {p.hm && <span className="text-muted-foreground">· {t(`${P}.hm`, { hm: p.hm })}</span>}
           {p.cohorte && <span className="text-muted-foreground">· {t(`${P}.cohorte`, { date: jourCohorte(p.cohorte) })}</span>}
           <Badge variant={VARIANTE[p.niveau]}>{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</Badge>
-          <Badge variant="outline">{t(`${P}.proprietaires.${p.proprietaire}`)}</Badge>
           {p.actif === false && <Badge variant="secondary">{t(`${P}.inactif`)}</Badge>}
         </div>
-        <p>{resumeLisible(p, t)}</p>
-        {(p.proposition_reponse || edition) && (
-          <div className="space-y-1">
-            <p className="text-xs text-muted-foreground">
-              {t(`${P}.reponseProposee`, { canal: p.canal_reponse ?? "upwork" })}
-            </p>
-            {edition ? (
-              <Textarea value={reponse} onChange={(e) => setReponse(e.target.value)} rows={4} />
-            ) : (
-              <p className="whitespace-pre-wrap rounded-md bg-muted/40 p-2">{p.proposition_reponse}</p>
-            )}
+        {s && (
+          <div className="rounded-md bg-muted/30 p-2">
+            <p className="mb-0.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{t(`${P}.titres.situation`)}</p>
+            <LigneSituation s={s} />
           </div>
         )}
-        {p.proposition_action && (
-          <p className="text-xs">
-            {t(`${P}.actionProposee`)} <span className="font-medium">{t(`${P}.actions.${p.proposition_action}`, { defaultValue: p.proposition_action })}</span>
-          </p>
+        {s?.message && (
+          <div data-testid="message-cite">
+            <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+              {t(s.a_ecrit ? `${P}.titres.aEcritAttend` : `${P}.titres.aEcrit`)} · {quand(s.message.at)} · {s.message.canal === "slack" ? "Slack" : "Upwork"}
+            </p>
+            <blockquote className="border-l-2 pl-2 italic">« {s.message.texte} »</blockquote>
+          </div>
         )}
-        <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
-          {p.sources.slice(-5).map((s) => (
-            <span key={`${s.type}:${s.ref}`} title={s.texte ?? ""}>
-              {s.lien ? <a href={s.lien} target="_blank" rel="noreferrer" className="underline">{t(`${P}.sources.${s.type}`, { defaultValue: s.type })}</a> : t(`${P}.sources.${s.type}`, { defaultValue: s.type })}
-              {s.at ? ` · ${quand(s.at)}` : ""}
-            </span>
-          ))}
-          {p.sources.length > 5 && <span>{t(`${P}.autresSources`, { n: p.sources.length - 5 })}</span>}
-          {p.propose_par && <span>· {t(`${P}.proposePar`, { qui: p.propose_par, quand: quand(p.propose_at) })}</span>}
+        <div>
+          <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{t(`${P}.titres.probleme`)}</p>
+          <p className="font-medium" data-testid="phrase-probleme">{phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : resumeLisible(p, t)}</p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{t(`${P}.titres.action`)}</p>
+          <div className="flex flex-wrap gap-2">
+            {liste.map((g) =>
+              g.type === "lien" ? (
+                <a key={g.cle} href={g.url} target="_blank" rel="noreferrer" className="inline-flex h-8 items-center rounded-md border px-3 text-xs hover:bg-muted">
+                  {t(`${P}.${g.cle}`)} ↗
+                </a>
+              ) : g.type === "page" ? (
+                <Button key={g.cle} size="sm" onClick={() => navigate(g.vers)}>{t(`${P}.${g.cle}`)}</Button>
+              ) : (
+                <Button key={g.cle} size="sm" onClick={() => relire.mutate(g.compte_id)} disabled={relire.isPending}>{t(`${P}.${g.cle}`)}</Button>
+              ),
+            )}
+          </div>
+          {(p.proposition_reponse || edition || s?.a_ecrit) && (
+            <div className="space-y-1">
+              <p className="text-xs text-muted-foreground">{t(`${P}.reponseProposee`, { canal: p.canal_reponse ?? s?.message?.canal ?? "upwork" })}</p>
+              {edition ? (
+                <Textarea value={reponse} onChange={(e) => setReponse(e.target.value)} rows={4} />
+              ) : p.proposition_reponse ? (
+                <p className="whitespace-pre-wrap rounded-md bg-muted/40 p-2">{p.proposition_reponse}</p>
+              ) : (
+                <p className="text-xs text-muted-foreground">{t(`${P}.reponseAEcrire`)}</p>
+              )}
+            </div>
+          )}
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Button size="sm" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
+          <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
             ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
           </Button>
           {edition ? (
@@ -151,6 +218,29 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
         {message && <p className="text-xs text-muted-foreground">{message}</p>}
       </CardContent>
     </Card>
+  );
+}
+
+/** Un groupe (4) : la catégorie, son compteur, « Valider tout » sans argent ni STOP. */
+function Groupe({ niveau, categorie, cartes, mode }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on" }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [ouvert, setOuvert] = React.useState(cartes.length <= 5 || niveau === "urgent");
+  const lot = useMutation({ mutationFn: () => validerCategorie(niveau, categorie), onSuccess: () => qc.invalidateQueries({ queryKey: ["problemes"] }) });
+  return (
+    <section className="space-y-2" data-testid="groupe-probleme">
+      <div className="flex flex-wrap items-center gap-2 border-b pb-1">
+        <button type="button" className="font-semibold hover:underline" onClick={() => setOuvert(!ouvert)}>
+          {ouvert ? "▾" : "▸"} {t(`${P}.categories.${categorie}`, { defaultValue: categorie })} <span className="tabular-nums text-muted-foreground">({cartes.length})</span>
+        </button>
+        {peutValiderCategorie(categorie) && categorie !== "stop" && cartes.length > 1 && (
+          <Button size="sm" variant="ghost" className="h-7 text-xs" onClick={() => lot.mutate()} disabled={lot.isPending} data-testid="valider-categorie">
+            {t(`${P}.validerCategorie`, { n: cartes.length })}
+          </Button>
+        )}
+      </div>
+      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} />)}
+    </section>
   );
 }
 
@@ -170,9 +260,17 @@ export function PageProblemesPosteurs() {
   const archives = useQuery({ queryKey: ["problemes", "archives"], queryFn: lireArchives, enabled: vue === "archives" });
   const mode = useQuery({ queryKey: ["problemes", "mode"], queryFn: lireModeProblemes });
   const passer = useMutation({ mutationFn: passerMaintenant, onSuccess: () => qc.invalidateQueries({ queryKey: ["problemes"] }) });
-  const lot = useMutation({
-    mutationFn: () => validerCategorie(onglet, f.categorie),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["problemes"] }),
+  // 3/11 : à chaque ouverture, relire Upwork puis recalculer avant d'afficher (au plus une fois toutes les 5 min).
+  const resync = useQuery({
+    queryKey: ["resync-problemes"],
+    queryFn: async () => {
+      const r = await passerMaintenant();
+      await qc.invalidateQueries({ queryKey: ["problemes"] });
+      return r;
+    },
+    staleTime: 5 * 60_000,
+    refetchOnWindowFocus: false,
+    retry: false,
   });
 
   const tous = lu.data ?? [];
@@ -219,19 +317,15 @@ export function PageProblemesPosteurs() {
         </div>
       </div>
 
-      {vue === "ouverts" && f.categorie && peutValiderCategorie(f.categorie) && visibles.length > 0 && (
-        <Button size="sm" variant="secondary" onClick={() => lot.mutate()} disabled={lot.isPending} data-testid="valider-categorie">
-          {t(`${P}.validerCategorie`, { n: visibles.length })}
-        </Button>
-      )}
 
+      {resync.isFetching && <p className="text-xs text-muted-foreground" data-testid="resync">{t(`${P}.resync`)}</p>}
       {lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.chargement`)}</p>}
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
 
       {vue === "ouverts" && (
         <div className="space-y-3">
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
-          {visibles.map((p) => <CarteProbleme key={p.id} p={p} mode={modeActuel} />)}
+          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} />)}
         </div>
       )}
 

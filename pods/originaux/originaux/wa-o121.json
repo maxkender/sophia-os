@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o121",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "67c911ab-938b-4d28-91c9-808fc9addd66",
+ "titre": "hobbies that will make you intellectually lethal #intelligence #selfimprovement #learning #hobbies #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "67c911ab-938b-4d28-91c9-808fc9addd66"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 67c911ab). déclinaison G1 de « hobbies that will make you intellectually lethal » (parent 67c911ab). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3fd759ab-72b7-4d1f-9c2d-caecc055de9b",
+   "texte_overlay": "hobbies that will make you\nintellectually lethal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657293947642973453/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c7df094-485e-422a-9376-0b1947247972",
+   "texte_overlay": "steelmanning\n\nonce a week, write the strongest possible version of an argument you disagree with. understanding the other side properly makes your own thinking very hard to beat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657293947642973453/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c62af239-712a-4906-8400-a27f7dc53470",
+   "texte_overlay": "reading primary sources\n\nread the original speech, letter or study instead of the article about it. going to the source is slower, but you'll catch what every summary left out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657293947642973453/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "82aafc54-8b2f-434c-9a63-776bf1c7f073",
+   "texte_overlay": "chess endgames\n\nstudy one chess endgame a week. thinking a few moves ahead in a game trains the same calm, careful logic you'll use in every serious decision of your life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657293947642973453/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "45cd34bc-1648-455f-b546-7039680b60b9",
+   "texte_overlay": "one idea a day\n\nspend 5 minutes a day learning one big idea: a theory, a famous experiment, a turning point in history. sharp minds are built from many small doses, not one big push.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657293947642973453/5.jpg",
+   "texte_sophia": "one idea a day\n\ni used to read only headlines. now i spend 5 minutes a day on one lesson in the Sophia app: a theory, an experiment, a turning point in history. sharp minds are built daily."
+  },
+  {
+   "position": 6,
+   "media_id": "ac43fe82-ce45-4201-a9a3-26af65f79cb9",
+   "texte_overlay": "explaining to a child\n\nexplain one hard thing a week as if to a ten year old. if you can't make it simple, you've found exactly the part you still need to go back and understand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657293947642973453/6.jpg"
+  }
+ ]
+}

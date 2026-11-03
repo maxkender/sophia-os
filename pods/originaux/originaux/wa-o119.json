@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o119",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0eccf4eb-b25f-48c5-a817-a520b67f2edf",
+ "titre": "hobbies that will pull you out of your dopamine addiction #dopaminedetox #selfimprovement #focus #hobbies #screentime",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "4b37e35d-bcff-4e98-a706-0cbedd02036c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 4b37e35d). déclinaison G1 de « hobbies that will pull you out of your dopamine addiction » (parent 0eccf4eb, 12 700 vues en it ; images d'un contenu du label). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6630b394-9711-4f37-a2d2-6741f6bb9c46",
+   "texte_overlay": "hobbies that will pull you out\nof your dopamine addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662489078260059406/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11ff4f0c-dadd-4d3d-948b-07b1ed93673d",
+   "texte_overlay": "birdwatching\n\nsit in a park for twenty minutes and try to spot five different birds. waiting for something slow and real slowly retrains a brain that got used to instant rewards.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662489078260059406/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bfa7cf65-ca84-41de-a950-b34d57908297",
+   "texte_overlay": "baking bread\n\nbake one loaf a week from scratch. kneading, waiting and checking the oven teaches your brain to enjoy rewards that take hours to arrive instead of seconds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662489078260059406/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e567cd85-73a7-4207-9a9a-ea2623930f6f",
+   "texte_overlay": "handwritten letters\n\nwrite one letter by hand each month to someone you care about. slow communication feels strange at first, then it becomes the most meaningful part of your week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662489078260059406/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d6faba7b-4a5f-4fcf-916a-f34ff7b83afb",
+   "texte_overlay": "swapping one scroll\n\nevery time you reach for a feed, learn one real thing instead: a planet, a painting, a moment in history. small real rewards slowly replace the empty ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662489078260059406/5.jpg",
+   "texte_sophia": "swapping one scroll\n\nevery time i reach for a feed, i learn one real thing instead. the Sophia app turns it into one short lesson a day, and small real rewards slowly replaced the empty ones."
+  },
+  {
+   "position": 6,
+   "media_id": "e1cc1699-f39d-4983-80ca-d0b4402e7645",
+   "texte_overlay": "long walks with no plan\n\nwalk for an hour with no music and no destination once a week. the first fifteen minutes feel boring, and then your mind finally starts to wander freely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662489078260059406/6.jpg"
+  }
+ ]
+}

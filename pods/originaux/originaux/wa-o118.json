@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o118",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cb34b9bf-66cb-432e-bdd5-acea9765b18c",
+ "titre": "small changes that made me disgustingly disciplined #discipline #selfimprovement #habits #mindset #growth",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "cb34b9bf-66cb-432e-bdd5-acea9765b18c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, cb34b9bf). déclinaison G1 de « small changes that made me disgustingly disciplined » (parent cb34b9bf). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "32b78da9-63c7-45f2-ad92-5dc52e7d2ac6",
+   "texte_overlay": "small changes that made me\ndisgustingly disciplined",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666854927305641229/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "03183f91-1363-4a4a-a2db-ea3abdb772d4",
+   "texte_overlay": "clothes out the night before\n\ni lay out tomorrow's clothes every night before bed. one less decision in the morning sounds tiny, but it quietly removes the very first excuse of the whole day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666854927305641229/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9be91a77-5af0-4027-9947-1d4f3aff9fe3",
+   "texte_overlay": "the phone across the room\n\ni charge my phone on the other side of the room. getting out of bed to turn off the alarm means i'm already standing up before my sleepy brain can start to negotiate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666854927305641229/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c33f26b5-af19-4f6a-b3b3-3af6e2cbec97",
+   "texte_overlay": "two minute tidy\n\ni tidy up for two minutes every time before sitting down to work. a clear desk is a small first win that tells my brain the work session has properly begun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666854927305641229/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "df79a0dc-98d9-47b2-b395-19d9ec770f27",
+   "texte_overlay": "one lesson before lunch\n\ni learn one new thing every day before lunch in 5 minutes: a word, a fact, a painting. keeping a small daily promise made every bigger promise easier to keep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666854927305641229/5.jpg",
+   "texte_sophia": "one lesson before lunch\n\ni learn one new thing every day before lunch. it's one 5 minute lesson in the Sophia app: a word, a fact, a painting, and keeping that small promise made bigger ones easier."
+  },
+  {
+   "position": 6,
+   "media_id": "72e77fcb-791e-4244-9949-5a7e51e4a56d",
+   "texte_overlay": "never miss twice\n\ni allow myself to miss a habit once, but never two days in a row. that one rule turned the guilt of a bad day into a simple, calm plan for the very next one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666854927305641229/6.jpg"
+  }
+ ]
+}

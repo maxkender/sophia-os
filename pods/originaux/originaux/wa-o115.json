@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o115",
+ "type_bleo": "full_test",
+ "titre": "quiet skills that make people think you're a genius #intelligence #skills #selfimprovement #learning #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "eea831d8-ad27-4746-a481-a1e1557a8b02"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, eea831d8). full test BLEO : accroche jamais faite (format « quiet skills »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2cf86933-1978-4493-a6e8-7f742a7ec609",
+   "texte_overlay": "quiet skills that make people\nthink you're a genius",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651356551428574478/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c6ebc50e-a552-4668-8b5c-83d489c3a00c",
+   "texte_overlay": "summarising in one line\n\nafter any meeting, video or book, sum it up in one sentence. people who can compress a long idea into a short line always sound like the smartest in the room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651356551428574478/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "86e94b5a-3b94-4445-a72c-413ad4ea4416",
+   "texte_overlay": "asking the second why\n\nwhen someone explains something, ask why one more time than feels polite. the second answer is where the real understanding lives, and few people ever get there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651356551428574478/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0efe64e6-21b8-4b50-97ae-c8a3fa5b3be6",
+   "texte_overlay": "remembering numbers\n\nlearn a handful of useful numbers by heart: distances, dates, populations. dropping one accurate figure into a conversation makes everything you say more credible.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651356551428574478/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "27e3b7e6-21d0-4057-8c35-bb839d04bdff",
+   "texte_overlay": "knowing a bit of everything\n\nspend 5 minutes a day learning something outside your field: art, history, science. people assume you're a genius when you can talk calmly about almost anything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651356551428574478/5.jpg",
+   "texte_sophia": "knowing a bit of everything\n\ni used to only know my own subject. now i spend 5 minutes a day on one lesson in the Sophia app: art, history, science. people assume you're a genius when you know a bit of everything."
+  },
+  {
+   "position": 6,
+   "media_id": "6aa7a06e-5b4f-466b-a49f-80c527ec7982",
+   "texte_overlay": "saying i'm not sure\n\nadmit when you don't know, then say how you'd find out. confident uncertainty sounds far smarter than a guess, and people trust you more because of it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651356551428574478/6.jpg"
+  }
+ ]
+}

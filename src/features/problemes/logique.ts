@@ -4,7 +4,7 @@ export const NIVEAUX: readonly Niveau[] = ["urgent", "aujourdhui", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
 
 /** C10 : l'argent n'est jamais exécuté par un bouton, ni validé en lot. */
-export const CATEGORIES_ARGENT: readonly string[] = ["paie"];
+export const CATEGORIES_ARGENT: readonly string[] = ["paie", "kill_contrat"];
 
 /** C12 : jamais d'envoi auto pour ces catégories. */
 export const JAMAIS_AUTO: readonly string[] = ["stop", "paie", "menace", "hors_plateforme", "suspect", "contrat_hm", "offre_hm_incorrecte"];
@@ -49,6 +49,7 @@ export function options(liste: readonly Probleme[]): { categories: string[]; hms
 }
 
 export type GesteValider =
+  | { type: "kill" }
   | { type: "page"; vers: string }
   | { type: "releve"; compte_id: string }
   | { type: "motDePasse"; poster_id: string }
@@ -63,6 +64,8 @@ export type GesteValider =
  */
 export function gesteValider(p: Pick<Probleme, "categorie" | "proposition_action" | "proposition_reponse" | "poster_id" | "compte_id">): GesteValider {
   const fiche = p.poster_id ? `/admin/posters?poster=${p.poster_id}` : "/admin/posters";
+  // 3/11 : le Kill ouvre le formulaire (contrat Upwork lié, case « fermer et récupérer »).
+  if (p.categorie === "stop" || p.proposition_action === "kill") return p.poster_id ? { type: "kill" } : { type: "page", vers: fiche };
   if (CATEGORIES_ARGENT.includes(p.categorie) || p.proposition_action === "open_payroll") return { type: "page", vers: "/admin/auto/payroll" };
   if (p.proposition_action === "open_who_to_fund") return { type: "page", vers: "/admin/auto/payroll?onglet=financer" };
   // v4 : le lien de mot de passe part depuis la page (mode « on » seulement) ; le reste des formulaires s'ouvre.
@@ -102,6 +105,7 @@ export interface Phrase {
 }
 
 export type Geste =
+  | { type: "kill"; cle: string }
   | { type: "lien"; cle: string; url: string }
   | { type: "page"; cle: string; vers: string }
   | { type: "releve"; cle: string; compte_id: string };
@@ -158,7 +162,11 @@ export function gestes(p: Pick<Probleme, "categorie" | "poster_id" | "compte_id"
         : { type: "page", cle: "geste.whoToFund", vers: "/admin/auto/payroll?onglet=financer" });
       break;
     case "stop":
-      g.push({ type: "page", cle: "geste.kill", vers: fiche });
+      g.push(p.poster_id ? { type: "kill", cle: "geste.kill" } : { type: "page", cle: "geste.kill", vers: fiche });
+      break;
+    case "kill_contrat":
+      // Fermer + récupérer à la main : le contrat d'abord (lien plus bas), puis Payroll.
+      g.push({ type: "page", cle: "geste.payroll", vers: "/admin/auto/payroll" });
       break;
     case "login":
       g.push({ type: "page", cle: "geste.motDePasse", vers: fiche });

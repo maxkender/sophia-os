@@ -111,6 +111,7 @@ import { posteurExistantDeErreur } from "../_shared/contrat_unique.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
+import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -310,6 +311,16 @@ Deno.serve(async (request) => {
         return json(await lireContratsSansPosteur(supabase, par));
       case "contrat_sans_posteur_fermer":
         return json(await fermerContratSansPosteur(supabase, par, String(body.contrat_id ?? "")));
+      case "kill_probleme":
+        // 3/11 : Kill depuis la page Problèmes (aperçu, puis exécution ; jamais en mode test).
+        return json(await killProbleme(supabase, par, String(body.probleme_id ?? ""), body.fermer_contrat !== false, body.executer === true));
+      case "kill_lot": {
+        // 3/11 : fermer une liste de contrats de posteurs déjà désactivés (aperçu, puis exécution sur OK).
+        const contrats = Array.isArray(body.contrats) ? body.contrats.map((c: { contrat_id?: unknown; poster_id?: unknown }) => ({
+          contrat_id: String(c?.contrat_id ?? ""), poster_id: c?.poster_id ? String(c.poster_id) : null,
+        })) : [];
+        return json(await killLot(supabase, par, contrats, body.executer === true));
+      }
       case "contexte_upwork": {
         // Prompt 27 : les conversations Upwork des posteurs actifs, relues (lecture seule) pour la masterlist.
         const posteurs = Array.isArray(body.posteurs) ? body.posteurs.map(String) : null;
@@ -4380,4 +4391,158 @@ async function alerterMax(message: string, compte: string = COMPTE): Promise<voi
           `Les messages passent par le compte principal seulement. Reconnecter : ${OS_URL}/admin/auto`,
     }),
   }).catch(() => undefined);
+}
+
+// ---------------------------------------------------------------------------
+// 3/11 : Kill depuis la page Problèmes, branché sur Upwork
+// ---------------------------------------------------------------------------
+
+interface InfoKill {
+  contrat_id: string | null;
+  titre: string | null;
+  organisation: string | null;
+  statut: string | null;
+  jalons: { nom: string; etat: string; depot: number | null; paye: number | null }[];
+  plan: PlanKill;
+  tenant: string | null;
+}
+
+/** La semaine passée (lundi de Paris − 7 j) des posteurs du contrat : payée ? (le kill attend la paie du lundi) */
+async function semainePasseeKill(supabase: Supabase, posters: string[]) {
+  const jour = maintenantParis().jour;
+  const lundi = ajouterJours(jour, -(maintenantParis().isoJour - 1));
+  const passee = ajouterJours(lundi, -7);
+  if (!posters.length) return null;
+  const { data } = await supabase.from("paie_semaines").select("poster_id, montant, montant_corrige, paye_at, exclu").in("poster_id", posters).eq("semaine", passee);
+  const { data: api } = await supabase.from("paie_paiements_api").select("poster_id, statut").in("poster_id", posters).eq("semaine", passee);
+  const payeApi = new Set((api ?? []).filter((a) => ["paye", "deja_payee"].includes(String(a.statut))).map((a) => String(a.poster_id)));
+  const lignes = (data ?? []) as { poster_id: string; montant: number | string | null; montant_corrige: number | string | null; paye_at: string | null; exclu: boolean | null }[];
+  if (!lignes.length) return null;
+  const dues = lignes.map((l) => ({ montant: Number(l.montant_corrige ?? l.montant ?? 0), payee: Boolean(l.paye_at) || Boolean(l.exclu) || payeApi.has(l.poster_id) }));
+  const due = dues.find((d) => !d.payee && d.montant > 0);
+  const [, m, j] = passee.split("-");
+  return { semaine: `${j}/${m}`, montant: due ? due.montant : 0, payee: !due } as const;
+}
+
+/** Ce que l'OS sait du contrat, relu chez Upwork (lecture seule), et la décision. */
+async function infoKill(supabase: Supabase, par: string | null, contratId: string | null, posters: string[], saufPoster: string | null): Promise<InfoKill> {
+  const { data: uc } = contratId
+    ? await supabase.from("upwork_contrats").select("organisation_id, organisation_nom, titre").eq("contrat_id", contratId).maybeSingle()
+    : { data: null };
+  const tenant = (uc?.organisation_id as string | null) ?? null;
+  const vik = orgDeLOs(tenant);
+  const { data: conn } = await supabase.from("upwork_connexion").select("utilisateur").eq("compte", COMPTE).maybeSingle();
+  const compteMax = estCompteDeMax(conn?.utilisateur);
+  let partage = false;
+  if (contratId) {
+    let q = supabase.from("profiles").select("id").eq("upwork_contract_id", contratId).eq("is_active", true);
+    if (saufPoster) q = q.neq("id", saufPoster);
+    const { data: autres } = await q.limit(1);
+    partage = (autres ?? []).length > 0;
+  }
+  let statut: string | null = null;
+  let jalons: JalonUpwork[] | null = null;
+  if (contratId && vik && compteMax) {
+    const st = await lire(supabase, { par, action: "kill_statut", query: REQUETE_STATUT_CONTRAT, variables: { id: contratId }, tenant });
+    const jl = await lire(supabase, { par, action: "kill_jalons", query: REQUETE_JALONS, variables: { id: contratId }, tenant });
+    statut = (st.data?.contractDetails?.status as string | undefined) ?? null;
+    jalons = jl.data?.contractDetails ? lireJalonsContrat(jl.data.contractDetails) : null;
+  }
+  const plan = planKill({
+    contrat_id: contratId, vik, compte_max: compteMax, partage, statut, ferme: contratFerme(statut), jalons,
+    semaine_passee: await semainePasseeKill(supabase, posters),
+  });
+  return {
+    contrat_id: contratId, titre: (uc?.titre as string | null) ?? null, organisation: (uc?.organisation_nom as string | null) ?? null, statut,
+    jalons: (jalons ?? []).map((x) => ({ nom: x.nom, etat: x.etat, depot: x.depot, paye: x.paye })), plan, tenant,
+  };
+}
+
+/** Fermer (endContractByClient, sans avis public), puis relire : ce qui est revenu. */
+async function fermerKill(supabase: Supabase, par: string | null, info: InfoKill): Promise<{ ferme: boolean; rendu: number | null; erreur: string | null }> {
+  if (!info.contrat_id || info.plan.decision !== "fermer") return { ferme: false, rendu: null, erreur: info.plan.raison };
+  const avant = info.plan.montant;
+  const r = await ecrire(supabase, {
+    par, action: "kill_fermer", query: MUTATION_FERMER_CONTRAT, tenant: info.tenant, contrat: info.contrat_id, montant: avant,
+    variables: { contractId: info.contrat_id, input: { reasonRef: await raisonFin(supabase) } },
+  });
+  if (r.erreur || r.data?.endContractByClient?.success !== true) {
+    return { ferme: false, rendu: null, erreur: r.erreur ?? "fermeture non confirmée par Upwork" };
+  }
+  const jl = await lire(supabase, { par, action: "kill_jalons_apres", query: REQUETE_JALONS, variables: { id: info.contrat_id }, tenant: info.tenant });
+  const apres = jl.data?.contractDetails ? lireJalonsContrat(jl.data.contractDetails) : null;
+  // Ce qui était financé et ne l'est plus, sans avoir été payé : rendu.
+  const encore = apres ? apres.filter((x) => ETATS_FINANCES.includes(x.etat)).reduce((n, x) => n + Math.max(0, (x.depot ?? 0) - (x.paye ?? 0)), 0) : null;
+  return { ferme: true, rendu: encore === null ? avant : Math.round((avant - encore) * 100) / 100, erreur: null };
+}
+
+async function killProbleme(supabase: Supabase, par: string | null, problemeId: string, fermerContrat: boolean, executer: boolean) {
+  if (!/^[0-9a-f-]{36}$/i.test(problemeId)) return { ok: false, error: "probleme_id requis" };
+  const { data: p } = await supabase.from("problemes").select("id, poster_id, contrat_id, statut").eq("id", problemeId).maybeSingle();
+  if (!p?.poster_id) return { ok: false, error: "carte introuvable ou sans posteur" };
+  const { data: pr } = await supabase.from("profiles").select("upwork_contract_id").eq("id", p.poster_id).maybeSingle();
+  const contratId = (pr?.upwork_contract_id as string | null) ?? (p.contrat_id as string | null) ?? null;
+  const info = await infoKill(supabase, par, contratId, [String(p.poster_id)], String(p.poster_id));
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "problemes_mode").maybeSingle();
+  const test = (regl?.valeur ?? "test") !== "on";
+  if (!executer) return { ok: true, apercu: true, mode: test ? "test" : "on", ...info, tenant: undefined };
+  if (p.statut !== "ouvert") return { ok: false, error: "carte déjà fermée" };
+  if (test) {
+    // Mode test : rien n'est exécuté depuis la page (ni désactivation, ni fermeture).
+    return { ok: true, test: true, texte: `Mode test : rien n'est exécuté. ${texteKill({ desactive: false, contrat: contratId, plan: info.plan, ferme: false, rendu: null, erreur: null, case_cochee: fermerContrat, test: true })}`, ...info, tenant: undefined };
+  }
+  const { error: errKill } = await supabase.rpc("probleme_kill", { p_probleme: problemeId, p_par: par });
+  if (errKill) return { ok: false, error: `désactivation : ${errKill.message}` };
+  let r = { ferme: false, rendu: null as number | null, erreur: null as string | null };
+  if (fermerContrat) {
+    r = info.plan.decision === "fermer" ? await fermerKill(supabase, par, info) : { ferme: false, rendu: null, erreur: info.plan.raison };
+    if (!r.ferme && info.plan.decision !== "deja_ferme") {
+      await supabase.rpc("probleme_kill_a_la_main", {
+        p_poster: p.poster_id, p_contrat: contratId, p_montant: info.plan.montant, p_raison: r.erreur ?? info.plan.raison ?? "fermeture impossible",
+      });
+    }
+    if (r.ferme) await noterFinKill(supabase, String(p.poster_id));
+  }
+  const texte = texteKill({ desactive: true, contrat: contratId, plan: info.plan, ferme: r.ferme, rendu: r.rendu, erreur: r.erreur, case_cochee: fermerContrat });
+  await supabase.rpc("probleme_kill_terminer", { p_probleme: problemeId, p_texte: texte, p_par: par });
+  return { ok: true, texte, ferme: r.ferme, rendu: r.rendu, ...info, tenant: undefined };
+}
+
+/** Le contrat terminé : noté comme les fins du lundi (le lundi ne le refera pas). */
+async function noterFinKill(supabase: Supabase, posterId: string) {
+  const jour = maintenantParis().jour;
+  await supabase.from("recrue_evenements").upsert(
+    { poster_id: posterId, type: "contrat_termine", at: new Date().toISOString(), detail: "Kill : contrat fermé par l'API", cle: `contrat_termine:kill:${jour}` },
+    { onConflict: "poster_id,type,cle", ignoreDuplicates: true },
+  );
+  const { data: a } = await supabase.from("arrets").select("id, etapes").eq("poster_id", posterId).is("annule_at", null).order("created_at", { ascending: false }).limit(1).maybeSingle();
+  if (a) {
+    const etapes = [...((a.etapes ?? []) as EtapeArret[]).map((e) => e.action === "paie" && e.statut === "a_faire" ? etape("paie", "sans_objet", "contrat fermé au Kill") : e),
+      etape("fermeture", "fait", "contrat fermé au Kill (page Problèmes ou lot)")];
+    await supabase.from("arrets").update({ etapes, statut: "fait", maj_at: new Date().toISOString() }).eq("id", a.id);
+  }
+}
+
+async function killLot(supabase: Supabase, par: string | null, contrats: { contrat_id: string; poster_id: string | null }[], executer: boolean) {
+  if (!contrats.length || contrats.length > 30) return { ok: false, error: "1 à 30 contrats" };
+  const lignes: Record<string, unknown>[] = [];
+  for (const c of contrats) {
+    const { data: profils } = await supabase.from("profiles").select("id, prenom, nom, is_active").eq("upwork_contract_id", c.contrat_id);
+    const posters = [...new Set([...(profils ?? []).map((x) => String(x.id)), ...(c.poster_id ? [c.poster_id] : [])])];
+    const info = await infoKill(supabase, par, c.contrat_id, posters, null);
+    const nom = (profils ?? []).map((x) => [x.prenom, x.nom].filter(Boolean).join(" ")).join(", ") || null;
+    if (!executer) {
+      lignes.push({ nom, ...info, tenant: undefined });
+      continue;
+    }
+    const r = info.plan.decision === "fermer" ? await fermerKill(supabase, par, info) : { ferme: false, rendu: null, erreur: info.plan.raison };
+    if (!r.ferme && info.plan.decision !== "deja_ferme") {
+      await supabase.rpc("probleme_kill_a_la_main", {
+        p_poster: posters[0] ?? null, p_contrat: c.contrat_id, p_montant: info.plan.montant, p_raison: r.erreur ?? info.plan.raison ?? "fermeture impossible",
+      });
+    }
+    if (r.ferme) for (const pid of posters) await noterFinKill(supabase, pid);
+    lignes.push({ nom, contrat_id: c.contrat_id, ferme: r.ferme, rendu: r.rendu, texte: texteKill({ desactive: false, contrat: c.contrat_id, plan: info.plan, ferme: r.ferme, rendu: r.rendu, erreur: r.erreur, case_cochee: true }) });
+  }
+  return { ok: true, executer, lignes };
 }

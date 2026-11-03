@@ -282,3 +282,39 @@ export async function lireStatsBots(): Promise<StatBot[]> {
   if (error) throw error;
   return (data ?? []) as StatBot[];
 }
+
+// ---------------------------------------------------------------------------
+// 3/11 : Kill depuis la page Problèmes, branché sur Upwork (fonction upwork, 0527).
+// ---------------------------------------------------------------------------
+export interface PlanKill {
+  decision: "fermer" | "deja_ferme" | "attendre" | "a_la_main";
+  raison: string | null;
+  montant: number;
+  en_cours: { nom: string; depot: number | null; etat: string } | null;
+}
+
+export interface InfoKill {
+  contrat_id: string | null;
+  titre: string | null;
+  organisation: string | null;
+  statut: string | null;
+  jalons: { nom: string; etat: string; depot: number | null; paye: number | null }[];
+  plan: PlanKill;
+  mode?: "test" | "on";
+  texte?: string;
+  test?: boolean;
+}
+
+/** Ce que le Kill fera : le contrat lié, relu chez Upwork (lecture seule). */
+export async function apercuKill(problemeId: string): Promise<InfoKill> {
+  const r = await invoke<{ ok: boolean; error?: string } & InfoKill>("upwork", { action: "kill_probleme", probleme_id: problemeId, executer: false });
+  if (!r.ok) throw new Error(r.error ?? "aperçu du Kill impossible");
+  return r;
+}
+
+/** Le Kill : compte désactivé, kill noté, et (case cochée) contrat fermé sans avis. Jamais en mode test. */
+export async function executerKill(problemeId: string, fermerContrat: boolean): Promise<InfoKill> {
+  const r = await invoke<{ ok: boolean; error?: string } & InfoKill>("upwork", { action: "kill_probleme", probleme_id: problemeId, executer: true, fermer_contrat: fermerContrat });
+  if (!r.ok) throw new Error(r.error ?? "Kill impossible");
+  return r;
+}

@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o043",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7cc839ee-4e13-45aa-b022-6c74818044f8",
+  "titre": "5 ways to participate more in class #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "7cc839ee-4e13-45aa-b022-6c74818044f8"
+  ],
+  "notes": "Déclinaison G1 de 7cc839ee (r 3,15 en allemand), ligne 3 de la boîte. Accroche du parent mot pour mot (symboles 𓆩 𓆪 gardés). Cinq façons neuves, aucune du parent (penser à voix haute, questions comment/pourquoi, « je me demande… », préparation, écoute active) : lever la main pour la question facile en début de cours, reformuler ce qu'un autre élève a dit, préparer une question la veille en relisant ses notes (place micabo, slide 4), donner un exemple de la vraie vie, téléphone rangé pour pouvoir suivre (place UnSwipe, slide 6). Slides 4 et 6 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (la banque n'a plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : 69383339 (écran sur une slide d'appli, cigarette sur la couverture, ou même photo que la slide 1).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "34115e28",
+      "texte_overlay": "𓆩 𓆪 5 ways to participate more in class 𓆩 𓆪",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "38faba0b",
+      "texte_overlay": "1) answer the first easy question\nonce you've spoken once, the second time is way less scary.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3994d15d",
+      "texte_overlay": "2) build on what someone else said\n\"to add to what she said…\" counts as participating too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d0e567ec",
+      "texte_overlay": "3) prepare one question the night before\nquiz yourself on your notes, and whatever you miss becomes your question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "39eb3892",
+      "texte_overlay": "4) give a real-life example\nteachers love it, and it proves you actually understood.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f2f9b014",
+      "texte_overlay": "5) keep your phone in your bag\nyou can't jump into a discussion you only half heard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

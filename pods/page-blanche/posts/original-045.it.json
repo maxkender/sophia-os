@@ -1,0 +1,412 @@
+{
+ "post_id": "original-045",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things quietly destroying",
+      "your discipline"
+     ],
+     "fr": "10/10 trucs qui flinguent ta discipline en silence",
+     "texte": "5 cibi che piacciono davvero al tuo cervello"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(scienza, zero stranezze)",
+     "alignement": "droite"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "1. [[pesce grasso]] due volte a settimana"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "salmone, sardine, sgombro: pieni di [[omega-3]], un grasso di cui il tuo cervello è fatto in parte"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "gli studi lo collegano a [[una memoria che cala più piano]] con l'età"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "il pesce non fa per te? sardine in scatola sul pane contano anche loro. costano poco, durano e sono [[pronte in due minuti]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "2. una ciotola di [[frutti rossi]]"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "come spuntino serale"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "mirtilli, fragole, anche surgelati. gli studi suggeriscono che [[aiutano la memoria]] con l'età"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des [[livres au lieu de scroller]]",
+     "texte": "3. un po' di [[cibo per la mente]]"
+    },
+    "T2": {
+     "en": [
+      "a book makes you follow one idea for pages.",
+      "scrolling trains that out of your head"
+     ],
+     "fr": "un livre t'oblige à [[suivre une idée]] sur des pages. le scroll [[te désapprend ça]]",
+     "texte": "al cervello piace [[qualcosa di nuovo da masticare]], non clip da 10 secondi in loop"
+    },
+    "T3": {
+     "en": [
+      "if you want to think",
+      "deeper, give your brain",
+      "something long before",
+      "anything short"
+     ],
+     "fr": "pour penser plus loin, donne d'abord [[un truc long]] à ton cerveau, le court après",
+     "texte": "secondo gli studi, imparare cose nuove mantiene il cervello [[sveglio più a lungo]]"
+    },
+    "T4": {
+     "en": [
+      "i use readup which blocks",
+      "my apps until i read for 20",
+      "minutes, which stopps me",
+      "from scrolling"
+     ],
+     "fr": "avant je [[scrollais dès que j'avais 2 min]], maintenant quand je prends mon tel, c'est [[5 min de leçon sur l'appli Sophia]]",
+     "texte": "oggi i miei 5 min con [[l'app Sophia]]: perché il viola era il colore dei re. meglio di 40 min di reel"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 217,
+      "l": 832,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 217,
+       "l": 832,
+       "h": 62,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 331,
+      "l": 801,
+      "h": 90
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 331,
+       "l": 801,
+       "h": 41,
+       "base": 369
+      },
+      {
+       "x": 37,
+       "y": 379,
+       "l": 650,
+       "h": 42,
+       "base": 417
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 496,
+      "l": 416,
+      "h": 186
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 496,
+       "l": 344,
+       "h": 40,
+       "base": 527
+      },
+      {
+       "x": 47,
+       "y": 545,
+       "l": 411,
+       "h": 40,
+       "base": 575
+      },
+      {
+       "x": 42,
+       "y": 592,
+       "l": 411,
+       "h": 41,
+       "base": 631
+      },
+      {
+       "x": 46,
+       "y": 642,
+       "l": 262,
+       "h": 40,
+       "base": 672
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 762,
+      "l": 474,
+      "h": 185
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 762,
+       "l": 469,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 41,
+       "y": 808,
+       "l": 472,
+       "h": 42,
+       "base": 847
+      },
+      {
+       "x": 40,
+       "y": 858,
+       "l": 474,
+       "h": 40,
+       "base": 896
+      },
+      {
+       "x": 41,
+       "y": 904,
+       "l": 243,
+       "h": 43,
+       "base": 937
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 541,
+      "y": 438,
+      "l": 434,
+      "h": 820
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 243,
+      "y": 1195,
+      "l": 292,
+      "h": 127
+     }
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "4. [[verdure a foglia verde]] nel piatto ogni giorno"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "spinaci, cavolo nero, insalata, broccoli. una manciata nella pasta basta, niente frullati"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "gli studi collegano una porzione di verdura al giorno a [[un cervello più giovane]]"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "sul serio, [[una manciata]] basta"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[il te del futuro ringrazia]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "5. [[uova]] con il caffè del mattino"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "le uova sono piene di [[colina]], che il cervello usa per la memoria"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "strapazzate, sode, sul pane: [[cinque minuti]] e reggi fino a pranzo"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "un caffè da solo alle 8 [[non è una colazione]], il cervello vuole carburante vero"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

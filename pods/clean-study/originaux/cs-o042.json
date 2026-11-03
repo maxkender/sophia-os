@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o042",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "21d54fb2-0b87-4d61-86ee-e6b2b61d9bc2",
+  "titre": "are these popular characters academic role models or not personal assessment #studytok #school #booktok",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "21d54fb2-0b87-4d61-86ee-e6b2b61d9bc2"
+  ],
+  "notes": "Déclinaison G1 de 21d54fb2 (r 3,28 en français), ligne 2 de la boîte. Ligne 1 (078380ce, « unusual study tips published by the university of british columbia ») écartée volontairement : l'accroche attribue les astuces à une université réelle que je ne peux pas vérifier, et le parent contient des astuces douteuses (chocolate à 75 %, posture de pouvoir) ; contraire aux garde-fous du label (faits vrais, rien de douteux). Accroche du parent mot pour mot. Personnages de fiction neufs (aucun du parent : Blair, Hermione, Spencer) : Rory Gilmore, Elle Woods, Paris Geller, Matilda. Avis équilibrés, sans mépris. Pour ne pas prêter un personnage au visage d'une autre actrice, les slides des personnages sont des photos d'objets ou de lieux. Place micabo : slide 6 (se tester) ; place UnSwipe : slide 7 (les réseaux). Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (la banque n'a plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "28be86eb",
+      "texte_overlay": "are these popular characters academic role models or not\npersonal assessment",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ea4a5e70",
+      "texte_overlay": "rory gilmore\n✅ reads constantly, organized, actually loves learning\n❌ her whole worth depends on school. one bad review and she falls apart.\nverdict: role model, with breaks",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d2a46b01",
+      "texte_overlay": "elle woods\n✅ decided to get into law school and just did the work\n✅ stayed herself the whole time\nverdict: role model. underestimated = motivated.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fa92c7f4",
+      "texte_overlay": "paris geller\n✅ the most prepared person in any room\n❌ stresses about everything, burns out often\nverdict: copy her preparation, not her panic",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "fed88e01",
+      "texte_overlay": "matilda\n✅ reads for fun, curious about everything\n✅ learned because she wanted to, not for grades\nverdict: the purest role model on this list",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c448cc40",
+      "texte_overlay": "my takeaway: be curious like matilda, prepared like paris,\nand test yourself on your notes like you mean it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cb5d0819",
+      "texte_overlay": "and like all of them: phone away when it's time to work.\nnone of them were scrolling during exam week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o076",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "ffd34b3f-7e30-44f3-b852-4f60c72264bf",
+  "titre": "unhinged ways to lock tf in for school #studytok #school",
+  "inspirations": [
+    "ffd34b3f-7e30-44f3-b852-4f60c72264bf"
+  ],
+  "notes": "G1, déclinaison de ffd34b3f (« unhinged ways to lock tf in for school », génération 0 en anglais ; meilleur passage de 6,1 k vues, r 3,3), en anglais. cta A (avant / après sur le dernier item). Le parent bloque les réseaux avec une appli ; ici rien de tel, aucune autre appli citée. Items neufs (rien de repris du parent). Routine du 3/11 sur BLEO : jauge 0 full test et 8 déclinaisons. J'ai encore sauté la ligne 2 de la boîte (837491f7, « jobs for people who love enterimarnt ») : faute de frappe dans l'accroche à recopier mot pour mot, et salaires invérifiables. Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "43747ea2",
+      "texte_overlay": "unhinged ways to lock tf in\nfor school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "06b64a24",
+      "texte_overlay": "1. dress like you study in a castle library\n\npyjamas say nap.\na blazer says thesis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09dd6248",
+      "texte_overlay": "2. a timer and a bet\n\nif you don't finish before it rings,\nyou owe your sister a coffee.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "3. teach the lesson to your plants\n\nexplain it out loud.\nif the cactus could follow, you understand it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "03d4534a",
+      "texte_overlay": "4. hide your phone in another room\n\nthe walk to get it is just long enough\nto remember why you didn't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "114ca47c",
+      "texte_overlay": "5. swap scrolling breaks for learning breaks\n\nbefore, my 5-minute breaks turned into an hour on my phone.\nnow i read one short page about history or art. and i actually go back to work.",
+      "texte_sophia": "5. swap scrolling breaks for learning breaks\n\nbefore, my 5-minute breaks turned into an hour on my phone.\nnow i open the Sophia app for five minutes of history or art. and i actually go back to work.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "05383fbb",
+      "texte_overlay": "which one are you trying tonight?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

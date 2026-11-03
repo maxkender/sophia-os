@@ -1,0 +1,1010 @@
+{
+ "id": "yp-028",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7666878168279584002",
+  "vues": 835200,
+  "enregistrements": 46857,
+  "publie_le": "2026-07-26",
+  "titre": "the perfect AFTER SCHOOL ROUTINE for a peaceful life"
+ },
+ "titre": {
+  "fr": "la routine parfaite d’une journée de révisions",
+  "en": "the perfect study day routine",
+  "es": "la rutina perfecta para un día de estudio",
+  "de": "die perfekte Lerntag-Routine",
+  "it": "la routine perfetta per una giornata di studio",
+  "pt": "a rotina perfeita pra um dia de estudos",
+  "tr": "mükemmel ders günü rutini"
+ },
+ "legendes": {
+  "fr": "ma journée type de révisions 📚 #routine #revisions #studytok #thatgirl #productivite",
+  "en": "my typical study day 📚 #routine #studyday #studytok #thatgirl #productivity",
+  "es": "mi día típico de estudio 📚 #rutina #estudiar #studytok #thatgirl #productividad",
+  "de": "mein typischer Lerntag 📚 #routine #lernen #studytok #thatgirl #produktivität",
+  "it": "la mia giornata tipo di studio 📚 #routine #studiare #studytok #thatgirl #produttività",
+  "pt": "meu dia típico de estudos 📚 #rotina #estudos #studytok #thatgirl #produtividade",
+  "tr": "tipik ders günüm 📚 #rutin #ders #studytok #thatgirl #verimlilik"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "2601c984-10c5-4b9c-9a1e-1350eff4e0b2",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9479280e-f45c-4fa3-887e-1d63ff5fb194/4.jpg?v=1791725772848",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-002 (« the perfect AFTER SCHOOL ROUTINE », 835 k) : journée de révisions, autres photos. cta B : la mise en scène iPhone micabo (a83da81b) en photo pleine de l’étape « pause quiz de 10 min »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la routine parfaite",
+     "lignes": [
+      "D’UNE",
+      "JOURNÉE DE",
+      "RÉVISIONS"
+     ],
+     "taille": 140,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "pour avancer sans t’épuiser📚"
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "the perfect",
+     "lignes": [
+      "STUDY",
+      "DAY",
+      "ROUTINE"
+     ],
+     "taille": 176,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "to get it all done without burning out📚"
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la rutina perfecta",
+     "lignes": [
+      "PARA UN",
+      "DÍA DE",
+      "ESTUDIO"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "para avanzar sin agotarte📚"
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "die perfekte",
+     "lignes": [
+      "LERNTAG-",
+      "ROUTINE"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "um voranzukommen, ohne auszubrennen📚"
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la routine perfetta",
+     "lignes": [
+      "PER UNA",
+      "GIORNATA",
+      "DI STUDIO"
+     ],
+     "taille": 150,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "per andare avanti senza esaurirti📚"
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a rotina perfeita",
+     "lignes": [
+      "PARA UM",
+      "DIA DE",
+      "ESTUDOS"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "pra render sem se esgotar📚"
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mükemmel",
+     "lignes": [
+      "DERS",
+      "GÜNÜ",
+      "RUTİNİ"
+     ],
+     "taille": 170,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "tükenmeden ilerlemek için📚"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "da93bc2d-bfc1-450e-b093-3fd73e6a20a6",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7e947f3d-0e16-4214-8c41-144d6341185c/4.jpg?v=1792601607060",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "un grand verre d’eau au réveil💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a big glass of water when you wake up💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "un buen vaso de agua al despertar💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "ein großes Glas Wasser nach dem Aufstehen💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "un bel bicchiere d’acqua appena sveglia💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "um copão de água ao acordar💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "uyanınca büyük bir bardak su💧"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4914044f-75f0-43ab-a73a-5093b8815c74",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55d49029-394f-4e3f-be4a-0ef9e23143b2/8.jpg?v=1790608761733",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "écris 3 objectifs pour la journée📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "write down 3 goals for the day📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "apunta 3 objetivos para el día📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "schreib 3 Ziele für den Tag auf📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "scrivi 3 obiettivi per la giornata📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "anote 3 metas pro dia📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "gün için 3 hedef yaz📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "009e8c17-53da-4686-9eb8-4cd2d807e625",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/825e2f63-ac59-4b22-8a83-27ec62441e44/2.jpg?v=1791725546071",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "premier bloc : la matière la plus dure🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "first block: the hardest subject🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "primer bloque: la asignatura más difícil🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "erster Block: das schwerste Fach🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "primo blocco: la materia più difficile🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "primeiro bloco: a matéria mais difícil🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "ilk blok: en zor ders🧠"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "pause quiz de 10 min📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "tes cours d’hier, pour ne rien oublier⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "10-minute quiz break📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "yesterday’s lessons, so nothing slips⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "pausa de quiz de 10 min📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "las clases de ayer, para no olvidar nada⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "10-Minuten-Quizpause📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "der Stoff von gestern, damit nichts verloren geht⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "pausa quiz di 10 minuti📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "le lezioni di ieri, per non dimenticare niente⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "pausa de quiz de 10 min📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "as aulas de ontem, pra não esquecer nada⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "10 dakikalık test molası📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun",
+     "sous": [
+      "dünün dersleri, hiçbir şey unutulmasın diye⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "067cba61-a006-4f0a-8e5a-5a7004239203",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ab60a9b9-a908-409d-9b18-0a94e60958fe/6.jpg?v=1790607590145",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "un vrai déjeuner, loin du bureau🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a real lunch, away from your desk🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "una comida de verdad, lejos de la mesa🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "ein richtiges Mittagessen, weg vom Schreibtisch🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "un vero pranzo, lontano dalla scrivania🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "um almoço de verdade, longe da mesa🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "masadan uzakta gerçek bir öğle yemeği🥗"
+     ],
+     "x": 540,
+     "y": 1820,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "da10f285-210d-4f6f-8e5e-20148e0b36fb",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/82048053-2cd3-46ee-a81c-9b8f9c429e6b/6.jpg?v=1791725481692",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "change de lieu l’après-midi☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "switch spots in the afternoon☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "cambia de sitio por la tarde☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "wechsle nachmittags den Ort☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "cambia posto il pomeriggio☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "mude de lugar à tarde☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "öğleden sonra yer değiştir☕"
+     ],
+     "x": 540,
+     "y": 1750,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ba8a425d-4d2e-4433-964a-256317621b5b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7c908149-ee3c-4dbc-8670-48bf99f82958/2.jpg?v=1790608131962",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "20 min de marche, sans téléphone🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a 20-minute walk, no phone🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "20 min de paseo, sin móvil🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "20 Min. spazieren, ohne Handy🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "20 minuti di passeggiata, senza telefono🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "20 min de caminhada, sem celular🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "telefonsuz 20 dakika yürüyüş🚶‍♀️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 44,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "193e5ff1-f8a0-4017-aa01-614c30bf6759",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dbfea484-5574-4e57-adfc-fbef6a2a1b53/8.jpg?v=1790679666568",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "on s’arrête à 19 h, promis🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "stop at 7pm, promise🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "se para a las 19 h, prometido🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "um 19 Uhr ist Schluss, versprochen🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "alle 19 si smette, promesso🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "às 19 h a gente para, prometido🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "saat 19.00’da bırakıyoruz, söz🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

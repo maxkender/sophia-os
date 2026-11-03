@@ -1,0 +1,816 @@
+{
+ "id": "yp-030",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7663536748386929942",
+  "vues": 181200,
+  "enregistrements": 10185,
+  "publie_le": "2026-07-17",
+  "titre": "habits that actually helped me PROTECT MY PEACE"
+ },
+ "titre": {
+  "fr": "les habitudes qui m’ont aidée à arrêter de procrastiner",
+  "en": "habits that actually helped me stop procrastinating",
+  "es": "los hábitos que me ayudaron a dejar de procrastinar",
+  "de": "Gewohnheiten, die mir geholfen haben, nicht mehr aufzuschieben",
+  "it": "le abitudini che mi hanno aiutata a smettere di procrastinare",
+  "pt": "hábitos que me ajudaram a parar de procrastinar",
+  "tr": "ertelemeyi bırakmama yardımcı olan alışkanlıklar"
+ },
+ "legendes": {
+  "fr": "si tu procrastines, c’est pour toi 🤍 #procrastination #thatgirl #studytok #habitudes #revisions",
+  "en": "if you procrastinate, this is for you 🤍 #procrastination #thatgirl #studytok #habits #studying",
+  "es": "si procrastinas, esto es para ti 🤍 #procrastinacion #thatgirl #studytok #habitos #estudiar",
+  "de": "wenn du aufschiebst, ist das für dich 🤍 #prokrastination #thatgirl #studytok #gewohnheiten #lernen",
+  "it": "se procrastini, questo è per te 🤍 #procrastinazione #thatgirl #studytok #abitudini #studiare",
+  "pt": "se você procrastina, isso é pra você 🤍 #procrastinacao #thatgirl #studytok #habitos #estudos",
+  "tr": "erteliyorsan bu senin için 🤍 #erteleme #thatgirl #studytok #alışkanlıklar #ders"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7658077577667480334"
+ },
+ "fond": {
+  "media_id": "1b3ed21a-498d-4026-9b82-1f3e8b04b929",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/db1e16f9-2c8c-47c4-a317-12d6c1d94233/4.jpg?v=1790681374691",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-021 (« PROTECT MY PEACE », 181 k) : même format paragraphes TikTok, angle procrastination, autres photos. cta A : micabo dans le texte de l’habitude « quand je n’ai envie de rien », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "les habitudes qui m’ont aidée à",
+     "lignes": [
+      "ARRÊTER DE",
+      "PROCRASTINER"
+     ],
+     "taille": 118,
+     "taille_script": 44,
+     "y": 900
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "habits that actually helped me",
+     "lignes": [
+      "STOP",
+      "PROCRASTINATING"
+     ],
+     "taille": 92,
+     "taille_script": 44,
+     "y": 900
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "los hábitos que me ayudaron a",
+     "lignes": [
+      "DEJAR DE",
+      "PROCRASTINAR"
+     ],
+     "taille": 124,
+     "taille_script": 44,
+     "y": 900
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "Gewohnheiten, die mir geholfen haben,",
+     "lignes": [
+      "NICHT MEHR",
+      "AUFZUSCHIEBEN"
+     ],
+     "taille": 110,
+     "taille_script": 44,
+     "y": 900
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "le abitudini che mi hanno aiutata a",
+     "lignes": [
+      "SMETTERE DI",
+      "PROCRASTINARE"
+     ],
+     "taille": 100,
+     "taille_script": 44,
+     "y": 900
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "hábitos que me ajudaram a",
+     "lignes": [
+      "PARAR DE",
+      "PROCRASTINAR"
+     ],
+     "taille": 124,
+     "taille_script": 44,
+     "y": 900
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "bana iyi gelen rutinler",
+     "lignes": [
+      "ERTELEMEYİ",
+      "BIRAKMAK"
+     ],
+     "taille": 126,
+     "taille_script": 44,
+     "y": 900
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4fdb0056-b5c6-45ba-8ece-e2c8671d6605",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bd2af8e1-5719-40a6-822e-2db477010646/4.jpg?v=1790606955214",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "commence avant d’être prête. l’envie",
+      "vient en travaillant, pas avant."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "start before you feel ready. motivation",
+      "comes from working, not before it."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "empieza antes de sentirte lista. las",
+      "ganas llegan trabajando, no antes."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "fang an, bevor du dich bereit fühlst.",
+      "die Lust kommt beim Arbeiten, nicht",
+      "davor."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "inizia prima di sentirti pronta. la",
+      "voglia arriva lavorando, non prima."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "comece antes de se sentir pronta. a",
+      "vontade vem trabalhando, não antes."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hazır hissetmeden başla. istek",
+      "çalışırken gelir, önce değil."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ff30ba12-d4cc-4d2c-9dc5-b4e62751d215",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/215f8cbe-4754-44a0-9150-2405cb2c7eb0/6.jpg?v=1790609145379",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "range ton téléphone dans un tiroir. ce",
+      "que tu ne vois pas ne te distrait pas."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "put your phone in a drawer. what you",
+      "can’t see can’t distract you."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "guarda el móvil en un cajón. lo que no",
+      "ves no te distrae."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "leg dein Handy in eine Schublade. was du",
+      "nicht siehst, lenkt dich nicht ab."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "metti il telefono in un cassetto. quello",
+      "che non vedi non ti distrae."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "guarde o celular numa gaveta. o que você",
+      "não vê não te distrai."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "telefonunu bir çekmeceye koy. görmediğin",
+      "şey dikkatini dağıtmaz."
+     ],
+     "x": 540,
+     "y": 1830,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "172de67a-263a-4edc-a518-7f066dc8e754",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7f4a5feb-be98-4312-8a81-0fc7ece73ba4/3.jpg?v=1790608867602",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fais la tâche la plus dure en premier.",
+      "le reste de la journée paraît facile",
+      "après."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "do the hardest task first. the rest of",
+      "the day feels easy after that."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "haz primero la tarea más difícil. el",
+      "resto del día parece fácil después."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach die schwerste Aufgabe zuerst. der",
+      "Rest des Tages fühlt sich danach leicht",
+      "an."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "fai prima il compito più difficile. il",
+      "resto della giornata sembra facile dopo."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "faça a tarefa mais difícil primeiro. o",
+      "resto do dia parece fácil depois."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "en zor işi önce yap. sonrasında günün",
+      "geri kalanı kolay gelir."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "28750386-7ef5-4fa8-887a-76ffd0c714ba",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/02c03790-3bd2-49b3-b42d-a15131ff9d23/6.jpg?v=1792597748419",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "quand je n’ai envie de rien, j’ouvre",
+      "micabo et je fais un seul quiz. 5 min",
+      "plus tard, je suis lancée."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "when i don’t feel like doing anything, i",
+      "open micabo and do just one quiz. 5",
+      "minutes later, i’m on a roll."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "cuando no me apetece nada, abro micabo y",
+      "hago un solo quiz. 5 min después, ya",
+      "estoy en marcha."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "wenn ich zu nichts Lust habe, öffne ich",
+      "micabo und mache nur ein Quiz. 5 Min.",
+      "später bin ich drin."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "quando non ho voglia di niente, apro",
+      "micabo e faccio un solo quiz. 5 minuti",
+      "dopo, sono partita."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "quando não tenho vontade de nada, abro o",
+      "micabo e faço um quiz só. 5 min depois,",
+      "já engatei."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hiçbir şey yapmak istemediğimde",
+      "micabo’yu açıp tek bir test çözüyorum.",
+      "5 dakika sonra işe girmiş oluyorum."
+     ],
+     "x": 540,
+     "y": 1760,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "39752103-782f-4211-aa7d-7b75200433c1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bfc1fbd6-8cb2-40aa-8d9f-4c7ff8be8d53/7.jpg?v=1790607854428",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "arrête d’attendre le bon moment. il",
+      "n’existe pas. il y a juste maintenant."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "stop waiting for the right moment. it",
+      "doesn’t exist. there’s only now."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "deja de esperar el momento perfecto. no",
+      "existe. solo existe ahora."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "hör auf, auf den richtigen Moment zu",
+      "warten. es gibt ihn nicht. es gibt nur",
+      "jetzt."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "smetti di aspettare il momento giusto.",
+      "non esiste. c’è solo adesso."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "pare de esperar o momento certo. ele não",
+      "existe. só existe agora."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "doğru anı beklemeyi bırak. öyle bir an",
+      "yok. sadece şimdi var."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1070f73d-6d30-4150-be9e-b65e552ac275",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b412e3f7-98bf-40b8-94cb-4244dd2b1ab1/9.jpg?v=1790677604936",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "récompense-toi après, jamais avant.",
+      "l’épisode, c’est quand le chapitre est",
+      "fini."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "reward yourself after, never before. the",
+      "episode comes when the chapter is done."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "prémiate después, nunca antes. el",
+      "capítulo de la serie llega cuando acabas",
+      "el tema."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "belohn dich danach, nie davor. die Folge",
+      "gibt’s, wenn das Kapitel fertig ist."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "premiati dopo, mai prima. l’episodio",
+      "arriva quando il capitolo è finito."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "se recompense depois, nunca antes. o",
+      "episódio vem quando o capítulo acabar."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendini sonra ödüllendir, asla önce",
+      "değil. dizi bölümü, ünite bitince."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "20298198-f19c-4491-971d-efd175e053f9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2f78c179-d410-4505-b599-6f1bd9fd106b/2-upscale.jpg?v=1785743421651",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "sois douce avec toi-même. un mauvais",
+      "jour n’efface pas tout le reste.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "be gentle with yourself. one bad day",
+      "doesn’t erase everything else.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "sé amable contigo misma. un mal día no",
+      "borra todo lo demás.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "sei sanft zu dir selbst. ein schlechter",
+      "Tag löscht nicht alles andere aus.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "sii gentile con te stessa. una brutta",
+      "giornata non cancella tutto il resto.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "seja gentil com você mesma. um dia ruim",
+      "não apaga todo o resto.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendine nazik ol. kötü bir gün geri",
+      "kalan her şeyi silmez.🤍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  }
+ ]
+}

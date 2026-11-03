@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o045",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "1aad1608-54f7-458e-9f64-254c6a2f63e2",
+  "titre": "my definition of a glow up and how i actually achieved mine #studytok #glowup #thatgirl",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "1aad1608-54f7-458e-9f64-254c6a2f63e2"
+  ],
+  "notes": "Déclinaison G1 de 1aad1608 (r 2,94 en turc), ligne 5 de la boîte. Accroche du parent mot pour mot. Glow up intérieur et scolaire, jamais une remarque sur le corps ni un régime (garde-fous du label). Items neufs, aucun du parent (arrêter de se voir comme un projet, marches sans téléphone, lire par curiosité, la question « si personne ne voyait », micabo, journée minimum, se sentir en sécurité avec soi) : finir ce que je commence, tenir les petites promesses, me tester sur mes cours chaque soir (place micabo, slide 5), une heure sans écran avant de dormir (place UnSwipe, slide 6), demander de l'aide plus tôt, être fière des petits progrès. Slides 5 et 6 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (la banque n'a plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4ed7995b",
+      "texte_overlay": "my definition of a glow up\nand how i actually achieved mine",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5563e59f",
+      "texte_overlay": "a glow up isn't a new face.\nit's becoming someone you can count on.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5ba09e75",
+      "texte_overlay": "i started finishing what i start.\none chapter, one assignment, one book. done before the next.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "66924248",
+      "texte_overlay": "i kept small promises to myself.\n\"20 minutes of maths\" means 20 minutes of maths.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f8e3040c",
+      "texte_overlay": "i quiz myself on my classes every evening.\nmy grades went up and my stress went down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "84b353cd",
+      "texte_overlay": "no screens the last hour before bed.\ni sleep better and wake up less foggy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6badaf21",
+      "texte_overlay": "i ask for help earlier.\nbefore i'm lost, not after the bad grade.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "6ce94470",
+      "texte_overlay": "i'm proud of small progress now.\nthat's the real glow up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+ "id": "mm-o048",
+ "format": "carrousel",
+ "titre": "Things your brain needs every day",
+ "legendes": {
+  "en": "things your brain needs every day #brainhealth #habits #mentalmaxxing #selfimprovement",
+  "fr": "ce dont ton cerveau a besoin chaque jour #cerveau #habitudes #mentalmaxxing #developpementpersonnel",
+  "de": "Dinge, die dein Gehirn jeden Tag braucht #gehirn #gewohnheiten #mentalmaxxing #selbstverbesserung",
+  "es": "cosas que tu cerebro necesita cada día #cerebro #habitos #mentalmaxxing #superacionpersonal",
+  "it": "cose di cui il cervello ha bisogno ogni giorno #cervello #abitudini #mentalmaxxing #crescitapersonale",
+  "tr": "beyninin her gün ihtiyaç duyduğu şeyler #beyin #alışkanlıklar #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7697820355800370448/1",
+   "boite": [
+    222,
+    402,
+    636,
+    756
+   ]
+  },
+  "theme": {
+   "en": "Things your brain",
+   "fr": "Ce dont ton cerveau",
+   "de": "Was dein Gehirn",
+   "es": "Lo que tu cerebro",
+   "it": "Ciò di cui il cervello",
+   "tr": "Beyninin her gün"
+  },
+  "sous": {
+   "en": "needs every day",
+   "fr": "a besoin chaque jour",
+   "de": "jeden Tag braucht",
+   "es": "necesita cada día",
+   "it": "ha bisogno ogni giorno",
+   "tr": "ihtiyaç duydukları"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7701153376846826760/1",
+   "boite": [
+    58,
+    362,
+    180,
+    146
+   ],
+   "titre": {
+    "en": "Daylight",
+    "fr": "La lumière du jour",
+    "de": "Tageslicht",
+    "es": "Luz del día",
+    "it": "Luce del giorno",
+    "tr": "Gün ışığı"
+   },
+   "texte": {
+    "en": "Ten minutes outside in the morning. It sets your energy for the whole day.",
+    "fr": "Dix minutes dehors le matin. Ça règle ton énergie pour toute la journée.",
+    "de": "Zehn Minuten draußen am Morgen. Das stellt deine Energie für den ganzen Tag ein.",
+    "es": "Diez minutos fuera por la mañana. Marca tu energía para todo el día.",
+    "it": "Dieci minuti fuori al mattino. Regola la tua energia per tutto il giorno.",
+    "tr": "Sabah dışarıda on dakika. Bütün günün enerjisini ayarlar."
+   }
+  },
+  {
+   "src": "7701153376846826760/1",
+   "boite": [
+    365,
+    35,
+    125,
+    175
+   ],
+   "titre": {
+    "en": "Water",
+    "fr": "De l’eau",
+    "de": "Wasser",
+    "es": "Agua",
+    "it": "Acqua",
+    "tr": "Su"
+   },
+   "texte": {
+    "en": "Even mild dehydration makes it harder to concentrate. Keep a bottle on the desk.",
+    "fr": "Même une légère déshydratation rend la concentration plus difficile. Garde une bouteille sur le bureau.",
+    "de": "Schon leichter Flüssigkeitsmangel erschwert die Konzentration. Stell eine Flasche auf den Tisch.",
+    "es": "Incluso una deshidratación leve dificulta concentrarse. Ten una botella en la mesa.",
+    "it": "Anche una lieve disidratazione rende più difficile concentrarsi. Tieni una bottiglia sulla scrivania.",
+    "tr": "Hafif susuzluk bile odaklanmayı zorlaştırır. Masanda bir şişe bulundur."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Movement",
+    "fr": "Bouger",
+    "de": "Bewegung",
+    "es": "Movimiento",
+    "it": "Movimento",
+    "tr": "Hareket"
+   },
+   "texte": {
+    "en": "A walk, a workout, stairs instead of the lift. Your brain runs better when your body moves.",
+    "fr": "Une marche, une séance, les escaliers au lieu de l’ascenseur. Ton cerveau tourne mieux quand ton corps bouge.",
+    "de": "Ein Spaziergang, ein Workout, Treppe statt Aufzug. Dein Gehirn läuft besser, wenn dein Körper sich bewegt.",
+    "es": "Un paseo, un entreno, escaleras en vez de ascensor. Tu cerebro funciona mejor cuando tu cuerpo se mueve.",
+    "it": "Una camminata, un allenamento, le scale invece dell’ascensore. Il cervello va meglio quando il corpo si muove.",
+    "tr": "Bir yürüyüş, bir antrenman, asansör yerine merdiven. Bedenin hareket edince beynin daha iyi çalışır."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Time without input",
+    "fr": "Du temps sans contenu",
+    "de": "Zeit ohne Input",
+    "es": "Tiempo sin estímulos",
+    "it": "Tempo senza input",
+    "tr": "Girdisiz zaman"
+   },
+   "texte": {
+    "en": "A few minutes with no phone, no music, no podcast. That is when your brain sorts things out.",
+    "fr": "Quelques minutes sans téléphone, sans musique, sans podcast. C’est là que ton cerveau fait le tri.",
+    "de": "Ein paar Minuten ohne Handy, Musik oder Podcast. Dann sortiert dein Gehirn alles.",
+    "es": "Unos minutos sin móvil, sin música, sin pódcast. Ahí es cuando tu cerebro ordena las cosas.",
+    "it": "Qualche minuto senza telefono, musica o podcast. È lì che il cervello mette ordine.",
+    "tr": "Telefonsuz, müziksiz, podcastsiz birkaç dakika. Beynin işleri o zaman toparlar."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "One deep task",
+    "fr": "Une tâche profonde",
+    "de": "Eine tiefe Aufgabe",
+    "es": "Una tarea profunda",
+    "it": "Un compito profondo",
+    "tr": "Tek bir derin iş"
+   },
+   "texte": {
+    "en": "One hour on something hard. A brain that is never challenged slowly gets lazy.",
+    "fr": "Une heure sur quelque chose de difficile. Un cerveau jamais mis au défi devient paresseux.",
+    "de": "Eine Stunde an etwas Schwerem. Ein Gehirn, das nie gefordert wird, wird langsam träge.",
+    "es": "Una hora con algo difícil. Un cerebro que nunca se reta se vuelve perezoso.",
+    "it": "Un’ora su qualcosa di difficile. Un cervello mai messo alla prova diventa pigro.",
+    "tr": "Zor bir şeye bir saat. Hiç zorlanmayan bir beyin yavaş yavaş tembelleşir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: my brain got four hours of short videos a day. After deleting them with UnSwipe: it gets everything on this list instead.",
+    "fr": "Avant : mon cerveau recevait quatre heures de vidéos courtes par jour. Après les avoir supprimées avec UnSwipe : il reçoit tout ce qui est sur cette liste.",
+    "de": "Vorher: Mein Gehirn bekam vier Stunden Kurzvideos am Tag. Nachdem ich sie mit UnSwipe gelöscht habe: Es bekommt stattdessen alles auf dieser Liste.",
+    "es": "Antes: mi cerebro recibía cuatro horas de vídeos cortos al día. Después de borrarlos con UnSwipe: recibe todo lo de esta lista.",
+    "it": "Prima: il mio cervello riceveva quattro ore di video brevi al giorno. Dopo averli eliminati con UnSwipe: riceve tutto ciò che c’è in questa lista.",
+    "tr": "Önce: beynim günde dört saat kısa video alıyordu. UnSwipe ile sildikten sonra: bunun yerine bu listedeki her şeyi alıyor."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Real sleep",
+    "fr": "Un vrai sommeil",
+    "de": "Echter Schlaf",
+    "es": "Sueño de verdad",
+    "it": "Sonno vero",
+    "tr": "Gerçek uyku"
+   },
+   "texte": {
+    "en": "Seven to nine hours. Everything above works better after it.",
+    "fr": "Sept à neuf heures. Tout ce qui précède marche mieux après.",
+    "de": "Sieben bis neun Stunden. Alles oben funktioniert danach besser.",
+    "es": "De siete a nueve horas. Todo lo anterior funciona mejor después.",
+    "it": "Da sette a nove ore. Tutto quello sopra funziona meglio dopo.",
+    "tr": "Yedi ila dokuz saat. Yukarıdaki her şey ondan sonra daha iyi çalışır."
+   }
+  }
+ ],
+ "notes": "routine du 03/11 : accroche jamais faite chez nous (« things your brain needs every day »). cta C (avant/après) : élément UnSwipe en 6e item (slide 7)."
+}

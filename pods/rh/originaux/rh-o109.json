@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o109",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "01966ab8-853e-4a16-ba2f-b0048f4b389c",
+ "titre": "les trucs à ne JAMAIS DIRE en entretien et quoi répondre à la place #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 5 (parent 01966ab8, 28,8 k vues en bg) : accroche mot pour mot, autres questions que le parent. Réponses vraies. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12090370",
+   "texte_overlay": "les trucs à ne JAMAIS DIRE en entretien\net quoi répondre à la place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "221aebc3",
+   "texte_overlay": "quand on te demande ce que tu sais de l'entreprise\ndis pas « pas grand-chose »\ndis plutôt ce que t'as lu, et une question dessus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "23052a99",
+   "texte_overlay": "quand on te demande pourquoi tu changes de secteur\ndis pas « j'en avais marre »\ndis plutôt ce qui t'attire dans le nouveau",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "23d0d06e",
+   "texte_overlay": "quand on te demande comment tu gères une erreur\ndis pas « j'en fais jamais »\ndis plutôt une vraie erreur et ce que t'as changé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "06806ef8",
+   "texte_overlay": "quand on te demande ce que tu fais le week-end\ndis pas « rien de spécial »\ndis plutôt un truc que t'apprends en ce moment",
+   "texte_sophia": "quand on te demande ce que tu fais le week-end\ndis pas « rien de spécial »\nperso, je parle de ce que j'apprends 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "15a76c43",
+   "texte_overlay": "quand on te demande tes prétentions\ndis pas « je sais pas »\ndis plutôt ta fourchette, calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "271d8ff5",
+   "texte_overlay": "quand on te demande si t'as une dernière chose à dire\ndis pas « non »\ndis plutôt pourquoi ce poste te motive, en une phrase",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "283a4b9d",
+   "texte_overlay": "laquelle tu disais avant ?\nsois honnête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

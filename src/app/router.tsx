@@ -13,6 +13,7 @@ import {
   DecisionsPage,
   FaqPage,
   LogsPage,
+  NeedsYouAncienPage,
   NeedsYouPage,
   ProblemsPage,
   DisputesPage,
@@ -20,6 +21,7 @@ import {
   PayrollPage,
   ReceivedPage,
   RecruitsPage,
+  ReglesBotsPage,
   CohortsPage,
   SentPage,
 } from "@/features/auto/PagesAuto";
@@ -119,7 +121,8 @@ export function AppRouter() {
             <Route path="/admin/auto/decisions" element={<DecisionsPage />} />
             <Route path="/admin/auto/sent" element={<SentPage />} />
             <Route path="/admin/auto/received" element={<ReceivedPage />} />
-            <Route path="/admin/auto/needs-you" element={<NeedsYouPage />} />
+            <Route path="/admin/auto/problemes" element={<NeedsYouPage />} />
+            <Route path="/admin/auto/needs-you-ancien" element={<NeedsYouAncienPage />} />
             <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
@@ -147,6 +150,8 @@ export function AppRouter() {
 
             <Route element={<RoleGate allow={["admin"]} />}>
                 <Route path="/admin" element={<AdminPilotagePage />} />
+              {/* 3/11 : les règles des bots (feedback → règles), admin seulement. */}
+              <Route path="/admin/auto/regles-bots" element={<ReglesBotsPage />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />

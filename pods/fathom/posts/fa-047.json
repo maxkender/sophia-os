@@ -1,0 +1,267 @@
+{
+ "id": "fa-047",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686862943912332566",
+  "vues": 39200,
+  "accroche": "10/10 Skills To Learn Before You Are 30"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn Before You Are 30",
+  "de": "10/10 Skills, die du vor 30 lernen solltest",
+  "pt": "10/10 habilidades para aprender antes dos 30"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
+  "de": "10/10 Skills, die du vor 30 lernen solltest #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "10/10 habilidades para aprender antes dos 30 #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7363016351713872646"
+ },
+ "notes": "cta C. Variante de l'accroche de fa-018 : autres étapes (pneu, négociation, CV), autre CTA. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "BEFORE 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS",
+     [
+      {
+       "t": "VOR 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     [
+      {
+       "t": "ANTES DOS 30",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "CHANGE A",
+     "TIRE"
+    ],
+    "video": {
+     "id": "QjZ5ohr7sGA",
+     "titre": "How to Change a Tire: A Step-by-Step Guide— Cars.com",
+     "chaine": "Cars.com",
+     "vues": "724K views",
+     "date": "8 years ago",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/59K7QrUwW7byuE3QsK6NoAFnvSeEBYM9ZH8ucGMPh1cCBiyfGLOq8McL4VxzDhsBYNP4hyaULA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WECHSLE",
+     "EINEN REIFEN"
+    ],
+    "video": {
+     "id": "ySvKbGSE5dw",
+     "titre": "AUTO BILD Ratgeber  Reifenwechsel / Radwechsel / Tutorial / How to",
+     "chaine": "AUTO BILD",
+     "vues": "312.731 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/tGLDV7gQK95X_Bkguw4zbVXzSs_UEHx8zDBVr6Fwc4Z1-J8d3o7jOfnDCFW69zz2UEIpazie=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TROCA UM",
+     "PNEU"
+    ],
+    "video": {
+     "id": "x0byqTuIKZI",
+     "titre": "Como trocar o pneu do carro?",
+     "chaine": "Autoesporte",
+     "vues": "371 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/6YnesnZ6p9o5vm5BCUwRQ4B_lUJlZTe-IDbtkPDmD9OT8qJW041K2VwmNG6Nj9CtfNVwLYfW-Yg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO",
+     "NEGOTIATE"
+    ],
+    "video": {
+     "id": "BLBRRNwMZNE",
+     "titre": "HARVARD Negotiator:  How To Get What You Want Every Time",
+     "chaine": "LITTLE BIT BETTER",
+     "vues": "5M views",
+     "date": "2 years ago",
+     "duree": "11:31",
+     "avatar": "https://yt3.ggpht.com/kMbKpY1k_T68TBRCcJoM0bI6JAt0wX9EOzUtnemd_QaVMpJvP4qUAwNSXOaUhodDw3B5U1UQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "ZU VERHANDELN"
+    ],
+    "video": {
+     "id": "PunzaQSd46I",
+     "titre": "Mehr Macht in Verhandlungen – Drei Tricks, die sofort wirken",
+     "chaine": "Jack Nasher",
+     "vues": "35.377 Aufrufe",
+     "date": "vor 8 Monaten",
+     "duree": "5:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzK3M6hew3BuZK_cqdWt4Jm4HJJwY8WE1gYf79dCAye-o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A NEGOCIAR"
+    ],
+    "video": {
+     "id": "96K_M7IpHPQ",
+     "titre": "Negociadores de HARVARD explicam: Como sempre conseguir o que deseja",
+     "chaine": "UM  POUCO MELHOR",
+     "vues": "1,6 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "13:06",
+     "avatar": "https://yt3.ggpht.com/zqTS-99PdI-tiBsmAZt-1X2pYKdjCLXX96p-w0YE1pxYYJ9aM6sH7Z7on3O5ckSjVVJQMTdorw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "NEVER STOP",
+     "LEARNING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "HÖR NIE AUF",
+     "ZU LERNEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "NUNCA PARES",
+     "DE APRENDER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WRITE A",
+     "GREAT CV"
+    ],
+    "video": {
+     "id": "_fP43gcBywU",
+     "titre": "How to write a CV [Get noticed by employers]",
+     "chaine": "StandOut CV",
+     "vues": "4.6M views",
+     "date": "8 years ago",
+     "duree": "10:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mkV_YaZBi97QKnl0gqGKHD6HDmEjde5JkG0HJ4vdc9tUw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHREIB EINEN",
+     "GUTEN LEBENSLAUF"
+    ],
+    "video": {
+     "id": "h-yrXWfS-zM",
+     "titre": "Lebenslauf 2026: Das gehört NICHT mehr rein",
+     "chaine": "Silke Koppitz: Karriereberatung",
+     "vues": "486.639 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "6:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasmy0DpJgpRZrY4N9uNak6BLEMrLRw8GFzPNkDNkgGw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZ UM BOM",
+     "CURRÍCULO"
+    ],
+    "video": {
+     "id": "td5HZKVf9Sk",
+     "titre": "COMO FAZER UM CURRÍCULO PELO CELULAR",
+     "chaine": "Bruno Siqueira - Simplificando Celular",
+     "vues": "820 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "6:45",
+     "avatar": "https://yt3.ggpht.com/m5t2JECbKp8jhVP9jMpB1fsMaC9ainabb1WJ4js51ZfWaZjAh4S29xs7J-5X5vWxILE1LAMX7O4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

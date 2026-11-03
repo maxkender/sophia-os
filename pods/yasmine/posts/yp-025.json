@@ -1,0 +1,727 @@
+{
+ "id": "yp-025",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "titre": {
+  "fr": "petit guide pour bien démarrer le semestre",
+  "en": "a guide to starting the semester right",
+  "es": "guía para empezar bien el semestre",
+  "de": "Anleitung für einen guten Start ins Semester",
+  "it": "guida per iniziare bene il semestre",
+  "pt": "guia para começar bem o semestre",
+  "tr": "döneme iyi başlamak için küçük bir rehber"
+ },
+ "legendes": {
+  "fr": "tout ce que je fais la première semaine 📚 #rentree #studytok #organisation #revisions #thatgirl",
+  "en": "everything i do in week one 📚 #backtoschool #studytok #organization #studying #thatgirl",
+  "es": "todo lo que hago la primera semana 📚 #vueltaaclases #studytok #organizacion #estudiar #thatgirl",
+  "de": "alles, was ich in der ersten Woche mache 📚 #semesterstart #studytok #organisation #lernen #thatgirl",
+  "it": "tutto quello che faccio la prima settimana 📚 #inizioanno #studytok #organizzazione #studiare #thatgirl",
+  "pt": "tudo o que eu faço na primeira semana 📚 #voltaasaulas #studytok #organizacao #estudos #thatgirl",
+  "tr": "ilk hafta yaptığım her şey 📚 #okulabaşlangıç #studytok #düzen #ders #thatgirl"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "3e52a8dc-7044-4d0e-94a1-16ab06b98b06",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/113291c3-81e0-4cf7-b72d-f434747bb0ab/4.jpg?v=1791726197564",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-007 (« a guide to a DIGITAL DECLUTTER », 73 k) : même format guide en notes iOS, angle début de semestre. cta B : la mise en scène iPhone micabo (a83da81b) en photo de l’étape « mets chaque cours dans micabo le jour même »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "petit guide pour",
+     "lignes": [
+      "BIEN DÉMARRER",
+      "LE SEMESTRE"
+     ],
+     "taille": 112,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "a guide to",
+     "lignes": [
+      "STARTING",
+      "THE SEMESTER",
+      "RIGHT"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guía para",
+     "lignes": [
+      "EMPEZAR BIEN",
+      "EL SEMESTRE"
+     ],
+     "taille": 112,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "Anleitung für einen",
+     "lignes": [
+      "GUTEN START",
+      "INS SEMESTER"
+     ],
+     "taille": 112,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guida per",
+     "lignes": [
+      "INIZIARE BENE",
+      "IL SEMESTRE"
+     ],
+     "taille": 112,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "guia para",
+     "lignes": [
+      "COMEÇAR BEM",
+      "O SEMESTRE"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "küçük bir rehber:",
+     "lignes": [
+      "DÖNEME İYİ",
+      "BAŞLAMAK"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 1350,
+     "taille_script": 84
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b594de45-2180-4eba-89f7-e024a0d28e5d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/010f390b-9b2f-40e0-9b53-d57f632699be/3.jpg?v=1791726269891",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "récupère tous tes plans de cours.",
+     "texte": "la première semaine, rassemble tous les programmes au même endroit. tu sais tout de suite ce qui t’attend.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "gather every syllabus.",
+     "texte": "in week one, put all your course outlines in one place. you know right away what’s coming.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "reúne todos los programas.",
+     "texte": "la primera semana, junta todos los programas en un solo sitio. sabes enseguida lo que te espera.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sammle alle Kurspläne.",
+     "texte": "in der ersten Woche alle Pläne an einem Ort. so weißt du sofort, was auf dich zukommt.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "raccogli tutti i programmi.",
+     "texte": "la prima settimana metti tutti i programmi nello stesso posto. sai subito cosa ti aspetta.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "junte todos os planos de ensino.",
+     "texte": "na primeira semana, coloque todos os programas num lugar só. você já sabe o que vem pela frente.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "tüm ders planlarını topla.",
+     "texte": "ilk hafta bütün programları tek bir yere koy. seni neyin beklediğini hemen bilirsin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1b9ba368-8886-4557-8b3b-f3a82f61a5d0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e89e4c2f-e705-4f8c-baee-a8a093d6c18b/5.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "note toutes les dates d’exam.",
+     "texte": "contrôles, partiels, rendus : tout dans ton agenda dès maintenant. plus de surprise en décembre.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "write down every exam date.",
+     "texte": "tests, finals, deadlines: all in your planner right now. no more surprises in december.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "apunta todas las fechas de examen.",
+     "texte": "exámenes, finales, entregas: todo en tu agenda desde ya. se acabaron las sorpresas en diciembre.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "trag alle Prüfungstermine ein.",
+     "texte": "Tests, Klausuren, Abgaben: alles sofort in deinen Planer. keine Überraschungen mehr im Dezember.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "segna tutte le date degli esami.",
+     "texte": "verifiche, esami, consegne: tutto in agenda da subito. niente più sorprese a dicembre.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "anote todas as datas de prova.",
+     "texte": "provas, finais, entregas: tudo na agenda desde já. chega de surpresa em dezembro.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "bütün sınav tarihlerini yaz.",
+     "texte": "sınavlar, finaller, teslimler: hepsi şimdiden ajandaya. aralıkta sürpriz yok.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "mets chaque cours dans micabo le jour même.",
+     "texte": "10 min après le cours, il est dans l’appli avec ses quiz. tu révises un peu chaque jour, sans rien préparer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "put every lesson into micabo the same day.",
+     "texte": "10 minutes after class, it’s in the app with its quizzes. you review a little every day, with zero prep.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "mete cada clase en micabo el mismo día.",
+     "texte": "10 min después de clase, ya está en la app con sus quiz. repasas un poco cada día sin preparar nada.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "pack jede Stunde am selben Tag in micabo.",
+     "texte": "10 Min. nach dem Unterricht ist sie mit Quiz in der App. du wiederholst täglich ein bisschen, ohne Vorbereitung.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "metti ogni lezione su micabo il giorno stesso.",
+     "texte": "10 minuti dopo la lezione è nell’app con i suoi quiz. ripassi un po’ ogni giorno senza preparare niente.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "coloque cada aula no micabo no mesmo dia.",
+     "texte": "10 min depois da aula, ela já está no app com os quizzes. você revisa um pouco todo dia, sem preparar nada.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "her dersi aynı gün micabo’ya koy.",
+     "texte": "dersten 10 dakika sonra testleriyle uygulamada. hiçbir hazırlık yapmadan her gün biraz tekrar edersin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "091fbfd2-e45e-4c01-b2b2-707eaa5d2fee",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9f7db25e-adc2-4f00-b9ad-f54123677909/2.jpg?v=1791726291418",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "range tes cours par matière.",
+     "texte": "un dossier par matière, sur ton ordi et en papier. tu retrouves tout en 10 secondes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sort your notes by subject.",
+     "texte": "one folder per subject, on your laptop and on paper. you find everything in 10 seconds.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ordena tus apuntes por asignatura.",
+     "texte": "una carpeta por asignatura, en el ordenador y en papel. encuentras todo en 10 segundos.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sortier deine Unterlagen nach Fach.",
+     "texte": "ein Ordner pro Fach, am Laptop und auf Papier. du findest alles in 10 Sekunden.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ordina gli appunti per materia.",
+     "texte": "una cartella per materia, sul pc e su carta. trovi tutto in 10 secondi.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "organize as matérias por pasta.",
+     "texte": "uma pasta por matéria, no notebook e no papel. você acha tudo em 10 segundos.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "notlarını derslere göre ayır.",
+     "texte": "her ders için bir klasör, bilgisayarda ve kâğıtta. her şeyi 10 saniyede bulursun.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "30262381-59f4-4701-a9f6-c3b317010f94",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/10a5b622-7530-4861-92d7-4f9be502c21c/4.jpg?v=1791726201652",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "choisis ton coin de travail.",
+     "texte": "un seul endroit pour réviser, toujours le même. ton cerveau comprend qu’il est temps de bosser.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pick your study spot.",
+     "texte": "one place to study, always the same. your brain learns it’s time to work.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "elige tu rincón de estudio.",
+     "texte": "un solo sitio para estudiar, siempre el mismo. tu cerebro entiende que toca trabajar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "such dir deinen Lernplatz.",
+     "texte": "ein einziger Ort zum Lernen, immer derselbe. dein Gehirn versteht, dass jetzt gearbeitet wird.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "scegli il tuo angolo studio.",
+     "texte": "un solo posto per studiare, sempre lo stesso. il cervello capisce che è ora di lavorare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "escolha seu cantinho de estudo.",
+     "texte": "um lugar só pra estudar, sempre o mesmo. seu cérebro entende que é hora de trabalhar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "çalışma köşeni seç.",
+     "texte": "çalışmak için tek bir yer, hep aynısı. beynin çalışma zamanının geldiğini anlar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o073",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0ebdcc24-6567-4334-a434-cf867b16fc3b",
+ "titre": "timeless skills every woman should learn #timeless #elegance #smartgirl #skills #oldmoney",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 4 de la boîte (parent 0ebdcc24, langue source en) : accroche du parent mot pour mot. Savoir-faire neufs face au parent (retenir les prénoms, écrire une vraie lettre, lire une carte, présenter deux personnes, quitter une soirée avec grâce, raconter une histoire d'art ou d'histoire). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1f4a3ee5",
+   "texte_overlay": "timeless skills every\nwoman should learn",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a0da18eb",
+   "texte_overlay": "1. remembering names\n\nrepeat it once when you\nmeet someone. it's a gift.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b5eb7741",
+   "texte_overlay": "2. writing a proper letter\n\ncongratulations, condolences,\nthank you. by hand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "286e957a",
+   "texte_overlay": "3. reading a map\n\nfind your way without\nyour phone, at least once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "60da9f59",
+   "texte_overlay": "4. making an introduction\n\n\"this is clara, she just came\nback from lisbon.\"\ngive people a way in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ceddc58e",
+   "texte_overlay": "5. leaving a party gracefully\n\nfind the host, thank them\nand go. no long goodbyes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8e9e6be1",
+   "texte_overlay": "6. telling a good story\n\na painting, a queen,\na strange fact from history.",
+   "texte_sophia": "6. telling a good story\n\ni learn one every morning\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "05813528",
+   "texte_overlay": "which one do you already\nhave? save this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

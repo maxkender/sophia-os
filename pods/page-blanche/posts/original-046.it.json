@@ -1,0 +1,249 @@
+{
+ "post_id": "original-046",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "una challenge di lettura di 7 giorni"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(per chi ha zero soglia di attenzione)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "giorno 1-2: solo [[5 pagine]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "non un capitolo, non un'ora. 5 pagine e hai il permesso di smettere"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "sembra fin troppo facile, ed [[è proprio questo il punto]]: non puoi fallire"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "il tuo cervello vive di video da 15 secondi. 5 pagine sono [[una vittoria possibile]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "fr": "5. commence par [[le plus dur]]",
+     "texte": "giorno 3: sali a [[10 pagine]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "fr": "ton [[cortex préfrontal]] gère l'organisation, le focus et la volonté",
+     "texte": "stessa ora, stesso posto dei primi due giorni, solo un po' di più"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "fr": "[[gâche pas]] ta tête fraîche pour des mails et des bricoles",
+     "texte": "probabilmente rileggerai un paragrafo due volte. [[è normale]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "fr": "passe [[les 60-90 premières minutes]] sur ce que t'aurais envie d'esquiver",
+     "texte": "la tua concentrazione non si allena da anni. torna [[una pagina alla volta]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build a life where discipline is the",
+      "default"
+     ],
+     "fr": "construis une vie où [[la discipline va de soi]]",
+     "texte": "giorno 4-5: il telefono [[in un'altra stanza]]"
+    },
+    "T2": {
+     "en": [
+      "stop relying on motivation to do basic things"
+     ],
+     "fr": "arrête de miser sur la motivation pour les bases",
+     "texte": "non a faccia in giù sul tavolo. in un'altra stanza"
+    },
+    "T3": {
+     "en": [
+      "put your phone in another",
+      "room, lay out your gym",
+      "clothes the night before,",
+      "and keep distractions out",
+      "of reach"
+     ],
+     "fr": "mets ton tel dans une autre pièce, [[prépare tes affaires de sport la veille]] et garde les distractions hors de portée",
+     "texte": "nei primi minuti vorrai controllarlo più di una volta. poi [[la voglia passa e le pagine scorrono]]"
+    },
+    "T4": {
+     "en": [
+      "the less you have to fight",
+      "yourself to do the right",
+      "thing"
+     ],
+     "fr": "moins t'as à te battre contre toi-même pour bien faire",
+     "texte": "è difficile leggere se una parte di te aspetta una notifica"
+    },
+    "T5": {
+     "en": [
+      "the more friction you remove, the more consistent",
+      "you'll become"
+     ],
+     "fr": "plus tu retires de friction, [[plus tu gagnes en régularité]]",
+     "texte": "lontano dagli occhi è il modo più facile per [[restare nel libro]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "giorno 6: [[cambia le pause scroll]]"
+    },
+    "T2": {
+     "en": [
+      "your attention span has",
+      "been destroyed by",
+      "short-term content"
+     ],
+     "fr": "ta concentration a été [[flinguée par les contenus courts]]",
+     "texte": "tra due sessioni di lettura, il riflesso è prendere il telefono"
+    },
+    "T3": {
+     "en": [
+      "books rebuild your",
+      "attention span and teach",
+      "you delayed gratification"
+     ],
+     "fr": "les livres réparent ta [[concentration]] et t'apprennent [[la patience]]",
+     "texte": "quindi decidi cosa riempie quei vuoti invece di [[lasciar decidere al feed]]"
+    },
+    "T4": {
+     "en": [
+      "i used to scroll all day until",
+      "i found this which blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "[[avant je scrollais H24]]. ce matin j'ai ouvert [[l'appli Sophia]] à la place : en 5 min, pourquoi Camus imagine Sisyphe heureux",
+     "texte": "al posto dello scroll: podcast, un libro in borsa e [[l'app Sophia]] quando prendo comunque il telefono"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "giorno 7: [[un capitolo intero]] al bar"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "un caffè, un libro, telefono in borsa, fino a fine capitolo"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "un posto nuovo lo trasforma in [[un'uscita]], non in un compito"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "e finire un capitolo per la prima volta da mesi [[ti fa venire voglia di rifarlo]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

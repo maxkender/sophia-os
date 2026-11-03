@@ -1,0 +1,551 @@
+{
+ "id": "mm-o045",
+ "titre": "tier list of focus boosters",
+ "position_app": 2,
+ "legendes": {
+  "en": "focus boosters, ranked honestly #focus #tierlist #mentalmaxxing #selfimprovement",
+  "fr": "les boosters de concentration, classés honnêtement #concentration #tierlist #mentalmaxxing #developpementpersonnel",
+  "de": "Fokus-Booster, ehrlich sortiert #fokus #tierlist #mentalmaxxing #selbstverbesserung",
+  "es": "potenciadores de concentración, clasificados en serio #concentracion #tierlist #mentalmaxxing #superacionpersonal",
+  "it": "booster di concentrazione, classificati onestamente #concentrazione #tierlist #mentalmaxxing #crescitapersonale",
+  "tr": "odak artırıcılar, dürüstçe sıralandı #odak #tierlist #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7687663666392583432/1",
+   "boite": [
+    128,
+    498,
+    824,
+    450
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de los",
+   "it": "tier list dei",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Focus",
+   "fr": "boosters de",
+   "de": "Fokus-",
+   "es": "potenciadores",
+   "it": "booster di",
+   "tr": "odak"
+  },
+  "bas": {
+   "en": "boosters",
+   "fr": "concentration",
+   "de": "Booster",
+   "es": "de foco",
+   "it": "concentrazione",
+   "tr": "artırıcılar"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what actually helps you focus?",
+  "fr": "qu’est-ce qui t’aide vraiment à te concentrer ?",
+  "de": "was hilft dir wirklich beim Fokus?",
+  "es": "¿qué te ayuda de verdad a concentrarte?",
+  "it": "cosa ti aiuta davvero a concentrarti?",
+  "tr": "odaklanmana gerçekten ne yardım ediyor?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "game changer",
+    "fr": "ça change tout",
+    "de": "Gamechanger",
+    "es": "lo cambia todo",
+    "it": "cambia tutto",
+    "tr": "oyun değiştirici"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "a full|night of sleep",
+      "fr": "une vraie|nuit de sommeil",
+      "de": "eine volle|Nacht Schlaf",
+      "es": "una noche|completa",
+      "it": "una notte|intera di sonno",
+      "tr": "tam bir|gece uykusu"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|another room",
+      "fr": "téléphone dans|une autre pièce",
+      "de": "Handy in einem|anderen Raum",
+      "es": "móvil en|otra habitación",
+      "it": "telefono in|un’altra stanza",
+      "tr": "telefon|başka odada"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "training",
+      "fr": "entraînement",
+      "de": "Training",
+      "es": "entrenar",
+      "it": "allenamento",
+      "tr": "antrenman"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      360,
+      185,
+      155
+     ],
+     "t": {
+      "en": "morning|sunlight",
+      "fr": "soleil|du matin",
+      "de": "Morgen-|sonne",
+      "es": "sol de|la mañana",
+      "it": "sole del|mattino",
+      "tr": "sabah|güneşi"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      365,
+      35,
+      125,
+      175
+     ],
+     "t": {
+      "en": "water",
+      "fr": "de l’eau",
+      "de": "Wasser",
+      "es": "agua",
+      "it": "acqua",
+      "tr": "su"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "a clean desk",
+      "fr": "un bureau|rangé",
+      "de": "ein aufgeräumter|Schreibtisch",
+      "es": "una mesa|ordenada",
+      "it": "una scrivania|in ordine",
+      "tr": "temiz bir masa"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "a timer",
+      "fr": "un minuteur",
+      "de": "ein Timer",
+      "es": "un temporizador",
+      "it": "un timer",
+      "tr": "zamanlayıcı"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "helps",
+    "fr": "ça aide",
+    "de": "hilft",
+    "es": "ayuda",
+    "it": "aiuta",
+    "tr": "işe yarar"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "one coffee",
+      "fr": "un café",
+      "de": "ein Kaffee",
+      "es": "un café",
+      "it": "un caffè",
+      "tr": "bir kahve"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      870,
+      85,
+      150,
+      130
+     ],
+     "t": {
+      "en": "a walk|first",
+      "fr": "une marche|avant",
+      "de": "erst ein|Spaziergang",
+      "es": "caminar|antes",
+      "it": "una camminata|prima",
+      "tr": "önce|yürüyüş"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "silence",
+      "fr": "le silence",
+      "de": "Stille",
+      "es": "silencio",
+      "it": "silenzio",
+      "tr": "sessizlik"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      60,
+      840,
+      170,
+      160
+     ],
+     "t": {
+      "en": "a real meal",
+      "fr": "un vrai repas",
+      "de": "eine echte|Mahlzeit",
+      "es": "una comida|de verdad",
+      "it": "un vero pasto",
+      "tr": "gerçek|bir öğün"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "meh",
+    "fr": "bof",
+    "de": "naja",
+    "es": "meh",
+    "it": "mah",
+    "tr": "eh işte"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "music|with lyrics",
+      "fr": "musique|avec paroles",
+      "de": "Musik|mit Text",
+      "es": "música|con letra",
+      "it": "musica|con testo",
+      "tr": "sözlü|müzik"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "a long nap",
+      "fr": "une longue|sieste",
+      "de": "ein langes|Nickerchen",
+      "es": "una siesta|larga",
+      "it": "un lungo|pisolino",
+      "tr": "uzun|şekerleme"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      885,
+      658,
+      115,
+      122
+     ],
+     "t": {
+      "en": "supplements",
+      "fr": "compléments",
+      "de": "Nahrungs-|ergänzung",
+      "es": "suplementos",
+      "it": "integratori",
+      "tr": "takviyeler"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "podcasts",
+      "fr": "podcasts",
+      "de": "Podcasts",
+      "es": "pódcasts",
+      "it": "podcast",
+      "tr": "podcastler"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "hurts",
+    "fr": "ça nuit",
+    "de": "schadet",
+    "es": "perjudica",
+    "it": "danneggia",
+    "tr": "zarar verir"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "five coffees",
+      "fr": "cinq cafés",
+      "de": "fünf Kaffees",
+      "es": "cinco cafés",
+      "it": "cinque caffè",
+      "tr": "beş kahve"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "videos in|the background",
+      "fr": "vidéos en|fond",
+      "de": "Videos im|Hintergrund",
+      "es": "vídeos de|fondo",
+      "it": "video in|sottofondo",
+      "tr": "arka planda|video"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming breaks",
+      "fr": "pauses gaming",
+      "de": "Gaming-Pausen",
+      "es": "pausas de gaming",
+      "it": "pause gaming",
+      "tr": "oyun molaları"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills it",
+   "fr": "le tue",
+   "de": "killt ihn",
+   "es": "lo mata",
+   "it": "lo uccide",
+   "tr": "öldürür"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "“just one”|reel",
+     "fr": "« juste un »|reel",
+     "de": "„nur ein“|Reel",
+     "es": "“solo un”|reel",
+     "it": "“solo un”|reel",
+     "tr": "“sadece bir”|reels"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     272,
+     853,
+     90,
+     94
+    ],
+    "t": {
+     "en": "notifications",
+     "fr": "notifications",
+     "de": "Benachrichti-|gungen",
+     "es": "notificaciones",
+     "it": "notifiche",
+     "tr": "bildirimler"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "Doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 03/11 : seule livraison du jour sur la famille tier list (point 6), thème nouveau (« focus boosters »). Images du post « locked in » de @mentalapp et de la banque. cta B : élément UnSwipe en dernière case du S+."
+}

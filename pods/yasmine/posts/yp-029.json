@@ -1,0 +1,933 @@
+{
+ "id": "yp-029",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7668360450555333910",
+  "vues": 77400,
+  "enregistrements": 3462,
+  "publie_le": "2026-07-30",
+  "titre": "OLDER SISTER ADVICE from a 20-year-old"
+ },
+ "titre": {
+  "fr": "conseils de grande sœur pour réviser sans stress",
+  "en": "older sister advice for stress-free studying",
+  "es": "consejos de hermana mayor para estudiar sin estrés",
+  "de": "Rat deiner großen Schwester für stressfreies Lernen",
+  "it": "consigli da sorella maggiore per studiare senza stress",
+  "pt": "conselhos de irmã mais velha pra estudar sem estresse",
+  "tr": "stressiz ders çalışmak için abladan tavsiyeler"
+ },
+ "legendes": {
+  "fr": "tu vas y arriver 🤍 #revisions #stress #studytok #thatgirl #conseils",
+  "en": "you’ve got this 🤍 #studying #stress #studytok #thatgirl #advice",
+  "es": "tú puedes 🤍 #estudiar #estres #studytok #thatgirl #consejos",
+  "de": "du schaffst das 🤍 #lernen #stress #studytok #thatgirl #tipps",
+  "it": "ce la farai 🤍 #studiare #stress #studytok #thatgirl #consigli",
+  "pt": "você consegue 🤍 #estudos #estresse #studytok #thatgirl #dicas",
+  "tr": "başaracaksın 🤍 #ders #stres #studytok #thatgirl #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
+ },
+ "fond": {
+  "media_id": "0e52f643-cc72-4543-aec8-513ab5fd0969",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9bac19ee-4468-4848-a9da-aa93f1c570df/5.jpg?v=1790671855146",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-009 (« OLDER SISTER ADVICE », 77 k) : réviser sans stress, autres conseils et autres photos. cta C : la mise en scène iPhone micabo en moitié basse d’un collage, conseil « laisse l’appli te faire réviser » + micabo dans la sous-légende",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "0e52f643-cc72-4543-aec8-513ab5fd0969",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9bac19ee-4468-4848-a9da-aa93f1c570df/5.jpg?v=1790671855146",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "24070535-82ac-457b-8530-870ba7b6dab1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dc429fe4-c093-43c2-820a-dca510b0fa71/5-upscale.jpg?v=1785581249406",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE GRANDE",
+      "SŒUR"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "pour réviser sans stress",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OLDER",
+      "SISTER",
+      "ADVICE"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "for stress-free studying",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEJOS",
+      "DE HERMANA",
+      "MAYOR"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "para estudiar sin estrés",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RAT",
+      "DEINER GROSSEN",
+      "SCHWESTER"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "für stressfreies Lernen",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSIGLI",
+      "DA SORELLA",
+      "MAGGIORE"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "per studiare senza stress",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSELHOS",
+      "DE IRMÃ",
+      "MAIS VELHA"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "pra estudar sem estresse",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABLADAN",
+      "TAVSİYELER"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "stressiz ders çalışmak için",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1b319c70-8f66-4441-be26-91c357556d0e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/243bb016-f7f4-45fe-a10a-75c9e621ec61/7.jpg?v=1790606995041",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "0edb0d78-4a83-4e63-9ae8-9be93178c964",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/610b6d5e-0735-46fc-8564-78a6e028e1a0/3.jpg?v=1790681691933",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "commence petit."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "10 min par jour valent mieux que 3 h la veille."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "start small."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "10 minutes a day beat 3 hours the night before."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "empieza poco a poco."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "10 min al día valen más que 3 h la noche antes."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "fang klein an."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "10 Min. am Tag schlagen 3 Std. am Vorabend."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "inizia in piccolo."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "10 minuti al giorno valgono più di 3 ore la sera prima."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "comece pequeno."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "10 min por dia valem mais que 3 h na véspera."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "küçük başla."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "günde 10 dakika, son gece 3 saatten iyidir."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "21297783-f84c-430e-b440-27a3adf427b0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5eeb7a32-cdd5-4239-8bd6-801f8963c3e6/10.jpg?v=1787141920955",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "laisse l’appli te faire réviser."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "je mets mes cours dans micabo,",
+      "il me repose ce que je rate au bon moment."
+     ],
+     "taille_sous": 26
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "let the app quiz you."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "i put my lessons into micabo,",
+      "it asks me again what i miss at the right time."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "deja que la app te pregunte."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "meto mis clases en micabo,",
+      "me vuelve a preguntar lo que fallo en el momento justo."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lass dich von der App abfragen."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "ich packe meinen Stoff in micabo,",
+      "es fragt mich zur richtigen Zeit nochmal, was ich falsch hatte."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "lascia che l’app ti interroghi."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "metto le lezioni su micabo,",
+      "mi richiede quello che sbaglio al momento giusto."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "deixe o app te fazer perguntas."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "coloco minhas aulas no micabo,",
+      "ele me pergunta de novo o que eu erro na hora certa."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bırak uygulama seni sınasın."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "jaune",
+     "sous": [
+      "derslerimi micabo’ya koyuyorum,",
+      "yanlış yaptıklarımı doğru zamanda tekrar soruyor."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "530aff9f-1a5b-4354-bb9e-152747c0d300",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/622daba9-028e-4693-88ea-59d9861a22ec/3.jpg?v=1790608097447",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "0e849c5e-f01a-4e9b-920d-43130395db80",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c5ce2827-a6ba-4bbb-a0e3-810e9071e76c/4.jpg?v=1790680300846",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "arrête de te comparer."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "ton amie qui révise 10 h par jour ne dort pas non plus."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "stop comparing yourself."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "your friend who studies 10 hours a day isn’t sleeping either."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "deja de compararte."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "tu amiga que estudia 10 h al día tampoco duerme."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "hör auf, dich zu vergleichen."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "deine Freundin, die 10 Std. am Tag lernt, schläft auch nicht."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "smetti di confrontarti."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "la tua amica che studia 10 ore al giorno non dorme nemmeno."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "pare de se comparar."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "sua amiga que estuda 10 h por dia também não dorme."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendini kıyaslamayı bırak."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "günde 10 saat çalışan arkadaşın da uyumuyor."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "158a0bb0-cb38-4a30-a239-7fa2d732fcd5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2b637137-5393-4627-9f0f-be5880b84940/7.jpg?v=1792841407299",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "9548165a-6cf1-4620-8f1a-fd585d547709",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fd23ee7b-c785-441f-a7ca-8d3dc131721a/6.jpg?v=1790681043934",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "respire avant d’ouvrir ton cours."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 secondes, inspire. 4 secondes, expire. puis on y va."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "breathe before you open your notes."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 seconds in. 4 seconds out. then go."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "respira antes de abrir tus apuntes."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 segundos inspiras. 4 segundos espiras. y a por ello."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "atme durch, bevor du deine Notizen öffnest."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 Sekunden ein. 4 Sekunden aus. dann los."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "respira prima di aprire gli appunti."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 secondi inspira. 4 secondi espira. poi si parte."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "respire antes de abrir o caderno."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 segundos inspira. 4 segundos expira. e vamos."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "notlarını açmadan önce nefes al."
+     ],
+     "x": 540,
+     "y": 1740,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "4 saniye nefes al. 4 saniye ver. sonra başla."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "78841420-923d-43d2-8c99-7801fb2e7c0f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/740de307-0d0e-4d09-a890-2da69e9f3495/4.jpg?v=1787135927966",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "54824617-2b46-4908-9e56-347af5de40ab",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/07f4a8b8-50d1-4f19-a2d8-d5b462fdfc37/8.jpg?v=1787124443186",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "sors au moins une fois par jour."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "go outside at least once a day."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "sal al menos una vez al día."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "geh mindestens einmal am Tag raus."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "esci almeno una volta al giorno."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "saia pelo menos uma vez por dia."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "günde en az bir kez dışarı çık."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "44755545-581a-4e97-9972-6e7be54d14e2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/78964bf1-a48d-4862-999c-4aeb5b649117/5.jpg?v=1787141261316",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2ce674fb-ea78-4690-b37b-d08ede5b7035",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c29eb163-beb9-4f45-8d50-2013f6eed6d0/4.jpg?v=1790679697714",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ta valeur n’est pas une note."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "your worth isn’t a grade."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "tu valor no es una nota."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "dein Wert ist keine Note."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "il tuo valore non è un voto."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "seu valor não é uma nota."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "değerin bir not değil."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

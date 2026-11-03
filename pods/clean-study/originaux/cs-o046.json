@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o046",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "22856761-631a-4661-90f7-db5e581b2e41",
+  "titre": "tips that will make you feel 5x smarter at school #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "22856761-631a-4661-90f7-db5e581b2e41"
+  ],
+  "notes": "Déclinaison G1 de 22856761 (r 3,09 en turc), ligne 6 de la boîte. Accroche du parent mot pour mot, avec « ɛɞ ૮૩ » (des lettres et des chiffres pour le guichet). Astuces neuves, aucune du parent (« pourquoi ? », micabo avant le cours, deviner avant la réponse, résumer en une minute, lier à ce qu'on sait) : lire le titre du prochain chapitre la veille, écrire une question en marge, se tester le soir sur la leçon (place micabo, slide 4), noter les mots nouveaux, téléphone hors de la chambre le soir (place UnSwipe, slide 6). Slides 4 et 6 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (la banque n'a plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : 6d98a308, a1876b29 (écran sur une slide d'appli, cigarette sur la couverture, ou même photo que la slide 1). Puis : aaea8743 (couverture de livre lisible).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "eab89942",
+      "texte_overlay": "ɛɞ ૮૩ tips that will make you feel 5x smarter at school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "738aaecd",
+      "texte_overlay": "read the title and the first paragraph of tomorrow's lesson tonight.\nin class, everything sounds familiar.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "74125712",
+      "texte_overlay": "write one question in the margin per lesson.\nyour brain starts looking for answers on its own.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9a4bd0a5",
+      "texte_overlay": "quiz yourself on the day's lesson in the evening, notes closed.\nyou'll be the one who remembers it next week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7b92ed27",
+      "texte_overlay": "keep a list of new words you hear in class.\nusing them in essays makes a huge difference.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "82f6ec79",
+      "texte_overlay": "phone out of your bedroom at night.\nyou sleep better and your brain actually stores what you learned.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

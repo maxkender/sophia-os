@@ -1,0 +1,242 @@
+{
+ "post_id": "7703619977630190881",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour réveiller ton cerveau",
+     "texte": "10/10 abitudini per rimettere in moto il cervello"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(approuvé par la science)",
+     "texte": "(approvato dalla scienza)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop opening the comments",
+      "during a video"
+     ],
+     "fr": "arrête d'ouvrir [[les coms pendant une vidéo]]",
+     "texte": "non aprire [[i commenti a metà video]]"
+    },
+    "T2": {
+     "en": [
+      "a tiktok is already a large dose of artificial dopamine,",
+      "but it's not enough"
+     ],
+     "fr": "un tiktok, c'est déjà une dose de [[dopamine artificielle]], mais ça suffit pas",
+     "texte": "un tiktok è già una bella dose di [[dopamina artificiale]], ma non basta"
+    },
+    "T3": {
+     "en": [
+      "so you open the",
+      "comments instead",
+      "of watching a 20",
+      "second clip"
+     ],
+     "fr": "alors t'ouvres les coms au lieu de [[regarder un clip de 20 secondes]]",
+     "texte": "così apri i commenti invece di [[guardare una clip di 20 secondi]]"
+    },
+    "T4": {
+     "en": [
+      "your brain skips the hard part, and you just",
+      "copy the top comment"
+     ],
+     "fr": "ton cerveau zappe l'effort et tu [[recopies le com le plus liké]]",
+     "texte": "il cervello salta la parte difficile e tu [[copi il commento top]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching everything",
+      "at 2x speed"
+     ],
+     "fr": "arrête de tout regarder [[en vitesse x2]]",
+     "texte": "basta guardare tutto [[a velocità 2x]]"
+    },
+    "T2": {
+     "en": [
+      "you watch everything at 2x",
+      "and feel like you're learning",
+      "so much"
+     ],
+     "fr": "tu regardes tout en x2 et t'as l'impression [[d'apprendre plein de trucs]]",
+     "texte": "guardi tutto a 2x e ti sembra [[di imparare un sacco]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain never gets",
+      "time to actually think"
+     ],
+     "fr": "mais ton cerveau a jamais le temps de [[vraiment réfléchir]]",
+     "texte": "ma il tuo cervello non ha mai tempo [[di pensare davvero]]"
+    },
+    "T4": {
+     "en": [
+      "and normal speed starts to",
+      "feel boring. why are you",
+      "rushing to finish a tiktok?"
+     ],
+     "fr": "et la vitesse normale [[te saoule]]. [[pourquoi tu te presses de finir un tiktok ?]]",
+     "texte": "e la velocità normale [[ti annoia]]. [[perché tutta questa fretta di finire un tiktok?]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "ouvre un bouquin [[au lieu de scroller]]",
+     "texte": "leggi libri [[al posto dello scroll]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold attention, remember",
+      "details, and build the picture in your own head"
+     ],
+     "fr": "lire t'apprend à [[tenir ton attention]], retenir les détails et [[te faire le film]] dans ta tête",
+     "texte": "leggere ti fa [[tenere l'attenzione]], ricordare dettagli e [[farti il film]] in testa"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[un cerveau plus vif]], remplace une partie de ton [[scroll par des livres]]",
+     "texte": "se vuoi [[una mente più sveglia]], scambia un po' di [[scroll con dei libri]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant dès que je dégaine mon tel, j'apprends un truc en [[5 min sur l'appli Sophia]]",
+     "texte": "prima facevo [[doomscroll]] a metà capitolo. senza reel su insta, [[ora li finisco]]. i reel li toglie [[l'app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "basta [[multitasking]]"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "chattare, guardare video e fare i compiti non è [[fare 3 cose insieme]]"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "secondo uno studio di stanford, chi fa multitasking [[si distrae di più]]"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "scegli una cosa e [[finiscila]] prima di iniziare la prossima"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "ask why all the time"
+     ],
+     "fr": "demande [[pourquoi]] H24",
+     "texte": "chiedi sempre [[perché]]"
+    },
+    "T2": {
+     "en": [
+      "most people accept the",
+      "first answer they hear"
+     ],
+     "fr": "la plupart gobent la première réponse venue",
+     "texte": "quasi tutti si fermano alla prima risposta"
+    },
+    "T3": {
+     "en": [
+      "kids ask why all day, then",
+      "we just stop"
+     ],
+     "fr": "les gosses font que ça, puis on [[arrête]]",
+     "texte": "i bambini lo chiedono di continuo, poi [[smettiamo]]"
+    },
+    "T4": {
+     "en": [
+      "curiosity is proven to help",
+      "your brain remember",
+      "what you learn"
+     ],
+     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
+     "texte": "è [[provato]]: la curiosità ti aiuta a [[ricordare ciò che impari]]"
+    },
+    "T5": {
+     "en": [
+      "next time you don't understand something, keep",
+      "asking until you do"
+     ],
+     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
+     "texte": "la prossima volta che non capisci qualcosa, [[chiedi finché non capisci]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

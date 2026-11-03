@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o123",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "237e4579-fc91-4941-8931-64c4be84cb65",
+ "titre": "habits that will make you disgustingly confident #confidence #selfimprovement #habits #mindset #psychology",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "237e4579-fc91-4941-8931-64c4be84cb65"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 237e4579). déclinaison G1 de « habits that will make you disgustingly confident » (parent 237e4579, 41 500 vues en tr). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "00185f8f-6a5a-4d34-b36c-3c6db54c7dff",
+   "texte_overlay": "habits that will make you\ndisgustingly confident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652840947016862989/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "58fc6a7a-d2f9-4ceb-8f04-7a52de369e98",
+   "texte_overlay": "speaking first in class\n\nmake yourself say one thing in the first five minutes of any class or meeting. the longer you wait, the harder it gets, so speak early and the fear never builds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652840947016862989/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "64f52bef-8186-4200-b5b8-90fbf67561ed",
+   "texte_overlay": "walking without headphones\n\nwalk through busy places without headphones once a day. being fully present among strangers, with nothing to hide behind, is quiet confidence training.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652840947016862989/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a76f8461-3be5-4ea0-a5fa-0bcfabc21fa3",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day learning something new: a myth, a planet, a famous painting. knowing you can talk about something interesting makes walking into any room easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652840947016862989/3.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day learning something new: a myth, a planet, a painting. i do it with the Sophia app, one lesson a day, and walking into any room got so much easier."
+  },
+  {
+   "position": 5,
+   "media_id": "b235aa79-597e-45e8-868d-3e9f1ad9950f",
+   "texte_overlay": "sending the message\n\nsend the text you've been rewriting for an hour. most confident people aren't braver, they just stopped overthinking the small things and pressed send.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652840947016862989/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "64bf73b4-a6bb-41da-aefc-d99b4003e5d2",
+   "texte_overlay": "dressing for yourself\n\nwear the thing you love on an ordinary day, not just a special one. dressing for yourself is a daily reminder that other people's opinions are optional.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652840947016862989/6.jpg"
+  }
+ ]
+}

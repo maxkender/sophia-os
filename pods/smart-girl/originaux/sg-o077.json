@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o077",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1fb26a80-a3ce-4d35-b889-306cef5d9363",
+ "titre": "5 languages that are easier to learn than you think #languages #languagelearning #smartgirl #polyglot #travel",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 8 de la boîte (parent 1fb26a80, langue source en) : accroche du parent mot pour mot. Cinq langues neuves face au parent (indonésien, afrikaans, français, portugais, espéranto). Faits vérifiés : l'indonésien ne conjugue pas selon la personne (saya makan, kamu makan) ; en afrikaans « ek is, jy is » ; l'anglais a emprunté menu, ballet, café, rendez-vous au français ; l'espéranto est publié en 1887 et tous ses noms finissent en -o. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "211dd3bc",
+   "texte_overlay": "5 languages that are easier\nto learn than you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1481155b",
+   "texte_overlay": "1. indonesian\n\nno verb conjugations:\n\"saya makan, kamu makan\".\ni eat, you eat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d5ceb52",
+   "texte_overlay": "2. afrikaans\n\nverbs stay the same:\n\"ek is, jy is\".\ni am, you are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f6caae18",
+   "texte_overlay": "3. french\n\nyou already know a lot:\nmenu, ballet, café,\nrendez-vous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d016cefc",
+   "texte_overlay": "the secret? learn the culture\nfirst. a little history of the\ncountry makes every word\neasier to remember.",
+   "texte_sophia": "the secret? learn the culture\nfirst. i learn the history\nbehind each country with\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3e0041f5",
+   "texte_overlay": "4. portuguese\n\nif you know some spanish,\nyou can already read\na lot of it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d511d24",
+   "texte_overlay": "5. esperanto\n\ninvented in 1887 to be easy.\nevery noun ends in -o.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "15df3888",
+   "texte_overlay": "which one would you\nstart with?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/8.jpg"
+  }
+ ]
+}

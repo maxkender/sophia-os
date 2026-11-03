@@ -25,6 +25,8 @@ export const ROUTES_HO: readonly string[] = [
   // Prompt 22 : Recruitment Automation, les 8 pages (Overview et Messages sent
   // en lecture : interrupteurs et textes admin seulement, vérifiés en base).
   ...PAGES_AUTO.map((p) => p.to),
+  // Bloc C (2/11) : l'ancienne page Needs you, gardée pendant le test de « Problems ».
+  "/admin/auto/needs-you-ancien",
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters
   "/admin/posts-links", // Posts & links (contestations, sorties de Disputes le 31/10)

@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o075",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f4002aeb-fc70-4613-9a1b-22f1546dc517",
+  "titre": "how to feel less awkward/anxious in public #confidence #thatgirl",
+  "inspirations": [
+    "f4002aeb-fc70-4613-9a1b-22f1546dc517"
+  ],
+  "notes": "G1, déclinaison de f4002aeb (« how to feel less awkward/anxious in public », génération 0 en anglais ; meilleur passage de 20,6 k vues), en anglais. cta C (le défi de 7 jours en slide 2). L'effet projecteur (spotlight effect) est un résultat connu de psychologie sociale (Gilovich, 2000). Items neufs (rien de repris du parent). Routine du 3/11 sur BLEO : jauge 0 full test et 8 déclinaisons. J'ai encore sauté la ligne 2 de la boîte (837491f7, « jobs for people who love enterimarnt ») : faute de frappe dans l'accroche à recopier mot pour mot, et salaires invérifiables. Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "how to feel less awkward/anxious\nin public",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one fun fact every morning, for 7 days.\nyou'll always have something to say.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\nyou'll always have something to say.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. remember the spotlight effect\n\npeople notice you far less than you think.\nthey're busy thinking about themselves.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "79f09cec",
+      "texte_overlay": "2. stand like you're waiting for a friend\n\nshoulders down, hands relaxed.\nyou look calm, so you start to feel calm.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "3. carry a book\n\nsitting alone in a café looks completely different\nwhen you're reading.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. keep one easy question ready\n\n'read anything good lately?'\nworks almost everywhere.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "41a74286",
+      "texte_overlay": "5. give yourself a tiny mission\n\nbuy a stamp, find the best bench in the park.\na goal makes the place feel yours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "62e25601",
+      "texte_overlay": "save this for the next time you feel awkward.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

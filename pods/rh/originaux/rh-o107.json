@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o107",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3cdfa3dc-68d3-43c3-9b46-10c4b340c884",
+ "titre": "j'ai copié 5 habitudes de notre stagiaire pendant 1 mois (et j'ai honte d'avoir attendu) #travail #stage #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 3. Déclinaison G1 de la ligne 3 (parent 3cdfa3dc) : accroche mot pour mot, autres habitudes que le parent. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "094883cb",
+   "texte_overlay": "j'ai copié 5 habitudes de notre stagiaire\npendant 1 mois\n(et j'ai honte d'avoir attendu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1c8f0e7f",
+   "texte_overlay": "elle reformulait chaque demande\n« si je comprends bien, tu veux X pour jeudi ? »\nzéro malentendu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "91441cd1",
+   "texte_overlay": "elle apprenait un truc nouveau à chaque pause\nperso, je m'y suis mise : 5 minutes par jour, et j'ai retrouvé l'envie",
+   "texte_sophia": "elle apprenait un truc nouveau à chaque pause\nperso, je m'y suis mise : 5 minutes par jour sur l'appli Sophia, et j'ai retrouvé l'envie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1cc3bac4",
+   "texte_overlay": "elle demandait « tu peux me montrer comment tu fais ? »\net elle apprenait en 10 minutes ce qui m'avait pris un an",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1ccdcdd3",
+   "texte_overlay": "elle disait quand elle avait fini\npas seulement quand elle bloquait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d1fd80b",
+   "texte_overlay": "elle partait à l'heure, sans s'excuser\net elle bossait mieux que moi le lendemain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d99efaa",
+   "texte_overlay": "la stagiaire de ton équipe,\nelle t'a appris quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -17,7 +17,7 @@ export const GROUPES: readonly string[] = ["onboarding", "nouveaux_actifs", "act
 
 /** Les actions qu'un bot peut proposer (rien n'est exécuté sans un clic de l'admin). */
 export const ACTIONS_BOT: readonly string[] = [
-  "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "kill", "mark_read", "open_payroll", "open_who_to_fund", "close", "postpone",
+  "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "kill", "mark_read", "open_payroll", "open_who_to_fund", "close", "postpone", "none",
 ];
 
 /** Quels secrets sont posés (oui / non), jamais leur valeur. */
@@ -45,13 +45,15 @@ export function botDuJeton(entete: string | null, secrets: Partial<Record<Bot, s
 }
 
 /**
- * Le corps accepté : { action: "proposer", probleme_id, reponse?, canal?, action_proposee? }
+ * Le corps accepté : { action: "lire" } (ses problèmes, règles et feedbacks) ; { action: "proposer", probleme_id, reponse?, canal?, action_proposee? (dont « none ») }
  * ou { action: "creer", poster_id | contrat_id, categorie, resume, texte?, lien?, reponse?, canal?, action_proposee? }.
  * Tout le reste est refusé (valider, envoyer, kill, payer…).
  */
-export function lireCorps(corps: unknown): { action: "proposer" | "creer"; args: Record<string, unknown> } | { erreur: string } {
+export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "creer"; args: Record<string, unknown> } | { erreur: string } {
   if (!corps || typeof corps !== "object") return { erreur: "corps JSON attendu" };
   const c = corps as Record<string, unknown>;
+  // 3/11 : « lire » : ses problèmes ouverts (avec les messages), ses règles et ses feedbacks.
+  if (c.action === "lire") return { action: "lire", args: {} };
   const texte = (k: string, max = 2000) => (typeof c[k] === "string" ? (c[k] as string).slice(0, max) : undefined);
   // 3/11 (v4) : le diagnostic du bot (300 car.) et le groupe qu'il suggère.
   const groupe = texte("groupe_suggere", 20);
@@ -80,5 +82,5 @@ export function lireCorps(corps: unknown): { action: "proposer" | "creer"; args:
       args: { ...args, poster_id: poster, contrat_id: contrat, categorie: texte("categorie", 40), resume: texte("resume", 200), texte: texte("texte"), lien: texte("lien", 500) },
     };
   }
-  return { erreur: "action refusée : proposer ou creer seulement" };
+  return { erreur: "action refusée : lire, proposer ou creer seulement" };
 }

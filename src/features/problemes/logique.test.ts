@@ -52,7 +52,8 @@ describe("Problèmes : l'entrée des bots", () => {
   });
 
   it("seulement proposer ou créer (posteur obligatoire) ; jamais valider, envoyer, kill ou payer", () => {
-    expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : proposer ou creer seulement" });
+    expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : lire, proposer ou creer seulement" });
+    expect(lireCorps({ action: "lire" })).toEqual({ action: "lire", args: {} });
     expect(lireCorps({ action: "payer" })).toHaveProperty("erreur");
     expect(lireCorps({ action: "creer", categorie: "login", resume: "r" })).toEqual({ erreur: "poster_id ou contrat_id obligatoire" });
     expect(lireCorps({ action: "proposer", probleme_id: "00000000-0000-0000-0000-000000000009" })).toHaveProperty("erreur");
@@ -115,6 +116,8 @@ describe("Problèmes v4 : groupes, diagnostic, bots", () => {
   it("pas de diagnostic et pas d'action : pas de carte", () => {
     const msg = [{ type: "reponse", ref: "1", texte: "hello" }];
     expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg }))).toBe(false);
+    // Le diagnostic de repli de l'OS (le résumé) ne suffit pas à montrer une carte.
+    expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg, diagnostic: "hello", diagnostic_par: "os" }))).toBe(false);
     expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg, diagnostic: "Asks for the app link; FAQ answer exists." }))).toBe(true);
     expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg, proposition_action: "close" }))).toBe(true);
     expect(aDiagnosticOuAction(p({ categorie: "autre", sources: [{ type: "needs_you", ref: "n" }] }))).toBe(true);
@@ -133,6 +136,7 @@ describe("Problèmes v4 : groupes, diagnostic, bots", () => {
     expect(r).toMatchObject({ action: "proposer", args: { groupe_suggere: "actifs", action: "close" } });
     expect((r as { args: { diagnostic: string } }).args.diagnostic).toHaveLength(300);
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x" })).toHaveProperty("action", "proposer");
+    expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", action_proposee: "none" })).toMatchObject({ args: { action: "none" } });
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", groupe_suggere: "vip" })).toHaveProperty("erreur");
     expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false });
   });

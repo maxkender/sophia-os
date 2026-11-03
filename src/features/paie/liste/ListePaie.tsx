@@ -35,6 +35,7 @@ import {
   fixerTarifContrat,
   lireJalonsPaie,
   lireListePaie,
+  lireSourcesDecisions,
   lireTarifsPaie,
   relireJalonsUpwork,
   type LigneListePaie,
@@ -271,6 +272,7 @@ function LignePaie({
   etatApi,
   admin,
   tarif,
+  source,
 }: {
   l: LigneListePaie;
   semaine: string;
@@ -278,6 +280,8 @@ function LignePaie({
   etatApi?: EtatPaiementApi;
   admin: boolean;
   tarif?: TarifPaie;
+  /** 0530 : la décision qui touche cette ligne et d'où elle vient. */
+  source?: string;
 }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.resolvedLanguage ?? "fr";
@@ -296,6 +300,7 @@ function LignePaie({
         {l.exclu && (
           <p className="text-xs font-normal text-destructive-foreground">{t("paie.liste.retire", { raison: l.exclu_raison })}</p>
         )}
+        {source && <p className="text-xs font-normal text-destructive-foreground" data-testid="source-decision">{source}</p>}
         {raisons
           .filter((r) => r === "tarif_manquant")
           .map((r) => (
@@ -392,7 +397,9 @@ function Tableau({
   etatsApi,
   admin,
   tarifs,
+  sources,
 }: {
+  sources?: Map<string, string>;
   lignes: LigneListePaie[];
   semaine: string;
   simulation: boolean;
@@ -419,7 +426,7 @@ function Tableau({
         </thead>
         <tbody className="divide-y">
           {lignes.map((l) => (
-            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} etatApi={etatsApi.get(l.id)} admin={admin} tarif={tarifs.get(l.poster_id)} />
+            <LignePaie key={l.id} l={l} semaine={semaine} simulation={simulation} etatApi={etatsApi.get(l.id)} admin={admin} tarif={tarifs.get(l.poster_id)} source={sources?.get(l.poster_id)} />
           ))}
         </tbody>
       </table>
@@ -596,6 +603,8 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
     queryFn: () => lireListePaie(semaine, simulation),
   });
   const reglagesBonus = useQuery({ queryKey: ["reglages", "bonus"], queryFn: lireReglagesBonus });
+  // 0530 : les décisions (Kill samedi…) et leur source, sur chaque ligne touchée.
+  const sources = useQuery({ queryKey: ["paie", "sources", semaine], queryFn: () => lireSourcesDecisions(semaine) });
   const lundiPaie = ajouterJours(semaine, 7);
   const lundiBonus =
     reglagesBonus.data && prochainLundiBonus(lundiPaie, reglagesBonus.data.premier_lundi) === lundiPaie;
@@ -743,7 +752,7 @@ export function ListePaie({ semaine, simulation = false }: { semaine: string; si
             )}
           </summary>
           <div className="px-4 pb-4">
-            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} etatsApi={etats} admin={role === "admin"} tarifs={tarifs} />
+            <Tableau lignes={e.lignes} semaine={semaine} simulation={simulation} etatsApi={etats} admin={role === "admin"} tarifs={tarifs} sources={sources.data} />
           </div>
         </details>
       ))}

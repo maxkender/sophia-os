@@ -369,3 +369,10 @@ export function planDecision(
 
 /** Une option sans réponse ni action (« Autre ») : Max écrit la réponse avant de confirmer. */
 export const optionLibre = (o: OptionDecision): boolean => !o.paie && !o.action && !o.reponse?.trim();
+
+/** « 07/11 » : le samedi de la semaine du lundi donné. */
+export function samediDe(lundi: string): string {
+  const d = new Date(`${lundi}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 5);
+  return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}

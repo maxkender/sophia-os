@@ -15,7 +15,7 @@ import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import { FeedbackBot, StatsBots } from "./FeedbackBot";
 import { BlocDecision } from "./DecisionProbleme";
-import { BoutonKill } from "./KillProbleme";
+import { BoutonKillSamedi } from "./KillSamedi";
 import {
   agirProbleme,
   dejaEcritAujourdhui,
@@ -228,7 +228,8 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
                   {t(`${P}.${g.cle}`)} ↗
                 </a>
               ) : g.type === "kill" ? (
-                <BoutonKill key={g.cle} p={p} libelle={t(`${P}.${g.cle}`)} />
+                // Le Kill samedi est déjà en bas de la carte (geste « Valider »).
+                geste.type === "kill" ? null : <BoutonKillSamedi key={g.cle} p={p} libelle={t(`${P}.${g.cle}`)} />
               ) : g.type === "page" ? (
                 <Button key={g.cle} size="sm" onClick={() => navigate(g.vers)}>{t(`${P}.${g.cle}`)}</Button>
               ) : (
@@ -256,7 +257,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
           {decision ? null : geste.type === "kill" ? (
-            <BoutonKill p={p} libelle={`✅ ${t(`${P}.kill.bouton`)}`} />
+            <BoutonKillSamedi p={p} libelle={`✅ ${t(`${P}.kill.samedi`)}`} />
           ) : (
             <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
               ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}

@@ -541,3 +541,14 @@ recalculée à la main, rejouabilité, derniers plans).
     - 341960f2 (UGC images, pl) : 2 créneaux au plan, 2 passages sans bras. La voie UGC ne lit pas le plan BLEO, comme le 2/11 : à faire suivre avant le retrait de la tierlist ;
     - 61c0cc6a : un rappel posé à minuit a pris un des 2 créneaux. 1 `bleo` et 1 rappel, le quota est tenu ;
     - b4038a39 (es-419, `is_active = false`) : 2 créneaux au plan, 0 passage. Minuit saute les comptes inactifs, mais le tirage les garde (#21 : aligner le filtre des comptes du tirage sur celui de minuit).
+- **3/11, 6 h 15 : contrôle du matin.** Tout va bien, rien à réparer.
+  - **Comptes :** les 320 comptes en process ont leurs 2 posts. Aucun compte à 0 ou 1. Les 35 comptes actifs sans post n'ont jamais commencé leur warmup (`warmup_ends_at` vide) : minuit ne les sert pas, c'est voulu.
+  - **Remplacements de la nuit :** 2 (2 h 26 et 3 h 26). Les deux sont servis par BLEO (`bras = 'bleo'`, file `valeur`, run 5b848aa7) et déjà publiés. D49 marche.
+  - **Fonctions :**
+    - aucune erreur 546 ni 504 ;
+    - aucune vraie erreur 402 de Gemini et aucun repli sur fal ;
+    - 4 erreurs 503 au même instant, à 6 h 00 (hub-slack-cohorte, rattrapage-elo, recrues-check, upwork) : un raté de la plateforme, les appels suivants passent ;
+    - recrues-check a renvoyé 3 erreurs 500 entre 0 h 15 et 0 h 45, avant le correctif #1050.
+  - **Nuit BLEO de 5 h 15 :** 14 s, sans erreur.
+    - 59 jugés, 287 r calculés, 104 536 valeurs ;
+    - verdicts : 65 contenus et 53 familles ont changé, 1 famille close.

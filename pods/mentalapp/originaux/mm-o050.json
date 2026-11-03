@@ -1,0 +1,188 @@
+{
+ "id": "mm-o050",
+ "format": "carrousel",
+ "titre": "5-minute rules that fixed my focus",
+ "legendes": {
+  "en": "the 5-minute rules that fixed my focus #focus #productivity #mentalmaxxing #selfimprovement",
+  "fr": "les règles de 5 minutes qui ont réparé ma concentration #concentration #productivite #mentalmaxxing #developpementpersonnel",
+  "de": "die 5-Minuten-Regeln, die meinen Fokus repariert haben #fokus #produktivität #mentalmaxxing #selbstverbesserung",
+  "es": "las reglas de 5 minutos que arreglaron mi concentración #concentracion #productividad #mentalmaxxing #superacionpersonal",
+  "it": "le regole dei 5 minuti che hanno sistemato la mia concentrazione #concentrazione #produttività #mentalmaxxing #crescitapersonale",
+  "tr": "odağımı düzelten 5 dakika kuralları #odak #verimlilik #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7692811167261248775/1",
+   "boite": [
+    134,
+    280,
+    746,
+    588
+   ]
+  },
+  "theme": {
+   "en": "5-minute rules",
+   "fr": "Les règles de 5 minutes",
+   "de": "5-Minuten-Regeln",
+   "es": "Reglas de 5 minutos",
+   "it": "Regole dei 5 minuti",
+   "tr": "5 dakika kuralları"
+  },
+  "sous": {
+   "en": "that fixed my focus",
+   "fr": "qui ont réparé mon focus",
+   "de": "für meinen Fokus",
+   "es": "que arreglaron mi foco",
+   "it": "per la mia concentrazione",
+   "tr": "odağımı düzeltenler"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Start for 5 minutes",
+    "fr": "Commence pour 5 minutes",
+    "de": "Fang für 5 Minuten an",
+    "es": "Empieza 5 minutos",
+    "it": "Inizia per 5 minuti",
+    "tr": "5 dakikalığına başla"
+   },
+   "texte": {
+    "en": "Tell yourself you can stop after five. You almost never do.",
+    "fr": "Dis-toi que tu peux arrêter après cinq. Tu ne le fais presque jamais.",
+    "de": "Sag dir, du darfst nach fünf aufhören. Du tust es fast nie.",
+    "es": "Dite que puedes parar a los cinco. Casi nunca lo haces.",
+    "it": "Dì a te stesso che puoi smettere dopo cinque. Non lo fai quasi mai.",
+    "tr": "Beşten sonra bırakabileceğini söyle kendine. Neredeyse hiç bırakmazsın."
+   }
+  },
+  {
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "Wait 5 minutes before you check",
+    "fr": "Attends 5 minutes avant de regarder",
+    "de": "Warte 5 Minuten vor dem Nachsehen",
+    "es": "Espera 5 minutos antes de mirar",
+    "it": "Aspetta 5 minuti prima di guardare",
+    "tr": "Bakmadan önce 5 dakika bekle"
+   },
+   "texte": {
+    "en": "The urge peaks and fades. By minute five you usually forgot why you wanted to.",
+    "fr": "L’envie monte puis retombe. À la cinquième minute, tu as souvent oublié pourquoi.",
+    "de": "Der Drang steigt und fällt. Nach fünf Minuten weißt du meist nicht mehr, warum.",
+    "es": "Las ganas suben y bajan. Al minuto cinco casi siempre olvidaste por qué.",
+    "it": "La voglia sale e scende. Al quinto minuto di solito hai dimenticato perché.",
+    "tr": "İstek yükselir ve söner. Beşinci dakikada genelde neden istediğini unutmuşsundur."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: five minutes of short videos turned into fifty. After deleting them with UnSwipe: five minutes stay five minutes.",
+    "fr": "Avant : cinq minutes de vidéos courtes devenaient cinquante. Après les avoir supprimées avec UnSwipe : cinq minutes restent cinq minutes.",
+    "de": "Vorher: Aus fünf Minuten Kurzvideos wurden fünfzig. Nachdem ich sie mit UnSwipe gelöscht habe: Fünf Minuten bleiben fünf Minuten.",
+    "es": "Antes: cinco minutos de vídeos cortos se convertían en cincuenta. Después de borrarlos con UnSwipe: cinco minutos son cinco minutos.",
+    "it": "Prima: cinque minuti di video brevi diventavano cinquanta. Dopo averli eliminati con UnSwipe: cinque minuti restano cinque.",
+    "tr": "Önce: beş dakikalık kısa video elliye dönüşüyordu. UnSwipe ile sildikten sonra: beş dakika beş dakika kalıyor."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "5-minute walk between tasks",
+    "fr": "5 minutes de marche entre deux tâches",
+    "de": "5 Minuten gehen zwischen Aufgaben",
+    "es": "Caminar 5 minutos entre tareas",
+    "it": "5 minuti a piedi tra un compito e l’altro",
+    "tr": "İşler arasında 5 dakika yürüyüş"
+   },
+   "texte": {
+    "en": "A real break instead of a scroll break. You come back fresh, not foggy.",
+    "fr": "Une vraie pause au lieu d’une pause scroll. Tu reviens frais, pas dans le brouillard.",
+    "de": "Eine echte Pause statt einer Scroll-Pause. Du kommst frisch zurück, nicht benebelt.",
+    "es": "Un descanso real en vez de uno de scroll. Vuelves fresco, no nublado.",
+    "it": "Una pausa vera invece di una pausa scroll. Torni fresco, non annebbiato.",
+    "tr": "Kaydırma molası yerine gerçek mola. Bulanık değil, zinde dönersin."
+   }
+  },
+  {
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "5 quiet minutes with coffee",
+    "fr": "5 minutes calmes avec ton café",
+    "de": "5 ruhige Minuten mit Kaffee",
+    "es": "5 minutos tranquilos con café",
+    "it": "5 minuti tranquilli col caffè",
+    "tr": "Kahveyle 5 sessiz dakika"
+   },
+   "texte": {
+    "en": "No screen while you drink it. The day starts at your pace, not the feed’s.",
+    "fr": "Pas d’écran pendant que tu le bois. La journée démarre à ton rythme, pas à celui du feed.",
+    "de": "Kein Bildschirm beim Trinken. Der Tag startet in deinem Tempo, nicht in dem des Feeds.",
+    "es": "Sin pantalla mientras lo tomas. El día empieza a tu ritmo, no al del feed.",
+    "it": "Niente schermo mentre lo bevi. La giornata parte al tuo ritmo, non a quello del feed.",
+    "tr": "İçerken ekran yok. Gün akışın değil, senin hızında başlar."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "5 minutes to tidy up",
+    "fr": "5 minutes pour ranger",
+    "de": "5 Minuten Aufräumen",
+    "es": "5 minutos para ordenar",
+    "it": "5 minuti per riordinare",
+    "tr": "Toparlanmak için 5 dakika"
+   },
+   "texte": {
+    "en": "Clear the desk before you stop for the day. Tomorrow starts without distractions.",
+    "fr": "Range le bureau avant de finir la journée. Demain commence sans distractions.",
+    "de": "Räum den Schreibtisch auf, bevor du Feierabend machst. Morgen beginnt ohne Ablenkung.",
+    "es": "Ordena la mesa antes de terminar el día. Mañana empieza sin distracciones.",
+    "it": "Sistema la scrivania prima di finire la giornata. Domani inizia senza distrazioni.",
+    "tr": "Günü bitirmeden masanı topla. Yarın dikkat dağıtıcılar olmadan başlar."
+   }
+  }
+ ],
+ "notes": "routine du 03/11 : accroche jamais faite chez nous (« 5-minute rules that fixed my focus »). cta C (avant/après) : élément UnSwipe en 3e item (slide 4)."
+}

@@ -257,3 +257,41 @@ export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "
   if (p.sources.some((x) => !SOURCES_MESSAGE.includes(x.type))) return true;
   return gestes(p).some((g) => g.type !== "lien");
 }
+
+// ---------------------------------------------------------------------------
+// 3/11 : le feedback aux bots (0523).
+// ---------------------------------------------------------------------------
+
+export const VERDICTS = ["juste", "pas_un_probleme", "mauvais_diagnostic", "mauvaise_action"] as const;
+export const EMOJI_VERDICT: Record<(typeof VERDICTS)[number], string> = {
+  juste: "👍", pas_un_probleme: "❌", mauvais_diagnostic: "🔧", mauvaise_action: "↪️",
+};
+
+export const estBot = (qui: string | null | undefined): qui is Proprietaire => PROPRIETAIRES.includes(qui as Proprietaire);
+
+/** Une carte proposée par un bot (ouverte), ou fermée par un bot avec « close ». */
+export function peutDonnerFeedback(p: Pick<Probleme, "propose_par" | "statut" | "proposition_action">): boolean {
+  if (!estBot(p.propose_par)) return false;
+  return p.statut === "ouvert" || p.proposition_action === "close";
+}
+
+/** « Pourquoi » : obligatoire sauf pour 👍. */
+export const raisonObligatoire = (v: (typeof VERDICTS)[number]) => v !== "juste";
+
+/** % de 👍 sur 7 jours ; null sans feedback. */
+export function pourcentJuste(s: { total: number; justes: number }): number | null {
+  return s.total > 0 ? Math.round((100 * s.justes) / s.total) : null;
+}
+
+/** « En faire une règle » : la règle pré-remplie depuis la raison donnée, l'exemple depuis ce que le bot avait dit. */
+export function regleDepuisFeedback(f: { id: string; bot: Proprietaire; raison: string | null; diagnostic_du_bot: string | null; action_du_bot: string | null; categorie: string | null }) {
+  const vu = f.diagnostic_du_bot ?? f.action_du_bot;
+  return {
+    id: null,
+    bot: f.bot,
+    regle: (f.raison ?? "").trim(),
+    exemple: vu ? `${f.categorie ? `${f.categorie} — ` : ""}${vu}` : null,
+    sources: [f.id],
+    active: true,
+  };
+}

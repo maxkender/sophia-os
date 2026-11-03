@@ -13,16 +13,19 @@ import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
+import { FeedbackBot, StatsBots } from "./FeedbackBot";
 import {
   agirProbleme,
   dejaEcritAujourdhui,
   envoyerLienMotDePasse,
   envoyerUpwork,
   lireArchives,
+  lireFeedbacks,
   lireModeProblemes,
   lireOnboarding,
   lireProblemes,
   passerMaintenant,
+  type BotFeedback,
   type CohorteOnboarding,
   type EtapeOnboarding,
   type Niveau,
@@ -48,6 +51,7 @@ import {
   grouper,
   NIVEAUX,
   options,
+  peutDonnerFeedback,
   peutValiderCategorie,
   phraseProbleme,
   PROPRIETAIRES,
@@ -114,7 +118,7 @@ const Titre = ({ children }: { children: React.ReactNode }) => (
   <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{children}</p>
 );
 
-function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
+function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"; feedback?: BotFeedback }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const navigate = useNavigate();
@@ -254,6 +258,7 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
           )}
         </div>
         {message && <p className="text-xs text-muted-foreground">{message}</p>}
+        {peutDonnerFeedback(p) && <FeedbackBot p={p} dernier={feedback} />}
       </CardContent>
     </Card>
   );
@@ -310,7 +315,7 @@ function BarreOnboarding() {
 }
 
 /** Un groupe (4) : la catégorie, son compteur, « Valider tout » sans argent ni STOP. */
-function Groupe({ niveau, categorie, cartes, mode }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on" }) {
+function Groupe({ niveau, categorie, cartes, mode, feedbacks }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on"; feedbacks: Map<string, BotFeedback> }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [ouvert, setOuvert] = React.useState(cartes.length <= 5 || niveau === "urgent");
@@ -327,7 +332,7 @@ function Groupe({ niveau, categorie, cartes, mode }: { niveau: Niveau; categorie
           </Button>
         )}
       </div>
-      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} />)}
+      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} feedback={feedbacks.get(p.id)} />)}
     </section>
   );
 }
@@ -350,6 +355,13 @@ export function PageProblemesPosteurs() {
   const fermes = useQuery({ queryKey: ["problemes", "fermes"], queryFn: () => lireProblemes("fermes"), enabled: vue === "fermes" });
   const archives = useQuery({ queryKey: ["problemes", "archives"], queryFn: lireArchives, enabled: vue === "archives" });
   const mode = useQuery({ queryKey: ["problemes", "mode"], queryFn: lireModeProblemes });
+  // 3/11 : le dernier feedback donné sur chaque carte (la liste arrive du plus récent au plus ancien).
+  const feedbacksLus = useQuery({ queryKey: ["bots", "feedbacks"], queryFn: () => lireFeedbacks(30) });
+  const feedbacks = React.useMemo(() => {
+    const m = new Map<string, BotFeedback>();
+    for (const x of feedbacksLus.data ?? []) if (x.probleme_id && !m.has(x.probleme_id)) m.set(x.probleme_id, x);
+    return m;
+  }, [feedbacksLus.data]);
   const passer = useMutation({ mutationFn: passerMaintenant, onSuccess: () => qc.invalidateQueries({ queryKey: ["problemes"] }) });
   // 3/11 : à chaque ouverture, relire Upwork puis recalculer avant d'afficher (au plus une fois toutes les 5 min).
   const resync = useQuery({
@@ -383,6 +395,7 @@ export function PageProblemesPosteurs() {
           {t(`${P}.modeTest`)}
         </p>
       )}
+      <StatsBots />
       <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label={t(`${P}.groupesAria`)}>
         {[...GROUPES, "paie" as const].map((g) => (
           <button key={g} type="button" role="tab" aria-selected={groupe === g} data-testid={`groupe-${g}`}
@@ -433,7 +446,7 @@ export function PageProblemesPosteurs() {
       {vue === "ouverts" && (
         <div className="space-y-3">
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
-          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} />)}
+          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} feedbacks={feedbacks} />)}
         </div>
       )}
 
@@ -445,6 +458,7 @@ export function PageProblemesPosteurs() {
               <span className="text-muted-foreground">{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</span>
               <span>{resumeLisible(p, t)}</span>
               <span className="text-muted-foreground">→ {p.ferme_raison ?? p.statut} · {quand(p.ferme_at)}</span>
+              {peutDonnerFeedback(p) && <div className="w-full"><FeedbackBot p={p} dernier={feedbacks.get(p.id)} compact /></div>}
             </li>
           ))}
         </ul>

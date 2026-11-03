@@ -6,7 +6,7 @@ export const POD = "remakes_fathom";
 /** Le compte refait : Fathomly, l'appli concurrente de Sophia, et ses listes sur fond blanc. */
 export const COMPTE_SOURCE = "fathom0g";
 /** Les langues livrées : l'anglais d'abord (décision du 23/10), puis les grandes langues de Sophia. */
-export const LANGUES = ["en", "fr", "es", "de", "it", "pt"] as const;
+export const LANGUES = ["en", "fr", "es", "de", "it", "pt", "pt-BR", "es-419"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

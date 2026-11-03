@@ -77,23 +77,21 @@ Deno.test("jeudi : sous 6 posts avec lien (compte par compte, aujourd'hui inclus
   );
 });
 
-Deno.test("lundi soir : à minuit heure de Paris, aucun post → 1 message ; un post → rien ; jamais deux", async () => {
+Deno.test("lundi soir : lundi 20 h heure de Paris, aucun post → 1 message ; un post → rien ; jamais deux", async () => {
   const { lundiSoirDu, killLundiSoir, reactionLundiSoir, texteLundiSoir } = await import("./semaine.ts");
   const p = {
     poster_id: "p1", compte_id: "k1", deuxieme: false, prenom: "Ana", fuseau: "America/New_York", contrat_id: "c1",
     publies_lundi: 0, dernier_post_at: null, message_at: null, message_id: null, message_erreur: null, prevu_at: null,
     repondu_at: null, kill_id: null, kill_statut: null,
   };
-  // Paris = UTC+1 en novembre : lundi 22:59Z (23:59 Paris) trop tôt ; mardi 23:00Z (minuit Paris) dû, quel que soit le pays ;
-  // mardi 05:00Z (6 h Paris) : plus jamais.
-  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T19:30:00Z"), false), false);
-  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T22:59:00Z"), false), false);
-  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T23:00:00Z"), false), true);
-  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-03T04:45:00Z"), false), true);
-  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-03T05:00:00Z"), false), false);
-  assertEquals(lundiSoirDu({ ...p, publies_lundi: 1 }, LUNDI, t("2026-11-02T23:10:00Z"), false), false);
-  assertEquals(lundiSoirDu({ ...p, message_at: "2026-11-02T23:05:00Z" }, LUNDI, t("2026-11-02T23:30:00Z"), false), false);
-  assertEquals(lundiSoirDu({ ...p, prevu_at: "2026-11-02T23:05:00Z" }, LUNDI, t("2026-11-02T23:30:00Z"), true), false);
+  // 3/11 : lundi 20:00 → minuit (Paris), soit 19:00 → 23:00 UTC en hiver.
+  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T18:59:00Z"), false), false);
+  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T19:00:00Z"), false), true);
+  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T22:59:00Z"), false), true);
+  assertEquals(lundiSoirDu(p, LUNDI, t("2026-11-02T23:00:00Z"), false), false);
+  assertEquals(lundiSoirDu({ ...p, publies_lundi: 1 }, LUNDI, t("2026-11-02T19:10:00Z"), false), false);
+  assertEquals(lundiSoirDu({ ...p, message_at: "2026-11-02T19:05:00Z" }, LUNDI, t("2026-11-02T19:30:00Z"), false), false);
+  assertEquals(lundiSoirDu({ ...p, prevu_at: "2026-11-02T19:05:00Z" }, LUNDI, t("2026-11-02T19:30:00Z"), true), false);
   // Kill 48 h après, sauf un post ou une réponse depuis le message.
   const env = t("2026-11-02T20:10:00Z");
   assertEquals(killLundiSoir(p, env, t("2026-11-04T20:00:00Z"), 48), false);

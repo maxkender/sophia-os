@@ -16,19 +16,30 @@ import { drapeau, nomPays } from "@/features/decisionPays/logique";
 import {
   agirProbleme,
   dejaEcritAujourdhui,
+  envoyerLienMotDePasse,
   envoyerUpwork,
   lireArchives,
   lireModeProblemes,
+  lireOnboarding,
   lireProblemes,
   passerMaintenant,
+  type CohorteOnboarding,
+  type EtapeOnboarding,
   type Niveau,
   type Probleme,
   type Situation,
   validerCategorie,
 } from "./api";
 import {
+  aDiagnosticOuAction,
   avecLigneStop,
+  compterParGroupe,
   compterParNiveau,
+  dansOnglet,
+  etapesManquantes,
+  GROUPES,
+  groupeDe,
+  type OngletGroupe,
   debutJourParis,
   FILTRES_VIDES,
   filtrer,
@@ -65,39 +76,40 @@ function resumeLisible(p: Pick<Probleme, "resume" | "categorie">, t: (k: string)
   return p.resume.replace(MOTIFS_OFFRE, (m) => t(`decisionPays.motif.${m}`));
 }
 
-function Coche({ ok, nom }: { ok: boolean; nom: string }) {
-  return <span className={ok ? "text-emerald-700 dark:text-emerald-400" : "font-medium text-red-600"}>{ok ? "✓" : "✗"} {nom}</span>;
-}
-
-/** La situation en une ligne, calculée par l'OS (0520). */
+/** B2 : la situation, calculée par l'OS à chaque lecture : posts, étapes manquantes, paie passée, milestone en cours, reports. */
 function LigneSituation({ s }: { s: Situation }) {
   const { t } = useTranslation();
   const pp = s.paie_passee;
   const finance = s.finances[0];
+  const manque = etapesManquantes(s);
   return (
-    <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs" data-testid="situation">
-      <span className={cn(s.bloque && "font-medium text-red-600")}>{t(`${P}.sit.posts`, { posts: s.posts, attendus: s.attendus })}</span>
-      <span className="space-x-2">
-        <Coche ok={s.etapes.login} nom={t(`${P}.sit.login`)} />
-        <Coche ok={s.etapes.slack} nom="Slack" />
-        <Coche ok={s.etapes.tiktok} nom="TikTok" />
-        <Coche ok={s.etapes.warmup} nom={t(`${P}.sit.warmup`)} />
-      </span>
-      <span>
+    <ul className="space-y-0.5 text-xs" data-testid="situation">
+      <li className={cn(s.bloque && "font-medium text-red-600")}>{t(`${P}.sit.posts`, { posts: s.posts, attendus: s.attendus })}</li>
+      <li>
+        {manque.length === 0
+          ? <span className="text-emerald-700 dark:text-emerald-400">✓ {t(`${P}.sit.etapesOk`)}</span>
+          : <span className="font-medium text-red-600">✗ {t(`${P}.sit.manque`, { etapes: manque.map((e) => t(`${P}.sit.etape.${e}`)).join(", ") })}</span>}
+      </li>
+      <li>
         {!pp.ligne
           ? t(`${P}.sit.paieSansLigne`, { semaine: jourCohorte(pp.semaine) })
           : s.paye_passee
             ? t(`${P}.sit.paiePayee`, { semaine: jourCohorte(pp.semaine), montant: pp.montant ?? 0, date: pp.paye_at ? jourCohorte(pp.paye_at.slice(0, 10)) : "—" })
             : <span className="font-medium text-red-600">{t(`${P}.sit.paieNonPayee`, { semaine: jourCohorte(pp.semaine), montant: pp.montant ?? 0 })}</span>}
-      </span>
-      <span className={cn(!s.finance_ok && s.actif && "font-medium text-amber-700")}>
+      </li>
+      <li className={cn(!s.finance_ok && s.actif && "font-medium text-amber-700")}>
         {finance
-          ? t(`${P}.sit.finance`, { nom: finance.nom ?? "?", montant: finance.montant ?? "?", attendu: s.attendu_semaine ?? "?" })
+          ? t(s.finance_ok ? `${P}.sit.financeOk` : `${P}.sit.finance`, { nom: finance.nom ?? "?", montant: finance.montant ?? "?", attendu: s.attendu_semaine ?? "?" })
           : t(`${P}.sit.rienFinance`, { attendu: s.attendu_semaine ?? "?" })}
-      </span>
-    </p>
+      </li>
+      {(s.nb_reports ?? 0) > 0 && <li className="font-medium text-amber-700">{t(`${P}.sit.reports`, { count: s.nb_reports })}</li>}
+    </ul>
   );
 }
+
+const Titre = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{children}</p>
+);
 
 function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
   const { t } = useTranslation();
@@ -111,9 +123,10 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
   const s = p.situation ?? null;
   const phrase = phraseProbleme(p, localeDate());
   const liste = gestes(p);
+  const groupe = groupeDe(p);
 
   const agir = useMutation({
-    mutationFn: async (action: "valider" | "ignorer" | "samedi" | "modifier") => {
+    mutationFn: async (action: "valider" | "ignorer" | "samedi" | "modifier" | "fermer") => {
       if (action === "modifier") {
         await agirProbleme(p.id, "modifier", { reponse });
         setEdition(false);
@@ -125,15 +138,21 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
         navigate(geste.vers);
         return;
       }
+      if (geste.type === "fermer" && p.proposition_action === "close") return agirProbleme(p.id, "fermer");
       if (geste.type === "releve") await releverCompte(geste.compte_id);
       let envoye = false;
-      if (geste.type === "reponse" && mode === "on" && p.poster_id && (p.canal_reponse ?? "upwork") === "upwork") {
+      // Le geste non financier part avec la réponse, seulement en mode « on ».
+      if (geste.type === "motDePasse" && mode === "on") {
+        await envoyerLienMotDePasse(geste.poster_id);
+        envoye = true;
+      }
+      if (p.proposition_reponse?.trim() && mode === "on" && p.poster_id && (p.canal_reponse ?? "upwork") === "upwork") {
         if (await dejaEcritAujourdhui(p.poster_id, debutJourParis())) throw new Error(t(`${P}.unParJour`));
-        await envoyerUpwork(p.poster_id, avecLigneStop(p.proposition_reponse ?? ""));
+        await envoyerUpwork(p.poster_id, avecLigneStop(p.proposition_reponse));
         envoye = true;
       }
       await agirProbleme(p.id, "valider", { envoye, action: p.proposition_action, reponse: p.proposition_reponse });
-      if (mode === "test" && geste.type === "reponse") setMessage(t(`${P}.rienEnvoye`));
+      if (mode === "test") setMessage(t(`${P}.rienEnvoye`));
     },
     onSuccess: rafraichir,
     onError: (e) => setMessage((e as Error).message),
@@ -147,34 +166,42 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
   return (
     <Card data-testid="carte-probleme">
       <CardContent className="space-y-2 p-4 text-sm">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="font-semibold">{p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`)}</span>
           {s?.pays && <span className="text-muted-foreground">· {drapeau(s.pays)} {nomPays(s.pays, i18nLangue())}</span>}
           {p.hm && <span className="text-muted-foreground">· {t(`${P}.hm`, { hm: p.hm })}</span>}
           {p.cohorte && <span className="text-muted-foreground">· {t(`${P}.cohorte`, { date: jourCohorte(p.cohorte) })}</span>}
+          <span className="text-muted-foreground">· {t(`${P}.groupes.${groupe}`)}</span>
           <Badge variant={VARIANTE[p.niveau]}>{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</Badge>
           {p.actif === false && <Badge variant="secondary">{t(`${P}.inactif`)}</Badge>}
         </div>
+        <div>
+          <Titre>{t(`${P}.titres.diagnostic`)}</Titre>
+          <p className="font-bold" data-testid="diagnostic">
+            {p.diagnostic?.trim() ? p.diagnostic : phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : resumeLisible(p, t)}
+          </p>
+          {p.diagnostic?.trim() && p.propose_par && <p className="text-[11px] text-muted-foreground">{t(`${P}.diagPar`, { qui: t(`${P}.proprietaires.${p.propose_par}`, { defaultValue: p.propose_par }) })}</p>}
+        </div>
         {s && (
           <div className="rounded-md bg-muted/30 p-2">
-            <p className="mb-0.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{t(`${P}.titres.situation`)}</p>
+            <Titre>{t(`${P}.titres.situation`)}</Titre>
             <LigneSituation s={s} />
           </div>
         )}
         {s?.message && (
           <div data-testid="message-cite">
-            <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+            <Titre>
               {t(s.a_ecrit ? `${P}.titres.aEcritAttend` : `${P}.titres.aEcrit`)} · {quand(s.message.at)} · {s.message.canal === "slack" ? "Slack" : "Upwork"}
-            </p>
+              {s.message.lien && <> · <a href={s.message.lien} target="_blank" rel="noreferrer" className="normal-case underline">{t(`${P}.geste.conversation`)} ↗</a></>}
+            </Titre>
             <blockquote className="border-l-2 pl-2 italic">« {s.message.texte} »</blockquote>
           </div>
         )}
-        <div>
-          <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{t(`${P}.titres.probleme`)}</p>
-          <p className="font-medium" data-testid="phrase-probleme">{phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : resumeLisible(p, t)}</p>
-        </div>
         <div className="space-y-1">
-          <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{t(`${P}.titres.action`)}</p>
+          <Titre>{t(`${P}.titres.action`)}</Titre>
+          {p.proposition_action && (
+            <p className="text-xs">{t(`${P}.actionProposee`)} <span className="font-medium">{t(`${P}.actions.${p.proposition_action}`, { defaultValue: p.proposition_action })}</span></p>
+          )}
           <div className="flex flex-wrap gap-2">
             {liste.map((g) =>
               g.type === "lien" ? (
@@ -200,6 +227,11 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
               )}
             </div>
           )}
+          {p.propose_par && (
+            <p className="text-[11px] text-muted-foreground" data-testid="propose-par">
+              {t(`${P}.proposePar`, { qui: t(`${P}.proprietaires.${p.propose_par}`, { defaultValue: p.propose_par }), quand: quand(p.propose_at) })}
+            </p>
+          )}
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
           <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
@@ -214,11 +246,64 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
           {p.niveau !== "samedi" && (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("samedi")} disabled={agir.isPending}>📅 {t(`${P}.samedi`)}</Button>
           )}
+          {p.proposition_action === "close" && (
+            <Button size="sm" variant="outline" onClick={() => agir.mutate("fermer")} disabled={agir.isPending} data-testid="fermer">✔️ {t(`${P}.fermer`)}</Button>
+          )}
         </div>
         {message && <p className="text-xs text-muted-foreground">{message}</p>}
       </CardContent>
     </Card>
   );
+}
+
+/** A3 : la barre d'onboarding d'une cohorte ; un clic sur une étape montre les recrues bloquées là. */
+function BarreCohorte({ c }: { c: CohorteOnboarding }) {
+  const { t } = useTranslation();
+  const [etape, setEtape] = React.useState<EtapeOnboarding | null>(null);
+  const choisie = c.etapes.find((e) => e.cle === etape);
+  return (
+    <div className="space-y-2 rounded-md border p-3" data-testid="barre-onboarding">
+      <p className="text-sm">
+        <span className="font-semibold">{t(`${P}.onb.cohorte`, { date: jourCohorte(c.lundi) })}</span>
+        <span className="text-muted-foreground"> · {t(`${P}.onb.total`, { count: c.total })} · {t(`${P}.onb.aPoste`, { n: c.a_poste })}</span>
+        <span className="text-muted-foreground"> · {t(`${P}.onb.reports`, { un: c.reports.un, deux: c.reports.deux_plus })}</span>
+      </p>
+      <div className="grid grid-cols-2 gap-1 sm:grid-cols-4 lg:grid-cols-8">
+        {c.etapes.map((e) => (
+          <button key={e.cle} type="button" onClick={() => setEtape(etape === e.cle ? null : e.cle)} data-testid={`etape-${e.cle}`}
+            className={cn("rounded-md border p-1.5 text-left text-xs hover:bg-muted", etape === e.cle && "border-primary bg-muted")}>
+            <span className="block font-medium">{t(`${P}.onb.etapes.${e.cle}`)}</span>
+            <span className="block tabular-nums">{e.faits} / {c.total}</span>
+            <span className="mt-1 block h-1.5 rounded bg-muted">
+              <span className="block h-1.5 rounded bg-emerald-500" style={{ width: `${c.total ? Math.round((100 * e.faits) / c.total) : 0}%` }} />
+            </span>
+            {e.bloques.length > 0 && <span className="mt-1 block font-medium text-red-600">{t(`${P}.onb.bloques`, { n: e.bloques.length })}</span>}
+          </button>
+        ))}
+      </div>
+      {choisie && (
+        <ul className="space-y-0.5 text-xs" data-testid="bloques">
+          {choisie.bloques.length === 0 && <li className="text-muted-foreground">{t(`${P}.onb.personne`)}</li>}
+          {choisie.bloques.map((r) => (
+            <li key={r.poster_id ?? r.contrat_id}>
+              {r.poster_id ? <Link to={`/admin/posters?poster=${r.poster_id}`} className="font-medium underline">{r.nom ?? "—"}</Link> : <span className="font-medium">{r.nom ?? r.contrat_id}</span>}
+              {r.pays && <span className="text-muted-foreground"> · {drapeau(r.pays)} {nomPays(r.pays, i18nLangue())}</span>}
+              {r.hm && <span className="text-muted-foreground"> · {t(`${P}.hm`, { hm: r.hm })}</span>}
+              {r.reports > 0 && <span className="text-amber-700"> · {t(`${P}.sit.reports`, { count: r.reports })}</span>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function BarreOnboarding() {
+  const { t } = useTranslation();
+  const lu = useQuery({ queryKey: ["problemes", "onboarding"], queryFn: lireOnboarding });
+  if (lu.error) return <p className="text-sm text-destructive">{(lu.error as Error).message}</p>;
+  if (!lu.data) return <p className="text-xs text-muted-foreground">{t(`${P}.chargement`)}</p>;
+  return <div className="space-y-2">{lu.data.map((c) => <BarreCohorte key={c.lundi} c={c} />)}</div>;
 }
 
 /** Un groupe (4) : la catégorie, son compteur, « Valider tout » sans argent ni STOP. */
@@ -246,12 +331,15 @@ function Groupe({ niveau, categorie, cartes, mode }: { niveau: Niveau; categorie
 
 /**
  * Bloc C (2/11) : « Problèmes » remplace Needs you. Un problème par posteur et
- * par catégorie ; 3 onglets (Urgent, Aujourd'hui, Samedi) ; une proposition
- * (réponse + action) à valider, modifier, ignorer ou reporter au samedi.
+ * par catégorie. v4 (3/11) : en haut, 3 groupes (Onboarding, Nouveaux actifs,
+ * Actifs) et le filtre Paie ; dans chacun, Urgent / Aujourd'hui / Samedi ;
+ * une proposition (réponse + action) à valider, modifier, ignorer, reporter au
+ * samedi ou fermer.
  */
 export function PageProblemesPosteurs() {
   const { t } = useTranslation();
   const qc = useQueryClient();
+  const [groupe, setGroupe] = React.useState<OngletGroupe>("onboarding");
   const [onglet, setOnglet] = React.useState<Niveau>("urgent");
   const [vue, setVue] = React.useState<"ouverts" | "fermes" | "archives">("ouverts");
   const [f, setF] = React.useState<FiltresProblemes>(FILTRES_VIDES);
@@ -274,10 +362,15 @@ export function PageProblemesPosteurs() {
   });
 
   const tous = lu.data ?? [];
-  const filtres = filtrer(tous, f);
-  const n = compterParNiveau(filtres);
+  // B2 : pas de diagnostic et pas d'action → pas de carte.
+  const montrables = tous.filter(aDiagnosticOuAction);
+  const masquees = tous.length - montrables.length;
+  const filtres = filtrer(montrables, f);
+  const ng = compterParGroupe(filtres);
+  const duGroupe = filtres.filter((p) => dansOnglet(p, groupe));
+  const n = compterParNiveau(duGroupe);
   const o = options(tous);
-  const visibles = filtres.filter((p) => p.niveau === onglet);
+  const visibles = duGroupe.filter((p) => p.niveau === onglet);
   const modeActuel = mode.data ?? "test";
 
   return (
@@ -287,6 +380,17 @@ export function PageProblemesPosteurs() {
           {t(`${P}.modeTest`)}
         </p>
       )}
+      <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label={t(`${P}.groupesAria`)}>
+        {[...GROUPES, "paie" as const].map((g) => (
+          <button key={g} type="button" role="tab" aria-selected={groupe === g} data-testid={`groupe-${g}`}
+            onClick={() => { setVue("ouverts"); setGroupe(g); }}
+            className={cn("rounded-md border px-3 py-1.5 text-sm font-medium",
+              groupe === g ? "border-primary bg-primary text-primary-foreground" : "hover:bg-muted", g === "paie" && "ml-auto")}>
+            {t(`${P}.groupesOnglet.${g}`)} <span className="tabular-nums">({ng[g]})</span>
+          </button>
+        ))}
+      </div>
+      {vue === "ouverts" && groupe === "onboarding" && <BarreOnboarding />}
       <div className="flex flex-wrap items-center gap-2">
         <div className="inline-flex rounded-md border p-0.5 text-sm" role="tablist">
           {NIVEAUX.map((x) => (
@@ -319,6 +423,7 @@ export function PageProblemesPosteurs() {
 
 
       {resync.isFetching && <p className="text-xs text-muted-foreground" data-testid="resync">{t(`${P}.resync`)}</p>}
+      {masquees > 0 && vue === "ouverts" && <p className="text-xs text-muted-foreground">{t(`${P}.masquees`, { count: masquees })}</p>}
       {lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.chargement`)}</p>}
       {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
 

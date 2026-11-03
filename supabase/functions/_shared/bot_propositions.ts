@@ -12,6 +12,19 @@ export const SECRETS_BOTS: Readonly<Record<Bot, string>> = {
   pay_bot: "BOT_TOKEN_PAY",
 };
 
+/** Les groupes de posteurs (page Problèmes v4). */
+export const GROUPES: readonly string[] = ["onboarding", "nouveaux_actifs", "actifs"];
+
+/** Les actions qu'un bot peut proposer (rien n'est exécuté sans un clic de l'admin). */
+export const ACTIONS_BOT: readonly string[] = [
+  "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "kill", "mark_read", "open_payroll", "open_who_to_fund", "close", "postpone",
+];
+
+/** Quels secrets sont posés (oui / non), jamais leur valeur. */
+export function etatSecrets(secrets: Partial<Record<Bot, string | undefined>>): Record<Bot, boolean> {
+  return Object.fromEntries((Object.keys(SECRETS_BOTS) as Bot[]).map((b) => [b, Boolean(secrets[b] && secrets[b]!.length >= 20)])) as Record<Bot, boolean>;
+}
+
 /** Comparaison en temps constant (même longueur : chaque caractère est lu). */
 export function egalConstant(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
@@ -40,15 +53,20 @@ export function lireCorps(corps: unknown): { action: "proposer" | "creer"; args:
   if (!corps || typeof corps !== "object") return { erreur: "corps JSON attendu" };
   const c = corps as Record<string, unknown>;
   const texte = (k: string, max = 2000) => (typeof c[k] === "string" ? (c[k] as string).slice(0, max) : undefined);
+  // 3/11 (v4) : le diagnostic du bot (300 car.) et le groupe qu'il suggère.
+  const groupe = texte("groupe_suggere", 20);
+  if (groupe && !GROUPES.includes(groupe)) return { erreur: `groupe_suggere : ${GROUPES.join(", ")}` };
   const args: Record<string, unknown> = {
     reponse: texte("reponse", 4000),
     canal: texte("canal", 10),
     action: texte("action_proposee", 40),
+    diagnostic: texte("diagnostic", 300),
+    groupe_suggere: groupe,
   };
   if (c.action === "proposer") {
     const id = texte("probleme_id", 40);
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id (uuid) obligatoire" };
-    if (!args.reponse && !args.action) return { erreur: "reponse ou action_proposee obligatoire" };
+    if (!args.reponse && !args.action && !args.diagnostic) return { erreur: "reponse, action_proposee ou diagnostic obligatoire" };
     return { action: "proposer", args: { ...args, probleme_id: id } };
   }
   if (c.action === "creer") {

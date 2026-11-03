@@ -1,4 +1,4 @@
-import type { Niveau, Probleme, Proprietaire } from "./api";
+import type { Groupe, Niveau, Probleme, Proprietaire, Situation } from "./api";
 
 export const NIVEAUX: readonly Niveau[] = ["urgent", "aujourdhui", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
@@ -51,6 +51,7 @@ export function options(liste: readonly Probleme[]): { categories: string[]; hms
 export type GesteValider =
   | { type: "page"; vers: string }
   | { type: "releve"; compte_id: string }
+  | { type: "motDePasse"; poster_id: string }
   | { type: "reponse" }
   | { type: "fermer" };
 
@@ -64,7 +65,9 @@ export function gesteValider(p: Pick<Probleme, "categorie" | "proposition_action
   const fiche = p.poster_id ? `/admin/posters?poster=${p.poster_id}` : "/admin/posters";
   if (CATEGORIES_ARGENT.includes(p.categorie) || p.proposition_action === "open_payroll") return { type: "page", vers: "/admin/auto/payroll" };
   if (p.proposition_action === "open_who_to_fund") return { type: "page", vers: "/admin/auto/payroll?onglet=financer" };
-  if (["recreate", "kill", "resend_password_link", "relink_slack"].includes(p.proposition_action ?? "")) return { type: "page", vers: fiche };
+  // v4 : le lien de mot de passe part depuis la page (mode « on » seulement) ; le reste des formulaires s'ouvre.
+  if (p.proposition_action === "resend_password_link" && p.poster_id) return { type: "motDePasse", poster_id: p.poster_id };
+  if (["recreate", "kill", "resend_password_link", "relink_slack", "postpone"].includes(p.proposition_action ?? "")) return { type: "page", vers: fiche };
   if (p.proposition_action === "reread_tiktok" && p.compte_id) return { type: "releve", compte_id: p.compte_id };
   if (p.proposition_reponse?.trim()) return { type: "reponse" };
   return { type: "fermer" };
@@ -169,6 +172,13 @@ export function gestes(p: Pick<Probleme, "categorie" | "poster_id" | "compte_id"
       break;
     case "offre_hm_incorrecte":
       break;
+    // L'accueil en erreur ou à relier, et « retirer de Slack » : l'ancienne page Needs you (pendant le test).
+    case "accueil":
+      g.push({ type: "page", cle: "geste.accueil", vers: "/admin/auto/needs-you-ancien" });
+      break;
+    case "retirer_slack":
+      g.push({ type: "page", cle: "geste.retirerSlack", vers: "/admin/auto/needs-you-ancien" });
+      break;
     default:
       if (s?.bloque) g.push({ type: "page", cle: "geste.fiche", vers: fiche });
   }
@@ -200,4 +210,50 @@ export function grouper<T extends Pick<Probleme, "categorie" | "situation" | "cr
   return [...m.entries()]
     .map(([categorie, cartes]) => ({ categorie, cartes: trier(cartes) }))
     .sort((a, b) => rang(a.cartes[0]!) - rang(b.cartes[0]!) || b.cartes.length - a.cartes.length || a.categorie.localeCompare(b.categorie));
+}
+
+// ---------------------------------------------------------------------------
+// v4 (3/11) : trois groupes, filtre « Paie » transversal, diagnostic, étapes manquantes.
+// ---------------------------------------------------------------------------
+
+export const GROUPES: readonly Groupe[] = ["onboarding", "nouveaux_actifs", "actifs"];
+
+/** L'onglet du haut : un groupe, ou « paie » (toutes les cartes de paie, tous groupes). */
+export type OngletGroupe = Groupe | "paie";
+
+/** Le groupe d'une carte : celui de la situation lue à l'instant, sinon celui du dernier passage. */
+export function groupeDe(p: Pick<Probleme, "groupe" | "situation" | "categorie">): Groupe {
+  return p.situation?.groupe ?? p.groupe ?? (p.categorie === "accueil" || p.categorie === "offre_hm_incorrecte" ? "onboarding" : "actifs");
+}
+
+export function dansOnglet(p: Pick<Probleme, "groupe" | "situation" | "categorie">, o: OngletGroupe): boolean {
+  return o === "paie" ? CATEGORIES_ARGENT.includes(p.categorie) : groupeDe(p) === o;
+}
+
+export function compterParGroupe(liste: readonly Pick<Probleme, "groupe" | "situation" | "categorie">[]): Record<OngletGroupe, number> {
+  const n: Record<OngletGroupe, number> = { onboarding: 0, nouveaux_actifs: 0, actifs: 0, paie: 0 };
+  for (const p of liste) {
+    n[groupeDe(p)]++;
+    if (CATEGORIES_ARGENT.includes(p.categorie)) n.paie++;
+  }
+  return n;
+}
+
+/** Les étapes pas faites (dans l'ordre), pour la ligne SITUATION. */
+export function etapesManquantes(s: Pick<Situation, "etapes">): ("login" | "slack" | "tiktok" | "warmup")[] {
+  return (["login", "slack", "tiktok", "warmup"] as const).filter((e) => !s.etapes[e]);
+}
+
+/** Les sources qui viennent de l'OS (pas d'un simple message) : un constat, donc un diagnostic. */
+const SOURCES_MESSAGE = ["reponse", "slack", "bot"];
+
+/**
+ * B2 : une carte n'est montrée que si elle a un diagnostic (celui du bot, la
+ * phrase de l'OS, ou un constat de l'OS) ou une action (proposée, ou un geste).
+ */
+export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id">): boolean {
+  if (p.diagnostic?.trim() || p.proposition_action || p.proposition_reponse?.trim()) return true;
+  if (phraseProbleme(p)) return true;
+  if (p.sources.some((x) => !SOURCES_MESSAGE.includes(x.type))) return true;
+  return gestes(p).some((g) => g.type !== "lien");
 }

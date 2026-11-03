@@ -532,3 +532,12 @@ recalculée à la main, rejouabilité, derniers plans).
   - **Suivi avant/après** : pas encore de mesure des posts du 2/11 (r à J+2). Référence d'avant BLEO : r médian ~1,00, 6-8 % à 10 k, 4 000-5 100 vues par post. `bleo_suivi_alerte()` : pas d'alerte (−0,2 % sur les jours mesurés, au 29/10).
   - **Le rapport de 22 h** compare encore le plan à l'ancien système. Depuis la bascule, l'ancien système n'assigne presque plus rien (1 compte comparé ce soir). Ses infractions se lisent au thème : 52 « même famille » sur un plan tiré par famille. À refaire pour comparer le plan à ce qui est publié (D50).
 - **2/11, 23 h 59 : D49 (0643) et 0644.** Les remplacements de la journée (22 le 2/11) et les créneaux de minuit non servables (7) passeront par un remplaçant BLEO au lieu de la tierlist ; testé sur 5 comptes remplacés le 2/11 : 5 candidats chacun, surtout de la récolte, aucun garde-fou relâché, 0,2 s. En passant : les fonctions BLEO étaient appelables sans session (clé publique du site), fermé (0644). Le code de l'assignation est déployé après la nuit du 3/11, pour ne pas changer de version en pleine assignation.
+- **3/11, 1 h 15 : D49 en ligne.** PR #1049 fusionnée après la fin de minuit (640 passages stables depuis 1 h 01). Fonctions redéployées sans erreur : minuit-vnext, revoquer-post, assignation, assignation-contenu. Contrôle des remplacements de la journée à 14 h.
+- **3/11, 1 h 45 : contrôle de la 2e nuit en mode actif.** Rien à relancer.
+  - 640 passages pour le 3/11 : 635 `bleo`, 0 `temoin` (7 le 2/11), 3 rappels, 2 sans bras. Aucun doublon (compte, contenu).
+  - `assignation_journal` : 320 comptes, 0 erreur.
+  - Logs Postgres depuis 0 h : aucun `duplicate key`. Les seules erreurs sont 3 requêtes de contrôle mal écrites, les miennes.
+  - Plan (run 5b848aa7) contre passages, 3 écarts, tous expliqués :
+    - 341960f2 (UGC images, pl) : 2 créneaux au plan, 2 passages sans bras. La voie UGC ne lit pas le plan BLEO, comme le 2/11 : à faire suivre avant le retrait de la tierlist ;
+    - 61c0cc6a : un rappel posé à minuit a pris un des 2 créneaux. 1 `bleo` et 1 rappel, le quota est tenu ;
+    - b4038a39 (es-419, `is_active = false`) : 2 créneaux au plan, 0 passage. Minuit saute les comptes inactifs, mais le tirage les garde (#21 : aligner le filtre des comptes du tirage sur celui de minuit).

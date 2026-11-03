@@ -1,0 +1,267 @@
+{
+ "id": "fa-042",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683823094930181398",
+  "vues": 16700,
+  "accroche": "10/10 Skills To Build Peak Intelligence"
+ },
+ "titre": {
+  "en": "10/10 Skills To Build Peak Intelligence",
+  "de": "10/10 Skills für maximale Intelligenz",
+  "pt": "10/10 habilidades para ser mais inteligente"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Build Peak Intelligence #learnontiktok #selfmastery #curiosity",
+  "de": "10/10 Skills für maximale Intelligenz #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "10/10 habilidades para ser mais inteligente #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7325536799944690474"
+ },
+ "notes": "cta A. Étapes nouvelles (échecs, philosophie, énigmes), aucune commune avec fa-010 ou fa-024. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO BUILD",
+     [
+      {
+       "t": "PEAK INTELLIGENCE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS FÜR",
+     [
+      {
+       "t": "MAXIMALE INTELLIGENZ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "SER MAIS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY",
+     "CHESS"
+    ],
+    "video": {
+     "id": "Vlpx04FeELI",
+     "titre": "How to Actually Get Better at Chess No-BS Guide",
+     "chaine": "Rise Above Reality",
+     "vues": "1.8M views",
+     "date": "1 year ago",
+     "duree": "11:04",
+     "avatar": "https://yt3.ggpht.com/OIrlsbaUzpMwVotdEjYotJRIZVl1D4YG7l7oYtFImsryxeKLk48CXgFOWHNiUXWYtJmPRBa7=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL",
+     "SCHACH"
+    ],
+    "video": {
+     "id": "eb6n_LZCQpc",
+     "titre": "Schach regeln einfach erklärt",
+     "chaine": "MediaGuide",
+     "vues": "25.463 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n6r2z6I6BwKZf6SIu3_PPNou9F3tfyO_p8lr25x6MBeg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "JOGA",
+     "XADREZ"
+    ],
+    "video": {
+     "id": "XiRXBnyjxjs",
+     "titre": "Como ficar BOM no Xadrez - Iniciante",
+     "chaine": "Rentune",
+     "vues": "785 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/ODlsXL3Se_c3MwckYNG0EpmkHLwYjrp3z3MUhnkecJ6_grs_yuQ7WIF_8jgz-nGdRSaquNw0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "STUDY",
+     "PHILOSOPHY"
+    ],
+    "video": {
+     "id": "1A_CAkYt3GY",
+     "titre": "What is Philosophy?: Crash Course Philosophy #1",
+     "chaine": "CrashCourse",
+     "vues": "8.6M views",
+     "date": "10 years ago",
+     "duree": "10:35",
+     "avatar": "https://yt3.ggpht.com/E454zI2spNFZsN_wgJPTHjMsqs1fFqb_qp4PYanWuyaXQJp98wKEV1kIQYlR57epaweO5P8v=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "STUDIER",
+     "PHILOSOPHIE"
+    ],
+    "video": {
+     "id": "sKXaY_reAcg",
+     "titre": "Was ist Philosophie? · Basics, Einführung, Grundlagen",
+     "chaine": "David Johann Lensing",
+     "vues": "128.053 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/-XWGPJyd-axt-Uug-J7ywmJPEwuzE5-m9Sd-LZjrFl-foSIBDf75vJm-dDPbKnLnEFTwh6JAfQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ESTUDA",
+     "FILOSOFIA"
+    ],
+    "video": {
+     "id": "Kl9v0Ln2sNw",
+     "titre": "O que é Filosofia?",
+     "chaine": "A Filosofia Explica",
+     "vues": "410 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "10:21",
+     "avatar": "https://yt3.ggpht.com/IaDOZZg1C4eq-cK4L5HzClzEVQgqX8z9GnIMH_QmWTiZ8YggNKshLvzcQFIcVYnYmIim1GSBhA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN ACROSS",
+     "SUBJECTS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN QUER",
+     "DURCH ALLES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UM",
+     "POUCO DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE LOGIC",
+     "PUZZLES"
+    ],
+    "video": {
+     "id": "7yDmGnA8Hw0",
+     "titre": "Can you solve the bridge riddle? - Alex Gendler",
+     "chaine": "TED-Ed",
+     "vues": "24M views",
+     "date": "11 years ago",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖSE",
+     "LOGIKRÄTSEL"
+    ],
+    "video": {
+     "id": "wyrz0NYmnXY",
+     "titre": "Kannst du das Brückenrätsel lösen? – Alex Gendler",
+     "chaine": "Bleib neugierig — TED-Ed",
+     "vues": "2091 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/7PXZmYddF8Wu0-9i5SUaeI9VBQyP_7f8uhbFZ_yXo5UgxpGuLQypVUFary-WHsxr9yzoHfZxig=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "RESOLVE ENIGMAS",
+     "DE LÓGICA"
+    ],
+    "video": {
+     "id": "umqIdlBwIek",
+     "titre": "5 Enigmas de Lógica Que Você Vai Demorar a Decifrar",
+     "chaine": "INCRÍVEL",
+     "vues": "135 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "8:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moyLRg4mLejXMsF2FPiI_dpzjG5v2Evy5mw_f8VLES9pc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

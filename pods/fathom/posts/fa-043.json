@@ -1,0 +1,310 @@
+{
+ "id": "fa-043",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7696547871994219798",
+  "vues": 73200,
+  "accroche": "5 Ways To Glow Up Before Christmas"
+ },
+ "titre": {
+  "en": "5 Ways To Glow Up Before Christmas",
+  "de": "5 Wege zum Glow-up vor Weihnachten",
+  "pt": "5 formas de dar um glow up antes do Natal"
+ },
+ "legendes": {
+  "en": "5 Ways To Glow Up Before Christmas #learnontiktok #selfmastery #curiosity",
+  "de": "5 Wege zum Glow-up vor Weihnachten #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "5 formas de dar um glow up antes do Natal #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "cta B. Variante de l'accroche de fa-013 : autres étapes (sommeil, musculation, biscuits de Noël), seule la carte reste. Double intégration : UnSwipe à l'étape 2, Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO GLOW UP",
+     [
+      {
+       "t": "BEFORE CHRISTMAS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZUM GLOW-UP",
+     [
+      {
+       "t": "VOR WEIHNACHTEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 FORMAS",
+       "bronze": true
+      }
+     ],
+     "DE DAR UM GLOW UP",
+     [
+      {
+       "t": "ANTES DO NATAL",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FIX YOUR",
+     "SLEEP"
+    ],
+    "video": {
+     "id": "Amkg1cdDCpM",
+     "titre": "Can you change your sleep schedule?",
+     "chaine": "TED-Ed",
+     "vues": "2.6M views",
+     "date": "3 years ago",
+     "duree": "4:38",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLAF",
+     "BESSER"
+    ],
+    "video": {
+     "id": "l72IHVMcapk",
+     "titre": "Schlaf optimieren? Was geht und was nicht geht! | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "819.349 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "DORME",
+     "MELHOR"
+    ],
+    "video": {
+     "id": "xSYkc9J8UjU",
+     "titre": "Como dormir melhor... de acordo com a ciência",
+     "chaine": "Ciência Todo Dia",
+     "vues": "2,3 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "TAKE BACK",
+     "YOUR EVENINGS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "HOL DIR DEINE",
+     "ABENDE ZURÜCK"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "RECUPERA",
+     "AS TUAS NOITES"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LIFT",
+     "WEIGHTS"
+    ],
+    "video": {
+     "id": "1VvgNZsg9nc",
+     "titre": "12 Min Beginner Weight Training - Strength Training for Beginners - Beginner Workout Routine",
+     "chaine": "HASfit",
+     "vues": "530K views",
+     "date": "10 years ago",
+     "duree": "14:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVAoZryUc7r99hLnf8nV-RHFfmF3AFddX0vkq6diDAdU8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "TRAINIER",
+     "MIT GEWICHTEN"
+    ],
+    "video": {
+     "id": "89F7Gcpi_Rk",
+     "titre": "Trainingsplan für Anfänger im Fitnessstudio (3-4x pro Woche)",
+     "chaine": "Coach Stef",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMEÇA A",
+     "TREINAR"
+    ],
+    "video": {
+     "id": "_x3ch--X8VE",
+     "titre": "Começar a treinar em casa- treino completo iniciantes- zero impacto, zero equipamentos- Carol Borba",
+     "chaine": "Carol Borba",
+     "vues": "194 mil visualizações",
+     "date": "há 9 meses",
+     "duree": "11:56",
+     "avatar": "https://yt3.ggpht.com/Nj4WO2suLbginPREoeyAZlPRrevlV1wCGb0dUtkX9xxzUsyWSfGTTviuuIsF4ocqczRttCWN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BAKE FOR",
+     "YOUR FRIENDS"
+    ],
+    "video": {
+     "id": "PFJAuAWxuvI",
+     "titre": "Soft and Chewy Chocolate Chip Cookies Recipe",
+     "chaine": "The Cooking Foodie",
+     "vues": "10M views",
+     "date": "5 years ago",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k5voUzM5LwFtDDYUZPjkPHVwGo85x7uNIyIujaTS0MFgo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BACK",
+     "PLÄTZCHEN"
+    ],
+    "video": {
+     "id": "_JMp6FC7ibQ",
+     "titre": "Das ultimative Plätzchenrezept - aus 1 Teig 25 Weihnachtsplätzchen",
+     "chaine": "Lifehackerin",
+     "vues": "937.293 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "16:17",
+     "avatar": "https://yt3.ggpht.com/tY338w9rJjhxWrPVf7Mnifrqjh5kW4l9xjdkQFgm0pLUvlH8aTDT0dBvEnu6msywa5Pmxo01tQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZ BOLACHAS",
+     "DE NATAL"
+    ],
+    "video": {
+     "id": "e4EodlK0vxM",
+     "titre": "Biscoito de Natal Perfeito: Receita Fácil e Deliciosa para Surpreender nas Festas",
+     "chaine": "Beca Milano",
+     "vues": "557 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "11:30",
+     "avatar": "https://yt3.ggpht.com/3KkfI8kDN-x8ujsANoSa6dnAPH9tPQusU1TO07p8GGM8OGTufJqZ9QzNmRGWNjelGmvwRk8mqA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

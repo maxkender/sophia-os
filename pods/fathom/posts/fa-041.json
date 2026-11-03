@@ -1,0 +1,247 @@
+{
+ "id": "fa-041",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7693545201771531542",
+  "vues": 23500,
+  "accroche": "How To Step Outside Your Comfort Zone"
+ },
+ "titre": {
+  "en": "How To Step Outside Your Comfort Zone",
+  "de": "Raus aus der Komfortzone",
+  "pt": "Como sair da tua zona de conforto"
+ },
+ "legendes": {
+  "en": "How To Step Outside Your Comfort Zone #learnontiktok #selfmastery #curiosity",
+  "de": "Raus aus der Komfortzone #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "Como sair da tua zona de conforto #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7446895419589348118"
+ },
+ "notes": "cta B. Troisième version de l'accroche, étapes nouvelles (parler en public, chanter), aucune commune avec fa-008 ou fa-022. Double intégration : UnSwipe à l'étape 2, Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "HOW TO",
+       "bronze": true
+      }
+     ],
+     "STEP OUTSIDE OF",
+     "YOUR COMFORT ZONE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "RAUS AUS",
+       "bronze": true
+      }
+     ],
+     "DEINER",
+     "KOMFORTZONE"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "COMO SAIR",
+       "bronze": true
+      }
+     ],
+     "DA TUA ZONA",
+     "DE CONFORTO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SPEAK IN",
+     "PUBLIC"
+    ],
+    "video": {
+     "id": "83wYDzO3CzI",
+     "titre": "Public Speaking Anxiety Tips: 6 Mindset Tips",
+     "chaine": "Alexander Lyon Communication Coach",
+     "vues": "1.1M views",
+     "date": "5 years ago",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/QtXlJNplGP3Z4r_NSbIJIjFTbipZD7dYoZYcjq5Jr7-SrTFwvzHEQmmCozBeRUOK5vTHt--HlLw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPRICH VOR",
+     "PUBLIKUM"
+    ],
+    "video": {
+     "id": "IVVrG8Rrq7c",
+     "titre": "5 Tipps gegen Lampenfieber! I musstewissen Deutsch",
+     "chaine": "musstewissen Deutsch",
+     "vues": "435.008 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kaT0XaMiffDy2ZCR64emhq512yvYqYiOaykYrm8j1Wxw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FALA EM",
+     "PÚBLICO"
+    ],
+    "video": {
+     "id": "QzVib1Foh6Q",
+     "titre": "Como passar confiança ao falar em público",
+     "chaine": "ÓHQUEMFALA! Comunicação e Oratória",
+     "vues": "175 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "28:08",
+     "avatar": "https://yt3.ggpht.com/rP1nk5acSTAZ_39dY9GnRIOx6fr5SdhHvXmcFMhx6lAkQrjRT6zbt0g14fSno3cWgsUcQXvCJZA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "SKIP THE",
+     "EASY DOPAMINE"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLUSS MIT",
+     "BILLIGEM DOPAMIN"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "LARGA A",
+     "DOPAMINA FÁCIL"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "UNFAMILIAR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN ETWAS",
+     "UNBEKANNTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "DESCONHECIDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO SING"
+    ],
+    "video": {
+     "id": "jog-nfLldRI",
+     "titre": "Your FIRST Singing Lesson (Beginner Lesson from a REAL Vocal Coach)",
+     "chaine": "Ramsey Voice Studio",
+     "vues": "3.8M views",
+     "date": "4 years ago",
+     "duree": "11:06",
+     "avatar": "https://yt3.ggpht.com/nGsh720GwAaYxrrWiE8vHC1-462uhIRlmTntEPuITZh6MUWXtNV4iYa8X1yh605PYD6sYdZUkQI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "SINGEN"
+    ],
+    "video": {
+     "id": "LCx3g9Q9YUY",
+     "titre": "Sing mit! Der 1. Gesangsunterricht zum Mitmachen - singen lernen für Anfänger | singdu.de",
+     "chaine": "singDu",
+     "vues": "400.230 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncihqViJ8SZ3PvDg1mx46Nvmaz4YgllQtjDnsznBiZ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A CANTAR"
+    ],
+    "video": {
+     "id": "be2t3N5wgBI",
+     "titre": "COMO COMEÇAR A CANTAR: Primeiros Passos | Aula de Canto",
+     "chaine": "Cifra Club",
+     "vues": "2,8 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/8VnmfIL6fFhhvUex818rd9t9sv9TkvvbQJKOMMRsCxan-NTdNSiboXjIK4HS48wpYMU6cQHg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

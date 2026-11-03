@@ -1,0 +1,267 @@
+{
+ "id": "fa-040",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686790265213914390",
+  "vues": 34100,
+  "accroche": "10/10 YouTube Vídeos To Watch"
+ },
+ "titre": {
+  "en": "10/10 YouTube Videos To Watch",
+  "de": "10/10 YouTube-Videos zum Anschauen",
+  "pt": "10/10 vídeos do YouTube para ver"
+ },
+ "legendes": {
+  "en": "10/10 YouTube Videos To Watch #learnontiktok #selfmastery #curiosity",
+  "de": "10/10 YouTube-Videos zum Anschauen #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "10/10 vídeos do YouTube para ver #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "cta C. Son format de vidéos YouTube (multivers, temps, infini), Sophia à l'étape 3 « INSTEAD OF THE FEED ». Aucune vidéo commune avec fa-012 ou fa-021. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE VIDEOS",
+     [
+      {
+       "t": "TO WATCH",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE-VIDEOS",
+     [
+      {
+       "t": "ZUM ANSCHAUEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VÍDEOS DO YOUTUBE",
+     [
+      {
+       "t": "PARA VER",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PARALLEL",
+     "UNIVERSES"
+    ],
+    "video": {
+     "id": "kTXTPe3wahc",
+     "titre": "Why Parallel Universes Are Probably Real",
+     "chaine": "Veritasium",
+     "vues": "25M views",
+     "date": "6 years ago",
+     "duree": "20:00",
+     "avatar": "https://yt3.ggpht.com/7vCbvtCqtjQ3YLgsJt7Y952MQV1sBvhllSCSxHP8_sVZdcPCBrITfhkN2RdyCuwPnsByq-1GoA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "PARALLEL-",
+     "UNIVERSEN"
+    ],
+    "video": {
+     "id": "7e2vgx7WG7E",
+     "titre": "Gibt es Paralleluniversen? | Harald Lesch",
+     "chaine": "Terra X Lesch & Co",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/QB0JXWXAFRwlGt1CUYBmZxEmJzEHvvLm9JbeguHcZUwpXG0TrzJhbbaFtgP7iYVXXSFgW5UGIQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "UNIVERSOS",
+     "PARALELOS"
+    ],
+    "video": {
+     "id": "4y7b03zOqGg",
+     "titre": "Mundos Paralelos Existem?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "679 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TIME",
+     "WORKS"
+    ],
+    "video": {
+     "id": "wwSzpaTHyS8",
+     "titre": "Did The Future Already Happen? - The Paradox of Time",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "15M views",
+     "date": "2 years ago",
+     "duree": "12:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WAS IST",
+     "ZEIT?"
+    ],
+    "video": {
+     "id": "FYh4dWI-bqQ",
+     "titre": "Ist die Zukunft schon Vergangenheit? – Das Zeit-Paradox",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "809.260 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O QUE É",
+     "O TEMPO?"
+    ],
+    "video": {
+     "id": "2ZdCJ9tONL4",
+     "titre": "A Ilusão do Tempo",
+     "chaine": "Ciência Todo Dia",
+     "vues": "2,8 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "INSTEAD OF",
+     "THE FEED"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "STATT",
+     "DEM FEED"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "EM VEZ",
+     "DO FEED"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW BIG IS",
+     "INFINITY?"
+    ],
+    "video": {
+     "id": "UPA3bwVVzGI",
+     "titre": "How big is infinity? - Dennis Wildfogel",
+     "chaine": "TED-Ed",
+     "vues": "3.6M views",
+     "date": "14 years ago",
+     "duree": "7:13",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE GROSS IST",
+     "UNENDLICH?"
+    ],
+    "video": {
+     "id": "f9ezJ8HHxH8",
+     "titre": "Das unendliche Hotel-Paradoxon – Jeff Dekofsky",
+     "chaine": "Bleib neugierig — TED-Ed",
+     "vues": "58.325 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/7PXZmYddF8Wu0-9i5SUaeI9VBQyP_7f8uhbFZ_yXo5UgxpGuLQypVUFary-WHsxr9yzoHfZxig=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "QUÃO GRANDE",
+     "É O INFINITO?"
+    ],
+    "video": {
+     "id": "a9Z23dPC4iM",
+     "titre": "O que é o infinito? Uma explicação curta",
+     "chaine": "BBC News Brasil",
+     "vues": "595 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "3:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxfAGf2WYRHqMTgrScAVCAKN4ZHqwY89Z_5KirrVNsQTmi=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

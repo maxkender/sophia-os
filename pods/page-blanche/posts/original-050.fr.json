@@ -158,7 +158,7 @@
       "different room"
      ],
      "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
-     "texte": "histoire, art, sciences, philo… et après [[j'ai envie de reprendre mon livre]]"
+     "texte": "histoire, art, sciences, philo… et après, [[j'ai même envie de reprendre mon livre]]"
     }
    },
    "images": {
@@ -222,7 +222,7 @@
       "people"
      ],
      "fr": "entoure-toi de [[gens plus calés que toi]]",
-     "texte": "monte un [[club de lecture]] à deux"
+     "texte": "lance un [[club de lecture]] juste à deux"
     },
     "T2": {
      "en": [

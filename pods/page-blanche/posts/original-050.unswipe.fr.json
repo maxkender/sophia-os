@@ -130,7 +130,7 @@
       "every few seconds"
      ],
      "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
-     "texte": "si une page te paraît lente, c'est pas toi, c'est [[des heures de vidéos de 15 secondes]]"
+     "texte": "si une page te paraît lente, c'est pas toi, c'est [[des heures de vidéos courtes]]"
     },
     "T3": {
      "en": [
@@ -140,7 +140,7 @@
       "switched on"
      ],
      "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
-     "texte": "une semaine avec moins de reels et [[un chapitre te semble plus si long]], l'histoire t'embarque"
+     "texte": "après une semaine avec moins de reels, [[un chapitre passe tout seul]]"
     },
     "T4": {
      "en": [
@@ -159,7 +159,7 @@
       "different room"
      ],
      "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
-     "texte": "tu peux enlever les reels d'insta et garder tes messages et tes stories, [[l'appli UnSwipe]] fait ça"
+     "texte": "les reels peuvent sortir d'insta, tes messages et tes stories restent, avec [[l'appli UnSwipe]]"
     }
    },
    "images": {
@@ -223,7 +223,7 @@
       "people"
      ],
      "fr": "entoure-toi de [[gens plus calés que toi]]",
-     "texte": "monte un [[club de lecture]] à deux"
+     "texte": "lance un [[club de lecture]] juste à deux"
     },
     "T2": {
      "en": [

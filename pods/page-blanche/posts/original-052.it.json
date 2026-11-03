@@ -136,46 +136,38 @@
    "textes": {
     "T1": {
      "en": [
-      "all or nothing thinking"
+      "go to bed embarrassingly early"
      ],
-     "fr": "la mentalité [[tout ou rien]]",
-     "texte": "da oggi dormi [[in cucina]]"
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "da oggi in poi dormi [[in cucina]]"
     },
     "T2": {
      "en": [
-      "you miss one workout or eat one bad meal, and",
-      "decide the whole week is ruined"
+      "you need sleep"
      ],
-     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
-     "texte": "non ti cancello, mi mancheresti. ma [[le mie notti sono per me e il mio cuscino]]"
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[ti tengo, giuro]]"
     },
     "T3": {
      "en": [
-      "so you quit completely",
-      "instead of just getting",
-      "back on track the next",
-      "day"
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
      ],
-     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
-     "texte": "basta «un ultimo video» a mezzanotte, basta [[guardarti prima di aprire gli occhi]]"
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "non ti cancello. ma basta «un ultimo video» a mezzanotte e basta [[guardarti prima ancora di aprire gli occhi]]"
     },
     "T4": {
      "en": [
-      "it's consistency that",
-      "matters, being",
-      "consistently good is",
-      "better than being",
-      "occasionally great"
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
      ],
-     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
-     "texte": "mi addormento prima, il risveglio è più calmo e tu [[ti carichi tutta la notte]]. vinciamo tutti"
-    },
-    "T5": {
-     "en": [
-      ""
-     ],
-     "fr": "",
-     "garder": true
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "dormo meglio e tu [[ti carichi tutta la notte]]. vinciamo tutti"
     }
    },
    "images": {

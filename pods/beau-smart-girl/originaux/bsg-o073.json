@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o073",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "b26a0a0f-5d5b-4097-b49f-9c04efe7da37",
+  "titre": "things that lower stress + why they help #stress #thatgirl",
+  "inspirations": [
+    "b26a0a0f-5d5b-4097-b49f-9c04efe7da37"
+  ],
+  "notes": "G1, déclinaison de b26a0a0f (« things that lower stress + why they help », génération 0 en anglais ; meilleur passage de 4,7 k vues, r 2,54), en anglais. cta A (avant / après sur le dernier item). Explications simples, sans promesse médicale ni hormone citée. Items neufs (rien de repris du parent). Routine du 3/11 sur BLEO : jauge 0 full test et 8 déclinaisons. J'ai encore sauté la ligne 2 de la boîte (837491f7, « jobs for people who love enterimarnt ») : faute de frappe dans l'accroche à recopier mot pour mot, et salaires invérifiables. Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "08d5de00",
+      "texte_overlay": "things that lower stress\n+ why they help",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "1. a walk without your phone\n\nwhy: no notifications, just movement and fresh air.\nyour mind finally gets a break.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3615b305",
+      "texte_overlay": "2. writing your thoughts down\n\nwhy: once it's on paper,\nyou stop repeating it in your head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "07d4ebd9",
+      "texte_overlay": "3. tidying one small corner\n\nwhy: a finished task, even a tiny one,\nfeels like control again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2b6e7780",
+      "texte_overlay": "4. calling someone you love\n\nwhy: saying it out loud makes it smaller.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. learning something new\n\nwhy: it gives your mind something calm to hold onto.\nbefore, i scrolled when i was stressed. now i learn one thing about the world. and i actually feel better.",
+      "texte_sophia": "5. learning something new\n\nwhy: it gives your mind something calm to hold onto.\nbefore, i scrolled when i was stressed. now i open the Sophia app and learn one thing. and i actually feel better.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "62e25601",
+      "texte_overlay": "what helps you the most?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

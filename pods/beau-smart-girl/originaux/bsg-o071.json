@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o071",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "01a05975-143a-47f9-aec6-338765a7b035",
+  "titre": "୨୧ reality checks you might need outside social media #realitycheck #thatgirl",
+  "inspirations": [
+    "01a05975-143a-47f9-aec6-338765a7b035"
+  ],
+  "notes": "G1, déclinaison de 01a05975 (« ୨୧ reality checks you might need outside social media », génération 0 en anglais ; meilleur passage it 4,8 k vues, r 5,81), en anglais. cta B (l'anecdote du jour en item 2). Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Venus : orbite de 224,7 jours terrestres, jour sidéral de 243 jours terrestres (« lasts longer than a Venusian year »). Items neufs (rien de repris du parent). Routine du 3/11 sur BLEO : jauge 0 full test et 8 déclinaisons. J'ai encore sauté la ligne 2 de la boîte (837491f7, « jobs for people who love enterimarnt ») : faute de frappe dans l'accroche à recopier mot pour mot, et salaires invérifiables. Images de la banque ; aucune personne ni texte lisible sur la slide Sophia. Le ୨୧ du parent reste en slide 1 : sans lui, le guichet a refusé la G1 (accroche_differente). L’aperçu local ne dessine pas ce glyphe, mais le parent a été publié avec.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "୨୧ reality checks you might need\noutside social media",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. nobody's morning looks like that every day\n\nthe video is the one good morning out of seven.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "114ca47c",
+      "texte_overlay": "2. you don't need to know everything to be interesting\n\nthis morning i learned that a day on venus is longer than its year.\ni told it three times today.",
+      "texte_sophia": "2. you don't need to know everything to be interesting\n\nthis morning, the Sophia app taught me that a day on venus is longer than its year.\ni told it three times today.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "3. a quiet weekend is not a wasted weekend\n\nrest counts.\neven if nobody posts about it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "4. being well-read is not about how many books you finish\n\none book you really think about beats ten you skim.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "5. your life is happening off-camera too\n\nthe best moments usually aren't filmed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "01be1362",
+      "texte_overlay": "6. comparison runs on half the information\n\nyou see their highlights,\nnot their tuesday.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d0719620",
+      "texte_overlay": "which one did you need today?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

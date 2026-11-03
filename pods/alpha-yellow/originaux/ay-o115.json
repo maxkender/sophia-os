@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o115",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b335090a-ae30-445e-8adc-209a918f4e02",
+ "titre": "Things That Make You Quietly Sophisticated #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "b335090a-ae30-445e-8adc-209a918f4e02"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 8, sur une image sans visage. Couverture 4bbb6ac9. déclinaison G1 de la ligne 11 de la boîte (b335090a, pt-BR 37,5 k r 20,57) : accroche du parent mot pour mot (casse du parent gardée). Items neufs, sans reprendre ceux d'ay-o014, ay-o094 ni du parent.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4bbb6ac9",
+   "texte_overlay": "Things That Make You\nQuietly Sophisticated",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Knowing how to make a proper coffee. Grind the beans, warm the cup, no rush. Small rituals done well show a man who appreciates quality in his everyday life.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keeping a few good books on display. Ones you've actually read and can talk about. A small shelf says more about you than any expensive gadget in the room.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Speaking a few words of another language. A real \"grazie\" in Rome, a correct \"merci\" in Paris. The effort is elegant, and locals always notice it and smile back.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Owning a simple, good watch. Not flashy, not huge. A clean classic watch on a leather strap is a quiet detail that tells people you care about the little things.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Hosting a small dinner well. Four friends, one good dish, candles, music low. Making people feel welcome at your table is the essence of real sophistication.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Listening to music outside your usual genre. Jazz on a Sunday, classical while you work. A wide taste makes you more interesting to talk to and to be around.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Sophistication is mostly curiosity, and curiosity grows a little more every single day.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Sophistication is mostly curiosity, and it grows every day.",
+   "media_id": "c33370a3"
+  }
+ ]
+}

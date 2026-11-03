@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o107",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "465aec8c-40b4-4232-9600-766c831a5b1a",
+ "titre": "7 unglamorous habits that make you way more attractive in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "465aec8c-40b4-4232-9600-766c831a5b1a"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 40967f7f. déclinaison G2 de la ligne 2 de la boîte (465aec8c), 2e déclinaison de ce parent après ay-o096. Même promesse, autres mots. Items neufs, ni ceux du parent ni ceux d'ay-o096 (cuisine, sommeil, rangement, épargne, famille, eau).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40967f7f",
+   "texte_overlay": "7 unglamorous habits that make\nyou way more attractive in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Going for a walk every evening. No phone, twenty minutes. It clears your head, improves your sleep, and makes you the calm guy instead of the stressed one.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ironing your shirts the night before. Five minutes, and you walk out looking sharp instead of rushed. People notice a man who prepares, even for small things.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Reading before bed. A real book, ten pages. It makes you calmer, sharper and better at conversation, and nothing looks more attractive than a man who reads.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stretching for ten minutes a day. Better posture, fewer aches, easier movement. A body that moves well looks confident and at ease long before you ever say a word.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learning something small every morning. I do five minutes a day of history, art or science, and a curious man always has something interesting to say at dinner.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious man always has something interesting to say at dinner.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Fixing things instead of replacing them. A loose handle, a wobbly chair, a flat bike tyre. Being handy is old school, practical and quietly very attractive.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Writing down your goals every Sunday. Three things for the week, nothing fancy. A man with direction is magnetic, because he knows where his life is going.",
+   "media_id": "4ee6e05d"
+  }
+ ]
+}

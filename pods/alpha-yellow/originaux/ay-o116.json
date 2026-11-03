@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o116",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f195c99b-2fc9-4218-b72a-371dfa6af391",
+ "titre": "7 ways to be unrecognisable in 6 months #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "f195c99b-2fc9-4218-b72a-371dfa6af391"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 3242eb5d. déclinaison G1 de la ligne 12 de la boîte (f195c99b, es 13,4 k) : accroche du parent mot pour mot. Items neufs, aucun repris du parent (sport, sommeil, compétence, cerveau, épargne, couper, photos) ni d'ay-o020. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3242eb5d",
+   "texte_overlay": "7 ways to be unrecognisable\nin 6 months",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn to cook ten real meals. One new recipe every two weeks. In six months you eat better, spend less, and you can host anyone at home with real confidence.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Change your wardrobe slowly. Replace one worn-out piece each month with something that fits well. Six months later, you look sharper without spending a fortune.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Walk ten thousand steps a day. No gym needed to start. Daily walking changes your energy, your mood and your body more than people ever expect from something so simple.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Read and learn every day. I do five minutes a day of history, art or science, and six months of tiny lessons turns you into a completely different person to talk to.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Six months of tiny lessons makes you a different person to talk to.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Say yes to one new thing a month. A class, a trip, an event alone. New experiences change you faster than anything else, and they make great stories to tell too.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Fix your posture every day. Two minutes against a wall each morning. By month six, you stand taller, look more confident and feel much better in your own body.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stop complaining for a whole month, then keep going. Notice every complaint and replace it with a solution. Your mindset will be unrecognisable before your body is.",
+   "media_id": "74b0526b"
+  }
+ ]
+}

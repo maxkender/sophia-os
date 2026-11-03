@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o111",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "366e7faf-9533-43d4-8873-7c5671355946",
+ "titre": "5 posture mistakes that kill your charisma in public #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "366e7faf-9533-43d4-8873-7c5671355946"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 248c9de7. déclinaison G1 de la ligne 6 de la boîte (366e7faf, tr 16,4 k) : accroche du parent mot pour mot. Erreurs neuves, aucune reprise du parent (épaules, regard au sol, mains en poche, bras croisés, agitation) ni d'ay-o050, o062, o068. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "248c9de7",
+   "texte_overlay": "5 posture mistakes that kill\nyour charisma in public",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679890123126885665/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Mistake 1: leaning on everything. Walls, tables, doorframes. It looks tired and bored. Stand on your own two feet and you instantly look awake and engaged.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Mistake 2: pushing your head forward. Hours on your phone pull your chin out in front of your chest. Tuck it back gently and stack your head right over your shoulders.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Mistake 3: turning your body away while you talk. Point your feet and chest toward the person. Even with perfect words, a body facing away says you want to leave.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Mistake 4: sitting slumped on the sofa at a party. Sink into the cushions and you disappear. Sit forward a little, back straight, and you're part of the room.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: tense and hunched, head full of noise. After: five minutes a day of history, art or science, a calmer mind and a body that finally relaxes in public.",
+   "texte_sophia": "Before: tense and hunched, head full of noise. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Calmer mind, relaxed body.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Mistake 5: tiny, nervous steps. Short quick steps look anxious. Take longer, slower strides with your shoulders relaxed. Your walk alone can change how people see you.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "The fix: film yourself walking and talking for one minute. It feels strange, but you'll spot your own habits instantly, and seeing them is half of fixing them.",
+   "media_id": "62463b6a"
+  }
+ ]
+}

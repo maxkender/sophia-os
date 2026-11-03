@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o104",
+ "type_bleo": "full_test",
+ "titre": "Signs you're becoming a better man (even if it doesn't feel like it) #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "647dbb39-8006-4255-b8bc-0674e2f2f0d5"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 4fa75fa6. full test. Accroche jamais faite chez nous : les signes de progrès, angle rassurant et positif. Accroches écrites : « Signs you're becoming a better man (even if it doesn't feel like it) » (retenue), « Proof you're growing as a man » (écartée : sec), « You're doing better than you think if… » (écartée : sans liste claire).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4fa75fa6",
+   "texte_overlay": "Signs you're becoming a better\nman (even if it doesn't feel like it)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "You get bored of drama. Gossip, arguments over nothing, people who love chaos. When peace starts feeling better than excitement, you're growing up in the right direction.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You apologise faster. Not to keep the peace, but because you actually see your part now. Owning your mistakes quickly is one of the clearest signs of a mature man.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You keep promises to yourself. The workout, the early night, the savings. Doing what you said you'd do when nobody is watching is where real self-respect begins.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You're curious again. I started doing five minutes a day of history, art or science, and wanting to learn things for fun is a sign your mind is waking back up.",
+   "texte_sophia": "You're curious again. I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning for fun is a sign your mind is waking up.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "You choose fewer, better friends. Less time with people who drain you, more with people who push you. A smaller circle isn't lonely, it's a sign you know your worth.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You handle bad days without wrecking everything. A rough morning no longer becomes a lost week. Bouncing back quicker is growth, even if it doesn't feel dramatic.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You're proud of others' wins. A friend gets promoted and you're genuinely happy for him. When comparison turns into celebration, you've become a stronger man.",
+   "media_id": "26e760de"
+  }
+ ]
+}

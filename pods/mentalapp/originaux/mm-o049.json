@@ -1,0 +1,188 @@
+{
+ "id": "mm-o049",
+ "format": "carrousel",
+ "titre": "Habits that feel boring but change your life",
+ "legendes": {
+  "en": "boring habits that change your life #habits #discipline #mentalmaxxing #selfimprovement",
+  "fr": "des habitudes ennuyeuses qui changent ta vie #habitudes #discipline #mentalmaxxing #developpementpersonnel",
+  "de": "langweilige Gewohnheiten, die dein Leben verändern #gewohnheiten #disziplin #mentalmaxxing #selbstverbesserung",
+  "es": "hábitos aburridos que cambian tu vida #habitos #disciplina #mentalmaxxing #superacionpersonal",
+  "it": "abitudini noiose che ti cambiano la vita #abitudini #disciplina #mentalmaxxing #crescitapersonale",
+  "tr": "hayatını değiştiren sıkıcı alışkanlıklar #alışkanlıklar #disiplin #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "theme": {
+   "en": "Boring habits",
+   "fr": "Des habitudes ennuyeuses",
+   "de": "Langweilige Gewohnheiten",
+   "es": "Hábitos aburridos",
+   "it": "Abitudini noiose",
+   "tr": "Sıkıcı ama"
+  },
+  "sous": {
+   "en": "that change your life",
+   "fr": "qui changent ta vie",
+   "de": "die dein Leben verändern",
+   "es": "que cambian tu vida",
+   "it": "che cambiano la vita",
+   "tr": "hayatını değiştirenler"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The most boring one worked best. Before: four hours of short videos a day. After deleting them with UnSwipe: four free hours.",
+    "fr": "La plus ennuyeuse a le mieux marché. Avant : quatre heures de vidéos courtes par jour. Après les avoir supprimées avec UnSwipe : quatre heures libres.",
+    "de": "Die langweiligste hat am besten funktioniert. Vorher: vier Stunden Kurzvideos am Tag. Nachdem ich sie mit UnSwipe gelöscht habe: vier freie Stunden.",
+    "es": "La más aburrida fue la que mejor funcionó. Antes: cuatro horas de vídeos cortos al día. Después de borrarlos con UnSwipe: cuatro horas libres.",
+    "it": "La più noiosa ha funzionato meglio. Prima: quattro ore di video brevi al giorno. Dopo averli eliminati con UnSwipe: quattro ore libere.",
+    "tr": "En sıkıcısı en iyi işe yaradı. Önce: günde dört saat kısa video. UnSwipe ile sildikten sonra: dört boş saat."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Planning tomorrow tonight",
+    "fr": "Préparer demain ce soir",
+    "de": "Morgen schon heute planen",
+    "es": "Planear mañana esta noche",
+    "it": "Pianificare domani stasera",
+    "tr": "Yarını bu akşam planlamak"
+   },
+   "texte": {
+    "en": "Five minutes and a piece of paper. You wake up with a direction instead of a feed.",
+    "fr": "Cinq minutes et un bout de papier. Tu te réveilles avec une direction au lieu d’un feed.",
+    "de": "Fünf Minuten und ein Zettel. Du wachst mit einer Richtung auf statt mit einem Feed.",
+    "es": "Cinco minutos y un papel. Te despiertas con un rumbo en vez de un feed.",
+    "it": "Cinque minuti e un foglio. Ti svegli con una direzione invece di un feed.",
+    "tr": "Beş dakika ve bir kâğıt. Akış yerine bir yönle uyanırsın."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Eating the same healthy meals",
+    "fr": "Manger les mêmes repas sains",
+    "de": "Dieselben gesunden Mahlzeiten essen",
+    "es": "Comer las mismas comidas sanas",
+    "it": "Mangiare gli stessi pasti sani",
+    "tr": "Aynı sağlıklı öğünleri yemek"
+   },
+   "texte": {
+    "en": "Fewer choices, steadier energy. Your brain saves its effort for things that matter.",
+    "fr": "Moins de choix, une énergie plus stable. Ton cerveau garde ses efforts pour ce qui compte.",
+    "de": "Weniger Entscheidungen, stabilere Energie. Dein Gehirn spart Kraft für das, was zählt.",
+    "es": "Menos decisiones, energía más estable. Tu cerebro guarda su esfuerzo para lo importante.",
+    "it": "Meno scelte, energia più stabile. Il cervello risparmia fatica per ciò che conta.",
+    "tr": "Daha az seçim, daha dengeli enerji. Beynin çabasını önemli şeylere saklar."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Walking every day",
+    "fr": "Marcher tous les jours",
+    "de": "Jeden Tag gehen",
+    "es": "Caminar cada día",
+    "it": "Camminare ogni giorno",
+    "tr": "Her gün yürümek"
+   },
+   "texte": {
+    "en": "Nothing exciting about it. But a year of daily walks changes your head and your body.",
+    "fr": "Rien d’excitant. Mais un an de marches quotidiennes change ta tête et ton corps.",
+    "de": "Nichts Aufregendes daran. Aber ein Jahr tägliches Gehen verändert Kopf und Körper.",
+    "es": "Nada emocionante. Pero un año de paseos diarios cambia tu cabeza y tu cuerpo.",
+    "it": "Niente di emozionante. Ma un anno di camminate quotidiane cambia testa e corpo.",
+    "tr": "Heyecan verici bir yanı yok. Ama bir yıl her gün yürümek kafanı ve bedenini değiştirir."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Going to bed at the same time",
+    "fr": "Se coucher à la même heure",
+    "de": "Zur gleichen Zeit ins Bett gehen",
+    "es": "Acostarse a la misma hora",
+    "it": "Andare a letto alla stessa ora",
+    "tr": "Aynı saatte yatmak"
+   },
+   "texte": {
+    "en": "Weekends included. Your mornings stop being a fight.",
+    "fr": "Week-ends compris. Tes matins arrêtent d’être un combat.",
+    "de": "Wochenenden eingeschlossen. Deine Morgen sind kein Kampf mehr.",
+    "es": "Fines de semana incluidos. Tus mañanas dejan de ser una pelea.",
+    "it": "Weekend compresi. Le tue mattine smettono di essere una lotta.",
+    "tr": "Hafta sonları dahil. Sabahların savaş olmaktan çıkar."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Training when you don’t feel like it",
+    "fr": "S’entraîner sans en avoir envie",
+    "de": "Trainieren ohne Lust",
+    "es": "Entrenar sin ganas",
+    "it": "Allenarsi senza voglia",
+    "tr": "Canın istemezken antrenman"
+   },
+   "texte": {
+    "en": "The boring sessions are the ones that build the habit. Show up, even for twenty minutes.",
+    "fr": "Ce sont les séances ennuyeuses qui construisent l’habitude. Viens, même pour vingt minutes.",
+    "de": "Die langweiligen Einheiten bauen die Gewohnheit. Erscheine, auch für zwanzig Minuten.",
+    "es": "Las sesiones aburridas son las que crean el hábito. Ve, aunque sea veinte minutos.",
+    "it": "Sono le sessioni noiose a costruire l’abitudine. Presentati, anche per venti minuti.",
+    "tr": "Alışkanlığı kuran sıkıcı antrenmanlardır. Yirmi dakikalığına bile olsa git."
+   }
+  }
+ ],
+ "notes": "routine du 03/11 : accroche jamais faite chez nous (« habits that feel boring but change your life »). cta C (avant/après) : élément UnSwipe en 1er item (slide 2)."
+}

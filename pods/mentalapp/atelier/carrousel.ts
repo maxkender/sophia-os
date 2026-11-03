@@ -159,7 +159,8 @@ export async function rendreCarrousel(o: Carrousel, langue: Langue, icone: Image
       basImage = iy + cote;
     } else {
       const [sx, sy, sl, sh] = it.boite;
-      const k = Math.min(456 / sl, 456 / sh, 1.3);
+      // Petites vignettes (icônes recadrées) : agrandies jusqu’à 2,2× pour rester lisibles.
+      const k = Math.min(456 / sl, 456 / sh, 2.2);
       const [l, h] = [sl * k, sh * k];
       const [ix, iy] = [L / 2 - l / 2, 415 + (456 - h) / 2];
       x.save();

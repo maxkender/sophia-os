@@ -1,0 +1,188 @@
+{
+ "id": "mm-o047",
+ "format": "carrousel",
+ "titre": "Hobbies that rewire your brain",
+ "legendes": {
+  "en": "hobbies that rewire your brain #hobbies #brain #mentalmaxxing #selfimprovement",
+  "fr": "des hobbies qui recâblent ton cerveau #hobbies #cerveau #mentalmaxxing #developpementpersonnel",
+  "de": "Hobbys, die dein Gehirn neu verdrahten #hobbys #gehirn #mentalmaxxing #selbstverbesserung",
+  "es": "hobbies que reprograman tu cerebro #hobbies #cerebro #mentalmaxxing #superacionpersonal",
+  "it": "hobby che ricablano il tuo cervello #hobby #cervello #mentalmaxxing #crescitapersonale",
+  "tr": "beynini yeniden bağlayan hobiler #hobi #beyin #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7689665265591799048/1",
+   "boite": [
+    290,
+    246,
+    402,
+    616
+   ]
+  },
+  "theme": {
+   "en": "Hobbies that",
+   "fr": "Des hobbies qui",
+   "de": "Hobbys, die dein",
+   "es": "Hobbies que",
+   "it": "Hobby che",
+   "tr": "Beynini yeniden"
+  },
+  "sous": {
+   "en": "rewire your brain",
+   "fr": "recâblent ton cerveau",
+   "de": "Gehirn neu verdrahten",
+   "es": "reprograman tu cerebro",
+   "it": "ricablano il cervello",
+   "tr": "bağlayan hobiler"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cooking",
+    "fr": "Cuisiner",
+    "de": "Kochen",
+    "es": "Cocinar",
+    "it": "Cucinare",
+    "tr": "Yemek yapmak"
+   },
+   "texte": {
+    "en": "Your hands, your senses and your patience all work at once. And you get dinner.",
+    "fr": "Tes mains, tes sens et ta patience travaillent en même temps. Et tu as un dîner.",
+    "de": "Hände, Sinne und Geduld arbeiten gleichzeitig. Und du bekommst ein Abendessen.",
+    "es": "Tus manos, tus sentidos y tu paciencia trabajan a la vez. Y tienes cena.",
+    "it": "Mani, sensi e pazienza lavorano insieme. E ottieni una cena.",
+    "tr": "Ellerin, duyuların ve sabrın aynı anda çalışır. Üstelik akşam yemeğin olur."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Lifting",
+    "fr": "La muscu",
+    "de": "Krafttraining",
+    "es": "Pesas",
+    "it": "Pesi",
+    "tr": "Ağırlık"
+   },
+   "texte": {
+    "en": "Progress you can measure every week. It teaches your brain that effort pays off.",
+    "fr": "Un progrès que tu mesures chaque semaine. Ça apprend à ton cerveau que l’effort paie.",
+    "de": "Fortschritt, den du jede Woche messen kannst. Dein Gehirn lernt, dass sich Anstrengung lohnt.",
+    "es": "Progreso que mides cada semana. Enseña a tu cerebro que el esfuerzo vale la pena.",
+    "it": "Progressi che misuri ogni settimana. Insegna al cervello che la fatica paga.",
+    "tr": "Her hafta ölçebildiğin ilerleme. Beynine çabanın karşılığını aldığını öğretir."
+   }
+  },
+  {
+   "src": "7701153376846826760/1",
+   "boite": [
+    880,
+    1092,
+    120,
+    125
+   ],
+   "titre": {
+    "en": "A nerdy hobby",
+    "fr": "Un hobby de nerd",
+    "de": "Ein Nerd-Hobby",
+    "es": "Un hobby friki",
+    "it": "Un hobby da nerd",
+    "tr": "İnek hobisi"
+   },
+   "texte": {
+    "en": "Chess, coding, languages, history. Going deep on one topic builds real focus.",
+    "fr": "Échecs, code, langues, histoire. Creuser un seul sujet construit une vraie concentration.",
+    "de": "Schach, Programmieren, Sprachen, Geschichte. Tief in ein Thema gehen baut echten Fokus.",
+    "es": "Ajedrez, programación, idiomas, historia. Profundizar en un tema construye foco real.",
+    "it": "Scacchi, programmazione, lingue, storia. Andare a fondo su un tema costruisce vera concentrazione.",
+    "tr": "Satranç, kodlama, diller, tarih. Tek bir konuya derinlemesine dalmak gerçek odak kurar."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: my only hobby was scrolling. After deleting short videos with UnSwipe: two hours a day for the ones on this list.",
+    "fr": "Avant : mon seul hobby, c’était scroller. Après avoir supprimé les vidéos courtes avec UnSwipe : deux heures par jour pour ceux de cette liste.",
+    "de": "Vorher: Mein einziges Hobby war Scrollen. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: zwei Stunden am Tag für die auf dieser Liste.",
+    "es": "Antes: mi único hobby era hacer scroll. Después de borrar los vídeos cortos con UnSwipe: dos horas al día para los de esta lista.",
+    "it": "Prima: il mio unico hobby era scrollare. Dopo aver eliminato i video brevi con UnSwipe: due ore al giorno per quelli di questa lista.",
+    "tr": "Önce: tek hobim kaydırmaktı. Kısa videoları UnSwipe ile sildikten sonra: bu listedekiler için günde iki saat."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Listening to full albums",
+    "fr": "Écouter des albums entiers",
+    "de": "Ganze Alben hören",
+    "es": "Escuchar álbumes enteros",
+    "it": "Ascoltare album interi",
+    "tr": "Tam albüm dinlemek"
+   },
+   "texte": {
+    "en": "Forty minutes of one artist’s story. It retrains the attention short clips broke.",
+    "fr": "Quarante minutes de l’histoire d’un artiste. Ça rééduque l’attention que les clips courts ont cassée.",
+    "de": "Vierzig Minuten die Geschichte eines Künstlers. Das trainiert die Aufmerksamkeit, die kurze Clips zerstört haben.",
+    "es": "Cuarenta minutos de la historia de un artista. Reeduca la atención que rompieron los clips cortos.",
+    "it": "Quaranta minuti della storia di un artista. Rieduca l’attenzione che i clip brevi hanno rotto.",
+    "tr": "Bir sanatçının kırk dakikalık hikâyesi. Kısa kliplerin bozduğu dikkati yeniden eğitir."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Reading fiction",
+    "fr": "Lire des romans",
+    "de": "Romane lesen",
+    "es": "Leer novelas",
+    "it": "Leggere romanzi",
+    "tr": "Roman okumak"
+   },
+   "texte": {
+    "en": "You hold a whole world in your head for hours. That is focus training in disguise.",
+    "fr": "Tu gardes un monde entier en tête pendant des heures. C’est de l’entraînement à la concentration déguisé.",
+    "de": "Du hältst stundenlang eine ganze Welt im Kopf. Das ist getarntes Fokustraining.",
+    "es": "Sostienes un mundo entero en la cabeza durante horas. Es entrenamiento de foco disfrazado.",
+    "it": "Tieni un mondo intero in testa per ore. È allenamento alla concentrazione travestito.",
+    "tr": "Saatlerce koca bir dünyayı kafanda tutarsın. Bu kılık değiştirmiş odak antrenmanıdır."
+   }
+  }
+ ],
+ "notes": "routine du 03/11 : accroche jamais faite chez nous (« hobbies that rewire your brain »). cta C (avant/après) : élément UnSwipe en 4e item (slide 5)."
+}

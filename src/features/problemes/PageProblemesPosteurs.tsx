@@ -77,11 +77,12 @@ function resumeLisible(p: Pick<Probleme, "resume" | "categorie">, t: (k: string)
 }
 
 /** B2 : la situation, calculée par l'OS à chaque lecture : posts, étapes manquantes, paie passée, milestone en cours, reports. */
-function LigneSituation({ s }: { s: Situation }) {
+function LigneSituation({ s, onboarding }: { s: Situation; onboarding: boolean }) {
   const { t } = useTranslation();
   const pp = s.paie_passee;
   const finance = s.finances[0];
-  const manque = etapesManquantes(s);
+  // Les étapes d'onboarding ne disent quelque chose que pour une recrue ; pour un posteur qui poste, seul Slack compte.
+  const manque = etapesManquantes(s).filter((e) => onboarding || e === "slack");
   return (
     <ul className="space-y-0.5 text-xs" data-testid="situation">
       <li className={cn(s.bloque && "font-medium text-red-600")}>{t(`${P}.sit.posts`, { posts: s.posts, attendus: s.attendus })}</li>
@@ -93,6 +94,8 @@ function LigneSituation({ s }: { s: Situation }) {
       <li>
         {!pp.ligne
           ? t(`${P}.sit.paieSansLigne`, { semaine: jourCohorte(pp.semaine) })
+          : s.paye_passee && !pp.paye_at && !Number(pp.montant ?? 0)
+            ? t(`${P}.sit.paieRien`, { semaine: jourCohorte(pp.semaine) })
           : s.paye_passee
             ? t(`${P}.sit.paiePayee`, { semaine: jourCohorte(pp.semaine), montant: pp.montant ?? 0, date: pp.paye_at ? jourCohorte(pp.paye_at.slice(0, 10)) : "—" })
             : <span className="font-medium text-red-600">{t(`${P}.sit.paieNonPayee`, { semaine: jourCohorte(pp.semaine), montant: pp.montant ?? 0 })}</span>}
@@ -185,7 +188,7 @@ function CarteProbleme({ p, mode }: { p: Probleme; mode: "test" | "on" }) {
         {s && (
           <div className="rounded-md bg-muted/30 p-2">
             <Titre>{t(`${P}.titres.situation`)}</Titre>
-            <LigneSituation s={s} />
+            <LigneSituation s={s} onboarding={groupe === "onboarding"} />
           </div>
         )}
         {s?.message && (

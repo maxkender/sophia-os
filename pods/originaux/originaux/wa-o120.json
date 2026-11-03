@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o120",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0f88e70d-7d9b-469d-8846-6b90ca3f57e8",
+ "titre": "hobbies to be disgustingly intelligent #intelligence #selfimprovement #learning #hobbies #curiosity",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "0f88e70d-7d9b-469d-8846-6b90ca3f57e8"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 0f88e70d). déclinaison G1 de « hobbies to be disgustingly intelligent » (parent 0f88e70d). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3ace86fb-4cb6-4b77-a333-ac9b84e78ecd",
+   "texte_overlay": "hobbies to be\ndisgustingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656455048985120022/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7eca4d5a-4977-4b07-867a-26f847fc5eb5",
+   "texte_overlay": "learning a dead language\n\nlearn twenty words of latin or ancient greek. you'll start seeing their roots in half the words you use, and english suddenly makes so much more sense than before.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656455048985120022/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "acac8770-94c9-499c-9401-6fee5ac06056",
+   "texte_overlay": "reading the footnotes\n\nread the footnotes and sources in the next non fiction book you pick up. that's where the real arguments hide, and most readers skip right past them without a second look.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656455048985120022/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "da07512a-02fc-4882-a019-a4e7ebfd2502",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day on one lesson in something new: astronomy, art history, economics. small doses every day build a mind that connects ideas without effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656455048985120022/4.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day on one lesson in something new: astronomy, art history, economics. i do it with the Sophia app, one lesson a day, and my mind connects ideas easily now."
+  },
+  {
+   "position": 5,
+   "media_id": "19c1d139-9782-4c5c-9005-8c5f89c3b285",
+   "texte_overlay": "solving riddles\n\nsolve one logic riddle a day with your morning coffee. puzzles train you to question your first answer, which is the core habit of every sharp thinker.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656455048985120022/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "177a4db1-fc02-456d-a848-82af39c37d6d",
+   "texte_overlay": "visiting small museums\n\nvisit small local museums instead of only the famous ones. fewer crowds, more time with each piece, and strange local stories you'd never hear anywhere else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656455048985120022/6.jpg"
+  }
+ ]
+}

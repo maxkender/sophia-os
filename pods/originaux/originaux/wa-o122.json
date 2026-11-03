@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o122",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7de11e0b-f51c-4406-8f5d-12627e39605f",
+ "titre": "how to become the most magnetic person in any room #magnetic #charisma #socialskills #selfimprovement #howto",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "7de11e0b-f51c-4406-8f5d-12627e39605f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 7de11e0b). déclinaison G1 de « how to become the most magnetic person in any room » (parent 7de11e0b). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "448f2d01-23d2-42e9-8432-59f60245f160",
+   "texte_overlay": "how to become the most\nmagnetic person in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663144275642699021/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "78986a3c-306c-4f5f-be2f-e0e9e9b7d61b",
+   "texte_overlay": "arrive with energy\n\nbefore walking in, take three slow breaths and decide to enjoy the next hour. people feel the mood you bring before you've said a single word to anyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663144275642699021/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25e85827-770d-40a2-bfd6-0148b56ae58a",
+   "texte_overlay": "make it about them\n\nask people what they're excited about lately, then stay on that topic. people remember how a conversation made them feel, not the clever things you said in it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663144275642699021/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f5fc9523-150b-4119-9f1f-397a47e6a4c6",
+   "texte_overlay": "use their name once\n\nsay someone's name once during the conversation and once when you leave. it's small, it's rare, and it makes people feel genuinely seen and remembered by you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663144275642699021/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4ade0f9d-a407-4419-80be-7811e73bbb3f",
+   "texte_overlay": "bring something new\n\nspend 5 minutes a day learning one fascinating thing: a strange animal, a lost city, a famous painting. people gather around whoever always has something new to share.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663144275642699021/5.jpg",
+   "texte_sophia": "bring something new\n\nspend 5 minutes a day learning one fascinating thing: a strange animal, a lost city. the Sophia app turns it into one short lesson a day, and people gather around the one with something new."
+  },
+  {
+   "position": 6,
+   "media_id": "616edac6-0a20-4e53-a0aa-44bfc22d8c10",
+   "texte_overlay": "leave them smiling\n\nend conversations with a warm line about something they told you. the last moment is the one people remember, so make it warm and about them, not about you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663144275642699021/6.jpg"
+  }
+ ]
+}

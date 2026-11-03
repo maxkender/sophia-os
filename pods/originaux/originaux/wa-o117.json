@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o117",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ecd25d3-3b28-42f4-b36d-45dd24021d33",
+ "titre": "hobbies that will make you quietly unshakeable #confidence #selfimprovement #mindset #hobbies #calm",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "a418522d-e0a0-4969-875b-72669094f2f3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, a418522d). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 5ecd25d3, images d'un contenu @mentoridaily du label). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2bcdee3c-8e76-41f7-b181-63ef510be5d4",
+   "texte_overlay": "hobbies that will make you\nquietly unshakeable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672077240447831318/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9440c784-c579-4dd5-81bf-7e8535ba312e",
+   "texte_overlay": "taking the stairs slowly\n\nwalk up every flight of stairs at a calm, even pace this week, even when you're late. a body that refuses to rush teaches the mind that it's never under threat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672077240447831318/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "969c830d-2fa3-4a9f-aaee-08f25d06ed6a",
+   "texte_overlay": "eating at the counter\n\nsit at the bar or counter of a busy cafe instead of hiding at a corner table. being seen while you're relaxed is training for every other room you walk into.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672077240447831318/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "de1e1b68-bf3d-4a8a-87e2-442a890685fa",
+   "texte_overlay": "learning on the bus\n\nuse one bus or train ride a day to learn something in 5 minutes: the history of your city, a famous building. knowing your world makes you steady in it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672077240447831318/4.jpg",
+   "texte_sophia": "learning on the bus\n\ni use one bus ride a day to learn something in 5 minutes, like the history of my city. i do it with the Sophia app, one lesson a day, and knowing my world made me steady in it."
+  },
+  {
+   "position": 5,
+   "media_id": "8777e8ac-2801-44e0-ae09-682ccff7aa3d",
+   "texte_overlay": "holding the door\n\nhold the door and say one real sentence to the person, not just a nod. ten tiny conversations a week rebuild the social muscles that screens slowly weakened.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672077240447831318/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "793816ab-adbe-45f3-8986-a5cf87dd9cc0",
+   "texte_overlay": "three good mornings\n\nsay good morning to three people you pass every day for a week. it costs nothing, and the world becomes surprisingly warm once you're the one who starts it first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672077240447831318/5.jpg"
+  }
+ ]
+}

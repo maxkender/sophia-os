@@ -1,5 +1,5 @@
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
-import { type Bot, botDuJeton, lireCorps, SECRETS_BOTS } from "../_shared/bot_propositions.ts";
+import { type Bot, botDuJeton, etatSecrets, lireCorps, SECRETS_BOTS } from "../_shared/bot_propositions.ts";
 
 /**
  * Bloc C, C8 (2/11) : l'entrée des 3 bots (new_cohort_bot, control_bot,
@@ -12,10 +12,12 @@ import { type Bot, botDuJeton, lireCorps, SECRETS_BOTS } from "../_shared/bot_pr
  * chacun noté dans `bot_appels` (probleme_bot(), 0517).
  */
 Deno.serve(async (request) => {
-  if (request.method !== "POST") return json({ ok: false, error: "POST attendu" }, 405);
   const secrets = Object.fromEntries(
     (Object.keys(SECRETS_BOTS) as Bot[]).map((b) => [b, Deno.env.get(SECRETS_BOTS[b])]),
   ) as Partial<Record<Bot, string | undefined>>;
+  // 3/11 : GET ?etat : quels secrets sont posés (oui / non), jamais leur valeur.
+  if (request.method === "GET" && new URL(request.url).searchParams.has("etat")) return json({ ok: true, secrets: etatSecrets(secrets) });
+  if (request.method !== "POST") return json({ ok: false, error: "POST attendu" }, 405);
   const bot = botDuJeton(request.headers.get("authorization"), secrets);
   if (!bot) return json({ ok: false, error: "jeton refusé" }, 401);
 

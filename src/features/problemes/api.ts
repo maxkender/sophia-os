@@ -9,6 +9,8 @@ import { supabase } from "@/lib/supabase/client";
 export type Niveau = "urgent" | "aujourdhui" | "samedi";
 export type Proprietaire = "new_cohort_bot" | "control_bot" | "pay_bot";
 export type StatutProbleme = "ouvert" | "valide" | "ignore" | "ferme_auto";
+/** v4 (3/11) : onboarding = jamais posté ; nouveaux_actifs = 1er post il y a moins de 14 jours ; actifs = les autres. */
+export type Groupe = "onboarding" | "nouveaux_actifs" | "actifs";
 
 export interface SourceProbleme {
   type: string;
@@ -41,6 +43,11 @@ export interface Situation {
   contrat_actif: boolean | null;
   message: { at: string; canal: "upwork" | "slack"; texte: string | null; lien: string | null; repondu_at: string | null } | null;
   a_ecrit: boolean;
+  /** v4 (0522) */
+  premier_post_at?: string | null;
+  dernier_post_at?: string | null;
+  nb_reports?: number;
+  groupe?: Groupe;
 }
 
 export interface Probleme {
@@ -69,6 +76,10 @@ export interface Probleme {
   slack_relie: boolean;
   compte_id: string | null;
   situation?: Situation | null;
+  /** v4 (0522) : le groupe (recalculé à chaque passage), le diagnostic du bot (300 car.), son groupe suggéré. */
+  groupe?: Groupe | null;
+  diagnostic?: string | null;
+  groupe_suggere?: Groupe | null;
 }
 
 export interface Archive {
@@ -115,7 +126,7 @@ export async function lireModeProblemes(): Promise<ModeProblemes> {
   return data?.valeur === "on" ? "on" : "test";
 }
 
-export async function agirProbleme(id: string, action: "modifier" | "samedi" | "ignorer" | "valider", valeur?: Record<string, unknown>): Promise<void> {
+export async function agirProbleme(id: string, action: "modifier" | "samedi" | "ignorer" | "valider" | "fermer", valeur?: Record<string, unknown>): Promise<void> {
   const { error } = await supabase.rpc("probleme_agir", { p_id: id, p_action: action, p_valeur: valeur ?? null });
   if (error) throw error;
 }
@@ -160,4 +171,36 @@ export async function dejaEcritAujourdhui(posterId: string, depuis: string): Pro
     .gte("envoye_at", depuis);
   if (error) throw error;
   return (count ?? 0) > 0;
+}
+
+/** v4 : la barre d'onboarding (0522, problemes_onboarding) : cohorte en cours et suivante. */
+export type EtapeOnboarding = "offre" | "accueil" | "login" | "slack" | "tiktok" | "warmup" | "abonnements" | "pret";
+
+export interface RecrueBloquee {
+  poster_id?: string;
+  contrat_id?: string;
+  nom: string | null;
+  pays: string | null;
+  hm?: string | null;
+  reports: number;
+}
+
+export interface CohorteOnboarding {
+  lundi: string;
+  total: number;
+  a_poste: number;
+  reports: { un: number; deux_plus: number };
+  etapes: { cle: EtapeOnboarding; faits: number; bloques: RecrueBloquee[] }[];
+}
+
+export async function lireOnboarding(): Promise<CohorteOnboarding[]> {
+  const { data, error } = await supabase.rpc("problemes_onboarding");
+  if (error) throw error;
+  return (data ?? []) as CohorteOnboarding[];
+}
+
+/** Mode « on » seulement : le lien personnel de mot de passe part (Slack si relié, sinon Upwork). */
+export async function envoyerLienMotDePasse(posterId: string): Promise<void> {
+  const r = await invoke<{ ok: boolean; error?: string }>("recrues-check", { action: "lien_mot_de_passe_envoyer", poster_id: posterId });
+  if (!r.ok) throw new Error(r.error ?? "envoi du lien impossible");
 }

@@ -177,12 +177,14 @@ export interface PosteurLundiSoir {
 }
 
 /** Le check du lundi soir part à minuit, heure de Paris (prompt 25 MAJ, 15) : le mardi de 0 h à 6 h à Paris. */
-export const FIN_LUNDI_SOIR_PARIS = 6;
+/** 3/11 : le check du lundi soir part le lundi à 20:00 (Paris) ; le texte dit « until midnight ». */
+export const DEBUT_LUNDI_SOIR_PARIS = 20;
+export const FIN_LUNDI_SOIR_PARIS = 24;
 
-/** Le message du lundi soir est dû : lundi fini à Paris (mardi 0 h-6 h, Paris), aucun post, pas encore parti. */
+/** Le message du lundi soir est dû : lundi 20 h-minuit (Paris), aucun post avec lien lundi, pas encore parti. */
 export function lundiSoirDu(p: PosteurLundiSoir, lundi: string, maintenant: Date, test: boolean): boolean {
   if (p.publies_lundi > 0 || p.message_at || (test && p.prevu_at)) return false;
-  return dansCreneau(maintenant, "Europe/Paris", ajouterJours(lundi, 1), 0, FIN_LUNDI_SOIR_PARIS);
+  return dansCreneau(maintenant, "Europe/Paris", lundi, DEBUT_LUNDI_SOIR_PARIS, FIN_LUNDI_SOIR_PARIS);
 }
 
 /** Une réaction depuis le message : un post publié, ou une réponse. */

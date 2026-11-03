@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { botDuJeton, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
+import { botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
 import type { Probleme, Situation } from "./api";
 import {
-  avecLigneStop, compterParNiveau, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
+  aDiagnosticOuAction, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
 const p = (o: Partial<Probleme>): Probleme => ({
@@ -92,5 +92,48 @@ describe("3/11 : une carte = un diagnostic", () => {
     expect(rang(liste[0]!)).toBe(2);
     const g = grouper([...liste, { id: "s", categorie: "slack", created_at: "2026-11-01T00:00:00Z", situation: sit() }]);
     expect(g.map((x) => [x.categorie, x.cartes.length])).toEqual([["question_bloquante", 4], ["slack", 1]]);
+  });
+});
+
+describe("Problèmes v4 : groupes, diagnostic, bots", () => {
+  const sit = (o: Partial<Situation>) => ({ etapes: { login: true, slack: true, tiktok: true, warmup: true }, ...o }) as Situation;
+
+  it("le groupe vient de la situation lue à l'instant, sinon du dernier passage ; la paie est transversale", () => {
+    expect(groupeDe(p({ groupe: "actifs", situation: sit({ groupe: "nouveaux_actifs" }) }))).toBe("nouveaux_actifs");
+    expect(groupeDe(p({ groupe: "onboarding" }))).toBe("onboarding");
+    expect(groupeDe(p({ categorie: "accueil", poster_id: null }))).toBe("onboarding");
+    const liste = [p({ groupe: "onboarding" }), p({ groupe: "actifs", categorie: "paie" }), p({ groupe: "actifs" })];
+    expect(compterParGroupe(liste)).toEqual({ onboarding: 1, nouveaux_actifs: 0, actifs: 2, paie: 1 });
+    expect(liste.filter((x) => dansOnglet(x, "paie"))).toHaveLength(1);
+  });
+
+  it("étapes manquantes, dans l'ordre", () => {
+    expect(etapesManquantes(sit({ etapes: { login: true, slack: false, tiktok: false, warmup: true } }))).toEqual(["slack", "tiktok"]);
+    expect(etapesManquantes(sit({}))).toEqual([]);
+  });
+
+  it("pas de diagnostic et pas d'action : pas de carte", () => {
+    const msg = [{ type: "reponse", ref: "1", texte: "hello" }];
+    expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg }))).toBe(false);
+    expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg, diagnostic: "Asks for the app link; FAQ answer exists." }))).toBe(true);
+    expect(aDiagnosticOuAction(p({ categorie: "autre", sources: msg, proposition_action: "close" }))).toBe(true);
+    expect(aDiagnosticOuAction(p({ categorie: "autre", sources: [{ type: "needs_you", ref: "n" }] }))).toBe(true);
+    expect(aDiagnosticOuAction(p({ categorie: "stop", sources: msg }))).toBe(true);
+  });
+
+  it("Valider : le lien de mot de passe part depuis la page ; postpone ouvre la fiche ; close ferme", () => {
+    expect(gesteValider(p({ proposition_action: "resend_password_link" }))).toEqual({ type: "motDePasse", poster_id: "00000000-0000-0000-0000-000000000001" });
+    expect(gesteValider(p({ proposition_action: "postpone" })).type).toBe("page");
+    expect(gesteValider(p({ proposition_action: "close" }))).toEqual({ type: "fermer" });
+  });
+
+  it("bot_propositions : diagnostic (300 car.), groupe suggéré validé, secrets lus sans valeur", () => {
+    const id = "00000000-0000-0000-0000-000000000009";
+    const r = lireCorps({ action: "proposer", probleme_id: id, diagnostic: "d".repeat(400), groupe_suggere: "actifs", action_proposee: "close" });
+    expect(r).toMatchObject({ action: "proposer", args: { groupe_suggere: "actifs", action: "close" } });
+    expect((r as { args: { diagnostic: string } }).args.diagnostic).toHaveLength(300);
+    expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x" })).toHaveProperty("action", "proposer");
+    expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", groupe_suggere: "vip" })).toHaveProperty("erreur");
+    expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false });
   });
 });

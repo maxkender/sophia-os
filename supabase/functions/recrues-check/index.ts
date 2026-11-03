@@ -157,6 +157,10 @@ Deno.serve(async (request) => {
       const b = body as { poster_id?: string; lundi?: string; choix?: string };
       return json(await choisirDebutAdmin(serviceClient(), String(b.poster_id ?? ""), String(b.lundi ?? ""), String(b.choix ?? ""), acces.userId));
     }
+    // 3/11 : « Renvoyer le lien de mot de passe » à un vrai posteur (geste de l'admin, page Problèmes ou demande de Max).
+    if (body.action === "lien_mot_de_passe_envoyer") {
+      return json(await envoyerLienMotDePasse(serviceClient(), String((body as { poster_id?: string }).poster_id ?? ""), acces.userId));
+    }
     if (body.action === "reponses") {
       const maintenant = new Date();
       // 0444 : un @ TikTok dans une réponse (recrue introuvable) est lu avant le classement, même sur off.
@@ -1975,6 +1979,47 @@ async function choisirDebut(
   return { erreur: null, canal, statut, texte };
 }
 
+export const TEXTE_LIEN_MOT_DE_PASSE =
+  "Hi {prenom}, here is your personal link to set (or reset) your password: {lien_mot_de_passe}\nYour login: {email}\nDashboard: {url}";
+
+/**
+ * 3/11 : le lien personnel « Set my password » renvoyé à un posteur : Slack
+ * s'il est relié, sinon Upwork (avec la ligne STOP). Texte modifiable
+ * (réglage lien_mot_de_passe_texte). Noté dans nudges (type lien_mot_de_passe).
+ */
+async function envoyerLienMotDePasse(supabase: Supabase, posterId: string, par: string | null) {
+  if (!/^[0-9a-f-]{36}$/i.test(posterId)) return { ok: false, error: "poster_id requis" };
+  const { data: p, error } = await supabase.from("profiles").select("id, prenom, email, slack_user_id, upwork_contract_id, is_active")
+    .eq("id", posterId).maybeSingle();
+  if (error) return { ok: false, error: error.message };
+  if (!p?.is_active) return { ok: false, error: "posteur introuvable ou désactivé" };
+  if (!p.email) return { ok: false, error: "pas d'e-mail de connexion" };
+  const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "lien_mot_de_passe_texte").maybeSingle();
+  const modele = typeof reglage?.valeur === "string" && reglage.valeur.trim() ? reglage.valeur : TEXTE_LIEN_MOT_DE_PASSE;
+  const brut = modele
+    .replace(/\{prenom\}/g, (p.prenom ?? "").trim() || "there")
+    .replace(/\{email\}/g, String(p.email))
+    .replace(/\{url\}/g, OS_URL);
+  const lien = await avecLienMotDePasse(supabase, posterId, brut, OS_URL, "lien_mot_de_passe");
+  if (lien.erreur) return { ok: false, error: lien.erreur };
+  let canal: string | null = null;
+  let erreur: string | null = null;
+  if (p.slack_user_id) {
+    canal = "slack";
+    erreur = await envoyerSlack(supabase, posterId, lien.texte);
+  }
+  if ((!canal || erreur) && p.upwork_contract_id) {
+    canal = "upwork";
+    erreur = (await envoyerUpwork(String(p.upwork_contract_id), avecLigneStop(lien.texte), { prioritaire: true })).erreur;
+  }
+  if (!canal) erreur = "ni Slack ni contrat Upwork";
+  await supabase.from("nudges").insert({
+    poster_id: posterId, type: "lien_mot_de_passe", periode: null, cible: "admin", canal, texte: lien.texte,
+    slack_erreur: erreur, raison: par ? `admin ${par}` : "admin",
+  });
+  return { ok: !erreur, canal, error: erreur };
+}
+
 /** 1/11 : lundi 23:59 (Paris) : les « Start Tuesday » sans Start warmup avant lundi 12:00 passent au lundi suivant. */
 async function reportsDuLundi(supabase: Supabase, maintenant: Date, bilan: Bilan) {
   const lundi = lundiParis(maintenant);
@@ -2507,7 +2552,7 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
   const texte = texteLundiSoir(r.texteLundiSoir, p.prenom);
   const donneesSoir = {
     cohorte: lundi, deuxieme_compte: p.deuxieme, posts_avec_lien_lundi: p.publies_lundi, contrat: p.contrat_id,
-    heure: "minuit (Europe/Paris)",
+    heure: "20 h (Europe/Paris)",
     fuseau: p.fuseau,
   };
   // Un seul message par personne : un autre profil sur le même contrat l'a déjà reçu (ou préparé).
@@ -2522,7 +2567,7 @@ async function envoyerLundiSoir(supabase: Supabase, r: Reglages, p: PosteurLundi
   }
   // Prompt 25 MAJ : dû avant le passage sur « on » → ne part pas (jamais de rattrapage).
   if (!(await peutPartir(supabase, r, bilan, {
-    cle, du: instantLocal(ajouterJoursIso(lundi, 1), 0, "Europe/Paris"), onDepuis: bilan.onDepuis?.lundiSoir ?? null, canaux: ["upwork"], texte,
+    cle, du: instantLocal(lundi, 20, "Europe/Paris"), onDepuis: bilan.onDepuis?.lundiSoir ?? null, canaux: ["upwork"], texte,
   }))) return;
   const { data: ligne, error: errIns } = await supabase
     .from("nudges")
@@ -2568,7 +2613,7 @@ const LIBELLES_MAIN: Record<string, string> = {
   accueil: "Welcome",
   relance: "Step reminder",
   lundi: "Monday message",
-  lundi_soir: "Monday, midnight Paris",
+  lundi_soir: "Monday, 20:00 Paris",
   jeudi: "Thursday nudge",
   reponse: "Reply to their question",
 };

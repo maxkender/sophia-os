@@ -56,7 +56,7 @@ import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useProblemes } from "@/features/auto/useProblemes";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestations } from "@/features/disputes/api";
-import { lireCompteNeedsYou } from "@/features/needsYou/api";
+import { lireCompteProblemes } from "@/features/problemes/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
@@ -88,7 +88,7 @@ export function AdminLayout() {
   const estHo = role === "head_of_ops";
   const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
-  const needsYou = useQuery({ queryKey: ["needs-you", "compte"], queryFn: lireCompteNeedsYou, refetchInterval: 5 * 60_000 });
+  const needsYou = useQuery({ queryKey: ["problemes", "compte"], queryFn: lireCompteProblemes, refetchInterval: 5 * 60_000 });
   // Le badge de Problems : seulement pour l'admin et la Head of Ops (Health leur est réservé).
   const problemes = useProblemes(role === "admin" || role === "head_of_ops");
   const contestations = useQuery({ queryKey: ["disputes", "compte"], queryFn: compterContestations, refetchInterval: 5 * 60_000 });
@@ -340,8 +340,8 @@ export function AdminLayout() {
             label: t(`auto.pages.${p.cle}.titre`),
             icon: ICONES_AUTO[p.cle],
             description: t(`auto.phrases.${p.cle}`),
-            // Prompt 21, U : le badge de « Needs you » (les cas urgents, sinon tous).
-            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgents || needsYou.data.total : 0 } : {}),
+            // Bloc C : le badge de « Problems » (les urgents, sinon tous les ouverts).
+            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgent || needsYou.data.total : 0 } : {}),
             // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
             ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
             // Les problèmes graves de l'automatisation.

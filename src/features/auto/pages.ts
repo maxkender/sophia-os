@@ -14,8 +14,9 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "decisions", to: "/admin/auto/decisions" },
   { cle: "sent", to: "/admin/auto/sent" },
   { cle: "received", to: "/admin/auto/received" },
-  // Prompt 21, U : tout ce que l'OS n'a pas pu faire, ou dont il n'est pas sûr (juste avant Disputes).
-  { cle: "needs", to: "/admin/auto/needs-you" },
+  // Bloc C (2/11) : « Problems » remplace Needs you (un problème par posteur et par catégorie).
+  // L'ancienne adresse redirige ici ; l'ancienne page reste ouverte pendant le test (/admin/auto/needs-you-ancien).
+  { cle: "needs", to: "/admin/auto/problemes" },
   // Seulement les alertes graves (messages bloqués, trop d'appels à l'API, panne), avec une piste de débogage.
   { cle: "problems", to: "/admin/auto/problems" },
   // Prompt 21, R : quand un posteur dit que l'OS s'est trompé (entre Messages received et Payroll).
@@ -50,4 +51,6 @@ export const ANCIENNES_ADRESSES: Readonly<Record<string, string>> = {
   "/admin/reviews": "/admin/quality-feedback",
   "/admin/retours-contestes": "/admin/quality-feedback",
   "/admin/surveillance": "/admin/auto",
+  // Bloc C (2/11) : Needs you devient Problems.
+  "/admin/auto/needs-you": "/admin/auto/problemes",
 };

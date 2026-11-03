@@ -269,6 +269,8 @@ Deno.serve(async (request) => {
         return json(await epinglerMessageQuestions(supabase, acces.userId));
       case "needs_you_alerte":
         return json(await alerteNeedsYou(supabase));
+      case "problemes_resume":
+        return json(await resumeProblemes(supabase));
       case "releve_cohorte": {
         // 31/10 : dimanche 18:00 (Paris), avant le check du warm-up : toutes les recrues de la cohorte du lendemain.
         const p = maintenantParis();
@@ -1148,6 +1150,37 @@ async function alerteNeedsYou(supabase: Supabase) {
   const texte = `:raising_hand: Needs you : ${urgents.length} cas urgent(s) — ${n("lundi")} bloquent lundi, ${n("paie")} la paie, ${n("kill")} un Kill.\n${OS_URL}/admin/auto/needs-you`;
   const r = await slackApi(jeton, "chat.postMessage", { channel: SLACK_MAX, text: texte, unfurl_links: false });
   return { ok: r.ok, urgents: urgents.length, ...(r.ok ? {} : { error: r.error }) };
+}
+
+/**
+ * Bloc C, C11 (2/11) : le résumé de la page Problèmes en DM à Max, 12 h et
+ * 19 h (Paris) : les nombres par niveau, les 5 urgents en une ligne, le lien.
+ * Derrière le réglage `problemes_resume_slack` (« off » par défaut : mode test).
+ */
+async function resumeProblemes(supabase: Supabase) {
+  const { data: r } = await supabase.from("reglages").select("valeur").eq("cle", "problemes_resume_slack").maybeSingle();
+  if (r?.valeur !== "on") return { ok: true, ignore: "résumé Slack coupé (problemes_resume_slack = off)" };
+  const p = maintenantParis();
+  if (p.heure !== 12 && p.heure !== 19) return { ok: true, ignore: "pas 12 h ni 19 h (Paris)" };
+  const { data, error } = await supabase
+    .from("problemes")
+    .select("niveau, categorie, resume, poster_id, profiles(prenom, nom)")
+    .eq("statut", "ouvert")
+    .order("maj_at", { ascending: false });
+  if (error) throw error;
+  const lignes = (data ?? []) as unknown as { niveau: string; categorie: string; resume: string; profiles: { prenom: string | null; nom: string | null } | null }[];
+  const n = (niveau: string) => lignes.filter((x) => x.niveau === niveau).length;
+  const urgents = lignes.filter((x) => x.niveau === "urgent").slice(0, 5)
+    .map((x) => `• ${[x.profiles?.prenom, x.profiles?.nom].filter(Boolean).join(" ") || "—"} — ${x.categorie} : ${String(x.resume).slice(0, 90)}`);
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return { ok: false, error: "SLACK_HM_BOT_TOKEN manquant" };
+  const texte = [
+    `:rotating_light: Problems : ${n("urgent")} urgent · ${n("aujourdhui")} today · ${n("samedi")} Saturday`,
+    ...urgents,
+    `${OS_URL}/admin/auto/problemes`,
+  ].join("\n");
+  const s = await slackApi(jeton, "chat.postMessage", { channel: SLACK_MAX, text: texte, unfurl_links: false });
+  return { ok: s.ok, ...(s.ok ? {} : { error: s.error }) };
 }
 
 async function verifierSlack(supabase: Supabase) {

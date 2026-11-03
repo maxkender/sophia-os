@@ -7,6 +7,7 @@ import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
+import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
 import { PageCohortesTableau } from "@/features/cohortesTableau/PageCohortesTableau";
@@ -99,7 +100,17 @@ export function ReceivedPage() {
   );
 }
 
+/** Bloc C (2/11) : « Problems » remplace Needs you (même place dans le menu). */
 export function NeedsYouPage() {
+  return (
+    <PageAuto cle="needs">
+      <PageProblemesPosteurs />
+    </PageAuto>
+  );
+}
+
+/** L'ancienne page Needs you, hors menu, ouverte pendant les 2 jours de test. */
+export function NeedsYouAncienPage() {
   return (
     <PageAuto cle="needs">
       <PageNeedsYou />

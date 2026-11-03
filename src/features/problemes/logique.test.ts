@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
 import type { Probleme, Situation } from "./api";
 import {
-  aDiagnosticOuAction, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
+  aDiagnosticOuAction, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
 const p = (o: Partial<Probleme>): Probleme => ({
@@ -135,5 +135,23 @@ describe("Problèmes v4 : groupes, diagnostic, bots", () => {
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x" })).toHaveProperty("action", "proposer");
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", groupe_suggere: "vip" })).toHaveProperty("erreur");
     expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false });
+  });
+});
+
+describe("Feedback aux bots", () => {
+  it("seulement les cartes d'un bot (ouvertes, ou fermées par lui avec close)", () => {
+    expect(peutDonnerFeedback({ propose_par: "control_bot", statut: "ouvert", proposition_action: null })).toBe(true);
+    expect(peutDonnerFeedback({ propose_par: "admin", statut: "ouvert", proposition_action: null })).toBe(false);
+    expect(peutDonnerFeedback({ propose_par: "os", statut: "ouvert", proposition_action: null })).toBe(false);
+    expect(peutDonnerFeedback({ propose_par: "pay_bot", statut: "valide", proposition_action: "close" })).toBe(true);
+    expect(peutDonnerFeedback({ propose_par: "pay_bot", statut: "valide", proposition_action: "kill" })).toBe(false);
+  });
+  it("raison obligatoire sauf 👍 ; % de 👍 ; règle pré-remplie", () => {
+    expect(raisonObligatoire("juste")).toBe(false);
+    expect(raisonObligatoire("mauvaise_action")).toBe(true);
+    expect(pourcentJuste({ total: 0, justes: 0 })).toBeNull();
+    expect(pourcentJuste({ total: 3, justes: 2 })).toBe(67);
+    expect(regleDepuisFeedback({ id: "f", bot: "control_bot", raison: " Pas un bug. ", diagnostic_du_bot: null, action_du_bot: "close", categorie: null }))
+      .toEqual({ id: null, bot: "control_bot", regle: "Pas un bug.", exemple: "close", sources: ["f"], active: true });
   });
 });

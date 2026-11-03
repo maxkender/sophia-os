@@ -204,3 +204,79 @@ export async function envoyerLienMotDePasse(posterId: string): Promise<void> {
   const r = await invoke<{ ok: boolean; error?: string }>("recrues-check", { action: "lien_mot_de_passe_envoyer", poster_id: posterId });
   if (!r.ok) throw new Error(r.error ?? "envoi du lien impossible");
 }
+
+// ---------------------------------------------------------------------------
+// 3/11 : le feedback aux bots et leurs règles (0523).
+// ---------------------------------------------------------------------------
+export type Verdict = "juste" | "pas_un_probleme" | "mauvais_diagnostic" | "mauvaise_action";
+
+export interface BotFeedback {
+  id: string;
+  probleme_id: string | null;
+  bot: Proprietaire;
+  categorie: string | null;
+  groupe: string | null;
+  verdict: Verdict;
+  raison: string | null;
+  diagnostic_du_bot: string | null;
+  action_du_bot: string | null;
+  created_at: string;
+  nom: string | null;
+  en_regle: boolean;
+}
+
+export type BotRegle = Proprietaire | "tous";
+
+export interface RegleBot {
+  id: string;
+  bot: BotRegle;
+  regle: string;
+  exemple: string | null;
+  source_feedback_ids: string[];
+  active: boolean;
+  created_at: string;
+}
+
+export interface StatBot {
+  bot: Proprietaire;
+  total: number;
+  justes: number;
+  erreurs: { categorie: string; n: number }[];
+}
+
+export async function donnerFeedback(problemeId: string, verdict: Verdict, raison: string | null): Promise<BotFeedback> {
+  const { data, error } = await supabase.rpc("bot_feedback_donner", { p_probleme: problemeId, p_verdict: verdict, p_raison: raison });
+  if (error) throw error;
+  return data as BotFeedback;
+}
+
+export async function lireFeedbacks(jours = 30): Promise<BotFeedback[]> {
+  const { data, error } = await supabase.rpc("bot_feedback_liste", { p_jours: jours });
+  if (error) throw error;
+  return (data ?? []) as BotFeedback[];
+}
+
+export async function lireRegles(): Promise<RegleBot[]> {
+  const { data, error } = await supabase.rpc("regles_bots_liste");
+  if (error) throw error;
+  return (data ?? []) as RegleBot[];
+}
+
+export async function enregistrerRegle(r: { id: string | null; bot: BotRegle; regle: string; exemple: string | null; sources: string[]; active: boolean }): Promise<RegleBot> {
+  const { data, error } = await supabase.rpc("regle_bot_enregistrer", {
+    p_id: r.id, p_bot: r.bot, p_regle: r.regle, p_exemple: r.exemple, p_sources: r.sources, p_active: r.active,
+  });
+  if (error) throw error;
+  return data as RegleBot;
+}
+
+export async function activerRegle(id: string, active: boolean): Promise<void> {
+  const { error } = await supabase.rpc("regle_bot_activer", { p_id: id, p_active: active });
+  if (error) throw error;
+}
+
+export async function lireStatsBots(): Promise<StatBot[]> {
+  const { data, error } = await supabase.rpc("bots_stats");
+  if (error) throw error;
+  return (data ?? []) as StatBot[];
+}

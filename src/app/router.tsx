@@ -21,6 +21,7 @@ import {
   PayrollPage,
   ReceivedPage,
   RecruitsPage,
+  ReglesBotsPage,
   CohortsPage,
   SentPage,
 } from "@/features/auto/PagesAuto";
@@ -149,6 +150,8 @@ export function AppRouter() {
 
             <Route element={<RoleGate allow={["admin"]} />}>
                 <Route path="/admin" element={<AdminPilotagePage />} />
+              {/* 3/11 : les règles des bots (feedback → règles), admin seulement. */}
+              <Route path="/admin/auto/regles-bots" element={<ReglesBotsPage />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />

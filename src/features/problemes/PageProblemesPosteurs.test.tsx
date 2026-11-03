@@ -37,6 +37,10 @@ const onboarding: CohorteOnboarding[] = [
   },
 ];
 const agir = vi.fn(async () => undefined);
+const feedback = vi.fn(async (id: string, verdict: string, raison: string | null) => ({
+  id: "f1", probleme_id: id, bot: "new_cohort_bot", categorie: "question_bloquante", groupe: "onboarding", verdict, raison,
+  diagnostic_du_bot: null, action_du_bot: "close", created_at: "2026-11-03T12:00:00Z", nom: "Test D", en_regle: false,
+}));
 const envoyer = vi.fn(async () => undefined);
 
 vi.mock("./api", () => ({
@@ -50,6 +54,12 @@ vi.mock("./api", () => ({
   envoyerUpwork: (...a: unknown[]) => envoyer(...(a as [])),
   envoyerLienMotDePasse: (...a: unknown[]) => envoyer(...(a as [])),
   dejaEcritAujourdhui: vi.fn(async () => false),
+  lireFeedbacks: vi.fn(async () => []),
+  lireStatsBots: vi.fn(async () => [
+    { bot: "new_cohort_bot", total: 4, justes: 3, erreurs: [{ categorie: "slack", n: 1 }] },
+    { bot: "control_bot", total: 0, justes: 0, erreurs: [] },
+  ]),
+  donnerFeedback: (...a: unknown[]) => feedback(...(a as [string, string, string | null])),
 }));
 
 function rendre() {
@@ -105,5 +115,26 @@ describe("PageProblemesPosteurs", () => {
 
     fireEvent.click(screen.getByTestId("fermer"));
     await vi.waitFor(() => expect(agir).toHaveBeenCalledWith("d", "fermer"));
+  });
+
+  it("feedback au bot : seulement sur une carte proposée par un bot ; « Pourquoi » obligatoire sauf 👍 ; compteur par bot", async () => {
+    await i18n.changeLanguage("fr");
+    rendre();
+    expect(await screen.findByText("Test B")).toBeTruthy();
+    expect((await screen.findByTestId("stats-bots")).textContent).toContain("75 % 👍 sur 7 j (4)");
+    fireEvent.click(screen.getByRole("tab", { name: /Aujourd'hui/ }));
+    const carteD = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test D"))!;
+    const carteC = screen.getAllByTestId("carte-probleme").find((c) => within(c).queryByText("Test C"))!;
+    expect(within(carteC).queryByTestId("feedback-bot")).toBeNull();
+    const ligne = within(carteD).getByTestId("feedback-bot");
+    fireEvent.click(within(ligne).getByTestId("verdict-pas_un_probleme"));
+    const envoyerBtn = within(ligne).getByRole("button", { name: "Envoyer le feedback" });
+    expect((envoyerBtn as HTMLButtonElement).disabled).toBe(true);
+    fireEvent.change(within(ligne).getByLabelText("Pourquoi"), { target: { value: "Un lien de post sur Slack = il montre son travail" } });
+    fireEvent.click(envoyerBtn);
+    await vi.waitFor(() => expect(feedback).toHaveBeenCalledWith("d", "pas_un_probleme", "Un lien de post sur Slack = il montre son travail"));
+    expect(await within(ligne).findByText("En faire une règle")).toBeTruthy();
+    // Le feedback ne change rien à la carte.
+    expect(agir).not.toHaveBeenCalledWith("d", expect.anything(), expect.anything());
   });
 });

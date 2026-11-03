@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o078",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0117b3cd-825d-48be-9988-7b55f07c47f9",
+ "titre": "6 hobbies that make you surprisingly well rounded #hobbies #wellrounded #smartgirl #selfimprovement #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 12 de la boîte (parent 0117b3cd, langue source en) : accroche du parent mot pour mot. Ligne 9 écartée (cite d'autres applis), lignes 10 et 11 écartées (faute « dangerously confidence », nom de compte dans l'accroche). Six hobbies neufs face au parent (un plat par pays, observer les oiseaux, danser, dessiner au musée, un documentaire par semaine, la leçon du soir). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d92819f8",
+   "texte_overlay": "6 hobbies that make you\nsurprisingly well rounded",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3eda98b5",
+   "texte_overlay": "1. cooking one dish\nfrom every country\n\na world map on your plate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e9d45800",
+   "texte_overlay": "2. birdwatching\n\nyou'll notice how alive\nyour own street is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f45d4b47",
+   "texte_overlay": "3. learning to dance\n\nsalsa, tango, ballet.\nrhythm, posture, confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4d902aba",
+   "texte_overlay": "4. sketching in museums\n\nyou look ten times longer\nwhen you draw.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "39bb077d",
+   "texte_overlay": "5. one documentary a week\n\nspace, oceans, empires.\none subject at a time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2445b3de",
+   "texte_overlay": "6. a nightly lesson\ninstead of scrolling\n\n5 minutes of art, history\nor science before bed.",
+   "texte_sophia": "6. a nightly lesson\ninstead of scrolling\n\n5 minutes on an app like\nSophia before bed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3c88629a",
+   "texte_overlay": "save this and pick one\nfor this month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  }
+ ]
+}

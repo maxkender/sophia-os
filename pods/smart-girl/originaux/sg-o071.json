@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o071",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8b69509d-644f-4b86-940a-97cdfa03612e",
+ "titre": "5 words to make your vocabulary richer overnight #vocabulary #words #smartgirl #englishvocabulary #wordoftheday",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "367627d1-175c-4fe0-8fff-45c923d6906d"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 2 de la boîte (parent 8b69509d, langue source en) : accroche reformulée (« 5 words that will instantly expand your vocabulary » → « 5 words to make your vocabulary richer overnight »), même promesse. Cinq mots absents de nos originaux (verdant, equanimity, perspicacious, petrichor, sonorous). Sophia au milieu, dans l'exemple du mot 3 (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "95fd801a",
+   "texte_overlay": "5 words to make your\nvocabulary richer overnight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6b9cecb5",
+   "texte_overlay": "verdant\n\ngreen with grass or\nrich vegetation.\n\n\"a verdant valley in spring.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22967d3b",
+   "texte_overlay": "equanimity\n\ncalm and steady,\nespecially under pressure.\n\n\"she took the news\nwith equanimity.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3a792b70",
+   "texte_overlay": "perspicacious\n\nquick to notice and\nunderstand things.\n\n\"a perspicacious reader\nmisses nothing.\"",
+   "texte_sophia": "perspicacious\n\nquick to notice and\nunderstand things.\n\n\"5 minutes a day on an app\nlike Sophia made her\nso perspicacious.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "39b44bbe",
+   "texte_overlay": "petrichor\n\nthe smell of rain\non dry earth.\n\n\"the garden was full\nof petrichor.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "43e1f24b",
+   "texte_overlay": "sonorous\n\ndeep, full and\npleasant to hear.\n\n\"a sonorous voice\nfilled the hall.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1cdc84b6",
+   "texte_overlay": "which one will you use\ntoday?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/7.jpg"
+  }
+ ]
+}

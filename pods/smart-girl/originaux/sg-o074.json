@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o074",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a1f368ee-1ff8-48e0-983a-6d0c884aaa62",
+ "titre": "things to study when you're bored to get ahead #studytok #learning #smartgirl #boredom #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "e7f3ee20-28ce-4874-add5-2eb99452face"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 5 de la boîte (parent a1f368ee, langue source en) : accroche du parent mot pour mot. Sujets neufs face au parent (psychologie, histoire de sa ville, un tableau par jour, premiers secours, l'histoire des mots, le ciel de nuit). Fait vérifié : « quarantine » vient du vénitien quaranta giorni, les 40 jours d'attente des navires. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "190c196a",
+   "texte_overlay": "things to study when\nyou're bored to get ahead",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2e5c2ffc",
+   "texte_overlay": "1. the basics of psychology\n\nwhy we procrastinate,\nwhy we follow the crowd.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15644da4",
+   "texte_overlay": "2. the history of your\nfavourite city\n\nevery street turns\ninto a story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "42b33ad4",
+   "texte_overlay": "3. one painting a day\n\nwho painted it, when and why.\nmuseums will never feel\nthe same.",
+   "texte_sophia": "3. one painting a day\n\n5 minutes on a micro-learning\napp like the Sophia app.\nmuseums will never feel\nthe same.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "422a7429",
+   "texte_overlay": "4. basic first aid\n\nknowing how to help someone\nwho is choking matters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5ad3cf2f",
+   "texte_overlay": "5. the stories behind words\n\n\"quarantine\" comes from\nquaranta giorni: the 40 days\nships waited in venice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b1232f8d",
+   "texte_overlay": "6. the night sky\n\nfind the north star once\nand you'll never forget it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3c679a8b",
+   "texte_overlay": "save this for your next\nboring evening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/8.jpg"
+  }
+ ]
+}

@@ -251,8 +251,9 @@ const SOURCES_MESSAGE = ["reponse", "slack", "bot"];
  * B2 : une carte n'est montrée que si elle a un diagnostic (celui du bot, la
  * phrase de l'OS, ou un constat de l'OS) ou une action (proposée, ou un geste).
  */
-export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id">): boolean {
-  if (p.diagnostic?.trim() || p.proposition_action || p.proposition_reponse?.trim()) return true;
+export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "diagnostic_par" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id">): boolean {
+  // Le diagnostic d'un bot compte ; celui de l'OS est recalculé ci-dessous (phrase ou constat).
+  if ((p.diagnostic?.trim() && p.diagnostic_par !== "os") || p.proposition_action || p.proposition_reponse?.trim()) return true;
   if (phraseProbleme(p)) return true;
   if (p.sources.some((x) => !SOURCES_MESSAGE.includes(x.type))) return true;
   return gestes(p).some((g) => g.type !== "lien");

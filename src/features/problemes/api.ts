@@ -79,6 +79,8 @@ export interface Probleme {
   /** v4 (0522) : le groupe (recalculé à chaque passage), le diagnostic du bot (300 car.), son groupe suggéré. */
   groupe?: Groupe | null;
   diagnostic?: string | null;
+  /** 0524 : « os » (diagnostic écrit par l'OS à chaque passage) ou le bot qui l'a écrit. */
+  diagnostic_par?: string | null;
   groupe_suggere?: Groupe | null;
 }
 

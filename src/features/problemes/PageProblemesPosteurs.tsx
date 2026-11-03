@@ -187,7 +187,11 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           <p className="font-bold" data-testid="diagnostic">
             {p.diagnostic?.trim() ? p.diagnostic : phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : resumeLisible(p, t)}
           </p>
-          {p.diagnostic?.trim() && p.propose_par && <p className="text-[11px] text-muted-foreground">{t(`${P}.diagPar`, { qui: t(`${P}.proprietaires.${p.propose_par}`, { defaultValue: p.propose_par }) })}</p>}
+          {p.diagnostic?.trim() && (p.diagnostic_par ?? p.propose_par) && (
+            <p className="text-[11px] text-muted-foreground" data-testid="diagnostic-par">
+              {t(`${P}.diagPar`, { qui: t(`${P}.proprietaires.${p.diagnostic_par ?? p.propose_par}`, { defaultValue: p.diagnostic_par ?? p.propose_par ?? "" }) })}
+            </p>
+          )}
         </div>
         {s && (
           <div className="rounded-md bg-muted/30 p-2">

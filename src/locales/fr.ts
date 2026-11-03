@@ -5272,6 +5272,9 @@ export const fr = {
       description:
         "La connexion de l'OS à l'API Upwork, avec le compte de Max. Tous les appels passent par le serveur et sont notés ; pour l'instant, lecture seulement.",
       statuts: { connecte: "Connecté", deconnecte: "Pas connecté", erreur: "Connexion en erreur" },
+      compteConnecte: "Compte connecté : {{nom}} (id {{id}}), connecté le {{date}}.",
+      compteOk: "✓ C'est le compte de Max : les messages automatiques partent de ce compte.",
+      compteMauvais: "✗ Ce n'est pas le compte de Max ({{id}}) : aucun message automatique ne part. Reconnecte avec le compte de Maximilien Kender.",
       connectePar: "par {{nom}}, le {{date}}",
       dernierAppel: "Dernier appel",
       appels24h: "Appels (24 h)",
@@ -7572,7 +7575,7 @@ export const fr = {
         login: "Connexion", slack: "Slack", tiktok_setup: "TikTok à configurer", compte_bloque: "Compte bloqué", question_bloquante: "Question bloquante",
         bug_dashboard: "Bug du dashboard", contrat_hm: "Contrat HM", zero_post: "Zéro post", demande_2e_compte: "Demande de 2e compte",
         avis_upwork: "Avis Upwork", low_views: "Peu de vues", absence: "Absence", accueil: "Accueil", relance_echec: "Relance en échec",
-        retirer_slack: "Retirer de Slack", autre: "Autre",
+        retirer_slack: "Retirer de Slack", upwork_mauvais_compte: "Upwork : mauvais compte", autre: "Autre",
       },
       sources: {
         needs_you: "OS", contestation: "Contestation", demande_arret: "Demande d'arrêt", accueil: "Accueil", relance_echec: "Relance",

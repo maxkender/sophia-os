@@ -72,6 +72,24 @@ describe("CarteUpwork", () => {
     expect(bilan.textContent).toContain("Micabo : token doesn't have enough oauth2 permissions");
   });
 
+  it("3/11 : le compte connecté (nom + id) ; ✓ si c'est Max, ✗ sinon", async () => {
+    const etat = (utilisateur: unknown) => [{
+      compte: "principal", statut: "connecte", connecte_at: "2026-11-03T09:00:00Z", connecte_par_nom: "Max K", utilisateur,
+      organisations: [], droits: null, access_expire_at: null, refresh_at: null, dernier_appel_at: null, derniere_erreur: null, appels_24h: 0, erreurs_24h: 0,
+    }];
+    api.lireEtatUpwork.mockResolvedValue(etat({ id: "1908160914854122443", name: "Maximilien K." }));
+    const { unmount } = rendu();
+    const ok = await screen.findByTestId("compte-upwork");
+    expect(ok.textContent).toContain("Maximilien K. (id 1908160914854122443)");
+    expect(ok.textContent).toContain("C'est le compte de Max");
+    unmount();
+    api.lireEtatUpwork.mockResolvedValue(etat({ id: "1990051114607612378", name: "Adrien M." }));
+    rendu();
+    const ko = await screen.findByTestId("compte-upwork");
+    expect(ko.textContent).toContain("Adrien M. (id 1990051114607612378)");
+    expect(ko.textContent).toContain("Ce n'est pas le compte de Max");
+  });
+
   it("retour en erreur : la raison s'affiche", async () => {
     api.lireEtatUpwork.mockResolvedValue([]);
     rendu("/admin/reglages?upwork=erreur&raison=Code%20expired");

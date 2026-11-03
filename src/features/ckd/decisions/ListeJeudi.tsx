@@ -12,6 +12,7 @@ import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { conversationDe, useConversations } from "@/features/upwork/conversation";
 import { LienConversation } from "@/features/upwork/LienConversation";
 import { cn } from "@/lib/utils";
+import { BadgeProblemesPosteur, useResumeProblemes } from "@/features/problemes/BadgeProblemesPosteur";
 
 import { ContexteJeudi } from "./ContexteJeudi";
 import { lireContexte } from "./contexte";
@@ -29,6 +30,8 @@ import {
   FILTRES_VIDES,
   filtrerComptes,
   lireSemaineComptes,
+  lireBrouillonsJeudi,
+  jourMois,
   type Tri,
   trierComptes,
   validerNudgesJeudi,
@@ -89,8 +92,17 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
     lundi, aujourdhui, maintenant, page: "jeudi",
   })])), [liste, extras.data, lundi, aujourdhui, maintenant]);
   const ev = (c: CompteSemaine) => evals.get(c.compte_id)!;
+  // 0531 : Recréer décidé dans Problèmes (pré-coché) ; un Kill samedi prévu grise la ligne.
+  const brouillons = useQuery({ queryKey: ["jeudi-brouillons", lundi], queryFn: () => lireBrouillonsJeudi(lundi) });
+  const resumes = useResumeProblemes();
+  const deProblemes = (c: CompteSemaine) => {
+    const b = brouillons.data?.get(c.compte_id);
+    return b?.raison?.source === "problemes" && b.choix === "recreate" ? b : null;
+  };
+  const killPrevu = (c: CompteSemaine) => Boolean(resumes.data?.get(c.poster_id)?.kill_samedi_lundi);
   const choixDe = (c: CompteSemaine): ChoixJeudi =>
-    choix[c.compte_id] ?? (etats.data?.get(c.compte_id)?.kill_jeudi_at ? "kill_samedi" : choixJeudiInitial(c));
+    choix[c.compte_id] ??
+    (etats.data?.get(c.compte_id)?.kill_jeudi_at || killPrevu(c) ? "kill_samedi" : deProblemes(c) && c.recreer ? "recreate" : choixJeudiInitial(c));
   const nudges = liste.filter((c) => choixDe(c) === "nudge");
   const recreates = liste.filter((c) => choixDe(c) === "recreate" && c.recreer);
   const visibles = trierComptes(filtrerComptes(liste, filtres), tri).sort((a, b) => ordreStatut(ev(a), ev(b)));
@@ -137,7 +149,7 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                         ...(c.recreer ? [] : (["recreate"] as const)),
                         ...(c.nudge_envoye_at || c.nudge_en_file ? (["nudge"] as const) : []),
                       ]}
-                      lecture={!admin}
+                      lecture={!admin || killPrevu(c)}
                       onChange={(o) => {
                         const avant = choixDe(c);
                         setChoix((x) => ({ ...x, [c.compte_id]: o }));
@@ -148,6 +160,12 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                     {c.nudge_envoye_at && (
                       <p className="mt-1 text-[11px] text-muted-foreground">{t("autoOnglets.decisions.liste.jeudi.dejaNudge")}</p>
                     )}
+                    {deProblemes(c) && (
+                      <p className="mt-1 text-[11px] font-medium" data-testid="recreer-problemes">
+                        {t("autoOnglets.decisions.liste.jeudi.problemes", { date: jourMois(deProblemes(c)!.raison?.decide_le) })}
+                      </p>
+                    )}
+                    <BadgeProblemesPosteur r={resumes.data?.get(c.poster_id)} />
                     {c.nudge_en_file && !c.nudge_envoye_at && (
                       <p className="mt-1 text-[11px] text-muted-foreground">{t("autoOnglets.decisions.liste.jeudi.enFile")}</p>
                     )}

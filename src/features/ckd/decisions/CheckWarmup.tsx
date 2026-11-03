@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BadgeProblemesPosteur, useResumeProblemes } from "@/features/problemes/BadgeProblemesPosteur";
+import type { ResumeProblemes } from "@/features/problemes/api";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { releverCompte } from "@/features/needsYou/api";
@@ -197,8 +199,10 @@ function Lectures({ l, x, lundi }: { l: LigneWarmup; x: ContexteRecrue | undefin
 }
 
 function Ligne({
-  l, x, statut, lundi, conv, c, b, onChoix,
+  l, x, statut, lundi, conv, c, b, onChoix, r,
 }: {
+  /** 0531 : les cartes Problèmes ouvertes du posteur ; un Kill samedi prévu grise les choix. */
+  r?: ResumeProblemes;
   l: LigneWarmup;
   x: ContexteRecrue | undefined;
   statut: StatutDimanche;
@@ -218,6 +222,7 @@ function Ligne({
         <p className="text-muted-foreground">{l.hm_nom ?? "—"}{l.pays ? ` · ${l.pays}` : ""}</p>
         <LienConversation c={conversationDe(conv, { posteur: l.poster_id, contrat: l.contrat_id })} />
         {l.contrat_id && <p className="text-muted-foreground">{t(`${P}.v2.contrat`, { id: l.contrat_id })}</p>}
+        <BadgeProblemesPosteur r={r} />
         {x?.retrait && (
           <div className="mt-1 max-w-64 rounded border border-destructive/40 p-1" data-testid="retrait">
             <Badge variant="error">{t(`${P}.v2.retrait`)}</Badge>
@@ -246,6 +251,7 @@ function Ligne({
               size="sm"
               variant={b.choix === k ? (k === "kill" ? "destructive" : "default") : "outline"}
               aria-pressed={b.choix === k}
+              disabled={Boolean(r?.kill_samedi_lundi)}
               onClick={() => onChoix({ ...b, choix: k, code: k === "kill" ? b.code || codeRetrait(x?.retrait ?? null) || "" : b.code })}
             >
               {t(`${P}.v2.choix.${k}`)}
@@ -300,6 +306,7 @@ export function CheckWarmup() {
   const liste = React.useMemo(() => lu.data ?? [], [lu.data]);
   const conv = useConversations(liste.map((l) => l.poster_id), liste.map((l) => l.contrat_id));
   const ctx = (id: string) => contexte.data?.get(id);
+  const resumes = useResumeProblemes();
   const statut = (l: LigneWarmup) => statutDe(l, ctx(l.poster_id));
   /** Le choix montré : le brouillon, sinon Kill pour une recrue qui s'est retirée, sinon l'enregistré. */
   const brouillonDe = (l: LigneWarmup): Brouillon => {
@@ -312,6 +319,8 @@ export function CheckWarmup() {
   };
   const choisirLigne = (l: LigneWarmup) => choixDe(l, choix.data?.get(l.poster_id));
   const aAppliquer = (l: LigneWarmup) => {
+    // 0531 : Kill samedi déjà prévu (Problèmes) : rien à appliquer ici.
+    if (resumes.data?.get(l.poster_id)?.kill_samedi_lundi) return false;
     const b = brouillonDe(l);
     const e = choisirLigne(l);
     return b.choix === "kill" || b.choix !== e.choix || (e.prevu && Boolean(brouillons[l.poster_id]));
@@ -402,6 +411,7 @@ export function CheckWarmup() {
                   c={choix.data?.get(l.poster_id)}
                   b={brouillonDe(l)}
                   onChoix={(b) => setBrouillons((v) => ({ ...v, [l.poster_id]: b }))}
+                  r={resumes.data?.get(l.poster_id)}
                 />
               ))}
             </tbody>

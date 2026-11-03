@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import { FeedbackBot, StatsBots } from "./FeedbackBot";
 import { BlocDecision } from "./DecisionProbleme";
-import { BoutonKillSamedi } from "./KillSamedi";
+import { BoutonKillSamedi, BoutonRituel } from "./KillSamedi";
 import {
   agirProbleme,
   dejaEcritAujourdhui,
@@ -37,6 +37,7 @@ import {
 } from "./api";
 import {
   aDiagnosticOuAction,
+  CATEGORIES_ARGENT,
   avecLigneStop,
   compterParGroupe,
   compterParNiveau,
@@ -121,7 +122,7 @@ const Titre = ({ children }: { children: React.ReactNode }) => (
   <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{children}</p>
 );
 
-function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"; feedback?: BotFeedback }) {
+function CarteProbleme({ p, mode, feedback, surlignee = false }: { p: Probleme; mode: "test" | "on"; feedback?: BotFeedback; surlignee?: boolean }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const navigate = useNavigate();
@@ -176,7 +177,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
   });
 
   return (
-    <Card data-testid="carte-probleme">
+    <Card data-testid="carte-probleme" id={`probleme-${p.id}`} className={cn(surlignee && "ring-2 ring-primary")}>
       <CardContent className="space-y-2 p-4 text-sm">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="font-semibold">{sujet !== "posteur" && !p.poster_id ? (p.hm_nom ?? t(`${P}.sansPosteur`)) : (p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`))}</span>
@@ -258,6 +259,8 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
         <div className="flex flex-wrap gap-2 pt-1">
           {decision ? null : geste.type === "kill" ? (
             <BoutonKillSamedi p={p} libelle={`✅ ${t(`${P}.kill.samedi`)}`} />
+          ) : geste.type === "rituel" ? (
+            <BoutonRituel p={p} choix={geste.choix} libelle={`✅ ${t(`${P}.rituel.bouton.${geste.choix}`)}`} />
           ) : (
             <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
               ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
@@ -334,10 +337,10 @@ function BarreOnboarding() {
 }
 
 /** Un groupe (4) : la catégorie, son compteur, « Valider tout » sans argent ni STOP. */
-function Groupe({ niveau, categorie, cartes, mode, feedbacks }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on"; feedbacks: Map<string, BotFeedback> }) {
+function Groupe({ niveau, categorie, cartes, mode, feedbacks, carte }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on"; feedbacks: Map<string, BotFeedback>; carte?: string | null }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const [ouvert, setOuvert] = React.useState(cartes.length <= 5 || niveau === "urgent");
+  const [ouvert, setOuvert] = React.useState(cartes.length <= 5 || niveau === "urgent" || cartes.some((c) => c.id === carte));
   const lot = useMutation({ mutationFn: () => validerCategorie(niveau, categorie), onSuccess: () => qc.invalidateQueries({ queryKey: ["problemes"] }) });
   return (
     <section className="space-y-2" data-testid="groupe-probleme">
@@ -351,7 +354,7 @@ function Groupe({ niveau, categorie, cartes, mode, feedbacks }: { niveau: Niveau
           </Button>
         )}
       </div>
-      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} feedback={feedbacks.get(p.id)} />)}
+      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} feedback={feedbacks.get(p.id)} surlignee={p.id === carte} />)}
     </section>
   );
 }
@@ -370,6 +373,10 @@ export function PageProblemesPosteurs() {
   const [onglet, setOnglet] = React.useState<Niveau>("urgent");
   const [vue, setVue] = React.useState<"ouverts" | "fermes" | "archives">("ouverts");
   const [f, setF] = React.useState<FiltresProblemes>(FILTRES_VIDES);
+  // 0531 : « ?carte=<id> » (lien depuis jeudi, samedi, dimanche) : le bon groupe, le bon niveau, la carte surlignée.
+  const [params] = useSearchParams();
+  const carte = params.get("carte");
+  const [carteVue, setCarteVue] = React.useState<string | null>(null);
   const lu = useQuery({ queryKey: ["problemes", "ouverts"], queryFn: () => lireProblemes("ouverts"), refetchInterval: 60_000 });
   const fermes = useQuery({ queryKey: ["problemes", "fermes"], queryFn: () => lireProblemes("fermes"), enabled: vue === "fermes" });
   const archives = useQuery({ queryKey: ["problemes", "archives"], queryFn: lireArchives, enabled: vue === "archives" });
@@ -395,7 +402,17 @@ export function PageProblemesPosteurs() {
     retry: false,
   });
 
-  const tous = lu.data ?? [];
+  const tous = React.useMemo(() => lu.data ?? [], [lu.data]);
+  React.useEffect(() => {
+    if (!carte || carteVue === carte) return;
+    const c = tous.find((x) => x.id === carte);
+    if (!c) return;
+    setCarteVue(carte);
+    setVue("ouverts");
+    setGroupe(CATEGORIES_ARGENT.includes(c.categorie) ? "paie" : groupeDe(c));
+    setOnglet(c.niveau);
+    window.setTimeout(() => document.getElementById(`probleme-${carte}`)?.scrollIntoView({ block: "center" }), 50);
+  }, [carte, carteVue, tous]);
   // B2 : pas de diagnostic et pas d'action → pas de carte.
   const montrables = tous.filter(aDiagnosticOuAction);
   const masquees = tous.length - montrables.length;
@@ -465,7 +482,7 @@ export function PageProblemesPosteurs() {
       {vue === "ouverts" && (
         <div className="space-y-3">
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
-          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} feedbacks={feedbacks} />)}
+          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} feedbacks={feedbacks} carte={carte} />)}
         </div>
       )}
 

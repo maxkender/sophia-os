@@ -78,6 +78,22 @@ export const attendusJusquIci = (c: Pick<CompteSemaine, "prevus_passes" | "lien_
 
 export type ChoixJeudi = "nudge" | "recreate" | "kill_samedi" | "rien";
 
+/** 0531 : une décision du jeudi préparée ailleurs (Recréer depuis Problèmes). */
+export interface BrouillonJeudi {
+  choix: ChoixJeudi;
+  raison: { source?: string; decide_le?: string; probleme_id?: string; annule_le?: string } | null;
+}
+
+export async function lireBrouillonsJeudi(lundi: string): Promise<Map<string, BrouillonJeudi>> {
+  const { data, error } = await supabase.rpc("jeudi_brouillons_lire", { p_lundi: lundi });
+  if (error) throw error;
+  return new Map(((data ?? []) as ({ compte_id: string } & BrouillonJeudi)[]).map((b) => [b.compte_id, { choix: b.choix, raison: b.raison ?? null }]));
+}
+
+/** « 03/11 » depuis une date ISO (jour). */
+export const jourMois = (iso: string | null | undefined): string =>
+  iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}` : "—";
+
 /**
  * Le choix pré-coché du jeudi : Recreate pour un shadowban supposé ou un compte
  * mort (ou proposé par le contrôle du jeudi) quand Recreate est possible ;
@@ -341,6 +357,8 @@ export interface BrouillonSamedi {
     decide_le?: string;
     probleme_id?: string;
     annule_le?: string;
+    /** 0531 : « double » (Doubler décidé dans Problèmes) ; absent : Kill. */
+    choix_problemes?: string;
   } | null;
   par_nom?: string | null;
   maj_at?: string | null;

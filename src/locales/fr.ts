@@ -444,6 +444,7 @@ export const fr = {
             preparee: "Préparée : {{choix}}",
             prepareePar: "par {{par}} · {{date}}",
             problemes: "Kill · décidé le {{date}} dans Problèmes",
+            problemesDouble: "Double · décidé le {{date}} dans Problèmes",
             problemesChange: "Changé samedi : {{choix}}",
             reports: {
               titre: "Reports",
@@ -593,6 +594,7 @@ export const fr = {
             rienASignaler: "Rien à signaler ({{n}})",
             choix: { nudge: "Nudge", recreate: "Recreate", kill_samedi: "Kill Saturday", rien: "Rien" },
             dejaNudge: "Déjà nudgé cette semaine",
+            problemes: "Recreate · décidé le {{date}} dans Problèmes",
             enFile: "Nudge en attente d'envoi",
             compte: "{{nudges}} nudges · {{recreates}} recreates",
             envoyer: "Send",
@@ -7588,7 +7590,7 @@ export const fr = {
       actions: {
         resend_password_link: "Renvoyer le lien de mot de passe", relink_slack: "Relier Slack", reread_tiktok: "Relire TikTok",
         recreate: "Recréer", kill: "Kill", mark_read: "Marquer comme lu", open_payroll: "Ouvrir Payroll", close: "Fermer (réglé)", postpone: "Reporter à la cohorte suivante", open_who_to_fund: "Ouvrir Who to fund",
-        pay_check: "Vérifier la paie", saturday: "Vérifier samedi", none: "Rien", decision: "Décision",
+        pay_check: "Vérifier la paie", saturday: "Vérifier samedi", none: "Rien", decision: "Décision", double: "Doubler",
       },
       hm: "HM {{hm}}",
       cohorte: "cohorte du {{date}}",
@@ -7723,6 +7725,11 @@ export const fr = {
         botAvaitDit: "le bot avait dit :",
         dejaRegle: "Déjà une règle",
       },
+      rituel: {
+        bouton: { double: "Doubler (samedi)", recreate: "Recréer (jeudi)" },
+        prevu: { double: "Doubler prévu samedi {{date}}", recreate: "Recréer prévu jeudi {{date}}" },
+      },
+      badge: { ouverts_one: "⚠ {{count}} problème ouvert", ouverts_other: "⚠ {{count}} problèmes ouverts" },
       kill: {
         samedi: "Kill samedi",
         prevu: "Kill prévu samedi {{date}}",

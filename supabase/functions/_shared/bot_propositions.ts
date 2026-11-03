@@ -18,7 +18,7 @@ export const GROUPES: readonly string[] = ["onboarding", "nouveaux_actifs", "act
 /** Les actions qu'un bot peut proposer (rien n'est exécuté sans un clic de l'admin). */
 export const ACTIONS_BOT: readonly string[] = [
   "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "postpone", "kill", "mark_read",
-  "pay_check", "open_payroll", "open_who_to_fund", "saturday", "close", "none", "decision",
+  "pay_check", "open_payroll", "open_who_to_fund", "saturday", "close", "none", "decision", "double",
 ];
 
 /** 0528 : une carte peut concerner un posteur, une HM ou une offre Upwork. */

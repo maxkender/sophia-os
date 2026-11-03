@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
@@ -12,7 +13,10 @@ const api = vi.hoisted(() => ({
   validerNudgesJeudi: vi.fn<(lundi: string, comptes: string[]) => Promise<{ prepares: number; deja: number; sans_canal: number }>>(
     async () => ({ prepares: 1, deja: 0, sans_canal: 0 }),
   ),
+  lireBrouillonsJeudi: vi.fn(async () => new Map<string, unknown>()),
 }));
+const pb = vi.hoisted(() => ({ lireResumeProblemes: vi.fn(async () => new Map<string, unknown>()) }));
+vi.mock("@/features/problemes/api", async (orig) => ({ ...(await orig<typeof import("@/features/problemes/api")>()), ...pb }));
 vi.mock("./semaineComptes", async (orig) => ({ ...(await orig<typeof import("./semaineComptes")>()), ...api }));
 const file = vi.hoisted(() => ({ envoyerFile: vi.fn(async () => ({ ok: true, envoyes: 1, perimes: 0, doublons: 0, upwork_bloque: 0 })) }));
 vi.mock("@/features/auto/sent/attenteApi", async (orig) => ({ ...(await orig<typeof import("@/features/auto/sent/attenteApi")>()), ...file }));
@@ -32,7 +36,9 @@ function rendu() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   render(
     <QueryClientProvider client={qc}>
-      <ListeJeudi maintenant={new Date("2026-10-29T12:00:00Z")} />
+      <MemoryRouter>
+        <ListeJeudi maintenant={new Date("2026-10-29T12:00:00Z")} />
+      </MemoryRouter>
     </QueryClientProvider>,
   );
 }
@@ -80,6 +86,26 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la no
     expect(api.validerNudgesJeudi).toHaveBeenCalledWith("2026-10-26", ["a", "b"]);
     expect(file.envoyerFile).toHaveBeenCalled();
     expect(ckd.recreerShadowban).not.toHaveBeenCalled();
+  });
+
+  it("0531 : Recréer décidé dans Problèmes pré-coché ; Kill samedi prévu : ligne grisée, badge ⚠ problèmes", async () => {
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "x", poster_id: "px", handle: "arecreer", cohorte_lundi: "2026-10-26", lien_passes: 4, lien_total: 4, recreer: "shadowban" }),
+      compte({ compte_id: "y", poster_id: "py", handle: "stoppe", cohorte_lundi: "2026-10-26", lien_passes: 2, lien_total: 2 }),
+    ]);
+    api.lireBrouillonsJeudi.mockResolvedValue(new Map([["x", { choix: "recreate", raison: { source: "problemes", decide_le: "2026-10-27" } }]]));
+    pb.lireResumeProblemes.mockResolvedValue(new Map([
+      ["py", { poster_id: "py", n: 2, probleme_id: "pb9", diagnostic: "STOP le 27/10", kill_samedi_lundi: "2026-10-26", rituel_choix: null, rituel_lundi: null }],
+    ]));
+    rendu();
+    await waitFor(() => expect(within(ligne("arecreer")).getByTestId("recreer-problemes")).toBeInTheDocument());
+    expect(presse("arecreer", "Recreate")).toBe("true");
+    expect(within(ligne("arecreer")).getByTestId("recreer-problemes").textContent).toBe("Recreate · décidé le 27/10 dans Problèmes");
+    await waitFor(() => expect(within(ligne("stoppe")).getByTestId("badge-problemes")).toBeInTheDocument());
+    expect(within(ligne("stoppe")).getByText("⚠ 2 problèmes ouverts").getAttribute("href")).toBe("/admin/auto/problemes?carte=pb9");
+    expect(within(ligne("stoppe")).getByTestId("kill-samedi-prevu").textContent).toBe("Kill prévu samedi 31/10");
+    expect(presse("stoppe", "Kill Saturday")).toBe("true");
+    expect(within(ligne("stoppe")).getByRole("button", { name: "Nudge" })).toBeDisabled();
   });
 
   it("filtre par nombre de posts", async () => {

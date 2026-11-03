@@ -168,6 +168,8 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   es: { hl: "es", gl: "ES" },
   it: { hl: "it", gl: "IT" },
   pt: { hl: "pt", gl: "PT" },
+  "pt-BR": { hl: "pt", gl: "BR" },
+  "es-419": { hl: "es-419", gl: "MX" },
   tr: { hl: "tr", gl: "TR" },
 };
 
@@ -269,7 +271,7 @@ export function dateAppli(date: string, langue = "en"): string {
     return `il y a ${fr[1]} ${mot}`;
   }
   const es = date.match(/^hace (\d+)\s*(a|m|sem\.|d|h|min)$/);
-  if (langue === "es" && es) {
+  if ((langue === "es" || langue === "es-419") && es) {
     const mot = { a: n(es[1]) ? "años" : "año", m: n(es[1]) ? "meses" : "mes", "sem.": n(es[1]) ? "semanas" : "semana", d: n(es[1]) ? "días" : "día", h: n(es[1]) ? "horas" : "hora", min: "min" }[es[2]];
     return `hace ${es[1]} ${mot}`;
   }
@@ -312,6 +314,8 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   es: (c) => (/\sM$/.test(c) ? `${c} de visualizaciones` : `${c} visualizaciones`),
   it: (c) => `${c} visualizzazioni`,
   pt: (c) => `${c} visualizações`,
+  "pt-BR": (c) => `${c} visualizações`,
+  "es-419": (c) => (/\sM$/.test(c) ? `${c} de vistas` : `${c} vistas`),
 };
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */

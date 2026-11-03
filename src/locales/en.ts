@@ -7555,7 +7555,7 @@ export const en = {
     problemes: {
       modeTest: "Test mode: nothing is sent and nothing is executed from this page. Validate only records your choice. Money is never paid from here.",
       niveaux: { urgent: "Urgent", aujourdhui: "Today", samedi: "Saturday" },
-      proprietaires: { admin: "you (admin)", new_cohort_bot: "New cohort bot", control_bot: "Control bot", pay_bot: "Pay bot" },
+      proprietaires: { os: "the OS", admin: "you (admin)", new_cohort_bot: "New cohort bot", control_bot: "Control bot", pay_bot: "Pay bot" },
       categories: {
         stop: "Stop", paie: "Pay", menace: "Threat", hors_plateforme: "Off-platform", suspect: "Suspicious", offre_hm_incorrecte: "Wrong HM offer",
         login: "Login", slack: "Slack", tiktok_setup: "TikTok setup", compte_bloque: "Account blocked", question_bloquante: "Blocking question",
@@ -7605,6 +7605,7 @@ export const en = {
         login: "Login",
         warmup: "Warm-up",
         paieSansLigne: "Week of {{semaine}}: no payroll line",
+        paieRien: "Week of {{semaine}}: nothing to pay ($0)",
         paiePayee: "Week of {{semaine}}: paid {{montant}} $ on {{date}}",
         paieNonPayee: "Week of {{semaine}}: NOT paid ({{montant}} $)",
         finance: "This week: « {{nom}} » funded {{montant}} $ (expected {{attendu}} $)",
@@ -7626,7 +7627,7 @@ export const en = {
         slackPasRelie: "Slack not linked: they don't get our Slack messages.",
         tiktokIntrouvable: "TikTok account not found: they can't start.",
         warmupPasFini: "Warm-up not finished (Start warmup or 5 follows missing).",
-        attendReponse: "Has been waiting for a reply since {{date}}.",
+        attendReponse: "Has been waiting for a reply since {{date}}",
       },
       geste: {
         payroll: "Open the Payroll line",

@@ -7566,7 +7566,7 @@ export const fr = {
     problemes: {
       modeTest: "Mode test : rien n'est envoyé ni exécuté depuis cette page. Valider note seulement ton choix. L'argent n'est jamais payé d'ici.",
       niveaux: { urgent: "Urgent", aujourdhui: "Aujourd'hui", samedi: "Samedi" },
-      proprietaires: { admin: "toi (admin)", new_cohort_bot: "Bot nouvelle cohorte", control_bot: "Bot contrôle", pay_bot: "Bot paie" },
+      proprietaires: { os: "l'OS", admin: "toi (admin)", new_cohort_bot: "Bot nouvelle cohorte", control_bot: "Bot contrôle", pay_bot: "Bot paie" },
       categories: {
         stop: "Stop", paie: "Paie", menace: "Menace", hors_plateforme: "Hors plateforme", suspect: "Suspect", offre_hm_incorrecte: "Offre HM incorrecte",
         login: "Connexion", slack: "Slack", tiktok_setup: "TikTok à configurer", compte_bloque: "Compte bloqué", question_bloquante: "Question bloquante",
@@ -7616,6 +7616,7 @@ export const fr = {
         login: "Login",
         warmup: "Warm-up",
         paieSansLigne: "Semaine du {{semaine}} : pas de ligne de paie",
+        paieRien: "Semaine du {{semaine}} : rien à payer (0 $)",
         paiePayee: "Semaine du {{semaine}} : payée {{montant}} $ le {{date}}",
         paieNonPayee: "Semaine du {{semaine}} : PAS payée ({{montant}} $)",
         finance: "Semaine en cours : « {{nom}} » financé {{montant}} $ (attendu {{attendu}} $)",
@@ -7637,7 +7638,7 @@ export const fr = {
         slackPasRelie: "Slack pas relié : nos messages Slack ne lui arrivent pas.",
         tiktokIntrouvable: "Compte TikTok introuvable : impossible de commencer.",
         warmupPasFini: "Warm-up pas fini (Start warmup ou 5 abonnements manquants).",
-        attendReponse: "Attend une réponse depuis le {{date}}.",
+        attendReponse: "Attend une réponse depuis le {{date}}",
       },
       geste: {
         payroll: "Ouvrir la ligne Payroll",

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o102",
+ "type_bleo": "full_test",
+ "titre": "les 5 mails que j'envoie la première semaine d'un nouveau job #nouveaujob #travail #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (les mails de la première semaine). Conseils généraux, aucune entreprise. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0203c879",
+   "texte_overlay": "les 5 mails que j'envoie\nla première semaine\nd'un nouveau job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d8b94a64",
+   "texte_overlay": "1. à mon manager, le lundi soir\n« voilà ce que j'ai compris de mes priorités. tu confirmes ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e443f305",
+   "texte_overlay": "2. à mon binôme\n« merci pour ta patience aujourd'hui. demain je te pose mes questions d'un coup, à 10 h ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e044c53f",
+   "texte_overlay": "3. à 3 personnes d'autres équipes\n« je viens d'arriver, je peux t'inviter à un café pour comprendre ton métier ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e0172a3a",
+   "texte_overlay": "4. à moi-même, le mercredi\nce que j'ai appris, ce que je ne comprends pas encore.\net 5 minutes à apprendre un truc sans rapport, pour souffler",
+   "texte_sophia": "4. à moi-même, le mercredi\nce que j'ai appris, ce que je ne comprends pas encore. et 5 minutes sur l'appli Sophia pour souffler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f4308922",
+   "texte_overlay": "5. à mon manager, le vendredi\n3 lignes : fait, en cours, besoin d'aide",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f5a8200c",
+   "texte_overlay": "c'est tout. pas de roman.\nmais à la fin de la semaine, tout le monde sait qui tu es",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fa6e39c7",
+   "texte_overlay": "tu commences un nouveau job quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

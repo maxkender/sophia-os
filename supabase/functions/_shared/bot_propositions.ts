@@ -45,7 +45,8 @@ export function botDuJeton(entete: string | null, secrets: Partial<Record<Bot, s
 }
 
 /**
- * Le corps accepté : { action: "lire" } (ses problèmes, règles et feedbacks) ; { action: "proposer", probleme_id, reponse?, canal?, action_proposee? (dont « none ») }
+ * Le corps accepté : { action: "lire", probleme_id? } (ses problèmes ouverts avec leur contexte, ses règles,
+ * ses feedbacks, les posteurs de son groupe ; un seul problème et 20 messages avec probleme_id) ; { action: "proposer", probleme_id, reponse?, canal?, action_proposee? (dont « none ») }
  * ou { action: "creer", poster_id | contrat_id, categorie, resume, texte?, lien?, reponse?, canal?, action_proposee? }.
  * Tout le reste est refusé (valider, envoyer, kill, payer…).
  */
@@ -53,7 +54,12 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
   if (!corps || typeof corps !== "object") return { erreur: "corps JSON attendu" };
   const c = corps as Record<string, unknown>;
   // 3/11 : « lire » : ses problèmes ouverts (avec les messages), ses règles et ses feedbacks.
-  if (c.action === "lire") return { action: "lire", args: {} };
+  if (c.action === "lire") {
+    // Option : un seul problème, avec ses 20 derniers messages.
+    const id = typeof c.probleme_id === "string" ? c.probleme_id : undefined;
+    if (id !== undefined && !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id : uuid attendu" };
+    return { action: "lire", args: id ? { probleme_id: id } : {} };
+  }
   const texte = (k: string, max = 2000) => (typeof c[k] === "string" ? (c[k] as string).slice(0, max) : undefined);
   // 3/11 (v4) : le diagnostic du bot (300 car.) et le groupe qu'il suggère.
   const groupe = texte("groupe_suggere", 20);

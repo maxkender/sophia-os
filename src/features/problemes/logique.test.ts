@@ -54,6 +54,8 @@ describe("Problèmes : l'entrée des bots", () => {
   it("seulement proposer ou créer (posteur obligatoire) ; jamais valider, envoyer, kill ou payer", () => {
     expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : lire, proposer ou creer seulement" });
     expect(lireCorps({ action: "lire" })).toEqual({ action: "lire", args: {} });
+    expect(lireCorps({ action: "lire", probleme_id: "00000000-0000-0000-0000-000000000009" })).toEqual({ action: "lire", args: { probleme_id: "00000000-0000-0000-0000-000000000009" } });
+    expect(lireCorps({ action: "lire", probleme_id: "x" })).toHaveProperty("erreur");
     expect(lireCorps({ action: "payer" })).toHaveProperty("erreur");
     expect(lireCorps({ action: "creer", categorie: "login", resume: "r" })).toEqual({ erreur: "poster_id ou contrat_id obligatoire" });
     expect(lireCorps({ action: "proposer", probleme_id: "00000000-0000-0000-0000-000000000009" })).toHaveProperty("erreur");

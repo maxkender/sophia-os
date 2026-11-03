@@ -1853,11 +1853,25 @@ async function lirePerimetreRelances(supabase: Supabase, recrues: RecrueAccueil[
     const lot = ids.slice(i, i + 200);
     const { data: comptes } = await supabase.from("comptes").select("id, poster_id").in("poster_id", lot);
     const posteurDe = new Map((comptes ?? []).map((c) => [c.id as string, c.poster_id as string]));
-    if (posteurDe.size) {
-      const { data: publies } = await supabase.from("passages").select("compte_id")
-        .in("compte_id", [...posteurDe.keys()]).not("publie_url", "is", null).limit(5000);
-      for (const p of publies ?? []) {
-        const posteur = posteurDe.get(p.compte_id as string);
+    // 3/11 : jamais plus de 999 lignes par lecture (garde de troncature PostgREST) : par lots de
+    // 25 comptes ; un lot qui atteint la limite est complété compte par compte (un post suffit).
+    const compteIds = [...posteurDe.keys()];
+    for (let j = 0; j < compteIds.length; j += 25) {
+      const lotComptes = compteIds.slice(j, j + 25);
+      const { data: publies, error: errPub } = await supabase.from("passages").select("compte_id")
+        .in("compte_id", lotComptes).not("publie_url", "is", null).limit(999);
+      if (errPub) throw errPub;
+      const vus = new Set((publies ?? []).map((p) => p.compte_id as string));
+      if ((publies ?? []).length >= 999) {
+        for (const c of lotComptes.filter((id) => !vus.has(id))) {
+          const { data: un, error: errUn } = await supabase.from("passages").select("compte_id")
+            .eq("compte_id", c).not("publie_url", "is", null).limit(1);
+          if (errUn) throw errUn;
+          if ((un ?? []).length) vus.add(c);
+        }
+      }
+      for (const c of vus) {
+        const posteur = posteurDe.get(c);
         if (posteur) perimetre.aPoste.add(posteur);
       }
     }

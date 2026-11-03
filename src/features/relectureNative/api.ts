@@ -447,6 +447,19 @@ export interface VoteDuelRelecteur {
   typeErreur: TypeErreur | null;
 }
 
+/** Le vote se déduit des deux notes : la mieux notée gagne, même note = égal. Null tant qu'une note manque. */
+export function coteDepuisNotes(noteGauche: number | null, noteDroite: number | null): CoteDuel | null {
+  if (noteGauche == null || noteDroite == null) return null;
+  return noteGauche > noteDroite ? "gauche" : noteGauche < noteDroite ? "droite" : "egal";
+}
+
+/** Une remarque par slideshow, d'au moins ce nombre de mots, pour qu'elle serve à corriger. */
+export const MOTS_MIN_REMARQUE = 50;
+
+export function compterMots(texte: string): number {
+  return texte.trim().split(/\s+/).filter(Boolean).length;
+}
+
 export async function mesDuelsRelecteur(): Promise<DuelRelecteur[]> {
   const { data, error } = await supabase.rpc("mes_duels_relecteur");
   if (error) throw error;

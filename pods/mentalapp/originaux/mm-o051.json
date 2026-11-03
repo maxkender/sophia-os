@@ -1,0 +1,188 @@
+{
+ "id": "mm-o051",
+ "format": "carrousel",
+ "titre": "Small swaps that give you your time back",
+ "legendes": {
+  "en": "small swaps that give you your time back #timemanagement #habits #mentalmaxxing #selfimprovement",
+  "fr": "des petits échanges qui te rendent ton temps #gestiondutemps #habitudes #mentalmaxxing #developpementpersonnel",
+  "de": "kleine Tausche, die dir deine Zeit zurückgeben #zeitmanagement #gewohnheiten #mentalmaxxing #selbstverbesserung",
+  "es": "pequeños cambios que te devuelven tu tiempo #gestiondeltiempo #habitos #mentalmaxxing #superacionpersonal",
+  "it": "piccoli scambi che ti ridanno il tuo tempo #gestionedeltempo #abitudini #mentalmaxxing #crescitapersonale",
+  "tr": "zamanını geri veren küçük değişimler #zamanyönetimi #alışkanlıklar #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690401294120389889/1",
+   "boite": [
+    280,
+    50,
+    520,
+    430
+   ]
+  },
+  "theme": {
+   "en": "Small swaps",
+   "fr": "Petits échanges",
+   "de": "Kleine Tausche",
+   "es": "Pequeños cambios",
+   "it": "Piccoli scambi",
+   "tr": "Zamanını geri veren"
+  },
+  "sous": {
+   "en": "that give you your time back",
+   "fr": "qui te rendent ton temps",
+   "de": "für mehr Zeit",
+   "es": "que te devuelven tu tiempo",
+   "it": "che ti ridanno il tempo",
+   "tr": "küçük değişimler"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Feed in bed → a book",
+    "fr": "Le feed au lit → un livre",
+    "de": "Feed im Bett → ein Buch",
+    "es": "Feed en la cama → un libro",
+    "it": "Feed a letto → un libro",
+    "tr": "Yatakta akış → kitap"
+   },
+   "texte": {
+    "en": "Same position, same tired eyes. But you fall asleep instead of waking up more.",
+    "fr": "Même position, mêmes yeux fatigués. Mais tu t’endors au lieu de te réveiller encore plus.",
+    "de": "Gleiche Position, gleiche müde Augen. Aber du schläfst ein, statt wacher zu werden.",
+    "es": "Misma postura, mismos ojos cansados. Pero te duermes en vez de despertarte más.",
+    "it": "Stessa posizione, stessi occhi stanchi. Ma ti addormenti invece di svegliarti di più.",
+    "tr": "Aynı pozisyon, aynı yorgun gözler. Ama daha çok uyanmak yerine uyursun."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Scroll break → walk break",
+    "fr": "Pause scroll → pause marche",
+    "de": "Scroll-Pause → Geh-Pause",
+    "es": "Pausa de scroll → pausa de paseo",
+    "it": "Pausa scroll → pausa camminata",
+    "tr": "Kaydırma molası → yürüyüş molası"
+   },
+   "texte": {
+    "en": "Five minutes either way. Only one of them leaves you clearer.",
+    "fr": "Cinq minutes dans les deux cas. Une seule des deux te laisse l’esprit clair.",
+    "de": "In beiden Fällen fünf Minuten. Nur eine davon macht deinen Kopf klarer.",
+    "es": "Cinco minutos en ambos casos. Solo uno te deja la cabeza clara.",
+    "it": "Cinque minuti in entrambi i casi. Solo uno ti lascia la testa lucida.",
+    "tr": "İkisi de beş dakika. Sadece biri zihnini berraklaştırır."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Random clips → one album",
+    "fr": "Des clips au hasard → un album",
+    "de": "Zufällige Clips → ein Album",
+    "es": "Clips al azar → un álbum",
+    "it": "Clip a caso → un album",
+    "tr": "Rastgele klipler → tek albüm"
+   },
+   "texte": {
+    "en": "Music you choose and stay with. It keeps you working instead of tapping.",
+    "fr": "De la musique que tu choisis et que tu gardes. Elle te fait bosser au lieu de tapoter.",
+    "de": "Musik, die du wählst und bei der du bleibst. Sie hält dich beim Arbeiten statt beim Tippen.",
+    "es": "Música que eliges y mantienes. Te hace trabajar en vez de tocar la pantalla.",
+    "it": "Musica che scegli e tieni. Ti fa lavorare invece di toccare lo schermo.",
+    "tr": "Seçtiğin ve sürdürdüğün müzik. Ekrana dokunmak yerine çalışmanı sağlar."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Eating with a video → eating with a friend",
+    "fr": "Manger devant une vidéo → manger avec un ami",
+    "de": "Essen mit Video → Essen mit einem Freund",
+    "es": "Comer con un vídeo → comer con un amigo",
+    "it": "Mangiare con un video → mangiare con un amico",
+    "tr": "Videoyla yemek → arkadaşla yemek"
+   },
+   "texte": {
+    "en": "Or just eating. You taste the food and you actually talk to people.",
+    "fr": "Ou juste manger. Tu sens le goût et tu parles vraiment aux gens.",
+    "de": "Oder einfach nur essen. Du schmeckst das Essen und redest wirklich mit Leuten.",
+    "es": "O simplemente comer. Saboreas la comida y hablas de verdad con la gente.",
+    "it": "O semplicemente mangiare. Senti il sapore e parli davvero con le persone.",
+    "tr": "Ya da sadece yemek. Tadını alırsın ve insanlarla gerçekten konuşursun."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "“5 more minutes” → 5 push-ups",
+    "fr": "« 5 minutes de plus » → 5 pompes",
+    "de": "„5 Minuten noch“ → 5 Liegestütze",
+    "es": "“5 minutos más” → 5 flexiones",
+    "it": "“altri 5 minuti” → 5 flessioni",
+    "tr": "“5 dakika daha” → 5 şınav"
+   },
+   "texte": {
+    "en": "When the urge hits, move instead. Your body resets your brain faster than a feed.",
+    "fr": "Quand l’envie arrive, bouge à la place. Ton corps remet ton cerveau à zéro plus vite qu’un feed.",
+    "de": "Wenn der Drang kommt, beweg dich stattdessen. Dein Körper setzt dein Gehirn schneller zurück als ein Feed.",
+    "es": "Cuando lleguen las ganas, muévete. Tu cuerpo resetea tu cerebro más rápido que un feed.",
+    "it": "Quando arriva la voglia, muoviti invece. Il corpo resetta il cervello più in fretta di un feed.",
+    "tr": "İstek geldiğinde onun yerine hareket et. Bedenin beynini akıştan daha hızlı sıfırlar."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The biggest swap. Before: short videos every free minute. After deleting them with UnSwipe: two hours back every single day.",
+    "fr": "Le plus gros échange. Avant : des vidéos courtes à chaque minute libre. Après les avoir supprimées avec UnSwipe : deux heures récupérées chaque jour.",
+    "de": "Der größte Tausch. Vorher: Kurzvideos in jeder freien Minute. Nachdem ich sie mit UnSwipe gelöscht habe: jeden Tag zwei Stunden zurück.",
+    "es": "El cambio más grande. Antes: vídeos cortos en cada minuto libre. Después de borrarlos con UnSwipe: dos horas recuperadas cada día.",
+    "it": "Lo scambio più grande. Prima: video brevi in ogni minuto libero. Dopo averli eliminati con UnSwipe: due ore recuperate ogni giorno.",
+    "tr": "En büyük değişim. Önce: her boş dakikada kısa video. UnSwipe ile sildikten sonra: her gün iki saat geri."
+   }
+  }
+ ],
+ "notes": "routine du 03/11 : accroche jamais faite chez nous (« small swaps that give you your time back »). cta C (avant/après) : élément UnSwipe en dernier item (slide 7)."
+}

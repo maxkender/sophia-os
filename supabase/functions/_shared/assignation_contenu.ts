@@ -39,10 +39,12 @@ import {
 } from "./multi_app.ts";
 import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import {
+  applicationARemplacer,
   colonnesBleoPassage,
   type LignePlanBleo,
   lirePlanBleoCompte,
   lirePlanBleoJour,
+  lireRemplacantsBleo,
   type PlanBleoJour,
   prochaineLignePlan,
 } from "./bleo_plan.ts";
@@ -780,9 +782,10 @@ export async function assignerCompteJour(
   }
 
   // BLEO (bascule du 2/11) : en mode `actif`, chaque créneau suit le plan du
-  // tirage de 14 h ; un créneau du plan non servable retombe sur la tierlist.
-  // Hors test et hors UGC (le tirage ne connaît pas les personas). Une lecture
-  // ratée n'arrête jamais l'assignation : on reste sur la tierlist.
+  // tirage de 14 h ; un créneau hors plan est servi par un remplaçant BLEO
+  // (D49), puis seulement par la tierlist. Hors test et hors UGC (le tirage ne
+  // connaît pas les personas). Une lecture ratée n'arrête jamais l'assignation :
+  // on reste sur la tierlist.
   let planJour: PlanBleoJour | null = null;
   let planCompte: LignePlanBleo[] = [];
   if (!estTest && !ugcAi) {
@@ -802,6 +805,8 @@ export async function assignerCompteJour(
       log(`BLEO actif : ${planCompte.length} créneau(x) au plan pour ce compte`);
     }
   }
+  /** Le plan du compte tel que lu (planCompte se consomme créneau par créneau). */
+  const planCompteInitial: ReadonlyArray<LignePlanBleo> = [...planCompte];
 
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [...(o.exclureContenus ?? []), ...contenusDuJour];
@@ -1012,6 +1017,8 @@ export async function assignerCompteJour(
 
     // BLEO actif : le créneau suivant du plan d'abord.
     let lignePlan = planCompte.length > 0 ? prochaineLignePlan(planCompte, langue, contenusSession) : null;
+    /** Application d'un créneau du plan qui n'a pas pu être servi (son remplaçant la garde). */
+    let appARemplacer: string | null = null;
     if (lignePlan) {
       const servi = await servirLignePlan(lignePlan);
       if (servi) {
@@ -1021,8 +1028,41 @@ export async function assignerCompteJour(
         appEffective = servi.app;
         log(`Deck prêt (${slides.length} slides, plan BLEO) — matérialisation…`);
       } else {
+        appARemplacer = lignePlan.applicationId;
         lignePlan = null;
       }
+    }
+
+    // D49 (0643) : créneau hors plan (remplacement dans la journée une fois le
+    // plan du compte posé, créneau du plan non servable, compte absent du plan) :
+    // un remplaçant BLEO, choisi par valeur avec les garde-fous du tirage, avant
+    // la tierlist. Les contenus encore au plan du compte sont réservés.
+    if (!choisi && planJour) {
+      const appVisee = appARemplacer ??
+        applicationARemplacer(planCompteInitial, o.exclureContenus ?? [], repartition.multi ? appCreneau.id : ID_SOPHIA);
+      let candidats: LignePlanBleo[] = [];
+      try {
+        candidats = await lireRemplacantsBleo(supabase, planJour, {
+          compteId: compte.id as string,
+          jour,
+          applicationId: appVisee,
+          exclure: [...contenusSession, ...planCompte.map((l) => l.contenuId)],
+        });
+      } catch (e) {
+        log(`Remplaçant BLEO illisible (${e instanceof Error ? e.message : String(e)}) — tierlist`);
+      }
+      for (const candidat of candidats) {
+        const servi = await servirLignePlan(candidat);
+        if (!servi) continue;
+        choisi = servi.choisi;
+        slides = servi.slides;
+        hashtagsDeck = servi.hashtags;
+        appEffective = servi.app;
+        lignePlan = candidat;
+        log(`Deck prêt (${slides.length} slides, remplaçant BLEO) — matérialisation…`);
+        break;
+      }
+      if (!choisi && candidats.length > 0) log(`Aucun des ${candidats.length} remplaçant(s) BLEO servable — tierlist`);
     }
 
     if (!choisi && appCreneau.id !== ID_SOPHIA) {

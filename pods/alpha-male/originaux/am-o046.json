@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o046",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "927b18b2-ea34-4774-8c4f-26f71a2f00c8",
+ "titre": "5 hobbies to finally become happy again (part 2) #hobbies #selfimprovement #men #mindset #happiness",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7577528480938724109",
+ "inspirations": [
+  "927b18b2-ea34-4774-8c4f-26f71a2f00c8"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 3/11. Ligne 3 de la boîte (« 5 violent traits that will 10x your testosterone ») sautée : violence et allégation santé, hors garde-fous de l'AGENT.md. Déclinaison G1 de la ligne 5 (parent 927b18b2, @motiondreambig, langue source en ; meilleur passage pl 1,5 k vues, r 2,27). Accroche du parent mot pour mot, minuscules. Format du parent : le loisir en titre, puis un paragraphe concret. Loisirs neufs, aucun du parent (musique, son espace, cuisine, routine) ni du label (vérifié : pas de vinyle, plantes, photo argentique, jeux de société, jardinage). Aucun conseil médical. Images : la banque, sans visage ; slide Sophia sur un salon sans personne. reference_url du parent, vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15213f98",
+   "texte_overlay": "5 hobbies to\nfinally\nbecome\nhappy again",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627128559399701782/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01808c3a",
+   "texte_overlay": "Taking film photos\nOnly 36 shots a roll.\nYou start noticing light,\nfaces, small moments.\nThen you wait for them\nlike letters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627128559399701782/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0ed19ee1",
+   "texte_overlay": "Growing something\nA plant on the window.\nHerbs in the kitchen.\nSomething alive that\nneeds you every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627128559399701782/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "190e7b87",
+   "texte_overlay": "Playing board games\nwith friends\nNo screens. Real laughs.\nA table full of people\nyou actually like.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627128559399701782/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0bc45c11",
+   "texte_overlay": "Walking somewhere new\nevery weekend\nA new street, a new park.\nYour city gets bigger\nthe more you look.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627128559399701782/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5def0556",
+   "texte_overlay": "Learning about the world\nOne story from history,\none idea from science.\nA curious mind is\nrarely bored.",
+   "texte_sophia": "Learning about the world\nUse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627128559399701782/6.jpg"
+  }
+ ]
+}

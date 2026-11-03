@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o104",
+ "type_bleo": "full_test",
+ "titre": "le jour où ma manager m'a dit « t'es pas prête » (et ce que j'ai fait ensuite) #travail #promotion #carriere #confiance #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Full test : accroche jamais faite chez nous. Récit inventé, aucune vraie entreprise ni personne. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0607bdbd",
+   "texte_overlay": "le jour où ma manager m'a dit\n« t'es pas prête »\n(et ce que j'ai fait ensuite)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10f0a45b",
+   "texte_overlay": "j'ai pas discuté sur le moment\nj'ai dit « d'accord. qu'est-ce qui me manque, précisément ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "12021169",
+   "texte_overlay": "elle m'a donné 3 points\nje les ai écrits devant elle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "125d05bf",
+   "texte_overlay": "on a fixé un rendez-vous dans 3 mois\npour en reparler, avec une date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e0cd42f9",
+   "texte_overlay": "j'ai bossé les 3 points\net j'ai commencé à apprendre un truc chaque jour, hors de mon métier, pour avoir plus d'idées",
+   "texte_sophia": "j'ai bossé les 3 points\net 5 minutes par jour sur l'appli Sophia, hors de mon métier, pour avoir plus d'idées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "14f33598",
+   "texte_overlay": "j'ai noté chaque progrès\navec une date et un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "15aad0d1",
+   "texte_overlay": "3 mois plus tard, j'avais le poste\npas parce qu'elle avait changé d'avis. parce que j'avais les preuves",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "172de67a",
+   "texte_overlay": "on t'a déjà dit « t'es pas prête » ?\nraconte la suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

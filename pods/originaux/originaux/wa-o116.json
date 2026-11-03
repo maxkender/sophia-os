@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o116",
+ "type_bleo": "full_test",
+ "titre": "what i stopped doing to finally feel confident #confidence #selfimprovement #mindset #growth #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "89d92c52-738c-48aa-9531-5e312c504e90"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 89d92c52). full test BLEO : accroche jamais faite (format « what i stopped doing » sur la confiance). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "366db138-8c37-49e0-85f8-47eae540f582",
+   "texte_overlay": "what i stopped doing to\nfinally feel confident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659508992313445654/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ef6f185a-2282-4df1-917d-d6d845c78a69",
+   "texte_overlay": "asking for permission\n\ni stopped asking is it okay if i before every small request. people respond to clear asks, and dropping the permission habit finally made me feel like a real adult.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659508992313445654/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "16e23ba0-739b-4c1e-8855-dfc6fe6af714",
+   "texte_overlay": "replaying conversations\n\ni stopped replaying every conversation in bed at night. most people forget what you said within minutes, and finally letting it go gave me back hours of sleep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659508992313445654/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "50bbd383-c463-4c86-a545-eeb2f4496c76",
+   "texte_overlay": "hiding my opinions\n\ni stopped saying i don't mind when i actually did. small honest opinions shared every day slowly turned into the confidence to speak up when it really mattered.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659508992313445654/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a10a9fe7-8e21-4705-afe6-2be087b8d76b",
+   "texte_overlay": "feeling behind\n\ni stopped feeling behind by learning something small every day: a moment in history, a painting, a planet. five minutes of growth a day quietly fixed my sense of being left out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659508992313445654/5.jpg",
+   "texte_sophia": "feeling behind\n\ni stopped feeling behind by learning something small every day. the Sophia app turns it into one short lesson a day, and five minutes of growth quietly fixed that feeling."
+  },
+  {
+   "position": 6,
+   "media_id": "6933c6a5-2ae5-4933-8823-273760fdfbf3",
+   "texte_overlay": "waiting to be ready\n\ni stopped waiting to feel ready before i tried things. readiness never came first, it only ever showed up after i'd already started, stumbled and survived it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659508992313445654/6.jpg"
+  }
+ ]
+}

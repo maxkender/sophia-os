@@ -34,6 +34,15 @@ vi.mock("./api", () => ({
     releve_posts: "2026-11-02T00:18:00Z", releve_comptes: "2026-11-02T00:18:00Z", releve_post_metrics: "2026-10-20T18:00:00Z", jalons: null,
     annonces: [{ titre: "TikTok poster - Germany", pays: "DE", generique: false, vue_at: "2026-10-30T10:00:00Z", contrats_21j: 2 }],
   })),
+  lireRecrutementCohorte: vi.fn(async () => ({
+    lundi: "2026-11-09",
+    objectifs: [{ pays: "DE", nombre: 5 }],
+    hm_pays: [{ pays: "DE", hm_id: "h1", hm_nom: "Regina N", zone: "A" }],
+    acceptees: [{ contrat_id: "c9", pays: "DE", hm_id: "h1", hm_nom: "Regina N", debut_at: "2026-11-03T10:00:00Z" }],
+    en_attente: [],
+    offres_lues_at: "2026-11-02T04:50:00Z",
+    alertes: [{ contrat_id: "c9", offre_id: null, hm_nom: "Regina N", pays: "DE", motif: "nom_1er", detail: "1er milestone « Week 45 »", created_at: "2026-11-02T20:00:00Z" }],
+  })),
   lireDetailPays: vi.fn(async () => ({
     comptes: [
       { compte_id: "c1", handle: "compte_a", poster: "Poster A", actif: true, vues_7j: 5000, mediane_post: 800, posts_28j: 20 },
@@ -66,6 +75,9 @@ describe("PageDecisionPays", () => {
     expect(table.textContent).toContain("Mexique");
 
     fireEvent.click(screen.getByRole("tab", { name: "Recrutement" }));
+    const cohorte = await screen.findByTestId("cohorte-pays");
+    expect(cohorte.textContent).toContain("Regina N");
+    expect((await screen.findByTestId("alertes-offres")).textContent).toContain("Nom du 1er milestone");
     fireEvent.click(await screen.findByRole("button", { name: /Préparer les objectifs/ }));
     const cibles = await screen.findByTestId("cibles-hm");
     expect(cibles.textContent).toContain("Regina N");

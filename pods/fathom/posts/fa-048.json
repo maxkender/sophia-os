@@ -1,0 +1,271 @@
+{
+ "id": "fa-048",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683911301252517142",
+  "vues": 190800,
+  "accroche": "5 Ways To Be Unrecognisable In 1 Month"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 1 Month",
+  "de": "5 Wege, in 1 Monat nicht wiederzuerkennen",
+  "pt": "5 formas de ficar irreconhecível em 1 mês"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 1 Month #learnontiktok #selfmastery #curiosity",
+  "de": "5 Wege, in 1 Monat nicht wiederzuerkennen #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "5 formas de ficar irreconhecível em 1 mês #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta A. Seule reprise du jour de la famille Unrecognisable (§5.6) : source 190 k pas encore faite, étapes nouvelles (réveil, lecture), aucune commune avec fa-017. Double intégration : UnSwipe à l'étape 2, Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 1 MONTH"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE"
+      }
+     ],
+     "IN 1 MONAT",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 1 MÊS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WAKE UP",
+     "EARLY"
+    ],
+    "video": {
+     "id": "byulAKxSoCw",
+     "titre": "How to become addicted to waking up early",
+     "chaine": "Cru Mahoney",
+     "vues": "808K views",
+     "date": "6 months ago",
+     "duree": "15:14",
+     "avatar": "https://yt3.ggpht.com/FSjZDj9hwkmFMglAb4jAjVmHDypSjN-GgvIfad9anczbDMa5ugQschoakIvnhfR4HzsQPBok=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "STEH",
+     "FRÜH AUF"
+    ],
+    "video": {
+     "id": "jDtcrvUonDc",
+     "titre": "Nie wieder SNOOZE drücken und morgens direkt aufstehen",
+     "chaine": "Coach Stef",
+     "vues": "68.286 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ACORDA",
+     "CEDO"
+    ],
+    "video": {
+     "id": "dvrYL7BSKek",
+     "titre": "COMO ACORDAR CEDO MUDOU MINHA VIDA!",
+     "chaine": "Eslen Delanogare",
+     "vues": "399 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "7:59",
+     "avatar": "https://yt3.ggpht.com/OTYFvyU919jH9jY4pdu5OJsqzEnxtCIie48q6M85JhHoVngTN4q6PoWWJ1F7ia73rqSOZUF5mw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "CUT THE",
+     "REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram without the Reels.",
+      "messages and stories stay."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WEG MIT",
+     "DEN REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "Instagram ohne die Reels.",
+      "Nachrichten und Storys bleiben."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "CORTA",
+     "OS REELS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "o Instagram sem os Reels.",
+      "as mensagens e as stories ficam."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN ONE THING",
+     "A DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "EINE SACHE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UMA",
+     "COISA POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "EVERY DAY"
+    ],
+    "video": {
+     "id": "lAhFdLDqoiE",
+     "titre": "HOW TO READ MORE!! how i read 100 books a year 📚",
+     "chaine": "Jack Edwards",
+     "vues": "402K views",
+     "date": "6 years ago",
+     "duree": "10:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lotu89U1wyNmvj_d8yQsEV6QwM3eF82lhgi8lRwNmWhgY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES",
+     "JEDEN TAG"
+    ],
+    "video": {
+     "id": "epQK07xNTNk",
+     "titre": "Bücherwurm werden: Tipps um mehr zu lesen! 💛📖",
+     "chaine": "julinapril",
+     "vues": "27.387 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:01",
+     "avatar": "https://yt3.ggpht.com/h4j-quMFX2r1t95zHoFyTuCL0g4FNRn_uurg-B7mNNihr73jRq-ga7iD2eb6QcrHwqsdaFqCoiQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LÊ TODOS",
+     "OS DIAS"
+    ],
+    "video": {
+     "id": "V37szqoyTgc",
+     "titre": "Aprenda a Ler Melhor: Os Segredos para Ler Mais e Aprender de Verdade!",
+     "chaine": "Bárbara Torres",
+     "vues": "225 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/Lj7vwhmyo4BAyxq7ouEfjwj87pwTF9UjYsIXegmmYmih6S_sU79YsHkoHApa8i4r2UKXXnowpQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

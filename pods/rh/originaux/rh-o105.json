@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o105",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a6b78c6d-326d-403e-9a2e-b32b8d49eefa",
+ "titre": "ce que fait la collègue la plus respectée de mon étage (je l'ai observée 3 mois et j'ai pris 6 de ses habitudes) #travail #openspace #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne 1 (parent a6b78c6d, 50,3 k vues en fr) : même promesse, autres mots que rh-o095 et le parent, autres habitudes. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "06edbb00",
+   "texte_overlay": "ce que fait la collègue la plus respectée de mon étage\n(je l'ai observée 3 mois\net j'ai pris 6 de ses habitudes)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "178bc0f8",
+   "texte_overlay": "elle prévenait avant d'être en retard\njamais après",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "17ba6fbf",
+   "texte_overlay": "elle disait « je me suis trompée » en réunion\nsans se justifier pendant 10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "181198d5",
+   "texte_overlay": "elle félicitait les autres par leur prénom\ndevant leur manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "18ac5b25",
+   "texte_overlay": "elle posait une seule question en réunion\nmais la bonne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a7610f4e",
+   "texte_overlay": "elle lisait un truc chaque matin, rien à voir avec le boulot\net elle avait toujours une idée différente des autres",
+   "texte_sophia": "elle lisait un truc chaque matin, rien à voir avec le boulot\nmoi je fais pareil : 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1968681a",
+   "texte_overlay": "elle refusait les réunions sans ordre du jour\npoliment, par écrit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1a8d1fdf",
+   "texte_overlay": "et toi, tu es respectée pour quoi au boulot ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

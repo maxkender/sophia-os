@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o112",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cd1857f7-f0e4-4221-aca5-1dd40137f75d",
+ "titre": "How to become extremely good at first dates in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "cd1857f7-f0e4-4221-aca5-1dd40137f75d"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 28cf7d5b. déclinaison G1 de la ligne 7 de la boîte (cd1857f7, pt 5 k r 4,97) : accroche du parent mot pour mot. Items neufs, sans reprendre ay-o058. Respectueux. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "28cf7d5b",
+   "texte_overlay": "How to become extremely good\nat first dates in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676937223211617568/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Choose the place with care. Somewhere a bit quiet where you can actually hear each other. A loud club makes every first date much harder than it needs to be.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Be on time, and text if you're running late. Respecting her time is the first thing she'll notice. Arriving relaxed and early sets the tone for the whole evening.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask about her world, then really listen. Her job, her city, her favourite weekend. Follow-up questions show real interest far more than any rehearsed line.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Share something real about yourself. A passion, a funny failure, a dream. Opening up a little makes the date feel like a real conversation, not an interview.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. You'll never run out of interesting things to talk about on a first date again, wherever you go.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. You'll never run out of interesting things to say again.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep your phone in your pocket the entire time. Full attention is rare and attractive. Checking your phone just once can undo an hour of great conversation.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "End clearly. If you had fun, say so: \"I'd love to see you again.\" If not, thank her warmly. Honesty at the end of a first date is a clear sign of real maturity.",
+   "media_id": "9879c45f"
+  }
+ ]
+}

@@ -1,0 +1,267 @@
+{
+ "id": "fa-045",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7688731180086070550",
+  "vues": 17600,
+  "accroche": "10/10 Skills To Learn This Week"
+ },
+ "titre": {
+  "en": "10/10 Skills To Learn This Week",
+  "de": "10/10 Skills für diese Woche",
+  "pt": "10/10 habilidades para aprender esta semana"
+ },
+ "legendes": {
+  "en": "10/10 Skills To Learn This Week #learnontiktok #selfmastery #curiosity",
+  "de": "10/10 Skills für diese Woche #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "10/10 habilidades para aprender esta semana #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7172341092501768965"
+ },
+ "notes": "cta A. Son format de compétences express, nos étapes (cravate, repassage, tour de cartes), aucune commune avec fa-009 ou fa-020. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO LEARN",
+     [
+      {
+       "t": "THIS WEEK",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS FÜR",
+     [
+      {
+       "t": "DIESE WOCHE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "ESTA SEMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TIE A",
+     "TIE"
+    ],
+    "video": {
+     "id": "4fHMbXWcoq0",
+     "titre": "How to tie a tie EASY WAY (Slowly & Mirrored) Windsor knot",
+     "chaine": "How to tie a tie",
+     "vues": "53M views",
+     "date": "6 years ago",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFUUnQj9xU7fdnvgnZ0fXXDyQ1Yz2eBMpdwR3GJWrkPA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BIND EINE",
+     "KRAWATTE"
+    ],
+    "video": {
+     "id": "bEBHM75E1sk",
+     "titre": "Krawatte binden für Anfänger: Der einfache Krawattenknoten in 1 Minute",
+     "chaine": "Breuninger",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/6T4UqHTMrYBqEAAKajjsjl43FuH1DGfCs62UGJmeq1lS0TR98962_ac3abzwcQ2EAI7TU85b72Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "DÁ UM NÓ",
+     "DE GRAVATA"
+    ],
+    "video": {
+     "id": "FImqvfl9EAw",
+     "titre": "Como dar Nó em Gravata. Muito fácil. Passo a Passo",
+     "chaine": "How to tie a tie",
+     "vues": "10 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFUUnQj9xU7fdnvgnZ0fXXDyQ1Yz2eBMpdwR3GJWrkPA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "IRON A",
+     "SHIRT"
+    ],
+    "video": {
+     "id": "MSr04jhuTes",
+     "titre": "How to iron a shirt in 2 minutes - Laurastar",
+     "chaine": "Laurastar",
+     "vues": "5.7M views",
+     "date": "12 years ago",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/rVLyzx-wNQnBf7B-SRmN3lrjDov8rHejb6nwJqAMgU3AnXEYUgMnhrL0jE6n1z1zyyG_xMjN3QE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BÜGEL EIN",
+     "HEMD"
+    ],
+    "video": {
+     "id": "TLwKSAOXQ7s",
+     "titre": "Hemd bügeln ANLEITUNG: So geht’s richtig [schnell & einfach]",
+     "chaine": "Breuninger",
+     "vues": "107.766 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "2:05",
+     "avatar": "https://yt3.ggpht.com/6T4UqHTMrYBqEAAKajjsjl43FuH1DGfCs62UGJmeq1lS0TR98962_ac3abzwcQ2EAI7TU85b72Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PASSA UMA",
+     "CAMISA"
+    ],
+    "video": {
+     "id": "PzYcR5J_j-Q",
+     "titre": "Como passar uma Camisa Social",
+     "chaine": "ComoFaz",
+     "vues": "1,3 mi visualizações",
+     "date": "há 12 anos",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrRFChgBJWc483czaegWXUGNjhv6_ImWYAnTA87PMnc2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A NEW FACT",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "EIN NEUER FAKT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM FACTO NOVO",
+     "POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN A",
+     "CARD TRICK"
+    ],
+    "video": {
+     "id": "9Y33eeJhyRM",
+     "titre": "3 EASY Card Tricks YOU Can LEARN In 5 MINUTES! part 3 - day 111",
+     "chaine": "Jason Maher",
+     "vues": "3.2M views",
+     "date": "3 years ago",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/VOUeuKOzdy6oWnZ-4e9NwG5QrAVut3h3FfyZ_WgGshb6755VA185SpYlLP6mvVsX_yNwqQ4KwQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN EINEN",
+     "KARTENTRICK"
+    ],
+    "video": {
+     "id": "EqTDMREkODU",
+     "titre": "5 EASY Kartentricks lernen mit nur 1 Basic-Move!",
+     "chaine": "Matthias Berger",
+     "vues": "71.094 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "18:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfIVFyDA9WIbV7yGj8_wmldW0ymBEI5Fu9lzIXDrwmXQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE UM",
+     "TRUQUE DE CARTAS"
+    ],
+    "video": {
+     "id": "XlZwidULB28",
+     "titre": "MÁGICA PARA INICIANTES (Curso de Mágicas com Baralho #9)",
+     "chaine": "Felipe Barbieri",
+     "vues": "2,2 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/hiKeUuhODZtLDpaRg_3sV4M9JkiJjPH4OP3p0AKDiHb46Cm1KcfNb-XbO8RXxJJumRWLWxOn=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

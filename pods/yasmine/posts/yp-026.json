@@ -1,0 +1,959 @@
+{
+ "id": "yp-026",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "titre": {
+  "fr": "je note des astuces de révision : ça vaut le coup ou pas ?, partie 4",
+  "en": "rating study hacks: worth it or not worth it?, part 4",
+  "es": "puntúo trucos de estudio: ¿valen la pena o no?, parte 4",
+  "de": "ich bewerte Lern-Hacks: lohnt es sich oder nicht?, Teil 4",
+  "it": "do un voto ai trucchi di studio: ne vale la pena o no?, parte 4",
+  "pt": "avaliando truques de estudo: vale a pena ou não?, parte 4",
+  "tr": "ders çalışma taktiklerini puanlıyorum: değer mi, değmez mi?, bölüm 4"
+ },
+ "legendes": {
+  "fr": "partie 4 mes notes sur 10, sans filtre 📚 #revisions #studytok #astuces #methodedetravail #thatgirl",
+  "en": "part 4 my honest ratings out of 10 📚 #studytips #studytok #studyhacks #studying #thatgirl",
+  "es": "parte 4 mis notas del 0 al 10, sin filtro 📚 #estudiar #studytok #trucosdeestudio #tecnicasdeestudio #thatgirl",
+  "de": "Teil 4 meine Noten von 0 bis 10, ganz ehrlich 📚 #lernen #studytok #lerntipps #abitur #thatgirl",
+  "it": "parte 4 i miei voti da 0 a 10, senza filtri 📚 #studiare #studytok #metododistudio #consigli #thatgirl",
+  "pt": "parte 4 minhas notas de 0 a 10, sem filtro 📚 #estudos #studytok #dicasdeestudo #enem #thatgirl",
+  "tr": "bölüm 4 0'dan 10'a puanlarım, filtresiz 📚 #ders #studytok #dersçalışma #yks #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7177490894231931654"
+ },
+ "fond": {
+  "media_id": "17ba6fbf-42ae-475d-9f2f-d34b51675a89",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c650882c-1815-4518-b418-b3e04d8223db/2.jpg?v=1790608129366",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-006 (« RATING STUDY HACKS ») : partie 4, 6 autres hacks et autres photos. cta A : micabo dans le texte de la note « la répétition espacée », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "JE NOTE",
+      "DES HACKS",
+      "D’ÉTUDE"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ça vaut le coup",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "ou pas ?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(partie 4)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RATING",
+      "STUDY",
+      "HACKS"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "worth it or not",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "worth it?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(part 4)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PUNTÚO",
+      "TRUCOS DE",
+      "ESTUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "¿valen la pena",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 4)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ICH BEWERTE",
+      "LERN-HACKS"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "lohnt es sich",
+       "x": 230,
+       "y": 1260
+      },
+      {
+       "texte": "oder nicht?",
+       "x": 430,
+       "y": 1360
+      },
+      {
+       "texte": "(Teil 4)",
+       "x": 470,
+       "y": 1470
+      }
+     ]
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "VOTO I",
+      "TRUCCHI DI",
+      "STUDIO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ne vale la pena",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "o no?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 4)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AVALIANDO",
+      "TRUQUES DE",
+      "ESTUDO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "vale a pena",
+       "x": 230,
+       "y": 1360
+      },
+      {
+       "texte": "ou não?",
+       "x": 430,
+       "y": 1460
+      },
+      {
+       "texte": "(parte 4)",
+       "x": 470,
+       "y": 1570
+      }
+     ]
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS",
+      "TAKTİKLERİNİ",
+      "PUANLIYORUM"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 880,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "0’dan 10’a",
+       "x": 300,
+       "y": 1360
+      },
+      {
+       "texte": "puanlar",
+       "x": 470,
+       "y": 1460
+      },
+      {
+       "texte": "(bölüm 4)",
+       "x": 510,
+       "y": 1570
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "637d9f6d-1cca-487d-ad6e-b96a3ec1ff06",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fc962719-5f4a-4c7d-9b08-5a23c402e727/4.jpg?v=1791725753546",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "le café après 16 h☕",
+      "texte": "2/10\ntu gagnes 1 h ce soir et tu perds ta nuit. le lendemain, tu ne retiens plus rien.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "coffee after 4pm☕",
+      "texte": "2/10\nyou gain an hour tonight and lose your whole night. the next day, nothing sticks.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "café después de las 16 h☕",
+      "texte": "2/10\nganas 1 h esta noche y pierdes la noche entera. al día siguiente no se te queda nada.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Kaffee nach 16 Uhr☕",
+      "texte": "2/10\ndu gewinnst heute Abend eine Stunde und verlierst die ganze Nacht. am nächsten Tag bleibt nichts hängen.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "il caffè dopo le 16☕",
+      "texte": "2/10\nguadagni un’ora stasera e perdi tutta la notte. il giorno dopo non ricordi niente.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "café depois das 16 h☕",
+      "texte": "2/10\nvocê ganha 1 h hoje e perde a noite inteira. no dia seguinte, nada fica.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "saat 16.00’dan sonra kahve☕",
+      "texte": "2/10\nbu akşam 1 saat kazanırsın ama bütün gecen gider. ertesi gün hiçbir şey aklında kalmaz.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "7ccf5bb5-debc-4a05-9938-df3ecc7646a0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/57d07ce9-f743-4b43-9f08-4844aa7fee9e/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les cartes mentales🗺️",
+      "texte": "8/10\nparfait pour l’histoire et la bio. tu vois tout le chapitre d’un coup d’œil.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "mind maps🗺️",
+      "texte": "8/10\nperfect for history and biology. you see the whole chapter at a glance.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "los mapas mentales🗺️",
+      "texte": "8/10\nperfectos para historia y biología. ves todo el tema de un vistazo.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "Mindmaps🗺️",
+      "texte": "8/10\nperfekt für Geschichte und Bio. du siehst das ganze Kapitel auf einen Blick.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "le mappe mentali🗺️",
+      "texte": "8/10\nperfette per storia e biologia. vedi tutto il capitolo con un’occhiata.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "mapas mentais🗺️",
+      "texte": "8/10\nperfeitos pra história e biologia. você vê o capítulo inteiro de uma vez.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "zihin haritaları🗺️",
+      "texte": "8/10\ntarih ve biyoloji için mükemmel. bütün üniteyi bir bakışta görürsün.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4a60cc68-2e32-4757-8927-062db436b4c0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c338e6f5-96c7-4cd7-9e7f-9c535644e36f/1.jpg?v=1791725344918",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "réviser en musique pop🎤",
+      "texte": "3/10\ndès qu’il y a des paroles, tu chantes. garde-la pour ranger ta chambre.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studying to pop music🎤",
+      "texte": "3/10\nas soon as there are lyrics, you start singing. save it for cleaning your room.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudiar con música pop🎤",
+      "texte": "3/10\nen cuanto hay letra, te pones a cantar. guárdala para ordenar tu cuarto.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "mit Popmusik lernen🎤",
+      "texte": "3/10\nsobald es Text gibt, singst du mit. heb sie dir fürs Zimmeraufräumen auf.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studiare con la musica pop🎤",
+      "texte": "3/10\nappena ci sono le parole, ti metti a cantare. tienila per quando sistemi la stanza.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudar com música pop🎤",
+      "texte": "3/10\nquando tem letra, você começa a cantar. deixe pra quando for arrumar o quarto.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "pop müzikle ders çalışmak🎤",
+      "texte": "3/10\nsözler başlayınca şarkı söylemeye başlarsın. onu oda toplamaya sakla.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "48a15b04-f4d3-41fa-8807-abb959adfaee",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9f0753c8-af66-4cf5-8cb7-125febde54ce/5.jpg?v=1791725714408",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "la répétition espacée📆",
+      "texte": "10/10\nrevoir un cours à J+1, J+3, J+7. micabo le fait à ma place : il me repose chaque question au bon moment, je n’ai qu’à ouvrir l’appli.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "spaced repetition📆",
+      "texte": "10/10\nreviewing a lesson after 1, 3 and 7 days. micabo does it for me: it asks me each question again at the right time, i just open the app.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "la repetición espaciada📆",
+      "texte": "10/10\nrepasar una clase al día 1, 3 y 7. micabo lo hace por mí: me vuelve a preguntar cada cosa en el momento justo, solo abro la app.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "verteiltes Wiederholen📆",
+      "texte": "10/10\nden Stoff nach 1, 3 und 7 Tagen wiederholen. micabo macht das für mich: es fragt jede Frage zur richtigen Zeit nochmal, ich öffne nur die App.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "la ripetizione dilazionata📆",
+      "texte": "10/10\nripassare una lezione dopo 1, 3 e 7 giorni. micabo lo fa per me: mi ripropone ogni domanda al momento giusto, apro solo l’app.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "a repetição espaçada📆",
+      "texte": "10/10\nrevisar uma aula depois de 1, 3 e 7 dias. o micabo faz isso por mim: ele repete cada pergunta na hora certa, eu só abro o app.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "aralıklı tekrar📆",
+      "texte": "10/10\nbir dersi 1, 3 ve 7 gün sonra tekrar etmek. micabo bunu benim yerime yapıyor: her soruyu doğru zamanda tekrar soruyor, sadece uygulamayı açıyorum.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "183768b7-2d74-47df-9e3e-e8403eb8600c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7a77d849-cb91-436c-86b8-d5b97ea114c3/5.jpg?v=1791726979297",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "tout réviser la veille😵",
+      "texte": "0/10\nla veille, tu relis. tu n’apprends plus. tout ce qui se joue, se joue avant.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "cramming the night before😵",
+      "texte": "0/10\nthe night before is for rereading, not learning. everything that matters happens before.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudiarlo todo la noche antes😵",
+      "texte": "0/10\nla noche antes es para repasar, no para aprender. todo se juega antes.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "alles am Vorabend lernen😵",
+      "texte": "0/10\nam Vorabend wird nur wiederholt, nicht gelernt. alles Wichtige passiert vorher.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "studiare tutto la sera prima😵",
+      "texte": "0/10\nla sera prima si ripassa, non si impara. tutto si decide prima.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "estudar tudo na véspera😵",
+      "texte": "0/10\nna véspera você revisa, não aprende. tudo se decide antes.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "her şeyi son geceye bırakmak😵",
+      "texte": "0/10\nson gece tekrar içindir, öğrenmek için değil. her şey öncesinde belirlenir.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0991cc83-b672-4625-ab9d-978fd2652d14",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bc24be93-7c52-4da1-b92f-56a97cb05335/6.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "le minuteur de 25 minutes⏲️",
+      "texte": "9/10\nparfait quand tu n’arrives pas à commencer. 25 min, c’est rien, alors tu te lances.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "the 25-minute timer⏲️",
+      "texte": "9/10\nperfect when you can’t get started. 25 minutes is nothing, so you just go.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "el temporizador de 25 minutos⏲️",
+      "texte": "9/10\nperfecto cuando no consigues empezar. 25 min no es nada, así que arrancas.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "der 25-Minuten-Timer⏲️",
+      "texte": "9/10\nperfekt, wenn du nicht anfangen kannst. 25 Min. sind nichts, also legst du los.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "il timer da 25 minuti⏲️",
+      "texte": "9/10\nperfetto quando non riesci a iniziare. 25 minuti sono niente, quindi parti.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "pt": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "o timer de 25 minutos⏲️",
+      "texte": "9/10\nperfeito quando você não consegue começar. 25 min não é nada, então você vai.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "25 dakikalık zamanlayıcı⏲️",
+      "texte": "9/10\nbaşlayamadığında mükemmel. 25 dakika hiçbir şey, o yüzden başlarsın.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  }
+ ]
+}

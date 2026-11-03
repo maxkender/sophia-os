@@ -1,0 +1,267 @@
+{
+ "id": "fa-046",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7680553907944230166",
+  "vues": 10900,
+  "accroche": "10/10 Skills You Can Learn In 3 Months"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In 3 Months",
+  "de": "10/10 Skills, die du in 3 Monaten lernst",
+  "pt": "10/10 habilidades para aprender em 3 meses"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In 3 Months #learnontiktok #selfmastery #curiosity",
+  "de": "10/10 Skills, die du in 3 Monaten lernst #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "10/10 habilidades para aprender em 3 meses #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "cta B. Son format « en 3 mois », nos étapes (danse, course, tricot). Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN LEARN",
+     [
+      {
+       "t": "IN 3 MONTHS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS IN",
+     [
+      {
+       "t": "3 MONATEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "APRENDER EM 3 MESES",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO DANCE"
+    ],
+    "video": {
+     "id": "ujREEgxEP7g",
+     "titre": "3 Simple Dance Moves for Beginners (Hip Hop Dance Moves Tutorial) | Mihran Kirakosian",
+     "chaine": "MihranTV",
+     "vues": "41M views",
+     "date": "9 years ago",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2ooSofRqRR5dqOeSdIZo_JGB3y15N-Gz2NoxMz1dXkw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "TANZEN"
+    ],
+    "video": {
+     "id": "vxIsCKHhlpQ",
+     "titre": "Tanzen für Anfänger #1 | Grundschritte / Basics | Tanzen lernen mit Zcham",
+     "chaine": "Tanz Tutorial Tv",
+     "vues": "1,3 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0Ye_f_3OOmtxN06aqrK-8ikGorqlmsUVmPkfDit_u1f4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A DANÇAR"
+    ],
+    "video": {
+     "id": "W8NsE5E8_iQ",
+     "titre": "PASSOS BÁSICOS PARA INICIANTES #1 | Aprenda a dançar | Passos de dança | Taty Macieski",
+     "chaine": "Taty Macieski",
+     "vues": "1,5 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "3:22",
+     "avatar": "https://yt3.ggpht.com/IxnVoy6m3o6gvLFSp_dREHM7XBNFBIKvldV_sIjBP7ctnyVSEDc1QiyELOMG4k3Fck8NzUZF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "RUN",
+     "YOUR FIRST 5K"
+    ],
+    "video": {
+     "id": "YACmfwcBDnM",
+     "titre": "Couch To 5K: Week 1 | Starting Running For The First Time",
+     "chaine": "Global Triathlon Network",
+     "vues": "1M views",
+     "date": "6 years ago",
+     "duree": "11:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LAUF DEINE",
+     "ERSTEN 5 KM"
+    ],
+    "video": {
+     "id": "lhEwMUCPyk0",
+     "titre": "Joggen für Anfänger: So gelingt der Einstieg ins Lauftraining - Tipps, Trainingsplan & Fallstricke",
+     "chaine": "DoktorWeigl",
+     "vues": "203.018 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CORRE OS",
+     "PRIMEIROS 5 KM"
+    ],
+    "video": {
+     "id": "rRK6yk6vO5A",
+     "titre": "CORRIDA para INICIANTES! Como começar a correr do zero?",
+     "chaine": "Raquel Castanharo",
+     "vues": "632 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/t8V2iniXXtl4uZbw3KxKW5KvHUtfk4B9aoXWsMPZgSazxM8nx4H8HlqP-VB16npi2gMDCylBo70=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT OF",
+     "EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WISSE VON",
+     "ALLEM ETWAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SABE UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO KNIT"
+    ],
+    "video": {
+     "id": "p_R1UDsNOMk",
+     "titre": "How to Knit: Easy for Beginners",
+     "chaine": "RJ Knits",
+     "vues": "15M views",
+     "date": "7 years ago",
+     "duree": "21:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVA5BHLRcC_N2a1_e9sAHeT2wACDKoXF74o70koaZkQU0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "STRICKEN"
+    ],
+    "video": {
+     "id": "HeWNTGWHRcA",
+     "titre": "Stricken lernen für Anfänger #1 Maschen aufnehmen",
+     "chaine": "KREATiVictoria",
+     "vues": "917.360 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "7:28",
+     "avatar": "https://yt3.ggpht.com/4M5MwmTjR1qEHODSacfZ1jpIm8nTvVmISFO3_xbp3ep0u3upfAlyiucPF9vykyw022M9Izr3mw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE",
+     "A TRICOTAR"
+    ],
+    "video": {
+     "id": "4Ph_eDei5C4",
+     "titre": "Aprendendo: Tricô para inciantes ~ colocar e tirar da agulha, ponto meia e tricô",
+     "chaine": "Marie Castro",
+     "vues": "1,5 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "6:03",
+     "avatar": "https://yt3.ggpht.com/sBZBsu4Dal0P6Wye-pdTh5FPgIr9TgzYneFplveldzrxO5hR91GmA3dL4KJ-iq1Ql4LFDObIVQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

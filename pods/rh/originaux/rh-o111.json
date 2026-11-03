@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o111",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1d7c9673-99b8-463e-8197-42c89c7b1313",
+ "titre": "5 questions à poser quand le recruteur dit « vous avez des questions ? » #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G1 de la ligne 8 (parent 1d7c9673, 58,1 k vues en de) : accroche mot pour mot, cinq autres questions que le parent. La ligne 7 est écartée : son accroche cite une vraie entreprise dans une anecdote inventée. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "14c334e7",
+   "texte_overlay": "5 questions à poser\nquand le recruteur dit\n« vous avez des questions ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2945e309",
+   "texte_overlay": "1. celle qui montre que t'écoutes\n« vous avez parlé de X tout à l'heure, ça se passe comment au quotidien ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2983297b",
+   "texte_overlay": "2. celle qui révèle l'équipe\n« depuis combien de temps l'équipe travaille ensemble ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3dcc3c62",
+   "texte_overlay": "3. celle qui parle d'apprendre\n« qu'est-ce que je pourrais apprendre ici la première année ? »\nperso, ça me fait toujours penser à ce que j'apprends chaque jour",
+   "texte_sophia": "3. celle qui parle d'apprendre\n« qu'est-ce que je pourrais apprendre ici la première année ? »\nperso, j'apprends déjà 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2be6f97b",
+   "texte_overlay": "4. celle qui montre que t'es lucide\n« qu'est-ce qui rend ce poste difficile ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2c3ed904",
+   "texte_overlay": "5. celle qui termine en beauté\n« est-ce que quelque chose vous fait hésiter sur mon profil ? »\net tu réponds tout de suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5c4bd6cd",
+   "texte_overlay": "tes questions comptent autant que tes réponses.\nlaquelle tu oses ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

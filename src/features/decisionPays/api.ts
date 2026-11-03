@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 
-import type { AnnonceUpwork, TableauPays } from "./logique";
+import type { AnnonceUpwork, RecrutementCohorte, TableauPays } from "./logique";
 
 /** Le tableau de décision par pays (0512, admin, lecture seule). */
 export async function lireTableauPays(): Promise<TableauPays> {
@@ -104,5 +104,21 @@ export async function lireDetailPays(pays: string): Promise<{ comptes: CompteDet
   return {
     comptes: (d.comptes ?? []).map((c) => ({ ...c, vues_7j: Number(c.vues_7j ?? 0), mediane_post: c.mediane_post === null ? null : Number(c.mediane_post) })),
     top_posts: (d.top_posts ?? []).map((p) => ({ ...p, vues: Number(p.vues ?? 0) })),
+  };
+}
+
+/** 0516 : la cohorte d'un lundi : objectifs, HM par pays, recrues acceptées, offres en attente, alertes d'offres. */
+export async function lireRecrutementCohorte(lundi: string): Promise<RecrutementCohorte> {
+  const { data, error } = await supabase.rpc("recrutement_cohorte", { p_lundi: lundi });
+  if (error) throw error;
+  const d = (data ?? {}) as Partial<RecrutementCohorte>;
+  return {
+    lundi,
+    objectifs: (d.objectifs ?? []).map((o) => ({ pays: o.pays, nombre: Number(o.nombre ?? 0) })),
+    hm_pays: d.hm_pays ?? [],
+    acceptees: d.acceptees ?? [],
+    en_attente: d.en_attente ?? [],
+    offres_lues_at: d.offres_lues_at ?? null,
+    alertes: d.alertes ?? [],
   };
 }

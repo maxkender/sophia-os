@@ -80,31 +80,63 @@ describe("PosterRelecturePage", () => {
     expect(await screen.findByTestId("duels-vide")).toHaveTextContent(/No duel waiting/);
     expect(screen.getByTestId("relecture-bientot")).toHaveTextContent("German");
     expect(screen.queryByText(/Your country, part by part/)).not.toBeInTheDocument();
+    expect(screen.getByText(/50 words minimum/)).toBeInTheDocument();
   });
 
-  it("un duel envoyé : les deux versions sans dire laquelle est publiée, le vote part en côtés", async () => {
+  it("un duel envoyé : les deux versions sans la source ni dire laquelle est publiée ; le vote vient des notes, remarque de 50 mots", async () => {
     espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
     mesDuelsRelecteur.mockResolvedValue([DUEL]);
     renderPage();
     const carte = await screen.findByTestId("duel-relecteur");
     expect(carte).toHaveTextContent("5 Regeln für Männer");
     expect(carte).toHaveTextContent("5 Regeln, die jeder Mann kennen sollte");
-    expect(carte).not.toHaveTextContent(/posted|old circuit|new circuit/i);
+    expect(carte).not.toHaveTextContent("5 rules for men");
+    expect(carte).not.toHaveTextContent(/posted|old circuit|new circuit|kind of issue|sounds more native|tie|remark is about/i);
+    expect(screen.getByTestId("duel-progression")).toHaveTextContent("Duel 1 of 1");
 
     const envoyer = screen.getByRole("button", { name: "Send my vote" });
     expect(envoyer).toBeDisabled();
-    fireEvent.click(screen.getByRole("button", { name: "Version 2 sounds more native" }));
     fireEvent.click(screen.getAllByRole("radio", { name: "4/5" })[1]);
+    expect(screen.queryByTestId("duel-verdict")).not.toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole("radio", { name: "2/5" })[0]);
+    expect(screen.getByTestId("duel-verdict")).toHaveTextContent("Version 2");
+    expect(envoyer).toBeDisabled();
+    const remarque = screen.getByLabelText("Your remark on this slideshow");
+    fireEvent.change(remarque, { target: { value: "Version 1 klingt übersetzt" } });
+    expect(screen.getByTestId("duel-mots")).toHaveTextContent("4 / 50 words");
+    expect(envoyer).toBeDisabled();
+    const presque = Array.from({ length: 49 }, (_, i) => `Wort${i + 1}`).join(" ");
+    fireEvent.change(remarque, { target: { value: presque } });
+    expect(envoyer).toBeDisabled();
+    const longue = Array.from({ length: 50 }, (_, i) => `Wort${i + 1}`).join(" ");
+    fireEvent.change(remarque, { target: { value: longue } });
+    expect(screen.getByTestId("duel-mots")).toHaveTextContent("50 / 50 words");
+    expect(envoyer).toBeEnabled();
     fireEvent.click(envoyer);
     await waitFor(() => expect(voterDuelRelecteur).toHaveBeenCalledTimes(1));
     expect(voterDuelRelecteur).toHaveBeenCalledWith("d1", {
       cote: "droite",
-      noteGauche: null,
+      noteGauche: 2,
       noteDroite: 4,
-      remarque: "",
+      remarque: longue,
       remarqueSur: "les_deux",
       typeErreur: null,
     });
+  });
+
+  it("plusieurs duels : un seul à la fois, avec le compteur", async () => {
+    espace.mockReturnValue({ relecteurs: [RELECTEUR], isPending: false, error: null });
+    mesDuelsRelecteur.mockResolvedValue([
+      { ...DUEL, mon_cote: "egal", ma_note_gauche: 3, ma_note_droite: 3, ma_remarque: "ok", vote_le: "2026-10-30T11:00:00Z" },
+      { ...DUEL, duel_id: "d2", deck_gauche: slide("Zweites Duell A"), deck_droite: slide("Zweites Duell B") },
+      { ...DUEL, duel_id: "d3", deck_gauche: slide("Drittes Duell A"), deck_droite: slide("Drittes Duell B") },
+    ]);
+    renderPage();
+    expect(await screen.findByTestId("duel-progression")).toHaveTextContent("Duel 2 of 3");
+    expect(screen.getAllByTestId("duel-relecteur")).toHaveLength(2);
+    expect(screen.getByText("Zweites Duell A")).toBeInTheDocument();
+    expect(screen.queryByText("Drittes Duell A")).not.toBeInTheDocument();
+    expect(screen.getByText("Your votes (1)")).toBeInTheDocument();
   });
 
   it("un duel déjà voté s'affiche avec le vote, modifiable", async () => {

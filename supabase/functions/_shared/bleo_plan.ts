@@ -8,10 +8,13 @@
  * `assignerCompteJour` prend chaque créneau dans ce plan au lieu de le piocher
  * dans la tierlist. Tout le reste ne bouge pas : rappels, quotas, decks, posts.
  *
- * Secours à deux niveaux :
- *   - par créneau : un contenu du plan qui n'est plus servable à minuit (deck en
- *     échec, application plus servie par le compte, contenu déjà posé) rend le
- *     créneau à la tierlist (`choisirContenu`), passage marqué `bras = 'temoin'` ;
+ * Secours à trois niveaux :
+ *   - par créneau : un créneau hors plan (contenu du plan plus servable à minuit,
+ *     remplacement dans la journée une fois le plan du compte posé, compte absent
+ *     du plan) est servi par BLEO lui-même : `bleo_remplacants` (0643, D49) rend
+ *     les meilleurs candidats du compte, mêmes vivier et garde-fous que le tirage ;
+ *   - si aucun ne passe, le créneau retombe sur la tierlist (`choisirContenu`),
+ *     passage marqué `bras = 'temoin'` ;
  *   - global : `bleo.mode` repasse à `ombre` (interrupteur de l'OS), et la nuit
  *     suivante est l'ancienne.
  */
@@ -134,4 +137,52 @@ export function colonnesBleoPassage(
     };
   }
   return planActif ? { bras: "temoin" } : {};
+}
+
+/**
+ * L'application d'un créneau à remplacer : celle du créneau du plan dont le
+ * contenu est exclu (le post retiré par `revoquer-post`), sinon `defaut` (la
+ * répartition du compte).
+ */
+export function applicationARemplacer(
+  planInitial: ReadonlyArray<LignePlanBleo>,
+  exclus: ReadonlyArray<string>,
+  defaut: string | null,
+): string | null {
+  const ligne = planInitial.find((l) => exclus.includes(l.contenuId));
+  return ligne?.applicationId ?? defaut;
+}
+
+/**
+ * Les candidats BLEO pour UN créneau hors plan (0643, D49), dans l'ordre où
+ * les essayer : même vivier et mêmes garde-fous que le tirage (au thème),
+ * relâchés au besoin, tirage pondéré par la valeur. Chaque candidat prend la
+ * forme d'une ligne du plan (créneau 0, file `valeur`) pour passer par le même
+ * service que le plan. Une lecture ratée rend [] : la tierlist reste le secours.
+ */
+export async function lireRemplacantsBleo(
+  supabase: Supabase,
+  plan: PlanBleoJour,
+  o: { compteId: string; jour: string; applicationId: string | null; exclure: ReadonlyArray<string>; limite?: number },
+): Promise<LignePlanBleo[]> {
+  const { data, error } = await supabase.rpc("bleo_remplacants", {
+    p_compte: o.compteId,
+    p_jour: o.jour,
+    p_application: o.applicationId,
+    p_exclure: [...new Set(o.exclure)],
+    p_limite: o.limite ?? 5,
+  });
+  if (error) throw error;
+  return ((data ?? []) as Array<Record<string, unknown>>)
+    .filter((r) => typeof r.contenu_id === "string" && typeof r.langue === "string")
+    .map((r) => ({
+      runId: plan.runId,
+      creneau: 0,
+      contenuId: r.contenu_id as string,
+      langue: r.langue as string,
+      applicationId: (r.application_id as string | null) ?? null,
+      fileBleo: "valeur" as const,
+      categorie: `remplacement · ${(r.categorie as string | null) ?? "valeur"}${r.relache ? ` · relâche ${r.relache}` : ""}`,
+      valeurTirage: r.valeur == null ? null : Number(r.valeur),
+    }));
 }

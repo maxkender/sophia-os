@@ -11,28 +11,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { TableDuel } from "@/features/abTraduction/TableDuel";
 import { cn } from "@/lib/utils";
 
-import {
-  type CibleRemarque,
-  type CoteDuel,
-  type DuelRelecteur,
-  mesDuelsRelecteur,
-  TYPES_ERREUR,
-  type TypeErreur,
-  voterDuelRelecteur,
-} from "./api";
+import { compterMots, type CoteDuel, coteDepuisNotes, type DuelRelecteur, mesDuelsRelecteur, MOTS_MIN_REMARQUE, voterDuelRelecteur } from "./api";
 import { messageErreur } from "./messageErreur";
 import { TuileIcone } from "./Puces";
 
 export const CLE_REQUETE_MES_DUELS = ["mes-duels-relecteur"] as const;
 
-const selectClass =
-  "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
-
 /**
  * Les duels à l'aveugle envoyés au relecteur (0626) : deux versions d'un même
- * slideshow, sans dire laquelle est partie. Il choisit la meilleure (ou égal),
- * note chaque version de 1 à 5 et peut laisser une remarque typée. Les côtés ne
- * lui sont jamais révélés : le serveur traduit son vote en version.
+ * slideshow dans sa langue, sans la source et sans dire laquelle est partie.
+ * Un duel à la fois : il note chaque version de 1 à 5 (la mieux notée gagne,
+ * même note = égal) et laisse une remarque d'au moins 50 mots, une par
+ * slideshow, qui vaut pour les deux versions. Les côtés ne lui sont jamais
+ * révélés : le serveur traduit son vote en version.
  */
 export function DuelsRelecteur({ langue }: { langue: string }) {
   const { t } = useTranslation();
@@ -44,31 +35,40 @@ export function DuelsRelecteur({ langue }: { langue: string }) {
   const liste = (duels.data ?? []).filter((d) => d.langue.toLowerCase() === langue.toLowerCase());
   const aVoter = liste.filter((d) => !d.mon_cote);
   const votes = liste.filter((d) => d.mon_cote);
+  const courant = aVoter[0];
 
   return (
     <div className="space-y-4" data-testid="duels-relecteur">
       <div className="flex items-start gap-4">
         <TuileIcone icone={Swords} ton="violet" />
-        <div className="min-w-0 space-y-1">
+        <div className="min-w-0 space-y-2">
           <p className="font-semibold">{t("relectureNative.poster.duels.titre")}</p>
           <p className="text-sm text-muted-foreground">{t("relectureNative.poster.duels.aide")}</p>
+          <ol className="list-decimal space-y-1 pl-5 text-sm text-muted-foreground">
+            {(["principe1", "principe2", "principe3", "principe4"] as const).map((k) => (
+              <li key={k}>{t(`relectureNative.poster.duels.${k}`)}</li>
+            ))}
+          </ol>
         </div>
       </div>
 
-      {aVoter.length === 0 ? (
+      {!courant ? (
         <p className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground" data-testid="duels-vide">
           {votes.length === 0 ? t("relectureNative.poster.duels.aucun") : t("relectureNative.poster.duels.tousVotes", { n: votes.length })}
         </p>
       ) : (
         <>
-          <p className="text-sm">{t("relectureNative.poster.duels.aVoter", { n: aVoter.length })}</p>
-          {aVoter.map((d) => (
-            <CarteDuelRelecteur key={d.duel_id} duel={d} />
-          ))}
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            <Badge variant="info" data-testid="duel-progression">
+              {t("relectureNative.poster.duels.progression", { k: votes.length + 1, n: liste.length })}
+            </Badge>
+            <span className="text-muted-foreground">{t("relectureNative.poster.duels.unALaFois")}</span>
+          </div>
+          <CarteDuelRelecteur key={courant.duel_id} duel={courant} />
         </>
       )}
 
-      {votes.length > 0 && aVoter.length > 0 && (
+      {votes.length > 0 && (
         <details className="rounded-md border p-3">
           <summary className="cursor-pointer text-sm font-medium">
             {t("relectureNative.poster.duels.votes", { n: votes.length })}
@@ -80,7 +80,6 @@ export function DuelsRelecteur({ langue }: { langue: string }) {
           </div>
         </details>
       )}
-      {votes.length > 0 && aVoter.length === 0 && votes.map((d) => <CarteDuelRelecteur key={d.duel_id} duel={d} />)}
     </div>
   );
 }
@@ -89,12 +88,13 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [edition, setEdition] = React.useState(!duel.mon_cote);
-  const [cote, setCote] = React.useState<CoteDuel | null>(duel.mon_cote);
   const [noteGauche, setNoteGauche] = React.useState<number | null>(duel.ma_note_gauche);
   const [noteDroite, setNoteDroite] = React.useState<number | null>(duel.ma_note_droite);
   const [remarque, setRemarque] = React.useState(duel.ma_remarque ?? "");
-  const [remarqueSur, setRemarqueSur] = React.useState<CibleRemarque>(duel.ma_remarque_sur ?? "les_deux");
-  const [typeErreur, setTypeErreur] = React.useState<TypeErreur | "">(duel.mon_type_erreur ?? "");
+
+  const cote = coteDepuisNotes(noteGauche, noteDroite);
+  const mots = compterMots(remarque);
+  const complet = cote != null && mots >= MOTS_MIN_REMARQUE;
 
   const voter = useMutation({
     mutationFn: () =>
@@ -103,8 +103,8 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
         noteGauche,
         noteDroite,
         remarque,
-        remarqueSur,
-        typeErreur: typeErreur || null,
+        remarqueSur: "les_deux",
+        typeErreur: null,
       }),
     onSuccess: () => {
       setEdition(false);
@@ -114,13 +114,12 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
 
   const v1 = t("relectureNative.poster.duels.version1");
   const v2 = t("relectureNative.poster.duels.version2");
-  const nomCote = (c: CoteDuel | CibleRemarque) =>
-    c === "gauche" ? v1 : c === "droite" ? v2 : c === "egal" ? t("relectureNative.poster.duels.egal") : t("relectureNative.poster.duels.lesDeux");
+  const nomCote = (c: CoteDuel) => (c === "gauche" ? v1 : c === "droite" ? v2 : t("relectureNative.poster.duels.egal"));
 
   return (
     <Card data-testid="duel-relecteur">
       <CardPanel className="space-y-4">
-        <TableDuel source={duel.slides_source} gauche={duel.deck_gauche} droite={duel.deck_droite} titreGauche={v1} titreDroite={v2} />
+        <TableDuel gauche={duel.deck_gauche} droite={duel.deck_droite} titreGauche={v1} titreDroite={v2} />
 
         {!edition && duel.mon_cote ? (
           <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -140,66 +139,36 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
           </div>
         ) : (
           <div className="space-y-4">
-            <div className="space-y-2">
-              <p className="text-sm font-medium">{t("relectureNative.poster.duels.question")}</p>
-              <div className="flex flex-wrap gap-2">
-                {(["gauche", "egal", "droite"] as const).map((c) => (
-                  <Button key={c} size="sm" variant={cote === c ? "default" : "outline"} aria-pressed={cote === c} onClick={() => setCote(c)}>
-                    {c === "gauche"
-                      ? t("relectureNative.poster.duels.voterGauche")
-                      : c === "egal"
-                        ? t("relectureNative.poster.duels.voterEgal")
-                        : t("relectureNative.poster.duels.voterDroite")}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
             <div className="grid gap-3 sm:grid-cols-2">
               <Etoiles libelle={t("relectureNative.poster.duels.noter", { version: v1 })} valeur={noteGauche} onChange={setNoteGauche} />
               <Etoiles libelle={t("relectureNative.poster.duels.noter", { version: v2 })} valeur={noteDroite} onChange={setNoteDroite} />
             </div>
+            {cote && (
+              <p className="text-sm" data-testid="duel-verdict">
+                {t("relectureNative.poster.duels.verdict", { choix: nomCote(cote) })}
+              </p>
+            )}
 
             <div className="space-y-2">
               <Label htmlFor={`remarque-${duel.duel_id}`}>{t("relectureNative.poster.duels.remarque")}</Label>
               <Textarea
                 id={`remarque-${duel.duel_id}`}
-                rows={2}
+                rows={4}
+                required
                 placeholder={t("relectureNative.poster.duels.remarqueAide")}
                 value={remarque}
                 onChange={(e) => setRemarque(e.target.value)}
               />
-              {remarque.trim() && (
-                <div className="grid gap-2 sm:grid-cols-2">
-                  <div className="space-y-1">
-                    <Label htmlFor={`sur-${duel.duel_id}`}>{t("relectureNative.poster.duels.remarqueSur")}</Label>
-                    <select id={`sur-${duel.duel_id}`} className={selectClass} value={remarqueSur} onChange={(e) => setRemarqueSur(e.target.value as CibleRemarque)}>
-                      {(["gauche", "droite", "les_deux"] as const).map((c) => (
-                        <option key={c} value={c}>
-                          {nomCote(c)}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="space-y-1">
-                    <Label htmlFor={`type-${duel.duel_id}`}>{t("relectureNative.poster.duels.typeErreur")}</Label>
-                    <select id={`type-${duel.duel_id}`} className={selectClass} value={typeErreur} onChange={(e) => setTypeErreur(e.target.value as TypeErreur | "")}>
-                      <option value="">{t("relectureNative.poster.duels.typeAucun")}</option>
-                      {TYPES_ERREUR.map((k) => (
-                        <option key={k} value={k}>
-                          {t(`relectureNative.poster.duels.types.${k}`)}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              )}
+              <p className={cn("text-xs", mots >= MOTS_MIN_REMARQUE ? "text-muted-foreground" : "text-warning-foreground")} data-testid="duel-mots">
+                {t("relectureNative.poster.duels.mots", { n: mots, min: MOTS_MIN_REMARQUE })}
+              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <Button size="sm" disabled={!cote || voter.isPending} onClick={() => voter.mutate()}>
+              <Button size="sm" disabled={!complet || voter.isPending} onClick={() => voter.mutate()}>
                 {voter.isPending ? t("common.loading") : t("relectureNative.poster.duels.envoyer")}
               </Button>
+              {!complet && <p className="text-xs text-muted-foreground">{t("relectureNative.poster.duels.pourEnvoyer", { min: MOTS_MIN_REMARQUE })}</p>}
               {duel.mon_cote && (
                 <Button size="sm" variant="ghost" onClick={() => setEdition(false)}>
                   {t("common.cancel")}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o110",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bf8eb0b1-1de8-421f-a8ed-dad4fd1201ff",
+ "titre": "7 ways to rescue an awkward moment that feel like a cheat code #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "bf8eb0b1-1de8-421f-a8ed-dad4fd1201ff"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5792bc29. déclinaison G2 de la ligne 5 de la boîte (bf8eb0b1, « 7 social hacks for awkward moments that feel like cheating », en 9,7 k r 5,31). Même promesse, autres mots. Situations neuves, aucune reprise du parent ni d'ay-o012. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5792bc29",
+   "texte_overlay": "7 ways to rescue an\nawkward moment that\nfeel like a cheat code",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Forgot someone's name right after hearing it? Introduce them to a friend. \"Have you met Tom?\" They'll usually say their own name back while shaking hands, problem solved.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Said something that landed wrong? Name it straight away. \"That came out weird, what I meant was...\" Owning it in the moment makes it disappear almost instantly.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Went in for a handshake and they went for a hug? Just laugh and say \"Let's do both.\" Turning the mix-up into a joke makes it a funny moment, not an awkward one.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Called someone by the wrong name? Apologise once, use the right name twice in the next minute, and move on. Repeating it shows you care without making a scene.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "When the conversation dies, bring a story. I do five minutes a day of history, art or science, and I've always got something fun ready to restart the chat.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. When a conversation dies, I've always got a fun story to restart it.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Spilled your drink on the table? Say \"Well, that's my party trick\" and help clean up. Calm and funny in a small disaster makes people like you even more than before.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Nobody laughed at your joke? Smile and say \"That was funnier in my head.\" Self-awareness is funnier than the joke would have been, and the moment passes easily.",
+   "media_id": "3be6dd87"
+  }
+ ]
+}

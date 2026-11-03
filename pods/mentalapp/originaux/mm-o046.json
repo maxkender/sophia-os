@@ -1,0 +1,188 @@
+{
+ "id": "mm-o046",
+ "format": "carrousel",
+ "titre": "Signs your brain is healing from brainrot pt2",
+ "legendes": {
+  "en": "more signs your brain is healing from brainrot #brainrot #dopaminedetox #mentalmaxxing #selfimprovement",
+  "fr": "encore des signes que ton cerveau guérit du brainrot #brainrot #detoxdopamine #mentalmaxxing #developpementpersonnel",
+  "de": "noch mehr Zeichen, dass dein Gehirn vom Brainrot heilt #brainrot #dopamindetox #mentalmaxxing #selbstverbesserung",
+  "es": "más señales de que tu cerebro se cura del brainrot #brainrot #detoxdedopamina #mentalmaxxing #superacionpersonal",
+  "it": "altri segnali che il cervello guarisce dal brainrot #brainrot #detoxdopamina #mentalmaxxing #crescitapersonale",
+  "tr": "beyninin brainrot’tan iyileştiğine dair yeni işaretler #brainrot #dopamindetoks #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/2",
+   "boite": [
+    30,
+    792,
+    362,
+    380
+   ]
+  },
+  "theme": {
+   "en": "Signs your brain",
+   "fr": "Signes que ton cerveau",
+   "de": "Zeichen, dass dein Gehirn",
+   "es": "Señales de que tu cerebro",
+   "it": "Segnali che il cervello",
+   "tr": "Beyninin iyileştiğinin"
+  },
+  "sous": {
+   "en": "is healing pt2",
+   "fr": "guérit, partie 2",
+   "de": "heilt, Teil 2",
+   "es": "se cura, parte 2",
+   "it": "guarisce, parte 2",
+   "tr": "işaretleri, 2. bölüm"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "You finish chapters again",
+    "fr": "Tu finis à nouveau des chapitres",
+    "de": "Du liest wieder ganze Kapitel",
+    "es": "Vuelves a terminar capítulos",
+    "it": "Finisci di nuovo i capitoli",
+    "tr": "Yine bölüm bitiriyorsun"
+   },
+   "texte": {
+    "en": "Not one paragraph and a phone check. A whole chapter, and you want the next one.",
+    "fr": "Pas un paragraphe puis un coup d’œil au téléphone. Un chapitre entier, et tu veux le suivant.",
+    "de": "Nicht ein Absatz und dann aufs Handy. Ein ganzes Kapitel, und du willst das nächste.",
+    "es": "No un párrafo y mirar el móvil. Un capítulo entero, y quieres el siguiente.",
+    "it": "Non un paragrafo e un’occhiata al telefono. Un capitolo intero, e vuoi il prossimo.",
+    "tr": "Bir paragraf ve telefona bakmak değil. Koca bir bölüm ve bir sonrakini istiyorsun."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Meals without a screen",
+    "fr": "Des repas sans écran",
+    "de": "Essen ohne Bildschirm",
+    "es": "Comidas sin pantalla",
+    "it": "Pasti senza schermo",
+    "tr": "Ekransız yemekler"
+   },
+   "texte": {
+    "en": "You can sit with your food and your thoughts, and it does not feel boring.",
+    "fr": "Tu peux rester avec ton assiette et tes pensées, et ce n’est pas ennuyeux.",
+    "de": "Du kannst mit deinem Essen und deinen Gedanken sitzen, und es ist nicht langweilig.",
+    "es": "Puedes estar con tu comida y tus pensamientos, y no se hace aburrido.",
+    "it": "Riesci a stare con il cibo e i tuoi pensieri, e non è noioso.",
+    "tr": "Yemeğinle ve düşüncelerinle oturabiliyorsun ve sıkıcı gelmiyor."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: I reached for my phone the second I woke up. After deleting short videos with UnSwipe: I notice the morning first.",
+    "fr": "Avant : je prenais mon téléphone dès le réveil. Après avoir supprimé les vidéos courtes avec UnSwipe : je remarque d’abord le matin.",
+    "de": "Vorher: Ich griff sofort nach dem Aufwachen zum Handy. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: Ich nehme zuerst den Morgen wahr.",
+    "es": "Antes: cogía el móvil nada más despertar. Después de borrar los vídeos cortos con UnSwipe: primero noto la mañana.",
+    "it": "Prima: prendevo il telefono appena sveglio. Dopo aver eliminato i video brevi con UnSwipe: prima noto la mattina.",
+    "tr": "Önce: uyanır uyanmaz telefona uzanıyordum. Kısa videoları UnSwipe ile sildikten sonra: önce sabahı fark ediyorum."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "Hard things feel normal",
+    "fr": "Les choses dures paraissent normales",
+    "de": "Schweres fühlt sich normal an",
+    "es": "Lo difícil parece normal",
+    "it": "Le cose difficili sembrano normali",
+    "tr": "Zor şeyler normal geliyor"
+   },
+   "texte": {
+    "en": "A workout, a hard task, a cold shower. Effort no longer feels like punishment.",
+    "fr": "Une séance, une tâche dure, une douche froide. L’effort ne ressemble plus à une punition.",
+    "de": "Ein Workout, eine schwere Aufgabe, eine kalte Dusche. Anstrengung fühlt sich nicht mehr wie Strafe an.",
+    "es": "Un entreno, una tarea difícil, una ducha fría. El esfuerzo ya no parece un castigo.",
+    "it": "Un allenamento, un compito duro, una doccia fredda. La fatica non sembra più una punizione.",
+    "tr": "Bir antrenman, zor bir iş, soğuk bir duş. Çaba artık ceza gibi gelmiyor."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "Deep work for an hour",
+    "fr": "Une heure de travail profond",
+    "de": "Eine Stunde Deep Work",
+    "es": "Una hora de trabajo profundo",
+    "it": "Un’ora di lavoro profondo",
+    "tr": "Bir saat derin çalışma"
+   },
+   "texte": {
+    "en": "You look up and an hour has passed, and this time you actually got something done.",
+    "fr": "Tu lèves la tête et une heure est passée, et cette fois tu as vraiment avancé.",
+    "de": "Du schaust auf und eine Stunde ist vorbei, und diesmal hast du wirklich etwas geschafft.",
+    "es": "Levantas la vista y ha pasado una hora, y esta vez has hecho algo de verdad.",
+    "it": "Alzi lo sguardo ed è passata un’ora, e stavolta hai davvero concluso qualcosa.",
+    "tr": "Başını kaldırıyorsun, bir saat geçmiş ve bu kez gerçekten bir şey bitirmişsin."
+   }
+  },
+  {
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Your mood is steadier",
+    "fr": "Ton humeur est plus stable",
+    "de": "Deine Stimmung ist stabiler",
+    "es": "Tu humor es más estable",
+    "it": "Il tuo umore è più stabile",
+    "tr": "Ruh halin daha dengeli"
+   },
+   "texte": {
+    "en": "Fewer highs from the feed means fewer crashes after. The days feel calmer.",
+    "fr": "Moins de pics venus du feed, donc moins de chutes ensuite. Les journées sont plus calmes.",
+    "de": "Weniger Hochs aus dem Feed heißt weniger Abstürze danach. Die Tage fühlen sich ruhiger an.",
+    "es": "Menos subidones del feed significa menos bajones después. Los días se sienten más tranquilos.",
+    "it": "Meno picchi dal feed vuol dire meno crolli dopo. Le giornate sono più calme.",
+    "tr": "Akıştan daha az yükseliş, sonrasında daha az çöküş demek. Günler daha sakin."
+   }
+  }
+ ],
+ "notes": "routine du 03/11 : reprise de mm-o025 (« signs your brain is healing », livrée une fois) en pt2, autres signes, autre couverture (point 7). cta C (avant/après) : élément UnSwipe en 3e item (slide 4)."
+}

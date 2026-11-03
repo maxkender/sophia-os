@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o106",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f075e4ee-1996-422b-918e-7dbe47706319",
+ "titre": "ce que j'ai « arrangé » en entretien… et j'ai signé le contrat #entretien #rechercheemploi #emploi #cdi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 3/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne 2 (parent f075e4ee) : même promesse (j'ai « menti » et j'ai signé), autres mots. Autres questions, recadrage vrai, rien d'inventé. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "076fcb1f",
+   "texte_overlay": "ce que j'ai « arrangé » en entretien…\net j'ai signé le contrat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1adf2053",
+   "texte_overlay": "1\n« vous parlez espagnol ? »\nj'ai dit « niveau scolaire, je m'y remets »\nla vérité : je m'y suis remise le soir même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1af604bc",
+   "texte_overlay": "2\n« vous aimez le travail en équipe ? »\nj'ai dit « oui, surtout quand les rôles sont clairs »\nla vérité : j'ai horreur du flou",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "80b3d370",
+   "texte_overlay": "3\n« qu'est-ce que vous lisez ? »\nj'ai dit « un peu d'histoire chaque jour »\nla vérité : 5 minutes par jour. mais tous les jours",
+   "texte_sophia": "3\n« qu'est-ce que vous lisez ? »\nj'ai dit « un peu d'histoire chaque jour »\nla vérité : 5 minutes par jour sur l'appli Sophia. mais tous les jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b319c70",
+   "texte_overlay": "4\n« pourquoi ce trou de 6 mois ? »\nj'ai dit « j'ai pris le temps de choisir »\nla vérité : j'ai douté. et j'ai choisi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1bb42c25",
+   "texte_overlay": "5\n« vous êtes à l'aise avec les chiffres ? »\nj'ai dit « j'aime quand ils racontent une histoire »\nla vérité : je fais tout sur tableur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1be3db16",
+   "texte_overlay": "6\n« quand pouvez-vous commencer ? »\nj'ai dit la vraie date\nla vérité : c'était la seule réponse possible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1c8943c3",
+   "texte_overlay": "rien d'inventé.\njuste les bons mots.\nenvoie ça à quelqu'un qui a un entretien cette semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o109",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "91d8b0a6-0223-489b-ac2e-42d4ed22b054",
+ "titre": "Classic gentleman skills people always remember you for #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 7, sur une image sans visage. Couverture 512e9715. déclinaison G2 de la ligne 4 de la boîte (91d8b0a6, « Old school skills that will make you unforgettable », pt-BR 6,6 k r 3,62). Même promesse, autres mots. Items neufs, aucun repris du parent (lettre, porte, appel, tenue, anniversaires, cadeau d'hôte).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "512e9715",
+   "texte_overlay": "Classic gentleman\nskills people always\nremember you for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Giving a proper toast. Stand up, raise your glass, three sentences about the person, then sit down. Short, warm and sincere. People remember a good toast for years.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Introducing yourself with your full name. \"Hi, I'm Daniel Moreau.\" Firm handshake, eye contact. It sounds old fashioned, and that's exactly why it stands out today.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Offering your jacket when it gets cold. A small, simple gesture without making a show of it. Kindness done quietly is the very heart of being a real gentleman.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Walking someone home or waiting until they're safely inside. Especially late at night. Making sure people get home safe is one of the kindest habits there is.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Sending a handwritten thank-you after a dinner. Two lines on a card. Almost nobody does it anymore, which is why the people who receive one never forget it.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A gentleman who knows the story behind things always has something worth saying at the table.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A gentleman always has something worth saying.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Standing up when someone arrives at the table. A tiny sign of respect that says \"you matter.\" It takes a second, and people remember how it made them feel.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

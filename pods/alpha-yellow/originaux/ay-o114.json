@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o114",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "04a5e241-1e96-477a-8f9b-6c66e837e8c9",
+ "titre": "Things you should stop doing as a boyfriend #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "04a5e241-1e96-477a-8f9b-6c66e837e8c9"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 2979667b. déclinaison G1 de la ligne 9 de la boîte (04a5e241, it 5,1 k r 4,01) : accroche du parent mot pour mot. La ligne 10 (stop doing as a man in your 20s) est sautée : hook voisin du même jour. Items neufs, sans reprendre ay-o030. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2979667b",
+   "texte_overlay": "Things you should stop\ndoing as a boyfriend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop making plans only when she asks. Suggest a date, book the table, pick the film. Taking initiative shows she's a priority, not something you fit in between other plans.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stop being on your phone when she talks. Put it away, look at her, ask a second question. Feeling heard by you matters more to her than any gift you'll ever buy.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Stop getting defensive at every complaint. Listen first, then answer. \"You're right, I didn't think about that\" ends more arguments than winning ever will.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stop forgetting the small things she tells you. Her exam, her friend's birthday, the show she loves. Remembering details is how love really shows up day to day.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: same conversations every evening. After: five minutes a day of history, art or science, and something new to share with her every single night at dinner.",
+   "texte_sophia": "Before: same conversations every evening. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now I bring something new each night.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Stop expecting her to read your mind. Say what you feel and what you need. Clear, calm communication beats silent frustration in every single relationship you'll ever have.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stop letting the effort fade. The compliments, the surprises, the little notes. Keep doing what you did at the beginning, because she still deserves all of it.",
+   "media_id": "e1140173"
+  }
+ ]
+}

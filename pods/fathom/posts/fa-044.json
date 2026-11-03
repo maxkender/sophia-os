@@ -1,0 +1,252 @@
+{
+ "id": "fa-044",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7680894744079142166",
+  "vues": 95000,
+  "accroche": "5 Rabbit Holes Worth Going Down"
+ },
+ "titre": {
+  "en": "5 Rabbit Holes Worth Going Down",
+  "de": "5 Rabbit Holes, die sich lohnen",
+  "pt": "5 temas para explorar a fundo"
+ },
+ "legendes": {
+  "en": "5 Rabbit Holes Worth Going Down #learnontiktok #selfmastery #curiosity",
+  "de": "5 Rabbit Holes, die sich lohnen #lernenmittiktok #selbstverbesserung #neugier",
+  "pt": "5 temas para explorar a fundo #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta C. Variante de l'accroche de fa-011 : trois nouveaux sujets (manuscrit de Voynich, pyramides, ciel bleu), aucun commun avec fa-011 ou fa-023. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 RABBIT HOLES",
+       "bronze": true
+      }
+     ],
+     "WORTH",
+     "GOING DOWN"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 RABBIT HOLES",
+       "bronze": true
+      }
+     ],
+     "DIE SICH",
+     "LOHNEN"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "PARA EXPLORAR",
+     "A FUNDO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE VOYNICH",
+     "MANUSCRIPT"
+    ],
+    "video": {
+     "id": "8NS4CbBJQ84",
+     "titre": "The world’s most mysterious book - Stephen Bax",
+     "chaine": "TED-Ed",
+     "vues": "10M views",
+     "date": "9 years ago",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS VOYNICH-",
+     "MANUSKRIPT"
+    ],
+    "video": {
+     "id": "04F_bcrj9YA",
+     "titre": "Voynich-Manuskript: Wie knackt man den Code? | Terra X",
+     "chaine": "Terra X History",
+     "vues": "84.647 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "4:37",
+     "avatar": "https://yt3.ggpht.com/sdKc3nVNnGQZkAeCklwoNrWMqR10EQ2pMc_NnjjHkLzsICl_FindzbCzCx4MXlUoGPhb9K4F5qQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O MANUSCRITO",
+     "VOYNICH"
+    ],
+    "video": {
+     "id": "JZq2m9_QhqY",
+     "titre": "O manuscrito mais estranho da história",
+     "chaine": "Estranha História",
+     "vues": "632 mil visualizações",
+     "date": "há 9 meses",
+     "duree": "23:19",
+     "avatar": "https://yt3.ggpht.com/ewIc1KmBB7XaLh05zasOCWbQO1nOvmM6AvK_vMrKmU7bsonJtGPNb01v0_LvZ9qkuE2y4T9y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW THE PYRAMIDS",
+     "WERE BUILT"
+    ],
+    "video": {
+     "id": "lotbZQ55SgU",
+     "titre": "How Were the Pyramids Built?",
+     "chaine": "Veritasium",
+     "vues": "9.4M views",
+     "date": "11 years ago",
+     "duree": "6:31",
+     "avatar": "https://yt3.ggpht.com/7vCbvtCqtjQ3YLgsJt7Y952MQV1sBvhllSCSxHP8_sVZdcPCBrITfhkN2RdyCuwPnsByq-1GoA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS RÄTSEL",
+     "DER PYRAMIDEN"
+    ],
+    "video": {
+     "id": "03mJcLCSaVM",
+     "titre": "Die ungelösten Rätsel der ägyptischen Pyramiden  | Harald Lesch",
+     "chaine": "Terra X History",
+     "vues": "5,4 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/sdKc3nVNnGQZkAeCklwoNrWMqR10EQ2pMc_NnjjHkLzsICl_FindzbCzCx4MXlUoGPhb9K4F5qQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O MISTÉRIO",
+     "DAS PIRÂMIDES"
+    ],
+    "video": {
+     "id": "4oDAc0nubAQ",
+     "titre": "PIRÂMIDES DO EGITO - COMO ELAS FORAM CONSTRUÍDAS ??",
+     "chaine": "Você Sabia?",
+     "vues": "4,4 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdYOUtp16eJsT8yUlmbU2sDUP8ESohkDlSLW9KDUXwJQI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "FOLLOW YOUR",
+     "CURIOSITY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FOLGE DEINER",
+     "NEUGIER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SEGUE A TUA",
+     "CURIOSIDADE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY THE SKY",
+     "IS BLUE"
+    ],
+    "video": {
+     "id": "ehUIlhKhzDA",
+     "titre": "Why Is the Sky Blue?",
+     "chaine": "NASA Space Place",
+     "vues": "935K views",
+     "date": "6 years ago",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m5NUo88TvQPARQJVKLU-Te8tSue00rkj1DazSxu0IluLg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM IST DER",
+     "HIMMEL BLAU?"
+    ],
+    "video": {
+     "id": "DHbl8HVTPKs",
+     "titre": "Warum ist der Himmel blau? | Harald Lesch",
+     "chaine": "Terra X Lesch & Co",
+     "vues": "310.574 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/QB0JXWXAFRwlGt1CUYBmZxEmJzEHvvLm9JbeguHcZUwpXG0TrzJhbbaFtgP7iYVXXSFgW5UGIQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PORQUE É",
+     "O CÉU AZUL?"
+    ],
+    "video": {
+     "id": "bTJBpSWNiiM",
+     "titre": "POR QUE O CÉU É AZUL? #DúvidaCruel 1",
+     "chaine": "Manual do Mundo",
+     "vues": "1,2 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "2:48",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

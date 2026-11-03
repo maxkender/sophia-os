@@ -52,7 +52,7 @@ describe("PageProblemesPosteurs", () => {
     const onglets = screen.getAllByRole("tab");
     expect(onglets.map((o) => o.textContent)).toEqual(["Urgent (2)", "Aujourd'hui (1)", "Samedi (0)"]);
     // La paie : le bouton ouvre Payroll (« Ouvrir »), jamais « Valider ».
-    expect(screen.getAllByRole("button", { name: /Ouvrir/ })).toHaveLength(2);
+    expect(screen.getAllByRole("button", { name: "✅ Ouvrir" })).toHaveLength(2);
 
     fireEvent.click(onglets[1]!);
     expect(await screen.findByText("Can't log in")).toBeTruthy();

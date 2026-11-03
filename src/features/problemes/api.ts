@@ -20,6 +20,29 @@ export interface SourceProbleme {
   par?: string;
 }
 
+/** 0520 : ce que l'OS sait du posteur, calculé à chaque lecture (probleme_situation). */
+export interface Situation {
+  actif: boolean;
+  pays: string | null;
+  comptes: number;
+  lundi: string;
+  posts: number;
+  attendus: number;
+  devrait_poster: boolean;
+  bloque: boolean;
+  etapes: { login: boolean; slack: boolean; tiktok: boolean; warmup: boolean };
+  paie_passee: { semaine: string; montant: number | null; paye_at: string | null; action: string | null; api: string | null; ligne: boolean };
+  paye_passee: boolean;
+  attendu_semaine: number | null;
+  finances: { nom: string | null; montant: number | null; etat: string }[];
+  finance_ok: boolean;
+  jalons_lus_at: string | null;
+  contrat_id: string | null;
+  contrat_actif: boolean | null;
+  message: { at: string; canal: "upwork" | "slack"; texte: string | null; lien: string | null; repondu_at: string | null } | null;
+  a_ecrit: boolean;
+}
+
 export interface Probleme {
   id: string;
   poster_id: string | null;
@@ -45,6 +68,7 @@ export interface Probleme {
   maj_at: string;
   slack_relie: boolean;
   compte_id: string | null;
+  situation?: Situation | null;
 }
 
 export interface Archive {
@@ -102,11 +126,22 @@ export async function validerCategorie(niveau: Niveau, categorie: string): Promi
   return Number(data ?? 0);
 }
 
-/** Relancer le collecteur tout de suite (sinon toutes les 30 min). */
-export async function passerMaintenant(): Promise<Record<string, number>> {
-  const { data, error } = await supabase.rpc("problemes_passage");
+/**
+ * 3/11 : avant d'afficher, relire Upwork (milestones des contrats des cartes
+ * ouvertes, lecture seule), puis collecter et recalculer (fermetures, niveaux).
+ * Aussi toutes les 30 min par les crons. Une relecture Upwork ratée n'empêche
+ * pas le recalcul (il garde la dernière lecture).
+ */
+export async function passerMaintenant(): Promise<Record<string, unknown>> {
+  let upwork: unknown = null;
+  try {
+    upwork = await invoke("upwork", { action: "jalons_problemes" });
+  } catch (e) {
+    upwork = { ok: false, error: (e as Error).message };
+  }
+  const { data, error } = await supabase.rpc("problemes_actualiser");
   if (error) throw error;
-  return (data ?? {}) as Record<string, number>;
+  return { upwork, ...((data ?? {}) as Record<string, unknown>) };
 }
 
 /** Mode « on » seulement : la réponse part sur Upwork (quota du compte géré par l'envoi). */

@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o044",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0d9e54ae-fe20-41ec-bb70-f6a1e69e768a",
+  "titre": "the study method each subject actually needs (part 2) #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "0d9e54ae-fe20-41ec-bb70-f6a1e69e768a"
+  ],
+  "notes": "Déclinaison G1 de 0d9e54ae (notre cs-o001, r 5,5 en allemand, 7,7 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot, entre guillemets comme le parent. Méthodes neuves, aucune du parent (exercices d'abord, active recall, laut erklären, 25 minutes sans téléphone) ni de cs-o003 à cs-o029 : la méthode des 3 couleurs pour les erreurs en maths, la frise chronologique sonore (dire les dates à voix haute dans l'ordre), les fiches de vocabulaire en contexte, le résumé en 5 phrases pour les textes, l'explication par schéma en SVT, se tester chaque soir (place micabo, slide 7) et réviser sans le scroll (place UnSwipe, slide 8). Slides 7 et 8 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (la banque n'a plus de photos sans personne, sans écran ni marque ; reprise permise, le texte change). Écartées à l'aperçu : 164bc93d (écran sur une slide d'appli, cigarette sur la couverture, ou même photo que la slide 1).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3a3aa6be",
+      "texte_overlay": "“i study the same way for every subject”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3e84d05c",
+      "texte_overlay": "that's why some subjects never click.\nhere's what each one actually needs...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "424e8b39",
+      "texte_overlay": "3-color corrections ✏️\nBest for: Maths, Physics\nred = didn't know, blue = careless, green = right. redo all the red ones.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "45d053df",
+      "texte_overlay": "Say the timeline 🗓️\nBest for: History\nsay the key dates out loud, in order, with one event each. then without looking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "48dca5eb",
+      "texte_overlay": "Words in sentences 🔤\nBest for: Languages\nnever learn a word alone. write one sentence with it that's about YOUR life.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4d7ac503",
+      "texte_overlay": "5-sentence summary 📖\nBest for: Literature, Philosophy\nthe whole text in 5 sentences. if you can't, you missed the main idea.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1a952b44",
+      "texte_overlay": "Quiz yourself every evening 🧠\nBest for: Biology, Chemistry\n10 minutes, notes closed. whatever you miss goes first tomorrow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "48319d1c",
+      "texte_overlay": "No scrolling between subjects 📵\nBest for: every subject\nswitching subjects is the break. the phone breaks the focus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

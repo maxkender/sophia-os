@@ -96,6 +96,33 @@ export interface Probleme {
   /** 0530 : Kill samedi préparé (le lundi de la semaine de ce samedi). */
   kill_samedi_lundi?: string | null;
   kill_samedi_at?: string | null;
+  /** 0531 : Doubler (samedi) ou Recréer (jeudi) préparé depuis la carte. */
+  rituel_choix?: "double" | "recreate" | null;
+  rituel_lundi?: string | null;
+}
+
+/** 0531 : Doubler → samedi, Recréer → jeudi ; rien n'est exécuté, annuler retire la décision préparée. */
+export async function deciderRituel(id: string, choix: "double" | "recreate", annuler = false): Promise<Record<string, unknown>> {
+  const { data, error } = await supabase.rpc("probleme_rituel", { p_id: id, p_choix: choix, p_annuler: annuler });
+  if (error) throw error;
+  return (data ?? {}) as Record<string, unknown>;
+}
+
+/** 0531 : les cartes ouvertes de chaque posteur (badge des pages jeudi, samedi, dimanche). */
+export interface ResumeProblemes {
+  poster_id: string;
+  n: number;
+  probleme_id: string;
+  diagnostic: string | null;
+  kill_samedi_lundi: string | null;
+  rituel_choix: string | null;
+  rituel_lundi: string | null;
+}
+
+export async function lireResumeProblemes(): Promise<Map<string, ResumeProblemes>> {
+  const { data, error } = await supabase.rpc("problemes_resume_posteurs");
+  if (error) throw error;
+  return new Map(((data ?? []) as ResumeProblemes[]).map((r) => [r.poster_id, r]));
 }
 
 /** 0530 : Kill samedi : rien n'est exécuté, la décision va à la revue du samedi ; annuler remet Keep. */

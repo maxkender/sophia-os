@@ -15,6 +15,7 @@ import { LienConversation } from "@/features/upwork/LienConversation";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
+import { BadgeProblemesPosteur, useResumeProblemes } from "@/features/problemes/BadgeProblemesPosteur";
 
 import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
 import { lireContexte, relireConversationsUpwork } from "./contexte";
@@ -172,11 +173,14 @@ function BadgeProblemes({ b, choix }: { b: BrouillonSamedi; choix: ChoixSamedi }
   const date = b.raison?.decide_le
     ? new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "numeric", timeZone: "UTC" }).format(new Date(`${b.raison.decide_le}T12:00:00Z`))
     : "—";
-  const kill = choix === "kill" || choix === "kill_np";
+  const double = b.raison?.choix_problemes === "double";
+  const pris = double ? choix === "double" : choix === "kill" || choix === "kill_np";
   return (
     <div className="mt-1 max-w-64 space-y-0.5 text-xs" data-testid="kill-problemes">
-      <Badge variant={kill ? "error" : "secondary"}>{t("autoOnglets.decisions.liste.samedi.problemes", { date })}</Badge>
-      {!kill && <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.problemesChange", { choix: t(`autoOnglets.decisions.liste.samedi.choix.${choix}`) })}</p>}
+      <Badge variant={pris ? (double ? "info" : "error") : "secondary"}>
+        {t(double ? "autoOnglets.decisions.liste.samedi.problemesDouble" : "autoOnglets.decisions.liste.samedi.problemes", { date })}
+      </Badge>
+      {!pris && <p className="text-muted-foreground">{t("autoOnglets.decisions.liste.samedi.problemesChange", { choix: t(`autoOnglets.decisions.liste.samedi.choix.${choix}`) })}</p>}
     </div>
   );
 }
@@ -245,6 +249,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   });
   // 0484 : chaque choix est enregistré au clic (brouillon de la semaine) ; un rechargement le reprend.
   const brouillons = useQuery({ queryKey: ["samedi-brouillons", lundi], queryFn: () => lireBrouillonsSamedi(lundi) });
+  // 0531 : les cartes Problèmes ouvertes de chaque posteur.
+  const resumes = useResumeProblemes();
   // 0494 : les reports (Start Tuesday, Postpone) et la règle « ne démarre jamais ».
   const reports = useQuery({ queryKey: ["samedi-reports", lundi], queryFn: () => lireReportsSamedi(lundi) });
   const reportsDe = (posterId: string): ReportsPosteur | undefined => reports.data?.get(posterId);
@@ -508,6 +514,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             {decideDansProblemes(brouillons.data?.get(c.compte_id)) ? (
               <BadgeProblemes b={brouillons.data!.get(c.compte_id)!} choix={choixDe(c)} />
             ) : preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
+            <BadgeProblemesPosteur r={resumes.data?.get(c.poster_id)} />
             {prioritaire(c) && (
               <p className="mt-1 max-w-56 text-[11px] font-medium text-warning-foreground" data-testid="priorite-samedi">
                 {t("autoOnglets.decisions.liste.samedi.priorite")} {priorites.data!.get(c.poster_id)}

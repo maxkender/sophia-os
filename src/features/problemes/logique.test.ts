@@ -205,3 +205,11 @@ describe("0528 : décisions", () => {
     expect(ACTIONS_BOT).toEqual(expect.arrayContaining(["pay_check", "saturday", "decision", "close", "none"]));
   });
 });
+
+describe("0531 : Doubler et Recréer vont au rituel", () => {
+  it("recreate → jeudi, double → samedi ; rien n'est exécuté depuis la carte", () => {
+    expect(gesteValider(p({ proposition_action: "recreate" }))).toEqual({ type: "rituel", choix: "recreate" });
+    expect(gesteValider(p({ proposition_action: "double" }))).toEqual({ type: "rituel", choix: "double" });
+    expect(ACTIONS_BOT).toContain("double");
+  });
+});

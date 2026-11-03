@@ -53,6 +53,7 @@ export type GesteValider =
   | { type: "page"; vers: string }
   | { type: "releve"; compte_id: string }
   | { type: "motDePasse"; poster_id: string }
+  | { type: "rituel"; choix: "double" | "recreate" }
   | { type: "reponse" }
   | { type: "fermer" };
 
@@ -70,6 +71,8 @@ export function gesteValider(p: Pick<Probleme, "categorie" | "proposition_action
   if (p.proposition_action === "open_who_to_fund") return { type: "page", vers: "/admin/auto/payroll?onglet=financer" };
   // v4 : le lien de mot de passe part depuis la page (mode « on » seulement) ; le reste des formulaires s'ouvre.
   if (p.proposition_action === "resend_password_link" && p.poster_id) return { type: "motDePasse", poster_id: p.poster_id };
+  // 0531 : Recréer (jeudi) et Doubler (samedi) : la décision va au rituel, rien n'est exécuté ici.
+  if ((p.proposition_action === "recreate" || p.proposition_action === "double") && p.poster_id) return { type: "rituel", choix: p.proposition_action };
   if (["recreate", "kill", "resend_password_link", "relink_slack", "postpone"].includes(p.proposition_action ?? "")) return { type: "page", vers: fiche };
   if (p.proposition_action === "reread_tiktok" && p.compte_id) return { type: "releve", compte_id: p.compte_id };
   if (p.proposition_reponse?.trim()) return { type: "reponse" };
@@ -374,5 +377,12 @@ export const optionLibre = (o: OptionDecision): boolean => !o.paie && !o.action 
 export function samediDe(lundi: string): string {
   const d = new Date(`${lundi}T12:00:00Z`);
   d.setUTCDate(d.getUTCDate() + 5);
+  return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+/** 0531 : « 05/11 » : le jour du rituel (jeudi : lundi + 3 ; samedi : lundi + 5). */
+export function jourRituel(lundi: string, choix: "double" | "recreate"): string {
+  const d = new Date(`${lundi}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + (choix === "recreate" ? 3 : 5));
   return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }

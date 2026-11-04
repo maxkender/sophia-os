@@ -1,0 +1,498 @@
+{
+ "id": "fa-050",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7668724896284937494",
+  "vues": 3600000,
+  "accroche": "10/10 Skills You Can Learn In A Day!"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In A Day!",
+  "de": "10/10 Skills, die du an einem Tag lernst!",
+  "pt": "10/10 habilidades para aprender num dia!",
+  "pt-BR": "10/10 habilidades para aprender em um dia!",
+  "it": "10/10 abilità da imparare in un giorno!",
+  "es-419": "¡10/10 habilidades para aprender en un día!"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In A Day! #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills, die du an einem Tag lernst! #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para aprender num dia! #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "10/10 habilidades para aprender em um dia! #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "10/10 abilità da imparare in un giorno! #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "¡10/10 habilidades para aprender en un día! #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "cta A. Reprise de l'accroche de fa-002 et fa-020 (une seule fois sur 7 jours) : étapes nouvelles (avion de papier, mélange de cartes, Rubik's cube), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN LEARN",
+     [
+      {
+       "t": "IN A DAY!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS AN",
+     [
+      {
+       "t": "EINEM TAG!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "APRENDER NUM DIA!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "APRENDER EM UM DIA!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ DA IMPARARE",
+     [
+      {
+       "t": "IN UN GIORNO!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "APRENDER EN UN DÍA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FOLD THE BEST",
+     "PAPER PLANE"
+    ],
+    "video": {
+     "id": "JV2aMbGtmZE",
+     "titre": "WORLD RECORD Paper Airplane | BEST Origami Plane Tutorial",
+     "chaine": "PPO",
+     "vues": "27M views",
+     "date": "6 years ago",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFLo4N4XwCH3_Q1hFAE_zyZ2LpcIqbUAXvZJmMFrcq2Ew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FALTE DEN BESTEN",
+     "PAPIERFLIEGER"
+    ],
+    "video": {
+     "id": "OneYlWOpVzE",
+     "titre": "Papierflieger falten der weit fliegt - Beste Papierflieger der Welt basteln | Luise",
+     "chaine": "Mahir Origami",
+     "vues": "17 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "6:22",
+     "avatar": "https://yt3.ggpht.com/_gjM6GdpnjtYZ79LggT5yHNBgqekyWnHneivONWiJvXL4tMFSvD_MGjtnhCyvkuPN2Ju1y3w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZ O MELHOR",
+     "AVIÃO DE PAPEL"
+    ],
+    "video": {
+     "id": "RXZ3UunoCwQ",
+     "titre": "Como fazer um avião de papel modelo tradicional #1 (dobradura / origami) ✔",
+     "chaine": "Pesca e Dicas",
+     "vues": "4,8 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k3fluPXMouc_QTT_sixhRupz7t1UN3XxGvkS-mu5pDDhk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "MONTE O MELHOR",
+     "AVIÃO DE PAPEL"
+    ],
+    "video": {
+     "id": "juuv38ZsAzs",
+     "titre": "Como fazer um Avião de Papel Fácil que voa longe - Modelo 3",
+     "chaine": "Easy Origami",
+     "vues": "642 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/XWJAkif4NMjuBV1RnyUbjdn-KDC4outbCycA1rlgLTR7r3U5AyyPaS4ZZpB8AIh93UjFdVX2bOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PIEGA L'AEREO",
+     "DI CARTA PERFETTO"
+    ],
+    "video": {
+     "id": "HS-YJ6jWdDk",
+     "titre": "100 metri - Aeroplanino di Carta che Vola Lontano",
+     "chaine": "Aeroplanini di Carta & Creazioni fai da te",
+     "vues": "191K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/Tmzi9JEZxQm_NkY4Owh9CXY5zF1q1ZuSAv6CziaoetIdrYb6fRjNKLyNoacibwJRL6R0DLpL2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ EL MEJOR",
+     "AVIÓN DE PAPEL"
+    ],
+    "video": {
+     "id": "sgzTdtv1hD8",
+     "titre": "Como Hacer un Avión de Papel que VUELA MUCHO y LEJOS! Paper Airplane",
+     "chaine": "Mejores Aviones De Papel",
+     "vues": "11 M de vistas",
+     "date": "hace 6 años",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/idiywMC6pfZxRTDvbdDcmXp3w8sZ5UrDnpYv2H-hH4IhIfPGLkMgzkk68HBby91E8X_twl1B_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SHUFFLE CARDS",
+     "LIKE A PRO"
+    ],
+    "video": {
+     "id": "NdCia_d1u5c",
+     "titre": "How to shuffle cards for beginners // Riffle Shuffle with Bridge in the hands tutorial",
+     "chaine": "Jason Parker",
+     "vues": "4M views",
+     "date": "7 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/cHunnVr-52XnDIdM3izDltpnOvykNKpbTeXQ880tofpzjPtfOBu1aX2aHIOkNwi8Z5_1ofZ-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MISCH KARTEN",
+     "WIE EIN PROFI"
+    ],
+    "video": {
+     "id": "m4ikyWk_CEk",
+     "titre": "Karten mischen einfach erklärt",
+     "chaine": "SpieleQuadrat",
+     "vues": "156.852 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/qhbfa-W4zXdkhv6oddBTFeUHeg8d1nXW5qb3dBykV7CEhWLFxdp10D0BSybdFdZquT3lR6C59w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "BARALHA CARTAS",
+     "COMO UM PRO"
+    ],
+    "video": {
+     "id": "UulwD5BzlXU",
+     "titre": "Como Embaralhar as Cartas",
+     "chaine": "ComoFaz",
+     "vues": "1,5 mi visualizações",
+     "date": "há 13 anos",
+     "duree": "2:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrRFChgBJWc483czaegWXUGNjhv6_ImWYAnTA87PMnc2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "EMBARALHE",
+     "COMO UM PRO"
+    ],
+    "video": {
+     "id": "zhVZgARkMbA",
+     "titre": "Como embaralhar as cartas: 3 maneiras para iniciantes",
+     "chaine": "El King Cards",
+     "vues": "211 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/JcBzbW5nQdCvrxQWWOoWEaGEYJPfo4b1aDPcjU-NQo1x1u5qmFn0kKexL-nT2d1-y2Lii2J2=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "MESCOLA LE CARTE",
+     "COME UN PRO"
+    ],
+    "video": {
+     "id": "MmGjI5D45nQ",
+     "titre": "5 MODI PER MESCOLARE LE CARTE - TUTORIAL",
+     "chaine": "Jack Nobile",
+     "vues": "1,3 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "15:57",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "BARAJA CARTAS",
+     "COMO UN PRO"
+    ],
+    "video": {
+     "id": "vFFMVmBpDiI",
+     "titre": "✅ Como BARAJAR CARTAS para PRINCIPIANTES (MEZCLA CARTAS BÁSICO)",
+     "chaine": "Domina La Magia",
+     "vues": "109 k vistas",
+     "date": "hace 5 años",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A NEW FACT",
+     "IN 5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "EIN NEUER FAKT",
+     "IN 5 MINUTEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UM FACTO NOVO",
+     "EM 5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "UM FATO NOVO",
+     "EM 5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UN FATTO NUOVO",
+     "IN 5 MINUTI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UN DATO NUEVO",
+     "EN 5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "102M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖS DEN",
+     "ZAUBERWÜRFEL"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "RESOLVE O",
+     "CUBO MÁGICO"
+    ],
+    "video": {
+     "id": "ZwbFLyesbOU",
+     "titre": "Como RESOLVER o Cubo Mágico EM 10 MINUTOS!",
+     "chaine": "Ercs",
+     "vues": "2,2 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:59",
+     "avatar": "https://yt3.ggpht.com/6OxdXZjA_wTTZE0QmGPTAToR02Nn0gCeuQvNAI0B8Bi8c7dHXfh5dRtk4h8PjjHFCasBM-wB=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "RESOLVA O",
+     "CUBO MÁGICO"
+    ],
+    "video": {
+     "id": "aJuUOG9FYlM",
+     "titre": "Como Resolver Rapidamente um Cubo de Rubik 3x3 | O Tutorial Mais Fácil",
+     "chaine": "INCRÍVEL",
+     "vues": "14 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moyLRg4mLejXMsF2FPiI_dpzjG5v2Evy5mw_f8VLES9pc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RISOLVI IL",
+     "CUBO DI RUBIK"
+    ],
+    "video": {
+     "id": "q6gapVA8TaA",
+     "titre": "Come Risolvere Il Cubo di Rubik 3x3 in un Batter d'Occhio | Tutorial Semplicissimo",
+     "chaine": "IL LATO POSITIVO",
+     "vues": "2,4 Mln visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIdS0V93z_CqiryUuoI4W2asMqZ-q_-Jk3uwPpuytzYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "RESUELVE EL",
+     "CUBO RUBIK"
+    ],
+    "video": {
+     "id": "sXGdZrDXMgU",
+     "titre": "Cómo resolver un cubo de Rubik de 3x3 en muy poco tiempo",
+     "chaine": "GENIAL",
+     "vues": "30 M de vistas",
+     "date": "hace 7 años",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMLEWxNh6DAng8uyCux9DtPpIKIaQyGqT6tgEQNjB0i1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

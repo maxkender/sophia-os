@@ -1,0 +1,696 @@
+{
+ "post_id": "7703982934369324320",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your attention span"
+     ],
+     "fr": "10/10 trucs qui grillent ton attention à toute vitesse",
+     "texte": "10/10 trucs qui grillent ton attention à toute vitesse"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(la science est d'accord)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "tout regarder [[en vitesse x2]]"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "reading AI summaries of everything"
+     ],
+     "fr": "ne lire que [[des résumés par IA]]",
+     "texte": "ne lire que [[des résumés par IA]]"
+    },
+    "T2": {
+     "en": [
+      "articles, youtube videos, google summaries,, you",
+      "read the summary and skip the real thing"
+     ],
+     "fr": "articles, vidéos, résumés de recherche… tu lis le résumé et [[tu zappes le vrai truc]]",
+     "texte": "articles, vidéos, résumés de recherche… tu lis le résumé et [[tu zappes le vrai truc]]"
+    },
+    "T4": {
+     "en": [
+      "your brain stops",
+      "practicing",
+      "following an idea",
+      "from start to",
+      "finish"
+     ],
+     "fr": "ton cerveau perd l'habitude de [[suivre une idée]] du début à la fin",
+     "texte": "ton cerveau perd l'habitude de [[suivre une idée]] du début à la fin"
+    },
+    "T3": {
+     "en": [
+      "so anything without a summary starts feeling",
+      "impossible to get through"
+     ],
+     "fr": "du coup tout ce qui n'a pas de résumé te paraît [[impossible à finir]]",
+     "texte": "du coup tout ce qui n'a pas de résumé te paraît [[impossible à finir]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699523873712164128_3.jpg",
+      "boite": [
+       486,
+       545,
+       504,
+       352
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 229,
+      "l": 892,
+      "h": 57
+     },
+     "lignes": [
+      {
+       "x": 44,
+       "y": 229,
+       "l": 892,
+       "h": 57,
+       "base": 282
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 352,
+      "l": 792,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 352,
+       "l": 792,
+       "h": 36,
+       "base": 379
+      },
+      {
+       "x": 47,
+       "y": 393,
+       "l": 667,
+       "h": 39,
+       "base": 429
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 32,
+      "y": 481,
+      "l": 609,
+      "h": 424
+     }
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 663,
+      "y": 537,
+      "l": 274,
+      "h": 201
+     },
+     "lignes": [
+      {
+       "x": 665,
+       "y": 537,
+       "l": 260,
+       "h": 34,
+       "base": 565
+      },
+      {
+       "x": 666,
+       "y": 580,
+       "l": 157,
+       "h": 35,
+       "base": 608
+      },
+      {
+       "x": 663,
+       "y": 623,
+       "l": 274,
+       "h": 35,
+       "base": 651
+      },
+      {
+       "x": 664,
+       "y": 667,
+       "l": 201,
+       "h": 28,
+       "base": 695
+      },
+      {
+       "x": 664,
+       "y": 710,
+       "l": 84,
+       "h": 28,
+       "base": 738
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 941,
+      "l": 733,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 941,
+       "l": 730,
+       "h": 37,
+       "base": 969
+      },
+      {
+       "x": 37,
+       "y": 985,
+       "l": 419,
+       "h": 37,
+       "base": 1019
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "only reading the headings of these",
+      "slides"
+     ],
+     "fr": "ne lire que [[les titres]] de ces slides",
+     "texte": "ne lire que [[les titres]] de ces slides"
+    },
+    "T2": {
+     "en": [
+      "you read the big text, skip",
+      "everything under it, and",
+      "swipe before you’ve even",
+      "looked at the photo"
+     ],
+     "fr": "tu lis le gros texte, tu zappes tout le reste et tu swipes avant même d'avoir vu la photo",
+     "texte": "tu lis le gros texte, tu zappes tout le reste et tu swipes avant même d'avoir vu la photo"
+    },
+    "T3": {
+     "en": [
+      "your brain has started",
+      "treating anything longer",
+      "than one line as too much",
+      "effort"
+     ],
+     "fr": "ton cerveau commence à voir [[tout ce qui dépasse une ligne]] comme un effort de trop",
+     "texte": "ton cerveau commence à voir [[tout ce qui dépasse une ligne]] comme un effort de trop"
+    },
+    "T4": {
+     "en": [
+      "most people won’t even read this part. if you did, your",
+      "attention span isn’t gone yet"
+     ],
+     "fr": "presque personne lit ce bout-là. si tu l'as lu, [[ton attention est pas encore fichue]]",
+     "texte": "presque personne lit ce bout-là. si tu l'as lu, [[ton attention est pas encore fichue]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never reading a full book"
+     ],
+     "fr": "[[jamais finir]] un livre",
+     "texte": "[[jamais finir]] un livre"
+    },
+    "T2": {
+     "en": [
+      "we are entering a LITERARY CRISIS. less people are",
+      "reading than ever before"
+     ],
+     "fr": "on entre dans une [[CRISE DE LA LECTURE]]. les gens lisent moins que [[jamais]]",
+     "texte": "on entre dans une [[CRISE DE LA LECTURE]]. les gens lisent moins que [[jamais]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea for whole chapters, and",
+      "resist the urge for something",
+      "new"
+     ],
+     "fr": "[[un livre te fait suivre une idée sur des chapitres entiers]] et résister à l'envie de zapper",
+     "texte": "[[un livre te fait suivre une idée sur des chapitres entiers]] et résister à l'envie de zapper"
+    },
+    "T4": {
+     "en": [
+      "if you struggle with",
+      "doomscrolling, i recommend",
+      "this thing that blocks tiktok",
+      "until i read a book for 20",
+      "minutes"
+     ],
+     "fr": "si tu [[doomscrolles]], mes 5 min du jour sur [[l'appli Sophia]], c'était une leçon entière : Camus et le mythe de Sisyphe",
+     "texte": "si tu [[doomscrolles]], mes 5 min du jour sur [[l'appli Sophia]], c'était une leçon entière : Camus et le mythe de Sisyphe"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 224,
+      "l": 625,
+      "h": 57
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 224,
+       "l": 625,
+       "h": 57,
+       "base": 277
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 341,
+      "l": 837,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 341,
+       "l": 837,
+       "h": 37,
+       "base": 375
+      },
+      {
+       "x": 43,
+       "y": 385,
+       "l": 401,
+       "h": 37,
+       "base": 419
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 559,
+      "y": 394,
+      "l": 420,
+      "h": 792
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 478,
+      "y": 1191,
+      "l": 341,
+      "h": 134
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 516,
+      "l": 440,
+      "h": 164
+     },
+     "lignes": [
+      {
+       "x": 38,
+       "y": 516,
+       "l": 440,
+       "h": 37,
+       "base": 550
+      },
+      {
+       "x": 38,
+       "y": 560,
+       "l": 440,
+       "h": 36,
+       "base": 594
+      },
+      {
+       "x": 40,
+       "y": 603,
+       "l": 438,
+       "h": 37,
+       "base": 631
+      },
+      {
+       "x": 40,
+       "y": 654,
+       "l": 67,
+       "h": 26,
+       "base": 675
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 769,
+      "l": 441,
+      "h": 212
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 769,
+       "l": 308,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 37,
+       "y": 815,
+       "l": 439,
+       "h": 37,
+       "base": 849
+      },
+      {
+       "x": 39,
+       "y": 856,
+       "l": 439,
+       "h": 39,
+       "base": 892
+      },
+      {
+       "x": 37,
+       "y": 902,
+       "l": 398,
+       "h": 35,
+       "base": 936
+      },
+      {
+       "x": 38,
+       "y": 946,
+       "l": 131,
+       "h": 35,
+       "base": 980
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "checking your phone as soon as you",
+      "wake up"
+     ],
+     "fr": "checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "checker ton tel [[dès que t'ouvres les yeux]]"
+    },
+    "T2": {
+     "en": [
+      "before you’re even out of bed, you’ve scrolled tiktok,",
+      "checked messages and seen every notification"
+     ],
+     "fr": "avant même de sortir du lit, t'as scrollé tiktok, lu tes messages et vu [[toutes tes notifs]]",
+     "texte": "avant même de sortir du lit, t'as scrollé tiktok, lu tes messages et vu [[toutes tes notifs]]"
+    },
+    "T3": {
+     "en": [
+      "your brain starts the day",
+      "with a flood of dopamine, so",
+      "everything after it feels",
+      "boring"
+     ],
+     "fr": "ton cerveau démarre la journée avec [[une vague de dopamine]], du coup tout le reste paraît chiant",
+     "texte": "ton cerveau démarre la journée avec [[une vague de dopamine]], du coup tout le reste paraît chiant"
+    },
+    "T5": {
+     "en": [
+      "give yourself the first 30",
+      "minutes without your phone"
+     ],
+     "fr": "accorde-toi [[les 30 premières minutes]] sans ton tel",
+     "texte": "accorde-toi [[les 30 premières minutes]] sans ton tel"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 236,
+      "l": 926,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 38,
+       "y": 236,
+       "l": 923,
+       "h": 56,
+       "base": 288
+      },
+      {
+       "x": 35,
+       "y": 305,
+       "l": 215,
+       "h": 54,
+       "base": 356
+      }
+     ],
+     "pas": 68,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 416,
+      "l": 848,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 416,
+       "l": 846,
+       "h": 37,
+       "base": 444
+      },
+      {
+       "x": 40,
+       "y": 460,
+       "l": 767,
+       "h": 36,
+       "base": 494
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 542,
+      "l": 490,
+      "h": 538
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 560,
+      "y": 576,
+      "l": 460,
+      "h": 165
+     },
+     "lignes": [
+      {
+       "x": 560,
+       "y": 576,
+       "l": 396,
+       "h": 34,
+       "base": 602
+      },
+      {
+       "x": 560,
+       "y": 619,
+       "l": 460,
+       "h": 34,
+       "base": 646
+      },
+      {
+       "x": 560,
+       "y": 662,
+       "l": 374,
+       "h": 35,
+       "base": 689
+      },
+      {
+       "x": 561,
+       "y": 706,
+       "l": 99,
+       "h": 35,
+       "base": 733
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 564,
+      "y": 809,
+      "l": 456,
+      "h": 83
+     },
+     "lignes": [
+      {
+       "x": 567,
+       "y": 809,
+       "l": 396,
+       "h": 40,
+       "base": 846
+      },
+      {
+       "x": 564,
+       "y": 856,
+       "l": 456,
+       "h": 36,
+       "base": 890
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  }
+ }
+}

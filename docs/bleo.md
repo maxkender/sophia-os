@@ -21,7 +21,7 @@ Les décisions d'Adrien des 29 et 30/10 l'emportent sur le reste du document. Le
 | Podz | Preuve retirée en phase 3 ; CTA A/B/C jusqu'à la phase 5 | Preuve retirée à la bascule ; images cherchées par leur légende (toutes légendées le 30/10) ; CTA A/B/C gardés pour varier, plus jamais remplacés d'après leurs vues | P1, P2, P3 |
 | Garde-fous du tirage | Exclusion stricte | Exclusion, puis relâche plutôt qu'un créneau vide, chaque relâche comptée au rapport (proposition de D5, appliquée par défaut) ; puis un contenu à juger au-delà de la capacité (`hors_file`), et seulement en dernier le même contenu à moins de 14 jours (`tout`, jamais le même jour ; ordre de 0645, D51) | A7, A8 |
 
-**Encore à construire** (voir « Lots de travail ») : L0 (enregistrements, modèle des decks, garde des colonnes), L3 (`bleo-lundi`, règle des sources), L7 (decks l'après-midi, validation automatique à 6 h), D39 (G1 du hit à la place du repost J+7), L8 (fin de la tierlist), et la mise en production de la réécriture native.
+**Encore à construire** (voir « Lots de travail ») : L0 (enregistrements, modèle des decks, garde des colonnes), L3 (`bleo-lundi`, règle des sources), L7 (decks l'après-midi, validation automatique à 6 h), L8 (fin de la tierlist), et la mise en production de la réécriture native. D39 (G1 du hit à la place du repost J+7) est abandonnée le 4/11 : les rappels J+7 restent.
 
 ## Mode d'emploi
 

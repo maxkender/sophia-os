@@ -1,0 +1,59 @@
+{
+  "source_id": "cs-o047",
+  "type_bleo": "full_test",
+  "titre": "what i'd tell my younger self about studying #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 4/11 : 2 full tests sur 6). Accroche jamais faite chez nous (ni « younger self » dans le label). Accroches écrites : « what i'd tell my younger self about studying » (retenue : la forme lettre à soi-même, sincère, qu'on partage), « study advice i needed at 14 » (écartée : âge qui exclut une partie des comptes), « things nobody told me about studying » (écartée : proche de « i wish someone told me »). Six conseils vrais, en minuscules : se tester plutôt que relire (place micabo, slide 3), demander de l'aide tôt, le téléphone dans une autre pièce (place UnSwipe, slide 5), un peu chaque jour, une mauvaise note n'est pas une identité, dormir. Slides 3 et 5 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (reprise permise, le texte change). Écartées à l'aperçu : 7fd1b50b, 2f1abeb4, 6d98a308 (marque ou texte lisible, cigarette, écran sur une slide d'appli, ou même photo deux fois). Puis : 5f52f425, 30a196b6 (écran au bord d'une slide d'appli, ou même photo deux fois). Puis : 9552acc2 (même chambre qu'une slide de cs-o049), 2f1abeb4 (texte « HARVARD » lisible). Puis : 6006ae42, c4b6dd89 (photo déjà prise dans le lot du jour, ou maquillage hors sujet). Puis : b112f97d, 95ccb363 (écran ou marque lisible). Puis : da10f285 (logo d'ordinateur).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "27937c1c",
+      "texte_overlay": "what i'd tell my younger self\nabout studying",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2efbff38",
+      "texte_overlay": "rereading your notes 5 times isn't studying.\nit just feels like it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "29773e9c",
+      "texte_overlay": "close the notes and test yourself.\nwhat you can't answer is what you need to learn.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bf5cf3fd",
+      "texte_overlay": "ask for help the first week you're lost.\nnot the week before the exam.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "84b353cd",
+      "texte_overlay": "your phone in the same room is a distraction even when it's silent.\nput it somewhere else.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "30819263",
+      "texte_overlay": "20 minutes a day beats 5 hours on sunday.\nevery single time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3efbe9fb",
+      "texte_overlay": "one bad grade is information, not who you are.\nlook at what went wrong and fix that one thing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "bf92000f",
+      "texte_overlay": "and go to sleep. you're not lazy, you're tired.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

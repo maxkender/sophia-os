@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o049",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "17d32090-b8ac-4710-8e2f-f98417aa70e4",
+  "titre": "how to study like the smart girl from an early 00s show #studytok #studytips #2000s",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "17d32090-b8ac-4710-8e2f-f98417aa70e4"
+  ],
+  "notes": "Déclinaison G1 de 17d32090 (r 2,73 en turc), ligne 1 de la boîte. Accroche du parent mot pour mot. Items neufs, aucun du parent (esthétique, préparation, étude active avec micabo, rituels, confiance) : toujours un livre dans le sac, des notes à la main, les questions en marge, se tester avant l'examen comme si c'était un quiz télévisé (place micabo, slide 5), pas de téléphone à table d'étude, comme avant les smartphones (place UnSwipe, slide 6). Aucun personnage ni actrice nommés. Couverture et slides de personnes : photos de séries (célébrités acceptées) ; slides 5 et 6 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (reprise permise, le texte change). Écartées à l'aperçu : 02ba88dd, 948934c8 (marque ou texte lisible, cigarette, écran sur une slide d'appli, ou même photo deux fois).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7f8108b2",
+      "texte_overlay": "how to study like the smart girl\nfrom an early 00s show",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "80f2d612",
+      "texte_overlay": "1. always a book in her bag\nwaiting room, bus, lunch break. she reads.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8154453a",
+      "texte_overlay": "2. notes by hand\nshe writes it, so she remembers it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8c8fb88a",
+      "texte_overlay": "3. questions in the margin\nand she actually asks them in class.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1a15acc0",
+      "texte_overlay": "4. she quizzes herself before every test\nlike it's a game show. out loud. no notes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a851561b",
+      "texte_overlay": "5. no phone at her study table\nmostly because it barely existed. copy that part.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c2fdf02a",
+      "texte_overlay": "6. she's proud of being the smart one\nnever hides it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "pod-kaja",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 13 — remakes @kaja.learn (Kaja) pour Sophia : ses listes « 10/10 skills » (couverture avec notre mascotte Sophia en pâte à modeler, « HOW TO » + la compétence en couleur, une vraie vidéo YouTube et le temps qu'il faut), Sophia en étape de la liste, en anglais.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "youtube": "NODE_USE_ENV_PROXY=1 node atelier/cli-youtube.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts"
+  }
+}

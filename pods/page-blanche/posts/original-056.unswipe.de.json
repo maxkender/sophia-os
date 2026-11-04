@@ -1,0 +1,273 @@
+{
+ "post_id": "original-056",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "was Oma und Opa taten und wir zurückholen sollten"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(sie hatten recht)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7691007701127564576_6.jpg",
+      "boite": [
+       40,
+       540,
+       556,
+       414
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "test yourself instead of",
+      "rereading"
+     ],
+     "fr": "teste-toi [[au lieu de relire]]",
+     "texte": "sie schrieben [[echte Briefe]] von Hand"
+    },
+    "T2": {
+     "en": [
+      "rereading notes feels",
+      "productive, but mostly it just",
+      "makes things look familiar"
+     ],
+     "fr": "relire tes fiches donne l'impression de bosser, mais ça les rend juste familières",
+     "texte": "ein Brief kostet einen Abend, also schreibst du nur, [[was du wirklich meinst]]"
+    },
+    "T3": {
+     "en": [
+      "close the book, write down",
+      "everything you remember,",
+      "then check what you missed"
+     ],
+     "fr": "ferme le livre, écris tout ce dont tu te souviens, puis vérifie ce que t'as oublié",
+     "texte": "und er bleibt. Briefe hebt man jahrzehntelang in einer Kiste auf, Nachrichten nie"
+    },
+    "T4": {
+     "en": [
+      "recall is the workout"
+     ],
+     "fr": "réciter, c'est la muscu",
+     "texte": "[[Worte, die bleiben]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "[[der Abendspaziergang]], täglich"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "ohne Ziel, ohne Podcast, nur um den Block"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "da erzählten sie sich ihren Tag, oder [[schwiegen einfach zusammen]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "etwas Bewegung nach dem Essen tut dem Körper gut, und der Tag hat [[ein echtes Ende]] statt Bildschirm um Mitternacht"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[der Abend fühlt sich länger an]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "[[Gedichte auswendig]]"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "in der Schule mussten sie welche lernen, und mit 80 [[können sie sie noch]]"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "ein Gedicht im Kopf ist immer dabei: Bus, Schlange, nachts"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "schon [[2 Zeilen am Tag]] reichen"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "nach einer Woche kannst du ein ganzes Gedicht, immer da, wenn [[dein Kopf still wird]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[tous les jours]]",
+     "texte": "lesen [[beim Frühstück]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, you run out",
+      "of things to talk about"
+     ],
+     "fr": "si tu consommes que des vidéos courtes, [[t'as vite plus rien à raconter]]",
+     "texte": "die Zeitung zum Kaffee. [[nichts zum Aktualisieren]], einmal lesen und los"
+    },
+    "T3": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[scrollais tous les soirs]], maintenant si je prends mon tel, c'est pour [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "was mein Scrollen ersetzt: ein Buch, das Radio, Instagram ohne Reels. [[die UnSwipe-App]] entfernt sie"
+    },
+    "T4": {
+     "en": [
+      "books are proven to make",
+      "you smarter and more",
+      "empathetic, and people can",
+      "feel that"
+     ],
+     "fr": "c'est [[prouvé]] : lire [[muscle ton cerveau]] et rend [[plus empathique]], et ça se sent",
+     "texte": "langsam lesen am Morgen schlägt [[hundert Reels]], die mittags vergessen sind"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "draußen sein, [[nichts tun]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "auf der Veranda, auf einer Bank, am Wasser. kein Handy, kein Plan, einfach [[der Welt zuschauen]], eine Stunde lang"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "da haben sie [[ihre Gedanken sortiert]], ganz ohne Mühe"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "Langeweile ist keine verlorene Zeit, da [[holt dein Kopf endlich auf]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_1.jpg",
+      "boite": [
+       88,
+       383,
+       760,
+       539
+      ]
+     }
+    }
+   }
+  }
+ },
+ "application": "unswipe"
+}

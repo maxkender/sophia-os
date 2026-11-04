@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o079",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "53d8b70f-128a-414a-8cbc-a7e73021c7f0",
+  "titre": "je note toutes les astuces que j'ai essayées pour me remettre à lire #lecture #pourtoi",
+  "inspirations": [
+    "53d8b70f-128a-414a-8cbc-a7e73021c7f0"
+  ],
+  "notes": "G1, déclinaison de 53d8b70f (« je note toutes les astuces que j'ai essayées pour me remettre à lire », génération 0 en français ; meilleur passage tr 1,4 k vues, r 2,69), en français. cta A (avant / après sur le dernier item). Astuces neuves (rien de repris du parent : ni livre populaire, ni lecture au lit, ni club de lecture). Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "je note toutes les astuces\nque j'ai essayées\npour me remettre à lire",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. me forcer à finir un pavé de 800 pages\n\n2/10\nj'ai abandonné page 60. et j'ai culpabilisé un mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. lire 10 pages avant de toucher mon téléphone le matin\n\n7/10\n10 pages, c'est rien. mais c'est un livre par mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f057bec",
+      "texte_overlay": "3. relire un livre que j'adorais à 14 ans\n\n8/10\nzéro effort. et l'envie de lire est revenue d'un coup.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "05383fbb",
+      "texte_overlay": "4. toujours avoir un livre de poche dans mon sac\n\n9/10\nla file d'attente devient le meilleur moment de la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. apprendre un truc par jour pour retrouver la curiosité\n\n10/10\navant, je ne savais jamais quoi lire. maintenant, chaque matin j'apprends un truc sur le monde, et j'ai envie d'en lire plus.",
+      "texte_sophia": "5. apprendre un truc par jour pour retrouver la curiosité\n\n10/10\navant, je ne savais jamais quoi lire. maintenant, chaque matin j'ouvre l'appli Sophia, et j'ai envie d'en lire plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "et toi, ton astuce pour lire plus ?\nje la teste et je la note.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o084",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "bd2def54-fea7-4b99-9259-6a73d10f0c52",
+  "titre": "୨୧ how to master the art of small talk #smalltalk #thatgirl",
+  "inspirations": [
+    "bd2def54-fea7-4b99-9259-6a73d10f0c52"
+  ],
+  "notes": "G1, déclinaison de bd2def54 (« ୨୧ how to master the art of small talk », génération 0 en anglais ; meilleur passage tr 5,1 k vues, r 10,38), en anglais. cta C (le défi de 7 jours en slide 2). Le ୨୧ du parent reste en slide 1 (refus accroche_differente sans lui le 3/11 ; l'aperçu local ne le dessine pas). Items neufs (rien de repris du parent : ni tennis, ni F.O.R.D., ni « intéressé plutôt qu'intéressant »). Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d0719620",
+      "texte_overlay": "୨୧ how to master\nthe art of small talk",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one fun fact every morning, for 7 days.\nyou'll never run out of things to say.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\nyou'll never run out of things to say.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "000d7460",
+      "texte_overlay": "1. compliment something they chose\n\nnot their face. their book, their bag, their song.\nit opens a real story.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f057bec",
+      "texte_overlay": "2. remember one detail and bring it back\n\n'how was your sister's wedding?'\npeople never forget that.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4c866843",
+      "texte_overlay": "3. share a little before you ask\n\nquestions in a row feel like an interview.\ngive something, then ask.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "16a06d13",
+      "texte_overlay": "4. leave on a high note\n\nend the chat while it's still fun.\nthey'll want to talk to you again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "01be1362",
+      "texte_overlay": "5. practice with low stakes\n\nthe barista, the bookshop, the bus stop.\nit gets easier every time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "414511dc",
+      "texte_overlay": "save this for your next party.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

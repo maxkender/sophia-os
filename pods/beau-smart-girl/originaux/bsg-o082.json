@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o082",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6a0fe656-2875-4b33-a168-14f10bed3ee4",
+  "titre": "top 5 façons de gâcher ta vingtaine (ça va piquer) #vingtaine #pourtoi",
+  "inspirations": [
+    "6a0fe656-2875-4b33-a168-14f10bed3ee4"
+  ],
+  "notes": "G1, déclinaison de 6a0fe656 (« top 5 façons de gâcher ta vingtaine (ça va piquer) », génération 0 en français ; meilleur passage el 4,8 k vues, r 4,69), en français. cta A (avant / après, ici en slide de fin ironique puis 1re personne sur l'item 5). Items neufs, même ironie que le parent mais d'autres conseils (ni IA, ni voyage, ni bruit de fond). Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "top 5 façons\nde gâcher ta vingtaine\n(ça va piquer)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. attends d'être prête pour tout\n\nprête pour postuler, pour partir, pour parler.\nspoiler : tu ne le seras jamais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. garde les amis qui te font douter de toi\n\nc'est plus simple que d'en chercher d'autres, non ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "01c21b76",
+      "texte_overlay": "3. ne lis plus rien après tes études\n\nles livres, c'était pour les notes.\nmaintenant, tu as des vidéos de 8 secondes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3615b305",
+      "texte_overlay": "4. dépense tout ce que tu gagnes\n\nl'épargne, c'est pour les gens de 40 ans.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. arrête d'être curieuse\n\navant, quand on parlait d'histoire ou d'art, je hochais la tête.\nmaintenant, j'apprends un truc chaque matin. et c'est moi qui raconte.",
+      "texte_sophia": "5. arrête d'être curieuse\n\navant, quand on parlait d'histoire ou d'art, je hochais la tête.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "05383fbb",
+      "texte_overlay": "bon, tu fais l'inverse de tout ça, d'accord ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

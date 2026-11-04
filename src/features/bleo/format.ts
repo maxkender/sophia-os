@@ -89,5 +89,7 @@ export const PORTES = [
   "non_gagnants_ok",
   "recolte_ok",
   "tests_recents_complets",
-  "valeur_plan_superieure",
+  "plan_servi",
+  "aucune_tierlist",
+  "aucune_repetition",
 ] as const;

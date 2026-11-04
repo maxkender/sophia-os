@@ -3060,7 +3060,9 @@ export const en = {
         non_gagnants_ok: "Non-winners under 15%",
         recolte_ok: "Enough harvest",
         tests_recents_complets: "Tests of recent contents complete",
-        valeur_plan_superieure: "Plan value above midnight",
+        plan_servi: "Plan served (at most 1% of slots missed, blocked accounts aside)",
+        aucune_tierlist: "No post from the tier list",
+        aucune_repetition: "No undeclared repetition (content, theme, photo)",
       },
       stats: {
         comptes: "Accounts",
@@ -3129,9 +3131,11 @@ export const en = {
         dernierPlanDesc: "Drawn on {{quand}} in {{duree}} s.",
         voirPlan: "See the plan account by account",
         rapport: "Latest report",
-        rapportDesc: "Plan for {{jour}} compared with midnight, computed on {{quand}}.",
+        rapportDesc: "Plan for {{jour}} compared with what was served and published, computed on {{quand}}.",
         rapportAucun: "No report yet: it is computed at 10 pm on the plan's day.",
         rapportValeur: "Plan value {{plan}} against {{reel}} for midnight · {{identiques}} identical pairs.",
+        rapportExecution:
+          "{{auPlan}} of {{plan}} slots served as planned, {{remplaces}} replaced by BLEO, {{tierlist}} by the tier list, {{nonServis}} not served · {{publies}} of {{posts}} posts published at report time.",
         derniereNuit: "Latest night",
         derniereNuitDesc: "Night of {{jour}}, finished on {{quand}} in {{duree}} s.",
         nuitAucune: "No night run yet.",

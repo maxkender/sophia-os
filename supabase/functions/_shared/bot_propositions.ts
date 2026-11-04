@@ -85,6 +85,8 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
     offre_id: texte("offre_id", 40),
     // 0532 : l'étape (login, slack, tiktok, warmup) d'une carte « bloque_etape » : sert à la fusion par sujet.
     etape: texte("etape", 20),
+    // 0533 : « proposer » peut changer la catégorie (stop ↔ autre…), avec une raison.
+    raison_categorie: texte("raison_categorie", 300),
   };
   const sujet = (args.sujet as string | undefined) ?? "posteur";
   if (!SUJETS.includes(sujet)) return { erreur: `sujet : ${SUJETS.join(", ")}` };
@@ -93,8 +95,12 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
   if (c.action === "proposer") {
     const id = texte("probleme_id", 40);
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id (uuid) obligatoire" };
-    if (!args.reponse && !args.action && !args.diagnostic && !args.question) return { erreur: "reponse, action_proposee, diagnostic ou question obligatoire" };
-    return { action: "proposer", args: { ...args, probleme_id: id } };
+    const categorie = texte("categorie", 40);
+    if (!args.reponse && !args.action && !args.diagnostic && !args.question && !categorie) {
+      return { erreur: "reponse, action_proposee, diagnostic, question ou categorie obligatoire" };
+    }
+    if (categorie && !args.raison_categorie) return { erreur: "changer la catégorie : raison_categorie obligatoire" };
+    return { action: "proposer", args: { ...args, probleme_id: id, categorie } };
   }
   if (c.action === "creer") {
     const poster = texte("poster_id", 40);

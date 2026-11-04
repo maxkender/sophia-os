@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
 import type { OptionDecision, Probleme, Situation } from "./api";
 import {
-  aDiagnosticOuAction, estDecision, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
+  aDiagnosticOuAction, estArret, estDecision, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
 const p = (o: Partial<Probleme>): Probleme => ({
@@ -178,7 +178,8 @@ describe("0528 : décisions", () => {
     expect(on.envoyer).toBe(avecLigneStop("Hi"));
     expect(on.motDePasse).toBe(q.poster_id);
     expect(planDecision(opt({ action: "saturday" }), q, "on").samedi).toBe(true);
-    expect(planDecision(opt({ action: "kill" }), q, "on").page).toBe(`/admin/posters?poster=${q.poster_id}`);
+    expect(planDecision(opt({ action: "kill" }), q, "on").page).toBeNull();
+    expect(planDecision(opt({ action: "recreate" }), q, "on").page).toBe(`/admin/posters?poster=${q.poster_id}`);
   });
 
   it("HM : la réponse est à copier, jamais envoyée ; option libre", () => {
@@ -218,5 +219,22 @@ describe("0532 : l'étape d'une carte bloque_etape passe aux bots", () => {
   it("creer garde l'étape (fusion par sujet)", () => {
     expect(lireCorps({ action: "creer", poster_id: "00000000-0000-0000-0000-000000000001", categorie: "bloque_etape", resume: "r", etape: "tiktok" }))
       .toMatchObject({ action: "creer", args: { etape: "tiktok" } });
+  });
+});
+
+describe("0533 : arrêt", () => {
+  const q = { poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: "1", destinataire: "posteur" as const };
+  it("une réponse d'arrêt part sans la ligne « reply STOP » ; les autres la gardent", () => {
+    const o = { libelle: "Lui répondre et garder", reponse: "Hi, would you like to continue?", action: "garder" };
+    expect(planDecision(o, { ...q, categorie: "stop_doute" }, "on").envoyer).toBe("Hi, would you like to continue?");
+    expect(planDecision(o, { ...q, categorie: "autre" }, "on").envoyer).toBe(avecLigneStop("Hi, would you like to continue?"));
+    expect(estArret({ categorie: "stop" })).toBe(true);
+  });
+
+  it("bots : changer la catégorie demande une raison", () => {
+    const id = "00000000-0000-0000-0000-000000000009";
+    expect(lireCorps({ action: "proposer", probleme_id: id, categorie: "autre" })).toEqual({ erreur: "changer la catégorie : raison_categorie obligatoire" });
+    expect(lireCorps({ action: "proposer", probleme_id: id, categorie: "autre", raison_categorie: "absence avec reprise" }))
+      .toMatchObject({ action: "proposer", args: { categorie: "autre", raison_categorie: "absence avec reprise" } });
   });
 });

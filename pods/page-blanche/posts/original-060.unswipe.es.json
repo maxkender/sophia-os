@@ -1,0 +1,243 @@
+{
+ "post_id": "original-060",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously overeducated"
+     ],
+     "fr": "un vrai programme de muscu pour ton cerveau",
+     "texte": "un programa completo de gym para tu cerebro"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "alignement": "droite",
+     "fr": "(pas besoin d'abonnement)",
+     "texte": "(sin cuota de gimnasio)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "calentamiento: [[10 páginas de un libro]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "antes del móvil, de las noticias, de todo el ruido. solo 10 páginas"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "son 15 minutos y [[despiertan tu concentración]] poco a poco, como un calentamiento prepara tus músculos"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "si te lo saltas, [[lo notas después]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "cardio: caminar [[sin auriculares]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "30 a 60 minutos, sin podcast, sin música, sin llamadas. solo tus piernas"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "los primeros 10 minutos aburren. después tu cerebro empieza a [[ordenar todo lo acumulado]]"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "en esta serie es donde llegan [[tus mejores ideas]]. solo tienes que pasar primero la parte aburrida"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "[[descanso]] entre series"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "aquí es donde casi todos cogen el móvil y [[ya no vuelven]]"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, commence surtout pas à [[lire]], laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "descansar de verdad es dejar respirar al cerebro. 2 minutos mirando la pared [[ganan a 20 de reels]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "antes perdía cada descanso en los reels. ahora la siguiente serie [[empieza a su hora]]"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "[[la app UnSwipe]] quita los Reels de instagram"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "fuerza: aprende [[algo difícil]]"
+    },
+    "T2": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "un instrumento, un idioma, mates"
+    },
+    "T3": {
+     "en": [
+      "playing uses your hands,",
+      "ears, memory and focus",
+      "all at the same time"
+     ],
+     "fr": "jouer fait bosser mains, oreilles, mémoire et concentration [[en même temps]]",
+     "texte": "lento y con peso. unos minutos al día, [[la técnica antes que la velocidad]]"
+    },
+    "T4": {
+     "en": [
+      "you’ll be bad at it for a while, but you have to get",
+      "used to trying and failing, and trying again"
+     ],
+     "fr": "au début tu vas galérer un moment, mais faut t'habituer à [[essayer, rater]], et [[recommencer]]",
+     "texte": "vas a sufrir durante semanas. de eso se trata, [[cada fallo es una repetición]] que fortalece tu cerebro"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "[[vuelta a la calma]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "3 líneas antes de dormir, en papel"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "lo que hiciste, lo que aprendiste, lo que aún te da vueltas. 2 minutos y [[tu cabeza se vacía antes de dormir]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "mañana, otra vez. sin cuota, sin material, solo un cerebro que [[se hace más fuerte cada semana]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

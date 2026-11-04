@@ -83,6 +83,8 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
     hm_nom: texte("hm_nom", 120),
     offre_lien: texte("offre_lien", 500),
     offre_id: texte("offre_id", 40),
+    // 0532 : l'étape (login, slack, tiktok, warmup) d'une carte « bloque_etape » : sert à la fusion par sujet.
+    etape: texte("etape", 20),
   };
   const sujet = (args.sujet as string | undefined) ?? "posteur";
   if (!SUJETS.includes(sujet)) return { erreur: `sujet : ${SUJETS.join(", ")}` };

@@ -213,3 +213,10 @@ describe("0531 : Doubler et Recréer vont au rituel", () => {
     expect(ACTIONS_BOT).toContain("double");
   });
 });
+
+describe("0532 : l'étape d'une carte bloque_etape passe aux bots", () => {
+  it("creer garde l'étape (fusion par sujet)", () => {
+    expect(lireCorps({ action: "creer", poster_id: "00000000-0000-0000-0000-000000000001", categorie: "bloque_etape", resume: "r", etape: "tiktok" }))
+      .toMatchObject({ action: "creer", args: { etape: "tiktok" } });
+  });
+});

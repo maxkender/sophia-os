@@ -99,6 +99,24 @@ export interface Probleme {
   /** 0531 : Doubler (samedi) ou Recréer (jeudi) préparé depuis la carte. */
   rituel_choix?: "double" | "recreate" | null;
   rituel_lundi?: string | null;
+  /** 0532 : les 15 derniers messages (Upwork et Slack) et le dernier sans réponse. */
+  messages?: MessageCarte[] | null;
+  sans_reponse?: SansReponse | null;
+}
+
+export interface MessageCarte {
+  at: string;
+  canal: "upwork" | "slack" | "slack_dm";
+  auteur: "posteur" | "hm" | "max" | "os";
+  texte: string;
+}
+
+export interface SansReponse {
+  texte: string;
+  canal: MessageCarte["canal"];
+  at: string;
+  depuis_heures: number;
+  question: boolean;
 }
 
 /** 0531 : Doubler → samedi, Recréer → jeudi ; rien n'est exécuté, annuler retire la décision préparée. */

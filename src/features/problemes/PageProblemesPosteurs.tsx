@@ -15,6 +15,7 @@ import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import { FeedbackBot, StatsBots } from "./FeedbackBot";
 import { BlocDecision } from "./DecisionProbleme";
+import { MessagesCarte } from "./MessagesCarte";
 import { BoutonKillSamedi, BoutonRituel } from "./KillSamedi";
 import {
   agirProbleme,
@@ -202,6 +203,7 @@ function CarteProbleme({ p, mode, feedback, surlignee = false }: { p: Probleme; 
           )}
         </div>
         {decision && <BlocDecision p={p} mode={mode} />}
+        <MessagesCarte messages={p.messages} sansReponse={p.sans_reponse} />
         {s && (
           <div className="rounded-md bg-muted/30 p-2">
             <Titre>{t(`${P}.titres.situation`)}</Titre>

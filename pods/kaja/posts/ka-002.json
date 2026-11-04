@@ -8,19 +8,19 @@
  },
  "titre": {
   "en": "10/10 skills society hates",
-  "fr": "10/10 compétences que la société déteste",
+  "fr": "10/10 skills que la société déteste",
   "de": "10/10 Skills, die alle hassen"
  },
  "legendes": {
   "en": "10/10 skills society hates #skills #selfimprovement #learnontiktok",
-  "fr": "10/10 compétences que la société déteste #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "fr": "10/10 skills que la société déteste #developpementpersonnel #apprendresurtiktok #culturegenerale",
   "de": "10/10 Skills, die alle hassen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
  },
  "musique": {
   "titre": "LOOSE CANNON",
   "url": "https://www.tiktok.com/music/loose-cannon-7188203306077014827"
  },
- "notes": "Remake de son post à 1,2 M (20/09), décor branche (le sien). Ses 3 compétences en un mot géant, dans ses couleurs (orange, bleu, bleu), son temps « 10-30 min » sur chacune ; d'autres vraies vidéos que les siennes (Ivah Hales, Practical Psychology, Ekayy Boxing). Sophia en étape 3 « KNOW EVERYTHING », à la place de sa slide d'appli de fin : cta C (« what I open » / « instead of scrolling. »), le temps « 5 min a day ». En en, fr et de (demande d'Adrien du 04/11), vraies vidéos natives dans chaque langue.",
+ "notes": "Remake de son post à 1,2 M (20/09), décor branche (le sien). Ses 3 compétences en un mot géant, dans ses couleurs (orange, bleu, bleu), son temps « 10-30 min » sur chacune ; d'autres vraies vidéos que les siennes (Ivah Hales, Practical Psychology, Ekayy Boxing). Sophia en étape 3 « KNOW EVERYTHING », à la place de sa slide d'appli de fin : cta C (« what I open » / « instead of scrolling. »), le temps « 5 min a day ». En en, fr et de (demande d'Adrien du 04/11), vraies vidéos natives dans chaque langue. Couverture fr refaite le 04/11 : « COMPÉTENCES », trop long pour la colonne du décor branche, sortait minuscule à côté d'un « QUE LA » énorme ; « SKILLS QUE / LA SOCIÉTÉ / DÉTESTE » garde trois lignes de même poids, comme en anglais et en allemand.",
  "slides": [
   {
    "type": "couverture",
@@ -34,9 +34,8 @@
    },
    "fr": {
     "lignes": [
-     "COMPÉTENCES",
-     "QUE LA",
-     "SOCIÉTÉ",
+     "SKILLS QUE",
+     "LA SOCIÉTÉ",
      "DÉTESTE"
     ]
    },

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o083",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "57a19c99-cfc4-446b-bf3b-ec420544912f",
+ "titre": "free hobbies that make you effortlessly cultured #hobbies #cultured #smartgirl #freehobbies #darkacademia",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "b6f83686-8665-43b4-ac5f-7c9f05f11210"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 4 de la boîte (parent 57a19c99, langue source en) : accroche du parent mot pour mot. Hobbies gratuits neufs face au parent (vieux films de la bibliothèque, églises et cathédrales, noms des arbres du parc, recopier un poème, concerts gratuits). Sophia en cta C (à la place d'un scroll). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "23ac580f",
+   "texte_overlay": "free hobbies that make you\neffortlessly cultured",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "017d702b",
+   "texte_overlay": "1. borrowing old films\nfrom the library\n\nfree, and full of history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4f104c81",
+   "texte_overlay": "2. visiting old churches\nand cathedrals\n\nfree art and architecture\non every corner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "03e13ffc",
+   "texte_overlay": "3. learning the names of\nthe trees in your park\n\nyour daily walk will\nnever look the same.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "05185a85",
+   "texte_overlay": "4. copying one poem\nby hand each week\n\nyou'll remember it\nfor years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3d503cb0",
+   "texte_overlay": "5. going to free concerts\n\nchurch recitals, open\nrehearsals, music schools.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0a900463",
+   "texte_overlay": "6. trading one scroll a day\nfor a story about art\nor history.",
+   "texte_sophia": "6. trading one scroll a day\nfor 5 minutes on an app\nlike Sophia: art, history,\nscience.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "454697af",
+   "texte_overlay": "which one will you try\nthis week?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607917345360694542/5.jpg"
+  }
+ ]
+}

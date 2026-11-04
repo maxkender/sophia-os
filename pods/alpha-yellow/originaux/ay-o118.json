@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o118",
+ "type_bleo": "full_test",
+ "titre": "Things men learn too late about friendship #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "647dbb39-8006-4255-b8bc-0674e2f2f0d5"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5895d55d. full test. Accroche jamais faite chez nous : les leçons d'amitié, ton chaleureux. Accroches écrites : « Things men learn too late about friendship » (retenue), « Hard truths about male friendship » (écartée : négatif), « Why men lose their friends after 25 » (écartée : alarmiste).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5895d55d",
+   "texte_overlay": "Things men learn too\nlate about friendship",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Friendships need a plan after school. Nobody sees you every day anymore. If you don't book the dinner or the trip, months pass without seeing the people you love.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You can be the one who reaches out first, every time. It's not weakness. Most guys are waiting for someone else to send the first message. Be that person.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Telling a friend you're proud of him matters. Men rarely say it out loud. One honest sentence can mean more to him than you will ever know, and he'll never forget it.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Old friends don't need constant contact. Some friendships survive years of silence and pick up instantly. Treasure those, and call them anyway, just because.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: catch-ups were always the same old stories. After: five minutes a day of history, art or science, and something new to share with friends each time.",
+   "texte_sophia": "Before: catch-ups were always the same old stories. After: five minutes a day on a micro-learning app like the Sophia app. Now I bring something new to share each time.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Doing things together builds more than talking. Football, fishing, a road trip. Many men bond side by side, and shared adventures become the best stories you have.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "The friends who tell you the truth are the ones to keep. Anyone can clap for you. The friend who says \"I think you're making a mistake\" is a rare gift.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o119",
+ "type_bleo": "full_test",
+ "titre": "How to look put together on a tiny budget #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 8, sur une image sans visage. Couverture 38229d90. full test. Accroche jamais faite chez nous : le style avec peu d'argent, angle pratique. Accroches écrites : « How to look put together on a tiny budget » (retenue), « Cheap style tricks for men » (écartée : sonne bas de gamme), « How to dress well when you're broke » (écartée : négatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "38229d90",
+   "texte_overlay": "How to look put together\non a tiny budget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Buy fewer, better basics. White and navy shirts, dark jeans, one grey sweater. A small wardrobe that all matches looks sharper than a big pile of random clothes.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Get your clothes tailored. Taking in a cheap shirt or shortening trousers costs little, and fit is what makes clothes look expensive, far more than any label.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Take care of what you have. Wash on cold, hang shirts, use shoe trees. Clothes that are looked after last years and keep looking good long after others are worn out.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep your shoes clean and polished. A twenty minute polish every month. Clean shoes make a whole cheap outfit look deliberate, while dirty ones ruin an expensive one.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Get a regular haircut. Every four to six weeks, with a barber you trust. A fresh cut and a tidy beard make you look put together in anything you wear.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Shop second hand for the big pieces. Coats, blazers and leather jackets from good brands often cost a fraction of the price in charity shops and vintage stores.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Style is half confidence, and a curious, interesting mind is worth more than any outfit.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious, interesting mind is worth more than any outfit.",
+   "media_id": "cabf8dfa"
+  }
+ ]
+}

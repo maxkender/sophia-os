@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o120",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0811013e-e7f0-4e28-bed5-7da675f5843c",
+ "titre": "How to stop overthinking a date and just have a good time #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "0811013e-e7f0-4e28-bed5-7da675f5843c"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 50a4e1a0. déclinaison G2 de la ligne 1 de la boîte (0811013e, it 5,7 k r 4,61), 3e et dernière déclinaison de ce parent après ay-o095 et ay-o106. Même promesse (plus de malaise, profiter du rendez-vous), autres mots, sans « first date » pour ne pas toucher la ligne 7. Items neufs. Respectueux.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50a4e1a0",
+   "texte_overlay": "How to stop overthinking a date\nand just have a good time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689885995193486600/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop rehearsing conversations in your head. You can't script a real person. Go in with curiosity instead of lines, and the conversation will find its own way.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stop reading meaning into every reply. A short text often just means she's busy. Waiting calmly instead of analysing every word keeps you relaxed and yourself.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Decide one simple goal for the evening: have fun. Not impress, not win, not get a second date. Just enjoy the company. Everything else gets easier from there.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Fill your head with better things. I do five minutes a day of history, art or science, and having fresh thoughts leaves less room for anxious ones before a date.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Fresh thoughts leave less room for anxious ones before a date.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Breathe slowly on the way there. Four seconds in, six out, a few times. It sounds simple, but it calms your body so your mind can follow before you arrive.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Notice the good moments while they happen. Her laugh, a great view, a good dish. Paying attention to the present is the opposite of overthinking it.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Let the evening end without a verdict. You don't need to know right away if it worked. Sleep on it, and send a kind message the next day if you enjoyed it.",
+   "media_id": "62463b6a"
+  }
+ ]
+}

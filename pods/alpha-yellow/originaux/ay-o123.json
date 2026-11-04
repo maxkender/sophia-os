@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o123",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "918ea991-9285-47dd-ad73-f8c49464cfbb",
+ "titre": "7 workplace moves that feel like a secret advantage #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "918ea991-9285-47dd-ad73-f8c49464cfbb"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 6703d7b4. déclinaison G2 de la ligne 4 de la boîte (918ea991, it 9,2 k r 8,04), 2e déclinaison de ce parent après ay-o098. Même promesse (astuces sociales au travail qui donnent un avantage), autres mots. Items neufs.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6703d7b4",
+   "texte_overlay": "7 workplace moves that feel\nlike a secret advantage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Book a short coffee with someone from another team every month. \"I'd love to understand what your team does.\" You learn fast, and you build allies across the company.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Write down what your manager cares about most. Then mention your work in those terms. Speaking their language makes your results impossible to overlook.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask \"What would make this a great result for you?\" at the start of any project. Knowing the real goal early saves weeks of work on the wrong thing and makes you look sharp.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Bring fresh ideas to meetings. I do five minutes a day of history, art or science, and surprising examples from other fields make my ideas stand out.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Surprising examples from other fields make my ideas stand out.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Say no to one thing so you can say yes to the important one. \"I can take this on if we move that deadline.\" Clear priorities make you look senior and in control.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Remember personal milestones. A colleague's wedding, a new baby, a marathon. A short card or message turns workmates into people who genuinely support you.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Leave every meeting with one clear next step. \"So I'll send the draft on Thursday.\" Being the person who turns talk into action is a quiet superpower.",
+   "media_id": "e1140173"
+  }
+ ]
+}

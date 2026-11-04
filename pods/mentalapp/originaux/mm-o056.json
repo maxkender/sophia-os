@@ -1,0 +1,188 @@
+{
+ "id": "mm-o056",
+ "format": "carrousel",
+ "titre": "Things nobody tells you about quitting short videos",
+ "legendes": {
+  "en": "things nobody tells you about quitting short videos #brainrot #dopaminedetox #mentalmaxxing #selfimprovement",
+  "fr": "ce que personne ne te dit sur l’arrêt des vidéos courtes #brainrot #detoxdopamine #mentalmaxxing #developpementpersonnel",
+  "de": "was dir niemand übers Aufhören mit Kurzvideos sagt #brainrot #dopamindetox #mentalmaxxing #selbstverbesserung",
+  "es": "lo que nadie te cuenta de dejar los vídeos cortos #brainrot #detoxdedopamina #mentalmaxxing #superacionpersonal",
+  "it": "cose che nessuno ti dice sullo smettere con i video brevi #brainrot #detoxdopamina #mentalmaxxing #crescitapersonale",
+  "tr": "kısa videoları bırakmak hakkında kimsenin söylemedikleri #brainrot #dopamindetoks #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7699644186470976786/1",
+   "boite": [
+    198,
+    378,
+    684,
+    738
+   ]
+  },
+  "theme": {
+   "en": "Nobody tells you this",
+   "fr": "Personne ne te le dit",
+   "de": "Das sagt dir niemand",
+   "es": "Nadie te dice esto",
+   "it": "Nessuno te lo dice",
+   "tr": "Kimse bunu söylemez"
+  },
+  "sous": {
+   "en": "about quitting short videos",
+   "fr": "sur l’arrêt des vidéos courtes",
+   "de": "übers Aufhören mit Kurzvideos",
+   "es": "sobre dejar los vídeos cortos",
+   "it": "sullo smettere coi video brevi",
+   "tr": "kısa videoları bırakmak üzerine"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/4",
+   "boite": [
+    306,
+    462,
+    450,
+    426
+   ],
+   "titre": {
+    "en": "The first days are weird",
+    "fr": "Les premiers jours sont bizarres",
+    "de": "Die ersten Tage sind seltsam",
+    "es": "Los primeros días son raros",
+    "it": "I primi giorni sono strani",
+    "tr": "İlk günler garip"
+   },
+   "texte": {
+    "en": "Your thumb keeps opening an app that is not there. It passes in about a week.",
+    "fr": "Ton pouce ouvre sans cesse une appli qui n’est plus là. Ça passe en une semaine environ.",
+    "de": "Dein Daumen öffnet ständig eine App, die nicht mehr da ist. Das vergeht nach etwa einer Woche.",
+    "es": "Tu pulgar sigue abriendo una app que ya no está. Se pasa en una semana más o menos.",
+    "it": "Il pollice continua ad aprire un’app che non c’è più. Passa in circa una settimana.",
+    "tr": "Başparmağın artık olmayan bir uygulamayı açmaya devam eder. Bir haftada geçer."
+   }
+  },
+  {
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "You will be bored",
+    "fr": "Tu vas t’ennuyer",
+    "de": "Du wirst dich langweilen",
+    "es": "Te vas a aburrir",
+    "it": "Ti annoierai",
+    "tr": "Sıkılacaksın"
+   },
+   "texte": {
+    "en": "That is not a problem, it is the point. Boredom is where your own ideas come back.",
+    "fr": "Ce n’est pas un problème, c’est le but. L’ennui, c’est là que tes propres idées reviennent.",
+    "de": "Das ist kein Problem, sondern der Sinn. In der Langeweile kommen deine eigenen Ideen zurück.",
+    "es": "No es un problema, es la idea. En el aburrimiento vuelven tus propias ideas.",
+    "it": "Non è un problema, è lo scopo. Nella noia tornano le tue idee.",
+    "tr": "Bu bir sorun değil, amaç bu. Kendi fikirlerin can sıkıntısında geri gelir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: I thought I would miss them. After deleting short videos with UnSwipe: I did not miss them once after the first week.",
+    "fr": "Avant : je pensais qu’elles me manqueraient. Après avoir supprimé les vidéos courtes avec UnSwipe : elles ne m’ont pas manqué une seule fois après la première semaine.",
+    "de": "Vorher: Ich dachte, ich würde sie vermissen. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: Nach der ersten Woche kein einziges Mal.",
+    "es": "Antes: pensaba que los echaría de menos. Después de borrar los vídeos cortos con UnSwipe: ni una vez tras la primera semana.",
+    "it": "Prima: pensavo che mi sarebbero mancati. Dopo aver eliminato i video brevi con UnSwipe: dopo la prima settimana, mai una volta.",
+    "tr": "Önce: onları özleyeceğimi sanıyordum. Kısa videoları UnSwipe ile sildikten sonra: ilk haftadan sonra bir kez bile özlemedim."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Your sleep changes first",
+    "fr": "Ton sommeil change en premier",
+    "de": "Dein Schlaf ändert sich zuerst",
+    "es": "Tu sueño cambia primero",
+    "it": "Il sonno cambia per primo",
+    "tr": "Önce uykun değişir"
+   },
+   "texte": {
+    "en": "No more one-last-video at midnight. Most people notice it within days.",
+    "fr": "Fini la dernière vidéo à minuit. La plupart des gens le remarquent en quelques jours.",
+    "de": "Kein „letztes Video“ mehr um Mitternacht. Die meisten merken es nach ein paar Tagen.",
+    "es": "Se acabó el último vídeo a medianoche. Casi todos lo notan en pocos días.",
+    "it": "Basta ultimo video a mezzanotte. Quasi tutti lo notano in pochi giorni.",
+    "tr": "Gece yarısı son video yok artık. Çoğu kişi birkaç gün içinde fark eder."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Music sounds better",
+    "fr": "La musique sonne mieux",
+    "de": "Musik klingt besser",
+    "es": "La música suena mejor",
+    "it": "La musica suona meglio",
+    "tr": "Müzik daha güzel geliyor"
+   },
+   "texte": {
+    "en": "Without fifteen-second clips, full songs and albums become enjoyable again.",
+    "fr": "Sans extraits de quinze secondes, les morceaux et albums entiers redeviennent agréables.",
+    "de": "Ohne fünfzehn-Sekunden-Clips machen ganze Songs und Alben wieder Spaß.",
+    "es": "Sin clips de quince segundos, las canciones y álbumes enteros vuelven a disfrutarse.",
+    "it": "Senza clip di quindici secondi, canzoni e album interi tornano piacevoli.",
+    "tr": "On beş saniyelik klipler olmadan tam şarkılar ve albümler yine keyifli olur."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "You get time you didn’t know you had",
+    "fr": "Tu récupères du temps que tu ne pensais pas avoir",
+    "de": "Du bekommst Zeit, von der du nichts wusstest",
+    "es": "Recuperas tiempo que no sabías que tenías",
+    "it": "Ritrovi tempo che non sapevi di avere",
+    "tr": "Var olduğunu bilmediğin zamanı geri alırsın"
+   },
+   "texte": {
+    "en": "The minutes add up. Most people find at least an hour a day.",
+    "fr": "Les minutes s’additionnent. La plupart trouvent au moins une heure par jour.",
+    "de": "Die Minuten summieren sich. Die meisten finden mindestens eine Stunde am Tag.",
+    "es": "Los minutos se suman. Casi todos encuentran al menos una hora al día.",
+    "it": "I minuti si sommano. Quasi tutti trovano almeno un’ora al giorno.",
+    "tr": "Dakikalar birikir. Çoğu kişi günde en az bir saat bulur."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous (« things nobody tells you about quitting short videos »). cta C (avant/après) : élément UnSwipe en 3e item (slide 4)."
+}

@@ -1,0 +1,188 @@
+{
+ "id": "mm-o053",
+ "format": "carrousel",
+ "titre": "Signs you’re more disciplined than you think",
+ "legendes": {
+  "en": "signs you’re more disciplined than you think #discipline #habits #mentalmaxxing #selfimprovement",
+  "fr": "les signes que tu es plus discipliné que tu ne le crois #discipline #habitudes #mentalmaxxing #developpementpersonnel",
+  "de": "Zeichen, dass du disziplinierter bist, als du denkst #disziplin #gewohnheiten #mentalmaxxing #selbstverbesserung",
+  "es": "señales de que eres más disciplinado de lo que crees #disciplina #habitos #mentalmaxxing #superacionpersonal",
+  "it": "segnali che sei più disciplinato di quanto pensi #disciplina #abitudini #mentalmaxxing #crescitapersonale",
+  "tr": "sandığından daha disiplinli olduğunun işaretleri #disiplin #alışkanlıklar #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/1",
+   "boite": [
+    300,
+    318,
+    610,
+    600
+   ]
+  },
+  "theme": {
+   "en": "More disciplined",
+   "fr": "Plus discipliné",
+   "de": "Disziplinierter",
+   "es": "Más disciplinado",
+   "it": "Più disciplinato",
+   "tr": "Sandığından daha"
+  },
+  "sous": {
+   "en": "than you think",
+   "fr": "que tu ne le crois",
+   "de": "als du denkst",
+   "es": "de lo que crees",
+   "it": "di quanto pensi",
+   "tr": "disiplinlisin"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "You show up on bad days",
+    "fr": "Tu y vas même les mauvais jours",
+    "de": "Du ziehst es auch an schlechten Tagen durch",
+    "es": "Apareces en los días malos",
+    "it": "Ti presenti nei giorni no",
+    "tr": "Kötü günlerde de gidiyorsun"
+   },
+   "texte": {
+    "en": "Not every session is good, but you still go. That is the whole skill.",
+    "fr": "Toutes les séances ne sont pas bonnes, mais tu y vas quand même. C’est toute la compétence.",
+    "de": "Nicht jede Einheit ist gut, aber du gehst trotzdem. Das ist die ganze Fähigkeit.",
+    "es": "No todas las sesiones son buenas, pero vas igual. Esa es toda la habilidad.",
+    "it": "Non tutte le sessioni vanno bene, ma ci vai comunque. È tutta lì l’abilità.",
+    "tr": "Her antrenman iyi geçmiyor ama yine de gidiyorsun. Bütün beceri bu."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "You keep small promises",
+    "fr": "Tu tiens tes petites promesses",
+    "de": "Du hältst kleine Versprechen",
+    "es": "Cumples tus pequeñas promesas",
+    "it": "Mantieni le piccole promesse",
+    "tr": "Küçük sözlerini tutuyorsun"
+   },
+   "texte": {
+    "en": "Ten pages, one walk, one glass of water. Small wins add up quietly.",
+    "fr": "Dix pages, une marche, un verre d’eau. Les petites victoires s’additionnent sans bruit.",
+    "de": "Zehn Seiten, ein Spaziergang, ein Glas Wasser. Kleine Siege summieren sich leise.",
+    "es": "Diez páginas, un paseo, un vaso de agua. Las pequeñas victorias se suman en silencio.",
+    "it": "Dieci pagine, una camminata, un bicchiere d’acqua. Le piccole vittorie si sommano in silenzio.",
+    "tr": "On sayfa, bir yürüyüş, bir bardak su. Küçük kazanımlar sessizce birikir."
+   }
+  },
+  {
+   "src": "7699644186470976786/3",
+   "boite": [
+    312,
+    432,
+    456,
+    474
+   ],
+   "titre": {
+    "en": "You notice the urge",
+    "fr": "Tu remarques l’envie",
+    "de": "Du bemerkst den Drang",
+    "es": "Notas las ganas",
+    "it": "Noti la voglia",
+    "tr": "İsteği fark ediyorsun"
+   },
+   "texte": {
+    "en": "You still feel it, but now you see it coming. That is where control starts.",
+    "fr": "Tu la ressens encore, mais tu la vois venir. C’est là que le contrôle commence.",
+    "de": "Du spürst ihn noch, aber du siehst ihn jetzt kommen. Da beginnt Kontrolle.",
+    "es": "Aún las sientes, pero ahora las ves venir. Ahí empieza el control.",
+    "it": "La senti ancora, ma ora la vedi arrivare. È lì che inizia il controllo.",
+    "tr": "Hâlâ hissediyorsun ama artık geldiğini görüyorsun. Kontrol orada başlar."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: I opened short videos without even thinking. After deleting them with UnSwipe: I realised I had more self-control than I thought.",
+    "fr": "Avant : j’ouvrais les vidéos courtes sans même y penser. Après les avoir supprimées avec UnSwipe : j’ai compris que j’avais plus de contrôle que je ne croyais.",
+    "de": "Vorher: Ich öffnete Kurzvideos, ohne nachzudenken. Nachdem ich sie mit UnSwipe gelöscht habe: Ich merkte, dass ich mehr Selbstkontrolle habe als gedacht.",
+    "es": "Antes: abría los vídeos cortos sin pensar. Después de borrarlos con UnSwipe: me di cuenta de que tenía más autocontrol del que creía.",
+    "it": "Prima: aprivo i video brevi senza pensarci. Dopo averli eliminati con UnSwipe: ho capito di avere più autocontrollo di quanto pensassi.",
+    "tr": "Önce: kısa videoları düşünmeden açıyordum. UnSwipe ile sildikten sonra: sandığımdan daha fazla öz kontrolüm olduğunu anladım."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "You protect your sleep",
+    "fr": "Tu protèges ton sommeil",
+    "de": "Du schützt deinen Schlaf",
+    "es": "Proteges tu sueño",
+    "it": "Proteggi il tuo sonno",
+    "tr": "Uykunu koruyorsun"
+   },
+   "texte": {
+    "en": "You say no to one more episode. Future you is grateful every morning.",
+    "fr": "Tu dis non à un épisode de plus. Le toi de demain te remercie chaque matin.",
+    "de": "Du sagst Nein zu noch einer Folge. Dein zukünftiges Ich dankt dir jeden Morgen.",
+    "es": "Dices no a un episodio más. Tu yo de mañana te lo agradece cada día.",
+    "it": "Dici no a un altro episodio. Il te di domani ti ringrazia ogni mattina.",
+    "tr": "Bir bölüm daha izlemeye hayır diyorsun. Yarınki sen her sabah teşekkür ediyor."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "You finish what you start",
+    "fr": "Tu finis ce que tu commences",
+    "de": "Du bringst zu Ende, was du anfängst",
+    "es": "Terminas lo que empiezas",
+    "it": "Finisci ciò che inizi",
+    "tr": "Başladığını bitiriyorsun"
+   },
+   "texte": {
+    "en": "Even the boring tasks. Especially the boring tasks.",
+    "fr": "Même les tâches ennuyeuses. Surtout les tâches ennuyeuses.",
+    "de": "Auch die langweiligen Aufgaben. Gerade die langweiligen.",
+    "es": "Incluso las tareas aburridas. Sobre todo las aburridas.",
+    "it": "Anche i compiti noiosi. Soprattutto quelli noiosi.",
+    "tr": "Sıkıcı işleri bile. Özellikle sıkıcı işleri."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous (« signs you’re more disciplined than you think »). cta C (avant/après) : élément UnSwipe en 4e item (slide 5)."
+}

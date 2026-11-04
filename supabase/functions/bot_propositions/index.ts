@@ -1,4 +1,5 @@
-import { estSecretCron, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { estSecretCron, json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
+import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Bot, botDuJeton, etatSecrets, lireCorps, SECRETS_BOTS } from "../_shared/bot_propositions.ts";
 
 /**
@@ -50,6 +51,7 @@ Deno.serve(async (request) => {
 
   try {
     const supabase = serviceClient();
+    if (lu.action === "faire") return json(await faire(supabase, bot, lu.args));
     const { data, error } = await supabase.rpc("probleme_bot", { p_bot: bot, p_action: lu.action, p_args: lu.args });
     if (error) return json({ ok: false, error: error.message }, 500);
     const r = data as { ok: boolean; error?: string; probleme_id?: string };
@@ -58,3 +60,63 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
 });
+
+const LIGNE_STOP = "If you don't wish to continue, just reply STOP here.";
+
+/** Appelle une autre fonction de l'OS avec le secret des crons. */
+async function appelFonction(nom: string, corps: Record<string, unknown>): Promise<{ ok?: boolean; error?: string }> {
+  await secretCron();
+  const secret = secretCronConnu();
+  const r = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/${nom}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", ...(secret ? { "x-cron-secret": secret } : {}) },
+    body: JSON.stringify(corps),
+  });
+  const data = await r.json().catch(() => ({})) as { ok?: boolean; error?: string };
+  if (!r.ok || data.ok === false) throw new Error(data.error ?? `${nom} : HTTP ${r.status}`);
+  return data;
+}
+
+/**
+ * 0535 : le bot agit seul. Les garde-fous sont dans probleme_bot_faire
+ * (autonomie_bots sur on, confiance ≥ 0,8, jamais d'argent, 1 message par
+ * personne et par 24 h, 8 h - 22 h chez le posteur, STOP sûr seulement) ; puis
+ * l'action et le message (Upwork depuis le compte de Max, ou DM Slack) ; tout
+ * est noté dans bot_actions.
+ */
+async function faire(supabase: ReturnType<typeof serviceClient>, bot: Bot, args: Record<string, unknown>) {
+  const { data, error } = await supabase.rpc("probleme_bot_faire", { p_bot: bot, p_args: args });
+  if (error) return { ok: false, error: error.message };
+  const plan = data as {
+    ok: boolean; error?: string; bot_action_id?: string; action?: string; poster_id?: string | null; hm_id?: string | null;
+    compte_id?: string | null; canal?: string; message?: string | null;
+  };
+  if (!plan.ok) return plan;
+  let erreur: string | null = null;
+  try {
+    if (plan.action === "resend_password_link" && plan.poster_id) {
+      await appelFonction("recrues-check", { action: "lien_mot_de_passe_envoyer", poster_id: plan.poster_id });
+    }
+    if (plan.action === "reread_tiktok" && plan.compte_id) {
+      await appelFonction("ckd", { action: "releve_compte", compte_id: plan.compte_id });
+    }
+    const message = plan.message?.trim();
+    if (message) {
+      if (plan.action === "message_hm") {
+        if (!plan.hm_id) throw new Error("pas d'HM reliée");
+        const issue = await ecrireAuPosteur(supabase, plan.hm_id, message);
+        if (issue.statut !== "envoye") throw new Error("erreur" in issue ? issue.erreur : issue.statut);
+      } else if (plan.poster_id && plan.canal === "slack") {
+        const issue = await ecrireAuPosteur(supabase, plan.poster_id, message);
+        if (issue.statut !== "envoye") throw new Error("erreur" in issue ? issue.erreur : issue.statut);
+      } else if (plan.poster_id) {
+        const texte = plan.action === "stop" ? message : `${message}\n\n${LIGNE_STOP}`;
+        await appelFonction("upwork", { action: "message_posteur", poster_id: plan.poster_id, texte, type: `bot_${plan.action}` });
+      }
+    }
+  } catch (e) {
+    erreur = messageErreur(e);
+  }
+  await supabase.rpc("probleme_bot_fait", { p_id: plan.bot_action_id, p_ok: erreur === null, p_erreur: erreur });
+  return erreur === null ? { ok: true, bot_action_id: plan.bot_action_id } : { ok: false, error: erreur, bot_action_id: plan.bot_action_id };
+}

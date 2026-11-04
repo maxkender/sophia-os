@@ -158,6 +158,14 @@ Deno.serve(async (request) => {
       return json(await choisirDebutAdmin(serviceClient(), String(b.poster_id ?? ""), String(b.lundi ?? ""), String(b.choix ?? ""), acces.userId));
     }
     // 3/11 : « Renvoyer le lien de mot de passe » à un vrai posteur (geste de l'admin, page Problèmes ou demande de Max).
+    // 4/11 : « ✅ Faire ça » d'une carte Problèmes : la réponse part en DM Slack (posteur ou HM), depuis le bot Sophia OS.
+    if (body.action === "message_slack") {
+      const b = body as { profil_id?: string; texte?: string };
+      const texte = String(b.texte ?? "").trim();
+      if (!b.profil_id || !texte) return json({ ok: false, error: "profil_id et texte requis" });
+      const issue = await ecrireAuPosteur(serviceClient(), String(b.profil_id), texte);
+      return json(issue.statut === "envoye" ? { ok: true } : { ok: false, error: "erreur" in issue ? issue.erreur : issue.statut });
+    }
     if (body.action === "lien_mot_de_passe_envoyer") {
       return json(await envoyerLienMotDePasse(serviceClient(), String((body as { poster_id?: string }).poster_id ?? ""), acces.userId));
     }

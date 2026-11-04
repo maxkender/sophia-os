@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o127",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fce1dcc4-371c-48ae-8aaf-cac61a684216",
+ "titre": "habits that will make you fearless in any room #confidence #selfimprovement #habits #mindset #socialskills",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "63ad5188-6370-4e29-a669-ea944fad1098"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 63ad5188). déclinaison G2 de « hobbies that will make you dangerously confident » (parent fce1dcc4, 10 900 vues en es). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7955d055-e4ef-4166-a885-7145ece4532a",
+   "texte_overlay": "habits that will make you\nfearless in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658778248972700941/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "944df6af-326a-4c3f-ab88-bdb59d638940",
+   "texte_overlay": "the honest compliment\n\ngive one specific, honest compliment a day to someone's face. people who notice the good in others become the ones everyone is genuinely glad to see walk in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658778248972700941/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "53eb6b68-84e5-4f27-8b49-7524e864e801",
+   "texte_overlay": "finishing your sentence\n\nwhen someone talks over you, finish your sentence calmly before you let them in. holding your ground in small moments is how you stop shrinking in big ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658778248972700941/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0dd7213f-8337-4d93-9881-98d71ad03fdc",
+   "texte_overlay": "recording a short story\n\nrecord yourself telling a two minute story every week and listen back. you'll find what to fix, and you'll discover you sound far better than you fear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658778248972700941/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1ff07562-1b95-4986-8140-dd9aa9fa3f54",
+   "texte_overlay": "having something to say\n\nspend 5 minutes a day learning one interesting thing: a strange animal, a lost city, a famous painting. people who always have a story never dread the silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658778248972700941/5.jpg",
+   "texte_sophia": "having something to say\n\ni used to dread silences in conversation. now i spend 5 minutes a day on one lesson in the Sophia app: a strange animal, a lost city. people with a story never dread silence."
+  },
+  {
+   "position": 6,
+   "media_id": "74232260-2f50-4c61-bde5-697b38cad47f",
+   "texte_overlay": "the call you'd avoid\n\nmake one phone call a day that you'd normally put off: a booking, a question, a friend. the dread before the call is always bigger than the call itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658778248972700941/6.jpg"
+  }
+ ]
+}

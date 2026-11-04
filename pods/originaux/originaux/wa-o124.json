@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o124",
+ "type_bleo": "full_test",
+ "titre": "signs you're becoming the person you used to admire #selfimprovement #growth #mindset #signs #glowup",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "07e3466c-a64e-4821-be9e-69fbae757659"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 07e3466c). full test BLEO : accroche jamais faite (format « signs », croissance). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "69a06e3a-be5a-4c56-85c9-54d1e0f1cde1",
+   "texte_overlay": "signs you're becoming the\nperson you used to admire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654696281859820813/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "53579864-a3d1-478a-8ed1-41db87c4a82b",
+   "texte_overlay": "you keep small promises\n\nyou do the thing you said you'd do, even when nobody would notice if you didn't. that quiet reliability is exactly what you used to admire in other people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654696281859820813/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b48f9042-3e1e-4618-9ff5-830e173eb666",
+   "texte_overlay": "you're calmer in chaos\n\nsituations that used to send you spiralling now just make you pause and think. calm under pressure isn't a personality trait, it's a skill you've been building.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654696281859820813/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6841f6e5-0bfd-4ee0-8bad-580086f4d900",
+   "texte_overlay": "you enjoy hard things\n\nyou look forward to the difficult workout, the honest conversation, the slow book. choosing discomfort on purpose is the clearest sign of someone who is growing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654696281859820813/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7da3b56b-4d1b-4403-90f0-4e5b2383397b",
+   "texte_overlay": "you learn every day\n\nyou spend a few minutes every day learning something new: a painting, a planet, a piece of history. the people you admired were always curious, and now you are too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654696281859820813/5.jpg",
+   "texte_sophia": "you learn every day\n\ni used to admire curious people from a distance. now i spend 5 minutes a day on one lesson in the Sophia app: a painting, a planet, a piece of history. now i'm curious too."
+  },
+  {
+   "position": 6,
+   "media_id": "e4afcca6-65a4-49ce-96e4-ecedba4f289b",
+   "texte_overlay": "you need less approval\n\nyou share opinions without checking everyone agrees first. caring less about being liked is very often the exact moment people start respecting you the most.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654696281859820813/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o130",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4bf7bb01-c2a8-4def-a0fa-b223461e6936",
+ "titre": "hobbies to make you disgustingly intelligent #intelligence #selfimprovement #learning #hobbies #curiosity",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "22c06e06-d516-4a11-9427-bb6187c9d31f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 22c06e06). déclinaison G1 de « hobbies to make you disgustingly intelligent » (parent 4bf7bb01, 10 400 vues en hu). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7e5fdadd-6019-4b6c-ac6b-9e4c5e67a6b2",
+   "texte_overlay": "hobbies to make you\ndisgustingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238207223041294/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59cd2cd5-8cfe-4017-87a3-77b92338b4d6",
+   "texte_overlay": "reading old maps\n\nstudy an old map of your city once a week and compare it to today. you'll learn history, geography and urban planning all at once, almost by accident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238207223041294/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f666c95e-2b6d-4ecf-a566-6e4155fbf94d",
+   "texte_overlay": "learning sign language\n\nlearn ten signs a week in your local sign language. a new kind of language rewires how you think about words, and it lets you speak with people you never could before.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238207223041294/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "21d5c16e-66c4-41fe-a9f1-a88feaac8e25",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day on one lesson in a field you've never studied: geology, music theory, ancient law. tiny lessons in odd subjects build a remarkably wide mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238207223041294/3.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day on one lesson in a field i never studied: geology, music theory, ancient law. i do it with the Sophia app, one lesson a day, and my mind got remarkably wide."
+  },
+  {
+   "position": 5,
+   "media_id": "32f25c13-faf5-4f09-b3f5-ca632752fad3",
+   "texte_overlay": "debating at dinner\n\npick one big question at dinner with friends, like is free will real, and argue it out kindly. good debates sharpen your thinking faster than any book alone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238207223041294/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5d2c13a5-95fd-433b-88d9-bb85a015b993",
+   "texte_overlay": "writing book summaries\n\nafter every book, write a one page summary from memory. it shows you what actually stuck, and it roughly doubles how much of each book you remember months later.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238207223041294/6.jpg"
+  }
+ ]
+}

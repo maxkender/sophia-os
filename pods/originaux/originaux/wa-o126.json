@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o126",
+ "type_bleo": "full_test",
+ "titre": "things emotionally strong people never do #mentalstrength #selfimprovement #psychology #mindset #resilience",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "017e8149-705a-4f4d-abba-55c728b81a7b"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 017e8149). full test BLEO : accroche jamais faite (format « things … never do »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "767ba6d3-3c9e-42c0-9298-a399a37861df",
+   "texte_overlay": "things emotionally strong\npeople never do",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180622540492045/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8570c40f-802e-465c-8ca0-54a5fd1b1ce3",
+   "texte_overlay": "they don't argue online\n\nthey don't spend their evening trying to win an argument with strangers. protecting your peace is a quiet choice, and they make it again every single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180622540492045/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "30ddb4c0-c459-4c86-a66b-0f5efee55d44",
+   "texte_overlay": "they don't dwell on one comment\n\none unkind remark doesn't ruin their whole week. they notice it, take what's useful, and calmly let the rest go without replaying it in their head for days.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180622540492045/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2c1b807f-0d2e-47ea-a04a-15b9eb898ff8",
+   "texte_overlay": "they keep feeding their mind\n\nthey spend 5 minutes a day learning something that has nothing to do with their problems: history, art, the stars. perspective is what keeps a mind strong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180622540492045/3.jpg",
+   "texte_sophia": "they keep feeding their mind\n\ni spend 5 minutes a day learning something unrelated to my problems: history, art, the stars. i do it with the Sophia app, one lesson a day, and perspective keeps my mind strong."
+  },
+  {
+   "position": 5,
+   "media_id": "5332c2fe-db32-42f4-b0e4-4a8f293b8184",
+   "texte_overlay": "they don't need to be right\n\nthey can say good point, i hadn't thought of that, without feeling smaller. letting go of being right is one of the clearest signs of real inner strength.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180622540492045/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "615f8b23-35fa-4752-9208-ad799d90f6d6",
+   "texte_overlay": "they don't hide their feelings\n\nthey say i'm upset or i'm nervous out loud, calmly. naming a feeling takes away half its power, and it makes them so much easier to trust and to love.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656180622540492045/6.jpg"
+  }
+ ]
+}

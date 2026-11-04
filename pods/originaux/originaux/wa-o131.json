@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o131",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9851155e-60fe-451f-82b5-58a2a07dfa75",
+ "titre": "how to become unbelievably articulate nd wellspoken #communication #publicspeaking #selfimprovement #articulate #howto",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "da57efee-b206-4b3d-b31a-bea9cb4e1dc5"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, da57efee). déclinaison G1 de « how to become unbelievably articulate nd wellspoken » (parent 9851155e, 15 700 vues en tr), accroche reprise mot pour mot avec sa faute. cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6fea2e59-0e2d-4857-a024-f96140bf147f",
+   "texte_overlay": "how to become unbelievably\narticulate nd wellspoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652098713577377037/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "63545a97-4f12-4db8-a730-598402b81968",
+   "texte_overlay": "slow down by a third\n\nspeak a third slower than feels natural for one week. slower speech sounds more confident, gives you time to think, and makes people actually stop and listen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652098713577377037/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c96cb466-03eb-4719-8b23-86cdf68d9f52",
+   "texte_overlay": "kill the filler words\n\nnotice every um, like and you know, and replace them with a short pause. a silence sounds thoughtful, a filler word sounds unsure, and people hear the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652098713577377037/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c33f26b5-af19-4f6a-b3b3-3af6e2cbec97",
+   "texte_overlay": "read aloud every night\n\nread two pages of a good book out loud before bed. it trains your mouth to handle long sentences and fills your memory with better words without effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652098713577377037/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6484e6a2-45ea-4d61-9bbb-54deb96d5ec2",
+   "texte_overlay": "have more to say\n\nspend 5 minutes a day learning one new idea: a word's origin, a moment in history, a scientific concept. articulate people aren't just clear, they have more to talk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652098713577377037/5.jpg",
+   "texte_sophia": "have more to say\n\ni used to run out of things to say. now i spend 5 minutes a day on one lesson in the Sophia app: a word's origin, a moment in history. articulate people simply have more to say."
+  },
+  {
+   "position": 6,
+   "media_id": "113860fb-8c57-4cb1-a61c-0f557e09bb43",
+   "texte_overlay": "end with a point\n\nfinish every answer with one clear sentence that sums up what you meant. people remember the last thing you say, so make it the clearest and sharpest part of all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652098713577377037/6.jpg"
+  }
+ ]
+}

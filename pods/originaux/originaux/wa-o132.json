@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o132",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9712ff76-301a-47d0-9e67-ab25e2904a01",
+ "titre": "5 hobbies to build a life so good u stopped doomscrolling #doomscrolling #slowliving #selfimprovement #hobbies #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "64384956-efa7-423b-bc66-e8d4772c3005"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 64384956). déclinaison G1 de « 5 hobbies to build a life so good u stopped doomscrolling » (parent 9712ff76). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6933c6a5-2ae5-4933-8823-273760fdfbf3",
+   "texte_overlay": "5 hobbies to build a life so\ngood u stopped doomscrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651854613452262669/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bca9f9f6-f390-46a0-890e-17726996f395",
+   "texte_overlay": "sunday markets\n\ngo to a local market every sunday morning and talk to one seller. real places, real people and real food make a weekend feel full in a way no feed ever can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651854613452262669/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "18194fb3-a580-4536-8809-a59afcc53661",
+   "texte_overlay": "learning to dance\n\ntake a weekly dance class, even if you've never danced in your life. moving to music with other people is joyful, social and impossible to do with a phone in hand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651854613452262669/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0fa3dcdc-6fea-4b3a-bddc-447f2ccfd6b8",
+   "texte_overlay": "a reading nook\n\nmake a cosy corner with a lamp, a blanket and a stack of books. when the comfortable spot in your home isn't your bed with a phone, evenings change on their own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651854613452262669/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b9b12678-af36-4b5c-95c5-dfca00c67ef5",
+   "texte_overlay": "a lesson with your coffee\n\nspend 5 minutes over your morning coffee learning one new thing: a planet, an artist, an ancient myth. starting the day curious makes the scroll feel far less tempting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651854613452262669/5.jpg",
+   "texte_sophia": "a lesson with your coffee\n\ni spend 5 minutes over my morning coffee learning one new thing: a planet, an artist, a myth. the Sophia app turns it into one short lesson a day, and the scroll lost its pull."
+  },
+  {
+   "position": 6,
+   "media_id": "c4ef67cc-964f-42e5-be56-bd2cf002f43a",
+   "texte_overlay": "hosting small dinners\n\ninvite two friends over once a week and cook something simple together. an evening of laughing around a table makes you forget your phone even exists.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651854613452262669/6.jpg"
+  }
+ ]
+}

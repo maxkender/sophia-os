@@ -392,3 +392,59 @@ export function jourRituel(lundi: string, choix: "double" | "recreate"): string 
 
 /** 0533 : une carte d'arrêt (stop sûr ou doute) : la réponse part sans la ligne « reply STOP ». */
 export const estArret = (p: Partial<Pick<Probleme, "categorie">>): boolean => p.categorie === "stop" || p.categorie === "stop_doute";
+
+// ---------------------------------------------------------------------------
+// 4/11 : simplification. Une carte par posteur ; « ✅ Faire ça » fait tout :
+// l'action ET l'envoi du message. Jamais d'argent : il ouvre le contrat.
+// ---------------------------------------------------------------------------
+
+export type PlanFaire =
+  | { type: "decision"; index: number }
+  | { type: "kill" }
+  | { type: "rituel"; choix: "double" | "recreate" }
+  | { type: "argent"; url: string | null; vers: string }
+  | { type: "motDePasse" }
+  | { type: "releve"; compte_id: string }
+  | { type: "fiche"; vers: string }
+  | { type: "reponse" }
+  | { type: "fermer" };
+
+/** Ce que fait « ✅ Faire ça » pour la proposition d'une carte. */
+export function planFaire(
+  p: Pick<Probleme, "categorie" | "proposition_action" | "proposition_reponse" | "poster_id" | "compte_id" | "contrat_id" | "question" | "options">,
+): PlanFaire {
+  if (estDecision(p)) return { type: "decision", index: 0 };
+  const g = gesteValider(p);
+  switch (g.type) {
+    case "kill":
+      return { type: "kill" };
+    case "rituel":
+      return { type: "rituel", choix: g.choix };
+    case "motDePasse":
+      return { type: "motDePasse" };
+    case "releve":
+      return { type: "releve", compte_id: g.compte_id };
+    case "reponse":
+      return { type: "reponse" };
+    case "fermer":
+      return { type: "fermer" };
+    case "page":
+      if (CATEGORIES_ARGENT.includes(p.categorie) || g.vers.startsWith("/admin/auto/payroll")) {
+        return { type: "argent", url: p.contrat_id ? urlContratUpwork(p.contrat_id) : null, vers: g.vers };
+      }
+      return { type: "fiche", vers: g.vers };
+  }
+}
+
+/** Le texte de la proposition (👉) : l'option recommandée d'une décision, sinon la réponse proposée. */
+export function texteProposition(p: Pick<Probleme, "proposition_reponse" | "question" | "options">): string | null {
+  if (estDecision(p)) return p.options?.[0]?.reponse ?? null;
+  return p.proposition_reponse?.trim() ? p.proposition_reponse : null;
+}
+
+/** Le feedback automatique : ✅ = bon ; ✏️ puis ✅ = correction ; Ignorer = pas un problème. */
+export function feedbackAuto(geste: "fait" | "corrige" | "ignore", texte?: string | null): { verdict: "juste" | "mauvaise_action" | "pas_un_probleme"; raison: string | null } {
+  if (geste === "fait") return { verdict: "juste", raison: null };
+  if (geste === "corrige") return { verdict: "mauvaise_action", raison: `Max a corrigé le message : « ${(texte ?? "").slice(0, 280)} »` };
+  return { verdict: "pas_un_probleme", raison: "Ignoré par Max (pas un problème)" };
+}

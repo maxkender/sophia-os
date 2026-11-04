@@ -55,7 +55,10 @@ export function botDuJeton(entete: string | null, secrets: Partial<Record<Bot, s
  * 0528 : + question et options (action_proposee « decision »), sujet (posteur, hm, offre), hm_id, hm_nom, offre_lien, offre_id.
  * Tout le reste est refusé (valider, envoyer, kill, payer…).
  */
-export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "creer"; args: Record<string, unknown> } | { erreur: string } {
+/** 0535 : ce qu'un bot peut faire seul (garde-fous dans probleme_bot_faire). */
+export const ACTIONS_FAIRE: readonly string[] = ["reponse", "resend_password_link", "relink_slack", "reread_tiktok", "relance", "message_hm", "stop"];
+
+export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "creer" | "faire"; args: Record<string, unknown> } | { erreur: string } {
   if (!corps || typeof corps !== "object") return { erreur: "corps JSON attendu" };
   const c = corps as Record<string, unknown>;
   // 3/11 : « lire » : ses problèmes ouverts (avec les messages), ses règles et ses feedbacks.
@@ -92,6 +95,16 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
   if (!SUJETS.includes(sujet)) return { erreur: `sujet : ${SUJETS.join(", ")}` };
   if (args.action === "decision" && (!args.question || !args.options)) return { erreur: "decision : question et options (2 à 4) obligatoires" };
   if (args.hm_id && !/^[0-9a-f-]{36}$/i.test(args.hm_id as string)) return { erreur: "hm_id : uuid attendu" };
+  // 0535 : « faire » : le bot agit seul (si autonomie_bots est sur on), avec sa confiance (0 à 1).
+  if (c.action === "faire") {
+    const id = texte("probleme_id", 40);
+    if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id (uuid) obligatoire" };
+    const quoi = texte("action_proposee", 40);
+    if (!quoi || !ACTIONS_FAIRE.includes(quoi)) return { erreur: `action_proposee : ${ACTIONS_FAIRE.join(", ")}` };
+    const confiance = typeof c.confiance === "number" ? c.confiance : Number(c.confiance);
+    if (!Number.isFinite(confiance) || confiance < 0 || confiance > 1) return { erreur: "confiance obligatoire (0 à 1)" };
+    return { action: "faire", args: { probleme_id: id, action: quoi, reponse: args.reponse, canal: args.canal, diagnostic: args.diagnostic, confiance } };
+  }
   if (c.action === "proposer") {
     const id = texte("probleme_id", 40);
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id (uuid) obligatoire" };
@@ -116,5 +129,5 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
       args: { ...args, poster_id: poster, contrat_id: contrat, categorie: texte("categorie", 40), resume: texte("resume", 200), texte: texte("texte"), lien: texte("lien", 500) },
     };
   }
-  return { erreur: "action refusée : lire, proposer ou creer seulement" };
+  return { erreur: "action refusée : lire, proposer, creer ou faire seulement" };
 }

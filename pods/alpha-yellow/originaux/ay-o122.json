@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o122",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "647dbb39-8006-4255-b8bc-0674e2f2f0d5",
+ "titre": "Social skills that leave a lasting impression #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "647dbb39-8006-4255-b8bc-0674e2f2f0d5"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 7, sur une image sans visage. Couverture 9e66209e. déclinaison G2 de la ligne 3 de la boîte (647dbb39, tr 23,8 k r 5,3), 2e déclinaison de ce parent après ay-o097. Même promesse (être inoubliable), autres mots. Items neufs, sans reprendre ceux du parent ni d'ay-o097.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9e66209e",
+   "texte_overlay": "Social skills that leave\na lasting impression",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Making people feel like the only person in the room. Eyes on them, phone away, no looking over their shoulder for someone better. People never forget that feeling.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Asking the second question. Everyone asks \"Where are you from?\" Few ask \"What do you miss most about it?\" The follow-up is where real connection starts.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Being genuinely happy for others. When a friend shares good news, celebrate it fully before saying anything about yourself. Generous joy is unforgettable.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Telling short stories well. Get to the point, make it vivid, end with a laugh. People remember the guy who made them laugh at dinner for years after.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Keeping secrets. When someone trusts you with something, it stays with you. Being known as someone safe to talk to builds a reputation that lasts a lifetime.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A man with interesting things to share leaves an impression people carry home with them.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Share interesting things and people carry them home.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Following through on what you say. \"I'll send you that book\" means you send it this week. Small promises kept turn first meetings into lasting friendships.",
+   "media_id": "2979667b"
+  }
+ ]
+}

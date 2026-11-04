@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o121",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "465aec8c-40b4-4232-9600-766c831a5b1a",
+ "titre": "7 ordinary habits that make you magnetic in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "465aec8c-40b4-4232-9600-766c831a5b1a"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 4714de4b. déclinaison G2 de la ligne 2 de la boîte (465aec8c), 3e et dernière déclinaison de ce parent après ay-o096 et ay-o107. Même promesse, autres mots, sans « attractive » pour ne pas toucher la ligne 8. Items neufs, sans reprendre ceux du parent, d'ay-o096 ni d'ay-o107.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4714de4b",
+   "texte_overlay": "7 ordinary habits that make\nyou magnetic in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Making your bed every morning. Thirty seconds, every single day. It sets the tone of a man who takes care of himself, and it's the first win of your day.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Showing up five minutes early. To work, to dates, to the gym. Reliability is rare in your 20s, and people are naturally drawn to someone they can count on.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Training your body three times a week. No extreme program, just consistency. Strength and energy show in how you walk, stand and talk to people every single day.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keeping in touch with old friends. A message, a call, a visit. A man surrounded by long friendships is a man people trust and genuinely want to be around.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: scrolling every evening. After: five minutes a day of history, art or science, and a curious mind that makes every conversation more interesting.",
+   "texte_sophia": "Before: scrolling every evening. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now every conversation is more interesting.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Taking care of your skin. Wash your face, use moisturiser, wear sunscreen. Simple habits in your 20s pay off for decades, and people notice a healthy face.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Saying thank you often. To the barista, the bus driver, your colleagues. Gratitude makes you warm and easy to be around, and that's what magnetic really means.",
+   "media_id": "9879c45f"
+  }
+ ]
+}

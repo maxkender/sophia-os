@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o117",
+ "type_bleo": "full_test",
+ "titre": "What disciplined men do on Sunday evenings #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 8a3c25ab. full test. Accroche jamais faite chez nous : la routine du dimanche soir, concrète et actionnable. Accroches écrites : « What disciplined men do on Sunday evenings » (retenue), « The Sunday reset every man needs » (écartée : plus vague), « How to prepare your week like a pro » (écartée : sonne coaching).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8a3c25ab",
+   "texte_overlay": "What disciplined men\ndo on Sunday evenings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They plan the week in ten minutes. Three priorities, the important meetings, the training days. Monday feels calm when you already know exactly what matters most.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They prepare their clothes for the first two days. Shirts ironed, shoes clean, bag ready. Small preparation on Sunday removes stress from the busiest mornings of the week.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They cook one big meal for the next days. A pot of chili, roasted vegetables, rice. Having real food ready stops the late-night junk and saves money all week long.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They feed their mind before bed. I do five minutes of history, art or science on Sunday nights, and I start the week curious instead of dreading Monday.",
+   "texte_sophia": "I do five minutes on a micro-learning app like the Sophia app on Sunday nights. History, art, science. I start the week curious instead of dreading Monday.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "They reset their space. Laundry done, desk cleared, kitchen clean. Walking into a tidy home on Monday evening feels like a gift from the version of you who planned ahead.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They call someone they care about. Parents, a grandparent, an old friend. Ending the weekend with a real conversation keeps the people who matter close all year.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They go to bed on time. No scrolling until one in the morning. A good night of sleep on Sunday is the single best way to start a strong, focused week.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

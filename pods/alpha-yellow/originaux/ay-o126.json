@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o126",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1c0420f0-8e3d-4081-b0dd-c09bd9367e08",
+ "titre": "Things you should stop doing on a first date #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "1c0420f0-8e3d-4081-b0dd-c09bd9367e08"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture a75b8832. déclinaison G1 de la ligne 7 de la boîte (1c0420f0, pt 7 k r 7,18) : accroche du parent mot pour mot. Items neufs, aucun repris du parent ni d'ay-o042. Respectueux. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a75b8832",
+   "texte_overlay": "Things you should stop\ndoing on a first date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop trying too hard to be funny. One good laugh beats ten forced jokes. Relax, be yourself, and humour will come naturally from the conversation itself.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stop ordering for her without asking. Suggest a dish if she wants ideas, but let her choose. Respecting small choices shows real respect for the person.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Stop drinking to calm your nerves. One drink is fine, four is a disaster. She wants to meet the real you, not the louder version after the third glass.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stop running out of curiosity. I do five minutes a day of history, art or science, and I always have a fun question or story ready on a date, wherever we go.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a fun question or story ready on any date.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Stop complaining. About work, the city, the traffic, the waiter. A first date is a first impression, and nobody falls for a man who sees only problems.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Stop pushing for a kiss or a next step. Read her signals and respect them. Making her feel safe and comfortable is the most attractive thing you can do.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stop overanalysing afterwards. If you enjoyed it, send a short kind message. If she's not interested, accept it gracefully and move on with your week.",
+   "media_id": "3fff1b1f"
+  }
+ ]
+}

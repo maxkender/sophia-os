@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o117",
+ "type_bleo": "full_test",
+ "titre": "les questions que je pose maintenant AVANT d'accepter une offre #emploi #rechercheemploi #negociation #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Full test : accroche jamais faite chez nous (avant d'accepter une offre). Rien de juridique précis. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a979667",
+   "texte_overlay": "les questions que je pose maintenant\nAVANT d'accepter une offre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "413b2a05",
+   "texte_overlay": "« pourquoi le poste est ouvert ? »\ncréation ou départ, ça change tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "425cad9e",
+   "texte_overlay": "« à quoi ressemble une semaine type ? »\nles vraies tâches, pas l'annonce",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "42aec155",
+   "texte_overlay": "« comment on mesure la réussite ici ? »\nsi personne ne sait, personne ne saura te féliciter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "28b4643f",
+   "texte_overlay": "« qu'est-ce qu'on apprend dans ce poste ? »\nmoi j'apprends déjà un truc chaque jour, je veux que ça continue",
+   "texte_sophia": "« qu'est-ce qu'on apprend dans ce poste ? »\nmoi j'apprends déjà 5 minutes par jour sur l'appli Sophia, je veux que ça continue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "433bc898",
+   "texte_overlay": "« je peux parler à quelqu'un de l'équipe ? »\nune bonne boîte dit oui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "434a3a18",
+   "texte_overlay": "« quel délai pour vous répondre ? »\net je prends ce délai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "439b6163",
+   "texte_overlay": "tu poses laquelle, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

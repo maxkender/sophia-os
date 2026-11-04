@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o114",
+ "type_bleo": "full_test",
+ "titre": "ce qu'un recruteur voit en 6 secondes sur ton profil en ligne #recrutement #candidature #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Full test : accroche jamais faite chez nous (le profil en ligne, sans nommer de réseau). Conseils généraux. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15c57cc0",
+   "texte_overlay": "ce qu'un recruteur voit\nen 6 secondes\nsur ton profil en ligne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "eb3b0355",
+   "texte_overlay": "ta photo\nde face, lumière du jour, toi seule.\npas une photo de soirée recadrée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0f33e31c",
+   "texte_overlay": "ton titre\n« en recherche » ne dit rien.\n« assistante rh, spécialisée recrutement » dit tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "14497ba9",
+   "texte_overlay": "ton résumé\n3 phrases : ce que tu fais, ce que tu cherches, une preuve",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3c93b1d5",
+   "texte_overlay": "tes centres d'intérêt\nun vrai sujet qui te ressemble.\nperso, j'ai mis l'histoire de l'art, que j'apprends un peu chaque jour",
+   "texte_sophia": "tes centres d'intérêt\nun vrai sujet qui te ressemble. perso, l'histoire de l'art, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1b105e56",
+   "texte_overlay": "ta dernière activité\nun partage il y a 3 ans, ça se voit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1c992fb5",
+   "texte_overlay": "tes recommandations\n2 suffisent, si elles sont précises",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "246db26e",
+   "texte_overlay": "va voir ton profil maintenant\net change une seule chose aujourd'hui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

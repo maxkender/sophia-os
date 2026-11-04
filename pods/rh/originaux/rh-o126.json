@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o126",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "340b9e9f-76d2-48b0-a4b4-74da5dd7c7e7",
+ "titre": "les red flags chômage que les recruteurs repèrent tout de suite #chomage #rechercheemploi #entretien #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons, après refus). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G1 de la ligne 11 (parent 340b9e9f) : accroche mot pour mot, autres red flags que le parent. Remplace la déclinaison de la ligne 10, refusée (accroche du parent au-delà de 120 caractères). Rien sur les droits. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42d00bfa",
+   "texte_overlay": "les red flags chômage\nque les recruteurs repèrent\ntout de suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "617ad328",
+   "texte_overlay": "1. « je prends n'importe quoi »\non entend surtout que tu ne sais pas ce que tu veux.\ndis le poste que tu vises",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "61b04d98",
+   "texte_overlay": "2. un cv envoyé 50 fois sans changer une ligne\nadapte au moins le titre et les 3 premières lignes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "56fc0988",
+   "texte_overlay": "3. aucune nouvelle compétence depuis des mois\nmême petite : une formation courte, une langue, ce que t'apprends chaque jour",
+   "texte_sophia": "3. aucune nouvelle compétence depuis des mois\nmême petite : une formation courte, une langue, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6276e043",
+   "texte_overlay": "4. parler de ton ancien patron avec rancune\nune phrase neutre, et tu passes à la suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "65198142",
+   "texte_overlay": "5. répondre « rien » à « qu'avez-vous fait ces derniers mois ? »\ndis ce que t'as appris, même petit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "66b8a36a",
+   "texte_overlay": "le chômage n'est pas un red flag.\nla façon d'en parler, parfois si",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6809de87",
+   "texte_overlay": "tu cherches depuis combien de temps ?\non est nombreux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

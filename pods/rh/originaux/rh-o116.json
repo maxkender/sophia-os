@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o116",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai appris en formant ma remplaçante (avant de changer de poste) #travail #carriere #promotion #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons, après refus). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Full test : accroche jamais faite chez nous (former sa remplaçante), en remplacement du premier rh-o116 refusé par le guichet (theme_gagnant, thème chômage déjà gagnant). Récit inventé, aucune entreprise. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3f7cf12b",
+   "texte_overlay": "ce que j'ai appris\nen formant ma remplaçante\n(avant de changer de poste)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "466fb362",
+   "texte_overlay": "je faisais plein de choses sans le savoir\nil a fallu tout écrire. 4 pages",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5eb1d171",
+   "texte_overlay": "la moitié de mes habitudes ne servaient à rien\nje les avais gardées par réflexe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5ee35d0e",
+   "texte_overlay": "expliquer, c'est comprendre une 2e fois\nj'ai trouvé 2 façons de faire plus simples",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1379049d",
+   "texte_overlay": "elle posait des questions que je ne me posais plus\nmes 3 nouvelles habitudes : douter, noter, et apprendre un truc chaque jour",
+   "texte_sophia": "elle posait des questions que je ne me posais plus\nmes 3 nouvelles habitudes : douter, noter, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5faceae9",
+   "texte_overlay": "la laisser se tromper, c'était dur\nmais c'est comme ça qu'elle a appris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6009907d",
+   "texte_overlay": "le jour où elle n'a plus eu besoin de moi\nj'étais fière. et prête à partir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6138b39a",
+   "texte_overlay": "t'as déjà formé quelqu'un ?\nqu'est-ce que t'as appris, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

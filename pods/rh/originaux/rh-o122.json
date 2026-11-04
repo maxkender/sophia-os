@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o122",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d55d375e-1f6e-4015-9c65-5c906cb31f3d",
+ "titre": "6 questions à poser quand le recruteur dit « vous avez des questions ? » #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 5 (parent d55d375e) : accroche mot pour mot, six autres questions que le parent et rh-o111. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35294299",
+   "texte_overlay": "6 questions à poser\nquand le recruteur dit\n« vous avez des questions ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "50acef26",
+   "texte_overlay": "1. « qu'est-ce qui a fait que vous êtes restée ici ? »\nsa réponse vaut toutes les brochures",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "510c0490",
+   "texte_overlay": "2. « comment se prend une décision dans l'équipe ? »\nseul le manager, ou ensemble ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5138cc15",
+   "texte_overlay": "3. « qu'est-ce que vous attendez de moi le premier mois ? »\ntu sais où mettre ton énergie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "38321972",
+   "texte_overlay": "4. « comment l'équipe se forme ? »\nmoi j'apprends déjà un peu chaque jour, je veux savoir si ça continue ici",
+   "texte_sophia": "4. « comment l'équipe se forme ? »\nmoi j'apprends déjà 5 minutes par jour sur l'appli Sophia, je veux savoir si ça continue ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "516b176e",
+   "texte_overlay": "5. « quel est le dernier projet dont l'équipe est fière ? »\nles yeux du recruteur te diront tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "52b43067",
+   "texte_overlay": "6. « qu'est-ce qui vous ferait hésiter entre moi et un autre candidat ? »\net tu réponds tout de suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "530aff9f",
+   "texte_overlay": "laquelle t'oserais poser ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

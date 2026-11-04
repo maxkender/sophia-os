@@ -38,3 +38,6 @@ même »
   pub, et note le changement ici.
 - Historique : A pour toutes les livraisons jusqu'au 25/10 inclus. On démarre
   l'alternance avec B.
+- 4/11 : la phrase d'exemple du cta B (« better than 40 min of reels ») est
+  sortie mot pour mot dans 3 livraisons (original-055, 058, 061). Dans les
+  prochains cta B, garde le sujet de la capture mais change la chute.

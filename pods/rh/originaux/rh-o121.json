@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o121",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d131b87a-328e-4096-bbd8-eade6c5f1fe8",
+ "titre": "comment je juge une boîte en une seule visite de ses bureaux #entretien #travail #carriere #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 4 (parent d131b87a, r 7,3) : accroche mot pour mot, autres indices que le parent (rh-o053). Indices, jamais des certitudes. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2ddc9f09",
+   "texte_overlay": "comment je juge une boîte\nen une seule visite\nde ses bureaux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4ea3979c",
+   "texte_overlay": "la salle d'attente\npropre et calme, ou personne ne sait où te mettre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4ee2e82e",
+   "texte_overlay": "les toilettes\noui. elles disent si on respecte les gens qui y travaillent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4f5824bc",
+   "texte_overlay": "le bruit\nun open space qui rit de temps en temps, c'est bon signe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "37b240ad",
+   "texte_overlay": "la cuisine commune\nun tableau de partage, des livres qui circulent, des gens qui apprennent",
+   "texte_sophia": "la cuisine commune\nun tableau de partage, des livres, des gens qui apprennent. utilise l'appli Sophia 5 minutes par jour, et t'en fais partie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4f8da79e",
+   "texte_overlay": "les écrans à 19 h\nsi on te reçoit tard, regarde combien sont encore allumés",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4fdb0056",
+   "texte_overlay": "la personne qui te raccompagne\nte parle-t-elle, ou regarde-t-elle son téléphone ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "508b3246",
+   "texte_overlay": "toi, t'as déjà refusé un poste\nà cause d'une visite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

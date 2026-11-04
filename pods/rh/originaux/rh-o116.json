@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o116",
+ "type_bleo": "full_test",
+ "titre": "3 mois de chômage : ce que je ferais différemment si c'était à refaire #chomage #rechercheemploi #emploi #santementale #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Full test : accroche jamais faite chez nous. Rien sur les droits précis : se renseigner auprès des bons interlocuteurs. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a0bf5d7",
+   "texte_overlay": "3 mois de chômage :\nce que je ferais différemment\nsi c'était à refaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3997b3dd",
+   "texte_overlay": "je postulerais moins, mais mieux\n5 candidatures préparées valent 50 copiées-collées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3bd975f6",
+   "texte_overlay": "je garderais des horaires\nlever, pause, fin de journée. comme un vrai job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3d210f96",
+   "texte_overlay": "j'appellerais d'anciens collègues dès la 1re semaine\npas au bout de 2 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1fe950b2",
+   "texte_overlay": "je garderais un truc qui me fait grandir\nmes 3 bouées : le sport, mes amis, et 5 minutes par jour à apprendre",
+   "texte_sophia": "je garderais un truc qui me fait grandir\nmes 3 bouées : le sport, mes amis, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3ffe4ab3",
+   "texte_overlay": "je me renseignerais sur mes démarches tout de suite\nauprès des bons interlocuteurs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "406552c3",
+   "texte_overlay": "je serais plus gentille avec moi\nce n'est pas une question de valeur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "40bf3754",
+   "texte_overlay": "t'en es à combien de mois ?\nsans jugement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

@@ -3066,7 +3066,9 @@ export const fr = {
         non_gagnants_ok: "Non-gagnants sous 15 %",
         recolte_ok: "Récolte suffisante",
         tests_recents_complets: "Tests des contenus récents complets",
-        valeur_plan_superieure: "Valeur du plan au-dessus de minuit",
+        plan_servi: "Plan servi (au plus 1 % de créneaux manqués, hors comptes bloqués)",
+        aucune_tierlist: "Aucun post de la tierlist",
+        aucune_repetition: "Aucune répétition non déclarée (contenu, thème, photo)",
       },
       stats: {
         comptes: "Comptes",
@@ -3135,9 +3137,11 @@ export const fr = {
         dernierPlanDesc: "Tiré le {{quand}} en {{duree}} s.",
         voirPlan: "Voir le plan compte par compte",
         rapport: "Dernier rapport",
-        rapportDesc: "Plan du {{jour}} comparé à minuit, calculé le {{quand}}.",
+        rapportDesc: "Plan du {{jour}} comparé à ce qui a été servi et publié, calculé le {{quand}}.",
         rapportAucun: "Pas encore de rapport : il est calculé à 22 h le jour du plan.",
         rapportValeur: "Valeur du plan {{plan}} contre {{reel}} pour minuit · {{identiques}} couples identiques.",
+        rapportExecution:
+          "{{auPlan}} créneaux sur {{plan}} servis comme prévu, {{remplaces}} remplacés par BLEO, {{tierlist}} par la tierlist, {{nonServis}} non servis · {{publies}} posts publiés sur {{posts}} à l'heure du rapport.",
         derniereNuit: "Dernière nuit",
         derniereNuitDesc: "Nuit du {{jour}}, finie le {{quand}} en {{duree}} s.",
         nuitAucune: "Pas encore de nuit.",

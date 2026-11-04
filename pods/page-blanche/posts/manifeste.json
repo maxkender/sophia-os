@@ -2325,7 +2325,83 @@
     "id": "7373989994559556385",
     "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta B; photo Google de la slide 3 remplacée"
+  },
+  {
+   "post_id": "original-053",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#greenflags #attentionspan #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "axjunior",
+    "original": true,
+    "id": "7591602615425321750",
+    "url_tiktok": "https://www.tiktok.com/music/x-7591602615425321750"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7702412215902571809_1",
+    "2": "7696527080426655009_6",
+    "3": "7689918962905124129_2",
+    "4": "7692093201968090401_6",
+    "5": "7703619977630190881_4",
+    "6": "7685071416466607382_3"
+   },
+   "notes": "nouvelle accroche (green flags); cta C"
+  },
+  {
+   "post_id": "original-059",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#phoneaddiction #screentime #selfcare",
+   "musique": {
+    "titre": "som original",
+    "auteur": "thegoodvibesplaylist",
+    "original": true,
+    "id": "7352555204486449925",
+    "url_tiktok": "https://www.tiktok.com/music/x-7352555204486449925"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683630825610513686_1",
+    "2": "7685340052989398275_4",
+    "3": "7699939278847085857_4",
+    "4": "7684726544442346774_4",
+    "5": "7695416366886604064_2",
+    "6": "7697728269335924001_6"
+   },
+   "notes": "nouvelle accroche (conseils à un pote); cta C"
+  },
+  {
+   "post_id": "original-060",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainworkout #learnontiktok #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7701398929807641888_1",
+    "2": "7689918962905124129_6",
+    "3": "7692093201968090401_2",
+    "4": "7688807102764092705_5",
+    "5": "7699523873712164128_6",
+    "6": "7689509565536177441_5"
+   },
+   "notes": "essai (programme de muscu du cerveau de @joshczuba, 6,6M vues); cta A"
   }
  ]
 }

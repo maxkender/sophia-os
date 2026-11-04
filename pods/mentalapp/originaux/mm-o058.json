@@ -1,0 +1,213 @@
+{
+ "id": "mm-o058",
+ "format": "carrousel",
+ "titre": "Weekend habits that reset your brain",
+ "legendes": {
+  "en": "weekend habits that reset your brain #weekend #reset #mentalmaxxing #selfimprovement",
+  "fr": "les habitudes du week-end qui remettent ton cerveau à zéro #weekend #reset #mentalmaxxing #developpementpersonnel",
+  "de": "Wochenendgewohnheiten, die dein Gehirn resetten #wochenende #reset #mentalmaxxing #selbstverbesserung",
+  "es": "hábitos de fin de semana que resetean tu cerebro #findesemana #reset #mentalmaxxing #superacionpersonal",
+  "it": "abitudini del weekend che resettano il cervello #weekend #reset #mentalmaxxing #crescitapersonale",
+  "tr": "beynini sıfırlayan hafta sonu alışkanlıkları #haftasonu #reset #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "theme": {
+   "en": "Weekend habits",
+   "fr": "Habitudes du week-end",
+   "de": "Wochenend-Gewohnheiten",
+   "es": "Hábitos de fin de semana",
+   "it": "Abitudini del weekend",
+   "tr": "Hafta sonu alışkanlıkları"
+  },
+  "sous": {
+   "en": "that reset your brain",
+   "fr": "pour remettre ton cerveau à zéro",
+   "de": "für einen Gehirn-Reset",
+   "es": "que resetean tu cerebro",
+   "it": "che resettano il cervello",
+   "tr": "beynini sıfırlayanlar"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "A long walk outside",
+    "fr": "Une longue marche dehors",
+    "de": "Ein langer Spaziergang draußen",
+    "es": "Un paseo largo fuera",
+    "it": "Una lunga camminata fuori",
+    "tr": "Dışarıda uzun bir yürüyüş"
+   },
+   "texte": {
+    "en": "One or two hours, no headphones. The best reset there is.",
+    "fr": "Une ou deux heures, sans écouteurs. Le meilleur reset qui existe.",
+    "de": "Ein, zwei Stunden, ohne Kopfhörer. Der beste Reset, den es gibt.",
+    "es": "Una o dos horas, sin auriculares. El mejor reset que hay.",
+    "it": "Una o due ore, senza cuffie. Il miglior reset che esista.",
+    "tr": "Bir iki saat, kulaklıksız. Var olan en iyi sıfırlama."
+   }
+  },
+  {
+   "src": "7697820355800370448/3",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Cooking something slow",
+    "fr": "Cuisiner un plat qui prend du temps",
+    "de": "Etwas Langsames kochen",
+    "es": "Cocinar algo lento",
+    "it": "Cucinare qualcosa di lento",
+    "tr": "Yavaş pişen bir şey yapmak"
+   },
+   "texte": {
+    "en": "A recipe that takes two hours. Your hands busy, your head quiet.",
+    "fr": "Une recette qui prend deux heures. Les mains occupées, la tête au calme.",
+    "de": "Ein Rezept, das zwei Stunden dauert. Hände beschäftigt, Kopf ruhig.",
+    "es": "Una receta de dos horas. Las manos ocupadas, la cabeza tranquila.",
+    "it": "Una ricetta di due ore. Mani occupate, testa calma.",
+    "tr": "İki saat süren bir tarif. Ellerin meşgul, kafan sakin."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "A book in the morning",
+    "fr": "Un livre le matin",
+    "de": "Ein Buch am Morgen",
+    "es": "Un libro por la mañana",
+    "it": "Un libro al mattino",
+    "tr": "Sabah bir kitap"
+   },
+   "texte": {
+    "en": "Before the phone, before the news. The whole day feels slower.",
+    "fr": "Avant le téléphone, avant les infos. Toute la journée paraît plus lente.",
+    "de": "Vor dem Handy, vor den Nachrichten. Der ganze Tag fühlt sich langsamer an.",
+    "es": "Antes del móvil, antes de las noticias. Todo el día se siente más lento.",
+    "it": "Prima del telefono, prima delle notizie. Tutta la giornata sembra più lenta.",
+    "tr": "Telefondan, haberlerden önce. Bütün gün daha yavaş geçer."
+   }
+  },
+  {
+   "src": "7697820355800370448/7",
+   "boite": [
+    354,
+    432,
+    372,
+    468
+   ],
+   "titre": {
+    "en": "One long workout",
+    "fr": "Une longue séance",
+    "de": "Ein langes Workout",
+    "es": "Un entreno largo",
+    "it": "Un lungo allenamento",
+    "tr": "Uzun bir antrenman"
+   },
+   "texte": {
+    "en": "No rush on a Saturday. Your body resets your brain.",
+    "fr": "Pas de rush le samedi. Ton corps remet ton cerveau à zéro.",
+    "de": "Kein Stress am Samstag. Dein Körper resettet dein Gehirn.",
+    "es": "Sin prisas el sábado. Tu cuerpo resetea tu cerebro.",
+    "it": "Nessuna fretta il sabato. Il corpo resetta il cervello.",
+    "tr": "Cumartesi acele yok. Bedenin beynini sıfırlar."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: my weekends disappeared into short videos. After deleting them with UnSwipe: two full days that actually feel like two days.",
+    "fr": "Avant : mes week-ends disparaissaient dans les vidéos courtes. Après les avoir supprimées avec UnSwipe : deux vraies journées qui durent vraiment deux jours.",
+    "de": "Vorher: Meine Wochenenden verschwanden in Kurzvideos. Nachdem ich sie mit UnSwipe gelöscht habe: zwei volle Tage, die sich wirklich wie zwei Tage anfühlen.",
+    "es": "Antes: mis fines de semana desaparecían en vídeos cortos. Después de borrarlos con UnSwipe: dos días enteros que de verdad parecen dos días.",
+    "it": "Prima: i miei weekend sparivano nei video brevi. Dopo averli eliminati con UnSwipe: due giorni pieni che sembrano davvero due giorni.",
+    "tr": "Önce: hafta sonlarım kısa videolarda kayboluyordu. UnSwipe ile sildikten sonra: gerçekten iki gün gibi gelen iki tam gün."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Same wake-up time",
+    "fr": "La même heure de réveil",
+    "de": "Die gleiche Weckzeit",
+    "es": "La misma hora de despertar",
+    "it": "La stessa ora di sveglia",
+    "tr": "Aynı uyanma saati"
+   },
+   "texte": {
+    "en": "Sleeping until noon makes Monday harder. An hour later at most.",
+    "fr": "Dormir jusqu’à midi rend le lundi plus dur. Une heure de plus, maximum.",
+    "de": "Bis Mittag schlafen macht den Montag schwerer. Höchstens eine Stunde später.",
+    "es": "Dormir hasta el mediodía hace el lunes más duro. Una hora más como mucho.",
+    "it": "Dormire fino a mezzogiorno rende il lunedì più duro. Un’ora in più al massimo.",
+    "tr": "Öğlene kadar uyumak pazartesiyi zorlaştırır. En fazla bir saat geç."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Plan the week on Sunday",
+    "fr": "Planifie la semaine le dimanche",
+    "de": "Plane die Woche am Sonntag",
+    "es": "Planifica la semana el domingo",
+    "it": "Pianifica la settimana la domenica",
+    "tr": "Haftayı pazar günü planla"
+   },
+   "texte": {
+    "en": "Fifteen minutes and three priorities. Monday starts with a direction.",
+    "fr": "Quinze minutes et trois priorités. Le lundi commence avec une direction.",
+    "de": "Fünfzehn Minuten und drei Prioritäten. Der Montag beginnt mit einer Richtung.",
+    "es": "Quince minutos y tres prioridades. El lunes empieza con rumbo.",
+    "it": "Quindici minuti e tre priorità. Il lunedì inizia con una direzione.",
+    "tr": "On beş dakika ve üç öncelik. Pazartesi bir yönle başlar."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous en carrousel (« weekend habits that reset your brain » ; le thème week-end a marché en tier list avec mm-o013, 2 207 vues en fr). cta C (avant/après) : élément UnSwipe en 5e item (slide 6)."
+}

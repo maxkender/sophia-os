@@ -1,0 +1,188 @@
+{
+ "id": "mm-o054",
+ "format": "carrousel",
+ "titre": "Things I quit that made me happier",
+ "legendes": {
+  "en": "things I quit that made me happier #happiness #habits #mentalmaxxing #selfimprovement",
+  "fr": "ce que j’ai arrêté et qui m’a rendu plus heureux #bonheur #habitudes #mentalmaxxing #developpementpersonnel",
+  "de": "Dinge, die ich aufgegeben habe und die mich glücklicher machen #glück #gewohnheiten #mentalmaxxing #selbstverbesserung",
+  "es": "cosas que dejé y me hicieron más feliz #felicidad #habitos #mentalmaxxing #superacionpersonal",
+  "it": "cose che ho smesso di fare e mi hanno reso più felice #felicità #abitudini #mentalmaxxing #crescitapersonale",
+  "tr": "bırakıp beni daha mutlu eden şeyler #mutluluk #alışkanlıklar #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7693198322500259090/1",
+   "boite": [
+    265,
+    425,
+    580,
+    815
+   ]
+  },
+  "theme": {
+   "en": "Things I quit",
+   "fr": "Ce que j’ai arrêté",
+   "de": "Was ich aufgab",
+   "es": "Lo que dejé",
+   "it": "Cosa ho smesso",
+   "tr": "Bıraktıklarım"
+  },
+  "sous": {
+   "en": "that made me happier",
+   "fr": "et qui m’a rendu heureux",
+   "de": "und glücklicher wurde",
+   "es": "y me hizo más feliz",
+   "it": "e mi ha reso più felice",
+   "tr": "ve beni mutlu edenler"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "The first one I quit: short videos. Before: two hours of other people’s lives a day. After deleting them with UnSwipe: two hours of mine.",
+    "fr": "La première chose arrêtée : les vidéos courtes. Avant : deux heures par jour de la vie des autres. Après les avoir supprimées avec UnSwipe : deux heures de la mienne.",
+    "de": "Als Erstes aufgegeben: Kurzvideos. Vorher: zwei Stunden am Tag das Leben anderer. Nachdem ich sie mit UnSwipe gelöscht habe: zwei Stunden meines eigenen.",
+    "es": "Lo primero que dejé: los vídeos cortos. Antes: dos horas al día de la vida de otros. Después de borrarlos con UnSwipe: dos horas de la mía.",
+    "it": "La prima cosa che ho smesso: i video brevi. Prima: due ore al giorno della vita degli altri. Dopo averli eliminati con UnSwipe: due ore della mia.",
+    "tr": "Bıraktığım ilk şey: kısa videolar. Önce: günde iki saat başkalarının hayatı. UnSwipe ile sildikten sonra: iki saat benim hayatım."
+   }
+  },
+  {
+   "src": "7698939556371975431/6",
+   "boite": [
+    312,
+    420,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Comparing my life online",
+    "fr": "Comparer ma vie en ligne",
+    "de": "Mein Leben online vergleichen",
+    "es": "Comparar mi vida en internet",
+    "it": "Confrontare la mia vita online",
+    "tr": "Hayatımı internetle kıyaslamak"
+   },
+   "texte": {
+    "en": "Everyone posts their best day. Stopping the comparison made my normal days feel good again.",
+    "fr": "Tout le monde poste son meilleur jour. Arrêter de comparer a rendu mes journées normales agréables.",
+    "de": "Alle posten ihren besten Tag. Ohne Vergleich fühlen sich meine normalen Tage wieder gut an.",
+    "es": "Todos publican su mejor día. Dejar de comparar hizo que mis días normales volvieran a sentirse bien.",
+    "it": "Tutti postano la giornata migliore. Smettere di confrontare ha reso di nuovo belle le mie giornate normali.",
+    "tr": "Herkes en iyi gününü paylaşıyor. Kıyaslamayı bırakınca sıradan günlerim yine güzel geldi."
+   }
+  },
+  {
+   "src": "7697820355800370448/2",
+   "boite": [
+    312,
+    438,
+    456,
+    450
+   ],
+   "titre": {
+    "en": "Gaming until 3am",
+    "fr": "Jouer jusqu’à 3h",
+    "de": "Zocken bis 3 Uhr",
+    "es": "Jugar hasta las 3",
+    "it": "Giocare fino alle 3",
+    "tr": "Gece 3’e kadar oyun"
+   },
+   "texte": {
+    "en": "I still play, just earlier. Better sleep fixed my mood more than anything.",
+    "fr": "Je joue encore, juste plus tôt. Mieux dormir a amélioré mon humeur plus que tout.",
+    "de": "Ich spiele noch, nur früher. Besserer Schlaf hat meine Laune mehr verbessert als alles andere.",
+    "es": "Sigo jugando, solo que antes. Dormir mejor mejoró mi humor más que nada.",
+    "it": "Gioco ancora, solo prima. Dormire meglio ha migliorato l’umore più di tutto.",
+    "tr": "Hâlâ oynuyorum, sadece daha erken. Daha iyi uyku ruh halimi her şeyden çok düzeltti."
+   }
+  },
+  {
+   "src": "7699644186470976786/4",
+   "boite": [
+    336,
+    372,
+    468,
+    468
+   ],
+   "titre": {
+    "en": "Five coffees a day",
+    "fr": "Cinq cafés par jour",
+    "de": "Fünf Kaffees am Tag",
+    "es": "Cinco cafés al día",
+    "it": "Cinque caffè al giorno",
+    "tr": "Günde beş kahve"
+   },
+   "texte": {
+    "en": "One good coffee in the morning. Less anxiety, fewer crashes.",
+    "fr": "Un bon café le matin. Moins d’anxiété, moins de coups de barre.",
+    "de": "Ein guter Kaffee am Morgen. Weniger Unruhe, weniger Abstürze.",
+    "es": "Un buen café por la mañana. Menos ansiedad, menos bajones.",
+    "it": "Un buon caffè al mattino. Meno ansia, meno cali.",
+    "tr": "Sabah iyi bir kahve. Daha az kaygı, daha az çöküş."
+   }
+  },
+  {
+   "src": "7699644186470976786/6",
+   "boite": [
+    168,
+    474,
+    750,
+    462
+   ],
+   "titre": {
+    "en": "Saying yes to everything",
+    "fr": "Dire oui à tout",
+    "de": "Zu allem Ja sagen",
+    "es": "Decir que sí a todo",
+    "it": "Dire sì a tutto",
+    "tr": "Her şeye evet demek"
+   },
+   "texte": {
+    "en": "Fewer plans, more energy for the ones that matter.",
+    "fr": "Moins de plans, plus d’énergie pour ceux qui comptent.",
+    "de": "Weniger Pläne, mehr Energie für die wichtigen.",
+    "es": "Menos planes, más energía para los que importan.",
+    "it": "Meno impegni, più energia per quelli che contano.",
+    "tr": "Daha az plan, önemli olanlar için daha çok enerji."
+   }
+  },
+  {
+   "src": "7698939556371975431/2",
+   "boite": [
+    312,
+    450,
+    438,
+    426
+   ],
+   "titre": {
+    "en": "Eating on autopilot",
+    "fr": "Manger en pilote automatique",
+    "de": "Essen auf Autopilot",
+    "es": "Comer en piloto automático",
+    "it": "Mangiare col pilota automatico",
+    "tr": "Otomatik pilotta yemek"
+   },
+   "texte": {
+    "en": "Real meals at a table. I feel better and I actually enjoy food again.",
+    "fr": "De vrais repas à table. Je me sens mieux et j’apprécie à nouveau la nourriture.",
+    "de": "Echte Mahlzeiten am Tisch. Ich fühle mich besser und genieße Essen wieder.",
+    "es": "Comidas de verdad en la mesa. Me siento mejor y vuelvo a disfrutar comiendo.",
+    "it": "Pasti veri a tavola. Sto meglio e mi godo di nuovo il cibo.",
+    "tr": "Masada gerçek yemekler. Daha iyi hissediyorum ve yemekten yine keyif alıyorum."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous (« things I quit that made me happier »). cta C (avant/après) : élément UnSwipe en 1er item (slide 2)."
+}

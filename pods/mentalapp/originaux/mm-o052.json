@@ -1,0 +1,551 @@
+{
+ "id": "mm-o052",
+ "titre": "tier list of Dopamine hits pt2",
+ "position_app": 2,
+ "legendes": {
+  "en": "dopamine hits pt2, from real to cheap #dopamine #tierlist #mentalmaxxing #selfimprovement",
+  "fr": "les shoots de dopamine partie 2, du vrai au toc #dopamine #tierlist #mentalmaxxing #developpementpersonnel",
+  "de": "Dopamin-Kicks Teil 2, von echt bis billig #dopamin #tierlist #mentalmaxxing #selbstverbesserung",
+  "es": "chutes de dopamina parte 2, de lo real a lo barato #dopamina #tierlist #mentalmaxxing #superacionpersonal",
+  "it": "scariche di dopamina parte 2, dal vero al finto #dopamina #tierlist #mentalmaxxing #crescitapersonale",
+  "tr": "dopamin vuruşları 2. bölüm, gerçekten ucuza #dopamin #tierlist #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7692811167261248775/1",
+   "boite": [
+    134,
+    280,
+    746,
+    588
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de los",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "shoots de",
+   "de": "Dopamin-",
+   "es": "chutes de",
+   "it": "scariche di",
+   "tr": "dopamin"
+  },
+  "bas": {
+   "en": "hits pt2",
+   "fr": "dopamine 2",
+   "de": "Kicks Teil 2",
+   "es": "dopamina pt2",
+   "it": "dopamina pt2",
+   "tr": "vuruşları 2"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "which one is your daily hit?",
+  "fr": "c’est quoi ton shoot quotidien ?",
+  "de": "was ist dein täglicher Kick?",
+  "es": "¿cuál es tu chute diario?",
+  "it": "qual è la tua scarica quotidiana?",
+  "tr": "günlük vuruşun hangisi?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "earned, lasts",
+    "fr": "mérité, durable",
+    "de": "verdient, bleibt",
+    "es": "ganado, dura",
+    "it": "meritato, dura",
+    "tr": "hak edilmiş, kalıcı"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "a hard|workout",
+      "fr": "une séance|dure",
+      "de": "ein hartes|Workout",
+      "es": "un entreno|duro",
+      "it": "un allenamento|duro",
+      "tr": "zor bir|antrenman"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      267,
+      239,
+      120,
+      114
+     ],
+     "t": {
+      "en": "a goal|reached",
+      "fr": "un objectif|atteint",
+      "de": "ein Ziel|erreicht",
+      "es": "una meta|cumplida",
+      "it": "un obiettivo|raggiunto",
+      "tr": "ulaşılan|hedef"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      880,
+      1092,
+      120,
+      125
+     ],
+     "t": {
+      "en": "learning|a skill",
+      "fr": "apprendre|un truc",
+      "de": "etwas|Neues lernen",
+      "es": "aprender|algo",
+      "it": "imparare|qualcosa",
+      "tr": "bir beceri|öğrenmek"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      360,
+      185,
+      155
+     ],
+     "t": {
+      "en": "sunlight",
+      "fr": "soleil",
+      "de": "Sonne",
+      "es": "sol",
+      "it": "sole",
+      "tr": "güneş"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      870,
+      85,
+      150,
+      130
+     ],
+     "t": {
+      "en": "a long walk",
+      "fr": "une longue|marche",
+      "de": "ein langer|Spaziergang",
+      "es": "un paseo|largo",
+      "it": "una lunga|camminata",
+      "tr": "uzun|yürüyüş"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "a good book",
+      "fr": "un bon livre",
+      "de": "ein gutes Buch",
+      "es": "un buen libro",
+      "it": "un buon libro",
+      "tr": "iyi bir kitap"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "music",
+      "fr": "musique",
+      "de": "Musik",
+      "es": "música",
+      "it": "musica",
+      "tr": "müzik"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      5,
+      185,
+      195
+     ],
+     "t": {
+      "en": "a good|breakfast",
+      "fr": "un bon|petit-déj",
+      "de": "ein gutes|Frühstück",
+      "es": "un buen|desayuno",
+      "it": "una buona|colazione",
+      "tr": "iyi bir|kahvaltı"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste",
+      "de": "ein Nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "borrowed",
+    "fr": "emprunté",
+    "de": "geliehen",
+    "es": "prestado",
+    "it": "in prestito",
+    "tr": "ödünç"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "espresso",
+      "fr": "espresso",
+      "de": "Espresso",
+      "es": "espresso",
+      "it": "espresso",
+      "tr": "espresso"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a series",
+      "fr": "une série",
+      "de": "eine Serie",
+      "es": "una serie",
+      "it": "una serie",
+      "tr": "dizi"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping",
+      "de": "Shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "old playlists",
+      "fr": "vieilles|playlists",
+      "de": "alte Playlists",
+      "es": "playlists|viejas",
+      "it": "vecchie|playlist",
+      "tr": "eski|listeler"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "cheap",
+    "fr": "toc",
+    "de": "billig",
+    "es": "barato",
+    "it": "finto",
+    "tr": "ucuz"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "fast food",
+      "fr": "fast-food",
+      "de": "Fast Food",
+      "es": "comida rápida",
+      "it": "fast food",
+      "tr": "fast food"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|marathons",
+      "fr": "marathons|de jeu",
+      "de": "Gaming-|Marathons",
+      "es": "maratones|de gaming",
+      "it": "maratone|di gioco",
+      "tr": "oyun|maratonu"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "checking|likes",
+      "fr": "checker|les likes",
+      "de": "Likes|checken",
+      "es": "mirar|los likes",
+      "it": "controllare|i like",
+      "tr": "beğenilere|bakmak"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "autoplay",
+      "fr": "autoplay",
+      "de": "Autoplay",
+      "es": "reproducción|automática",
+      "it": "autoplay",
+      "tr": "otomatik|oynatma"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "drains you",
+   "fr": "te vide",
+   "de": "saugt dich aus",
+   "es": "te drena",
+   "it": "ti svuota",
+   "tr": "seni tüketir"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h",
+     "de": "Scrollen um 3",
+     "es": "scroll a las 3",
+     "it": "scrollare alle 3",
+     "tr": "gece 3’te scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 04/11 : seule livraison du jour sur la famille tier list (point 6). Reprise de mm-o021 (« Dopamine hits », 5 204 vues en de) en pt2, autres items, autre couverture (le moine) (point 7). cta A : élément UnSwipe en première case du S+."
+}

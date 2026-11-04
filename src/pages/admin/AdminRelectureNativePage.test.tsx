@@ -49,6 +49,22 @@ vi.mock("@/features/relectureNative/api", () => ({
   URL_NOTION_RELECTEURS: "https://www.notion.so/relecteurs",
 }));
 
+const listerDuels = vi.fn();
+const listerVotesRelecteurs = vi.fn();
+const etatLot = vi.fn();
+
+vi.mock("@/features/abTraduction/api", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/features/abTraduction/api")>()),
+  listerCircuits: () => Promise.resolve([{ id: "ancree", version: "ancree-1", nom: "Ancrée", applications: null }]),
+  listerDuels: (...a: unknown[]) => listerDuels(...a),
+  listerVotesRelecteurs: (...a: unknown[]) => listerVotesRelecteurs(...a),
+  rapportVotesRelecteurs: () => Promise.resolve([]),
+  etatLot: () => etatLot(),
+  composerLot: vi.fn(),
+  servirLot: vi.fn(),
+  envoyerAuxRelecteurs: vi.fn(),
+}));
+
 vi.mock("@/features/moteur/api", () => ({
   listerLabels: () =>
     Promise.resolve([
@@ -292,6 +308,87 @@ describe("AdminRelectureNativePage", () => {
     expect(within(screen.getByTestId("exemple-e3")).queryByRole("button", { name: "Relire" })).not.toBeInTheDocument();
     fireEvent.click(within(screen.getByTestId("exemple-e4")).getByRole("button", { name: "Relire" }));
     await waitFor(() => expect(relireExemple).toHaveBeenCalledWith("e4"));
+  });
+
+  it("onglet Duels : les duels envoyés, colonnes cachées puis révélées, et le vote de chaque relecteur avec sa remarque", async () => {
+    lireReglage.mockResolvedValue({ espace_ouvert: true, production: false });
+    listerRelecteurs.mockResolvedValue([
+      { id: "r1", profile_id: "p-k", langue: "de", statut: "invite", note: null, created_at: "2026-10-27T10:00:00Z", prenom: "Bogdan", nom: "Kocsis", email: "b@x.io" },
+    ]);
+    const slide = (texte: string) => [{ position: 1, texte_overlay: texte, position_sophia: false }];
+    listerDuels.mockResolvedValue([
+      {
+        id: "d1",
+        post_id: null,
+        langue: "de",
+        candidat: "ancree",
+        version: "ancree-1",
+        statut: "pret",
+        erreur: null,
+        slides_source: slide("How to counter any insult"),
+        slides_actuel: slide("So konterst du jede Beleidigung richtig elegant"),
+        slides_candidat: slide("Wie du Kritik souverän entschärfst"),
+        hashtags_actuel: null,
+        hashtags_candidat: null,
+        vues_actuel: null,
+        gauche: "candidat",
+        voie_cta: null,
+        forme_cta: null,
+        cta_refus: null,
+        choix: null,
+        remarque: null,
+        relecteurs_le: "2026-11-02T22:00:00Z",
+        lot_id: "lot-1",
+        contenu_id: "c1",
+        created_at: "2026-11-02T22:00:00Z",
+      },
+    ]);
+    listerVotesRelecteurs.mockResolvedValue([
+      {
+        id: "v1",
+        duel_id: "d1",
+        profile_id: "p-k",
+        choix: "actuel",
+        note_actuel: 5,
+        note_candidat: 3,
+        remarque: "Version 2 is the clear winner because it sounds much more natural.",
+        remarque_sur: "les_deux",
+        type_erreur: null,
+        updated_at: "2026-11-03T19:05:00Z",
+      },
+    ]);
+    etatLot.mockResolvedValue({
+      lot: { id: "lot-1", numero: 1, nom: "Lot 1", candidat: "ancree", taille: 15, statut: "actif", created_at: "2026-11-02T14:41:00Z" },
+      contenus: [{ position: 1, contenu_id: "c1", titre: "t", label: "alpha_male_yellow", langue_source: "fr", nb_langues: 20, r_med: 4.28, publies: 21, accroche: "Comment désarmer une critique" }],
+      langues: [{ langue: "de", relecteurs: 1, attendus: 15, prets: 1, echecs: 0, votes: 1, dernier: null }],
+      duels: 1,
+    });
+    void i18n.changeLanguage("en");
+    rendre();
+    fireEvent.click(screen.getByRole("button", { name: /Duels/ }));
+
+    const carte = await screen.findByTestId("duel-admin");
+    expect(carte).toHaveTextContent("Duel 1");
+    expect(carte).toHaveTextContent("alpha_male_yellow");
+    expect(carte).toHaveTextContent("How to counter any insult");
+    expect(carte).toHaveTextContent("So konterst du jede Beleidigung richtig elegant");
+    expect(carte).not.toHaveTextContent(/Version 1 · /);
+    const votes = await within(carte).findByTestId("duel-admin-votes");
+    expect(votes).toHaveTextContent("Bogdan Kocsis");
+    expect(votes).toHaveTextContent(/chose old circuit/);
+    expect(votes).toHaveTextContent("ratings: old 5/5, new 3/5");
+    expect(votes).toHaveTextContent("Version 2 is the clear winner");
+    expect(votes).not.toHaveTextContent(/\(Version 2\)/);
+
+    fireEvent.click(within(carte).getByRole("button", { name: "Reveal" }));
+    expect(carte).toHaveTextContent(/Version 1 · new circuit/);
+    expect(carte).toHaveTextContent(/Version 2 · old circuit \(posted\)/);
+    expect(votes).toHaveTextContent(/chose old circuit \(Version 2\)/);
+    fireEvent.click(within(carte).getByRole("button", { name: "Hide" }));
+    expect(carte).not.toHaveTextContent(/Version 1 · /);
+
+    fireEvent.click(screen.getByRole("button", { name: /Reveal the columns of every duel/ }));
+    expect(carte).toHaveTextContent(/Version 1 · new circuit/);
   });
 
   it("renvoie aux fiches, qui ont leur page : plus d'onglet de fiches ni de CTA ici", () => {

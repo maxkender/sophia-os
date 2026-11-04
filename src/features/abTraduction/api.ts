@@ -37,6 +37,9 @@ export interface Duel {
   remarque: string | null;
   /** Envoyé aux relecteurs natifs de la langue (0626) ; null : l'admin seul le voit. */
   relecteurs_le: string | null;
+  /** Le lot commun (0627) auquel le duel appartient, et son contenu ; null : duel tiré au hasard depuis Tests. */
+  lot_id: string | null;
+  contenu_id: string | null;
   created_at: string;
 }
 
@@ -102,7 +105,7 @@ export async function listerDuels(langue: string, candidat: string, version: str
   const { data, error } = await supabase
     .from("ab_traduction_duels")
     .select(
-      "id, post_id, langue, candidat, version, statut, erreur, slides_source, slides_actuel, slides_candidat, hashtags_actuel, hashtags_candidat, vues_actuel, gauche, voie_cta, forme_cta, cta_refus, choix, remarque, relecteurs_le, created_at",
+      "id, post_id, langue, candidat, version, statut, erreur, slides_source, slides_actuel, slides_candidat, hashtags_actuel, hashtags_candidat, vues_actuel, gauche, voie_cta, forme_cta, cta_refus, choix, remarque, relecteurs_le, lot_id, contenu_id, created_at",
     )
     .eq("langue", langue)
     .eq("candidat", candidat)

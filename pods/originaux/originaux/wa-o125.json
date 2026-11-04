@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o125",
+ "type_bleo": "full_test",
+ "titre": "the boring habits that quietly changed my life #habits #selfimprovement #lifechanging #mindset #routine",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "b80a5958-1818-4c18-9580-44b42a8fe864"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b80a5958). full test BLEO : accroche jamais faite (format « boring habits » à la 1re personne). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6d170d5c-9a71-43e5-82d3-8de38b07f9bd",
+   "texte_overlay": "the boring habits that\nquietly changed my life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666827822144572694/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "831b06b6-215f-41ad-af73-c795846f75d2",
+   "texte_overlay": "the same wake up time\n\ni wake up at the same time every day, weekends included. it sounds dull, but my energy, mood and sleep changed more from this than from any supplement.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666827822144572694/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "611a8454-d0c4-46d2-bd5d-fab7415a5dec",
+   "texte_overlay": "a glass of water first\n\ni drink a full glass of water before coffee every morning. it's the most boring habit i have, and it quietly fixed the afternoon headaches i'd had for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666827822144572694/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d191bf8f-9c54-4365-86ed-7ad9c55a0b69",
+   "texte_overlay": "the ten minute walk\n\ni walk for ten minutes after lunch, every day, in any weather. that short walk clears my head better than a second coffee and quietly saves my afternoons.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666827822144572694/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b17c4ba3-c77a-4c0f-a444-f1b9d10b51ee",
+   "texte_overlay": "one small lesson a day\n\ni learn one small thing every day in 5 minutes: a word, a painting, a moment in history. boring on its own, but a year of it changed how i think and talk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666827822144572694/5.jpg",
+   "texte_sophia": "one small lesson a day\n\ni learn one small thing every day in 5 minutes. the Sophia app turns it into one short lesson a day, boring on its own, but a year of it changed how i think and talk."
+  },
+  {
+   "position": 6,
+   "media_id": "292d6cd8-682d-4650-b1c8-9508c9b06aa3",
+   "texte_overlay": "the sunday reset\n\nevery sunday evening i clean the kitchen and plan the week in twenty minutes. mondays stopped feeling like a crash and started feeling like a fresh start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666827822144572694/6.jpg"
+  }
+ ]
+}

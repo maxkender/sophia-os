@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o128",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9414988d-d742-41f4-bdec-010bd0da0d66",
+ "titre": "5 small habits that can improve your mental health #mentalhealth #habits #selfcare #wellness #selfimprovement",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "0a652139-affc-4654-86df-344f83ba9d54"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 0a652139). déclinaison G1 de « 5 small habits that can improve your mental health » (parent 9414988d, 60 900 vues en tr). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8231ac2f-95fd-41f5-b78f-8954c642e73f",
+   "texte_overlay": "5 small habits that can improve\nyour mental health",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652225727575674126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9bf57c8c-4938-4ca0-9bf4-8274fe0d99f5",
+   "texte_overlay": "morning light\n\nstep outside within half an hour of waking and let daylight hit your face for ten minutes. it sets your body clock, lifts your mood and helps you sleep better tonight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652225727575674126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "596a6d75-ed04-42e3-af7e-4fe8a8d98605",
+   "texte_overlay": "a tidy corner\n\nkeep one small corner of your room perfectly tidy, even on bad days. a calm space to rest your eyes on gives a busy, tired mind somewhere quiet to land.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652225727575674126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4c005363-0754-43be-bdb7-b22650b15d18",
+   "texte_overlay": "a little learning\n\nspend 5 minutes a day learning something calm and new: a constellation, a painting, a myth. gentle curiosity gives your mind something to hold that isn't worry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652225727575674126/3.jpg",
+   "texte_sophia": "a little learning\n\ni spend 5 minutes a day learning something calm and new: a constellation, a painting, a myth. i do it with the Sophia app, one lesson a day, and it gives my mind something besides worry."
+  },
+  {
+   "position": 5,
+   "media_id": "a60d0633-2733-4d2d-a6fe-4c0e35ab7fbe",
+   "texte_overlay": "one honest text\n\nsend one honest message a day to someone you trust, even just a short how are you. small real connections protect your mental health more than you'd think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652225727575674126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d424cff8-6089-4998-a1dc-2a77f69b045a",
+   "texte_overlay": "a screen curfew\n\nstop all screens thirty minutes before bed and read or stretch instead. a quieter last half hour makes falling asleep easier and the next morning lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652225727575674126/6.jpg"
+  }
+ ]
+}

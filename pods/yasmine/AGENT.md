@@ -63,7 +63,8 @@ rejette est validée toute seule 5 h après son dépôt.
 - **CTA** : A = conseil à la 1re personne dans le texte, sans image ; B = mise en scène micabo en photo pleine d'une étape ; C = mise en scène micabo en moitié de collage, sous une légende de conseil.
 - **Notes iOS sur photo** (« things i do to SMASH EVERY EXAM ») : slide `photo` avec `note` (`x` 108 ou 308, `y`, `titre`, `texte`), barre d'état et boutons de l'app Notes, Inter Medium 41/37 px. micabo y entre dans le texte d'un conseil, jamais en capture.
 - **Cartes d'applis** (« my favorite productivity apps ») : `type: "carte"`, l'iPad blanc plus petit (`IPAD_CARTE`), icône 168 px, nom et texte en Inter Medium `#323232`. Icônes dans `assets/applis/` (App Store ; Calendrier repeint en français).
-- **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).
+- **Écrans d'iPhone** (« organise my phone ») : `npm run ios -- <nom>` dessine 5 écrans iOS (verrouillage, accueil à widgets, vue Aujourd'hui, centre de contrôle, concentration) depuis `ios/<nom>.json` (fond d'écran, textes par langue) dans `assets/ios/<nom>/<langue>/` ; chaque slide photo les pose avec `capture` et `iphone: {haut: 250, largeur: 700}`. micabo y est en widget (slide de l'accueil = slide de l'appli).
+- **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), les pages d'agenda iPad (« THAT GIRL GUIDE to planning »).
 	- Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`).
 	- Garde le même soin que le reste.
 

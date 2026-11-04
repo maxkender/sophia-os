@@ -1,0 +1,530 @@
+{
+ "fond": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/740de307-0d0e-4d09-a890-2da69e9f3495/4.jpg?v=1787135927966",
+ "langues": {
+  "fr": {
+   "date": "mardi 4 novembre",
+   "titre_musique": "lofi pour réviser",
+   "artiste": "ma playlist révisions",
+   "meteo_ville": "Paris",
+   "meteo_ciel": "ensoleillé",
+   "widget_micabo": [
+    "quiz du jour",
+    "10 min · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendrier",
+    "notes": "Notes",
+    "photos": "Photos",
+    "livres": "Livres",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Recherche"
+   },
+   "mois": "novembre",
+   "revisions": "révisions",
+   "jours": [
+    {
+     "nom": "lundi",
+     "taches": [
+      "quiz de bio",
+      "fiches d’histoire"
+     ]
+    },
+    {
+     "nom": "mardi",
+     "taches": [
+      "exos de maths",
+      "quiz d’anglais",
+      "lire le ch. 4"
+     ]
+    },
+    {
+     "nom": "mercredi",
+     "taches": [
+      "dissertation"
+     ]
+    },
+    {
+     "nom": "jeudi",
+     "taches": [
+      "quiz de philo",
+      "ranger le bureau"
+     ]
+    }
+   ],
+   "focus_titre": "modes de concentration🌙",
+   "focus": [
+    [
+     "Ne pas déranger",
+     "coupe toutes les notifications"
+    ],
+    [
+     "Sommeil",
+     ""
+    ],
+    [
+     "Révisions",
+     "seulement micabo et Notes"
+    ],
+    [
+     "Personnel",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nouveau mode",
+   "heure": "7:39"
+  },
+  "en": {
+   "date": "Tuesday, November 4",
+   "titre_musique": "lofi to study to",
+   "artiste": "my study playlist",
+   "meteo_ville": "London",
+   "meteo_ciel": "sunny",
+   "widget_micabo": [
+    "today’s quiz",
+    "10 min · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendar",
+    "notes": "Notes",
+    "photos": "Photos",
+    "livres": "Books",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Search"
+   },
+   "mois": "november",
+   "revisions": "study time",
+   "jours": [
+    {
+     "nom": "Monday",
+     "taches": [
+      "bio quiz",
+      "history notes"
+     ]
+    },
+    {
+     "nom": "Tuesday",
+     "taches": [
+      "math problems",
+      "english quiz",
+      "read ch. 4"
+     ]
+    },
+    {
+     "nom": "Wednesday",
+     "taches": [
+      "essay"
+     ]
+    },
+    {
+     "nom": "Thursday",
+     "taches": [
+      "philosophy quiz",
+      "tidy my desk"
+     ]
+    }
+   ],
+   "focus_titre": "focus modes🌙",
+   "focus": [
+    [
+     "Do Not Disturb",
+     "silence all notifications"
+    ],
+    [
+     "Sleep",
+     ""
+    ],
+    [
+     "Study",
+     "only micabo and Notes"
+    ],
+    [
+     "Personal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "New Focus",
+   "heure": "7:39"
+  },
+  "es": {
+   "date": "martes, 4 de noviembre",
+   "titre_musique": "lofi para estudiar",
+   "artiste": "mi playlist de estudio",
+   "meteo_ville": "Madrid",
+   "meteo_ciel": "soleado",
+   "widget_micabo": [
+    "quiz del día",
+    "10 min · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendario",
+    "notes": "Notas",
+    "photos": "Fotos",
+    "livres": "Libros",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Buscar"
+   },
+   "mois": "noviembre",
+   "revisions": "estudio",
+   "jours": [
+    {
+     "nom": "lunes",
+     "taches": [
+      "quiz de bio",
+      "apuntes de historia"
+     ]
+    },
+    {
+     "nom": "martes",
+     "taches": [
+      "ejercicios de mates",
+      "quiz de inglés",
+      "leer el tema 4"
+     ]
+    },
+    {
+     "nom": "miércoles",
+     "taches": [
+      "redacción"
+     ]
+    },
+    {
+     "nom": "jueves",
+     "taches": [
+      "quiz de filo",
+      "ordenar el escritorio"
+     ]
+    }
+   ],
+   "focus_titre": "modos de concentración🌙",
+   "focus": [
+    [
+     "No molestar",
+     "silencia todas las notificaciones"
+    ],
+    [
+     "Sueño",
+     ""
+    ],
+    [
+     "Estudio",
+     "solo micabo y Notas"
+    ],
+    [
+     "Personal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nuevo modo",
+   "heure": "7:39"
+  },
+  "de": {
+   "date": "Dienstag, 4. November",
+   "titre_musique": "Lofi zum Lernen",
+   "artiste": "meine Lern-Playlist",
+   "meteo_ville": "Berlin",
+   "meteo_ciel": "sonnig",
+   "widget_micabo": [
+    "Quiz des Tages",
+    "10 Min. · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Kalender",
+    "notes": "Notizen",
+    "photos": "Fotos",
+    "livres": "Bücher",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Suchen"
+   },
+   "mois": "November",
+   "revisions": "Lernzeit",
+   "jours": [
+    {
+     "nom": "Montag",
+     "taches": [
+      "Bio-Quiz",
+      "Geschichte-Notizen"
+     ]
+    },
+    {
+     "nom": "Dienstag",
+     "taches": [
+      "Matheaufgaben",
+      "Englisch-Quiz",
+      "Kap. 4 lesen"
+     ]
+    },
+    {
+     "nom": "Mittwoch",
+     "taches": [
+      "Aufsatz"
+     ]
+    },
+    {
+     "nom": "Donnerstag",
+     "taches": [
+      "Philo-Quiz",
+      "Schreibtisch aufräumen"
+     ]
+    }
+   ],
+   "focus_titre": "Fokus-Modi🌙",
+   "focus": [
+    [
+     "Nicht stören",
+     "alle Mitteilungen stumm"
+    ],
+    [
+     "Schlafen",
+     ""
+    ],
+    [
+     "Lernen",
+     "nur micabo und Notizen"
+    ],
+    [
+     "Persönlich",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Neuer Fokus",
+   "heure": "7:39"
+  },
+  "it": {
+   "date": "martedì 4 novembre",
+   "titre_musique": "lofi per studiare",
+   "artiste": "la mia playlist studio",
+   "meteo_ville": "Roma",
+   "meteo_ciel": "soleggiato",
+   "widget_micabo": [
+    "quiz del giorno",
+    "10 min · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendario",
+    "notes": "Note",
+    "photos": "Foto",
+    "livres": "Libri",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Cerca"
+   },
+   "mois": "novembre",
+   "revisions": "studio",
+   "jours": [
+    {
+     "nom": "lunedì",
+     "taches": [
+      "quiz di bio",
+      "appunti di storia"
+     ]
+    },
+    {
+     "nom": "martedì",
+     "taches": [
+      "esercizi di mate",
+      "quiz di inglese",
+      "leggere il cap. 4"
+     ]
+    },
+    {
+     "nom": "mercoledì",
+     "taches": [
+      "tema"
+     ]
+    },
+    {
+     "nom": "giovedì",
+     "taches": [
+      "quiz di filosofia",
+      "sistemare la scrivania"
+     ]
+    }
+   ],
+   "focus_titre": "modalità full immersion🌙",
+   "focus": [
+    [
+     "Non disturbare",
+     "silenzia tutte le notifiche"
+    ],
+    [
+     "Riposo",
+     ""
+    ],
+    [
+     "Studio",
+     "solo micabo e Note"
+    ],
+    [
+     "Personale",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nuova modalità",
+   "heure": "7:39"
+  },
+  "pt": {
+   "date": "terça-feira, 4 de novembro",
+   "titre_musique": "lofi pra estudar",
+   "artiste": "minha playlist de estudos",
+   "meteo_ville": "Lisboa",
+   "meteo_ciel": "ensolarado",
+   "widget_micabo": [
+    "quiz do dia",
+    "10 min · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendário",
+    "notes": "Notas",
+    "photos": "Fotos",
+    "livres": "Livros",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Buscar"
+   },
+   "mois": "novembro",
+   "revisions": "estudos",
+   "jours": [
+    {
+     "nom": "segunda",
+     "taches": [
+      "quiz de bio",
+      "resumo de história"
+     ]
+    },
+    {
+     "nom": "terça",
+     "taches": [
+      "exercícios de mat.",
+      "quiz de inglês",
+      "ler o cap. 4"
+     ]
+    },
+    {
+     "nom": "quarta",
+     "taches": [
+      "redação"
+     ]
+    },
+    {
+     "nom": "quinta",
+     "taches": [
+      "quiz de filosofia",
+      "arrumar a mesa"
+     ]
+    }
+   ],
+   "focus_titre": "modos de foco🌙",
+   "focus": [
+    [
+     "Não Perturbe",
+     "silencia todas as notificações"
+    ],
+    [
+     "Sono",
+     ""
+    ],
+    [
+     "Estudos",
+     "só micabo e Notas"
+    ],
+    [
+     "Pessoal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Novo foco",
+   "heure": "7:39"
+  },
+  "tr": {
+   "date": "4 Kasım Salı",
+   "titre_musique": "ders için lofi",
+   "artiste": "ders çalma listem",
+   "meteo_ville": "İstanbul",
+   "meteo_ciel": "güneşli",
+   "widget_micabo": [
+    "günün testi",
+    "10 dk · 7/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Takvim",
+    "notes": "Notlar",
+    "photos": "Fotoğraflar",
+    "livres": "Kitaplar",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Ara"
+   },
+   "mois": "kasım",
+   "revisions": "ders süresi",
+   "jours": [
+    {
+     "nom": "Pazartesi",
+     "taches": [
+      "biyoloji testi",
+      "tarih notları"
+     ]
+    },
+    {
+     "nom": "Salı",
+     "taches": [
+      "matematik soruları",
+      "İngilizce testi",
+      "4. üniteyi oku"
+     ]
+    },
+    {
+     "nom": "Çarşamba",
+     "taches": [
+      "kompozisyon"
+     ]
+    },
+    {
+     "nom": "Perşembe",
+     "taches": [
+      "felsefe testi",
+      "masayı topla"
+     ]
+    }
+   ],
+   "focus_titre": "odak modları🌙",
+   "focus": [
+    [
+     "Rahatsız Etme",
+     "tüm bildirimleri sessize al"
+    ],
+    [
+     "Uyku",
+     ""
+    ],
+    [
+     "Ders",
+     "sadece micabo ve Notlar"
+    ],
+    [
+     "Kişisel",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Yeni Odak",
+   "heure": "7:39"
+  }
+ }
+}

@@ -5,8 +5,8 @@
 export const POD = "remakes_kaja";
 /** Le compte refait : Kaja, l'appli concurrente de Sophia (« Duolingo, mais pour tout »), et ses listes « 10/10 skills ». */
 export const COMPTE_SOURCE = "kaja.learn";
-/** Les langues livrées : l'anglais seul pour commencer (décision d'Adrien du 4/11). */
-export const LANGUES = ["en"] as const;
+/** Les langues livrées : l'anglais d'abord, puis le français et l'allemand (décision d'Adrien du 4/11). */
+export const LANGUES = ["en", "fr", "de"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

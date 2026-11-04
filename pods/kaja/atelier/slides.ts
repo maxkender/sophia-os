@@ -12,7 +12,7 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { COULEUR, type Ctx, H, icone, imageRemplie, L, type LigneTitre, lignesCentrees, mesurerTitre, titreGeant } from "./dessin.ts";
+import { COULEUR, type Ctx, depassements, H, icone, imageRemplie, L, type LigneTitre, lignesCentrees, mesurerTitre, titreGeant } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { POLICE } from "./polices.ts";
 import { carteYoutube, hauteurCarte, type Video } from "./youtube.ts";
@@ -120,7 +120,9 @@ async function couverture(ctx: Ctx, s: Slide, c: ContenuCouverture) {
   // Relevé sur ses couvertures : 13 % de la capitale entre deux lignes.
   let y = d.chiffreSculpte ? d.chiffreSculpte.bas + 28 : (d.y ?? 640);
   let bas = y;
-  for (const ligne of lignes) {
+  for (const [i, ligne] of lignes.entries()) {
+    // Les accents d'une ligne (« SOCIÉTÉ ») gardent leur place sous la ligne d'avant.
+    if (i > 0) y += depassements(ctx, ligne, mesurerTitre(ctx, [ligne], o).taille).haut;
     const r = titreGeant(ctx, [ligne], { ...o, y });
     bas = r.bas;
     y = r.bas + r.cap * 0.13;
@@ -144,6 +146,7 @@ function titreEtape(ctx: Ctx, c: ContenuEtape, y: number, dessiner: boolean): nu
   for (const [i, ligne] of c.titre.entries()) {
     const o = { largeur: TITRE.largeur, capMax: c.tailles?.[i] ?? TITRE.capMax };
     const m = mesurerTitre(ctx, [ligne], o);
+    if (i > 0) haut += depassements(ctx, ligne, m.taille).haut;
     if (dessiner) titreGeant(ctx, [ligne], { ...o, y: haut });
     haut += m.hauteur + TITRE.ecart;
   }

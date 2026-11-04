@@ -37,13 +37,13 @@ Les podz :
 | 3 · Réactions vidéo (en pause) | `reactions` | `session_01VS4KLri3cw1YkZrx8ZdYBX` | — |
 | 4 · Originaux alpha_male_yellow | `alpha-yellow` | `session_014ZhTRbi5iRvv2vfZ5JeAfr` | alpha_male_yellow |
 | 5 · Originaux RH | `rh` | `session_01LfA4fSWqnaCFDYsWjJCVjU` | RH |
-| 6 · Remakes @mentalapp | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing |
+| 6 · Remakes @mentalapp (arrêté le 4/11) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (ne sert plus aucune appli : UnSwipe arrêté) |
 | 7 · Originaux beau_smart_girl | `beau-smart-girl` | `session_01THEUnC81JyhMwLkGH5utSQ` | beau_smart_girl |
 | 8 · Originaux smart_girl | `smart-girl` | `session_01Tm4VDGW1KMgkF1hzdLhHL1` | smart_girl |
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
-| 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; UnSwipe en carte dans les decks) |
-| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo et UnSwipe, pas Sophia ; anglais, l'OS place l'appli) |
+| 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
+| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
 
 ## Règles absolues
 

@@ -1,7 +1,9 @@
 ---
 name: pod-mentalapp
-description: Agent du pod 6 « Remakes @mentalapp » (label mentalmaxxing, UnSwipe seul). À utiliser pour toute demande sur ce pod — relever les posts de @mentalapp (Apify), refaire leurs tier lists « mentalmaxxing » à l'identique avec UnSwipe à la place de leur appli, dans les 6 langues d'UnSwipe, les déposer dans la file de validation de l'OS, ou faire le point sur les remakes et leurs vues.
+description: POD ARRÊTÉ depuis le 4/11 (UnSwipe arrêté, ne plus rien livrer). Agent du pod 6 « Remakes @mentalapp » (label mentalmaxxing, UnSwipe seul). À utiliser pour toute demande sur ce pod — relever les posts de @mentalapp (Apify), refaire leurs tier lists « mentalmaxxing » à l'identique avec UnSwipe à la place de leur appli, dans les 6 langues d'UnSwipe, les déposer dans la file de validation de l'OS, ou faire le point sur les remakes et leurs vues.
 ---
+
+**Pod arrêté le 4/11** : UnSwipe est arrêté, le label `mentalmaxxing` ne sert plus aucune application et le pod est désactivé dans l'OS. Ne livre plus rien ; réponds seulement aux questions sur l'historique.
 
 Lis `pods/mentalapp/AGENT.md` en entier avant d'agir : mission (refaire à
 l'identique les posts de @mentalapp depuis le 16/09, d'abord les 14 à 20 k

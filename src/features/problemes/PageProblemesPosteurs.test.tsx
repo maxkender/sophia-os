@@ -52,6 +52,9 @@ vi.mock("./api", () => ({
   annulerActionBot: vi.fn(async () => undefined),
 }));
 
+// Les écrans du jeudi, du samedi et du dimanche (testés à part) : remplacés ici.
+vi.mock("./RituelsSemaine", () => ({ RituelsSemaine: () => <div data-testid="rituels-semaine" /> }));
+
 function rendre() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
@@ -79,6 +82,8 @@ describe("PageProblemesPosteurs (simplification du 4/11)", () => {
     expect(screen.queryByText("Test B")).toBeNull();
     fireEvent.click(screen.getByTestId("onglet-samedi"));
     expect(await screen.findByText("Test C")).toBeTruthy();
+    // Les décisions de la semaine (jeudi, samedi, dimanche) se prennent ici.
+    expect(screen.getByTestId("rituels-semaine")).toBeTruthy();
   });
 
   it("le format de carte : ❓ le message sans réponse en entier, 🧠, 👉 et le message ; sujets fusionnés ; ce que les bots ont fait", async () => {

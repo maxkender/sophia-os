@@ -44,7 +44,7 @@ Les podz :
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
 | 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
-| 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, anglais ; créé le 4/11, comptes à choisir par Adrien et Max) |
+| 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; en pause après ses 2 premiers posts, demande d'Adrien du 4/11 ; comptes à choisir par Adrien et Max) |
 
 ## Règles absolues
 

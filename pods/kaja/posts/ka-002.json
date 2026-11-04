@@ -1,0 +1,341 @@
+{
+ "id": "ka-002",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7687642555957267734",
+  "vues": 1200000,
+  "publie_le": "2026-09-20",
+  "accroche": "10/10 SKILLS SOCIETY HATES"
+ },
+ "titre": {
+  "en": "10/10 skills society hates",
+  "fr": "10/10 compétences que la société déteste",
+  "de": "10/10 Skills, die alle hassen"
+ },
+ "legendes": {
+  "en": "10/10 skills society hates #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences que la société déteste #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die alle hassen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "LOOSE CANNON",
+  "url": "https://www.tiktok.com/music/loose-cannon-7188203306077014827"
+ },
+ "notes": "Remake de son post à 1,2 M (20/09), décor branche (le sien). Ses 3 compétences en un mot géant, dans ses couleurs (orange, bleu, bleu), son temps « 10-30 min » sur chacune ; d'autres vraies vidéos que les siennes (Ivah Hales, Practical Psychology, Ekayy Boxing). Sophia en étape 3 « KNOW EVERYTHING », à la place de sa slide d'appli de fin : cta C (« what I open » / « instead of scrolling. »), le temps « 5 min a day ». En en, fr et de (demande d'Adrien du 04/11), vraies vidéos natives dans chaque langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "SOCIETY",
+     "HATES"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "QUE LA",
+     "SOCIÉTÉ",
+     "DÉTESTE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS,",
+     "DIE ALLE",
+     "HASSEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "FLIRT",
+       "couleur": "#eb8236"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8mzOX2pnRuA",
+     "titre": "How to Flirt For Beginners (9 Flirting Tips)",
+     "chaine": "Psych2Go",
+     "vues": "3.4M views",
+     "date": "4 years ago",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/PABMv0Tbz1G47ZIdC87y7KgSJ3IyehptRBY9jfp3BZbsP8TRnslVdjFYG0mjtls2U5-1LyeofA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "DRAGUER",
+       "couleur": "#eb8236"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gx5k1KZq-Uk",
+     "titre": "COMMENT DRAGUER UNE FILLE EN ÉTANT TIMIDE",
+     "chaine": "UNMISSABL",
+     "vues": "710 k vues",
+     "date": "il y a 6 ans",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/2Nuo7YUmL5uPuMuEDWRBLoB0muHPPozf-VZVObVr99uug7IZdPr9B8uiPB3ddon1Io_I9Vzciw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FLIRTEN",
+       "couleur": "#eb8236"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iNwY_i4J28E",
+     "titre": "10 Psychologische Tipps zum Flirten! So wirkst Du im ersten Kontakt attraktiver.",
+     "chaine": "Nicistemmler",
+     "vues": "199.131 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:56",
+     "avatar": "https://yt3.ggpht.com/baubVwbuo6NsJfsWwwCJBize4dglseeeG4BXKKvvEUa5HJODBp-EHXPkXze4w-digYCHw4iKQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "MANIPULATE",
+       "couleur": "#2a46d2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wbkvBLyIAzo",
+     "titre": "Every Manipulation Technique & How To Combat It Explained",
+     "chaine": "EverythingProfessor",
+     "vues": "2.9M views",
+     "date": "1 year ago",
+     "duree": "12:25",
+     "avatar": "https://yt3.ggpht.com/PVwMkne1VXtCkmz8p-yHAxfLWi1TPu9lXeInYatfa6sr_nN5Q4gnIQSteRjMn4VrrSMalZcF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "MANIPULER",
+       "couleur": "#2a46d2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p6YEoI7HPt8",
+     "titre": "Chaque Technique de Manipulation Expliquée",
+     "chaine": "Dinguerie Psychologie",
+     "vues": "434 k vues",
+     "date": "il y a 6 mois",
+     "duree": "19:44",
+     "avatar": "https://yt3.ggpht.com/Ya2IsMqLS41RDOYS4_u48HLmT-7OFKqmPtiICvtdddHxOd2Bj56R4T9V9gLv-OO3-Afx_G5H=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "MANIPULIEREN",
+       "couleur": "#2a46d2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kppRmNjaZ-g",
+     "titre": "Manipulationstechniken – Wie Sie sich erfolgreich dagegen wehren",
+     "chaine": "Dr. Wlodarek Life Coaching",
+     "vues": "507.106 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "13:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kb8Og70NnHbaowWKGQ6nijdAWk-rfSfQ3-edqYEaWiras=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "KNOW",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "EVERYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "TOUT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "SAVOIR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ALLES",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "WISSEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "FIGHT",
+       "couleur": "#2a46d2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rqZtg2mp8kA",
+     "titre": "HOW TO FIGHT FOR BEGINNERS (Step by Step)",
+     "chaine": "Tony Jeffries",
+     "vues": "364K views",
+     "date": "3 years ago",
+     "duree": "7:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nWjGS4Ozpz17yCf1uEZfb5C2lbtgkYe3UvFn7mQDusZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "SE BATTRE",
+       "couleur": "#2a46d2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v9bHoD3NCy4",
+     "titre": "Comment SE DÉFENDRE dans la RUE !",
+     "chaine": "FRANCK ROPERS",
+     "vues": "1,4 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGpfTADYXM1ThgBH3ZCNNBO3Kyw9Rki6nw6aS7tu--0fY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KÄMPFEN",
+       "couleur": "#2a46d2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y5asSlQEzsE",
+     "titre": "Schlagtechnik Gerade - Basic & Train",
+     "chaine": "Aristo Luis - Culture of Warrior",
+     "vues": "753.627 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "9:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4KTgbki3uUHZBV9s1-1-qbqZdbTeTcQQuHJJ37PGRMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ]
+}

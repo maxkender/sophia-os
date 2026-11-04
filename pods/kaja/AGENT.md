@@ -16,7 +16,11 @@ rejette est validée toute seule 5 h après son dépôt.
 	- `ANALYSE.md` donne le détail, `sources/manifeste.json` ses posts et l'ordre de travail.
 - **L'appli** : **Sophia**, une appli de culture générale : « apprends un truc nouveau chaque jour en 5 minutes ». Elle entre dans la liste comme une étape, en carte d'appli : sa slide d'appli de fin disparaît (comme au podz 11).
 - **Le label** : `Kaja` (migration 0647), qui sert **Sophia seul**, voie 2 de BLEO (100 % podz). Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent 3 comptes Sophia anglais. `npm run etat` te dit combien il y en a.
-- **En anglais seul** pour commencer (décision d'Adrien du 4/11). Une autre langue seulement si Adrien ou Max la demandent.
+- **Pour commencer, 2 posts en tout** (décision d'Adrien du 4/11) : ka-001 et ka-002. Le podz est en pause dans `pods/rythme.json` jusqu'à ce qu'Adrien ou Max le relancent.
+- **En anglais, français et allemand** (même décision) : chaque post part dans les trois langues (`LANGUES` dans `atelier/api.ts`).
+	- Chaque langue a **ses propres vraies vidéos YouTube**, cherchées dans cette langue (`npm run youtube -- "…" --langue fr`), avec leur titre natif. Si YouTube renvoie le titre traduit d'une chaîne, passe `--recherche "<titre natif>"` ou change de vidéo. Jamais une vidéo dans une autre langue.
+	- Les tournures de ka-001 et ka-002 : « COMMENT … » en français, « SO … DU » en allemand (« SO GEHT / SMALLTALK ») ; « COMPÉTENCES » en français, « SKILLS » en allemand ; les temps « 10-30 min », « 1-2 heures », « 5 min par jour » et « 10-30 Min. », « 1-2 Stunden », « 5 Min. am Tag ».
+	- Une couverture traduite plus longue : coupe-la en plus de lignes plutôt que de laisser des lignes minuscules (« COMPÉTENCES / QUE LA / SOCIÉTÉ / DÉTESTE »).
 - **Tous ses sujets qui marchent** (décision d'Adrien du 4/11) : small talk, rizz, flirt, glow up, « to get girls », mais aussi manipulate, lie, fight. Tu ne les écartes pas.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
@@ -31,7 +35,7 @@ rejette est validée toute seule 5 h après son dépôt.
 	- Son décor « drapeau sur un rocher » n'a pas encore d'équivalent : prends la falaise et note-le dans ton compte rendu.
 - **De vraies vidéos YouTube, et seulement elles.**
 	- `npm run youtube` : titre, chaîne, vues, date, durée et avatar réels. Jamais une vidéo inventée, jamais un chiffre retouché.
-	- La vidéo répond vraiment à l'étape, d'une chaîne sérieuse, en anglais.
+	- La vidéo répond vraiment à l'étape, d'une chaîne sérieuse, dans la langue du deck.
 	- Prends **une autre vidéo que la sienne** quand il y en a une aussi bonne : deux posts ne montrent pas les mêmes miniatures.
 	- Préfère une miniature sans grand visage. Un visage n'est permis que si c'est celui de l'auteur de la chaîne (jamais une célébrité en miniature d'une autre chaîne). Jamais une miniature trompeuse ou choquante.
 	- Jamais une vidéo d'une appli concurrente.
@@ -39,10 +43,10 @@ rejette est validée toute seule 5 h après son dépôt.
 	- Elle prend la place de sa slide d'appli de fin, déplacée au milieu : tu gardes toutes ses compétences et son nombre de slides. S'il n'a pas de slide d'appli (son post à 2,5 M), elle remplace la compétence qui colle le moins à la liste.
 	- Le titre est une vraie étape de la liste, dans son style : « HOW TO » puis le mot-clé en rose Sophia (`#e07aa6`) : « BE INTERESTING », « NEVER RUN OUT OF TOPICS », « KNOW A BIT OF EVERYTHING »…
 	- La carte : « SOPHIA » et une phrase, en versions qu'on alterne d'une livraison à l'autre (ROUTINE.md § 4.5), notées dans `notes` :
-		- `cta A` : « learn something new » / « every day. » (ka-001) ;
+		- `cta A` : « learn something new » / « every day. » (ka-001 ; fr « apprends un truc nouveau » / « chaque jour. », de « lerne jeden Tag » / « etwas Neues. ») ;
 		- `cta B` : « know a bit » / « about everything. » ;
-		- `cta C` : « what I open » / « instead of scrolling. »
-	- Son temps : « 5 min a day ». La carte ne le répète pas.
+		- `cta C` : « what I open » / « instead of scrolling. » (ka-002 ; fr « ce que j'ouvre » / « au lieu de scroller. », de « was ich öffne, » / « statt zu scrollen. »)
+	- Son temps : « 5 min a day » (« 5 min par jour », « 5 Min. am Tag »). La carte ne le répète pas.
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».
 - **Aucune appli concurrente** dans un deck : ni de Sophia (Kaja, Fathomly, Duolingo, Brilliant, Elevate, Imprint, Headway, Blinkist…), ni d'appli de temps d'écran (Opal, one sec, ScreenZen…).
 - **Les faits sont vrais** : un temps d'apprentissage réaliste, une vidéo qui tient sa promesse.
@@ -76,13 +80,13 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 
 ## Écrire un remake (`posts/<id>.json`)
 
-Le pilote `posts/ka-001.json` est l'exemple complet. Les ids : `ka-001`, `ka-002`…
+`posts/ka-001.json` (décor falaise, « HOW TO » sur deux lignes) et `posts/ka-002.json` (décor branche, un mot géant par étape) sont les exemples complets, en trois langues. Les ids : `ka-001`, `ka-002`…
 - `source` : le post refait (url, vues, date, accroche).
 - `titre.en` : l'accroche, lue par l'OS comme le hook.
-- `legendes.en` : l'accroche et 3 hashtags (`#skills #selfimprovement #learnontiktok`).
+- `legendes` : l'accroche et 3 hashtags, par langue : en `#skills #selfimprovement #learnontiktok`, fr `#developpementpersonnel #apprendresurtiktok #culturegenerale`, de `#selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung`.
 - `musique` : la sienne (le manifeste la donne).
 - `notes` : le décor, les vidéos changées, la place et la version (`cta A`…) de l'étape Sophia.
-- `slides` : une entrée par slide, son contenu sous la clé `en`.
+- `slides` : une entrée par slide, son contenu sous la clé de chaque langue (`en`, `fr`, `de`).
 	- `couverture` : `{ "decor": "falaise", "en": { "lignes": ["SKILLS", "YOU CAN", "LEARN"] } }` ; décor `branche` : le « 10/10 » s'ajoute tout seul (`chiffre` pour en changer).
 	- `etape` : `{ "en": { "titre": ["HOW TO", [{ "t": "SMALL TALK", "couleur": "#e96dad" }]], "video": { … }, "sous": ["10-30 min"] } }`.
 	- l'étape Sophia : `{ "type": "etape", "app": "sophia", "en": { "titre": ["HOW TO", [{ "t": "BE INTERESTING", "couleur": "#e07aa6" }]], "carte": { "nom": "SOPHIA", "texte": ["learn something new", "every day."] }, "sous": ["5 min a day"] } }`.

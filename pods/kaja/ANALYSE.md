@@ -37,7 +37,7 @@ slides lues une à une.
 
 ## Le label
 
-**`Kaja`** (migration 0647), qui sert **Sophia seul**, voie 2 de BLEO (100 % podz, comme Fathomly), genre `homme`. En anglais seul pour commencer (décision d'Adrien du 4/11), sur 3 comptes Sophia anglais choisis par Adrien et Max.
+**`Kaja`** (migration 0647), qui sert **Sophia seul**, voie 2 de BLEO (100 % podz, comme Fathomly), genre `homme`. En anglais, français et allemand (décision d'Adrien du 4/11), avec deux posts pour commencer (ka-001 et ka-002) ; les comptes sont choisis par Adrien et Max.
 
 ## À surveiller
 

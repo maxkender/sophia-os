@@ -12,5 +12,5 @@
  "yasmine": { "par_jour": 6 },
  "fathom": { "par_jour": 9 },
  "clean-study": { "par_jour": 6 },
- "kaja": { "par_jour": 3 }
+ "kaja": { "par_jour": 0, "pause": true, "motif": "2 posts pour commencer (ka-001 et ka-002, en, fr et de), demande d'Adrien du 04/11 : rien de plus avant qu'Adrien ou Max relancent" }
 }

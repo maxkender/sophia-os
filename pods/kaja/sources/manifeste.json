@@ -1,0 +1,401 @@
+{
+ "compte": "kaja.learn",
+ "maj_le": "2026-11-04",
+ "note": "Ses 24 meilleurs diaporamas sur 80 relevés (07/08 → 22/10), du plus vu au moins vu. Il recycle ses accroches (« 10/10 SKILLS YOU CAN LEARN » quatre fois, avec d'autres compétences) : chaque post est un remake à part. `competences` : ce qu'on a lu sur ses slides ; vide, lis-les sur la planche de `npm run veille`. `decor_chez_lui` : falaise et corde, branche, ou drapeau sur un rocher (pas encore de décor à nous pour ce dernier). Ordre de travail : les `a_faire` de haut en bas.",
+ "posts": [
+  {
+   "id": "7688107009597607190",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7688107009597607190",
+   "publie_le": "2026-09-21",
+   "accroche": "10/10 SKILLS YOU CAN LEARN",
+   "vues": 2900000,
+   "enregistrements": 209323,
+   "partages": 17800,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+   },
+   "decor_chez_lui": "falaise",
+   "competences": "small talk, win any argument, roast anyone (vidéos : Benjamin Seda, Rise Above Reality, Smartish Stuff)",
+   "statut": "fait",
+   "motif": "ka-001 (pilote), livraison 5bb48210 du 04/11 : ses 3 compétences, d'autres vraies vidéos, Sophia en étape 3 « BE INTERESTING »"
+  },
+  {
+   "id": "7671411449679351062",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7671411449679351062",
+   "publie_le": "2026-08-07",
+   "accroche": "10/10 SKILLS YOU CAN LEARN",
+   "vues": 2500000,
+   "enregistrements": 192764,
+   "partages": 16600,
+   "slides": 6,
+   "musique": {
+    "titre": "sonido original",
+    "url": "https://www.tiktok.com/music/sonido-original-7663314321833364245"
+   },
+   "decor_chez_lui": "falaise",
+   "competences": "knot a tie, basics of a car, read a topographic map, storytell, light a fire (5 étapes, pas de slide d'appli)",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7687642555957267734",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7687642555957267734",
+   "publie_le": "2026-09-20",
+   "accroche": "10/10 SKILLS SOCIETY HATES",
+   "vues": 1200000,
+   "enregistrements": 89183,
+   "partages": 8396,
+   "slides": 5,
+   "musique": {
+    "titre": "LOOSE CANNON",
+    "url": "https://www.tiktok.com/music/loose-cannon-7188203306077014827"
+   },
+   "decor_chez_lui": "branche",
+   "competences": "flirt, manipulate, fight",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7675338486018297110",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7675338486018297110",
+   "publie_le": "2026-08-18",
+   "accroche": "10/10 SKILLS YOU CAN LEARN",
+   "vues": 1100000,
+   "enregistrements": 65282,
+   "partages": 5517,
+   "slides": 6,
+   "musique": {
+    "titre": "Earrings",
+    "url": "https://www.tiktok.com/music/earrings-7354423336196933649"
+   },
+   "decor_chez_lui": "branche",
+   "competences": "rizz, cook food, dance, fight",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7680157267076893974",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7680157267076893974",
+   "publie_le": "2026-08-31",
+   "accroche": "10/10 SOCIAL SKILS YOU CAN LEARN",
+   "vues": 827500,
+   "enregistrements": 54078,
+   "partages": 5778,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7486234767046773546"
+   },
+   "decor_chez_lui": "branche",
+   "competences": "small talk, rizz, hold a conversation",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7696841940729400578",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7696841940729400578",
+   "publie_le": "2026-10-15",
+   "accroche": "10/10 SKILLS SOCIETY HATES",
+   "vues": 642600,
+   "enregistrements": 41755,
+   "partages": 2638,
+   "slides": 5,
+   "musique": {
+    "titre": "Bitter Sweet Symphony - Remastered 2016",
+    "url": "https://www.tiktok.com/music/bitter-sweet-symphony-remastered-2016-6927374282162964481"
+   },
+   "decor_chez_lui": "branche",
+   "competences": "flirt, fight, lie (fin : « Just like Duolingo but for anything »)",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7687731339235216662",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7687731339235216662",
+   "publie_le": "2026-09-20",
+   "accroche": "10/10 SKILLS NOBODY TEACHES",
+   "vues": 582600,
+   "enregistrements": 38573,
+   "partages": 3542,
+   "slides": 6,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7696107863982296342",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7696107863982296342",
+   "publie_le": "2026-10-13",
+   "accroche": "10/10 SKILLS TO GET GIRLS",
+   "vues": 415600,
+   "enregistrements": 27798,
+   "partages": 2207,
+   "slides": 6,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+   },
+   "decor_chez_lui": "falaise",
+   "competences": "small talk, glow up, stop being boring, smell good",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7672387246825295126",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7672387246825295126",
+   "publie_le": "2026-08-10",
+   "accroche": "10/10 SKILLS THAT CAN SAVE YOUR LIFE",
+   "vues": 340900,
+   "enregistrements": 23252,
+   "partages": 3608,
+   "slides": 5,
+   "musique": {
+    "titre": "sonido original",
+    "url": "https://www.tiktok.com/music/sonido-original-7663314321833364245"
+   },
+   "decor_chez_lui": "drapeau",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7696827600353774870",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7696827600353774870",
+   "publie_le": "2026-10-15",
+   "accroche": "10/10 SKILLS NOBODY TEACHES",
+   "vues": 275300,
+   "enregistrements": 19572,
+   "partages": 1631,
+   "slides": 6,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7240852724106005291"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7687211191055174934",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7687211191055174934",
+   "publie_le": "2026-09-19",
+   "accroche": "10/10 SKILLS THAT FEEL ILLEGAL TO KNOW",
+   "vues": 202300,
+   "enregistrements": 16747,
+   "partages": 2638,
+   "slides": 6,
+   "musique": {
+    "titre": "Solitude",
+    "url": "https://www.tiktok.com/music/solitude-7355730432355502096"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7673516970519563542",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7673516970519563542",
+   "publie_le": "2026-08-13",
+   "accroche": "10/10 VIDEOS WORTH WATCHING",
+   "vues": 180900,
+   "enregistrements": 13038,
+   "partages": 1224,
+   "slides": 6,
+   "musique": {
+    "titre": "som original",
+    "url": "https://www.tiktok.com/music/som-original-7218209310147562246"
+   },
+   "decor_chez_lui": "branche",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7675118463802756374",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7675118463802756374",
+   "publie_le": "2026-08-17",
+   "accroche": "10/10 SKILLS YOU CAN LEARN INSTED IF SCROLLING",
+   "vues": 170300,
+   "enregistrements": 9263,
+   "partages": 740,
+   "slides": 6,
+   "musique": {
+    "titre": "Seventh Heaven",
+    "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7671587006027205910",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7671587006027205910",
+   "publie_le": "2026-08-08",
+   "accroche": "10/10 SKILLS YOU CAN LEARN NOW",
+   "vues": 147800,
+   "enregistrements": 13057,
+   "partages": 1418,
+   "slides": 6,
+   "musique": {
+    "titre": "sonido original",
+    "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7689169434203671830",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7689169434203671830",
+   "publie_le": "2026-09-24",
+   "accroche": "10/10 SOCIAL SKILS YOU CAN LEARN",
+   "vues": 143300,
+   "enregistrements": 10094,
+   "partages": 1169,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7660804487010847501"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7671682759894584598",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7671682759894584598",
+   "publie_le": "2026-08-08",
+   "accroche": "10/10 SKILLS YOU CAN LEARN NOW",
+   "vues": 139300,
+   "enregistrements": 8761,
+   "partages": 490,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7585395509230062367"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7688107160043113750",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7688107160043113750",
+   "publie_le": "2026-09-21",
+   "accroche": "10/10 SKILLS YOU CAN LEARN NOW",
+   "vues": 115500,
+   "enregistrements": 6808,
+   "partages": 746,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7683367490465975070"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7675358653834087702",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7675358653834087702",
+   "publie_le": "2026-08-18",
+   "accroche": "10/10 SKILLS YOU CAN LEARN TODAY",
+   "vues": 108000,
+   "enregistrements": 4669,
+   "partages": 308,
+   "slides": 5,
+   "musique": {
+    "titre": "Original Sound",
+    "url": "https://www.tiktok.com/music/original-sound-11338649"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7698481449007058198",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7698481449007058198",
+   "publie_le": "2026-10-19",
+   "accroche": "10/10 SOCIAL SKILS YOU NEED",
+   "vues": 100300,
+   "enregistrements": 8204,
+   "partages": 735,
+   "slides": 5,
+   "musique": {
+    "titre": "Seventh Heaven",
+    "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
+   },
+   "decor_chez_lui": "falaise",
+   "competences": "improve life, improve looks, talk to strangers",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7674249078988918038",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7674249078988918038",
+   "publie_le": "2026-08-15",
+   "accroche": "10/10 SKILLS TO LEARN FAST",
+   "vues": 97500,
+   "enregistrements": 5889,
+   "partages": 600,
+   "slides": 6,
+   "musique": {
+    "titre": "son original",
+    "url": "https://www.tiktok.com/music/son-original-7642981725571730208"
+   },
+   "decor_chez_lui": "branche",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7699457307947633942",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7699457307947633942",
+   "publie_le": "2026-10-22",
+   "accroche": "10/10 SKILLS TO GET OUT OF YOUR COMFORT ZONE",
+   "vues": 85900,
+   "enregistrements": 5979,
+   "partages": 546,
+   "slides": 6,
+   "musique": {
+    "titre": "Duvet - Acoustic",
+    "url": "https://www.tiktok.com/music/duvet-acoustic-7031720036989421570"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7677503924269583638",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7677503924269583638",
+   "publie_le": "2026-08-24",
+   "accroche": "10/10 SKILLS YOU CAN LEARN",
+   "vues": 79200,
+   "enregistrements": 6602,
+   "partages": 972,
+   "slides": 6,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7699452363811081494",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7699452363811081494",
+   "publie_le": "2026-10-22",
+   "accroche": "10/10 SKILLS TO GET GIRLS",
+   "vues": 77000,
+   "enregistrements": 4769,
+   "partages": 362,
+   "slides": 6,
+   "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+   },
+   "decor_chez_lui": "falaise",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7699386282463595778",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7699386282463595778",
+   "publie_le": "2026-10-22",
+   "accroche": "10/10 SKILLS TO IMPROVE LIFE",
+   "vues": 69500,
+   "enregistrements": 5202,
+   "partages": 627,
+   "slides": 6,
+   "musique": {
+    "titre": "som original",
+    "url": "https://www.tiktok.com/music/som-original-7646217405663841044"
+   },
+   "decor_chez_lui": "falaise",
+   "competences": "be funny, be social, lie, sell",
+   "statut": "a_faire"
+  }
+ ]
+}

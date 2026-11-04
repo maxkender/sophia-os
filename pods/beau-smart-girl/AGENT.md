@@ -26,7 +26,7 @@ validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette.
 - **Label** : `beau_smart_girl`.
 	- Thème : la fille jolie ET cultivée. Se cultiver, de bonnes habitudes, la confiance en soi et un peu de bien-être.
 	- Format : petit texte blanc sur des photos d'ambiance (bibliothèques, musées, photos argentiques chaudes, filles qui lisent).
-	- 28 comptes actifs dans 17 langues. 19 servent Sophia, 8 servent UnSwipe.
+	- Depuis le 4/11 (arrêt d'UnSwipe), les comptes ex-UnSwipe du label sont passés à 50 % micabo / 50 % Sophia.
 	- Résultats : 1 378 vues médianes et 5,6 % de posts à 10 k ou plus, en baisse depuis août. **La réserve Sophia ne tient que 5,7 jours.**
 - **Modèle** : [@studyavec_lea](https://www.tiktok.com/@studyavec_lea), en français.
 	- C'est la meilleure source du label : 8 contenus à r ≥ 2, dont les deux premiers à r 7,5.
@@ -43,7 +43,7 @@ validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette.
 	- images SANS texte et texte à part ;
 	- le compte français reçoit ta slide Sophia ;
 	- pour les autres langues, l'OS traduit et place Sophia lui-même ;
-	- seuls les comptes Sophia le reçoivent. Les 8 comptes UnSwipe continuent avec les imports.
+	- seuls les créneaux Sophia le reçoivent.
 - `ANALYSE.md` donne les chiffres du label et ce qui marche ou non.
 - `playbook.json` liste les schémas, avec leurs preuves datées.
 

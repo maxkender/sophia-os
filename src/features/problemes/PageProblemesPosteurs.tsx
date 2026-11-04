@@ -39,6 +39,7 @@ import {
 import {
   aDiagnosticOuAction,
   CATEGORIES_ARGENT,
+  estArret,
   avecLigneStop,
   compterParGroupe,
   compterParNiveau,
@@ -162,7 +163,7 @@ function CarteProbleme({ p, mode, feedback, surlignee = false }: { p: Probleme; 
       }
       if (p.proposition_reponse?.trim() && mode === "on" && p.poster_id && (p.canal_reponse ?? "upwork") === "upwork") {
         if (await dejaEcritAujourdhui(p.poster_id, debutJourParis())) throw new Error(t(`${P}.unParJour`));
-        await envoyerUpwork(p.poster_id, avecLigneStop(p.proposition_reponse));
+        await envoyerUpwork(p.poster_id, estArret(p) ? p.proposition_reponse : avecLigneStop(p.proposition_reponse));
         envoye = true;
       }
       await agirProbleme(p.id, "valider", { envoye, action: p.proposition_action, reponse: p.proposition_reponse });

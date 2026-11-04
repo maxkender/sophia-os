@@ -335,7 +335,7 @@ export interface PlanDecision {
 
 export function planDecision(
   o: OptionDecision,
-  p: Pick<Probleme, "poster_id" | "contrat_id" | "destinataire">,
+  p: Pick<Probleme, "poster_id" | "contrat_id" | "destinataire"> & Partial<Pick<Probleme, "categorie">>,
   mode: "test" | "on",
   texteLibre?: string,
 ): PlanDecision {
@@ -349,7 +349,10 @@ export function planDecision(
     case "resend_password_link":
       if (mode === "on" && p.poster_id) plan.motDePasse = p.poster_id;
       break;
-    case "kill": case "recreate": case "postpone": case "relink_slack":
+    case "kill":
+      // 0533 : « Kill samedi » d'une décision : préparé par la base (probleme_decider), rien à ouvrir.
+      break;
+    case "recreate": case "postpone": case "relink_slack":
       plan.page = fiche;
       break;
     case "open_payroll": case "pay_check":
@@ -365,7 +368,7 @@ export function planDecision(
   const texte = (o.reponse ?? texteLibre ?? "").trim();
   if (texte) {
     if (p.destinataire === "hm") plan.aCopier = texte;
-    else if (mode === "on" && p.poster_id) plan.envoyer = avecLigneStop(texte);
+    else if (mode === "on" && p.poster_id) plan.envoyer = estArret(p) ? texte : avecLigneStop(texte);
   }
   return plan;
 }
@@ -386,3 +389,6 @@ export function jourRituel(lundi: string, choix: "double" | "recreate"): string 
   d.setUTCDate(d.getUTCDate() + (choix === "recreate" ? 3 : 5));
   return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }
+
+/** 0533 : une carte d'arrêt (stop sûr ou doute) : la réponse part sans la ligne « reply STOP ». */
+export const estArret = (p: Partial<Pick<Probleme, "categorie">>): boolean => p.categorie === "stop" || p.categorie === "stop_doute";

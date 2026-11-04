@@ -7586,6 +7586,7 @@ export const fr = {
         avis_upwork: "Avis Upwork", low_views: "Peu de vues", absence: "Absence", accueil: "Accueil", relance_echec: "Relance en échec",
         retirer_slack: "Retirer de Slack", upwork_mauvais_compte: "Upwork : mauvais compte", kill_contrat: "Contrat à fermer (Kill)", autre: "Autre",
         pas_poste_aujourdhui: "Pas posté aujourd'hui", bloque_etape: "Bloqué à une étape", hm: "HM", offre: "Offre Upwork",
+        stop_doute: "Arrêt ? (doute)", plainte: "Plainte / frustration",
       },
       sources: {
         needs_you: "OS", contestation: "Contestation", demande_arret: "Demande d'arrêt", accueil: "Accueil", relance_echec: "Relance",

@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o081",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "543db8fe-358a-431a-b7fd-2a6ce8329cc6",
+  "titre": "les habitudes niches qui changeront complètement ta vie en 2 semaines #habitudes #pourtoi",
+  "inspirations": [
+    "543db8fe-358a-431a-b7fd-2a6ce8329cc6"
+  ],
+  "notes": "G1, déclinaison de 543db8fe (« les habitudes niches qui changeront complètement ta vie en 2 semaines », génération 0 en français ; meilleur passage de 7,3 k vues, r 4,08), en français. cta C (le défi de 7 jours en slide 2). Habitudes neuves (rien de repris du parent : ni jambes au mur, ni autre appli). Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "79f09cec",
+      "texte_overlay": "les habitudes niches\nqui changeront complètement ta vie\nen 2 semaines",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. un carnet des mots que tu ne connais pas\n\ntu notes, tu cherches le soir.\nen deux semaines, ton vocabulaire change.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. une chanson dans une langue que tu ne parles pas\n\nchaque jour, tu en traduis un couplet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. marcher sans écouteurs\n\nau début c'est bizarre.\naprès, c'est là que tu as tes meilleures idées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "4. raconter ta journée en trois phrases\n\nle soir, dans un carnet.\nça t'apprend à aller à l'essentiel.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "5. une question par repas\n\nà la personne en face de toi.\nune vraie, pas juste ça va.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "00ac4de9",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

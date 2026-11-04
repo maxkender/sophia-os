@@ -10,6 +10,7 @@ import { localeDate } from "@/locales/localeDate";
 import { CarteUnique } from "./CarteUnique";
 import { StatsBots } from "./FeedbackBot";
 import { BlocBots } from "./BlocBots";
+import { RituelsSemaine } from "./RituelsSemaine";
 import { lireModeProblemes, lireProblemes, passerMaintenant, type OngletCarte, type Probleme } from "./api";
 import { aDiagnosticOuAction } from "./logique";
 
@@ -109,6 +110,7 @@ export function PageProblemesPosteurs() {
           {onglet === "bots" && <BlocBots />}
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
           {visibles.map((p) => <CarteUnique key={p.id} p={p} mode={modeActuel} surlignee={p.id === carte} />)}
+          {onglet === "samedi" && <RituelsSemaine />}
         </div>
       )}
 

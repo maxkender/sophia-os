@@ -28,6 +28,14 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
 
 export const cheminAuto = (cle: PageAuto): string => PAGES_AUTO.find((p) => p.cle === cle)!.to;
 
+/**
+ * 4/11 : la page Problèmes est le SEUL endroit où Max décide. Weekly decisions
+ * (jeudi, samedi, dimanche), System alerts et Disputes sortent du menu : leurs
+ * cas deviennent des cartes, et les écrans du jeudi, du samedi et du dimanche
+ * sont dans Problèmes → 📅 Samedi. Les adresses restent ouvertes (rien n'est supprimé).
+ */
+export const HORS_MENU: readonly PageAuto[] = ["decisions", "problems", "disputes"];
+
 /** L'arrivée de l'admin : Overview. */
 export const ACCUEIL_ADMIN = "/admin/auto";
 

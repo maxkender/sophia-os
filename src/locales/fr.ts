@@ -7843,6 +7843,11 @@ export const fr = {
         statuts: { fait: "fait", refuse: "refusé", annule: "annulé", erreur: "erreur" },
         annuler: "Annuler / corriger",
       },
+      rituels: {
+        samedi: "Samedi : Kill / Doubler / Garder / Recréer (chiffres de la semaine, Validate)",
+        dimanche: "Dimanche : check warm-up de la cohorte (Keep / Start Tuesday / Postpone / Kill)",
+        jeudi: "Jeudi : nudges et Recréer de la nouvelle cohorte",
+      },
       validerCategorie: "Valider toute la catégorie ({{n}})",
       chargement: "Chargement…",
       rien: "Rien ici.",

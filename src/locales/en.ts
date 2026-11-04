@@ -7832,6 +7832,11 @@ export const en = {
         statuts: { fait: "done", refuse: "refused", annule: "cancelled", erreur: "error" },
         annuler: "Cancel / correct",
       },
+      rituels: {
+        samedi: "Saturday: Kill / Double / Keep / Recreate (numbers of the week, Validate)",
+        dimanche: "Sunday: cohort warm-up check (Keep / Start Tuesday / Postpone / Kill)",
+        jeudi: "Thursday: nudges and Recreate for the new cohort",
+      },
       validerCategorie: "Validate the whole category ({{n}})",
       chargement: "Loading…",
       rien: "Nothing here.",

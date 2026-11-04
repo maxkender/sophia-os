@@ -1,0 +1,188 @@
+{
+ "id": "mm-o057",
+ "format": "carrousel",
+ "titre": "Rules for a dopamine detox that actually works",
+ "legendes": {
+  "en": "rules for a dopamine detox that actually works #dopaminedetox #brainrot #mentalmaxxing #selfimprovement",
+  "fr": "les règles d’une détox dopamine qui marche vraiment #detoxdopamine #brainrot #mentalmaxxing #developpementpersonnel",
+  "de": "Regeln für ein Dopamin-Detox, das wirklich funktioniert #dopamindetox #brainrot #mentalmaxxing #selbstverbesserung",
+  "es": "reglas para un detox de dopamina que funciona de verdad #detoxdedopamina #brainrot #mentalmaxxing #superacionpersonal",
+  "it": "regole per un detox da dopamina che funziona davvero #detoxdopamina #brainrot #mentalmaxxing #crescitapersonale",
+  "tr": "gerçekten işe yarayan dopamin detoksu kuralları #dopamindetoks #brainrot #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686216051712970002/1",
+   "boite": [
+    140,
+    322,
+    790,
+    418
+   ]
+  },
+  "theme": {
+   "en": "Dopamine detox",
+   "fr": "Détox dopamine",
+   "de": "Dopamin-Detox",
+   "es": "Detox de dopamina",
+   "it": "Detox da dopamina",
+   "tr": "Dopamin detoksu"
+  },
+  "sous": {
+   "en": "rules that actually work",
+   "fr": "les règles qui marchent",
+   "de": "Regeln, die wirken",
+   "es": "reglas que funcionan",
+   "it": "regole che funzionano",
+   "tr": "işe yarayan kurallar"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Rule 1: don’t ban everything",
+    "fr": "Règle 1 : n’interdis pas tout",
+    "de": "Regel 1: Verbiete nicht alles",
+    "es": "Regla 1: no lo prohíbas todo",
+    "it": "Regola 1: non vietare tutto",
+    "tr": "1. kural: her şeyi yasaklama"
+   },
+   "texte": {
+    "en": "A 24-hour total ban ends in a binge. Cut the worst habit, keep the rest.",
+    "fr": "Une interdiction totale de 24 h finit en rechute. Coupe la pire habitude, garde le reste.",
+    "de": "Ein 24-Stunden-Totalverbot endet im Rückfall. Streich die schlimmste Gewohnheit, behalte den Rest.",
+    "es": "Una prohibición total de 24 h acaba en atracón. Corta el peor hábito, deja el resto.",
+    "it": "Un divieto totale di 24 ore finisce in abbuffata. Taglia l’abitudine peggiore, tieni il resto.",
+    "tr": "24 saatlik tam yasak tıkınmayla biter. En kötü alışkanlığı kes, gerisini tut."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Rule 2: remove the biggest trigger. Before: I relapsed every evening. After deleting short videos with UnSwipe: nothing left to relapse into.",
+    "fr": "Règle 2 : enlève le plus gros déclencheur. Avant : je rechutais chaque soir. Après avoir supprimé les vidéos courtes avec UnSwipe : plus rien vers quoi rechuter.",
+    "de": "Regel 2: Entferne den größten Auslöser. Vorher: Jeden Abend Rückfall. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: nichts mehr, worauf ich zurückfallen kann.",
+    "es": "Regla 2: quita el mayor detonante. Antes: recaía cada noche. Después de borrar los vídeos cortos con UnSwipe: no queda nada en lo que recaer.",
+    "it": "Regola 2: togli l’innesco più grande. Prima: ricadevo ogni sera. Dopo aver eliminato i video brevi con UnSwipe: non c’è più niente in cui ricadere.",
+    "tr": "2. kural: en büyük tetikleyiciyi kaldır. Önce: her akşam geri dönüyordum. Kısa videoları UnSwipe ile sildikten sonra: dönülecek bir şey kalmadı."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Rule 3: replace, don’t just remove",
+    "fr": "Règle 3 : remplace, n’enlève pas seulement",
+    "de": "Regel 3: Ersetzen statt nur weglassen",
+    "es": "Regla 3: sustituye, no solo quites",
+    "it": "Regola 3: sostituisci, non togliere e basta",
+    "tr": "3. kural: sadece kaldırma, yerine koy"
+   },
+   "texte": {
+    "en": "A walk, a book, a workout. An empty hour fills itself with the old habit.",
+    "fr": "Une marche, un livre, une séance. Une heure vide se remplit toute seule avec l’ancienne habitude.",
+    "de": "Ein Spaziergang, ein Buch, ein Workout. Eine leere Stunde füllt sich sonst mit der alten Gewohnheit.",
+    "es": "Un paseo, un libro, un entreno. Una hora vacía se llena sola con el viejo hábito.",
+    "it": "Una camminata, un libro, un allenamento. Un’ora vuota si riempie da sola con la vecchia abitudine.",
+    "tr": "Bir yürüyüş, bir kitap, bir antrenman. Boş bir saat kendini eski alışkanlıkla doldurur."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Rule 4: plan the hard hours",
+    "fr": "Règle 4 : prévois les heures difficiles",
+    "de": "Regel 4: Plane die schweren Stunden",
+    "es": "Regla 4: planifica las horas difíciles",
+    "it": "Regola 4: pianifica le ore difficili",
+    "tr": "4. kural: zor saatleri planla"
+   },
+   "texte": {
+    "en": "For most people that is after dinner and in bed. Decide before what you will do.",
+    "fr": "Pour la plupart des gens, c’est après le dîner et au lit. Décide avant ce que tu feras.",
+    "de": "Für die meisten ist das nach dem Abendessen und im Bett. Entscheide vorher, was du tust.",
+    "es": "Para casi todos es después de cenar y en la cama. Decide antes qué harás.",
+    "it": "Per quasi tutti è dopo cena e a letto. Decidi prima cosa farai.",
+    "tr": "Çoğu kişi için akşam yemeğinden sonra ve yatakta. Ne yapacağına önceden karar ver."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Rule 5: give it two weeks",
+    "fr": "Règle 5 : donne-toi deux semaines",
+    "de": "Regel 5: Gib dir zwei Wochen",
+    "es": "Regla 5: date dos semanas",
+    "it": "Regola 5: datti due settimane",
+    "tr": "5. kural: iki hafta ver"
+   },
+   "texte": {
+    "en": "The first days feel flat. Around week two, normal things start feeling good again.",
+    "fr": "Les premiers jours semblent fades. Vers la deuxième semaine, les choses normales redeviennent agréables.",
+    "de": "Die ersten Tage fühlen sich flach an. Um Woche zwei fühlen sich normale Dinge wieder gut an.",
+    "es": "Los primeros días se sienten planos. Hacia la segunda semana, lo normal vuelve a sentirse bien.",
+    "it": "I primi giorni sembrano piatti. Verso la seconda settimana le cose normali tornano piacevoli.",
+    "tr": "İlk günler sönük geçer. İkinci hafta civarında sıradan şeyler yine iyi hissettirir."
+   }
+  },
+  {
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Rule 6: don’t go too extreme",
+    "fr": "Règle 6 : pas trop extrême",
+    "de": "Regel 6: Nicht zu extrem",
+    "es": "Regla 6: no te pases de extremo",
+    "it": "Regola 6: non esagerare",
+    "tr": "6. kural: aşırıya kaçma"
+   },
+   "texte": {
+    "en": "You do not need ice baths and silence retreats. Small, boring changes win.",
+    "fr": "Pas besoin de bains glacés ni de retraites en silence. Les petits changements ennuyeux gagnent.",
+    "de": "Du brauchst keine Eisbäder und Schweige-Retreats. Kleine, langweilige Änderungen gewinnen.",
+    "es": "No necesitas baños de hielo ni retiros de silencio. Ganan los cambios pequeños y aburridos.",
+    "it": "Non servono bagni nel ghiaccio né ritiri in silenzio. Vincono i cambiamenti piccoli e noiosi.",
+    "tr": "Buz banyosuna ve sessizlik kampına gerek yok. Küçük, sıkıcı değişiklikler kazanır."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous (« rules for a dopamine detox that actually works »). cta C (avant/après) : élément UnSwipe en règle 2 (slide 3)."
+}

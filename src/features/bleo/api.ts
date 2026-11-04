@@ -35,9 +35,27 @@ export interface NuitBleo {
   erreur: string | null;
 }
 
+/** Ce que minuit et la journée ont fait du plan (0646, D50). */
+export interface ExecutionPlan {
+  creneaux_plan?: number;
+  comptes_plan?: number;
+  servis_au_plan?: number;
+  remplaces_bleo?: number;
+  bleo_hors_plan?: number;
+  tierlist?: number;
+  hors_bleo?: number;
+  non_servis?: number;
+  non_servis_comptes_bloques?: number;
+  comptes_bloques?: number;
+  comptes_sans_post?: string[];
+  posts?: number;
+  publies?: number;
+}
+
 export interface RapportPlan {
   jour?: string;
   portes?: Record<string, boolean | number>;
+  execution?: ExecutionPlan;
   mix_reel?: Record<string, number>;
   infractions?: Record<string, number>;
   valeur_plan?: number;

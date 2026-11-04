@@ -1,0 +1,498 @@
+{
+ "id": "fa-052",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7684273449522531606",
+  "vues": 113000,
+  "accroche": "10/10 Skills You Can Learn In A Week."
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In A Week",
+  "de": "10/10 Skills, die du in einer Woche lernst",
+  "pt": "10/10 habilidades para aprender numa semana",
+  "pt-BR": "10/10 habilidades para aprender em uma semana",
+  "it": "10/10 abilità da imparare in una settimana",
+  "es-419": "10/10 habilidades para aprender en una semana"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In A Week #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills, die du in einer Woche lernst #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades para aprender numa semana #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "10/10 habilidades para aprender em uma semana #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "10/10 abilità da imparare in una settimana #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "10/10 habilidades para aprender en una semana #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
+ },
+ "notes": "cta B. Variante de l'accroche de fa-009 (une seule reprise sur 7 jours) : étapes nouvelles (dactylographie, palais de mémoire, calcul mental), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN LEARN",
+     [
+      {
+       "t": "IN A WEEK",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS IN",
+     [
+      {
+       "t": "EINER WOCHE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "UMA SEMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "UMA SEMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ DA IMPARARE",
+     [
+      {
+       "t": "IN UNA SETTIMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "UNA SEMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TYPE WITHOUT",
+     "LOOKING"
+    ],
+    "video": {
+     "id": "QAb3ATOpBpE",
+     "titre": "How To Type Faster (Tips for every stage 0  - 50 - 100 - 150 WPM)",
+     "chaine": "Mr Chops",
+     "vues": "3.8M views",
+     "date": "3 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/KUH-ABz1GGHM2AE4B4z5fwmBtP3I1zpx0dZAWoh8eWHuOv8GX9S0w66mbK2qg-B5-mS6LfKr7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHREIB",
+     "BLIND"
+    ],
+    "video": {
+     "id": "6pKYundAnPs",
+     "titre": "10 Finger System für Anfänger: So startest DU durch!",
+     "chaine": "TechnikTapes",
+     "vues": "95.430 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:27",
+     "avatar": "https://yt3.ggpht.com/m2B31Ev7DsPbwkTVibKEElQKxWiFY4WjhU_Y8g9OgDbwKPunLty8PvBcRw5P1inZm8jVFGVUqw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ESCREVE SEM",
+     "OLHAR"
+    ],
+    "video": {
+     "id": "fkthK6lViCQ",
+     "titre": "3 dicas para DIGITAR mais RÁPIDO | 130 palavras por minuto",
+     "chaine": "Wesley Folly 3.0",
+     "vues": "271 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "9:33",
+     "avatar": "https://yt3.ggpht.com/ESKXuw88XoOjXwswJvGQtYurvgpW0vpfPtflhWv6QEJefCuj_cVBDUlR0_TRYXvgbErJ6oM0Sg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "DIGITE SEM",
+     "OLHAR"
+    ],
+    "video": {
+     "id": "sr4jyau1jzE",
+     "titre": "💡 COMO DIGITAR RÁPIDO em 3 passos simples!",
+     "chaine": "TutorialMaster_org",
+     "vues": "717 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "2:48",
+     "avatar": "https://yt3.ggpht.com/r0kzB1Zg3SXUXnUolWQSRCbR0Y6QeI0RKnULEwZtzAhMktmHn3iccsLJ6PtGAZknts0AatVc8w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SCRIVI",
+     "A 10 DITA"
+    ],
+    "video": {
+     "id": "l14AKiMg7As",
+     "titre": "Corso di dattilografia. Lezione 1. Impariamo a scrivere con 10 dita sulla tastiera e velocemente!",
+     "chaine": "Stefania Scotto",
+     "vues": "163K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMESA02bYzIcrMG2ODgt66LviNgeUZTF-kZSiYIu2E=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCRIBE SIN",
+     "MIRAR"
+    ],
+    "video": {
+     "id": "CnI-f_8jrqg",
+     "titre": "Cómo Escribir Rápido en el Teclado de la Computadora y Aprender a Tipear | Curso de Mecanografía 1",
+     "chaine": "James Van der Lust",
+     "vues": "1.6 M de vistas",
+     "date": "hace 6 años",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nyy23hwLMlY42xyjm-C5sdkWxIhBzvnnI-gMz3tiBS0mY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUILD A",
+     "MEMORY PALACE"
+    ],
+    "video": {
+     "id": "p9IOqd1LpkA",
+     "titre": "The Memory Palace : Can You Do It?",
+     "chaine": "Sprouts",
+     "vues": "700K views",
+     "date": "9 years ago",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BAU EINEN",
+     "GEDÄCHTNISPALAST"
+    ],
+    "video": {
+     "id": "hfsEV6WOFUY",
+     "titre": "Loci Methode - Erste Schritte zum Gedächtnispalast",
+     "chaine": "Niels Cimpa",
+     "vues": "137.600 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/aIGzzscYq8dFCBxn4UACJwqOcmE25SggKOxONpKEtbZU5htx75hcfOvtyYwtaTFY0-DzATa8lGw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "CRIA UM PALÁCIO",
+     "DA MEMÓRIA"
+    ],
+    "video": {
+     "id": "IRMNnl7ou50",
+     "titre": "COMO CRIAR UM PALÁCIO DA MEMÓRIA [ TÉCNICA DE MEMORIZAÇÃO ]",
+     "chaine": "Renato Alves Memorização",
+     "vues": "74 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "CRIE UM PALÁCIO",
+     "DA MEMÓRIA"
+    ],
+    "video": {
+     "id": "3vdzghRCprU",
+     "titre": "Como memorizar ABSOLUTAMENTE TUDO",
+     "chaine": "Ciência Todo Dia",
+     "vues": "5,7 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "17:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "COSTRUISCI UN",
+     "PALAZZO DELLA MEMORIA"
+    ],
+    "video": {
+     "id": "LC0JO1a3DA8",
+     "titre": "IL PALAZZO DELLA MEMORIA🏰 spiegato dal CAMPIONE DEL MONDO",
+     "chaine": "Andrea Muzii",
+     "vues": "501K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CREA UN PALACIO",
+     "DE LA MEMORIA"
+    ],
+    "video": {
+     "id": "X_URHlAJ7aA",
+     "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
+     "chaine": "Sprouts Español",
+     "vues": "94 k vistas",
+     "date": "hace 3 años",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT",
+     "OF EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WISSE VON",
+     "ALLEM ETWAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SABE UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "SAIBA UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPPI UN PO'",
+     "DI TUTTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SABE UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO MATHS",
+     "IN YOUR HEAD"
+    ],
+    "video": {
+     "id": "1wAr2Kbe-GM",
+     "titre": "How to Calculate Faster than a Calculator - Mental Math #1",
+     "chaine": "Brain Station",
+     "vues": "7.6M views",
+     "date": "1 year ago",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/_Q8DnNm6nXHjLtNGWuhMlvqt1G9BilcflliJv28jFQcsjtUtfUWvRo6FNTWkhRXno84QkJOPQw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RECHNE",
+     "IM KOPF"
+    ],
+    "video": {
+     "id": "PCcK92FAzwo",
+     "titre": "Kopfrechnen - superschnell - genialer Rechentrick | Lehrerschmidt",
+     "chaine": "Lehrerschmidt",
+     "vues": "5,9 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZ CONTAS",
+     "DE CABEÇA"
+    ],
+    "video": {
+     "id": "ZhvxctjdzY4",
+     "titre": "Como fazer Contas de Cabeça - Adição | Escola ACRESCENTI (#12)",
+     "chaine": "Escola Acrescenti",
+     "vues": "129 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "4:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTmS7rStdyT0soK-gnp5QVmp24aOHChcJGwciLt5MOJP4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FAÇA CONTAS",
+     "DE CABEÇA"
+    ],
+    "video": {
+     "id": "6O5zYJ7N-6g",
+     "titre": "DICAS e MACETES de CÁLCULO MENTAL",
+     "chaine": "Maike Anthony",
+     "vues": "49 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "22:10",
+     "avatar": "https://yt3.ggpht.com/-0nhfCAj9OBaqeBLYhlIxAWX_Vqtg_PBU1GY1aPYRlA-THQJrD5IYmglfKCSSTF8Yj1PcMgHFPo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FAI CALCOLI",
+     "A MENTE"
+    ],
+    "video": {
+     "id": "K52AtgQhdDo",
+     "titre": "Calcolo Mentale Rapido - Addizioni e Sottrazioni",
+     "chaine": "Luigi Manca",
+     "vues": "243K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/NkJAVDX0NxKjaWBQLlwbnBVS7FR3iTCWPmPGFlwxEi_vthjAVJ-uptIz9Jssd-eTNlZbt8Y-Iw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CALCULA",
+     "MENTALMENTE"
+    ],
+    "video": {
+     "id": "L7iRlOnEdZc",
+     "titre": "Calcula Más Rápido que una Calculadora 🧮",
+     "chaine": "Matemáticas con Juan",
+     "vues": "1.6 M de vistas",
+     "date": "hace 1 año",
+     "duree": "12:14",
+     "avatar": "https://yt3.ggpht.com/Fyjo8CIATVw9DU0cWweSMWObo47mpxvOlrc_jw9fWM8DiSDTyG8glEOvsAwHwkV85HXIOHZP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

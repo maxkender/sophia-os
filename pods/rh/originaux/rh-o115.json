@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o115",
+ "type_bleo": "full_test",
+ "titre": "les phrases que j'ai arrêté de dire en réunion (et on m'écoute enfin) #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 7. Full test : accroche jamais faite chez nous (les phrases de réunion). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17bb00d4",
+   "texte_overlay": "les phrases que j'ai arrêté de dire en réunion\n(et on m'écoute enfin)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2526aa4d",
+   "texte_overlay": "« c'est peut-être une question bête, mais… »\nje pose la question. point",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3195c188",
+   "texte_overlay": "« je sais pas si c'est clair »\nje demande « qu'est-ce qui manque pour décider ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "36cbb533",
+   "texte_overlay": "« désolée de vous déranger »\nje dis « j'ai besoin de 2 minutes sur X »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "38b9ad92",
+   "texte_overlay": "« j'ai pas eu le temps de regarder »\nje regarde avant. même 5 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "392219e8",
+   "texte_overlay": "« je pense que peut-être on pourrait… »\nje dis « je propose X, pour cette raison »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "18dc89bf",
+   "texte_overlay": "« je sais pas trop, c'est pas mon domaine »\nje dis ce que j'en sais, même un peu.\n5 minutes par jour à apprendre, et t'as toujours un angle",
+   "texte_sophia": "« je sais pas trop, c'est pas mon domaine »\nje dis ce que j'en sais. utilise l'appli Sophia 5 minutes par jour, t'auras toujours un angle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "399627fb",
+   "texte_overlay": "laquelle tu dis encore ?\navoue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

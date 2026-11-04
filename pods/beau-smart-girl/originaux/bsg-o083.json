@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o083",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "774de6a8-cb5c-4dfc-b80e-59b9e675113f",
+  "titre": "how to stop overthinking so much all the time #overthinking #thatgirl",
+  "inspirations": [
+    "774de6a8-cb5c-4dfc-b80e-59b9e675113f"
+  ],
+  "notes": "G1, déclinaison de 774de6a8 (« how to stop overthinking so much all the time », génération 0 en anglais ; meilleur passage de 4,9 k vues, r 4,54), en anglais. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni « résoudre ou ressasser », ni pensées écrites, ni autre appli). Aucun conseil médical. Fait vérifié le 4/11 sur https://en.wikipedia.org/wiki/Les_Mis%C3%A9rables : « first published on 31 March 1862 », « when author was in self-imposed exile in Guernsey » (et non « fini à Guernesey » : la page dit qu'il l'a fini à Waterloo). Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "how to stop overthinking\nso much all the time",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "06b64a24",
+      "texte_overlay": "1. give it a deadline\n\nyou can worry about it until 6pm.\nafter that, the decision is made.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "41a74286",
+      "texte_overlay": "2. ask: will this matter in a year?\n\nmost things won't.\nthe ones that will deserve real action, not loops.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02d3e38d",
+      "texte_overlay": "3. give your mind something better to chew on\n\nthis morning i learned that victor hugo was living in exile on the island of guernsey when les misérables came out, in 1862.\nmy brain forgot what i was spiraling about.",
+      "texte_sophia": "3. give your mind something better to chew on\n\nthis morning, the Sophia app taught me that victor hugo was living in exile on the island of guernsey when les misérables came out, in 1862.\nmy brain forgot what i was spiraling about.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. move your body\n\na walk around the block\nchanges the conversation in your head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. say it out loud to a friend\n\nthoughts sound much smaller\nonce they leave your head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0030ce92",
+      "texte_overlay": "which one do you need most?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

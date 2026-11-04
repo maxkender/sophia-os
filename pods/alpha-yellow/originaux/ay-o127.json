@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o127",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "242d5593-0bfc-4113-8715-e5b760cd4aaf",
+ "titre": "Unusual hobbies that make you more attractive #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "242d5593-0bfc-4113-8715-e5b760cd4aaf"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 15fc4dd8. déclinaison G1 de la ligne 8 de la boîte (242d5593, fr 19,7 k r 13,3) : accroche du parent mot pour mot. Hobbies neufs, aucun repris du parent (danse, photo, pain, escalade, magie, écriture) ni d'ay-o052, o061, o067. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15fc4dd8",
+   "texte_overlay": "Unusual hobbies that make\nyou more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn to play the piano. Even five simple songs. Sitting down at a piano at a friend's place and playing something beautiful is a quietly magnetic moment.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Try boxing. It builds confidence, fitness and discipline, and it teaches you to stay calm under pressure. A man who can handle himself carries himself differently.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn to make cocktails. Three classics, done properly. Hosting friends and making them a great drink turns any evening at your place into a memory.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Take up sketching. A small notebook, a pencil, ten minutes in a café. Drawing what you see makes you more observant, and people love seeing your little drawings.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: no hobbies, just my phone. After: five minutes a day of history, art or science, and a curiosity that pushed me into new hobbies and new people.",
+   "texte_sophia": "Before: no hobbies, just my phone. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now I have new hobbies and new people.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Learn to sail or row. Water sports take you outdoors, teach teamwork and give you great weekend stories. Few things are more attractive than a man at ease on a boat.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Grow your own herbs and vegetables. Cooking with basil and tomatoes from your own balcony shows patience, care and a calm way of living that people notice.",
+   "media_id": "6ef6edb6"
+  }
+ ]
+}

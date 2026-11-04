@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,9 @@ import { localeDate } from "@/locales/localeDate";
 import { drapeau, nomPays } from "@/features/decisionPays/logique";
 
 import { FeedbackBot, StatsBots } from "./FeedbackBot";
+import { BlocDecision } from "./DecisionProbleme";
+import { MessagesCarte } from "./MessagesCarte";
+import { BoutonKillSamedi, BoutonRituel } from "./KillSamedi";
 import {
   agirProbleme,
   dejaEcritAujourdhui,
@@ -35,10 +38,13 @@ import {
 } from "./api";
 import {
   aDiagnosticOuAction,
+  CATEGORIES_ARGENT,
+  estArret,
   avecLigneStop,
   compterParGroupe,
   compterParNiveau,
   dansOnglet,
+  estDecision,
   etapesManquantes,
   GROUPES,
   groupeDe,
@@ -118,7 +124,7 @@ const Titre = ({ children }: { children: React.ReactNode }) => (
   <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{children}</p>
 );
 
-function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"; feedback?: BotFeedback }) {
+function CarteProbleme({ p, mode, feedback, surlignee = false }: { p: Probleme; mode: "test" | "on"; feedback?: BotFeedback; surlignee?: boolean }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const navigate = useNavigate();
@@ -131,6 +137,8 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
   const phrase = phraseProbleme(p, localeDate());
   const liste = gestes(p);
   const groupe = groupeDe(p);
+  const decision = estDecision(p);
+  const sujet = p.sujet ?? "posteur";
 
   const agir = useMutation({
     mutationFn: async (action: "valider" | "ignorer" | "samedi" | "modifier" | "fermer") => {
@@ -155,7 +163,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
       }
       if (p.proposition_reponse?.trim() && mode === "on" && p.poster_id && (p.canal_reponse ?? "upwork") === "upwork") {
         if (await dejaEcritAujourdhui(p.poster_id, debutJourParis())) throw new Error(t(`${P}.unParJour`));
-        await envoyerUpwork(p.poster_id, avecLigneStop(p.proposition_reponse));
+        await envoyerUpwork(p.poster_id, estArret(p) ? p.proposition_reponse : avecLigneStop(p.proposition_reponse));
         envoye = true;
       }
       await agirProbleme(p.id, "valider", { envoye, action: p.proposition_action, reponse: p.proposition_reponse });
@@ -171,10 +179,12 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
   });
 
   return (
-    <Card data-testid="carte-probleme">
+    <Card data-testid="carte-probleme" id={`probleme-${p.id}`} className={cn(surlignee && "ring-2 ring-primary")}>
       <CardContent className="space-y-2 p-4 text-sm">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span className="font-semibold">{p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`)}</span>
+          <span className="font-semibold">{sujet !== "posteur" && !p.poster_id ? (p.hm_nom ?? t(`${P}.sansPosteur`)) : (p.nom ?? p.contrat_id ?? t(`${P}.sansPosteur`))}</span>
+          {sujet !== "posteur" && <Badge variant="outline" data-testid="sujet">{t(`${P}.decision.sujet.${sujet}`)}</Badge>}
+          {p.offre_lien && <a href={p.offre_lien} target="_blank" rel="noreferrer" className="text-xs underline">{t(`${P}.decision.offre`)}</a>}
           {s?.pays && <span className="text-muted-foreground">· {drapeau(s.pays)} {nomPays(s.pays, i18nLangue())}</span>}
           {p.hm && <span className="text-muted-foreground">· {t(`${P}.hm`, { hm: p.hm })}</span>}
           {p.cohorte && <span className="text-muted-foreground">· {t(`${P}.cohorte`, { date: jourCohorte(p.cohorte) })}</span>}
@@ -187,12 +197,14 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           <p className="font-bold" data-testid="diagnostic">
             {p.diagnostic?.trim() ? p.diagnostic : phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : resumeLisible(p, t)}
           </p>
-          {p.diagnostic?.trim() && (p.diagnostic_par ?? p.propose_par) && (
+          {p.diagnostic?.trim() && p.diagnostic_par !== "decision" && (p.diagnostic_par ?? p.propose_par) && (
             <p className="text-[11px] text-muted-foreground" data-testid="diagnostic-par">
               {t(`${P}.diagPar`, { qui: t(`${P}.proprietaires.${p.diagnostic_par ?? p.propose_par}`, { defaultValue: p.diagnostic_par ?? p.propose_par ?? "" }) })}
             </p>
           )}
         </div>
+        {decision && <BlocDecision p={p} mode={mode} />}
+        <MessagesCarte messages={p.messages} sansReponse={p.sans_reponse} />
         {s && (
           <div className="rounded-md bg-muted/30 p-2">
             <Titre>{t(`${P}.titres.situation`)}</Titre>
@@ -210,7 +222,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
         )}
         <div className="space-y-1">
           <Titre>{t(`${P}.titres.action`)}</Titre>
-          {p.proposition_action && (
+          {p.proposition_action && !decision && (
             <p className="text-xs">{t(`${P}.actionProposee`)} <span className="font-medium">{t(`${P}.actions.${p.proposition_action}`, { defaultValue: p.proposition_action })}</span></p>
           )}
           <div className="flex flex-wrap gap-2">
@@ -219,6 +231,9 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
                 <a key={g.cle} href={g.url} target="_blank" rel="noreferrer" className="inline-flex h-8 items-center rounded-md border px-3 text-xs hover:bg-muted">
                   {t(`${P}.${g.cle}`)} ↗
                 </a>
+              ) : g.type === "kill" ? (
+                // Le Kill samedi est déjà en bas de la carte (geste « Valider »).
+                geste.type === "kill" ? null : <BoutonKillSamedi key={g.cle} p={p} libelle={t(`${P}.${g.cle}`)} />
               ) : g.type === "page" ? (
                 <Button key={g.cle} size="sm" onClick={() => navigate(g.vers)}>{t(`${P}.${g.cle}`)}</Button>
               ) : (
@@ -245,10 +260,16 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           )}
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
-            ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
-          </Button>
-          {edition ? (
+          {decision ? null : geste.type === "kill" ? (
+            <BoutonKillSamedi p={p} libelle={`✅ ${t(`${P}.kill.samedi`)}`} />
+          ) : geste.type === "rituel" ? (
+            <BoutonRituel p={p} choix={geste.choix} libelle={`✅ ${t(`${P}.rituel.bouton.${geste.choix}`)}`} />
+          ) : (
+            <Button size="sm" variant="secondary" onClick={() => agir.mutate("valider")} disabled={agir.isPending}>
+              ✅ {geste.type === "page" ? t(`${P}.ouvrir`) : t(`${P}.valider`)}
+            </Button>
+          )}
+          {decision ? null : edition ? (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("modifier")} disabled={agir.isPending}>💾 {t(`${P}.enregistrer`)}</Button>
           ) : (
             <Button size="sm" variant="outline" onClick={() => setEdition(true)}>✏️ {t(`${P}.modifier`)}</Button>
@@ -257,7 +278,7 @@ function CarteProbleme({ p, mode, feedback }: { p: Probleme; mode: "test" | "on"
           {p.niveau !== "samedi" && (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("samedi")} disabled={agir.isPending}>📅 {t(`${P}.samedi`)}</Button>
           )}
-          {p.proposition_action === "close" && (
+          {p.proposition_action === "close" && !decision && (
             <Button size="sm" variant="outline" onClick={() => agir.mutate("fermer")} disabled={agir.isPending} data-testid="fermer">✔️ {t(`${P}.fermer`)}</Button>
           )}
         </div>
@@ -319,10 +340,10 @@ function BarreOnboarding() {
 }
 
 /** Un groupe (4) : la catégorie, son compteur, « Valider tout » sans argent ni STOP. */
-function Groupe({ niveau, categorie, cartes, mode, feedbacks }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on"; feedbacks: Map<string, BotFeedback> }) {
+function Groupe({ niveau, categorie, cartes, mode, feedbacks, carte }: { niveau: Niveau; categorie: string; cartes: Probleme[]; mode: "test" | "on"; feedbacks: Map<string, BotFeedback>; carte?: string | null }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const [ouvert, setOuvert] = React.useState(cartes.length <= 5 || niveau === "urgent");
+  const [ouvert, setOuvert] = React.useState(cartes.length <= 5 || niveau === "urgent" || cartes.some((c) => c.id === carte));
   const lot = useMutation({ mutationFn: () => validerCategorie(niveau, categorie), onSuccess: () => qc.invalidateQueries({ queryKey: ["problemes"] }) });
   return (
     <section className="space-y-2" data-testid="groupe-probleme">
@@ -336,7 +357,7 @@ function Groupe({ niveau, categorie, cartes, mode, feedbacks }: { niveau: Niveau
           </Button>
         )}
       </div>
-      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} feedback={feedbacks.get(p.id)} />)}
+      {ouvert && cartes.map((p) => <CarteProbleme key={p.id} p={p} mode={mode} feedback={feedbacks.get(p.id)} surlignee={p.id === carte} />)}
     </section>
   );
 }
@@ -355,6 +376,10 @@ export function PageProblemesPosteurs() {
   const [onglet, setOnglet] = React.useState<Niveau>("urgent");
   const [vue, setVue] = React.useState<"ouverts" | "fermes" | "archives">("ouverts");
   const [f, setF] = React.useState<FiltresProblemes>(FILTRES_VIDES);
+  // 0531 : « ?carte=<id> » (lien depuis jeudi, samedi, dimanche) : le bon groupe, le bon niveau, la carte surlignée.
+  const [params] = useSearchParams();
+  const carte = params.get("carte");
+  const [carteVue, setCarteVue] = React.useState<string | null>(null);
   const lu = useQuery({ queryKey: ["problemes", "ouverts"], queryFn: () => lireProblemes("ouverts"), refetchInterval: 60_000 });
   const fermes = useQuery({ queryKey: ["problemes", "fermes"], queryFn: () => lireProblemes("fermes"), enabled: vue === "fermes" });
   const archives = useQuery({ queryKey: ["problemes", "archives"], queryFn: lireArchives, enabled: vue === "archives" });
@@ -380,7 +405,17 @@ export function PageProblemesPosteurs() {
     retry: false,
   });
 
-  const tous = lu.data ?? [];
+  const tous = React.useMemo(() => lu.data ?? [], [lu.data]);
+  React.useEffect(() => {
+    if (!carte || carteVue === carte) return;
+    const c = tous.find((x) => x.id === carte);
+    if (!c) return;
+    setCarteVue(carte);
+    setVue("ouverts");
+    setGroupe(CATEGORIES_ARGENT.includes(c.categorie) ? "paie" : groupeDe(c));
+    setOnglet(c.niveau);
+    window.setTimeout(() => document.getElementById(`probleme-${carte}`)?.scrollIntoView({ block: "center" }), 50);
+  }, [carte, carteVue, tous]);
   // B2 : pas de diagnostic et pas d'action → pas de carte.
   const montrables = tous.filter(aDiagnosticOuAction);
   const masquees = tous.length - montrables.length;
@@ -450,7 +485,7 @@ export function PageProblemesPosteurs() {
       {vue === "ouverts" && (
         <div className="space-y-3">
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
-          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} feedbacks={feedbacks} />)}
+          {grouper(visibles).map((g) => <Groupe key={g.categorie} niveau={onglet} categorie={g.categorie} cartes={g.cartes} mode={modeActuel} feedbacks={feedbacks} carte={carte} />)}
         </div>
       )}
 

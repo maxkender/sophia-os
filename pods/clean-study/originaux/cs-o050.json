@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o050",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "85dd07fe-bb9c-44da-84cb-f5bb3b356af1",
+  "titre": "exquisite words to add to your vocabulary part 2 #vocabulary #studytok #english",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "85dd07fe-bb9c-44da-84cb-f5bb3b356af1"
+  ],
+  "notes": "Déclinaison G1 de 85dd07fe (r 3,26 en turc), ligne 2 de la boîte. L'accroche normalisée commence par « e » (un symbole du parent) : je mets « ℯ » (e de ronde), qui se normalise en « e », pour garder l'accroche mot pour mot. Mots neufs, aucun du parent (alleviate, quintessential, cajole, efficient), définitions et exemples vérifiés dans leur sens courant : ephemeral, meticulous, eloquent, consolidate (place micabo, slide 5 : se tester consolide), procrastinate (place UnSwipe, slide 6 : le scroll). Slides 5 et 6 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9bc34354",
+      "texte_overlay": "ᵉ exquisite words to add to your vocabulary\npart 2",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9d49a933",
+      "texte_overlay": "ephemeral\nadjective — lasting a very short time\n\"the excitement of a new planner is ephemeral. the habit isn't.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9ea256b7",
+      "texte_overlay": "meticulous\nadjective — very careful and precise\n\"she keeps meticulous notes, one page per lesson.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a1e4ce89",
+      "texte_overlay": "eloquent\nadjective — speaking or writing clearly and convincingly\n\"her essay was short but eloquent.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "11b6d69f",
+      "texte_overlay": "consolidate\nverb — to make something stronger or more solid\n\"testing yourself every evening consolidates what you learned.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9552acc2",
+      "texte_overlay": "procrastinate\nverb — to delay something you should do\n\"i procrastinate by scrolling. so the phone goes in another room.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a2a50b7a",
+      "texte_overlay": "part 3? 📜",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o129",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "44afd391-8d53-49ae-b4c3-c61a2968af66",
+ "titre": "5 hobbies that will pull you out of your dopamine addiction #dopaminedetox #selfimprovement #focus #hobbies #screentime",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "e03e10ad-063a-4dc6-b049-d370398a22dd"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, e03e10ad). déclinaison G1 de « 5 hobbies that will pull you out of your dopamine addiction » (parent 44afd391, 55 600 vues en pl). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8df88cea-ca8e-467e-9fa0-f863c58e0363",
+   "texte_overlay": "5 hobbies that will pull you out\nof your dopamine addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238195210554638/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9be91a77-5af0-4027-9947-1d4f3aff9fe3",
+   "texte_overlay": "pottery\n\ntake a pottery class and feel how slow it is to shape one bowl. clay can't be rushed, and an hour of it quiets a brain that's used to a new thing every second.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238195210554638/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d9aa96b6-0051-45d3-bf05-505d0a81f98b",
+   "texte_overlay": "long distance cycling\n\nride for an hour with no music, just the road and your breath. long, steady effort teaches your brain that good feelings can come from patience, not just speed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238195210554638/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "50414ee6-efb4-4870-85f9-295523d98439",
+   "texte_overlay": "growing herbs\n\ngrow basil or mint on your windowsill and look after it every morning. waiting days to see a new leaf is the perfect, gentle antidote to a world of instant everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238195210554638/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ade9ef2e-9905-4ffe-8e0a-fd27219fbe5f",
+   "texte_overlay": "learning instead of scrolling\n\nevery time you open a feed, close it and learn one real thing instead: a planet, a painting, a moment in history. real rewards slowly replace the empty ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238195210554638/5.jpg",
+   "texte_sophia": "learning instead of scrolling\n\nevery time i open a feed now, i close it and learn one real thing instead. the Sophia app turns it into one short lesson a day, and real rewards slowly replaced empty ones."
+  },
+  {
+   "position": 6,
+   "media_id": "f8b6d94a-cff2-4c4e-ad85-dfb37a63eb2d",
+   "texte_overlay": "jigsaw evenings\n\nkeep a big puzzle on a table and add pieces in the evening instead of watching shorts. slow, quiet focus is exactly what an overstimulated mind needs to recover.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654238195210554638/6.jpg"
+  }
+ ]
+}

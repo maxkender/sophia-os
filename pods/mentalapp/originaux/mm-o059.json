@@ -1,0 +1,188 @@
+{
+ "id": "mm-o059",
+ "format": "carrousel",
+ "titre": "Habits that make your brain feel lighter",
+ "legendes": {
+  "en": "habits that make your brain feel lighter #mentalhealth #habits #mentalmaxxing #selfimprovement",
+  "fr": "des habitudes qui allègent ton cerveau #santementale #habitudes #mentalmaxxing #developpementpersonnel",
+  "de": "Gewohnheiten, die dein Gehirn leichter machen #mentalegesundheit #gewohnheiten #mentalmaxxing #selbstverbesserung",
+  "es": "hábitos que hacen que tu cerebro se sienta más ligero #saludmental #habitos #mentalmaxxing #superacionpersonal",
+  "it": "abitudini che alleggeriscono il cervello #salutementale #abitudini #mentalmaxxing #crescitapersonale",
+  "tr": "beynini hafifleten alışkanlıklar #ruhsağlığı #alışkanlıklar #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7698939556371975431/1",
+   "boite": [
+    252,
+    402,
+    606,
+    726
+   ]
+  },
+  "theme": {
+   "en": "Habits that make",
+   "fr": "Des habitudes qui",
+   "de": "Gewohnheiten, die",
+   "es": "Hábitos que hacen",
+   "it": "Abitudini che",
+   "tr": "Beynini hafifleten"
+  },
+  "sous": {
+   "en": "your brain feel lighter",
+   "fr": "allègent ton cerveau",
+   "de": "den Kopf leichter machen",
+   "es": "tu cerebro más ligero",
+   "it": "alleggeriscono la mente",
+   "tr": "alışkanlıklar"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Brain dump on paper",
+    "fr": "Vider sa tête sur papier",
+    "de": "Alles aufs Papier",
+    "es": "Volcar la mente en papel",
+    "it": "Svuotare la testa su carta",
+    "tr": "Kafanı kâğıda boşalt"
+   },
+   "texte": {
+    "en": "Everything you need to remember, written down. Your head stops holding it.",
+    "fr": "Tout ce que tu dois retenir, par écrit. Ta tête arrête de le porter.",
+    "de": "Alles, was du dir merken musst, aufgeschrieben. Dein Kopf muss es nicht mehr tragen.",
+    "es": "Todo lo que debes recordar, por escrito. Tu cabeza deja de cargarlo.",
+    "it": "Tutto ciò che devi ricordare, per iscritto. La testa smette di portarlo.",
+    "tr": "Hatırlaman gereken her şey yazılı. Kafan onu taşımayı bırakır."
+   }
+  },
+  {
+   "src": "7698939556371975431/7",
+   "boite": [
+    330,
+    414,
+    408,
+    444
+   ],
+   "titre": {
+    "en": "Fewer notifications",
+    "fr": "Moins de notifications",
+    "de": "Weniger Benachrichtigungen",
+    "es": "Menos notificaciones",
+    "it": "Meno notifiche",
+    "tr": "Daha az bildirim"
+   },
+   "texte": {
+    "en": "Every ping is a small demand on your attention. Turn most of them off.",
+    "fr": "Chaque notif est une petite demande d’attention. Coupe-en la plupart.",
+    "de": "Jeder Ping ist eine kleine Forderung an deine Aufmerksamkeit. Schalte die meisten aus.",
+    "es": "Cada aviso es una pequeña demanda de atención. Apaga la mayoría.",
+    "it": "Ogni notifica è una piccola richiesta d’attenzione. Spegni la maggior parte.",
+    "tr": "Her bildirim dikkatine küçük bir taleptir. Çoğunu kapat."
+   }
+  },
+  {
+   "src": "7699644186470976786/5",
+   "boite": [
+    312,
+    426,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Slow mornings",
+    "fr": "Des matins lents",
+    "de": "Langsame Morgen",
+    "es": "Mañanas lentas",
+    "it": "Mattine lente",
+    "tr": "Yavaş sabahlar"
+   },
+   "texte": {
+    "en": "Wake up 20 minutes earlier and do nothing fast. The day stops feeling rushed.",
+    "fr": "Lève-toi 20 minutes plus tôt et ne fais rien à toute vitesse. La journée arrête de sembler pressée.",
+    "de": "Steh 20 Minuten früher auf und mach nichts hektisch. Der Tag fühlt sich nicht mehr gehetzt an.",
+    "es": "Levántate 20 minutos antes y no hagas nada deprisa. El día deja de sentirse apurado.",
+    "it": "Alzati 20 minuti prima e non fare niente di fretta. La giornata smette di sembrare di corsa.",
+    "tr": "20 dakika erken kalk ve hiçbir şeyi hızlı yapma. Gün telaşlı hissettirmeyi bırakır."
+   }
+  },
+  {
+   "src": "7698939556371975431/8",
+   "boite": [
+    312,
+    444,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "A shower without a podcast",
+    "fr": "Une douche sans podcast",
+    "de": "Duschen ohne Podcast",
+    "es": "Una ducha sin pódcast",
+    "it": "Una doccia senza podcast",
+    "tr": "Podcastsiz bir duş"
+   },
+   "texte": {
+    "en": "Ten minutes alone with your thoughts. Most people find their best ideas there.",
+    "fr": "Dix minutes seul avec tes pensées. C’est là que beaucoup trouvent leurs meilleures idées.",
+    "de": "Zehn Minuten allein mit deinen Gedanken. Dort finden viele ihre besten Ideen.",
+    "es": "Diez minutos a solas con tus pensamientos. Ahí muchos encuentran sus mejores ideas.",
+    "it": "Dieci minuti da solo con i tuoi pensieri. Lì molti trovano le idee migliori.",
+    "tr": "Düşüncelerinle baş başa on dakika. Çoğu insan en iyi fikirlerini orada bulur."
+   }
+  },
+  {
+   "src": "7699644186470976786/7",
+   "boite": [
+    300,
+    408,
+    456,
+    456
+   ],
+   "titre": {
+    "en": "One thing at a time",
+    "fr": "Une seule chose à la fois",
+    "de": "Eins nach dem anderen",
+    "es": "Una cosa a la vez",
+    "it": "Una cosa alla volta",
+    "tr": "Aynı anda tek şey"
+   },
+   "texte": {
+    "en": "Juggling five things makes your head feel full. Doing one makes it feel calm.",
+    "fr": "Jongler avec cinq choses remplit ta tête. En faire une seule la calme.",
+    "de": "Fünf Dinge jonglieren macht den Kopf voll. Eins tun macht ihn ruhig.",
+    "es": "Hacer malabares con cinco cosas llena tu cabeza. Hacer una la calma.",
+    "it": "Fare cinque cose insieme riempie la testa. Farne una la calma.",
+    "tr": "Beş işi aynı anda yürütmek kafanı doldurur. Tek iş onu sakinleştirir."
+   }
+  },
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Before: my brain felt full of noise all day. After deleting short videos with UnSwipe: lighter, calmer, and I can actually think.",
+    "fr": "Avant : mon cerveau était plein de bruit toute la journée. Après avoir supprimé les vidéos courtes avec UnSwipe : plus léger, plus calme, et je peux enfin réfléchir.",
+    "de": "Vorher: Mein Kopf war den ganzen Tag voller Lärm. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: leichter, ruhiger, und ich kann wieder denken.",
+    "es": "Antes: mi cabeza estaba llena de ruido todo el día. Después de borrar los vídeos cortos con UnSwipe: más ligera, más tranquila, y por fin puedo pensar.",
+    "it": "Prima: la testa era piena di rumore tutto il giorno. Dopo aver eliminato i video brevi con UnSwipe: più leggera, più calma, e riesco a pensare.",
+    "tr": "Önce: beynim bütün gün gürültüyle doluydu. Kısa videoları UnSwipe ile sildikten sonra: daha hafif, daha sakin ve sonunda düşünebiliyorum."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous (« habits that make your brain feel lighter »). cta C (avant/après) : élément UnSwipe en dernier item (slide 7)."
+}

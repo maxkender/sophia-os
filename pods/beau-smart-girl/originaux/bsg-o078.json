@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o078",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "2fd5d90c-721a-4246-9709-cf07bc678940",
+  "titre": "5 choses à lire cette semaine pour se cultiver #lecture #culture #pourtoi",
+  "inspirations": [
+    "2fd5d90c-721a-4246-9709-cf07bc678940"
+  ],
+  "notes": "G1, déclinaison de 2fd5d90c (« 5 choses à lire cette semaine pour se cultiver », génération 0 en français ; meilleur passage hr 6,4 k vues, r 4,31), en français. cta C (le défi de 7 jours en slide 2). Lectures neuves (aucune reprise du parent : ni Zola, ni Zweig « Lettre d'une inconnue », ni Maupassant). Faits courants : Lettre à Ménécée d'Épicure, La Métamorphose de Kafka (1915), Le Joueur d'échecs de Zweig, Une chambre à soi de Virginia Woolf (1929), discours de Robert Badinter sur l'abolition de la peine de mort (1981). Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "5 choses à lire cette semaine\npour se cultiver",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. lettre à ménécée, épicure\n\nquelques pages sur le bonheur, écrites il y a plus de 2 000 ans.\nça parle encore de nous.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. la métamorphose, kafka\n\nun homme se réveille transformé en insecte.\ncourt, étrange, impossible à oublier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "3. le joueur d'échecs, stefan zweig\n\nune partie d'échecs sur un bateau.\nse lit d'une traite, un soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. une chambre à soi, virginia woolf\n\npourquoi les femmes ont si peu écrit pendant des siècles.\nun essai drôle et brillant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "62e25601",
+      "texte_overlay": "5. le discours de robert badinter (1981)\n\ncelui qui a convaincu les députés d'abolir la peine de mort en france.\nà lire, ou à écouter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu commences par lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,36 +1,37 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { choisirCompte, type CompteDuJour } from "./upwork_comptes.ts";
+import { choisirCompte, type CompteDuJour, estCompteDeMax, UPWORK_USER_MAX } from "./upwork_comptes.ts";
 
 const c = (compte: string, x: Partial<CompteDuJour> = {}): CompteDuJour => ({ compte, connecte: true, conversations: 0, limite: false, deja: false, ...x });
 const o = { max: 45, reserve: 5, prioritaire: false };
 
-Deno.test("prompt 25 MAJ : Adrien d'abord, jusqu'à 45 personnes, puis Max (la réserve sur Max, le dernier)", () => {
-  assertEquals(choisirCompte([c("principal"), c("secours")], o).compte, "secours");
-  assertEquals(choisirCompte([c("principal"), c("secours", { conversations: 44 })], o).compte, "secours");
-  assertEquals(choisirCompte([c("principal"), c("secours", { conversations: 45 })], o).compte, "principal");
-  assertEquals(choisirCompte([c("principal", { conversations: 40 }), c("secours", { conversations: 45 })], o).compte, null);
-  assertEquals(choisirCompte([c("principal", { conversations: 40 }), c("secours", { conversations: 45 })], { ...o, prioritaire: true }).compte, "principal");
-  // Adrien pas connecté : Max seul, la réserve sur Max.
-  assertEquals(choisirCompte([c("principal", { conversations: 40 }), c("secours", { connecte: false })], o).compte, null);
-  assertEquals(choisirCompte([c("principal", { conversations: 40 }), c("secours", { connecte: false })], { ...o, prioritaire: true }).compte, "principal");
+Deno.test("3/11 : les messages automatiques ne partent que du compte de Max, jamais de celui d'Adrien", () => {
+  assertEquals(choisirCompte([c("principal"), c("secours")], o).compte, "principal");
+  assertEquals(choisirCompte([c("secours"), c("principal", { conversations: 10 })], o).compte, "principal");
+  // Adrien déjà utilisé aujourd'hui pour cette personne : toujours Max.
+  assertEquals(choisirCompte([c("principal"), c("secours", { deja: true })], o).compte, "principal");
+  // Max pas connecté : rien ne part (pas de repli sur Adrien).
+  const r = choisirCompte([c("principal", { connecte: false }), c("secours")], o);
+  assertEquals(r.compte, null);
+  assertEquals(r.raison, "le compte Upwork de Max n'est pas connecté");
 });
 
-Deno.test("la 1re erreur de limite sur Adrien : Max ; les deux : plus rien sur Upwork (la HM)", () => {
-  assertEquals(choisirCompte([c("principal"), c("secours", { conversations: 12, limite: true })], o).compte, "principal");
-  const r = choisirCompte([c("principal", { limite: true }), c("secours", { limite: true })], o);
+Deno.test("plafond du jour : la réserve pour la bienvenue, le Kill et l'arrêt", () => {
+  assertEquals(choisirCompte([c("principal", { conversations: 39 })], o).compte, "principal");
+  assertEquals(choisirCompte([c("principal", { conversations: 40 })], o).compte, null);
+  assertEquals(choisirCompte([c("principal", { conversations: 40 })], { ...o, prioritaire: true }).compte, "principal");
+  assertEquals(choisirCompte([c("principal", { conversations: 45 })], { ...o, prioritaire: true }).compte, null);
+});
+
+Deno.test("limite d'Upwork reçue : plus rien jusqu'à demain ; même personne : ne compte pas deux fois", () => {
+  const r = choisirCompte([c("principal", { limite: true })], o);
   assertEquals(r.compte, null);
   assertEquals(r.raison, "limite Upwork du jour atteinte : plus rien jusqu'à demain");
+  assertEquals(choisirCompte([c("principal", { conversations: 45, deja: true })], o), { compte: "principal", nouvelle: false, raison: null });
 });
 
-Deno.test("le même compte toute la journée pour une personne", () => {
-  assertEquals(choisirCompte([c("principal", { deja: true }), c("secours")], o), { compte: "principal", nouvelle: false, raison: null });
-  // Déjà écrite par Adrien aujourd'hui, Adrien à 45 : ne compte pas une 2e fois.
-  assertEquals(choisirCompte([c("principal"), c("secours", { conversations: 45, deja: true })], o).compte, "secours");
-  // Déjà écrite par Adrien, Adrien a eu la limite : pas Max, la HM.
-  assertEquals(choisirCompte([c("principal"), c("secours", { deja: true, limite: true })], o).compte, null);
-});
-
-Deno.test("Adrien a échoué sur cette conversation : exclu, Max prend le relais", () => {
-  assertEquals(choisirCompte([c("principal"), c("secours")], { ...o, exclure: ["secours"] }).compte, "principal");
+Deno.test("le compte connecté doit être celui de Max (1908160914854122443)", () => {
+  assertEquals(estCompteDeMax({ id: UPWORK_USER_MAX, name: "Maximilien K." }), true);
+  assertEquals(estCompteDeMax({ id: "1990051114607612378", name: "Adrien M." }), false);
+  assertEquals(estCompteDeMax(null), false);
 });

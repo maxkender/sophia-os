@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o129",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d1387707-130a-4799-82bc-a8413c3d85b0",
+ "titre": "How to become a small talk god #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "d1387707-130a-4799-82bc-a8413c3d85b0"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 5ca058a8. déclinaison G1 de la ligne 11 de la boîte (d1387707, es 9,2 k r 1,88) : accroche du parent mot pour mot. La ligne 10 (« Habits that make you sound smarter instantly ») est sautée : hook voisin de la ligne 6 (« Small habits that make people respect you instantly ») déposée aujourd'hui. Situations neuves, aucune reprise du parent ni d'ay-o082 et o088. Couverture neuve (celle du parent porte un filigrane).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ca058a8",
+   "texte_overlay": "How to become\na small talk god",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Someone says \"Busy week?\" Don't just say \"Yeah.\" Say \"Busy, but I finally fixed my bike, so it's a win.\" One small detail gives them something to ask about.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stuck in a lift with a neighbour? \"I always wonder who lives on the top floor.\" Light curiosity about your shared space turns thirty seconds into a nice moment.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "At a wedding table with strangers? Ask \"What's the best wedding you've ever been to?\" Everyone has a story, and the whole table joins in within a minute.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep your own life interesting. I do five minutes a day of history, art or science, and small talk gets easy when you've always got something fun to share.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small talk gets easy when you've always got something fun to share.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Someone complains about the weather? Agree, then twist it. \"Perfect excuse for soup tonight. What's your go-to comfort food?\" Now you're talking about something fun.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Meet someone with a pet? Ask its name and how they chose it. People love talking about their animals, and the stories are almost always funny and sweet.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ending the chat? Use something they said. \"Good luck with the move on Saturday.\" Remembering a detail makes even a two-minute chat feel warm and personal.",
+   "media_id": "2979667b"
+  }
+ ]
+}

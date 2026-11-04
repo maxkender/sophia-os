@@ -44,7 +44,7 @@ regarde-la avec l'outil Read. Ne déclare jamais un post prêt sans l'avoir rega
 - `STYLE_FR.md` : la voix française (obligatoire pour toute écriture en français).
 - `CONSIGNES.md` : format, soulignés `[[ ]]`, zones, scissions, `garder`.
 - `CTA.md` : les 3 versions de la phrase d'appli, à alterner.
-- `UNSWIPE.md` : la slide UnSwipe des variantes `<id>.unswipe.<langue>.json` (à lire avant d'en écrire une).
+- `UNSWIPE.md` : historique. UnSwipe est arrêté depuis le 4/11 : n'écris plus de variante `<id>.unswipe.<langue>.json`.
 
 **Versions** : avant de réécrire un fichier qui existe déjà, commite l'état
 actuel. On ne repart jamais de zéro et on ne perd jamais une version.

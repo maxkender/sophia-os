@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o120",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "865833be-efbd-4f04-ba35-690bdc885da3",
+ "titre": "j'ai arrêté 5 habitudes au boulot pendant un mois (et j'ai jamais été aussi efficace) #travail #productivite #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 3 (parent 865833be) : accroche mot pour mot, autres habitudes que le parent (rh-o029). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2988d9a3",
+   "texte_overlay": "j'ai arrêté 5 habitudes au boulot pendant un mois\n(et j'ai jamais été aussi efficace)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4914044f",
+   "texte_overlay": "garder 30 onglets ouverts\nj'en garde 5. le reste, je le note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "494f2b36",
+   "texte_overlay": "répondre à un mail en 2 minutes chrono\nje réponds en 2 fois par jour, et mieux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4ad09ffc",
+   "texte_overlay": "accepter toutes les réunions\nje demande l'ordre du jour avant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "36ceabae",
+   "texte_overlay": "passer ma pause sur mon téléphone\nmaintenant, 5 minutes à apprendre un truc. je reviens la tête fraîche",
+   "texte_sophia": "passer ma pause sur mon téléphone\nmaintenant, 5 minutes sur l'appli Sophia. je reviens la tête fraîche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4b186cca",
+   "texte_overlay": "travailler tard pour « finir »\nje finis demain, reposée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4c2c30db",
+   "texte_overlay": "et toi, t'arrêterais laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

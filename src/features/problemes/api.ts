@@ -82,6 +82,89 @@ export interface Probleme {
   /** 0524 : « os » (diagnostic écrit par l'OS à chaque passage) ou le bot qui l'a écrit. */
   diagnostic_par?: string | null;
   groupe_suggere?: Groupe | null;
+  /** 0528 : une question posée à Max (2 à 4 options, la 1re recommandée) ; le choix fait. */
+  question?: string | null;
+  options?: OptionDecision[] | null;
+  decision_choisie?: number | null;
+  decision_at?: string | null;
+  /** 0528 : la carte concerne un posteur, une HM ou une offre Upwork ; à qui part la réponse. */
+  sujet?: "posteur" | "hm" | "offre";
+  hm_id?: string | null;
+  hm_nom?: string | null;
+  offre_lien?: string | null;
+  destinataire?: "posteur" | "hm";
+  /** 0530 : Kill samedi préparé (le lundi de la semaine de ce samedi). */
+  kill_samedi_lundi?: string | null;
+  kill_samedi_at?: string | null;
+  /** 0531 : Doubler (samedi) ou Recréer (jeudi) préparé depuis la carte. */
+  rituel_choix?: "double" | "recreate" | null;
+  rituel_lundi?: string | null;
+  /** 0532 : les 15 derniers messages (Upwork et Slack) et le dernier sans réponse. */
+  messages?: MessageCarte[] | null;
+  sans_reponse?: SansReponse | null;
+}
+
+export interface MessageCarte {
+  at: string;
+  canal: "upwork" | "slack" | "slack_dm";
+  auteur: "posteur" | "hm" | "max" | "os";
+  texte: string;
+}
+
+export interface SansReponse {
+  texte: string;
+  canal: MessageCarte["canal"];
+  at: string;
+  depuis_heures: number;
+  question: boolean;
+}
+
+/** 0531 : Doubler → samedi, Recréer → jeudi ; rien n'est exécuté, annuler retire la décision préparée. */
+export async function deciderRituel(id: string, choix: "double" | "recreate", annuler = false): Promise<Record<string, unknown>> {
+  const { data, error } = await supabase.rpc("probleme_rituel", { p_id: id, p_choix: choix, p_annuler: annuler });
+  if (error) throw error;
+  return (data ?? {}) as Record<string, unknown>;
+}
+
+/** 0531 : les cartes ouvertes de chaque posteur (badge des pages jeudi, samedi, dimanche). */
+export interface ResumeProblemes {
+  poster_id: string;
+  n: number;
+  probleme_id: string;
+  diagnostic: string | null;
+  kill_samedi_lundi: string | null;
+  rituel_choix: string | null;
+  rituel_lundi: string | null;
+}
+
+export async function lireResumeProblemes(): Promise<Map<string, ResumeProblemes>> {
+  const { data, error } = await supabase.rpc("problemes_resume_posteurs");
+  if (error) throw error;
+  return new Map(((data ?? []) as ResumeProblemes[]).map((r) => [r.poster_id, r]));
+}
+
+/** 0530 : Kill samedi : rien n'est exécuté, la décision va à la revue du samedi ; annuler remet Keep. */
+export async function killSamedi(id: string, annuler = false): Promise<Record<string, unknown>> {
+  const { data, error } = await supabase.rpc("probleme_kill_samedi", { p_id: id, p_annuler: annuler });
+  if (error) throw error;
+  return (data ?? {}) as Record<string, unknown>;
+}
+
+/** 0528 : une option d'une carte « décision ». « paie » : le bouton ouvre le contrat Upwork, l'OS ne paie jamais. */
+export interface OptionDecision {
+  libelle: string;
+  reponse?: string;
+  action?: string;
+  paie?: boolean;
+  lien?: string;
+  recommande?: boolean;
+}
+
+/** 0528 : Max choisit une option : la carte se ferme (ou revient samedi), le choix va dans bot_feedback. */
+export async function deciderProbleme(id: string, index: number, envoye: boolean): Promise<OptionDecision> {
+  const { data, error } = await supabase.rpc("probleme_decider", { p_id: id, p_index: index, p_envoye: envoye });
+  if (error) throw error;
+  return data as OptionDecision;
 }
 
 export interface Archive {
@@ -281,4 +364,40 @@ export async function lireStatsBots(): Promise<StatBot[]> {
   const { data, error } = await supabase.rpc("bots_stats");
   if (error) throw error;
   return (data ?? []) as StatBot[];
+}
+
+// ---------------------------------------------------------------------------
+// 3/11 : Kill depuis la page Problèmes, branché sur Upwork (fonction upwork, 0527).
+// ---------------------------------------------------------------------------
+export interface PlanKill {
+  decision: "fermer" | "deja_ferme" | "attendre" | "a_la_main";
+  raison: string | null;
+  montant: number;
+  en_cours: { nom: string; depot: number | null; etat: string } | null;
+}
+
+export interface InfoKill {
+  contrat_id: string | null;
+  titre: string | null;
+  organisation: string | null;
+  statut: string | null;
+  jalons: { nom: string; etat: string; depot: number | null; paye: number | null }[];
+  plan: PlanKill;
+  mode?: "test" | "on";
+  texte?: string;
+  test?: boolean;
+}
+
+/** Ce que le Kill fera : le contrat lié, relu chez Upwork (lecture seule). */
+export async function apercuKill(problemeId: string): Promise<InfoKill> {
+  const r = await invoke<{ ok: boolean; error?: string } & InfoKill>("upwork", { action: "kill_probleme", probleme_id: problemeId, executer: false });
+  if (!r.ok) throw new Error(r.error ?? "aperçu du Kill impossible");
+  return r;
+}
+
+/** Le Kill : compte désactivé, kill noté, et (case cochée) contrat fermé sans avis. Jamais en mode test. */
+export async function executerKill(problemeId: string, fermerContrat: boolean): Promise<InfoKill> {
+  const r = await invoke<{ ok: boolean; error?: string } & InfoKill>("upwork", { action: "kill_probleme", probleme_id: problemeId, executer: true, fermer_contrat: fermerContrat });
+  if (!r.ok) throw new Error(r.error ?? "Kill impossible");
+  return r;
 }

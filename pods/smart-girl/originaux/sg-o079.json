@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o079",
+ "type_bleo": "full_test",
+ "titre": "how to be the guest everyone wants to invite back #etiquette #elegance #smartgirl #dinnerparty #oldmoney",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta B. Full test (la jauge en demande 1 sur 9) : accroche jamais faite chez nous (« good guest » et « invite back » n'apparaissent nulle part dans donnees/label.json ; « guest » seulement en passant). Accroches écrites : « how to be the guest everyone wants to invite back » (retenue : savoir-vivre élégant, concret, très enregistrable), « dinner party rules nobody teaches you » (écartée : plus proche des « rules » vagues à éviter), « the art of being a good guest » (écartée : moins de promesse). Sophia au milieu, sur « bring one good story » (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d599c712",
+   "texte_overlay": "how to be the guest\neveryone wants to invite back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0ad355c4",
+   "texte_overlay": "1. arrive 5 to 10 minutes\nafter the time, never before\n\nthe host is still getting ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2a25c7bd",
+   "texte_overlay": "2. bring flowers already\nin a vase\n\nno one has to stop and look\nfor one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "389b83b9",
+   "texte_overlay": "3. offer to help once.\nif they say no, let it go.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "432735c5",
+   "texte_overlay": "4. bring one good story\n\na painting, a strange fact,\na moment from history.\nit carries a whole dinner.",
+   "texte_sophia": "4. bring one good story\n\ni find mine in 5 minutes a day\non a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "417a97e3",
+   "texte_overlay": "5. ask about one object\nin their home\n\na photo, a book, a lamp.\nthere's always a story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "05866c2c",
+   "texte_overlay": "6. leave while everyone\nis still laughing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "08245bff",
+   "texte_overlay": "7. send a thank-you message\nthe next morning\n\nname one thing you loved.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "46335c3c",
+   "texte_overlay": "save this before your\nnext dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

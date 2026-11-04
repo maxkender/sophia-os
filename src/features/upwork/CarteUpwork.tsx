@@ -15,6 +15,22 @@ import { diagnosticUpwork, lienConnexionUpwork, lireContratsUpwork, lireEtatUpwo
  * appel, les organisations vues et les droits constatés ; « Connecter » ou
  * « Reconnecter » ouvre la page d'autorisation d'Upwork. Admin seulement.
  */
+/** 3/11 : le seul compte accepté pour les messages automatiques : Maximilien Kender, Owner de VIk Studios. */
+export const UPWORK_USER_MAX = "1908160914854122443";
+
+/** Le compte Upwork connecté (nom + id), et s'il est bien celui de Max. */
+function CompteConnecte({ utilisateur, connecteAt }: { utilisateur: unknown; connecteAt: string | null }) {
+  const { t } = useTranslation();
+  const u = utilisateur as { id?: string; name?: string } | null;
+  const bon = u?.id === UPWORK_USER_MAX;
+  return (
+    <p className={bon ? "rounded-md bg-success/10 px-3 py-2" : "rounded-md bg-destructive/10 px-3 py-2 text-destructive"} data-testid="compte-upwork">
+      {t("upwork.compteConnecte", { nom: u?.name ?? "?", id: u?.id ?? "—", date: connecteAt ?? "—" })}{" "}
+      <strong>{bon ? t("upwork.compteOk") : t("upwork.compteMauvais", { id: UPWORK_USER_MAX })}</strong>
+    </p>
+  );
+}
+
 export function CarteUpwork() {
   const { t, i18n } = useTranslation();
   const qc = useQueryClient();
@@ -67,6 +83,7 @@ export function CarteUpwork() {
             </span>
           )}
         </div>
+        {c && <CompteConnecte utilisateur={c.utilisateur} connecteAt={c.connecte_at ? date(c.connecte_at) : null} />}
         {c && (
           <dl className="grid gap-x-4 gap-y-1 sm:grid-cols-[max-content_1fr]">
             <dt className="text-muted-foreground">{t("upwork.dernierAppel")}</dt>

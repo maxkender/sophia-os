@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o118",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39b4b04c-a132-45bc-b7bf-71eb613bdeb0",
+ "titre": "mes petits « arrangements » avec la vérité en entretien… et le contrat signé #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 4/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne 1 (parent 39b4b04c, 68 k vues en el) : même promesse, autres mots que le parent et rh-o094. Autres questions, recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "22e92383",
+   "texte_overlay": "mes petits « arrangements » avec la vérité\nen entretien…\net le contrat signé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "43ae7125",
+   "texte_overlay": "« vous avez déjà géré une équipe ? »\nj'ai dit « j'ai coordonné 3 personnes sur un projet »\nla vérité : c'était un projet d'asso. mais c'était vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "43c6f847",
+   "texte_overlay": "« vous êtes à l'aise en public ? »\nj'ai dit « je prépare, et ça passe »\nla vérité : je répétais devant mon miroir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2ac68b47",
+   "texte_overlay": "« vous avez une passion ? »\nj'ai dit « l'histoire, j'en apprends un peu chaque jour »\nla vérité : depuis un mois seulement",
+   "texte_sophia": "« vous avez une passion ? »\nj'ai dit « l'histoire »\nla vérité : 5 minutes par jour sur l'appli Sophia depuis un mois. mais vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43da5456",
+   "texte_overlay": "« pourquoi vous avez quitté votre dernier poste ? »\nj'ai dit « pour apprendre autre chose »\nla vérité : je m'y ennuyais. c'est la même chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4412f862",
+   "texte_overlay": "« vous accepteriez un salaire plus bas ? »\nj'ai dit « parlons de l'ensemble du poste »\nla vérité : non",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "454f3673",
+   "texte_overlay": "« on vous appelle quand ? »\nj'ai dit « vendredi, ça vous va ? »\nla vérité : j'avais besoin d'une date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "45979057",
+   "texte_overlay": "zéro mensonge.\njuste les bons mots.\nlaquelle tu oses ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

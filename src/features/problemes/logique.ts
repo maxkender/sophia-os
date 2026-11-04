@@ -1,10 +1,10 @@
-import type { Groupe, Niveau, Probleme, Proprietaire, Situation } from "./api";
+import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Situation } from "./api";
 
 export const NIVEAUX: readonly Niveau[] = ["urgent", "aujourdhui", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
 
 /** C10 : l'argent n'est jamais exécuté par un bouton, ni validé en lot. */
-export const CATEGORIES_ARGENT: readonly string[] = ["paie"];
+export const CATEGORIES_ARGENT: readonly string[] = ["paie", "kill_contrat"];
 
 /** C12 : jamais d'envoi auto pour ces catégories. */
 export const JAMAIS_AUTO: readonly string[] = ["stop", "paie", "menace", "hors_plateforme", "suspect", "contrat_hm", "offre_hm_incorrecte"];
@@ -49,9 +49,11 @@ export function options(liste: readonly Probleme[]): { categories: string[]; hms
 }
 
 export type GesteValider =
+  | { type: "kill" }
   | { type: "page"; vers: string }
   | { type: "releve"; compte_id: string }
   | { type: "motDePasse"; poster_id: string }
+  | { type: "rituel"; choix: "double" | "recreate" }
   | { type: "reponse" }
   | { type: "fermer" };
 
@@ -63,10 +65,14 @@ export type GesteValider =
  */
 export function gesteValider(p: Pick<Probleme, "categorie" | "proposition_action" | "proposition_reponse" | "poster_id" | "compte_id">): GesteValider {
   const fiche = p.poster_id ? `/admin/posters?poster=${p.poster_id}` : "/admin/posters";
+  // 3/11 : le Kill ouvre le formulaire (contrat Upwork lié, case « fermer et récupérer »).
+  if (p.categorie === "stop" || p.proposition_action === "kill") return p.poster_id ? { type: "kill" } : { type: "page", vers: fiche };
   if (CATEGORIES_ARGENT.includes(p.categorie) || p.proposition_action === "open_payroll") return { type: "page", vers: "/admin/auto/payroll" };
   if (p.proposition_action === "open_who_to_fund") return { type: "page", vers: "/admin/auto/payroll?onglet=financer" };
   // v4 : le lien de mot de passe part depuis la page (mode « on » seulement) ; le reste des formulaires s'ouvre.
   if (p.proposition_action === "resend_password_link" && p.poster_id) return { type: "motDePasse", poster_id: p.poster_id };
+  // 0531 : Recréer (jeudi) et Doubler (samedi) : la décision va au rituel, rien n'est exécuté ici.
+  if ((p.proposition_action === "recreate" || p.proposition_action === "double") && p.poster_id) return { type: "rituel", choix: p.proposition_action };
   if (["recreate", "kill", "resend_password_link", "relink_slack", "postpone"].includes(p.proposition_action ?? "")) return { type: "page", vers: fiche };
   if (p.proposition_action === "reread_tiktok" && p.compte_id) return { type: "releve", compte_id: p.compte_id };
   if (p.proposition_reponse?.trim()) return { type: "reponse" };
@@ -102,6 +108,7 @@ export interface Phrase {
 }
 
 export type Geste =
+  | { type: "kill"; cle: string }
   | { type: "lien"; cle: string; url: string }
   | { type: "page"; cle: string; vers: string }
   | { type: "releve"; cle: string; compte_id: string };
@@ -158,7 +165,11 @@ export function gestes(p: Pick<Probleme, "categorie" | "poster_id" | "compte_id"
         : { type: "page", cle: "geste.whoToFund", vers: "/admin/auto/payroll?onglet=financer" });
       break;
     case "stop":
-      g.push({ type: "page", cle: "geste.kill", vers: fiche });
+      g.push(p.poster_id ? { type: "kill", cle: "geste.kill" } : { type: "page", cle: "geste.kill", vers: fiche });
+      break;
+    case "kill_contrat":
+      // Fermer + récupérer à la main : le contrat d'abord (lien plus bas), puis Payroll.
+      g.push({ type: "page", cle: "geste.payroll", vers: "/admin/auto/payroll" });
       break;
     case "login":
       g.push({ type: "page", cle: "geste.motDePasse", vers: fiche });
@@ -251,7 +262,9 @@ const SOURCES_MESSAGE = ["reponse", "slack", "bot"];
  * B2 : une carte n'est montrée que si elle a un diagnostic (celui du bot, la
  * phrase de l'OS, ou un constat de l'OS) ou une action (proposée, ou un geste).
  */
-export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "diagnostic_par" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id">): boolean {
+export function aDiagnosticOuAction(p: Pick<Probleme, "categorie" | "resume" | "situation" | "diagnostic" | "diagnostic_par" | "proposition_action" | "proposition_reponse" | "sources" | "poster_id" | "compte_id" | "contrat_id"> & Partial<Pick<Probleme, "question">>): boolean {
+  // 0528 : une question posée à Max est toujours une carte.
+  if (p.question?.trim()) return true;
   // Le diagnostic d'un bot compte ; celui de l'OS est recalculé ci-dessous (phrase ou constat).
   if ((p.diagnostic?.trim() && p.diagnostic_par !== "os") || p.proposition_action || p.proposition_reponse?.trim()) return true;
   if (phraseProbleme(p)) return true;
@@ -296,3 +309,86 @@ export function regleDepuisFeedback(f: { id: string; bot: Proprietaire; raison: 
     active: true,
   };
 }
+
+// ---------------------------------------------------------------------------
+// 3/11 (0528) : la page Problèmes est le SEUL endroit où Max décide. Une carte
+// « décision » : une question, 2 à 4 options, la 1re recommandée.
+// ---------------------------------------------------------------------------
+
+export const estDecision = (p: Pick<Probleme, "question" | "options">): boolean => Boolean(p.question?.trim() && p.options?.length);
+
+/** Ce que fait le clic sur une option. Jamais d'argent : une option « paie » ouvre le contrat Upwork. */
+export interface PlanDecision {
+  /** Lien Upwork à ouvrir (paie). */
+  ouvrir: string | null;
+  /** Page de l'OS à ouvrir après le choix (Kill, recréer, reporter, Payroll…). */
+  page: string | null;
+  /** Mode « on » : le lien de mot de passe part à ce posteur. */
+  motDePasse: string | null;
+  /** Mode « on » : ce texte part sur Upwork au posteur (avec la ligne STOP). */
+  envoyer: string | null;
+  /** La réponse à l'HM : montrée pour être copiée (jamais envoyée par la page). */
+  aCopier: string | null;
+  /** « Vérifier samedi » : la carte revient samedi. */
+  samedi: boolean;
+}
+
+export function planDecision(
+  o: OptionDecision,
+  p: Pick<Probleme, "poster_id" | "contrat_id" | "destinataire"> & Partial<Pick<Probleme, "categorie">>,
+  mode: "test" | "on",
+  texteLibre?: string,
+): PlanDecision {
+  const plan: PlanDecision = { ouvrir: null, page: null, motDePasse: null, envoyer: null, aCopier: null, samedi: false };
+  if (o.paie) {
+    plan.ouvrir = o.lien ?? (p.contrat_id ? urlContratUpwork(p.contrat_id) : null);
+    return plan;
+  }
+  const fiche = p.poster_id ? `/admin/posters?poster=${p.poster_id}` : "/admin/posters";
+  switch (o.action) {
+    case "resend_password_link":
+      if (mode === "on" && p.poster_id) plan.motDePasse = p.poster_id;
+      break;
+    case "kill":
+      // 0533 : « Kill samedi » d'une décision : préparé par la base (probleme_decider), rien à ouvrir.
+      break;
+    case "recreate": case "postpone": case "relink_slack":
+      plan.page = fiche;
+      break;
+    case "open_payroll": case "pay_check":
+      plan.page = "/admin/auto/payroll";
+      break;
+    case "open_who_to_fund":
+      plan.page = "/admin/auto/payroll?onglet=financer";
+      break;
+    case "saturday":
+      plan.samedi = true;
+      break;
+  }
+  const texte = (o.reponse ?? texteLibre ?? "").trim();
+  if (texte) {
+    if (p.destinataire === "hm") plan.aCopier = texte;
+    else if (mode === "on" && p.poster_id) plan.envoyer = estArret(p) ? texte : avecLigneStop(texte);
+  }
+  return plan;
+}
+
+/** Une option sans réponse ni action (« Autre ») : Max écrit la réponse avant de confirmer. */
+export const optionLibre = (o: OptionDecision): boolean => !o.paie && !o.action && !o.reponse?.trim();
+
+/** « 07/11 » : le samedi de la semaine du lundi donné. */
+export function samediDe(lundi: string): string {
+  const d = new Date(`${lundi}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 5);
+  return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+/** 0531 : « 05/11 » : le jour du rituel (jeudi : lundi + 3 ; samedi : lundi + 5). */
+export function jourRituel(lundi: string, choix: "double" | "recreate"): string {
+  const d = new Date(`${lundi}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + (choix === "recreate" ? 3 : 5));
+  return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+/** 0533 : une carte d'arrêt (stop sûr ou doute) : la réponse part sans la ligne « reply STOP ». */
+export const estArret = (p: Partial<Pick<Probleme, "categorie">>): boolean => p.categorie === "stop" || p.categorie === "stop_doute";

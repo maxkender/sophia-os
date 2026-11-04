@@ -327,6 +327,22 @@ describe("Weekly decisions → Saturday, la masterlist v2 (prompts 12 et 14)", (
     expect(document.querySelector('[data-compte="bon"]')).not.toBeNull();
   });
 
+  it("0530 : Kill samedi décidé dans Problèmes : pré-coché même pour la cohorte qui arrive, « décidé le 3/11 dans Problèmes », Validate l'exécute", async () => {
+    const confirm = vi.spyOn(window, "confirm").mockReturnValue(true);
+    api.lireBrouillonsSamedi.mockResolvedValue(new Map([
+      ["r", { choix: "kill" as ChoixSamedi, raison: { source: "problemes", decide_le: "2026-11-03", probleme_id: "pb1", note: "Kill samedi décidé dans Problèmes le 03/11" } }],
+    ]) as never);
+    rendu();
+    await waitFor(() => expect(document.querySelector('[data-compte="recrue1"]')).not.toBeNull());
+    expect(presse("recrue1", "Kill & pay")).toBe("true");
+    expect(within(ligne("recrue1")).getByTestId("kill-problemes").textContent).toContain("Kill · décidé le 03/11 dans Problèmes");
+    expect(within(ligne("recrue1")).queryByTestId("a-venir")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Validate" }));
+    await waitFor(() => expect(api.choisirSamedi).toHaveBeenCalledWith("r", "ne_pas_renouveler"));
+    expect(ckd.deciderCkd).toHaveBeenCalledWith("manuel-r", "ne_pas_renouveler", null);
+    confirm.mockRestore();
+  });
+
   it("0494 : reporté 2 fois (même cohorte à venir) : Kill & don't pay pré-rempli, en tête de « To handle », colonne Reports et filtre", async () => {
     api.lireReportsSamedi.mockResolvedValue(new Map([
       ["p9", { poster_id: "p9", nb_mardi: 1, nb_reports: 1, premiere_cohorte: "2026-10-19", posts: 0, jamais_commence: false, regle: true }],

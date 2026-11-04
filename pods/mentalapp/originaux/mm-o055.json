@@ -1,0 +1,188 @@
+{
+ "id": "mm-o055",
+ "format": "carrousel",
+ "titre": "How to rebuild your attention span",
+ "legendes": {
+  "en": "how to rebuild your attention span #attentionspan #focus #mentalmaxxing #selfimprovement",
+  "fr": "comment reconstruire ta capacité d’attention #attention #concentration #mentalmaxxing #developpementpersonnel",
+  "de": "wie du deine Aufmerksamkeitsspanne wieder aufbaust #aufmerksamkeit #fokus #mentalmaxxing #selbstverbesserung",
+  "es": "cómo reconstruir tu capacidad de atención #atencion #concentracion #mentalmaxxing #superacionpersonal",
+  "it": "come ricostruire la tua soglia di attenzione #attenzione #concentrazione #mentalmaxxing #crescitapersonale",
+  "tr": "dikkat süreni nasıl yeniden kurarsın #dikkat #odak #mentalmaxxing #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7685931101587623186/1",
+   "boite": [
+    330,
+    815,
+    445,
+    535
+   ]
+  },
+  "theme": {
+   "en": "How to rebuild",
+   "fr": "Comment reconstruire",
+   "de": "So baust du",
+   "es": "Cómo reconstruir",
+   "it": "Come ricostruire",
+   "tr": "Dikkat süreni"
+  },
+  "sous": {
+   "en": "your attention span",
+   "fr": "ta capacité d’attention",
+   "de": "Aufmerksamkeit wieder auf",
+   "es": "tu atención",
+   "it": "l’attenzione",
+   "tr": "nasıl yeniden kurarsın"
+  },
+  "frise": false
+ },
+ "items": [
+  {
+   "app": true,
+   "titre": {
+    "en": "",
+    "fr": "",
+    "de": "",
+    "es": "",
+    "it": "",
+    "tr": ""
+   },
+   "texte": {
+    "en": "Step 1: remove the shortest content first. Before: two-hour scrolls. After deleting short videos with UnSwipe: my first full hour of focus in months.",
+    "fr": "Étape 1 : enlève d’abord le contenu le plus court. Avant : deux heures de scroll. Après avoir supprimé les vidéos courtes avec UnSwipe : ma première heure de concentration en des mois.",
+    "de": "Schritt 1: Entferne zuerst den kürzesten Content. Vorher: zwei Stunden Scrollen. Nachdem ich Kurzvideos mit UnSwipe gelöscht habe: meine erste volle Stunde Fokus seit Monaten.",
+    "es": "Paso 1: quita primero el contenido más corto. Antes: dos horas de scroll. Después de borrar los vídeos cortos con UnSwipe: mi primera hora de foco en meses.",
+    "it": "Passo 1: togli prima i contenuti più brevi. Prima: due ore di scroll. Dopo aver eliminato i video brevi con UnSwipe: la mia prima ora di concentrazione da mesi.",
+    "tr": "1. adım: önce en kısa içeriği kaldır. Önce: iki saatlik kaydırmalar. Kısa videoları UnSwipe ile sildikten sonra: aylar sonra ilk tam saatlik odağım."
+   }
+  },
+  {
+   "src": "7697820355800370448/6",
+   "boite": [
+    366,
+    474,
+    336,
+    414
+   ],
+   "titre": {
+    "en": "Step 2: 20-minute blocks",
+    "fr": "Étape 2 : des blocs de 20 minutes",
+    "de": "Schritt 2: 20-Minuten-Blöcke",
+    "es": "Paso 2: bloques de 20 minutos",
+    "it": "Passo 2: blocchi da 20 minuti",
+    "tr": "2. adım: 20 dakikalık bloklar"
+   },
+   "texte": {
+    "en": "One task, one timer. Add five minutes every week.",
+    "fr": "Une tâche, un minuteur. Ajoute cinq minutes chaque semaine.",
+    "de": "Eine Aufgabe, ein Timer. Leg jede Woche fünf Minuten drauf.",
+    "es": "Una tarea, un temporizador. Suma cinco minutos cada semana.",
+    "it": "Un compito, un timer. Aggiungi cinque minuti ogni settimana.",
+    "tr": "Tek iş, tek zamanlayıcı. Her hafta beş dakika ekle."
+   }
+  },
+  {
+   "src": "7697820355800370448/5",
+   "boite": [
+    312,
+    438,
+    450,
+    450
+   ],
+   "titre": {
+    "en": "Step 3: read on paper",
+    "fr": "Étape 3 : lis sur papier",
+    "de": "Schritt 3: auf Papier lesen",
+    "es": "Paso 3: lee en papel",
+    "it": "Passo 3: leggi su carta",
+    "tr": "3. adım: kâğıttan oku"
+   },
+   "texte": {
+    "en": "Start with ten pages. Long text is the gym for your attention.",
+    "fr": "Commence par dix pages. Le texte long, c’est la salle de sport de ton attention.",
+    "de": "Fang mit zehn Seiten an. Lange Texte sind das Fitnessstudio deiner Aufmerksamkeit.",
+    "es": "Empieza con diez páginas. El texto largo es el gimnasio de tu atención.",
+    "it": "Inizia con dieci pagine. Il testo lungo è la palestra dell’attenzione.",
+    "tr": "On sayfayla başla. Uzun metin dikkatinin spor salonudur."
+   }
+  },
+  {
+   "src": "7699644186470976786/2",
+   "boite": [
+    324,
+    462,
+    432,
+    438
+   ],
+   "titre": {
+    "en": "Step 4: one album, no skips",
+    "fr": "Étape 4 : un album, sans zapper",
+    "de": "Schritt 4: ein Album, ohne Skippen",
+    "es": "Paso 4: un álbum, sin saltar",
+    "it": "Passo 4: un album, senza salti",
+    "tr": "4. adım: tek albüm, atlamadan"
+   },
+   "texte": {
+    "en": "It sounds small, but it teaches your brain to stay.",
+    "fr": "Ça paraît petit, mais ça apprend à ton cerveau à rester.",
+    "de": "Klingt klein, aber es lehrt dein Gehirn zu bleiben.",
+    "es": "Parece poco, pero enseña a tu cerebro a quedarse.",
+    "it": "Sembra poco, ma insegna al cervello a restare.",
+    "tr": "Küçük görünüyor ama beynine kalmayı öğretir."
+   }
+  },
+  {
+   "src": "7698939556371975431/4",
+   "boite": [
+    312,
+    426,
+    450,
+    444
+   ],
+   "titre": {
+    "en": "Step 5: walks without input",
+    "fr": "Étape 5 : marcher sans rien dans les oreilles",
+    "de": "Schritt 5: Gehen ohne Input",
+    "es": "Paso 5: caminar sin estímulos",
+    "it": "Passo 5: camminare senza input",
+    "tr": "5. adım: girdisiz yürüyüş"
+   },
+   "texte": {
+    "en": "Let your mind wander on purpose. Boredom is part of the training.",
+    "fr": "Laisse ton esprit vagabonder exprès. L’ennui fait partie de l’entraînement.",
+    "de": "Lass deine Gedanken bewusst schweifen. Langeweile gehört zum Training.",
+    "es": "Deja que tu mente divague a propósito. El aburrimiento es parte del entrenamiento.",
+    "it": "Lascia vagare la mente apposta. La noia fa parte dell’allenamento.",
+    "tr": "Zihninin bilerek dolaşmasına izin ver. Can sıkıntısı antrenmanın parçası."
+   }
+  },
+  {
+   "src": "7698939556371975431/3",
+   "boite": [
+    312,
+    414,
+    456,
+    462
+   ],
+   "titre": {
+    "en": "Step 6: sleep",
+    "fr": "Étape 6 : dormir",
+    "de": "Schritt 6: Schlaf",
+    "es": "Paso 6: dormir",
+    "it": "Passo 6: dormire",
+    "tr": "6. adım: uyku"
+   },
+   "texte": {
+    "en": "Attention is rebuilt at night. Seven hours minimum.",
+    "fr": "L’attention se reconstruit la nuit. Sept heures minimum.",
+    "de": "Aufmerksamkeit wird nachts wieder aufgebaut. Mindestens sieben Stunden.",
+    "es": "La atención se reconstruye de noche. Siete horas como mínimo.",
+    "it": "L’attenzione si ricostruisce di notte. Minimo sette ore.",
+    "tr": "Dikkat geceleri yeniden kurulur. En az yedi saat."
+   }
+  }
+ ],
+ "notes": "routine du 04/11 : accroche jamais faite chez nous (« how to rebuild your attention span »), étapes numérotées. cta C (avant/après) : élément UnSwipe en étape 1 (slide 2)."
+}

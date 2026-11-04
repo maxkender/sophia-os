@@ -78,6 +78,22 @@ export const attendusJusquIci = (c: Pick<CompteSemaine, "prevus_passes" | "lien_
 
 export type ChoixJeudi = "nudge" | "recreate" | "kill_samedi" | "rien";
 
+/** 0531 : une décision du jeudi préparée ailleurs (Recréer depuis Problèmes). */
+export interface BrouillonJeudi {
+  choix: ChoixJeudi;
+  raison: { source?: string; decide_le?: string; probleme_id?: string; annule_le?: string } | null;
+}
+
+export async function lireBrouillonsJeudi(lundi: string): Promise<Map<string, BrouillonJeudi>> {
+  const { data, error } = await supabase.rpc("jeudi_brouillons_lire", { p_lundi: lundi });
+  if (error) throw error;
+  return new Map(((data ?? []) as ({ compte_id: string } & BrouillonJeudi)[]).map((b) => [b.compte_id, { choix: b.choix, raison: b.raison ?? null }]));
+}
+
+/** « 03/11 » depuis une date ISO (jour). */
+export const jourMois = (iso: string | null | undefined): string =>
+  iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}` : "—";
+
 /**
  * Le choix pré-coché du jeudi : Recreate pour un shadowban supposé ou un compte
  * mort (ou proposé par le contrôle du jeudi) quand Recreate est possible ;
@@ -332,7 +348,18 @@ export async function noterKillSansPaie(posterId: string, lundi: string, raison:
 export interface BrouillonSamedi {
   choix: ChoixSamedi;
   /** Kill & don't pay : code et détail ; 0492 : la note d'une décision préparée (fiche Posters). */
-  raison: { code?: string; detail?: string; note?: string | null } | null;
+  raison: {
+    code?: string;
+    detail?: string;
+    note?: string | null;
+    /** 0530 : décidé ailleurs (« problemes » : bouton Kill samedi d'une carte Problèmes), le jour, la carte. */
+    source?: string;
+    decide_le?: string;
+    probleme_id?: string;
+    annule_le?: string;
+    /** 0531 : « double » (Doubler décidé dans Problèmes) ; absent : Kill. */
+    choix_problemes?: string;
+  } | null;
   par_nom?: string | null;
   maj_at?: string | null;
 }
@@ -354,6 +381,11 @@ export function lundiDuProchainSamedi(aujourdhui: string): string {
   const lundi = new Date(d);
   lundi.setUTCDate(d.getUTCDate() + 1 - isodow + (isodow === 7 ? 7 : 0));
   return lundi.toISOString().slice(0, 10);
+}
+
+/** 0530 : Kill samedi décidé dans Problèmes (même annulé ensuite : la ligne reste à décider). */
+export function decideDansProblemes(b: BrouillonSamedi | undefined | null): boolean {
+  return b?.raison?.source === "problemes";
 }
 
 /** 0492 : une décision préparée (autre que Keep) met le compte dans « To handle ». */

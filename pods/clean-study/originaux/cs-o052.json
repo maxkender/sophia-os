@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o052",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c632dd1a-57d5-48b4-a2fe-1527dafc9fae",
+  "titre": "studying all week and still blanking the second i see the test #studytok #studytips #exams",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "c632dd1a-57d5-48b4-a2fe-1527dafc9fae"
+  ],
+  "notes": "Déclinaison G1 de c632dd1a (notre cs-o016 : r 4,45 en français, 7 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot. Items neufs, aucun de cs-o016 (conditions d'examen, écrire de mémoire avant les notes, pas de révision dans le couloir, formules en début d'épreuve, la nuit d'avant sans écran) : apprendre à expliquer plutôt que réciter, réviser dans le désordre (questions mélangées), se tester 3 jours avant puis la veille (place micabo, slide 5), respirer et commencer par la question la plus sûre, pas de téléphone dans l'heure avant l'épreuve (place UnSwipe, slide 7). Rien de médical. Slides 5 et 7 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (reprise permise, le texte change). Écartées à l'aperçu : 5f52f425 (marque ou texte lisible, cigarette, écran sur une slide d'appli, ou même photo deux fois). Puis : ba5f8522 (écran au bord d'une slide d'appli, ou même photo deux fois). Puis : 9a4bd0a5, e2cbe16a (photo déjà prise dans le lot du jour, ou maquillage hors sujet). Puis : 365870da, f94e726b (écran ou marque lisible).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b1398d64",
+      "texte_overlay": "studying all week and still blanking the second i see the test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b4944950",
+      "texte_overlay": "what changed for me:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b696960e",
+      "texte_overlay": "i stopped memorizing sentences.\nnow i practice explaining it in my own words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ba22a018",
+      "texte_overlay": "i mix the questions when i revise.\nthe test won't ask them in the order of my notes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3347a655",
+      "texte_overlay": "i test myself 3 days before, then again the night before.\nthe second time shows what's really stuck.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "bbdbf9ba",
+      "texte_overlay": "when i blank, i breathe and start with the question i'm surest about.\nthe rest comes back.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "28cb54ba",
+      "texte_overlay": "no phone in the hour before the test.\nmy head stays on the subject.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "bdf23d1d",
+      "texte_overlay": "now i walk in knowing i can find it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -24,18 +24,24 @@
  *
  * `ancree` est un candidat d'attente : la traduction ancrée sur les exemples
  * natifs (`traduction_native.ts`, servie jusqu'ici par `traduire-test` sur du
- * texte collé), suivie du placement actuel. Il ne voit pas tout le post.
+ * texte collé), suivie du placement actuel. Il ne voit pas tout le post et ne
+ * lit aucune fiche.
+ *
+ * `fiches` (05/11) est la réécriture native prévue au doc : un seul appel qui
+ * voit tout le post et écrit le deck, slide d'appli comprise, à travers les
+ * quatre fiches (CTA, appli, label, langue), sans banque ni remarques. C'est
+ * lui que les duels jugent quand le lot le désigne comme candidat.
  */
 import { citeConcurrent, positionConcurrent, sansConcurrent } from "./concurrents.ts";
 import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, type SlideDeck } from "./deck_langue.ts";
-import { integrateSophia } from "./gemini.ts";
+import { callWithFallback, integrateSophia, LANGUES, normaliserHashtags, TEXT_MODELS, textOf } from "./gemini.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { ID_SOPHIA } from "./multi_app.ts";
 import { estContenuLivre } from "./pods.ts";
 import { chargerPrompt, type serviceClient } from "./supabase.ts";
-import { chargerAncresNatives, ecrireNatif } from "./traduction_native.ts";
+import { chargerAncresNatives, ecrireNatif, parseJsonModele } from "./traduction_native.ts";
 import { type CommandeCta, recalerDeck } from "./ab_traduction.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -248,9 +254,171 @@ const ancree: CircuitTraduction = {
   },
 };
 
-/** Les circuits candidats, par id. L'appel unique s'ajoute ici sous l'id `natif`. */
+// ---------------------------------------------------------------------------
+// Candidat `fiches` : la réécriture native du doc, à travers les quatre fiches
+// ---------------------------------------------------------------------------
+
+interface FicheLue {
+  cle: string;
+  version: number;
+  contenu: string;
+}
+
+/** La dernière version d'une fiche de `bleo_fiches` (langue, label ou CTA). */
+async function chargerFicheVersionnee(supabase: Supabase, sorte: "langue" | "label" | "cta", cle: string): Promise<FicheLue | null> {
+  const { data } = await supabase
+    .from("bleo_fiches")
+    .select("cle, version, contenu")
+    .eq("sorte", sorte)
+    .eq("cle", cle)
+    .order("version", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (!data || !String(data.contenu ?? "").trim()) return null;
+  return { cle: String(data.cle), version: Number(data.version), contenu: String(data.contenu).trim() };
+}
+
+/** La fiche appli écrite par l'admin (`fiches_appli`). */
+async function chargerFicheAppli(supabase: Supabase, applicationId: string): Promise<string | null> {
+  const { data } = await supabase.from("fiches_appli").select("contenu").eq("application_id", applicationId).maybeSingle();
+  const contenu = String(data?.contenu ?? "").trim();
+  return contenu || null;
+}
+
+const LABELS_HORS_TON = new Set(["Hook", "UGC AI VIDEO"]);
+
+/** Le label de ton d'un contenu : le premier hors `Hook` et `UGC AI VIDEO`, comme le lot (0627). */
+async function labelDuContenu(supabase: Supabase, contenuId: string): Promise<string | null> {
+  const { data } = await supabase.from("contenu_labels").select("labels(nom)").eq("contenu_id", contenuId);
+  const noms = ((data ?? []) as Array<{ labels: { nom?: string } | Array<{ nom?: string }> | null }>)
+    .flatMap((l) => (Array.isArray(l.labels) ? l.labels : l.labels ? [l.labels] : []))
+    .map((l) => String(l.nom ?? ""))
+    .filter((n) => n && !LABELS_HORS_TON.has(n))
+    .sort();
+  return noms[0] ?? null;
+}
+
+function compterMentions(texte: string | null, nom: string): number {
+  if (!texte || !nom) return 0;
+  const re = new RegExp(nom.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+  return (texte.match(re) ?? []).length;
+}
+
+const fiches: CircuitTraduction = {
+  id: "fiches",
+  version: "fiches-1",
+  nom: "Réécriture native à travers les quatre fiches (langue, label, appli, CTA)",
+  applications: ["sophia"],
+  async ecrire({ supabase, contenuId, titre, langueSource, langue, application, deckSource, cta }) {
+    const label = await labelDuContenu(supabase, contenuId);
+    const [ficheLangue, ficheLabel, ficheCta, ficheAppli, scolaire] = await Promise.all([
+      chargerFicheVersionnee(supabase, "langue", langue),
+      label ? chargerFicheVersionnee(supabase, "label", label) : Promise.resolve(null),
+      chargerFicheVersionnee(supabase, "cta", "commune"),
+      chargerFicheAppli(supabase, application.id),
+      regleLocalisationScolaire(supabase, langue),
+    ]);
+    if (!ficheLangue) throw new Error(`pas de fiche langue pour ${langue}`);
+    if (!ficheCta) throw new Error("pas de fiche CTA");
+    if (!ficheAppli) throw new Error(`pas de fiche appli pour ${application.nom}`);
+
+    const positions = deckSource.map((s) => s.position).sort((a, b) => a - b);
+    const couverture = positions[0];
+    const minCta = positions[Math.min(3, positions.length - 1)];
+    const cible = positionConcurrent(deckSource);
+    const nomLangue = LANGUES[langue] ?? langue;
+    const nomSource = LANGUES[langueSource] ?? langueSource;
+    const deck = deckSource.map((s) => `Slide ${s.position} : "${(s.texte_overlay ?? "").trim() || "(aucun texte)"}"`).join("\n");
+
+    const prompt = `LANGUE DE SORTIE : ${nomLangue.toUpperCase()}.
+Tout le texte que tu produis doit être en ${nomLangue}, sans exception.
+
+Tu es le créateur natif qui tient ce compte TikTok. Tu reçois un slideshow écrit en ${nomSource} et tu écris la version ${nomLangue} que tu posterais toi-même : pas une traduction mot à mot, une réécriture qui garde exactement le propos, l'ordre et le nombre de slides, mais qui sonne comme un natif de ton pays. Tu places aussi l'appli ${application.nom} sur une slide, comme tu le ferais naturellement.
+
+Tu travailles avec quatre fiches. Elles font autorité. Quand elles se contredisent, l'ordre est : CTA (règles communes), appli (ce qu'on peut dire), label (le format de ce type de post et où va l'appli), langue (comment on écrit dans ta langue).
+
+=== FICHE CTA (règles communes, version ${ficheCta.version}) ===
+${ficheCta.contenu}
+
+=== FICHE APPLI : ${application.nom} ===
+${ficheAppli}
+
+=== FICHE LABEL : ${label ?? "(aucun label)"}${ficheLabel ? ` (version ${ficheLabel.version})` : ""} ===
+${ficheLabel?.contenu ?? "Aucune fiche pour ce label : suis la fiche CTA et la fiche langue."}
+
+=== FICHE LANGUE : ${nomLangue} (version ${ficheLangue.version}) ===
+${ficheLangue.contenu}
+${scolaire ? `\n=== LOCALISATION SCOLAIRE ===\n${scolaire}\n` : ""}
+Contraintes fixes, vérifiées par le code :
+- une slide source = une slide écrite, même position ; les positions sont ${positions.join(", ")} ; la slide ${couverture} est la couverture (le hook) : elle garde son sens et ne porte jamais l'appli ;
+- l'appli est nommée « ${application.nom} » sur UNE seule slide, ${cible ? `la slide ${cible} (l'original y citait un produit concurrent)` : `la slide ${minCta} ou une suivante`}, et nulle part ailleurs ; aucun autre produit, service ou appli n'est cité ;
+- URLs, titres d'œuvres et sources citées sont gardés tels quels ; pas de tiret long (—) ni de demi-cadratin (–) ;
+- hashtags : exactement 3, en ${nomLangue}, un mot chacun, collés au sujet.
+
+Le post source (${nomSource}) :
+Légende : "${(titre ?? "").trim()}"
+${deck}
+
+Réponds uniquement en JSON, sans bloc de code :
+{"slides":[{"position":${couverture},"texte":"..."}],"slide_cta":${cible ?? minCta},"forme_cta":"étiquette courte de la tournure employée pour l'appli","hashtags":"#a #b #c","refus":null}
+"refus" vaut {"motif":"..."} seulement si la slide imposée pour l'appli ne peut pas la porter ; place-la alors sur la meilleure slide à partir de la slide ${minCta} et dis pourquoi.`;
+
+    const brut = textOf(await callWithFallback(TEXT_MODELS, [{ text: prompt }]));
+    const sortie = parseJsonModele<{
+      slides?: Array<{ position: number; texte: string }>;
+      slide_cta?: number;
+      forme_cta?: string;
+      hashtags?: string;
+      refus?: { motif?: string } | null;
+    }>(brut);
+    if (!sortie || !Array.isArray(sortie.slides)) throw new Error("réécriture illisible");
+    const slideCta = Number(sortie.slide_cta);
+    if (!Number.isFinite(slideCta)) throw new Error("slide d'appli non indiquée");
+    const ecrit = sortie.slides.map((s) => ({
+      position: Number(s.position),
+      texte_overlay: String(s.texte ?? ""),
+      position_sophia: Number(s.position) === slideCta,
+    }));
+    const recale = recalerDeck(deckSource, ecrit);
+    if ("erreur" in recale) throw new Error(recale.erreur);
+    const slides = recale.slides;
+
+    const avecAppli = slides.filter((s) => compterMentions(s.texte_overlay, application.nom) > 0).map((s) => s.position);
+    if (avecAppli.length !== 1 || avecAppli[0] !== slideCta) {
+      throw new Error(`l'appli doit être nommée sur la seule slide ${slideCta} (nommée sur : ${avecAppli.join(", ") || "aucune"})`);
+    }
+    if (slideCta < minCta) throw new Error(`slide d'appli ${slideCta} avant la slide ${minCta}`);
+    const concurrent = slides.find((s) => citeConcurrent(s.texte_overlay));
+    if (concurrent) throw new Error(`un concurrent est cité (slide ${concurrent.position})`);
+
+    const refus = sortie.refus?.motif ? String(sortie.refus.motif) : cible && slideCta !== cible ? `slide ${cible} imposée, appli en ${slideCta}` : null;
+    const longueurPct = slides.map((s) => {
+      const src = (deckSource.find((d) => d.position === s.position)?.texte_overlay ?? "").length;
+      return src ? Math.round(((s.texte_overlay ?? "").length / src) * 100) : null;
+    });
+    return {
+      slides,
+      hashtags: normaliserHashtags(String(sortie.hashtags ?? "")),
+      versionFiche: ficheLangue.version,
+      modele: null,
+      cta: cta ? { ...cta, refus } : null,
+      controles: {
+        fiches: { langue: ficheLangue.version, label: ficheLabel?.version ?? null, cta: ficheCta.version, appli: true },
+        label,
+        slide_cta: slideCta,
+        forme_cta: sortie.forme_cta ? String(sortie.forme_cta) : null,
+        position_imposee: cible,
+        refus,
+        longueur_pct: longueurPct,
+      },
+    };
+  },
+};
+
+/** Les circuits candidats, par id. */
 export const CIRCUITS: Record<string, CircuitTraduction> = {
   [ancree.id]: ancree,
+  [fiches.id]: fiches,
 };
 
 /** Le circuit d'une version donnée (celle de `circuit_production`), s'il est enregistré. */

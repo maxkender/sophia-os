@@ -60,6 +60,8 @@ vi.mock("@/features/abTraduction/api", async (importOriginal) => ({
   listerVotesRelecteurs: (...a: unknown[]) => listerVotesRelecteurs(...a),
   rapportVotesRelecteurs: () => Promise.resolve([]),
   etatLot: () => etatLot(),
+  listerLots: () => Promise.resolve([{ numero: 1, nom: "Lot 1", candidat: "ancree", taille: 15, statut: "actif", envoi_auto: true }]),
+  reglerEnvoiAutoLot: vi.fn(),
   composerLot: vi.fn(),
   servirLot: vi.fn(),
   envoyerAuxRelecteurs: vi.fn(),

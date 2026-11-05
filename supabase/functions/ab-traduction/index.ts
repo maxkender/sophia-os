@@ -222,6 +222,8 @@ interface Lot {
   id: string;
   numero: number;
   candidat: string;
+  /** Faux (0629) : les duels sont préparés mais attendent l'envoi par l'admin. */
+  envoi_auto: boolean;
 }
 
 interface FaitLot {
@@ -250,7 +252,7 @@ async function servirLots(supabase: Supabase) {
   const debut = Date.now();
   const { data: lots, error } = await supabase
     .from("ab_lots")
-    .select("id, numero, candidat")
+    .select("id, numero, candidat, envoi_auto")
     .eq("statut", "actif")
     .order("numero");
   if (error) throw error;
@@ -322,7 +324,7 @@ async function preparerDuelDuLot(
     slides_source: [],
     slides_actuel: [],
     gauche: Math.random() < 0.5 ? "actuel" : "candidat",
-    relecteurs_le: new Date().toISOString(),
+    relecteurs_le: lot.envoi_auto === false ? null : new Date().toISOString(),
   };
   try {
     const source = await lireSourceContenu(supabase, contenuId);

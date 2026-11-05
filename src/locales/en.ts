@@ -6148,7 +6148,7 @@ export const en = {
       usage_other: "used {{count}} times",
       scene: "photo {{id}}",
     },
-    // 5/11 : AI UGC (/admin/ugc-ia, migration 0655), outside the pods.
+    // 5/11 : AI UGC (/admin/ugc-ia, migration 0656), outside the pods.
     ugcIa: {
       titre: "AI UGC",
       description:

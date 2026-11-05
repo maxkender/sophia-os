@@ -1,4 +1,4 @@
--- 0655 : UGC IA, une page à part (/admin/ugc-ia), hors podz (demande d'Adrien du 5/11).
+-- 0656 : UGC IA, une page à part (/admin/ugc-ia), hors podz (demande d'Adrien du 5/11).
 --
 -- Une réaction TikTok qui marche est refaite par un persona synthétique avec
 -- Higgsfield Genjutsu (transfert de mouvement, API directe : secret
@@ -14,7 +14,8 @@
 -- Cycle d'une vidéo : importee (source téléchargée) → coupee (passage prêt)
 -- → en_cours (Genjutsu lancé) → prete | echec (relançable).
 --
--- Additive. Retour arrière : drop table ugc_ia_videos, ugc_ia_personas.
+-- ✅ Appliquée le 2026-11-05 (MCP). Additive.
+-- Retour arrière : drop table ugc_ia_videos, ugc_ia_personas.
 
 create table public.ugc_ia_personas (
   id uuid primary key default gen_random_uuid(),

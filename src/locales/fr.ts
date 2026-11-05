@@ -6157,7 +6157,7 @@ export const fr = {
       usage_other: "utilisée {{count}} fois",
       scene: "photo {{id}}",
     },
-    // 5/11 : UGC IA (/admin/ugc-ia, migration 0655), hors podz.
+    // 5/11 : UGC IA (/admin/ugc-ia, migration 0656), hors podz.
     ugcIa: {
       titre: "UGC IA",
       description:

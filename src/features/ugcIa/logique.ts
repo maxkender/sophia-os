@@ -1,4 +1,4 @@
-// UGC IA (page /admin/ugc-ia, migration 0655) : règles pures de la page.
+// UGC IA (page /admin/ugc-ia, migration 0656) : règles pures de la page.
 // Mêmes bornes que la fonction `ugc-ia` (supabase/functions/_shared/ugc_ia.ts).
 
 export type StatutVideoUgcIa = "importee" | "coupee" | "en_cours" | "prete" | "echec";

@@ -1,4 +1,4 @@
-// UGC IA (migration 0655, fonction `ugc-ia`) : la page lit les tables, la
+// UGC IA (migration 0656, fonction `ugc-ia`) : la page lit les tables, la
 // fonction fait tout le reste (import TikTok, coupe, Genjutsu, suivi).
 
 import { invoke } from "@/features/moteur/api";

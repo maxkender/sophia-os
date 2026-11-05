@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migration 0655) : les règles pures, partagées
+ * UGC IA (page /admin/ugc-ia, migration 0656) : les règles pures, partagées
  * par la fonction `ugc-ia` et ses tests. Le front a les mêmes bornes dans
  * `src/features/ugcIa/logique.ts`.
  */

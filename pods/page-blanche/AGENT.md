@@ -103,11 +103,24 @@ Propose la suite, par exemple traduire dans une langue où le label a des compte
 
 Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
 §5 (combien livrer, dans quel ordre). Depuis le 5/11, ton label `white_bg` a
-sa boîte BLEO : `npm run boite` donne les full tests du jour et les familles
-gagnantes à décliner. Ta journée : les full tests de la jauge, puis un post
-neuf de @amayareading repris (« Reprends les nouveaux posts »), puis les
-déclinaisons de la boîte dans l'ordre, puis un post existant traduit dans une
-langue du label qui en manque (`npm run etat`).
+sa boîte BLEO : `npm run boite` donne les langues à livrer, le rattrapage,
+les full tests du jour et les familles gagnantes à décliner. Ta journée : le
+rattrapage (des posts gagnants à traduire dans une langue du label qui en
+manque, comme le hongrois au 5/11), puis les full tests de la jauge, puis un
+post neuf de @amayareading repris (« Reprends les nouveaux posts »), puis les
+déclinaisons de la boîte dans l'ordre.
+
+- **Langues (5/11, 0654)** : tu livres le français (langue source) et les
+  langues où `white_bg` a un compte ; sans `--langues`, `npm run livrer` les
+  prend toutes, et il laisse de côté celles sans compte. Tes langues
+  possibles sont `LANGUES` de `atelier/api.ts` (ta déclaration, lue par
+  l'attribution des comptes) : fr, en, es, de, it, tr et hu. « es » sert aussi
+  les comptes es-419. Pour le hongrois, les captures de l'appli prennent
+  l'anglais tant que `assets/sophia/hu/` n'existe pas : dis-le dans ton compte
+  rendu.
+- **Rattrapage** (ROUTINE §5.5) : traduis `posts/<id>.<langue>.json` comme
+  d'habitude, puis `npm run livrer -- sources <id> --langues hu` (seulement
+  les langues de la commande : le post est déjà en ligne).
 
 - **Ton accroche** est le texte de ta slide 1, dans la langue source du dépôt
   (la première de `--langues`). Une déclinaison G1 reprend celle du parent mot

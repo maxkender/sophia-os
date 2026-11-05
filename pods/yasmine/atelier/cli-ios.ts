@@ -14,6 +14,7 @@ import { RACINE } from "./slides.ts";
 const nom = process.argv[2];
 if (!nom) throw new Error("usage : npm run ios -- <nom>");
 const cfg = JSON.parse(readFileSync(join(RACINE, "ios", `${nom}.json`), "utf8")) as { fond: string; langues: Record<string, TextesIos> };
+// UnSwipe est arrêté depuis le 4/11 : plus jamais sur un écran.
 
 const reponse = await fetch(cfg.fond);
 if (!reponse.ok) throw new Error(`fond d'écran : HTTP ${reponse.status}`);
@@ -23,7 +24,6 @@ const icones = {
   notion: await loadImage(join(RACINE, "assets/applis/notion.jpg")),
   focuspomo: await loadImage(join(RACINE, "assets/applis/focuspomo.jpg")),
   sophia: await loadImage(join(RACINE, "assets/applis/sophia.jpg")),
-  unswipe: await loadImage(join(RACINE, "assets/applis/unswipe.jpg")),
 };
 
 for (const [langue, t] of Object.entries(cfg.langues)) {

@@ -1,4 +1,4 @@
-import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Situation } from "./api";
+import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Rituel, Situation } from "./api";
 
 export const NIVEAUX: readonly Niveau[] = ["urgent", "bots", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
@@ -447,4 +447,98 @@ export function feedbackAuto(geste: "fait" | "corrige" | "ignore", texte?: strin
   if (geste === "fait") return { verdict: "juste", raison: null };
   if (geste === "corrige") return { verdict: "mauvaise_action", raison: `Max a corrigé le message : « ${(texte ?? "").slice(0, 280)} »` };
   return { verdict: "pas_un_probleme", raison: "Ignoré par Max (pas un problème)" };
+}
+
+// ---------------------------------------------------------------------------
+// 0538 (5/11) : Weekly decisions décide ; Problèmes = le quotidien. Une carte
+// dont la personne attend une réponse ne traite QUE ce message.
+// ---------------------------------------------------------------------------
+
+/** La personne attend une réponse (question ou demande dans son dernier message). */
+export function messageEnAttente(p: Pick<Probleme, "sans_reponse">): boolean {
+  const s = p.sans_reponse;
+  return Boolean(s && (s.attend ?? s.question));
+}
+
+/** Une réponse est proposée depuis son dernier message (sinon le 👉 parlerait d'autre chose). */
+export function reponseAJour(p: Pick<Probleme, "sans_reponse" | "proposition_reponse" | "propose_at">): boolean {
+  if (!p.proposition_reponse?.trim()) return false;
+  if (!p.sans_reponse) return true;
+  return Boolean(p.propose_at && p.propose_at >= p.sans_reponse.at);
+}
+
+/** L'onglet dans Problèmes (🤖 ou ⚡), ou null : la carte se décide seulement dans Weekly decisions. */
+export function ongletProblemes(
+  p: Pick<Probleme, "sans_reponse" | "proposition_reponse" | "propose_at" | "onglet" | "confiance">,
+): "bots" | "urgent" | null {
+  if (messageEnAttente(p)) {
+    const enRetard = !reponseAJour(p) && (p.sans_reponse?.depuis_heures ?? 0) >= 24;
+    return p.onglet === "urgent" || enRetard || (p.confiance ?? 1) < 0.8 ? "urgent" : "bots";
+  }
+  if (p.onglet === "samedi") return null;
+  return p.onglet === "urgent" ? "urgent" : "bots";
+}
+
+const CATS_SAMEDI = ["stop", "stop_doute", "zero_post", "low_views", "demande_2e_compte", "absence", "avis_upwork", "retirer_slack"];
+const CATS_MAINTENANT = ["paie", "kill_contrat", "offre_hm_incorrecte"];
+
+/** Le rituel d'un sujet (catégorie et action proposée), ou null s'il est du quotidien. */
+export function rituelSujet(categorie: string, action?: string | null): Rituel | null {
+  if (CATS_MAINTENANT.includes(categorie) || ["pay_check", "open_payroll", "open_who_to_fund", "decision"].includes(action ?? "")) return "maintenant";
+  if (CATS_SAMEDI.includes(categorie) || ["kill", "double", "saturday"].includes(action ?? "")) return "samedi";
+  if (["recreate", "nudge"].includes(action ?? "")) return "jeudi";
+  if (action === "postpone") return "dimanche";
+  return null;
+}
+
+export interface BadgeSujet {
+  categorie: string;
+  rituel: Rituel | null;
+}
+
+/**
+ * Les autres sujets d'une carte, en petits badges sous le message : la
+ * catégorie principale quand elle se décide ailleurs, puis les sujets fusionnés
+ * (sans doublon).
+ */
+export function autresSujets(p: Pick<Probleme, "categorie" | "proposition_action" | "sujets" | "rituel">): BadgeSujet[] {
+  const vus = new Set<string>();
+  const out: BadgeSujet[] = [];
+  const ajouter = (categorie: string, rituel: Rituel | null) => {
+    const k = `${categorie}:${rituel ?? ""}`;
+    if (vus.has(k)) return;
+    vus.add(k);
+    out.push({ categorie, rituel });
+  };
+  const principal = rituelSujet(p.categorie, p.proposition_action) ?? p.rituel ?? null;
+  if (principal) ajouter(p.categorie, principal);
+  for (const x of p.sujets ?? []) ajouter(x.categorie, rituelSujet(x.categorie, x.proposition_action));
+  return out;
+}
+
+/** Le lien vers la décision dans Weekly decisions (le bon onglet, la carte surlignée). */
+export function lienDecision(id: string, rituel: Rituel | null | undefined): string {
+  const onglet = rituel && rituel !== "maintenant" ? `onglet=${rituel}&` : "";
+  return `/admin/auto/decisions?${onglet}carte=${id}`;
+}
+
+/**
+ * 🧠 en une phrase simple : sans étiquettes ([SAMEDI], URGENT…, DÉCISION :),
+ * sans lien ni id de contrat (ils restent dans les détails).
+ */
+export function diagnosticSimple(texte: string | null | undefined): string | null {
+  if (!texte?.trim()) return null;
+  let t = texte
+    .replace(/\[[^\]]{1,30}\]\s*/g, "")
+    .replace(/^(URGENT|DÉCISION|DECISION)[^:·]*[:·]\s*/i, "")
+    .replace(/^(URGENT|DÉCISION|DECISION)[^:·]*[:·]\s*/i, "")
+    .replace(/https?:\/\/\S+|www\.\S+/g, "")
+    .replace(/\(?\b(contrat|contract)\s*#?\s*\d{5,}\)?,?/gi, "")
+    .replace(/\b\d{7,}\b/g, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,.])/g, "$1")
+    .trim();
+  const fin = t.search(/[.!?](\s|$)/);
+  if (fin >= 8) t = t.slice(0, fin + 1);
+  return t || null;
 }

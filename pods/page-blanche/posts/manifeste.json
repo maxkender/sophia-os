@@ -2597,6 +2597,106 @@
     "6": "7699523873712164128_3"
    },
    "notes": "nouvelle accroche (classement de hobbies); cta C"
+  },
+  {
+   "post_id": "original-062",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#doomscrolling #reading #booktok",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7688807102764092705_1",
+    "2": "7700620281760533792_3",
+    "3": "7703982934369324320_6",
+    "4": "7703982934369324320_5",
+    "5": "7689918962905124129_5",
+    "6": "7686189452963712288_2"
+   },
+   "notes": "nouvelle accroche (scroll vs livres); cta A"
+  },
+  {
+   "post_id": "original-063",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainfog #attentionspan #selfcare",
+   "musique": {
+    "titre": "Safe In Your Skin",
+    "auteur": "Title Fight",
+    "original": false,
+    "id": "6930727292118009857",
+    "url_tiktok": "https://www.tiktok.com/music/x-6930727292118009857"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7700620281760533792_1",
+    "2": "7694778035337235744_2",
+    "3": "7694778035337235744_5",
+    "4": "7699386616988650774_6",
+    "5": "7703619977630190881_4",
+    "6": "7686189452963712288_6"
+   },
+   "notes": "nouvelle accroche (tu te sens plus bête ? lis ça); cta B"
+  },
+  {
+   "post_id": "original-065",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#rest #brainhealth #slowliving",
+   "musique": {
+    "titre": "escape",
+    "auteur": "Kilgore Doubtfire",
+    "original": true,
+    "id": "6966304045443107589",
+    "url_tiktok": "https://www.tiktok.com/music/x-6966304045443107589"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7692093201968090401_1",
+    "2": "7699118764788321558_3",
+    "3": "7696527080426655009_4",
+    "4": "7684726544442346774_3",
+    "5": "7699118764788321558_6",
+    "6": "7680975889932225814_4"
+   },
+   "notes": "nouvelle accroche (habitudes qui ont l'air de la flemme); cta A"
+  },
+  {
+   "post_id": "original-070",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainhacks #studytips #learnontiktok",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7703982934369324320_1",
+    "2": "7685340052989398275_5",
+    "3": "7684726544442346774_7",
+    "4": "7700916867665284385_3",
+    "5": "7691007701127564576_4",
+    "6": "7691336990419209505_3"
+   },
+   "notes": "essai (format « brain hacks » de @rory.bingethinking, 336k vues, effet protégé); cta C"
   }
  ]
 }

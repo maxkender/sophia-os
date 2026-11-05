@@ -20,6 +20,8 @@
 -- Reprise : les 4 vidéos de 0656 deviennent 4 sources (même id, mêmes
 -- fichiers) et leurs 4 générations ; puis ugc_ia_videos disparaît.
 --
+-- ✅ Appliquée le 2026-11-05 (MCP) : 4 sources et 4 générations reprises.
+--
 -- Retour arrière : recréer ugc_ia_videos (0656) depuis sources ⋈ générations,
 -- puis drop table ugc_ia_generations, ugc_ia_sources.
 

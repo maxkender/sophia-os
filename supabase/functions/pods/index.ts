@@ -72,6 +72,11 @@
  *       vues des contenus en ligne (avec le r de chaque passage mûr), comptes
  *       du label par langue.
  *
+ *   { action: "langues", pod, langues? }   — agent du pod (0654, remakes) :
+ *       déclare les langues que le podz sait livrer (`LANGUES` de son
+ *       atelier ; l'attribution des comptes les lit) et rend ses langues à
+ *       livrer : les déclarées où son label a un compte actif.
+ *
  * Redéposer un post en attente remplace ses langues redéposées. Déposer une
  * langue pour un post déjà validé crée une livraison « langues » (à valider)
  * qui l'ajoutera au contenu existant.
@@ -123,6 +128,7 @@ import {
   debutJourParis,
   fullTestsDuJour,
   lireDeclarationBleo,
+  lireLanguesDeclarees,
 } from "../_shared/bleo_guichet.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { assertRole, aujourdhuiParis, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -167,6 +173,7 @@ Deno.serve(async (request) => {
     if (body?.action === "deposer") return await deposer(request, supabase, body);
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
     if (body?.action === "boite") return await boite(request, supabase, body);
+    if (body?.action === "langues") return await languesDuPod(request, supabase, body);
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
     if (body?.action === "photos") return await photosDeLaBanque(request, supabase, body);
@@ -1175,9 +1182,20 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  const declaration = await declarerLangues(supabase, pod.slug, body.langues);
+  if (declaration) return json({ ok: false, code: "langues_invalides", error: declaration }, 400);
   const limite = Math.max(1, Math.min(Number(body.limite ?? 30) || 30, 100));
   const jour = aujourdhuiParis();
-  const [{ data: lignes, error }, { data: jauge }, { data: reglage }, { data: deposes }, { data: label }] = await Promise.all([
+  const [
+    { data: lignes, error },
+    { data: jauge },
+    { data: reglage },
+    { data: deposes },
+    { data: label },
+    { data: langues },
+    { data: rattrapage },
+    { count: rattrapagesDeposes },
+  ] = await Promise.all([
     supabase.rpc("bleo_boite_posts", { p_label_id: pod.label_id, p_limite: limite }),
     supabase.from("bleo_jauge").select("familles_en_boite, par_jour, semaines, part_full_test").eq("pod", pod.slug).maybeSingle(),
     supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),
@@ -1189,6 +1207,15 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       .gte("depose_le", debutJourParis(jour))
       .limit(100),
     supabase.from("labels").select("voie").eq("id", pod.label_id).maybeSingle(),
+    supabase.rpc("pod_langues", { p_pod: pod.slug }),
+    supabase.rpc("bleo_rattrapage_du_pod", { p_pod: pod.slug }),
+    // Rattrapages déposés aujourd'hui : les livraisons « nouvelles langues ».
+    supabase
+      .from("pod_livraisons")
+      .select("id", { count: "exact", head: true })
+      .eq("pod", pod.slug)
+      .eq("type", "langues")
+      .gte("depose_le", debutJourParis(jour)),
   ]);
   if (error) throw new Error(`bleo_boite_posts : ${messageErreur(error)}`);
   const voie = Number(label?.voie) === 2 ? 2 : 1;
@@ -1199,7 +1226,11 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
     : enBoite === 0 ? (voie === 2 ? parts[parts.length - 1] : 1) : parts[1];
   const parJourDemande = Number(body.par_jour);
   const parJour = Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
-  const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0 };
+  const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0, rattrapage: rattrapagesDeposes ?? 0 };
+  // 0654 : les commandes de rattrapage passent d'abord, au plus la moitié du jour.
+  const commandes = (Array.isArray(rattrapage) ? rattrapage : []) as Array<{ en_attente?: boolean }>;
+  const aFaire = commandes.filter((c) => !c.en_attente).length;
+  const rattrapagesDuJour = Math.min(aFaire + aujourdhui.rattrapage, Math.ceil(parJour / 2));
   for (const d of deposes ?? []) {
     const t = (d as { type_bleo: string | null }).type_bleo;
     if (t === "full_test" || t === "declinaison") aujourdhui[t] += 1;
@@ -1220,9 +1251,42 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       par_jour: parJour,
       full_tests_du_jour: fullTestsDuJour(parJour, part, jour, voie === 1 && enBoite === 0),
     },
+    // 0654 (remakes) : langues déclarées, comptes du label par langue, langues
+    // à livrer ; et les commandes de rattrapage, dans l'ordre où les faire.
+    langues: langues ?? null,
+    rattrapage: { du_jour: rattrapagesDuJour, commandes },
     deposes_aujourdhui: aujourdhui,
     boite: lignes ?? [],
   });
+}
+
+/**
+ * 0654 : enregistre les langues que le podz déclare (`pods.langues`), si le
+ * corps en porte et qu'elles changent. Rend un message d'erreur, ou `null`.
+ */
+async function declarerLangues(supabase: Supabase, slug: string, brut: unknown): Promise<string | null> {
+  const langues = lireLanguesDeclarees(brut);
+  if (langues === null) return null;
+  if ("erreur" in langues) return langues.erreur;
+  const { data: actuel } = await supabase.from("pods").select("langues").eq("slug", slug).maybeSingle();
+  const avant = ((actuel?.langues ?? null) as string[] | null)?.join(",") ?? null;
+  if (avant === langues.join(",")) return null;
+  const { error } = await supabase.from("pods").update({ langues }).eq("slug", slug);
+  return error ? `langues : ${messageErreur(error)}` : null;
+}
+
+/**
+ * Action `langues` (0654) : déclare les langues du podz (facultatif) et rend
+ * ses langues : déclarées, comptes actifs du label par langue, à livrer.
+ */
+async function languesDuPod(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  const declaration = await declarerLangues(supabase, pod.slug, body.langues);
+  if (declaration) return json({ ok: false, code: "langues_invalides", error: declaration }, 400);
+  const { data, error } = await supabase.rpc("pod_langues", { p_pod: pod.slug });
+  if (error) throw new Error(`pod_langues : ${messageErreur(error)}`);
+  return json({ ok: true, pod: pod.slug, ...(data as Record<string, unknown>) });
 }
 
 /**

@@ -8,7 +8,10 @@
 // fichiers, et le `parent_contenu_id` à déclarer), les déclinaisons déjà
 // faites sur 3, ses meilleurs passages.
 //
-// En tête, la journée : la jauge donne les full tests du jour (des accroches
+// En tête, la journée : les langues à livrer (0654 : celles où le label a un
+// compte ; l'appel déclare au passage `LANGUES` à l'OS), puis le rattrapage
+// (les posts gagnants à livrer dans une langue qui en manque, au plus la moitié
+// du jour), puis la jauge, qui donne les full tests du jour (des accroches
 // neuves). Le reste du jour va d'abord aux remakes des posts neufs du compte
 // modèle, puis aux déclinaisons de la boîte dans l'ordre ; s'il ne reste ni
 // l'un ni l'autre, à des full tests.
@@ -19,7 +22,7 @@
 // Sortie : donnees/boite.json (la réponse complète).
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename } from "node:path";
-import { appelPod } from "./api.ts";
+import { appelPod, LANGUES } from "./api.ts";
 
 type Passage = { langue: string; vues: number; r: number | null; url: string | null };
 type Ligne = {
@@ -34,11 +37,14 @@ type Ligne = {
   post: Passage | null;
   passages: Passage[];
 };
+type Commande = { rang: number; source_id: string | null; titre: string | null; accroche: string | null; langues: string[]; en_attente: boolean };
 type Reponse = {
   jour: string;
   voie: 1 | 2;
+  langues: { declarees: string[] | null; comptes: Record<string, number>; a_livrer: string[] | null } | null;
+  rattrapage?: { du_jour: number; commandes: Commande[] };
   jauge: { familles_en_boite: number; semaines: number | null; part_full_test: number; par_jour: number; full_tests_du_jour: number };
-  deposes_aujourdhui: { full_test: number; declinaison: number; sans_type: number };
+  deposes_aujourdhui: { full_test: number; declinaison: number; sans_type: number; rattrapage?: number };
   boite: Ligne[];
 };
 
@@ -56,7 +62,7 @@ try {
   // sans rythme.json : l'OS prend le rythme mesuré sur 7 jours
 }
 
-const r = await appelPod<Reponse>({ action: "boite", limite, ...(parJour ? { par_jour: parJour } : {}) });
+const r = await appelPod<Reponse>({ action: "boite", limite, langues: [...LANGUES], ...(parJour ? { par_jour: parJour } : {}) });
 if (!r.ok) throw new Error(r.error);
 mkdirSync("donnees", { recursive: true });
 writeFileSync("donnees/boite.json", JSON.stringify(r, null, 1));
@@ -67,13 +73,32 @@ console.log(r.voie === 2
 const k = (n: number | null | undefined) => (n == null ? "—" : n >= 1000 ? `${Math.round(n / 100) / 10} k` : String(n));
 const j = r.jauge;
 const deja = r.deposes_aujourdhui;
+const rattrapage = r.rattrapage ?? { du_jour: 0, commandes: [] };
+const rattrapagesFaits = deja.rattrapage ?? 0;
+const rattrapagesRestants = Math.max(0, rattrapage.du_jour - rattrapagesFaits);
 const fullTestsRestants = Math.max(0, j.full_tests_du_jour - deja.full_test);
-const resteDuJour = Math.max(0, j.par_jour - Math.max(j.full_tests_du_jour, deja.full_test) - deja.declinaison - deja.sans_type);
+const resteDuJour = Math.max(
+  0,
+  j.par_jour - Math.max(rattrapage.du_jour, rattrapagesFaits) - Math.max(j.full_tests_du_jour, deja.full_test) - deja.declinaison - deja.sans_type,
+);
+if (r.langues?.a_livrer) {
+  const comptes = Object.entries(r.langues.comptes).map(([l, n]) => `${l} ${n}`).join(" · ") || "aucun";
+  console.log(`Langues à livrer : ${r.langues.a_livrer.join(", ") || "aucune"} (comptes du label : ${comptes}) ; npm run livrer s'y tient.`);
+}
+if (rattrapage.commandes.length) {
+  console.log(`\nRattrapage : ${rattrapage.commandes.length} post(s) gagnant(s) à livrer dans une langue qui en manque ; ` +
+    `aujourd'hui ${rattrapagesRestants} d'abord (déjà fait : ${rattrapagesFaits}).`);
+  for (const c of rattrapage.commandes.slice(0, Math.max(rattrapagesRestants + 2, 3))) {
+    console.log(`  #${c.rang} ${c.source_id ?? "?"} → ${c.langues.join(", ")}${c.en_attente ? " (déjà déposé, attend la validation)" : ""} · « ${c.titre ?? c.accroche ?? "—"} »`);
+    console.log(`     npm run livrer -- ${c.source_id} --langues ${c.langues.join(",")} --complement`);
+  }
+}
+console.log("");
 console.log(`Boîte du ${r.jour} : ${j.familles_en_boite} famille(s) gagnante(s) à décliner` +
   (j.semaines == null ? "" : `, ${j.semaines} semaine(s) d'avance`));
 console.log(`Jauge : ${Math.round(j.part_full_test * 100)} % de full tests → aujourd'hui ${j.full_tests_du_jour} full test(s) sur ${j.par_jour}`);
-console.log(`Déjà déposé aujourd'hui : ${deja.full_test} full test(s), ${deja.declinaison} déclinaison(s), ${deja.sans_type} remake(s) du compte modèle`);
-console.log(`Reste à faire : ${fullTestsRestants} full test(s), puis ${resteDuJour} livraison(s) : ` +
+console.log(`Déjà déposé aujourd'hui : ${rattrapagesFaits} rattrapage(s), ${deja.full_test} full test(s), ${deja.declinaison} déclinaison(s), ${deja.sans_type} remake(s) du compte modèle`);
+console.log(`Reste à faire : ${rattrapagesRestants} rattrapage(s), ${fullTestsRestants} full test(s), puis ${resteDuJour} livraison(s) : ` +
   "d'abord les posts neufs du compte modèle, puis les déclinaisons ci-dessous dans l'ordre, sinon des full tests.");
 if (!r.boite.length) {
   console.log("\nBoîte vide : le reste du jour en remakes des posts neufs du compte modèle, sinon en full tests.");

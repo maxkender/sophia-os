@@ -27,9 +27,16 @@
 --      les livre par le circuit « nouvelles langues » existant. Une commande
 --      se ferme toute seule quand ses langues ont leur deck.
 --
--- Vérifié avant application, dans une transaction annulée : le choix de label
--- rend les mêmes lignes pour tous les labels hors remakes ; pour les remakes,
--- seuls changent les langues déclarées sans deck (white_bg en hongrois).
+-- Vérifié avant application, dans une transaction annulée : la simulation de
+-- répartition (Sophia et micabo, 714 lignes) et le choix de label rendent les
+-- mêmes lignes pour tous les labels hors remakes ; pour les remakes, seul
+-- change white_bg en hongrois (servi, déclaré par la page blanche, aucun deck).
+-- Langues à livrer : Fathomly en, de, it, pt-BR, es-419 (plus fr, es, pt) ;
+-- that_girl_study es, tr (plus le français source) ; Kaja et page blanche,
+-- toutes leurs langues. Rattrapage : 32 commandes page blanche (hu, et tr pour
+-- 10), 12 Fathomly (it, es-419) ; un second passage n'en crée aucune.
+-- Une langue déclarée ne vaut que pour un label qui a une réserve dans
+-- l'application (un label sans contenu reste à sec, comme avant).
 --
 -- Retour arrière : remettre le CTE `servies` d'origine dans les deux fonctions
 -- (les langues de `restants_par_langue`), supprimer le cron
@@ -148,8 +155,8 @@ $a$  servies as (
     cross join lateral jsonb_object_keys(lv.restants_par_langue) as k(langue)
   ),$a$,
 $b$  -- 0654 : un label 100 % podz de remakes sert les langues que son podz
-  -- déclare (`pods.langues`), déjà livrées ou non ; sans déclaration, comme
-  -- avant, les langues de ses decks.
+  -- déclare (`pods.langues`), déjà livrées ou non, s'il a une réserve pour
+  -- cette application ; sans déclaration, comme avant, les langues de ses decks.
   servies as (
     with d as materialized (select * from public.langues_declarees_podz())
     select lv.label_id, k.langue
@@ -159,7 +166,7 @@ $b$  -- 0654 : un label 100 % podz de remakes sert les langues que son podz
     union
     select d.label_id, d.langue
     from d
-    where d.label_id = any(p_labels)
+    where d.label_id in (select lv2.label_id from livre lv2)
   ),$b$
 ]);
 
@@ -179,7 +186,7 @@ $b$  -- 0654 : les langues déclarées par le podz, comme le moteur.
     union
     select d.label_id, d.langue
     from d
-    where d.label_id = any(v_pool)
+    where d.label_id in (select lv2.label_id from livre lv2)
   ),$b$
 ]);
 

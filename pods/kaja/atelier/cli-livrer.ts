@@ -1,4 +1,4 @@
-// Usage : npm run livrer -- <id> [--langues en] [--essai <dossier>]
+// Usage : npm run livrer -- <id> [--langues en] [--complement] [--essai <dossier>]
 //
 // Rend le remake posts/<id>.json en anglais, français et allemand (`LANGUES`)
 // et le DÉPOSE dans la file de validation de l'OS (fonction Edge `pods`,
@@ -14,24 +14,36 @@
 
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { appelPod, LANGUE_SOURCE, LANGUES, POD } from "./api.ts";
+import { appelPod, LANGUE_SOURCE, LANGUES, languesDuLabel, POD } from "./api.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
 import { type ContenuCouverture, type ContenuEtape, contenu, estSlideSophia, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
-if (!id) throw new Error("usage : npm run livrer -- <id> [--langues en] [--essai <dossier>]");
+if (!id) throw new Error("usage : npm run livrer -- <id> [--langues en] [--complement] [--essai <dossier>]");
 const opt = (n: string) => (args.includes(n) ? args[args.indexOf(n) + 1] : undefined);
 const essai = opt("--essai");
 
 const post = lirePost(id);
 const completes = languesCompletes(post);
-const langues = opt("--langues")?.split(",") ?? [...LANGUES];
+// 0654 : seulement les langues où le label a un compte (l'OS les donne), la
+// langue source toujours pour un post neuf. --complement : un rattrapage (post
+// déjà validé), seulement les langues demandées, sans la langue source.
+const complement = args.includes("--complement");
+const os = await languesDuLabel();
+const utiles = os?.a_livrer ? new Set<string>(os.a_livrer) : null;
+const demandees = opt("--langues")?.split(",").map((l) => l.trim()).filter(Boolean) ?? [...LANGUES];
+const sansCompte = utiles ? demandees.filter((l) => l !== LANGUE_SOURCE && !utiles.has(l)) : [];
+if (sansCompte.length) console.log(`${id} : pas de compte du label en ${sansCompte.join(", ")} : non livré`);
+const voulues = demandees.filter((l) => !sansCompte.includes(l) && !(complement && l === LANGUE_SOURCE));
+const langues = voulues;
 const incompletes = langues.filter((l) => !completes.includes(l));
 if (incompletes.length) {
-  throw new Error(`${id} : deck ${incompletes.join(", ")} incomplet (titre, légende et chaque slide) ; chaque livraison part en ${LANGUES.join(", ")}`);
+  throw new Error(`${id} : deck ${incompletes.join(", ")} incomplet (titre, légende et chaque slide) ; chaque livraison part dans les langues du label (${langues.join(", ")})`);
 }
-if (!langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} part toujours, ajoute-le à --langues`);
+if (!completes.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+if (!complement && !langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} part toujours avec un post neuf, ajoute-le à --langues`);
+if (!langues.length) throw new Error(`${id} : aucune langue à livrer`);
 const sophia = post.slides.flatMap((s, i) => (estSlideSophia(s) ? [i] : []));
 if (sophia.length !== 1 || sophia[0] === 0) {
   throw new Error(`${id} : une seule slide Sophia, jamais la couverture (trouvé : ${sophia.map((i) => i + 1).join(", ") || "aucune"})`);

@@ -86,6 +86,17 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   passe au guichet, comme en voie 1 ; un remake du compte modèle part sans
   déclaration. **Leur rythme ne change pas encore** : les règles 2, 5, 6 et 8
   valent toujours pour eux, pas les règles de la jauge ci-dessous.
+- **Leurs langues (depuis le 5/11, 0654)** : chaque podz de remakes déclare
+  les langues qu'il sait faire (`select slug, langues from pods where langues
+  is not null;`), l'attribution des comptes les lit, et il ne livre que celles
+  où son label a un compte (`select public.pod_langues('<podz>');`). Une
+  langue qui manque de posts gagnants (compte neuf, langue neuve) reçoit des
+  commandes de rattrapage chaque nuit à 5 h 55 : le podz les fait d'abord,
+  au plus la moitié de son `par_jour`. Pour la règle 2 (stock), un compte
+  dont la langue a des commandes ouvertes n'appelle pas une livraison de
+  plus : dis-le dans la ligne « Stock » avec le nombre de commandes
+  (`select pod, count(*), min(cree_le) from bleo_commandes_langue where statut = 'a_faire' group by pod;`).
+  Une commande ouverte depuis plus de 7 jours : signale-la.
 - **La jauge** : `select * from bleo_jauge order by pod;` (aujourd'hui) et
   `bleo_jauge_jours` (une photo par jour à 5 h 40). `semaines` : combien de
   semaines de déclinaisons la boîte tient au rythme du podz ;

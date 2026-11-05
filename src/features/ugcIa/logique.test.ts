@@ -1,6 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import { arrondiDixieme, erreurPassage, lireSecondes, passageInitial, peutCouper, peutGenerer } from "./logique";
+import {
+  arrondiDixieme,
+  basculer,
+  erreurPassage,
+  lireSecondes,
+  passageInitial,
+  personasOccupes,
+  peutCouper,
+  PERSONAS_MAX_PAR_LANCEMENT,
+} from "./logique";
 
 describe("UGC IA, logique", () => {
   it("lit des secondes avec virgule ou point", () => {
@@ -34,15 +43,25 @@ describe("UGC IA, logique", () => {
     expect(arrondiDixieme(-1)).toBe("0");
   });
 
-  it("ne recoupe ni ne relance une vidéo en cours ou prête", () => {
-    expect(peutCouper("importee")).toBe(true);
-    expect(peutCouper("echec")).toBe(true);
-    expect(peutCouper("en_cours")).toBe(false);
-    expect(peutCouper("prete")).toBe(false);
-    expect(peutGenerer({ statut: "coupee", coupe_url: "https://x/r.mp4" })).toBe(true);
-    expect(peutGenerer({ statut: "echec", coupe_url: "https://x/r.mp4" })).toBe(true);
-    expect(peutGenerer({ statut: "echec", coupe_url: null })).toBe(false);
-    expect(peutGenerer({ statut: "importee", coupe_url: null })).toBe(false);
-    expect(peutGenerer({ statut: "en_cours", coupe_url: "https://x/r.mp4" })).toBe(false);
+  it("ne recoupe pas un passage en cours de génération, et ne recoche pas un persona occupé", () => {
+    expect(peutCouper([])).toBe(true);
+    expect(peutCouper([{ statut: "prete" }, { statut: "echec" }])).toBe(true);
+    expect(peutCouper([{ statut: "prete" }, { statut: "en_cours" }])).toBe(false);
+    expect(
+      personasOccupes([
+        { statut: "en_cours", persona_id: "a" },
+        { statut: "prete", persona_id: "b" },
+        { statut: "echec", persona_id: "a" },
+      ]),
+    ).toEqual(new Set(["a"]));
+  });
+
+  it("coche et décoche, sans dépasser le maximum par lancement", () => {
+    let coches = basculer(new Set(), "a");
+    expect(coches).toEqual(new Set(["a"]));
+    coches = basculer(coches, "a");
+    expect(coches.size).toBe(0);
+    const pleins = new Set(Array.from({ length: PERSONAS_MAX_PAR_LANCEMENT }, (_, i) => `p${i}`));
+    expect(basculer(pleins, "de-trop").has("de-trop")).toBe(false);
   });
 });

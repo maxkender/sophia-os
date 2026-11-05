@@ -4,48 +4,72 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
-import type { VideoUgcIa } from "@/features/ugcIa/api";
+import type { GenerationUgcIa, PersonaUgcIa, SourceUgcIa } from "@/features/ugcIa/api";
 
-const listerVideos = vi.fn();
+const SOPHIE: PersonaUgcIa = { id: "p1", nom: "Sophie", description: "~20 ans, blonde", image_url: "https://x/sophie.jpg", image_path: "ugc-ia/personas/p1.jpg" };
+const CLARA: PersonaUgcIa = { id: "p2", nom: "Clara", description: "~20 ans, brune", image_url: "https://x/clara.jpg", image_path: "ugc-ia/personas/p2.jpg" };
+
+const listerPersonas = vi.fn();
+const listerSources = vi.fn();
 const importer = vi.fn();
 const couper = vi.fn();
 const generer = vi.fn();
+const enregistrerCta = vi.fn();
 const suivre = vi.fn();
+const rapatrier = vi.fn();
 
 vi.mock("@/features/ugcIa/api", () => ({
-  CLE_VIDEOS_UGC_IA: ["ugc-ia", "videos"],
-  listerPersonasUgcIa: () =>
-    Promise.resolve([{ id: "p1", nom: "Sophie", description: "~20 ans, cheveux blonds", image_url: "https://x/sophie.jpg" }]),
-  listerVideosUgcIa: () => listerVideos(),
+  CLE_SOURCES_UGC_IA: ["ugc-ia", "sources"],
+  CLE_PERSONAS_UGC_IA: ["ugc-ia", "personas"],
+  listerPersonasUgcIa: () => listerPersonas(),
+  listerSourcesUgcIa: () => listerSources(),
   importerTiktokUgcIa: (...a: unknown[]) => importer(...a),
   couperPassageUgcIa: (...a: unknown[]) => couper(...a),
-  genererVideoUgcIa: (...a: unknown[]) => generer(...a),
+  genererUgcIa: (...a: unknown[]) => generer(...a),
+  enregistrerCtaUgcIa: (...a: unknown[]) => enregistrerCta(...a),
+  lireCtaUgcIa: () => Promise.resolve({}),
   suivreGenerationsUgcIa: () => suivre(),
-  supprimerVideoUgcIa: () => Promise.resolve({ ok: true }),
+  supprimerSourceUgcIa: () => Promise.resolve({ ok: true }),
+  supprimerGenerationUgcIa: () => Promise.resolve({ ok: true }),
+  rapatrierPersonasUgcIa: () => rapatrier(),
 }));
 
 import { AdminUgcIaPage } from "./AdminUgcIaPage";
 
-function video(champs: Partial<VideoUgcIa>): VideoUgcIa {
+function generation(champs: Partial<GenerationUgcIa>): GenerationUgcIa {
   return {
-    id: "v1",
+    id: "g1",
+    source_id: "s1",
     persona_id: "p1",
+    debut_s: 0,
+    fin_s: 4,
+    prompt: "custom prompt",
+    resolution: "480p",
+    statut: "prete",
+    erreur: null,
+    video_url: "https://x/g1.mp4",
+    lancee_le: "2026-11-05T10:00:00Z",
+    generee_le: "2026-11-05T10:05:00Z",
+    created_at: "2026-11-05T10:00:00Z",
+    ...champs,
+  };
+}
+
+function source(champs: Partial<SourceUgcIa>): SourceUgcIa {
+  return {
+    id: "s1",
     source_url: "https://www.tiktok.com/@a/video/1",
-    source_texte: "I could KISS the person who showed me this",
+    source_texte: "caption",
     source_vues: 476100,
     source_duree_s: 20,
     brut_url: "https://x/source.mp4",
     debut_s: null,
     fin_s: null,
     coupe_url: null,
-    prompt: null,
-    resolution: "720p",
-    statut: "importee",
-    erreur: null,
-    video_url: null,
-    lancee_le: null,
-    generee_le: null,
+    cta_texte: "I could KISS the person who showed me this",
+    cta_image_url: "https://x/cta.jpg",
     created_at: "2026-11-05T10:00:00Z",
+    generations: [],
     ...champs,
   };
 }
@@ -64,25 +88,52 @@ function rendre() {
 describe("AdminUgcIaPage", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
+    listerPersonas.mockResolvedValue([SOPHIE, CLARA]);
     await i18n.changeLanguage("fr");
   });
 
-  it("montre Sophie et importe un lien TikTok pour elle", async () => {
-    listerVideos.mockResolvedValue([]);
-    importer.mockResolvedValue({ video: video({}) });
+  it("liste les personas et importe un lien TikTok", async () => {
+    listerSources.mockResolvedValue([]);
+    importer.mockResolvedValue({ source: source({}) });
     rendre();
-    expect(await screen.findByText("Sophie")).toBeInTheDocument();
-    expect(screen.getByText("Aucune vidéo pour l'instant")).toBeInTheDocument();
+    expect(await screen.findByText("Personas (2)")).toBeInTheDocument();
+    expect(screen.getByText("Clara")).toBeInTheDocument();
+    expect(screen.getByText("Aucune source pour l'instant")).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("Lien TikTok"), { target: { value: " https://www.tiktok.com/@a/video/1 " } });
     fireEvent.click(screen.getByRole("button", { name: "Importer" }));
-    await waitFor(() => expect(importer).toHaveBeenCalledWith("https://www.tiktok.com/@a/video/1", "p1"));
+    await waitFor(() => expect(importer).toHaveBeenCalledWith("https://www.tiktok.com/@a/video/1"));
+    expect(rapatrier).not.toHaveBeenCalled();
+  });
+
+  it("rapatrie une fois l'image d'un persona ajouté par Claude", async () => {
+    listerPersonas.mockResolvedValue([SOPHIE, { ...CLARA, image_path: null }]);
+    listerSources.mockResolvedValue([]);
+    rapatrier.mockResolvedValue({ bilan: [] });
+    rendre();
+    await waitFor(() => expect(rapatrier).toHaveBeenCalledTimes(1));
+  });
+
+  it("montre le CTA de la source et enregistre sa correction", async () => {
+    listerSources.mockResolvedValue([source({})]);
+    enregistrerCta.mockResolvedValue({ source: source({}) });
+    rendre();
+    const carte = await screen.findByTestId("source-s1");
+    expect(within(carte).getByAltText("Premier écran de la vidéo")).toHaveAttribute("src", "https://x/cta.jpg");
+    const champ = within(carte).getByLabelText("Texte du CTA");
+    expect(champ).toHaveValue("I could KISS the person who showed me this");
+    const bouton = within(carte).getByRole("button", { name: "Enregistrer" });
+    expect(bouton).toBeDisabled();
+    fireEvent.change(champ, { target: { value: "I could KISS whoever showed me this 😭" } });
+    fireEvent.click(bouton);
+    await waitFor(() => expect(enregistrerCta).toHaveBeenCalledWith("s1", "I could KISS whoever showed me this 😭"));
   });
 
   it("coupe le passage choisi, même très court, et refuse une fin avant le début", async () => {
-    listerVideos.mockResolvedValue([video({})]);
-    couper.mockResolvedValue({ video: video({ statut: "coupee" }) });
+    listerSources.mockResolvedValue([source({})]);
+    couper.mockResolvedValue({ source: source({}) });
     rendre();
-    const carte = await screen.findByTestId("video-v1");
+    const carte = await screen.findByTestId("source-s1");
+    expect(within(carte).getByText("Coupe d'abord le passage de la réaction pour lancer Genjutsu.")).toBeInTheDocument();
     const bouton = within(carte).getByRole("button", { name: "Couper ce passage" });
     fireEvent.change(within(carte).getByLabelText("Début (s)"), { target: { value: "8" } });
     expect(within(carte).getByText("La fin doit être après le début.")).toBeInTheDocument();
@@ -90,43 +141,57 @@ describe("AdminUgcIaPage", () => {
     fireEvent.change(within(carte).getByLabelText("Début (s)"), { target: { value: "1,5" } });
     fireEvent.change(within(carte).getByLabelText("Fin (s)"), { target: { value: "3" } });
     fireEvent.click(bouton);
-    await waitFor(() => expect(couper).toHaveBeenCalledWith("v1", 1.5, 3));
-    expect(generer).not.toHaveBeenCalled();
+    await waitFor(() => expect(couper).toHaveBeenCalledWith("s1", 1.5, 3));
   });
 
-  it("lance Genjutsu avec le prompt et la résolution choisis", async () => {
-    listerVideos.mockResolvedValue([video({ statut: "coupee", debut_s: 1, fin_s: 7, coupe_url: "https://x/reaction.mp4" })]);
-    generer.mockResolvedValue({ video: video({ statut: "en_cours" }) });
+  it("lance Genjutsu pour les personas cochés, avec la résolution choisie", async () => {
+    listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4" })]);
+    generer.mockResolvedValue({ resultats: [{ personaId: "p1", nom: "Sophie", generationId: "g1" }, { personaId: "p2", nom: "Clara", erreur: "solde insuffisant" }] });
     rendre();
-    const carte = await screen.findByTestId("video-v1");
+    const carte = await screen.findByTestId("source-s1");
+    const lancer = within(carte).getByRole("button", { name: "Générer pour 0 persona" });
+    expect(lancer).toBeDisabled();
+    fireEvent.click(within(carte).getByRole("checkbox", { name: "Sophie" }));
+    fireEvent.click(within(carte).getByRole("checkbox", { name: "Clara" }));
     fireEvent.click(within(carte).getByRole("button", { name: "1080p" }));
-    fireEvent.click(await within(carte).findByRole("button", { name: "Générer avec Sophie" }));
-    await waitFor(() => expect(generer).toHaveBeenCalledWith("v1", expect.stringContaining("performs exactly the motion"), "1080p"));
+    fireEvent.click(within(carte).getByRole("button", { name: "Générer pour 2 personas" }));
+    await waitFor(() => expect(generer).toHaveBeenCalledWith("s1", ["p1", "p2"], expect.stringContaining("performs exactly the motion"), "1080p"));
+    expect(await within(carte).findByText("Clara : solde insuffisant")).toBeInTheDocument();
   });
 
-  it("relève Higgsfield quand une génération tourne, et montre le résultat prêt", async () => {
-    listerVideos
-      .mockResolvedValueOnce([video({ statut: "en_cours", debut_s: 1, fin_s: 7, coupe_url: "https://x/reaction.mp4" })])
-      .mockResolvedValue([video({ statut: "prete", debut_s: 1, fin_s: 7, coupe_url: "https://x/reaction.mp4", video_url: "https://x/video.mp4" })]);
+  it("refait une vidéo pour un persona avec une autre qualité et un autre prompt", async () => {
+    listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4", generations: [generation({})] })]);
+    generer.mockResolvedValue({ resultats: [{ personaId: "p1", nom: "Sophie", generationId: "g2" }] });
+    rendre();
+    const g = await screen.findByTestId("generation-g1");
+    expect(within(g).getByRole("link", { name: "Télécharger" })).toHaveAttribute("href", "https://x/g1.mp4");
+    fireEvent.click(within(g).getByRole("button", { name: "Refaire" }));
+    expect(within(g).getByLabelText("Prompt")).toHaveValue("custom prompt");
+    fireEvent.change(within(g).getByLabelText("Prompt"), { target: { value: "smoother motion" } });
+    fireEvent.click(within(g).getByRole("button", { name: "720p" }));
+    fireEvent.click(within(g).getByRole("button", { name: "Refaire pour Sophie" }));
+    await waitFor(() => expect(generer).toHaveBeenCalledWith("s1", ["p1"], "smoother motion", "720p"));
+  });
+
+  it("bloque la coupe et le persona occupé pendant une génération, et relève Higgsfield", async () => {
+    const enCours = source({
+      debut_s: 0,
+      fin_s: 4,
+      coupe_url: "https://x/reaction.mp4",
+      generations: [generation({ id: "g2", statut: "en_cours", video_url: null }), generation({})],
+    });
+    listerSources.mockResolvedValueOnce([enCours]).mockResolvedValue([{ ...enCours, generations: [generation({ id: "g2" }), generation({})] }]);
     let repondre: (v: unknown) => void = () => undefined;
     suivre.mockReturnValue(new Promise((r) => (repondre = r)));
     rendre();
-    expect(await screen.findByText("Genjutsu en cours…")).toBeInTheDocument();
+    const carte = await screen.findByTestId("source-s1");
+    expect(within(carte).getByText("Genjutsu en cours…")).toBeInTheDocument();
+    expect(within(carte).getByRole("button", { name: "Recouper" })).toBeDisabled();
+    expect(within(carte).getByRole("checkbox", { name: "Sophie" })).toBeDisabled();
+    expect(within(screen.getByTestId("generation-g1")).getByRole("button", { name: "Refaire" })).toBeDisabled();
     await waitFor(() => expect(suivre).toHaveBeenCalled());
-    repondre({ bilan: [{ id: "v1", statut: "prete" }] });
-    const lien = await screen.findByRole("link", { name: "Télécharger" });
-    expect(lien).toHaveAttribute("href", "https://x/video.mp4");
-    expect(screen.queryByText("Genjutsu en cours…")).not.toBeInTheDocument();
-  });
-
-  it("affiche l'erreur d'une génération échouée et propose de relancer", async () => {
-    listerVideos.mockResolvedValue([
-      video({ statut: "echec", debut_s: 1, fin_s: 7, coupe_url: "https://x/reaction.mp4", erreur: "Higgsfield : solde API insuffisant (402)" }),
-    ]);
-    rendre();
-    const carte = await screen.findByTestId("video-v1");
-    expect(within(carte).getByText("Higgsfield : solde API insuffisant (402)")).toBeInTheDocument();
-    expect(within(carte).getByRole("button", { name: "Relancer la génération" })).toBeInTheDocument();
-    expect(suivre).not.toHaveBeenCalled();
+    repondre({ bilan: [{ id: "g2", statut: "prete" }] });
+    await waitFor(() => expect(screen.queryByText("Genjutsu en cours…")).not.toBeInTheDocument());
+    expect(within(screen.getByTestId("source-s1")).getByRole("checkbox", { name: "Sophie" })).not.toBeDisabled();
   });
 });

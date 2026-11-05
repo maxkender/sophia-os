@@ -1,6 +1,15 @@
 import { assertEquals, assertThrows } from "jsr:@std/assert@1";
 
-import { cheminsUgcIa, lienTiktok, passage } from "./ugc_ia.ts";
+import {
+  cheminGeneration,
+  cheminPersona,
+  cheminsUgcIa,
+  lienTiktok,
+  nettoyerCta,
+  passage,
+  personasDemandees,
+  urlImageExtraite,
+} from "./ugc_ia.ts";
 
 Deno.test("lienTiktok : garde l'origine et le chemin, refuse le reste", () => {
   assertEquals(
@@ -28,10 +37,36 @@ Deno.test("passage : pas de minimum, 30 s au plus, dans la vidéo", () => {
   assertEquals("erreur" in passage(null, 5, 10), true);
 });
 
-Deno.test("cheminsUgcIa : un dossier par vidéo", () => {
+Deno.test("chemins : un dossier par source, les générations dedans, les personas à part", () => {
   assertEquals(cheminsUgcIa("abc"), {
     source: "ugc-ia/abc/source.mp4",
     reaction: "ugc-ia/abc/reaction.mp4",
-    video: "ugc-ia/abc/video.mp4",
+    cta: "ugc-ia/abc/cta.jpg",
   });
+  assertEquals(cheminGeneration("abc", "g1"), "ugc-ia/abc/g1.mp4");
+  assertEquals(cheminPersona("p1", "image/png"), "ugc-ia/personas/p1.png");
+  assertEquals(cheminPersona("p1", "image/jpeg"), "ugc-ia/personas/p1.jpg");
+});
+
+Deno.test("personasDemandees : identifiants valides, sans doublon, 1 à 10", () => {
+  const a = "11111111-1111-4111-8111-111111111111";
+  const b = "22222222-2222-4222-8222-222222222222";
+  assertEquals(personasDemandees([a, b, a.toUpperCase(), "pas-un-id", null]), [a, b]);
+  assertEquals("erreur" in (personasDemandees([]) as object), true);
+  assertEquals("erreur" in (personasDemandees("x") as object), true);
+  const onze = Array.from({ length: 11 }, (_, i) => `${String(i).padStart(8, "0")}-1111-4111-8111-111111111111`);
+  assertEquals("erreur" in (personasDemandees(onze) as object), true);
+});
+
+Deno.test("urlImageExtraite : images[0].url de fal, avec ou sans enveloppe data", () => {
+  assertEquals(urlImageExtraite({ images: [{ url: "https://v3.fal.media/f.jpg" }] }), "https://v3.fal.media/f.jpg");
+  assertEquals(urlImageExtraite({ data: { images: [{ url: "https://v3.fal.media/f.jpg" }] } }), "https://v3.fal.media/f.jpg");
+  assertEquals(urlImageExtraite({ images: [] }), null);
+  assertEquals(urlImageExtraite({ images: [{ url: "http://x/f.jpg" }] }), null);
+  assertEquals(urlImageExtraite(null), null);
+});
+
+Deno.test("nettoyerCta : lignes vides et guillemets retirés", () => {
+  assertEquals(nettoyerCta('  "I could KISS the person\n\n who showed me this 😭😭"  '), "I could KISS the person\nwho showed me this 😭😭");
+  assertEquals(nettoyerCta(null), "");
 });

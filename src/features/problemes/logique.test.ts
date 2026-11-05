@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
 import type { OptionDecision, Probleme, Situation } from "./api";
 import {
+  autresSujets,
+  diagnosticSimple,
+  lienDecision,
+  ongletProblemes,
+  reponseAJour,
   aDiagnosticOuAction, estArret, estDecision, feedbackAuto, planFaire, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
@@ -270,5 +275,29 @@ describe("0537 : bot_propositions (relance, faire, urgent, niveau)", () => {
     expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "urgent" })).toMatchObject({ action: "proposer", args: { niveau: "urgent" } });
     expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "aujourdhui" })).toEqual({ erreur: "niveau : urgent, samedi, bots" });
     expect(lireCorps({ action: "proposer", probleme_id: id, action_proposee: "relance", reponse: "Hi" })).toMatchObject({ args: { action: "relance" } });
+  });
+});
+
+describe("0538 : la carte traite d'abord le message en attente", () => {
+  it("🧠 en une phrase simple : sans étiquette, sans lien ni id de contrat", () => {
+    expect(diagnosticSimple("[SAMEDI] Kill samedi. STOP sûr : STOP 2 nov.")).toBe("Kill samedi.");
+    expect(diagnosticSimple("URGENT · offre HM. Celestine (NZ, contrat 44709470) demande si elle peut accepter.")).toBe("offre HM.");
+    expect(diagnosticSimple("Elle ne trouve pas où mettre son lien https://x.y/z et ne peut pas poster aujourd'hui.")).toBe("Elle ne trouve pas où mettre son lien et ne peut pas poster aujourd'hui.");
+    expect(diagnosticSimple(null)).toBeNull();
+  });
+
+  it("onglet : un message en attente reste dans Problèmes (⚡ après 24 h sans réponse) ; une décision seule n'y est pas", () => {
+    const sr = { texte: "Where?", canal: "upwork" as const, at: "2026-11-04T08:00:00Z", depuis_heures: 30, question: true, attend: true };
+    expect(ongletProblemes({ sans_reponse: sr, proposition_reponse: null, propose_at: null, onglet: "samedi", confiance: null })).toBe("urgent");
+    expect(ongletProblemes({ sans_reponse: sr, proposition_reponse: "Hi", propose_at: "2026-11-04T09:00:00Z", onglet: "samedi", confiance: null })).toBe("bots");
+    expect(ongletProblemes({ sans_reponse: null, proposition_reponse: null, propose_at: null, onglet: "samedi", confiance: null })).toBeNull();
+    expect(reponseAJour({ sans_reponse: sr, proposition_reponse: "Close the card", propose_at: "2026-11-01T09:00:00Z" })).toBe(false);
+  });
+
+  it("les autres sujets en badges, avec leur rituel ; le lien vers Weekly decisions", () => {
+    expect(autresSujets({ categorie: "stop", proposition_action: null, rituel: "samedi", sujets: [{ categorie: "login" }, { categorie: "paie" }] }))
+      .toEqual([{ categorie: "stop", rituel: "samedi" }, { categorie: "login", rituel: null }, { categorie: "paie", rituel: "maintenant" }]);
+    expect(lienDecision("x", "jeudi")).toBe("/admin/auto/decisions?onglet=jeudi&carte=x");
+    expect(lienDecision("x", "maintenant")).toBe("/admin/auto/decisions?carte=x");
   });
 });

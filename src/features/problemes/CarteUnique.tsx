@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,8 +28,13 @@ import {
 } from "./api";
 import { MessagesCarte } from "./MessagesCarte";
 import {
+  autresSujets,
   avecLigneStop,
   debutJourParis,
+  diagnosticSimple,
+  lienDecision,
+  messageEnAttente,
+  reponseAJour,
   estArret,
   estBot,
   estDecision,
@@ -51,6 +56,11 @@ const jour = (iso: string) => new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocale
 
 /** Les autres gestes possibles (« Autre choix ▾ ») d'une carte qui n'est pas une décision. */
 const AUTRES: readonly PlanFaire["type"][] = ["reponse", "kill", "motDePasse", "fiche", "fermer"];
+/** 0538 : dans Problèmes, aucun geste de décision (Kill, Doubler, Recréer, paie) : ils sont dans Weekly decisions. */
+const AUTRES_QUOTIDIEN: readonly PlanFaire["type"][] = ["reponse", "motDePasse", "fiche", "fermer"];
+const PLANS_DECISION: readonly PlanFaire["type"][] = ["decision", "kill", "rituel", "argent"];
+/** Quand la personne attend une réponse, « Faire ça » envoie la réponse (et l'action qui la débloque). */
+const PLANS_MESSAGE: readonly PlanFaire["type"][] = ["reponse", "motDePasse", "releve"];
 
 function Situation_({ s, onboarding }: { s: Situation; onboarding: boolean }) {
   const { t } = useTranslation();
@@ -77,19 +87,43 @@ function Situation_({ s, onboarding }: { s: Situation; onboarding: boolean }) {
  * en test, rien ne part). Jamais d'argent : il ouvre le contrat. Le feedback
  * au bot est automatique (✅ bon, ✏️ correction, Ignorer pas un problème).
  */
-export function CarteUnique({ p, mode, surlignee = false }: { p: Probleme; mode: "test" | "on"; surlignee?: boolean }) {
+export function CarteUnique({
+  p,
+  mode,
+  surlignee = false,
+  vue = "problemes",
+}: {
+  p: Probleme;
+  mode: "test" | "on";
+  surlignee?: boolean;
+  /** 0538 : « problemes » = le quotidien (aucun geste de décision) ; « decisions » = Weekly decisions. */
+  vue?: "problemes" | "decisions";
+}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const navigate = useNavigate();
+  const quotidien = vue === "problemes";
+  // 0538 : la personne attend une réponse : la carte ne traite que son message.
+  const attente = quotidien && messageEnAttente(p);
+  const aJour = reponseAJour(p);
+  const proposeBrut = attente ? (aJour ? p.proposition_reponse! : null) : texteProposition(p);
   const [edition, setEdition] = React.useState(false);
-  const [texte, setTexte] = React.useState(texteProposition(p) ?? "");
+  const [texte, setTexte] = React.useState(proposeBrut ?? "");
   const [details, setDetails] = React.useState(false);
   const [message, setMessage] = React.useState<string | null>(null);
   const s = p.situation ?? null;
   const groupe = groupeDe(p);
-  const plan = planFaire(p);
-  const decision = estDecision(p);
-  const propose = texteProposition(p);
+  const planBrut = planFaire(p);
+  const plan: PlanFaire = attente && !PLANS_MESSAGE.includes(planBrut.type) ? { type: "reponse" } : planBrut;
+  const decision = !attente && estDecision(p);
+  const propose = proposeBrut;
+  // 0538 : dans Problèmes, une carte de décision se décide dans Weekly decisions.
+  const decisionAilleurs = quotidien && !attente && PLANS_DECISION.includes(plan.type);
+  const badges = quotidien ? autresSujets(p) : [];
+  const decisionsLiees = badges.filter((b) => b.rituel);
+  // 0538 : « Faire ça » ne ferme jamais une carte en attente sans la réponse à son message.
+  const peutFaire = !attente || Boolean((edition ? texte : propose ?? "").trim());
+  const diag = attente && !aJour ? null : diagnosticSimple(p.diagnostic);
   const corrige = edition && texte.trim() !== (propose ?? "").trim();
   const rafraichir = () => void qc.invalidateQueries({ queryKey: ["problemes"] });
 
@@ -202,10 +236,12 @@ export function CarteUnique({ p, mode, surlignee = false }: { p: Probleme; mode:
 
   const nom = p.sujet && p.sujet !== "posteur" && !p.poster_id ? p.hm_nom : p.nom ?? p.contrat_id;
   const phrase = phraseProbleme(p, localeDate());
-  const bloque = p.sans_reponse
+  const bloque = p.sans_reponse && (attente || !quotidien)
     ? { texte: p.sans_reponse.texte, meta: t(`${C}.sansReponse`, { canal: t(`${P}.messages.canaux.${p.sans_reponse.canal}`), heures: p.sans_reponse.depuis_heures }) }
     : { texte: p.question ?? (phrase ? t(`${P}.${phrase.cle}`, phrase.vars) : p.resume), meta: null };
-  const libelleAction = decision
+  const libelleAction = attente && plan.type === "reponse"
+    ? t(`${C}.repondre`)
+    : decision
     ? p.options![0]!.libelle
     : plan.type === "kill" && p.kill_samedi_lundi
       ? t(`${P}.kill.prevu`, { date: samediDe(p.kill_samedi_lundi) })
@@ -229,9 +265,13 @@ export function CarteUnique({ p, mode, surlignee = false }: { p: Probleme; mode:
           <p className="font-medium">❓ {bloque.meta && <span className="text-xs font-normal text-red-600">{bloque.meta} </span>}</p>
           <p className="whitespace-pre-wrap">{bloque.texte}</p>
         </div>
-        {p.diagnostic?.trim() && <p data-testid="compris">🧠 {p.diagnostic}</p>}
+        {diag ? (
+          <p data-testid="compris">🧠 {diag}</p>
+        ) : (
+          attente && <p data-testid="compris" className="text-muted-foreground">🧠 {t(`${C}.botsPreparent`)}</p>
+        )}
         <div data-testid="propose">
-          <p className="font-medium">👉 {libelleAction}</p>
+          <p className="font-medium">👉 {decisionAilleurs ? t(`${C}.aDecider`) : libelleAction}</p>
           {edition ? (
             <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} rows={5} />
           ) : (
@@ -239,10 +279,40 @@ export function CarteUnique({ p, mode, surlignee = false }: { p: Probleme; mode:
           )}
         </div>
 
+        {badges.length > 0 && (
+          <div className="flex flex-wrap items-center gap-1 text-xs" data-testid="autres-sujets">
+            {badges.map((b, i) =>
+              b.rituel ? (
+                <Link key={i} to={lienDecision(p.id, b.rituel)} data-testid="badge-decision">
+                  <Badge variant="secondary">
+                    {t(`${P}.categories.${b.categorie}`, { defaultValue: b.categorie })} → {t(`${C}.rituels.${b.rituel}`)}
+                  </Badge>
+                </Link>
+              ) : (
+                <button key={i} type="button" onClick={() => setDetails(true)}>
+                  <Badge variant="outline">{t(`${P}.categories.${b.categorie}`, { defaultValue: b.categorie })}</Badge>
+                </button>
+              ),
+            )}
+          </div>
+        )}
+
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          <Button size="sm" onClick={() => faire.mutate({ plan })} disabled={faire.isPending} data-testid="faire">
-            ✅ {t(`${C}.faire`)}
-          </Button>
+          {decisionAilleurs ? (
+            <Button size="sm" asChild data-testid="vers-decisions">
+              <Link to={lienDecision(p.id, p.rituel ?? decisionsLiees[0]?.rituel)}>→ {t(`${C}.versDecisions`)}</Link>
+            </Button>
+          ) : (
+            <Button
+              size="sm"
+              onClick={() => faire.mutate({ plan })}
+              disabled={faire.isPending || !peutFaire}
+              title={peutFaire ? undefined : t(`${C}.reponseObligatoire`)}
+              data-testid="faire"
+            >
+              ✅ {t(`${C}.faire`)}
+            </Button>
+          )}
           {edition ? (
             <Button size="sm" variant="outline" onClick={() => autre.mutate("modifier")} disabled={autre.isPending}>💾 {t(`${P}.enregistrer`)}</Button>
           ) : (
@@ -265,16 +335,27 @@ export function CarteUnique({ p, mode, surlignee = false }: { p: Probleme; mode:
           >
             <option value="">{t(`${C}.autre`)} ▾</option>
             {decision && p.options!.slice(1).map((o, i) => <option key={i} value={`option:${i + 1}`}>{o.libelle}</option>)}
-            {!decision && p.poster_id && (
+            {!decision && p.poster_id && quotidien && (
+              AUTRES_QUOTIDIEN.filter((a) => a !== plan.type && !(attente && a === "fermer"))
+                .map((a) => <option key={a} value={a}>{t(`${C}.actions.${a}`)}</option>)
+            )}
+            {!decision && p.poster_id && !quotidien && (
               <>
                 {AUTRES.filter((a) => a !== plan.type).map((a) => <option key={a} value={a}>{t(`${C}.actions.${a}`)}</option>)}
-                <option value="double">{t(`${C}.actions.double`)}</option>
                 <option value="recreate">{t(`${C}.actions.recreate`)}</option>
               </>
             )}
           </select>
-          {p.niveau !== "samedi" && (
-            <Button size="sm" variant="outline" onClick={() => autre.mutate("samedi")} disabled={autre.isPending}>📅 {t(`${P}.samedi`)}</Button>
+          {quotidien ? (
+            decisionsLiees.length > 0 && !decisionAilleurs && (
+              <Button size="sm" variant="outline" asChild data-testid="lien-decisions">
+                <Link to={lienDecision(p.id, decisionsLiees[0]!.rituel)}>→ {t(`${C}.versDecisions`)}</Link>
+              </Button>
+            )
+          ) : (
+            p.niveau !== "samedi" && (
+              <Button size="sm" variant="outline" onClick={() => autre.mutate("samedi")} disabled={autre.isPending}>📅 {t(`${P}.samedi`)}</Button>
+            )
           )}
           <Button size="sm" variant="ghost" onClick={() => autre.mutate("ignorer")} disabled={autre.isPending}>{t(`${P}.ignorer`)}</Button>
           <button type="button" className="ml-auto text-xs text-primary underline" onClick={() => setDetails(!details)} data-testid="details">

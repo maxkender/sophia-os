@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -10,13 +10,14 @@ import { localeDate } from "@/locales/localeDate";
 import { CarteUnique } from "./CarteUnique";
 import { StatsBots } from "./FeedbackBot";
 import { BlocBots } from "./BlocBots";
-import { RituelsSemaine } from "./RituelsSemaine";
-import { lireModeProblemes, lireProblemes, passerMaintenant, type OngletCarte, type Probleme } from "./api";
-import { aDiagnosticOuAction } from "./logique";
+import { lireModeProblemes, lireProblemes, passerMaintenant, type Probleme } from "./api";
+import { aDiagnosticOuAction, messageEnAttente, ongletProblemes } from "./logique";
 
 const P = "problemes";
-const ONGLETS: readonly OngletCarte[] = ["bots", "urgent", "samedi"];
-const ICONE: Record<OngletCarte, string> = { bots: "🤖", urgent: "⚡", samedi: "📅" };
+/** 0538 : Problèmes = le quotidien ; les décisions sont dans Weekly decisions. */
+type OngletQuotidien = "bots" | "urgent";
+const ONGLETS: readonly OngletQuotidien[] = ["bots", "urgent"];
+const ICONE: Record<OngletQuotidien, string> = { bots: "🤖", urgent: "⚡" };
 
 const quand = (iso: string | null | undefined) =>
   iso ? new Date(iso).toLocaleString(localeDate(), { dateStyle: "short", timeStyle: "short" }) : "—";
@@ -24,21 +25,21 @@ const quand = (iso: string | null | undefined) =>
 /** L'ordre dans un onglet : ceux qui attendent une réponse d'abord, puis les plus anciens. */
 function trierCartes(liste: readonly Probleme[]): Probleme[] {
   return [...liste].sort((a, b) =>
-    Number(Boolean(b.sans_reponse?.question)) - Number(Boolean(a.sans_reponse?.question))
+    Number(messageEnAttente(b)) - Number(messageEnAttente(a))
     || Number(b.niveau === "urgent") - Number(a.niveau === "urgent")
     || a.created_at.localeCompare(b.created_at));
 }
 
 /**
- * 4/11 : la page Problèmes simplifiée, le SEUL endroit où Max décide. Une carte
- * par posteur (ou HM, ou offre), trois onglets : 🤖 Fait par les bots, ⚡
- * Urgent pour Max (argent, offres HM à refaire, bot pas sûr), 📅 Samedi
- * (Kill / Doubler / Garder / Recréer). Même format pour toutes les cartes.
+ * 5/11 : la page Problèmes = le quotidien (messages sans réponse, mot de passe,
+ * Slack, TikTok, relances). Une carte par posteur (ou HM), deux onglets : 🤖
+ * Fait par les bots, ⚡ Urgent. Les décisions (Kill, Doubler, Garder,
+ * Recréer, paie, offres HM) sont dans Weekly decisions : un lien y mène.
  */
 export function PageProblemesPosteurs() {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const [onglet, setOnglet] = React.useState<OngletCarte>("urgent");
+  const [onglet, setOnglet] = React.useState<OngletQuotidien>("urgent");
   const [fermes, setFermes] = React.useState(false);
   const [params] = useSearchParams();
   const carte = params.get("carte");
@@ -61,8 +62,9 @@ export function PageProblemesPosteurs() {
   });
 
   const tous = React.useMemo(() => (lu.data ?? []).filter(aDiagnosticOuAction), [lu.data]);
-  const ongletDe = (p: Probleme): OngletCarte => p.onglet ?? "bots";
-  const compte = (o: OngletCarte) => tous.filter((p) => ongletDe(p) === o).length;
+  const ongletDe = (p: Probleme) => ongletProblemes(p);
+  const compte = (o: OngletQuotidien) => tous.filter((p) => ongletDe(p) === o).length;
+  const aDecider = (lu.data ?? []).filter((p) => p.rituel).length;
   const visibles = trierCartes(tous.filter((p) => ongletDe(p) === onglet));
   const modeActuel = mode.data ?? "test";
 
@@ -70,9 +72,10 @@ export function PageProblemesPosteurs() {
   React.useEffect(() => {
     if (!carte || carteVue === carte) return;
     const c = tous.find((x) => x.id === carte);
-    if (!c) return;
+    const o = c ? ongletDe(c) : null;
+    if (!c || !o) return;
     setCarteVue(carte);
-    setOnglet(ongletDe(c));
+    setOnglet(o);
     window.setTimeout(() => document.getElementById(`probleme-${carte}`)?.scrollIntoView({ block: "center" }), 50);
   }, [carte, carteVue, tous]);
 
@@ -99,6 +102,10 @@ export function PageProblemesPosteurs() {
             {ICONE[o]} {t(`${P}.onglets.${o}`)} <span className="tabular-nums">({compte(o)})</span>
           </button>
         ))}
+        <Link to="/admin/auto/decisions" data-testid="vers-weekly-decisions"
+          className="rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-muted">
+          {t(`${P}.onglets.decisions`, { count: aDecider })} →
+        </Link>
       </div>
       {resync.isFetching && <p className="text-xs text-muted-foreground" data-testid="resync">{t(`${P}.resync`)}</p>}
       {lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.chargement`)}</p>}
@@ -110,7 +117,6 @@ export function PageProblemesPosteurs() {
           {onglet === "bots" && <BlocBots />}
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
           {visibles.map((p) => <CarteUnique key={p.id} p={p} mode={modeActuel} surlignee={p.id === carte} />)}
-          {onglet === "samedi" && <RituelsSemaine />}
         </div>
       )}
 

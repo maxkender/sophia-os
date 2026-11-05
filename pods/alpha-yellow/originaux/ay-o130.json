@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o130",
+ "type_bleo": "full_test",
+ "titre": "Small luxuries every man should learn to enjoy #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "00a9144c-3c5d-4aeb-8127-a851df56ae76"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 4ce88dcf. full test. Accroche jamais faite chez nous : les petits plaisirs simples, ton calme et élégant. Accroches écrites : « Small luxuries every man should learn to enjoy » (retenue), « Cheap pleasures that make life feel rich » (écartée : sonne budget), « The art of enjoying small things » (écartée : contemplatif, à éviter dans le playbook).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ce88dcf",
+   "texte_overlay": "Small luxuries every man\nshould learn to enjoy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A proper breakfast on Sunday. Real coffee, eggs cooked slowly, no phone at the table. One unhurried morning a week resets your mind better than any weekend trip.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Fresh sheets on a Friday. Changing your bed before the weekend costs nothing, and sliding into clean sheets after a long week feels like checking into a good hotel.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A long walk with no destination. Pick a neighbourhood you don't know and wander for an hour. You come back calmer, with new ideas and often a new favourite place.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learning something just for pleasure. I do five minutes a day of history, art or science, and that little moment of curiosity has become one of the best parts of my day.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. That little moment of curiosity has become one of the best parts of my day.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "A good haircut and a hot towel shave. Once in a while, let a skilled barber take care of you. You walk out looking sharp and feeling like a new man.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A meal cooked for people you love. Spend the afternoon on one great dish, invite three friends, open a bottle. Few luxuries feel as rich as a full table at home.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Going to bed early on purpose. No reason, no excuse, just rest. Waking up fully recharged on a weekday is a luxury most men forget they can give themselves.",
+   "media_id": "9879c45f"
+  }
+ ]
+}

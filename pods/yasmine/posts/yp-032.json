@@ -1,0 +1,770 @@
+{
+ "id": "yp-032",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667465305395858710",
+  "vues": 1500000,
+  "enregistrements": 44329,
+  "publie_le": "2026-07-28",
+  "titre": "how I ORGANISE MY PHONE"
+ },
+ "titre": {
+  "fr": "comment j’organise mon téléphone en période d’exams",
+  "en": "how i organise my phone during exam season",
+  "es": "cómo organizo mi móvil en época de exámenes",
+  "de": "wie ich mein Handy in der Prüfungsphase organisiere",
+  "it": "come organizzo il telefono nel periodo degli esami",
+  "pt": "como eu organizo o celular na época de provas",
+  "tr": "sınav döneminde telefonumu nasıl düzenliyorum"
+ },
+ "legendes": {
+  "fr": "mon téléphone en mode exams 📱📚 #exams #iphone #thatgirl #studytok #revisions",
+  "en": "my phone in exam mode 📱📚 #exams #iphone #thatgirl #studytok #studying",
+  "es": "mi móvil en modo exámenes 📱📚 #examenes #iphone #thatgirl #studytok #estudiar",
+  "de": "mein Handy im Prüfungsmodus 📱📚 #prüfungen #iphone #thatgirl #studytok #lernen",
+  "it": "il mio telefono in modalità esami 📱📚 #esami #iphone #thatgirl #studytok #studiare",
+  "pt": "meu celular no modo provas 📱📚 #provas #iphone #thatgirl #studytok #estudos",
+  "tr": "telefonum sınav modunda 📱📚 #sınav #iphone #thatgirl #studytok #ders"
+ },
+ "musique": {
+  "titre": "let's keep pretending pt. 2 - sped up",
+  "url": "https://www.tiktok.com/music/let-s-keep-pretending-pt-2-sped-up-7474055002647545857"
+ },
+ "fond": {
+  "media_id": "53c8925c-a917-46b4-b24f-fef93a60e100",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8457a346-bcaa-48ad-a069-5799ba72bfec/4.jpg",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-031 (« how I ORGANISE MY PHONE », 1,5 M) : période d’exams, fond orchidée, autres widgets et rappels. micabo en widget sur l’accueil (slide de l’appli).",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "0de27d37-d8af-4aa8-b061-c9ecbdfa6165",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1c11992d-ee43-4a57-8bce-51b73b96fa29/2.jpg?v=1791726193184",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mon téléphone",
+     "lignes": [
+      "EN PÉRIODE",
+      "D’EXAMS"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "my phone",
+     "lignes": [
+      "DURING",
+      "EXAM",
+      "SEASON"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mi móvil",
+     "lignes": [
+      "EN ÉPOCA",
+      "DE EXÁMENES"
+     ],
+     "taille": 128,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mein Handy",
+     "lignes": [
+      "IN DER",
+      "PRÜFUNGS-",
+      "PHASE"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "il mio telefono",
+     "lignes": [
+      "NEL PERIODO",
+      "DEGLI ESAMI"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "meu celular",
+     "lignes": [
+      "NA ÉPOCA",
+      "DE PROVAS"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "telefonum",
+     "lignes": [
+      "SINAV",
+      "DÖNEMİNDE"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "y": 900,
+     "taille_script": 84
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "53c8925c-a917-46b4-b24f-fef93a60e100",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8457a346-bcaa-48ad-a069-5799ba72bfec/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "capture": "assets/ios/telephone-exams/fr/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "tape une fois☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "capture": "assets/ios/telephone-exams/en/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "tap once☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "capture": "assets/ios/telephone-exams/es/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "toca una vez☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "capture": "assets/ios/telephone-exams/de/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "einmal tippen☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "capture": "assets/ios/telephone-exams/it/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "tocca una volta☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "capture": "assets/ios/telephone-exams/pt/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "toque uma vez☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "capture": "assets/ios/telephone-exams/tr/verrouillage.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "bir kez dokun☝️"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "53c8925c-a917-46b4-b24f-fef93a60e100",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8457a346-bcaa-48ad-a069-5799ba72bfec/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "app": true,
+   "fr": {
+    "capture": "assets/ios/telephone-exams/fr/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "glisse vers le haut👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "capture": "assets/ios/telephone-exams/en/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "swipe up👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "capture": "assets/ios/telephone-exams/es/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "desliza hacia arriba👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "capture": "assets/ios/telephone-exams/de/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "nach oben wischen👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "capture": "assets/ios/telephone-exams/it/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "scorri verso l’alto👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "capture": "assets/ios/telephone-exams/pt/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "deslize pra cima👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "capture": "assets/ios/telephone-exams/tr/accueil.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "yukarı kaydır👆"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "53c8925c-a917-46b4-b24f-fef93a60e100",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8457a346-bcaa-48ad-a069-5799ba72bfec/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "capture": "assets/ios/telephone-exams/fr/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "glisse à droite👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "capture": "assets/ios/telephone-exams/en/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "swipe right👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "capture": "assets/ios/telephone-exams/es/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "desliza a la derecha👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "capture": "assets/ios/telephone-exams/de/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "nach rechts wischen👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "capture": "assets/ios/telephone-exams/it/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "scorri a destra👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "capture": "assets/ios/telephone-exams/pt/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "deslize pra direita👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "capture": "assets/ios/telephone-exams/tr/aujourdhui.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "sağa kaydır👉"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "53c8925c-a917-46b4-b24f-fef93a60e100",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8457a346-bcaa-48ad-a069-5799ba72bfec/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "capture": "assets/ios/telephone-exams/fr/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "glisse vers le bas👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "capture": "assets/ios/telephone-exams/en/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "swipe down👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "capture": "assets/ios/telephone-exams/es/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "desliza hacia abajo👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "capture": "assets/ios/telephone-exams/de/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "nach unten wischen👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "capture": "assets/ios/telephone-exams/it/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "scorri verso il basso👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "capture": "assets/ios/telephone-exams/pt/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "deslize pra baixo👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "capture": "assets/ios/telephone-exams/tr/controle.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "aşağı kaydır👇"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "53c8925c-a917-46b4-b24f-fef93a60e100",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8457a346-bcaa-48ad-a069-5799ba72bfec/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "capture": "assets/ios/telephone-exams/fr/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "maintiens « concentration »🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "capture": "assets/ios/telephone-exams/en/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "hold “focus”🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "capture": "assets/ios/telephone-exams/es/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "mantén «concentración»🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "capture": "assets/ios/telephone-exams/de/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "„Fokus“ gedrückt halten🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "capture": "assets/ios/telephone-exams/it/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "tieni premuto «full immersion»🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "capture": "assets/ios/telephone-exams/pt/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "segure “foco”🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "capture": "assets/ios/telephone-exams/tr/concentration.jpg",
+    "iphone": {
+     "haut": 250,
+     "largeur": 700
+    },
+    "legende": {
+     "lignes": [
+      "“odak”a basılı tut🌙"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 46,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ]
+}

@@ -44,6 +44,7 @@ Les podz :
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
 | 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
+| 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
 
 ## Règles absolues
 
@@ -78,7 +79,7 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 1 (percée → 3
   variantes), 4 (idée pour le prochain essai), 5 (le rythme ne baisse jamais),
   6 et 7 ci-dessous ne valent plus pour eux ; elles valent toujours pour la
-  voie 2 (podz 1, 6, 10 et 11).
+  voie 2 (podz 1, 6, 10, 11 et 13).
 - **La jauge** : `select * from bleo_jauge order by pod;` (aujourd'hui) et
   `bleo_jauge_jours` (une photo par jour à 5 h 40). `semaines` : combien de
   semaines de déclinaisons la boîte tient au rythme du podz ;

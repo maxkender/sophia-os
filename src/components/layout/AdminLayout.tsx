@@ -52,7 +52,7 @@ import {
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { BandePause } from "@/features/auto/BandePause";
-import { PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
+import { HORS_MENU, PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
 import { useProblemes } from "@/features/auto/useProblemes";
 import { useAuth } from "@/features/auth/AuthContext";
 import { compterContestations } from "@/features/disputes/api";
@@ -335,7 +335,7 @@ export function AdminLayout() {
         // Prompt 22 : tout le système du 2 nov. en une section, sous « Tracking ».
         {
           title: t("auto.section"),
-          items: PAGES_AUTO.map((p) => ({
+          items: PAGES_AUTO.filter((p) => !HORS_MENU.includes(p.cle)).map((p) => ({
             to: p.to,
             label: t(`auto.pages.${p.cle}.titre`),
             icon: ICONES_AUTO[p.cle],

@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o054",
+  "type_bleo": "full_test",
+  "titre": "habits that made me the person everyone asks for notes #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« asks for notes » absent du label). Accroches écrites : « habits that made me the person everyone asks for notes » (retenue : une fierté douce et sociale, sans mépris des autres), « how my notes became the ones everyone wants » (écartée : longue), « note-taking habits of the girl everyone copies » (écartée : copier). Six habitudes de prise de notes vraies et neuves : la date et le titre, les mots du prof soulignés, une marge pour les questions, un résumé de 3 lignes, se tester avec ses notes le soir (place micabo, slide 6), les notes complétées le jour même. Slide 6 sans personne. Depuis le 4/11, le label ne sert que micabo (UnSwipe arrêté) : une seule place d'appli par post. Slide micabo : photo d'objet reprise d'un original plus ancien (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "606886a5",
+      "texte_overlay": "habits that made me the person\neveryone asks for notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6930e0a5",
+      "texte_overlay": "date and title on every page.\nfinding a lesson takes 5 seconds.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "fc7f718c",
+      "texte_overlay": "i underline what the teacher repeats.\nif they say it twice, it's on the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8049ac3b",
+      "texte_overlay": "a margin for questions.\nanything i didn't get goes there, and gets asked.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f75c5c6d",
+      "texte_overlay": "3-line summary at the end of each lesson.\nwritten while it's still fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3712c895",
+      "texte_overlay": "every evening i quiz myself with them.\nthat's how i know they're actually complete.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "948934c8",
+      "texte_overlay": "i fill the gaps the same day.\nnot the week before the exam.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 
 - **Voie 1**, les podz d'originaux (2, 4, 5, 7, 8, 9 et 12) : ils déclinent
   les familles gagnantes de leur boîte BLEO et ajoutent des full tests (§4).
-- **Voie 2**, les podz de remakes (1, 6, 10 et 11) : ils suivent leur liste,
+- **Voie 2**, les podz de remakes (1, 6, 10, 11 et 13) : ils suivent leur liste,
   comme avant (§5).
 
 > **Les podz de la voie 1 sont sur BLEO depuis le dimanche 1/11 au soir**
@@ -183,8 +183,10 @@ prends la ligne suivante de la boîte.
      attend le lendemain.
    - podz 11 : le remake suivant de `sources/manifeste.json`, sinon une
      variante d'une accroche déjà faite. Parfait ou rien, comme le podz 10.
+   - podz 13 : pareil que le podz 11 (le remake suivant de
+     `sources/manifeste.json`, sinon une variante d'une accroche déjà faite).
 4. **Une livraison sur cinq est un essai**, au podz 1 seulement : un post d'un
-   autre compte au même format. Podz 6, 10 et 11 : pas d'essai tant que la
+   autre compte au même format. Podz 6, 10, 11 et 13 : pas d'essai tant que la
    liste n'est pas finie.
 5. **Tester les CTA** : comme en 4.5.
 6. **Ne t'enferme pas dans ce qui marche.** Sur tes livraisons normales du
@@ -198,7 +200,7 @@ prends la ligne suivante de la boîte.
 ## 6. Livrer
 
 1. Écris, `npm run apercu`, regarde chaque slide avec l'outil Read, corrige.
-2. `npm run deposer` (ou `npm run livrer` aux podz 6, 10 et 11).
+2. `npm run deposer` (ou `npm run livrer` aux podz 6, 10, 11 et 13).
 3. Commite, ouvre une PR vers `main` limitée à ton dossier, merge-la.
 
 ## 7. Rendre compte

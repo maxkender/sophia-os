@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o090",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "852eccee-3c90-4057-97c7-01d9dd34e98d",
+ "titre": "upgrade these everyday words and sound more refined #vocabulary #wellspoken #smartgirl #englishwords #eloquence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 2 de la boîte (parent 852eccee, langue source en) : accroche reformulée (« stop saying very: words that make you sound dangerously well spoken » → « upgrade these everyday words and sound more refined »), troisième et dernière déclinaison du parent, autre que sg-o070 et sg-o080. Remplacements neufs (glacial, scorching, brilliant, terrified, spotless, swift, dazzling, serene, formidable…). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1ffbdb39",
+   "texte_overlay": "upgrade these everyday words\nand sound more refined",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "019eee17",
+   "texte_overlay": "very cold → glacial\nvery hot → scorching",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2589a2ea",
+   "texte_overlay": "very smart → brilliant\nvery scared → terrified",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "19468d37",
+   "texte_overlay": "very clean → spotless\nvery tasty → delicious\n\nthe trick: read a little\nevery day.",
+   "texte_sophia": "very clean → spotless\nvery tasty → delicious\n\nmy trick: 5 minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0395c0c0",
+   "texte_overlay": "very sure → certain\nvery fast → swift",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "54a6984d",
+   "texte_overlay": "very bright → dazzling\nvery busy → swamped",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "149dd2c3",
+   "texte_overlay": "very calm → serene\nvery strong → formidable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0fad9ddf",
+   "texte_overlay": "save this and use one today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  }
+ ]
+}

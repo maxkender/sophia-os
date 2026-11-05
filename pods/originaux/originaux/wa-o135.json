@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o135",
+ "type_bleo": "full_test",
+ "titre": "what i do every sunday so my week never feels chaotic #sundayreset #routine #selfimprovement #productivity #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "1b09069b-2fe1-4db3-9c0d-753026ead0e6"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 1b09069b). full test BLEO : accroche jamais faite (format « sunday routine » à la 1re personne). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "96aca1a4-181b-4cd7-a1ee-76a4c984e0bd",
+   "texte_overlay": "what i do every sunday so my\nweek never feels chaotic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657281601436421398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "762981ab-0751-4749-9c2f-8c45a76c560c",
+   "texte_overlay": "i plan three things\n\ni choose the three things that matter most this week and write them on paper. everything else is a bonus, and the week stops feeling like a list i'll never finish.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657281601436421398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9bd51b82-5a9a-4028-8ede-7842c9aa8fa5",
+   "texte_overlay": "i reset my space\n\ni spend twenty minutes making my room and desk calm again. walking into a clean, calm space on monday morning feels like the week has already started well.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657281601436421398/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "670c7820-636e-4e68-88ce-71ba81148fc1",
+   "texte_overlay": "i learn one new thing\n\ni spend five minutes learning something completely unrelated to work: a myth, a planet, a painting. it reminds me there's more to life than this week's deadlines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657281601436421398/4.jpg",
+   "texte_sophia": "i learn one new thing\n\ni spend five minutes on one lesson completely unrelated to work: a myth, a planet, a painting. i do it with the Sophia app, and it reminds me there's more than this week's deadlines."
+  },
+  {
+   "position": 5,
+   "media_id": "56ecf890-b5e4-4934-b859-f7d0ae78f0e2",
+   "texte_overlay": "i prep easy food\n\ni cook one big simple dish that covers three lunches. it removes the most annoying daily decision and saves me from bad food when i'm tired and in a rush.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657281601436421398/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "deadd951-e5c6-49db-9367-4bdeb78f995e",
+   "texte_overlay": "i go to bed early\n\ni go to bed an hour earlier on sunday than usual. starting monday rested changes the whole week, and it costs me nothing but one episode i didn't need.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657281601436421398/6.jpg"
+  }
+ ]
+}

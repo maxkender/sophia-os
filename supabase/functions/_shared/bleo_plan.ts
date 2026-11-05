@@ -154,6 +154,16 @@ export function applicationARemplacer(
 }
 
 /**
+ * Les applications à essayer, dans l'ordre, pour un remplaçant BLEO (D52) :
+ * celle du créneau remplacé, puis celle du créneau d'aujourd'hui si elle est
+ * différente. L'application du plan peut ne plus être servie par le compte
+ * (UnSwipe arrêté le 4/11) : sans le second essai, le créneau partait à la tierlist.
+ */
+export function applicationsRemplacant(appVisee: string | null, appDuCreneau: string | null): Array<string | null> {
+  return appVisee === appDuCreneau ? [appVisee] : [appVisee, appDuCreneau];
+}
+
+/**
  * Les candidats BLEO pour UN créneau hors plan (0643, D49), dans l'ordre où
  * les essayer : même vivier et mêmes garde-fous que le tirage (au thème),
  * relâchés au besoin, tirage pondéré par la valeur. Chaque candidat prend la

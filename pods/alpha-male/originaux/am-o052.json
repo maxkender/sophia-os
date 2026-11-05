@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o052",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0bd86b96-0964-4a17-9651-139f21ed35ef",
+ "titre": "How to perform a hard reset on your life in 90 days #men #discipline #selfimprovement #reset #mindset",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [
+  "0bd86b96-0964-4a17-9651-139f21ed35ef"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 5/11. Déclinaison G1 de la ligne 2 (parent 0bd86b96, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « Titre | Domaine: » puis 6 puces. Sections neuves, aucune du parent (diet, sleep, mission) : matins, entourage, esprit, suivi. Rien de médical, pas de chiffre de santé. Ligne 3 (149f7c9f « reset your life in the next 6 months ») sautée : même promesse le même jour (accroche_voisine) ; ligne 4 prise à sa place. reference_url : slides 1-4 du parent (5+ en 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1543356e",
+   "texte_overlay": "How to perform a hard reset\non your life in 90 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1070f73d",
+   "texte_overlay": "Fix your mornings | Routine:\n•Same wake-up time, even on weekends.\n•No phone for the first 30 minutes.\n•Make your bed. First win of the day.\n•Move your body before you read messages.\n•Plan the day in 3 lines, on paper.\n•Win the morning and the day gets easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0c7603e9",
+   "texte_overlay": "Clean up your circle | People:\n•Spend time with men who are building something.\n•Stop explaining yourself to people who don't listen.\n•Call one person you respect every week.\n•Say less. Listen more.\n•Keep your word, even on small things.\n•Your circle sets your standard. Choose it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c938189",
+   "texte_overlay": "Sharpen your mind | Learning:\n•Read 10 pages a day. That's 900 pages in 90 days.\n•Swap 5 minutes of scrolling for one short lesson.\n•Write down one thing you learned every night.\n•Pick one hard skill that pays off for years.\n•Ask better questions. Stay curious.\n•A sharp mind is an edge nobody can take.",
+   "texte_sophia": "Sharpen your mind | Learning:\n•Read 10 pages a day. That's 900 pages in 90 days.\n•Swap 5 minutes of scrolling for a lesson on the Sophia app.\n•Write down one thing you learned every night.\n•Pick one hard skill that pays off for years.\n•Ask better questions. Stay curious.\n•A sharp mind is an edge nobody can take.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "217c9faf",
+   "texte_overlay": "Track your progress | Proof:\n•Write your 90-day goal where you see it daily.\n•Mark every day you did the work.\n•Take a photo on day 1. Compare on day 90.\n•Every Sunday: what worked, what didn't.\n•Don't announce it. Show it.\n•In 90 days, let the results talk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/2.jpg"
+  }
+ ]
+}

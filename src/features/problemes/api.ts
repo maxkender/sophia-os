@@ -6,7 +6,8 @@ import { supabase } from "@/lib/supabase/client";
  * problemes_liste() (0517) ; les gestes passent par probleme_agir(). Rien
  * n'est envoyé en mode test ; l'argent n'est jamais exécuté ici.
  */
-export type Niveau = "urgent" | "aujourdhui" | "samedi";
+/** 0537 : le niveau = l'onglet (🤖 bots, ⚡ urgent, 📅 samedi). */
+export type Niveau = "urgent" | "bots" | "samedi";
 export type Proprietaire = "new_cohort_bot" | "control_bot" | "pay_bot";
 export type StatutProbleme = "ouvert" | "valide" | "ignore" | "ferme_auto";
 /** v4 (3/11) : onboarding = jamais posté ; nouveaux_actifs = 1er post il y a moins de 14 jours ; actifs = les autres. */
@@ -102,6 +103,30 @@ export interface Probleme {
   /** 0532 : les 15 derniers messages (Upwork et Slack) et le dernier sans réponse. */
   messages?: MessageCarte[] | null;
   sans_reponse?: SansReponse | null;
+  /** 0534 : une carte par posteur : les autres sujets ; l'onglet ; la confiance du bot (0 à 1). */
+  sujets?: SujetCarte[] | null;
+  onglet?: OngletCarte;
+  confiance?: number | null;
+}
+
+export type OngletCarte = "bots" | "urgent" | "samedi";
+
+export interface SujetCarte {
+  carte_id?: string;
+  categorie: string;
+  niveau?: Niveau;
+  resume?: string;
+  at?: string;
+  diagnostic?: string;
+  proposition_action?: string;
+  proposition_reponse?: string;
+  question?: string;
+}
+
+/** 4/11 : la réponse part en DM Slack (au posteur, ou à l'HM), depuis le bot Sophia OS. */
+export async function envoyerSlack(profilId: string, texte: string): Promise<void> {
+  const r = await invoke<{ ok: boolean; error?: string }>("recrues-check", { action: "message_slack", profil_id: profilId, texte });
+  if (!r.ok) throw new Error(r.error ?? "envoi Slack impossible");
 }
 
 export interface MessageCarte {
@@ -400,4 +425,45 @@ export async function executerKill(problemeId: string, fermerContrat: boolean): 
   const r = await invoke<{ ok: boolean; error?: string } & InfoKill>("upwork", { action: "kill_probleme", probleme_id: problemeId, executer: true, fermer_contrat: fermerContrat });
   if (!r.ok) throw new Error(r.error ?? "Kill impossible");
   return r;
+}
+
+// ---------------------------------------------------------------------------
+// 4/11 : les bots agissent seuls (0535) : interrupteur, journal, annuler.
+// ---------------------------------------------------------------------------
+export interface ActionBot {
+  id: string;
+  bot: Proprietaire;
+  probleme_id: string | null;
+  poster_id: string | null;
+  nom: string | null;
+  action: string;
+  canal: string | null;
+  message: string | null;
+  statut: "fait" | "refuse" | "annule" | "erreur";
+  raison: string | null;
+  confiance: number | null;
+  at: string;
+}
+
+export async function lireAutonomie(): Promise<"on" | "off"> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "autonomie_bots").maybeSingle();
+  if (error) throw error;
+  return data?.valeur === "on" ? "on" : "off";
+}
+
+export async function reglerAutonomie(on: boolean): Promise<void> {
+  const { error } = await supabase.rpc("autonomie_bots_regler", { p_on: on });
+  if (error) throw error;
+}
+
+export async function lireActionsBots(heures = 24): Promise<ActionBot[]> {
+  const { data, error } = await supabase.rpc("bot_actions_lire", { p_heures: heures });
+  if (error) throw error;
+  return (data ?? []) as ActionBot[];
+}
+
+/** Annuler / corriger : l'action est annulée quand c'est possible (Kill samedi), la carte revient à Max. */
+export async function annulerActionBot(id: string): Promise<void> {
+  const { error } = await supabase.rpc("bot_action_annuler", { p_id: id });
+  if (error) throw error;
 }

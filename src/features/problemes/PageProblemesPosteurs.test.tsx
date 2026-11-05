@@ -1,66 +1,59 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales/index";
 
-import type { CohorteOnboarding, Probleme } from "./api";
+import type { Probleme } from "./api";
 import { PageProblemesPosteurs } from "./PageProblemesPosteurs";
 
 const base = {
-  contrat_id: null, hm: "HM 1", cohorte: "2026-11-02", actif: true, sources: [{ type: "reponse", ref: "1", at: "2026-11-02T10:00:00Z", texte: "?" }],
+  contrat_id: "4001", hm: "HM 1", cohorte: "2026-11-02", actif: true, sources: [{ type: "reponse", ref: "1", at: "2026-11-02T10:00:00Z", texte: "?" }],
   canal_reponse: null, propose_par: null, propose_at: null, statut: "ouvert" as const, ferme_raison: null, ferme_at: null,
-  created_at: "2026-11-02T10:00:00Z", maj_at: "2026-11-02T10:00:00Z", slack_relie: true, compte_id: null,
+  created_at: "2026-11-02T10:00:00Z", maj_at: "2026-11-02T10:00:00Z", slack_relie: true, compte_id: null, groupe: "onboarding" as const,
 };
 const liste: Probleme[] = [
-  { ...base, id: "a", poster_id: "p1", nom: "Test A", categorie: "stop", niveau: "urgent", resume: "Asked to stop", proprietaire: "control_bot", proposition_reponse: null, proposition_action: "kill", groupe: "actifs" },
-  { ...base, id: "b", poster_id: "p2", nom: "Test B", categorie: "paie", niveau: "urgent", resume: "Not paid", proprietaire: "pay_bot", proposition_reponse: null, proposition_action: "open_payroll", groupe: "onboarding" },
-  { ...base, id: "c", poster_id: "p3", nom: "Test C", categorie: "login", niveau: "aujourdhui", resume: "Can't log in", proprietaire: "new_cohort_bot", proposition_reponse: "Here is your link", proposition_action: null, groupe: "onboarding" },
-  { ...base, id: "d", poster_id: "p4", nom: "Test D", categorie: "question_bloquante", niveau: "aujourdhui", resume: "Where is the app?", proprietaire: "new_cohort_bot", proposition_reponse: null, proposition_action: "close", propose_par: "new_cohort_bot", propose_at: "2026-11-03T08:00:00Z", diagnostic: "Already answered in Slack on 2 Nov.", groupe: "onboarding" },
-  // Ni diagnostic ni action : pas de carte.
-  { ...base, id: "e", poster_id: "p5", nom: "Test E", categorie: "autre", niveau: "samedi", resume: "hello", proprietaire: "control_bot", proposition_reponse: null, proposition_action: null, groupe: "actifs" },
-];
-const onboarding: CohorteOnboarding[] = [
-  {
-    lundi: "2026-11-09", total: 3, a_poste: 0, reports: { un: 1, deux_plus: 0 },
-    etapes: [
-      { cle: "offre", faits: 3, bloques: [] },
-      { cle: "accueil", faits: 3, bloques: [] },
-      { cle: "login", faits: 2, bloques: [{ poster_id: "p9", nom: "Recrue Neuf", pays: "FR", hm: "HM 2", reports: 1 }] },
-      { cle: "slack", faits: 2, bloques: [] },
-      { cle: "tiktok", faits: 2, bloques: [] },
-      { cle: "warmup", faits: 2, bloques: [] },
-      { cle: "abonnements", faits: 2, bloques: [] },
-      { cle: "pret", faits: 2, bloques: [] },
-    ],
-  },
+  { ...base, id: "a", poster_id: "p1", nom: "Test A", categorie: "paie", niveau: "urgent", resume: "Week 45 not funded", proprietaire: "pay_bot",
+    proposition_reponse: null, proposition_action: "open_payroll", onglet: "urgent", diagnostic: "Rien de financé pour la Week 45." },
+  { ...base, id: "b", poster_id: "p2", nom: "Test B", categorie: "question_bloquante", niveau: "bots", resume: "Where is the app?",
+    proprietaire: "new_cohort_bot", proposition_reponse: "Hi! The app is Sophia, here is the link.", proposition_action: null,
+    propose_par: "new_cohort_bot", onglet: "bots", diagnostic: "Elle cherche le lien de l'appli.",
+    sans_reponse: { texte: "Where is the app? I can't find it anywhere.", canal: "upwork", at: "2026-11-04T08:00:00Z", depuis_heures: 2.5, question: true },
+    sujets: [{ categorie: "login", resume: "Can't log in" }] },
+  { ...base, id: "c", poster_id: "p3", nom: "Test C", categorie: "stop", niveau: "urgent", resume: "STOP", proprietaire: "control_bot",
+    proposition_reponse: null, proposition_action: "kill", onglet: "samedi", diagnostic: "A demandé l'arrêt." },
 ];
 const agir = vi.fn(async () => undefined);
-const feedback = vi.fn(async (id: string, verdict: string, raison: string | null) => ({
-  id: "f1", probleme_id: id, bot: "new_cohort_bot", categorie: "question_bloquante", groupe: "onboarding", verdict, raison,
-  diagnostic_du_bot: null, action_du_bot: "close", created_at: "2026-11-03T12:00:00Z", nom: "Test D", en_regle: false,
-}));
+const feedback = vi.fn(async () => ({}));
 const envoyer = vi.fn(async () => undefined);
+const kill = vi.fn(async () => ({}));
 
 vi.mock("./api", () => ({
   lireProblemes: vi.fn(async () => liste),
-  lireArchives: vi.fn(async () => []),
   lireModeProblemes: vi.fn(async () => "test"),
-  lireOnboarding: vi.fn(async () => onboarding),
   agirProbleme: (...a: unknown[]) => agir(...(a as [])),
-  validerCategorie: vi.fn(async () => 0),
   passerMaintenant: vi.fn(async () => ({})),
   envoyerUpwork: (...a: unknown[]) => envoyer(...(a as [])),
+  envoyerSlack: (...a: unknown[]) => envoyer(...(a as [])),
   envoyerLienMotDePasse: (...a: unknown[]) => envoyer(...(a as [])),
   dejaEcritAujourdhui: vi.fn(async () => false),
-  lireFeedbacks: vi.fn(async () => []),
-  lireStatsBots: vi.fn(async () => [
-    { bot: "new_cohort_bot", total: 4, justes: 3, erreurs: [{ categorie: "slack", n: 1 }] },
-    { bot: "control_bot", total: 0, justes: 0, erreurs: [] },
+  donnerFeedback: (...a: unknown[]) => feedback(...(a as [])),
+  deciderProbleme: vi.fn(async () => ({})),
+  deciderRituel: vi.fn(async () => ({})),
+  killSamedi: (...a: unknown[]) => kill(...(a as [])),
+  lireStatsBots: vi.fn(async () => []),
+  lireAutonomie: vi.fn(async () => "off"),
+  reglerAutonomie: vi.fn(async () => undefined),
+  lireActionsBots: vi.fn(async () => [
+    { id: "x1", bot: "new_cohort_bot", probleme_id: "z", poster_id: "p9", nom: "Bot Done", action: "resend_password_link", canal: "upwork",
+      message: "Hi, here is your link.", statut: "fait", raison: null, confiance: 0.9, at: "2026-11-04T07:00:00Z" },
   ]),
-  donnerFeedback: (...a: unknown[]) => feedback(...(a as [string, string, string | null])),
+  annulerActionBot: vi.fn(async () => undefined),
 }));
+
+// Les écrans du jeudi, du samedi et du dimanche (testés à part) : remplacés ici.
+vi.mock("./RituelsSemaine", () => ({ RituelsSemaine: () => <div data-testid="rituels-semaine" /> }));
 
 function rendre() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -73,68 +66,58 @@ function rendre() {
   );
 }
 
-describe("PageProblemesPosteurs", () => {
-  it("groupes et niveaux avec compteurs, barre d'onboarding, cartes sans diagnostic masquées, mode test", async () => {
+describe("PageProblemesPosteurs (simplification du 4/11)", () => {
+  beforeEach(async () => {
     await i18n.changeLanguage("fr");
+    vi.clearAllMocks();
+  });
+
+  it("trois onglets avec leurs compteurs ; Urgent par défaut ; mode test", async () => {
     rendre();
-    expect(await screen.findByText("Test B")).toBeTruthy();
+    expect(await screen.findByText("Test A")).toBeTruthy();
     expect(screen.getByTestId("mode-test")).toBeTruthy();
-    const textes = screen.getAllByRole("tab").map((o) => o.textContent);
-    expect(textes).toEqual([
-      "Onboarding (jamais posté) (3)", "Nouveaux actifs (0)", "Actifs (1)", "Paie (1)",
-      "Urgent (1)", "Aujourd'hui (2)", "Samedi (0)",
-    ]);
-    expect(screen.getByText("1 carte sans diagnostic ni action masquée.")).toBeTruthy();
-    // La paie : le bouton ouvre Payroll (« Ouvrir »), jamais « Valider ».
-    expect(screen.getByRole("button", { name: "✅ Ouvrir" })).toBeTruthy();
-
-    // La barre d'onboarding : un clic sur une étape montre qui y est bloqué.
-    const barre = await screen.findByTestId("barre-onboarding");
-    fireEvent.click(within(barre).getByTestId("etape-login"));
-    expect(within(screen.getByTestId("bloques")).getByText("Recrue Neuf")).toBeTruthy();
-
-    // Le filtre Paie, transversal.
-    fireEvent.click(screen.getByTestId("groupe-paie"));
-    expect(screen.queryByTestId("barre-onboarding")).toBeNull();
-    expect(screen.getByText("Test B")).toBeTruthy();
-  });
-
-  it("Valider n'envoie rien en mode test ; ✔️ Fermer quand le bot propose « close » ; le diagnostic du bot passe en premier", async () => {
-    await i18n.changeLanguage("fr");
-    rendre();
-    expect(await screen.findByText("Test B")).toBeTruthy();
-    fireEvent.click(screen.getByRole("tab", { name: /Aujourd'hui/ }));
+    expect(screen.getByTestId("onglet-bots").textContent).toContain("(1)");
+    expect(screen.getByTestId("onglet-urgent").textContent).toContain("(1)");
+    expect(screen.getByTestId("onglet-samedi").textContent).toContain("(1)");
+    expect(screen.queryByText("Test B")).toBeNull();
+    fireEvent.click(screen.getByTestId("onglet-samedi"));
     expect(await screen.findByText("Test C")).toBeTruthy();
-    expect(screen.getByText("Already answered in Slack on 2 Nov.")).toBeTruthy();
-
-    const carteC = screen.getAllByTestId("carte-probleme").find((c) => within(c).queryByText("Test C"))!;
-    fireEvent.click(within(carteC).getByRole("button", { name: /Valider/ }));
-    expect(await screen.findByText("Mode test : noté, rien n'est parti.")).toBeTruthy();
-    expect(envoyer).not.toHaveBeenCalled();
-    expect(agir).toHaveBeenCalledWith("c", "valider", expect.objectContaining({ envoye: false }));
-
-    fireEvent.click(screen.getByTestId("fermer"));
-    await vi.waitFor(() => expect(agir).toHaveBeenCalledWith("d", "fermer"));
+    // Les décisions de la semaine (jeudi, samedi, dimanche) se prennent ici.
+    expect(screen.getByTestId("rituels-semaine")).toBeTruthy();
   });
 
-  it("feedback au bot : seulement sur une carte proposée par un bot ; « Pourquoi » obligatoire sauf 👍 ; compteur par bot", async () => {
-    await i18n.changeLanguage("fr");
+  it("le format de carte : ❓ le message sans réponse en entier, 🧠, 👉 et le message ; sujets fusionnés ; ce que les bots ont fait", async () => {
     rendre();
-    expect(await screen.findByText("Test B")).toBeTruthy();
-    expect((await screen.findByTestId("stats-bots")).textContent).toContain("75 % 👍 sur 7 j (4)");
-    fireEvent.click(screen.getByRole("tab", { name: /Aujourd'hui/ }));
-    const carteD = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test D"))!;
-    const carteC = screen.getAllByTestId("carte-probleme").find((c) => within(c).queryByText("Test C"))!;
-    expect(within(carteC).queryByTestId("feedback-bot")).toBeNull();
-    const ligne = within(carteD).getByTestId("feedback-bot");
-    fireEvent.click(within(ligne).getByTestId("verdict-pas_un_probleme"));
-    const envoyerBtn = within(ligne).getByRole("button", { name: "Envoyer le feedback" });
-    expect((envoyerBtn as HTMLButtonElement).disabled).toBe(true);
-    fireEvent.change(within(ligne).getByLabelText("Pourquoi"), { target: { value: "Un lien de post sur Slack = il montre son travail" } });
-    fireEvent.click(envoyerBtn);
-    await vi.waitFor(() => expect(feedback).toHaveBeenCalledWith("d", "pas_un_probleme", "Un lien de post sur Slack = il montre son travail"));
-    expect(await within(ligne).findByText("En faire une règle")).toBeTruthy();
-    // Le feedback ne change rien à la carte.
-    expect(agir).not.toHaveBeenCalledWith("d", expect.anything(), expect.anything());
+    fireEvent.click(await screen.findByTestId("onglet-bots"));
+    const carte = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test B"))!;
+    expect(within(carte).getByTestId("bloque").textContent).toContain("Where is the app? I can't find it anywhere.");
+    expect(within(carte).getByTestId("bloque").textContent).toContain("depuis 2.5 h");
+    expect(within(carte).getByTestId("compris").textContent).toContain("Elle cherche le lien");
+    expect(within(carte).getByTestId("propose").textContent).toContain("Hi! The app is Sophia, here is the link.");
+    expect(within(carte).getByTestId("nb-sujets").textContent).toBe("+1 sujet");
+    expect(screen.getByTestId("autonomie").textContent).toBe("off");
+    expect((await screen.findAllByTestId("action-bot"))[0]!.textContent).toContain("Hi, here is your link.");
+  });
+
+  it("✅ Faire ça en mode test : noté, rien ne part ; feedback automatique « juste » au bot", async () => {
+    rendre();
+    fireEvent.click(await screen.findByTestId("onglet-bots"));
+    const carte = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test B"))!;
+    fireEvent.click(within(carte).getByTestId("faire"));
+    await vi.waitFor(() => expect(agir).toHaveBeenCalledWith("b", "valider", expect.objectContaining({ envoye: false })));
+    expect(envoyer).not.toHaveBeenCalled();
+    await vi.waitFor(() => expect(feedback).toHaveBeenCalledWith("b", "juste", null));
+  });
+
+  it("✅ sur un STOP : Kill samedi ; sur la paie : l'OS ne paie pas, il ouvre le contrat", async () => {
+    const ouvrir = vi.spyOn(window, "open").mockImplementation(() => null);
+    rendre();
+    const carteA = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test A"))!;
+    fireEvent.click(within(carteA).getByTestId("faire"));
+    await vi.waitFor(() => expect(ouvrir).toHaveBeenCalledWith("https://www.upwork.com/nx/wm/workroom/4001/overview", "_blank", "noopener,noreferrer"));
+    fireEvent.click(screen.getByTestId("onglet-samedi"));
+    const carteC = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test C"))!;
+    fireEvent.click(within(carteC).getByTestId("faire"));
+    await vi.waitFor(() => expect(kill).toHaveBeenCalledWith("c"));
   });
 });

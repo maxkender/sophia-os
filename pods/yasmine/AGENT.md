@@ -113,6 +113,8 @@ Le pilote `posts/yp-001.json` est l'exemple complet. Les ids : `yp-001`, `yp-002
 
 ## Règles
 
+- **UnSwipe est arrêté depuis le 4/11** : ne le montre plus nulle part (ni carte, ni icône, ni écran).
+
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
 - **Budget Apify : 1 $ par semaine glissante.** Au-delà, demande l'accord de l'humain avant `--hors-budget`.
 - **Git** : travaille sur ta branche, ouvre une PR vers `main` limitée à `pods/yasmine/`, puis merge-la. **Tout changement hors de ce dossier** (la fonction `pods`, une migration) : propose-le, **ne le merge jamais**.

@@ -1,0 +1,544 @@
+{
+ "fond": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/54d238cb-f9a8-4ed6-b1cf-a39452b50e29/3-upscale.jpg?v=1785797228397",
+ "langues": {
+  "fr": {
+   "date": "lundi 10 novembre",
+   "titre_musique": "piano doux",
+   "artiste": "révisions d’exam",
+   "meteo_ville": "Paris",
+   "meteo_ciel": "ensoleillé",
+   "widget_micabo": [
+    "exam dans 9 j",
+    "quiz · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendrier",
+    "notes": "Notes",
+    "photos": "Photos",
+    "livres": "Livres",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Recherche",
+    "rappels": "Rappels"
+   },
+   "mois": "novembre",
+   "revisions": "révisions",
+   "jours": [
+    {
+     "nom": "lundi",
+     "taches": [
+      "chap. 1 à 3 en quiz",
+      "annale 2023"
+     ]
+    },
+    {
+     "nom": "mardi",
+     "taches": [
+      "chap. 4 et 5",
+      "fiches de dates",
+      "annale 2022"
+     ]
+    },
+    {
+     "nom": "mercredi",
+     "taches": [
+      "révision des erreurs"
+     ]
+    },
+    {
+     "nom": "jeudi",
+     "taches": [
+      "quiz complet",
+      "dormir tôt"
+     ]
+    }
+   ],
+   "focus_titre": "modes de concentration🌙",
+   "focus": [
+    [
+     "Ne pas déranger",
+     "coupe toutes les notifications"
+    ],
+    [
+     "Sommeil",
+     ""
+    ],
+    [
+     "Exam",
+     "seulement micabo et Calendrier"
+    ],
+    [
+     "Personnel",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nouveau mode",
+   "heure": "6:58",
+   "jour": 10
+  },
+  "en": {
+   "date": "Monday, November 10",
+   "titre_musique": "soft piano",
+   "artiste": "exam study",
+   "meteo_ville": "London",
+   "meteo_ciel": "sunny",
+   "widget_micabo": [
+    "exam in 9 days",
+    "quiz · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendar",
+    "notes": "Notes",
+    "photos": "Photos",
+    "livres": "Books",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Search",
+    "rappels": "Reminders"
+   },
+   "mois": "november",
+   "revisions": "study time",
+   "jours": [
+    {
+     "nom": "Monday",
+     "taches": [
+      "ch. 1–3 quizzes",
+      "2023 past paper"
+     ]
+    },
+    {
+     "nom": "Tuesday",
+     "taches": [
+      "ch. 4 and 5",
+      "dates flashcards",
+      "2022 past paper"
+     ]
+    },
+    {
+     "nom": "Wednesday",
+     "taches": [
+      "review my mistakes"
+     ]
+    },
+    {
+     "nom": "Thursday",
+     "taches": [
+      "full quiz",
+      "early night"
+     ]
+    }
+   ],
+   "focus_titre": "focus modes🌙",
+   "focus": [
+    [
+     "Do Not Disturb",
+     "silence all notifications"
+    ],
+    [
+     "Sleep",
+     ""
+    ],
+    [
+     "Exams",
+     "only micabo and Calendar"
+    ],
+    [
+     "Personal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "New Focus",
+   "heure": "6:58",
+   "jour": 10
+  },
+  "es": {
+   "date": "lunes, 10 de noviembre",
+   "titre_musique": "piano suave",
+   "artiste": "estudio de exámenes",
+   "meteo_ville": "Madrid",
+   "meteo_ciel": "soleado",
+   "widget_micabo": [
+    "examen en 9 días",
+    "quiz · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendario",
+    "notes": "Notas",
+    "photos": "Fotos",
+    "livres": "Libros",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Buscar",
+    "rappels": "Recordatorios"
+   },
+   "mois": "noviembre",
+   "revisions": "estudio",
+   "jours": [
+    {
+     "nom": "lunes",
+     "taches": [
+      "temas 1 a 3 en quiz",
+      "examen de 2023"
+     ]
+    },
+    {
+     "nom": "martes",
+     "taches": [
+      "temas 4 y 5",
+      "fichas de fechas",
+      "examen de 2022"
+     ]
+    },
+    {
+     "nom": "miércoles",
+     "taches": [
+      "repasar los errores"
+     ]
+    },
+    {
+     "nom": "jueves",
+     "taches": [
+      "quiz completo",
+      "dormir pronto"
+     ]
+    }
+   ],
+   "focus_titre": "modos de concentración🌙",
+   "focus": [
+    [
+     "No molestar",
+     "silencia todas las notificaciones"
+    ],
+    [
+     "Sueño",
+     ""
+    ],
+    [
+     "Exámenes",
+     "solo micabo y Calendario"
+    ],
+    [
+     "Personal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nuevo modo",
+   "heure": "6:58",
+   "jour": 10
+  },
+  "de": {
+   "date": "Montag, 10. November",
+   "titre_musique": "sanftes Klavier",
+   "artiste": "Prüfungsvorbereitung",
+   "meteo_ville": "Berlin",
+   "meteo_ciel": "sonnig",
+   "widget_micabo": [
+    "Prüfung in 9 T.",
+    "Quiz · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Kalender",
+    "notes": "Notizen",
+    "photos": "Fotos",
+    "livres": "Bücher",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Suchen",
+    "rappels": "Erinnerungen"
+   },
+   "mois": "November",
+   "revisions": "Lernzeit",
+   "jours": [
+    {
+     "nom": "Montag",
+     "taches": [
+      "Kap. 1–3 als Quiz",
+      "Prüfung 2023"
+     ]
+    },
+    {
+     "nom": "Dienstag",
+     "taches": [
+      "Kap. 4 und 5",
+      "Daten-Karteikarten",
+      "Prüfung 2022"
+     ]
+    },
+    {
+     "nom": "Mittwoch",
+     "taches": [
+      "Fehler wiederholen"
+     ]
+    },
+    {
+     "nom": "Donnerstag",
+     "taches": [
+      "ganzes Quiz",
+      "früh schlafen"
+     ]
+    }
+   ],
+   "focus_titre": "Fokus-Modi🌙",
+   "focus": [
+    [
+     "Nicht stören",
+     "alle Mitteilungen stumm"
+    ],
+    [
+     "Schlafen",
+     ""
+    ],
+    [
+     "Prüfung",
+     "nur micabo und Kalender"
+    ],
+    [
+     "Persönlich",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Neuer Fokus",
+   "heure": "6:58",
+   "jour": 10
+  },
+  "it": {
+   "date": "lunedì 10 novembre",
+   "titre_musique": "piano soft",
+   "artiste": "studio per gli esami",
+   "meteo_ville": "Roma",
+   "meteo_ciel": "soleggiato",
+   "widget_micabo": [
+    "esame tra 9 gg",
+    "quiz · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendario",
+    "notes": "Note",
+    "photos": "Foto",
+    "livres": "Libri",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Cerca",
+    "rappels": "Promemoria"
+   },
+   "mois": "novembre",
+   "revisions": "studio",
+   "jours": [
+    {
+     "nom": "lunedì",
+     "taches": [
+      "cap. 1–3 in quiz",
+      "prova del 2023"
+     ]
+    },
+    {
+     "nom": "martedì",
+     "taches": [
+      "cap. 4 e 5",
+      "schede delle date",
+      "prova del 2022"
+     ]
+    },
+    {
+     "nom": "mercoledì",
+     "taches": [
+      "ripasso degli errori"
+     ]
+    },
+    {
+     "nom": "giovedì",
+     "taches": [
+      "quiz completo",
+      "a letto presto"
+     ]
+    }
+   ],
+   "focus_titre": "modalità full immersion🌙",
+   "focus": [
+    [
+     "Non disturbare",
+     "silenzia tutte le notifiche"
+    ],
+    [
+     "Riposo",
+     ""
+    ],
+    [
+     "Esami",
+     "solo micabo e Calendario"
+    ],
+    [
+     "Personale",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nuova modalità",
+   "heure": "6:58",
+   "jour": 10
+  },
+  "pt": {
+   "date": "segunda-feira, 10 de novembro",
+   "titre_musique": "piano suave",
+   "artiste": "estudo pra prova",
+   "meteo_ville": "Lisboa",
+   "meteo_ciel": "ensolarado",
+   "widget_micabo": [
+    "prova em 9 dias",
+    "quiz · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendário",
+    "notes": "Notas",
+    "photos": "Fotos",
+    "livres": "Livros",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Buscar",
+    "rappels": "Lembretes"
+   },
+   "mois": "novembro",
+   "revisions": "estudos",
+   "jours": [
+    {
+     "nom": "segunda",
+     "taches": [
+      "cap. 1 a 3 em quiz",
+      "prova de 2023"
+     ]
+    },
+    {
+     "nom": "terça",
+     "taches": [
+      "cap. 4 e 5",
+      "fichas de datas",
+      "prova de 2022"
+     ]
+    },
+    {
+     "nom": "quarta",
+     "taches": [
+      "revisar os erros"
+     ]
+    },
+    {
+     "nom": "quinta",
+     "taches": [
+      "quiz completo",
+      "dormir cedo"
+     ]
+    }
+   ],
+   "focus_titre": "modos de foco🌙",
+   "focus": [
+    [
+     "Não Perturbe",
+     "silencia todas as notificações"
+    ],
+    [
+     "Sono",
+     ""
+    ],
+    [
+     "Provas",
+     "só micabo e Calendário"
+    ],
+    [
+     "Pessoal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Novo foco",
+   "heure": "6:58",
+   "jour": 10
+  },
+  "tr": {
+   "date": "10 Kasım Pazartesi",
+   "titre_musique": "yumuşak piyano",
+   "artiste": "sınav çalışması",
+   "meteo_ville": "İstanbul",
+   "meteo_ciel": "güneşli",
+   "widget_micabo": [
+    "sınava 9 gün",
+    "test · 9/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Takvim",
+    "notes": "Notlar",
+    "photos": "Fotoğraflar",
+    "livres": "Kitaplar",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Ara",
+    "rappels": "Anımsatıcılar"
+   },
+   "mois": "kasım",
+   "revisions": "ders süresi",
+   "jours": [
+    {
+     "nom": "Pazartesi",
+     "taches": [
+      "1–3. üniteler test",
+      "2023 sınavı"
+     ]
+    },
+    {
+     "nom": "Salı",
+     "taches": [
+      "4. ve 5. üniteler",
+      "tarih kartları",
+      "2022 sınavı"
+     ]
+    },
+    {
+     "nom": "Çarşamba",
+     "taches": [
+      "hataları tekrar et"
+     ]
+    },
+    {
+     "nom": "Perşembe",
+     "taches": [
+      "tam test",
+      "erken yat"
+     ]
+    }
+   ],
+   "focus_titre": "odak modları🌙",
+   "focus": [
+    [
+     "Rahatsız Etme",
+     "tüm bildirimleri sessize al"
+    ],
+    [
+     "Uyku",
+     ""
+    ],
+    [
+     "Sınav",
+     "sadece micabo ve Takvim"
+    ],
+    [
+     "Kişisel",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Yeni Odak",
+   "heure": "6:58",
+   "jour": 10
+  }
+ }
+}

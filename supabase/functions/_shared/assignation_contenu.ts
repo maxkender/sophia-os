@@ -40,6 +40,7 @@ import {
 import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import {
   applicationARemplacer,
+  applicationsRemplacant,
   colonnesBleoPassage,
   type LignePlanBleo,
   lirePlanBleoCompte,
@@ -1038,31 +1039,39 @@ export async function assignerCompteJour(
     // un remplaçant BLEO, choisi par valeur avec les garde-fous du tirage, avant
     // la tierlist. Les contenus encore au plan du compte sont réservés.
     if (!choisi && planJour) {
+      const appDuCreneau = repartition.multi ? appCreneau.id : ID_SOPHIA;
       const appVisee = appARemplacer ??
-        applicationARemplacer(planCompteInitial, o.exclureContenus ?? [], repartition.multi ? appCreneau.id : ID_SOPHIA);
-      let candidats: LignePlanBleo[] = [];
-      try {
-        candidats = await lireRemplacantsBleo(supabase, planJour, {
-          compteId: compte.id as string,
-          jour,
-          applicationId: appVisee,
-          exclure: [...contenusSession, ...planCompte.map((l) => l.contenuId)],
-        });
-      } catch (e) {
-        log(`Remplaçant BLEO illisible (${e instanceof Error ? e.message : String(e)}) — tierlist`);
+        applicationARemplacer(planCompteInitial, o.exclureContenus ?? [], appDuCreneau);
+      // D52 (5/11) : l'application du plan peut ne plus être servie par le compte
+      // (UnSwipe arrêté le 4/11 : 59 remplacements partis à la tierlist, faute de
+      // candidat UnSwipe servable). On retente alors avec l'application du créneau.
+      for (const applicationId of applicationsRemplacant(appVisee, appDuCreneau)) {
+        let candidats: LignePlanBleo[] = [];
+        try {
+          candidats = await lireRemplacantsBleo(supabase, planJour, {
+            compteId: compte.id as string,
+            jour,
+            applicationId,
+            exclure: [...contenusSession, ...planCompte.map((l) => l.contenuId)],
+          });
+        } catch (e) {
+          log(`Remplaçant BLEO illisible (${e instanceof Error ? e.message : String(e)})`);
+        }
+        for (const candidat of candidats) {
+          const servi = await servirLignePlan(candidat);
+          if (!servi) continue;
+          choisi = servi.choisi;
+          slides = servi.slides;
+          hashtagsDeck = servi.hashtags;
+          appEffective = servi.app;
+          lignePlan = candidat;
+          log(`Deck prêt (${slides.length} slides, remplaçant BLEO) — matérialisation…`);
+          break;
+        }
+        if (choisi) break;
+        if (candidats.length > 0) log(`Aucun des ${candidats.length} remplaçant(s) BLEO servable (application ${applicationId})`);
       }
-      for (const candidat of candidats) {
-        const servi = await servirLignePlan(candidat);
-        if (!servi) continue;
-        choisi = servi.choisi;
-        slides = servi.slides;
-        hashtagsDeck = servi.hashtags;
-        appEffective = servi.app;
-        lignePlan = candidat;
-        log(`Deck prêt (${slides.length} slides, remplaçant BLEO) — matérialisation…`);
-        break;
-      }
-      if (!choisi && candidats.length > 0) log(`Aucun des ${candidats.length} remplaçant(s) BLEO servable — tierlist`);
+      if (!choisi) log(`Aucun remplaçant BLEO servable — tierlist`);
     }
 
     if (!choisi && appCreneau.id !== ID_SOPHIA) {

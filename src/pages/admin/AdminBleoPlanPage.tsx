@@ -9,12 +9,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { StatGroup, StatTile } from "@/components/ui/stat";
-import { listerLabelsBleo, listerPlan, listerRuns, runOfficiel, TAILLE_PAGE } from "@/features/bleo/api";
+import { listerLabelsBleo, listerPlan, listerRuns, ORIGINES_PLAN, runOfficiel, TAILLE_PAGE } from "@/features/bleo/api";
 import { CATEGORIES_PLAN, formaterJour, formaterNombre, formaterPart, formaterQuand, part } from "@/features/bleo/format";
 import {
   BadgeCategorie,
   EnteteTableau,
   EtatRequete,
+  Generation,
   Ligne,
   selectClass,
   TD,
@@ -41,6 +42,7 @@ export function AdminBleoPlanPage() {
   const runId = params.get("run") ?? (runs.data ? runOfficiel(runs.data)?.id : undefined) ?? undefined;
   const run = runs.data?.find((r) => r.id === runId);
   const categorie = params.get("categorie") ?? "";
+  const origine = params.get("origine") ?? "";
   const label = params.get("label") ?? "";
   const [compte, setCompte] = React.useState(params.get("compte") ?? "");
   const page = Number(params.get("page") ?? 0) || 0;
@@ -54,8 +56,8 @@ export function AdminBleoPlanPage() {
   };
 
   const plan = useQuery({
-    queryKey: ["bleo", "plan", runId, categorie, label, params.get("compte") ?? "", page],
-    queryFn: () => listerPlan(runId!, { categorie, label, compte: params.get("compte") ?? "", page }),
+    queryKey: ["bleo", "plan", runId, categorie, origine, label, params.get("compte") ?? "", page],
+    queryFn: () => listerPlan(runId!, { categorie, origine, label, compte: params.get("compte") ?? "", page }),
     enabled: Boolean(runId),
     placeholderData: keepPreviousData,
   });
@@ -226,6 +228,19 @@ export function AdminBleoPlanPage() {
                 ))}
               </select>
               <select
+                aria-label={t("bleo.plan.origine")}
+                className={selectClass}
+                value={origine}
+                onChange={(e) => changer("origine", e.target.value)}
+              >
+                <option value="">{t("bleo.plan.toutesOrigines")}</option>
+                {ORIGINES_PLAN.map((o) => (
+                  <option key={o} value={o}>
+                    {t(`bleo.plan.origines.${o}`)}
+                  </option>
+                ))}
+              </select>
+              <select
                 aria-label={t("bleo.colonnes.label")}
                 className={selectClass}
                 value={label}
@@ -280,6 +295,16 @@ export function AdminBleoPlanPage() {
                     <td className={TD_NUM}>{l.creneau}</td>
                     <td className={TD}>
                       <BadgeCategorie categorie={l.categorie} />
+                      {(l.type_bleo === "declinaison" || l.type_bleo === "full_test") && (
+                        <span className="ml-1 whitespace-nowrap text-[11px] text-muted-foreground" data-testid="plan-origine">
+                          {l.type_bleo === "declinaison" && (
+                            <>
+                              <Generation g={l.generation} />{" "}
+                            </>
+                          )}
+                          {t(`bleo.types.${l.type_bleo}`)}
+                        </span>
+                      )}
                       {l.relache && (
                         <span className="ml-1 text-[10px] text-muted-foreground" title={t("bleo.plan.relacheAide")}>
                           {t(`bleo.relaches.${l.relache}`, { defaultValue: l.relache })}

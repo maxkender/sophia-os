@@ -1,0 +1,60 @@
+{
+ "source_id": "am-o054",
+ "type_bleo": "full_test",
+ "titre": "Lost manners every man should bring back #men #gentleman #respect #manners #selfimprovement",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 5/11. Full test du jour (jauge : 1 sur 4). Accroche jamais faite chez nous : aucun « manners » ni « gentleman » dans donnees/label.json ; « bring back » n'y apparaît que dans le corps de textes, jamais en accroche. Proche de la famille protecteur (am-o010, 75 k vues, r 103) : le respect concret, en gestes. Format : numéro, geste, puis deux lignes. Rien de condescendant, rien sur les femmes en particulier : des gestes pour tout le monde. Images : restaurants et intérieurs ; slide Sophia sans personne ni écran. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e894bee",
+   "texte_overlay": "Lost manners every man\nshould bring back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "027f7af8",
+   "texte_overlay": "1. Stand up to greet people\n\nWhen someone walks in,\nget up. Shake their hand.\nIt says: you matter here.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0c04ca4c",
+   "texte_overlay": "2. Phone away at dinner\n\nNot face down. Away.\nThe people at the table\ncame for you, not your screen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0cbe4469",
+   "texte_overlay": "3. Hold the door\n\nFor anyone. Man, woman, stranger.\nTwo seconds of your time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0bb0d621",
+   "texte_overlay": "4. Have something worth\ntalking about\n\nGood manners need good conversation.\nRead. Ask. Learn one new thing a day.",
+   "texte_sophia": "4. Have something worth\ntalking about\n\nGood manners need good conversation.\nLearn one new thing a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12b4f574",
+   "texte_overlay": "5. Introduce people by name\n\nNever leave someone standing\nthere like a stranger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1196ee28",
+   "texte_overlay": "6. Return what you borrow\nin better shape\n\nFuel in the car.\nThe book without bent pages.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0092d872",
+   "texte_overlay": "7. Write a thank-you note\n\nA real one. By hand.\nPeople keep those for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  }
+ ]
+}

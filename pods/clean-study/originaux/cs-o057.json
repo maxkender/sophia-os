@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o057",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fdf0c81b-5582-42e9-a651-36db22c438b2",
+  "titre": "opening my notes to study and somehow being on my phone 40 minutes later #studytok #studytips #focus",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "fdf0c81b-5582-42e9-a651-36db22c438b2"
+  ],
+  "notes": "Déclinaison G1 de fdf0c81b (notre cs-o009 : r 9,32 en espagnol d'Amérique latine), ligne 3 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o009 (tâche précise, 5 minutes faciles, applis hors de l'écran d'accueil, liste « plus tard », 5 questions à la fin) : le téléphone dans une autre pièce, le mode avion, une minuterie de cuisine plutôt que celle du téléphone, un verre d'eau et tout ce qu'il faut avant de s'asseoir, se tester toutes les 25 minutes (place micabo, slide 6), une vraie pause sans écran. Slide 6 sans personne. Depuis le 4/11, le label ne sert que micabo (UnSwipe arrêté) : une seule place d'appli par post. Slide micabo : photo d'objet reprise d'un original plus ancien (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c8709de4",
+      "texte_overlay": "opening my notes to study and somehow being on my phone 40 minutes later",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "cade325d",
+      "texte_overlay": "what actually stopped it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cadee3a6",
+      "texte_overlay": "my phone sleeps in another room while i study.\nout of reach = out of mind.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "caf7dae4",
+      "texte_overlay": "if i need it nearby, it's on airplane mode.\nno notification can pull me out.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cc0de45d",
+      "texte_overlay": "a kitchen timer instead of the phone's timer.\nchecking the time was how it always started.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "6006ae42",
+      "texte_overlay": "every 25 minutes i quiz myself on what i just did.\nit keeps my brain busy with the notes, not the phone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cdfaf7b8",
+      "texte_overlay": "water, pens, snacks ready before i sit down.\nno reason to get up and \"just check\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "f6d972b7",
+      "texte_overlay": "real breaks: stretch, window, water. no screen.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

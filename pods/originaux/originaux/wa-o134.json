@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o134",
+ "type_bleo": "full_test",
+ "titre": "quiet signs you were raised to be strong #mentalstrength #psychology #selfimprovement #resilience #signs",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "29763a3c-382c-461d-a0a7-83321f3309bd"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 29763a3c). full test BLEO : accroche jamais faite (format « quiet signs »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9f9c087b-1df0-45bb-b10d-431300202343",
+   "texte_overlay": "quiet signs you were raised\nto be strong",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678756706372865302/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2094cd1b-780c-4d19-a4a7-c8b9268079c1",
+   "texte_overlay": "you fix things alone first\n\nwhen something breaks, your first instinct is to try fixing it yourself. that habit slowly built a quiet confidence you probably don't even notice you have.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678756706372865302/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "979d52fa-d26e-43c0-87b4-9435e4ff54e2",
+   "texte_overlay": "you stay calm for others\n\nwhen everyone panics, you're the one who gets practical. being steady for other people is a strength most people only learn after years of hard moments.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678756706372865302/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "db80badc-21b5-4182-b122-ba66e8aae322",
+   "texte_overlay": "you rarely complain\n\nyou'd rather solve a problem than talk about it for an hour. people deeply trust those who carry their weight quietly, even when nobody thanks them for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678756706372865302/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8fde353d-0100-4a2c-b093-caa6e25e4e72",
+   "texte_overlay": "you keep learning\n\nyou keep teaching yourself things long after school: history, science, how things work. strong people stay curious because learning keeps a mind flexible under pressure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678756706372865302/5.jpg",
+   "texte_sophia": "you keep learning\n\nyou keep teaching yourself things long after school: history, science, how things work. the Sophia app turns it into one short lesson a day, and a curious mind stays flexible."
+  },
+  {
+   "position": 6,
+   "media_id": "3e6885db-b102-4820-ba8b-d2c128131754",
+   "texte_overlay": "you don't need applause\n\nyou do the right thing even when nobody is watching. needing less approval is one of the clearest signs of real inner strength, and it lasts a lifetime.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678756706372865302/6.jpg"
+  }
+ ]
+}

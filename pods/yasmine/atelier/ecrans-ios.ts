@@ -27,6 +27,10 @@ export type TextesIos = {
   focus: [string, string][];
   focus_nouveau: string;
   revisions: string;
+  /** Le jour du mois entouré dans le calendrier (4 par défaut). */
+  jour?: number;
+  /** L'emoji de la météo (🌤️ par défaut, 🌙 le soir). */
+  meteo_emoji?: string;
 };
 
 type Icones = Record<string, Image>;
@@ -137,11 +141,11 @@ export function verrouillage(fondImg: Image, t: TextesIos) {
   texte(ctx, t.date, LARGEUR / 2, 92 * P, 21 * P, "rgba(255,255,255,0.92)", "center");
   texte(ctx, t.heure, LARGEUR / 2, 192 * P, 104 * P, "rgba(255,255,255,0.94)", "center", POLICE.titre);
   // Deux petits widgets sous l'heure : le quiz micabo du jour et la météo.
-  verre(ctx, 52 * P, 214 * P, 138 * P, 58 * P, 18 * P, 0.2);
+  verre(ctx, 52 * P, 214 * P, 138 * P, 58 * P, 18 * P, 0.3, true);
   texte(ctx, `📚 ${t.widget_micabo[0]}`, 64 * P, 238 * P, 13 * P, "#ffffff");
   texte(ctx, t.widget_micabo[1], 64 * P, 259 * P, 15 * P, "#ffffff", "left", POLICE.titre);
-  verre(ctx, 203 * P, 214 * P, 138 * P, 58 * P, 18 * P, 0.2);
-  texte(ctx, `🌤️ ${t.meteo_ville}`, 215 * P, 238 * P, 13 * P, "#ffffff");
+  verre(ctx, 203 * P, 214 * P, 138 * P, 58 * P, 18 * P, 0.3, true);
+  texte(ctx, `${t.meteo_emoji ?? "🌤️"} ${t.meteo_ville}`, 215 * P, 238 * P, 13 * P, "#ffffff");
   texte(ctx, `16° · ${t.meteo_ciel}`, 215 * P, 259 * P, 15 * P, "#ffffff", "left", POLICE.titre);
   // Le lecteur de musique.
   verre(ctx, 14 * P, 560 * P, 365 * P, 150 * P, 26 * P, 0.32, true);
@@ -192,7 +196,7 @@ export function accueil(fondImg: Image, t: TextesIos, ic: Icones) {
   verre(ctx, 205 * P, 66 * P, 164 * P, 164 * P, 26 * P, 0.24, true);
   texte(ctx, t.meteo_ville, 219 * P, 92 * P, 15 * P, "#ffffff", "left", POLICE.titre);
   texte(ctx, "16°", 219 * P, 140 * P, 42 * P, "#ffffff", "left");
-  texte(ctx, "🌤️", 219 * P, 182 * P, 18 * P, "#fff");
+  texte(ctx, t.meteo_emoji ?? "🌤️", 219 * P, 182 * P, 18 * P, "#fff");
   texte(ctx, t.meteo_ciel, 219 * P, 208 * P, 13 * P, "#ffffff");
   // Les applis, 4 par rangée, avec leur nom.
   const grille: [string, string | null, string][] = [
@@ -203,14 +207,18 @@ export function accueil(fondImg: Image, t: TextesIos, ic: Icones) {
     ["photos", "🌸", "#ffffff"],
     ["livres", "📚", "#ff9f0a"],
     ["sophia", null, "#ffffff"],
-    ["unswipe", null, "#ffffff"],
+    ["rappels", "✅", "#ffffff"],
   ];
   const c = 62 * P;
   grille.forEach(([cle, emoji, f], i) => {
     const x = (28 + (i % 4) * 89) * P;
     const y = (262 + Math.floor(i / 4) * 102) * P;
     icone(ctx, ic[cle] ?? null, emoji, f, x, y, c);
+    ctx.save();
+    ctx.shadowColor = "rgba(0,0,0,0.65)";
+    ctx.shadowBlur = 6 * P;
     texte(ctx, t.apps[cle], x + c / 2, y + c + 16 * P, 11.5 * P, "#ffffff", "center");
+    ctx.restore();
   });
   // La recherche et le dock.
   verre(ctx, LARGEUR / 2 - 45 * P, 712 * P, 90 * P, 28 * P, 14 * P, 0.3, true);
@@ -235,7 +243,7 @@ export function aujourdhui(fondImg: Image, t: TextesIos) {
     const pos = n + 5;
     const x = (44 + (pos % 7) * 20) * P;
     const y = (124 + Math.floor(pos / 7) * 19) * P;
-    if (n === 4) {
+    if (n === (t.jour ?? 4)) {
       ctx.beginPath();
       ctx.arc(x, y - 3.5 * P, 8.5 * P, 0, Math.PI * 2);
       ctx.fillStyle = "#ff453a";

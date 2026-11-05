@@ -1,6 +1,6 @@
 {
  "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz.",
- "page-blanche": { "par_jour": 11 },
+ "page-blanche": { "par_jour": 12 },
  "originaux": { "par_jour": 9 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
  "alpha-yellow": { "par_jour": 13 },

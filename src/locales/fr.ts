@@ -337,6 +337,12 @@ export const fr = {
           reporte: "reportée d'une semaine",
         },
         detailSamedi: "Détail du contrôle du samedi et messages aux posteurs",
+        fait: {
+          titre: "{{rituel}} fait le {{quand}}",
+          prochain: "prochain : {{date}}",
+          revoir: "Revoir, modifier ou préparer le prochain",
+          rituels: { jeudi: "Jeudi", samedi: "Samedi", dimanche: "Dimanche" },
+        },
         detailJeudi: "Détail du contrôle du jeudi et page Shadowban (ex Comptes morts)",
         liste: {
           affiches: "{{n}} affichés sur {{total}}",
@@ -593,6 +599,7 @@ export const fr = {
             aide: "Seulement la nouvelle cohorte (1re semaine de posts). Rouge : à traiter, orange : à surveiller, avec le problème en une phrase ; les comptes sans rien à signaler sont regroupés en bas. Un clic sur une ligne ou un jour pour le détail. Nudge (Slack) ou Recreate compte par compte ; rien ne part avant Send.",
             rienASignaler: "Rien à signaler ({{n}})",
             choix: { nudge: "Nudge", recreate: "Recreate", kill_samedi: "Kill Saturday", rien: "Rien" },
+            recreerQuandMeme: "Ce compte fait {{vues}} vues par post : recréer quand même ?",
             dejaNudge: "Déjà nudgé cette semaine",
             problemes: "Recreate · décidé le {{date}} dans Problèmes",
             enFile: "Nudge en attente d'envoi",
@@ -3291,7 +3298,7 @@ export const fr = {
         meilleursPassages: "Meilleurs passages :",
         aucunPost: "Pas encore de post publié pour ce contenu.",
         voie2:
-          "Les labels de la voie 2 (white_bg, mentalmaxxing, that_girl_study, Fathomly) refont les posts d'un compte suivi : ils n'ont pas de boîte.",
+          "Les labels de la voie 2 (100 % podz, dont le podz livre des slides finies) refont les posts d'un compte suivi : ils n'ont pas de boîte.",
       },
       reglages: {
         titre: "Réglages BLEO",

@@ -33,7 +33,7 @@ export function ADeciderMaintenant() {
   if (lu.error) return <p className="text-sm text-destructive">{(lu.error as Error).message}</p>;
   return (
     <section className="space-y-3" data-testid="a-decider-maintenant">
-      <details open={maintenant.length > 0 && maintenant.length <= 15} className="rounded-md border p-3">
+      <details open className="rounded-md border border-warning bg-warning/5 p-3">
         <summary className="cursor-pointer text-sm font-semibold">
           ⚡ {t(`${P}.maintenant`, { count: maintenant.length })}
         </summary>

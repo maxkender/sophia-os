@@ -72,15 +72,18 @@ const sourceUrl = anterieurs.some((p) => p.source?.url === post.source.url) ? `$
 const corps = {
   action: "deposer",
   pod: POD,
-  source_url: sourceUrl,
+  // Un full test (accroche neuve) part sans le post modèle : un original en images finies, rang fixe.
+  source_url: post.type_bleo === "full_test" ? null : sourceUrl,
   source_id: post.id,
-  source_vues: post.source.vues,
+  source_vues: post.type_bleo === "full_test" ? undefined : post.source.vues,
   titre: post.titre[LANGUE_SOURCE].slice(0, 160),
   langue_source: LANGUE_SOURCE,
   musique_url: post.musique.url,
   musique_titre: post.musique.titre,
   textes,
   decks,
+  // BLEO (pods/ROUTINE.md §5) : jugé au guichet sur la boîte du label ; refusé avec un code sinon.
+  ...(post.type_bleo ? { type_bleo: post.type_bleo, ...(post.parent_contenu_id ? { parent_contenu_id: post.parent_contenu_id } : {}) } : {}),
 };
 
 if (essai) {

@@ -337,6 +337,12 @@ export const en = {
           reporte: "postponed one week",
         },
         detailSamedi: "Saturday check in detail, and messages to posters",
+        fait: {
+          titre: "{{rituel}} done on {{quand}}",
+          prochain: "next: {{date}}",
+          revoir: "Review, change or prepare the next one",
+          rituels: { jeudi: "Thursday", samedi: "Saturday", dimanche: "Sunday" },
+        },
         detailJeudi: "Thursday check in detail and Shadowban page (ex Dead accounts)",
         liste: {
           affiches: "{{n}} shown out of {{total}}",
@@ -593,6 +599,7 @@ export const en = {
             aide: "Only the new cohort (first week of posts). Red: to handle, orange: to watch, with the problem in one sentence; accounts with nothing to report are grouped at the bottom. Click a line or a day for the detail. Nudge (Slack) or Recreate account by account; nothing goes out before Send.",
             rienASignaler: "Nothing to report ({{n}})",
             choix: { nudge: "Nudge", recreate: "Recreate", kill_samedi: "Kill Saturday", rien: "Nothing" },
+            recreerQuandMeme: "This account gets {{vues}} views per post: recreate anyway?",
             dejaNudge: "Already nudged this week",
             problemes: "Recreate · decided on {{date}} in Problems",
             enFile: "Nudge waiting to go out",
@@ -3285,7 +3292,7 @@ export const en = {
         meilleursPassages: "Best posts:",
         aucunPost: "No published post yet for this content.",
         voie2:
-          "Lane-2 labels (white_bg, mentalmaxxing, that_girl_study, Fathomly) remake the posts of a followed account: they have no box.",
+          "Lane-2 labels (100% pod labels whose pod delivers finished slides) remake the posts of a followed account: they have no box.",
       },
       reglages: {
         titre: "BLEO settings",

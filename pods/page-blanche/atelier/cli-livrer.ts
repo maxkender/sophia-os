@@ -37,6 +37,13 @@ type Manifeste = {
     legende: string;
     statut: string;
     musique: { titre: string | null; url_tiktok: string | null };
+    /**
+     * BLEO (pods/ROUTINE.md §5) : « declinaison » d'une famille de la boîte
+     * (`npm run boite`, avec `parent_contenu_id`) ou « full_test » (une accroche
+     * neuve, déposée sans `url`). Absent : un remake d'un post du compte modèle.
+     */
+    type_bleo?: "full_test" | "declinaison";
+    parent_contenu_id?: string;
   }[];
 };
 
@@ -154,10 +161,11 @@ for (const p of posts) {
   const corps = {
     action: "deposer",
     pod: POD,
-    source_url: p.url || null,
+    // Un full test (accroche neuve) part sans post source : un original, rang fixe.
+    source_url: p.type_bleo === "full_test" ? null : p.url || null,
     source_id: p.post_id,
     // Post original : pas de vues source (null, et non 0).
-    source_vues: p.vues ?? undefined,
+    source_vues: p.type_bleo === "full_test" ? undefined : p.vues ?? undefined,
     titre: textes[0]?.slice(0, 160) ?? null,
     langue_source: langueSource,
     musique_url: p.musique.url_tiktok,
@@ -165,6 +173,8 @@ for (const p of posts) {
     textes,
     decks: decksEnvoyes,
     ...(Object.keys(unswipe).length ? { decks_applications: { unswipe } } : {}),
+    // BLEO : jugé au guichet sur la boîte du label (ignoré pour un complément --app-seul).
+    ...(p.type_bleo ? { type_bleo: p.type_bleo, ...(p.parent_contenu_id ? { parent_contenu_id: p.parent_contenu_id } : {}) } : {}),
   };
 
   if (essai) {

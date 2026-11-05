@@ -36,6 +36,7 @@ import {
   tuerRecrue,
   verifierALaMain,
 } from "./dimancheContexte";
+import { marquerRituelFait } from "./rituelsFaits";
 import { TD, TH } from "./TableauComptes";
 
 const P = "autoOnglets.decisions.dimanche";
@@ -355,9 +356,12 @@ export function CheckWarmup() {
         }
       }
       if (kills.length) await lancerArrets().catch((e: Error) => erreurs.push(`arrets : ${e.message}`));
+      // 0540 : le dimanche est fait jusqu'au dimanche suivant.
+      await marquerRituelFait("dimanche", lundi, { appliques: n, erreurs: erreurs.length }).catch(() => undefined);
       return { n, erreurs };
     },
     onSuccess: (r) => {
+      void qc.invalidateQueries({ queryKey: ["rituels-faits"] });
       setBrouillons({});
       setBilan(t(`${P}.v2.bilan`, { n: r.n }) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
       for (const k of ["check-warmup", "debut-choix", "dimanche-contexte"]) void qc.invalidateQueries({ queryKey: [k, lundi] });

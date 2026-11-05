@@ -84,17 +84,26 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré
   passe au guichet, comme en voie 1 ; un remake du compte modèle part sans
-  déclaration. **Leur rythme ne change pas encore** : les règles 2, 5, 6 et 8
-  valent toujours pour eux, pas les règles de la jauge ci-dessous.
+  déclaration.
+- **Leur rythme est calculé par l'OS (depuis le 5/11, lot 4, 0655)** : ce
+  que mangent les comptes de leur label (posts du label par jour sur chaque
+  compte ; jours de posts jamais publiés du compte le plus juste, cible
+  10 jours ; tests de la file à juger). **Tu ne touches plus leur `par_jour`** :
+  `pods/rythme.json` ne garde que leur pause, et les règles 2, 5, 6 et 8 ne
+  valent plus pour eux, ni celles de la jauge ci-dessous. Chaque matin, lis
+  `select pod, par_jour, rattrapage_du_jour, consommation, stock_jours, compte_le_plus_juste from bleo_rythme_remakes();`
+  et mets-le dans le point (ligne « Rythme remakes »). Signale un podz qui ne
+  livre pas son rythme (`pod_livraisons` d'hier), et un compte le plus juste
+  resté sous 7 jours trois matins de suite. Les seuils sont dans
+  `reglages.bleo.rythme_remakes` : seuls Adrien ou Max les changent.
 - **Leurs langues (depuis le 5/11, 0654)** : chaque podz de remakes déclare
   les langues qu'il sait faire (`select slug, langues from pods where langues
   is not null;`), l'attribution des comptes les lit, et il ne livre que celles
   où son label a un compte (`select public.pod_langues('<podz>');`). Une
   langue qui manque de posts gagnants (compte neuf, langue neuve) reçoit des
   commandes de rattrapage chaque nuit à 5 h 55 : le podz les fait d'abord,
-  au plus la moitié de son `par_jour`. Pour la règle 2 (stock), un compte
-  dont la langue a des commandes ouvertes n'appelle pas une livraison de
-  plus : dis-le dans la ligne « Stock » avec le nombre de commandes
+  en plus de son rythme du jour (autant que `rattrapage_du_jour`). Dis-le dans
+  la ligne « Rythme remakes » avec le nombre de commandes
   (`select pod, count(*), min(cree_le) from bleo_commandes_langue where statut = 'a_faire' group by pod;`).
   Une commande ouverte depuis plus de 7 jours : signale-la.
 - **La jauge** : `select * from bleo_jauge order by pod;` (aujourd'hui) et
@@ -142,7 +151,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
       langue, il n'a jamais publiés, et dans combien de jours il tombe à
       court à son rythme de publication. Sous 7 jours → **une livraison de
       plus par jour** dans `pods/rythme.json` pour le podz qui nourrit ce
-      label. Les labels 100 % podz passent en premier : ce sont ceux de
+      label. Les labels 100 % podz de remakes ne passent plus par cette
+      règle : leur rythme est calculé sur ce stock (voir BLEO plus haut).
+      Les labels 100 % podz sont ceux de
       `select label, pod, voie from labels_100_podz;` (un seul podz les
       nourrit, aucune source), jamais une liste de tête.
       Dis-le dans le point, avec le compte et ses jours de stock.
@@ -184,6 +195,7 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
 • Reposts faute de neuf hier : <n> (<podz> : <comptes>). Objectif : 0.
 • Boucle : <x> % des livraisons des 7 derniers jours sont des déclinaisons ; <n> full tests livrés sur la semaine (<podz> : <n>, …).
 • Rythme : <podz> passe à <n> livraisons par jour (<raison chiffrée>).
+• Rythme remakes : <podz> <n> (+<r> rattrapages) · … — compte le plus juste <compte> (<langue>) à <j> j.
 • Essai envoyé : <idée> → <podz>.
 • À surveiller : <podz> ne perce pas depuis 14 jours (répondez « pause » dans ce fil pour l'arrêter).
 ```

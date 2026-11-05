@@ -42,7 +42,8 @@ type Reponse = {
   jour: string;
   voie: 1 | 2;
   langues: { declarees: string[] | null; comptes: Record<string, number>; a_livrer: string[] | null } | null;
-  rattrapage?: { du_jour: number; commandes: Commande[] };
+  rattrapage?: { du_jour: number; en_plus?: boolean; commandes: Commande[] };
+  rythme?: { par_jour: number; rattrapage_du_jour: number; consommation: number; stock_jours: number | null; compte_le_plus_juste: string | null } | null;
   jauge: { familles_en_boite: number; semaines: number | null; part_full_test: number; par_jour: number; full_tests_du_jour: number };
   deposes_aujourdhui: { full_test: number; declinaison: number; sans_type: number; rattrapage?: number };
   boite: Ligne[];
@@ -52,17 +53,17 @@ const args = process.argv.slice(2);
 const opt = (n: string) => (args.includes(n) ? args[args.indexOf(n) + 1] : undefined);
 const limite = Number(opt("--limite") ?? 30);
 
-// Le rythme du podz (pods/rythme.json, tenu par le chef) : la clé est le nom du dossier.
-let parJour: number | undefined;
+// Voie 2 (lot 4, 0655) : le rythme vient de l'OS, calculé sur les comptes du
+// label ; pods/rythme.json ne garde que la pause (la clé est le nom du dossier).
+let pause = false;
 try {
-  const rythme = JSON.parse(readFileSync("../rythme.json", "utf8")) as Record<string, { par_jour?: number; pause?: boolean }>;
-  const r = rythme[basename(process.cwd())];
-  if (r && !r.pause && typeof r.par_jour === "number") parJour = r.par_jour;
+  const rythme = JSON.parse(readFileSync("../rythme.json", "utf8")) as Record<string, { pause?: boolean }>;
+  pause = rythme[basename(process.cwd())]?.pause === true;
 } catch {
-  // sans rythme.json : l'OS prend le rythme mesuré sur 7 jours
+  // sans rythme.json : pas de pause
 }
 
-const r = await appelPod<Reponse>({ action: "boite", limite, langues: [...LANGUES], ...(parJour ? { par_jour: parJour } : {}) });
+const r = await appelPod<Reponse>({ action: "boite", limite, langues: [...LANGUES] });
 if (!r.ok) throw new Error(r.error);
 mkdirSync("donnees", { recursive: true });
 writeFileSync("donnees/boite.json", JSON.stringify(r, null, 1));
@@ -70,6 +71,7 @@ writeFileSync("donnees/boite.json", JSON.stringify(r, null, 1));
 console.log(r.voie === 2
   ? "Voie 2 (remakes) : suis pods/ROUTINE.md §5."
   : "Attention : l'OS range ce podz en voie 1 (originaux) : suis pods/ROUTINE.md §4.");
+if (pause) console.log("PAUSE (pods/rythme.json) : ne livre rien aujourd'hui, mesure seulement (pods/ROUTINE.md §2).");
 const k = (n: number | null | undefined) => (n == null ? "—" : n >= 1000 ? `${Math.round(n / 100) / 10} k` : String(n));
 const j = r.jauge;
 const deja = r.deposes_aujourdhui;
@@ -77,10 +79,20 @@ const rattrapage = r.rattrapage ?? { du_jour: 0, commandes: [] };
 const rattrapagesFaits = deja.rattrapage ?? 0;
 const rattrapagesRestants = Math.max(0, rattrapage.du_jour - rattrapagesFaits);
 const fullTestsRestants = Math.max(0, j.full_tests_du_jour - deja.full_test);
+// 0655 : le rattrapage s'ajoute au rythme calculé (avant : il en prenait une part).
+const partRattrapage = rattrapage.en_plus ? 0 : Math.max(rattrapage.du_jour, rattrapagesFaits);
 const resteDuJour = Math.max(
   0,
-  j.par_jour - Math.max(rattrapage.du_jour, rattrapagesFaits) - Math.max(j.full_tests_du_jour, deja.full_test) - deja.declinaison - deja.sans_type,
+  j.par_jour - partRattrapage - Math.max(j.full_tests_du_jour, deja.full_test) - deja.declinaison - deja.sans_type,
 );
+if (r.rythme) {
+  console.log(`Rythme du jour (calculé par l'OS) : ${r.rythme.par_jour} livraison(s)` +
+    (rattrapage.du_jour ? ` + ${rattrapage.du_jour} rattrapage(s)` : "") +
+    `. Pourquoi : chaque compte du label en poste ${r.rythme.consommation} par jour` +
+    (r.rythme.compte_le_plus_juste
+      ? ` ; le plus juste, ${r.rythme.compte_le_plus_juste}, a ${r.rythme.stock_jours} jour(s) de posts jamais publiés.`
+      : "."));
+}
 if (r.langues?.a_livrer) {
   const comptes = Object.entries(r.langues.comptes).map(([l, n]) => `${l} ${n}`).join(" · ") || "aucun";
   console.log(`Langues à livrer : ${r.langues.a_livrer.join(", ") || "aucune"} (comptes du label : ${comptes}) ; npm run livrer s'y tient.`);

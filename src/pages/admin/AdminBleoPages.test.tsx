@@ -105,6 +105,8 @@ vi.mock("@/features/bleo/api", async (original) => ({
           verdict: "gagnant",
           reel_titres: null,
           identique_au_reel: false,
+          generation: 1,
+          type_bleo: "declinaison",
         },
       ],
     }),
@@ -365,6 +367,10 @@ describe("section BLEO de l'OS", () => {
       `/admin/bleo/familles/${FAMILLE}`,
     );
     expect(screen.getByText("Pas encore assigné")).toBeInTheDocument();
+    // 0648 : une déclinaison en récolte se reconnaît dans le plan, et se filtre.
+    expect(within(screen.getByTestId("plan-origine")).getByText("G1")).toBeInTheDocument();
+    expect(screen.getByTestId("plan-origine")).toHaveTextContent("Déclinaison");
+    expect(screen.getByRole("option", { name: "Déclinaisons" })).toBeInTheDocument();
   });
 
   it("familles : la liste mène à la fiche", async () => {

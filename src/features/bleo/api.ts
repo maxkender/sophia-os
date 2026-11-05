@@ -120,6 +120,10 @@ export interface LignePlan {
   verdict: VerdictContenu | null;
   reel_titres: string | null;
   identique_au_reel: boolean;
+  /** 0648 : 0 = racine, 1 = G1, 2 = G2. */
+  generation: number | null;
+  /** 0648 : declinaison, full_test, remake, historique… */
+  type_bleo: string | null;
 }
 
 export interface FamilleBleo {
@@ -264,8 +268,12 @@ export function runOfficiel(runs: RunBleo[]): RunBleo | null {
   return runs.find((r) => r.fini_le && !r.erreur) ?? null;
 }
 
+/** Origine d'un contenu du plan (0648) : déclinaison, full test, ou tout le reste. */
+export const ORIGINES_PLAN = ["declinaison", "full_test", "autre"] as const;
+
 export interface FiltresPlan {
   categorie?: string;
+  origine?: string;
   label?: string;
   compte?: string;
   page?: number;
@@ -275,6 +283,8 @@ export async function listerPlan(runId: string, filtres: FiltresPlan = {}): Prom
   const page = filtres.page ?? 0;
   let q = supabase.from("bleo_plan_ui").select("*", { count: "exact" }).eq("run_id", runId);
   if (filtres.categorie) q = q.eq("categorie", filtres.categorie);
+  if (filtres.origine === "declinaison" || filtres.origine === "full_test") q = q.eq("type_bleo", filtres.origine);
+  else if (filtres.origine === "autre") q = q.or("type_bleo.is.null,type_bleo.not.in.(declinaison,full_test)");
   if (filtres.label) q = q.eq("label", filtres.label);
   if (filtres.compte) q = q.ilike("handle_tiktok", `%${filtres.compte}%`);
   const { data, error, count } = await q

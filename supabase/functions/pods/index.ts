@@ -1177,6 +1177,10 @@ async function rattacherDeclinaison(supabase: Supabase, contenuId: string, paren
  * Voie 2 (0653, remakes) : une boîte vide ne fait pas une journée de full
  * tests, les remakes des posts neufs du compte modèle passent avant. Les full
  * tests du jour sont la part de la jauge, même boîte vide.
+ *
+ * Voie 2 (0655, lot 4) : `par_jour` est le rythme calculé sur les comptes du
+ * label (`bleo_rythme_remakes`), pas celui de `pods/rythme.json` ; les
+ * rattrapages du jour s'y ajoutent. Sans calcul (fonction absente), comme avant.
  */
 async function boite(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
@@ -1195,6 +1199,7 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
     { data: langues },
     { data: rattrapage },
     { count: rattrapagesDeposes },
+    { data: rythmes },
   ] = await Promise.all([
     supabase.rpc("bleo_boite_posts", { p_label_id: pod.label_id, p_limite: limite }),
     supabase.from("bleo_jauge").select("familles_en_boite, par_jour, semaines, part_full_test").eq("pod", pod.slug).maybeSingle(),
@@ -1216,6 +1221,8 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       .eq("pod", pod.slug)
       .eq("type", "langues")
       .gte("depose_le", debutJourParis(jour)),
+    // 0655 : le rythme d'un podz de remakes (aucune ligne pour la voie 1).
+    supabase.rpc("bleo_rythme_remakes", { p_pod: pod.slug }),
   ]);
   if (error) throw new Error(`bleo_boite_posts : ${messageErreur(error)}`);
   const voie = Number(label?.voie) === 2 ? 2 : 1;
@@ -1224,13 +1231,22 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
   const part = jauge?.part_full_test != null
     ? Number(jauge.part_full_test)
     : enBoite === 0 ? (voie === 2 ? parts[parts.length - 1] : 1) : parts[1];
+  const rythme = voie === 2 && Array.isArray(rythmes) && rythmes.length
+    ? (rythmes[0] as Record<string, unknown> & { par_jour: number; rattrapage_du_jour: number })
+    : null;
   const parJourDemande = Number(body.par_jour);
-  const parJour = Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
+  const parJour = rythme
+    ? Number(rythme.par_jour)
+    : Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
   const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0, rattrapage: rattrapagesDeposes ?? 0 };
-  // 0654 : les commandes de rattrapage passent d'abord, au plus la moitié du jour.
+  // 0654 : les commandes de rattrapage passent d'abord ; 0655 : autant que le
+  // rythme calculé en demande, en plus du jour (sinon au plus la moitié du jour).
   const commandes = (Array.isArray(rattrapage) ? rattrapage : []) as Array<{ en_attente?: boolean }>;
   const aFaire = commandes.filter((c) => !c.en_attente).length;
-  const rattrapagesDuJour = Math.min(aFaire + aujourdhui.rattrapage, Math.ceil(parJour / 2));
+  const rattrapagesDuJour = Math.min(
+    aFaire + aujourdhui.rattrapage,
+    rythme ? Number(rythme.rattrapage_du_jour) : Math.ceil(parJour / 2),
+  );
   for (const d of deposes ?? []) {
     const t = (d as { type_bleo: string | null }).type_bleo;
     if (t === "full_test" || t === "declinaison") aujourdhui[t] += 1;
@@ -1254,7 +1270,10 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
     // 0654 (remakes) : langues déclarées, comptes du label par langue, langues
     // à livrer ; et les commandes de rattrapage, dans l'ordre où les faire.
     langues: langues ?? null,
-    rattrapage: { du_jour: rattrapagesDuJour, commandes },
+    rattrapage: { du_jour: rattrapagesDuJour, en_plus: rythme !== null, commandes },
+    // 0655 (remakes) : d'où vient `par_jour` (consommation des comptes, stock du
+    // compte le plus juste, tests de la file à juger) ; null : rythme.json.
+    rythme,
     deposes_aujourdhui: aujourdhui,
     boite: lignes ?? [],
   });

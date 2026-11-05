@@ -40,6 +40,13 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 
 Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
 
+**Voie 2 (podz de remakes, depuis le 5/11)** : ton `par_jour` ne vient plus
+de `pods/rythme.json` (il n'y garde que ta pause). L'OS le calcule chaque jour
+sur les comptes de ton label : ce qu'ils postent par jour, et combien de
+jours de posts jamais publiés il reste au compte le plus juste. `npm run
+boite` le donne (ligne « Rythme du jour », avec le pourquoi). Les rattrapages
+du jour s'y ajoutent.
+
 ## 3. Mesurer
 
 - Tous : `npm run etat`, puis `npm run suivi` si ton podz l'a et qu'un passage
@@ -194,11 +201,11 @@ posts neufs de ton compte modèle.
 1. **Une demande du chef des podz** pas encore faite : d'abord. Elle compte
    dans tes livraisons du jour.
 2. **Le rattrapage** : les commandes de `npm run boite`, dans l'ordre,
-   autant que la ligne « Rattrapage » en demande aujourd'hui (au plus la
-   moitié de tes `par_jour`). Chacune compte pour une livraison (5.5).
+   autant que la ligne « Rattrapage » en demande aujourd'hui, **en plus** de
+   ton rythme du jour (5.5).
 3. **Les full tests** : autant que la jauge en demande aujourd'hui (« Reste à
    faire »).
-4. **Le reste de tes `par_jour`**, dans cet ordre :
+4. **Le reste de ton rythme du jour**, dans cet ordre :
    1. **Les posts neufs du compte modèle**, tant qu'il en publie : c'est ce
       qui fait la voie 2. Ta liste : `sources/manifeste.json` (podz 10, 11 et
       13), les posts neufs d'@amayareading (podz 1, `npm run sources`).

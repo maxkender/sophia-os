@@ -66,6 +66,9 @@ function source(champs: Partial<SourceUgcIa>): SourceUgcIa {
     debut_s: null,
     fin_s: null,
     coupe_url: null,
+    telephone_debut_s: null,
+    telephone_fin_s: null,
+    telephone_url: null,
     cta_texte: "I could KISS the person who showed me this",
     cta_image_url: "https://x/cta.jpg",
     created_at: "2026-11-05T10:00:00Z",
@@ -113,13 +116,14 @@ describe("AdminUgcIaPage", () => {
     await waitFor(() => expect(rapatrier).toHaveBeenCalledTimes(1));
   });
 
-  it("montre le CTA de la source et enregistre sa correction", async () => {
+  it("montre le texte à l'écran de la source (sans l'image) et enregistre sa correction", async () => {
     listerSources.mockResolvedValue([source({})]);
     enregistrerCta.mockResolvedValue({ source: source({}) });
     rendre();
     const carte = await screen.findByTestId("source-s1");
-    expect(within(carte).getByAltText("Premier écran de la vidéo")).toHaveAttribute("src", "https://x/cta.jpg");
-    const champ = within(carte).getByLabelText("Texte du CTA");
+    expect(within(carte).queryByRole("img", { name: /premier écran/i })).not.toBeInTheDocument();
+    expect(within(carte).getByRole("button", { name: "Relire sur la vidéo" })).toBeInTheDocument();
+    const champ = within(carte).getByLabelText("Texte à l'écran");
     expect(champ).toHaveValue("I could KISS the person who showed me this");
     const bouton = within(carte).getByRole("button", { name: "Enregistrer" });
     expect(bouton).toBeDisabled();
@@ -128,20 +132,44 @@ describe("AdminUgcIaPage", () => {
     await waitFor(() => expect(enregistrerCta).toHaveBeenCalledWith("s1", "I could KISS whoever showed me this 😭"));
   });
 
-  it("coupe le passage choisi, même très court, et refuse une fin avant le début", async () => {
+  it("coupe la réaction, même très courte, et refuse une fin avant le début", async () => {
     listerSources.mockResolvedValue([source({})]);
     couper.mockResolvedValue({ source: source({}) });
     rendre();
     const carte = await screen.findByTestId("source-s1");
-    expect(within(carte).getByText("Coupe d'abord le passage de la réaction pour lancer Genjutsu.")).toBeInTheDocument();
-    const bouton = within(carte).getByRole("button", { name: "Couper ce passage" });
-    fireEvent.change(within(carte).getByLabelText("Début (s)"), { target: { value: "8" } });
-    expect(within(carte).getByText("La fin doit être après le début.")).toBeInTheDocument();
+    expect(within(carte).getByText("Coupe d'abord la réaction (étape 1).")).toBeInTheDocument();
+    const ligne = within(carte).getByTestId("coupe-reaction");
+    const bouton = within(ligne).getByRole("button", { name: "Couper la réaction" });
+    fireEvent.change(within(ligne).getByLabelText("Début de Réaction (s)"), { target: { value: "8" } });
+    expect(within(ligne).getByText("La fin doit être après le début.")).toBeInTheDocument();
     expect(bouton).toBeDisabled();
-    fireEvent.change(within(carte).getByLabelText("Début (s)"), { target: { value: "1,5" } });
-    fireEvent.change(within(carte).getByLabelText("Fin (s)"), { target: { value: "3" } });
+    fireEvent.change(within(ligne).getByLabelText("Début de Réaction (s)"), { target: { value: "1,5" } });
+    fireEvent.change(within(ligne).getByLabelText("Fin de Réaction (s)"), { target: { value: "3" } });
     fireEvent.click(bouton);
-    await waitFor(() => expect(couper).toHaveBeenCalledWith("s1", 1.5, 3));
+    await waitFor(() => expect(couper).toHaveBeenCalledWith("s1", "reaction", 1.5, 3));
+  });
+
+  it("coupe aussi la partie téléphone, proposée après la réaction, et la montre une fois coupée", async () => {
+    listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4" })]);
+    couper.mockResolvedValue({ source: source({}) });
+    rendre();
+    const carte = await screen.findByTestId("source-s1");
+    const ligne = within(carte).getByTestId("coupe-telephone");
+    expect(within(ligne).getByText("pas encore coupée")).toBeInTheDocument();
+    expect(within(ligne).getByLabelText("Début de Partie téléphone (s)")).toHaveValue("4");
+    expect(within(ligne).getByLabelText("Fin de Partie téléphone (s)")).toHaveValue("20");
+    fireEvent.click(within(ligne).getByRole("button", { name: "Couper la partie téléphone" }));
+    await waitFor(() => expect(couper).toHaveBeenCalledWith("s1", "telephone", 4, 20));
+  });
+
+  it("affiche la partie téléphone déjà coupée, à télécharger", async () => {
+    listerSources.mockResolvedValue([
+      source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4", telephone_debut_s: 4, telephone_fin_s: 12, telephone_url: "https://x/telephone.mp4" }),
+    ]);
+    rendre();
+    const ligne = within(await screen.findByTestId("source-s1")).getByTestId("coupe-telephone");
+    expect(within(ligne).getByText("coupée : 4 s → 12 s")).toBeInTheDocument();
+    expect(within(ligne).getByRole("link", { name: "Télécharger" })).toHaveAttribute("href", "https://x/telephone.mp4");
   });
 
   it("lance Genjutsu pour les personas cochés, avec la résolution choisie", async () => {
@@ -149,10 +177,9 @@ describe("AdminUgcIaPage", () => {
     generer.mockResolvedValue({ resultats: [{ personaId: "p1", nom: "Sophie", generationId: "g1" }, { personaId: "p2", nom: "Clara", erreur: "solde insuffisant" }] });
     rendre();
     const carte = await screen.findByTestId("source-s1");
-    const lancer = within(carte).getByRole("button", { name: "Générer pour 0 persona" });
+    const lancer = within(carte).getByRole("button", { name: "Coche au moins un persona" });
     expect(lancer).toBeDisabled();
-    fireEvent.click(within(carte).getByRole("checkbox", { name: "Sophie" }));
-    fireEvent.click(within(carte).getByRole("checkbox", { name: "Clara" }));
+    fireEvent.click(within(carte).getByRole("button", { name: "Tout cocher" }));
     fireEvent.click(within(carte).getByRole("button", { name: "1080p" }));
     fireEvent.click(within(carte).getByRole("button", { name: "Générer pour 2 personas" }));
     await waitFor(() => expect(generer).toHaveBeenCalledWith("s1", ["p1", "p2"], expect.stringContaining("performs exactly the motion"), "1080p"));
@@ -186,8 +213,9 @@ describe("AdminUgcIaPage", () => {
     rendre();
     const carte = await screen.findByTestId("source-s1");
     expect(within(carte).getByText("Genjutsu en cours…")).toBeInTheDocument();
-    expect(within(carte).getByRole("button", { name: "Recouper" })).toBeDisabled();
-    expect(within(carte).getByRole("checkbox", { name: "Sophie" })).toBeDisabled();
+    expect(within(carte).getByRole("button", { name: "Couper la réaction" })).toBeDisabled();
+    expect(within(carte).getByRole("button", { name: "Couper la partie téléphone" })).not.toBeDisabled();
+    expect(within(carte).getByRole("checkbox", { name: "Sophie déjà en cours" })).toBeDisabled();
     expect(within(screen.getByTestId("generation-g1")).getByRole("button", { name: "Refaire" })).toBeDisabled();
     await waitFor(() => expect(suivre).toHaveBeenCalled());
     repondre({ bilan: [{ id: "g2", statut: "prete" }] });

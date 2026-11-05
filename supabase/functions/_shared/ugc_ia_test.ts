@@ -6,6 +6,7 @@ import {
   cheminsUgcIa,
   lienTiktok,
   nettoyerCta,
+  partieSource,
   passage,
   personasDemandees,
   urlImageExtraite,
@@ -37,10 +38,23 @@ Deno.test("passage : pas de minimum, 30 s au plus, dans la vidéo", () => {
   assertEquals("erreur" in passage(null, 5, 10), true);
 });
 
+Deno.test("passage : la partie téléphone a son propre plafond", () => {
+  assertEquals(passage(4, 64, 90, 180), { debut: 4, fin: 64 });
+  assertEquals("erreur" in passage(4, 64, 90), true);
+  assertEquals("erreur" in passage(0, 181, 200, 180), true);
+});
+
+Deno.test("partieSource : réaction par défaut, téléphone, sinon null", () => {
+  assertEquals(partieSource(undefined), "reaction");
+  assertEquals(partieSource("telephone"), "telephone");
+  assertEquals(partieSource("demo"), null);
+});
+
 Deno.test("chemins : un dossier par source, les générations dedans, les personas à part", () => {
   assertEquals(cheminsUgcIa("abc"), {
     source: "ugc-ia/abc/source.mp4",
     reaction: "ugc-ia/abc/reaction.mp4",
+    telephone: "ugc-ia/abc/telephone.mp4",
     cta: "ugc-ia/abc/cta.jpg",
   });
   assertEquals(cheminGeneration("abc", "g1"), "ugc-ia/abc/g1.mp4");

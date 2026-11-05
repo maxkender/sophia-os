@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 et 0657) : les règles pures, partagées
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0658) : les règles pures, partagées
  * par la fonction `ugc-ia` et ses tests. Le front a les mêmes bornes dans
  * `src/features/ugcIa/logique.ts`.
  */
@@ -10,6 +10,17 @@
  * revient en échec, non facturé.
  */
 export const PASSAGE_MAX_S = 30;
+
+/** La partie téléphone (la démo de l'appli) ne passe pas par Genjutsu : plafond plus large. */
+export const TELEPHONE_MAX_S = 180;
+
+/** Les deux parties qu'on coupe dans une source. */
+export type PartieSource = "reaction" | "telephone";
+
+export function partieSource(brut: unknown): PartieSource | null {
+  const p = String(brut ?? "reaction");
+  return p === "reaction" || p === "telephone" ? p : null;
+}
 
 /**
  * Le prompt par défaut, repris du pod Réactions UGC : le persona refait le
@@ -42,14 +53,16 @@ function nombre(v: unknown): number | null {
 }
 
 /**
- * Le passage à couper (en secondes) : début ≥ 0, fin après le début, 30 s au
- * plus, dans la vidéo si on connaît sa durée. Rend le passage arrondi au dixième, ou
- * l'erreur à afficher.
+ * Le passage à couper (en secondes) : début ≥ 0, fin après le début, `max`
+ * secondes au plus (30 pour la réaction, la limite de Genjutsu), dans la vidéo
+ * si on connaît sa durée. Rend le passage arrondi au dixième, ou l'erreur à
+ * afficher.
  */
 export function passage(
   debutBrut: unknown,
   finBrut: unknown,
   dureeSource: number | null,
+  max = PASSAGE_MAX_S,
 ): { debut: number; fin: number } | { erreur: string } {
   const debut = nombre(debutBrut);
   const fin = nombre(finBrut);
@@ -58,7 +71,7 @@ export function passage(
   const f = Math.round(fin * 10) / 10;
   if (d < 0) return { erreur: "Le début ne peut pas être négatif" };
   if (f <= d) return { erreur: "La fin doit être après le début" };
-  if (f - d > PASSAGE_MAX_S) return { erreur: `Le passage doit durer au plus ${PASSAGE_MAX_S} s` };
+  if (f - d > max) return { erreur: `Le passage doit durer au plus ${max} s` };
   // Tolérance d'un dixième : la durée annoncée par TikTok est arrondie.
   if (dureeSource != null && dureeSource > 0 && f > dureeSource + 0.1) {
     return { erreur: `La fin dépasse la vidéo (${Math.round(dureeSource * 10) / 10} s)` };
@@ -67,9 +80,14 @@ export function passage(
 }
 
 /** Les fichiers d'une source dans le bucket `medias` (un dossier par source). */
-export function cheminsUgcIa(sourceId: string): { source: string; reaction: string; cta: string } {
+export function cheminsUgcIa(sourceId: string): { source: string; reaction: string; telephone: string; cta: string } {
   const base = `ugc-ia/${sourceId}`;
-  return { source: `${base}/source.mp4`, reaction: `${base}/reaction.mp4`, cta: `${base}/cta.jpg` };
+  return {
+    source: `${base}/source.mp4`,
+    reaction: `${base}/reaction.mp4`,
+    telephone: `${base}/telephone.mp4`,
+    cta: `${base}/cta.jpg`,
+  };
 }
 
 /** La vidéo d'une génération, rangée avec sa source. */

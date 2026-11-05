@@ -71,7 +71,8 @@ const textes = post.slides
 // Une variante refait un post déjà remaké : l'OS refuse deux contenus de même
 // source_url, on la distingue par « ?variante=<id> » (comme le podz 10).
 const anterieurs = readdirSync(join(RACINE, "posts"))
-  .filter((f) => /^fa-\d+\.json$/.test(f) && f < `${id}.json`)
+  // Un post plus ancien, ou le deck qu'un `<id>-v2` remplace (fa-001 pour fa-001-v2).
+  .filter((f) => /^fa-\d+(-v\d+)?\.json$/.test(f) && f !== `${id}.json` && (f < `${id}.json` || id.startsWith(`${f.slice(0, -5)}-`)))
   .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
 const sourceUrl = anterieurs.some((p) => p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source.url;
 

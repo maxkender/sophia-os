@@ -1,0 +1,610 @@
+{
+ "id": "fa-001-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7690948590805519638",
+  "vues": 817700,
+  "publie_le": "2026-09-29",
+  "accroche": "5 Ways To Be Unrecognisable In 6 Months"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 6 Months",
+  "es": "5 formas de ser irreconocible en 6 meses",
+  "de": "5 Wege, in 6 Monaten nicht wiederzuerkennen",
+  "it": "5 modi per essere irriconoscibile in 6 mesi",
+  "pt": "5 formas de ficar irreconhecível em 6 meses",
+  "fr": "5 façons d'être méconnaissable dans 6 mois"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 6 Months #selfimprovement #learnontiktok #selfmastery",
+  "es": "5 formas de ser irreconocible en 6 meses #desarrollopersonal #aprendeentiktok #superacionpersonal",
+  "de": "5 Wege, in 6 Monaten nicht wiederzuerkennen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "5 modi per essere irriconoscibile in 6 mesi #crescitapersonale #imparacontiktok #miglioramentopersonale",
+  "pt": "5 formas de ficar irreconhecível em 6 meses #desenvolvimentopessoal #aprendanotiktok #autoconhecimento",
+  "fr": "5 façons d'être méconnaissable dans 6 mois #developpementpersonnel #apprendresurtiktok #culturegenerale"
+ },
+ "musique": {
+  "titre": "lol",
+  "url": "https://www.tiktok.com/music/lol-7573723683745237774"
+ },
+ "notes": "remplace fa-001 (carte UnSwipe retirée). L'étape 1 (UnSwipe « QUIT SHORT VIDEOS ») redevient une étape normale « QUIT SOCIAL MEDIA » avec sa vraie vidéo YouTube native dans chaque langue ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 3).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 6 MONTHS"
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE SER"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONOCIBLE",
+       "bronze": true
+      }
+     ],
+     "EN 6 MESES"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE, IN"
+      }
+     ],
+     "6 MONATEN",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "MODI PER ESSERE"
+      }
+     ],
+     [
+      {
+       "t": "IRRICONOSCIBILE",
+       "bronze": true
+      }
+     ],
+     "IN 6 MESI"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 6 MESES"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FAÇONS D'ÊTRE"
+      }
+     ],
+     [
+      {
+       "t": "MÉCONNAISSABLE",
+       "bronze": true
+      }
+     ],
+     "DANS 6 MOIS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "QUIT SOCIAL",
+     "MEDIA"
+    ],
+    "video": {
+     "id": "9z8_YhWoq2o",
+     "titre": "I quit social media for 30 days",
+     "chaine": "Matt D'Avella",
+     "vues": "6.3M views",
+     "date": "7 years ago",
+     "duree": "8:43",
+     "avatar": "https://yt3.ggpht.com/Ldpkcur-En5Qn8rcowaWiU6xbNt_yMrs1mAVcSRBIOdq0tSyTmGGIALRcgfm1a8aGKgYiYDEIQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "DEJA LAS",
+     "REDES"
+    ],
+    "video": {
+     "id": "LFvnrAukd8k",
+     "titre": "30 días sin redes sociales: así cambió mi vida",
+     "chaine": "daniarion",
+     "vues": "32 K visualizaciones",
+     "date": "hace 1 año",
+     "duree": "10:09",
+     "avatar": "https://yt3.ggpht.com/kcI51PebdrYW2Ms7m9Lw4U9M3nAPxWHkPM6s6He7iNyiVOFZIfst_G_GRNtpLzANsQq48IvVwyo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SOCIAL MEDIA",
+     "PAUSE"
+    ],
+    "video": {
+     "id": "np9EdrIL8F8",
+     "titre": "Das passiert, wenn du Social Media löschst!",
+     "chaine": "tomatolix",
+     "vues": "846.551 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:30",
+     "avatar": "https://yt3.ggpht.com/eeIkr8bSxZSipki-zg8roL21XVJPhCESWgPYPsZ9-CFc8jladWczIU8OY6CbIuMnObkBopb8Bw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "STACCA DAI",
+     "SOCIAL"
+    ],
+    "video": {
+     "id": "rZJ9vMF9l14",
+     "titre": "30 GIORNI SENZA SOCIAL MEDIA",
+     "chaine": "Progetto Happiness",
+     "vues": "713K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "17:43",
+     "avatar": "https://yt3.ggpht.com/Mi-Xz7jzdIq_Nh1K79mXeplHkkrVn2kEF9fIZqdkmrJy3L9UtI9ySSmzUZBc4rLGPND3GtY5Dg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "SAI DAS",
+     "REDES SOCIAIS"
+    ],
+    "video": {
+     "id": "B7W2W2fUlp4",
+     "titre": "FIQUEI 30 DIAS SEM REDES SOCIAIS E TIVE QUE ENCARAR A REALIDADE",
+     "chaine": "Fe Alves",
+     "vues": "62 mil visualizações",
+     "date": "há 9 meses",
+     "duree": "15:41",
+     "avatar": "https://yt3.ggpht.com/dt69n0mG9uvraal_jn52X0uCNcQST3Udkbfth3QyNSkPC75NTOtNxFIPIdwR4ZrtLBeKfpYaQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "ARRÊTE LES",
+     "RÉSEAUX"
+    ],
+    "video": {
+     "id": "0EO40ANNwQM",
+     "titre": "30 JOURS SANS RÉSEAUX SOCIAUX | la social media detox est la meilleure chose que j’ai pu faire",
+     "chaine": "Sarah Drrn",
+     "vues": "219 k vues",
+     "date": "il y a 2 ans",
+     "duree": "16:20",
+     "avatar": "https://yt3.ggpht.com/fjbwP_hQ9Jbvgvg5lW3EMPO1XFlIA3DBHY-qWFnuvCPesccGU3eVK_ZpD3FDsgL1LiK_MAfIUA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "EVERY DAY"
+    ],
+    "video": {
+     "id": "e2-ahs905MQ",
+     "titre": "How to Read a Book a Day | Jordan Harry | TEDxBathUniversity",
+     "chaine": "TEDx Talks",
+     "vues": "3.4M views",
+     "date": "8 years ago",
+     "duree": "10:50",
+     "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "LEE TODOS",
+     "LOS DÍAS"
+    ],
+    "video": {
+     "id": "vQ3O8vzsXeg",
+     "titre": "Cómo crear el hábito de la lectura? Utiliza el poder de los libros",
+     "chaine": "Adrià Solà Pastor",
+     "vues": "310 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "15:12",
+     "avatar": "https://yt3.ggpht.com/teuevM7HuT6ap1FW50v80NmmwmuNJhyKiWhznSEmFleIqPES39v7MksSKi4sLDPTn2C0u87D_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES JEDEN",
+     "TAG"
+    ],
+    "video": {
+     "id": "EfS78hMoMPs",
+     "titre": "So kannst du MEHR BÜCHER lesen | 8 Tipps für eine Leseroutine im Alltag",
+     "chaine": "Julezreads",
+     "vues": "28.835 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/i6Y81344WPIIaMXwxOTqeMsX7fGXoK8lZiCRd4V9tbA55hx47j8rK_wzeDaXrjrRLxqK6gUsGA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LEGGI OGNI",
+     "GIORNO"
+    ],
+    "video": {
+     "id": "1h4-zejTsho",
+     "titre": "12 Consigli per leggere di più e iniziare a farlo",
+     "chaine": "Abbozzo",
+     "vues": "93K visualizzazioni",
+     "date": "9 mesi fa",
+     "duree": "29:51",
+     "avatar": "https://yt3.ggpht.com/7jo4PSHKPM-pUUOZgUanEPZKdxt4ULFAkQHAjlLacYKo5U_BsmO68WIdzRzoCW6GkUU15Gquew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LEIA TODOS",
+     "OS DIAS"
+    ],
+    "video": {
+     "id": "HWXv4kpq2iA",
+     "titre": "3 Métodos Comprovados Para Conseguir LER UM LIVRO POR SEMANA | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "94 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LIS TOUS",
+     "LES JOURS"
+    ],
+    "video": {
+     "id": "TvQ9AbWVuTU",
+     "titre": "LA LECTURE TRANSFORME VOTRE CERVEAU",
+     "chaine": "Charlie Haid",
+     "vues": "1,5 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "12:30",
+     "avatar": "https://yt3.ggpht.com/pLqbD1B1VFBfarRFjXGmlZ0VlgM41NtuDNGzHn-pE_AdjygM-4_7R6VmKSYEz94igVhw3Kv96I8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN NEW",
+     "TOPICS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "TEMAS NUEVOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE NEUE",
+     "THEMEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "COSE NUOVE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDA",
+     "TEMAS NOVOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS DE",
+     "NOUVEAUX SUJETS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START",
+     "RUNNING"
+    ],
+    "video": {
+     "id": "kVnyY17VS9Y",
+     "titre": "11 Beginner Run Tips | How To Start Running!",
+     "chaine": "Global Triathlon Network",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EMPIEZA",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "gImHug3sGKI",
+     "titre": "CÓMO EMPEZAR a CORRER sin cansarte | 7 consejos para principiantes",
+     "chaine": "The Saiyan Kiwi",
+     "vues": "1,9 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "17:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU LAUFEN"
+    ],
+    "video": {
+     "id": "nADPAWIm6iw",
+     "titre": "Joggen: 12 gängige (und vermeidbare) Anfängerfehler beim Laufen 🏃🏽‍♂️",
+     "chaine": "FIT FOR FUN",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4JktUjD11B_nLVNKGdsHPqAxmJjCpAd3ZSR4CAX41MA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "INIZIA",
+     "A CORRERE"
+    ],
+    "video": {
+     "id": "LLL8Q_izTP8",
+     "titre": "Come INIZIARE A CORRERE - Tutto quello che devi sapere",
+     "chaine": "Your Personal Best",
+     "vues": "89K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/fIGTMynqyV9apkB6Hgq6tLgYe5UOLYZbZqZMK46dw7FAEDEAyVlrEdpRLnzTmjLqiTsKskPG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMECE",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "rRK6yk6vO5A",
+     "titre": "CORRIDA para INICIANTES! Como começar a correr do zero?",
+     "chaine": "Raquel Castanharo",
+     "vues": "628 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/t8V2iniXXtl4uZbw3KxKW5KvHUtfk4B9aoXWsMPZgSazxM8nx4H8HlqP-VB16npi2gMDCylBo70=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENCE",
+     "À COURIR"
+    ],
+    "video": {
+     "id": "Xu36I2rEcQw",
+     "titre": "Comment débuter la course à pied : 5 conseils pour commencer à courir et aimer ça !",
+     "chaine": "Running Addict",
+     "vues": "525 k vues",
+     "date": "il y a 8 ans",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/zxJqY61mhOVZk3Mcs4T-hHPbO0KZm3GaOsH4sIAn0TVIYJa35a_pV-Oj1rX1DK_NPzonnvq70Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FIX YOUR",
+     "SLEEP"
+    ],
+    "video": {
+     "id": "Amkg1cdDCpM",
+     "titre": "Can you change your sleep schedule?",
+     "chaine": "TED-Ed",
+     "vues": "2.6M views",
+     "date": "3 years ago",
+     "duree": "4:38",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ARREGLA TU",
+     "SUEÑO"
+    ],
+    "video": {
+     "id": "riUvX9CqEf4",
+     "titre": "Tips para cambiar el reloj biológico: Cómo pasar de nocturno a diurno - A las Tres",
+     "chaine": "NMás",
+     "vues": "57 K visualizaciones",
+     "date": "hace 7 años",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/kA_x-j3dIDq8_JLXM9-J3KCVNPe55QdriYeSDqI1chZ_4uoafOzRk1oImfbf90svo6ID8P0Xsg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "REPARIER",
+     "DEINEN SCHLAF"
+    ],
+    "video": {
+     "id": "jF8ZmYem42o",
+     "titre": "Kaputten Schlafrhythmus schnell anpassen | 2 Lösungen 2024",
+     "chaine": "Schlafonaut",
+     "vues": "44.850 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLOKvpKC8oYRzzQabB3Ag4975s-CgojmRBjNfwdf4b4A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SVEGLIATI",
+     "PRESTO"
+    ],
+    "video": {
+     "id": "b0Ws2iZfNEI",
+     "titre": "Come alzarsi presto la mattina?",
+     "chaine": "Marco Montemagno",
+     "vues": "395K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ARRUME O",
+     "SEU SONO"
+    ],
+    "video": {
+     "id": "Lh31PConNDw",
+     "titre": "AJEITE SEU CICLO DO SONO DE UMA VEZ POR TODAS",
+     "chaine": "Eurekka",
+     "vues": "149 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/-OGsuHW-7cVvYgKV_QrtCCi4P9ChZDldJxt4yxjhypdeQ8yGfdv1OAn8eAPAae_6IMFYZl9TEes=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RÉPARE TON",
+     "SOMMEIL"
+    ],
+    "video": {
+     "id": "0Vhj-cfgFSw",
+     "titre": "Comment avoir un BON sommeil ? Faut que je t'explique avec @drjimmymohamed | Lumni",
+     "chaine": "Lumni",
+     "vues": "41 k vues",
+     "date": "il y a 2 ans",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/lc0DuveB7cxz3dOeBHx9XCJXq5osqhGEZMy1IxC7kN9TD5YB9JRPlAhazyH25jL3k5iCmROW=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

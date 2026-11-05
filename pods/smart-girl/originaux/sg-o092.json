@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o092",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "15bae255-062b-4bea-af97-85d0cc6949fe",
+ "titre": "old fashioned manners worth bringing back #manners #etiquette #smartgirl #elegance #oldmoney",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 4 de la boîte (parent 15bae255, langue source en) : accroche du parent mot pour mot. Manières neuves face au parent (tenir la porte, appeler pour les grandes nouvelles, dire bonjour en entrant, s'habiller un peu pour dîner, téléphone hors de la table, une bonne histoire). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0a314891",
+   "texte_overlay": "old fashioned manners\nworth bringing back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3734ae33",
+   "texte_overlay": "1. holding the door\n\nfor whoever is behind you.\nalways.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "38759f07",
+   "texte_overlay": "2. calling instead of texting\nfor important news",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "29e8c1ab",
+   "texte_overlay": "3. saying \"good morning\"\nwhen you walk into a room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "254ae31a",
+   "texte_overlay": "4. dressing up a little\nfor dinner\n\nrespect for the people\nat the table.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1e6134b6",
+   "texte_overlay": "5. phones off the table\n\nthe conversation deserves\nyour full attention.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0e8cca18",
+   "texte_overlay": "6. having one good story\nto share\n\na painting, a moment\nin history.",
+   "texte_sophia": "6. having one good story\nto share\n\ni learn one a day with a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0e0d82b0",
+   "texte_overlay": "which one would you bring\nback? save this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

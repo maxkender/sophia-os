@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o095",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "98f30502-454c-48de-a116-532d77e758c4",
+ "titre": "weird habits that made me smarter in 2 weeks #smarter #habits #smartgirl #selfimprovement #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "b85b101f-a26f-4ebc-90eb-67cfd7e7fbdf"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 7 de la boîte (parent 98f30502, langue source en) : accroche du parent mot pour mot. Habitudes neuves face au parent (un « pourquoi » par jour, trois phrases avant de dormir, réciter dans l'escalier, lire les plaques des vieux immeubles, sous-titres dans la langue d'origine). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c07e2e1",
+   "texte_overlay": "weird habits that made me\nsmarter in 2 weeks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "20888b60",
+   "texte_overlay": "1. i ask \"why?\" about one thing\nevery day, and actually\nlook it up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a2f9846",
+   "texte_overlay": "2. i write three sentences\nbefore bed: what i learned\ntoday.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cbddff83",
+   "texte_overlay": "3. i recite something on\nthe stairs: a poem,\na new word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "35e8997d",
+   "texte_overlay": "4. i read the plaques on old\nbuildings. every street\nhas a story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "067de851",
+   "texte_overlay": "5. i stopped watching with\nsubtitles in my language.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "542919fa",
+   "texte_overlay": "6. i learn one painting or one\nmoment in history every\nmorning.",
+   "texte_sophia": "6. i do a 5-minute lesson\nevery morning on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3ebda58d",
+   "texte_overlay": "try it for 2 weeks and\ntell me <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656236933604969751/7.jpg"
+  }
+ ]
+}

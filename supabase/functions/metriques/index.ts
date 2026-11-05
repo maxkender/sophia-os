@@ -6,6 +6,10 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
 type Supabase = ReturnType<typeof serviceClient>;
 
 const POSTS_RELEVES = 30;
+/** 0539 : comptes relevés par appel (la fonction s'arrêtait à 150 s sur ~400 comptes). */
+const LOT_DEFAUT = 12;
+/** Comptes relevés en parallèle dans un lot. */
+const EN_PARALLELE = 3;
 
 /**
  * Relève les performances des comptes tenus par les posters, pour alimenter le
@@ -16,8 +20,13 @@ const POSTS_RELEVES = 30;
  * après publication, donc la seule correspondance fiable entre un de nos posts
  * et un post réellement en ligne.
  *
- *   {}             → tous les comptes actifs ayant un pseudo TikTok
+ *   {}             → un lot : les comptes actifs ayant un pseudo TikTok les
+ *                    moins récemment relevés (pas ceux relevés depuis < 20 h)
+ *   { lot }        → la taille du lot (1 à 50, 12 par défaut)
  *   { compteId }   → ce seul compte
+ *
+ * 0539 : la tâche du soir appelle la fonction toutes les 10 minutes de 17:00
+ * à 21:50 UTC ; chaque appel prend le lot suivant.
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -26,40 +35,48 @@ Deno.serve(async (request) => {
   const supabase = serviceClient();
 
   let compteId: string | null = null;
+  let lot = LOT_DEFAUT;
   try {
     const body = await request.json();
     compteId = body?.compteId ?? null;
+    if (Number.isFinite(Number(body?.lot))) lot = Math.max(1, Math.min(50, Math.trunc(Number(body.lot))));
   } catch {
-    // Corps vide : tous les comptes.
+    // Corps vide : un lot.
   }
 
   try {
-    let query = supabase
-      .from("comptes")
-      .select("id, handle_tiktok")
-      .eq("is_active", true)
-      .not("handle_tiktok", "is", null);
-    if (compteId) query = query.eq("id", compteId);
-
-    const { data: comptes, error } = await query;
-    if (error) throw error;
-
-    const resultats: Array<{ compteId: string; releves: number; erreur?: string }> = [];
-
-    for (const compte of comptes ?? []) {
-      try {
-        const releves = await releverCompte(supabase, compte.id, compte.handle_tiktok!);
-        resultats.push({ compteId: compte.id, releves });
-      } catch (error) {
-        resultats.push({
-          compteId: compte.id,
-          releves: 0,
-          erreur: messageErreur(error),
-        });
-      }
+    let comptes: Array<{ id: string; handle_tiktok: string | null }>;
+    if (compteId) {
+      const { data, error } = await supabase
+        .from("comptes")
+        .select("id, handle_tiktok")
+        .eq("is_active", true)
+        .not("handle_tiktok", "is", null)
+        .eq("id", compteId);
+      if (error) throw error;
+      comptes = data ?? [];
+    } else {
+      // 0539 : un lot, les moins récemment relevés d'abord.
+      const { data, error } = await supabase.rpc("metriques_comptes_a_relever", { p_limite: lot });
+      if (error) throw error;
+      comptes = (data ?? []) as Array<{ id: string; handle_tiktok: string | null }>;
     }
 
-    return json({ ok: true, resultats });
+    const resultats: Array<{ compteId: string; releves: number; erreur?: string }> = [];
+    const file = [...comptes];
+    const ouvrier = async () => {
+      for (let compte = file.shift(); compte; compte = file.shift()) {
+        try {
+          const releves = await releverCompte(supabase, compte.id, compte.handle_tiktok!);
+          resultats.push({ compteId: compte.id, releves });
+        } catch (error) {
+          resultats.push({ compteId: compte.id, releves: 0, erreur: messageErreur(error) });
+        }
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(EN_PARALLELE, comptes.length) }, ouvrier));
+
+    return json({ ok: true, lot: comptes.length, resultats });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }

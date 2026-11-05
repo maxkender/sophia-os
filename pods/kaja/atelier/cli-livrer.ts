@@ -45,6 +45,28 @@ const sansVideo = post.slides.flatMap((s, i) => {
 });
 if (sansVideo.length) throw new Error(`${id} : étape sans vraie vidéo ni carte d'appli : ${sansVideo.join(", ")}`);
 
+// Deux posts ne montrent jamais la même vidéo dans une langue : le compte de
+// cette langue publierait deux fois la même miniature.
+const dejaMontrees = new Map<string, string>();
+for (const f of readdirSync(join(RACINE, "posts"))) {
+  const autre = f.replace(/\.json$/, "");
+  if (!/^ka-\d+\.json$/.test(f) || autre === id) continue;
+  for (const s of lirePost(autre).slides) {
+    for (const l of langues) {
+      const v = s.type === "etape" ? contenu<ContenuEtape | undefined>(s, l)?.video : undefined;
+      if (v) dejaMontrees.set(`${l}:${v.id}`, autre);
+    }
+  }
+}
+const doublons = post.slides.flatMap((s, i) =>
+  langues.flatMap((l) => {
+    const v = s.type === "etape" ? contenu<ContenuEtape>(s, l).video : undefined;
+    const autre = v && dejaMontrees.get(`${l}:${v.id}`);
+    return autre ? [`${i + 1} (${l}, déjà dans ${autre})`] : [];
+  }),
+);
+if (doublons.length) throw new Error(`${id} : vidéo déjà montrée par un autre post : ${doublons.join(", ")}`);
+
 const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_sophia?: true }[] }> = {};
 for (const langue of langues) {
   const slides = [];

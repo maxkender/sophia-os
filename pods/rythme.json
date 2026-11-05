@@ -1,6 +1,6 @@
 {
- "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz.",
- "page-blanche": { "par_jour": 12 },
+ "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes (page-blanche, fathom, yasmine, kaja) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
+ "page-blanche": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "originaux": { "par_jour": 9 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
  "alpha-yellow": { "par_jour": 13 },
@@ -9,8 +9,8 @@
  "beau-smart-girl": { "par_jour": 8 },
  "smart-girl": { "par_jour": 9 },
  "alpha-male": { "par_jour": 4 },
- "yasmine": { "par_jour": 6 },
- "fathom": { "par_jour": 9 },
+ "yasmine": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
+ "fathom": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "clean-study": { "par_jour": 6 },
- "kaja": { "par_jour": 2 }
+ "kaja": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" }
 }

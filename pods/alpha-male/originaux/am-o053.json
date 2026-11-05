@@ -1,0 +1,69 @@
+{
+ "source_id": "am-o053",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1e611cfa-d083-4871-abbd-91318dc36a93",
+ "titre": "8 things that require 0 talent #men #discipline #respect #selfimprovement #mindset",
+ "musique_titre": "оригинальный звук",
+ "musique_url": "https://www.tiktok.com/music/son-7396413571808103169",
+ "inspirations": [
+  "1e611cfa-d083-4871-abbd-91318dc36a93"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 5/11. Déclinaison G1 de la ligne 4 (parent 1e611cfa, @millyjhino, langue source en), prise à la place de la ligne 3 (même promesse que la ligne 2 le même jour). Accroche du parent mot pour mot. Format du parent : une phrase courte par slide. 8 choses neuves, aucune du parent (réveil, parole tenue, téléphone, temps des autres, finir, régularité, admettre ses torts, focus). Images : célébrités en costume pour illustrer (autorisé), slide Sophia sur un paysage sans personne. reference_url : slides présentes du parent (1, 3, 5, 6, 8, 9), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "071b63e8",
+   "texte_overlay": "8 things that require 0 talent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "46fda56c",
+   "texte_overlay": "Making eye contact.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "14ba9b42",
+   "texte_overlay": "Saying thank you\nand meaning it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/5.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "309fc180",
+   "texte_overlay": "Listening without\ninterrupting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "12e62149",
+   "texte_overlay": "Keeping your space clean.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/8.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1232db26",
+   "texte_overlay": "Giving full effort\nwhen it's boring.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/9.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1f80c792",
+   "texte_overlay": "Asking when you\ndon't know.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "339114f1",
+   "texte_overlay": "Standing up straight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/5.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "18a7046b",
+   "texte_overlay": "Learning something new\nevery day.",
+   "texte_sophia": "Learning something new\nevery day.\nUse a micro-learning app like\nthe Sophia app. 5 minutes is enough.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7499220197341957431/6.jpg"
+  }
+ ]
+}

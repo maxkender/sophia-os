@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migration 0656) : les règles pures, partagées
+ * UGC IA (page /admin/ugc-ia, migrations 0656 et 0657) : les règles pures, partagées
  * par la fonction `ugc-ia` et ses tests. Le front a les mêmes bornes dans
  * `src/features/ugcIa/logique.ts`.
  */
@@ -66,8 +66,52 @@ export function passage(
   return { debut: d, fin: f };
 }
 
-/** Les fichiers d'une vidéo dans le bucket `medias`. */
-export function cheminsUgcIa(id: string): { source: string; reaction: string; video: string } {
-  const base = `ugc-ia/${id}`;
-  return { source: `${base}/source.mp4`, reaction: `${base}/reaction.mp4`, video: `${base}/video.mp4` };
+/** Les fichiers d'une source dans le bucket `medias` (un dossier par source). */
+export function cheminsUgcIa(sourceId: string): { source: string; reaction: string; cta: string } {
+  const base = `ugc-ia/${sourceId}`;
+  return { source: `${base}/source.mp4`, reaction: `${base}/reaction.mp4`, cta: `${base}/cta.jpg` };
+}
+
+/** La vidéo d'une génération, rangée avec sa source. */
+export function cheminGeneration(sourceId: string, generationId: string): string {
+  return `ugc-ia/${sourceId}/${generationId}.mp4`;
+}
+
+/** L'image d'un persona une fois copiée dans le stockage de l'OS. */
+export function cheminPersona(personaId: string, mime: string): string {
+  const ext = mime === "image/png" ? "png" : mime === "image/webp" ? "webp" : "jpg";
+  return `ugc-ia/personas/${personaId}.${ext}`;
+}
+
+/** Au plus 10 personas par lancement : 10 générations facturées d'un clic. */
+export const PERSONAS_MAX_PAR_LANCEMENT = 10;
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Les personas cochés : identifiants valides, sans doublon, 1 à 10. */
+export function personasDemandees(brut: unknown): string[] | { erreur: string } {
+  const liste = Array.isArray(brut) ? brut : [];
+  const ids = [...new Set(liste.map((x) => String(x ?? "").trim().toLowerCase()).filter((x) => UUID.test(x)))];
+  if (ids.length === 0) return { erreur: "Coche au moins un persona" };
+  if (ids.length > PERSONAS_MAX_PAR_LANCEMENT) return { erreur: `${PERSONAS_MAX_PAR_LANCEMENT} personas au plus par lancement` };
+  return ids;
+}
+
+/** L'image rendue par fal `ffmpeg-api/extract-frame` (`images[0].url`), ou null. */
+export function urlImageExtraite(sortie: unknown): string | null {
+  const s = (sortie ?? {}) as { data?: unknown; images?: unknown };
+  const corps = (s.images ? s : (s.data ?? {})) as { images?: Array<{ url?: unknown }> };
+  const url = Array.isArray(corps.images) ? corps.images[0]?.url : null;
+  return typeof url === "string" && /^https:\/\//.test(url) ? url : null;
+}
+
+/** Le CTA lu par l'OCR, nettoyé (l'OCR rend parfois des lignes vides ou des guillemets). */
+export function nettoyerCta(texte: unknown): string {
+  return String(texte ?? "")
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .join("\n")
+    .replace(/^["«“]\s*|\s*["»”]$/g, "")
+    .slice(0, 500);
 }

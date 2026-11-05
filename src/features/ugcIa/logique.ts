@@ -1,17 +1,25 @@
-// UGC IA (page /admin/ugc-ia, migration 0656) : règles pures de la page.
+// UGC IA (page /admin/ugc-ia, migrations 0656 et 0657) : règles pures de la page.
 // Mêmes bornes que la fonction `ugc-ia` (supabase/functions/_shared/ugc_ia.ts).
 
-export type StatutVideoUgcIa = "importee" | "coupee" | "en_cours" | "prete" | "echec";
+export type StatutGenerationUgcIa = "en_cours" | "prete" | "echec";
 export type ResolutionUgcIa = "480p" | "720p" | "1080p";
 
 /** Genjutsu coupe au-delà de 30 s. Pas de minimum : Higgsfield tranche (échec non facturé). */
 export const PASSAGE_MAX_S = 30;
 /** La durée proposée par défaut : une réaction tient en quelques secondes. */
 export const PASSAGE_DEFAUT_S = 6;
+/** Au plus 10 personas par lancement, comme la fonction. */
+export const PERSONAS_MAX_PAR_LANCEMENT = 10;
 
 /** Le prompt du pod Réactions UGC : le persona refait le mouvement, sans texte. */
 export const PROMPT_DEFAUT =
   "the woman from the image performs exactly the motion of the video, natural phone selfie, no text, no captions";
+
+export function messageErreur(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  if (err && typeof err === "object" && "message" in err) return String((err as { message: unknown }).message);
+  return String(err);
+}
 
 /** Un nombre de secondes saisi (« 1,5 » ou « 1.5 »), ou null. */
 export function lireSecondes(saisie: string): number | null {
@@ -49,12 +57,20 @@ export function arrondiDixieme(s: number): string {
   return String(Math.round(Math.max(0, s) * 10) / 10);
 }
 
-/** On peut (re)couper tant que rien n'est lancé ni prêt. */
-export function peutCouper(statut: StatutVideoUgcIa): boolean {
-  return statut === "importee" || statut === "coupee" || statut === "echec";
+/** On ne recoupe pas un passage que Genjutsu est en train de lire. */
+export function peutCouper(generations: ReadonlyArray<{ statut: StatutGenerationUgcIa }>): boolean {
+  return !generations.some((g) => g.statut === "en_cours");
 }
 
-/** On peut lancer Genjutsu sur un passage coupé, ou relancer après un échec. */
-export function peutGenerer(v: { statut: StatutVideoUgcIa; coupe_url: string | null }): boolean {
-  return Boolean(v.coupe_url) && (v.statut === "coupee" || v.statut === "echec");
+/** Les personas qu'on peut cocher : pas ceux qui ont déjà une génération en cours sur cette source. */
+export function personasOccupes(generations: ReadonlyArray<{ statut: StatutGenerationUgcIa; persona_id: string }>): Set<string> {
+  return new Set(generations.filter((g) => g.statut === "en_cours").map((g) => g.persona_id));
+}
+
+/** Coche ou décoche un persona, sans dépasser le maximum par lancement. */
+export function basculer(coches: ReadonlySet<string>, id: string): Set<string> {
+  const suite = new Set(coches);
+  if (suite.has(id)) suite.delete(id);
+  else if (suite.size < PERSONAS_MAX_PAR_LANCEMENT) suite.add(id);
+  return suite;
 }

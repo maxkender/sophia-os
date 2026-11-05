@@ -1,72 +1,52 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Clapperboard, Download, ExternalLink, Scissors, Sparkles, Trash2, UserRound } from "lucide-react";
+import { Clapperboard, Sparkles, UserRound } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Segments } from "@/components/ui/segments";
-import { Spinner } from "@/components/ui/spinner";
-import { Textarea } from "@/components/ui/textarea";
 import { EtatRequete, TitreCarte } from "@/features/bleo/ui";
 import {
-  CLE_VIDEOS_UGC_IA,
-  couperPassageUgcIa,
-  genererVideoUgcIa,
+  CLE_PERSONAS_UGC_IA,
+  CLE_SOURCES_UGC_IA,
   importerTiktokUgcIa,
   listerPersonasUgcIa,
-  listerVideosUgcIa,
+  listerSourcesUgcIa,
+  rapatrierPersonasUgcIa,
   suivreGenerationsUgcIa,
-  supprimerVideoUgcIa,
   type PersonaUgcIa,
-  type VideoUgcIa,
 } from "@/features/ugcIa/api";
-import {
-  arrondiDixieme,
-  erreurPassage,
-  lireSecondes,
-  passageInitial,
-  PASSAGE_MAX_S,
-  peutCouper,
-  peutGenerer,
-  PROMPT_DEFAUT,
-  type ResolutionUgcIa,
-  type StatutVideoUgcIa,
-} from "@/features/ugcIa/logique";
+import { CarteSource } from "@/features/ugcIa/CarteSource";
+import { messageErreur, PASSAGE_MAX_S } from "@/features/ugcIa/logique";
 
 /** Toutes les 15 s tant qu'une génération tourne (Genjutsu prend quelques minutes). */
 const INTERVALLE_SUIVI_MS = 15_000;
 
-function messageErreur(err: unknown): string {
-  if (err instanceof Error) return err.message;
-  if (err && typeof err === "object" && "message" in err) return String((err as { message: unknown }).message);
-  return String(err);
-}
-
-const VARIANTE_STATUT: Record<StatutVideoUgcIa, "secondary" | "info" | "warning" | "success" | "error"> = {
-  importee: "secondary",
-  coupee: "info",
-  en_cours: "warning",
-  prete: "success",
-  echec: "error",
-};
-
 /**
- * UGC IA : une réaction TikTok qui marche, refaite par un persona synthétique
- * (Sophie pour l'instant) avec Higgsfield Genjutsu. Hors podz ; les vidéos
- * restent ici, dans la bibliothèque de la page.
+ * UGC IA : une réaction TikTok qui marche (la source), refaite par un ou
+ * plusieurs personas synthétiques avec Higgsfield Genjutsu. Hors podz ; les
+ * vidéos restent ici. Les personas sont ajoutés par Claude (skill `ugc-ia`).
  */
 export function AdminUgcIaPage() {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const personas = useQuery({ queryKey: ["ugc-ia", "personas"], queryFn: listerPersonasUgcIa });
-  const videos = useQuery({ queryKey: CLE_VIDEOS_UGC_IA, queryFn: listerVideosUgcIa });
-  const persona = personas.data?.[0] ?? null;
-  const enCours = (videos.data ?? []).some((v) => v.statut === "en_cours");
+  const personas = useQuery({ queryKey: CLE_PERSONAS_UGC_IA, queryFn: listerPersonasUgcIa });
+  const sources = useQuery({ queryKey: CLE_SOURCES_UGC_IA, queryFn: listerSourcesUgcIa });
+  const enCours = (sources.data ?? []).some((s) => s.generations.some((g) => g.statut === "en_cours"));
   const [erreurSuivi, setErreurSuivi] = React.useState<string | null>(null);
+
+  // Un persona ajouté par Claude pointe vers une image externe : on la copie chez nous, une fois.
+  const aRapatrier = (personas.data ?? []).some((p) => !p.image_path);
+  const rapatriement = React.useRef(false);
+  React.useEffect(() => {
+    if (!aRapatrier || rapatriement.current) return;
+    rapatriement.current = true;
+    rapatrierPersonasUgcIa()
+      .catch(() => undefined)
+      .finally(() => void qc.invalidateQueries({ queryKey: CLE_PERSONAS_UGC_IA }));
+  }, [aRapatrier, qc]);
 
   // Relève Higgsfield tant qu'une génération tourne ; s'arrête tout seul ensuite.
   React.useEffect(() => {
@@ -85,7 +65,7 @@ export function AdminUgcIaPage() {
       } finally {
         enVol = false;
       }
-      if (actif) await qc.invalidateQueries({ queryKey: CLE_VIDEOS_UGC_IA });
+      if (actif) await qc.invalidateQueries({ queryKey: CLE_SOURCES_UGC_IA });
     };
     void relever();
     const minuteur = setInterval(() => void relever(), INTERVALLE_SUIVI_MS);
@@ -95,6 +75,7 @@ export function AdminUgcIaPage() {
     };
   }, [enCours, qc]);
 
+  const liste = personas.data ?? [];
   return (
     <div className="space-y-6" data-testid="page-ugc-ia">
       <PageHeader
@@ -107,62 +88,66 @@ export function AdminUgcIaPage() {
         description={t("ugcIa.description")}
       />
 
-      <EtatRequete erreur={personas.error ?? videos.error} chargement={personas.isLoading || videos.isLoading} />
+      <EtatRequete erreur={personas.error ?? sources.error} chargement={personas.isLoading || sources.isLoading} />
 
-      {personas.data && !persona && <p className="text-sm text-muted-foreground">{t("ugcIa.aucunPersona")}</p>}
+      <div className="grid gap-4 lg:grid-cols-2">
+        <CartePersonas personas={liste} chargees={Boolean(personas.data)} />
+        <CarteImport />
+      </div>
 
-      {persona && (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-          <CartePersona persona={persona} />
-          <CarteImport persona={persona} />
-        </div>
-      )}
-
-      <section className="space-y-3" aria-labelledby="ugc-ia-bibliotheque">
-        <h2 id="ugc-ia-bibliotheque" className="text-sm font-semibold">
-          {t("ugcIa.bibliotheque")}
+      <section className="space-y-3" aria-labelledby="ugc-ia-sources">
+        <h2 id="ugc-ia-sources" className="text-sm font-semibold">
+          {t("ugcIa.sources")}
         </h2>
         {erreurSuivi && (
           <p role="alert" className="text-sm text-destructive">
             {t("ugcIa.erreurSuivi", { message: erreurSuivi })}
           </p>
         )}
-        {videos.data && videos.data.length === 0 && (
+        {sources.data && sources.data.length === 0 && (
           <EmptyState icon={<Clapperboard />} title={t("ugcIa.vide")} description={t("ugcIa.videDetail")} />
         )}
-        {videos.data?.map((v) => <CarteVideo key={v.id} video={v} persona={persona} />)}
+        {sources.data?.map((s) => <CarteSource key={s.id} source={s} personas={liste} />)}
       </section>
     </div>
   );
 }
 
-function CartePersona({ persona }: { persona: PersonaUgcIa }) {
+function CartePersonas({ personas, chargees }: { personas: PersonaUgcIa[]; chargees: boolean }) {
   const { t } = useTranslation();
   return (
     <Card>
       <CardHeader>
-        <TitreCarte icone={UserRound}>{t("ugcIa.persona")}</TitreCarte>
+        <TitreCarte icone={UserRound}>{t("ugcIa.personas", { count: personas.length })}</TitreCarte>
       </CardHeader>
-      <CardContent className="flex items-start gap-3">
-        <img src={persona.image_url} alt={persona.nom} className="size-20 shrink-0 rounded-lg object-cover" />
-        <div className="min-w-0 space-y-1">
-          <p className="font-medium">{persona.nom}</p>
-          <p className="text-xs text-muted-foreground">{persona.description}</p>
-        </div>
+      <CardContent className="space-y-3">
+        {chargees && personas.length === 0 && <p className="text-sm text-muted-foreground">{t("ugcIa.aucunPersona")}</p>}
+        <ul className="grid gap-2 sm:grid-cols-2">
+          {personas.map((p) => (
+            <li key={p.id} className="flex items-start gap-2">
+              <img src={p.image_url} alt={p.nom} className="size-14 shrink-0 rounded-lg object-cover" />
+              <div className="min-w-0">
+                <p className="text-sm font-medium">{p.nom}</p>
+                <p className="line-clamp-2 text-xs text-muted-foreground">{p.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs text-muted-foreground">{t("ugcIa.ajoutParClaude")}</p>
       </CardContent>
     </Card>
   );
 }
 
-function CarteImport({ persona }: { persona: PersonaUgcIa }) {
+function CarteImport() {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [lien, setLien] = React.useState("");
   const importer = useMutation({
-    mutationFn: () => importerTiktokUgcIa(lien.trim(), persona.id),
+    mutationFn: () => importerTiktokUgcIa(lien.trim()),
     onSuccess: async () => {
       setLien("");
-      await qc.invalidateQueries({ queryKey: CLE_VIDEOS_UGC_IA });
+      await qc.invalidateQueries({ queryKey: CLE_SOURCES_UGC_IA });
     },
   });
   return (
@@ -174,7 +159,7 @@ function CarteImport({ persona }: { persona: PersonaUgcIa }) {
         <ol className="list-decimal space-y-0.5 pl-4 text-xs text-muted-foreground">
           <li>{t("ugcIa.etape1")}</li>
           <li>{t("ugcIa.etape2", { max: PASSAGE_MAX_S })}</li>
-          <li>{t("ugcIa.etape3", { nom: persona.nom })}</li>
+          <li>{t("ugcIa.etape3")}</li>
         </ol>
         <form
           className="flex flex-wrap gap-2"
@@ -195,6 +180,7 @@ function CarteImport({ persona }: { persona: PersonaUgcIa }) {
           </Button>
         </form>
         {importer.isPending && <p className="text-xs text-muted-foreground">{t("ugcIa.importEnCours")}</p>}
+        {importer.data?.avertissement && <p className="text-xs text-warning-foreground">{importer.data.avertissement}</p>}
         {importer.error && (
           <p role="alert" className="text-sm text-destructive">
             {messageErreur(importer.error)}
@@ -202,175 +188,5 @@ function CarteImport({ persona }: { persona: PersonaUgcIa }) {
         )}
       </CardContent>
     </Card>
-  );
-}
-
-function CarteVideo({ video, persona }: { video: VideoUgcIa; persona: PersonaUgcIa | null }) {
-  const { t, i18n } = useTranslation();
-  const qc = useQueryClient();
-  const rafraichir = () => qc.invalidateQueries({ queryKey: CLE_VIDEOS_UGC_IA });
-  const supprimer = useMutation({ mutationFn: () => supprimerVideoUgcIa(video.id), onSuccess: rafraichir });
-  const date = new Intl.DateTimeFormat(i18n.language, { dateStyle: "medium", timeStyle: "short" }).format(new Date(video.created_at));
-  const vues = video.source_vues != null ? new Intl.NumberFormat(i18n.language, { notation: "compact" }).format(video.source_vues) : null;
-
-  return (
-    <Card data-testid={`video-${video.id}`}>
-      <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2">
-        <div className="flex min-w-0 flex-wrap items-center gap-2 text-sm">
-          <Badge variant={VARIANTE_STATUT[video.statut]}>{t(`ugcIa.statut.${video.statut}`)}</Badge>
-          <a href={video.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 underline">
-            {t("ugcIa.source")}
-            <ExternalLink className="size-3" aria-hidden />
-          </a>
-          {vues && <span className="text-muted-foreground">{t("ugcIa.vues", { vues })}</span>}
-          <span className="text-muted-foreground">{date}</span>
-        </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          loading={supprimer.isPending}
-          onClick={() => {
-            if (window.confirm(t(video.statut === "en_cours" ? "ugcIa.confirmerSuppressionEnCours" : "ugcIa.confirmerSuppression"))) supprimer.mutate();
-          }}
-        >
-          <Trash2 aria-hidden />
-          {t("ugcIa.supprimer")}
-        </Button>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        {video.source_texte && <p className="line-clamp-2 text-xs text-muted-foreground">« {video.source_texte} »</p>}
-        {video.erreur && (
-          <p role="alert" className="text-sm text-destructive">
-            {video.erreur}
-          </p>
-        )}
-        {supprimer.error && (
-          <p role="alert" className="text-sm text-destructive">
-            {messageErreur(supprimer.error)}
-          </p>
-        )}
-        <div className="grid gap-4 md:grid-cols-3">
-          {peutCouper(video.statut) && video.brut_url && <BlocCoupe video={video} />}
-          {video.coupe_url && (
-            <figure className="space-y-1.5">
-              <figcaption className="text-xs font-medium">{t("ugcIa.passage", { debut: video.debut_s, fin: video.fin_s })}</figcaption>
-              <video src={video.coupe_url} controls muted playsInline className="aspect-[9/16] w-full rounded-lg bg-black object-contain" />
-            </figure>
-          )}
-          {peutGenerer(video) && <BlocGeneration video={video} persona={persona} />}
-          {video.statut === "en_cours" && (
-            <div className="flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed text-center text-sm text-muted-foreground">
-              <Spinner />
-              <p>{t("ugcIa.enCours")}</p>
-              <p className="text-xs">{t("ugcIa.enCoursDetail")}</p>
-            </div>
-          )}
-          {video.statut === "prete" && video.video_url && (
-            <figure className="space-y-1.5">
-              <figcaption className="flex items-center justify-between gap-2 text-xs font-medium">
-                {t("ugcIa.resultat", { nom: persona?.nom ?? "" })}
-                <a href={video.video_url} download className="inline-flex items-center gap-1 underline">
-                  <Download className="size-3" aria-hidden />
-                  {t("ugcIa.telecharger")}
-                </a>
-              </figcaption>
-              <video src={video.video_url} controls playsInline className="aspect-[9/16] w-full rounded-lg bg-black object-contain" />
-            </figure>
-          )}
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-/** La vidéo TikTok entière et le passage à garder (début, fin). */
-function BlocCoupe({ video }: { video: VideoUgcIa }) {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const lecteur = React.useRef<HTMLVideoElement>(null);
-  const initial = passageInitial(video);
-  const [debut, setDebut] = React.useState(initial.debut);
-  const [fin, setFin] = React.useState(initial.fin);
-  const d = lireSecondes(debut);
-  const f = lireSecondes(fin);
-  const erreur = erreurPassage(d, f, video.source_duree_s);
-  const couper = useMutation({
-    mutationFn: () => couperPassageUgcIa(video.id, d ?? 0, f ?? 0),
-    onSuccess: () => qc.invalidateQueries({ queryKey: CLE_VIDEOS_UGC_IA }),
-  });
-  const maintenant = () => arrondiDixieme(lecteur.current?.currentTime ?? 0);
-
-  return (
-    <div className="space-y-2">
-      <p className="text-xs font-medium">
-        {t("ugcIa.videoSource")}
-        {video.source_duree_s != null && <span className="text-muted-foreground"> · {Math.round(video.source_duree_s)} s</span>}
-      </p>
-      <video ref={lecteur} src={video.brut_url ?? undefined} controls muted playsInline className="aspect-[9/16] w-full rounded-lg bg-black object-contain" />
-      <div className="grid grid-cols-2 gap-2">
-        {(
-          [
-            ["debut", debut, setDebut],
-            ["fin", fin, setFin],
-          ] as const
-        ).map(([cle, valeur, changer]) => (
-          <div key={cle} className="space-y-1 text-xs">
-            <label className="block space-y-1">
-              <span className="text-muted-foreground">{t(`ugcIa.${cle}`)}</span>
-              <Input size="sm" inputMode="decimal" value={valeur} onChange={(e) => changer(e.target.value)} />
-            </label>
-            <Button variant="link" size="xs" onClick={() => changer(maintenant())}>
-              {t("ugcIa.prendreTemps")}
-            </Button>
-          </div>
-        ))}
-      </div>
-      {erreur && <p className="text-xs text-destructive">{t(`ugcIa.erreurPassage.${erreur}`, { max: PASSAGE_MAX_S })}</p>}
-      <Button variant="outline" size="sm" className="w-full" loading={couper.isPending} disabled={erreur != null} onClick={() => couper.mutate()}>
-        <Scissors aria-hidden />
-        {video.coupe_url ? t("ugcIa.recouper") : t("ugcIa.couper")}
-      </Button>
-      {couper.error && (
-        <p role="alert" className="text-xs text-destructive">
-          {messageErreur(couper.error)}
-        </p>
-      )}
-    </div>
-  );
-}
-
-const RESOLUTIONS: ReadonlyArray<{ cle: ResolutionUgcIa; contenu: string }> = [
-  { cle: "480p", contenu: "480p" },
-  { cle: "720p", contenu: "720p" },
-  { cle: "1080p", contenu: "1080p" },
-];
-
-/** Le prompt, la résolution et le bouton qui lance Genjutsu (facturé). */
-function BlocGeneration({ video, persona }: { video: VideoUgcIa; persona: PersonaUgcIa | null }) {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const [prompt, setPrompt] = React.useState(video.prompt || PROMPT_DEFAUT);
-  const [resolution, setResolution] = React.useState<ResolutionUgcIa>(video.resolution ?? "720p");
-  const generer = useMutation({
-    mutationFn: () => genererVideoUgcIa(video.id, prompt, resolution),
-    onSettled: () => qc.invalidateQueries({ queryKey: CLE_VIDEOS_UGC_IA }),
-  });
-
-  return (
-    <div className="space-y-2">
-      <p className="text-xs font-medium">{t("ugcIa.generation")}</p>
-      <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} rows={4} aria-label={t("ugcIa.prompt")} />
-      <Segments libelle={t("ugcIa.resolution")} options={RESOLUTIONS} actif={resolution} onChange={setResolution} />
-      <p className="text-xs text-muted-foreground">{t("ugcIa.facturation")}</p>
-      <Button size="sm" className="w-full" loading={generer.isPending} onClick={() => generer.mutate()}>
-        <Sparkles aria-hidden />
-        {video.statut === "echec" ? t("ugcIa.relancer") : t("ugcIa.generer", { nom: persona?.nom ?? "" })}
-      </Button>
-      {generer.error && (
-        <p role="alert" className="text-xs text-destructive">
-          {messageErreur(generer.error)}
-        </p>
-      )}
-    </div>
   );
 }

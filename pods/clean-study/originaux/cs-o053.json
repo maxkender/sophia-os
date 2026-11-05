@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o053",
+  "type_bleo": "full_test",
+  "titre": "how i read a textbook chapter in half the time and still remember it #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 5/11 : 2 full tests sur 6). Première accroche (« how i study when i have zero motivation ») refusée par le guichet : theme_gagnant (thème motivation déjà gagnant dans le label). Remplacée par un thème neuf, la lecture d'un manuel. Accroches écrites : « how i read a textbook chapter in half the time and still remember it » (retenue : un geste précis et une double promesse vraie), « the way i read textbooks now » (écartée : vague), « stop reading your textbook like a novel » (écartée : injonction). Six gestes vrais : survoler la structure d'abord, transformer les titres en questions, fermer le livre et répondre après chaque partie (place micabo, slide 4), une ligne par mot en gras, s'arrêter en fin de partie, se tester le lendemain. Slide 4 sans personne. Depuis le 4/11, le label ne sert que micabo (UnSwipe arrêté) : une seule place d'appli par post. Slide micabo : photo d'objet reprise d'un original plus ancien (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "13b5123d",
+      "texte_overlay": "how i read a textbook chapter\nin half the time and still remember it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ed65fe64",
+      "texte_overlay": "first, 2 minutes on the skeleton only.\ntitles, bold words, pictures, the summary at the end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "30a196b6",
+      "texte_overlay": "i turn every title into a question.\n\"the causes of the war\" → \"what caused the war?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "038e8184",
+      "texte_overlay": "after each section i close the book and answer it.\nwhat i can't answer, i reread. only that part.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "420a5531",
+      "texte_overlay": "bold words get one line each in my notes.\nin my own words, not copied.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4368fe7a",
+      "texte_overlay": "i stop at the end of a section, never in the middle.\nit's easier to pick back up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ee9bb3ea",
+      "texte_overlay": "next day: 5 minutes on my questions, book closed.\nthat's when it actually sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Situation } from "./api";
 
-export const NIVEAUX: readonly Niveau[] = ["urgent", "aujourdhui", "samedi"];
+export const NIVEAUX: readonly Niveau[] = ["urgent", "bots", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
 
 /** C10 : l'argent n'est jamais exécuté par un bouton, ni validé en lot. */
@@ -35,8 +35,8 @@ export function filtrer(liste: readonly Probleme[], f: FiltresProblemes): Proble
 }
 
 export function compterParNiveau(liste: readonly Probleme[]): Record<Niveau, number> {
-  const n: Record<Niveau, number> = { urgent: 0, aujourdhui: 0, samedi: 0 };
-  for (const p of liste) n[p.niveau]++;
+  const n: Record<Niveau, number> = { urgent: 0, bots: 0, samedi: 0 };
+  for (const p of liste) if (p.niveau in n) n[p.niveau]++;
   return n;
 }
 

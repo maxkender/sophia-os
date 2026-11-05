@@ -1,0 +1,263 @@
+{
+ "post_id": "original-069",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "phone-free date ideas that are [[actually fun]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(no dead silence)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides"
+     ],
+     "fr": "choisis-lui [[un livre]]",
+     "texte": "pick each other [[a book]]"
+    },
+    "T2": {
+     "en": [
+      "YOU! most people swipe through slideshows like",
+      "this and never read the actual text"
+     ],
+     "fr": "allez en librairie, séparez-vous : 20 min pour trouver [[LE livre]] fait pour l'autre",
+     "texte": "go to a bookshop, split up, and you each get 20 minutes to find [[the perfect book]] for the other"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything trains",
+      "your brain to grab",
+      "the headline and",
+      "move on"
+     ],
+     "fr": "interdit de demander, faut deviner [[ce qui va lui plaire]], pas ce qui te plaît",
+     "texte": "no hints allowed. it has to be [[what you think they'd love]], not your own taste"
+    },
+    "T4": {
+     "en": [
+      "if you're still reading this, your attention span is",
+      "better than most"
+     ],
+     "fr": "après, échangez au café d'à côté et [[lisez la première page à voix haute]]",
+     "texte": "then swap at the café next door and [[read the first page out loud]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop waiting to feel motivated"
+     ],
+     "fr": "arrête [[d'attendre la motivation]]",
+     "texte": "a museum, but [[make it a game]]"
+    },
+    "T2": {
+     "en": [
+      "motivation comes",
+      "after starting, not",
+      "before"
+     ],
+     "fr": "la motivation vient en faisant, pas avant",
+     "texte": "pick one piece and [[invent its whole story]]"
+    },
+    "T3": {
+     "en": [
+      "make yourself do just 10 minutes of the thing you're",
+      "avoiding. once you've crossed the initial resistance,",
+      "continuing is dramatically easier than starting from",
+      "zero."
+     ],
+     "fr": "force-toi à faire [[juste 10 minutes]] du truc que tu repousses. une fois le plus dur passé, continuer est mille fois plus facile que de partir de zéro.",
+     "texte": "who are these people, what just happened, why that face? you each tell your version, then read the little sign next to it. [[whoever was closest picks the next one]]."
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7696836327026724128_1.jpg",
+      "boite": [
+       94,
+       388,
+       779,
+       542
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "eat the frog"
+     ],
+     "fr": "cuisinez [[à 2]]",
+     "texte": "cook [[together]]"
+    },
+    "T2": {
+     "en": [
+      "the hardest part of anything is just starting, so you",
+      "keep putting it off. do the hardest thing first."
+     ],
+     "fr": "choisissez une recette [[que vous avez jamais faite]], d'un pays inconnu si possible, et faites les courses ensemble.",
+     "texte": "pick a recipe [[neither of you has ever made]], ideally from a country you've never been to, and shop for it together."
+    },
+    "T3": {
+     "en": [
+      "tell yourself you’ll only",
+      "do it for 5 minutes"
+     ],
+     "fr": "lisez la recette à voix haute, [[une étape chacun]]",
+     "texte": "read the recipe out loud, [[one step each]]"
+    },
+    "T4": {
+     "en": [
+      "once you start, your",
+      "brain wants to finish, so",
+      "you usually keep going"
+     ],
+     "fr": "ça va sûrement un peu foirer, et franchement [[c'est ça le meilleur]]",
+     "texte": "it will probably go a bit wrong, and honestly [[that's the best part]]"
+    },
+    "T5": {
+     "en": [
+      "eat the frog"
+     ],
+     "fr": "(pas ça hein)",
+     "texte": "(not a frog)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "a long walk [[with real questions]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "no destination, no music. you take turns asking what never comes up at dinner: [[what scares you, what you'd do again]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "you each bring [[one question]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "side by side, [[the deep stuff comes out way easier]] than face to face. my best question this week came from my phone, for once:"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "today's 5 min on [[the Sophia app]]: why the renaissance began in italy."
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take cold showers"
+     ],
+     "fr": "pique-nique + [[jeu]]",
+     "texte": "picnic + [[card game]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. every part of",
+      "you wants to get out, and you have to stay in anyway"
+     ],
+     "fr": "trouvez un coin au bord de l'eau, prenez vos snacks préférés et un jeu de cartes. [[qui perd saute à l'eau en premier]].",
+     "texte": "find a spot by the water, bring the snacks you both love and one deck of cards. [[the loser jumps in first]]."
+    },
+    "T3": {
+     "en": [
+      "cold water is proven",
+      "to raise your",
+      "dopamine for hours,",
+      "without the crash you",
+      "get from scrolling"
+     ],
+     "fr": "un jeu tout bête avec un gage bat n'importe quel plan : on rit, on se chambre, on [[oublie l'heure]]",
+     "texte": "a simple game with stakes beats any plan: you laugh, you trash talk, you [[forget to check the time]]"
+    },
+    "T4": {
+     "en": [
+      "it trains your brain to do the hard thing even when",
+      "everything in you says no"
+     ],
+     "fr": "vous vous souviendrez de [[cet aprèm]] bien plus que de n'importe quelle soirée canapé",
+     "texte": "you'll remember [[that afternoon]] way longer than any night spent on the couch"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

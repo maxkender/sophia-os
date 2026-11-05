@@ -1,0 +1,233 @@
+{
+ "post_id": "original-068",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 to habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "10/10 habitudes pour devenir ultra productive",
+     "texte": "les mythes sur la lecture qui t'empêchent de lire"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(et ce qui est vrai)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6."
+     ],
+     "fr": "6.",
+     "texte": ""
+    },
+    "T2": {
+     "en": [
+      "Keep your phone in",
+      "a different room"
+     ],
+     "fr": "Laisse ton tel dans une autre pièce",
+     "texte": "« faut finir tous ses livres »"
+    },
+    "T3": {
+     "en": [
+      "Leave it in another",
+      "room or across from",
+      "you, you'll never get",
+      "any work done with",
+      "your phone by you"
+     ],
+     "fr": "Laisse-le dans une autre pièce ou loin de toi : avec ton tel à côté, tu feras jamais rien",
+     "texte": "en vrai, si t'en es à la page 100 et que ça te saoule, [[lâche-le]]. se forcer, c'est comme ça qu'on arrête de lire"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "« ça compte que sur papier »"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "liseuse, poche, roman sur ton tel dans le noir : ton cerveau fait [[exactement le même boulot]]"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "ce qui compte, c'est suivre une histoire page après page, [[sans zapper]]"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "donc lis sur ce que [[t'as vraiment sous la main]] ce soir"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "« lire, c'est juste chiant »"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "c'est pas les livres, c'est [[ta concentration]]"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "après des heures de vidéos rapides, tout le reste paraît mou. moins de bruit dans ta tête et [[les livres redeviennent captivants]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "avant chaque temps mort, c'était des vidéos. maintenant c'est [[5 min de leçon sur l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "texte": "« un vrai lecteur lit des classiques »",
+     "fr": "« un vrai lecteur lit des classiques »"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5 out of 7 days",
+      "and accept that 2 might be",
+      "messy"
+     ],
+     "texte": "personne débute l'escalade par [[le mur le plus dur]]. lire, pareil",
+     "fr": "personne débute l'escalade par [[le mur le plus dur]]. lire, pareil"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7 perfect",
+      "days a week to be",
+      "disciplined"
+     ],
+     "texte": "un thriller que tu lâches pas [[muscle aussi ta concentration]]",
+     "fr": "un thriller que tu lâches pas [[muscle aussi ta concentration]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal,",
+      "letting it turn into a bad",
+      "week is a choice"
+     ],
+     "texte": "les classiques, ça passe mieux une fois que [[lire est devenu une habitude]]",
+     "fr": "les classiques, ça passe mieux une fois que [[lire est devenu une habitude]]"
+    },
+    "T5": {
+     "en": [
+      "."
+     ],
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "« faut une heure »"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "10 pages au lit.\n10 pages dans le métro.\n10 pages à la pause."
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "fais le calcul : 10 pages par soir, c'est [[un livre de 300 pages par mois]], sans heure libre"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "l'heure libre que t'attends n'arrivera jamais. [[les 10 pages de ce soir, si]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

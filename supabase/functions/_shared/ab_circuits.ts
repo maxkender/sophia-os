@@ -31,12 +31,20 @@
  * voit tout le post et écrit le deck, slide d'appli comprise, à travers les
  * quatre fiches (CTA, appli, label, langue), sans banque ni remarques. C'est
  * lui que les duels jugent quand le lot le désigne comme candidat.
+ *
+ * `production` (05/11) rejoue la chaîne de la nuit telle qu'elle tourne
+ * aujourd'hui, sans rien écrire en base : le deck « actuel » d'un duel est le
+ * deck parti sur TikTok, souvent cuit avant les angles (24/10) ou un
+ * changement de prompt. Ce candidat mesure la production du jour contre ce
+ * qui est parti, et sert de référence à un même lot pour juger une correction
+ * de la chaîne.
  */
 import { citeConcurrent, positionConcurrent, sansConcurrent } from "./concurrents.ts";
 import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, type SlideDeck } from "./deck_langue.ts";
 import { callWithFallback, integrateSophia, LANGUES, normaliserHashtags, TEXT_MODELS, textOf } from "./gemini.ts";
+import { traduireBaseDeck } from "./import_contenu.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { ID_SOPHIA } from "./multi_app.ts";
 import { estContenuLivre } from "./pods.ts";
@@ -415,9 +423,89 @@ Réponds uniquement en JSON, sans bloc de code :
   },
 };
 
+// ---------------------------------------------------------------------------
+// Candidat `production` : la chaîne de la nuit rejouée aujourd'hui
+// ---------------------------------------------------------------------------
+
+/**
+ * Même chemin que `assurerDeckPourLangue` (import_contenu.ts) pour un contenu
+ * importé : la base source traduite par `traduireBaseDeck` (prompt de la
+ * langue, localisation scolaire, voix de la source), la slide concurrente
+ * retirée et imposée au placement, puis le placement Sophia actuel avec les 40
+ * dernières corrections et l'angle actif du label. Un deck source qui porte
+ * déjà sa slide d'appli (original de pod) est traduit tel quel, sans
+ * placement, comme la nuit. Rien n'est persisté : ni deck, ni angle tracé.
+ */
+const production: CircuitTraduction = {
+  id: "production",
+  version: "production-1",
+  nom: "Chaîne de production rejouée aujourd'hui (traduction, puis placement actuel avec l'angle du label)",
+  applications: ["sophia"],
+  async ecrire({ supabase, contenuId, titre, langue, deckSource }) {
+    const { data: contenu } = await supabase
+      .from("contenus")
+      .select("id, titre, compte_reference_id")
+      .eq("id", contenuId)
+      .maybeSingle();
+    const traductions = await traduireBaseDeck(
+      supabase,
+      { titre: contenu?.titre ?? titre, compte_reference_id: contenu?.compte_reference_id ?? null },
+      deckSource,
+      langue,
+    );
+    if (traductions.traduits === 0) throw new Error(`traduction ${langue} vide`);
+    let deck: SlideDeck[] = traductions.slides;
+
+    const cible = positionConcurrent(deck) ?? positionConcurrent(deckSource);
+    deck = sansConcurrent(deck).slides;
+
+    let angle: string | null = null;
+    if (!deck.some((s) => s.position_sophia)) {
+      const { data: corrections } = await supabase
+        .from("corrections")
+        .select("texte_origine, texte_corrige")
+        .order("created_at", { ascending: false })
+        .limit(40);
+      angle = (await chargerAnglePlacement(supabase, contenuId, ID_SOPHIA)) ?? null;
+      const placement = await integrateSophia({
+        masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
+        corrections: (corrections ?? []).map((c) => ({
+          original_text: c.texte_origine,
+          corrected_text: c.texte_corrige,
+        })),
+        slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
+        caption: contenu?.titre ?? titre ?? "",
+        langue,
+        positionImposee: cible,
+        ...(angle ? { angle } : {}),
+      });
+      if (!placement) throw new Error("placement Sophia sans réponse");
+      const variante = placement.variants[placement.bestIndex] ?? placement.variants[0];
+      if (!variante) throw new Error("placement Sophia sans variante");
+      deck = deck.map((s) =>
+        s.position === placement.chosenPosition ? { ...s, texte_overlay: variante, position_sophia: true } : s
+      );
+    }
+    if (deck.some((s) => citeConcurrent(s.texte_overlay))) throw new Error("un concurrent reste cité");
+
+    const recale = recalerDeck(deckSource, deck);
+    if ("erreur" in recale) throw new Error(recale.erreur);
+    return {
+      slides: recale.slides,
+      hashtags: traductions.hashtags,
+      versionFiche: null,
+      modele: null,
+      // Placement actuel : il ne suit pas de voie.
+      cta: null,
+      controles: { traduits: traductions.traduits, angle: Boolean(angle), position_imposee: cible ?? null },
+    };
+  },
+};
+
 /** Les circuits candidats, par id. */
 export const CIRCUITS: Record<string, CircuitTraduction> = {
   [ancree.id]: ancree,
+  [production.id]: production,
   [fiches.id]: fiches,
 };
 

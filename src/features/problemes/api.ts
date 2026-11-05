@@ -107,9 +107,15 @@ export interface Probleme {
   sujets?: SujetCarte[] | null;
   onglet?: OngletCarte;
   confiance?: number | null;
+  /** 0538 : où se décide la carte (Weekly decisions) ; null = le quotidien (Problèmes). */
+  rituel?: Rituel | null;
 }
 
+/** 0538 : « samedi » = à décider dans Weekly decisions (l'onglet n'est plus dans Problèmes). */
 export type OngletCarte = "bots" | "urgent" | "samedi";
+
+/** 0538 : jeudi, samedi, dimanche, ou « À décider maintenant » (argent, offre HM, question à Max). */
+export type Rituel = "maintenant" | "samedi" | "jeudi" | "dimanche";
 
 export interface SujetCarte {
   carte_id?: string;
@@ -142,6 +148,8 @@ export interface SansReponse {
   at: string;
   depuis_heures: number;
   question: boolean;
+  /** 0538 : question ou demande : la personne attend une réponse. */
+  attend?: boolean;
 }
 
 /** 0531 : Doubler → samedi, Recréer → jeudi ; rien n'est exécuté, annuler retire la décision préparée. */
@@ -160,10 +168,15 @@ export interface ResumeProblemes {
   kill_samedi_lundi: string | null;
   rituel_choix: string | null;
   rituel_lundi: string | null;
+  /** 0538 : le rituel de la carte la plus pressée, la décision proposée, les sujets, un message en attente. */
+  rituel?: Rituel | null;
+  proposition?: string | null;
+  categories?: string[] | null;
+  attend?: boolean;
 }
 
 export async function lireResumeProblemes(): Promise<Map<string, ResumeProblemes>> {
-  const { data, error } = await supabase.rpc("problemes_resume_posteurs");
+  const { data, error } = await supabase.rpc("problemes_resume_decisions");
   if (error) throw error;
   return new Map(((data ?? []) as ResumeProblemes[]).map((r) => [r.poster_id, r]));
 }

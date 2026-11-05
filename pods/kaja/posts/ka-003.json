@@ -1,0 +1,442 @@
+{
+ "id": "ka-003",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7671411449679351062",
+  "vues": 2500000,
+  "publie_le": "2026-08-07",
+  "accroche": "10/10 SKILLS YOU CAN LEARN"
+ },
+ "titre": {
+  "en": "10/10 skills you can learn",
+  "fr": "10/10 compétences que tu peux apprendre",
+  "de": "10/10 Skills, die du lernen kannst"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7663314321833364245"
+ },
+ "notes": "Remake de son post à 2,5 M (07/08), décor falaise (le sien). Il n'a pas de slide d'appli : Sophia remplace sa compétence qui colle le moins (« READ AN TOPOGRAPHI MAP »), en étape 3 au milieu de la liste « HOW TO NEVER RUN OUT OF TOPICS », cta B (« know a bit » / « about everything. »), le temps « 5 min a day ». Ses titres gardés mot pour mot (« LIT AN FIRE » compris), ses couleurs (jaune, rouge, violet, rouge) ; « OF A CAR » passe en bordeaux (#632227) pour qu'aucune couleur ne revienne deux fois. Ses temps gardés. D'autres vraies vidéos que les siennes (defragmenteur, Casual Car Dude, TEDxStockholm, StoneAgeMan) : en Howcast, Chariots, TED-Ed, REI ; fr Bonnegueule, C'est pas sorcier, Explique-moi encore, Armée de Terre ; de Breuninger, auto motor und sport, RedeFabrik, Galileo.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "YOU CAN",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "QUE TU PEUX",
+     "APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, DIE",
+     "DU LERNEN",
+     "KANNST"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "KNOT A TIE",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T0NPYZyI7V8",
+     "titre": "How to Tie a Windsor Knot | Men's Fashion",
+     "chaine": "Howcast",
+     "vues": "33M views",
+     "date": "12 years ago",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNH2pDkz9-fE3Xkix_Vcz_ijlYXBIy-y03Ei1yaHhTujA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "NOUER UNE CRAVATE",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mrwNKOEKdU4",
+     "titre": "Comment faire un nœud de cravate en 2 minutes (facile) 👔",
+     "chaine": "Bonnegueule",
+     "vues": "503 k vues",
+     "date": "il y a 4 ans",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/UdECfkFA8IQqNo8kBQDywZ21Rw0HmhL5Rn5C2Vw7oMvTswbAE5JOi0g2SmG1UDlvTcXIUSeVaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BINDEST DU",
+     [
+      {
+       "t": "EINE KRAWATTE",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bEBHM75E1sk",
+     "titre": "Krawatte binden für Anfänger: Der einfache Krawattenknoten in 1 Minute",
+     "chaine": "Breuninger",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/6T4UqHTMrYBqEAAKajjsjl43FuH1DGfCs62UGJmeq1lS0TR98962_ac3abzwcQ2EAI7TU85b72Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BASICS",
+     [
+      {
+       "t": "OF A CAR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9ngnCrBKWZA",
+     "titre": "This is EVERYTHING YOU NEED to Know About Cars",
+     "chaine": "Chariots",
+     "vues": "2.7M views",
+     "date": "4 years ago",
+     "duree": "11:57",
+     "avatar": "https://yt3.ggpht.com/jyeTLdrD5ZwQz2xTsDEeC5RQcEe15WuGZ6Cn57XQaaMHNtSUJeysbZcDhOdF_lxLziBY_KVTjig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "LES BASES",
+     [
+      {
+       "t": "DE LA VOITURE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5ziTd4Mv0cM",
+     "titre": "Comment fonctionne le moteur d'une voiture ? - C'est pas sorcier",
+     "chaine": "C'est pas sorcier",
+     "vues": "795 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mM6iBpwKwzyyA6sGUzXdRgJbsEY_9RzW5m8GCkbqwgoHM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE BASICS",
+     [
+      {
+       "t": "EINES AUTOS",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EUmRobncvH4",
+     "titre": "10 Dinge, die jeder Autofahrer wissen muss - Bloch erklärt #63 | auto motor und sport",
+     "chaine": "auto motor und sport",
+     "vues": "1,4 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "32:34",
+     "avatar": "https://yt3.ggpht.com/Yt0Xvf4s6EyVa4xrW0xK-9yNvoT0ksNq5WVxdnqd5GyhAquUuh9v80CGDfCEECexgEMtM3DxdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO NEVER",
+     [
+      {
+       "t": "RUN OUT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "OF TOPICS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NE JAMAIS",
+     [
+      {
+       "t": "MANQUER",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DE SUJETS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHEN DIR",
+     [
+      {
+       "t": "DIE THEMEN",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "NIE AUS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "STORYTELL",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JOs-q7rXqdk",
+     "titre": "4 ways to tell a great story",
+     "chaine": "TED-Ed",
+     "vues": "588K views",
+     "date": "2 months ago",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "RACONTER",
+       "couleur": "#6204a3"
+      }
+     ],
+     [
+      {
+       "t": "UNE HISTOIRE",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V8EKJKESJhI",
+     "titre": "3 niveaux de storytelling (du plus simple au plus efficace)",
+     "chaine": "Explique-moi encore",
+     "vues": "71 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:29",
+     "avatar": "https://yt3.ggpht.com/he2PrOPsT5auETwkChnoujc46dhys-aS59-ns1gNqaefq1QNZU55Z6Wd34uXvvdtkctmnBKJdqU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ERZÄHLST DU",
+     [
+      {
+       "t": "GESCHICHTEN",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xN4RrRJ5TgQ",
+     "titre": "Gib mir 7 Minuten und ich verbessere dein Storytelling um 156%",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "49.540 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "7:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "LIT AN",
+       "couleur": "#b41a02"
+      }
+     ],
+     "FIRE"
+    ],
+    "video": {
+     "id": "0O3Bj8JFcTc",
+     "titre": "How to Build a Fire || REI",
+     "chaine": "REI",
+     "vues": "1.5M views",
+     "date": "9 years ago",
+     "duree": "3:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUHsFlWaQfLNKhYHZLgGcKJi5KSUr85H6SVO7smUbsrng=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ],
+    "tailles": [
+     230,
+     230,
+     230
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "FAIRE UN",
+       "couleur": "#b41a02"
+      }
+     ],
+     "FEU"
+    ],
+    "video": {
+     "id": "G9Hm5SQzmZk",
+     "titre": "[TUTOS] L'adjudant-chef Gatien vous dit tout sur la survie : épisode 1 \"le feu\"",
+     "chaine": "Armée de Terre",
+     "vues": "475 k vues",
+     "date": "il y a 6 ans",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/RrIHV8p1NUq6jyadvKLjFApJLXy1cRMLdJ6nj918Vf-kyqiceLsoXztfn7ElqYPO5LKr5t5WgQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ],
+    "tailles": [
+     230,
+     230,
+     230
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "FEUER",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pLiJfReQFKE",
+     "titre": "Feuermachen ohne Hilfsmittel | Galileo Lunch Break",
+     "chaine": "Galileo",
+     "vues": "361.252 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/jOOP8uUA5oWawWRaPnxVuNikKpZ9xzGBZh6opFnlTWe5ty78fcqi8kHUfW6pQP8CFn6JB-48nBs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  }
+ ]
+}

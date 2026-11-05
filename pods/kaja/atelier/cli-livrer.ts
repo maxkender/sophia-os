@@ -1,7 +1,9 @@
 // Usage : npm run livrer -- <id> [--langues en] [--essai <dossier>]
 //
-// Rend le remake posts/<id>.json dans chaque langue écrite et le DÉPOSE dans
-// la file de validation de l'OS (fonction Edge `pods`, action `deposer`).
+// Rend le remake posts/<id>.json en anglais, français et allemand (`LANGUES`)
+// et le DÉPOSE dans la file de validation de l'OS (fonction Edge `pods`,
+// action `deposer`). Un deck incomplet arrête la livraison : chaque compte du
+// label poste dans une seule langue, un post sans la sienne le laisserait à sec.
 // Rien n'est diffusé avant validation (à la main, ou toute seule 5 h après).
 //
 // Le label du pod (Kaja) sert Sophia : un deck par langue, LA slide Sophia
@@ -24,8 +26,12 @@ const essai = opt("--essai");
 
 const post = lirePost(id);
 const completes = languesCompletes(post);
-const langues = (opt("--langues")?.split(",") ?? [...LANGUES]).filter((l) => completes.includes(l));
-if (!langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+const langues = opt("--langues")?.split(",") ?? [...LANGUES];
+const incompletes = langues.filter((l) => !completes.includes(l));
+if (incompletes.length) {
+  throw new Error(`${id} : deck ${incompletes.join(", ")} incomplet (titre, légende et chaque slide) ; chaque livraison part en ${LANGUES.join(", ")}`);
+}
+if (!langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} part toujours, ajoute-le à --langues`);
 const sophia = post.slides.flatMap((s, i) => (estSlideSophia(s) ? [i] : []));
 if (sophia.length !== 1 || sophia[0] === 0) {
   throw new Error(`${id} : une seule slide Sophia, jamais la couverture (trouvé : ${sophia.map((i) => i + 1).join(", ") || "aucune"})`);

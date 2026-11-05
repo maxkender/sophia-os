@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o137",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "365c64ec-65b3-496b-a6b4-04e27e0d0245",
+ "titre": "5 tiny rules that changed how i spend my free time #selfimprovement #habits #freetime #rules #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "5d4a5932-1fe4-4d86-bece-d2f7819189a9"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5d4a5932). déclinaison G1 de « 5 tiny rules that changed how i spend my free time » (parent 365c64ec, famille née de wa-o093). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aa6c1488-0f9d-4f20-9ebf-2ca843468443",
+   "texte_overlay": "5 tiny rules that changed\nhow i spend my free time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655723246360202518/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "189648ed-d0e0-4be0-bb6b-242eb131c5d1",
+   "texte_overlay": "one hobby with my hands\n\ni always have one thing i'm making with my hands: a puzzle, a plant, a drawing. it gives my free time a slow, satisfying focus that no screen has ever given me.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655723246360202518/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e928903a-bb56-42af-9bfb-cc0a1cd4d899",
+   "texte_overlay": "outside every day\n\ni spend at least thirty minutes outside every single day, whatever the weather. my mood on long grey weeks changed completely once i finally stopped skipping it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655723246360202518/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "eb4cdc88-a01b-4997-8886-160d25aeb8b0",
+   "texte_overlay": "no screens at meals\n\ni never eat in front of a screen, even when i'm alone. meals became small calm breaks in my day instead of more time spent half watching something i'd forget.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655723246360202518/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a153dfcc-23f8-4391-8800-44dc1aa8966b",
+   "texte_overlay": "learn first, then relax\n\ni do five minutes of learning before i let myself relax: a painting, a myth, a planet. starting my free time with something real makes the rest feel earned.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655723246360202518/5.jpg",
+   "texte_sophia": "learn first, then relax\n\ni do one 5 minute lesson in the Sophia app before i let myself relax: a painting, a myth, a planet. starting my free time with something real makes the rest feel earned."
+  },
+  {
+   "position": 6,
+   "media_id": "ab6cf94d-e01f-406c-aab5-b752049ee18d",
+   "texte_overlay": "one call a week\n\ni call one friend or family member every week instead of only texting. a real voice for twenty minutes keeps people closer than a hundred messages ever did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655723246360202518/6.jpg"
+  }
+ ]
+}

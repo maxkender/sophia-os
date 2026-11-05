@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o136",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "30107693-22c0-435e-bd0d-5cfb26b9bd1b",
+ "titre": "habits that will make you unshakeably sure of yourself #confidence #selfimprovement #habits #mindset #socialskills",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "20c7266a-2304-4704-a6e9-6a1ffc640e60"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 20c7266a). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 30107693). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "966f27a4-66b1-4a38-ab75-76e21be318b0",
+   "texte_overlay": "habits that will make you\nunshakeably sure of yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699165141773978912/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4f6e5dac-d598-47e6-bf05-f64879a7b544",
+   "texte_overlay": "the slow answer\n\nwhen someone asks you a question, take one calm breath before you answer. a short pause makes you sound thoughtful, and it gives you time to say what you mean.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699165141773978912/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b9800b4d-9b42-4e7b-9282-477cbf8f6305",
+   "texte_overlay": "the standing order\n\norder exactly what you want at a cafe, with any change you'd like, without apologising. small, clear requests train your voice for the bigger moments.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699165141773978912/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6b53dc42-4a42-4741-bd82-c5e2a3b6d962",
+   "texte_overlay": "the unexpected thank you\n\nthank someone for something specific they did weeks ago. it's rare, it's warm, and giving people credit freely is something only secure people do with ease.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699165141773978912/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "56537ba1-70aa-48a4-b96a-4a6719855f4d",
+   "texte_overlay": "the curious mind\n\nspend 5 minutes a day learning one new thing: a strange fact about space, a moment in history, a famous artist. people who always have something to share never feel small.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699165141773978912/5.jpg",
+   "texte_sophia": "the curious mind\n\nspend 5 minutes a day learning one new thing: a fact about space, a famous artist. the Sophia app turns it into one short lesson a day, and people who have things to share never feel small."
+  },
+  {
+   "position": 6,
+   "media_id": "779f75af-f5fe-4d78-bf66-b2f830d93542",
+   "texte_overlay": "the first to arrive\n\narrive five minutes early to things and greet people as they come in. being the one who welcomes others makes you feel at home in every room you enter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699165141773978912/6.jpg"
+  }
+ ]
+}

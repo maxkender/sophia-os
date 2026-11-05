@@ -2572,6 +2572,31 @@
    },
    "statut": "rendu_fr",
    "notes": "cta C; logo substack de la slide 2 remplacé"
+  },
+  {
+   "post_id": "original-064",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#hobbies #phonefree #getsmarter",
+   "musique": {
+    "titre": "Solace",
+    "auteur": "Txmy",
+    "original": false,
+    "id": "7629352188019509265",
+    "url_tiktok": "https://www.tiktok.com/music/x-7629352188019509265"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7697728269335924001_1",
+    "2": "7702412215902571809_2",
+    "3": "7699939278847085857_6",
+    "4": "7686189452963712288_5",
+    "5": "7697728269335924001_4",
+    "6": "7699523873712164128_3"
+   },
+   "notes": "nouvelle accroche (classement de hobbies); cta C"
   }
  ]
 }

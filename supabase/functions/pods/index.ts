@@ -1026,7 +1026,11 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   return json({ ok: true, id: l.id, type: "original", ...(preuve ? { preuve } : {}), ...(bleo ? { bleo } : {}) });
 }
 
-/** Vrai quand la voie 1 doit déclarer `type_bleo` (`reglages.bleo.podz.type_obligatoire`). */
+/**
+ * Vrai quand la voie 1 doit déclarer `type_bleo` (`reglages.bleo.podz.type_obligatoire`).
+ * `voie` n'est plus une colonne tenue à la main : c'est la colonne calculée
+ * `voie(labels)` (0650), tirée de la vue `labels_100_podz`.
+ */
 async function typeBleoObligatoire(supabase: Supabase, labelId: string): Promise<boolean> {
   const [{ data: reglage }, { data: label }] = await Promise.all([
     supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),

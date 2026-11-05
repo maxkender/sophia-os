@@ -43,12 +43,13 @@ export interface StatLabel {
   recents_pays: number;
   recence_pays: number;
   /**
-   * Label 100 % pod (0352) : tous ses contenus validés sont livrés par un pod.
-   * Son stock suit les comptes (le pod produit pour eux) : la réserve ne le
-   * juge pas, il se remplit langue par langue.
+   * Label 100 % podz (0352 ; définition unique depuis 0650, vue
+   * `labels_100_podz`) : un seul podz le nourrit, aucune source. Son stock suit
+   * les comptes (le pod produit pour eux) : la réserve ne le juge pas, il se
+   * remplit langue par langue.
    */
   pod_seul?: boolean;
-  /** Le pod sert la langue du compte (vrai sans langue). */
+  /** Le pod sert la langue du compte (vrai sans langue, vrai partout pour un podz d'originaux). */
   livre_langue?: boolean;
   /**
    * Comptes du label dans sa langue la moins remplie, parmi les AUTRES langues

@@ -17,12 +17,13 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  * passage suivant. Idempotente. Un contenu sans empreinte ne change rien à
  * l'assignation : la règle ne relègue que sur une égalité prouvée.
  *
- * Labels 100 % podz (tous leurs contenus valides viennent d'un pod : page
- * blanche, remakes) : pas de règle, à la demande d'Adrien. Ces labels
+ * Labels 100 % podz (vue `labels_100_podz`, 0650 : un seul podz les nourrit,
+ * aucune source ; page blanche, remakes) : pas de règle, à la demande d'Adrien. Ces labels
  * reprennent à dessein une même photo ou une même statue sous des accroches
- * différentes. Leurs contenus restent sans signature : jamais relégués, jamais
- * cause d'une relégation. Décidé au premier passage du contenu, pas revu
- * ensuite.
+ * différentes. Leurs contenus restent sans empreinte de couverture. Leur
+ * accroche, elle, vient de leur titre (le texte est dans l'image) : BLEO la
+ * pose au rattachement (`bleo_accroches_podz`, 0652), ici elle reste nulle.
+ * Décidé au premier passage du contenu, pas revu ensuite.
  */
 const LOT = 300;
 /** Miniatures demandées en même temps : à 8, le stockage répond 429. */
@@ -79,13 +80,18 @@ async function lireEmpreinte(url: string): Promise<{ empreinte: string | null; r
 }
 
 /**
- * Contenus de pod dont TOUS les labels sont « 100 % podz » (aucun contenu
- * valide du label sans `pod`). Un contenu sans label n'est pas exempté.
+ * Contenus de pod dont TOUS les labels sont « 100 % podz ». La définition est
+ * celle de la vue `labels_100_podz` (0650), la même pour tout l'OS. Un contenu
+ * sans label n'est pas exempté.
  */
 async function exemptesPodz(supabase: Supabase, contenus: Contenu[]): Promise<Set<string>> {
   const exemptes = new Set<string>();
   const dePod = contenus.filter((c) => c.pod).map((c) => c.id);
   if (dePod.length === 0) return exemptes;
+  const { data: podz, error: ePodz } = await supabase.from("labels_100_podz").select("label_id");
+  if (ePodz) throw new Error(`labels_100_podz : ${ePodz.message}`);
+  const toutPodz = new Set(((podz ?? []) as Array<{ label_id: string }>).map((l) => l.label_id));
+  if (toutPodz.size === 0) return exemptes;
   const labelsDe = new Map<string, string[]>();
   for (let i = 0; i < dePod.length; i += 100) {
     const { data, error } = await supabase
@@ -97,21 +103,8 @@ async function exemptesPodz(supabase: Supabase, contenus: Contenu[]): Promise<Se
       labelsDe.set(l.contenu_id, [...(labelsDe.get(l.contenu_id) ?? []), l.label_id]);
     }
   }
-  const toutPodz = new Map<string, boolean>();
-  for (const labelId of new Set([...labelsDe.values()].flat())) {
-    const { data, error } = await supabase
-      .from("contenu_labels")
-      .select("contenu_id, contenus!inner(id)")
-      .eq("label_id", labelId)
-      .eq("contenus.statut", "valide")
-      .eq("contenus.import_statut", "done")
-      .is("contenus.pod", null)
-      .limit(1);
-    if (error) throw new Error(`label ${labelId} : ${error.message}`);
-    toutPodz.set(labelId, (data ?? []).length === 0);
-  }
   for (const [id, labels] of labelsDe) {
-    if (labels.every((l) => toutPodz.get(l))) exemptes.add(id);
+    if (labels.every((l) => toutPodz.has(l))) exemptes.add(id);
   }
   return exemptes;
 }

@@ -3298,7 +3298,7 @@ export const fr = {
         meilleursPassages: "Meilleurs passages :",
         aucunPost: "Pas encore de post publié pour ce contenu.",
         voie2:
-          "Les labels de la voie 2 (white_bg, mentalmaxxing, that_girl_study, Fathomly) refont les posts d'un compte suivi : ils n'ont pas de boîte.",
+          "Les labels de la voie 2 (100 % podz, dont le podz livre des slides finies) refont les posts d'un compte suivi : ils n'ont pas de boîte.",
       },
       reglages: {
         titre: "Réglages BLEO",

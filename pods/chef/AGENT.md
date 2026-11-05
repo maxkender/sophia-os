@@ -37,7 +37,7 @@ Les podz :
 | 3 · Réactions vidéo (en pause) | `reactions` | `session_01VS4KLri3cw1YkZrx8ZdYBX` | — |
 | 4 · Originaux alpha_male_yellow | `alpha-yellow` | `session_014ZhTRbi5iRvv2vfZ5JeAfr` | alpha_male_yellow |
 | 5 · Originaux RH | `rh` | `session_01LfA4fSWqnaCFDYsWjJCVjU` | RH |
-| 6 · Remakes @mentalapp (arrêté le 4/11) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (ne sert plus aucune appli : UnSwipe arrêté) |
+| 6 · Remakes @mentalapp (arrêté le 4/11) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (fermé le 5/11 : UnSwipe arrêté) |
 | 7 · Originaux beau_smart_girl | `beau-smart-girl` | `session_01THEUnC81JyhMwLkGH5utSQ` | beau_smart_girl |
 | 8 · Originaux smart_girl | `smart-girl` | `session_01Tm4VDGW1KMgkF1hzdLhHL1` | smart_girl |
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
@@ -124,7 +124,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
       langue, il n'a jamais publiés, et dans combien de jours il tombe à
       court à son rythme de publication. Sous 7 jours → **une livraison de
       plus par jour** dans `pods/rythme.json` pour le podz qui nourrit ce
-      label. Les labels nourris uniquement par les podz passent en premier.
+      label. Les labels 100 % podz passent en premier : ce sont ceux de
+      `select label, pod, voie from labels_100_podz;` (un seul podz les
+      nourrit, aucune source), jamais une liste de tête.
       Dis-le dans le point, avec le compte et ses jours de stock.
    3. **Un podz qui ne perce pas** : aucun passage à 10 k vues ou plus en
       14 jours, avec 20 passages mûrs au moins → **signale-le** dans le point.

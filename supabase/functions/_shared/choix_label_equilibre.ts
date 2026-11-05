@@ -56,7 +56,9 @@
  *      ou pays) passe d'abord ; puis le plus en retard (le plus petit des deux
  *      retards), puis la flotte, puis le poids, puis l'identifiant (stable).
  *
- * LABEL 100 % POD (0352). Son stock suit les comptes (le pod produit pour eux) :
+ * LABEL 100 % POD (0352). Un seul podz le nourrit, aucune source : la
+ * définition unique de l'OS, vue `labels_100_podz` (0650), lue par
+ * `stats_choix_label`. Son stock suit les comptes (le pod produit pour eux) :
  * sans compte il ne produit pas, et la règle de réserve l'enfermait dehors.
  * Pour lui, la réserve ne compte plus (capacité 1, pas de « réserve basse ») ;
  * il ne va que dans une langue que son pod sert (sinon « à sec ») et se
@@ -106,12 +108,13 @@ export interface StatLabelCreation {
   /** Récence dans le pays, même échelle. */
   recence_pays: number;
   /**
-   * Label 100 % pod (0352) : tous ses contenus validés sont livrés par un pod.
-   * Son stock suit les comptes (le pod produit pour eux) : la réserve ne le
-   * juge pas, il se remplit langue par langue.
+   * Label 100 % podz (0352 ; définition unique depuis 0650, vue
+   * `labels_100_podz`) : un seul podz le nourrit, aucune source. Son stock suit
+   * les comptes (le pod produit pour eux) : la réserve ne le juge pas, il se
+   * remplit langue par langue.
    */
   pod_seul?: boolean;
-  /** Le pod sert la langue du compte (vrai sans langue). */
+  /** Le pod sert la langue du compte (vrai sans langue, vrai partout pour un podz d'originaux). */
   livre_langue?: boolean;
   /**
    * Comptes du label dans sa langue la moins remplie, parmi les AUTRES langues

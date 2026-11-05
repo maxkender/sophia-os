@@ -75,7 +75,8 @@ Chaque terme a une seule définition, utilisée partout dans le code et les rapp
 | File valeur | Les autres créneaux, tirés au prorata du cube de la valeur attendue |
 | Récolte | Un passage d'un contenu gagnant dans une langue neuve |
 | Voie 1 | Labels mixtes : imports et podz d'originaux |
-| Voie 2 | Labels 100 % podz (white\_bg, mentalmaxxing, that\_girl\_study, Fathomly) : remakes livrés |
+| Label 100 % podz | *5/11 (0650) :* un label fourni **uniquement** par son podz : un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active. Une seule définition pour tout l'OS : la vue `labels_100_podz` |
+| Voie 2 | Labels 100 % podz dont le podz livre des slides finies (remakes livrés : white\_bg, Fathomly, that\_girl\_study, Kaja au 5/11 ; mentalmaxxing fermé le 5/11). *Depuis 0650 :* calculée (`voie(labels)`, colonne `voie` de `labels_100_podz`), plus tenue à la main |
 | Livré | Contenu dont les slides finies sont fournies par langue (`contenus.livre = true`) : pas de deck à fabriquer |
 | Circuit | Qui a écrit le deck d'un passage : `agent`, `gemini` ou `livre` |
 | Voie de CTA | Comment l'appli est placée : `reprise` (CTA de l'original), `prouvee` (forme de la fiche label), `essai`, `marquee` (slide marquée par le podz), `concurrent` (notre appli à la place d'un concurrent) |
@@ -144,7 +145,7 @@ Tout s'ajoute à côté de l'existant, par migrations numérotées à la suite d
 
 | Table | Colonne | Type | Rôle |
 | --- | --- | --- | --- |
-| `labels` | `voie` | smallint, défaut 1 | 2 pour white\_bg, mentalmaxxing, that\_girl\_study, Fathomly |
+| `labels` | `voie` | smallint, défaut 1 | 2 pour white\_bg, mentalmaxxing, that\_girl\_study, Fathomly. *5/11 (0650) :* colonne supprimée, remplacée par la colonne calculée `voie(labels)`, tirée de `labels_100_podz` |
 | `contenus` | `famille_id` | uuid → `bleo_familles` | Sa famille d'accroche (A2) |
 | `contenus` | `generation` | smallint 0 à 2 | A2 |
 | `contenus` | `parent_bleo_id` | uuid → `contenus` | Le contenu décliné. Ne pas réutiliser `parent_id`, pris par les variations |
@@ -197,7 +198,7 @@ Tout s'ajoute à côté de l'existant, par migrations numérotées à la suite d
 
 ### Remplir l'existant (une fois, à l'installation)
 
-1. `labels.voie = 2` pour les 4 labels 100 % podz.
+1. `labels.voie = 2` pour les 4 labels 100 % podz. *(Depuis 0650, la voie se calcule : rien à poser.)*
 2. Familles : regrouper les contenus valides par (label, `accroche_norm`), la racine = le plus ancien ; un contenu sans accroche = sa propre famille. Pour les originaux de podz, lire les `notes` des fichiers `pods/*/originaux/*.json` (« variante de X ») pour remplir `parent_bleo_id` et `generation` ; sans note, génération 0.
 3. `type_bleo` : `historique` pour tout contenu validé avant BLEO, sauf les livrés (`remake`).
 4. `etat_bleo` : `juge` si le contenu a au moins 2 passages mûrs ; sinon `a_juger`.

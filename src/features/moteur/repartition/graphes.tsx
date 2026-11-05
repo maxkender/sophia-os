@@ -205,7 +205,8 @@ export function Aide({ children, libelle }: { children: React.ReactNode; libelle
 }
 
 /**
- * Marque d'un label 100 % podz (0352) : tout son contenu est livré par un pod.
+ * Marque d'un label 100 % podz (0352, définition unique `labels_100_podz`
+ * depuis 0650) : un seul podz le nourrit, aucune source.
  * Même icône que l'entrée « Podz » du menu. Le moteur ne le juge pas sur sa
  * réserve, il le remplit langue par langue.
  */

@@ -3273,7 +3273,7 @@ export const en = {
         meilleursPassages: "Best posts:",
         aucunPost: "No published post yet for this content.",
         voie2:
-          "Lane-2 labels (white_bg, mentalmaxxing, that_girl_study, Fathomly) remake the posts of a followed account: they have no box.",
+          "Lane-2 labels (100% pod labels whose pod delivers finished slides) remake the posts of a followed account: they have no box.",
       },
       reglages: {
         titre: "BLEO settings",

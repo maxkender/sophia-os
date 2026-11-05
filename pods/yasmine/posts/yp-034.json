@@ -1,0 +1,831 @@
+{
+ "id": "yp-034",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7663536748386929942",
+  "vues": 181200,
+  "enregistrements": 10185,
+  "publie_le": "2026-07-17",
+  "titre": "habits that actually helped me PROTECT MY PEACE"
+ },
+ "titre": {
+  "fr": "les petites habitudes qui m’aident à protéger ma paix",
+  "en": "small habits that help me protect my peace",
+  "es": "los pequeños hábitos que me ayudan a proteger mi paz",
+  "de": "kleine Gewohnheiten, die mir helfen, meinen Frieden zu schützen",
+  "it": "le piccole abitudini che mi aiutano a proteggere la mia pace",
+  "pt": "pequenos hábitos que me ajudam a proteger minha paz",
+  "tr": "huzurumu korumama yardımcı olan küçük rutinler"
+ },
+ "legendes": {
+  "fr": "protège ta paix, version 2 🤍 #thatgirl #habitudes #studytok #bienetre #routine",
+  "en": "protect your peace, part 2 🤍 #thatgirl #habits #studytok #selfcare #routine",
+  "es": "protege tu paz, parte 2 🤍 #thatgirl #habitos #studytok #autocuidado #rutina",
+  "de": "schütz deinen Frieden, Teil 2 🤍 #thatgirl #gewohnheiten #studytok #selfcare #routine",
+  "it": "proteggi la tua pace, parte 2 🤍 #thatgirl #abitudini #studytok #selfcare #routine",
+  "pt": "proteja sua paz, parte 2 🤍 #thatgirl #habitos #studytok #autocuidado #rotina",
+  "tr": "huzurunu koru, bölüm 2 🤍 #thatgirl #alışkanlıklar #studytok #özbakım #rutin"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7658077577667480334"
+ },
+ "fond": {
+  "media_id": "4ee44fde-123a-4b7e-a800-2ed6762ebc78",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3839cbaa-0cf4-4dd4-b75f-627c620d62f5/5.jpg?v=1790680109014",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "variante de yp-021 (« PROTECT MY PEACE », 181 k) : même format paragraphes TikTok, petites habitudes, autres photos. cta A : micabo dans le texte de l’habitude « révise un peu chaque jour », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "les petites habitudes qui m’aident à",
+     "lignes": [
+      "PROTÉGER",
+      "MA PAIX"
+     ],
+     "taille": 160,
+     "taille_script": 44,
+     "y": 1100
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "small habits that help me",
+     "lignes": [
+      "PROTECT",
+      "MY PEACE"
+     ],
+     "taille": 170,
+     "taille_script": 44,
+     "y": 1100
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "los pequeños hábitos que me ayudan a",
+     "lignes": [
+      "PROTEGER",
+      "MI PAZ"
+     ],
+     "taille": 170,
+     "taille_script": 44,
+     "y": 1100
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "kleine Gewohnheiten, die mir helfen,",
+     "lignes": [
+      "MEINEN FRIEDEN",
+      "ZU SCHÜTZEN"
+     ],
+     "taille": 116,
+     "taille_script": 44,
+     "y": 1100
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "le piccole abitudini che mi aiutano a",
+     "lignes": [
+      "PROTEGGERE",
+      "LA MIA PACE"
+     ],
+     "taille": 132,
+     "taille_script": 44,
+     "y": 1100
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "pequenos hábitos que me ajudam a",
+     "lignes": [
+      "PROTEGER",
+      "MINHA PAZ"
+     ],
+     "taille": 160,
+     "taille_script": 44,
+     "y": 1100
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "bana iyi gelen küçük rutinler",
+     "lignes": [
+      "HUZURUMU",
+      "KORUMAK"
+     ],
+     "taille": 150,
+     "taille_script": 44,
+     "y": 1100
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "02d3e38d-675a-4264-97e3-a1707c79c1fb",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/cea446a1-0de0-4d91-8b7c-9c1eb3628d5a/4-upscale.jpg?v=1789769449731",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "bois un grand verre d’eau avant ton",
+      "café. ton cerveau est à 75 % d’eau, il",
+      "te remerciera."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "drink a big glass of water before your",
+      "coffee. your brain is 75% water, it’ll",
+      "thank you."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "bebe un buen vaso de agua antes del",
+      "café. tu cerebro es un 75 % agua, te lo",
+      "agradecerá."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "trink ein großes Glas Wasser vor dem",
+      "Kaffee. dein Gehirn besteht zu 75 % aus",
+      "Wasser, es wird es dir danken."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "bevi un bel bicchiere d’acqua prima del",
+      "caffè. il cervello è al 75 % acqua, ti",
+      "ringrazierà."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "beba um copão de água antes do café. seu",
+      "cérebro é 75 % água, ele agradece."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kahveden önce büyük bir bardak su iç.",
+      "beynin %75 sudur, sana teşekkür edecek."
+     ],
+     "x": 540,
+     "y": 1790,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c41210bc-b63d-46b4-b24d-c5a91ab9a3ae",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7dea918f-741c-47fc-8f2c-d862b6020e71/2.jpg?v=1791726260384",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "écris 3 choses à faire, pas 15. une",
+      "liste trop longue, c’est une liste que",
+      "tu ne finis jamais."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "write down 3 things to do, not 15. a",
+      "list that’s too long is a list you never",
+      "finish."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "apunta 3 cosas que hacer, no 15. una",
+      "lista demasiado larga es una lista que",
+      "nunca terminas."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "schreib 3 Aufgaben auf, nicht 15. eine",
+      "zu lange Liste wird nie fertig."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "scrivi 3 cose da fare, non 15. una lista",
+      "troppo lunga è una lista che non finisci",
+      "mai."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "anote 3 coisas pra fazer, não 15. lista",
+      "longa demais é lista que nunca termina."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "15 değil, 3 yapılacak şey yaz. çok uzun",
+      "bir liste asla bitmeyen bir listedir."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2782f096-a1c3-46c5-acc4-4b4f9c7e0a7f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c189073e-5d1f-4dc4-98d5-800b8de31415/7.jpg?v=1790679340489",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ouvre la fenêtre 10 min. un air frais,",
+      "et tu respires enfin."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "open the window for 10 minutes. fresh",
+      "air, and you can finally breathe."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "abre la ventana 10 min. aire fresco, y",
+      "por fin respiras."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach 10 Min. das Fenster auf. frische",
+      "Luft, und du atmest endlich durch."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "apri la finestra per 10 minuti. aria",
+      "fresca, e finalmente respiri."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "abra a janela por 10 min. ar fresco, e",
+      "você finalmente respira."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "pencereyi 10 dakika aç. temiz hava, ve",
+      "sonunda nefes alırsın."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "aa747013-5684-41f3-a84c-fdc96cd3798f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1037f86d-f0c1-49c6-9636-3b8edd403563/2.jpg?v=1790612526639",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "révise un peu chaque jour au lieu de",
+      "tout la veille. moi, c’est 10 min de",
+      "quiz micabo avec mon thé, et je n’ai",
+      "plus jamais paniqué avant un contrôle."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "study a little every day instead of",
+      "cramming. for me, it’s 10 minutes of",
+      "micabo quizzes with my tea, and i",
+      "haven’t panicked before a test since."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "estudia un poco cada día en vez de todo",
+      "la noche antes. yo hago 10 min de quiz",
+      "en micabo con mi té, y nunca más he",
+      "entrado en pánico antes de un examen."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern jeden Tag ein bisschen, statt alles",
+      "am Vorabend. ich mache 10 Min.",
+      "micabo-Quiz zu meinem Tee, und seitdem",
+      "hatte ich vor keiner Arbeit mehr Panik."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "ripassa un po’ ogni giorno invece di",
+      "tutto la sera prima. io faccio 10 minuti",
+      "di quiz su micabo con il mio tè, e non",
+      "sono più andata nel panico prima di una",
+      "verifica."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "estude um pouco todo dia em vez de tudo",
+      "na véspera. eu faço 10 min de quiz no",
+      "micabo com meu chá, e nunca mais entrei",
+      "em pânico antes de uma prova."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "her şeyi son geceye bırakmak yerine her",
+      "gün biraz çalış. ben çayımla 10 dakika",
+      "micabo testi çözüyorum, o günden beri",
+      "hiçbir sınavdan önce panik yapmadım."
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "12b40f14-01c6-4ab9-b8a3-f51513b11b12",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/33a5200d-c4db-438a-be6c-4cb3f8d17b6f/8.jpg?v=1790681037636",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "range ton espace avant de dormir. tu te",
+      "réveilles dans une chambre qui",
+      "t’accueille."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "tidy your space before bed. you wake up",
+      "in a room that welcomes you."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ordena tu espacio antes de dormir. te",
+      "despiertas en un cuarto que te recibe."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "räum vor dem Schlafen auf. du wachst in",
+      "einem Zimmer auf, das dich willkommen",
+      "heißt."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "sistema il tuo spazio prima di dormire.",
+      "ti svegli in una stanza che ti accoglie."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "arrume seu espaço antes de dormir. você",
+      "acorda num quarto que te acolhe."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "uyumadan önce alanını topla. seni",
+      "karşılayan bir odada uyanırsın."
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 38,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0fd5748a-5d5d-4edd-a41f-4c1745dc9b30",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/146b5667-f345-4e41-af28-8b460b215084/3.jpg?v=1786374782890",
+    "cadrage": {
+     "x": 1,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "note une chose qui s’est bien passée",
+      "aujourd’hui. même petite. surtout",
+      "petite."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "write down one thing that went well",
+      "today. even a small one. especially a",
+      "small one."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "apunta una cosa que haya salido bien",
+      "hoy. aunque sea pequeña. sobre todo si",
+      "es pequeña."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "schreib eine Sache auf, die heute gut",
+      "lief. auch eine kleine. vor allem eine",
+      "kleine."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "scrivi una cosa che è andata bene oggi.",
+      "anche piccola. soprattutto piccola."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "anote uma coisa que deu certo hoje.",
+      "mesmo pequena. principalmente pequena."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bugün iyi giden bir şeyi yaz. küçük bile",
+      "olsa. özellikle küçükse."
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "13155a41-988e-4bbb-9383-a12997aa2a24",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/32c3f6ba-7fd0-4393-bdb4-f1fd6b105bc9/2.jpg?v=1790677532164",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ta paix vaut plus que n’importe quelle",
+      "note.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "your peace is worth more than any",
+      "grade.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "tu paz vale más que cualquier nota.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "dein Frieden ist mehr wert als jede",
+      "Note.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "la tua pace vale più di qualsiasi",
+      "voto.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "pt": {
+    "legende": {
+     "lignes": [
+      "sua paz vale mais que qualquer nota.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "huzurun herhangi bir nottan daha",
+      "değerli.🤍"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 38,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ]
+}

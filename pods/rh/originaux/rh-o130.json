@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o130",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f075e4ee-1996-422b-918e-7dbe47706319",
+ "titre": "ce que j'ai « enjolivé » en entretien… et ils m'ont fait signer #entretien #rechercheemploi #emploi #cdi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 3. Déclinaison G2 de la ligne 1 (parent f075e4ee) : même promesse, autres mots que rh-o106. Autres questions, recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "45590f95",
+   "texte_overlay": "ce que j'ai « enjolivé » en entretien…\net ils m'ont fait signer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7332bf71",
+   "texte_overlay": "« vous êtes rigoureuse ? »\nj'ai dit « j'ai une checklist pour tout »\nla vérité : je l'avais créée la semaine d'avant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "39b363a2",
+   "texte_overlay": "« vous suivez l'actualité du secteur ? »\nj'ai dit « oui, chaque matin »\nla vérité : 5 minutes. mais chaque matin",
+   "texte_sophia": "« vous suivez l'actualité du secteur ? »\nj'ai dit « oui, chaque matin »\nla vérité : 5 minutes sur l'appli Sophia. mais chaque matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "73cb4993",
+   "texte_overlay": "« vous avez déjà négocié avec un fournisseur ? »\nj'ai dit « j'ai négocié des tarifs pour mon asso »\nla vérité : c'était vrai, et c'était dur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0b886b8c",
+   "texte_overlay": "« vous êtes à l'aise avec l'anglais ? »\nj'ai dit « à l'écrit oui, l'oral je le travaille »\nla vérité : exactement ça",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "748df057",
+   "texte_overlay": "« vous avez un défaut ? »\nj'ai dit « je dis oui trop vite, j'apprends à dire je reviens vers toi »\nla vérité : j'apprends encore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "74be0b98",
+   "texte_overlay": "« pourquoi nous ? »\nj'ai dit ce que j'avais aimé sur leur site\nla vérité : je l'avais lu 3 fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7527e48d",
+   "texte_overlay": "rien d'inventé. tout arrangé.\nlaquelle tu dis demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

@@ -2,6 +2,7 @@ import { assertEquals } from "jsr:@std/assert@1";
 
 import {
   applicationARemplacer,
+  applicationsRemplacant,
   colonnesBleoPassage,
   type LignePlanBleo,
   lireRemplacantsBleo,
@@ -55,6 +56,13 @@ Deno.test("remplaçant BLEO : l'application du créneau retiré, sinon celle de 
   // Compte absent du plan, ou contenu retiré hors plan : la répartition décide.
   assertEquals(applicationARemplacer([], ["b"], "app-defaut"), "app-defaut");
   assertEquals(applicationARemplacer(plan, ["z"], null), null);
+});
+
+Deno.test("remplaçant BLEO : l'application du plan d'abord, puis celle du créneau (D52)", () => {
+  // UnSwipe arrêté : le créneau du plan était UnSwipe, le compte sert Sophia aujourd'hui.
+  assertEquals(applicationsRemplacant("app-unswipe", "app-sophia"), ["app-unswipe", "app-sophia"]);
+  // Même application : un seul essai.
+  assertEquals(applicationsRemplacant("app-sophia", "app-sophia"), ["app-sophia"]);
 });
 
 Deno.test("remplaçant BLEO : les candidats deviennent des lignes du plan (file valeur, créneau 0)", async () => {

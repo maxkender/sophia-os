@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o091",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e63305b5-c554-4a58-a485-1597590be92c",
+  "titre": "how to balance love & school #studytok #school",
+  "inspirations": [
+    "e63305b5-c554-4a58-a485-1597590be92c"
+  ],
+  "notes": "G1, déclinaison de e63305b5 (« how to balance love & school », génération 0 en anglais ; meilleur passage de 3,8 k vues, r 3,51), en anglais. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni priorités, ni protéger son énergie, ni amis, ni autre appli). Routine du 5/11 sur BLEO : jauge 1 full test et 7 déclinaisons ; j'ai fait 2 full tests et 6 déclinaisons (lignes 2 à 7 de la boîte), car les autres lignes ne se déclinent pas proprement : 1 (083ac272, 9 hobbies « validés par la science », des preuves que je ne peux pas vérifier, et le label évite la liste « prouvée par la science » vague), 8 (837491f7, faute de frappe et salaires), 9 (6211e51e, « other then »), 10 (9e0c287f, « je notes… j'ai essayé », fautes à recopier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "how to balance\nlove & school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. study dates are real dates\n\nsame table, two laptops, one coffee each.\ncute and productive.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0f057bec",
+      "texte_overlay": "2. tell them your exam dates\n\nthe right person plans around them,\nnot against them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4c866843",
+      "texte_overlay": "3. keep one evening just for you\n\nno texts, no calls.\nmissing each other is healthy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "09067fa3",
+      "texte_overlay": "4. don't skip class to see them\n\nif it's real, it'll still be there at 5pm.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "114ca47c",
+      "texte_overlay": "5. stay interesting, for you\n\nbefore, my whole world was the relationship.\nnow i learn one new thing every morning. and i always have something to tell them.",
+      "texte_sophia": "5. stay interesting, for you\n\nbefore, my whole world was the relationship.\nnow i open the Sophia app every morning. and i always have something to tell them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "01be1362",
+      "texte_overlay": "save this for your next exam season.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

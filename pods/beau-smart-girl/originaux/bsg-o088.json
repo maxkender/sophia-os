@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o088",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6ed46266-4d4d-4579-9d62-47b09b5cab05",
+  "titre": "les habitudes pour devenir dangereusement disciplinée (même sans aucune motivation) #discipline #pourtoi",
+  "inspirations": [
+    "6ed46266-4d4d-4579-9d62-47b09b5cab05"
+  ],
+  "notes": "G1, déclinaison de 6ed46266 (« les habitudes pour devenir dangereusement disciplinée (même sans aucune motivation) », génération 0 en français ; meilleur passage tr 5,2 k vues, r 3,83), en français. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni décider la veille, ni flamants roses, ni commencer facile, ni même place, ni autre appli). Routine du 5/11 sur BLEO : jauge 1 full test et 7 déclinaisons ; j'ai fait 2 full tests et 6 déclinaisons (lignes 2 à 7 de la boîte), car les autres lignes ne se déclinent pas proprement : 1 (083ac272, 9 hobbies « validés par la science », des preuves que je ne peux pas vérifier, et le label évite la liste « prouvée par la science » vague), 8 (837491f7, faute de frappe et salaires), 9 (6211e51e, « other then »), 10 (9e0c287f, « je notes… j'ai essayé », fautes à recopier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "les habitudes pour devenir\ndangereusement disciplinée\n(même sans aucune motivation)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "057091a3",
+      "texte_overlay": "1. la règle des deux minutes\n\nsi ça prend moins de deux minutes,\nje le fais tout de suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. je ne négocie pas avec moi-même\n\nle sport, c'est mardi et jeudi.\nje ne me demande pas si j'en ai envie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "16a06d13",
+      "texte_overlay": "3. je prépare mon espace, pas ma motivation\n\nle livre ouvert sur la table la veille.\nle matin, je n'ai plus qu'à m'asseoir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "05383fbb",
+      "texte_overlay": "4. je coche, même les petites choses\n\nune case cochée, ça donne envie\nd'en cocher une autre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. je nourris ma curiosité tous les jours\n\navant, j'attendais d'être motivée pour apprendre.\nmaintenant, j'apprends un truc chaque matin. et la motivation vient après.",
+      "texte_sophia": "5. je nourris ma curiosité tous les jours\n\navant, j'attendais d'être motivée pour apprendre.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et la motivation vient après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "01be1362",
+      "texte_overlay": "vole-moi une habitude.\ntu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o138",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c94a37eb-b3e9-479f-a42d-b1ac7eeaf261",
+ "titre": "Habits that make you sound more confident when you talk #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "c94a37eb-b3e9-479f-a42d-b1ac7eeaf261"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 3c7793bd. déclinaison G1 de la ligne 7 de la boîte (c94a37eb, de 4,6 k) : accroche du parent mot pour mot. La ligne 8 (« sound smarter instantly ») est sautée : hook voisin du même jour. Items neufs, aucun repris du parent (ay-o066). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c7793bd",
+   "texte_overlay": "Habits that make you sound more\nconfident when you talk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Speak a little slower than feels natural. Nerves make you rush. Slowing down gives your words weight and makes you sound like someone who expects to be heard.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use pauses on purpose. Stop for a second before your main point. Silence builds attention, and confident speakers are never afraid of a short pause.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Lower your volume, don't raise it. When you want attention, speak softer, not louder. People lean in, and calm speech always sounds more sure than shouting.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Finish your sentences. Don't trail off with \"and stuff\" or \"you know.\" Ending a sentence clearly tells people you meant every single word of it, and they listen better.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Knowing what you're talking about is the quickest way to sound confident about it.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Knowing your topic is the fastest way to sound confident.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Replace \"I think maybe\" with \"I'd suggest.\" Small word changes make a big difference. Clear, direct phrases sound confident without sounding arrogant.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Record yourself once a week. A voice note of you telling a story. Listen back, notice your habits, and you'll improve faster than with any book or course.",
+   "media_id": "2979667b"
+  }
+ ]
+}

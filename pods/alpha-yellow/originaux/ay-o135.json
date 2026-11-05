@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o135",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5358cba0-1926-4d05-97c7-885805b2f7a9",
+ "titre": "Unusual hobbies that make you calmer and sharper #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "5358cba0-1926-4d05-97c7-885805b2f7a9"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 42c60871. déclinaison G1 de la ligne 4 de la boîte (5358cba0, tr 4,4 k r 3,8) : accroche du parent mot pour mot. Hobbies neufs, aucun repris du parent (voile, bois, jonglage, natation, jardin, go) ni d'ay-o052, o061, o127. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42c60871",
+   "texte_overlay": "Unusual hobbies that make\nyou calmer and sharper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Try archery. Breathe, aim, release. It trains focus and patience like nothing else, and the quiet concentration it needs empties your head of every worry.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn to fish. Hours by the water, waiting, watching. Fishing teaches patience and gives your mind a real rest from screens, noise and constant messages.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Build a puzzle or a model. A thousand pieces, a ship in a bottle, a small model plane. Slow, careful work with your hands calms an anxious mind surprisingly fast.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Practise calligraphy. A brush, some ink, a few letters a day. Every stroke forces you to slow down, and the focus it needs is a kind of meditation on paper.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A curious mind is a calmer mind, and your thinking gets sharper every single week.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious mind is a calmer and sharper mind.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Go birdwatching. Binoculars, a notebook, an early morning walk. Learning to spot and name birds trains your attention and gets you outdoors in total calm.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Learn to solve a Rubik's cube. It looks impossible, then it clicks. Memorising the steps sharpens your memory, and solving it in two minutes feels amazing.",
+   "media_id": "f4bd619d"
+  }
+ ]
+}

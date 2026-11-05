@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o132",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "00a9144c-3c5d-4aeb-8127-a851df56ae76",
+ "titre": "Everyday details that make you look elegant without effort #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "00a9144c-3c5d-4aeb-8127-a851df56ae76"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 7, sur une image sans visage. Couverture bdf15e02. déclinaison G2 de la ligne 1 de la boîte (00a9144c, « Small things that make you quietly sophisticated », es 26,9 k r 6,01), 2e déclinaison de ce parent après ay-o094. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o094 et ay-o115. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bdf15e02",
+   "texte_overlay": "Everyday details that make you\nlook elegant without effort",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A belt that matches your shoes. Brown with brown, black with black. It's a tiny detail, but it makes even a simple outfit look intentional and put together.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Rolling your sleeves properly. Two neat folds just below the elbow, not a crumpled bunch. Relaxed but tidy is the most effortless kind of elegance there is.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A clean, simple wallet. Not stuffed with old receipts and broken cards. Paying with a slim, tidy wallet is a small moment people notice more than you think.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Writing with a good pen. A decent pen you keep in your jacket. Signing a card or taking a note with a nice pen is a quiet, classic detail that never goes out of style.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Choosing one signature scent and keeping it. Applied lightly, every day. People start to associate it with you, and that consistency feels refined and memorable.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Elegance is also knowing a little about the world, and it shows in how you talk.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Elegance is knowing a little about the world, and it shows.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Saying \"please\" and \"thank you\" to everyone. The waiter, the driver, the cashier. Courtesy costs nothing, and it's the most elegant habit a man can have.",
+   "media_id": "e1140173"
+  }
+ ]
+}

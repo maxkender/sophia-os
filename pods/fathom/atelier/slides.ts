@@ -69,7 +69,13 @@ export type Post = {
   legendes: Record<string, string>;
   musique: { titre: string; url: string };
   notes?: string;
-  slides: Slide[];
+  slides: Slide[];  /**
+   * BLEO (pods/ROUTINE.md §5) : « declinaison » d'une famille de la boîte
+   * (`npm run boite`, avec `parent_contenu_id`) ou « full_test » (une accroche
+   * neuve, déposée sans le post modèle). Absent : le remake d'un post du compte modèle.
+   */
+  type_bleo?: "full_test" | "declinaison";
+  parent_contenu_id?: string;
 };
 
 export function lirePost(id: string): Post {

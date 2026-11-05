@@ -75,6 +75,7 @@ Lance `npm install` une fois par session. `livrer` et `etat` demandent `POD_JETO
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/en/<n>.jpg`) et la planche `sortie/apercus/<id>.en.jpg`. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide Sophia (une seule, une étape, pas la couverture) et chaque étape (une vraie vidéo ou la carte Sophia). |
 | `npm run etat` | Montre les comptes du label, la file, le rang, puis les vues et le r de chaque remake en ligne. |
+| `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : les full tests du jour, puis les familles gagnantes à décliner, dans l'ordre, avec le parent (`ka-001`) et son `parent_contenu_id`. |
 
 Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'outil Read, avant de livrer. Pour lire ses compétences, ouvre ses slides dans `donnees/cache/` après `npm run veille`.
 
@@ -85,6 +86,7 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 - `titre.en` : l'accroche, lue par l'OS comme le hook.
 - `legendes` : l'accroche et 3 hashtags, par langue : en `#skills #selfimprovement #learnontiktok`, fr `#developpementpersonnel #apprendresurtiktok #culturegenerale`, de `#selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung`.
 - `musique` : la sienne (le manifeste la donne).
+- `type_bleo` et `parent_contenu_id` (BLEO, `pods/ROUTINE.md` §5.3 et §5.4) : `"declinaison"` avec l'id complet de la boîte, ou `"full_test"` (une accroche neuve, déposée sans `source`). Absents pour le remake d'un post du compte modèle.
 - `notes` : le décor, les vidéos changées, la place et la version (`cta A`…) de l'étape Sophia.
 - `slides` : une entrée par slide, son contenu sous la clé de chaque langue (`en`, `fr`, `de`).
 	- `couverture` : `{ "decor": "falaise", "en": { "lignes": ["SKILLS", "YOU CAN", "LEARN"] } }` ; décor `branche` : le « 10/10 » s'ajoute tout seul (`chiffre` pour en changer).
@@ -96,7 +98,7 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 1. **Les posts du manifeste au statut `a_faire`**, de haut en bas (du plus vu au moins vu).
 	- Un post livré passe à `fait`, avec l'id et la livraison dans `motif`.
 	- Ses compétences sont dans `competences` quand on les a déjà lues ; sinon, lis-les sur ses slides.
-2. **Puis des variantes** de ses accroches qui ont marché : il recycle « 10/10 SKILLS YOU CAN LEARN » avec d'autres compétences ; fais pareil (autres compétences, autres vidéos, autre version de la carte Sophia).
+2. **Puis les déclinaisons de ta boîte** (`npm run boite`, dans l'ordre) : il recycle « 10/10 SKILLS YOU CAN LEARN » avec d'autres compétences ; fais pareil sur les familles qui ont gagné chez nous (autres compétences, autres vidéos, autre version de la carte Sophia). Les full tests de la jauge passent avant (`pods/ROUTINE.md` §5.2).
 3. **Le lundi**, la veille : ses nouveaux posts entrent dans le manifeste, par vues.
 
 ## Règles

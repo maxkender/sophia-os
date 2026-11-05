@@ -84,7 +84,13 @@ export type Post = {
   slides: Slide[];
   notes?: string;
   /** Les mises en scène de l'OS dont l'usage est déjà signalé pour ce post (écrit par `npm run livrer`). */
-  mises_en_scene_notees?: string[];
+  mises_en_scene_notees?: string[];  /**
+   * BLEO (pods/ROUTINE.md §5) : « declinaison » d'une famille de la boîte
+   * (`npm run boite`, avec `parent_contenu_id`) ou « full_test » (une accroche
+   * neuve, déposée sans le post modèle). Absent : le remake d'un post du compte modèle.
+   */
+  type_bleo?: "full_test" | "declinaison";
+  parent_contenu_id?: string;
 };
 
 export const RACINE = join(import.meta.dirname, "..");

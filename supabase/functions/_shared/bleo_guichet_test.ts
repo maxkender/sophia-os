@@ -1,6 +1,6 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { accrocheDuDeck, accrochesEnAttente, debutJourParis, fullTestsDuJour, lireDeclarationBleo } from "./bleo_guichet.ts";
+import { accrocheDuDeck, accrocheDuTitre, accrochesEnAttente, debutJourParis, fullTestsDuJour, lireDeclarationBleo } from "./bleo_guichet.ts";
 
 Deno.test("guichet BLEO : la déclaration se lit, sa forme est vérifiée", () => {
   assertEquals(lireDeclarationBleo({}), { typeBleo: null, parentContenuId: null });
@@ -29,6 +29,26 @@ Deno.test("guichet BLEO : accroches en attente, sauf la livraison remplacée", (
   ];
   const attente = accrochesEnAttente(livraisons, "b");
   assertEquals([...attente.entries()], [["weird advice that works", "a"]]);
+});
+
+Deno.test("guichet BLEO : un livré (voie 2) a pour accroche son titre normalisé, comme 0652", () => {
+  assertEquals(accrocheDuTitre("10/10 Skills You Can Learn In A Day!"), "10 10 skills you can learn in a day");
+  assertEquals(accrocheDuTitre("conseils de grande sœur pour réviser sans stress"), "conseils de grande sœur pour reviser sans stress");
+  assertEquals(accrocheDuTitre("Ab"), null);
+  assertEquals(accrocheDuTitre(null), null);
+});
+
+Deno.test("guichet BLEO : en attente, un livré sans texte de slide compte par son titre", () => {
+  const livraisons = [
+    // Livré : slides en images, pas de texte_overlay.
+    { id: "l", langue_source: "en", titre: "5 Rabbit Holes Worth Going Down", decks: { en: { slides: [{ position: 1 }] } } },
+    // Original : la première slide l'emporte sur le titre (la légende).
+    { id: "o", langue_source: "en", titre: "#fyp #habits", decks: { en: { slides: [{ position: 1, texte_overlay: "Rules as a man" }] } } },
+  ];
+  assertEquals([...accrochesEnAttente(livraisons, null).entries()], [
+    ["5 rabbit holes worth going down", "l"],
+    ["rules as a man", "o"],
+  ]);
 });
 
 Deno.test("guichet BLEO : full tests du jour, au taux de la jauge sur la durée", () => {

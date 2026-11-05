@@ -82,6 +82,7 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `photos` demandent
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/fr/<n>.jpg`) et la planche `sortie/apercus/<id>.fr.jpg`. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). Une variante (même `source.url` qu'un remake plus ancien) part avec `?variante=<id>` : l'OS refuse deux contenus de même source. |
 | `npm run etat` | Montre la file, le rang micabo, puis les vues et le r de chaque remake en ligne. |
+| `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : les full tests du jour, puis les familles gagnantes à décliner, dans l'ordre, avec le parent (`yp-003`) et son `parent_contenu_id`. |
 
 Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'outil Read, avant de livrer.
 
@@ -92,6 +93,7 @@ Le pilote `posts/yp-001.json` est l'exemple complet. Les ids : `yp-001`, `yp-002
 - `titre.fr` : l'accroche, lue par l'OS comme le hook.
 - `legendes.fr` : la légende TikTok, 4 ou 5 hashtags.
 - `musique` : la sienne.
+- `type_bleo` et `parent_contenu_id` (BLEO, `pods/ROUTINE.md` §5.3 et §5.4) : `"declinaison"` avec l'id complet de la boîte, ou `"full_test"` (une accroche neuve, déposée sans `source`). Absents pour le remake d'un post du compte modèle.
 - `fond` : `media_id`, `url` et `cadrage` (`x`, `y` de 0 à 1, `zoom`) de la photo.
 - `slides` : une entrée par slide, son contenu sous la clé `fr`.
 	- `couverture` : `{ "couverture": { "script_haut", "lignes", "decalages", "script_bas", "y" } }`.
@@ -108,7 +110,7 @@ Le pilote `posts/yp-001.json` est l'exemple complet. Les ids : `yp-001`, `yp-002
 1. **Les posts du manifeste au statut `a_faire`**, dans l'ordre de leur `motif` : « organise my phone », puis « after school routine », « school tips », « digital declutter », « sunday reset ».
 	- « organise my phone » attend l'icône de micabo en fichier (`assets/micabo/icone.png`). Si elle manque, passe au suivant et dis-le dans ton compte rendu.
 	- Un post livré passe à `fait`, avec l'id et la livraison dans `motif`.
-2. **Puis des variantes** des formats déjà rendus : même structure, autre sujet ou autre angle (« comment je révise chaque matière », « comment je fais mes fiches »).
+2. **Puis les déclinaisons de ta boîte** (`npm run boite`, dans l'ordre) : même structure, autre contenu ; une G2 reformule l'accroche (« comment je révise chaque matière », « comment je fais mes fiches »). Les full tests de la jauge passent avant (`pods/ROUTINE.md` §5.2).
 3. **Jamais** un post exclu (`exclu` : sans angle études, ou une autre appli au cœur du post).
 
 ## Règles

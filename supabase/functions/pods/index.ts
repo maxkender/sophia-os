@@ -118,6 +118,7 @@ import {
 import { applicationsDuLabel, ID_SOPHIA } from "../_shared/multi_app.ts";
 import {
   accrocheDuDeck,
+  accrocheDuTitre,
   accrochesEnAttente,
   debutJourParis,
   fullTestsDuJour,
@@ -317,6 +318,26 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     ? []
     : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource, appLabel ? "application" : "sophia");
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  // BLEO (0653, voie 2) : un remake peut déclarer `type_bleo` comme un original
+  // (déclinaison d'une famille de la boîte, avec son parent, ou full test). Son
+  // accroche est son titre, le texte étant dans l'image. Jugé au premier dépôt
+  // du post (et quand une livraison en attente est redéposée), jamais sur un
+  // ajout de langues. Sans déclaration : un remake, comme avant.
+  const declaration = lireDeclarationBleo(body);
+  if ("erreur" in declaration) return json({ ok: false, code: "declaration_invalide", error: declaration.erreur }, 400);
+  let bleo: Record<string, unknown> | null = null;
+  if (declaration.typeBleo && !complement) {
+    const jugement = await jugerDepotBleo(
+      supabase,
+      { slug, label_id: pod.label_id },
+      declaration,
+      accrocheDuTitre(body.titre ? String(body.titre) : null),
+      existante?.id ?? null,
+    );
+    if (!jugement.ok) return json({ ok: false, code: jugement.code, error: `${jugement.code} : ${jugement.message}` }, 409);
+    bleo = jugement.bleo;
+  }
 
   // Livraison « langues » de ce post (complément), lue avant les contrôles :
   // ses decks en attente comptent comme decks Sophia.
@@ -561,10 +582,16 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     decks: { ...((existante?.decks as Record<string, unknown>) ?? {}), ...sortie },
     // Colonne écrite seulement quand le dépôt en porte (0276 peut manquer).
     ...(decksAppsFinal ? { decks_applications: decksAppsFinal } : {}),
-    transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
+    transcription: {
+      textes: Array.isArray(body.textes) ? body.textes.map(String) : [],
+      ...(bleo ? { bleo } : {}),
+    },
     statut: "a_valider",
     depose_le: new Date().toISOString(),
     auto_erreur: null,
+    // 0653 : la déclaration BLEO (null : un remake). Un redépôt la remplace.
+    type_bleo: declaration.typeBleo,
+    parent_contenu_id: declaration.parentContenuId,
   };
   const { data: livraison, error } = await supabase
     .from("pod_livraisons")
@@ -578,6 +605,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     type: "nouveau",
     langues: Object.keys(ligne.decks),
     applications: resumeDecksApps(decksAppsFinal ?? existante?.decks_applications ?? null),
+    ...(bleo ? { bleo } : {}),
   });
 }
 
@@ -783,7 +811,12 @@ async function valider(
     .eq("statut", "a_valider")
     .select("id");
   if (!decidee?.length) return await defaireApresDecision(supabase, contenu.id);
-  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier, note });
+  // BLEO (0653) : une déclinaison livrée rejoint la famille de son parent dès la
+  // validation, comme un original déclaré (sinon le rattachement de la nuit).
+  const rattachement = l.type_bleo === "declinaison" && l.parent_contenu_id
+    ? await rattacherDeclinaison(supabase, contenu.id, l.parent_contenu_id)
+    : null;
+  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier, note, ...(rattachement ? { bleo_rattachement: rattachement } : {}) });
 }
 
 async function rejeter(supabase: Supabase, id: string, userId: string | null, motif: string | null) {
@@ -957,7 +990,7 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   let bleo: Record<string, unknown> | null = null;
   let preuve: Record<string, unknown> | null = null;
   if (declaration.typeBleo) {
-    const jugement = await jugerDepotBleo(supabase, pod, declaration, slides, existante?.id ?? null);
+    const jugement = await jugerDepotBleo(supabase, pod, declaration, accrocheDuDeck(slides), existante?.id ?? null);
     if (!jugement.ok) return json({ ok: false, code: jugement.code, error: `${jugement.code} : ${jugement.message}` }, 409);
     bleo = jugement.bleo;
   } else {
@@ -1044,16 +1077,16 @@ async function typeBleoObligatoire(supabase: Supabase, labelId: string): Promise
  * 0615 : famille gagnante et ouverte, génération, quota du parent, accroche
  * identique en génération 1 et reformulée en génération 2, accroche déjà dans
  * le label), puis, pour un full test, les accroches des livraisons en attente
- * des podz du label (D15).
+ * des podz du label (D15). `accroche` : la première slide d'un original, le
+ * titre d'un livré (0653).
  */
 async function jugerDepotBleo(
   supabase: Supabase,
   pod: { slug: string; label_id: string | null },
   declaration: { typeBleo: string | null; parentContenuId: string | null },
-  slides: SlideOriginale[],
+  accroche: string | null,
   remplacee: string | null,
 ): Promise<{ ok: true; bleo: Record<string, unknown> } | { ok: false; code: string; message: string }> {
-  const accroche = accrocheDuDeck(slides);
   const { data: verdict, error } = await supabase.rpc("bleo_verifier_depot", {
     p_label_id: pod.label_id,
     p_type_bleo: declaration.typeBleo,
@@ -1068,8 +1101,8 @@ async function jugerDepotBleo(
     const slugs = (podsDuLabel ?? []).map((p: { slug: string }) => p.slug);
     const { data: attente } = await supabase
       .from("pod_livraisons")
-      .select("id, pod, langue_source, decks")
-      .eq("type", "original")
+      .select("id, pod, langue_source, decks, titre")
+      .in("type", ["original", "nouveau"])
       .eq("statut", "a_valider")
       .in("pod", slugs.length ? slugs : [pod.slug])
       .limit(500);
@@ -1133,6 +1166,10 @@ async function rattacherDeclinaison(supabase: Supabase, contenuId: string, paren
  * Action `boite` (L4, P1) : la boîte du label du podz, dans l'ordre (le post
  * parent complet, D37), avec la jauge et le nombre de full tests du jour.
  * `par_jour` : celui de `pods/rythme.json` (sinon le rythme mesuré sur 7 jours).
+ *
+ * Voie 2 (0653, remakes) : une boîte vide ne fait pas une journée de full
+ * tests, les remakes des posts neufs du compte modèle passent avant. Les full
+ * tests du jour sont la part de la jauge, même boîte vide.
  */
 async function boite(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
@@ -1140,7 +1177,7 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
   if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
   const limite = Math.max(1, Math.min(Number(body.limite ?? 30) || 30, 100));
   const jour = aujourdhuiParis();
-  const [{ data: lignes, error }, { data: jauge }, { data: reglage }, { data: deposes }] = await Promise.all([
+  const [{ data: lignes, error }, { data: jauge }, { data: reglage }, { data: deposes }, { data: label }] = await Promise.all([
     supabase.rpc("bleo_boite_posts", { p_label_id: pod.label_id, p_limite: limite }),
     supabase.from("bleo_jauge").select("familles_en_boite, par_jour, semaines, part_full_test").eq("pod", pod.slug).maybeSingle(),
     supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),
@@ -1148,14 +1185,18 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       .from("pod_livraisons")
       .select("type_bleo")
       .eq("pod", pod.slug)
-      .eq("type", "original")
+      .in("type", ["original", "nouveau"])
       .gte("depose_le", debutJourParis(jour))
       .limit(100),
+    supabase.from("labels").select("voie").eq("id", pod.label_id).maybeSingle(),
   ]);
   if (error) throw new Error(`bleo_boite_posts : ${messageErreur(error)}`);
+  const voie = Number(label?.voie) === 2 ? 2 : 1;
   const parts = (reglage?.valeur?.jauge?.parts ?? [0.1, 0.2, 0.3, 0.4]) as number[];
   const enBoite = Number(jauge?.familles_en_boite ?? 0);
-  const part = jauge?.part_full_test == null ? (enBoite === 0 ? 1 : parts[1]) : Number(jauge.part_full_test);
+  const part = jauge?.part_full_test != null
+    ? Number(jauge.part_full_test)
+    : enBoite === 0 ? (voie === 2 ? parts[parts.length - 1] : 1) : parts[1];
   const parJourDemande = Number(body.par_jour);
   const parJour = Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
   const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0 };
@@ -1168,6 +1209,8 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
     ok: true,
     pod: pod.slug,
     jour,
+    // 1 : originaux (ROUTINE.md §4) ; 2 : remakes (ROUTINE.md §5).
+    voie,
     // Bascule des podz (ROUTINE.md) : vrai, la voie 1 suit la boîte ; faux, la routine d'avant.
     podz_bleo: reglage?.valeur?.podz?.type_obligatoire === true,
     jauge: {
@@ -1175,7 +1218,7 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       semaines: jauge?.semaines ?? null,
       part_full_test: part,
       par_jour: parJour,
-      full_tests_du_jour: fullTestsDuJour(parJour, part, jour, enBoite === 0),
+      full_tests_du_jour: fullTestsDuJour(parJour, part, jour, voie === 1 && enBoite === 0),
     },
     deposes_aujourdhui: aujourdhui,
     boite: lignes ?? [],

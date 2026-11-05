@@ -68,9 +68,22 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la no
     expect(presse("mort", "Recreate")).toBe("true");
     expect(presse("deja", "Rien")).toBe("true");
     expect(within(ligne("deja")).getByRole("button", { name: "Nudge" })).toBeDisabled();
-    expect(within(ligne("complet")).getByRole("button", { name: "Recreate" })).toBeDisabled();
+    // 5/11 : Recreate n'est jamais grisé ; non recommandé → confirmation « Ce compte fait X vues ».
+    expect(within(ligne("complet")).getByRole("button", { name: "Recreate" })).not.toBeDisabled();
     expect(within(ligne("manque")).getByText("4/6")).toBeInTheDocument();
     expect(screen.getByText("1 nudges · 2 recreates")).toBeInTheDocument();
+  });
+
+  it("Recreate non recommandé : confirmation avec les vues ; refusée → rien ne change", async () => {
+    const conf = vi.spyOn(window, "confirm").mockReturnValue(false);
+    rendu();
+    await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(5));
+    fireEvent.click(within(ligne("complet")).getByRole("button", { name: "Recreate" }));
+    expect(conf).toHaveBeenCalledWith(expect.stringMatching(/vues par post : recréer quand même \?/));
+    expect(presse("complet", "Rien")).toBe("true");
+    conf.mockReturnValue(true);
+    fireEvent.click(within(ligne("complet")).getByRole("button", { name: "Recreate" }));
+    expect(presse("complet", "Recreate")).toBe("true");
   });
 
   it("Send : rien avant le clic ; les Nudge dans la file, puis l'envoi ; les Recreate par leur chemin", async () => {
@@ -102,7 +115,8 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la no
     expect(presse("arecreer", "Recreate")).toBe("true");
     expect(within(ligne("arecreer")).getByTestId("recreer-problemes").textContent).toBe("Recreate · décidé le 27/10 dans Problèmes");
     await waitFor(() => expect(within(ligne("stoppe")).getByTestId("badge-problemes")).toBeInTheDocument());
-    expect(within(ligne("stoppe")).getByText("⚠ 2 problèmes ouverts").getAttribute("href")).toBe("/admin/auto/problemes?carte=pb9");
+    // 0538 : la décision se prend ici (Weekly decisions) ; le lien vers Problèmes n'apparaît que pour un message en attente.
+    expect(within(ligne("stoppe")).getByText("⚠ 2 problèmes ouverts")).toBeTruthy();
     expect(within(ligne("stoppe")).getByTestId("kill-samedi-prevu").textContent).toBe("Kill prévu samedi 31/10");
     expect(presse("stoppe", "Kill Saturday")).toBe("true");
     expect(within(ligne("stoppe")).getByRole("button", { name: "Nudge" })).toBeDisabled();

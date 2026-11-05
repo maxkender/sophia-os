@@ -3,12 +3,17 @@ import { describe, expect, it } from "vitest";
 import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
 import type { OptionDecision, Probleme, Situation } from "./api";
 import {
+  autresSujets,
+  diagnosticSimple,
+  lienDecision,
+  ongletProblemes,
+  reponseAJour,
   aDiagnosticOuAction, estArret, estDecision, feedbackAuto, planFaire, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
 const p = (o: Partial<Probleme>): Probleme => ({
   id: "x", poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: null, nom: "Test A", hm: "HM 1", cohorte: null, actif: true,
-  categorie: "question_bloquante", niveau: "aujourdhui", resume: "r", sources: [], proprietaire: "control_bot",
+  categorie: "question_bloquante", niveau: "bots", resume: "r", sources: [], proprietaire: "control_bot",
   proposition_reponse: null, canal_reponse: null, proposition_action: null, propose_par: null, propose_at: null,
   statut: "ouvert", ferme_raison: null, ferme_at: null, created_at: "2026-11-02T10:00:00Z", maj_at: "2026-11-02T10:00:00Z",
   slack_relie: false, compte_id: null, ...o,
@@ -38,7 +43,7 @@ describe("Problèmes : Valider", () => {
 
   it("filtres et compteurs par niveau", () => {
     const l = [p({ niveau: "urgent", categorie: "stop" }), p({ niveau: "samedi", categorie: "absence", hm: null }), p({ proprietaire: "pay_bot", categorie: "paie" })];
-    expect(compterParNiveau(l)).toEqual({ urgent: 1, aujourdhui: 1, samedi: 1 });
+    expect(compterParNiveau(l)).toEqual({ urgent: 1, bots: 1, samedi: 1 });
     expect(filtrer(l, { ...FILTRES_VIDES, hm: "—" })).toHaveLength(1);
     expect(filtrer(l, { ...FILTRES_VIDES, proprietaire: "pay_bot" })[0]!.categorie).toBe("paie");
   });
@@ -260,5 +265,39 @@ describe("4/11 : ✅ Faire ça et feedback automatique", () => {
     expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "reponse" })).toEqual({ erreur: "confiance obligatoire (0 à 1)" });
     expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "reponse", reponse: "Hi", confiance: 0.9 }))
       .toMatchObject({ action: "faire", args: { action: "reponse", confiance: 0.9 } });
+  });
+});
+
+describe("0537 : bot_propositions (relance, faire, urgent, niveau)", () => {
+  const id = "00000000-0000-0000-0000-000000000009";
+  it("accepte les nouvelles actions et le niveau", () => {
+    expect(ACTIONS_BOT).toEqual(expect.arrayContaining(["relance", "reponse", "message_hm", "faire", "urgent"]));
+    expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "urgent" })).toMatchObject({ action: "proposer", args: { niveau: "urgent" } });
+    expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "aujourdhui" })).toEqual({ erreur: "niveau : urgent, samedi, bots" });
+    expect(lireCorps({ action: "proposer", probleme_id: id, action_proposee: "relance", reponse: "Hi" })).toMatchObject({ args: { action: "relance" } });
+  });
+});
+
+describe("0538 : la carte traite d'abord le message en attente", () => {
+  it("🧠 en une phrase simple : sans étiquette, sans lien ni id de contrat", () => {
+    expect(diagnosticSimple("[SAMEDI] Kill samedi. STOP sûr : STOP 2 nov.")).toBe("Kill samedi.");
+    expect(diagnosticSimple("URGENT · offre HM. Celestine (NZ, contrat 44709470) demande si elle peut accepter.")).toBe("offre HM.");
+    expect(diagnosticSimple("Elle ne trouve pas où mettre son lien https://x.y/z et ne peut pas poster aujourd'hui.")).toBe("Elle ne trouve pas où mettre son lien et ne peut pas poster aujourd'hui.");
+    expect(diagnosticSimple(null)).toBeNull();
+  });
+
+  it("onglet : un message en attente reste dans Problèmes (⚡ après 24 h sans réponse) ; une décision seule n'y est pas", () => {
+    const sr = { texte: "Where?", canal: "upwork" as const, at: "2026-11-04T08:00:00Z", depuis_heures: 30, question: true, attend: true };
+    expect(ongletProblemes({ sans_reponse: sr, proposition_reponse: null, propose_at: null, onglet: "samedi", confiance: null })).toBe("urgent");
+    expect(ongletProblemes({ sans_reponse: sr, proposition_reponse: "Hi", propose_at: "2026-11-04T09:00:00Z", onglet: "samedi", confiance: null })).toBe("bots");
+    expect(ongletProblemes({ sans_reponse: null, proposition_reponse: null, propose_at: null, onglet: "samedi", confiance: null })).toBeNull();
+    expect(reponseAJour({ sans_reponse: sr, proposition_reponse: "Close the card", propose_at: "2026-11-01T09:00:00Z" })).toBe(false);
+  });
+
+  it("les autres sujets en badges, avec leur rituel ; le lien vers Weekly decisions", () => {
+    expect(autresSujets({ categorie: "stop", proposition_action: null, rituel: "samedi", sujets: [{ categorie: "login" }, { categorie: "paie" }] }))
+      .toEqual([{ categorie: "stop", rituel: "samedi" }, { categorie: "login", rituel: null }, { categorie: "paie", rituel: "maintenant" }]);
+    expect(lienDecision("x", "jeudi")).toBe("/admin/auto/decisions?onglet=jeudi&carte=x");
+    expect(lienDecision("x", "maintenant")).toBe("/admin/auto/decisions?carte=x");
   });
 });

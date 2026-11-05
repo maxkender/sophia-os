@@ -12,14 +12,17 @@ import {
   decksAffiches,
   type Duel,
   envoyerAuxRelecteurs,
+  cleLot,
+  CLE_REQUETE_LOTS,
   etatLot,
   listerCircuits,
   listerDuels,
+  listerLots,
   listerVotesRelecteurs,
   rapportVotesRelecteurs,
   type VoteRelecteur,
 } from "@/features/abTraduction/api";
-import { BlocLot, CLE_REQUETE_LOT } from "@/features/abTraduction/BlocLot";
+import { BlocLot } from "@/features/abTraduction/BlocLot";
 import { BlocRelecteurs } from "@/features/abTraduction/BlocRelecteurs";
 import { TableDuel } from "@/features/abTraduction/TableDuel";
 import { formaterNombre, messageErreur } from "@/features/bleo/format";
@@ -36,11 +39,12 @@ const dateCourte = (iso: string, langue: string) =>
 
 /**
  * Les duels envoyés aux relecteurs natifs, vus par l'admin (Relecture native,
- * onglet Duels) : le lot commun (0627), le bilan de la langue (votes, verdict
- * D8, notes, remarques) et chaque duel avec sa source, ses deux versions et
- * les votes des relecteurs, nom par nom, remarque comprise. Les colonnes
- * restent Version 1 / Version 2 tant que l'admin ne les révèle pas, duel par
- * duel ou d'un coup ; les relecteurs, eux, ne les voient jamais.
+ * onglet Duels) : le lot choisi (0627, plusieurs lots depuis 0629, chacun avec
+ * son circuit candidat), le bilan de la langue pour ce candidat (votes,
+ * verdict D8, notes, remarques) et chaque duel avec sa source, ses deux
+ * versions et les votes des relecteurs, nom par nom, remarque comprise. Les
+ * colonnes restent Version 1 / Version 2 tant que l'admin ne les révèle pas,
+ * duel par duel ou d'un coup ; les relecteurs, eux, ne les voient jamais.
  */
 export function DuelsAdmin() {
   const { t } = useTranslation();
@@ -55,14 +59,19 @@ export function DuelsAdmin() {
   const [toutRevele, setToutRevele] = React.useState(false);
 
   const circuits = useQuery({ queryKey: ["ab-traduction", "circuits"], queryFn: listerCircuits });
-  const candidat = circuits.data?.[0] ?? null;
+  const lots = useQuery({ queryKey: CLE_REQUETE_LOTS, queryFn: listerLots });
+  const dernierLot = (lots.data ?? []).reduce((max, l) => Math.max(max, l.numero), 0);
+  const [numeroChoisi, setNumeroChoisi] = React.useState<number | null>(null);
+  const numero = numeroChoisi ?? (dernierLot > 0 ? dernierLot : 1);
+  const lotChoisi = (lots.data ?? []).find((l) => l.numero === numero) ?? null;
+  const candidat = (lotChoisi && circuits.data?.find((c) => c.id === lotChoisi.candidat)) ?? circuits.data?.[0] ?? null;
   const cleDuels = ["ab-traduction", "duels", langue, candidat?.id, candidat?.version];
   const duels = useQuery({
     queryKey: cleDuels,
     queryFn: () => listerDuels(langue!, candidat!.id, candidat!.version),
     enabled: Boolean(langue && candidat),
   });
-  const lot = useQuery({ queryKey: CLE_REQUETE_LOT, queryFn: () => etatLot(1) });
+  const lot = useQuery({ queryKey: cleLot(numero), queryFn: () => etatLot(numero) });
   const cleRapport = ["ab-traduction", "votes-rapport", langue];
   const rapport = useQuery({ queryKey: cleRapport, queryFn: () => rapportVotesRelecteurs(langue!), enabled: Boolean(langue) });
 
@@ -80,7 +89,8 @@ export function DuelsAdmin() {
   const rafraichir = () => {
     void queryClient.invalidateQueries({ queryKey: cleDuels });
     void queryClient.invalidateQueries({ queryKey: cleRapport });
-    void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_LOT });
+    void queryClient.invalidateQueries({ queryKey: cleLot(numero) });
+    void queryClient.invalidateQueries({ queryKey: CLE_REQUETE_LOTS });
   };
   const envoyerTous = useMutation({
     mutationFn: () => envoyerAuxRelecteurs(nonEnvoyes.map((d) => d.id), true),
@@ -88,7 +98,8 @@ export function DuelsAdmin() {
   });
 
   const positions = new Map((lot.data?.contenus ?? []).map((c) => [c.contenu_id, c]));
-  const tries = [...envoyes].sort((a, b) => {
+  const duLot = (d: Duel) => d.lot_id == null || d.lot_id === lot.data?.lot.id;
+  const tries = [...envoyes].filter(duLot).sort((a, b) => {
     const pa = a.contenu_id ? positions.get(a.contenu_id)?.position : undefined;
     const pb = b.contenu_id ? positions.get(b.contenu_id)?.position : undefined;
     if (pa != null && pb != null) return pa - pb;
@@ -99,7 +110,7 @@ export function DuelsAdmin() {
   const noms = new Map((relecteurs.data ?? []).map((r) => [r.profile_id, nomRelecteur(r)]));
   const votesDuDuel = (id: string) => (votes.data ?? []).filter((v) => v.duel_id === id);
   const ligneRapport = (rapport.data ?? []).find((r) => r.candidat === candidat?.id && r.version === candidat?.version) ?? null;
-  const erreur = relecteurs.error ?? circuits.error ?? duels.error ?? votes.error ?? rapport.error ?? envoyerTous.error;
+  const erreur = relecteurs.error ?? circuits.error ?? lots.error ?? duels.error ?? votes.error ?? rapport.error ?? envoyerTous.error;
 
   return (
     <Card data-testid="duels-admin">
@@ -129,6 +140,8 @@ export function DuelsAdmin() {
             </div>
             <p className="text-sm text-muted-foreground">
               {t("relectureNative.duelsAdmin.compte", { prets: envoyes.length, votes: (votes.data ?? []).length, echecs })}
+              {candidat && ` · ${t("relectureNative.duelsAdmin.candidat", { candidat: candidat.nom })}`}
+              {nonEnvoyes.length > 0 && ` · ${t("relectureNative.duelsAdmin.nonEnvoyes", { n: nonEnvoyes.length })}`}
             </p>
             {envoyes.length > 0 && (
               <Button size="sm" variant={toutRevele ? "default" : "outline"} onClick={() => setToutRevele((v) => !v)}>
@@ -144,7 +157,7 @@ export function DuelsAdmin() {
           </p>
         )}
 
-        <BlocLot onChange={rafraichir} />
+        <BlocLot numero={numero} onNumero={setNumeroChoisi} onChange={rafraichir} />
 
         {langue && (
           <BlocRelecteurs rapport={ligneRapport} nonEnvoyes={nonEnvoyes.length} envoyer={() => envoyerTous.mutate()} enCours={envoyerTous.isPending} />

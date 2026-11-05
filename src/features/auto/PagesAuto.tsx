@@ -7,6 +7,7 @@ import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
+import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
@@ -77,10 +78,14 @@ export function CohortsPage() {
   );
 }
 
+/** 5/11 : Weekly decisions = LA page où Max décide : « À décider maintenant », puis jeudi, samedi, dimanche. */
 export function DecisionsPage() {
   return (
     <PageAuto cle="decisions">
-      <AdminCheckKillDoublePage />
+      <div className="space-y-6">
+        <ADeciderMaintenant />
+        <AdminCheckKillDoublePage />
+      </div>
     </PageAuto>
   );
 }

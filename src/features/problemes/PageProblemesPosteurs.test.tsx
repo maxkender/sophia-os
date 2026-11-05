@@ -14,15 +14,22 @@ const base = {
   created_at: "2026-11-02T10:00:00Z", maj_at: "2026-11-02T10:00:00Z", slack_relie: true, compte_id: null, groupe: "onboarding" as const,
 };
 const liste: Probleme[] = [
-  { ...base, id: "a", poster_id: "p1", nom: "Test A", categorie: "paie", niveau: "urgent", resume: "Week 45 not funded", proprietaire: "pay_bot",
-    proposition_reponse: null, proposition_action: "open_payroll", onglet: "urgent", diagnostic: "Rien de financé pour la Week 45." },
-  { ...base, id: "b", poster_id: "p2", nom: "Test B", categorie: "question_bloquante", niveau: "aujourdhui", resume: "Where is the app?",
+  // 0538 : la paie se décide dans Weekly decisions (« À décider maintenant »), pas dans Problèmes.
+  { ...base, id: "a", poster_id: "p1", nom: "Test A", categorie: "paie", niveau: "samedi", resume: "Week 45 not funded", proprietaire: "pay_bot",
+    proposition_reponse: null, proposition_action: "open_payroll", onglet: "samedi", rituel: "maintenant", diagnostic: "Rien de financé pour la Week 45." },
+  { ...base, id: "b", poster_id: "p2", nom: "Test B", categorie: "question_bloquante", niveau: "bots", resume: "Where is the app?",
     proprietaire: "new_cohort_bot", proposition_reponse: "Hi! The app is Sophia, here is the link.", proposition_action: null,
-    propose_par: "new_cohort_bot", onglet: "bots", diagnostic: "Elle cherche le lien de l'appli.",
-    sans_reponse: { texte: "Where is the app? I can't find it anywhere.", canal: "upwork", at: "2026-11-04T08:00:00Z", depuis_heures: 2.5, question: true },
+    propose_par: "new_cohort_bot", propose_at: "2026-11-04T09:00:00Z", onglet: "bots", diagnostic: "Elle cherche le lien de l'appli.",
+    sans_reponse: { texte: "Where is the app? I can't find it anywhere.", canal: "upwork", at: "2026-11-04T08:00:00Z", depuis_heures: 2.5, question: true, attend: true },
     sujets: [{ categorie: "login", resume: "Can't log in" }] },
-  { ...base, id: "c", poster_id: "p3", nom: "Test C", categorie: "stop", niveau: "urgent", resume: "STOP", proprietaire: "control_bot",
-    proposition_reponse: null, proposition_action: "kill", onglet: "samedi", diagnostic: "A demandé l'arrêt." },
+  // Un STOP (samedi) dont le message attend une réponse : la carte ne traite que le message ; le Kill est un badge → Weekly decisions.
+  { ...base, id: "c", poster_id: "p3", nom: "Test C", categorie: "stop", niveau: "samedi", resume: "STOP", proprietaire: "control_bot",
+    proposition_reponse: "Close the card, refund received.", proposition_action: "kill", propose_at: "2026-11-01T09:00:00Z",
+    onglet: "samedi", rituel: "samedi", diagnostic: "[SAMEDI] A demandé l'arrêt, contrat 44821542.",
+    sans_reponse: { texte: "Can you please end the contract?", canal: "upwork", at: "2026-11-03T08:00:00Z", depuis_heures: 50, question: true, attend: true } },
+  // Une décision sans message en attente : seulement dans Weekly decisions.
+  { ...base, id: "d", poster_id: "p4", nom: "Test D", categorie: "zero_post", niveau: "samedi", resume: "0 post", proprietaire: "control_bot",
+    proposition_reponse: null, proposition_action: "kill", onglet: "samedi", rituel: "samedi", diagnostic: "Zéro post." },
 ];
 const agir = vi.fn(async () => undefined);
 const feedback = vi.fn(async () => ({}));
@@ -52,9 +59,6 @@ vi.mock("./api", () => ({
   annulerActionBot: vi.fn(async () => undefined),
 }));
 
-// Les écrans du jeudi, du samedi et du dimanche (testés à part) : remplacés ici.
-vi.mock("./RituelsSemaine", () => ({ RituelsSemaine: () => <div data-testid="rituels-semaine" /> }));
-
 function rendre() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
@@ -66,24 +70,22 @@ function rendre() {
   );
 }
 
-describe("PageProblemesPosteurs (simplification du 4/11)", () => {
+describe("PageProblemesPosteurs (5/11 : le quotidien ; les décisions dans Weekly decisions)", () => {
   beforeEach(async () => {
     await i18n.changeLanguage("fr");
     vi.clearAllMocks();
   });
 
-  it("trois onglets avec leurs compteurs ; Urgent par défaut ; mode test", async () => {
+  it("deux onglets (🤖, ⚡) et le lien vers Weekly decisions ; les décisions n'y sont pas", async () => {
     rendre();
-    expect(await screen.findByText("Test A")).toBeTruthy();
-    expect(screen.getByTestId("mode-test")).toBeTruthy();
-    expect(screen.getByTestId("onglet-bots").textContent).toContain("(1)");
-    expect(screen.getByTestId("onglet-urgent").textContent).toContain("(1)");
-    expect(screen.getByTestId("onglet-samedi").textContent).toContain("(1)");
-    expect(screen.queryByText("Test B")).toBeNull();
-    fireEvent.click(screen.getByTestId("onglet-samedi"));
     expect(await screen.findByText("Test C")).toBeTruthy();
-    // Les décisions de la semaine (jeudi, samedi, dimanche) se prennent ici.
-    expect(screen.getByTestId("rituels-semaine")).toBeTruthy();
+    expect(screen.getByTestId("mode-test")).toBeTruthy();
+    expect(screen.queryByTestId("onglet-samedi")).toBeNull();
+    expect(screen.getByTestId("onglet-urgent").textContent).toContain("(1)");
+    expect(screen.getByTestId("onglet-bots").textContent).toContain("(1)");
+    expect(screen.getByTestId("vers-weekly-decisions").textContent).toContain("Weekly decisions (3)");
+    expect(screen.queryByText("Test A")).toBeNull();
+    expect(screen.queryByText("Test D")).toBeNull();
   });
 
   it("le format de carte : ❓ le message sans réponse en entier, 🧠, 👉 et le message ; sujets fusionnés ; ce que les bots ont fait", async () => {
@@ -99,25 +101,29 @@ describe("PageProblemesPosteurs (simplification du 4/11)", () => {
     expect((await screen.findAllByTestId("action-bot"))[0]!.textContent).toContain("Hi, here is your link.");
   });
 
-  it("✅ Faire ça en mode test : noté, rien ne part ; feedback automatique « juste » au bot", async () => {
+  it("✅ Faire ça en mode test : noté avec la réponse, rien ne part ; feedback automatique « juste » au bot", async () => {
     rendre();
     fireEvent.click(await screen.findByTestId("onglet-bots"));
     const carte = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test B"))!;
     fireEvent.click(within(carte).getByTestId("faire"));
-    await vi.waitFor(() => expect(agir).toHaveBeenCalledWith("b", "valider", expect.objectContaining({ envoye: false })));
+    await vi.waitFor(() => expect(agir).toHaveBeenCalledWith("b", "valider", expect.objectContaining({ envoye: false, reponse: "Hi! The app is Sophia, here is the link." })));
     expect(envoyer).not.toHaveBeenCalled();
     await vi.waitFor(() => expect(feedback).toHaveBeenCalledWith("b", "juste", null));
   });
 
-  it("✅ sur un STOP : Kill samedi ; sur la paie : l'OS ne paie pas, il ouvre le contrat", async () => {
-    const ouvrir = vi.spyOn(window, "open").mockImplementation(() => null);
+  it("un message en attente : la carte ne traite que lui ; pas de réponse à jour → ✅ bloqué ; le Kill est un badge → Weekly decisions", async () => {
     rendre();
-    const carteA = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test A"))!;
-    fireEvent.click(within(carteA).getByTestId("faire"));
-    await vi.waitFor(() => expect(ouvrir).toHaveBeenCalledWith("https://www.upwork.com/nx/wm/workroom/4001/overview", "_blank", "noopener,noreferrer"));
-    fireEvent.click(screen.getByTestId("onglet-samedi"));
-    const carteC = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test C"))!;
-    fireEvent.click(within(carteC).getByTestId("faire"));
-    await vi.waitFor(() => expect(kill).toHaveBeenCalledWith("c"));
+    const carte = (await screen.findAllByTestId("carte-probleme")).find((c) => within(c).queryByText("Test C"))!;
+    expect(within(carte).getByTestId("bloque").textContent).toContain("Can you please end the contract?");
+    // Le 👉 « Close the card, refund received » date d'avant son message : il n'est pas montré.
+    expect(within(carte).getByTestId("propose").textContent).not.toContain("refund");
+    expect(within(carte).getByTestId("compris").textContent).toContain("Les bots préparent");
+    expect((within(carte).getByTestId("faire") as HTMLButtonElement).disabled).toBe(true);
+    const badge = within(carte).getByTestId("badge-decision");
+    expect(badge.getAttribute("href")).toBe("/admin/auto/decisions?onglet=samedi&carte=c");
+    expect(within(carte).queryByText(/Kill samedi/)).toBeNull();
+    fireEvent.click(within(carte).getByTestId("faire"));
+    expect(agir).not.toHaveBeenCalled();
+    expect(kill).not.toHaveBeenCalled();
   });
 });

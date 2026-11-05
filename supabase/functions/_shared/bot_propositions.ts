@@ -19,7 +19,12 @@ export const GROUPES: readonly string[] = ["onboarding", "nouveaux_actifs", "act
 export const ACTIONS_BOT: readonly string[] = [
   "resend_password_link", "relink_slack", "reread_tiktok", "recreate", "postpone", "kill", "mark_read",
   "pay_check", "open_payroll", "open_who_to_fund", "saturday", "close", "none", "decision", "double",
+  // 0537 : relance, reponse et message_hm (message entier obligatoire) ; faire = envoyer le message proposé ; urgent = ⚡.
+  "relance", "reponse", "message_hm", "faire", "urgent",
 ];
+
+/** 0537 : le niveau d'une carte = son onglet (🤖 bots, ⚡ urgent, 📅 samedi). */
+export const NIVEAUX_BOT: readonly string[] = ["urgent", "samedi", "bots"];
 
 /** 0528 : une carte peut concerner un posteur, une HM ou une offre Upwork. */
 export const SUJETS: readonly string[] = ["posteur", "hm", "offre"];
@@ -53,6 +58,7 @@ export function botDuJeton(entete: string | null, secrets: Partial<Record<Bot, s
  * ses feedbacks, les posteurs de son groupe ; un seul problème et 20 messages avec probleme_id) ; { action: "proposer", probleme_id, reponse?, canal?, action_proposee? (dont « none ») }
  * ou { action: "creer", poster_id | contrat_id, categorie, resume, texte?, lien?, reponse?, canal?, action_proposee? }.
  * 0528 : + question et options (action_proposee « decision »), sujet (posteur, hm, offre), hm_id, hm_nom, offre_lien, offre_id.
+ * 0537 : + niveau (urgent, samedi, bots). Le posteur attend une réponse : sans « reponse », la base refuse.
  * Tout le reste est refusé (valider, envoyer, kill, payer…).
  */
 /** 0535 : ce qu'un bot peut faire seul (garde-fous dans probleme_bot_faire). */
@@ -72,6 +78,8 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
   // 3/11 (v4) : le diagnostic du bot (300 car.) et le groupe qu'il suggère.
   const groupe = texte("groupe_suggere", 20);
   if (groupe && !GROUPES.includes(groupe)) return { erreur: `groupe_suggere : ${GROUPES.join(", ")}` };
+  const niveau = texte("niveau", 20);
+  if (niveau && !NIVEAUX_BOT.includes(niveau)) return { erreur: `niveau : ${NIVEAUX_BOT.join(", ")}` };
   const args: Record<string, unknown> = {
     reponse: texte("reponse", 4000),
     canal: texte("canal", 10),
@@ -90,6 +98,8 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
     etape: texte("etape", 20),
     // 0533 : « proposer » peut changer la catégorie (stop ↔ autre…), avec une raison.
     raison_categorie: texte("raison_categorie", 300),
+    // 0537 : urgent (⚡ pour Max), samedi ou bots.
+    niveau,
   };
   const sujet = (args.sujet as string | undefined) ?? "posteur";
   if (!SUJETS.includes(sujet)) return { erreur: `sujet : ${SUJETS.join(", ")}` };
@@ -109,8 +119,8 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
     const id = texte("probleme_id", 40);
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "probleme_id (uuid) obligatoire" };
     const categorie = texte("categorie", 40);
-    if (!args.reponse && !args.action && !args.diagnostic && !args.question && !categorie) {
-      return { erreur: "reponse, action_proposee, diagnostic, question ou categorie obligatoire" };
+    if (!args.reponse && !args.action && !args.diagnostic && !args.question && !categorie && !args.niveau) {
+      return { erreur: "reponse, action_proposee, diagnostic, question, categorie ou niveau obligatoire" };
     }
     if (categorie && !args.raison_categorie) return { erreur: "changer la catégorie : raison_categorie obligatoire" };
     return { action: "proposer", args: { ...args, probleme_id: id, categorie } };

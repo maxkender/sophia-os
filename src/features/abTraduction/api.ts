@@ -225,19 +225,46 @@ export interface LotLangue {
   /** Duels attendus dans cette langue : les contenus du lot qui ne sont pas écrits dans cette langue. */
   attendus: number;
   prets: number;
+  /** Duels prêts déjà envoyés aux relecteurs (0629). */
+  envoyes?: number;
   echecs: number;
   votes: number;
   dernier: string | null;
 }
 
 export interface LotEtat {
-  lot: { id: string; numero: number; nom: string; candidat: string; taille: number; statut: "actif" | "clos"; created_at: string };
+  lot: { id: string; numero: number; nom: string; candidat: string; taille: number; statut: "actif" | "clos"; envoi_auto?: boolean; created_at: string };
   contenus: LotContenu[];
   langues: LotLangue[];
   duels: number;
 }
 
 export const TAILLE_LOT = 15;
+/** Clés react-query de la liste des lots et de l'état d'un lot. */
+export const CLE_REQUETE_LOTS = ["ab-traduction", "lots"] as const;
+export const cleLot = (numero: number) => ["ab-traduction", "lot", numero] as const;
+
+/** Un lot, tel que la liste des lots le montre. */
+export interface LotResume {
+  numero: number;
+  nom: string;
+  candidat: string;
+  taille: number;
+  statut: "actif" | "clos";
+  envoi_auto: boolean;
+}
+
+export async function listerLots(): Promise<LotResume[]> {
+  const { data, error } = await supabase.from("ab_lots").select("numero, nom, candidat, taille, statut, envoi_auto").order("numero");
+  if (error) throw error;
+  return (data ?? []) as LotResume[];
+}
+
+/** Envoi automatique des duels du lot aux relecteurs (0629) ; faux : l'admin envoie lui-même. */
+export async function reglerEnvoiAutoLot(numero: number, envoiAuto: boolean): Promise<void> {
+  const { error } = await supabase.from("ab_lots").update({ envoi_auto: envoiAuto, updated_at: new Date().toISOString() }).eq("numero", numero);
+  if (error) throw error;
+}
 
 /** L'état du lot : ses contenus et l'avancement par langue de relecteur. Null tant qu'il n'est pas composé. */
 export async function etatLot(numero = 1): Promise<LotEtat | null> {

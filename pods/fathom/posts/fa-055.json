@@ -1,0 +1,516 @@
+{
+ "id": "fa-055",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7684191394503609633",
+  "vues": 261700,
+  "accroche": "5 Ways To Be Unrecognisable In 3 Months"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 3 Months",
+  "de": "5 Wege, in 3 Monaten nicht wiederzuerkennen",
+  "pt": "5 formas de ficar irreconhecível em 3 meses",
+  "pt-BR": "5 jeitos de ficar irreconhecível em 3 meses",
+  "it": "5 modi per essere irriconoscibile in 3 mesi",
+  "es-419": "5 formas de ser irreconocible en 3 meses"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 3 Months #skills #learnontiktok #selfmastery",
+  "de": "5 Wege, in 3 Monaten nicht wiederzuerkennen #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "5 formas de ficar irreconhecível em 3 meses #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "5 jeitos de ficar irreconhecível em 3 meses #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "5 modi per essere irriconoscibile in 3 mesi #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "5 formas de ser irreconocible en 3 meses #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta C. La seule reprise du jour de la famille Unrecognisable (§5.6) : variante de fa-007 sans UnSwipe, étapes nouvelles (douche froide, journal, entraînement à la maison), Sophia à l'étape 3. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 3 MONTHS"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE"
+      }
+     ],
+     "IN 3 MONATEN",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 3 MESES"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "JEITOS DE FICAR"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONHECÍVEL",
+       "bronze": true
+      }
+     ],
+     "EM 3 MESES"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "MODI PER ESSERE"
+      }
+     ],
+     [
+      {
+       "t": "IRRICONOSCIBILE",
+       "bronze": true
+      }
+     ],
+     "IN 3 MESI"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "FORMAS DE SER"
+      }
+     ],
+     [
+      {
+       "t": "IRRECONOCIBLE",
+       "bronze": true
+      }
+     ],
+     "EN 3 MESES"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TAKE COLD",
+     "SHOWERS"
+    ],
+    "video": {
+     "id": "HsonXuJs8-s",
+     "titre": "Can Cold Showers Actually Change Your Life?",
+     "chaine": "SciShow",
+     "vues": "1.5M views",
+     "date": "8 years ago",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/PeTBgposs2PwFQ9w75vPgEzKGZqHQb6slgisyh3dcF61uLD3y-tczPRhaH0s_AOSovMjtiBy1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DUSCH",
+     "KALT"
+    ],
+    "video": {
+     "id": "Fu0KiFumy8g",
+     "titre": "Kälte-Schock: Ist es gesund, kalt zu duschen? Dr. Johannes Wimmer",
+     "chaine": "Die Techniker",
+     "vues": "87.146 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TOMA BANHOS",
+     "FRIOS"
+    ],
+    "video": {
+     "id": "HQ8A9z5JKFQ",
+     "titre": "Banho frio é saudável? Benefícios de um bom banho!",
+     "chaine": "Angela Xavier",
+     "vues": "68 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/1XyL4V3Jml4_ZOferM8DoYwCF0zVnd8BBryuaDA3sFn0BTJ7-jEud8zTYza1OO7CYjQIallE1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "TOME BANHO",
+     "GELADO"
+    ],
+    "video": {
+     "id": "TbK6J7Oc7Nk",
+     "titre": "QUEM TOMA BANHO GELADO VIVE MAIS | Dr. Tiago Rocha",
+     "chaine": "Palestrante Tiago Rocha",
+     "vues": "15 mil visualizações",
+     "date": "há 8 meses",
+     "duree": "4:36",
+     "avatar": "https://yt3.ggpht.com/UfoOvvsrI886-X2qrKoFafgziTDKZHDOBeAQuacIZkeeCAZM7BOZXqpgz9uLf6XkguvsTX-8YQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FAI LA DOCCIA",
+     "FREDDA"
+    ],
+    "video": {
+     "id": "kiISPIEFE1A",
+     "titre": "Perché fare la doccia fredda | Filippo Ongaro",
+     "chaine": "Dr. Filippo Ongaro",
+     "vues": "262K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/h6rUuIJy2Gq35UIFROwcxOtvJOCfAz8aCu2NCOgBpXes4U8lY1NHWYQGshWQtMBFisMSNKkP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "DÚCHATE",
+     "CON AGUA FRÍA"
+    ],
+    "video": {
+     "id": "JP7A8z8jKqQ",
+     "titre": "Beneficios REALES de las DUCHAS FRIAS (Revisión)",
+     "chaine": "Dr. Borja Bandera",
+     "vues": "101 k vistas",
+     "date": "hace 4 años",
+     "duree": "12:40",
+     "avatar": "https://yt3.ggpht.com/gi0i7sEQDnOpk2fnbvw4XKZnf3aZKVmGnSPK9UDReWHkpR6BHiBKGzxY9A8rbxzSIivxtDRhmao=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "JOURNAL",
+     "EVERY NIGHT"
+    ],
+    "video": {
+     "id": "MXITTbeLDfA",
+     "titre": "JOURNALING FOR BEGINNERS ✨» Easy + Effortless \"How To\" Guide for Starting A Journal Today",
+     "chaine": "Nae's Laugh",
+     "vues": "683K views",
+     "date": "6 years ago",
+     "duree": "9:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBy89UKXylbkVbNAMVGp3uMBS5ikzEWBxJKWqbEYVvSzY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHREIB",
+     "TAGEBUCH"
+    ],
+    "video": {
+     "id": "2pbqSJX0sNI",
+     "titre": "Tagebuch schreiben: Diesen Fehler solltest du vermeiden | #gesundesmiteinander | DAK-Gesundheit",
+     "chaine": "DAK niceones",
+     "vues": "37.284 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/p9ZLPdzL9A_K0OPKZOt8oaOYHrLNUOFUQcSUt_pff3I9MM7zbuDfCKpxWT_CiD9v9ktto7UG7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "ESCREVE UM",
+     "DIÁRIO"
+    ],
+    "video": {
+     "id": "UZBdi3inHeE",
+     "titre": "COMO FAZER DIÁRIO TERAPIA PARA TER MAIS FOCO E MENOS ANSIEDADE (JOURNALING)",
+     "chaine": "Rafael Gratta",
+     "vues": "260 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/OrSIdUvcLVyTkPVARIbwIH_rNJC6hNoVIkXlM54cwOcGDN7dPnctWiDSXoWXP1g3QNLEItch=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ESCREVA UM",
+     "DIÁRIO"
+    ],
+    "video": {
+     "id": "BQtl0rzcfOc",
+     "titre": "JOURNALING: o melhor HOBBY para 2026 | Psicóloga Explica",
+     "chaine": "Lisa Guerra",
+     "vues": "60 mil visualizações",
+     "date": "há 9 meses",
+     "duree": "8:57",
+     "avatar": "https://yt3.ggpht.com/_Mhdmdvuq2VwaIEdUEMtMa9686u_d3Vyl9uvgDVVx87sG_tNkV9X8ifFZk94OoyECF-sD8CzXQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "TIENI UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "oCJP_E0kKqg",
+     "titre": "Tengo un *diario personale* da 15 anni. Ecco cosa ho imparato…",
+     "chaine": "EfficaceMente (con Andrea Giuliodori)",
+     "vues": "15K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:56",
+     "avatar": "https://yt3.ggpht.com/ixZegPxbLUlAo8YklFToyRu3NK5jNhnVJoagaVRTkLl5AN8hWEUiXc3UC8cSSW5P0HOSsGsdHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCRIBE UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "JVDok8da-eI",
+     "titre": "Cómo hacer Journaling? Cambia tu vida haciendo Journaling en 2026",
+     "chaine": "Adrià Solà Pastor",
+     "vues": "417 k vistas",
+     "date": "hace 2 años",
+     "duree": "11:53",
+     "avatar": "https://yt3.ggpht.com/teuevM7HuT6ap1FW50v80NmmwmuNJhyKiWhznSEmFleIqPES39v7MksSKi4sLDPTn2C0u87D_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "NEW DAILY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN TÄGLICH",
+     "WAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "NOVO POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA ALGO",
+     "NOVO TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA QUALCOSA",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE ALGO",
+     "NUEVO CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WORK OUT",
+     "AT HOME"
+    ],
+    "video": {
+     "id": "dcKwz_C8pkg",
+     "titre": "15 Min BEGINNER Full Bodyweight Strength Workout",
+     "chaine": "Sunny Health & Fitness",
+     "vues": "672K views",
+     "date": "2 years ago",
+     "duree": "17:34",
+     "avatar": "https://yt3.ggpht.com/3RdYbKHOulAuXEpn4FjuHs6nfB491g4EkfCGF4N53egvtdNB3R2o0CAYSINuwIvZ_SRcvkIv=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "TRAINIER",
+     "ZUHAUSE"
+    ],
+    "video": {
+     "id": "2r2pSjrfx5Y",
+     "titre": "15 MIN Ganzkörper BEGINNER Workout / Anfänger, ohne springen | GET STARTED CHALLENGE | Tina Halder",
+     "chaine": "Tina Halder",
+     "vues": "2,8 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:10",
+     "avatar": "https://yt3.ggpht.com/oB86BswghG7JMmoSBCLJJh2F_uEoGmsNxe86sOzKCBhiYanRIxJWJuPRIxbdaPsp6Xh51mBnPg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "TREINA",
+     "EM CASA"
+    ],
+    "video": {
+     "id": "O-SM6BNaRfQ",
+     "titre": "Treino em Pé Sem Impacto. Queime Muita Gordura e Perca Barriga Rápido! (Em casa)",
+     "chaine": "Daniel Gimenes",
+     "vues": "1,7 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "24:34",
+     "avatar": "https://yt3.ggpht.com/oS-Ku46e23jLfaw8Nw1CbtvHzCMAhpq-erxyKUQjLeOWtvVP42gRdEmqHTdCqGV2SQU2dg5r=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "TREINE",
+     "EM CASA"
+    ],
+    "video": {
+     "id": "m1QV6EAyuaw",
+     "titre": "18 minutos para perder barriga em casa - tudo em pé - iniciantes sem impacto  - Carol Borba",
+     "chaine": "Carol Borba",
+     "vues": "9,2 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "20:51",
+     "avatar": "https://yt3.ggpht.com/Nj4WO2suLbginPREoeyAZlPRrevlV1wCGb0dUtkX9xxzUsyWSfGTTviuuIsF4ocqczRttCWN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "ALLENATI",
+     "A CASA"
+    ],
+    "video": {
+     "id": "hvkQxWs3lKk",
+     "titre": "Esercizi Per Principianti Senza Salti - Allenamento Total Body Cardio Veloce",
+     "chaine": "Fixfit - Fitness Lifestyle",
+     "vues": "677K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nqS_4wxWRbgQtUl9F7N6SW36zaRT5ifx28uIk--1DjojI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ENTRENA",
+     "EN CASA"
+    ],
+    "video": {
+     "id": "KYLhSfBhZ1c",
+     "titre": "Día 1 | Cardio para Principiantes 🔥 Sin Equipo y 100% en Casa",
+     "chaine": "Fausto Murillo",
+     "vues": "12 M de vistas",
+     "date": "hace 1 año",
+     "duree": "28:43",
+     "avatar": "https://yt3.ggpht.com/rbACgLgwdu0dEoFR9RMUFbPZPiU0-aK1jVYjXyvb_6gI0mWNj63UREdBBa27Bh5Wflre84XKVrQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

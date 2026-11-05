@@ -1,0 +1,402 @@
+{
+ "id": "fa-054",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7681307634158308630",
+  "vues": 22500,
+  "accroche": "5 Documentaries That Changed How I See The World"
+ },
+ "titre": {
+  "en": "Documentaries That Changed How I See The World",
+  "de": "Dokus, die meinen Blick auf die Welt verändert haben",
+  "pt": "Documentários que mudaram a forma como vejo o mundo",
+  "pt-BR": "Documentários que mudaram como eu vejo o mundo",
+  "it": "Documentari che hanno cambiato il mio modo di vedere il mondo",
+  "es-419": "Documentales que cambiaron cómo veo el mundo"
+ },
+ "legendes": {
+  "en": "Documentaries That Changed How I See The World #skills #learnontiktok #selfmastery",
+  "de": "Dokus, die meinen Blick auf die Welt verändert haben #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "Documentários que mudaram a forma como vejo o mundo #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "Documentários que mudaram como eu vejo o mundo #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "Documentari che hanno cambiato il mio modo di vedere il mondo #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "Documentales que cambiaron cómo veo el mundo #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta A. Accroche du manifeste (documentaires) : océan et univers, Sophia au milieu. Seuls les vrais documentaires natifs de chaque langue sont gardés (2 au lieu de 5), plutôt qu'une vidéo dans une autre langue. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "DOCUMENTARIES",
+       "bronze": true
+      }
+     ],
+     "THAT CHANGED",
+     [
+      {
+       "t": "HOW I SEE THE WORLD",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "DOKUS",
+       "bronze": true
+      }
+     ],
+     "DIE MEINE SICHT",
+     [
+      {
+       "t": "VERÄNDERT HABEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "DOCUMENTÁRIOS",
+       "bronze": true
+      }
+     ],
+     "QUE MUDARAM",
+     [
+      {
+       "t": "A FORMA COMO VEJO O MUNDO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "DOCUMENTÁRIOS",
+       "bronze": true
+      }
+     ],
+     "QUE MUDARAM",
+     [
+      {
+       "t": "COMO EU VEJO O MUNDO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "DOCUMENTARI",
+       "bronze": true
+      }
+     ],
+     "CHE HANNO CAMBIATO",
+     [
+      {
+       "t": "COME VEDO IL MONDO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "DOCUMENTALES",
+       "bronze": true
+      }
+     ],
+     "QUE CAMBIARON",
+     [
+      {
+       "t": "CÓMO VEO EL MUNDO",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE DEEP",
+     "OCEAN"
+    ],
+    "video": {
+     "id": "VlcI2Vu5uV4",
+     "titre": "Into the Abyss: Creatures of the Midwater (Full Movie)",
+     "chaine": "Natural World Facts",
+     "vues": "11M views",
+     "date": "1 year ago",
+     "duree": "1:23:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l7uodbmSa8A9iRBSOLQcvLX8hSmzLFi1aq_drVVZMTcjA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DIE TIEFSEE"
+    ],
+    "video": {
+     "id": "bpFNKwYM7fo",
+     "titre": "Marianengraben | Der geheimnisvollste Abgrund der Erde",
+     "chaine": "Wild Nature Science DE",
+     "vues": "362.711 Aufrufe",
+     "date": "vor 8 Monaten",
+     "duree": "39:21",
+     "avatar": "https://yt3.ggpht.com/OBEgzKtolCQj4hT1bTNNlWrUJvNRR-YHOpySGWTlXBfE-9FzvudC00NfPjZQdif7-ngvURo0kQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O OCEANO",
+     "PROFUNDO"
+    ],
+    "video": {
+     "id": "V7UkDLrai3E",
+     "titre": "OCEANOS — A Verdadeira História dos Mares | Documentário Completo 4k",
+     "chaine": "Documenta Terra",
+     "vues": "15 mil visualizações",
+     "date": "há 3 meses",
+     "duree": "1:15:14",
+     "avatar": "https://yt3.ggpht.com/GqPIXd_QVxJauJZ4kNCMXo96InjyRRvai-Mb2p7mz3A5n2fGmIIoMzZiqsABGbQ8XBSrIqMD=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O FUNDO",
+     "DO OCEANO"
+    ],
+    "video": {
+     "id": "wQWWSkoqGNs",
+     "titre": "MISTÉRIOS DO OCEANO - Segredos das Profundezas | Documentário Animal",
+     "chaine": "Wild Nature - Português",
+     "vues": "1,6 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "1:05:13",
+     "avatar": "https://yt3.ggpht.com/U4M2UzGHme77_yVAUMhOMVRhpuMM5LnDEW5aIYrOO-jCQmQoOfOIQ8HwsnZj3ThkjEp1G1nb=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GLI ABISSI"
+    ],
+    "video": {
+     "id": "z5uMFBmw4xo",
+     "titre": "Fossa delle Marianne | L’Abisso Più Misterioso del Pianeta",
+     "chaine": "Wild Nature Science IT",
+     "vues": "137K visualizzazioni",
+     "date": "8 mesi fa",
+     "duree": "40:08",
+     "avatar": "https://yt3.ggpht.com/e2IJJ7CTl8uRn_xSjJl5RJN3wN1UeHXIiEZ6c1i47RL1uhZGHSxxxo9l4dLzd4s0eUgwMnHZaA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL OCÉANO",
+     "PROFUNDO"
+    ],
+    "video": {
+     "id": "knUERVioeog",
+     "titre": "MISTERIOS DEL OCÉANO - Secretos de las Profundidades | Documental Animal",
+     "chaine": "Wild Nature - Español",
+     "vues": "1.4 M de vistas",
+     "date": "hace 1 año",
+     "duree": "1:05:23",
+     "avatar": "https://yt3.ggpht.com/kptEpfmnnC2O9X8NhxwAOZ28_LVKFrAV8lMw11UOsl8pS5M1zvG1QKEX1-NCwMJMT4_wXp5j=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ONE NEW IDEA",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "EINE NEUE IDEE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "UMA IDEIA NOVA",
+     "POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo novo todos os dias,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "UMA IDEIA NOVA",
+     "POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UN'IDEA NUOVA",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UNA IDEA NUEVA",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE",
+     "UNIVERSE"
+    ],
+    "video": {
+     "id": "t06aTX9jM34",
+     "titre": "Decoding the Universe: Quantum | Full Documentary | NOVA | PBS",
+     "chaine": "NOVA PBS Official",
+     "vues": "8.9M views",
+     "date": "1 year ago",
+     "duree": "53:58",
+     "avatar": "https://yt3.ggpht.com/yx6flJI75s--RAq27RgNOD-BQ_u_H4UNoQZlma1j1Txb0iSPZO5RoUW4sROUvP0g2-aClkjruO8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS",
+     "UNIVERSUM"
+    ],
+    "video": {
+     "id": "0_qvU03pvFg",
+     "titre": "Das Licht und das Universum | Doku HD | ARTE",
+     "chaine": "ARTEde",
+     "vues": "635.881 Aufrufe",
+     "date": "vor 10 Monaten",
+     "duree": "58:28",
+     "avatar": "https://yt3.ggpht.com/7z7StiBmKsojbvZli6D7CwmIDjdiCg_pmmWalRmKSq-mW9r3Gl72xGDmNXyAu7ILILKKGLk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "O",
+     "UNIVERSO"
+    ],
+    "video": {
+     "id": "XkphvqLZTL0",
+     "titre": "O UNIVERSO COMO VOCÊ NUNCA VIU | DOCUMENTARIO 2025",
+     "chaine": "Horizonte de Eventos",
+     "vues": "364 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "1:25:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kojIjFZaS8ZOfvWKUJoDZ1NMUUAhkuQRBSSvE0KBV6jHg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O",
+     "UNIVERSO"
+    ],
+    "video": {
+     "id": "4FG687FSr2I",
+     "titre": "UMA JORNADA INESQUECÍVEL PELO UNIVERSO | DOCUMENTARIO 2026",
+     "chaine": "Horizonte de Eventos",
+     "vues": "343 mil visualizações",
+     "date": "há 6 meses",
+     "duree": "1:17:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kojIjFZaS8ZOfvWKUJoDZ1NMUUAhkuQRBSSvE0KBV6jHg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "L'UNIVERSO"
+    ],
+    "video": {
+     "id": "t_m9QydUiEM",
+     "titre": "Documentario universo 2020 - Documentario universo - viaggio ai confini del cosmo [HD]",
+     "chaine": "Pulsar - la tua guida sul cosmo",
+     "vues": "223K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "1:30:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjF6eHM6jZ8n5Ckiiptepg_tKHEF1_zIQ3XCkzEufVsA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL",
+     "UNIVERSO"
+    ],
+    "video": {
+     "id": "J41KubuIA0w",
+     "titre": "Lo que REALMENTE se esconde más allá del universo… DOCUMENTAL ESPACIO",
+     "chaine": "Jodisea | El mundo de las Odiseas",
+     "vues": "38 k vistas",
+     "date": "hace 7 meses",
+     "duree": "3:09:12",
+     "avatar": "https://yt3.ggpht.com/W_VXqH6RGDejXQybpBN9h6dmGAJA6bEE5KBOfK8A8fHiCXMX0HtQxsgaSNWc56H_xVnFmGqxJA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -78,19 +78,19 @@ describe("AdminUgcIaPage", () => {
     await waitFor(() => expect(importer).toHaveBeenCalledWith("https://www.tiktok.com/@a/video/1", "p1"));
   });
 
-  it("coupe le passage choisi et refuse un passage trop court", async () => {
+  it("coupe le passage choisi, même très court, et refuse une fin avant le début", async () => {
     listerVideos.mockResolvedValue([video({})]);
     couper.mockResolvedValue({ video: video({ statut: "coupee" }) });
     rendre();
     const carte = await screen.findByTestId("video-v1");
     const bouton = within(carte).getByRole("button", { name: "Couper ce passage" });
-    fireEvent.change(within(carte).getByLabelText("Fin (s)"), { target: { value: "3" } });
-    expect(within(carte).getByText("Le passage doit durer au moins 4 s (Genjutsu).")).toBeInTheDocument();
+    fireEvent.change(within(carte).getByLabelText("Début (s)"), { target: { value: "8" } });
+    expect(within(carte).getByText("La fin doit être après le début.")).toBeInTheDocument();
     expect(bouton).toBeDisabled();
     fireEvent.change(within(carte).getByLabelText("Début (s)"), { target: { value: "1,5" } });
-    fireEvent.change(within(carte).getByLabelText("Fin (s)"), { target: { value: "7.5" } });
+    fireEvent.change(within(carte).getByLabelText("Fin (s)"), { target: { value: "3" } });
     fireEvent.click(bouton);
-    await waitFor(() => expect(couper).toHaveBeenCalledWith("v1", 1.5, 7.5));
+    await waitFor(() => expect(couper).toHaveBeenCalledWith("v1", 1.5, 3));
     expect(generer).not.toHaveBeenCalled();
   });
 

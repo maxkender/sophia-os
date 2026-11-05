@@ -6157,7 +6157,7 @@ export const en = {
       persona: "Persona",
       nouvelle: "New video",
       etape1: "Paste the link of a TikTok reaction that performs, then import it.",
-      etape2: "Pick the reaction part, {{min}} to {{max}} s, and cut it.",
+      etape2: "Pick the reaction part (up to {{max}} s) and cut it.",
       etape3: "Run Genjutsu: {{nom}} redoes the motion, in a few minutes.",
       lienTiktok: "TikTok link",
       importer: "Import",
@@ -6199,7 +6199,7 @@ export const en = {
       erreurPassage: {
         manquant: "Enter the start and end, in seconds.",
         negatif: "The start cannot be negative.",
-        tropCourt: "The part must last at least {{min}} s (Genjutsu).",
+        ordre: "The end must be after the start.",
         tropLong: "The part must last at most {{max}} s.",
         depasse: "The end is past the video.",
       },

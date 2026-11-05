@@ -30,7 +30,6 @@ import {
   lireSecondes,
   passageInitial,
   PASSAGE_MAX_S,
-  PASSAGE_MIN_S,
   peutCouper,
   peutGenerer,
   PROMPT_DEFAUT,
@@ -174,7 +173,7 @@ function CarteImport({ persona }: { persona: PersonaUgcIa }) {
       <CardContent className="space-y-3">
         <ol className="list-decimal space-y-0.5 pl-4 text-xs text-muted-foreground">
           <li>{t("ugcIa.etape1")}</li>
-          <li>{t("ugcIa.etape2", { min: PASSAGE_MIN_S, max: PASSAGE_MAX_S })}</li>
+          <li>{t("ugcIa.etape2", { max: PASSAGE_MAX_S })}</li>
           <li>{t("ugcIa.etape3", { nom: persona.nom })}</li>
         </ol>
         <form
@@ -326,7 +325,7 @@ function BlocCoupe({ video }: { video: VideoUgcIa }) {
           </div>
         ))}
       </div>
-      {erreur && <p className="text-xs text-destructive">{t(`ugcIa.erreurPassage.${erreur}`, { min: PASSAGE_MIN_S, max: PASSAGE_MAX_S })}</p>}
+      {erreur && <p className="text-xs text-destructive">{t(`ugcIa.erreurPassage.${erreur}`, { max: PASSAGE_MAX_S })}</p>}
       <Button variant="outline" size="sm" className="w-full" loading={couper.isPending} disabled={erreur != null} onClick={() => couper.mutate()}>
         <Scissors aria-hidden />
         {video.coupe_url ? t("ugcIa.recouper") : t("ugcIa.couper")}

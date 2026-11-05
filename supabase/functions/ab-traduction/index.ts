@@ -23,7 +23,7 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *     range le duel : le deck parti contre celui du candidat, gauche ou droite
  *     tiré au sort. Un appel par duel : le candidat fait 2 à 4 appels modèle.
  *
- *   { action: "lot_servir" }
+ *   { action: "lot_servir", langue? }
  *       → { ok: true, faits: [{ langue, contenu_id, ok, raison? }], restants, langues }
  *     Le lot commun (0627) : pour chaque langue qui a un relecteur invité ou
  *     actif, et chaque contenu du lot sans duel pour le candidat du lot, prépare
@@ -70,7 +70,12 @@ Deno.serve(async (request) => {
       });
     }
 
-    if (action === "lot_servir") return json(await servirLots(supabase));
+    if (action === "lot_servir") {
+      // `langue` (facultatif) : ne servir que cette langue, pour sortir un lot
+      // dans une langue avant les autres (0629).
+      const seule = String(body?.langue ?? "").trim().toLowerCase() || null;
+      return json(await servirLots(supabase, seule));
+    }
 
     if (action !== "duel_preparer") return json({ error: `action inconnue : ${action || "aucune"}` }, 400);
 
@@ -248,7 +253,7 @@ function langueSourceDe(item: { contenus?: unknown }): string | null {
   return typeof valeur === "string" && valeur.trim() ? valeur.trim().toLowerCase() : null;
 }
 
-async function servirLots(supabase: Supabase) {
+async function servirLots(supabase: Supabase, seule: string | null = null) {
   const debut = Date.now();
   const { data: lots, error } = await supabase
     .from("ab_lots")
@@ -256,7 +261,8 @@ async function servirLots(supabase: Supabase) {
     .eq("statut", "actif")
     .order("numero");
   if (error) throw error;
-  const langues = await languesDesRelecteurs(supabase);
+  const toutes = await languesDesRelecteurs(supabase);
+  const langues = seule ? toutes.filter((l) => l === seule) : toutes;
   const faits: FaitLot[] = [];
   let restants = 0;
   const sansCircuit: string[] = [];

@@ -43,6 +43,7 @@ import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
+import { AdminUgcIaPage } from "@/pages/admin/AdminUgcIaPage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminRepartitionPage } from "@/pages/admin/AdminRepartitionPage";
 import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
@@ -167,6 +168,8 @@ export function AppRouter() {
               <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
               <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
+              {/* 5/11 : UGC IA, une réaction TikTok refaite par un persona (Genjutsu), hors podz. */}
+              <Route path="/admin/ugc-ia" element={<AdminUgcIaPage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
               <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />

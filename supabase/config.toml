@@ -244,6 +244,9 @@ verify_jwt = false
 [functions.traduire-test]
 verify_jwt = false
 
+[functions.ugc-ia]
+verify_jwt = false
+
 [functions.ugc-persona]
 verify_jwt = false
 

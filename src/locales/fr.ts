@@ -6166,7 +6166,7 @@ export const fr = {
       persona: "Persona",
       nouvelle: "Nouvelle vidéo",
       etape1: "Colle le lien d'une réaction TikTok qui marche, puis importe-la.",
-      etape2: "Choisis le passage de la réaction, de {{min}} à {{max}} s, et coupe-le.",
+      etape2: "Choisis le passage de la réaction (jusqu'à {{max}} s) et coupe-le.",
       etape3: "Lance Genjutsu : {{nom}} refait le mouvement, en quelques minutes.",
       lienTiktok: "Lien TikTok",
       importer: "Importer",
@@ -6208,7 +6208,7 @@ export const fr = {
       erreurPassage: {
         manquant: "Indique le début et la fin, en secondes.",
         negatif: "Le début ne peut pas être négatif.",
-        tropCourt: "Le passage doit durer au moins {{min}} s (Genjutsu).",
+        ordre: "La fin doit être après le début.",
         tropLong: "Le passage doit durer au plus {{max}} s.",
         depasse: "La fin dépasse la vidéo.",
       },

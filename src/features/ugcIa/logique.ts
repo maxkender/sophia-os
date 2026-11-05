@@ -4,8 +4,7 @@
 export type StatutVideoUgcIa = "importee" | "coupee" | "en_cours" | "prete" | "echec";
 export type ResolutionUgcIa = "480p" | "720p" | "1080p";
 
-/** Genjutsu refuse une source de moins de 4 s et coupe au-delà de 30 s. */
-export const PASSAGE_MIN_S = 4;
+/** Genjutsu coupe au-delà de 30 s. Pas de minimum : Higgsfield tranche (échec non facturé). */
 export const PASSAGE_MAX_S = 30;
 /** La durée proposée par défaut : une réaction tient en quelques secondes. */
 export const PASSAGE_DEFAUT_S = 6;
@@ -22,13 +21,13 @@ export function lireSecondes(saisie: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export type ErreurPassage = "manquant" | "negatif" | "tropCourt" | "tropLong" | "depasse";
+export type ErreurPassage = "manquant" | "negatif" | "ordre" | "tropLong" | "depasse";
 
 /** Ce qui ne va pas dans le passage choisi, ou null s'il est bon. */
 export function erreurPassage(debut: number | null, fin: number | null, dureeSource: number | null): ErreurPassage | null {
   if (debut == null || fin == null) return "manquant";
   if (debut < 0) return "negatif";
-  if (fin - debut < PASSAGE_MIN_S) return "tropCourt";
+  if (fin <= debut) return "ordre";
   if (fin - debut > PASSAGE_MAX_S) return "tropLong";
   if (dureeSource != null && dureeSource > 0 && fin > dureeSource + 0.1) return "depasse";
   return null;

@@ -4,8 +4,11 @@
  * `src/features/ugcIa/logique.ts`.
  */
 
-/** Genjutsu refuse une source de moins de 4 s et coupe au-delà de 30 s. */
-export const PASSAGE_MIN_S = 4;
+/**
+ * Genjutsu coupe au-delà de 30 s. Pas de minimum côté OS (décision du 5/11) :
+ * la doc de l'API annonce 4 s, mais c'est Higgsfield qui tranche ; un refus
+ * revient en échec, non facturé.
+ */
 export const PASSAGE_MAX_S = 30;
 
 /**
@@ -39,8 +42,8 @@ function nombre(v: unknown): number | null {
 }
 
 /**
- * Le passage à couper (en secondes) : début ≥ 0, durée entre 4 et 30 s, dans
- * la vidéo si on connaît sa durée. Rend le passage arrondi au dixième, ou
+ * Le passage à couper (en secondes) : début ≥ 0, fin après le début, 30 s au
+ * plus, dans la vidéo si on connaît sa durée. Rend le passage arrondi au dixième, ou
  * l'erreur à afficher.
  */
 export function passage(
@@ -54,7 +57,7 @@ export function passage(
   const d = Math.round(debut * 10) / 10;
   const f = Math.round(fin * 10) / 10;
   if (d < 0) return { erreur: "Le début ne peut pas être négatif" };
-  if (f - d < PASSAGE_MIN_S) return { erreur: `Le passage doit durer au moins ${PASSAGE_MIN_S} s (Genjutsu)` };
+  if (f <= d) return { erreur: "La fin doit être après le début" };
   if (f - d > PASSAGE_MAX_S) return { erreur: `Le passage doit durer au plus ${PASSAGE_MAX_S} s` };
   // Tolérance d'un dixième : la durée annoncée par TikTok est arrondie.
   if (dureeSource != null && dureeSource > 0 && f > dureeSource + 0.1) {

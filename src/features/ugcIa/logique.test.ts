@@ -10,12 +10,14 @@ describe("UGC IA, logique", () => {
     expect(lireSecondes("abc")).toBeNull();
   });
 
-  it("vérifie le passage comme la fonction ugc-ia (4 à 30 s, dans la vidéo)", () => {
+  it("vérifie le passage comme la fonction ugc-ia (pas de minimum, 30 s au plus, dans la vidéo)", () => {
     expect(erreurPassage(1, 7, 20)).toBeNull();
     expect(erreurPassage(0, 10.1, 10)).toBeNull();
     expect(erreurPassage(null, 7, 20)).toBe("manquant");
     expect(erreurPassage(-1, 7, 20)).toBe("negatif");
-    expect(erreurPassage(0, 3.9, 20)).toBe("tropCourt");
+    expect(erreurPassage(2, 3.5, 20)).toBeNull();
+    expect(erreurPassage(3, 3, 20)).toBe("ordre");
+    expect(erreurPassage(4, 2, 20)).toBe("ordre");
     expect(erreurPassage(0, 31, 40)).toBe("tropLong");
     expect(erreurPassage(5, 12, 10)).toBe("depasse");
   });

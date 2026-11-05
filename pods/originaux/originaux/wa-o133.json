@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o133",
+ "type_bleo": "full_test",
+ "titre": "the 5 minute rules that make life feel lighter #habits #selfimprovement #mindset #rules #calm",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "0a12c6fd-b0cb-45a1-8360-8591397e5656"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 0a12c6fd). full test BLEO : accroche jamais faite (format « 5 minute rules »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c7af1a99-4ed5-42d7-885d-5acd295dd1d4",
+   "texte_overlay": "the 5 minute rules that\nmake life feel lighter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700316780379589920/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1cba6473-5f50-4ed7-b8b1-0a961edaeacc",
+   "texte_overlay": "the two minute tidy\n\nif a mess takes less than two minutes to clean, do it right now. a home that never piles up is a mind that never feels quietly behind on absolutely everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700316780379589920/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6b426338-5b91-4122-9881-cb1987a3c60d",
+   "texte_overlay": "the five minute walk\n\nwhen you feel stuck or anxious, walk for five minutes before deciding anything. moving your body changes your mood faster than any amount of thinking can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700316780379589920/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d945e849-0ea0-4f01-b1a8-863ede13a5fd",
+   "texte_overlay": "the one line journal\n\nwrite one line about your day before bed, nothing more. a tiny habit you never skip beats a big journal you abandon after a week, and it adds up to a year of memories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700316780379589920/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1cd4f257-0e96-4331-bc8f-0f987e350e48",
+   "texte_overlay": "the five minute lesson\n\nspend five minutes a day learning something with no point at all: a strange animal, a famous painting, a forgotten empire. curiosity makes ordinary days feel lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700316780379589920/5.jpg",
+   "texte_sophia": "the five minute lesson\n\ni spend five minutes a day learning something with no point at all, like a strange animal or a forgotten empire. it's one short lesson in the Sophia app, and my days feel lighter."
+  },
+  {
+   "position": 6,
+   "media_id": "7f880dc9-2dd4-4eb9-bb68-0e719e22b08e",
+   "texte_overlay": "the reply rule\n\nif a message needs a reply and it takes under five minutes, answer it now. unanswered messages weigh more on your mind than the time they'd ever take to send.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700316780379589920/6.jpg"
+  }
+ ]
+}

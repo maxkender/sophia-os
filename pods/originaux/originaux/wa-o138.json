@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o138",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8e8ac2ae-428a-475e-9a40-1c9a433deebf",
+ "titre": "weird psychology tricks that actually work #psychology #tricks #selfimprovement #mindset #socialskills",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "0bfe9c91-78d7-4e91-a38a-cc81eda76a23"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 0bfe9c91). déclinaison G1 de « weird psychology tricks that actually work » (parent 8e8ac2ae, famille née de wa-o094). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7b6fa638-b540-4e01-9b31-8deaa93c5eed",
+   "texte_overlay": "weird psychology tricks\nthat actually work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658376672068046102/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b2fce94b-caf9-4ab6-9b46-b0596fadae19",
+   "texte_overlay": "the open palms\n\nshow your palms when you talk, especially when you're explaining something. open hands read as honest and relaxed, and people trust what you say a little more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658376672068046102/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "141a8951-354a-4c22-b6eb-cce35bf557f5",
+   "texte_overlay": "the curious silence\n\nwhen someone finishes talking, wait two seconds before replying. people very often add the most honest part of their thought in that small, quiet gap of silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658376672068046102/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2d61357a-e64a-4f71-8e16-6a988db3434c",
+   "texte_overlay": "the fact effect\n\nspend 5 minutes a day learning one surprising fact. people instinctively trust and listen to someone who seems calm and well informed, without you ever showing off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658376672068046102/4.jpg",
+   "texte_sophia": "the fact effect\n\ni spend 5 minutes a day learning one surprising fact. i do it with the Sophia app, one lesson a day, and people listen more to someone who seems calm and well informed."
+  },
+  {
+   "position": 5,
+   "media_id": "9c12ea86-1401-433a-81c5-d15f0371e452",
+   "texte_overlay": "the walking talk\n\nhave hard conversations side by side on a walk, not face to face across a table. walking together quietly makes people more open and far less defensive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658376672068046102/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d4ef2d2b-24ab-42cd-bed2-601893103ced",
+   "texte_overlay": "the small favour\n\nask someone for a small favour, like borrowing a pen. people tend to like you more after helping you, because their brain quietly decides you must be worth it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658376672068046102/6.jpg"
+  }
+ ]
+}

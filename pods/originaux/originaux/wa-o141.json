@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o141",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9eda652b-715e-40d8-aaca-7500d7cd0d31",
+ "titre": "5 bizarre habits to make you the most magnetic person in the room #magnetic #charisma #socialskills #selfimprovement #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "81b59d16-808c-45a3-833e-f11b0a34dde9"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 81b59d16). déclinaison G1 de « 5 bizarre habits to make you the most magnetic person in the room » (parent 9eda652b). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cb621884-3a8a-4ca7-ba1e-1f8a71d7eb89",
+   "texte_overlay": "5 bizarre habits to make you\nthe most magnetic person in\nthe room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659149379714043150/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "82cc7a37-6e18-4e86-9ab0-dd893762ac50",
+   "texte_overlay": "the warm goodbye\n\nwhen you leave, say goodbye to everyone you spoke with, not just your friends. people remember the person who made a point of including them at the end.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659149379714043150/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "35067faa-6388-4962-a358-df2ca6f51290",
+   "texte_overlay": "the slow nod\n\nnod slowly while someone talks, not fast. a slow nod says i'm really listening, a fast one says hurry up, and people can feel the difference instantly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659149379714043150/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e33b20a5-11de-4852-9c21-4ccbf5e0d2c5",
+   "texte_overlay": "the remembered detail\n\nbring up one small thing someone mentioned last time you met: their trip, their exam. being remembered is so rare it makes people feel instantly closer to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659149379714043150/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3ca34242-b2ca-4221-ab73-cd246ed906fd",
+   "texte_overlay": "the unexpected story\n\nspend 5 minutes a day learning one unexpected story: why the eiffel tower was almost torn down, how coffee spread. a good story turns you into the centre of any group.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659149379714043150/5.jpg",
+   "texte_sophia": "the unexpected story\n\ni used to have nothing to add in group chats. now i spend 5 minutes a day on one lesson in the Sophia app, like why the eiffel tower was almost torn down. stories pull people in."
+  },
+  {
+   "position": 6,
+   "media_id": "89c73761-a7d5-4eec-b975-796b41824351",
+   "texte_overlay": "the phone face down\n\nwhen you sit with someone, put your phone face down and out of reach. full attention has become so rare today that giving it makes you instantly magnetic to people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659149379714043150/6.jpg"
+  }
+ ]
+}

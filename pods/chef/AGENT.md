@@ -68,7 +68,7 @@ Les podz :
   identifiant de modèle** dans les commits, PR ou messages.
 - **Tout message que tu postes commence par `🤖`**, en français, court.
 
-## BLEO, voie 1 (depuis la bascule des podz)
+## BLEO, voie 1 (depuis le 1/11) et voie 2 (depuis le 5/11)
 
 Les podz de la voie 1 (2, 4, 5, 7, 8, 9 et 12) passent sur BLEO quand
 `select valeur->'podz'->>'type_obligatoire' from reglages where cle = 'bleo';`
@@ -76,28 +76,35 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
 
 - **Ils ne font plus de variantes ni d'essais** : ils déclinent les familles
   gagnantes de leur boîte, dans l'ordre, et déposent autant de full tests que
-  la jauge le demande (`pods/ROUTINE.md` §4). Les règles 1 (percée → 3
-  variantes), 4 (idée pour le prochain essai), 5 (le rythme ne baisse jamais),
-  6 et 7 ci-dessous ne valent plus pour eux ; elles valent toujours pour la
-  voie 2 (podz 1, 6, 10, 11 et 13).
+  la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
+  baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
+  la jauge (plus bas).
+- **La voie 2** (podz 1, 10, 11 et 13 ; le 6 est arrêté) a aussi sa boîte et
+  sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
+  compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
+  de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré
+  passe au guichet, comme en voie 1 ; un remake du compte modèle part sans
+  déclaration. **Leur rythme ne change pas encore** : les règles 2, 5, 6 et 8
+  valent toujours pour eux, pas les règles de la jauge ci-dessous.
 - **La jauge** : `select * from bleo_jauge order by pod;` (aujourd'hui) et
   `bleo_jauge_jours` (une photo par jour à 5 h 40). `semaines` : combien de
   semaines de déclinaisons la boîte tient au rythme du podz ;
   `part_full_test` : la part de full tests qui en découle (10 % au-delà de
   6 semaines, 40 % sous 1 semaine).
-- **Monter `par_jour` de 1** quand la boîte tient plus de 6 semaines **et**
+- **Monter `par_jour` de 1** (voie 1) quand la boîte tient plus de 6 semaines **et**
   que la file à juger du label a de la place : moins de 90 % de ses créneaux
   utilisés sur les 7 derniers plans
   (`select key as label, sum((value->>'utilise')::int) as utilise, sum((value->>'capacite')::int) as capacite from bleo_runs r, jsonb_each(r.resume->'labels_file_juger') where r.fini_le is not null and r.erreur is null and r.jour_vise > current_date - 7 group by 1;`).
-- **Baisser `par_jour` de 1** quand `semaines` est resté sous 1 sur chacun
+- **Baisser `par_jour` de 1** (voie 1) quand `semaines` est resté sous 1 sur chacun
   des 14 derniers jours de `bleo_jauge_jours`. Jamais sous 1 livraison par
   jour.
-- **Le point du matin ajoute**, par podz de la voie 1 : la jauge (semaines,
+- **Le point du matin ajoute**, par podz actif (voies 1 et 2) : la jauge (semaines,
   part de full tests), les full tests et les déclinaisons déposés hier
-  (`pod_livraisons.type_bleo`), les familles closes la nuit
+  (`pod_livraisons.type_bleo`) et, en voie 2, les remakes du compte modèle
+  (livraisons sans `type_bleo`), les familles closes la nuit
   et les générations 2 ouvertes
   (`select (select count(*) from bleo_familles where close_le > now() - interval '1 day') as closes, (select count(*) from bleo_boite where sorte = 'g2') as g2;`).
-  Format : `• BLEO : <podz> · <semaines> sem. · <part> % full tests · hier <f> full test(s), <d> déclinaison(s)` (une ligne par podz de la voie 1),
+  Format : `• BLEO : <podz> · <semaines> sem. · <part> % full tests · hier <f> full test(s), <d> déclinaison(s)[, <r> remake(s)]` (une ligne par podz),
   puis `• Familles : <n> closes cette nuit, <n> générations 2 ouvertes`.
 - **La règle 8** (objectif 30 %) ne monte le rythme d'un podz de la voie 1
   que dans les conditions ci-dessus (boîte au-delà de 6 semaines, file à
@@ -113,10 +120,10 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
      de passages en stock au rythme actuel) ;
    - `percees` : les passages des podz à 30 k vues ou plus, sur 14 jours.
 2. **Les règles**, dans l'ordre :
-   1. **Percée** (un passage à 30 k vues ou plus) : le podz écrit 3 variantes
-      tout seul (`pods/ROUTINE.md`). Vérifie qu'elles sont en route : une
-      livraison dont les `notes` disent « variante de … ». Sinon, envoie la
-      demande à la session du podz (voir plus bas).
+   1. **Percée** (un passage à 30 k vues ou plus) : sa famille est gagnante,
+      elle est dans la boîte du label et le podz la déclinera dans l'ordre
+      de la boîte (`pods/ROUTINE.md` §4 et §5). Rien à demander ; vérifie
+      seulement qu'elle est dans `bleo_boite` le lendemain du verdict.
    2. **Le stock de chaque compte** : aucun compte ne doit reposter un post
       qu'il a déjà fait faute de neuf (les relances voulues par les tiers,
       `est_rappel`, ne comptent pas). Pour chaque label nourri par un podz,
@@ -133,8 +140,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
       Tu ne le mets en pause que si Adrien ou Max te le demandent par écrit.
    4. **Une idée à tester** : un angle qui perce chez un podz et pourrait
       marcher chez un autre, ou un format repéré par une veille → **envoie-la
-      à la session du podz** qui la ferait, pour son prochain essai (la
-      livraison dont le numéro finit par 0 ou 5). Dis-le dans le point.
+      à la session du podz** qui la ferait, pour un de ses prochains full
+      tests. Dis-le dans le point.
    5. **Le rythme ne baisse jamais.** `par_jour` ne descend pas, même quand
       le stock est large ou qu'un podz ne perce pas. Seule une pause demandée
       par écrit par Adrien ou Max l'arrête. Il n'y a pas de plafond : on
@@ -146,14 +153,13 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
    8. **L'objectif : 30 % des posts venant des podz.** Tant que la part de la
       veille est sous 30 %, monte le rythme des podz qui marchent (règle 6)
       et de ceux qui livrent bien leur compte, en priorité ceux dont les
-      contenus sortent le plus (vues médianes, tiers). Les variantes des
-      percées s'ajoutent toujours, les originaux et les essais continuent.
+      contenus sortent le plus (vues médianes, tiers).
    7. **Un podz qui s'enferme** : plus d'un tiers de ses livraisons des
       7 derniers jours sur la même famille d'accroche, ou une slide d'appli
       qui ne varie pas (une seule version, toujours à la même place), ou des
       vues médianes en baisse d'une semaine sur l'autre → **envoie-lui un
-      message** avec les chiffres et les règles 5.5 et 5.6 (voie 2) de
-      `pods/ROUTINE.md`. Dis-le dans le point (ligne « Boucle »).
+      message** avec les chiffres et les règles de `pods/ROUTINE.md` (4.2 et
+      4.5 en voie 1, 5.2 et 5.5 en voie 2). Dis-le dans le point (ligne « Boucle »).
 3. **Poste le point** dans #podz, au format ci-dessous. Un point par jour,
    même calme.
 
@@ -161,11 +167,11 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
 🤖 *Podz — point du <jour> <date>*
 • Hier : <x> % des posts venaient des podz (<n> sur <total>). Objectif : 30 %. Sur 7 jours : <y> %.
 • En attente : <n> livraisons, validées toutes seules vers <heure> → https://sophia-marketing-orga.vercel.app/admin/pods (rejetez celles dont vous ne voulez pas).
-• Ce qui perce : « <accroche> » (<podz>), <vues> vues → 3 variantes en route.
+• Ce qui perce : « <accroche> » (<podz>), <vues> vues → dans la boîte.
 • Par podz : <nom> · <vues médianes> · <% ≥ 10 k> · runway <j> j (une ligne par podz actif, 8 au plus).
 • Stock : <podz> · compte le plus juste <compte> (<langue>), <j> j de posts neufs (une ligne par label sous 7 jours).
 • Reposts faute de neuf hier : <n> (<podz> : <comptes>). Objectif : 0.
-• Boucle : <x> % des livraisons des 7 derniers jours sont des variantes ; <n> schémas jamais faits livrés sur la semaine (<podz> : <n>, …).
+• Boucle : <x> % des livraisons des 7 derniers jours sont des déclinaisons ; <n> full tests livrés sur la semaine (<podz> : <n>, …).
 • Rythme : <podz> passe à <n> livraisons par jour (<raison chiffrée>).
 • Essai envoyé : <idée> → <podz>.
 • À surveiller : <podz> ne perce pas depuis 14 jours (répondez « pause » dans ce fil pour l'arrêter).
@@ -173,10 +179,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
 
 Moins de 18 lignes. Une ligne sans objet ce jour-là : ne l'écris pas.
 
-Pour la ligne « Boucle » : une variante est une livraison dont les `notes`
-disent « variante de … » (ou un `source_id` en `var-…`) ; un schéma jamais
-fait est une accroche dont le début ne ressemble à aucune livraison
-précédente du podz. Plus de ligne « CTA » : les vues ne jugent pas un CTA
+Pour la ligne « Boucle » : une déclinaison est une livraison
+`type_bleo = 'declinaison'`, un full test une livraison
+`type_bleo = 'full_test'` (`pod_livraisons`). Plus de ligne « CTA » : les vues ne jugent pas un CTA
 (décision d'Adrien du 30/10), ne compare pas les versions `cta A`, `cta B`…
 
 ## Le passage de l'après-midi

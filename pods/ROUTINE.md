@@ -10,8 +10,9 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 
 - **Voie 1**, les podz d'originaux (2, 4, 5, 7, 8, 9 et 12) : ils déclinent
   les familles gagnantes de leur boîte BLEO et ajoutent des full tests (§4).
-- **Voie 2**, les podz de remakes (1, 6, 10, 11 et 13) : ils suivent leur liste,
-  comme avant (§5).
+- **Voie 2**, les podz de remakes (1, 10, 11 et 13 ; le 6 est arrêté) : ils
+  refont les posts neufs de leur compte modèle, déclinent les familles
+  gagnantes de leur boîte BLEO et ajoutent des full tests (§5, depuis le 5/11).
 
 > **Les podz de la voie 1 sont sur BLEO depuis le dimanche 1/11 au soir**
 > (ta routine du lundi 2/11 est la première). Lance d'abord `npm run boite` :
@@ -164,52 +165,105 @@ prends la ligne suivante de la boîte.
 | `theme_gagnant` | Full test : l'accroche reprend, à quelques mots près, un thème qui a déjà gagné dans le label (« hobbies that will make you insanely confident ») | Une vraie idée neuve ; ou la décliner depuis la boîte si le thème y est |
 | `parent_introuvable`, `parent_requis`, `parent_interdit`, `type_bleo_requis` | Déclaration incomplète | `type_bleo` et `parent_contenu_id` comme en 4.3 et 4.4 |
 
-## 5. Voie 2 : les remakes
+## 5. Voie 2 : les remakes et leur boîte BLEO
 
-1. **Une demande du chef des podz** pas encore faite : fais-la d'abord. Elle
-   compte dans tes livraisons du jour.
-2. **Un de tes posts a passé 30 k vues** et n'a pas encore ses variantes :
-   écris **3 variantes** (même schéma, autre angle, autres items). Note
-   `variante de <source_id>` dans `notes`. Les 3 variantes **s'ajoutent** à
-   tes livraisons du jour. Si le temps manque, livre d'abord tes livraisons
-   normales, puis les variantes, et finis celles qui manquent à la routine
-   suivante.
-3. **Sinon, ta livraison normale** (voir ton `AGENT.md`) :
-   - podz 1 : un post neuf de la source repris, sinon un post existant traduit
-     dans une langue du label qui en manque ;
-   - podz 6 : le post suivant de la liste, sinon un original ;
-   - podz 10 : le remake suivant de `sources/manifeste.json`, sinon une
-     variante d'un format déjà rendu. Parfait ou rien : un remake pas prêt
-     attend le lendemain.
-   - podz 11 : le remake suivant de `sources/manifeste.json`, sinon une
-     variante d'une accroche déjà faite. Parfait ou rien, comme le podz 10.
-   - podz 13 : pareil que le podz 11 (le remake suivant de
-     `sources/manifeste.json`, sinon une variante d'une accroche déjà faite).
-4. **Une livraison sur cinq est un essai**, au podz 1 seulement : un post d'un
-   autre compte au même format. Podz 6, 10, 11 et 13 : pas d'essai tant que la
-   liste n'est pas finie.
-5. **Tester les CTA** : comme en 4.5.
-6. **Ne t'enferme pas dans ce qui marche.** Sur tes livraisons normales du
-   jour, **au plus 1** reprend une famille d'accroche que tu as déjà livrée 3
-   fois ou plus sur les 7 derniers jours. Les variantes des percées (point 2)
-   restent en plus et ne comptent pas dans cette limite.
-7. **Reprendre, oui, mais en changeant quelque chose** : chaque reprise
-   apporte du changement (autres items, autre angle, autre image ou autre
-   CTA), pour que deux posts ne soient jamais identiques.
+Depuis le 5/11, BLEO juge aussi les accroches des remakes, comme en voie 1
+(voir le début du §4). Chez toi, **l'accroche est le titre** : le `titre` du
+post (podz 10, 11 et 13) ou le texte de la slide 1 (podz 1). Le texte est dans
+l'image, l'OS ne le lit nulle part ailleurs. Les variantes d'un même post du
+compte modèle forment une seule famille. Ce qui reste à toi : refaire les
+posts neufs de ton compte modèle.
+
+### 5.1 Lire la boîte
+
+`npm run boite` donne, dans l'ordre :
+- **la jauge** : combien de full tests déposer aujourd'hui sur tes
+  `par_jour`, et ce que tu as déjà déposé aujourd'hui (full tests,
+  déclinaisons, remakes du compte modèle) ;
+- **les lignes de la boîte**, dans l'ordre où les décliner. Chaque ligne a sa
+  sorte (G1 ou G2), son parent (son id chez toi, `fa-014`, `yp-003`,
+  `original-002`…, pour retrouver ses fichiers, et son `parent_contenu_id`),
+  la langue et le texte de son titre, les déclinaisons déjà faites (3 au plus
+  par parent) et ses meilleurs passages.
+
+### 5.2 Composer le jour
+
+1. **Une demande du chef des podz** pas encore faite : d'abord. Elle compte
+   dans tes livraisons du jour.
+2. **Les full tests** : autant que la jauge en demande aujourd'hui (« Reste à
+   faire »).
+3. **Le reste de tes `par_jour`**, dans cet ordre :
+   1. **Les posts neufs du compte modèle**, tant qu'il en publie : c'est ce
+      qui fait la voie 2. Ta liste : `sources/manifeste.json` (podz 10, 11 et
+      13), les posts neufs d'@amayareading (podz 1, `npm run sources`).
+      Parfait ou rien : un remake pas prêt attend le lendemain.
+   2. **Les déclinaisons**, dans l'ordre de la boîte, avec les mêmes règles
+      qu'en 4.2 : une ligne par thème, un thème décliné une fois par jour,
+      les familles « au budget » en dernier.
+   3. Podz 1 : un post existant traduit dans une langue du label qui en
+      manque (`npm run etat`).
+   4. Ni l'un ni l'autre : des full tests en plus.
+4. **Un chantier de ton `AGENT.md`** (les decks à refaire sans UnSwipe du
+   podz 11, par exemple) se fait comme il le dit, à la place d'une
+   déclinaison.
+
+### 5.3 Écrire une déclinaison
+
+Une déclinaison garde ce qui a gagné et change le reste : autres items,
+autres étapes ou vidéos, autres images, autre CTA. Deux posts ne sont jamais
+identiques.
+
+- **G1** (« titre du parent MOT POUR MOT ») : ton titre reprend celui du
+  parent tel quel, **dans la langue du titre du parent** (la boîte la
+  donne) ; la ponctuation et les émojis peuvent changer, pas les mots. Le
+  passage montré par la boîte est souvent une traduction : ce n'est pas lui
+  qu'on reprend.
+- **G2** (« accroche à REFORMULER ») : la même promesse, avec d'autres mots.
+  Le parent est une G1 qui a gagné.
+- **Une accroche déjà faite chez nous ne se reprend que depuis la boîte**, en
+  déclinaison déclarée. Hors de la boîte, sa famille n'a pas gagné ou a déjà
+  ses déclinaisons. Seule exception : un chantier de ton `AGENT.md` (point 4
+  du 5.2).
+- **Déclarer** : `"type_bleo": "declinaison"` et `"parent_contenu_id": "<l'id
+  complet de la boîte>"`, dans `posts/<id>.json` (podz 10, 11 et 13) ou dans
+  l'entrée du post de `posts/manifeste.json` (podz 1). Un nouvel id de post,
+  toujours. `source` : celle du parent ; `npm run livrer` ajoute
+  `?variante=<id>` tout seul (podz 1 : écris l'`url` du parent suivie de
+  `?variante=<post_id>`, ou laisse-la vide si le parent est un original).
+
+### 5.4 Écrire un full test
+
+- Une accroche **jamais faite chez nous**, au format de ton compte modèle :
+  ni une accroche déjà dans le label (le guichet la refuse), ni une accroche
+  gagnante à peine reformulée (c'est une G2 : prends la ligne de la boîte).
+- Les idées : ton `AGENT.md`, les accroches du compte modèle pas encore
+  faites, ce qui perce chez les autres podz, et au podz 1 un autre compte au
+  même format (l'ancien « essai »).
+- **Déclarer** : `"type_bleo": "full_test"`, sans parent. Il part sans post
+  source : un original, au rang B. `npm run livrer` n'envoie pas `source`
+  (podz 10, 11 et 13) ni l'`url` (podz 1).
+
+### 5.5 Le reste
+
+- **Le remake d'un post neuf du compte modèle** ne déclare rien : c'est un
+  remake, le guichet ne le juge pas.
+- **Ce que le guichet refuse** : le tableau du 4.6 vaut aussi pour toi.
+  `npm run livrer` affiche le code du refus.
+- **Tester les CTA** : comme en 4.5.
 
 ## 6. Livrer
 
 1. Écris, `npm run apercu`, regarde chaque slide avec l'outil Read, corrige.
-2. `npm run deposer` (ou `npm run livrer` aux podz 6, 10, 11 et 13).
+2. `npm run deposer` (ou `npm run livrer` en voie 2).
 3. Commite, ouvre une PR vers `main` limitée à ton dossier, merge-la.
 
 ## 7. Rendre compte
 
 Termine par **3 lignes** dans ta session :
-- ce que tu as déposé : voie 1, les full tests (accroche) et les déclinaisons
-  (famille, G1 ou G2) ; voie 2, l'accroche et `variante` s'il y a lieu ;
-- ce qui marche chez toi (vues, r) ; voie 1 : la jauge (semaines d'avance,
-  part de full tests) ;
+- ce que tu as déposé : les full tests (accroche) et les déclinaisons
+  (famille, G1 ou G2) ; voie 2, aussi les remakes du compte modèle ;
+- ce qui marche chez toi (vues, r) et la jauge (semaines d'avance, part de
+  full tests) ;
 - un blocage, s'il y en a un (boîte vide, refus du guichet que tu n'as pas
   pu corriger).
 

@@ -8,7 +8,8 @@ anglais d'abord, parfait ou rien ; plus de carte UnSwipe depuis le 4/11), règle
 d'un remake (sa structure, nos images, de vraies vidéos YouTube seulement,
 Sophia en une seule étape native au milieu de la liste — carte d'appli,
 jamais une slide de fin —, aucune appli concurrente, faits vrais), son style déjà dans l'atelier et les commandes
-(`npm run veille | youtube | rendu | livrer | etat` dans `pods/fathom/`).
+(`npm run boite | veille | youtube | rendu | livrer | etat` dans `pods/fathom/` ;
+la routine du matin suit `pods/ROUTINE.md` §5 : posts neufs du compte modèle, boîte BLEO, full tests).
 `pods/fathom/ANALYSE.md` analyse le compte, `pods/fathom/sources/manifeste.json`
 donne l'ordre de travail et `pods/fathom/posts/fa-001.json` est le pilote
 complet. Tout passe par la file de validation (Pilotage → Pods) : tu proposes,

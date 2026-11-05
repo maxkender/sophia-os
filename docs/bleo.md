@@ -192,8 +192,8 @@ Tout s'ajoute à côté de l'existant, par migrations numérotées à la suite d
 | Vue | Colonnes | Rôle |
 | --- | --- | --- |
 | `bleo_mediane_compte` | `compte_id`, `mediane`, `n` | La médiane du glossaire, pour A1 et les rapports |
-| `bleo_boite` | `label_id`, `famille_id`, `accroche`, `sorte` (`g1` ou `g2`), `parent_contenu_id`, `faites`, `verdict_le`, `au_budget` | A9, dans l'ordre de la boîte |
-| `bleo_jauge` | `label_id`, `pod`, `familles_en_boite`, `par_jour`, `semaines`, `part_full_test` | A10 |
+| `bleo_boite` | `label_id`, `famille_id`, `accroche`, `sorte` (`g1` ou `g2`), `parent_contenu_id`, `faites`, `verdict_le`, `au_budget` | A9, dans l'ordre de la boîte ; tous les labels depuis 0653 (voie 2 comprise) |
+| `bleo_jauge` | `label_id`, `pod`, `familles_en_boite`, `par_jour`, `semaines`, `part_full_test` | A10 ; tous les podz actifs depuis 0653, `par_jour` mesuré sur les originaux et les livrés (`nouveau`) |
 | `bleo_mix` | `jour`, `label_id`, `bras`, `file_bleo`, `categorie` (juger, recolte, gagnant\_servi, non\_gagnant\_neuve, non\_gagnant\_servie), `passages` | Le mélange réel, pour les rapports et l'A/B |
 
 ### Remplir l'existant (une fois, à l'installation)
@@ -229,7 +229,7 @@ La famille est propre à un label : la même accroche dans deux labels fait deux
 | Autre import | Nouvelle, dont il est la racine | 0 | `import` |
 | Full test déposé par un podz | Nouvelle. Refusé au guichet si l'accroche existe déjà dans le label | 0 | `full_test` |
 | Déclinaison déposée par un podz | Celle du parent déclaré au dépôt | parent + 1 | `declinaison` |
-| Livré (voie 2) | Comme un import ; sans `accroche_norm`, une famille propre. *5/11 (0652) :* l'accroche est le titre ; même accroche, ou même post du compte modèle (variante), = même famille | 0 (même accroche) ou 1 (variante) | `remake`, ou `declinaison` pour une variante |
+| Livré (voie 2) | Comme un import ; sans `accroche_norm`, une famille propre. *5/11 (0652) :* l'accroche est le titre ; même accroche, ou même post du compte modèle (variante), = même famille | 0 (même accroche) ou 1 (variante) | `remake`, ou `declinaison` pour une variante. *0653 :* une déclinaison déclarée au dépôt rejoint la famille de son parent dès la validation ; un full test déclaré garde `remake` et la classe `livre` (sa déclaration reste dans `pod_livraisons.type_bleo`) |
 
 Un dépôt de déclinaison est refusé si : la famille n'est pas gagnante, la famille est close, le parent est de génération 2, ou le quota de **3** déclinaisons du parent est atteint (A9).
 
@@ -463,7 +463,7 @@ Le détail des prompts et le choix du modèle appartiennent à l'autre agent ; c
 
 ## Les podz
 
-Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher des preuves, ils déclarent le type et le parent de chaque dépôt, et leur part de full test suit la jauge. La voie 2 garde son fonctionnement et reçoit des commandes de langue.
+Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher des preuves, ils déclarent le type et le parent de chaque dépôt, et leur part de full test suit la jauge. La voie 2 garde son fonctionnement et reçoit des commandes de langue. *5/11 (0653) :* la voie 2 a aussi sa boîte, sa jauge et ses full tests (P4).
 
 > **30/10.** La bascule des podz est un réglage : `bleo.podz.type_obligatoire` (faux, puis vrai le dimanche 1/11 au soir). Tant qu'il est faux, `npm run boite` affiche « pas encore » et la voie 1 suit `pods/ROUTINE-avant-bleo.md` (sauf la répétition des podz 8 et 9 les 31/10 et 1/11). Ce qui a été construit (L4) : l'action `boite`, le dépôt déclaré et ses codes de refus, la recherche d'images par légende (`npm run images -- --cherche`), la routine en deux voies, le chef sur la jauge. Pas encore : `etat` et `label` sur r et `bleo_valeurs`, les commandes de langue de la voie 2, `slide_appli`, la validation à 6 h (L7). Les consignes des routines des podz ne se changent que depuis la conversation de chaque podz : la routine commune (`pods/ROUTINE.md`) prime sur elles.
 
@@ -471,7 +471,8 @@ Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher 
 
 | Action | Changement |
 | --- | --- |
-| `boite` (neuve, jeton du podz) | Rend `bleo_boite` pour le label du podz, dans l'ordre, avec la jauge (`bleo_jauge`) : semaines, part de full test, nombre de full tests du jour, familles au budget |
+| `boite` (neuve, jeton du podz) | Rend `bleo_boite` pour le label du podz, dans l'ordre, avec la jauge (`bleo_jauge`) : semaines, part de full test, nombre de full tests du jour, familles au budget. *0653 :* aussi la voie (`voie`) et, pour chaque parent, son id chez le podz (`source_id`) ; en voie 2, les full tests du jour sont la part de la jauge même boîte vide (les posts neufs du compte modèle passent avant) |
+| `deposer`, `type: "nouveau"` (voie 2, 0653) | `type_bleo` facultatif. Déclaré, le dépôt est jugé comme un original, sur son titre normalisé (`accrocheDuTitre`) ; sans déclaration, c'est un remake, pas jugé. À la validation, une déclinaison rejoint la famille de son parent |
 | `deposer`, `type: "original"` | Deux champs obligatoires : `type_bleo` (`full_test` ou `declinaison`) et, pour une déclinaison, `parent_contenu_id`. Refus avec un code clair dans les cas de A2 (`famille_non_gagnante`, `famille_close`, `generation_max`, `quota_atteint`, `accroche_existante` pour un full test dont l'accroche existe déjà dans le label) |
 | `deposer`, preuve | La preuve (`verifierPreuve`) n'est plus exigée pour les dépôts BLEO : la boîte la remplace |
 | `deposer`, slide d'appli | Phase 5 : `slide_appli` (une position, jamais 1) remplace `texte_sophia`. `verifierOriginal` accepte l'un ou l'autre tant que `bleo.slide_marquee` est faux, puis exige `slide_appli` |
@@ -497,12 +498,13 @@ Règles supprimées : « 3 variantes en plus » après une percée à 30 k, l'es
 ### P3 · Le chef des podz (`pods/chef/AGENT.md`)
 
 - Voie 1 : il lit `bleo_jauge`. Il monte `par_jour` de 1 quand la boîte a plus de 6 semaines et que la file à juger du label a de la place (moins de 90 % de ses créneaux utilisés sur 7 jours). Il le baisse de 1 quand la jauge reste sous 1 semaine pendant 14 jours. « Le rythme ne baisse jamais » disparaît.
-- Voie 2 : règle actuelle des jours de stock (moins de 7 jours par compte et par langue : +1 par jour), plus les commandes de langue en attente.
+- Voie 2 : règle actuelle des jours de stock (moins de 7 jours par compte et par langue : +1 par jour), plus les commandes de langue en attente. *5/11 (0653) :* il lit aussi leur jauge pour son point, sans en tirer le rythme (lot 4).
 - Son point du matin ajoute : la jauge de chaque podz, la part de full test tenue, les familles closes, les générations 2 ouvertes.
 
 ### P4 · La voie 2 (podz 1, 6, 10, 11)
 
 - Les remakes suivent la liste du compte modèle, comme aujourd'hui. Pas de boîte, de jauge ni de full test.
+- *5/11 (0653, lot 2, décision d'Adrien) :* boîte, jauge et full tests comme en voie 1 (podz 1, 10, 11 et 13 ; le 6 est arrêté). Le jour d'un podz de remakes (`pods/ROUTINE.md` §5) : les full tests que demande la jauge, puis les posts neufs du compte modèle (sans déclaration), puis les déclinaisons dans l'ordre de la boîte, puis (podz 1) une langue du label en manque, puis des full tests en plus. L'accroche est le titre ; la vérification « accroche voisine du jour » du guichet lit le titre d'une livraison sans texte de slide. Un full test livré part sans post source (rang B). `npm run boite` dans les quatre ateliers ; `type_bleo` et `parent_contenu_id` dans `posts/<id>.json` (podz 10, 11, 13) ou `posts/manifeste.json` (podz 1). Le rythme ne change pas (lot 4).
 - **Commandes de langue** : chaque nuit, après A3, chaque livré dont le verdict est `gagnant` et qui manque dans une langue des comptes actifs de son label reçoit une ligne `bleo_commandes_langue`. Le podz la lit par l'action `commandes` et livre par le circuit `~langues` existant ; à la validation, la commande passe `livree`.
 - Le tirage est celui de la voie 1, dans les pools de leurs labels. Petit label sans compte qui ait une médiane (Fathomly : 3 comptes, that\_girl\_study : 1) : les tests vont à n'importe quel compte du label, et le verdict ne lit que les 10 000 vues.
 

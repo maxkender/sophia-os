@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o136",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "97148ced-957c-45e2-a7fb-3e0e391d1292",
+ "titre": "How to become ridiculously social in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "97148ced-957c-45e2-a7fb-3e0e391d1292"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 6aaf2756. déclinaison G1 de la ligne 5 de la boîte (97148ced, en 24,3 k r 3,69) : accroche du parent mot pour mot. Items neufs, aucun repris du parent (ay-o065) ni d'ay-o070, o078, o083. La ligne 13 (« how to become rodiculously social ») est sautée : même thème. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6aaf2756",
+   "texte_overlay": "How to become ridiculously\nsocial in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688481645472664864/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Host a monthly dinner. Same day every month, different guests each time. Mixing friends from work, sport and school builds a social circle that grows by itself.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn a social sport. Padel, five-a-side, volleyball. Team sports give you a group, a reason to meet every week, and drinks after the game where friendships form.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Introduce people to each other. \"You two have to meet, you both love climbing.\" Connecting others makes you the centre of a network without even trying.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Always bring a good story. I do five minutes a day of history, art or science, and having something surprising to share makes me easy to talk to anywhere.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Having something surprising to share makes me easy to talk to anywhere.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Say hello to your neighbours. A name, a smile, a short chat in the hallway. Knowing the people around you turns your street into a small community of your own.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Travel with friends at least once a year. Even a weekend away. Shared trips create inside jokes and memories that keep a group close and laughing for years.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Make the first move with new people. Most people are waiting for someone else to start. \"Hey, I'm Tom, first time here?\" is all it takes to make a new friend.",
+   "media_id": "6ef6edb6"
+  }
+ ]
+}

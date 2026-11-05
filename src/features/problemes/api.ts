@@ -6,7 +6,8 @@ import { supabase } from "@/lib/supabase/client";
  * problemes_liste() (0517) ; les gestes passent par probleme_agir(). Rien
  * n'est envoyé en mode test ; l'argent n'est jamais exécuté ici.
  */
-export type Niveau = "urgent" | "aujourdhui" | "samedi";
+/** 0537 : le niveau = l'onglet (🤖 bots, ⚡ urgent, 📅 samedi). */
+export type Niveau = "urgent" | "bots" | "samedi";
 export type Proprietaire = "new_cohort_bot" | "control_bot" | "pay_bot";
 export type StatutProbleme = "ouvert" | "valide" | "ignore" | "ferme_auto";
 /** v4 (3/11) : onboarding = jamais posté ; nouveaux_actifs = 1er post il y a moins de 14 jours ; actifs = les autres. */

@@ -7599,7 +7599,7 @@ export const fr = {
     },
     problemes: {
       modeTest: "Mode test : rien n'est envoyé ni exécuté depuis cette page. Valider note seulement ton choix. L'argent n'est jamais payé d'ici.",
-      niveaux: { urgent: "Urgent", aujourdhui: "Aujourd'hui", samedi: "Samedi" },
+      niveaux: { urgent: "Urgent", bots: "Fait par les bots", samedi: "Samedi" },
       proprietaires: { os: "l'OS", admin: "toi (admin)", new_cohort_bot: "Bot nouvelle cohorte", control_bot: "Bot contrôle", pay_bot: "Bot paie" },
       categories: {
         stop: "Stop", paie: "Paie", menace: "Menace", hors_plateforme: "Hors plateforme", suspect: "Suspect", offre_hm_incorrecte: "Offre HM incorrecte",
@@ -7618,6 +7618,7 @@ export const fr = {
         resend_password_link: "Renvoyer le lien de mot de passe", relink_slack: "Relier Slack", reread_tiktok: "Relire TikTok",
         recreate: "Recréer", kill: "Kill", mark_read: "Marquer comme lu", open_payroll: "Ouvrir Payroll", close: "Fermer (réglé)", postpone: "Reporter à la cohorte suivante", open_who_to_fund: "Ouvrir Who to fund",
         pay_check: "Vérifier la paie", saturday: "Vérifier samedi", none: "Rien", decision: "Décision", double: "Doubler",
+        relance: "Relancer l'étape", reponse: "Répondre", message_hm: "Message à l'HM", faire: "Envoyer le message", urgent: "Urgent pour Max",
       },
       hm: "HM {{hm}}",
       cohorte: "cohorte du {{date}}",

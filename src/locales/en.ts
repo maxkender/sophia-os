@@ -7588,7 +7588,7 @@ export const en = {
     },
     problemes: {
       modeTest: "Test mode: nothing is sent and nothing is executed from this page. Validate only records your choice. Money is never paid from here.",
-      niveaux: { urgent: "Urgent", aujourdhui: "Today", samedi: "Saturday" },
+      niveaux: { urgent: "Urgent", bots: "Done by the bots", samedi: "Saturday" },
       proprietaires: { os: "the OS", admin: "you (admin)", new_cohort_bot: "New cohort bot", control_bot: "Control bot", pay_bot: "Pay bot" },
       categories: {
         stop: "Stop", paie: "Pay", menace: "Threat", hors_plateforme: "Off-platform", suspect: "Suspicious", offre_hm_incorrecte: "Wrong HM offer",
@@ -7607,6 +7607,7 @@ export const en = {
         resend_password_link: "Resend the password link", relink_slack: "Relink Slack", reread_tiktok: "Re-read TikTok",
         recreate: "Recreate", kill: "Kill", mark_read: "Mark as read", open_payroll: "Open Payroll", close: "Close (solved)", postpone: "Postpone to next cohort", open_who_to_fund: "Open Who to fund",
         pay_check: "Check the pay", saturday: "Check on Saturday", none: "Nothing", decision: "Decision", double: "Double",
+        relance: "Remind the step", reponse: "Reply", message_hm: "Message to the HM", faire: "Send the message", urgent: "Urgent for Max",
       },
       hm: "HM {{hm}}",
       cohorte: "cohort {{date}}",

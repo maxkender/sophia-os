@@ -8,7 +8,7 @@ import {
 
 const p = (o: Partial<Probleme>): Probleme => ({
   id: "x", poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: null, nom: "Test A", hm: "HM 1", cohorte: null, actif: true,
-  categorie: "question_bloquante", niveau: "aujourdhui", resume: "r", sources: [], proprietaire: "control_bot",
+  categorie: "question_bloquante", niveau: "bots", resume: "r", sources: [], proprietaire: "control_bot",
   proposition_reponse: null, canal_reponse: null, proposition_action: null, propose_par: null, propose_at: null,
   statut: "ouvert", ferme_raison: null, ferme_at: null, created_at: "2026-11-02T10:00:00Z", maj_at: "2026-11-02T10:00:00Z",
   slack_relie: false, compte_id: null, ...o,
@@ -38,7 +38,7 @@ describe("Problèmes : Valider", () => {
 
   it("filtres et compteurs par niveau", () => {
     const l = [p({ niveau: "urgent", categorie: "stop" }), p({ niveau: "samedi", categorie: "absence", hm: null }), p({ proprietaire: "pay_bot", categorie: "paie" })];
-    expect(compterParNiveau(l)).toEqual({ urgent: 1, aujourdhui: 1, samedi: 1 });
+    expect(compterParNiveau(l)).toEqual({ urgent: 1, bots: 1, samedi: 1 });
     expect(filtrer(l, { ...FILTRES_VIDES, hm: "—" })).toHaveLength(1);
     expect(filtrer(l, { ...FILTRES_VIDES, proprietaire: "pay_bot" })[0]!.categorie).toBe("paie");
   });
@@ -260,5 +260,15 @@ describe("4/11 : ✅ Faire ça et feedback automatique", () => {
     expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "reponse" })).toEqual({ erreur: "confiance obligatoire (0 à 1)" });
     expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "reponse", reponse: "Hi", confiance: 0.9 }))
       .toMatchObject({ action: "faire", args: { action: "reponse", confiance: 0.9 } });
+  });
+});
+
+describe("0537 : bot_propositions (relance, faire, urgent, niveau)", () => {
+  const id = "00000000-0000-0000-0000-000000000009";
+  it("accepte les nouvelles actions et le niveau", () => {
+    expect(ACTIONS_BOT).toEqual(expect.arrayContaining(["relance", "reponse", "message_hm", "faire", "urgent"]));
+    expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "urgent" })).toMatchObject({ action: "proposer", args: { niveau: "urgent" } });
+    expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "aujourdhui" })).toEqual({ erreur: "niveau : urgent, samedi, bots" });
+    expect(lireCorps({ action: "proposer", probleme_id: id, action_proposee: "relance", reponse: "Hi" })).toMatchObject({ args: { action: "relance" } });
   });
 });

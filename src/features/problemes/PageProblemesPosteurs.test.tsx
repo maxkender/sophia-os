@@ -16,7 +16,7 @@ const base = {
 const liste: Probleme[] = [
   { ...base, id: "a", poster_id: "p1", nom: "Test A", categorie: "paie", niveau: "urgent", resume: "Week 45 not funded", proprietaire: "pay_bot",
     proposition_reponse: null, proposition_action: "open_payroll", onglet: "urgent", diagnostic: "Rien de financé pour la Week 45." },
-  { ...base, id: "b", poster_id: "p2", nom: "Test B", categorie: "question_bloquante", niveau: "aujourdhui", resume: "Where is the app?",
+  { ...base, id: "b", poster_id: "p2", nom: "Test B", categorie: "question_bloquante", niveau: "bots", resume: "Where is the app?",
     proprietaire: "new_cohort_bot", proposition_reponse: "Hi! The app is Sophia, here is the link.", proposition_action: null,
     propose_par: "new_cohort_bot", onglet: "bots", diagnostic: "Elle cherche le lien de l'appli.",
     sans_reponse: { texte: "Where is the app? I can't find it anywhere.", canal: "upwork", at: "2026-11-04T08:00:00Z", depuis_heures: 2.5, question: true },

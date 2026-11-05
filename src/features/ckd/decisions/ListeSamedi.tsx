@@ -20,6 +20,7 @@ import { BadgeProblemesPosteur, useResumeProblemes } from "@/features/problemes/
 import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
 import { lireContexte, relireConversationsUpwork } from "./contexte";
 import { FicheSamedi } from "./FicheSamedi";
+import { marquerRituelFait } from "./rituelsFaits";
 import { lireEtatsHandle } from "./handlesEtat";
 import {
   calculerCouverture,
@@ -442,6 +443,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
         }
       }
       if (decides > 0 || forcesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
+      // 0540 : le samedi est fait jusqu'au samedi suivant.
+      await marquerRituelFait("samedi", lundi, { decides, kills: forcesKill.length, erreurs: erreurs.length }).catch(() => undefined);
+      void qc.invalidateQueries({ queryKey: ["rituels-faits"] });
       return { decides, kills: forcesKill.length, reports: 0, erreurs, simulation: false };
     },
     onSuccess: (r) => {

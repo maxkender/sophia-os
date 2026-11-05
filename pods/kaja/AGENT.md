@@ -36,7 +36,7 @@ rejette est validée toute seule 5 h après son dépôt.
 - **De vraies vidéos YouTube, et seulement elles.**
 	- `npm run youtube` : titre, chaîne, vues, date, durée et avatar réels. Jamais une vidéo inventée, jamais un chiffre retouché.
 	- La vidéo répond vraiment à l'étape, d'une chaîne sérieuse, dans la langue du deck.
-	- Prends **une autre vidéo que la sienne** quand il y en a une aussi bonne : deux posts ne montrent pas les mêmes miniatures.
+	- Prends **une autre vidéo que la sienne** quand il y en a une aussi bonne : deux posts ne montrent pas les mêmes miniatures. Dans une même langue, `npm run livrer` refuse une vidéo déjà prise par un autre post (le compte de cette langue la publierait deux fois) ; évite aussi le même titre d'étape (ka-004 allemand, refait le 5/11 : « SO GEHT RIZZ », car ka-002 avait déjà « SO GEHT FLIRTEN » avec la même vidéo).
 	- Préfère une miniature sans grand visage. Un visage n'est permis que si c'est celui de l'auteur de la chaîne (jamais une célébrité en miniature d'une autre chaîne). Jamais une miniature trompeuse ou choquante.
 	- Jamais une vidéo d'une appli concurrente.
 - **La slide Sophia** : une seule par deck, **une étape native au milieu de la liste**, en carte d'appli (`"type": "etape", "app": "sophia"`, avec `carte`, que l'OS marque `position_sophia`). Jamais la couverture, jamais une slide de fin.

@@ -371,6 +371,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0645_bleo_tester_avant_repeter` | D51 : dans le tirage, le repli 4 devient `hors_file` (un contenu à juger peut prendre un créneau valeur, sans répéter un contenu à moins de 14 jours) et le repli 5 devient `tout` (le même contenu peut revenir, jamais le même jour, D47). La file et la catégorie suivent l'état du contenu choisi | Appliquée le 3/11 à 20 h 12 |
 | `0646_bleo_rapport_plan_contre_publie` | D50 : `bleo_rapport` réécrit. Le plan suivi par minuit (dernier run fini sans erreur) contre ce qui a été servi et publié ce jour : `execution` (servis au plan, remplacés par BLEO, tierlist, hors BLEO, non servis, comptes bloqués, comptes sans post, publiés), `infractions` sur les posts réels (même contenu, thème, photo ; déclarées à part), `mix_reel`, valeurs ; portes `plan_servi`, `aucune_tierlist`, `aucune_repetition`. Page BLEO : la carte du rapport affiche l'exécution | Appliquée le 4/11 à 9 h 43 ; rapport du 3/11 recalculé |
 | `0647_bleo_remplacants_hors_plans_a_venir` | D52 : le vivier de `bleo_remplacants` exclut les contenus prévus pour le compte dans un plan suivi (dernier run fini sans erreur) des `meme_contenu_jours` suivants | Appliquée le 5/11 à 9 h 46 |
+| `0648_bleo_plan_ui_generation` | `bleo_plan_ui` ajoute `generation` et `type_bleo`. Page Plan : badge « G1 Déclinaison » ou « Full test » à côté de la catégorie, et filtre « Origine du contenu » (déclinaisons, full tests, autres). Affichage seulement | Appliquée le 5/11 à 10 h 30 |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -595,3 +596,9 @@ recalculée à la main, rejouabilité, derniers plans).
     | Autres tests | 313 | 812 | 0,54 | 5 % | 1,3 % |
 
     À J+3 (16 posts seulement), les G1 ont un r de 1,09, contre 1,46 pour les gagnants prouvés et 1,00 pour les full tests. Pourtant, une déclinaison part avec la valeur de départ `accroche_gagnante` (3,2, au-dessus de la plupart des gagnants mesurés). Elles prennent 90 des 300 créneaux de récolte du plan du 5/11. 169 déclinaisons sur 173 n'ont pas encore de verdict propre. À trancher avec Adrien (baisser `classes.depart.accroche_gagnante`).
+- **5/11, 10 h 30 : aucun réglage avant les mesures J+3 de vendredi (Adrien).** Les deux réglages proposés attendent (valeur de départ des déclinaisons de 3,2 à 2,0, tests d'imports limités aux arrivées de moins de 30 jours), ainsi que la demande aux podz. Les chiffres à âge égal sont dans la tâche du 6/11.
+  - **Correction d'une erreur de ma part :** les tests de vieux imports (plus de 60 jours en base) ne sont qu'environ 17 par jour, pas 80. Par temps passé en base avant le test :
+    - 7 à 30 jours : r 0,75 à J+1 et 0,94 à J+3 ;
+    - 30 à 60 jours : 0,49 et 0,61 ;
+    - 60 à 180 jours : 0,27 et 0,30.
+  - **Page Plan (0648) :** une déclinaison se reconnaît et se filtre. Plan du 5/11 : sur 300 créneaux de récolte, 206 sont d'autres contenus, 90 des déclinaisons et 4 des full tests.

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o129",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais le dimanche soir pour ne pas redouter le lundi #dimanchesoir #travail #routine #santementale #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (la routine du dimanche soir, côté solution). Rien de médical. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3dfa5f04",
+   "texte_overlay": "ce que je fais le dimanche soir\npour ne pas redouter le lundi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "72064543",
+   "texte_overlay": "j'écris les 3 choses à faire lundi\nsur papier. pas dans ma tête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "721fcc3d",
+   "texte_overlay": "je prépare ma tenue et mon sac\nune décision de moins le matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "72618410",
+   "texte_overlay": "je n'ouvre pas mes mails pro\nils seront là demain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "39752103",
+   "texte_overlay": "je fais un truc qui me nourrit la tête\n5 minutes à apprendre autre chose.\nc'est ma coupure",
+   "texte_sophia": "je fais un truc qui me nourrit la tête\n5 minutes à apprendre autre chose. utilise l'appli Sophia, c'est ma coupure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "72a5769c",
+   "texte_overlay": "je prévois un petit plaisir lundi midi\nun déjeuner dehors, une amie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "72b986cb",
+   "texte_overlay": "je me couche à une heure normale\noui, même le dimanche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7311bc55",
+   "texte_overlay": "et toi, ton dimanche soir c'est plutôt\nangoisse ou rituel ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

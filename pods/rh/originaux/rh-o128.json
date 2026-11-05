@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o128",
+ "type_bleo": "full_test",
+ "titre": "les 5 signes que tu t'ennuies au travail (et que ça te coûte plus que tu crois) #travail #ennui #carriere #santementale #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (l'ennui au travail). Rien de médical. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b448e8d",
+   "texte_overlay": "les 5 signes que tu t'ennuies au travail\n(et que ça te coûte\nplus que tu crois)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6b680c9e",
+   "texte_overlay": "tu fais en 2 heures ce qui te prenait une journée\net tu remplis le reste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6bc7cfd3",
+   "texte_overlay": "tu n'as rien appris de nouveau depuis 6 mois\nrien. même pas un raccourci clavier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6d476d20",
+   "texte_overlay": "tu regardes l'heure à 10 h 30\npuis à 10 h 35",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6e98b022",
+   "texte_overlay": "tu n'as plus d'avis en réunion\nparce que plus rien ne t'étonne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1fe950b2",
+   "texte_overlay": "tu as arrêté d'être curieuse, même en dehors\nmoi j'ai recommencé petit : 5 minutes par jour à apprendre un truc. et l'envie est revenue",
+   "texte_sophia": "tu as arrêté d'être curieuse, même en dehors\nmoi j'ai recommencé petit : 5 minutes par jour sur l'appli Sophia. et l'envie est revenue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "700cd796",
+   "texte_overlay": "l'ennui n'est pas de la paresse\nc'est un signal. écoute-le",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "719e5ad1",
+   "texte_overlay": "combien de signes sur 5 ?\nréponds juste le chiffre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

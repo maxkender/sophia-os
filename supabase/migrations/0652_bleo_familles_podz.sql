@@ -49,15 +49,22 @@
 -- CE QUI NE CHANGE PAS. La voie 1 : ses contenus, ses familles, ses écarts.
 -- La boîte et la jauge (toujours voie 1 seulement : lot 2). Le choix de label.
 --
--- Vérifié avant application (5/11), dans une transaction annulée : la
--- migration passe, puis un tirage à blanc du 7/11 avant et après donne le même
--- plan pour les comptes qui ne portent aucun label 100 % podz.
+-- Vérifié avant application (5/11), dans une transaction annulée : tirage à
+-- blanc du 7/11 avant, migration, même tirage après. Comptes sans label
+-- 100 % podz : 590 créneaux, 0 différence. Comptes à label 100 % podz : 11 des
+-- 32 créneaux changent, 0 créneau vide. 269 accroches posées, 42 contenus
+-- rattachés (17 Fathomly, 23 that_girl_study, 1 white_bg, 1 mentalmaxxing),
+-- 42 familles vidées supprimées ; thèmes : white_bg 113 familles → 91 thèmes,
+-- Fathomly 39 → 30. ka-003 et ka-004 rejoignent la famille de ka-001 au
+-- rattachement suivant. Remplaçants de minuit inchangés (jakob 1, clara 20,
+-- zoe 0). Le rapport d'un jour passé relit ses posts avec les nouvelles
+-- familles : le 4/11 compte 5 « même thème » de plus (des reprises que le plan
+-- du jour ne pouvait pas voir).
 --
--- Retour arrière : réappliquer `bleo_rattacher_nouveaux` (0638),
--- `bleo_tirage` (0645), `bleo_remplacants` (0647_bleo_remplacants_hors_plans_a_venir)
--- et `bleo_rapport` (0646) ; retirer `meme_famille_jours_labels` du réglage.
--- Les familles regroupées le restent (les remettre à part : une famille par
--- contenu, comme à leur création, puis `bleo_regrouper_themes`).
+-- Retour arrière : les blocs remplacés sont écrits au § 4 (texte `$a$`) ; les
+-- remettre avec le même patcher, en échangeant ancien et nouveau ; retirer
+-- `meme_famille_jours_labels` du réglage. Les familles regroupées le restent
+-- (les remettre à part : une famille par contenu, puis `bleo_regrouper_themes`).
 
 set lock_timeout = '5s';
 

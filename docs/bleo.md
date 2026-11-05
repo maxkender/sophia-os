@@ -116,7 +116,7 @@ BLEO se branche sur un système qui tourne : voici ce qu'il faut lire avant d'é
 - **Aucun cron ne met à jour les sources** : c'est un bouton (`MajSourcesPanel.tsx`, RPC `maj_sources_demarrer`, `F/_shared/maj_sources.ts`). Les ticks passent par les drains `import-contenu-drain-N`.
 - Piège : sans `nouveauxSeulement`, `listerUrlsCompteReference` renvoie aussi les URL déjà connues, et ré-importer une URL connue **remet le contenu à zéro** (vues, pertinence, statut, decks). La mise à jour du lundi doit toujours passer `nouveauxSeulement: true`.
 - Étapes : OCR de l'accroche (règle des stickers), pertinence par appli, OCR du reste, score d'import (ELO, seuil 63, forcé si la source a 40 000 vues ou plus), nettoyage, légende visuelle, validation.
-- `accroche_norm` et `couverture_empreinte` sont calculées par la fonction `empreintes` (cron toutes les 10 min), après la validation. Les labels 100 % podz n'en ont pas.
+- `accroche_norm` et `couverture_empreinte` sont calculées par la fonction `empreintes` (cron toutes les 10 min), après la validation. Les labels 100 % podz n'en ont pas. *5/11 (0652) :* ils ont une accroche, leur titre normalisé (`bleo_normaliser_accroche`, miroir SQL de `normaliserAccroche`), posée au rattachement ; toujours pas d'empreinte de couverture.
 
 ### Les decks aujourd'hui
 
@@ -229,7 +229,7 @@ La famille est propre à un label : la même accroche dans deux labels fait deux
 | Autre import | Nouvelle, dont il est la racine | 0 | `import` |
 | Full test déposé par un podz | Nouvelle. Refusé au guichet si l'accroche existe déjà dans le label | 0 | `full_test` |
 | Déclinaison déposée par un podz | Celle du parent déclaré au dépôt | parent + 1 | `declinaison` |
-| Livré (voie 2) | Comme un import ; sans `accroche_norm`, une famille propre | 0 | `remake` |
+| Livré (voie 2) | Comme un import ; sans `accroche_norm`, une famille propre. *5/11 (0652) :* l'accroche est le titre ; même accroche, ou même post du compte modèle (variante), = même famille | 0 (même accroche) ou 1 (variante) | `remake`, ou `declinaison` pour une variante |
 
 Un dépôt de déclinaison est refusé si : la famille n'est pas gagnante, la famille est close, le parent est de génération 2, ou le quota de **3** déclinaisons du parent est atteint (A9).
 

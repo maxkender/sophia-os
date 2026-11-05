@@ -20,9 +20,10 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  * Labels 100 % podz (vue `labels_100_podz`, 0650 : un seul podz les nourrit,
  * aucune source ; page blanche, remakes) : pas de règle, à la demande d'Adrien. Ces labels
  * reprennent à dessein une même photo ou une même statue sous des accroches
- * différentes. Leurs contenus restent sans signature : jamais relégués, jamais
- * cause d'une relégation. Décidé au premier passage du contenu, pas revu
- * ensuite.
+ * différentes. Leurs contenus restent sans empreinte de couverture. Leur
+ * accroche, elle, vient de leur titre (le texte est dans l'image) : BLEO la
+ * pose au rattachement (`bleo_accroches_podz`, 0652), ici elle reste nulle.
+ * Décidé au premier passage du contenu, pas revu ensuite.
  */
 const LOT = 300;
 /** Miniatures demandées en même temps : à 8, le stockage répond 429. */

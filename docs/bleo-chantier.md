@@ -603,3 +603,8 @@ recalculée à la main, rejouabilité, derniers plans).
     - 30 à 60 jours : 0,49 et 0,61 ;
     - 60 à 180 jours : 0,27 et 0,30.
   - **Page Plan (0648) :** une déclinaison se reconnaît et se filtre. Plan du 5/11 : sur 300 créneaux de récolte, 206 sont d'autres contenus, 90 des déclinaisons et 4 des full tests.
+- **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
+  - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
+  - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.
+  - **0652 :** l'accroche d'un contenu 100 % podz est son titre normalisé ; même accroche ou même post du compte modèle = même famille (42 contenus rattachés, 17 Fathomly, 23 that_girl_study) ; thèmes recalculés (white_bg 113 familles → 91 thèmes, Fathomly 39 → 30) ; écart « même famille » par label (`garde_fous.meme_famille_jours_labels`, Fathomly et Kaja à 6 jours). Essai à blanc avant application : tirage du 7/11 identique sur les 590 créneaux des comptes sans label 100 % podz, 11 créneaux sur 32 changent sur les autres, 0 vide.
+  - **Suite prévue :** lot 2 (boîte, jauge et full tests pour la voie 2), lot 3 (langues déclarées par podz, rattrapage quand une langue s'ouvre), lot 4 (rythme calculé sur les comptes qui postent).

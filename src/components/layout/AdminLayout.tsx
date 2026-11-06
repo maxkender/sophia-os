@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   Siren,
+  BadgeCheck,
   CircleAlert,
   ClipboardCheck,
   Link2,
@@ -79,6 +80,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   disputes: Flag,
   payroll: Wallet,
   faq: MessageCircle,
+  officielles: BadgeCheck,
   logs: ListTodo,
 };
 

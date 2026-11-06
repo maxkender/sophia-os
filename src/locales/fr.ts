@@ -1055,6 +1055,7 @@ export const fr = {
       referral: "Parrainage",
       paiementsRuul: "Paiements",
       retours: "Mes retours",
+      faqPosteur: "FAQ",
       recrutements: "Recrutements",
     },
     cohortesTableau: {
@@ -4697,6 +4698,7 @@ export const fr = {
         disputes: { titre: "Disputes" },
         payroll: { titre: "Paie" },
         faq: { titre: "Bot FAQ" },
+        officielles: { titre: "Réponses officielles" },
         logs: { titre: "Journal" },
       },
       // Prompt 22, partie 11 : la phrase en haut de chaque page (et sous son nom dans le menu).
@@ -4740,6 +4742,7 @@ export const fr = {
         disputes: "Quand quelqu'un dit que l'OS s'est trompé : paie, Kill, posts, messages. Vérifier, corriger, répondre.",
         payroll: "La paie du lundi pour la semaine qui vient de finir.",
         faq: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas.",
+        officielles: "Les réponses validées par Max : le bot FAQ et les 3 bots les donnent en priorité, les posteurs les voient dans « FAQ ».",
         logs: "Tout ce que l'automatisation a fait. Ce qui t'attend et ce qui casse est dans Needs you.",
       },
       sante: {
@@ -7750,6 +7753,24 @@ export const fr = {
         enregistrer: "Enregistrer l'objectif",
       },
       statut: { bon: "Bon", moyen: "Moyen", sous_seuil: "Sous le seuil" },
+    },
+    officielles: {
+      nouvelle: "Nouvelle réponse officielle",
+      modifier: "Modifier",
+      question: "Question (ex. « When to post »)",
+      reponse: "Réponse en anglais, telle que le posteur la lira",
+      enregistrerValider: "Enregistrer et valider",
+      brouillon: "Enregistrer sans valider",
+      annuler: "Annuler",
+      aide: "Seules les réponses validées par Max servent au bot FAQ, aux 3 bots et à la FAQ des posteurs. Modifier le texte la repasse « à valider ».",
+      validee: "Validée",
+      aValider: "À valider",
+      valider: "Valider",
+      inactive: "Désactivée",
+      desactiver: "Désactiver",
+      activer: "Réactiver",
+      chargement: "Chargement…",
+      faq: { titre: "FAQ", description: "Les réponses officielles de l'équipe. Si ta question n'y est pas, utilise « I need help »." },
     },
     problemes: {
       modeTest: "Mode test : rien n'est envoyé ni exécuté depuis cette page. Valider note seulement ton choix. L'argent n'est jamais payé d'ici.",

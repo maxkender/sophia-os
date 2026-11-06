@@ -1054,6 +1054,7 @@ export const en = {
       referral: "Referral",
       paiementsRuul: "Payments",
       retours: "My feedback",
+      faqPosteur: "FAQ",
       recrutements: "Recruiting",
     },
     cohortesTableau: {
@@ -4688,6 +4689,7 @@ export const en = {
         disputes: { titre: "Disputes" },
         payroll: { titre: "Payroll" },
         faq: { titre: "FAQ bot" },
+        officielles: { titre: "Official answers" },
         logs: { titre: "Logs" },
       },
       // Prompt 22, partie 11 : la phrase en haut de chaque page (et sous son nom dans le menu).
@@ -4731,6 +4733,7 @@ export const en = {
         disputes: "When someone says the OS got it wrong: pay, Kill, posts, messages. Check, fix, answer.",
         payroll: "Monday pay for the week just finished.",
         faq: "What the bot answers on Slack and in the dashboard, and what it doesn't know.",
+        officielles: "Answers approved by Max: the FAQ bot and the 3 bots give them first, posters see them under “FAQ”.",
         logs: "Everything the automation did. What needs you and what's broken is in Needs you.",
       },
       sante: {
@@ -7739,6 +7742,24 @@ export const en = {
         enregistrer: "Save target",
       },
       statut: { bon: "Good", moyen: "Average", sous_seuil: "Below" },
+    },
+    officielles: {
+      nouvelle: "New official answer",
+      modifier: "Edit",
+      question: "Question (e.g. “When to post”)",
+      reponse: "Answer in English, as the poster will read it",
+      enregistrerValider: "Save and approve",
+      brouillon: "Save without approving",
+      annuler: "Cancel",
+      aide: "Only answers approved by Max are used by the FAQ bot, the 3 bots and the posters' FAQ. Editing the text sends it back to “to approve”.",
+      validee: "Approved",
+      aValider: "To approve",
+      valider: "Approve",
+      inactive: "Disabled",
+      desactiver: "Disable",
+      activer: "Enable",
+      chargement: "Loading…",
+      faq: { titre: "FAQ", description: "The team's official answers. If your question isn't here, use “I need help”." },
     },
     problemes: {
       modeTest: "Test mode: nothing is sent and nothing is executed from this page. Validate only records your choice. Money is never paid from here.",

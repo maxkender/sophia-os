@@ -2,7 +2,7 @@ import * as React from "react";
 import { Outlet } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, Gift, Languages, MessageSquareQuote, Wallet } from "lucide-react";
+import { CalendarDays, CircleHelp, Gift, Languages, MessageSquareQuote, Wallet } from "lucide-react";
 
 import { BoutonGuideNotion, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { lireCohorteAccueil } from "@/features/moteur/api";
@@ -33,6 +33,8 @@ export function PosterLayout() {
     { to: "/calendrier", label: t("nav.calendrier"), icon: CalendarDays },
     ...(cohorte.data?.cohorteRuul ? [{ to: "/createur/paiements", label: t("nav.paiementsRuul"), icon: Wallet }] : []),
     { to: "/createur/retours", label: t("nav.retours"), icon: MessageSquareQuote },
+    // 6/11 : les réponses officielles validées par Max.
+    { to: "/createur/faq", label: t("nav.faqPosteur"), icon: CircleHelp },
     ...(espaceRelecteur.relecteurs.length > 0
       ? [{ to: "/createur/relecture", label: t("nav.relectureNativePoster"), icon: Languages }]
       : []),

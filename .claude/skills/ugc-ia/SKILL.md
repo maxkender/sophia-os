@@ -7,10 +7,10 @@ description: Page UGC IA de l'OS (/admin/ugc-ia) — réactions TikTok refaites 
 
 La page `/admin/ugc-ia` (menu Production) refait une réaction TikTok (la
 **source**) avec un ou plusieurs **personas** cochés, via l'API Higgsfield
-Genjutsu. Tables (migrations 0656 et 0657, projet Supabase « Sophia OS
+Genjutsu. Tables (migrations 0656 à 0661, projet Supabase « Sophia OS
 SLIDESHOW », `mbikecieskoobeizixig`) :
 
-- `ugc_ia_personas` : `nom`, `description`, `image_url`, `image_path`, `actif` ;
+- `ugc_ia_personas` : `nom`, `description`, `image_url`, `image_path`, `actif`, `compte_id` (son compte UGCV) ;
 - `ugc_ia_sources` : la vidéo TikTok, le passage coupé, le CTA (premier écran + texte) ;
 - `ugc_ia_generations` : une vidéo Genjutsu = source + persona + qualité + prompt.
 
@@ -91,3 +91,44 @@ coupe ni le téléchargement. Une interpolation à 60 images/s ne l'efface
 pas. Pour mesurer une vidéo, compare la variation image par image par
 phase modulo 4 (`ffmpeg … tblend=all_mode=difference,signalstats`) : une
 phase nettement au-dessus des autres trahit l'à-coup.
+
+## Comptes UGCV (migration 0661)
+
+Le label **UGCV** (`labels.manuel = true`) n'est jamais tiré par l'OS (File,
+BLEO, minuit, repli) : seul l'admin le pose, sur la page Posters, et il
+remplace tous les autres labels du compte. `comptes.ugcv` suit tout seul
+(trigger) : le compte ne reçoit plus de slideshows. La base elle-même refuse
+ce label à tout autre rôle que l'admin.
+
+Dans la page UGC IA, chaque persona a un menu « Compte UGCV » : 1 persona =
+1 compte (`ugc_ia_personas.compte_id`, unique). Choisir un compte déjà pris
+le reprend à son ancien persona (action `assigner_persona`).
+
+```sql
+select p.nom, c.handle_tiktok
+from public.ugc_ia_personas p left join public.comptes c on c.id = p.compte_id
+where p.actif order by p.nom;
+```
+
+## Posts vidéo UGCV (migration 0662)
+
+Carte « Posts UGCV » de la page : l'admin crée un post pour un compte UGCV et
+un jour (1 par jour et par compte). Le post contient :
+
+- une ou plusieurs vidéos, dans l'ordre (générations de la page, partie
+  téléphone, ou vidéos importées sous `medias/ugc-ia/posts/`) ;
+- un CTA à poser (texte + capture d'exemple, par défaut ceux de la source),
+  ou « déjà incrusté » (vidéo montée avec le bandeau) ;
+- la légende avec hashtags (`posts.hashtags`), le son TikTok (`posts.musique_*`).
+
+En base : un `posts` de type `video`, ses `post_videos`, et un `passages`
+sans contenu (`contenu_id` vide) pour la paie, les relances, la résolution
+du lien et les vues. Le poster le voit dans son calendrier ; sa page de post
+montre les vidéos à enregistrer à la place des slides.
+
+```sql
+select p.date_publication_prevue, c.handle_tiktok, p.statut, p.publie_url,
+       (select count(*) from public.post_videos v where v.post_id = p.id) as videos
+from public.posts p join public.comptes c on c.id = p.compte_id
+where p.type = 'video' order by 1 desc limit 20;
+```

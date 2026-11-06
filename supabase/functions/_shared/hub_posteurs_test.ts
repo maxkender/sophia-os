@@ -19,6 +19,9 @@ import {
   type Recruteur,
   reservationPerimee,
   hmDuPays,
+  langueDuPays,
+  langueDuPaysDetail,
+  type PaysOuvert,
   type PaysRecrute,
   resoudreAffectation,
   resoudreAffectationSite,
@@ -124,47 +127,85 @@ Deno.test("deux HM pour un pays : celui qui gère la langue, puis le moins charg
   assertEquals(egalite.hm.email, "y@sophia.com");
 });
 
-Deno.test("carte des zones : ouverts et fermés, pour griser « Accepter » côté site", () => {
-  const carte = carteDesZones(HMS);
-  const ouverts = carte.ouverts.map((o) => o.pays_code);
-  for (const code of ["FR", "IT", "ES", "PT", "PL", "SE", "US", "GB"]) assert(ouverts.includes(code), code);
-  assertEquals(carte.fermes.find((f) => f.pays_code === "DK"), { pays_code: "DK", raison: "langue_non_geree", langue: "da" });
-  assertEquals(carte.inconnus, []);
-  assert(!ouverts.includes("CO"));
-});
+// zones_paie_pays au 06/11 (extrait) : le Portugal retiré le 02/11 n'y est pas
+// (seules les lignes actives sont lues).
+const OUVERTS: PaysOuvert[] = [
+  { pays: "CA", zone: "A" }, { pays: "FR", zone: "A" }, { pays: "BE", zone: "A" }, { pays: "CH", zone: "A" },
+  { pays: "DK", zone: "A" }, { pays: "IT", zone: "B" }, { pays: "MX", zone: "C" }, { pays: "BR", zone: "C" },
+  { pays: "TR", zone: "C" }, { pays: "KR", zone: "B" },
+];
 
-// hm_pays au 02/11 (0516) : la Turquie, la Bulgarie et la Serbie confiées à une
-// HM sans compte OS, l'Italie à une HM qui en a un.
+// hm_pays au 02/11 (0516) : la Turquie confiée à une HM sans compte OS,
+// l'Italie à une HM qui en a un, le Portugal à aucune ligne.
 const HM_PAYS: PaysRecrute[] = [
   { pays: "TR", hm_id: null },
-  { pays: "BG", hm_id: null },
-  { pays: "RS", hm_id: null },
   { pays: "IT", hm_id: "luciad1@sophia.com" },
 ];
 const SANS_TURQUIE: Recruteur[] = HMS.filter((r) => !/Turkey|Bulgaria|Serbia/.test(r.zone_recrutement ?? ""));
 
-Deno.test("hm_pays : un pays recruté sans zone de HM est ouvert au site, sans HM", () => {
-  // Plus aucune zone ne couvre la Turquie : avant, « zone_non_ouverte ».
-  assertEquals(resoudreAffectation("TR", SANS_TURQUIE), { ok: false, raison: "zone_non_ouverte" });
-  assertEquals(resoudreAffectationSite("TR", SANS_TURQUIE, HM_PAYS), { ok: true, hm: null, langue: "tr" });
-  assertEquals(resoudreAffectationSite("BG", SANS_TURQUIE, HM_PAYS), { ok: true, hm: null, langue: "bg" });
+Deno.test("site : un pays est ouvert si et seulement s'il est ouvert dans l'OS (zone de paie active)", () => {
+  // Canada : aucune HM ne le couvre, il n'est pas dans hm_pays, mais il a une zone de paie.
+  assertEquals(resoudreAffectationSite("CA", OUVERTS, HMS, HM_PAYS), { ok: true, hm: null, langue: "en", zone: "A" });
+  // Portugal : une HM le couvre (Kris, « Spain + Portugal »), mais sa zone de paie est retirée.
+  assertEquals(resoudreAffectationSite("PT", OUVERTS, HMS, HM_PAYS), { ok: false, raison: "zone_non_ouverte" });
+  // Turquie sans zone de HM : ouverte quand même, sans HM.
+  assertEquals(resoudreAffectationSite("TR", OUVERTS, SANS_TURQUIE, HM_PAYS), { ok: true, hm: null, langue: "tr", zone: "C" });
 });
 
-Deno.test("hm_pays : la zone d'une HM passe d'abord, et un pays absent des deux reste fermé", () => {
-  const it = resoudreAffectationSite("IT", HMS, HM_PAYS);
+Deno.test("site : la langue d'une HM n'ouvre ni ne ferme plus rien", () => {
+  // Danemark : la HM de la zone ne gère pas « da » ; avant, « langue_non_geree ».
+  assertEquals(resoudreAffectation("DK", HMS).ok, false);
+  const dk = resoudreAffectationSite("DK", OUVERTS, HMS, HM_PAYS);
+  assert(dk.ok);
+  assertEquals([dk.langue, dk.hm?.email], ["da", "margheritap@sophia.com"]);
+  // La HM de la zone reste l'information de la page Posters, hm_pays en repli.
+  const it = resoudreAffectationSite("IT", OUVERTS, SANS_TURQUIE, HM_PAYS);
   assert(it.ok);
-  assertEquals([it.hm?.email, it.langue], ["luciad1@sophia.com", "it"]);
-  // Langue non gérée par la HM de la zone : le refus reste, hm_pays ne le contourne pas.
-  const dk = resoudreAffectationSite("DK", HMS, [{ pays: "DK", hm_id: null }]);
-  assert(!dk.ok && dk.raison === "langue_non_geree");
-  assertEquals(resoudreAffectationSite("CO", SANS_TURQUIE, HM_PAYS), { ok: false, raison: "zone_non_ouverte" });
+  assertEquals(it.hm?.email, "luciad1@sophia.com");
 });
 
-Deno.test("carte des zones : les pays de hm_pays s'ajoutent, hm_id nul sans compte OS", () => {
-  const carte = carteDesZones(SANS_TURQUIE, HM_PAYS);
-  assertEquals(carte.ouverts.find((o) => o.pays_code === "TR"), { pays_code: "TR", langue: "tr", hm_id: null });
-  assertEquals(carte.ouverts.find((o) => o.pays_code === "RS"), { pays_code: "RS", langue: "sr", hm_id: null });
-  assert(!carteDesZones(SANS_TURQUIE).ouverts.some((o) => o.pays_code === "TR"));
+Deno.test("site : langue de publication, toujours une réponse", () => {
+  // Amérique latine comme les comptes de l'OS : es-419 et pt-BR, pas es / pt.
+  assertEquals(langueDuPays("MX"), "es-419");
+  assertEquals(langueDuPays("BR"), "pt-BR");
+  assertEquals(langueDuPays("ES"), "es");
+  // Pays à plusieurs langues : le choix fixé, puis les comptes du pays, puis l'anglais.
+  assertEquals(langueDuPays("BE"), "fr");
+  assertEquals(langueDuPays("CH", { CH: { fr: 1 } }), "de");
+  assertEquals(langueDuPays("MA", { MA: { ar: 1, fr: 3 } }), "fr");
+  assertEquals(langueDuPays("KR"), "en");
+  // es-419 désigne plusieurs marchés : le pays du poster part avec le compte.
+  assertEquals(paysAEnvoyer(langueDuPays("MX"), "MX"), "MX");
+  assertEquals(paysAEnvoyer(langueDuPays("BR"), "BR"), undefined);
+});
+
+Deno.test("carte des zones : tous les pays ouverts dans l'OS, rien d'autre", () => {
+  const carte = carteDesZones(OUVERTS, HMS, HM_PAYS);
+  assertEquals(carte.ouverts.map((o) => o.pays_code), OUVERTS.map((o) => o.pays).sort());
+  assertEquals(carte.ouverts.find((o) => o.pays_code === "TR"), { pays_code: "TR", langue: "tr", langue_os: true, zone: "C", hm_id: "amandac@sophia.com" });
+  assertEquals(carte.ouverts.find((o) => o.pays_code === "CA"), { pays_code: "CA", langue: "en", langue_os: true, zone: "A", hm_id: null });
+  // Couverts par une HM mais sans zone de paie active : fermés.
+  for (const code of ["PT", "ES", "US", "GB"]) {
+    assert(carte.fermes.some((f) => f.pays_code === code && f.raison === "zone_non_ouverte"), code);
+  }
+  assertEquals(carte.inconnus, []);
+  assertEquals(carteDesZones([]).ouverts, []);
+});
+
+Deno.test("carte des zones : langue_os = langue du pays connue et publiée par des comptes actifs", () => {
+  const languesOs = new Set(["en", "tr", "de", "fr", "es-419", "pt-BR", "da"]);
+  const carte = carteDesZones([...OUVERTS, { pays: "UA", zone: "C" }], HMS, HM_PAYS, {}, languesOs);
+  const os = (code: string) => carte.ouverts.find((o) => o.pays_code === code)?.langue_os;
+  // Langue du pays connue et publiée dans l'OS : valide.
+  for (const code of ["CA", "TR", "MX", "BR", "BE", "CH", "DK"]) assertEquals(os(code), true, code);
+  // Corée : anglais par défaut, la langue du pays n'est pas connue.
+  assertEquals(os("KR"), false);
+  // Ukraine : langue connue (uk) mais aucun compte actif ne publie en ukrainien.
+  assertEquals(os("UA"), false);
+  // Italie : it absent des langues actives de cet exemple.
+  assertEquals(os("IT"), false);
+  assertEquals(langueDuPaysDetail("KR"), { langue: "en", devinee: true });
+  assertEquals(langueDuPaysDetail("MA", { MA: { fr: 2 } }), { langue: "fr", devinee: false });
 });
 
 Deno.test("applications : Sophia seule garde le chemin historique de création", () => {

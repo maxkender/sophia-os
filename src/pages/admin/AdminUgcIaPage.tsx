@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Clapperboard, Sparkles, UserRound } from "lucide-react";
+import { ChevronsDownUp, ChevronsUpDown, Clapperboard, Link2, Sparkles, UserRound } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -9,9 +9,13 @@ import { Card, CardContent, CardHeader, EmptyState } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { EtatRequete, TitreCarte } from "@/features/bleo/ui";
 import {
+  assignerPersonaUgcIa,
+  CLE_COMPTES_UGCV,
   CLE_PERSONAS_UGC_IA,
   CLE_SOURCES_UGC_IA,
+  type CompteUgcv,
   importerTiktokUgcIa,
+  listerComptesUgcv,
   listerPersonasUgcIa,
   listerSourcesUgcIa,
   rapatrierPersonasUgcIa,
@@ -19,6 +23,8 @@ import {
   type PersonaUgcIa,
 } from "@/features/ugcIa/api";
 import { CarteSource } from "@/features/ugcIa/CarteSource";
+import { CartePostsUgcv } from "@/features/ugcIa/PostsUgcv";
+import { useSourcesFermees } from "@/features/ugcIa/accordeon";
 import { messageErreur } from "@/features/ugcIa/logique";
 
 /** Toutes les 15 s tant qu'une génération tourne (Genjutsu prend quelques minutes). */
@@ -86,6 +92,9 @@ export function AdminUgcIaPage() {
   }, [enCours, qc]);
 
   const liste = personas.data ?? [];
+  const accordeon = useSourcesFermees(sources.data?.map((s) => s.id));
+  const nbSources = sources.data?.length ?? 0;
+  const nbFermees = (sources.data ?? []).filter((s) => accordeon.fermees.has(s.id)).length;
   return (
     <div className="space-y-6" data-testid="page-ugc-ia">
       <PageHeader
@@ -105,10 +114,28 @@ export function AdminUgcIaPage() {
         <CarteImport />
       </div>
 
+      <CartePostsUgcv sources={sources.data ?? []} personas={liste} />
+
       <section className="space-y-3" aria-labelledby="ugc-ia-sources">
-        <h2 id="ugc-ia-sources" className="text-sm font-semibold">
-          {t("ugcIa.sources")}
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 id="ugc-ia-sources" className="flex items-center gap-2 text-sm font-semibold">
+            <Clapperboard className="size-4 text-muted-foreground" aria-hidden />
+            {t("ugcIa.sources")}
+            {nbSources > 0 && <span className="font-normal text-muted-foreground">({nbSources})</span>}
+          </h2>
+          {nbSources > 1 && (
+            <div className="flex gap-1">
+              <Button variant="ghost" size="xs" disabled={nbFermees === 0} onClick={accordeon.toutOuvrir}>
+                <ChevronsUpDown aria-hidden />
+                {t("ugcIa.toutOuvrir")}
+              </Button>
+              <Button variant="ghost" size="xs" disabled={nbFermees === nbSources} onClick={accordeon.toutFermer}>
+                <ChevronsDownUp aria-hidden />
+                {t("ugcIa.toutFermer")}
+              </Button>
+            </div>
+          )}
+        </div>
         {erreurSuivi && (
           <p role="alert" className="text-sm text-destructive">
             {t("ugcIa.erreurSuivi", { message: erreurSuivi })}
@@ -117,7 +144,9 @@ export function AdminUgcIaPage() {
         {sources.data && sources.data.length === 0 && (
           <EmptyState icon={<Clapperboard />} title={t("ugcIa.vide")} description={t("ugcIa.videDetail")} />
         )}
-        {sources.data?.map((s) => <CarteSource key={s.id} source={s} personas={liste} />)}
+        {sources.data?.map((s) => (
+          <CarteSource key={s.id} source={s} personas={liste} ouverte={!accordeon.fermees.has(s.id)} basculer={() => accordeon.basculer(s.id)} />
+        ))}
       </section>
     </div>
   );
@@ -125,6 +154,7 @@ export function AdminUgcIaPage() {
 
 function CartePersonas({ personas, chargees }: { personas: PersonaUgcIa[]; chargees: boolean }) {
   const { t } = useTranslation();
+  const comptes = useQuery({ queryKey: CLE_COMPTES_UGCV, queryFn: listerComptesUgcv });
   return (
     <Card>
       <CardHeader>
@@ -136,17 +166,61 @@ function CartePersonas({ personas, chargees }: { personas: PersonaUgcIa[]; charg
           {personas.map((p) => (
             <li key={p.id} className="flex items-start gap-2">
               <img src={p.image_url} alt={p.nom} className="size-14 shrink-0 rounded-lg object-cover" />
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1 space-y-1">
                 <p className="text-sm font-medium">{p.nom}</p>
                 <p className="line-clamp-2 text-xs text-muted-foreground">{p.description}</p>
+                <CompteDuPersona persona={p} personas={personas} comptes={comptes.data ?? []} />
               </div>
             </li>
           ))}
         </ul>
+        {comptes.data && comptes.data.length === 0 && <p className="text-xs text-muted-foreground">{t("ugcIa.aucunCompteUgcv")}</p>}
         <p className="text-xs text-muted-foreground">{t("ugcIa.ajoutParClaude")}</p>
       </CardContent>
     </Card>
   );
+}
+
+/** Le compte UGCV d'un persona : 1 persona = 1 compte, le compte est repris à son ancien persona. */
+function CompteDuPersona({ persona, personas, comptes }: { persona: PersonaUgcIa; personas: PersonaUgcIa[]; comptes: CompteUgcv[] }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const assigner = useMutation({
+    mutationFn: (compteId: string | null) => assignerPersonaUgcIa(persona.id, compteId),
+    onSettled: () => qc.invalidateQueries({ queryKey: CLE_PERSONAS_UGC_IA }),
+  });
+  const titulaire = (compteId: string) => personas.find((x) => x.compte_id === compteId && x.id !== persona.id);
+  // Un compte qui n'est plus UGCV reste affiché tant qu'il est rattaché.
+  const connu = !persona.compte_id || comptes.some((c) => c.id === persona.compte_id);
+  return (
+    <div className="space-y-0.5">
+      <select
+        className="h-7 w-full max-w-[14rem] rounded-md border bg-background px-1.5 text-xs"
+        value={persona.compte_id ?? ""}
+        disabled={assigner.isPending || (comptes.length === 0 && !persona.compte_id)}
+        onChange={(e) => assigner.mutate(e.target.value || null)}
+        aria-label={t("ugcIa.compteDe", { nom: persona.nom })}
+      >
+        <option value="">{t("ugcIa.sansCompte")}</option>
+        {!connu && persona.compte_id && <option value={persona.compte_id}>{t("ugcIa.compteInconnu")}</option>}
+        {comptes.map((c) => {
+          const autre = titulaire(c.id);
+          return (
+            <option key={c.id} value={c.id}>
+              {libelleCompte(c)}
+              {autre ? ` (${t("ugcIa.repris", { nom: autre.nom })})` : ""}
+            </option>
+          );
+        })}
+      </select>
+      {assigner.error && <p className="text-xs text-destructive">{messageErreur(assigner.error)}</p>}
+    </div>
+  );
+}
+
+function libelleCompte(c: CompteUgcv): string {
+  const nom = c.handle_tiktok ? `@${c.handle_tiktok}` : (c.persona_nom ?? c.id.slice(0, 8));
+  return [nom, c.poster_prenom, c.langue?.toUpperCase()].filter(Boolean).join(" · ");
 }
 
 function CarteImport() {
@@ -173,12 +247,13 @@ function CarteImport() {
           <li>{t("ugcIa.etape4")}</li>
         </ol>
         <form
-          className="flex flex-wrap gap-2"
+          className="flex flex-wrap items-center gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             if (lien.trim()) importer.mutate();
           }}
         >
+          <Link2 className="size-4 shrink-0 text-muted-foreground" aria-hidden />
           <Input
             className="min-w-0 flex-1"
             value={lien}
@@ -187,6 +262,7 @@ function CarteImport() {
             aria-label={t("ugcIa.lienTiktok")}
           />
           <Button type="submit" loading={importer.isPending} disabled={!lien.trim()}>
+            <Sparkles aria-hidden />
             {t("ugcIa.importer")}
           </Button>
         </form>

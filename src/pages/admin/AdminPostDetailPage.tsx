@@ -40,6 +40,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
+import { PostVideoPoster } from "@/features/postsVideo/PostVideoPoster";
 
 /** Nettoyée et pas signalée encore écrite par un poster. */
 const estPropre = slideEstPropre;
@@ -518,7 +519,7 @@ export function AdminPostDetailPage() {
               </Link>
             </Button>
           )}
-          {post.data.type !== "contenu" && (
+          {post.data.type !== "contenu" && post.data.type !== "video" && (
             <Button
               variant="outline"
               size="sm"
@@ -551,9 +552,12 @@ export function AdminPostDetailPage() {
         <p className="text-xs text-muted-foreground">{t(`adminPost.mode_${post.data.type}`)}</p>
       </div>
 
-      {post.data.type !== "contenu" && (
+      {post.data.type !== "contenu" && post.data.type !== "video" && (
         <p className="text-xs text-muted-foreground">{t("adminPost.revoquerAide")}</p>
       )}
+
+      {/* Post vidéo UGCV (0662) : ses vidéos et son CTA, comme le poster les voit. */}
+      {post.data.type === "video" && <PostVideoPoster post={post.data} />}
 
       {/* Fabrication en direct (posts de test) : nettoyage photo par photo, puis
           Sophia, puis le QR apparaît. Reprend tout seul si l'onglet a dormi. */}
@@ -620,6 +624,7 @@ export function AdminPostDetailPage() {
         </Card>
       )}
 
+      {post.data.type !== "video" && (
       <Card>
         <CardHeader className="pb-3">
           <div className="flex flex-wrap items-start justify-between gap-2">
@@ -645,6 +650,7 @@ export function AdminPostDetailPage() {
           )}
         </CardHeader>
       </Card>
+      )}
 
       {liste.map((slide) => (
         <SlideAdmin

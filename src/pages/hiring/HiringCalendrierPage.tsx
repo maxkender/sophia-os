@@ -19,6 +19,7 @@ import { debutParDefaut, joursFenetre, libelleFenetre } from "@/features/moteur/
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
+import { PostVideoPoster } from "@/features/postsVideo/PostVideoPoster";
 
 /** Aperçu (lecture seule) d'un post : ses slides — image nettoyée + texte. */
 function ApercuPost({ postId, pays, onClose }: { postId: string; pays: string | null; onClose: () => void }) {
@@ -64,8 +65,10 @@ function ApercuPost({ postId, pays, onClose }: { postId: string; pays: string | 
           </p>
         )}
 
+        {/* Post vidéo UGCV (0662) : ses vidéos au lieu des slides. */}
+        {post.data?.type === "video" && <PostVideoPoster post={post.data} />}
         {slides.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-        {slides.data && slides.data.length === 0 && (
+        {slides.data && slides.data.length === 0 && post.data?.type !== "video" && (
           <p className="text-sm text-muted-foreground">{t("hiring.apercuVide")}</p>
         )}
 

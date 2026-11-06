@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0660) : les règles pures, partagées
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0662) : les règles pures, partagées
  * par la fonction `ugc-ia` et ses tests. Le front a les mêmes bornes dans
  * `src/features/ugcIa/logique.ts`.
  */
@@ -115,6 +115,19 @@ export function personasDemandees(brut: unknown): string[] | { erreur: string } 
   return ids;
 }
 
+/**
+ * Rattacher un persona à un compte UGCV (`compteId` null : le détacher).
+ * 1 persona = 1 compte : le compte est repris à l'ancien persona s'il en avait un.
+ */
+export function demandeAssignation(body: Record<string, unknown>): { personaId: string; compteId: string | null } | { erreur: string } {
+  const personaId = String(body.personaId ?? "").trim().toLowerCase();
+  if (!UUID.test(personaId)) return { erreur: "Persona manquant" };
+  if (body.compteId === null || body.compteId === undefined || body.compteId === "") return { personaId, compteId: null };
+  const compteId = String(body.compteId).trim().toLowerCase();
+  if (!UUID.test(compteId)) return { erreur: "Compte invalide" };
+  return { personaId, compteId };
+}
+
 /** L'image rendue par fal `ffmpeg-api/extract-frame` (`images[0].url`), ou null. */
 export function urlImageExtraite(sortie: unknown): string | null {
   const s = (sortie ?? {}) as { data?: unknown; images?: unknown };
@@ -218,4 +231,104 @@ export function urlVideoFal(sortie: unknown): string | null {
   };
   const url = corps.video?.url ?? corps.video_url;
   return typeof url === "string" && /^https:\/\//.test(url) ? url : null;
+}
+
+// --- Posts vidéo UGCV (0662) -------------------------------------------------
+
+/** Vidéos d'un post au plus (le poster les met bout à bout). */
+export const VIDEOS_MAX_PAR_POST = 10;
+/** Légende TikTok : 2 200 caractères au plus. */
+export const LEGENDE_MAX = 2200;
+/** Les vidéos importées pour un post vivent ici ; seules elles partent avec le post. */
+export const PREFIXE_IMPORTS_POST = "ugc-ia/posts/";
+
+export interface VideoDuPost {
+  url: string;
+  /** Chemin d'une vidéo importée pour ce post (sous `ugc-ia/posts/`), sinon null. */
+  chemin: string | null;
+  nom: string | null;
+  generationId: string | null;
+}
+
+export interface DemandePostVideo {
+  compteId: string;
+  /** Jour de publication (AAAA-MM-JJ, jour de Paris). */
+  date: string;
+  videos: VideoDuPost[];
+  ctaTexte: string | null;
+  ctaIncruste: boolean;
+  captureUrl: string | null;
+  legende: string | null;
+  musiqueUrl: string | null;
+  musiqueTitre: string | null;
+  applicationId: string | null;
+}
+
+const httpsOuNull = (v: unknown): string | null => {
+  const s = String(v ?? "").trim();
+  return /^https:\/\/\S+$/.test(s) ? s : null;
+};
+const texteOuNull = (v: unknown): string | null => String(v ?? "").trim() || null;
+
+function jourValide(jour: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(jour)) return false;
+  const d = new Date(`${jour}T12:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === jour;
+}
+
+/**
+ * Ce que l'admin envoie pour créer un post vidéo UGCV, vérifié : un compte, un
+ * jour (aujourd'hui ou plus tard), 1 à 10 vidéos dans l'ordre, et un CTA (un
+ * texte avec sa capture d'exemple, ou « déjà incrusté »).
+ */
+export function demandePostVideo(body: Record<string, unknown>, aujourdhui: string): DemandePostVideo | { erreur: string } {
+  const compteId = String(body.compteId ?? "").trim().toLowerCase();
+  if (!UUID.test(compteId)) return { erreur: "Choisis un compte UGCV" };
+  const date = String(body.date ?? "").trim();
+  if (!jourValide(date)) return { erreur: "Jour invalide" };
+  if (date < aujourdhui) return { erreur: "Choisis aujourd'hui ou un jour à venir" };
+
+  const brutes = Array.isArray(body.videos) ? body.videos : [];
+  if (brutes.length === 0) return { erreur: "Ajoute au moins une vidéo" };
+  if (brutes.length > VIDEOS_MAX_PAR_POST) return { erreur: `${VIDEOS_MAX_PAR_POST} vidéos au plus par post` };
+  const videos: VideoDuPost[] = [];
+  for (const [i, brute] of brutes.entries()) {
+    const v = (brute ?? {}) as Record<string, unknown>;
+    const url = httpsOuNull(v.url);
+    if (!url) return { erreur: `Vidéo ${i + 1} : lien https attendu` };
+    const chemin = texteOuNull(v.chemin);
+    if (chemin && (!chemin.startsWith(PREFIXE_IMPORTS_POST) || chemin.includes(".."))) {
+      return { erreur: `Vidéo ${i + 1} : chemin d'import invalide` };
+    }
+    const generationId = texteOuNull(v.generationId)?.toLowerCase() ?? null;
+    if (generationId && !UUID.test(generationId)) return { erreur: `Vidéo ${i + 1} : génération invalide` };
+    videos.push({ url, chemin, nom: texteOuNull(v.nom), generationId });
+  }
+
+  const ctaIncruste = body.ctaIncruste === true;
+  const ctaTexte = ctaIncruste ? null : texteOuNull(body.ctaTexte);
+  const captureUrl = ctaIncruste ? null : httpsOuNull(body.captureUrl);
+  if (!ctaIncruste && !ctaTexte) return { erreur: "Écris le texte du CTA, ou coche « déjà incrusté »" };
+  if (!ctaIncruste && !captureUrl) return { erreur: "Ajoute la capture d'exemple qui montre où mettre le CTA" };
+
+  const legende = texteOuNull(body.legende);
+  if (legende && legende.length > LEGENDE_MAX) return { erreur: `Légende : ${LEGENDE_MAX} caractères au plus` };
+  const musiqueBrute = texteOuNull(body.musiqueUrl);
+  const musiqueUrl = httpsOuNull(musiqueBrute);
+  if (musiqueBrute && !musiqueUrl) return { erreur: "Son TikTok : lien https attendu" };
+  const applicationId = texteOuNull(body.applicationId)?.toLowerCase() ?? null;
+  if (applicationId && !UUID.test(applicationId)) return { erreur: "Application invalide" };
+
+  return {
+    compteId,
+    date,
+    videos,
+    ctaTexte,
+    ctaIncruste,
+    captureUrl,
+    legende,
+    musiqueUrl,
+    musiqueTitre: musiqueUrl ? texteOuNull(body.musiqueTitre) : null,
+    applicationId,
+  };
 }

@@ -1501,6 +1501,8 @@ async function lirePercesRecents(
         .from("passages")
         .select(colonnes)
         .eq("statut", "publie")
+        // Un post vidéo UGCV (0662) n'a pas de contenu : rien à rappeler.
+        .not("contenu_id", "is", null)
         .gte("vues", reglages.rappelVues)
         .lt("rappel_rang", reglages.rappelMax)
         .gte("date_publication_prevue", depuis)

@@ -409,7 +409,7 @@ export function bioDeSecours(langue: string): string {
   return BIO_SECOURS[langue] ?? BIO_SECOURS.fr;
 }
 
-/** Charge le label principal d'un compte (hors marque système ugc-ai-video). */
+/** Charge le label principal d'un compte. */
 export async function labelDuCompte(
   supabase: Supabase,
   compteId: string,
@@ -425,10 +425,7 @@ export async function labelDuCompte(
     .from("labels")
     .select("id, nom, slug, genre")
     .in("id", ids);
-  const lab =
-    (labs ?? []).find((l) => (l.slug as string) !== "ugc-ai-video") ??
-    (labs ?? [])[0] ??
-    null;
+  const lab = (labs ?? [])[0] ?? null;
   if (!lab?.id) return null;
   const labelNom =
     (lab.nom as string | undefined) ?? (lab.slug as string | undefined) ?? (lab.id as string);

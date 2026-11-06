@@ -50,6 +50,7 @@ import type {
   ModeleNudge,
   Passage,
   Tier,
+  PostType,
 } from "./types";
 import { PASSAGES_PAR_TIER } from "./types";
 import {
@@ -669,7 +670,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, upwork_contrat_url, email_perso, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url, cohorte_lundi",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, upwork_contrat_url, email_perso, manager_id, is_active, must_change_password, cout_mensuel, zone_recrutement, photo_url, cohorte_lundi",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -735,9 +736,6 @@ export async function listerPosters(): Promise<PosterProfil[]> {
     const compte = comptePrincipal(liste);
     return {
       ...p,
-      hm_ugc_ai_video: Boolean(
-        (p as { hm_ugc_ai_video?: boolean }).hm_ugc_ai_video,
-      ),
       role: (parUtilisateur.get(p.id) ?? null) as PosterProfil["role"],
       comptes: liste,
       compte_id: compte?.id ?? null,
@@ -1027,7 +1025,7 @@ type PostFileRow = {
     avatar_url: string | null;
     langue: string | null;
     type_compte: string | null;
-    ugc_ai_video: boolean | null;
+    ugcv: boolean | null;
     profiles?:
       | { prenom: string | null; nom: string | null }
       | { prenom: string | null; nom: string | null }[]
@@ -1049,7 +1047,7 @@ export async function listerFileReviewsJour(opts?: {
     .select(
       "id, compte_id, date_publication_prevue, publie_at, publie_url, est_test, " +
         "sujets(source_url), " +
-        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugc_ai_video, profiles(prenom, nom))",
+        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugcv, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .gte("publie_at", debut)
@@ -1088,7 +1086,7 @@ export async function listerFileReviewsJour(opts?: {
       if (vus.has(p.id)) return false;
       return estCompteSlideshowAssigne({
         type_compte: p.comptes?.type_compte ?? null,
-        ugc_ai_video: Boolean(p.comptes?.ugc_ai_video),
+        ugcv: Boolean(p.comptes?.ugcv),
       });
     })
     .map((p) => {
@@ -2567,7 +2565,7 @@ export async function listerPublicationsCompte(
     supabase
       .from("passages")
       .select(
-        "id, post_id, date_publication_prevue, publie_at, publie_url, langue, statut, contenus(titre)",
+        "id, post_id, contenu_id, date_publication_prevue, publie_at, publie_url, langue, statut, contenus(titre)",
       )
       .eq("compte_id", compteId)
       .eq("statut", "publie")
@@ -2589,8 +2587,10 @@ export async function listerPublicationsCompte(
   const result: PublicationCompte[] = [];
 
   for (const p of passages ?? []) {
+    // Passage sans contenu = post vidéo UGCV (0662) : pas de titre de slideshow.
     const titre =
-      (p as { contenus?: { titre?: string | null } | null }).contenus?.titre ?? null;
+      (p as { contenus?: { titre?: string | null } | null }).contenus?.titre ??
+      (p.contenu_id ? null : "Vidéo");
     const row: PublicationCompte = {
       key: `passage:${p.id}`,
       passage_id: p.id,
@@ -3093,10 +3093,10 @@ export interface PostCalendrierAdmin {
   poster_nom: string | null;
   sujet_titre: string | null;
   langue: string | null;
-  /** Compte UGC AI slideshow (hors UGC AI VIDEO). */
+  /** Compte UGC AI slideshow (hors UGCV). */
   ugc_ai: boolean;
-  /** Compte UGC AI VIDEO (pipeline vidéos). */
-  ugc_ai_video: boolean;
+  /** Compte UGCV : posts vidéo posés à la main par l'admin. */
+  ugcv: boolean;
   /** Nombre de slides (0 = slideshow vide / matérialisation ratée). */
   nb_slides: number;
   /** Slides avec un media_id non null. */
@@ -3191,7 +3191,7 @@ export async function postsCalendrierAdmin(
       .from("posts")
       .select(
         "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, application_id, " +
-          "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, pays, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
+          "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, pays, classement, ugc_ai, ugcv, profiles(prenom, nom))",
       )
       .eq("est_test", false)
       .gte("date_publication_prevue", options.du)
@@ -3231,8 +3231,9 @@ export async function postsCalendrierAdmin(
 
   return rows.map((p) => {
     const counts = slidesParPost.get(p.id as string) ?? { nb: 0, media: 0 };
-    const slideshow_vide = counts.nb === 0 || counts.media === 0;
-    const ugcVideo = Boolean(p.comptes?.ugc_ai_video);
+    // Un post vidéo UGCV (0662) n'a pas de slides : il n'est jamais « vide ».
+    const slideshow_vide = p.type !== "video" && (counts.nb === 0 || counts.media === 0);
+    const ugcv = Boolean(p.comptes?.ugcv);
     return {
       id: p.id as string,
       compte_id: p.compte_id as string,
@@ -3250,8 +3251,8 @@ export async function postsCalendrierAdmin(
       poster_nom: (p.comptes?.profiles?.nom as string | null) ?? null,
       sujet_titre: (p.sujets?.titre as string | null) ?? null,
       langue: (p.comptes?.langue as string | null) ?? null,
-      ugc_ai: Boolean(p.comptes?.ugc_ai) && !ugcVideo,
-      ugc_ai_video: ugcVideo,
+      ugc_ai: Boolean(p.comptes?.ugc_ai) && !ugcv,
+      ugcv,
       nb_slides: counts.nb,
       nb_media: counts.media,
       slideshow_vide,
@@ -5903,7 +5904,7 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
       .select("id, compte_id, type, statut, pipeline_statut, pipeline_etape, pipeline_erreur")
       .eq("date_publication_prevue", date)
       .eq("est_test", false)
-      .eq("type", "contenu")
+      .in("type", ["contenu", "video"])
       .order("created_at"),
     supabase.from("reglages").select("valeur").eq("cle", "frequence").maybeSingle(),
   ]);
@@ -5925,7 +5926,7 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
     liste.push({
       id: (pas.post_id as string | null) ?? (pas.id as string),
       passage_id: pas.id as string,
-      type: "contenu",
+      type: (post?.type as PostType | undefined) ?? "contenu",
       statut: (post?.statut as string) ?? (pas.statut as string),
       pipeline_statut: (post?.pipeline_statut as string) ?? "done",
       pipeline_etape: (post?.pipeline_etape as string | null) ?? null,
@@ -5981,7 +5982,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   const { data: compte, error: errC } = await supabase
     .from("comptes")
     .select(
-      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour, parts_applications",
+      "id, langue, type_compte, videos_uniquement, ugc_ai, ugcv, ugc_persona_id, posts_par_jour, parts_applications",
     )
     .eq("id", compteId)
     .maybeSingle();
@@ -5998,8 +5999,8 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   if (compte.type_compte === "cm") {
     return "Compte CM — hors assignation slideshow (vidéo papier).";
   }
-  if (compte.ugc_ai_video) {
-    return "Compte UGC AI VIDEO — hors assignation slideshow (pipeline vidéos à part).";
+  if (compte.ugcv) {
+    return "Compte UGCV — posts vidéo posés à la main, hors assignation slideshow.";
   }
   if (compte.videos_uniquement) {
     return (
@@ -6013,7 +6014,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   }
 
   const langue = (compte.langue as string) || "fr";
-  const ugcAi = Boolean(compte.ugc_ai) && !compte.ugc_ai_video;
+  const ugcAi = Boolean(compte.ugc_ai) && !compte.ugcv;
 
   const { data: labelsCompte, error: errL } = await supabase
     .from("compte_labels")
@@ -6505,15 +6506,9 @@ function slugify(nom: string): string {
   );
 }
 
-/** Marque système (checkmark compte/HM) — jamais un label thématique sélectionnable. */
-export function estMarqueUgcAiVideo(lab: { slug?: string | null; nom?: string | null }): boolean {
-  const slug = (lab.slug ?? "").trim().toLowerCase();
-  const nom = (lab.nom ?? "").trim().toLowerCase().replace(/\s+/g, " ");
-  return slug === "ugc-ai-video" || nom === "ugc ai video";
-}
-
 /**
- * Labels thématiques (hors marques système `ugc-ai-video` / `hook`), TOUS :
+ * Labels thématiques (hors label système `hook`), TOUS, labels manuels (UGCV)
+ * compris :
  * un label sert une ou plusieurs applications (`label_applications`), il n'est
  * plus rangé sous l'une d'elles. `labels.application_id` reste en base, figé à
  * Sophia, pour les lecteurs historiques (bundles figés, persona) — ce n'est
@@ -6566,11 +6561,11 @@ export async function listerReserveLabels(
   }));
 }
 
-/** Labels affichés en bibliothèque (inclut Hook, exclut la marque UGC), toutes applications. */
+/** Labels affichés en bibliothèque (inclut Hook, exclut les labels manuels sans slideshow), toutes applications. */
 export async function listerLabelsBiblio(): Promise<Label[]> {
   const { data, error } = await supabase.from("labels").select("*").order("nom");
   if (error) throw error;
-  return ((data ?? []) as Label[]).filter((l) => !estMarqueUgcAiVideo(l));
+  return ((data ?? []) as Label[]).filter((l) => !l.manuel);
 }
 
 /** Labels qui ont au moins un slideshow `ugc_compatible` (file UGC admin). */
@@ -6600,7 +6595,7 @@ export async function creerLabel(
   },
 ): Promise<Label> {
   const base = slugify(nom);
-  if (base === "ugc-ai-video" || base === SLUG_HOOK) {
+  if (base === SLUG_HOOK) {
     throw new Error("LABEL_MARQUE_RESERVE");
   }
   let slug = base;
@@ -6628,7 +6623,7 @@ export async function majLabel(
   patch: {
     nom?: string;
     couleur?: string | null;
-    ugc_ai_video?: boolean;
+    manuel?: boolean;
     genre?: "homme" | "femme" | null;
     style_theme?: string | null;
     prompt_creation?: string | null;
@@ -6942,7 +6937,7 @@ export async function setLabelsCompte(compteId: string, labelIds: string[]): Pro
   }
   const { data, error } = await supabase
     .from("labels")
-    .select("id, slug, nom, ugc_ai_video")
+    .select("id, slug, nom")
     .in("id", uniques);
   if (error) throw error;
   const ok = (data ?? [])
@@ -7694,7 +7689,7 @@ export interface LigneSurveillance {
 }
 
 /**
- * Comptes de la surveillance : tous les comptes suivis (hors CM / UGC AI VIDEO),
+ * Comptes de la surveillance : tous les comptes suivis (hors CM / UGCV),
  * avec leur case et l'état de la file. Le tri des lignes entre « file » et
  * « ne pas renouveler » se fait côté page avec `estSousSurveillance`.
  */
@@ -7706,7 +7701,7 @@ export async function listerSurveillanceComptes(): Promise<LigneSurveillance[]> 
     )
     .eq("is_active", true)
     .neq("type_compte", "cm")
-    .eq("ugc_ai_video", false)
+    .eq("ugcv", false)
     .order("created_at", { ascending: true });
   if (error) throw error;
 

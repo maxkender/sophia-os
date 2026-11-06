@@ -27,7 +27,7 @@ export interface ClassementRapport {
 
 export type PipelineStatut = "pending" | "running" | "done" | "failed";
 export type SujetStatut = "propose" | "retenu" | "rejete" | "utilise";
-export type PostType = "recycle" | "remanie" | "nouveau" | "contenu";
+export type PostType = "recycle" | "remanie" | "nouveau" | "contenu" | "video";
 export type PostStatut = "brouillon" | "assigne" | "valide_par_poster" | "publie";
 export type MediaSource =
   | "nettoye_reference"
@@ -153,8 +153,8 @@ export interface Compte {
   warmup_ends_at: string | null;
   /** Créateur UGC AI — slideshows ugc_compatible + swap visage persona. */
   ugc_ai: boolean;
-  /** Créateur UGC AI VIDEO — marque seule, aucun label ; persona unique partagé. */
-  ugc_ai_video: boolean;
+  /** Compte UGCV (label manuel UGCV) : posts vidéo posés à la main, jamais de slideshow (0661). */
+  ugcv: boolean;
   /** Compte du pod 3 : vidéos du pod uniquement (TikTok + Instagram), jamais de slideshow. */
   videos_uniquement?: boolean;
   /** Persona UGC (4 angles) associé à ce créateur. */
@@ -245,6 +245,11 @@ export interface Post {
   recharges_createur?: number;
   /** Application promue par ce post (défaut Sophia ; absente avant 0256). */
   application_id?: string | null;
+  /** Post vidéo UGCV (0662) : texte du CTA à poser, sauf s'il est déjà incrusté. */
+  video_cta_texte?: string | null;
+  video_cta_incruste?: boolean;
+  /** Post vidéo UGCV (0662) : capture d'exemple qui montre où mettre le CTA. */
+  video_capture_url?: string | null;
   created_at: string;
 }
 
@@ -303,8 +308,6 @@ export interface PosterProfil {
     | "directing_manager"
     | "head_of_ops"
     | null;
-  /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
-  hm_ugc_ai_video: boolean;
   /**
    * Zone d'un recruteur (pays gérés, master list Notion) ; ses créateurs en
    * héritent par `manager_id`. Pas la zone de paiement A/B/C. Voir hiring/zones.ts.
@@ -561,8 +564,8 @@ export interface Label {
   couleur: string | null;
   created_at: string;
   application_id: string;
-  /** Pool UGC AI VIDEO (HM vidéo + reactions/utilisations). */
-  ugc_ai_video: boolean;
+  /** Label manuel (UGCV…) : jamais tiré par l'OS, posé à la main par l'admin (0661). */
+  manuel: boolean;
   /** Genre imposé pour les prénoms TikTok des créateurs de ce label. */
   genre: LabelGenre | null;
   /** Thème / style rédigé par l'admin (création semi-manuelle). */
@@ -703,7 +706,8 @@ export interface ContenuLangue {
 
 export interface Passage {
   id: string;
-  contenu_id: string;
+  /** Vide pour un post vidéo UGCV (0662), qui n'a pas de contenu slideshow. */
+  contenu_id: string | null;
   compte_id: string;
   langue: string;
   date_publication_prevue: string | null;

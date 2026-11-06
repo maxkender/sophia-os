@@ -56,9 +56,6 @@ verify_jwt = false
 [functions.assignation-contenu]
 verify_jwt = false
 
-[functions.assignation-ugc-video]
-verify_jwt = false
-
 [functions.backfill-musique]
 verify_jwt = false
 
@@ -245,12 +242,6 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.ugc-ia]
-verify_jwt = false
-
-[functions.ugc-persona]
-verify_jwt = false
-
-[functions.ugc-reactions]
 verify_jwt = false
 
 [functions.upscale-assignes]

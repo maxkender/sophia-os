@@ -68,7 +68,7 @@ describe("libellés du test à blanc", () => {
     "warmup_non_demarre",
     "warmup_en_cours",
     "cm",
-    "ugc_video",
+    "ugcv",
     "videos_uniquement",
   ];
   const blocages = [

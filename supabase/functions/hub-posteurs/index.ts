@@ -10,9 +10,10 @@
  *
  *   { action: "ping" }
  *   { action: "zones" }
- *       Pays couverts par un HM ou recrutés dans `hm_pays` : ouverts, ou fermés
- *       (langue du pays non gérée par le HM). Le site grise « Accepter » pour
- *       un pays non ouvert.
+ *       Pays ouverts = pays ouverts dans l'OS (zone de paie active dans
+ *       `zones_paie_pays`), avec langue de publication, zone, HM de zone et
+ *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
+ *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
@@ -49,6 +50,9 @@ import {
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
+  type LanguesComptes,
+  LANGUE_PAR_PAYS,
+  type PaysOuvert,
   type PaysRecrute,
   type Recruteur,
   reservationPerimee,
@@ -58,7 +62,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-06";
+const VERSION = "2026-11-06c";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -94,8 +98,19 @@ Deno.serve(async (request) => {
     switch (body?.action) {
       case "ping":
         return json({ ok: true, version: VERSION });
-      case "zones":
-        return json({ ok: true, ...carteDesZones(await lireRecruteurs(supabase), await lirePaysRecrutes(supabase)) });
+      case "zones": {
+        const ouverts = await lirePaysOuverts(supabase);
+        return json({
+          ok: true,
+          ...carteDesZones(
+            ouverts,
+            await lireRecruteurs(supabase),
+            await lirePaysRecrutes(supabase),
+            await lireLanguesComptes(supabase, ouverts.map((o) => o.pays)),
+            await lireLanguesOs(supabase),
+          ),
+        });
+      }
       case "creer_posteur":
         return await creerPosteur(supabase, body);
       case "posts_semaine":
@@ -154,6 +169,38 @@ async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
   }));
 }
 
+/** Pays ouverts dans l'OS : zone de paie active (`zones_paie_pays`, `retire_at` nul). */
+async function lirePaysOuverts(supabase: Supabase): Promise<PaysOuvert[]> {
+  const { data, error } = await supabase.from("zones_paie_pays").select("pays, zone").is("retire_at", null);
+  if (error) throw error;
+  return (data ?? []) as PaysOuvert[];
+}
+
+/**
+ * Langues des comptes de l'OS pour les pays sans langue fixée
+ * (`LANGUE_PAR_PAYS`) : la plus fréquente sert de langue de publication.
+ */
+async function lireLanguesComptes(supabase: Supabase, pays: string[]): Promise<LanguesComptes> {
+  const sansLangue = pays.filter((p) => !LANGUE_PAR_PAYS[p]);
+  if (sansLangue.length === 0) return {};
+  const { data, error } = await supabase.from("comptes").select("pays, langue").in("pays", sansLangue);
+  if (error) throw error;
+  const parPays: Record<string, Record<string, number>> = {};
+  for (const c of (data ?? []) as { pays: string | null; langue: string | null }[]) {
+    if (!c.pays || !c.langue) continue;
+    const l = (parPays[c.pays] ??= {});
+    l[c.langue] = (l[c.langue] ?? 0) + 1;
+  }
+  return parPays;
+}
+
+/** Langues dans lesquelles publient les comptes actifs de l'OS. */
+async function lireLanguesOs(supabase: Supabase): Promise<Set<string>> {
+  const { data, error } = await supabase.from("comptes").select("langue").eq("is_active", true);
+  if (error) throw error;
+  return new Set(((data ?? []) as { langue: string | null }[]).map((c) => c.langue).filter((l): l is string => !!l));
+}
+
 /** Pays recrutés (`hm_pays`, 0516), avec leur HM quand elle a un compte OS. */
 async function lirePaysRecrutes(supabase: Supabase): Promise<PaysRecrute[]> {
   const { data, error } = await supabase.from("hm_pays").select("pays, hm_id");
@@ -187,26 +234,25 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     return json({ ok: false, error: "creation_en_cours : réessayer dans quelques minutes" }, 409);
   }
 
-  // 2. Pays → HM → langue de publication. Ni HM ni ligne `hm_pays` = zone pas encore ouverte.
+  // 2. Pays ouvert dans l'OS (zone de paie active) → langue de publication.
+  //    Tout autre pays : « zone_non_ouverte ».
   const pays = codePays(body.pays_code, body.pays_nom);
   if (!pays) return json({ ok: false, error: "pays_inconnu" }, 422);
-  const affectation = resoudreAffectationSite(pays, await lireRecruteurs(supabase), await lirePaysRecrutes(supabase));
-  if (!affectation.ok) {
-    return json({
-      ok: false,
-      error: affectation.raison,
-      pays_code: pays,
-      ...(affectation.raison === "langue_non_geree"
-        ? { langue: affectation.langue, manager: managerPublic(affectation.hm) }
-        : {}),
-    }, 422);
-  }
-  // Le HM de la zone (ou `hm_pays`) décide de la langue et de l'ouverture du
-  // pays ; le poster, lui, est rattaché à la cohorte Ruul quand elle est
-  // configurée. Un pays de `hm_pays` sans HM n'a que la cohorte.
+  const affectation = resoudreAffectationSite(
+    pays,
+    await lirePaysOuverts(supabase),
+    await lireRecruteurs(supabase),
+    await lirePaysRecrutes(supabase),
+    await lireLanguesComptes(supabase, [pays]),
+  );
+  if (!affectation.ok) return json({ ok: false, error: affectation.raison, pays_code: pays }, 422);
+  // Le poster est rattaché à la cohorte Ruul ; la HM de la zone n'est qu'une
+  // information (page Posters), et le rattachement de repli sans cohorte.
   const { hm, langue } = affectation;
   const rattachement = (await lireCohorteRuul(supabase)) ?? hm;
-  if (!rattachement) return json({ ok: false, error: "zone_non_ouverte", pays_code: pays }, 422);
+  if (!rattachement) {
+    return json({ ok: false, error: "sans_rattachement : cohorte Ruul non configurée et pas de HM pour ce pays", pays_code: pays }, 422);
+  }
   const parts = partsPourApplications(body.applications);
   const applications = parts ? Object.keys(parts) : ["sophia"];
 

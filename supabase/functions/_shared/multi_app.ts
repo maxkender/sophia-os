@@ -30,7 +30,7 @@ export const FENETRE_REPARTITION_DEFAUT = 10;
 export const ECART_MIN_JOURS_AUTRE_APPLICATION = 7;
 
 /** Labels système : ils ne servent aucune application, ne vont sur aucun compte. */
-export const SLUGS_LABELS_SYSTEME: readonly string[] = ["hook", "ugc-ai-video"];
+export const SLUGS_LABELS_SYSTEME: readonly string[] = ["hook"];
 
 export interface ApplicationMoteur {
   id: string;
@@ -79,8 +79,8 @@ export function estLabelSystemeSlug(slug: string | null | undefined): boolean {
  * Aucune application cochée = le label n'est disponible pour personne (décision
  * du 21/10 : c'est ainsi qu'on met un label de côté, sans le supprimer). Avant,
  * un label sans ligne servait Sophia par héritage ; au 21/10, tous les labels
- * utiles avaient leurs lignes explicites (seuls Hook et UGC AI VIDEO, labels
- * système, n'en avaient pas), donc rien n'a changé pour la flotte.
+ * utiles avaient leurs lignes explicites (seul Hook, label système, n'en
+ * avait pas), donc rien n'a changé pour la flotte.
  */
 export function applicationsDuLabel(
   labelId: string,

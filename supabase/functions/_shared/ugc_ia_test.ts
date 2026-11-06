@@ -6,7 +6,9 @@ import {
   cheminsMontage,
   cheminsUgcIa,
   coupeUtile,
+  demandeAssignation,
   demandeMontage,
+  demandePostVideo,
   lienTiktok,
   nettoyerCta,
   partieSource,
@@ -143,4 +145,59 @@ Deno.test("urlVideoFal : video.url ou video_url, avec ou sans enveloppe data", (
   assertEquals(urlVideoFal({ data: { video: { url: "https://v3.fal.media/o.mp4" } } }), "https://v3.fal.media/o.mp4");
   assertEquals(urlVideoFal({ data: {} }), null);
   assertEquals(urlVideoFal(null), null);
+});
+
+Deno.test("demandeAssignation : un persona, un compte ou aucun", () => {
+  const p = "11111111-1111-4111-8111-111111111111";
+  const c = "22222222-2222-4222-8222-222222222222";
+  assertEquals(demandeAssignation({ personaId: p, compteId: c.toUpperCase() }), { personaId: p, compteId: c });
+  assertEquals(demandeAssignation({ personaId: p, compteId: null }), { personaId: p, compteId: null });
+  assertEquals(demandeAssignation({ personaId: p }), { personaId: p, compteId: null });
+  assertEquals("erreur" in demandeAssignation({ compteId: c }), true);
+  assertEquals("erreur" in demandeAssignation({ personaId: p, compteId: "pas-un-id" }), true);
+});
+
+Deno.test("demandePostVideo : un compte, un jour à venir, des vidéos dans l'ordre, un CTA", () => {
+  const compteId = "22222222-2222-4222-8222-222222222222";
+  const gen = "33333333-3333-4333-8333-333333333333";
+  const base = {
+    compteId,
+    date: "2026-11-07",
+    videos: [
+      { url: "https://x/reaction.mp4", nom: "Réaction", generationId: gen },
+      { url: "https://x/import.mp4", chemin: "ugc-ia/posts/abc/2-demo.mp4" },
+    ],
+    ctaTexte: "  lien en bio  ",
+    captureUrl: "https://x/cta.jpg",
+    legende: "my study app #study",
+    musiqueUrl: "https://www.tiktok.com/music/son-123",
+    musiqueTitre: "son",
+  };
+  const ok = demandePostVideo(base, "2026-11-06");
+  if ("erreur" in ok) throw new Error(ok.erreur);
+  assertEquals(ok.videos.map((v) => [v.url, v.chemin, v.generationId]), [
+    ["https://x/reaction.mp4", null, gen],
+    ["https://x/import.mp4", "ugc-ia/posts/abc/2-demo.mp4", null],
+  ]);
+  assertEquals(ok.ctaTexte, "lien en bio");
+  assertEquals(ok.ctaIncruste, false);
+  assertEquals(ok.musiqueTitre, "son");
+
+  // CTA déjà incrusté : ni texte ni capture.
+  const incruste = demandePostVideo({ ...base, ctaIncruste: true, ctaTexte: "", captureUrl: "" }, "2026-11-06");
+  if ("erreur" in incruste) throw new Error(incruste.erreur);
+  assertEquals([incruste.ctaTexte, incruste.captureUrl], [null, null]);
+
+  const erreur = (b: Record<string, unknown>, jour = "2026-11-06") => "erreur" in demandePostVideo(b, jour);
+  assertEquals(erreur(base, "2026-11-08"), true); // jour passé
+  assertEquals(erreur({ ...base, date: "2026-02-30" }), true);
+  assertEquals(erreur({ ...base, videos: [] }), true);
+  assertEquals(erreur({ ...base, videos: [{ url: "http://x/a.mp4" }] }), true);
+  assertEquals(erreur({ ...base, videos: [{ url: "https://x/a.mp4", chemin: "ugc-ia/abc/a.mp4" }] }), true);
+  assertEquals(erreur({ ...base, videos: [{ url: "https://x/a.mp4", chemin: "ugc-ia/posts/../a.mp4" }] }), true);
+  assertEquals(erreur({ ...base, ctaTexte: " " }), true); // ni texte ni « incrusté »
+  assertEquals(erreur({ ...base, captureUrl: null }), true); // texte sans capture
+  assertEquals(erreur({ ...base, musiqueUrl: "son sans lien" }), true);
+  assertEquals(erreur({ ...base, legende: "x".repeat(2201) }), true);
+  assertEquals(erreur({ ...base, compteId: "pas-un-id" }), true);
 });

@@ -35,6 +35,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/disputes",
   "/admin/auto/payroll",
   "/admin/auto/faq",
+  "/admin/auto/reponses-officielles",
   "/admin/auto/logs",
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o142",
+ "type_bleo": "full_test",
+ "titre": "things that quietly make you more attractive #selfimprovement #attractive #glowup #confidence #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "6842b173-ebca-460c-88dc-4f5ffbee0efe"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 6842b173). full test BLEO : accroche jamais faite (format « things that quietly make you »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d5b540d6-057a-411e-b33e-25cd22b6fe8a",
+   "texte_overlay": "things that quietly make\nyou more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656129526174338326/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7949d451-b2c9-4552-a0e9-181a92e624cc",
+   "texte_overlay": "good posture\n\nstand tall with your shoulders back and your chin level. posture is the first thing people read about you, long before your face or your clothes, and it costs nothing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656129526174338326/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "45179315-f060-4bb3-81c2-e4c217641948",
+   "texte_overlay": "a calm voice\n\nspeak a little slower and lower than you normally would. a relaxed voice tells everyone you're comfortable in your own skin, and that ease is deeply attractive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656129526174338326/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3aea7bdf-657a-4291-a42e-38ad848d4b9b",
+   "texte_overlay": "really listening\n\nput your phone away and listen without planning your reply. being fully heard is so rare today that people feel quietly drawn to whoever gives them that gift.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656129526174338326/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "77ee6104-8fab-455d-a76c-132eeb5b3219",
+   "texte_overlay": "a curious mind\n\nspend 5 minutes a day learning one fascinating thing: a strange animal, a lost city, a famous painting. curiosity lights up your face when you talk, and people notice it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656129526174338326/5.jpg",
+   "texte_sophia": "a curious mind\n\ni spend 5 minutes a day on one lesson in the Sophia app: a strange animal, a lost city, a painting. curiosity lights up your face when you talk, and people notice it."
+  },
+  {
+   "position": 6,
+   "media_id": "fbf3ffb6-3d7c-4709-8cd9-dc7a63aee8c0",
+   "texte_overlay": "kindness to strangers\n\nbe warm to waiters, drivers and people nobody else notices. the way you treat people who can do nothing for you says more about you than anything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656129526174338326/6.jpg"
+  }
+ ]
+}

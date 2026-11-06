@@ -23,6 +23,8 @@ import { messageErreur } from "@/features/ugcIa/logique";
 
 /** Toutes les 15 s tant qu'une génération tourne (Genjutsu prend quelques minutes). */
 const INTERVALLE_SUIVI_MS = 15_000;
+/** Toutes les 5 s tant qu'un montage tourne (le serveur le rend en arrière-plan). */
+const INTERVALLE_MONTAGE_MS = 5_000;
 
 /**
  * UGC IA : une réaction TikTok qui marche (la source), refaite par un ou
@@ -35,6 +37,7 @@ export function AdminUgcIaPage() {
   const personas = useQuery({ queryKey: CLE_PERSONAS_UGC_IA, queryFn: listerPersonasUgcIa });
   const sources = useQuery({ queryKey: CLE_SOURCES_UGC_IA, queryFn: listerSourcesUgcIa });
   const enCours = (sources.data ?? []).some((s) => s.generations.some((g) => g.statut === "en_cours"));
+  const montageEnCours = (sources.data ?? []).some((s) => s.generations.some((g) => g.montage_statut === "en_cours"));
   const [erreurSuivi, setErreurSuivi] = React.useState<string | null>(null);
 
   // Un persona ajouté par Claude pointe vers une image externe : on la copie chez nous, une fois.
@@ -47,6 +50,13 @@ export function AdminUgcIaPage() {
       .catch(() => undefined)
       .finally(() => void qc.invalidateQueries({ queryKey: CLE_PERSONAS_UGC_IA }));
   }, [aRapatrier, qc]);
+
+  // Un montage se rend côté serveur : on relit les vidéos jusqu'à ce qu'il soit fini.
+  React.useEffect(() => {
+    if (!montageEnCours) return;
+    const minuteur = setInterval(() => void qc.invalidateQueries({ queryKey: CLE_SOURCES_UGC_IA }), INTERVALLE_MONTAGE_MS);
+    return () => clearInterval(minuteur);
+  }, [montageEnCours, qc]);
 
   // Relève Higgsfield tant qu'une génération tourne ; s'arrête tout seul ensuite.
   React.useEffect(() => {

@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 et 0657) : une réaction TikTok
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0659) : une réaction TikTok
  * (la source) refaite par un ou plusieurs personas synthétiques avec
  * Higgsfield Genjutsu (transfert de mouvement). Admin seulement. La page lit
  * les tables directement ; tout changement passe ici.
@@ -15,6 +15,11 @@
  *                                                    coché (refaire = relancer pour un persona)
  *   { action: "suivre" }                           → relève les générations en cours et
  *                                                    rapatrie les vidéos terminées
+ *   { action: "monter", id, debut?, fin?, bandeau? } → recadre la vidéo générée et/ou pose le
+ *                                                    bandeau (PNG rendu par la page), en
+ *                                                    arrière-plan ; la vidéo montée devient la
+ *                                                    vidéo enregistrée, l'original reste gardé
+ *   { action: "annuler_montage", id }              → revient à la vidéo d'origine de Genjutsu
  *   { action: "supprimer_source", id }             → la source, ses générations, ses fichiers
  *   { action: "supprimer_generation", id }         → une génération et sa vidéo
  *   { action: "rapatrier_personas" }               → copie dans le stockage de l'OS les images
@@ -26,6 +31,7 @@
 import { downloadMedia, scrapeVideoPost } from "../_shared/apify.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { falDownloadBytes, falQueueAwaitJson, falQueueSubmit } from "../_shared/fal_queue.ts";
+import { sonderVideoMeta } from "../_shared/fal_normaliser_video.ts";
 import { trimmerVideoFal } from "../_shared/fal_trim_video.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
 import {
@@ -41,7 +47,11 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
 import {
   cheminGeneration,
   cheminPersona,
+  cheminsMontage,
   cheminsUgcIa,
+  coupeUtile,
+  demandeMontage,
+  type DemandeMontage,
   lienTiktok,
   nettoyerCta,
   partieSource,
@@ -50,10 +60,13 @@ import {
   PROMPT_DEFAUT,
   TELEPHONE_MAX_S,
   urlImageExtraite,
+  urlVideoFal,
 } from "../_shared/ugc_ia.ts";
 
 const BUCKET = "medias";
 const MODELE_PREMIER_ECRAN = "fal-ai/ffmpeg-api/extract-frame";
+/** Pose une image (le bandeau, PNG transparent de la taille de la vidéo) par-dessus la vidéo. */
+const MODELE_COMPOSE = "fal-ai/ffmpeg-api/compose";
 type Supabase = ReturnType<typeof serviceClient>;
 
 const maintenant = () => new Date().toISOString();
@@ -291,7 +304,15 @@ async function suivre(supabase: Supabase): Promise<Response> {
       const videoUrl = await deposer(supabase, chemin, new Uint8Array(await r.arrayBuffer()), "video/mp4");
       await supabase
         .from("ugc_ia_generations")
-        .update({ statut: "prete", video_path: chemin, video_url: videoUrl, generee_le: maintenant(), updated_at: maintenant() })
+        .update({
+          statut: "prete",
+          video_path: chemin,
+          video_url: videoUrl,
+          video_brute_path: chemin,
+          video_brute_url: videoUrl,
+          generee_le: maintenant(),
+          updated_at: maintenant(),
+        })
         .eq("id", g.id)
         .eq("statut", "en_cours");
       bilan.push({ id: g.id, statut: "prete" });
@@ -307,13 +328,13 @@ async function supprimerSource(supabase: Supabase, body: Record<string, unknown>
   const id = String(body.id ?? "").trim();
   const source = id ? await lireSource(supabase, id) : null;
   if (!source) return json({ error: "source introuvable" }, 404);
-  const { data: gens } = await supabase.from("ugc_ia_generations").select("video_path").eq("source_id", id);
+  const { data: gens } = await supabase.from("ugc_ia_generations").select("id, video_path, video_brute_path").eq("source_id", id);
   await retirer(supabase, [
     source.brut_path,
     source.coupe_path,
     source.telephone_path,
     source.cta_image_path,
-    ...(gens ?? []).map((g) => g.video_path as string | null),
+    ...(gens ?? []).flatMap((g) => fichiersGeneration(id, g)),
   ]);
   const { error } = await supabase.from("ugc_ia_sources").delete().eq("id", id);
   if (error) throw new Error(error.message);
@@ -323,11 +344,138 @@ async function supprimerSource(supabase: Supabase, body: Record<string, unknown>
 async function supprimerGeneration(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
   const id = String(body.id ?? "").trim();
   if (!id) return json({ error: "id requis" }, 400);
-  const { data: gen, error: errLecture } = await supabase.from("ugc_ia_generations").select("video_path").eq("id", id).maybeSingle();
+  const { data: gen, error: errLecture } = await supabase
+    .from("ugc_ia_generations")
+    .select("id, source_id, video_path, video_brute_path")
+    .eq("id", id)
+    .maybeSingle();
   if (errLecture) throw new Error(errLecture.message);
   if (!gen) return json({ error: "génération introuvable" }, 404);
-  await retirer(supabase, [gen.video_path as string | null]);
+  await retirer(supabase, fichiersGeneration(gen.source_id as string, gen));
   const { error } = await supabase.from("ugc_ia_generations").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+  return json({ ok: true });
+}
+
+/** Tous les fichiers d'une génération : l'original, la vidéo montée, la coupe et le bandeau. */
+function fichiersGeneration(sourceId: string, g: { id: unknown; video_path?: unknown; video_brute_path?: unknown }): Array<string | null> {
+  const m = cheminsMontage(sourceId, String(g.id));
+  return [g.video_path as string | null, g.video_brute_path as string | null, m.coupe, m.bandeau, m.monte];
+}
+
+/** Lance un travail après la réponse (EdgeRuntime.waitUntil) ; à défaut, l'attend. */
+async function enArrierePlan(travail: Promise<unknown>): Promise<void> {
+  const edge = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+  if (edge?.waitUntil) edge.waitUntil(travail);
+  else await travail;
+}
+
+/** Pose le bandeau (PNG de la taille de la vidéo) sur toute la durée de la vidéo. */
+async function poserBandeau(videoUrl: string, imageUrl: string, dureeS: number): Promise<Uint8Array> {
+  const ms = Math.round(dureeS * 1000);
+  const file = await falQueueSubmit(MODELE_COMPOSE, {
+    tracks: [
+      { id: "video", type: "video", keyframes: [{ url: urlPropre(videoUrl), timestamp: 0, duration: ms }] },
+      { id: "bandeau", type: "image", keyframes: [{ url: urlPropre(imageUrl), timestamp: 0, duration: ms }] },
+    ],
+  });
+  const sortie = await falQueueAwaitJson(MODELE_COMPOSE, file, undefined, 300_000);
+  const url = urlVideoFal(sortie);
+  if (!url) throw new Error(`bandeau : pas de vidéo rendue (${JSON.stringify(sortie).slice(0, 200)})`);
+  return (await falDownloadBytes(url)).bytes;
+}
+
+type GenerationAMonter = { id: string; source_id: string; video_brute_path: string; video_brute_url: string };
+
+/** Le rendu du montage : coupe de l'original si besoin, puis bandeau si demandé. */
+async function rendreMontage(supabase: Supabase, g: GenerationAMonter, d: DemandeMontage): Promise<void> {
+  const chemins = cheminsMontage(g.source_id, g.id);
+  try {
+    let base = { path: g.video_brute_path, url: g.video_brute_url };
+    const dureeBrute = (await sonderVideoMeta(base.url)).durationSec;
+    const coupee = coupeUtile(d.debut, d.fin, dureeBrute);
+    let duree = dureeBrute;
+    if (coupee) {
+      const coupe = await trimmerVideoFal({ videoUrl: base.url, startSec: d.debut ?? 0, endSec: d.fin ?? 0 });
+      base = { path: chemins.coupe, url: await deposer(supabase, chemins.coupe, coupe.bytes, "video/mp4") };
+      duree = (await sonderVideoMeta(base.url)).durationSec ?? coupe.trimmedDuration ?? (d.fin ?? 0) - (d.debut ?? 0);
+    }
+    let final = base;
+    if (d.bandeau) {
+      if (!(duree && duree > 0)) throw new Error("durée de la vidéo inconnue : impossible de poser le bandeau");
+      const pngUrl = await deposer(supabase, chemins.bandeau, d.bandeau.png, "image/png");
+      const octets = await poserBandeau(base.url, pngUrl, duree);
+      final = { path: chemins.monte, url: await deposer(supabase, chemins.monte, octets, "video/mp4") };
+    }
+    await supabase
+      .from("ugc_ia_generations")
+      .update({
+        video_path: final.path,
+        video_url: final.url,
+        montage_debut_s: coupee ? d.debut : null,
+        montage_fin_s: coupee ? d.fin : null,
+        bandeau_actif: Boolean(d.bandeau),
+        bandeau_texte: d.bandeauTexte,
+        bandeau_position: d.bandeauPosition,
+        montage_statut: null,
+        montage_erreur: null,
+        updated_at: maintenant(),
+      })
+      .eq("id", g.id);
+  } catch (e) {
+    console.error("ugc-ia montage", g.id, e);
+    await supabase
+      .from("ugc_ia_generations")
+      .update({ montage_statut: "echec", montage_erreur: messageErreur(e), updated_at: maintenant() })
+      .eq("id", g.id);
+  }
+}
+
+async function monter(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "").trim();
+  if (!id) return json({ error: "id requis" }, 400);
+  const d = demandeMontage(body);
+  if ("erreur" in d) return json({ error: d.erreur }, 400);
+  // Un montage à la fois par vidéo : la ligne passe « en cours » sous condition.
+  const { data: g, error } = await supabase
+    .from("ugc_ia_generations")
+    .update({ montage_statut: "en_cours", montage_erreur: null, updated_at: maintenant() })
+    .eq("id", id)
+    .eq("statut", "prete")
+    .not("video_brute_url", "is", null)
+    .or("montage_statut.is.null,montage_statut.eq.echec")
+    .select("id, source_id, video_brute_path, video_brute_url")
+    .maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!g) return json({ error: "vidéo pas prête, ou montage déjà en cours" }, 409);
+  await enArrierePlan(rendreMontage(supabase, g as GenerationAMonter, d));
+  return json({ ok: true, statut: "en_cours" });
+}
+
+async function annulerMontage(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "").trim();
+  if (!id) return json({ error: "id requis" }, 400);
+  const { data: g, error: errLecture } = await supabase
+    .from("ugc_ia_generations")
+    .select("id, video_brute_path, video_brute_url, montage_statut")
+    .eq("id", id)
+    .maybeSingle();
+  if (errLecture) throw new Error(errLecture.message);
+  if (!g?.video_brute_url) return json({ error: "pas de vidéo d'origine" }, 404);
+  if (g.montage_statut === "en_cours") return json({ error: "un montage est en cours : attends sa fin" }, 409);
+  const { error } = await supabase
+    .from("ugc_ia_generations")
+    .update({
+      video_path: g.video_brute_path,
+      video_url: g.video_brute_url,
+      montage_debut_s: null,
+      montage_fin_s: null,
+      bandeau_actif: false,
+      montage_statut: null,
+      montage_erreur: null,
+      updated_at: maintenant(),
+    })
+    .eq("id", id);
   if (error) throw new Error(error.message);
   return json({ ok: true });
 }
@@ -382,6 +530,10 @@ Deno.serve(async (request) => {
         return await generer(supabase, body);
       case "suivre":
         return await suivre(supabase);
+      case "monter":
+        return await monter(supabase, body);
+      case "annuler_montage":
+        return await annulerMontage(supabase, body);
       case "supprimer_source":
         return await supprimerSource(supabase, body);
       case "supprimer_generation":
@@ -392,7 +544,7 @@ Deno.serve(async (request) => {
         return json(
           {
             error:
-              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | supprimer_source | supprimer_generation | rapatrier_personas)",
+              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas)",
           },
           400,
         );

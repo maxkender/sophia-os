@@ -3,13 +3,18 @@ import { assertEquals, assertThrows } from "jsr:@std/assert@1";
 import {
   cheminGeneration,
   cheminPersona,
+  cheminsMontage,
   cheminsUgcIa,
+  coupeUtile,
+  demandeMontage,
   lienTiktok,
   nettoyerCta,
   partieSource,
   passage,
   personasDemandees,
+  pngDepuisBase64,
   urlImageExtraite,
+  urlVideoFal,
 } from "./ugc_ia.ts";
 
 Deno.test("lienTiktok : garde l'origine et le chemin, refuse le reste", () => {
@@ -83,4 +88,59 @@ Deno.test("urlImageExtraite : images[0].url de fal, avec ou sans enveloppe data"
 Deno.test("nettoyerCta : lignes vides et guillemets retirés", () => {
   assertEquals(nettoyerCta('  "I could KISS the person\n\n who showed me this 😭😭"  '), "I could KISS the person\nwho showed me this 😭😭");
   assertEquals(nettoyerCta(null), "");
+});
+
+// Un PNG 1×1 transparent, en base64.
+const PNG_1X1 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
+
+Deno.test("cheminsMontage : coupe, bandeau et vidéo montée à côté de la génération", () => {
+  assertEquals(cheminsMontage("s1", "g1"), {
+    coupe: "ugc-ia/s1/g1-coupe.mp4",
+    bandeau: "ugc-ia/s1/g1-bandeau.png",
+    monte: "ugc-ia/s1/g1-monte.mp4",
+  });
+});
+
+Deno.test("pngDepuisBase64 : PNG avec ou sans préfixe data:, refuse le reste", () => {
+  assertEquals(pngDepuisBase64(PNG_1X1)?.[1], 0x50);
+  assertEquals(pngDepuisBase64(`data:image/png;base64,${PNG_1X1}`)?.[1], 0x50);
+  assertEquals(pngDepuisBase64(btoa("pas une image")), null);
+  assertEquals(pngDepuisBase64("%%%"), null);
+  assertEquals(pngDepuisBase64(""), null);
+});
+
+Deno.test("demandeMontage : coupe seule, bandeau seul, et leurs erreurs", () => {
+  assertEquals(demandeMontage({ debut: "0,5", fin: 3.24 }), { debut: 0.5, fin: 3.2, bandeauTexte: null, bandeauPosition: null, bandeau: null });
+  const avec = demandeMontage({ bandeau: { actif: true, texte: "  I could KISS 😭 ", position: 41.6, png: PNG_1X1 } });
+  if ("erreur" in avec) throw new Error(avec.erreur);
+  assertEquals([avec.debut, avec.fin, avec.bandeauTexte, avec.bandeauPosition, avec.bandeau?.png[0]], [null, null, "I could KISS 😭", 42, 0x89]);
+  // Bandeau retiré : on garde son texte et sa hauteur pour la prochaine fois.
+  assertEquals(demandeMontage({ bandeau: { actif: false, texte: "abc", position: 30 } }), {
+    debut: null,
+    fin: null,
+    bandeauTexte: "abc",
+    bandeauPosition: 30,
+    bandeau: null,
+  });
+  assertEquals("erreur" in demandeMontage({ debut: 1 }), true);
+  assertEquals("erreur" in demandeMontage({ debut: 3, fin: 2 }), true);
+  assertEquals("erreur" in demandeMontage({ bandeau: { actif: true, texte: "", position: 40, png: PNG_1X1 } }), true);
+  assertEquals("erreur" in demandeMontage({ bandeau: { actif: true, texte: "a", position: 140, png: PNG_1X1 } }), true);
+  assertEquals("erreur" in demandeMontage({ bandeau: { actif: true, texte: "a", position: 40, png: "xx" } }), true);
+});
+
+Deno.test("coupeUtile : inutile si elle garde toute la vidéo", () => {
+  assertEquals(coupeUtile(null, null, 4), false);
+  assertEquals(coupeUtile(0, 4, 4.04), false);
+  assertEquals(coupeUtile(0.3, 4, 4.04), true);
+  assertEquals(coupeUtile(0, 3.5, 4.04), true);
+  assertEquals(coupeUtile(0, 3.5, null), true);
+});
+
+Deno.test("urlVideoFal : video.url ou video_url, avec ou sans enveloppe data", () => {
+  assertEquals(urlVideoFal({ video: { url: "https://v3.fal.media/o.mp4" } }), "https://v3.fal.media/o.mp4");
+  assertEquals(urlVideoFal({ video_url: "https://v3.fal.media/o.mp4" }), "https://v3.fal.media/o.mp4");
+  assertEquals(urlVideoFal({ data: { video: { url: "https://v3.fal.media/o.mp4" } } }), "https://v3.fal.media/o.mp4");
+  assertEquals(urlVideoFal({ data: {} }), null);
+  assertEquals(urlVideoFal(null), null);
 });

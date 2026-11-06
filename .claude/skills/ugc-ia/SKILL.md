@@ -72,6 +72,17 @@ group by 1, 2, 3 order by 1, 2, 3;
 Les vidéos sont dans `ugc_ia_generations.video_url`, rangées par source
 (`medias/ugc-ia/<source_id>/<generation_id>.mp4`).
 
+## Montage (migration 0659)
+
+Dans la page, « Monter » sur une vidéo générée la recadre dans le temps et
+pose le bandeau style Snapchat (texte du CTA par défaut, hauteur réglable).
+Le bandeau est dessiné par la page (PNG à la taille de la vidéo) et posé par
+la fonction `ugc-ia` (action `monter`, fal `ffmpeg-api/compose`), en
+arrière-plan. `video_url` devient la vidéo montée
+(`<generation_id>-monte.mp4`, ou `-coupe.mp4` sans bandeau) ; l'original de
+Genjutsu reste dans `video_brute_url`, et « Revenir à l'original »
+(`annuler_montage`) le remet.
+
 ## Qualité des vidéos (mesurée le 5/11)
 
 Genjutsu rend du **24 images/s** (la source est à 30) avec un **à-coup

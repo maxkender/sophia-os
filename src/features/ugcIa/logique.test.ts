@@ -4,6 +4,7 @@ import {
   arrondiDixieme,
   basculer,
   erreurPassage,
+  estMontee,
   lireSecondes,
   passageInitial,
   passageTelephoneInitial,
@@ -75,5 +76,10 @@ describe("UGC IA, logique", () => {
     expect(coches.size).toBe(0);
     const pleins = new Set(Array.from({ length: PERSONAS_MAX_PAR_LANCEMENT }, (_, i) => `p${i}`));
     expect(basculer(pleins, "de-trop").has("de-trop")).toBe(false);
+  });
+  it("reconnaît une vidéo montée : sa vidéo n'est plus l'original", () => {
+    expect(estMontee({ video_url: "a.mp4", video_brute_url: "a.mp4" })).toBe(false);
+    expect(estMontee({ video_url: "a-monte.mp4", video_brute_url: "a.mp4" })).toBe(true);
+    expect(estMontee({ video_url: null, video_brute_url: null })).toBe(false);
   });
 });

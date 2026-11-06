@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o100",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "187884ad-b198-4fe7-ad4b-421ae62e7220",
+ "titre": "5 things that make you hotter without changing your face #attractive #confidence #smartgirl #glowup #presence",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "187884ad-b198-4fe7-ad4b-421ae62e7220"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 3 de la boîte (parent 187884ad, langue source en) : accroche du parent mot pour mot. Présence, jamais corps ni visage : choses neuves face au parent (voix calme, posture, attention entière, gentillesse avec les serveurs, curiosité). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b0705280",
+   "texte_overlay": "5 things that make you hotter\nwithout changing your face",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "89e093b1",
+   "texte_overlay": "1. a calm voice\n\nspeak a little slower.\nit reads as confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "63aeb227",
+   "texte_overlay": "2. good posture\n\nshoulders back, chin level.\nyou look ready for anything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0ef810e0",
+   "texte_overlay": "3. full attention\n\nphone away, eyes up.\nnothing is more magnetic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0a63fa95",
+   "texte_overlay": "4. kindness to waiters\n\npeople notice. always.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d463725",
+   "texte_overlay": "5. curiosity\n\nalways have something new\nto talk about: a painting,\na city, a strange fact.",
+   "texte_sophia": "5. curiosity\n\ni learn something new every\nday on a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3892216a",
+   "texte_overlay": "save this and start today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688017208450059541/7.jpg"
+  }
+ ]
+}

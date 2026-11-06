@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o097",
+ "type_bleo": "full_test",
+ "titre": "conversation starters for people who hate small talk #conversation #smalltalk #smartgirl #socialskills #deeptalk",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "a1798d7c-5988-4510-87de-37c1424e9e1d"
+ ],
+ "notes": "cta A. Full test (la jauge en demande 1 sur 9) : accroche jamais faite chez nous (« conversation starters » n'apparaît nulle part dans donnees/label.json). Accroches écrites : « conversation starters for people who hate small talk » (retenue : promesse concrète, très enregistrable, cœur du « speak better »), « questions that make any dinner unforgettable » (écartée : proche de « how to ask valuable questions » déjà dans le label), « what to say instead of how are you » (écartée : format liste de mots déjà très fait). Sophia sur la dernière slide à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3f2b79fe",
+   "texte_overlay": "conversation starters for\npeople who hate small talk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "05a2fd6c",
+   "texte_overlay": "\"what's the best thing that\nhappened to you this week?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a0cde59",
+   "texte_overlay": "\"what are you obsessed\nwith right now?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "13211b26",
+   "texte_overlay": "\"what did you want to be\nwhen you were ten?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1f26c62a",
+   "texte_overlay": "\"what's a film you'd make\neveryone watch?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2840becb",
+   "texte_overlay": "\"what's something you changed\nyour mind about this year?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2cc0518d",
+   "texte_overlay": "\"if you could live in any city,\nin any century, where\nand when?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "35081a10",
+   "texte_overlay": "and always bring one of your own:\na strange fact, a painting,\na moment in history.",
+   "texte_sophia": "and always bring one of your own.\ni find mine in 5 minutes a day\non a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/7.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "28e7c9a9",
+   "texte_overlay": "save this before your\nnext party",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644525871843380501/7.jpg"
+  }
+ ]
+}

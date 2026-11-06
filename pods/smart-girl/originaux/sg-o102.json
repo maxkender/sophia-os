@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o102",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "82d748ab-d4e4-4100-9f17-45658bab961e",
+ "titre": "how to become the smartest girl in every room you enter #smartgirl #intelligent #selfimprovement #learning #thatgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "6b1292d0-aef4-457b-95ec-2c6c644bfa92"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 5 de la boîte (parent 82d748ab, langue source en) : accroche du parent mot pour mot. Conseils neufs face au parent (écouter plus, un peu d'histoire, la question que personne n'ose, un peu de sciences, ne jamais faire semblant). Sophia en cta C (à la place du scroll). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "326a8e65",
+   "texte_overlay": "how to become the smartest girl\nin every room you enter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10046687",
+   "texte_overlay": "1. listen more than you talk\n\nyou learn what others know.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5589927a",
+   "texte_overlay": "2. know a little history\n\nevery news story has roots.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "24e05be4",
+   "texte_overlay": "3. ask the question everyone\nis afraid to ask",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "77469a4b",
+   "texte_overlay": "4. learn a little science\n\nhow stars, vaccines and\nweather actually work.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3f846980",
+   "texte_overlay": "5. never pretend\n\n\"i don't know, explain it to me\"\nis a power move.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "63a06b2f",
+   "texte_overlay": "6. swap the scroll for\na 5-minute lesson\n\nart, history, science.",
+   "texte_sophia": "6. swap the scroll for\na 5-minute lesson\n\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8bdecdfb",
+   "texte_overlay": "save this and start tonight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607603743709760798/5.jpg"
+  }
+ ]
+}

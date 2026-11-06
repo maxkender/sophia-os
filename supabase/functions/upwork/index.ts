@@ -161,6 +161,10 @@ const COMPTE = "principal";
  *       `accueil_contrats_depuis` → posteur créé et message de bienvenue
  *       (annonce connue), « Contrats à relier », ou doublon signalé.
  *       Interrupteur `accueil_auto` (off / test / on).
+ *   { action: "kill_immediat", id }         admin (trigger de la carte, 0546)
+ *       STOP jamais posté : la réponse gentille à qui attend encore, puis
+ *       désactivation, contrat fermé (compte de Max, VIk Studios) et milestone
+ *       financé récupéré (kill_lot) ; échec → carte Paie pour le Pay Bot.
  *   { action: "bonus_test", id }            admin (trigger de la carte, 0543)
  *       Le test du bonus classique : sendCustomPayment, 1 $, note « Test bonus »,
  *       sur le contrat préparé par bonus_test_preparer, seulement après le clic
@@ -302,6 +306,8 @@ Deno.serve(async (request) => {
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "bonus_test":
         return json(await bonusTest(supabase, par, String(body.id ?? "")));
+      case "kill_immediat":
+        return json(await killImmediat(supabase, par, String(body.id ?? "")));
       case "reprise_conversations":
         // 0504 : l'historique complet des conversations jamais lues, quelques-unes par passage, la nuit.
         return json(await repriseConversations(supabase, par));
@@ -4567,6 +4573,57 @@ async function noterFinKill(supabase: Supabase, posterId: string) {
       etape("fermeture", "fait", "contrat fermé au Kill (page Problèmes ou lot)")];
     await supabase.from("arrets").update({ etapes, statut: "fait", maj_at: new Date().toISOString() }).eq("id", a.id);
   }
+}
+
+/**
+ * 0546 : le kill immédiat d'un lot de STOP jamais postés, après le clic de Max
+ * (carte « Killer les N maintenant »). 1. La réponse gentille de sa carte à qui
+ * attend encore une réponse (relu juste avant : jamais deux fois). 2. Compte et
+ * profil désactivés, arrêt sans message, cartes fermées. 3. kill_lot : contrat
+ * fermé, milestone financé récupéré ; échec → carte Paie (Pay Bot).
+ */
+async function killImmediat(supabase: Supabase, par: string | null, id: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: k } = await supabase.from("kills_immediats").select("*").eq("id", id).maybeSingle();
+  if (!k) return { ok: false, error: "lot introuvable" };
+  if (k.statut !== "en_cours") return { ok: false, error: `lot ${k.statut} : rien n'est fait` };
+  const { data: carte } = await supabase.from("problemes").select("decision_choisie, journal").eq("id", k.probleme_id).maybeSingle();
+  if (carte?.decision_choisie !== 0) {
+    await supabase.from("kills_immediats").update({ statut: "erreur", resultat: { erreur: "carte pas validée" } }).eq("id", id);
+    return { ok: false, error: "la carte n'a pas été validée" };
+  }
+  const lignes = ((k.contrats ?? []) as { poster_id: string; contrat_id: string; nom?: string }[]).filter((l) => l.poster_id && l.contrat_id);
+  // 1. La réponse gentille, seulement à qui attend encore (relu maintenant).
+  const messages: Record<string, unknown>[] = [];
+  for (const l of lignes) {
+    const { data: attend } = await supabase.rpc("probleme_sans_reponse", { p_poster: l.poster_id });
+    if (!attend) continue;
+    const { data: c } = await supabase.from("problemes").select("proposition_reponse").eq("poster_id", l.poster_id).eq("statut", "ouvert")
+      .not("proposition_reponse", "is", null).order("created_at").limit(1).maybeSingle();
+    const texte = String(c?.proposition_reponse ?? "").trim();
+    if (!texte) {
+      messages.push({ nom: l.nom ?? null, envoye: false, raison: "pas de réponse proposée" });
+      continue;
+    }
+    const envoi = await messagePosteur(supabase, par, l.poster_id, texte, "stop");
+    messages.push({ nom: l.nom ?? null, envoye: envoi.ok, erreur: envoi.ok ? null : (envoi as { error?: string }).error ?? null });
+  }
+  // 2. Désactiver, noter l'arrêt sans message, fermer leurs cartes.
+  const { error: errDesactiver } = await supabase.rpc("kill_immediat_desactiver", { p_id: id });
+  if (errDesactiver) {
+    await supabase.from("kills_immediats").update({ statut: "erreur", resultat: { messages, erreur: errDesactiver.message } }).eq("id", id);
+    return { ok: false, error: `désactivation : ${errDesactiver.message}`, messages };
+  }
+  // 3. Fermer les contrats et récupérer les milestones financés (échec → carte Paie).
+  const r = await killLot(supabase, par, lignes.map((l) => ({ contrat_id: l.contrat_id, poster_id: l.poster_id })), true);
+  const resultat = { messages, lignes: (r as { lignes?: unknown[] }).lignes ?? [], erreur: (r as { error?: string }).error ?? null };
+  await supabase.from("kills_immediats").update({ statut: r.ok ? "fait" : "erreur", resultat, fait_at: new Date().toISOString() }).eq("id", id);
+  const resume = ((resultat.lignes ?? []) as { nom?: string; texte?: string }[]).map((x) => `${x.nom ?? "?"} : ${x.texte ?? "?"}`).join(" | ");
+  await supabase.from("problemes").update({
+    ferme_raison: `Kill immédiat fait. ${resume}`.slice(0, 2000),
+    journal: [...((carte?.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "kill_immediat_resultat", resultat }],
+  }).eq("id", k.probleme_id);
+  return { ok: r.ok, ...resultat };
 }
 
 async function killLot(supabase: Supabase, par: string | null, contrats: { contrat_id: string; poster_id: string | null }[], executer: boolean) {

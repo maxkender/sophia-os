@@ -7375,6 +7375,7 @@ export const fr = {
       modifierLien: "Modifier le lien",
       modifiableJusqua: "Tu peux corriger le lien jusqu'au {{date}}.",
       manqueTitre: "Manqué",
+      manqueGrace: "Tu peux encore ajouter le lien TikTok jusqu'au {{date}} (ton heure locale) : il comptera pour le {{jour}}.",
       manqueAide: "Ce post devait être marqué publié avant le {{date}} (ton heure locale). Il compte comme manqué.",
       echeanceAvant: "Marque-le publié avant le {{date}} (ton heure locale). Après, il compte comme manqué.",
       delaiDepasse: "Trop tard : l'échéance pour marquer ce post publié est passée. Il compte comme manqué.",

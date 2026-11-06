@@ -7365,6 +7365,7 @@ export const en = {
       modifierLien: "Edit link",
       modifiableJusqua: "You can fix the link until {{date}}.",
       manqueTitre: "Missed",
+      manqueGrace: "You can still add the TikTok link until {{date}} (your local time): it will count for {{jour}}.",
       manqueAide: "This post had to be marked as published before {{date}} (your local time). It counts as missed.",
       echeanceAvant: "Mark it as published before {{date}} (your local time). After that it counts as missed.",
       delaiDepasse: "Too late: the deadline to mark this post as published has passed. It counts as missed.",

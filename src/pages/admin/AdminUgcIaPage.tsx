@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Clapperboard, Sparkles, UserRound } from "lucide-react";
+import { ChevronsDownUp, ChevronsUpDown, Clapperboard, Link2, Sparkles, UserRound } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ import {
 } from "@/features/ugcIa/api";
 import { CarteSource } from "@/features/ugcIa/CarteSource";
 import { CartePostsUgcv } from "@/features/ugcIa/PostsUgcv";
+import { useSourcesFermees } from "@/features/ugcIa/accordeon";
 import { messageErreur } from "@/features/ugcIa/logique";
 
 /** Toutes les 15 s tant qu'une génération tourne (Genjutsu prend quelques minutes). */
@@ -91,6 +92,9 @@ export function AdminUgcIaPage() {
   }, [enCours, qc]);
 
   const liste = personas.data ?? [];
+  const accordeon = useSourcesFermees(sources.data?.map((s) => s.id));
+  const nbSources = sources.data?.length ?? 0;
+  const nbFermees = (sources.data ?? []).filter((s) => accordeon.fermees.has(s.id)).length;
   return (
     <div className="space-y-6" data-testid="page-ugc-ia">
       <PageHeader
@@ -113,9 +117,25 @@ export function AdminUgcIaPage() {
       <CartePostsUgcv sources={sources.data ?? []} personas={liste} />
 
       <section className="space-y-3" aria-labelledby="ugc-ia-sources">
-        <h2 id="ugc-ia-sources" className="text-sm font-semibold">
-          {t("ugcIa.sources")}
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 id="ugc-ia-sources" className="flex items-center gap-2 text-sm font-semibold">
+            <Clapperboard className="size-4 text-muted-foreground" aria-hidden />
+            {t("ugcIa.sources")}
+            {nbSources > 0 && <span className="font-normal text-muted-foreground">({nbSources})</span>}
+          </h2>
+          {nbSources > 1 && (
+            <div className="flex gap-1">
+              <Button variant="ghost" size="xs" disabled={nbFermees === 0} onClick={accordeon.toutOuvrir}>
+                <ChevronsUpDown aria-hidden />
+                {t("ugcIa.toutOuvrir")}
+              </Button>
+              <Button variant="ghost" size="xs" disabled={nbFermees === nbSources} onClick={accordeon.toutFermer}>
+                <ChevronsDownUp aria-hidden />
+                {t("ugcIa.toutFermer")}
+              </Button>
+            </div>
+          )}
+        </div>
         {erreurSuivi && (
           <p role="alert" className="text-sm text-destructive">
             {t("ugcIa.erreurSuivi", { message: erreurSuivi })}
@@ -124,7 +144,9 @@ export function AdminUgcIaPage() {
         {sources.data && sources.data.length === 0 && (
           <EmptyState icon={<Clapperboard />} title={t("ugcIa.vide")} description={t("ugcIa.videDetail")} />
         )}
-        {sources.data?.map((s) => <CarteSource key={s.id} source={s} personas={liste} />)}
+        {sources.data?.map((s) => (
+          <CarteSource key={s.id} source={s} personas={liste} ouverte={!accordeon.fermees.has(s.id)} basculer={() => accordeon.basculer(s.id)} />
+        ))}
       </section>
     </div>
   );
@@ -225,12 +247,13 @@ function CarteImport() {
           <li>{t("ugcIa.etape4")}</li>
         </ol>
         <form
-          className="flex flex-wrap gap-2"
+          className="flex flex-wrap items-center gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             if (lien.trim()) importer.mutate();
           }}
         >
+          <Link2 className="size-4 shrink-0 text-muted-foreground" aria-hidden />
           <Input
             className="min-w-0 flex-1"
             value={lien}
@@ -239,6 +262,7 @@ function CarteImport() {
             aria-label={t("ugcIa.lienTiktok")}
           />
           <Button type="submit" loading={importer.isPending} disabled={!lien.trim()}>
+            <Sparkles aria-hidden />
             {t("ugcIa.importer")}
           </Button>
         </form>

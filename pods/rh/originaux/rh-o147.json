@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o147",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b80c0573-ff44-459e-beeb-e54be7ea617d",
+ "titre": "les trucs de recruteurs que je devrais pas dire à voix haute #recrutement #rechercheemploi #candidature #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G1 de la ligne 11 (parent b80c0573) : accroche mot pour mot, autres coulisses que le parent. Aucune entreprise, aucun site d'emploi cité. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "955b2e92",
+   "texte_overlay": "les trucs de recruteurs\nque je devrais pas dire\nà voix haute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b6ed5840",
+   "texte_overlay": "on lit ta lettre seulement si le cv nous a plu\nsoigne d'abord le cv",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b6f49e80",
+   "texte_overlay": "on retient les candidats qui posent une vraie question\npas ceux qui récitent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b74c6b55",
+   "texte_overlay": "on se souvient de toi grâce à un détail\nune passion, une anecdote. personne ne retient « dynamique »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b75b12c6",
+   "texte_overlay": "le salaire « selon profil » a une limite\nelle existait avant ton entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "957b65f9",
+   "texte_overlay": "on préfère quelqu'un qui apprend vite à quelqu'un qui sait déjà tout\nmontre que t'apprends : 5 minutes par jour, ça se raconte",
+   "texte_sophia": "on préfère quelqu'un qui apprend vite à quelqu'un qui sait déjà tout\nmontre que t'apprends : 5 minutes par jour sur l'appli Sophia, ça se raconte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b848e340",
+   "texte_overlay": "et la fin du process prend souvent plus de temps que prévu\nrelance une fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b8657045",
+   "texte_overlay": "laquelle t'étonne le plus ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

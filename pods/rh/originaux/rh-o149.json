@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o149",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bf49b37f-8796-4620-b756-6e72ff8a68fe",
+ "titre": "comment quitter un job toxique sans démissionner et se retrouver au chômage #travail #santementale #emploi #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 13 (parent bf49b37f) : accroche mot pour mot, autres étapes que le parent et rh-o002. Rien de juridique précis : juriste, syndicat. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a057ed2b",
+   "texte_overlay": "comment quitter un job toxique\nsans démissionner\net se retrouver au chômage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bd53f772",
+   "texte_overlay": "étape 1 : note tout\ndates, faits, messages. sans commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bd74c4ea",
+   "texte_overlay": "étape 2 : renseigne-toi sur tes options\nauprès d'un syndicat ou d'un juriste. chaque cas est différent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bd9613f9",
+   "texte_overlay": "étape 3 : prépare la suite en silence\ncv à jour, 3 personnes à recontacter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9a23041a",
+   "texte_overlay": "étape 4 : garde ta tête hors de l'eau\nle sport, tes proches, 5 minutes par jour à apprendre autre chose",
+   "texte_sophia": "étape 4 : garde ta tête hors de l'eau\nle sport, tes proches, et 5 minutes par jour sur l'appli Sophia pour apprendre autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "be90e0ea",
+   "texte_overlay": "étape 5 : ne signe rien dans l'urgence\nprends le temps de te faire conseiller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bfb50258",
+   "texte_overlay": "tu peux protéger ta santé ET tes droits",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c038c28f",
+   "texte_overlay": "envoie ça à quelqu'un qui en a besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o140",
+ "type_bleo": "full_test",
+ "titre": "ma première semaine de reconversion : ce que j'ai appris en 5 jours #reconversion #carriere #travail #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Full test : accroche jamais faite chez nous (la première semaine de reconversion). Récit inventé, aucune entreprise ni formation nommée. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6d81ce98",
+   "texte_overlay": "ma première semaine de reconversion :\nce que j'ai appris en 5 jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "95534d48",
+   "texte_overlay": "lundi : je ne savais rien\net c'était normal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "95a429ad",
+   "texte_overlay": "mardi : j'ai posé 30 questions\npersonne ne m'a jugée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "96f2b3f7",
+   "texte_overlay": "mercredi : mes anciens réflexes servaient\nl'organisation, les mails, le calme. tout se transfère",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8d307d82",
+   "texte_overlay": "jeudi : j'ai appris un truc chaque soir\n5 minutes, pas plus. et je ne me sentais plus en retard",
+   "texte_sophia": "jeudi : j'ai appris un truc chaque soir\n5 minutes sur l'appli Sophia, pas plus. et je ne me sentais plus en retard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "98d6c670",
+   "texte_overlay": "vendredi : j'ai réussi une petite tâche seule\net j'ai su que j'avais bien fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9951a58b",
+   "texte_overlay": "tu repars de zéro ?\nnon. tu repars d'ailleurs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9b16ca69",
+   "texte_overlay": "ton ancien métier → ton nouveau,\nécris-les ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

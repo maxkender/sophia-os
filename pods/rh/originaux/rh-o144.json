@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o144",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "85306b49-7e97-4690-9773-e8b174fb5b2d",
+ "titre": "si je sortais d'école en 2026 sans aucune offre d'emploi, voilà exactement ce que je ferais #jeunediplome #rechercheemploi #emploi #premierjob #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 2 (parent 85306b49) : accroche mot pour mot, autre plan que le parent. Aucune entreprise ni plateforme citée. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "87897d25",
+   "texte_overlay": "si je sortais d'école en 2026\nsans aucune offre d'emploi,\nvoilà exactement ce que je ferais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ae882298",
+   "texte_overlay": "jour 1 : je choisirais 2 métiers, pas 10\nun cv par métier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "afdb4950",
+   "texte_overlay": "semaine 1 : j'écrirais à 10 anciens de mon école\n« je peux te poser 3 questions sur ton métier ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b04194f9",
+   "texte_overlay": "semaine 2 : je viserais les petites boîtes\nmoins de candidats, plus de chances d'être lue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "91eecf2f",
+   "texte_overlay": "chaque jour : 5 minutes à apprendre un truc\nl'histoire, la science. en entretien, ça fait la différence",
+   "texte_sophia": "chaque jour : 5 minutes à apprendre un truc\nperso, sur l'appli Sophia. en entretien, ça fait la différence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b05fd857",
+   "texte_overlay": "chaque vendredi : je noterais mes réponses\net ce qui a marché",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b117c19d",
+   "texte_overlay": "t'es pas en retard.\nt'es au début",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b158f85b",
+   "texte_overlay": "tu sors d'école cette année ?\ndis-nous dans quoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

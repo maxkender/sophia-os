@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o144",
+ "type_bleo": "full_test",
+ "titre": "Boring money rules every man should know by 25 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 4714de4b. full test. Accroche jamais faite chez nous : règles d'argent simples (f2cdd3bd « money skills » est une autre accroche). Accroches écrites : « Boring money rules every man should know by 25 » (retenue), « Money mistakes men make in their 20s » (écartée : négatif), « How to stop being broke » (écartée : racoleur). Conseils généraux, aucune recommandation financière précise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4714de4b",
+   "texte_overlay": "Boring money rules every\nman should know by 25",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Pay yourself first. On payday, move a fixed amount to savings before you spend anything. What's left is your budget. It's boring, and it works every single month.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keep an emergency fund. Three months of basic costs, untouched. A broken phone or a lost job becomes an annoying week instead of a crisis that ruins your year.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Never borrow for things that lose value. Clothes, holidays, the latest phone. If you can't pay for it now, you can't afford it yet. Wait, save, then buy it.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Know where your money goes. Check your spending once a week for ten minutes. Most men are shocked by what small daily purchases add up to by the end of the month.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: no idea how money really worked. After: five minutes a day of history, art or science, and the curiosity to finally understand things that matter.",
+   "texte_sophia": "Before: no idea how money really worked. After: five minutes a day on a micro-learning app like the Sophia app. Now I have the curiosity to understand what matters.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Raise your income, not just cut costs. Learn a skill, ask for the raise, take the side project. You can only save so much, but you can keep growing what you earn.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Spend freely on what you love, cut hard on what you don't. Travel, good food, books? Go for it. Subscriptions you forgot about? Cancel them today.",
+   "media_id": "f4bd619d"
+  }
+ ]
+}

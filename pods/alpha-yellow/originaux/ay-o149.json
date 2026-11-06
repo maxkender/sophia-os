@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o149",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "102a6a11-41d9-4934-83a1-566bb11f4609",
+ "titre": "L'effet cumulé : 4 micro-habitudes du soir qui vont transformer tes matins #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "102a6a11-41d9-4934-83a1-566bb11f4609"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5f7efc4c. déclinaison G1 de la ligne 4 de la boîte (102a6a11, bg 3,6 k r 2,79), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. 4 habitudes neuves (aucune reprise : tenue, brain dump, température, eau), puis la slide Sophia, puis le pourquoi et la conclusion. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5f7efc4c",
+   "texte_overlay": "L'effet cumulé : 4 micro-habitudes\ndu soir qui vont transformer tes matins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Étape 1 : Range ton espace en dix minutes. Cuisine propre, bureau dégagé, sac prêt près de la porte. Te réveiller dans un endroit en ordre, c'est commencer la journée l'esprit léger.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Étape 2 : Écris les trois priorités de demain. Pas une liste de vingt tâches, juste trois. Au réveil, tu sais déjà par où commencer, et tu ne perds pas ta première heure à hésiter.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Étape 3 : Coupe les écrans une heure avant de dormir. Pose le téléphone hors de la chambre. Ton cerveau se calme, tu t'endors plus vite et tu te réveilles vraiment reposé.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Étape 4 : Prépare ton petit-déjeuner la veille. Flocons d'avoine, fruits coupés, café prêt à lancer. Un vrai repas sans effort le matin change ton énergie pour toute la journée.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bonus : nourris ta tête avant de dormir. Je fais cinq minutes d'histoire, d'art ou de science chaque soir, et je me lève avec des idées neuves au lieu de mes soucis.",
+   "texte_sophia": "Bonus : je fais cinq minutes chaque soir sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Je me lève avec des idées neuves, pas avec mes soucis.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi ça marche : chaque habitude est minuscule, mais ensemble elles retirent toutes les petites décisions du matin. Moins de décisions, c'est plus d'énergie pour ce qui compte.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "L'effet cumulé, c'est ça : quatre gestes de dix minutes le soir, et après trois semaines tes matins ne ressemblent plus du tout à ceux d'avant. Commence ce soir avec une seule.",
+   "media_id": "38041cfe"
+  }
+ ]
+}

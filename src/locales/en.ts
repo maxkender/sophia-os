@@ -691,6 +691,16 @@ export const en = {
         bilan: "{{n}} approved: {{partis}} sent now, {{attente}} waiting for Upwork's budget; the rest goes out at the next runs.",
       },
       sent: {
+        incompris: {
+          titre: "Automatic texts: what posters didn't understand",
+          aide: "Each message type sent automatically (reminders, nudges, Recreate popup, reminders, welcome, end of contract…), how many were sent and how many “What does it mean / I don't understand” replies came within 48 h. Most misunderstood first; click to see the last text sent and the replies.",
+          periode: "Period",
+          jours: "Last {{n}} days",
+          envoyes: "{{n}} sent · {{p}} posters",
+          nb: "{{n}} not understood",
+          aucun: "0 not understood",
+          types: { relance: "Daily reminder", jeudi: "Thursday nudge", jeudi_recrue: "Thursday (recruit)", bienvenue: "Welcome", recreer: "Recreate popup", recreer_upwork: "Recreate (Upwork)", lundi_soir: "Monday 8 pm", connexion: "Login reminder", tiktok: "TikTok reminder", handle: "TikTok @ not found", double: "Double", kill: "End of contract (Kill)", arret: "Stop", lien_mot_de_passe: "Password link" },
+        },
         ongletsAria: "Messages sent tabs",
         onglets: { journal: "Log", approuver: "To approve", main: "By hand (HMs)", prevus: "Planned", apercu: "Preview", textes: "Texts", timing: "Timing" },
         journal: {
@@ -7374,6 +7384,7 @@ export const en = {
       modifierLien: "Edit link",
       modifiableJusqua: "You can fix the link until {{date}}.",
       manqueTitre: "Missed",
+      manqueGrace: "You can still add the TikTok link until {{date}} (your local time): it will count for {{jour}}.",
       manqueAide: "This post had to be marked as published before {{date}} (your local time). It counts as missed.",
       echeanceAvant: "Mark it as published before {{date}} (your local time). After that it counts as missed.",
       delaiDepasse: "Too late: the deadline to mark this post as published has passed. It counts as missed.",

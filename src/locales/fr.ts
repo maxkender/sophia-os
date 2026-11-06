@@ -691,6 +691,16 @@ export const fr = {
         bilan: "{{n}} approuvés : {{partis}} partis maintenant, {{attente}} attendent le budget Upwork ; le reste part aux passages suivants.",
       },
       sent: {
+        incompris: {
+          titre: "Textes automatiques : ce que les posteurs n'ont pas compris",
+          aide: "Chaque type de message parti tout seul (relances, nudges, popup Recreate, rappels, bienvenue, fin de contrat…), le nombre d'envois et le nombre de réponses « What does it mean / I don't understand » reçues dans les 48 h. Le plus incompris en haut ; cliquer pour voir le dernier texte parti et les réponses.",
+          periode: "Période",
+          jours: "{{n}} derniers jours",
+          envoyes: "{{n}} envois · {{p}} posteurs",
+          nb: "{{n}} incompris",
+          aucun: "0 incompris",
+          types: { relance: "Relance du jour", jeudi: "Nudge du jeudi", jeudi_recrue: "Jeudi (recrue)", bienvenue: "Bienvenue", recreer: "Popup Recreate", recreer_upwork: "Recreate (Upwork)", lundi_soir: "Lundi 20 h", connexion: "Relance connexion", tiktok: "Relance TikTok", handle: "@ TikTok introuvable", double: "Double", kill: "Fin de contrat (Kill)", arret: "Arrêt", lien_mot_de_passe: "Lien mot de passe" },
+        },
         ongletsAria: "Onglets de Messages envoyés",
         onglets: { journal: "Journal", approuver: "À approuver", main: "À la main (HM)", prevus: "Prévu", apercu: "Aperçu", textes: "Textes", timing: "Délais" },
         journal: {
@@ -7384,6 +7394,7 @@ export const fr = {
       modifierLien: "Modifier le lien",
       modifiableJusqua: "Tu peux corriger le lien jusqu'au {{date}}.",
       manqueTitre: "Manqué",
+      manqueGrace: "Tu peux encore ajouter le lien TikTok jusqu'au {{date}} (ton heure locale) : il comptera pour le {{jour}}.",
       manqueAide: "Ce post devait être marqué publié avant le {{date}} (ton heure locale). Il compte comme manqué.",
       echeanceAvant: "Marque-le publié avant le {{date}} (ton heure locale). Après, il compte comme manqué.",
       delaiDepasse: "Trop tard : l'échéance pour marquer ce post publié est passée. Il compte comme manqué.",

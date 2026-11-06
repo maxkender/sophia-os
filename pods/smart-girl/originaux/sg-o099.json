@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o099",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c741dc40-3d16-4c63-9a93-e6b58e802c82",
+ "titre": "the underrated skills of a woman everyone respects #skills #elegance #smartgirl #selfrespect #thatgirl",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "163b346f-ca7f-46bf-b5a7-cefb39b88984"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 2 de la boîte (parent c741dc40, langue source en) : accroche reformulée (« skills of a dangerous woman nobody wants to know » → « the underrated skills of a woman everyone respects »), autre que la G2 d'hier (sg-o089). Savoir-faire neufs (recevoir six personnes, un toast d'une minute, des cartes qu'on garde, s'excuser sans « mais », s'orienter dans une ville). Sophia en cta C (à la place du scroll). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b3b9e96c",
+   "texte_overlay": "the underrated skills of\na woman everyone respects",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1b450fd3",
+   "texte_overlay": "1. she can host a dinner\nfor six without panic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25458a75",
+   "texte_overlay": "2. she can give a one-minute\ntoast that makes people cry",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5a3c50e4",
+   "texte_overlay": "3. she writes cards people\nkeep for years",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "30c55aed",
+   "texte_overlay": "4. she apologises properly\n\n\"i was wrong. i'm sorry.\"\nno \"but\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2288f3cb",
+   "texte_overlay": "5. she finds her way in\nany city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0c4d3ca3",
+   "texte_overlay": "6. she trades the scroll for\nsomething real\n\na painting, a war,\na planet, a poet.",
+   "texte_sophia": "6. she trades the scroll for\nsomething real\n\n5 minutes a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "05bb8726",
+   "texte_overlay": "which one are you\nlearning next?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/8.jpg"
+  }
+ ]
+}

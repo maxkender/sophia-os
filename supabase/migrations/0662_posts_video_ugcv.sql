@@ -13,6 +13,10 @@
 -- `post_type` gagne `video` ; la valeur n'est utilisée qu'après cette
 -- migration (fonction `ugc-ia`), Postgres refuse de s'en servir dans la même
 -- transaction.
+--
+-- ✅ Appliquée le 2026-11-06 (MCP) : `video` dans post_type, contenu_id
+-- facultatif, post_videos et ses règles, suivi BLEO relu (61 jours, pas
+-- d'alerte).
 
 alter type public.post_type add value if not exists 'video';
 

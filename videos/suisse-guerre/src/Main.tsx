@@ -12,7 +12,7 @@ import {S6Useful} from './scenes/S6Useful';
 import {S7Punch} from './scenes/S7Punch';
 import {Outro} from './scenes/Outro';
 import {tear, whip} from './transitions';
-import {OUTRO_D, OUTRO_FROM, SCENES_T, T} from './timeline';
+import {OUTRO_D, T, TimelineContext, timelineDe, useTimeline} from './timeline';
 import {Sound} from './Sound';
 import {Captions} from './Captions';
 
@@ -41,6 +41,7 @@ const PRESENTATIONS: TransitionPresentation<any>[] = [
 /** Grain de papier + vignette par-dessus tout */
 export const Paper: React.FC = () => {
   const f = useCurrentFrame();
+  const {outroFrom} = useTimeline();
   const st = step(f, 4);
   const ox = ((st * 37) % 40) - 20;
   const oy = ((st * 53) % 40) - 20;
@@ -55,7 +56,7 @@ export const Paper: React.FC = () => {
           left: -30 + ox,
           top: -40 + oy,
           mixBlendMode: 'overlay',
-          opacity: lerp(f, [OUTRO_FROM, OUTRO_FROM + 12], [0.55, 0.25]),
+          opacity: lerp(f, [outroFrom, outroFrom + 12], [0.55, 0.25]),
         }}
       />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(60,38,15,0.32) 100%)'}} />
@@ -63,37 +64,35 @@ export const Paper: React.FC = () => {
   );
 };
 
-const Film: React.FC = () => (
-  <TransitionSeries>
-    {SCENES.flatMap((s, i) => [
-      <TransitionSeries.Sequence key={s.id} name={s.id} durationInFrames={SCENES_T[i].d}>
-        <WarpContext.Provider value={SCENES_T[i].warp}>
-          <s.C />
-        </WarpContext.Provider>
-      </TransitionSeries.Sequence>,
-      <TransitionSeries.Transition key={`t${i}`} presentation={PRESENTATIONS[i]} timing={linearTiming({durationInFrames: T})} />,
-    ])}
-    <TransitionSeries.Sequence name="S8-Sophia" durationInFrames={OUTRO_D}>
-      <Outro />
-    </TransitionSeries.Sequence>
-  </TransitionSeries>
-);
+const Film: React.FC = () => {
+  const {scenes} = useTimeline();
+  return (
+    <TransitionSeries>
+      {SCENES.flatMap((s, i) => [
+        <TransitionSeries.Sequence key={s.id} name={s.id} durationInFrames={scenes[i].d}>
+          <WarpContext.Provider value={scenes[i].warp}>
+            <s.C />
+          </WarpContext.Provider>
+        </TransitionSeries.Sequence>,
+        <TransitionSeries.Transition key={`t${i}`} presentation={PRESENTATIONS[i]} timing={linearTiming({durationInFrames: T})} />,
+      ])}
+      <TransitionSeries.Sequence name="S8-Sophia" durationInFrames={OUTRO_D}>
+        <Outro />
+      </TransitionSeries.Sequence>
+    </TransitionSeries>
+  );
+};
 
-/** Vidéo finale : voix, bruitages et sous-titres */
-export const Main: React.FC = () => (
-  <AbsoluteFill style={{backgroundColor: '#E9DCC3'}}>
-    <Film />
-    <Paper />
-    <Captions />
-    <Sound />
-  </AbsoluteFill>
-);
+export type PropsVideo = {langue: string; sousTitres: boolean};
 
-/** Même vidéo sans sous-titres (pour un montage CapCut) */
-export const MainSansSousTitres: React.FC = () => (
-  <AbsoluteFill style={{backgroundColor: '#E9DCC3'}}>
-    <Film />
-    <Paper />
-    <Sound />
-  </AbsoluteFill>
+/** Vidéo finale d'une langue : voix, bruitages et (au choix) sous-titres */
+export const Main: React.FC<PropsVideo> = ({langue, sousTitres}) => (
+  <TimelineContext.Provider value={timelineDe(langue)}>
+    <AbsoluteFill style={{backgroundColor: '#E9DCC3'}}>
+      <Film />
+      <Paper />
+      {sousTitres && <Captions />}
+      <Sound />
+    </AbsoluteFill>
+  </TimelineContext.Provider>
 );

@@ -4,7 +4,7 @@ import {interpolate, Sequence, staticFile} from 'remotion';
 import {BOMBS, coinStart, COINS, TIP} from './scenes/S7Punch';
 import {TANKS} from './scenes/S2Alps';
 import {PUSH, TAPS} from './scenes/Outro';
-import {globalDe, OUTRO_FROM, OUTRO_VOICE, parle, SCENES_T, VOICE_START} from './timeline';
+import {OUTRO_VOICE, useTimeline, VOICE_START, type Timeline} from './timeline';
 
 type Ev = {f: number; son: string; vol: number; ambiance?: number};
 
@@ -100,38 +100,45 @@ const SOUS_VOIX = (son: string) => (IMPACTS.has(son) ? 0.65 : AMBIANCES.has(son)
 const HORS_VOIX = (son: string) => (AMBIANCES.has(son) ? 0.6 : 1);
 const TRANSITIONS = ['tear', 'whoosh', 'tear', 'whoosh', 'tear', 'whoosh', 'tear'];
 
-export const EVENEMENTS: Ev[] = [
-  ...PAR_SCENE.flatMap((evs, i) => evs.map(([s, son, vol]): Ev => ({f: globalDe(i, s), son, vol}))),
-  ...TRANSITIONS.map((son, i): Ev => ({f: i + 1 < SCENES_T.length ? SCENES_T[i + 1].from : OUTRO_FROM, son, vol: son === 'tear' ? 0.6 : 0.45})),
-  {f: OUTRO_FROM + 2, son: 'phone', vol: 0.6},
-  ...TAPS.map((t): Ev => ({f: OUTRO_FROM + t.f - 1, son: 'click', vol: 0.8})),
-  {f: OUTRO_FROM + TAPS[2].f + 1, son: 'correct', vol: 0.7},
-  {f: OUTRO_FROM + TAPS[4].f + 1, son: 'correct', vol: 0.7},
-  {f: OUTRO_FROM + PUSH.done + 8, son: 'sparkle', vol: 0.5},
-  {f: OUTRO_FROM + PUSH.done + 14, son: 'confetti', vol: 0.7},
-].map((e) => ({
-  ...e,
-  f: Math.max(0, e.f),
-  vol: e.vol * MASTER * (parle(e.f) || parle(e.f + 8) ? SOUS_VOIX(e.son) : HORS_VOIX(e.son)),
-  ambiance: AMBIANCES.has(e.son) ? 1 : undefined,
-}));
+export const evenements = (tl: Timeline): Ev[] => {
+  const {globalDe, scenes, outroFrom, parle} = tl;
+  return [
+    ...PAR_SCENE.flatMap((evs, i) => evs.map(([s, son, vol]): Ev => ({f: globalDe(i, s), son, vol}))),
+    ...TRANSITIONS.map((son, i): Ev => ({f: i + 1 < scenes.length ? scenes[i + 1].from : outroFrom, son, vol: son === 'tear' ? 0.6 : 0.45})),
+    {f: outroFrom + 2, son: 'phone', vol: 0.6},
+    ...TAPS.map((t): Ev => ({f: outroFrom + t.f - 1, son: 'click', vol: 0.8})),
+    {f: outroFrom + TAPS[2].f + 1, son: 'correct', vol: 0.7},
+    {f: outroFrom + TAPS[4].f + 1, son: 'correct', vol: 0.7},
+    {f: outroFrom + PUSH.done + 8, son: 'sparkle', vol: 0.5},
+    {f: outroFrom + PUSH.done + 14, son: 'confetti', vol: 0.7},
+  ].map((e) => ({
+    ...e,
+    f: Math.max(0, e.f),
+    vol: e.vol * MASTER * (parle(e.f) || parle(e.f + 8) ? SOUS_VOIX(e.son) : HORS_VOIX(e.son)),
+    ambiance: AMBIANCES.has(e.son) ? 1 : undefined,
+  }));
+};
 
-/** Voix off + bruitages */
-export const Sound: React.FC = () => (
-  <>
-    <Sequence from={VOICE_START} layout="none" name="Voix récit">
-      <Audio src={staticFile('audio/recit.mp3')} />
-    </Sequence>
-    <Sequence from={OUTRO_FROM + OUTRO_VOICE} layout="none" name="Voix fin">
-      <Audio src={staticFile('audio/outro.mp3')} />
-    </Sequence>
-    {EVENEMENTS.map((e, k) => (
-      <Sequence key={k} from={e.f} layout="none" name={e.son}>
-        <Audio
-          src={staticFile(`sfx/${e.son}.mp3`)}
-          volume={(f) => (e.ambiance ? interpolate(f, [0, 10], [0, e.vol], {extrapolateRight: 'clamp'}) : e.vol)}
-        />
+/** Voix off + bruitages de la langue en cours */
+export const Sound: React.FC = () => {
+  const tl = useTimeline();
+  const code = tl.langue.code;
+  return (
+    <>
+      <Sequence from={VOICE_START} layout="none" name="Voix récit">
+        <Audio src={staticFile(`audio/${code}/recit.mp3`)} />
       </Sequence>
-    ))}
-  </>
-);
+      <Sequence from={tl.outroFrom + OUTRO_VOICE} layout="none" name="Voix fin">
+        <Audio src={staticFile(`audio/${code}/outro.mp3`)} />
+      </Sequence>
+      {evenements(tl).map((e, k) => (
+        <Sequence key={k} from={e.f} layout="none" name={e.son}>
+          <Audio
+            src={staticFile(`sfx/${e.son}.mp3`)}
+            volume={(f) => (e.ambiance ? interpolate(f, [0, 10], [0, e.vol], {extrapolateRight: 'clamp'}) : e.vol)}
+          />
+        </Sequence>
+      ))}
+    </>
+  );
+};

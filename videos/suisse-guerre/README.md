@@ -1,4 +1,4 @@
-# « Why is Switzerland never at war? » — vidéo papier 45 s
+# « Why is Switzerland never at war? » — vidéo papier (FR, EN, DE, IT)
 
 Vidéo verticale 1080×1920, 30 i/s, 45 s (36 s de récit + 9 s de séquence Sophia), style papier découpé, **sans texte ni son** (le texte et la musique s'ajoutent sur CapCut). Faite avec Remotion.
 
@@ -18,18 +18,21 @@ Vidéo verticale 1080×1920, 30 i/s, 45 s (36 s de récit + 9 s de séquence Sop
 Le récit est ralenti par `STRETCH` (×1,2) et les tremblements de caméra par `SHAKE_K` (0,35), dans `src/lib.ts`.
 La séquence Sophia (`src/scenes/Outro.tsx`) utilise la capture d'accueil `public/sophia-home.webp` et la police Plus Jakarta Sans (`public/fonts`).
 
-## Voix, bruitages et sous-titres (version anglaise)
+## Langues, voix, bruitages et sous-titres
 
-- `src/script.json` : le texte de chaque scène + la voix ElevenLabs (Brian, multilingual v2).
-- `node scripts/voix.mjs` : génère `public/audio/recit.mp3` et `outro.mp3` avec l'horodatage de chaque caractère (`src/voix-*.json`).
-- `node scripts/bruitages.mjs` : génère la banque de bruitages `public/sfx/*.mp3` (ElevenLabs Sound Effects), une seule fois par son.
-- `src/timeline.ts` : la durée de chaque scène vient de la voix, et des repères (mot ↔ image de la scène) calent les moments forts sur les mots (BOUM sur « explosives », tampon sur « neutrality »…).
-- `src/Sound.tsx` : voix + bruitages placés sur les événements des scènes, baissés quand la voix parle.
-- `src/Captions.tsx` : sous-titres façon CapCut (1 à 3 mots, mot prononcé en jaune).
-- Composition `SuisseGuerre` (avec sous-titres) et `SuisseGuerre-SansSousTitres`.
+- `src/langues/<langue>/script.json` : le texte de chaque scène, ses repères (mot ↔ image de la scène), la voix ElevenLabs,
+  les textes de l'appli Sophia (accueil, cours, quiz, fin) et la légende. Une langue = un dossier (en, fr, de, it).
+- `node scripts/voix.mjs --langue fr` : voix horodatée de la langue (`public/audio/<langue>/`, `src/langues/<langue>/voix-*.json`).
+- `node scripts/langues.mjs` : régénère `src/langues/index.ts` (les langues complètes).
+- `node scripts/bruitages.mjs` : la banque de bruitages `public/sfx/*.mp3` (ElevenLabs Sound Effects), une seule fois par son.
+- `src/timeline.ts` : la durée de chaque scène vient de la voix de la langue, les repères calent les moments forts sur les mots.
+- `src/Sound.tsx` : voix + bruitages, baissés quand la voix parle. `src/Captions.tsx` : sous-titres façon CapCut.
+- `src/scenes/Outro.tsx` : la fin Sophia ; l'accueil part de la capture anglaise (`public/sophia-home.webp`) dont les textes
+  sont recouverts par leur traduction.
+- Composition `SuisseGuerre`, props `{"langue": "fr", "sousTitres": true}`.
 
-Dans le conteneur cloud, la clé ElevenLabs est injectée par le proxy : lancer les scripts avec `NODE_USE_ENV_PROXY=1`.
-Après le rendu, normaliser le son pour TikTok : `ffmpeg -i brut.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:a aac -b:a 192k final.mp4`.
+Le moteur Motion (`videos/moteur/moteur.mjs`, skill `motion`) fait tout ça depuis la page Motion de l'OS :
+`NODE_USE_ENV_PROXY=1 node videos/moteur/moteur.mjs rendre --projet suisse-guerre --langue fr`.
 
 ## Commandes
 

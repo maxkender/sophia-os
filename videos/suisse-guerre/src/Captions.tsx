@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, staticFile, useCurrentFrame} from 'remotion';
 import {loadFont} from '@remotion/fonts';
 import {lerp, pop} from './lib';
-import {PAGES} from './timeline';
+import {useTimeline} from './timeline';
 
 const POLICE = 'MontserratCaps';
 [800, 900].forEach((w) => {
@@ -24,7 +24,8 @@ const CONTOUR = contour(7);
 /** Sous-titres dynamiques : 1 à 3 mots, le mot prononcé passe en jaune et grossit */
 export const Captions: React.FC = () => {
   const f = useCurrentFrame();
-  const page = PAGES.find((p) => f >= p.de && f < p.a);
+  const {pages} = useTimeline();
+  const page = pages.find((p) => f >= p.de && f < p.a);
   if (!page) return null;
   const entree = pop(f, page.de, {damping: 12, stiffness: 320, mass: 0.6});
   const outro = page.zone === 'outro';

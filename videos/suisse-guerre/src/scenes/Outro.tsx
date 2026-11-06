@@ -4,6 +4,8 @@ import {loadFont} from '@remotion/fonts';
 import {C, ease, lerp, pop} from '../lib';
 import {Coin, Debris, PaperDefs, Rays, SwissFlagRect} from '../shapes';
 import {SOPHIA_MARK} from '../sophia';
+import {useTimeline} from '../timeline';
+import type {TextesAppli} from '../langues/types';
 
 // Police de l'appli Sophia
 const F = 'Jakarta';
@@ -60,19 +62,13 @@ const HAND: [number, number, number][] = [
   [252, 480, 1050],
 ];
 
-const QUIZ = [
-  {
-    q: 'Since when has Swiss neutrality been officially recognized?',
-    options: ['1648', '1815', '1914', '1945'],
-    good: 1,
-    fact: 'Congress of Vienna, 1815.',
-  },
-  {
-    q: 'What did Switzerland rig with explosives during WW2?',
-    options: ['Its banks', 'Its Alpine tunnels', 'Its lakes', 'Its cheese caves'],
-    good: 1,
-    fact: 'Gotthard and Simplon were ready to blow.',
-  },
+/** Textes de l'appli dans la langue de la vidéo */
+const useAppli = (): TextesAppli => useTimeline().langue.script.appli;
+// surlignages du cours, dans l'ordre du texte : [début, fin]
+const SURLIGNAGES: [number, number][] = [
+  [74, 84],
+  [84, 94],
+  [96, 106],
 ];
 
 const press = (f: number, t: number) => (f >= t - 3 && f <= t + 4 ? 1 - Math.sin((Math.PI * (f - (t - 3))) / 7) * 0.06 : 1);
@@ -166,6 +162,8 @@ const Mark: React.FC<{p: number; children: React.ReactNode}> = ({p, children}) =
 
 /** Le cours (inventé) qui s'ouvre au clic sur Start */
 const Lesson: React.FC<{f: number}> = ({f}) => {
+  const A = useAppli();
+  let marque = 0;
   const scroll = lerp(f, [86, 110], [0, -165], ease.inOut);
   const para = (s: number) => ({opacity: lerp(f, [s, s + 8], [0, 1]), translate: `0px ${lerp(f, [s, s + 8], [14, 0])}px`});
   return (
@@ -174,33 +172,36 @@ const Lesson: React.FC<{f: number}> = ({f}) => {
         <div style={{width: 358, height: 220, borderRadius: 16, overflow: 'hidden', position: 'relative'}}>
           <Img src={SHOT} style={{position: 'absolute', width: 648, height: 1403, left: -143, top: -228, maxWidth: 'none'}} />
         </div>
-        <div style={{marginTop: 18, fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>CURRENT AFFAIRS</div>
-        <div style={{marginTop: 8, fontSize: 30, fontWeight: 500, lineHeight: 1.18, color: INK, letterSpacing: -0.3}}>
-          Why is Switzerland never at war?
-        </div>
-        <div style={{marginTop: 10, fontSize: 18.5, lineHeight: 1.35, color: GREY}}>Neutral since 1815 and armed to the teeth.</div>
-        <p style={{marginTop: 16, marginBottom: 0, fontSize: 15.5, lineHeight: 1.72, color: '#2A2F3B', textAlign: 'justify', ...para(62)}}>
-          For more than 200 years, Switzerland has not fought a single foreign war. Not by luck, but by design: its mountains turn any
-          invasion into a trap, its neutrality has been <Mark p={lerp(f, [74, 84], [0, 1])}>officially recognized since 1815</Mark>, and{' '}
-          <Mark p={lerp(f, [84, 94], [0, 1])}>most men serve in a citizen army</Mark>.
-        </p>
-        <p style={{marginTop: 12, fontSize: 15.5, lineHeight: 1.72, color: '#2A2F3B', textAlign: 'justify', ...para(70)}}>
-          In 1940, General Guisan planned to pull the whole army back into the Alps, the famous “Réduit”, ready to{' '}
-          <Mark p={lerp(f, [96, 106], [0, 1])}>blow up the Alpine tunnels</Mark> if anyone invaded.
-        </p>
+        <div style={{marginTop: 18, fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>{A.categorie}</div>
+        <div style={{marginTop: 8, fontSize: 30, fontWeight: 500, lineHeight: 1.18, color: INK, letterSpacing: -0.3}}>{A.titre}</div>
+        <div style={{marginTop: 10, fontSize: 18.5, lineHeight: 1.35, color: GREY}}>{A.lecon.sousTitre}</div>
+        {A.lecon.paragraphes.map((segs, k) => (
+          <p key={k} style={{marginTop: k ? 12 : 16, marginBottom: 0, fontSize: 15.5, lineHeight: 1.72, color: '#2A2F3B', textAlign: 'justify', ...para(62 + k * 8)}}>
+            {segs.map((sg, j) => {
+              if (!sg.m) return <React.Fragment key={j}>{sg.t}</React.Fragment>;
+              const [de, a] = SURLIGNAGES[Math.min(marque++, SURLIGNAGES.length - 1)];
+              return (
+                <Mark key={j} p={lerp(f, [de, a], [0, 1])}>
+                  {sg.m}
+                </Mark>
+              );
+            })}
+          </p>
+        ))}
       </div>
       <div style={{position: 'absolute', left: 0, top: 0, width: 390, height: 104, background: BG}} />
       <StatusBar />
       <TopBar progress={lerp(f, [56, 112], [0.12, 0.33])} label="1/3" />
       <div style={{position: 'absolute', left: 0, top: 690, width: 390, height: 154, background: `linear-gradient(rgba(246,248,250,0), ${BG} 45%)`}} />
-      <Button label="Continue" scale={press(f, TAPS[1].f)} />
+      <Button label={A.lecon.continuer} scale={press(f, TAPS[1].f)} />
     </AbsoluteFill>
   );
 };
 
 /** Écran de quiz */
 const Quiz: React.FC<{f: number; k: 0 | 1; enter: number; tap: number; next: number}> = ({f, k, enter, tap, next}) => {
-  const q = QUIZ[k];
+  const A = useAppli();
+  const q = A.quiz.questions[k];
   const answered = f >= tap + 1;
   const panelY = lerp(f, [tap + 4, tap + 14], [270, 0], ease.out);
   return (
@@ -211,7 +212,7 @@ const Quiz: React.FC<{f: number; k: 0 | 1; enter: number; tap: number; next: num
         <svg width={16} height={20} viewBox="0 0 80 100">
           <path d={SOPHIA_MARK} fill={PINK} />
         </svg>
-        <div style={{fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>QUIZ · {k + 1} OF 2</div>
+        <div style={{fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>{A.quiz.etiquette.replace('{n}', String(k + 1))}</div>
       </div>
       <div
         style={{
@@ -232,7 +233,7 @@ const Quiz: React.FC<{f: number; k: 0 | 1; enter: number; tap: number; next: num
       </div>
       {q.options.map((o, i) => {
         const p = pop(f, enter + 14 + i * 3, {damping: 11, stiffness: 220});
-        const good = answered && i === q.good;
+        const good = answered && i === q.bonne;
         const bump = good ? 1 + 0.07 * (1 - pop(f, tap + 1, {damping: 7, stiffness: 300})) : 1;
         return (
           <div
@@ -304,7 +305,7 @@ const Quiz: React.FC<{f: number; k: 0 | 1; enter: number; tap: number; next: num
                 <path d="M1.5 6 L6 10.5 L14.5 1.5" stroke="#fff" strokeWidth={2.6} fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <div style={{fontSize: 24, fontWeight: 800, color: '#1F7A48'}}>Correct!</div>
+            <div style={{fontSize: 24, fontWeight: 800, color: '#1F7A48'}}>{A.quiz.bravo}</div>
             <div
               style={{
                 marginLeft: 8,
@@ -320,10 +321,10 @@ const Quiz: React.FC<{f: number; k: 0 | 1; enter: number; tap: number; next: num
               +10 XP
             </div>
           </div>
-          <div style={{position: 'absolute', left: 20, top: 80, fontSize: 16, color: GREY}}>{q.fact}</div>
+          <div style={{position: 'absolute', left: 20, top: 80, fontSize: 16, color: GREY}}>{q.fait}</div>
         </div>
       )}
-      {answered && <Button label="Continue" color={GREEN} scale={press(f, next)} top={760 + panelY} />}
+      {answered && <Button label={A.lecon.continuer} color={GREEN} scale={press(f, next)} top={760 + panelY} />}
     </AbsoluteFill>
   );
 };
@@ -339,6 +340,7 @@ const Flame: React.FC<{s: number}> = ({s}) => (
 const Done: React.FC<{f: number; enter: number}> = ({f, enter}) => {
   const t = (d: number) => pop(f, enter + d, {damping: 9, stiffness: 200});
   const flipped = f >= enter + 26;
+  const A = useAppli();
   return (
     <AbsoluteFill style={{background: BG, fontFamily: F}}>
       <StatusBar />
@@ -347,11 +349,23 @@ const Done: React.FC<{f: number; enter: number}> = ({f, enter}) => {
           <path d={SOPHIA_MARK} fill={PINK} stroke="#111" strokeWidth={7} strokeLinejoin="round" paintOrder="stroke" />
         </svg>
       </div>
-      <div style={{position: 'absolute', left: 0, top: 296, width: 390, textAlign: 'center', fontSize: 32, fontWeight: 800, color: INK, scale: String(t(10))}}>
-        Lesson complete!
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 296,
+          width: 390,
+          textAlign: 'center',
+          fontSize: Math.min(32, Math.floor(560 / A.fin.titre.length)),
+          fontWeight: 800,
+          color: INK,
+          scale: String(t(10)),
+        }}
+      >
+        {A.fin.titre}
       </div>
       <div style={{position: 'absolute', left: 0, top: 344, width: 390, textAlign: 'center', fontSize: 17, color: GREY, opacity: lerp(f, [enter + 14, enter + 20], [0, 1])}}>
-        2/2 correct answers
+        {A.fin.score}
       </div>
       <div style={{position: 'absolute', left: 16, top: 400, width: 358, display: 'flex', gap: 14}}>
         <div
@@ -375,7 +389,7 @@ const Done: React.FC<{f: number; enter: number}> = ({f, enter}) => {
               {flipped ? 3 : 2}
             </div>
           </div>
-          <div style={{fontSize: 13, fontWeight: 700, letterSpacing: 1.2, color: GREY}}>DAYS STREAK</div>
+          <div style={{fontSize: 13, fontWeight: 700, letterSpacing: 1.2, color: GREY}}>{A.fin.serie}</div>
         </div>
         <div
           style={{
@@ -398,19 +412,148 @@ const Done: React.FC<{f: number; enter: number}> = ({f, enter}) => {
             </svg>
             <div style={{fontSize: 40, fontWeight: 800, color: '#B7791F'}}>+20</div>
           </div>
-          <div style={{fontSize: 13, fontWeight: 700, letterSpacing: 1.2, color: GREY}}>XP EARNED</div>
+          <div style={{fontSize: 13, fontWeight: 700, letterSpacing: 1.2, color: GREY}}>{A.fin.xp}</div>
         </div>
       </div>
       <div style={{position: 'absolute', left: 16, top: 560, width: 358, opacity: lerp(f, [enter + 24, enter + 32], [0, 1])}}>
-        <div style={{fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>UP NEXT</div>
+        <div style={{fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>{A.fin.suivant}</div>
         <div style={{marginTop: 8, display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: `1.5px solid ${LINE}`, borderRadius: 18, padding: 12}}>
           <div style={{width: 58, height: 58, borderRadius: 12, overflow: 'hidden', position: 'relative', flexShrink: 0}}>
             <Img src={SHOT} style={{position: 'absolute', width: 362, height: 784, left: -60, top: -640, maxWidth: 'none'}} />
           </div>
-          <div style={{fontSize: 16, fontWeight: 600, color: INK, lineHeight: 1.3}}>Why did Sisyphus never give up?</div>
+          <div style={{fontSize: 16, fontWeight: 600, color: INK, lineHeight: 1.3}}>{A.fin.suivantTitre}</div>
         </div>
       </div>
-      <Button label="Next lesson" top={760} />
+      <Button label={A.fin.bouton} top={760} />
+    </AbsoluteFill>
+  );
+};
+
+/**
+ * Accueil traduit : la capture anglaise reste en fond (illustrations, icônes, chiffres) et ses textes
+ * sont recouverts par leur traduction, aux mêmes endroits. Zones relevées sur la capture (en pt, 390 de large).
+ */
+const CARTE = '#FAFCFE';
+const ONGLETS_X = [38.8, 116.4, 194.5, 272.6, 350.2];
+const AccueilTraduit: React.FC<{A: TextesAppli}> = ({A}) => {
+  const titreLong = A.titre.length > 34;
+  return (
+    <AbsoluteFill style={{fontFamily: F}}>
+      {/* série « 2 DAYS » */}
+      <div style={{position: 'absolute', left: 304, top: 63, width: 64, height: 20, background: '#FFFFFD', display: 'flex', alignItems: 'center', gap: 4}}>
+        <span style={{fontSize: 17.5, fontWeight: 600, color: INK}}>2</span>
+        <span style={{fontSize: 12, fontWeight: 600, letterSpacing: 0.3, color: '#8A909C'}}>{A.jours}</span>
+      </div>
+      {/* catégorie et lectures */}
+      <div style={{position: 'absolute', left: 29, top: 277, width: 332, height: 33, background: CARTE}} />
+      <div
+        style={{
+          position: 'absolute',
+          left: 33,
+          top: 281.7,
+          height: 23.7,
+          padding: '0 10px',
+          boxSizing: 'border-box',
+          borderRadius: 12,
+          background: '#ECF3FF',
+          border: '1px solid #DCE7FA',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
+          fontSize: 12,
+          fontWeight: 700,
+          letterSpacing: 1.1,
+          color: BLUE,
+        }}
+      >
+        <svg width={11} height={11} viewBox="0 0 12 12">
+          <circle cx={6} cy={6} r={5} fill="none" stroke={BLUE} strokeWidth={1.4} />
+          <path d="M1 6 H11 M6 1 C 3.5 3.5 3.5 8.5 6 11 M6 1 C 8.5 3.5 8.5 8.5 6 11" stroke={BLUE} strokeWidth={1.1} fill="none" />
+        </svg>
+        {A.categorie}
+      </div>
+      <div style={{position: 'absolute', right: 33, top: 285, height: 17, display: 'flex', alignItems: 'center', gap: 5, fontSize: 12.5, color: '#A0A6B1'}}>
+        <svg width={10} height={12} viewBox="0 0 10 12">
+          <rect x={0.7} y={0.7} width={8.6} height={10.6} rx={1.5} fill="none" stroke="#A0A6B1" strokeWidth={1.2} />
+          <path d="M3 4 H7 M3 6.5 H7 M3 9 H6" stroke="#A0A6B1" strokeWidth={1.1} />
+        </svg>
+        {A.lectures}
+      </div>
+      {/* titre et description */}
+      <div style={{position: 'absolute', left: 30, top: 311, width: 330, height: 108, background: CARTE}} />
+      <div style={{position: 'absolute', left: 33, top: 314, width: 324}}>
+        <div
+          style={{
+            fontSize: 19.5,
+            fontWeight: 800,
+            lineHeight: 1.22,
+            color: INK,
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
+          {A.titre}
+        </div>
+        <div
+          style={{
+            marginTop: 8,
+            fontSize: 15.5,
+            lineHeight: 1.45,
+            color: '#636B78',
+            display: '-webkit-box',
+            WebkitLineClamp: titreLong ? 2 : 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
+          {A.description}
+        </div>
+      </div>
+      {/* bouton */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 32,
+          top: 424.5,
+          width: 326,
+          height: 56,
+          borderRadius: 28,
+          background: '#193A6A',
+          color: '#fff',
+          fontSize: 19,
+          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 10,
+        }}
+      >
+        {A.commencer}
+        <svg width={12} height={14} viewBox="0 0 12 14">
+          <path d="M1 1 L11 7 L1 13 Z" fill="#fff" />
+        </svg>
+      </div>
+      {/* onglets */}
+      <div style={{position: 'absolute', left: 0, top: 796, width: 390, height: 16, background: '#F6F8FA'}} />
+      {A.onglets.map((o, i) => (
+        <div
+          key={o}
+          style={{
+            position: 'absolute',
+            left: ONGLETS_X[i] - 40,
+            top: 797,
+            width: 80,
+            textAlign: 'center',
+            fontSize: 10,
+            fontWeight: i === 0 ? 700 : 500,
+            color: i === 0 ? NAVY : '#9AA1AC',
+          }}
+        >
+          {o}
+        </div>
+      ))}
     </AbsoluteFill>
   );
 };
@@ -434,6 +577,8 @@ const Hand: React.FC<{scale: number}> = ({scale}) => (
 // 0:36–0:45 — « réponds à toutes ces questions avec Sophia » : le cours s'ouvre, puis les quiz
 export const Outro: React.FC = () => {
   const f = useCurrentFrame();
+  const A = useAppli();
+  const code = useTimeline().langue.code;
   const slam = pop(f, 2, {damping: 12, stiffness: 140, mass: 0.9});
   const drift = lerp(f, [20, 275], [1, 1.035], ease.linear);
 
@@ -500,6 +645,7 @@ export const Outro: React.FC = () => {
               {f < PUSH.lesson + 12 && (
                 <AbsoluteFill style={{translate: `${pushX(f, -100, PUSH.lesson)}px 0px`}}>
                   <Img src={SHOT} style={{width: 390, height: 844}} />
+                  {code !== 'en' && <AccueilTraduit A={A} />}
                   <div style={{position: 'absolute', left: 32, top: 425, width: 325, height: 54, borderRadius: 27, background: `rgba(0,0,0,${startDark})`}} />
                 </AbsoluteFill>
               )}

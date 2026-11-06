@@ -41,7 +41,7 @@ vi.mock("@/features/ugcIa/api", () => ({
 // jsdom ne dessine pas : le bandeau rendu est remplacé par une image factice.
 vi.mock("@/features/ugcIa/bandeau", async (original) => ({
   ...(await original<typeof import("@/features/ugcIa/bandeau")>()),
-  bandeauPng: (l: number, h: number, texte: string, position: number) => `data:image/png;base64,${l}x${h}:${position}:${texte.length}`,
+  bandeauPng: async (l: number, h: number, texte: string, position: number) => `data:image/png;base64,${l}x${h}:${position}:${texte.length}`,
 }));
 
 import { AdminUgcIaPage } from "./AdminUgcIaPage";
@@ -271,7 +271,7 @@ describe("AdminUgcIaPage", () => {
     const dialogue = await screen.findByRole("dialog", { name: "Monter la vidéo de Sophie" });
     expect(within(dialogue).getByRole("checkbox", { name: "Mettre le bandeau style Snapchat" })).toBeChecked();
     expect(within(dialogue).getByLabelText("Texte du bandeau")).toHaveValue("I could KISS the person who showed me this");
-    expect(within(dialogue).getByAltText("Aperçu du bandeau")).toHaveAttribute("src", "data:image/png;base64,480x854:40:42");
+    expect(await within(dialogue).findByAltText("Aperçu du bandeau")).toHaveAttribute("src", "data:image/png;base64,480x854:36:42");
     fireEvent.change(within(dialogue).getByLabelText("Texte du bandeau"), { target: { value: "I could KISS whoever showed me this 😭" } });
     fireEvent.change(within(dialogue).getByRole("slider", { name: "Hauteur du bandeau" }), { target: { value: "62" } });
     fireEvent.change(within(dialogue).getByLabelText("Début du recadrage (s)"), { target: { value: "0,4" } });
@@ -299,7 +299,7 @@ describe("AdminUgcIaPage", () => {
     fireEvent.click(within(dialogue).getByRole("checkbox", { name: "Mettre le bandeau style Snapchat" }));
     fireEvent.click(within(dialogue).getByRole("button", { name: "Enregistrer le montage" }));
     await waitFor(() =>
-      expect(monter).toHaveBeenCalledWith("g1", { debut: null, fin: null, bandeau: { actif: false, texte: "  ", position: 40 } }),
+      expect(monter).toHaveBeenCalledWith("g1", { debut: null, fin: null, bandeau: { actif: false, texte: "  ", position: 36 } }),
     );
   });
 

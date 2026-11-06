@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
 import { SectionSure } from "@/components/erreurs/SectionSure";
+import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
 
 import { CarteUnique } from "./CarteUnique";
 import { StatsBots } from "./FeedbackBot";
@@ -80,6 +81,7 @@ export function PageProblemesPosteurs() {
           {t(`${P}.modeTest`)}
         </p>
       )}
+      <SectionSure nom="Cohérence"><BandeauCoherence /></SectionSure>
       <Link to="/admin/auto/problemes-v2" className="block rounded-md border border-primary/40 bg-primary/5 p-2 text-sm font-medium text-primary" data-testid="lien-v2">
         ✨ Essayer la nouvelle page Problèmes (en français, « Ton point du jour ») →
       </Link>

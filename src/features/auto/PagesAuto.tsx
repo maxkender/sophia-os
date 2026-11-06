@@ -8,6 +8,7 @@ import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
+import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
@@ -85,6 +86,9 @@ export function DecisionsPage() {
   return (
     <PageAuto cle="decisions">
       <div className="space-y-6">
+        <SectionSure nom="Cohérence">
+          <BandeauCoherence />
+        </SectionSure>
         {/* 6/11 : une section qui plante n'emporte plus la page. */}
         <SectionSure nom="À décider maintenant">
           <ADeciderMaintenant />

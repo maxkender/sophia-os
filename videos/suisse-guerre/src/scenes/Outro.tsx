@@ -29,8 +29,8 @@ const SCREEN = {left: PHONE.left + 18, top: PHONE.top + 18};
 const toPx = (x: number, y: number): [number, number] => [SCREEN.left + x * PT, SCREEN.top + y * PT];
 
 // Chronologie (images, 30 i/s)
-const PUSH = {lesson: 48, quiz1: 120, quiz2: 176, done: 232};
-const TAPS: {f: number; x: number; y: number}[] = [
+export const PUSH = {lesson: 48, quiz1: 120, quiz2: 176, done: 232};
+export const TAPS: {f: number; x: number; y: number}[] = [
   {f: 44, x: 195, y: 452}, // Start
   {f: 116, x: 195, y: 787}, // Continue (cours)
   {f: 154, x: 195, y: 448}, // bonne réponse 1

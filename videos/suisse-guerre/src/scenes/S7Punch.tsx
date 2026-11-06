@@ -7,17 +7,18 @@ import {Stage} from '../Stage';
 const PIV: [number, number] = [540, 760];
 const ARM = 410;
 const STR = 330;
-const BOMBS = [
-  {x: -62, y: -36, s: 10},
-  {x: 54, y: -36, s: 15},
-  {x: -4, y: -100, s: 20},
+// une bombe par mot de « Attacking Switzerland costs too much »
+export const BOMBS = [
+  {x: -62, y: -36, s: 8},
+  {x: 54, y: -36, s: 18},
+  {x: -4, y: -100, s: 28},
 ];
-const COINS: {x: number; y: number}[] = [];
+export const COINS: {x: number; y: number}[] = [];
 [4, 3, 2, 1].forEach((n, row) => {
   for (let j = 0; j < n; j++) COINS.push({x: (j - (n - 1) / 2) * 56, y: -26 - row * 40});
 });
-const coinStart = (i: number) => 34 + i * 3;
-const TIP = 64;
+export const coinStart = (i: number) => 46 + i * 3;
+export const TIP = 78;
 
 const Pan: React.FC<{x: number; y: number; children?: React.ReactNode}> = ({x, y, children}) => (
   <g transform={`translate(${x} ${y})`}>
@@ -43,7 +44,7 @@ export const S7Punch: React.FC = () => {
   const L: [number, number] = [PIV[0] - ARM * Math.cos(th), PIV[1] - ARM * Math.sin(th)];
   const R: [number, number] = [PIV[0] + ARM * Math.cos(th), PIV[1] + ARM * Math.sin(th)];
   const enter = pop(f, 0, {damping: 10, stiffness: 200});
-  const push = lerp(f, [70, 128], [1, 1.12], ease.out);
+  const push = lerp(f, [84, 140], [1, 1.12], ease.out);
   const s = shake(f, [
     [4, 18],
     ...BOMBS.map((b): [number, number] => [b.s + 6, 9]),

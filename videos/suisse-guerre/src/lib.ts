@@ -1,3 +1,4 @@
+import {createContext, useContext} from 'react';
 import {Easing, interpolate, random, spring, useCurrentFrame} from 'remotion';
 import {noise2D} from '@remotion/noise';
 
@@ -7,7 +8,25 @@ export const FPS = 30;
 
 /** Le récit est ralenti d'un poil : 30 s → 36 s. Chaque scène lit son temps avec useFrame(). */
 export const STRETCH = 1.2;
-export const useFrame = () => useCurrentFrame() / STRETCH;
+
+/** Déformation du temps d'une scène : points (image réelle locale, image « scène »), calés sur la voix */
+export type Warp = [number, number][];
+export const warpAt = (pts: Warp, r: number) => {
+  for (let k = 1; k < pts.length; k++) {
+    if (r <= pts[k][0] || k === pts.length - 1) {
+      const [r0, s0] = pts[k - 1];
+      const [r1, s1] = pts[k];
+      return s0 + ((r - r0) * (s1 - s0)) / (r1 - r0);
+    }
+  }
+  return r;
+};
+export const WarpContext = createContext<Warp | null>(null);
+export const useFrame = () => {
+  const f = useCurrentFrame();
+  const w = useContext(WarpContext);
+  return w ? warpAt(w, f) : f / STRETCH;
+};
 
 /** Force globale des tremblements de caméra (1 = version d'origine) */
 export const SHAKE_K = 0.35;

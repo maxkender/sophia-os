@@ -23,10 +23,11 @@ const SLOPE = -320 / 380;
 const ANG = (Math.atan(SLOPE) * 180) / Math.PI;
 const onSlope = (x: number) => 1560 + SLOPE * x;
 
-const TANKS = [
+export const TANKS = [
   {start: 34, stall: 250},
   {start: 46, stall: 200},
   {start: 58, stall: 290},
+  {start: 70, stall: 230},
 ];
 
 const TankRun: React.FC<{f: number; start: number; stall: number; k: number}> = ({f, start, stall, k}) => {

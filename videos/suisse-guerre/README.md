@@ -18,6 +18,19 @@ Vidéo verticale 1080×1920, 30 i/s, 45 s (36 s de récit + 9 s de séquence Sop
 Le récit est ralenti par `STRETCH` (×1,2) et les tremblements de caméra par `SHAKE_K` (0,35), dans `src/lib.ts`.
 La séquence Sophia (`src/scenes/Outro.tsx`) utilise la capture d'accueil `public/sophia-home.webp` et la police Plus Jakarta Sans (`public/fonts`).
 
+## Voix, bruitages et sous-titres (version anglaise)
+
+- `src/script.json` : le texte de chaque scène + la voix ElevenLabs (Brian, multilingual v2).
+- `node scripts/voix.mjs` : génère `public/audio/recit.mp3` et `outro.mp3` avec l'horodatage de chaque caractère (`src/voix-*.json`).
+- `node scripts/bruitages.mjs` : génère la banque de bruitages `public/sfx/*.mp3` (ElevenLabs Sound Effects), une seule fois par son.
+- `src/timeline.ts` : la durée de chaque scène vient de la voix, et des repères (mot ↔ image de la scène) calent les moments forts sur les mots (BOUM sur « explosives », tampon sur « neutrality »…).
+- `src/Sound.tsx` : voix + bruitages placés sur les événements des scènes, baissés quand la voix parle.
+- `src/Captions.tsx` : sous-titres façon CapCut (1 à 3 mots, mot prononcé en jaune).
+- Composition `SuisseGuerre` (avec sous-titres) et `SuisseGuerre-SansSousTitres`.
+
+Dans le conteneur cloud, la clé ElevenLabs est injectée par le proxy : lancer les scripts avec `NODE_USE_ENV_PROXY=1`.
+Après le rendu, normaliser le son pour TikTok : `ffmpeg -i brut.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:a aac -b:a 192k final.mp4`.
+
 ## Commandes
 
 ```bash

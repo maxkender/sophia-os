@@ -1,0 +1,19 @@
+{
+  "langue": "en",
+  "voix": {
+    "id": "nPczCjzI2devNBz1zQrb",
+    "nom": "Brian",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {"stability": 0.42, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": true, "speed": 1.06}
+  },
+  "scenes": [
+    {"id": "S1", "texte": "Switzerland hasn't fought a foreign war in over 200 years. Why?"},
+    {"id": "S2", "texte": "One: the Alps. Over half the country is mountains. Invading it is a nightmare."},
+    {"id": "S3", "texte": "Two: in 1815, Europe's great powers officially recognized its neutrality."},
+    {"id": "S4", "texte": "But neutral isn't weak: most men serve in the army, and keep their rifle at home."},
+    {"id": "S5", "texte": "In World War II, they rigged their Alpine tunnels with explosives. Invade, and you win… nothing."},
+    {"id": "S6", "texte": "And they're useful to everyone: banks, diplomacy, peace talks in Geneva."},
+    {"id": "S7", "texte": "Attacking Switzerland costs too much. Leaving it alone pays more."}
+  ],
+  "outro": {"texte": "Answer all these questions with the Sophia app."}
+}

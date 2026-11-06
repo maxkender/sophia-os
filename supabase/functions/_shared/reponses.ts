@@ -271,3 +271,81 @@ export const REGLAGES_REPONSES_DEFAUT: ReglagesReponses = {
   },
   slack: "",
 };
+
+/* -------------------------------------------------------------------------
+ * 6/11 : « I need help » ouvre une fenêtre (plus de carte vide) : un choix,
+ * une case texte obligatoire, une capture facultative.
+ * ---------------------------------------------------------------------- */
+
+export const AIDE_CALLBACK = "posteur_aide_modal";
+
+export const AIDE_CATEGORIES: readonly { valeur: string; libelle: string }[] = [
+  { valeur: "post", libelle: "My post / my images" },
+  { valeur: "lien", libelle: "My link" },
+  { valeur: "tiktok", libelle: "TikTok (follow, review, likes)" },
+  { valeur: "connexion", libelle: "Login" },
+  { valeur: "paie", libelle: "Pay" },
+  { valeur: "autre", libelle: "Other: write your question" },
+];
+
+/** La fenêtre Slack (views.open). `meta` revient tel quel à l'envoi (private_metadata). */
+export function vueAide(meta: { ts: string; canal: string | null; response_url: string | null }): Record<string, unknown> {
+  const option = (c: { valeur: string; libelle: string }) => ({ text: { type: "plain_text", text: c.libelle }, value: c.valeur });
+  return {
+    type: "modal",
+    callback_id: AIDE_CALLBACK,
+    private_metadata: JSON.stringify(meta).slice(0, 3000),
+    title: { type: "plain_text", text: "I need help" },
+    submit: { type: "plain_text", text: "Send" },
+    close: { type: "plain_text", text: "Cancel" },
+    blocks: [
+      {
+        type: "input",
+        block_id: "categorie",
+        label: { type: "plain_text", text: "What is it about?" },
+        element: { type: "radio_buttons", action_id: "valeur", options: AIDE_CATEGORIES.map(option) },
+      },
+      {
+        type: "input",
+        block_id: "texte",
+        label: { type: "plain_text", text: "Your question" },
+        hint: { type: "plain_text", text: "Explain what happens and what you already tried. Check the FAQ on your dashboard first." },
+        element: { type: "plain_text_input", action_id: "valeur", multiline: true, min_length: 10, max_length: 2000 },
+      },
+      {
+        type: "input",
+        block_id: "capture",
+        optional: true,
+        label: { type: "plain_text", text: "Screenshot (optional)" },
+        element: { type: "file_input", action_id: "valeur", filetypes: ["png", "jpg", "jpeg", "heic", "webp", "gif", "mp4", "mov"], max_files: 3 },
+      },
+    ],
+  };
+}
+
+export interface DemandeAide {
+  categorie: string;
+  libelle: string;
+  texte: string;
+  captures: string[];
+}
+
+/** Ce que la fenêtre a envoyé (view.state.values), ou null si la case texte est vide. */
+export function lireDemandeAide(valeurs: unknown): DemandeAide | null {
+  // deno-lint-ignore no-explicit-any
+  const v = (valeurs ?? {}) as Record<string, Record<string, any>>;
+  const categorie = String(v.categorie?.valeur?.selected_option?.value ?? "autre");
+  const texte = String(v.texte?.valeur?.value ?? "").trim();
+  if (texte.length < 3) return null;
+  // deno-lint-ignore no-explicit-any
+  const fichiers = (Array.isArray(v.capture?.valeur?.files) ? v.capture.valeur.files : []) as any[];
+  const captures = fichiers.map((f) => String(f?.permalink ?? f?.url_private ?? "")).filter(Boolean);
+  const libelle = AIDE_CATEGORIES.find((c) => c.valeur === categorie)?.libelle ?? "Other";
+  return { categorie, libelle, texte, captures };
+}
+
+/** Le message gardé dans posteur_reponses (lu par les bots et la carte Problèmes). */
+export function texteDemandeAide(d: DemandeAide): string {
+  const sujet = d.categorie === "autre" ? "Other" : d.libelle;
+  return [`I need help · ${sujet}: ${d.texte}`, ...d.captures.map((c) => `Screenshot: ${c}`)].join("\n");
+}

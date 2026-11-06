@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o100",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e004bd57-b68b-4432-b793-d805c6a3a13e",
+  "titre": "les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie #lecture #pourtoi",
+  "inspirations": [
+    "e004bd57-b68b-4432-b793-d805c6a3a13e"
+  ],
+  "notes": "G1, déclinaison de e004bd57 (« les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie », génération 0 en français ; meilleur passage tr 9,6 k vues, r 6,99), en français. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni date sur la première page, ni dictionnaire, ni histoire à table, ni relire à voix haute, ni autre appli). Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "les habitudes insolites\nque j'ai volées à mon grand-père\nqui a lu toute sa vie",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. il lisait toujours deux livres en même temps\n\nun sérieux le matin, un roman le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. il soulignait au crayon, jamais au stylo\n\npour pouvoir changer d'avis en relisant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "3. il gardait un marque-page dans chaque veste\n\nil n'était jamais pris au dépourvu.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. il prêtait ses livres avec un petit mot dedans\n\non les lui rendait toujours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. il apprenait quelque chose tous les jours\n\navant, je trouvais ça vieux jeu.\nmaintenant, j'apprends un truc sur le monde chaque matin, comme lui.",
+      "texte_sophia": "5. il apprenait quelque chose tous les jours\n\navant, je trouvais ça vieux jeu.\nmaintenant, j'ouvre l'appli Sophia chaque matin, comme lui.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

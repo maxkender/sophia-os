@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o098",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6e69c55d-4e76-4ac1-9b7c-17ff0de9de53",
+  "titre": "je note tous les endroits gratuits où je vais pour me cultiver #culture #gratuit #pourtoi",
+  "inspirations": [
+    "6e69c55d-4e76-4ac1-9b7c-17ff0de9de53"
+  ],
+  "notes": "G1, déclinaison de 6e69c55d (« je note tous les endroits gratuits où je vais pour me cultiver », génération 0 en français ; meilleur passage sl 2,4 k vues, r 2,22), en français. cta B (l'anecdote du jour en item 3). Endroits neufs (rien de repris du parent : ni conférences municipales, ni bibliothèque, ni églises, ni musées gratuits). Aucune adresse ni gratuité précise à vérifier. Fait vérifié le 6/11 sur https://en.wikipedia.org/wiki/Louvre : forteresse puis résidence des rois de France (1546), « The museum opened on 10 August 1793 ». Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "je note tous les endroits gratuits\noù je vais pour me cultiver",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. les bouquinistes et les boîtes à livres\n\n8/10\non n'achète rien, ou presque. mais on lit les quatrièmes de couverture pendant une heure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. les parcs avec des statues\n\n7/10\nchaque statue a un nom sur son socle. je les cherche le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. mon lit, le matin\n\n9/10\nce matin, j'ai appris que le louvre était un palais royal avant de devenir un musée, en 1793.\nje l'ai raconté trois fois dans la journée.",
+      "texte_sophia": "3. mon lit, le matin\n\n9/10\nce matin, l'appli Sophia m'a appris que le louvre était un palais royal avant de devenir un musée, en 1793.\nje l'ai raconté trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "4. les vernissages de galeries\n\n10/10\nentrée libre, des œuvres toutes neuves, et souvent l'artiste à qui parler.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "5. les cimetières historiques\n\n8/10\ncalmes, beaux, et chaque tombe raconte une vie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "01c21b76",
+      "texte_overlay": "et toi, ton endroit gratuit préféré ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

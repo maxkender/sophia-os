@@ -7412,6 +7412,7 @@ export const fr = {
       rechargerOk: "Nouveau post prêt.",
       rechargerAucun:
         "Aucun autre slideshow disponible pour l’instant — réessaie plus tard, ou demande dans #questions sur Slack.",
+      rechargerEnCoursAilleurs: "Une recharge de ce post est déjà en cours. Attends une minute, puis rafraîchis la page.",
       rechargerLimite: "Limite atteinte : 2 recharges maximum pour ce post.",
       rechargerPublie: "Ce post est déjà publié — impossible de le recharger.",
       lienTikTok: "Lien du post TikTok",

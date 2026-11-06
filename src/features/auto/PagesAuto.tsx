@@ -10,6 +10,7 @@ import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
+import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
 import { PageCohortesTableau } from "@/features/cohortesTableau/PageCohortesTableau";
@@ -161,6 +162,15 @@ export function FaqPage() {
   return (
     <PageAuto cle="faq">
       <AdminChatbotPage />
+    </PageAuto>
+  );
+}
+
+/** 6/11 : les réponses officielles (question, réponse en anglais, validée par Max). */
+export function ReponsesOfficiellesPage() {
+  return (
+    <PageAuto cle="officielles">
+      <PageReponsesOfficielles />
     </PageAuto>
   );
 }

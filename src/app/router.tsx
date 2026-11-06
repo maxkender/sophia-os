@@ -12,6 +12,7 @@ import { Redirection } from "@/features/auto/Redirection";
 import {
   DecisionsPage,
   FaqPage,
+  ReponsesOfficiellesPage,
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
@@ -39,6 +40,7 @@ import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHubPage";
 import { GUIDE_NOTION_HM, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNotion";
+import { PageFaqPosteur } from "@/features/officielles/PageFaqPosteur";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
@@ -128,6 +130,7 @@ export function AppRouter() {
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
+            <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
             {/* Les anciennes adresses redirigent : aucun lien cassé. */}
             {Object.entries(ANCIENNES_ADRESSES).map(([de, vers]) => (
@@ -207,7 +210,7 @@ export function AppRouter() {
             <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
             {/* Prompt 21, D3 : les anciennes pages Guide et FAQ renvoient vers le guide Notion. */}
             <Route path="/createur/guide" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
-            <Route path="/createur/faq" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
+            <Route path="/createur/faq" element={<PageFaqPosteur />} />
           </Route>
         </Route>
 

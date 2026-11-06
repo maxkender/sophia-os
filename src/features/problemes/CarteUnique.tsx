@@ -92,12 +92,15 @@ export function CarteUnique({
   mode,
   surlignee = false,
   vue = "problemes",
+  ancienne = false,
 }: {
   p: Probleme;
   mode: "test" | "on";
   surlignee?: boolean;
   /** 0538 : « problemes » = le quotidien (aucun geste de décision) ; « decisions » = Weekly decisions. */
   vue?: "problemes" | "decisions";
+  /** 6/11 : plus de 7 jours, en bas de ⚡ Urgent avec l'étiquette « ancien ». */
+  ancienne?: boolean;
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -259,6 +262,7 @@ export function CarteUnique({
           <Badge variant="outline">{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</Badge>
           {sujets.length > 0 && <Badge variant="secondary" data-testid="nb-sujets">{t(`${C}.sujets`, { count: sujets.length })}</Badge>}
           {p.actif === false && <Badge variant="secondary">{t(`${P}.inactif`)}</Badge>}
+          {ancienne && <Badge variant="secondary" data-testid="ancienne">{t(`${P}.ancien`)}</Badge>}
         </div>
 
         <div data-testid="bloque">

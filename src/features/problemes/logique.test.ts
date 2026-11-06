@@ -4,6 +4,8 @@ import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supaba
 import type { OptionDecision, Probleme, Situation } from "./api";
 import {
   autresSujets,
+  carteAncienne,
+  trierCartes,
   diagnosticSimple,
   lienDecision,
   ongletProblemes,
@@ -299,5 +301,25 @@ describe("0538 : la carte traite d'abord le message en attente", () => {
       .toEqual([{ categorie: "stop", rituel: "samedi" }, { categorie: "login", rituel: null }, { categorie: "paie", rituel: "maintenant" }]);
     expect(lienDecision("x", "jeudi")).toBe("/admin/auto/decisions?onglet=jeudi&carte=x");
     expect(lienDecision("x", "maintenant")).toBe("/admin/auto/decisions?carte=x");
+  });
+});
+
+describe("6/11 : ⚡ Urgent, les messages de plus de 7 jours en bas, « ancien »", () => {
+  const maintenant = Date.parse("2026-11-06T12:00:00Z");
+  const sr = (at: string) => ({ texte: "Help?", canal: "upwork" as const, at, depuis_heures: 1, question: true, attend: true });
+  const vieux = p({ id: "vieux", niveau: "urgent", created_at: "2026-10-20T10:00:00Z", sans_reponse: sr("2026-10-28T10:00:00Z") });
+  const recent = p({ id: "recent", niveau: "urgent", created_at: "2026-10-20T10:00:00Z", sans_reponse: sr("2026-11-05T10:00:00Z") });
+  const sansMessage = p({ id: "sans", niveau: "urgent", created_at: "2026-11-01T10:00:00Z" });
+
+  it("ancien : le message en attente (sinon la carte) a plus de 7 jours", () => {
+    expect(carteAncienne(vieux, maintenant)).toBe(true);
+    expect(carteAncienne(recent, maintenant)).toBe(false);
+    expect(carteAncienne(sansMessage, maintenant)).toBe(false);
+    expect(carteAncienne(p({ created_at: "2026-10-29T11:00:00Z" }), maintenant)).toBe(true);
+  });
+
+  it("dans Urgent les anciens vont en bas ; ailleurs l'ordre ne change pas", () => {
+    expect(trierCartes([vieux, sansMessage, recent], "urgent", maintenant).map((x) => x.id)).toEqual(["recent", "sans", "vieux"]);
+    expect(trierCartes([vieux, sansMessage, recent], "bots", maintenant).map((x) => x.id)).toEqual(["vieux", "recent", "sans"]);
   });
 });

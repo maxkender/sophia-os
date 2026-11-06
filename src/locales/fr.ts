@@ -7778,6 +7778,7 @@ export const fr = {
       cohorte: "cohorte du {{date}}",
       sansPosteur: "Sans posteur",
       inactif: "inactif",
+      ancien: "ancien",
       reponseProposee: "Réponse proposée ({{canal}})",
       actionProposee: "Action proposée :",
       autresSources: "+{{n}} autres",

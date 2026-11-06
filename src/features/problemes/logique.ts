@@ -467,6 +467,29 @@ export function reponseAJour(p: Pick<Probleme, "sans_reponse" | "proposition_rep
   return Boolean(p.propose_at && p.propose_at >= p.sans_reponse.at);
 }
 
+/** 6/11 : plus de 7 jours (le message en attente, sinon la carte) : « ancien », en bas de ⚡ Urgent. */
+export const ANCIEN_MS = 7 * 24 * 3600 * 1000;
+export function carteAncienne(p: Pick<Probleme, "sans_reponse" | "created_at">, maintenant: number = Date.now()): boolean {
+  const ref = new Date(p.sans_reponse?.at ?? p.created_at).getTime();
+  return Number.isFinite(ref) && maintenant - ref > ANCIEN_MS;
+}
+
+/**
+ * L'ordre dans un onglet : ceux qui attendent une réponse d'abord, puis les
+ * urgents, puis les plus anciens. Dans ⚡ Urgent, les « anciens » (plus de
+ * 7 jours) vont en bas, pour que les vrais urgents restent en haut.
+ */
+export function trierCartes<T extends Pick<Probleme, "sans_reponse" | "created_at" | "niveau">>(
+  liste: readonly T[], onglet: "bots" | "urgent", maintenant: number = Date.now(),
+): T[] {
+  const ancien = (p: T) => (onglet === "urgent" ? Number(carteAncienne(p, maintenant)) : 0);
+  return [...liste].sort((a, b) =>
+    ancien(a) - ancien(b)
+    || Number(messageEnAttente(b)) - Number(messageEnAttente(a))
+    || Number(b.niveau === "urgent") - Number(a.niveau === "urgent")
+    || a.created_at.localeCompare(b.created_at));
+}
+
 /** L'onglet dans Problèmes (🤖 ou ⚡), ou null : la carte se décide seulement dans Weekly decisions. */
 export function ongletProblemes(
   p: Pick<Probleme, "sans_reponse" | "proposition_reponse" | "propose_at" | "onglet" | "confiance">,

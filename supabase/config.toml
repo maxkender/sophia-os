@@ -244,6 +244,10 @@ verify_jwt = false
 [functions.ugc-ia]
 verify_jwt = false
 
+[functions.motion]
+# Page Motion (JWT admin revérifié par la fonction) ou moteur Motion (en-tête x-motion-jeton, 0663).
+verify_jwt = false
+
 [functions.upscale-assignes]
 verify_jwt = false
 

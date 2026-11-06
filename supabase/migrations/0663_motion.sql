@@ -33,7 +33,7 @@
 -- Cycle d'une langue : en_attente → en_cours → a_valider → distribuee
 -- (post posé) ; rejetee (tâche « corriger » avec le commentaire) ; echec.
 --
--- Additive. Pas encore appliquée.
+-- Additive. ✅ Appliquée le 2026-11-06 (MCP) : 4 tables, label MOTION (manuel), file vide.
 -- Retour arrière : drop table motion_taches, motion_langues, motion_videos,
 -- motion_reglages ; drop function motion_prendre_tache, motion_journaliser ;
 -- delete from labels where slug = 'motion' (après l'avoir retiré des comptes).

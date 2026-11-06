@@ -189,6 +189,40 @@ export function resoudreAffectation(paysCode: string, recruteurs: Recruteur[]): 
   return { ok: true, hm: gere, langue };
 }
 
+/** Une ligne de `hm_pays` (0516) : le pays est recruté, par cette HM si elle a un compte OS. */
+export interface PaysRecrute {
+  pays: string;
+  hm_id: string | null;
+}
+
+export type AffectationSite =
+  | { ok: true; hm: Recruteur | null; langue: string }
+  | { ok: false; raison: "zone_non_ouverte" }
+  | { ok: false; raison: "langue_non_geree"; langue: string | null; hm: Recruteur };
+
+/**
+ * Affectation d'un poster du site : les zones des HM d'abord, puis `hm_pays`.
+ *
+ * Depuis 0516, `hm_pays` dit quels pays on recrute, et un pays peut y être
+ * confié à une HM sans compte OS (Turquie, Bulgarie, Serbie : Erla Menaj, le
+ * 02/11). Aucune zone de HM ne les couvre plus, et le site les affichait comme
+ * fermés. Un poster du site va dans la cohorte Ruul, pas chez une HM : un pays
+ * de `hm_pays` dont on connaît la langue suffit. Sa HM de zone est celle de
+ * `hm_pays` quand elle a un compte, sinon aucune.
+ */
+export function resoudreAffectationSite(
+  paysCode: string,
+  recruteurs: Recruteur[],
+  paysRecrutes: PaysRecrute[],
+): AffectationSite {
+  const a = resoudreAffectation(paysCode, recruteurs);
+  if (a.ok || a.raison === "langue_non_geree") return a;
+  const ligne = paysRecrutes.find((p) => p.pays === paysCode);
+  const langue = LANGUE_PAR_PAYS[paysCode];
+  if (!ligne || !langue) return a;
+  return { ok: true, hm: recruteurs.find((r) => r.id === ligne.hm_id) ?? null, langue };
+}
+
 /**
  * La HM qui recrute dans ce pays (« À recruter » du samedi, 0364) : celle du
  * routage du site, même si la langue du pays n'y est pas encore gérée.
@@ -198,24 +232,28 @@ export function hmDuPays(paysCode: string, recruteurs: Recruteur[]): string | nu
   return a.ok || a.raison === "langue_non_geree" ? a.hm.id : null;
 }
 
-/** Pays couverts par au moins un HM, ouverts ou non (langue pas gérée), pour le bouton « Accepter » du site. */
-export function carteDesZones(recruteurs: Recruteur[]): {
-  ouverts: { pays_code: string; langue: string; hm_id: string }[];
+/**
+ * Pays couverts par un HM ou recrutés dans `hm_pays`, ouverts ou non (langue
+ * pas gérée), pour le bouton « Accepter » du site. `hm_id` est nul pour un
+ * pays dont la HM n'a pas de compte OS.
+ */
+export function carteDesZones(recruteurs: Recruteur[], paysRecrutes: PaysRecrute[] = []): {
+  ouverts: { pays_code: string; langue: string; hm_id: string | null }[];
   fermes: { pays_code: string; raison: string; langue: string | null }[];
   inconnus: string[];
 } {
-  const pays = new Set<string>();
+  const pays = new Set<string>(paysRecrutes.map((p) => p.pays));
   const inconnus = new Set<string>();
   for (const r of recruteurs) {
     const { codes, inconnus: perdus } = codesDeZone(r.zone_recrutement);
     codes.forEach((c) => pays.add(c));
     perdus.forEach((m) => inconnus.add(m));
   }
-  const ouverts: { pays_code: string; langue: string; hm_id: string }[] = [];
+  const ouverts: { pays_code: string; langue: string; hm_id: string | null }[] = [];
   const fermes: { pays_code: string; raison: string; langue: string | null }[] = [];
   for (const code of [...pays].sort()) {
-    const a = resoudreAffectation(code, recruteurs);
-    if (a.ok) ouverts.push({ pays_code: code, langue: a.langue, hm_id: a.hm.id });
+    const a = resoudreAffectationSite(code, recruteurs, paysRecrutes);
+    if (a.ok) ouverts.push({ pays_code: code, langue: a.langue, hm_id: a.hm?.id ?? null });
     else fermes.push({ pays_code: code, raison: a.raison, langue: a.raison === "langue_non_geree" ? a.langue : null });
   }
   return { ouverts, fermes, inconnus: [...inconnus].sort() };

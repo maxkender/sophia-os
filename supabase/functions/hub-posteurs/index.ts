@@ -10,8 +10,9 @@
  *
  *   { action: "ping" }
  *   { action: "zones" }
- *       Pays couverts par un HM : ouverts, ou fermés (langue du pays non gérée
- *       par le HM). Le site grise « Accepter » pour un pays non ouvert.
+ *       Pays couverts par un HM ou recrutés dans `hm_pays` : ouverts, ou fermés
+ *       (langue du pays non gérée par le HM). Le site grise « Accepter » pour
+ *       un pays non ouvert.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
@@ -48,15 +49,16 @@ import {
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
+  type PaysRecrute,
   type Recruteur,
   reservationPerimee,
-  resoudreAffectation,
+  resoudreAffectationSite,
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-22";
+const VERSION = "2026-11-06";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -93,7 +95,7 @@ Deno.serve(async (request) => {
       case "ping":
         return json({ ok: true, version: VERSION });
       case "zones":
-        return json({ ok: true, ...carteDesZones(await lireRecruteurs(supabase)) });
+        return json({ ok: true, ...carteDesZones(await lireRecruteurs(supabase), await lirePaysRecrutes(supabase)) });
       case "creer_posteur":
         return await creerPosteur(supabase, body);
       case "posts_semaine":
@@ -152,6 +154,13 @@ async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
   }));
 }
 
+/** Pays recrutés (`hm_pays`, 0516), avec leur HM quand elle a un compte OS. */
+async function lirePaysRecrutes(supabase: Supabase): Promise<PaysRecrute[]> {
+  const { data, error } = await supabase.from("hm_pays").select("pays, hm_id");
+  if (error) throw error;
+  return (data ?? []) as PaysRecrute[];
+}
+
 function managerPublic(p: { id: string; prenom: string | null; nom: string | null; email: string | null } | null) {
   return p ? { id: p.id, prenom: p.prenom ?? "", nom: p.nom ?? "", email: p.email ?? "" } : null;
 }
@@ -178,10 +187,10 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     return json({ ok: false, error: "creation_en_cours : réessayer dans quelques minutes" }, 409);
   }
 
-  // 2. Pays → HM → langue de publication. Pas de HM = zone pas encore ouverte.
+  // 2. Pays → HM → langue de publication. Ni HM ni ligne `hm_pays` = zone pas encore ouverte.
   const pays = codePays(body.pays_code, body.pays_nom);
   if (!pays) return json({ ok: false, error: "pays_inconnu" }, 422);
-  const affectation = resoudreAffectation(pays, await lireRecruteurs(supabase));
+  const affectation = resoudreAffectationSite(pays, await lireRecruteurs(supabase), await lirePaysRecrutes(supabase));
   if (!affectation.ok) {
     return json({
       ok: false,
@@ -192,10 +201,12 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
         : {}),
     }, 422);
   }
-  // Le HM de la zone décide de la langue et de l'ouverture du pays ; le poster,
-  // lui, est rattaché à la cohorte Ruul quand elle est configurée.
+  // Le HM de la zone (ou `hm_pays`) décide de la langue et de l'ouverture du
+  // pays ; le poster, lui, est rattaché à la cohorte Ruul quand elle est
+  // configurée. Un pays de `hm_pays` sans HM n'a que la cohorte.
   const { hm, langue } = affectation;
   const rattachement = (await lireCohorteRuul(supabase)) ?? hm;
+  if (!rattachement) return json({ ok: false, error: "zone_non_ouverte", pays_code: pays }, 422);
   const parts = partsPourApplications(body.applications);
   const applications = parts ? Object.keys(parts) : ["sophia"];
 
@@ -208,7 +219,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     applications,
     manager_id: rattachement.id,
     // HM de la zone du pays : la page Posters range le poster dans sa zone.
-    hm_zone_id: hm.id,
+    hm_zone_id: hm?.id ?? null,
     // Lundi fixe : le trigger de 0296 repousse la fin du warm-up à ce lundi.
     debut_le: dateIso(body.start_monday),
     reserve_at: new Date().toISOString(),

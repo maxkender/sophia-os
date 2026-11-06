@@ -19,7 +19,9 @@ import {
   type Recruteur,
   reservationPerimee,
   hmDuPays,
+  type PaysRecrute,
   resoudreAffectation,
+  resoudreAffectationSite,
   secretValide,
 } from "./hub_posteurs.ts";
 
@@ -129,6 +131,40 @@ Deno.test("carte des zones : ouverts et fermés, pour griser « Accepter » côt
   assertEquals(carte.fermes.find((f) => f.pays_code === "DK"), { pays_code: "DK", raison: "langue_non_geree", langue: "da" });
   assertEquals(carte.inconnus, []);
   assert(!ouverts.includes("CO"));
+});
+
+// hm_pays au 02/11 (0516) : la Turquie, la Bulgarie et la Serbie confiées à une
+// HM sans compte OS, l'Italie à une HM qui en a un.
+const HM_PAYS: PaysRecrute[] = [
+  { pays: "TR", hm_id: null },
+  { pays: "BG", hm_id: null },
+  { pays: "RS", hm_id: null },
+  { pays: "IT", hm_id: "luciad1@sophia.com" },
+];
+const SANS_TURQUIE: Recruteur[] = HMS.filter((r) => !/Turkey|Bulgaria|Serbia/.test(r.zone_recrutement ?? ""));
+
+Deno.test("hm_pays : un pays recruté sans zone de HM est ouvert au site, sans HM", () => {
+  // Plus aucune zone ne couvre la Turquie : avant, « zone_non_ouverte ».
+  assertEquals(resoudreAffectation("TR", SANS_TURQUIE), { ok: false, raison: "zone_non_ouverte" });
+  assertEquals(resoudreAffectationSite("TR", SANS_TURQUIE, HM_PAYS), { ok: true, hm: null, langue: "tr" });
+  assertEquals(resoudreAffectationSite("BG", SANS_TURQUIE, HM_PAYS), { ok: true, hm: null, langue: "bg" });
+});
+
+Deno.test("hm_pays : la zone d'une HM passe d'abord, et un pays absent des deux reste fermé", () => {
+  const it = resoudreAffectationSite("IT", HMS, HM_PAYS);
+  assert(it.ok);
+  assertEquals([it.hm?.email, it.langue], ["luciad1@sophia.com", "it"]);
+  // Langue non gérée par la HM de la zone : le refus reste, hm_pays ne le contourne pas.
+  const dk = resoudreAffectationSite("DK", HMS, [{ pays: "DK", hm_id: null }]);
+  assert(!dk.ok && dk.raison === "langue_non_geree");
+  assertEquals(resoudreAffectationSite("CO", SANS_TURQUIE, HM_PAYS), { ok: false, raison: "zone_non_ouverte" });
+});
+
+Deno.test("carte des zones : les pays de hm_pays s'ajoutent, hm_id nul sans compte OS", () => {
+  const carte = carteDesZones(SANS_TURQUIE, HM_PAYS);
+  assertEquals(carte.ouverts.find((o) => o.pays_code === "TR"), { pays_code: "TR", langue: "tr", hm_id: null });
+  assertEquals(carte.ouverts.find((o) => o.pays_code === "RS"), { pays_code: "RS", langue: "sr", hm_id: null });
+  assert(!carteDesZones(SANS_TURQUIE).ouverts.some((o) => o.pays_code === "TR"));
 });
 
 Deno.test("applications : Sophia seule garde le chemin historique de création", () => {

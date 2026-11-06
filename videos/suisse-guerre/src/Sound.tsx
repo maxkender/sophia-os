@@ -92,7 +92,12 @@ const PAR_SCENE: [number, string, number][][] = [
     [TIP + 6, 'sparkle', 0.5],
   ],
 ];
-const AMBIANCES = new Set(['warAmb', 'wind', 'train', 'fuse']);
+const AMBIANCES = new Set(['warAmb', 'wind', 'train', 'fuse', 'rumble']);
+const IMPACTS = new Set(['boom', 'stamp', 'clang', 'cannon', 'tankCrash', 'tear']);
+// Niveau général des bruitages (sources normalisées à -1 dB) et baisse sous la voix, par famille
+const MASTER = 0.55;
+const SOUS_VOIX = (son: string) => (IMPACTS.has(son) ? 0.65 : AMBIANCES.has(son) ? 0.3 : 0.45);
+const HORS_VOIX = (son: string) => (AMBIANCES.has(son) ? 0.6 : 1);
 const TRANSITIONS = ['tear', 'whoosh', 'tear', 'whoosh', 'tear', 'whoosh', 'tear'];
 
 export const EVENEMENTS: Ev[] = [
@@ -104,7 +109,12 @@ export const EVENEMENTS: Ev[] = [
   {f: OUTRO_FROM + TAPS[4].f + 1, son: 'correct', vol: 0.7},
   {f: OUTRO_FROM + PUSH.done + 8, son: 'sparkle', vol: 0.5},
   {f: OUTRO_FROM + PUSH.done + 14, son: 'confetti', vol: 0.7},
-].map((e) => ({...e, f: Math.max(0, e.f), vol: e.vol * (parle(e.f) ? 0.6 : 1), ambiance: AMBIANCES.has(e.son) ? 1 : undefined}));
+].map((e) => ({
+  ...e,
+  f: Math.max(0, e.f),
+  vol: e.vol * MASTER * (parle(e.f) || parle(e.f + 8) ? SOUS_VOIX(e.son) : HORS_VOIX(e.son)),
+  ambiance: AMBIANCES.has(e.son) ? 1 : undefined,
+}));
 
 /** Voix off + bruitages */
 export const Sound: React.FC = () => (

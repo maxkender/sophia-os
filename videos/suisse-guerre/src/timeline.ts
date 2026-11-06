@@ -54,14 +54,14 @@ const vers = (s: number) => s * FPS + VOICE_START; // seconde de voix → image 
 
 // Durée de chaque scène dans sa conception d'origine (images « scène »)
 const BASE = [94, 128, 128, 158, 188, 128, 124];
-// Repères : [mot, image de la scène qui doit tomber dessus]
-const REPERES: [string, number][][] = [
+// Repères : [mot, image de la scène qui doit tomber dessus, sur le début (défaut) ou la fin du mot]
+const REPERES: [string, number, ('debut' | 'fin')?][][] = [
   [['Why?', 70]],
   [],
   [['neutrality.', 80]],
   [['rifle', 106]],
   [
-    ['explosives.', 98],
+    ['explosives.', 98, 'fin'],
     ['Invade,', 122],
   ],
   [
@@ -98,7 +98,7 @@ export const SCENES_T: SceneTiming[] = script.scenes.map((s, i) => {
       [d, BASE[i]],
     ];
   } else {
-    warp = [[0, 0], ...reps.map(([m, sf]): [number, number] => [vers(motDansScene(i, m).debut) - from, sf])];
+    warp = [[0, 0], ...reps.map(([m, sf, ou]): [number, number] => [vers(motDansScene(i, m)[ou === 'fin' ? 'fin' : 'debut']) - from, sf])];
     const [rl, sl] = warp[warp.length - 1];
     warp.push([Math.max(d, rl + 1), sl + Math.max(d, rl + 1) - rl]);
   }

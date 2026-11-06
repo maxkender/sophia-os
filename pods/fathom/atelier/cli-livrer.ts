@@ -86,7 +86,7 @@ const anterieurs = readdirSync(join(RACINE, "posts"))
   // Un post plus ancien, ou le deck qu'un `<id>-v2` remplace (fa-001 pour fa-001-v2).
   .filter((f) => /^fa-\d+(-v\d+)?\.json$/.test(f) && f !== `${id}.json` && (f < `${id}.json` || id.startsWith(`${f.slice(0, -5)}-`)))
   .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
-const sourceUrl = anterieurs.some((p) => p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source.url;
+const sourceUrl = anterieurs.some((p) => post.source && p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source?.url;
 
 const corps = {
   action: "deposer",

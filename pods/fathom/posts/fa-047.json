@@ -8,12 +8,16 @@
  "titre": {
   "en": "10/10 Skills To Learn Before You Are 30",
   "de": "10/10 Skills, die du vor 30 lernen solltest",
-  "pt": "10/10 habilidades para aprender antes dos 30"
+  "pt": "10/10 habilidades para aprender antes dos 30",
+  "it": "10/10 abilità da imparare prima dei 30 anni",
+  "es-419": "10/10 habilidades para aprender antes de los 30"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
   "de": "10/10 Skills, die du vor 30 lernen solltest #lernenmittiktok #selbstverbesserung #neugier",
-  "pt": "10/10 habilidades para aprender antes dos 30 #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+  "pt": "10/10 habilidades para aprender antes dos 30 #aprendernotiktok #desenvolvimentopessoal #curiosidade",
+  "it": "10/10 abilità da imparare prima dei 30 anni #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -74,6 +78,40 @@
       }
      ]
     ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ DA IMPARARE",
+     [
+      {
+       "t": "PRIMA DEI 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     [
+      {
+       "t": "ANTES DE LOS 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -121,6 +159,36 @@
      "date": "há 5 anos",
      "duree": "4:48",
      "avatar": "https://yt3.ggpht.com/6YnesnZ6p9o5vm5BCUwRQ4B_lUJlZTe-IDbtkPDmD9OT8qJW041K2VwmNG6Nj9CtfNVwLYfW-Yg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CAMBIA UNA",
+     "GOMMA"
+    ],
+    "video": {
+     "id": "lsFDoYGZg3Y",
+     "titre": "Come cambiare la ruota fuori uso con il ruotino in meno di 4 minuti",
+     "chaine": "Cammi Gomme S.r.l.",
+     "vues": "151K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/v9cLnGZdCv0bed-z4wDs8yP3iDQmub6_MPKLoQ0KgWc28r-oYUwhyAHFpvGkLS5z9HGzoWvr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CAMBIA UNA",
+     "LLANTA"
+    ],
+    "video": {
+     "id": "fbDyQJNLs4k",
+     "titre": "¿Cómo cambiar una llanta? Tutorial - Cooper Consejos en AutoDinámico",
+     "chaine": "AutoDinámico",
+     "vues": "1 M de vistas",
+     "date": "hace 10 años",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/qcOyOVikXQfVnf8OJ0TD6oIGYa6-igJYxq6JKPtuFHqjAmTUctHoMFE5PZZePUlknsTRoxNtcA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -170,6 +238,36 @@
      "duree": "13:06",
      "avatar": "https://yt3.ggpht.com/zqTS-99PdI-tiBsmAZt-1X2pYKdjCLXX96p-w0YE1pxYYJ9aM6sH7Z7on3O5ckSjVVJQMTdorw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "IMPARA A",
+     "NEGOZIARE"
+    ],
+    "video": {
+     "id": "w_P4Cjw3O-w",
+     "titre": "Come Negoziare: I 4 principi di Harvard | Tecniche di trattativa",
+     "chaine": "Jacopo Tartaglia",
+     "vues": "38K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/mspf8SyB7FhsT15y4kkT_a81YLvHCKOiv3V6IoU4AIkmd3k8r3SgI0HnGgs7P3cFXgxTEVy8U98=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE A",
+     "NEGOCIAR"
+    ],
+    "video": {
+     "id": "lKV_21kISVs",
+     "titre": "Los Negociadores de HARVARD Explican: Cómo obtener lo que quieres cada vez.",
+     "chaine": "UN POCO MEJOR",
+     "vues": "1.6 M de vistas",
+     "date": "hace 2 años",
+     "duree": "11:13",
+     "avatar": "https://yt3.ggpht.com/1sOfdzzaWPuhwJvxm4Kz-Q9gQx6_lU4jwYvw3CEVHsfsiW8wSwW4D2RZyYOwkuR9Jef3V4Z6Ng=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -211,6 +309,32 @@
      "texte": [
       "o que eu abro",
       "em vez de fazer scroll."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "NON SMETTERE MAI",
+     "DI IMPARARE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "NUNCA DEJES",
+     "DE APRENDER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
      ]
     }
    }
@@ -260,6 +384,36 @@
      "date": "há 3 anos",
      "duree": "6:45",
      "avatar": "https://yt3.ggpht.com/m5t2JECbKp8jhVP9jMpB1fsMaC9ainabb1WJ4js51ZfWaZjAh4S29xs7J-5X5vWxILE1LAMX7O4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SCRIVI UN",
+     "OTTIMO CV"
+    ],
+    "video": {
+     "id": "Qez8MKnc86U",
+     "titre": "Come scrivere il Curriculum per ottenere un Colloquio di Lavoro!",
+     "chaine": "Valentina Russo",
+     "vues": "195K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvNy1F-VH7k2DRJF9vZ1Xwdt8rFIM2vCFMHtX0Eje19A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ UN BUEN",
+     "CURRÍCULUM"
+    ],
+    "video": {
+     "id": "J9zGQcvrLXo",
+     "titre": "Cómo hacer un curriculum fácil",
+     "chaine": "Rocío te ayuda",
+     "vues": "541 k vistas",
+     "date": "hace 6 años",
+     "duree": "2:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kgPKvsaNfnuCc7eFbcCge4vBp_ETfnV3cCY7xixlN0mA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -8,12 +8,16 @@
  "titre": {
   "en": "5 Rabbit Holes Worth Going Down",
   "de": "5 Rabbit Holes, die sich lohnen",
-  "pt": "5 temas para explorar a fundo"
+  "pt": "5 temas para explorar a fundo",
+  "it": "5 argomenti da approfondire",
+  "es-419": "5 temas que vale la pena explorar"
  },
  "legendes": {
   "en": "5 Rabbit Holes Worth Going Down #rabbithole #learnontiktok #curiosity",
   "de": "5 Rabbit Holes, die sich lohnen #rabbithole #lernenmittiktok #wissen",
-  "pt": "5 temas para explorar a fundo #curiosidades #aprendernotiktok #conhecimento"
+  "pt": "5 temas para explorar a fundo #curiosidades #aprendernotiktok #conhecimento",
+  "it": "5 argomenti da approfondire #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "5 temas que vale la pena explorar #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "audio originale",
@@ -58,6 +62,40 @@
      ],
      "PARA EXPLORAR",
      "A FUNDO"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ARGOMENTI",
+       "bronze": true
+      }
+     ],
+     "CHE VALE LA PENA",
+     [
+      {
+       "t": "APPROFONDIRE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "QUE VALE LA PENA",
+     [
+      {
+       "t": "EXPLORAR",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -107,6 +145,36 @@
      "duree": "10:34",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdYOUtp16eJsT8yUlmbU2sDUP8ESohkDlSLW9KDUXwJQI=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "COSA SUCCEDE",
+     "QUANDO DORMIAMO"
+    ],
+    "video": {
+     "id": "ddHHHndH-6c",
+     "titre": "Cosa accade nel nostro cervello quando sogniamo?",
+     "chaine": "Geopop",
+     "vues": "1,5 Mln visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "QUÉ PASA CUANDO",
+     "DORMIMOS"
+    ],
+    "video": {
+     "id": "P6h2SPomDA0",
+     "titre": "¿QUÉ HACE NUESTRO CUERPO MIENTRAS DORMIMOS? | Draw My Life",
+     "chaine": "TikTak Draw",
+     "vues": "435 k vistas",
+     "date": "hace 5 años",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/nehTFfi2o1UAld9fmPEbhuut8yTBNFsFUENdRm_eGGRA0kbnodhcBb5PwjfaCKaZdtU8W3OxjU0=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -155,6 +223,36 @@
      "duree": "14:39",
      "avatar": "https://yt3.ggpht.com/r2QVtLAdG7_1IwlR9O7HKqCHJtXJobZ0uSEymBBU3pmtmPUSrk5MagvP6ja120SvaAg76akMWQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "COME SI FA",
+     "UN MICROCHIP"
+    ],
+    "video": {
+     "id": "ssDo1Ag9HvM",
+     "titre": "I microchip - Superquark 27/07/2022",
+     "chaine": "Rai",
+     "vues": "17K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:27",
+     "avatar": "https://yt3.ggpht.com/4vkb6G4l-GnHH9Irzgyt0rdExModabbOG5R2v3KTjAzjE5vwoQAPcGb9OBdvql3VI8eArv_19Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CÓMO SE HACE",
+     "UN MICROCHIP"
+    ],
+    "video": {
+     "id": "91QYLvQTd8Y",
+     "titre": "CÓMO se FABRICA un MICROCHIP desde CERO | El Proceso Más PRECISO del MUNDO ⚙️",
+     "chaine": "ProductoX",
+     "vues": "522 k vistas",
+     "date": "hace 1 año",
+     "duree": "11:16",
+     "avatar": "https://yt3.ggpht.com/BgN5-NAi7VNVZHjf_ZAJQtvSg4FVsCaxUUa4aFIRFnAze4mIYws8yzkT8GKCB0puVfNECHDc2g=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -196,6 +294,32 @@
      "texte": [
       "5 minutos por dia",
       "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UN ARGOMENTO NUOVO",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UN TEMA NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
      ]
     }
    }
@@ -246,6 +370,36 @@
      "duree": "16:43",
      "avatar": "https://yt3.ggpht.com/JRPTkRBiuqw4gUTNDcqU_RGRTTnAm7-pqfvly0qSusVIR9I97Osx0Gv8zEjgMiJrGDicMDsO=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "COME NASCE",
+     "IL DENARO"
+    ],
+    "video": {
+     "id": "gq7XyZvlM6I",
+     "titre": "Cos'è il denaro e come ha avuto origine?",
+     "chaine": "10 minuti. Ai confini dell’ignoto",
+     "vues": "6,8K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "13:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lSFqD94ql5vPZYOZYthG4sxUz9ao-rKGL1futeZJRSeVk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CÓMO SE CREA",
+     "EL DINERO"
+    ],
+    "video": {
+     "id": "faV2vVVDpvQ",
+     "titre": "Cómo se crea el dinero. Ep1: Las dos clases de dinero.",
+     "chaine": "Economic Pills",
+     "vues": "563 k vistas",
+     "date": "hace 8 años",
+     "duree": "8:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l89oG9s6YKY6P_THqW4Z6MXqCnf87sfRnDWrvOqPOyCA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -293,6 +447,36 @@
      "date": "há 5 anos",
      "duree": "9:16",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkDcCgDU5gfcPjzZzuUv57BGBJ7CfkuYjj3y_E0C3jZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "COME FUNZIONA",
+     "IL SISTEMA IMMUNITARIO"
+    ],
+    "video": {
+     "id": "2Qa3MmAelJI",
+     "titre": "Come funziona il nostro sistema immunitario?",
+     "chaine": "HUMANITAS Research Hospital",
+     "vues": "210K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9cEGiN6zMTvCv8N5znLRzBARUjbgZk_xKVqx8xyYu-rQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CÓMO FUNCIONA",
+     "EL SISTEMA INMUNE"
+    ],
+    "video": {
+     "id": "8t84ETH_tk8",
+     "titre": "Cómo funciona DE VERDAD el sistema inmunitario",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "2.2 M de vistas",
+     "date": "hace 2 años",
+     "duree": "9:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

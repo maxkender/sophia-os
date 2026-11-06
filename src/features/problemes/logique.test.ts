@@ -5,6 +5,7 @@ import type { OptionDecision, Probleme, Situation } from "./api";
 import {
   autresSujets,
   carteAncienne,
+  ordreMaintenant,
   promesseAttente,
   trierCartes,
   diagnosticSimple,
@@ -343,5 +344,17 @@ describe("6/11 : réponse promise par le bot FAQ : en tête d'Urgent, rouge apr�
     const autre = p({ id: "autre", niveau: "urgent", sans_reponse: sr });
     const liste = trierCartes([autre, promis("2026-11-06T14:00:00Z"), promis("2026-11-06T09:01:00Z")], "urgent", maintenant);
     expect(liste.map((x) => x.id)).toEqual(["2026-11-06T09:01:00Z", "2026-11-06T14:00:00Z", "autre"]);
+  });
+});
+
+describe("6/11 : « À décider maintenant », les décisions envoyées depuis Problèmes en tête", () => {
+  it("cartes à boutons de décision, puis offres HM, puis le reste", () => {
+    const opt = [{ libelle: "Killer les 14 maintenant", action: "kill_immediat" }] as Probleme["options"];
+    const liste = [
+      p({ id: "paie", categorie: "paie", created_at: "2026-11-01T10:00:00Z" }),
+      p({ id: "offre", categorie: "offre_hm_incorrecte", created_at: "2026-11-02T10:00:00Z" }),
+      p({ id: "kill", categorie: "kill_contrat", question: "Killer ?", options: opt, poster_id: null, sujet: "hm", created_at: "2026-11-06T10:00:00Z" }),
+    ];
+    expect(ordreMaintenant(liste).map((x) => x.id)).toEqual(["kill", "offre", "paie"]);
   });
 });

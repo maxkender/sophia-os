@@ -7854,6 +7854,11 @@ export const fr = {
       },
       statut: { bon: "Bon", moyen: "Moyen", sous_seuil: "Sous le seuil" },
     },
+    erreurs: {
+      section: "« {{nom}} » n'a pas pu s'afficher. Le reste de la page fonctionne. Envoie ce message pour qu'on corrige :",
+      cetteSection: "Cette section",
+      reessayer: "Réessayer",
+    },
     officielles: {
       nouvelle: "Nouvelle réponse officielle",
       modifier: "Modifier",

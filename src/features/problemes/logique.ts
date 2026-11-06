@@ -317,6 +317,16 @@ export function regleDepuisFeedback(f: { id: string; bot: Proprietaire; raison: 
 
 export const estDecision = (p: Pick<Probleme, "question" | "options">): boolean => Boolean(p.question?.trim() && p.options?.length);
 
+/**
+ * 6/11 : l'ordre d'« À décider maintenant » : d'abord les cartes à boutons de
+ * décision envoyées depuis Problèmes (Kill immédiat, test bonus, offres HM…),
+ * puis les offres HM à refaire, puis le reste ; à rang égal, la plus ancienne.
+ */
+export function ordreMaintenant<T extends Pick<Probleme, "question" | "options" | "categorie" | "created_at">>(liste: readonly T[]): T[] {
+  const rangM = (p: T) => (estDecision(p) ? 0 : p.categorie === "offre_hm_incorrecte" ? 1 : 2);
+  return [...liste].sort((a, b) => rangM(a) - rangM(b) || a.created_at.localeCompare(b.created_at));
+}
+
 /** Ce que fait le clic sur une option. Jamais d'argent : une option « paie » ouvre le contrat Upwork. */
 export interface PlanDecision {
   /** Lien Upwork à ouvrir (paie). */

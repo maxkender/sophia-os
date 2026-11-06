@@ -10,6 +10,7 @@ import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
+import { SectionSure } from "@/components/erreurs/SectionSure";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -84,8 +85,13 @@ export function DecisionsPage() {
   return (
     <PageAuto cle="decisions">
       <div className="space-y-6">
-        <ADeciderMaintenant />
-        <AdminCheckKillDoublePage />
+        {/* 6/11 : une section qui plante n'emporte plus la page. */}
+        <SectionSure nom="À décider maintenant">
+          <ADeciderMaintenant />
+        </SectionSure>
+        <SectionSure nom="Weekly decisions">
+          <AdminCheckKillDoublePage />
+        </SectionSure>
       </div>
     </PageAuto>
   );

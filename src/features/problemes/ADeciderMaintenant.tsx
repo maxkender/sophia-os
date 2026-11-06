@@ -3,8 +3,11 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 
+import { SectionSure } from "@/components/erreurs/SectionSure";
+
 import { CarteUnique } from "./CarteUnique";
 import { lireModeProblemes, lireProblemes, type Rituel } from "./api";
+import { ordreMaintenant } from "./logique";
 
 const P = "problemes.decisions";
 const RITUELS: readonly Exclude<Rituel, "maintenant">[] = ["jeudi", "samedi", "dimanche"];
@@ -22,7 +25,8 @@ export function ADeciderMaintenant() {
   const lu = useQuery({ queryKey: ["problemes", "ouverts"], queryFn: () => lireProblemes("ouverts"), refetchInterval: 60_000 });
   const mode = useQuery({ queryKey: ["problemes", "mode"], queryFn: lireModeProblemes });
   const liste = lu.data ?? [];
-  const maintenant = liste.filter((p) => p.rituel === "maintenant");
+  // 6/11 : les décisions envoyées depuis Problèmes (Kill, test bonus, offres HM) en tête.
+  const maintenant = ordreMaintenant(liste.filter((p) => p.rituel === "maintenant"));
   const parRituel = (r: Rituel) => liste.filter((p) => p.rituel === r).length;
 
   React.useEffect(() => {
@@ -42,7 +46,9 @@ export function ADeciderMaintenant() {
           {lu.isLoading && <p className="text-sm text-muted-foreground">{t("problemes.chargement")}</p>}
           {!lu.isLoading && maintenant.length === 0 && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
           {maintenant.map((p) => (
-            <CarteUnique key={p.id} p={p} mode={mode.data ?? "test"} vue="decisions" surlignee={p.id === carte} />
+            <SectionSure key={p.id} nom={p.nom ?? p.hm_nom ?? p.resume}>
+              <CarteUnique p={p} mode={mode.data ?? "test"} vue="decisions" surlignee={p.id === carte} />
+            </SectionSure>
           ))}
         </div>
       </details>

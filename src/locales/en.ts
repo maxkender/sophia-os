@@ -7843,6 +7843,11 @@ export const en = {
       },
       statut: { bon: "Good", moyen: "Average", sous_seuil: "Below" },
     },
+    erreurs: {
+      section: "“{{nom}}” couldn't be displayed. The rest of the page works. Send this message so we can fix it:",
+      cetteSection: "This section",
+      reessayer: "Try again",
+    },
     officielles: {
       nouvelle: "New official answer",
       modifier: "Edit",

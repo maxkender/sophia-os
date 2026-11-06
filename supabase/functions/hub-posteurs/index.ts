@@ -11,7 +11,8 @@
  *   { action: "ping" }
  *   { action: "zones" }
  *       Pays ouverts = pays ouverts dans l'OS (zone de paie active dans
- *       `zones_paie_pays`), avec langue de publication, zone et HM de zone.
+ *       `zones_paie_pays`), avec langue de publication, zone, HM de zone et
+ *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
  *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications }
@@ -61,7 +62,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-06b";
+const VERSION = "2026-11-06c";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -106,6 +107,7 @@ Deno.serve(async (request) => {
             await lireRecruteurs(supabase),
             await lirePaysRecrutes(supabase),
             await lireLanguesComptes(supabase, ouverts.map((o) => o.pays)),
+            await lireLanguesOs(supabase),
           ),
         });
       }
@@ -190,6 +192,13 @@ async function lireLanguesComptes(supabase: Supabase, pays: string[]): Promise<L
     l[c.langue] = (l[c.langue] ?? 0) + 1;
   }
   return parPays;
+}
+
+/** Langues dans lesquelles publient les comptes actifs de l'OS. */
+async function lireLanguesOs(supabase: Supabase): Promise<Set<string>> {
+  const { data, error } = await supabase.from("comptes").select("langue").eq("is_active", true);
+  if (error) throw error;
+  return new Set(((data ?? []) as { langue: string | null }[]).map((c) => c.langue).filter((l): l is string => !!l));
 }
 
 /** Pays recrutés (`hm_pays`, 0516), avec leur HM quand elle a un compte OS. */

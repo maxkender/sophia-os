@@ -20,6 +20,7 @@ import {
   reservationPerimee,
   hmDuPays,
   langueDuPays,
+  langueDuPaysDetail,
   type PaysOuvert,
   type PaysRecrute,
   resoudreAffectation,
@@ -181,14 +182,30 @@ Deno.test("site : langue de publication, toujours une réponse", () => {
 Deno.test("carte des zones : tous les pays ouverts dans l'OS, rien d'autre", () => {
   const carte = carteDesZones(OUVERTS, HMS, HM_PAYS);
   assertEquals(carte.ouverts.map((o) => o.pays_code), OUVERTS.map((o) => o.pays).sort());
-  assertEquals(carte.ouverts.find((o) => o.pays_code === "TR"), { pays_code: "TR", langue: "tr", zone: "C", hm_id: "amandac@sophia.com" });
-  assertEquals(carte.ouverts.find((o) => o.pays_code === "CA"), { pays_code: "CA", langue: "en", zone: "A", hm_id: null });
+  assertEquals(carte.ouverts.find((o) => o.pays_code === "TR"), { pays_code: "TR", langue: "tr", langue_os: true, zone: "C", hm_id: "amandac@sophia.com" });
+  assertEquals(carte.ouverts.find((o) => o.pays_code === "CA"), { pays_code: "CA", langue: "en", langue_os: true, zone: "A", hm_id: null });
   // Couverts par une HM mais sans zone de paie active : fermés.
   for (const code of ["PT", "ES", "US", "GB"]) {
     assert(carte.fermes.some((f) => f.pays_code === code && f.raison === "zone_non_ouverte"), code);
   }
   assertEquals(carte.inconnus, []);
   assertEquals(carteDesZones([]).ouverts, []);
+});
+
+Deno.test("carte des zones : langue_os = langue du pays connue et publiée par des comptes actifs", () => {
+  const languesOs = new Set(["en", "tr", "de", "fr", "es-419", "pt-BR", "da"]);
+  const carte = carteDesZones([...OUVERTS, { pays: "UA", zone: "C" }], HMS, HM_PAYS, {}, languesOs);
+  const os = (code: string) => carte.ouverts.find((o) => o.pays_code === code)?.langue_os;
+  // Langue du pays connue et publiée dans l'OS : valide.
+  for (const code of ["CA", "TR", "MX", "BR", "BE", "CH", "DK"]) assertEquals(os(code), true, code);
+  // Corée : anglais par défaut, la langue du pays n'est pas connue.
+  assertEquals(os("KR"), false);
+  // Ukraine : langue connue (uk) mais aucun compte actif ne publie en ukrainien.
+  assertEquals(os("UA"), false);
+  // Italie : it absent des langues actives de cet exemple.
+  assertEquals(os("IT"), false);
+  assertEquals(langueDuPaysDetail("KR"), { langue: "en", devinee: true });
+  assertEquals(langueDuPaysDetail("MA", { MA: { fr: 2 } }), { langue: "fr", devinee: false });
 });
 
 Deno.test("applications : Sophia seule garde le chemin historique de création", () => {

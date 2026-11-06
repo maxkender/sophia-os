@@ -52,19 +52,25 @@ export function DialogueMontage({
   const erreurCoupe = sansCoupe ? null : erreurPassage(d, f, null, PASSAGE_MAX_S);
   const erreurBandeau = avecBandeau && !texte.trim() ? t("ugcIa.montage.bandeauVide") : null;
 
-  // L'aperçu est la même image que celle envoyée au serveur.
-  const apercu = React.useMemo(() => {
-    if (!avecBandeau || !texte.trim()) return null;
-    try {
-      return bandeauPng(taille.largeur, taille.hauteur, texte, position);
-    } catch {
-      return null;
+  // L'aperçu est la même image que celle envoyée au serveur (police et emojis Apple chargés d'abord).
+  const [apercu, setApercu] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    if (!avecBandeau || !texte.trim()) {
+      setApercu(null);
+      return;
     }
+    let actif = true;
+    bandeauPng(taille.largeur, taille.hauteur, texte, position)
+      .then((png) => actif && setApercu(png))
+      .catch(() => actif && setApercu(null));
+    return () => {
+      actif = false;
+    };
   }, [avecBandeau, texte, position, taille]);
 
   const rafraichir = () => qc.invalidateQueries({ queryKey: CLE_SOURCES_UGC_IA });
   const enregistrer = useMutation({
-    mutationFn: () =>
+    mutationFn: async () =>
       monterGenerationUgcIa(g.id, {
         debut: sansCoupe ? null : d,
         fin: sansCoupe ? null : f,
@@ -72,7 +78,7 @@ export function DialogueMontage({
           actif: avecBandeau,
           texte,
           position,
-          ...(avecBandeau ? { png: bandeauPng(taille.largeur, taille.hauteur, texte, position) } : {}),
+          ...(avecBandeau ? { png: await bandeauPng(taille.largeur, taille.hauteur, texte, position) } : {}),
         },
       }),
     onSuccess: () => {

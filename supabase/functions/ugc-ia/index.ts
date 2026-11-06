@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0661) : une réaction TikTok
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0662) : une réaction TikTok
  * (la source) refaite par un ou plusieurs personas synthétiques avec
  * Higgsfield Genjutsu (transfert de mouvement). Admin seulement. La page lit
  * les tables directement ; tout changement passe ici.
@@ -27,6 +27,12 @@
  *   { action: "assigner_persona", personaId, compteId|null }
  *                                                  → rattache le persona à un compte UGCV
  *                                                    (1 persona = 1 compte, migration 0661)
+ *   { action: "creer_post_video", compteId, date, videos, ctaTexte?, ctaIncruste?,
+ *     captureUrl?, legende?, musiqueUrl?, musiqueTitre?, applicationId? }
+ *                                                  → pose un post vidéo sur un compte UGCV
+ *                                                    (1 par jour), compté comme un post
+ *                                                    normal (posts + passage sans contenu, 0662)
+ *   { action: "supprimer_post_video", id }         → retire un post vidéo pas encore publié
  *
  * Secrets : APIFY_TOKEN, FAL_KEY, HIGGSFIELD_API_KEY (« KEY_ID:KEY_SECRET »).
  */
@@ -46,7 +52,7 @@ import {
   suivreGenjutsu,
   urlPropre,
 } from "../_shared/higgsfield.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, aujourdhuiParis, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import {
   cheminGeneration,
   cheminPersona,
@@ -56,6 +62,7 @@ import {
   demandeAssignation,
   demandeMontage,
   type DemandeMontage,
+  demandePostVideo,
   lienTiktok,
   nettoyerCta,
   partieSource,
@@ -122,6 +129,8 @@ async function importer(supabase: Supabase, body: Record<string, unknown>): Prom
       source_texte: post.text || null,
       source_vues: post.stats.vues,
       source_duree_s: post.dureeMs != null ? post.dureeMs / 1000 : null,
+      musique_url: post.musicUrl,
+      musique_titre: post.musicTitle,
       brut_path: chemin,
       brut_url: brutUrl,
     })
@@ -533,6 +542,107 @@ async function assignerPersona(supabase: Supabase, body: Record<string, unknown>
   return json({ ok: true });
 }
 
+/**
+ * Un post vidéo sur un compte UGCV, compté comme un post normal : le post
+ * (type `video`, assigné, prêt), ses vidéos dans l'ordre, et un passage sans
+ * contenu que lisent la paie, les relances, la résolution du lien et les vues.
+ */
+async function creerPostVideo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const d = demandePostVideo(body, aujourdhuiParis());
+  if ("erreur" in d) return json({ error: d.erreur }, 400);
+
+  const { data: compte, error: errC } = await supabase
+    .from("comptes")
+    .select("id, ugcv, is_active, langue")
+    .eq("id", d.compteId)
+    .maybeSingle();
+  if (errC) throw new Error(errC.message);
+  if (!compte) return json({ error: "Compte introuvable" }, 404);
+  if (!compte.ugcv) return json({ error: "Ce compte n'est pas UGCV" }, 400);
+  if (!compte.is_active) return json({ error: "Ce compte est désactivé" }, 400);
+
+  // 1 post par jour sur un compte UGCV.
+  const { data: deja, error: errD } = await supabase
+    .from("posts")
+    .select("id")
+    .eq("compte_id", d.compteId)
+    .eq("date_publication_prevue", d.date)
+    .eq("est_test", false)
+    .limit(1);
+  if (errD) throw new Error(errD.message);
+  if ((deja ?? []).length > 0) return json({ error: "Ce compte a déjà un post ce jour-là" }, 409);
+
+  const application = d.applicationId ? { application_id: d.applicationId } : {};
+  const musique = d.musiqueUrl
+    ? { musique_url: d.musiqueUrl, musique_titre: d.musiqueTitre, musique_plateforme: "tiktok" }
+    : {};
+  const { data: post, error: errP } = await supabase
+    .from("posts")
+    .insert({
+      compte_id: d.compteId,
+      date_publication_prevue: d.date,
+      type: "video",
+      statut: "assigne",
+      pipeline_statut: "done",
+      hashtags: d.legende,
+      video_cta_texte: d.ctaTexte,
+      video_cta_incruste: d.ctaIncruste,
+      video_capture_url: d.captureUrl,
+      ...musique,
+      ...application,
+    })
+    .select("id")
+    .single();
+  if (errP || !post) throw new Error(errP?.message ?? "post non créé");
+
+  try {
+    const { error: errV } = await supabase.from("post_videos").insert(
+      d.videos.map((v, i) => ({
+        post_id: post.id,
+        position: i + 1,
+        url: v.url,
+        chemin: v.chemin,
+        nom: v.nom,
+        generation_id: v.generationId,
+      })),
+    );
+    if (errV) throw new Error(errV.message);
+    const { error: errPa } = await supabase.from("passages").insert({
+      contenu_id: null,
+      post_id: post.id,
+      compte_id: d.compteId,
+      langue: (compte.langue as string | null) || "en",
+      date_publication_prevue: d.date,
+      statut: "assigne",
+      slides: [],
+      hashtags: d.legende,
+      ...musique,
+      ...application,
+    });
+    if (errPa) throw new Error(errPa.message);
+  } catch (e) {
+    await supabase.from("posts").delete().eq("id", post.id);
+    throw e;
+  }
+  return json({ ok: true, postId: post.id });
+}
+
+/** Retire un post vidéo pas encore publié, et les vidéos importées pour lui. */
+async function supprimerPostVideo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "");
+  const { data: post, error } = await supabase.from("posts").select("id, type, publie_at").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!post || post.type !== "video") return json({ error: "Post vidéo introuvable" }, 404);
+  if (post.publie_at) return json({ error: "Ce post est déjà publié : il compte pour la paie, il reste" }, 409);
+  const { data: videos } = await supabase.from("post_videos").select("chemin").eq("post_id", id);
+  const { error: errPa } = await supabase.from("passages").delete().eq("post_id", id);
+  if (errPa) throw new Error(errPa.message);
+  const { error: errP } = await supabase.from("posts").delete().eq("id", id);
+  if (errP) throw new Error(errP.message);
+  await retirer(supabase, (videos ?? []).map((v) => v.chemin as string | null));
+  return json({ ok: true });
+}
+
 Deno.serve(async (request) => {
   const refus = await assertAuthorised(request);
   if (refus) return refus;
@@ -570,11 +680,15 @@ Deno.serve(async (request) => {
         return await rapatrierPersonas(supabase);
       case "assigner_persona":
         return await assignerPersona(supabase, body);
+      case "creer_post_video":
+        return await creerPostVideo(supabase, body);
+      case "supprimer_post_video":
+        return await supprimerPostVideo(supabase, body);
       default:
         return json(
           {
             error:
-              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona)",
+              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona | creer_post_video | supprimer_post_video)",
           },
           400,
         );

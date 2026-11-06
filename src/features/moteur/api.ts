@@ -50,6 +50,7 @@ import type {
   ModeleNudge,
   Passage,
   Tier,
+  PostType,
 } from "./types";
 import { PASSAGES_PAR_TIER } from "./types";
 import {
@@ -2564,7 +2565,7 @@ export async function listerPublicationsCompte(
     supabase
       .from("passages")
       .select(
-        "id, post_id, date_publication_prevue, publie_at, publie_url, langue, statut, contenus(titre)",
+        "id, post_id, contenu_id, date_publication_prevue, publie_at, publie_url, langue, statut, contenus(titre)",
       )
       .eq("compte_id", compteId)
       .eq("statut", "publie")
@@ -2586,8 +2587,10 @@ export async function listerPublicationsCompte(
   const result: PublicationCompte[] = [];
 
   for (const p of passages ?? []) {
+    // Passage sans contenu = post vidéo UGCV (0662) : pas de titre de slideshow.
     const titre =
-      (p as { contenus?: { titre?: string | null } | null }).contenus?.titre ?? null;
+      (p as { contenus?: { titre?: string | null } | null }).contenus?.titre ??
+      (p.contenu_id ? null : "Vidéo");
     const row: PublicationCompte = {
       key: `passage:${p.id}`,
       passage_id: p.id,
@@ -3228,7 +3231,8 @@ export async function postsCalendrierAdmin(
 
   return rows.map((p) => {
     const counts = slidesParPost.get(p.id as string) ?? { nb: 0, media: 0 };
-    const slideshow_vide = counts.nb === 0 || counts.media === 0;
+    // Un post vidéo UGCV (0662) n'a pas de slides : il n'est jamais « vide ».
+    const slideshow_vide = p.type !== "video" && (counts.nb === 0 || counts.media === 0);
     const ugcv = Boolean(p.comptes?.ugcv);
     return {
       id: p.id as string,
@@ -5900,7 +5904,7 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
       .select("id, compte_id, type, statut, pipeline_statut, pipeline_etape, pipeline_erreur")
       .eq("date_publication_prevue", date)
       .eq("est_test", false)
-      .eq("type", "contenu")
+      .in("type", ["contenu", "video"])
       .order("created_at"),
     supabase.from("reglages").select("valeur").eq("cle", "frequence").maybeSingle(),
   ]);
@@ -5922,7 +5926,7 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
     liste.push({
       id: (pas.post_id as string | null) ?? (pas.id as string),
       passage_id: pas.id as string,
-      type: "contenu",
+      type: (post?.type as PostType | undefined) ?? "contenu",
       statut: (post?.statut as string) ?? (pas.statut as string),
       pipeline_statut: (post?.pipeline_statut as string) ?? "done",
       pipeline_etape: (post?.pipeline_etape as string | null) ?? null,

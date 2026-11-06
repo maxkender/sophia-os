@@ -519,6 +519,8 @@ async function appliquerEloLangue(
       continue;
     }
 
+    // Post vidéo UGCV (0662) : pas de contenu à scorer.
+    if (!p.contenu_id) continue;
     const key = `${p.contenu_id}::${p.langue}`;
     let cl = scoreLangue.get(key);
     if (!cl) {

@@ -3,6 +3,9 @@ import { describe, expect, it } from "vitest";
 import {
   arrondiDixieme,
   basculer,
+  deplacer,
+  manquePostVideo,
+  videosDisponibles,
   erreurPassage,
   estMontee,
   lireSecondes,
@@ -81,5 +84,59 @@ describe("UGC IA, logique", () => {
     expect(estMontee({ video_url: "a.mp4", video_brute_url: "a.mp4" })).toBe(false);
     expect(estMontee({ video_url: "a-monte.mp4", video_brute_url: "a.mp4" })).toBe(true);
     expect(estMontee({ video_url: null, video_brute_url: null })).toBe(false);
+  });
+});
+
+describe("posts vidéo UGCV", () => {
+  const generation = (id: string, champs: Record<string, unknown> = {}) => ({
+    id,
+    persona_id: "p1",
+    statut: "prete" as const,
+    video_url: `https://x/${id}.mp4`,
+    video_brute_url: `https://x/${id}.mp4`,
+    bandeau_actif: false,
+    ...champs,
+  });
+  const libelles = { montee: "montée", telephone: "Partie téléphone" };
+
+  it("propose les vidéos prêtes et la partie téléphone, par source", () => {
+    const groupes = videosDisponibles(
+      [
+        {
+          id: "s1",
+          source_texte: "POV: tu découvres l'appli qui fait tes fiches à ta place et ça change tout",
+          source_url: "https://www.tiktok.com/@a/video/1",
+          telephone_url: "https://x/tel.mp4",
+          generations: [
+            generation("g1", { video_url: "https://x/g1-monte.mp4", bandeau_actif: true }),
+            generation("g2", { statut: "en_cours", video_url: null }),
+          ],
+        },
+        { id: "s2", source_texte: null, source_url: "https://www.tiktok.com/@b/video/2", telephone_url: null, generations: [] },
+      ],
+      [{ id: "p1", nom: "Emma" }],
+      libelles,
+    );
+    expect(groupes).toHaveLength(1);
+    expect(groupes[0].titre).toBe("POV: tu découvres l'appli qui fait tes fiches à ta…");
+    expect(groupes[0].options.map((o) => [o.cle, o.nom, o.ctaIncruste ?? false])).toEqual([
+      ["gen:g1", "Emma (montée)", true],
+      ["tel:s1", "Partie téléphone", false],
+    ]);
+  });
+
+  it("déplace une vidéo d'un cran, sans sortir de la liste", () => {
+    expect(deplacer(["a", "b", "c"], 2, -1)).toEqual(["a", "c", "b"]);
+    expect(deplacer(["a", "b"], 0, -1)).toEqual(["a", "b"]);
+  });
+
+  it("dit ce qui manque avant de créer le post", () => {
+    const pret = { compteId: "c1", date: "2026-11-07", videos: [1], ctaIncruste: false, ctaTexte: "lien en bio", captureUrl: "https://x/c.jpg", legende: "" };
+    expect(manquePostVideo(pret)).toBeNull();
+    expect(manquePostVideo({ ...pret, compteId: "" })).toBe("compte");
+    expect(manquePostVideo({ ...pret, videos: [] })).toBe("videos");
+    expect(manquePostVideo({ ...pret, ctaTexte: " " })).toBe("cta");
+    expect(manquePostVideo({ ...pret, captureUrl: null })).toBe("capture");
+    expect(manquePostVideo({ ...pret, ctaIncruste: true, ctaTexte: "", captureUrl: null })).toBeNull();
   });
 });

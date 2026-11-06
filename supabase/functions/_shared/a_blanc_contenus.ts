@@ -215,7 +215,7 @@ export interface ResultatContenusABlanc {
 const LIMITE_NON_DETERMINISTE =
   "Le modèle n'est pas déterministe : relancer peut donner un autre score, une autre slide ou une autre phrase.";
 const LIMITE_ANGLES =
-  `Angles : la référence est l'angle ACTIF du label (ou sans angle), comme la nuit ; chaque angle EN TEST du label donne un placement de plus (au plus ${MAX_ANGLES_TEST}). L'angle n'entre que dans le placement, pas dans la notation.`;
+  `Angles : la référence est l'angle ACTIF que la nuit sert à ce slideshow (un parmi les actifs du label, ou sans angle) ; chaque angle EN TEST du label donne un placement de plus (au plus ${MAX_ANGLES_TEST}). L'angle n'entre que dans le placement, pas dans la notation.`;
 
 /** Ce que ce mode ne rejoue pas — toujours affiché (hors Sophia). */
 export const LIMITES_CONTENUS: readonly string[] = [
@@ -838,7 +838,7 @@ export async function executerContenusABlanc(
       );
     }
 
-    // Angles : la référence (l'actif du label, ou sans angle — ce que ferait la
+    // Angles : la référence (l'actif servi à ce contenu, ou sans angle — ce que ferait la
     // nuit), puis chaque angle EN TEST du label, au plus MAX_ANGLES_TEST.
     const reference = await chargerAnglePlacement(supabase, contenu.id, appli.id);
     const enTest = (await chargerAnglesTest(supabase, contenu.id, appli.id)).filter((a) => a.texte !== reference);

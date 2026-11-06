@@ -5,7 +5,8 @@
  * Un angle est une consigne libre ajoutée au prompt de placement de
  * l'application pour les slideshows du label (placement seulement, pas la
  * pertinence). Statuts (table `angles_placement`, migration 0285) :
- *  - actif : utilisé partout (nuit, assignation), au plus un par paire ;
+ *  - actif : utilisé partout (nuit, assignation). Plusieurs par paire depuis
+ *            0354 : chaque slideshow en reçoit UN, toujours le même ;
  *  - test  : utilisé SEULEMENT par le test à blanc « contenus » (Tests), une
  *            variante par angle en test, à côté de la référence.
  * Le moteur le lit dans `supabase/functions/_shared/angle_placement.ts`.
@@ -43,7 +44,8 @@ export interface GroupeAngles<A extends AngleLigne = AngleLigne> {
   nom: string;
   /** Le label sert l'application (ligne `label_applications`). */
   sert: boolean;
-  actif: A | null;
+  /** Du plus ancien au plus récent ; chaque slideshow du label en reçoit un. */
+  actifs: A[];
   /** Du plus ancien au plus récent (l'ordre du test à blanc). */
   tests: A[];
 }
@@ -59,22 +61,23 @@ export type MotifAngleNonCompare = "identique_actif" | "doublon" | "au_dela_max"
 /**
  * Angles en test que le test à blanc compare pour un slideshow de CE SEUL
  * label, avec la règle du moteur (`anglesTestPourApplication` puis le filtre
- * de la référence dans a_blanc_contenus.ts) : sans ceux identiques à l'actif,
+ * de la référence dans a_blanc_contenus.ts) : sans ceux identiques à un actif
+ * (la référence d'un slideshow est l'actif qu'il reçoit),
  * sans doublon (le plus ancien reste), les `MAX_ANGLES_TEST` plus anciens.
  * Un slideshow à plusieurs labels mélange ceux de tous ses labels (le moteur
  * fait foi). `tests` : du plus ancien au plus récent. `nonCompares` : id → motif.
  */
 export function anglesTestCompares<A extends { id: string; texte: string }>(
-  actif: A | null,
+  actifs: readonly A[],
   tests: readonly A[],
 ): { compares: A[]; nonCompares: Map<string, MotifAngleNonCompare> } {
-  const reference = normaliserAngle(actif?.texte);
+  const references = new Set(actifs.map((a) => normaliserAngle(a.texte)).filter(Boolean));
   const vus = new Set<string>();
   const compares: A[] = [];
   const nonCompares = new Map<string, MotifAngleNonCompare>();
   for (const a of tests) {
     const texte = normaliserAngle(a.texte);
-    if (reference && texte === reference) nonCompares.set(a.id, "identique_actif");
+    if (references.has(texte)) nonCompares.set(a.id, "identique_actif");
     else if (vus.has(texte)) nonCompares.set(a.id, "doublon");
     else if (compares.length >= MAX_ANGLES_TEST) {
       vus.add(texte);
@@ -117,7 +120,7 @@ export function groupesAnglesApplication<A extends AngleLigne>(
       labelId: id,
       nom: (label.nom ?? label.slug ?? id).trim(),
       sert: servent.has(id),
-      actif: siens.find((a) => a.statut === "actif") ?? null,
+      actifs: siens.filter((a) => a.statut === "actif"),
       tests: siens.filter((a) => a.statut === "test"),
     });
   }

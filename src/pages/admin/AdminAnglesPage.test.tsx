@@ -114,6 +114,20 @@ describe("AdminAnglesPage", () => {
     expect(within(await carte("beau_smart_girl")).queryAllByTestId("angle")).toHaveLength(0);
   });
 
+  it("plusieurs angles actifs sur un label : tous listés comme actifs, le résumé les compte", async () => {
+    lister.mockResolvedValue([...ANGLES, ligne("a2", "w", "actif", "parler du sommeil", 5)]);
+    rendre();
+    const w = await carte("weird_alpha");
+    await waitFor(() => expect(within(w).getAllByTestId("angle")).toHaveLength(4));
+    expect(within(w).getAllByTestId("angle").map((a) => a.getAttribute("data-statut"))).toEqual([
+      "actif",
+      "actif",
+      "test",
+      "test",
+    ]);
+    expect(w.textContent).toMatch(/2 angles actifs|2 active angles/);
+  });
+
   it("activer un angle en test, repasser l'actif en test", async () => {
     rendre();
     const w = await carte("weird_alpha");
@@ -181,7 +195,7 @@ describe("AdminAnglesPage", () => {
     // Résumé : seuls les angles vraiment comparés comptent.
     expect(w.textContent).toMatch(/2 (angles en test|test angles)/);
     const copie = within(w).getAllByTestId("angle")[3];
-    expect(within(copie).getByTestId("non-compare")).toHaveTextContent(/identique à l'actif|same as the active one/);
+    expect(within(copie).getByTestId("non-compare")).toHaveTextContent(/identique à un actif|same as an active one/);
 
     const saisie = within(w).getByRole("textbox", { name: /nouvel angle|new angle/i });
     fireEvent.change(saisie, { target: { value: "  montrer la fierté " } });

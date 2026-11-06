@@ -1,7 +1,7 @@
 /**
  * Angles de placement (`angles_placement`, migration 0285) : plusieurs par
- * label × application, chacun ACTIF (au plus un par paire : ajouté au prompt
- * de placement partout) ou en TEST (lu seulement par le test à blanc
+ * label × application, chacun ACTIF (plusieurs par paire depuis 0354 : chaque
+ * slideshow en reçoit un, ajouté à son prompt de placement) ou en TEST (lu seulement par le test à blanc
  * « contenus », une variante par angle pour comparer). Écriture admin (RLS).
  */
 import { supabase } from "@/lib/supabase/client";
@@ -39,20 +39,13 @@ export async function listerAnglesPlacement(): Promise<AnglePlacement[]> {
   return (data ?? []) as AnglePlacement[];
 }
 
-/**
- * Active un angle : l'actif précédent de la paire repasse en test, dans la
- * même transaction (fonction `activer_angle_placement`).
- */
+/** Active un angle (fonction `activer_angle_placement`) ; les autres actifs restent actifs. */
 export async function activerAnglePlacement(id: string): Promise<void> {
   const { error } = await supabase.rpc("activer_angle_placement", { p_id: id });
   if (error) throw error;
 }
 
-/**
- * Nouvel angle, en test ou directement actif, en UNE transaction (fonction
- * `ajouter_angle_placement`) : actif, l'actif précédent de la paire repasse en
- * test ; un échec n'ajoute rien.
- */
+/** Nouvel angle, en test ou directement actif (fonction `ajouter_angle_placement`). */
 export async function creerAnglePlacement(
   labelId: string,
   applicationId: string,

@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o094",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "44dcf21e-7be8-4fe8-8717-60a550b18373",
+  "titre": "comment je suis devenue la fille qu'on trouve vraiment intéressante (partie 2) #culture #pourtoi",
+  "inspirations": [
+    "44dcf21e-7be8-4fe8-8717-60a550b18373"
+  ],
+  "notes": "G1, déclinaison de 44dcf21e (« comment je suis devenue la fille qu'on trouve vraiment intéressante (partie 2) », génération 0 en français ; meilleur passage de 8,4 k vues, r 7,62), en français. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent ni de bsg-o074 : ni avis sur l'actualité, ni hobbies mélangés, ni « tu savais ? », ni autre appli). Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "comment je suis devenue la fille\nqu'on trouve vraiment intéressante\n(partie 2)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "414511dc",
+      "texte_overlay": "1. je me souviens de ce qu'on me raconte\n\net la fois d'après, je demande la suite.\ntout le monde adore ça.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. j'ai des goûts que je peux expliquer\n\npas juste j'aime bien.\npourquoi ce film, pourquoi ce livre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "3. je ne fais pas semblant d'avoir lu\n\nje dis non, et je demande de quoi ça parle.\nc'est plus intéressant que de mentir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "06b64a24",
+      "texte_overlay": "4. je sais rire de moi\n\nla fille qui se prend au sérieux\nn'est jamais la plus intéressante.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. j'ai toujours quelque chose de nouveau à raconter\n\navant, je ne parlais que de ma semaine.\nmaintenant, j'apprends un truc sur le monde chaque matin. et c'est moi qu'on écoute.",
+      "texte_sophia": "5. j'ai toujours quelque chose de nouveau à raconter\n\navant, je ne parlais que de ma semaine.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qu'on écoute.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu veux une partie 3 ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

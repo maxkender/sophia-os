@@ -373,6 +373,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0647_bleo_remplacants_hors_plans_a_venir` | D52 : le vivier de `bleo_remplacants` exclut les contenus prévus pour le compte dans un plan suivi (dernier run fini sans erreur) des `meme_contenu_jours` suivants | Appliquée le 5/11 à 9 h 46 |
 | `0648_bleo_plan_ui_generation` | `bleo_plan_ui` ajoute `generation` et `type_bleo`. Page Plan : badge « G1 Déclinaison » ou « Full test » à côté de la catégorie, et filtre « Origine du contenu » (déclinaisons, full tests, autres). Affichage seulement | Appliquée le 5/11 à 10 h 30 |
 | `0649_bleo_contenus_ui_image_sans_scan` | La fiche d'une famille tombait en « statement timeout » pour un admin connecté : `bleo_contenus_ui` joignait `media_library` sur une expression (`CASE … ::uuid`) que la RLS empêche d'utiliser comme condition d'index. Postgres relisait les ~32 000 médias pour chaque contenu en évaluant `media_dans_slides_du_poster`, ce qui faisait plus de 25 s pour une famille, contre 8 s de délai. L'identifiant du média est maintenant calculé à part (sous-requête LIMIT 1) : même résultat (hash identique sur 151 lignes), 0,3 à 1,3 s | Appliquée le 5/11 à 10 h 45 |
+| `0650_bleo_remplacants_themes_a_venir` | Suite de D52 : l'historique du compte vu par `bleo_remplacants` compte aussi les lignes des plans suivis à venir. Un remplaçant évite donc aussi les thèmes et les photos prévus pour le compte les jours suivants, pas seulement les contenus (4 « même thème » non déclarés au rapport du 5/11) | Appliquée le 6/11 à 10 h |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -603,6 +604,10 @@ recalculée à la main, rejouabilité, derniers plans).
     - 30 à 60 jours : 0,49 et 0,61 ;
     - 60 à 180 jours : 0,27 et 0,30.
   - **Page Plan (0648) :** une déclinaison se reconnaît et se filtre. Plan du 5/11 : sur 300 créneaux de récolte, 206 sont d'autres contenus, 90 des déclinaisons et 4 des full tests.
+- **6/11, 10 h : contrôle du matin.**
+  - **Passages du 6/11 :** 616 au total. 590 viennent de BLEO, 23 sont des rappels (20 posés à minuit, ce sont les hits de fin octobre), 2 sont sur des comptes UGC et 1 vient de la tierlist. Ce dernier est un remplacement à 1 h 06 sur un compte du label Kaja (podz 13, tout neuf) : aucun contenu Kaja n'est encore jugé, donc il n'y a aucun candidat BLEO.
+  - **Le reste :** aucun doublon, 0 erreur au journal. Les 2 comptes en process sans post ont une demande d'arrêt ; 6 comptes du plan ont été désactivés depuis le tirage (#21). Nuit BLEO sans erreur (109 jugés, 3 245 r recalculés après une remise à jour des vues).
+  - **Rapport du 5/11 :** tierlist 0, non servis 0, 597 posts servis au plan, 29 remplacés par BLEO, 463 publiés sur 627. Répétitions non déclarées : 1 « même contenu » (le cas du 4/11 à 22 h 40, corrigé par 0647) et 4 « même thème », corrigés par 0650.
 - **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
   - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
   - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.

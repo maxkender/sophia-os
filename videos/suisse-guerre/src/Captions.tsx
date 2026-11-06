@@ -57,14 +57,18 @@ export const Captions: React.FC = () => {
         {page.mots.map((m, i) => {
           const actif = f >= m.de && (i === page.mots.length - 1 || f < page.mots[i + 1].de);
           const p = actif ? pop(f, m.de, {damping: 9, stiffness: 400, mass: 0.5}) : 0;
+          const grossi = actif ? 0.1 * Math.min(p, 1.2) : 0;
+          // le mot actif grossit : on écarte ses voisins d'autant pour qu'ils ne se touchent pas
+          const marge = (grossi * m.texte.length * 0.72 * (outro ? 66 : 84)) / 2;
           return (
             <span
               key={i}
               style={{
                 display: 'inline-block',
+                margin: `0 ${marge.toFixed(1)}px`,
                 color: actif ? '#FFE14D' : '#FFFFFF',
                 textShadow: CONTOUR,
-                scale: String(actif ? 1 + 0.12 * Math.min(p, 1.2) : 1),
+                scale: String(1 + grossi),
                 rotate: actif ? `${(i % 2 ? 1 : -1) * 2}deg` : '0deg',
               }}
             >

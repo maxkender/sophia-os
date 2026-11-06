@@ -2292,7 +2292,12 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
       c = BOUTONS[bouton]!.classement;
     } else {
       try {
-        if (guide === null) guide = (await chargerBase(supabase, "poster")).base.guide;
+        if (guide === null) {
+          // 6/11 : les réponses officielles validées par Max passent avant le guide.
+          const base = (await chargerBase(supabase, "poster")).base;
+          guide = [base.officielles?.trim() ? `## OFFICIAL ANSWERS (approved by Max, they come first)\n${base.officielles}` : "", base.guide]
+            .filter(Boolean).join("\n\n");
+        }
         const { data: a } = await supabase.from("accueils").select("job_titre").eq("poster_id", l.poster_id).maybeSingle();
         const prompt = construirePromptReponse({ message: l.texte ?? "", canal: l.canal, guide, annonce: a?.job_titre ?? null });
         c = lireClassement(await generateTextFast(prompt));

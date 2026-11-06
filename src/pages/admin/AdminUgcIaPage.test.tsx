@@ -149,6 +149,28 @@ describe("AdminUgcIaPage", () => {
     await waitFor(() => expect(couper).toHaveBeenCalledWith("s1", "reaction", 1.5, 3));
   });
 
+  it("prend le temps de lecture de la vidéo pour le début et la fin, sans rien taper", async () => {
+    listerSources.mockResolvedValue([source({})]);
+    couper.mockResolvedValue({ source: source({}) });
+    rendre();
+    const carte = await screen.findByTestId("source-s1");
+    const lecteur = carte.querySelector("video") as HTMLVideoElement;
+    const lire = (s: number) => {
+      Object.defineProperty(lecteur, "currentTime", { configurable: true, value: s });
+      fireEvent.timeUpdate(lecteur);
+    };
+    lire(1.26);
+    expect(within(carte).getByTestId("temps-lecture")).toHaveTextContent("Lecture : 1.3 s");
+    const ligne = within(carte).getByTestId("coupe-reaction");
+    fireEvent.click(within(ligne).getByRole("button", { name: "Début de Réaction (s) : prendre 1.3 s" }));
+    lire(3.84);
+    fireEvent.click(within(ligne).getByRole("button", { name: "Fin de Réaction (s) : prendre 3.8 s" }));
+    expect(within(ligne).getByLabelText("Début de Réaction (s)")).toHaveValue("1.3");
+    expect(within(ligne).getByLabelText("Fin de Réaction (s)")).toHaveValue("3.8");
+    fireEvent.click(within(ligne).getByRole("button", { name: "Couper la réaction" }));
+    await waitFor(() => expect(couper).toHaveBeenCalledWith("s1", "reaction", 1.3, 3.8));
+  });
+
   it("coupe aussi la partie téléphone, proposée après la réaction, et la montre une fois coupée", async () => {
     listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4" })]);
     couper.mockResolvedValue({ source: source({}) });

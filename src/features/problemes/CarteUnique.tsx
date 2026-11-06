@@ -44,6 +44,7 @@ import {
   phraseProbleme,
   planDecision,
   planFaire,
+  promesseAttente,
   samediDe,
   texteProposition,
   type PlanFaire,
@@ -238,6 +239,8 @@ export function CarteUnique({
   });
 
   const nom = p.sujet && p.sujet !== "posteur" && !p.poster_id ? p.hm_nom : p.nom ?? p.contrat_id;
+  // 6/11 : le bot a promis une réponse (« I'm checking this… ») : le temps d'attente, rouge après 6 h.
+  const promesse = promesseAttente(p);
   const phrase = phraseProbleme(p, localeDate());
   const bloque = p.sans_reponse && (attente || !quotidien)
     ? { texte: p.sans_reponse.texte, meta: t(`${C}.sansReponse`, { canal: t(`${P}.messages.canaux.${p.sans_reponse.canal}`), heures: p.sans_reponse.depuis_heures }) }
@@ -263,6 +266,12 @@ export function CarteUnique({
           {sujets.length > 0 && <Badge variant="secondary" data-testid="nb-sujets">{t(`${C}.sujets`, { count: sujets.length })}</Badge>}
           {p.actif === false && <Badge variant="secondary">{t(`${P}.inactif`)}</Badge>}
           {ancienne && <Badge variant="secondary" data-testid="ancienne">{t(`${P}.ancien`)}</Badge>}
+          {promesse && (
+            <Badge variant="outline" data-testid="promesse"
+              className={promesse.rouge ? "border-red-500 bg-red-600 text-white" : "border-amber-400 text-amber-700"}>
+              {promesse.rouge ? "⏰ " : "⏳ "}{t(`${P}.promesse`, { h: promesse.depuisH })}
+            </Badge>
+          )}
         </div>
 
         <div data-testid="bloque">

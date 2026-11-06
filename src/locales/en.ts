@@ -7800,6 +7800,7 @@ export const en = {
       sansPosteur: "No poster",
       inactif: "inactive",
       ancien: "old",
+      promesse: "answer promised {{h}} h ago",
       reponseProposee: "Proposed reply ({{canal}})",
       actionProposee: "Proposed action:",
       autresSources: "+{{n}} more",
@@ -8438,7 +8439,7 @@ export const en = {
         aideTest: "Test mode: nothing is sent. You see here what the brain would have done.",
         confirmerActif: "Switch \"{{quoi}}\" to live? The brain will answer for real.",
         canaux: "Channels read: {{canaux}}",
-        messageAttente: "Let people know on Slack when it doesn't know or isn't sure (\"I've passed your question to the team\")",
+        messageAttente: "Let people know on Slack when it doesn't know or isn't sure (\"Thanks for your message! I'm checking this and will get back to you today.\")",
         guideTitre: "Notion guide",
         guidePages: "{{n}} pages copied · last copy {{date}}",
         guideVide:

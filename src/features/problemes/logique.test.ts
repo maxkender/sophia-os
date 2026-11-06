@@ -5,6 +5,7 @@ import type { OptionDecision, Probleme, Situation } from "./api";
 import {
   autresSujets,
   carteAncienne,
+  promesseAttente,
   trierCartes,
   diagnosticSimple,
   lienDecision,
@@ -321,5 +322,26 @@ describe("6/11 : ⚡ Urgent, les messages de plus de 7 jours en bas, « ancien �
   it("dans Urgent les anciens vont en bas ; ailleurs l'ordre ne change pas", () => {
     expect(trierCartes([vieux, sansMessage, recent], "urgent", maintenant).map((x) => x.id)).toEqual(["recent", "sans", "vieux"]);
     expect(trierCartes([vieux, sansMessage, recent], "bots", maintenant).map((x) => x.id)).toEqual(["vieux", "recent", "sans"]);
+  });
+});
+
+describe("6/11 : réponse promise par le bot FAQ : en tête d'Urgent, rouge après 6 h", () => {
+  const maintenant = Date.parse("2026-11-06T18:00:00Z");
+  const sr = { texte: "Can I post at night?", canal: "slack" as const, at: "2026-11-06T09:00:00Z", depuis_heures: 9, question: true, attend: true };
+  const promis = (at: string) => p({
+    id: at, niveau: "urgent", sans_reponse: sr,
+    messages: [{ at, canal: "slack", auteur: "os", texte: "Thanks for your message! I'm checking this and will get back to you today." }],
+  });
+
+  it("le temps depuis la promesse ; rouge à partir de 6 h ; rien sans promesse", () => {
+    expect(promesseAttente(promis("2026-11-06T14:00:00Z"), maintenant)).toEqual({ depuisH: 4, rouge: false });
+    expect(promesseAttente(promis("2026-11-06T09:01:00Z"), maintenant)).toEqual({ depuisH: 8, rouge: true });
+    expect(promesseAttente(p({ sans_reponse: sr, messages: [] }), maintenant)).toBeNull();
+  });
+
+  it("en tête d'Urgent, la plus longue attente d'abord", () => {
+    const autre = p({ id: "autre", niveau: "urgent", sans_reponse: sr });
+    const liste = trierCartes([autre, promis("2026-11-06T14:00:00Z"), promis("2026-11-06T09:01:00Z")], "urgent", maintenant);
+    expect(liste.map((x) => x.id)).toEqual(["2026-11-06T09:01:00Z", "2026-11-06T14:00:00Z", "autre"]);
   });
 });

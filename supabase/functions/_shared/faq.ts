@@ -42,7 +42,7 @@ export interface ReglagesFaq {
   /** test : la bulle répond comme avant, le cerveau tourne à côté. */
   mode_os: ModeOs;
   canaux_slack: string[];
-  /** « I've passed your question to the team » quand il ne sait pas. */
+  /** Le message d'attente (« Thanks for your message! I'm checking this… ») quand il ne sait pas. */
   message_attente: boolean;
 }
 
@@ -222,7 +222,7 @@ export function construirePromptFaq(input: {
     ? `Pour "incertain", "bug", "inconnu" et "hors_sujet" : "reponse" vide. "section" null, sauf pour "incertain". Sur Slack, tu ne réponds QUE quand la base répond clairement.`
     : `Sur le dashboard, la personne attend toujours un mot, donc "reponse" n'est jamais vide :
 - "bug" : dis-lui de poster le problème dans #questions sur Slack avec une capture d'écran, l'équipe technique s'en occupe là.
-- "incertain" et "inconnu" : dis-lui que sa question est transmise à l'équipe et que la réponse lui arrivera bientôt.
+- "incertain" et "inconnu" : réponds exactement « Thanks for your message! I'm checking this and will get back to you today. » (traduit dans sa langue s'il n'écrit pas en anglais).
 - "hors_sujet" : une réponse brève et polie.
 - Si la SITUATION ci-dessous explique ce que la personne voit (warm-up en cours, rien de prévu avant lundi, posts prévus demain), réponds avec ces données : c'est "repondu". Ne cite que les chiffres de la SITUATION.`;
 
@@ -357,7 +357,8 @@ export const ADMINS_SLACK: Readonly<Record<string, string>> = Object.freeze({
 });
 
 export const MESSAGE_ATTENTE_SLACK =
-  "I've passed your question to the team. You'll get the answer right here in this thread.";
+  // 6/11 : le texte voulu par Max (plus de « I've passed your question to the team »).
+  "Thanks for your message! I'm checking this and will get back to you today.";
 
 export function texteReponseSlack(r: Pick<ReponseFaq, "reponse" | "section">): string {
   const source = r.section ? `\n\n📖 _${r.section}_` : "";

@@ -317,6 +317,16 @@ export function regleDepuisFeedback(f: { id: string; bot: Proprietaire; raison: 
 
 export const estDecision = (p: Pick<Probleme, "question" | "options">): boolean => Boolean(p.question?.trim() && p.options?.length);
 
+/**
+ * 6/11 : l'ordre d'« À décider maintenant » : d'abord les cartes à boutons de
+ * décision envoyées depuis Problèmes (Kill immédiat, test bonus, offres HM…),
+ * puis les offres HM à refaire, puis le reste ; à rang égal, la plus ancienne.
+ */
+export function ordreMaintenant<T extends Pick<Probleme, "question" | "options" | "categorie" | "created_at">>(liste: readonly T[]): T[] {
+  const rangM = (p: T) => (estDecision(p) ? 0 : p.categorie === "offre_hm_incorrecte" ? 1 : 2);
+  return [...liste].sort((a, b) => rangM(a) - rangM(b) || a.created_at.localeCompare(b.created_at));
+}
+
 /** Ce que fait le clic sur une option. Jamais d'argent : une option « paie » ouvre le contrat Upwork. */
 export interface PlanDecision {
   /** Lien Upwork à ouvrir (paie). */
@@ -475,16 +485,41 @@ export function carteAncienne(p: Pick<Probleme, "sans_reponse" | "created_at">, 
 }
 
 /**
- * L'ordre dans un onglet : ceux qui attendent une réponse d'abord, puis les
- * urgents, puis les plus anciens. Dans ⚡ Urgent, les « anciens » (plus de
- * 7 jours) vont en bas, pour que les vrais urgents restent en haut.
+ * 6/11 : le bot FAQ a promis une réponse (« Thanks for your message! I'm
+ * checking this and will get back to you today. », ou l'ancien « I've passed
+ * your question to the team ») après la question du posteur, et personne n'a
+ * encore répondu. Renvoie depuis combien d'heures (la promesse), sinon null.
  */
-export function trierCartes<T extends Pick<Probleme, "sans_reponse" | "created_at" | "niveau">>(
+export const RE_PROMESSE = /i.?m\s+checking\s+(this|it)\s+and\s+will\s+get\s+back\s+to\s+you|passed\s+your\s+question\s+to\s+the\s+team/i;
+export const PROMESSE_ROUGE_H = 6;
+export function promesseAttente(
+  p: Pick<Probleme, "sans_reponse" | "messages">, maintenant: number = Date.now(),
+): { depuisH: number; rouge: boolean } | null {
+  const s = p.sans_reponse;
+  if (!s) return null;
+  const promesse = (p.messages ?? [])
+    .filter((m) => m.auteur !== "posteur" && m.at >= s.at && RE_PROMESSE.test(m.texte))
+    .sort((a, b) => a.at.localeCompare(b.at))[0];
+  if (!promesse) return null;
+  const depuisH = Math.max(0, Math.floor((maintenant - Date.parse(promesse.at)) / 3_600_000));
+  return { depuisH, rouge: depuisH >= PROMESSE_ROUGE_H };
+}
+
+/**
+ * L'ordre dans un onglet : ceux qui attendent une réponse d'abord, puis les
+ * urgents, puis les plus anciens. Dans ⚡ Urgent : en tête, les questions à
+ * qui le bot a promis une réponse (la plus longue attente d'abord) ; les
+ * « anciens » (plus de 7 jours) en bas.
+ */
+export function trierCartes<T extends Pick<Probleme, "sans_reponse" | "created_at" | "niveau" | "messages">>(
   liste: readonly T[], onglet: "bots" | "urgent", maintenant: number = Date.now(),
 ): T[] {
   const ancien = (p: T) => (onglet === "urgent" ? Number(carteAncienne(p, maintenant)) : 0);
+  const promesse = (p: T) => (onglet === "urgent" ? promesseAttente(p, maintenant)?.depuisH ?? -1 : -1);
   return [...liste].sort((a, b) =>
-    ancien(a) - ancien(b)
+    Number(promesse(b) >= 0) - Number(promesse(a) >= 0)
+    || promesse(b) - promesse(a)
+    || ancien(a) - ancien(b)
     || Number(messageEnAttente(b)) - Number(messageEnAttente(a))
     || Number(b.niveau === "urgent") - Number(a.niveau === "urgent")
     || a.created_at.localeCompare(b.created_at));

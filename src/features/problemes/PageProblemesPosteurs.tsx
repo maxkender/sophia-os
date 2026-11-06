@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
+import { SectionSure } from "@/components/erreurs/SectionSure";
+
 import { CarteUnique } from "./CarteUnique";
 import { StatsBots } from "./FeedbackBot";
 import { BlocBots } from "./BlocBots";
@@ -108,8 +110,11 @@ export function PageProblemesPosteurs() {
           <p className="text-xs text-muted-foreground">{t(`${P}.onglets.aide.${onglet}`)}</p>
           {onglet === "bots" && <BlocBots />}
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
-          {visibles.map((p) => <CarteUnique key={p.id} p={p} mode={modeActuel} surlignee={p.id === carte}
-            ancienne={onglet === "urgent" && carteAncienne(p)} />)}
+          {visibles.map((p) => (
+            <SectionSure key={p.id} nom={p.nom ?? p.hm_nom ?? p.resume}>
+              <CarteUnique p={p} mode={modeActuel} surlignee={p.id === carte} ancienne={onglet === "urgent" && carteAncienne(p)} />
+            </SectionSure>
+          ))}
         </div>
       )}
 

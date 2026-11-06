@@ -7854,6 +7854,11 @@ export const fr = {
       },
       statut: { bon: "Bon", moyen: "Moyen", sous_seuil: "Sous le seuil" },
     },
+    erreurs: {
+      section: "« {{nom}} » n'a pas pu s'afficher. Le reste de la page fonctionne. Envoie ce message pour qu'on corrige :",
+      cetteSection: "Cette section",
+      reessayer: "Réessayer",
+    },
     officielles: {
       nouvelle: "Nouvelle réponse officielle",
       modifier: "Modifier",
@@ -7900,6 +7905,7 @@ export const fr = {
       sansPosteur: "Sans posteur",
       inactif: "inactif",
       ancien: "ancien",
+      promesse: "réponse promise il y a {{h}} h",
       reponseProposee: "Réponse proposée ({{canal}})",
       actionProposee: "Action proposée :",
       autresSources: "+{{n}} autres",
@@ -8536,7 +8542,7 @@ export const fr = {
         aideTest: "Mode test : rien ne part. Tu vois ici ce que le cerveau aurait fait.",
         confirmerActif: "Passer « {{quoi}} » en actif ? Le cerveau répondra pour de vrai.",
         canaux: "Canaux lus : {{canaux}}",
-        messageAttente: "Prévenir sur Slack quand il ne sait pas ou n'est pas sûr (« I've passed your question to the team »)",
+        messageAttente: "Prévenir sur Slack quand il ne sait pas ou n'est pas sûr (« Thanks for your message! I'm checking this and will get back to you today. »)",
         guideTitre: "Guide Notion",
         guidePages: "{{n}} pages copiées · dernière copie {{date}}",
         guideVide:

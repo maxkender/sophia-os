@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Outlet } from "react-router-dom";
+import { PageSure } from "@/components/erreurs/PageSure";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { CalendarDays, CircleHelp, Gift, Languages, MessageSquareQuote, Wallet } from "lucide-react";
@@ -55,7 +55,7 @@ export function PosterLayout() {
       <PopupMessagesPosteur />
       <AnnoncesPopup />
       <DebutPopup />
-      <Outlet />
+      <PageSure />
     </AppShell>
   );
 }

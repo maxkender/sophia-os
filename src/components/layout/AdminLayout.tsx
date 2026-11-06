@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Outlet } from "react-router-dom";
+import { PageSure } from "@/components/erreurs/PageSure";
 import { useTranslation } from "react-i18next";
 import {
   Siren,
@@ -395,7 +395,7 @@ export function AdminLayout() {
       ])}
     >
       <BandePause />
-      <Outlet />
+      <PageSure />
     </AppShell>
   );
 }

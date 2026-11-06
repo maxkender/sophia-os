@@ -2,7 +2,7 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowUp, CalendarPlus, ExternalLink, Film, ImageUp, Trash2, Upload, X } from "lucide-react";
+import { ArrowDown, ArrowUp, CalendarDays, CalendarPlus, ExternalLink, Film, ImageUp, Trash2, Type, Upload, UserRound, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -86,10 +86,22 @@ function LignePost({ post: p }: { post: PostVideoUgcv }) {
   const publie = Boolean(p.publie_at);
   return (
     <li className="flex flex-wrap items-center gap-x-3 gap-y-1 py-2 text-sm" data-testid={`post-ugcv-${p.id}`}>
-      <span className="font-medium tabular-nums">{p.date_publication_prevue}</span>
-      <span>{p.handle_tiktok ? `@${p.handle_tiktok}` : "—"}</span>
-      <span className="text-muted-foreground">{t("ugcIa.posts.nbVideos", { count: p.videos.length })}</span>
-      <span className="text-muted-foreground">{p.video_cta_incruste ? t("ugcIa.posts.ctaIncruste") : t("ugcIa.posts.ctaTexte")}</span>
+      <span className="inline-flex items-center gap-1 font-medium tabular-nums">
+        <CalendarDays className="size-3.5 text-muted-foreground" aria-hidden />
+        {p.date_publication_prevue}
+      </span>
+      <span className="inline-flex items-center gap-1">
+        <UserRound className="size-3.5 text-muted-foreground" aria-hidden />
+        {p.handle_tiktok ? `@${p.handle_tiktok}` : "—"}
+      </span>
+      <span className="inline-flex items-center gap-1 text-muted-foreground">
+        <Film className="size-3.5" aria-hidden />
+        {t("ugcIa.posts.nbVideos", { count: p.videos.length })}
+      </span>
+      <span className="inline-flex items-center gap-1 text-muted-foreground">
+        <Type className="size-3.5" aria-hidden />
+        {p.video_cta_incruste ? t("ugcIa.posts.ctaIncruste") : t("ugcIa.posts.ctaTexte")}
+      </span>
       <Badge variant={publie ? "success" : "outline"}>{publie ? t("ugcIa.posts.publie") : t("ugcIa.posts.aPublier")}</Badge>
       <span className="ml-auto flex items-center gap-1">
         {p.publie_url && (

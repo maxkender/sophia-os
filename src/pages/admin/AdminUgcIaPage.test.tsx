@@ -130,6 +130,7 @@ describe("AdminUgcIaPage", () => {
     listerPersonas.mockResolvedValue([SOPHIE, CLARA]);
     listerComptes.mockResolvedValue([]);
     listerPostsVideo.mockResolvedValue([]);
+    window.localStorage.clear();
     await i18n.changeLanguage("fr");
   });
 
@@ -469,6 +470,53 @@ describe("AdminUgcIaPage", () => {
       expect(televerser).toHaveBeenCalledWith(fichier, expect.any(String));
       expect(screen.getByText("Ce compte a déjà un post ce jour-là (1 par jour).")).toBeInTheDocument();
       expect(screen.getByRole("button", { name: "Créer le post" })).toBeDisabled();
+    });
+  });
+
+  describe("sources en accordéon", () => {
+    const deuxSources = () => [
+      source({
+        id: "s1",
+        source_texte: "première réaction",
+        coupe_url: "https://x/reaction.mp4",
+        debut_s: 0,
+        fin_s: 4,
+        generations: [generation({ id: "g1" }), generation({ id: "g2", persona_id: "p2", statut: "en_cours", video_url: null })],
+      }),
+      source({ id: "s2", source_texte: "deuxième réaction" }),
+    ];
+
+    it("replie une source : le résumé reste, les étapes partent, et c'est retenu", async () => {
+      listerSources.mockResolvedValue(deuxSources());
+      const { unmount } = rendre();
+      const carte = await screen.findByTestId("source-s1");
+      expect(within(carte).getByRole("region", { name: "Découper la vidéo" })).toBeInTheDocument();
+      fireEvent.click(within(carte).getByRole("button", { name: "Replier la source" }));
+      expect(within(carte).queryByRole("region", { name: "Découper la vidéo" })).not.toBeInTheDocument();
+      expect(within(carte).getByText("réaction coupée")).toBeInTheDocument();
+      expect(within(carte).getByText("1 prête")).toBeInTheDocument();
+      expect(within(carte).getByText("1 en cours")).toBeInTheDocument();
+      expect(within(carte).getByRole("button", { name: "Déplier la source" })).toHaveAttribute("aria-expanded", "false");
+      // L'autre source reste ouverte.
+      expect(within(screen.getByTestId("source-s2")).getByRole("button", { name: "Replier la source" })).toBeInTheDocument();
+      unmount();
+      rendre();
+      const apres = await screen.findByTestId("source-s1");
+      expect(within(apres).getByRole("button", { name: "Déplier la source" })).toBeInTheDocument();
+      // Un clic sur le titre rouvre la source.
+      fireEvent.click(within(apres).getByRole("button", { name: "première réaction" }));
+      expect(within(apres).getByRole("region", { name: "Découper la vidéo" })).toBeInTheDocument();
+    });
+
+    it("tout fermer, tout ouvrir", async () => {
+      listerSources.mockResolvedValue(deuxSources());
+      rendre();
+      await screen.findByTestId("source-s1");
+      fireEvent.click(screen.getByRole("button", { name: "Tout fermer" }));
+      expect(screen.getAllByRole("button", { name: "Déplier la source" })).toHaveLength(2);
+      expect(screen.getByRole("button", { name: "Tout fermer" })).toBeDisabled();
+      fireEvent.click(screen.getByRole("button", { name: "Tout ouvrir" }));
+      expect(screen.getAllByRole("button", { name: "Replier la source" })).toHaveLength(2);
     });
   });
 });

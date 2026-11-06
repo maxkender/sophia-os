@@ -651,7 +651,7 @@ function Signal({ props }: { props?: PropositionsDuCompte }) {
         <span className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium">
           <span className={cn("size-1.5 rounded-full", POINT_ACTION.nudge)} aria-hidden />
           {t("ckd.cohorte.signalNudge", {
-            motifs: props.jeudi.donnees.motifs.map((m) => t(`ckd.motifs.${m}`)).join(", "),
+            motifs: (props.jeudi.donnees?.motifs ?? []).map((m) => t(`ckd.motifs.${m}`)).join(", "),
           })}
           {props.jeudi.decision && (
             <span className="text-muted-foreground">→ {t(`ckd.boutons.${boutonDeLaDecision(props.jeudi.decision)}`)}</span>

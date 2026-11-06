@@ -41,6 +41,7 @@ import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHub
 import { GUIDE_NOTION_HM, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNotion";
 import { PageFaqPosteur } from "@/features/officielles/PageFaqPosteur";
+import { PageProblemesV2 } from "@/features/problemes/v2/PageProblemesV2";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
@@ -157,6 +158,7 @@ export function AppRouter() {
                 <Route path="/admin" element={<AdminPilotagePage />} />
               {/* 3/11 : les règles des bots (feedback → règles), admin seulement. */}
               <Route path="/admin/auto/regles-bots" element={<ReglesBotsPage />} />
+              <Route path="/admin/auto/problemes-v2" element={<PageProblemesV2 />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />

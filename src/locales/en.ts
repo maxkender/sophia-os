@@ -691,6 +691,16 @@ export const en = {
         bilan: "{{n}} approved: {{partis}} sent now, {{attente}} waiting for Upwork's budget; the rest goes out at the next runs.",
       },
       sent: {
+        incompris: {
+          titre: "Automatic texts: what posters didn't understand",
+          aide: "Each message type sent automatically (reminders, nudges, Recreate popup, reminders, welcome, end of contract…), how many were sent and how many “What does it mean / I don't understand” replies came within 48 h. Most misunderstood first; click to see the last text sent and the replies.",
+          periode: "Period",
+          jours: "Last {{n}} days",
+          envoyes: "{{n}} sent · {{p}} posters",
+          nb: "{{n}} not understood",
+          aucun: "0 not understood",
+          types: { relance: "Daily reminder", jeudi: "Thursday nudge", jeudi_recrue: "Thursday (recruit)", bienvenue: "Welcome", recreer: "Recreate popup", recreer_upwork: "Recreate (Upwork)", lundi_soir: "Monday 8 pm", connexion: "Login reminder", tiktok: "TikTok reminder", handle: "TikTok @ not found", double: "Double", kill: "End of contract (Kill)", arret: "Stop", lien_mot_de_passe: "Password link" },
+        },
         ongletsAria: "Messages sent tabs",
         onglets: { journal: "Log", approuver: "To approve", main: "By hand (HMs)", prevus: "Planned", apercu: "Preview", textes: "Texts", timing: "Timing" },
         journal: {

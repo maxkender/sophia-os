@@ -1,0 +1,181 @@
+{
+  "langue": "fr",
+  "voix": {
+    "id": "3HZyQcLKlT0a3RDeXVsP",
+    "nom": "Guillaume",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.18
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "La Suisse n'a pas fait la guerre à un autre pays depuis plus de 200 ans. Pourquoi?",
+      "reperes": [
+        {
+          "mot": "Pourquoi?",
+          "image": 70
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "Un: les Alpes. Plus de la moitié du pays, ce sont des montagnes. L'envahir serait un cauchemar.",
+      "reperes": []
+    },
+    {
+      "id": "S3",
+      "texte": "Deux: en 1815, les grandes puissances d'Europe ont officiellement reconnu sa neutralité.",
+      "reperes": [
+        {
+          "mot": "neutralité.",
+          "image": 80
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "Mais neutre ne veut pas dire faible: la plupart des hommes font l'armée, et gardent leur fusil à la maison.",
+      "reperes": [
+        {
+          "mot": "fusil",
+          "image": 106
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "Pendant la Seconde Guerre mondiale, ils ont piégé leurs tunnels alpins avec des explosifs. Envahissez-les, et vous ne gagnez… rien.",
+      "reperes": [
+        {
+          "mot": "explosifs.",
+          "image": 98,
+          "ou": "fin"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "Et ils sont utiles à tout le monde: banques, diplomatie, négociations de paix à Genève.",
+      "reperes": [
+        {
+          "mot": "diplomatie,",
+          "image": 46
+        },
+        {
+          "mot": "Genève.",
+          "image": 82
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Attaquer la Suisse coûte trop cher. La laisser tranquille rapporte plus.",
+      "reperes": [
+        {
+          "mot": "laisser",
+          "image": 46
+        },
+        {
+          "mot": "plus.",
+          "image": 78
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Réponds à toutes ces questions avec l'appli Sophia."
+  },
+  "legende": "Pourquoi la Suisse n'est jamais en guerre ? 🇨🇭 La réponse est plus maligne qu'on ne le croit. #suisse #histoire #geographie #culturegenerale #apprendresurtiktok",
+  "appli": {
+    "categorie": "ACTUALITÉS",
+    "lectures": "100 k lectures",
+    "jours": "JOURS",
+    "commencer": "Commencer",
+    "onglets": [
+      "Accueil",
+      "Biblio",
+      "Parcours",
+      "Entraînement",
+      "Profil"
+    ],
+    "titre": "Pourquoi la Suisse n'est-elle jamais en guerre ?",
+    "description": "Neutre depuis 1815 et armée jusqu'aux dents : la Suisse ne fait pas la guerre, mais elle s'y prépare chaque jour.",
+    "lecon": {
+      "sousTitre": "Neutre depuis 1815 et armée jusqu'aux dents.",
+      "paragraphes": [
+        [
+          {
+            "t": "Depuis plus de 200 ans, la Suisse n'a mené aucune guerre contre un autre pays. Pas par chance, mais par choix : ses montagnes transforment toute invasion en piège, sa neutralité est "
+          },
+          {
+            "m": "officiellement reconnue depuis 1815"
+          },
+          {
+            "t": ", et "
+          },
+          {
+            "m": "la plupart des hommes servent dans une armée de milice"
+          },
+          {
+            "t": "."
+          }
+        ],
+        [
+          {
+            "t": "En 1940, le général Guisan prévoit de replier toute l'armée dans les Alpes, le fameux « Réduit », prête à "
+          },
+          {
+            "m": "faire sauter les tunnels alpins"
+          },
+          {
+            "t": " en cas d'invasion."
+          }
+        ]
+      ],
+      "continuer": "Continuer"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} SUR 2",
+      "bravo": "Bonne réponse !",
+      "questions": [
+        {
+          "q": "Depuis quand la neutralité suisse est-elle officiellement reconnue ?",
+          "options": [
+            "1648",
+            "1815",
+            "1914",
+            "1945"
+          ],
+          "bonne": 1,
+          "fait": "Congrès de Vienne, 1815."
+        },
+        {
+          "q": "Qu'a miné la Suisse pendant la Seconde Guerre mondiale ?",
+          "options": [
+            "Ses banques",
+            "Ses tunnels alpins",
+            "Ses lacs",
+            "Ses caves à fromage"
+          ],
+          "bonne": 1,
+          "fait": "Le Gothard et le Simplon étaient prêts à sauter."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Leçon terminée !",
+      "score": "2/2 bonnes réponses",
+      "serie": "JOURS DE SÉRIE",
+      "xp": "XP GAGNÉS",
+      "suivant": "À SUIVRE",
+      "suivantTitre": "Pourquoi Sisyphe n'abandonne-t-il jamais ?",
+      "bouton": "Leçon suivante"
+    }
+  }
+}

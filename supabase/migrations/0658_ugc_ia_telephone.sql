@@ -5,7 +5,7 @@
 -- seconde partie se coupe aussi dans la page et se garde telle quelle
 -- (son compris) : elle n'est pas envoyée à Genjutsu.
 --
--- Additive. Retour arrière : alter table … drop column des 4 colonnes.
+-- ✅ Appliquée le 2026-11-06 (MCP). Additive. Retour arrière : alter table … drop column des 4 colonnes.
 
 alter table public.ugc_ia_sources
   add column telephone_debut_s numeric,

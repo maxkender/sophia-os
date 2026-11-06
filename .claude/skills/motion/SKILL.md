@@ -140,7 +140,10 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 - `src/timeline.ts` : mets dans `BASE` la durée de conception de chaque scène (images).
 - `src/Sound.tsx` : `PAR_SCENE`, les bruitages de chaque scène sur ses événements (banque `public/sfx`,
   générée par `scripts/bruitages.mjs` ; un son qui manque s'ajoute à `BRUITAGES` puis se génère une fois).
-- La fin Sophia (`src/scenes/Outro.tsx`) et les sous-titres ne changent pas d'un sujet à l'autre.
+- La fin Sophia (`src/scenes/Outro.tsx`) et les sous-titres ne changent pas d'un sujet à l'autre, sauf `Decor`
+  (les bouts de papier qui flottent derrière le téléphone) : mets-y des formes du sujet, jamais celles d'un autre.
+- Mix : les gros impacts (éruption, explosion, craquement) dits pendant la voix restent à 0,5–0,6 ; au-dessus,
+  ils couvrent la voix.
 
 ## 6. Règles de qualité (retours de l'admin)
 

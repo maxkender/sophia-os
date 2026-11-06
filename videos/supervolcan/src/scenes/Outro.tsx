@@ -2,7 +2,8 @@ import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import {loadFont} from '@remotion/fonts';
 import {C, ease, lerp, pop} from '../lib';
-import {Coin, Debris, PaperDefs, Rays, SwissFlagRect} from '../shapes';
+import {Debris, PaperDefs, Rays} from '../shapes';
+import {Stopwatch, V, blob} from '../volcan';
 import {SOPHIA_MARK} from '../sophia';
 import {useTimeline} from '../timeline';
 import type {TextesAppli} from '../langues/types';
@@ -575,6 +576,20 @@ const Hand: React.FC<{scale: number}> = ({scale}) => (
 );
 
 // 0:36–0:45 — « réponds à toutes ces questions avec Sophia » : le cours s'ouvre, puis les quiz
+/** Bouts de papier qui flottent derrière le téléphone : propres au sujet (ici, le supervolcan) */
+const Decor: React.FC<{i: number}> = ({i}) =>
+  i % 2 ? (
+    <g>
+      <path d={blob(62, 52, `lv${i}`, 10, 0.14)} fill={V.lava} />
+      <path d={blob(42, 34, `lw${i}`, 9, 0.16)} fill={V.lavaHot} transform="translate(-6 -6)" />
+      <path d={blob(18, 14, `lx${i}`, 8, 0.2)} fill={V.lavaGlow} transform="translate(-14 -14)" />
+    </g>
+  ) : (
+    <g transform="scale(0.45)">
+      <Stopwatch angle={i * 50} r={90} />
+    </g>
+  );
+
 export const Outro: React.FC = () => {
   const f = useCurrentFrame();
   const A = useAppli();
@@ -610,7 +625,7 @@ export const Outro: React.FC = () => {
             transform={`translate(${x} ${y - ((f * (1.4 + i * 0.25)) % 400)}) rotate(${f * (i % 2 ? 2 : -2) + i * 40}) scale(${s * pop(f, 4 + i * 3)})`}
             filter="url(#pp)"
           >
-            {i % 2 ? <SwissFlagRect s={80} /> : <Coin />}
+            <Decor i={i} />
           </g>
         ))}
       </svg>

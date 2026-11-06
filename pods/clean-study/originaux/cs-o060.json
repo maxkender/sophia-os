@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o060",
+  "type_bleo": "full_test",
+  "titre": "what i do the first time i open a new chapter #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« new chapter » absent des accroches du label). Accroches écrites : « what i do the first time i open a new chapter » (retenue : un moment précis que tout le monde vit), « how i start every new chapter » (écartée : plate), « the 15 minutes that make a new chapter easy » (écartée : chiffre qui promet trop). Six gestes vrais : le titre et le résumé de fin d'abord, les questions de fin de chapitre, la liste des mots inconnus, ce que je sais déjà en deux lignes, me tester d'abord sur le chapitre d'avant (place micabo, slide 6), un seul objectif pour la séance. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "398858b8",
+      "texte_overlay": "what i do the first time\ni open a new chapter",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "40f0d0a6",
+      "texte_overlay": "i read the title and the summary at the end first.\nnow i know where it's going.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4544203d",
+      "texte_overlay": "i look at the questions at the end of the chapter.\nthat's what i'm reading for.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "466c6598",
+      "texte_overlay": "i list every word i don't know.\nbefore it turns into a whole page i don't get.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4a2ad88a",
+      "texte_overlay": "i write what i already know about it in 2 lines.\nnew stuff sticks better to old stuff.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "365870da",
+      "texte_overlay": "5 minutes testing myself on the last chapter.\nthis one builds on it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4ab2cdd1",
+      "texte_overlay": "one goal for the session. just one.\n\"understand part 1\", not \"finish the chapter\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

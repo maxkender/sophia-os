@@ -1,9 +1,33 @@
 import * as React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Clapperboard, Download, ExternalLink, RefreshCw, RotateCcw, Save, Scissors, Sparkles, Timer, Trash2 } from "lucide-react";
+import {
+  CalendarDays,
+  CheckCircle2,
+  ChevronDown,
+  Clapperboard,
+  Clock3,
+  Download,
+  ExternalLink,
+  Eye,
+  Film,
+  Loader2,
+  type LucideIcon,
+  RefreshCw,
+  RotateCcw,
+  Save,
+  Scissors,
+  Smartphone,
+  Sparkles,
+  Timer,
+  Trash2,
+  Type,
+  Users,
+  XCircle,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -51,6 +75,12 @@ const VARIANTE_STATUT: Record<StatutGenerationUgcIa, "warning" | "success" | "er
   echec: "error",
 };
 
+const ICONE_STATUT: Record<StatutGenerationUgcIa, LucideIcon> = {
+  en_cours: Loader2,
+  prete: CheckCircle2,
+  echec: XCircle,
+};
+
 const RESOLUTIONS: ReadonlyArray<{ cle: ResolutionUgcIa; contenu: string }> = [
   { cle: "480p", contenu: "480p" },
   { cle: "720p", contenu: "720p" },
@@ -71,8 +101,20 @@ function Alerte({ erreur }: { erreur: unknown }) {
   );
 }
 
-/** Une étape numérotée de la carte : un titre, une phrase d'aide, puis son contenu. */
-function Etape({ numero, titre, aide, children }: { numero: number; titre: string; aide?: string; children: React.ReactNode }) {
+/** Une étape numérotée de la carte : un titre (et son icône), une phrase d'aide, puis son contenu. */
+function Etape({
+  numero,
+  icone: Icone,
+  titre,
+  aide,
+  children,
+}: {
+  numero: number;
+  icone: LucideIcon;
+  titre: string;
+  aide?: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="space-y-2" aria-label={titre}>
       <div className="flex items-start gap-2">
@@ -80,7 +122,10 @@ function Etape({ numero, titre, aide, children }: { numero: number; titre: strin
           {numero}
         </span>
         <div className="min-w-0">
-          <h3 className="text-sm font-semibold leading-6">{titre}</h3>
+          <h3 className="flex items-center gap-1.5 text-sm font-semibold leading-6">
+            <Icone className="size-4 text-muted-foreground" aria-hidden />
+            {titre}
+          </h3>
           {aide && <p className="text-xs text-muted-foreground">{aide}</p>}
         </div>
       </div>
@@ -89,12 +134,35 @@ function Etape({ numero, titre, aide, children }: { numero: number; titre: strin
   );
 }
 
+/** Un repère du résumé de la source : une icône et un texte court. */
+function Repere({ icone: Icone, children, className }: { icone: LucideIcon; children: React.ReactNode; className?: string }) {
+  return (
+    <span className={cn("inline-flex items-center gap-1 text-muted-foreground", className)}>
+      <Icone className="size-3.5 shrink-0" aria-hidden />
+      {children}
+    </span>
+  );
+}
+
 /**
  * Une réaction de référence, en étapes : la vidéo TikTok à gauche ; à droite,
  * 1. découper la réaction et la partie téléphone, 2. le texte à l'écran (CTA),
  * 3. les personas à lancer ; puis 4. les vidéos générées.
+ *
+ * Elle se replie (accordéon) : l'en-tête reste, avec un résumé (vues, date,
+ * coupes, CTA, vidéos prêtes / en cours), et tout le reste se masque.
  */
-export function CarteSource({ source, personas }: { source: SourceUgcIa; personas: PersonaUgcIa[] }) {
+export function CarteSource({
+  source,
+  personas,
+  ouverte = true,
+  basculer,
+}: {
+  source: SourceUgcIa;
+  personas: PersonaUgcIa[];
+  ouverte?: boolean;
+  basculer?: () => void;
+}) {
   const { t, i18n } = useTranslation();
   const rafraichir = useRafraichir();
   const lecteur = React.useRef<HTMLVideoElement>(null);
@@ -108,32 +176,85 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
   const enCours = source.generations.some((g) => g.statut === "en_cours");
   const parId = new Map(personas.map((p) => [p.id, p]));
   const occupes = personasOccupes(source.generations);
+  const pretes = source.generations.filter((g) => g.statut === "prete").length;
+  const nbEnCours = source.generations.filter((g) => g.statut === "en_cours").length;
+  const titre = (source.source_texte ?? "").replace(/\s+/g, " ").trim() || t("ugcIa.source");
+  const idCorps = `source-corps-${source.id}`;
 
   return (
     <Card data-testid={`source-${source.id}`}>
-      <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 border-b">
-        <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-          <a href={source.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium underline">
-            {t("ugcIa.source")}
-            <ExternalLink className="size-3" aria-hidden />
-          </a>
-          {vues && <span className="text-muted-foreground">· {t("ugcIa.vues", { vues })}</span>}
-          <span className="text-muted-foreground">· {date}</span>
-          <span className="text-muted-foreground">· {t("ugcIa.nbGenerations", { count: source.generations.length })}</span>
+      <CardHeader className={cn("flex flex-row items-start gap-3", ouverte && "border-b")}>
+        {basculer && (
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            className="mt-0.5 shrink-0"
+            aria-expanded={ouverte}
+            aria-controls={idCorps}
+            aria-label={t(ouverte ? "ugcIa.replierSource" : "ugcIa.deplierSource")}
+            onClick={basculer}
+          >
+            <ChevronDown className={cn("transition-transform", !ouverte && "-rotate-90")} aria-hidden />
+          </Button>
+        )}
+        {!ouverte && source.cta_image_url && (
+          <img src={source.cta_image_url} alt="" className="aspect-[9/16] h-14 shrink-0 rounded-md bg-black object-cover" />
+        )}
+        <div className="min-w-0 flex-1 space-y-1">
+          {basculer ? (
+            <button type="button" onClick={basculer} className="block w-full truncate text-left text-sm font-medium hover:underline" title={titre}>
+              {titre}
+            </button>
+          ) : (
+            <p className="truncate text-sm font-medium">{titre}</p>
+          )}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+            <a href={source.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium underline">
+              {t("ugcIa.source")}
+              <ExternalLink className="size-3" aria-hidden />
+            </a>
+            {vues && <Repere icone={Eye}>{t("ugcIa.vues", { vues })}</Repere>}
+            <Repere icone={CalendarDays}>{date}</Repere>
+            {source.source_duree_s != null && <Repere icone={Clock3}>{Math.round(source.source_duree_s)} s</Repere>}
+            <Repere icone={Film}>{t("ugcIa.nbGenerations", { count: source.generations.length })}</Repere>
+            {!ouverte && (
+              <>
+                <Repere icone={Scissors} className={source.coupe_url ? "text-success" : undefined}>
+                  {t(source.coupe_url ? "ugcIa.resume.reactionCoupee" : "ugcIa.resume.reactionACouper")}
+                </Repere>
+                {source.telephone_url && <Repere icone={Smartphone} className="text-success">{t("ugcIa.resume.telephoneCoupe")}</Repere>}
+                {source.cta_texte && <Repere icone={Type}>{t("ugcIa.resume.cta")}</Repere>}
+                {pretes > 0 && <Repere icone={CheckCircle2} className="text-success">{t("ugcIa.resume.pretes", { count: pretes })}</Repere>}
+                {nbEnCours > 0 && (
+                  <Repere icone={Loader2} className="text-warning [&_svg]:animate-spin">
+                    {t("ugcIa.resume.enCours", { count: nbEnCours })}
+                  </Repere>
+                )}
+              </>
+            )}
+          </div>
         </div>
         <Button
           variant="ghost"
           size="sm"
+          className="shrink-0"
           loading={supprimer.isPending}
+          aria-label={t("ugcIa.supprimerSource")}
           onClick={() => {
             if (window.confirm(t(enCours ? "ugcIa.confirmerSuppressionSourceEnCours" : "ugcIa.confirmerSuppressionSource"))) supprimer.mutate();
           }}
         >
           <Trash2 aria-hidden />
-          {t("ugcIa.supprimerSource")}
+          <span className="hidden sm:inline">{t("ugcIa.supprimerSource")}</span>
         </Button>
       </CardHeader>
-      <CardContent className="space-y-6 pt-4">
+      {!ouverte && supprimer.error ? (
+        <CardContent className="pt-0">
+          <Alerte erreur={supprimer.error} />
+        </CardContent>
+      ) : null}
+      {ouverte && (
+      <CardContent id={idCorps} className="space-y-6 pt-4">
         <Alerte erreur={supprimer.error} />
         <div className="grid gap-6 md:grid-cols-[minmax(0,13rem)_minmax(0,1fr)]">
           <aside className="space-y-1.5">
@@ -168,7 +289,7 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
           </aside>
 
           <div className="min-w-0 space-y-6">
-            <Etape numero={1} titre={t("ugcIa.etapeDecouper")} aide={t("ugcIa.etapeDecouperAide")}>
+            <Etape numero={1} icone={Scissors} titre={t("ugcIa.etapeDecouper")} aide={t("ugcIa.etapeDecouperAide")}>
               {source.brut_url && (
                 <>
                   <LigneCoupe source={source} partie="reaction" temps={temps} tempsLecture={tempsLecture} bloquee={!peutCouper(source.generations)} />
@@ -176,10 +297,10 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
                 </>
               )}
             </Etape>
-            <Etape numero={2} titre={t("ugcIa.etapeCta")} aide={t("ugcIa.etapeCtaAide")}>
+            <Etape numero={2} icone={Type} titre={t("ugcIa.etapeCta")} aide={t("ugcIa.etapeCtaAide")}>
               <BlocCta source={source} />
             </Etape>
-            <Etape numero={3} titre={t("ugcIa.etapePersonas")} aide={t("ugcIa.etapePersonasAide")}>
+            <Etape numero={3} icone={Users} titre={t("ugcIa.etapePersonas")} aide={t("ugcIa.etapePersonasAide")}>
               {source.coupe_url ? (
                 <BlocLancement source={source} personas={personas} occupes={occupes} />
               ) : (
@@ -190,7 +311,7 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
         </div>
 
         {source.generations.length > 0 && (
-          <Etape numero={4} titre={t("ugcIa.etapeVideos", { count: source.generations.length })} aide={t("ugcIa.etapeVideosAide")}>
+          <Etape numero={4} icone={Film} titre={t("ugcIa.etapeVideos", { count: source.generations.length })} aide={t("ugcIa.etapeVideosAide")}>
             <div className="grid grid-cols-2 items-start gap-3 lg:grid-cols-4">
               {source.generations.map((g) => (
                 <CarteGeneration
@@ -205,6 +326,7 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
           </Etape>
         )}
       </CardContent>
+      )}
     </Card>
   );
 }
@@ -485,7 +607,10 @@ function CarteGeneration({
       <div className="flex flex-wrap items-center gap-1.5 text-xs">
         {persona && <img src={persona.image_url} alt="" className="size-6 rounded-full object-cover" />}
         <span className="font-medium">{nom}</span>
-        <Badge variant={VARIANTE_STATUT[g.statut]}>{t(`ugcIa.statut.${g.statut}`)}</Badge>
+        <Badge variant={VARIANTE_STATUT[g.statut]}>
+          <IconeStatut statut={g.statut} />
+          {t(`ugcIa.statut.${g.statut}`)}
+        </Badge>
         {estMontee(g) && <Badge variant="info">{t("ugcIa.montage.montee")}</Badge>}
         <span className="text-muted-foreground">
           {g.resolution}
@@ -564,4 +689,9 @@ function CarteGeneration({
       {monter && <DialogueMontage generation={g} nomPersona={nom} ctaTexte={ctaTexte} ouvert={monter} fermer={() => setMonter(false)} />}
     </div>
   );
+}
+
+function IconeStatut({ statut }: { statut: StatutGenerationUgcIa }) {
+  const Icone = ICONE_STATUT[statut];
+  return <Icone className={cn("size-3", statut === "en_cours" && "animate-spin")} aria-hidden />;
 }

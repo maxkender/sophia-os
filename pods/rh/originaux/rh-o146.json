@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o146",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+ "titre": "j'ai copié 4 habitudes de ma manager pendant 3 mois et on a commencé à me traiter comme une senior #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G1 de la ligne 8 (parent 63ffa170) : accroche mot pour mot, quatre autres habitudes que le parent et rh-o135. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8ca3d196",
+   "texte_overlay": "j'ai copié 4 habitudes de ma manager pendant 3 mois\net on a commencé à me traiter\ncomme une senior",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b39d7e3d",
+   "texte_overlay": "1. elle préparait chaque réunion en 5 minutes\nl'objectif, sa question, sa proposition",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b3b81753",
+   "texte_overlay": "2. elle disait « je ne suis pas d'accord, voilà pourquoi »\ncalmement, avec un argument",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "956e5938",
+   "texte_overlay": "3. elle lisait autre chose que des mails\nun article, un livre, 5 minutes d'histoire le matin.\nça se voyait dans ses idées",
+   "texte_sophia": "3. elle lisait autre chose que des mails\n5 minutes d'histoire le matin, sur l'appli Sophia. ça se voyait dans ses idées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b3ef2f24",
+   "texte_overlay": "4. elle protégeait son agenda\ndes créneaux sans réunion, pour penser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b472bd31",
+   "texte_overlay": "senior, c'est pas une question d'âge.\nc'est des habitudes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b57278c0",
+   "texte_overlay": "laquelle tu copies lundi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

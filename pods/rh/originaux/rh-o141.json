@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o141",
+ "type_bleo": "full_test",
+ "titre": "ce qu'il faut répondre quand on te demande ton salaire actuel #salaire #negociation #entretien #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous. On ne ment jamais sur son salaire : on recentre sur ses attentes. Rien de juridique précis. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "784198ed",
+   "texte_overlay": "ce qu'il faut répondre\nquand on te demande\nton salaire actuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ba979a1",
+   "texte_overlay": "ne donne pas un faux chiffre\njamais. ça se vérifie, et ça te suit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9ce1df51",
+   "texte_overlay": "recentre sur tes attentes\n« pour ce poste, je vise entre X et Y »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9d9d0a3d",
+   "texte_overlay": "explique ta fourchette\nle marché, ton expérience, ce que tu apportes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9dec9a18",
+   "texte_overlay": "si on insiste\n« je préfère qu'on parle de la valeur du poste »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8d9ebb06",
+   "texte_overlay": "prépare ta réponse avant\nmes 3 sources : les offres du secteur, mon réseau, et ce que j'apprends chaque jour pour être sûre de moi",
+   "texte_sophia": "prépare ta réponse avant\nmes 3 sources : les offres du secteur, mon réseau, et 5 minutes par jour sur l'appli Sophia pour être sûre de moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9e7171aa",
+   "texte_overlay": "puis tais-toi\nle silence fait partie de la négociation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9ec88e8e",
+   "texte_overlay": "on te l'a déjà demandé ?\nt'as répondu quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

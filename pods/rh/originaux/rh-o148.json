@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o148",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3",
+ "titre": "ta période d'essai sert aussi à vérifier si la boîte te mérite #periodedessai #travail #carriere #santementale #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 12 (parent bbe75cf0) : accroche mot pour mot, autre angle (ma grille en 6 questions). Rien de juridique précis. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9fd00719",
+   "texte_overlay": "ta période d'essai\nsert aussi à vérifier\nsi la boîte te mérite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b96e4c9f",
+   "texte_overlay": "est-ce qu'on t'a présentée à l'équipe ?\nou t'as découvert les prénoms toute seule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bab987dd",
+   "texte_overlay": "est-ce que ton manager tient ses rendez-vous ?\nun point annulé, ça arrive. trois, c'est un signal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bb13a285",
+   "texte_overlay": "est-ce qu'on répond à tes questions ?\nsans soupirer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "986d5496",
+   "texte_overlay": "est-ce que tu apprends quelque chose ?\nmoi j'apprends déjà 5 minutes par jour. je veux que le boulot suive",
+   "texte_sophia": "est-ce que tu apprends quelque chose ?\nmoi j'apprends déjà 5 minutes par jour sur l'appli Sophia. je veux que le boulot suive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bb7fef7f",
+   "texte_overlay": "est-ce que les gens partent à une heure normale ?\nregarde autour de toi à 19 h",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bc60f138",
+   "texte_overlay": "eux te testent. toi aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bd4213df",
+   "texte_overlay": "combien de oui sur 5 ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

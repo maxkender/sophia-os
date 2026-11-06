@@ -1,6 +1,6 @@
-// UGC IA (migrations 0656 et 0657, fonction `ugc-ia`) : la page lit les
+// UGC IA (migrations 0656 à 0661, fonction `ugc-ia`) : la page lit les
 // tables, la fonction fait tout le reste (import TikTok et CTA, coupe,
-// Genjutsu, suivi, personas ajoutés par Claude).
+// Genjutsu, suivi, personas ajoutés par Claude, persona ↔ compte UGCV).
 
 import { invoke } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
@@ -14,6 +14,17 @@ export interface PersonaUgcIa {
   image_url: string;
   /** Vide : image encore à l'extérieur (ajoutée par Claude), à rapatrier. */
   image_path: string | null;
+  /** Le compte UGCV de ce persona (1 persona = 1 compte), ou aucun. */
+  compte_id: string | null;
+}
+
+/** Un compte qui porte le label UGCV, à rattacher à un persona. */
+export interface CompteUgcv {
+  id: string;
+  handle_tiktok: string | null;
+  persona_nom: string | null;
+  langue: string | null;
+  poster_prenom: string | null;
 }
 
 export interface GenerationUgcIa {
@@ -80,17 +91,34 @@ export interface ResultatLancement {
 
 export const CLE_SOURCES_UGC_IA = ["ugc-ia", "sources"] as const;
 export const CLE_PERSONAS_UGC_IA = ["ugc-ia", "personas"] as const;
+export const CLE_COMPTES_UGCV = ["ugc-ia", "comptes-ugcv"] as const;
 
 const nombreOuNull = (v: unknown): number | null => (v == null || v === "" ? null : Number(v));
 
 export async function listerPersonasUgcIa(): Promise<PersonaUgcIa[]> {
   const { data, error } = await supabase
     .from("ugc_ia_personas")
-    .select("id, nom, description, image_url, image_path")
+    .select("id, nom, description, image_url, image_path, compte_id")
     .eq("actif", true)
     .order("created_at");
   if (error) throw error;
   return (data ?? []) as PersonaUgcIa[];
+}
+
+/** Les comptes actifs qui portent le label UGCV (`comptes.ugcv`, migration 0661). */
+export async function listerComptesUgcv(): Promise<CompteUgcv[]> {
+  const { data, error } = await supabase
+    .from("comptes")
+    .select("id, handle_tiktok, persona_nom, langue, profiles(prenom)")
+    .eq("ugcv", true)
+    .eq("is_active", true)
+    .order("created_at");
+  if (error) throw error;
+  type Ligne = Omit<CompteUgcv, "poster_prenom"> & { profiles?: { prenom: string | null } | { prenom: string | null }[] | null };
+  return ((data ?? []) as unknown as Ligne[]).map(({ profiles, ...c }) => ({
+    ...c,
+    poster_prenom: (Array.isArray(profiles) ? profiles[0]?.prenom : profiles?.prenom) ?? null,
+  }));
 }
 
 export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {
@@ -174,4 +202,9 @@ export function supprimerGenerationUgcIa(id: string): Promise<{ ok: true }> {
 
 export function rapatrierPersonasUgcIa(): Promise<{ bilan: Array<{ id: string; erreur?: string }> }> {
   return invoke("ugc-ia", { action: "rapatrier_personas" });
+}
+
+/** Rattache le persona à un compte UGCV (null : le détache) ; le compte quitte son ancien persona. */
+export function assignerPersonaUgcIa(personaId: string, compteId: string | null): Promise<{ ok: true }> {
+  return invoke("ugc-ia", { action: "assigner_persona", personaId, compteId });
 }

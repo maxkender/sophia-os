@@ -743,7 +743,7 @@ async function labelDuDeuxieme(
   if (errLiens) throw errLiens;
   const exclus = new Set((liens ?? []).map((l) => l.label_id as string));
 
-  const { data: labels, error: errLabels } = await supabase.from("labels").select("id, slug, nom, ugc_ai_video");
+  const { data: labels, error: errLabels } = await supabase.from("labels").select("id, slug, nom, manuel");
   if (errLabels) throw errLabels;
   const slideshow = (labels ?? []).filter((l) => estLabelFileSlideshow(l)).map((l) => l.id as string);
   const pool = (await filtrerPoolParApplication(supabase, slideshow, app.id)).filter((l) => !exclus.has(l));

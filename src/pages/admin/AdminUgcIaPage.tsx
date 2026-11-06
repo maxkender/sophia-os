@@ -9,9 +9,13 @@ import { Card, CardContent, CardHeader, EmptyState } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { EtatRequete, TitreCarte } from "@/features/bleo/ui";
 import {
+  assignerPersonaUgcIa,
+  CLE_COMPTES_UGCV,
   CLE_PERSONAS_UGC_IA,
   CLE_SOURCES_UGC_IA,
+  type CompteUgcv,
   importerTiktokUgcIa,
+  listerComptesUgcv,
   listerPersonasUgcIa,
   listerSourcesUgcIa,
   rapatrierPersonasUgcIa,
@@ -125,6 +129,7 @@ export function AdminUgcIaPage() {
 
 function CartePersonas({ personas, chargees }: { personas: PersonaUgcIa[]; chargees: boolean }) {
   const { t } = useTranslation();
+  const comptes = useQuery({ queryKey: CLE_COMPTES_UGCV, queryFn: listerComptesUgcv });
   return (
     <Card>
       <CardHeader>
@@ -136,17 +141,61 @@ function CartePersonas({ personas, chargees }: { personas: PersonaUgcIa[]; charg
           {personas.map((p) => (
             <li key={p.id} className="flex items-start gap-2">
               <img src={p.image_url} alt={p.nom} className="size-14 shrink-0 rounded-lg object-cover" />
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1 space-y-1">
                 <p className="text-sm font-medium">{p.nom}</p>
                 <p className="line-clamp-2 text-xs text-muted-foreground">{p.description}</p>
+                <CompteDuPersona persona={p} personas={personas} comptes={comptes.data ?? []} />
               </div>
             </li>
           ))}
         </ul>
+        {comptes.data && comptes.data.length === 0 && <p className="text-xs text-muted-foreground">{t("ugcIa.aucunCompteUgcv")}</p>}
         <p className="text-xs text-muted-foreground">{t("ugcIa.ajoutParClaude")}</p>
       </CardContent>
     </Card>
   );
+}
+
+/** Le compte UGCV d'un persona : 1 persona = 1 compte, le compte est repris à son ancien persona. */
+function CompteDuPersona({ persona, personas, comptes }: { persona: PersonaUgcIa; personas: PersonaUgcIa[]; comptes: CompteUgcv[] }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const assigner = useMutation({
+    mutationFn: (compteId: string | null) => assignerPersonaUgcIa(persona.id, compteId),
+    onSettled: () => qc.invalidateQueries({ queryKey: CLE_PERSONAS_UGC_IA }),
+  });
+  const titulaire = (compteId: string) => personas.find((x) => x.compte_id === compteId && x.id !== persona.id);
+  // Un compte qui n'est plus UGCV reste affiché tant qu'il est rattaché.
+  const connu = !persona.compte_id || comptes.some((c) => c.id === persona.compte_id);
+  return (
+    <div className="space-y-0.5">
+      <select
+        className="h-7 w-full max-w-[14rem] rounded-md border bg-background px-1.5 text-xs"
+        value={persona.compte_id ?? ""}
+        disabled={assigner.isPending || (comptes.length === 0 && !persona.compte_id)}
+        onChange={(e) => assigner.mutate(e.target.value || null)}
+        aria-label={t("ugcIa.compteDe", { nom: persona.nom })}
+      >
+        <option value="">{t("ugcIa.sansCompte")}</option>
+        {!connu && persona.compte_id && <option value={persona.compte_id}>{t("ugcIa.compteInconnu")}</option>}
+        {comptes.map((c) => {
+          const autre = titulaire(c.id);
+          return (
+            <option key={c.id} value={c.id}>
+              {libelleCompte(c)}
+              {autre ? ` (${t("ugcIa.repris", { nom: autre.nom })})` : ""}
+            </option>
+          );
+        })}
+      </select>
+      {assigner.error && <p className="text-xs text-destructive">{messageErreur(assigner.error)}</p>}
+    </div>
+  );
+}
+
+function libelleCompte(c: CompteUgcv): string {
+  const nom = c.handle_tiktok ? `@${c.handle_tiktok}` : (c.persona_nom ?? c.id.slice(0, 8));
+  return [nom, c.poster_prenom, c.langue?.toUpperCase()].filter(Boolean).join(" · ");
 }
 
 function CarteImport() {

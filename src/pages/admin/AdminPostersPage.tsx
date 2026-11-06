@@ -91,7 +91,7 @@ import {
   setLabelsCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
-import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
+import { estLabelManuel, labelsApresAjout, labelsProposesCompte } from "@/features/moteur/fileLabelsSlideshow";
 import { ApplicationsDuLabel } from "@/features/moteur/repartition/ApplicationsDuLabel";
 import { ChoixApplicationsCreation } from "@/features/moteur/repartition/ChoixApplicationsCreation";
 import {
@@ -623,6 +623,10 @@ function ChoixRecruteur({
  * Labels d'un compte. Tous les labels sont proposés (plus de cloison par
  * application) ; chaque pastille dit quelles applications le label sert, donc
  * ce que le compte pourra promouvoir.
+ *
+ * Un label manuel (UGCV) n'est jamais tiré : seul l'admin le pose, et il
+ * remplace tous les autres labels du compte (le compte sort des slideshows).
+ * La base refuse d'ailleurs ce label à tout autre rôle (migration 0661).
  */
 function LabelsCompteSelect({
   compteId,
@@ -632,6 +636,7 @@ function LabelsCompteSelect({
   actifs: LabelType[];
 }) {
   const { t } = useTranslation();
+  const { role } = useAuth();
   const queryClient = useQueryClient();
   const labels = useQuery({
     queryKey: ["labels"],
@@ -646,9 +651,15 @@ function LabelsCompteSelect({
     },
   });
 
-  const disponibles = (labels.data ?? [])
-    .filter((l) => estLabelFileSlideshow(l))
-    .filter((l) => !ids.includes(l.id));
+  const avecManuel = actifs.some((l) => estLabelManuel(l));
+  const disponibles = labelsProposesCompte(labels.data ?? [], actifs, role === "admin");
+
+  const ajouter = (id: string) => {
+    const lab = disponibles.find((l) => l.id === id);
+    if (!lab) return;
+    if (estLabelManuel(lab) && !window.confirm(t("posters.confirmerLabelManuel", { label: lab.nom }))) return;
+    maj.mutate(labelsApresAjout(ids, lab));
+  };
 
   return (
     <div className="space-y-1">
@@ -662,7 +673,7 @@ function LabelsCompteSelect({
         onChange={(e) => {
           const id = e.target.value;
           if (!id) return;
-          maj.mutate([...ids, id]);
+          ajouter(id);
         }}
       >
         <option value="">
@@ -670,17 +681,18 @@ function LabelsCompteSelect({
         </option>
         {disponibles.map((l) => (
           <option key={l.id} value={l.id}>
-            {l.nom}
+            {estLabelManuel(l) ? t("posters.labelManuelOption", { label: l.nom }) : l.nom}
           </option>
         ))}
       </select>
+      {avecManuel && <p className="text-[11px] text-muted-foreground">{t("posters.labelManuelAide")}</p>}
       {actifs.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {actifs.map((lab) => (
             <button
               key={lab.id}
               type="button"
-              disabled={maj.isPending}
+              disabled={maj.isPending || (estLabelManuel(lab) && role !== "admin")}
               onClick={() => maj.mutate(ids.filter((id) => id !== lab.id))}
               className="inline-flex items-baseline gap-1 rounded-md border px-1.5 py-0.5 text-[11px] hover:bg-muted"
               title={t("common.delete")}
@@ -2581,8 +2593,8 @@ export function AdminPostersPage() {
                                   <div className="sm:col-span-2">
                                     <PostsParJourCompte compte={c} />
                                   </div>
-                                  {/* Un compte UGC AI VIDEO n'a pas de label : rien à répartir. */}
-                                  {!c.ugc_ai_video && (
+                                  {/* Un compte UGCV ne reçoit aucun slideshow : rien à répartir. */}
+                                  {!c.ugcv && (
                                     <div className="sm:col-span-2">
                                       <PartsApplicationsCompte compte={c} labels={labs} />
                                     </div>

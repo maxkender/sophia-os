@@ -153,8 +153,8 @@ export interface Compte {
   warmup_ends_at: string | null;
   /** Créateur UGC AI — slideshows ugc_compatible + swap visage persona. */
   ugc_ai: boolean;
-  /** Créateur UGC AI VIDEO — marque seule, aucun label ; persona unique partagé. */
-  ugc_ai_video: boolean;
+  /** Compte UGCV (label manuel UGCV) : posts vidéo posés à la main, jamais de slideshow (0661). */
+  ugcv: boolean;
   /** Compte du pod 3 : vidéos du pod uniquement (TikTok + Instagram), jamais de slideshow. */
   videos_uniquement?: boolean;
   /** Persona UGC (4 angles) associé à ce créateur. */
@@ -303,8 +303,6 @@ export interface PosterProfil {
     | "directing_manager"
     | "head_of_ops"
     | null;
-  /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
-  hm_ugc_ai_video: boolean;
   /**
    * Zone d'un recruteur (pays gérés, master list Notion) ; ses créateurs en
    * héritent par `manager_id`. Pas la zone de paiement A/B/C. Voir hiring/zones.ts.
@@ -561,8 +559,8 @@ export interface Label {
   couleur: string | null;
   created_at: string;
   application_id: string;
-  /** Pool UGC AI VIDEO (HM vidéo + reactions/utilisations). */
-  ugc_ai_video: boolean;
+  /** Label manuel (UGCV…) : jamais tiré par l'OS, posé à la main par l'admin (0661). */
+  manuel: boolean;
   /** Genre imposé pour les prénoms TikTok des créateurs de ce label. */
   genre: LabelGenre | null;
   /** Thème / style rédigé par l'admin (création semi-manuelle). */

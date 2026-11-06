@@ -6,6 +6,7 @@ import {
   cheminsMontage,
   cheminsUgcIa,
   coupeUtile,
+  demandeAssignation,
   demandeMontage,
   lienTiktok,
   nettoyerCta,
@@ -143,4 +144,14 @@ Deno.test("urlVideoFal : video.url ou video_url, avec ou sans enveloppe data", (
   assertEquals(urlVideoFal({ data: { video: { url: "https://v3.fal.media/o.mp4" } } }), "https://v3.fal.media/o.mp4");
   assertEquals(urlVideoFal({ data: {} }), null);
   assertEquals(urlVideoFal(null), null);
+});
+
+Deno.test("demandeAssignation : un persona, un compte ou aucun", () => {
+  const p = "11111111-1111-4111-8111-111111111111";
+  const c = "22222222-2222-4222-8222-222222222222";
+  assertEquals(demandeAssignation({ personaId: p, compteId: c.toUpperCase() }), { personaId: p, compteId: c });
+  assertEquals(demandeAssignation({ personaId: p, compteId: null }), { personaId: p, compteId: null });
+  assertEquals(demandeAssignation({ personaId: p }), { personaId: p, compteId: null });
+  assertEquals("erreur" in demandeAssignation({ compteId: c }), true);
+  assertEquals("erreur" in demandeAssignation({ personaId: p, compteId: "pas-un-id" }), true);
 });

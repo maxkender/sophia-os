@@ -65,7 +65,6 @@ function profil(over: Partial<PosterProfil> & { id: string; role: PosterProfil["
     manager_nom: null,
     is_active: true,
     must_change_password: false,
-    hm_ugc_ai_video: false,
     comptes: [],
     ...over,
   };
@@ -242,7 +241,7 @@ describe("AdminPostersPage — par zone", () => {
         warmup_ends_at: null,
         avatar_url: null,
         parts_applications: null,
-        ugc_ai_video: false,
+        ugcv: false,
       },
     ]);
     renderPage();
@@ -318,7 +317,7 @@ describe("AdminPostersPage — par zone", () => {
       warmup_ends_at: null,
       avatar_url: null,
       parts_applications: null,
-      ugc_ai_video: false,
+      ugcv: false,
     });
     listerComptes.mockResolvedValue([compte("c-alua", "alua", "ru", "KZ"), compte("c-kaisi", "kaisi", "et", "EE")]);
     renderPage();
@@ -425,7 +424,7 @@ describe("AdminPostersPage — par zone", () => {
       warmup_ends_at: null,
       avatar_url: null,
       parts_applications,
-      ugc_ai_video: false,
+      ugcv: false,
     });
     // Beyza : compte Sophia par défaut (label partagé). Omer : compte micabo 100 %.
     listerPosters.mockResolvedValue([
@@ -475,7 +474,7 @@ describe("AdminPostersPage — par zone", () => {
       warmup_ends_at,
       avatar_url: null,
       parts_applications: null,
-      ugc_ai_video: false,
+      ugcv: false,
     });
 
     beforeEach(() => {

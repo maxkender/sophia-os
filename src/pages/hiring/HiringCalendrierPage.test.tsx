@@ -34,7 +34,7 @@ function post(over: Partial<PostCalendrierAdmin>): PostCalendrierAdmin {
     sujet_titre: null,
     langue: "fr",
     ugc_ai: false,
-    ugc_ai_video: false,
+    ugcv: false,
     nb_slides: 5,
     nb_media: 5,
     slideshow_vide: false,

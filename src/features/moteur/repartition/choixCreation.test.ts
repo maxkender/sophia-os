@@ -28,11 +28,11 @@ const APPS = [
   { id: ID_MICABO, slug: "micabo", nom: "Micabo", langues: null, actif: true },
   { id: ID_ZEN, slug: "zen", nom: "Zen", langues: null, actif: false },
 ];
-/** Smart Girl sert Sophia ; Medical Study sert Micabo + Unswipe ; UGC X est UGC AI vidéo. */
+/** Smart Girl sert Sophia ; Medical Study sert Micabo + Unswipe ; UGCV est un label manuel. */
 const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl" };
 const MEDICAL = { id: "l-medical", slug: "medical-study", nom: "Medical Study" };
 const MICABO_SEUL = { id: "l-mic", slug: "mic", nom: "Mic" };
-const UGC_UNSWIPE = { id: "l-ugc", slug: "ugc-x", nom: "UGC X", ugc_ai_video: true };
+const UGC_UNSWIPE = { id: "l-ugc", slug: "ugcv", nom: "UGCV", manuel: true };
 const LABELS = [SMART, MEDICAL, MICABO_SEUL, UGC_UNSWIPE];
 const LIENS = [
   { label_id: SMART.id, application_id: ID_SOPHIA },
@@ -105,7 +105,7 @@ describe("choixApplicationRequis", () => {
 describe("labelsDeLApplication", () => {
   it("label_applications, labels slideshow seulement", () => {
     expect(labelsDeLApplication(ID_SOPHIA, LABELS, LIENS).map((l) => l.id)).toEqual([SMART.id]);
-    // UGC X sert Unswipe mais est UGC AI vidéo : jamais posé par la File.
+    // UGCV sert Unswipe mais est un label manuel : jamais posé par la File.
     expect(labelsDeLApplication(ID_UNSWIPE, LABELS, LIENS).map((l) => l.id)).toEqual([MEDICAL.id]);
     expect(labelsDeLApplication(ID_MICABO, LABELS, LIENS).map((l) => l.id)).toEqual([
       MEDICAL.id,

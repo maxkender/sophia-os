@@ -1,0 +1,181 @@
+{
+  "langue": "de",
+  "voix": {
+    "id": "NlRO8ABjJNJNYaRaLiPJ",
+    "nom": "Konrad",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.45,
+      "use_speaker_boost": true,
+      "speed": 1.2
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Die Schweiz hat seit über 200 Jahren keinen Krieg gegen ein anderes Land geführt. Warum?",
+      "reperes": [
+        {
+          "mot": "Warum?",
+          "image": 70
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "Erstens: die Alpen. Über die Hälfte des Landes besteht aus Bergen. Eine Invasion wäre ein Albtraum.",
+      "reperes": []
+    },
+    {
+      "id": "S3",
+      "texte": "Zweitens: 1815 haben die Großmächte Europas ihre Neutralität offiziell anerkannt.",
+      "reperes": [
+        {
+          "mot": "anerkannt.",
+          "image": 80
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "Aber neutral heißt nicht schwach: Die meisten Männer dienen in der Armee und bewahren ihr Gewehr zu Hause auf.",
+      "reperes": [
+        {
+          "mot": "Gewehr",
+          "image": 106
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "Im Zweiten Weltkrieg haben sie ihre Alpentunnel mit Sprengstoff vermint. Wer einmarschiert, gewinnt… nichts.",
+      "reperes": [
+        {
+          "mot": "vermint.",
+          "image": 98,
+          "ou": "fin"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "Und sie sind für alle nützlich: Banken, Diplomatie, Friedensgespräche in Genf.",
+      "reperes": [
+        {
+          "mot": "Diplomatie,",
+          "image": 46
+        },
+        {
+          "mot": "Genf.",
+          "image": 82
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Die Schweiz anzugreifen kostet zu viel. Sie in Ruhe zu lassen bringt mehr.",
+      "reperes": [
+        {
+          "mot": "Sie",
+          "image": 46
+        },
+        {
+          "mot": "mehr.",
+          "image": 78
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Beantworte all diese Fragen mit der Sophia-App."
+  },
+  "legende": "Warum führt die Schweiz nie Krieg? 🇨🇭 Die Antwort ist cleverer, als du denkst. #schweiz #geschichte #geografie #allgemeinwissen #lernenmittiktok",
+  "appli": {
+    "categorie": "AKTUELLES",
+    "lectures": "100 k Aufrufe",
+    "jours": "TAGE",
+    "commencer": "Starten",
+    "onglets": [
+      "Start",
+      "Bibliothek",
+      "Pfad",
+      "Üben",
+      "Profil"
+    ],
+    "titre": "Warum führt die Schweiz nie Krieg?",
+    "description": "Neutral seit 1815 und bis an die Zähne bewaffnet: Die Schweiz führt keine Kriege, aber sie bereitet sich jeden Tag darauf vor.",
+    "lecon": {
+      "sousTitre": "Neutral seit 1815 und bis an die Zähne bewaffnet.",
+      "paragraphes": [
+        [
+          {
+            "t": "Seit über 200 Jahren hat die Schweiz keinen Krieg gegen ein anderes Land geführt. Nicht aus Glück, sondern mit System: Ihre Berge machen jede Invasion zur Falle, ihre Neutralität ist "
+          },
+          {
+            "m": "seit 1815 offiziell anerkannt"
+          },
+          {
+            "t": ", und "
+          },
+          {
+            "m": "die meisten Männer dienen in einer Milizarmee"
+          },
+          {
+            "t": "."
+          }
+        ],
+        [
+          {
+            "t": "1940 plante General Guisan, die ganze Armee in die Alpen zurückzuziehen, ins berühmte „Réduit“, bereit, "
+          },
+          {
+            "m": "die Alpentunnel zu sprengen"
+          },
+          {
+            "t": ", falls jemand einmarschiert."
+          }
+        ]
+      ],
+      "continuer": "Weiter"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} VON 2",
+      "bravo": "Richtig!",
+      "questions": [
+        {
+          "q": "Seit wann ist die Schweizer Neutralität offiziell anerkannt?",
+          "options": [
+            "1648",
+            "1815",
+            "1914",
+            "1945"
+          ],
+          "bonne": 1,
+          "fait": "Wiener Kongress, 1815."
+        },
+        {
+          "q": "Was hat die Schweiz im Zweiten Weltkrieg vermint?",
+          "options": [
+            "Ihre Banken",
+            "Ihre Alpentunnel",
+            "Ihre Seen",
+            "Ihre Käsekeller"
+          ],
+          "bonne": 1,
+          "fait": "Gotthard und Simplon waren sprengbereit."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lektion abgeschlossen!",
+      "score": "2/2 richtige Antworten",
+      "serie": "TAGE IN FOLGE",
+      "xp": "XP VERDIENT",
+      "suivant": "ALS NÄCHSTES",
+      "suivantTitre": "Warum gab Sisyphos nie auf?",
+      "bouton": "Nächste Lektion"
+    }
+  }
+}

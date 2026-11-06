@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o143",
+ "type_bleo": "full_test",
+ "titre": "How to become the guy everyone trusts #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 50a4e1a0. full test. Accroche jamais faite chez nous : la confiance qu'on inspire, ton positif. Accroches écrites : « How to become the guy everyone trusts » (retenue), « Signs people trust you » (écartée : passif), « How to be reliable » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50a4e1a0",
+   "texte_overlay": "How to become the guy\neveryone trusts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Do what you said, when you said it. The call at five, the file on Friday, the lift to the airport. Trust is built from small promises kept, one after another.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keep other people's secrets. When a friend tells you something private, it stays with you. Nothing destroys trust faster than a story that travels without permission.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Admit your mistakes before anyone finds them. \"I got that wrong, here's how I'll fix it.\" People trust the man who owns his errors, not the one who hides them.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Be the same person everywhere. Same values at work, with friends and online. When people never have to guess which version of you they'll meet, they relax around you.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Speak from real knowledge. I do five minutes a day of history, art or science, and knowing what I'm talking about makes people trust my opinion a little more each time.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Knowing what I'm talking about makes people trust my opinion more.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Show up when it's inconvenient. Helping someone move on a rainy Saturday says more than a hundred kind messages. People remember who was there on the hard days.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Never talk badly about people behind their back. If you do it with them, they know you'll do it about them. Speaking well of the absent is quiet proof of loyalty.",
+   "media_id": "74b0526b"
+  }
+ ]
+}

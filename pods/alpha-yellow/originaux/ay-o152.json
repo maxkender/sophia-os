@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o152",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a5e157fc-aabd-4e63-a061-30c2a97d6f1f",
+ "titre": "Habits that make you sound smarter instantly #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "a5e157fc-aabd-4e63-a061-30c2a97d6f1f"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 1303e164. déclinaison G1 de la ligne 7 de la boîte (a5e157fc, hu 5,2 k r 4,34) : accroche du parent mot pour mot. Items neufs, aucun repris du parent (chiffres, « I'm not sure », exemples, questions, lenteur, résumé) ni d'ay-o066 et o138. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1303e164",
+   "texte_overlay": "Habits that make you\nsound smarter instantly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Use precise words. Not \"good\" but \"well organised\" or \"surprisingly funny.\" One precise word shows more intelligence than a long sentence full of vague ones.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Connect ideas from different fields. \"That's a bit like how bees decide where to build a hive.\" Linking topics shows real thinking, not memorised facts.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask \"why\" before giving your opinion. Understanding someone's reasons before you answer makes your reply sharper and makes you look thoughtful and fair.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Feed your head a little every day. I do five minutes of history, art or science, and having real knowledge to draw on makes everything I say clearer and sharper.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Real knowledge to draw on makes everything I say clearer and sharper.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Explain complex things simply. If you can explain a big idea to a ten-year-old, people instantly see you understand it. Simple is the hardest form of smart.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Change your mind openly. \"Good point, I hadn't thought of that.\" Updating your view when you hear a better argument is a sign of a strong mind, not a weak one.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Tell stories, not lists of facts. \"In 1928, a scientist left a dish out by mistake...\" A good story makes knowledge memorable and makes you worth listening to.",
+   "media_id": "215bd88e"
+  }
+ ]
+}

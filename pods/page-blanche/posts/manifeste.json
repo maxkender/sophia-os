@@ -2842,6 +2842,32 @@
    },
    "statut": "rendu_fr",
    "notes": "cta B; pinterest (slide 2) et photo d appli de langue (slide 5) remplacés"
+  },
+  {
+   "post_id": "original-072",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#whatsinmybag #phonefree #doomscrolling",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Guitar Coach Sean",
+    "original": true,
+    "id": "7679792501380664084",
+    "url_tiktok": "https://www.tiktok.com/music/x-7679792501380664084"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7684726544442346774_1",
+    "2": "7699939278847085857_3",
+    "3": "7685340052989398275_6",
+    "4": "7704304928449121568_3",
+    "5": "7699118764788321558_4",
+    "6": "7696836327026724128_2"
+   },
+   "notes": "full test BLEO (ce qu'il y a dans mon sac); cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

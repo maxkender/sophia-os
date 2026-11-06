@@ -1,0 +1,339 @@
+{
+  "langue": "en",
+  "voix": {
+    "id": "nPczCjzI2devNBz1zQrb",
+    "nom": "Brian",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.06
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "A supervolcano sleeps under Yellowstone. If it woke up, here's what would happen, minute by minute.",
+      "reperes": [
+        {
+          "mot": "supervolcano",
+          "image": 12
+        },
+        {
+          "mot": "Yellowstone.",
+          "image": 54
+        },
+        {
+          "mot": "woke",
+          "image": 90
+        },
+        {
+          "mot": "minute",
+          "image": 140
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "In the first minutes, clouds of burning ash race out faster than a car. Anyone within dozens of kilometers would have no chance.",
+      "reperes": [
+        {
+          "mot": "clouds",
+          "image": 40
+        },
+        {
+          "mot": "race",
+          "image": 76
+        },
+        {
+          "mot": "car.",
+          "image": 110
+        },
+        {
+          "mot": "Anyone",
+          "image": 131
+        },
+        {
+          "mot": "dozens",
+          "image": 156
+        },
+        {
+          "mot": "kilometers",
+          "image": 173
+        },
+        {
+          "mot": "chance.",
+          "image": 214
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "texte": "Within an hour, a column of ash shoots more than 30 kilometers into the sky.",
+      "reperes": [
+        {
+          "mot": "column",
+          "image": 38
+        },
+        {
+          "mot": "shoots",
+          "image": 62
+        },
+        {
+          "mot": "30",
+          "image": 84
+        },
+        {
+          "mot": "sky.",
+          "image": 123
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "In the next days, ash falls over much of North America. Enough to crush roofs near the volcano, and to ground planes far away.",
+      "reperes": [
+        {
+          "mot": "days,",
+          "image": 26
+        },
+        {
+          "mot": "ash",
+          "image": 37
+        },
+        {
+          "mot": "America.",
+          "image": 79
+        },
+        {
+          "mot": "crush",
+          "image": 119
+        },
+        {
+          "mot": "roofs",
+          "image": 130
+        },
+        {
+          "mot": "volcano,",
+          "image": 149
+        },
+        {
+          "mot": "ground",
+          "image": 184
+        },
+        {
+          "mot": "planes",
+          "image": 193
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "Within weeks, sulfur gas veils the Sun across the whole planet.",
+      "reperes": [
+        {
+          "mot": "sulfur",
+          "image": 35
+        },
+        {
+          "mot": "veils",
+          "image": 58
+        },
+        {
+          "mot": "Sun",
+          "image": 72
+        },
+        {
+          "mot": "planet.",
+          "image": 107
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "For years, the world gets a few degrees colder. A volcanic winter. Harvests fail, and the whole world could go hungry.",
+      "reperes": [
+        {
+          "mot": "years,",
+          "image": 16
+        },
+        {
+          "mot": "colder.",
+          "image": 59
+        },
+        {
+          "mot": "volcanic",
+          "image": 86
+        },
+        {
+          "mot": "Harvests",
+          "image": 128
+        },
+        {
+          "mot": "fail,",
+          "image": 142
+        },
+        {
+          "mot": "hungry.",
+          "image": 192
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Sounds crazy? In 1816, the far smaller Tambora eruption already caused a year without a summer.",
+      "reperes": [
+        {
+          "mot": "crazy?",
+          "image": 19
+        },
+        {
+          "mot": "1816,",
+          "image": 47
+        },
+        {
+          "mot": "smaller",
+          "image": 92
+        },
+        {
+          "mot": "Tambora",
+          "image": 103
+        },
+        {
+          "mot": "year",
+          "image": 162
+        },
+        {
+          "mot": "summer.",
+          "image": 179
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "texte": "The good news? Yellowstone's last super eruption was 640,000 years ago, and scientists see no sign of the next one.",
+      "reperes": [
+        {
+          "mot": "news?",
+          "image": 21
+        },
+        {
+          "mot": "Yellowstone's",
+          "image": 42
+        },
+        {
+          "mot": "eruption",
+          "image": 79
+        },
+        {
+          "mot": "640,000",
+          "image": 100
+        },
+        {
+          "mot": "scientists",
+          "image": 167
+        },
+        {
+          "mot": "sign",
+          "image": 194
+        },
+        {
+          "mot": "one.",
+          "image": 213
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Get answers to all these questions and many more on the Sophia app, then put your knowledge to the test with quizzes."
+  },
+  "legende": "If Yellowstone erupted, here's what would happen minute by minute 🌋 #volcano #yellowstone #science #disaster #learnontiktok",
+  "appli": {
+    "categorie": "SCIENCE",
+    "lectures": "47 k reads",
+    "jours": "DAYS",
+    "commencer": "Start",
+    "onglets": [
+      "Home",
+      "Library",
+      "Path",
+      "Practice",
+      "Profile"
+    ],
+    "titre": "What would happen if a supervolcano woke up?",
+    "description": "The eruption would begin in a single place, but its effects would travel around the planet.",
+    "lecon": {
+      "sousTitre": "One eruption, felt by the whole planet.",
+      "paragraphes": [
+        [
+          {
+            "t": "A super eruption ejects "
+          },
+          {
+            "m": "more than 1,000 km³ of rock and ash"
+          },
+          {
+            "t": ". In the first minutes, pyroclastic flows, clouds of gas and ash hotter than a furnace, would sweep the land for dozens of kilometers. Then ash would fall over much of North America, thick near the volcano, a few millimeters on the coasts."
+          }
+        ],
+        [
+          {
+            "t": "The real danger is in the sky. Sulfur gas forms a veil that reflects sunlight, and "
+          },
+          {
+            "m": "the planet could cool by a few degrees for several years"
+          },
+          {
+            "t": ". In 1816, the far smaller Tambora eruption already caused "
+          },
+          {
+            "m": "the “year without a summer”"
+          },
+          {
+            "t": ". Yellowstone's last super eruption was about 640,000 years ago, and the USGS sees no sign of an imminent one."
+          }
+        ]
+      ],
+      "continuer": "Continue"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} OF 2",
+      "bravo": "Correct!",
+      "questions": [
+        {
+          "q": "What would sweep the land in the first minutes of a super eruption?",
+          "options": [
+            "A tsunami",
+            "Clouds of burning ash",
+            "A lava lake",
+            "An earthquake swarm"
+          ],
+          "bonne": 1,
+          "fait": "Pyroclastic flows, faster than a car."
+        },
+        {
+          "q": "Which eruption caused the “year without a summer” in 1816?",
+          "options": [
+            "Yellowstone",
+            "Tambora",
+            "Toba",
+            "Vesuvius"
+          ],
+          "bonne": 1,
+          "fait": "Tambora, Indonesia, 1815."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lesson complete!",
+      "score": "2/2 correct answers",
+      "serie": "DAYS STREAK",
+      "xp": "XP EARNED",
+      "suivant": "UP NEXT",
+      "suivantTitre": "Why is Switzerland never at war?",
+      "bouton": "Next lesson"
+    }
+  }
+}

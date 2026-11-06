@@ -14,6 +14,7 @@ import {
   contratFerme,
   lireFinContrat,
   orgDeLOs,
+  ORG_VIK,
   ORGS_OS,
   REQUETE_FIN_CONTRAT,
   jalonAApprouver,
@@ -160,6 +161,11 @@ const COMPTE = "principal";
  *       `accueil_contrats_depuis` → posteur créé et message de bienvenue
  *       (annonce connue), « Contrats à relier », ou doublon signalé.
  *       Interrupteur `accueil_auto` (off / test / on).
+ *   { action: "bonus_test", id }            admin (trigger de la carte, 0543)
+ *       Le test du bonus classique : sendCustomPayment, 1 $, note « Test bonus »,
+ *       sur le contrat préparé par bonus_test_preparer, seulement après le clic
+ *       « Envoyer le test 1 $ » de Max. Compte de Max, org VIk Studios. La
+ *       réponse d'Upwork est gardée telle quelle (upwork_bonus_tests.reponse).
  *   { action: "message_posteur", poster_id, texte, type? }  admin, Head of Ops
  *       « Send on Upwork » : le texte dans la conversation du contrat du
  *       posteur, noté dans `nudges` (canal upwork, à la main).
@@ -294,6 +300,8 @@ Deno.serve(async (request) => {
       }
       case "message_posteur":
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
+      case "bonus_test":
+        return json(await bonusTest(supabase, par, String(body.id ?? "")));
       case "reprise_conversations":
         // 0504 : l'historique complet des conversations jamais lues, quelques-unes par passage, la nuit.
         return json(await repriseConversations(supabase, par));
@@ -2537,6 +2545,44 @@ async function ecrire(
     compte: o.compte,
   });
   return { data: valeur?.data ?? null, erreur };
+}
+
+/** 0543 : le bonus classique (« Give bonus ») d'Upwork, sans milestone. */
+const MUTATION_BONUS = `mutation Bonus($input: CustomPaymentInput!) { sendCustomPayment(input: $input) { invoiceId } }`;
+
+/**
+ * 0543 : le test de 1 $ préparé dans une carte décision. Rien ne part sans le
+ * clic de Max (option 0), ni deux fois, ni hors de VIk Studios, ni d'un autre
+ * compte que le sien. La réponse d'Upwork est gardée telle quelle.
+ */
+async function bonusTest(supabase: Supabase, par: string | null, id: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: b } = await supabase.from("upwork_bonus_tests").select("*").eq("id", id).maybeSingle();
+  if (!b) return { ok: false, error: "test introuvable" };
+  if (b.statut !== "en_cours") return { ok: false, error: `test ${b.statut} : rien n'est envoyé` };
+  const fin = async (statut: "envoye" | "erreur", reponse: unknown, erreur: string | null) => {
+    await supabase.from("upwork_bonus_tests").update({ statut, reponse, erreur, envoye_at: new Date().toISOString() }).eq("id", id);
+    const { data: p } = await supabase.from("problemes").select("journal").eq("id", b.probleme_id).maybeSingle();
+    if (p) {
+      await supabase.from("problemes").update({
+        ferme_raison: statut === "envoye" ? `Test bonus 1 $ envoyé (réponse Upwork : ${JSON.stringify(reponse).slice(0, 300)})` : `Test bonus : erreur — ${erreur}`,
+        journal: [...((p.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "bonus_test_resultat", statut, reponse, erreur }],
+      }).eq("id", b.probleme_id);
+    }
+    return { ok: statut === "envoye", statut, reponse, erreur };
+  };
+  const { data: carte } = await supabase.from("problemes").select("decision_choisie").eq("id", b.probleme_id).maybeSingle();
+  if (carte?.decision_choisie !== 0) return await fin("erreur", null, "la carte n'a pas été validée (« Envoyer le test 1 $ »)");
+  if (Number(b.montant) !== 1) return await fin("erreur", null, "montant différent de 1 $ : refusé");
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", b.contrat_id).maybeSingle();
+  if (uc?.organisation_id !== ORG_VIK) return await fin("erreur", null, `contrat hors VIk Studios (org ${uc?.organisation_id ?? "inconnue"}) : refusé`);
+  const expediteur = await verifierExpediteur(supabase);
+  if (expediteur) return await fin("erreur", null, expediteur);
+  const r = await ecrire(supabase, {
+    par, action: "bonus_test", query: MUTATION_BONUS, tenant: ORG_VIK, contrat: String(b.contrat_id), montant: 1, compte: COMPTE,
+    variables: { input: { contractId: String(b.contrat_id), amount: 1, comment: String(b.note), notes: String(b.note), type: "BONUS" } },
+  });
+  return await fin(r.erreur ? "erreur" : "envoye", r.data, r.erreur);
 }
 
 /**

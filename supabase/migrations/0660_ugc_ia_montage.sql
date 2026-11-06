@@ -11,6 +11,7 @@
 -- `montage_statut` : en_cours pendant le rendu (fait en arrière-plan par la
 -- fonction `ugc-ia`), echec avec `montage_erreur`, vide sinon.
 --
+-- ✅ Appliquée le 2026-11-06 (MCP) : 6 vidéos prêtes, toutes avec leur original.
 -- Additive. Reprise : l'original des vidéos déjà prêtes est leur vidéo
 -- actuelle. Retour arrière : drop column des colonnes ajoutées.
 

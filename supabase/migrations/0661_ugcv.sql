@@ -23,6 +23,10 @@
 --
 -- ⚠️ À appliquer juste avant le merge : les fonctions Edge déployées lisent
 -- encore les anciens noms jusqu'au déploiement.
+--
+-- ✅ Appliquée le 2026-11-06 (MCP) : 19 fonctions réécrites, plus aucune
+-- référence à l'ancien système ; label UGCV créé ; anciennes tables, prompts
+-- (seul ugc_face_swap reste) et marque « UGC AI VIDEO » supprimés.
 
 -- 1. Renommages --------------------------------------------------------------
 

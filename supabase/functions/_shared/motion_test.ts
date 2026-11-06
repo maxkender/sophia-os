@@ -16,8 +16,7 @@ import {
   premierJourLibre,
   scriptValide,
   statutApresEchec,
-  statutVideoDepuisLangues,
-} from "./motion.ts";
+  statutVideoDepuisLangues, languePilote, languesALancer } from "./motion.ts";
 
 const VIDEO = "0b7c4a1e-5f2d-4c3b-9a8e-1d2c3b4a5f6e";
 
@@ -159,4 +158,21 @@ Deno.test("cheminCaptureValide : sous le dossier de la vidéo, une image", () =>
   assert(!cheminCaptureValide(`motion/${VIDEO}/capture-1762441200000.mp4`, VIDEO));
   assert(!cheminCaptureValide(`motion/${VIDEO}/fr/capture-1.png`, VIDEO));
   assert(!cheminCaptureValide(`motion/autre/capture-1.png`, VIDEO));
+});
+
+Deno.test("langue pilote : l'anglais d'abord, sinon la première langue", () => {
+  assertEquals(languePilote(["fr", "en", "de", "it"]), "en");
+  assertEquals(languePilote(["fr", "de"]), "fr");
+});
+
+Deno.test("langues à lancer après la pilote : en attente, hors pilote, pas déjà en file", () => {
+  const langues = [
+    { langue: "en", statut: "a_valider" },
+    { langue: "fr", statut: "en_attente" },
+    { langue: "de", statut: "en_attente" },
+    { langue: "it", statut: "a_valider" },
+  ];
+  assertEquals(languesALancer(langues, "en", []), ["de", "fr"]);
+  assertEquals(languesALancer(langues, "en", ["fr"]), ["de"]);
+  assertEquals(languesALancer(langues, "en", ["fr", "de"]), []);
 });

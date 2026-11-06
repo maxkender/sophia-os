@@ -58,7 +58,12 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
 Envoie : `moteur.mjs script --tache T --video V --fichier chemin.json --projet slug`. La page le montre à
 l'admin, qui le modifie ou le valide (ce qui crée la tâche `produire`).
 
-## 3. Tâche `produire` : toutes les langues (ou `langue`)
+## 3. Tâche `produire` : une langue (`langue`)
+
+Le circuit (demande d'Adrien) : script validé → **vidéo anglaise seule** (tâche `produire` avec `langue: "en"`)
+→ l'admin la valide → une tâche `produire` par autre langue. Pour un nouveau sujet, c'est donc pendant la
+tâche anglaise que tu écris les scènes (§5) ; les autres langues réutilisent les mêmes scènes, il n'y a plus
+qu'à traduire, faire la voix, rendre et livrer. Une ancienne tâche sans `langue` = toutes les langues.
 
 Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 1. `en-cours --video V --langue L`.

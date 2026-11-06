@@ -7,8 +7,7 @@ import {
   moteurAuTravail,
   scriptEditable,
   scriptModifie,
-  scriptsDifferents,
-} from "./logique";
+  scriptsDifferents, attendLaPilote, languePiloteDe } from "./logique";
 
 const SCRIPT = {
   langue: "en",
@@ -90,5 +89,26 @@ describe("motion : comptes et capture", () => {
     expect(cheminCapture(id, "capture.webp", 1)).toMatch(/capture-1\.webp$/);
     expect(cheminCapture(id, "video.mp4", 1)).toBeNull();
     expect(cheminCapture(id, "sansextension", 1)).toBeNull();
+  });
+});
+
+describe("langue pilote", () => {
+  it("l'anglais d'abord, sinon la première langue", () => {
+    expect(languePiloteDe(["fr", "en", "de", "it"])).toBe("en");
+    expect(languePiloteDe(["fr", "de"])).toBe("fr");
+  });
+
+  it("les autres langues attendent la validation de la pilote", () => {
+    const toutes = [
+      { langue: "en", statut: "a_valider" },
+      { langue: "fr", statut: "en_attente" },
+    ];
+    expect(attendLaPilote(toutes[1], toutes, "en")).toBe(true);
+    expect(attendLaPilote(toutes[0], toutes, "en")).toBe(false);
+    const apres = [
+      { langue: "en", statut: "validee" },
+      { langue: "fr", statut: "en_attente" },
+    ];
+    expect(attendLaPilote(apres[1], apres, "en")).toBe(false);
   });
 });

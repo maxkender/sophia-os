@@ -332,13 +332,15 @@ export interface DemandeAide {
 
 /** Ce que la fenêtre a envoyé (view.state.values), ou null si la case texte est vide. */
 export function lireDemandeAide(valeurs: unknown): DemandeAide | null {
-  // deno-lint-ignore no-explicit-any
-  const v = (valeurs ?? {}) as Record<string, Record<string, any>>;
-  const categorie = String(v.categorie?.valeur?.selected_option?.value ?? "autre");
-  const texte = String(v.texte?.valeur?.value ?? "").trim();
+  const champ = (bloc: string): Record<string, unknown> => {
+    const v = (valeurs ?? {}) as Record<string, Record<string, unknown> | undefined>;
+    return ((v[bloc]?.valeur ?? {}) as Record<string, unknown>);
+  };
+  const choix = champ("categorie").selected_option as { value?: unknown } | undefined;
+  const categorie = String(choix?.value ?? "autre");
+  const texte = String(champ("texte").value ?? "").trim();
   if (texte.length < 3) return null;
-  // deno-lint-ignore no-explicit-any
-  const fichiers = (Array.isArray(v.capture?.valeur?.files) ? v.capture.valeur.files : []) as any[];
+  const fichiers = Array.isArray(champ("capture").files) ? (champ("capture").files as Record<string, unknown>[]) : [];
   const captures = fichiers.map((f) => String(f?.permalink ?? f?.url_private ?? "")).filter(Boolean);
   const libelle = AIDE_CATEGORIES.find((c) => c.valeur === categorie)?.libelle ?? "Other";
   return { categorie, libelle, texte, captures };

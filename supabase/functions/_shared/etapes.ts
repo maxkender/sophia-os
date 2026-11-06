@@ -97,6 +97,12 @@ export interface RecrueAccueil {
   cohorte_lundi: string;
   premiere_connexion_at: string | null;
   slack_user_id: string | null;
+  /**
+   * 6/11 : déjà sur Slack même sans slack_user_id sur le profil (id Slack connu
+   * dans hub_posteurs, ou « I've joined » déclaré et pas refusé) : pas de
+   * relance « join Slack ». slack_user_id reste la seule adresse d'envoi.
+   */
+  slack_connu?: boolean;
   contrat_id: string | null;
   compte_id: string | null;
   handle: string | null;

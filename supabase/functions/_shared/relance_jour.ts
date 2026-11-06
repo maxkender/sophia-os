@@ -38,7 +38,7 @@ const H = 3_600_000;
 
 export function planRelance(
   x: Pick<RecrueAccueil, "warmup_started_at" | "abonnements" | "tiktok_existe" | "deuxieme"> &
-    Partial<Pick<RecrueAccueil, "slack_user_id" | "bienvenue_at">>,
+    Partial<Pick<RecrueAccueil, "slack_user_id" | "slack_connu" | "bienvenue_at">>,
   etats: readonly EtatAccueil[],
   maintenant: Date,
   d: Pick<DelaisAccueil, "warmup_lance_message_h"> & Partial<Pick<DelaisAccueil, "connexion_message_h">>,
@@ -47,7 +47,8 @@ export function planRelance(
   const etape = planEtape(x, etats, maintenant, d);
   if (etape.needsYou) return { element: null, elements: [], needsYou: true, follows: 0 };
   // L'étape 0 : pas sur Slack (lien d'invitation connu), le même délai que la connexion.
-  const slack = o.slack === true && !x.deuxieme && !x.slack_user_id && Boolean(x.bienvenue_at) &&
+  // 6/11 : « déjà sur Slack » = l'id du profil, ou un id connu ailleurs / une déclaration (slack_connu).
+  const slack = o.slack === true && !x.deuxieme && !x.slack_user_id && !x.slack_connu && Boolean(x.bienvenue_at) &&
     maintenant.getTime() >= new Date(x.bienvenue_at!).getTime() + (d.connexion_message_h ?? 24) * H;
   // 1/11 : l'étape la plus importante d'abord (dashboard > TikTok > Start warmup > follows), Slack en dernier.
   const elements: ElementRelance[] = [...(etape.element ? [etape.element] : []), ...(slack ? ["slack" as const] : [])];

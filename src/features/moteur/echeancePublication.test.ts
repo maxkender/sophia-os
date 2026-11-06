@@ -74,3 +74,14 @@ describe("échéance de publication", () => {
     expect(migration("0304_echeance_publication.sql")).toContain("date '2026-10-19'");
   });
 });
+
+describe("0550 : le lien d'un post manqué accepté 48 h", () => {
+  it("manqué à l'échéance, lien encore ouvert 48 h, fermé ensuite", async () => {
+    const { echeanceLien, lienOuvert, publicationOuverte: ouverte } = await import("./echeancePublication");
+    // FR, post du 2/11 : échéance 2/11 23:00 UTC (minuit Paris), lien jusqu'au 4/11 23:00 UTC.
+    expect(ouverte("2026-11-02", "FR", new Date("2026-11-03T08:00:00Z"))).toBe(false);
+    expect(lienOuvert("2026-11-02", "FR", new Date("2026-11-04T22:59:00Z"))).toBe(true);
+    expect(lienOuvert("2026-11-02", "FR", new Date("2026-11-04T23:01:00Z"))).toBe(false);
+    expect(echeanceLien("2026-11-02", "FR").toISOString()).toBe("2026-11-04T23:00:00.000Z");
+  });
+});

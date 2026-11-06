@@ -410,14 +410,25 @@ async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
   const ids = [...new Set(recrues.map((x) => x.poster_id))];
   const emails = new Map<string, string | null>();
   const bienvenues = new Set<string>();
+  // 6/11 : déjà sur Slack sans id sur le profil (hub_posteurs, « I've joined » déclaré) : pas de relance Slack.
+  const slackConnus = new Set<string>();
   for (let i = 0; i < ids.length; i += 200) {
     const lot = ids.slice(i, i + 200);
     const { data: pr } = await supabase.from("profiles").select("id, email").in("id", lot);
     for (const x of pr ?? []) emails.set(x.id as string, (x.email as string | null) ?? null);
     const { data: ac } = await supabase.from("accueils").select("poster_id").in("poster_id", lot).eq("statut", "envoye").not("message_at", "is", null);
     for (const x of ac ?? []) bienvenues.add(x.poster_id as string);
+    const { data: hub } = await supabase.from("hub_posteurs").select("profile_id").in("profile_id", lot).not("slack_user_id", "is", null);
+    for (const x of hub ?? []) slackConnus.add(x.profile_id as string);
+    const { data: dec } = await supabase.from("etape_declarations").select("poster_id").in("poster_id", lot).eq("etape", "slack").neq("statut", "refuse");
+    for (const x of dec ?? []) slackConnus.add(x.poster_id as string);
   }
-  return recrues.map((x) => ({ ...x, email: emails.get(x.poster_id) ?? null, bienvenue_os: bienvenues.has(x.poster_id) }));
+  return recrues.map((x) => ({
+    ...x,
+    email: emails.get(x.poster_id) ?? null,
+    bienvenue_os: bienvenues.has(x.poster_id),
+    slack_connu: slackConnus.has(x.poster_id),
+  }));
 }
 
 interface ExempleMessage {

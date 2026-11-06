@@ -26,7 +26,7 @@ import {
   minutesAvantPublication,
   minutesDepuisErreurPublication,
 } from "@/features/moteur/delaiPublication";
-import { echeancePublication, publicationOuverte } from "@/features/moteur/echeancePublication";
+import { echeanceLien, echeancePublication, lienOuvert, publicationOuverte } from "@/features/moteur/echeancePublication";
 import { dateDepuisErreurLienDejaUtilise, handleAutreCompte, lienPourEnregistrement } from "@/features/moteur/lienPublication";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
@@ -497,9 +497,11 @@ export function PosterPostPage() {
   });
   const peutForcer = role === "admin" || role === "head_of_ops";
   const datePost = post.data?.date_publication_prevue ?? null;
-  const ouverte = peutForcer || publicationOuverte(datePost, paysCompte.data ?? null);
+  // 0550 : « Missed » à l'échéance, mais le lien est encore accepté 48 h (compté pour le jour du post).
+  const manqueEnGrace = !peutForcer && !publicationOuverte(datePost, paysCompte.data ?? null) && lienOuvert(datePost, paysCompte.data ?? null);
+  const ouverte = peutForcer || lienOuvert(datePost, paysCompte.data ?? null);
   const echeanceTexte = datePost
-    ? echeancePublication(datePost, paysCompte.data ?? null).toLocaleString(localeDate(i18n.language), {
+    ? (manqueEnGrace ? echeanceLien(datePost, paysCompte.data ?? null) : echeancePublication(datePost, paysCompte.data ?? null)).toLocaleString(localeDate(i18n.language), {
         weekday: "short",
         day: "numeric",
         month: "short",
@@ -562,6 +564,8 @@ export function PosterPostPage() {
     queryClient.invalidateQueries({ queryKey: ["post", id] });
     queryClient.invalidateQueries({ queryKey: ["slides", id] });
     queryClient.invalidateQueries({ queryKey: ["mes-posts"] });
+    // Étape 5 du guide : cochée au 1er post publié avec lien (0544), sans attendre le cache.
+    queryClient.invalidateQueries({ queryKey: ["ma-premiere-semaine"] });
     // Une publication qui vient d'aboutir redémarre le délai : sans cette
     // invalidation, le post suivant afficherait « publication possible » en
     // se fiant au cache, et le serveur le refuserait sans prévenir.
@@ -1116,6 +1120,12 @@ export function PosterPostPage() {
             </div>
           ) : (
             <>
+              {manqueEnGrace && datePost && (
+                <div className="space-y-1 rounded-lg border border-amber-400/60 bg-amber-50 p-3 dark:bg-amber-950/30" data-testid="manque-grace">
+                  <p className="text-sm font-semibold text-amber-800 dark:text-amber-200">{t("posts.manqueTitre")}</p>
+                  <p className="text-xs text-muted-foreground">{t("posts.manqueGrace", { date: echeanceTexte, jour: datePost })}</p>
+                </div>
+              )}
               <div className="space-y-2">
                 <Label htmlFor="lien">{t("posts.lienPublie")}</Label>
                 <Input

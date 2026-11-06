@@ -71,6 +71,11 @@ async function mesPosts(): Promise<PostCalendrier[]> {
     .from("posts_poster")
     .select("*")
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
+    // 6/11 : un ordre stable dans la journée. Avant, les 2 posts d'un jour
+    // revenaient dans un ordre quelconque : après « I posted it », le créneau 1
+    // pouvait montrer l'autre post (le posteur croyait que son post avait changé).
+    .order("created_at", { ascending: true })
+    .order("id", { ascending: true })
     .limit(200);
   if (error) throw error;
   return data as PostCalendrier[];

@@ -184,6 +184,24 @@ export function estManque(
   return !publicationOuverte(post.date_publication_prevue, pays, maintenant);
 }
 
+/** 6/11 (0550) : le lien d'un post manqué est encore accepté 48 h après l'échéance (compté pour son jour). */
+export const GRACE_LIEN_MS = 48 * 3600 * 1000;
+
+/** Échéance du lien : l'échéance de publication + 48 h (jumeau de `public.echeance_lien`). */
+export function echeanceLien(date: string, pays: string | null | undefined): Date {
+  return new Date(echeancePublication(date, pays).getTime() + GRACE_LIEN_MS);
+}
+
+/** Le poster peut-il encore coller le lien (jusqu'à 48 h après l'échéance) ? */
+export function lienOuvert(
+  date: string | null,
+  pays: string | null | undefined,
+  maintenant: Date = new Date(),
+): boolean {
+  if (!date || date < DEBUT_ECHEANCE) return true;
+  return maintenant.getTime() <= echeanceLien(date, pays).getTime();
+}
+
 /** Le poster peut-il encore marquer publié / corriger le lien ? */
 export function publicationOuverte(
   date: string | null,

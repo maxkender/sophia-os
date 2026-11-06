@@ -12,6 +12,26 @@ export const LANGUES_MOTION = ["fr", "en", "de", "it"] as const;
 /** Une tâche du moteur repart d'elle-même tant qu'elle a échoué moins de fois que ça. */
 export const TENTATIVES_MAX = 3;
 
+/**
+ * Langue pilote : la vidéo se fait d'abord dans cette langue ; les autres ne se lancent qu'après sa validation
+ * (demande d'Adrien du 6/11 : script → vidéo anglaise → validation → autres langues).
+ */
+export const LANGUE_PILOTE = "en";
+export function languePilote(langues: string[]): string {
+  return langues.includes(LANGUE_PILOTE) ? LANGUE_PILOTE : langues[0];
+}
+/** Les langues à lancer quand la pilote est validée : encore en attente et pas déjà dans la file. */
+export function languesALancer(
+  langues: Array<{ langue: string; statut: string }>,
+  pilote: string,
+  dejaEnFile: string[],
+): string[] {
+  return langues
+    .filter((l) => l.langue !== pilote && l.statut === "en_attente" && !dejaEnFile.includes(l.langue))
+    .map((l) => l.langue)
+    .sort();
+}
+
 /** Le moteur dépose ses fichiers sous ce dossier du bucket `medias`. */
 export const PREFIXE_MOTION = "motion/";
 

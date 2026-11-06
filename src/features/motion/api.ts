@@ -117,7 +117,10 @@ export function validerScriptMotion(videoId: string): Promise<{ ok: true }> {
   return invoke("motion", { action: "valider_script", video_id: videoId });
 }
 
-export function validerLangueMotion(videoId: string, langue: string): Promise<{ postId: string; compteId: string; date: string }> {
+export function validerLangueMotion(
+  videoId: string,
+  langue: string,
+): Promise<{ postId: string | null; compteId: string | null; date: string | null; lancees?: string[] }> {
   return invoke("motion", { action: "valider_langue", video_id: videoId, langue });
 }
 

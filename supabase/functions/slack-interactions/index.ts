@@ -7,7 +7,15 @@ import {
   type PropositionSlack,
   zonesDe,
 } from "../_shared/ckd.ts";
-import { BOUTONS, libelleBouton, lireLibellesBoutons } from "../_shared/reponses.ts";
+import {
+  AIDE_CALLBACK,
+  BOUTONS,
+  libelleBouton,
+  lireDemandeAide,
+  lireLibellesBoutons,
+  texteDemandeAide,
+  vueAide,
+} from "../_shared/reponses.ts";
 import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -59,9 +67,15 @@ Deno.serve(async (request) => {
       else await travail;
       return new Response("", { status: 200 });
     }
+    // 6/11 : la fenêtre « I need help » envoyée (un choix, la question, une capture facultative).
+    if (payload?.type === "view_submission" && payload?.view?.callback_id === AIDE_CALLBACK) {
+      return await envoyerAide(payload);
+    }
     if (payload?.type !== "block_actions") return new Response("", { status: 200 });
     if (action?.action_id === "comment_fait") await commentFait(payload, action);
     else if (action?.action_id === "envoi_main_fait") await envoiMainFait(payload, action);
+    // 6/11 : « I need help » ouvre la fenêtre (plus de carte vide) ; sans fenêtre possible, l'ancien clic.
+    else if (action?.action_id === "posteur_aide" && (await ouvrirAide(payload))) return new Response("", { status: 200 });
     else if (action?.action_id && action.action_id in BOUTONS) await boutonPosteur(payload, action);
     else if (action?.action_id === ACTION_DONE) {
       // Plusieurs lectures et deux écritures Slack : on répond d'abord à Slack
@@ -161,6 +175,88 @@ async function boutonPosteur(payload: any, action: any) {
       }),
     }).catch(() => undefined);
   }
+}
+
+/**
+ * 6/11 : « I need help » ouvre une fenêtre Slack : [My post / my images]
+ * [My link] [TikTok] [Login] [Pay] [Other], la question (obligatoire) et une
+ * capture (facultative). Le trigger_id ne vit que 3 s : on l'ouvre avant de
+ * répondre à Slack. false si la fenêtre n'a pas pu s'ouvrir.
+ */
+// deno-lint-ignore no-explicit-any
+async function ouvrirAide(payload: any): Promise<boolean> {
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  const trigger = String(payload?.trigger_id ?? "");
+  if (!jeton || !trigger) return false;
+  const vue = vueAide({
+    ts: String(payload?.message?.ts ?? payload?.container?.message_ts ?? ""),
+    canal: payload?.channel?.id ?? payload?.container?.channel_id ?? null,
+    response_url: payload?.response_url ?? null,
+  });
+  try {
+    const r = await fetch("https://slack.com/api/views.open", {
+      method: "POST",
+      headers: { "content-type": "application/json; charset=utf-8", authorization: `Bearer ${jeton}` },
+      body: JSON.stringify({ trigger_id: trigger, view: vue }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!j?.ok) console.error("slack-interactions views.open", j?.error ?? r.status);
+    return Boolean(j?.ok);
+  } catch (e) {
+    console.error("slack-interactions views.open", messageErreur(e));
+    return false;
+  }
+}
+
+/**
+ * La fenêtre envoyée : un message du posteur (posteur_reponses, canal slack)
+ * avec le sujet, sa question et le lien de la capture. Il suit le chemin des
+ * messages reçus (classé par l'IA, réponse du guide ou carte Problèmes).
+ */
+// deno-lint-ignore no-explicit-any
+async function envoyerAide(payload: any): Promise<Response> {
+  const demande = lireDemandeAide(payload?.view?.state?.values);
+  if (!demande) {
+    return json({ response_action: "errors", errors: { texte: "Please write your question." } });
+  }
+  const supabase = serviceClient();
+  const userId = String(payload?.user?.id ?? "");
+  const { data: profil } = await supabase.from("profiles").select("id").eq("slack_user_id", userId).maybeSingle();
+  let meta: { ts?: string; canal?: string | null; response_url?: string | null } = {};
+  try {
+    meta = JSON.parse(String(payload?.view?.private_metadata ?? "{}"));
+  } catch {
+    meta = {};
+  }
+  if (!profil?.id) {
+    return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please write in #questions." } });
+  }
+  const { error } = await supabase.from("posteur_reponses").insert({
+    poster_id: profil.id,
+    canal: "slack",
+    source_id: `aide:${String(payload?.view?.id ?? meta.ts ?? Date.now())}`,
+    texte: texteDemandeAide(demande),
+  });
+  if (error && error.code !== "23505") {
+    console.error("slack-interactions aide", messageErreur(error));
+    return json({ response_action: "errors", errors: { texte: "Not sent, please try again." } });
+  }
+  if (meta.response_url) {
+    const marque = fetch(meta.response_url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        replace_original: false,
+        response_type: "ephemeral",
+        text: "✅ Thanks, your question was sent to the team. You'll get an answer here.",
+      }),
+    }).catch(() => undefined);
+    // deno-lint-ignore no-explicit-any
+    const edge = (globalThis as any).EdgeRuntime;
+    if (edge?.waitUntil) edge.waitUntil(marque);
+    else await marque;
+  }
+  return new Response("", { status: 200 });
 }
 
 /**

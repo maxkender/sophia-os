@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Download, ExternalLink, RefreshCw, RotateCcw, Save, Scissors, Sparkles, Timer, Trash2 } from "lucide-react";
+import { Clapperboard, Download, ExternalLink, RefreshCw, RotateCcw, Save, Scissors, Sparkles, Timer, Trash2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,10 +24,12 @@ import {
   type ResultatLancement,
   type SourceUgcIa,
 } from "./api";
+import { DialogueMontage } from "./Montage";
 import {
   arrondiDixieme,
   basculer,
   erreurPassage,
+  estMontee,
   lireSecondes,
   messageErreur,
   passageInitial,
@@ -196,6 +198,7 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
                   generation={g}
                   persona={parId.get(g.persona_id) ?? null}
                   occupe={g.statut !== "en_cours" && occupes.has(g.persona_id)}
+                  ctaTexte={source.cta_texte}
                 />
               ))}
             </div>
@@ -445,11 +448,26 @@ function ResultatsLancement({ resultats }: { resultats: ResultatLancement[] | un
   );
 }
 
-/** Une vidéo générée : son état, son résultat, et de quoi la refaire (autre qualité, autre prompt). */
-function CarteGeneration({ generation: g, persona, occupe }: { generation: GenerationUgcIa; persona: PersonaUgcIa | null; occupe: boolean }) {
+/**
+ * Une vidéo générée : son état, son résultat, de quoi la monter (recadrer,
+ * bandeau) et de quoi la refaire (autre qualité, autre prompt).
+ */
+function CarteGeneration({
+  generation: g,
+  persona,
+  occupe,
+  ctaTexte,
+}: {
+  generation: GenerationUgcIa;
+  persona: PersonaUgcIa | null;
+  occupe: boolean;
+  ctaTexte: string | null;
+}) {
   const { t } = useTranslation();
   const rafraichir = useRafraichir();
   const [refaire, setRefaire] = React.useState(false);
+  const [monter, setMonter] = React.useState(false);
+  const montageEnCours = g.montage_statut === "en_cours";
   const [prompt, setPrompt] = React.useState(g.prompt || PROMPT_DEFAUT);
   const [resolution, setResolution] = React.useState<ResolutionUgcIa>(g.resolution);
   const relancer = useMutation({
@@ -468,6 +486,7 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
         {persona && <img src={persona.image_url} alt="" className="size-6 rounded-full object-cover" />}
         <span className="font-medium">{nom}</span>
         <Badge variant={VARIANTE_STATUT[g.statut]}>{t(`ugcIa.statut.${g.statut}`)}</Badge>
+        {estMontee(g) && <Badge variant="info">{t("ugcIa.montage.montee")}</Badge>}
         <span className="text-muted-foreground">
           {g.resolution}
           {g.debut_s != null && g.fin_s != null && ` · ${g.debut_s}→${g.fin_s} s`}
@@ -480,8 +499,19 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
           <p>{t("ugcIa.enCoursDetail")}</p>
         </div>
       )}
+      {montageEnCours && (
+        <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          <Spinner className="size-3.5" />
+          {t("ugcIa.montage.enCours")}
+        </p>
+      )}
+      {g.montage_statut === "echec" && g.montage_erreur && (
+        <p role="alert" className="text-xs text-destructive">
+          {t("ugcIa.montage.echec", { erreur: g.montage_erreur })}
+        </p>
+      )}
       {g.statut === "prete" && g.video_url && (
-        <video src={g.video_url} controls playsInline preload="metadata" className="aspect-[9/16] w-full rounded-lg bg-black object-contain" />
+        <video key={g.video_url} src={g.video_url} controls playsInline preload="metadata" className="aspect-[9/16] w-full rounded-lg bg-black object-contain" />
       )}
       {g.erreur && (
         <p role="alert" className="text-xs text-destructive">
@@ -493,6 +523,12 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
           <Button variant="outline" size="xs" render={<a href={g.video_url} download />}>
             <Download aria-hidden />
             {t("ugcIa.telecharger")}
+          </Button>
+        )}
+        {g.statut === "prete" && g.video_brute_url && (
+          <Button variant="outline" size="xs" disabled={montageEnCours} onClick={() => setMonter(true)}>
+            <Clapperboard aria-hidden />
+            {t("ugcIa.montage.monter")}
           </Button>
         )}
         {g.statut !== "en_cours" && (
@@ -525,6 +561,7 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
         </div>
       )}
       <Alerte erreur={relancer.error ?? supprimer.error} />
+      {monter && <DialogueMontage generation={g} nomPersona={nom} ctaTexte={ctaTexte} ouvert={monter} fermer={() => setMonter(false)} />}
     </div>
   );
 }

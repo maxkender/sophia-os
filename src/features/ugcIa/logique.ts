@@ -20,6 +20,11 @@ export const PERSONAS_MAX_PAR_LANCEMENT = 10;
 export const PROMPT_DEFAUT =
   "the woman from the image performs exactly the motion of the video, natural phone selfie, no text, no captions";
 
+/** La vidéo générée a-t-elle été montée (recadrée ou avec bandeau) ? */
+export function estMontee(g: { video_url: string | null; video_brute_url: string | null }): boolean {
+  return Boolean(g.video_url && g.video_brute_url && g.video_url !== g.video_brute_url);
+}
+
 export function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
   if (err && typeof err === "object" && "message" in err) return String((err as { message: unknown }).message);

@@ -109,20 +109,35 @@ export async function listerPersonasUgcIa(): Promise<PersonaUgcIa[]> {
   return (data ?? []) as PersonaUgcIa[];
 }
 
-/** Les comptes actifs qui portent le label UGCV (`comptes.ugcv`, migration 0661). */
+/**
+ * Les comptes actifs qui portent le label UGCV (`comptes.ugcv`, migration 0661).
+ * `comptes.ugcv` vaut pour tout label manuel : les comptes MOTION (0663), qui
+ * reçoivent les vidéos de la page Motion, sont écartés ici.
+ */
 export async function listerComptesUgcv(): Promise<CompteUgcv[]> {
   const { data, error } = await supabase
     .from("comptes")
-    .select("id, handle_tiktok, persona_nom, langue, profiles(prenom)")
+    .select("id, handle_tiktok, persona_nom, langue, profiles(prenom), compte_labels(labels(slug))")
     .eq("ugcv", true)
     .eq("is_active", true)
     .order("created_at");
   if (error) throw error;
-  type Ligne = Omit<CompteUgcv, "poster_prenom"> & { profiles?: { prenom: string | null } | { prenom: string | null }[] | null };
-  return ((data ?? []) as unknown as Ligne[]).map(({ profiles, ...c }) => ({
-    ...c,
-    poster_prenom: (Array.isArray(profiles) ? profiles[0]?.prenom : profiles?.prenom) ?? null,
-  }));
+  type Une<T> = T | T[] | null | undefined;
+  type Ligne = Omit<CompteUgcv, "poster_prenom"> & {
+    profiles?: Une<{ prenom: string | null }>;
+    compte_labels?: Array<{ labels: Une<{ slug: string | null }> }> | null;
+  };
+  const slugs = (l: Ligne) =>
+    (l.compte_labels ?? []).flatMap((cl) => (Array.isArray(cl.labels) ? cl.labels : cl.labels ? [cl.labels] : []).map((x) => x.slug));
+  return ((data ?? []) as unknown as Ligne[])
+    .filter((l) => !slugs(l).includes("motion"))
+    .map((l) => ({
+      id: l.id,
+      handle_tiktok: l.handle_tiktok,
+      persona_nom: l.persona_nom,
+      langue: l.langue,
+      poster_prenom: (Array.isArray(l.profiles) ? l.profiles[0]?.prenom : l.profiles?.prenom) ?? null,
+    }));
 }
 
 export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {

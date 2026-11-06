@@ -46,6 +46,7 @@ import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminUgcIaPage } from "@/pages/admin/AdminUgcIaPage";
+import { AdminMotionPage } from "@/pages/admin/AdminMotionPage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminRepartitionPage } from "@/pages/admin/AdminRepartitionPage";
 import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
@@ -173,6 +174,8 @@ export function AppRouter() {
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
               {/* 5/11 : UGC IA, une réaction TikTok refaite par un persona (Genjutsu), hors podz. */}
               <Route path="/admin/ugc-ia" element={<AdminUgcIaPage />} />
+              {/* 6/11 : Motion, vidéos explicatives en papier découpé dans chaque langue (moteur Claude Code), hors podz. */}
+              <Route path="/admin/motion" element={<AdminMotionPage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
               <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />

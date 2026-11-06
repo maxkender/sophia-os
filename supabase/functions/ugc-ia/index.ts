@@ -43,6 +43,7 @@ import { falDownloadBytes, falQueueAwaitJson, falQueueSubmit } from "../_shared/
 import { sonderVideoMeta } from "../_shared/fal_normaliser_video.ts";
 import { trimmerVideoFal } from "../_shared/fal_trim_video.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
+import { poserPostVideo } from "../_shared/posts_video.ts";
 import {
   cleHiggsfield,
   corpsGenjutsu,
@@ -545,7 +546,8 @@ async function assignerPersona(supabase: Supabase, body: Record<string, unknown>
 /**
  * Un post vidéo sur un compte UGCV, compté comme un post normal : le post
  * (type `video`, assigné, prêt), ses vidéos dans l'ordre, et un passage sans
- * contenu que lisent la paie, les relances, la résolution du lien et les vues.
+ * contenu que lisent la paie, les relances, la résolution du lien et les vues
+ * (`poserPostVideo`, partagé avec la fonction `motion`).
  */
 async function creerPostVideo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
   const d = demandePostVideo(body, aujourdhuiParis());
@@ -572,59 +574,20 @@ async function creerPostVideo(supabase: Supabase, body: Record<string, unknown>)
   if (errD) throw new Error(errD.message);
   if ((deja ?? []).length > 0) return json({ error: "Ce compte a déjà un post ce jour-là" }, 409);
 
-  const application = d.applicationId ? { application_id: d.applicationId } : {};
-  const musique = d.musiqueUrl
-    ? { musique_url: d.musiqueUrl, musique_titre: d.musiqueTitre, musique_plateforme: "tiktok" }
-    : {};
-  const { data: post, error: errP } = await supabase
-    .from("posts")
-    .insert({
-      compte_id: d.compteId,
-      date_publication_prevue: d.date,
-      type: "video",
-      statut: "assigne",
-      pipeline_statut: "done",
-      hashtags: d.legende,
-      video_cta_texte: d.ctaTexte,
-      video_cta_incruste: d.ctaIncruste,
-      video_capture_url: d.captureUrl,
-      ...musique,
-      ...application,
-    })
-    .select("id")
-    .single();
-  if (errP || !post) throw new Error(errP?.message ?? "post non créé");
-
-  try {
-    const { error: errV } = await supabase.from("post_videos").insert(
-      d.videos.map((v, i) => ({
-        post_id: post.id,
-        position: i + 1,
-        url: v.url,
-        chemin: v.chemin,
-        nom: v.nom,
-        generation_id: v.generationId,
-      })),
-    );
-    if (errV) throw new Error(errV.message);
-    const { error: errPa } = await supabase.from("passages").insert({
-      contenu_id: null,
-      post_id: post.id,
-      compte_id: d.compteId,
-      langue: (compte.langue as string | null) || "en",
-      date_publication_prevue: d.date,
-      statut: "assigne",
-      slides: [],
-      hashtags: d.legende,
-      ...musique,
-      ...application,
-    });
-    if (errPa) throw new Error(errPa.message);
-  } catch (e) {
-    await supabase.from("posts").delete().eq("id", post.id);
-    throw e;
-  }
-  return json({ ok: true, postId: post.id });
+  const postId = await poserPostVideo(supabase, {
+    compteId: d.compteId,
+    date: d.date,
+    langue: (compte.langue as string | null) || "en",
+    videos: d.videos,
+    legende: d.legende,
+    ctaTexte: d.ctaTexte,
+    ctaIncruste: d.ctaIncruste,
+    captureUrl: d.captureUrl,
+    musiqueUrl: d.musiqueUrl,
+    musiqueTitre: d.musiqueTitre,
+    applicationId: d.applicationId,
+  });
+  return json({ ok: true, postId });
 }
 
 /** Retire un post vidéo pas encore publié, et les vidéos importées pour lui. */

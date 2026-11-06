@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Download, ExternalLink, RefreshCw, RotateCcw, Save, Scissors, Sparkles, Trash2 } from "lucide-react";
+import { Download, ExternalLink, RefreshCw, RotateCcw, Save, Scissors, Sparkles, Timer, Trash2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -96,6 +96,9 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
   const { t, i18n } = useTranslation();
   const rafraichir = useRafraichir();
   const lecteur = React.useRef<HTMLVideoElement>(null);
+  // Le temps de lecture du lecteur, affiché en direct ; au clic, on relit le lecteur lui-même.
+  const [temps, setTemps] = React.useState(0);
+  const suivreLecture = (e: React.SyntheticEvent<HTMLVideoElement>) => setTemps(e.currentTarget.currentTime);
   const tempsLecture = React.useCallback(() => lecteur.current?.currentTime ?? 0, []);
   const supprimer = useMutation({ mutationFn: () => supprimerSourceUgcIa(source.id), onSuccess: rafraichir });
   const date = new Intl.DateTimeFormat(i18n.language, { dateStyle: "medium", timeStyle: "short" }).format(new Date(source.created_at));
@@ -144,10 +147,19 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
                 muted
                 playsInline
                 preload="metadata"
+                onTimeUpdate={suivreLecture}
+                onSeeked={suivreLecture}
+                onPause={suivreLecture}
                 className="mx-auto aspect-[9/16] w-full max-w-[14rem] rounded-lg bg-black object-contain md:max-w-none"
               />
             ) : (
               <p className="text-xs text-muted-foreground">{t("ugcIa.pasDeVideo")}</p>
+            )}
+            {source.brut_url && (
+              <p className="flex items-center justify-center gap-1.5 rounded-md bg-muted px-2 py-1 text-sm font-medium tabular-nums" data-testid="temps-lecture">
+                <Timer className="size-4 text-muted-foreground" aria-hidden />
+                {t("ugcIa.lecture", { temps: arrondiDixieme(temps) })}
+              </p>
             )}
             <p className="text-xs text-muted-foreground">{t("ugcIa.aideLecteur")}</p>
             {source.source_texte && <p className="line-clamp-3 text-xs text-muted-foreground">« {source.source_texte} »</p>}
@@ -157,8 +169,8 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
             <Etape numero={1} titre={t("ugcIa.etapeDecouper")} aide={t("ugcIa.etapeDecouperAide")}>
               {source.brut_url && (
                 <>
-                  <LigneCoupe source={source} partie="reaction" tempsLecture={tempsLecture} bloquee={!peutCouper(source.generations)} />
-                  <LigneCoupe source={source} partie="telephone" tempsLecture={tempsLecture} bloquee={false} />
+                  <LigneCoupe source={source} partie="reaction" temps={temps} tempsLecture={tempsLecture} bloquee={!peutCouper(source.generations)} />
+                  <LigneCoupe source={source} partie="telephone" temps={temps} tempsLecture={tempsLecture} bloquee={false} />
                 </>
               )}
             </Etape>
@@ -196,17 +208,22 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
 
 /**
  * Une partie à couper dans la vidéo TikTok : la réaction (envoyée à Genjutsu)
- * ou la partie téléphone (gardée telle quelle). Début et fin se saisissent ou
- * se prennent sur le lecteur ; le clip coupé s'affiche à côté.
+ * ou la partie téléphone (gardée telle quelle). Début et fin se prennent sur
+ * le lecteur d'un clic (« Prendre 3.2 s ») ou se saisissent ; le clip coupé
+ * s'affiche à côté.
  */
 function LigneCoupe({
   source,
   partie,
+  temps,
   tempsLecture,
   bloquee,
 }: {
   source: SourceUgcIa;
   partie: PartieSource;
+  /** Le temps de lecture affiché (mis à jour pendant la lecture). */
+  temps: number;
+  /** Le temps exact du lecteur, lu au moment du clic. */
   tempsLecture: () => number;
   bloquee: boolean;
 }) {
@@ -243,19 +260,28 @@ function LigneCoupe({
                 ["fin", fin, setFin],
               ] as const
             ).map(([cle, valeur, changer]) => (
-              <div key={cle} className="w-28 space-y-1">
-                <div className="flex items-baseline justify-between gap-1 text-xs">
-                  <span className="text-muted-foreground">{t(`ugcIa.${cle}`)}</span>
-                  <button
-                    type="button"
-                    className="text-primary underline-offset-2 hover:underline"
+              <div key={cle} className="space-y-1">
+                <span className="block text-xs text-muted-foreground">{t(`ugcIa.${cle}`)}</span>
+                <div className="flex items-center gap-1.5">
+                  <Input
+                    size="sm"
+                    className="w-20"
+                    inputMode="decimal"
+                    value={valeur}
+                    onChange={(e) => changer(e.target.value)}
+                    aria-label={t(`ugcIa.${cle}De`, { partie: nom })}
+                  />
+                  <Button
+                    variant="outline"
+                    size="xs"
                     title={t("ugcIa.prendreTemps")}
+                    aria-label={t("ugcIa.prendrePour", { champ: t(`ugcIa.${cle}De`, { partie: nom }), temps: arrondiDixieme(temps) })}
                     onClick={() => changer(arrondiDixieme(tempsLecture()))}
                   >
-                    {t("ugcIa.ici")}
-                  </button>
+                    <Timer aria-hidden />
+                    {t("ugcIa.prendre", { temps: arrondiDixieme(temps) })}
+                  </Button>
                 </div>
-                <Input size="sm" inputMode="decimal" value={valeur} onChange={(e) => changer(e.target.value)} aria-label={t(`ugcIa.${cle}De`, { partie: nom })} />
               </div>
             ))}
             <Button

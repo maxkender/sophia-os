@@ -6182,7 +6182,8 @@ export const en = {
       confirmerSuppressionEnCours: "The generation is running at Higgsfield and will be billed anyway. Delete it?",
       videoSource: "TikTok video",
       pasDeVideo: "Video unavailable.",
-      aideLecteur: "Pause the video at the right moment, then click \"here\" next to Start or End.",
+      aideLecteur: "Play or pause the video at the right moment, then click \"Use\" next to Start or End.",
+      lecture: "Playing: {{temps}} s",
       etapeDecouper: "Cut the video",
       etapeDecouperAide: "The reaction is remade by the personas. The phone part (the app demo) is kept as is.",
       partie: {
@@ -6199,8 +6200,9 @@ export const en = {
       fin: "End (s)",
       debutDe: "Start of {{partie}} (s)",
       finDe: "End of {{partie}} (s)",
-      ici: "here",
-      prendreTemps: "Use the video playback time",
+      prendre: "Use {{temps}} s",
+      prendrePour: "{{champ}}: use {{temps}} s",
+      prendreTemps: "Put the current playback time of the video",
       couperPartie: {
         reaction: "Cut the reaction",
         telephone: "Cut the phone part",

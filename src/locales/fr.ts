@@ -6191,7 +6191,8 @@ export const fr = {
       confirmerSuppressionEnCours: "La génération est en cours chez Higgsfield et sera facturée quand même. La supprimer ?",
       videoSource: "Vidéo TikTok",
       pasDeVideo: "Vidéo indisponible.",
-      aideLecteur: "Mets la vidéo en pause au bon moment, puis clique sur « ici » à côté de Début ou Fin.",
+      aideLecteur: "Lance ou mets en pause la vidéo au bon moment, puis clique sur « Prendre » à côté de Début ou de Fin.",
+      lecture: "Lecture : {{temps}} s",
       etapeDecouper: "Découper la vidéo",
       etapeDecouperAide: "La réaction est refaite par les personas. La partie téléphone (la démo de l'appli) est gardée telle quelle.",
       partie: {
@@ -6208,8 +6209,9 @@ export const fr = {
       fin: "Fin (s)",
       debutDe: "Début de {{partie}} (s)",
       finDe: "Fin de {{partie}} (s)",
-      ici: "ici",
-      prendreTemps: "Prendre le temps de lecture de la vidéo",
+      prendre: "Prendre {{temps}} s",
+      prendrePour: "{{champ}} : prendre {{temps}} s",
+      prendreTemps: "Mettre le temps de lecture actuel de la vidéo",
       couperPartie: {
         reaction: "Couper la réaction",
         telephone: "Couper la partie téléphone",

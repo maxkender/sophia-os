@@ -108,10 +108,9 @@ Deno.test("parts_applications reçu tel quel, validé plus tard contre la table 
 });
 
 Deno.test("un choix ne vaut que pour un compte perso slideshow", () => {
-  assertEquals(choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: false }), true);
-  assertEquals(choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: true }), false);
-  assertEquals(choixApplicableAuCompte({ typeCompte: "cm", ugcAiVideo: false }), false);
-  assertEquals(choixApplicableAuCompte({ typeCompte: "aucun", ugcAiVideo: false }), false);
+  assertEquals(choixApplicableAuCompte({ typeCompte: "perso" }), true);
+  assertEquals(choixApplicableAuCompte({ typeCompte: "cm" }), false);
+  assertEquals(choixApplicableAuCompte({ typeCompte: "aucun" }), false);
 });
 
 // ---------------------------------------------------------------------------
@@ -181,24 +180,20 @@ Deno.test("label sans application cochée : disponible pour personne (21/10)", (
   assertEquals(labelServitToutes("ancien", [], [ID_SOPHIA]), false);
 });
 
-Deno.test("label choisi : inexistant, système ou UGC AI VIDEO → LABEL_INCOMPATIBLE", () => {
+Deno.test("label choisi : inexistant, système ou manuel (UGCV) → LABEL_INCOMPATIBLE", () => {
   assertEquals(labelChoisiCompatible(null, liens, []), false);
   assertEquals(labelChoisiCompatible(undefined, liens, []), false);
   assertEquals(labelChoisiCompatible({ id: "hook", slug: "hook", nom: "Hook" }, [], []), false);
   assertEquals(
-    labelChoisiCompatible({ id: "marque", slug: "ugc-ai-video", nom: "UGC AI VIDEO" }, [], []),
-    false,
-  );
-  assertEquals(
-    labelChoisiCompatible({ id: "video", slug: "test", nom: "test", ugc_ai_video: true }, [], []),
+    labelChoisiCompatible({ id: "ugcv", slug: "ugcv", nom: "UGCV", manuel: true }, [], []),
     false,
   );
 });
 
 Deno.test("label choisi slideshow : compatible ssi il sert toutes les applications à part > 0", () => {
-  const partage = { id: "partage", slug: "partage", nom: "Partagé", ugc_ai_video: false };
-  const unswipeSeul = { id: "unswipe-seul", slug: "u", nom: "U", ugc_ai_video: false };
-  const ancien = { id: "ancien", slug: "ancien", nom: "Ancien", ugc_ai_video: null };
+  const partage = { id: "partage", slug: "partage", nom: "Partagé", manuel: false };
+  const unswipeSeul = { id: "unswipe-seul", slug: "u", nom: "U", manuel: false };
+  const ancien = { id: "ancien", slug: "ancien", nom: "Ancien", manuel: null };
 
   // Sans répartition : tout label slideshow passe (le défaut fera avec).
   for (const l of [partage, unswipeSeul, ancien]) {

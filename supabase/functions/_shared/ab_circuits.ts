@@ -293,9 +293,9 @@ async function chargerFicheAppli(supabase: Supabase, applicationId: string): Pro
   return contenu || null;
 }
 
-const LABELS_HORS_TON = new Set(["Hook", "UGC AI VIDEO"]);
+const LABELS_HORS_TON = new Set(["Hook"]);
 
-/** Le label de ton d'un contenu : le premier hors `Hook` et `UGC AI VIDEO`, comme le lot (0627). */
+/** Le label de ton d'un contenu : le premier hors `Hook`, comme le lot (0627). */
 async function labelDuContenu(supabase: Supabase, contenuId: string): Promise<string | null> {
   const { data } = await supabase.from("contenu_labels").select("labels(nom)").eq("contenu_id", contenuId);
   const noms = ((data ?? []) as Array<{ labels: { nom?: string } | Array<{ nom?: string }> | null }>)

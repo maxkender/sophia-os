@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0660) : une réaction TikTok
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0661) : une réaction TikTok
  * (la source) refaite par un ou plusieurs personas synthétiques avec
  * Higgsfield Genjutsu (transfert de mouvement). Admin seulement. La page lit
  * les tables directement ; tout changement passe ici.
@@ -24,6 +24,9 @@
  *   { action: "supprimer_generation", id }         → une génération et sa vidéo
  *   { action: "rapatrier_personas" }               → copie dans le stockage de l'OS les images
  *                                                    des personas ajoutés par Claude (URL externe)
+ *   { action: "assigner_persona", personaId, compteId|null }
+ *                                                  → rattache le persona à un compte UGCV
+ *                                                    (1 persona = 1 compte, migration 0661)
  *
  * Secrets : APIFY_TOKEN, FAL_KEY, HIGGSFIELD_API_KEY (« KEY_ID:KEY_SECRET »).
  */
@@ -50,6 +53,7 @@ import {
   cheminsMontage,
   cheminsUgcIa,
   coupeUtile,
+  demandeAssignation,
   demandeMontage,
   type DemandeMontage,
   lienTiktok,
@@ -505,6 +509,30 @@ async function rapatrierPersonas(supabase: Supabase): Promise<Response> {
   return json({ ok: true, bilan });
 }
 
+/** Rattache un persona à un compte UGCV, ou l'en détache ; le compte est repris à son ancien persona. */
+async function assignerPersona(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const d = demandeAssignation(body);
+  if ("erreur" in d) return json({ error: d.erreur }, 400);
+  const { data: persona, error: errP } = await supabase.from("ugc_ia_personas").select("id").eq("id", d.personaId).maybeSingle();
+  if (errP) throw new Error(errP.message);
+  if (!persona) return json({ error: "Persona introuvable" }, 404);
+  if (d.compteId) {
+    const { data: compte, error: errC } = await supabase.from("comptes").select("id, ugcv").eq("id", d.compteId).maybeSingle();
+    if (errC) throw new Error(errC.message);
+    if (!compte) return json({ error: "Compte introuvable" }, 404);
+    if (!compte.ugcv) return json({ error: "Ce compte n'est pas UGCV : pose-lui d'abord le label UGCV (page Posters)" }, 400);
+    const { error: errL } = await supabase
+      .from("ugc_ia_personas")
+      .update({ compte_id: null })
+      .eq("compte_id", d.compteId)
+      .neq("id", d.personaId);
+    if (errL) throw new Error(errL.message);
+  }
+  const { error } = await supabase.from("ugc_ia_personas").update({ compte_id: d.compteId }).eq("id", d.personaId);
+  if (error) throw new Error(error.message);
+  return json({ ok: true });
+}
+
 Deno.serve(async (request) => {
   const refus = await assertAuthorised(request);
   if (refus) return refus;
@@ -540,11 +568,13 @@ Deno.serve(async (request) => {
         return await supprimerGeneration(supabase, body);
       case "rapatrier_personas":
         return await rapatrierPersonas(supabase);
+      case "assigner_persona":
+        return await assignerPersona(supabase, body);
       default:
         return json(
           {
             error:
-              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas)",
+              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona)",
           },
           400,
         );

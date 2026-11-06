@@ -115,6 +115,19 @@ export function personasDemandees(brut: unknown): string[] | { erreur: string } 
   return ids;
 }
 
+/**
+ * Rattacher un persona à un compte UGCV (`compteId` null : le détacher).
+ * 1 persona = 1 compte : le compte est repris à l'ancien persona s'il en avait un.
+ */
+export function demandeAssignation(body: Record<string, unknown>): { personaId: string; compteId: string | null } | { erreur: string } {
+  const personaId = String(body.personaId ?? "").trim().toLowerCase();
+  if (!UUID.test(personaId)) return { erreur: "Persona manquant" };
+  if (body.compteId === null || body.compteId === undefined || body.compteId === "") return { personaId, compteId: null };
+  const compteId = String(body.compteId).trim().toLowerCase();
+  if (!UUID.test(compteId)) return { erreur: "Compte invalide" };
+  return { personaId, compteId };
+}
+
 /** L'image rendue par fal `ffmpeg-api/extract-frame` (`images[0].url`), ou null. */
 export function urlImageExtraite(sortie: unknown): string | null {
   const s = (sortie ?? {}) as { data?: unknown; images?: unknown };

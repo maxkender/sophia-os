@@ -1364,7 +1364,7 @@ export const en = {
         warmup_non_demarre: "warmup not started",
         warmup_en_cours: "warmup in progress",
         cm: "CM account",
-        ugc_video: "UGC video account",
+        ugcv: "UGCV account",
         videos_uniquement: "videos only",
       },
       ecartes: "Contents tried then discarded",
@@ -4034,6 +4034,10 @@ export const en = {
       createursFiltres: "Filtered creators",
       choisirLabel: "Choose a label…",
       ajouterLabel: "Add a label…",
+      labelManuelOption: "{{label}} (manual, replaces the others)",
+      confirmerLabelManuel:
+        "Switch this account to {{label}}? Its other labels are removed and it gets no more slideshows: you assign its posts yourself.",
+      labelManuelAide: "Manual label: never drawn, no slideshows. Remove it to add other labels back.",
       choisirLangue: "Choose a language…",
       creerRecruteur: "Create a recruiter",
       creerRecruteurDesc:
@@ -6170,6 +6174,11 @@ export const en = {
       personas_other: "Personas ({{count}})",
       aucunPersona: "No active persona.",
       ajoutParClaude: "Personas are added by Claude (\"ugc-ia\" skill): ask it for a new face.",
+      sansCompte: "No UGCV account",
+      compteDe: "{{nom}}'s UGCV account",
+      compteInconnu: "Account no longer UGCV",
+      repris: "taken from {{nom}}",
+      aucunCompteUgcv: "No UGCV account yet: put the UGCV label on an account (Posters page), then link it to its persona here.",
       nouvelle: "New source",
       etape1: "Paste the link of a TikTok reaction that performs and import it.",
       etape2: "Cut the reaction (remade by the personas) and the phone part (kept as is).",
@@ -8625,7 +8634,7 @@ export const en = {
       fileTitre: "Next accounts queue (label + UGC)",
       fileApp: "{{app}} creators queue — a new {{app}} account gets the next label at creation.",
       fileDesc:
-        "On creating a {{app}} account: that language’s queue first (priority), else the general queue, else a balanced pick among the labels serving {{app}} (each language follows each label’s share by stock and last-15-day views, never the same label 3 times in 4 accounts). FIFO: the first entry sets the label (and, for Sophia, whether the account is UGC). UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
+        "On creating a {{app}} account: that language’s queue first (priority), else the general queue, else a balanced pick among the labels serving {{app}} (each language follows each label’s share by stock and last-15-day views, never the same label 3 times in 4 accounts). FIFO: the first entry sets the label (and, for Sophia, whether the account is UGC). Manual labels (UGCV) stay out of this queue: they are never drawn, only the admin puts them on an account.",
       fileApplication: "App",
       fileApplicationAide:
         "Each app has its own queue. The new account takes the queue of the app chosen at its creation (Sophia by default).",
@@ -8655,7 +8664,7 @@ export const en = {
         "No labels in the database — create at least one (Library / Labels) before creating a poster.",
       aucunLabelUgc:
         "No label with UGC slideshows — mark at least one slideshow as UGC before adding a UGC queue entry.",
-      fileIgnoreUgcVideo: "UGC video — skipped at creation",
+      fileIgnoreManuel: "Manual label — skipped at creation",
       ajouterLabel: "Add a label",
       ajouterUgc: "UGC account",
       ajouter: "Add",

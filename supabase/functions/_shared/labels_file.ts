@@ -1,13 +1,13 @@
 /** Même règle que `src/features/moteur/fileLabelsSlideshow.ts`. */
 
 export const SLUG_HOOK = "hook";
-export const SLUG_UGC_AI_VIDEO = "ugc-ai-video";
 
 export type LabelFileSlideshow = {
   id?: string;
   slug?: string | null;
   nom?: string | null;
-  ugc_ai_video?: boolean | null;
+  /** Label manuel (UGCV…) : jamais tiré, posé à la main par l'admin (migration 0661). */
+  manuel?: boolean | null;
 };
 
 function slugLabel(lab: LabelFileSlideshow): string {
@@ -19,28 +19,20 @@ function nomLabel(lab: LabelFileSlideshow): string {
 }
 
 export function estLabelSysteme(lab: LabelFileSlideshow): boolean {
-  const slug = slugLabel(lab);
-  const nom = nomLabel(lab);
-  return (
-    slug === SLUG_UGC_AI_VIDEO ||
-    slug === SLUG_HOOK ||
-    nom === "hook" ||
-    nom === "ugc ai video"
-  );
+  return slugLabel(lab) === SLUG_HOOK || nomLabel(lab) === "hook";
 }
 
-export function estLabelUgcAiVideo(lab: LabelFileSlideshow): boolean {
-  return Boolean(lab.ugc_ai_video) ||
-    slugLabel(lab) === SLUG_UGC_AI_VIDEO ||
-    nomLabel(lab) === "ugc ai video";
+/** Label manuel (UGCV…) : aucun tirage ne le pose, seul l'admin le met sur un compte. */
+export function estLabelManuel(lab: LabelFileSlideshow): boolean {
+  return Boolean(lab.manuel);
 }
 
-/** File Settings / fallback least-used : slideshow only, jamais UGC AI VIDEO. */
+/** File Settings / fallback least-used : slideshow only, jamais un label manuel. */
 export function estLabelFileSlideshow(lab: LabelFileSlideshow): boolean {
-  return !estLabelSysteme(lab) && !estLabelUgcAiVideo(lab);
+  return !estLabelSysteme(lab) && !estLabelManuel(lab);
 }
 
-/** Hook / marque système : jamais sur un compte, même UGC AI VIDEO. */
+/** Hook : jamais sur un compte. */
 export function estLabelInterditCompte(lab: LabelFileSlideshow): boolean {
   return estLabelSysteme(lab);
 }

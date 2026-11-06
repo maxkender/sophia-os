@@ -37,9 +37,8 @@
  *     des applications, pas son recruteur. Tout autre rôle qui envoie une
  *     valeur non nulle → 403 CHOIX_COMPTE_ADMIN ;
  *   - valeurs invalides → 400 REPARTITION_INVALIDE ; label inexistant, système,
- *     UGC AI VIDEO ou qui ne sert pas toutes les applications à part > 0 →
- *     400 LABEL_INCOMPATIBLE ; compte CM ou UGC AI VIDEO → 400
- *     CHOIX_COMPTE_INCOMPATIBLE ; aucun label slideshow ne sert l'application
+ *     manuel (UGCV) ou qui ne sert pas toutes les applications à part > 0 →
+ *     400 LABEL_INCOMPATIBLE ; compte CM → 400 CHOIX_COMPTE_INCOMPATIBLE ; aucun label slideshow ne sert l'application
  *     (ou toutes les applications) demandée(s) → 409 NO_LABELS_APPLICATION.
  *
  * Module à part, importé par manage-users seul : le toucher ne redéploie
@@ -133,14 +132,11 @@ export function lireChoixCompte(
 
 /**
  * Un choix ne vaut que pour un compte perso SLIDESHOW : un compte CM (pas de
- * moteur), un compte UGC AI VIDEO (labels du HM, Sophia seule) ou une création
- * sans compte n'en ont pas l'usage → CHOIX_COMPTE_INCOMPATIBLE.
+ * moteur) ou une création sans compte n'en ont pas l'usage →
+ * CHOIX_COMPTE_INCOMPATIBLE.
  */
-export function choixApplicableAuCompte(args: {
-  typeCompte: string;
-  ugcAiVideo: boolean;
-}): boolean {
-  return args.typeCompte === "perso" && !args.ugcAiVideo;
+export function choixApplicableAuCompte(args: { typeCompte: string }): boolean {
+  return args.typeCompte === "perso";
 }
 
 /**
@@ -196,7 +192,7 @@ export function labelServitToutes(
 
 /**
  * Label imposé par l'admin : il doit exister, être un label slideshow (ni Hook,
- * ni marque UGC AI VIDEO, ni label du pool vidéo — même règle que la File) et
+ * ni label manuel comme UGCV — même règle que la File) et
  * servir toutes les applications à part > 0.
  */
 export function labelChoisiCompatible(

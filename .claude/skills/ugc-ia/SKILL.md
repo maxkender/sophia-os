@@ -7,10 +7,10 @@ description: Page UGC IA de l'OS (/admin/ugc-ia) — réactions TikTok refaites 
 
 La page `/admin/ugc-ia` (menu Production) refait une réaction TikTok (la
 **source**) avec un ou plusieurs **personas** cochés, via l'API Higgsfield
-Genjutsu. Tables (migrations 0656 et 0657, projet Supabase « Sophia OS
+Genjutsu. Tables (migrations 0656 à 0661, projet Supabase « Sophia OS
 SLIDESHOW », `mbikecieskoobeizixig`) :
 
-- `ugc_ia_personas` : `nom`, `description`, `image_url`, `image_path`, `actif` ;
+- `ugc_ia_personas` : `nom`, `description`, `image_url`, `image_path`, `actif`, `compte_id` (son compte UGCV) ;
 - `ugc_ia_sources` : la vidéo TikTok, le passage coupé, le CTA (premier écran + texte) ;
 - `ugc_ia_generations` : une vidéo Genjutsu = source + persona + qualité + prompt.
 
@@ -91,3 +91,21 @@ coupe ni le téléchargement. Une interpolation à 60 images/s ne l'efface
 pas. Pour mesurer une vidéo, compare la variation image par image par
 phase modulo 4 (`ffmpeg … tblend=all_mode=difference,signalstats`) : une
 phase nettement au-dessus des autres trahit l'à-coup.
+
+## Comptes UGCV (migration 0661)
+
+Le label **UGCV** (`labels.manuel = true`) n'est jamais tiré par l'OS (File,
+BLEO, minuit, repli) : seul l'admin le pose, sur la page Posters, et il
+remplace tous les autres labels du compte. `comptes.ugcv` suit tout seul
+(trigger) : le compte ne reçoit plus de slideshows. La base elle-même refuse
+ce label à tout autre rôle que l'admin.
+
+Dans la page UGC IA, chaque persona a un menu « Compte UGCV » : 1 persona =
+1 compte (`ugc_ia_personas.compte_id`, unique). Choisir un compte déjà pris
+le reprend à son ancien persona (action `assigner_persona`).
+
+```sql
+select p.nom, c.handle_tiktok
+from public.ugc_ia_personas p left join public.comptes c on c.id = p.compte_id
+where p.actif order by p.nom;
+```

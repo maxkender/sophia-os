@@ -4,10 +4,11 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
-import type { GenerationUgcIa, PersonaUgcIa, SourceUgcIa } from "@/features/ugcIa/api";
+import type { CompteUgcv, GenerationUgcIa, PersonaUgcIa, SourceUgcIa } from "@/features/ugcIa/api";
 
-const SOPHIE: PersonaUgcIa = { id: "p1", nom: "Sophie", description: "~20 ans, blonde", image_url: "https://x/sophie.jpg", image_path: "ugc-ia/personas/p1.jpg" };
-const CLARA: PersonaUgcIa = { id: "p2", nom: "Clara", description: "~20 ans, brune", image_url: "https://x/clara.jpg", image_path: "ugc-ia/personas/p2.jpg" };
+const SOPHIE: PersonaUgcIa = { id: "p1", nom: "Sophie", description: "~20 ans, blonde", image_url: "https://x/sophie.jpg", image_path: "ugc-ia/personas/p1.jpg", compte_id: null };
+const CLARA: PersonaUgcIa = { id: "p2", nom: "Clara", description: "~20 ans, brune", image_url: "https://x/clara.jpg", image_path: "ugc-ia/personas/p2.jpg", compte_id: null };
+const COMPTE_LEA: CompteUgcv = { id: "c1", handle_tiktok: "lea.ugc", persona_nom: "Léa", langue: "en", poster_prenom: "Lea" };
 
 const listerPersonas = vi.fn();
 const listerSources = vi.fn();
@@ -19,10 +20,15 @@ const suivre = vi.fn();
 const rapatrier = vi.fn();
 const monter = vi.fn();
 const annulerMontage = vi.fn();
+const listerComptes = vi.fn();
+const assigner = vi.fn();
 
 vi.mock("@/features/ugcIa/api", () => ({
   CLE_SOURCES_UGC_IA: ["ugc-ia", "sources"],
   CLE_PERSONAS_UGC_IA: ["ugc-ia", "personas"],
+  CLE_COMPTES_UGCV: ["ugc-ia", "comptes-ugcv"],
+  listerComptesUgcv: () => listerComptes(),
+  assignerPersonaUgcIa: (...a: unknown[]) => assigner(...a),
   listerPersonasUgcIa: () => listerPersonas(),
   listerSourcesUgcIa: () => listerSources(),
   importerTiktokUgcIa: (...a: unknown[]) => importer(...a),
@@ -110,6 +116,7 @@ describe("AdminUgcIaPage", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
     listerPersonas.mockResolvedValue([SOPHIE, CLARA]);
+    listerComptes.mockResolvedValue([]);
     await i18n.changeLanguage("fr");
   });
 
@@ -124,6 +131,28 @@ describe("AdminUgcIaPage", () => {
     fireEvent.click(screen.getByRole("button", { name: "Importer" }));
     await waitFor(() => expect(importer).toHaveBeenCalledWith("https://www.tiktok.com/@a/video/1"));
     expect(rapatrier).not.toHaveBeenCalled();
+  });
+
+  it("rattache un persona à un compte UGCV, repris à son ancien persona", async () => {
+    listerPersonas.mockResolvedValue([SOPHIE, { ...CLARA, compte_id: "c1" }]);
+    listerComptes.mockResolvedValue([COMPTE_LEA]);
+    listerSources.mockResolvedValue([]);
+    assigner.mockResolvedValue({ ok: true });
+    rendre();
+    const choix = await screen.findByLabelText("Compte UGCV de Sophie");
+    await waitFor(() => expect(within(choix).getByRole("option", { name: "@lea.ugc · Lea · EN (repris à Clara)" })).toBeInTheDocument());
+    expect(screen.getByLabelText("Compte UGCV de Clara")).toHaveValue("c1");
+    fireEvent.change(choix, { target: { value: "c1" } });
+    await waitFor(() => expect(assigner).toHaveBeenCalledWith("p1", "c1"));
+    fireEvent.change(screen.getByLabelText("Compte UGCV de Clara"), { target: { value: "" } });
+    await waitFor(() => expect(assigner).toHaveBeenCalledWith("p2", null));
+  });
+
+  it("dit comment avoir un compte UGCV quand il n'y en a aucun", async () => {
+    listerSources.mockResolvedValue([]);
+    rendre();
+    expect(await screen.findByText(/Aucun compte UGCV pour l’instant/)).toBeInTheDocument();
+    expect(screen.getByLabelText("Compte UGCV de Sophie")).toBeDisabled();
   });
 
   it("rapatrie une fois l'image d'un persona ajouté par Claude", async () => {

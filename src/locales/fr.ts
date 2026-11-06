@@ -1365,7 +1365,7 @@ export const fr = {
         warmup_non_demarre: "warmup non démarré",
         warmup_en_cours: "warmup en cours",
         cm: "compte CM",
-        ugc_video: "compte UGC vidéo",
+        ugcv: "compte UGCV",
         videos_uniquement: "vidéos uniquement",
       },
       ecartes: "Contenus essayés puis écartés",
@@ -4042,6 +4042,10 @@ export const fr = {
       createursFiltres: "Créateurs filtrés",
       choisirLabel: "Choisir un label…",
       ajouterLabel: "Ajouter un label…",
+      labelManuelOption: "{{label}} (manuel, remplace les autres)",
+      confirmerLabelManuel:
+        "Passer ce compte en {{label}} ? Ses autres labels sont retirés et il ne reçoit plus de slideshows : c’est toi qui lui poses ses posts.",
+      labelManuelAide: "Label manuel : aucun tirage, aucun slideshow. Retire-le pour remettre d’autres labels.",
       choisirLangue: "Choisir une langue…",
 
       creerRecruteur: "Créer un recruteur",
@@ -6179,6 +6183,11 @@ export const fr = {
       personas_other: "Personas ({{count}})",
       aucunPersona: "Aucun persona actif.",
       ajoutParClaude: "Les personas sont ajoutés par Claude (skill « ugc-ia ») : demande-lui un nouveau visage.",
+      sansCompte: "Aucun compte UGCV",
+      compteDe: "Compte UGCV de {{nom}}",
+      compteInconnu: "Compte qui n’est plus UGCV",
+      repris: "repris à {{nom}}",
+      aucunCompteUgcv: "Aucun compte UGCV pour l’instant : pose le label UGCV sur un compte (page Posters), puis rattache-le à son persona ici.",
       nouvelle: "Nouvelle source",
       etape1: "Colle le lien d'une réaction TikTok qui marche et importe-la.",
       etape2: "Découpe la réaction (refaite par les personas) et la partie téléphone (gardée telle quelle).",
@@ -8632,7 +8641,7 @@ export const fr = {
       fileTitre: "File des prochains comptes (label + UGC)",
       fileApp: "File des créateurs de {{app}} — un nouveau compte {{app}} prend le label suivant à sa création.",
       fileDesc:
-        "À la création d’un compte {{app}} : file de SA langue d’abord (prioritaire), sinon file générale, sinon un choix équilibré parmi les labels qui servent {{app}} (chaque langue suit la part de chaque label selon son stock et ses vues des 15 derniers jours, jamais 3 fois le même label sur 4 comptes). FIFO : la 1ʳᵉ entrée décide le label (et, pour Sophia, si le compte est UGC). Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
+        "À la création d’un compte {{app}} : file de SA langue d’abord (prioritaire), sinon file générale, sinon un choix équilibré parmi les labels qui servent {{app}} (chaque langue suit la part de chaque label selon son stock et ses vues des 15 derniers jours, jamais 3 fois le même label sur 4 comptes). FIFO : la 1ʳᵉ entrée décide le label (et, pour Sophia, si le compte est UGC). Les labels manuels (UGCV) n’entrent pas dans cette file : ils ne sont jamais tirés, seul l’admin les pose sur un compte.",
       fileApplication: "Application",
       fileApplicationAide:
         "Chaque application a sa File. Le compte créé prend la File de l’application choisie à sa création (Sophia par défaut).",
@@ -8662,7 +8671,7 @@ export const fr = {
         "Aucun label en base — crée-en au moins un (Bibliothèque / Labels) avant de créer un poster.",
       aucunLabelUgc:
         "Aucun label avec slideshows UGC — coche UGC sur au moins un slideshow avant d’ajouter une entrée UGC.",
-      fileIgnoreUgcVideo: "UGC vidéo — ignoré à la création",
+      fileIgnoreManuel: "Label manuel — ignoré à la création",
       ajouterLabel: "Ajouter un label",
       ajouterUgc: "Compte UGC",
       ajouter: "Ajouter",

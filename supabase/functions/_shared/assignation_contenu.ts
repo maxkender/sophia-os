@@ -548,8 +548,8 @@ export async function assignerCompteJour(
   // (L'ancien fallback « pool mince → 0 » est interdit.)
   const quota = !Number.isFinite(brut) ? 1 : Math.min(3, Math.max(1, Math.round(brut)));
   const langue: string = compte.langue ?? "fr";
-  const ugcAiVideo = Boolean(compte.ugc_ai_video);
-  const ugcAi = Boolean(compte.ugc_ai) && !ugcAiVideo;
+  const ugcv = Boolean(compte.ugcv);
+  const ugcAi = Boolean(compte.ugc_ai) && !ugcv;
   const ugcPersonaId = (compte.ugc_persona_id as string | null) ?? null;
   const nomCompte =
     (compte.persona_nom as string | null) ??
@@ -564,12 +564,13 @@ export async function assignerCompteJour(
     };
   }
 
-  // UGC AI VIDEO : hors assignation slideshow minuit (pipeline vidéos à part).
-  if (ugcAiVideo) {
-    log(`Compte ${nomCompte} · UGC AI VIDEO — skip assignation slideshow`);
+  // Compte UGCV (label manuel, 0661) : jamais de slideshow, l'admin y pose
+  // lui-même ses posts vidéo.
+  if (ugcv) {
+    log(`Compte ${nomCompte} · UGCV — skip assignation slideshow`);
     return {
       ids: [],
-      raison: "Compte UGC AI VIDEO — hors assignation slideshow.",
+      raison: "Compte UGCV — posts vidéo posés à la main, hors assignation slideshow.",
     };
   }
 
@@ -661,7 +662,7 @@ export async function assignerCompteJour(
   // Bornée par le nombre de labels du dépôt (9 en base) : un compte ne peut pas
   // en porter plus, la table n'a qu'une ligne par couple (compte, label).
   // Le slug vient avec, dans la MÊME requête : il sert à écarter les labels
-  // système (hook, ugc-ai-video) du calcul labels → applications.
+  // système (hook) du calcul labels → applications.
   const { data: labelsCompte } = await supabase
     .from("compte_labels")
     .select("label_id, labels(nom, slug)")
@@ -1603,7 +1604,7 @@ const LIMITE_LIENS_FILET = 500;
  *
  * Une seconde tentative après 500 ms, comme la sonde : un compte 100 % Sophia
  * ne doit pas perdre sa nuit sur un hoquet. Les labels système (hook,
- * ugc-ai-video) sont ignorés, comme sur le chemin « prêt ».
+ * labels manuels) sont ignorés, comme sur le chemin « prêt ».
  */
 async function verifierLabelsSophiaHorsSonde(
   supabase: Supabase,
@@ -2986,7 +2987,7 @@ export async function listerComptesSousQuota(
   const rouges = opts.ignorerWarmup ? new Set<string>() : await posteursEnRouge(supabase);
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm") return false;
-    if (Boolean(c.ugc_ai_video)) return false;
+    if (Boolean(c.ugcv)) return false;
     if (c.videos_uniquement) return false;
     // Quota 0 (legacy) = toujours à traiter (plancher 1).
     if (opts.ignorerWarmup) return true;
@@ -3187,7 +3188,7 @@ export async function assignerTousComptes(
 
   // Warmup : uniquement les comptes dont warmup_ends_at est passé (en process).
   // Mode test : on peut cibler un compte hors process (ignorerWarmup).
-  // UGC AI VIDEO : hors pipeline slideshow (même en test ciblé on laisse
+  // UGCV : hors pipeline slideshow (même en test ciblé on laisse
   // assignerCompteJour renvoyer la raison — sauf filtre batch minuit).
   const maintenant = Date.now();
   // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392) ;
@@ -3195,7 +3196,7 @@ export async function assignerTousComptes(
   const rouges = o.ignorerWarmup || compteId ? new Set<string>() : await posteursEnRouge(supabase);
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm" && !compteId) return false;
-    if (Boolean(c.ugc_ai_video) && !compteId) return false;
+    if (Boolean(c.ugcv) && !compteId) return false;
     if (c.videos_uniquement && !compteId) return false;
     if (o.ignorerWarmup) return true;
     if (compteBloque(c, rouges)) return false;

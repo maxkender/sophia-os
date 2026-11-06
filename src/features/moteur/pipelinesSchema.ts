@@ -188,7 +188,7 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
       kind: "logic",
       api: "classement_comptes.requalifierClassementComptes (fin de drain)",
       detail:
-        "10 derniers créneaux échus (hors rappels) + moyenne des 10 derniers posts mesurés. INACTIF ≤6/10 · MAUVAISES VUES <600 · BIEN ≥1000 et ≥8/10 · STAR >10 000 et ≥9/10. Verrou manuel respecté ; hors CM et UGC AI VIDEO.",
+        "10 derniers créneaux échus (hors rappels) + moyenne des 10 derniers posts mesurés. INACTIF ≤6/10 · MAUVAISES VUES <600 · BIEN ≥1000 et ≥8/10 · STAR >10 000 et ≥9/10. Verrou manuel respecté ; hors CM et UGCV.",
       reglage: "classement_comptes.*",
     },
     {

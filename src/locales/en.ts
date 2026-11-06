@@ -7767,6 +7767,7 @@ export const en = {
       cohorte: "cohort {{date}}",
       sansPosteur: "No poster",
       inactif: "inactive",
+      ancien: "old",
       reponseProposee: "Proposed reply ({{canal}})",
       actionProposee: "Proposed action:",
       autresSources: "+{{n}} more",

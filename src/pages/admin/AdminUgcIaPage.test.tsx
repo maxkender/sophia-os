@@ -17,6 +17,8 @@ const generer = vi.fn();
 const enregistrerCta = vi.fn();
 const suivre = vi.fn();
 const rapatrier = vi.fn();
+const monter = vi.fn();
+const annulerMontage = vi.fn();
 
 vi.mock("@/features/ugcIa/api", () => ({
   CLE_SOURCES_UGC_IA: ["ugc-ia", "sources"],
@@ -32,6 +34,14 @@ vi.mock("@/features/ugcIa/api", () => ({
   supprimerSourceUgcIa: () => Promise.resolve({ ok: true }),
   supprimerGenerationUgcIa: () => Promise.resolve({ ok: true }),
   rapatrierPersonasUgcIa: () => rapatrier(),
+  monterGenerationUgcIa: (...a: unknown[]) => monter(...a),
+  annulerMontageUgcIa: (...a: unknown[]) => annulerMontage(...a),
+}));
+
+// jsdom ne dessine pas : le bandeau rendu est remplacé par une image factice.
+vi.mock("@/features/ugcIa/bandeau", async (original) => ({
+  ...(await original<typeof import("@/features/ugcIa/bandeau")>()),
+  bandeauPng: (l: number, h: number, texte: string, position: number) => `data:image/png;base64,${l}x${h}:${position}:${texte.length}`,
 }));
 
 import { AdminUgcIaPage } from "./AdminUgcIaPage";
@@ -48,6 +58,14 @@ function generation(champs: Partial<GenerationUgcIa>): GenerationUgcIa {
     statut: "prete",
     erreur: null,
     video_url: "https://x/g1.mp4",
+    video_brute_url: "https://x/g1.mp4",
+    montage_debut_s: null,
+    montage_fin_s: null,
+    bandeau_actif: false,
+    bandeau_texte: null,
+    bandeau_position: null,
+    montage_statut: null,
+    montage_erreur: null,
     lancee_le: "2026-11-05T10:00:00Z",
     generee_le: "2026-11-05T10:05:00Z",
     created_at: "2026-11-05T10:00:00Z",
@@ -243,5 +261,88 @@ describe("AdminUgcIaPage", () => {
     repondre({ bilan: [{ id: "g2", statut: "prete" }] });
     await waitFor(() => expect(screen.queryByText("Genjutsu en cours…")).not.toBeInTheDocument());
     expect(within(screen.getByTestId("source-s1")).getByRole("checkbox", { name: "Sophie" })).not.toBeDisabled();
+  });
+  it("monte une vidéo générée : recadrage et bandeau partant du texte à l'écran", async () => {
+    listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4", generations: [generation({})] })]);
+    monter.mockResolvedValue({ ok: true, statut: "en_cours" });
+    rendre();
+    const g = await screen.findByTestId("generation-g1");
+    fireEvent.click(within(g).getByRole("button", { name: "Monter" }));
+    const dialogue = await screen.findByRole("dialog", { name: "Monter la vidéo de Sophie" });
+    expect(within(dialogue).getByRole("checkbox", { name: "Mettre le bandeau style Snapchat" })).toBeChecked();
+    expect(within(dialogue).getByLabelText("Texte du bandeau")).toHaveValue("I could KISS the person who showed me this");
+    expect(within(dialogue).getByAltText("Aperçu du bandeau")).toHaveAttribute("src", "data:image/png;base64,480x854:40:42");
+    fireEvent.change(within(dialogue).getByLabelText("Texte du bandeau"), { target: { value: "I could KISS whoever showed me this 😭" } });
+    fireEvent.change(within(dialogue).getByRole("slider", { name: "Hauteur du bandeau" }), { target: { value: "62" } });
+    fireEvent.change(within(dialogue).getByLabelText("Début du recadrage (s)"), { target: { value: "0,4" } });
+    fireEvent.change(within(dialogue).getByLabelText("Fin du recadrage (s)"), { target: { value: "3.6" } });
+    fireEvent.click(within(dialogue).getByRole("button", { name: "Enregistrer le montage" }));
+    await waitFor(() =>
+      expect(monter).toHaveBeenCalledWith("g1", {
+        debut: 0.4,
+        fin: 3.6,
+        bandeau: { actif: true, texte: "I could KISS whoever showed me this 😭", position: 62, png: "data:image/png;base64,480x854:62:38" },
+      }),
+    );
+    await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+  });
+
+  it("monte sans bandeau ni recadrage, et refuse un bandeau vide", async () => {
+    listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4", generations: [generation({})] })]);
+    monter.mockResolvedValue({ ok: true, statut: "en_cours" });
+    rendre();
+    fireEvent.click(within(await screen.findByTestId("generation-g1")).getByRole("button", { name: "Monter" }));
+    const dialogue = await screen.findByRole("dialog");
+    fireEvent.change(within(dialogue).getByLabelText("Texte du bandeau"), { target: { value: "  " } });
+    expect(within(dialogue).getByText("Écris le texte du bandeau.")).toBeInTheDocument();
+    expect(within(dialogue).getByRole("button", { name: "Enregistrer le montage" })).toBeDisabled();
+    fireEvent.click(within(dialogue).getByRole("checkbox", { name: "Mettre le bandeau style Snapchat" }));
+    fireEvent.click(within(dialogue).getByRole("button", { name: "Enregistrer le montage" }));
+    await waitFor(() =>
+      expect(monter).toHaveBeenCalledWith("g1", { debut: null, fin: null, bandeau: { actif: false, texte: "  ", position: 40 } }),
+    );
+  });
+
+  it("une vidéo montée garde ses réglages, et on peut revenir à l'original", async () => {
+    const montee = generation({
+      video_url: "https://x/g1-monte.mp4",
+      montage_debut_s: 0.5,
+      montage_fin_s: 3.5,
+      bandeau_actif: true,
+      bandeau_texte: "texte gardé",
+      bandeau_position: 70,
+    });
+    listerSources.mockResolvedValue([source({ debut_s: 0, fin_s: 4, coupe_url: "https://x/reaction.mp4", generations: [montee] })]);
+    annulerMontage.mockResolvedValue({ ok: true });
+    rendre();
+    const g = await screen.findByTestId("generation-g1");
+    expect(within(g).getByText("Montée")).toBeInTheDocument();
+    expect(within(g).getByRole("link", { name: "Télécharger" })).toHaveAttribute("href", "https://x/g1-monte.mp4");
+    fireEvent.click(within(g).getByRole("button", { name: "Monter" }));
+    const dialogue = await screen.findByRole("dialog");
+    expect(within(dialogue).getByLabelText("Texte du bandeau")).toHaveValue("texte gardé");
+    expect(within(dialogue).getByRole("slider", { name: "Hauteur du bandeau" })).toHaveValue("70");
+    expect(within(dialogue).getByLabelText("Début du recadrage (s)")).toHaveValue("0.5");
+    fireEvent.click(within(dialogue).getByRole("button", { name: "Revenir à l'original" }));
+    await waitFor(() => expect(annulerMontage).toHaveBeenCalledWith("g1"));
+  });
+
+  it("montre un montage en cours ou raté", async () => {
+    listerSources.mockResolvedValue([
+      source({
+        debut_s: 0,
+        fin_s: 4,
+        coupe_url: "https://x/reaction.mp4",
+        generations: [
+          generation({ id: "g1", montage_statut: "en_cours" }),
+          generation({ id: "g2", persona_id: "p2", montage_statut: "echec", montage_erreur: "fal 500" }),
+        ],
+      }),
+    ]);
+    rendre();
+    const g1 = await screen.findByTestId("generation-g1");
+    expect(within(g1).getByText("Montage en cours…")).toBeInTheDocument();
+    expect(within(g1).getByRole("button", { name: "Monter" })).toBeDisabled();
+    expect(within(screen.getByTestId("generation-g2")).getByText("Montage raté : fal 500")).toBeInTheDocument();
   });
 });

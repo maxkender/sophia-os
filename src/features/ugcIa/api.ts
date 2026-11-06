@@ -26,10 +26,28 @@ export interface GenerationUgcIa {
   resolution: ResolutionUgcIa;
   statut: StatutGenerationUgcIa;
   erreur: string | null;
+  /** La vidéo enregistrée : l'original de Genjutsu, ou sa version montée. */
   video_url: string | null;
+  /** L'original de Genjutsu, gardé pour remonter autrement. */
+  video_brute_url: string | null;
+  montage_debut_s: number | null;
+  montage_fin_s: number | null;
+  bandeau_actif: boolean;
+  bandeau_texte: string | null;
+  bandeau_position: number | null;
+  montage_statut: "en_cours" | "echec" | null;
+  montage_erreur: string | null;
   lancee_le: string;
   generee_le: string | null;
   created_at: string;
+}
+
+/** Ce que la page envoie pour monter une vidéo générée. */
+export interface DemandeMontageUgcIa {
+  /** Recadrage ; null et null : toute la vidéo. */
+  debut: number | null;
+  fin: number | null;
+  bandeau: { actif: boolean; texte: string; position: number; png?: string };
 }
 
 export interface SourceUgcIa {
@@ -81,7 +99,8 @@ export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {
     .select(
       "id, source_url, source_texte, source_vues, source_duree_s, brut_url, debut_s, fin_s, coupe_url, " +
         "telephone_debut_s, telephone_fin_s, telephone_url, cta_texte, cta_image_url, created_at, " +
-        "generations:ugc_ia_generations(id, source_id, persona_id, debut_s, fin_s, prompt, resolution, statut, erreur, video_url, lancee_le, generee_le, created_at)",
+        "generations:ugc_ia_generations(id, source_id, persona_id, debut_s, fin_s, prompt, resolution, statut, erreur, video_url, video_brute_url, " +
+        "montage_debut_s, montage_fin_s, bandeau_actif, bandeau_texte, bandeau_position, montage_statut, montage_erreur, lancee_le, generee_le, created_at)",
     )
     .order("created_at", { ascending: false })
     .limit(100);
@@ -96,7 +115,14 @@ export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {
     telephone_debut_s: nombreOuNull(s.telephone_debut_s),
     telephone_fin_s: nombreOuNull(s.telephone_fin_s),
     generations: [...(s.generations ?? [])]
-      .map((g) => ({ ...g, debut_s: nombreOuNull(g.debut_s), fin_s: nombreOuNull(g.fin_s) }))
+      .map((g) => ({
+        ...g,
+        debut_s: nombreOuNull(g.debut_s),
+        fin_s: nombreOuNull(g.fin_s),
+        montage_debut_s: nombreOuNull(g.montage_debut_s),
+        montage_fin_s: nombreOuNull(g.montage_fin_s),
+        bandeau_position: nombreOuNull(g.bandeau_position),
+      }))
       .sort((a, b) => b.created_at.localeCompare(a.created_at)),
   }));
 }
@@ -128,6 +154,14 @@ export function genererUgcIa(
 
 export function suivreGenerationsUgcIa(): Promise<{ bilan: Array<{ id: string; statut: string; erreur?: string }> }> {
   return invoke("ugc-ia", { action: "suivre" });
+}
+
+export function monterGenerationUgcIa(id: string, demande: DemandeMontageUgcIa): Promise<{ ok: true; statut: string }> {
+  return invoke("ugc-ia", { action: "monter", id, ...demande });
+}
+
+export function annulerMontageUgcIa(id: string): Promise<{ ok: true }> {
+  return invoke("ugc-ia", { action: "annuler_montage", id });
 }
 
 export function supprimerSourceUgcIa(id: string): Promise<{ ok: true }> {

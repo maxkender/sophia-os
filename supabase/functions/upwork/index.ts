@@ -306,6 +306,9 @@ Deno.serve(async (request) => {
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
       case "bonus_test":
         return json(await bonusTest(supabase, par, String(body.id ?? "")));
+      case "bonus_parrainage_payer":
+        // 0553 : le lundi (cron), les bonus de parrainage à payer, par bonus Upwork.
+        return json(await bonusParrainagePayer(supabase, par));
       case "kill_immediat":
         return json(await killImmediat(supabase, par, String(body.id ?? "")));
       case "reprise_conversations":
@@ -2551,6 +2554,59 @@ async function ecrire(
     compte: o.compte,
   });
   return { data: valeur?.data ?? null, erreur };
+}
+
+/**
+ * 0553 : les bonus de parrainage (10 $, ligne « a_payer » du lundi) payés par
+ * bonus Upwork (sendCustomPayment) sur le contrat du parrain, depuis le compte
+ * de Max, VIk Studios seulement. Jamais avant que Max ait validé le test du
+ * bonus (upwork_bonus_tests.valide_at), jamais si bonus_parrainage_actif est
+ * éteint. Chaque ligne est marquée avant l'envoi (envoi_at) : jamais de second
+ * essai à l'aveugle. Un échec ouvre une carte Paie pour le Pay Bot.
+ */
+async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
+  const { data: actif } = await supabase.from("reglages").select("valeur").eq("cle", "bonus_parrainage_actif").maybeSingle();
+  if (actif?.valeur !== true) return { ok: true, payes: 0, raison: "bonus_parrainage_actif éteint" };
+  const { data: tests } = await supabase.from("upwork_bonus_tests").select("id").eq("statut", "envoye").not("valide_at", "is", null).limit(1);
+  if (!tests?.length) return { ok: true, payes: 0, raison: "test du bonus pas encore validé par Max : rien ne part" };
+  const { data: lignes } = await supabase.from("bonus").select("id, poster_id, recrue_id, referral_id, montant, detail")
+    .eq("type", "parrainage").eq("statut", "a_payer").is("envoi_at", null).gt("montant", 0).limit(30);
+  const resultats: Record<string, unknown>[] = [];
+  for (const b of lignes ?? []) {
+    const montant = Number(b.montant);
+    const echec = async (erreur: string) => {
+      await supabase.from("bonus").update({ erreur }).eq("id", b.id);
+      await supabase.from("problemes").insert({
+        cle_groupe: `bonus_parrainage:${b.id}`, categorie: "paie", niveau: "urgent", niveau_force: true, proprietaire: "pay_bot",
+        sujet: "posteur", destinataire: "posteur", poster_id: b.poster_id,
+        resume: `Bonus de parrainage ${montant} $ pas payé : ${erreur}`.slice(0, 300),
+        diagnostic: `Le bonus de parrainage (${b.detail ?? "filleul"}) n'est pas parti automatiquement : ${erreur}. À payer à la main.`,
+        diagnostic_par: "os",
+      });
+      resultats.push({ bonus: b.id, ok: false, erreur });
+    };
+    if (!(montant > 0 && montant <= 50)) { await echec(`montant ${montant} $ hors limites`); continue; }
+    const { data: pr } = await supabase.from("profiles").select("upwork_contract_id, prenom").eq("id", b.poster_id).maybeSingle();
+    const contrat = String(pr?.upwork_contract_id ?? "");
+    if (!contrat) { await echec("parrain sans contrat Upwork relié"); continue; }
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id, etat").eq("contrat_id", contrat).maybeSingle();
+    if (uc?.organisation_id !== ORG_VIK) { await echec(`contrat ${contrat} hors VIk Studios`); continue; }
+    const expediteur = await verifierExpediteur(supabase);
+    if (expediteur) { await echec(expediteur); continue; }
+    const { data: filleul } = await supabase.from("profiles").select("prenom").eq("id", b.recrue_id).maybeSingle();
+    // Marquée avant l'envoi : une erreur réseau ne renvoie jamais un second bonus.
+    await supabase.from("bonus").update({ envoi_at: new Date().toISOString() }).eq("id", b.id);
+    const comment = `Referral bonus: thank you for bringing ${String(filleul?.prenom ?? "your friend").trim() || "your friend"} to the team!`;
+    const r = await ecrire(supabase, {
+      par, action: "bonus_parrainage", query: MUTATION_BONUS, tenant: ORG_VIK, contrat, montant, compte: COMPTE,
+      variables: { input: { contractId: contrat, amount: montant, comment, notes: `parrainage ${b.referral_id}`, type: "BONUS" } },
+    });
+    if (r.erreur) { await echec(`Upwork : ${r.erreur}`); continue; }
+    const invoice = (r.data as { sendCustomPayment?: { invoiceId?: string } } | null)?.sendCustomPayment?.invoiceId ?? null;
+    await supabase.from("bonus").update({ statut: "paye", paye_at: new Date().toISOString(), upwork_invoice: invoice, erreur: null }).eq("id", b.id);
+    resultats.push({ bonus: b.id, ok: true, invoice });
+  }
+  return { ok: true, payes: resultats.filter((x) => x.ok).length, resultats };
 }
 
 /** 0543 : le bonus classique (« Give bonus ») d'Upwork, sans milestone. */

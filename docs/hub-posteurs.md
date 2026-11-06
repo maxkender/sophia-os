@@ -23,8 +23,11 @@ identifiants par email. Ce document décrit le contrat entre les deux.
 - applications : Sophia seule = chemin historique ; UnSwipe seule =
   `{ unswipe: 100 }` ; les deux = `{ sophia: 50, unswipe: 50 }` ;
 - **ouverture du pays et langue = le HM** dont `profiles.zone_recrutement`
-  couvre le pays et qui gère la langue (`profiles.langues`) ; sans lui, le pays
-  est fermé ;
+  couvre le pays et qui gère la langue (`profiles.langues`). À défaut, un pays
+  recruté dans `hm_pays` (0516) dont on connaît la langue (`LANGUE_PAR_PAYS`)
+  est ouvert aussi, même si sa HM n'a pas de compte OS : le poster va dans la
+  cohorte Ruul, sans HM de zone (Turquie, Bulgarie, Serbie au 06/11). Sinon le
+  pays est fermé ;
 - **rattachement = la cohorte Ruul** (décision du 17/10) : les posters du site
   n'ont pas de HM. `profiles.manager_id` pointe vers le profil « RUUL cohort »,
   dont l'id est dans le réglage `hub_posteurs` (`{"cohorte_ruul_id": …}`).
@@ -58,7 +61,7 @@ Refus (le site les affiche sur la fiche, sans réessayer) :
 
 | Code | Sens |
 |---|---|
-| `zone_non_ouverte` (422) | Aucun HM ne couvre le pays : zone pas encore dans l'OS. |
+| `zone_non_ouverte` (422) | Aucun HM ne couvre le pays et il n'est pas dans `hm_pays` : zone pas encore dans l'OS. |
 | `langue_non_geree` (422) | Un HM couvre le pays mais pas sa langue (ex. Danemark → `da`). Ajouter la langue au HM. |
 | `pays_inconnu` (422) | Pays illisible. |
 | `creation_refusee : …` (422) | manage-users a refusé (ex. pas de label pour l'application). |

@@ -90,7 +90,8 @@
    },
    "decor_chez_lui": "branche",
    "competences": "small talk, rizz, hold a conversation",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-005, livraison fbd59044 du 06/11 en en, fr et de : décor falaise, Sophia en étape 3 « ALWAYS HAVE SOMETHING TO SAY » (cta C), titres d'étape changés pour ne pas répéter ka-001 et ka-004"
   },
   {
    "id": "7696841940729400578",
@@ -107,7 +108,8 @@
    },
    "decor_chez_lui": "branche",
    "competences": "flirt, fight, lie (fin : « Just like Duolingo but for anything »)",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "sauté le 06/11 : reprendrait les compétences et titres d'étape de ka-001/ka-002 (flirt, fight / small talk) ; à faire avec d'autres étapes ou plus tard"
   },
   {
    "id": "7687731339235216662",
@@ -123,7 +125,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-006, livraison f24ff90e du 06/11 en en, fr et de : décor falaise, « RIZZ » devient « BE CHARMING », Sophia en étape 3 « SOUND SMART » (cta B)"
   },
   {
    "id": "7696107863982296342",
@@ -140,7 +143,8 @@
    },
    "decor_chez_lui": "falaise",
    "competences": "small talk, glow up, stop being boring, smell good",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "sauté le 06/11 : reprendrait les compétences et titres d'étape de ka-001/ka-002 (flirt, fight / small talk) ; à faire avec d'autres étapes ou plus tard"
   },
   {
    "id": "7672387246825295126",
@@ -188,7 +192,8 @@
     "url": "https://www.tiktok.com/music/solitude-7355730432355502096"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "essayé le 06/11 : pas de vraie vidéo française au niveau pour « talk your way out » et « being followed » ; attend"
   },
   {
    "id": "7673516970519563542",

@@ -608,6 +608,34 @@ recalculée à la main, rejouabilité, derniers plans).
   - **Passages du 6/11 :** 616 au total. 590 viennent de BLEO, 23 sont des rappels (20 posés à minuit, ce sont les hits de fin octobre), 2 sont sur des comptes UGC et 1 vient de la tierlist. Ce dernier est un remplacement à 1 h 06 sur un compte du label Kaja (podz 13, tout neuf) : aucun contenu Kaja n'est encore jugé, donc il n'y a aucun candidat BLEO.
   - **Le reste :** aucun doublon, 0 erreur au journal. Les 2 comptes en process sans post ont une demande d'arrêt ; 6 comptes du plan ont été désactivés depuis le tirage (#21). Nuit BLEO sans erreur (109 jugés, 3 245 r recalculés après une remise à jour des vues).
   - **Rapport du 5/11 :** tierlist 0, non servis 0, 597 posts servis au plan, 29 remplacés par BLEO, 463 publiés sur 627. Répétitions non déclarées : 1 « même contenu » (le cas du 4/11 à 22 h 40, corrigé par 0647) et 4 « même thème », corrigés par 0650.
+- **6/11, 10 h : mesures à âge égal, faites avant tout réglage (Adrien).** Vues à J+3 des posts du 30/10 au 1/11 (avant BLEO) contre ceux du 2 et du 3/11 (BLEO) ; r = vues ÷ médiane du compte.
+  - **Flotte :** 2,04 M → 3,59 M de vues par jour, 403 → 549 posts par jour. Vues moyennes par post 5 065 → 6 529, part à 10 k 8,3 % → 12,4 %. r médian 1,00 dans les deux cas.
+  - **Par groupe :**
+
+    | Groupe | Vues moyennes | Part à 10 k | r médian |
+    |---|---|---|---|
+    | Hors podz | 4 749 → 6 972 | 7 % → 13,8 % | stable |
+    | Originaux des podz | 6 318 → 6 093 | 12,2 % → 9,8 % | 1,15 → 1,02 |
+    | Remakes et page blanche | 2 333 → 3 648 | 2,5 % → 9,2 % | 0,93 → 1,19 |
+
+  - **Par podz :**
+    - en hausse : page blanche r 0,86 → 1,24 (10 k : 2 % → 17 %) ; alpha_male 10 % → 23 % à 10 k ; RH 11 % → 21 % à 10 k (r 0,93 → 0,59, mais de gros hits) ;
+    - en baisse : smart_girl r 2,05 → 1,12 (10 k : 23 % → 8 %) ; weird_alpha r 1,06 → 0,53 (tout le label weird_alpha : 0,99 → 0,53).
+  - **Briques de BLEO** (J+3 sur les posts du 2 et du 3/11, puis r à J+1 sur ceux du 4 et du 5/11) :
+
+    | Brique | Posts | r à J+3 | Part à 10 k | Vues moyennes | r à J+1 |
+    |---|---|---|---|---|---|
+    | Récolte (gagnants, langue neuve) | 457 | 1,79 | 22,5 % | 11 221 | 0,80 |
+    | Gagnants, langue déjà servie | 65 | 1,00 | — | — | — |
+    | Déclinaisons | 52 | 0,97 | 3,8 % | 2 889 | 0,45 |
+    | Full tests neufs | 139 | 0,97 | 5 % | 3 511 | 0,61 |
+    | Tests d'imports de moins de 30 j | 61 | 0,90 | — | — | — |
+    | Tests d'imports de 30 j et plus | 109 | 0,59 | — | — | 0,40 |
+    | Perdants resservis | 146 | 0,66 | 2,1 % | — | — |
+
+  - **Verdicts depuis le 30/10 :** full tests 33 gagnants pour 38 non-gagnants ; déclinaisons 4 et 2, sur 244.
+  - **G0 contre déclinaisons :** dans les 193 familles qui ont un G0 gagnant et une déclinaison, les créneaux de langue neuve vont aux déclinaisons : 76 contre 46 (4/11), 90 contre 50 (5/11), 96 contre 68 (6/11).
+  - **Répétitions du 6/11 :** 10 même thème, 2 même contenu (le compte UGC), 2 même photo. Thèmes de 5 familles et plus : 6,1 % des posts (weird_alpha 5,9 %).
 - **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
   - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
   - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.

@@ -46,6 +46,7 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
   (`{mot, image, ou?}` ; `mot` = un mot exact du texte, ponctuation comprise ; `image` = l'image de la
   scène où tombe l'événement ; `ou: "fin"` pour caler sur la fin du mot, ex. une explosion après le mot).
 - `outro.texte` : « Answer all these questions with the Sophia app. »
+- Écris pour l'oral : pas de « : » (pause forcée de la voix), « First, … / Second, … » plutôt que « One: … ».
 - `appli` : les textes de l'appli. **Recopie de la capture** la catégorie, le titre, la description,
   « 100 k reads », etc. Écris la leçon (sous-titre + 2 paragraphes, 3 passages surlignés `{m}`) et
   **2 questions de quiz** dont la réponse est dans le script (`bonne` = index de la bonne réponse, B de
@@ -74,6 +75,9 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 | de | Starten | TAGE | 100 k Aufrufe | Start, Bibliothek, Pfad, Üben, Profil | Weiter | QUIZ · {n} VON 2 |
 | it | Inizia | GIORNI | 100 k letture | Home, Biblioteca, Percorso, Ripasso, Profilo | Continua | QUIZ · {n} DI 2 |
 
+   - **Texte dit = texte à l'oral** : jamais de « : » (ElevenLabs en fait une vraie pause), peu de points, une
+     virgule seulement où on respire, « … » seulement pour un effet voulu (« you win… nothing »). Les blancs
+     trop longs sont resserrés automatiquement par `voix` (`scripts/resserrer.mjs`, horodatages recalés).
    - Voix (dans `voix`) : en `nPczCjzI2devNBz1zQrb` (Brian, speed 1.06) ; fr `3HZyQcLKlT0a3RDeXVsP`
      (Guillaume, 1.18) ; de `NlRO8ABjJNJNYaRaLiPJ` (Konrad, 1.2, style 0.45) ; it `32vqZVYOe7sQVGys0soJ`
      (Roberto, 1.2). Modèle `eleven_multilingual_v2`. Pas d'espace avant « ? » / « : » en français dans le
@@ -123,6 +127,7 @@ Puis écris les 7 scènes du sujet dans `src/scenes/` (une scène = un fichier, 
 - **Très dynamique** : une action toutes les 1 à 2 s, transitions déchirure / panoramique fouetté entre scènes.
 - **Peu de tremblements** : `SHAKE_K = 0.35`, pas de secousse forte hors des gros impacts.
 - Rythme : le récit dure ~36 s en anglais (un poil plus que 30 s). Pentes de scène ≥ 0,5.
+- Voix fluide : aucun « : » dans le texte dit, blancs resserrés (0,28 s max entre deux phrases).
 - La voix passe devant les bruitages (baisse automatique sous la voix) ; son final à −14 LUFS.
 - Sous-titres : 1 à 3 mots, majuscules, mot prononcé en jaune ; zone y 1240–1500 (en haut pendant la fin Sophia).
 - Fin : la capture Sophia de l'admin, traduite, puis Start → cours → 2 quiz → leçon terminée.

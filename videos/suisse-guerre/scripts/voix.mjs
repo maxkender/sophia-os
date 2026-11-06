@@ -1,7 +1,9 @@
 // Génère la voix off d'une langue (ElevenLabs, avec horodatage par caractère) : récit + phrase de fin.
 // Usage : node scripts/voix.mjs --langue fr [--forcer]
+// Pas de « : » dans le texte dit (pause forcée) ; les blancs sont resserrés automatiquement (scripts/resserrer.mjs).
 // La clé est injectée par le proxy de l'environnement (en-tête xi-api-key) ; ELEVENLABS_API_KEY sinon.
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {resserrer} from './resserrer.mjs';
 
 const arg = (nom, defaut) => {
   const i = process.argv.indexOf(`--${nom}`);
@@ -33,7 +35,10 @@ const tts = async (texte, nom) => {
   writeFileSync(mp3, Buffer.from(j.audio_base64, 'base64'));
   const a = j.alignment;
   writeFileSync(json, JSON.stringify({texte, caracteres: a.characters, debuts: a.character_start_times_seconds, fins: a.character_end_times_seconds}));
-  console.log(`${langue}/${nom} : ${a.characters.length} caractères, ${a.character_end_times_seconds.at(-1).toFixed(2)} s`);
+  // les blancs trop longs (ponctuation, fins de phrase) sont raccourcis, horodatages recalés
+  const r = resserrer(new URL(mp3).pathname, new URL(json).pathname);
+  const duree = a.character_end_times_seconds.at(-1) - r.coupe;
+  console.log(`${langue}/${nom} : ${a.characters.length} caractères, ${duree.toFixed(2)} s (${r.n} blancs resserrés, ${r.coupe.toFixed(1)} s gagnées)`);
 };
 
 await tts(script.scenes.map((s) => s.texte).join(' '), 'recit');

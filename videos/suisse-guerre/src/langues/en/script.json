@@ -25,12 +25,12 @@
     },
     {
       "id": "S2",
-      "texte": "One: the Alps. Over half the country is mountains. Invading it is a nightmare.",
+      "texte": "First, the Alps. Over half the country is mountains, so invading it is a nightmare.",
       "reperes": []
     },
     {
       "id": "S3",
-      "texte": "Two: in 1815, Europe's great powers officially recognized its neutrality.",
+      "texte": "Second, in 1815, Europe's great powers officially recognized its neutrality.",
       "reperes": [
         {
           "mot": "neutrality.",
@@ -40,7 +40,7 @@
     },
     {
       "id": "S4",
-      "texte": "But neutral isn't weak: most men serve in the army, and keep their rifle at home.",
+      "texte": "But neutral isn't weak. Most men serve in the army and keep their rifle at home.",
       "reperes": [
         {
           "mot": "rifle",
@@ -61,10 +61,10 @@
     },
     {
       "id": "S6",
-      "texte": "And they're useful to everyone: banks, diplomacy, peace talks in Geneva.",
+      "texte": "And they're useful to everyone, with banks, diplomacy and peace talks in Geneva.",
       "reperes": [
         {
-          "mot": "diplomacy,",
+          "mot": "diplomacy",
           "image": 46
         },
         {

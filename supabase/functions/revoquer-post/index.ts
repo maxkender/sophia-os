@@ -79,6 +79,8 @@ Deno.serve(async (request) => {
       .eq("id", postId)
       .single();
     if (!post) return json({ error: "Post introuvable" }, 404);
+    // Post vidéo UGCV (0662) : posé à la main par l'admin, il ne se recharge pas.
+    if (post.type === "video") return json({ error: "RECHARGE_VIDEO" }, 409);
 
     const rechargesActuelles = Math.min(
       MAX_RECHARGES_CREATEUR,

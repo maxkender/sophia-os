@@ -22,11 +22,21 @@ const monter = vi.fn();
 const annulerMontage = vi.fn();
 const listerComptes = vi.fn();
 const assigner = vi.fn();
+const listerPostsVideo = vi.fn();
+const creerPostVideo = vi.fn();
+const supprimerPostVideo = vi.fn();
+const televerser = vi.fn();
 
 vi.mock("@/features/ugcIa/api", () => ({
   CLE_SOURCES_UGC_IA: ["ugc-ia", "sources"],
   CLE_PERSONAS_UGC_IA: ["ugc-ia", "personas"],
   CLE_COMPTES_UGCV: ["ugc-ia", "comptes-ugcv"],
+  CLE_POSTS_VIDEO: ["ugc-ia", "posts-video"],
+  listerPostsVideo: () => listerPostsVideo(),
+  creerPostVideo: (...a: unknown[]) => creerPostVideo(...a),
+  supprimerPostVideo: (...a: unknown[]) => supprimerPostVideo(...a),
+  televerserPourPost: (...a: unknown[]) => televerser(...a),
+  supprimerFichiersPost: () => Promise.resolve(),
   listerComptesUgcv: () => listerComptes(),
   assignerPersonaUgcIa: (...a: unknown[]) => assigner(...a),
   listerPersonasUgcIa: () => listerPersonas(),
@@ -95,6 +105,8 @@ function source(champs: Partial<SourceUgcIa>): SourceUgcIa {
     telephone_url: null,
     cta_texte: "I could KISS the person who showed me this",
     cta_image_url: "https://x/cta.jpg",
+    musique_url: "https://www.tiktok.com/music/son-1",
+    musique_titre: "son original",
     created_at: "2026-11-05T10:00:00Z",
     generations: [],
     ...champs,
@@ -117,6 +129,7 @@ describe("AdminUgcIaPage", () => {
     vi.clearAllMocks();
     listerPersonas.mockResolvedValue([SOPHIE, CLARA]);
     listerComptes.mockResolvedValue([]);
+    listerPostsVideo.mockResolvedValue([]);
     await i18n.changeLanguage("fr");
   });
 
@@ -373,5 +386,89 @@ describe("AdminUgcIaPage", () => {
     expect(within(g1).getByText("Montage en cours…")).toBeInTheDocument();
     expect(within(g1).getByRole("button", { name: "Monter" })).toBeDisabled();
     expect(within(screen.getByTestId("generation-g2")).getByText("Montage raté : fal 500")).toBeInTheDocument();
+  });
+
+  describe("posts UGCV", () => {
+    const SOURCE_PRETE = () =>
+      source({
+        debut_s: 0,
+        fin_s: 4,
+        coupe_url: "https://x/reaction.mp4",
+        telephone_url: "https://x/tel.mp4",
+        source_texte: "my study app #study",
+        generations: [generation({ id: "g1", persona_id: "p2", video_url: "https://x/g1-monte.mp4", bandeau_actif: true })],
+      });
+
+    it("crée un post : compte, jour, vidéos dans l'ordre ; la source remplit CTA, capture, légende et son", async () => {
+      listerComptes.mockResolvedValue([COMPTE_LEA]);
+      listerSources.mockResolvedValue([SOURCE_PRETE()]);
+      creerPostVideo.mockResolvedValue({ ok: true, postId: "post1" });
+      rendre();
+      const creer = await screen.findByRole("button", { name: "Créer un post" });
+      await waitFor(() => expect(creer).toBeEnabled());
+      fireEvent.click(creer);
+      const ajout = await screen.findByLabelText("Ajouter une vidéo de la page…");
+      fireEvent.change(ajout, { target: { value: "tel:s1" } });
+      fireEvent.change(ajout, { target: { value: "gen:g1" } });
+      // La partie téléphone d'abord : on remet la réaction en tête.
+      fireEvent.click(screen.getAllByRole("button", { name: "Monter" })[1]);
+      expect(screen.getByLabelText("Légende et hashtags")).toHaveValue("my study app #study");
+      expect(screen.getByLabelText("Son TikTok")).toHaveValue("https://www.tiktok.com/music/son-1");
+      // Vidéo montée avec le bandeau : le CTA est déjà dedans.
+      expect(screen.getByLabelText("Le CTA est déjà incrusté dans la vidéo (rien à ajouter)")).toBeChecked();
+      fireEvent.click(screen.getByLabelText("Le CTA est déjà incrusté dans la vidéo (rien à ajouter)"));
+      expect(screen.getByLabelText("Texte du CTA")).toHaveValue("I could KISS the person who showed me this");
+      expect(screen.getByAltText("Capture d’exemple")).toHaveAttribute("src", "https://x/cta.jpg");
+      fireEvent.click(screen.getByRole("button", { name: "Créer le post" }));
+      await waitFor(() => expect(creerPostVideo).toHaveBeenCalledTimes(1));
+      const envoye = creerPostVideo.mock.calls[0][0];
+      expect(envoye.compteId).toBe("c1");
+      expect(envoye.videos.map((v: { url: string }) => v.url)).toEqual(["https://x/g1-monte.mp4", "https://x/tel.mp4"]);
+      expect(envoye.videos[0].generationId).toBe("g1");
+      expect(envoye).toMatchObject({
+        ctaIncruste: false,
+        ctaTexte: "I could KISS the person who showed me this",
+        captureUrl: "https://x/cta.jpg",
+        legende: "my study app #study",
+        musiqueUrl: "https://www.tiktok.com/music/son-1",
+        musiqueTitre: "son original",
+      });
+    });
+
+    it("importe une vidéo de l'ordinateur et refuse un 2e post le même jour", async () => {
+      listerComptes.mockResolvedValue([COMPTE_LEA]);
+      listerSources.mockResolvedValue([]);
+      televerser.mockResolvedValue({ url: "https://x/ugc-ia/posts/d/1-demo.mp4", chemin: "ugc-ia/posts/d/1-demo.mp4" });
+      const jour = new Date(Date.now() - new Date().getTimezoneOffset() * 60_000).toISOString().slice(0, 10);
+      listerPostsVideo.mockResolvedValue([
+        {
+          id: "post0",
+          compte_id: "c1",
+          date_publication_prevue: jour,
+          statut: "assigne",
+          publie_at: null,
+          publie_url: null,
+          hashtags: null,
+          musique_url: null,
+          musique_titre: null,
+          video_cta_texte: null,
+          video_cta_incruste: true,
+          video_capture_url: null,
+          handle_tiktok: "lea.ugc",
+          videos: [{ id: "v1", position: 1, url: "https://x/a.mp4", nom: null }],
+        },
+      ]);
+      rendre();
+      expect(await screen.findByTestId("post-ugcv-post0")).toHaveTextContent("@lea.ugc");
+      const creer = screen.getByRole("button", { name: "Créer un post" });
+      await waitFor(() => expect(creer).toBeEnabled());
+      fireEvent.click(creer);
+      const fichier = new File(["x"], "demo.mp4", { type: "video/mp4" });
+      fireEvent.change(await screen.findByLabelText("Importer une vidéo"), { target: { files: [fichier] } });
+      await waitFor(() => expect(screen.getByRole("link", { name: "demo.mp4" })).toBeInTheDocument());
+      expect(televerser).toHaveBeenCalledWith(fichier, expect.any(String));
+      expect(screen.getByText("Ce compte a déjà un post ce jour-là (1 par jour).")).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: "Créer le post" })).toBeDisabled();
+    });
   });
 });

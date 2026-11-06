@@ -69,6 +69,8 @@ Deno.serve(async (request) => {
           .select("id", { count: "exact", head: true })
           .eq("langue", code)
           .eq("statut", "publie")
+          // Les relecteurs relisent des slideshows : pas les posts vidéo UGCV (0662).
+          .not("contenu_id", "is", null)
           .gte("publie_at", depuis);
         if (error) throw new Error(`passages ${code} : ${error.message}`);
         return { code, posteurs: posteurs.size, posts30j: count ?? 0 };

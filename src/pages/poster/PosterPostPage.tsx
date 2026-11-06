@@ -77,6 +77,7 @@ import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
 import { RegleTexte } from "@/features/regles/CartesRegles";
 import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
+import { PostVideoPoster } from "@/features/postsVideo/PostVideoPoster";
 import { localeDate } from "@/locales/localeDate";
 
 function nomFichier(postId: string, position: number) {
@@ -751,7 +752,9 @@ export function PosterPostPage() {
     Math.max(0, Number(donnees.recharges_createur) || 0),
   );
   const rechargesRestantes = Math.max(0, MAX_RECHARGES_CREATEUR - rechargesUtilisees);
-  const peutRecharger = !estAdmin && !publie && !donnees.est_test;
+  // Post vidéo UGCV (0662) : ni slides ni recharge, ses vidéos à la place.
+  const estVideo = donnees.type === "video";
+  const peutRecharger = !estAdmin && !publie && !donnees.est_test && !estVideo;
 
   const nbPhotos = (fichiers.data ?? []).length;
   // Slides dont la photo n'est pas nettoyée : absente OU gardée avec son texte.
@@ -810,7 +813,10 @@ export function PosterPostPage() {
         </div>
       )}
 
+      {estVideo && <PostVideoPoster post={donnees} />}
+
       {/* 1 — Enregistrer toutes les photos d'un coup, en tête. */}
+      {!estVideo && (
       <Card>
         <CardContent className="space-y-3 pt-5">
           <div className="flex flex-wrap items-center justify-between gap-2">
@@ -856,6 +862,7 @@ export function PosterPostPage() {
           </Button>
         </CardContent>
       </Card>
+      )}
 
       {/* 2 — Passer sur le téléphone, seulement utile sur ordinateur. */}
       <CarteQr url={window.location.href} />

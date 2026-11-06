@@ -1,4 +1,4 @@
-// UGC IA (page /admin/ugc-ia, migrations 0656 à 0658) : règles pures de la page.
+// UGC IA (page /admin/ugc-ia, migrations 0656 à 0662) : règles pures de la page.
 // Mêmes bornes que la fonction `ugc-ia` (supabase/functions/_shared/ugc_ia.ts).
 
 export type StatutGenerationUgcIa = "en_cours" | "prete" | "echec";
@@ -105,4 +105,99 @@ export function basculer(coches: ReadonlySet<string>, id: string): Set<string> {
   if (suite.has(id)) suite.delete(id);
   else if (suite.size < PERSONAS_MAX_PAR_LANCEMENT) suite.add(id);
   return suite;
+}
+
+// --- Posts vidéo UGCV (0662) -------------------------------------------------
+
+/** Mêmes bornes que la fonction `ugc-ia`. */
+export const VIDEOS_MAX_PAR_POST = 10;
+export const LEGENDE_MAX = 2200;
+
+/** Une vidéo mise dans un post : de la page (génération, partie téléphone) ou importée. */
+export interface VideoChoisie {
+  /** Unique dans le post : `gen:<id>`, `tel:<source>` ou `imp:<chemin>`. */
+  cle: string;
+  url: string;
+  nom: string;
+  chemin?: string | null;
+  generationId?: string | null;
+  sourceId?: string | null;
+  /** Vidéo montée avec le bandeau : le CTA y est déjà. */
+  ctaIncruste?: boolean;
+}
+
+export interface GroupeVideos {
+  sourceId: string;
+  titre: string;
+  options: VideoChoisie[];
+}
+
+type SourcePourPost = {
+  id: string;
+  source_texte: string | null;
+  source_url: string;
+  telephone_url: string | null;
+  generations: ReadonlyArray<{
+    id: string;
+    persona_id: string;
+    statut: StatutGenerationUgcIa;
+    video_url: string | null;
+    video_brute_url: string | null;
+    bandeau_actif: boolean;
+  }>;
+};
+
+/** Les vidéos de la page qu'on peut mettre dans un post, rangées par source. */
+export function videosDisponibles(
+  sources: readonly SourcePourPost[],
+  personas: ReadonlyArray<{ id: string; nom: string }>,
+  libelles: { montee: string; telephone: string },
+): GroupeVideos[] {
+  const nomPersona = new Map(personas.map((p) => [p.id, p.nom]));
+  return sources
+    .map((s) => {
+      const options: VideoChoisie[] = s.generations
+        .filter((g) => g.statut === "prete" && g.video_url)
+        .map((g) => ({
+          cle: `gen:${g.id}`,
+          url: g.video_url!,
+          nom: `${nomPersona.get(g.persona_id) ?? "?"}${estMontee(g) ? ` (${libelles.montee})` : ""}`,
+          generationId: g.id,
+          sourceId: s.id,
+          ctaIncruste: g.bandeau_actif,
+        }));
+      if (s.telephone_url) options.push({ cle: `tel:${s.id}`, url: s.telephone_url, nom: libelles.telephone, sourceId: s.id });
+      const texte = (s.source_texte ?? "").replace(/\s+/g, " ").trim();
+      return { sourceId: s.id, titre: texte ? (texte.length > 50 ? `${texte.slice(0, 50)}…` : texte) : s.source_url, options };
+    })
+    .filter((g) => g.options.length > 0);
+}
+
+/** Déplace un élément d'un cran (ordre des vidéos du post). */
+export function deplacer<T>(liste: readonly T[], index: number, delta: number): T[] {
+  const cible = index + delta;
+  if (index < 0 || index >= liste.length || cible < 0 || cible >= liste.length) return [...liste];
+  const copie = [...liste];
+  [copie[index], copie[cible]] = [copie[cible], copie[index]];
+  return copie;
+}
+
+/** Ce qui manque pour créer le post (clé i18n), ou null s'il est prêt. */
+export function manquePostVideo(p: {
+  compteId: string;
+  date: string;
+  videos: readonly unknown[];
+  ctaIncruste: boolean;
+  ctaTexte: string;
+  captureUrl: string | null;
+  legende: string;
+}): string | null {
+  if (!p.compteId) return "compte";
+  if (!p.date) return "date";
+  if (p.videos.length === 0) return "videos";
+  if (p.videos.length > VIDEOS_MAX_PAR_POST) return "tropDeVideos";
+  if (!p.ctaIncruste && !p.ctaTexte.trim()) return "cta";
+  if (!p.ctaIncruste && !p.captureUrl) return "capture";
+  if (p.legende.length > LEGENDE_MAX) return "legende";
+  return null;
 }

@@ -27,7 +27,7 @@ export interface ClassementRapport {
 
 export type PipelineStatut = "pending" | "running" | "done" | "failed";
 export type SujetStatut = "propose" | "retenu" | "rejete" | "utilise";
-export type PostType = "recycle" | "remanie" | "nouveau" | "contenu";
+export type PostType = "recycle" | "remanie" | "nouveau" | "contenu" | "video";
 export type PostStatut = "brouillon" | "assigne" | "valide_par_poster" | "publie";
 export type MediaSource =
   | "nettoye_reference"
@@ -245,6 +245,11 @@ export interface Post {
   recharges_createur?: number;
   /** Application promue par ce post (défaut Sophia ; absente avant 0256). */
   application_id?: string | null;
+  /** Post vidéo UGCV (0662) : texte du CTA à poser, sauf s'il est déjà incrusté. */
+  video_cta_texte?: string | null;
+  video_cta_incruste?: boolean;
+  /** Post vidéo UGCV (0662) : capture d'exemple qui montre où mettre le CTA. */
+  video_capture_url?: string | null;
   created_at: string;
 }
 
@@ -701,7 +706,8 @@ export interface ContenuLangue {
 
 export interface Passage {
   id: string;
-  contenu_id: string;
+  /** Vide pour un post vidéo UGCV (0662), qui n'a pas de contenu slideshow. */
+  contenu_id: string | null;
   compte_id: string;
   langue: string;
   date_publication_prevue: string | null;

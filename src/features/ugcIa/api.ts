@@ -77,6 +77,9 @@ export interface SourceUgcIa {
   telephone_url: string | null;
   cta_texte: string | null;
   cta_image_url: string | null;
+  /** Le son de la vidéo de référence (relevé à l'import depuis le 0662). */
+  musique_url: string | null;
+  musique_titre: string | null;
   created_at: string;
   /** Les plus récentes d'abord. */
   generations: GenerationUgcIa[];
@@ -92,6 +95,7 @@ export interface ResultatLancement {
 export const CLE_SOURCES_UGC_IA = ["ugc-ia", "sources"] as const;
 export const CLE_PERSONAS_UGC_IA = ["ugc-ia", "personas"] as const;
 export const CLE_COMPTES_UGCV = ["ugc-ia", "comptes-ugcv"] as const;
+export const CLE_POSTS_VIDEO = ["ugc-ia", "posts-video"] as const;
 
 const nombreOuNull = (v: unknown): number | null => (v == null || v === "" ? null : Number(v));
 
@@ -126,7 +130,7 @@ export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {
     .from("ugc_ia_sources")
     .select(
       "id, source_url, source_texte, source_vues, source_duree_s, brut_url, debut_s, fin_s, coupe_url, " +
-        "telephone_debut_s, telephone_fin_s, telephone_url, cta_texte, cta_image_url, created_at, " +
+        "telephone_debut_s, telephone_fin_s, telephone_url, cta_texte, cta_image_url, musique_url, musique_titre, created_at, " +
         "generations:ugc_ia_generations(id, source_id, persona_id, debut_s, fin_s, prompt, resolution, statut, erreur, video_url, video_brute_url, " +
         "montage_debut_s, montage_fin_s, bandeau_actif, bandeau_texte, bandeau_position, montage_statut, montage_erreur, lancee_le, generee_le, created_at)",
     )
@@ -207,4 +211,108 @@ export function rapatrierPersonasUgcIa(): Promise<{ bilan: Array<{ id: string; e
 /** Rattache le persona à un compte UGCV (null : le détache) ; le compte quitte son ancien persona. */
 export function assignerPersonaUgcIa(personaId: string, compteId: string | null): Promise<{ ok: true }> {
   return invoke("ugc-ia", { action: "assigner_persona", personaId, compteId });
+}
+
+// --- Posts vidéo UGCV (0662) -------------------------------------------------
+
+/** Une vidéo d'un post, dans l'ordre où le poster les met bout à bout. */
+export interface VideoPostUgcv {
+  id: string;
+  position: number;
+  url: string;
+  nom: string | null;
+}
+
+export interface PostVideoUgcv {
+  id: string;
+  compte_id: string;
+  date_publication_prevue: string;
+  statut: string;
+  publie_at: string | null;
+  publie_url: string | null;
+  hashtags: string | null;
+  musique_url: string | null;
+  musique_titre: string | null;
+  video_cta_texte: string | null;
+  video_cta_incruste: boolean;
+  video_capture_url: string | null;
+  handle_tiktok: string | null;
+  videos: VideoPostUgcv[];
+}
+
+/** Ce que la page envoie pour créer un post vidéo (validé par la fonction `ugc-ia`). */
+export interface NouveauPostVideo {
+  compteId: string;
+  date: string;
+  videos: Array<{ url: string; chemin?: string | null; nom?: string | null; generationId?: string | null }>;
+  ctaTexte: string | null;
+  ctaIncruste: boolean;
+  captureUrl: string | null;
+  legende: string | null;
+  musiqueUrl: string | null;
+  musiqueTitre: string | null;
+  applicationId: string | null;
+}
+
+/** Les posts vidéo, les plus récents d'abord (jour de publication). */
+export async function listerPostsVideo(): Promise<PostVideoUgcv[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select(
+      "id, compte_id, date_publication_prevue, statut, publie_at, publie_url, hashtags, musique_url, musique_titre, " +
+        "video_cta_texte, video_cta_incruste, video_capture_url, comptes(handle_tiktok), videos:post_videos(id, position, url, nom)",
+    )
+    .eq("type", "video")
+    .order("date_publication_prevue", { ascending: false })
+    .limit(60);
+  if (error) throw error;
+  type Ligne = Omit<PostVideoUgcv, "handle_tiktok"> & { comptes?: { handle_tiktok: string | null } | null };
+  return ((data ?? []) as unknown as Ligne[]).map(({ comptes, ...p }) => ({
+    ...p,
+    handle_tiktok: comptes?.handle_tiktok ?? null,
+    videos: [...(p.videos ?? [])].sort((a, b) => a.position - b.position),
+  }));
+}
+
+export function creerPostVideo(post: NouveauPostVideo): Promise<{ ok: true; postId: string }> {
+  return invoke("ugc-ia", { action: "creer_post_video", ...post });
+}
+
+export function supprimerPostVideo(id: string): Promise<{ ok: true }> {
+  return invoke("ugc-ia", { action: "supprimer_post_video", id });
+}
+
+/** Nom de fichier sûr pour le stockage (lettres, chiffres, tirets). */
+export function nomFichierSur(nom: string): string {
+  const point = nom.lastIndexOf(".");
+  const ext = point > 0 ? nom.slice(point + 1).toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 5) : "";
+  const base = (point > 0 ? nom.slice(0, point) : nom)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40) || "fichier";
+  return ext ? `${base}.${ext}` : base;
+}
+
+/**
+ * Importe un fichier (vidéo, capture) pour un post vidéo, directement dans le
+ * stockage de l'OS (`medias/ugc-ia/posts/<dossier>/…`, admin seulement).
+ */
+export async function televerserPourPost(fichier: File, dossier: string): Promise<{ url: string; chemin: string }> {
+  const chemin = `ugc-ia/posts/${dossier}/${Date.now()}-${nomFichierSur(fichier.name)}`;
+  const { error } = await supabase.storage
+    .from("medias")
+    .upload(chemin, fichier, { contentType: fichier.type || undefined, cacheControl: "3600", upsert: false });
+  if (error) throw error;
+  return { url: supabase.storage.from("medias").getPublicUrl(chemin).data.publicUrl, chemin };
+}
+
+/** Retire du stockage des fichiers importés pour un post (abandonné ou remplacés). */
+export async function supprimerFichiersPost(chemins: string[]): Promise<void> {
+  const aRetirer = chemins.filter((c) => c.startsWith("ugc-ia/posts/"));
+  if (aRetirer.length === 0) return;
+  const { error } = await supabase.storage.from("medias").remove(aRetirer);
+  if (error) throw error;
 }

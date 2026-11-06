@@ -109,3 +109,26 @@ select p.nom, c.handle_tiktok
 from public.ugc_ia_personas p left join public.comptes c on c.id = p.compte_id
 where p.actif order by p.nom;
 ```
+
+## Posts vidéo UGCV (migration 0662)
+
+Carte « Posts UGCV » de la page : l'admin crée un post pour un compte UGCV et
+un jour (1 par jour et par compte). Le post contient :
+
+- une ou plusieurs vidéos, dans l'ordre (générations de la page, partie
+  téléphone, ou vidéos importées sous `medias/ugc-ia/posts/`) ;
+- un CTA à poser (texte + capture d'exemple, par défaut ceux de la source),
+  ou « déjà incrusté » (vidéo montée avec le bandeau) ;
+- la légende avec hashtags (`posts.hashtags`), le son TikTok (`posts.musique_*`).
+
+En base : un `posts` de type `video`, ses `post_videos`, et un `passages`
+sans contenu (`contenu_id` vide) pour la paie, les relances, la résolution
+du lien et les vues. Le poster le voit dans son calendrier ; sa page de post
+montre les vidéos à enregistrer à la place des slides.
+
+```sql
+select p.date_publication_prevue, c.handle_tiktok, p.statut, p.publie_url,
+       (select count(*) from public.post_videos v where v.post_id = p.id) as videos
+from public.posts p join public.comptes c on c.id = p.compte_id
+where p.type = 'video' order by 1 desc limit 20;
+```

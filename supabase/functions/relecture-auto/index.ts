@@ -803,12 +803,14 @@ async function ligneDuPost(supabase: Client, postId: string): Promise<LigneCompl
   if (existante) return existante;
   const { data: passage, error } = await supabase
     .from("passages")
-    .select("id, post_id, compte_id, publie_url, publie_at, comptes(poster_id), posts(publie_url, publie_at)")
+    .select("id, post_id, compte_id, contenu_id, publie_url, publie_at, comptes(poster_id), posts(publie_url, publie_at)")
     .eq("post_id", postId)
     .limit(1)
     .maybeSingle();
   if (error) throw error;
   if (!passage) throw new Error("pas de slideshow assigné pour ce post : rien à comparer");
+  // Post vidéo UGCV (0662) : pas de slides à relire.
+  if (!passage.contenu_id) throw new Error("post vidéo : pas de slideshow à relire");
   const compte = (Array.isArray(passage.comptes) ? passage.comptes[0] : passage.comptes) as { poster_id?: string } | null;
   const post = (Array.isArray(passage.posts) ? passage.posts[0] : passage.posts) as
     | { publie_url?: string | null; publie_at?: string | null }

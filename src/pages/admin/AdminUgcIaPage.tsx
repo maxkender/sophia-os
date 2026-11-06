@@ -23,6 +23,7 @@ import {
   type PersonaUgcIa,
 } from "@/features/ugcIa/api";
 import { CarteSource } from "@/features/ugcIa/CarteSource";
+import { CartePostsUgcv } from "@/features/ugcIa/PostsUgcv";
 import { messageErreur } from "@/features/ugcIa/logique";
 
 /** Toutes les 15 s tant qu'une génération tourne (Genjutsu prend quelques minutes). */
@@ -108,6 +109,8 @@ export function AdminUgcIaPage() {
         <CartePersonas personas={liste} chargees={Boolean(personas.data)} />
         <CarteImport />
       </div>
+
+      <CartePostsUgcv sources={sources.data ?? []} personas={liste} />
 
       <section className="space-y-3" aria-labelledby="ugc-ia-sources">
         <h2 id="ugc-ia-sources" className="text-sm font-semibold">

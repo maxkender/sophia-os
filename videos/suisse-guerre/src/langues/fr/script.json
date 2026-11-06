@@ -25,12 +25,12 @@
     },
     {
       "id": "S2",
-      "texte": "Un: les Alpes. Plus de la moitié du pays, ce sont des montagnes. L'envahir serait un cauchemar.",
+      "texte": "D'abord, les Alpes. Plus de la moitié du pays est en montagne, l'envahir serait un cauchemar.",
       "reperes": []
     },
     {
       "id": "S3",
-      "texte": "Deux: en 1815, les grandes puissances d'Europe ont officiellement reconnu sa neutralité.",
+      "texte": "Ensuite, en 1815, les grandes puissances d'Europe ont reconnu officiellement sa neutralité.",
       "reperes": [
         {
           "mot": "neutralité.",
@@ -40,7 +40,7 @@
     },
     {
       "id": "S4",
-      "texte": "Mais neutre ne veut pas dire faible: la plupart des hommes font l'armée, et gardent leur fusil à la maison.",
+      "texte": "Mais neutre ne veut pas dire faible. La plupart des hommes font l'armée et gardent leur fusil à la maison.",
       "reperes": [
         {
           "mot": "fusil",
@@ -50,7 +50,7 @@
     },
     {
       "id": "S5",
-      "texte": "Pendant la Seconde Guerre mondiale, ils ont piégé leurs tunnels alpins avec des explosifs. Envahissez-les, et vous ne gagnez… rien.",
+      "texte": "Pendant la Seconde Guerre mondiale, ils ont piégé leurs tunnels alpins avec des explosifs. Envahissez-les et vous ne gagnez… rien.",
       "reperes": [
         {
           "mot": "explosifs.",
@@ -61,10 +61,10 @@
     },
     {
       "id": "S6",
-      "texte": "Et ils sont utiles à tout le monde: banques, diplomatie, négociations de paix à Genève.",
+      "texte": "Et ils sont utiles à tout le monde, avec les banques, la diplomatie et les négociations de paix à Genève.",
       "reperes": [
         {
-          "mot": "diplomatie,",
+          "mot": "diplomatie",
           "image": 46
         },
         {

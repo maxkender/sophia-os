@@ -83,7 +83,7 @@ d'identifiants).
 | Action | Entrée | Sortie |
 |---|---|---|
 | `ping` | — | `{ ok, version }` |
-| `zones` | — | `{ ok, ouverts: [{ pays_code, langue, zone, hm_id }], fermes: [{ pays_code, raison, langue }], inconnus }` : `ouverts` = tous les pays à zone de paie active |
+| `zones` | — | `{ ok, ouverts: [{ pays_code, langue, langue_os, zone, hm_id }], fermes: [{ pays_code, raison, langue }], inconnus }` : `ouverts` = tous les pays à zone de paie active ; `langue_os` = la langue du pays est connue (pas l'anglais par défaut) et des comptes actifs publient dans cette langue (bouton « Accept all valid » du site) |
 | `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications, start_monday` (le reste est ignoré) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
 | `posts_semaine` | `profile_ids` (≤ 500), `lundi` | `{ ok, rows: [{ profile_id, prevus, publies, manques, dernier_post_at, is_active }] }` |
 | `stats_pays` | — | `{ ok, by_langue: [{ langue, actifs }] }` |

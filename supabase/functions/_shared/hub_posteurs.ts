@@ -220,15 +220,23 @@ const LANGUE_SITE_PAR_DEFAUT: Readonly<Record<string, string>> = { BE: "fr", LU:
  * Langue de publication d'un poster du site : celle du pays
  * (`LANGUE_PAR_PAYS`), sinon le choix fixé pour les pays à plusieurs langues,
  * sinon la langue la plus fréquente des comptes du pays dans l'OS, sinon
- * l'anglais. Toujours une réponse : un pays ouvert dans l'OS n'est jamais
- * refusé pour sa langue.
+ * l'anglais par défaut (`devinee: true` : la langue du pays n'est pas connue).
+ * Toujours une réponse : un pays ouvert dans l'OS n'est jamais refusé pour sa
+ * langue.
  */
-export function langueDuPays(paysCode: string, languesComptes: LanguesComptes = {}): string {
+export function langueDuPaysDetail(
+  paysCode: string,
+  languesComptes: LanguesComptes = {},
+): { langue: string; devinee: boolean } {
   const connue = LANGUE_PAR_PAYS[paysCode] ?? LANGUE_SITE_PAR_DEFAUT[paysCode];
-  if (connue) return connue;
+  if (connue) return { langue: connue, devinee: false };
   const [majoritaire] = Object.entries(languesComptes[paysCode] ?? {})
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-  return majoritaire?.[0] ?? "en";
+  return majoritaire ? { langue: majoritaire[0], devinee: false } : { langue: "en", devinee: true };
+}
+
+export function langueDuPays(paysCode: string, languesComptes: LanguesComptes = {}): string {
+  return langueDuPaysDetail(paysCode, languesComptes).langue;
 }
 
 export type AffectationSite =
@@ -274,6 +282,10 @@ export function hmDuPays(paysCode: string, recruteurs: Recruteur[]): string | nu
  * Carte des pays pour le bouton « Accepter » du site : `ouverts` = tous les
  * pays ouverts dans l'OS (zone de paie active), avec leur langue de
  * publication, leur zone et leur HM de zone (`hm_id` nul sans HM).
+ * `langue_os` : la langue du pays est connue (pas l'anglais par défaut) et des
+ * comptes actifs de l'OS publient dans cette langue (`languesOs`) — c'est le
+ * « valide » du bouton « Accept all valid » du site. Sans `languesOs`, seule
+ * la première condition compte.
  * `fermes` = les pays d'une zone de HM ou de `hm_pays` qui n'ont pas de zone
  * de paie active, pour information.
  */
@@ -282,15 +294,19 @@ export function carteDesZones(
   recruteurs: Recruteur[] = [],
   paysRecrutes: PaysRecrute[] = [],
   languesComptes: LanguesComptes = {},
+  languesOs: ReadonlySet<string> | null = null,
 ): {
-  ouverts: { pays_code: string; langue: string; zone: string; hm_id: string | null }[];
+  ouverts: { pays_code: string; langue: string; langue_os: boolean; zone: string; hm_id: string | null }[];
   fermes: { pays_code: string; raison: string; langue: string | null }[];
   inconnus: string[];
 } {
-  const ouverts: { pays_code: string; langue: string; zone: string; hm_id: string | null }[] = [];
+  const ouverts: { pays_code: string; langue: string; langue_os: boolean; zone: string; hm_id: string | null }[] = [];
   for (const { pays } of [...paysOuverts].sort((a, b) => a.pays.localeCompare(b.pays))) {
     const a = resoudreAffectationSite(pays, paysOuverts, recruteurs, paysRecrutes, languesComptes);
-    if (a.ok) ouverts.push({ pays_code: pays, langue: a.langue, zone: a.zone, hm_id: a.hm?.id ?? null });
+    if (!a.ok) continue;
+    const { devinee } = langueDuPaysDetail(pays, languesComptes);
+    const langueOs = !devinee && (languesOs === null || languesOs.has(a.langue));
+    ouverts.push({ pays_code: pays, langue: a.langue, langue_os: langueOs, zone: a.zone, hm_id: a.hm?.id ?? null });
   }
   const estOuvert = new Set(ouverts.map((o) => o.pays_code));
   const autres = new Set<string>(paysRecrutes.map((p) => p.pays));

@@ -97,9 +97,9 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 4. `voix --projet P --langue L`, puis contrôle le minutage : les pentes de chaque scène doivent rester
    entre ~0,5 et ~1,5 (sinon déplace ou retire un repère). Une langue trop longue (> 42 s de récit) :
    accélère la voix (speed max 1.2) ou resserre la traduction.
-5. **Contrôle visuel avant le rendu complet** (obligatoire) : rends 15 à 30 images en JPEG à l'échelle 0,4
-   (`npx remotion render <Composition> out/frames --props='{"langue":"L","sousTitres":true}' --frames=…`),
-   fais une planche avec ffmpeg (`tile`), **regarde-la**, corrige.
+5. **Contrôle visuel avant le rendu complet** (obligatoire) : `node scripts/planche.mjs /tmp/planche.jpg <images…> --langue L`
+   (15 à 30 images globales, mosaïque à l'échelle 0,3 ; le script existe dans `videos/supervolcan`, copie-le
+   si le projet ne l'a pas), **regarde-la**, corrige.
 6. `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
    seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
@@ -113,20 +113,37 @@ Ce que l'admin redemande souvent devient une règle : ajoute-le au §6.
 
 ## 5. Nouveau sujet : écrire les scènes
 
-Copie `videos/suisse-guerre` dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`, `src/langues/*/voix-*`),
-mets à jour `motion.json` (`composition`), `package.json` (`name`) et `src/Root.tsx` (id de composition).
-Puis écris les 7 scènes du sujet dans `src/scenes/` (une scène = un fichier, un SVG 1080×1920 via `Stage`) :
+Copie `videos/supervolcan` (le modèle le plus récent) dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`,
+`src/langues/*/voix-*`), mets à jour `motion.json` (`composition`, `scenes`), `package.json` (`name`) et `src/Root.tsx`
+(id de composition). Puis écris les scènes du sujet dans `src/scenes/` (autant que le script en a ; une scène = un
+fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 
-- **Bibliothèque papier** (`src/shapes.tsx`, `src/map.tsx`) : `Boom`, `Ring`, `Debris`, `FlagPole`, `SwissFlagRect`,
+1. Génère d'abord la voix anglaise, puis calcule pour chaque scène son début, sa durée et l'image locale de chaque mot
+   (même calcul que `construireTimeline`) : la scène se conçoit **à la vitesse de la voix anglaise** (`STRETCH = 1`,
+   `BASE` = ces durées), chaque action tombe sur l'image de son mot.
+2. Mets les repères de `script.json` sur les mots forts avec ces mêmes images (pente 1 en anglais) : les autres langues
+   se recalent dessus.
+3. Plusieurs plans dans une scène : glissement de page (`translate` sur 10 images) entre deux groupes, comme S2, S4, S7, S8.
+4. Planches de contrôle, corrections, puis rendu.
+
+- **Bibliothèque papier** (`src/shapes.tsx`) : `Boom`, `Ring`, `Debris`, `FlagPole`, `SwissFlagRect`,
   `RedCrossRect`, `Tank`, `Chalet`, `DollChain`, `Rifle`, `Train`, `Dynamite`, `Crown`, `Coin`, `GoldBar`,
-  `Dove`, `Handshake`, `Bomb`, `Cloud`, `Rays`, `Mountain`, `Sparkle`, `EuropeMap` (cartes : `scripts/geo.mjs`).
+  `Dove`, `Handshake`, `Bomb`, `Cloud`, `Rays`, `Mountain`, `Sparkle` ; et (`src/volcan.tsx`) `Pine`, `Bison`, `Pool`,
+  `Steam`, `Stopwatch`, `Calendar`, `Car`, `Billow` (nuée/fumée), `House` (toit qui cède), `Plane`, `NoSign`,
+  `Thermometer`, `Fall` (neige/cendres), `Wheat`, `Parasol`, `Sandcastle`, `Scientist`, `Check`, `Mammoth`, `Pyramid`,
+  `Volcano`, `Bolt`, `Embers`, `blob`/`smooth` (formes organiques). Cartes : `scripts/geo.mjs` (Europe),
+  `scripts/geo-na.mjs` (Amérique du Nord ; attention aux pays à cheval sur l'antiméridien, comme les États-Unis) ;
+  globe : `geoOrthographic` de d3-geo (S5 du supervolcan).
   Ajoute ce qui manque **dans la bibliothèque**, pas dans la scène, pour qu'il serve aux prochains sujets.
 - **Outils** (`src/lib.ts`) : `useFrame()` (le temps de la scène, déformé par la voix), `pop`, `lerp`,
   `ease`, `camera`, `shake`, `boil`, filtres `url(#pp)` / `url(#ppl)` (bord déchiré + ombre).
 - `src/timeline.ts` : mets dans `BASE` la durée de conception de chaque scène (images).
 - `src/Sound.tsx` : `PAR_SCENE`, les bruitages de chaque scène sur ses événements (banque `public/sfx`,
   générée par `scripts/bruitages.mjs` ; un son qui manque s'ajoute à `BRUITAGES` puis se génère une fois).
-- La fin Sophia (`src/scenes/Outro.tsx`) et les sous-titres ne changent pas d'un sujet à l'autre.
+- La fin Sophia (`src/scenes/Outro.tsx`) et les sous-titres ne changent pas d'un sujet à l'autre, sauf `Decor`
+  (les bouts de papier qui flottent derrière le téléphone) : mets-y des formes du sujet, jamais celles d'un autre.
+- Mix : les gros impacts (éruption, explosion, craquement) dits pendant la voix restent à 0,5–0,6 ; au-dessus,
+  ils couvrent la voix.
 
 ## 6. Règles de qualité (retours de l'admin)
 

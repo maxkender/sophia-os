@@ -8,7 +8,8 @@
  *                                                    et capture son CTA (premier écran + OCR)
  *   { action: "lire_cta", id }                     → recapture le CTA d'une source
  *   { action: "enregistrer_cta", id, texte }       → corrige le texte du CTA
- *   { action: "couper", id, debut, fin }           → coupe le passage (Fal, sans recodage)
+ *   { action: "couper", id, partie?, debut, fin }  → coupe la réaction (envoyée à Genjutsu)
+ *                                                    ou la partie téléphone (gardée telle quelle)
  *   { action: "generer", sourceId, personaIds, prompt?, resolution? }
  *                                                  → une génération Genjutsu par persona
  *                                                    coché (refaire = relancer pour un persona)
@@ -43,9 +44,11 @@ import {
   cheminsUgcIa,
   lienTiktok,
   nettoyerCta,
+  partieSource,
   passage,
   personasDemandees,
   PROMPT_DEFAUT,
+  TELEPHONE_MAX_S,
   urlImageExtraite,
 } from "../_shared/ugc_ia.ts";
 
@@ -152,25 +155,34 @@ async function enregistrerCta(supabase: Supabase, body: Record<string, unknown>)
 
 async function couper(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
   const id = String(body.id ?? "").trim();
+  const partie = partieSource(body.partie);
+  if (!partie) return json({ error: "partie : reaction ou telephone" }, 400);
   const source = id ? await lireSource(supabase, id) : null;
   if (!source) return json({ error: "source introuvable" }, 404);
   if (!source.brut_url) return json({ error: "pas de vidéo source à couper" }, 409);
-  // Genjutsu lit le passage pendant la génération : on ne le remplace pas sous ses pieds.
-  const { count } = await supabase
-    .from("ugc_ia_generations")
-    .select("id", { count: "exact", head: true })
-    .eq("source_id", id)
-    .eq("statut", "en_cours");
-  if (count) return json({ error: "des générations sont en cours sur ce passage : attends qu'elles finissent pour recouper" }, 409);
-  const p = passage(body.debut, body.fin, source.source_duree_s != null ? Number(source.source_duree_s) : null);
+  if (partie === "reaction") {
+    // Genjutsu lit la réaction pendant la génération : on ne la remplace pas sous ses pieds.
+    const { count } = await supabase
+      .from("ugc_ia_generations")
+      .select("id", { count: "exact", head: true })
+      .eq("source_id", id)
+      .eq("statut", "en_cours");
+    if (count) return json({ error: "des générations sont en cours sur cette réaction : attends qu'elles finissent pour recouper" }, 409);
+  }
+  const duree = source.source_duree_s != null ? Number(source.source_duree_s) : null;
+  const p = passage(body.debut, body.fin, duree, partie === "telephone" ? TELEPHONE_MAX_S : undefined);
   if ("erreur" in p) return json({ error: p.erreur }, 400);
 
   const coupe = await trimmerVideoFal({ videoUrl: source.brut_url, startSec: p.debut, endSec: p.fin });
-  const chemin = cheminsUgcIa(id).reaction;
-  const coupeUrl = await deposer(supabase, chemin, coupe.bytes, "video/mp4");
+  const chemin = cheminsUgcIa(id)[partie];
+  const url = await deposer(supabase, chemin, coupe.bytes, "video/mp4");
+  const champs =
+    partie === "reaction"
+      ? { debut_s: p.debut, fin_s: p.fin, coupe_path: chemin, coupe_url: url }
+      : { telephone_debut_s: p.debut, telephone_fin_s: p.fin, telephone_path: chemin, telephone_url: url };
   const { data, error } = await supabase
     .from("ugc_ia_sources")
-    .update({ debut_s: p.debut, fin_s: p.fin, coupe_path: chemin, coupe_url: coupeUrl, updated_at: maintenant() })
+    .update({ ...champs, updated_at: maintenant() })
     .eq("id", id)
     .select("*")
     .single();
@@ -296,7 +308,13 @@ async function supprimerSource(supabase: Supabase, body: Record<string, unknown>
   const source = id ? await lireSource(supabase, id) : null;
   if (!source) return json({ error: "source introuvable" }, 404);
   const { data: gens } = await supabase.from("ugc_ia_generations").select("video_path").eq("source_id", id);
-  await retirer(supabase, [source.brut_path, source.coupe_path, source.cta_image_path, ...(gens ?? []).map((g) => g.video_path as string | null)]);
+  await retirer(supabase, [
+    source.brut_path,
+    source.coupe_path,
+    source.telephone_path,
+    source.cta_image_path,
+    ...(gens ?? []).map((g) => g.video_path as string | null),
+  ]);
   const { error } = await supabase.from("ugc_ia_sources").delete().eq("id", id);
   if (error) throw new Error(error.message);
   return json({ ok: true });

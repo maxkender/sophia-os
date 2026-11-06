@@ -1,4 +1,4 @@
-// UGC IA (page /admin/ugc-ia, migrations 0656 et 0657) : règles pures de la page.
+// UGC IA (page /admin/ugc-ia, migrations 0656 à 0658) : règles pures de la page.
 // Mêmes bornes que la fonction `ugc-ia` (supabase/functions/_shared/ugc_ia.ts).
 
 export type StatutGenerationUgcIa = "en_cours" | "prete" | "echec";
@@ -6,6 +6,11 @@ export type ResolutionUgcIa = "480p" | "720p" | "1080p";
 
 /** Genjutsu coupe au-delà de 30 s. Pas de minimum : Higgsfield tranche (échec non facturé). */
 export const PASSAGE_MAX_S = 30;
+/** La partie téléphone (la démo de l'appli) ne passe pas par Genjutsu : plafond plus large. */
+export const TELEPHONE_MAX_S = 180;
+
+/** Les deux parties qu'on coupe dans une source : la réaction (pour Genjutsu) et la partie téléphone. */
+export type PartieSource = "reaction" | "telephone";
 /** La durée proposée par défaut : une réaction tient en quelques secondes. */
 export const PASSAGE_DEFAUT_S = 6;
 /** Au plus 10 personas par lancement, comme la fonction. */
@@ -32,11 +37,16 @@ export function lireSecondes(saisie: string): number | null {
 export type ErreurPassage = "manquant" | "negatif" | "ordre" | "tropLong" | "depasse";
 
 /** Ce qui ne va pas dans le passage choisi, ou null s'il est bon. */
-export function erreurPassage(debut: number | null, fin: number | null, dureeSource: number | null): ErreurPassage | null {
+export function erreurPassage(
+  debut: number | null,
+  fin: number | null,
+  dureeSource: number | null,
+  max = PASSAGE_MAX_S,
+): ErreurPassage | null {
   if (debut == null || fin == null) return "manquant";
   if (debut < 0) return "negatif";
   if (fin <= debut) return "ordre";
-  if (fin - debut > PASSAGE_MAX_S) return "tropLong";
+  if (fin - debut > max) return "tropLong";
   if (dureeSource != null && dureeSource > 0 && fin > dureeSource + 0.1) return "depasse";
   return null;
 }
@@ -50,6 +60,23 @@ export function passageInitial(v: { debut_s: number | null; fin_s: number | null
   const duree = v.source_duree_s;
   const fin = duree != null && duree > 0 ? Math.min(duree, PASSAGE_DEFAUT_S) : PASSAGE_DEFAUT_S;
   return { debut: "0", fin: String(Math.round(fin * 10) / 10) };
+}
+
+/**
+ * La partie téléphone proposée à l'ouverture : celle déjà coupée, sinon de la
+ * fin de la réaction (la démo suit la réaction) jusqu'à la fin de la vidéo.
+ */
+export function passageTelephoneInitial(v: {
+  fin_s: number | null;
+  source_duree_s: number | null;
+  telephone_debut_s: number | null;
+  telephone_fin_s: number | null;
+}): { debut: string; fin: string } {
+  if (v.telephone_debut_s != null && v.telephone_fin_s != null) return { debut: String(v.telephone_debut_s), fin: String(v.telephone_fin_s) };
+  const debut = v.fin_s ?? PASSAGE_DEFAUT_S;
+  const duree = v.source_duree_s;
+  const fin = duree != null && duree > debut ? Math.min(duree, debut + TELEPHONE_MAX_S) : debut + 10;
+  return { debut: String(debut), fin: String(Math.round(fin * 10) / 10) };
 }
 
 /** Un temps de lecture arrondi au dixième, pour remplir début ou fin. */

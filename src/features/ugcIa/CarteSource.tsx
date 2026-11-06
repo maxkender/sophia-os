@@ -31,11 +31,14 @@ import {
   lireSecondes,
   messageErreur,
   passageInitial,
+  passageTelephoneInitial,
   PASSAGE_MAX_S,
   personasOccupes,
   peutCouper,
   PERSONAS_MAX_PAR_LANCEMENT,
   PROMPT_DEFAUT,
+  TELEPHONE_MAX_S,
+  type PartieSource,
   type ResolutionUgcIa,
   type StatutGenerationUgcIa,
 } from "./logique";
@@ -52,8 +55,6 @@ const RESOLUTIONS: ReadonlyArray<{ cle: ResolutionUgcIa; contenu: string }> = [
   { cle: "1080p", contenu: "1080p" },
 ];
 
-const VIDEO = "aspect-[9/16] w-full rounded-lg bg-black object-contain";
-
 function useRafraichir() {
   const qc = useQueryClient();
   return () => qc.invalidateQueries({ queryKey: CLE_SOURCES_UGC_IA });
@@ -68,30 +69,51 @@ function Alerte({ erreur }: { erreur: unknown }) {
   );
 }
 
+/** Une étape numérotée de la carte : un titre, une phrase d'aide, puis son contenu. */
+function Etape({ numero, titre, aide, children }: { numero: number; titre: string; aide?: string; children: React.ReactNode }) {
+  return (
+    <section className="space-y-2" aria-label={titre}>
+      <div className="flex items-start gap-2">
+        <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground" aria-hidden>
+          {numero}
+        </span>
+        <div className="min-w-0">
+          <h3 className="text-sm font-semibold leading-6">{titre}</h3>
+          {aide && <p className="text-xs text-muted-foreground">{aide}</p>}
+        </div>
+      </div>
+      <div className="space-y-2 sm:pl-8">{children}</div>
+    </section>
+  );
+}
+
 /**
- * Une réaction de référence : la vidéo TikTok et son passage coupé, son CTA
- * (premier écran + texte, corrigeable), le lancement pour les personas
- * cochés, puis toutes les vidéos générées à partir d'elle.
+ * Une réaction de référence, en étapes : la vidéo TikTok à gauche ; à droite,
+ * 1. découper la réaction et la partie téléphone, 2. le texte à l'écran (CTA),
+ * 3. les personas à lancer ; puis 4. les vidéos générées.
  */
 export function CarteSource({ source, personas }: { source: SourceUgcIa; personas: PersonaUgcIa[] }) {
   const { t, i18n } = useTranslation();
   const rafraichir = useRafraichir();
+  const lecteur = React.useRef<HTMLVideoElement>(null);
+  const tempsLecture = React.useCallback(() => lecteur.current?.currentTime ?? 0, []);
   const supprimer = useMutation({ mutationFn: () => supprimerSourceUgcIa(source.id), onSuccess: rafraichir });
   const date = new Intl.DateTimeFormat(i18n.language, { dateStyle: "medium", timeStyle: "short" }).format(new Date(source.created_at));
   const vues = source.source_vues != null ? new Intl.NumberFormat(i18n.language, { notation: "compact" }).format(source.source_vues) : null;
   const enCours = source.generations.some((g) => g.statut === "en_cours");
   const parId = new Map(personas.map((p) => [p.id, p]));
+  const occupes = personasOccupes(source.generations);
 
   return (
     <Card data-testid={`source-${source.id}`}>
-      <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2">
-        <div className="flex min-w-0 flex-wrap items-center gap-2 text-sm">
+      <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 border-b">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-sm">
           <a href={source.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium underline">
             {t("ugcIa.source")}
             <ExternalLink className="size-3" aria-hidden />
           </a>
-          {vues && <span className="text-muted-foreground">{t("ugcIa.vues", { vues })}</span>}
-          <span className="text-muted-foreground">{date}</span>
+          {vues && <span className="text-muted-foreground">· {t("ugcIa.vues", { vues })}</span>}
+          <span className="text-muted-foreground">· {date}</span>
           <span className="text-muted-foreground">· {t("ugcIa.nbGenerations", { count: source.generations.length })}</span>
         </div>
         <Button
@@ -106,96 +128,178 @@ export function CarteSource({ source, personas }: { source: SourceUgcIa; persona
           {t("ugcIa.supprimerSource")}
         </Button>
       </CardHeader>
-      <CardContent className="space-y-5">
-        {source.source_texte && <p className="line-clamp-2 text-xs text-muted-foreground">« {source.source_texte} »</p>}
+      <CardContent className="space-y-6 pt-4">
         <Alerte erreur={supprimer.error} />
-        <div className="grid gap-4 md:grid-cols-3">
-          {source.brut_url && <BlocCoupe source={source} bloque={!peutCouper(source.generations)} />}
-          <BlocCta source={source} />
-          <BlocLancement source={source} personas={personas} />
+        <div className="grid gap-6 md:grid-cols-[minmax(0,13rem)_minmax(0,1fr)]">
+          <aside className="space-y-1.5">
+            <p className="text-xs font-medium">
+              {t("ugcIa.videoSource")}
+              {source.source_duree_s != null && <span className="text-muted-foreground"> · {Math.round(source.source_duree_s)} s</span>}
+            </p>
+            {source.brut_url ? (
+              <video
+                ref={lecteur}
+                src={source.brut_url}
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                className="mx-auto aspect-[9/16] w-full max-w-[14rem] rounded-lg bg-black object-contain md:max-w-none"
+              />
+            ) : (
+              <p className="text-xs text-muted-foreground">{t("ugcIa.pasDeVideo")}</p>
+            )}
+            <p className="text-xs text-muted-foreground">{t("ugcIa.aideLecteur")}</p>
+            {source.source_texte && <p className="line-clamp-3 text-xs text-muted-foreground">« {source.source_texte} »</p>}
+          </aside>
+
+          <div className="min-w-0 space-y-6">
+            <Etape numero={1} titre={t("ugcIa.etapeDecouper")} aide={t("ugcIa.etapeDecouperAide")}>
+              {source.brut_url && (
+                <>
+                  <LigneCoupe source={source} partie="reaction" tempsLecture={tempsLecture} bloquee={!peutCouper(source.generations)} />
+                  <LigneCoupe source={source} partie="telephone" tempsLecture={tempsLecture} bloquee={false} />
+                </>
+              )}
+            </Etape>
+            <Etape numero={2} titre={t("ugcIa.etapeCta")} aide={t("ugcIa.etapeCtaAide")}>
+              <BlocCta source={source} />
+            </Etape>
+            <Etape numero={3} titre={t("ugcIa.etapePersonas")} aide={t("ugcIa.etapePersonasAide")}>
+              {source.coupe_url ? (
+                <BlocLancement source={source} personas={personas} occupes={occupes} />
+              ) : (
+                <p className="text-xs text-muted-foreground">{t("ugcIa.coupeDabord")}</p>
+              )}
+            </Etape>
+          </div>
         </div>
+
         {source.generations.length > 0 && (
-          <section className="space-y-2" aria-label={t("ugcIa.videosGenerees")}>
-            <h3 className="text-xs font-semibold">{t("ugcIa.videosGenerees")}</h3>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Etape numero={4} titre={t("ugcIa.etapeVideos", { count: source.generations.length })} aide={t("ugcIa.etapeVideosAide")}>
+            <div className="grid grid-cols-2 items-start gap-3 lg:grid-cols-4">
               {source.generations.map((g) => (
                 <CarteGeneration
                   key={g.id}
                   generation={g}
                   persona={parId.get(g.persona_id) ?? null}
-                  occupe={g.statut !== "en_cours" && personasOccupes(source.generations).has(g.persona_id)}
+                  occupe={g.statut !== "en_cours" && occupes.has(g.persona_id)}
                 />
               ))}
             </div>
-          </section>
+          </Etape>
         )}
       </CardContent>
     </Card>
   );
 }
 
-/** La vidéo TikTok entière et le passage à garder (début, fin). */
-function BlocCoupe({ source, bloque }: { source: SourceUgcIa; bloque: boolean }) {
+/**
+ * Une partie à couper dans la vidéo TikTok : la réaction (envoyée à Genjutsu)
+ * ou la partie téléphone (gardée telle quelle). Début et fin se saisissent ou
+ * se prennent sur le lecteur ; le clip coupé s'affiche à côté.
+ */
+function LigneCoupe({
+  source,
+  partie,
+  tempsLecture,
+  bloquee,
+}: {
+  source: SourceUgcIa;
+  partie: PartieSource;
+  tempsLecture: () => number;
+  bloquee: boolean;
+}) {
   const { t } = useTranslation();
   const rafraichir = useRafraichir();
-  const lecteur = React.useRef<HTMLVideoElement>(null);
-  const [debut, setDebut] = React.useState(() => passageInitial(source).debut);
-  const [fin, setFin] = React.useState(() => passageInitial(source).fin);
+  const initial = partie === "reaction" ? passageInitial(source) : passageTelephoneInitial(source);
+  const [debut, setDebut] = React.useState(initial.debut);
+  const [fin, setFin] = React.useState(initial.fin);
+  const max = partie === "reaction" ? PASSAGE_MAX_S : TELEPHONE_MAX_S;
   const d = lireSecondes(debut);
   const f = lireSecondes(fin);
-  const erreur = erreurPassage(d, f, source.source_duree_s);
-  const couper = useMutation({ mutationFn: () => couperPassageUgcIa(source.id, d ?? 0, f ?? 0), onSuccess: rafraichir });
-  const maintenant = () => arrondiDixieme(lecteur.current?.currentTime ?? 0);
+  const erreur = erreurPassage(d, f, source.source_duree_s, max);
+  const couper = useMutation({ mutationFn: () => couperPassageUgcIa(source.id, partie, d ?? 0, f ?? 0), onSuccess: rafraichir });
+  const clip = partie === "reaction" ? source.coupe_url : source.telephone_url;
+  const coupeDebut = partie === "reaction" ? source.debut_s : source.telephone_debut_s;
+  const coupeFin = partie === "reaction" ? source.fin_s : source.telephone_fin_s;
+  const nom = t(`ugcIa.partie.${partie}`);
 
   return (
-    <div className="space-y-2">
-      <p className="text-xs font-medium">
-        {t("ugcIa.videoSource")}
-        {source.source_duree_s != null && <span className="text-muted-foreground"> · {Math.round(source.source_duree_s)} s</span>}
-      </p>
-      <video ref={lecteur} src={source.brut_url ?? undefined} controls muted playsInline className={VIDEO} />
-      <div className="grid grid-cols-2 gap-2">
-        {(
-          [
-            ["debut", debut, setDebut],
-            ["fin", fin, setFin],
-          ] as const
-        ).map(([cle, valeur, changer]) => (
-          <div key={cle} className="space-y-1 text-xs">
-            <label className="block space-y-1">
-              <span className="text-muted-foreground">{t(`ugcIa.${cle}`)}</span>
-              <Input size="sm" inputMode="decimal" value={valeur} onChange={(e) => changer(e.target.value)} />
-            </label>
-            <Button variant="link" size="xs" onClick={() => changer(maintenant())}>
-              {t("ugcIa.prendreTemps")}
+    <div className="space-y-2 rounded-lg border p-3" data-testid={`coupe-${partie}`}>
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="text-sm font-medium">{nom}</p>
+        <Badge variant={partie === "reaction" ? "info" : "secondary"}>{t(`ugcIa.partieRole.${partie}`)}</Badge>
+        <span className="text-xs text-muted-foreground">
+          {clip && coupeDebut != null && coupeFin != null ? t("ugcIa.coupee", { debut: coupeDebut, fin: coupeFin }) : t("ugcIa.pasCoupee")}
+        </span>
+      </div>
+      <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+        <div className="min-w-0 flex-1 space-y-2">
+          <div className="flex flex-wrap items-end gap-3">
+            {(
+              [
+                ["debut", debut, setDebut],
+                ["fin", fin, setFin],
+              ] as const
+            ).map(([cle, valeur, changer]) => (
+              <div key={cle} className="w-28 space-y-1">
+                <div className="flex items-baseline justify-between gap-1 text-xs">
+                  <span className="text-muted-foreground">{t(`ugcIa.${cle}`)}</span>
+                  <button
+                    type="button"
+                    className="text-primary underline-offset-2 hover:underline"
+                    title={t("ugcIa.prendreTemps")}
+                    onClick={() => changer(arrondiDixieme(tempsLecture()))}
+                  >
+                    {t("ugcIa.ici")}
+                  </button>
+                </div>
+                <Input size="sm" inputMode="decimal" value={valeur} onChange={(e) => changer(e.target.value)} aria-label={t(`ugcIa.${cle}De`, { partie: nom })} />
+              </div>
+            ))}
+            <Button
+              variant="outline"
+              size="sm"
+              loading={couper.isPending}
+              disabled={erreur != null || bloquee}
+              onClick={() => couper.mutate()}
+            >
+              <Scissors aria-hidden />
+              {t(`ugcIa.couperPartie.${partie}`)}
             </Button>
           </div>
-        ))}
+          {erreur && <p className="text-xs text-destructive">{t(`ugcIa.erreurPassage.${erreur}`, { max })}</p>}
+          {bloquee && <p className="text-xs text-muted-foreground">{t("ugcIa.coupeBloquee")}</p>}
+          <Alerte erreur={couper.error} />
+        </div>
+        {clip && (
+          <div className="flex shrink-0 items-end gap-2">
+            <video
+              src={clip}
+              controls
+              muted={partie === "reaction"}
+              playsInline
+              preload="metadata"
+              className="aspect-[9/16] h-28 w-auto rounded-md bg-black object-contain"
+            />
+            <a href={clip} download className="inline-flex items-center gap-1 text-xs underline">
+              <Download className="size-3" aria-hidden />
+              {t("ugcIa.telecharger")}
+            </a>
+          </div>
+        )}
       </div>
-      {erreur && <p className="text-xs text-destructive">{t(`ugcIa.erreurPassage.${erreur}`, { max: PASSAGE_MAX_S })}</p>}
-      {bloque && <p className="text-xs text-muted-foreground">{t("ugcIa.coupeBloquee")}</p>}
-      <Button
-        variant="outline"
-        size="sm"
-        className="w-full"
-        loading={couper.isPending}
-        disabled={erreur != null || bloque}
-        onClick={() => couper.mutate()}
-      >
-        <Scissors aria-hidden />
-        {source.coupe_url ? t("ugcIa.recouper") : t("ugcIa.couper")}
-      </Button>
-      <Alerte erreur={couper.error} />
     </div>
   );
 }
 
-/** Le CTA de la source : son premier écran et le texte qu'on y lit, corrigeable à la main. */
+/** Le texte à l'écran de la source, lu sur la vidéo et corrigeable à la main. */
 function BlocCta({ source }: { source: SourceUgcIa }) {
   const { t } = useTranslation();
   const rafraichir = useRafraichir();
   const [texte, setTexte] = React.useState(source.cta_texte ?? "");
-  // Le texte enregistré change (recapture, autre onglet) : on suit, sauf saisie en cours.
+  // Le texte enregistré change (relecture, autre onglet) : on suit, sauf saisie en cours.
   const [base, setBase] = React.useState(source.cta_texte ?? "");
   if ((source.cta_texte ?? "") !== base) {
     if (texte === base) setTexte(source.cta_texte ?? "");
@@ -204,88 +308,99 @@ function BlocCta({ source }: { source: SourceUgcIa }) {
   const enregistrer = useMutation({ mutationFn: () => enregistrerCtaUgcIa(source.id, texte), onSuccess: rafraichir });
   const relire = useMutation({ mutationFn: () => lireCtaUgcIa(source.id), onSuccess: rafraichir });
   const modifie = texte.trim() !== (source.cta_texte ?? "").trim();
+  const jamaisLu = source.cta_texte == null && !source.cta_image_url;
 
   return (
-    <div className="space-y-2">
-      <p className="text-xs font-medium">{t("ugcIa.cta")}</p>
-      {source.cta_image_url ? (
-        <img src={source.cta_image_url} alt={t("ugcIa.premierEcran")} className={VIDEO} />
-      ) : (
-        <div className="flex aspect-[9/16] w-full items-center justify-center rounded-lg border border-dashed p-4 text-center text-xs text-muted-foreground">
-          {t("ugcIa.ctaAbsent")}
-        </div>
-      )}
-      <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} rows={3} aria-label={t("ugcIa.ctaTexte")} placeholder={t("ugcIa.ctaVide")} />
-      <div className="flex gap-2">
-        <Button size="sm" className="flex-1" loading={enregistrer.isPending} disabled={!modifie} onClick={() => enregistrer.mutate()}>
+    <>
+      <Textarea
+        value={texte}
+        onChange={(e) => setTexte(e.target.value)}
+        rows={2}
+        aria-label={t("ugcIa.ctaTexte")}
+        placeholder={jamaisLu ? t("ugcIa.ctaJamaisLu") : t("ugcIa.ctaVide")}
+      />
+      <div className="flex flex-wrap gap-2">
+        <Button size="sm" loading={enregistrer.isPending} disabled={!modifie} onClick={() => enregistrer.mutate()}>
           <Save aria-hidden />
           {t("ugcIa.enregistrer")}
         </Button>
         <Button variant="outline" size="sm" loading={relire.isPending} disabled={!source.brut_url} onClick={() => relire.mutate()}>
           <RefreshCw aria-hidden />
-          {source.cta_image_url ? t("ugcIa.relireCta") : t("ugcIa.capturerCta")}
+          {jamaisLu ? t("ugcIa.lireCta") : t("ugcIa.relireCta")}
         </Button>
       </div>
       <Alerte erreur={enregistrer.error ?? relire.error} />
-    </div>
+    </>
   );
 }
 
-/** Le passage coupé et le lancement de Genjutsu pour les personas cochés. */
-function BlocLancement({ source, personas }: { source: SourceUgcIa; personas: PersonaUgcIa[] }) {
+/** Les personas à cocher, la qualité, et le bouton qui lance Genjutsu pour chacun. */
+function BlocLancement({ source, personas, occupes }: { source: SourceUgcIa; personas: PersonaUgcIa[]; occupes: Set<string> }) {
   const { t } = useTranslation();
   const rafraichir = useRafraichir();
   const [coches, setCoches] = React.useState<Set<string>>(() => new Set());
   const [prompt, setPrompt] = React.useState(PROMPT_DEFAUT);
   const [resolution, setResolution] = React.useState<ResolutionUgcIa>("720p");
-  const occupes = personasOccupes(source.generations);
+  const libres = personas.filter((p) => !occupes.has(p.id));
   const choisis = [...coches].filter((id) => !occupes.has(id));
   const lancer = useMutation({
     mutationFn: () => genererUgcIa(source.id, choisis, prompt, resolution),
     onSuccess: () => setCoches(new Set()),
     onSettled: rafraichir,
   });
+  const toutCoche = libres.length > 0 && libres.every((p) => coches.has(p.id));
 
-  if (!source.coupe_url) {
-    return (
-      <div className="flex aspect-[9/16] w-full items-center justify-center rounded-lg border border-dashed p-4 text-center text-xs text-muted-foreground">
-        {t("ugcIa.coupeDabord")}
-      </div>
-    );
-  }
   return (
-    <div className="space-y-2">
-      <p className="text-xs font-medium">{t("ugcIa.passage", { debut: source.debut_s, fin: source.fin_s })}</p>
-      <video src={source.coupe_url} controls muted playsInline className="aspect-[9/16] max-h-80 w-full rounded-lg bg-black object-contain" />
-      <fieldset className="space-y-1">
-        <legend className="text-xs font-medium">{t("ugcIa.personasACocher", { max: PERSONAS_MAX_PAR_LANCEMENT })}</legend>
-        <div className="flex flex-wrap gap-1.5">
+    <>
+      <fieldset className="space-y-2">
+        <legend className="sr-only">{t("ugcIa.personasACocher", { max: PERSONAS_MAX_PAR_LANCEMENT })}</legend>
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
           {personas.map((p) => {
             const occupe = occupes.has(p.id);
             return (
               <label
                 key={p.id}
-                className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border px-2 py-1 text-xs has-checked:border-primary has-checked:bg-primary/5 has-disabled:cursor-not-allowed has-disabled:opacity-60"
-                title={occupe ? t("ugcIa.personaOccupe") : p.description}
+                className="flex cursor-pointer items-center gap-2 rounded-lg border p-2 text-sm has-checked:border-primary has-checked:bg-primary/5 has-disabled:cursor-not-allowed has-disabled:opacity-60"
+                title={p.description}
               >
                 <input type="checkbox" checked={coches.has(p.id) && !occupe} disabled={occupe} onChange={() => setCoches((c) => basculer(c, p.id))} />
-                <img src={p.image_url} alt="" className="size-5 rounded-full object-cover" />
-                {p.nom}
+                <img src={p.image_url} alt="" className="size-10 shrink-0 rounded-md object-cover" />
+                <span className="min-w-0">
+                  <span className="block font-medium">{p.nom}</span>
+                  {occupe && <span className="block text-xs text-muted-foreground">{t("ugcIa.dejaEnCours")}</span>}
+                </span>
               </label>
             );
           })}
         </div>
+        {libres.length > 1 && (
+          <Button
+            variant="link"
+            size="xs"
+            onClick={() => setCoches(toutCoche ? new Set() : new Set(libres.slice(0, PERSONAS_MAX_PAR_LANCEMENT).map((p) => p.id)))}
+          >
+            {toutCoche ? t("ugcIa.toutDecocher") : t("ugcIa.toutCocher")}
+          </Button>
+        )}
       </fieldset>
-      <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} rows={3} aria-label={t("ugcIa.prompt")} />
-      <Segments libelle={t("ugcIa.resolution")} options={RESOLUTIONS} actif={resolution} onChange={setResolution} />
-      <p className="text-xs text-muted-foreground">{t("ugcIa.facturation")}</p>
-      <Button size="sm" className="w-full" loading={lancer.isPending} disabled={choisis.length === 0} onClick={() => lancer.mutate()}>
-        <Sparkles aria-hidden />
-        {t("ugcIa.genererPour", { count: choisis.length })}
-      </Button>
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs text-muted-foreground">{t("ugcIa.qualite")}</span>
+        <Segments libelle={t("ugcIa.resolution")} options={RESOLUTIONS} actif={resolution} onChange={setResolution} />
+      </div>
+      <details className="text-xs">
+        <summary className="cursor-pointer text-muted-foreground">{t("ugcIa.reglagesAvances")}</summary>
+        <Textarea className="mt-2" value={prompt} onChange={(e) => setPrompt(e.target.value)} rows={3} aria-label={t("ugcIa.prompt")} />
+      </details>
+      <div className="flex flex-wrap items-center gap-3">
+        <Button size="sm" loading={lancer.isPending} disabled={choisis.length === 0} onClick={() => lancer.mutate()}>
+          <Sparkles aria-hidden />
+          {choisis.length === 0 ? t("ugcIa.cocheUnPersona") : t("ugcIa.genererPour", { count: choisis.length })}
+        </Button>
+        <span className="text-xs text-muted-foreground">{t("ugcIa.facturation")}</span>
+      </div>
       <Alerte erreur={lancer.error} />
       <ResultatsLancement resultats={lancer.data?.resultats} />
-    </div>
+    </>
   );
 }
 
@@ -324,7 +439,7 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
   return (
     <div className="space-y-2 rounded-lg border p-2" data-testid={`generation-${g.id}`}>
       <div className="flex flex-wrap items-center gap-1.5 text-xs">
-        {persona && <img src={persona.image_url} alt="" className="size-5 rounded-full object-cover" />}
+        {persona && <img src={persona.image_url} alt="" className="size-6 rounded-full object-cover" />}
         <span className="font-medium">{nom}</span>
         <Badge variant={VARIANTE_STATUT[g.statut]}>{t(`ugcIa.statut.${g.statut}`)}</Badge>
         <span className="text-muted-foreground">
@@ -339,7 +454,9 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
           <p>{t("ugcIa.enCoursDetail")}</p>
         </div>
       )}
-      {g.statut === "prete" && g.video_url && <video src={g.video_url} controls playsInline className={VIDEO} />}
+      {g.statut === "prete" && g.video_url && (
+        <video src={g.video_url} controls playsInline preload="metadata" className="aspect-[9/16] w-full rounded-lg bg-black object-contain" />
+      )}
       {g.erreur && (
         <p role="alert" className="text-xs text-destructive">
           {g.erreur}
@@ -372,8 +489,8 @@ function CarteGeneration({ generation: g, persona, occupe }: { generation: Gener
       </div>
       {refaire && (
         <div className="space-y-2 border-t pt-2">
-          <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} rows={3} aria-label={t("ugcIa.prompt")} />
           <Segments libelle={t("ugcIa.resolution")} options={RESOLUTIONS} actif={resolution} onChange={setResolution} />
+          <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} rows={3} aria-label={t("ugcIa.prompt")} />
           <Button size="xs" className="w-full" loading={relancer.isPending} onClick={() => relancer.mutate()}>
             <Sparkles aria-hidden />
             {t("ugcIa.refairePour", { nom })}

@@ -5,7 +5,7 @@
 import { invoke } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
 
-import type { ResolutionUgcIa, StatutGenerationUgcIa } from "./logique";
+import type { PartieSource, ResolutionUgcIa, StatutGenerationUgcIa } from "./logique";
 
 export interface PersonaUgcIa {
   id: string;
@@ -42,6 +42,10 @@ export interface SourceUgcIa {
   debut_s: number | null;
   fin_s: number | null;
   coupe_url: string | null;
+  /** La partie téléphone (la démo de l'appli), gardée telle quelle. */
+  telephone_debut_s: number | null;
+  telephone_fin_s: number | null;
+  telephone_url: string | null;
   cta_texte: string | null;
   cta_image_url: string | null;
   created_at: string;
@@ -75,7 +79,8 @@ export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {
   const { data, error } = await supabase
     .from("ugc_ia_sources")
     .select(
-      "id, source_url, source_texte, source_vues, source_duree_s, brut_url, debut_s, fin_s, coupe_url, cta_texte, cta_image_url, created_at, " +
+      "id, source_url, source_texte, source_vues, source_duree_s, brut_url, debut_s, fin_s, coupe_url, " +
+        "telephone_debut_s, telephone_fin_s, telephone_url, cta_texte, cta_image_url, created_at, " +
         "generations:ugc_ia_generations(id, source_id, persona_id, debut_s, fin_s, prompt, resolution, statut, erreur, video_url, lancee_le, generee_le, created_at)",
     )
     .order("created_at", { ascending: false })
@@ -88,6 +93,8 @@ export async function listerSourcesUgcIa(): Promise<SourceUgcIa[]> {
     source_duree_s: nombreOuNull(s.source_duree_s),
     debut_s: nombreOuNull(s.debut_s),
     fin_s: nombreOuNull(s.fin_s),
+    telephone_debut_s: nombreOuNull(s.telephone_debut_s),
+    telephone_fin_s: nombreOuNull(s.telephone_fin_s),
     generations: [...(s.generations ?? [])]
       .map((g) => ({ ...g, debut_s: nombreOuNull(g.debut_s), fin_s: nombreOuNull(g.fin_s) }))
       .sort((a, b) => b.created_at.localeCompare(a.created_at)),
@@ -106,8 +113,8 @@ export function enregistrerCtaUgcIa(id: string, texte: string): Promise<{ source
   return invoke("ugc-ia", { action: "enregistrer_cta", id, texte });
 }
 
-export function couperPassageUgcIa(id: string, debut: number, fin: number): Promise<{ source: SourceUgcIa }> {
-  return invoke("ugc-ia", { action: "couper", id, debut, fin });
+export function couperPassageUgcIa(id: string, partie: PartieSource, debut: number, fin: number): Promise<{ source: SourceUgcIa }> {
+  return invoke("ugc-ia", { action: "couper", id, partie, debut, fin });
 }
 
 export function genererUgcIa(

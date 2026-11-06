@@ -6,9 +6,11 @@ import {
   erreurPassage,
   lireSecondes,
   passageInitial,
+  passageTelephoneInitial,
   personasOccupes,
   peutCouper,
   PERSONAS_MAX_PAR_LANCEMENT,
+  TELEPHONE_MAX_S,
 } from "./logique";
 
 describe("UGC IA, logique", () => {
@@ -29,6 +31,16 @@ describe("UGC IA, logique", () => {
     expect(erreurPassage(4, 2, 20)).toBe("ordre");
     expect(erreurPassage(0, 31, 40)).toBe("tropLong");
     expect(erreurPassage(5, 12, 10)).toBe("depasse");
+    expect(erreurPassage(4, 64, 90, TELEPHONE_MAX_S)).toBeNull();
+    expect(erreurPassage(4, 64, 90)).toBe("tropLong");
+  });
+
+  it("propose la partie téléphone après la réaction, jusqu'à la fin de la vidéo", () => {
+    const base = { telephone_debut_s: null, telephone_fin_s: null };
+    expect(passageTelephoneInitial({ ...base, fin_s: 4.1, source_duree_s: 14 })).toEqual({ debut: "4.1", fin: "14" });
+    expect(passageTelephoneInitial({ ...base, fin_s: null, source_duree_s: 30 })).toEqual({ debut: "6", fin: "30" });
+    expect(passageTelephoneInitial({ ...base, fin_s: 4, source_duree_s: null })).toEqual({ debut: "4", fin: "14" });
+    expect(passageTelephoneInitial({ fin_s: 4, source_duree_s: 14, telephone_debut_s: 5, telephone_fin_s: 12.5 })).toEqual({ debut: "5", fin: "12.5" });
   });
 
   it("propose le passage déjà coupé, sinon les 6 premières secondes", () => {

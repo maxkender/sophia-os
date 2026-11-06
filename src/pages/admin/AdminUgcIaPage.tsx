@@ -19,7 +19,7 @@ import {
   type PersonaUgcIa,
 } from "@/features/ugcIa/api";
 import { CarteSource } from "@/features/ugcIa/CarteSource";
-import { messageErreur, PASSAGE_MAX_S } from "@/features/ugcIa/logique";
+import { messageErreur } from "@/features/ugcIa/logique";
 
 /** Toutes les 15 s tant qu'une génération tourne (Genjutsu prend quelques minutes). */
 const INTERVALLE_SUIVI_MS = 15_000;
@@ -158,8 +158,9 @@ function CarteImport() {
       <CardContent className="space-y-3">
         <ol className="list-decimal space-y-0.5 pl-4 text-xs text-muted-foreground">
           <li>{t("ugcIa.etape1")}</li>
-          <li>{t("ugcIa.etape2", { max: PASSAGE_MAX_S })}</li>
+          <li>{t("ugcIa.etape2")}</li>
           <li>{t("ugcIa.etape3")}</li>
+          <li>{t("ugcIa.etape4")}</li>
         </ol>
         <form
           className="flex flex-wrap gap-2"

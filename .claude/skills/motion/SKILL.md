@@ -93,7 +93,8 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 5. **Contrôle visuel avant le rendu complet** (obligatoire) : rends 15 à 30 images en JPEG à l'échelle 0,4
    (`npx remotion render <Composition> out/frames --props='{"langue":"L","sousTitres":true}' --frames=…`),
    fais une planche avec ffmpeg (`tile`), **regarde-la**, corrige.
-6. `rendre --projet P --langue L` (avec et sans sous-titres, son à −14 LUFS), puis `livrer --video V --projet P --langue L`.
+6. `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
+   seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
 
 ## 4. Tâche `corriger`

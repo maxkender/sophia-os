@@ -670,6 +670,7 @@ export function PosterPostPage() {
       if (msg.includes("RECHARGE_LIMITE")) window.alert(t("posts.rechargerLimite"));
       else if (msg.includes("RECHARGE_PUBLIE")) window.alert(t("posts.rechargerPublie"));
       else if (msg.includes("RECHARGE_AUCUN")) window.alert(t("posts.rechargerAucun"));
+      else if (msg.includes("RECHARGE_EN_COURS")) window.alert(t("posts.rechargerEnCoursAilleurs"));
       else window.alert(msg);
     }
   }

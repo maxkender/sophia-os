@@ -10,6 +10,16 @@ import { assertRole, json, messageErreur, serviceClient } from "../_shared/supab
 const MAX_RECHARGES_CREATEUR = 2;
 
 /**
+ * Une recharge à la fois par post (0659, 6/11). Deux recharges du même post
+ * lancées à 33 s d'écart (la 2e pendant que la 1re fabriquait encore le
+ * remplaçant) ont chacune créé un remplaçant, avec le même contenu du plan :
+ * le compte s'est retrouvé avec 3 posts dont 2 identiques. Le verrou
+ * (`posts.recharge_en_cours_at`) est pris par un UPDATE conditionnel, donc
+ * atomique ; il tombe de lui-même au bout de ce délai si l'appel meurt.
+ */
+const VERROU_RECHARGE_MS = 3 * 60_000;
+
+/**
  * Révoque un post inutilisable et en refabrique un autre pour le MÊME créateur
  * et la MÊME date.
  *
@@ -53,6 +63,8 @@ Deno.serve(async (request) => {
   if (acces instanceof Response) return acces;
 
   const supabase = serviceClient();
+  // Post verrouillé par CETTE recharge, libéré à la fin quoi qu'il arrive.
+  let postVerrouille: string | null = null;
 
   try {
     const body = await request.json();
@@ -91,6 +103,23 @@ Deno.serve(async (request) => {
       if (rechargesActuelles >= MAX_RECHARGES_CREATEUR) {
         return json({ error: "RECHARGE_LIMITE", recharges_createur: rechargesActuelles }, 409);
       }
+    }
+
+    // Une seule recharge à la fois pour ce post (voir VERROU_RECHARGE_MS).
+    // Colonne absente (0659 pas encore passée) : on continue sans verrou.
+    const expire = new Date(Date.now() - VERROU_RECHARGE_MS).toISOString();
+    const { data: verrou, error: errVerrou } = await supabase
+      .from("posts")
+      .update({ recharge_en_cours_at: new Date().toISOString() })
+      .eq("id", post.id)
+      .or(`recharge_en_cours_at.is.null,recharge_en_cours_at.lt."${expire}"`)
+      .select("id");
+    if (errVerrou) {
+      console.warn(`verrou de recharge illisible, recharge sans verrou : ${messageErreur(errVerrou)}`);
+    } else if (!verrou || verrou.length === 0) {
+      return json({ error: "RECHARGE_EN_COURS" }, 409);
+    } else {
+      postVerrouille = post.id as string;
     }
 
     const compteId = post.compte_id as string;
@@ -307,6 +336,13 @@ Deno.serve(async (request) => {
     });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
+  } finally {
+    // Remplaçant fait : l'ancien post est déjà supprimé, la mise à jour ne
+    // touche rien. Sinon le post reste, et sa recharge redevient possible.
+    if (postVerrouille) {
+      const { error } = await supabase.from("posts").update({ recharge_en_cours_at: null }).eq("id", postVerrouille);
+      if (error) console.warn(`verrou de recharge non libéré (${postVerrouille}) : ${messageErreur(error)}`);
+    }
   }
 });
 
